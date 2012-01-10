@@ -1,14 +1,11 @@
 package com.baidu.tieba;
 
 import android.app.Activity;
-import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
-import android.widget.Toast;
 import com.baidu.tieba.util.TiebaLog;
 import com.baidu.tieba.util.UtilHelper;
 /* loaded from: classes.dex */
@@ -76,12 +73,7 @@ public class BaseActivity extends Activity {
     }
 
     public void showToast(String str) {
-        if (str != null && str.length() > 0) {
-            Toast toast = Toast.makeText(TiebaApplication.app, str, 3000);
-            int y_offset = UtilHelper.dip2px(this, 100.0f);
-            toast.setGravity(17, 0, y_offset);
-            toast.show();
-        }
+        UtilHelper.showToast(this, str);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -103,16 +95,6 @@ public class BaseActivity extends Activity {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void quitDialog() {
-        new AlertDialog.Builder(this).setTitle(R.string.alerm_title).setIcon((Drawable) null).setCancelable(false).setMessage(R.string.alert_quit_confirm).setPositiveButton(R.string.alert_yes_button, new DialogInterface.OnClickListener() { // from class: com.baidu.tieba.BaseActivity.3
-            @Override // android.content.DialogInterface.OnClickListener
-            public void onClick(DialogInterface dialog, int which) {
-                BaseActivity.this.finish();
-            }
-        }).setNegativeButton(R.string.alert_no_button, new DialogInterface.OnClickListener() { // from class: com.baidu.tieba.BaseActivity.2
-            @Override // android.content.DialogInterface.OnClickListener
-            public void onClick(DialogInterface dialog, int which) {
-                dialog.cancel();
-            }
-        }).create().show();
+        UtilHelper.quitDialog(this);
     }
 }

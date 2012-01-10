@@ -71,6 +71,39 @@ public class PostData {
         return this.unite_content;
     }
 
+    public void uniteContentExcepFace(Context context) {
+        if (this.content != null) {
+            int unite_type = -1;
+            int unite_size = this.unite_content.size();
+            if (unite_size > 0) {
+                try {
+                    unite_type = this.unite_content.get(unite_size - 1).getType();
+                } catch (Exception ex) {
+                    TiebaLog.e("PostData", "uniteContent", "error = " + ex.getMessage());
+                    return;
+                }
+            }
+            for (int i = 0; i < this.content.size(); i++) {
+                ContentData data = this.content.get(i);
+                if (ContentData.isNeedUniteExcepFace(unite_type, data.getType())) {
+                    this.unite_content.get(unite_size - 1).appendUniteString(data.getSpannableString(context));
+                } else {
+                    if (data.getType() == 3 || data.getType() == 2) {
+                        this.unite_content.add(data);
+                        unite_type = data.getType();
+                    } else {
+                        ContentData tmp = new ContentData();
+                        tmp.setType(0);
+                        tmp.appendUniteString(data.getSpannableString(context));
+                        this.unite_content.add(tmp);
+                        unite_type = 0;
+                    }
+                    unite_size++;
+                }
+            }
+        }
+    }
+
     public void uniteContent(Context context) {
         if (this.content != null) {
             int unite_type = -1;

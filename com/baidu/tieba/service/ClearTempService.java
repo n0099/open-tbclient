@@ -56,7 +56,7 @@ public class ClearTempService extends Service {
                         if (list != null) {
                             for (int i = 0; i < list.length && !ClearTempService.this.interrupted; i++) {
                                 long temp = current_time - list[i].lastModified();
-                                if (temp > Config.THREAD_IMAGE_SAVE_MAX_TIME) {
+                                if (temp > 86400000) {
                                     list[i].delete();
                                 }
                             }

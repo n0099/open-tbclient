@@ -1,14 +1,15 @@
 package com.baidu.tieba.home;
 
-import android.app.Activity;
+import android.app.ActivityGroup;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.os.AsyncTask;
+import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.ImageButton;
 import android.widget.ListAdapter;
 import android.widget.ListView;
+import com.baidu.tieba.BaseActivity;
 import com.baidu.tieba.R;
 import com.baidu.tieba.data.MarkData;
 import com.baidu.tieba.model.MarklistModel;
@@ -17,11 +18,9 @@ import com.baidu.tieba.util.DatabaseService;
 import com.baidu.tieba.util.TiebaLog;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
-public class MarkView {
+public class MarkActivity extends BaseActivity {
     private static final int MENU_ID_DEL = 1;
     private static final int MENU_ID_ENTER = 0;
-    private HomeActivity mActivity;
-    private ImageButton mButtonLike = null;
     private ListView mListMark = null;
     private MarkAdapter mAdapterMark = null;
     private HomeMarkAsyncTask mMarkTask = null;
@@ -29,18 +28,18 @@ public class MarkView {
     private MarkData mMarkData = null;
     private int mClickItem = -1;
     AlertDialog mMenuMark = null;
-    private DialogInterface.OnClickListener mDialogMenuListener = new DialogInterface.OnClickListener() { // from class: com.baidu.tieba.home.MarkView.1
+    private DialogInterface.OnClickListener mDialogMenuListener = new DialogInterface.OnClickListener() { // from class: com.baidu.tieba.home.MarkActivity.1
         @Override // android.content.DialogInterface.OnClickListener
         public void onClick(DialogInterface dialog, int item) {
             switch (item) {
                 case 0:
-                    if (MarkView.this.mMarkData != null) {
-                        PbActivity.startAcitivity(MarkView.this.mActivity, MarkView.this.mMarkData);
+                    if (MarkActivity.this.mMarkData != null) {
+                        PbActivity.startAcitivity(MarkActivity.this, MarkActivity.this.mMarkData);
                         return;
                     }
                     return;
                 case 1:
-                    MarkView.this.execDel();
+                    MarkActivity.this.execDel();
                     return;
                 default:
                     return;
@@ -48,9 +47,17 @@ public class MarkView {
         }
     };
 
-    public MarkView(Activity m) {
-        this.mActivity = null;
-        this.mActivity = (HomeActivity) m;
+    @Override // com.baidu.tieba.BaseActivity, android.app.Activity
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.mark_activity);
+        init();
+    }
+
+    @Override // android.app.Activity
+    public void onResume() {
+        super.onResume();
+        exec(false);
     }
 
     public void cancelAsyncTask() {
@@ -66,48 +73,44 @@ public class MarkView {
         }
     }
 
-    public void init() {
-        this.mButtonLike = (ImageButton) this.mActivity.findViewById(R.id.home_bt_like);
-        this.mButtonLike.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.home.MarkView.2
-            @Override // android.view.View.OnClickListener
-            public void onClick(View v) {
-                MarkView.this.mActivity.goToLike(false);
-            }
-        });
-        this.mListMark = (ListView) this.mActivity.findViewById(R.id.home_lv_mark);
-        this.mAdapterMark = new MarkAdapter(this.mActivity, null);
+    @Override // android.app.Activity, android.view.Window.Callback
+    public boolean onSearchRequested() {
+        return getParent() instanceof ActivityGroup ? getParent().onSearchRequested() : super.onSearchRequested();
+    }
+
+    private void init() {
+        this.mListMark = (ListView) findViewById(R.id.home_lv_mark);
+        this.mAdapterMark = new MarkAdapter(this, null);
         this.mListMark.setAdapter((ListAdapter) this.mAdapterMark);
-        this.mListMark.setOnItemClickListener(new AdapterView.OnItemClickListener() { // from class: com.baidu.tieba.home.MarkView.3
+        this.mListMark.setOnItemClickListener(new AdapterView.OnItemClickListener() { // from class: com.baidu.tieba.home.MarkActivity.2
             @Override // android.widget.AdapterView.OnItemClickListener
             public void onItemClick(AdapterView<?> arg0, View arg1, int arg2, long arg3) {
                 ListView tmpList = (ListView) arg0;
-                MarkView.this.mMarkData = (MarkData) tmpList.getAdapter().getItem(arg2);
-                if (MarkView.this.mMarkData != null) {
-                    PbActivity.startAcitivity(MarkView.this.mActivity, MarkView.this.mMarkData);
+                MarkActivity.this.mMarkData = (MarkData) tmpList.getAdapter().getItem(arg2);
+                if (MarkActivity.this.mMarkData != null) {
+                    PbActivity.startAcitivity(MarkActivity.this, MarkActivity.this.mMarkData);
                 }
             }
         });
-        this.mListMark.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() { // from class: com.baidu.tieba.home.MarkView.4
+        this.mListMark.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() { // from class: com.baidu.tieba.home.MarkActivity.3
             @Override // android.widget.AdapterView.OnItemLongClickListener
             public boolean onItemLongClick(AdapterView<?> arg0, View arg1, int arg2, long arg3) {
                 ListView tmpList = (ListView) arg0;
-                MarkView.this.mMarkData = (MarkData) tmpList.getAdapter().getItem(arg2);
-                MarkView.this.mClickItem = arg2;
-                MarkView.this.mMenuMark.show();
+                MarkActivity.this.mMarkData = (MarkData) tmpList.getAdapter().getItem(arg2);
+                MarkActivity.this.mClickItem = arg2;
+                MarkActivity.this.mMenuMark.show();
                 return true;
             }
         });
-        CharSequence[] itemsMark = {this.mActivity.getString(R.string.enter), this.mActivity.getString(R.string.delete_mark)};
-        AlertDialog.Builder builderMark = new AlertDialog.Builder(this.mActivity);
-        builderMark.setTitle(this.mActivity.getString(R.string.operation));
+        CharSequence[] itemsMark = {getString(R.string.enter), getString(R.string.delete_mark)};
+        AlertDialog.Builder builderMark = new AlertDialog.Builder(getParent());
+        builderMark.setTitle(getString(R.string.operation));
         builderMark.setItems(itemsMark, this.mDialogMenuListener);
         this.mMenuMark = builderMark.create();
         this.mMenuMark.setCanceledOnTouchOutside(true);
     }
 
     public void exec(boolean isRefresh) {
-        this.mActivity.setVisibility(8, 0);
-        this.mActivity.setHomeType(2);
         if (this.mModelMarks == null || DatabaseService.getMarkState().booleanValue()) {
             cancelAsyncTask();
             this.mMarkTask = new HomeMarkAsyncTask();
@@ -128,10 +131,10 @@ public class MarkView {
                 datas.remove(this.mClickItem);
                 this.mAdapterMark.checkNodata();
                 this.mAdapterMark.notifyDataSetChanged();
-                this.mActivity.showToast(this.mActivity.getString(R.string.success));
+                showToast(getString(R.string.success));
                 return;
             }
-            this.mActivity.showToast(this.mActivity.getString(R.string.fail));
+            showToast(getString(R.string.fail));
         }
     }
 
@@ -172,14 +175,14 @@ public class MarkView {
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // android.os.AsyncTask
         public void onPostExecute(MarklistModel data) {
-            if (data == null) {
-                MarkView.this.mActivity.showToast("");
-            } else {
-                MarkView.this.mModelMarks = data;
-                MarkView.this.refreshMark();
+            if (data != null) {
+                MarkActivity.this.mModelMarks = data;
+                MarkActivity.this.refreshMark();
                 System.gc();
+            } else {
+                MarkActivity.this.showToast("");
             }
-            MarkView.this.mMarkTask = null;
+            MarkActivity.this.mMarkTask = null;
         }
 
         public void cancel() {

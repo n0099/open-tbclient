@@ -38,6 +38,7 @@ import com.baidu.tieba.person.PersonInfoActivity;
 import com.baidu.tieba.util.AsyncImageLoader;
 import com.baidu.tieba.util.DatabaseService;
 import com.baidu.tieba.util.NetWork;
+import com.baidu.tieba.util.NetWorkCore;
 import com.baidu.tieba.util.TiebaLog;
 import com.baidu.tieba.util.UtilHelper;
 import com.baidu.tieba.write.WriteActivity;
@@ -113,19 +114,24 @@ public class PbActivity extends BaseActivity {
                             ArrayList<ContentData> content = data.getUnite_content();
                             int index = -1;
                             int contentSize = content.size();
-                            for (int j = 0; j < contentSize; j++) {
-                                if (content.get(j).getType() == 3) {
-                                    index++;
-                                    PbActivity.this.mAdapter.getImageLoader().loadImage(content.get(j).getLink(), new AsyncImageLoader.ImageCallback() { // from class: com.baidu.tieba.pb.PbActivity.1.1
-                                        @Override // com.baidu.tieba.util.AsyncImageLoader.ImageCallback
-                                        public void imageLoaded(Bitmap bitmap, String imageUrl, boolean iscached) {
-                                            ImageView view = (ImageView) PbActivity.this.mPbList.findViewWithTag(imageUrl);
-                                            if (view != null && bitmap != null) {
-                                                view.setTag(null);
-                                                view.setImageBitmap(bitmap);
+                            if (PbActivity.this.mAdapter.isShowImage()) {
+                                for (int j = 0; j < contentSize; j++) {
+                                    if (content.get(j).getType() == 3) {
+                                        index++;
+                                        PbActivity.this.mAdapter.getImageLoader().loadImage(content.get(j).getLink(), new AsyncImageLoader.ImageCallback() { // from class: com.baidu.tieba.pb.PbActivity.1.1
+                                            @Override // com.baidu.tieba.util.AsyncImageLoader.ImageCallback
+                                            public void imageLoaded(Bitmap bitmap, String imageUrl, boolean iscached) {
+                                                if (bitmap != null) {
+                                                    ImageView view = (ImageView) PbActivity.this.mPbList.findViewWithTag(imageUrl);
+                                                    while (view != null) {
+                                                        view.setTag(null);
+                                                        view.setImageBitmap(bitmap);
+                                                        view = (ImageView) PbActivity.this.mPbList.findViewWithTag(imageUrl);
+                                                    }
+                                                }
                                             }
-                                        }
-                                    });
+                                        });
+                                    }
                                 }
                             }
                             String authorPhoto = data.getAuthor().getPortrait();
@@ -331,6 +337,19 @@ public class PbActivity extends BaseActivity {
         }
     }
 
+    @Override // android.app.Activity
+    protected void onResume() {
+        if (this.mAdapter != null && this.mAdapter.getTextConfig() != TiebaApplication.app.getFontSize()) {
+            this.mAdapter.setTextConfig(TiebaApplication.app.getFontSize());
+            this.mAdapter.notifyDataSetChanged();
+        }
+        if (this.mAdapter != null && this.mAdapter.isShowImage() != TiebaApplication.app.isShowImages()) {
+            this.mAdapter.setIsShowImage(TiebaApplication.app.isShowImages());
+            this.mAdapter.notifyDataSetChanged();
+        }
+        super.onResume();
+    }
+
     private void initUI() {
         this.mTitleText = (TextView) findViewById(R.id.titel_text);
         this.mTitle = (LinearLayout) findViewById(R.id.title);
@@ -437,8 +456,10 @@ public class PbActivity extends BaseActivity {
         this.mPbList = (ListView) findViewById(R.id.pb_list);
         this.mPbList.setFastScrollEnabled(true);
         this.mAdapter = new PbAdapter(this, null);
-        this.mAdapter.setHaveFooter(false);
-        this.mAdapter.setHaveHeader(false);
+        this.mAdapter.setTextConfig(TiebaApplication.app.getFontSize());
+        this.mAdapter.setIsShowImage(TiebaApplication.app.isShowImages());
+        this.mAdapter.setHaveFooter(0);
+        this.mAdapter.setHaveHeader(0);
         this.mPbList.setAdapter((ListAdapter) this.mAdapter);
         this.mPbList.setOnItemClickListener(new AdapterView.OnItemClickListener() { // from class: com.baidu.tieba.pb.PbActivity.7
             @Override // android.widget.AdapterView.OnItemClickListener
@@ -562,7 +583,7 @@ public class PbActivity extends BaseActivity {
             ArrayList<BasicNameValuePair> param = new ArrayList<>();
             BasicNameValuePair theme = new BasicNameValuePair(URL_THEME, this.mPbId);
             param.add(theme);
-            BasicNameValuePair num = new BasicNameValuePair(URL_NUM, String.valueOf(30));
+            BasicNameValuePair num = new BasicNameValuePair(URL_NUM, String.valueOf(60));
             param.add(num);
             if (!this.mModel.getSequence()) {
                 BasicNameValuePair order = new BasicNameValuePair(URL_ORDER, String.valueOf(1));
@@ -574,7 +595,7 @@ public class PbActivity extends BaseActivity {
             }
             if (this.mPbId != null && this.mPbId.length() > 0) {
                 if (type == 2) {
-                    BasicNameValuePair direct = new BasicNameValuePair(URL_DIRECTION, "1");
+                    BasicNameValuePair direct = new BasicNameValuePair(URL_DIRECTION, NetWorkCore.NET_TYPE_NET);
                     param.add(direct);
                     ArrayList<PostData> list = this.mModel.getData().getPost_list();
                     if (list != null && list.size() > 0) {
@@ -584,11 +605,11 @@ public class PbActivity extends BaseActivity {
                             BasicNameValuePair pid = new BasicNameValuePair(URL_PID, id);
                             param.add(pid);
                         }
-                        if (size > Config.PB_LIST_ITEM_MAX_NUM - 30) {
-                            for (int i = 1; i <= size - (Config.PB_LIST_ITEM_MAX_NUM - 30) && size - i >= 0; i++) {
+                        if (size > Config.PB_LIST_ITEM_MAX_NUM - 60) {
+                            for (int i = 1; i <= size - (Config.PB_LIST_ITEM_MAX_NUM - 60) && size - i >= 0; i++) {
                                 list.remove(size - i);
                             }
-                            this.mAdapter.setHaveFooter(true);
+                            this.mAdapter.setHaveFooter(2);
                             this.mAdapter.notifyDataSetChanged();
                         }
                     }
@@ -603,11 +624,11 @@ public class PbActivity extends BaseActivity {
                             BasicNameValuePair pid2 = new BasicNameValuePair(URL_PID, id2);
                             param.add(pid2);
                         }
-                        if (size2 > Config.PB_LIST_ITEM_MAX_NUM - 30) {
-                            for (int i2 = Config.PB_LIST_ITEM_MAX_NUM - 30; i2 < size2; i2++) {
+                        if (size2 > Config.PB_LIST_ITEM_MAX_NUM - 60) {
+                            for (int i2 = Config.PB_LIST_ITEM_MAX_NUM - 60; i2 < size2; i2++) {
                                 list2.remove(0);
                             }
-                            this.mAdapter.setHaveHeader(true);
+                            this.mAdapter.setHaveHeader(2);
                             this.mAdapter.notifyDataSetChanged();
                         }
                     } else if (!this.mModel.getSequence()) {
@@ -620,8 +641,8 @@ public class PbActivity extends BaseActivity {
                     param.add(direct3);
                     BasicNameValuePair st_type = new BasicNameValuePair("st_type", "tb_bookmarklist");
                     param.add(st_type);
-                    this.mAdapter.setHaveFooter(false);
-                    this.mAdapter.setHaveHeader(false);
+                    this.mAdapter.setHaveFooter(0);
+                    this.mAdapter.setHaveHeader(0);
                     this.mProgress.setVisibility(0);
                 } else {
                     BasicNameValuePair direct4 = new BasicNameValuePair(URL_DIRECTION, "0");
@@ -634,8 +655,8 @@ public class PbActivity extends BaseActivity {
                         this.mModel.getData().getPost_list().clear();
                         this.mAdapter.notifyDataSetChanged();
                     }
-                    this.mAdapter.setHaveFooter(false);
-                    this.mAdapter.setHaveHeader(false);
+                    this.mAdapter.setHaveFooter(0);
+                    this.mAdapter.setHaveHeader(0);
                     if (this.mSource != null) {
                         BasicNameValuePair st_type2 = new BasicNameValuePair("st_type", this.mSource);
                         param.add(st_type2);
@@ -644,7 +665,7 @@ public class PbActivity extends BaseActivity {
                     System.gc();
                 }
                 if (type == 4) {
-                    mark = new BasicNameValuePair("mark", "1");
+                    mark = new BasicNameValuePair("mark", NetWorkCore.NET_TYPE_NET);
                 } else {
                     mark = new BasicNameValuePair("mark", "0");
                 }
@@ -831,7 +852,7 @@ public class PbActivity extends BaseActivity {
                         pbData2.parserJson(data);
                         int size = pbData2.getPost_list().size();
                         for (int i = 0; i < size; i++) {
-                            pbData2.getPost_list().get(i).uniteContent(PbActivity.this);
+                            pbData2.getPost_list().get(i).uniteContentExcepFace(PbActivity.this);
                             pbData2.getPost_list().get(i).setContent(null);
                         }
                         pbData = pbData2;
@@ -867,19 +888,27 @@ public class PbActivity extends BaseActivity {
                     if (this.mType == 3) {
                         PbActivity.this.mModel.setData(data);
                         if (PbActivity.this.mModel.getSequence()) {
-                            PbActivity.this.mAdapter.setHaveFooter(true);
-                            if (data.getPage().getHave_pre() == 1) {
-                                PbActivity.this.mAdapter.setHaveHeader(true);
+                            if (data.getPage().getHave_more() == 1) {
+                                PbActivity.this.mAdapter.setHaveFooter(2);
                             } else {
-                                PbActivity.this.mAdapter.setHaveHeader(false);
+                                PbActivity.this.mAdapter.setHaveFooter(1);
+                            }
+                            if (data.getPage().getHave_pre() == 1) {
+                                PbActivity.this.mAdapter.setHaveHeader(2);
+                            } else {
+                                PbActivity.this.mAdapter.setHaveHeader(0);
                             }
                         } else {
                             if (data.getPage().getHave_more() == 1) {
-                                PbActivity.this.mAdapter.setHaveFooter(true);
+                                PbActivity.this.mAdapter.setHaveFooter(2);
                             } else {
-                                PbActivity.this.mAdapter.setHaveFooter(false);
+                                PbActivity.this.mAdapter.setHaveFooter(0);
                             }
-                            PbActivity.this.mAdapter.setHaveHeader(true);
+                            if (data.getPage().getHave_pre() == 1) {
+                                PbActivity.this.mAdapter.setHaveHeader(2);
+                            } else {
+                                PbActivity.this.mAdapter.setHaveHeader(1);
+                            }
                         }
                         if (PbActivity.this.mDialogMore != null && PbActivity.this.mDialogMore.isShowing() && PbActivity.this.mDialogAdapter != null) {
                             PbActivity.this.mDialogAdapter.notifyDataSetInvalidated();
@@ -893,12 +922,16 @@ public class PbActivity extends BaseActivity {
                             d_data.setForum(data.getForum());
                             d_data.setThread(data.getThread());
                             d_data.setAnti(data.getAnti());
-                            if (!PbActivity.this.mModel.getSequence()) {
-                                PbActivity.this.mAdapter.setHaveHeader(true);
+                            if (PbActivity.this.mModel.getSequence()) {
+                                if (d_data.getPage().getHave_pre() == 1) {
+                                    PbActivity.this.mAdapter.setHaveHeader(2);
+                                } else {
+                                    PbActivity.this.mAdapter.setHaveHeader(0);
+                                }
                             } else if (d_data.getPage().getHave_pre() == 1) {
-                                PbActivity.this.mAdapter.setHaveHeader(true);
+                                PbActivity.this.mAdapter.setHaveHeader(2);
                             } else {
-                                PbActivity.this.mAdapter.setHaveHeader(false);
+                                PbActivity.this.mAdapter.setHaveHeader(1);
                             }
                             PbActivity.this.mPbList.setSelection(0);
                         }
@@ -912,21 +945,29 @@ public class PbActivity extends BaseActivity {
                         d_data.setThread(data.getThread());
                         d_data.setAnti(data.getAnti());
                         if (PbActivity.this.mModel.getSequence()) {
-                            PbActivity.this.mAdapter.setHaveFooter(true);
+                            if (d_data.getPage().getHave_more() == 1) {
+                                PbActivity.this.mAdapter.setHaveFooter(2);
+                            } else {
+                                PbActivity.this.mAdapter.setHaveFooter(1);
+                            }
                         } else if (d_data.getPage().getHave_more() == 1) {
-                            PbActivity.this.mAdapter.setHaveFooter(true);
+                            PbActivity.this.mAdapter.setHaveFooter(2);
                         } else {
-                            PbActivity.this.mAdapter.setHaveFooter(false);
+                            PbActivity.this.mAdapter.setHaveFooter(0);
                         }
                         PbActivity.this.mPbList.setSelection(num - 1);
                     } else if (this.mType == 4) {
                         PbActivity.this.mModel.setData(data);
-                        PbActivity.this.mAdapter.setHaveFooter(true);
+                        if (data.getPage().getHave_more() == 1) {
+                            PbActivity.this.mAdapter.setHaveFooter(2);
+                        } else {
+                            PbActivity.this.mAdapter.setHaveFooter(1);
+                        }
                         if (data.getPage().getHave_pre() == 1) {
-                            PbActivity.this.mAdapter.setHaveHeader(true);
+                            PbActivity.this.mAdapter.setHaveHeader(2);
                             PbActivity.this.mPbList.setSelection(1);
                         } else {
-                            PbActivity.this.mAdapter.setHaveHeader(false);
+                            PbActivity.this.mAdapter.setHaveHeader(0);
                         }
                         if (PbActivity.this.mDialogMore != null && PbActivity.this.mDialogMore.isShowing() && PbActivity.this.mDialogAdapter != null) {
                             PbActivity.this.mDialogAdapter.notifyDataSetInvalidated();

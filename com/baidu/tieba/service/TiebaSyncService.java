@@ -6,14 +6,15 @@ import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Handler;
 import android.os.IBinder;
-import android.telephony.TelephonyManager;
 import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.UpdateDialog;
 import com.baidu.tieba.data.Config;
 import com.baidu.tieba.model.SyncModel;
 import com.baidu.tieba.util.NetWork;
+import com.baidu.tieba.util.NetWorkCore;
 import com.baidu.tieba.util.TiebaLog;
 import com.baidu.tieba.util.UtilHelper;
+import java.util.Date;
 /* loaded from: classes.dex */
 public class TiebaSyncService extends Service {
     private SyncAsyncTask mSyncTask = null;
@@ -95,12 +96,7 @@ public class TiebaSyncService extends Service {
                 if (TiebaApplication.app.getMsgFrequency() > 0) {
                     this.mNetWork.addPostData("_msg_status", "0");
                 } else {
-                    this.mNetWork.addPostData("_msg_status", "1");
-                }
-                TelephonyManager mTelephonyMgr = (TelephonyManager) TiebaSyncService.this.getSystemService("phone");
-                String imei = mTelephonyMgr.getDeviceId();
-                if (imei != null) {
-                    this.mNetWork.addPostData("_phone_imei", imei);
+                    this.mNetWork.addPostData("_msg_status", NetWorkCore.NET_TYPE_NET);
                 }
                 String ret = this.mNetWork.postNetData();
                 if (!this.mNetWork.isRequestSuccess()) {
@@ -143,7 +139,16 @@ public class TiebaSyncService extends Service {
             if (result != null) {
                 TiebaSyncService.this.mModel = result;
                 if (TiebaSyncService.this.mModel.getVersion().getHas_new_ver() == 1 && Config.COULD_UPDATE) {
-                    UpdateDialog.startActivity(TiebaApplication.app, TiebaSyncService.this.mModel.getVersion());
+                    if (TiebaSyncService.this.mModel.getVersion().getForce_update() == 1) {
+                        UpdateDialog.startActivity(TiebaApplication.app, TiebaSyncService.this.mModel.getVersion());
+                    } else {
+                        Long old_time = Long.valueOf(TiebaApplication.app.getUpdateNotifyTime());
+                        Long new_time = Long.valueOf(new Date().getTime());
+                        if (new_time.longValue() - old_time.longValue() > 86400000) {
+                            TiebaApplication.app.setUpdateNotifyTime(new_time.longValue());
+                            UpdateDialog.startActivity(TiebaApplication.app, TiebaSyncService.this.mModel.getVersion());
+                        }
+                    }
                 }
                 TiebaSyncService.this.stopSelf();
                 return;

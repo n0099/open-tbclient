@@ -144,7 +144,7 @@ public class FileHelper {
         }
     }
 
-    public static String SaveFile(String path, String filename, Bitmap bm) {
+    public static String SaveFile(String path, String filename, Bitmap bm, int quality) {
         String all_path;
         if (path != null) {
             all_path = EXTERNAL_STORAGE_DIRECTORY + "/" + Config.TMPDIRNAME + "/" + path + "/";
@@ -161,7 +161,7 @@ public class FileHelper {
             }
             file.createNewFile();
             FileOutputStream fOut = new FileOutputStream(file);
-            bm.compress(Bitmap.CompressFormat.JPEG, 100, fOut);
+            bm.compress(Bitmap.CompressFormat.JPEG, quality, fOut);
             fOut.flush();
             fOut.close();
             return file.getPath();
@@ -203,7 +203,10 @@ public class FileHelper {
     }
 
     public static InputStream GetStreamFromFile(String filename) {
-        File file = GetFile(filename);
+        return GetStreamFromFile(GetFile(filename));
+    }
+
+    public static InputStream GetStreamFromFile(File file) {
         if (file != null) {
             try {
                 return new FileInputStream(file);

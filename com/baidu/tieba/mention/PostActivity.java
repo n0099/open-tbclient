@@ -16,6 +16,7 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import com.baidu.tieba.BaseActivity;
 import com.baidu.tieba.R;
+import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.data.Config;
 import com.baidu.tieba.data.ContentData;
 import com.baidu.tieba.data.PbData;
@@ -24,6 +25,7 @@ import com.baidu.tieba.model.PbModel;
 import com.baidu.tieba.pb.ImageActivity;
 import com.baidu.tieba.person.PersonInfoActivity;
 import com.baidu.tieba.util.AsyncImageLoader;
+import com.baidu.tieba.util.BitmapHelper;
 import com.baidu.tieba.util.NetWork;
 import com.baidu.tieba.util.StringHelper;
 import com.baidu.tieba.util.TiebaLog;
@@ -38,10 +40,12 @@ public class PostActivity extends BaseActivity {
     private static final String PARAM_TID = "tid";
     private TextView mFloorText;
     private AsyncImageLoader mImageLoader;
+    private boolean mIsShowImages;
     private ImageView mPhoto;
     private TextView mRank;
     private LinearLayout mSeg;
     private TextView mText;
+    private int mTextConfig;
     private TextView mTime;
     private TextView mUserName;
     private LinearLayout mPost = null;
@@ -80,6 +84,21 @@ public class PostActivity extends BaseActivity {
         this.mImageLoader = new AsyncImageLoader(this);
         this.mModel = new PbModel();
         startAsyncTask();
+    }
+
+    @Override // android.app.Activity
+    protected void onResume() {
+        if (this.mTextConfig != TiebaApplication.app.getFontSize()) {
+            this.mTextConfig = TiebaApplication.app.getFontSize();
+            this.mUserName.setTextSize(Config.getNameSize());
+            this.mText.setTextSize(Config.getContentSize());
+            refreshActivity();
+        }
+        if (this.mIsShowImages != TiebaApplication.app.isShowImages()) {
+            this.mIsShowImages = TiebaApplication.app.isShowImages();
+            refreshActivity();
+        }
+        super.onResume();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -154,7 +173,12 @@ public class PostActivity extends BaseActivity {
         this.mText = (TextView) findViewById(R.id.text);
         this.mText.setMovementMethod(LinkMovementMethod.getInstance());
         this.mText.setFocusable(false);
+        this.mText.setLineSpacing(0.0f, 1.2f);
         this.mSeg = (LinearLayout) findViewById(R.id.seg);
+        this.mUserName.setTextSize(Config.getNameSize());
+        this.mText.setTextSize(Config.getContentSize());
+        this.mTextConfig = TiebaApplication.app.getFontSize();
+        this.mIsShowImages = TiebaApplication.app.isShowImages();
     }
 
     private void cancelAsyncTask() {
@@ -238,27 +262,30 @@ public class PostActivity extends BaseActivity {
                         this.mSeg.setVisibility(0);
                         ContentData seg2 = content.get(i);
                         if (seg2.getType() == 3) {
-                            index++;
-                            ImageView imageView = new ImageView(this);
-                            int height = UtilHelper.dip2px(this, 80.0f);
-                            int width = UtilHelper.dip2px(this, 140.0f);
-                            LinearLayout.LayoutParams imageViewparams = new LinearLayout.LayoutParams(width, height);
-                            int px_v = UtilHelper.dip2px(this, 15.0f);
-                            imageViewparams.topMargin = px_v;
-                            Bitmap image = this.mImageLoader.getPic(seg2.getLink());
-                            imageView.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
-                            if (image != null) {
-                                imageView.setTag(null);
-                                imageView.setImageBitmap(image);
-                            } else {
-                                imageView.setTag(seg2.getLink());
-                                imageView.setImageResource(R.drawable.image_default);
+                            if (this.mIsShowImages) {
+                                index++;
+                                ImageView imageView = new ImageView(this);
+                                int height = UtilHelper.dip2px(this, 120.0f);
+                                int width = UtilHelper.dip2px(this, 150.0f);
+                                LinearLayout.LayoutParams imageViewparams = new LinearLayout.LayoutParams(-2, height);
+                                int px_v = UtilHelper.dip2px(this, 15.0f);
+                                imageViewparams.topMargin = px_v;
+                                Bitmap image = this.mImageLoader.getPic(seg2.getLink());
+                                imageView.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
+                                imageView.setMaxWidth(width);
+                                if (image != null) {
+                                    imageView.setTag(null);
+                                    imageView.setImageBitmap(image);
+                                } else {
+                                    imageView.setTag(seg2.getLink());
+                                    imageView.setImageBitmap(BitmapHelper.getCashBitmap(R.drawable.image_default));
+                                }
+                                imageView.setClickable(true);
+                                imageView.setFocusable(false);
+                                ImageOnClickListener listern = new ImageOnClickListener(content, index);
+                                imageView.setOnClickListener(listern);
+                                this.mSeg.addView(imageView, imageViewparams);
                             }
-                            imageView.setClickable(true);
-                            imageView.setFocusable(false);
-                            ImageOnClickListener listern = new ImageOnClickListener(content, index);
-                            imageView.setOnClickListener(listern);
-                            this.mSeg.addView(imageView, imageViewparams);
                         } else {
                             CustomTextView textView = new CustomTextView(this);
                             LinearLayout.LayoutParams textViewparams = new LinearLayout.LayoutParams(-1, -2);
@@ -266,9 +293,10 @@ public class PostActivity extends BaseActivity {
                             textViewparams.rightMargin = 0;
                             textViewparams.leftMargin = 0;
                             textViewparams.topMargin = px_v2;
-                            textView.setTextSize(16.0f);
+                            textView.setTextSize(Config.getContentSize());
                             textView.setTextColor(-11974584);
                             textView.setText(seg2.getUniteString());
+                            textView.setLineSpacing(0.0f, 1.2f);
                             textView.setMovementMethod(LinkMovementMethod.getInstance());
                             textView.setFocusable(false);
                             this.mSeg.addView(textView, textViewparams);
@@ -310,22 +338,24 @@ public class PostActivity extends BaseActivity {
                 }
                 int index = -1;
                 int contentSize = content.size();
-                for (int j = 0; j < contentSize; j++) {
-                    if (content.get(j).getType() == 3) {
-                        index++;
-                        this.mImageLoader.loadImage(content.get(j).getLink(), new AsyncImageLoader.ImageCallback() { // from class: com.baidu.tieba.mention.PostActivity.5
-                            @Override // com.baidu.tieba.util.AsyncImageLoader.ImageCallback
-                            public void imageLoaded(Bitmap bitmap, String imageUrl, boolean iscached) {
-                                ImageView view = (ImageView) PostActivity.this.mPost.findViewWithTag(imageUrl);
-                                while (view != null) {
-                                    view.setTag(null);
-                                    if (view != null && bitmap != null) {
-                                        view.setImageBitmap(bitmap);
+                if (this.mIsShowImages) {
+                    for (int j = 0; j < contentSize; j++) {
+                        if (content.get(j).getType() == 3) {
+                            index++;
+                            this.mImageLoader.loadImage(content.get(j).getLink(), new AsyncImageLoader.ImageCallback() { // from class: com.baidu.tieba.mention.PostActivity.5
+                                @Override // com.baidu.tieba.util.AsyncImageLoader.ImageCallback
+                                public void imageLoaded(Bitmap bitmap, String imageUrl, boolean iscached) {
+                                    ImageView view = (ImageView) PostActivity.this.mPost.findViewWithTag(imageUrl);
+                                    while (view != null) {
+                                        view.setTag(null);
+                                        if (view != null && bitmap != null) {
+                                            view.setImageBitmap(bitmap);
+                                        }
+                                        view = (ImageView) PostActivity.this.mPost.findViewWithTag(imageUrl);
                                     }
-                                    view = (ImageView) PostActivity.this.mPost.findViewWithTag(imageUrl);
                                 }
-                            }
-                        });
+                            });
+                        }
                     }
                 }
             }

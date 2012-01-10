@@ -16,8 +16,8 @@ public class UExceptionHandler implements Thread.UncaughtExceptionHandler {
         this.mHandler = Thread.getDefaultUncaughtExceptionHandler();
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:38:0x00ad  */
-    /* JADX WARN: Removed duplicated region for block: B:50:0x00d9  */
+    /* JADX WARN: Removed duplicated region for block: B:38:0x00b7  */
+    /* JADX WARN: Removed duplicated region for block: B:50:0x00e3  */
     /* JADX WARN: Removed duplicated region for block: B:88:? A[RETURN, SYNTHETIC] */
     @Override // java.lang.Thread.UncaughtExceptionHandler
     /*
@@ -55,6 +55,8 @@ public class UExceptionHandler implements Thread.UncaughtExceptionHandler {
                                 try {
                                     String time = StringHelper.getCurrentString();
                                     writer.append((CharSequence) time);
+                                    writer.append((CharSequence) "\n");
+                                    writer.append((CharSequence) Config.VERSION);
                                     writer.append((CharSequence) "\n");
                                     writer.append((CharSequence) Build.MODEL);
                                     writer.append((CharSequence) "\nandroid:");

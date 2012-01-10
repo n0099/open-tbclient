@@ -15,9 +15,12 @@ import android.view.animation.AnimationUtils;
 import android.view.animation.Interpolator;
 import android.view.animation.Transformation;
 import com.baidu.tieba.util.TiebaLog;
+import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class DragImageView extends View {
     private static final int DISAPPEAR_TIME = 2000;
+    private static final int MAX_IMAGE_SIZE = 1000;
+    private static final float ZOOM_IN_MULTIPLE = 1.25f;
     private DecelerateAnimation mAnimation;
     private Bitmap mBitmap;
     private View.OnClickListener mClick;
@@ -29,7 +32,7 @@ public class DragImageView extends View {
     private Bitmap mResizeBitmap;
     private float mResizedHeight;
     private float mResizedWidth;
-    private float mScale;
+    private ArrayList<Float> mScale;
     private int mViewHeight;
     private int mViewWidth;
     Handler mhandler;
@@ -163,8 +166,9 @@ public class DragImageView extends View {
                 if (this.mBitmap.getHeight() > 0) {
                     sy = this.mViewHeight / this.mBitmap.getHeight();
                 }
-                this.mScale = sx < sy ? sx : sy;
-                this.mInitScale = this.mScale;
+                this.mInitScale = sx < sy ? sx : sy;
+                this.mScale.clear();
+                this.mScale.add(Float.valueOf(this.mInitScale));
                 resizeBitmap();
             }
             if (this.mListener != null) {
@@ -205,7 +209,7 @@ public class DragImageView extends View {
     private void initData() {
         this.mResizedWidth = 0.0f;
         this.mResizedHeight = 0.0f;
-        this.mScale = 1.0f;
+        this.mScale = new ArrayList<>();
         this.mInitScale = 1.0f;
         this.mAnimation = new DecelerateAnimation();
         setHorizontalFadingEdgeEnabled(false);
@@ -302,8 +306,9 @@ public class DragImageView extends View {
                 if (this.mBitmap.getHeight() > 0) {
                     sy = this.mViewHeight / this.mBitmap.getHeight();
                 }
-                this.mScale = sx > sy ? sy : sx;
-                this.mInitScale = this.mScale;
+                this.mInitScale = sx > sy ? sy : sx;
+                this.mScale.clear();
+                this.mScale.add(Float.valueOf(this.mInitScale));
                 resizeBitmap();
             }
         } else {
@@ -312,7 +317,7 @@ public class DragImageView extends View {
             this.mResizedWidth = 0.0f;
             this.mResizedHeight = 0.0f;
             this.mInitScale = 1.0f;
-            this.mScale = 1.0f;
+            this.mScale.clear();
             this.mIsTouched = false;
         }
         if (this.mListener != null) {
@@ -322,43 +327,60 @@ public class DragImageView extends View {
     }
 
     public boolean zoomInBitmap() {
-        this.mScale *= 1.25f;
+        int size = this.mScale.size();
+        if (size > 0) {
+            float scale = this.mScale.get(size - 1).floatValue() * ZOOM_IN_MULTIPLE;
+            this.mScale.add(Float.valueOf(scale));
+        } else {
+            this.mScale.add(Float.valueOf(this.mInitScale));
+        }
         resizeBitmap();
         return canZoomIn();
     }
 
     public boolean zoomOutBitmap() {
-        this.mScale *= 0.8f;
-        if (this.mScale < this.mInitScale) {
-            this.mScale = this.mInitScale;
+        int size = this.mScale.size();
+        if (size > 0) {
+            this.mScale.remove(size - 1);
         }
         resizeBitmap();
         return canZoomOut();
     }
 
     private boolean canZoomIn() {
-        if (this.mBitmap == null || this.mBitmap.isRecycled() || this.mResizeBitmap == null || this.mResizeBitmap.isRecycled()) {
+        int size = this.mScale.size();
+        if (this.mBitmap == null || this.mBitmap.isRecycled() || size <= 0) {
             return false;
         }
-        return this.mResizeBitmap.getWidth() * this.mResizeBitmap.getHeight() <= 640000 && this.mScale <= 10.0f;
+        float scale = this.mScale.get(size - 1).floatValue();
+        int current_size = (int) (this.mBitmap.getWidth() * this.mBitmap.getHeight() * scale * scale);
+        return (((float) current_size) * ZOOM_IN_MULTIPLE) * ZOOM_IN_MULTIPLE <= ((float) 1000000) && scale <= 10.0f;
     }
 
     private boolean canZoomOut() {
-        if (this.mResizeBitmap == null || this.mResizeBitmap.isRecycled()) {
+        int size = this.mScale.size();
+        if (this.mBitmap == null || this.mBitmap.isRecycled()) {
             return false;
         }
-        return this.mResizeBitmap.getWidth() > this.mViewWidth || this.mResizeBitmap.getHeight() > this.mViewHeight;
+        return size > 1;
     }
 
     private void resizeBitmap() {
+        float scale;
         try {
             Matrix matrix = new Matrix();
-            matrix.postScale(this.mScale, this.mScale);
+            int size = this.mScale.size();
+            if (size > 0) {
+                scale = this.mScale.get(size - 1).floatValue();
+            } else {
+                scale = this.mInitScale;
+            }
+            matrix.postScale(scale, scale);
             if (this.mResizeBitmap != null && this.mResizeBitmap != this.mBitmap && !this.mResizeBitmap.isRecycled()) {
                 this.mResizeBitmap.recycle();
             }
             this.mResizeBitmap = null;
-            if (this.mScale != 1.0f) {
+            if (scale != 1.0f) {
                 this.mResizeBitmap = Bitmap.createBitmap(this.mBitmap, 0, 0, this.mBitmap.getWidth(), this.mBitmap.getHeight(), matrix, true);
             } else {
                 this.mResizeBitmap = this.mBitmap;

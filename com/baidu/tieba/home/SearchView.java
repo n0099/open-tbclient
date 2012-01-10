@@ -13,13 +13,15 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
+import android.widget.AbsListView;
 import android.widget.AdapterView;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.FrameLayout;
+import android.widget.ImageButton;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.data.Config;
 import com.baidu.tieba.frs.FrsActivity;
@@ -27,16 +29,20 @@ import com.baidu.tieba.model.SuggestModel;
 import com.baidu.tieba.util.DatabaseService;
 import com.baidu.tieba.util.NetWork;
 import com.baidu.tieba.util.TiebaLog;
+import com.baidu.tieba.util.UtilHelper;
+import com.baidu.tieba.view.SearchEditText;
 import java.util.ArrayList;
 import java.util.Timer;
 import java.util.TimerTask;
 import org.apache.http.message.BasicNameValuePair;
 /* loaded from: classes.dex */
 public class SearchView {
-    private HomeActivity mActivity;
-    private EditText mEditSearch = null;
+    private Activity mActivity;
+    private SearchEditText mEditSearch = null;
     private Button mButtonDel = null;
     private Button mButtonSearch = null;
+    private ImageButton mMarkButton = null;
+    private ImageButton mLikeButton = null;
     private FrameLayout mListLayout = null;
     private ListView mListSearch = null;
     private SearchAdapter mAdapterSearch = null;
@@ -45,6 +51,7 @@ public class SearchView {
     private ProgressBar mProgress = null;
     private Button mBtSearchFooter = null;
     private View mListFooter = null;
+    private TextView mTextNoData = null;
     private SuggestModel mModelSuggest = null;
     private HomeSuggestAsyncTask mSuggestTask = null;
     private Dialog mDialogSearch = null;
@@ -72,7 +79,7 @@ public class SearchView {
 
     public SearchView(Activity m) {
         this.mActivity = null;
-        this.mActivity = (HomeActivity) m;
+        this.mActivity = m;
     }
 
     public void cancelAsyncTask() {
@@ -83,13 +90,8 @@ public class SearchView {
         }
     }
 
-    public void init() {
-    }
-
     public void exec() {
-        this.mActivity.setHomeType(3);
         if (this.mDialogSearch == null) {
-            this.mDialogSearch = new Dialog(this.mActivity, R.style.search_dialog);
             LayoutInflater mInflater = this.mActivity.getLayoutInflater();
             try {
                 this.mDialogView = mInflater.inflate(R.layout.home_dialog_search, (ViewGroup) null);
@@ -97,15 +99,47 @@ public class SearchView {
             } catch (Exception ex) {
                 TiebaLog.e("SearchView", "exec", "error = " + ex.getMessage());
             }
+            this.mDialogSearch = new Dialog(this.mActivity, R.style.search_dialog);
             this.mDialogSearch.setOnDismissListener(new DialogInterface.OnDismissListener() { // from class: com.baidu.tieba.home.SearchView.2
                 @Override // android.content.DialogInterface.OnDismissListener
                 public void onDismiss(DialogInterface dialog) {
-                    SearchView.this.mActivity.setHomeType(1);
                     SearchView.this.cancelAsyncTask();
                 }
             });
-            this.mEditSearch = (EditText) this.mDialogView.findViewById(R.id.home_et_search);
-            this.mEditSearch.addTextChangedListener(new TextWatcher() { // from class: com.baidu.tieba.home.SearchView.3
+            this.mTextNoData = (TextView) this.mDialogView.findViewById(R.id.text_no_data);
+            this.mMarkButton = (ImageButton) this.mDialogView.findViewById(R.id.home_dialog_bt_mark);
+            this.mLikeButton = (ImageButton) this.mDialogView.findViewById(R.id.home_dialog_bt_like);
+            this.mLikeButton.setBackgroundResource(R.drawable.home_topbar_bt);
+            this.mMarkButton.setBackgroundDrawable(null);
+            this.mMarkButton.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.home.SearchView.3
+                @Override // android.view.View.OnClickListener
+                public void onClick(View v) {
+                    if (SearchView.this.mActivity instanceof HomeActivity) {
+                        ((HomeActivity) SearchView.this.mActivity).switchPages(R.id.home_bt_mark);
+                    }
+                    SearchView.this.mDialogSearch.dismiss();
+                }
+            });
+            ImageButton likeButton = (ImageButton) this.mDialogView.findViewById(R.id.home_dialog_bt_like);
+            likeButton.setBackgroundResource(R.drawable.home_topbar_bt);
+            this.mMarkButton.setBackgroundDrawable(null);
+            this.mMarkButton.setImageResource(R.drawable.home_bt_mark);
+            this.mEditSearch = (SearchEditText) this.mDialogView.findViewById(R.id.home_et_search);
+            this.mEditSearch.setOnFocusChangeListener(new View.OnFocusChangeListener() { // from class: com.baidu.tieba.home.SearchView.4
+                @Override // android.view.View.OnFocusChangeListener
+                public void onFocusChange(View view, boolean hasFocus) {
+                    if (!hasFocus) {
+                        UtilHelper.hideSoftKeyPad(SearchView.this.mActivity, view);
+                    }
+                }
+            });
+            this.mEditSearch.setOnBackPressedListener(new SearchEditText.OnBackPressedListener() { // from class: com.baidu.tieba.home.SearchView.5
+                @Override // com.baidu.tieba.view.SearchEditText.OnBackPressedListener
+                public void onBackPressed() {
+                    SearchView.this.closeSearch();
+                }
+            });
+            this.mEditSearch.addTextChangedListener(new TextWatcher() { // from class: com.baidu.tieba.home.SearchView.6
                 @Override // android.text.TextWatcher
                 public void onTextChanged(CharSequence s, int start, int before, int count) {
                     SearchView.this.mSearchKey = s.toString();
@@ -125,20 +159,7 @@ public class SearchView {
                 public void afterTextChanged(Editable s) {
                 }
             });
-            this.mEditSearch.setOnFocusChangeListener(new View.OnFocusChangeListener() { // from class: com.baidu.tieba.home.SearchView.4
-                @Override // android.view.View.OnFocusChangeListener
-                public void onFocusChange(View v, boolean hasFocus) {
-                }
-            });
-            this.mButtonDel = (Button) this.mDialogView.findViewById(R.id.home_bt_search_del);
-            this.mButtonDel.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.home.SearchView.5
-                @Override // android.view.View.OnClickListener
-                public void onClick(View v) {
-                    SearchView.this.mEditSearch.setText("");
-                }
-            });
-            this.mButtonSearch = (Button) this.mDialogView.findViewById(R.id.home_bt_search_s);
-            this.mButtonSearch.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.home.SearchView.6
+            final View.OnClickListener enterForumListener = new View.OnClickListener() { // from class: com.baidu.tieba.home.SearchView.7
                 @Override // android.view.View.OnClickListener
                 public void onClick(View v) {
                     String data = SearchView.this.mEditSearch.getText().toString();
@@ -147,20 +168,58 @@ public class SearchView {
                         SearchView.this.mDialogSearch.dismiss();
                     }
                 }
+            };
+            final View.OnClickListener cancelListener = new View.OnClickListener() { // from class: com.baidu.tieba.home.SearchView.8
+                @Override // android.view.View.OnClickListener
+                public void onClick(View v) {
+                    SearchView.this.closeSearch();
+                }
+            };
+            this.mButtonSearch = (Button) this.mDialogView.findViewById(R.id.home_bt_search_s);
+            this.mButtonSearch.setOnClickListener(cancelListener);
+            this.mButtonDel = (Button) this.mDialogView.findViewById(R.id.home_bt_search_del);
+            this.mEditSearch.addTextChangedListener(new TextWatcher() { // from class: com.baidu.tieba.home.SearchView.9
+                @Override // android.text.TextWatcher
+                public void onTextChanged(CharSequence s, int start, int before, int count) {
+                }
+
+                @Override // android.text.TextWatcher
+                public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+                }
+
+                @Override // android.text.TextWatcher
+                public void afterTextChanged(Editable s) {
+                    int length = s.toString().length();
+                    if (length == 0) {
+                        SearchView.this.mButtonSearch.setText(R.string.text_cancel);
+                        SearchView.this.mButtonSearch.setOnClickListener(cancelListener);
+                        SearchView.this.mButtonDel.setVisibility(8);
+                        return;
+                    }
+                    SearchView.this.mButtonSearch.setText(R.string.enter_forum);
+                    SearchView.this.mButtonSearch.setOnClickListener(enterForumListener);
+                    SearchView.this.mButtonDel.setVisibility(0);
+                }
+            });
+            this.mButtonDel.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.home.SearchView.10
+                @Override // android.view.View.OnClickListener
+                public void onClick(View v) {
+                    SearchView.this.mEditSearch.setText("");
+                }
             });
             this.mListLayout = (FrameLayout) this.mDialogView.findViewById(R.id.home_search_list);
             this.mListSearch = (ListView) this.mDialogView.findViewById(R.id.home_lv_search);
             this.mBtSearchFooter = (Button) this.mListFooter.findViewById(R.id.home_bt_search_footer);
-            this.mBtSearchFooter.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.home.SearchView.7
+            this.mBtSearchFooter.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.home.SearchView.11
                 @Override // android.view.View.OnClickListener
                 public void onClick(View v) {
-                    new AlertDialog.Builder(SearchView.this.mActivity).setTitle("提醒").setIcon(R.drawable.dialogue_quit).setMessage("确认清除搜索记录？").setPositiveButton("确认", new DialogInterface.OnClickListener() { // from class: com.baidu.tieba.home.SearchView.7.2
+                    new AlertDialog.Builder(SearchView.this.mActivity.getParent()).setTitle("提醒").setIcon(R.drawable.dialogue_quit).setMessage("确认清除搜索记录？").setPositiveButton("确认", new DialogInterface.OnClickListener() { // from class: com.baidu.tieba.home.SearchView.11.2
                         @Override // android.content.DialogInterface.OnClickListener
                         public void onClick(DialogInterface dialog, int which) {
                             DatabaseService.delAllSearchData();
                             SearchView.this.showHistory();
                         }
-                    }).setNegativeButton("取消", new DialogInterface.OnClickListener() { // from class: com.baidu.tieba.home.SearchView.7.1
+                    }).setNegativeButton("取消", new DialogInterface.OnClickListener() { // from class: com.baidu.tieba.home.SearchView.11.1
                         @Override // android.content.DialogInterface.OnClickListener
                         public void onClick(DialogInterface dialog, int which) {
                             dialog.cancel();
@@ -171,7 +230,7 @@ public class SearchView {
             this.mListSearch.addFooterView(this.mListFooter, null, true);
             this.mAdapterSearch = new SearchAdapter(this.mActivity, null);
             this.mListSearch.setAdapter((ListAdapter) this.mAdapterSearch);
-            this.mListSearch.setOnItemClickListener(new AdapterView.OnItemClickListener() { // from class: com.baidu.tieba.home.SearchView.8
+            this.mListSearch.setOnItemClickListener(new AdapterView.OnItemClickListener() { // from class: com.baidu.tieba.home.SearchView.12
                 @Override // android.widget.AdapterView.OnItemClickListener
                 public void onItemClick(AdapterView<?> arg0, View arg1, int arg2, long arg3) {
                     ListView tmpList = (ListView) arg0;
@@ -186,7 +245,7 @@ public class SearchView {
             this.mListSuggest = (ListView) this.mDialogView.findViewById(R.id.home_lv_suggest);
             this.mAdapterSuggest = new SearchAdapter(this.mActivity, null);
             this.mListSuggest.setAdapter((ListAdapter) this.mAdapterSuggest);
-            this.mListSuggest.setOnItemClickListener(new AdapterView.OnItemClickListener() { // from class: com.baidu.tieba.home.SearchView.9
+            this.mListSuggest.setOnItemClickListener(new AdapterView.OnItemClickListener() { // from class: com.baidu.tieba.home.SearchView.13
                 @Override // android.widget.AdapterView.OnItemClickListener
                 public void onItemClick(AdapterView<?> arg0, View arg1, int arg2, long arg3) {
                     ListView tmpList = (ListView) arg0;
@@ -195,9 +254,24 @@ public class SearchView {
                     SearchView.this.mDialogSearch.dismiss();
                 }
             });
+            AbsListView.OnScrollListener scrollListener = new AbsListView.OnScrollListener() { // from class: com.baidu.tieba.home.SearchView.14
+                @Override // android.widget.AbsListView.OnScrollListener
+                public void onScrollStateChanged(AbsListView view, int scrollState) {
+                    if (scrollState == 2 || scrollState == 1) {
+                        UtilHelper.hideSoftKeyPad(SearchView.this.mActivity, view);
+                    }
+                }
+
+                @Override // android.widget.AbsListView.OnScrollListener
+                public void onScroll(AbsListView view, int firstVisibleItem, int visibleItemCount, int totalItemCount) {
+                }
+            };
+            this.mListSuggest.setOnScrollListener(scrollListener);
+            this.mListSearch.setOnScrollListener(scrollListener);
             this.mDialogSearch.getWindow().setSoftInputMode(20);
         }
         this.mDialogSearch.show();
+        this.mDialogSearch.getWindow().setWindowAnimations(0);
         this.mDialogSearch.setContentView(this.mDialogView);
         WindowManager.LayoutParams wmParams = this.mDialogSearch.getWindow().getAttributes();
         wmParams.gravity = 51;
@@ -229,7 +303,7 @@ public class SearchView {
 
     private void showSoftInput() {
         Timer timer = new Timer();
-        timer.schedule(new TimerTask() { // from class: com.baidu.tieba.home.SearchView.10
+        timer.schedule(new TimerTask() { // from class: com.baidu.tieba.home.SearchView.15
             @Override // java.util.TimerTask, java.lang.Runnable
             public void run() {
                 InputMethodManager imm = (InputMethodManager) SearchView.this.mActivity.getSystemService("input_method");
@@ -246,11 +320,14 @@ public class SearchView {
             this.mListLayout.setVisibility(0);
             this.mListSearch.setVisibility(0);
             this.mListSuggest.setVisibility(8);
+            this.mTextNoData.setVisibility(8);
             this.mAdapterSearch.setData(hisList);
             this.mAdapterSearch.notifyDataSetInvalidated();
             return;
         }
         this.mListLayout.setVisibility(8);
+        this.mTextNoData.setVisibility(0);
+        this.mTextNoData.setText(R.string.text_no_search_record);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -273,6 +350,8 @@ public class SearchView {
                     this.mAdapterSuggest.notifyDataSetInvalidated();
                 } else {
                     this.mListLayout.setVisibility(8);
+                    this.mTextNoData.setVisibility(0);
+                    this.mTextNoData.setText(R.string.text_no_suggest);
                 }
             }
         } catch (Exception ex) {
@@ -297,6 +376,7 @@ public class SearchView {
         @Override // android.os.AsyncTask
         protected void onPreExecute() {
             SearchView.this.mProgress.setVisibility(0);
+            SearchView.this.mTextNoData.setVisibility(8);
         }
 
         /* JADX DEBUG: Method merged with bridge method */

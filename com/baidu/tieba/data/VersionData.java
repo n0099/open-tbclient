@@ -9,6 +9,8 @@ public class VersionData implements Serializable {
     private static final long serialVersionUID = 5102616316349188013L;
     private String client_id;
     private String new_file;
+    private String new_version_desc;
+    private int new_version_remind;
     private int force_update = 0;
     private int has_new_ver = 0;
     private String new_ver = null;
@@ -17,6 +19,14 @@ public class VersionData implements Serializable {
     public VersionData() {
         setClient_id(null);
         this.new_file = null;
+    }
+
+    public String getNew_version_desc() {
+        return this.new_version_desc;
+    }
+
+    public void setNew_version_desc(String new_version_desc) {
+        this.new_version_desc = new_version_desc;
     }
 
     public int getForce_update() {
@@ -62,7 +72,9 @@ public class VersionData implements Serializable {
                 this.force_update = json.optInt("force_update", 0);
                 this.new_ver = json.optString("new_version", null);
                 this.url = json.optString("new_version_url");
-                if (this.url != null && URLUtil.isHttpUrl(this.url) && this.new_ver != null && !Config.VERSION.equalsIgnoreCase(this.new_ver)) {
+                this.new_version_remind = json.optInt("new_version_remind", 0);
+                this.new_version_desc = json.optString(this.new_version_desc, null);
+                if (this.new_version_remind == 1 && this.url != null && URLUtil.isHttpUrl(this.url) && this.new_ver != null && !Config.VERSION.equalsIgnoreCase(this.new_ver)) {
                     this.has_new_ver = 1;
                     this.new_file = "tieba_" + this.new_ver + ".apk";
                 }

@@ -1,25 +1,30 @@
 package com.baidu.tieba;
 
+import android.app.ActivityManager;
 import android.app.Application;
 import android.app.Notification;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
-import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
-import android.content.IntentFilter;
 import android.content.SharedPreferences;
+import android.content.pm.PackageInfo;
 import android.content.res.Configuration;
+import android.database.ContentObserver;
 import android.graphics.Bitmap;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.os.Process;
+import android.telephony.TelephonyManager;
 import com.baidu.tieba.account.LoginActivity;
 import com.baidu.tieba.data.AccountData;
 import com.baidu.tieba.data.Config;
 import com.baidu.tieba.util.DatabaseService;
 import com.baidu.tieba.util.FaceHelper;
 import com.baidu.tieba.util.FileHelper;
+import com.baidu.tieba.util.NetWorkCore;
 import com.baidu.tieba.util.SDRamImage;
 import com.baidu.tieba.util.StringHelper;
 import com.baidu.tieba.util.TiebaLog;
@@ -33,6 +38,7 @@ import java.io.InputStreamReader;
 import java.lang.ref.SoftReference;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 /* loaded from: classes.dex */
 public class TiebaApplication extends Application {
     private static final String APPUSETIMES = "tdatabaseusetimes";
@@ -40,10 +46,10 @@ public class TiebaApplication extends Application {
     public static final int APP_START_MSG_SERVICE = 2;
     public static final int APP_STOP_MSG_SERVICE = 3;
     private static final String CLIENT_ID = "client_id";
-    private static final String DATABASEVERSION = "database_version";
     private static final String DISPLAY_PHOTO = "display_photo";
     private static final String FROM_ID = "from_id";
     private static final String TDATABASECREATETIME = "tdatabasecreatetime";
+    private static final String UPDATE_NOTIFY_TIME = "update_notify_time";
     public static TiebaApplication app;
     private static AccountData mAccount = null;
     private static String clientId = null;
@@ -53,6 +59,10 @@ public class TiebaApplication extends Application {
     private boolean mIsDisplayPhoto = true;
     private boolean mLikeChanged = false;
     private SDRamImage mSdramImage = null;
+    private String mImei = null;
+    private int mUploadImageQuality = 2;
+    private boolean mIsShowImages = true;
+    private int mFontSize = 3;
     public Handler handler = new Handler(new Handler.Callback() { // from class: com.baidu.tieba.TiebaApplication.1
         @Override // android.os.Handler.Callback
         public boolean handleMessage(Message msg) {
@@ -88,33 +98,94 @@ public class TiebaApplication extends Application {
     private long mMsgAtme = 0;
     private long mMsgFans = 0;
     NotificationManager mNotificationManager = null;
-    private UpdateReceiver receiver = null;
 
     @Override // android.app.Application
     public void onCreate() {
+        app = this;
+        NetWorkCore.initNetWorkCore();
         InitVersion();
         InitFrom();
-        this.mFaces = new HashMap<>();
-        app = this;
-        mAccount = DatabaseService.getActiveAccountData();
-        if (mAccount != null) {
-            DatabaseService.getSettingData();
-        }
+        initSettings();
         clientId = readClientId(this);
-        this.mSdramImage = new SDRamImage();
-        this.mNotificationManager = (NotificationManager) getSystemService("notification");
-        regReceiver();
+        initImei();
         try {
             UExceptionHandler UEHandler = new UExceptionHandler();
             Thread.setDefaultUncaughtExceptionHandler(UEHandler);
         } catch (SecurityException ex) {
             TiebaLog.e(getClass().getName(), "onCreate", ex.getMessage());
         }
+        Uri uri = Uri.parse("content://telephony/carriers");
+        getContentResolver().registerContentObserver(uri, true, new ContentObserver(new Handler()) { // from class: com.baidu.tieba.TiebaApplication.2
+            @Override // android.database.ContentObserver
+            public void onChange(boolean selfChange) {
+                super.onChange(selfChange);
+                NetWorkCore.initPorxyUser();
+            }
+        });
+        if (isMainProcess()) {
+            this.mFaces = new HashMap<>();
+            mAccount = DatabaseService.getActiveAccountData();
+            if (mAccount != null) {
+                DatabaseService.getSettingData();
+            }
+            this.mSdramImage = new SDRamImage();
+            this.mNotificationManager = (NotificationManager) getSystemService("notification");
+        }
         super.onCreate();
     }
 
+    private void initImei() {
+        TelephonyManager mTelephonyMgr = (TelephonyManager) getSystemService("phone");
+        if (mTelephonyMgr != null) {
+            this.mImei = mTelephonyMgr.getDeviceId();
+        }
+    }
+
+    public String getImei() {
+        return this.mImei;
+    }
+
+    private boolean isMainProcess() {
+        boolean ret = true;
+        ActivityManager am = (ActivityManager) getSystemService("activity");
+        if (am == null) {
+            return true;
+        }
+        List<ActivityManager.RunningAppProcessInfo> list = am.getRunningAppProcesses();
+        int pid = Process.myPid();
+        if (list != null) {
+            int i = 0;
+            while (true) {
+                if (i >= list.size()) {
+                    break;
+                } else if (list.get(i).pid != pid) {
+                    i++;
+                } else {
+                    String name = list.get(i).processName;
+                    if (name != null && name.equalsIgnoreCase("com.baidu.tieba:remote")) {
+                        ret = false;
+                    }
+                }
+            }
+        }
+        return ret;
+    }
+
+    private void initSettings() {
+        SharedPreferences preference = getSharedPreferences(Config.SETTINGFILE, 0);
+        this.mUploadImageQuality = preference.getInt(Config.PREFS_IMAGE_QUALITY, 2);
+        this.mIsShowImages = preference.getBoolean(Config.PREFS_SHOW_IMAGES, true);
+        this.mFontSize = preference.getInt(Config.PREFS_FONT_SIZE, 3);
+    }
+
     private void InitVersion() {
-        Config.VERSION = getString(R.string.version);
+        try {
+            PackageInfo pinfo = getPackageManager().getPackageInfo("com.baidu.tieba", 16384);
+            Config.VERSION = pinfo.versionName;
+        } catch (Exception e) {
+            TiebaLog.e(getClass().getName(), "InitVersion", e.getMessage());
+            Config.VERSION = "";
+        }
     }
 
     private void InitFrom() {
@@ -240,16 +311,9 @@ public class TiebaApplication extends Application {
         System.gc();
     }
 
-    public int getDatabaseVersion() {
-        SharedPreferences preference = getSharedPreferences(Config.SETTINGFILE, 0);
-        return preference.getInt(DATABASEVERSION, 0);
-    }
-
-    public void saveDatabaseVersion() {
-        SharedPreferences preference = getSharedPreferences(Config.SETTINGFILE, 0);
-        SharedPreferences.Editor editor = preference.edit();
-        editor.putInt(DATABASEVERSION, 1);
-        editor.commit();
+    public int getTDatabaseVersion() {
+        DatabaseService database = new DatabaseService(DatabaseService.DatabaseLocation.SDCARD);
+        return database.getVersion();
     }
 
     public static String getCurrentAccount() {
@@ -301,6 +365,18 @@ public class TiebaApplication extends Application {
         return time;
     }
 
+    public void setUpdateNotifyTime(long times) {
+        SharedPreferences preference = getSharedPreferences(Config.SETTINGFILE, 0);
+        SharedPreferences.Editor editor = preference.edit();
+        editor.putLong(UPDATE_NOTIFY_TIME, times);
+        editor.commit();
+    }
+
+    public long getUpdateNotifyTime() {
+        SharedPreferences preference = getSharedPreferences(Config.SETTINGFILE, 0);
+        return preference.getLong(UPDATE_NOTIFY_TIME, 0L);
+    }
+
     public void resetTDatabaseCreateTime() {
         SharedPreferences preference = getSharedPreferences(Config.SETTINGFILE, 0);
         SharedPreferences.Editor editor = preference.edit();
@@ -311,14 +387,11 @@ public class TiebaApplication extends Application {
 
     public boolean isInvalidTDatabase() {
         Date date = new Date();
-        return getDatabaseVersion() != 1 || (getAPPUseTimes() > 50 && date.getTime() - getTDatabaseCreateTime() > Config.APP_DATE_UPDATA_SD_DATABASE);
+        return getAPPUseTimes() > 50 && date.getTime() - getTDatabaseCreateTime() > Config.APP_DATE_UPDATA_SD_DATABASE;
     }
 
     @Override // android.app.Application
     public void onTerminate() {
-        DatabaseService.closeDatabase();
-        unregReceiver();
-        cancelNotification();
         super.onTerminate();
     }
 
@@ -465,35 +538,45 @@ public class TiebaApplication extends Application {
         return this.mMsgReplyme + this.mMsgAtme + this.mMsgFans;
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes.dex */
-    public class UpdateReceiver extends BroadcastReceiver {
-        private UpdateReceiver() {
-        }
-
-        @Override // android.content.BroadcastReceiver
-        public void onReceive(Context context, Intent intent) {
-            long r = intent.getLongExtra(Config.BROADCAST_RELAY_ME_NUM, 0L);
-            long a = intent.getLongExtra(Config.BROADCAST_AT_ME_NUM, 0L);
-            long f = intent.getLongExtra(Config.BROADCAST_FANS_NUM, 0L);
-            TiebaApplication.this.refreshMsg(r, a, f);
-        }
+    public void resetMsg() {
+        this.mMsgReplyme = 0L;
+        this.mMsgAtme = 0L;
+        this.mMsgFans = 0L;
     }
 
-    private void regReceiver() {
-        this.receiver = new UpdateReceiver();
-        IntentFilter filter = new IntentFilter();
-        filter.addAction(Config.BROADCAST_SERVICE);
-        registerReceiver(this.receiver, filter);
+    public int getUploadImageQuality() {
+        return this.mUploadImageQuality;
     }
 
-    private void unregReceiver() {
-        if (this.receiver != null) {
-            unregisterReceiver(this.receiver);
+    public void setUploadImageQuality(int quality) {
+        if (this.mUploadImageQuality != quality) {
+            this.mUploadImageQuality = quality;
+            getSharedPreferences(Config.SETTINGFILE, 0).edit().putInt(Config.PREFS_IMAGE_QUALITY, quality).commit();
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
+    public boolean isShowImages() {
+        return this.mIsShowImages;
+    }
+
+    public void setShowImages(boolean isShowImages) {
+        if (this.mIsShowImages != isShowImages) {
+            this.mIsShowImages = isShowImages;
+            getSharedPreferences(Config.SETTINGFILE, 0).edit().putBoolean(Config.PREFS_SHOW_IMAGES, isShowImages).commit();
+        }
+    }
+
+    public int getFontSize() {
+        return this.mFontSize;
+    }
+
+    public void setFontSize(int size) {
+        if (this.mFontSize != size) {
+            this.mFontSize = size;
+            getSharedPreferences(Config.SETTINGFILE, 0).edit().putInt(Config.PREFS_FONT_SIZE, size).commit();
+        }
+    }
+
     public void refreshMsg(long r, long a, long f) {
         if (r != this.mMsgReplyme || a != this.mMsgAtme || f != this.mMsgFans) {
             int notifyFlag = 0;
@@ -511,32 +594,36 @@ public class TiebaApplication extends Application {
     }
 
     private void showNotification(int flag) {
-        try {
-            if (flag == 1) {
-                Notification notification = new Notification(R.drawable.icon, "您有新消息了", System.currentTimeMillis());
-                Intent intent = new Intent(this, MainTabActivity.class);
-                if (this.mMsgReplyme > 0 || this.mMsgAtme > 0) {
-                    intent.putExtra(MainTabActivity.GOTO_SORT, true);
-                } else if (this.mMsgFans > 0) {
-                    intent.putExtra(MainTabActivity.GOTO_PERSON, true);
+        if (this.mNotificationManager != null) {
+            try {
+                if (flag == 1) {
+                    Notification notification = new Notification(R.drawable.icon, "您有新消息了", System.currentTimeMillis());
+                    Intent intent = new Intent(this, MainTabActivity.class);
+                    if (this.mMsgReplyme > 0 || this.mMsgAtme > 0) {
+                        intent.putExtra(MainTabActivity.GOTO_SORT, true);
+                    } else if (this.mMsgFans > 0) {
+                        intent.putExtra(MainTabActivity.GOTO_PERSON, true);
+                    }
+                    intent.putExtra(MainTabActivity.KEY_CLOSE_DIALOG, true);
+                    intent.setFlags(872415232);
+                    PendingIntent contentIntent = PendingIntent.getActivity(this, 0, intent, 0);
+                    notification.setLatestEventInfo(this, "百度贴吧", String.valueOf(getMsgTotal()) + "条新消息，刷新看看", contentIntent);
+                    notification.defaults = -1;
+                    notification.flags = 16;
+                    this.mNotificationManager.notify(R.drawable.icon, notification);
+                } else if (flag == 2) {
+                    this.mNotificationManager.cancel(R.drawable.icon);
                 }
-                intent.putExtra(MainTabActivity.KEY_CLOSE_DIALOG, true);
-                intent.setFlags(872415232);
-                PendingIntent contentIntent = PendingIntent.getActivity(this, 0, intent, 0);
-                notification.setLatestEventInfo(this, "百度贴吧", String.valueOf(getMsgTotal()) + "条新消息，刷新看看", contentIntent);
-                notification.defaults = -1;
-                notification.flags = 16;
-                this.mNotificationManager.notify(R.drawable.icon, notification);
-            } else if (flag == 2) {
-                this.mNotificationManager.cancel(R.drawable.icon);
+            } catch (Exception e) {
+                TiebaLog.e(getClass().toString(), "showNotification", e.getMessage());
             }
-        } catch (Exception e) {
-            TiebaLog.e(getClass().toString(), "showNotification", e.getMessage());
         }
     }
 
     public void cancelNotification() {
-        this.mNotificationManager.cancel(R.drawable.icon);
+        if (this.mNotificationManager != null) {
+            this.mNotificationManager.cancel(R.drawable.icon);
+        }
     }
 
     private void broadcastMsg() {
@@ -554,5 +641,18 @@ public class TiebaApplication extends Application {
 
     public SDRamImage getSdramImage() {
         return this.mSdramImage;
+    }
+
+    public int getPostImageSize() {
+        switch (this.mUploadImageQuality) {
+            case 1:
+                return Config.POST_IMAGE_BIG;
+            case 2:
+                return Config.POST_IMAGE_MIDDLE;
+            case 3:
+                return 300;
+            default:
+                return Config.POST_IMAGE_MIDDLE;
+        }
     }
 }

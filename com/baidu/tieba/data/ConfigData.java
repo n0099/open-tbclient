@@ -6,6 +6,7 @@ import org.json.JSONObject;
 public class ConfigData {
     private int pb_max_floor_total_num = 0;
     private int pb_big_image_width = 0;
+    private int img_chunk_upload_enable = 1;
     private String big_head_image_host = null;
     private String small_head_image_host = null;
     private String yijianfankui_fname = null;
@@ -77,11 +78,13 @@ public class ConfigData {
                 this.small_head_image_host = json.optString("small_head_image_host");
                 this.yijianfankui_fname = json.optString("yijianfankui_fname");
                 this.yijianfankui_fid = json.optString("yijianfankui_fid");
+                this.img_chunk_upload_enable = json.optInt("img_chunk_upload_enable", 1);
                 Config.setPbListNum(this.pb_max_floor_total_num);
                 Config.setThreadImageWidth(this.pb_big_image_width);
                 Config.setBigPhotoAdress(this.big_head_image_host);
                 Config.setSmallPhotoAdress(this.small_head_image_host);
                 Config.setFeedBack(this.yijianfankui_fname, this.yijianfankui_fid);
+                Config.setImgChunkUploadEnable(this.img_chunk_upload_enable);
             } catch (Exception ex) {
                 TiebaLog.e(getClass().getName(), "parserJson", ex.getMessage());
             }

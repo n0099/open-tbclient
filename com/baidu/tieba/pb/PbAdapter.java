@@ -2,6 +2,7 @@ package com.baidu.tieba.pb;
 
 import android.content.Context;
 import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
 import android.text.method.LinkMovementMethod;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -18,6 +19,7 @@ import com.baidu.tieba.data.PostData;
 import com.baidu.tieba.model.PbModel;
 import com.baidu.tieba.person.PersonInfoActivity;
 import com.baidu.tieba.util.AsyncImageLoader;
+import com.baidu.tieba.util.BitmapHelper;
 import com.baidu.tieba.util.StringHelper;
 import com.baidu.tieba.util.TiebaLog;
 import com.baidu.tieba.util.UtilHelper;
@@ -25,15 +27,22 @@ import com.baidu.tieba.view.CustomTextView;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class PbAdapter extends BaseAdapter {
+    public static final int DONT_HAVE = 0;
+    public static final int MAY_HAVE = 1;
+    public static final int MUST_HAVE = 2;
     private Context mContext;
     private ArrayList<PostData> mData;
-    private boolean mHaveFooter;
-    private boolean mHaveHeader;
+    private int mFontHeight;
+    private int mHaveFooter;
+    private int mHaveHeader;
     private AsyncImageLoader mImageLoader;
     private boolean mIsProcessMore;
     private boolean mIsProcessPre;
+    private boolean mIsShowImage;
+    private int mLineHeight;
     private PbModel mPbModel;
     private ArrayList<ProgressBar> mProgressbars;
+    private int mTextConfig;
 
     public PbAdapter(Context context, PbModel model) {
         this.mPbModel = model;
@@ -43,12 +52,22 @@ public class PbAdapter extends BaseAdapter {
         } else {
             this.mData = null;
         }
-        this.mHaveHeader = false;
-        this.mHaveFooter = false;
+        this.mIsShowImage = true;
+        this.mHaveHeader = 0;
+        this.mHaveFooter = 0;
         this.mIsProcessMore = false;
         this.mIsProcessPre = false;
+        this.mTextConfig = 3;
         this.mImageLoader = new AsyncImageLoader(this.mContext);
         this.mProgressbars = new ArrayList<>();
+    }
+
+    private void initHeight() {
+        TextView textView = new TextView(this.mContext);
+        textView.setLineSpacing(0.0f, 1.2f);
+        textView.setTextSize(Config.getContentSize());
+        this.mLineHeight = textView.getLineHeight();
+        this.mFontHeight = (int) textView.getTextSize();
     }
 
     public void setData(PbModel model) {
@@ -85,10 +104,10 @@ public class PbAdapter extends BaseAdapter {
     public int getCount() {
         if (this.mData != null) {
             int count = this.mData.size();
-            if (this.mHaveHeader) {
+            if (this.mHaveHeader != 0) {
                 count++;
             }
-            if (this.mHaveFooter) {
+            if (this.mHaveFooter != 0) {
                 count++;
             }
             return count;
@@ -109,13 +128,68 @@ public class PbAdapter extends BaseAdapter {
     @Override // android.widget.Adapter
     public long getItemId(int position) {
         int index = position;
-        if (this.mHaveHeader) {
+        if (this.mHaveHeader != 0) {
             index--;
         }
-        if (this.mHaveFooter && position == getCount() - 1) {
+        if (this.mHaveFooter != 0 && position == getCount() - 1) {
             index = -2;
         }
         return index;
+    }
+
+    private ImageView createImageView(ArrayList<ContentData> content, ContentData seg, int index) {
+        ImageView imageView = new ImageView(this.mContext);
+        int height = UtilHelper.dip2px(this.mContext, 120.0f);
+        int width = UtilHelper.dip2px(this.mContext, 150.0f);
+        LinearLayout.LayoutParams imageViewparams = new LinearLayout.LayoutParams(-2, height);
+        int px_v = UtilHelper.dip2px(this.mContext, 15.0f);
+        imageViewparams.topMargin = px_v;
+        imageViewparams.bottomMargin = 0;
+        Bitmap image = this.mImageLoader.getPic(seg.getLink());
+        imageView.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
+        imageView.setMaxWidth(width);
+        if (image != null) {
+            imageView.setTag(null);
+            imageView.setImageBitmap(image);
+        } else {
+            imageView.setTag(seg.getLink());
+            Bitmap bm = BitmapHelper.getCashBitmap(R.drawable.image_default);
+            imageView.setImageBitmap(bm);
+        }
+        imageView.setClickable(true);
+        imageView.setFocusable(false);
+        ImageOnClickListener listern = new ImageOnClickListener(content, index);
+        imageView.setOnClickListener(listern);
+        imageView.setLayoutParams(imageViewparams);
+        return imageView;
+    }
+
+    private TextView createTextView(ContentData seg) {
+        CustomTextView textView = new CustomTextView(this.mContext);
+        LinearLayout.LayoutParams textViewparams = new LinearLayout.LayoutParams(-1, -2);
+        int px_v = UtilHelper.dip2px(this.mContext, 15.0f);
+        textViewparams.rightMargin = 0;
+        textViewparams.leftMargin = 0;
+        textViewparams.topMargin = px_v;
+        textViewparams.bottomMargin = 0;
+        textView.setLineSpacing(0.0f, 1.2f);
+        textView.setTextSize(Config.getContentSize());
+        textView.setTextColor(-11974584);
+        setTextForView(textView, seg);
+        textView.setMovementMethod(LinkMovementMethod.getInstance());
+        textView.setFocusable(false);
+        textView.setLayoutParams(textViewparams);
+        return textView;
+    }
+
+    private void setTextForView(TextView view, ContentData seg) {
+        if (view != null && seg != null) {
+            if (seg.getType() == 2) {
+                view.setText(seg.getSpannableString(this.mContext, this.mLineHeight, this.mFontHeight));
+            } else {
+                view.setText(seg.getUniteString());
+            }
+        }
     }
 
     @Override // android.widget.Adapter
@@ -141,10 +215,13 @@ public class PbAdapter extends BaseAdapter {
                         holder2.mRank = (TextView) convertView.findViewById(R.id.rank);
                         holder2.mTime = (TextView) convertView.findViewById(R.id.time);
                         holder2.mText = (TextView) convertView.findViewById(R.id.text);
+                        holder2.mText.setLineSpacing(0.0f, 1.2f);
                         holder2.mSeg = (LinearLayout) convertView.findViewById(R.id.seg);
                         holder2.mMark = (ImageView) convertView.findViewById(R.id.mark);
                         holder2.mPhotoClick = new PhotoOnClickListener();
                         holder2.mPhoto.setOnClickListener(holder2.mPhotoClick);
+                        BitmapDrawable dr = new BitmapDrawable(BitmapHelper.getCashBitmap(R.drawable.photo_bg));
+                        holder2.mPhoto.setBackgroundDrawable(dr);
                         holder = holder2;
                     } else {
                         convertView = mInflater.inflate(R.layout.page_item, (ViewGroup) null);
@@ -174,7 +251,13 @@ public class PbAdapter extends BaseAdapter {
                     holder.mPageText.setText(R.string.loading);
                 } else {
                     holder.mProgress.setVisibility(8);
-                    holder.mPageText.setText(R.string.load_more);
+                    if (this.mHaveHeader == 1) {
+                        holder.mPageText.setText(R.string.may_have_more);
+                    } else if (this.mHaveHeader == 2) {
+                        holder.mPageText.setText(R.string.load_more);
+                    } else {
+                        holder.mPageText.setText((CharSequence) null);
+                    }
                 }
             } else if (data_index == -2) {
                 if (this.mIsProcessMore) {
@@ -182,7 +265,13 @@ public class PbAdapter extends BaseAdapter {
                     holder.mPageText.setText(R.string.loading);
                 } else {
                     holder.mProgress.setVisibility(8);
-                    holder.mPageText.setText(R.string.load_more);
+                    if (this.mHaveFooter == 1) {
+                        holder.mPageText.setText(R.string.may_have_more);
+                    } else if (this.mHaveFooter == 2) {
+                        holder.mPageText.setText(R.string.load_more);
+                    } else {
+                        holder.mPageText.setText((CharSequence) null);
+                    }
                 }
             }
             return convertView;
@@ -204,16 +293,18 @@ public class PbAdapter extends BaseAdapter {
         holder.mUserName.setVisibility(0);
         holder.mRank.setVisibility(0);
         if (this.mPbModel.getIsDisplayPhoto()) {
+            Bitmap bm = null;
             if (portrait != null && portrait.length() > 0) {
-                Bitmap bm = this.mImageLoader.getPhoto(portrait);
+                bm = this.mImageLoader.getPhoto(portrait);
                 if (bm != null) {
                     holder.mPhoto.setImageBitmap(bm);
                 } else {
                     holder.mPhoto.setTag(portrait);
-                    holder.mPhoto.setImageResource(R.drawable.photo);
                 }
-            } else {
-                holder.mPhoto.setImageResource(R.drawable.photo);
+            }
+            if (bm == null) {
+                Bitmap photo = BitmapHelper.getCashBitmap(R.drawable.photo);
+                holder.mPhoto.setImageBitmap(photo);
             }
             holder.mPhoto.setVisibility(0);
         } else {
@@ -227,8 +318,11 @@ public class PbAdapter extends BaseAdapter {
         } else {
             holder.mMark.setVisibility(8);
         }
-        if (data.getAuthor() != null && data.getAuthor().getName_show() != null) {
+        holder.mUserName.setTextSize(Config.getNameSize());
+        if (data.getAuthor() != null) {
             holder.mUserName.setText(data.getAuthor().getName_show());
+        } else {
+            holder.mUserName.setText((CharSequence) null);
         }
         if (data.getAuthor() != null && data.getAuthor().getLevel_id() != 0) {
             holder.mRank.setText(String.valueOf(data.getAuthor().getLevel_id()) + this.mContext.getString(R.string.grade));
@@ -240,10 +334,13 @@ public class PbAdapter extends BaseAdapter {
         ArrayList<ContentData> content = data.getUnite_content();
         if (content != null && content.size() > 0) {
             int i = 0;
+            TextView textView_tmp = null;
             ContentData seg = content.get(0);
-            if (seg != null && seg.getType() == 0) {
+            if (seg != null && (seg.getType() == 0 || seg.getType() == 2)) {
+                holder.mText.setTextSize(Config.getContentSize());
                 holder.mText.setVisibility(0);
-                holder.mText.setText(seg.getUniteString());
+                setTextForView(holder.mText, seg);
+                textView_tmp = holder.mText;
                 i = 0 + 1;
             }
             int index = -1;
@@ -252,40 +349,21 @@ public class PbAdapter extends BaseAdapter {
                 holder.mSeg.setVisibility(0);
                 ContentData seg2 = content.get(i);
                 if (seg2.getType() == 3) {
-                    index++;
-                    ImageView imageView = new ImageView(this.mContext);
-                    int height = UtilHelper.dip2px(this.mContext, 80.0f);
-                    int width = UtilHelper.dip2px(this.mContext, 140.0f);
-                    LinearLayout.LayoutParams imageViewparams = new LinearLayout.LayoutParams(width, height);
-                    int px_v = UtilHelper.dip2px(this.mContext, 15.0f);
-                    imageViewparams.topMargin = px_v;
-                    Bitmap image = this.mImageLoader.getPic(seg2.getLink());
-                    imageView.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
-                    if (image != null) {
-                        imageView.setTag(null);
-                        imageView.setImageBitmap(image);
-                    } else {
-                        imageView.setTag(seg2.getLink());
-                        imageView.setImageResource(R.drawable.image_default);
+                    if (this.mIsShowImage) {
+                        index++;
+                        holder.mSeg.addView(createImageView(content, seg2, index));
+                        textView_tmp = null;
                     }
-                    imageView.setClickable(true);
-                    imageView.setFocusable(false);
-                    ImageOnClickListener listern = new ImageOnClickListener(content, index);
-                    imageView.setOnClickListener(listern);
-                    holder.mSeg.addView(imageView, imageViewparams);
+                } else if (textView_tmp != null) {
+                    if (seg2.getType() == 2) {
+                        textView_tmp.append(seg2.getSpannableString(this.mContext, this.mLineHeight, this.mFontHeight));
+                    } else {
+                        textView_tmp.append(seg2.getUniteString());
+                    }
                 } else {
-                    CustomTextView textView = new CustomTextView(this.mContext);
-                    LinearLayout.LayoutParams textViewparams = new LinearLayout.LayoutParams(-1, -2);
-                    int px_v2 = UtilHelper.dip2px(this.mContext, 15.0f);
-                    textViewparams.rightMargin = 0;
-                    textViewparams.leftMargin = 0;
-                    textViewparams.topMargin = px_v2;
-                    textView.setTextSize(16.0f);
-                    textView.setTextColor(-11974584);
-                    textView.setText(seg2.getUniteString());
-                    textView.setMovementMethod(LinkMovementMethod.getInstance());
-                    textView.setFocusable(false);
-                    holder.mSeg.addView(textView, textViewparams);
+                    TextView view = createTextView(seg2);
+                    holder.mSeg.addView(view);
+                    textView_tmp = view;
                 }
                 i++;
             }
@@ -306,20 +384,20 @@ public class PbAdapter extends BaseAdapter {
         return 2;
     }
 
-    public void setHaveHeader(boolean haveHeader) {
+    public void setHaveHeader(int haveHeader) {
         this.mHaveHeader = haveHeader;
     }
 
     public boolean isHaveHeader() {
-        return this.mHaveHeader;
+        return this.mHaveHeader != 0;
     }
 
-    public void setHaveFooter(boolean haveFooter) {
+    public void setHaveFooter(int haveFooter) {
         this.mHaveFooter = haveFooter;
     }
 
     public boolean isHaveFooter() {
-        return this.mHaveFooter;
+        return this.mHaveFooter != 0;
     }
 
     public void setIsProcessMore(boolean isProcessMore) {
@@ -336,6 +414,23 @@ public class PbAdapter extends BaseAdapter {
 
     public boolean isProcessPre() {
         return this.mIsProcessPre;
+    }
+
+    public void setIsShowImage(boolean isShowImage) {
+        this.mIsShowImage = isShowImage;
+    }
+
+    public boolean isShowImage() {
+        return this.mIsShowImage;
+    }
+
+    public void setTextConfig(int textConfig) {
+        this.mTextConfig = textConfig;
+        initHeight();
+    }
+
+    public int getTextConfig() {
+        return this.mTextConfig;
     }
 
     /* loaded from: classes.dex */
@@ -356,8 +451,9 @@ public class PbAdapter extends BaseAdapter {
         }
     }
 
+    /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
-    private class ImageOnClickListener implements View.OnClickListener {
+    public class ImageOnClickListener implements View.OnClickListener {
         private ArrayList<ContentData> mContent;
         private int mIndex;
 

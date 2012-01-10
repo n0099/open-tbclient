@@ -48,26 +48,40 @@ public class BitmapHelper {
         }
     }
 
-    public static Bitmap resizeBitmap(Bitmap bitmap, int maxsize) {
+    public static Bitmap resizeBitmap(Bitmap bitmap, int max_widht, int max_height) {
         float temp;
-        if (maxsize <= 0 || bitmap == null || bitmap.isRecycled()) {
+        if (max_widht <= 0 || max_height < 0 || bitmap == null || bitmap.isRecycled()) {
             return null;
         }
-        int width = bitmap.getWidth();
-        int height = bitmap.getHeight();
-        if (maxsize / height > maxsize / width) {
-            temp = maxsize / width;
-        } else {
-            temp = maxsize / height;
+        if (bitmap.getWidth() > max_widht || bitmap.getHeight() > max_height) {
+            int width = bitmap.getWidth();
+            int height = bitmap.getHeight();
+            if (max_height / height > max_widht / width) {
+                temp = max_widht / width;
+            } else {
+                temp = max_height / height;
+            }
+            Matrix matrix = new Matrix();
+            matrix.postScale(temp, temp);
+            Bitmap resizedBitmap = Bitmap.createBitmap(bitmap, 0, 0, width, height, matrix, true);
+            if (resizedBitmap != bitmap) {
+                bitmap.recycle();
+            }
+            return resizedBitmap;
         }
-        Matrix matrix = new Matrix();
-        matrix.postScale(temp, temp);
-        Bitmap resizedBitmap = Bitmap.createBitmap(bitmap, 0, 0, width, height, matrix, true);
-        bitmap.recycle();
-        return resizedBitmap;
+        return bitmap;
+    }
+
+    public static Bitmap resizeBitmap(Bitmap bitmap, int maxsize) {
+        return resizeBitmap(bitmap, maxsize, maxsize);
     }
 
     public static Bitmap resizeBitmap(String file_name, int maxsize) {
+        Bitmap b = subSampleBitmap(file_name, maxsize);
+        return resizeBitmap(b, maxsize);
+    }
+
+    public static Bitmap subSampleBitmap(String file_name, int maxsize) {
         int s = 1;
         if (file_name == null || file_name.length() <= 0 || maxsize <= 0) {
             return null;
@@ -77,17 +91,17 @@ public class BitmapHelper {
             opt.inJustDecodeBounds = true;
             InputStream in = FileHelper.GetStreamFromFile(file_name);
             BitmapFactory.decodeStream(in, null, opt);
-            opt.inPreferredConfig = Bitmap.Config.RGB_565;
+            opt.inPreferredConfig = Config.BitmapConfig;
             try {
                 in.close();
             } catch (Exception ex) {
                 ex.printStackTrace();
             }
             while (true) {
-                if (opt.outWidth / (s + 1) <= maxsize && opt.outHeight / (s + 1) <= maxsize) {
+                if (opt.outWidth / (s * 2) <= maxsize && opt.outHeight / (s * 2) <= maxsize) {
                     break;
                 }
-                s++;
+                s *= 2;
             }
             opt.inJustDecodeBounds = false;
             opt.inSampleSize = s;
@@ -98,17 +112,18 @@ public class BitmapHelper {
             } catch (Exception ex2) {
                 ex2.printStackTrace();
             }
-            if (b == null) {
-                return null;
-            }
-            return resizeBitmap(b, maxsize);
-        } catch (Exception ex3) {
-            ex3.printStackTrace();
+            return b;
+        } catch (Exception e) {
             return null;
         }
     }
 
     public static Bitmap resizeBitmap(Context context, Uri uri, int maxsize) {
+        Bitmap b = subSampleBitmap(context, uri, maxsize);
+        return resizeBitmap(b, maxsize);
+    }
+
+    public static Bitmap subSampleBitmap(Context context, Uri uri, int maxsize) {
         ContentResolver res = context.getContentResolver();
         ParcelFileDescriptor fd = null;
         int s = 1;
@@ -125,8 +140,7 @@ public class BitmapHelper {
                 } else {
                     opt.inJustDecodeBounds = false;
                     opt.inSampleSize = s;
-                    Bitmap b = BitmapFactory.decodeFileDescriptor(fd.getFileDescriptor(), null, opt);
-                    return resizeBitmap(b, maxsize);
+                    return BitmapFactory.decodeFileDescriptor(fd.getFileDescriptor(), null, opt);
                 }
             }
         } catch (Exception e) {
@@ -142,7 +156,7 @@ public class BitmapHelper {
         if (bitmap == null) {
             return null;
         }
-        Bitmap output = Bitmap.createBitmap(bitmap.getWidth(), bitmap.getHeight(), Bitmap.Config.ARGB_8888);
+        Bitmap output = Bitmap.createBitmap(bitmap.getWidth(), bitmap.getHeight(), Bitmap.Config.RGB_565);
         Canvas canvas = new Canvas(output);
         Paint paint = new Paint();
         Rect rect = new Rect(0, 0, bitmap.getWidth(), bitmap.getHeight());
@@ -161,7 +175,7 @@ public class BitmapHelper {
 
     public static byte[] Bitmap2Bytes(Bitmap bm, int quality) {
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
-        bm.compress(Bitmap.CompressFormat.PNG, quality, baos);
+        bm.compress(Bitmap.CompressFormat.JPEG, quality, baos);
         return baos.toByteArray();
     }
 
@@ -169,7 +183,9 @@ public class BitmapHelper {
         if (b == null || b.length == 0) {
             return null;
         }
-        return BitmapFactory.decodeByteArray(b, 0, b.length);
+        BitmapFactory.Options opt = new BitmapFactory.Options();
+        opt.inPreferredConfig = Config.BitmapConfig;
+        return BitmapFactory.decodeByteArray(b, 0, b.length, opt);
     }
 
     public static Bitmap rotateBitmap(Bitmap bm, float degrees) {

@@ -113,7 +113,6 @@ public class AtListActivity extends BaseActivity {
         this.mHandler.removeCallbacks(this.mSuggestRunnable);
         this.mHandler.removeCallbacks(this.mGetImageRunnble);
         if (this.mAdapter != null) {
-            this.mAdapter.setData(null);
             this.mAdapter.releaseProgressBar();
             if (this.mAdapter.getImageLoader() != null) {
                 this.mAdapter.getImageLoader().cancelAllAsyncTask();
@@ -132,9 +131,17 @@ public class AtListActivity extends BaseActivity {
         this.mEditText.addTextChangedListener(new TextWatcher() { // from class: com.baidu.tieba.write.AtListActivity.3
             @Override // android.text.TextWatcher
             public void afterTextChanged(Editable s) {
-                if (!s.toString().equals(AtListActivity.this.mPreEditString)) {
-                    AtListActivity.this.mHandler.removeCallbacks(AtListActivity.this.mSuggestRunnable);
-                    AtListActivity.this.mHandler.postDelayed(AtListActivity.this.mSuggestRunnable, 300L);
+                String text = s.toString();
+                if (text != null) {
+                    if (!text.equals(AtListActivity.this.mPreEditString)) {
+                        AtListActivity.this.mHandler.removeCallbacks(AtListActivity.this.mSuggestRunnable);
+                        AtListActivity.this.mHandler.postDelayed(AtListActivity.this.mSuggestRunnable, 300L);
+                    }
+                    if (text.length() > 0) {
+                        AtListActivity.this.mDelete.setVisibility(0);
+                    } else {
+                        AtListActivity.this.mDelete.setVisibility(8);
+                    }
                 }
             }
 

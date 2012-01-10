@@ -10,6 +10,9 @@ import com.baidu.tieba.account.LoginActivity;
 import com.baidu.tieba.data.AccountData;
 import com.baidu.tieba.data.Config;
 import com.baidu.tieba.model.LoginModel;
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.ArrayList;
 import org.apache.http.message.BasicNameValuePair;
 /* loaded from: classes.dex */
@@ -20,9 +23,11 @@ public class NetWork {
     private static final String CLIENT_TYPE_ANDROID = "2";
     private static final String CLIENT_VERSION = "_client_version";
     private static final String FROM = "from";
+    private static final String NET_TYPE = "net_type";
     private static final int NET_TYPE_GET = 1;
     private static final int NET_TYPE_POST = 2;
     private static final int NET_TYPE_POST_CHUNK = 3;
+    private static final String PHONE_IMEI = "_phone_imei";
     private static final String TBS = "tbs";
     private NetWorkCore mNet = null;
     private NetWorkCore mNetLogin = null;
@@ -134,8 +139,11 @@ public class NetWork {
     }
 
     private void addCommonParam() {
-        this.mNet.addPostData(CLIENT_TYPE, CLIENT_TYPE_ANDROID);
+        this.mNet.addPostData(CLIENT_TYPE, "2");
         this.mNet.addPostData(CLIENT_VERSION, Config.VERSION);
+        if (TiebaApplication.app.getImei() != null) {
+            this.mNet.addPostData(PHONE_IMEI, TiebaApplication.app.getImei());
+        }
         String client_id = TiebaApplication.getClientId();
         if (client_id != null) {
             this.mNet.addPostData(CLIENT_ID, client_id);
@@ -143,6 +151,10 @@ public class NetWork {
         String from = TiebaApplication.getFrom();
         if (from != null && from.length() > 0) {
             this.mNet.addPostData(FROM, from);
+        }
+        String net_type = this.mNet.getNetType();
+        if (net_type != null) {
+            this.mNet.addPostData(NET_TYPE, net_type);
         }
     }
 
@@ -156,6 +168,10 @@ public class NetWork {
 
     public int getErrorCode() {
         return this.mNet.getErrorCode();
+    }
+
+    public String getNetType() {
+        return this.mNet.getNetType();
     }
 
     public String getErrorString() {
@@ -315,8 +331,36 @@ public class NetWork {
         return process(2);
     }
 
+    public String getNetString() {
+        return process(1);
+    }
+
     public String postMultiNetData() {
         return process(3);
+    }
+
+    public String uploadImage(String filename) throws IOException {
+        TiebaLog.d("NetWork", "uploadImage", "upload image");
+        byte[] data = null;
+        try {
+            InputStream in = FileHelper.GetStreamFromFile(filename);
+            byte[] buf = new byte[5120];
+            ByteArrayOutputStream outputstream = new ByteArrayOutputStream(5120);
+            while (true) {
+                int num = in.read(buf);
+                if (num == -1) {
+                    break;
+                }
+                outputstream.write(buf, 0, num);
+            }
+            data = outputstream.toByteArray();
+        } catch (Exception e) {
+        }
+        if (data == null || data.length <= 0) {
+            return null;
+        }
+        addPostData("pic", data);
+        return postMultiNetData();
     }
 
     public boolean isFileSegSuccess() {

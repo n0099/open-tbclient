@@ -86,7 +86,7 @@ public class AsyncImageLoader {
         ImageAsyncTask task = new ImageAsyncTask(imageUrl, type.intValue(), mImageCallback, from_db);
         this.mTasks.add(task);
         task.execute(new String[0]);
-        if (this.mTasks.size() > 20) {
+        if (this.mTasks.size() > 25) {
             ImageAsyncTask tmp = this.mTasks.get(0);
             tmp.cancel();
             this.mTasks.remove(0);
@@ -140,15 +140,20 @@ public class AsyncImageLoader {
                 if (this.mBitmap == null) {
                     this.iscached = false;
                     need_cash = true;
+                    int pb_image_width = 0;
+                    int pb_image_height = 0;
                     if (this.mType == 0) {
                         StringBuffer buffer = new StringBuffer(100);
                         buffer.append(Config.IMAGE_ADDRESS);
                         buffer.append("src=");
                         String encode = StringHelper.getUrlEncode(this.mUrl);
                         buffer.append(encode);
-                        buffer.append("&size=");
-                        int size = UtilHelper.dip2px(AsyncImageLoader.this.mContext, 140.0f);
-                        buffer.append(String.valueOf(size));
+                        buffer.append("&width=");
+                        pb_image_width = UtilHelper.dip2px(AsyncImageLoader.this.mContext, 150.0f);
+                        buffer.append(String.valueOf(pb_image_width));
+                        buffer.append("&height=");
+                        pb_image_height = UtilHelper.dip2px(AsyncImageLoader.this.mContext, 120.0f);
+                        buffer.append(String.valueOf(pb_image_height));
                         fullUrl = buffer.toString();
                     } else {
                         fullUrl = Config.PHOTO_SMALL_ADDRESS + this.mUrl;
@@ -160,8 +165,16 @@ public class AsyncImageLoader {
                     byte[] tmp = this.mNetWork.getNetData();
                     if (this.mNetWork.isRequestSuccess()) {
                         this.mBitmap = BitmapHelper.Bytes2Bitmap(tmp);
-                        if (this.mBitmap.getWidth() * this.mBitmap.getWidth() > 90000) {
-                            this.mBitmap = BitmapHelper.resizeBitmap(this.mBitmap, 120);
+                        if (this.mBitmap != null) {
+                            if (this.mType == 0) {
+                                if (this.mBitmap.getWidth() > pb_image_width || this.mBitmap.getHeight() > pb_image_height) {
+                                    TiebaLog.log_e(1, getClass().getName(), "doInBackground", "Pb_image_too_big:" + String.valueOf(this.mBitmap.getWidth() + "*" + String.valueOf(this.mBitmap.getHeight())));
+                                    this.mBitmap = BitmapHelper.resizeBitmap(this.mBitmap, pb_image_width, pb_image_height);
+                                }
+                            } else if (this.mBitmap.getWidth() > 80 || this.mBitmap.getHeight() > 80) {
+                                TiebaLog.log_e(1, getClass().getName(), "doInBackground", "Pb_photo_too_big:" + String.valueOf(this.mBitmap.getWidth() + "*" + String.valueOf(this.mBitmap.getHeight())));
+                                this.mBitmap = BitmapHelper.resizeBitmap(this.mBitmap, 80);
+                            }
                         }
                     }
                 }
@@ -182,7 +195,7 @@ public class AsyncImageLoader {
                     } else {
                         String name2 = StringHelper.getNameFromUrl(this.mUrl);
                         if (name2 != null) {
-                            FileHelper.SaveFile(Config.TMP_PIC_DIR_NAME, name2, this.mBitmap);
+                            FileHelper.SaveFile(Config.TMP_PIC_DIR_NAME, name2, this.mBitmap, 80);
                         }
                     }
                 }

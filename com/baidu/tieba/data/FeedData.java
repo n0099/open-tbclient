@@ -1,5 +1,6 @@
 package com.baidu.tieba.data;
 
+import com.baidu.tieba.mention.MentionActivity;
 import com.baidu.tieba.util.TiebaLog;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
@@ -107,7 +108,7 @@ public class FeedData {
     public void parserJson(JSONObject json) {
         if (json != null) {
             try {
-                this.type = json.optInt("type", 0);
+                this.type = json.optInt(MentionActivity.TYPE, 0);
                 this.title = json.optString("title");
                 this.time = json.optLong("time", 0L) * 1000;
                 this.fname = json.optString("fname");

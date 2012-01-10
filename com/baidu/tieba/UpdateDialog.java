@@ -33,6 +33,7 @@ public class UpdateDialog extends BaseActivity {
     }
 
     private void InitData(Bundle savedInstanceState) {
+        String content;
         if (savedInstanceState != null) {
             this.mData = (VersionData) savedInstanceState.getSerializable("data");
         } else {
@@ -46,7 +47,11 @@ public class UpdateDialog extends BaseActivity {
         }
         AlertDialog.Builder dialog_builder = new AlertDialog.Builder(this);
         dialog_builder.setTitle(R.string.notify);
-        String content = String.format(getString(R.string.update_client), this.mData.getNew_version());
+        if (this.mData.getNew_version_desc() != null && this.mData.getNew_version_desc().length() > 0) {
+            content = this.mData.getNew_version_desc();
+        } else {
+            content = String.format(getString(R.string.update_client), this.mData.getNew_version());
+        }
         if (this.mData.getHas_new_ver() == 1) {
             if (this.mData.getForce_update() == 1) {
                 this.mMustUpdataListener = new DialogInterface.OnClickListener() { // from class: com.baidu.tieba.UpdateDialog.1

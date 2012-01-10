@@ -119,6 +119,46 @@ public class SDRamImage {
         return bitmap;
     }
 
+    public void clearPicAndPhoto() {
+        photo.clear();
+        pic.clear();
+    }
+
+    public void LogCount() {
+        int photo_size = photo.size();
+        int i = 0;
+        TiebaLog.log_e(0, getClass().getName(), "logPrint", "photo.size = " + String.valueOf(photo_size));
+        for (Map.Entry<String, Image> entry : photo.entrySet()) {
+            StringBuffer log = new StringBuffer(50);
+            log.append("photo[");
+            log.append(i);
+            log.append("].width = ");
+            log.append(entry.getValue().image.getWidth());
+            log.append("\tphoto[");
+            log.append(i);
+            log.append("].height = ");
+            log.append(entry.getValue().image.getHeight());
+            TiebaLog.log_e(0, getClass().getName(), "logPrint", log.toString());
+            i++;
+        }
+        int pic_size = pic.size();
+        int i2 = 0;
+        TiebaLog.log_e(0, getClass().getName(), "logPrint", "pic.size = " + String.valueOf(pic_size));
+        for (Map.Entry<String, Image> entry2 : pic.entrySet()) {
+            StringBuffer log2 = new StringBuffer(50);
+            log2.append("pic[");
+            log2.append(i2);
+            log2.append("].width = ");
+            log2.append(entry2.getValue().image.getWidth());
+            log2.append("\tpic[");
+            log2.append(i2);
+            log2.append("].height = ");
+            log2.append(entry2.getValue().image.getHeight());
+            TiebaLog.log_e(0, getClass().getName(), "logPrint", log2.toString());
+            i2++;
+        }
+    }
+
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public class Image {

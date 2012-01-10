@@ -1,8 +1,21 @@
 package com.baidu.tieba.util;
 
+import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Rect;
+import android.graphics.drawable.Drawable;
 import android.net.Uri;
+import android.view.Display;
+import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
+import android.view.inputmethod.InputMethodManager;
+import android.widget.Toast;
+import com.baidu.tieba.R;
+import com.baidu.tieba.TiebaApplication;
 import java.io.File;
 /* loaded from: classes.dex */
 public class UtilHelper {
@@ -22,6 +35,51 @@ public class UtilHelper {
 
     public static int getEquipmentHeight(Context context) {
         return context.getResources().getDisplayMetrics().heightPixels;
+    }
+
+    public static void showToast(Context context, String str) {
+        if (str != null && str.length() > 0) {
+            Toast toast = Toast.makeText(TiebaApplication.app, str, 3000);
+            int y_offset = dip2px(context, 100.0f);
+            toast.setGravity(17, 0, y_offset);
+            toast.show();
+        }
+    }
+
+    public static void quitDialog(final Activity activity) {
+        new AlertDialog.Builder(activity).setTitle(R.string.alerm_title).setIcon((Drawable) null).setCancelable(false).setMessage(R.string.alert_quit_confirm).setPositiveButton(R.string.alert_yes_button, new DialogInterface.OnClickListener() { // from class: com.baidu.tieba.util.UtilHelper.2
+            @Override // android.content.DialogInterface.OnClickListener
+            public void onClick(DialogInterface dialog, int which) {
+                activity.finish();
+            }
+        }).setNegativeButton(R.string.alert_no_button, new DialogInterface.OnClickListener() { // from class: com.baidu.tieba.util.UtilHelper.1
+            @Override // android.content.DialogInterface.OnClickListener
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.cancel();
+            }
+        }).create().show();
+    }
+
+    public static void hideSoftKeyPad(Context context, View view) {
+        try {
+            InputMethodManager inputManager = (InputMethodManager) context.getSystemService("input_method");
+            inputManager.hideSoftInputFromWindow(view.getWindowToken(), 2);
+        } catch (Exception ex) {
+            TiebaLog.e("UtilHelper", "hideSoftKeyPad", "error = " + ex.getMessage());
+        }
+    }
+
+    public static int getStatusBarHeight(Activity activity) {
+        Rect rect = new Rect();
+        Window window = activity.getWindow();
+        window.getDecorView().getWindowVisibleDisplayFrame(rect);
+        return rect.top;
+    }
+
+    public static int[] getScreenDimensions(Context context) {
+        Display display = ((WindowManager) context.getSystemService("window")).getDefaultDisplay();
+        int[] dimensions = {display.getWidth(), display.getHeight()};
+        return dimensions;
     }
 
     public static void install_apk(Context context, String file_name) {

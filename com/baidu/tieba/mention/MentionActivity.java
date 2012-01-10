@@ -5,7 +5,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Bundle;
-import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -13,6 +12,7 @@ import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.ListView;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 import com.baidu.tieba.BaseActivity;
 import com.baidu.tieba.MainTabActivity;
 import com.baidu.tieba.R;
@@ -41,6 +41,8 @@ public class MentionActivity extends BaseActivity {
     private Button mButtonReplyme = null;
     private MentionView mViewReplyme = null;
     private MentionView mViewAtme = null;
+    private TextView mTextNoReply = null;
+    private TextView mTextNoAt = null;
     private UpdateReceiver receiver = null;
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -48,13 +50,14 @@ public class MentionActivity extends BaseActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.mention_activity);
+        regReceiver();
         initUI();
         if (savedInstanceState != null) {
-            this.mPageType = savedInstanceState.getInt("type", 0);
+            this.mPageType = savedInstanceState.getInt(TYPE, 0);
             return;
         }
         Intent intent = getIntent();
-        this.mPageType = intent.getIntExtra("type", 0);
+        this.mPageType = intent.getIntExtra(TYPE, 0);
     }
 
     @Override // android.app.Activity
@@ -73,10 +76,12 @@ public class MentionActivity extends BaseActivity {
                 case 0:
                     this.mViewReplyme.setUpdateType(1);
                     this.mViewReplyme.show();
+                    this.mViewReplyme.checkFontConfig();
                     return;
                 case 1:
                     this.mViewAtme.setUpdateType(1);
                     this.mViewAtme.show();
+                    this.mViewAtme.checkFontConfig();
                     return;
                 default:
                     return;
@@ -88,6 +93,7 @@ public class MentionActivity extends BaseActivity {
     @Override // com.baidu.tieba.BaseActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
+        unregReceiver();
         try {
             if (this.mViewReplyme != null) {
                 this.mViewReplyme.cancelAsyncTask();
@@ -105,28 +111,7 @@ public class MentionActivity extends BaseActivity {
     @Override // android.app.Activity
     protected void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
-        outState.putInt("type", this.mPageType);
-    }
-
-    @Override // android.app.Activity, android.view.KeyEvent.Callback
-    public boolean onKeyDown(int keyCode, KeyEvent event) {
-        if (keyCode == 4) {
-            quitDialog();
-            return true;
-        }
-        return false;
-    }
-
-    @Override // android.app.Activity
-    protected void onStart() {
-        regReceiver();
-        super.onStart();
-    }
-
-    @Override // android.app.Activity
-    protected void onStop() {
-        unregReceiver();
-        super.onStop();
+        outState.putInt(TYPE, this.mPageType);
     }
 
     public int getPageType() {
@@ -135,6 +120,8 @@ public class MentionActivity extends BaseActivity {
 
     private void initUI() {
         this.mPageType = 0;
+        this.mTextNoReply = (TextView) findViewById(R.id.reply_nodata);
+        this.mTextNoAt = (TextView) findViewById(R.id.at_nodata);
         this.mButtonReplyme = (Button) findViewById(R.id.mention_bt_replyme);
         this.mButtonReplyme.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.mention.MentionActivity.1
             @Override // android.view.View.OnClickListener
@@ -145,6 +132,8 @@ public class MentionActivity extends BaseActivity {
                 } else {
                     MentionActivity.this.mViewReplyme.setUpdateType(1);
                 }
+                MentionActivity.this.mTextNoAt.setVisibility(8);
+                MentionActivity.this.mTextNoReply.setVisibility(0);
                 MentionActivity.this.mViewReplyme.show();
                 if (MentionActivity.this.mViewAtme != null) {
                     MentionActivity.this.mViewAtme.cancelAsyncTask();
@@ -162,6 +151,8 @@ public class MentionActivity extends BaseActivity {
                 } else {
                     MentionActivity.this.mViewAtme.setUpdateType(1);
                 }
+                MentionActivity.this.mTextNoReply.setVisibility(8);
+                MentionActivity.this.mTextNoAt.setVisibility(0);
                 MentionActivity.this.mViewAtme.show();
                 if (MentionActivity.this.mViewReplyme != null) {
                     MentionActivity.this.mViewReplyme.cancelAsyncTask();
@@ -192,6 +183,7 @@ public class MentionActivity extends BaseActivity {
         FrameLayout layout1 = (FrameLayout) findViewById(R.id.mention_layout_replyme);
         this.mViewReplyme.setLayout(layout1);
         this.mViewReplyme.setNoDataText(R.string.mention_replyme_nodata);
+        this.mViewReplyme.setTextNoData(this.mTextNoReply);
         this.mViewReplyme.setURL(Config.REPLYME_ADDRESS);
         this.mViewReplyme.init();
         this.mViewAtme = new MentionView(this, 1, new MentionView.CacheCallback() { // from class: com.baidu.tieba.mention.MentionActivity.4
@@ -217,6 +209,7 @@ public class MentionActivity extends BaseActivity {
         FrameLayout layout2 = (FrameLayout) findViewById(R.id.mention_layout_atme);
         this.mViewAtme.setLayout(layout2);
         this.mViewAtme.setNoDataText(R.string.mention_atme_nodata);
+        this.mViewAtme.setTextNoData(this.mTextNoAt);
         this.mViewAtme.setURL(Config.ATME_ADDRESS);
         this.mViewAtme.init();
     }

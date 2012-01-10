@@ -62,6 +62,9 @@ public class TiebaUpdateService extends Service {
         super.onCreate();
         this.mNotificationManager = (NotificationManager) getSystemService("notification");
         this.mNotify = getUpdateNotification();
+        if (this.mNotificationManager == null) {
+            stopSelf();
+        }
     }
 
     public Notification getUpdateNotification() {
@@ -81,7 +84,9 @@ public class TiebaUpdateService extends Service {
         if (this.mDowndingTask != null) {
             this.mDowndingTask.cancel();
         }
-        this.mNotificationManager.cancel(10);
+        if (this.mNotificationManager != null) {
+            this.mNotificationManager.cancel(10);
+        }
     }
 
     @Override // android.app.Service

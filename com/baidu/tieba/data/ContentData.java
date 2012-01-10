@@ -2,17 +2,18 @@ package com.baidu.tieba.data;
 
 import android.content.Context;
 import android.graphics.Bitmap;
-import android.graphics.drawable.BitmapDrawable;
 import android.text.SpannableString;
 import android.text.SpannableStringBuilder;
 import android.text.style.ImageSpan;
 import android.view.View;
 import com.baidu.tieba.R;
 import com.baidu.tieba.TiebaApplication;
+import com.baidu.tieba.mention.MentionActivity;
 import com.baidu.tieba.pb.WebActivity;
 import com.baidu.tieba.person.PersonInfoActivity;
 import com.baidu.tieba.util.IntentSpan;
 import com.baidu.tieba.util.TiebaLog;
+import com.baidu.tieba.view.MyBitmapDrawable;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class ContentData {
@@ -30,6 +31,10 @@ public class ContentData {
 
     public static boolean isNeedUnite(int parent_ype, int child_type) {
         return parent_ype == 0 && child_type != 3;
+    }
+
+    public static boolean isNeedUniteExcepFace(int parent_ype, int child_type) {
+        return (parent_ype != 0 || child_type == 3 || child_type == 2) ? false : true;
     }
 
     public void setType(int type) {
@@ -86,17 +91,13 @@ public class ContentData {
                 tmp.setSpan(click, 0, this.text.length() - 1, 33);
                 return tmp;
             case 2:
-                String str = this.text;
-                if (!this.text.endsWith(" ")) {
-                    this.text += " ";
-                }
-                SpannableString tmp2 = new SpannableString(this.text);
-                Bitmap bm = TiebaApplication.app.getFace(str);
+                SpannableString tmp2 = new SpannableString(this.text + " ");
+                Bitmap bm = TiebaApplication.app.getFace(this.text);
                 if (bm != null) {
-                    BitmapDrawable dr = new BitmapDrawable(bm);
+                    MyBitmapDrawable dr = new MyBitmapDrawable(bm);
                     dr.setBounds(0, 0, bm.getWidth(), bm.getHeight());
-                    ImageSpan span = new ImageSpan(dr, 0);
-                    tmp2.setSpan(span, 0, this.text.length() - 1, 33);
+                    ImageSpan span = new ImageSpan(dr, 1);
+                    tmp2.setSpan(span, 0, this.text.length(), 33);
                 }
                 return tmp2;
             case 3:
@@ -138,6 +139,27 @@ public class ContentData {
         }
     }
 
+    public SpannableString getSpannableString(Context context, int line_height, int font_height) {
+        int height;
+        SpannableString tmp = null;
+        if (this.type == 2) {
+            tmp = new SpannableString(this.text + " ");
+            Bitmap bm = TiebaApplication.app.getFace(this.text);
+            if (bm != null) {
+                MyBitmapDrawable dr = new MyBitmapDrawable(bm);
+                if (line_height - font_height > 0) {
+                    height = bm.getHeight() + ((line_height - font_height) >> 1);
+                } else {
+                    height = bm.getHeight();
+                }
+                dr.setBounds(0, 0, bm.getWidth(), height);
+                ImageSpan span = new ImageSpan(dr, 1);
+                tmp.setSpan(span, 0, this.text.length(), 33);
+            }
+        }
+        return tmp;
+    }
+
     public String getLink() {
         return this.link;
     }
@@ -145,7 +167,7 @@ public class ContentData {
     public void parserJson(JSONObject json) {
         if (json != null) {
             try {
-                this.type = json.optInt("type", 0);
+                this.type = json.optInt(MentionActivity.TYPE, 0);
                 if (this.type == 3) {
                     this.link = json.optString("src");
                     this.text = json.optString("bsize");

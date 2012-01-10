@@ -1,6 +1,7 @@
 package com.baidu.tieba.frs;
 
 import android.app.AlertDialog;
+import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -30,6 +31,7 @@ import com.baidu.tieba.pb.PbActivity;
 import com.baidu.tieba.person.PersonListActivity;
 import com.baidu.tieba.util.DatabaseService;
 import com.baidu.tieba.util.NetWork;
+import com.baidu.tieba.util.NetWorkCore;
 import com.baidu.tieba.util.NetWorkErr;
 import com.baidu.tieba.util.TiebaLog;
 import com.baidu.tieba.util.UtilHelper;
@@ -39,6 +41,7 @@ import java.util.Date;
 import org.apache.http.message.BasicNameValuePair;
 /* loaded from: classes.dex */
 public class FrsActivity extends BaseActivity {
+    private static final int DIALOG_UNLIKE = 1;
     private static final String FLAG = "flag";
     private static final String FROM = "from";
     public static final int FRS_FLAG_ADD_SEARCH_HIS = 1;
@@ -446,7 +449,7 @@ public class FrsActivity extends BaseActivity {
         BasicNameValuePair tmp2 = new BasicNameValuePair(PersonListActivity.TAG_PAGE, String.valueOf(this.mPn));
         param.add(tmp2);
         if (this.mIsGood == 1) {
-            BasicNameValuePair tmp3 = new BasicNameValuePair("is_good", "1");
+            BasicNameValuePair tmp3 = new BasicNameValuePair("is_good", NetWorkCore.NET_TYPE_NET);
             param.add(tmp3);
             BasicNameValuePair tmp4 = new BasicNameValuePair("cid", String.valueOf(this.mGoodId));
             param.add(tmp4);
@@ -926,11 +929,29 @@ public class FrsActivity extends BaseActivity {
                 showGoodDialog();
                 break;
             case 3:
-            case 4:
                 this.mType = 5;
                 execLike();
                 break;
+            case 4:
+                showDialog(1);
+                break;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override // android.app.Activity
+    protected Dialog onCreateDialog(int id) {
+        switch (id) {
+            case 1:
+                return new AlertDialog.Builder(this).setTitle(R.string.alerm_title).setIcon(R.drawable.dialogue_quit).setMessage(R.string.unlike_info).setPositiveButton(getString(R.string.confirm), new DialogInterface.OnClickListener() { // from class: com.baidu.tieba.frs.FrsActivity.9
+                    @Override // android.content.DialogInterface.OnClickListener
+                    public void onClick(DialogInterface arg0, int arg1) {
+                        FrsActivity.this.mType = 5;
+                        FrsActivity.this.execLike();
+                    }
+                }).setNegativeButton(getString(R.string.cancel), (DialogInterface.OnClickListener) null).create();
+            default:
+                return super.onCreateDialog(id);
+        }
     }
 }

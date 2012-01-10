@@ -36,16 +36,18 @@ public class FaceAdapter extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public Object getItem(int position) {
-        SoftReference<Bitmap> soft;
         int resId = this.mFaceList.get(position).intValue();
-        Integer key = this.mFace.get(Integer.valueOf(resId));
         Bitmap bm = null;
-        if (key != null && (soft = this.mSoftBitmap.get(key)) != null) {
-            bm = soft.get();
+        SoftReference<Bitmap> soft = this.mSoftBitmap.get(Integer.valueOf(resId));
+        if (soft != null) {
+            Bitmap bm2 = soft.get();
+            bm = bm2;
         }
-        if (bm == null && (bm = BitmapHelper.getResBitmap(this.mContext, resId)) != null && key != null) {
-            SoftReference<Bitmap> soft2 = new SoftReference<>(bm);
-            this.mSoftBitmap.put(key, soft2);
+        if (bm == null) {
+            Bitmap bm3 = BitmapHelper.getResBitmap(this.mContext, resId);
+            SoftReference<Bitmap> tmp = new SoftReference<>(bm3);
+            this.mSoftBitmap.put(Integer.valueOf(resId), tmp);
+            return bm3;
         }
         return bm;
     }

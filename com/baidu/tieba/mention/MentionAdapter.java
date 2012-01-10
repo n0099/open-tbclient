@@ -11,6 +11,7 @@ import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import com.baidu.tieba.R;
+import com.baidu.tieba.data.Config;
 import com.baidu.tieba.data.FeedData;
 import com.baidu.tieba.person.PersonInfoActivity;
 import com.baidu.tieba.util.AsyncImageLoader;
@@ -30,6 +31,7 @@ public class MentionAdapter extends BaseAdapter {
     private boolean mIsRefresh = false;
     private boolean mIsGetmore = false;
     private ArrayList<ProgressBar> mProgressbars = new ArrayList<>();
+    private int mTextConfig = 3;
 
     public MentionAdapter(Context context, ArrayList<FeedData> data) {
         this.mContext = context;
@@ -89,6 +91,14 @@ public class MentionAdapter extends BaseAdapter {
 
     public int getType() {
         return this.mType;
+    }
+
+    public void setTextConfig(int textConfig) {
+        this.mTextConfig = textConfig;
+    }
+
+    public int getTextConfig() {
+        return this.mTextConfig;
     }
 
     public AsyncImageLoader getImageLoader() {
@@ -208,6 +218,8 @@ public class MentionAdapter extends BaseAdapter {
         holder.mUserName.setText(data.getReplyer().getName_show());
         holder.mTime.setText(StringHelper.getTimeString(data.getTime()));
         holder.mContent.setText(data.getContent());
+        holder.mUserName.setTextSize(Config.getNameSize());
+        holder.mContent.setTextSize(Config.getContentSize());
         if (this.mType == 0) {
             int type = data.getType();
             if (type == 1) {

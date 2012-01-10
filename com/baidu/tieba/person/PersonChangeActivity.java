@@ -21,6 +21,7 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 import com.baidu.tieba.BaseActivity;
 import com.baidu.tieba.R;
+import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.model.PersonChangeModel;
 import com.baidu.tieba.util.AsyncImageLoader;
 import com.baidu.tieba.util.BitmapHelper;
@@ -299,8 +300,12 @@ public class PersonChangeActivity extends BaseActivity {
         /* JADX WARN: Can't rename method to resolve collision */
         @Override // android.os.AsyncTask
         public Bitmap doInBackground(Object... params) {
-            Bitmap bitmap = WriteUtil.ImageResult(this.mRequestCode, this.mContext, this.mIntent);
-            return bitmap;
+            if (this.mRequestCode == WriteUtil.REQUEST_ALBUM_IMAGE && this.mIntent != null) {
+                Bitmap bitmap = WriteUtil.ImageResult(this.mRequestCode, this.mContext, this.mIntent.getData(), TiebaApplication.app.getPostImageSize());
+                return bitmap;
+            }
+            Bitmap bitmap2 = WriteUtil.ImageResult(this.mRequestCode, this.mContext, null, TiebaApplication.app.getPostImageSize());
+            return bitmap2;
         }
 
         public void cancel() {
@@ -386,7 +391,7 @@ public class PersonChangeActivity extends BaseActivity {
             this.mNetWork.addPostData("sex", String.valueOf(this.mModel.getSex()));
             this.mNetWork.addPostData("intro", this.mModel.getIntro());
             if (this.mModel.getPhotoChanged() && PersonChangeActivity.this.mPhoto != null) {
-                this.mNetWork.addPostData("head_pic", BitmapHelper.Bitmap2Bytes(PersonChangeActivity.this.mPhoto, 100));
+                this.mNetWork.addPostData("head_pic", BitmapHelper.Bitmap2Bytes(PersonChangeActivity.this.mPhoto, 80));
             }
             this.mNetWork.postMultiNetData();
             if (this.mNetWork.isRequestSuccess()) {

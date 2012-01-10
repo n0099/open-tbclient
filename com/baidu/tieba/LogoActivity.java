@@ -11,12 +11,9 @@ import android.view.animation.Animation;
 import android.widget.ImageView;
 import com.baidu.tieba.account.LoginActivity;
 import com.baidu.tieba.data.AccountData;
-import com.baidu.tieba.data.Config;
 import com.baidu.tieba.service.FatalErrorService;
 import com.baidu.tieba.util.BitmapHelper;
 import com.baidu.tieba.util.DatabaseService;
-import com.baidu.tieba.util.FileHelper;
-import java.io.File;
 /* loaded from: classes.dex */
 public class LogoActivity extends BaseActivity {
     private boolean mHaveFinishiAnim = false;
@@ -35,7 +32,7 @@ public class LogoActivity extends BaseActivity {
         }
     };
 
-    /* JADX WARN: Type inference failed for: r1v12, types: [com.baidu.tieba.LogoActivity$3] */
+    /* JADX WARN: Type inference failed for: r0v12, types: [com.baidu.tieba.LogoActivity$3] */
     @Override // com.baidu.tieba.BaseActivity, android.app.Activity
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -79,19 +76,16 @@ public class LogoActivity extends BaseActivity {
                     if (app.isInvalidTDatabase()) {
                         DatabaseService.deletSdDatebase();
                         app.setAPPUseTimes(0);
-                        app.saveDatabaseVersion();
                     }
                     new DatabaseService();
                     new DatabaseService(DatabaseService.DatabaseLocation.SDCARD);
                     DatabaseService.delOverdueDraft();
+                    DatabaseService.delOverdueChunkUploadData();
                     LogoActivity.this.mHandler.handleMessage(LogoActivity.this.mHandler.obtainMessage());
                 }
             }
         }.start();
-        File file = FileHelper.GetFile(Config.FATAL_ERROR_FILE);
-        if (file != null && file.length() > Config.FATAL_ERROR_FILE_UPLOAD_SIZE) {
-            startErrorUploadService();
-        }
+        startErrorUploadService();
     }
 
     private void startErrorUploadService() {

@@ -6,9 +6,11 @@ import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Bitmap;
 import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.data.AccountData;
+import com.baidu.tieba.data.ChunkUploadData;
 import com.baidu.tieba.data.Config;
 import com.baidu.tieba.data.MarkData;
 import com.baidu.tieba.model.WriteModel;
+import com.baidu.tieba.util.DatabaseSdHelper;
 import java.util.ArrayList;
 import java.util.Date;
 /* loaded from: classes.dex */
@@ -46,16 +48,19 @@ public class DatabaseService {
                 synchronized (DatabaseService.class) {
                     try {
                         if (this.mLoc == DatabaseLocation.SDCARD) {
-                            if (FileHelper.CheckTempDir()) {
-                                boolean have_create = FileHelper.CheckFile(Config.TMP_DATABASE_NAME);
-                                SDdatabase = SQLiteDatabase.openOrCreateDatabase(FileHelper.EXTERNAL_STORAGE_DIRECTORY + "/" + Config.TMPDIRNAME + "/" + Config.TMP_DATABASE_NAME, (SQLiteDatabase.CursorFactory) null);
-                                if (!have_create) {
-                                    onCreateSdDatabase();
+                            DatabaseSdHelper mHelper = new DatabaseSdHelper();
+                            mHelper.setOnCreateCallback(new DatabaseSdHelper.onCreateCallback() { // from class: com.baidu.tieba.util.DatabaseService.1
+                                @Override // com.baidu.tieba.util.DatabaseSdHelper.onCreateCallback
+                                public void onCreate() {
+                                    try {
+                                        TiebaApplication.app.resetTDatabaseCreateTime();
+                                    } catch (Exception e) {
+                                    }
                                 }
-                            }
+                            });
+                            SDdatabase = mHelper.getWritableDatabase();
                         } else {
-                            DatabaseHelper mHelper = new DatabaseHelper(TiebaApplication.app);
-                            database = mHelper.getWritableDatabase();
+                            database = new DatabaseHelper(TiebaApplication.app).getWritableDatabase();
                         }
                     } catch (Exception ex) {
                         TiebaLog.e("DatabaseService", "DatabaseService", "error = " + ex.getMessage());
@@ -63,6 +68,16 @@ public class DatabaseService {
                 }
             }
         }
+    }
+
+    public int getVersion() {
+        if (this.mLoc == DatabaseLocation.SDCARD && SDdatabase != null) {
+            return SDdatabase.getVersion();
+        }
+        if (this.mLoc == DatabaseLocation.INNER && database != null) {
+            return database.getVersion();
+        }
+        return 0;
     }
 
     public void ExecSQL(String sql) {
@@ -73,8 +88,7 @@ public class DatabaseService {
                 database.execSQL(sql);
             }
         } catch (Exception ex) {
-            TiebaLog.e("DatabaseService", "ExecSQL", "error = " + ex.getMessage());
-            TiebaLog.e("DatabaseService", "ExecSQL", sql);
+            TiebaLog.log_e(3, "DatabaseService", "ExecSQL", sql + "   error = " + ex.getMessage());
         }
     }
 
@@ -119,19 +133,6 @@ public class DatabaseService {
                 SDdatabase = null;
             }
         } catch (Exception e) {
-        }
-    }
-
-    private void onCreateSdDatabase() {
-        try {
-            TiebaApplication.app.resetTDatabaseCreateTime();
-        } catch (Exception e) {
-        }
-        if (SDdatabase != null) {
-            SDdatabase.execSQL("CREATE TABLE pb_photo(key varchar(50) Primary Key,image blob,date Integer)");
-            SDdatabase.execSQL("CREATE INDEX pb_photo_index ON pb_photo(date)");
-            SDdatabase.execSQL("CREATE TABLE friend_photo(key varchar(50) Primary Key,image blob,date Integer)");
-            SDdatabase.execSQL("CREATE INDEX friend_photo_index ON friend_photo(date)");
         }
     }
 
@@ -226,7 +227,7 @@ public class DatabaseService {
                     }
                     cursor = null;
                     Date date = new Date();
-                    service.ExecSQL("Insert into " + tableName + "(key,image,date) values(?,?,?)", new Object[]{key, BitmapHelper.Bitmap2Bytes(bm, 100), Long.valueOf(date.getTime())});
+                    service.ExecSQL("Insert into " + tableName + "(key,image,date) values(?,?,?)", new Object[]{key, BitmapHelper.Bitmap2Bytes(bm, 80), Long.valueOf(date.getTime())});
                 } catch (Exception ex) {
                     TiebaLog.e("DatabaseService", "cashPhoto", "error = " + ex.getMessage());
                     if (cursor != null) {
@@ -1080,6 +1081,101 @@ public class DatabaseService {
             }
             throw th;
         }
+    }
+
+    public static void delOverdueChunkUploadData() {
+        DatabaseService service = new DatabaseService();
+        if (service != null) {
+            try {
+                service.ExecSQL("delete from chunk_upload_data where strftime('%s','now') - time > 48 * 3600 and account=?", new String[]{TiebaApplication.getCurrentAccount()});
+            } catch (Exception ex) {
+                TiebaLog.e("DatabaseService", "delChunkUploadData", "error = " + ex.getMessage());
+            }
+        }
+    }
+
+    public static void delChunkUploadData(String md5) {
+        DatabaseService service = new DatabaseService();
+        if (md5 != null && service != null) {
+            try {
+                service.ExecSQL("delete from chunk_upload_data where md5=? and account=?", new String[]{md5, TiebaApplication.getCurrentAccount()});
+            } catch (Exception ex) {
+                TiebaLog.e("DatabaseService", "delChunkUploadData", "error = " + ex.getMessage());
+            }
+        }
+    }
+
+    public static boolean saveChunkUploadData(ChunkUploadData data) {
+        DatabaseService service = new DatabaseService();
+        Date date = new Date();
+        if (data == null || service == null) {
+            return false;
+        }
+        try {
+            service.ExecSQL("delete from chunk_upload_data where md5=? and account=?", new String[]{data.getMd5(), TiebaApplication.getCurrentAccount()});
+            return service.ExecSQL("Insert into chunk_upload_data(md5,total_length,chunk_no,account,time) values(?,?,?,?,?)", new Object[]{data.getMd5(), Long.valueOf(data.getTotalLength()), Integer.valueOf(data.getChunkNo()), TiebaApplication.getCurrentAccount(), Long.valueOf(date.getTime() / 1000)}).booleanValue();
+        } catch (Exception ex) {
+            TiebaLog.e("DatabaseService", "saveChunkUploadData", "error = " + ex.getMessage());
+            return false;
+        }
+    }
+
+    public static ChunkUploadData getChunkUploadDataByMd5(String md5) {
+        Exception ex;
+        DatabaseService service = new DatabaseService();
+        Cursor cursor = null;
+        ChunkUploadData data = null;
+        if (service != null) {
+            try {
+                try {
+                    cursor = service.rawQuery("select * from chunk_upload_data where md5=? and account=? and strftime('%s','now') - time < 48 * 3600", new String[]{md5, TiebaApplication.getCurrentAccount()});
+                    if (cursor != null) {
+                        if (cursor.moveToFirst()) {
+                            ChunkUploadData data2 = new ChunkUploadData();
+                            try {
+                                data2.setMd5(md5);
+                                data2.setChunkNo(cursor.getInt(3));
+                                data2.setTotalLength(cursor.getLong(2));
+                                data = data2;
+                            } catch (Exception e) {
+                                ex = e;
+                                data = data2;
+                                TiebaLog.e("DatabaseService", "getChunkUploadDataByMd5", "error = " + ex.getMessage());
+                                if (cursor != null) {
+                                    try {
+                                        cursor.close();
+                                    } catch (Exception e2) {
+                                    }
+                                }
+                                return data;
+                            } catch (Throwable th) {
+                                th = th;
+                                if (cursor != null) {
+                                    try {
+                                        cursor.close();
+                                    } catch (Exception e3) {
+                                    }
+                                }
+                                throw th;
+                            }
+                        }
+                        cursor.close();
+                    }
+                    cursor = null;
+                } catch (Exception e4) {
+                    ex = e4;
+                }
+            } catch (Throwable th2) {
+                th = th2;
+            }
+        }
+        if (cursor != null) {
+            try {
+                cursor.close();
+            } catch (Exception e5) {
+            }
+        }
+        return data;
     }
 
     public static void deletSdDatebase() {

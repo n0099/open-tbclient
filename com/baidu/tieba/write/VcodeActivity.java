@@ -19,6 +19,7 @@ import com.baidu.tieba.data.VcodeInfoData;
 import com.baidu.tieba.model.WriteModel;
 import com.baidu.tieba.util.BitmapHelper;
 import com.baidu.tieba.util.NetWork;
+import com.baidu.tieba.util.NetWorkCore;
 /* loaded from: classes.dex */
 public class VcodeActivity extends BaseActivity {
     private static final String SAVE_KEY = "model";
@@ -56,7 +57,9 @@ public class VcodeActivity extends BaseActivity {
             @Override // android.content.DialogInterface.OnCancelListener
             public void onCancel(DialogInterface dialog) {
                 VcodeActivity.this.DeinitWaitingDialog();
-                VcodeActivity.this.mPostThreadTask.cancel();
+                if (VcodeActivity.this.mPostThreadTask != null) {
+                    VcodeActivity.this.mPostThreadTask.cancel();
+                }
             }
         };
         if (savedInstanceState != null) {
@@ -154,7 +157,7 @@ public class VcodeActivity extends BaseActivity {
             this.mNetwork.addPostData("kw", this.mDate.getForumName());
             String pic_str = "";
             if (this.mDate.getBitmapId() != null && this.mDate.getBitmapId().getPic_id() != null && this.mDate.getBitmapId().getPic_id().length() > 0) {
-                pic_str = String.format("\n#(pic,%s,%d,%d)", this.mDate.getBitmapId().getPic_id(), Integer.valueOf(this.mDate.getBitmapId().getWidth()), Integer.valueOf(this.mDate.getBitmapId().getHeight()));
+                pic_str = String.format("#(pic,%s,%d,%d)", this.mDate.getBitmapId().getPic_id(), Integer.valueOf(this.mDate.getBitmapId().getWidth()), Integer.valueOf(this.mDate.getBitmapId().getHeight()));
             }
             this.mNetwork.addPostData("content", this.mDate.getContent() + pic_str);
             this.mNetwork.addPostData("vcode_md5", this.mDate.getVcodeMD5());
@@ -249,9 +252,9 @@ public class VcodeActivity extends BaseActivity {
                 this.mNetWork.addPostData("fid", VcodeActivity.this.mModel.getForumId());
                 this.mNetWork.addPostData("kw", VcodeActivity.this.mModel.getForumName());
                 if (VcodeActivity.this.mModel.getType() == WriteModel.NEW) {
-                    this.mNetWork.addPostData("pub_type", "1");
+                    this.mNetWork.addPostData("pub_type", NetWorkCore.NET_TYPE_NET);
                 } else {
-                    this.mNetWork.addPostData("pub_type", "2");
+                    this.mNetWork.addPostData("pub_type", NetWorkCore.NET_TYPE_WAP);
                 }
                 String ret = this.mNetWork.postNetData();
                 if (!this.mNetWork.isRequestSuccess()) {

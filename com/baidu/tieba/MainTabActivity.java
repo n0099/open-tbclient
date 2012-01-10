@@ -1,5 +1,6 @@
 package com.baidu.tieba;
 
+import android.app.Activity;
 import android.app.LocalActivityManager;
 import android.app.TabActivity;
 import android.content.BroadcastReceiver;
@@ -7,6 +8,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.widget.CompoundButton;
 import android.widget.RadioButton;
 import android.widget.TabHost;
@@ -15,12 +17,15 @@ import android.widget.TextView;
 import com.baidu.tieba.account.LoginActivity;
 import com.baidu.tieba.data.Config;
 import com.baidu.tieba.home.HomeActivity;
+import com.baidu.tieba.home.LikeActivity;
+import com.baidu.tieba.home.MarkActivity;
 import com.baidu.tieba.mention.MentionActivity;
 import com.baidu.tieba.more.MoreActivity;
 import com.baidu.tieba.person.PersonInfoActivity;
 import com.baidu.tieba.service.ClearTempService;
 import com.baidu.tieba.service.TiebaSyncService;
 import com.baidu.tieba.util.TiebaLog;
+import com.baidu.tieba.util.UtilHelper;
 /* loaded from: classes.dex */
 public class MainTabActivity extends TabActivity implements CompoundButton.OnCheckedChangeListener {
     public static final String GOTO_CLOSE = "close";
@@ -106,17 +111,12 @@ public class MainTabActivity extends TabActivity implements CompoundButton.OnChe
         startSyncService();
         regReceiver();
         startService(new Intent("com.baidu.tieba.service.Message"));
-        stopClearTempService();
+        startClearTempService();
     }
 
     private void startClearTempService() {
         Intent service = new Intent(this, ClearTempService.class);
         startService(service);
-    }
-
-    private void stopClearTempService() {
-        Intent service = new Intent(this, ClearTempService.class);
-        stopService(service);
     }
 
     @Override // android.app.ActivityGroup, android.app.Activity
@@ -127,8 +127,10 @@ public class MainTabActivity extends TabActivity implements CompoundButton.OnChe
         if (TiebaApplication.app != null) {
             TiebaApplication.app.cancelNotification();
         }
-        startClearTempService();
         stopService(new Intent("com.baidu.tieba.service.Message"));
+        TiebaApplication.app.resetMsg();
+        TiebaApplication.app.getSdramImage().clearPicAndPhoto();
+        System.gc();
         super.onDestroy();
     }
 
@@ -183,16 +185,16 @@ public class MainTabActivity extends TabActivity implements CompoundButton.OnChe
     public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
         if (isChecked) {
             switch (buttonView.getId()) {
-                case R.id.radio_home /* 2131296366 */:
+                case R.id.radio_home /* 2131361902 */:
                     this.mHost.setCurrentTabByTag(HOME_TAB);
                     return;
-                case R.id.radio_sort /* 2131296367 */:
+                case R.id.radio_sort /* 2131361903 */:
                     this.mHost.setCurrentTabByTag(SORT_TAB);
                     return;
-                case R.id.radio_person_info /* 2131296368 */:
+                case R.id.radio_person_info /* 2131361904 */:
                     this.mHost.setCurrentTabByTag(PERSON_INFO_TAB);
                     return;
-                case R.id.radio_more /* 2131296369 */:
+                case R.id.radio_more /* 2131361905 */:
                     this.mHost.setCurrentTabByTag(MORE_TAB);
                     return;
                 default:
@@ -210,7 +212,10 @@ public class MainTabActivity extends TabActivity implements CompoundButton.OnChe
         if (goto_home) {
             HomeActivity home2 = (HomeActivity) getLocalActivityManager().getActivity(HOME_TAB);
             if (home2 != null) {
-                home2.closeSearch();
+                Activity activity = home2.getCurrentActivity();
+                if (activity instanceof LikeActivity) {
+                    ((LikeActivity) activity).closeSearch();
+                }
             }
             this.mHost.setCurrentTabByTag(HOME_TAB);
             ((RadioButton) findViewById(R.id.radio_home)).setChecked(true);
@@ -257,7 +262,13 @@ public class MainTabActivity extends TabActivity implements CompoundButton.OnChe
             TiebaLog.i(getClass().toString(), "onNewIntent", manager.getCurrentId());
             String currentTab = manager.getCurrentId();
             if (!currentTab.equals(HOME_TAB) && (home = (HomeActivity) manager.getActivity(HOME_TAB)) != null) {
-                home.closeDialog();
+                Activity activity2 = home.getCurrentActivity();
+                if (activity2 instanceof LikeActivity) {
+                    ((LikeActivity) activity2).closeDialog();
+                }
+                if (activity2 instanceof MarkActivity) {
+                    ((MarkActivity) activity2).closeDialog();
+                }
             }
             MentionActivity mention = (MentionActivity) manager.getActivity(SORT_TAB);
             if (mention != null) {
@@ -268,6 +279,15 @@ public class MainTabActivity extends TabActivity implements CompoundButton.OnChe
                 more.closeMenuDialog();
             }
         }
+    }
+
+    @Override // android.app.Activity, android.view.Window.Callback
+    public boolean dispatchKeyEvent(KeyEvent event) {
+        if (event.getAction() == 0 && event.getKeyCode() == 4) {
+            UtilHelper.quitDialog(this);
+            return false;
+        }
+        return super.dispatchKeyEvent(event);
     }
 
     private void setupIntent() {

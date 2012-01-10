@@ -1,5 +1,6 @@
 package com.baidu.tieba.data;
 
+import com.baidu.tieba.mention.MentionActivity;
 import com.baidu.tieba.person.PersonInfoActivity;
 import com.baidu.tieba.util.TiebaLog;
 import org.json.JSONObject;
@@ -64,7 +65,7 @@ public class MetaData {
         if (json != null) {
             try {
                 this.id = json.optString("id");
-                this.type = json.optInt("type", 0);
+                this.type = json.optInt(MentionActivity.TYPE, 0);
                 this.name = json.optString(PersonInfoActivity.TAG_NAME);
                 this.name_show = json.optString("name_show");
                 this.portrait = json.optString("portrait");

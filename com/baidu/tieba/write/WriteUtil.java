@@ -6,7 +6,6 @@ import android.graphics.Bitmap;
 import android.net.Uri;
 import com.baidu.tieba.BaseActivity;
 import com.baidu.tieba.R;
-import com.baidu.tieba.data.Config;
 import com.baidu.tieba.util.BitmapHelper;
 import com.baidu.tieba.util.FileHelper;
 import com.baidu.tieba.util.TiebaLog;
@@ -51,9 +50,9 @@ public class WriteUtil {
         }
     }
 
-    private static Bitmap photoResult() {
+    private static Bitmap photoResult(int max_size) {
         try {
-            Bitmap bm = BitmapHelper.resizeBitmap(TMP_IMAGE_NAME, (int) Config.MAX_POST_IMAGE_SIZE);
+            Bitmap bm = BitmapHelper.subSampleBitmap(TMP_IMAGE_NAME, max_size);
             return bm;
         } catch (Exception ex) {
             TiebaLog.e("WriteUtil", "photoResult", "error = " + ex.getMessage());
@@ -61,10 +60,9 @@ public class WriteUtil {
         }
     }
 
-    private static Bitmap AlbumImageResult(Context context, Intent intent) {
+    private static Bitmap AlbumImageResult(Context context, Uri uri, int max_size) {
         try {
-            Uri uri = intent.getData();
-            Bitmap bm = BitmapHelper.resizeBitmap(context, uri, Config.MAX_POST_IMAGE_SIZE);
+            Bitmap bm = BitmapHelper.subSampleBitmap(context, uri, max_size);
             return bm;
         } catch (Exception ex) {
             TiebaLog.e("WriteUtil", "AlbumImageResult", "error = " + ex.getMessage());
@@ -72,14 +70,14 @@ public class WriteUtil {
         }
     }
 
-    public static Bitmap ImageResult(int requestCode, Context context, Intent intent) {
+    public static Bitmap ImageResult(int requestCode, Context context, Uri uri, int max_size) {
         if (requestCode == REQUEST_CAMERA) {
-            Bitmap bm = photoResult();
+            Bitmap bm = photoResult(max_size);
             return bm;
         } else if (requestCode != REQUEST_ALBUM_IMAGE) {
             return null;
         } else {
-            Bitmap bm2 = AlbumImageResult(context, intent);
+            Bitmap bm2 = AlbumImageResult(context, uri, max_size);
             return bm2;
         }
     }

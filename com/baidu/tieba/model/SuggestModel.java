@@ -20,7 +20,6 @@ public class SuggestModel {
         try {
             JSONObject json = new JSONObject(data);
             parserJson(json);
-            logPrint();
         } catch (Exception ex) {
             TiebaLog.e("BarlistModel", "parserJson", "error = " + ex.getMessage());
         }

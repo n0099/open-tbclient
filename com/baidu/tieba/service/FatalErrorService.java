@@ -4,7 +4,6 @@ import android.app.Service;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.IBinder;
-import android.telephony.TelephonyManager;
 import com.baidu.tieba.data.Config;
 import com.baidu.tieba.util.FileHelper;
 import com.baidu.tieba.util.GzipHelper;
@@ -52,100 +51,105 @@ public class FatalErrorService extends Service {
             this.mNetwork = null;
         }
 
-        /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [87=4, 88=4, 92=4, 93=4, 95=5] */
-        /* JADX DEBUG: Method merged with bridge method */
-        /* JADX INFO: Access modifiers changed from: protected */
-        @Override // android.os.AsyncTask
-        public String doInBackground(String... params) {
+        /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [89=4, 90=4, 94=4, 95=4, 97=5] */
+        private void sendLogFile(String name, String net_address, boolean need_compress) {
             Exception ex;
-            ByteArrayOutputStream outputstream;
-            ByteArrayOutputStream outputstream2 = null;
+            ByteArrayOutputStream outputstream = null;
             FileInputStream in = null;
             try {
                 try {
-                    File file = FileHelper.CreateFileIfNotFound(Config.FATAL_ERROR_FILE);
+                    File file = FileHelper.GetFile(name);
                     if (file != null && file.length() > Config.FATAL_ERROR_FILE_UPLOAD_SIZE) {
                         FileInputStream in2 = new FileInputStream(file);
                         try {
-                            outputstream = new ByteArrayOutputStream(1024);
-                        } catch (Exception e) {
-                            ex = e;
-                            in = in2;
-                        } catch (Throwable th) {
-                            th = th;
-                            in = in2;
-                        }
-                        try {
-                            GzipHelper.compress(in2, outputstream);
-                            byte[] data = outputstream.toByteArray();
-                            if (data == null) {
+                            ByteArrayOutputStream outputstream2 = new ByteArrayOutputStream(1024);
+                            try {
+                                if (need_compress) {
+                                    GzipHelper.compress(in2, outputstream2);
+                                } else {
+                                    byte[] buffer = new byte[1024];
+                                    while (true) {
+                                        int count = in2.read(buffer, 0, 1024);
+                                        if (count == -1) {
+                                            break;
+                                        }
+                                        outputstream2.write(buffer, 0, count);
+                                    }
+                                    outputstream2.flush();
+                                }
+                                byte[] data = outputstream2.toByteArray();
+                                if (data == null) {
+                                    if (outputstream2 != null) {
+                                        try {
+                                            outputstream2.close();
+                                        } catch (Exception e) {
+                                        }
+                                    }
+                                    if (in2 != null) {
+                                        try {
+                                            in2.close();
+                                        } catch (Exception e2) {
+                                        }
+                                    }
+                                    return;
+                                }
+                                this.mNetwork = new NetWork(Config.SERVER_ADDRESS + net_address);
+                                this.mNetwork.addPostData("logfile", data);
+                                this.mNetwork.postMultiNetData();
+                                if (this.mNetwork.isRequestSuccess()) {
+                                    file.delete();
+                                }
+                                in = in2;
+                                outputstream = outputstream2;
+                            } catch (Exception e3) {
+                                ex = e3;
+                                in = in2;
+                                outputstream = outputstream2;
+                                TiebaLog.e(getClass().getName(), "sendLogFile", ex.getMessage());
                                 if (outputstream != null) {
                                     try {
                                         outputstream.close();
-                                    } catch (Exception e2) {
+                                    } catch (Exception e4) {
                                     }
                                 }
-                                if (in2 != null) {
+                                if (in != null) {
                                     try {
-                                        in2.close();
-                                    } catch (Exception e3) {
+                                        in.close();
+                                        return;
+                                    } catch (Exception e5) {
+                                        return;
                                     }
                                 }
-                                return null;
-                            }
-                            this.mNetwork = new NetWork("http://c.tieba.baidu.com/c/s/logupload");
-                            TelephonyManager mTelephonyMgr = (TelephonyManager) FatalErrorService.this.getSystemService("phone");
-                            String imei = mTelephonyMgr.getDeviceId();
-                            if (imei != null) {
-                                this.mNetwork.addPostData("_phone_imei", imei);
-                            }
-                            this.mNetwork.addPostData("logfile", data);
-                            this.mNetwork.postMultiNetData();
-                            if (this.mNetwork.isRequestSuccess()) {
-                                file.delete();
-                            }
-                            in = in2;
-                            outputstream2 = outputstream;
-                        } catch (Exception e4) {
-                            ex = e4;
-                            in = in2;
-                            outputstream2 = outputstream;
-                            TiebaLog.e(getClass().getName(), "doInBackground", ex.getMessage());
-                            if (outputstream2 != null) {
-                                try {
-                                    outputstream2.close();
-                                } catch (Exception e5) {
+                                return;
+                            } catch (Throwable th) {
+                                th = th;
+                                in = in2;
+                                outputstream = outputstream2;
+                                if (outputstream != null) {
+                                    try {
+                                        outputstream.close();
+                                    } catch (Exception e6) {
+                                    }
                                 }
-                            }
-                            if (in != null) {
-                                try {
-                                    in.close();
-                                } catch (Exception e6) {
+                                if (in != null) {
+                                    try {
+                                        in.close();
+                                    } catch (Exception e7) {
+                                    }
                                 }
+                                throw th;
                             }
-                            return null;
+                        } catch (Exception e8) {
+                            ex = e8;
+                            in = in2;
                         } catch (Throwable th2) {
                             th = th2;
                             in = in2;
-                            outputstream2 = outputstream;
-                            if (outputstream2 != null) {
-                                try {
-                                    outputstream2.close();
-                                } catch (Exception e7) {
-                                }
-                            }
-                            if (in != null) {
-                                try {
-                                    in.close();
-                                } catch (Exception e8) {
-                                }
-                            }
-                            throw th;
                         }
                     }
-                    if (outputstream2 != null) {
+                    if (outputstream != null) {
                         try {
-                            outputstream2.close();
+                            outputstream.close();
                         } catch (Exception e9) {
                         }
                     }
@@ -158,10 +162,18 @@ public class FatalErrorService extends Service {
                 } catch (Exception e11) {
                     ex = e11;
                 }
-                return null;
             } catch (Throwable th3) {
                 th = th3;
             }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        /* JADX INFO: Access modifiers changed from: protected */
+        @Override // android.os.AsyncTask
+        public String doInBackground(String... params) {
+            sendLogFile(Config.FATAL_ERROR_FILE, Config.ERROR_UPLOAD_SERVER, true);
+            sendLogFile(Config.LOG_ERROR_FILE, Config.ERROR_LOG_SERVER, false);
+            return null;
         }
 
         public void cancel() {

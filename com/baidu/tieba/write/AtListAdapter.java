@@ -2,6 +2,7 @@ package com.baidu.tieba.write;
 
 import android.content.Context;
 import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,6 +13,7 @@ import android.widget.TextView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.data.MetaData;
 import com.baidu.tieba.util.AsyncImageLoader;
+import com.baidu.tieba.util.BitmapHelper;
 import com.baidu.tieba.util.TiebaLog;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
@@ -109,6 +111,8 @@ public class AtListAdapter extends BaseAdapter {
             if (getItemViewType(position) == 0) {
                 convertView = mInflater.inflate(R.layout.at_list_item, (ViewGroup) null);
                 holder.mPhoto = (ImageView) convertView.findViewById(R.id.photo);
+                BitmapDrawable dr = new BitmapDrawable(BitmapHelper.getCashBitmap(R.drawable.photo_bg));
+                holder.mPhoto.setBackgroundDrawable(dr);
                 holder.mName = (TextView) convertView.findViewById(R.id.name);
             } else {
                 convertView = mInflater.inflate(R.layout.page_item, (ViewGroup) null);
@@ -128,7 +132,8 @@ public class AtListAdapter extends BaseAdapter {
                 holder.mPhoto.setImageBitmap(bm);
             } else {
                 holder.mPhoto.setTag(portrait);
-                holder.mPhoto.setImageResource(R.drawable.photo);
+                Bitmap photo = BitmapHelper.getCashBitmap(R.drawable.photo);
+                holder.mPhoto.setImageBitmap(photo);
             }
             holder.mName.setText(this.mData.get(position).getName_show());
         } else if (this.mIsProcessMore) {

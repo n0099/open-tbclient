@@ -96,7 +96,6 @@ public class PersonListActivity extends BaseActivity {
             this.mTask.cancel();
         }
         if (this.mAdapter != null) {
-            this.mAdapter.setData(null);
             if (this.mAdapter.getImageLoader() != null) {
                 this.mAdapter.getImageLoader().cancelAllAsyncTask();
             }

@@ -3,19 +3,29 @@ package com.baidu.tieba.service;
 import android.app.Service;
 import android.content.Intent;
 import android.os.AsyncTask;
+import android.os.Handler;
 import android.os.IBinder;
+import android.os.Message;
 import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.data.Config;
 import com.baidu.tieba.data.MessageData;
 import com.baidu.tieba.util.NetWork;
 import com.baidu.tieba.util.TiebaLog;
-import java.util.Timer;
-import java.util.TimerTask;
 /* loaded from: classes.dex */
 public class TiebaMessageService extends Service {
+    private static final int MESSAGE_GET_MESSAGE = 1;
     private MsgAsyncTask mAsyncTask = null;
     private MessageData mData = null;
-    private Timer timer = null;
+    private Handler mHandler = new Handler() { // from class: com.baidu.tieba.service.TiebaMessageService.1
+        @Override // android.os.Handler
+        public void handleMessage(Message msg) {
+            if (msg.what == 1) {
+                TiebaMessageService.this.getMsg();
+                long frequency = TiebaApplication.app.getMsgFrequency();
+                TiebaMessageService.this.mHandler.sendEmptyMessageDelayed(1, 1000 * frequency);
+            }
+        }
+    };
 
     @Override // android.app.Service
     public IBinder onBind(Intent intent) {
@@ -23,15 +33,9 @@ public class TiebaMessageService extends Service {
     }
 
     @Override // android.app.Service
-    public void onCreate() {
-        super.onCreate();
-        this.timer = new Timer();
-    }
-
-    @Override // android.app.Service
     public void onDestroy() {
         super.onDestroy();
-        this.timer.cancel();
+        this.mHandler.removeMessages(1);
         if (this.mAsyncTask != null) {
             this.mAsyncTask.cancel();
         }
@@ -42,17 +46,9 @@ public class TiebaMessageService extends Service {
         super.onStart(intent, startId);
         if (!TiebaApplication.IS_APP_RUNNING || !TiebaApplication.app.isMsgRemindOn()) {
             stopSelf();
-            return;
+        } else {
+            this.mHandler.sendEmptyMessageDelayed(1, 3000L);
         }
-        long frequency = TiebaApplication.app.getMsgFrequency();
-        this.timer.cancel();
-        this.timer = new Timer();
-        this.timer.schedule(new TimerTask() { // from class: com.baidu.tieba.service.TiebaMessageService.1
-            @Override // java.util.TimerTask, java.lang.Runnable
-            public void run() {
-                TiebaMessageService.this.getMsg();
-            }
-        }, 3000L, 1000 * frequency);
     }
 
     @Override // android.app.Service

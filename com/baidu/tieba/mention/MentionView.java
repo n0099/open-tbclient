@@ -191,6 +191,10 @@ public class MentionView {
         this.mURL = url;
     }
 
+    public void setTextNoData(TextView text) {
+        this.mTextNoData = text;
+    }
+
     public void releaseProgressBar() {
         this.mAdapter.releaseProgressBar();
         this.mProgress.setVisibility(8);
@@ -206,6 +210,7 @@ public class MentionView {
         this.mPn = 1;
         this.mAdapter = new MentionAdapter(this.mActivity, null);
         this.mAdapter.setType(this.mPageType);
+        this.mAdapter.setTextConfig(TiebaApplication.app.getFontSize());
         this.mList.setAdapter((ListAdapter) this.mAdapter);
         this.mList.setOnItemClickListener(new AdapterView.OnItemClickListener() { // from class: com.baidu.tieba.mention.MentionView.2
             @Override // android.widget.AdapterView.OnItemClickListener
@@ -262,8 +267,6 @@ public class MentionView {
             }
         });
         this.mProgress.setVisibility(8);
-        this.mTextNoData = (TextView) this.mActivity.findViewById(R.id.mention_nodata);
-        this.mTextNoData.setVisibility(8);
     }
 
     public void show() {
@@ -276,7 +279,6 @@ public class MentionView {
                 break;
             case 3:
                 isNeedNetwork = true;
-                this.mTextNoData.setVisibility(8);
                 if (this.mAdapter.getIsRefresh()) {
                     return;
                 }
@@ -365,6 +367,13 @@ public class MentionView {
             } else {
                 this.mActivity.showMsg(this.mPageType, false);
             }
+        }
+    }
+
+    public void checkFontConfig() {
+        if (this.mAdapter != null && this.mAdapter.getTextConfig() != TiebaApplication.app.getFontSize()) {
+            this.mAdapter.setTextConfig(TiebaApplication.app.getFontSize());
+            this.mAdapter.notifyDataSetChanged();
         }
     }
 
@@ -485,29 +494,24 @@ public class MentionView {
                     this.mAdapter.notifyDataSetChanged();
                     break;
             }
-            if (model != null) {
-                MentionView.this.refresh(model);
-            } else if (this.mNetwork.isNetSuccess()) {
-                MentionView.this.mActivity.showToast(this.mNetwork.getErrorString());
-            } else {
-                if (MentionView.this.mModel == null) {
+            if (model == null) {
+                if (this.mNetwork.isNetSuccess()) {
                     MentionView.this.mActivity.showToast(this.mNetwork.getErrorString());
-                    MentionModel model2 = new MentionModel();
+                } else if (MentionView.this.mModel == null) {
+                    MentionView.this.mActivity.showToast(this.mNetwork.getErrorString());
+                    model = new MentionModel();
                     this.mAdapter.setHaveMore(false);
-                    ArrayList<FeedData> list = model2.getFeed_list();
+                    ArrayList<FeedData> list = model.getFeed_list();
                     if (list != null) {
                         this.mAdapter.setData(list);
                         this.mAdapter.notifyDataSetInvalidated();
                     }
-                    MentionView.this.mModel = model2;
+                    MentionView.this.mModel = model;
                 } else {
                     MentionView.this.mActivity.showToast(this.mNetwork.getErrorString());
                 }
-                if (MentionView.this.mAdapter.getData() == null || MentionView.this.mAdapter.getData().size() == 0) {
-                    MentionView.this.mTextNoData.setText(MentionView.this.mNoDataText);
-                    MentionView.this.mTextNoData.setVisibility(0);
-                }
             }
+            MentionView.this.refresh(model);
             MentionView.this.mTask = null;
         }
 
