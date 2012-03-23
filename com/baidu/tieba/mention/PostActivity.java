@@ -144,7 +144,7 @@ public class PostActivity extends BaseActivity {
                     PbData data = PostActivity.this.mModel.getData();
                     PostData post = data.getPost_list().get(0);
                     if (post != null) {
-                        WriteActivity.startAcitivity(PostActivity.this, data.getForum().getId(), data.getForum().getName(), data.getThread().getId(), post.getId(), post.getFloor_num(), data.getAnti());
+                        WriteActivity.startAcitivity(PostActivity.this, data.getForum().getId(), data.getForum().getName(), data.getThread().getId(), post.getId(), post.getFloor_num(), data.getAnti(), PostActivity.this.mModel.getData().getIsHasFloor());
                     }
                 }
             }
@@ -240,13 +240,13 @@ public class PostActivity extends BaseActivity {
                     this.mUserName.setText((CharSequence) null);
                 }
                 if (post.getAuthor() != null && post.getAuthor().getLevel_id() != 0) {
-                    this.mRank.setText(String.valueOf(post.getAuthor().getLevel_id()) + getString(R.string.grade));
+                    this.mRank.setText(String.valueOf(String.valueOf(post.getAuthor().getLevel_id())) + getString(R.string.grade));
                 } else {
                     this.mRank.setText((CharSequence) null);
                 }
                 this.mTime.setText(StringHelper.getTimeString(post.getTime()));
                 this.mFloorText.setVisibility(0);
-                this.mFloorText.setText(String.valueOf(post.getFloor_num()) + getString(R.string.floor));
+                this.mFloorText.setText(String.valueOf(String.valueOf(post.getFloor_num())) + getString(R.string.floor));
                 ArrayList<ContentData> content = post.getUnite_content();
                 if (content != null && content.size() > 0) {
                     int i = 0;
@@ -388,7 +388,6 @@ public class PostActivity extends BaseActivity {
         /* JADX WARN: Can't rename method to resolve collision */
         @Override // android.os.AsyncTask
         public PbData doInBackground(Object... params) {
-            Exception ex;
             PbData pbData = null;
             try {
                 this.mNetwork = new NetWork(this.mUrl);

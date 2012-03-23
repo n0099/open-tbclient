@@ -42,18 +42,6 @@ public class ImageActivity extends BaseActivity {
     private ProgressBar mLoadProgress = null;
     private LinearLayout mTitle = null;
 
-    static /* synthetic */ int access$608(ImageActivity x0) {
-        int i = x0.mIndex;
-        x0.mIndex = i + 1;
-        return i;
-    }
-
-    static /* synthetic */ int access$610(ImageActivity x0) {
-        int i = x0.mIndex;
-        x0.mIndex = i - 1;
-        return i;
-    }
-
     public static void startActivity(Context context, ArrayList<String> data, int index) {
         Intent intent = new Intent(context, ImageActivity.class);
         if (data != null && data.size() > 0) {
@@ -165,8 +153,9 @@ public class ImageActivity extends BaseActivity {
                     ImageActivity.this.mTask = null;
                 }
                 if (ImageActivity.this.mIndex > 0) {
-                    ImageActivity.access$610(ImageActivity.this);
-                    ImageActivity.this.mTask = new ImageAsyncTask();
+                    ImageActivity imageActivity = ImageActivity.this;
+                    imageActivity.mIndex--;
+                    ImageActivity.this.mTask = new ImageAsyncTask(ImageActivity.this, null);
                     ImageActivity.this.mTask.execute((String) ImageActivity.this.mUrl.get(ImageActivity.this.mIndex));
                 }
                 ImageActivity.this.mImageView.setImageBitmap(null);
@@ -184,8 +173,8 @@ public class ImageActivity extends BaseActivity {
                     ImageActivity.this.mTask = null;
                 }
                 if (ImageActivity.this.mIndex < ImageActivity.this.mUrl.size() - 1) {
-                    ImageActivity.access$608(ImageActivity.this);
-                    ImageActivity.this.mTask = new ImageAsyncTask();
+                    ImageActivity.this.mIndex++;
+                    ImageActivity.this.mTask = new ImageAsyncTask(ImageActivity.this, null);
                     ImageActivity.this.mTask.execute((String) ImageActivity.this.mUrl.get(ImageActivity.this.mIndex));
                 }
                 ImageActivity.this.mImageView.setImageBitmap(null);
@@ -238,7 +227,7 @@ public class ImageActivity extends BaseActivity {
                 this.mIndex = num - 1;
             }
             if (this.mIndex >= 0 && this.mUrl.get(this.mIndex) != null) {
-                this.mTask = new ImageAsyncTask();
+                this.mTask = new ImageAsyncTask(this, null);
                 this.mTask.execute(this.mUrl.get(this.mIndex));
             }
         }
@@ -277,6 +266,10 @@ public class ImageActivity extends BaseActivity {
 
         private ImageAsyncTask() {
             this.network = null;
+        }
+
+        /* synthetic */ ImageAsyncTask(ImageActivity imageActivity, ImageAsyncTask imageAsyncTask) {
+            this();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -380,23 +373,26 @@ public class ImageActivity extends BaseActivity {
                         postfix = sname.substring(index);
                         sname = sname.substring(0, index);
                     }
-                    String xfilename = sname + postfix;
+                    String xfilename = String.valueOf(sname) + postfix;
                     for (int i = 0; FileHelper.CheckFile(xfilename) && i < 10000; i++) {
-                        xfilename = sname + String.valueOf(Math.round(Math.random() * 9.9999999E7d)) + postfix;
+                        xfilename = String.valueOf(sname) + String.valueOf(Math.round(Math.random() * 9.9999999E7d)) + postfix;
                     }
                     String xfilename2 = FileHelper.SaveFile(xfilename, this.mData);
                     if (xfilename2 != null) {
                         MediaScannerClient client = new MediaScannerClient(ImageActivity.this);
                         client.saveImage(xfilename2);
                         String notifyStr = ImageActivity.this.getString(R.string.save_to);
-                        return notifyStr + xfilename2;
+                        return String.valueOf(notifyStr) + xfilename2;
                     }
-                    return FileHelper.getSdErrorString();
+                    String notifyStr2 = FileHelper.getSdErrorString();
+                    return notifyStr2;
                 }
-                return ImageActivity.this.getString(R.string.save_error);
+                String notifyStr3 = ImageActivity.this.getString(R.string.save_error);
+                return notifyStr3;
             } catch (Exception ex) {
                 TiebaLog.e("SaveImageAsyncTask", "doInBackground", "error" + ex.getMessage());
-                return ImageActivity.this.getString(R.string.save_error);
+                String notifyStr4 = ImageActivity.this.getString(R.string.save_error);
+                return notifyStr4;
             }
         }
 

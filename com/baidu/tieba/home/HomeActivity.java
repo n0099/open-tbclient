@@ -10,6 +10,7 @@ import android.widget.FrameLayout;
 import android.widget.ImageButton;
 import com.baidu.tieba.MainTabActivity;
 import com.baidu.tieba.R;
+import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.data.AntiData;
 import com.baidu.tieba.data.Config;
 import com.baidu.tieba.more.AboutActivity;
@@ -38,7 +39,6 @@ public class HomeActivity extends ActivityGroup {
         this.mButtonMark = (ImageButton) findViewById(R.id.home_bt_mark);
         this.mButtonLike.setBackgroundResource(R.drawable.home_topbar_bt);
         this.mButtonMark.setBackgroundDrawable(null);
-        addView("like", LikeActivity.class);
         switchPages(R.id.home_bt_like);
     }
 
@@ -79,8 +79,10 @@ public class HomeActivity extends ActivityGroup {
         try {
             MenuItem item = menu.findItem(1);
             item.setVisible(true);
-            MenuItem item2 = menu.findItem(2);
-            item2.setVisible(true);
+            if (!TiebaApplication.isBaiduAccountManager()) {
+                MenuItem item2 = menu.findItem(2);
+                item2.setVisible(true);
+            }
             MenuItem item3 = menu.findItem(3);
             item3.setVisible(true);
             MenuItem item4 = menu.findItem(4);
@@ -111,7 +113,9 @@ public class HomeActivity extends ActivityGroup {
     @Override // android.app.Activity
     public boolean onCreateOptionsMenu(Menu menu) {
         menu.add(0, 1, 1, getString(R.string.setup)).setIcon(R.drawable.menu_setup);
-        menu.add(0, 2, 2, getString(R.string.account)).setIcon(R.drawable.menu_account);
+        if (!TiebaApplication.isBaiduAccountManager()) {
+            menu.add(0, 2, 2, getString(R.string.account)).setIcon(R.drawable.menu_account);
+        }
         menu.add(0, 3, 3, getString(R.string.feedback)).setIcon(R.drawable.menu_feedback);
         menu.add(0, 4, 4, getString(R.string.about)).setIcon(R.drawable.menu_about);
         menu.add(0, 5, 5, getString(R.string.quit)).setIcon(R.drawable.menu_quit);

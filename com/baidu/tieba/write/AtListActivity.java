@@ -117,7 +117,6 @@ public class AtListActivity extends BaseActivity {
             if (this.mAdapter.getImageLoader() != null) {
                 this.mAdapter.getImageLoader().cancelAllAsyncTask();
             }
-            this.mAdapter = null;
         }
         if (this.mProgress != null) {
             this.mProgress.setVisibility(8);
@@ -198,30 +197,32 @@ public class AtListActivity extends BaseActivity {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void refreshData(String str) {
-        this.mAdapter.setData(null);
-        if (this.mAtSuggestTask != null) {
-            this.mAtSuggestTask.cancel();
-        }
-        if (str == null || str.length() == 0) {
-            if (this.mModel.getFriendData() != null) {
-                this.mAdapter.setData(this.mModel.getFriendData().getFriendList());
+        if (!isFinishing()) {
+            this.mAdapter.setData(null);
+            if (this.mAtSuggestTask != null) {
+                this.mAtSuggestTask.cancel();
+            }
+            if (str == null || str.length() == 0) {
+                if (this.mModel.getFriendData() != null) {
+                    this.mAdapter.setData(this.mModel.getFriendData().getFriendList());
+                } else {
+                    this.mAdapter.setData(null);
+                    if (this.mFreindListTask == null) {
+                        this.mFreindListTask = new FreindListTask(this, null);
+                        this.mFreindListTask.execute("");
+                    }
+                }
             } else {
-                this.mAdapter.setData(null);
-                if (this.mFreindListTask == null) {
-                    this.mFreindListTask = new FreindListTask();
+                this.mAtSuggestTask = new AtSuggestTask(this, null);
+                this.mAtSuggestTask.execute(str);
+                if (this.mFreindListTask == null && this.mModel.getFriendData() == null) {
+                    this.mFreindListTask = new FreindListTask(this, null);
                     this.mFreindListTask.execute("");
                 }
             }
-        } else {
-            this.mAtSuggestTask = new AtSuggestTask();
-            this.mAtSuggestTask.execute(str);
-            if (this.mFreindListTask == null && this.mModel.getFriendData() == null) {
-                this.mFreindListTask = new FreindListTask();
-                this.mFreindListTask.execute("");
-            }
+            this.mAdapter.notifyDataSetInvalidated();
+            this.mListView.setSelection(0);
         }
-        this.mAdapter.notifyDataSetInvalidated();
-        this.mListView.setSelection(0);
     }
 
     private void initData(Bundle savedInstanceState) {
@@ -237,6 +238,10 @@ public class AtListActivity extends BaseActivity {
         private AtSuggestTask() {
             this.mNetwork = null;
             this.mString = null;
+        }
+
+        /* synthetic */ AtSuggestTask(AtListActivity atListActivity, AtSuggestTask atSuggestTask) {
+            this();
         }
 
         @Override // android.os.AsyncTask
@@ -301,6 +306,10 @@ public class AtListActivity extends BaseActivity {
             this.mNetwork = null;
         }
 
+        /* synthetic */ FreindListTask(AtListActivity atListActivity, FreindListTask freindListTask) {
+            this();
+        }
+
         @Override // android.os.AsyncTask
         protected void onPreExecute() {
             AtListActivity.this.mProgress.setVisibility(0);
@@ -340,13 +349,15 @@ public class AtListActivity extends BaseActivity {
             if (this.mNetwork.isRequestSuccess()) {
                 AtListActivity.this.mModel.setFriendData(result);
                 if (AtListActivity.this.mAdapter != null) {
-                    if (AtListActivity.this.mEditText.getText().toString().length() == 0) {
+                    if (AtListActivity.this.mEditText.getText().toString().length() != 0) {
+                        if (AtListActivity.this.mModel.getSuggestData() != null) {
+                            AtListActivity.this.mModel.getSuggestData().refreshSugguestPhto(result.getFriendHash());
+                            AtListActivity.this.mAdapter.notifyDataSetInvalidated();
+                        }
+                    } else {
                         AtListActivity.this.mAdapter.setData(result.getFriendList());
                         AtListActivity.this.mAdapter.notifyDataSetInvalidated();
                         AtListActivity.this.mListView.setSelection(0);
-                    } else if (AtListActivity.this.mModel.getSuggestData() != null) {
-                        AtListActivity.this.mModel.getSuggestData().refreshSugguestPhto(result.getFriendHash());
-                        AtListActivity.this.mAdapter.notifyDataSetInvalidated();
                     }
                 } else {
                     return;

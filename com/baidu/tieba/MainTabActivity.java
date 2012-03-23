@@ -1,13 +1,19 @@
 package com.baidu.tieba;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.app.LocalActivityManager;
+import android.app.ProgressDialog;
 import android.app.TabActivity;
 import android.content.BroadcastReceiver;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.graphics.drawable.Drawable;
+import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.KeyEvent;
 import android.widget.CompoundButton;
 import android.widget.RadioButton;
@@ -15,6 +21,7 @@ import android.widget.TabHost;
 import android.widget.TabWidget;
 import android.widget.TextView;
 import com.baidu.tieba.account.LoginActivity;
+import com.baidu.tieba.data.AccountData;
 import com.baidu.tieba.data.Config;
 import com.baidu.tieba.home.HomeActivity;
 import com.baidu.tieba.home.LikeActivity;
@@ -24,6 +31,8 @@ import com.baidu.tieba.more.MoreActivity;
 import com.baidu.tieba.person.PersonInfoActivity;
 import com.baidu.tieba.service.ClearTempService;
 import com.baidu.tieba.service.TiebaSyncService;
+import com.baidu.tieba.util.DatabaseService;
+import com.baidu.tieba.util.NetWork;
 import com.baidu.tieba.util.TiebaLog;
 import com.baidu.tieba.util.UtilHelper;
 /* loaded from: classes.dex */
@@ -50,12 +59,19 @@ public class MainTabActivity extends TabActivity implements CompoundButton.OnChe
     private long mMsgFans = 0;
     private TextView mMessageTipsMention = null;
     private TextView mMessageTipsPerson = null;
+    private ProgressDialog mWaitingDialog = null;
+    private AlertDialog mGetImportParaDialog = null;
+    private ReLoginAsyncTask mTask = null;
     private UpdateReceiver receiver = null;
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public class UpdateReceiver extends BroadcastReceiver {
         private UpdateReceiver() {
+        }
+
+        /* synthetic */ UpdateReceiver(MainTabActivity mainTabActivity, UpdateReceiver updateReceiver) {
+            this();
         }
 
         @Override // android.content.BroadcastReceiver
@@ -76,19 +92,28 @@ public class MainTabActivity extends TabActivity implements CompoundButton.OnChe
         context.startActivity(intent);
     }
 
-    public static void startActivityRefresh(Context context, String gotoView) {
+    public static void startActivityRefresh(Context context, String gotoView, boolean new_task) {
         Intent intent = new Intent(context, MainTabActivity.class);
         intent.setFlags(603979776);
         intent.putExtra(KEY_REFRESH, true);
         if (gotoView != null) {
             intent.putExtra(gotoView, true);
         }
+        if (new_task) {
+            intent.addFlags(268435456);
+        }
+        intent.putExtra(KEY_CLOSE_DIALOG, true);
         context.startActivity(intent);
     }
 
     public static void startActivityOnUserChanged(Context context, String gotoView) {
         TiebaApplication.app.onUserChanged();
-        startActivityRefresh(context, gotoView);
+        startActivityRefresh(context, gotoView, false);
+    }
+
+    public static void startActivityOnUserChanged(Context context, String gotoView, boolean new_task) {
+        TiebaApplication.app.onUserChanged();
+        startActivityRefresh(context, gotoView, new_task);
     }
 
     @Override // android.app.ActivityGroup, android.app.Activity
@@ -114,6 +139,23 @@ public class MainTabActivity extends TabActivity implements CompoundButton.OnChe
         startClearTempService();
     }
 
+    public void getUid() {
+        if (TiebaApplication.isBaiduAccountManager()) {
+            String user_id = TiebaApplication.getCurrentAccount();
+            if (user_id == null || user_id.length() <= 0) {
+                BaiduReLogin();
+            }
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void BaiduReLogin() {
+        if (this.mTask == null) {
+            this.mTask = new ReLoginAsyncTask(this, null);
+            this.mTask.execute(new String[0]);
+        }
+    }
+
     private void startClearTempService() {
         Intent service = new Intent(this, ClearTempService.class);
         startService(service);
@@ -131,6 +173,13 @@ public class MainTabActivity extends TabActivity implements CompoundButton.OnChe
         TiebaApplication.app.resetMsg();
         TiebaApplication.app.getSdramImage().clearPicAndPhoto();
         System.gc();
+        if (this.mTask != null) {
+            this.mTask.cancel();
+        }
+        if (this.mWaitingDialog != null) {
+            this.mWaitingDialog.dismiss();
+            this.mWaitingDialog = null;
+        }
         super.onDestroy();
     }
 
@@ -145,7 +194,7 @@ public class MainTabActivity extends TabActivity implements CompoundButton.OnChe
     }
 
     private void regReceiver() {
-        this.receiver = new UpdateReceiver();
+        this.receiver = new UpdateReceiver(this, null);
         IntentFilter filter = new IntentFilter();
         filter.addAction(Config.BROADCAST_NOTIFY);
         registerReceiver(this.receiver, filter);
@@ -184,6 +233,7 @@ public class MainTabActivity extends TabActivity implements CompoundButton.OnChe
     @Override // android.widget.CompoundButton.OnCheckedChangeListener
     public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
         if (isChecked) {
+            getUid();
             switch (buttonView.getId()) {
                 case R.id.radio_home /* 2131361902 */:
                     this.mHost.setCurrentTabByTag(HOME_TAB);
@@ -203,16 +253,32 @@ public class MainTabActivity extends TabActivity implements CompoundButton.OnChe
         }
     }
 
+    @Override // android.app.ActivityGroup, android.app.Activity
+    protected void onResume() {
+        super.onResume();
+        if (TiebaApplication.isBaiduAccountManager()) {
+            TiebaLog.d(getClass().getName(), "onResume", "bduss = " + TiebaApplication.getCurrentBduss());
+            TiebaLog.d(getClass().getName(), "onResume", "uid = " + TiebaApplication.getCurrentAccount());
+            if (TiebaApplication.getCurrentBduss() == null) {
+                if (TiebaApplication.getCurrentBduss() == null) {
+                    BaiduAccountProxy.getAccountData(this);
+                }
+            } else if (TiebaApplication.getCurrentAccount() == null) {
+                getUid();
+            }
+        }
+    }
+
     @Override // android.app.Activity
     protected void onNewIntent(Intent intent) {
-        HomeActivity home;
         TiebaLog.i(getClass().getName(), "onNewIntent", "");
         super.onNewIntent(intent);
         boolean goto_home = intent.getBooleanExtra(GOTO_HOME, false);
         if (goto_home) {
-            HomeActivity home2 = (HomeActivity) getLocalActivityManager().getActivity(HOME_TAB);
-            if (home2 != null) {
-                Activity activity = home2.getCurrentActivity();
+            LocalActivityManager manager = getLocalActivityManager();
+            HomeActivity home = (HomeActivity) manager.getActivity(HOME_TAB);
+            if (home != null) {
+                Activity activity = home.getCurrentActivity();
                 if (activity instanceof LikeActivity) {
                     ((LikeActivity) activity).closeSearch();
                 }
@@ -248,42 +314,58 @@ public class MainTabActivity extends TabActivity implements CompoundButton.OnChe
             }
             finish();
         }
+        boolean isCloseDialog = intent.getBooleanExtra(KEY_CLOSE_DIALOG, false);
+        if (isCloseDialog) {
+            closeAllDialog();
+        }
         boolean isRefresh = intent.getBooleanExtra(KEY_REFRESH, false);
         if (isRefresh) {
             this.mPersonIntent.putExtra("un", TiebaApplication.getCurrentAccount());
             this.mHost.setCurrentTab(0);
             this.mHost.clearAllTabs();
-            getLocalActivityManager().removeAllActivities();
+            LocalActivityManager manager2 = getLocalActivityManager();
+            manager2.removeAllActivities();
             setupIntent();
         }
-        boolean isCloseDialog = intent.getBooleanExtra(KEY_CLOSE_DIALOG, false);
-        if (isCloseDialog) {
-            LocalActivityManager manager = getLocalActivityManager();
-            TiebaLog.i(getClass().toString(), "onNewIntent", manager.getCurrentId());
-            String currentTab = manager.getCurrentId();
-            if (!currentTab.equals(HOME_TAB) && (home = (HomeActivity) manager.getActivity(HOME_TAB)) != null) {
-                Activity activity2 = home.getCurrentActivity();
-                if (activity2 instanceof LikeActivity) {
-                    ((LikeActivity) activity2).closeDialog();
-                }
-                if (activity2 instanceof MarkActivity) {
-                    ((MarkActivity) activity2).closeDialog();
-                }
+    }
+
+    private void closeAllDialog() {
+        HomeActivity home;
+        LocalActivityManager manager = getLocalActivityManager();
+        String currentTab = manager.getCurrentId();
+        if (!currentTab.equals(HOME_TAB) && (home = (HomeActivity) manager.getActivity(HOME_TAB)) != null) {
+            Activity activity = home.getCurrentActivity();
+            if (activity instanceof LikeActivity) {
+                ((LikeActivity) activity).closeDialog();
             }
-            MentionActivity mention = (MentionActivity) manager.getActivity(SORT_TAB);
-            if (mention != null) {
-                mention.closeMenuDialog();
-            }
-            MoreActivity more = (MoreActivity) manager.getActivity(MORE_TAB);
-            if (more != null) {
-                more.closeMenuDialog();
+            if (activity instanceof MarkActivity) {
+                ((MarkActivity) activity).closeDialog();
             }
         }
+        MentionActivity mention = (MentionActivity) manager.getActivity(SORT_TAB);
+        if (mention != null) {
+            mention.closeMenuDialog();
+        }
+        MoreActivity more = (MoreActivity) manager.getActivity(MORE_TAB);
+        if (more != null) {
+            more.closeMenuDialog();
+        }
+    }
+
+    public void refreshAllUI() {
+        closeAllDialog();
+        this.mPersonIntent.putExtra("un", TiebaApplication.getCurrentAccount());
+        this.mHost.setCurrentTab(0);
+        this.mHost.clearAllTabs();
+        LocalActivityManager manager = getLocalActivityManager();
+        manager.removeAllActivities();
+        setupIntent();
     }
 
     @Override // android.app.Activity, android.view.Window.Callback
     public boolean dispatchKeyEvent(KeyEvent event) {
         if (event.getAction() == 0 && event.getKeyCode() == 4) {
+            TiebaLog.d(getClass().getName(), "dispatchKeyEvent", "KEYCODE_BACK");
             UtilHelper.quitDialog(this);
             return false;
         }
@@ -311,5 +393,105 @@ public class MainTabActivity extends TabActivity implements CompoundButton.OnChe
         TabHost.TabSpec tab = this.mHost.newTabSpec(tag);
         tab.setContent(content).setIndicator("", getResources().getDrawable(R.drawable.icon));
         return tab;
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    /* loaded from: classes.dex */
+    public class ReLoginAsyncTask extends AsyncTask<String, Integer, AccountData> {
+        private volatile NetWork mNetwork;
+
+        private ReLoginAsyncTask() {
+            this.mNetwork = null;
+        }
+
+        /* synthetic */ ReLoginAsyncTask(MainTabActivity mainTabActivity, ReLoginAsyncTask reLoginAsyncTask) {
+            this();
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        /* JADX INFO: Access modifiers changed from: protected */
+        @Override // android.os.AsyncTask
+        public AccountData doInBackground(String... arg0) {
+            this.mNetwork = new NetWork();
+            AccountData account = TiebaApplication.getCurrentAccountObj();
+            if (account != null) {
+                return BaiduAccountProxy.getAccountDataByToken(this.mNetwork, account.getAccount(), account.getBDUSS());
+            }
+            return null;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        /* JADX INFO: Access modifiers changed from: protected */
+        @Override // android.os.AsyncTask
+        public void onPostExecute(AccountData result) {
+            super.onPostExecute((ReLoginAsyncTask) result);
+            MainTabActivity.this.mTask = null;
+            if (MainTabActivity.this.mWaitingDialog != null) {
+                MainTabActivity.this.mWaitingDialog.dismiss();
+                MainTabActivity.this.mWaitingDialog = null;
+            }
+            if (result != null) {
+                AccountData data = TiebaApplication.getCurrentAccountObj();
+                if (data == null) {
+                    TiebaApplication.setCurrentAccount(data);
+                } else {
+                    data.setID(result.getID());
+                    data.setTbs(result.getTbs());
+                }
+                DatabaseService.saveAccountData(TiebaApplication.getCurrentAccountObj());
+                Handler handler = TiebaApplication.app.handler;
+                if (TiebaApplication.app.getMsgFrequency() != 0) {
+                    handler.sendMessage(handler.obtainMessage(2));
+                } else {
+                    handler.sendMessage(handler.obtainMessage(3));
+                }
+                MainTabActivity.this.refreshAllUI();
+                return;
+            }
+            String error = null;
+            if (this.mNetwork != null) {
+                error = this.mNetwork.getErrorString();
+            }
+            if (error == null) {
+                error = MainTabActivity.this.getString(R.string.data_load_error);
+            }
+            if (MainTabActivity.this.mGetImportParaDialog != null) {
+                MainTabActivity.this.mGetImportParaDialog.setMessage(error);
+            } else {
+                MainTabActivity.this.mGetImportParaDialog = new AlertDialog.Builder(MainTabActivity.this).setTitle(R.string.alerm_title).setIcon((Drawable) null).setCancelable(false).setMessage(error).setPositiveButton(R.string.retry, new DialogInterface.OnClickListener() { // from class: com.baidu.tieba.MainTabActivity.ReLoginAsyncTask.1
+                    @Override // android.content.DialogInterface.OnClickListener
+                    public void onClick(DialogInterface dialog, int which) {
+                        MainTabActivity.this.BaiduReLogin();
+                    }
+                }).setNegativeButton(R.string.quit, new DialogInterface.OnClickListener() { // from class: com.baidu.tieba.MainTabActivity.ReLoginAsyncTask.2
+                    @Override // android.content.DialogInterface.OnClickListener
+                    public void onClick(DialogInterface dialog, int which) {
+                        MainTabActivity.this.finish();
+                    }
+                }).create();
+            }
+            MainTabActivity.this.mGetImportParaDialog.show();
+        }
+
+        @Override // android.os.AsyncTask
+        protected void onPreExecute() {
+            if (MainTabActivity.this.mGetImportParaDialog != null && MainTabActivity.this.mGetImportParaDialog.isShowing()) {
+                MainTabActivity.this.mGetImportParaDialog.dismiss();
+            }
+            MainTabActivity.this.mWaitingDialog = ProgressDialog.show(MainTabActivity.this, null, MainTabActivity.this.getString(R.string.data_loading), true, false);
+            super.onPreExecute();
+        }
+
+        public boolean cancel() {
+            if (this.mNetwork != null) {
+                this.mNetwork.cancelNetConnect();
+            }
+            MainTabActivity.this.mTask = null;
+            if (MainTabActivity.this.mWaitingDialog != null) {
+                MainTabActivity.this.mWaitingDialog.dismiss();
+                MainTabActivity.this.mWaitingDialog = null;
+            }
+            return super.cancel(true);
+        }
     }
 }

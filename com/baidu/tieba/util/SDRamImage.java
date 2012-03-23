@@ -22,7 +22,7 @@ public class SDRamImage {
                 if (photo.size() >= 100) {
                     deletePhoto();
                 }
-                Image image = new Image();
+                Image image = new Image(this, null);
                 image.image = bitmap;
                 image.weight = Integer.valueOf(this.weight);
                 photo.put(name, image);
@@ -39,7 +39,7 @@ public class SDRamImage {
                 if (pic.size() >= 30) {
                     deletePic();
                 }
-                Image image = new Image();
+                Image image = new Image(this, null);
                 image.image = bitmap;
                 image.weight = Integer.valueOf(this.weight);
                 pic.put(name, image);
@@ -166,6 +166,10 @@ public class SDRamImage {
         Integer weight;
 
         private Image() {
+        }
+
+        /* synthetic */ Image(SDRamImage sDRamImage, Image image) {
+            this();
         }
     }
 }

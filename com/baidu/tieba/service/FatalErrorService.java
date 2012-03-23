@@ -38,7 +38,7 @@ public class FatalErrorService extends Service {
     public void onStart(Intent intent, int startId) {
         super.onStart(intent, startId);
         if (this.mTask == null) {
-            this.mTask = new UpLoadErrorTask();
+            this.mTask = new UpLoadErrorTask(this, null);
             this.mTask.execute(new String[0]);
         }
     }
@@ -51,9 +51,12 @@ public class FatalErrorService extends Service {
             this.mNetwork = null;
         }
 
-        /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [89=4, 90=4, 94=4, 95=4, 97=5] */
+        /* synthetic */ UpLoadErrorTask(FatalErrorService fatalErrorService, UpLoadErrorTask upLoadErrorTask) {
+            this();
+        }
+
+        /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [89=4, 90=4, 94=4, 95=4, 97=4] */
         private void sendLogFile(String name, String net_address, boolean need_compress) {
-            Exception ex;
             ByteArrayOutputStream outputstream = null;
             FileInputStream in = null;
             try {
@@ -62,6 +65,7 @@ public class FatalErrorService extends Service {
                     if (file != null && file.length() > Config.FATAL_ERROR_FILE_UPLOAD_SIZE) {
                         FileInputStream in2 = new FileInputStream(file);
                         try {
+                            byte[] bArr = null;
                             ByteArrayOutputStream outputstream2 = new ByteArrayOutputStream(1024);
                             try {
                                 if (need_compress) {
@@ -98,9 +102,12 @@ public class FatalErrorService extends Service {
                                 this.mNetwork.postMultiNetData();
                                 if (this.mNetwork.isRequestSuccess()) {
                                     file.delete();
+                                    in = in2;
+                                    outputstream = outputstream2;
+                                } else {
+                                    in = in2;
+                                    outputstream = outputstream2;
                                 }
-                                in = in2;
-                                outputstream = outputstream2;
                             } catch (Exception e3) {
                                 ex = e3;
                                 in = in2;

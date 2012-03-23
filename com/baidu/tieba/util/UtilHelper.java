@@ -47,12 +47,12 @@ public class UtilHelper {
     }
 
     public static void quitDialog(final Activity activity) {
-        new AlertDialog.Builder(activity).setTitle(R.string.alerm_title).setIcon((Drawable) null).setCancelable(false).setMessage(R.string.alert_quit_confirm).setPositiveButton(R.string.alert_yes_button, new DialogInterface.OnClickListener() { // from class: com.baidu.tieba.util.UtilHelper.2
+        new AlertDialog.Builder(activity).setTitle(R.string.alerm_title).setIcon((Drawable) null).setCancelable(false).setMessage(R.string.alert_quit_confirm).setPositiveButton(R.string.alert_yes_button, new DialogInterface.OnClickListener() { // from class: com.baidu.tieba.util.UtilHelper.1
             @Override // android.content.DialogInterface.OnClickListener
             public void onClick(DialogInterface dialog, int which) {
                 activity.finish();
             }
-        }).setNegativeButton(R.string.alert_no_button, new DialogInterface.OnClickListener() { // from class: com.baidu.tieba.util.UtilHelper.1
+        }).setNegativeButton(R.string.alert_no_button, new DialogInterface.OnClickListener() { // from class: com.baidu.tieba.util.UtilHelper.2
             @Override // android.content.DialogInterface.OnClickListener
             public void onClick(DialogInterface dialog, int which) {
                 dialog.cancel();
@@ -66,6 +66,15 @@ public class UtilHelper {
             inputManager.hideSoftInputFromWindow(view.getWindowToken(), 2);
         } catch (Exception ex) {
             TiebaLog.e("UtilHelper", "hideSoftKeyPad", "error = " + ex.getMessage());
+        }
+    }
+
+    public static void showSoftKeyPad(Context context, View view) {
+        try {
+            InputMethodManager inputManager = (InputMethodManager) context.getSystemService("input_method");
+            inputManager.showSoftInput(view, 0);
+        } catch (Exception ex) {
+            TiebaLog.e("UtilHelper", "showSoftKeyPad", "error = " + ex.getMessage());
         }
     }
 

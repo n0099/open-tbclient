@@ -28,12 +28,6 @@ public class TiebaSyncService extends Service {
         }
     };
 
-    static /* synthetic */ int access$408(TiebaSyncService x0) {
-        int i = x0.mHaveRetry;
-        x0.mHaveRetry = i + 1;
-        return i;
-    }
-
     @Override // android.app.Service
     public IBinder onBind(Intent arg0) {
         return null;
@@ -49,7 +43,7 @@ public class TiebaSyncService extends Service {
         if (this.mSyncTask != null) {
             this.mSyncTask.cancel();
         }
-        this.mSyncTask = new SyncAsyncTask();
+        this.mSyncTask = new SyncAsyncTask(this, null);
         this.mSyncTask.execute(new String[0]);
     }
 
@@ -79,11 +73,14 @@ public class TiebaSyncService extends Service {
             this.mNetWork = null;
         }
 
+        /* synthetic */ SyncAsyncTask(TiebaSyncService tiebaSyncService, SyncAsyncTask syncAsyncTask) {
+            this();
+        }
+
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // android.os.AsyncTask
         public SyncModel doInBackground(String... arg0) {
-            Exception ex;
             SyncModel data = null;
             try {
                 this.mNetWork = new NetWork("http://c.tieba.baidu.com/c/s/sync");
@@ -106,10 +103,11 @@ public class TiebaSyncService extends Service {
                 try {
                     data2.parserJson(ret);
                     String id = TiebaApplication.getClientId();
-                    if (id == null && data2.getClient().getClient_id() != null && data2.getClient().getClient_id().length() > 0) {
-                        TiebaApplication.saveClientId(TiebaSyncService.this, data2.getClient().getClient_id());
-                        TiebaApplication.setClientId(data2.getClient().getClient_id());
+                    if (id != null || data2.getClient().getClient_id() == null || data2.getClient().getClient_id().length() <= 0) {
+                        return data2;
                     }
+                    TiebaApplication.saveClientId(TiebaSyncService.this, data2.getClient().getClient_id());
+                    TiebaApplication.setClientId(data2.getClient().getClient_id());
                     return data2;
                 } catch (Exception e) {
                     ex = e;
@@ -153,7 +151,7 @@ public class TiebaSyncService extends Service {
                 TiebaSyncService.this.stopSelf();
                 return;
             }
-            TiebaSyncService.access$408(TiebaSyncService.this);
+            TiebaSyncService.this.mHaveRetry++;
             if (TiebaSyncService.this.mHaveRetry < 10) {
                 TiebaSyncService.this.mHandler.removeCallbacks(TiebaSyncService.this.mRunnable);
                 TiebaSyncService.this.mHandler.postDelayed(TiebaSyncService.this.mRunnable, 60000L);

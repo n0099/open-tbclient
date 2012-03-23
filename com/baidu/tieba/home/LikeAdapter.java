@@ -96,7 +96,6 @@ public class LikeAdapter extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public View getView(int position, View convertView, ViewGroup parent) {
-        Exception ex;
         ViewHolder holder;
         ViewHolder holder2 = null;
         try {
@@ -106,12 +105,12 @@ public class LikeAdapter extends BaseAdapter {
                 try {
                     if (type == 1) {
                         convertView = mInflater.inflate(R.layout.home_like_item, (ViewGroup) null);
-                        holder = new ViewHolder();
+                        holder = new ViewHolder(this, null);
                         holder.mForum = (LinearLayout) convertView.findViewById(R.id.first);
                         holder.mForum.setOnClickListener(this.mForumListener);
                         holder.mForum.setOnLongClickListener(this.mForumLongListener);
                         initElement(holder, holder.mForum);
-                        holder.mSecond = new ViewHolder();
+                        holder.mSecond = new ViewHolder(this, null);
                         holder.mSecond.mForum = (LinearLayout) convertView.findViewById(R.id.second);
                         holder.mSecond.mForum.setOnClickListener(this.mForumListener);
                         holder.mSecond.mForum.setOnLongClickListener(this.mForumLongListener);
@@ -125,8 +124,8 @@ public class LikeAdapter extends BaseAdapter {
                         convertView.setOnClickListener(this.mHeaderListener);
                     } else if (type == 3) {
                         convertView = mInflater.inflate(R.layout.home_like_footer, (ViewGroup) null);
-                        holder = new ViewHolder();
-                        holder.mFooter = new FooterView();
+                        holder = new ViewHolder(this, null);
+                        holder.mFooter = new FooterView(this, null);
                         holder.mFooter.mIsLoading = (RelativeLayout) convertView.findViewById(R.id.home_like_loading);
                         holder.mFooter.mRefresh = (LinearLayout) convertView.findViewById(R.id.home_like_refresh);
                         holder.mFooter.mTextUptime = (TextView) convertView.findViewById(R.id.home_like_tv_uptime);
@@ -214,7 +213,10 @@ public class LikeAdapter extends BaseAdapter {
         if (position == getCount() - 1) {
             return 3;
         }
-        return (this.mData == null || this.mData.size() <= 0) ? 0 : 1;
+        if (this.mData != null && this.mData.size() > 0) {
+            return 1;
+        }
+        return 0;
     }
 
     @Override // android.widget.BaseAdapter, android.widget.ListAdapter
@@ -251,6 +253,10 @@ public class LikeAdapter extends BaseAdapter {
 
         private ViewHolder() {
         }
+
+        /* synthetic */ ViewHolder(LikeAdapter likeAdapter, ViewHolder viewHolder) {
+            this();
+        }
     }
 
     /* loaded from: classes.dex */
@@ -261,6 +267,10 @@ public class LikeAdapter extends BaseAdapter {
         TextView mTextUptime;
 
         private FooterView() {
+        }
+
+        /* synthetic */ FooterView(LikeAdapter likeAdapter, FooterView footerView) {
+            this();
         }
     }
 }

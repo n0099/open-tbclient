@@ -25,7 +25,7 @@ public class AboutActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.about_activity);
         this.version = (TextView) findViewById(R.id.version);
-        this.version.setText(getString(R.string.app_name) + " Android " + Config.VERSION);
+        this.version.setText(String.valueOf(getString(R.string.app_name)) + " Android " + Config.VERSION);
         this.mBack = (Button) findViewById(R.id.back);
         this.mBack.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.more.AboutActivity.1
             @Override // android.view.View.OnClickListener

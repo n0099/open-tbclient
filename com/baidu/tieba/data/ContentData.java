@@ -79,7 +79,7 @@ public class ContentData {
                 return new SpannableString(this.text);
             case 1:
                 if (!this.text.endsWith(" ")) {
-                    this.text += " ";
+                    this.text = String.valueOf(this.text) + " ";
                 }
                 SpannableString tmp = new SpannableString(this.text);
                 IntentSpan click = new IntentSpan(context) { // from class: com.baidu.tieba.data.ContentData.2
@@ -91,20 +91,22 @@ public class ContentData {
                 tmp.setSpan(click, 0, this.text.length() - 1, 33);
                 return tmp;
             case 2:
-                SpannableString tmp2 = new SpannableString(this.text + " ");
+                SpannableString tmp2 = new SpannableString(String.valueOf(this.text) + " ");
                 Bitmap bm = TiebaApplication.app.getFace(this.text);
                 if (bm != null) {
                     MyBitmapDrawable dr = new MyBitmapDrawable(bm);
                     dr.setBounds(0, 0, bm.getWidth(), bm.getHeight());
                     ImageSpan span = new ImageSpan(dr, 1);
                     tmp2.setSpan(span, 0, this.text.length(), 33);
+                    return tmp2;
                 }
                 return tmp2;
             case 3:
+            default:
                 return null;
             case 4:
                 if (!this.text.endsWith(" ")) {
-                    this.text += " ";
+                    this.text = String.valueOf(this.text) + " ";
                 }
                 SpannableString tmp3 = new SpannableString(this.text);
                 IntentSpan click2 = new IntentSpan(context) { // from class: com.baidu.tieba.data.ContentData.3
@@ -121,10 +123,10 @@ public class ContentData {
                 return tmp3;
             case 5:
                 if (!this.text.endsWith(" ")) {
-                    this.text += " ";
+                    this.text = String.valueOf(this.text) + " ";
                 }
                 String title = context.getString(R.string.video);
-                String link = title + this.text;
+                String link = String.valueOf(title) + this.text;
                 SpannableString tmp4 = new SpannableString(link);
                 IntentSpan click3 = new IntentSpan(context) { // from class: com.baidu.tieba.data.ContentData.1
                     @Override // com.baidu.tieba.util.IntentSpan, android.text.style.ClickableSpan
@@ -134,8 +136,6 @@ public class ContentData {
                 };
                 tmp4.setSpan(click3, title.length(), link.length() - 1, 33);
                 return tmp4;
-            default:
-                return null;
         }
     }
 
@@ -143,7 +143,7 @@ public class ContentData {
         int height;
         SpannableString tmp = null;
         if (this.type == 2) {
-            tmp = new SpannableString(this.text + " ");
+            tmp = new SpannableString(String.valueOf(this.text) + " ");
             Bitmap bm = TiebaApplication.app.getFace(this.text);
             if (bm != null) {
                 MyBitmapDrawable dr = new MyBitmapDrawable(bm);

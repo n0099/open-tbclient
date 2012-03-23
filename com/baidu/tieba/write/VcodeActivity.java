@@ -47,8 +47,8 @@ public class VcodeActivity extends BaseActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.vcode_activity);
-        initData(savedInstanceState);
         initUI();
+        initData(savedInstanceState);
         refreshImage(this.mModel.getVcodeUrl());
     }
 
@@ -67,6 +67,11 @@ public class VcodeActivity extends BaseActivity {
         } else {
             Intent intent = getIntent();
             this.mModel = (WriteModel) intent.getSerializableExtra(SAVE_KEY);
+        }
+        if (this.mModel != null && this.mModel.getType() == WriteModel.NEW) {
+            this.mPost.setText(R.string.send);
+        } else {
+            this.mPost.setText(R.string.reply);
         }
         this.mInputManager = (InputMethodManager) getSystemService("input_method");
     }
@@ -132,7 +137,7 @@ public class VcodeActivity extends BaseActivity {
         }
         this.mProgressBar.setVisibility(0);
         this.mImage.setImageBitmap(null);
-        this.mGetImageTask = new GetImageTask();
+        this.mGetImageTask = new GetImageTask(this, null);
         this.mGetImageTask.execute(str);
     }
 
@@ -159,13 +164,13 @@ public class VcodeActivity extends BaseActivity {
             if (this.mDate.getBitmapId() != null && this.mDate.getBitmapId().getPic_id() != null && this.mDate.getBitmapId().getPic_id().length() > 0) {
                 pic_str = String.format("#(pic,%s,%d,%d)", this.mDate.getBitmapId().getPic_id(), Integer.valueOf(this.mDate.getBitmapId().getWidth()), Integer.valueOf(this.mDate.getBitmapId().getHeight()));
             }
-            this.mNetwork.addPostData("content", this.mDate.getContent() + pic_str);
+            this.mNetwork.addPostData("content", String.valueOf(this.mDate.getContent()) + pic_str);
             this.mNetwork.addPostData("vcode_md5", this.mDate.getVcodeMD5());
             String vcode = VcodeActivity.this.mEdit.getText().toString();
             if (vcode.length() > 0) {
                 this.mNetwork.addPostData("vcode", vcode);
             }
-            this.mNetwork.addPostData("tbs", TiebaApplication.app.getTbs());
+            this.mNetwork.setIsNeedTbs(true);
             if (this.mDate.getType() == WriteModel.NEW) {
                 this.mNetwork.setUrl("http://c.tieba.baidu.com/c/c/thread/add");
                 this.mNetwork.addPostData("title", this.mDate.getTitle());
@@ -210,6 +215,7 @@ public class VcodeActivity extends BaseActivity {
                             VcodeActivity.this.mModel.setVcodeUrl(info.getVcode_pic_url());
                             VcodeActivity.this.refreshImage(VcodeActivity.this.mModel.getVcodeUrl());
                         }
+                        VcodeActivity.this.mEdit.setText((CharSequence) null);
                     }
                     VcodeActivity.this.showToast(this.mNetwork.getErrorString());
                 }
@@ -229,6 +235,10 @@ public class VcodeActivity extends BaseActivity {
             this.mNetWork = null;
             this.mInfoData = null;
             this.mCanceled = false;
+        }
+
+        /* synthetic */ GetImageTask(VcodeActivity vcodeActivity, GetImageTask getImageTask) {
+            this();
         }
 
         public void cancel() {
@@ -269,8 +279,7 @@ public class VcodeActivity extends BaseActivity {
             }
             this.mNetWork = new NetWork(url);
             byte[] data = this.mNetWork.getNetData();
-            Bitmap bm = BitmapHelper.Bytes2Bitmap(data);
-            return bm;
+            return BitmapHelper.Bytes2Bitmap(data);
         }
 
         /* JADX DEBUG: Method merged with bridge method */

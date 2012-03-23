@@ -19,11 +19,12 @@ public class TiebaMessageService extends Service {
     private Handler mHandler = new Handler() { // from class: com.baidu.tieba.service.TiebaMessageService.1
         @Override // android.os.Handler
         public void handleMessage(Message msg) {
-            if (msg.what == 1) {
-                TiebaMessageService.this.getMsg();
-                long frequency = TiebaApplication.app.getMsgFrequency();
-                TiebaMessageService.this.mHandler.sendEmptyMessageDelayed(1, 1000 * frequency);
+            if (msg.what != 1) {
+                return;
             }
+            TiebaMessageService.this.getMsg();
+            long frequency = TiebaApplication.app.getMsgFrequency();
+            TiebaMessageService.this.mHandler.sendEmptyMessageDelayed(1, 1000 * frequency);
         }
     };
 
@@ -46,9 +47,10 @@ public class TiebaMessageService extends Service {
         super.onStart(intent, startId);
         if (!TiebaApplication.IS_APP_RUNNING || !TiebaApplication.app.isMsgRemindOn()) {
             stopSelf();
-        } else {
-            this.mHandler.sendEmptyMessageDelayed(1, 3000L);
+            return;
         }
+        this.mHandler.removeMessages(1);
+        this.mHandler.sendEmptyMessageDelayed(1, 3000L);
     }
 
     @Override // android.app.Service
@@ -59,11 +61,13 @@ public class TiebaMessageService extends Service {
     /* JADX INFO: Access modifiers changed from: private */
     public void getMsg() {
         try {
-            if (this.mAsyncTask != null) {
-                this.mAsyncTask.cancel();
+            if (TiebaApplication.getCurrentAccount() != null) {
+                if (this.mAsyncTask != null) {
+                    this.mAsyncTask.cancel();
+                }
+                this.mAsyncTask = new MsgAsyncTask();
+                this.mAsyncTask.execute(new String[0]);
             }
-            this.mAsyncTask = new MsgAsyncTask();
-            this.mAsyncTask.execute(new String[0]);
         } catch (Exception e) {
             TiebaLog.e(getClass().getName(), "getMsg", e.getMessage());
         }
@@ -107,7 +111,6 @@ public class TiebaMessageService extends Service {
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // android.os.AsyncTask
         public MessageData doInBackground(String... arg0) {
-            Exception ex;
             MessageData data = null;
             try {
             } catch (Exception e) {

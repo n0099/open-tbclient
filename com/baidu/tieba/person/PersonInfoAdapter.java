@@ -55,13 +55,12 @@ public class PersonInfoAdapter extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public View getView(int position, View convertView, ViewGroup parent) {
-        Exception ex;
         ViewHolder holder;
         try {
             if (convertView == null) {
                 LayoutInflater mInflater = LayoutInflater.from(this.mContext);
                 convertView = mInflater.inflate(R.layout.person_info_item, (ViewGroup) null);
-                ViewHolder holder2 = new ViewHolder();
+                ViewHolder holder2 = new ViewHolder(this, null);
                 try {
                     holder2.mText = (TextView) convertView.findViewById(R.id.text);
                     holder2.mNum = (TextView) convertView.findViewById(R.id.num);
@@ -127,10 +126,7 @@ public class PersonInfoAdapter extends BaseAdapter {
 
     @Override // android.widget.BaseAdapter, android.widget.ListAdapter
     public boolean isEnabled(int position) {
-        if (this.mData != null && this.mData.getIsSelf()) {
-            return true;
-        }
-        return false;
+        return this.mData != null && this.mData.getIsSelf();
     }
 
     /* loaded from: classes.dex */
@@ -141,6 +137,10 @@ public class PersonInfoAdapter extends BaseAdapter {
         TextView mText;
 
         private ViewHolder() {
+        }
+
+        /* synthetic */ ViewHolder(PersonInfoAdapter personInfoAdapter, ViewHolder viewHolder) {
+            this();
         }
     }
 }

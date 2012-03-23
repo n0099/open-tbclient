@@ -126,13 +126,12 @@ public class FrsAdapter extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public View getView(int position, View convertView, ViewGroup parent) {
-        Exception ex;
         ViewHolder holder;
         try {
             if (convertView == null) {
                 LayoutInflater mInflater = LayoutInflater.from(this.mContext);
                 convertView = mInflater.inflate(R.layout.frs_item, (ViewGroup) null);
-                ViewHolder holder2 = new ViewHolder();
+                ViewHolder holder2 = new ViewHolder(this, null);
                 try {
                     holder2.mContent = (RelativeLayout) convertView.findViewById(R.id.frs_list_item);
                     holder2.mReplyNum = (TextView) convertView.findViewById(R.id.frs_lv_reply_num);
@@ -219,6 +218,10 @@ public class FrsAdapter extends BaseAdapter {
         TextView mTitle;
 
         private ViewHolder() {
+        }
+
+        /* synthetic */ ViewHolder(FrsAdapter frsAdapter, ViewHolder viewHolder) {
+            this();
         }
     }
 }

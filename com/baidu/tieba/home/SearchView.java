@@ -143,12 +143,12 @@ public class SearchView {
                 @Override // android.text.TextWatcher
                 public void onTextChanged(CharSequence s, int start, int before, int count) {
                     SearchView.this.mSearchKey = s.toString();
-                    if (SearchView.this.mSearchKey.length() > 0) {
-                        SearchView.this.showSuggest();
+                    if (SearchView.this.mSearchKey.length() <= 0) {
+                        SearchView.this.cancelAsyncTask();
+                        SearchView.this.showHistory();
                         return;
                     }
-                    SearchView.this.cancelAsyncTask();
-                    SearchView.this.showHistory();
+                    SearchView.this.showSuggest();
                 }
 
                 @Override // android.text.TextWatcher
@@ -213,13 +213,13 @@ public class SearchView {
             this.mBtSearchFooter.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.home.SearchView.11
                 @Override // android.view.View.OnClickListener
                 public void onClick(View v) {
-                    new AlertDialog.Builder(SearchView.this.mActivity.getParent()).setTitle("提醒").setIcon(R.drawable.dialogue_quit).setMessage("确认清除搜索记录？").setPositiveButton("确认", new DialogInterface.OnClickListener() { // from class: com.baidu.tieba.home.SearchView.11.2
+                    new AlertDialog.Builder(SearchView.this.mActivity.getParent()).setTitle("提醒").setIcon(R.drawable.dialogue_quit).setMessage("确认清除搜索记录？").setPositiveButton("确认", new DialogInterface.OnClickListener() { // from class: com.baidu.tieba.home.SearchView.11.1
                         @Override // android.content.DialogInterface.OnClickListener
                         public void onClick(DialogInterface dialog, int which) {
                             DatabaseService.delAllSearchData();
                             SearchView.this.showHistory();
                         }
-                    }).setNegativeButton("取消", new DialogInterface.OnClickListener() { // from class: com.baidu.tieba.home.SearchView.11.1
+                    }).setNegativeButton("取消", new DialogInterface.OnClickListener() { // from class: com.baidu.tieba.home.SearchView.11.2
                         @Override // android.content.DialogInterface.OnClickListener
                         public void onClick(DialogInterface dialog, int which) {
                             dialog.cancel();
@@ -384,7 +384,6 @@ public class SearchView {
         /* JADX WARN: Can't rename method to resolve collision */
         @Override // android.os.AsyncTask
         public SuggestModel doInBackground(Object... params) {
-            Exception ex;
             SuggestModel suggestData = null;
             try {
                 this.mNetwork = new NetWork(this.mUrl);
@@ -417,7 +416,6 @@ public class SearchView {
             if (data != null) {
                 SearchView.this.mModelSuggest = data;
                 SearchView.this.refresh();
-            } else if (this.mNetwork != null) {
             }
             SearchView.this.mSuggestTask = null;
         }

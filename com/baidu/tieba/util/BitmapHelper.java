@@ -98,21 +98,22 @@ public class BitmapHelper {
                 ex.printStackTrace();
             }
             while (true) {
-                if (opt.outWidth / (s * 2) <= maxsize && opt.outHeight / (s * 2) <= maxsize) {
-                    break;
+                if (opt.outWidth / (s * 2) > maxsize || opt.outHeight / (s * 2) > maxsize) {
+                    s *= 2;
+                } else {
+                    opt.inJustDecodeBounds = false;
+                    opt.inSampleSize = s;
+                    InputStream in2 = FileHelper.GetStreamFromFile(file_name);
+                    Bitmap decodeStream = BitmapFactory.decodeStream(in2, null, opt);
+                    try {
+                        in2.close();
+                        return decodeStream;
+                    } catch (Exception ex2) {
+                        ex2.printStackTrace();
+                        return decodeStream;
+                    }
                 }
-                s *= 2;
             }
-            opt.inJustDecodeBounds = false;
-            opt.inSampleSize = s;
-            InputStream in2 = FileHelper.GetStreamFromFile(file_name);
-            Bitmap b = BitmapFactory.decodeStream(in2, null, opt);
-            try {
-                in2.close();
-            } catch (Exception ex2) {
-                ex2.printStackTrace();
-            }
-            return b;
         } catch (Exception e) {
             return null;
         }
@@ -146,9 +147,10 @@ public class BitmapHelper {
         } catch (Exception e) {
             try {
                 fd.close();
+                return null;
             } catch (Exception e2) {
+                return null;
             }
-            return null;
         }
     }
 
@@ -169,6 +171,7 @@ public class BitmapHelper {
         canvas.drawBitmap(bitmap, rect, rect, paint);
         if (!bitmap.isRecycled()) {
             bitmap.recycle();
+            return output;
         }
         return output;
     }

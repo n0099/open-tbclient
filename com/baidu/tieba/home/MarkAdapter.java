@@ -61,37 +61,33 @@ public class MarkAdapter extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public Object getItem(int position) {
-        if (this.mIsNodata) {
+        int count;
+        if (this.mIsNodata || (count = getCount()) <= 0 || position >= count) {
             return null;
         }
-        Object item = null;
-        int count = getCount();
-        if (count > 0 && position < count) {
-            item = this.mData.get(position);
-        }
+        Object item = this.mData.get(position);
         return item;
     }
 
     @Override // android.widget.Adapter
     public long getItemId(int position) {
         Object item;
-        if (!this.mIsNodata && (item = getItem(position)) != null) {
-            MarkData data = (MarkData) item;
-            return Integer.parseInt(data.getId());
+        if (this.mIsNodata || (item = getItem(position)) == null) {
+            return 0L;
         }
-        return 0L;
+        MarkData data = (MarkData) item;
+        return Integer.parseInt(data.getId());
     }
 
     @Override // android.widget.Adapter
     public View getView(int position, View convertView, ViewGroup parent) {
-        Exception ex;
         ViewHolder holder;
         Object obData;
         try {
             if (convertView == null) {
                 LayoutInflater mInflater = LayoutInflater.from(this.mContext);
                 convertView = mInflater.inflate(R.layout.home_mark_item, (ViewGroup) null);
-                ViewHolder holder2 = new ViewHolder();
+                ViewHolder holder2 = new ViewHolder(this, null);
                 try {
                     holder2.mReplyNum = (TextView) convertView.findViewById(R.id.home_lv_markitem_reply);
                     holder2.mContent = (LinearLayout) convertView.findViewById(R.id.home_lv_markitem_content);
@@ -161,6 +157,10 @@ public class MarkAdapter extends BaseAdapter {
         TextView mTitle;
 
         private ViewHolder() {
+        }
+
+        /* synthetic */ ViewHolder(MarkAdapter markAdapter, ViewHolder viewHolder) {
+            this();
         }
     }
 }

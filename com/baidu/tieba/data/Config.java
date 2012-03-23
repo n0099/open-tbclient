@@ -16,7 +16,7 @@ public class Config {
     public static final String BROADCAST_RELAY_ME_NUM = "relay";
     public static final String BROADCAST_SERVICE = "com.baidu.tieba.broadcast.service";
     public static final int CHUNK_UPLOAD_SIZE = 102400;
-    public static final int DATABASE_VERSION = 2;
+    public static final int DATABASE_VERSION = 3;
     public static final String DING_THREAD_ADDRESS = "c/c/thread/comment";
     public static final String ERROR_LOG_SERVER = "c/s/clientlog";
     public static final String ERROR_UPLOAD_SERVER = "c/s/logupload";
@@ -24,6 +24,7 @@ public class Config {
     public static final long FATAL_ERROR_FILE_MAX_SIZE = 204800;
     public static final long FATAL_ERROR_FILE_UPLOAD_SIZE = 20480;
     public static final String FINISH_UPLOAD_CHUNK_IMAGE_ADDRESS = "c/c/img/finupload";
+    public static final String FLOOR_ADDRESS = "c/f/pb/floor";
     public static final String FOLLOW_ADDRESS = "c/c/user/follow";
     public static final int FONT_SIZE_BIG = 1;
     public static final int FONT_SIZE_MID = 2;
@@ -41,6 +42,7 @@ public class Config {
     public static final String IMAGE_RESIZED_FILE = "tieba_resized_image";
     public static final String IMAGE_RESIZED_FILE_DISPLAY = "tieba_resized_image_display";
     public static final String LIKE_ADDRESS = "c/c/forum/like";
+    public static final String LOAD_REG_PV_ADDRESS = "c/s/pv";
     public static final String LOGIN_ADDRESS = "c/s/login";
     public static final String LOG_ERROR_FILE = "log_error.log";
     public static final int MAX_ACCOUNT_CHAR_NUM = 14;
@@ -67,6 +69,9 @@ public class Config {
     public static final int PB_PHOTO_QUALITY = 80;
     public static final String PHONE_DATEBASE_NAME = "baidu_tieba.db";
     public static final int PHOTO_DELAY_TIME = 300;
+    public static final int PIC_ALBUM_IMAGE = 1;
+    public static final int PIC_PHOTO = 2;
+    public static final String PIC_TYPE = "pic_type";
     public static final int POST_IMAGE_BIG = 900;
     public static final int POST_IMAGE_DISPLAY = 100;
     public static final int POST_IMAGE_QUALITY = 80;
@@ -81,9 +86,13 @@ public class Config {
     public static final String REPLY_THREAD_ADDRESS = "c/c/post/add";
     public static final String SERVER_ADDRESS = "http://c.tieba.baidu.com/";
     public static final String SETTINGFILE = "settings";
+    public static final String ST_TYPE_LOGIN = "login";
+    public static final String ST_TYPE_REG = "reg ";
+    public static final int SUB_PB_LIST_ITEM_NETWORK_NUM = 10;
     public static final String SUGGEST_ADDRESS = "c/f/forum/sug";
     public static final int SYNC_MAX_TIMES = 10;
     public static final int SYNC_TIME_INTERVAL = 60000;
+    public static final String TBS_IGNORE = "ignore";
     public static final long THREAD_IMAGE_SAVE_MAX_TIME = 86400000;
     public static final String TMPDIRNAME = "tieba";
     public static final String TMP_DATABASE_NAME = "tieba_database.db";
@@ -107,6 +116,7 @@ public class Config {
     public static final int POST_IMAGE_MIDDLE = 600;
     public static int PB_LIST_ITEM_MAX_NUM = POST_IMAGE_MIDDLE;
     public static int IMG_CHUNK_UPLOAD_ENABLE = 1;
+    public static int SUB_PB_LIST_ITEM_MAX_NUM = 200;
     public static int THREAD_IMAGE_MAX_WIDTH = 640;
     public static long APP_DATE_UPDATA_SD_DATABASE = 2592000000L;
     public static int BitmapQuality = 80;

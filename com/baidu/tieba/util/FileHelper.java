@@ -89,8 +89,7 @@ public class FileHelper {
         if (!CheckTempDir()) {
             return null;
         }
-        File file = new File(EXTERNAL_STORAGE_DIRECTORY + "/" + Config.TMPDIRNAME + "/" + filename);
-        return file;
+        return new File(EXTERNAL_STORAGE_DIRECTORY + "/" + Config.TMPDIRNAME + "/" + filename);
     }
 
     public static File CreateFile(String filename) {
@@ -116,13 +115,13 @@ public class FileHelper {
         if (CheckTempDir()) {
             File file = new File(EXTERNAL_STORAGE_DIRECTORY + "/" + Config.TMPDIRNAME + "/" + filename);
             try {
-                if (file.exists()) {
-                    return file;
+                if (!file.exists()) {
+                    if (file.createNewFile()) {
+                        return file;
+                    }
+                    return null;
                 }
-                if (file.createNewFile()) {
-                    return file;
-                }
-                return null;
+                return file;
             } catch (Exception ex) {
                 TiebaLog.e("FileHelper", "CreateFile", "error = " + ex.getMessage());
                 return null;
@@ -154,7 +153,7 @@ public class FileHelper {
         if (!CheckTempDir(all_path) || bm == null) {
             return null;
         }
-        File file = new File(all_path + filename);
+        File file = new File(String.valueOf(all_path) + filename);
         try {
             if (file.exists()) {
                 file.delete();
@@ -178,7 +177,7 @@ public class FileHelper {
         } else {
             all_path = EXTERNAL_STORAGE_DIRECTORY + "/" + Config.TMPDIRNAME + "/";
         }
-        return BitmapFactory.decodeFile(all_path + filename);
+        return BitmapFactory.decodeFile(String.valueOf(all_path) + filename);
     }
 
     public static String SaveFile(String filename, byte[] data) {

@@ -60,14 +60,13 @@ public class SearchAdapter extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public View getView(int position, View convertView, ViewGroup parent) {
-        Exception ex;
         ViewHolder holder;
         Object obData;
         try {
             if (convertView == null) {
                 LayoutInflater mInflater = LayoutInflater.from(this.mContext);
                 convertView = mInflater.inflate(R.layout.home_dialog_search_item, (ViewGroup) null);
-                ViewHolder holder2 = new ViewHolder();
+                ViewHolder holder2 = new ViewHolder(this, null);
                 try {
                     holder2.mForumName = (TextView) convertView.findViewById(R.id.home_lv_search_forum);
                     convertView.setTag(holder2);
@@ -97,6 +96,10 @@ public class SearchAdapter extends BaseAdapter {
         TextView mForumName;
 
         private ViewHolder() {
+        }
+
+        /* synthetic */ ViewHolder(SearchAdapter searchAdapter, ViewHolder viewHolder) {
+            this();
         }
     }
 }

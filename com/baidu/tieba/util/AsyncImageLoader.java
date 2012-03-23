@@ -156,7 +156,7 @@ public class AsyncImageLoader {
                         buffer.append(String.valueOf(pb_image_height));
                         fullUrl = buffer.toString();
                     } else {
-                        fullUrl = Config.PHOTO_SMALL_ADDRESS + this.mUrl;
+                        fullUrl = String.valueOf(Config.PHOTO_SMALL_ADDRESS) + this.mUrl;
                     }
                     this.mNetWork = new NetWork(AsyncImageLoader.this.mContext, fullUrl);
                     if (this.mType == 0) {
@@ -165,14 +165,15 @@ public class AsyncImageLoader {
                     byte[] tmp = this.mNetWork.getNetData();
                     if (this.mNetWork.isRequestSuccess()) {
                         this.mBitmap = BitmapHelper.Bytes2Bitmap(tmp);
+                        byte[] bArr = null;
                         if (this.mBitmap != null) {
                             if (this.mType == 0) {
                                 if (this.mBitmap.getWidth() > pb_image_width || this.mBitmap.getHeight() > pb_image_height) {
-                                    TiebaLog.log_e(1, getClass().getName(), "doInBackground", "Pb_image_too_big:" + String.valueOf(this.mBitmap.getWidth() + "*" + String.valueOf(this.mBitmap.getHeight())));
+                                    TiebaLog.log_e(1, getClass().getName(), "doInBackground", "Pb_image_too_big:" + String.valueOf(String.valueOf(this.mBitmap.getWidth()) + "*" + String.valueOf(this.mBitmap.getHeight())));
                                     this.mBitmap = BitmapHelper.resizeBitmap(this.mBitmap, pb_image_width, pb_image_height);
                                 }
                             } else if (this.mBitmap.getWidth() > 80 || this.mBitmap.getHeight() > 80) {
-                                TiebaLog.log_e(1, getClass().getName(), "doInBackground", "Pb_photo_too_big:" + String.valueOf(this.mBitmap.getWidth() + "*" + String.valueOf(this.mBitmap.getHeight())));
+                                TiebaLog.log_e(1, getClass().getName(), "doInBackground", "Pb_photo_too_big:" + String.valueOf(String.valueOf(this.mBitmap.getWidth()) + "*" + String.valueOf(this.mBitmap.getHeight())));
                                 this.mBitmap = BitmapHelper.resizeBitmap(this.mBitmap, 80);
                             }
                         }

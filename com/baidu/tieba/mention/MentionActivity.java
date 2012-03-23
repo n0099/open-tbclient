@@ -313,6 +313,10 @@ public class MentionActivity extends BaseActivity {
         private UpdateReceiver() {
         }
 
+        /* synthetic */ UpdateReceiver(MentionActivity mentionActivity, UpdateReceiver updateReceiver) {
+            this();
+        }
+
         @Override // android.content.BroadcastReceiver
         public void onReceive(Context context, Intent intent) {
             long r = intent.getLongExtra(Config.BROADCAST_RELAY_ME_NUM, 0L);
@@ -322,7 +326,7 @@ public class MentionActivity extends BaseActivity {
     }
 
     private void regReceiver() {
-        this.receiver = new UpdateReceiver();
+        this.receiver = new UpdateReceiver(this, null);
         IntentFilter filter = new IntentFilter();
         filter.addAction(Config.BROADCAST_NOTIFY);
         registerReceiver(this.receiver, filter);
@@ -344,8 +348,10 @@ public class MentionActivity extends BaseActivity {
         try {
             MenuItem item = menu.findItem(1);
             item.setVisible(true);
-            MenuItem item2 = menu.findItem(2);
-            item2.setVisible(true);
+            if (!TiebaApplication.isBaiduAccountManager()) {
+                MenuItem item2 = menu.findItem(2);
+                item2.setVisible(true);
+            }
             MenuItem item3 = menu.findItem(3);
             item3.setVisible(true);
             MenuItem item4 = menu.findItem(4);
@@ -361,7 +367,9 @@ public class MentionActivity extends BaseActivity {
     @Override // android.app.Activity
     public boolean onCreateOptionsMenu(Menu menu) {
         menu.add(0, 1, 1, getString(R.string.setup)).setIcon(R.drawable.menu_setup);
-        menu.add(0, 2, 2, getString(R.string.account)).setIcon(R.drawable.menu_account);
+        if (!TiebaApplication.isBaiduAccountManager()) {
+            menu.add(0, 2, 2, getString(R.string.account)).setIcon(R.drawable.menu_account);
+        }
         menu.add(0, 3, 3, getString(R.string.feedback)).setIcon(R.drawable.menu_feedback);
         menu.add(0, 4, 4, getString(R.string.about)).setIcon(R.drawable.menu_about);
         menu.add(0, 5, 5, getString(R.string.quit)).setIcon(R.drawable.menu_quit);

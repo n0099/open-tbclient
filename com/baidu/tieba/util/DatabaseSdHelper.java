@@ -17,7 +17,7 @@ public class DatabaseSdHelper {
 
     public DatabaseSdHelper() {
         this.mVersion = 1;
-        this.mVersion = 2;
+        this.mVersion = 3;
     }
 
     private void ExecSQL(SQLiteDatabase db, String sql) {

@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.text.SpannableString;
 import android.text.style.AbsoluteSizeSpan;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.tieba.BaseActivity;
@@ -75,7 +76,15 @@ public class MoreActivity extends BaseActivity {
                     case R.id.account_manager /* 2131361929 */:
                         AccountActivity.startActivity(MoreActivity.this);
                         return;
-                    case R.id.frequency /* 2131361930 */:
+                    case R.id.account_name /* 2131361930 */:
+                    case R.id.arrow /* 2131361931 */:
+                    case R.id.frequency_time /* 2131361933 */:
+                    case R.id.text_upload_image_quality /* 2131361936 */:
+                    case R.id.text_view_images /* 2131361938 */:
+                    case R.id.text_font_size /* 2131361940 */:
+                    default:
+                        return;
+                    case R.id.frequency /* 2131361932 */:
                         AlertDialog.Builder builder = new AlertDialog.Builder(MoreActivity.this);
                         builder.setTitle(R.string.remind_frequency);
                         builder.setItems(MoreActivity.this.mFrequencyMenu, new DialogInterface.OnClickListener() { // from class: com.baidu.tieba.more.MoreActivity.1.1
@@ -110,13 +119,7 @@ public class MoreActivity extends BaseActivity {
                         MoreActivity.this.mFrequencyDialog = builder.create();
                         MoreActivity.this.mFrequencyDialog.show();
                         return;
-                    case R.id.frequency_time /* 2131361931 */:
-                    case R.id.text_upload_image_quality /* 2131361934 */:
-                    case R.id.text_view_images /* 2131361936 */:
-                    case R.id.text_font_size /* 2131361938 */:
-                    default:
-                        return;
-                    case R.id.remind_info /* 2131361932 */:
+                    case R.id.remind_info /* 2131361934 */:
                         AlertDialog.Builder builder2 = new AlertDialog.Builder(MoreActivity.this);
                         builder2.setTitle(R.string.remind_info);
                         builder2.setMultiChoiceItems(MoreActivity.this.mMsgInfoMenu, MoreActivity.this.mMsgInfoMenuState, new DialogInterface.OnMultiChoiceClickListener() { // from class: com.baidu.tieba.more.MoreActivity.1.2
@@ -162,7 +165,7 @@ public class MoreActivity extends BaseActivity {
                         MoreActivity.this.mRemindInfoDialog.setCanceledOnTouchOutside(true);
                         MoreActivity.this.mRemindInfoDialog.show();
                         return;
-                    case R.id.upload_image_quality /* 2131361933 */:
+                    case R.id.upload_image_quality /* 2131361935 */:
                         SpannableString qualityHigh = new SpannableString(MoreActivity.this.getString(R.string.image_quality_high_menu));
                         qualityHigh.setSpan(new AbsoluteSizeSpan(UtilHelper.dip2px(MoreActivity.this, 16.0f)), 1, qualityHigh.length(), 18);
                         SpannableString qualityLow = new SpannableString(MoreActivity.this.getString(R.string.image_quality_low_menu));
@@ -188,7 +191,7 @@ public class MoreActivity extends BaseActivity {
                         MoreActivity.this.mImageQualityDialog.setCanceledOnTouchOutside(true);
                         MoreActivity.this.mImageQualityDialog.show();
                         return;
-                    case R.id.view_images /* 2131361935 */:
+                    case R.id.view_images /* 2131361937 */:
                         MoreActivity.this.mViewImagesDialog = new AlertDialog.Builder(MoreActivity.this).setTitle(R.string.view_images).setItems(R.array.menu_view_images, new DialogInterface.OnClickListener() { // from class: com.baidu.tieba.more.MoreActivity.1.6
                             @Override // android.content.DialogInterface.OnClickListener
                             public void onClick(DialogInterface dialog, int which) {
@@ -206,7 +209,7 @@ public class MoreActivity extends BaseActivity {
                         MoreActivity.this.mViewImagesDialog.setCanceledOnTouchOutside(true);
                         MoreActivity.this.mViewImagesDialog.show();
                         return;
-                    case R.id.font_size /* 2131361937 */:
+                    case R.id.font_size /* 2131361939 */:
                         SpannableString fontBig = new SpannableString(MoreActivity.this.getString(R.string.font_size_big));
                         fontBig.setSpan(new AbsoluteSizeSpan(UtilHelper.dip2px(MoreActivity.this, 18.0f)), 0, fontBig.length(), 18);
                         SpannableString fontMid = new SpannableString(MoreActivity.this.getString(R.string.font_size_mid));
@@ -234,17 +237,17 @@ public class MoreActivity extends BaseActivity {
                         MoreActivity.this.mFontSizeDialog.setCanceledOnTouchOutside(true);
                         MoreActivity.this.mFontSizeDialog.show();
                         return;
-                    case R.id.clear_cash /* 2131361939 */:
+                    case R.id.clear_cash /* 2131361941 */:
                         if (MoreActivity.this.mClearTaks == null) {
-                            MoreActivity.this.mClearTaks = new ClearAsyncTask();
+                            MoreActivity.this.mClearTaks = new ClearAsyncTask(MoreActivity.this, null);
                             MoreActivity.this.mClearTaks.execute(new String[0]);
                             return;
                         }
                         return;
-                    case R.id.about_bieta /* 2131361940 */:
+                    case R.id.about_bieta /* 2131361942 */:
                         AboutActivity.startActivity(MoreActivity.this);
                         return;
-                    case R.id.position_paper /* 2131361941 */:
+                    case R.id.position_paper /* 2131361943 */:
                         AntiData anti = new AntiData();
                         anti.setIfpost(1);
                         WriteActivity.startActivityFeedBack(MoreActivity.this, Config.POSITION_PAGER_ID, Config.POSITION_PAGER_NAME, anti);
@@ -253,7 +256,16 @@ public class MoreActivity extends BaseActivity {
             }
         };
         this.mAccountManager = (LinearLayout) findViewById(R.id.account_manager);
-        this.mAccountManager.setOnClickListener(this.mClickListener);
+        if (TiebaApplication.isBaiduAccountManager()) {
+            this.mAccountManager.setFocusable(false);
+            this.mAccountManager.setClickable(false);
+            TextView accountText = (TextView) findViewById(R.id.account_name);
+            accountText.setText(TiebaApplication.getCurrentAccountName());
+            ImageView image = (ImageView) findViewById(R.id.arrow);
+            image.setVisibility(8);
+        } else {
+            this.mAccountManager.setOnClickListener(this.mClickListener);
+        }
         this.mFrequency = (LinearLayout) findViewById(R.id.frequency);
         this.mFrequency.setOnClickListener(this.mClickListener);
         this.mRemindInfo = (LinearLayout) findViewById(R.id.remind_info);
@@ -343,6 +355,10 @@ public class MoreActivity extends BaseActivity {
         private ClearAsyncTask() {
         }
 
+        /* synthetic */ ClearAsyncTask(MoreActivity moreActivity, ClearAsyncTask clearAsyncTask) {
+            this();
+        }
+
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // android.os.AsyncTask
@@ -371,13 +387,12 @@ public class MoreActivity extends BaseActivity {
                     for (File file2 : list) {
                         file2.delete();
                     }
-                    return null;
                 }
-                return null;
+                File[] fileArr = null;
             } catch (Exception ex) {
                 TiebaLog.e(getClass().getName(), "doInBackground", ex.getMessage());
-                return null;
             }
+            return null;
         }
     }
 

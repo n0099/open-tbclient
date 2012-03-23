@@ -166,7 +166,10 @@ public class DragImageView extends View {
                 if (this.mBitmap.getHeight() > 0) {
                     sy = this.mViewHeight / this.mBitmap.getHeight();
                 }
-                this.mInitScale = sx < sy ? sx : sy;
+                if (sx >= sy) {
+                    sx = sy;
+                }
+                this.mInitScale = sx;
                 this.mScale.clear();
                 this.mScale.add(Float.valueOf(this.mInitScale));
                 resizeBitmap();
@@ -306,7 +309,10 @@ public class DragImageView extends View {
                 if (this.mBitmap.getHeight() > 0) {
                     sy = this.mViewHeight / this.mBitmap.getHeight();
                 }
-                this.mInitScale = sx > sy ? sy : sx;
+                if (sx <= sy) {
+                    sy = sx;
+                }
+                this.mInitScale = sy;
                 this.mScale.clear();
                 this.mScale.add(Float.valueOf(this.mInitScale));
                 resizeBitmap();
@@ -470,7 +476,10 @@ public class DragImageView extends View {
             } else {
                 distanceX = this.mStartX - ((int) ((((float) this.velocityX) + ((2500.0f * tmp) / 2.0f)) * tmp));
             }
-            float tmp2 = ((float) (time > this.mTimeY ? this.mTimeY : time)) / 1000.0f;
+            if (time > this.mTimeY) {
+                time = this.mTimeY;
+            }
+            float tmp2 = ((float) time) / 1000.0f;
             if (this.velocityY > 0) {
                 distanceY = this.mStartY - ((int) ((((float) this.velocityY) - ((2500.0f * tmp2) / 2.0f)) * tmp2));
             } else {
@@ -506,11 +515,11 @@ public class DragImageView extends View {
                 if (DragImageView.this.mIsTouched) {
                     this.mIsAnimationInProgres = false;
                     return false;
-                } else if (super.getTransformation(currentTime, outTransformation)) {
-                    return true;
-                } else {
+                } else if (!super.getTransformation(currentTime, outTransformation)) {
                     this.mIsAnimationInProgres = false;
                     return false;
+                } else {
+                    return true;
                 }
             }
             this.mStop = false;

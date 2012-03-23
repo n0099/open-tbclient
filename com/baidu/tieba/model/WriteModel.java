@@ -15,6 +15,7 @@ public class WriteModel implements Serializable {
     private String mForumId;
     private String mForumName;
     private boolean mHaveDraft;
+    private int mPicType;
     private String mThreadId;
     private String mTitle;
     private int mType;
@@ -36,6 +37,7 @@ public class WriteModel implements Serializable {
         this.mVcodeUrl = null;
         this.mBitmapId = null;
         this.mHaveDraft = false;
+        this.mPicType = 0;
     }
 
     public WriteModel(int type) {
@@ -146,5 +148,13 @@ public class WriteModel implements Serializable {
 
     public boolean getHaveDraft() {
         return this.mHaveDraft;
+    }
+
+    public void setPicType(int picType) {
+        this.mPicType = picType;
+    }
+
+    public int getPicType() {
+        return this.mPicType;
     }
 }

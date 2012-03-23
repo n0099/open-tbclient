@@ -53,13 +53,12 @@ public class DialogMoreAdapter extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public View getView(int position, View convertView, ViewGroup parent) {
-        Exception ex;
         ViewHolder holder;
         try {
             if (convertView == null) {
                 LayoutInflater mInflater = LayoutInflater.from(this.mContext);
                 convertView = mInflater.inflate(R.layout.dialog_more_item, (ViewGroup) null);
-                ViewHolder holder2 = new ViewHolder();
+                ViewHolder holder2 = new ViewHolder(this, null);
                 try {
                     holder2.mText = (TextView) convertView.findViewById(R.id.text);
                     holder2.mNum = (TextView) convertView.findViewById(R.id.num);
@@ -149,6 +148,10 @@ public class DialogMoreAdapter extends BaseAdapter {
         TextView mText;
 
         private ViewHolder() {
+        }
+
+        /* synthetic */ ViewHolder(DialogMoreAdapter dialogMoreAdapter, ViewHolder viewHolder) {
+            this();
         }
     }
 }

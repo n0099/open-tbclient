@@ -192,9 +192,9 @@ public class PbAdapter extends BaseAdapter {
         }
     }
 
+    /* JADX WARN: Not initialized variable reg: 13, insn: 0x0639: MOVE  (r12 I:??[OBJECT, ARRAY]) = (r13 I:??[OBJECT, ARRAY] A[D('holder' com.baidu.tieba.pb.PbAdapter$ViewHolder)]), block:B:134:0x0639 */
     @Override // android.widget.Adapter
     public View getView(int position, View convertView, ViewGroup parent) {
-        Exception ex;
         ViewHolder holder;
         long data_index;
         ViewHolder holder2;
@@ -206,8 +206,12 @@ public class PbAdapter extends BaseAdapter {
                 LayoutInflater mInflater = LayoutInflater.from(this.mContext);
                 try {
                     if (getItemViewType(position) == 0) {
-                        convertView = mInflater.inflate(R.layout.pb_item, (ViewGroup) null);
-                        holder2 = new ViewHolder();
+                        if (this.mPbModel.getData().getIsHasFloor()) {
+                            convertView = mInflater.inflate(R.layout.pb_item_has_floor, (ViewGroup) null);
+                        } else {
+                            convertView = mInflater.inflate(R.layout.pb_item, (ViewGroup) null);
+                        }
+                        holder2 = new ViewHolder(this, null);
                         holder2.mPhoto = (ImageView) convertView.findViewById(R.id.photo);
                         holder2.mUserName = (TextView) convertView.findViewById(R.id.user_name);
                         holder2.mUserName.getPaint().setFakeBoldText(true);
@@ -222,15 +226,20 @@ public class PbAdapter extends BaseAdapter {
                         holder2.mPhoto.setOnClickListener(holder2.mPhotoClick);
                         BitmapDrawable dr = new BitmapDrawable(BitmapHelper.getCashBitmap(R.drawable.photo_bg));
                         holder2.mPhoto.setBackgroundDrawable(dr);
-                        holder = holder2;
+                        if (this.mPbModel.getData().getIsHasFloor()) {
+                            holder2.mSubPostNum = (TextView) convertView.findViewById(R.id.text_reply_num);
+                            holder2.mImageSubPost = (ImageView) convertView.findViewById(R.id.image_reply_num);
+                            holder = holder2;
+                            convertView.setTag(holder);
+                        }
                     } else {
                         convertView = mInflater.inflate(R.layout.page_item, (ViewGroup) null);
-                        holder2 = new ViewHolder();
+                        holder2 = new ViewHolder(this, null);
                         holder2.mPageText = (TextView) convertView.findViewById(R.id.page_text);
                         holder2.mProgress = (ProgressBar) convertView.findViewById(R.id.progress);
                         this.mProgressbars.add(holder2.mProgress);
-                        holder = holder2;
                     }
+                    holder = holder2;
                     convertView.setTag(holder);
                 } catch (Exception e) {
                     ex = e;
@@ -241,6 +250,15 @@ public class PbAdapter extends BaseAdapter {
                 holder = (ViewHolder) convertView.getTag();
             }
             data_index = getItemId(position);
+            if (this.mPbModel.getData().getIsHasFloor() && getItemViewType(position) == 0) {
+                if (getItem(position) != null && ((PostData) getItem(position)).getFloor_num() == 1) {
+                    holder.mSubPostNum.setVisibility(4);
+                    holder.mImageSubPost.setVisibility(4);
+                } else {
+                    holder.mSubPostNum.setVisibility(0);
+                    holder.mImageSubPost.setVisibility(0);
+                }
+            }
         } catch (Exception e2) {
             ex = e2;
         }
@@ -325,12 +343,15 @@ public class PbAdapter extends BaseAdapter {
             holder.mUserName.setText((CharSequence) null);
         }
         if (data.getAuthor() != null && data.getAuthor().getLevel_id() != 0) {
-            holder.mRank.setText(String.valueOf(data.getAuthor().getLevel_id()) + this.mContext.getString(R.string.grade));
+            holder.mRank.setText(String.valueOf(String.valueOf(data.getAuthor().getLevel_id())) + this.mContext.getString(R.string.grade));
         } else {
             holder.mRank.setText((CharSequence) null);
         }
         holder.mTime.setText(StringHelper.getTimeString(data.getTime()));
-        holder.mFloorText.setText(String.valueOf(data.getFloor_num()) + this.mContext.getString(R.string.floor));
+        if (this.mPbModel.getData().getIsHasFloor()) {
+            holder.mSubPostNum.setText(String.valueOf(data.getSubPostNum()));
+        }
+        holder.mFloorText.setText(String.valueOf(String.valueOf(data.getFloor_num())) + this.mContext.getString(R.string.floor));
         ArrayList<ContentData> content = data.getUnite_content();
         if (content != null && content.size() > 0) {
             int i = 0;
@@ -392,12 +413,20 @@ public class PbAdapter extends BaseAdapter {
         return this.mHaveHeader != 0;
     }
 
+    public int getHaveHeader() {
+        return this.mHaveHeader;
+    }
+
     public void setHaveFooter(int haveFooter) {
         this.mHaveFooter = haveFooter;
     }
 
     public boolean isHaveFooter() {
         return this.mHaveFooter != 0;
+    }
+
+    public int getHaveFooter() {
+        return this.mHaveFooter;
     }
 
     public void setIsProcessMore(boolean isProcessMore) {
@@ -436,6 +465,7 @@ public class PbAdapter extends BaseAdapter {
     /* loaded from: classes.dex */
     private class ViewHolder {
         TextView mFloorText;
+        ImageView mImageSubPost;
         ImageView mMark;
         TextView mPageText;
         ImageView mPhoto;
@@ -443,11 +473,16 @@ public class PbAdapter extends BaseAdapter {
         ProgressBar mProgress;
         TextView mRank;
         LinearLayout mSeg;
+        TextView mSubPostNum;
         TextView mText;
         TextView mTime;
         TextView mUserName;
 
         private ViewHolder() {
+        }
+
+        /* synthetic */ ViewHolder(PbAdapter pbAdapter, ViewHolder viewHolder) {
+            this();
         }
     }
 

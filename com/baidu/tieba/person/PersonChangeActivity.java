@@ -189,10 +189,12 @@ public class PersonChangeActivity extends BaseActivity {
             public void onClick(View v) {
                 PersonChangeActivity.this.hideEditor();
                 PersonChangeActivity.this.mModel.setIntro(PersonChangeActivity.this.mEdit.getText().toString());
-                if (PersonChangeActivity.this.mSexgrop.getCheckedRadioButtonId() == R.id.man) {
+                if (PersonChangeActivity.this.mSexgrop.getCheckedRadioButtonId() != R.id.man) {
+                    if (PersonChangeActivity.this.mSexgrop.getCheckedRadioButtonId() == R.id.woman) {
+                        PersonChangeActivity.this.mModel.setSex(2);
+                    }
+                } else {
                     PersonChangeActivity.this.mModel.setSex(1);
-                } else if (PersonChangeActivity.this.mSexgrop.getCheckedRadioButtonId() == R.id.woman) {
-                    PersonChangeActivity.this.mModel.setSex(2);
                 }
                 if (PersonChangeActivity.this.mModifyTask == null) {
                     PersonChangeActivity.this.mModifyTask = new ProfileModifyTask(PersonChangeActivity.this.mModel);
@@ -384,18 +386,17 @@ public class PersonChangeActivity extends BaseActivity {
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // android.os.AsyncTask
         public String doInBackground(String... arg0) {
-            if (this.mModel == null) {
-                return null;
-            }
-            this.mNetWork = new NetWork("http://c.tieba.baidu.com/c/c/profile/modify");
-            this.mNetWork.addPostData("sex", String.valueOf(this.mModel.getSex()));
-            this.mNetWork.addPostData("intro", this.mModel.getIntro());
-            if (this.mModel.getPhotoChanged() && PersonChangeActivity.this.mPhoto != null) {
-                this.mNetWork.addPostData("head_pic", BitmapHelper.Bitmap2Bytes(PersonChangeActivity.this.mPhoto, 80));
-            }
-            this.mNetWork.postMultiNetData();
-            if (this.mNetWork.isRequestSuccess()) {
-                DatabaseService.delPersonData();
+            if (this.mModel != null) {
+                this.mNetWork = new NetWork("http://c.tieba.baidu.com/c/c/profile/modify");
+                this.mNetWork.addPostData("sex", String.valueOf(this.mModel.getSex()));
+                this.mNetWork.addPostData("intro", this.mModel.getIntro());
+                if (this.mModel.getPhotoChanged() && PersonChangeActivity.this.mPhoto != null) {
+                    this.mNetWork.addPostData("head_pic", BitmapHelper.Bitmap2Bytes(PersonChangeActivity.this.mPhoto, 80));
+                }
+                this.mNetWork.postMultiNetData();
+                if (this.mNetWork.isRequestSuccess()) {
+                    DatabaseService.delPersonData();
+                }
             }
             return null;
         }

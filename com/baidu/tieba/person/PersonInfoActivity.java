@@ -7,7 +7,6 @@ import android.content.IntentFilter;
 import android.graphics.Bitmap;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.view.KeyEvent;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
@@ -154,7 +153,7 @@ public class PersonInfoActivity extends BaseActivity {
     /* JADX INFO: Access modifiers changed from: private */
     public void getUserData(boolean from_db, boolean error_hint) {
         if (this.mGetInfoTask == null) {
-            this.mGetInfoTask = new getInfoAsyncTask();
+            this.mGetInfoTask = new getInfoAsyncTask(this, null);
             this.mGetInfoTask.execute(Boolean.valueOf(from_db), Boolean.valueOf(error_hint));
         }
     }
@@ -178,22 +177,22 @@ public class PersonInfoActivity extends BaseActivity {
                                 return;
                             }
                             return;
-                        } else if (view == PersonInfoActivity.this.mAttention) {
-                            if (PersonInfoActivity.this.mModel.getUser() != null && PersonInfoActivity.this.mAttentionTask == null) {
-                                PersonInfoActivity.this.mAttentionTask = new AttentionAsyncTask();
-                                if (PersonInfoActivity.this.mModel.getUser().getHave_attention() == 1) {
-                                    PersonInfoActivity.this.mAttentionTask.execute(1);
-                                    return;
-                                } else {
-                                    PersonInfoActivity.this.mAttentionTask.execute(0);
-                                    return;
-                                }
+                        } else if (view != PersonInfoActivity.this.mAttention) {
+                            if (PersonInfoActivity.this.mRefresh == view) {
+                                PersonInfoActivity.this.mProgress.setVisibility(0);
+                                PersonInfoActivity.this.getUserData(false, true);
+                                return;
                             }
                             return;
-                        } else if (PersonInfoActivity.this.mRefresh == view) {
-                            PersonInfoActivity.this.mProgress.setVisibility(0);
-                            PersonInfoActivity.this.getUserData(false, true);
-                            return;
+                        } else if (PersonInfoActivity.this.mModel.getUser() != null && PersonInfoActivity.this.mAttentionTask == null) {
+                            PersonInfoActivity.this.mAttentionTask = new AttentionAsyncTask(PersonInfoActivity.this, null);
+                            if (PersonInfoActivity.this.mModel.getUser().getHave_attention() == 1) {
+                                PersonInfoActivity.this.mAttentionTask.execute(1);
+                                return;
+                            } else {
+                                PersonInfoActivity.this.mAttentionTask.execute(0);
+                                return;
+                            }
                         } else {
                             return;
                         }
@@ -328,15 +327,6 @@ public class PersonInfoActivity extends BaseActivity {
         }
     }
 
-    @Override // android.app.Activity, android.view.KeyEvent.Callback
-    public boolean onKeyDown(int keyCode, KeyEvent event) {
-        if (keyCode == 4 && this.mModel.getIsSelf() && this.mModel.isTabPage()) {
-            quitDialog();
-            return true;
-        }
-        return super.onKeyDown(keyCode, event);
-    }
-
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.BaseActivity, android.app.Activity
     public void onDestroy() {
@@ -401,11 +391,14 @@ public class PersonInfoActivity extends BaseActivity {
             this.mErrorHint = false;
         }
 
+        /* synthetic */ getInfoAsyncTask(PersonInfoActivity personInfoActivity, getInfoAsyncTask getinfoasynctask) {
+            this();
+        }
+
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // android.os.AsyncTask
         public UserData doInBackground(Boolean... params) {
-            Exception ex;
             String data;
             UserData info = null;
             boolean from_db = params[0].booleanValue();
@@ -433,6 +426,7 @@ public class PersonInfoActivity extends BaseActivity {
                     info2.parserJson(json_user);
                     if (PersonInfoActivity.this.mModel.getIsSelf()) {
                         DatabaseService.cashPersonData(json_user.toString());
+                        return info2;
                     }
                     return info2;
                 } catch (Exception e) {
@@ -503,6 +497,10 @@ public class PersonInfoActivity extends BaseActivity {
             this.mNetwork = null;
         }
 
+        /* synthetic */ AttentionAsyncTask(PersonInfoActivity personInfoActivity, AttentionAsyncTask attentionAsyncTask) {
+            this();
+        }
+
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // android.os.AsyncTask
@@ -517,7 +515,7 @@ public class PersonInfoActivity extends BaseActivity {
                         this.mNetwork.setUrl("http://c.tieba.baidu.com/c/c/user/unfollow");
                     }
                     this.mNetwork.addPostData("portrait", PersonInfoActivity.this.mModel.getUser().getPortrait());
-                    this.mNetwork.addPostData("tbs", TiebaApplication.app.getTbs());
+                    this.mNetwork.setIsNeedTbs(true);
                     this.mNetwork.postNetData();
                     return null;
                 }

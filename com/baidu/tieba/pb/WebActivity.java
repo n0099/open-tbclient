@@ -87,6 +87,7 @@ public class WebActivity extends BaseActivity {
             }
         });
         WebSettings webSettings = this.mWebView.getSettings();
+        webSettings.setBuiltInZoomControls(true);
         webSettings.setJavaScriptEnabled(true);
         webSettings.setPluginsEnabled(true);
         this.mWebback = (ImageView) findViewById(R.id.webBack);

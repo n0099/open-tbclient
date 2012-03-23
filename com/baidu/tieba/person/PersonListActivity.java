@@ -152,14 +152,15 @@ public class PersonListActivity extends BaseActivity {
         this.mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() { // from class: com.baidu.tieba.person.PersonListActivity.3
             @Override // android.widget.AdapterView.OnItemClickListener
             public void onItemClick(AdapterView<?> arg0, View arg1, int position, long id) {
-                if (id == -1) {
-                    PersonListActivity.this.startGetNetData(true);
+                if (id != -1) {
+                    MetaData data = (MetaData) PersonListActivity.this.mAdapter.getItem(position);
+                    if (data != null && data.getId() != null) {
+                        PersonInfoActivity.startActivity(PersonListActivity.this, data.getId(), data.getName_show());
+                        return;
+                    }
                     return;
                 }
-                MetaData data = (MetaData) PersonListActivity.this.mAdapter.getItem(position);
-                if (data != null && data.getId() != null) {
-                    PersonInfoActivity.startActivity(PersonListActivity.this, data.getId(), data.getName_show());
-                }
+                PersonListActivity.this.startGetNetData(true);
             }
         });
         this.mListView.setOnScrollListener(new AbsListView.OnScrollListener() { // from class: com.baidu.tieba.person.PersonListActivity.4

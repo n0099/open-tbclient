@@ -5,6 +5,8 @@ import com.baidu.tieba.util.TiebaLog;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class FeedData {
+    private int isFloor;
+    private String quote_pid;
     private int type = 0;
     private long time = 0;
     private String title = null;
@@ -96,6 +98,22 @@ public class FeedData {
         return this.quote_user;
     }
 
+    public void setIsFloor(int floor) {
+        this.isFloor = floor;
+    }
+
+    public boolean getIsFloor() {
+        return this.isFloor == 1;
+    }
+
+    public void setQuote_pid(String id) {
+        this.quote_pid = id;
+    }
+
+    public String getQuote_pid() {
+        return this.quote_pid;
+    }
+
     public void parserJson(String data) {
         try {
             JSONObject json = new JSONObject(data);
@@ -116,6 +134,8 @@ public class FeedData {
                 this.quote_content = json.optString("quote_content");
                 this.thread_id = json.optString("thread_id");
                 this.post_id = json.optString("post_id");
+                this.isFloor = json.optInt("is_floor");
+                this.quote_pid = json.optString("quote_pid");
                 this.replyer.parserJson(json.optJSONObject("replyer"));
                 this.quote_user.parserJson(json.optJSONObject("quote_user"));
             } catch (Exception ex) {

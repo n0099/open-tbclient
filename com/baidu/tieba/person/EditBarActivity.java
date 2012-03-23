@@ -69,7 +69,7 @@ public class EditBarActivity extends BaseActivity {
         if (this.mMyBarTask != null) {
             this.mMyBarTask.cancel();
         }
-        this.mMyBarTask = new MyBarAsyncTask();
+        this.mMyBarTask = new MyBarAsyncTask(this, null);
         this.mMyBarTask.execute(new Object[0]);
     }
 
@@ -98,15 +98,12 @@ public class EditBarActivity extends BaseActivity {
                                     @Override // android.content.DialogInterface.OnClickListener
                                     public void onClick(DialogInterface arg0, int which2) {
                                         ArrayList<ForumData> datas2;
-                                        if (which2 == -1) {
-                                            if (EditBarActivity.this.mUnlikeTask == null && (datas2 = EditBarActivity.this.mModel.getForum_list()) != null && EditBarActivity.this.mClickItem >= 0 && EditBarActivity.this.mClickItem < datas2.size()) {
-                                                EditBarActivity.this.mUnlikeTask = new UnlikeAsyncTask();
-                                                EditBarActivity.this.mUnlikeTask.execute(datas2.get(EditBarActivity.this.mClickItem));
-                                                return;
-                                            }
-                                            return;
+                                        if (which2 != -1) {
+                                            EditBarActivity.this.mAffirmDialog.dismiss();
+                                        } else if (EditBarActivity.this.mUnlikeTask == null && (datas2 = EditBarActivity.this.mModel.getForum_list()) != null && EditBarActivity.this.mClickItem >= 0 && EditBarActivity.this.mClickItem < datas2.size()) {
+                                            EditBarActivity.this.mUnlikeTask = new UnlikeAsyncTask(EditBarActivity.this, null);
+                                            EditBarActivity.this.mUnlikeTask.execute(datas2.get(EditBarActivity.this.mClickItem));
                                         }
-                                        EditBarActivity.this.mAffirmDialog.dismiss();
                                     }
                                 };
                                 builder2.setPositiveButton(EditBarActivity.this.getString(R.string.confirm), EditBarActivity.this.mAffirmListener);
@@ -116,7 +113,7 @@ public class EditBarActivity extends BaseActivity {
                             EditBarActivity.this.mAffirmDialog.show();
                             return;
                         } else if (EditBarActivity.this.mUnlikeTask == null && (datas = EditBarActivity.this.mModel.getForum_list()) != null && EditBarActivity.this.mClickItem >= 0 && EditBarActivity.this.mClickItem < datas.size()) {
-                            EditBarActivity.this.mUnlikeTask = new UnlikeAsyncTask();
+                            EditBarActivity.this.mUnlikeTask = new UnlikeAsyncTask(EditBarActivity.this, null);
                             EditBarActivity.this.mUnlikeTask.execute(datas.get(EditBarActivity.this.mClickItem));
                             return;
                         } else {
@@ -160,6 +157,10 @@ public class EditBarActivity extends BaseActivity {
             this.mNetwork = null;
         }
 
+        /* synthetic */ MyBarAsyncTask(EditBarActivity editBarActivity, MyBarAsyncTask myBarAsyncTask) {
+            this();
+        }
+
         @Override // android.os.AsyncTask
         protected void onPreExecute() {
             EditBarActivity.this.mProgress.setVisibility(0);
@@ -170,7 +171,6 @@ public class EditBarActivity extends BaseActivity {
         /* JADX WARN: Can't rename method to resolve collision */
         @Override // android.os.AsyncTask
         public BarlistModel doInBackground(Object... params) {
-            Exception ex;
             BarlistModel barlistData = null;
             try {
                 this.mNetwork = new NetWork("http://c.tieba.baidu.com/c/f/forum/favolike");
@@ -231,6 +231,10 @@ public class EditBarActivity extends BaseActivity {
             this.mNetwork = null;
         }
 
+        /* synthetic */ UnlikeAsyncTask(EditBarActivity editBarActivity, UnlikeAsyncTask unlikeAsyncTask) {
+            this();
+        }
+
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // android.os.AsyncTask
@@ -243,7 +247,7 @@ public class EditBarActivity extends BaseActivity {
                         this.mNetwork.addPostData("fid", data.getId());
                         this.mNetwork.addPostData("kw", data.getName());
                         this.mNetwork.addPostData("favo_type", String.valueOf(data.getFavo_type()));
-                        this.mNetwork.addPostData("tbs", TiebaApplication.app.getTbs());
+                        this.mNetwork.setIsNeedTbs(true);
                         this.mNetwork.postNetData();
                         return null;
                     }

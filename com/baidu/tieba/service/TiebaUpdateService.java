@@ -130,7 +130,7 @@ public class TiebaUpdateService extends Service {
             while (!this.mCanceled) {
                 try {
                     this.mNetWork = new NetWork(this.mData.getUrl());
-                    ret = this.mNetWork.downloadFile(this.mData.getNew_file() + ".tmp", TiebaUpdateService.this.handler);
+                    ret = this.mNetWork.downloadFile(String.valueOf(this.mData.getNew_file()) + ".tmp", TiebaUpdateService.this.handler);
                     if (ret.booleanValue() || this.mNetWork.getErrorCode() == -2) {
                         break;
                     } else if (!this.mNetWork.isFileSegSuccess()) {
@@ -145,7 +145,7 @@ public class TiebaUpdateService extends Service {
             }
             if (ret.booleanValue()) {
                 FileHelper.DelFile(this.mData.getNew_file());
-                File file = FileHelper.GetFile(this.mData.getNew_file() + ".tmp");
+                File file = FileHelper.GetFile(String.valueOf(this.mData.getNew_file()) + ".tmp");
                 if (file != null && (to = FileHelper.FileObject(this.mData.getNew_file())) != null) {
                     file.renameTo(to);
                 }

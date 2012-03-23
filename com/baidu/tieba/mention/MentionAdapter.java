@@ -164,7 +164,7 @@ public class MentionAdapter extends BaseAdapter {
                 } else {
                     convertView = mInflater.inflate(R.layout.mention_atme_item, (ViewGroup) null);
                 }
-                holder = new ViewHolder();
+                holder = new ViewHolder(this, null);
                 holder.mPhoto = (ImageView) convertView.findViewById(R.id.photo);
                 holder.mUserName = (TextView) convertView.findViewById(R.id.user_name);
                 holder.mUserName.getPaint().setFakeBoldText(true);
@@ -181,7 +181,7 @@ public class MentionAdapter extends BaseAdapter {
                 holder.mPhoto.setOnClickListener(holder.mPhotoClick);
             } else {
                 convertView = mInflater.inflate(R.layout.page_item, (ViewGroup) null);
-                holder = new ViewHolder();
+                holder = new ViewHolder(this, null);
                 holder.mPageText = (TextView) convertView.findViewById(R.id.page_text);
                 holder.mProgress = (ProgressBar) convertView.findViewById(R.id.progress);
                 this.mProgressbars.add(holder.mProgress);
@@ -269,6 +269,10 @@ public class MentionAdapter extends BaseAdapter {
         TextView mUserName;
 
         private ViewHolder() {
+        }
+
+        /* synthetic */ ViewHolder(MentionAdapter mentionAdapter, ViewHolder viewHolder) {
+            this();
         }
     }
 

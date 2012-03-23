@@ -2,6 +2,7 @@ package com.baidu.tieba.mention;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.AsyncTask;
 import android.os.Handler;
@@ -16,12 +17,16 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.TiebaApplication;
+import com.baidu.tieba.data.AntiData;
 import com.baidu.tieba.data.Config;
 import com.baidu.tieba.data.FeedData;
 import com.baidu.tieba.data.PbData;
 import com.baidu.tieba.data.PostData;
+import com.baidu.tieba.data.SubPbData;
 import com.baidu.tieba.model.MentionModel;
+import com.baidu.tieba.model.SubPbModel;
 import com.baidu.tieba.pb.PbActivity;
+import com.baidu.tieba.pb.SubPbActivity;
 import com.baidu.tieba.person.PersonListActivity;
 import com.baidu.tieba.util.AsyncImageLoader;
 import com.baidu.tieba.util.NetWork;
@@ -101,12 +106,6 @@ public class MentionView {
         void set(String str);
     }
 
-    static /* synthetic */ int access$408(MentionView x0) {
-        int i = x0.mPn;
-        x0.mPn = i + 1;
-        return i;
-    }
-
     /* loaded from: classes.dex */
     public class DialogMenuListener implements DialogInterface.OnClickListener {
         private FeedData data = null;
@@ -127,11 +126,21 @@ public class MentionView {
             if (this.data != null) {
                 switch (which) {
                     case 0:
-                        PostActivity.startAcitivity(MentionView.this.mActivity, this.data.getThread_id(), this.data.getPost_id());
-                        return;
+                        if (!this.data.getIsFloor()) {
+                            PostActivity.startAcitivity(MentionView.this.mActivity, this.data.getThread_id(), this.data.getPost_id());
+                            return;
+                        } else {
+                            MentionView.this.viewFloorPage(this.data);
+                            return;
+                        }
                     case 1:
-                        MentionView.this.reply(this.data.getThread_id(), this.data.getPost_id());
-                        return;
+                        if (this.data.getIsFloor()) {
+                            MentionView.this.reply(this.data.getThread_id(), this.data.getPost_id(), 2);
+                            return;
+                        } else {
+                            MentionView.this.reply(this.data.getThread_id(), this.data.getPost_id(), 1);
+                            return;
+                        }
                     case 2:
                         PbActivity.startAcitivity(MentionView.this.mActivity, this.data.getThread_id(), null);
                         return;
@@ -223,14 +232,14 @@ public class MentionView {
                     MentionView.this.mUpdateType = 3;
                     MentionView.this.show();
                 } else if (index == -2) {
-                    MentionView.access$408(MentionView.this);
+                    MentionView.this.mPn++;
                     MentionView.this.mUpdateType = 4;
                     MentionView.this.show();
                 } else {
                     FeedData data = (FeedData) adapter.getItem(arg2);
                     if (data != null) {
                         MentionView.this.mDialogMenuListener.setData(data);
-                        MentionView.this.mDialogMenu.show();
+                        MentionView.this.showMenu(data);
                     }
                 }
             }
@@ -243,18 +252,12 @@ public class MentionView {
                 FeedData data = (FeedData) tmpList.getAdapter().getItem(arg2);
                 if (data != null) {
                     MentionView.this.mDialogMenuListener.setData(data);
-                    MentionView.this.mDialogMenu.show();
+                    MentionView.this.showMenu(data);
                     return true;
                 }
                 return true;
             }
         });
-        CharSequence[] itemsDialogMenu = {this.mActivity.getString(R.string.view_post), this.mActivity.getString(R.string.reply), this.mActivity.getString(R.string.view_pb)};
-        AlertDialog.Builder builder = new AlertDialog.Builder(this.mActivity);
-        builder.setTitle(this.mActivity.getString(R.string.operation));
-        builder.setItems(itemsDialogMenu, this.mDialogMenuListener);
-        this.mDialogMenu = builder.create();
-        this.mDialogMenu.setCanceledOnTouchOutside(true);
         this.mList.setOnScrollListener(new AbsListView.OnScrollListener() { // from class: com.baidu.tieba.mention.MentionView.4
             @Override // android.widget.AbsListView.OnScrollListener
             public void onScroll(AbsListView arg0, int arg1, int arg2, int arg3) {
@@ -267,6 +270,18 @@ public class MentionView {
             }
         });
         this.mProgress.setVisibility(8);
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void showMenu(FeedData data) {
+        String menu = data.getIsFloor() ? this.mActivity.getString(R.string.view_souce_post) : this.mActivity.getString(R.string.view_post);
+        CharSequence[] itemsDialogMenu = {menu, this.mActivity.getString(R.string.reply), this.mActivity.getString(R.string.view_pb)};
+        AlertDialog.Builder builder = new AlertDialog.Builder(this.mActivity);
+        builder.setTitle(this.mActivity.getString(R.string.operation));
+        builder.setItems(itemsDialogMenu, this.mDialogMenuListener);
+        this.mDialogMenu = builder.create();
+        this.mDialogMenu.setCanceledOnTouchOutside(true);
+        this.mDialogMenu.show();
     }
 
     public void show() {
@@ -443,7 +458,6 @@ public class MentionView {
         /* JADX WARN: Can't rename method to resolve collision */
         @Override // android.os.AsyncTask
         public MentionModel doInBackground(Object... params) {
-            Exception ex;
             MentionModel model = null;
             try {
                 this.mNetwork = new NetWork(this.mUrl);
@@ -494,7 +508,7 @@ public class MentionView {
                     this.mAdapter.notifyDataSetChanged();
                     break;
             }
-            if (model == null) {
+            if (model == null && this.mNetwork != null) {
                 if (this.mNetwork.isNetSuccess()) {
                     MentionView.this.mActivity.showToast(this.mNetwork.getErrorString());
                 } else if (MentionView.this.mModel == null) {
@@ -525,36 +539,60 @@ public class MentionView {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void reply(String threadId, String postId) {
+    public void reply(String threadId, String postId, int type) {
         StringBuffer address = new StringBuffer(30);
         address.append(Config.SERVER_ADDRESS);
-        address.append(Config.PB_ADDRESS);
         ArrayList<BasicNameValuePair> param = new ArrayList<>();
-        BasicNameValuePair theme = new BasicNameValuePair("kz", threadId);
-        param.add(theme);
-        BasicNameValuePair theme2 = new BasicNameValuePair("pid", postId);
-        param.add(theme2);
-        BasicNameValuePair theme3 = new BasicNameValuePair("mark", String.valueOf(1));
-        param.add(theme3);
-        BasicNameValuePair theme4 = new BasicNameValuePair("rn", String.valueOf(1));
-        param.add(theme4);
+        if (type == 1) {
+            address.append(Config.PB_ADDRESS);
+            BasicNameValuePair theme = new BasicNameValuePair("kz", threadId);
+            param.add(theme);
+            BasicNameValuePair theme2 = new BasicNameValuePair("pid", postId);
+            param.add(theme2);
+            BasicNameValuePair theme3 = new BasicNameValuePair("mark", String.valueOf(1));
+            param.add(theme3);
+            BasicNameValuePair theme4 = new BasicNameValuePair("rn", String.valueOf(1));
+            param.add(theme4);
+        }
+        if (type == 2) {
+            address.append(Config.FLOOR_ADDRESS);
+            BasicNameValuePair theme5 = new BasicNameValuePair("kz", threadId);
+            param.add(theme5);
+            BasicNameValuePair theme6 = new BasicNameValuePair("spid", postId);
+            param.add(theme6);
+        }
         cancelUpdate();
-        this.mPostTask = new PostAsyncTask(address.toString(), param);
+        this.mPostTask = new PostAsyncTask(address.toString(), param, type);
         this.mPostTask.execute(address.toString(), param);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
+    public void viewFloorPage(FeedData data) {
+        String threadId = data.getThread_id();
+        String postId = data.getPost_id();
+        Intent intent = new Intent(this.mActivity, SubPbActivity.class);
+        intent.putExtra("themeId", threadId);
+        intent.putExtra("postId", postId);
+        intent.putExtra("isFromMention", true);
+        this.mActivity.startActivity(intent);
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
-    public class PostAsyncTask extends AsyncTask<Object, Integer, PbData> {
+    public class PostAsyncTask extends AsyncTask<Object, Integer, String> {
+        static final int TYPE_REPLY = 1;
+        static final int TYPE_REPLY_FLOOR = 2;
         private NetWork mNetwork = null;
         ArrayList<BasicNameValuePair> mParam;
+        private int mRequestType;
         private String mUrl;
 
-        public PostAsyncTask(String url, ArrayList<BasicNameValuePair> param) {
+        public PostAsyncTask(String url, ArrayList<BasicNameValuePair> param, int type) {
             this.mUrl = null;
             this.mParam = null;
             this.mUrl = url;
             this.mParam = param;
+            this.mRequestType = type;
         }
 
         @Override // android.os.AsyncTask
@@ -565,59 +603,52 @@ public class MentionView {
 
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
-        /* JADX WARN: Can't rename method to resolve collision */
         @Override // android.os.AsyncTask
-        public PbData doInBackground(Object... params) {
-            Exception ex;
-            PbData pbData = null;
+        public String doInBackground(Object... params) {
             try {
                 this.mNetwork = new NetWork(this.mUrl);
                 this.mNetwork.setPostData(this.mParam);
                 String data = this.mNetwork.postNetData();
-                if (!this.mNetwork.isRequestSuccess()) {
-                    return null;
-                }
-                PbData pbData2 = new PbData();
-                try {
-                    pbData2.parserJson(data);
-                    return pbData2;
-                } catch (Exception e) {
-                    ex = e;
-                    pbData = pbData2;
-                    TiebaLog.e("PostAsyncTask", "doInBackground", "error = " + ex.getMessage());
-                    return pbData;
-                }
-            } catch (Exception e2) {
-                ex = e2;
+                return data;
+            } catch (Exception ex) {
+                TiebaLog.e("PostAsyncTask", "doInBackground", "error = " + ex.getMessage());
+                return null;
             }
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // android.os.AsyncTask
-        public void onPostExecute(PbData data) {
+        public void onPostExecute(String data) {
             try {
                 MentionView.this.mProgress.setVisibility(8);
-                if (data == null) {
-                    if (this.mNetwork != null) {
-                        MentionView.this.mActivity.showToast(this.mNetwork.getErrorString());
+                if (this.mNetwork.isRequestSuccess()) {
+                    if (this.mRequestType == 1) {
+                        PbData pbData = new PbData();
+                        pbData.parserJson(data);
+                        PostData post = pbData.getPost_list().get(0);
+                        if (post != null) {
+                            WriteActivity.startAcitivity(MentionView.this.mActivity, pbData.getForum().getId(), pbData.getForum().getName(), pbData.getThread().getId(), post.getId(), post.getFloor_num(), pbData.getAnti(), pbData.getIsHasFloor());
+                        } else {
+                            return;
+                        }
                     }
-                } else {
-                    PostData post = data.getPost_list().get(0);
-                    if (post != null) {
-                        WriteActivity.startAcitivity(MentionView.this.mActivity, data.getForum().getId(), data.getForum().getName(), data.getThread().getId(), post.getId(), post.getFloor_num(), data.getAnti());
-                    } else {
-                        return;
+                    if (this.mRequestType == 2) {
+                        SubPbData subPbData = new SubPbModel(MentionView.this.mActivity, data).getSubPbData();
+                        String forumId = subPbData.getForumData().getId();
+                        String forumName = subPbData.getForumData().getName();
+                        String threadId = subPbData.getThreadData().getId();
+                        AntiData antiData = subPbData.getAntiData();
+                        String postId = subPbData.getPostData().getId();
+                        int floorNum = subPbData.getPostData().getFloor_num();
+                        WriteActivity.startAcitivity(MentionView.this.mActivity, forumId, forumName, threadId, postId, floorNum, antiData, true);
                     }
+                } else if (this.mNetwork != null) {
+                    MentionView.this.mActivity.showToast(this.mNetwork.getErrorString());
                 }
             } catch (Exception e) {
             }
             MentionView.this.mPostTask = null;
-        }
-
-        @Override // android.os.AsyncTask
-        protected void onCancelled() {
-            super.onCancelled();
         }
 
         public void cancel() {

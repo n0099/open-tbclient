@@ -22,7 +22,6 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import com.baidu.tieba.BaseActivity;
 import com.baidu.tieba.R;
-import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.data.Config;
 import com.baidu.tieba.data.GoodData;
 import com.baidu.tieba.data.ThreadData;
@@ -97,18 +96,6 @@ public class FrsActivity extends BaseActivity {
     private DialogGoodAdapter mDialogAdapter = null;
     private LinearLayout mPageTitle = null;
     AlertDialog mMenuFrs = null;
-
-    static /* synthetic */ int access$408(FrsActivity x0) {
-        int i = x0.mPn;
-        x0.mPn = i + 1;
-        return i;
-    }
-
-    static /* synthetic */ int access$410(FrsActivity x0) {
-        int i = x0.mPn;
-        x0.mPn = i - 1;
-        return i;
-    }
 
     public static void startAcitivity(Context context, String name, String from) {
         Intent intent = new Intent(context, FrsActivity.class);
@@ -252,11 +239,12 @@ public class FrsActivity extends BaseActivity {
                         FrsActivity.this.execLike();
                         return;
                     }
-                    FrsActivity.access$410(FrsActivity.this);
+                    FrsActivity frsActivity = FrsActivity.this;
+                    frsActivity.mPn--;
                     FrsActivity.this.mType = 2;
                     FrsActivity.this.exec();
                 } else if (index == -2) {
-                    FrsActivity.access$408(FrsActivity.this);
+                    FrsActivity.this.mPn++;
                     FrsActivity.this.mType = 1;
                     FrsActivity.this.exec();
                 } else {
@@ -368,16 +356,16 @@ public class FrsActivity extends BaseActivity {
                     FrsActivity.this.mDialogGood.dismiss();
                     ListView tmpList = (ListView) arg0;
                     GoodData data = (GoodData) tmpList.getAdapter().getItem(arg2);
-                    if (data.getClass_id() == DialogGoodAdapter.FRS_ALLTHREAD_CLASS_ID) {
-                        FrsActivity.this.refresh();
+                    if (data.getClass_id() != DialogGoodAdapter.FRS_ALLTHREAD_CLASS_ID) {
+                        FrsActivity.this.mIsGood = 1;
+                        FrsActivity.this.mGoodId = data.getClass_id();
+                        FrsActivity.this.mGoodName = data.getClass_name();
+                        FrsActivity.this.mPn = 1;
+                        FrsActivity.this.mType = 3;
+                        FrsActivity.this.exec();
                         return;
                     }
-                    FrsActivity.this.mIsGood = 1;
-                    FrsActivity.this.mGoodId = data.getClass_id();
-                    FrsActivity.this.mGoodName = data.getClass_name();
-                    FrsActivity.this.mPn = 1;
-                    FrsActivity.this.mType = 3;
-                    FrsActivity.this.exec();
+                    FrsActivity.this.refresh();
                 }
             });
         }
@@ -480,8 +468,6 @@ public class FrsActivity extends BaseActivity {
                 param.add(tmp);
                 BasicNameValuePair tmp2 = new BasicNameValuePair("kw", this.mForum);
                 param.add(tmp2);
-                BasicNameValuePair tmp3 = new BasicNameValuePair("tbs", TiebaApplication.app.getTbs());
-                param.add(tmp3);
                 cancelAsyncTask();
                 this.mFrsLikeTask = new FrsLikeAsyncTask(address.toString(), param, this.mType);
                 this.mFrsLikeTask.execute(address.toString(), param);
@@ -521,8 +507,6 @@ public class FrsActivity extends BaseActivity {
     }
 
     private void processFirst() {
-        if (this.mIsFirst) {
-        }
         this.mIsFirst = false;
     }
 
@@ -634,7 +618,6 @@ public class FrsActivity extends BaseActivity {
         /* JADX WARN: Can't rename method to resolve collision */
         @Override // android.os.AsyncTask
         public FrsModel doInBackground(Object... params) {
-            Exception ex;
             FrsModel frsData = null;
             try {
                 this.mNetwork = new NetWork(this.mUrl);
@@ -660,10 +643,10 @@ public class FrsActivity extends BaseActivity {
                     }
                 }
                 if (this.mNetwork.isNetSuccess()) {
-                    long unused = FrsActivity.mPbLoadTime = 0L;
-                    int unused2 = FrsActivity.mNetError = 0;
+                    FrsActivity.mPbLoadTime = 0L;
+                    FrsActivity.mNetError = 0;
                 } else {
-                    int unused3 = FrsActivity.mNetError = 1;
+                    FrsActivity.mNetError = 1;
                 }
             } catch (Exception e2) {
                 ex = e2;
@@ -692,7 +675,7 @@ public class FrsActivity extends BaseActivity {
                 FrsActivity.this.mModel = data;
                 FrsActivity.this.refreshFrs();
                 long end_time = new Date().getTime();
-                long unused = FrsActivity.mPbLoadTime = end_time - this.mStartTime;
+                FrsActivity.mPbLoadTime = end_time - this.mStartTime;
             } else {
                 processError();
             }
@@ -775,6 +758,7 @@ public class FrsActivity extends BaseActivity {
             try {
                 this.mNetwork = new NetWork(this.mUrl);
                 this.mNetwork.setPostData(this.mParams);
+                this.mNetwork.setIsNeedTbs(true);
                 this.mNetwork.setContext(FrsActivity.this);
                 this.mNetwork.postNetData();
                 if (this.mNetwork.isRequestSuccess()) {

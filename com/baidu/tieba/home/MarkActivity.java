@@ -33,10 +33,10 @@ public class MarkActivity extends BaseActivity {
         public void onClick(DialogInterface dialog, int item) {
             switch (item) {
                 case 0:
-                    if (MarkActivity.this.mMarkData != null) {
-                        PbActivity.startAcitivity(MarkActivity.this, MarkActivity.this.mMarkData);
+                    if (MarkActivity.this.mMarkData == null) {
                         return;
                     }
+                    MarkActivity.this.enter();
                     return;
                 case 1:
                     MarkActivity.this.execDel();
@@ -87,9 +87,10 @@ public class MarkActivity extends BaseActivity {
             public void onItemClick(AdapterView<?> arg0, View arg1, int arg2, long arg3) {
                 ListView tmpList = (ListView) arg0;
                 MarkActivity.this.mMarkData = (MarkData) tmpList.getAdapter().getItem(arg2);
-                if (MarkActivity.this.mMarkData != null) {
-                    PbActivity.startAcitivity(MarkActivity.this, MarkActivity.this.mMarkData);
+                if (MarkActivity.this.mMarkData == null) {
+                    return;
                 }
+                MarkActivity.this.enter();
             }
         });
         this.mListMark.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() { // from class: com.baidu.tieba.home.MarkActivity.3
@@ -110,10 +111,17 @@ public class MarkActivity extends BaseActivity {
         this.mMenuMark.setCanceledOnTouchOutside(true);
     }
 
+    /* JADX INFO: Access modifiers changed from: private */
+    public void enter() {
+        if (this.mMarkData != null) {
+            PbActivity.startAcitivity(this, this.mMarkData);
+        }
+    }
+
     public void exec(boolean isRefresh) {
         if (this.mModelMarks == null || DatabaseService.getMarkState().booleanValue()) {
             cancelAsyncTask();
-            this.mMarkTask = new HomeMarkAsyncTask();
+            this.mMarkTask = new HomeMarkAsyncTask(this, null);
             this.mMarkTask.execute(new Object[0]);
         }
     }
@@ -155,6 +163,10 @@ public class MarkActivity extends BaseActivity {
     /* loaded from: classes.dex */
     public class HomeMarkAsyncTask extends AsyncTask<Object, Integer, MarklistModel> {
         private HomeMarkAsyncTask() {
+        }
+
+        /* synthetic */ HomeMarkAsyncTask(MarkActivity markActivity, HomeMarkAsyncTask homeMarkAsyncTask) {
+            this();
         }
 
         /* JADX DEBUG: Method merged with bridge method */

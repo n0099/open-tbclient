@@ -220,7 +220,7 @@ public class AccountVcodeActivity extends BaseActivity {
     /* JADX INFO: Access modifiers changed from: private */
     public void refreshImage(String str) {
         cancelAsyncTask();
-        this.mGetImageTask = new GetImageTask();
+        this.mGetImageTask = new GetImageTask(this, null);
         this.mGetImageTask.execute(str);
     }
 
@@ -250,7 +250,6 @@ public class AccountVcodeActivity extends BaseActivity {
         /* JADX WARN: Can't rename method to resolve collision */
         @Override // android.os.AsyncTask
         public LoginModel doInBackground(Object... params) {
-            Exception ex;
             LoginModel loginData = null;
             try {
                 this.mNetwork = new NetWork(this.mUrl);
@@ -324,6 +323,10 @@ public class AccountVcodeActivity extends BaseActivity {
             this.mCanceled = false;
         }
 
+        /* synthetic */ GetImageTask(AccountVcodeActivity accountVcodeActivity, GetImageTask getImageTask) {
+            this();
+        }
+
         public void cancel() {
             AccountVcodeActivity.this.mGetImageTask = null;
             if (this.mNetWork != null) {
@@ -346,16 +349,12 @@ public class AccountVcodeActivity extends BaseActivity {
         @Override // android.os.AsyncTask
         public Bitmap doInBackground(String... params) {
             String url = params[0];
-            if (url == null || url.length() <= 0) {
-                return null;
-            }
-            if (this.mCanceled) {
+            if (url == null || url.length() <= 0 || this.mCanceled) {
                 return null;
             }
             this.mNetWork = new NetWork(url);
             byte[] data = this.mNetWork.getNetData();
-            Bitmap bm = BitmapHelper.Bytes2Bitmap(data);
-            return bm;
+            return BitmapHelper.Bytes2Bitmap(data);
         }
 
         /* JADX DEBUG: Method merged with bridge method */

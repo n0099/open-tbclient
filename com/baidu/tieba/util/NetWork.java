@@ -4,6 +4,7 @@ import android.content.Context;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import com.baidu.tieba.BaiduAccount.BaiduAccount;
 import com.baidu.tieba.R;
 import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.account.LoginActivity;
@@ -31,10 +32,12 @@ public class NetWork {
     private static final String TBS = "tbs";
     private NetWorkCore mNet = null;
     private NetWorkCore mNetLogin = null;
+    private boolean mIsNeedTbs = false;
 
     private void initNetWork() {
         this.mNet = new NetWorkCore();
         this.mNetLogin = null;
+        this.mIsNeedTbs = false;
     }
 
     public NetWork() {
@@ -131,7 +134,7 @@ public class NetWork {
                 BasicNameValuePair tmp = param.get(i);
                 if (tmp.getName().equals(BDUSS)) {
                     param.set(i, pair1);
-                } else if (tmp.getName().equals(TBS)) {
+                } else if (tmp.getName().equals(TBS) && !TiebaApplication.isBaiduAccountManager()) {
                     param.set(i, pair2);
                 }
             }
@@ -155,6 +158,13 @@ public class NetWork {
         String net_type = this.mNet.getNetType();
         if (net_type != null) {
             this.mNet.addPostData(NET_TYPE, net_type);
+        }
+        if (this.mIsNeedTbs) {
+            if (TiebaApplication.isBaiduAccountManager()) {
+                this.mNet.addPostData(TBS, Config.TBS_IGNORE);
+            } else {
+                this.mNet.addPostData(TBS, TiebaApplication.app.getTbs());
+            }
         }
     }
 
@@ -189,9 +199,9 @@ public class NetWork {
 
     public LoginModel login(String account, String password) {
         try {
-            TiebaLog.i(getClass().toString(), "login", "=== need auto login");
+            TiebaLog.i(getClass().toString(), Config.ST_TYPE_LOGIN, "=== need auto login");
         } catch (Exception ex) {
-            TiebaLog.e(getClass().toString(), "login", ex.getMessage());
+            TiebaLog.e(getClass().toString(), Config.ST_TYPE_LOGIN, ex.getMessage());
         }
         if (account == null || password == null) {
             return null;
@@ -258,6 +268,12 @@ public class NetWork {
         return this.mNet.getNetData();
     }
 
+    /* JADX INFO: Access modifiers changed from: private */
+    public void BaiduReLogin() {
+        TiebaApplication.setCurrentAccount(null);
+        TiebaApplication.app.handler.sendMessage(TiebaApplication.app.handler.obtainMessage(1));
+    }
+
     private String process(int type) {
         String data;
         switch (type) {
@@ -281,37 +297,65 @@ public class NetWork {
         if (!this.mNet.isRequestSuccess() && this.mNet.isNetSuccess()) {
             if (this.mNet.getErrorCode() == 1) {
                 this.mNet.cleanErrorString();
-                AccountData obj = TiebaApplication.getCurrentAccountObj();
-                if (obj == null) {
-                    obj = DatabaseService.getActiveAccountData();
-                }
-                if (obj == null) {
-                    TiebaApplication.app.handler.sendMessage(TiebaApplication.app.handler.obtainMessage(1));
-                    return null;
-                }
-                LoginModel model = login(obj.getAccount(), obj.getPassword());
-                if (model == null) {
-                    if (this.mNetLogin != null) {
-                        this.mNet.setErrorString(this.mNetLogin.getErrorString());
+                if (TiebaApplication.isBaiduAccountManager()) {
+                    data = null;
+                    BaiduAccount baiduAccount = BaiduAccount.get(TiebaApplication.app);
+                    String token = baiduAccount.backgroundReLogin(TiebaApplication.getCurrentAccountName(), TiebaApplication.getCurrentBduss(), new BaiduAccount.CallbackListener() { // from class: com.baidu.tieba.util.NetWork.1
+                        @Override // com.baidu.tieba.BaiduAccount.BaiduAccount.CallbackListener
+                        public void callback() {
+                            NetWork.this.BaiduReLogin();
+                        }
+                    }, new BaiduAccount.CallbackListener() { // from class: com.baidu.tieba.util.NetWork.2
+                        @Override // com.baidu.tieba.BaiduAccount.BaiduAccount.CallbackListener
+                        public void callback() {
+                            NetWork.this.mNet.setErrorString(TiebaApplication.app.getString(R.string.error_unkown));
+                        }
+                    });
+                    if (token != null) {
+                        DatabaseService.updateAccountToken(TiebaApplication.getCurrentAccountName(), token);
+                        TiebaApplication.setCurrentBduss(token);
+                        data = process_second(type);
                     }
-                    return null;
-                }
-                modSessionData();
-                switch (type) {
-                    case 1:
-                        data = this.mNet.getNetString();
-                        break;
-                    case 2:
-                        data = this.mNet.postNetData();
-                        break;
-                    case 3:
-                        data = this.mNet.postMultiNetData();
-                        break;
-                    default:
+                } else {
+                    AccountData obj = TiebaApplication.getCurrentAccountObj();
+                    if (obj == null) {
+                        obj = DatabaseService.getActiveAccountData();
+                    }
+                    if (obj == null) {
+                        TiebaApplication.app.handler.sendMessage(TiebaApplication.app.handler.obtainMessage(1));
                         return null;
+                    }
+                    LoginModel model = login(obj.getAccount(), obj.getPassword());
+                    if (model == null) {
+                        if (this.mNetLogin != null) {
+                            this.mNet.setErrorString(this.mNetLogin.getErrorString());
+                            return null;
+                        }
+                        return null;
+                    }
+                    data = process_second(type);
                 }
             }
             return data;
+        }
+        return data;
+    }
+
+    private String process_second(int type) {
+        String data;
+        modSessionData();
+        switch (type) {
+            case 1:
+                data = this.mNet.getNetString();
+                break;
+            case 2:
+                data = this.mNet.postNetData();
+                break;
+            case 3:
+                data = this.mNet.postMultiNetData();
+                break;
+            default:
+                return null;
         }
         return data;
     }
@@ -370,5 +414,13 @@ public class NetWork {
     public Boolean downloadFile(String name, Handler handler) {
         addSessionData();
         return this.mNet.downloadFile(name, handler);
+    }
+
+    public void setIsNeedTbs(boolean mIsNeedTbs) {
+        this.mIsNeedTbs = mIsNeedTbs;
+    }
+
+    public boolean getIsNeedTbs() {
+        return this.mIsNeedTbs;
     }
 }

@@ -63,6 +63,10 @@ public class WriteActivity extends BaseActivity {
     private static final String FLOOR_NUM = "floor_num";
     private static final String FORUM_ID = "forum_id";
     private static final String FORUM_NAME = "forum_name";
+    private static final String REPLY_SUB_PB = "reply_sub_pb";
+    public static final int REQUEST_CODE_NEW = 103;
+    public static final int REQUEST_CODE_REPLY = 102;
+    public static final int REQUEST_CODE_REPLY_FLOOR = 101;
     private static final String THREAD_ID = "thread_id";
     private static final String TYPE = "type";
     private WriteModel mModel = null;
@@ -91,6 +95,7 @@ public class WriteActivity extends BaseActivity {
     private Handler mHandler = new Handler();
     private ImageResizedReceiver receiver = null;
     private boolean mIsLoadingImage = false;
+    private boolean mIsReplySubPb = false;
     private Runnable mKeyBoradRun = new Runnable() { // from class: com.baidu.tieba.write.WriteActivity.1
         @Override // java.lang.Runnable
         public void run() {
@@ -131,39 +136,50 @@ public class WriteActivity extends BaseActivity {
                 WriteActivity.this.mTools.setVisibility(8);
             }
             if (v == WriteActivity.this.mPostContent) {
-                if (hasFocus) {
-                    WriteActivity.this.mTools.setVisibility(0);
+                if (!hasFocus) {
                     if (WriteActivity.this.mModel.getType() == WriteModel.NEW) {
-                        WriteActivity.this.mPostContent.setHint((CharSequence) null);
+                        WriteActivity.this.mPostContent.setHint(R.string.content);
+                        return;
                     }
-                } else if (WriteActivity.this.mModel.getType() == WriteModel.NEW) {
-                    WriteActivity.this.mPostContent.setHint(R.string.content);
+                    return;
+                }
+                WriteActivity.this.mTools.setVisibility(0);
+                if (WriteActivity.this.mModel.getType() == WriteModel.NEW) {
+                    WriteActivity.this.mPostContent.setHint((CharSequence) null);
                 }
             }
         }
     };
 
     public static void startAcitivityForResult(Activity context, String forumId, String forumName, AntiData anti) {
-        startAcitivityForResult(context, WriteModel.NEW, forumId, forumName, null, null, 0, anti, 0, false);
+        startAcitivityForResult(context, WriteModel.NEW, forumId, forumName, null, null, 0, anti, 103, false, false);
     }
 
     public static void startAcitivity(Activity context, String forumId, String forumName, AntiData anti) {
-        startAcitivityForResult(context, WriteModel.NEW, forumId, forumName, null, null, 0, anti, 0, false);
+        startAcitivityForResult(context, WriteModel.NEW, forumId, forumName, null, null, 0, anti, 103, false, false);
     }
 
     public static void startActivityFeedBack(Activity context, String forumId, String forumName, AntiData anti) {
-        startAcitivityForResult(context, WriteModel.NEW, forumId, forumName, null, null, 0, anti, 0, true);
+        startAcitivityForResult(context, WriteModel.NEW, forumId, forumName, null, null, 0, anti, 103, true, false);
     }
 
     public static void startAcitivity(Activity context, String forumId, String forumName, String threadId, String floorId, int floorNum, AntiData anti) {
         if (floorId != null) {
-            startAcitivityForResult(context, WriteModel.REPLY_FLOOR, forumId, forumName, threadId, floorId, floorNum, anti, 0, false);
+            startAcitivityForResult(context, WriteModel.REPLY_FLOOR, forumId, forumName, threadId, floorId, floorNum, anti, 101, false, false);
         } else {
-            startAcitivityForResult(context, WriteModel.REPLY, forumId, forumName, threadId, null, 0, anti, 0, false);
+            startAcitivityForResult(context, WriteModel.REPLY, forumId, forumName, threadId, floorId, floorNum, anti, 102, false, false);
         }
     }
 
-    private static void startAcitivityForResult(Activity context, int type, String forumId, String forumName, String threadId, String floorId, int floorNum, AntiData anti, int requestCode, boolean feedBack) {
+    public static void startAcitivity(Activity context, String forumId, String forumName, String threadId, String floorId, int floorNum, AntiData anti, boolean isReplySubPb) {
+        if (floorId != null) {
+            startAcitivityForResult(context, WriteModel.REPLY_FLOOR, forumId, forumName, threadId, floorId, floorNum, anti, 101, false, isReplySubPb);
+        } else {
+            startAcitivityForResult(context, WriteModel.REPLY, forumId, forumName, threadId, floorId, floorNum, anti, 102, false, isReplySubPb);
+        }
+    }
+
+    private static void startAcitivityForResult(Activity context, int type, String forumId, String forumName, String threadId, String floorId, int floorNum, AntiData anti, int requestCode, boolean feedBack, boolean isReplySubPb) {
         if (anti != null && anti.getIfpost() == 0) {
             UtilHelper.showToast(context, anti.getForbid_info());
             return;
@@ -172,6 +188,7 @@ public class WriteActivity extends BaseActivity {
         intent.putExtra("type", type);
         intent.putExtra(FORUM_ID, forumId);
         intent.putExtra(FORUM_NAME, forumName);
+        intent.putExtra(REPLY_SUB_PB, isReplySubPb);
         if (feedBack) {
             intent.putExtra(FEED_BACK, true);
         }
@@ -203,6 +220,10 @@ public class WriteActivity extends BaseActivity {
         private ImageResizedReceiver() {
         }
 
+        /* synthetic */ ImageResizedReceiver(WriteActivity writeActivity, ImageResizedReceiver imageResizedReceiver) {
+            this();
+        }
+
         @Override // android.content.BroadcastReceiver
         public void onReceive(Context context, Intent intent) {
             if (WriteActivity.this.mImageTask != null) {
@@ -210,18 +231,18 @@ public class WriteActivity extends BaseActivity {
                 WriteActivity.this.mImageTask = null;
             }
             WriteActivity.this.mHandler.removeCallbacks(WriteActivity.this.mLoadImageRun);
-            if (!intent.getBooleanExtra("result", false)) {
-                WriteActivity.this.stopLoadImage(null);
-                WriteActivity.this.showToast(intent.getStringExtra("error"));
+            if (intent.getBooleanExtra("result", false)) {
+                WriteActivity.this.mImageTask = new GetImageTask(WriteActivity.this, null);
+                WriteActivity.this.mImageTask.execute(new Object[0]);
                 return;
             }
-            WriteActivity.this.mImageTask = new GetImageTask();
-            WriteActivity.this.mImageTask.execute(new Object[0]);
+            WriteActivity.this.stopLoadImage(null);
+            WriteActivity.this.showToast(intent.getStringExtra("error"));
         }
     }
 
     private void regReceiver() {
-        this.receiver = new ImageResizedReceiver();
+        this.receiver = new ImageResizedReceiver(this, null);
         IntentFilter filter = new IntentFilter();
         filter.addAction(Config.BROADCAST_IMAGE_RESIZED);
         registerReceiver(this.receiver, filter);
@@ -255,7 +276,9 @@ public class WriteActivity extends BaseActivity {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void popupSaveDraft() {
-        if (this.mDraftDialog != null && (this.mPostTitle.getText().toString().length() > 0 || this.mPostContent.getText().toString().length() > 0)) {
+        if (this.mModel != null && this.mModel.getType() == WriteModel.REPLY_FLOOR && this.mIsReplySubPb) {
+            finish();
+        } else if (this.mDraftDialog != null && (this.mPostTitle.getText().toString().length() > 0 || this.mPostContent.getText().toString().length() > 0)) {
             if (this.hasChanged) {
                 this.mDraftDialog.show();
                 Button neutral = this.mDraftDialog.getButton(-3);
@@ -280,12 +303,12 @@ public class WriteActivity extends BaseActivity {
                 return;
             }
             finish();
-            return;
+        } else {
+            if (this.mModel.getHaveDraft()) {
+                DatabaseService.deleteDraftBox(this.mModel);
+            }
+            finish();
         }
-        if (this.mModel.getHaveDraft()) {
-            DatabaseService.deleteDraftBox(this.mModel);
-        }
-        finish();
     }
 
     @Override // android.app.Activity, android.view.KeyEvent.Callback
@@ -307,8 +330,10 @@ public class WriteActivity extends BaseActivity {
             public void onClick(DialogInterface dialog, int which) {
                 if (which == 0) {
                     WriteUtil.takePhoto(WriteActivity.this);
+                    WriteActivity.this.mModel.setPicType(2);
                 } else if (which == 1) {
                     WriteUtil.getAlbumImage(WriteActivity.this);
+                    WriteActivity.this.mModel.setPicType(1);
                 }
             }
         });
@@ -383,13 +408,24 @@ public class WriteActivity extends BaseActivity {
         this.mTools = (RelativeLayout) findViewById(R.id.tools);
         this.mPostContent = (EditText) findViewById(R.id.post_content);
         this.mPostContent.setOnClickListener(this.mEditOnClicked);
+        this.mSelectImage = (Button) findViewById(R.id.select_image);
+        this.mSelectImage.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.write.WriteActivity.10
+            @Override // android.view.View.OnClickListener
+            public void onClick(View v) {
+                WriteActivity.this.mSelectImageDialog.show();
+            }
+        });
         if (this.mModel.getContent() != null && this.mModel.getContent().length() > 0) {
             SpannableString spanstr = FaceHelper.parserFace(this, this.mModel.getContent());
             this.mPostContent.setText(spanstr);
         } else if (this.mModel.getType() == WriteModel.REPLY_FLOOR) {
-            String text = String.format(getString(R.string.reply_x_floor), Integer.valueOf(this.mModel.getFloorNum()));
-            this.mPostContent.setText(text);
-            this.mPostContent.setSelection(text.length());
+            if (this.mIsReplySubPb) {
+                this.mSelectImage.setVisibility(8);
+            } else if (this.mModel.getFloorNum() > 0) {
+                String text = String.format(getString(R.string.reply_x_floor), Integer.valueOf(this.mModel.getFloorNum()));
+                this.mPostContent.setText(text);
+                this.mPostContent.setSelection(text.length());
+            }
         } else if (this.mModel.getType() == WriteModel.NEW && this.isFeedBack) {
             StringBuffer text2 = new StringBuffer(30);
             text2.append(getResources().getString(R.string.tieba_client));
@@ -400,7 +436,7 @@ public class WriteActivity extends BaseActivity {
             this.mPostContent.setText(text2);
         }
         this.mPostContent.setOnFocusChangeListener(this.mFocusChangeListener);
-        this.mPostContent.setOnTouchListener(new View.OnTouchListener() { // from class: com.baidu.tieba.write.WriteActivity.10
+        this.mPostContent.setOnTouchListener(new View.OnTouchListener() { // from class: com.baidu.tieba.write.WriteActivity.11
             @Override // android.view.View.OnTouchListener
             public boolean onTouch(View v, MotionEvent event) {
                 if (event.getAction() == 1) {
@@ -410,7 +446,7 @@ public class WriteActivity extends BaseActivity {
                 return false;
             }
         });
-        this.mPostContent.addTextChangedListener(new TextWatcher() { // from class: com.baidu.tieba.write.WriteActivity.11
+        this.mPostContent.addTextChangedListener(new TextWatcher() { // from class: com.baidu.tieba.write.WriteActivity.12
             @Override // android.text.TextWatcher
             public void afterTextChanged(Editable arg0) {
                 WriteActivity.this.refreshPostButton();
@@ -428,14 +464,14 @@ public class WriteActivity extends BaseActivity {
         this.mBack = (Button) findViewById(R.id.back);
         this.mBack.setOnFocusChangeListener(this.mFocusChangeListener);
         this.mName = (TextView) findViewById(R.id.name);
-        this.mBack.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.write.WriteActivity.12
+        this.mBack.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.write.WriteActivity.13
             @Override // android.view.View.OnClickListener
             public void onClick(View v) {
                 WriteActivity.this.popupSaveDraft();
             }
         });
         this.mselectAt = (Button) findViewById(R.id.select_at);
-        this.mselectAt.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.write.WriteActivity.13
+        this.mselectAt.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.write.WriteActivity.14
             @Override // android.view.View.OnClickListener
             public void onClick(View arg0) {
                 if (WriteActivity.this.mGridView.getVisibility() == 0) {
@@ -444,7 +480,7 @@ public class WriteActivity extends BaseActivity {
                 AtListActivity.startActivityForResult(WriteActivity.this, WriteUtil.REQUEST_AT_SELECT);
             }
         });
-        this.mPost.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.write.WriteActivity.14
+        this.mPost.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.write.WriteActivity.15
             @Override // android.view.View.OnClickListener
             public void onClick(View v) {
                 WriteActivity.this.HidenSoftKeyPad(WriteActivity.this.mInputManager, WriteActivity.this.mPostTitle);
@@ -455,26 +491,19 @@ public class WriteActivity extends BaseActivity {
                 WriteActivity.this.PostNewMessage();
             }
         });
-        this.mSelectImage = (Button) findViewById(R.id.select_image);
-        this.mSelectImage.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.write.WriteActivity.15
-            @Override // android.view.View.OnClickListener
-            public void onClick(View v) {
-                WriteActivity.this.mSelectImageDialog.show();
-            }
-        });
         this.mFace = (Button) findViewById(R.id.select_face);
         this.mFace.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.write.WriteActivity.16
             @Override // android.view.View.OnClickListener
             public void onClick(View v) {
-                if (WriteActivity.this.mGridView.getVisibility() == 0) {
-                    WriteActivity.this.mPostContent.requestFocus();
-                    WriteActivity.this.mGridView.setVisibility(8);
-                    WriteActivity.this.ShowSoftKeyPad(WriteActivity.this.mInputManager, WriteActivity.this.mPostContent);
+                if (WriteActivity.this.mGridView.getVisibility() != 0) {
+                    WriteActivity.this.HidenSoftKeyPad(WriteActivity.this.mInputManager, WriteActivity.this.mPostTitle);
+                    WriteActivity.this.HidenSoftKeyPad(WriteActivity.this.mInputManager, WriteActivity.this.mPostContent);
+                    WriteActivity.this.mHandler.postDelayed(WriteActivity.this.mShowFaceRun, 200L);
                     return;
                 }
-                WriteActivity.this.HidenSoftKeyPad(WriteActivity.this.mInputManager, WriteActivity.this.mPostTitle);
-                WriteActivity.this.HidenSoftKeyPad(WriteActivity.this.mInputManager, WriteActivity.this.mPostContent);
-                WriteActivity.this.mHandler.postDelayed(WriteActivity.this.mShowFaceRun, 200L);
+                WriteActivity.this.mPostContent.requestFocus();
+                WriteActivity.this.mGridView.setVisibility(8);
+                WriteActivity.this.ShowSoftKeyPad(WriteActivity.this.mInputManager, WriteActivity.this.mPostContent);
             }
         });
         if (this.mModel.getType() == WriteModel.NEW) {
@@ -489,7 +518,7 @@ public class WriteActivity extends BaseActivity {
             this.mPostTitle.setVisibility(8);
         }
         AlertDialog.Builder draft_builder = new AlertDialog.Builder(this);
-        draft_builder.setMessage(getString(R.string.is_save_draft)).setCancelable(false).setPositiveButton(getString(R.string.save), new DialogInterface.OnClickListener() { // from class: com.baidu.tieba.write.WriteActivity.19
+        draft_builder.setMessage(getString(R.string.is_save_draft)).setCancelable(false).setPositiveButton(getString(R.string.save), new DialogInterface.OnClickListener() { // from class: com.baidu.tieba.write.WriteActivity.17
             @Override // android.content.DialogInterface.OnClickListener
             public void onClick(DialogInterface dialog, int id) {
                 WriteActivity.this.mModel.setTitle(WriteActivity.this.mPostTitle.getText().toString());
@@ -503,7 +532,7 @@ public class WriteActivity extends BaseActivity {
                 DatabaseService.deleteDraftBox(WriteActivity.this.mModel);
                 WriteActivity.this.finish();
             }
-        }).setNegativeButton(getString(R.string.cancel), new DialogInterface.OnClickListener() { // from class: com.baidu.tieba.write.WriteActivity.17
+        }).setNegativeButton(getString(R.string.cancel), new DialogInterface.OnClickListener() { // from class: com.baidu.tieba.write.WriteActivity.19
             @Override // android.content.DialogInterface.OnClickListener
             public void onClick(DialogInterface dialog, int id) {
                 dialog.cancel();
@@ -546,6 +575,7 @@ public class WriteActivity extends BaseActivity {
     }
 
     private void initData(Bundle savedInstanceState) {
+        int floorNum;
         this.mDialogCancelListener = new DialogInterface.OnCancelListener() { // from class: com.baidu.tieba.write.WriteActivity.20
             @Override // android.content.DialogInterface.OnCancelListener
             public void onCancel(DialogInterface dialog) {
@@ -562,8 +592,10 @@ public class WriteActivity extends BaseActivity {
             this.mModel.setForumName(savedInstanceState.getString(FORUM_NAME));
             this.mModel.setThreadId(savedInstanceState.getString(THREAD_ID));
             this.mModel.setFloor(savedInstanceState.getString(FLOOR_ID));
-            this.mModel.setFloorNum(savedInstanceState.getInt(FLOOR_NUM, 0));
+            floorNum = savedInstanceState.getInt(FLOOR_NUM, 0);
+            this.mModel.setFloorNum(floorNum);
             this.isFeedBack = savedInstanceState.getBoolean(FEED_BACK, false);
+            this.mIsReplySubPb = savedInstanceState.getBoolean(REPLY_SUB_PB, false);
         } else {
             Intent intent = getIntent();
             this.mModel.setType(intent.getIntExtra("type", WriteModel.NEW));
@@ -571,12 +603,15 @@ public class WriteActivity extends BaseActivity {
             this.mModel.setForumName(intent.getStringExtra(FORUM_NAME));
             this.mModel.setThreadId(intent.getStringExtra(THREAD_ID));
             this.mModel.setFloor(intent.getStringExtra(FLOOR_ID));
-            this.mModel.setFloorNum(intent.getIntExtra(FLOOR_NUM, 0));
+            floorNum = intent.getIntExtra(FLOOR_NUM, 0);
+            this.mModel.setFloorNum(floorNum);
             this.isFeedBack = intent.getBooleanExtra(FEED_BACK, false);
+            this.mIsReplySubPb = intent.getBooleanExtra(REPLY_SUB_PB, false);
         }
         WriteModel tmp = DatabaseService.getDraftBox(this.mModel.getType(), this.mModel.getForumId(), this.mModel.getThreadId(), this.mModel.getFloor());
         if (tmp != null) {
             this.mModel = tmp;
+            this.mModel.setFloorNum(floorNum);
             this.mModel.setHaveDraft(true);
         }
     }
@@ -589,6 +624,7 @@ public class WriteActivity extends BaseActivity {
         outState.putString(THREAD_ID, this.mModel.getThreadId());
         outState.putString(FLOOR_ID, this.mModel.getFloor());
         outState.putInt(FLOOR_NUM, this.mModel.getFloorNum());
+        outState.putBoolean(REPLY_SUB_PB, this.mIsReplySubPb);
         if (this.isFeedBack) {
             outState.putBoolean(FEED_BACK, true);
         }
@@ -711,16 +747,16 @@ public class WriteActivity extends BaseActivity {
 
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
-        /* JADX WARN: Removed duplicated region for block: B:39:0x018c A[RETURN, SYNTHETIC] */
-        /* JADX WARN: Removed duplicated region for block: B:47:0x01a5  */
+        /* JADX WARN: Removed duplicated region for block: B:39:0x017e A[RETURN, SYNTHETIC] */
+        /* JADX WARN: Removed duplicated region for block: B:45:0x0190  */
         @Override // android.os.AsyncTask
         /*
             Code decompiled incorrectly, please refer to instructions dump.
         */
         public String doInBackground(Integer... arg0) {
-            JSONException e;
-            IOException e2;
             String ret;
+            JSONObject json;
+            InfoData info;
             if (WriteActivity.this.mBitmap != null && this.mDate.getBitmapId() == null) {
                 TiebaLog.d("PostThreadTask", "doInBackground", "start upload image");
                 try {
@@ -728,6 +764,7 @@ public class WriteActivity extends BaseActivity {
                     this.mNetwork = new NetWork("http://c.tieba.baidu.com/c/c/img/upload");
                     if (image.length() <= 102400 || (Config.IMG_CHUNK_UPLOAD_ENABLE == 0 && this.mNetwork.getNetType() != null && !this.mNetwork.getNetType().equals(NetWorkCore.NET_TYPE_WAP))) {
                         TiebaLog.d("PostThreadTask", "doInBackground", "image size is less than 100K");
+                        this.mNetwork.addPostData(Config.PIC_TYPE, String.valueOf(WriteActivity.this.mModel.getPicType()));
                         ret = this.mNetwork.uploadImage(Config.IMAGE_RESIZED_FILE);
                         if (!this.mNetwork.isRequestSuccess()) {
                             return null;
@@ -748,6 +785,7 @@ public class WriteActivity extends BaseActivity {
                         if (this.mChunkUploadResult.isSuccess()) {
                             this.mNetwork = new NetWork("http://c.tieba.baidu.com/c/c/img/finupload");
                             this.mNetwork.addPostData("md5", uploadData.getMd5());
+                            this.mNetwork.addPostData(Config.PIC_TYPE, String.valueOf(WriteActivity.this.mModel.getPicType()));
                             ret = this.mNetwork.postNetData();
                             if (ret == null || !this.mNetwork.isRequestSuccess()) {
                                 long totalLength = uploadData.getTotalLength();
@@ -761,25 +799,25 @@ public class WriteActivity extends BaseActivity {
                             return null;
                         }
                     }
-                    JSONObject json = new JSONObject(ret);
-                    InfoData info = new InfoData();
-                    try {
-                        info.parserJson(json.optJSONObject("info"));
-                        this.mDate.setBitmapId(info);
-                    } catch (IOException e3) {
-                        e2 = e3;
-                        e2.printStackTrace();
-                        return null;
-                    } catch (JSONException e4) {
-                        e = e4;
-                        e.printStackTrace();
-                        if (!this.mCanceled) {
-                        }
+                    json = new JSONObject(ret);
+                    info = new InfoData();
+                } catch (IOException e) {
+                    e = e;
+                } catch (JSONException e2) {
+                    e = e2;
+                }
+                try {
+                    info.parserJson(json.optJSONObject("info"));
+                    this.mDate.setBitmapId(info);
+                } catch (IOException e3) {
+                    e = e3;
+                    e.printStackTrace();
+                    return null;
+                } catch (JSONException e4) {
+                    e = e4;
+                    e.printStackTrace();
+                    if (!this.mCanceled) {
                     }
-                } catch (IOException e5) {
-                    e2 = e5;
-                } catch (JSONException e6) {
-                    e = e6;
                 }
             }
             if (!this.mCanceled) {
@@ -793,11 +831,11 @@ public class WriteActivity extends BaseActivity {
             if (this.mDate.getBitmapId() != null && this.mDate.getBitmapId().getPic_id() != null && this.mDate.getBitmapId().getPic_id().length() > 0) {
                 pic_str = String.format("#(pic,%s,%d,%d)", this.mDate.getBitmapId().getPic_id(), Integer.valueOf(this.mDate.getBitmapId().getWidth()), Integer.valueOf(this.mDate.getBitmapId().getHeight()));
             }
-            this.mNetwork.addPostData("content", this.mDate.getContent() + pic_str);
+            this.mNetwork.addPostData("content", String.valueOf(this.mDate.getContent()) + pic_str);
             if (this.mDate.getVcode() != null && this.mDate.getVcode().length() > 0) {
                 this.mNetwork.addPostData("vcode", this.mDate.getVcode());
             }
-            this.mNetwork.addPostData("tbs", TiebaApplication.app.getTbs());
+            this.mNetwork.setIsNeedTbs(true);
             if (this.mDate.getType() == WriteModel.NEW) {
                 this.mNetwork.setUrl("http://c.tieba.baidu.com/c/c/thread/add");
                 this.mNetwork.addPostData("title", this.mDate.getTitle());
@@ -868,6 +906,10 @@ public class WriteActivity extends BaseActivity {
     /* loaded from: classes.dex */
     public class GetImageTask extends AsyncTask<Object, Integer, Bitmap> {
         private GetImageTask() {
+        }
+
+        /* synthetic */ GetImageTask(WriteActivity writeActivity, GetImageTask getImageTask) {
+            this();
         }
 
         /* JADX DEBUG: Method merged with bridge method */

@@ -62,6 +62,8 @@ public class RegisterActivity extends BaseActivity {
         setContentView(R.layout.account_register_activity);
         initUI();
         showSoftInput();
+        PvThread pv = new PvThread(Config.ST_TYPE_REG);
+        pv.start();
     }
 
     @Override // android.app.Activity
@@ -266,7 +268,6 @@ public class RegisterActivity extends BaseActivity {
         /* JADX WARN: Can't rename method to resolve collision */
         @Override // android.os.AsyncTask
         public LoginModel doInBackground(Object... params) {
-            Exception ex;
             LoginModel loginData = null;
             try {
                 this.mNetwork = new NetWork(this.mUrl);

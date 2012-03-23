@@ -97,13 +97,12 @@ public class LikeActivity extends BaseActivity {
                 LikeActivity.this.mCurrentForum = data;
                 String name = data.getName();
                 int like = data.isIs_like();
-                if (!StringHelper.isForumName(name)) {
-                    return true;
-                }
-                if (like == 1) {
-                    LikeActivity.this.mMenuLike.show();
-                } else {
-                    LikeActivity.this.mMenuUnlike.show();
+                if (StringHelper.isForumName(name)) {
+                    if (like == 1) {
+                        LikeActivity.this.mMenuLike.show();
+                    } else {
+                        LikeActivity.this.mMenuUnlike.show();
+                    }
                 }
             }
             return true;
@@ -131,6 +130,7 @@ public class LikeActivity extends BaseActivity {
                             list.dispatchKeyEvent(e1);
                             return true;
                         }
+                        return false;
                     } else if (keyCode == 22) {
                         View view2 = list.getSelectedView();
                         if (view2 == null) {
@@ -138,6 +138,9 @@ public class LikeActivity extends BaseActivity {
                             list.dispatchKeyEvent(e12);
                             return true;
                         }
+                        return false;
+                    } else {
+                        return false;
                     }
                 }
                 return false;
@@ -227,7 +230,7 @@ public class LikeActivity extends BaseActivity {
 
     public void exec(boolean isRefresh) {
         String data;
-        if (isRefresh || this.mModelLike == null || TiebaApplication.app.getLikeChanged()) {
+        if ((isRefresh || this.mModelLike == null || TiebaApplication.app.getLikeChanged()) && TiebaApplication.getCurrentAccount() != null) {
             if (!isRefresh && (data = DatabaseService.getLikeData()) != null && data.length() > 0) {
                 BarlistModel barlistData = new BarlistModel();
                 barlistData.parserJson(data);
@@ -348,7 +351,6 @@ public class LikeActivity extends BaseActivity {
         /* JADX WARN: Can't rename method to resolve collision */
         @Override // android.os.AsyncTask
         public BarlistModel doInBackground(Object... params) {
-            Exception ex;
             BarlistModel barlistData = null;
             try {
                 this.mNetwork = new NetWork(this.mUrl);
@@ -429,7 +431,7 @@ public class LikeActivity extends BaseActivity {
                         this.mNetwork.addPostData("fid", data.getId());
                         this.mNetwork.addPostData("kw", data.getName());
                         this.mNetwork.addPostData("favo_type", String.valueOf(data.getFavo_type()));
-                        this.mNetwork.addPostData("tbs", TiebaApplication.app.getTbs());
+                        this.mNetwork.setIsNeedTbs(true);
                         this.mNetwork.postNetData();
                         return null;
                     }

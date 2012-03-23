@@ -6,7 +6,10 @@ import java.io.Serializable;
 public class MarkData implements Serializable {
     private static final long serialVersionUID = 2647743141824773827L;
     private String mAccount;
+    private String mForumId;
+    private String mForumName;
     private String mPostId;
+    private String mThreadId;
     private String mId = null;
     private int mFloor = 0;
     private long mTime = 0;
@@ -15,6 +18,7 @@ public class MarkData implements Serializable {
     private boolean mHostMode = false;
     private String mAuthorName = null;
     private int mReplyNum = 0;
+    private int mSubPost = 0;
 
     public String getAuthorName() {
         return this.mAuthorName;
@@ -30,6 +34,14 @@ public class MarkData implements Serializable {
 
     public void setReplyNum(int replyNum) {
         this.mReplyNum = replyNum;
+    }
+
+    public void setSubPost(int subPost) {
+        this.mSubPost = subPost;
+    }
+
+    public int getSubPost() {
+        return this.mSubPost;
     }
 
     public String getId() {
@@ -107,5 +119,29 @@ public class MarkData implements Serializable {
 
     public String getAccount() {
         return this.mAccount;
+    }
+
+    public String getForumId() {
+        return this.mForumId;
+    }
+
+    public void setForumId(String forumId) {
+        this.mForumId = forumId;
+    }
+
+    public String getForumName() {
+        return this.mForumName;
+    }
+
+    public void setForumName(String forumName) {
+        this.mForumName = forumName;
+    }
+
+    public String getThreadId() {
+        return this.mThreadId;
+    }
+
+    public void setThreadId(String threadId) {
+        this.mThreadId = threadId;
     }
 }

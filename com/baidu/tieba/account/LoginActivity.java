@@ -92,6 +92,8 @@ public class LoginActivity extends BaseActivity {
             this.mButtonBack.setVisibility(0);
         }
         showSoftInput();
+        PvThread pv = new PvThread(Config.ST_TYPE_LOGIN);
+        pv.start();
     }
 
     @Override // android.app.Activity
@@ -159,7 +161,6 @@ public class LoginActivity extends BaseActivity {
     }
 
     private void goToMainTag() {
-        DatabaseService.getSettingData();
         MainTabActivity.startActivityOnUserChanged(this, null);
         finish();
     }
@@ -306,7 +307,6 @@ public class LoginActivity extends BaseActivity {
         /* JADX WARN: Can't rename method to resolve collision */
         @Override // android.os.AsyncTask
         public LoginModel doInBackground(Object... params) {
-            Exception ex;
             LoginModel loginData = null;
             try {
                 this.mNetwork = new NetWork(this.mUrl);

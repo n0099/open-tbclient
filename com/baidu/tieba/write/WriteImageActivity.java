@@ -42,7 +42,7 @@ public class WriteImageActivity extends BaseActivity {
     }
 
     private void initData() {
-        this.mTask = new GetImageTask();
+        this.mTask = new GetImageTask(this, null);
         this.mTask.execute(new Object[0]);
     }
 
@@ -100,6 +100,10 @@ public class WriteImageActivity extends BaseActivity {
     /* loaded from: classes.dex */
     public class GetImageTask extends AsyncTask<Object, Integer, Bitmap> {
         private GetImageTask() {
+        }
+
+        /* synthetic */ GetImageTask(WriteImageActivity writeImageActivity, GetImageTask getImageTask) {
+            this();
         }
 
         /* JADX DEBUG: Method merged with bridge method */

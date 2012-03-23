@@ -84,14 +84,13 @@ public class DialogGoodAdapter extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public View getView(int position, View convertView, ViewGroup parent) {
-        Exception ex;
         ViewHolder holder;
         Object obData;
         try {
             if (convertView == null) {
                 LayoutInflater mInflater = LayoutInflater.from(this.mContext);
                 convertView = mInflater.inflate(R.layout.dialog_good_item, (ViewGroup) null);
-                ViewHolder holder2 = new ViewHolder();
+                ViewHolder holder2 = new ViewHolder(this, null);
                 try {
                     holder2.mText = (TextView) convertView.findViewById(R.id.frs_dia_good_text);
                     convertView.setTag(holder2);
@@ -121,6 +120,10 @@ public class DialogGoodAdapter extends BaseAdapter {
         TextView mText;
 
         private ViewHolder() {
+        }
+
+        /* synthetic */ ViewHolder(DialogGoodAdapter dialogGoodAdapter, ViewHolder viewHolder) {
+            this();
         }
     }
 }

@@ -24,6 +24,7 @@ import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import com.baidu.tieba.BaseActivity;
+import com.baidu.tieba.MainTabActivity;
 import com.baidu.tieba.R;
 import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.data.Config;
@@ -172,22 +173,11 @@ public class PbActivity extends BaseActivity {
                     }
                     return;
                 case 1:
-                    MarkData data = new MarkData();
-                    Date date = new Date();
-                    data.setAccount(TiebaApplication.getCurrentAccount());
-                    data.setId(PbActivity.this.mPbId);
-                    if (PbActivity.this.mModel.getData() != null) {
-                        data.setTitle(PbActivity.this.mModel.getData().getThread().getTitle());
-                        if (PbActivity.this.mClickId >= 0 && PbActivity.this.mClickId < PbActivity.this.mModel.getData().getPost_list().size()) {
-                            data.setFloor(PbActivity.this.mModel.getData().getPost_list().get((int) PbActivity.this.mClickId).getFloor_num());
-                            data.setPostId(PbActivity.this.mModel.getData().getPost_list().get((int) PbActivity.this.mClickId).getId());
-                        }
-                        data.setAuthorName(PbActivity.this.mModel.getData().getThread().getAuthor().getName_show());
-                        data.setReplyNum(PbActivity.this.mModel.getData().getThread().getReply_num());
+                    if (TiebaApplication.isBaiduAccountManager() && TiebaApplication.getCurrentAccount() == null) {
+                        MainTabActivity.startActivityOnUserChanged(PbActivity.this, null);
+                        return;
                     }
-                    data.setTime(date.getTime());
-                    data.setHostMode(PbActivity.this.mModel.getHostMode());
-                    data.setSequence(true);
+                    MarkData data = PbActivity.this.getMarkData();
                     String text = (String) PbActivity.this.mContextMenuAdapter.getItem(1);
                     if (text != null && text.equals(PbActivity.this.getString(R.string.remove_mark))) {
                         if (DatabaseService.deleteMarkData(data.getId())) {
@@ -227,6 +217,34 @@ public class PbActivity extends BaseActivity {
             }
         }
     };
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public MarkData getMarkData() {
+        MarkData data = new MarkData();
+        Date date = new Date();
+        data.setAccount(TiebaApplication.getCurrentAccount());
+        data.setId(this.mPbId);
+        if (this.mModel.getData() != null) {
+            data.setTitle(this.mModel.getData().getThread().getTitle());
+            if (this.mClickId >= 0 && this.mClickId < this.mModel.getData().getPost_list().size()) {
+                PostData post = this.mModel.getData().getPost_list().get((int) this.mClickId);
+                data.setFloor(post.getFloor_num());
+                data.setPostId(this.mModel.getData().getPost_list().get((int) this.mClickId).getId());
+            }
+            data.setAuthorName(this.mModel.getData().getThread().getAuthor().getName_show());
+            data.setReplyNum(this.mModel.getData().getThread().getReply_num());
+        }
+        data.setTime(date.getTime());
+        data.setHostMode(this.mModel.getHostMode());
+        data.setSequence(true);
+        if (this.mModel.getData().getIsHasFloor()) {
+            data.setSubPost(1);
+            data.setForumId(this.mModel.getData().getForum().getId());
+            data.setForumName(this.mModel.getData().getForum().getName());
+            data.setThreadId(this.mModel.getData().getThread().getId());
+        }
+        return data;
+    }
 
     public static void startAcitivity(Context context, String id, String st_type) {
         startAcitivity(context, id, true, false, st_type);
@@ -347,6 +365,14 @@ public class PbActivity extends BaseActivity {
             this.mAdapter.setIsShowImage(TiebaApplication.app.isShowImages());
             this.mAdapter.notifyDataSetChanged();
         }
+        MarkData mark = DatabaseService.getMarkDataById(this.mPbId);
+        if (mark != null) {
+            String markId = mark.getPostId();
+            this.mModel.setMarkId(markId);
+        } else {
+            this.mModel.setMarkId(null);
+        }
+        this.mAdapter.notifyDataSetChanged();
         super.onResume();
     }
 
@@ -399,10 +425,10 @@ public class PbActivity extends BaseActivity {
                                     PbActivity.this.requestTip();
                                 }
                             } else if (arg2 == 1) {
-                                if (PbActivity.this.mModel.getHostMode()) {
-                                    PbActivity.this.requestAll();
-                                } else {
+                                if (!PbActivity.this.mModel.getHostMode()) {
                                     PbActivity.this.requestHost();
+                                } else {
+                                    PbActivity.this.requestAll();
                                 }
                             } else if (arg2 == 2) {
                                 if (PbActivity.this.mModel.getSequence()) {
@@ -464,33 +490,45 @@ public class PbActivity extends BaseActivity {
         this.mPbList.setOnItemClickListener(new AdapterView.OnItemClickListener() { // from class: com.baidu.tieba.pb.PbActivity.7
             @Override // android.widget.AdapterView.OnItemClickListener
             public void onItemClick(AdapterView<?> arg0, View arg1, int arg2, long id) {
+                boolean isMarked;
                 PbActivity.this.mClickId = -1L;
                 if (id == -1) {
-                    if (!PbActivity.this.mAdapter.isProcessPre()) {
-                        PbActivity.this.startPbAsyncTask(2);
-                        if (PbActivity.this.mTask != null) {
-                            PbActivity.this.mAdapter.setIsProcessPre(true);
-                            PbActivity.this.mAdapter.notifyDataSetChanged();
+                    if (PbActivity.this.mAdapter.isProcessPre()) {
+                        return;
+                    }
+                    PbActivity.this.getPreDate();
+                } else if (id != -2) {
+                    if (PbActivity.this.mContextMenu != null) {
+                        PbActivity.this.mClickId = id;
+                        PostData data = (PostData) PbActivity.this.mAdapter.getItem(arg2);
+                        if (PbActivity.this.mModel.getData().getIsHasFloor() && data.getFloor_num() != 1) {
+                            if (data != null && PbActivity.this.mModel.getMarkId() != null && PbActivity.this.mModel.getMarkId().equals(data.getId())) {
+                                isMarked = true;
+                            } else {
+                                isMarked = false;
+                            }
+                            Intent intent = new Intent(PbActivity.this, SubPbActivity.class);
+                            intent.putExtra("themeId", PbActivity.this.mPbId);
+                            intent.putExtra("postId", data.getId());
+                            intent.putExtra("fid", PbActivity.this.mModel.getData().getForum().getId());
+                            intent.putExtra("kw", PbActivity.this.mModel.getData().getForum().getName());
+                            intent.putExtra("threadId", PbActivity.this.mModel.getData().getThread().getId());
+                            intent.putExtra("mark", PbActivity.this.getMarkData());
+                            intent.putExtra("isMarked", isMarked);
+                            PbActivity.this.startActivity(intent);
+                            return;
                         }
-                    }
-                } else if (id == -2) {
-                    if (!PbActivity.this.mAdapter.isProcessMore()) {
-                        PbActivity.this.startPbAsyncTask(1);
-                        if (PbActivity.this.mTask != null) {
-                            PbActivity.this.mAdapter.setIsProcessMore(true);
-                            PbActivity.this.mAdapter.notifyDataSetChanged();
+                        if (data == null || PbActivity.this.mModel.getMarkId() == null || !PbActivity.this.mModel.getMarkId().equals(data.getId())) {
+                            PbActivity.this.mContextMenuAdapter.setItem(1, PbActivity.this.getString(R.string.add_mark));
+                        } else {
+                            PbActivity.this.mContextMenuAdapter.setItem(1, PbActivity.this.getString(R.string.remove_mark));
                         }
+                        PbActivity.this.mContextMenuAdapter.notifyDataSetInvalidated();
+                        PbActivity.this.mContextMenu.show();
                     }
-                } else if (PbActivity.this.mContextMenu != null) {
-                    PbActivity.this.mClickId = id;
-                    PostData data = (PostData) PbActivity.this.mAdapter.getItem(arg2);
-                    if (data == null || PbActivity.this.mModel.getMarkId() == null || !PbActivity.this.mModel.getMarkId().equals(data.getId())) {
-                        PbActivity.this.mContextMenuAdapter.setItem(1, PbActivity.this.getString(R.string.add_mark));
-                    } else {
-                        PbActivity.this.mContextMenuAdapter.setItem(1, PbActivity.this.getString(R.string.remove_mark));
-                    }
-                    PbActivity.this.mContextMenuAdapter.notifyDataSetInvalidated();
-                    PbActivity.this.mContextMenu.show();
+                } else if (PbActivity.this.mAdapter.isProcessMore()) {
+                } else {
+                    PbActivity.this.getNextDate();
                 }
             }
         });
@@ -507,6 +545,35 @@ public class PbActivity extends BaseActivity {
         });
         this.mProgress = (ProgressBar) findViewById(R.id.progress);
         this.mProgress.setVisibility(8);
+    }
+
+    private void getMoreDate(int direct) {
+        ArrayList<PostData> list;
+        if (this.mModel != null && this.mModel.getData() != null && (list = this.mModel.getData().getPost_list()) != null && list.size() > 0) {
+            if (direct == 0) {
+                startPbAsyncTask(2);
+            } else {
+                startPbAsyncTask(1);
+            }
+            if (this.mTask != null) {
+                if (direct == 0) {
+                    this.mAdapter.setIsProcessPre(true);
+                } else {
+                    this.mAdapter.setIsProcessMore(true);
+                }
+                this.mAdapter.notifyDataSetChanged();
+            }
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void getNextDate() {
+        getMoreDate(1);
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void getPreDate() {
+        getMoreDate(0);
     }
 
     private void initData(Bundle savedInstanceState) {
@@ -679,11 +746,6 @@ public class PbActivity extends BaseActivity {
     }
 
     @Override // android.app.Activity
-    public void onOptionsMenuClosed(Menu menu) {
-        super.onOptionsMenuClosed(menu);
-    }
-
-    @Override // android.app.Activity
     public boolean onPrepareOptionsMenu(Menu menu) {
         try {
             if (this.mModel.getData() != null && this.mModel.getData().getForum().getId() != null && this.mModel.getData().getForum().getName() != null) {
@@ -811,6 +873,29 @@ public class PbActivity extends BaseActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:20:0x0049 -> B:27:0x000f). Please submit an issue!!! */
+    @Override // android.app.Activity
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (resultCode == -1) {
+            if (requestCode == 101 || requestCode == 102) {
+                try {
+                    String current_id = TiebaApplication.getCurrentAccount();
+                    String host_id = this.mModel.getData().getThread().getAuthor().getId();
+                    if (!this.mModel.getHostMode() || current_id.equals(host_id)) {
+                        if (this.mModel.getSequence() && this.mAdapter.getHaveFooter() == 1) {
+                            getNextDate();
+                        } else if (!this.mModel.getSequence() && this.mAdapter.getHaveHeader() == 1) {
+                            getPreDate();
+                        }
+                    }
+                } catch (Exception ex) {
+                    TiebaLog.e(getClass().getName(), "onActivityResult", ex.getMessage());
+                }
+            }
+        }
+    }
+
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public class PbAsyncTask extends AsyncTask<Object, Integer, PbData> {
@@ -834,7 +919,6 @@ public class PbActivity extends BaseActivity {
         /* JADX WARN: Can't rename method to resolve collision */
         @Override // android.os.AsyncTask
         public PbData doInBackground(Object... params) {
-            Exception ex;
             PbData pbData = null;
             try {
                 this.mNetwork = new NetWork(this.mUrl);
@@ -864,10 +948,10 @@ public class PbActivity extends BaseActivity {
                     }
                 }
                 if (this.mNetwork.isNetSuccess()) {
-                    long unused = PbActivity.mPbLoadTime = 0L;
-                    int unused2 = PbActivity.mNetError = 0;
+                    PbActivity.mPbLoadTime = 0L;
+                    PbActivity.mNetError = 0;
                 } else {
-                    int unused3 = PbActivity.mNetError = 1;
+                    PbActivity.mNetError = 1;
                 }
             } catch (Exception e2) {
                 ex = e2;
@@ -914,32 +998,30 @@ public class PbActivity extends BaseActivity {
                             PbActivity.this.mDialogAdapter.notifyDataSetInvalidated();
                         }
                     } else if (d_data != null && this.mType == 2) {
-                        if (d_data != null) {
-                            ArrayList<PostData> d_list = d_data.getPost_list();
-                            ArrayList<PostData> s_list = data.getPost_list();
-                            d_list.addAll(0, s_list);
-                            d_data.setPage(data.getPage());
-                            d_data.setForum(data.getForum());
-                            d_data.setThread(data.getThread());
-                            d_data.setAnti(data.getAnti());
-                            if (PbActivity.this.mModel.getSequence()) {
-                                if (d_data.getPage().getHave_pre() == 1) {
-                                    PbActivity.this.mAdapter.setHaveHeader(2);
-                                } else {
-                                    PbActivity.this.mAdapter.setHaveHeader(0);
-                                }
-                            } else if (d_data.getPage().getHave_pre() == 1) {
+                        int pos = PbActivity.this.mPbList.getFirstVisiblePosition();
+                        ArrayList<PostData> d_list = d_data.getPost_list();
+                        ArrayList<PostData> s_list = data.getPost_list();
+                        int pos2 = pos + s_list.size();
+                        d_list.addAll(0, s_list);
+                        d_data.setPage(data.getPage());
+                        d_data.setForum(data.getForum());
+                        d_data.setThread(data.getThread());
+                        d_data.setAnti(data.getAnti());
+                        if (PbActivity.this.mModel.getSequence()) {
+                            if (d_data.getPage().getHave_pre() == 1) {
                                 PbActivity.this.mAdapter.setHaveHeader(2);
                             } else {
-                                PbActivity.this.mAdapter.setHaveHeader(1);
+                                PbActivity.this.mAdapter.setHaveHeader(0);
                             }
-                            PbActivity.this.mPbList.setSelection(0);
+                        } else if (d_data.getPage().getHave_pre() == 1) {
+                            PbActivity.this.mAdapter.setHaveHeader(2);
+                        } else {
+                            PbActivity.this.mAdapter.setHaveHeader(1);
                         }
+                        PbActivity.this.mPbList.setSelection(pos2);
                     } else if (d_data != null && this.mType == 1) {
-                        int num = PbActivity.this.mAdapter.getCount();
                         ArrayList<PostData> d_list2 = d_data.getPost_list();
-                        ArrayList<PostData> s_list2 = data.getPost_list();
-                        d_list2.addAll(s_list2);
+                        d_list2.addAll(data.getPost_list());
                         d_data.setPage(data.getPage());
                         d_data.setForum(data.getForum());
                         d_data.setThread(data.getThread());
@@ -955,7 +1037,6 @@ public class PbActivity extends BaseActivity {
                         } else {
                             PbActivity.this.mAdapter.setHaveFooter(0);
                         }
-                        PbActivity.this.mPbList.setSelection(num - 1);
                     } else if (this.mType == 4) {
                         PbActivity.this.mModel.setData(data);
                         if (data.getPage().getHave_more() == 1) {
@@ -974,7 +1055,7 @@ public class PbActivity extends BaseActivity {
                         }
                     }
                     long end_time = new Date().getTime();
-                    long unused = PbActivity.mPbLoadTime = end_time - this.mStartTime;
+                    PbActivity.mPbLoadTime = end_time - this.mStartTime;
                 } else if (this.mNetwork != null) {
                     if (this.mType == 3 || this.mType == 4) {
                         if (this.mNetwork.isNetSuccess()) {
@@ -1017,11 +1098,6 @@ public class PbActivity extends BaseActivity {
             hideProgress();
         }
 
-        @Override // android.os.AsyncTask
-        protected void onCancelled() {
-            super.onCancelled();
-        }
-
         public void cancel() {
             if (this.mNetwork != null) {
                 this.mNetwork.cancelNetConnect();
@@ -1054,11 +1130,7 @@ public class PbActivity extends BaseActivity {
                     ArrayList<PostData> list = PbActivity.this.mModel.getData().getPost_list();
                     if (list != null) {
                         PbActivity.this.mAdapter.setData(PbActivity.this.mModel);
-                        if (this.mType == 2) {
-                            PbActivity.this.mAdapter.notifyDataSetInvalidated();
-                        } else {
-                            PbActivity.this.mAdapter.notifyDataSetChanged();
-                        }
+                        PbActivity.this.mAdapter.notifyDataSetChanged();
                     }
                     ThreadData threadData = PbActivity.this.mModel.getData().getThread();
                     if (threadData != null && threadData.getTitle() != null) {
@@ -1092,7 +1164,7 @@ public class PbActivity extends BaseActivity {
                     }
                     MenuItem hostMenu = PbActivity.this.mMenu.findItem(6);
                     if (hostMenu != null) {
-                        hostMenu.setEnabled(!PbActivity.isAnonymityUser(PbActivity.this.mModel));
+                        hostMenu.setEnabled(PbActivity.isAnonymityUser(PbActivity.this.mModel) ? false : true);
                     }
                 }
             } catch (Exception ex) {
@@ -1130,17 +1202,12 @@ public class PbActivity extends BaseActivity {
             this.mNetwork.addPostData("fid", this.mForumId);
             this.mNetwork.addPostData("kw", this.mForumName);
             this.mNetwork.addPostData("tid", this.mThreadId);
-            this.mNetwork.addPostData("tbs", TiebaApplication.app.getTbs());
+            this.mNetwork.setIsNeedTbs(true);
             this.mNetwork.postNetData();
             if (this.mNetwork.isRequestSuccess()) {
                 return null;
             }
             return this.mNetwork.getErrorString();
-        }
-
-        @Override // android.os.AsyncTask
-        protected void onCancelled() {
-            super.onCancelled();
         }
 
         public void cancel() {

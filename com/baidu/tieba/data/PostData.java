@@ -14,6 +14,7 @@ public class PostData {
     private UserData author = new UserData();
     private ArrayList<ContentData> content = new ArrayList<>();
     private ArrayList<ContentData> unite_content = new ArrayList<>();
+    private int subPostNum = 0;
 
     public String getId() {
         return this.id;
@@ -69,6 +70,10 @@ public class PostData {
 
     public ArrayList<ContentData> getUnite_content() {
         return this.unite_content;
+    }
+
+    public int getSubPostNum() {
+        return this.subPostNum;
     }
 
     public void uniteContentExcepFace(Context context) {
@@ -155,6 +160,7 @@ public class PostData {
                 this.time = json.optLong("time", 0L) * 1000;
                 this.author.parserJson(json.optJSONObject("author"));
                 JSONArray list = json.optJSONArray("content");
+                this.subPostNum = json.optInt("sub_post_number");
                 if (list != null) {
                     for (int i = 0; i < list.length(); i++) {
                         ContentData tmp = new ContentData();

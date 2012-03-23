@@ -61,6 +61,7 @@ public class ClearTempService extends Service {
                                 }
                             }
                         }
+                        File[] fileArr = null;
                     } catch (Exception ex) {
                         TiebaLog.e(getClass().getName(), "run", ex.getMessage());
                     }

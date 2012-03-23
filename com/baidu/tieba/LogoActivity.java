@@ -14,6 +14,7 @@ import com.baidu.tieba.data.AccountData;
 import com.baidu.tieba.service.FatalErrorService;
 import com.baidu.tieba.util.BitmapHelper;
 import com.baidu.tieba.util.DatabaseService;
+import com.baidu.tieba.util.TiebaLog;
 /* loaded from: classes.dex */
 public class LogoActivity extends BaseActivity {
     private boolean mHaveFinishiAnim = false;
@@ -32,10 +33,11 @@ public class LogoActivity extends BaseActivity {
         }
     };
 
-    /* JADX WARN: Type inference failed for: r0v12, types: [com.baidu.tieba.LogoActivity$3] */
+    /* JADX WARN: Type inference failed for: r0v14, types: [com.baidu.tieba.LogoActivity$3] */
     @Override // com.baidu.tieba.BaseActivity, android.app.Activity
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        TiebaLog.i(getClass().getName(), "onCreate", null);
         getWindow().setFlags(1024, 1024);
         setContentView(R.layout.logo_activity);
         this.mImage = (ImageView) findViewById(R.id.logo);
@@ -47,9 +49,10 @@ public class LogoActivity extends BaseActivity {
             @Override // android.view.animation.Animation.AnimationListener
             public void onAnimationEnd(Animation arg0) {
                 LogoActivity.this.mHaveFinishiAnim = true;
-                if (LogoActivity.this.mHaveInitData) {
-                    LogoActivity.this.startApp();
+                if (!LogoActivity.this.mHaveInitData) {
+                    return;
                 }
+                LogoActivity.this.startApp();
             }
 
             @Override // android.view.animation.Animation.AnimationListener
@@ -114,11 +117,23 @@ public class LogoActivity extends BaseActivity {
     /* JADX INFO: Access modifiers changed from: private */
     public void startApp() {
         AccountData account = TiebaApplication.getCurrentAccountObj();
+        if (TiebaApplication.isBaiduAccountManager()) {
+            BaiduAccountProxy.getAccountData(this);
+            return;
+        }
         if (account == null) {
             LoginActivity.startActivity(this);
         } else {
             MainTabActivity.startActivity(this, (String) null);
         }
         finish();
+    }
+
+    @Override // android.app.Activity
+    protected void onResume() {
+        super.onResume();
+        if (this.mHaveFinishiAnim && this.mHaveInitData && TiebaApplication.isBaiduAccountManager() && TiebaApplication.getCurrentBduss() == null) {
+            BaiduAccountProxy.getAccountData(this);
+        }
     }
 }

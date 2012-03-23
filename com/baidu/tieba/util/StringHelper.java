@@ -51,7 +51,7 @@ public class StringHelper {
             return "1分钟前";
         }
         if (tDiff < 3600000) {
-            return String.valueOf((tDiff / 1000) / 60) + "分钟前";
+            return String.valueOf(String.valueOf((tDiff / 1000) / 60)) + "分钟前";
         }
         if (tClient.getYear() == tObj.getYear()) {
             if (tClient.getMonth() == tObj.getMonth() && tClient.getDate() == tObj.getDate()) {
@@ -169,13 +169,13 @@ public class StringHelper {
         if (s == null) {
             return null;
         }
-        String result = "";
         try {
-            result = URLEncoder.encode(s, "utf-8");
+            String result = URLEncoder.encode(s, "utf-8");
+            return result;
         } catch (UnsupportedEncodingException e) {
             e.printStackTrace();
+            return "";
         }
-        return result;
     }
 
     public static String getUrlDecode(String s) {
@@ -219,7 +219,10 @@ public class StringHelper {
             }
             i++;
         }
-        return i < len ? string.substring(0, i + 1) + "..." : string;
+        if (i < len) {
+            return String.valueOf(string.substring(0, i + 1)) + "...";
+        }
+        return string;
     }
 
     public static String base64Encode(byte[] data) {

@@ -34,10 +34,7 @@ public class EditBarAdapter extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public Object getItem(int position) {
-        if (this.mData == null || this.mData.getForum_list() == null) {
-            return null;
-        }
-        if (position < 0 || position >= this.mData.getForum_list().size()) {
+        if (this.mData == null || this.mData.getForum_list() == null || position < 0 || position >= this.mData.getForum_list().size()) {
             return null;
         }
         return this.mData.getForum_list().get(position);
@@ -50,14 +47,13 @@ public class EditBarAdapter extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public View getView(int position, View convertView, ViewGroup parent) {
-        Exception ex;
         ViewHolder holder;
         ForumData data;
         try {
             if (convertView == null) {
                 LayoutInflater mInflater = LayoutInflater.from(this.mContext);
                 convertView = mInflater.inflate(R.layout.edit_bar_item, (ViewGroup) null);
-                ViewHolder holder2 = new ViewHolder();
+                ViewHolder holder2 = new ViewHolder(this, null);
                 try {
                     holder2.mName = (TextView) convertView.findViewById(R.id.name);
                     holder2.mNameText = new StringBuffer(10);
@@ -102,6 +98,10 @@ public class EditBarAdapter extends BaseAdapter {
         StringBuffer mNameText;
 
         private ViewHolder() {
+        }
+
+        /* synthetic */ ViewHolder(EditBarAdapter editBarAdapter, ViewHolder viewHolder) {
+            this();
         }
     }
 }

@@ -107,7 +107,7 @@ public class AtListAdapter extends BaseAdapter {
         }
         if (convertView == null) {
             LayoutInflater mInflater = LayoutInflater.from(this.mContext);
-            holder = new ViewHolder();
+            holder = new ViewHolder(this, null);
             if (getItemViewType(position) == 0) {
                 convertView = mInflater.inflate(R.layout.at_list_item, (ViewGroup) null);
                 holder.mPhoto = (ImageView) convertView.findViewById(R.id.photo);
@@ -163,6 +163,10 @@ public class AtListAdapter extends BaseAdapter {
         ProgressBar mProgress;
 
         private ViewHolder() {
+        }
+
+        /* synthetic */ ViewHolder(AtListAdapter atListAdapter, ViewHolder viewHolder) {
+            this();
         }
     }
 }

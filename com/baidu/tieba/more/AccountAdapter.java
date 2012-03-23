@@ -56,14 +56,13 @@ public class AccountAdapter extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public View getView(int position, View convertView, ViewGroup parent) {
-        Exception ex;
         ViewHolder holder = null;
         try {
             if (convertView == null) {
                 LayoutInflater mInflater = LayoutInflater.from(this.mContext);
                 if (getItemViewType(position) == 0) {
                     convertView = mInflater.inflate(R.layout.account_item, (ViewGroup) null);
-                    ViewHolder holder2 = new ViewHolder();
+                    ViewHolder holder2 = new ViewHolder(this, null);
                     try {
                         holder2.mAccount = (TextView) convertView.findViewById(R.id.account);
                         holder2.mActive = (ImageView) convertView.findViewById(R.id.active);
@@ -139,6 +138,10 @@ public class AccountAdapter extends BaseAdapter {
         Button mDelete;
 
         private ViewHolder() {
+        }
+
+        /* synthetic */ ViewHolder(AccountAdapter accountAdapter, ViewHolder viewHolder) {
+            this();
         }
     }
 }

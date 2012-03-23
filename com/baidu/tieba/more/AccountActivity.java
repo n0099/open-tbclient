@@ -61,11 +61,12 @@ public class AccountActivity extends BaseActivity {
             @Override // android.view.View.OnClickListener
             public void onClick(View v) {
                 AccountData isDeletingData = (AccountData) v.getTag();
-                if (isDeletingData != null) {
-                    AccountActivity.this.cancelAsyncTask();
-                    AccountActivity.this.mDeleteTask = new DeleteAsyncTask(isDeletingData);
-                    AccountActivity.this.mDeleteTask.execute(new Object[0]);
+                if (isDeletingData == null) {
+                    return;
                 }
+                AccountActivity.this.cancelAsyncTask();
+                AccountActivity.this.mDeleteTask = new DeleteAsyncTask(isDeletingData);
+                AccountActivity.this.mDeleteTask.execute(new Object[0]);
             }
         };
         this.mBack = (Button) findViewById(R.id.back);
@@ -99,12 +100,12 @@ public class AccountActivity extends BaseActivity {
             public void onItemClick(AdapterView<?> arg0, View arg1, int position, long id) {
                 AccountData account;
                 if (AccountActivity.this.mAdapter.getItemId(position) >= 0) {
-                    if (!AccountActivity.this.mAdapter.getEditState() && (account = (AccountData) AccountActivity.this.mAdapter.getItem(position)) != null && account.getIsActive() != 1) {
-                        AccountActivity.this.cancelAsyncTask();
-                        AccountActivity.this.mSwitchTask = new SwitchAsyncTask(account.getAccount(), account.getPassword());
-                        AccountActivity.this.mSwitchTask.execute(new Object[0]);
+                    if (AccountActivity.this.mAdapter.getEditState() || (account = (AccountData) AccountActivity.this.mAdapter.getItem(position)) == null || account.getIsActive() == 1) {
                         return;
                     }
+                    AccountActivity.this.cancelAsyncTask();
+                    AccountActivity.this.mSwitchTask = new SwitchAsyncTask(account.getAccount(), account.getPassword());
+                    AccountActivity.this.mSwitchTask.execute(new Object[0]);
                     return;
                 }
                 LoginActivity.startActivityNoExitDialog(AccountActivity.this);

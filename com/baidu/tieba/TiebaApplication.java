@@ -13,11 +13,13 @@ import android.content.res.Configuration;
 import android.database.ContentObserver;
 import android.graphics.Bitmap;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.os.Process;
 import android.telephony.TelephonyManager;
+import com.baidu.account.AccountProxy;
 import com.baidu.tieba.account.LoginActivity;
 import com.baidu.tieba.data.AccountData;
 import com.baidu.tieba.data.Config;
@@ -53,6 +55,7 @@ public class TiebaApplication extends Application {
     public static TiebaApplication app;
     private static AccountData mAccount = null;
     private static String clientId = null;
+    private static boolean is_baidu_account_manager = false;
     public static boolean IS_APP_RUNNING = false;
     private int updata_state = 0;
     private HashMap<String, SoftReference<Bitmap>> mFaces = null;
@@ -69,17 +72,23 @@ public class TiebaApplication extends Application {
             switch (msg.what) {
                 case 1:
                     TiebaLog.e("TiebaApplication", "handleMessage", "Do Aoto Login" + String.valueOf(msg.what));
-                    Intent intent = new Intent(TiebaApplication.app, LoginActivity.class);
-                    Bundle data = msg.getData();
-                    String account = data.getString(LoginActivity.ACCOUNT);
-                    if (account == null) {
-                        account = "";
+                    if (TiebaApplication.isBaiduAccountManager()) {
+                        TiebaApplication.setCurrentAccount(null);
+                        MainTabActivity.startActivityOnUserChanged(TiebaApplication.this, null, true);
+                        break;
+                    } else {
+                        Intent intent = new Intent(TiebaApplication.app, LoginActivity.class);
+                        Bundle data = msg.getData();
+                        String account = data.getString(LoginActivity.ACCOUNT);
+                        if (account == null) {
+                            account = "";
+                        }
+                        intent.putExtra(LoginActivity.ACCOUNT, account);
+                        intent.putExtra(LoginActivity.HAS_EXIT_DIALOG, false);
+                        intent.setFlags(268435456);
+                        TiebaApplication.app.startActivity(intent);
+                        break;
                     }
-                    intent.putExtra(LoginActivity.ACCOUNT, account);
-                    intent.putExtra(LoginActivity.HAS_EXIT_DIALOG, false);
-                    intent.setFlags(268435456);
-                    TiebaApplication.app.startActivity(intent);
-                    break;
                 case 2:
                     TiebaApplication.this.startService(new Intent("com.baidu.tieba.service.Message"));
                     break;
@@ -105,6 +114,7 @@ public class TiebaApplication extends Application {
         NetWorkCore.initNetWorkCore();
         InitVersion();
         InitFrom();
+        initAccountManager();
         initSettings();
         clientId = readClientId(this);
         initImei();
@@ -125,6 +135,9 @@ public class TiebaApplication extends Application {
         if (isMainProcess()) {
             this.mFaces = new HashMap<>();
             mAccount = DatabaseService.getActiveAccountData();
+            if (isBaiduAccountManager()) {
+                BaiduAccountProxy.initAccount(this);
+            }
             if (mAccount != null) {
                 DatabaseService.getSettingData();
             }
@@ -132,6 +145,19 @@ public class TiebaApplication extends Application {
             this.mNotificationManager = (NotificationManager) getSystemService("notification");
         }
         super.onCreate();
+    }
+
+    private void initAccountManager() {
+        if (Build.VERSION.SDK_INT >= 5) {
+            AccountProxy proxy = new AccountProxy(this);
+            is_baidu_account_manager = proxy.hasBaiduAccount();
+            return;
+        }
+        is_baidu_account_manager = false;
+    }
+
+    public static boolean isBaiduAccountManager() {
+        return is_baidu_account_manager;
     }
 
     private void initImei() {
@@ -323,11 +349,21 @@ public class TiebaApplication extends Application {
         return null;
     }
 
+    public static void setCurrentAccount(AccountData account) {
+        mAccount = account;
+    }
+
     public static String getCurrentBduss() {
         if (mAccount != null) {
             return mAccount.getBDUSS();
         }
         return null;
+    }
+
+    public static void setCurrentBduss(String token) {
+        if (mAccount != null) {
+            mAccount.setBDUSS(token);
+        }
     }
 
     public static void delCurrentBduss() {
@@ -338,6 +374,13 @@ public class TiebaApplication extends Application {
 
     public static AccountData getCurrentAccountObj() {
         return mAccount;
+    }
+
+    public static String getCurrentAccountName() {
+        if (mAccount != null) {
+            return mAccount.getAccount();
+        }
+        return null;
     }
 
     public static void setCurrentAccountObj(AccountData data) {
@@ -415,6 +458,22 @@ public class TiebaApplication extends Application {
     public static String readClientId(Context context) {
         SharedPreferences preference = context.getSharedPreferences(Config.SETTINGFILE, 0);
         String id = preference.getString(CLIENT_ID, null);
+        if (id != null) {
+            int index = id.indexOf("\t");
+            if (index != -1) {
+                String version = id.substring(0, index);
+                if (Config.VERSION.equals(version)) {
+                    id = id.substring(index + 1);
+                } else {
+                    removeClientId(app);
+                    id = null;
+                }
+            } else {
+                removeClientId(app);
+                id = null;
+            }
+        }
+        TiebaLog.i("TiebaApplication", "readClientId", id);
         return id;
     }
 
@@ -422,11 +481,19 @@ public class TiebaApplication extends Application {
         return clientId;
     }
 
+    public static void removeClientId(Context context) {
+        SharedPreferences preference = context.getSharedPreferences(Config.SETTINGFILE, 0);
+        SharedPreferences.Editor editor = preference.edit();
+        editor.remove(CLIENT_ID);
+        editor.commit();
+    }
+
     public static void saveClientId(Context context, String id) {
         if (id != null && id.length() > 0) {
             SharedPreferences preference = context.getSharedPreferences(Config.SETTINGFILE, 0);
             SharedPreferences.Editor editor = preference.edit();
-            editor.putString(CLIENT_ID, id);
+            String _id = String.valueOf(Config.VERSION) + "\t" + id;
+            editor.putString(CLIENT_ID, _id);
             editor.commit();
         }
     }
@@ -453,6 +520,13 @@ public class TiebaApplication extends Application {
 
     public int getMsgFrequency() {
         return this.mMsgFrequency;
+    }
+
+    public void initSetting() {
+        setMsgFrequency(Config.MSG_DEFAULT_FREQUENCY);
+        setMsgFansOn(true);
+        setMsgReplymeOn(true);
+        setMsgAtmeOn(true);
     }
 
     public void setMsgFrequency(int msgFrequency) {
@@ -607,7 +681,7 @@ public class TiebaApplication extends Application {
                     intent.putExtra(MainTabActivity.KEY_CLOSE_DIALOG, true);
                     intent.setFlags(872415232);
                     PendingIntent contentIntent = PendingIntent.getActivity(this, 0, intent, 0);
-                    notification.setLatestEventInfo(this, "百度贴吧", String.valueOf(getMsgTotal()) + "条新消息，刷新看看", contentIntent);
+                    notification.setLatestEventInfo(this, "百度贴吧", String.valueOf(String.valueOf(getMsgTotal())) + "条新消息，刷新看看", contentIntent);
                     notification.defaults = -1;
                     notification.flags = 16;
                     this.mNotificationManager.notify(R.drawable.icon, notification);
@@ -648,11 +722,10 @@ public class TiebaApplication extends Application {
             case 1:
                 return Config.POST_IMAGE_BIG;
             case 2:
+            default:
                 return Config.POST_IMAGE_MIDDLE;
             case 3:
                 return 300;
-            default:
-                return Config.POST_IMAGE_MIDDLE;
         }
     }
 }

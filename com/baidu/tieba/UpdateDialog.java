@@ -113,6 +113,15 @@ public class UpdateDialog extends BaseActivity {
         }
     }
 
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.tieba.BaseActivity, android.app.Activity
+    public void onDestroy() {
+        super.onDestroy();
+        if (this.mDialog != null) {
+            this.mDialog.dismiss();
+        }
+    }
+
     /* JADX INFO: Access modifiers changed from: private */
     public void startUpdata() {
         if (!FileHelper.checkSD()) {
