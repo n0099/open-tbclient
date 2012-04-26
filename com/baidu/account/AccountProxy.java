@@ -13,6 +13,7 @@ import android.os.Handler;
 import android.os.SystemProperties;
 import android.util.Log;
 import com.baidu.tieba.account.LoginActivity;
+import com.baidu.tieba.util.NetWork;
 /* loaded from: classes.dex */
 public class AccountProxy {
     public static final String BAIDUACCOUNT_ACTION = "com.baidu.account";
@@ -73,7 +74,7 @@ public class AccountProxy {
                 }
                 if (this.mIfAddAccount && this.mytoken == null && accounts.length > 0) {
                     Log.d(AccountProxy.TAG, "continue to get token after addAccount");
-                    am.getAuthToken(accounts[0], "BDUSS", (Bundle) null, AccountProxy.this.getActivity(), this, (Handler) null);
+                    am.getAuthToken(accounts[0], NetWork.BDUSS, (Bundle) null, AccountProxy.this.getActivity(), this, (Handler) null);
                     return;
                 }
                 endAll();
@@ -122,9 +123,9 @@ public class AccountProxy {
             Account[] accounts = am.getAccountsByType(accountType);
             MyAccountManagerCallback callback = new MyAccountManagerCallback(null, accountType, accounts.length == 0);
             if (accounts.length != 0) {
-                am.getAuthToken(accounts[0], "BDUSS", (Bundle) null, getActivity(), callback, (Handler) null);
+                am.getAuthToken(accounts[0], NetWork.BDUSS, (Bundle) null, getActivity(), callback, (Handler) null);
             } else {
-                am.addAccount(accountType, "BDUSS", null, null, getActivity(), callback, null);
+                am.addAccount(accountType, NetWork.BDUSS, null, null, getActivity(), callback, null);
             }
             synchronized (callback) {
                 try {
@@ -158,9 +159,9 @@ public class AccountProxy {
             option.putBoolean("PASSWDCK", true);
             MyAccountManagerCallback callback = new MyAccountManagerCallback(tcallback, accountType, accounts.length == 0);
             if (accounts.length != 0) {
-                am.getAuthToken(accounts[0], "BDUSS", (Bundle) null, getActivity(), callback, (Handler) null);
+                am.getAuthToken(accounts[0], NetWork.BDUSS, (Bundle) null, getActivity(), callback, (Handler) null);
             } else {
-                am.addAccount(accountType, "BDUSS", null, option, getActivity(), callback, null);
+                am.addAccount(accountType, NetWork.BDUSS, null, option, getActivity(), callback, null);
             }
         } else if (tcallback != null) {
             tcallback.callBack(null);

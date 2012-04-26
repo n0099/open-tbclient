@@ -10,7 +10,6 @@ import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
 import android.widget.ImageView;
 import com.baidu.tieba.account.LoginActivity;
-import com.baidu.tieba.data.AccountData;
 import com.baidu.tieba.service.FatalErrorService;
 import com.baidu.tieba.util.BitmapHelper;
 import com.baidu.tieba.util.DatabaseService;
@@ -84,6 +83,10 @@ public class LogoActivity extends BaseActivity {
                     new DatabaseService(DatabaseService.DatabaseLocation.SDCARD);
                     DatabaseService.delOverdueDraft();
                     DatabaseService.delOverdueChunkUploadData();
+                    if (TiebaApplication.getCurrentAccount() != null && TiebaApplication.getCurrentAccountName() == null) {
+                        TiebaApplication.setCurrentAccount(DatabaseService.getActiveAccountData());
+                        DatabaseService.getSettingData();
+                    }
                     LogoActivity.this.mHandler.handleMessage(LogoActivity.this.mHandler.obtainMessage());
                 }
             }
@@ -116,7 +119,7 @@ public class LogoActivity extends BaseActivity {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void startApp() {
-        AccountData account = TiebaApplication.getCurrentAccountObj();
+        String account = TiebaApplication.getCurrentAccountName();
         if (TiebaApplication.isBaiduAccountManager()) {
             BaiduAccountProxy.getAccountData(this);
             return;

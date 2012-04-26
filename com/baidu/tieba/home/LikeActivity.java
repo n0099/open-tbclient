@@ -230,7 +230,7 @@ public class LikeActivity extends BaseActivity {
 
     public void exec(boolean isRefresh) {
         String data;
-        if ((isRefresh || this.mModelLike == null || TiebaApplication.app.getLikeChanged()) && TiebaApplication.getCurrentAccount() != null) {
+        if ((isRefresh || this.mModelLike == null || TiebaApplication.app.getLikeChanged()) && TiebaApplication.getCurrentAccount() != null && TiebaApplication.getCurrentAccountName() != null) {
             if (!isRefresh && (data = DatabaseService.getLikeData()) != null && data.length() > 0) {
                 BarlistModel barlistData = new BarlistModel();
                 barlistData.parserJson(data);

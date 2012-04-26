@@ -59,6 +59,7 @@ public class MainTabActivity extends TabActivity implements CompoundButton.OnChe
     private long mMsgFans = 0;
     private TextView mMessageTipsMention = null;
     private TextView mMessageTipsPerson = null;
+    private Handler mHandler = null;
     private ProgressDialog mWaitingDialog = null;
     private AlertDialog mGetImportParaDialog = null;
     private ReLoginAsyncTask mTask = null;
@@ -172,15 +173,19 @@ public class MainTabActivity extends TabActivity implements CompoundButton.OnChe
         stopService(new Intent("com.baidu.tieba.service.Message"));
         TiebaApplication.app.resetMsg();
         TiebaApplication.app.getSdramImage().clearPicAndPhoto();
-        System.gc();
         if (this.mTask != null) {
             this.mTask.cancel();
+            this.mTask = null;
         }
         if (this.mWaitingDialog != null) {
             this.mWaitingDialog.dismiss();
             this.mWaitingDialog = null;
         }
+        if (this.mHandler != null) {
+            this.mHandler.removeMessages(1);
+        }
         super.onDestroy();
+        System.gc();
     }
 
     private void startSyncService() {
@@ -235,16 +240,16 @@ public class MainTabActivity extends TabActivity implements CompoundButton.OnChe
         if (isChecked) {
             getUid();
             switch (buttonView.getId()) {
-                case R.id.radio_home /* 2131361902 */:
+                case R.id.radio_home /* 2131361931 */:
                     this.mHost.setCurrentTabByTag(HOME_TAB);
                     return;
-                case R.id.radio_sort /* 2131361903 */:
+                case R.id.radio_sort /* 2131361932 */:
                     this.mHost.setCurrentTabByTag(SORT_TAB);
                     return;
-                case R.id.radio_person_info /* 2131361904 */:
+                case R.id.radio_person_info /* 2131361933 */:
                     this.mHost.setCurrentTabByTag(PERSON_INFO_TAB);
                     return;
-                case R.id.radio_more /* 2131361905 */:
+                case R.id.radio_more /* 2131361934 */:
                     this.mHost.setCurrentTabByTag(MORE_TAB);
                     return;
                 default:
@@ -256,13 +261,15 @@ public class MainTabActivity extends TabActivity implements CompoundButton.OnChe
     @Override // android.app.ActivityGroup, android.app.Activity
     protected void onResume() {
         super.onResume();
+        dealBaiduAccount();
+    }
+
+    private void dealBaiduAccount() {
         if (TiebaApplication.isBaiduAccountManager()) {
             TiebaLog.d(getClass().getName(), "onResume", "bduss = " + TiebaApplication.getCurrentBduss());
             TiebaLog.d(getClass().getName(), "onResume", "uid = " + TiebaApplication.getCurrentAccount());
             if (TiebaApplication.getCurrentBduss() == null) {
-                if (TiebaApplication.getCurrentBduss() == null) {
-                    BaiduAccountProxy.getAccountData(this);
-                }
+                BaiduAccountProxy.getAccountData(this);
             } else if (TiebaApplication.getCurrentAccount() == null) {
                 getUid();
             }

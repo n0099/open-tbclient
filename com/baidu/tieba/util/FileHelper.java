@@ -25,14 +25,14 @@ public class FileHelper {
         if (status.equals("removed")) {
             String error = TiebaApplication.app.getString(R.string.error_no_sdcard);
             return error;
-        } else if (status.equals("unmounted")) {
+        } else if (status.equals("unmounted") || status.equals("unmountable")) {
             String error2 = TiebaApplication.app.getString(R.string.error_sd_unmount);
             return error2;
         } else if (status.equals("shared")) {
             String error3 = TiebaApplication.app.getString(R.string.error_sd_shared);
             return error3;
         } else {
-            String error4 = TiebaApplication.app.getString(R.string.error_sd_full);
+            String error4 = TiebaApplication.app.getString(R.string.error_sd_error);
             return error4;
         }
     }

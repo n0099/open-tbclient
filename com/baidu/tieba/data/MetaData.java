@@ -67,6 +67,9 @@ public class MetaData {
                 this.id = json.optString("id");
                 this.type = json.optInt(MentionActivity.TYPE, 0);
                 this.name = json.optString(PersonInfoActivity.TAG_NAME);
+                if (this.name != null && this.name.length() <= 0) {
+                    this.name = null;
+                }
                 this.name_show = json.optString("name_show");
                 this.portrait = json.optString("portrait");
             } catch (Exception ex) {

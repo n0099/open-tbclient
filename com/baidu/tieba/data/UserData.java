@@ -1,5 +1,6 @@
 package com.baidu.tieba.data;
 
+import com.baidu.tieba.util.NetWork;
 import com.baidu.tieba.util.TiebaLog;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
@@ -44,7 +45,7 @@ public class UserData extends MetaData {
             super.parserJson(json);
             if (json != null) {
                 this.ip = json.optString("ip");
-                this.BDUSS = json.optString("BDUSS");
+                this.BDUSS = json.optString(NetWork.BDUSS);
                 this.level_id = json.optInt("level_id", 0);
                 this.fans_num = json.optInt("fans_num");
                 this.concern_num = json.optInt("concern_num");

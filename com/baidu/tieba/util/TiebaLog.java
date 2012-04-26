@@ -11,7 +11,6 @@ public class TiebaLog {
     public static final int ERROR_TYPE_IO = 2;
     public static final int ERROR_TYPE_LOGIC = 4;
     public static final int ERROR_TYPE_NET = 1;
-    private static final boolean mlogSwitch = false;
     public static int error_net_num = 0;
     public static int error_io_num = 0;
     public static int error_db_num = 0;

@@ -396,7 +396,7 @@ public class DatabaseService {
     }
 
     public static void saveAccountData(AccountData data) {
-        if (data != null) {
+        if (data != null && data.getAccount() != null) {
             if (data.getIsActive() == 1) {
                 clearActiveAccount();
             }

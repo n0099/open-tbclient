@@ -371,6 +371,10 @@ public class SubPbActivity extends BaseActivity {
     private void loadPhoto(final ImageView view) {
         AsyncImageLoader imageLoader = new AsyncImageLoader(this);
         String url = this.mSubPbModel.getSubPbData().getPostData().getAuthor().getPortrait();
+        if (StringHelper.isEmpty(url)) {
+            view.setImageResource(R.drawable.photo);
+            return;
+        }
         Bitmap avatar = imageLoader.getPhoto(url);
         if (avatar != null) {
             view.setImageBitmap(avatar);

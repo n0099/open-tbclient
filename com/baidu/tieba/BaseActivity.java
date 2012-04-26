@@ -87,9 +87,11 @@ public class BaseActivity extends Activity {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void ShowSoftKeyPad(InputMethodManager imm, View view) {
-        try {
-            imm.showSoftInput(view, 0);
-        } catch (Exception e) {
+        if (view != null && imm != null) {
+            try {
+                imm.showSoftInput(view, 0);
+            } catch (Exception e) {
+            }
         }
     }
 

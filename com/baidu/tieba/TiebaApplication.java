@@ -366,6 +366,12 @@ public class TiebaApplication extends Application {
         }
     }
 
+    public static void setCurrentAccountName(String account) {
+        if (mAccount != null) {
+            mAccount.setAccount(account);
+        }
+    }
+
     public static void delCurrentBduss() {
         if (mAccount != null) {
             mAccount.setBDUSS("");

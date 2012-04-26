@@ -25,7 +25,9 @@ public class NetWorkErr {
     public static final int UID_PRISON = 9;
     public static final int UIP_PRISON = 10;
     public static final int USERNAME_BU_HEXIE = 18;
+    public static final int USERNAME_CANT_USE = 36;
     public static final int USERNAME_HAS_REGED = 16;
+    public static final int USERNAME_HAVE_INPUT = 35;
     public static final int USERNAME_IS_INVALID = 17;
     public static final int USERNAME_OR_PASSWD_ERROR = 2;
     public static final int USER_CANNOT_LOGIN = 21;

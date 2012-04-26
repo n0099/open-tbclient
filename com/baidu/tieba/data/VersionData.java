@@ -73,7 +73,7 @@ public class VersionData implements Serializable {
                 this.new_ver = json.optString("new_version", null);
                 this.url = json.optString("new_version_url");
                 this.new_version_remind = json.optInt("new_version_remind", 0);
-                this.new_version_desc = json.optString(this.new_version_desc, null);
+                this.new_version_desc = json.optString("new_version_desc", null);
                 if (this.new_version_remind == 1 && this.url != null && URLUtil.isHttpUrl(this.url) && this.new_ver != null && !Config.VERSION.equalsIgnoreCase(this.new_ver)) {
                     this.has_new_ver = 1;
                     this.new_file = "tieba_" + this.new_ver + ".apk";

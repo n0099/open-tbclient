@@ -1511,10 +1511,14 @@ public class NetWorkCore {
         int i = 0;
         while (i < size) {
             index = i;
-            if (key.compareTo(data.get(i).getName()) <= 0) {
+            int compare_ret = key.compareTo(data.get(i).getName());
+            if (compare_ret < 0) {
                 break;
+            } else if (compare_ret == 0) {
+                return -1;
+            } else {
+                i++;
             }
-            i++;
         }
         if (i >= size) {
             index = size;

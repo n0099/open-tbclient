@@ -17,6 +17,7 @@ public class Config {
     public static final String BROADCAST_SERVICE = "com.baidu.tieba.broadcast.service";
     public static final int CHUNK_UPLOAD_SIZE = 102400;
     public static final int DATABASE_VERSION = 3;
+    public static final String DETECT_USERNAME_ADDRESS = "c/s/detectuname";
     public static final String DING_THREAD_ADDRESS = "c/c/thread/comment";
     public static final String ERROR_LOG_SERVER = "c/s/clientlog";
     public static final String ERROR_UPLOAD_SERVER = "c/s/logupload";
@@ -41,9 +42,11 @@ public class Config {
     public static final String IMAGE_ADDRESS = "http://c.tieba.baidu.com/c/p/img?";
     public static final String IMAGE_RESIZED_FILE = "tieba_resized_image";
     public static final String IMAGE_RESIZED_FILE_DISPLAY = "tieba_resized_image_display";
+    public static final String INPUT_USERNAME_ADDRESS = "c/s/filluname";
     public static final String LIKE_ADDRESS = "c/c/forum/like";
     public static final String LOAD_REG_PV_ADDRESS = "c/s/pv";
     public static final String LOGIN_ADDRESS = "c/s/login";
+    public static final boolean LOGSWITCH = false;
     public static final String LOG_ERROR_FILE = "log_error.log";
     public static final int MAX_ACCOUNT_CHAR_NUM = 14;
     public static final int MAX_ACCOUNT_CHINESE_NUM = 7;

@@ -61,7 +61,7 @@ public class TiebaMessageService extends Service {
     /* JADX INFO: Access modifiers changed from: private */
     public void getMsg() {
         try {
-            if (TiebaApplication.getCurrentAccount() != null) {
+            if (TiebaApplication.getCurrentAccount() != null && TiebaApplication.getCurrentAccountName() != null) {
                 if (this.mAsyncTask != null) {
                     this.mAsyncTask.cancel();
                 }

@@ -6,6 +6,7 @@ import android.accounts.OnAccountsUpdateListener;
 import android.content.Context;
 import android.util.Log;
 import com.baidu.account.AccountProxy;
+import com.baidu.tieba.util.NetWork;
 /* loaded from: classes.dex */
 public class BaiduAccount {
     private static String LogTag = "TiebaLog";
@@ -71,7 +72,7 @@ public class BaiduAccount {
             this.mAccountManager.invalidateAuthToken(AccountProxy.BAIDUACCOUNT_TYPE, bduss);
             try {
                 try {
-                    token = this.mAccountManager.blockingGetAuthToken(accounts[0], "BDUSS", false);
+                    token = this.mAccountManager.blockingGetAuthToken(accounts[0], NetWork.BDUSS, false);
                 } catch (Exception e) {
                     Log.d(LogTag, "Exception e = " + e.getMessage());
                     if (0 == 0) {

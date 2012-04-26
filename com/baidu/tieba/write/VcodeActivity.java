@@ -265,6 +265,7 @@ public class VcodeActivity extends BaseActivity {
                     this.mNetWork.addPostData("pub_type", NetWorkCore.NET_TYPE_NET);
                 } else {
                     this.mNetWork.addPostData("pub_type", NetWorkCore.NET_TYPE_WAP);
+                    this.mNetWork.addPostData("tid", VcodeActivity.this.mModel.getThreadId());
                 }
                 String ret = this.mNetWork.postNetData();
                 if (!this.mNetWork.isRequestSuccess()) {

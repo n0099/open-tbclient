@@ -18,7 +18,7 @@ import java.util.ArrayList;
 import org.apache.http.message.BasicNameValuePair;
 /* loaded from: classes.dex */
 public class NetWork {
-    private static final String BDUSS = "BDUSS";
+    public static final String BDUSS = "BDUSS";
     private static final String CLIENT_ID = "_client_id";
     private static final String CLIENT_TYPE = "_client_type";
     private static final String CLIENT_TYPE_ANDROID = "2";
@@ -33,15 +33,25 @@ public class NetWork {
     private NetWorkCore mNet = null;
     private NetWorkCore mNetLogin = null;
     private boolean mIsNeedTbs = false;
+    private boolean mNeedBackgroundLogin = true;
 
     private void initNetWork() {
         this.mNet = new NetWorkCore();
         this.mNetLogin = null;
         this.mIsNeedTbs = false;
+        this.mNeedBackgroundLogin = true;
     }
 
     public NetWork() {
         initNetWork();
+    }
+
+    public boolean isNeedBackgroundLogin() {
+        return this.mNeedBackgroundLogin;
+    }
+
+    public void setNeedBackgroundLogin(boolean needBackgroundLogin) {
+        this.mNeedBackgroundLogin = needBackgroundLogin;
     }
 
     public NetWork(String url) {
@@ -198,32 +208,32 @@ public class NetWork {
     }
 
     public LoginModel login(String account, String password) {
+        String data;
         try {
             TiebaLog.i(getClass().toString(), Config.ST_TYPE_LOGIN, "=== need auto login");
+            StringBuffer address = new StringBuffer(30);
+            address.append(Config.SERVER_ADDRESS);
+            address.append(Config.LOGIN_ADDRESS);
+            ArrayList<BasicNameValuePair> param = new ArrayList<>();
+            BasicNameValuePair tmp = new BasicNameValuePair("un", account);
+            param.add(tmp);
+            BasicNameValuePair tmp2 = new BasicNameValuePair("passwd", password);
+            param.add(tmp2);
+            BasicNameValuePair tmp3 = new BasicNameValuePair("isphone", "0");
+            param.add(tmp3);
+            if (this.mNetLogin == null) {
+                this.mNetLogin = new NetWorkCore();
+            } else {
+                this.mNetLogin.cancelNetConnect();
+            }
+            this.mNetLogin.setUrl(address.toString());
+            this.mNetLogin.setPostData(param);
+            this.mNetLogin.setRequestGzip(true);
+            this.mNetLogin.setContext(this.mNet.getContext());
+            data = this.mNetLogin.postNetData();
         } catch (Exception ex) {
             TiebaLog.e(getClass().toString(), Config.ST_TYPE_LOGIN, ex.getMessage());
         }
-        if (account == null || password == null) {
-            return null;
-        }
-        StringBuffer address = new StringBuffer(30);
-        address.append(Config.SERVER_ADDRESS);
-        address.append(Config.LOGIN_ADDRESS);
-        ArrayList<BasicNameValuePair> param = new ArrayList<>();
-        BasicNameValuePair tmp = new BasicNameValuePair("un", account);
-        param.add(tmp);
-        BasicNameValuePair tmp2 = new BasicNameValuePair("passwd", password);
-        param.add(tmp2);
-        if (this.mNetLogin == null) {
-            this.mNetLogin = new NetWorkCore();
-        } else {
-            this.mNetLogin.cancelNetConnect();
-        }
-        this.mNetLogin.setUrl(address.toString());
-        this.mNetLogin.setPostData(param);
-        this.mNetLogin.setRequestGzip(true);
-        this.mNetLogin.setContext(this.mNet.getContext());
-        String data = this.mNetLogin.postNetData();
         if (this.mNetLogin.isRequestSuccess() && data != null) {
             LoginModel loginData = new LoginModel();
             loginData.parserJson(data);
@@ -295,7 +305,7 @@ public class NetWork {
                 return null;
         }
         if (!this.mNet.isRequestSuccess() && this.mNet.isNetSuccess()) {
-            if (this.mNet.getErrorCode() == 1) {
+            if (this.mNet.getErrorCode() == 1 && this.mNeedBackgroundLogin) {
                 this.mNet.cleanErrorString();
                 if (TiebaApplication.isBaiduAccountManager()) {
                     data = null;
