@@ -240,16 +240,16 @@ public class MainTabActivity extends TabActivity implements CompoundButton.OnChe
         if (isChecked) {
             getUid();
             switch (buttonView.getId()) {
-                case R.id.radio_home /* 2131361931 */:
+                case R.id.radio_home /* 2131361964 */:
                     this.mHost.setCurrentTabByTag(HOME_TAB);
                     return;
-                case R.id.radio_sort /* 2131361932 */:
+                case R.id.radio_sort /* 2131361965 */:
                     this.mHost.setCurrentTabByTag(SORT_TAB);
                     return;
-                case R.id.radio_person_info /* 2131361933 */:
+                case R.id.radio_person_info /* 2131361966 */:
                     this.mHost.setCurrentTabByTag(PERSON_INFO_TAB);
                     return;
-                case R.id.radio_more /* 2131361934 */:
+                case R.id.radio_more /* 2131361967 */:
                     this.mHost.setCurrentTabByTag(MORE_TAB);
                     return;
                 default:

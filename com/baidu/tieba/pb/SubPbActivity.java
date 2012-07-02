@@ -75,6 +75,8 @@ public class SubPbActivity extends BaseActivity {
     private String mForumName = null;
     private MarkData mMarkData = null;
     private boolean mIsMarked = false;
+    private boolean mSequence = true;
+    private boolean mHostMode = false;
     private boolean mIsFromMention = false;
     private ProgressBar mProgress = null;
     private int mReplyFloor = -1;
@@ -163,6 +165,8 @@ public class SubPbActivity extends BaseActivity {
             this.mForumId = this.mMarkData.getForumId();
             this.mForumName = this.mMarkData.getForumName();
             this.mThreadId = this.mMarkData.getThreadId();
+            this.mSequence = this.mMarkData.getSequence().booleanValue();
+            this.mHostMode = this.mMarkData.getHostMode();
         } else {
             this.mThemeId = getIntent().getStringExtra("themeId");
             this.mPostId = getIntent().getStringExtra("postId");
@@ -502,6 +506,8 @@ public class SubPbActivity extends BaseActivity {
         this.mMarkData.setTime(date.getTime());
         this.mMarkData.setSequence(true);
         this.mMarkData.setSubPost(1);
+        this.mMarkData.setSequence(Boolean.valueOf(this.mSequence));
+        this.mMarkData.setHostMode(this.mHostMode);
         if (this.mSubPbData != null) {
             PostData post = this.mSubPbModel.getSubPbData().getPostData();
             ThreadData thread = this.mSubPbModel.getSubPbData().getThreadData();

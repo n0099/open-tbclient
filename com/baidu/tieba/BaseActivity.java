@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import com.baidu.tieba.util.TiebaLog;
@@ -96,7 +97,30 @@ public class BaseActivity extends Activity {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
+    public void ShowSoftKeyPadDelay(View view, int delayMillis) {
+        Handler handler = new Handler();
+        DelayRunnable r = new DelayRunnable(view);
+        handler.postDelayed(r, delayMillis);
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
     public void quitDialog() {
         UtilHelper.quitDialog(this);
+    }
+
+    /* loaded from: classes.dex */
+    class DelayRunnable implements Runnable {
+        private View mView;
+
+        public DelayRunnable(View view) {
+            this.mView = null;
+            this.mView = view;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            InputMethodManager imm = (InputMethodManager) BaseActivity.this.getSystemService("input_method");
+            BaseActivity.this.ShowSoftKeyPad(imm, this.mView);
+        }
     }
 }

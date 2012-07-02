@@ -85,6 +85,8 @@ public class Config {
     public static final String PREFS_SHOW_IMAGES = "show_images";
     public static final String PROFILE_MODIFY = "c/c/profile/modify";
     public static final String REGISTER_ADDRESS = "c/s/reg";
+    public static final String REGIST_NEW_ADDRESS = "c/s/regreal";
+    public static final String REGIST_RESEND_SMSCODE_ADDRESS = "c/s/getsmscode";
     public static final String REPLYME_ADDRESS = "c/u/feed/replyme";
     public static final String REPLY_THREAD_ADDRESS = "c/c/post/add";
     public static final String SERVER_ADDRESS = "http://c.tieba.baidu.com/";

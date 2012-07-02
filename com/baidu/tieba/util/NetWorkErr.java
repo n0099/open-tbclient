@@ -20,6 +20,10 @@ public class NetWorkErr {
     public static final int POST_NEED_AUDIT = 8;
     public static final int POST_NOT_EXIST = 29;
     public static final int POST_REPEAT = 11;
+    public static final int REGIST_NAME_ERROR = 27;
+    public static final int REGIST_PHONE_ERROR = 28;
+    public static final int REGIST_PSW_ERROR = 29;
+    public static final int REGIST_SMSCODE_ERROR = 26;
     public static final int THREAD_NOT_EXIST = 4;
     public static final int THREAD_NOT_EXIST_1 = 28;
     public static final int UID_PRISON = 9;

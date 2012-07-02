@@ -68,7 +68,7 @@ public class TiebaUpdateService extends Service {
     }
 
     public Notification getUpdateNotification() {
-        PendingIntent intent = PendingIntent.getActivity(TiebaApplication.app, 0, null, 0);
+        PendingIntent intent = PendingIntent.getActivity(TiebaApplication.app, 0, new Intent(), 0);
         Notification notification = new Notification(17301633, null, System.currentTimeMillis());
         notification.contentView = new RemoteViews(TiebaApplication.app.getPackageName(), (int) R.layout.notify_item);
         notification.contentView.setProgressBar(R.id.progress, 100, 0, false);

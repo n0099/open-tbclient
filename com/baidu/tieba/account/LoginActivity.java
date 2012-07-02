@@ -7,8 +7,6 @@ import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.os.Handler;
-import android.os.Message;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.KeyEvent;
@@ -106,7 +104,6 @@ public class LoginActivity extends BaseActivity {
     private TextView mPhoneText = null;
     private View mInputUserNameView = null;
     private Dialog mInputUserNameDialog = null;
-    private Handler mHandler = null;
     private AccountData mAccountData = null;
 
     public static void startActivity(Context context) {
@@ -159,7 +156,7 @@ public class LoginActivity extends BaseActivity {
         if (this.mLoginType == 1) {
             switchTab(R.id.mobile_login);
         }
-        showSoftInput(this.mEditAccount);
+        ShowSoftKeyPadDelay(this.mEditAccount, Config.PB_IMAGE_MAX_WIDTH);
         PvThread pv = new PvThread(Config.ST_TYPE_LOGIN);
         pv.start();
     }
@@ -201,7 +198,7 @@ public class LoginActivity extends BaseActivity {
     @Override // android.app.Activity
     protected void onResume() {
         if (this.mInputUserNameDialog == null || !this.mInputUserNameDialog.isShowing()) {
-            showSoftInput(this.mEditAccount);
+            ShowSoftKeyPadDelay(this.mEditAccount, Config.PB_IMAGE_MAX_WIDTH);
         }
         super.onResume();
     }
@@ -372,7 +369,7 @@ public class LoginActivity extends BaseActivity {
                 LoginActivity.this.cancelAsyncTask();
                 LoginActivity.this.HidenSoftKeyPad(LoginActivity.this.mInputManager, LoginActivity.this.mEditAccount);
                 LoginActivity.this.HidenSoftKeyPad(LoginActivity.this.mInputManager, LoginActivity.this.mEditPassword);
-                RegisterActivity.startActivityForResult(LoginActivity.this, LoginActivity.REQUEST_REGIST);
+                Register2Activity.startActivityForResult(LoginActivity.this, LoginActivity.REQUEST_REGIST);
             }
         });
         this.mButtonBack = (Button) findViewById(R.id.back);
@@ -815,23 +812,9 @@ public class LoginActivity extends BaseActivity {
             wmParams.width = -1;
             wmParams.height = -1;
             this.mInputUserNameDialog.getWindow().setAttributes(wmParams);
-            showSoftInput(this.mUserNameEditor);
+            ShowSoftKeyPadDelay(this.mUserNameEditor, Config.PB_IMAGE_MAX_WIDTH);
             this.mUserNameEditor.requestFocus();
         }
-    }
-
-    private void showSoftInput(View view) {
-        if (this.mHandler == null) {
-            this.mHandler = new Handler() { // from class: com.baidu.tieba.account.LoginActivity.13
-                @Override // android.os.Handler
-                public void handleMessage(Message msg) {
-                    super.handleMessage(msg);
-                    LoginActivity.this.ShowSoftKeyPad(LoginActivity.this.mInputManager, (View) msg.obj);
-                }
-            };
-        }
-        this.mHandler.removeMessages(1);
-        this.mHandler.sendMessageDelayed(this.mHandler.obtainMessage(1, view), 150L);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
