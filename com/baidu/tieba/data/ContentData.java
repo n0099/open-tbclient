@@ -9,7 +9,6 @@ import android.view.View;
 import com.baidu.tieba.R;
 import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.mention.MentionActivity;
-import com.baidu.tieba.pb.WebActivity;
 import com.baidu.tieba.person.PersonInfoActivity;
 import com.baidu.tieba.util.IntentSpan;
 import com.baidu.tieba.util.TiebaLog;
@@ -24,6 +23,8 @@ public class ContentData {
     public static final int TYPE_SONG = 6;
     public static final int TYPE_TEXT = 0;
     public static final int TYPE_VIDEO = 5;
+    private int height;
+    private int width;
     private int type = 0;
     private String text = null;
     private String link = null;
@@ -43,6 +44,22 @@ public class ContentData {
 
     public int getType() {
         return this.type;
+    }
+
+    public int getWidth() {
+        return this.width;
+    }
+
+    public void setWidth(int width) {
+        this.width = width;
+    }
+
+    public int getHeight() {
+        return this.height;
+    }
+
+    public void setHeight(int height) {
+        this.height = height;
     }
 
     public void setText(String text) {
@@ -85,7 +102,7 @@ public class ContentData {
                 IntentSpan click = new IntentSpan(context) { // from class: com.baidu.tieba.data.ContentData.2
                     @Override // com.baidu.tieba.util.IntentSpan, android.text.style.ClickableSpan
                     public void onClick(View widget) {
-                        WebActivity.startActivity(getContext(), ContentData.this.link);
+                        startWebActivity(ContentData.this.link);
                     }
                 };
                 tmp.setSpan(click, 0, this.text.length() - 1, 33);
@@ -131,7 +148,7 @@ public class ContentData {
                 IntentSpan click3 = new IntentSpan(context) { // from class: com.baidu.tieba.data.ContentData.1
                     @Override // com.baidu.tieba.util.IntentSpan, android.text.style.ClickableSpan
                     public void onClick(View widget) {
-                        WebActivity.startActivity(getContext(), ContentData.this.text);
+                        startWebActivity(ContentData.this.text);
                     }
                 };
                 tmp4.setSpan(click3, title.length(), link.length() - 1, 33);
@@ -171,6 +188,18 @@ public class ContentData {
                 if (this.type == 3) {
                     this.link = json.optString("src");
                     this.text = json.optString("bsize");
+                    try {
+                        String[] arr = this.text.split(",");
+                        this.width = Integer.valueOf(arr[0]).intValue();
+                        this.height = Integer.valueOf(arr[1]).intValue();
+                    } catch (Exception e) {
+                    }
+                    if (this.width <= 0) {
+                        this.width = 1;
+                    }
+                    if (this.height <= 0) {
+                        this.height = 1;
+                    }
                 } else if (this.type == 4) {
                     this.text = json.optString("text");
                     this.link = json.optString("uid");

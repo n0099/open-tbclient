@@ -1,6 +1,7 @@
 package com.baidu.tieba;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
@@ -13,6 +14,7 @@ import com.baidu.tieba.util.UtilHelper;
 public class BaseActivity extends Activity {
     protected ProgressDialog mWaitingDialog = null;
     private DialogInterface.OnCancelListener mDialogListener = null;
+    private AlertDialog mListMenu = null;
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.app.Activity
@@ -101,6 +103,45 @@ public class BaseActivity extends Activity {
         Handler handler = new Handler();
         DelayRunnable r = new DelayRunnable(view);
         handler.postDelayed(r, delayMillis);
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    public AlertDialog createListMenu(String[] items, DialogInterface.OnClickListener listener) {
+        if (this.mListMenu != null) {
+            return this.mListMenu;
+        }
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle(R.string.operation);
+        builder.setItems(items, listener);
+        this.mListMenu = builder.create();
+        this.mListMenu.setCanceledOnTouchOutside(true);
+        return this.mListMenu;
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    public AlertDialog getListMenu() {
+        return this.mListMenu;
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    public void showListMenu() {
+        if (this.mListMenu != null && !this.mListMenu.isShowing()) {
+            this.mListMenu.show();
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // android.app.Activity
+    public void onPause() {
+        super.onPause();
+        TiebaApplication.app.DelResumeNum();
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // android.app.Activity
+    public void onResume() {
+        super.onResume();
+        TiebaApplication.app.AddResumeNum();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */

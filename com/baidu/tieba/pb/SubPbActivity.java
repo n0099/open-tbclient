@@ -64,6 +64,7 @@ public class SubPbActivity extends BaseActivity {
     private Button mButtonFace;
     private Button mButtonReply;
     private EditText mEditReply;
+    private DialogInterface.OnClickListener mListViewListener;
     private View mPostLayout;
     private List<PostData> mSubPbData;
     private ListView mSubPbListView;
@@ -79,6 +80,8 @@ public class SubPbActivity extends BaseActivity {
     private boolean mHostMode = false;
     private boolean mIsFromMention = false;
     private ProgressBar mProgress = null;
+    private AdapterView.OnItemLongClickListener mItemLongClickListener = null;
+    private PostData mPostData = null;
     private int mReplyFloor = -1;
     private String mReplyPostId = null;
     private String mThreadId = null;
@@ -126,8 +129,33 @@ public class SubPbActivity extends BaseActivity {
     }
 
     private void initUI() {
+        this.mItemLongClickListener = new AdapterView.OnItemLongClickListener() { // from class: com.baidu.tieba.pb.SubPbActivity.1
+            @Override // android.widget.AdapterView.OnItemLongClickListener
+            public boolean onItemLongClick(AdapterView<?> arg0, View arg1, int arg2, long arg3) {
+                PostData data = (PostData) SubPbActivity.this.mSubPbAdapter.getItem(arg2 - 1);
+                if (data != null) {
+                    SubPbActivity.this.mPostData = data;
+                    if (SubPbActivity.this.getListMenu() == null) {
+                        SubPbActivity.this.createListMenu(new String[]{SubPbActivity.this.getString(R.string.copy)}, SubPbActivity.this.mListViewListener);
+                    }
+                    SubPbActivity.this.showListMenu();
+                }
+                return true;
+            }
+        };
+        this.mListViewListener = new DialogInterface.OnClickListener() { // from class: com.baidu.tieba.pb.SubPbActivity.2
+            @Override // android.content.DialogInterface.OnClickListener
+            public void onClick(DialogInterface dialog, int which) {
+                if (which == 0) {
+                    if (SubPbActivity.this.mPostData != null) {
+                        SubPbActivity.this.mPostData.setClipString(SubPbActivity.this);
+                    }
+                    SubPbActivity.this.mPostData = null;
+                }
+            }
+        };
         Button back = (Button) findViewById(R.id.button_back);
-        back.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pb.SubPbActivity.1
+        back.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pb.SubPbActivity.3
             @Override // android.view.View.OnClickListener
             public void onClick(View v) {
                 SubPbActivity.this.finish();
@@ -135,7 +163,7 @@ public class SubPbActivity extends BaseActivity {
         });
         this.mButtonReply = (Button) findViewById(R.id.reply_button);
         this.mButtonReply.setEnabled(false);
-        this.mButtonReply.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pb.SubPbActivity.2
+        this.mButtonReply.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pb.SubPbActivity.4
             @Override // android.view.View.OnClickListener
             public void onClick(View v) {
                 String content = SubPbActivity.this.mEditReply.getText().toString();
@@ -146,7 +174,7 @@ public class SubPbActivity extends BaseActivity {
             }
         });
         Button mark = (Button) findViewById(R.id.button_mark);
-        mark.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pb.SubPbActivity.3
+        mark.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pb.SubPbActivity.5
             @Override // android.view.View.OnClickListener
             public void onClick(View v) {
                 SubPbActivity.this.mark();
@@ -177,7 +205,7 @@ public class SubPbActivity extends BaseActivity {
         this.mButtonFace = (Button) findViewById(R.id.button_face);
         final FaceAdapter faceAdapter = new FaceAdapter(this);
         faceView.setAdapter((ListAdapter) faceAdapter);
-        faceView.setOnItemClickListener(new AdapterView.OnItemClickListener() { // from class: com.baidu.tieba.pb.SubPbActivity.4
+        faceView.setOnItemClickListener(new AdapterView.OnItemClickListener() { // from class: com.baidu.tieba.pb.SubPbActivity.6
             @Override // android.widget.AdapterView.OnItemClickListener
             public void onItemClick(AdapterView<?> arg0, View arg1, int arg2, long arg3) {
                 String name;
@@ -199,7 +227,7 @@ public class SubPbActivity extends BaseActivity {
                 }
             }
         });
-        final Runnable showFaceRunnable = new Runnable() { // from class: com.baidu.tieba.pb.SubPbActivity.5
+        final Runnable showFaceRunnable = new Runnable() { // from class: com.baidu.tieba.pb.SubPbActivity.7
             @Override // java.lang.Runnable
             public void run() {
                 if (faceView.getVisibility() != 0) {
@@ -207,7 +235,7 @@ public class SubPbActivity extends BaseActivity {
                 }
             }
         };
-        this.mButtonFace.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pb.SubPbActivity.6
+        this.mButtonFace.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pb.SubPbActivity.8
             @Override // android.view.View.OnClickListener
             public void onClick(View v) {
                 if (faceView.getVisibility() == 0) {
@@ -222,7 +250,7 @@ public class SubPbActivity extends BaseActivity {
                 SubPbActivity.this.mButtonFace.setBackgroundResource(R.drawable.sub_pb_keyboard);
             }
         });
-        this.mEditReply.setOnTouchListener(new View.OnTouchListener() { // from class: com.baidu.tieba.pb.SubPbActivity.7
+        this.mEditReply.setOnTouchListener(new View.OnTouchListener() { // from class: com.baidu.tieba.pb.SubPbActivity.9
             @Override // android.view.View.OnTouchListener
             public boolean onTouch(View v, MotionEvent event) {
                 if (faceView.getVisibility() == 0) {
@@ -235,7 +263,7 @@ public class SubPbActivity extends BaseActivity {
                 return false;
             }
         });
-        this.mDialogCancelListener = new DialogInterface.OnCancelListener() { // from class: com.baidu.tieba.pb.SubPbActivity.8
+        this.mDialogCancelListener = new DialogInterface.OnCancelListener() { // from class: com.baidu.tieba.pb.SubPbActivity.10
             @Override // android.content.DialogInterface.OnCancelListener
             public void onCancel(DialogInterface dialog) {
                 SubPbActivity.this.DeinitWaitingDialog();
@@ -245,22 +273,50 @@ public class SubPbActivity extends BaseActivity {
             }
         };
         this.mPostLayout = getLayoutInflater().inflate(R.layout.sub_pb_header, (ViewGroup) null);
+        this.mPostLayout.setOnLongClickListener(new View.OnLongClickListener() { // from class: com.baidu.tieba.pb.SubPbActivity.11
+            @Override // android.view.View.OnLongClickListener
+            public boolean onLongClick(View v) {
+                PostData data = null;
+                if (SubPbActivity.this.mSubPbModel == null || (data = SubPbActivity.this.mSubPbModel.getSubPbData().getPostData()) != null) {
+                    SubPbActivity.this.mPostData = data;
+                    if (SubPbActivity.this.getListMenu() == null) {
+                        SubPbActivity.this.createListMenu(new String[]{SubPbActivity.this.getString(R.string.copy)}, SubPbActivity.this.mListViewListener);
+                    }
+                    SubPbActivity.this.showListMenu();
+                    return true;
+                }
+                return false;
+            }
+        });
         this.mPostLayout.setVisibility(8);
         this.mSubPbListView = (ListView) findViewById(R.id.pb_list);
         this.mSubPbListView.addHeaderView(this.mPostLayout, null, false);
-        this.mSubPbListView.setOnItemClickListener(new AdapterView.OnItemClickListener() { // from class: com.baidu.tieba.pb.SubPbActivity.9
+        this.mSubPbListView.setOnItemClickListener(new AdapterView.OnItemClickListener() { // from class: com.baidu.tieba.pb.SubPbActivity.12
             @Override // android.widget.AdapterView.OnItemClickListener
             public void onItemClick(AdapterView<?> arg0, View arg1, int arg2, long id) {
-                if (id == -1 && !SubPbActivity.this.mSubPbAdapter.isProcessPre()) {
+                if (id == -1) {
+                    if (SubPbActivity.this.mSubPbAdapter.isProcessPre()) {
+                        return;
+                    }
                     SubPbActivity.this.startTask(2);
+                } else if (id != -2 || SubPbActivity.this.mSubPbAdapter.isProcessMore()) {
+                } else {
+                    SubPbActivity.this.startTask(1);
                 }
-                if (id != -2 || SubPbActivity.this.mSubPbAdapter.isProcessMore()) {
-                    return;
-                }
-                SubPbActivity.this.startTask(1);
             }
         });
-        AbsListView.OnScrollListener scrollListener = new AbsListView.OnScrollListener() { // from class: com.baidu.tieba.pb.SubPbActivity.10
+        this.mSubPbListView.setOnItemLongClickListener(this.mItemLongClickListener);
+        this.mSubPbListView.setOnTouchListener(new View.OnTouchListener() { // from class: com.baidu.tieba.pb.SubPbActivity.13
+            @Override // android.view.View.OnTouchListener
+            public boolean onTouch(View v, MotionEvent event) {
+                if (event.getAction() == 0) {
+                    SubPbActivity.this.mSubPbListView.setOnItemLongClickListener(SubPbActivity.this.mItemLongClickListener);
+                    return false;
+                }
+                return false;
+            }
+        });
+        AbsListView.OnScrollListener scrollListener = new AbsListView.OnScrollListener() { // from class: com.baidu.tieba.pb.SubPbActivity.14
             @Override // android.widget.AbsListView.OnScrollListener
             public void onScrollStateChanged(AbsListView view, int scrollState) {
                 if (scrollState == 2 || scrollState == 1) {
@@ -268,6 +324,7 @@ public class SubPbActivity extends BaseActivity {
                     SubPbActivity.this.mButtonFace.setBackgroundResource(R.drawable.sub_pb_face);
                     faceView.setVisibility(8);
                 }
+                SubPbActivity.this.mSubPbListView.setOnItemLongClickListener(null);
             }
 
             @Override // android.widget.AbsListView.OnScrollListener
@@ -275,7 +332,7 @@ public class SubPbActivity extends BaseActivity {
             }
         };
         this.mSubPbListView.setOnScrollListener(scrollListener);
-        final Runnable scrollRunnable = new Runnable() { // from class: com.baidu.tieba.pb.SubPbActivity.11
+        final Runnable scrollRunnable = new Runnable() { // from class: com.baidu.tieba.pb.SubPbActivity.15
             @Override // java.lang.Runnable
             public void run() {
                 SubPbActivity.this.mSubPbListView.setSelection(SubPbActivity.this.mReplyFloor + 1);
@@ -283,7 +340,7 @@ public class SubPbActivity extends BaseActivity {
         };
         this.mSubPbData = new ArrayList();
         this.mSubPbAdapter = new SubPbAdapter(this, this.mSubPbData);
-        this.mSubPbAdapter.setReplyListener(new View.OnClickListener() { // from class: com.baidu.tieba.pb.SubPbActivity.12
+        this.mSubPbAdapter.setReplyListener(new View.OnClickListener() { // from class: com.baidu.tieba.pb.SubPbActivity.16
             @Override // android.view.View.OnClickListener
             public void onClick(View v) {
                 SubPbActivity.this.mReplyFloor = Integer.valueOf((String) v.getTag()).intValue();
@@ -383,7 +440,7 @@ public class SubPbActivity extends BaseActivity {
         if (avatar != null) {
             view.setImageBitmap(avatar);
         } else {
-            imageLoader.loadFriendPhotoByNet(url, new AsyncImageLoader.ImageCallback() { // from class: com.baidu.tieba.pb.SubPbActivity.13
+            imageLoader.loadFriendPhotoByNet(url, new AsyncImageLoader.ImageCallback() { // from class: com.baidu.tieba.pb.SubPbActivity.17
                 @Override // com.baidu.tieba.util.AsyncImageLoader.ImageCallback
                 public void imageLoaded(Bitmap bitmap, String imageUrl, boolean isCached) {
                     view.setImageBitmap(bitmap);
@@ -393,7 +450,7 @@ public class SubPbActivity extends BaseActivity {
     }
 
     private void setTextWatcher() {
-        TextWatcher textWatcher = new TextWatcher() { // from class: com.baidu.tieba.pb.SubPbActivity.14
+        TextWatcher textWatcher = new TextWatcher() { // from class: com.baidu.tieba.pb.SubPbActivity.18
             @Override // android.text.TextWatcher
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
             }
@@ -412,7 +469,7 @@ public class SubPbActivity extends BaseActivity {
             }
         };
         this.mEditReply.addTextChangedListener(textWatcher);
-        this.mEditReply.setFilters(new InputFilter[]{new InputFilter() { // from class: com.baidu.tieba.pb.SubPbActivity.15
+        this.mEditReply.setFilters(new InputFilter[]{new InputFilter() { // from class: com.baidu.tieba.pb.SubPbActivity.19
             @Override // android.text.InputFilter
             public CharSequence filter(CharSequence source, int start, int end, Spanned dest, int dstart, int dend) {
                 if (SubPbActivity.this.checkTextNum()) {
@@ -464,7 +521,7 @@ public class SubPbActivity extends BaseActivity {
         ContentHelper helper = new ContentHelper(this);
         helper.setIsEllipsized(true);
         helper.setContent(text, seg, content, false);
-        photo.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pb.SubPbActivity.16
+        photo.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pb.SubPbActivity.20
             @Override // android.view.View.OnClickListener
             public void onClick(View v) {
                 String id = SubPbActivity.this.mSubPbModel.getSubPbData().getPostData().getAuthor().getId();

@@ -12,6 +12,7 @@ import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import com.baidu.tieba.BaseActivity;
 import com.baidu.tieba.R;
+import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.data.Config;
 import com.baidu.tieba.util.BitmapHelper;
 import com.baidu.tieba.util.FileHelper;
@@ -20,12 +21,14 @@ import com.baidu.tieba.util.NetWork;
 import com.baidu.tieba.util.StringHelper;
 import com.baidu.tieba.util.TiebaLog;
 import com.baidu.tieba.view.DragImageView;
+import com.baidu.tieba.view.GifView;
 import java.util.ArrayList;
 import java.util.HashMap;
 /* loaded from: classes.dex */
 public class ImageActivity extends BaseActivity {
     private HashMap<String, byte[]> imageCache;
     private DragImageView mImageView = null;
+    private GifView mGifView = null;
     private RelativeLayout mTools = null;
     private Button mPrevious = null;
     private Button mNext = null;
@@ -95,6 +98,7 @@ public class ImageActivity extends BaseActivity {
         this.mZoomOut.setEnabled(false);
         this.mProgress = (ProgressBar) findViewById(R.id.progress);
         this.mImageView = (DragImageView) findViewById(R.id.image);
+        this.mGifView = (GifView) findViewById(R.id.gif_image);
         this.mImageView.setImageOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pb.ImageActivity.1
             @Override // android.view.View.OnClickListener
             public void onClick(View arg0) {
@@ -276,7 +280,13 @@ public class ImageActivity extends BaseActivity {
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // android.os.AsyncTask
         public Bitmap doInBackground(String... params) {
-            String url = params[0];
+            String url;
+            String url2 = String.valueOf(params[0]) + "&imgtype=0";
+            if (TiebaApplication.app.getViewImageQuality() == 1) {
+                url = String.valueOf(url2) + "&qulity=" + String.valueOf(80);
+            } else {
+                url = String.valueOf(url2) + "&qulity=" + String.valueOf(50);
+            }
             Bitmap bm = null;
             try {
                 byte[] cashData = (byte[]) ImageActivity.this.imageCache.get(url);
@@ -308,13 +318,35 @@ public class ImageActivity extends BaseActivity {
         @Override // android.os.AsyncTask
         public void onPostExecute(Bitmap bm) {
             try {
-                if (bm != null) {
-                    ImageActivity.this.mImageView.setImageBitmap(bm);
-                } else if (this.network != null && !this.network.isRequestSuccess()) {
-                    String error = this.network.getErrorString();
-                    ImageActivity.this.showToast(error);
+                if (bm == null) {
+                    if (this.network != null && !this.network.isRequestSuccess()) {
+                        String error = this.network.getErrorString();
+                        ImageActivity.this.showToast(error);
+                    } else {
+                        ImageActivity.this.showToast(ImageActivity.this.getString(R.string.pic_parser_error));
+                    }
                 } else {
-                    ImageActivity.this.showToast(ImageActivity.this.getString(R.string.pic_parser_error));
+                    boolean isGif = false;
+                    if (ImageActivity.this.mCurrentByte.length > 6) {
+                        String tag = "";
+                        for (int i = 0; i < 6; i++) {
+                            tag = String.valueOf(tag) + ((char) ImageActivity.this.mCurrentByte[i]);
+                        }
+                        if (tag.startsWith("GIF")) {
+                            isGif = true;
+                        }
+                    }
+                    if (isGif) {
+                        ImageActivity.this.mGifView.setVisibility(0);
+                        ImageActivity.this.mImageView.setVisibility(8);
+                        ImageActivity.this.mGifView.release();
+                        ImageActivity.this.mGifView.setGif(ImageActivity.this.mCurrentByte);
+                        ImageActivity.this.mGifView.play();
+                    } else {
+                        ImageActivity.this.mGifView.setVisibility(8);
+                        ImageActivity.this.mImageView.setVisibility(0);
+                        ImageActivity.this.mImageView.setImageBitmap(bm);
+                    }
                 }
             } catch (Exception e) {
             }

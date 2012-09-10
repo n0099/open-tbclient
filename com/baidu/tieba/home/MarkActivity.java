@@ -54,7 +54,7 @@ public class MarkActivity extends BaseActivity {
         init();
     }
 
-    @Override // android.app.Activity
+    @Override // com.baidu.tieba.BaseActivity, android.app.Activity
     public void onResume() {
         super.onResume();
         exec(false);

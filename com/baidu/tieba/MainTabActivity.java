@@ -240,16 +240,16 @@ public class MainTabActivity extends TabActivity implements CompoundButton.OnChe
         if (isChecked) {
             getUid();
             switch (buttonView.getId()) {
-                case R.id.radio_home /* 2131361964 */:
+                case R.id.radio_home /* 2131361977 */:
                     this.mHost.setCurrentTabByTag(HOME_TAB);
                     return;
-                case R.id.radio_sort /* 2131361965 */:
+                case R.id.radio_sort /* 2131361978 */:
                     this.mHost.setCurrentTabByTag(SORT_TAB);
                     return;
-                case R.id.radio_person_info /* 2131361966 */:
+                case R.id.radio_person_info /* 2131361979 */:
                     this.mHost.setCurrentTabByTag(PERSON_INFO_TAB);
                     return;
-                case R.id.radio_more /* 2131361967 */:
+                case R.id.radio_more /* 2131361980 */:
                     this.mHost.setCurrentTabByTag(MORE_TAB);
                     return;
                 default:
@@ -262,6 +262,13 @@ public class MainTabActivity extends TabActivity implements CompoundButton.OnChe
     protected void onResume() {
         super.onResume();
         dealBaiduAccount();
+        TiebaApplication.app.AddResumeNum();
+    }
+
+    @Override // android.app.ActivityGroup, android.app.Activity
+    protected void onPause() {
+        super.onPause();
+        TiebaApplication.app.DelResumeNum();
     }
 
     private void dealBaiduAccount() {

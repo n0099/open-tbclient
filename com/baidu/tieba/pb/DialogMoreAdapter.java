@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import com.baidu.tieba.R;
@@ -38,7 +39,7 @@ public class DialogMoreAdapter extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public int getCount() {
-        return 3;
+        return 2;
     }
 
     @Override // android.widget.Adapter
@@ -63,6 +64,7 @@ public class DialogMoreAdapter extends BaseAdapter {
                     holder2.mText = (TextView) convertView.findViewById(R.id.text);
                     holder2.mNum = (TextView) convertView.findViewById(R.id.num);
                     holder2.mProgress = (ProgressBar) convertView.findViewById(R.id.progress);
+                    holder2.mImage = (ImageView) convertView.findViewById(R.id.image);
                     this.mProgressbars.add(holder2.mProgress);
                     convertView.setTag(holder2);
                     holder = holder2;
@@ -82,25 +84,6 @@ public class DialogMoreAdapter extends BaseAdapter {
         }
         holder.mText.setTextColor(-1);
         if (position == 0) {
-            if (this.mIsProgress) {
-                holder.mProgress.setVisibility(0);
-                holder.mNum.setVisibility(4);
-            } else {
-                holder.mNum.setVisibility(0);
-                holder.mProgress.setVisibility(8);
-            }
-            if (!this.mModel.isCanTip()) {
-                holder.mText.setTextColor(-7960954);
-                holder.mNum.setTextColor(-7960954);
-            } else {
-                holder.mText.setTextColor(-1);
-                holder.mNum.setTextColor(-1);
-            }
-            holder.mText.setText(this.mModel.getTipString(this.mContext, false));
-            if (this.mModel.getData() != null) {
-                holder.mNum.setText(String.valueOf(this.mModel.getData().getThread().getComment_num()));
-            }
-        } else if (position == 1) {
             holder.mNum.setVisibility(8);
             holder.mProgress.setVisibility(8);
             if (!PbActivity.isAnonymityUser(this.mModel)) {
@@ -108,18 +91,20 @@ public class DialogMoreAdapter extends BaseAdapter {
             } else {
                 holder.mText.setTextColor(-7960954);
             }
+            holder.mText.setText(this.mContext.getString(R.string.view_host));
             if (this.mModel.getHostMode()) {
-                holder.mText.setText(this.mContext.getString(R.string.view_all));
+                holder.mImage.setVisibility(0);
             } else {
-                holder.mText.setText(this.mContext.getString(R.string.view_host));
+                holder.mImage.setVisibility(8);
             }
-        } else if (position == 2) {
+        } else if (position == 1) {
             holder.mNum.setVisibility(8);
             holder.mProgress.setVisibility(8);
+            holder.mText.setText(this.mContext.getString(R.string.view_reverse));
             if (this.mModel.getSequence()) {
-                holder.mText.setText(this.mContext.getString(R.string.view_reverse));
+                holder.mImage.setVisibility(8);
             } else {
-                holder.mText.setText(this.mContext.getString(R.string.view_sequence));
+                holder.mImage.setVisibility(0);
             }
         }
         return convertView;
@@ -143,6 +128,7 @@ public class DialogMoreAdapter extends BaseAdapter {
 
     /* loaded from: classes.dex */
     private class ViewHolder {
+        ImageView mImage;
         TextView mNum;
         ProgressBar mProgress;
         TextView mText;

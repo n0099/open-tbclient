@@ -55,14 +55,14 @@ public class HomeActivity extends ActivityGroup {
     /* JADX INFO: Access modifiers changed from: protected */
     public void switchPages(int id) {
         switch (id) {
-            case R.id.home_bt_like /* 2131361912 */:
+            case R.id.home_bt_like /* 2131361925 */:
                 addView("like", LikeActivity.class);
                 this.mButtonLike.setBackgroundResource(R.drawable.home_topbar_bt);
                 this.mButtonMark.setBackgroundDrawable(null);
                 this.mButtonLike.setImageResource(R.drawable.home_bt_like_on);
                 this.mButtonMark.setImageResource(R.drawable.home_bt_mark);
                 return;
-            case R.id.home_bt_mark /* 2131361913 */:
+            case R.id.home_bt_mark /* 2131361926 */:
                 addView("mark", MarkActivity.class);
                 this.mButtonLike.setBackgroundDrawable(null);
                 this.mButtonMark.setBackgroundResource(R.drawable.home_topbar_bt);

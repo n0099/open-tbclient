@@ -720,8 +720,9 @@ public class WriteActivity extends BaseActivity {
         refreshPostButton();
     }
 
-    @Override // android.app.Activity
-    protected void onPause() {
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.tieba.BaseActivity, android.app.Activity
+    public void onPause() {
         HidenSoftKeyPad(this.mInputManager, this.mPostTitle);
         HidenSoftKeyPad(this.mInputManager, this.mPostContent);
         if (this.mGridView.getVisibility() == 0) {

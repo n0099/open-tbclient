@@ -1,8 +1,12 @@
 package com.baidu.tieba.data;
 
 import android.content.Context;
+import android.text.ClipboardManager;
+import com.baidu.tieba.R;
+import com.baidu.tieba.util.FaceHelper;
 import com.baidu.tieba.util.TiebaLog;
 import java.util.ArrayList;
+import java.util.Iterator;
 import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
@@ -138,6 +142,36 @@ public class PostData {
                     }
                     unite_size++;
                 }
+            }
+        }
+    }
+
+    public void setClipString(Context context) {
+        String faceStr;
+        ArrayList<ContentData> content = this.unite_content;
+        if (content != null) {
+            StringBuilder str = new StringBuilder();
+            Iterator<ContentData> it = content.iterator();
+            while (it.hasNext()) {
+                ContentData contentData = it.next();
+                if (contentData.getType() == 0) {
+                    if (contentData.getUniteString() != null) {
+                        str.append((CharSequence) contentData.getUniteString());
+                    }
+                } else if (contentData.getType() == 3) {
+                    if (contentData.getLink() != null) {
+                        str.append(context.getString(R.string.pic));
+                    }
+                } else if (contentData.getType() == 2 && (faceStr = FaceHelper.getFaceStrByFile(contentData.getText())) != null) {
+                    str.append("(");
+                    str.append(faceStr);
+                    str.append(") ");
+                }
+            }
+            ClipboardManager clip = (ClipboardManager) context.getSystemService("clipboard");
+            clip.setText(str.toString());
+            if (clip.getText() != null) {
+                TiebaLog.d("PbActivity", "clip_text", clip.getText().toString());
             }
         }
     }

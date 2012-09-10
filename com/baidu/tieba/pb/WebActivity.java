@@ -126,15 +126,17 @@ public class WebActivity extends BaseActivity {
         });
     }
 
-    @Override // android.app.Activity
-    protected void onPause() {
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.tieba.BaseActivity, android.app.Activity
+    public void onPause() {
         super.onPause();
         this.mWebView.pauseTimers();
         callHiddenWebViewMethod("onPause");
     }
 
-    @Override // android.app.Activity
-    protected void onResume() {
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.tieba.BaseActivity, android.app.Activity
+    public void onResume() {
         super.onResume();
         this.mWebView.resumeTimers();
         callHiddenWebViewMethod("onResume");

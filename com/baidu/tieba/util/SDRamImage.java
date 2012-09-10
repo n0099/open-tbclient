@@ -19,7 +19,7 @@ public class SDRamImage {
         synchronized (this) {
             try {
                 this.weight++;
-                if (photo.size() >= 100) {
+                if (photo.size() >= 50) {
                     deletePhoto();
                 }
                 Image image = new Image(this, null);
@@ -32,11 +32,29 @@ public class SDRamImage {
         }
     }
 
+    public void addPic(String name, Bitmap bitmap, boolean isGif) {
+        synchronized (this) {
+            try {
+                this.weight++;
+                if (pic.size() >= 15) {
+                    deletePic();
+                }
+                Image image = new Image(this, null);
+                image.image = bitmap;
+                image.weight = Integer.valueOf(this.weight);
+                image.isGif = isGif;
+                pic.put(name, image);
+            } catch (Exception ex) {
+                TiebaLog.e(getClass().getName(), "addPic", ex.getMessage());
+            }
+        }
+    }
+
     public void addPic(String name, Bitmap bitmap) {
         synchronized (this) {
             try {
                 this.weight++;
-                if (pic.size() >= 30) {
+                if (pic.size() >= 15) {
                     deletePic();
                 }
                 Image image = new Image(this, null);
@@ -119,6 +137,18 @@ public class SDRamImage {
         return bitmap;
     }
 
+    public boolean isGif(String name) {
+        boolean isGif;
+        synchronized (this) {
+            isGif = false;
+            Image image = pic.get(name);
+            if (image != null) {
+                isGif = image.isGif;
+            }
+        }
+        return isGif;
+    }
+
     public void clearPicAndPhoto() {
         photo.clear();
         pic.clear();
@@ -163,6 +193,7 @@ public class SDRamImage {
     /* loaded from: classes.dex */
     public class Image {
         Bitmap image;
+        boolean isGif;
         Integer weight;
 
         private Image() {

@@ -3,8 +3,10 @@ package com.baidu.tieba.data;
 import android.graphics.Bitmap;
 import android.webkit.URLUtil;
 import com.baidu.tieba.TiebaApplication;
+import com.baidu.tieba.view.GifDecoder;
 /* loaded from: classes.dex */
 public class Config {
+    public static final String ACTIVE_STATE = "active";
     public static final long APP_OVERDUR_DRAFT_BOX = 604800000;
     public static final int APP_USE_TIMES_UPDATA_SD_DATABASE = 50;
     public static final String ATME_ADDRESS = "c/u/feed/atme";
@@ -15,7 +17,9 @@ public class Config {
     public static final String BROADCAST_NOTIFY = "com.baidu.tieba.broadcast.notify";
     public static final String BROADCAST_RELAY_ME_NUM = "relay";
     public static final String BROADCAST_SERVICE = "com.baidu.tieba.broadcast.service";
+    public static final String CHANNEL_ADDRESS = "http://114.113.149.3:8086/partnersService";
     public static final int CHUNK_UPLOAD_SIZE = 102400;
+    public static final String CREATE_BAR_ADDRESS = "c/c/forum/create";
     public static final int DATABASE_VERSION = 3;
     public static final String DETECT_USERNAME_ADDRESS = "c/s/detectuname";
     public static final String DING_THREAD_ADDRESS = "c/c/thread/comment";
@@ -54,8 +58,8 @@ public class Config {
     public static final int MAX_CASH_FRIEND_PHOTO_NUM = 500;
     public static final int MAX_CASH_PB_PHOTO_NUM = 5000;
     public static final int MAX_PASSWORD_CHAR_NUM = 14;
-    public static final int MAX_SDRAM_PHOTO_NUM = 100;
-    public static final int MAX_SDRAM_PIC_NUM = 30;
+    public static final int MAX_SDRAM_PHOTO_NUM = 50;
+    public static final int MAX_SDRAM_PIC_NUM = 15;
     public static final int MAX_SEARCH_HISTORY_NUM = 10;
     public static final int MIN_PASSWORD_CHAR_NUM = 6;
     public static final int NET_MSG_GETLENTH = 900002;
@@ -64,8 +68,11 @@ public class Config {
     public static final String PB_ADDRESS = "c/f/pb/page";
     public static final int PB_DEFAULT_CONTENT_TEXT_SIZE = 16;
     public static final int PB_DEFAULT_NAME_TEXT_SIZE = 11;
+    public static final int PB_IMAGE_DIP_MAX_WIDTH = 234;
     public static final int PB_IMAGE_MAX_HEIGHT = 120;
     public static final int PB_IMAGE_MAX_WIDTH = 150;
+    public static final int PB_IMAGE_NEW_MAX_WIDTH = 370;
+    public static final float PB_IMAGE_NEW_SCALE = 1.62f;
     public static final int PB_IMAGE_QUALITY = 80;
     public static final int PB_LIST_ITEM_NETWORK_NUM = 60;
     public static final int PB_PHOTO_MAX_SIZE = 80;
@@ -83,6 +90,7 @@ public class Config {
     public static final String PREFS_FONT_SIZE = "font_size";
     public static final String PREFS_IMAGE_QUALITY = "image_quality";
     public static final String PREFS_SHOW_IMAGES = "show_images";
+    public static final String PREFS_VIEW_IMAGE_QUALITY = "view_image_quality";
     public static final String PROFILE_MODIFY = "c/c/profile/modify";
     public static final String REGISTER_ADDRESS = "c/s/reg";
     public static final String REGIST_NEW_ADDRESS = "c/s/regreal";
@@ -92,9 +100,12 @@ public class Config {
     public static final String SERVER_ADDRESS = "http://c.tieba.baidu.com/";
     public static final String SETTINGFILE = "settings";
     public static final String ST_TYPE_LOGIN = "login";
-    public static final String ST_TYPE_REG = "reg ";
+    public static final String ST_TYPE_OPEN = "open";
+    public static final String ST_TYPE_REG = "reg";
+    public static final String ST_TYPE_USE = "use";
     public static final int SUB_PB_LIST_ITEM_NETWORK_NUM = 10;
     public static final String SUGGEST_ADDRESS = "c/f/forum/sug";
+    public static final String SYNC_ACTIVE = "sync_active";
     public static final int SYNC_MAX_TIMES = 10;
     public static final int SYNC_TIME_INTERVAL = 60000;
     public static final String TBS_IGNORE = "ignore";
@@ -112,6 +123,11 @@ public class Config {
     public static final int UPLOAD_IMAGE_QUALITY_LOW = 3;
     public static final int UPLOAD_IMAGE_QUALITY_MID = 2;
     public static final String USER_INFO_ADDRESS = "c/u/user/profile";
+    public static final long USE_TIME_INTERVAL = 180000;
+    public static final int VIEW_IMAGE_QUALITY_HIGH = 1;
+    public static final int VIEW_IMAGE_QUALITY_HIGH_VALUE = 80;
+    public static final int VIEW_IMAGE_QUALITY_LOW = 2;
+    public static final int VIEW_IMAGE_QUALITY_LOW_VALUE = 50;
     public static final int WRITE_FACE_MAX_NUM = 10;
     public static String VERSION = "";
     public static String FROM = null;
@@ -121,7 +137,7 @@ public class Config {
     public static final int POST_IMAGE_MIDDLE = 600;
     public static int PB_LIST_ITEM_MAX_NUM = POST_IMAGE_MIDDLE;
     public static int IMG_CHUNK_UPLOAD_ENABLE = 1;
-    public static int SUB_PB_LIST_ITEM_MAX_NUM = 200;
+    public static int SUB_PB_LIST_ITEM_MAX_NUM = GifDecoder.MAX_FRAME_NUM;
     public static int THREAD_IMAGE_MAX_WIDTH = 640;
     public static long APP_DATE_UPDATA_SD_DATABASE = 2592000000L;
     public static int BitmapQuality = 80;
@@ -132,6 +148,7 @@ public class Config {
     public static boolean MSG_DEFAULT_FANS_SWITCH = true;
     public static boolean MSG_DEFAULT_REPLYME_SWITCH = true;
     public static boolean MSG_DEFAULT_ATME_SWITCH = true;
+    public static boolean MSG_DEFAULT_REMIND_TONE = true;
 
     public static void setSmallPhotoAdress(String url) {
         if (URLUtil.isHttpUrl(url) || URLUtil.isHttpsUrl(url)) {

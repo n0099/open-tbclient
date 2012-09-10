@@ -47,6 +47,7 @@ public class NetWorkCore {
     private String mErrorString;
     private HashMap<String, byte[]> mFileData;
     private boolean mIsBDImage;
+    private boolean mIsBaiduServer = true;
     private volatile boolean mIsInterrupte;
     private boolean mIsLimited;
     private int mNetErrorCode;
@@ -301,7 +302,7 @@ public class NetWorkCore {
         return false;
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [489=7, 491=7, 492=7, 496=7, 497=7, 499=6] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [490=7, 492=7, 493=7, 497=7, 498=7, 500=6] */
     /* JADX WARN: Removed duplicated region for block: B:29:0x00c4 A[ADDED_TO_REGION] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -593,8 +594,8 @@ public class NetWorkCore {
         }
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [715=7, 716=7, 720=7, 721=7, 723=5, 724=7] */
-    /* JADX WARN: Removed duplicated region for block: B:44:0x020f A[ADDED_TO_REGION] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [719=7, 720=7, 724=7, 725=7, 727=5, 728=7] */
+    /* JADX WARN: Removed duplicated region for block: B:47:0x0217 A[ADDED_TO_REGION] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -651,13 +652,15 @@ public class NetWorkCore {
                         md5_source.append(v);
                     }
                 }
-                md5_source.append("tiebaclient!!!");
-                String md5 = StringHelper.ToMd5(md5_source.toString());
-                if (build.length() > 0) {
-                    build.append("&");
+                if (this.mIsBaiduServer) {
+                    md5_source.append("tiebaclient!!!");
+                    String md5 = StringHelper.ToMd5(md5_source.toString());
+                    if (build.length() > 0) {
+                        build.append("&");
+                    }
+                    build.append("sign=");
+                    build.append(md5);
                 }
-                build.append("sign=");
-                build.append(md5);
                 String postdata = build.toString();
                 if (!this.mIsInterrupte) {
                     ds.writeBytes(postdata);
@@ -669,27 +672,29 @@ public class NetWorkCore {
                 if (this.mNetErrorCode != 200) {
                     throw new SocketException();
                 }
-                if (this.mConn.getContentType().contains("text/vnd.wap.wml") && this.mWapRetryConnt < 1) {
-                    this.mConn.disconnect();
-                    this.mWapRetryConnt++;
-                    this.mNetErrorCode = 0;
-                    String postNetData = postNetData();
-                    if (0 != 0) {
+                if (this.mIsBaiduServer) {
+                    if (this.mConn.getContentType().contains("text/vnd.wap.wml") && this.mWapRetryConnt < 1) {
+                        this.mConn.disconnect();
+                        this.mWapRetryConnt++;
+                        this.mNetErrorCode = 0;
+                        String postNetData = postNetData();
+                        if (0 != 0) {
+                            try {
+                                in.close();
+                            } catch (Exception e4) {
+                            }
+                        }
                         try {
-                            in.close();
-                        } catch (Exception e4) {
+                            if (this.mConn != null) {
+                                this.mConn.disconnect();
+                            }
+                        } catch (Exception e5) {
                         }
-                    }
-                    try {
-                        if (this.mConn != null) {
-                            this.mConn.disconnect();
-                        }
-                    } catch (Exception e5) {
+                        this.mWapRetryConnt = 0;
+                        return postNetData;
                     }
                     this.mWapRetryConnt = 0;
-                    return postNetData;
                 }
-                this.mWapRetryConnt = 0;
                 String encodeing = this.mConn.getContentEncoding();
                 in = this.mConn.getInputStream();
                 byte[] buf = new byte[BUFFERSIZE];
@@ -723,8 +728,12 @@ public class NetWorkCore {
                     String charset = getCharset();
                     String retData2 = new String(output, 0, output.length, charset);
                     try {
-                        parseServerCode(retData2);
-                        retData = retData2;
+                        if (this.mIsBaiduServer) {
+                            parseServerCode(retData2);
+                            retData = retData2;
+                        } else {
+                            retData = retData2;
+                        }
                     } catch (SocketException e9) {
                         ex = e9;
                         retData = retData2;
@@ -851,7 +860,7 @@ public class NetWorkCore {
         return null;
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [878=7, 879=7, 881=7, 883=7, 884=7, 886=5, 888=7, 889=7, 891=7, 892=7, 893=7, 895=7, 896=7] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [882=7, 883=7, 885=7, 887=7, 888=7, 890=5, 892=7, 893=7, 895=7, 896=7, 897=7, 899=7, 900=7] */
     /* JADX WARN: Removed duplicated region for block: B:63:0x0254 A[ADDED_TO_REGION] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -1195,7 +1204,7 @@ public class NetWorkCore {
         return this.mNetErrorCode == 200 || this.mNetErrorCode == 206;
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [1033=7, 1035=7, 1036=7, 1038=5, 1040=7, 1041=7, 1045=7, 1046=7, 1048=7] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [1037=7, 1039=7, 1040=7, 1042=5, 1044=7, 1045=7, 1049=7, 1050=7, 1052=7] */
     public Boolean downloadFile(String name, Handler handler) {
         String length;
         int index;
@@ -1532,5 +1541,9 @@ public class NetWorkCore {
 
     public boolean getIsBDImage() {
         return this.mIsBDImage;
+    }
+
+    public void setIsBaiduServer(boolean isBaidu) {
+        this.mIsBaiduServer = isBaidu;
     }
 }

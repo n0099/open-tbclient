@@ -195,8 +195,9 @@ public class LoginActivity extends BaseActivity {
         super.onDestroy();
     }
 
-    @Override // android.app.Activity
-    protected void onResume() {
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.tieba.BaseActivity, android.app.Activity
+    public void onResume() {
         if (this.mInputUserNameDialog == null || !this.mInputUserNameDialog.isShowing()) {
             ShowSoftKeyPadDelay(this.mEditAccount, Config.PB_IMAGE_MAX_WIDTH);
         }
@@ -261,17 +262,17 @@ public class LoginActivity extends BaseActivity {
             public void onFocusChange(View v, boolean hasFocus) {
                 if (hasFocus) {
                     switch (v.getId()) {
-                        case R.id.login_edit_account /* 2131361811 */:
+                        case R.id.login_edit_account /* 2131361812 */:
                             LoginActivity.this.mButtonPassDel.setVisibility(8);
                             LoginActivity.this.mButtonAccountDel.setVisibility(0);
                             LoginActivity.this.mButtonVcodeDel.setVisibility(8);
                             return;
-                        case R.id.login_edit_password /* 2131361815 */:
+                        case R.id.login_edit_password /* 2131361816 */:
                             LoginActivity.this.mButtonPassDel.setVisibility(0);
                             LoginActivity.this.mButtonAccountDel.setVisibility(8);
                             LoginActivity.this.mButtonVcodeDel.setVisibility(8);
                             return;
-                        case R.id.edit_vcode /* 2131361818 */:
+                        case R.id.edit_vcode /* 2131361819 */:
                             LoginActivity.this.mButtonPassDel.setVisibility(8);
                             LoginActivity.this.mButtonAccountDel.setVisibility(8);
                             LoginActivity.this.mButtonVcodeDel.setVisibility(0);
@@ -404,7 +405,7 @@ public class LoginActivity extends BaseActivity {
         View normal = findViewById(R.id.normal_login);
         View mobile = findViewById(R.id.mobile_login);
         switch (id) {
-            case R.id.normal_login /* 2131361805 */:
+            case R.id.normal_login /* 2131361806 */:
                 this.mImageVcode = this.mImageVcode1;
                 this.mImageVcode1.setVisibility(0);
                 this.mImageVcode2.setVisibility(8);
@@ -420,7 +421,7 @@ public class LoginActivity extends BaseActivity {
                 this.mButtonMobile.setTextColor(-16777216);
                 this.mEditAccount.setInputType(1);
                 return;
-            case R.id.mobile_login /* 2131361806 */:
+            case R.id.mobile_login /* 2131361807 */:
                 this.mImageVcode = this.mImageVcode2;
                 this.mImageVcode1.setVisibility(8);
                 this.mImageVcode2.setVisibility(0);
@@ -443,35 +444,35 @@ public class LoginActivity extends BaseActivity {
 
     public void onClick(View v) {
         switch (v.getId()) {
-            case R.id.normal_login /* 2131361805 */:
-            case R.id.mobile_login /* 2131361806 */:
+            case R.id.normal_login /* 2131361806 */:
+            case R.id.mobile_login /* 2131361807 */:
                 switchTab(v.getId());
                 return;
-            case R.id.text_error /* 2131361807 */:
-            case R.id.layout_account /* 2131361808 */:
-            case R.id.text_title_account /* 2131361809 */:
-            case R.id.text_title_vcode /* 2131361810 */:
-            case R.id.login_edit_account /* 2131361811 */:
-            case R.id.layout_password /* 2131361813 */:
-            case R.id.text_title_password /* 2131361814 */:
-            case R.id.login_edit_password /* 2131361815 */:
-            case R.id.layout_vcode /* 2131361817 */:
-            case R.id.edit_vcode /* 2131361818 */:
-            case R.id.image_progress /* 2131361822 */:
+            case R.id.text_error /* 2131361808 */:
+            case R.id.layout_account /* 2131361809 */:
+            case R.id.text_title_account /* 2131361810 */:
+            case R.id.text_title_vcode /* 2131361811 */:
+            case R.id.login_edit_account /* 2131361812 */:
+            case R.id.layout_password /* 2131361814 */:
+            case R.id.text_title_password /* 2131361815 */:
+            case R.id.login_edit_password /* 2131361816 */:
+            case R.id.layout_vcode /* 2131361818 */:
+            case R.id.edit_vcode /* 2131361819 */:
+            case R.id.image_progress /* 2131361823 */:
             default:
                 return;
-            case R.id.button_account_del /* 2131361812 */:
+            case R.id.button_account_del /* 2131361813 */:
                 this.mEditAccount.setText((CharSequence) null);
                 return;
-            case R.id.button_pass_del /* 2131361816 */:
+            case R.id.button_pass_del /* 2131361817 */:
                 this.mEditPassword.setText((CharSequence) null);
                 return;
-            case R.id.button_vcode_del /* 2131361819 */:
+            case R.id.button_vcode_del /* 2131361820 */:
                 this.mEditVcode.setText((CharSequence) null);
                 return;
-            case R.id.image_vcode1 /* 2131361820 */:
-            case R.id.image_vcode2 /* 2131361821 */:
-            case R.id.button_vcode_refresh /* 2131361823 */:
+            case R.id.image_vcode1 /* 2131361821 */:
+            case R.id.image_vcode2 /* 2131361822 */:
+            case R.id.button_vcode_refresh /* 2131361824 */:
                 refreshImage(this.mVcodeUrl);
                 return;
         }

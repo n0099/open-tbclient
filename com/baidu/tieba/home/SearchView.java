@@ -142,7 +142,7 @@ public class SearchView {
             this.mEditSearch.addTextChangedListener(new TextWatcher() { // from class: com.baidu.tieba.home.SearchView.6
                 @Override // android.text.TextWatcher
                 public void onTextChanged(CharSequence s, int start, int before, int count) {
-                    SearchView.this.mSearchKey = s.toString();
+                    SearchView.this.mSearchKey = s.toString().trim();
                     if (SearchView.this.mSearchKey.length() <= 0) {
                         SearchView.this.cancelAsyncTask();
                         SearchView.this.showHistory();
@@ -189,7 +189,7 @@ public class SearchView {
 
                 @Override // android.text.TextWatcher
                 public void afterTextChanged(Editable s) {
-                    int length = s.toString().length();
+                    int length = s.toString().trim().length();
                     if (length == 0) {
                         SearchView.this.mButtonSearch.setText(R.string.text_cancel);
                         SearchView.this.mButtonSearch.setOnClickListener(cancelListener);

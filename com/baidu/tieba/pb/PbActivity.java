@@ -11,6 +11,7 @@ import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
@@ -92,6 +93,7 @@ public class PbActivity extends BaseActivity {
     private String mPbId = null;
     private ProgressBar mProgress = null;
     private Handler mHandler = new Handler();
+    private AdapterView.OnItemLongClickListener mListLongClickListener = null;
     private long mClickId = -1;
     private AlertDialog mDialogMore = null;
     private AlertDialog mDialogTitle = null;
@@ -102,12 +104,14 @@ public class PbActivity extends BaseActivity {
     private DialogMoreAdapter mDialogAdapter = null;
     private ContextMenuAdapter mContextMenuAdapter = null;
     private String mSource = null;
+    private int mLongPos = -1;
     private Runnable mGetImageRunnble = new Runnable() { // from class: com.baidu.tieba.pb.PbActivity.1
         @Override // java.lang.Runnable
         public void run() {
             try {
                 int start = PbActivity.this.mPbList.getFirstVisiblePosition();
                 int end = PbActivity.this.mPbList.getLastVisiblePosition();
+                int image_num = 0;
                 for (int i = start; i <= end; i++) {
                     if (i < PbActivity.this.mAdapter.getCount()) {
                         PostData data = (PostData) PbActivity.this.mAdapter.getItem(i);
@@ -119,16 +123,16 @@ public class PbActivity extends BaseActivity {
                                 for (int j = 0; j < contentSize; j++) {
                                     if (content.get(j).getType() == 3) {
                                         index++;
+                                        image_num++;
+                                        if (image_num > 15) {
+                                            break;
+                                        }
                                         PbActivity.this.mAdapter.getImageLoader().loadImage(content.get(j).getLink(), new AsyncImageLoader.ImageCallback() { // from class: com.baidu.tieba.pb.PbActivity.1.1
                                             @Override // com.baidu.tieba.util.AsyncImageLoader.ImageCallback
                                             public void imageLoaded(Bitmap bitmap, String imageUrl, boolean iscached) {
-                                                if (bitmap != null) {
-                                                    ImageView view = (ImageView) PbActivity.this.mPbList.findViewWithTag(imageUrl);
-                                                    while (view != null) {
-                                                        view.setTag(null);
-                                                        view.setImageBitmap(bitmap);
-                                                        view = (ImageView) PbActivity.this.mPbList.findViewWithTag(imageUrl);
-                                                    }
+                                                ImageView view;
+                                                if (bitmap != null && (view = (ImageView) PbActivity.this.mPbList.findViewWithTag(imageUrl)) != null) {
+                                                    view.invalidate();
                                                 }
                                             }
                                         });
@@ -355,8 +359,9 @@ public class PbActivity extends BaseActivity {
         }
     }
 
-    @Override // android.app.Activity
-    protected void onResume() {
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.tieba.BaseActivity, android.app.Activity
+    public void onResume() {
         if (this.mAdapter != null && this.mAdapter.getTextConfig() != TiebaApplication.app.getFontSize()) {
             this.mAdapter.setTextConfig(TiebaApplication.app.getFontSize());
             this.mAdapter.notifyDataSetChanged();
@@ -377,10 +382,21 @@ public class PbActivity extends BaseActivity {
     }
 
     private void initUI() {
+        this.mListLongClickListener = new AdapterView.OnItemLongClickListener() { // from class: com.baidu.tieba.pb.PbActivity.3
+            @Override // android.widget.AdapterView.OnItemLongClickListener
+            public boolean onItemLongClick(AdapterView<?> arg0, View arg1, int arg2, long arg3) {
+                PbActivity.this.mLongPos = arg2;
+                if (PbActivity.this.getLongClickMenu() != null) {
+                    PbActivity.this.showListMenu();
+                    return true;
+                }
+                return true;
+            }
+        };
         this.mTitleText = (TextView) findViewById(R.id.titel_text);
         this.mTitle = (LinearLayout) findViewById(R.id.title);
         this.mTitleText.setClickable(true);
-        this.mTitleText.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pb.PbActivity.3
+        this.mTitleText.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pb.PbActivity.4
             @Override // android.view.View.OnClickListener
             public void onClick(View v) {
                 ThreadData thread;
@@ -405,7 +421,7 @@ public class PbActivity extends BaseActivity {
             }
         });
         this.mMore = (Button) findViewById(R.id.more);
-        this.mMore.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pb.PbActivity.4
+        this.mMore.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pb.PbActivity.5
             @Override // android.view.View.OnClickListener
             public void onClick(View v) {
                 if (PbActivity.this.mDialogMore == null) {
@@ -417,20 +433,16 @@ public class PbActivity extends BaseActivity {
                     ListView list = (ListView) PbActivity.this.mDialogView.findViewById(R.id.list);
                     PbActivity.this.mDialogAdapter = new DialogMoreAdapter(PbActivity.this, PbActivity.this.mModel);
                     list.setAdapter((ListAdapter) PbActivity.this.mDialogAdapter);
-                    list.setOnItemClickListener(new AdapterView.OnItemClickListener() { // from class: com.baidu.tieba.pb.PbActivity.4.1
+                    list.setOnItemClickListener(new AdapterView.OnItemClickListener() { // from class: com.baidu.tieba.pb.PbActivity.5.1
                         @Override // android.widget.AdapterView.OnItemClickListener
                         public void onItemClick(AdapterView<?> arg0, View arg1, int arg2, long arg3) {
                             if (arg2 == 0) {
-                                if (!PbActivity.this.mModel.getIsprogressTip()) {
-                                    PbActivity.this.requestTip();
-                                }
-                            } else if (arg2 == 1) {
                                 if (!PbActivity.this.mModel.getHostMode()) {
                                     PbActivity.this.requestHost();
                                 } else {
                                     PbActivity.this.requestAll();
                                 }
-                            } else if (arg2 == 2) {
+                            } else if (arg2 == 1) {
                                 if (PbActivity.this.mModel.getSequence()) {
                                     PbActivity.this.requestReverse();
                                 } else {
@@ -463,7 +475,7 @@ public class PbActivity extends BaseActivity {
             }
         });
         this.mBack = (Button) findViewById(R.id.back);
-        this.mBack.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pb.PbActivity.5
+        this.mBack.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pb.PbActivity.6
             @Override // android.view.View.OnClickListener
             public void onClick(View v) {
                 PbActivity.this.closeAllDialog();
@@ -471,7 +483,7 @@ public class PbActivity extends BaseActivity {
             }
         });
         this.mReply = (Button) findViewById(R.id.reply);
-        this.mReply.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pb.PbActivity.6
+        this.mReply.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pb.PbActivity.7
             @Override // android.view.View.OnClickListener
             public void onClick(View v) {
                 if (PbActivity.this.mPbId != null && PbActivity.this.mPbId.length() > 0 && PbActivity.this.mModel.getData() != null) {
@@ -481,13 +493,13 @@ public class PbActivity extends BaseActivity {
         });
         this.mPbList = (ListView) findViewById(R.id.pb_list);
         this.mPbList.setFastScrollEnabled(true);
-        this.mAdapter = new PbAdapter(this, null);
+        this.mAdapter = new PbAdapter(this, null, UtilHelper.dip2px(this, 234.0f));
         this.mAdapter.setTextConfig(TiebaApplication.app.getFontSize());
         this.mAdapter.setIsShowImage(TiebaApplication.app.isShowImages());
         this.mAdapter.setHaveFooter(0);
         this.mAdapter.setHaveHeader(0);
         this.mPbList.setAdapter((ListAdapter) this.mAdapter);
-        this.mPbList.setOnItemClickListener(new AdapterView.OnItemClickListener() { // from class: com.baidu.tieba.pb.PbActivity.7
+        this.mPbList.setOnItemClickListener(new AdapterView.OnItemClickListener() { // from class: com.baidu.tieba.pb.PbActivity.8
             @Override // android.widget.AdapterView.OnItemClickListener
             public void onItemClick(AdapterView<?> arg0, View arg1, int arg2, long id) {
                 boolean isMarked;
@@ -532,7 +544,7 @@ public class PbActivity extends BaseActivity {
                 }
             }
         });
-        this.mPbList.setOnScrollListener(new AbsListView.OnScrollListener() { // from class: com.baidu.tieba.pb.PbActivity.8
+        this.mPbList.setOnScrollListener(new AbsListView.OnScrollListener() { // from class: com.baidu.tieba.pb.PbActivity.9
             @Override // android.widget.AbsListView.OnScrollListener
             public void onScroll(AbsListView arg0, int arg1, int arg2, int arg3) {
                 PbActivity.this.mHandler.removeCallbacks(PbActivity.this.mGetImageRunnble);
@@ -541,10 +553,39 @@ public class PbActivity extends BaseActivity {
 
             @Override // android.widget.AbsListView.OnScrollListener
             public void onScrollStateChanged(AbsListView view, int scrollState) {
+                PbActivity.this.mPbList.setOnItemLongClickListener(null);
             }
         });
+        this.mPbList.setOnTouchListener(new View.OnTouchListener() { // from class: com.baidu.tieba.pb.PbActivity.10
+            @Override // android.view.View.OnTouchListener
+            public boolean onTouch(View v, MotionEvent event) {
+                if (event.getAction() == 0) {
+                    PbActivity.this.mPbList.setOnItemLongClickListener(PbActivity.this.mListLongClickListener);
+                    return false;
+                }
+                return false;
+            }
+        });
+        this.mPbList.setOnItemLongClickListener(this.mListLongClickListener);
         this.mProgress = (ProgressBar) findViewById(R.id.progress);
         this.mProgress.setVisibility(8);
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public AlertDialog getLongClickMenu() {
+        if (getListMenu() != null) {
+            return getListMenu();
+        }
+        DialogInterface.OnClickListener menuListener = new DialogInterface.OnClickListener() { // from class: com.baidu.tieba.pb.PbActivity.11
+            @Override // android.content.DialogInterface.OnClickListener
+            public void onClick(DialogInterface dialog, int which) {
+                PostData data;
+                if (which == 0 && (data = (PostData) PbActivity.this.mAdapter.getItem(PbActivity.this.mLongPos)) != null) {
+                    data.setClipString(PbActivity.this);
+                }
+            }
+        };
+        return createListMenu(new String[]{getString(R.string.copy)}, menuListener);
     }
 
     private void getMoreDate(int direct) {
@@ -805,8 +846,7 @@ public class PbActivity extends BaseActivity {
         return true;
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void requestTip() {
+    private void requestTip() {
         if (!this.mModel.getIsprogressTip() && this.mModel.getData() != null) {
             if (this.mTipTask != null) {
                 this.mTipTask.cancel();
@@ -1054,8 +1094,8 @@ public class PbActivity extends BaseActivity {
                             PbActivity.this.mDialogAdapter.notifyDataSetInvalidated();
                         }
                     }
-                    long end_time = new Date().getTime();
-                    PbActivity.mPbLoadTime = end_time - this.mStartTime;
+                    long end_time = System.nanoTime();
+                    PbActivity.mPbLoadTime = (end_time - this.mStartTime) / 1000000000;
                 } else if (this.mNetwork != null) {
                     if (this.mType == 3 || this.mType == 4) {
                         if (this.mNetwork.isNetSuccess()) {
@@ -1175,7 +1215,7 @@ public class PbActivity extends BaseActivity {
         @Override // android.os.AsyncTask
         protected void onPreExecute() {
             super.onPreExecute();
-            this.mStartTime = new Date().getTime();
+            this.mStartTime = System.nanoTime();
         }
     }
 

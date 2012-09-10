@@ -21,6 +21,7 @@ import android.os.Process;
 import android.telephony.TelephonyManager;
 import com.baidu.account.AccountProxy;
 import com.baidu.tieba.account.LoginActivity;
+import com.baidu.tieba.account.PvThread;
 import com.baidu.tieba.data.AccountData;
 import com.baidu.tieba.data.Config;
 import com.baidu.tieba.util.DatabaseService;
@@ -45,6 +46,7 @@ import java.util.List;
 public class TiebaApplication extends Application {
     private static final String APPUSETIMES = "tdatabaseusetimes";
     public static final int APP_EVENT_LOGIN = 1;
+    public static final int APP_PV_STAT = 4;
     public static final int APP_START_MSG_SERVICE = 2;
     public static final int APP_STOP_MSG_SERVICE = 3;
     private static final String CLIENT_ID = "client_id";
@@ -63,7 +65,11 @@ public class TiebaApplication extends Application {
     private boolean mLikeChanged = false;
     private SDRamImage mSdramImage = null;
     private String mImei = null;
+    private boolean mIsMainProcess = false;
+    private int mResumeNum = 0;
+    private long mStartTime = 0;
     private int mUploadImageQuality = 2;
+    private int mViewImageQuality = 1;
     private boolean mIsShowImages = true;
     private int mFontSize = 3;
     public Handler handler = new Handler(new Handler.Callback() { // from class: com.baidu.tieba.TiebaApplication.1
@@ -95,6 +101,14 @@ public class TiebaApplication extends Application {
                 case 3:
                     TiebaApplication.this.stopService(new Intent("com.baidu.tieba.service.Message"));
                     break;
+                case 4:
+                    long time = (((System.nanoTime() - TiebaApplication.this.mStartTime) / 1000000) - Config.USE_TIME_INTERVAL) / 1000;
+                    if (time > 0) {
+                        PvThread pv = new PvThread(Config.ST_TYPE_USE, String.valueOf(time));
+                        pv.start();
+                    }
+                    TiebaApplication.this.mStartTime = 0L;
+                    break;
             }
             return false;
         }
@@ -103,6 +117,7 @@ public class TiebaApplication extends Application {
     private boolean mMsgFansOn = Config.MSG_DEFAULT_FANS_SWITCH;
     private boolean mMsgAtmeOn = Config.MSG_DEFAULT_ATME_SWITCH;
     private boolean mMsgReplymeOn = Config.MSG_DEFAULT_REPLYME_SWITCH;
+    private boolean mRemindToneOn = Config.MSG_DEFAULT_REMIND_TONE;
     private long mMsgReplyme = 0;
     private long mMsgAtme = 0;
     private long mMsgFans = 0;
@@ -132,7 +147,8 @@ public class TiebaApplication extends Application {
                 NetWorkCore.initPorxyUser();
             }
         });
-        if (isMainProcess()) {
+        this.mIsMainProcess = isMainProcess();
+        if (this.mIsMainProcess) {
             this.mFaces = new HashMap<>();
             mAccount = DatabaseService.getActiveAccountData();
             if (isBaiduAccountManager()) {
@@ -143,6 +159,8 @@ public class TiebaApplication extends Application {
             }
             this.mSdramImage = new SDRamImage();
             this.mNotificationManager = (NotificationManager) getSystemService("notification");
+            PvThread pv = new PvThread(Config.ST_TYPE_OPEN);
+            pv.start();
         }
         super.onCreate();
     }
@@ -200,6 +218,7 @@ public class TiebaApplication extends Application {
     private void initSettings() {
         SharedPreferences preference = getSharedPreferences(Config.SETTINGFILE, 0);
         this.mUploadImageQuality = preference.getInt(Config.PREFS_IMAGE_QUALITY, 2);
+        this.mViewImageQuality = preference.getInt(Config.PREFS_VIEW_IMAGE_QUALITY, 1);
         this.mIsShowImages = preference.getBoolean(Config.PREFS_SHOW_IMAGES, true);
         this.mFontSize = preference.getInt(Config.PREFS_FONT_SIZE, 3);
     }
@@ -535,6 +554,16 @@ public class TiebaApplication extends Application {
         setMsgAtmeOn(true);
     }
 
+    public void setMsgTone(boolean msgTone) {
+        if (this.mRemindToneOn != msgTone) {
+            this.mRemindToneOn = msgTone;
+        }
+    }
+
+    public boolean isMsgToneOn() {
+        return this.mRemindToneOn;
+    }
+
     public void setMsgFrequency(int msgFrequency) {
         if (this.mMsgFrequency != msgFrequency) {
             this.mMsgFrequency = msgFrequency;
@@ -628,10 +657,21 @@ public class TiebaApplication extends Application {
         return this.mUploadImageQuality;
     }
 
+    public int getViewImageQuality() {
+        return this.mViewImageQuality;
+    }
+
     public void setUploadImageQuality(int quality) {
         if (this.mUploadImageQuality != quality) {
             this.mUploadImageQuality = quality;
             getSharedPreferences(Config.SETTINGFILE, 0).edit().putInt(Config.PREFS_IMAGE_QUALITY, quality).commit();
+        }
+    }
+
+    public void setViewImageQuality(int quality) {
+        if (this.mViewImageQuality != quality) {
+            this.mViewImageQuality = quality;
+            getSharedPreferences(Config.SETTINGFILE, 0).edit().putInt(Config.PREFS_VIEW_IMAGE_QUALITY, quality).commit();
         }
     }
 
@@ -689,7 +729,11 @@ public class TiebaApplication extends Application {
                     PendingIntent contentIntent = PendingIntent.getActivity(this, 0, intent, 0);
                     notification.setLatestEventInfo(this, "百度贴吧", String.valueOf(String.valueOf(getMsgTotal())) + "条新消息，刷新看看", contentIntent);
                     notification.defaults = -1;
+                    notification.defaults ^= 1;
                     notification.flags = 16;
+                    if (this.mRemindToneOn) {
+                        notification.sound = Uri.parse("android.resource://" + getPackageName() + "/" + R.raw.remind_tone);
+                    }
                     this.mNotificationManager.notify(R.drawable.icon, notification);
                 } else if (flag == 2) {
                     this.mNotificationManager.cancel(R.drawable.icon);
@@ -732,6 +776,32 @@ public class TiebaApplication extends Application {
                 return Config.POST_IMAGE_MIDDLE;
             case 3:
                 return 300;
+        }
+    }
+
+    public void AddResumeNum() {
+        this.mResumeNum++;
+        processResumeNum();
+    }
+
+    public void DelResumeNum() {
+        this.mResumeNum--;
+        processResumeNum();
+    }
+
+    private void processResumeNum() {
+        if (this.mIsMainProcess) {
+            if (this.mResumeNum < 0) {
+                this.mResumeNum = 0;
+            }
+            if (this.mStartTime == 0 && this.mResumeNum > 0) {
+                this.mStartTime = System.nanoTime();
+            }
+            TiebaLog.i(getClass().getName(), "mResumeNum = ", String.valueOf(this.mResumeNum));
+            this.handler.removeMessages(4);
+            if (this.mResumeNum == 0 && this.mStartTime > 0) {
+                this.handler.sendMessageDelayed(this.handler.obtainMessage(4), Config.USE_TIME_INTERVAL);
+            }
         }
     }
 }

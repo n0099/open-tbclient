@@ -5,6 +5,7 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
@@ -16,7 +17,10 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.Toast;
 import com.baidu.tieba.R;
 import com.baidu.tieba.TiebaApplication;
+import com.baidu.tieba.data.Config;
+import com.baidu.tieba.data.ContentData;
 import java.io.File;
+import java.lang.reflect.Field;
 /* loaded from: classes.dex */
 public class UtilHelper {
     public static int dip2px(Context context, float dipValue) {
@@ -100,5 +104,47 @@ public class UtilHelper {
             intent.setDataAndType(Uri.fromFile(file), "application/vnd.android.package-archive");
             context.startActivity(intent);
         }
+    }
+
+    public static Field getDeclaredField(Object object, String field_name) {
+        for (Class<?> cla = object.getClass(); cla != Object.class; cla = cla.getSuperclass()) {
+            try {
+                Field field = cla.getDeclaredField(field_name);
+                return field;
+            } catch (Exception e) {
+            }
+        }
+        return null;
+    }
+
+    public static int[] getPbImageSize(ContentData seg, int max_width) {
+        int[] size = new int[2];
+        int width = seg.getWidth();
+        int height = seg.getHeight();
+        if (max_width <= 0) {
+            max_width = 1;
+        }
+        if (max_width > 370) {
+            max_width = Config.PB_IMAGE_NEW_MAX_WIDTH;
+        }
+        int max_height = (int) (max_width * 1.62f);
+        if (height > max_height) {
+            width = (width * max_height) / height;
+            height = max_height;
+        }
+        if (width > max_width) {
+            height = (height * max_width) / width;
+            width = max_width;
+        }
+        Bitmap bm = BitmapHelper.getCashBitmap(R.drawable.image_default);
+        if (height < bm.getHeight()) {
+            height = bm.getHeight();
+        }
+        if (width < bm.getWidth()) {
+            width = bm.getWidth();
+        }
+        size[0] = width;
+        size[1] = height;
+        return size;
     }
 }

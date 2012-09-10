@@ -137,8 +137,9 @@ public class PersonInfoActivity extends BaseActivity {
         outState.putBoolean(TAG_TAB_PAGE, this.mModel.isTabPage());
     }
 
-    @Override // android.app.Activity
-    protected void onResume() {
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.tieba.BaseActivity, android.app.Activity
+    public void onResume() {
         if (this.mModel.getIsSelf()) {
             this.mModel.setNotify_fans(TiebaApplication.app.getMsgFans());
             if (DatabaseService.getMarkNumState().booleanValue()) {

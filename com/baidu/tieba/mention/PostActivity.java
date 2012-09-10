@@ -86,8 +86,9 @@ public class PostActivity extends BaseActivity {
         startAsyncTask();
     }
 
-    @Override // android.app.Activity
-    protected void onResume() {
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.tieba.BaseActivity, android.app.Activity
+    public void onResume() {
         if (this.mTextConfig != TiebaApplication.app.getFontSize()) {
             this.mTextConfig = TiebaApplication.app.getFontSize();
             this.mUserName.setTextSize(Config.getNameSize());

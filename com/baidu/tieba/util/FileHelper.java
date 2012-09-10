@@ -8,6 +8,7 @@ import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.data.Config;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -141,6 +142,69 @@ public class FileHelper {
             TiebaLog.e("FileHelper", "FileOutputStream", "error = " + ex.getMessage());
             return null;
         }
+    }
+
+    public static String SaveGifFile(String path, String filename, byte[] imageData) {
+        String all_path;
+        if (path != null) {
+            all_path = EXTERNAL_STORAGE_DIRECTORY + "/" + Config.TMPDIRNAME + "/" + path + "/";
+        } else {
+            all_path = EXTERNAL_STORAGE_DIRECTORY + "/" + Config.TMPDIRNAME + "/";
+        }
+        if (!CheckTempDir(all_path) || imageData == null) {
+            return null;
+        }
+        File file = new File(String.valueOf(all_path) + filename);
+        try {
+            if (file.exists()) {
+                file.delete();
+            }
+            file.createNewFile();
+            FileOutputStream fOut = new FileOutputStream(file);
+            fOut.write(imageData);
+            fOut.flush();
+            fOut.close();
+            return file.getPath();
+        } catch (Exception ex) {
+            TiebaLog.e("FileHelper", "SaveGifFile", ex.getMessage());
+            return null;
+        }
+    }
+
+    public static boolean isGif(String path, String filename) {
+        String all_path;
+        boolean result = false;
+        if (path != null) {
+            all_path = EXTERNAL_STORAGE_DIRECTORY + "/" + Config.TMPDIRNAME + "/" + path + "/";
+        } else {
+            all_path = EXTERNAL_STORAGE_DIRECTORY + "/" + Config.TMPDIRNAME + "/";
+        }
+        File file = new File(String.valueOf(all_path) + filename);
+        try {
+            InputStream fStream = new FileInputStream(file);
+            try {
+                byte[] temp = new byte[7];
+                fStream.read(temp, 0, 6);
+                String tag = new String(temp);
+                if (tag.startsWith("GIF")) {
+                    result = true;
+                }
+                fStream.close();
+            } catch (FileNotFoundException e) {
+                e = e;
+                e.printStackTrace();
+                return result;
+            } catch (IOException e2) {
+                e = e2;
+                e.printStackTrace();
+                return result;
+            }
+        } catch (FileNotFoundException e3) {
+            e = e3;
+        } catch (IOException e4) {
+            e = e4;
+        }
+        return result;
     }
 
     public static String SaveFile(String path, String filename, Bitmap bm, int quality) {

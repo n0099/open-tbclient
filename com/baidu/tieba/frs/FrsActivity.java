@@ -5,8 +5,12 @@ import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.text.SpannableString;
+import android.text.style.ForegroundColorSpan;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -15,6 +19,7 @@ import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListAdapter;
 import android.widget.ListView;
@@ -25,6 +30,7 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.data.Config;
 import com.baidu.tieba.data.GoodData;
 import com.baidu.tieba.data.ThreadData;
+import com.baidu.tieba.home.CreateBarActivity;
 import com.baidu.tieba.model.FrsModel;
 import com.baidu.tieba.pb.PbActivity;
 import com.baidu.tieba.person.PersonListActivity;
@@ -36,7 +42,6 @@ import com.baidu.tieba.util.TiebaLog;
 import com.baidu.tieba.util.UtilHelper;
 import com.baidu.tieba.write.WriteActivity;
 import java.util.ArrayList;
-import java.util.Date;
 import org.apache.http.message.BasicNameValuePair;
 /* loaded from: classes.dex */
 public class FrsActivity extends BaseActivity {
@@ -75,6 +80,7 @@ public class FrsActivity extends BaseActivity {
     private long mGoodId = 0;
     private int mIsGood = 0;
     private int mPn = 1;
+    private boolean isShowMenu = true;
     private String mThreadId = null;
     private boolean mIsRefresh = false;
     private Button mButtonBack = null;
@@ -88,6 +94,10 @@ public class FrsActivity extends BaseActivity {
     private FrsModel mModel = null;
     private ProgressBar mProgress = null;
     private TextView mForumNoExist = null;
+    private LinearLayout mForumNoExistLayout = null;
+    private TextView mForumNoExistLayoutText = null;
+    private ImageView mTitleGood = null;
+    private Button mCreateForumBotton = null;
     private FrsLikeAsyncTask mFrsLikeTask = null;
     private Menu mMenu = null;
     private String mSource = null;
@@ -200,6 +210,7 @@ public class FrsActivity extends BaseActivity {
         this.mPn = 1;
         this.mType = 3;
         this.mFrsTitle = (TextView) findViewById(R.id.frs_tv_title);
+        this.mTitleGood = (ImageView) findViewById(R.id.frs_tv_title_good);
         this.mButtonBack = (Button) findViewById(R.id.frs_bt_back);
         this.mButtonBack.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.frs.FrsActivity.1
             @Override // android.view.View.OnClickListener
@@ -275,12 +286,22 @@ public class FrsActivity extends BaseActivity {
         setIsRefresh(false);
         this.mForumNoExist = (TextView) findViewById(R.id.frs_noexist);
         this.mForumNoExist.setVisibility(8);
+        this.mForumNoExistLayoutText = (TextView) findViewById(R.id.frs_noexist_text);
         this.mPageTitle = (LinearLayout) findViewById(R.id.frs_title);
         this.mBtGood = (LinearLayout) findViewById(R.id.frs_ll_bt_good);
         this.mBtGood.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.frs.FrsActivity.6
             @Override // android.view.View.OnClickListener
             public void onClick(View v) {
                 FrsActivity.this.showGoodDialog();
+            }
+        });
+        this.mForumNoExistLayout = (LinearLayout) findViewById(R.id.frs_noexist_layout);
+        this.mCreateForumBotton = (Button) findViewById(R.id.frs_bt_create);
+        this.mCreateForumBotton.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.frs.FrsActivity.7
+            @Override // android.view.View.OnClickListener
+            public void onClick(View arg0) {
+                CreateBarActivity.startActivity(FrsActivity.this, FrsActivity.this.mForum, true);
+                FrsActivity.this.finish();
             }
         });
     }
@@ -293,7 +314,7 @@ public class FrsActivity extends BaseActivity {
     /* JADX INFO: Access modifiers changed from: private */
     public void prepareFrsMenuDialog(ThreadData thread) {
         final boolean isAnonymous = isAnonymityUser(thread);
-        DialogInterface.OnClickListener menuFrsListener = new DialogInterface.OnClickListener() { // from class: com.baidu.tieba.frs.FrsActivity.7
+        DialogInterface.OnClickListener menuFrsListener = new DialogInterface.OnClickListener() { // from class: com.baidu.tieba.frs.FrsActivity.8
             @Override // android.content.DialogInterface.OnClickListener
             public void onClick(DialogInterface dialog, int item) {
                 switch (item) {
@@ -350,7 +371,7 @@ public class FrsActivity extends BaseActivity {
             ListView list = (ListView) this.mDialogView.findViewById(R.id.frs_dia_list);
             this.mDialogAdapter = new DialogGoodAdapter(this, null);
             list.setAdapter((ListAdapter) this.mDialogAdapter);
-            list.setOnItemClickListener(new AdapterView.OnItemClickListener() { // from class: com.baidu.tieba.frs.FrsActivity.8
+            list.setOnItemClickListener(new AdapterView.OnItemClickListener() { // from class: com.baidu.tieba.frs.FrsActivity.9
                 @Override // android.widget.AdapterView.OnItemClickListener
                 public void onItemClick(AdapterView<?> arg0, View arg1, int arg2, long arg3) {
                     FrsActivity.this.mDialogGood.dismiss();
@@ -512,6 +533,9 @@ public class FrsActivity extends BaseActivity {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void refreshFrs() {
+        this.mListFrs.setVisibility(0);
+        this.mButtonWrite.setVisibility(0);
+        this.mButtonRefresh.setVisibility(0);
         try {
             if (this.mModel != null) {
                 this.mForum = this.mModel.getForum().getName();
@@ -595,7 +619,7 @@ public class FrsActivity extends BaseActivity {
         @Override // android.os.AsyncTask
         protected void onPreExecute() {
             FrsActivity.this.hiddenGoodBar();
-            this.mStartTime = new Date().getTime();
+            this.mStartTime = System.nanoTime();
             switch (this.mUpdateType) {
                 case 1:
                     FrsActivity.this.mAdapterFrs.setIsProcessNext(true);
@@ -674,8 +698,8 @@ public class FrsActivity extends BaseActivity {
             if (data != null) {
                 FrsActivity.this.mModel = data;
                 FrsActivity.this.refreshFrs();
-                long end_time = new Date().getTime();
-                FrsActivity.mPbLoadTime = end_time - this.mStartTime;
+                long end_time = System.nanoTime();
+                FrsActivity.mPbLoadTime = (end_time - this.mStartTime) / 1000000000;
             } else {
                 processError();
             }
@@ -702,9 +726,26 @@ public class FrsActivity extends BaseActivity {
                 if (this.mNetwork != null) {
                     if (this.mNetwork.isNetSuccess()) {
                         if (this.mNetwork.getErrorCode() == 3) {
+                            FrsActivity.this.isShowMenu = false;
                             FrsActivity.this.mForumNoExist.setText(R.string.frs_noforum);
-                            FrsActivity.this.mForumNoExist.setVisibility(0);
+                            FrsActivity.this.mForum = FrsActivity.this.mForum.replace(" ", "");
+                            String mForumShort = FrsActivity.this.mForum;
+                            if (mForumShort.length() > 31) {
+                                mForumShort = String.valueOf(mForumShort.substring(0, 31)) + "...";
+                            }
+                            String info = String.valueOf(mForumShort) + FrsActivity.this.getString(R.string.frs_remind_noforum);
+                            SpannableString noForum = new SpannableString(info);
+                            noForum.setSpan(new ForegroundColorSpan(Color.rgb(229, 4, 0)), 0, mForumShort.length(), 33);
+                            FrsActivity.this.mForumNoExistLayout.setVisibility(0);
+                            FrsActivity.this.mForumNoExistLayoutText.setText(noForum);
+                            FrsActivity.this.mBtGood.setVisibility(0);
+                            FrsActivity.this.mBtGood.setClickable(false);
+                            FrsActivity.this.mFrsTitle.setText(R.string.frs_create_forum);
+                            FrsActivity.this.mTitleGood.setVisibility(8);
+                            FrsActivity.this.mListFrs.setVisibility(8);
+                            FrsActivity.this.mButtonRefresh.setVisibility(4);
                             FrsActivity.this.mButtonRefresh.setClickable(false);
+                            FrsActivity.this.mButtonWrite.setVisibility(4);
                             FrsActivity.this.mButtonWrite.setClickable(false);
                             return;
                         }
@@ -927,7 +968,7 @@ public class FrsActivity extends BaseActivity {
     protected Dialog onCreateDialog(int id) {
         switch (id) {
             case 1:
-                return new AlertDialog.Builder(this).setTitle(R.string.alerm_title).setIcon(R.drawable.dialogue_quit).setMessage(R.string.unlike_info).setPositiveButton(getString(R.string.confirm), new DialogInterface.OnClickListener() { // from class: com.baidu.tieba.frs.FrsActivity.9
+                return new AlertDialog.Builder(this).setTitle(R.string.alerm_title).setIcon(R.drawable.dialogue_quit).setMessage(R.string.unlike_info).setPositiveButton(getString(R.string.confirm), new DialogInterface.OnClickListener() { // from class: com.baidu.tieba.frs.FrsActivity.10
                     @Override // android.content.DialogInterface.OnClickListener
                     public void onClick(DialogInterface arg0, int arg1) {
                         FrsActivity.this.mType = 5;
@@ -937,5 +978,13 @@ public class FrsActivity extends BaseActivity {
             default:
                 return super.onCreateDialog(id);
         }
+    }
+
+    @Override // android.app.Activity, android.view.KeyEvent.Callback
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if (keyCode != 82 || this.isShowMenu) {
+            return super.onKeyDown(keyCode, event);
+        }
+        return true;
     }
 }

@@ -132,8 +132,9 @@ public class LogoActivity extends BaseActivity {
         finish();
     }
 
-    @Override // android.app.Activity
-    protected void onResume() {
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.tieba.BaseActivity, android.app.Activity
+    public void onResume() {
         super.onResume();
         if (this.mHaveFinishiAnim && this.mHaveInitData && TiebaApplication.isBaiduAccountManager() && TiebaApplication.getCurrentBduss() == null) {
             BaiduAccountProxy.getAccountData(this);

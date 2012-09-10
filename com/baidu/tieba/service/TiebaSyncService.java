@@ -148,6 +148,9 @@ public class TiebaSyncService extends Service {
                         }
                     }
                 }
+                Intent service = new Intent(TiebaSyncService.this, TiebaActiveService.class);
+                service.putExtra(Config.SYNC_ACTIVE, TiebaSyncService.this.mModel.getNeedActive());
+                TiebaSyncService.this.startService(service);
                 TiebaSyncService.this.stopSelf();
                 return;
             }

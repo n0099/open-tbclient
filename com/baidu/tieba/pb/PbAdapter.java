@@ -24,6 +24,7 @@ import com.baidu.tieba.util.StringHelper;
 import com.baidu.tieba.util.TiebaLog;
 import com.baidu.tieba.util.UtilHelper;
 import com.baidu.tieba.view.CustomTextView;
+import com.baidu.tieba.view.PbImageView;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class PbAdapter extends BaseAdapter {
@@ -36,6 +37,7 @@ public class PbAdapter extends BaseAdapter {
     private int mHaveFooter;
     private int mHaveHeader;
     private AsyncImageLoader mImageLoader;
+    private int mImageMaxWidth;
     private boolean mIsProcessMore;
     private boolean mIsProcessPre;
     private boolean mIsShowImage;
@@ -44,7 +46,7 @@ public class PbAdapter extends BaseAdapter {
     private ArrayList<ProgressBar> mProgressbars;
     private int mTextConfig;
 
-    public PbAdapter(Context context, PbModel model) {
+    public PbAdapter(Context context, PbModel model, int imageMaxWidth) {
         this.mPbModel = model;
         this.mContext = context;
         if (this.mPbModel != null && this.mPbModel.getData() != null) {
@@ -58,7 +60,9 @@ public class PbAdapter extends BaseAdapter {
         this.mIsProcessMore = false;
         this.mIsProcessPre = false;
         this.mTextConfig = 3;
+        this.mImageMaxWidth = imageMaxWidth;
         this.mImageLoader = new AsyncImageLoader(this.mContext);
+        this.mImageLoader.setImagesize(this.mImageMaxWidth, (int) (this.mImageMaxWidth * 1.62f));
         this.mProgressbars = new ArrayList<>();
     }
 
@@ -137,25 +141,15 @@ public class PbAdapter extends BaseAdapter {
         return index;
     }
 
-    private ImageView createImageView(ArrayList<ContentData> content, ContentData seg, int index) {
-        ImageView imageView = new ImageView(this.mContext);
-        int height = UtilHelper.dip2px(this.mContext, 120.0f);
-        int width = UtilHelper.dip2px(this.mContext, 150.0f);
-        LinearLayout.LayoutParams imageViewparams = new LinearLayout.LayoutParams(-2, height);
+    private ImageView createImageView(ArrayList<ContentData> content, ContentData seg, int index, int max_width) {
+        ImageView imageView = new PbImageView(this.mContext);
+        int[] size = UtilHelper.getPbImageSize(seg, max_width);
+        LinearLayout.LayoutParams imageViewparams = new LinearLayout.LayoutParams(size[0], size[1]);
         int px_v = UtilHelper.dip2px(this.mContext, 15.0f);
         imageViewparams.topMargin = px_v;
         imageViewparams.bottomMargin = 0;
-        Bitmap image = this.mImageLoader.getPic(seg.getLink());
-        imageView.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
-        imageView.setMaxWidth(width);
-        if (image != null) {
-            imageView.setTag(null);
-            imageView.setImageBitmap(image);
-        } else {
-            imageView.setTag(seg.getLink());
-            Bitmap bm = BitmapHelper.getCashBitmap(R.drawable.image_default);
-            imageView.setImageBitmap(bm);
-        }
+        imageView.setScaleType(ImageView.ScaleType.CENTER);
+        imageView.setTag(seg.getLink());
         imageView.setClickable(true);
         imageView.setFocusable(false);
         ImageOnClickListener listern = new ImageOnClickListener(content, index);
@@ -192,7 +186,7 @@ public class PbAdapter extends BaseAdapter {
         }
     }
 
-    /* JADX WARN: Not initialized variable reg: 13, insn: 0x0639: MOVE  (r12 I:??[OBJECT, ARRAY]) = (r13 I:??[OBJECT, ARRAY] A[D('holder' com.baidu.tieba.pb.PbAdapter$ViewHolder)]), block:B:134:0x0639 */
+    /* JADX WARN: Not initialized variable reg: 13, insn: 0x0641: MOVE  (r12 I:??[OBJECT, ARRAY]) = (r13 I:??[OBJECT, ARRAY] A[D('holder' com.baidu.tieba.pb.PbAdapter$ViewHolder)]), block:B:134:0x0641 */
     @Override // android.widget.Adapter
     public View getView(int position, View convertView, ViewGroup parent) {
         ViewHolder holder;
@@ -372,7 +366,7 @@ public class PbAdapter extends BaseAdapter {
                 if (seg2.getType() == 3) {
                     if (this.mIsShowImage) {
                         index++;
-                        holder.mSeg.addView(createImageView(content, seg2, index));
+                        holder.mSeg.addView(createImageView(content, seg2, index, this.mImageMaxWidth));
                         textView_tmp = null;
                     }
                 } else if (textView_tmp != null) {
