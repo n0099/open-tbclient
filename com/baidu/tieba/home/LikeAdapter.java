@@ -9,33 +9,31 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.data.ForumData;
 import com.baidu.tieba.util.BitmapHelper;
 import com.baidu.tieba.util.TiebaLog;
+import com.baidu.tieba.util.UtilHelper;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class LikeAdapter extends BaseAdapter {
     private static final int TYPE_BAR = 1;
-    private static final int TYPE_FOOTER = 3;
-    private static final int TYPE_HEADER = 2;
     private static final int TYPE_NODATA = 0;
     private Context mContext;
     private ArrayList<ForumData> mData;
     private String mGrade;
-    private View.OnClickListener mHeaderListener;
-    private boolean mIsFooterRefresh = false;
-    private String mUpdateTime = null;
+    private int mMargin;
     private View.OnClickListener mForumListener = null;
     private View.OnLongClickListener mForumLongListener = null;
     private ArrayList<ProgressBar> mProgressbars = new ArrayList<>();
 
     public LikeAdapter(Context context, ArrayList<ForumData> data) {
+        this.mMargin = 10;
         this.mContext = context;
         this.mData = data;
         this.mGrade = this.mContext.getText(R.string.grade).toString();
+        this.mMargin = UtilHelper.dip2px(this.mContext, 10.0f);
     }
 
     public void releaseProgressBar() {
@@ -59,23 +57,17 @@ public class LikeAdapter extends BaseAdapter {
         return this.mData;
     }
 
-    public void setIsRefresh(boolean refresh) {
-        this.mIsFooterRefresh = refresh;
-        notifyDataSetChanged();
-    }
-
     @Override // android.widget.Adapter
     public int getCount() {
-        int num = 0;
-        if (this.mData != null) {
-            int size = this.mData.size();
-            int num2 = size / 2;
-            num = num2 + (size % 2);
-            if (num == 0) {
-                num++;
-            }
+        if (this.mData == null) {
+            return 0;
         }
-        return 2 + num;
+        int size = this.mData.size();
+        int num = (size / 2) + (size % 2);
+        if (num == 0) {
+            return num + 1;
+        }
+        return num;
     }
 
     @Override // android.widget.Adapter
@@ -88,81 +80,60 @@ public class LikeAdapter extends BaseAdapter {
         return position;
     }
 
-    private void initElement(ViewHolder holder, View parent) {
-        holder.mForumName = (TextView) parent.findViewById(R.id.home_lv_like_forum);
-        holder.mGradeImage = (ImageView) parent.findViewById(R.id.home_lv_like_gimg);
-        holder.mForumGrade = (TextView) parent.findViewById(R.id.forum_lv_like_grade);
-    }
-
     @Override // android.widget.Adapter
     public View getView(int position, View convertView, ViewGroup parent) {
-        ViewHolder holder;
-        ViewHolder holder2 = null;
+        ViewHolder holder = null;
         try {
             int type = getItemViewType(position);
             if (convertView == null) {
                 LayoutInflater mInflater = LayoutInflater.from(this.mContext);
-                try {
-                    if (type == 1) {
-                        convertView = mInflater.inflate(R.layout.home_like_item, (ViewGroup) null);
-                        holder = new ViewHolder(this, null);
-                        holder.mForum = (LinearLayout) convertView.findViewById(R.id.first);
-                        holder.mForum.setOnClickListener(this.mForumListener);
-                        holder.mForum.setOnLongClickListener(this.mForumLongListener);
-                        initElement(holder, holder.mForum);
-                        holder.mSecond = new ViewHolder(this, null);
-                        holder.mSecond.mForum = (LinearLayout) convertView.findViewById(R.id.second);
-                        holder.mSecond.mForum.setOnClickListener(this.mForumListener);
-                        holder.mSecond.mForum.setOnLongClickListener(this.mForumLongListener);
-                        initElement(holder.mSecond, holder.mSecond.mForum);
-                        convertView.setTag(holder);
-                        holder2 = holder;
-                    } else if (type == 0) {
-                        convertView = mInflater.inflate(R.layout.home_like_nodata_item, (ViewGroup) null);
-                    } else if (type == 2) {
-                        convertView = mInflater.inflate(R.layout.home_like_header, (ViewGroup) null);
-                        convertView.setOnClickListener(this.mHeaderListener);
-                    } else if (type == 3) {
-                        convertView = mInflater.inflate(R.layout.home_like_footer, (ViewGroup) null);
-                        holder = new ViewHolder(this, null);
-                        holder.mFooter = new FooterView(this, null);
-                        holder.mFooter.mIsLoading = (RelativeLayout) convertView.findViewById(R.id.home_like_loading);
-                        holder.mFooter.mRefresh = (LinearLayout) convertView.findViewById(R.id.home_like_refresh);
-                        holder.mFooter.mTextUptime = (TextView) convertView.findViewById(R.id.home_like_tv_uptime);
-                        holder.mFooter.mProgressRefresh = (ProgressBar) convertView.findViewById(R.id.home_like_progress_refresh);
-                        this.mProgressbars.add(holder.mFooter.mProgressRefresh);
-                        convertView.setTag(holder);
-                        holder2 = holder;
+                if (type == 1) {
+                    convertView = mInflater.inflate(R.layout.home_like_item, (ViewGroup) null);
+                    ViewHolder holder2 = new ViewHolder(this, null);
+                    try {
+                        holder2.mItem = (LinearLayout) convertView;
+                        holder2.mForum = (LinearLayout) convertView.findViewById(R.id.first);
+                        holder2.mForum.setOnClickListener(this.mForumListener);
+                        holder2.mForum.setOnLongClickListener(this.mForumLongListener);
+                        holder2.mForumName = (TextView) convertView.findViewById(R.id.home_lv_like_forum1);
+                        holder2.mGradeImage = (ImageView) convertView.findViewById(R.id.home_lv_like_gimg1);
+                        holder2.mForumGrade = (TextView) convertView.findViewById(R.id.forum_lv_like_grade1);
+                        holder2.mSecond = new ViewHolder(this, null);
+                        holder2.mSecond.mForum = (LinearLayout) convertView.findViewById(R.id.second);
+                        holder2.mSecond.mForum.setOnClickListener(this.mForumListener);
+                        holder2.mSecond.mForum.setOnLongClickListener(this.mForumLongListener);
+                        holder2.mSecond.mForumName = (TextView) convertView.findViewById(R.id.home_lv_like_forum2);
+                        holder2.mSecond.mGradeImage = (ImageView) convertView.findViewById(R.id.home_lv_like_gimg2);
+                        holder2.mSecond.mForumGrade = (TextView) convertView.findViewById(R.id.forum_lv_like_grade2);
+                        convertView.setTag(holder2);
+                        holder = holder2;
+                    } catch (Exception e) {
+                        ex = e;
+                        TiebaLog.e(getClass().getName(), "getView", ex.getMessage());
+                        return convertView;
                     }
-                } catch (Exception e) {
-                    ex = e;
-                    TiebaLog.e(getClass().getName(), "getView", ex.getMessage());
-                    return convertView;
+                } else if (type == 0) {
+                    convertView = mInflater.inflate(R.layout.home_like_nodata_item, (ViewGroup) null);
                 }
             } else {
-                holder2 = (ViewHolder) convertView.getTag();
+                holder = (ViewHolder) convertView.getTag();
             }
-            if (type == 1 && holder2 != null) {
-                int index = position - 1;
-                if (index >= 0) {
-                    ForumData first = this.mData.get(index * 2);
-                    updateUI(first, holder2);
+            if (position == 0) {
+                holder.mItem.setPadding(0, this.mMargin, 0, this.mMargin);
+            } else {
+                holder.mItem.setPadding(0, 0, 0, this.mMargin);
+            }
+            if (type == 1 && holder != null) {
+                if (position >= 0) {
+                    ForumData first = this.mData.get(position * 2);
+                    updateUI(first, holder);
                 }
-                if ((index * 2) + 1 < this.mData.size()) {
-                    holder2.mSecond.mForum.setVisibility(0);
-                    ForumData second = this.mData.get((index * 2) + 1);
-                    updateUI(second, holder2.mSecond);
+                if ((position * 2) + 1 < this.mData.size()) {
+                    holder.mSecond.mForum.setVisibility(0);
+                    ForumData second = this.mData.get((position * 2) + 1);
+                    updateUI(second, holder.mSecond);
                 } else {
-                    holder2.mSecond.mForum.setVisibility(4);
-                }
-            } else if (type == 3 && holder2 != null) {
-                if (this.mIsFooterRefresh) {
-                    holder2.mFooter.mIsLoading.setVisibility(0);
-                    holder2.mFooter.mRefresh.setVisibility(4);
-                } else {
-                    holder2.mFooter.mIsLoading.setVisibility(8);
-                    holder2.mFooter.mRefresh.setVisibility(0);
-                    holder2.mFooter.mTextUptime.setText(this.mUpdateTime);
+                    holder.mSecond.mForum.setVisibility(4);
                 }
             }
         } catch (Exception e2) {
@@ -171,12 +142,7 @@ public class LikeAdapter extends BaseAdapter {
         return convertView;
     }
 
-    public void setUpdateTime(String time) {
-        this.mUpdateTime = time;
-        notifyDataSetChanged();
-    }
-
-    private void updateUI(ForumData data, ViewHolder holder) throws Exception {
+    private void updateUI(ForumData data, ViewHolder holder) {
         if (data != null && holder != null) {
             int grade = data.getUser_level();
             holder.mForum.setTag(data);
@@ -207,16 +173,7 @@ public class LikeAdapter extends BaseAdapter {
 
     @Override // android.widget.BaseAdapter, android.widget.Adapter
     public int getItemViewType(int position) {
-        if (position == 0) {
-            return 2;
-        }
-        if (position == getCount() - 1) {
-            return 3;
-        }
-        if (this.mData != null && this.mData.size() > 0) {
-            return 1;
-        }
-        return 0;
+        return (this.mData == null || this.mData.size() <= 0) ? 0 : 1;
     }
 
     @Override // android.widget.BaseAdapter, android.widget.ListAdapter
@@ -226,11 +183,7 @@ public class LikeAdapter extends BaseAdapter {
 
     @Override // android.widget.BaseAdapter, android.widget.Adapter
     public int getViewTypeCount() {
-        return 4;
-    }
-
-    public void setHeaderOnClickListener(View.OnClickListener headerListener) {
-        this.mHeaderListener = headerListener;
+        return 2;
     }
 
     public void setForumOnClickListener(View.OnClickListener forumListener) {
@@ -244,32 +197,17 @@ public class LikeAdapter extends BaseAdapter {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public class ViewHolder {
-        FooterView mFooter;
         LinearLayout mForum;
         TextView mForumGrade;
         TextView mForumName;
         ImageView mGradeImage;
+        LinearLayout mItem;
         ViewHolder mSecond;
 
         private ViewHolder() {
         }
 
         /* synthetic */ ViewHolder(LikeAdapter likeAdapter, ViewHolder viewHolder) {
-            this();
-        }
-    }
-
-    /* loaded from: classes.dex */
-    private class FooterView {
-        RelativeLayout mIsLoading;
-        ProgressBar mProgressRefresh;
-        LinearLayout mRefresh;
-        TextView mTextUptime;
-
-        private FooterView() {
-        }
-
-        /* synthetic */ FooterView(LikeAdapter likeAdapter, FooterView footerView) {
             this();
         }
     }

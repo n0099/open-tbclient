@@ -1,5 +1,6 @@
 package com.baidu.tieba.data;
 
+import com.baidu.android.pushservice.PushConstants;
 import com.baidu.tieba.util.TiebaLog;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
@@ -35,7 +36,7 @@ public class MessageData {
     public void parserJson(String data) {
         try {
             JSONObject json = new JSONObject(data);
-            JSONObject obj = json.optJSONObject("message");
+            JSONObject obj = json.optJSONObject(PushConstants.EXTRA_PUSH_MESSAGE);
             parserJson(obj);
         } catch (Exception ex) {
             TiebaLog.e("MessageData", "parserJson", "error = " + ex.getMessage());

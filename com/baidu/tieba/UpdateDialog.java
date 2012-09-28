@@ -64,7 +64,7 @@ public class UpdateDialog extends BaseActivity {
                             UpdateDialog.this.mDialog.dismiss();
                             UpdateDialog.this.stopUpdataService();
                         }
-                        MainTabActivity.startActivity(UpdateDialog.this, MainTabActivity.GOTO_CLOSE);
+                        MainTabActivity.startActivity(UpdateDialog.this, "close");
                     }
                 };
                 dialog_builder.setMessage(content);

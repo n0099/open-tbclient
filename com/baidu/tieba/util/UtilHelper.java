@@ -43,7 +43,7 @@ public class UtilHelper {
 
     public static void showToast(Context context, String str) {
         if (str != null && str.length() > 0) {
-            Toast toast = Toast.makeText(TiebaApplication.app, str, 3000);
+            Toast toast = Toast.makeText(TiebaApplication.app, str, 2000);
             int y_offset = dip2px(context, 100.0f);
             toast.setGravity(17, 0, y_offset);
             toast.show();
@@ -110,6 +110,7 @@ public class UtilHelper {
         for (Class<?> cla = object.getClass(); cla != Object.class; cla = cla.getSuperclass()) {
             try {
                 Field field = cla.getDeclaredField(field_name);
+                field.setAccessible(true);
                 return field;
             } catch (Exception e) {
             }

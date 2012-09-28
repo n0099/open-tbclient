@@ -1,5 +1,6 @@
 package com.baidu.tieba.account;
 
+import android.app.Activity;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
@@ -30,12 +31,12 @@ import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.data.AccountData;
 import com.baidu.tieba.data.CheckUserNameData;
 import com.baidu.tieba.data.Config;
+import com.baidu.tieba.data.RequestResponseCode;
 import com.baidu.tieba.data.VcodeInfoData;
 import com.baidu.tieba.model.LoginModel;
 import com.baidu.tieba.util.BitmapHelper;
 import com.baidu.tieba.util.DatabaseService;
 import com.baidu.tieba.util.NetWork;
-import com.baidu.tieba.util.NetWorkErr;
 import com.baidu.tieba.util.StringHelper;
 import com.baidu.tieba.util.TiebaLog;
 import java.util.ArrayList;
@@ -43,21 +44,22 @@ import org.apache.http.message.BasicNameValuePair;
 /* loaded from: classes.dex */
 public class LoginActivity extends BaseActivity {
     public static final String ACCOUNT = "account";
+    public static final String CLOSE = "close";
+    public static final String GOTO_VIEW = "goto_view";
     public static final String HAS_EXIT_DIALOG = "has_exit_dialog";
+    public static final String INFO = "info";
     public static final String TYPE_LOGIN = "type_login";
     private static final int TYPE_LOGIN_MOBILE = 1;
     private static final int TYPE_LOGIN_NORMAL = 0;
     private Account mMobileAccount;
     private Account mNormalAccount;
-    public static int REQUEST_VCODE = 100;
-    public static int REQUEST_REGIST = 101;
-    public static int RESULT_LOGIN_ERR = 500;
     private String mAccount = null;
     private String mPassword = null;
     private String mVcodeMd5 = null;
     private String mVcodeUrl = null;
     private int mLoginType = 0;
     private boolean mHasExitDialog = true;
+    private boolean mClose = false;
     private boolean mIsVcodeShown = false;
     private boolean mIsInputCorrect = true;
     private EditText mEditAccount = null;
@@ -80,6 +82,7 @@ public class LoginActivity extends BaseActivity {
     private Button mButtonVcodeDel = null;
     private TextView mTextAccountTitle = null;
     private TextView mTextError = null;
+    private TextView mTextInfo = null;
     private TextView mTextLogin = null;
     private Button mButtonNormal = null;
     private Button mButtonMobile = null;
@@ -105,6 +108,7 @@ public class LoginActivity extends BaseActivity {
     private View mInputUserNameView = null;
     private Dialog mInputUserNameDialog = null;
     private AccountData mAccountData = null;
+    private String mInfo = null;
 
     public static void startActivity(Context context) {
         Intent intent = new Intent(context, LoginActivity.class);
@@ -117,6 +121,22 @@ public class LoginActivity extends BaseActivity {
         context.startActivity(intent);
     }
 
+    public static void startActivity(Activity context, String goto_view, String info, int requestCode) {
+        Intent intent = new Intent(context, LoginActivity.class);
+        intent.putExtra(HAS_EXIT_DIALOG, false);
+        intent.putExtra(GOTO_VIEW, goto_view);
+        intent.putExtra(INFO, info);
+        context.startActivityForResult(intent, requestCode);
+    }
+
+    public static void startActivity(Activity context, String info, boolean close, int requestCode) {
+        Intent intent = new Intent(context, LoginActivity.class);
+        intent.putExtra(HAS_EXIT_DIALOG, false);
+        intent.putExtra(INFO, info);
+        intent.putExtra("close", close);
+        context.startActivityForResult(intent, requestCode);
+    }
+
     public static void startActivityWithAccount(Context context, String account) {
         Intent intent = new Intent(context, LoginActivity.class);
         intent.putExtra(ACCOUNT, account);
@@ -127,20 +147,19 @@ public class LoginActivity extends BaseActivity {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.BaseActivity, android.app.Activity
     public void onCreate(Bundle savedInstanceState) {
-        String account;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.account_login_activity);
+        this.mInfo = getIntent().getStringExtra(INFO);
         initUI();
         if (savedInstanceState != null) {
-            account = savedInstanceState.getString(ACCOUNT);
-            this.mHasExitDialog = savedInstanceState.getBoolean(HAS_EXIT_DIALOG, true);
             this.mLoginType = savedInstanceState.getInt(TYPE_LOGIN);
         } else {
-            Intent intent = getIntent();
-            account = intent.getStringExtra(ACCOUNT);
-            this.mHasExitDialog = intent.getBooleanExtra(HAS_EXIT_DIALOG, true);
             this.mLoginType = 0;
         }
+        Intent intent = getIntent();
+        String account = intent.getStringExtra(ACCOUNT);
+        this.mHasExitDialog = intent.getBooleanExtra(HAS_EXIT_DIALOG, true);
+        this.mClose = intent.getBooleanExtra("close", false);
         if (account != null) {
             this.mEditAccount.setText(account);
         }
@@ -164,14 +183,12 @@ public class LoginActivity extends BaseActivity {
     @Override // android.app.Activity
     protected void onRestoreInstanceState(Bundle savedInstanceState) {
         super.onRestoreInstanceState(savedInstanceState);
-        savedInstanceState.putBoolean(HAS_EXIT_DIALOG, this.mHasExitDialog);
-        savedInstanceState.putInt(TYPE_LOGIN, this.mLoginType);
+        this.mLoginType = savedInstanceState.getInt(TYPE_LOGIN);
     }
 
     @Override // android.app.Activity
     protected void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
-        outState.putBoolean(HAS_EXIT_DIALOG, this.mHasExitDialog);
         outState.putInt(TYPE_LOGIN, this.mLoginType);
     }
 
@@ -221,7 +238,7 @@ public class LoginActivity extends BaseActivity {
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         switch (resultCode) {
-            case NetWorkErr.NETWORK_ERR /* -1 */:
+            case -1:
                 goToMainTag();
                 return;
             default:
@@ -231,7 +248,13 @@ public class LoginActivity extends BaseActivity {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void goToMainTag() {
-        MainTabActivity.startActivityOnUserChanged(this, null);
+        if (this.mClose) {
+            TiebaApplication.app.onUserChanged();
+            setResult(-1);
+        } else {
+            String tab = getIntent().getStringExtra(GOTO_VIEW);
+            MainTabActivity.startActivityOnUserChanged(this, tab);
+        }
         finish();
     }
 
@@ -254,6 +277,11 @@ public class LoginActivity extends BaseActivity {
         this.mButtonVcodeDel = (Button) findViewById(R.id.button_vcode_del);
         this.mTextAccountTitle = (TextView) findViewById(R.id.text_title_account);
         this.mTextError = (TextView) findViewById(R.id.text_error);
+        this.mTextInfo = (TextView) findViewById(R.id.text_info);
+        if (this.mInfo != null && this.mInfo.length() > 0) {
+            this.mTextInfo.setText(this.mInfo);
+            this.mTextInfo.setVisibility(0);
+        }
         this.mTextLogin = (TextView) findViewById(R.id.text_login);
         this.mButtonNormal = (Button) findViewById(R.id.normal_login);
         this.mButtonMobile = (Button) findViewById(R.id.mobile_login);
@@ -262,17 +290,17 @@ public class LoginActivity extends BaseActivity {
             public void onFocusChange(View v, boolean hasFocus) {
                 if (hasFocus) {
                     switch (v.getId()) {
-                        case R.id.login_edit_account /* 2131361812 */:
+                        case R.id.login_edit_account /* 2131230743 */:
                             LoginActivity.this.mButtonPassDel.setVisibility(8);
                             LoginActivity.this.mButtonAccountDel.setVisibility(0);
                             LoginActivity.this.mButtonVcodeDel.setVisibility(8);
                             return;
-                        case R.id.login_edit_password /* 2131361816 */:
+                        case R.id.login_edit_password /* 2131230747 */:
                             LoginActivity.this.mButtonPassDel.setVisibility(0);
                             LoginActivity.this.mButtonAccountDel.setVisibility(8);
                             LoginActivity.this.mButtonVcodeDel.setVisibility(8);
                             return;
-                        case R.id.edit_vcode /* 2131361819 */:
+                        case R.id.edit_vcode /* 2131230750 */:
                             LoginActivity.this.mButtonPassDel.setVisibility(8);
                             LoginActivity.this.mButtonAccountDel.setVisibility(8);
                             LoginActivity.this.mButtonVcodeDel.setVisibility(0);
@@ -370,7 +398,7 @@ public class LoginActivity extends BaseActivity {
                 LoginActivity.this.cancelAsyncTask();
                 LoginActivity.this.HidenSoftKeyPad(LoginActivity.this.mInputManager, LoginActivity.this.mEditAccount);
                 LoginActivity.this.HidenSoftKeyPad(LoginActivity.this.mInputManager, LoginActivity.this.mEditPassword);
-                Register2Activity.startActivityForResult(LoginActivity.this, LoginActivity.REQUEST_REGIST);
+                Register2Activity.startActivityForResult(LoginActivity.this, (int) RequestResponseCode.REQUEST_REGIST);
             }
         });
         this.mButtonBack = (Button) findViewById(R.id.back);
@@ -405,7 +433,7 @@ public class LoginActivity extends BaseActivity {
         View normal = findViewById(R.id.normal_login);
         View mobile = findViewById(R.id.mobile_login);
         switch (id) {
-            case R.id.normal_login /* 2131361806 */:
+            case R.id.normal_login /* 2131230736 */:
                 this.mImageVcode = this.mImageVcode1;
                 this.mImageVcode1.setVisibility(0);
                 this.mImageVcode2.setVisibility(8);
@@ -421,7 +449,7 @@ public class LoginActivity extends BaseActivity {
                 this.mButtonMobile.setTextColor(-16777216);
                 this.mEditAccount.setInputType(1);
                 return;
-            case R.id.mobile_login /* 2131361807 */:
+            case R.id.mobile_login /* 2131230737 */:
                 this.mImageVcode = this.mImageVcode2;
                 this.mImageVcode1.setVisibility(8);
                 this.mImageVcode2.setVisibility(0);
@@ -444,36 +472,25 @@ public class LoginActivity extends BaseActivity {
 
     public void onClick(View v) {
         switch (v.getId()) {
-            case R.id.normal_login /* 2131361806 */:
-            case R.id.mobile_login /* 2131361807 */:
+            case R.id.normal_login /* 2131230736 */:
+            case R.id.mobile_login /* 2131230737 */:
                 switchTab(v.getId());
                 return;
-            case R.id.text_error /* 2131361808 */:
-            case R.id.layout_account /* 2131361809 */:
-            case R.id.text_title_account /* 2131361810 */:
-            case R.id.text_title_vcode /* 2131361811 */:
-            case R.id.login_edit_account /* 2131361812 */:
-            case R.id.layout_password /* 2131361814 */:
-            case R.id.text_title_password /* 2131361815 */:
-            case R.id.login_edit_password /* 2131361816 */:
-            case R.id.layout_vcode /* 2131361818 */:
-            case R.id.edit_vcode /* 2131361819 */:
-            case R.id.image_progress /* 2131361823 */:
-            default:
-                return;
-            case R.id.button_account_del /* 2131361813 */:
+            case R.id.button_account_del /* 2131230744 */:
                 this.mEditAccount.setText((CharSequence) null);
                 return;
-            case R.id.button_pass_del /* 2131361817 */:
+            case R.id.button_pass_del /* 2131230748 */:
                 this.mEditPassword.setText((CharSequence) null);
                 return;
-            case R.id.button_vcode_del /* 2131361820 */:
+            case R.id.button_vcode_del /* 2131230751 */:
                 this.mEditVcode.setText((CharSequence) null);
                 return;
-            case R.id.image_vcode1 /* 2131361821 */:
-            case R.id.image_vcode2 /* 2131361822 */:
-            case R.id.button_vcode_refresh /* 2131361824 */:
+            case R.id.image_vcode1 /* 2131230752 */:
+            case R.id.image_vcode2 /* 2131230753 */:
+            case R.id.button_vcode_refresh /* 2131230755 */:
                 refreshImage(this.mVcodeUrl);
+                return;
+            default:
                 return;
         }
     }
@@ -924,6 +941,7 @@ public class LoginActivity extends BaseActivity {
                 if ((!this.mNetwork.isNetSuccess() || this.mNetwork.getErrorCode() != 5) && this.mNetwork.getErrorCode() != 6) {
                     LoginActivity.this.mTextError.setVisibility(0);
                     LoginActivity.this.mTextError.setText(this.mNetwork.getErrorString());
+                    LoginActivity.this.mTextInfo.setVisibility(8);
                     LoginActivity.this.loginFail();
                 } else {
                     VcodeInfoData info = new VcodeInfoData();
@@ -931,6 +949,7 @@ public class LoginActivity extends BaseActivity {
                     if (info.getVcode_pic_url() == null) {
                         LoginActivity.this.mTextError.setVisibility(0);
                         LoginActivity.this.mTextError.setText(this.mNetwork.getErrorString());
+                        LoginActivity.this.mTextInfo.setVisibility(8);
                         LoginActivity.this.loginFail();
                     } else {
                         LoginActivity.this.mVcodeMd5 = info.getVcode_md5();

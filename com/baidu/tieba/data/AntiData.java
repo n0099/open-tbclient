@@ -2,9 +2,11 @@ package com.baidu.tieba.data;
 
 import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.util.TiebaLog;
+import java.io.Serializable;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
-public class AntiData {
+public class AntiData implements Serializable {
+    private static final long serialVersionUID = 2355009973517935888L;
     private int forbid_flag;
     private String forbid_info;
     private int ifpost;

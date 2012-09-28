@@ -1,6 +1,8 @@
 package com.baidu.tieba.view;
 
 import android.graphics.Bitmap;
+import android.support.v4.app.FragmentTransaction;
+import android.support.v4.view.MotionEventCompat;
 import com.baidu.tieba.util.TiebaLog;
 import java.io.InputStream;
 import java.util.Vector;
@@ -209,13 +211,13 @@ public class GifDecoder {
             this.pixels = new byte[npix];
         }
         if (this.prefix == null) {
-            this.prefix = new short[MAX_STACK_SIZE];
+            this.prefix = new short[4096];
         }
         if (this.suffix == null) {
-            this.suffix = new byte[MAX_STACK_SIZE];
+            this.suffix = new byte[4096];
         }
         if (this.pixelStack == null) {
-            this.pixelStack = new byte[4097];
+            this.pixelStack = new byte[FragmentTransaction.TRANSIT_FRAGMENT_OPEN];
         }
         int data_size = read();
         int clear = 1 << data_size;
@@ -277,7 +279,7 @@ public class GifDecoder {
                             top2++;
                         }
                         first = this.suffix[code2] & 255;
-                        if (available >= MAX_STACK_SIZE) {
+                        if (available >= 4096) {
                             break;
                         }
                         top = top2 + 1;
@@ -285,7 +287,7 @@ public class GifDecoder {
                         this.prefix[available] = (short) old_code;
                         this.suffix[available] = (byte) first;
                         available++;
-                        if ((available & code_mask) == 0 && available < MAX_STACK_SIZE) {
+                        if ((available & code_mask) == 0 && available < 4096) {
                             code_size++;
                             code_mask += available;
                         }
@@ -400,7 +402,7 @@ public class GifDecoder {
                             case 254:
                                 skip();
                                 continue;
-                            case 255:
+                            case MotionEventCompat.ACTION_MASK /* 255 */:
                                 readBlock();
                                 String app = "";
                                 for (int i = 0; i < 11; i++) {

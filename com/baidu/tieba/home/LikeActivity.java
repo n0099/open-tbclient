@@ -7,7 +7,6 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.ProgressBar;
@@ -23,7 +22,6 @@ import com.baidu.tieba.util.NetWork;
 import com.baidu.tieba.util.StringHelper;
 import com.baidu.tieba.util.TiebaLog;
 import java.util.ArrayList;
-import java.util.Date;
 import org.apache.http.message.BasicNameValuePair;
 /* loaded from: classes.dex */
 public class LikeActivity extends BaseActivity {
@@ -40,7 +38,6 @@ public class LikeActivity extends BaseActivity {
     private ForumData mCurrentForum = null;
     AlertDialog mMenuLike = null;
     AlertDialog mMenuUnlike = null;
-    private SearchView mSearchView = null;
     private DialogInterface.OnClickListener mDialogMenuListener = new DialogInterface.OnClickListener() { // from class: com.baidu.tieba.home.LikeActivity.1
         @Override // android.content.DialogInterface.OnClickListener
         public void onClick(DialogInterface dialog, int item) {
@@ -78,14 +75,7 @@ public class LikeActivity extends BaseActivity {
             }
         }
     };
-    private View.OnClickListener mHeaderOnclick = new View.OnClickListener() { // from class: com.baidu.tieba.home.LikeActivity.3
-        @Override // android.view.View.OnClickListener
-        public void onClick(View v) {
-            LikeActivity.this.mListForum.setSelection(0);
-            LikeActivity.this.showSearch();
-        }
-    };
-    private View.OnLongClickListener mForumOnLongclick = new View.OnLongClickListener() { // from class: com.baidu.tieba.home.LikeActivity.4
+    private View.OnLongClickListener mForumOnLongclick = new View.OnLongClickListener() { // from class: com.baidu.tieba.home.LikeActivity.3
         @Override // android.view.View.OnLongClickListener
         public boolean onLongClick(View v) {
             LikeActivity.this.mCurrentForum = null;
@@ -108,16 +98,7 @@ public class LikeActivity extends BaseActivity {
             return true;
         }
     };
-    private AdapterView.OnItemClickListener mForumListOnclick = new AdapterView.OnItemClickListener() { // from class: com.baidu.tieba.home.LikeActivity.5
-        @Override // android.widget.AdapterView.OnItemClickListener
-        public void onItemClick(AdapterView<?> arg0, View arg1, int arg2, long arg3) {
-            ListView tmpList = (ListView) arg0;
-            if (arg2 == tmpList.getAdapter().getCount() - 1) {
-                LikeActivity.this.exec(true);
-            }
-        }
-    };
-    private View.OnKeyListener mOnKyeListener = new View.OnKeyListener() { // from class: com.baidu.tieba.home.LikeActivity.6
+    private View.OnKeyListener mOnKyeListener = new View.OnKeyListener() { // from class: com.baidu.tieba.home.LikeActivity.4
         @Override // android.view.View.OnKeyListener
         public boolean onKey(View v, int keyCode, KeyEvent event) {
             if (v instanceof ListView) {
@@ -157,14 +138,7 @@ public class LikeActivity extends BaseActivity {
         exec(false);
     }
 
-    public void closeSearch() {
-        if (this.mSearchView != null) {
-            this.mSearchView.closeSearch();
-        }
-    }
-
     public void closeDialog() {
-        closeSearch();
         if (this.mMenuLike != null) {
             this.mMenuLike.dismiss();
         }
@@ -178,9 +152,6 @@ public class LikeActivity extends BaseActivity {
     public void onDestroy() {
         this.mProgress.setVisibility(8);
         this.mAdapter.releaseProgressBar();
-        if (this.mSearchView != null) {
-            this.mSearchView.releaseProgressBar();
-        }
         super.onDestroy();
     }
 
@@ -190,9 +161,7 @@ public class LikeActivity extends BaseActivity {
         this.mAdapter = new LikeAdapter(this, null);
         this.mAdapter.setForumOnClickListener(this.mForumOnclick);
         this.mAdapter.setForumOnLongClickListener(this.mForumOnLongclick);
-        this.mAdapter.setHeaderOnClickListener(this.mHeaderOnclick);
         this.mListForum.setAdapter((ListAdapter) this.mAdapter);
-        this.mListForum.setOnItemClickListener(this.mForumListOnclick);
         this.mListForum.setOnKeyListener(this.mOnKyeListener);
         CharSequence[] itemsLike = {getString(R.string.enter_forum), getString(R.string.delete)};
         AlertDialog.Builder builderLike = new AlertDialog.Builder(getParent());
@@ -221,13 +190,6 @@ public class LikeActivity extends BaseActivity {
         }
     }
 
-    public void showSearch() {
-        if (this.mSearchView == null) {
-            this.mSearchView = new SearchView(getParent());
-        }
-        this.mSearchView.exec();
-    }
-
     public void exec(boolean isRefresh) {
         String data;
         if ((isRefresh || this.mModelLike == null || TiebaApplication.app.getLikeChanged()) && TiebaApplication.getCurrentAccount() != null && TiebaApplication.getCurrentAccountName() != null) {
@@ -250,7 +212,7 @@ public class LikeActivity extends BaseActivity {
                 address.append(Config.FORUM_ADDRESS);
                 BasicNameValuePair param = new BasicNameValuePair("ctime", String.valueOf(System.currentTimeMillis()));
                 cancelAsyncTask();
-                this.mLikeTask = new HomeLikeAsyncTask(address.toString(), param, isRefresh);
+                this.mLikeTask = new HomeLikeAsyncTask(address.toString(), param);
                 this.mLikeTask.execute(address.toString(), param);
             }
         }
@@ -265,7 +227,7 @@ public class LikeActivity extends BaseActivity {
                     builder.setTitle(R.string.alerm_title);
                     builder.setIcon(R.drawable.dialogue_quit);
                     builder.setMessage(R.string.delete_like_info);
-                    this.mAffirmListener = new DialogInterface.OnClickListener() { // from class: com.baidu.tieba.home.LikeActivity.7
+                    this.mAffirmListener = new DialogInterface.OnClickListener() { // from class: com.baidu.tieba.home.LikeActivity.5
                         @Override // android.content.DialogInterface.OnClickListener
                         public void onClick(DialogInterface arg0, int which) {
                             if (which == -1) {
@@ -295,23 +257,12 @@ public class LikeActivity extends BaseActivity {
     public void refresh() {
         ArrayList<ForumData> list;
         try {
-            Date updateTime = this.mModelLike.getTime();
-            Date nowTime = new Date();
-            StringBuffer str = new StringBuffer();
-            str.append("最后更新：");
-            if (nowTime.getYear() == updateTime.getYear() && nowTime.getMonth() == updateTime.getMonth() && nowTime.getDate() == updateTime.getDate()) {
-                str.append("今天");
-                str.append(StringHelper.getDateStringHm(updateTime));
-            } else {
-                str.append(StringHelper.getDateStringMdHm(updateTime));
-            }
-            this.mAdapter.setUpdateTime(str.toString());
             if (this.mModelLike != null && (list = this.mModelLike.getForum_list()) != null) {
                 this.mAdapter.setData(list);
-                this.mAdapter.notifyDataSetInvalidated();
+                this.mAdapter.notifyDataSetChanged();
             }
         } catch (Exception ex) {
-            TiebaLog.e(getClass().getName(), "", "HomeActivity.refresh error = " + ex.getMessage());
+            TiebaLog.e(getClass().getName(), "refresh", ex.getMessage());
         }
     }
 
@@ -323,27 +274,20 @@ public class LikeActivity extends BaseActivity {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public class HomeLikeAsyncTask extends AsyncTask<Object, Integer, BarlistModel> {
-        boolean mIsRefresh;
         private NetWork mNetwork = null;
         BasicNameValuePair mParam;
         private String mUrl;
 
-        public HomeLikeAsyncTask(String url, BasicNameValuePair param, boolean isRefresh) {
+        public HomeLikeAsyncTask(String url, BasicNameValuePair param) {
             this.mUrl = null;
             this.mParam = null;
-            this.mIsRefresh = true;
             this.mUrl = url;
             this.mParam = param;
-            this.mIsRefresh = isRefresh;
         }
 
         @Override // android.os.AsyncTask
         protected void onPreExecute() {
-            if (!this.mIsRefresh) {
-                LikeActivity.this.mProgress.setVisibility(0);
-            } else {
-                LikeActivity.this.mAdapter.setIsRefresh(true);
-            }
+            LikeActivity.this.mProgress.setVisibility(0);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -383,11 +327,7 @@ public class LikeActivity extends BaseActivity {
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // android.os.AsyncTask
         public void onPostExecute(BarlistModel data) {
-            if (!this.mIsRefresh) {
-                LikeActivity.this.mProgress.setVisibility(8);
-            } else {
-                LikeActivity.this.mAdapter.setIsRefresh(false);
-            }
+            LikeActivity.this.mProgress.setVisibility(8);
             if (data != null) {
                 LikeActivity.this.mModelLike = data;
                 TiebaApplication.app.setLikeChanged(false);

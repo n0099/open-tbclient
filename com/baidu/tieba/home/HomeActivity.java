@@ -1,13 +1,16 @@
 package com.baidu.tieba.home;
 
+import android.app.Activity;
 import android.app.ActivityGroup;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
+import android.widget.CompoundButton;
 import android.widget.FrameLayout;
-import android.widget.ImageButton;
+import android.widget.RadioButton;
 import com.baidu.tieba.MainTabActivity;
 import com.baidu.tieba.R;
 import com.baidu.tieba.TiebaApplication;
@@ -20,58 +23,73 @@ import com.baidu.tieba.util.UtilHelper;
 import com.baidu.tieba.write.WriteActivity;
 /* loaded from: classes.dex */
 public class HomeActivity extends ActivityGroup {
-    private static final String CURRENT_PAGE = "current_page";
     private static final int MENU_ID_ABOUT = 4;
     private static final int MENU_ID_ACCOUNT = 2;
     private static final int MENU_ID_FEEDBACK = 3;
     private static final int MENU_ID_QUIT = 5;
     private static final int MENU_ID_SETUP = 1;
-    private ImageButton mButtonLike;
-    private ImageButton mButtonMark;
+    private RadioButton mButtonLike;
+    private RadioButton mButtonMark;
     private FrameLayout mContent;
+    private CompoundButton.OnCheckedChangeListener mOnCheckedChangeListener = null;
+    private Button mButtonRefresh = null;
+    private Button mButtonSearch = null;
+    private View.OnClickListener mOnClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.home.HomeActivity.1
+        @Override // android.view.View.OnClickListener
+        public void onClick(View v) {
+            if (v != HomeActivity.this.mButtonRefresh) {
+                if (v == HomeActivity.this.mButtonSearch) {
+                    SearchActivity.startActivity(HomeActivity.this, HomeActivity.this.getString(R.string.my_bar));
+                    return;
+                }
+                return;
+            }
+            Activity activity = HomeActivity.this.getLocalActivityManager().getCurrentActivity();
+            if (activity instanceof LikeActivity) {
+                LikeActivity like = (LikeActivity) activity;
+                like.exec(true);
+            }
+        }
+    };
 
     @Override // android.app.ActivityGroup, android.app.Activity
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.home_activity);
         this.mContent = (FrameLayout) findViewById(R.id.content);
-        this.mButtonLike = (ImageButton) findViewById(R.id.home_bt_like);
-        this.mButtonMark = (ImageButton) findViewById(R.id.home_bt_mark);
-        this.mButtonLike.setBackgroundResource(R.drawable.home_topbar_bt);
-        this.mButtonMark.setBackgroundDrawable(null);
-        switchPages(R.id.home_bt_like);
+        this.mButtonLike = (RadioButton) findViewById(R.id.home_bt_like);
+        this.mButtonMark = (RadioButton) findViewById(R.id.home_bt_mark);
+        this.mOnCheckedChangeListener = new CompoundButton.OnCheckedChangeListener() { // from class: com.baidu.tieba.home.HomeActivity.2
+            @Override // android.widget.CompoundButton.OnCheckedChangeListener
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked) {
+                    buttonView.setTextColor(HomeActivity.this.getResources().getColor(R.color.tab_hightlight_text_color));
+                    if (buttonView != HomeActivity.this.mButtonLike) {
+                        if (buttonView == HomeActivity.this.mButtonMark) {
+                            HomeActivity.this.addView("mark", MarkActivity.class);
+                            return;
+                        }
+                        return;
+                    }
+                    HomeActivity.this.addView("like", LikeActivity.class);
+                    return;
+                }
+                buttonView.setTextColor(HomeActivity.this.getResources().getColor(R.color.tab_text_color));
+            }
+        };
+        this.mButtonLike.setOnCheckedChangeListener(this.mOnCheckedChangeListener);
+        this.mButtonMark.setOnCheckedChangeListener(this.mOnCheckedChangeListener);
+        this.mButtonLike.setChecked(true);
+        this.mButtonRefresh = (Button) findViewById(R.id.refresh);
+        this.mButtonSearch = (Button) findViewById(R.id.search);
+        this.mButtonRefresh.setOnClickListener(this.mOnClickListener);
+        this.mButtonSearch.setOnClickListener(this.mOnClickListener);
     }
 
     public void addView(String id, Class<?> cls) {
         Intent intent = new Intent(this, cls);
         this.mContent.removeAllViews();
         this.mContent.addView(getLocalActivityManager().startActivity(id, intent).getDecorView());
-    }
-
-    public void onClick(View v) {
-        switchPages(v.getId());
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    public void switchPages(int id) {
-        switch (id) {
-            case R.id.home_bt_like /* 2131361925 */:
-                addView("like", LikeActivity.class);
-                this.mButtonLike.setBackgroundResource(R.drawable.home_topbar_bt);
-                this.mButtonMark.setBackgroundDrawable(null);
-                this.mButtonLike.setImageResource(R.drawable.home_bt_like_on);
-                this.mButtonMark.setImageResource(R.drawable.home_bt_mark);
-                return;
-            case R.id.home_bt_mark /* 2131361926 */:
-                addView("mark", MarkActivity.class);
-                this.mButtonLike.setBackgroundDrawable(null);
-                this.mButtonMark.setBackgroundResource(R.drawable.home_topbar_bt);
-                this.mButtonLike.setImageResource(R.drawable.home_bt_like);
-                this.mButtonMark.setImageResource(R.drawable.home_bt_mark_on);
-                return;
-            default:
-                return;
-        }
     }
 
     @Override // android.app.Activity
@@ -93,21 +111,6 @@ public class HomeActivity extends ActivityGroup {
             TiebaLog.e("HomeActivity", "onPrepareOptionsMenu", "exp: " + ex.toString());
         }
         return super.onPrepareOptionsMenu(menu);
-    }
-
-    @Override // android.app.ActivityGroup, android.app.Activity
-    protected void onSaveInstanceState(Bundle outState) {
-        outState.putString(CURRENT_PAGE, getLocalActivityManager().getCurrentId());
-        super.onSaveInstanceState(outState);
-    }
-
-    @Override // android.app.Activity
-    protected void onRestoreInstanceState(Bundle state) {
-        super.onRestoreInstanceState(state);
-        String page = state.getString(CURRENT_PAGE);
-        if (page != null && page.equals("mark")) {
-            switchPages(R.id.home_bt_mark);
-        }
     }
 
     @Override // android.app.Activity

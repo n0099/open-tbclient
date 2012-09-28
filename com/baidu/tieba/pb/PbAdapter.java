@@ -60,7 +60,7 @@ public class PbAdapter extends BaseAdapter {
         this.mIsProcessMore = false;
         this.mIsProcessPre = false;
         this.mTextConfig = 3;
-        this.mImageMaxWidth = imageMaxWidth;
+        this.mImageMaxWidth = imageMaxWidth > 370 ? Config.PB_IMAGE_NEW_MAX_WIDTH : imageMaxWidth;
         this.mImageLoader = new AsyncImageLoader(this.mContext);
         this.mImageLoader.setImagesize(this.mImageMaxWidth, (int) (this.mImageMaxWidth * 1.62f));
         this.mProgressbars = new ArrayList<>();

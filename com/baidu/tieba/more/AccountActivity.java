@@ -275,7 +275,7 @@ public class AccountActivity extends BaseActivity {
                         MainTabActivity.startActivityOnUserChanged(AccountActivity.this, null);
                         break;
                     case 2:
-                        MainTabActivity.startActivity(AccountActivity.this, MainTabActivity.GOTO_CLOSE_LOGIN);
+                        MainTabActivity.startActivityOnUserChanged(AccountActivity.this, MainTabActivity.GOTO_MORE);
                         break;
                 }
             }

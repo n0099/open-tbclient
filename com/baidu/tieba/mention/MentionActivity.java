@@ -19,6 +19,7 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.data.AntiData;
 import com.baidu.tieba.data.Config;
+import com.baidu.tieba.home.SearchActivity;
 import com.baidu.tieba.mention.MentionView;
 import com.baidu.tieba.model.MentionModel;
 import com.baidu.tieba.more.AboutActivity;
@@ -39,6 +40,9 @@ public class MentionActivity extends BaseActivity {
     private int mPageType;
     private Button mButtonAtme = null;
     private Button mButtonReplyme = null;
+    private Button mButtonSearch = null;
+    private Button mButtonRefresh = null;
+    private View.OnClickListener mOnClickListener = null;
     private MentionView mViewReplyme = null;
     private MentionView mViewAtme = null;
     private TextView mTextNoReply = null;
@@ -119,49 +123,83 @@ public class MentionActivity extends BaseActivity {
         return this.mPageType;
     }
 
+    /* JADX INFO: Access modifiers changed from: private */
+    public void gotoReply() {
+        this.mPageType = 0;
+        if (TiebaApplication.app.getMsgReplyme() > 0) {
+            this.mViewReplyme.setUpdateType(2);
+        } else {
+            this.mViewReplyme.setUpdateType(1);
+        }
+        this.mTextNoAt.setVisibility(8);
+        this.mTextNoReply.setVisibility(0);
+        this.mViewReplyme.show();
+        if (this.mViewAtme != null) {
+            this.mViewAtme.cancelAsyncTask();
+            this.mViewAtme.releaseProgressBar();
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void gotoAtme() {
+        this.mPageType = 1;
+        if (TiebaApplication.app.getMsgAtme() > 0) {
+            this.mViewAtme.setUpdateType(2);
+        } else {
+            this.mViewAtme.setUpdateType(1);
+        }
+        this.mTextNoReply.setVisibility(8);
+        this.mTextNoAt.setVisibility(0);
+        this.mViewAtme.show();
+        if (this.mViewReplyme != null) {
+            this.mViewReplyme.cancelAsyncTask();
+            this.mViewReplyme.releaseProgressBar();
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void refresh() {
+        if (this.mPageType == 1) {
+            this.mViewAtme.refresh();
+        } else if (this.mPageType == 0) {
+            this.mViewReplyme.refresh();
+        }
+    }
+
     private void initUI() {
+        this.mOnClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.mention.MentionActivity.1
+            @Override // android.view.View.OnClickListener
+            public void onClick(View v) {
+                if (v != MentionActivity.this.mButtonSearch) {
+                    if (v != MentionActivity.this.mButtonRefresh) {
+                        if (v != MentionActivity.this.mButtonReplyme) {
+                            if (v == MentionActivity.this.mButtonAtme) {
+                                MentionActivity.this.gotoAtme();
+                                return;
+                            }
+                            return;
+                        }
+                        MentionActivity.this.gotoReply();
+                        return;
+                    }
+                    MentionActivity.this.refresh();
+                    return;
+                }
+                SearchActivity.startActivity(MentionActivity.this, MentionActivity.this.getString(R.string.msg_remind));
+            }
+        };
+        this.mButtonSearch = (Button) findViewById(R.id.search);
+        this.mButtonRefresh = (Button) findViewById(R.id.refresh);
+        this.mButtonSearch.setOnClickListener(this.mOnClickListener);
+        this.mButtonRefresh.setOnClickListener(this.mOnClickListener);
         this.mPageType = 0;
         this.mTextNoReply = (TextView) findViewById(R.id.reply_nodata);
         this.mTextNoAt = (TextView) findViewById(R.id.at_nodata);
         this.mButtonReplyme = (Button) findViewById(R.id.mention_bt_replyme);
-        this.mButtonReplyme.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.mention.MentionActivity.1
-            @Override // android.view.View.OnClickListener
-            public void onClick(View v) {
-                MentionActivity.this.mPageType = 0;
-                if (TiebaApplication.app.getMsgReplyme() > 0) {
-                    MentionActivity.this.mViewReplyme.setUpdateType(2);
-                } else {
-                    MentionActivity.this.mViewReplyme.setUpdateType(1);
-                }
-                MentionActivity.this.mTextNoAt.setVisibility(8);
-                MentionActivity.this.mTextNoReply.setVisibility(0);
-                MentionActivity.this.mViewReplyme.show();
-                if (MentionActivity.this.mViewAtme != null) {
-                    MentionActivity.this.mViewAtme.cancelAsyncTask();
-                    MentionActivity.this.mViewAtme.releaseProgressBar();
-                }
-            }
-        });
+        this.mButtonReplyme.setOnClickListener(this.mOnClickListener);
         this.mButtonAtme = (Button) findViewById(R.id.mention_bt_atme);
-        this.mButtonAtme.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.mention.MentionActivity.2
-            @Override // android.view.View.OnClickListener
-            public void onClick(View v) {
-                MentionActivity.this.mPageType = 1;
-                if (TiebaApplication.app.getMsgAtme() > 0) {
-                    MentionActivity.this.mViewAtme.setUpdateType(2);
-                } else {
-                    MentionActivity.this.mViewAtme.setUpdateType(1);
-                }
-                MentionActivity.this.mTextNoReply.setVisibility(8);
-                MentionActivity.this.mTextNoAt.setVisibility(0);
-                MentionActivity.this.mViewAtme.show();
-                if (MentionActivity.this.mViewReplyme != null) {
-                    MentionActivity.this.mViewReplyme.cancelAsyncTask();
-                    MentionActivity.this.mViewReplyme.releaseProgressBar();
-                }
-            }
-        });
-        this.mViewReplyme = new MentionView(this, 0, new MentionView.CacheCallback() { // from class: com.baidu.tieba.mention.MentionActivity.3
+        this.mButtonAtme.setOnClickListener(this.mOnClickListener);
+        this.mViewReplyme = new MentionView(this, 0, new MentionView.CacheCallback() { // from class: com.baidu.tieba.mention.MentionActivity.2
             @Override // com.baidu.tieba.mention.MentionView.CacheCallback
             public void set(String data) {
                 DatabaseService.cashReplymeData(data);
@@ -187,7 +225,7 @@ public class MentionActivity extends BaseActivity {
         this.mViewReplyme.setTextNoData(this.mTextNoReply);
         this.mViewReplyme.setURL(Config.REPLYME_ADDRESS);
         this.mViewReplyme.init();
-        this.mViewAtme = new MentionView(this, 1, new MentionView.CacheCallback() { // from class: com.baidu.tieba.mention.MentionActivity.4
+        this.mViewAtme = new MentionView(this, 1, new MentionView.CacheCallback() { // from class: com.baidu.tieba.mention.MentionActivity.3
             @Override // com.baidu.tieba.mention.MentionView.CacheCallback
             public void set(String data) {
                 DatabaseService.cashAtmeData(data);
@@ -220,20 +258,20 @@ public class MentionActivity extends BaseActivity {
             this.mViewReplyme.getLayout().setVisibility(0);
             this.mViewAtme.getLayout().setVisibility(8);
             this.mButtonReplyme.setClickable(false);
-            this.mButtonReplyme.setBackgroundResource(R.drawable.home_topbar_bt);
-            this.mButtonReplyme.setTextColor(-1);
+            this.mButtonReplyme.setBackgroundResource(R.drawable.home_radio_hilight_image);
+            this.mButtonReplyme.setTextColor(getResources().getColor(R.color.tab_hightlight_text_color));
             this.mButtonAtme.setClickable(true);
-            this.mButtonAtme.setBackgroundDrawable(null);
-            this.mButtonAtme.setTextColor(-7294977);
+            this.mButtonAtme.setBackgroundResource(R.drawable.home_radio_button);
+            this.mButtonAtme.setTextColor(getResources().getColor(R.color.tab_text_color));
         } else if (this.mPageType == 1) {
             this.mViewReplyme.getLayout().setVisibility(8);
             this.mViewAtme.getLayout().setVisibility(0);
             this.mButtonReplyme.setClickable(true);
-            this.mButtonReplyme.setBackgroundDrawable(null);
-            this.mButtonReplyme.setTextColor(-7294977);
+            this.mButtonReplyme.setBackgroundResource(R.drawable.home_radio_button);
+            this.mButtonReplyme.setTextColor(getResources().getColor(R.color.tab_text_color));
             this.mButtonAtme.setClickable(false);
-            this.mButtonAtme.setBackgroundResource(R.drawable.home_topbar_bt);
-            this.mButtonAtme.setTextColor(-1);
+            this.mButtonAtme.setBackgroundResource(R.drawable.home_radio_hilight_image);
+            this.mButtonAtme.setTextColor(getResources().getColor(R.color.tab_hightlight_text_color));
         }
     }
 

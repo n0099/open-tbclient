@@ -13,6 +13,7 @@ import android.widget.ProgressBar;
 import com.baidu.tieba.BaseActivity;
 import com.baidu.tieba.R;
 import com.baidu.tieba.data.Config;
+import com.baidu.tieba.data.RequestResponseCode;
 import com.baidu.tieba.util.FileHelper;
 /* loaded from: classes.dex */
 public class WriteImageActivity extends BaseActivity {
@@ -28,7 +29,7 @@ public class WriteImageActivity extends BaseActivity {
     public static void startActivityForResult(Activity activity, Bitmap bm) {
         if (bm != null) {
             Intent intent = new Intent(activity, WriteImageActivity.class);
-            activity.startActivityForResult(intent, WriteUtil.REQUEST_IMAGE_VIEW);
+            activity.startActivityForResult(intent, RequestResponseCode.REQUEST_IMAGE_VIEW);
         }
     }
 

@@ -1,5 +1,7 @@
 package com.baidu.tieba.pb;
 
+import android.app.Activity;
+import android.app.ActivityManager;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -8,6 +10,7 @@ import android.graphics.Bitmap;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -28,13 +31,16 @@ import com.baidu.tieba.BaseActivity;
 import com.baidu.tieba.MainTabActivity;
 import com.baidu.tieba.R;
 import com.baidu.tieba.TiebaApplication;
+import com.baidu.tieba.account.LoginActivity;
 import com.baidu.tieba.data.Config;
 import com.baidu.tieba.data.ContentData;
 import com.baidu.tieba.data.ForumData;
 import com.baidu.tieba.data.MarkData;
 import com.baidu.tieba.data.PbData;
 import com.baidu.tieba.data.PostData;
+import com.baidu.tieba.data.RequestResponseCode;
 import com.baidu.tieba.data.ThreadData;
+import com.baidu.tieba.frs.FrsActivity;
 import com.baidu.tieba.model.PbModel;
 import com.baidu.tieba.person.PersonInfoActivity;
 import com.baidu.tieba.util.AsyncImageLoader;
@@ -46,9 +52,13 @@ import com.baidu.tieba.util.UtilHelper;
 import com.baidu.tieba.write.WriteActivity;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Iterator;
+import java.util.List;
 import org.apache.http.message.BasicNameValuePair;
 /* loaded from: classes.dex */
 public class PbActivity extends BaseActivity {
+    public static final String BACK_SPECIAL = "back_special";
+    private static final String FRS_APPEAR = "frs_appear";
     private static final String HOSTMODE = "hostMode";
     private static final String ID = "id";
     private static final String MARK = "mark";
@@ -63,6 +73,7 @@ public class PbActivity extends BaseActivity {
     private static final int MENU_ID_VIEW_INFO = 2;
     private static final int MENU_ID_VIEW_REVERSE = 7;
     private static final int MENU_ID_VIEW_SEQUENCE = 9;
+    public static final String MESSAGE_PUSH_ENTRY = "message_push_entry";
     private static final String SEQUENCE = "sequence";
     private static final String ST_TYPE = "st_type";
     private static final int UPDATE_TYPE_MARK = 4;
@@ -78,6 +89,7 @@ public class PbActivity extends BaseActivity {
     private static final String URL_PID = "pid";
     private static final String URL_ST_TYPE = "st_type";
     private static final String URL_THEME = "kz";
+    private TextView headTextView;
     private static volatile long mPbLoadTime = 0;
     private static volatile int mNetError = 0;
     private ListView mPbList = null;
@@ -95,6 +107,7 @@ public class PbActivity extends BaseActivity {
     private Handler mHandler = new Handler();
     private AdapterView.OnItemLongClickListener mListLongClickListener = null;
     private long mClickId = -1;
+    private PostData mClickPost = null;
     private AlertDialog mDialogMore = null;
     private AlertDialog mDialogTitle = null;
     private View mDialogView = null;
@@ -105,6 +118,11 @@ public class PbActivity extends BaseActivity {
     private ContextMenuAdapter mContextMenuAdapter = null;
     private String mSource = null;
     private int mLongPos = -1;
+    private MarkData mMarkData = null;
+    private boolean mMarkAdd = true;
+    private String mUid = null;
+    private boolean mBackSpecial = false;
+    private String frsString = null;
     private Runnable mGetImageRunnble = new Runnable() { // from class: com.baidu.tieba.pb.PbActivity.1
         @Override // java.lang.Runnable
         public void run() {
@@ -168,39 +186,26 @@ public class PbActivity extends BaseActivity {
     DialogInterface.OnClickListener mContextMenuListener = new DialogInterface.OnClickListener() { // from class: com.baidu.tieba.pb.PbActivity.2
         @Override // android.content.DialogInterface.OnClickListener
         public void onClick(DialogInterface dialog, int item) {
-            PostData post;
             switch (item) {
                 case 0:
-                    if (PbActivity.this.mPbId != null && PbActivity.this.mPbId.length() > 0 && PbActivity.this.mModel.getData() != null && (post = PbActivity.this.mModel.getData().getPost_list().get((int) PbActivity.this.mClickId)) != null) {
-                        WriteActivity.startAcitivity(PbActivity.this, PbActivity.this.mModel.getData().getForum().getId(), PbActivity.this.mModel.getData().getForum().getName(), PbActivity.this.mPbId, post.getId(), post.getFloor_num(), PbActivity.this.mModel.getData().getAnti());
+                    if (PbActivity.this.mPbId != null && PbActivity.this.mPbId.length() > 0 && PbActivity.this.mModel.getData() != null) {
+                        PostData post = PbActivity.this.mModel.getData().getPost_list().get((int) PbActivity.this.mClickId);
+                        PbActivity.this.mClickPost = post;
+                        PbActivity.this.replyBlog(post);
                         return;
                     }
                     return;
                 case 1:
-                    if (TiebaApplication.isBaiduAccountManager() && TiebaApplication.getCurrentAccount() == null) {
-                        MainTabActivity.startActivityOnUserChanged(PbActivity.this, null);
-                        return;
-                    }
                     MarkData data = PbActivity.this.getMarkData();
+                    PbActivity.this.mMarkData = data;
                     String text = (String) PbActivity.this.mContextMenuAdapter.getItem(1);
-                    if (text != null && text.equals(PbActivity.this.getString(R.string.remove_mark))) {
-                        if (DatabaseService.deleteMarkData(data.getId())) {
-                            PbActivity.this.showToast(PbActivity.this.getString(R.string.success));
-                            PbActivity.this.mModel.setMarkId(null);
-                            PbActivity.this.mAdapter.notifyDataSetChanged();
-                            return;
-                        }
-                        PbActivity.this.showToast(PbActivity.this.getString(R.string.fail));
-                        return;
-                    } else if (DatabaseService.saveMarkData(data)) {
-                        PbActivity.this.showToast(PbActivity.this.getString(R.string.success));
-                        PbActivity.this.mModel.setMarkId(data.getPostId());
-                        PbActivity.this.mAdapter.notifyDataSetChanged();
-                        return;
+                    if (text == null || !text.equals(PbActivity.this.getString(R.string.remove_mark))) {
+                        PbActivity.this.mMarkAdd = true;
                     } else {
-                        PbActivity.this.showToast(PbActivity.this.getString(R.string.fail));
-                        return;
+                        PbActivity.this.mMarkAdd = false;
                     }
+                    PbActivity.this.dealMark(data, PbActivity.this.mMarkAdd);
+                    return;
                 case 2:
                     if (PbActivity.this.mModel != null && PbActivity.this.mModel.getData() != null && PbActivity.this.mClickId >= 0 && PbActivity.this.mClickId < PbActivity.this.mModel.getData().getPost_list().size()) {
                         PostData post2 = PbActivity.this.mModel.getData().getPost_list().get((int) PbActivity.this.mClickId);
@@ -221,6 +226,52 @@ public class PbActivity extends BaseActivity {
             }
         }
     };
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void dealMark(MarkData data, boolean is_add) {
+        String id = TiebaApplication.getCurrentAccount();
+        if (id == null || id.length() <= 0) {
+            LoginActivity.startActivity((Activity) this, getString(R.string.login_to_use), true, (int) RequestResponseCode.REQUEST_LOGIN_PB_MARK);
+            return;
+        }
+        data.setAccount(TiebaApplication.getCurrentAccount());
+        if (!is_add) {
+            if (DatabaseService.deleteMarkData(data.getId())) {
+                showToast(getString(R.string.success));
+                this.mModel.setMarkId(null);
+                this.mAdapter.notifyDataSetChanged();
+                return;
+            }
+            showToast(getString(R.string.fail));
+        } else if (DatabaseService.saveMarkData(data)) {
+            showToast(getString(R.string.success));
+            this.mModel.setMarkId(data.getPostId());
+            this.mAdapter.notifyDataSetChanged();
+        } else {
+            showToast(getString(R.string.fail));
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void replyBlog(PostData post) {
+        String id = TiebaApplication.getCurrentAccount();
+        if (id == null || id.length() <= 0) {
+            if (this.mModel != null && this.mModel.getData() != null && this.mModel.getData().getAnti() != null) {
+                this.mModel.getData().getAnti().setIfpost(1);
+            }
+            if (post != null) {
+                LoginActivity.startActivity((Activity) this, getString(R.string.login_to_use), true, (int) RequestResponseCode.REQUEST_LOGIN_PB_REPLY_FLOOR);
+            } else {
+                LoginActivity.startActivity((Activity) this, getString(R.string.login_to_use), true, (int) RequestResponseCode.REQUEST_LOGIN_PB_REPLY);
+            }
+        } else if (this.mPbId != null && this.mPbId.length() > 0 && this.mModel.getData() != null) {
+            if (post != null) {
+                WriteActivity.startAcitivity(this, this.mModel.getData().getForum().getId(), this.mModel.getData().getForum().getName(), this.mPbId, post.getId(), post.getFloor_num(), this.mModel.getData().getAnti());
+            } else {
+                WriteActivity.startAcitivity(this, this.mModel.getData().getForum().getId(), this.mModel.getData().getForum().getName(), this.mPbId, null, 0, this.mModel.getData().getAnti());
+            }
+        }
+    }
 
     /* JADX INFO: Access modifiers changed from: private */
     public MarkData getMarkData() {
@@ -250,8 +301,33 @@ public class PbActivity extends BaseActivity {
         return data;
     }
 
+    public static void startActivityToFrs(Context context, String id, String st_type) {
+        Intent intent = new Intent(context, PbActivity.class);
+        if (id != null && id.length() > 0) {
+            intent.putExtra(ID, id);
+            intent.putExtra(SEQUENCE, true);
+            intent.putExtra(FRS_APPEAR, true);
+            intent.putExtra(HOSTMODE, false);
+            if (st_type != null) {
+                intent.putExtra("st_type", st_type);
+            }
+            context.startActivity(intent);
+        }
+    }
+
     public static void startAcitivity(Context context, String id, String st_type) {
         startAcitivity(context, id, true, false, st_type);
+    }
+
+    public static void startAcitivityBackSpecial(Context context, String id) {
+        Intent intent = new Intent(context, PbActivity.class);
+        if (id != null && id.length() > 0) {
+            intent.putExtra(ID, id);
+            intent.putExtra(SEQUENCE, true);
+            intent.putExtra(HOSTMODE, false);
+            intent.putExtra(BACK_SPECIAL, true);
+            context.startActivity(intent);
+        }
     }
 
     public static void startAcitivity(Context context, String id, Boolean sequence, Boolean hostMode, String st_type) {
@@ -279,9 +355,54 @@ public class PbActivity extends BaseActivity {
     @Override // com.baidu.tieba.BaseActivity, android.app.Activity
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.pb_activity);
-        initUI();
-        initData(savedInstanceState);
+        if (dealMassgePush()) {
+            setContentView(R.layout.pb_activity);
+            this.mUid = TiebaApplication.getCurrentAccount();
+            initUI();
+            initData(savedInstanceState);
+        }
+    }
+
+    private boolean dealMassgePush() {
+        boolean messgePushEntry = getIntent().getBooleanExtra(MESSAGE_PUSH_ENTRY, false);
+        getIntent().putExtra(MESSAGE_PUSH_ENTRY, false);
+        if (messgePushEntry) {
+            ActivityManager am = (ActivityManager) getSystemService("activity");
+            List<ActivityManager.RunningTaskInfo> list = am.getRunningTasks(10);
+            Iterator<ActivityManager.RunningTaskInfo> it = list.iterator();
+            while (true) {
+                if (!it.hasNext()) {
+                    break;
+                }
+                ActivityManager.RunningTaskInfo runningTaskInfo = it.next();
+                if (runningTaskInfo.topActivity.getClassName().equals("com.baidu.tieba.pb.PbActivity")) {
+                    if (runningTaskInfo.numActivities <= 1) {
+                        MainTabActivity.startActivity(this, MainTabActivity.GOTO_MORE, getIntent().getStringExtra(ID));
+                        closeActivity();
+                        return false;
+                    }
+                }
+            }
+        }
+        return true;
+    }
+
+    @Override // android.app.Activity, android.view.KeyEvent.Callback
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if (keyCode == 4) {
+            closeActivity();
+            return true;
+        }
+        return super.onKeyDown(keyCode, event);
+    }
+
+    public void closeActivity() {
+        closeAllDialog();
+        if (!this.mBackSpecial) {
+            finish();
+        } else {
+            MainTabActivity.startActivity(this, MainTabActivity.GOTO_RECOMMEND);
+        }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -311,6 +432,7 @@ public class PbActivity extends BaseActivity {
                 }
                 this.mModel = null;
             }
+            closeAllDialog();
             this.mProgress.setVisibility(8);
             System.gc();
         } catch (Exception e) {
@@ -378,17 +500,23 @@ public class PbActivity extends BaseActivity {
             this.mModel.setMarkId(null);
         }
         this.mAdapter.notifyDataSetChanged();
+        String id = TiebaApplication.getCurrentAccount();
+        if (this.mUid == null && id != null && id.length() > 0) {
+            this.mUid = id;
+            if (this.mModel != null && this.mModel.getData() != null && this.mModel.getData().getAnti() != null) {
+                this.mModel.getData().getAnti().setIfpost(1);
+            }
+        }
         super.onResume();
     }
 
     private void initUI() {
         this.mListLongClickListener = new AdapterView.OnItemLongClickListener() { // from class: com.baidu.tieba.pb.PbActivity.3
             @Override // android.widget.AdapterView.OnItemLongClickListener
-            public boolean onItemLongClick(AdapterView<?> arg0, View arg1, int arg2, long arg3) {
+            public boolean onItemLongClick(AdapterView<?> arg0, View arg1, int arg2, long id) {
                 PbActivity.this.mLongPos = arg2;
-                if (PbActivity.this.getLongClickMenu() != null) {
+                if (id != -1 && id != -2 && PbActivity.this.getLongClickMenu() != null) {
                     PbActivity.this.showListMenu();
-                    return true;
                 }
                 return true;
             }
@@ -478,17 +606,14 @@ public class PbActivity extends BaseActivity {
         this.mBack.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pb.PbActivity.6
             @Override // android.view.View.OnClickListener
             public void onClick(View v) {
-                PbActivity.this.closeAllDialog();
-                PbActivity.this.finish();
+                PbActivity.this.closeActivity();
             }
         });
         this.mReply = (Button) findViewById(R.id.reply);
         this.mReply.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pb.PbActivity.7
             @Override // android.view.View.OnClickListener
             public void onClick(View v) {
-                if (PbActivity.this.mPbId != null && PbActivity.this.mPbId.length() > 0 && PbActivity.this.mModel.getData() != null) {
-                    WriteActivity.startAcitivity(PbActivity.this, PbActivity.this.mModel.getData().getForum().getId(), PbActivity.this.mModel.getData().getForum().getName(), PbActivity.this.mPbId, null, 0, PbActivity.this.mModel.getData().getAnti());
-                }
+                PbActivity.this.replyBlog(null);
             }
         });
         this.mPbList = (ListView) findViewById(R.id.pb_list);
@@ -512,31 +637,34 @@ public class PbActivity extends BaseActivity {
                 } else if (id != -2) {
                     if (PbActivity.this.mContextMenu != null) {
                         PbActivity.this.mClickId = id;
-                        PostData data = (PostData) PbActivity.this.mAdapter.getItem(arg2);
-                        if (PbActivity.this.mModel.getData().getIsHasFloor() && data.getFloor_num() != 1) {
-                            if (data != null && PbActivity.this.mModel.getMarkId() != null && PbActivity.this.mModel.getMarkId().equals(data.getId())) {
-                                isMarked = true;
-                            } else {
-                                isMarked = false;
+                        if (PbActivity.this.mModel.getData() != null) {
+                            PostData data = (PostData) PbActivity.this.mAdapter.getItem(arg2);
+                            if (PbActivity.this.mModel.getData().getIsHasFloor() && data.getFloor_num() != 1) {
+                                if (data != null && PbActivity.this.mModel.getMarkId() != null && PbActivity.this.mModel.getMarkId().equals(data.getId())) {
+                                    isMarked = true;
+                                } else {
+                                    isMarked = false;
+                                }
+                                Intent intent = new Intent(PbActivity.this, SubPbActivity.class);
+                                intent.putExtra("themeId", PbActivity.this.mPbId);
+                                intent.putExtra("postId", data.getId());
+                                intent.putExtra("fid", PbActivity.this.mModel.getData().getForum().getId());
+                                intent.putExtra("kw", PbActivity.this.mModel.getData().getForum().getName());
+                                intent.putExtra("threadId", PbActivity.this.mModel.getData().getThread().getId());
+                                intent.putExtra("mark", PbActivity.this.getMarkData());
+                                intent.putExtra("isMarked", isMarked);
+                                intent.putExtra("anti", PbActivity.this.mModel.getData().getAnti());
+                                PbActivity.this.startActivity(intent);
+                                return;
                             }
-                            Intent intent = new Intent(PbActivity.this, SubPbActivity.class);
-                            intent.putExtra("themeId", PbActivity.this.mPbId);
-                            intent.putExtra("postId", data.getId());
-                            intent.putExtra("fid", PbActivity.this.mModel.getData().getForum().getId());
-                            intent.putExtra("kw", PbActivity.this.mModel.getData().getForum().getName());
-                            intent.putExtra("threadId", PbActivity.this.mModel.getData().getThread().getId());
-                            intent.putExtra("mark", PbActivity.this.getMarkData());
-                            intent.putExtra("isMarked", isMarked);
-                            PbActivity.this.startActivity(intent);
-                            return;
+                            if (data == null || PbActivity.this.mModel.getMarkId() == null || !PbActivity.this.mModel.getMarkId().equals(data.getId())) {
+                                PbActivity.this.mContextMenuAdapter.setItem(1, PbActivity.this.getString(R.string.add_mark));
+                            } else {
+                                PbActivity.this.mContextMenuAdapter.setItem(1, PbActivity.this.getString(R.string.remove_mark));
+                            }
+                            PbActivity.this.mContextMenuAdapter.notifyDataSetInvalidated();
+                            PbActivity.this.mContextMenu.show();
                         }
-                        if (data == null || PbActivity.this.mModel.getMarkId() == null || !PbActivity.this.mModel.getMarkId().equals(data.getId())) {
-                            PbActivity.this.mContextMenuAdapter.setItem(1, PbActivity.this.getString(R.string.add_mark));
-                        } else {
-                            PbActivity.this.mContextMenuAdapter.setItem(1, PbActivity.this.getString(R.string.remove_mark));
-                        }
-                        PbActivity.this.mContextMenuAdapter.notifyDataSetInvalidated();
-                        PbActivity.this.mContextMenu.show();
                     }
                 } else if (PbActivity.this.mAdapter.isProcessMore()) {
                 } else {
@@ -569,6 +697,15 @@ public class PbActivity extends BaseActivity {
         this.mPbList.setOnItemLongClickListener(this.mListLongClickListener);
         this.mProgress = (ProgressBar) findViewById(R.id.progress);
         this.mProgress.setVisibility(8);
+        this.headTextView = (TextView) findViewById(R.id.tofrs_textview);
+        this.headTextView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pb.PbActivity.11
+            @Override // android.view.View.OnClickListener
+            public void onClick(View arg0) {
+                if (PbActivity.this.frsString != null) {
+                    FrsActivity.startAcitivity(PbActivity.this, PbActivity.this.frsString, null);
+                }
+            }
+        });
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -576,7 +713,7 @@ public class PbActivity extends BaseActivity {
         if (getListMenu() != null) {
             return getListMenu();
         }
-        DialogInterface.OnClickListener menuListener = new DialogInterface.OnClickListener() { // from class: com.baidu.tieba.pb.PbActivity.11
+        DialogInterface.OnClickListener menuListener = new DialogInterface.OnClickListener() { // from class: com.baidu.tieba.pb.PbActivity.12
             @Override // android.content.DialogInterface.OnClickListener
             public void onClick(DialogInterface dialog, int which) {
                 PostData data;
@@ -633,6 +770,7 @@ public class PbActivity extends BaseActivity {
         Boolean.valueOf(true);
         Boolean.valueOf(false);
         String markId = null;
+        this.mBackSpecial = getIntent().getBooleanExtra(BACK_SPECIAL, false);
         if (savedInstanceState != null) {
             this.mPbId = savedInstanceState.getString(ID);
             sequence = Boolean.valueOf(savedInstanceState.getBoolean(SEQUENCE, true));
@@ -847,7 +985,10 @@ public class PbActivity extends BaseActivity {
     }
 
     private void requestTip() {
-        if (!this.mModel.getIsprogressTip() && this.mModel.getData() != null) {
+        String id = TiebaApplication.getCurrentAccount();
+        if (id == null || id.length() <= 0) {
+            LoginActivity.startActivity((Activity) this, getString(R.string.login_to_use), true, (int) RequestResponseCode.REQUEST_LOGIN_PB_TIP);
+        } else if (!this.mModel.getIsprogressTip() && this.mModel.getData() != null) {
             if (this.mTipTask != null) {
                 this.mTipTask.cancel();
                 this.mTipTask = null;
@@ -861,6 +1002,11 @@ public class PbActivity extends BaseActivity {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void requestHost() {
+        String id = TiebaApplication.getCurrentAccount();
+        if (id == null || id.length() <= 0) {
+            LoginActivity.startActivity((Activity) this, getString(R.string.login_to_use), true, (int) RequestResponseCode.REQUEST_LOGIN_PB_HOST);
+            return;
+        }
         this.mModel.setHostMode(true);
         this.mModel.setSequence(true);
         startPbAsyncTask(3);
@@ -874,6 +1020,11 @@ public class PbActivity extends BaseActivity {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void requestReverse() {
+        String id = TiebaApplication.getCurrentAccount();
+        if (id == null || id.length() <= 0) {
+            LoginActivity.startActivity((Activity) this, getString(R.string.login_to_use), true, (int) RequestResponseCode.REQUEST_LOGIN_PB_REVRESE);
+            return;
+        }
         this.mModel.setSequence(false);
         this.mModel.setHostMode(false);
         startPbAsyncTask(3);
@@ -889,10 +1040,7 @@ public class PbActivity extends BaseActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case 4:
-                if (this.mPbId != null && this.mPbId.length() > 0 && this.mModel.getData() != null) {
-                    WriteActivity.startAcitivity(this, this.mModel.getData().getForum().getId(), this.mModel.getData().getForum().getName(), this.mPbId, null, 0, this.mModel.getData().getAnti());
-                    break;
-                }
+                replyBlog(null);
                 break;
             case 5:
                 requestTip();
@@ -913,25 +1061,48 @@ public class PbActivity extends BaseActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:20:0x0049 -> B:27:0x000f). Please submit an issue!!! */
     @Override // android.app.Activity
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if (resultCode == -1) {
-            if (requestCode == 101 || requestCode == 102) {
-                try {
-                    String current_id = TiebaApplication.getCurrentAccount();
-                    String host_id = this.mModel.getData().getThread().getAuthor().getId();
-                    if (!this.mModel.getHostMode() || current_id.equals(host_id)) {
-                        if (this.mModel.getSequence() && this.mAdapter.getHaveFooter() == 1) {
-                            getNextDate();
-                        } else if (!this.mModel.getSequence() && this.mAdapter.getHaveHeader() == 1) {
-                            getPreDate();
+            switch (requestCode) {
+                case RequestResponseCode.REQUEST_LOGIN_PB_REPLY /* 1100004 */:
+                    replyBlog(null);
+                    return;
+                case RequestResponseCode.REQUEST_LOGIN_PB_REPLY_FLOOR /* 1100005 */:
+                    replyBlog(this.mClickPost);
+                    return;
+                case RequestResponseCode.REQUEST_LOGIN_PB_HOST /* 1100006 */:
+                    requestHost();
+                    return;
+                case RequestResponseCode.REQUEST_LOGIN_PB_REVRESE /* 1100007 */:
+                    requestReverse();
+                    return;
+                case RequestResponseCode.REQUEST_LOGIN_PB_TIP /* 1100008 */:
+                    requestTip();
+                    return;
+                case RequestResponseCode.REQUEST_LOGIN_PB_MARK /* 1100009 */:
+                    dealMark(this.mMarkData, this.mMarkAdd);
+                    return;
+                case RequestResponseCode.REQUEST_WRITE_REPLY_FLOOR /* 1300001 */:
+                case RequestResponseCode.REQUEST_WRITE_REPLY /* 1300002 */:
+                    try {
+                        String current_id = TiebaApplication.getCurrentAccount();
+                        String host_id = this.mModel.getData().getThread().getAuthor().getId();
+                        if (!this.mModel.getHostMode() || current_id.equals(host_id)) {
+                            if (this.mModel.getSequence() && this.mAdapter.getHaveFooter() == 1) {
+                                getNextDate();
+                            } else if (!this.mModel.getSequence() && this.mAdapter.getHaveHeader() == 1) {
+                                getPreDate();
+                            }
                         }
+                        return;
+                    } catch (Exception ex) {
+                        TiebaLog.e(getClass().getName(), "onActivityResult", ex.getMessage());
+                        return;
                     }
-                } catch (Exception ex) {
-                    TiebaLog.e(getClass().getName(), "onActivityResult", ex.getMessage());
-                }
+                default:
+                    return;
             }
         }
     }
@@ -979,6 +1150,7 @@ public class PbActivity extends BaseActivity {
                             pbData2.getPost_list().get(i).uniteContentExcepFace(PbActivity.this);
                             pbData2.getPost_list().get(i).setContent(null);
                         }
+                        PbActivity.this.frsString = pbData2.getForum().getName();
                         pbData = pbData2;
                     } catch (Exception e) {
                         ex = e;
@@ -1004,7 +1176,45 @@ public class PbActivity extends BaseActivity {
         @Override // android.os.AsyncTask
         public void onPostExecute(PbData data) {
             try {
-                if (data != null) {
+                if (data == null) {
+                    if (this.mNetwork != null) {
+                        if (this.mType == 3 || this.mType == 4) {
+                            if (this.mNetwork.isNetSuccess()) {
+                                PbActivity.this.showToast(this.mNetwork.getErrorString());
+                                if (this.mNetwork.getErrorCode() == 4 || this.mNetwork.getErrorCode() == 28) {
+                                    PbActivity.this.closeActivity();
+                                    return;
+                                }
+                            } else {
+                                AlertDialog.Builder builder = new AlertDialog.Builder(PbActivity.this);
+                                builder.setTitle(PbActivity.this.getString(R.string.error));
+                                builder.setMessage(this.mNetwork.getErrorString());
+                                builder.setPositiveButton(PbActivity.this.getString(R.string.retry), new DialogInterface.OnClickListener() { // from class: com.baidu.tieba.pb.PbActivity.PbAsyncTask.1
+                                    @Override // android.content.DialogInterface.OnClickListener
+                                    public void onClick(DialogInterface dialog, int which) {
+                                        PbActivity.this.startPbAsyncTask(PbAsyncTask.this.mType);
+                                    }
+                                });
+                                builder.setNegativeButton(PbActivity.this.getString(R.string.cancel), new DialogInterface.OnClickListener() { // from class: com.baidu.tieba.pb.PbActivity.PbAsyncTask.2
+                                    @Override // android.content.DialogInterface.OnClickListener
+                                    public void onClick(DialogInterface dialog, int which) {
+                                        dialog.dismiss();
+                                    }
+                                });
+                                if (PbActivity.this.mDialogMore != null && PbActivity.this.mDialogMore.isShowing()) {
+                                    PbActivity.this.mDialogMore.dismiss();
+                                }
+                                builder.create().show();
+                            }
+                        } else {
+                            PbActivity.this.showToast(this.mNetwork.getErrorString());
+                        }
+                    }
+                } else {
+                    if (PbActivity.this.getIntent().getBooleanExtra(PbActivity.FRS_APPEAR, false)) {
+                        PbActivity.this.headTextView.setVisibility(0);
+                    }
+                    PbActivity.this.headTextView.setText(PbActivity.this.frsString);
                     PbData d_data = PbActivity.this.mModel.getData();
                     PbActivity.this.mSource = null;
                     PbActivity.this.mModel.setHaveMore(data.getPage().getHave_more());
@@ -1096,39 +1306,6 @@ public class PbActivity extends BaseActivity {
                     }
                     long end_time = System.nanoTime();
                     PbActivity.mPbLoadTime = (end_time - this.mStartTime) / 1000000000;
-                } else if (this.mNetwork != null) {
-                    if (this.mType == 3 || this.mType == 4) {
-                        if (this.mNetwork.isNetSuccess()) {
-                            PbActivity.this.showToast(this.mNetwork.getErrorString());
-                            if (this.mNetwork.getErrorCode() == 4 || this.mNetwork.getErrorCode() == 28) {
-                                PbActivity.this.closeAllDialog();
-                                PbActivity.this.finish();
-                                return;
-                            }
-                        } else {
-                            AlertDialog.Builder builder = new AlertDialog.Builder(PbActivity.this);
-                            builder.setTitle(PbActivity.this.getString(R.string.error));
-                            builder.setMessage(this.mNetwork.getErrorString());
-                            builder.setPositiveButton(PbActivity.this.getString(R.string.retry), new DialogInterface.OnClickListener() { // from class: com.baidu.tieba.pb.PbActivity.PbAsyncTask.1
-                                @Override // android.content.DialogInterface.OnClickListener
-                                public void onClick(DialogInterface dialog, int which) {
-                                    PbActivity.this.startPbAsyncTask(PbAsyncTask.this.mType);
-                                }
-                            });
-                            builder.setNegativeButton(PbActivity.this.getString(R.string.cancel), new DialogInterface.OnClickListener() { // from class: com.baidu.tieba.pb.PbActivity.PbAsyncTask.2
-                                @Override // android.content.DialogInterface.OnClickListener
-                                public void onClick(DialogInterface dialog, int which) {
-                                    dialog.dismiss();
-                                }
-                            });
-                            if (PbActivity.this.mDialogMore != null && PbActivity.this.mDialogMore.isShowing()) {
-                                PbActivity.this.mDialogMore.dismiss();
-                            }
-                            builder.create().show();
-                        }
-                    } else {
-                        PbActivity.this.showToast(this.mNetwork.getErrorString());
-                    }
                 }
                 refreshActivity();
             } catch (Exception ex) {

@@ -262,7 +262,7 @@ public class PersonChangeActivity extends BaseActivity {
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if (resultCode == -1) {
-            if (requestCode == WriteUtil.REQUEST_ALBUM_IMAGE || requestCode == WriteUtil.REQUEST_CAMERA) {
+            if (requestCode == 1200002 || requestCode == 1200001) {
                 if (this.mImageTask != null) {
                     this.mImageTask.cancel();
                 }
@@ -302,7 +302,7 @@ public class PersonChangeActivity extends BaseActivity {
         /* JADX WARN: Can't rename method to resolve collision */
         @Override // android.os.AsyncTask
         public Bitmap doInBackground(Object... params) {
-            if (this.mRequestCode == WriteUtil.REQUEST_ALBUM_IMAGE && this.mIntent != null) {
+            if (this.mRequestCode == 1200002 && this.mIntent != null) {
                 Bitmap bitmap = WriteUtil.ImageResult(this.mRequestCode, this.mContext, this.mIntent.getData(), TiebaApplication.app.getPostImageSize());
                 return bitmap;
             }

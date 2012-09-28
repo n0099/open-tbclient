@@ -19,6 +19,7 @@ public class ForumData {
     private int member_num = 0;
     private int is_like = 0;
     private int user_level = 0;
+    private SignData mSignData = new SignData();
     private ArrayList<String> managers = new ArrayList<>();
     private ArrayList<GoodData> good_classify = new ArrayList<>();
 
@@ -110,6 +111,10 @@ public class ForumData {
         return this.user_level;
     }
 
+    public SignData getSignData() {
+        return this.mSignData;
+    }
+
     public void setManagers(ArrayList<String> managers) {
         this.managers = managers;
     }
@@ -163,6 +168,29 @@ public class ForumData {
                         GoodData tmp = new GoodData();
                         tmp.parserJson(jlist2.optJSONObject(i2));
                         this.good_classify.add(tmp);
+                    }
+                }
+                JSONObject sign_in_info = json.optJSONObject("sign_in_info");
+                if (sign_in_info != null) {
+                    JSONObject user_info = sign_in_info.optJSONObject("user_info");
+                    if (user_info != null) {
+                        int user_sign_in = user_info.optInt("is_sign_in");
+                        this.mSignData.setIsSigned(user_sign_in);
+                        int user_sign_rank = user_info.optInt("user_sign_rank");
+                        this.mSignData.setUserSignRank(user_sign_rank);
+                    }
+                    JSONObject forum_info = sign_in_info.optJSONObject("forum_info");
+                    if (forum_info != null) {
+                        int signOn = forum_info.optInt("is_on");
+                        if (signOn == 0) {
+                            this.mSignData.setForumRank(-1);
+                            return;
+                        }
+                        JSONObject rank_info = forum_info.optJSONObject("current_rank_info");
+                        if (rank_info != null) {
+                            int forum_rank = rank_info.optInt("sign_rank");
+                            this.mSignData.setForumRank(forum_rank);
+                        }
                     }
                 }
             } catch (Exception ex) {

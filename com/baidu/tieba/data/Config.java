@@ -20,7 +20,7 @@ public class Config {
     public static final String CHANNEL_ADDRESS = "http://114.113.149.3:8086/partnersService";
     public static final int CHUNK_UPLOAD_SIZE = 102400;
     public static final String CREATE_BAR_ADDRESS = "c/c/forum/create";
-    public static final int DATABASE_VERSION = 3;
+    public static final int DATABASE_VERSION = 4;
     public static final String DETECT_USERNAME_ADDRESS = "c/s/detectuname";
     public static final String DING_THREAD_ADDRESS = "c/c/thread/comment";
     public static final String ERROR_LOG_SERVER = "c/s/clientlog";
@@ -43,6 +43,7 @@ public class Config {
     public static final String GET_MSG_ADDRESS = "c/s/msg";
     public static final String GET_SYNC_ADDRESS = "c/s/sync";
     public static final String GET_VCODE_ADDRESS = "c/f/anti/vcode";
+    public static final String HOTSPOT_ADDRESS = "c/s/recommendPic/";
     public static final String IMAGE_ADDRESS = "http://c.tieba.baidu.com/c/p/img?";
     public static final String IMAGE_RESIZED_FILE = "tieba_resized_image";
     public static final String IMAGE_RESIZED_FILE_DISPLAY = "tieba_resized_image_display";
@@ -92,6 +93,7 @@ public class Config {
     public static final String PREFS_SHOW_IMAGES = "show_images";
     public static final String PREFS_VIEW_IMAGE_QUALITY = "view_image_quality";
     public static final String PROFILE_MODIFY = "c/c/profile/modify";
+    public static final String RECOMMEND_ADDRESS = "http://c.tieba.baidu.com/c/s/recommend/";
     public static final String REGISTER_ADDRESS = "c/s/reg";
     public static final String REGIST_NEW_ADDRESS = "c/s/regreal";
     public static final String REGIST_RESEND_SMSCODE_ADDRESS = "c/s/getsmscode";
@@ -99,6 +101,7 @@ public class Config {
     public static final String REPLY_THREAD_ADDRESS = "c/c/post/add";
     public static final String SERVER_ADDRESS = "http://c.tieba.baidu.com/";
     public static final String SETTINGFILE = "settings";
+    public static final String SIGN_ADDRESS = "c/c/forum/sign";
     public static final String ST_TYPE_LOGIN = "login";
     public static final String ST_TYPE_OPEN = "open";
     public static final String ST_TYPE_REG = "reg";
@@ -112,6 +115,7 @@ public class Config {
     public static final long THREAD_IMAGE_SAVE_MAX_TIME = 86400000;
     public static final String TMPDIRNAME = "tieba";
     public static final String TMP_DATABASE_NAME = "tieba_database.db";
+    public static final String TMP_HOTSPOT_DIR_NAME = "hotspot";
     public static final String TMP_PIC_DIR_NAME = "image";
     public static final String UNFAVOLIKE_ADDRESS = "c/c/forum/unfavolike";
     public static final String UNFOLLOW_ADDRESS = "c/c/user/unfollow";
@@ -149,6 +153,7 @@ public class Config {
     public static boolean MSG_DEFAULT_REPLYME_SWITCH = true;
     public static boolean MSG_DEFAULT_ATME_SWITCH = true;
     public static boolean MSG_DEFAULT_REMIND_TONE = true;
+    public static boolean PROMOTED_DEFAULT = true;
 
     public static void setSmallPhotoAdress(String url) {
         if (URLUtil.isHttpUrl(url) || URLUtil.isHttpsUrl(url)) {

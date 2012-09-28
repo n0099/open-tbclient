@@ -10,9 +10,9 @@ public class GzipHelper {
 
     public static void decompress(InputStream is, OutputStream os) throws Exception {
         GZIPInputStream gin = new GZIPInputStream(is);
-        byte[] data = new byte[BUFFERSIZE];
+        byte[] data = new byte[1024];
         while (true) {
-            int count = gin.read(data, 0, BUFFERSIZE);
+            int count = gin.read(data, 0, 1024);
             if (count != -1) {
                 os.write(data, 0, count);
             } else {
@@ -24,9 +24,9 @@ public class GzipHelper {
 
     public static void compress(InputStream is, OutputStream os) throws Exception {
         GZIPOutputStream gos = new GZIPOutputStream(os);
-        byte[] data = new byte[BUFFERSIZE];
+        byte[] data = new byte[1024];
         while (true) {
-            int count = is.read(data, 0, BUFFERSIZE);
+            int count = is.read(data, 0, 1024);
             if (count != -1) {
                 gos.write(data, 0, count);
             } else {

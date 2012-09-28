@@ -19,7 +19,6 @@ import com.baidu.tieba.data.VcodeInfoData;
 import com.baidu.tieba.model.LoginModel;
 import com.baidu.tieba.util.DatabaseService;
 import com.baidu.tieba.util.NetWork;
-import com.baidu.tieba.util.NetWorkErr;
 import com.baidu.tieba.util.StringHelper;
 import com.baidu.tieba.util.TiebaLog;
 import java.util.ArrayList;
@@ -70,7 +69,7 @@ public class RegisterActivity extends BaseActivity {
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         switch (resultCode) {
-            case NetWorkErr.NETWORK_ERR /* -1 */:
+            case -1:
                 retToLogin();
                 return;
             default:

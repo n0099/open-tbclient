@@ -198,15 +198,21 @@ public class PersonInfoActivity extends BaseActivity {
                             return;
                         }
                     }
-                    MainTabActivity.startActivity(PersonInfoActivity.this, MainTabActivity.GOTO_HOME);
-                    return;
+                    String id = TiebaApplication.getCurrentAccount();
+                    if (id == null || id.length() <= 0) {
+                        MainTabActivity.startActivity(PersonInfoActivity.this, MainTabActivity.GOTO_RECOMMEND);
+                        return;
+                    } else {
+                        MainTabActivity.startActivity(PersonInfoActivity.this, MainTabActivity.GOTO_HOME);
+                        return;
+                    }
                 }
                 PersonInfoActivity.this.finish();
             }
         };
         this.mTitleText = (TextView) findViewById(R.id.titel_text);
         if (this.mModel.getIsSelf()) {
-            this.mTitleText.setText(R.string.my_info);
+            this.mTitleText.setText(R.string.person_info);
         } else if (this.mModel.getUser() == null) {
             this.mTitleText.setText(this.mModel.getName());
         }

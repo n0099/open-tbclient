@@ -116,10 +116,7 @@ public class DialogMoreAdapter extends BaseAdapter {
 
     @Override // android.widget.BaseAdapter, android.widget.ListAdapter
     public boolean isEnabled(int position) {
-        if (position != 0 || this.mModel.isCanTip()) {
-            return (position == 1 && PbActivity.isAnonymityUser(this.mModel)) ? false : true;
-        }
-        return false;
+        return (position == 0 && PbActivity.isAnonymityUser(this.mModel)) ? false : true;
     }
 
     public boolean isIsProgress() {

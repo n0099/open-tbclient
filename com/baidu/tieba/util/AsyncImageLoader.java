@@ -63,13 +63,17 @@ public class AsyncImageLoader {
         return loadBitmap(imageUrl, mImageCallback, 2, true);
     }
 
+    public Bitmap loadHotspotImage(String imageUrl, ImageCallback mImageCallback) {
+        return loadBitmap(imageUrl, mImageCallback, 3, true);
+    }
+
     private Bitmap loadBitmap(String imageUrl, ImageCallback mImageCallback, Integer type, boolean from_db) {
-        Bitmap bitmap;
         SDRamImage sdramImage = TiebaApplication.app.getSdramImage();
         if (sdramImage != null) {
+            Bitmap bitmap = null;
             if (type.intValue() == 0) {
                 bitmap = sdramImage.getPic(imageUrl);
-            } else {
+            } else if (type.intValue() != 3) {
                 bitmap = sdramImage.getPhoto(imageUrl);
             }
             if (bitmap != null) {
@@ -134,12 +138,17 @@ public class AsyncImageLoader {
                         this.mBitmap = DatabaseService.getFriendPhoto(this.mUrl);
                     } else if (this.mType == 2) {
                         this.mBitmap = DatabaseService.getPbPhoto(this.mUrl);
-                    } else {
+                    } else if (this.mType == 3) {
                         String name = StringHelper.getNameFromUrl(this.mUrl);
                         if (name != null) {
-                            this.mBitmap = FileHelper.getImage(Config.TMP_PIC_DIR_NAME, name);
+                            this.mBitmap = FileHelper.getImage(Config.TMP_HOTSPOT_DIR_NAME, name);
+                        }
+                    } else {
+                        String name2 = StringHelper.getNameFromUrl(this.mUrl);
+                        if (name2 != null) {
+                            this.mBitmap = FileHelper.getImage(Config.TMP_PIC_DIR_NAME, name2);
                             if (this.mBitmap != null) {
-                                isGif = FileHelper.isGif(Config.TMP_PIC_DIR_NAME, name);
+                                isGif = FileHelper.isGif(Config.TMP_PIC_DIR_NAME, name2);
                             }
                         }
                     }
@@ -176,6 +185,8 @@ public class AsyncImageLoader {
                             buffer.append("&qulity=" + String.valueOf(50));
                         }
                         fullUrl = buffer.toString();
+                    } else if (this.mType == 3) {
+                        fullUrl = this.mUrl;
                     } else {
                         fullUrl = String.valueOf(Config.PHOTO_SMALL_ADDRESS) + this.mUrl;
                     }
@@ -203,7 +214,7 @@ public class AsyncImageLoader {
                                     TiebaLog.log_e(1, getClass().getName(), "doInBackground", "Pb_image_too_big:" + String.valueOf(String.valueOf(this.mBitmap.getWidth()) + "*" + String.valueOf(this.mBitmap.getHeight())));
                                     this.mBitmap = BitmapHelper.resizeBitmap(this.mBitmap, pb_image_width, pb_image_height);
                                 }
-                            } else if (this.mBitmap.getWidth() > 80 || this.mBitmap.getHeight() > 80) {
+                            } else if (this.mType != 3 && (this.mBitmap.getWidth() > 80 || this.mBitmap.getHeight() > 80)) {
                                 TiebaLog.log_e(1, getClass().getName(), "doInBackground", "Pb_photo_too_big:" + String.valueOf(String.valueOf(this.mBitmap.getWidth()) + "*" + String.valueOf(this.mBitmap.getHeight())));
                                 this.mBitmap = BitmapHelper.resizeBitmap(this.mBitmap, 80);
                             }
@@ -214,7 +225,7 @@ public class AsyncImageLoader {
                 if (sdramImage != null && this.mBitmap != null) {
                     if (this.mType == 0) {
                         sdramImage.addPic(this.mUrl, this.mBitmap, isGif);
-                    } else {
+                    } else if (this.mType != 3) {
                         sdramImage.addPhoto(this.mUrl, this.mBitmap);
                     }
                 }
@@ -224,13 +235,17 @@ public class AsyncImageLoader {
                         DatabaseService.cashFriendPhoto(this.mUrl, this.mBitmap);
                     } else if (this.mType == 2) {
                         DatabaseService.cashPbPhoto(this.mUrl, this.mBitmap);
+                    } else if (this.mType == 3) {
+                        if (this.mBitmap != null && this.mUrl != null) {
+                            FileHelper.SaveFile(Config.TMP_HOTSPOT_DIR_NAME, StringHelper.getNameFromUrl(this.mUrl), this.mBitmap, 100);
+                        }
                     } else {
-                        String name2 = StringHelper.getNameFromUrl(this.mUrl);
-                        if (name2 != null) {
+                        String name3 = StringHelper.getNameFromUrl(this.mUrl);
+                        if (name3 != null) {
                             if (!isGif) {
-                                FileHelper.SaveFile(Config.TMP_PIC_DIR_NAME, name2, this.mBitmap, 80);
+                                FileHelper.SaveFile(Config.TMP_PIC_DIR_NAME, name3, this.mBitmap, 80);
                             } else {
-                                FileHelper.SaveGifFile(Config.TMP_PIC_DIR_NAME, name2, this.imageData);
+                                FileHelper.SaveGifFile(Config.TMP_PIC_DIR_NAME, name3, this.imageData);
                             }
                         }
                     }

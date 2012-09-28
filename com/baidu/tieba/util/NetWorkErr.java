@@ -6,12 +6,14 @@ public class NetWorkErr {
     public static final int FILE_UPLOAD_SIZE_ERROR = 15;
     public static final int FORUM_NOT_EXIST = 3;
     public static final int HAVE_DING = 14;
+    public static final int HAVE_SIGNED = 160002;
     public static final int INSERT_TO_MANY_SMILE = 13;
     public static final int INTERNAL_ERROR = 500;
     public static final int INVALID_SIGN = 102;
     public static final int METHOD_MUST_POST = 100;
     public static final int NEED_VCODE = 5;
     public static final int NETWORK_ERR = -1;
+    public static final int NETWORK_IGNORE = -2;
     public static final int NETWORK_OK = 0;
     public static final int OP_TOO_FAST = 7;
     public static final int PARAM_NOT_ENOUGH = 101;
@@ -35,6 +37,7 @@ public class NetWorkErr {
     public static final int USERNAME_IS_INVALID = 17;
     public static final int USERNAME_OR_PASSWD_ERROR = 2;
     public static final int USER_CANNOT_LOGIN = 21;
+    public static final int USER_HAS_LIKE_FORUM = 22;
     public static final int USER_NOT_LOGIN = 1;
     public static final int VCODE_INPUT_ERROR = 6;
 }

@@ -1,5 +1,6 @@
 package com.baidu.tieba.pb;
 
+import android.app.Activity;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -27,14 +28,18 @@ import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import com.baidu.android.pushservice.PushConstants;
 import com.baidu.tieba.BaseActivity;
 import com.baidu.tieba.R;
 import com.baidu.tieba.TiebaApplication;
+import com.baidu.tieba.account.LoginActivity;
+import com.baidu.tieba.data.AntiData;
 import com.baidu.tieba.data.Config;
 import com.baidu.tieba.data.ContentData;
 import com.baidu.tieba.data.ForumData;
 import com.baidu.tieba.data.MarkData;
 import com.baidu.tieba.data.PostData;
+import com.baidu.tieba.data.RequestResponseCode;
 import com.baidu.tieba.data.SubPbData;
 import com.baidu.tieba.data.ThreadData;
 import com.baidu.tieba.data.VcodeInfoData;
@@ -52,7 +57,6 @@ import com.baidu.tieba.util.UtilHelper;
 import com.baidu.tieba.view.MyBitmapDrawable;
 import com.baidu.tieba.write.FaceAdapter;
 import com.baidu.tieba.write.VcodeActivity;
-import com.baidu.tieba.write.WriteUtil;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -85,17 +89,21 @@ public class SubPbActivity extends BaseActivity {
     private int mReplyFloor = -1;
     private String mReplyPostId = null;
     private String mThreadId = null;
+    private AntiData mAnti = null;
     private DialogInterface.OnCancelListener mDialogCancelListener = null;
     private ReplyAsyncTask mReplyAsyncTask = null;
     private SubPbAsyncTask mSubPbAsyncTask = null;
     private int mPageTop = 1;
     private int mPageBottom = 1;
+    private String mUid = null;
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.BaseActivity, android.app.Activity
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.sub_pb_activity);
+        this.mAnti = (AntiData) getIntent().getSerializableExtra("anti");
+        this.mUid = TiebaApplication.getCurrentAccount();
         initUI();
     }
 
@@ -120,11 +128,30 @@ public class SubPbActivity extends BaseActivity {
         }
     }
 
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.tieba.BaseActivity, android.app.Activity
+    public void onResume() {
+        super.onResume();
+        String id = TiebaApplication.getCurrentAccount();
+        if (this.mUid == null && id != null && id.length() > 0) {
+            this.mUid = id;
+            if (this.mAnti != null) {
+                this.mAnti.setIfpost(1);
+            }
+        }
+    }
+
     @Override // android.app.Activity
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if (resultCode == -1 && requestCode == WriteUtil.REQUEST_VCODE) {
-            refreshOnReplySuccess();
+        if (resultCode == -1) {
+            if (requestCode == 1200005) {
+                refreshOnReplySuccess();
+            } else if (requestCode == 1100010) {
+                mark();
+            } else if (requestCode == 1100005) {
+                reply();
+            }
         }
     }
 
@@ -166,10 +193,6 @@ public class SubPbActivity extends BaseActivity {
         this.mButtonReply.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pb.SubPbActivity.4
             @Override // android.view.View.OnClickListener
             public void onClick(View v) {
-                String content = SubPbActivity.this.mEditReply.getText().toString();
-                if (content == null || content.length() <= 0) {
-                    return;
-                }
                 SubPbActivity.this.reply();
             }
         });
@@ -372,6 +395,12 @@ public class SubPbActivity extends BaseActivity {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void mark() {
+        String id = TiebaApplication.getCurrentAccount();
+        if (id == null || id.length() <= 0) {
+            LoginActivity.startActivity((Activity) this, getString(R.string.login_to_use), true, (int) RequestResponseCode.REQUEST_LOGIN_PB_FLOOR_MARK);
+            return;
+        }
+        this.mMarkData.setAccount(TiebaApplication.getCurrentAccount());
         ImageView markView = (ImageView) this.mPostLayout.findViewById(R.id.mark);
         Button mark = (Button) findViewById(R.id.button_mark);
         if (this.mIsMarked) {
@@ -599,23 +628,33 @@ public class SubPbActivity extends BaseActivity {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void reply() {
-        if (this.mSubPbModel != null && this.mSubPbModel.getSubPbData() != null) {
-            String content = this.mEditReply.getText().toString();
-            if (checkTextNum()) {
-                content = content.substring(0, 140);
+        String id = TiebaApplication.getCurrentAccount();
+        if (id == null || id.length() <= 0) {
+            if (this.mAnti != null) {
+                this.mAnti.setIfpost(1);
             }
-            showLoadingDialog(getString(R.string.sending), this.mDialogCancelListener);
-            WriteModel model = new WriteModel();
-            model.setForumId(this.mForumId);
-            model.setForumName(this.mForumName);
-            model.setContent(content);
-            model.setVcode(null);
-            model.setFloor(this.mReplyPostId);
-            model.setThreadId(this.mThreadId);
-            model.setFloorNum(0);
-            model.setType(WriteModel.REPLY_FLOOR);
-            this.mReplyAsyncTask = new ReplyAsyncTask(model);
-            this.mReplyAsyncTask.execute(new Integer[0]);
+            LoginActivity.startActivity((Activity) this, getString(R.string.login_to_post), true, (int) RequestResponseCode.REQUEST_LOGIN_PB_REPLY_FLOOR);
+        } else if (this.mAnti != null && this.mAnti.getIfpost() == 0) {
+            UtilHelper.showToast(this, this.mAnti.getForbid_info());
+        } else {
+            String content = this.mEditReply.getText().toString();
+            if (content != null && content.length() > 0 && this.mSubPbModel != null && this.mSubPbModel.getSubPbData() != null) {
+                if (checkTextNum()) {
+                    content = content.substring(0, 140);
+                }
+                showLoadingDialog(getString(R.string.sending), this.mDialogCancelListener);
+                WriteModel model = new WriteModel();
+                model.setForumId(this.mForumId);
+                model.setForumName(this.mForumName);
+                model.setContent(content);
+                model.setVcode(null);
+                model.setFloor(this.mReplyPostId);
+                model.setThreadId(this.mThreadId);
+                model.setFloorNum(0);
+                model.setType(WriteModel.REPLY_FLOOR);
+                this.mReplyAsyncTask = new ReplyAsyncTask(model);
+                this.mReplyAsyncTask.execute(new Integer[0]);
+            }
         }
     }
 
@@ -803,7 +842,7 @@ public class SubPbActivity extends BaseActivity {
             this.mNetwork.addPostData("anonymous", "0");
             this.mNetwork.addPostData("fid", this.mWriteModel.getForumId());
             this.mNetwork.addPostData("kw", this.mWriteModel.getForumName());
-            this.mNetwork.addPostData("content", this.mWriteModel.getContent());
+            this.mNetwork.addPostData(PushConstants.EXTRA_CONTENT, this.mWriteModel.getContent());
             this.mNetwork.addPostData("tid", this.mWriteModel.getThreadId());
             if (this.mWriteModel.getVcode() != null && this.mWriteModel.getVcode().length() > 0) {
                 this.mNetwork.addPostData("vcode", this.mWriteModel.getVcode());
@@ -821,7 +860,7 @@ public class SubPbActivity extends BaseActivity {
                 if (info.getVcode_pic_url() != null) {
                     this.mWriteModel.setVcodeMD5(info.getVcode_md5());
                     this.mWriteModel.setVcodeUrl(info.getVcode_pic_url());
-                    VcodeActivity.startActivityForResult(SubPbActivity.this, this.mWriteModel, WriteUtil.REQUEST_VCODE);
+                    VcodeActivity.startActivityForResult(SubPbActivity.this, this.mWriteModel, (int) RequestResponseCode.REQUEST_VCODE);
                     return;
                 }
                 SubPbActivity.this.showToast(errorString);

@@ -5,6 +5,7 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListAdapter;
@@ -93,7 +94,14 @@ public class MarkActivity extends BaseActivity {
                 MarkActivity.this.enter();
             }
         });
-        this.mListMark.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() { // from class: com.baidu.tieba.home.MarkActivity.3
+        this.mListMark.setOnTouchListener(new View.OnTouchListener() { // from class: com.baidu.tieba.home.MarkActivity.3
+            @Override // android.view.View.OnTouchListener
+            public boolean onTouch(View v, MotionEvent event) {
+                TiebaLog.e("------------", "::", event.toString());
+                return false;
+            }
+        });
+        this.mListMark.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() { // from class: com.baidu.tieba.home.MarkActivity.4
             @Override // android.widget.AdapterView.OnItemLongClickListener
             public boolean onItemLongClick(AdapterView<?> arg0, View arg1, int arg2, long arg3) {
                 ListView tmpList = (ListView) arg0;

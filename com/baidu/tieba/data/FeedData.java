@@ -1,5 +1,6 @@
 package com.baidu.tieba.data;
 
+import com.baidu.android.pushservice.PushConstants;
 import com.baidu.tieba.mention.MentionActivity;
 import com.baidu.tieba.util.TiebaLog;
 import org.json.JSONObject;
@@ -130,7 +131,7 @@ public class FeedData {
                 this.title = json.optString("title");
                 this.time = json.optLong("time", 0L) * 1000;
                 this.fname = json.optString("fname");
-                this.content = json.optString("content");
+                this.content = json.optString(PushConstants.EXTRA_CONTENT);
                 this.quote_content = json.optString("quote_content");
                 this.thread_id = json.optString("thread_id");
                 this.post_id = json.optString("post_id");

@@ -9,7 +9,6 @@ import android.view.KeyEvent;
 import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
 import android.widget.ImageView;
-import com.baidu.tieba.account.LoginActivity;
 import com.baidu.tieba.service.FatalErrorService;
 import com.baidu.tieba.util.BitmapHelper;
 import com.baidu.tieba.util.DatabaseService;
@@ -66,29 +65,19 @@ public class LogoActivity extends BaseActivity {
         new Thread() { // from class: com.baidu.tieba.LogoActivity.3
             @Override // java.lang.Thread, java.lang.Runnable
             public void run() {
-                TiebaApplication app;
                 super.run();
                 try {
-                    app = (TiebaApplication) LogoActivity.this.getApplication();
-                } catch (Exception e) {
-                }
-                if (app != null) {
-                    app.readDisplayPhoto();
+                    TiebaApplication app = (TiebaApplication) LogoActivity.this.getApplication();
                     app.setAPPUseTimes(app.getAPPUseTimes() + 1);
                     if (app.isInvalidTDatabase()) {
                         DatabaseService.deletSdDatebase();
                         app.setAPPUseTimes(0);
                     }
-                    new DatabaseService();
-                    new DatabaseService(DatabaseService.DatabaseLocation.SDCARD);
                     DatabaseService.delOverdueDraft();
                     DatabaseService.delOverdueChunkUploadData();
-                    if (TiebaApplication.getCurrentAccount() != null && TiebaApplication.getCurrentAccountName() == null) {
-                        TiebaApplication.setCurrentAccount(DatabaseService.getActiveAccountData());
-                        DatabaseService.getSettingData();
-                    }
-                    LogoActivity.this.mHandler.handleMessage(LogoActivity.this.mHandler.obtainMessage());
+                } catch (Exception e) {
                 }
+                LogoActivity.this.mHandler.handleMessage(LogoActivity.this.mHandler.obtainMessage());
             }
         }.start();
         startErrorUploadService();
@@ -119,25 +108,18 @@ public class LogoActivity extends BaseActivity {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void startApp() {
-        String account = TiebaApplication.getCurrentAccountName();
-        if (TiebaApplication.isBaiduAccountManager()) {
-            BaiduAccountProxy.getAccountData(this);
+        if (TiebaApplication.app.getIsFirstUse()) {
+            TiebaApplication.app.setUsed();
+            GuideActivity.startActivity(this);
+            finish();
             return;
         }
-        if (account == null) {
-            LoginActivity.startActivity(this);
+        String id = TiebaApplication.getCurrentAccount();
+        if (id != null && id.length() > 0) {
+            MainTabActivity.startActivity(this, MainTabActivity.GOTO_HOME);
         } else {
-            MainTabActivity.startActivity(this, (String) null);
+            MainTabActivity.startActivity(this, MainTabActivity.GOTO_RECOMMEND);
         }
         finish();
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.BaseActivity, android.app.Activity
-    public void onResume() {
-        super.onResume();
-        if (this.mHaveFinishiAnim && this.mHaveInitData && TiebaApplication.isBaiduAccountManager() && TiebaApplication.getCurrentBduss() == null) {
-            BaiduAccountProxy.getAccountData(this);
-        }
     }
 }

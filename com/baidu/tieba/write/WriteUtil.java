@@ -6,6 +6,7 @@ import android.graphics.Bitmap;
 import android.net.Uri;
 import com.baidu.tieba.BaseActivity;
 import com.baidu.tieba.R;
+import com.baidu.tieba.data.RequestResponseCode;
 import com.baidu.tieba.util.BitmapHelper;
 import com.baidu.tieba.util.FileHelper;
 import com.baidu.tieba.util.TiebaLog;
@@ -13,11 +14,6 @@ import java.io.File;
 /* loaded from: classes.dex */
 public class WriteUtil {
     private static final String TMP_IMAGE_NAME = "camera.jpg";
-    public static int REQUEST_CAMERA = 100;
-    public static int REQUEST_ALBUM_IMAGE = 101;
-    public static int REQUEST_IMAGE_VIEW = 102;
-    public static int REQUEST_AT_SELECT = 103;
-    public static int REQUEST_VCODE = 104;
 
     public static void takePhoto(BaseActivity activity) {
         try {
@@ -29,7 +25,7 @@ public class WriteUtil {
                     Uri uri = Uri.fromFile(out);
                     Intent intent = new Intent("android.media.action.IMAGE_CAPTURE");
                     intent.putExtra("output", uri);
-                    activity.startActivityForResult(intent, REQUEST_CAMERA);
+                    activity.startActivityForResult(intent, RequestResponseCode.REQUEST_CAMERA);
                 } else {
                     activity.showToast(activity.getString(R.string.error_sd_error));
                 }
@@ -44,7 +40,7 @@ public class WriteUtil {
             Intent intent = new Intent();
             intent.setType("image/*");
             intent.setAction("android.intent.action.GET_CONTENT");
-            activity.startActivityForResult(intent, REQUEST_ALBUM_IMAGE);
+            activity.startActivityForResult(intent, RequestResponseCode.REQUEST_ALBUM_IMAGE);
         } catch (Exception ex) {
             TiebaLog.e("WriteUtil", "getAlbumImage", "error = " + ex.getMessage());
         }
@@ -71,10 +67,10 @@ public class WriteUtil {
     }
 
     public static Bitmap ImageResult(int requestCode, Context context, Uri uri, int max_size) {
-        if (requestCode == REQUEST_CAMERA) {
+        if (requestCode == 1200001) {
             Bitmap bm = photoResult(max_size);
             return bm;
-        } else if (requestCode != REQUEST_ALBUM_IMAGE) {
+        } else if (requestCode != 1200002) {
             return null;
         } else {
             Bitmap bm2 = AlbumImageResult(context, uri, max_size);

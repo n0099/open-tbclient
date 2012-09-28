@@ -118,7 +118,7 @@ public class MentionAdapter extends BaseAdapter {
     @Override // android.widget.Adapter
     public int getCount() {
         if (this.mData != null) {
-            int count = this.mData.size() + 1;
+            int count = this.mData.size();
             if (this.mHaveMore) {
                 count++;
             }
@@ -139,7 +139,7 @@ public class MentionAdapter extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public long getItemId(int position) {
-        int index = position - 1;
+        int index = position;
         if (this.mHaveMore && position == getCount() - 1) {
             index = -2;
         }

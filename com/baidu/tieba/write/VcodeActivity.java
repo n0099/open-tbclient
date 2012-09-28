@@ -12,6 +12,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
+import com.baidu.android.pushservice.PushConstants;
 import com.baidu.tieba.BaseActivity;
 import com.baidu.tieba.R;
 import com.baidu.tieba.TiebaApplication;
@@ -164,7 +165,7 @@ public class VcodeActivity extends BaseActivity {
             if (this.mDate.getBitmapId() != null && this.mDate.getBitmapId().getPic_id() != null && this.mDate.getBitmapId().getPic_id().length() > 0) {
                 pic_str = String.format("#(pic,%s,%d,%d)", this.mDate.getBitmapId().getPic_id(), Integer.valueOf(this.mDate.getBitmapId().getWidth()), Integer.valueOf(this.mDate.getBitmapId().getHeight()));
             }
-            this.mNetwork.addPostData("content", String.valueOf(this.mDate.getContent()) + pic_str);
+            this.mNetwork.addPostData(PushConstants.EXTRA_CONTENT, String.valueOf(this.mDate.getContent()) + pic_str);
             this.mNetwork.addPostData("vcode_md5", this.mDate.getVcodeMD5());
             String vcode = VcodeActivity.this.mEdit.getText().toString();
             if (vcode.length() > 0) {

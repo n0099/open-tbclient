@@ -37,7 +37,7 @@ public class NetWorkCore {
     private static final int BUFFERSIZE = 1024;
     private static final int CONNECTTIMEOUT = 7000;
     private static final int GETDATATIMEOUT = 7000;
-    private static final int MAX_RETRY_COUNT = 2;
+    private static final int MAX_RETRY_COUNT = 4;
     public static final String NET_TYPE_NET = "1";
     public static final String NET_TYPE_WAP = "2";
     public static final String NET_TYPE_WIFI = "3";
@@ -401,8 +401,8 @@ public class NetWorkCore {
         this.mWapRetryConnt = 0;
         String encodeing = this.mConn.getContentEncoding();
         in = this.mConn.getInputStream();
-        byte[] buf = new byte[BUFFERSIZE];
-        ByteArrayOutputStream outputstream = new ByteArrayOutputStream(BUFFERSIZE);
+        byte[] buf = new byte[1024];
+        ByteArrayOutputStream outputstream = new ByteArrayOutputStream(1024);
         int size = 0;
         try {
             if (this.mIsBDImage) {
@@ -424,7 +424,7 @@ public class NetWorkCore {
                 TiebaLog.i(getClass().getName(), "getNetData", "data.zise = " + String.valueOf(size));
                 if (encodeing != null && encodeing.contains("gzip")) {
                     ByteArrayInputStream tmpInput = new ByteArrayInputStream(output);
-                    ByteArrayOutputStream tmpOutput = new ByteArrayOutputStream(BUFFERSIZE);
+                    ByteArrayOutputStream tmpOutput = new ByteArrayOutputStream(1024);
                     GzipHelper.decompress(tmpInput, tmpOutput);
                     output = tmpOutput.toByteArray();
                 }
@@ -526,7 +526,7 @@ public class NetWorkCore {
             }
             throw th;
         }
-        if (this.mIsInterrupte && is_net_error && this.mRetryConnt < 2) {
+        if (this.mIsInterrupte && is_net_error && this.mRetryConnt < 4) {
             this.mRetryConnt++;
             return getNetData();
         }
@@ -635,8 +635,8 @@ public class NetWorkCore {
                 long time = new Date().getTime();
                 this.mConn.connect();
                 DataOutputStream ds = new DataOutputStream(this.mConn.getOutputStream());
-                StringBuffer build = new StringBuffer((int) BUFFERSIZE);
-                StringBuffer md5_source = new StringBuffer((int) BUFFERSIZE);
+                StringBuffer build = new StringBuffer(1024);
+                StringBuffer md5_source = new StringBuffer(1024);
                 for (int i = 0; this.mPostData != null && i < this.mPostData.size(); i++) {
                     BasicNameValuePair kv = this.mPostData.get(i);
                     if (kv != null) {
@@ -697,8 +697,8 @@ public class NetWorkCore {
                 }
                 String encodeing = this.mConn.getContentEncoding();
                 in = this.mConn.getInputStream();
-                byte[] buf = new byte[BUFFERSIZE];
-                ByteArrayOutputStream outputstream = new ByteArrayOutputStream(BUFFERSIZE);
+                byte[] buf = new byte[1024];
+                ByteArrayOutputStream outputstream = new ByteArrayOutputStream(1024);
                 while (!this.mIsInterrupte && (num = in.read(buf)) != -1) {
                     try {
                         outputstream.write(buf, 0, num);
@@ -719,7 +719,7 @@ public class NetWorkCore {
                 TiebaLog.i(getClass().getName(), "postNetData", "Get data.zise = " + String.valueOf(output.length));
                 if (encodeing != null && encodeing.contains("gzip")) {
                     ByteArrayInputStream tmpInput = new ByteArrayInputStream(output);
-                    ByteArrayOutputStream tmpOutput = new ByteArrayOutputStream(BUFFERSIZE);
+                    ByteArrayOutputStream tmpOutput = new ByteArrayOutputStream(1024);
                     GzipHelper.decompress(tmpInput, tmpOutput);
                     output = tmpOutput.toByteArray();
                     TiebaLog.i(getClass().getName(), "postNetData", "After ungzip data.zise = " + String.valueOf(output.length));
@@ -836,7 +836,7 @@ public class NetWorkCore {
                 } catch (Exception e21) {
                 }
                 this.mWapRetryConnt = 0;
-                if (this.mIsInterrupte && is_net_error && this.mRetryConnt < 2) {
+                if (this.mIsInterrupte && is_net_error && this.mRetryConnt < 4) {
                     this.mRetryConnt++;
                     return postNetData();
                 }
@@ -986,8 +986,8 @@ public class NetWorkCore {
                 this.mWapRetryConnt = 0;
                 String encodeing = this.mConn.getContentEncoding();
                 in = this.mConn.getInputStream();
-                byte[] buf = new byte[BUFFERSIZE];
-                ByteArrayOutputStream outputstream = new ByteArrayOutputStream(BUFFERSIZE);
+                byte[] buf = new byte[1024];
+                ByteArrayOutputStream outputstream = new ByteArrayOutputStream(1024);
                 while (!this.mIsInterrupte && (num = in.read(buf)) != -1) {
                     try {
                         outputstream.write(buf, 0, num);
@@ -1010,7 +1010,7 @@ public class NetWorkCore {
                 TiebaLog.i("NetWork", "postMultiNetData", "Get data.zise = " + String.valueOf(output.length));
                 if (encodeing != null && encodeing.contains("gzip")) {
                     ByteArrayInputStream tmpInput = new ByteArrayInputStream(output);
-                    ByteArrayOutputStream tmpOutput = new ByteArrayOutputStream(BUFFERSIZE);
+                    ByteArrayOutputStream tmpOutput = new ByteArrayOutputStream(1024);
                     GzipHelper.decompress(tmpInput, tmpOutput);
                     output = tmpOutput.toByteArray();
                 }
@@ -1167,7 +1167,7 @@ public class NetWorkCore {
                     mHandler.removeMessages(0, this);
                 }
                 this.mWapRetryConnt = 0;
-                if (this.mIsInterrupte && is_net_error && this.mRetryConnt < 2) {
+                if (this.mIsInterrupte && is_net_error && this.mRetryConnt < 4) {
                     this.mRetryConnt++;
                     return postMultiNetData();
                 }
@@ -1401,7 +1401,7 @@ public class NetWorkCore {
                 return true;
             }
             InputStream in2 = this.mConn.getInputStream();
-            byte[] buf = new byte[BUFFERSIZE];
+            byte[] buf = new byte[1024];
             int datalenth = 0;
             int notify_num = contentLen > 0 ? contentLen / 50 : 0;
             int notify_tmp = 0;

@@ -20,10 +20,12 @@ import android.os.Message;
 import android.os.Process;
 import android.telephony.TelephonyManager;
 import com.baidu.account.AccountProxy;
+import com.baidu.android.pushservice.PushConstants;
 import com.baidu.tieba.account.LoginActivity;
 import com.baidu.tieba.account.PvThread;
 import com.baidu.tieba.data.AccountData;
 import com.baidu.tieba.data.Config;
+import com.baidu.tieba.service.SingleBaUtility;
 import com.baidu.tieba.util.DatabaseService;
 import com.baidu.tieba.util.FaceHelper;
 import com.baidu.tieba.util.FileHelper;
@@ -42,8 +44,12 @@ import java.lang.ref.SoftReference;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class TiebaApplication extends Application {
+    public static final String ACTION_RESPONSE = "com.baidu.push.RESPONSE";
+    public static final String API_KEY = "E6WlY4Adb77DLl93TjaiIhPn";
     private static final String APPUSETIMES = "tdatabaseusetimes";
     public static final int APP_EVENT_LOGIN = 1;
     public static final int APP_PV_STAT = 4;
@@ -52,6 +58,9 @@ public class TiebaApplication extends Application {
     private static final String CLIENT_ID = "client_id";
     private static final String DISPLAY_PHOTO = "display_photo";
     private static final String FROM_ID = "from_id";
+    private static final String LAST_VERSION = "lase_version";
+    private static final String PERMOTED_MESSAGE = "permoted_message";
+    public static final String SECRET_KEY = "N7dmnxd8Njy3Y2l03QOXAsBLhtAVF1V1";
     private static final String TDATABASECREATETIME = "tdatabasecreatetime";
     private static final String UPDATE_NOTIFY_TIME = "update_notify_time";
     public static TiebaApplication app;
@@ -118,6 +127,7 @@ public class TiebaApplication extends Application {
     private boolean mMsgAtmeOn = Config.MSG_DEFAULT_ATME_SWITCH;
     private boolean mMsgReplymeOn = Config.MSG_DEFAULT_REPLYME_SWITCH;
     private boolean mRemindToneOn = Config.MSG_DEFAULT_REMIND_TONE;
+    private boolean mPromotedMessageOn = Config.PROMOTED_DEFAULT;
     private long mMsgReplyme = 0;
     private long mMsgAtme = 0;
     private long mMsgFans = 0;
@@ -131,6 +141,7 @@ public class TiebaApplication extends Application {
         InitFrom();
         initAccountManager();
         initSettings();
+        initMessager();
         clientId = readClientId(this);
         initImei();
         try {
@@ -154,15 +165,22 @@ public class TiebaApplication extends Application {
             if (isBaiduAccountManager()) {
                 BaiduAccountProxy.initAccount(this);
             }
-            if (mAccount != null) {
-                DatabaseService.getSettingData();
-            }
+            DatabaseService.getSettingData();
             this.mSdramImage = new SDRamImage();
             this.mNotificationManager = (NotificationManager) getSystemService("notification");
             PvThread pv = new PvThread(Config.ST_TYPE_OPEN);
             pv.start();
         }
         super.onCreate();
+    }
+
+    private void initMessager() {
+        new Thread(new Runnable() { // from class: com.baidu.tieba.TiebaApplication.3
+            @Override // java.lang.Runnable
+            public void run() {
+                TiebaApplication.this.requestAccessToken();
+            }
+        }).start();
     }
 
     private void initAccountManager() {
@@ -221,6 +239,7 @@ public class TiebaApplication extends Application {
         this.mViewImageQuality = preference.getInt(Config.PREFS_VIEW_IMAGE_QUALITY, 1);
         this.mIsShowImages = preference.getBoolean(Config.PREFS_SHOW_IMAGES, true);
         this.mFontSize = preference.getInt(Config.PREFS_FONT_SIZE, 3);
+        this.mPromotedMessageOn = preference.getBoolean(PERMOTED_MESSAGE, true);
     }
 
     private void InitVersion() {
@@ -554,6 +573,18 @@ public class TiebaApplication extends Application {
         setMsgAtmeOn(true);
     }
 
+    public void setPromotedMessage(boolean promotedTone) {
+        this.mPromotedMessageOn = promotedTone;
+        SharedPreferences preference = getSharedPreferences(Config.SETTINGFILE, 0);
+        SharedPreferences.Editor editor = preference.edit();
+        editor.putBoolean(PERMOTED_MESSAGE, promotedTone);
+        editor.commit();
+    }
+
+    public boolean isPromotedMessageOn() {
+        return this.mPromotedMessageOn;
+    }
+
     public void setMsgTone(boolean msgTone) {
         if (this.mRemindToneOn != msgTone) {
             this.mRemindToneOn = msgTone;
@@ -720,9 +751,9 @@ public class TiebaApplication extends Application {
                     Notification notification = new Notification(R.drawable.icon, "您有新消息了", System.currentTimeMillis());
                     Intent intent = new Intent(this, MainTabActivity.class);
                     if (this.mMsgReplyme > 0 || this.mMsgAtme > 0) {
-                        intent.putExtra(MainTabActivity.GOTO_SORT, true);
+                        intent.putExtra(MainTabActivity.GOTO_TYPE, MainTabActivity.GOTO_SORT);
                     } else if (this.mMsgFans > 0) {
-                        intent.putExtra(MainTabActivity.GOTO_PERSON, true);
+                        intent.putExtra(MainTabActivity.GOTO_TYPE, MainTabActivity.GOTO_PERSON);
                     }
                     intent.putExtra(MainTabActivity.KEY_CLOSE_DIALOG, true);
                     intent.setFlags(872415232);
@@ -803,5 +834,46 @@ public class TiebaApplication extends Application {
                 this.handler.sendMessageDelayed(this.handler.obtainMessage(4), Config.USE_TIME_INTERVAL);
             }
         }
+    }
+
+    public boolean getIsFirstUse() {
+        SharedPreferences preference = getSharedPreferences(Config.SETTINGFILE, 0);
+        String lastVersion = preference.getString(LAST_VERSION, "");
+        return !lastVersion.equals(Config.VERSION);
+    }
+
+    public void setUsed() {
+        SharedPreferences preference = getSharedPreferences(Config.SETTINGFILE, 0);
+        SharedPreferences.Editor editor = preference.edit();
+        editor.putString(LAST_VERSION, Config.VERSION);
+        editor.commit();
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void requestAccessToken() {
+        NetWorkCore mNetWork = new NetWorkCore("http://c.tieba.baidu.com/c/s/igap");
+        String aks = SingleBaUtility.EncryptCode(API_KEY, API_KEY.length());
+        mNetWork.addPostData("ap", Config.TMPDIRNAME);
+        mNetWork.addPostData("os", "android");
+        mNetWork.addPostData("ak", aks);
+        String data = mNetWork.postNetData();
+        if (mNetWork.isRequestSuccess()) {
+            try {
+                JSONObject jo = new JSONObject(data);
+                String accessToken = jo.getString(PushConstants.EXTRA_ACCESS_TOKEN);
+                onBinds(accessToken);
+            } catch (JSONException e) {
+            }
+        }
+    }
+
+    public void onBinds(String strToken) {
+        Intent intent = new Intent(PushConstants.ACTION_METHOD);
+        intent.putExtra(PushConstants.EXTRA_METHOD, PushConstants.METHOD_BIND);
+        intent.putExtra(PushConstants.EXTRA_APP, PendingIntent.getBroadcast(this, 0, new Intent(), 0));
+        intent.putExtra(PushConstants.EXTRA_BIND_NAME, Build.MODEL);
+        intent.putExtra(PushConstants.EXTRA_BIND_STATUS, 0);
+        intent.putExtra(PushConstants.EXTRA_ACCESS_TOKEN, PushConstants.rsaEncrypt(strToken));
+        sendBroadcast(intent);
     }
 }

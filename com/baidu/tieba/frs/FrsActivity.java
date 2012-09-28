@@ -1,5 +1,6 @@
 package com.baidu.tieba.frs;
 
+import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Context;
@@ -27,8 +28,11 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import com.baidu.tieba.BaseActivity;
 import com.baidu.tieba.R;
+import com.baidu.tieba.TiebaApplication;
+import com.baidu.tieba.account.LoginActivity;
 import com.baidu.tieba.data.Config;
 import com.baidu.tieba.data.GoodData;
+import com.baidu.tieba.data.RequestResponseCode;
 import com.baidu.tieba.data.ThreadData;
 import com.baidu.tieba.home.CreateBarActivity;
 import com.baidu.tieba.model.FrsModel;
@@ -67,6 +71,7 @@ public class FrsActivity extends BaseActivity {
     private static final int UPDATA_TYPE_NEXT = 1;
     private static final int UPDATA_TYPE_PREVIOUS = 2;
     private static final int UPDATA_TYPE_REFRESH = 3;
+    private static final int UPDATA_TYPE_SIGN = 6;
     private static final String URL_ST_TYPE = "st_type";
     private String mForumSuffix;
     private static volatile long mPbLoadTime = 0;
@@ -99,8 +104,11 @@ public class FrsActivity extends BaseActivity {
     private ImageView mTitleGood = null;
     private Button mCreateForumBotton = null;
     private FrsLikeAsyncTask mFrsLikeTask = null;
+    private FrsSignAsyncTask mFrsSignTask = null;
     private Menu mMenu = null;
     private String mSource = null;
+    private String mUid = null;
+    private ThreadData mThreanData = null;
     private AlertDialog mDialogGood = null;
     private View mDialogView = null;
     private DialogGoodAdapter mDialogAdapter = null;
@@ -132,6 +140,7 @@ public class FrsActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.frs_activity);
         initUI();
+        this.mUid = TiebaApplication.getCurrentAccount();
         if (savedInstanceState != null) {
             this.mForum = savedInstanceState.getString("name");
             this.mFrom = savedInstanceState.getString(FROM);
@@ -167,12 +176,6 @@ public class FrsActivity extends BaseActivity {
             if (this.mAdapterFrs != null) {
                 this.mAdapterFrs.releaseProgressBar();
             }
-            if (this.mModel != null) {
-                if (this.mModel.getThread_list() != null) {
-                    this.mModel.setThread_list(null);
-                }
-                this.mModel = null;
-            }
             this.mProgress.setVisibility(8);
             System.gc();
         } catch (Exception e) {
@@ -189,12 +192,45 @@ public class FrsActivity extends BaseActivity {
     @Override // android.app.Activity
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        switch (resultCode) {
-            case NetWorkErr.NETWORK_ERR /* -1 */:
-                refresh();
-                return;
-            default:
-                return;
+        if (resultCode == -1) {
+            switch (requestCode) {
+                case RequestResponseCode.REQUEST_LOGIN_WRITE /* 1100001 */:
+                    writeBlog();
+                    return;
+                case RequestResponseCode.REQUEST_LOGIN_LIKE /* 1100002 */:
+                    execLike();
+                    return;
+                case RequestResponseCode.REQUEST_LOGIN_FRS_HOST /* 1100011 */:
+                    gotoPbHost(this.mThreanData);
+                    return;
+                case RequestResponseCode.REQUEST_LOGIN_FRS_REVERSE /* 1100012 */:
+                    gotoPbReverse();
+                    return;
+                case RequestResponseCode.REQUEST_LOGIN_CREATE_BAR /* 1100013 */:
+                    createBar();
+                    return;
+                case RequestResponseCode.REQUEST_LOGIN_SIGN /* 1100014 */:
+                    execSign();
+                    return;
+                case RequestResponseCode.REQUEST_WRITE_NEW /* 1300003 */:
+                    refresh();
+                    return;
+                default:
+                    return;
+            }
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.tieba.BaseActivity, android.app.Activity
+    public void onResume() {
+        super.onResume();
+        String id = TiebaApplication.getCurrentAccount();
+        if (this.mUid == null && id != null && id.length() > 0) {
+            this.mUid = id;
+            if (this.mModel != null && this.mModel.getAnti() != null) {
+                this.mModel.getAnti().setIfpost(1);
+            }
         }
     }
 
@@ -222,9 +258,7 @@ public class FrsActivity extends BaseActivity {
         this.mButtonWrite.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.frs.FrsActivity.2
             @Override // android.view.View.OnClickListener
             public void onClick(View v) {
-                if (FrsActivity.this.mModel != null) {
-                    WriteActivity.startAcitivityForResult(FrsActivity.this, FrsActivity.this.mModel.getForum().getId(), FrsActivity.this.mForum, FrsActivity.this.mModel.getAnti());
-                }
+                FrsActivity.this.writeBlog();
             }
         });
         this.mButtonRefresh = (Button) findViewById(R.id.frs_bt_refresh);
@@ -300,10 +334,33 @@ public class FrsActivity extends BaseActivity {
         this.mCreateForumBotton.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.frs.FrsActivity.7
             @Override // android.view.View.OnClickListener
             public void onClick(View arg0) {
-                CreateBarActivity.startActivity(FrsActivity.this, FrsActivity.this.mForum, true);
-                FrsActivity.this.finish();
+                FrsActivity.this.createBar();
             }
         });
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void createBar() {
+        String id = TiebaApplication.getCurrentAccount();
+        if (id == null || id.length() <= 0) {
+            LoginActivity.startActivity((Activity) this, getString(R.string.login_to_use), true, (int) RequestResponseCode.REQUEST_LOGIN_CREATE_BAR);
+            return;
+        }
+        CreateBarActivity.startActivity(this, this.mForum, true);
+        finish();
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void writeBlog() {
+        String id = TiebaApplication.getCurrentAccount();
+        if (id == null || id.length() <= 0) {
+            if (this.mModel != null && this.mModel.getAnti() != null) {
+                this.mModel.getAnti().setIfpost(1);
+            }
+            LoginActivity.startActivity((Activity) this, getString(R.string.login_to_use), true, (int) RequestResponseCode.REQUEST_LOGIN_WRITE);
+        } else if (this.mModel != null) {
+            WriteActivity.startAcitivityForResult(this, this.mModel.getForum().getId(), this.mForum, this.mModel.getAnti());
+        }
     }
 
     private boolean isAnonymityUser(ThreadData thread) {
@@ -312,8 +369,8 @@ public class FrsActivity extends BaseActivity {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void prepareFrsMenuDialog(ThreadData thread) {
-        final boolean isAnonymous = isAnonymityUser(thread);
+    public void prepareFrsMenuDialog(final ThreadData thread) {
+        boolean isAnonymous = isAnonymityUser(thread);
         DialogInterface.OnClickListener menuFrsListener = new DialogInterface.OnClickListener() { // from class: com.baidu.tieba.frs.FrsActivity.8
             @Override // android.content.DialogInterface.OnClickListener
             public void onClick(DialogInterface dialog, int item) {
@@ -325,21 +382,10 @@ public class FrsActivity extends BaseActivity {
                         }
                         return;
                     case 1:
-                        if (FrsActivity.this.mThreadId != null) {
-                            if (!isAnonymous) {
-                                PbActivity.startAcitivity(FrsActivity.this, FrsActivity.this.mThreadId, true, true, "tb_frslist");
-                                return;
-                            } else {
-                                PbActivity.startAcitivity(FrsActivity.this, FrsActivity.this.mThreadId, false, false, "tb_frslist");
-                                return;
-                            }
-                        }
+                        FrsActivity.this.gotoPbHost(thread);
                         return;
                     case 2:
-                        if (FrsActivity.this.mThreadId != null) {
-                            PbActivity.startAcitivity(FrsActivity.this, FrsActivity.this.mThreadId, false, false, "tb_frslist");
-                            return;
-                        }
+                        FrsActivity.this.gotoPbReverse();
                         return;
                     default:
                         return;
@@ -358,6 +404,34 @@ public class FrsActivity extends BaseActivity {
         }
         this.mMenuFrs = builderLike.create();
         this.mMenuFrs.setCanceledOnTouchOutside(true);
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void gotoPbHost(ThreadData thread) {
+        String id = TiebaApplication.getCurrentAccount();
+        if (id == null || id.length() <= 0) {
+            this.mThreanData = thread;
+            LoginActivity.startActivity((Activity) this, getString(R.string.login_to_use), true, (int) RequestResponseCode.REQUEST_LOGIN_FRS_HOST);
+            return;
+        }
+        boolean isAnonymous = isAnonymityUser(thread);
+        if (this.mThreadId != null) {
+            if (!isAnonymous) {
+                PbActivity.startAcitivity(this, this.mThreadId, true, true, "tb_frslist");
+            } else {
+                PbActivity.startAcitivity(this, this.mThreadId, false, false, "tb_frslist");
+            }
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void gotoPbReverse() {
+        String id = TiebaApplication.getCurrentAccount();
+        if (id == null || id.length() <= 0) {
+            LoginActivity.startActivity((Activity) this, getString(R.string.login_to_use), true, (int) RequestResponseCode.REQUEST_LOGIN_FRS_REVERSE);
+        } else if (this.mThreadId != null) {
+            PbActivity.startAcitivity(this, this.mThreadId, false, false, "tb_frslist");
+        }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -472,9 +546,28 @@ public class FrsActivity extends BaseActivity {
         this.mFrsTask.execute(address.toString(), param);
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
+    public void execSign() {
+        String id = TiebaApplication.getCurrentAccount();
+        if (id == null || id.length() <= 0) {
+            LoginActivity.startActivity((Activity) this, getString(R.string.login_to_use), true, (int) RequestResponseCode.REQUEST_LOGIN_SIGN);
+        } else if (this.mModel != null) {
+            if (!this.mAdapterFrs.getIsProcessPre() || this.mType != 6) {
+                String address = String.valueOf("") + "http://c.tieba.baidu.com/c/c/forum/sign";
+                ArrayList<BasicNameValuePair> param = new ArrayList<>();
+                BasicNameValuePair tmp = new BasicNameValuePair("kw", this.mForum);
+                param.add(tmp);
+                cancelAsyncTask();
+                this.mFrsSignTask = new FrsSignAsyncTask(address.toString(), param, this.mType);
+                this.mFrsSignTask.execute(address.toString(), param);
+            }
+        }
+    }
+
     public void execLike() {
-        if (this.mModel != null) {
+        String id = TiebaApplication.getCurrentAccount();
+        if (id == null || id.length() <= 0) {
+            LoginActivity.startActivity((Activity) this, getString(R.string.login_to_use), true, (int) RequestResponseCode.REQUEST_LOGIN_LIKE);
+        } else if (this.mModel != null) {
             if (!this.mAdapterFrs.getIsProcessPre() || this.mType != 4) {
                 int isLike = this.mModel.getForum().isIs_like();
                 StringBuffer address = new StringBuffer(30);
@@ -545,9 +638,24 @@ public class FrsActivity extends BaseActivity {
                 ArrayList<ThreadData> list = this.mModel.getThread_list();
                 if (list != null) {
                     this.mAdapterFrs.setData(list);
-                    if (this.mPn == 1 && this.mModel.getForum().isIs_like() == 0 && this.mIsGood == 0 && this.mModel.getThread_list().size() > 0) {
+                    if (this.mPn == 1 && this.mIsGood == 0 && this.mModel.getThread_list().size() > 0) {
                         this.mAdapterFrs.setHaveHeader(true);
                         this.mAdapterFrs.setHeaderType(1);
+                        if (this.mModel.getForum().getSignData().getForumRank() == -1) {
+                            if (this.mModel.getForum().isIs_like() == 0) {
+                                this.mAdapterFrs.setOnlyLike(false);
+                            } else {
+                                this.mAdapterFrs.setHaveHeader(false);
+                            }
+                        } else if (this.mModel.getForum().isIs_like() == 0 && this.mModel.getForum().getSignData().getSigned() == 0) {
+                            this.mAdapterFrs.setLikeSign(false, false);
+                        } else if (this.mModel.getForum().isIs_like() != 0 && this.mModel.getForum().getSignData().getSigned() == 0) {
+                            this.mAdapterFrs.setOnlySigned(false, String.valueOf(this.mModel.getForum().getSignData().getForumRank()));
+                        } else if (this.mModel.getForum().isIs_like() == 0 && this.mModel.getForum().getSignData().getSigned() != 0) {
+                            this.mAdapterFrs.setOnlyLike(false);
+                        } else {
+                            this.mAdapterFrs.setHaveHeader(false);
+                        }
                     } else if (this.mPn > 1) {
                         this.mAdapterFrs.setHaveHeader(true);
                         this.mAdapterFrs.setHeaderType(2);
@@ -565,7 +673,7 @@ public class FrsActivity extends BaseActivity {
                     if (this.mType == 1) {
                         this.mListFrs.setSelection(1);
                     } else if (this.mAdapterFrs.getHaveHeader()) {
-                        this.mListFrs.setSelection(1);
+                        this.mListFrs.setSelection(0);
                     } else {
                         this.mListFrs.setSelection(0);
                     }
@@ -591,6 +699,10 @@ public class FrsActivity extends BaseActivity {
         if (this.mFrsLikeTask != null) {
             this.mFrsLikeTask.cancel();
             this.mFrsLikeTask = null;
+        }
+        if (this.mFrsSignTask != null) {
+            this.mFrsSignTask.cancel();
+            this.mFrsSignTask = null;
         }
         setIsRefresh(false);
         this.mAdapterFrs.setIsProcessNext(false);
@@ -764,6 +876,103 @@ public class FrsActivity extends BaseActivity {
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
+    public class FrsSignAsyncTask extends AsyncTask<Object, Integer, Integer> {
+        ArrayList<BasicNameValuePair> mParams;
+        private int mUpdateType;
+        private String mUrl;
+        private NetWork mNetwork = null;
+        private String result = null;
+
+        public FrsSignAsyncTask(String url, ArrayList<BasicNameValuePair> param, int type) {
+            this.mUrl = null;
+            this.mUpdateType = 3;
+            this.mParams = null;
+            this.mUrl = url;
+            this.mParams = param;
+            this.mUpdateType = type;
+        }
+
+        @Override // android.os.AsyncTask
+        protected void onPreExecute() {
+            FrsActivity.this.setIsRefresh(true);
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        /* JADX INFO: Access modifiers changed from: protected */
+        /* JADX WARN: Can't rename method to resolve collision */
+        @Override // android.os.AsyncTask
+        public Integer doInBackground(Object... arg0) {
+            int i;
+            try {
+                this.mNetwork = new NetWork(this.mUrl);
+                this.mNetwork.setPostData(this.mParams);
+                this.mNetwork.setIsNeedTbs(true);
+                this.mNetwork.setContext(FrsActivity.this);
+                this.result = this.mNetwork.postNetData();
+                if (this.mNetwork.isNetSuccess()) {
+                    int errCode = this.mNetwork.getErrorCode();
+                    if (errCode == 0) {
+                        i = 0;
+                    } else if (errCode == 160002) {
+                        i = Integer.valueOf((int) NetWorkErr.HAVE_SIGNED);
+                    } else {
+                        i = -1;
+                    }
+                } else {
+                    i = -1;
+                }
+                return i;
+            } catch (Exception ex) {
+                TiebaLog.e(getClass().getName(), "", "FrsAsyncTask.doInBackground error = " + ex.getMessage());
+                return -1;
+            }
+        }
+
+        public void cancel() {
+            if (this.mNetwork != null) {
+                this.mNetwork.cancelNetConnect();
+                this.mNetwork = null;
+            }
+            super.cancel(true);
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        /* JADX INFO: Access modifiers changed from: protected */
+        @Override // android.os.AsyncTask
+        public void onPostExecute(Integer data) {
+            switch (this.mUpdateType) {
+                case 4:
+                    FrsActivity.this.mAdapterFrs.setIsProcessPre(false);
+                    FrsActivity.this.mAdapterFrs.notifyDataSetChanged();
+                    break;
+            }
+            if (data.intValue() == 0) {
+                FrsActivity.this.mModel.getForum().getSignData().parserJson(this.result);
+                String rank = String.valueOf(FrsActivity.this.mModel.getForum().getSignData().getUserSignRank());
+                if (FrsActivity.this.mModel.getForum().isIs_like() == 0) {
+                    FrsActivity.this.mAdapterFrs.setSign(true);
+                    FrsActivity.this.mAdapterFrs.notifyDataSetChanged();
+                    String toast = FrsActivity.this.getResources().getString(R.string.sign_success_toast);
+                    FrsActivity.this.showToast(toast.replace("?", rank));
+                } else {
+                    FrsActivity.this.mAdapterFrs.setOnlySigned(true, rank);
+                    FrsActivity.this.mAdapterFrs.notifyDataSetChanged();
+                }
+            } else {
+                if (data.intValue() == 160002) {
+                    FrsActivity.this.mAdapterFrs.setSign(true);
+                    FrsActivity.this.mAdapterFrs.notifyDataSetChanged();
+                    FrsActivity.this.mModel.getForum().getSignData().setIsSigned(1);
+                }
+                FrsActivity.this.showToast(this.mNetwork.getErrorString());
+            }
+            FrsActivity.this.setIsRefresh(false);
+            FrsActivity.this.mFrsSignTask = null;
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    /* loaded from: classes.dex */
     public class FrsLikeAsyncTask extends AsyncTask<Object, Integer, Integer> {
         private NetWork mNetwork = null;
         ArrayList<BasicNameValuePair> mParams;
@@ -783,8 +992,7 @@ public class FrsActivity extends BaseActivity {
         protected void onPreExecute() {
             switch (this.mUpdateType) {
                 case 4:
-                    FrsActivity.this.mAdapterFrs.setIsProcessPre(true);
-                    FrsActivity.this.mAdapterFrs.notifyDataSetChanged();
+                    FrsActivity.this.setIsRefresh(true);
                     return;
                 default:
                     return;
@@ -796,19 +1004,30 @@ public class FrsActivity extends BaseActivity {
         /* JADX WARN: Can't rename method to resolve collision */
         @Override // android.os.AsyncTask
         public Integer doInBackground(Object... params) {
+            int i;
             try {
                 this.mNetwork = new NetWork(this.mUrl);
                 this.mNetwork.setPostData(this.mParams);
                 this.mNetwork.setIsNeedTbs(true);
                 this.mNetwork.setContext(FrsActivity.this);
                 this.mNetwork.postNetData();
-                if (this.mNetwork.isRequestSuccess()) {
-                    return 0;
+                if (this.mNetwork.isNetSuccess()) {
+                    int errCode = this.mNetwork.getErrorCode();
+                    if (errCode == 0) {
+                        i = 0;
+                    } else if (errCode == 22) {
+                        i = -2;
+                    } else {
+                        i = -1;
+                    }
+                } else {
+                    i = -1;
                 }
+                return i;
             } catch (Exception ex) {
                 TiebaLog.e(getClass().getName(), "", "FrsAsyncTask.doInBackground error = " + ex.getMessage());
+                return -1;
             }
-            return -1;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -822,15 +1041,25 @@ public class FrsActivity extends BaseActivity {
                     break;
             }
             if (data.intValue() == 0) {
-                int isLike = FrsActivity.this.mModel.getForum().isIs_like();
-                int isLike2 = isLike == 1 ? 0 : 1;
-                FrsActivity.this.mModel.getForum().setIs_like(isLike2);
-                FrsActivity.this.showToast(FrsActivity.this.getString(R.string.success));
-                FrsActivity.this.refreshFrs();
+                int isLike = FrsActivity.this.mModel.getForum().isIs_like() == 1 ? 0 : 1;
+                FrsActivity.this.mModel.getForum().setIs_like(isLike);
+                if (isLike == 1) {
+                    FrsActivity.this.showToast(FrsActivity.this.getString(R.string.like_success));
+                } else {
+                    FrsActivity.this.showToast(FrsActivity.this.getString(R.string.success));
+                }
+                FrsActivity.this.mAdapterFrs.setLike(true);
+                FrsActivity.this.mAdapterFrs.notifyDataSetChanged();
+            } else if (data.intValue() == -2) {
+                FrsActivity.this.mModel.getForum().setIs_like(1);
+                FrsActivity.this.showToast(this.mNetwork.getErrorString());
+                FrsActivity.this.mAdapterFrs.setLike(true);
+                FrsActivity.this.mAdapterFrs.notifyDataSetChanged();
             } else {
                 FrsActivity.this.showToast(this.mNetwork.getErrorString());
             }
-            FrsActivity.this.mFrsTask = null;
+            FrsActivity.this.setIsRefresh(false);
+            FrsActivity.this.mFrsLikeTask = null;
         }
 
         @Override // android.os.AsyncTask
@@ -939,10 +1168,7 @@ public class FrsActivity extends BaseActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case 0:
-                if (this.mModel != null) {
-                    WriteActivity.startAcitivityForResult(this, this.mModel.getForum().getId(), this.mForum, this.mModel.getAnti());
-                    break;
-                }
+                writeBlog();
                 break;
             case 1:
                 if (this.mForum != null && this.mForum.length() > 0) {

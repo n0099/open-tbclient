@@ -2,6 +2,7 @@ package com.baidu.tieba.data;
 
 import android.content.Context;
 import android.text.ClipboardManager;
+import com.baidu.android.pushservice.PushConstants;
 import com.baidu.tieba.R;
 import com.baidu.tieba.util.FaceHelper;
 import com.baidu.tieba.util.TiebaLog;
@@ -193,7 +194,7 @@ public class PostData {
                 this.floor_num = json.optInt("floor", 0);
                 this.time = json.optLong("time", 0L) * 1000;
                 this.author.parserJson(json.optJSONObject("author"));
-                JSONArray list = json.optJSONArray("content");
+                JSONArray list = json.optJSONArray(PushConstants.EXTRA_CONTENT);
                 this.subPostNum = json.optInt("sub_post_number");
                 if (list != null) {
                     for (int i = 0; i < list.length(); i++) {

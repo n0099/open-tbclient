@@ -7,7 +7,6 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import com.baidu.tieba.BaseActivity;
@@ -43,7 +42,6 @@ public class ImageActivity extends BaseActivity {
     private Button mZoomIn = null;
     private Button mZoomOut = null;
     private ProgressBar mLoadProgress = null;
-    private LinearLayout mTitle = null;
 
     public static void startActivity(Context context, ArrayList<String> data, int index) {
         Intent intent = new Intent(context, ImageActivity.class);
@@ -91,7 +89,6 @@ public class ImageActivity extends BaseActivity {
 
     private void InitUI() {
         this.mLoadProgress = (ProgressBar) findViewById(R.id.load_progress);
-        this.mTitle = (LinearLayout) findViewById(R.id.title);
         this.mZoomIn = (Button) findViewById(R.id.zoomin);
         this.mZoomIn.setEnabled(false);
         this.mZoomOut = (Button) findViewById(R.id.zoomout);
@@ -102,13 +99,11 @@ public class ImageActivity extends BaseActivity {
         this.mImageView.setImageOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pb.ImageActivity.1
             @Override // android.view.View.OnClickListener
             public void onClick(View arg0) {
-                if (ImageActivity.this.mTitle.getVisibility() != 0) {
-                    ImageActivity.this.mTitle.setVisibility(0);
+                if (ImageActivity.this.mTools.getVisibility() != 0) {
                     ImageActivity.this.mTools.setVisibility(0);
-                    return;
+                } else {
+                    ImageActivity.this.mTools.setVisibility(8);
                 }
-                ImageActivity.this.mTitle.setVisibility(8);
-                ImageActivity.this.mTools.setVisibility(8);
             }
         });
         this.mImageView.setOnSizeChangedListener(new DragImageView.OnSizeChangedListener() { // from class: com.baidu.tieba.pb.ImageActivity.2

@@ -31,14 +31,17 @@ import android.widget.ListAdapter;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import com.baidu.android.pushservice.PushConstants;
 import com.baidu.tieba.BaseActivity;
 import com.baidu.tieba.R;
 import com.baidu.tieba.TiebaApplication;
+import com.baidu.tieba.account.LoginActivity;
 import com.baidu.tieba.data.AntiData;
 import com.baidu.tieba.data.ChunkUploadData;
 import com.baidu.tieba.data.ChunkUploadResult;
 import com.baidu.tieba.data.Config;
 import com.baidu.tieba.data.InfoData;
+import com.baidu.tieba.data.RequestResponseCode;
 import com.baidu.tieba.data.VcodeInfoData;
 import com.baidu.tieba.model.WriteModel;
 import com.baidu.tieba.service.TiebaPrepareImageService;
@@ -64,9 +67,6 @@ public class WriteActivity extends BaseActivity {
     private static final String FORUM_ID = "forum_id";
     private static final String FORUM_NAME = "forum_name";
     private static final String REPLY_SUB_PB = "reply_sub_pb";
-    public static final int REQUEST_CODE_NEW = 103;
-    public static final int REQUEST_CODE_REPLY = 102;
-    public static final int REQUEST_CODE_REPLY_FLOOR = 101;
     private static final String THREAD_ID = "thread_id";
     private static final String TYPE = "type";
     private WriteModel mModel = null;
@@ -152,30 +152,30 @@ public class WriteActivity extends BaseActivity {
     };
 
     public static void startAcitivityForResult(Activity context, String forumId, String forumName, AntiData anti) {
-        startAcitivityForResult(context, WriteModel.NEW, forumId, forumName, null, null, 0, anti, 103, false, false);
+        startAcitivityForResult(context, WriteModel.NEW, forumId, forumName, null, null, 0, anti, RequestResponseCode.REQUEST_WRITE_NEW, false, false);
     }
 
     public static void startAcitivity(Activity context, String forumId, String forumName, AntiData anti) {
-        startAcitivityForResult(context, WriteModel.NEW, forumId, forumName, null, null, 0, anti, 103, false, false);
+        startAcitivityForResult(context, WriteModel.NEW, forumId, forumName, null, null, 0, anti, RequestResponseCode.REQUEST_WRITE_NEW, false, false);
     }
 
     public static void startActivityFeedBack(Activity context, String forumId, String forumName, AntiData anti) {
-        startAcitivityForResult(context, WriteModel.NEW, forumId, forumName, null, null, 0, anti, 103, true, false);
+        startAcitivityForResult(context, WriteModel.NEW, forumId, forumName, null, null, 0, anti, RequestResponseCode.REQUEST_WRITE_NEW, true, false);
     }
 
     public static void startAcitivity(Activity context, String forumId, String forumName, String threadId, String floorId, int floorNum, AntiData anti) {
         if (floorId != null) {
-            startAcitivityForResult(context, WriteModel.REPLY_FLOOR, forumId, forumName, threadId, floorId, floorNum, anti, 101, false, false);
+            startAcitivityForResult(context, WriteModel.REPLY_FLOOR, forumId, forumName, threadId, floorId, floorNum, anti, RequestResponseCode.REQUEST_WRITE_REPLY_FLOOR, false, false);
         } else {
-            startAcitivityForResult(context, WriteModel.REPLY, forumId, forumName, threadId, floorId, floorNum, anti, 102, false, false);
+            startAcitivityForResult(context, WriteModel.REPLY, forumId, forumName, threadId, floorId, floorNum, anti, RequestResponseCode.REQUEST_WRITE_REPLY, false, false);
         }
     }
 
     public static void startAcitivity(Activity context, String forumId, String forumName, String threadId, String floorId, int floorNum, AntiData anti, boolean isReplySubPb) {
         if (floorId != null) {
-            startAcitivityForResult(context, WriteModel.REPLY_FLOOR, forumId, forumName, threadId, floorId, floorNum, anti, 101, false, isReplySubPb);
+            startAcitivityForResult(context, WriteModel.REPLY_FLOOR, forumId, forumName, threadId, floorId, floorNum, anti, RequestResponseCode.REQUEST_WRITE_REPLY_FLOOR, false, isReplySubPb);
         } else {
-            startAcitivityForResult(context, WriteModel.REPLY, forumId, forumName, threadId, floorId, floorNum, anti, 102, false, isReplySubPb);
+            startAcitivityForResult(context, WriteModel.REPLY, forumId, forumName, threadId, floorId, floorNum, anti, RequestResponseCode.REQUEST_WRITE_REPLY, false, isReplySubPb);
         }
     }
 
@@ -477,7 +477,7 @@ public class WriteActivity extends BaseActivity {
                 if (WriteActivity.this.mGridView.getVisibility() == 0) {
                     WriteActivity.this.mGridView.setVisibility(8);
                 }
-                AtListActivity.startActivityForResult(WriteActivity.this, WriteUtil.REQUEST_AT_SELECT);
+                AtListActivity.startActivityForResult(WriteActivity.this, (int) RequestResponseCode.REQUEST_AT_SELECT);
             }
         });
         this.mPost.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.write.WriteActivity.15
@@ -656,21 +656,21 @@ public class WriteActivity extends BaseActivity {
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if (resultCode == -1) {
-            if (requestCode == WriteUtil.REQUEST_IMAGE_VIEW) {
+            if (requestCode == 1200003) {
                 boolean del = data.getBooleanExtra(WriteImageActivity.DELET_FLAG, false);
                 if (del) {
                     this.mBitmap = null;
                     this.mImage.setVisibility(8);
                 }
                 refreshPostButton();
-            } else if (requestCode == WriteUtil.REQUEST_AT_SELECT) {
+            } else if (requestCode == 1200004) {
                 String name = AtListActivity.getName(data);
                 if (name != null) {
                     String str = "@" + name + " ";
                     int pos = this.mPostContent.getSelectionStart();
                     this.mPostContent.getText().insert(pos, str);
                 }
-            } else if (requestCode == WriteUtil.REQUEST_VCODE) {
+            } else if (requestCode == 1200005) {
                 DatabaseService.deleteDraftBox(this.mModel);
                 setResult(-1);
                 finish();
@@ -680,7 +680,7 @@ public class WriteActivity extends BaseActivity {
                 }
                 this.mImageTask = null;
                 startLoadImage();
-                if (requestCode == WriteUtil.REQUEST_ALBUM_IMAGE && data != null) {
+                if (requestCode == 1200002 && data != null) {
                     TiebaPrepareImageService.StartService(requestCode, data.getData(), TiebaApplication.app.getPostImageSize());
                 } else {
                     TiebaPrepareImageService.StartService(requestCode, null, TiebaApplication.app.getPostImageSize());
@@ -808,7 +808,7 @@ public class WriteActivity extends BaseActivity {
                     e = e2;
                 }
                 try {
-                    info.parserJson(json.optJSONObject("info"));
+                    info.parserJson(json.optJSONObject(LoginActivity.INFO));
                     this.mDate.setBitmapId(info);
                 } catch (IOException e3) {
                     e = e3;
@@ -832,7 +832,7 @@ public class WriteActivity extends BaseActivity {
             if (this.mDate.getBitmapId() != null && this.mDate.getBitmapId().getPic_id() != null && this.mDate.getBitmapId().getPic_id().length() > 0) {
                 pic_str = String.format("#(pic,%s,%d,%d)", this.mDate.getBitmapId().getPic_id(), Integer.valueOf(this.mDate.getBitmapId().getWidth()), Integer.valueOf(this.mDate.getBitmapId().getHeight()));
             }
-            this.mNetwork.addPostData("content", String.valueOf(this.mDate.getContent()) + pic_str);
+            this.mNetwork.addPostData(PushConstants.EXTRA_CONTENT, String.valueOf(this.mDate.getContent()) + pic_str);
             if (this.mDate.getVcode() != null && this.mDate.getVcode().length() > 0) {
                 this.mNetwork.addPostData("vcode", this.mDate.getVcode());
             }
@@ -872,7 +872,7 @@ public class WriteActivity extends BaseActivity {
                 if (info.getVcode_pic_url() != null) {
                     WriteActivity.this.mModel.setVcodeMD5(info.getVcode_md5());
                     WriteActivity.this.mModel.setVcodeUrl(info.getVcode_pic_url());
-                    VcodeActivity.startActivityForResult(WriteActivity.this, WriteActivity.this.mModel, WriteUtil.REQUEST_VCODE);
+                    VcodeActivity.startActivityForResult(WriteActivity.this, WriteActivity.this.mModel, (int) RequestResponseCode.REQUEST_VCODE);
                     return;
                 }
                 WriteActivity.this.showToast(errorString);

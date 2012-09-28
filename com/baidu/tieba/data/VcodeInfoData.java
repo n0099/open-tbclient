@@ -1,5 +1,6 @@
 package com.baidu.tieba.data;
 
+import com.baidu.tieba.account.LoginActivity;
 import com.baidu.tieba.util.TiebaLog;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
@@ -26,7 +27,7 @@ public class VcodeInfoData {
     public void parserJson(String str) {
         try {
             JSONObject json = new JSONObject(str);
-            JSONObject data = json.optJSONObject("info");
+            JSONObject data = json.optJSONObject(LoginActivity.INFO);
             if (data == null) {
                 data = json.optJSONObject("anti");
             }

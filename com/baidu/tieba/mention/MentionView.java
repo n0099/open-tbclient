@@ -215,6 +215,12 @@ public class MentionView {
         }
     }
 
+    public void refresh() {
+        this.mPn = 1;
+        this.mUpdateType = 3;
+        show();
+    }
+
     public void init() {
         this.mPn = 1;
         this.mAdapter = new MentionAdapter(this.mActivity, null);
@@ -228,9 +234,7 @@ public class MentionView {
                 MentionAdapter adapter = (MentionAdapter) tmpList.getAdapter();
                 long index = adapter.getItemId(arg2);
                 if (index == -1) {
-                    MentionView.this.mPn = 1;
-                    MentionView.this.mUpdateType = 3;
-                    MentionView.this.show();
+                    MentionView.this.refresh();
                 } else if (index == -2) {
                     MentionView.this.mPn++;
                     MentionView.this.mUpdateType = 4;
@@ -343,6 +347,10 @@ public class MentionView {
             params.add(tmp3);
         }
         cancelUpdate();
+        if (this.mTask != null) {
+            this.mTask.cancel();
+            this.mTask = null;
+        }
         this.mTask = new MentionAsyncTask(address.toString(), params, this.mAdapter);
         this.mTask.execute(address.toString(), params);
     }
@@ -368,7 +376,10 @@ public class MentionView {
                 ArrayList<FeedData> list2 = this.mModel.getFeed_list();
                 if (list2 != null) {
                     this.mAdapter.setData(list2);
-                    this.mAdapter.notifyDataSetInvalidated();
+                    this.mAdapter.notifyDataSetChanged();
+                    if (this.mUpdateType == 2 || this.mUpdateType == 3) {
+                        this.mList.setSelectionFromTop(0, 0);
+                    }
                     if (list2.size() == 0) {
                         this.mTextNoData.setVisibility(0);
                         this.mTextNoData.setText(this.mNoDataText);
@@ -435,22 +446,7 @@ public class MentionView {
 
         @Override // android.os.AsyncTask
         protected void onPreExecute() {
-            switch (MentionView.this.mUpdateType) {
-                case 1:
-                case 2:
-                    MentionView.this.mProgress.setVisibility(0);
-                    return;
-                case 3:
-                    this.mAdapter.setIsRefresh(true);
-                    this.mAdapter.notifyDataSetChanged();
-                    return;
-                case 4:
-                    this.mAdapter.setIsGetmore(true);
-                    this.mAdapter.notifyDataSetChanged();
-                    return;
-                default:
-                    return;
-            }
+            updataWidget(true);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -490,24 +486,42 @@ public class MentionView {
             }
         }
 
+        private void updataWidget(boolean start) {
+            if (start) {
+                switch (MentionView.this.mUpdateType) {
+                    case 1:
+                    case 2:
+                    case 3:
+                        MentionView.this.mProgress.setVisibility(0);
+                        return;
+                    case 4:
+                        this.mAdapter.setIsGetmore(true);
+                        this.mAdapter.notifyDataSetChanged();
+                        return;
+                    default:
+                        return;
+                }
+            }
+            switch (MentionView.this.mUpdateType) {
+                case 1:
+                case 2:
+                case 3:
+                    MentionView.this.mProgress.setVisibility(8);
+                    return;
+                case 4:
+                    this.mAdapter.setIsGetmore(false);
+                    this.mAdapter.notifyDataSetChanged();
+                    return;
+                default:
+                    return;
+            }
+        }
+
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // android.os.AsyncTask
         public void onPostExecute(MentionModel model) {
-            switch (MentionView.this.mUpdateType) {
-                case 1:
-                case 2:
-                    MentionView.this.mProgress.setVisibility(8);
-                    break;
-                case 3:
-                    this.mAdapter.setIsRefresh(false);
-                    this.mAdapter.notifyDataSetChanged();
-                    break;
-                case 4:
-                    this.mAdapter.setIsGetmore(false);
-                    this.mAdapter.notifyDataSetChanged();
-                    break;
-            }
+            updataWidget(false);
             if (model == null && this.mNetwork != null) {
                 if (this.mNetwork.isNetSuccess()) {
                     MentionView.this.mActivity.showToast(this.mNetwork.getErrorString());
@@ -532,8 +546,9 @@ public class MentionView {
         public void cancel() {
             if (this.mNetwork != null) {
                 this.mNetwork.cancelNetConnect();
-                this.mNetwork = null;
             }
+            updataWidget(false);
+            MentionView.this.mTask = null;
             super.cancel(true);
         }
     }
