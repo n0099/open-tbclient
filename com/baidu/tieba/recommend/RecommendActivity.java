@@ -127,10 +127,6 @@ public class RecommendActivity extends BaseActivity implements BaseWebView.OnLoa
     @Override // com.baidu.tieba.BaseActivity, android.app.Activity
     public void onPause() {
         this.mHandler.removeCallbacks(this.playRunnable);
-        if (this.webview != null) {
-            BaseWebView.disablePlatformNotifications();
-            this.webview.pauseTimers();
-        }
         super.onPause();
     }
 
@@ -148,10 +144,6 @@ public class RecommendActivity extends BaseActivity implements BaseWebView.OnLoa
     public void onResume() {
         this.mHandler.removeCallbacks(this.playRunnable);
         this.mHandler.postDelayed(this.playRunnable, 2000L);
-        if (this.webview != null) {
-            this.webview.resumeTimers();
-            BaseWebView.enablePlatformNotifications();
-        }
         String id = TiebaApplication.getCurrentAccount();
         if (id != null && id.length() > 0) {
             this.loginButton.setVisibility(4);
@@ -595,8 +587,13 @@ public class RecommendActivity extends BaseActivity implements BaseWebView.OnLoa
     }
 
     public void resetProxy(int type) {
-        BaseWebView.disablePlatformNotifications();
-        BaseWebView.enablePlatformNotifications();
+        try {
+            TiebaLog.e(getClass().getName(), "resetProxy", "-------");
+            BaseWebView.disablePlatformNotifications();
+            BaseWebView.enablePlatformNotifications();
+        } catch (Exception e) {
+            TiebaLog.e(getClass().getName(), "resetProxy", e.getMessage());
+        }
     }
 
     @Override // com.baidu.tieba.view.BaseWebView.OnLoadUrlListener

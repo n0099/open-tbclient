@@ -109,6 +109,7 @@ public class FrsActivity extends BaseActivity {
     private String mSource = null;
     private String mUid = null;
     private ThreadData mThreanData = null;
+    private boolean isSigning = false;
     private AlertDialog mDialogGood = null;
     private View mDialogView = null;
     private DialogGoodAdapter mDialogAdapter = null;
@@ -547,19 +548,18 @@ public class FrsActivity extends BaseActivity {
     }
 
     public void execSign() {
+        this.mType = 6;
         String id = TiebaApplication.getCurrentAccount();
         if (id == null || id.length() <= 0) {
             LoginActivity.startActivity((Activity) this, getString(R.string.login_to_use), true, (int) RequestResponseCode.REQUEST_LOGIN_SIGN);
-        } else if (this.mModel != null) {
-            if (!this.mAdapterFrs.getIsProcessPre() || this.mType != 6) {
-                String address = String.valueOf("") + "http://c.tieba.baidu.com/c/c/forum/sign";
-                ArrayList<BasicNameValuePair> param = new ArrayList<>();
-                BasicNameValuePair tmp = new BasicNameValuePair("kw", this.mForum);
-                param.add(tmp);
-                cancelAsyncTask();
-                this.mFrsSignTask = new FrsSignAsyncTask(address.toString(), param, this.mType);
-                this.mFrsSignTask.execute(address.toString(), param);
-            }
+        } else if (this.mModel != null && !this.isSigning) {
+            String address = String.valueOf("") + "http://c.tieba.baidu.com/c/c/forum/sign";
+            ArrayList<BasicNameValuePair> param = new ArrayList<>();
+            BasicNameValuePair tmp = new BasicNameValuePair("kw", this.mForum);
+            param.add(tmp);
+            cancelAsyncTask();
+            this.mFrsSignTask = new FrsSignAsyncTask(address.toString(), param, this.mType);
+            this.mFrsSignTask.execute(address.toString(), param);
         }
     }
 
@@ -895,6 +895,7 @@ public class FrsActivity extends BaseActivity {
         @Override // android.os.AsyncTask
         protected void onPreExecute() {
             FrsActivity.this.setIsRefresh(true);
+            FrsActivity.this.isSigning = true;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -933,6 +934,7 @@ public class FrsActivity extends BaseActivity {
                 this.mNetwork.cancelNetConnect();
                 this.mNetwork = null;
             }
+            FrsActivity.this.isSigning = false;
             super.cancel(true);
         }
 
@@ -940,6 +942,7 @@ public class FrsActivity extends BaseActivity {
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // android.os.AsyncTask
         public void onPostExecute(Integer data) {
+            FrsActivity.this.isSigning = false;
             switch (this.mUpdateType) {
                 case 4:
                     FrsActivity.this.mAdapterFrs.setIsProcessPre(false);
