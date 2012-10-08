@@ -175,6 +175,7 @@ public class MainTabActivity extends TabActivity implements CompoundButton.OnChe
         startSyncService();
         regReceiver();
         startClearTempService();
+        TiebaApplication.app.startMsgReceive();
     }
 
     private void dealPbMessagePush(Bundle savedInstanceState) {
@@ -219,7 +220,7 @@ public class MainTabActivity extends TabActivity implements CompoundButton.OnChe
         if (TiebaApplication.app != null) {
             TiebaApplication.app.cancelNotification();
         }
-        stopService(new Intent("com.baidu.tieba.service.Message"));
+        TiebaApplication.app.stopMsgReceive();
         TiebaApplication.app.resetMsg();
         TiebaApplication.app.getSdramImage().clearPicAndPhoto();
         if (this.mTask != null) {
@@ -570,7 +571,7 @@ public class MainTabActivity extends TabActivity implements CompoundButton.OnChe
                 }
                 DatabaseService.saveAccountData(TiebaApplication.getCurrentAccountObj());
                 Handler handler = TiebaApplication.app.handler;
-                if (TiebaApplication.app.getMsgFrequency() != 0) {
+                if (TiebaApplication.app.getMsgFrequency() > 0) {
                     handler.sendMessage(handler.obtainMessage(2));
                 } else {
                     handler.sendMessage(handler.obtainMessage(3));

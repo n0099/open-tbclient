@@ -24,7 +24,11 @@ public class TiebaMessageService extends Service {
             }
             TiebaMessageService.this.getMsg();
             long frequency = TiebaApplication.app.getMsgFrequency();
-            TiebaMessageService.this.mHandler.sendEmptyMessageDelayed(1, 1000 * frequency);
+            if (frequency > 0) {
+                TiebaMessageService.this.mHandler.sendEmptyMessageDelayed(1, 1000 * frequency);
+            } else {
+                TiebaMessageService.this.stopSelf();
+            }
         }
     };
 

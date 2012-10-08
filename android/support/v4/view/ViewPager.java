@@ -116,8 +116,9 @@ public class ViewPager extends ViewGroup {
     interface Decor {
     }
 
+    /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
-    interface OnAdapterChangeListener {
+    public interface OnAdapterChangeListener {
         void onAdapterChanged(PagerAdapter pagerAdapter, PagerAdapter pagerAdapter2);
     }
 

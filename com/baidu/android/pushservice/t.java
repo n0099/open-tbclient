@@ -4,8 +4,9 @@ import android.app.PendingIntent;
 import android.content.Intent;
 import android.view.View;
 import com.baidu.tieba.util.NetWorkCore;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class t implements View.OnClickListener {
+public class t implements View.OnClickListener {
     final /* synthetic */ PushTestActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */

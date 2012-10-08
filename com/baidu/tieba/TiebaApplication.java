@@ -48,6 +48,9 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class TiebaApplication extends Application {
+    private static final String ACCESS_TOKEN = "access_token";
+    private static final long ACCESS_TOKEN_MAX_TIME = 2592000000L;
+    private static final String ACCESS_TOKEN_MODIFY_TIME = "access_token_motify_time";
     public static final String ACTION_RESPONSE = "com.baidu.push.RESPONSE";
     public static final String API_KEY = "E6WlY4Adb77DLl93TjaiIhPn";
     private static final String APPUSETIMES = "tdatabaseusetimes";
@@ -105,10 +108,10 @@ public class TiebaApplication extends Application {
                         break;
                     }
                 case 2:
-                    TiebaApplication.this.startService(new Intent("com.baidu.tieba.service.Message"));
+                    TiebaApplication.this.startMsgReceive();
                     break;
                 case 3:
-                    TiebaApplication.this.stopService(new Intent("com.baidu.tieba.service.Message"));
+                    TiebaApplication.this.stopMsgReceive();
                     break;
                 case 4:
                     long time = (((System.nanoTime() - TiebaApplication.this.mStartTime) / 1000000) - Config.USE_TIME_INTERVAL) / 1000;
@@ -122,7 +125,7 @@ public class TiebaApplication extends Application {
             return false;
         }
     });
-    private int mMsgFrequency = Config.MSG_DEFAULT_FREQUENCY;
+    private int mMsgFrequency = 0;
     private boolean mMsgFansOn = Config.MSG_DEFAULT_FANS_SWITCH;
     private boolean mMsgAtmeOn = Config.MSG_DEFAULT_ATME_SWITCH;
     private boolean mMsgReplymeOn = Config.MSG_DEFAULT_REPLYME_SWITCH;
@@ -596,15 +599,13 @@ public class TiebaApplication extends Application {
     }
 
     public void setMsgFrequency(int msgFrequency) {
-        if (this.mMsgFrequency != msgFrequency) {
-            this.mMsgFrequency = msgFrequency;
-            if (msgFrequency == 0) {
-                refreshMsg(0L, 0L, 0L);
-                this.handler.sendMessage(this.handler.obtainMessage(3));
-                return;
-            }
-            this.handler.sendMessage(this.handler.obtainMessage(2));
+        this.mMsgFrequency = msgFrequency;
+        if (msgFrequency == 0) {
+            refreshMsg(0L, 0L, 0L);
+            this.handler.sendMessage(this.handler.obtainMessage(3));
+            return;
         }
+        this.handler.sendMessage(this.handler.obtainMessage(2));
     }
 
     public boolean isMsgFansOn() {
@@ -642,6 +643,16 @@ public class TiebaApplication extends Application {
 
     public boolean isMsgRemindOn() {
         return this.mMsgFrequency > 0 && (this.mMsgReplymeOn || this.mMsgAtmeOn || this.mMsgFansOn);
+    }
+
+    public void startMsgReceive() {
+        if (app.isMsgRemindOn()) {
+            startService(new Intent("com.baidu.tieba.service.Message"));
+        }
+    }
+
+    public void stopMsgReceive() {
+        stopService(new Intent("com.baidu.tieba.service.Message"));
     }
 
     public long getMsgReplyme() {
@@ -851,6 +862,14 @@ public class TiebaApplication extends Application {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void requestAccessToken() {
+        SharedPreferences preference = getSharedPreferences(Config.SETTINGFILE, 0);
+        String accessToken = preference.getString("access_token", "");
+        long accessTokenMotifyTime = preference.getLong(ACCESS_TOKEN_MODIFY_TIME, Long.MAX_VALUE);
+        long gapTime = System.currentTimeMillis() - accessTokenMotifyTime;
+        if (accessToken.length() > 0 && gapTime < ACCESS_TOKEN_MAX_TIME) {
+            onBinds(accessToken);
+            return;
+        }
         NetWorkCore mNetWork = new NetWorkCore("http://c.tieba.baidu.com/c/s/igap");
         String aks = SingleBaUtility.EncryptCode(API_KEY, API_KEY.length());
         mNetWork.addPostData("ap", Config.TMPDIRNAME);
@@ -860,8 +879,12 @@ public class TiebaApplication extends Application {
         if (mNetWork.isRequestSuccess()) {
             try {
                 JSONObject jo = new JSONObject(data);
-                String accessToken = jo.getString(PushConstants.EXTRA_ACCESS_TOKEN);
-                onBinds(accessToken);
+                String accessToken2 = jo.getString("access_token");
+                SharedPreferences.Editor editor = preference.edit();
+                editor.putString("access_token", accessToken2);
+                editor.putLong(ACCESS_TOKEN_MODIFY_TIME, System.currentTimeMillis());
+                editor.commit();
+                onBinds(accessToken2);
             } catch (JSONException e) {
             }
         }
@@ -873,7 +896,7 @@ public class TiebaApplication extends Application {
         intent.putExtra(PushConstants.EXTRA_APP, PendingIntent.getBroadcast(this, 0, new Intent(), 0));
         intent.putExtra(PushConstants.EXTRA_BIND_NAME, Build.MODEL);
         intent.putExtra(PushConstants.EXTRA_BIND_STATUS, 0);
-        intent.putExtra(PushConstants.EXTRA_ACCESS_TOKEN, PushConstants.rsaEncrypt(strToken));
+        intent.putExtra("access_token", PushConstants.rsaEncrypt(strToken));
         sendBroadcast(intent);
     }
 }
