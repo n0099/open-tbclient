@@ -10,6 +10,6 @@ class m implements Runnable {
 
     @Override // java.lang.Runnable
     public void run() {
-        this.a.a();
+        PushService.a.b();
     }
 }

@@ -1,11 +1,6 @@
 package com.baidu.android.pushservice;
-
-import android.content.BroadcastReceiver;
-import android.content.Context;
-import android.content.Intent;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class k extends BroadcastReceiver {
+class k implements Runnable {
     final /* synthetic */ PushService a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -13,7 +8,8 @@ public class k extends BroadcastReceiver {
         this.a = pushService;
     }
 
-    @Override // android.content.BroadcastReceiver
-    public void onReceive(Context context, Intent intent) {
+    @Override // java.lang.Runnable
+    public void run() {
+        this.a.stopSelf();
     }
 }

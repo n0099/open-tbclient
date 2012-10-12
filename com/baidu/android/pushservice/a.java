@@ -26,11 +26,11 @@ public final class a {
             return;
         }
         try {
-            ArrayList c = c(new String(AESUtil.decrypt("1234567890123456", Base64.decode(string.getBytes()))));
+            ArrayList c = c(new String(AESUtil.decrypt("2011121211143000", "1234567890123456", Base64.decode(string.getBytes()))));
             if (c != null) {
                 Iterator it = c.iterator();
                 while (it.hasNext()) {
-                    this.a.add((b) it.next());
+                    this.a.add((c) it.next());
                 }
             }
         } catch (Exception e) {
@@ -56,12 +56,12 @@ public final class a {
             if (i2 >= list.size()) {
                 return stringBuffer.toString();
             }
-            b bVar = (b) list.get(i2);
-            stringBuffer.append(bVar.a);
+            c cVar = (c) list.get(i2);
+            stringBuffer.append(cVar.a);
             stringBuffer.append(",");
-            stringBuffer.append(bVar.b);
+            stringBuffer.append(cVar.b);
             stringBuffer.append(",");
-            stringBuffer.append(bVar.c);
+            stringBuffer.append(cVar.c);
             if (i2 != list.size() - 1) {
                 stringBuffer.append(";");
             }
@@ -74,10 +74,10 @@ public final class a {
         SharedPreferences sharedPreferences = context.getSharedPreferences(context.getPackageName() + ".push_sync", 1);
         if ("nodata".equals(sharedPreferences.getString("r", "nodata"))) {
             for (ResolveInfo resolveInfo : context.getPackageManager().queryBroadcastReceivers(new Intent("com.baidu.android.pushservice.action.BIND_SYNC"), 0)) {
-                b bVar = new b();
-                bVar.a = resolveInfo.activityInfo.packageName;
+                c cVar = new c();
+                cVar.a = resolveInfo.activityInfo.packageName;
                 try {
-                    string = context.createPackageContext(bVar.a, 2).getSharedPreferences(bVar.a + ".push_sync", 1).getString("r", "nodata");
+                    string = context.createPackageContext(cVar.a, 2).getSharedPreferences(cVar.a + ".push_sync", 1).getString("r", "nodata");
                 } catch (PackageManager.NameNotFoundException e) {
                     e.printStackTrace();
                 }
@@ -85,7 +85,7 @@ public final class a {
                     SharedPreferences.Editor edit = sharedPreferences.edit();
                     edit.putString("r", string);
                     edit.commit();
-                    return bVar.a;
+                    return cVar.a;
                 }
                 continue;
             }
@@ -101,28 +101,30 @@ public final class a {
         ArrayList arrayList = new ArrayList();
         for (String str2 : str.trim().split(";")) {
             String[] split = str2.trim().split(",");
-            b bVar = new b();
-            bVar.a = split[0].trim();
-            bVar.b = split[1].trim();
-            bVar.c = split[2].trim();
-            arrayList.add(bVar);
+            if (split.length >= 3) {
+                c cVar = new c();
+                cVar.a = split[0].trim();
+                cVar.b = split[1].trim();
+                cVar.c = split[2].trim();
+                arrayList.add(cVar);
+            }
         }
         return arrayList;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public b a(String str) {
+    public c a(String str) {
         Iterator it = this.a.iterator();
         while (it.hasNext()) {
-            b bVar = (b) it.next();
-            if (bVar.a.equals(str)) {
-                return bVar;
+            c cVar = (c) it.next();
+            if (cVar.a.equals(str)) {
+                return cVar;
             }
         }
         return null;
     }
 
-    public String a(b bVar, boolean z) {
+    public String a(c cVar, boolean z) {
         boolean z2;
         String encode;
         synchronized (this.a) {
@@ -132,21 +134,21 @@ public final class a {
                     z2 = false;
                     break;
                 }
-                b bVar2 = (b) it.next();
-                if (bVar2.a.equals(bVar.a)) {
-                    this.a.remove(bVar2);
+                c cVar2 = (c) it.next();
+                if (cVar2.a.equals(cVar.a)) {
+                    this.a.remove(cVar2);
                     if (z) {
-                        this.a.add(bVar);
+                        this.a.add(cVar);
                     }
                     z2 = true;
                 }
             }
             if (!z2 && z) {
-                this.a.add(bVar);
+                this.a.add(cVar);
             }
             SharedPreferences sharedPreferences = this.c.getSharedPreferences(this.c.getPackageName() + ".push_sync", 1);
             try {
-                encode = Base64.encode(AESUtil.encrypt("1234567890123456", a(this.a).getBytes()), "utf-8");
+                encode = Base64.encode(AESUtil.encrypt("2011121211143000", "1234567890123456", a(this.a).getBytes()), "utf-8");
                 SharedPreferences.Editor edit = sharedPreferences.edit();
                 edit.putString("r", encode);
                 edit.commit();
@@ -163,12 +165,12 @@ public final class a {
         return this.a.size() > 0;
     }
 
-    public b b(String str) {
+    public c b(String str) {
         Iterator it = this.a.iterator();
         while (it.hasNext()) {
-            b bVar = (b) it.next();
-            if (bVar.b.equals(str)) {
-                return bVar;
+            c cVar = (c) it.next();
+            if (cVar.b.equals(str)) {
+                return cVar;
             }
         }
         return null;

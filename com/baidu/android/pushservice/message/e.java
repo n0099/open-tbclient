@@ -3,7 +3,7 @@ package com.baidu.android.pushservice.message;
 import android.content.Context;
 import com.baidu.android.common.net.ProxyHttpClient;
 import com.baidu.android.pushservice.PushConstants;
-import com.baidu.android.pushservice.v;
+import com.baidu.android.pushservice.w;
 import java.io.IOException;
 import java.util.ArrayList;
 import org.apache.http.client.entity.UrlEncodedFormEntity;
@@ -30,7 +30,7 @@ class e implements Runnable {
     public void run() {
         ProxyHttpClient proxyHttpClient = new ProxyHttpClient(this.a);
         try {
-            HttpPost httpPost = new HttpPost(v.e + this.b);
+            HttpPost httpPost = new HttpPost(w.f + this.b);
             httpPost.addHeader("Content-Type", "application/x-www-form-urlencoded");
             ArrayList arrayList = new ArrayList();
             com.baidu.android.pushservice.a.a.a(arrayList);

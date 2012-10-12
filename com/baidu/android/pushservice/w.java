@@ -1,233 +1,92 @@
 package com.baidu.android.pushservice;
 
-import android.app.PendingIntent;
-import android.content.Context;
-import android.content.Intent;
-import com.baidu.android.pushservice.message.PublicMsg;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
+import android.os.Environment;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.util.Properties;
 /* loaded from: classes.dex */
-public class w {
-    private PushService a;
-    private ExecutorService b;
+public final class w {
+    public static final String a;
+    public static final String b;
+    public static final int c;
+    public static final long d;
+    public static final String e;
+    public static final String f;
+    private static String g = "http://channel.api.duapp.com";
+    private static String h = "agentchannel.api.duapp.com";
+    private static int i = 5287;
+    private static long j = 86400000;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public w(PushService pushService) {
-        this.a = pushService;
-        a.a(pushService);
-        x.a();
-        this.b = Executors.newFixedThreadPool(5, new com.baidu.android.pushservice.b.c("PushService-ApiThreadPool"));
+    static {
+        a();
+        a = g;
+        b = h;
+        c = i;
+        d = j;
+        e = a + "/rest/2.0/channel/channel";
+        f = a + "/rest/2.0/channel/";
     }
 
-    private void a(com.baidu.android.pushservice.a.b bVar) {
-        this.b.submit(bVar);
-    }
-
-    private void b(Intent intent) {
-        String targetPackage = ((PendingIntent) intent.getParcelableExtra(PushConstants.EXTRA_APP)).getTargetPackage();
-        String stringExtra = intent.getStringExtra(PushConstants.EXTRA_BIND_NAME);
-        int intExtra = intent.getIntExtra(PushConstants.EXTRA_BIND_STATUS, 0);
-        String stringExtra2 = intent.getStringExtra(PushConstants.EXTRA_ACCESS_TOKEN);
-        com.baidu.android.pushservice.a.h hVar = new com.baidu.android.pushservice.a.h();
-        hVar.a = PushConstants.METHOD_BIND;
-        hVar.c = targetPackage;
-        hVar.b = stringExtra2;
-        a(new com.baidu.android.pushservice.a.d(hVar, this.a, intExtra, stringExtra));
-    }
-
-    private void c(Intent intent) {
-        String targetPackage = ((PendingIntent) intent.getParcelableExtra(PushConstants.EXTRA_APP)).getTargetPackage();
-        String stringExtra = intent.getStringExtra(PushConstants.EXTRA_ACCESS_TOKEN);
-        com.baidu.android.pushservice.a.h hVar = new com.baidu.android.pushservice.a.h();
-        hVar.a = PushConstants.METHOD_UNBIND;
-        hVar.c = targetPackage;
-        hVar.b = stringExtra;
-        a(new com.baidu.android.pushservice.a.q(hVar, this.a));
-    }
-
-    private void d(Intent intent) {
-        b a;
-        String stringExtra = intent.getStringExtra("package_name");
-        String stringExtra2 = intent.getStringExtra(PushConstants.EXTRA_APP_ID);
-        if ((stringExtra2 == null || stringExtra2.length() == 0) && (a = a.a(this.a).a(stringExtra)) != null) {
-            stringExtra2 = a.b;
+    private static void a() {
+        FileInputStream fileInputStream;
+        File file = new File(Environment.getExternalStorageDirectory(), "pushservice.cfg");
+        if (!file.exists()) {
+            return;
         }
-        String stringExtra3 = intent.getStringExtra(PushConstants.EXTRA_USER_ID);
-        com.baidu.android.pushservice.a.h hVar = new com.baidu.android.pushservice.a.h();
-        hVar.a = "com.baidu.android.pushservice.action.UNBINDAPP";
-        hVar.c = stringExtra;
-        hVar.d = stringExtra2;
-        hVar.e = stringExtra3;
-        a(new com.baidu.android.pushservice.a.r(hVar, this.a));
-    }
-
-    private void e(Intent intent) {
-        String targetPackage = ((PendingIntent) intent.getParcelableExtra(PushConstants.EXTRA_APP)).getTargetPackage();
-        String stringExtra = intent.getStringExtra(PushConstants.EXTRA_ACCESS_TOKEN);
-        int intExtra = intent.getIntExtra(PushConstants.EXTRA_FETCH_TYPE, 1);
-        int intExtra2 = intent.getIntExtra(PushConstants.EXTRA_FETCH_NUM, 1);
-        com.baidu.android.pushservice.a.h hVar = new com.baidu.android.pushservice.a.h();
-        hVar.a = PushConstants.METHOD_FETCH;
-        hVar.c = targetPackage;
-        hVar.b = stringExtra;
-        a(new com.baidu.android.pushservice.a.i(hVar, this.a, intExtra, intExtra2));
-    }
-
-    private void f(Intent intent) {
-        String targetPackage = ((PendingIntent) intent.getParcelableExtra(PushConstants.EXTRA_APP)).getTargetPackage();
-        String stringExtra = intent.getStringExtra(PushConstants.EXTRA_ACCESS_TOKEN);
-        com.baidu.android.pushservice.a.h hVar = new com.baidu.android.pushservice.a.h();
-        hVar.a = PushConstants.METHOD_COUNT;
-        hVar.c = targetPackage;
-        hVar.b = stringExtra;
-        a(new com.baidu.android.pushservice.a.e(hVar, this.a));
-    }
-
-    private void g(Intent intent) {
-        String targetPackage = ((PendingIntent) intent.getParcelableExtra(PushConstants.EXTRA_APP)).getTargetPackage();
-        String stringExtra = intent.getStringExtra(PushConstants.EXTRA_ACCESS_TOKEN);
-        String[] stringArrayExtra = intent.getStringArrayExtra(PushConstants.EXTRA_MSG_IDS);
-        com.baidu.android.pushservice.a.h hVar = new com.baidu.android.pushservice.a.h();
-        hVar.a = PushConstants.METHOD_DELETE;
-        hVar.c = targetPackage;
-        hVar.b = stringExtra;
-        a(new com.baidu.android.pushservice.a.g(hVar, this.a, stringArrayExtra));
-    }
-
-    private void h(Intent intent) {
-        String targetPackage = ((PendingIntent) intent.getParcelableExtra(PushConstants.EXTRA_APP)).getTargetPackage();
-        String stringExtra = intent.getStringExtra(PushConstants.EXTRA_GID);
-        String stringExtra2 = intent.getStringExtra(PushConstants.EXTRA_ACCESS_TOKEN);
-        com.baidu.android.pushservice.a.h hVar = new com.baidu.android.pushservice.a.h();
-        hVar.a = PushConstants.METHOD_GBIND;
-        hVar.c = targetPackage;
-        hVar.b = stringExtra2;
-        a(new com.baidu.android.pushservice.a.k(hVar, this.a, stringExtra));
-    }
-
-    private void i(Intent intent) {
-        String targetPackage = ((PendingIntent) intent.getParcelableExtra(PushConstants.EXTRA_APP)).getTargetPackage();
-        String stringExtra = intent.getStringExtra(PushConstants.EXTRA_GID);
-        String stringExtra2 = intent.getStringExtra(PushConstants.EXTRA_ACCESS_TOKEN);
-        com.baidu.android.pushservice.a.h hVar = new com.baidu.android.pushservice.a.h();
-        hVar.a = PushConstants.METHOD_GUNBIND;
-        hVar.c = targetPackage;
-        hVar.b = stringExtra2;
-        a(new com.baidu.android.pushservice.a.n(hVar, this.a, stringExtra));
-    }
-
-    private void j(Intent intent) {
-        String targetPackage = ((PendingIntent) intent.getParcelableExtra(PushConstants.EXTRA_APP)).getTargetPackage();
-        String stringExtra = intent.getStringExtra(PushConstants.EXTRA_GID);
-        String stringExtra2 = intent.getStringExtra(PushConstants.EXTRA_ACCESS_TOKEN);
-        com.baidu.android.pushservice.a.h hVar = new com.baidu.android.pushservice.a.h();
-        hVar.a = PushConstants.METHOD_GINFO;
-        hVar.c = targetPackage;
-        hVar.b = stringExtra2;
-        a(new com.baidu.android.pushservice.a.l(hVar, this.a, stringExtra));
-    }
-
-    private void k(Intent intent) {
-        String targetPackage = ((PendingIntent) intent.getParcelableExtra(PushConstants.EXTRA_APP)).getTargetPackage();
-        String stringExtra = intent.getStringExtra(PushConstants.EXTRA_ACCESS_TOKEN);
-        com.baidu.android.pushservice.a.h hVar = new com.baidu.android.pushservice.a.h();
-        hVar.a = PushConstants.METHOD_GLIST;
-        hVar.c = targetPackage;
-        hVar.b = stringExtra;
-        a(new com.baidu.android.pushservice.a.m(hVar, this.a));
-    }
-
-    private void l(Intent intent) {
-        String targetPackage = ((PendingIntent) intent.getParcelableExtra(PushConstants.EXTRA_APP)).getTargetPackage();
-        String stringExtra = intent.getStringExtra(PushConstants.EXTRA_GID);
-        String stringExtra2 = intent.getStringExtra(PushConstants.EXTRA_ACCESS_TOKEN);
-        int intExtra = intent.getIntExtra(PushConstants.EXTRA_GROUP_FETCH_TYPE, 1);
-        int intExtra2 = intent.getIntExtra(PushConstants.EXTRA_GROUP_FETCH_NUM, 1);
-        com.baidu.android.pushservice.a.h hVar = new com.baidu.android.pushservice.a.h();
-        hVar.a = PushConstants.METHOD_FETCHGMSG;
-        hVar.c = targetPackage;
-        hVar.b = stringExtra2;
-        a(new com.baidu.android.pushservice.a.j(hVar, this.a, stringExtra, intExtra, intExtra2));
-    }
-
-    private void m(Intent intent) {
-        String targetPackage = ((PendingIntent) intent.getParcelableExtra(PushConstants.EXTRA_APP)).getTargetPackage();
-        String stringExtra = intent.getStringExtra(PushConstants.EXTRA_GID);
-        String stringExtra2 = intent.getStringExtra(PushConstants.EXTRA_ACCESS_TOKEN);
-        com.baidu.android.pushservice.a.h hVar = new com.baidu.android.pushservice.a.h();
-        hVar.a = PushConstants.METHOD_COUNTGMSG;
-        hVar.c = targetPackage;
-        hVar.b = stringExtra2;
-        a(new com.baidu.android.pushservice.a.f(hVar, this.a, stringExtra));
-    }
-
-    private void n(Intent intent) {
-        String targetPackage = ((PendingIntent) intent.getParcelableExtra(PushConstants.EXTRA_APP)).getTargetPackage();
-        String stringExtra = intent.getStringExtra(PushConstants.EXTRA_ACCESS_TOKEN);
-        com.baidu.android.pushservice.a.h hVar = new com.baidu.android.pushservice.a.h();
-        hVar.a = PushConstants.METHOD_ONLINE;
-        hVar.c = targetPackage;
-        hVar.b = stringExtra;
-        a(new com.baidu.android.pushservice.a.o(hVar, this.a));
-    }
-
-    public boolean a(Intent intent) {
-        if (intent == null) {
-            return false;
-        }
-        String action = intent.getAction();
-        if ("com.baidu.pushservice.action.publicmsg.CLICK".equals(action) || "com.baidu.pushservice.action.publicmsg.DELETE".equals(action)) {
-            ((PublicMsg) intent.getParcelableExtra("public_msg")).a(this.a, action, intent.getData().getHost());
-            return true;
-        } else if ("com.baidu.pushservice.action.TOKEN".equals(action)) {
-            x.a().a((Context) this.a, true);
-            return true;
-        } else if (PushConstants.ACTION_METHOD.equals(action)) {
-            String stringExtra = intent.getStringExtra(PushConstants.EXTRA_METHOD);
-            if (PushConstants.METHOD_BIND.equals(stringExtra)) {
-                b(intent);
-                return true;
-            } else if (PushConstants.METHOD_UNBIND.equals(stringExtra)) {
-                c(intent);
-                return true;
-            } else if ("com.baidu.android.pushservice.action.UNBINDAPP".equals(stringExtra)) {
-                d(intent);
-                return true;
-            } else if (PushConstants.METHOD_FETCH.equals(stringExtra)) {
-                e(intent);
-                return true;
-            } else if (PushConstants.METHOD_COUNT.equals(stringExtra)) {
-                f(intent);
-                return true;
-            } else if (PushConstants.METHOD_DELETE.equals(stringExtra)) {
-                g(intent);
-                return true;
-            } else if (PushConstants.METHOD_GBIND.equals(stringExtra)) {
-                h(intent);
-                return true;
-            } else if (PushConstants.METHOD_GUNBIND.equals(stringExtra)) {
-                i(intent);
-                return true;
-            } else if (PushConstants.METHOD_GINFO.equals(stringExtra)) {
-                j(intent);
-                return true;
-            } else if (PushConstants.METHOD_GLIST.equals(stringExtra)) {
-                k(intent);
-                return true;
-            } else if (PushConstants.METHOD_FETCHGMSG.equals(stringExtra)) {
-                l(intent);
-                return true;
-            } else if (PushConstants.METHOD_COUNTGMSG.equals(stringExtra)) {
-                m(intent);
-                return true;
-            } else if (PushConstants.METHOD_ONLINE.equals(stringExtra)) {
-                n(intent);
-                return true;
-            } else {
-                return false;
+        Properties properties = new Properties();
+        FileInputStream fileInputStream2 = null;
+        try {
+            fileInputStream = new FileInputStream(file);
+            try {
+                properties.load(fileInputStream);
+                String property = properties.getProperty("http_server");
+                if (property != null && property.length() > 0) {
+                    g = property;
+                }
+                String property2 = properties.getProperty("socket_server");
+                if (property2 != null && property2.length() > 0) {
+                    h = property2;
+                }
+                String property3 = properties.getProperty("socket_server_port");
+                if (property3 != null && property3.length() > 0) {
+                    i = Integer.parseInt(property3);
+                }
+                String property4 = properties.getProperty("socket_interval");
+                if (property4 != null && property4.length() > 0) {
+                    j = Integer.parseInt(property4) * 60000;
+                }
+                if (fileInputStream != null) {
+                    try {
+                        fileInputStream.close();
+                    } catch (IOException e2) {
+                        e2.printStackTrace();
+                    }
+                }
+            } catch (Exception e3) {
+                if (fileInputStream != null) {
+                    try {
+                        fileInputStream.close();
+                    } catch (IOException e4) {
+                        e4.printStackTrace();
+                    }
+                }
+            } catch (Throwable th) {
+                fileInputStream2 = fileInputStream;
+                th = th;
+                if (fileInputStream2 != null) {
+                    try {
+                        fileInputStream2.close();
+                    } catch (IOException e5) {
+                        e5.printStackTrace();
+                    }
+                }
+                throw th;
             }
-        } else {
-            return false;
+        } catch (Exception e6) {
+            fileInputStream = null;
+        } catch (Throwable th2) {
+            th = th2;
         }
     }
 }

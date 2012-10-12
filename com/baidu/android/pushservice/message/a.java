@@ -8,13 +8,13 @@ public abstract class a {
     protected InputStream a;
     protected OutputStream b;
     protected Context c;
-    protected com.baidu.android.pushservice.c d;
+    protected com.baidu.android.pushservice.d d;
 
-    public a(Context context, com.baidu.android.pushservice.c cVar, InputStream inputStream, OutputStream outputStream) {
+    public a(Context context, com.baidu.android.pushservice.d dVar, InputStream inputStream, OutputStream outputStream) {
         this.a = inputStream;
         this.b = outputStream;
         this.c = context;
-        this.d = cVar;
+        this.d = dVar;
     }
 
     public abstract b a();

@@ -49,22 +49,25 @@ import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class TiebaApplication extends Application {
     private static final String ACCESS_TOKEN = "access_token";
-    private static final long ACCESS_TOKEN_MAX_TIME = 2592000000L;
+    private static final long ACCESS_TOKEN_MAX_TIME = 2505600000L;
     private static final String ACCESS_TOKEN_MODIFY_TIME = "access_token_motify_time";
     public static final String ACTION_RESPONSE = "com.baidu.push.RESPONSE";
-    public static final String API_KEY = "E6WlY4Adb77DLl93TjaiIhPn";
+    public static final String API_KEY = "efbGYV7ELR2HpjgsnxwMDvCf";
     private static final String APPUSETIMES = "tdatabaseusetimes";
     public static final int APP_EVENT_LOGIN = 1;
     public static final int APP_PV_STAT = 4;
     public static final int APP_START_MSG_SERVICE = 2;
     public static final int APP_STOP_MSG_SERVICE = 3;
+    public static final int BIND_FLAG = 0;
+    private static final String BIND_STATE = "bind_state";
     private static final String CLIENT_ID = "client_id";
     private static final String DISPLAY_PHOTO = "display_photo";
     private static final String FROM_ID = "from_id";
     private static final String LAST_VERSION = "lase_version";
     private static final String PERMOTED_MESSAGE = "permoted_message";
-    public static final String SECRET_KEY = "N7dmnxd8Njy3Y2l03QOXAsBLhtAVF1V1";
+    public static final String SECRET_KEY = "e2I50gtYExCFyFWbhaun813ETVAlrG5b";
     private static final String TDATABASECREATETIME = "tdatabasecreatetime";
+    public static final int UNBIND_FLAG = 1;
     private static final String UPDATE_NOTIFY_TIME = "update_notify_time";
     public static TiebaApplication app;
     private static AccountData mAccount = null;
@@ -144,7 +147,6 @@ public class TiebaApplication extends Application {
         InitFrom();
         initAccountManager();
         initSettings();
-        initMessager();
         clientId = readClientId(this);
         initImei();
         try {
@@ -181,7 +183,11 @@ public class TiebaApplication extends Application {
         new Thread(new Runnable() { // from class: com.baidu.tieba.TiebaApplication.3
             @Override // java.lang.Runnable
             public void run() {
-                TiebaApplication.this.requestAccessToken();
+                if (TiebaApplication.app.mPromotedMessageOn) {
+                    TiebaApplication.this.requestChangeBind(0);
+                } else {
+                    TiebaApplication.this.requestChangeBind(1);
+                }
             }
         }).start();
     }
@@ -227,7 +233,7 @@ public class TiebaApplication extends Application {
                     i++;
                 } else {
                     String name = list.get(i).processName;
-                    if (name != null && name.equalsIgnoreCase("com.baidu.tieba:remote")) {
+                    if ((name != null && name.equalsIgnoreCase("com.baidu.tieba:pushservice_v1")) || name.equalsIgnoreCase("com.baidu.tieba:remote")) {
                         ret = false;
                     }
                 }
@@ -860,43 +866,77 @@ public class TiebaApplication extends Application {
         editor.commit();
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void requestAccessToken() {
+    public void requestChangeBind(int flag) {
         SharedPreferences preference = getSharedPreferences(Config.SETTINGFILE, 0);
         String accessToken = preference.getString("access_token", "");
-        long accessTokenMotifyTime = preference.getLong(ACCESS_TOKEN_MODIFY_TIME, Long.MAX_VALUE);
-        long gapTime = System.currentTimeMillis() - accessTokenMotifyTime;
-        if (accessToken.length() > 0 && gapTime < ACCESS_TOKEN_MAX_TIME) {
-            onBinds(accessToken);
-            return;
-        }
-        NetWorkCore mNetWork = new NetWorkCore("http://c.tieba.baidu.com/c/s/igap");
-        String aks = SingleBaUtility.EncryptCode(API_KEY, API_KEY.length());
-        mNetWork.addPostData("ap", Config.TMPDIRNAME);
-        mNetWork.addPostData("os", "android");
-        mNetWork.addPostData("ak", aks);
-        String data = mNetWork.postNetData();
-        if (mNetWork.isRequestSuccess()) {
-            try {
-                JSONObject jo = new JSONObject(data);
-                String accessToken2 = jo.getString("access_token");
-                SharedPreferences.Editor editor = preference.edit();
-                editor.putString("access_token", accessToken2);
-                editor.putLong(ACCESS_TOKEN_MODIFY_TIME, System.currentTimeMillis());
-                editor.commit();
-                onBinds(accessToken2);
-            } catch (JSONException e) {
+        if (flag == 0) {
+            long accessTokenMotifyTime = preference.getLong(ACCESS_TOKEN_MODIFY_TIME, Long.MAX_VALUE);
+            long gapTime = System.currentTimeMillis() - accessTokenMotifyTime;
+            if (accessToken.length() > 0 && gapTime < ACCESS_TOKEN_MAX_TIME) {
+                onBinds(accessToken);
+                return;
             }
+            NetWorkCore mNetWork = new NetWorkCore("http://c.tieba.baidu.com/c/s/igap");
+            String aks = SingleBaUtility.EncryptCode(API_KEY, API_KEY.length());
+            mNetWork.addPostData("ap", "tiebaapp");
+            mNetWork.addPostData("os", "android");
+            mNetWork.addPostData("ak", aks);
+            String data = mNetWork.postNetData();
+            if (mNetWork.isRequestSuccess()) {
+                try {
+                    JSONObject jo = new JSONObject(data);
+                    String accessToken2 = jo.getString("access_token");
+                    SharedPreferences.Editor editor = preference.edit();
+                    editor.putString("access_token", accessToken2);
+                    editor.putLong(ACCESS_TOKEN_MODIFY_TIME, System.currentTimeMillis());
+                    editor.commit();
+                    onBinds(accessToken2);
+                } catch (JSONException e) {
+                    TiebaLog.e(getClass().getName(), "bind", e.getMessage());
+                }
+            }
+        } else if (accessToken != null && accessToken.length() > 0) {
+            unBinds(accessToken);
         }
     }
 
     public void onBinds(String strToken) {
-        Intent intent = new Intent(PushConstants.ACTION_METHOD);
-        intent.putExtra(PushConstants.EXTRA_METHOD, PushConstants.METHOD_BIND);
-        intent.putExtra(PushConstants.EXTRA_APP, PendingIntent.getBroadcast(this, 0, new Intent(), 0));
-        intent.putExtra(PushConstants.EXTRA_BIND_NAME, Build.MODEL);
-        intent.putExtra(PushConstants.EXTRA_BIND_STATUS, 0);
-        intent.putExtra("access_token", PushConstants.rsaEncrypt(strToken));
-        sendBroadcast(intent);
+        if (!getBindState()) {
+            Intent intent = createMethodIntent(strToken);
+            intent.putExtra(PushConstants.EXTRA_METHOD, PushConstants.METHOD_BIND);
+            intent.putExtra(PushConstants.EXTRA_BIND_NAME, Build.MODEL);
+            intent.putExtra(PushConstants.EXTRA_BIND_STATUS, 0);
+            sendBroadcast(intent);
+        }
+    }
+
+    private void unBinds(String strToken) {
+        if (getBindState()) {
+            Intent intent = createMethodIntent(strToken);
+            intent.putExtra(PushConstants.EXTRA_METHOD, PushConstants.METHOD_UNBIND);
+            sendBroadcast(intent);
+            setBindState(false);
+        }
+    }
+
+    private Intent createMethodIntent(String accessToken) {
+        Intent intent = PushConstants.createMethodIntent(this);
+        TiebaLog.d(getClass().getName(), "Original Token : ", accessToken);
+        String rsaToken = PushConstants.rsaEncrypt(accessToken);
+        TiebaLog.d(getClass().getName(), "RSA Token:", rsaToken);
+        intent.putExtra("access_token", rsaToken);
+        return intent;
+    }
+
+    public void setBindState(boolean src) {
+        SharedPreferences preference = getSharedPreferences(Config.SETTINGFILE, 0);
+        SharedPreferences.Editor editor = preference.edit();
+        editor.putBoolean(BIND_STATE, src);
+        editor.commit();
+    }
+
+    public boolean getBindState() {
+        SharedPreferences preference = getSharedPreferences(Config.SETTINGFILE, 0);
+        return preference.getBoolean(BIND_STATE, false);
     }
 }

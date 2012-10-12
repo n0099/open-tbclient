@@ -67,4 +67,8 @@ public class ProxyHttpClient extends DefaultHttpClient {
             Log.e(TAG, "Leak found", this.mLeakedException);
         }
     }
+
+    public boolean isWap() {
+        return this.mUseWap;
+    }
 }

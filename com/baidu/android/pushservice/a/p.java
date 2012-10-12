@@ -8,8 +8,8 @@ import com.baidu.android.common.security.RSAUtil;
 import com.baidu.android.common.util.DeviceId;
 import com.baidu.android.pushservice.PushConstants;
 import com.baidu.android.pushservice.PushService;
-import com.baidu.android.pushservice.v;
-import com.baidu.android.pushservice.x;
+import com.baidu.android.pushservice.w;
+import com.baidu.android.pushservice.y;
 import com.baidu.tieba.account.LoginActivity;
 import com.baidu.tieba.util.NetWorkCore;
 import java.io.IOException;
@@ -34,34 +34,31 @@ public class p implements Runnable {
 
     private boolean b() {
         JSONObject jSONObject;
-        boolean z = true;
-        String str = v.d;
+        boolean z = false;
+        String str = w.e;
         ProxyHttpClient proxyHttpClient = new ProxyHttpClient(this.a);
         try {
             HttpPost httpPost = new HttpPost(str);
             httpPost.addHeader("Content-Type", "application/x-www-form-urlencoded");
             httpPost.setEntity(new UrlEncodedFormEntity(c(), "UTF-8"));
             HttpResponse execute = proxyHttpClient.execute(httpPost);
-            if (execute.getStatusLine().getStatusCode() != 200 || (jSONObject = new JSONObject(EntityUtils.toString(execute.getEntity())).getJSONObject("response_params")) == null) {
-                z = false;
-            } else {
+            if (execute.getStatusLine().getStatusCode() == 200 && (jSONObject = new JSONObject(EntityUtils.toString(execute.getEntity())).getJSONObject("response_params")) != null) {
                 String string = jSONObject.getString("channel_id");
                 String str2 = new String(RSAUtil.decryptByPublicKey(Base64.decode(jSONObject.getString("rsa_channel_token").getBytes()), "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQC/7VlVn9LIrZ71PL2RZMbK/Yxc\r\ndb046w/cXVylxS7ouPY06namZUFVhdbUnNRJzmGUZlzs3jUbvMO3l+4c9cw/n9aQ\r\nrm/brgaRDeZbeSrQYRZv60xzJIimuFFxsRM+ku6/dAyYmXiQXlRbgvFQ0MsVng4j\r\nv+cXhtTis2Kbwb8mQwIDAQAB\r\n"));
                 jSONObject.getString("expires_time");
-                x.a().a(string, str2);
+                y.a().a(string, str2);
+                z = true;
             }
             this.c = 0;
             this.d = false;
-            return z;
         } catch (Exception e) {
             this.d = false;
-            return false;
         } catch (IOException e2) {
             this.d = true;
-            return false;
         } finally {
             proxyHttpClient.close();
         }
+        return z;
     }
 
     private List c() {
@@ -73,28 +70,26 @@ public class p implements Runnable {
         arrayList.add(new BasicNameValuePair("device_name", Build.MODEL));
         JSONObject jSONObject = new JSONObject();
         jSONObject.put("api_level", Build.VERSION.SDK_INT);
-        int[] b = com.baidu.android.pushservice.b.d.b(this.a);
+        int[] b = com.baidu.android.pushservice.util.d.b(this.a);
         jSONObject.put("screen_height", b[0]);
         jSONObject.put("screen_width", b[1]);
         jSONObject.put("model", Build.MODEL);
-        jSONObject.put("isroot", com.baidu.android.pushservice.b.d.a(this.a) ? 1 : 0);
-        jSONObject.put("is_baidu_app", com.baidu.android.pushservice.b.d.c(this.a, this.a.getPackageName()) ? 1 : 0);
+        jSONObject.put("isroot", com.baidu.android.pushservice.util.d.a(this.a) ? 1 : 0);
+        jSONObject.put("is_baidu_app", com.baidu.android.pushservice.util.d.d(this.a, this.a.getPackageName()) ? 1 : 0);
         arrayList.add(new BasicNameValuePair(LoginActivity.INFO, jSONObject.toString()));
         return arrayList;
     }
 
     private void d() {
         this.c++;
-        if (this.c < this.b) {
-            try {
-                Thread.sleep((1 << (this.c - 1)) * 5 * 1000);
-                return;
-            } catch (InterruptedException e) {
-                return;
-            }
+        if (this.c >= this.b) {
+            this.d = false;
+            return;
         }
-        com.baidu.android.pushservice.b.d.c(this.a);
-        this.d = false;
+        try {
+            Thread.sleep((1 << (this.c - 1)) * 5 * 1000);
+        } catch (InterruptedException e) {
+        }
     }
 
     protected void a() {
@@ -108,11 +103,13 @@ public class p implements Runnable {
                 break;
             }
         } while (this.d);
-        if (b) {
-            a.b(this.a);
-            if (PushService.a != null) {
-                a.a(this.a);
-            }
+        if (!b) {
+            com.baidu.android.pushservice.util.d.c(this.a);
+            return;
+        }
+        a.b(this.a);
+        if (PushService.a != null) {
+            a.a(this.a);
         }
     }
 
@@ -123,8 +120,8 @@ public class p implements Runnable {
     @Override // java.lang.Runnable
     public void run() {
         a();
-        synchronized (x.a()) {
-            x.a().notifyAll();
+        synchronized (y.a()) {
+            y.a().notifyAll();
         }
     }
 }

@@ -3,8 +3,9 @@ package com.baidu.android.pushservice;
 import android.app.PendingIntent;
 import android.content.Intent;
 import android.view.View;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class p implements View.OnClickListener {
+public class p implements View.OnClickListener {
     final /* synthetic */ PushTestActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -18,7 +19,7 @@ class p implements View.OnClickListener {
         intent.putExtra(PushConstants.EXTRA_METHOD, PushConstants.METHOD_BIND);
         intent.putExtra(PushConstants.EXTRA_APP, PendingIntent.getBroadcast(this.a, 0, new Intent(), 0));
         intent.putExtra(PushConstants.EXTRA_BIND_NAME, "com.baidu.appsearch");
-        intent.putExtra(PushConstants.EXTRA_BIND_STATUS, 1);
+        intent.putExtra(PushConstants.EXTRA_BIND_STATUS, 0);
         intent.putExtra(PushConstants.EXTRA_ACCESS_TOKEN, PushConstants.rsaEncrypt(this.a.a));
         this.a.sendBroadcast(intent);
     }

@@ -16,13 +16,13 @@ public class RegistratonReceiver extends BroadcastReceiver {
         edit.commit();
     }
 
-    static void a(Context context, b bVar) {
+    static void a(Context context, c cVar) {
         Intent intent = new Intent();
         intent.setAction(PushConstants.ACTION_METHOD);
         intent.putExtra(PushConstants.EXTRA_METHOD, "com.baidu.android.pushservice.action.UNBINDAPP");
-        intent.putExtra("package_name", bVar.a);
-        intent.putExtra(PushConstants.EXTRA_APP_ID, bVar.b);
-        intent.putExtra(PushConstants.EXTRA_USER_ID, bVar.c);
+        intent.putExtra("package_name", cVar.a);
+        intent.putExtra(PushConstants.EXTRA_APP_ID, cVar.b);
+        intent.putExtra(PushConstants.EXTRA_USER_ID, cVar.c);
         intent.setClass(context, PushService.class);
         context.startService(intent);
     }
@@ -40,7 +40,7 @@ public class RegistratonReceiver extends BroadcastReceiver {
         }
         String schemeSpecificPart = intent.getData().getSchemeSpecificPart();
         boolean booleanExtra = intent.getBooleanExtra("android.intent.extra.REPLACING", false);
-        b a = a.a(context).a(schemeSpecificPart);
+        c a = a.a(context).a(schemeSpecificPart);
         if (!booleanExtra && a != null && !context.getPackageName().equals(a.a)) {
             a(context, a);
             return;

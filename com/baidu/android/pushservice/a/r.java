@@ -13,7 +13,7 @@ public class r extends c {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.android.pushservice.a.b
     public void a(List list) {
-        super.a(list);
+        a.a(list);
         list.add(new BasicNameValuePair(PushConstants.EXTRA_METHOD, "unbindapp"));
         list.add(new BasicNameValuePair("appid", this.b.d));
     }

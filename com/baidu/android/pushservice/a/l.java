@@ -18,7 +18,6 @@ public class l extends b {
     public void a(List list) {
         super.a(list);
         list.add(new BasicNameValuePair(PushConstants.EXTRA_METHOD, "ginfo"));
-        list.add(new BasicNameValuePair("rsa_access_token", this.b.b));
         list.add(new BasicNameValuePair(PushConstants.EXTRA_GID, this.e));
     }
 }

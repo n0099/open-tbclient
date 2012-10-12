@@ -39,49 +39,49 @@ public class PushTestActivity extends Activity {
         Button button = new Button(this);
         button.setText("Bind (status 0)");
         this.b.addView(button);
-        button.setOnClickListener(new o(this));
+        button.setOnClickListener(new p(this));
     }
 
     private void c() {
         Button button = new Button(this);
         button.setText("Bind (status 1)");
         this.b.addView(button);
-        button.setOnClickListener(new p(this));
+        button.setOnClickListener(new q(this));
     }
 
     private void d() {
         Button button = new Button(this);
         button.setText("Unbind App");
         this.b.addView(button);
-        button.setOnClickListener(new q(this));
+        button.setOnClickListener(new r(this));
     }
 
     private void e() {
         Button button = new Button(this);
         button.setText("Fetch");
         this.b.addView(button);
-        button.setOnClickListener(new r(this));
+        button.setOnClickListener(new s(this));
     }
 
     private void f() {
         Button button = new Button(this);
         button.setText("Count");
         this.b.addView(button);
-        button.setOnClickListener(new s(this));
+        button.setOnClickListener(new t(this));
     }
 
     private void g() {
         Button button = new Button(this);
         button.setText("Delete");
         this.b.addView(button);
-        button.setOnClickListener(new t(this));
+        button.setOnClickListener(new u(this));
     }
 
     private void h() {
         Button button = new Button(this);
         button.setText("Unbind");
         this.b.addView(button);
-        button.setOnClickListener(new u(this));
+        button.setOnClickListener(new v(this));
     }
 
     @Override // android.app.Activity

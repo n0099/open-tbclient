@@ -24,7 +24,6 @@ public class g extends b {
             return;
         }
         list.add(new BasicNameValuePair(PushConstants.EXTRA_METHOD, "delete"));
-        list.add(new BasicNameValuePair("rsa_access_token", this.b.b));
         JSONArray jSONArray = new JSONArray();
         for (int i = 0; i < length; i++) {
             jSONArray.put(this.e[i]);

@@ -1,6 +1,5 @@
 package com.baidu.android.pushservice;
 
-import android.app.PendingIntent;
 import android.content.Intent;
 import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
@@ -15,12 +14,11 @@ public class r implements View.OnClickListener {
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        Intent intent = new Intent(PushConstants.ACTION_METHOD);
-        intent.putExtra(PushConstants.EXTRA_METHOD, PushConstants.METHOD_FETCH);
-        intent.putExtra(PushConstants.EXTRA_APP, PendingIntent.getBroadcast(this.a, 0, new Intent(), 0));
-        intent.putExtra(PushConstants.EXTRA_FETCH_TYPE, 1);
-        intent.putExtra(PushConstants.EXTRA_FETCH_NUM, 2);
-        intent.putExtra(PushConstants.EXTRA_ACCESS_TOKEN, PushConstants.rsaEncrypt(this.a.a));
-        this.a.sendBroadcast(intent);
+        Intent intent = new Intent();
+        new Intent(PushConstants.ACTION_METHOD).putExtra(PushConstants.EXTRA_METHOD, "com.baidu.android.pushservice.action.UNBINDAPP");
+        intent.putExtra("package_name", this.a.getPackageName());
+        intent.putExtra(PushConstants.EXTRA_APP_ID, "101962");
+        intent.setClass(this.a, PushService.class);
+        this.a.startService(intent);
     }
 }

@@ -1,25 +1,19 @@
 package com.baidu.android.pushservice;
 
-import android.app.PendingIntent;
+import android.content.BroadcastReceiver;
+import android.content.Context;
 import android.content.Intent;
-import android.view.View;
 /* loaded from: classes.dex */
-class o implements View.OnClickListener {
-    final /* synthetic */ PushTestActivity a;
+class o extends BroadcastReceiver {
+    final /* synthetic */ PushService a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public o(PushTestActivity pushTestActivity) {
-        this.a = pushTestActivity;
+    public o(PushService pushService) {
+        this.a = pushService;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        Intent intent = new Intent(PushConstants.ACTION_METHOD);
-        intent.putExtra(PushConstants.EXTRA_METHOD, PushConstants.METHOD_BIND);
-        intent.putExtra(PushConstants.EXTRA_APP, PendingIntent.getBroadcast(this.a, 0, new Intent(), 0));
-        intent.putExtra(PushConstants.EXTRA_BIND_NAME, "com.baidu.appsearch");
-        intent.putExtra(PushConstants.EXTRA_BIND_STATUS, 0);
-        intent.putExtra(PushConstants.EXTRA_ACCESS_TOKEN, PushConstants.rsaEncrypt(this.a.a));
-        this.a.sendBroadcast(intent);
+    @Override // android.content.BroadcastReceiver
+    public void onReceive(Context context, Intent intent) {
+        this.a.d();
     }
 }

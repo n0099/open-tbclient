@@ -12,7 +12,6 @@ import com.baidu.android.pushservice.PushConstants;
 import com.baidu.tieba.MainTabActivity;
 import com.baidu.tieba.R;
 import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.data.Config;
 import com.baidu.tieba.pb.PbActivity;
 import com.baidu.tieba.util.NetWorkCore;
 import com.baidu.tieba.util.TiebaLog;
@@ -58,7 +57,7 @@ public class MessagePushReceiver extends BroadcastReceiver {
                 try {
                     NetWorkCore mNetWork = new NetWorkCore("http://c.tieba.baidu.com/c/s/ireg");
                     mNetWork.addPostData("did", strUserId);
-                    mNetWork.addPostData("ap", Config.TMPDIRNAME);
+                    mNetWork.addPostData("ap", "tiebaapp");
                     mNetWork.addPostData("os", "android");
                     mNetWork.addPostData("uid", "");
                     mNetWork.addPostData("st", NetWorkCore.NET_TYPE_NET);
@@ -68,7 +67,10 @@ public class MessagePushReceiver extends BroadcastReceiver {
                     mNetWork.addPostData("d", imei);
                     String data = mNetWork.postNetData();
                     if (mNetWork.isRequestSuccess() && (jo = new JSONObject(data)) != null && jo.has("errno") && jo.getInt("errno") == 0) {
-                        TiebaLog.i(getClass().getName(), Config.TMPDIRNAME, data);
+                        if (errorCode == 0 && method.equals(PushConstants.METHOD_BIND)) {
+                            TiebaApplication.app.setBindState(true);
+                        }
+                        TiebaLog.i(getClass().getName(), "tiebaapp", data);
                     }
                 } catch (Exception e3) {
                     TiebaLog.i(getClass().getName(), "", e3.getMessage());

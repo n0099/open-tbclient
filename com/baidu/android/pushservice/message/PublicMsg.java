@@ -8,7 +8,7 @@ import android.net.Uri;
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.text.TextUtils;
-import com.baidu.android.pushservice.x;
+import com.baidu.android.pushservice.y;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
@@ -44,8 +44,8 @@ public class PublicMsg implements Parcelable {
     }
 
     void a(Context context, String str, int i) {
-        String b = x.a().b();
-        String c = x.a().c();
+        String b = y.a().b();
+        String c = y.a().c();
         if (TextUtils.isEmpty(b) || TextUtils.isEmpty(c)) {
             return;
         }

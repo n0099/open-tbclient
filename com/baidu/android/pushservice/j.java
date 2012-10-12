@@ -1,4 +1,6 @@
 package com.baidu.android.pushservice;
+
+import android.content.Intent;
 /* loaded from: classes.dex */
 class j implements Runnable {
     final /* synthetic */ PushService a;
@@ -10,6 +12,6 @@ class j implements Runnable {
 
     @Override // java.lang.Runnable
     public void run() {
-        this.a.stopSelf();
+        this.a.a(new Intent());
     }
 }

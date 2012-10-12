@@ -1,4 +1,4 @@
-package com.baidu.android.pushservice.b;
+package com.baidu.android.pushservice.util;
 
 import java.io.DataInputStream;
 import java.io.EOFException;

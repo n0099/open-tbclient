@@ -282,7 +282,6 @@ public class FrsActivity extends BaseActivity {
                 if (index == -1) {
                     if (adapter.getHeaderType() != 2 || FrsActivity.this.mPn <= 1) {
                         FrsActivity.this.mType = 4;
-                        FrsActivity.this.execLike();
                         return;
                     }
                     FrsActivity frsActivity = FrsActivity.this;

@@ -20,25 +20,28 @@ import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes.dex */
 public class PushService extends Service {
-    public static c a;
+    public static d a;
     static LocalServerSocket b;
-    private w e;
+    private x e;
     private Handler c = new Handler();
     private boolean d = false;
-    private Runnable f = new i(this);
-    private Runnable g = new j(this);
-    private Runnable h = new l(this);
-    private Runnable i = new m(this);
-    private final BroadcastReceiver j = new n(this);
+    private Runnable f = new j(this);
+    private Runnable g = new k(this);
+    private Runnable h = new m(this);
+    private Runnable i = new n(this);
+    private final BroadcastReceiver j = new o(this);
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(Intent intent) {
         this.c.removeCallbacks(this.f);
         this.c.removeCallbacks(this.g);
-        if (this.e.a(intent)) {
-            return;
+        if (intent != null && "pushservice_restart".equals(intent.getStringExtra(PushConstants.EXTRA_METHOD))) {
+            a(true, true);
+            com.baidu.android.pushservice.util.d.a(getApplicationContext(), 1000L);
+        } else if (this.e.a(intent)) {
+        } else {
+            d();
         }
-        d();
     }
 
     private void a(boolean z, boolean z2) {
@@ -56,31 +59,31 @@ public class PushService extends Service {
     }
 
     private void c() {
-        a = c.a(this);
+        a = d.a(this);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void d() {
         if (!ConnectManager.isNetworkConnected(this)) {
-            com.baidu.android.pushservice.b.d.c(this);
             a(true, false);
             return;
         }
         if (!a.a(this).a()) {
-            k kVar = new k(this);
+            l lVar = new l(this);
             IntentFilter intentFilter = new IntentFilter();
             intentFilter.addAction("com.baidu.pushservice.action.connect.STAMP");
-            Intent registerReceiver = registerReceiver(kVar, intentFilter);
+            Intent registerReceiver = registerReceiver(lVar, intentFilter);
             long longExtra = registerReceiver != null ? registerReceiver.getLongExtra("last_connect_stamp", 0L) : 0L;
-            unregisterReceiver(kVar);
-            if (System.currentTimeMillis() - longExtra < 86400000) {
+            unregisterReceiver(lVar);
+            if (System.currentTimeMillis() - longExtra < w.d) {
+                a(true, false);
                 return;
             }
         }
         if (a != null) {
             if (a.a()) {
                 a.d();
-            } else if (x.a().d()) {
+            } else if (y.a().d()) {
                 e();
             } else {
                 f();
@@ -104,7 +107,7 @@ public class PushService extends Service {
         if (queryBroadcastReceivers.size() <= 1) {
             return false;
         }
-        int a2 = a(1, getPackageName());
+        long j = getSharedPreferences(getPackageName() + ".push_sync", 1).getLong("priority", 0L);
         Iterator<ResolveInfo> it = queryBroadcastReceivers.iterator();
         while (true) {
             if (!it.hasNext()) {
@@ -118,22 +121,13 @@ public class PushService extends Service {
                     sharedPreferences = createPackageContext(str, 2).getSharedPreferences(str + ".push_sync", 1);
                 } catch (PackageManager.NameNotFoundException e) {
                 }
-                if (sharedPreferences != null && a(sharedPreferences.getInt(TiebaUpdateService.TAG_VERSION, 0), str) > a2) {
+                if (sharedPreferences != null && sharedPreferences.getLong("priority", 0L) > j) {
                     z = true;
                     break;
                 }
             }
         }
         return z;
-    }
-
-    public int a(int i, String str) {
-        int i2 = i << 1;
-        if (com.baidu.android.pushservice.b.d.c(getApplicationContext(), str)) {
-            i2++;
-        }
-        int i3 = i2 << 1;
-        return com.baidu.android.pushservice.b.d.b(getApplicationContext(), str) ? i3 + 1 : i3;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -151,13 +145,18 @@ public class PushService extends Service {
     @Override // android.app.Service
     public void onCreate() {
         super.onCreate();
-        SharedPreferences sharedPreferences = getSharedPreferences(getPackageName() + ".push_sync", 1);
-        if (sharedPreferences.getInt(TiebaUpdateService.TAG_VERSION, 0) == 0) {
-            SharedPreferences.Editor edit = sharedPreferences.edit();
-            edit.putInt(TiebaUpdateService.TAG_VERSION, 1);
+        SharedPreferences sharedPreferences = getSharedPreferences("pushservice.mysetting", 0);
+        int c = com.baidu.android.pushservice.util.d.c(getApplicationContext(), getPackageName());
+        if (sharedPreferences.getInt("priority_vcode", 0) < c) {
+            SharedPreferences.Editor edit = getSharedPreferences(getPackageName() + ".push_sync", 1).edit();
+            edit.putLong("priority", com.baidu.android.pushservice.util.d.e(getApplicationContext()));
+            edit.putInt(TiebaUpdateService.TAG_VERSION, 3);
             edit.commit();
+            SharedPreferences.Editor edit2 = sharedPreferences.edit();
+            edit2.putInt("priority_vcode", c);
+            edit2.commit();
         }
-        if (g()) {
+        if (!b.a(getApplicationContext()) || g()) {
             a(true, true);
             return;
         }
@@ -172,7 +171,7 @@ public class PushService extends Service {
             return;
         }
         c();
-        this.e = new w(this);
+        this.e = new x(this);
         registerReceiver(this.j, new IntentFilter("android.intent.action.SCREEN_ON"));
         this.c.postDelayed(this.f, 500L);
     }

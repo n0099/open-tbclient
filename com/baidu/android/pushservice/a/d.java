@@ -32,7 +32,6 @@ public class d extends c {
     public void a(List list) {
         super.a(list);
         list.add(new BasicNameValuePair(PushConstants.EXTRA_METHOD, "bind"));
-        list.add(new BasicNameValuePair("rsa_access_token", this.b.b));
         list.add(new BasicNameValuePair(PushConstants.EXTRA_BIND_NAME, TextUtils.isEmpty(this.g) ? Build.MODEL : this.g));
         list.add(new BasicNameValuePair(PushConstants.EXTRA_BIND_STATUS, this.f + ""));
     }

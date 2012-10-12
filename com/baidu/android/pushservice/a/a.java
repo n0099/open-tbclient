@@ -42,17 +42,17 @@ public final class a {
         synchronized (arrayList) {
             Iterator it = arrayList.iterator();
             while (it.hasNext()) {
-                com.baidu.android.pushservice.b bVar = (com.baidu.android.pushservice.b) it.next();
+                com.baidu.android.pushservice.c cVar = (com.baidu.android.pushservice.c) it.next();
                 PackageInfo packageInfo = null;
                 try {
-                    packageInfo = packageManager.getPackageInfo(bVar.a, 0);
+                    packageInfo = packageManager.getPackageInfo(cVar.a, 0);
                 } catch (PackageManager.NameNotFoundException e) {
                     e.printStackTrace();
                 }
                 if (packageInfo == null) {
                     Intent intent = new Intent(PushConstants.ACTION_METHOD);
                     intent.putExtra(PushConstants.EXTRA_METHOD, "com.baidu.android.pushservice.action.UNBINDAPP");
-                    intent.putExtra("package_name", bVar.a);
+                    intent.putExtra("package_name", cVar.a);
                     intent.setClass(context, PushService.class);
                     context.startService(intent);
                 }

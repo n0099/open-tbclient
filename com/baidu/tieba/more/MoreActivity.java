@@ -31,7 +31,6 @@ public class MoreActivity extends BaseActivity {
     private AlertDialog mFontSizeDialog;
     private AlertDialog mFrequencyDialog;
     private AlertDialog mImageQualityDialog;
-    private AlertDialog mPromotedDialog;
     private AlertDialog mRemindInfoDialog;
     private AlertDialog mRemindToneDialog;
     private AlertDialog mViewImageQualityDialog;
@@ -47,14 +46,12 @@ public class MoreActivity extends BaseActivity {
     private LinearLayout mAbout = null;
     private LinearLayout mPositionPaper = null;
     private LinearLayout mRemindTone = null;
-    private LinearLayout mPromotedMessage = null;
     private TextView mFrequencyTime = null;
     private TextView mRemindToneInfo = null;
     private TextView mImageQualityInfo = null;
     private TextView mViewImageQualityInfo = null;
     private TextView mFontSizeInfo = null;
     private TextView mViewImagesInfo = null;
-    private TextView mPromotedMessageInfo = null;
     private View.OnClickListener mClickListener = null;
     private String[] mFrequencyMenu = null;
     private ClearAsyncTask mClearTaks = null;
@@ -117,7 +114,6 @@ public class MoreActivity extends BaseActivity {
                     case R.id.text_view_images /* 2131230973 */:
                     case R.id.text_view_images_quality /* 2131230975 */:
                     case R.id.text_font_size /* 2131230977 */:
-                    case R.id.promoted_message_textview /* 2131230979 */:
                     default:
                         return;
                     case R.id.frequency /* 2131230965 */:
@@ -319,35 +315,17 @@ public class MoreActivity extends BaseActivity {
                         MoreActivity.this.mFontSizeDialog.setCanceledOnTouchOutside(true);
                         MoreActivity.this.mFontSizeDialog.show();
                         return;
-                    case R.id.promoted_message /* 2131230978 */:
-                        MoreActivity.this.mPromotedDialog = new AlertDialog.Builder(MoreActivity.this).setTitle(R.string.promoted_message_text).setItems(R.array.menu_remind_tone, new DialogInterface.OnClickListener() { // from class: com.baidu.tieba.more.MoreActivity.1.10
-                            @Override // android.content.DialogInterface.OnClickListener
-                            public void onClick(DialogInterface dialog, int which) {
-                                switch (which) {
-                                    case 0:
-                                        TiebaApplication.app.setPromotedMessage(true);
-                                        break;
-                                    case 1:
-                                        TiebaApplication.app.setPromotedMessage(false);
-                                        break;
-                                }
-                                MoreActivity.this.updatePromotedTone();
-                            }
-                        }).create();
-                        MoreActivity.this.mPromotedDialog.setCanceledOnTouchOutside(true);
-                        MoreActivity.this.mPromotedDialog.show();
-                        return;
-                    case R.id.clear_cash /* 2131230980 */:
+                    case R.id.clear_cash /* 2131230978 */:
                         if (MoreActivity.this.mClearTaks == null) {
                             MoreActivity.this.mClearTaks = new ClearAsyncTask(MoreActivity.this, null);
                             MoreActivity.this.mClearTaks.execute(new String[0]);
                             return;
                         }
                         return;
-                    case R.id.about_bieta /* 2131230981 */:
+                    case R.id.about_bieta /* 2131230979 */:
                         AboutActivity.startActivity(MoreActivity.this);
                         return;
-                    case R.id.position_paper /* 2131230982 */:
+                    case R.id.position_paper /* 2131230980 */:
                         MoreActivity.this.writeFeedback();
                         return;
                 }
@@ -376,11 +354,8 @@ public class MoreActivity extends BaseActivity {
         this.mAbout.setOnClickListener(this.mClickListener);
         this.mPositionPaper = (LinearLayout) findViewById(R.id.position_paper);
         this.mPositionPaper.setOnClickListener(this.mClickListener);
-        this.mPromotedMessage = (LinearLayout) findViewById(R.id.promoted_message);
-        this.mPromotedMessage.setOnClickListener(this.mClickListener);
         this.mFrequencyTime = (TextView) findViewById(R.id.frequency_time);
         this.mRemindToneInfo = (TextView) findViewById(R.id.text_remind_tone);
-        this.mPromotedMessageInfo = (TextView) findViewById(R.id.promoted_message_textview);
         this.mViewImageQuality = (LinearLayout) findViewById(R.id.view_images_quality);
         this.mViewImageQuality.setOnClickListener(this.mClickListener);
         this.mImageQuality = (LinearLayout) findViewById(R.id.upload_image_quality);
@@ -399,7 +374,6 @@ public class MoreActivity extends BaseActivity {
         updateFontSize();
         updateRemindTone();
         updateViewImageQuality();
-        updatePromotedTone();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -447,15 +421,6 @@ public class MoreActivity extends BaseActivity {
         this.mRemindInfo.setVisibility(0);
         this.mRemindTone.setVisibility(0);
         this.mFrequency.setBackgroundResource(R.drawable.more_up);
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void updatePromotedTone() {
-        if (TiebaApplication.app.isPromotedMessageOn()) {
-            this.mPromotedMessageInfo.setText(R.string.promote_message_on);
-        } else {
-            this.mPromotedMessageInfo.setText(R.string.promote_message_off);
-        }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -595,9 +560,6 @@ public class MoreActivity extends BaseActivity {
         }
         if (this.mRemindInfoDialog != null) {
             this.mRemindInfoDialog.dismiss();
-        }
-        if (this.mPromotedDialog != null) {
-            this.mPromotedDialog.dismiss();
         }
     }
 }

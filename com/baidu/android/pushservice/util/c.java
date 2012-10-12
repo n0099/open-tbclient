@@ -1,4 +1,4 @@
-package com.baidu.android.pushservice.b;
+package com.baidu.android.pushservice.util;
 
 import java.util.concurrent.Executors;
 import java.util.concurrent.ThreadFactory;

@@ -30,7 +30,7 @@ import com.baidu.tieba.service.MyReceiver;
 import com.baidu.tieba.util.AsyncImageLoader;
 import com.baidu.tieba.util.DatabaseService;
 import com.baidu.tieba.util.FileHelper;
-import com.baidu.tieba.util.NetWorkCore;
+import com.baidu.tieba.util.NetWork;
 import com.baidu.tieba.util.StringHelper;
 import com.baidu.tieba.util.TiebaLog;
 import com.baidu.tieba.view.BaseWebView;
@@ -98,7 +98,7 @@ public class RecommendActivity extends BaseActivity implements BaseWebView.OnLoa
                     SearchActivity.startActivity(RecommendActivity.this, RecommendActivity.this.getString(R.string.recommend_title));
                     return;
                 case R.id.refresh /* 2131230871 */:
-                case R.id.hotspot_webview_item /* 2131231014 */:
+                case R.id.hotspot_webview_item /* 2131231012 */:
                     RecommendActivity.this.refresh();
                     return;
                 default:
@@ -331,10 +331,10 @@ public class RecommendActivity extends BaseActivity implements BaseWebView.OnLoa
     /* loaded from: classes.dex */
     public class RecommendAsyncTask extends AsyncTask<Object, Integer, String> {
         private String data;
-        private NetWorkCore mNetWorkCore;
+        private NetWork mNetWork;
 
         private RecommendAsyncTask() {
-            this.mNetWorkCore = null;
+            this.mNetWork = null;
         }
 
         /* synthetic */ RecommendAsyncTask(RecommendActivity recommendActivity, RecommendAsyncTask recommendAsyncTask) {
@@ -345,10 +345,10 @@ public class RecommendActivity extends BaseActivity implements BaseWebView.OnLoa
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // android.os.AsyncTask
         public String doInBackground(Object... arg0) {
-            this.mNetWorkCore = new NetWorkCore(Config.RECOMMEND_ADDRESS);
+            this.mNetWork = new NetWork(Config.RECOMMEND_ADDRESS);
             try {
-                this.data = new String(this.mNetWorkCore.getNetData());
-                if (this.mNetWorkCore.isRequestSuccess()) {
+                this.data = new String(this.mNetWork.getNetData());
+                if (this.mNetWork.isRequestSuccess()) {
                     return this.data;
                 }
             } catch (Exception ex) {
@@ -358,8 +358,8 @@ public class RecommendActivity extends BaseActivity implements BaseWebView.OnLoa
         }
 
         public void cancel() {
-            if (this.mNetWorkCore != null) {
-                this.mNetWorkCore.cancelNetConnect();
+            if (this.mNetWork != null) {
+                this.mNetWork.cancelNetConnect();
             }
             RecommendActivity.this.isRefreshing = false;
             super.cancel(true);
@@ -370,7 +370,7 @@ public class RecommendActivity extends BaseActivity implements BaseWebView.OnLoa
         @Override // android.os.AsyncTask
         public void onPostExecute(String result) {
             RecommendActivity.this.hotspotWebView.setOnClickListener(null);
-            if (this.mNetWorkCore == null || !this.mNetWorkCore.isRequestSuccess() || result == null) {
+            if (this.mNetWork == null || !this.mNetWork.isRequestSuccess() || result == null) {
                 RecommendActivity.this.webviewSucess = false;
                 String data = DatabaseService.getNoAccountData(6);
                 if (data != null && data.length() > 1) {
@@ -398,10 +398,10 @@ public class RecommendActivity extends BaseActivity implements BaseWebView.OnLoa
     /* loaded from: classes.dex */
     public class HotspotAsyncTask extends AsyncTask<Object, Integer, Boolean> {
         private String data;
-        private NetWorkCore mNetWorkCore;
+        private NetWork mNetWork;
 
         private HotspotAsyncTask() {
-            this.mNetWorkCore = null;
+            this.mNetWork = null;
             this.data = null;
         }
 
@@ -414,17 +414,17 @@ public class RecommendActivity extends BaseActivity implements BaseWebView.OnLoa
         /* JADX WARN: Can't rename method to resolve collision */
         @Override // android.os.AsyncTask
         public Boolean doInBackground(Object... arg0) {
-            this.mNetWorkCore = new NetWorkCore("http://c.tieba.baidu.com/c/s/recommendPic/");
+            this.mNetWork = new NetWork("http://c.tieba.baidu.com/c/s/recommendPic/");
             RecommendActivity.this.hotspotSucess = false;
             try {
-                this.data = new String(this.mNetWorkCore.postNetData());
-                if (!this.mNetWorkCore.isRequestSuccess()) {
+                this.data = new String(this.mNetWork.postNetData());
+                if (!this.mNetWork.isRequestSuccess()) {
                     this.data = null;
                 }
             } catch (Exception ex) {
                 TiebaLog.e("HotspotAsyncTask", "doInBackground", "error = " + ex.getMessage());
             }
-            if (this.mNetWorkCore == null || !this.mNetWorkCore.isRequestSuccess() || this.data == null) {
+            if (this.mNetWork == null || !this.mNetWork.isRequestSuccess() || this.data == null) {
                 this.data = DatabaseService.getNoAccountData(5);
             }
             if (this.data != null) {
@@ -478,8 +478,8 @@ public class RecommendActivity extends BaseActivity implements BaseWebView.OnLoa
 
         public void cancel() {
             RecommendActivity.this.isRefreshing = false;
-            if (this.mNetWorkCore != null) {
-                this.mNetWorkCore.cancelNetConnect();
+            if (this.mNetWork != null) {
+                this.mNetWork.cancelNetConnect();
             }
             super.cancel(true);
         }

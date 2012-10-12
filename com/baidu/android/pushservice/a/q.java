@@ -15,6 +15,5 @@ public class q extends c {
     public void a(List list) {
         super.a(list);
         list.add(new BasicNameValuePair(PushConstants.EXTRA_METHOD, "unbind"));
-        list.add(new BasicNameValuePair("rsa_access_token", this.b.b));
     }
 }

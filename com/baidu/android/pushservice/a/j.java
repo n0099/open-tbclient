@@ -24,7 +24,6 @@ public class j extends b {
     public void a(List list) {
         super.a(list);
         list.add(new BasicNameValuePair(PushConstants.EXTRA_METHOD, "fetchgmsg"));
-        list.add(new BasicNameValuePair("rsa_access_token", this.b.b));
         list.add(new BasicNameValuePair(PushConstants.EXTRA_GID, this.g));
         list.add(new BasicNameValuePair(PushConstants.EXTRA_FETCH_TYPE, this.e + ""));
         list.add(new BasicNameValuePair(PushConstants.EXTRA_FETCH_NUM, this.f + ""));

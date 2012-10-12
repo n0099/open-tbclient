@@ -14,7 +14,7 @@ import android.text.TextUtils;
 import com.baidu.android.common.logging.Log;
 import com.baidu.android.pushservice.PushConstants;
 import com.baidu.android.pushservice.PushService;
-import com.baidu.android.pushservice.x;
+import com.baidu.android.pushservice.y;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
@@ -24,11 +24,11 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class c extends a {
-    private com.baidu.android.pushservice.b.a e;
+    private com.baidu.android.pushservice.util.a e;
 
-    public c(Context context, com.baidu.android.pushservice.c cVar, InputStream inputStream, OutputStream outputStream) {
-        super(context, cVar, inputStream, outputStream);
-        this.e = new com.baidu.android.pushservice.b.a(inputStream);
+    public c(Context context, com.baidu.android.pushservice.d dVar, InputStream inputStream, OutputStream outputStream) {
+        super(context, dVar, inputStream, outputStream);
+        this.e = new com.baidu.android.pushservice.util.a(inputStream);
     }
 
     private String a(byte[] bArr) {
@@ -92,10 +92,10 @@ public class c extends a {
     /* JADX DEBUG: Another duplicated slice has different insns count: {[]}, finally: {[INVOKE, MOVE_EXCEPTION, INVOKE, INVOKE, INVOKE, MOVE_EXCEPTION] complete} */
     private byte[] a(long j, String str, String str2, String str3, long j2, int i, int i2) {
         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-        com.baidu.android.pushservice.b.b bVar = new com.baidu.android.pushservice.b.b(byteArrayOutputStream);
+        com.baidu.android.pushservice.util.b bVar = new com.baidu.android.pushservice.util.b(byteArrayOutputStream);
         try {
             try {
-                bVar.a(Long.parseLong(x.a().b()));
+                bVar.a(Long.parseLong(y.a().b()));
                 bVar.a(a(str, 128));
                 bVar.a(a(str2, 128));
                 bVar.a(a(str3, 128));
@@ -143,14 +143,14 @@ public class c extends a {
     /* JADX DEBUG: Another duplicated slice has different insns count: {[]}, finally: {[INVOKE, MOVE_EXCEPTION, INVOKE, INVOKE, INVOKE, MOVE_EXCEPTION] complete} */
     private byte[] a(short s, byte[] bArr) {
         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-        com.baidu.android.pushservice.b.b bVar = new com.baidu.android.pushservice.b.b(byteArrayOutputStream);
+        com.baidu.android.pushservice.util.b bVar = new com.baidu.android.pushservice.util.b(byteArrayOutputStream);
         int length = bArr != null ? bArr.length : 0;
         try {
             try {
                 bVar.a((int) s);
-                bVar.a(1);
+                bVar.a(3);
                 bVar.b(0);
-                bVar.a(a(com.baidu.android.pushservice.b.d.c(this.c, this.c.getPackageName()) ? "BaiduApp" : "DevApp", 16));
+                bVar.a(a(com.baidu.android.pushservice.util.d.d(this.c, this.c.getPackageName()) ? "BaiduApp" : "DevApp", 16));
                 bVar.b(-76508268);
                 bVar.b(1);
                 bVar.b(length);
@@ -190,13 +190,16 @@ public class c extends a {
             intent.putExtra("last_connect_stamp", System.currentTimeMillis());
             this.c.sendStickyBroadcast(intent);
         } else if (i != 5003) {
-            x.a().a((String) null, (String) null);
+            y.a().a((String) null, (String) null);
             throw new d("MessageHandler handle handshake msg failed. ret = " + i);
         } else {
             Intent intent2 = new Intent("com.baidu.pushservice.action.connect.STAMP");
             intent2.putExtra("last_connect_stamp", 0L);
             this.c.sendStickyBroadcast(intent2);
         }
+        Intent intent3 = new Intent("com.baidu.pushservice.action.connect.GETCHANNELID");
+        intent3.putExtra("channel_id", y.a().b());
+        this.c.sendStickyBroadcast(intent3);
     }
 
     private void d(b bVar) {
@@ -214,7 +217,7 @@ public class c extends a {
         if (bArr == null) {
             return;
         }
-        com.baidu.android.pushservice.b.a aVar = new com.baidu.android.pushservice.b.a(new ByteArrayInputStream(bArr));
+        com.baidu.android.pushservice.util.a aVar = new com.baidu.android.pushservice.util.a(new ByteArrayInputStream(bArr));
         long c = aVar.c();
         byte[] bArr2 = new byte[128];
         aVar.a(bArr2);
@@ -234,7 +237,7 @@ public class c extends a {
         byte[] bArr5 = new byte[length];
         System.arraycopy(bArr, 416, bArr5, 0, length);
         if (a4 == 0 || a4 == 1) {
-            com.baidu.android.pushservice.b b = com.baidu.android.pushservice.a.a(this.c).b(a);
+            com.baidu.android.pushservice.c b = com.baidu.android.pushservice.a.a(this.c).b(a);
             if (b == null || !b.c.equals(a2)) {
                 i = 2;
             } else {
@@ -250,7 +253,7 @@ public class c extends a {
             PublicMsg a5 = g.a(bArr5);
             if (a5 == null || TextUtils.isEmpty(a5.a) || TextUtils.isEmpty(a5.b) || TextUtils.isEmpty(a5.c)) {
                 i3 = 2;
-            } else if (a(a5) && com.baidu.android.pushservice.b.d.c(this.c, this.c.getPackageName())) {
+            } else if (a(a5) && com.baidu.android.pushservice.util.d.d(this.c, this.c.getPackageName())) {
                 a(a5, c2);
                 i3 = 1;
             } else {
@@ -290,8 +293,8 @@ public class c extends a {
     public void b() {
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("channel_token", x.a().c());
-            jSONObject.put("channel_id", x.a().b());
+            jSONObject.put("channel_token", y.a().c());
+            jSONObject.put("channel_id", y.a().b());
             jSONObject.put("period", 1800);
             jSONObject.put("channel_type", 3);
         } catch (JSONException e) {

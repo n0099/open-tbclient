@@ -15,6 +15,5 @@ public class o extends b {
     public void a(List list) {
         super.a(list);
         list.add(new BasicNameValuePair(PushConstants.EXTRA_METHOD, "online"));
-        list.add(new BasicNameValuePair("rsa_access_token", this.b.b));
     }
 }

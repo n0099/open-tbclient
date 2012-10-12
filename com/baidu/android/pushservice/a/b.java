@@ -7,14 +7,15 @@ import com.baidu.android.common.logging.Log;
 import com.baidu.android.common.net.ConnectManager;
 import com.baidu.android.common.net.ProxyHttpClient;
 import com.baidu.android.pushservice.PushConstants;
-import com.baidu.android.pushservice.v;
-import com.baidu.android.pushservice.x;
+import com.baidu.android.pushservice.w;
+import com.baidu.android.pushservice.y;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.entity.UrlEncodedFormEntity;
 import org.apache.http.client.methods.HttpPost;
+import org.apache.http.message.BasicNameValuePair;
 import org.apache.http.util.EntityUtils;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -23,7 +24,7 @@ public abstract class b implements Runnable {
     protected Context a;
     protected h b;
     protected boolean d = true;
-    protected String c = v.e;
+    protected String c = w.f;
 
     public b(h hVar, Context context) {
         this.b = hVar;
@@ -31,8 +32,9 @@ public abstract class b implements Runnable {
     }
 
     private boolean b() {
+        boolean z = false;
         if (!TextUtils.isEmpty(this.c)) {
-            this.c += x.a().b();
+            this.c += y.a().b();
             ProxyHttpClient proxyHttpClient = new ProxyHttpClient(this.a);
             try {
                 HttpPost httpPost = new HttpPost(this.c);
@@ -43,6 +45,7 @@ public abstract class b implements Runnable {
                 HttpResponse execute = proxyHttpClient.execute(httpPost);
                 if (execute.getStatusLine().getStatusCode() == 200) {
                     a(0, b(EntityUtils.toString(execute.getEntity())).getBytes());
+                    z = true;
                 } else {
                     Log.i("BaseApiProcessor", "networkRegister request failed  " + execute.getStatusLine());
                     a(EntityUtils.toString(execute.getEntity()));
@@ -55,7 +58,7 @@ public abstract class b implements Runnable {
                 proxyHttpClient.close();
             }
         }
-        return false;
+        return z;
     }
 
     protected void a() {
@@ -67,9 +70,9 @@ public abstract class b implements Runnable {
             a.a(this.a);
             return;
         }
-        x a = x.a();
+        y a = y.a();
         synchronized (a) {
-            if (this.d && !x.a().d()) {
+            if (this.d && !y.a().d()) {
                 a.a(this.a, false);
                 this.d = false;
                 try {
@@ -78,12 +81,10 @@ public abstract class b implements Runnable {
                 }
             }
         }
-        if (!x.a().d()) {
-            a(PushConstants.ERROR_SERVICE_NOT_AVAILABLE);
-        } else if (TextUtils.isEmpty(this.b.b)) {
-            a(PushConstants.ERROR_AUTHENTICATION_FAILED);
-        } else {
+        if (y.a().d()) {
             b();
+        } else {
+            a(PushConstants.ERROR_SERVICE_NOT_AVAILABLE);
         }
     }
 
@@ -127,6 +128,12 @@ public abstract class b implements Runnable {
     /* JADX INFO: Access modifiers changed from: protected */
     public void a(List list) {
         a.a(list);
+        if (!TextUtils.isEmpty(this.b.b)) {
+            list.add(new BasicNameValuePair("rsa_access_token", this.b.b));
+            return;
+        }
+        list.add(new BasicNameValuePair("rsa_bduss", this.b.f));
+        list.add(new BasicNameValuePair("appid", this.b.d));
     }
 
     protected String b(String str) {
