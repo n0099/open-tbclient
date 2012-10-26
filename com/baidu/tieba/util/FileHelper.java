@@ -3,9 +3,11 @@ package com.baidu.tieba.util;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Environment;
+import android.support.v4.view.accessibility.AccessibilityEventCompat;
 import com.baidu.tieba.R;
 import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.data.Config;
+import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -61,6 +63,19 @@ public class FileHelper {
         if (checkSD()) {
             try {
                 File tf = new File(EXTERNAL_STORAGE_DIRECTORY + "/" + Config.TMPDIRNAME + "/" + file);
+                return tf.exists();
+            } catch (Exception ex) {
+                TiebaLog.e("FileHelper", "CheckFile", "error = " + ex.getMessage());
+                return false;
+            }
+        }
+        return false;
+    }
+
+    public static boolean CheckFile(String path, String file) {
+        if (checkSD()) {
+            try {
+                File tf = new File(EXTERNAL_STORAGE_DIRECTORY + "/" + Config.TMPDIRNAME + "/" + path + "/" + file);
                 return tf.exists();
             } catch (Exception ex) {
                 TiebaLog.e("FileHelper", "CheckFile", "error = " + ex.getMessage());
@@ -173,6 +188,7 @@ public class FileHelper {
 
     public static boolean isGif(String path, String filename) {
         String all_path;
+        InputStream fStream;
         boolean result = false;
         if (path != null) {
             all_path = EXTERNAL_STORAGE_DIRECTORY + "/" + Config.TMPDIRNAME + "/" + path + "/";
@@ -181,28 +197,25 @@ public class FileHelper {
         }
         File file = new File(String.valueOf(all_path) + filename);
         try {
-            InputStream fStream = new FileInputStream(file);
-            try {
-                byte[] temp = new byte[7];
-                fStream.read(temp, 0, 6);
-                String tag = new String(temp);
-                if (tag.startsWith("GIF")) {
-                    result = true;
-                }
-                fStream.close();
-            } catch (FileNotFoundException e) {
-                e = e;
-                e.printStackTrace();
-                return result;
-            } catch (IOException e2) {
-                e = e2;
-                e.printStackTrace();
-                return result;
-            }
+            fStream = new FileInputStream(file);
+        } catch (FileNotFoundException e) {
+            e = e;
+        } catch (IOException e2) {
+            e = e2;
+        }
+        try {
+            byte[] temp = new byte[7];
+            fStream.read(temp, 0, 6);
+            result = UtilHelper.isGif(temp);
+            fStream.close();
         } catch (FileNotFoundException e3) {
             e = e3;
+            e.printStackTrace();
+            return result;
         } catch (IOException e4) {
             e = e4;
+            e.printStackTrace();
+            return result;
         }
         return result;
     }
@@ -245,10 +258,20 @@ public class FileHelper {
     }
 
     public static String SaveFile(String filename, byte[] data) {
-        if (!CheckTempDir() || data == null) {
+        return SaveFile(null, filename, data);
+    }
+
+    public static String SaveFile(String path, String filename, byte[] data) {
+        String all_path;
+        if (!CheckTempDir() || data == null || filename == null) {
             return null;
         }
-        File file = new File(EXTERNAL_STORAGE_DIRECTORY + "/" + Config.TMPDIRNAME + "/" + filename);
+        if (path != null) {
+            all_path = EXTERNAL_STORAGE_DIRECTORY + "/" + Config.TMPDIRNAME + "/" + path + "/";
+        } else {
+            all_path = EXTERNAL_STORAGE_DIRECTORY + "/" + Config.TMPDIRNAME + "/";
+        }
+        File file = new File(String.valueOf(all_path) + filename);
         try {
             if (file.exists()) {
                 file.delete();
@@ -261,6 +284,38 @@ public class FileHelper {
             return file.getPath();
         } catch (IOException ex) {
             TiebaLog.e("FileHelper", "SaveFile", "error = " + ex.getMessage());
+            return null;
+        }
+    }
+
+    public static byte[] GetFileData(String path, String filename) {
+        String all_path;
+        if (!CheckTempDir() || filename == null) {
+            return null;
+        }
+        if (path != null) {
+            all_path = EXTERNAL_STORAGE_DIRECTORY + "/" + Config.TMPDIRNAME + "/" + path + "/";
+        } else {
+            all_path = EXTERNAL_STORAGE_DIRECTORY + "/" + Config.TMPDIRNAME + "/";
+        }
+        File file = new File(String.valueOf(all_path) + filename);
+        try {
+            if (!file.exists()) {
+                return null;
+            }
+            FileInputStream fStream = new FileInputStream(file);
+            ByteArrayOutputStream outputstream = new ByteArrayOutputStream(AccessibilityEventCompat.TYPE_TOUCH_EXPLORATION_GESTURE_END);
+            byte[] temp = new byte[AccessibilityEventCompat.TYPE_TOUCH_EXPLORATION_GESTURE_END];
+            while (true) {
+                int num = fStream.read(temp, 0, AccessibilityEventCompat.TYPE_TOUCH_EXPLORATION_GESTURE_END);
+                if (num != -1) {
+                    outputstream.write(temp, 0, num);
+                } else {
+                    return outputstream.toByteArray();
+                }
+            }
+        } catch (IOException ex) {
+            TiebaLog.e("FileHelper", "GetFileData", "error = " + ex.getMessage());
             return null;
         }
     }

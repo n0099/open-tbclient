@@ -14,6 +14,7 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.data.Config;
 import com.baidu.tieba.data.ContentData;
 import com.baidu.tieba.data.PostData;
+import com.baidu.tieba.person.PersonInfoActivity;
 import com.baidu.tieba.util.ContentHelper;
 import com.baidu.tieba.util.StringHelper;
 import com.baidu.tieba.util.TiebaLog;
@@ -159,13 +160,14 @@ public class SubPbAdapter extends BaseAdapter {
                         convertView = inflater.inflate(R.layout.sub_pb_item, (ViewGroup) null);
                         holder2 = new ViewHolder(this, null);
                         holder2.mUserName = (TextView) convertView.findViewById(R.id.text_user);
-                        holder2.mUserName.getPaint().setFakeBoldText(true);
                         holder2.mTime = (TextView) convertView.findViewById(R.id.text_time);
                         holder2.mText = (TextView) convertView.findViewById(R.id.text_content);
                         holder2.mText.setLineSpacing(0.0f, 1.2f);
                         holder2.mReply = (Button) convertView.findViewById(R.id.button_reply);
                         holder2.mSeg = (LinearLayout) convertView.findViewById(R.id.seg);
                         holder2.mReply.setOnClickListener(this.mReplyListener);
+                        holder2.mPhotoClick = new PhotoOnClickListener();
+                        holder2.mUserName.setOnClickListener(holder2.mPhotoClick);
                         holder = holder2;
                     } else {
                         convertView = inflater.inflate(R.layout.page_item, (ViewGroup) null);
@@ -240,6 +242,14 @@ public class SubPbAdapter extends BaseAdapter {
         } else {
             holder.mUserName.setText((CharSequence) null);
         }
+        String id = data.getAuthor().getId();
+        holder.mPhotoClick.setId(id);
+        holder.mPhotoClick.setName(data.getAuthor().getName());
+        if (id == null || id.length() <= 0 || id.equals("0")) {
+            holder.mUserName.setTextColor(-16777216);
+        } else {
+            holder.mUserName.setTextColor(-16749848);
+        }
         holder.mTime.setText(StringHelper.getTimeString(data.getTime()));
         ArrayList<ContentData> content = data.getUnite_content();
         ContentHelper helper = new ContentHelper(this.mContext);
@@ -250,6 +260,7 @@ public class SubPbAdapter extends BaseAdapter {
     /* loaded from: classes.dex */
     private class ViewHolder {
         TextView mPageText;
+        PhotoOnClickListener mPhotoClick;
         ProgressBar mProgress;
         Button mReply;
         LinearLayout mSeg;
@@ -262,6 +273,30 @@ public class SubPbAdapter extends BaseAdapter {
 
         /* synthetic */ ViewHolder(SubPbAdapter subPbAdapter, ViewHolder viewHolder) {
             this();
+        }
+    }
+
+    /* loaded from: classes.dex */
+    private class PhotoOnClickListener implements View.OnClickListener {
+        private String id;
+        private String name;
+
+        public PhotoOnClickListener() {
+            setId(null);
+            setName(null);
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View v) {
+            PersonInfoActivity.startActivity(SubPbAdapter.this.mContext, this.id, this.name);
+        }
+
+        public void setName(String name) {
+            this.name = name;
+        }
+
+        public void setId(String id) {
+            this.id = id;
         }
     }
 }

@@ -1,5 +1,6 @@
 package com.baidu.tieba.mention;
 
+import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -656,7 +657,7 @@ public class MentionView {
                         AntiData antiData = subPbData.getAntiData();
                         String postId = subPbData.getPostData().getId();
                         int floorNum = subPbData.getPostData().getFloor_num();
-                        WriteActivity.startAcitivity(MentionView.this.mActivity, forumId, forumName, threadId, postId, floorNum, antiData, true);
+                        WriteActivity.startAcitivity((Activity) MentionView.this.mActivity, forumId, forumName, threadId, postId, floorNum, antiData, true);
                     }
                 } else if (this.mNetwork != null) {
                     MentionView.this.mActivity.showToast(this.mNetwork.getErrorString());

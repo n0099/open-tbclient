@@ -26,6 +26,7 @@ public class ThreadData {
     private int comment_num = 0;
     private int has_commented = 0;
     private int show_commented = 0;
+    private String ad_url = null;
 
     public void setId(String id) {
         this.id = id;
@@ -147,6 +148,14 @@ public class ThreadData {
         this.show_commented = show_commented;
     }
 
+    public String getAd_url() {
+        return this.ad_url;
+    }
+
+    public void setAd_url(String url) {
+        this.ad_url = url;
+    }
+
     public void parserJson(String data) {
         try {
             JSONObject json = new JSONObject(data);
@@ -174,6 +183,7 @@ public class ThreadData {
                 this.comment_num = json.optInt("comment_num", 0);
                 this.has_commented = json.optInt("has_commented", 0);
                 this.show_commented = json.optInt("show_commented", 0);
+                this.ad_url = json.optString("click_url");
             } catch (Exception ex) {
                 TiebaLog.e("ThreadData", "parserJson", "error = " + ex.getMessage());
             }
@@ -193,6 +203,7 @@ public class ThreadData {
         TiebaLog.v("ThreadData", "logPrint", "is_good = " + String.valueOf(this.is_good));
         TiebaLog.v("ThreadData", "logPrint", "comment_num = " + String.valueOf(this.comment_num));
         TiebaLog.v("ThreadData", "logPrint", "has_commented = " + String.valueOf(this.has_commented));
+        TiebaLog.v("ThreadData", "logPrint", "ad_url = " + this.ad_url);
         this.author.logPrint();
         this.last_replyer.logPrint();
     }

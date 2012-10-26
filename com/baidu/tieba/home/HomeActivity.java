@@ -14,8 +14,10 @@ import android.widget.RadioButton;
 import com.baidu.tieba.MainTabActivity;
 import com.baidu.tieba.R;
 import com.baidu.tieba.TiebaApplication;
+import com.baidu.tieba.account.LoginActivity;
 import com.baidu.tieba.data.AntiData;
 import com.baidu.tieba.data.Config;
+import com.baidu.tieba.data.RequestResponseCode;
 import com.baidu.tieba.more.AboutActivity;
 import com.baidu.tieba.more.AccountActivity;
 import com.baidu.tieba.util.TiebaLog;
@@ -46,6 +48,11 @@ public class HomeActivity extends ActivityGroup {
             }
             Activity activity = HomeActivity.this.getLocalActivityManager().getCurrentActivity();
             if (activity instanceof LikeActivity) {
+                String id = TiebaApplication.getCurrentAccount();
+                if (id == null || id.length() <= 0) {
+                    LoginActivity.startActivity((Activity) HomeActivity.this, HomeActivity.this.getString(R.string.login_to_use), true, (int) RequestResponseCode.REQUEST_LOGIN_HOME_REFRESHLIKE);
+                    return;
+                }
                 LikeActivity like = (LikeActivity) activity;
                 like.exec(true);
             }
@@ -147,5 +154,24 @@ public class HomeActivity extends ActivityGroup {
                 break;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override // android.app.Activity
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (resultCode == -1) {
+            switch (requestCode) {
+                case RequestResponseCode.REQUEST_LOGIN_HOME_REFRESHLIKE /* 1100015 */:
+                    Activity activity = getLocalActivityManager().getCurrentActivity();
+                    if (activity instanceof LikeActivity) {
+                        LikeActivity like = (LikeActivity) activity;
+                        like.exec(true);
+                        return;
+                    }
+                    return;
+                default:
+                    return;
+            }
+        }
     }
 }

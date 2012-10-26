@@ -64,7 +64,7 @@ public class PersonInfoActivity extends BaseActivity {
     }
 
     public static void startActivityNewTask(Context context, String id, String name, boolean newTask) {
-        if (id != null && !id.equalsIgnoreCase("0")) {
+        if (id != null && id.length() > 0 && !id.equals("0")) {
             Intent intent = new Intent(context, PersonInfoActivity.class);
             intent.putExtra("un", id);
             intent.putExtra(TAG_NAME, name);

@@ -32,6 +32,7 @@ import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.baidu.android.pushservice.PushConstants;
+import com.baidu.location.BDLocation;
 import com.baidu.tieba.BaseActivity;
 import com.baidu.tieba.R;
 import com.baidu.tieba.TiebaApplication;
@@ -66,6 +67,7 @@ public class WriteActivity extends BaseActivity {
     private static final String FLOOR_NUM = "floor_num";
     private static final String FORUM_ID = "forum_id";
     private static final String FORUM_NAME = "forum_name";
+    private static final String IS_AD = "is_ad";
     private static final String REPLY_SUB_PB = "reply_sub_pb";
     private static final String THREAD_ID = "thread_id";
     private static final String TYPE = "type";
@@ -77,13 +79,13 @@ public class WriteActivity extends BaseActivity {
     private EditText mPostContent = null;
     private Button mBack = null;
     private Button mPost = null;
-    private Button mFace = null;
-    private Button mselectAt = null;
+    private ImageView mFace = null;
+    private ImageView mselectAt = null;
+    private ImageView mSelectImage = null;
     private RelativeLayout mTools = null;
     private ProgressBar mImageProgressBar = null;
     private ImageView mImage = null;
     private TextView mName = null;
-    private Button mSelectImage = null;
     private GridView mGridView = null;
     private AlertDialog mSelectImageDialog = null;
     private FaceAdapter mFaceAdapter = null;
@@ -152,34 +154,34 @@ public class WriteActivity extends BaseActivity {
     };
 
     public static void startAcitivityForResult(Activity context, String forumId, String forumName, AntiData anti) {
-        startAcitivityForResult(context, WriteModel.NEW, forumId, forumName, null, null, 0, anti, RequestResponseCode.REQUEST_WRITE_NEW, false, false);
+        startAcitivityForResult(context, WriteModel.NEW, forumId, forumName, null, null, 0, anti, RequestResponseCode.REQUEST_WRITE_NEW, false, false, false);
     }
 
     public static void startAcitivity(Activity context, String forumId, String forumName, AntiData anti) {
-        startAcitivityForResult(context, WriteModel.NEW, forumId, forumName, null, null, 0, anti, RequestResponseCode.REQUEST_WRITE_NEW, false, false);
+        startAcitivityForResult(context, WriteModel.NEW, forumId, forumName, null, null, 0, anti, RequestResponseCode.REQUEST_WRITE_NEW, false, false, false);
     }
 
     public static void startActivityFeedBack(Activity context, String forumId, String forumName, AntiData anti) {
-        startAcitivityForResult(context, WriteModel.NEW, forumId, forumName, null, null, 0, anti, RequestResponseCode.REQUEST_WRITE_NEW, true, false);
+        startAcitivityForResult(context, WriteModel.NEW, forumId, forumName, null, null, 0, anti, RequestResponseCode.REQUEST_WRITE_NEW, true, false, false);
     }
 
-    public static void startAcitivity(Activity context, String forumId, String forumName, String threadId, String floorId, int floorNum, AntiData anti) {
+    public static void startAcitivity(Activity context, String forumId, String forumName, String threadId, String floorId, int floorNum, boolean isAd, AntiData anti) {
         if (floorId != null) {
-            startAcitivityForResult(context, WriteModel.REPLY_FLOOR, forumId, forumName, threadId, floorId, floorNum, anti, RequestResponseCode.REQUEST_WRITE_REPLY_FLOOR, false, false);
+            startAcitivityForResult(context, WriteModel.REPLY_FLOOR, forumId, forumName, threadId, floorId, floorNum, anti, RequestResponseCode.REQUEST_WRITE_REPLY_FLOOR, false, false, isAd);
         } else {
-            startAcitivityForResult(context, WriteModel.REPLY, forumId, forumName, threadId, floorId, floorNum, anti, RequestResponseCode.REQUEST_WRITE_REPLY, false, false);
+            startAcitivityForResult(context, WriteModel.REPLY, forumId, forumName, threadId, floorId, floorNum, anti, RequestResponseCode.REQUEST_WRITE_REPLY, false, false, isAd);
         }
     }
 
     public static void startAcitivity(Activity context, String forumId, String forumName, String threadId, String floorId, int floorNum, AntiData anti, boolean isReplySubPb) {
         if (floorId != null) {
-            startAcitivityForResult(context, WriteModel.REPLY_FLOOR, forumId, forumName, threadId, floorId, floorNum, anti, RequestResponseCode.REQUEST_WRITE_REPLY_FLOOR, false, isReplySubPb);
+            startAcitivityForResult(context, WriteModel.REPLY_FLOOR, forumId, forumName, threadId, floorId, floorNum, anti, RequestResponseCode.REQUEST_WRITE_REPLY_FLOOR, false, isReplySubPb, false);
         } else {
-            startAcitivityForResult(context, WriteModel.REPLY, forumId, forumName, threadId, floorId, floorNum, anti, RequestResponseCode.REQUEST_WRITE_REPLY, false, isReplySubPb);
+            startAcitivityForResult(context, WriteModel.REPLY, forumId, forumName, threadId, floorId, floorNum, anti, RequestResponseCode.REQUEST_WRITE_REPLY, false, isReplySubPb, false);
         }
     }
 
-    private static void startAcitivityForResult(Activity context, int type, String forumId, String forumName, String threadId, String floorId, int floorNum, AntiData anti, int requestCode, boolean feedBack, boolean isReplySubPb) {
+    private static void startAcitivityForResult(Activity context, int type, String forumId, String forumName, String threadId, String floorId, int floorNum, AntiData anti, int requestCode, boolean feedBack, boolean isReplySubPb, boolean isAd) {
         if (anti != null && anti.getIfpost() == 0) {
             UtilHelper.showToast(context, anti.getForbid_info());
             return;
@@ -189,6 +191,7 @@ public class WriteActivity extends BaseActivity {
         intent.putExtra(FORUM_ID, forumId);
         intent.putExtra(FORUM_NAME, forumName);
         intent.putExtra(REPLY_SUB_PB, isReplySubPb);
+        intent.putExtra(IS_AD, isAd);
         if (feedBack) {
             intent.putExtra(FEED_BACK, true);
         }
@@ -212,6 +215,7 @@ public class WriteActivity extends BaseActivity {
         initData(savedInstanceState);
         initUI();
         regReceiver();
+        TiebaApplication.app.startLocationServer();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -271,6 +275,7 @@ public class WriteActivity extends BaseActivity {
         }
         unregisterReceiver(this.receiver);
         this.mHandler.removeCallbacks(this.mLoadImageRun);
+        TiebaApplication.app.stopLocationServer();
         super.onDestroy();
     }
 
@@ -339,6 +344,7 @@ public class WriteActivity extends BaseActivity {
         });
         if (this.mSelectImageDialog == null) {
             this.mSelectImageDialog = builder.create();
+            this.mSelectImageDialog.setCanceledOnTouchOutside(true);
         }
         this.mPost = (Button) findViewById(R.id.post);
         this.mPost.setOnFocusChangeListener(this.mFocusChangeListener);
@@ -359,6 +365,9 @@ public class WriteActivity extends BaseActivity {
             } else if (this.isFeedBack) {
                 this.mPostTitle.setText(getResources().getString(R.string.android_feedback));
             }
+        } else if (this.mModel.getType() != WriteModel.REPLY) {
+            this.mModel.getType();
+            int i = WriteModel.REPLY_FLOOR;
         }
         this.mPostTitle.addTextChangedListener(new TextWatcher() { // from class: com.baidu.tieba.write.WriteActivity.8
             @Override // android.text.TextWatcher
@@ -408,7 +417,7 @@ public class WriteActivity extends BaseActivity {
         this.mTools = (RelativeLayout) findViewById(R.id.tools);
         this.mPostContent = (EditText) findViewById(R.id.post_content);
         this.mPostContent.setOnClickListener(this.mEditOnClicked);
-        this.mSelectImage = (Button) findViewById(R.id.select_image);
+        this.mSelectImage = (ImageView) findViewById(R.id.select_image);
         this.mSelectImage.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.write.WriteActivity.10
             @Override // android.view.View.OnClickListener
             public void onClick(View v) {
@@ -470,7 +479,7 @@ public class WriteActivity extends BaseActivity {
                 WriteActivity.this.popupSaveDraft();
             }
         });
-        this.mselectAt = (Button) findViewById(R.id.select_at);
+        this.mselectAt = (ImageView) findViewById(R.id.select_at);
         this.mselectAt.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.write.WriteActivity.14
             @Override // android.view.View.OnClickListener
             public void onClick(View arg0) {
@@ -491,7 +500,7 @@ public class WriteActivity extends BaseActivity {
                 WriteActivity.this.PostNewMessage();
             }
         });
-        this.mFace = (Button) findViewById(R.id.select_face);
+        this.mFace = (ImageView) findViewById(R.id.select_face);
         this.mFace.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.write.WriteActivity.16
             @Override // android.view.View.OnClickListener
             public void onClick(View v) {
@@ -748,16 +757,14 @@ public class WriteActivity extends BaseActivity {
 
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
-        /* JADX WARN: Removed duplicated region for block: B:39:0x017e A[RETURN, SYNTHETIC] */
-        /* JADX WARN: Removed duplicated region for block: B:45:0x0190  */
+        /* JADX WARN: Removed duplicated region for block: B:39:0x01b7 A[RETURN, SYNTHETIC] */
+        /* JADX WARN: Removed duplicated region for block: B:45:0x01cc  */
         @Override // android.os.AsyncTask
         /*
             Code decompiled incorrectly, please refer to instructions dump.
         */
         public String doInBackground(Integer... arg0) {
             String ret;
-            JSONObject json;
-            InfoData info;
             if (WriteActivity.this.mBitmap != null && this.mDate.getBitmapId() == null) {
                 TiebaLog.d("PostThreadTask", "doInBackground", "start upload image");
                 try {
@@ -800,25 +807,25 @@ public class WriteActivity extends BaseActivity {
                             return null;
                         }
                     }
-                    json = new JSONObject(ret);
-                    info = new InfoData();
-                } catch (IOException e) {
-                    e = e;
-                } catch (JSONException e2) {
-                    e = e2;
-                }
-                try {
-                    info.parserJson(json.optJSONObject(LoginActivity.INFO));
-                    this.mDate.setBitmapId(info);
+                    JSONObject json = new JSONObject(ret);
+                    InfoData info = new InfoData();
+                    try {
+                        info.parserJson(json.optJSONObject(LoginActivity.INFO));
+                        this.mDate.setBitmapId(info);
+                    } catch (IOException e) {
+                        e = e;
+                        e.printStackTrace();
+                        return null;
+                    } catch (JSONException e2) {
+                        e = e2;
+                        e.printStackTrace();
+                        if (!this.mCanceled) {
+                        }
+                    }
                 } catch (IOException e3) {
                     e = e3;
-                    e.printStackTrace();
-                    return null;
                 } catch (JSONException e4) {
                     e = e4;
-                    e.printStackTrace();
-                    if (!this.mCanceled) {
-                    }
                 }
             }
             if (!this.mCanceled) {
@@ -840,9 +847,14 @@ public class WriteActivity extends BaseActivity {
             if (this.mDate.getType() == WriteModel.NEW) {
                 this.mNetwork.setUrl("http://c.tieba.baidu.com/c/c/thread/add");
                 this.mNetwork.addPostData("title", this.mDate.getTitle());
+                BDLocation mLocation = TiebaApplication.app.getLocation();
+                if (mLocation != null) {
+                    this.mNetwork.addPostData("lbs", String.valueOf(String.valueOf(mLocation.getLatitude())) + "," + String.valueOf(mLocation.getLongitude()));
+                }
             } else {
                 this.mNetwork.setUrl("http://c.tieba.baidu.com/c/c/post/add");
                 this.mNetwork.addPostData("tid", this.mDate.getThreadId());
+                this.mNetwork.addPostData(WriteActivity.IS_AD, WriteActivity.this.getIntent().getBooleanExtra(WriteActivity.IS_AD, false) ? NetWorkCore.NET_TYPE_NET : "0");
                 if (this.mDate.getType() == WriteModel.REPLY_FLOOR) {
                     this.mNetwork.addPostData("quote_id", String.valueOf(this.mDate.getFloor()));
                     this.mNetwork.addPostData(WriteActivity.FLOOR_NUM, String.valueOf(this.mDate.getFloorNum()));

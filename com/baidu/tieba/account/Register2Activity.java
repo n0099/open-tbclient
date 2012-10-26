@@ -21,6 +21,7 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import com.baidu.location.LocationClientOption;
 import com.baidu.tieba.BaseActivity;
 import com.baidu.tieba.R;
 import com.baidu.tieba.data.Config;
@@ -33,7 +34,7 @@ import com.baidu.tieba.util.TiebaLog;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class Register2Activity extends BaseActivity {
-    private static int REQUEST_CODE = 1000;
+    private static int REQUEST_CODE = LocationClientOption.MIN_SCAN_SPAN;
     private static int ERROR_NAME = 27;
     private static int ERROR_PSW = 29;
     private static int ERROR_PHONE = 28;
@@ -257,7 +258,7 @@ public class Register2Activity extends BaseActivity {
         this.mEditVcode.addTextChangedListener(this.mTextWatcher);
         changePswDisplay();
         errorControlAttr();
-        ShowSoftKeyPadDelay(this.mEditUserName, Config.PB_IMAGE_MAX_WIDTH);
+        ShowSoftKeyPadDelay(this.mEditUserName, 150);
     }
 
     /* JADX INFO: Access modifiers changed from: private */

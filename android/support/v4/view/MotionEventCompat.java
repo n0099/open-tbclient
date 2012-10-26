@@ -4,8 +4,6 @@ import android.os.Build;
 import android.view.MotionEvent;
 /* loaded from: classes.dex */
 public class MotionEventCompat {
-    public static final int ACTION_HOVER_ENTER = 9;
-    public static final int ACTION_HOVER_EXIT = 10;
     public static final int ACTION_HOVER_MOVE = 7;
     public static final int ACTION_MASK = 255;
     public static final int ACTION_POINTER_DOWN = 5;

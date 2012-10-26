@@ -1,7 +1,6 @@
 package com.baidu.tieba.account;
 
 import android.app.Activity;
-import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -11,29 +10,25 @@ import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.KeyEvent;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
-import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
-import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
-import android.widget.RadioButton;
-import android.widget.RadioGroup;
 import android.widget.TextView;
+import com.baidu.tieba.BaiduAccountProxy;
 import com.baidu.tieba.BaseActivity;
 import com.baidu.tieba.MainTabActivity;
 import com.baidu.tieba.R;
 import com.baidu.tieba.TiebaApplication;
+import com.baidu.tieba.account.InputUserNameDialog;
 import com.baidu.tieba.data.AccountData;
-import com.baidu.tieba.data.CheckUserNameData;
 import com.baidu.tieba.data.Config;
 import com.baidu.tieba.data.RequestResponseCode;
 import com.baidu.tieba.data.VcodeInfoData;
 import com.baidu.tieba.model.LoginModel;
+import com.baidu.tieba.recommend.RecommendActivity;
 import com.baidu.tieba.util.BitmapHelper;
 import com.baidu.tieba.util.DatabaseService;
 import com.baidu.tieba.util.NetWork;
@@ -90,23 +85,7 @@ public class LoginActivity extends BaseActivity {
     private LoginModel mModel = null;
     private GetImageTask mGetImageTask = null;
     InputMethodManager mInputManager = null;
-    private InputUserNameAsyncTask mUserNameTask = null;
-    private CheckUserNameAsyncTask mCheckUserNameTask = null;
-    private Button mCheckUserName = null;
-    private Button mConfirm = null;
-    private Button mBack = null;
-    private ProgressBar mCheckProgress = null;
-    private ProgressBar mConfirmProgress = null;
-    private TextView mErrorInfo = null;
-    private EditText mUserNameEditor = null;
-    private RadioGroup mRadioGroup = null;
-    private CompoundButton.OnCheckedChangeListener mRadioButtonCheckedListener = null;
-    private RadioButton mRadioButton1 = null;
-    private RadioButton mRadioButton2 = null;
-    private RadioButton mRadioButton3 = null;
-    private TextView mPhoneText = null;
-    private View mInputUserNameView = null;
-    private Dialog mInputUserNameDialog = null;
+    InputUserNameDialog mInputUserNameDialog = null;
     private AccountData mAccountData = null;
     private String mInfo = null;
 
@@ -116,20 +95,35 @@ public class LoginActivity extends BaseActivity {
     }
 
     public static void startActivityNoExitDialog(Context context) {
+        if (TiebaApplication.isBaiduAccountManager()) {
+            if (context instanceof RecommendActivity) {
+                BaiduAccountProxy.getAccountData((Activity) context, 0, MainTabActivity.GOTO_RECOMMEND, false);
+                return;
+            }
+            return;
+        }
         Intent intent = new Intent(context, LoginActivity.class);
         intent.putExtra(HAS_EXIT_DIALOG, false);
         context.startActivity(intent);
     }
 
     public static void startActivity(Activity context, String goto_view, String info, int requestCode) {
+        if (TiebaApplication.isBaiduAccountManager()) {
+            BaiduAccountProxy.getAccountData(context, requestCode, goto_view, false);
+            return;
+        }
         Intent intent = new Intent(context, LoginActivity.class);
         intent.putExtra(HAS_EXIT_DIALOG, false);
-        intent.putExtra(GOTO_VIEW, goto_view);
+        intent.putExtra("goto_view", goto_view);
         intent.putExtra(INFO, info);
         context.startActivityForResult(intent, requestCode);
     }
 
     public static void startActivity(Activity context, String info, boolean close, int requestCode) {
+        if (TiebaApplication.isBaiduAccountManager()) {
+            BaiduAccountProxy.getAccountData(context, requestCode, null, close);
+            return;
+        }
         Intent intent = new Intent(context, LoginActivity.class);
         intent.putExtra(HAS_EXIT_DIALOG, false);
         intent.putExtra(INFO, info);
@@ -140,7 +134,7 @@ public class LoginActivity extends BaseActivity {
     public static void startActivityWithAccount(Context context, String account) {
         Intent intent = new Intent(context, LoginActivity.class);
         intent.putExtra(ACCOUNT, account);
-        intent.putExtra(HAS_EXIT_DIALOG, true);
+        intent.putExtra(HAS_EXIT_DIALOG, false);
         context.startActivity(intent);
     }
 
@@ -175,7 +169,7 @@ public class LoginActivity extends BaseActivity {
         if (this.mLoginType == 1) {
             switchTab(R.id.mobile_login);
         }
-        ShowSoftKeyPadDelay(this.mEditAccount, Config.PB_IMAGE_MAX_WIDTH);
+        ShowSoftKeyPadDelay(this.mEditAccount, 150);
         PvThread pv = new PvThread(Config.ST_TYPE_LOGIN);
         pv.start();
     }
@@ -200,15 +194,9 @@ public class LoginActivity extends BaseActivity {
             System.gc();
         } catch (Exception e) {
         }
-        if (this.mUserNameTask != null) {
-            this.mUserNameTask.cancel();
-            this.mUserNameTask = null;
+        if (this.mInputUserNameDialog != null) {
+            this.mInputUserNameDialog.onDestroy();
         }
-        if (this.mCheckUserNameTask != null) {
-            this.mCheckUserNameTask.cancel();
-            this.mCheckUserNameTask = null;
-        }
-        closeInputUserNameDialog();
         super.onDestroy();
     }
 
@@ -216,7 +204,7 @@ public class LoginActivity extends BaseActivity {
     @Override // com.baidu.tieba.BaseActivity, android.app.Activity
     public void onResume() {
         if (this.mInputUserNameDialog == null || !this.mInputUserNameDialog.isShowing()) {
-            ShowSoftKeyPadDelay(this.mEditAccount, Config.PB_IMAGE_MAX_WIDTH);
+            ShowSoftKeyPadDelay(this.mEditAccount, 150);
         }
         super.onResume();
     }
@@ -248,11 +236,12 @@ public class LoginActivity extends BaseActivity {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void goToMainTag() {
+        AccountShareHelper.getInstance().valid();
         if (this.mClose) {
             TiebaApplication.app.onUserChanged();
             setResult(-1);
         } else {
-            String tab = getIntent().getStringExtra(GOTO_VIEW);
+            String tab = getIntent().getStringExtra("goto_view");
             MainTabActivity.startActivityOnUserChanged(this, tab);
         }
         finish();
@@ -622,7 +611,21 @@ public class LoginActivity extends BaseActivity {
             goToMainTag();
             return;
         }
-        showInputUserNameDialog();
+        if (this.mInputUserNameDialog == null) {
+            this.mInputUserNameDialog = new InputUserNameDialog(this);
+            this.mInputUserNameDialog.setCallBackListener(new InputUserNameDialog.CallBackListener() { // from class: com.baidu.tieba.account.LoginActivity.9
+                @Override // com.baidu.tieba.account.InputUserNameDialog.CallBackListener
+                public void callback(AccountData account2) {
+                    DatabaseService.saveAccountData(account2);
+                    TiebaApplication.setCurrentAccountObj(LoginActivity.this.mAccountData);
+                    LoginActivity.this.goToMainTag();
+                }
+            });
+        }
+        this.mInputUserNameDialog.closeInputUserNameDialog();
+        this.mInputUserNameDialog.setPhone(this.mEditAccount.getText().toString());
+        this.mInputUserNameDialog.setAccountData(this.mAccountData);
+        this.mInputUserNameDialog.showInputUserNameDialog();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -734,145 +737,6 @@ public class LoginActivity extends BaseActivity {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void showInputUserNameError(String str) {
-        if (str == null) {
-            this.mErrorInfo.setVisibility(8);
-            this.mErrorInfo.setText((CharSequence) null);
-            return;
-        }
-        this.mErrorInfo.setVisibility(0);
-        this.mErrorInfo.setText(str);
-    }
-
-    private void showInputUserNameDialog() {
-        if (this.mInputUserNameDialog == null) {
-            LayoutInflater mInflater = getLayoutInflater();
-            this.mInputUserNameView = mInflater.inflate(R.layout.main_input_username, (ViewGroup) null);
-            this.mUserNameEditor = (EditText) this.mInputUserNameView.findViewById(R.id.account);
-            this.mUserNameEditor.setHint(String.valueOf(getString(R.string.input_name)) + ":");
-            this.mBack = (Button) this.mInputUserNameView.findViewById(R.id.back);
-            this.mBack.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.account.LoginActivity.9
-                @Override // android.view.View.OnClickListener
-                public void onClick(View v) {
-                    LoginActivity.this.closeInputUserNameDialog();
-                }
-            });
-            this.mCheckUserName = (Button) this.mInputUserNameView.findViewById(R.id.check_username);
-            this.mCheckUserName.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.account.LoginActivity.10
-                @Override // android.view.View.OnClickListener
-                public void onClick(View v) {
-                    String account = LoginActivity.this.mUserNameEditor.getText().toString();
-                    if (account != null && account.length() > 0) {
-                        if (LoginActivity.this.mUserNameTask == null && LoginActivity.this.mCheckUserNameTask == null) {
-                            LoginActivity.this.mCheckUserNameTask = new CheckUserNameAsyncTask("http://c.tieba.baidu.com/c/s/detectuname", account);
-                            LoginActivity.this.mCheckUserNameTask.execute(new String[0]);
-                            return;
-                        }
-                        return;
-                    }
-                    LoginActivity.this.showInputUserNameError(LoginActivity.this.getString(R.string.input_name));
-                }
-            });
-            this.mCheckProgress = (ProgressBar) this.mInputUserNameView.findViewById(R.id.check_progress);
-            this.mConfirm = (Button) this.mInputUserNameView.findViewById(R.id.confirm);
-            this.mConfirm.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.account.LoginActivity.11
-                @Override // android.view.View.OnClickListener
-                public void onClick(View v) {
-                    String account = LoginActivity.this.mUserNameEditor.getText().toString();
-                    if (account != null && account.length() > 0) {
-                        if (LoginActivity.this.mCheckUserNameTask != null) {
-                            LoginActivity.this.mCheckUserNameTask.cancel();
-                        }
-                        if (LoginActivity.this.mUserNameTask == null) {
-                            LoginActivity.this.mUserNameTask = new InputUserNameAsyncTask("http://c.tieba.baidu.com/c/s/filluname", account);
-                            LoginActivity.this.mUserNameTask.execute(new String[0]);
-                            return;
-                        }
-                        return;
-                    }
-                    LoginActivity.this.showInputUserNameError(LoginActivity.this.getString(R.string.input_name));
-                }
-            });
-            this.mConfirmProgress = (ProgressBar) this.mInputUserNameView.findViewById(R.id.confirm_progress);
-            this.mErrorInfo = (TextView) this.mInputUserNameView.findViewById(R.id.error_info);
-            this.mRadioGroup = (RadioGroup) this.mInputUserNameView.findViewById(R.id.names_group);
-            this.mRadioButton1 = (RadioButton) this.mInputUserNameView.findViewById(R.id.name1);
-            this.mRadioButton2 = (RadioButton) this.mInputUserNameView.findViewById(R.id.name2);
-            this.mRadioButton3 = (RadioButton) this.mInputUserNameView.findViewById(R.id.name3);
-            this.mRadioButtonCheckedListener = new CompoundButton.OnCheckedChangeListener() { // from class: com.baidu.tieba.account.LoginActivity.12
-                @Override // android.widget.CompoundButton.OnCheckedChangeListener
-                public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                    if (isChecked) {
-                        LoginActivity.this.mUserNameEditor.setText(buttonView.getText());
-                    }
-                }
-            };
-            this.mRadioButton1.setOnCheckedChangeListener(this.mRadioButtonCheckedListener);
-            this.mRadioButton2.setOnCheckedChangeListener(this.mRadioButtonCheckedListener);
-            this.mRadioButton3.setOnCheckedChangeListener(this.mRadioButtonCheckedListener);
-            this.mPhoneText = (TextView) this.mInputUserNameView.findViewById(R.id.phone_info);
-            initSuggestNames();
-            this.mInputUserNameDialog = new Dialog(this, R.style.input_username_dialog);
-            this.mInputUserNameDialog.setCanceledOnTouchOutside(false);
-            this.mInputUserNameDialog.getWindow().setSoftInputMode(20);
-        }
-        if (!this.mInputUserNameDialog.isShowing()) {
-            this.mUserNameEditor.setText((CharSequence) null);
-            initSuggestNames();
-            showInputUserNameError(null);
-            this.mPhoneText.setText("Hi," + this.mEditAccount.getText().toString());
-            this.mInputUserNameDialog.show();
-            this.mInputUserNameDialog.setContentView(this.mInputUserNameView);
-            WindowManager.LayoutParams wmParams = this.mInputUserNameDialog.getWindow().getAttributes();
-            wmParams.gravity = 51;
-            wmParams.x = 0;
-            wmParams.y = 0;
-            wmParams.width = -1;
-            wmParams.height = -1;
-            this.mInputUserNameDialog.getWindow().setAttributes(wmParams);
-            ShowSoftKeyPadDelay(this.mUserNameEditor, Config.PB_IMAGE_MAX_WIDTH);
-            this.mUserNameEditor.requestFocus();
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void closeInputUserNameDialog() {
-        if (this.mInputUserNameDialog != null && this.mInputUserNameDialog.isShowing()) {
-            this.mInputUserNameDialog.dismiss();
-        }
-    }
-
-    public void setSuggestNames(ArrayList<String> names) {
-        int size;
-        if (names != null && (size = names.size()) > 0) {
-            this.mRadioGroup.setVisibility(0);
-            if (size > 0 && names.get(0) != null) {
-                this.mRadioButton1.setText(names.get(0));
-                this.mRadioButton1.setVisibility(0);
-            }
-            if (size > 1 && names.get(1) != null) {
-                this.mRadioButton2.setText(names.get(1));
-                this.mRadioButton2.setVisibility(0);
-            }
-            if (size > 2 && names.get(2) != null) {
-                this.mRadioButton3.setText(names.get(2));
-                this.mRadioButton3.setVisibility(0);
-            }
-        }
-    }
-
-    public void initSuggestNames() {
-        this.mRadioGroup.setVisibility(8);
-        this.mRadioGroup.clearCheck();
-        this.mRadioButton1.setVisibility(8);
-        this.mRadioButton2.setVisibility(8);
-        this.mRadioButton3.setVisibility(8);
-        this.mRadioButton1.setChecked(false);
-        this.mRadioButton2.setChecked(false);
-        this.mRadioButton3.setChecked(false);
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public class LoginAsyncTask extends AsyncTask<Object, Integer, LoginModel> {
         ArrayList<BasicNameValuePair> mParams;
@@ -964,11 +828,14 @@ public class LoginActivity extends BaseActivity {
         }
 
         public void cancel() {
+            super.cancel(true);
             if (this.mNetwork != null) {
                 this.mNetwork.cancelNetConnect();
                 this.mNetwork = null;
             }
-            super.cancel(true);
+            LoginActivity.this.mLoginProgressBar.setVisibility(8);
+            LoginActivity.this.mTextLogin.setText(R.string.account_login);
+            LoginActivity.this.enableViews();
         }
     }
 
@@ -1046,168 +913,6 @@ public class LoginActivity extends BaseActivity {
 
         /* synthetic */ Account(LoginActivity loginActivity, Account account) {
             this();
-        }
-    }
-
-    /* loaded from: classes.dex */
-    private class InputUserNameAsyncTask extends AsyncTask<String, Integer, CheckUserNameData> {
-        private String mAccount;
-        private NetWork mNetwork = null;
-        private String mUrl;
-
-        public InputUserNameAsyncTask(String url, String account) {
-            this.mUrl = null;
-            this.mAccount = null;
-            this.mUrl = url;
-            this.mAccount = account;
-        }
-
-        public void cancel() {
-            LoginActivity.this.mUserNameTask = null;
-            LoginActivity.this.mConfirmProgress.setVisibility(8);
-            LoginActivity.this.mConfirm.setEnabled(true);
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        /* JADX INFO: Access modifiers changed from: protected */
-        @Override // android.os.AsyncTask
-        public void onPostExecute(CheckUserNameData result) {
-            super.onPostExecute((InputUserNameAsyncTask) result);
-            LoginActivity.this.mUserNameTask = null;
-            LoginActivity.this.mConfirmProgress.setVisibility(8);
-            LoginActivity.this.mConfirm.setEnabled(true);
-            if (result == null) {
-                LoginActivity.this.showInputUserNameError(this.mNetwork.getErrorString());
-            } else if (result.getUser().getName() == null) {
-                LoginActivity.this.showInputUserNameError(this.mNetwork.getErrorString());
-                LoginActivity.this.setSuggestNames(result.getSuggnames());
-            } else {
-                LoginActivity.this.closeInputUserNameDialog();
-                TiebaApplication.setCurrentAccountObj(LoginActivity.this.mAccountData);
-                LoginActivity.this.goToMainTag();
-            }
-        }
-
-        @Override // android.os.AsyncTask
-        protected void onPreExecute() {
-            LoginActivity.this.mConfirmProgress.setVisibility(0);
-            LoginActivity.this.mConfirm.setEnabled(false);
-            LoginActivity.this.showInputUserNameError(null);
-            LoginActivity.this.initSuggestNames();
-            super.onPreExecute();
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        /* JADX INFO: Access modifiers changed from: protected */
-        @Override // android.os.AsyncTask
-        public CheckUserNameData doInBackground(String... params) {
-            CheckUserNameData data;
-            CheckUserNameData data2 = null;
-            try {
-                this.mNetwork = new NetWork(this.mUrl);
-                this.mNetwork.addPostData("un", this.mAccount);
-                this.mNetwork.addPostData(NetWork.BDUSS, LoginActivity.this.mAccountData.getBDUSS());
-                this.mNetwork.setNeedBackgroundLogin(false);
-                String ret = this.mNetwork.postNetData();
-                if (this.mNetwork.isNetSuccess()) {
-                    try {
-                        if (this.mNetwork.getErrorCode() == 0) {
-                            data = new CheckUserNameData();
-                            data.parserJson(ret);
-                            String account = data.getUser().getName();
-                            String bduss = data.getUser().getBDUSS();
-                            if (account == null || bduss == null || LoginActivity.this.mAccountData == null) {
-                                data2 = data;
-                            } else {
-                                LoginActivity.this.mAccountData.setAccount(account);
-                                DatabaseService.saveAccountData(LoginActivity.this.mAccountData);
-                                data2 = data;
-                            }
-                        } else if (this.mNetwork.getErrorCode() == 36) {
-                            data = new CheckUserNameData();
-                            data.parserJson(ret);
-                            data2 = data;
-                        } else if (this.mNetwork.getErrorCode() == 1) {
-                            LoginActivity.this.closeInputUserNameDialog();
-                        }
-                    } catch (Exception e) {
-                        ex = e;
-                        data2 = data;
-                        TiebaLog.e(getClass().getName(), "doInBackground", ex.getMessage());
-                        return data2;
-                    }
-                }
-            } catch (Exception e2) {
-                ex = e2;
-            }
-            return data2;
-        }
-    }
-
-    /* loaded from: classes.dex */
-    private class CheckUserNameAsyncTask extends AsyncTask<String, Integer, CheckUserNameData> {
-        private String mAccount;
-        private NetWork mNetwork = null;
-        private String mUrl;
-
-        public CheckUserNameAsyncTask(String url, String account) {
-            this.mUrl = null;
-            this.mAccount = null;
-            this.mUrl = url;
-            this.mAccount = account;
-        }
-
-        public void cancel() {
-            super.cancel(true);
-            LoginActivity.this.mCheckProgress.setVisibility(8);
-            LoginActivity.this.mCheckUserName.setEnabled(true);
-            LoginActivity.this.mCheckUserNameTask = null;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        /* JADX INFO: Access modifiers changed from: protected */
-        @Override // android.os.AsyncTask
-        public CheckUserNameData doInBackground(String... params) {
-            this.mNetwork = new NetWork(this.mUrl);
-            this.mNetwork.addPostData("un", this.mAccount);
-            String ret = this.mNetwork.postNetData();
-            if (!this.mNetwork.isNetSuccess() || this.mNetwork.getErrorCode() != 36) {
-                return null;
-            }
-            CheckUserNameData data = new CheckUserNameData();
-            data.parserJson(ret);
-            return data;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        /* JADX INFO: Access modifiers changed from: protected */
-        @Override // android.os.AsyncTask
-        public void onPostExecute(CheckUserNameData result) {
-            super.onPostExecute((CheckUserNameAsyncTask) result);
-            LoginActivity.this.mCheckUserNameTask = null;
-            LoginActivity.this.mCheckProgress.setVisibility(8);
-            LoginActivity.this.mCheckUserName.setEnabled(true);
-            if (!this.mNetwork.isNetSuccess()) {
-                LoginActivity.this.showInputUserNameError(this.mNetwork.getErrorString());
-            } else if (this.mNetwork.getErrorCode() == 0) {
-                LoginActivity.this.showInputUserNameError(LoginActivity.this.getString(R.string.name_not_use));
-            } else if (this.mNetwork.getErrorCode() == 36) {
-                LoginActivity.this.showInputUserNameError(this.mNetwork.getErrorString());
-                if (result != null) {
-                    LoginActivity.this.setSuggestNames(result.getSuggnames());
-                }
-            } else {
-                LoginActivity.this.showInputUserNameError(this.mNetwork.getErrorString());
-            }
-        }
-
-        @Override // android.os.AsyncTask
-        protected void onPreExecute() {
-            LoginActivity.this.mCheckProgress.setVisibility(0);
-            LoginActivity.this.mCheckUserName.setEnabled(false);
-            LoginActivity.this.showInputUserNameError(null);
-            LoginActivity.this.initSuggestNames();
-            super.onPreExecute();
         }
     }
 }

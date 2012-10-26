@@ -11,6 +11,7 @@ import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.os.SystemClock;
+import android.support.v4.view.accessibility.AccessibilityEventCompat;
 import android.util.DisplayMetrics;
 import android.view.WindowManager;
 import com.baidu.android.common.logging.Log;
@@ -145,7 +146,7 @@ public final class d {
     public static boolean d(Context context, String str) {
         ApplicationInfo applicationInfo;
         try {
-            applicationInfo = context.getPackageManager().getApplicationInfo(str, 128);
+            applicationInfo = context.getPackageManager().getApplicationInfo(str, AccessibilityEventCompat.TYPE_VIEW_HOVER_ENTER);
         } catch (PackageManager.NameNotFoundException e) {
             Log.e("isBaiduApp", "--- " + str + " GetMetaData Exception:\r\n", e);
             applicationInfo = null;
@@ -168,7 +169,7 @@ public final class d {
     public static boolean e(Context context, String str) {
         ApplicationInfo applicationInfo;
         try {
-            applicationInfo = context.getPackageManager().getApplicationInfo(str, 128);
+            applicationInfo = context.getPackageManager().getApplicationInfo(str, AccessibilityEventCompat.TYPE_VIEW_HOVER_ENTER);
         } catch (PackageManager.NameNotFoundException e) {
             Log.e("isEnableInternal", "--- " + str + " GetMetaData Exception:\r\n", e);
             applicationInfo = null;

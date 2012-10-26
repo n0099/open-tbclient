@@ -4,6 +4,7 @@ import android.app.Service;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.IBinder;
+import android.support.v4.view.accessibility.AccessibilityEventCompat;
 import com.baidu.tieba.data.Config;
 import com.baidu.tieba.util.FileHelper;
 import com.baidu.tieba.util.GzipHelper;
@@ -66,14 +67,14 @@ public class FatalErrorService extends Service {
                         FileInputStream in2 = new FileInputStream(file);
                         try {
                             byte[] bArr = null;
-                            ByteArrayOutputStream outputstream2 = new ByteArrayOutputStream(1024);
+                            ByteArrayOutputStream outputstream2 = new ByteArrayOutputStream(AccessibilityEventCompat.TYPE_TOUCH_EXPLORATION_GESTURE_END);
                             try {
                                 if (need_compress) {
                                     GzipHelper.compress(in2, outputstream2);
                                 } else {
-                                    byte[] buffer = new byte[1024];
+                                    byte[] buffer = new byte[AccessibilityEventCompat.TYPE_TOUCH_EXPLORATION_GESTURE_END];
                                     while (true) {
-                                        int count = in2.read(buffer, 0, 1024);
+                                        int count = in2.read(buffer, 0, AccessibilityEventCompat.TYPE_TOUCH_EXPLORATION_GESTURE_END);
                                         if (count == -1) {
                                             break;
                                         }

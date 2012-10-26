@@ -80,8 +80,4 @@ public abstract class PagerAdapter {
     public CharSequence getPageTitle(int position) {
         return null;
     }
-
-    public float getPageWidth(int position) {
-        return 1.0f;
-    }
 }

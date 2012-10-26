@@ -10,6 +10,7 @@ import com.baidu.android.pushservice.PushConstants;
 import com.baidu.android.pushservice.PushService;
 import com.baidu.android.pushservice.w;
 import com.baidu.android.pushservice.y;
+import com.baidu.location.LocationClientOption;
 import com.baidu.tieba.account.LoginActivity;
 import com.baidu.tieba.util.NetWorkCore;
 import java.io.IOException;
@@ -87,7 +88,7 @@ public class p implements Runnable {
             return;
         }
         try {
-            Thread.sleep((1 << (this.c - 1)) * 5 * 1000);
+            Thread.sleep((1 << (this.c - 1)) * 5 * LocationClientOption.MIN_SCAN_SPAN);
         } catch (InterruptedException e) {
         }
     }

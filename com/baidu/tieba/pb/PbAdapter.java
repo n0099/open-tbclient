@@ -122,7 +122,7 @@ public class PbAdapter extends BaseAdapter {
     @Override // android.widget.Adapter
     public Object getItem(int position) {
         int index = (int) getItemId(position);
-        if (index < 0 || index >= this.mData.size()) {
+        if (this.mData == null || index < 0 || index >= this.mData.size()) {
             return null;
         }
         Object item = this.mData.get(index);
@@ -186,7 +186,7 @@ public class PbAdapter extends BaseAdapter {
         }
     }
 
-    /* JADX WARN: Not initialized variable reg: 13, insn: 0x0641: MOVE  (r12 I:??[OBJECT, ARRAY]) = (r13 I:??[OBJECT, ARRAY] A[D('holder' com.baidu.tieba.pb.PbAdapter$ViewHolder)]), block:B:134:0x0641 */
+    /* JADX WARN: Not initialized variable reg: 13, insn: 0x0666: MOVE  (r12 I:??[OBJECT, ARRAY]) = (r13 I:??[OBJECT, ARRAY] A[D('holder' com.baidu.tieba.pb.PbAdapter$ViewHolder)]), block:B:141:0x0666 */
     @Override // android.widget.Adapter
     public View getView(int position, View convertView, ViewGroup parent) {
         ViewHolder holder;
@@ -208,7 +208,6 @@ public class PbAdapter extends BaseAdapter {
                         holder2 = new ViewHolder(this, null);
                         holder2.mPhoto = (ImageView) convertView.findViewById(R.id.photo);
                         holder2.mUserName = (TextView) convertView.findViewById(R.id.user_name);
-                        holder2.mUserName.getPaint().setFakeBoldText(true);
                         holder2.mFloorText = (TextView) convertView.findViewById(R.id.floor);
                         holder2.mRank = (TextView) convertView.findViewById(R.id.rank);
                         holder2.mTime = (TextView) convertView.findViewById(R.id.time);
@@ -218,6 +217,7 @@ public class PbAdapter extends BaseAdapter {
                         holder2.mMark = (ImageView) convertView.findViewById(R.id.mark);
                         holder2.mPhotoClick = new PhotoOnClickListener();
                         holder2.mPhoto.setOnClickListener(holder2.mPhotoClick);
+                        holder2.mUserName.setOnClickListener(holder2.mPhotoClick);
                         BitmapDrawable dr = new BitmapDrawable(BitmapHelper.getCashBitmap(R.drawable.photo_bg));
                         holder2.mPhoto.setBackgroundDrawable(dr);
                         if (this.mPbModel.getData().getIsHasFloor()) {
@@ -277,10 +277,8 @@ public class PbAdapter extends BaseAdapter {
                     holder.mPageText.setText(R.string.loading);
                 } else {
                     holder.mProgress.setVisibility(8);
-                    if (this.mHaveFooter == 1) {
+                    if (this.mHaveFooter == 1 || this.mHaveFooter == 2) {
                         holder.mPageText.setText(R.string.may_have_more);
-                    } else if (this.mHaveFooter == 2) {
-                        holder.mPageText.setText(R.string.load_more);
                     } else {
                         holder.mPageText.setText((CharSequence) null);
                     }
@@ -324,6 +322,12 @@ public class PbAdapter extends BaseAdapter {
         }
         holder.mPhotoClick.setId(data.getAuthor().getId());
         holder.mPhotoClick.setName(data.getAuthor().getName());
+        String id = data.getAuthor().getId();
+        if (id == null || id.length() <= 0 || id.equals("0")) {
+            holder.mUserName.setTextColor(-16777216);
+        } else {
+            holder.mUserName.setTextColor(-16749848);
+        }
         holder.mPhoto.setOnClickListener(holder.mPhotoClick);
         if (this.mPbModel.getMarkId() != null && data.getId() != null && this.mPbModel.getMarkId().equals(data.getId())) {
             holder.mMark.setVisibility(0);
@@ -493,17 +497,42 @@ public class PbAdapter extends BaseAdapter {
 
         @Override // android.view.View.OnClickListener
         public void onClick(View v) {
+            boolean index_valid = false;
             try {
                 ArrayList<String> data = new ArrayList<>();
-                for (int i = 0; i < this.mContent.size(); i++) {
-                    if (this.mContent.get(i).getType() == 3) {
-                        StringBuffer buffer = new StringBuffer(100);
-                        buffer.append("size=");
-                        buffer.append(Config.THREAD_IMAGE_MAX_WIDTH);
-                        buffer.append("&src=");
-                        String encode = StringHelper.getUrlEncode(this.mContent.get(i).getLink());
-                        buffer.append(encode);
-                        data.add(buffer.toString());
+                int num = PbAdapter.this.mData.size();
+                for (int i = 0; i < num; i++) {
+                    ArrayList<ContentData> content = ((PostData) PbAdapter.this.mData.get(i)).getUnite_content();
+                    if (content == this.mContent) {
+                        index_valid = true;
+                    }
+                    int content_num = 0;
+                    if (content != null) {
+                        content_num = content.size();
+                    }
+                    for (int j = 0; j < content_num; j++) {
+                        if (content.get(j).getType() == 3) {
+                            StringBuffer buffer = new StringBuffer(100);
+                            if (content.get(j).getWidth() * content.get(j).getHeight() > Config.THREAD_IMAGE_MAX_WIDTH * Config.THREAD_IMAGE_MAX_WIDTH) {
+                                double a = Math.sqrt((Config.THREAD_IMAGE_MAX_WIDTH * Config.THREAD_IMAGE_MAX_WIDTH) / (content.get(j).getWidth() * content.get(j).getHeight()));
+                                buffer.append("width=");
+                                buffer.append(String.valueOf((int) (content.get(j).getWidth() * a)));
+                                buffer.append("&height=");
+                                buffer.append(String.valueOf((int) (content.get(j).getHeight() * a)));
+                            } else {
+                                buffer.append("width=");
+                                buffer.append(String.valueOf(content.get(j).getWidth()));
+                                buffer.append("&height=");
+                                buffer.append(String.valueOf(content.get(j).getHeight()));
+                            }
+                            buffer.append("&src=");
+                            String encode = StringHelper.getUrlEncode(content.get(j).getLink());
+                            buffer.append(encode);
+                            data.add(buffer.toString());
+                            if (!index_valid) {
+                                this.mIndex++;
+                            }
+                        }
                     }
                 }
                 ImageActivity.startActivity(PbAdapter.this.mContext, data, this.mIndex);
@@ -525,9 +554,7 @@ public class PbAdapter extends BaseAdapter {
 
         @Override // android.view.View.OnClickListener
         public void onClick(View v) {
-            if (this.id != null && this.id.length() > 0) {
-                PersonInfoActivity.startActivity(PbAdapter.this.mContext, this.id, this.name);
-            }
+            PersonInfoActivity.startActivity(PbAdapter.this.mContext, this.id, this.name);
         }
 
         public void setName(String name) {

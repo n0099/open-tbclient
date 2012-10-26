@@ -29,6 +29,7 @@ public class BaseWebView extends WebView {
     }
 
     public void init() {
+        getSettings().setJavaScriptEnabled(true);
         this.mWebViewClient = new MyWebViewClient();
         setWebViewClient(this.mWebViewClient);
         setOnLongClickListener(new View.OnLongClickListener() { // from class: com.baidu.tieba.view.BaseWebView.1

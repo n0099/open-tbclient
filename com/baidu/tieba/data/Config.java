@@ -18,6 +18,7 @@ public class Config {
     public static final String BROADCAST_RELAY_ME_NUM = "relay";
     public static final String BROADCAST_SERVICE = "com.baidu.tieba.broadcast.service";
     public static final String CHANNEL_ADDRESS = "http://114.113.149.3:8086/partnersService";
+    public static final String CHANNEL_FILE = "channel.dat";
     public static final int CHUNK_UPLOAD_SIZE = 102400;
     public static final String CREATE_BAR_ADDRESS = "c/c/forum/create";
     public static final int DATABASE_VERSION = 4;
@@ -59,6 +60,8 @@ public class Config {
     public static final int MAX_CASH_FRIEND_PHOTO_NUM = 500;
     public static final int MAX_CASH_PB_PHOTO_NUM = 5000;
     public static final int MAX_PASSWORD_CHAR_NUM = 14;
+    public static final int MAX_PRELOAD_PHOTO_NUM = 30;
+    public static final int MAX_PRELOAD_PIC_NUM = 15;
     public static final int MAX_SDRAM_PHOTO_NUM = 50;
     public static final int MAX_SDRAM_PIC_NUM = 15;
     public static final int MAX_SEARCH_HISTORY_NUM = 10;
@@ -70,8 +73,8 @@ public class Config {
     public static final int PB_DEFAULT_CONTENT_TEXT_SIZE = 16;
     public static final int PB_DEFAULT_NAME_TEXT_SIZE = 11;
     public static final int PB_IMAGE_DIP_MAX_WIDTH = 234;
-    public static final int PB_IMAGE_MAX_HEIGHT = 120;
-    public static final int PB_IMAGE_MAX_WIDTH = 150;
+    public static final int PB_IMAGE_MAX_HEIGHT = 105;
+    public static final int PB_IMAGE_MAX_WIDTH = 105;
     public static final int PB_IMAGE_NEW_MAX_WIDTH = 370;
     public static final float PB_IMAGE_NEW_SCALE = 1.62f;
     public static final int PB_IMAGE_QUALITY = 80;
@@ -131,7 +134,7 @@ public class Config {
     public static final int VIEW_IMAGE_QUALITY_HIGH = 1;
     public static final int VIEW_IMAGE_QUALITY_HIGH_VALUE = 80;
     public static final int VIEW_IMAGE_QUALITY_LOW = 2;
-    public static final int VIEW_IMAGE_QUALITY_LOW_VALUE = 50;
+    public static final int VIEW_IMAGE_QUALITY_LOW_VALUE = 45;
     public static final int WRITE_FACE_MAX_NUM = 10;
     public static String VERSION = "";
     public static String FROM = null;
@@ -143,7 +146,9 @@ public class Config {
     public static int IMG_CHUNK_UPLOAD_ENABLE = 1;
     public static int SUB_PB_LIST_ITEM_MAX_NUM = GifDecoder.MAX_FRAME_NUM;
     public static int THREAD_IMAGE_MAX_WIDTH = 640;
+    public static int THREAD_GIF_MIN_USE_MEMORY = 6291456;
     public static long APP_DATE_UPDATA_SD_DATABASE = 2592000000L;
+    public static long CHECK_NETWORK_NOTIFY_TIME = 86400000;
     public static int BitmapQuality = 80;
     public static Bitmap.Config BitmapConfig = Bitmap.Config.RGB_565;
     public static String POSITION_PAGER_NAME = "贴吧客户端反馈";

@@ -9,6 +9,7 @@ public interface RequestResponseCode {
     public static final int REQUEST_LOGIN_CREATE_BAR = 1100013;
     public static final int REQUEST_LOGIN_FRS_HOST = 1100011;
     public static final int REQUEST_LOGIN_FRS_REVERSE = 1100012;
+    public static final int REQUEST_LOGIN_HOME_REFRESHLIKE = 1100015;
     public static final int REQUEST_LOGIN_LIKE = 1100002;
     public static final int REQUEST_LOGIN_PB_FLOOR_MARK = 1100010;
     public static final int REQUEST_LOGIN_PB_HOST = 1100006;

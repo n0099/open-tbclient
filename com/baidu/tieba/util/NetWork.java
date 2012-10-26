@@ -7,6 +7,7 @@ import android.os.Message;
 import com.baidu.tieba.BaiduAccount.BaiduAccount;
 import com.baidu.tieba.R;
 import com.baidu.tieba.TiebaApplication;
+import com.baidu.tieba.account.AccountShareHelper;
 import com.baidu.tieba.account.LoginActivity;
 import com.baidu.tieba.data.AccountData;
 import com.baidu.tieba.data.Config;
@@ -207,7 +208,7 @@ public class NetWork {
         }
     }
 
-    public LoginModel login(String account, String password) {
+    public LoginModel login(String account, String password, boolean login_activity) {
         String data;
         try {
             TiebaLog.i(getClass().toString(), Config.ST_TYPE_LOGIN, "=== need auto login");
@@ -253,18 +254,22 @@ public class NetWork {
             }
             DatabaseService.saveAccountData(obj);
             TiebaApplication.setCurrentAccountObj(obj);
+            AccountShareHelper.getInstance().valid();
             return loginData;
         }
         if (this.mNetLogin.isNetSuccess()) {
             int err = this.mNetLogin.getErrorCode();
             switch (err) {
+                case 1:
                 case 2:
                 case 5:
-                    Message msg = TiebaApplication.app.handler.obtainMessage(1);
-                    Bundle tmpBundel = new Bundle();
-                    tmpBundel.putString(LoginActivity.ACCOUNT, account);
-                    msg.setData(tmpBundel);
-                    TiebaApplication.app.handler.sendMessage(msg);
+                    if (login_activity) {
+                        Message msg = TiebaApplication.app.handler.obtainMessage(1);
+                        Bundle tmpBundel = new Bundle();
+                        tmpBundel.putString(LoginActivity.ACCOUNT, account);
+                        msg.setData(tmpBundel);
+                        TiebaApplication.app.handler.sendMessage(msg);
+                    }
                     this.mNetLogin.cleanErrorString();
                     break;
             }
@@ -335,7 +340,7 @@ public class NetWork {
                         TiebaApplication.app.handler.sendMessage(TiebaApplication.app.handler.obtainMessage(1));
                         return null;
                     }
-                    LoginModel model = login(obj.getAccount(), obj.getPassword());
+                    LoginModel model = login(obj.getAccount(), obj.getPassword(), true);
                     if (model == null) {
                         if (this.mNetLogin != null) {
                             this.mNet.setErrorString(this.mNetLogin.getErrorString());
@@ -370,8 +375,8 @@ public class NetWork {
         return data;
     }
 
-    public boolean multiAccountLogin(String account, String password) {
-        LoginModel model = login(account, password);
+    public boolean multiAccountLogin(String account, String password, boolean login_acvitity) {
+        LoginModel model = login(account, password, login_acvitity);
         if (model == null) {
             if (this.mNetLogin != null) {
                 this.mNet.setErrorString(this.mNetLogin.getErrorString());

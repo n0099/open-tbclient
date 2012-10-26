@@ -2,6 +2,7 @@ package com.baidu.tieba.util;
 
 import android.net.Proxy;
 import android.util.Log;
+import com.baidu.location.LocationClientOption;
 import java.io.IOException;
 import java.net.Socket;
 import java.net.UnknownHostException;
@@ -137,7 +138,7 @@ public class HttpClientFactory {
         }
 
         public ClientConnectionRequest requestConnection(HttpRoute route, Object state) {
-            IdleConnectionMonitorThread.ensureRunning(this, 25, HttpClientFactory.KEEP_ALIVE_INTERVAL_SECS);
+            IdleConnectionMonitorThread.ensureRunning(this, 25, 30);
             return super.requestConnection(route, state);
         }
     }
@@ -169,7 +170,7 @@ public class HttpClientFactory {
             while (true) {
                 try {
                     synchronized (this) {
-                        wait(this.checkIntervalSeconds * 1000);
+                        wait(this.checkIntervalSeconds * LocationClientOption.MIN_SCAN_SPAN);
                     }
                     this.manager.closeExpiredConnections();
                     this.manager.closeIdleConnections(this.idleTimeoutSeconds, TimeUnit.SECONDS);

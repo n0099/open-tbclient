@@ -527,43 +527,55 @@ public class SubPbActivity extends BaseActivity {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void refresh() {
-        TextView text = (TextView) this.mPostLayout.findViewById(R.id.text);
-        TextView user = (TextView) this.mPostLayout.findViewById(R.id.user_name);
-        TextView rank = (TextView) this.mPostLayout.findViewById(R.id.rank);
-        TextView time = (TextView) this.mPostLayout.findViewById(R.id.time);
-        TextView floor = (TextView) this.mPostLayout.findViewById(R.id.floor);
-        ImageView photo = (ImageView) this.mPostLayout.findViewById(R.id.photo);
-        TextView title = (TextView) findViewById(R.id.text_title);
-        LinearLayout seg = (LinearLayout) this.mPostLayout.findViewById(R.id.seg);
-        TextView replyNum = (TextView) this.mPostLayout.findViewById(R.id.text_reply_num);
-        PostData postData = this.mSubPbModel.getSubPbData().getPostData();
-        title.setText(getString(R.string.format_floor, new Object[]{Integer.valueOf(postData.getFloor_num())}));
-        rank.setText(getString(R.string.format_grade, new Object[]{Integer.valueOf(postData.getAuthor().getLevel_id())}));
-        floor.setText(getString(R.string.format_floor, new Object[]{Integer.valueOf(postData.getFloor_num())}));
-        time.setText(StringHelper.getTimeString(postData.getTime()));
-        text.setMovementMethod(LinkMovementMethod.getInstance());
-        replyNum.setText(String.valueOf(this.mSubPbModel.getSubPbData().getTotalCount()));
-        user.setTextSize(Config.getNameSize());
-        user.getPaint().setFakeBoldText(true);
-        user.setText(this.mSubPbModel.getSubPbData().getPostData().getAuthor().getName_show());
-        ArrayList<ContentData> content = postData.getUnite_content();
-        ContentHelper helper = new ContentHelper(this);
-        helper.setIsEllipsized(true);
-        helper.setContent(text, seg, content, false);
-        photo.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pb.SubPbActivity.20
-            @Override // android.view.View.OnClickListener
-            public void onClick(View v) {
-                String id = SubPbActivity.this.mSubPbModel.getSubPbData().getPostData().getAuthor().getId();
-                if (id != null && id.length() > 0) {
+        if (this.mSubPbModel != null && this.mSubPbModel.getSubPbData().getPostData() != null) {
+            TextView text = (TextView) this.mPostLayout.findViewById(R.id.text);
+            TextView user = (TextView) this.mPostLayout.findViewById(R.id.user_name);
+            TextView rank = (TextView) this.mPostLayout.findViewById(R.id.rank);
+            TextView time = (TextView) this.mPostLayout.findViewById(R.id.time);
+            TextView floor = (TextView) this.mPostLayout.findViewById(R.id.floor);
+            ImageView photo = (ImageView) this.mPostLayout.findViewById(R.id.photo);
+            TextView title = (TextView) findViewById(R.id.text_title);
+            LinearLayout seg = (LinearLayout) this.mPostLayout.findViewById(R.id.seg);
+            TextView replyNum = (TextView) this.mPostLayout.findViewById(R.id.text_reply_num);
+            PostData postData = this.mSubPbModel.getSubPbData().getPostData();
+            title.setText(getString(R.string.format_floor, new Object[]{Integer.valueOf(postData.getFloor_num())}));
+            rank.setText(getString(R.string.format_grade, new Object[]{Integer.valueOf(postData.getAuthor().getLevel_id())}));
+            floor.setText(getString(R.string.format_floor, new Object[]{Integer.valueOf(postData.getFloor_num())}));
+            time.setText(StringHelper.getTimeString(postData.getTime()));
+            text.setMovementMethod(LinkMovementMethod.getInstance());
+            replyNum.setText(String.valueOf(this.mSubPbModel.getSubPbData().getTotalCount()));
+            user.setTextSize(Config.getNameSize());
+            user.setText(this.mSubPbModel.getSubPbData().getPostData().getAuthor().getName_show());
+            ArrayList<ContentData> content = postData.getUnite_content();
+            ContentHelper helper = new ContentHelper(this);
+            helper.setIsEllipsized(true);
+            helper.setContent(text, seg, content, false);
+            View.OnClickListener onclick = new View.OnClickListener() { // from class: com.baidu.tieba.pb.SubPbActivity.20
+                @Override // android.view.View.OnClickListener
+                public void onClick(View v) {
+                    String id = SubPbActivity.this.mSubPbModel.getSubPbData().getPostData().getAuthor().getId();
                     String name = SubPbActivity.this.mSubPbModel.getSubPbData().getPostData().getAuthor().getName();
                     PersonInfoActivity.startActivity(SubPbActivity.this, id, name);
                 }
+            };
+            photo.setOnClickListener(onclick);
+            user.setOnClickListener(onclick);
+            String id = this.mSubPbModel.getSubPbData().getPostData().getAuthor().getId();
+            if (id == null || id.length() <= 0 || id.equals("0")) {
+                user.setTextColor(-16777216);
+            } else {
+                user.setTextColor(-16749848);
             }
-        });
-        this.mReplyPostId = postData.getId();
-        this.mProgress.setVisibility(8);
-        this.mPostLayout.setVisibility(0);
-        loadPhoto(photo);
+            this.mReplyPostId = postData.getId();
+            this.mProgress.setVisibility(8);
+            this.mPostLayout.setVisibility(0);
+            if (TiebaApplication.app.getDisplayPhoto()) {
+                photo.setVisibility(0);
+                loadPhoto(photo);
+                return;
+            }
+            photo.setVisibility(8);
+        }
     }
 
     /* JADX INFO: Access modifiers changed from: private */

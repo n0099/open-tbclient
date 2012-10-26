@@ -10,6 +10,7 @@ import android.media.RingtoneManager;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.Uri;
+import android.support.v4.view.accessibility.AccessibilityEventCompat;
 import android.text.TextUtils;
 import com.baidu.android.common.logging.Log;
 import com.baidu.android.pushservice.PushConstants;
@@ -96,9 +97,9 @@ public class c extends a {
         try {
             try {
                 bVar.a(Long.parseLong(y.a().b()));
-                bVar.a(a(str, 128));
-                bVar.a(a(str2, 128));
-                bVar.a(a(str3, 128));
+                bVar.a(a(str, AccessibilityEventCompat.TYPE_VIEW_HOVER_ENTER));
+                bVar.a(a(str2, AccessibilityEventCompat.TYPE_VIEW_HOVER_ENTER));
+                bVar.a(a(str3, AccessibilityEventCompat.TYPE_VIEW_HOVER_ENTER));
                 bVar.a(j2);
                 bVar.b(i);
                 bVar.b(0);
@@ -219,13 +220,13 @@ public class c extends a {
         }
         com.baidu.android.pushservice.util.a aVar = new com.baidu.android.pushservice.util.a(new ByteArrayInputStream(bArr));
         long c = aVar.c();
-        byte[] bArr2 = new byte[128];
+        byte[] bArr2 = new byte[AccessibilityEventCompat.TYPE_VIEW_HOVER_ENTER];
         aVar.a(bArr2);
         String a = a(bArr2);
-        byte[] bArr3 = new byte[128];
+        byte[] bArr3 = new byte[AccessibilityEventCompat.TYPE_VIEW_HOVER_ENTER];
         aVar.a(bArr3);
         String a2 = a(bArr3);
-        byte[] bArr4 = new byte[128];
+        byte[] bArr4 = new byte[AccessibilityEventCompat.TYPE_VIEW_HOVER_ENTER];
         aVar.a(bArr4);
         String a3 = a(bArr4);
         long c2 = aVar.c();

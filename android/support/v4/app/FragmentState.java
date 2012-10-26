@@ -3,7 +3,6 @@ package android.support.v4.app;
 import android.os.Bundle;
 import android.os.Parcel;
 import android.os.Parcelable;
-import android.util.Log;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* compiled from: Fragment.java */
 /* loaded from: classes.dex */
@@ -81,9 +80,6 @@ public final class FragmentState implements Parcelable {
         this.mInstance.mRetainInstance = this.mRetainInstance;
         this.mInstance.mDetached = this.mDetached;
         this.mInstance.mFragmentManager = activity.mFragments;
-        if (FragmentManagerImpl.DEBUG) {
-            Log.v("FragmentManager", "Instantiated fragment " + this.mInstance);
-        }
         return this.mInstance;
     }
 

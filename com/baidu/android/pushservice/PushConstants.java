@@ -3,6 +3,7 @@ package com.baidu.android.pushservice;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
+import android.support.v4.view.accessibility.AccessibilityEventCompat;
 import com.baidu.android.common.security.Base64;
 import com.baidu.android.common.security.RSAUtil;
 import java.io.UnsupportedEncodingException;
@@ -107,7 +108,7 @@ public final class PushConstants {
 
     public static String rsaEncrypt(String str) {
         try {
-            return Base64.encode(RSAUtil.encryptLongByPublicKey(str.getBytes(), "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQC/7VlVn9LIrZ71PL2RZMbK/Yxc\r\ndb046w/cXVylxS7ouPY06namZUFVhdbUnNRJzmGUZlzs3jUbvMO3l+4c9cw/n9aQ\r\nrm/brgaRDeZbeSrQYRZv60xzJIimuFFxsRM+ku6/dAyYmXiQXlRbgvFQ0MsVng4j\r\nv+cXhtTis2Kbwb8mQwIDAQAB\r\n", 1024), "utf-8");
+            return Base64.encode(RSAUtil.encryptLongByPublicKey(str.getBytes(), "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQC/7VlVn9LIrZ71PL2RZMbK/Yxc\r\ndb046w/cXVylxS7ouPY06namZUFVhdbUnNRJzmGUZlzs3jUbvMO3l+4c9cw/n9aQ\r\nrm/brgaRDeZbeSrQYRZv60xzJIimuFFxsRM+ku6/dAyYmXiQXlRbgvFQ0MsVng4j\r\nv+cXhtTis2Kbwb8mQwIDAQAB\r\n", AccessibilityEventCompat.TYPE_TOUCH_EXPLORATION_GESTURE_END), "utf-8");
         } catch (UnsupportedEncodingException e) {
             e.printStackTrace();
             return null;

@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
+import com.baidu.tieba.account.AccountShareHelper;
 import com.baidu.tieba.util.TiebaLog;
 import com.baidu.tieba.util.UtilHelper;
 /* loaded from: classes.dex */
@@ -20,6 +21,7 @@ public class BaseActivity extends Activity {
     @Override // android.app.Activity
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        AccountShareHelper.getInstance().onActivityCreate();
         TiebaApplication.IS_APP_RUNNING = true;
     }
 
@@ -32,6 +34,9 @@ public class BaseActivity extends Activity {
     public void onDestroy() {
         closeLoadingDialog();
         super.onDestroy();
+    }
+
+    public void releaseResouce() {
     }
 
     public void showLoadingDialog(String string) {
@@ -98,7 +103,6 @@ public class BaseActivity extends Activity {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     public void ShowSoftKeyPadDelay(View view, int delayMillis) {
         Handler handler = new Handler();
         DelayRunnable r = new DelayRunnable(view);

@@ -7,6 +7,7 @@ import android.content.IntentFilter;
 import android.net.Uri;
 import android.os.Handler;
 import android.os.Message;
+import android.support.v4.view.accessibility.AccessibilityEventCompat;
 import android.util.Log;
 import com.baidu.tieba.mention.MentionActivity;
 import java.util.ArrayList;
@@ -38,7 +39,7 @@ public class LocalBroadcastManager {
         }
 
         public String toString() {
-            StringBuilder builder = new StringBuilder(128);
+            StringBuilder builder = new StringBuilder((int) AccessibilityEventCompat.TYPE_VIEW_HOVER_ENTER);
             builder.append("Receiver{");
             builder.append(this.receiver);
             builder.append(" filter=");

@@ -19,7 +19,6 @@ import com.baidu.tieba.BaseActivity;
 import com.baidu.tieba.R;
 import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.data.AccountData;
-import com.baidu.tieba.data.Config;
 import com.baidu.tieba.data.RegistData;
 import com.baidu.tieba.model.LoginModel;
 import com.baidu.tieba.util.DatabaseService;
@@ -221,7 +220,7 @@ public class ActivationActivity extends BaseActivity {
         this.mBgPaddingRight = this.mInputSmsBg.getPaddingRight();
         this.mInputSmsBg.setBackgroundResource(R.drawable.pass_input);
         this.mInputSmsBg.setPadding(this.mBgPaddingLeft, 0, this.mBgPaddingRight, 0);
-        ShowSoftKeyPadDelay(this.mEditActivation, Config.PB_IMAGE_MAX_WIDTH);
+        ShowSoftKeyPadDelay(this.mEditActivation, 150);
     }
 
     /* JADX INFO: Access modifiers changed from: private */

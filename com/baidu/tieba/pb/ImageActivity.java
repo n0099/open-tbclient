@@ -2,46 +2,44 @@ package com.baidu.tieba.pb;
 
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.Bitmap;
+import android.content.res.Configuration;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.support.v4.view.ViewPager;
 import android.view.View;
+import android.view.animation.AlphaAnimation;
+import android.view.animation.Animation;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.ProgressBar;
-import android.widget.RelativeLayout;
+import android.widget.TextView;
 import com.baidu.tieba.BaseActivity;
 import com.baidu.tieba.R;
 import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.data.Config;
-import com.baidu.tieba.util.BitmapHelper;
 import com.baidu.tieba.util.FileHelper;
 import com.baidu.tieba.util.MediaScannerClient;
-import com.baidu.tieba.util.NetWork;
 import com.baidu.tieba.util.StringHelper;
 import com.baidu.tieba.util.TiebaLog;
-import com.baidu.tieba.view.DragImageView;
-import com.baidu.tieba.view.GifView;
+import com.baidu.tieba.util.UtilHelper;
+import com.baidu.tieba.view.MultiImageView;
 import java.util.ArrayList;
-import java.util.HashMap;
 /* loaded from: classes.dex */
 public class ImageActivity extends BaseActivity {
-    private HashMap<String, byte[]> imageCache;
-    private DragImageView mImageView = null;
-    private GifView mGifView = null;
-    private RelativeLayout mTools = null;
-    private Button mPrevious = null;
-    private Button mNext = null;
     private ProgressBar mProgress = null;
     private ArrayList<String> mUrl = null;
     private int mIndex = -1;
-    private volatile byte[] mCurrentByte = null;
-    private ImageAsyncTask mTask = null;
     private SaveImageAsyncTask mSaveImageTask = null;
     private Button mSave = null;
     private Button mBack = null;
-    private Button mZoomIn = null;
-    private Button mZoomOut = null;
-    private ProgressBar mLoadProgress = null;
+    private TextView mTextView = null;
+    private LinearLayout mTitle = null;
+    private MultiImageView mMultiImageView = null;
+    private View.OnClickListener mOnClickListener = null;
+    private ViewPager.OnPageChangeListener mOnPageChangeListener = null;
+    private AlphaAnimation mAnim = null;
+    private boolean mAnimFinished = true;
+    private boolean mTitleGone = false;
 
     public static void startActivity(Context context, ArrayList<String> data, int index) {
         Intent intent = new Intent(context, ImageActivity.class);
@@ -56,181 +54,173 @@ public class ImageActivity extends BaseActivity {
     @Override // com.baidu.tieba.BaseActivity, android.app.Activity
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        TiebaApplication.app.addRemoteActivity(this);
         setContentView(R.layout.image_activity);
-        InitUI();
         InitData(savedInstanceState);
+        InitUI();
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.tieba.BaseActivity, android.app.Activity
+    public void onPause() {
+        super.onPause();
+        this.mMultiImageView.onPause();
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.tieba.BaseActivity, android.app.Activity
+    public void onResume() {
+        super.onResume();
+        this.mMultiImageView.onResume();
+    }
+
+    @Override // com.baidu.tieba.BaseActivity
+    public void releaseResouce() {
+        this.mMultiImageView.onDestroy();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.BaseActivity, android.app.Activity
     public void onDestroy() {
-        if (this.imageCache != null) {
-            this.imageCache.clear();
-            this.imageCache = null;
-        }
-        if (this.mTask != null) {
-            this.mTask.cancel();
-            this.mTask = null;
-        }
+        TiebaApplication.app.delRemoteActivity(this);
+        this.mMultiImageView.onDestroy();
         if (this.mSaveImageTask != null) {
             this.mSaveImageTask.cancel();
             this.mSaveImageTask = null;
         }
-        this.mImageView.releaseBitmap();
-        this.mCurrentByte = null;
         if (this.mProgress != null) {
             this.mProgress.setVisibility(8);
-        }
-        if (this.mLoadProgress != null) {
-            this.mLoadProgress.setVisibility(8);
         }
         super.onDestroy();
     }
 
     private void InitUI() {
-        this.mLoadProgress = (ProgressBar) findViewById(R.id.load_progress);
-        this.mZoomIn = (Button) findViewById(R.id.zoomin);
-        this.mZoomIn.setEnabled(false);
-        this.mZoomOut = (Button) findViewById(R.id.zoomout);
-        this.mZoomOut.setEnabled(false);
-        this.mProgress = (ProgressBar) findViewById(R.id.progress);
-        this.mImageView = (DragImageView) findViewById(R.id.image);
-        this.mGifView = (GifView) findViewById(R.id.gif_image);
-        this.mImageView.setImageOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pb.ImageActivity.1
-            @Override // android.view.View.OnClickListener
-            public void onClick(View arg0) {
-                if (ImageActivity.this.mTools.getVisibility() != 0) {
-                    ImageActivity.this.mTools.setVisibility(0);
-                } else {
-                    ImageActivity.this.mTools.setVisibility(8);
-                }
-            }
-        });
-        this.mImageView.setOnSizeChangedListener(new DragImageView.OnSizeChangedListener() { // from class: com.baidu.tieba.pb.ImageActivity.2
-            @Override // com.baidu.tieba.view.DragImageView.OnSizeChangedListener
-            public void sizeChenged(boolean canZoomIn, boolean canZoomOut) {
-                if (canZoomOut) {
-                    ImageActivity.this.mZoomOut.setEnabled(true);
-                } else {
-                    ImageActivity.this.mZoomOut.setEnabled(false);
-                }
-                if (canZoomIn) {
-                    ImageActivity.this.mZoomIn.setEnabled(true);
-                } else {
-                    ImageActivity.this.mZoomIn.setEnabled(false);
-                }
-            }
-        });
-        this.mTools = (RelativeLayout) findViewById(R.id.tools);
-        this.mZoomIn.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pb.ImageActivity.3
+        this.mOnClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.pb.ImageActivity.1
             @Override // android.view.View.OnClickListener
             public void onClick(View v) {
-                boolean ret = ImageActivity.this.mImageView.zoomInBitmap();
-                if (!ret) {
-                    ImageActivity.this.mZoomIn.setEnabled(false);
-                }
-                ImageActivity.this.mZoomOut.setEnabled(true);
-            }
-        });
-        this.mZoomOut.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pb.ImageActivity.4
-            @Override // android.view.View.OnClickListener
-            public void onClick(View v) {
-                boolean ret = ImageActivity.this.mImageView.zoomOutBitmap();
-                if (!ret) {
-                    ImageActivity.this.mZoomOut.setEnabled(false);
-                }
-                ImageActivity.this.mZoomIn.setEnabled(true);
-            }
-        });
-        this.mPrevious = (Button) findViewById(R.id.previous);
-        this.mPrevious.setEnabled(false);
-        this.mPrevious.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pb.ImageActivity.5
-            @Override // android.view.View.OnClickListener
-            public void onClick(View v) {
-                if (ImageActivity.this.mTask != null) {
-                    ImageActivity.this.mTask.cancel();
-                    ImageActivity.this.mTask = null;
-                }
-                if (ImageActivity.this.mIndex > 0) {
-                    ImageActivity imageActivity = ImageActivity.this;
-                    imageActivity.mIndex--;
-                    ImageActivity.this.mTask = new ImageAsyncTask(ImageActivity.this, null);
-                    ImageActivity.this.mTask.execute((String) ImageActivity.this.mUrl.get(ImageActivity.this.mIndex));
-                }
-                ImageActivity.this.mImageView.setImageBitmap(null);
-                ImageActivity.this.mCurrentByte = null;
-                ImageActivity.this.adjustButton();
-            }
-        });
-        this.mNext = (Button) findViewById(R.id.next);
-        this.mNext.setEnabled(false);
-        this.mNext.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pb.ImageActivity.6
-            @Override // android.view.View.OnClickListener
-            public void onClick(View v) {
-                if (ImageActivity.this.mTask != null) {
-                    ImageActivity.this.mTask.cancel();
-                    ImageActivity.this.mTask = null;
-                }
-                if (ImageActivity.this.mIndex < ImageActivity.this.mUrl.size() - 1) {
-                    ImageActivity.this.mIndex++;
-                    ImageActivity.this.mTask = new ImageAsyncTask(ImageActivity.this, null);
-                    ImageActivity.this.mTask.execute((String) ImageActivity.this.mUrl.get(ImageActivity.this.mIndex));
-                }
-                ImageActivity.this.mImageView.setImageBitmap(null);
-                ImageActivity.this.mCurrentByte = null;
-                ImageActivity.this.adjustButton();
-            }
-        });
-        this.mSave = (Button) findViewById(R.id.save);
-        this.mSave.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pb.ImageActivity.7
-            @Override // android.view.View.OnClickListener
-            public void onClick(View v) {
-                try {
-                    if (ImageActivity.this.mCurrentByte != null) {
-                        String name = (String) ImageActivity.this.mUrl.get(ImageActivity.this.mIndex);
-                        ImageActivity.this.mSaveImageTask = new SaveImageAsyncTask(name, ImageActivity.this.mCurrentByte);
-                        ImageActivity.this.mSaveImageTask.execute(new String[0]);
-                        ImageActivity.this.mSave.setVisibility(4);
-                        ImageActivity.this.mProgress.setVisibility(0);
+                if (v != ImageActivity.this.mBack) {
+                    if (v == ImageActivity.this.mSave) {
+                        try {
+                            byte[] data = ImageActivity.this.mMultiImageView.getCurrentImageData();
+                            if (data != null) {
+                                String name = ImageActivity.this.mMultiImageView.getCurrentImageUrl();
+                                ImageActivity.this.mSaveImageTask = new SaveImageAsyncTask(name, data);
+                                ImageActivity.this.mSaveImageTask.execute(new String[0]);
+                                ImageActivity.this.mSave.setVisibility(4);
+                                ImageActivity.this.mProgress.setVisibility(0);
+                            } else {
+                                ImageActivity.this.showToast(ImageActivity.this.getString(R.string.no_data));
+                            }
+                            return;
+                        } catch (Exception e) {
+                            return;
+                        }
+                    } else if (ImageActivity.this.mAnimFinished) {
+                        if (ImageActivity.this.mTitle.getVisibility() != 0) {
+                            ImageActivity.this.mTitle.setVisibility(0);
+                            ImageActivity.this.mMultiImageView.showTools();
+                            ImageActivity.this.mAnim = new AlphaAnimation(0.0f, 1.0f);
+                        } else {
+                            ImageActivity.this.mAnim = new AlphaAnimation(1.0f, 0.0f);
+                            ImageActivity.this.mTitleGone = true;
+                            ImageActivity.this.mMultiImageView.hideTools();
+                        }
+                        ImageActivity.this.mAnim.setDuration(300L);
+                        ImageActivity.this.mAnim.setFillAfter(true);
+                        ImageActivity.this.mAnim.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.tieba.pb.ImageActivity.1.1
+                            @Override // android.view.animation.Animation.AnimationListener
+                            public void onAnimationEnd(Animation arg0) {
+                                ImageActivity.this.mAnimFinished = true;
+                                if (ImageActivity.this.mTitleGone) {
+                                    ImageActivity.this.mTitleGone = false;
+                                    ImageActivity.this.mTitle.setVisibility(8);
+                                }
+                            }
+
+                            @Override // android.view.animation.Animation.AnimationListener
+                            public void onAnimationRepeat(Animation arg0) {
+                            }
+
+                            @Override // android.view.animation.Animation.AnimationListener
+                            public void onAnimationStart(Animation arg0) {
+                            }
+                        });
+                        ImageActivity.this.mAnimFinished = false;
+                        ImageActivity.this.mTitle.startAnimation(ImageActivity.this.mAnim);
+                        return;
                     } else {
-                        ImageActivity.this.showToast(ImageActivity.this.getString(R.string.no_data));
+                        return;
                     }
-                } catch (Exception e) {
                 }
-            }
-        });
-        this.mBack = (Button) findViewById(R.id.back);
-        this.mBack.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pb.ImageActivity.8
-            @Override // android.view.View.OnClickListener
-            public void onClick(View v) {
                 ImageActivity.this.finish();
             }
-        });
+        };
+        this.mOnPageChangeListener = new ViewPager.OnPageChangeListener() { // from class: com.baidu.tieba.pb.ImageActivity.2
+            @Override // android.support.v4.view.ViewPager.OnPageChangeListener
+            public void onPageSelected(int arg0) {
+                ImageActivity.this.mIndex = arg0;
+                ImageActivity.this.setTitle();
+            }
+
+            @Override // android.support.v4.view.ViewPager.OnPageChangeListener
+            public void onPageScrolled(int arg0, float arg1, int arg2) {
+            }
+
+            @Override // android.support.v4.view.ViewPager.OnPageChangeListener
+            public void onPageScrollStateChanged(int arg0) {
+            }
+        };
+        this.mTitle = (LinearLayout) findViewById(R.id.title);
+        this.mProgress = (ProgressBar) findViewById(R.id.progress);
+        this.mSave = (Button) findViewById(R.id.save);
+        this.mSave.setOnClickListener(this.mOnClickListener);
+        this.mBack = (Button) findViewById(R.id.back);
+        this.mBack.setOnClickListener(this.mOnClickListener);
+        this.mTextView = (TextView) findViewById(R.id.titel_text);
+        this.mMultiImageView = (MultiImageView) findViewById(R.id.viewpager);
+        this.mMultiImageView.setPageMargin(UtilHelper.dip2px(this, 8.0f));
+        this.mMultiImageView.setOffscreenPageLimit(2, Config.THREAD_IMAGE_MAX_WIDTH * Config.THREAD_IMAGE_MAX_WIDTH);
+        this.mMultiImageView.setUrlData(this.mUrl);
+        this.mMultiImageView.setOnPageChangeListener(this.mOnPageChangeListener);
+        this.mMultiImageView.setItemOnclickListener(this.mOnClickListener);
+        this.mMultiImageView.setCurrentItem(calCurrentIndex(), false);
+        setTitle();
     }
 
-    private void InitData(Bundle savedInstanceState) {
-        this.imageCache = new HashMap<>();
-        if (savedInstanceState != null) {
-            this.mUrl = savedInstanceState.getStringArrayList("url");
-            this.mIndex = savedInstanceState.getInt("index", -1);
-        } else {
-            Intent intent = getIntent();
-            if (intent != null) {
-                this.mUrl = intent.getStringArrayListExtra("url");
-                this.mIndex = intent.getIntExtra("index", -1);
-            }
-        }
+    /* JADX INFO: Access modifiers changed from: private */
+    public void setTitle() {
         if (this.mUrl != null) {
+            String title = String.valueOf(this.mIndex + 1);
+            this.mTextView.setText(String.valueOf(String.valueOf(title) + "/") + this.mUrl.size());
+        }
+    }
+
+    private int calCurrentIndex() {
+        if (this.mUrl != null && this.mUrl.size() > 0) {
             int num = this.mUrl.size();
             if (this.mIndex >= num) {
                 this.mIndex = num - 1;
             }
-            if (this.mIndex >= 0 && this.mUrl.get(this.mIndex) != null) {
-                this.mTask = new ImageAsyncTask(this, null);
-                this.mTask.execute(this.mUrl.get(this.mIndex));
+            if (this.mIndex < 0) {
+                this.mIndex = 0;
             }
+        } else {
+            this.mIndex = 0;
         }
-        adjustButton();
+        return this.mIndex;
+    }
+
+    private void InitData(Bundle savedInstanceState) {
+        if (savedInstanceState != null) {
+            this.mUrl = savedInstanceState.getStringArrayList("url");
+            this.mIndex = savedInstanceState.getInt("index", -1);
+            return;
+        }
+        Intent intent = getIntent();
+        if (intent != null) {
+            this.mUrl = intent.getStringArrayListExtra("url");
+            this.mIndex = intent.getIntExtra("index", -1);
+        }
     }
 
     @Override // android.app.Activity
@@ -240,132 +230,10 @@ public class ImageActivity extends BaseActivity {
         outState.putInt("index", this.mIndex);
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void adjustButton() {
-        int num = 0;
-        if (this.mUrl != null) {
-            num = this.mUrl.size();
-        }
-        if (num > 0 && this.mIndex < num - 1) {
-            this.mNext.setEnabled(true);
-        } else {
-            this.mNext.setEnabled(false);
-        }
-        if (this.mIndex > 0) {
-            this.mPrevious.setEnabled(true);
-        } else {
-            this.mPrevious.setEnabled(false);
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes.dex */
-    public class ImageAsyncTask extends AsyncTask<String, Integer, Bitmap> {
-        NetWork network;
-
-        private ImageAsyncTask() {
-            this.network = null;
-        }
-
-        /* synthetic */ ImageAsyncTask(ImageActivity imageActivity, ImageAsyncTask imageAsyncTask) {
-            this();
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        /* JADX INFO: Access modifiers changed from: protected */
-        @Override // android.os.AsyncTask
-        public Bitmap doInBackground(String... params) {
-            String url;
-            String url2 = String.valueOf(params[0]) + "&imgtype=0";
-            if (TiebaApplication.app.getViewImageQuality() == 1) {
-                url = String.valueOf(url2) + "&qulity=" + String.valueOf(80);
-            } else {
-                url = String.valueOf(url2) + "&qulity=" + String.valueOf(50);
-            }
-            Bitmap bm = null;
-            try {
-                byte[] cashData = (byte[]) ImageActivity.this.imageCache.get(url);
-                if (cashData != null) {
-                    bm = BitmapHelper.Bytes2Bitmap(cashData);
-                    ImageActivity.this.mCurrentByte = cashData;
-                }
-                if (bm == null) {
-                    String fullUrl = Config.IMAGE_ADDRESS + url;
-                    this.network = new NetWork(fullUrl);
-                    this.network.setIsBDImage(true);
-                    byte[] data = this.network.getNetData();
-                    if (this.network.isRequestSuccess()) {
-                        bm = BitmapHelper.Bytes2Bitmap(data);
-                    }
-                    if (bm != null) {
-                        ImageActivity.this.imageCache.put(url, data);
-                        ImageActivity.this.mCurrentByte = data;
-                    }
-                }
-            } catch (Exception ex) {
-                TiebaLog.e("ImageAsyncTask2", "doInBackground", "error = " + ex.getMessage());
-            }
-            return bm;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        /* JADX INFO: Access modifiers changed from: protected */
-        @Override // android.os.AsyncTask
-        public void onPostExecute(Bitmap bm) {
-            try {
-                if (bm == null) {
-                    if (this.network != null && !this.network.isRequestSuccess()) {
-                        String error = this.network.getErrorString();
-                        ImageActivity.this.showToast(error);
-                    } else {
-                        ImageActivity.this.showToast(ImageActivity.this.getString(R.string.pic_parser_error));
-                    }
-                } else {
-                    boolean isGif = false;
-                    if (ImageActivity.this.mCurrentByte.length > 6) {
-                        String tag = "";
-                        for (int i = 0; i < 6; i++) {
-                            tag = String.valueOf(tag) + ((char) ImageActivity.this.mCurrentByte[i]);
-                        }
-                        if (tag.startsWith("GIF")) {
-                            isGif = true;
-                        }
-                    }
-                    if (isGif) {
-                        ImageActivity.this.mGifView.setVisibility(0);
-                        ImageActivity.this.mImageView.setVisibility(8);
-                        ImageActivity.this.mGifView.release();
-                        ImageActivity.this.mGifView.setGif(ImageActivity.this.mCurrentByte);
-                        ImageActivity.this.mGifView.play();
-                    } else {
-                        ImageActivity.this.mGifView.setVisibility(8);
-                        ImageActivity.this.mImageView.setVisibility(0);
-                        ImageActivity.this.mImageView.setImageBitmap(bm);
-                    }
-                }
-            } catch (Exception e) {
-            }
-            ImageActivity.this.mLoadProgress.setVisibility(8);
-            ImageActivity.this.mTask = null;
-        }
-
-        @Override // android.os.AsyncTask
-        protected void onPreExecute() {
-            ImageActivity.this.mLoadProgress.setVisibility(0);
-            super.onPreExecute();
-        }
-
-        @Override // android.os.AsyncTask
-        protected void onCancelled() {
-            super.onCancelled();
-        }
-
-        public void cancel() {
-            if (this.network != null) {
-                this.network.cancelNetConnect();
-            }
-            super.cancel(true);
-        }
+    @Override // android.app.Activity, android.content.ComponentCallbacks
+    public void onConfigurationChanged(Configuration newConfig) {
+        super.onConfigurationChanged(newConfig);
+        this.mMultiImageView.setCurrentItem(this.mIndex, true);
     }
 
     /* loaded from: classes.dex */
@@ -399,6 +267,9 @@ public class ImageActivity extends BaseActivity {
                     if (index != -1) {
                         postfix = sname.substring(index);
                         sname = sname.substring(0, index);
+                    }
+                    if (UtilHelper.isGif(this.mData)) {
+                        postfix = ".gif";
                     }
                     String xfilename = String.valueOf(sname) + postfix;
                     for (int i = 0; FileHelper.CheckFile(xfilename) && i < 10000; i++) {

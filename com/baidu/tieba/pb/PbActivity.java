@@ -61,6 +61,7 @@ public class PbActivity extends BaseActivity {
     private static final String FRS_APPEAR = "frs_appear";
     private static final String HOSTMODE = "hostMode";
     private static final String ID = "id";
+    private static final String IS_AD = "isAd";
     private static final String MARK = "mark";
     private static final String MARKID = "markid";
     private static final String MARKMODE = "markMode";
@@ -123,28 +124,39 @@ public class PbActivity extends BaseActivity {
     private String mUid = null;
     private boolean mBackSpecial = false;
     private String frsString = null;
+    private boolean scrollButtom = false;
     private Runnable mGetImageRunnble = new Runnable() { // from class: com.baidu.tieba.pb.PbActivity.1
         @Override // java.lang.Runnable
         public void run() {
+            boolean supportHold;
             try {
                 int start = PbActivity.this.mPbList.getFirstVisiblePosition();
                 int end = PbActivity.this.mPbList.getLastVisiblePosition();
                 int image_num = 0;
-                for (int i = start; i <= end; i++) {
-                    if (i < PbActivity.this.mAdapter.getCount()) {
+                int photo_num = 0;
+                NetWorkCore.NetworkStateInfo info = NetWorkCore.getStatusInfo(PbActivity.this);
+                PbActivity.this.mAdapter.getImageLoader().clearHoldUrl();
+                if (info == NetWorkCore.NetworkStateInfo.WIFI || info == NetWorkCore.NetworkStateInfo.ThreeG) {
+                    supportHold = true;
+                } else {
+                    supportHold = false;
+                }
+                PbActivity.this.mAdapter.getImageLoader().setSupportHoldUrl(supportHold);
+                for (int i = start; i < PbActivity.this.mAdapter.getCount(); i++) {
+                    if (supportHold || i <= end) {
                         PostData data = (PostData) PbActivity.this.mAdapter.getItem(i);
                         if (data != null) {
                             ArrayList<ContentData> content = data.getUnite_content();
                             int index = -1;
                             int contentSize = content.size();
-                            if (PbActivity.this.mAdapter.isShowImage()) {
+                            if (PbActivity.this.mAdapter.isShowImage() && image_num < 15) {
                                 for (int j = 0; j < contentSize; j++) {
                                     if (content.get(j).getType() == 3) {
-                                        index++;
-                                        image_num++;
-                                        if (image_num > 15) {
+                                        if (image_num >= 15) {
                                             break;
                                         }
+                                        index++;
+                                        image_num++;
                                         PbActivity.this.mAdapter.getImageLoader().loadImage(content.get(j).getLink(), new AsyncImageLoader.ImageCallback() { // from class: com.baidu.tieba.pb.PbActivity.1.1
                                             @Override // com.baidu.tieba.util.AsyncImageLoader.ImageCallback
                                             public void imageLoaded(Bitmap bitmap, String imageUrl, boolean iscached) {
@@ -158,7 +170,8 @@ public class PbActivity extends BaseActivity {
                                 }
                             }
                             String authorPhoto = data.getAuthor().getPortrait();
-                            if (PbActivity.this.mModel.getIsDisplayPhoto() && authorPhoto != null && authorPhoto.length() > 0) {
+                            if (PbActivity.this.mModel.getIsDisplayPhoto() && authorPhoto != null && authorPhoto.length() > 0 && photo_num < 30) {
+                                photo_num++;
                                 PbActivity.this.mAdapter.getImageLoader().loadPbPhoto(authorPhoto, new AsyncImageLoader.ImageCallback() { // from class: com.baidu.tieba.pb.PbActivity.1.2
                                     @Override // com.baidu.tieba.util.AsyncImageLoader.ImageCallback
                                     public void imageLoaded(Bitmap bitmap, String imageUrl, boolean iscached) {
@@ -172,6 +185,9 @@ public class PbActivity extends BaseActivity {
                                         }
                                     }
                                 });
+                            }
+                            if (supportHold && image_num >= 15 && photo_num >= 30) {
+                                return;
                             }
                         }
                     } else {
@@ -266,9 +282,9 @@ public class PbActivity extends BaseActivity {
             }
         } else if (this.mPbId != null && this.mPbId.length() > 0 && this.mModel.getData() != null) {
             if (post != null) {
-                WriteActivity.startAcitivity(this, this.mModel.getData().getForum().getId(), this.mModel.getData().getForum().getName(), this.mPbId, post.getId(), post.getFloor_num(), this.mModel.getData().getAnti());
+                WriteActivity.startAcitivity(this, this.mModel.getData().getForum().getId(), this.mModel.getData().getForum().getName(), this.mPbId, post.getId(), post.getFloor_num(), getIntent().getBooleanExtra(IS_AD, false), this.mModel.getData().getAnti());
             } else {
-                WriteActivity.startAcitivity(this, this.mModel.getData().getForum().getId(), this.mModel.getData().getForum().getName(), this.mPbId, null, 0, this.mModel.getData().getAnti());
+                WriteActivity.startAcitivity(this, this.mModel.getData().getForum().getId(), this.mModel.getData().getForum().getName(), this.mPbId, (String) null, 0, getIntent().getBooleanExtra(IS_AD, false), this.mModel.getData().getAnti());
             }
         }
     }
@@ -291,7 +307,7 @@ public class PbActivity extends BaseActivity {
         }
         data.setTime(date.getTime());
         data.setHostMode(this.mModel.getHostMode());
-        data.setSequence(true);
+        data.setSequence(Boolean.valueOf(this.mModel.getSequence()));
         if (this.mModel.getData().getIsHasFloor()) {
             data.setSubPost(1);
             data.setForumId(this.mModel.getData().getForum().getId());
@@ -316,7 +332,11 @@ public class PbActivity extends BaseActivity {
     }
 
     public static void startAcitivity(Context context, String id, String st_type) {
-        startAcitivity(context, id, true, false, st_type);
+        startAcitivity(context, id, true, false, st_type, false);
+    }
+
+    public static void startAcitivity(Context context, String id, String st_type, boolean isAd) {
+        startAcitivity(context, id, true, false, st_type, isAd);
     }
 
     public static void startAcitivityBackSpecial(Context context, String id) {
@@ -330,12 +350,13 @@ public class PbActivity extends BaseActivity {
         }
     }
 
-    public static void startAcitivity(Context context, String id, Boolean sequence, Boolean hostMode, String st_type) {
+    public static void startAcitivity(Context context, String id, Boolean sequence, Boolean hostMode, String st_type, boolean isAd) {
         Intent intent = new Intent(context, PbActivity.class);
         if (id != null && id.length() > 0) {
             intent.putExtra(ID, id);
             intent.putExtra(SEQUENCE, sequence);
             intent.putExtra(HOSTMODE, hostMode);
+            intent.putExtra(IS_AD, isAd);
             if (st_type != null) {
                 intent.putExtra("st_type", st_type);
             }
@@ -507,7 +528,15 @@ public class PbActivity extends BaseActivity {
                 this.mModel.getData().getAnti().setIfpost(1);
             }
         }
+        this.mGetImageRunnble.run();
         super.onResume();
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.tieba.BaseActivity, android.app.Activity
+    public void onPause() {
+        super.onPause();
+        this.mAdapter.getImageLoader().cancelAllAsyncTask();
     }
 
     private void initUI() {
@@ -1002,11 +1031,6 @@ public class PbActivity extends BaseActivity {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void requestHost() {
-        String id = TiebaApplication.getCurrentAccount();
-        if (id == null || id.length() <= 0) {
-            LoginActivity.startActivity((Activity) this, getString(R.string.login_to_use), true, (int) RequestResponseCode.REQUEST_LOGIN_PB_HOST);
-            return;
-        }
         this.mModel.setHostMode(true);
         this.mModel.setSequence(true);
         startPbAsyncTask(3);
@@ -1020,11 +1044,6 @@ public class PbActivity extends BaseActivity {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void requestReverse() {
-        String id = TiebaApplication.getCurrentAccount();
-        if (id == null || id.length() <= 0) {
-            LoginActivity.startActivity((Activity) this, getString(R.string.login_to_use), true, (int) RequestResponseCode.REQUEST_LOGIN_PB_REVRESE);
-            return;
-        }
         this.mModel.setSequence(false);
         this.mModel.setHostMode(false);
         startPbAsyncTask(3);
@@ -1289,16 +1308,30 @@ public class PbActivity extends BaseActivity {
                         }
                     } else if (this.mType == 4) {
                         PbActivity.this.mModel.setData(data);
-                        if (data.getPage().getHave_more() == 1) {
-                            PbActivity.this.mAdapter.setHaveFooter(2);
+                        if (!PbActivity.this.mModel.getSequence()) {
+                            PbActivity.this.scrollButtom = true;
+                            if (data.getPage().getHave_more() == 1) {
+                                PbActivity.this.mAdapter.setHaveFooter(2);
+                            } else {
+                                PbActivity.this.mAdapter.setHaveFooter(0);
+                            }
+                            if (data.getPage().getHave_pre() == 1) {
+                                PbActivity.this.mAdapter.setHaveHeader(2);
+                            } else {
+                                PbActivity.this.mAdapter.setHaveHeader(1);
+                            }
                         } else {
-                            PbActivity.this.mAdapter.setHaveFooter(1);
-                        }
-                        if (data.getPage().getHave_pre() == 1) {
-                            PbActivity.this.mAdapter.setHaveHeader(2);
-                            PbActivity.this.mPbList.setSelection(1);
-                        } else {
-                            PbActivity.this.mAdapter.setHaveHeader(0);
+                            if (data.getPage().getHave_more() == 1) {
+                                PbActivity.this.mAdapter.setHaveFooter(2);
+                            } else {
+                                PbActivity.this.mAdapter.setHaveFooter(1);
+                            }
+                            if (data.getPage().getHave_pre() == 1) {
+                                PbActivity.this.mAdapter.setHaveHeader(2);
+                                PbActivity.this.mPbList.setSelection(1);
+                            } else {
+                                PbActivity.this.mAdapter.setHaveHeader(0);
+                            }
                         }
                         if (PbActivity.this.mDialogMore != null && PbActivity.this.mDialogMore.isShowing() && PbActivity.this.mDialogAdapter != null) {
                             PbActivity.this.mDialogAdapter.notifyDataSetInvalidated();
@@ -1384,6 +1417,10 @@ public class PbActivity extends BaseActivity {
                         hostMenu.setEnabled(PbActivity.isAnonymityUser(PbActivity.this.mModel) ? false : true);
                     }
                 }
+                if (PbActivity.this.scrollButtom) {
+                    PbActivity.this.mPbList.setSelection(PbActivity.this.mPbList.getCount());
+                }
+                PbActivity.this.scrollButtom = false;
             } catch (Exception ex) {
                 TiebaLog.e("PbActivity", "refreshActivity", "error = " + ex.getMessage());
             }

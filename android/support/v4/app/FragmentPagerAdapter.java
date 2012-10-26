@@ -27,14 +27,13 @@ public abstract class FragmentPagerAdapter extends PagerAdapter {
         if (this.mCurTransaction == null) {
             this.mCurTransaction = this.mFragmentManager.beginTransaction();
         }
-        long itemId = getItemId(position);
-        String name = makeFragmentName(container.getId(), itemId);
+        String name = makeFragmentName(container.getId(), position);
         Fragment fragment = this.mFragmentManager.findFragmentByTag(name);
         if (fragment != null) {
             this.mCurTransaction.attach(fragment);
         } else {
             fragment = getItem(position);
-            this.mCurTransaction.add(container.getId(), fragment, makeFragmentName(container.getId(), itemId));
+            this.mCurTransaction.add(container.getId(), fragment, makeFragmentName(container.getId(), position));
         }
         if (fragment != this.mCurrentPrimaryItem) {
             fragment.setMenuVisibility(false);
@@ -90,11 +89,7 @@ public abstract class FragmentPagerAdapter extends PagerAdapter {
     public void restoreState(Parcelable state, ClassLoader loader) {
     }
 
-    public long getItemId(int position) {
-        return position;
-    }
-
-    private static String makeFragmentName(int viewId, long id) {
-        return "android:switcher:" + viewId + ":" + id;
+    private static String makeFragmentName(int viewId, int index) {
+        return "android:switcher:" + viewId + ":" + index;
     }
 }

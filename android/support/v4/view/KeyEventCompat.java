@@ -1,6 +1,7 @@
 package android.support.v4.view;
 
 import android.os.Build;
+import android.support.v4.view.accessibility.AccessibilityEventCompat;
 import android.view.KeyEvent;
 /* loaded from: classes.dex */
 public class KeyEventCompat {
@@ -52,7 +53,7 @@ public class KeyEventCompat {
 
         @Override // android.support.v4.view.KeyEventCompat.KeyEventVersionImpl
         public boolean metaStateHasModifiers(int metaState, int modifiers) {
-            return metaStateFilterDirectionalModifiers(metaStateFilterDirectionalModifiers(normalizeMetaState(metaState) & 247, modifiers, 1, 64, 128), modifiers, 2, 16, 32) == modifiers;
+            return metaStateFilterDirectionalModifiers(metaStateFilterDirectionalModifiers(normalizeMetaState(metaState) & 247, modifiers, 1, 64, AccessibilityEventCompat.TYPE_VIEW_HOVER_ENTER), modifiers, 2, 16, 32) == modifiers;
         }
 
         @Override // android.support.v4.view.KeyEventCompat.KeyEventVersionImpl

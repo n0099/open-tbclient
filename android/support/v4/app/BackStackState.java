@@ -53,7 +53,7 @@ public final class BackStackState implements Parcelable {
             int pos3 = pos2 + 1;
             this.mOps[pos2] = op2.cmd;
             int pos4 = pos3 + 1;
-            this.mOps[pos3] = op2.fragment != null ? op2.fragment.mIndex : -1;
+            this.mOps[pos3] = op2.fragment.mIndex;
             int pos5 = pos4 + 1;
             this.mOps[pos4] = op2.enterAnim;
             int pos6 = pos5 + 1;
@@ -113,13 +113,8 @@ public final class BackStackState implements Parcelable {
                 Log.v("FragmentManager", "BSE " + bse + " set base fragment #" + this.mOps[pos2]);
             }
             int pos3 = pos2 + 1;
-            int findex = this.mOps[pos2];
-            if (findex >= 0) {
-                Fragment f = fm.mActive.get(findex);
-                op.fragment = f;
-            } else {
-                op.fragment = null;
-            }
+            Fragment f = fm.mActive.get(this.mOps[pos2]);
+            op.fragment = f;
             int pos4 = pos3 + 1;
             op.enterAnim = this.mOps[pos3];
             int pos5 = pos4 + 1;

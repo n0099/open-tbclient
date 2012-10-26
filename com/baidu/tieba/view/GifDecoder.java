@@ -3,6 +3,7 @@ package com.baidu.tieba.view;
 import android.graphics.Bitmap;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.MotionEventCompat;
+import android.support.v4.view.accessibility.AccessibilityEventCompat;
 import com.baidu.tieba.util.TiebaLog;
 import java.io.InputStream;
 import java.util.Vector;
@@ -41,6 +42,7 @@ public class GifDecoder {
     protected int lrw;
     protected int lrx;
     protected int lry;
+    private int maxUseableSize;
     protected int pixelAspect;
     protected byte[] pixelStack;
     protected byte[] pixels;
@@ -50,7 +52,7 @@ public class GifDecoder {
     protected int transIndex;
     protected int width;
     protected int loopCount = 1;
-    protected byte[] block = new byte[256];
+    protected byte[] block = new byte[AccessibilityEventCompat.TYPE_VIEW_HOVER_EXIT];
     protected int blockSize = 0;
     protected int dispose = 0;
     protected int lastDispose = 0;
@@ -69,6 +71,15 @@ public class GifDecoder {
             this.image = im;
             this.delay = del;
         }
+    }
+
+    public GifDecoder(int mem) {
+        this.maxUseableSize = MAX_MEM_NUM;
+        this.maxUseableSize = mem;
+    }
+
+    public boolean isInterrupted() {
+        return this.interrupted;
     }
 
     public int getDelay(int n) {
@@ -184,7 +195,7 @@ public class GifDecoder {
             if (!err()) {
                 readContents();
                 TiebaLog.i(getClass().getName(), "read", "gif mem ==" + String.valueOf(this.memstate / 1024.0f) + "k");
-                if (this.memstate >= 8388608) {
+                if (this.memstate >= this.maxUseableSize) {
                     return 3;
                 }
                 if (this.frameCount < 0) {
@@ -369,7 +380,7 @@ public class GifDecoder {
         if (n < nbytes) {
             this.status = 1;
         } else {
-            tab = new int[256];
+            tab = new int[AccessibilityEventCompat.TYPE_VIEW_HOVER_EXIT];
             int j = 0;
             for (int i = 0; i < ncolors; i++) {
                 int j2 = j + 1;
@@ -388,7 +399,7 @@ public class GifDecoder {
         boolean done = false;
         while (!done && !err() && !this.interrupted) {
             int code = read();
-            if (this.memstate < 8388608) {
+            if (this.memstate < this.maxUseableSize) {
                 switch (code) {
                     case 33:
                         int code2 = read();
@@ -471,7 +482,7 @@ public class GifDecoder {
         this.iw = readShort();
         this.ih = readShort();
         int packed = read();
-        this.lctFlag = (packed & 128) != 0;
+        this.lctFlag = (packed & AccessibilityEventCompat.TYPE_VIEW_HOVER_ENTER) != 0;
         this.lctSize = (int) Math.pow(2.0d, (packed & 7) + 1);
         this.interlace = (packed & 64) != 0;
         if (this.lctFlag) {
@@ -512,7 +523,7 @@ public class GifDecoder {
         this.width = readShort();
         this.height = readShort();
         int packed = read();
-        this.gctFlag = (packed & 128) != 0;
+        this.gctFlag = (packed & AccessibilityEventCompat.TYPE_VIEW_HOVER_ENTER) != 0;
         this.gctSize = 2 << (packed & 7);
         this.bgIndex = read();
         this.pixelAspect = read();

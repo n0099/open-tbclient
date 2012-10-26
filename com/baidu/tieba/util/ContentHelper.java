@@ -166,8 +166,8 @@ public class ContentHelper {
 
     private ImageView createImageView(List<ContentData> content, ContentData seg, int index) {
         ImageView imageView = new ImageView(this.mContext);
-        int height = UtilHelper.dip2px(this.mContext, 120.0f);
-        int width = UtilHelper.dip2px(this.mContext, 150.0f);
+        int height = UtilHelper.dip2px(this.mContext, 105.0f);
+        int width = UtilHelper.dip2px(this.mContext, 105.0f);
         LinearLayout.LayoutParams imageViewparams = new LinearLayout.LayoutParams(-2, height);
         int px_v = UtilHelper.dip2px(this.mContext, 15.0f);
         imageViewparams.topMargin = px_v;

@@ -1,6 +1,7 @@
 package com.baidu.tieba.account;
 
 import android.os.Bundle;
+import android.support.v4.view.accessibility.AccessibilityEventCompat;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -31,7 +32,7 @@ public class ProtocolActivity extends BaseActivity {
             }
         });
         this.mText = (TextView) findViewById(R.id.text);
-        StringBuilder text = new StringBuilder(1024);
+        StringBuilder text = new StringBuilder((int) AccessibilityEventCompat.TYPE_TOUCH_EXPLORATION_GESTURE_END);
         try {
             InputStream inputStream = getResources().openRawResource(R.raw.baidu_protocol);
             BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream, "unicode"));

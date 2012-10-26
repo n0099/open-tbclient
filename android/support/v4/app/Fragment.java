@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.support.v4.util.DebugUtils;
+import android.support.v4.view.accessibility.AccessibilityEventCompat;
 import android.util.AttributeSet;
 import android.util.SparseArray;
 import android.view.ContextMenu;
@@ -175,7 +176,7 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
     }
 
     public String toString() {
-        StringBuilder sb = new StringBuilder(128);
+        StringBuilder sb = new StringBuilder((int) AccessibilityEventCompat.TYPE_VIEW_HOVER_ENTER);
         DebugUtils.buildShortClassTag(this, sb);
         if (this.mIndex >= 0) {
             sb.append(" #");
@@ -511,7 +512,7 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
         writer.print(prefix);
         writer.print("mFragmentId=#");
         writer.print(Integer.toHexString(this.mFragmentId));
-        writer.print(" mContainerId=#");
+        writer.print(" mContainerId#=");
         writer.print(Integer.toHexString(this.mContainerId));
         writer.print(" mTag=");
         writer.println(this.mTag);

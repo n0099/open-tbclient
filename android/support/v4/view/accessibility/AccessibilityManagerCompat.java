@@ -132,8 +132,4 @@ public class AccessibilityManagerCompat {
     public static List<AccessibilityServiceInfo> getEnabledAccessibilityServiceList(AccessibilityManager manager, int feedbackTypeFlags) {
         return IMPL.getEnabledAccessibilityServiceList(manager, feedbackTypeFlags);
     }
-
-    public static boolean isTouchExplorationEnabled(AccessibilityManager manager) {
-        return IMPL.isTouchExplorationEnabled(manager);
-    }
 }

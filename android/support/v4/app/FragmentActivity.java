@@ -10,7 +10,6 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.os.Parcelable;
-import android.support.v4.util.SparseArrayCompat;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.KeyEvent;
@@ -28,7 +27,7 @@ public class FragmentActivity extends Activity {
     static final int MSG_REALLY_STOPPED = 1;
     static final int MSG_RESUME_PENDING = 2;
     private static final String TAG = "FragmentActivity";
-    SparseArrayCompat<LoaderManagerImpl> mAllLoaderManagers;
+    HCSparseArray<LoaderManagerImpl> mAllLoaderManagers;
     boolean mCheckedForLoaderManager;
     boolean mCreated;
     LoaderManagerImpl mLoaderManager;
@@ -49,7 +48,7 @@ public class FragmentActivity extends Activity {
                     }
                     return;
                 case 2:
-                    FragmentActivity.this.onResumeFragments();
+                    FragmentActivity.this.mFragments.dispatchResume();
                     FragmentActivity.this.mFragments.execPendingActions();
                     return;
                 default:
@@ -66,7 +65,7 @@ public class FragmentActivity extends Activity {
         HashMap<String, Object> children;
         Object custom;
         ArrayList<Fragment> fragments;
-        SparseArrayCompat<LoaderManagerImpl> loaders;
+        HCSparseArray<LoaderManagerImpl> loaders;
 
         NonConfigurationInstances() {
         }
@@ -95,11 +94,9 @@ public class FragmentActivity extends Activity {
             Fragment frag = this.mFragments.mActive.get(index2);
             if (frag == null) {
                 Log.w(TAG, "Activity result no fragment exists for index: 0x" + Integer.toHexString(requestCode));
-                return;
-            } else {
-                frag.onActivityResult(65535 & requestCode, resultCode, data);
-                return;
             }
+            frag.onActivityResult(65535 & requestCode, resultCode, data);
+            return;
         }
         super.onActivityResult(requestCode, resultCode, data);
     }
@@ -264,7 +261,7 @@ public class FragmentActivity extends Activity {
         this.mResumed = false;
         if (this.mHandler.hasMessages(2)) {
             this.mHandler.removeMessages(2);
-            onResumeFragments();
+            this.mFragments.dispatchResume();
         }
         this.mFragments.dispatchPause();
     }
@@ -281,12 +278,8 @@ public class FragmentActivity extends Activity {
     protected void onPostResume() {
         super.onPostResume();
         this.mHandler.removeMessages(2);
-        onResumeFragments();
-        this.mFragments.execPendingActions();
-    }
-
-    protected void onResumeFragments() {
         this.mFragments.dispatchResume();
+        this.mFragments.execPendingActions();
     }
 
     @Override // android.app.Activity, android.view.Window.Callback
@@ -394,6 +387,7 @@ public class FragmentActivity extends Activity {
         return null;
     }
 
+    /* JADX INFO: Access modifiers changed from: package-private */
     public void supportInvalidateOptionsMenu() {
         if (Build.VERSION.SDK_INT >= 11) {
             ActivityCompatHoneycomb.invalidateOptionsMenu(this);
@@ -502,7 +496,7 @@ public class FragmentActivity extends Activity {
     /* JADX INFO: Access modifiers changed from: package-private */
     public LoaderManagerImpl getLoaderManager(int index, boolean started, boolean create) {
         if (this.mAllLoaderManagers == null) {
-            this.mAllLoaderManagers = new SparseArrayCompat<>();
+            this.mAllLoaderManagers = new HCSparseArray<>();
         }
         LoaderManagerImpl lm = this.mAllLoaderManagers.get(index);
         if (lm == null) {

@@ -17,6 +17,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import com.baidu.location.BDLocation;
 import com.baidu.tieba.BaseActivity;
 import com.baidu.tieba.R;
 import com.baidu.tieba.TiebaApplication;
@@ -31,6 +32,7 @@ import com.baidu.tieba.util.AsyncImageLoader;
 import com.baidu.tieba.util.DatabaseService;
 import com.baidu.tieba.util.FileHelper;
 import com.baidu.tieba.util.NetWork;
+import com.baidu.tieba.util.NetWorkCore;
 import com.baidu.tieba.util.StringHelper;
 import com.baidu.tieba.util.TiebaLog;
 import com.baidu.tieba.view.BaseWebView;
@@ -98,7 +100,7 @@ public class RecommendActivity extends BaseActivity implements BaseWebView.OnLoa
                     SearchActivity.startActivity(RecommendActivity.this, RecommendActivity.this.getString(R.string.recommend_title));
                     return;
                 case R.id.refresh /* 2131230871 */:
-                case R.id.hotspot_webview_item /* 2131231012 */:
+                case R.id.hotspot_webview_item /* 2131231008 */:
                     RecommendActivity.this.refresh();
                     return;
                 default:
@@ -134,6 +136,7 @@ public class RecommendActivity extends BaseActivity implements BaseWebView.OnLoa
     @Override // com.baidu.tieba.BaseActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
+        TiebaApplication.app.stopLocationServer();
         if (this.receiver != null) {
             unregisterReceiver(this.receiver);
         }
@@ -346,9 +349,14 @@ public class RecommendActivity extends BaseActivity implements BaseWebView.OnLoa
         @Override // android.os.AsyncTask
         public String doInBackground(Object... arg0) {
             this.mNetWork = new NetWork(Config.RECOMMEND_ADDRESS);
+            this.mNetWork.addPostData("_version_more", NetWorkCore.NET_TYPE_NET);
+            BDLocation mLocation = TiebaApplication.app.getLocation();
+            if (mLocation != null) {
+                this.mNetWork.addPostData("lbs", String.valueOf(String.valueOf(mLocation.getLatitude())) + "," + String.valueOf(mLocation.getLongitude()));
+            }
             try {
-                this.data = new String(this.mNetWork.getNetData());
-                if (this.mNetWork.isRequestSuccess()) {
+                this.data = this.mNetWork.postNetData();
+                if (this.mNetWork.isNetSuccess()) {
                     return this.data;
                 }
             } catch (Exception ex) {
@@ -370,7 +378,7 @@ public class RecommendActivity extends BaseActivity implements BaseWebView.OnLoa
         @Override // android.os.AsyncTask
         public void onPostExecute(String result) {
             RecommendActivity.this.hotspotWebView.setOnClickListener(null);
-            if (this.mNetWork == null || !this.mNetWork.isRequestSuccess() || result == null) {
+            if (this.mNetWork == null || !this.mNetWork.isNetSuccess() || result == null) {
                 RecommendActivity.this.webviewSucess = false;
                 String data = DatabaseService.getNoAccountData(6);
                 if (data != null && data.length() > 1) {
@@ -586,9 +594,8 @@ public class RecommendActivity extends BaseActivity implements BaseWebView.OnLoa
         }
     }
 
-    public void resetProxy(int type) {
+    public void resetProxy() {
         try {
-            TiebaLog.e(getClass().getName(), "resetProxy", "-------");
             BaseWebView.disablePlatformNotifications();
             BaseWebView.enablePlatformNotifications();
         } catch (Exception e) {

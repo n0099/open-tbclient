@@ -5,10 +5,12 @@ import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.support.v4.view.accessibility.AccessibilityEventCompat;
 import android.view.KeyEvent;
 import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
 import android.widget.ImageView;
+import com.baidu.tieba.account.AccountShareHelper;
 import com.baidu.tieba.service.FatalErrorService;
 import com.baidu.tieba.util.BitmapHelper;
 import com.baidu.tieba.util.DatabaseService;
@@ -36,7 +38,7 @@ public class LogoActivity extends BaseActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         TiebaLog.i(getClass().getName(), "onCreate", null);
-        getWindow().setFlags(1024, 1024);
+        getWindow().setFlags(AccessibilityEventCompat.TYPE_TOUCH_EXPLORATION_GESTURE_END, AccessibilityEventCompat.TYPE_TOUCH_EXPLORATION_GESTURE_END);
         setContentView(R.layout.logo_activity);
         this.mImage = (ImageView) findViewById(R.id.logo);
         this.mBitmap = BitmapHelper.getResBitmap(this, R.drawable.logo);
@@ -75,6 +77,7 @@ public class LogoActivity extends BaseActivity {
                     }
                     DatabaseService.delOverdueDraft();
                     DatabaseService.delOverdueChunkUploadData();
+                    app.startLocationServer();
                 } catch (Exception e) {
                 }
                 LogoActivity.this.mHandler.handleMessage(LogoActivity.this.mHandler.obtainMessage());
@@ -108,6 +111,7 @@ public class LogoActivity extends BaseActivity {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void startApp() {
+        AccountShareHelper.getInstance().prepare();
         if (TiebaApplication.app.getIsFirstUse()) {
             TiebaApplication.app.setUsed();
             GuideActivity.startActivity(this);
@@ -119,6 +123,10 @@ public class LogoActivity extends BaseActivity {
             MainTabActivity.startActivity(this, MainTabActivity.GOTO_HOME);
         } else {
             MainTabActivity.startActivity(this, MainTabActivity.GOTO_RECOMMEND);
+            if (TiebaApplication.isBaiduAccountManager() && BaiduAccountProxy.hasValidBaiduAccount(this)) {
+                TiebaLog.i(getClass().getName(), "startAPP", "getAccountData");
+                BaiduAccountProxy.getAccountData(this, 0, MainTabActivity.GOTO_HOME, false);
+            }
         }
         finish();
     }

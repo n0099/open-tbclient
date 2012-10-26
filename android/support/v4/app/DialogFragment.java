@@ -1,6 +1,5 @@
 package android.support.v4.app;
 
-import android.app.Activity;
 import android.app.Dialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
@@ -18,10 +17,9 @@ public class DialogFragment extends Fragment implements DialogInterface.OnCancel
     public static final int STYLE_NO_FRAME = 2;
     public static final int STYLE_NO_INPUT = 3;
     public static final int STYLE_NO_TITLE = 1;
+    boolean mDestroyed;
     Dialog mDialog;
-    boolean mDismissed;
-    boolean mShownByMe;
-    boolean mViewDestroyed;
+    boolean mRemoved;
     int mStyle = 0;
     int mTheme = 0;
     boolean mCancelable = true;
@@ -39,18 +37,14 @@ public class DialogFragment extends Fragment implements DialogInterface.OnCancel
     }
 
     public void show(FragmentManager manager, String tag) {
-        this.mDismissed = false;
-        this.mShownByMe = true;
         FragmentTransaction ft = manager.beginTransaction();
         ft.add(this, tag);
         ft.commit();
     }
 
     public int show(FragmentTransaction transaction, String tag) {
-        this.mDismissed = false;
-        this.mShownByMe = true;
         transaction.add(this, tag);
-        this.mViewDestroyed = false;
+        this.mRemoved = false;
         this.mBackStackId = transaction.commit();
         return this.mBackStackId;
     }
@@ -59,31 +53,23 @@ public class DialogFragment extends Fragment implements DialogInterface.OnCancel
         dismissInternal(false);
     }
 
-    public void dismissAllowingStateLoss() {
-        dismissInternal(true);
-    }
-
     void dismissInternal(boolean allowStateLoss) {
-        if (!this.mDismissed) {
-            this.mDismissed = true;
-            this.mShownByMe = false;
-            if (this.mDialog != null) {
-                this.mDialog.dismiss();
-                this.mDialog = null;
-            }
-            this.mViewDestroyed = true;
-            if (this.mBackStackId >= 0) {
-                getFragmentManager().popBackStack(this.mBackStackId, 1);
-                this.mBackStackId = -1;
-                return;
-            }
-            FragmentTransaction ft = getFragmentManager().beginTransaction();
-            ft.remove(this);
-            if (allowStateLoss) {
-                ft.commitAllowingStateLoss();
-            } else {
-                ft.commit();
-            }
+        if (this.mDialog != null) {
+            this.mDialog.dismiss();
+            this.mDialog = null;
+        }
+        this.mRemoved = true;
+        if (this.mBackStackId >= 0) {
+            getFragmentManager().popBackStack(this.mBackStackId, 1);
+            this.mBackStackId = -1;
+            return;
+        }
+        FragmentTransaction ft = getFragmentManager().beginTransaction();
+        ft.remove(this);
+        if (allowStateLoss) {
+            ft.commitAllowingStateLoss();
+        } else {
+            ft.commit();
         }
     }
 
@@ -115,22 +101,6 @@ public class DialogFragment extends Fragment implements DialogInterface.OnCancel
     }
 
     @Override // android.support.v4.app.Fragment
-    public void onAttach(Activity activity) {
-        super.onAttach(activity);
-        if (!this.mShownByMe) {
-            this.mDismissed = false;
-        }
-    }
-
-    @Override // android.support.v4.app.Fragment
-    public void onDetach() {
-        super.onDetach();
-        if (!this.mShownByMe && !this.mDismissed) {
-            this.mDismissed = true;
-        }
-    }
-
-    @Override // android.support.v4.app.Fragment
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         this.mShowsDialog = this.mContainerId == 0;
@@ -149,6 +119,7 @@ public class DialogFragment extends Fragment implements DialogInterface.OnCancel
             return super.getLayoutInflater(savedInstanceState);
         }
         this.mDialog = onCreateDialog(savedInstanceState);
+        this.mDestroyed = false;
         switch (this.mStyle) {
             case 3:
                 this.mDialog.getWindow().addFlags(24);
@@ -157,10 +128,7 @@ public class DialogFragment extends Fragment implements DialogInterface.OnCancel
                 this.mDialog.requestWindowFeature(1);
                 break;
         }
-        if (this.mDialog != null) {
-            return (LayoutInflater) this.mDialog.getContext().getSystemService("layout_inflater");
-        }
-        return (LayoutInflater) this.mActivity.getSystemService("layout_inflater");
+        return (LayoutInflater) this.mDialog.getContext().getSystemService("layout_inflater");
     }
 
     public Dialog onCreateDialog(Bundle savedInstanceState) {
@@ -173,7 +141,7 @@ public class DialogFragment extends Fragment implements DialogInterface.OnCancel
 
     @Override // android.content.DialogInterface.OnDismissListener
     public void onDismiss(DialogInterface dialog) {
-        if (!this.mViewDestroyed) {
+        if (!this.mRemoved) {
             dismissInternal(true);
         }
     }
@@ -204,7 +172,7 @@ public class DialogFragment extends Fragment implements DialogInterface.OnCancel
     public void onStart() {
         super.onStart();
         if (this.mDialog != null) {
-            this.mViewDestroyed = false;
+            this.mRemoved = false;
             this.mDialog.show();
         }
     }
@@ -244,8 +212,9 @@ public class DialogFragment extends Fragment implements DialogInterface.OnCancel
     @Override // android.support.v4.app.Fragment
     public void onDestroyView() {
         super.onDestroyView();
+        this.mDestroyed = true;
         if (this.mDialog != null) {
-            this.mViewDestroyed = true;
+            this.mRemoved = true;
             this.mDialog.dismiss();
             this.mDialog = null;
         }

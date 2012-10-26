@@ -8,6 +8,7 @@ import android.net.Proxy;
 import android.net.Uri;
 import android.os.Handler;
 import android.os.Message;
+import android.telephony.TelephonyManager;
 import com.baidu.tieba.R;
 import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.data.Config;
@@ -35,13 +36,13 @@ import org.apache.http.message.BasicNameValuePair;
 /* loaded from: classes.dex */
 public class NetWorkCore {
     private static final int BUFFERSIZE = 1024;
-    private static final int CONNECTTIMEOUT = 7000;
-    private static final int GETDATATIMEOUT = 7000;
-    private static final int MAX_RETRY_COUNT = 4;
+    private static final int CONNECTTIMEOUT = 5000;
+    private static final int GETDATATIMEOUT = 30000;
+    private static final int MAX_RETRY_COUNT = 10;
     public static final String NET_TYPE_NET = "1";
     public static final String NET_TYPE_WAP = "2";
     public static final String NET_TYPE_WIFI = "3";
-    private static final int POSTDATATIMEOUT = 10000;
+    private static final int POSTDATATIMEOUT = 15000;
     private HttpURLConnection mConn;
     private Context mContext;
     private String mErrorString;
@@ -53,7 +54,6 @@ public class NetWorkCore {
     private int mNetErrorCode;
     private ArrayList<BasicNameValuePair> mPostData;
     private boolean mRequestGzip;
-    private int mRetryConnt;
     private int mServerErrorCode;
     private String mUrl;
     private int mWapRetryConnt;
@@ -83,6 +83,24 @@ public class NetWorkCore {
         }
     }
 
+    /* loaded from: classes.dex */
+    public enum NetworkStateInfo {
+        UNAVAIL,
+        WIFI,
+        TwoG,
+        ThreeG;
+
+        /* JADX DEBUG: Replace access to removed values field (ENUM$VALUES) with 'values()' method */
+        /* renamed from: values  reason: to resolve conflict with enum method */
+        public static NetworkStateInfo[] valuesCustom() {
+            NetworkStateInfo[] valuesCustom = values();
+            int length = valuesCustom.length;
+            NetworkStateInfo[] networkStateInfoArr = new NetworkStateInfo[length];
+            System.arraycopy(valuesCustom, 0, networkStateInfoArr, 0, length);
+            return networkStateInfoArr;
+        }
+    }
+
     private void initNetWork() {
         this.mConn = null;
         this.mUrl = null;
@@ -97,7 +115,6 @@ public class NetWorkCore {
         this.mIsBDImage = false;
         this.mFileData = null;
         this.mIsLimited = false;
-        this.mRetryConnt = 0;
         initPorxyUser();
     }
 
@@ -302,8 +319,13 @@ public class NetWorkCore {
         return false;
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [490=7, 492=7, 493=7, 497=7, 498=7, 500=6] */
-    /* JADX WARN: Removed duplicated region for block: B:29:0x00c4 A[ADDED_TO_REGION] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [512=8, 504=8, 505=8, 509=8, 510=8] */
+    /* JADX WARN: Code restructure failed: missing block: B:57:0x019a, code lost:
+        if (0 == 0) goto L63;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:58:0x019c, code lost:
+        r9.close();
+     */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -311,227 +333,230 @@ public class NetWorkCore {
         URL url;
         int num;
         byte[] output = null;
-        InputStream in = null;
-        boolean is_net_error = false;
+        boolean is_net_error = true;
         try {
-            try {
-                if (this.mPostData == null || this.mPostData.size() <= 0) {
-                    URL url2 = new URL(this.mUrl);
-                    url = url2;
-                } else {
-                    StringBuffer buffer = new StringBuffer(30);
-                    buffer.append(this.mUrl);
-                    if (this.mUrl.indexOf("?") < 0) {
-                        buffer.append("?");
-                    } else if (!this.mUrl.endsWith("?") && !this.mUrl.endsWith("&")) {
+            if (this.mPostData == null || this.mPostData.size() <= 0) {
+                URL url2 = new URL(this.mUrl);
+                url = url2;
+            } else {
+                StringBuffer buffer = new StringBuffer(30);
+                buffer.append(this.mUrl);
+                if (this.mUrl.indexOf("?") < 0) {
+                    buffer.append("?");
+                } else if (!this.mUrl.endsWith("?") && !this.mUrl.endsWith("&")) {
+                    buffer.append("&");
+                }
+                for (int i = 0; i < this.mPostData.size(); i++) {
+                    if (i != 0) {
                         buffer.append("&");
                     }
-                    for (int i = 0; i < this.mPostData.size(); i++) {
-                        if (i != 0) {
-                            buffer.append("&");
-                        }
-                        buffer.append(this.mPostData.get(i).getName());
-                        buffer.append("=");
-                        buffer.append(this.mPostData.get(i).getValue());
+                    buffer.append(this.mPostData.get(i).getName());
+                    buffer.append("=");
+                    buffer.append(this.mPostData.get(i).getValue());
+                }
+                URL url3 = new URL(buffer.toString());
+                url = url3;
+            }
+            int retry = 0;
+            while (true) {
+                if (this.mIsInterrupte || !is_net_error || retry >= 10) {
+                    break;
+                }
+                InputStream in = null;
+                try {
+                    try {
+                        this.mConn = getConnect(url);
+                    } catch (Throwable th) {
+                        th = th;
                     }
-                    URL url3 = new URL(buffer.toString());
-                    url = url3;
+                } catch (SocketException e) {
+                } catch (SocketTimeoutException e2) {
+                } catch (Exception e3) {
+                    ex = e3;
                 }
-                this.mConn = getConnect(url);
-            } catch (Throwable th) {
-                th = th;
-            }
-        } catch (SocketException e) {
-        } catch (SocketTimeoutException e2) {
-        } catch (Exception e3) {
-            ex = e3;
-        }
-        if (this.mConn == null) {
-            throw new SocketException();
-        }
-        this.mConn.setConnectTimeout(7000);
-        this.mConn.setReadTimeout(7000);
-        if (this.mRequestGzip && !this.mIsBDImage) {
-            this.mConn.setRequestProperty("Accept-Encoding", "gzip");
-        }
-        if (this.mIsInterrupte) {
-            this.mWapRetryConnt = 0;
-            if (0 != 0) {
-                try {
-                    in.close();
-                } catch (Exception e4) {
+                if (this.mConn == null) {
+                    throw new SocketException();
                 }
-            }
-            try {
-                if (this.mConn != null) {
+                this.mConn.setConnectTimeout(5000);
+                this.mConn.setReadTimeout(GETDATATIMEOUT);
+                if (this.mRequestGzip && !this.mIsBDImage) {
+                    this.mConn.setRequestProperty("Accept-Encoding", "gzip");
+                }
+                if (this.mIsInterrupte) {
+                    break;
+                }
+                long time = new Date().getTime();
+                this.mConn.connect();
+                this.mNetErrorCode = this.mConn.getResponseCode();
+                if (this.mNetErrorCode != 200) {
+                    throw new SocketException();
+                }
+                if (!this.mConn.getContentType().contains("text/vnd.wap.wml")) {
+                    String encodeing = this.mConn.getContentEncoding();
+                    in = this.mConn.getInputStream();
+                    byte[] buf = new byte[1024];
+                    ByteArrayOutputStream outputstream = new ByteArrayOutputStream(1024);
+                    int size = 0;
+                    try {
+                        if (this.mIsBDImage) {
+                            byte[] b = new byte[23];
+                            in.read(b, 0, 23);
+                            String title = new String(b, 0, b.length);
+                            if (!title.equalsIgnoreCase("app:tiebaclient;type:0;")) {
+                                outputstream.write(b, 0, 23);
+                                size = 0 + 23;
+                            }
+                        }
+                        while (!this.mIsInterrupte && size < MAX_DATA_LENG && (num = in.read(buf)) != -1) {
+                            outputstream.write(buf, 0, num);
+                            size += num;
+                        }
+                        if (this.mIsInterrupte) {
+                            if (in != null) {
+                                try {
+                                    in.close();
+                                } catch (Exception e4) {
+                                }
+                            }
+                            try {
+                                if (this.mConn != null) {
+                                    this.mConn.disconnect();
+                                }
+                            } catch (Exception e5) {
+                            }
+                        } else {
+                            TiebaLog.i(getClass().getName(), "getNetData", "time = " + String.valueOf(new Date().getTime() - time) + "ms");
+                            if (size < MAX_DATA_LENG) {
+                                output = outputstream.toByteArray();
+                                TiebaLog.i(getClass().getName(), "getNetData", "data.zise = " + String.valueOf(size));
+                                if (encodeing != null && encodeing.contains("gzip")) {
+                                    ByteArrayInputStream tmpInput = new ByteArrayInputStream(output);
+                                    ByteArrayOutputStream tmpOutput = new ByteArrayOutputStream(1024);
+                                    GzipHelper.decompress(tmpInput, tmpOutput);
+                                    output = tmpOutput.toByteArray();
+                                }
+                            } else {
+                                this.mNetErrorCode = -1;
+                                this.mErrorString = this.mContext.getResources().getString(R.string.data_too_big);
+                            }
+                            if (in != null) {
+                                try {
+                                    in.close();
+                                } catch (Exception e6) {
+                                }
+                            }
+                            try {
+                                if (this.mConn != null) {
+                                    this.mConn.disconnect();
+                                }
+                            } catch (Exception e7) {
+                            }
+                        }
+                    } catch (SocketException e8) {
+                        this.mNetErrorCode = 0;
+                        is_net_error = true;
+                        this.mErrorString = this.mContext.getResources().getString(R.string.neterror);
+                        if (in != null) {
+                            try {
+                                in.close();
+                            } catch (Exception e9) {
+                            }
+                        }
+                        try {
+                            if (this.mConn != null) {
+                                this.mConn.disconnect();
+                            }
+                        } catch (Exception e10) {
+                        }
+                        retry++;
+                    } catch (SocketTimeoutException e11) {
+                        this.mNetErrorCode = 0;
+                        is_net_error = true;
+                        this.mErrorString = this.mContext.getResources().getString(R.string.neterror);
+                        if (in != null) {
+                            try {
+                                in.close();
+                            } catch (Exception e12) {
+                            }
+                        }
+                        try {
+                            if (this.mConn != null) {
+                                this.mConn.disconnect();
+                            }
+                        } catch (Exception e13) {
+                        }
+                        retry++;
+                    } catch (Exception e14) {
+                        ex = e14;
+                        this.mNetErrorCode = 0;
+                        is_net_error = false;
+                        this.mErrorString = this.mContext.getResources().getString(R.string.neterror);
+                        TiebaLog.e(getClass().getName(), "getNetData", "error = " + ex.getMessage());
+                        if (in != null) {
+                            try {
+                                in.close();
+                            } catch (Exception e15) {
+                            }
+                        }
+                        try {
+                            if (this.mConn != null) {
+                                this.mConn.disconnect();
+                            }
+                        } catch (Exception e16) {
+                        }
+                        retry++;
+                    } catch (Throwable th2) {
+                        th = th2;
+                        if (in != null) {
+                            try {
+                                in.close();
+                            } catch (Exception e17) {
+                            }
+                        }
+                        try {
+                            if (this.mConn != null) {
+                                this.mConn.disconnect();
+                            }
+                        } catch (Exception e18) {
+                        }
+                        throw th;
+                    }
+                } else if (this.mWapRetryConnt >= 1) {
+                    break;
+                } else {
                     this.mConn.disconnect();
+                    this.mWapRetryConnt++;
+                    this.mNetErrorCode = 0;
+                    retry--;
+                    if (0 != 0) {
+                        try {
+                            in.close();
+                        } catch (Exception e19) {
+                        }
+                    }
+                    try {
+                        if (this.mConn != null) {
+                            this.mConn.disconnect();
+                        }
+                    } catch (Exception e20) {
+                    }
+                    retry++;
                 }
-            } catch (Exception e5) {
-            }
-            return null;
-        }
-        long time = new Date().getTime();
-        this.mConn.connect();
-        this.mNetErrorCode = this.mConn.getResponseCode();
-        if (this.mNetErrorCode != 200) {
-            throw new SocketException();
-        }
-        if (this.mConn.getContentType().contains("text/vnd.wap.wml") && this.mWapRetryConnt < 1) {
-            this.mConn.disconnect();
-            this.mWapRetryConnt++;
-            this.mNetErrorCode = 0;
-            byte[] netData = getNetData();
-            this.mWapRetryConnt = 0;
-            if (0 != 0) {
-                try {
-                    in.close();
-                } catch (Exception e6) {
-                }
-            }
-            try {
-                if (this.mConn != null) {
-                    this.mConn.disconnect();
-                    return netData;
-                }
-                return netData;
-            } catch (Exception e7) {
-                return netData;
-            }
-        }
-        this.mWapRetryConnt = 0;
-        String encodeing = this.mConn.getContentEncoding();
-        in = this.mConn.getInputStream();
-        byte[] buf = new byte[1024];
-        ByteArrayOutputStream outputstream = new ByteArrayOutputStream(1024);
-        int size = 0;
-        try {
-            if (this.mIsBDImage) {
-                byte[] b = new byte[23];
-                in.read(b, 0, 23);
-                String title = new String(b, 0, b.length);
-                if (!title.equalsIgnoreCase("app:tiebaclient;type:0;")) {
-                    outputstream.write(b, 0, 23);
-                    size = 0 + 23;
-                }
-            }
-            while (!this.mIsInterrupte && size < MAX_DATA_LENG && (num = in.read(buf)) != -1) {
-                outputstream.write(buf, 0, num);
-                size += num;
-            }
-            TiebaLog.i(getClass().getName(), "getNetData", "time = " + String.valueOf(new Date().getTime() - time) + "ms");
-            if (size < MAX_DATA_LENG) {
-                output = outputstream.toByteArray();
-                TiebaLog.i(getClass().getName(), "getNetData", "data.zise = " + String.valueOf(size));
-                if (encodeing != null && encodeing.contains("gzip")) {
-                    ByteArrayInputStream tmpInput = new ByteArrayInputStream(output);
-                    ByteArrayOutputStream tmpOutput = new ByteArrayOutputStream(1024);
-                    GzipHelper.decompress(tmpInput, tmpOutput);
-                    output = tmpOutput.toByteArray();
-                }
-            } else {
-                this.mNetErrorCode = -1;
-                this.mErrorString = this.mContext.getResources().getString(R.string.data_too_big);
             }
             this.mWapRetryConnt = 0;
-            if (in != null) {
-                try {
-                    in.close();
-                } catch (Exception e8) {
-                }
-            }
-            try {
-                if (this.mConn != null) {
-                    this.mConn.disconnect();
-                }
-            } catch (Exception e9) {
-            }
-        } catch (SocketException e10) {
-            this.mNetErrorCode = 0;
-            is_net_error = true;
-            this.mErrorString = this.mContext.getResources().getString(R.string.neterror);
-            this.mWapRetryConnt = 0;
-            if (in != null) {
-                try {
-                    in.close();
-                } catch (Exception e11) {
-                }
-            }
-            try {
-                if (this.mConn != null) {
-                    this.mConn.disconnect();
-                }
-            } catch (Exception e12) {
-            }
-            if (this.mIsInterrupte) {
-            }
-            this.mRetryConnt = 0;
             return output;
-        } catch (SocketTimeoutException e13) {
-            this.mNetErrorCode = 0;
-            is_net_error = true;
-            this.mErrorString = this.mContext.getResources().getString(R.string.neterror);
-            this.mWapRetryConnt = 0;
-            if (in != null) {
-                try {
-                    in.close();
-                } catch (Exception e14) {
-                }
-            }
             try {
                 if (this.mConn != null) {
                     this.mConn.disconnect();
                 }
-            } catch (Exception e15) {
+            } catch (Exception e21) {
             }
-            if (this.mIsInterrupte) {
-            }
-            this.mRetryConnt = 0;
+            this.mWapRetryConnt = 0;
             return output;
-        } catch (Exception e16) {
-            ex = e16;
-            this.mNetErrorCode = 0;
-            this.mErrorString = this.mContext.getResources().getString(R.string.neterror);
-            TiebaLog.e(getClass().getName(), "getNetData", "error = " + ex.getMessage());
-            this.mWapRetryConnt = 0;
-            if (in != null) {
-                try {
-                    in.close();
-                } catch (Exception e17) {
-                }
-            }
-            try {
-                if (this.mConn != null) {
-                    this.mConn.disconnect();
-                }
-            } catch (Exception e18) {
-            }
-            if (this.mIsInterrupte) {
-            }
-            this.mRetryConnt = 0;
+        } catch (Exception ex) {
+            TiebaLog.e(getClass().getName(), "getNetData", ex.getMessage());
             return output;
-        } catch (Throwable th2) {
-            th = th2;
-            this.mWapRetryConnt = 0;
-            if (in != null) {
-                try {
-                    in.close();
-                } catch (Exception e19) {
-                }
-            }
-            try {
-                if (this.mConn != null) {
-                    this.mConn.disconnect();
-                }
-            } catch (Exception e20) {
-            }
-            throw th;
         }
-        if (this.mIsInterrupte && is_net_error && this.mRetryConnt < 4) {
-            this.mRetryConnt++;
-            return getNetData();
-        }
-        this.mRetryConnt = 0;
-        return output;
     }
 
     private String getCharset() throws Exception {
@@ -594,34 +619,74 @@ public class NetWorkCore {
         }
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [719=7, 720=7, 724=7, 725=7, 727=5, 728=7] */
-    /* JADX WARN: Removed duplicated region for block: B:47:0x0217 A[ADDED_TO_REGION] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [729=9, 730=9, 734=9, 735=9, 737=9] */
+    /* JADX WARN: Code restructure failed: missing block: B:113:0x0444, code lost:
+        if (r11 == null) goto L108;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:114:0x0446, code lost:
+        r11.close();
+     */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public String postNetData() {
+        InputStream in;
+        String retData;
         int num;
-        InputStream in = null;
-        String retData = null;
-        boolean is_net_error = false;
-        try {
-            try {
-                URL url = new URL(this.mUrl);
-                this.mConn = getConnect(url);
-            } catch (Throwable th) {
-                th = th;
+        String retData2 = null;
+        boolean is_net_error = true;
+        StringBuffer build = new StringBuffer(1024);
+        StringBuffer md5_source = new StringBuffer(1024);
+        for (int i = 0; this.mPostData != null && i < this.mPostData.size(); i++) {
+            BasicNameValuePair kv = this.mPostData.get(i);
+            if (kv != null) {
+                String k = kv.getName();
+                String v = kv.getValue();
+                if (i != 0) {
+                    build.append("&");
+                }
+                build.append(String.valueOf(k) + "=");
+                build.append(StringHelper.getUrlEncode(v));
+                md5_source.append(k);
+                md5_source.append("=");
+                md5_source.append(v);
             }
-        } catch (SocketException e) {
-            ex = e;
-        } catch (SocketTimeoutException e2) {
-            ex = e2;
-        } catch (Exception e3) {
-            ex = e3;
         }
-        if (this.mConn == null) {
-            this.mErrorString = this.mContext.getResources().getString(R.string.neterror);
-        } else {
-            this.mConn.setConnectTimeout(7000);
+        if (this.mIsBaiduServer) {
+            md5_source.append("tiebaclient!!!");
+            String md5 = StringHelper.ToMd5(md5_source.toString());
+            if (build.length() > 0) {
+                build.append("&");
+            }
+            build.append("sign=");
+            build.append(md5);
+        }
+        String postdata = build.toString();
+        int retry = 0;
+        while (true) {
+            if (this.mIsInterrupte || !is_net_error || retry >= 10) {
+                break;
+            }
+            in = null;
+            try {
+                try {
+                    URL url = new URL(this.mUrl);
+                    this.mConn = getConnect(url);
+                } catch (Throwable th) {
+                    th = th;
+                }
+            } catch (SocketException e) {
+                ex = e;
+            } catch (SocketTimeoutException e2) {
+                ex = e2;
+            } catch (Exception e3) {
+                ex = e3;
+            }
+            if (this.mConn == null) {
+                this.mErrorString = this.mContext.getResources().getString(R.string.neterror);
+                break;
+            }
+            this.mConn.setConnectTimeout(5000);
             this.mConn.setReadTimeout(POSTDATATIMEOUT);
             this.mConn.setDoOutput(true);
             this.mConn.setDoInput(true);
@@ -631,70 +696,23 @@ public class NetWorkCore {
             if (this.mRequestGzip) {
                 this.mConn.setRequestProperty("Accept-Encoding", "gzip");
             }
+            if (this.mIsInterrupte) {
+                break;
+            }
+            long time = new Date().getTime();
+            this.mConn.connect();
+            DataOutputStream ds = new DataOutputStream(this.mConn.getOutputStream());
             if (!this.mIsInterrupte) {
-                long time = new Date().getTime();
-                this.mConn.connect();
-                DataOutputStream ds = new DataOutputStream(this.mConn.getOutputStream());
-                StringBuffer build = new StringBuffer(1024);
-                StringBuffer md5_source = new StringBuffer(1024);
-                for (int i = 0; this.mPostData != null && i < this.mPostData.size(); i++) {
-                    BasicNameValuePair kv = this.mPostData.get(i);
-                    if (kv != null) {
-                        String k = kv.getName();
-                        String v = kv.getValue();
-                        if (i != 0) {
-                            build.append("&");
-                        }
-                        build.append(String.valueOf(k) + "=");
-                        build.append(StringHelper.getUrlEncode(v));
-                        md5_source.append(k);
-                        md5_source.append("=");
-                        md5_source.append(v);
-                    }
-                }
-                if (this.mIsBaiduServer) {
-                    md5_source.append("tiebaclient!!!");
-                    String md5 = StringHelper.ToMd5(md5_source.toString());
-                    if (build.length() > 0) {
-                        build.append("&");
-                    }
-                    build.append("sign=");
-                    build.append(md5);
-                }
-                String postdata = build.toString();
-                if (!this.mIsInterrupte) {
-                    ds.writeBytes(postdata);
-                }
-                ds.flush();
-                TiebaLog.i("NetWork", "postNetData", "Post data.zise = " + String.valueOf(ds.size()));
-                ds.close();
-                this.mNetErrorCode = this.mConn.getResponseCode();
-                if (this.mNetErrorCode != 200) {
-                    throw new SocketException();
-                }
-                if (this.mIsBaiduServer) {
-                    if (this.mConn.getContentType().contains("text/vnd.wap.wml") && this.mWapRetryConnt < 1) {
-                        this.mConn.disconnect();
-                        this.mWapRetryConnt++;
-                        this.mNetErrorCode = 0;
-                        String postNetData = postNetData();
-                        if (0 != 0) {
-                            try {
-                                in.close();
-                            } catch (Exception e4) {
-                            }
-                        }
-                        try {
-                            if (this.mConn != null) {
-                                this.mConn.disconnect();
-                            }
-                        } catch (Exception e5) {
-                        }
-                        this.mWapRetryConnt = 0;
-                        return postNetData;
-                    }
-                    this.mWapRetryConnt = 0;
-                }
+                ds.writeBytes(postdata);
+            }
+            ds.flush();
+            TiebaLog.i("NetWork", "postNetData", "Post data.zise = " + String.valueOf(ds.size()));
+            ds.close();
+            this.mNetErrorCode = this.mConn.getResponseCode();
+            if (this.mNetErrorCode != 200) {
+                throw new SocketException();
+            }
+            if (!this.mIsBaiduServer || !this.mConn.getContentType().contains("text/vnd.wap.wml")) {
                 String encodeing = this.mConn.getContentEncoding();
                 in = this.mConn.getInputStream();
                 byte[] buf = new byte[1024];
@@ -702,41 +720,53 @@ public class NetWorkCore {
                 while (!this.mIsInterrupte && (num = in.read(buf)) != -1) {
                     try {
                         outputstream.write(buf, 0, num);
-                    } catch (SocketException e6) {
+                    } catch (SocketException e4) {
+                        ex = e4;
+                    } catch (SocketTimeoutException e5) {
+                        ex = e5;
+                    } catch (Exception e6) {
                         ex = e6;
-                    } catch (SocketTimeoutException e7) {
-                        ex = e7;
-                    } catch (Exception e8) {
-                        ex = e8;
                     } catch (Throwable th2) {
                         th = th2;
                     }
                 }
                 in.close();
                 this.mConn.disconnect();
-                TiebaLog.i(getClass().getName(), "postNetData", "time = " + String.valueOf(new Date().getTime() - time) + "ms");
-                byte[] output = outputstream.toByteArray();
-                TiebaLog.i(getClass().getName(), "postNetData", "Get data.zise = " + String.valueOf(output.length));
-                if (encodeing != null && encodeing.contains("gzip")) {
-                    ByteArrayInputStream tmpInput = new ByteArrayInputStream(output);
-                    ByteArrayOutputStream tmpOutput = new ByteArrayOutputStream(1024);
-                    GzipHelper.decompress(tmpInput, tmpOutput);
-                    output = tmpOutput.toByteArray();
-                    TiebaLog.i(getClass().getName(), "postNetData", "After ungzip data.zise = " + String.valueOf(output.length));
-                }
-                if (this.mNetErrorCode == 200) {
-                    String charset = getCharset();
-                    String retData2 = new String(output, 0, output.length, charset);
-                    try {
-                        if (this.mIsBaiduServer) {
-                            parseServerCode(retData2);
-                            retData = retData2;
-                        } else {
-                            retData = retData2;
+                if (this.mIsInterrupte) {
+                    if (in != null) {
+                        try {
+                            in.close();
+                        } catch (Exception e7) {
                         }
+                    }
+                    try {
+                        if (this.mConn != null) {
+                            this.mConn.disconnect();
+                        }
+                    } catch (Exception e8) {
+                    }
+                } else {
+                    TiebaLog.i(getClass().getName(), "postNetData", "time = " + String.valueOf(new Date().getTime() - time) + "ms");
+                    byte[] output = outputstream.toByteArray();
+                    TiebaLog.i(getClass().getName(), "postNetData", "Get data.zise = " + String.valueOf(output.length));
+                    if (encodeing != null && encodeing.contains("gzip")) {
+                        ByteArrayInputStream tmpInput = new ByteArrayInputStream(output);
+                        ByteArrayOutputStream tmpOutput = new ByteArrayOutputStream(1024);
+                        GzipHelper.decompress(tmpInput, tmpOutput);
+                        output = tmpOutput.toByteArray();
+                        TiebaLog.i(getClass().getName(), "postNetData", "After ungzip data.zise = " + String.valueOf(output.length));
+                    }
+                    String charset = getCharset();
+                    retData = new String(output, 0, output.length, charset);
+                    try {
+                        if (!this.mIsBaiduServer) {
+                            break;
+                        }
+                        parseServerCode(retData);
+                        break;
                     } catch (SocketException e9) {
                         ex = e9;
-                        retData = retData2;
+                        retData2 = retData;
                         this.mNetErrorCode = 0;
                         is_net_error = true;
                         this.mErrorString = this.mContext.getResources().getString(R.string.neterror);
@@ -753,14 +783,10 @@ public class NetWorkCore {
                             }
                         } catch (Exception e11) {
                         }
-                        this.mWapRetryConnt = 0;
-                        if (this.mIsInterrupte) {
-                        }
-                        this.mRetryConnt = 0;
-                        return retData;
+                        retry++;
                     } catch (SocketTimeoutException e12) {
                         ex = e12;
-                        retData = retData2;
+                        retData2 = retData;
                         this.mNetErrorCode = 0;
                         is_net_error = true;
                         this.mErrorString = this.mContext.getResources().getString(R.string.neterror);
@@ -777,15 +803,12 @@ public class NetWorkCore {
                             }
                         } catch (Exception e14) {
                         }
-                        this.mWapRetryConnt = 0;
-                        if (this.mIsInterrupte) {
-                        }
-                        this.mRetryConnt = 0;
-                        return retData;
+                        retry++;
                     } catch (Exception e15) {
                         ex = e15;
-                        retData = retData2;
+                        retData2 = retData;
                         this.mNetErrorCode = 0;
+                        is_net_error = false;
                         this.mErrorString = this.mContext.getResources().getString(R.string.neterror);
                         TiebaLog.e(getClass().getName(), "postNetData", ex.getMessage());
                         if (in != null) {
@@ -800,11 +823,7 @@ public class NetWorkCore {
                             }
                         } catch (Exception e17) {
                         }
-                        this.mWapRetryConnt = 0;
-                        if (this.mIsInterrupte) {
-                        }
-                        this.mRetryConnt = 0;
-                        return retData;
+                        retry++;
                     } catch (Throwable th3) {
                         th = th3;
                         if (in != null) {
@@ -819,11 +838,15 @@ public class NetWorkCore {
                             }
                         } catch (Exception e19) {
                         }
-                        this.mWapRetryConnt = 0;
                         throw th;
                     }
                 }
-                if (in != null) {
+            } else if (this.mWapRetryConnt < 1) {
+                this.mConn.disconnect();
+                this.mWapRetryConnt++;
+                this.mNetErrorCode = 0;
+                retry--;
+                if (0 != 0) {
                     try {
                         in.close();
                     } catch (Exception e20) {
@@ -835,58 +858,91 @@ public class NetWorkCore {
                     }
                 } catch (Exception e21) {
                 }
-                this.mWapRetryConnt = 0;
-                if (this.mIsInterrupte && is_net_error && this.mRetryConnt < 4) {
-                    this.mRetryConnt++;
-                    return postNetData();
+                retry++;
+            } else {
+                if (0 != 0) {
+                    try {
+                        in.close();
+                    } catch (Exception e22) {
+                    }
                 }
-                this.mRetryConnt = 0;
-                return retData;
+                try {
+                    if (this.mConn != null) {
+                        this.mConn.disconnect();
+                    }
+                } catch (Exception e23) {
+                }
             }
         }
         if (0 != 0) {
             try {
                 in.close();
-            } catch (Exception e22) {
+            } catch (Exception e24) {
             }
         }
         try {
             if (this.mConn != null) {
                 this.mConn.disconnect();
             }
-        } catch (Exception e23) {
+        } catch (Exception e25) {
         }
         this.mWapRetryConnt = 0;
-        return null;
+        return retData2;
+        try {
+            if (this.mConn != null) {
+                this.mConn.disconnect();
+                retData2 = retData;
+            } else {
+                retData2 = retData;
+            }
+        } catch (Exception e26) {
+            retData2 = retData;
+        }
+        this.mWapRetryConnt = 0;
+        return retData2;
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [882=7, 883=7, 885=7, 887=7, 888=7, 890=5, 892=7, 893=7, 895=7, 896=7, 897=7, 899=7, 900=7] */
-    /* JADX WARN: Removed duplicated region for block: B:63:0x0254 A[ADDED_TO_REGION] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [891=9, 892=9, 894=9, 896=9, 897=9, 899=5, 901=9, 902=9, 904=9, 905=9, 906=9] */
+    /* JADX WARN: Code restructure failed: missing block: B:14:0x0066, code lost:
+        if (0 == 0) goto L15;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:15:0x0068, code lost:
+        r12.close();
+     */
+    /* JADX WARN: Removed duplicated region for block: B:23:0x0085  */
+    /* JADX WARN: Removed duplicated region for block: B:266:0x007e A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public String postMultiNetData() {
+        DataOutputStream ds;
         int num;
-        InputStream in = null;
         String retData = null;
-        boolean is_net_error = false;
-        DataOutputStream ds = null;
-        try {
-            try {
-                URL url = new URL(this.mUrl);
-                this.mConn = getConnect(url);
-            } catch (Throwable th) {
-                th = th;
+        boolean is_net_error = true;
+        int retry = 0;
+        while (true) {
+            if (this.mIsInterrupte || !is_net_error || retry >= 10) {
+                break;
             }
-        } catch (SocketException e) {
-        } catch (SocketTimeoutException e2) {
-        } catch (Exception e3) {
-            ex = e3;
-        }
-        if (this.mConn == null) {
-            this.mErrorString = this.mContext.getResources().getString(R.string.neterror);
-        } else {
-            this.mConn.setConnectTimeout(7000);
+            InputStream in = null;
+            ds = null;
+            try {
+                try {
+                    URL url = new URL(this.mUrl);
+                    this.mConn = getConnect(url);
+                } catch (Throwable th) {
+                    th = th;
+                }
+            } catch (SocketException e) {
+            } catch (SocketTimeoutException e2) {
+            } catch (Exception e3) {
+                ex = e3;
+            }
+            if (this.mConn == null) {
+                this.mErrorString = this.mContext.getResources().getString(R.string.neterror);
+                break;
+            }
+            this.mConn.setConnectTimeout(5000);
             this.mConn.setReadTimeout(POSTDATATIMEOUT);
             this.mConn.setDoOutput(true);
             this.mConn.setDoInput(true);
@@ -896,94 +952,67 @@ public class NetWorkCore {
             if (this.mRequestGzip) {
                 this.mConn.setRequestProperty("Accept-Encoding", "gzip");
             }
-            if (!this.mIsInterrupte) {
-                long time = new Date().getTime();
-                this.mConn.connect();
-                DataOutputStream ds2 = new DataOutputStream(this.mConn.getOutputStream());
-                for (int i = 0; this.mPostData != null && i < this.mPostData.size() && !this.mIsInterrupte; i++) {
-                    try {
-                        BasicNameValuePair kv = this.mPostData.get(i);
-                        if (kv != null) {
-                            String k = kv.getName();
-                            String v = kv.getValue();
-                            ds2.writeBytes(String.valueOf(twoHypens) + boundary + end);
-                            byte[] vbuffer = v.getBytes("UTF-8");
-                            ds2.writeBytes("Content-Disposition: form-data; name=\"" + k + "\"" + end);
-                            ds2.writeBytes(end);
-                            ds2.write(vbuffer);
-                            ds2.writeBytes(end);
-                        }
-                    } catch (SocketException e4) {
-                        ds = ds2;
-                    } catch (SocketTimeoutException e5) {
-                        ds = ds2;
-                    } catch (Exception e6) {
-                        ex = e6;
-                        ds = ds2;
-                    } catch (Throwable th2) {
-                        th = th2;
-                        ds = ds2;
+            if (this.mIsInterrupte) {
+                break;
+            }
+            long time = new Date().getTime();
+            this.mConn.connect();
+            DataOutputStream ds2 = new DataOutputStream(this.mConn.getOutputStream());
+            for (int i = 0; this.mPostData != null && i < this.mPostData.size() && !this.mIsInterrupte; i++) {
+                try {
+                    BasicNameValuePair kv = this.mPostData.get(i);
+                    if (kv != null) {
+                        String k = kv.getName();
+                        String v = kv.getValue();
+                        ds2.writeBytes(String.valueOf(twoHypens) + boundary + end);
+                        byte[] vbuffer = v.getBytes("UTF-8");
+                        ds2.writeBytes("Content-Disposition: form-data; name=\"" + k + "\"" + end);
+                        ds2.writeBytes(end);
+                        ds2.write(vbuffer);
+                        ds2.writeBytes(end);
+                    }
+                } catch (SocketException e4) {
+                    ds = ds2;
+                } catch (SocketTimeoutException e5) {
+                    ds = ds2;
+                } catch (Exception e6) {
+                    ex = e6;
+                    ds = ds2;
+                } catch (Throwable th2) {
+                    th = th2;
+                    ds = ds2;
+                }
+            }
+            if (!this.mIsInterrupte && this.mFileData != null) {
+                for (Map.Entry<String, byte[]> entry : this.mFileData.entrySet()) {
+                    String k2 = entry.getKey();
+                    byte[] v2 = entry.getValue();
+                    if (this.mIsInterrupte) {
+                        break;
+                    } else if (v2 != null) {
+                        ds2.writeBytes(String.valueOf(twoHypens) + boundary + end);
+                        ds2.writeBytes("Content-Disposition: form-data; name=\"" + k2 + "\"; filename=\"file\"" + end);
+                        ds2.writeBytes(end);
+                        ds2.write(v2);
+                        ds2.writeBytes(end);
                     }
                 }
-                if (this.mFileData != null) {
-                    for (Map.Entry<String, byte[]> entry : this.mFileData.entrySet()) {
-                        String k2 = entry.getKey();
-                        byte[] v2 = entry.getValue();
-                        if (this.mIsInterrupte) {
-                            break;
-                        } else if (v2 != null) {
-                            ds2.writeBytes(String.valueOf(twoHypens) + boundary + end);
-                            ds2.writeBytes("Content-Disposition: form-data; name=\"" + k2 + "\"; filename=\"file\"" + end);
-                            ds2.writeBytes(end);
-                            ds2.write(v2);
-                            ds2.writeBytes(end);
-                        }
-                    }
-                }
-                ds2.writeBytes(String.valueOf(twoHypens) + boundary + twoHypens + end);
-                ds2.flush();
-                TiebaLog.i("NetWork", "postMultiNetData", "Post data.zise = " + String.valueOf(ds2.size()));
-                ds2.close();
-                if (mHandler != null) {
-                    mHandler.sendMessageDelayed(mHandler.obtainMessage(0, this), 30000L);
-                }
-                this.mNetErrorCode = this.mConn.getResponseCode();
-                if (mHandler != null) {
-                    mHandler.removeMessages(0, this);
-                }
-                if (this.mNetErrorCode != 200) {
-                    throw new SocketException();
-                }
-                if (this.mConn.getContentType().contains("text/vnd.wap.wml") && this.mWapRetryConnt < 1) {
-                    this.mConn.disconnect();
-                    this.mWapRetryConnt++;
-                    this.mNetErrorCode = 0;
-                    String postMultiNetData = postMultiNetData();
-                    if (0 != 0) {
-                        try {
-                            in.close();
-                        } catch (Exception e7) {
-                        }
-                    }
-                    try {
-                        if (this.mConn != null) {
-                            this.mConn.disconnect();
-                        }
-                    } catch (Exception e8) {
-                    }
-                    if (ds2 != null) {
-                        try {
-                            ds2.close();
-                        } catch (Exception e9) {
-                        }
-                    }
-                    if (mHandler != null) {
-                        mHandler.removeMessages(0, this);
-                    }
-                    this.mWapRetryConnt = 0;
-                    return postMultiNetData;
-                }
-                this.mWapRetryConnt = 0;
+            }
+            ds2.writeBytes(String.valueOf(twoHypens) + boundary + twoHypens + end);
+            ds2.flush();
+            TiebaLog.i("NetWork", "postMultiNetData", "Post data.zise = " + String.valueOf(ds2.size()));
+            ds2.close();
+            if (mHandler != null) {
+                mHandler.sendMessageDelayed(mHandler.obtainMessage(0, this), 45000L);
+            }
+            this.mNetErrorCode = this.mConn.getResponseCode();
+            if (mHandler != null) {
+                mHandler.removeMessages(0, this);
+            }
+            if (this.mNetErrorCode != 200) {
+                throw new SocketException();
+                break;
+            } else if (!this.mConn.getContentType().contains("text/vnd.wap.wml")) {
                 String encodeing = this.mConn.getContentEncoding();
                 in = this.mConn.getInputStream();
                 byte[] buf = new byte[1024];
@@ -991,36 +1020,81 @@ public class NetWorkCore {
                 while (!this.mIsInterrupte && (num = in.read(buf)) != -1) {
                     try {
                         outputstream.write(buf, 0, num);
-                    } catch (SocketException e10) {
+                    } catch (SocketException e7) {
                         ds = ds2;
-                    } catch (SocketTimeoutException e11) {
+                    } catch (SocketTimeoutException e8) {
                         ds = ds2;
-                    } catch (Exception e12) {
-                        ex = e12;
+                    } catch (Exception e9) {
+                        ex = e9;
                         ds = ds2;
                     } catch (Throwable th3) {
                         th = th3;
                         ds = ds2;
                     }
                 }
-                in.close();
-                this.mConn.disconnect();
-                TiebaLog.i("NetWork", "postMultiNetData", "time = " + String.valueOf(new Date().getTime() - time) + "ms");
-                byte[] output = outputstream.toByteArray();
-                TiebaLog.i("NetWork", "postMultiNetData", "Get data.zise = " + String.valueOf(output.length));
-                if (encodeing != null && encodeing.contains("gzip")) {
-                    ByteArrayInputStream tmpInput = new ByteArrayInputStream(output);
-                    ByteArrayOutputStream tmpOutput = new ByteArrayOutputStream(1024);
-                    GzipHelper.decompress(tmpInput, tmpOutput);
-                    output = tmpOutput.toByteArray();
-                }
-                if (this.mNetErrorCode == 200) {
+                if (this.mIsInterrupte) {
+                    if (in != null) {
+                        try {
+                            in.close();
+                        } catch (Exception e10) {
+                        }
+                    }
+                    try {
+                        if (this.mConn != null) {
+                            this.mConn.disconnect();
+                        }
+                    } catch (Exception e11) {
+                    }
+                    if (ds2 != null) {
+                        try {
+                            ds2.close();
+                        } catch (Exception e12) {
+                        }
+                    }
+                    if (mHandler != null) {
+                        mHandler.removeMessages(0, this);
+                    }
+                } else {
+                    in.close();
+                    this.mConn.disconnect();
+                    TiebaLog.i("NetWork", "postMultiNetData", "time = " + String.valueOf(new Date().getTime() - time) + "ms");
+                    byte[] output = outputstream.toByteArray();
+                    TiebaLog.i("NetWork", "postMultiNetData", "Get data.zise = " + String.valueOf(output.length));
+                    if (encodeing != null && encodeing.contains("gzip")) {
+                        ByteArrayInputStream tmpInput = new ByteArrayInputStream(output);
+                        ByteArrayOutputStream tmpOutput = new ByteArrayOutputStream(1024);
+                        GzipHelper.decompress(tmpInput, tmpOutput);
+                        output = tmpOutput.toByteArray();
+                    }
                     String charset = getCharset();
                     String retData2 = new String(output, 0, output.length, charset);
                     try {
                         parseServerCode(retData2);
-                        retData = retData2;
-                    } catch (SocketException e13) {
+                        if (in != null) {
+                            try {
+                                in.close();
+                            } catch (Exception e13) {
+                            }
+                        }
+                        try {
+                            if (this.mConn != null) {
+                                this.mConn.disconnect();
+                            }
+                        } catch (Exception e14) {
+                        }
+                        if (ds2 != null) {
+                            try {
+                                ds2.close();
+                            } catch (Exception e15) {
+                            }
+                        }
+                        if (mHandler != null) {
+                            mHandler.removeMessages(0, this);
+                            retData = retData2;
+                        } else {
+                            retData = retData2;
+                        }
+                    } catch (SocketException e16) {
                         ds = ds2;
                         retData = retData2;
                         is_net_error = true;
@@ -1029,30 +1103,26 @@ public class NetWorkCore {
                         if (in != null) {
                             try {
                                 in.close();
-                            } catch (Exception e14) {
+                            } catch (Exception e17) {
                             }
                         }
                         try {
                             if (this.mConn != null) {
                                 this.mConn.disconnect();
                             }
-                        } catch (Exception e15) {
+                        } catch (Exception e18) {
                         }
                         if (ds != null) {
                             try {
                                 ds.close();
-                            } catch (Exception e16) {
+                            } catch (Exception e19) {
                             }
                         }
                         if (mHandler != null) {
                             mHandler.removeMessages(0, this);
                         }
-                        this.mWapRetryConnt = 0;
-                        if (this.mIsInterrupte) {
-                        }
-                        this.mRetryConnt = 0;
-                        return retData;
-                    } catch (SocketTimeoutException e17) {
+                        retry++;
+                    } catch (SocketTimeoutException e20) {
                         ds = ds2;
                         retData = retData2;
                         this.mNetErrorCode = 0;
@@ -1061,65 +1131,33 @@ public class NetWorkCore {
                         if (in != null) {
                             try {
                                 in.close();
-                            } catch (Exception e18) {
+                            } catch (Exception e21) {
                             }
                         }
                         try {
                             if (this.mConn != null) {
                                 this.mConn.disconnect();
                             }
-                        } catch (Exception e19) {
+                        } catch (Exception e22) {
                         }
                         if (ds != null) {
                             try {
                                 ds.close();
-                            } catch (Exception e20) {
+                            } catch (Exception e23) {
                             }
                         }
                         if (mHandler != null) {
                             mHandler.removeMessages(0, this);
                         }
-                        this.mWapRetryConnt = 0;
-                        if (this.mIsInterrupte) {
-                        }
-                        this.mRetryConnt = 0;
-                        return retData;
-                    } catch (Exception e21) {
-                        ex = e21;
+                        retry++;
+                    } catch (Exception e24) {
+                        ex = e24;
                         ds = ds2;
                         retData = retData2;
                         this.mNetErrorCode = 0;
+                        is_net_error = false;
                         this.mErrorString = this.mContext.getResources().getString(R.string.neterror);
                         TiebaLog.e("NetWork", "postMultiNetData", "error = " + ex.getMessage());
-                        if (in != null) {
-                            try {
-                                in.close();
-                            } catch (Exception e22) {
-                            }
-                        }
-                        try {
-                            if (this.mConn != null) {
-                                this.mConn.disconnect();
-                            }
-                        } catch (Exception e23) {
-                        }
-                        if (ds != null) {
-                            try {
-                                ds.close();
-                            } catch (Exception e24) {
-                            }
-                        }
-                        if (mHandler != null) {
-                            mHandler.removeMessages(0, this);
-                        }
-                        this.mWapRetryConnt = 0;
-                        if (this.mIsInterrupte) {
-                        }
-                        this.mRetryConnt = 0;
-                        return retData;
-                    } catch (Throwable th4) {
-                        th = th4;
-                        ds = ds2;
                         if (in != null) {
                             try {
                                 in.close();
@@ -1141,70 +1179,121 @@ public class NetWorkCore {
                         if (mHandler != null) {
                             mHandler.removeMessages(0, this);
                         }
-                        this.mWapRetryConnt = 0;
+                        retry++;
+                    } catch (Throwable th4) {
+                        th = th4;
+                        ds = ds2;
+                        if (in != null) {
+                            try {
+                                in.close();
+                            } catch (Exception e28) {
+                            }
+                        }
+                        try {
+                            if (this.mConn != null) {
+                                this.mConn.disconnect();
+                            }
+                        } catch (Exception e29) {
+                        }
+                        if (ds != null) {
+                            try {
+                                ds.close();
+                            } catch (Exception e30) {
+                            }
+                        }
+                        if (mHandler != null) {
+                            mHandler.removeMessages(0, this);
+                        }
                         throw th;
                     }
                 }
-                if (in != null) {
+            } else if (this.mWapRetryConnt < 1) {
+                this.mConn.disconnect();
+                this.mWapRetryConnt++;
+                retry--;
+                this.mNetErrorCode = 0;
+                if (0 != 0) {
                     try {
                         in.close();
-                    } catch (Exception e28) {
+                    } catch (Exception e31) {
                     }
                 }
                 try {
                     if (this.mConn != null) {
                         this.mConn.disconnect();
                     }
-                } catch (Exception e29) {
+                } catch (Exception e32) {
                 }
                 if (ds2 != null) {
                     try {
                         ds2.close();
-                    } catch (Exception e30) {
+                    } catch (Exception e33) {
                     }
                 }
                 if (mHandler != null) {
                     mHandler.removeMessages(0, this);
                 }
-                this.mWapRetryConnt = 0;
-                if (this.mIsInterrupte && is_net_error && this.mRetryConnt < 4) {
-                    this.mRetryConnt++;
-                    return postMultiNetData();
+                retry++;
+            } else {
+                if (0 != 0) {
+                    try {
+                        in.close();
+                    } catch (Exception e34) {
+                    }
                 }
-                this.mRetryConnt = 0;
-                return retData;
+                try {
+                    if (this.mConn != null) {
+                        this.mConn.disconnect();
+                    }
+                } catch (Exception e35) {
+                }
+                if (ds2 != null) {
+                    try {
+                        ds2.close();
+                    } catch (Exception e36) {
+                    }
+                }
+                if (mHandler != null) {
+                    mHandler.removeMessages(0, this);
+                }
             }
         }
-        if (0 != 0) {
-            try {
-                in.close();
-            } catch (Exception e31) {
-            }
-        }
-        try {
-            if (this.mConn != null) {
-                this.mConn.disconnect();
-            }
-        } catch (Exception e32) {
-        }
-        if (0 != 0) {
-            try {
-                ds.close();
-            } catch (Exception e33) {
-            }
-        }
+        this.mWapRetryConnt = 0;
+        return retData;
         if (mHandler != null) {
             mHandler.removeMessages(0, this);
         }
         this.mWapRetryConnt = 0;
-        return null;
+        return retData;
+        try {
+            if (this.mConn != null) {
+                this.mConn.disconnect();
+            }
+        } catch (Exception e37) {
+        }
+        if (0 != 0) {
+            try {
+                ds.close();
+            } catch (Exception e38) {
+            }
+        }
+        if (mHandler != null) {
+        }
+        this.mWapRetryConnt = 0;
+        return retData;
+        if (0 != 0) {
+        }
+        if (mHandler != null) {
+        }
+        this.mWapRetryConnt = 0;
+        return retData;
     }
 
     public boolean isFileSegSuccess() {
         return this.mNetErrorCode == 200 || this.mNetErrorCode == 206;
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [1037=7, 1039=7, 1040=7, 1042=5, 1044=7, 1045=7, 1049=7, 1050=7, 1052=7] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [1040=7, 1042=7, 1043=7, 1045=5, 1047=7, 1048=7, 1052=7, 1053=7, 1055=7] */
     public Boolean downloadFile(String name, Handler handler) {
         String length;
         int index;
@@ -1224,8 +1313,8 @@ public class NetWorkCore {
         if (this.mConn == null) {
             throw new SocketException();
         }
-        this.mConn.setConnectTimeout(7000);
-        this.mConn.setReadTimeout(7000);
+        this.mConn.setConnectTimeout(5000);
+        this.mConn.setReadTimeout(GETDATATIMEOUT);
         this.mConn.setInstanceFollowRedirects(false);
         if (this.mIsInterrupte) {
             this.mWapRetryConnt = 0;
@@ -1545,5 +1634,51 @@ public class NetWorkCore {
 
     public void setIsBaiduServer(boolean isBaidu) {
         this.mIsBaiduServer = isBaidu;
+    }
+
+    public static NetworkStateInfo getStatusInfo(Context context) {
+        NetworkStateInfo ret = NetworkStateInfo.UNAVAIL;
+        try {
+            ConnectivityManager cwjManager = (ConnectivityManager) context.getSystemService("connectivity");
+            NetworkInfo networkinfo = cwjManager.getActiveNetworkInfo();
+            boolean netSataus = networkinfo.isAvailable();
+            if (!netSataus) {
+                ret = NetworkStateInfo.UNAVAIL;
+                TiebaLog.i("NetWorkCore", "NetworkStateInfo", "UNAVAIL");
+            } else if (networkinfo.getType() == 1) {
+                TiebaLog.i("NetWorkCore", "NetworkStateInfo", "WIFI");
+                ret = NetworkStateInfo.WIFI;
+            } else {
+                TelephonyManager tm = (TelephonyManager) context.getSystemService("phone");
+                int subType = tm.getNetworkType();
+                switch (subType) {
+                    case 0:
+                    case 1:
+                    case 2:
+                    case 4:
+                    case 7:
+                    case 11:
+                        TiebaLog.i("NetWorkCore", "NetworkStateInfo", "TwoG");
+                        return NetworkStateInfo.TwoG;
+                    case 3:
+                    case 5:
+                    case 6:
+                    case 8:
+                    case NetWorkErr.UID_PRISON /* 9 */:
+                    case 10:
+                    case NetWorkErr.CONTENT_BUHEXIE /* 12 */:
+                    case NetWorkErr.INSERT_TO_MANY_SMILE /* 13 */:
+                    case 14:
+                    case 15:
+                        TiebaLog.i("NetWorkCore", "NetworkStateInfo", "ThreeG");
+                        return NetworkStateInfo.ThreeG;
+                    default:
+                        TiebaLog.i("NetWorkCore", "NetworkStateInfo-default", "TwoG");
+                        return NetworkStateInfo.TwoG;
+                }
+            }
+        } catch (Exception e) {
+        }
+        return ret;
     }
 }

@@ -1,10 +1,11 @@
 package android.support.v4.util;
 
+import android.support.v4.view.accessibility.AccessibilityEventCompat;
 import android.util.Log;
 import java.io.Writer;
 /* loaded from: classes.dex */
 public class LogWriter extends Writer {
-    private StringBuilder mBuilder = new StringBuilder(128);
+    private StringBuilder mBuilder = new StringBuilder((int) AccessibilityEventCompat.TYPE_VIEW_HOVER_ENTER);
     private final String mTag;
 
     public LogWriter(String tag) {

@@ -3,6 +3,8 @@ package com.baidu.tieba.write;
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
@@ -12,6 +14,7 @@ import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import com.baidu.tieba.BaseActivity;
 import com.baidu.tieba.R;
+import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.data.Config;
 import com.baidu.tieba.data.RequestResponseCode;
 import com.baidu.tieba.util.FileHelper;
@@ -37,9 +40,29 @@ public class WriteImageActivity extends BaseActivity {
     @Override // com.baidu.tieba.BaseActivity, android.app.Activity
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        TiebaApplication.app.addRemoteActivity(this);
         setContentView(R.layout.write_image_activity);
         initUI();
         initData();
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.tieba.BaseActivity, android.app.Activity
+    public void onResume() {
+        super.onResume();
+        Drawable dr = this.mImage.getDrawable();
+        if (dr != null && (dr instanceof BitmapDrawable) && ((BitmapDrawable) dr).getBitmap() == null && this.mTask == null) {
+            this.mTask = new GetImageTask(this, null);
+            this.mTask.execute(new Object[0]);
+        }
+    }
+
+    @Override // com.baidu.tieba.BaseActivity
+    public void releaseResouce() {
+        if (this.mTask != null) {
+            this.mTask.cancel();
+        }
+        this.mImage.setImageBitmap(null);
     }
 
     private void initData() {
@@ -60,6 +83,7 @@ public class WriteImageActivity extends BaseActivity {
             this.mTask = null;
         }
         this.mProgress.setVisibility(8);
+        TiebaApplication.app.delRemoteActivity(this);
     }
 
     private void initUI() {

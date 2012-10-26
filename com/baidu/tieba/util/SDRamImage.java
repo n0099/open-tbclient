@@ -67,7 +67,7 @@ public class SDRamImage {
         }
     }
 
-    private void deletePhoto() {
+    public void deletePhoto() {
         synchronized (this) {
             String key = null;
             int tmp = 134217727;
@@ -91,20 +91,23 @@ public class SDRamImage {
         }
     }
 
-    private void deletePic() {
+    public void deletePic() {
         synchronized (this) {
-            String key = null;
-            int tmp = 134217727;
-            for (Map.Entry<String, Image> entry : pic.entrySet()) {
-                if (entry.getValue().weight.intValue() < tmp) {
-                    tmp = entry.getValue().weight.intValue();
-                    key = entry.getKey();
+            if (pic.size() >= 15) {
+                String key = null;
+                int tmp = 134217727;
+                for (Map.Entry<String, Image> entry : pic.entrySet()) {
+                    if (entry.getValue().weight.intValue() < tmp) {
+                        tmp = entry.getValue().weight.intValue();
+                        String key2 = entry.getKey();
+                        key = key2;
+                    }
                 }
-            }
-            if (key != null) {
-                pic.remove(key);
-            } else {
-                pic.clear();
+                if (key != null) {
+                    pic.remove(key);
+                } else {
+                    pic.clear();
+                }
             }
         }
     }

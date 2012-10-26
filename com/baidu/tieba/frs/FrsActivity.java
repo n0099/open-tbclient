@@ -295,7 +295,19 @@ public class FrsActivity extends BaseActivity {
                 } else {
                     ThreadData data = (ThreadData) adapter.getItem(arg2);
                     if (data != null) {
-                        PbActivity.startAcitivity(FrsActivity.this, data.getId(), "tb_frslist");
+                        boolean isAd = false;
+                        final String adUrl = data.getAd_url();
+                        if (adUrl != null && !adUrl.equals("")) {
+                            isAd = true;
+                            new Thread(new Runnable() { // from class: com.baidu.tieba.frs.FrsActivity.4.1
+                                @Override // java.lang.Runnable
+                                public void run() {
+                                    NetWorkCore adNetwork = new NetWorkCore(adUrl);
+                                    adNetwork.getNetData();
+                                }
+                            }).start();
+                        }
+                        PbActivity.startAcitivity(FrsActivity.this, data.getId(), "tb_frslist", isAd);
                     }
                 }
             }
@@ -408,29 +420,20 @@ public class FrsActivity extends BaseActivity {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void gotoPbHost(ThreadData thread) {
-        String id = TiebaApplication.getCurrentAccount();
-        if (id == null || id.length() <= 0) {
-            this.mThreanData = thread;
-            LoginActivity.startActivity((Activity) this, getString(R.string.login_to_use), true, (int) RequestResponseCode.REQUEST_LOGIN_FRS_HOST);
-            return;
-        }
         boolean isAnonymous = isAnonymityUser(thread);
         if (this.mThreadId != null) {
             if (!isAnonymous) {
-                PbActivity.startAcitivity(this, this.mThreadId, true, true, "tb_frslist");
+                PbActivity.startAcitivity(this, this.mThreadId, true, true, "tb_frslist", false);
             } else {
-                PbActivity.startAcitivity(this, this.mThreadId, false, false, "tb_frslist");
+                PbActivity.startAcitivity(this, this.mThreadId, false, false, "tb_frslist", false);
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void gotoPbReverse() {
-        String id = TiebaApplication.getCurrentAccount();
-        if (id == null || id.length() <= 0) {
-            LoginActivity.startActivity((Activity) this, getString(R.string.login_to_use), true, (int) RequestResponseCode.REQUEST_LOGIN_FRS_REVERSE);
-        } else if (this.mThreadId != null) {
-            PbActivity.startAcitivity(this, this.mThreadId, false, false, "tb_frslist");
+        if (this.mThreadId != null) {
+            PbActivity.startAcitivity(this, this.mThreadId, false, false, "tb_frslist", false);
         }
     }
 
@@ -648,8 +651,12 @@ public class FrsActivity extends BaseActivity {
                             }
                         } else if (this.mModel.getForum().isIs_like() == 0 && this.mModel.getForum().getSignData().getSigned() == 0) {
                             this.mAdapterFrs.setLikeSign(false, false);
-                        } else if (this.mModel.getForum().isIs_like() != 0 && this.mModel.getForum().getSignData().getSigned() == 0) {
-                            this.mAdapterFrs.setOnlySigned(false, String.valueOf(this.mModel.getForum().getSignData().getForumRank()));
+                        } else if (this.mModel.getForum().isIs_like() != 0) {
+                            if (this.mModel.getForum().getSignData().getSigned() == 0) {
+                                this.mAdapterFrs.setOnlySigned(false, String.valueOf(this.mModel.getForum().getSignData().getForumRank()));
+                            } else {
+                                this.mAdapterFrs.setOnlySigned(true, String.valueOf(this.mModel.getForum().getSignData().getUserSignRank()));
+                            }
                         } else if (this.mModel.getForum().isIs_like() == 0 && this.mModel.getForum().getSignData().getSigned() != 0) {
                             this.mAdapterFrs.setOnlyLike(false);
                         } else {

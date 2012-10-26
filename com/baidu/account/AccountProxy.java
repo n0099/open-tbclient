@@ -6,11 +6,13 @@ import android.accounts.AccountManagerCallback;
 import android.accounts.AccountManagerFuture;
 import android.accounts.AuthenticatorDescription;
 import android.app.Activity;
+import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.content.Intent;
+import android.database.Cursor;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
-import android.os.SystemProperties;
 import android.util.Log;
 import com.baidu.tieba.account.LoginActivity;
 import com.baidu.tieba.util.NetWork;
@@ -88,28 +90,14 @@ public class AccountProxy {
     }
 
     public boolean hasBaiduAccount() {
-        boolean result = false;
-        String swv = SystemProperties.get("ro.build.version.incremental", "0");
-        if ("MIL_1.0.22.0".equals(swv) || "MIL_1.0.23.0".equals(swv)) {
-            return false;
-        }
         AccountManager am = AccountManager.get(this.mContext);
         AuthenticatorDescription[] desGroup = am.getAuthenticatorTypes();
-        int len$ = desGroup.length;
-        int i$ = 0;
-        while (true) {
-            if (i$ >= len$) {
-                break;
-            }
-            AuthenticatorDescription des = desGroup[i$];
-            if (!des.type.equalsIgnoreCase(BAIDUACCOUNT_TYPE)) {
-                i$++;
-            } else {
-                result = true;
-                break;
+        for (AuthenticatorDescription des : desGroup) {
+            if (des.type.equalsIgnoreCase(BAIDUACCOUNT_TYPE)) {
+                return true;
             }
         }
-        return result;
+        return false;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -204,5 +192,48 @@ public class AccountProxy {
             return (Activity) this.mContext;
         }
         return null;
+    }
+
+    public boolean isBaiduAccountLogin() {
+        return hasBaiduAccount() && getNumOfAccounts(BAIDUACCOUNT_TYPE) > 0;
+    }
+
+    public String getBaiduAccountUID() {
+        String[] columns = {"uid"};
+        Uri myUri = Uri.parse("content://com.baidu.account.provider.AccountInfoProvider/accountInfo");
+        Cursor cur = this.mContext.getContentResolver().query(myUri, columns, null, null, null);
+        if (cur == null || !cur.moveToFirst()) {
+            return "";
+        }
+        String uid = cur.getString(cur.getColumnIndex("uid"));
+        return uid;
+    }
+
+    public String getBaiduAccountDisplayName() {
+        String[] columns = {"displayname"};
+        Uri myUri = Uri.parse("content://com.baidu.account.provider.AccountInfoProvider/accountInfo");
+        Cursor cur = this.mContext.getContentResolver().query(myUri, columns, null, null, null);
+        if (cur == null || !cur.moveToFirst()) {
+            return "";
+        }
+        String displayname = cur.getString(cur.getColumnIndex("displayname"));
+        return displayname;
+    }
+
+    public String getBaiduAccountPhone() {
+        String[] columns = {"phone"};
+        Uri myUri = Uri.parse("content://com.baidu.account.provider.AccountInfoProvider/accountInfo");
+        Cursor cur = this.mContext.getContentResolver().query(myUri, columns, null, null, null);
+        if (cur == null || !cur.moveToFirst()) {
+            return "";
+        }
+        String phone = cur.getString(cur.getColumnIndex("phone"));
+        return phone;
+    }
+
+    public void startFillNameActivity(boolean showDialog) throws ActivityNotFoundException {
+        Intent intent = new Intent("com.baidu.account.FILL_NAME");
+        intent.putExtra("show_dialog", showDialog);
+        this.mContext.startActivity(intent);
     }
 }

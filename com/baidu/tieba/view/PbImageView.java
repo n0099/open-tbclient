@@ -55,7 +55,7 @@ public class PbImageView extends ImageView {
         if (bm != null) {
             float left = (getWidth() - bm.getWidth()) >> 1;
             float top = (getHeight() - bm.getHeight()) >> 1;
-            canvas.drawBitmap(bm, left, top, (Paint) null);
+            canvas.drawBitmap(bm, left, top, this.mPaint);
             this.mMatrix.reset();
             this.mMatrix.setTranslate(left, top);
             if (isGif) {

@@ -3,9 +3,8 @@ package com.baidu.android.pushservice;
 import android.app.PendingIntent;
 import android.content.Intent;
 import android.view.View;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class t implements View.OnClickListener {
+class t implements View.OnClickListener {
     final /* synthetic */ PushTestActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */

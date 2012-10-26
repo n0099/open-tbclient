@@ -1,5 +1,6 @@
 package com.baidu.tieba.data;
 
+import com.baidu.tieba.account.ReLoginActivity;
 import com.baidu.tieba.util.TiebaLog;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -12,7 +13,7 @@ public class SuggestData {
     public void parserSuggestJson(JSONObject json, HashMap<String, String> photo_hash) {
         String portrait;
         try {
-            JSONArray names = json.optJSONArray("uname");
+            JSONArray names = json.optJSONArray(ReLoginActivity.UNAME);
             for (int i = 0; i < names.length(); i++) {
                 MetaData data = new MetaData();
                 data.setName_show(names.optString(i));

@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import com.baidu.account.AccountProxy;
 import com.baidu.tieba.BaiduAccount.BaiduAccount;
+import com.baidu.tieba.account.ReLoginActivity;
 import com.baidu.tieba.data.AccountData;
 import com.baidu.tieba.data.Config;
 import com.baidu.tieba.model.LoginModel;
@@ -33,7 +34,7 @@ public class BaiduAccountProxy {
         baiduAccount.addOnAccountsUpdatedListener(new BaiduAccount.BaiduOnAccountsUpdateListener() { // from class: com.baidu.tieba.BaiduAccountProxy.1
             @Override // com.baidu.tieba.BaiduAccount.BaiduAccount.BaiduOnAccountsUpdateListener
             public void onAccountsUpdated(String account2) {
-                TiebaLog.d(getClass().getName(), "onAccountsUpdated", "account changed");
+                TiebaLog.d(getClass().getName(), "onAccountsUpdated", "account =" + account2);
                 if ((account2 != null && account2.equals(TiebaApplication.getCurrentAccountName())) || TiebaApplication.getCurrentAccountObj() == null) {
                     return;
                 }
@@ -45,6 +46,9 @@ public class BaiduAccountProxy {
                 data.setIsActive(1);
                 TiebaApplication.app.refreshMsg(0L, 0L, 0L);
                 TiebaApplication.app.initSetting();
+                if (account2 == null || account2.equals("BaiduUser")) {
+                }
+                TiebaApplication.app.setMsgFrequency(0);
             }
         });
     }
@@ -63,8 +67,12 @@ public class BaiduAccountProxy {
         }
     }
 
-    public static void getAccountData(final Activity activity) {
-        TiebaLog.d("BaiduAccountProxy", "getAccountData", null);
+    public static boolean hasValidBaiduAccount(Activity activity) {
+        AccountProxy proxy = new AccountProxy(activity);
+        return proxy.hasBaiduAccount() && proxy.getNumOfAccounts(AccountProxy.BAIDUACCOUNT_TYPE) > 0;
+    }
+
+    public static void getAccountData(final Activity activity, final int requestCode, final String gotoView, final boolean close) {
         AccountProxy proxy = new AccountProxy(activity);
         proxy.getTokenAsync(AccountProxy.BAIDUACCOUNT_TYPE, new AccountProxy.TokenCallback() { // from class: com.baidu.tieba.BaiduAccountProxy.3
             @Override // com.baidu.account.AccountProxy.TokenCallback
@@ -76,38 +84,8 @@ public class BaiduAccountProxy {
                     accountData.setAccount(baiduAccount.getCurrentAccount());
                     accountData.setBDUSS(token);
                     accountData.setIsActive(1);
-                    AccountData locAccount = TiebaApplication.getCurrentAccountObj();
-                    if (locAccount != null) {
-                        if (!accountData.getAccount().equals(locAccount.getAccount())) {
-                            BaiduAccountProxy.deleteInfo(locAccount.getID());
-                            TiebaApplication.setCurrentAccount(accountData);
-                            TiebaApplication.app.initSetting();
-                        } else {
-                            if (!token.equals(locAccount.getBDUSS())) {
-                                DatabaseService.updateAccountToken(locAccount.getAccount(), token);
-                            }
-                            locAccount.setBDUSS(token);
-                        }
-                    } else {
-                        TiebaApplication.setCurrentAccount(accountData);
-                        TiebaApplication.app.initSetting();
-                    }
-                    if (activity instanceof LogoActivity) {
-                        MainTabActivity.startActivityOnUserChanged(activity, null);
-                        activity.finish();
-                    } else if (activity instanceof MainTabActivity) {
-                        if (activity.isFinishing()) {
-                            MainTabActivity.startActivity(activity, (String) null);
-                            return;
-                        }
-                        ((MainTabActivity) activity).refreshAllUI();
-                        ((MainTabActivity) activity).getUid();
-                    }
-                } else if (activity instanceof MainTabActivity) {
-                    if (TiebaApplication.getCurrentBduss() == null) {
-                        activity.finish();
-                    }
-                } else {
+                    ReLoginActivity.startActivityBaiduYi(activity, gotoView, requestCode, close, accountData);
+                } else if ((activity instanceof GuideActivity) || (activity instanceof LogoActivity)) {
                     activity.finish();
                 }
             }

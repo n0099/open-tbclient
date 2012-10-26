@@ -4,7 +4,7 @@ import android.os.Bundle;
 import android.support.v4.app.LoaderManager;
 import android.support.v4.content.Loader;
 import android.support.v4.util.DebugUtils;
-import android.support.v4.util.SparseArrayCompat;
+import android.support.v4.view.accessibility.AccessibilityEventCompat;
 import android.util.Log;
 import java.io.FileDescriptor;
 import java.io.PrintWriter;
@@ -20,8 +20,8 @@ public class LoaderManagerImpl extends LoaderManager {
     boolean mRetaining;
     boolean mRetainingStarted;
     boolean mStarted;
-    final SparseArrayCompat<LoaderInfo> mLoaders = new SparseArrayCompat<>();
-    final SparseArrayCompat<LoaderInfo> mInactiveLoaders = new SparseArrayCompat<>();
+    final HCSparseArray<LoaderInfo> mLoaders = new HCSparseArray<>();
+    final HCSparseArray<LoaderInfo> mInactiveLoaders = new HCSparseArray<>();
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* compiled from: LoaderManager.java */
@@ -535,7 +535,7 @@ public class LoaderManagerImpl extends LoaderManager {
     }
 
     public String toString() {
-        StringBuilder sb = new StringBuilder(128);
+        StringBuilder sb = new StringBuilder((int) AccessibilityEventCompat.TYPE_VIEW_HOVER_ENTER);
         sb.append("LoaderManager{");
         sb.append(Integer.toHexString(System.identityHashCode(this)));
         sb.append(" in ");

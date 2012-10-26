@@ -9,17 +9,20 @@ import android.os.Handler;
 import android.os.IBinder;
 import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.data.Config;
+import com.baidu.tieba.util.FileHelper;
 import com.baidu.tieba.util.NetWorkCore;
 import com.baidu.tieba.util.TiebaLog;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.FileWriter;
 /* loaded from: classes.dex */
 public class TiebaActiveService extends Service {
     private static final int ACTIVE_FAIL = 1;
-    private static final int ACTIVE_NO = 0;
     private static final int ACTIVE_SUCC = 2;
+    private static final String CHANNEL_ID = "channel_id";
     private ActiveTask mActiveTask = null;
     private int mHaveRetry = 0;
-    private boolean mNeedActive = false;
-    private int activeState = 0;
     private Handler mHandler = new Handler();
     private Runnable mRunnable = new Runnable() { // from class: com.baidu.tieba.service.TiebaActiveService.1
         @Override // java.lang.Runnable
@@ -27,6 +30,75 @@ public class TiebaActiveService extends Service {
             TiebaActiveService.this.sendActive();
         }
     };
+
+    private String getChannelByShare() {
+        SharedPreferences preference = getSharedPreferences(Config.SETTINGFILE, 0);
+        return preference.getString(CHANNEL_ID, null);
+    }
+
+    private void saveChannelToShare(String channel) {
+        if (channel != null && channel.length() > 0) {
+            SharedPreferences preference = getSharedPreferences(Config.SETTINGFILE, 0);
+            SharedPreferences.Editor editor = preference.edit();
+            editor.putString(CHANNEL_ID, channel);
+            editor.commit();
+        }
+    }
+
+    private String getChannelyFile() {
+        try {
+            File file = FileHelper.GetFile(Config.CHANNEL_FILE);
+            if (file == null) {
+                return null;
+            }
+            BufferedReader reader = new BufferedReader(new FileReader(file));
+            String from = reader.readLine();
+            return from;
+        } catch (Exception ex) {
+            TiebaLog.e(getClass().getName(), "getFromByFile", ex.getMessage());
+            return null;
+        }
+    }
+
+    private void saveChannelToFile(String channel) {
+        if (channel != null && channel.length() > 0) {
+            try {
+                File file = FileHelper.CreateFile(Config.CHANNEL_FILE);
+                if (file != null) {
+                    FileWriter write = new FileWriter(file);
+                    write.append((CharSequence) channel);
+                    write.flush();
+                    write.close();
+                }
+            } catch (Exception ex) {
+                TiebaLog.e(getClass().getName(), "saveFromToFile", ex.getMessage());
+            }
+        }
+    }
+
+    private boolean isActived() {
+        try {
+            String channel = getChannelByShare();
+            if (channel == null) {
+                String channel2 = getChannelyFile();
+                if (channel2 != null && channel2.length() > 0) {
+                    saveChannelToShare(channel2);
+                } else {
+                    if ("aishide" != 0 && "aishide".length() > 0) {
+                        saveChannelToShare("aishide");
+                        saveChannelToFile("aishide");
+                    }
+                    return false;
+                }
+            } else {
+                saveChannelToFile(channel);
+            }
+        } catch (Exception ex) {
+            TiebaLog.e(getClass().getName(), "getActiveState", ex.getMessage());
+        }
+        TiebaLog.i(getClass().getName(), "getActiveState", "channel = ");
+        return true;
+    }
 
     @Override // android.app.Service
     public IBinder onBind(Intent intent) {
@@ -36,15 +108,10 @@ public class TiebaActiveService extends Service {
     @Override // android.app.Service
     public void onStart(Intent intent, int startId) {
         super.onStart(intent, startId);
-        this.mNeedActive = intent.getBooleanExtra(Config.SYNC_ACTIVE, false);
-        SharedPreferences preference = getSharedPreferences(Config.SETTINGFILE, 0);
-        this.activeState = preference.getInt(Config.ACTIVE_STATE, 0);
-        this.mHaveRetry = 0;
-        TiebaLog.i(getClass().getName(), "onStart", "sync_active=" + String.valueOf(this.mNeedActive) + " activeState=" + String.valueOf(this.activeState));
-        if (this.activeState == 1 || (this.activeState == 0 && this.mNeedActive)) {
-            sendActive();
-        } else {
+        if (isActived() && getSharedPreferences(Config.SETTINGFILE, 0).getInt(Config.ACTIVE_STATE, 2) != 1) {
             stopSelf();
+        } else {
+            sendActive();
         }
     }
 
@@ -96,7 +163,7 @@ public class TiebaActiveService extends Service {
                 this.mNetWorkCore.addPostData("system", Build.VERSION.SDK);
                 this.mNetWorkCore.setIsBaiduServer(false);
                 String data = this.mNetWorkCore.postNetData();
-                if (this.mNetWorkCore.isRequestSuccess()) {
+                if (this.mNetWorkCore.isNetSuccess()) {
                     TiebaLog.i(getClass().getName(), "task", "data=" + data);
                     return data;
                 }

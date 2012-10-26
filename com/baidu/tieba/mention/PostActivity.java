@@ -266,8 +266,8 @@ public class PostActivity extends BaseActivity {
                             if (this.mIsShowImages) {
                                 index++;
                                 ImageView imageView = new ImageView(this);
-                                int height = UtilHelper.dip2px(this, 120.0f);
-                                int width = UtilHelper.dip2px(this, 150.0f);
+                                int height = UtilHelper.dip2px(this, 105.0f);
+                                int width = UtilHelper.dip2px(this, 105.0f);
                                 LinearLayout.LayoutParams imageViewparams = new LinearLayout.LayoutParams(-2, height);
                                 int px_v = UtilHelper.dip2px(this, 15.0f);
                                 imageViewparams.topMargin = px_v;

@@ -1,11 +1,8 @@
 package android.support.v4.view;
 
 import android.os.Build;
-import android.os.Bundle;
 import android.support.v4.view.AccessibilityDelegateCompatIcs;
-import android.support.v4.view.AccessibilityDelegateCompatJellyBean;
 import android.support.v4.view.accessibility.AccessibilityNodeInfoCompat;
-import android.support.v4.view.accessibility.AccessibilityNodeProviderCompat;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.accessibility.AccessibilityEvent;
@@ -20,8 +17,6 @@ public class AccessibilityDelegateCompat {
     public interface AccessibilityDelegateImpl {
         boolean dispatchPopulateAccessibilityEvent(Object obj, View view, AccessibilityEvent accessibilityEvent);
 
-        AccessibilityNodeProviderCompat getAccessibilityNodeProvider(Object obj, View view);
-
         Object newAccessiblityDelegateBridge(AccessibilityDelegateCompat accessibilityDelegateCompat);
 
         Object newAccessiblityDelegateDefaultImpl();
@@ -33,8 +28,6 @@ public class AccessibilityDelegateCompat {
         void onPopulateAccessibilityEvent(Object obj, View view, AccessibilityEvent accessibilityEvent);
 
         boolean onRequestSendAccessibilityEvent(Object obj, ViewGroup viewGroup, View view, AccessibilityEvent accessibilityEvent);
-
-        boolean performAccessibilityAction(Object obj, View view, int i, Bundle bundle);
 
         void sendAccessibilityEvent(Object obj, View view, int i);
 
@@ -84,16 +77,6 @@ public class AccessibilityDelegateCompat {
 
         @Override // android.support.v4.view.AccessibilityDelegateCompat.AccessibilityDelegateImpl
         public void sendAccessibilityEventUnchecked(Object delegate, View host, AccessibilityEvent event) {
-        }
-
-        @Override // android.support.v4.view.AccessibilityDelegateCompat.AccessibilityDelegateImpl
-        public AccessibilityNodeProviderCompat getAccessibilityNodeProvider(Object delegate, View host) {
-            return null;
-        }
-
-        @Override // android.support.v4.view.AccessibilityDelegateCompat.AccessibilityDelegateImpl
-        public boolean performAccessibilityAction(Object delegate, View host, int action, Bundle args) {
-            return false;
         }
     }
 
@@ -159,7 +142,7 @@ public class AccessibilityDelegateCompat {
 
         @Override // android.support.v4.view.AccessibilityDelegateCompat.AccessibilityDelegateStubImpl, android.support.v4.view.AccessibilityDelegateCompat.AccessibilityDelegateImpl
         public void onInitializeAccessibilityNodeInfo(Object delegate, View host, AccessibilityNodeInfoCompat info) {
-            AccessibilityDelegateCompatIcs.onInitializeAccessibilityNodeInfo(delegate, host, info.getInfo());
+            AccessibilityDelegateCompatIcs.onInitializeAccessibilityNodeInfo(delegate, host, info.getImpl());
         }
 
         @Override // android.support.v4.view.AccessibilityDelegateCompat.AccessibilityDelegateStubImpl, android.support.v4.view.AccessibilityDelegateCompat.AccessibilityDelegateImpl
@@ -183,84 +166,8 @@ public class AccessibilityDelegateCompat {
         }
     }
 
-    /* loaded from: classes.dex */
-    static class AccessibilityDelegateJellyBeanImpl extends AccessibilityDelegateIcsImpl {
-        AccessibilityDelegateJellyBeanImpl() {
-        }
-
-        @Override // android.support.v4.view.AccessibilityDelegateCompat.AccessibilityDelegateIcsImpl, android.support.v4.view.AccessibilityDelegateCompat.AccessibilityDelegateStubImpl, android.support.v4.view.AccessibilityDelegateCompat.AccessibilityDelegateImpl
-        public Object newAccessiblityDelegateBridge(final AccessibilityDelegateCompat compat) {
-            return AccessibilityDelegateCompatJellyBean.newAccessibilityDelegateBridge(new AccessibilityDelegateCompatJellyBean.AccessibilityDelegateBridgeJellyBean() { // from class: android.support.v4.view.AccessibilityDelegateCompat.AccessibilityDelegateJellyBeanImpl.1
-                @Override // android.support.v4.view.AccessibilityDelegateCompatJellyBean.AccessibilityDelegateBridgeJellyBean
-                public boolean dispatchPopulateAccessibilityEvent(View host, AccessibilityEvent event) {
-                    return compat.dispatchPopulateAccessibilityEvent(host, event);
-                }
-
-                @Override // android.support.v4.view.AccessibilityDelegateCompatJellyBean.AccessibilityDelegateBridgeJellyBean
-                public void onInitializeAccessibilityEvent(View host, AccessibilityEvent event) {
-                    compat.onInitializeAccessibilityEvent(host, event);
-                }
-
-                @Override // android.support.v4.view.AccessibilityDelegateCompatJellyBean.AccessibilityDelegateBridgeJellyBean
-                public void onInitializeAccessibilityNodeInfo(View host, Object info) {
-                    compat.onInitializeAccessibilityNodeInfo(host, new AccessibilityNodeInfoCompat(info));
-                }
-
-                @Override // android.support.v4.view.AccessibilityDelegateCompatJellyBean.AccessibilityDelegateBridgeJellyBean
-                public void onPopulateAccessibilityEvent(View host, AccessibilityEvent event) {
-                    compat.onPopulateAccessibilityEvent(host, event);
-                }
-
-                @Override // android.support.v4.view.AccessibilityDelegateCompatJellyBean.AccessibilityDelegateBridgeJellyBean
-                public boolean onRequestSendAccessibilityEvent(ViewGroup host, View child, AccessibilityEvent event) {
-                    return compat.onRequestSendAccessibilityEvent(host, child, event);
-                }
-
-                @Override // android.support.v4.view.AccessibilityDelegateCompatJellyBean.AccessibilityDelegateBridgeJellyBean
-                public void sendAccessibilityEvent(View host, int eventType) {
-                    compat.sendAccessibilityEvent(host, eventType);
-                }
-
-                @Override // android.support.v4.view.AccessibilityDelegateCompatJellyBean.AccessibilityDelegateBridgeJellyBean
-                public void sendAccessibilityEventUnchecked(View host, AccessibilityEvent event) {
-                    compat.sendAccessibilityEventUnchecked(host, event);
-                }
-
-                @Override // android.support.v4.view.AccessibilityDelegateCompatJellyBean.AccessibilityDelegateBridgeJellyBean
-                public Object getAccessibilityNodeProvider(View host) {
-                    AccessibilityNodeProviderCompat provider = compat.getAccessibilityNodeProvider(host);
-                    if (provider != null) {
-                        return provider.getProvider();
-                    }
-                    return null;
-                }
-
-                @Override // android.support.v4.view.AccessibilityDelegateCompatJellyBean.AccessibilityDelegateBridgeJellyBean
-                public boolean performAccessibilityAction(View host, int action, Bundle args) {
-                    return compat.performAccessibilityAction(host, action, args);
-                }
-            });
-        }
-
-        @Override // android.support.v4.view.AccessibilityDelegateCompat.AccessibilityDelegateStubImpl, android.support.v4.view.AccessibilityDelegateCompat.AccessibilityDelegateImpl
-        public AccessibilityNodeProviderCompat getAccessibilityNodeProvider(Object delegate, View host) {
-            Object provider = AccessibilityDelegateCompatJellyBean.getAccessibilityNodeProvider(delegate, host);
-            if (provider != null) {
-                return new AccessibilityNodeProviderCompat(provider);
-            }
-            return null;
-        }
-
-        @Override // android.support.v4.view.AccessibilityDelegateCompat.AccessibilityDelegateStubImpl, android.support.v4.view.AccessibilityDelegateCompat.AccessibilityDelegateImpl
-        public boolean performAccessibilityAction(Object delegate, View host, int action, Bundle args) {
-            return AccessibilityDelegateCompatJellyBean.performAccessibilityAction(delegate, host, action, args);
-        }
-    }
-
     static {
-        if (Build.VERSION.SDK_INT >= 16) {
-            IMPL = new AccessibilityDelegateJellyBeanImpl();
-        } else if (Build.VERSION.SDK_INT >= 14) {
+        if (Build.VERSION.SDK_INT >= 14) {
             IMPL = new AccessibilityDelegateIcsImpl();
         } else {
             IMPL = new AccessibilityDelegateStubImpl();
@@ -299,13 +206,5 @@ public class AccessibilityDelegateCompat {
 
     public boolean onRequestSendAccessibilityEvent(ViewGroup host, View child, AccessibilityEvent event) {
         return IMPL.onRequestSendAccessibilityEvent(DEFAULT_DELEGATE, host, child, event);
-    }
-
-    public AccessibilityNodeProviderCompat getAccessibilityNodeProvider(View host) {
-        return IMPL.getAccessibilityNodeProvider(DEFAULT_DELEGATE, host);
-    }
-
-    public boolean performAccessibilityAction(View host, int action, Bundle args) {
-        return IMPL.performAccessibilityAction(DEFAULT_DELEGATE, host, action, args);
     }
 }

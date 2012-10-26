@@ -1,5 +1,6 @@
 package com.baidu.tieba.util;
 
+import android.support.v4.view.accessibility.AccessibilityEventCompat;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
@@ -80,7 +81,7 @@ public class StringHelper {
             return null;
         }
         try {
-            byte[] buffer = new byte[1024];
+            byte[] buffer = new byte[AccessibilityEventCompat.TYPE_TOUCH_EXPLORATION_GESTURE_END];
             MessageDigest md5 = MessageDigest.getInstance("MD5");
             while (true) {
                 int numRead = in.read(buffer);

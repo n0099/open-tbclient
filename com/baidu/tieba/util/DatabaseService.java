@@ -52,10 +52,10 @@ public class DatabaseService {
     }
 
     public DatabaseService(DatabaseLocation loc) {
-        this.mLoc = loc;
-        if (this.mLoc != DatabaseLocation.SDCARD || SDdatabase == null || !SDdatabase.isOpen()) {
-            if (this.mLoc != DatabaseLocation.INNER || database == null || !database.isOpen()) {
-                synchronized (DatabaseService.class) {
+        synchronized (DatabaseService.class) {
+            this.mLoc = loc;
+            if (this.mLoc != DatabaseLocation.SDCARD || SDdatabase == null || !SDdatabase.isOpen()) {
+                if (this.mLoc != DatabaseLocation.INNER || database == null || !database.isOpen()) {
                     try {
                         if (this.mLoc == DatabaseLocation.SDCARD) {
                             DatabaseSdHelper mHelper = new DatabaseSdHelper();
@@ -479,6 +479,44 @@ public class DatabaseService {
             }
         }
         return ret;
+    }
+
+    /* JADX DEBUG: Another duplicated slice has different insns count: {[IF]}, finally: {[IF, CONST, MOVE_EXCEPTION, INVOKE, MOVE_EXCEPTION] complete} */
+    public static int getAccountNum() {
+        DatabaseService service = new DatabaseService();
+        Cursor cursor = null;
+        int num = 0;
+        try {
+            try {
+                cursor = service.rawQuery("select count(*) from account_data", null);
+                if (cursor != null && cursor.moveToFirst()) {
+                    num = cursor.getInt(0);
+                }
+                if (cursor != null) {
+                    try {
+                        cursor.close();
+                    } catch (Exception e) {
+                    }
+                }
+            } catch (Exception ex) {
+                TiebaLog.e("DatabaseService", "getAccountNum", ex.getMessage());
+                if (cursor != null) {
+                    try {
+                        cursor.close();
+                    } catch (Exception e2) {
+                    }
+                }
+            }
+            return num;
+        } catch (Throwable th) {
+            if (cursor != null) {
+                try {
+                    cursor.close();
+                } catch (Exception e3) {
+                }
+            }
+            throw th;
+        }
     }
 
     public static AccountData getActiveAccountData() {
@@ -1068,7 +1106,8 @@ public class DatabaseService {
     }
 
     public static void getSettingData() {
-        if (TiebaApplication.getCurrentAccount() == null || TiebaApplication.getCurrentAccount().length() <= 0) {
+        TiebaLog.i("databaseService", "getSetting", TiebaApplication.getCurrentAccountName());
+        if (TiebaApplication.getCurrentAccount() == null || TiebaApplication.getCurrentAccount().length() <= 0 || TiebaApplication.getCurrentAccountName() == null) {
             TiebaApplication.app.setMsgFrequency(0);
             return;
         }

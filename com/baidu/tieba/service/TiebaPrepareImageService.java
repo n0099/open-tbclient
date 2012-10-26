@@ -37,7 +37,7 @@ public class TiebaPrepareImageService extends Service {
 
     public static void StartService(int requestCode, Uri uri, int max_size) {
         Intent intent = new Intent(TiebaApplication.app, TiebaPrepareImageService.class);
-        intent.putExtra(REQUESTCODE, requestCode);
+        intent.putExtra("request_code", requestCode);
         intent.putExtra(MAX_SIZE, max_size);
         intent.setData(uri);
         TiebaApplication.app.startService(intent);
@@ -79,8 +79,9 @@ public class TiebaPrepareImageService extends Service {
             this.mTask.cancel();
         }
         this.mUri = intent.getData();
-        this.mRequestCode = intent.getIntExtra(REQUESTCODE, 0);
+        this.mRequestCode = intent.getIntExtra("request_code", 0);
         this.mMaxSize = intent.getIntExtra(MAX_SIZE, Config.POST_IMAGE_MIDDLE);
+        TiebaApplication.app.addRemoteActivity(null);
         if (!IS_DECODING) {
             this.mTask = new PrepareImageTask(this.mRequestCode, this.mUri);
             this.mTask.execute(new Object[0]);

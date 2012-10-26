@@ -3,6 +3,7 @@ package com.baidu.tieba.service;
 import android.content.Context;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
+import android.support.v4.view.accessibility.AccessibilityEventCompat;
 import android.util.Log;
 import com.baidu.tieba.util.TiebaLog;
 import java.io.ByteArrayInputStream;
@@ -73,7 +74,7 @@ public class SingleBaUtility {
             return null;
         }
         try {
-            byte[] buffer = new byte[1024];
+            byte[] buffer = new byte[AccessibilityEventCompat.TYPE_TOUCH_EXPLORATION_GESTURE_END];
             MessageDigest md5 = MessageDigest.getInstance("MD5");
             while (true) {
                 int numRead = in.read(buffer);
@@ -161,7 +162,7 @@ public class SingleBaUtility {
         if (chPasswordMd5 == null || chPasswordMd5.length != 32) {
             return null;
         }
-        char[] en = new char[128];
+        char[] en = new char[AccessibilityEventCompat.TYPE_VIEW_HOVER_ENTER];
         for (int i = 0; i < en.length; i++) {
             en[i] = 0;
         }

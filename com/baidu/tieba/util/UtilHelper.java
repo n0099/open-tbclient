@@ -9,6 +9,7 @@ import android.graphics.Bitmap;
 import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
+import android.os.Build;
 import android.view.Display;
 import android.view.View;
 import android.view.Window;
@@ -17,6 +18,7 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.Toast;
 import com.baidu.tieba.R;
 import com.baidu.tieba.TiebaApplication;
+import com.baidu.tieba.compatible.CompatibleUtile;
 import com.baidu.tieba.data.Config;
 import com.baidu.tieba.data.ContentData;
 import java.io.File;
@@ -147,5 +149,29 @@ public class UtilHelper {
         size[0] = width;
         size[1] = height;
         return size;
+    }
+
+    public static int getBitmapMaxMemory(Context context) {
+        int memory = CompatibleUtile.getBitmapMaxMemory(context);
+        TiebaLog.d("UtilHelper", "getBitmapMaxMemory", String.valueOf(memory));
+        return memory;
+    }
+
+    public static boolean isGif(byte[] data) {
+        try {
+            if (data[0] == 71 && data[1] == 73) {
+                if (data[2] != 70) {
+                    return false;
+                }
+                return true;
+            }
+            return false;
+        } catch (Exception e) {
+            return false;
+        }
+    }
+
+    public static boolean isSupportGesture() {
+        return Build.VERSION.SDK_INT > 4;
     }
 }

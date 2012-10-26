@@ -370,11 +370,9 @@ public final class BackStackRecord extends FragmentTransaction implements Fragme
                 Log.v(TAG, "Bump nesting in " + this + " by " + amt);
             }
             for (Op op = this.mHead; op != null; op = op.next) {
-                if (op.fragment != null) {
-                    op.fragment.mBackStackNesting += amt;
-                    if (FragmentManagerImpl.DEBUG) {
-                        Log.v(TAG, "Bump nesting of " + op.fragment + " to " + op.fragment.mBackStackNesting);
-                    }
+                op.fragment.mBackStackNesting += amt;
+                if (FragmentManagerImpl.DEBUG) {
+                    Log.v(TAG, "Bump nesting of " + op.fragment + " to " + op.fragment.mBackStackNesting);
                 }
                 if (op.removed != null) {
                     for (int i = op.removed.size() - 1; i >= 0; i--) {
@@ -440,34 +438,25 @@ public final class BackStackRecord extends FragmentTransaction implements Fragme
                             if (FragmentManagerImpl.DEBUG) {
                                 Log.v(TAG, "OP_REPLACE: adding=" + f2 + " old=" + old);
                             }
-                            if (f2 == null || old.mContainerId == f2.mContainerId) {
-                                if (old == f2) {
-                                    f2 = null;
-                                    op.fragment = null;
-                                } else {
-                                    if (op.removed == null) {
-                                        op.removed = new ArrayList<>();
-                                    }
-                                    op.removed.add(old);
-                                    old.mNextAnim = op.exitAnim;
-                                    if (this.mAddToBackStack) {
-                                        old.mBackStackNesting++;
-                                        if (FragmentManagerImpl.DEBUG) {
-                                            Log.v(TAG, "Bump nesting of " + old + " to " + old.mBackStackNesting);
-                                        }
-                                    }
-                                    this.mManager.removeFragment(old, this.mTransition, this.mTransitionStyle);
+                            if (old.mContainerId == f2.mContainerId) {
+                                if (op.removed == null) {
+                                    op.removed = new ArrayList<>();
                                 }
+                                op.removed.add(old);
+                                old.mNextAnim = op.exitAnim;
+                                if (this.mAddToBackStack) {
+                                    old.mBackStackNesting++;
+                                    if (FragmentManagerImpl.DEBUG) {
+                                        Log.v(TAG, "Bump nesting of " + old + " to " + old.mBackStackNesting);
+                                    }
+                                }
+                                this.mManager.removeFragment(old, this.mTransition, this.mTransitionStyle);
                             }
                         }
                     }
-                    if (f2 != null) {
-                        f2.mNextAnim = op.enterAnim;
-                        this.mManager.addFragment(f2, false);
-                        break;
-                    } else {
-                        break;
-                    }
+                    f2.mNextAnim = op.enterAnim;
+                    this.mManager.addFragment(f2, false);
+                    break;
                 case 3:
                     Fragment f3 = op.fragment;
                     f3.mNextAnim = op.exitAnim;
@@ -517,10 +506,8 @@ public final class BackStackRecord extends FragmentTransaction implements Fragme
                     break;
                 case 2:
                     Fragment f2 = op.fragment;
-                    if (f2 != null) {
-                        f2.mNextAnim = op.popExitAnim;
-                        this.mManager.removeFragment(f2, FragmentManagerImpl.reverseTransit(this.mTransition), this.mTransitionStyle);
-                    }
+                    f2.mNextAnim = op.popExitAnim;
+                    this.mManager.removeFragment(f2, FragmentManagerImpl.reverseTransit(this.mTransition), this.mTransitionStyle);
                     if (op.removed != null) {
                         for (int i = 0; i < op.removed.size(); i++) {
                             Fragment old = op.removed.get(i);
