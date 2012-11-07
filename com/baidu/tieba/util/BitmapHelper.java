@@ -72,8 +72,38 @@ public class BitmapHelper {
         return bitmap;
     }
 
+    public static Bitmap getResizedBitmap(Bitmap bitmap, int max_width, int max_height) {
+        float temp;
+        if (max_width <= 0 || max_height < 0 || bitmap == null || bitmap.isRecycled()) {
+            return null;
+        }
+        if (bitmap.getWidth() > max_width || bitmap.getHeight() > max_height) {
+            int width = bitmap.getWidth();
+            int height = bitmap.getHeight();
+            if (max_height / height < max_width / width) {
+                temp = max_width / width;
+            } else {
+                temp = max_height / height;
+            }
+            Matrix matrix = new Matrix();
+            float x = (max_width - (width * temp)) / 2.0f;
+            float y = (max_height - (height * temp)) / 2.0f;
+            matrix.postScale(temp, temp);
+            matrix.postTranslate(x, y);
+            Bitmap resizedBitmap = Bitmap.createBitmap(max_width, max_height, bitmap.getConfig());
+            Canvas canvas = new Canvas(resizedBitmap);
+            canvas.drawBitmap(bitmap, matrix, null);
+            return resizedBitmap;
+        }
+        return bitmap;
+    }
+
     public static Bitmap resizeBitmap(Bitmap bitmap, int maxsize) {
         return resizeBitmap(bitmap, maxsize, maxsize);
+    }
+
+    public static Bitmap getResizedBitmap(Bitmap bitmap, int maxsize) {
+        return getResizedBitmap(bitmap, maxsize, maxsize);
     }
 
     public static Bitmap resizeBitmap(String file_name, int maxsize) {
@@ -145,12 +175,15 @@ public class BitmapHelper {
                 }
             }
         } catch (Exception e) {
-            try {
-                fd.close();
-                return null;
-            } catch (Exception e2) {
-                return null;
+            if (fd != null) {
+                try {
+                    fd.close();
+                    return null;
+                } catch (Exception e2) {
+                    return null;
+                }
             }
+            return null;
         }
     }
 
@@ -158,7 +191,7 @@ public class BitmapHelper {
         if (bitmap == null) {
             return null;
         }
-        Bitmap output = Bitmap.createBitmap(bitmap.getWidth(), bitmap.getHeight(), Bitmap.Config.RGB_565);
+        Bitmap output = Bitmap.createBitmap(bitmap.getWidth(), bitmap.getHeight(), Bitmap.Config.ARGB_4444);
         Canvas canvas = new Canvas(output);
         Paint paint = new Paint();
         Rect rect = new Rect(0, 0, bitmap.getWidth(), bitmap.getHeight());

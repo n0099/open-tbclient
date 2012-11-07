@@ -3,6 +3,7 @@ package com.baidu.tieba.pb;
 import android.app.Activity;
 import android.app.ActivityManager;
 import android.app.AlertDialog;
+import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -21,11 +22,15 @@ import android.view.WindowManager;
 import android.widget.AbsListView;
 import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.CompoundButton;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.ProgressBar;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.TextView;
 import com.baidu.tieba.BaseActivity;
 import com.baidu.tieba.MainTabActivity;
@@ -50,6 +55,7 @@ import com.baidu.tieba.util.NetWorkCore;
 import com.baidu.tieba.util.TiebaLog;
 import com.baidu.tieba.util.UtilHelper;
 import com.baidu.tieba.write.WriteActivity;
+import java.text.MessageFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Iterator;
@@ -58,7 +64,6 @@ import org.apache.http.message.BasicNameValuePair;
 /* loaded from: classes.dex */
 public class PbActivity extends BaseActivity {
     public static final String BACK_SPECIAL = "back_special";
-    private static final String FRS_APPEAR = "frs_appear";
     private static final String HOSTMODE = "hostMode";
     private static final String ID = "id";
     private static final String IS_AD = "isAd";
@@ -80,6 +85,7 @@ public class PbActivity extends BaseActivity {
     private static final int UPDATE_TYPE_MARK = 4;
     private static final int UPDATE_TYPE_MORE = 1;
     private static final int UPDATE_TYPE_PREVIOUS = 2;
+    private static final int UPDATE_TYPE_REDIRECTPAGE = 5;
     private static final int UPDATE_TYPE_UPDATE = 3;
     private static final String URL_DIRECTION = "back";
     private static final String URL_HOST = "lz";
@@ -88,17 +94,22 @@ public class PbActivity extends BaseActivity {
     private static final String URL_NUM = "rn";
     private static final String URL_ORDER = "r";
     private static final String URL_PID = "pid";
+    private static final String URL_PN = "pn";
     private static final String URL_ST_TYPE = "st_type";
     private static final String URL_THEME = "kz";
     private TextView headTextView;
     private static volatile long mPbLoadTime = 0;
+    private static volatile long mPbLoadDataSize = 0;
     private static volatile int mNetError = 0;
     private ListView mPbList = null;
     private AlertDialog mContextMenu = null;
     private TextView mTitleText = null;
     private Button mReply = null;
+    private Button mRedirectPage = null;
     private Button mBack = null;
     private Button mMore = null;
+    private EditText mInputRedirectPage = null;
+    private Button mBtnRecommend = null;
     private PbAdapter mAdapter = null;
     private PbAsyncTask mTask = null;
     private TipAsyncTask mTipTask = null;
@@ -111,9 +122,28 @@ public class PbActivity extends BaseActivity {
     private PostData mClickPost = null;
     private AlertDialog mDialogMore = null;
     private AlertDialog mDialogTitle = null;
+    private Dialog mDialogDirectPager = null;
     private View mDialogView = null;
-    private View mPbTileDialogView = null;
-    private LinearLayout mTitle = null;
+    private View mDirectPagerDialogView = null;
+    private LinearLayout mBottomBar = null;
+    private Button mBtnRefresh = null;
+    private Dialog mDialogDelPost = null;
+    private View mDelPostView = null;
+    private Button mBtnDoDelPost = null;
+    private Button mBtnCancelDelPost = null;
+    private TextView mTxtDelPostTip = null;
+    private Dialog mDialogForbidUser = null;
+    private View mForbidUserView = null;
+    private int mForbidTime = 0;
+    private RadioGroup mRadioGroup = null;
+    private RadioButton mBtn1Day = null;
+    private RadioButton mBtn3Day = null;
+    private RadioButton mBtn10Day = null;
+    private Button mBtnDoForbidUser = null;
+    private Button mBtnCancelForbidUser = null;
+    private TextView mTxtUserName = null;
+    private DelPostAsyncTask mDelPostAsyncTask = null;
+    private ForbidUserAsyncTask mForbidUserAsyncTask = null;
     private Menu mMenu = null;
     private DialogMoreAdapter mDialogAdapter = null;
     private ContextMenuAdapter mContextMenuAdapter = null;
@@ -125,6 +155,7 @@ public class PbActivity extends BaseActivity {
     private boolean mBackSpecial = false;
     private String frsString = null;
     private boolean scrollButtom = false;
+    private boolean pvSign = false;
     private Runnable mGetImageRunnble = new Runnable() { // from class: com.baidu.tieba.pb.PbActivity.1
         @Override // java.lang.Runnable
         public void run() {
@@ -147,15 +178,13 @@ public class PbActivity extends BaseActivity {
                         PostData data = (PostData) PbActivity.this.mAdapter.getItem(i);
                         if (data != null) {
                             ArrayList<ContentData> content = data.getUnite_content();
-                            int index = -1;
                             int contentSize = content.size();
-                            if (PbActivity.this.mAdapter.isShowImage() && image_num < 15) {
+                            if (PbActivity.this.mAdapter.isShowImage() && image_num < 13) {
                                 for (int j = 0; j < contentSize; j++) {
-                                    if (content.get(j).getType() == 3) {
-                                        if (image_num >= 15) {
+                                    if (content.get(j).getType() == 3 || content.get(j).getType() == 5) {
+                                        if (image_num >= 13) {
                                             break;
                                         }
-                                        index++;
                                         image_num++;
                                         PbActivity.this.mAdapter.getImageLoader().loadImage(content.get(j).getLink(), new AsyncImageLoader.ImageCallback() { // from class: com.baidu.tieba.pb.PbActivity.1.1
                                             @Override // com.baidu.tieba.util.AsyncImageLoader.ImageCallback
@@ -186,7 +215,7 @@ public class PbActivity extends BaseActivity {
                                     }
                                 });
                             }
-                            if (supportHold && image_num >= 15 && photo_num >= 30) {
+                            if (supportHold && image_num >= 13 && photo_num >= 30) {
                                 return;
                             }
                         }
@@ -317,20 +346,6 @@ public class PbActivity extends BaseActivity {
         return data;
     }
 
-    public static void startActivityToFrs(Context context, String id, String st_type) {
-        Intent intent = new Intent(context, PbActivity.class);
-        if (id != null && id.length() > 0) {
-            intent.putExtra(ID, id);
-            intent.putExtra(SEQUENCE, true);
-            intent.putExtra(FRS_APPEAR, true);
-            intent.putExtra(HOSTMODE, false);
-            if (st_type != null) {
-                intent.putExtra("st_type", st_type);
-            }
-            context.startActivity(intent);
-        }
-    }
-
     public static void startAcitivity(Context context, String id, String st_type) {
         startAcitivity(context, id, true, false, st_type, false);
     }
@@ -360,7 +375,11 @@ public class PbActivity extends BaseActivity {
             if (st_type != null) {
                 intent.putExtra("st_type", st_type);
             }
-            context.startActivity(intent);
+            if ("tb_frslist".equals(st_type)) {
+                ((Activity) context).startActivityForResult(intent, RequestResponseCode.REQUEST_DEL_POST);
+            } else {
+                context.startActivity(intent);
+            }
         }
     }
 
@@ -398,7 +417,7 @@ public class PbActivity extends BaseActivity {
                 ActivityManager.RunningTaskInfo runningTaskInfo = it.next();
                 if (runningTaskInfo.topActivity.getClassName().equals("com.baidu.tieba.pb.PbActivity")) {
                     if (runningTaskInfo.numActivities <= 1) {
-                        MainTabActivity.startActivity(this, MainTabActivity.GOTO_MORE, getIntent().getStringExtra(ID));
+                        MainTabActivity.startActivity(this, MainTabActivity.GOTO_MORE, 1, getIntent().getStringExtra(ID));
                         closeActivity();
                         return false;
                     }
@@ -410,6 +429,9 @@ public class PbActivity extends BaseActivity {
 
     @Override // android.app.Activity, android.view.KeyEvent.Callback
     public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if (keyCode == 82) {
+            return true;
+        }
         if (keyCode == 4) {
             closeActivity();
             return true;
@@ -447,11 +469,16 @@ public class PbActivity extends BaseActivity {
             if (this.mDialogAdapter != null) {
                 this.mDialogAdapter.releaseProgressBar();
             }
-            if (this.mModel != null) {
-                if (this.mModel.getData() != null) {
-                    this.mModel.setData(null);
-                }
-                this.mModel = null;
+            if (this.mModel != null && this.mModel.getData() != null) {
+                this.mModel.setData(null);
+            }
+            if (this.mDelPostAsyncTask != null) {
+                this.mDelPostAsyncTask.cancel();
+                this.mDelPostAsyncTask = null;
+            }
+            if (this.mForbidUserAsyncTask != null) {
+                this.mForbidUserAsyncTask.cancel();
+                this.mForbidUserAsyncTask = null;
             }
             closeAllDialog();
             this.mProgress.setVisibility(8);
@@ -489,16 +516,14 @@ public class PbActivity extends BaseActivity {
         if (this.mDialogTitle != null && this.mDialogTitle.isShowing()) {
             this.mDialogTitle.dismiss();
         }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void createTitleHint() {
-        if (this.mDialogTitle == null) {
-            AlertDialog.Builder builder = new AlertDialog.Builder(this);
-            this.mDialogTitle = builder.create();
-            this.mDialogTitle.setCanceledOnTouchOutside(true);
-            LayoutInflater mInflater = getLayoutInflater();
-            this.mPbTileDialogView = mInflater.inflate(R.layout.pb_title_dialog, (ViewGroup) null);
+        if (this.mDialogDirectPager != null && this.mDialogDirectPager.isShowing()) {
+            this.mDialogDirectPager.dismiss();
+        }
+        if (this.mDialogDelPost != null && this.mDialogDelPost.isShowing()) {
+            this.mDialogDelPost.dismiss();
+        }
+        if (this.mDialogForbidUser != null && this.mDialogForbidUser.isShowing()) {
+            this.mDialogForbidUser.dismiss();
         }
     }
 
@@ -520,7 +545,9 @@ public class PbActivity extends BaseActivity {
         } else {
             this.mModel.setMarkId(null);
         }
-        this.mAdapter.notifyDataSetChanged();
+        if (this.mAdapter != null) {
+            this.mAdapter.notifyDataSetChanged();
+        }
         String id = TiebaApplication.getCurrentAccount();
         if (this.mUid == null && id != null && id.length() > 0) {
             this.mUid = id;
@@ -544,35 +571,25 @@ public class PbActivity extends BaseActivity {
             @Override // android.widget.AdapterView.OnItemLongClickListener
             public boolean onItemLongClick(AdapterView<?> arg0, View arg1, int arg2, long id) {
                 PbActivity.this.mLongPos = arg2;
-                if (id != -1 && id != -2 && PbActivity.this.getLongClickMenu() != null) {
+                if (id != -1 && id != -2 && id != -3 && PbActivity.this.getLongClickMenu() != null) {
                     PbActivity.this.showListMenu();
                 }
                 return true;
             }
         };
         this.mTitleText = (TextView) findViewById(R.id.titel_text);
-        this.mTitle = (LinearLayout) findViewById(R.id.title);
+        this.mBottomBar = (LinearLayout) findViewById(R.id.bottom_bar);
         this.mTitleText.setClickable(true);
         this.mTitleText.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pb.PbActivity.4
             @Override // android.view.View.OnClickListener
             public void onClick(View v) {
-                ThreadData thread;
-                if (PbActivity.this.mModel != null && PbActivity.this.mModel.getData() != null && (thread = PbActivity.this.mModel.getData().getThread()) != null && thread.getTitle() != null && thread.getTitle().length() > 0) {
-                    PbActivity.this.createTitleHint();
-                    TextView text = (TextView) PbActivity.this.mPbTileDialogView.findViewById(R.id.text);
-                    if (text != null) {
-                        PbActivity.this.mDialogTitle.show();
-                        text.setText("标题：" + thread.getTitle());
-                        PbActivity.this.mDialogTitle.setContentView(PbActivity.this.mPbTileDialogView);
-                        int y = (PbActivity.this.mTitle.getTop() + PbActivity.this.mTitle.getHeight()) - 5;
-                        WindowManager.LayoutParams wmParams = PbActivity.this.mDialogTitle.getWindow().getAttributes();
-                        wmParams.gravity = 51;
-                        wmParams.x = 0;
-                        wmParams.y = y;
-                        wmParams.width = -1;
-                        wmParams.height = -2;
-                        wmParams.alpha = 1.0f;
-                        PbActivity.this.mDialogTitle.getWindow().setAttributes(wmParams);
+                ForumData forumData;
+                if (PbActivity.this.mModel != null && PbActivity.this.mModel.getData() != null && (forumData = PbActivity.this.mModel.getData().getForum()) != null && forumData.getName() != null) {
+                    String from = PbActivity.this.getIntent().getStringExtra("st_type");
+                    if (from != null && from.equals("tb_frslist")) {
+                        PbActivity.this.closeActivity();
+                    } else {
+                        FrsActivity.startAcitivity(PbActivity.this, forumData.getName(), null);
                     }
                 }
             }
@@ -605,6 +622,12 @@ public class PbActivity extends BaseActivity {
                                 } else {
                                     PbActivity.this.requestSequence();
                                 }
+                            } else if (arg2 == 2 && PbActivity.this.mModel != null && PbActivity.this.mModel.getData() != null && PbActivity.this.mModel.getData().getUserIdentity() != 0) {
+                                if (!PbActivity.this.mModel.getManageMode()) {
+                                    PbActivity.this.openManageMode();
+                                } else {
+                                    PbActivity.this.closeManageMode();
+                                }
                             }
                             PbActivity.this.mDialogMore.dismiss();
                         }
@@ -617,15 +640,13 @@ public class PbActivity extends BaseActivity {
                     }
                     PbActivity.this.mDialogMore.show();
                     PbActivity.this.mDialogMore.setContentView(PbActivity.this.mDialogView);
-                    int width = PbActivity.this.mDialogView.getWidth();
-                    int y = (PbActivity.this.mTitle.getTop() + PbActivity.this.mTitle.getHeight()) - 5;
-                    int equipWidth = UtilHelper.getEquipmentWidth(PbActivity.this);
+                    int bottomBarHeight = PbActivity.this.mBottomBar.getHeight();
                     WindowManager.LayoutParams wmParams = PbActivity.this.mDialogMore.getWindow().getAttributes();
-                    wmParams.gravity = 51;
-                    wmParams.x = (equipWidth - width) - 1;
-                    wmParams.y = y;
+                    wmParams.gravity = 85;
+                    wmParams.x = 2;
+                    wmParams.y = bottomBarHeight;
                     wmParams.alpha = 1.0f;
-                    wmParams.width = UtilHelper.dip2px(PbActivity.this, 200.0f);
+                    wmParams.width = UtilHelper.dip2px(PbActivity.this, 120.0f);
                     wmParams.height = -2;
                     PbActivity.this.mDialogMore.getWindow().setAttributes(wmParams);
                 }
@@ -638,11 +659,85 @@ public class PbActivity extends BaseActivity {
                 PbActivity.this.closeActivity();
             }
         });
+        this.mRedirectPage = (Button) findViewById(R.id.skip_page);
+        this.mRedirectPage.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pb.PbActivity.7
+            @Override // android.view.View.OnClickListener
+            public void onClick(View v) {
+                if (PbActivity.this.mDialogDirectPager == null) {
+                    PbActivity.this.mDialogDirectPager = new Dialog(PbActivity.this, R.style.common_alert_dialog);
+                    PbActivity.this.mDialogDirectPager.setCanceledOnTouchOutside(true);
+                    PbActivity.this.mDialogDirectPager.setCancelable(true);
+                    LayoutInflater mInflater = PbActivity.this.getLayoutInflater();
+                    PbActivity.this.mDirectPagerDialogView = mInflater.inflate(R.layout.dialog_direct_pager, (ViewGroup) null);
+                    PbActivity.this.mDialogDirectPager.setContentView(PbActivity.this.mDirectPagerDialogView);
+                    WindowManager.LayoutParams wmParams = PbActivity.this.mDialogDirectPager.getWindow().getAttributes();
+                    wmParams.gravity = 49;
+                    wmParams.y = UtilHelper.dip2px(PbActivity.this, 54.0f);
+                    wmParams.width = (int) (UtilHelper.getEquipmentWidth(PbActivity.this) * 0.9d);
+                    PbActivity.this.mDialogDirectPager.getWindow().setAttributes(wmParams);
+                    PbActivity.this.mInputRedirectPage = (EditText) PbActivity.this.mDirectPagerDialogView.findViewById(R.id.input_page_number);
+                    PbActivity.this.mInputRedirectPage.setOnFocusChangeListener(new View.OnFocusChangeListener() { // from class: com.baidu.tieba.pb.PbActivity.7.1
+                        @Override // android.view.View.OnFocusChangeListener
+                        public void onFocusChange(View view, boolean hasFocus) {
+                            if (!hasFocus) {
+                                UtilHelper.hideSoftKeyPad(PbActivity.this, view);
+                            }
+                        }
+                    });
+                    Button btnOK = (Button) PbActivity.this.mDirectPagerDialogView.findViewById(R.id.dialog_button_ok);
+                    Button btnCancel = (Button) PbActivity.this.mDirectPagerDialogView.findViewById(R.id.dialog_button_cancel);
+                    btnOK.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pb.PbActivity.7.2
+                        @Override // android.view.View.OnClickListener
+                        public void onClick(View v2) {
+                            PbActivity.this.startPbAsyncTask(5);
+                            PbActivity.this.mDialogDirectPager.dismiss();
+                        }
+                    });
+                    btnCancel.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pb.PbActivity.7.3
+                        @Override // android.view.View.OnClickListener
+                        public void onClick(View v2) {
+                            PbActivity.this.mDialogDirectPager.dismiss();
+                        }
+                    });
+                }
+                if (PbActivity.this.mModel.getData() != null) {
+                    TextView txtCurrentPn = (TextView) PbActivity.this.mDirectPagerDialogView.findViewById(R.id.current_page_number);
+                    int currentPn = PbActivity.this.mModel.getData().getPage().getCurrent_page();
+                    int totalPageCount = PbActivity.this.mModel.getData().getPage().getTotal_page();
+                    if (currentPn <= 0) {
+                        currentPn = 1;
+                    }
+                    if (totalPageCount <= 0) {
+                        totalPageCount = 1;
+                    }
+                    txtCurrentPn.setText(MessageFormat.format(PbActivity.this.getApplicationContext().getResources().getString(R.string.current_page), Integer.valueOf(currentPn), Integer.valueOf(totalPageCount)));
+                    PbActivity.this.mDialogDirectPager.show();
+                    PbActivity.this.mInputRedirectPage.setText("");
+                    PbActivity.this.mInputRedirectPage.requestFocus();
+                    PbActivity.this.ShowSoftKeyPadDelay(PbActivity.this.mInputRedirectPage, 150);
+                }
+            }
+        });
         this.mReply = (Button) findViewById(R.id.reply);
-        this.mReply.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pb.PbActivity.7
+        this.mReply.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pb.PbActivity.8
             @Override // android.view.View.OnClickListener
             public void onClick(View v) {
                 PbActivity.this.replyBlog(null);
+            }
+        });
+        this.mBtnRecommend = (Button) findViewById(R.id.recommend);
+        this.mBtnRecommend.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pb.PbActivity.9
+            @Override // android.view.View.OnClickListener
+            public void onClick(View v) {
+                MainTabActivity.startActivity(PbActivity.this, MainTabActivity.GOTO_RECOMMEND);
+                PbActivity.this.closeActivity();
+            }
+        });
+        this.mBtnRefresh = (Button) findViewById(R.id.refresh);
+        this.mBtnRefresh.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pb.PbActivity.10
+            @Override // android.view.View.OnClickListener
+            public void onClick(View v) {
+                PbActivity.this.startPbAsyncTask(3);
             }
         });
         this.mPbList = (ListView) findViewById(R.id.pb_list);
@@ -653,55 +748,59 @@ public class PbActivity extends BaseActivity {
         this.mAdapter.setHaveFooter(0);
         this.mAdapter.setHaveHeader(0);
         this.mPbList.setAdapter((ListAdapter) this.mAdapter);
-        this.mPbList.setOnItemClickListener(new AdapterView.OnItemClickListener() { // from class: com.baidu.tieba.pb.PbActivity.8
+        this.mPbList.setOnItemClickListener(new AdapterView.OnItemClickListener() { // from class: com.baidu.tieba.pb.PbActivity.11
             @Override // android.widget.AdapterView.OnItemClickListener
             public void onItemClick(AdapterView<?> arg0, View arg1, int arg2, long id) {
                 boolean isMarked;
                 PbActivity.this.mClickId = -1L;
-                if (id == -1) {
-                    if (PbActivity.this.mAdapter.isProcessPre()) {
-                        return;
-                    }
-                    PbActivity.this.getPreDate();
-                } else if (id != -2) {
-                    if (PbActivity.this.mContextMenu != null) {
-                        PbActivity.this.mClickId = id;
-                        if (PbActivity.this.mModel.getData() != null) {
-                            PostData data = (PostData) PbActivity.this.mAdapter.getItem(arg2);
-                            if (PbActivity.this.mModel.getData().getIsHasFloor() && data.getFloor_num() != 1) {
-                                if (data != null && PbActivity.this.mModel.getMarkId() != null && PbActivity.this.mModel.getMarkId().equals(data.getId())) {
-                                    isMarked = true;
-                                } else {
-                                    isMarked = false;
-                                }
-                                Intent intent = new Intent(PbActivity.this, SubPbActivity.class);
-                                intent.putExtra("themeId", PbActivity.this.mPbId);
-                                intent.putExtra("postId", data.getId());
-                                intent.putExtra("fid", PbActivity.this.mModel.getData().getForum().getId());
-                                intent.putExtra("kw", PbActivity.this.mModel.getData().getForum().getName());
-                                intent.putExtra("threadId", PbActivity.this.mModel.getData().getThread().getId());
-                                intent.putExtra("mark", PbActivity.this.getMarkData());
-                                intent.putExtra("isMarked", isMarked);
-                                intent.putExtra("anti", PbActivity.this.mModel.getData().getAnti());
-                                PbActivity.this.startActivity(intent);
-                                return;
-                            }
-                            if (data == null || PbActivity.this.mModel.getMarkId() == null || !PbActivity.this.mModel.getMarkId().equals(data.getId())) {
-                                PbActivity.this.mContextMenuAdapter.setItem(1, PbActivity.this.getString(R.string.add_mark));
-                            } else {
-                                PbActivity.this.mContextMenuAdapter.setItem(1, PbActivity.this.getString(R.string.remove_mark));
-                            }
-                            PbActivity.this.mContextMenuAdapter.notifyDataSetInvalidated();
-                            PbActivity.this.mContextMenu.show();
+                if (id != -3) {
+                    if (id == -1) {
+                        if (PbActivity.this.mAdapter.isProcessPre()) {
+                            return;
                         }
+                        PbActivity.this.getPreDate();
+                    } else if (id != -2) {
+                        if (PbActivity.this.mContextMenu != null) {
+                            PbActivity.this.mClickId = id;
+                            if (PbActivity.this.mModel.getData() != null) {
+                                PostData data = (PostData) PbActivity.this.mAdapter.getItem(arg2);
+                                if (PbActivity.this.mModel.getData().getIsHasFloor() && data.getFloor_num() != 1) {
+                                    if (data != null && PbActivity.this.mModel != null && PbActivity.this.mModel.getMarkId() != null && PbActivity.this.mModel.getMarkId().equals(data.getId())) {
+                                        isMarked = true;
+                                    } else {
+                                        isMarked = false;
+                                    }
+                                    Intent intent = new Intent(PbActivity.this, SubPbActivity.class);
+                                    intent.putExtra("themeId", PbActivity.this.mPbId);
+                                    intent.putExtra("postId", data.getId());
+                                    intent.putExtra("fid", PbActivity.this.mModel.getData().getForum().getId());
+                                    intent.putExtra("kw", PbActivity.this.mModel.getData().getForum().getName());
+                                    intent.putExtra("threadId", PbActivity.this.mModel.getData().getThread().getId());
+                                    intent.putExtra("mark", PbActivity.this.getMarkData());
+                                    intent.putExtra("isMarked", isMarked);
+                                    intent.putExtra("anti", PbActivity.this.mModel.getData().getAnti());
+                                    intent.putExtra("manage_mode", PbActivity.this.mModel.getManageMode());
+                                    intent.putExtra("user_identity", PbActivity.this.mModel.getData().getUserIdentity());
+                                    PbActivity.this.startActivityForResult(intent, RequestResponseCode.REQUEST_DEL_POST);
+                                    return;
+                                }
+                                if (data == null || PbActivity.this.mModel.getMarkId() == null || !PbActivity.this.mModel.getMarkId().equals(data.getId())) {
+                                    PbActivity.this.mContextMenuAdapter.setItem(1, PbActivity.this.getString(R.string.add_mark));
+                                } else {
+                                    PbActivity.this.mContextMenuAdapter.setItem(1, PbActivity.this.getString(R.string.remove_mark));
+                                }
+                                PbActivity.this.mContextMenuAdapter.notifyDataSetInvalidated();
+                                PbActivity.this.mContextMenu.show();
+                            }
+                        }
+                    } else if (PbActivity.this.mAdapter.isProcessMore()) {
+                    } else {
+                        PbActivity.this.getNextDate();
                     }
-                } else if (PbActivity.this.mAdapter.isProcessMore()) {
-                } else {
-                    PbActivity.this.getNextDate();
                 }
             }
         });
-        this.mPbList.setOnScrollListener(new AbsListView.OnScrollListener() { // from class: com.baidu.tieba.pb.PbActivity.9
+        this.mPbList.setOnScrollListener(new AbsListView.OnScrollListener() { // from class: com.baidu.tieba.pb.PbActivity.12
             @Override // android.widget.AbsListView.OnScrollListener
             public void onScroll(AbsListView arg0, int arg1, int arg2, int arg3) {
                 PbActivity.this.mHandler.removeCallbacks(PbActivity.this.mGetImageRunnble);
@@ -713,7 +812,7 @@ public class PbActivity extends BaseActivity {
                 PbActivity.this.mPbList.setOnItemLongClickListener(null);
             }
         });
-        this.mPbList.setOnTouchListener(new View.OnTouchListener() { // from class: com.baidu.tieba.pb.PbActivity.10
+        this.mPbList.setOnTouchListener(new View.OnTouchListener() { // from class: com.baidu.tieba.pb.PbActivity.13
             @Override // android.view.View.OnTouchListener
             public boolean onTouch(View v, MotionEvent event) {
                 if (event.getAction() == 0) {
@@ -727,7 +826,7 @@ public class PbActivity extends BaseActivity {
         this.mProgress = (ProgressBar) findViewById(R.id.progress);
         this.mProgress.setVisibility(8);
         this.headTextView = (TextView) findViewById(R.id.tofrs_textview);
-        this.headTextView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pb.PbActivity.11
+        this.headTextView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pb.PbActivity.14
             @Override // android.view.View.OnClickListener
             public void onClick(View arg0) {
                 if (PbActivity.this.frsString != null) {
@@ -742,7 +841,7 @@ public class PbActivity extends BaseActivity {
         if (getListMenu() != null) {
             return getListMenu();
         }
-        DialogInterface.OnClickListener menuListener = new DialogInterface.OnClickListener() { // from class: com.baidu.tieba.pb.PbActivity.12
+        DialogInterface.OnClickListener menuListener = new DialogInterface.OnClickListener() { // from class: com.baidu.tieba.pb.PbActivity.15
             @Override // android.content.DialogInterface.OnClickListener
             public void onClick(DialogInterface dialog, int which) {
                 PostData data;
@@ -800,6 +899,7 @@ public class PbActivity extends BaseActivity {
         Boolean.valueOf(false);
         String markId = null;
         this.mBackSpecial = getIntent().getBooleanExtra(BACK_SPECIAL, false);
+        this.pvSign = getIntent().getBooleanExtra("is_message_pv", false);
         if (savedInstanceState != null) {
             this.mPbId = savedInstanceState.getString(ID);
             sequence = Boolean.valueOf(savedInstanceState.getBoolean(SEQUENCE, true));
@@ -830,6 +930,7 @@ public class PbActivity extends BaseActivity {
         TiebaApplication app = (TiebaApplication) getApplication();
         if (app != null) {
             this.mModel.setIsDisplayPhoto(app.getDisplayPhoto());
+            this.mModel.setManageMode(app.getIsManageMode());
         }
         if (hostMode.booleanValue()) {
             sequence = true;
@@ -838,9 +939,19 @@ public class PbActivity extends BaseActivity {
         this.mModel.setHostMode(hostMode.booleanValue());
         this.mModel.setMarkId(markId);
         if (this.mModel.getMarkMode()) {
+            setSkipEnabled(false);
             startPbAsyncTask(4);
+            return;
+        }
+        startPbAsyncTask(3);
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void setSkipEnabled(boolean enabled) {
+        if (enabled) {
+            this.mRedirectPage.setEnabled(true);
         } else {
-            startPbAsyncTask(3);
+            this.mRedirectPage.setEnabled(false);
         }
     }
 
@@ -869,9 +980,37 @@ public class PbActivity extends BaseActivity {
                 param.add(host);
             }
             if (this.mPbId != null && this.mPbId.length() > 0) {
-                if (type == 2) {
-                    BasicNameValuePair direct = new BasicNameValuePair(URL_DIRECTION, NetWorkCore.NET_TYPE_NET);
+                if (type == 5) {
+                    int bigPageNumber = Integer.parseInt(this.mInputRedirectPage.getText().toString(), 10);
+                    int maxPage = this.mModel.getData().getPage().getTotal_page();
+                    if (bigPageNumber < 1) {
+                        bigPageNumber = 1;
+                    }
+                    if (bigPageNumber > maxPage) {
+                        bigPageNumber = maxPage;
+                    }
+                    BasicNameValuePair pn = new BasicNameValuePair("pn", new StringBuilder(String.valueOf(bigPageNumber)).toString());
+                    param.add(pn);
+                    BasicNameValuePair direct = new BasicNameValuePair(URL_DIRECTION, "0");
                     param.add(direct);
+                    BasicNameValuePair st_type = new BasicNameValuePair("st_type", "tb_bookmarklist");
+                    param.add(st_type);
+                    this.mProgress.setVisibility(0);
+                } else if (type == 2) {
+                    BasicNameValuePair direct2 = new BasicNameValuePair(URL_DIRECTION, NetWorkCore.NET_TYPE_NET);
+                    param.add(direct2);
+                    if (!this.mModel.getMarkMode()) {
+                        if (this.mModel.getSequence()) {
+                            BasicNameValuePair pn2 = new BasicNameValuePair("pn", new StringBuilder(String.valueOf(this.mModel.getSmallPageNumber() + (-1) < 0 ? 1 : this.mModel.getSmallPageNumber() - 1)).toString());
+                            param.add(pn2);
+                        } else if (this.mModel.getBigPageNumber() < this.mModel.getData().getPage().getTotal_page()) {
+                            BasicNameValuePair pn3 = new BasicNameValuePair("pn", new StringBuilder(String.valueOf(this.mModel.getBigPageNumber() + 1)).toString());
+                            param.add(pn3);
+                            this.mModel.setIsLastPage(false);
+                        } else {
+                            this.mModel.setIsLastPage(true);
+                        }
+                    }
                     ArrayList<PostData> list = this.mModel.getData().getPost_list();
                     if (list != null && list.size() > 0) {
                         int size = list.size();
@@ -889,8 +1028,8 @@ public class PbActivity extends BaseActivity {
                         }
                     }
                 } else if (type == 1) {
-                    BasicNameValuePair direct2 = new BasicNameValuePair(URL_DIRECTION, String.valueOf(0));
-                    param.add(direct2);
+                    BasicNameValuePair direct3 = new BasicNameValuePair(URL_DIRECTION, String.valueOf(0));
+                    param.add(direct3);
                     ArrayList<PostData> list2 = this.mModel.getData().getPost_list();
                     if (list2 != null && list2.size() > 0) {
                         int size2 = list2.size();
@@ -909,19 +1048,41 @@ public class PbActivity extends BaseActivity {
                     } else if (!this.mModel.getSequence()) {
                         param.add(new BasicNameValuePair(URL_LAST, String.valueOf(1)));
                     }
+                    if (!this.mModel.getMarkMode()) {
+                        if (this.mModel.getSequence()) {
+                            if (this.mModel.getBigPageNumber() < this.mModel.getData().getPage().getTotal_page()) {
+                                BasicNameValuePair pn4 = new BasicNameValuePair("pn", new StringBuilder(String.valueOf(this.mModel.getBigPageNumber() + 1)).toString());
+                                param.add(pn4);
+                                this.mModel.setIsLastPage(false);
+                            } else {
+                                this.mModel.setIsLastPage(true);
+                            }
+                        } else {
+                            BasicNameValuePair pn5 = new BasicNameValuePair("pn", new StringBuilder(String.valueOf(this.mModel.getSmallPageNumber() - 1)).toString());
+                            param.add(pn5);
+                        }
+                    }
                 } else if (type == 4) {
                     BasicNameValuePair pid3 = new BasicNameValuePair(URL_PID, this.mModel.getMarkId());
                     param.add(pid3);
-                    BasicNameValuePair direct3 = new BasicNameValuePair(URL_DIRECTION, "0");
-                    param.add(direct3);
-                    BasicNameValuePair st_type = new BasicNameValuePair("st_type", "tb_bookmarklist");
-                    param.add(st_type);
+                    BasicNameValuePair direct4 = new BasicNameValuePair(URL_DIRECTION, "0");
+                    param.add(direct4);
+                    BasicNameValuePair st_type2 = new BasicNameValuePair("st_type", "tb_bookmarklist");
+                    param.add(st_type2);
                     this.mAdapter.setHaveFooter(0);
                     this.mAdapter.setHaveHeader(0);
                     this.mProgress.setVisibility(0);
                 } else {
-                    BasicNameValuePair direct4 = new BasicNameValuePair(URL_DIRECTION, "0");
-                    param.add(direct4);
+                    BasicNameValuePair direct5 = new BasicNameValuePair(URL_DIRECTION, "0");
+                    param.add(direct5);
+                    if (this.mModel.getSequence()) {
+                        BasicNameValuePair pn6 = new BasicNameValuePair("pn", NetWorkCore.NET_TYPE_NET);
+                        param.add(pn6);
+                    } else if ((getIntent().getStringExtra("st_type") == null || !getIntent().getStringExtra("st_type").equals("tb_frslist")) && this.mModel != null && this.mModel.getData() != null && this.mModel.getData().getPage() != null) {
+                        BasicNameValuePair pn7 = new BasicNameValuePair("pn", new StringBuilder(String.valueOf(this.mModel.getData().getPage().getTotal_page())).toString());
+                        param.add(pn7);
+                    }
+                    this.mModel.setMarkMode(false);
                     if (!this.mModel.getSequence()) {
                         BasicNameValuePair last = new BasicNameValuePair(URL_LAST, String.valueOf(1));
                         param.add(last);
@@ -933,8 +1094,8 @@ public class PbActivity extends BaseActivity {
                     this.mAdapter.setHaveFooter(0);
                     this.mAdapter.setHaveHeader(0);
                     if (this.mSource != null) {
-                        BasicNameValuePair st_type2 = new BasicNameValuePair("st_type", this.mSource);
-                        param.add(st_type2);
+                        BasicNameValuePair st_type3 = new BasicNameValuePair("st_type", this.mSource);
+                        param.add(st_type3);
                     }
                     this.mProgress.setVisibility(0);
                     System.gc();
@@ -1055,6 +1216,124 @@ public class PbActivity extends BaseActivity {
         startPbAsyncTask(3);
     }
 
+    /* JADX INFO: Access modifiers changed from: private */
+    public void openManageMode() {
+        this.mModel.setManageMode(true);
+        TiebaApplication.app.setIsManageMode(true);
+        refreshActivity();
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void closeManageMode() {
+        this.mModel.setManageMode(false);
+        TiebaApplication.app.setIsManageMode(false);
+        refreshActivity();
+    }
+
+    public void openDelPostDialog(final int delType, final String postId) {
+        if (this.mDialogDelPost == null) {
+            this.mDialogDelPost = new Dialog(this, R.style.common_alert_dialog);
+            this.mDialogDelPost.setCanceledOnTouchOutside(true);
+            this.mDialogDelPost.setCancelable(true);
+            LayoutInflater inflater = getLayoutInflater();
+            this.mDelPostView = inflater.inflate(R.layout.del_post, (ViewGroup) null);
+            this.mDialogDelPost.setContentView(this.mDelPostView);
+            WindowManager.LayoutParams wmParams = this.mDialogDelPost.getWindow().getAttributes();
+            wmParams.width = (int) (UtilHelper.getEquipmentWidth(this) * 0.9d);
+            this.mDialogDelPost.getWindow().setAttributes(wmParams);
+            this.mBtnDoDelPost = (Button) this.mDelPostView.findViewById(R.id.dialog_button_ok);
+            this.mBtnCancelDelPost = (Button) this.mDelPostView.findViewById(R.id.dialog_button_cancel);
+            this.mBtnCancelDelPost.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pb.PbActivity.16
+                @Override // android.view.View.OnClickListener
+                public void onClick(View v) {
+                    PbActivity.this.mDialogDelPost.dismiss();
+                }
+            });
+            this.mTxtDelPostTip = (TextView) this.mDelPostView.findViewById(R.id.confirm_text);
+        }
+        if (this.mModel != null && this.mModel.getData() != null) {
+            this.mBtnDoDelPost.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pb.PbActivity.17
+                @Override // android.view.View.OnClickListener
+                public void onClick(View v) {
+                    PbActivity.this.startDelPostAsyncTask(delType, postId);
+                    PbActivity.this.mDialogDelPost.dismiss();
+                }
+            });
+            if (delType == 1) {
+                this.mTxtDelPostTip.setText(R.string.del_thread_confirm);
+            } else {
+                this.mTxtDelPostTip.setText(R.string.del_post_confirm);
+            }
+            this.mDialogDelPost.show();
+        }
+    }
+
+    public void openForbidUserDialog(final String userName, int userIdentity) {
+        if (this.mDialogForbidUser == null) {
+            this.mDialogForbidUser = new Dialog(this, R.style.common_alert_dialog);
+            this.mDialogForbidUser.setCanceledOnTouchOutside(true);
+            this.mDialogForbidUser.setCancelable(true);
+            LayoutInflater inflater = getLayoutInflater();
+            this.mForbidUserView = inflater.inflate(R.layout.forbid_user, (ViewGroup) null);
+            this.mDialogForbidUser.setContentView(this.mForbidUserView);
+            WindowManager.LayoutParams wmParams = this.mDialogForbidUser.getWindow().getAttributes();
+            wmParams.width = (int) (UtilHelper.getEquipmentWidth(this) * 0.9d);
+            this.mDialogForbidUser.getWindow().setAttributes(wmParams);
+            this.mRadioGroup = (RadioGroup) this.mForbidUserView.findViewById(R.id.radio_group);
+            this.mBtn1Day = (RadioButton) this.mForbidUserView.findViewById(R.id.radio_button_1day);
+            this.mBtn3Day = (RadioButton) this.mForbidUserView.findViewById(R.id.radio_button_3day);
+            this.mBtn10Day = (RadioButton) this.mForbidUserView.findViewById(R.id.radio_button_10day);
+            CompoundButton.OnCheckedChangeListener radioButtonCheckedListener = new CompoundButton.OnCheckedChangeListener() { // from class: com.baidu.tieba.pb.PbActivity.18
+                @Override // android.widget.CompoundButton.OnCheckedChangeListener
+                public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                    if (isChecked) {
+                        switch (buttonView.getId()) {
+                            case R.id.radio_button_1day /* 2131230840 */:
+                                PbActivity.this.mForbidTime = 1;
+                                return;
+                            case R.id.radio_button_3day /* 2131230841 */:
+                                PbActivity.this.mForbidTime = 3;
+                                return;
+                            case R.id.radio_button_10day /* 2131230842 */:
+                                PbActivity.this.mForbidTime = 10;
+                                return;
+                            default:
+                                return;
+                        }
+                    }
+                }
+            };
+            this.mBtn1Day.setOnCheckedChangeListener(radioButtonCheckedListener);
+            this.mBtn3Day.setOnCheckedChangeListener(radioButtonCheckedListener);
+            this.mBtn10Day.setOnCheckedChangeListener(radioButtonCheckedListener);
+            this.mBtnDoForbidUser = (Button) this.mForbidUserView.findViewById(R.id.dialog_button_ok);
+            this.mBtnCancelForbidUser = (Button) this.mForbidUserView.findViewById(R.id.dialog_button_cancel);
+            this.mBtnCancelForbidUser.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pb.PbActivity.19
+                @Override // android.view.View.OnClickListener
+                public void onClick(View v) {
+                    PbActivity.this.mDialogForbidUser.dismiss();
+                }
+            });
+            this.mTxtUserName = (TextView) this.mForbidUserView.findViewById(R.id.user_name);
+        }
+        if (this.mModel != null && this.mModel.getData() != null) {
+            this.mTxtUserName.setText(userName);
+            this.mRadioGroup.check(R.id.radio_button_1day);
+            if (userIdentity == 2) {
+                this.mBtn3Day.setVisibility(8);
+                this.mBtn10Day.setVisibility(8);
+            }
+            this.mBtnDoForbidUser.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pb.PbActivity.20
+                @Override // android.view.View.OnClickListener
+                public void onClick(View v) {
+                    PbActivity.this.startForbidUserAsyncTask(userName);
+                    PbActivity.this.mDialogForbidUser.dismiss();
+                }
+            });
+            this.mDialogForbidUser.show();
+        }
+    }
+
     @Override // android.app.Activity
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
@@ -1120,6 +1399,25 @@ public class PbActivity extends BaseActivity {
                         TiebaLog.e(getClass().getName(), "onActivityResult", ex.getMessage());
                         return;
                     }
+                case RequestResponseCode.REQUEST_DEL_POST /* 1300004 */:
+                    String postId = data.getStringExtra("del_post_id");
+                    if (postId != null && this.mModel != null && this.mModel.getData() != null) {
+                        ArrayList<PostData> list = this.mModel.getData().getPost_list();
+                        int size = list.size();
+                        int i = 0;
+                        while (true) {
+                            if (i < size) {
+                                if (!postId.equals(list.get(i).getId())) {
+                                    i++;
+                                } else {
+                                    list.remove(i);
+                                }
+                            }
+                        }
+                        refreshActivity();
+                        return;
+                    }
+                    return;
                 default:
                     return;
             }
@@ -1156,8 +1454,15 @@ public class PbActivity extends BaseActivity {
                 if (PbActivity.mPbLoadTime != 0) {
                     this.mNetwork.addPostData("ctime", String.valueOf(PbActivity.mPbLoadTime));
                 }
+                if (PbActivity.mPbLoadDataSize != 0) {
+                    this.mNetwork.addPostData("data_size", String.valueOf(PbActivity.mPbLoadDataSize));
+                }
                 if (PbActivity.mNetError != 0) {
                     this.mNetwork.addPostData("net_error", String.valueOf(PbActivity.mNetError));
+                }
+                if (PbActivity.this.pvSign) {
+                    PbActivity.this.pvSign = false;
+                    this.mNetwork.addPostData("msg_click", NetWorkCore.NET_TYPE_NET);
                 }
                 String data = this.mNetwork.postNetData();
                 if (this.mNetwork.isRequestSuccess()) {
@@ -1166,7 +1471,7 @@ public class PbActivity extends BaseActivity {
                         pbData2.parserJson(data);
                         int size = pbData2.getPost_list().size();
                         for (int i = 0; i < size; i++) {
-                            pbData2.getPost_list().get(i).uniteContentExcepFace(PbActivity.this);
+                            pbData2.getPost_list().get(i).uniteContentExcepFaceVideo(PbActivity.this);
                             pbData2.getPost_list().get(i).setContent(null);
                         }
                         PbActivity.this.frsString = pbData2.getForum().getName();
@@ -1180,6 +1485,7 @@ public class PbActivity extends BaseActivity {
                 }
                 if (this.mNetwork.isNetSuccess()) {
                     PbActivity.mPbLoadTime = 0L;
+                    PbActivity.mPbLoadDataSize = 0L;
                     PbActivity.mNetError = 0;
                 } else {
                     PbActivity.mNetError = 1;
@@ -1195,44 +1501,7 @@ public class PbActivity extends BaseActivity {
         @Override // android.os.AsyncTask
         public void onPostExecute(PbData data) {
             try {
-                if (data == null) {
-                    if (this.mNetwork != null) {
-                        if (this.mType == 3 || this.mType == 4) {
-                            if (this.mNetwork.isNetSuccess()) {
-                                PbActivity.this.showToast(this.mNetwork.getErrorString());
-                                if (this.mNetwork.getErrorCode() == 4 || this.mNetwork.getErrorCode() == 28) {
-                                    PbActivity.this.closeActivity();
-                                    return;
-                                }
-                            } else {
-                                AlertDialog.Builder builder = new AlertDialog.Builder(PbActivity.this);
-                                builder.setTitle(PbActivity.this.getString(R.string.error));
-                                builder.setMessage(this.mNetwork.getErrorString());
-                                builder.setPositiveButton(PbActivity.this.getString(R.string.retry), new DialogInterface.OnClickListener() { // from class: com.baidu.tieba.pb.PbActivity.PbAsyncTask.1
-                                    @Override // android.content.DialogInterface.OnClickListener
-                                    public void onClick(DialogInterface dialog, int which) {
-                                        PbActivity.this.startPbAsyncTask(PbAsyncTask.this.mType);
-                                    }
-                                });
-                                builder.setNegativeButton(PbActivity.this.getString(R.string.cancel), new DialogInterface.OnClickListener() { // from class: com.baidu.tieba.pb.PbActivity.PbAsyncTask.2
-                                    @Override // android.content.DialogInterface.OnClickListener
-                                    public void onClick(DialogInterface dialog, int which) {
-                                        dialog.dismiss();
-                                    }
-                                });
-                                if (PbActivity.this.mDialogMore != null && PbActivity.this.mDialogMore.isShowing()) {
-                                    PbActivity.this.mDialogMore.dismiss();
-                                }
-                                builder.create().show();
-                            }
-                        } else {
-                            PbActivity.this.showToast(this.mNetwork.getErrorString());
-                        }
-                    }
-                } else {
-                    if (PbActivity.this.getIntent().getBooleanExtra(PbActivity.FRS_APPEAR, false)) {
-                        PbActivity.this.headTextView.setVisibility(0);
-                    }
+                if (data != null) {
                     PbActivity.this.headTextView.setText(PbActivity.this.frsString);
                     PbData d_data = PbActivity.this.mModel.getData();
                     PbActivity.this.mSource = null;
@@ -1240,6 +1509,13 @@ public class PbActivity extends BaseActivity {
                     PbActivity.this.mModel.setHavePre(data.getPage().getHave_pre());
                     if (this.mType == 3) {
                         PbActivity.this.mModel.setData(data);
+                        if (PbActivity.this.mModel.getSequence()) {
+                            PbActivity.this.mModel.setBigPageNumber(PbActivity.this.mModel.getData().getPage().getCurrent_page());
+                            PbActivity.this.mModel.setSmallPageNumber(PbActivity.this.mModel.getData().getPage().getCurrent_page());
+                        } else {
+                            PbActivity.this.mModel.setBigPageNumber(PbActivity.this.mModel.getData().getPage().getTotal_page());
+                            PbActivity.this.mModel.setSmallPageNumber(PbActivity.this.mModel.getData().getPage().getTotal_page());
+                        }
                         if (PbActivity.this.mModel.getSequence()) {
                             if (data.getPage().getHave_more() == 1) {
                                 PbActivity.this.mAdapter.setHaveFooter(2);
@@ -1263,31 +1539,51 @@ public class PbActivity extends BaseActivity {
                                 PbActivity.this.mAdapter.setHaveHeader(1);
                             }
                         }
+                        PbActivity.this.setSkipEnabled(true);
                         if (PbActivity.this.mDialogMore != null && PbActivity.this.mDialogMore.isShowing() && PbActivity.this.mDialogAdapter != null) {
                             PbActivity.this.mDialogAdapter.notifyDataSetInvalidated();
                         }
                     } else if (d_data != null && this.mType == 2) {
-                        int pos = PbActivity.this.mPbList.getFirstVisiblePosition();
-                        ArrayList<PostData> d_list = d_data.getPost_list();
-                        ArrayList<PostData> s_list = data.getPost_list();
-                        int pos2 = pos + s_list.size();
-                        d_list.addAll(0, s_list);
-                        d_data.setPage(data.getPage());
-                        d_data.setForum(data.getForum());
-                        d_data.setThread(data.getThread());
-                        d_data.setAnti(data.getAnti());
-                        if (PbActivity.this.mModel.getSequence()) {
-                            if (d_data.getPage().getHave_pre() == 1) {
+                        if (d_data != null) {
+                            int pos = PbActivity.this.mPbList.getFirstVisiblePosition();
+                            ArrayList<PostData> d_list = d_data.getPost_list();
+                            ArrayList<PostData> s_list = data.getPost_list();
+                            int pos2 = pos + s_list.size();
+                            d_list.addAll(0, s_list);
+                            d_data.setPage(data.getPage());
+                            d_data.setForum(data.getForum());
+                            d_data.setThread(data.getThread());
+                            d_data.setAnti(data.getAnti());
+                            if (PbActivity.this.mModel.getSequence()) {
+                                PbActivity.this.mModel.setSmallPageNumber(data.getPage().getCurrent_page());
+                                if (PbActivity.this.mModel.getBigPageNumber() - PbActivity.this.mModel.getSmallPageNumber() >= PbActivity.this.mModel.getMaxShowPageCount()) {
+                                    PbActivity.this.mModel.setBigPageNumber((PbActivity.this.mModel.getSmallPageNumber() + PbActivity.this.mModel.getMaxShowPageCount()) - 1);
+                                }
+                            } else {
+                                if (!PbActivity.this.mModel.getIsLastPage()) {
+                                    PbActivity.this.mModel.setBigPageNumber(data.getPage().getCurrent_page());
+                                } else if (d_data.getPage().getHave_pre() == 1) {
+                                    PbActivity.this.mModel.setBigPageNumber(PbActivity.this.mModel.getBigPageNumber() + 1);
+                                } else {
+                                    PbActivity.this.mModel.setBigPageNumber(data.getPage().getTotal_page());
+                                }
+                                if (PbActivity.this.mModel.getBigPageNumber() - PbActivity.this.mModel.getSmallPageNumber() >= PbActivity.this.mModel.getMaxShowPageCount()) {
+                                    PbActivity.this.mModel.setSmallPageNumber((PbActivity.this.mModel.getBigPageNumber() - PbActivity.this.mModel.getMaxShowPageCount()) + 1);
+                                }
+                            }
+                            if (PbActivity.this.mModel.getSequence()) {
+                                if (d_data.getPage().getHave_pre() == 1) {
+                                    PbActivity.this.mAdapter.setHaveHeader(2);
+                                } else {
+                                    PbActivity.this.mAdapter.setHaveHeader(0);
+                                }
+                            } else if (d_data.getPage().getHave_pre() == 1) {
                                 PbActivity.this.mAdapter.setHaveHeader(2);
                             } else {
-                                PbActivity.this.mAdapter.setHaveHeader(0);
+                                PbActivity.this.mAdapter.setHaveHeader(1);
                             }
-                        } else if (d_data.getPage().getHave_pre() == 1) {
-                            PbActivity.this.mAdapter.setHaveHeader(2);
-                        } else {
-                            PbActivity.this.mAdapter.setHaveHeader(1);
+                            PbActivity.this.mPbList.setSelection(pos2);
                         }
-                        PbActivity.this.mPbList.setSelection(pos2);
                     } else if (d_data != null && this.mType == 1) {
                         ArrayList<PostData> d_list2 = d_data.getPost_list();
                         d_list2.addAll(data.getPost_list());
@@ -1295,6 +1591,23 @@ public class PbActivity extends BaseActivity {
                         d_data.setForum(data.getForum());
                         d_data.setThread(data.getThread());
                         d_data.setAnti(data.getAnti());
+                        if (PbActivity.this.mModel.getSequence()) {
+                            if (!PbActivity.this.mModel.getIsLastPage()) {
+                                PbActivity.this.mModel.setBigPageNumber(data.getPage().getCurrent_page());
+                            } else if (d_data.getPage().getHave_more() == 1) {
+                                PbActivity.this.mModel.setBigPageNumber(PbActivity.this.mModel.getBigPageNumber() + 1);
+                            } else {
+                                PbActivity.this.mModel.setBigPageNumber(data.getPage().getTotal_page());
+                            }
+                            if (PbActivity.this.mModel.getBigPageNumber() - PbActivity.this.mModel.getSmallPageNumber() >= PbActivity.this.mModel.getMaxShowPageCount()) {
+                                PbActivity.this.mModel.setSmallPageNumber((PbActivity.this.mModel.getBigPageNumber() - PbActivity.this.mModel.getMaxShowPageCount()) + 1);
+                            }
+                        } else {
+                            PbActivity.this.mModel.setSmallPageNumber(data.getPage().getCurrent_page());
+                            if (PbActivity.this.mModel.getBigPageNumber() - PbActivity.this.mModel.getSmallPageNumber() >= PbActivity.this.mModel.getMaxShowPageCount()) {
+                                PbActivity.this.mModel.setBigPageNumber((PbActivity.this.mModel.getSmallPageNumber() + PbActivity.this.mModel.getMaxShowPageCount()) - 1);
+                            }
+                        }
                         if (PbActivity.this.mModel.getSequence()) {
                             if (d_data.getPage().getHave_more() == 1) {
                                 PbActivity.this.mAdapter.setHaveFooter(2);
@@ -1336,16 +1649,87 @@ public class PbActivity extends BaseActivity {
                         if (PbActivity.this.mDialogMore != null && PbActivity.this.mDialogMore.isShowing() && PbActivity.this.mDialogAdapter != null) {
                             PbActivity.this.mDialogAdapter.notifyDataSetInvalidated();
                         }
+                    } else if (this.mType == 5) {
+                        PbActivity.this.mModel.setData(data);
+                        PbActivity.this.mModel.setBigPageNumber(PbActivity.this.mModel.getData().getPage().getCurrent_page());
+                        PbActivity.this.mModel.setSmallPageNumber(PbActivity.this.mModel.getData().getPage().getCurrent_page());
+                        if (PbActivity.this.mModel.getSequence()) {
+                            if (data.getPage().getHave_more() == 1) {
+                                PbActivity.this.mAdapter.setHaveFooter(2);
+                            } else {
+                                PbActivity.this.mAdapter.setHaveFooter(1);
+                            }
+                            if (data.getPage().getHave_pre() == 1) {
+                                PbActivity.this.mAdapter.setHaveHeader(2);
+                            } else {
+                                PbActivity.this.mAdapter.setHaveHeader(0);
+                            }
+                        } else {
+                            if (data.getPage().getHave_more() == 1) {
+                                PbActivity.this.mAdapter.setHaveFooter(2);
+                            } else {
+                                PbActivity.this.mAdapter.setHaveFooter(0);
+                            }
+                            if (data.getPage().getHave_pre() == 1) {
+                                PbActivity.this.mAdapter.setHaveHeader(2);
+                            } else {
+                                PbActivity.this.mAdapter.setHaveHeader(1);
+                            }
+                        }
+                        if (PbActivity.this.mDialogMore != null && PbActivity.this.mDialogMore.isShowing() && PbActivity.this.mDialogAdapter != null) {
+                            PbActivity.this.mDialogAdapter.notifyDataSetInvalidated();
+                        }
+                        if (data.getPost_list().size() > 0) {
+                            PbActivity.this.mPbList.setSelection(0);
+                        }
                     }
                     long end_time = System.nanoTime();
-                    PbActivity.mPbLoadTime = (end_time - this.mStartTime) / 1000000000;
+                    PbActivity.mPbLoadTime = (end_time - this.mStartTime) / 1000000;
+                    if (this.mNetwork != null) {
+                        PbActivity.mPbLoadDataSize = this.mNetwork.getNetDataSize();
+                    }
+                } else if (this.mNetwork != null) {
+                    if (this.mType == 3 || this.mType == 4) {
+                        if (this.mNetwork.isNetSuccess()) {
+                            PbActivity.this.showToast(this.mNetwork.getErrorString());
+                            if (this.mNetwork.getErrorCode() == 4 || this.mNetwork.getErrorCode() == 28) {
+                                PbActivity.this.closeActivity();
+                                return;
+                            }
+                        } else {
+                            AlertDialog.Builder builder = new AlertDialog.Builder(PbActivity.this);
+                            builder.setTitle(PbActivity.this.getString(R.string.error));
+                            builder.setMessage(this.mNetwork.getErrorString());
+                            builder.setPositiveButton(PbActivity.this.getString(R.string.retry), new DialogInterface.OnClickListener() { // from class: com.baidu.tieba.pb.PbActivity.PbAsyncTask.1
+                                @Override // android.content.DialogInterface.OnClickListener
+                                public void onClick(DialogInterface dialog, int which) {
+                                    PbActivity.this.startPbAsyncTask(PbAsyncTask.this.mType);
+                                }
+                            });
+                            builder.setNegativeButton(PbActivity.this.getString(R.string.cancel), new DialogInterface.OnClickListener() { // from class: com.baidu.tieba.pb.PbActivity.PbAsyncTask.2
+                                @Override // android.content.DialogInterface.OnClickListener
+                                public void onClick(DialogInterface dialog, int which) {
+                                    dialog.dismiss();
+                                }
+                            });
+                            if (PbActivity.this.mDialogMore != null && PbActivity.this.mDialogMore.isShowing()) {
+                                PbActivity.this.mDialogMore.dismiss();
+                            }
+                            builder.create().show();
+                        }
+                    } else {
+                        PbActivity.this.showToast(this.mNetwork.getErrorString());
+                    }
                 }
-                refreshActivity();
+                PbActivity.this.refreshActivity();
             } catch (Exception ex) {
                 TiebaLog.e(getClass().getName(), "onPostExecute", ex.getMessage());
             }
             PbActivity.this.mTask = null;
             hideProgress();
+            if (this.mType == 5) {
+                PbActivity.this.mAdapter.notifyDataSetInvalidated();
+            }
         }
 
         public void cancel() {
@@ -1371,58 +1755,6 @@ public class PbActivity extends BaseActivity {
                 if (PbActivity.this.mAdapter.isHaveHeader()) {
                     PbActivity.this.mAdapter.notifyDataSetInvalidated();
                 }
-            }
-        }
-
-        private void refreshActivity() {
-            try {
-                if (PbActivity.this.mModel != null && PbActivity.this.mModel.getData() != null) {
-                    ArrayList<PostData> list = PbActivity.this.mModel.getData().getPost_list();
-                    if (list != null) {
-                        PbActivity.this.mAdapter.setData(PbActivity.this.mModel);
-                        PbActivity.this.mAdapter.notifyDataSetChanged();
-                    }
-                    ThreadData threadData = PbActivity.this.mModel.getData().getThread();
-                    if (threadData != null && threadData.getTitle() != null) {
-                        PbActivity.this.mTitleText.setText(threadData.getTitle());
-                    }
-                }
-                if (PbActivity.this.mModel.getData() != null && PbActivity.this.mModel.getData().getForum().getId() != null && PbActivity.this.mMenu != null && PbActivity.this.mMenu.hasVisibleItems()) {
-                    if (PbActivity.this.mMenu.findItem(4) != null) {
-                        PbActivity.this.mMenu.findItem(4).setEnabled(true);
-                    }
-                    if (PbActivity.this.mMenu.findItem(5) != null) {
-                        if (!PbActivity.this.mModel.isCanTip()) {
-                            PbActivity.this.mMenu.findItem(5).setEnabled(false);
-                        } else {
-                            PbActivity.this.mMenu.findItem(5).setEnabled(true);
-                        }
-                    }
-                    if (!PbActivity.isAnonymityUser(PbActivity.this.mModel)) {
-                        if (PbActivity.this.mMenu.findItem(6) != null) {
-                            PbActivity.this.mMenu.findItem(6).setEnabled(true);
-                        }
-                        if (PbActivity.this.mMenu.findItem(8) != null) {
-                            PbActivity.this.mMenu.findItem(8).setEnabled(true);
-                        }
-                    }
-                    if (PbActivity.this.mMenu.findItem(7) != null) {
-                        PbActivity.this.mMenu.findItem(7).setEnabled(true);
-                    }
-                    if (PbActivity.this.mMenu.findItem(9) != null) {
-                        PbActivity.this.mMenu.findItem(9).setEnabled(true);
-                    }
-                    MenuItem hostMenu = PbActivity.this.mMenu.findItem(6);
-                    if (hostMenu != null) {
-                        hostMenu.setEnabled(PbActivity.isAnonymityUser(PbActivity.this.mModel) ? false : true);
-                    }
-                }
-                if (PbActivity.this.scrollButtom) {
-                    PbActivity.this.mPbList.setSelection(PbActivity.this.mPbList.getCount());
-                }
-                PbActivity.this.scrollButtom = false;
-            } catch (Exception ex) {
-                TiebaLog.e("PbActivity", "refreshActivity", "error = " + ex.getMessage());
             }
         }
 
@@ -1509,6 +1841,251 @@ public class PbActivity extends BaseActivity {
                     }
                 }
             }
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void startDelPostAsyncTask(int delType, String postId) {
+        String addr;
+        String accountId = TiebaApplication.getCurrentAccount();
+        if (accountId == null || accountId.length() <= 0) {
+            LoginActivity.startActivity((Activity) this, getString(R.string.login_to_use), true, (int) RequestResponseCode.REQUEST_LOGIN_PB_DEL_POST);
+        } else if (!this.mModel.getIsProcessDelPost()) {
+            this.mModel.setIsProcessDelPost(true);
+            if (this.mDelPostAsyncTask != null) {
+                this.mDelPostAsyncTask.cancel();
+                this.mDelPostAsyncTask = null;
+            }
+            ForumData forum = this.mModel.getData().getForum();
+            this.mDelPostAsyncTask = new DelPostAsyncTask(forum.getId(), forum.getName(), this.mModel.getData().getThread().getId(), postId, delType);
+            if (delType == 1) {
+                addr = String.valueOf(Config.SERVER_ADDRESS) + Config.DEL_THREAD_ADDRESS;
+            } else {
+                addr = String.valueOf(Config.SERVER_ADDRESS) + Config.DEL_POST_ADDRESS;
+            }
+            this.mDelPostAsyncTask.execute(addr);
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    /* loaded from: classes.dex */
+    public class DelPostAsyncTask extends AsyncTask<String, Integer, String> {
+        private int mDelType;
+        private String mForumId;
+        private String mForumName;
+        private NetWork mNetwork = null;
+        private String mPostId;
+        private String mThreadId;
+
+        public DelPostAsyncTask(String forumId, String forumName, String threadId, String postId, int delType) {
+            this.mForumId = forumId;
+            this.mForumName = forumName;
+            this.mThreadId = threadId;
+            this.mPostId = postId;
+            this.mDelType = delType;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        /* JADX INFO: Access modifiers changed from: protected */
+        @Override // android.os.AsyncTask
+        public String doInBackground(String... params) {
+            String url = params[0];
+            this.mNetwork = new NetWork(url);
+            this.mNetwork.addPostData("fid", this.mForumId);
+            this.mNetwork.addPostData("word", this.mForumName);
+            this.mNetwork.addPostData("z", this.mThreadId);
+            if (this.mDelType == 0) {
+                this.mNetwork.addPostData(PbActivity.URL_PID, this.mPostId);
+                this.mNetwork.addPostData("isfloor", "0");
+                this.mNetwork.addPostData("src", NetWorkCore.NET_TYPE_NET);
+            }
+            this.mNetwork.setIsNeedTbs(true);
+            this.mNetwork.postNetData();
+            if (this.mNetwork.isRequestSuccess()) {
+                return null;
+            }
+            return this.mNetwork.getErrorString();
+        }
+
+        public void cancel() {
+            if (this.mNetwork != null) {
+                this.mNetwork.cancelNetConnect();
+            }
+            PbActivity.this.mDelPostAsyncTask = null;
+            PbActivity.this.mModel.setIsProcessDelPost(false);
+            super.cancel(true);
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        /* JADX INFO: Access modifiers changed from: protected */
+        @Override // android.os.AsyncTask
+        public void onPostExecute(String result) {
+            super.onPostExecute((DelPostAsyncTask) result);
+            PbActivity.this.mDelPostAsyncTask = null;
+            PbActivity.this.mModel.setIsProcessDelPost(false);
+            if (this.mNetwork != null) {
+                if (result == null) {
+                    PbActivity.this.showToast(PbActivity.this.getString(R.string.success));
+                    if (this.mDelType == 0) {
+                        ArrayList<PostData> list = PbActivity.this.mModel.getData().getPost_list();
+                        int size = list.size();
+                        int i = 0;
+                        while (true) {
+                            if (i >= size) {
+                                break;
+                            } else if (!this.mPostId.equals(list.get(i).getId())) {
+                                i++;
+                            } else {
+                                list.remove(i);
+                                break;
+                            }
+                        }
+                        PbActivity.this.refreshActivity();
+                        return;
+                    }
+                    String from = PbActivity.this.getIntent().getStringExtra("st_type");
+                    if (from != null && from.equals("tb_frslist")) {
+                        PbActivity.this.setResult(-1);
+                    }
+                    PbActivity.this.closeActivity();
+                    return;
+                }
+                PbActivity.this.showToast(result);
+            }
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void startForbidUserAsyncTask(String userName) {
+        String accountId = TiebaApplication.getCurrentAccount();
+        if (accountId == null || accountId.length() <= 0) {
+            LoginActivity.startActivity((Activity) this, getString(R.string.login_to_use), true, (int) RequestResponseCode.REQUEST_LOGIN_PB_FORBID_USER);
+        } else if (!this.mModel.getIsProcessForbidUser()) {
+            this.mModel.setIsProcessForbidUser(true);
+            if (this.mForbidUserAsyncTask != null) {
+                this.mForbidUserAsyncTask.cancel();
+                this.mForbidUserAsyncTask = null;
+            }
+            ForumData forum = this.mModel.getData().getForum();
+            this.mForbidUserAsyncTask = new ForbidUserAsyncTask(forum.getId(), forum.getName(), this.mModel.getData().getThread().getId(), userName, String.valueOf(this.mForbidTime));
+            this.mForbidUserAsyncTask.execute("http://c.tieba.baidu.com/c/c/bawu/commitprison");
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    /* loaded from: classes.dex */
+    public class ForbidUserAsyncTask extends AsyncTask<String, Integer, String> {
+        private String mForbidTime;
+        private String mForumId;
+        private String mForumName;
+        private NetWork mNetwork = null;
+        private String mThreadId;
+        private String mUserName;
+
+        public ForbidUserAsyncTask(String forumId, String forumName, String threadId, String userName, String forbidTime) {
+            this.mForumId = forumId;
+            this.mForumName = forumName;
+            this.mThreadId = threadId;
+            this.mUserName = userName;
+            this.mForbidTime = forbidTime;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        /* JADX INFO: Access modifiers changed from: protected */
+        @Override // android.os.AsyncTask
+        public String doInBackground(String... params) {
+            String url = params[0];
+            this.mNetwork = new NetWork(url);
+            this.mNetwork.addPostData("day", this.mForbidTime);
+            this.mNetwork.addPostData("un", this.mUserName);
+            this.mNetwork.addPostData("fid", this.mForumId);
+            this.mNetwork.addPostData("word", this.mForumName);
+            this.mNetwork.addPostData("z", this.mThreadId);
+            this.mNetwork.addPostData("ntn", "banid");
+            this.mNetwork.setIsNeedTbs(true);
+            this.mNetwork.postNetData();
+            if (this.mNetwork.isRequestSuccess()) {
+                return null;
+            }
+            return this.mNetwork.getErrorString();
+        }
+
+        public void cancel() {
+            if (this.mNetwork != null) {
+                this.mNetwork.cancelNetConnect();
+            }
+            PbActivity.this.mForbidUserAsyncTask = null;
+            PbActivity.this.mModel.setIsProcessForbidUser(false);
+            super.cancel(true);
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        /* JADX INFO: Access modifiers changed from: protected */
+        @Override // android.os.AsyncTask
+        public void onPostExecute(String result) {
+            super.onPostExecute((ForbidUserAsyncTask) result);
+            PbActivity.this.mForbidUserAsyncTask = null;
+            PbActivity.this.mModel.setIsProcessForbidUser(false);
+            if (this.mNetwork != null) {
+                if (result == null) {
+                    PbActivity.this.showToast(PbActivity.this.getString(R.string.success));
+                } else {
+                    PbActivity.this.showToast(result);
+                }
+            }
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void refreshActivity() {
+        try {
+            if (this.mModel != null && this.mModel.getData() != null) {
+                ArrayList<PostData> list = this.mModel.getData().getPost_list();
+                if (list != null) {
+                    this.mAdapter.setData(this.mModel);
+                    this.mAdapter.notifyDataSetChanged();
+                }
+                ForumData forumData = this.mModel.getData().getForum();
+                if (forumData != null && forumData.getName() != null) {
+                    this.mTitleText.setText(String.valueOf(forumData.getName()) + getString(R.string.forum));
+                }
+            }
+            if (this.mModel != null && this.mModel.getData() != null && this.mModel.getData().getForum().getId() != null && this.mMenu != null && this.mMenu.hasVisibleItems()) {
+                if (this.mMenu.findItem(4) != null) {
+                    this.mMenu.findItem(4).setEnabled(true);
+                }
+                if (this.mMenu.findItem(5) != null) {
+                    if (!this.mModel.isCanTip()) {
+                        this.mMenu.findItem(5).setEnabled(false);
+                    } else {
+                        this.mMenu.findItem(5).setEnabled(true);
+                    }
+                }
+                if (!isAnonymityUser(this.mModel)) {
+                    if (this.mMenu.findItem(6) != null) {
+                        this.mMenu.findItem(6).setEnabled(true);
+                    }
+                    if (this.mMenu.findItem(8) != null) {
+                        this.mMenu.findItem(8).setEnabled(true);
+                    }
+                }
+                if (this.mMenu.findItem(7) != null) {
+                    this.mMenu.findItem(7).setEnabled(true);
+                }
+                if (this.mMenu.findItem(9) != null) {
+                    this.mMenu.findItem(9).setEnabled(true);
+                }
+                MenuItem hostMenu = this.mMenu.findItem(6);
+                if (hostMenu != null) {
+                    hostMenu.setEnabled(isAnonymityUser(this.mModel) ? false : true);
+                }
+            }
+            if (this.scrollButtom) {
+                this.mPbList.setSelection(this.mPbList.getCount());
+            }
+            this.scrollButtom = false;
+        } catch (Exception ex) {
+            TiebaLog.e("PbActivity", "refreshActivity", "error = " + ex.getMessage());
         }
     }
 }

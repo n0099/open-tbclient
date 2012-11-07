@@ -9,6 +9,7 @@ import android.os.Handler;
 import android.os.Message;
 import android.support.v4.view.accessibility.AccessibilityEventCompat;
 import android.util.Log;
+import cn.jingling.lib.file.ImageFile;
 import com.baidu.tieba.mention.MentionActivity;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -178,7 +179,7 @@ public class LocalBroadcastManager {
                             receiver.broadcasting = true;
                         } else if (debug) {
                             switch (match) {
-                                case -4:
+                                case ImageFile.FILE_PATH_NOT_EXIST /* -4 */:
                                     reason = "category";
                                     break;
                                 case -3:

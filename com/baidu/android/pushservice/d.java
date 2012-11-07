@@ -1,7 +1,6 @@
 package com.baidu.android.pushservice;
 
 import android.os.Handler;
-import com.baidu.location.LocationClientOption;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
@@ -66,7 +65,7 @@ public final class d {
         }
         this.o++;
         if (this.o < 5) {
-            this.a.postDelayed(this.r, (1 << (this.o - 1)) * 5 * LocationClientOption.MIN_SCAN_SPAN);
+            this.a.postDelayed(this.r, (1 << (this.o - 1)) * 5 * 1000);
             return;
         }
         y.a().a((String) null, (String) null);

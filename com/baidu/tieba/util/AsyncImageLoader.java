@@ -8,7 +8,10 @@ import com.baidu.tieba.data.Config;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
 public class AsyncImageLoader {
+    private static final String SMALL = "_small";
+    private boolean isSmallPic;
     private Context mContext;
+    private boolean mIspv;
     private boolean mSupportHoldUrl;
     private int mImageWidth = 0;
     private int mImageHeight = 0;
@@ -22,8 +25,12 @@ public class AsyncImageLoader {
 
     public AsyncImageLoader(Context context) {
         this.mSupportHoldUrl = false;
+        this.mIspv = false;
+        this.isSmallPic = false;
         this.mContext = context;
         this.mSupportHoldUrl = false;
+        this.isSmallPic = false;
+        this.mIspv = false;
     }
 
     public void setSupportHoldUrl(boolean support) {
@@ -31,6 +38,14 @@ public class AsyncImageLoader {
         if (!this.mSupportHoldUrl) {
             this.mHoldData.clear();
         }
+    }
+
+    public void setIsPv(boolean isPv) {
+        this.mIspv = isPv;
+    }
+
+    public void setSmallPic(boolean src) {
+        this.isSmallPic = src;
     }
 
     public void clearHoldUrl() {
@@ -84,47 +99,63 @@ public class AsyncImageLoader {
 
     /* JADX INFO: Access modifiers changed from: private */
     public Bitmap loadBitmap(String imageUrl, ImageCallback mImageCallback, Integer type, boolean from_db) {
+        if (imageUrl == null) {
+            return null;
+        }
+        String cacheImageUrl = imageUrl;
+        if (this.isSmallPic) {
+            cacheImageUrl = String.valueOf(cacheImageUrl) + SMALL;
+        }
         SDRamImage sdramImage = TiebaApplication.app.getSdramImage();
         if (sdramImage != null) {
             Bitmap bitmap = null;
             if (type.intValue() == 0) {
-                bitmap = sdramImage.getPic(imageUrl);
+                bitmap = sdramImage.getPic(cacheImageUrl);
             } else if (type.intValue() != 3) {
-                bitmap = sdramImage.getPhoto(imageUrl);
+                bitmap = sdramImage.getPhoto(cacheImageUrl);
             }
             if (bitmap != null) {
                 return bitmap;
             }
         }
-        for (int i = 0; i < this.mTasks.size(); i++) {
-            try {
+        try {
+            int size = this.mTasks.size();
+            for (int i = 0; i < size; i++) {
                 if (this.mTasks.get(i).getUrl().equals(imageUrl)) {
                     return null;
                 }
-            } catch (Exception ex) {
-                TiebaLog.e("AsyncImageLoader", "loadBitmap", "error = " + ex.getMessage());
             }
-        }
-        if (this.mTasks.size() >= 25) {
-            if (!this.mSupportHoldUrl) {
-                ImageAsyncTask tmp = this.mTasks.get(0);
-                tmp.cancel();
-                this.mTasks.remove(0);
-                ImageAsyncTask task = new ImageAsyncTask(imageUrl, type.intValue(), mImageCallback, from_db);
-                this.mTasks.add(task);
-                task.execute(new String[0]);
+            if (this.mSupportHoldUrl && this.mHoldData != null) {
+                int size2 = this.mHoldData.size();
+                for (int i2 = 0; i2 < size2; i2++) {
+                    if (this.mHoldData.get(i2).url != null && this.mHoldData.get(i2).url.equals(imageUrl)) {
+                        return null;
+                    }
+                }
+            }
+            if (this.mTasks.size() >= 25) {
+                if (!this.mSupportHoldUrl) {
+                    ImageAsyncTask tmp = this.mTasks.get(0);
+                    tmp.cancel();
+                    this.mTasks.remove(0);
+                    ImageAsyncTask task = new ImageAsyncTask(imageUrl, type.intValue(), mImageCallback, from_db);
+                    this.mTasks.add(task);
+                    task.execute(new String[0]);
+                } else {
+                    HoldData data = new HoldData(this, null);
+                    data.callback = mImageCallback;
+                    data.url = imageUrl;
+                    data.type = type.intValue();
+                    data.from_db = from_db;
+                    this.mHoldData.add(data);
+                }
             } else {
-                HoldData data = new HoldData(this, null);
-                data.callback = mImageCallback;
-                data.url = imageUrl;
-                data.type = type.intValue();
-                data.from_db = from_db;
-                this.mHoldData.add(data);
+                ImageAsyncTask task2 = new ImageAsyncTask(imageUrl, type.intValue(), mImageCallback, from_db);
+                this.mTasks.add(task2);
+                task2.execute(new String[0]);
             }
-        } else {
-            ImageAsyncTask task2 = new ImageAsyncTask(imageUrl, type.intValue(), mImageCallback, from_db);
-            this.mTasks.add(task2);
-            task2.execute(new String[0]);
+        } catch (Exception ex) {
+            TiebaLog.e("AsyncImageLoader", "loadBitmap", "error = " + ex.getMessage());
         }
         return null;
     }
@@ -132,6 +163,7 @@ public class AsyncImageLoader {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public class ImageAsyncTask extends AsyncTask<String, Integer, Bitmap> {
+        private String cacheImageUrl;
         private boolean from_db;
         private Bitmap mBitmap;
         private ImageCallback mImageCallback;
@@ -147,11 +179,17 @@ public class AsyncImageLoader {
             this.mType = 0;
             this.mBitmap = null;
             this.from_db = false;
+            this.cacheImageUrl = null;
             this.mUrl = url;
             this.mType = type;
             this.mImageCallback = callback;
             this.mBitmap = null;
             this.from_db = from_db;
+            if (AsyncImageLoader.this.isSmallPic) {
+                this.cacheImageUrl = String.valueOf(url) + AsyncImageLoader.SMALL;
+            } else {
+                this.cacheImageUrl = url;
+            }
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -160,24 +198,26 @@ public class AsyncImageLoader {
         public Bitmap doInBackground(String... params) {
             String fullUrl;
             SDRamImage sdramImage;
-            String name;
             SDRamImage sdramImage2;
             boolean need_cash = false;
             boolean isGif = false;
             try {
+                String name = StringHelper.getNameMd5FromUrl(this.mUrl);
+                if (AsyncImageLoader.this.isSmallPic) {
+                    name = String.valueOf(name) + AsyncImageLoader.SMALL;
+                }
                 if (this.from_db) {
                     if (this.mType == 1) {
-                        this.mBitmap = DatabaseService.getFriendPhoto(this.mUrl);
+                        this.mBitmap = DatabaseService.getFriendPhoto(this.cacheImageUrl);
                     } else if (this.mType == 2) {
-                        this.mBitmap = DatabaseService.getPbPhoto(this.mUrl);
+                        this.mBitmap = DatabaseService.getPbPhoto(this.cacheImageUrl);
                     } else if (this.mType == 3) {
-                        String name2 = StringHelper.getNameFromUrl(this.mUrl);
-                        if (name2 != null) {
-                            this.mBitmap = FileHelper.getImage(Config.TMP_HOTSPOT_DIR_NAME, name2);
+                        if (name != null) {
+                            this.mBitmap = FileHelper.getImage(Config.TMP_HOTSPOT_DIR_NAME, name);
                         }
-                    } else if (this.mType == 0 && (name = StringHelper.getNameFromUrl(this.mUrl)) != null) {
+                    } else if (this.mType == 0 && name != null) {
                         if (FileHelper.CheckFile(Config.TMP_PIC_DIR_NAME, name) && (sdramImage2 = TiebaApplication.app.getSdramImage()) != null) {
-                            sdramImage2.deletePic();
+                            sdramImage2.deletePic(Config.getPbImageSize());
                         }
                         this.mBitmap = FileHelper.getImage(Config.TMP_PIC_DIR_NAME, name);
                         if (this.mBitmap != null) {
@@ -211,10 +251,15 @@ public class AsyncImageLoader {
                         }
                         buffer.append(String.valueOf(pb_image_height));
                         buffer.append("&imgtype=0");
-                        if (TiebaApplication.app.getViewImageQuality() == 1) {
+                        if (AsyncImageLoader.this.isSmallPic) {
+                            buffer.append("&qulity=" + String.valueOf(45));
+                        } else if (TiebaApplication.app.getViewImageQuality() == 1) {
                             buffer.append("&qulity=" + String.valueOf(80));
                         } else {
                             buffer.append("&qulity=" + String.valueOf(45));
+                        }
+                        if (AsyncImageLoader.this.mIspv) {
+                            buffer.append("&ispv=1");
                         }
                         fullUrl = buffer.toString();
                     } else if (this.mType == 3) {
@@ -229,7 +274,7 @@ public class AsyncImageLoader {
                     byte[] tmp = this.mNetWork.getNetData();
                     if (this.mNetWork.isRequestSuccess()) {
                         if (this.mType == 0 && (sdramImage = TiebaApplication.app.getSdramImage()) != null) {
-                            sdramImage.deletePic();
+                            sdramImage.deletePic(Config.getPbImageSize());
                         }
                         this.mBitmap = BitmapHelper.Bytes2Bitmap(tmp);
                         isGif = UtilHelper.isGif(tmp);
@@ -251,29 +296,26 @@ public class AsyncImageLoader {
                 SDRamImage sdramImage3 = TiebaApplication.app.getSdramImage();
                 if (sdramImage3 != null && this.mBitmap != null) {
                     if (this.mType == 0) {
-                        sdramImage3.addPic(this.mUrl, this.mBitmap, isGif);
+                        sdramImage3.addPic(this.cacheImageUrl, this.mBitmap, isGif);
                     } else if (this.mType != 3) {
-                        sdramImage3.addPhoto(this.mUrl, this.mBitmap);
+                        sdramImage3.addPhoto(this.cacheImageUrl, this.mBitmap);
                     }
                 }
                 publishProgress(new Integer[0]);
                 if (need_cash && this.mBitmap != null) {
                     if (this.mType == 1) {
-                        DatabaseService.cashFriendPhoto(this.mUrl, this.mBitmap);
+                        DatabaseService.cashFriendPhoto(this.cacheImageUrl, this.mBitmap);
                     } else if (this.mType == 2) {
-                        DatabaseService.cashPbPhoto(this.mUrl, this.mBitmap);
+                        DatabaseService.cashPbPhoto(this.cacheImageUrl, this.mBitmap);
                     } else if (this.mType == 3) {
-                        if (this.mBitmap != null && this.mUrl != null) {
-                            FileHelper.SaveFile(Config.TMP_HOTSPOT_DIR_NAME, StringHelper.getNameFromUrl(this.mUrl), this.mBitmap, 100);
+                        if (this.mBitmap != null && this.mUrl != null && name != null) {
+                            FileHelper.SaveFile(Config.TMP_HOTSPOT_DIR_NAME, name, this.mBitmap, 100);
                         }
-                    } else {
-                        String name3 = StringHelper.getNameFromUrl(this.mUrl);
-                        if (name3 != null) {
-                            if (!isGif) {
-                                FileHelper.SaveFile(Config.TMP_PIC_DIR_NAME, name3, this.mBitmap, 80);
-                            } else {
-                                FileHelper.SaveGifFile(Config.TMP_PIC_DIR_NAME, name3, this.imageData);
-                            }
+                    } else if (name != null) {
+                        if (!isGif) {
+                            FileHelper.SaveFile(Config.TMP_PIC_DIR_NAME, name, this.mBitmap, 80);
+                        } else {
+                            FileHelper.SaveGifFile(Config.TMP_PIC_DIR_NAME, name, this.imageData);
                         }
                     }
                 }
@@ -292,7 +334,7 @@ public class AsyncImageLoader {
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // android.os.AsyncTask
         public void onProgressUpdate(Integer... values) {
-            if (this.mImageCallback != null && this.mBitmap != null) {
+            if (this.mImageCallback != null) {
                 this.mImageCallback.imageLoaded(this.mBitmap, this.mUrl, this.iscached);
             }
             super.onProgressUpdate((Object[]) values);
@@ -322,6 +364,7 @@ public class AsyncImageLoader {
             if (this.mNetWork != null) {
                 this.mNetWork.cancelNetConnect();
             }
+            super.cancel(true);
         }
     }
 

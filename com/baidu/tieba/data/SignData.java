@@ -9,6 +9,8 @@ public class SignData {
     private int count_sign_num = 0;
     private int count_total_sign_num = 0;
     private int forum_rank = 0;
+    private int sign_bonus_point = 3;
+    private int sign_count = 0;
 
     public void setForumRank(int forum_rank) {
         this.forum_rank = forum_rank;
@@ -42,6 +44,18 @@ public class SignData {
         return this.count_total_sign_num;
     }
 
+    public int getBonusPoint() {
+        return this.sign_bonus_point;
+    }
+
+    public void setSignCount(int signCount) {
+        this.sign_count = signCount;
+    }
+
+    public int getSignCount() {
+        return this.sign_count;
+    }
+
     public void parserJson(String src) {
         try {
             JSONObject json = new JSONObject(src);
@@ -59,6 +73,7 @@ public class SignData {
                 this.user_sign_rank = mJson.getInt("user_sign_rank");
                 this.count_sign_num = mJson.getInt("cont_sign_num");
                 this.count_total_sign_num = mJson.getInt("cout_total_sing_num");
+                this.sign_bonus_point = mJson.getInt("sign_bonus_point");
             }
         } catch (JSONException e) {
             e.printStackTrace();

@@ -1,6 +1,7 @@
 package com.baidu.tieba.pb;
 
 import android.content.Context;
+import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
 import android.text.method.LinkMovementMethod;
@@ -13,9 +14,11 @@ import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import com.baidu.tieba.R;
+import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.data.Config;
 import com.baidu.tieba.data.ContentData;
 import com.baidu.tieba.data.PostData;
+import com.baidu.tieba.data.ThreadData;
 import com.baidu.tieba.model.PbModel;
 import com.baidu.tieba.person.PersonInfoActivity;
 import com.baidu.tieba.util.AsyncImageLoader;
@@ -25,13 +28,18 @@ import com.baidu.tieba.util.TiebaLog;
 import com.baidu.tieba.util.UtilHelper;
 import com.baidu.tieba.view.CustomTextView;
 import com.baidu.tieba.view.PbImageView;
+import java.text.MessageFormat;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class PbAdapter extends BaseAdapter {
     public static final int DONT_HAVE = 0;
+    public static final int FOOTER_INDEX = -2;
+    public static final int HEADER_INDEX = -1;
     public static final int MAY_HAVE = 1;
     public static final int MUST_HAVE = 2;
+    public static final int THREAD_TITLE_INDEX = -3;
     private Context mContext;
+    private String mCurrAccount;
     private ArrayList<PostData> mData;
     private int mFontHeight;
     private int mHaveFooter;
@@ -45,14 +53,17 @@ public class PbAdapter extends BaseAdapter {
     private PbModel mPbModel;
     private ArrayList<ProgressBar> mProgressbars;
     private int mTextConfig;
+    private int mUserIdentity;
 
     public PbAdapter(Context context, PbModel model, int imageMaxWidth) {
         this.mPbModel = model;
         this.mContext = context;
         if (this.mPbModel != null && this.mPbModel.getData() != null) {
             this.mData = this.mPbModel.getData().getPost_list();
+            this.mUserIdentity = this.mPbModel.getData().getUserIdentity();
         } else {
             this.mData = null;
+            this.mUserIdentity = 0;
         }
         this.mIsShowImage = true;
         this.mHaveHeader = 0;
@@ -60,10 +71,11 @@ public class PbAdapter extends BaseAdapter {
         this.mIsProcessMore = false;
         this.mIsProcessPre = false;
         this.mTextConfig = 3;
-        this.mImageMaxWidth = imageMaxWidth > 370 ? Config.PB_IMAGE_NEW_MAX_WIDTH : imageMaxWidth;
+        this.mImageMaxWidth = imageMaxWidth > 350 ? Config.PB_IMAGE_NEW_MAX_WIDTH : imageMaxWidth;
         this.mImageLoader = new AsyncImageLoader(this.mContext);
         this.mImageLoader.setImagesize(this.mImageMaxWidth, (int) (this.mImageMaxWidth * 1.62f));
         this.mProgressbars = new ArrayList<>();
+        this.mCurrAccount = TiebaApplication.getCurrentAccount();
     }
 
     private void initHeight() {
@@ -78,9 +90,11 @@ public class PbAdapter extends BaseAdapter {
         this.mPbModel = model;
         if (this.mPbModel != null && this.mPbModel.getData() != null) {
             this.mData = this.mPbModel.getData().getPost_list();
-        } else {
-            this.mData = null;
+            this.mUserIdentity = this.mPbModel.getData().getUserIdentity();
+            return;
         }
+        this.mData = null;
+        this.mUserIdentity = 0;
     }
 
     public void releaseProgressBar() {
@@ -107,12 +121,12 @@ public class PbAdapter extends BaseAdapter {
     @Override // android.widget.Adapter
     public int getCount() {
         if (this.mData != null) {
-            int count = this.mData.size();
+            int count = this.mData.size() + 1;
             if (this.mHaveHeader != 0) {
                 count++;
             }
             if (this.mHaveFooter != 0) {
-                count++;
+                return count + 1;
             }
             return count;
         }
@@ -131,9 +145,14 @@ public class PbAdapter extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public long getItemId(int position) {
-        int index = position;
+        int index;
+        if (position == 0) {
+            return -3;
+        }
         if (this.mHaveHeader != 0) {
-            index--;
+            index = position - 2;
+        } else {
+            index = position - 1;
         }
         if (this.mHaveFooter != 0 && position == getCount() - 1) {
             index = -2;
@@ -154,6 +173,29 @@ public class PbAdapter extends BaseAdapter {
         imageView.setFocusable(false);
         ImageOnClickListener listern = new ImageOnClickListener(content, index);
         imageView.setOnClickListener(listern);
+        imageView.setLayoutParams(imageViewparams);
+        return imageView;
+    }
+
+    private ImageView createVideoView(ArrayList<ContentData> content, ContentData seg) {
+        ImageView imageView = new ImageView(this.mContext);
+        LinearLayout.LayoutParams imageViewparams = new LinearLayout.LayoutParams(-2, -2);
+        int px_v = UtilHelper.dip2px(this.mContext, 15.0f);
+        imageViewparams.topMargin = px_v;
+        imageViewparams.bottomMargin = 0;
+        imageView.setScaleType(ImageView.ScaleType.CENTER);
+        imageView.setTag(seg.getLink());
+        imageView.setClickable(true);
+        imageView.setFocusable(false);
+        imageView.setImageDrawable(this.mContext.getResources().getDrawable(R.drawable.video_pic));
+        imageView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pb.PbAdapter.1
+            @Override // android.view.View.OnClickListener
+            public void onClick(View v) {
+                if (v.getTag() != null && (v.getTag() instanceof String)) {
+                    UtilHelper.startWebActivity(PbAdapter.this.mContext, (String) v.getTag());
+                }
+            }
+        });
         imageView.setLayoutParams(imageViewparams);
         return imageView;
     }
@@ -186,65 +228,71 @@ public class PbAdapter extends BaseAdapter {
         }
     }
 
-    /* JADX WARN: Not initialized variable reg: 13, insn: 0x0666: MOVE  (r12 I:??[OBJECT, ARRAY]) = (r13 I:??[OBJECT, ARRAY] A[D('holder' com.baidu.tieba.pb.PbAdapter$ViewHolder)]), block:B:141:0x0666 */
     @Override // android.widget.Adapter
     public View getView(int position, View convertView, ViewGroup parent) {
+        Resources rs;
+        int itemViewType;
         ViewHolder holder;
         long data_index;
-        ViewHolder holder2;
+        ThreadData thread;
         if (this.mData == null) {
             return convertView;
         }
         try {
+            rs = this.mContext.getResources();
+            itemViewType = getItemViewType(position);
             if (convertView == null) {
                 LayoutInflater mInflater = LayoutInflater.from(this.mContext);
-                try {
-                    if (getItemViewType(position) == 0) {
-                        if (this.mPbModel.getData().getIsHasFloor()) {
-                            convertView = mInflater.inflate(R.layout.pb_item_has_floor, (ViewGroup) null);
-                        } else {
-                            convertView = mInflater.inflate(R.layout.pb_item, (ViewGroup) null);
-                        }
-                        holder2 = new ViewHolder(this, null);
-                        holder2.mPhoto = (ImageView) convertView.findViewById(R.id.photo);
-                        holder2.mUserName = (TextView) convertView.findViewById(R.id.user_name);
-                        holder2.mFloorText = (TextView) convertView.findViewById(R.id.floor);
-                        holder2.mRank = (TextView) convertView.findViewById(R.id.rank);
-                        holder2.mTime = (TextView) convertView.findViewById(R.id.time);
-                        holder2.mText = (TextView) convertView.findViewById(R.id.text);
-                        holder2.mText.setLineSpacing(0.0f, 1.2f);
-                        holder2.mSeg = (LinearLayout) convertView.findViewById(R.id.seg);
-                        holder2.mMark = (ImageView) convertView.findViewById(R.id.mark);
-                        holder2.mPhotoClick = new PhotoOnClickListener();
-                        holder2.mPhoto.setOnClickListener(holder2.mPhotoClick);
-                        holder2.mUserName.setOnClickListener(holder2.mPhotoClick);
-                        BitmapDrawable dr = new BitmapDrawable(BitmapHelper.getCashBitmap(R.drawable.photo_bg));
-                        holder2.mPhoto.setBackgroundDrawable(dr);
-                        if (this.mPbModel.getData().getIsHasFloor()) {
-                            holder2.mSubPostNum = (TextView) convertView.findViewById(R.id.text_reply_num);
-                            holder2.mImageSubPost = (ImageView) convertView.findViewById(R.id.image_reply_num);
-                            holder = holder2;
-                            convertView.setTag(holder);
-                        }
+                if (itemViewType == 0) {
+                    if (this.mPbModel.getData().getIsHasFloor()) {
+                        convertView = mInflater.inflate(R.layout.pb_item_has_floor, (ViewGroup) null);
                     } else {
-                        convertView = mInflater.inflate(R.layout.page_item, (ViewGroup) null);
-                        holder2 = new ViewHolder(this, null);
-                        holder2.mPageText = (TextView) convertView.findViewById(R.id.page_text);
-                        holder2.mProgress = (ProgressBar) convertView.findViewById(R.id.progress);
-                        this.mProgressbars.add(holder2.mProgress);
+                        convertView = mInflater.inflate(R.layout.pb_item, (ViewGroup) null);
                     }
-                    holder = holder2;
-                    convertView.setTag(holder);
-                } catch (Exception e) {
-                    ex = e;
-                    TiebaLog.e("PbAdapter", "getView", "error = " + ex.getMessage());
-                    return convertView;
+                    holder = new ViewHolder(this, null);
+                    holder.mPhoto = (ImageView) convertView.findViewById(R.id.photo);
+                    holder.mUserName = (TextView) convertView.findViewById(R.id.user_name);
+                    holder.mFloorText = (TextView) convertView.findViewById(R.id.floor);
+                    holder.mRank = (TextView) convertView.findViewById(R.id.rank);
+                    holder.mTime = (TextView) convertView.findViewById(R.id.time);
+                    holder.mText = (TextView) convertView.findViewById(R.id.text);
+                    holder.mText.setLineSpacing(0.0f, 1.2f);
+                    holder.mSeg = (LinearLayout) convertView.findViewById(R.id.seg);
+                    holder.mMark = (ImageView) convertView.findViewById(R.id.mark);
+                    holder.mPhotoClick = new PhotoOnClickListener();
+                    holder.mDelPostClick = new DelPostClickListener();
+                    holder.mForbidUserClick = new ForbidUserClickListener();
+                    holder.mPhoto.setOnClickListener(holder.mPhotoClick);
+                    holder.mUserName.setOnClickListener(holder.mPhotoClick);
+                    holder.mForbidUser = (TextView) convertView.findViewById(R.id.forbid_user);
+                    holder.mDelPost = (TextView) convertView.findViewById(R.id.del_post);
+                    holder.mManageDivider = convertView.findViewById(R.id.manage_divider);
+                    BitmapDrawable dr = new BitmapDrawable(BitmapHelper.getCashBitmap(R.drawable.photo_bg));
+                    holder.mPhoto.setBackgroundDrawable(dr);
+                    if (this.mPbModel.getData().getIsHasFloor()) {
+                        holder.mSubPostNum = (TextView) convertView.findViewById(R.id.text_reply_num);
+                        holder.mImageSubPost = (ImageView) convertView.findViewById(R.id.image_reply_num);
+                    }
+                } else if (itemViewType == 1) {
+                    convertView = mInflater.inflate(R.layout.page_item, (ViewGroup) null);
+                    holder = new ViewHolder(this, null);
+                    holder.mPageText = (TextView) convertView.findViewById(R.id.page_text);
+                    holder.mProgress = (ProgressBar) convertView.findViewById(R.id.progress);
+                    this.mProgressbars.add(holder.mProgress);
+                } else {
+                    convertView = mInflater.inflate(R.layout.pb_thread_name, (ViewGroup) null);
+                    holder = new ViewHolder(this, null);
+                    holder.mPageText = (TextView) convertView.findViewById(R.id.thread_name);
+                    if (this.mPbModel != null && this.mPbModel.getData() != null && (thread = this.mPbModel.getData().getThread()) != null && thread.getTitle() != null && thread.getTitle().length() > 0) {
+                        holder.mPageText.setText(thread.getTitle());
+                    }
                 }
+                convertView.setTag(holder);
             } else {
                 holder = (ViewHolder) convertView.getTag();
             }
             data_index = getItemId(position);
-            if (this.mPbModel.getData().getIsHasFloor() && getItemViewType(position) == 0) {
+            if (this.mPbModel.getData().getIsHasFloor() && itemViewType == 0) {
                 if (getItem(position) != null && ((PostData) getItem(position)).getFloor_num() == 1) {
                     holder.mSubPostNum.setVisibility(4);
                     holder.mImageSubPost.setVisibility(4);
@@ -253,10 +301,10 @@ public class PbAdapter extends BaseAdapter {
                     holder.mImageSubPost.setVisibility(0);
                 }
             }
-        } catch (Exception e2) {
-            ex = e2;
+        } catch (Exception ex) {
+            TiebaLog.e("PbAdapter", "getView", "error = " + ex.getMessage());
         }
-        if (getItemViewType(position) == 1) {
+        if (itemViewType == 1 || itemViewType == 2) {
             if (data_index == -1) {
                 if (this.mIsProcessPre) {
                     holder.mProgress.setVisibility(0);
@@ -264,9 +312,21 @@ public class PbAdapter extends BaseAdapter {
                 } else {
                     holder.mProgress.setVisibility(8);
                     if (this.mHaveHeader == 1) {
-                        holder.mPageText.setText(R.string.may_have_more);
+                        if (this.mPbModel.getMarkMode()) {
+                            holder.mPageText.setText(R.string.may_have_more);
+                        } else if (this.mPbModel.getSequence()) {
+                            holder.mPageText.setText(MessageFormat.format(rs.getString(R.string.load_next_page), Integer.valueOf(this.mPbModel.getBigPageNumber())));
+                        } else {
+                            holder.mPageText.setText(MessageFormat.format(rs.getString(R.string.load_more_atlast), Integer.valueOf(this.mPbModel.getData().getPage().getTotal_page())));
+                        }
                     } else if (this.mHaveHeader == 2) {
-                        holder.mPageText.setText(R.string.load_more);
+                        if (this.mPbModel.getMarkMode()) {
+                            holder.mPageText.setText(R.string.load_more);
+                        } else if (this.mPbModel.getSequence()) {
+                            holder.mPageText.setText(MessageFormat.format(rs.getString(R.string.load_prev_page), Integer.valueOf(this.mPbModel.getSmallPageNumber())));
+                        } else {
+                            holder.mPageText.setText(MessageFormat.format(rs.getString(R.string.load_next_page), Integer.valueOf(this.mPbModel.getBigPageNumber())));
+                        }
                     } else {
                         holder.mPageText.setText((CharSequence) null);
                     }
@@ -278,7 +338,17 @@ public class PbAdapter extends BaseAdapter {
                 } else {
                     holder.mProgress.setVisibility(8);
                     if (this.mHaveFooter == 1 || this.mHaveFooter == 2) {
-                        holder.mPageText.setText(R.string.may_have_more);
+                        if (this.mPbModel.getMarkMode()) {
+                            holder.mPageText.setText(R.string.may_have_more);
+                        } else if (this.mPbModel.getSequence()) {
+                            if (this.mPbModel.getBigPageNumber() == this.mPbModel.getData().getPage().getTotal_page()) {
+                                holder.mPageText.setText(MessageFormat.format(rs.getString(R.string.load_more_atlast), Integer.valueOf(this.mPbModel.getData().getPage().getTotal_page())));
+                            } else {
+                                holder.mPageText.setText(MessageFormat.format(rs.getString(R.string.load_next_page), Integer.valueOf(this.mPbModel.getBigPageNumber())));
+                            }
+                        } else {
+                            holder.mPageText.setText(MessageFormat.format(rs.getString(R.string.load_prev_page), Integer.valueOf(this.mPbModel.getSmallPageNumber())));
+                        }
                     } else {
                         holder.mPageText.setText((CharSequence) null);
                     }
@@ -326,7 +396,7 @@ public class PbAdapter extends BaseAdapter {
         if (id == null || id.length() <= 0 || id.equals("0")) {
             holder.mUserName.setTextColor(-16777216);
         } else {
-            holder.mUserName.setTextColor(-16749848);
+            holder.mUserName.setTextColor(-9989158);
         }
         holder.mPhoto.setOnClickListener(holder.mPhotoClick);
         if (this.mPbModel.getMarkId() != null && data.getId() != null && this.mPbModel.getMarkId().equals(data.getId())) {
@@ -347,9 +417,46 @@ public class PbAdapter extends BaseAdapter {
         }
         holder.mTime.setText(StringHelper.getTimeString(data.getTime()));
         if (this.mPbModel.getData().getIsHasFloor()) {
-            holder.mSubPostNum.setText(String.valueOf(data.getSubPostNum()));
+            int subPostNum = data.getSubPostNum();
+            if (subPostNum > 0) {
+                holder.mSubPostNum.setText(String.valueOf(data.getSubPostNum()));
+            } else {
+                holder.mSubPostNum.setText((CharSequence) null);
+            }
         }
         holder.mFloorText.setText(String.valueOf(String.valueOf(data.getFloor_num())) + this.mContext.getString(R.string.floor));
+        holder.mForbidUser.setVisibility(4);
+        holder.mDelPost.setVisibility(4);
+        if (this.mUserIdentity != 0 && this.mPbModel.getManageMode()) {
+            holder.mForbidUser.setVisibility(0);
+            holder.mDelPost.setVisibility(0);
+            String authorId = data.getAuthor().getId();
+            if (authorId != null && authorId.equals(this.mCurrAccount)) {
+                holder.mForbidUser.setVisibility(4);
+            }
+            if (authorId == null || authorId.equals("0") || authorId.length() == 0) {
+                holder.mForbidUser.setVisibility(4);
+            }
+        } else {
+            String authorId2 = this.mPbModel.getData().getThread().getAuthor().getId();
+            if (authorId2 != null && authorId2.equals(this.mCurrAccount) && data.getFloor_num() != 1) {
+                holder.mDelPost.setVisibility(0);
+            }
+        }
+        holder.mManageDivider.setVisibility(4);
+        if (holder.mForbidUser.getVisibility() == 0 && holder.mDelPost.getVisibility() == 0) {
+            holder.mManageDivider.setVisibility(0);
+        }
+        int delType = 0;
+        if (data.getFloor_num() == 1) {
+            delType = 1;
+        }
+        holder.mDelPostClick.setDelType(delType);
+        holder.mDelPostClick.setPostId(data.getId());
+        holder.mDelPost.setOnClickListener(holder.mDelPostClick);
+        holder.mForbidUserClick.setUserName(data.getAuthor().getName());
+        holder.mForbidUserClick.setUserIdentity(this.mUserIdentity);
+        holder.mForbidUser.setOnClickListener(holder.mForbidUserClick);
         ArrayList<ContentData> content = data.getUnite_content();
         if (content != null && content.size() > 0) {
             int i = 0;
@@ -373,6 +480,9 @@ public class PbAdapter extends BaseAdapter {
                         holder.mSeg.addView(createImageView(content, seg2, index, this.mImageMaxWidth));
                         textView_tmp = null;
                     }
+                } else if (seg2.getType() == 1000) {
+                    holder.mSeg.addView(createVideoView(content, seg2));
+                    textView_tmp = null;
                 } else if (textView_tmp != null) {
                     if (seg2.getType() == 2) {
                         textView_tmp.append(seg2.getSpannableString(this.mContext, this.mLineHeight, this.mFontHeight));
@@ -395,12 +505,19 @@ public class PbAdapter extends BaseAdapter {
 
     @Override // android.widget.BaseAdapter, android.widget.Adapter
     public int getItemViewType(int position) {
-        return getItemId(position) >= 0 ? 0 : 1;
+        long id = getItemId(position);
+        if (id >= 0) {
+            return 0;
+        }
+        if (getItemId(position) == -1 || getItemId(position) == -2) {
+            return 1;
+        }
+        return 2;
     }
 
     @Override // android.widget.BaseAdapter, android.widget.Adapter
     public int getViewTypeCount() {
-        return 2;
+        return 3;
     }
 
     public void setHaveHeader(int haveHeader) {
@@ -462,8 +579,13 @@ public class PbAdapter extends BaseAdapter {
 
     /* loaded from: classes.dex */
     private class ViewHolder {
+        TextView mDelPost;
+        DelPostClickListener mDelPostClick;
         TextView mFloorText;
+        TextView mForbidUser;
+        ForbidUserClickListener mForbidUserClick;
         ImageView mImageSubPost;
+        View mManageDivider;
         ImageView mMark;
         TextView mPageText;
         ImageView mPhoto;
@@ -506,31 +628,30 @@ public class PbAdapter extends BaseAdapter {
                     if (content == this.mContent) {
                         index_valid = true;
                     }
-                    int content_num = 0;
                     if (content != null) {
-                        content_num = content.size();
-                    }
-                    for (int j = 0; j < content_num; j++) {
-                        if (content.get(j).getType() == 3) {
-                            StringBuffer buffer = new StringBuffer(100);
-                            if (content.get(j).getWidth() * content.get(j).getHeight() > Config.THREAD_IMAGE_MAX_WIDTH * Config.THREAD_IMAGE_MAX_WIDTH) {
-                                double a = Math.sqrt((Config.THREAD_IMAGE_MAX_WIDTH * Config.THREAD_IMAGE_MAX_WIDTH) / (content.get(j).getWidth() * content.get(j).getHeight()));
-                                buffer.append("width=");
-                                buffer.append(String.valueOf((int) (content.get(j).getWidth() * a)));
-                                buffer.append("&height=");
-                                buffer.append(String.valueOf((int) (content.get(j).getHeight() * a)));
-                            } else {
-                                buffer.append("width=");
-                                buffer.append(String.valueOf(content.get(j).getWidth()));
-                                buffer.append("&height=");
-                                buffer.append(String.valueOf(content.get(j).getHeight()));
-                            }
-                            buffer.append("&src=");
-                            String encode = StringHelper.getUrlEncode(content.get(j).getLink());
-                            buffer.append(encode);
-                            data.add(buffer.toString());
-                            if (!index_valid) {
-                                this.mIndex++;
+                        int content_num = content.size();
+                        for (int j = 0; j < content_num; j++) {
+                            if (content.get(j) != null && content.get(j).getType() == 3) {
+                                StringBuffer buffer = new StringBuffer(100);
+                                if (content.get(j).getWidth() * content.get(j).getHeight() > Config.THREAD_IMAGE_MAX_WIDTH * Config.THREAD_IMAGE_MAX_WIDTH) {
+                                    double a = Math.sqrt((Config.THREAD_IMAGE_MAX_WIDTH * Config.THREAD_IMAGE_MAX_WIDTH) / (content.get(j).getWidth() * content.get(j).getHeight()));
+                                    buffer.append("width=");
+                                    buffer.append(String.valueOf((int) (content.get(j).getWidth() * a)));
+                                    buffer.append("&height=");
+                                    buffer.append(String.valueOf((int) (content.get(j).getHeight() * a)));
+                                } else {
+                                    buffer.append("width=");
+                                    buffer.append(String.valueOf(content.get(j).getWidth()));
+                                    buffer.append("&height=");
+                                    buffer.append(String.valueOf(content.get(j).getHeight()));
+                                }
+                                buffer.append("&src=");
+                                String encode = StringHelper.getUrlEncode(content.get(j).getLink());
+                                buffer.append(encode);
+                                data.add(buffer.toString());
+                                if (!index_valid) {
+                                    this.mIndex++;
+                                }
                             }
                         }
                     }
@@ -563,6 +684,50 @@ public class PbAdapter extends BaseAdapter {
 
         public void setId(String id) {
             this.id = id;
+        }
+    }
+
+    /* loaded from: classes.dex */
+    private class DelPostClickListener implements View.OnClickListener {
+        private String postId = null;
+        private int delType = 0;
+
+        public DelPostClickListener() {
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View v) {
+            ((PbActivity) PbAdapter.this.mContext).openDelPostDialog(this.delType, this.postId);
+        }
+
+        public void setPostId(String id) {
+            this.postId = id;
+        }
+
+        public void setDelType(int type) {
+            this.delType = type;
+        }
+    }
+
+    /* loaded from: classes.dex */
+    private class ForbidUserClickListener implements View.OnClickListener {
+        private String userName = null;
+        private int userIdentity = 0;
+
+        public ForbidUserClickListener() {
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View v) {
+            ((PbActivity) PbAdapter.this.mContext).openForbidUserDialog(this.userName, this.userIdentity);
+        }
+
+        public void setUserName(String name) {
+            this.userName = name;
+        }
+
+        public void setUserIdentity(int identity) {
+            this.userIdentity = identity;
         }
     }
 }

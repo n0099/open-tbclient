@@ -152,6 +152,10 @@ public class NetWork {
         }
     }
 
+    public int getNetDataSize() {
+        return this.mNet.getNetDataSize();
+    }
+
     private void addCommonParam() {
         this.mNet.addPostData(CLIENT_TYPE, "2");
         this.mNet.addPostData(CLIENT_VERSION, Config.VERSION);
@@ -164,7 +168,7 @@ public class NetWork {
         }
         String from = TiebaApplication.getFrom();
         if (from != null && from.length() > 0) {
-            this.mNet.addPostData(FROM, from);
+            this.mNet.addPostData("from", from);
         }
         String net_type = this.mNet.getNetType();
         if (net_type != null) {

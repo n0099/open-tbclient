@@ -23,6 +23,7 @@ public class ContentData {
     public static final int TYPE_SONG = 6;
     public static final int TYPE_TEXT = 0;
     public static final int TYPE_VIDEO = 5;
+    public static final int TYPE_VIDEO_IMAGE = 1000;
     private int height;
     private int width;
     private int type = 0;
@@ -36,6 +37,10 @@ public class ContentData {
 
     public static boolean isNeedUniteExcepFace(int parent_ype, int child_type) {
         return (parent_ype != 0 || child_type == 3 || child_type == 2) ? false : true;
+    }
+
+    public static boolean isNeedUniteExcepFaceVideo(int parent_ype, int child_type) {
+        return (parent_ype != 0 || child_type == 3 || child_type == 2 || child_type == 5) ? false : true;
     }
 
     public void setType(int type) {

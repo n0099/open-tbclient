@@ -1,8 +1,11 @@
 package com.baidu.tieba.data;
 
+import android.content.Context;
 import android.graphics.Bitmap;
+import android.support.v4.view.accessibility.AccessibilityEventCompat;
 import android.webkit.URLUtil;
 import com.baidu.tieba.TiebaApplication;
+import com.baidu.tieba.util.UtilHelper;
 import com.baidu.tieba.view.GifDecoder;
 /* loaded from: classes.dex */
 public class Config {
@@ -22,23 +25,28 @@ public class Config {
     public static final int CHUNK_UPLOAD_SIZE = 102400;
     public static final String CREATE_BAR_ADDRESS = "c/c/forum/create";
     public static final int DATABASE_VERSION = 4;
+    public static final String DEL_POST_ADDRESS = "c/c/bawu/delpost";
+    public static final String DEL_THREAD_ADDRESS = "c/c/bawu/delthread";
     public static final String DETECT_USERNAME_ADDRESS = "c/s/detectuname";
     public static final String DING_THREAD_ADDRESS = "c/c/thread/comment";
     public static final String ERROR_LOG_SERVER = "c/s/clientlog";
     public static final String ERROR_UPLOAD_SERVER = "c/s/logupload";
     public static final String FATAL_ERROR_FILE = "fatal_error.log";
     public static final long FATAL_ERROR_FILE_MAX_SIZE = 204800;
-    public static final long FATAL_ERROR_FILE_UPLOAD_SIZE = 20480;
+    public static final long FATAL_ERROR_FILE_UPLOAD_SIZE = 1024;
     public static final String FINISH_UPLOAD_CHUNK_IMAGE_ADDRESS = "c/c/img/finupload";
     public static final String FLOOR_ADDRESS = "c/f/pb/floor";
     public static final String FOLLOW_ADDRESS = "c/c/user/follow";
     public static final int FONT_SIZE_BIG = 1;
     public static final int FONT_SIZE_MID = 2;
     public static final int FONT_SIZE_SMALL = 3;
+    public static final String FORBID_USER_ADDRESS = "c/c/bawu/commitprison";
     public static final String FORUM_ADDRESS = "c/f/forum/favolike";
     public static final String FREIND_LIST_ADDRESS = "c/u/follow/list";
     public static final String FROM_FILE = "from.dat";
+    public static final int FRS_ABSTRACT_ITEM_NUMBER = 50;
     public static final String FRS_ADDRESS = "c/f/frs/page";
+    public static final int FRS_NOABSTRACT_ITEM_NUMBER = 35;
     public static final String GET_FANS_ADDRESS = "c/u/fans/page";
     public static final String GET_FOLLOW_ADDRESS = "c/u/follow/page";
     public static final String GET_MSG_ADDRESS = "c/s/msg";
@@ -49,8 +57,10 @@ public class Config {
     public static final String IMAGE_RESIZED_FILE = "tieba_resized_image";
     public static final String IMAGE_RESIZED_FILE_DISPLAY = "tieba_resized_image_display";
     public static final String INPUT_USERNAME_ADDRESS = "c/s/filluname";
+    public static final boolean LBSSWITCH = false;
     public static final String LIKE_ADDRESS = "c/c/forum/like";
     public static final String LOAD_REG_PV_ADDRESS = "c/s/pv";
+    public static final String LOCAL_PIC_DIR = "photos";
     public static final String LOGIN_ADDRESS = "c/s/login";
     public static final boolean LOGSWITCH = false;
     public static final String LOG_ERROR_FILE = "log_error.log";
@@ -61,21 +71,23 @@ public class Config {
     public static final int MAX_CASH_PB_PHOTO_NUM = 5000;
     public static final int MAX_PASSWORD_CHAR_NUM = 14;
     public static final int MAX_PRELOAD_PHOTO_NUM = 30;
-    public static final int MAX_PRELOAD_PIC_NUM = 15;
+    public static final int MAX_PRELOAD_PIC_NUM = 13;
     public static final int MAX_SDRAM_PHOTO_NUM = 50;
-    public static final int MAX_SDRAM_PIC_NUM = 15;
+    public static final int MAX_SDRAM_PIC_NUM = 13;
     public static final int MAX_SEARCH_HISTORY_NUM = 10;
+    public static final String MESSAGE_PULL_URL = "c/m/getmsg";
     public static final int MIN_PASSWORD_CHAR_NUM = 6;
     public static final int NET_MSG_GETLENTH = 900002;
     public static final int NET_MSG_TOTALLENTH = 900001;
     public static final int NOTIFY_DOWNLOADING_ID = 10;
+    public static final int NOTIFY_MESSAGE_ID = 11;
     public static final String PB_ADDRESS = "c/f/pb/page";
     public static final int PB_DEFAULT_CONTENT_TEXT_SIZE = 16;
     public static final int PB_DEFAULT_NAME_TEXT_SIZE = 11;
     public static final int PB_IMAGE_DIP_MAX_WIDTH = 234;
     public static final int PB_IMAGE_MAX_HEIGHT = 105;
     public static final int PB_IMAGE_MAX_WIDTH = 105;
-    public static final int PB_IMAGE_NEW_MAX_WIDTH = 370;
+    public static final int PB_IMAGE_NEW_MAX_WIDTH = 350;
     public static final float PB_IMAGE_NEW_SCALE = 1.62f;
     public static final int PB_IMAGE_QUALITY = 80;
     public static final int PB_LIST_ITEM_NETWORK_NUM = 60;
@@ -91,6 +103,7 @@ public class Config {
     public static final int POST_IMAGE_QUALITY = 80;
     public static final int POST_IMAGE_SMALL = 300;
     public static final String POST_THREAD_ADDRESS = "c/c/thread/add";
+    public static final String PREFS_ABSTRACT_STATE = "abstract_state";
     public static final String PREFS_FONT_SIZE = "font_size";
     public static final String PREFS_IMAGE_QUALITY = "image_quality";
     public static final String PREFS_SHOW_IMAGES = "show_images";
@@ -105,6 +118,7 @@ public class Config {
     public static final String SERVER_ADDRESS = "http://c.tieba.baidu.com/";
     public static final String SETTINGFILE = "settings";
     public static final String SIGN_ADDRESS = "c/c/forum/sign";
+    public static final String ST_TYPE_ADD_TO_LAUNCHER = "add_to_launcher";
     public static final String ST_TYPE_LOGIN = "login";
     public static final String ST_TYPE_OPEN = "open";
     public static final String ST_TYPE_REG = "reg";
@@ -139,6 +153,7 @@ public class Config {
     public static String VERSION = "";
     public static String FROM = null;
     public static boolean COULD_UPDATE = true;
+    public static final Long PULL_MESSAGE_INTERVAL = 3600000L;
     public static String PHOTO_BIG_ADDRESS = "http://tb.himg.baidu.com/sys/portrait/item/";
     public static String PHOTO_SMALL_ADDRESS = "http://tb.himg.baidu.com/sys/portraitn/item/";
     public static final int POST_IMAGE_MIDDLE = 600;
@@ -148,7 +163,6 @@ public class Config {
     public static int THREAD_IMAGE_MAX_WIDTH = 640;
     public static int THREAD_GIF_MIN_USE_MEMORY = 6291456;
     public static long APP_DATE_UPDATA_SD_DATABASE = 2592000000L;
-    public static long CHECK_NETWORK_NOTIFY_TIME = 86400000;
     public static int BitmapQuality = 80;
     public static Bitmap.Config BitmapConfig = Bitmap.Config.RGB_565;
     public static String POSITION_PAGER_NAME = "贴吧客户端反馈";
@@ -159,11 +173,38 @@ public class Config {
     public static boolean MSG_DEFAULT_ATME_SWITCH = true;
     public static boolean MSG_DEFAULT_REMIND_TONE = true;
     public static boolean PROMOTED_DEFAULT = true;
+    private static int BIG_IMAGE_MAX_USED_MEMORY = 1048576;
+    private static int BIG_IMAGE_SIZE = AccessibilityEventCompat.TYPE_TOUCH_EXPLORATION_GESTURE_END;
 
     public static void setSmallPhotoAdress(String url) {
         if (URLUtil.isHttpUrl(url) || URLUtil.isHttpsUrl(url)) {
             PHOTO_SMALL_ADDRESS = url;
         }
+    }
+
+    public static int initPbImageSize(Context context) {
+        int w = UtilHelper.dip2px(context, 234.0f);
+        if (w > 350) {
+            w = PB_IMAGE_NEW_MAX_WIDTH;
+        }
+        BIG_IMAGE_SIZE = (int) (w * w * 1.62f * 2.0f);
+        return BIG_IMAGE_SIZE;
+    }
+
+    public static int getPbImageSize() {
+        return BIG_IMAGE_SIZE;
+    }
+
+    public static void initBigImageMaxUsedMemory(Context context) {
+        int per_size = initPbImageSize(context);
+        BIG_IMAGE_MAX_USED_MEMORY = per_size * 13;
+        if (BIG_IMAGE_MAX_USED_MEMORY < UtilHelper.getBitmapMaxMemory(context) * 0.28d) {
+            BIG_IMAGE_MAX_USED_MEMORY = (int) (UtilHelper.getBitmapMaxMemory(context) * 0.28d);
+        }
+    }
+
+    public static int getBigImageMaxUsedMemory() {
+        return BIG_IMAGE_MAX_USED_MEMORY;
     }
 
     public static void setBigPhotoAdress(String url) {

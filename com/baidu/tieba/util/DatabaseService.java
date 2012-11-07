@@ -161,21 +161,25 @@ public class DatabaseService {
         DatabaseService service = new DatabaseService(DatabaseLocation.SDCARD);
         Cursor cursor = null;
         Bitmap bm = null;
-        try {
+        if (service != null) {
             try {
-                cursor = service.rawQuery("select * from " + tableName + " where key = ?", new String[]{key});
-                if (cursor != null && cursor.moveToFirst()) {
-                    bm = BitmapHelper.Bytes2Bitmap(cursor.getBlob(1));
-                }
-                if (cursor != null) {
+                try {
+                    cursor = service.rawQuery("select * from " + tableName + " where key = ?", new String[]{key});
+                    if (cursor != null && cursor.moveToFirst()) {
+                        bm = BitmapHelper.Bytes2Bitmap(cursor.getBlob(1));
+                    }
+                } catch (Exception ex) {
+                    TiebaLog.e("DatabaseService", "getPhoto", "error = " + ex.getMessage());
+                    if (cursor == null) {
+                        return null;
+                    }
                     try {
                         cursor.close();
-                        return bm;
+                        return null;
                     } catch (Exception e) {
-                        return bm;
+                        return null;
                     }
                 }
-                return bm;
             } catch (Throwable th) {
                 if (cursor != null) {
                     try {
@@ -185,18 +189,16 @@ public class DatabaseService {
                 }
                 throw th;
             }
-        } catch (Exception ex) {
-            TiebaLog.e("DatabaseService", "getPhoto", "error = " + ex.getMessage());
-            if (cursor == null) {
-                return null;
-            }
+        }
+        if (cursor != null) {
             try {
                 cursor.close();
-                return null;
+                return bm;
             } catch (Exception e3) {
-                return null;
+                return bm;
             }
         }
+        return bm;
     }
 
     public static void cashPbPhoto(String key, Bitmap bm) {
@@ -212,57 +214,62 @@ public class DatabaseService {
             DatabaseService service = new DatabaseService(DatabaseLocation.SDCARD);
             Cursor cursor = null;
             try {
-                try {
-                    Cursor cursor2 = service.rawQuery("select count(*) from " + tableName, null);
-                    int num = 0;
-                    if (cursor2 != null) {
-                        if (cursor2.moveToFirst()) {
-                            num = cursor2.getInt(0);
+                if (service != null) {
+                    try {
+                        Cursor cursor2 = service.rawQuery("select count(*) from " + tableName, null);
+                        int num = 0;
+                        if (cursor2 != null) {
+                            if (cursor2.moveToFirst()) {
+                                num = cursor2.getInt(0);
+                            }
+                            cursor2.close();
                         }
-                        cursor2.close();
-                    }
-                    if (num >= maxNum) {
-                        Cursor cursor3 = service.rawQuery("select * from " + tableName + " order by date asc limit 1", null);
-                        if (cursor3 != null) {
-                            cursor3.moveToFirst();
-                            String tmp_key = cursor3.getString(0);
-                            service.ExecSQL("delete from " + tableName + " where key=?", new String[]{tmp_key});
-                            cursor3.close();
+                        if (num >= maxNum) {
+                            Cursor cursor3 = service.rawQuery("select * from " + tableName + " order by date asc limit 1", null);
+                            if (cursor3 != null) {
+                                cursor3.moveToFirst();
+                                String tmp_key = cursor3.getString(0);
+                                service.ExecSQL("delete from " + tableName + " where key=?", new String[]{tmp_key});
+                                cursor3.close();
+                            }
                         }
-                    }
-                    Cursor cursor4 = service.rawQuery("select * from " + tableName + " where key = ?", new String[]{key});
-                    if (cursor4 != null) {
-                        if (cursor4.moveToFirst()) {
-                            service.ExecSQL("delete from " + tableName + " where key=?", new String[]{key});
+                        Cursor cursor4 = service.rawQuery("select * from " + tableName + " where key = ?", new String[]{key});
+                        if (cursor4 != null) {
+                            if (cursor4.moveToFirst()) {
+                                service.ExecSQL("delete from " + tableName + " where key=?", new String[]{key});
+                            }
+                            cursor4.close();
                         }
-                        cursor4.close();
-                    }
-                    cursor = null;
-                    Date date = new Date();
-                    service.ExecSQL("Insert into " + tableName + "(key,image,date) values(?,?,?)", new Object[]{key, BitmapHelper.Bitmap2Bytes(bm, 80), Long.valueOf(date.getTime())});
-                    if (0 != 0) {
-                        try {
-                            cursor.close();
-                        } catch (Exception e) {
+                        cursor = null;
+                        Date date = new Date();
+                        service.ExecSQL("Insert into " + tableName + "(key,image,date) values(?,?,?)", new Object[]{key, BitmapHelper.Bitmap2Bytes(bm, 80), Long.valueOf(date.getTime())});
+                    } catch (Exception ex) {
+                        TiebaLog.e("DatabaseService", "cashPhoto", "error = " + ex.getMessage());
+                        if (cursor != null) {
+                            try {
+                                cursor.close();
+                                return;
+                            } catch (Exception e) {
+                                return;
+                            }
                         }
+                        return;
                     }
-                } catch (Throwable th) {
-                    if (cursor != null) {
-                        try {
-                            cursor.close();
-                        } catch (Exception e2) {
-                        }
-                    }
-                    throw th;
                 }
-            } catch (Exception ex) {
-                TiebaLog.e("DatabaseService", "cashPhoto", "error = " + ex.getMessage());
+                if (cursor != null) {
+                    try {
+                        cursor.close();
+                    } catch (Exception e2) {
+                    }
+                }
+            } catch (Throwable th) {
                 if (cursor != null) {
                     try {
                         cursor.close();
                     } catch (Exception e3) {
                     }
                 }
+                throw th;
             }
         }
     }
@@ -324,8 +331,8 @@ public class DatabaseService {
     }
 
     private static void cachData(int type, String data) {
-        if (TiebaApplication.getCurrentAccount() != null) {
-            DatabaseService service = new DatabaseService();
+        DatabaseService service;
+        if (TiebaApplication.getCurrentAccount() != null && (service = new DatabaseService()) != null) {
             try {
                 service.ExecSQL("delete from cash_data where type=? and account=?", new String[]{String.valueOf(type), TiebaApplication.getCurrentAccount()});
                 service.ExecSQL("Insert into cash_data(account,type,data) values(?,?,?)", new Object[]{TiebaApplication.getCurrentAccount(), Integer.valueOf(type), data});
@@ -336,8 +343,8 @@ public class DatabaseService {
     }
 
     private static void delCachData(int type) {
-        if (TiebaApplication.getCurrentAccount() != null) {
-            DatabaseService service = new DatabaseService();
+        DatabaseService service;
+        if (TiebaApplication.getCurrentAccount() != null && (service = new DatabaseService()) != null) {
             try {
                 service.ExecSQL("delete from cash_data where type=? and account=?", new String[]{String.valueOf(type), TiebaApplication.getCurrentAccount()});
             } catch (Exception ex) {
@@ -354,36 +361,38 @@ public class DatabaseService {
         DatabaseService service = new DatabaseService();
         Cursor cursor = null;
         try {
-            try {
-                cursor = service.rawQuery("select * from cash_data where type = ? and account=?", new String[]{String.valueOf(type), TiebaApplication.getCurrentAccount()});
-                if (cursor != null) {
-                    if (cursor.moveToFirst()) {
-                        ret = cursor.getString(2);
-                    }
-                    cursor.close();
-                }
-                Cursor cursor2 = null;
-                if (0 != 0) {
-                    try {
-                        cursor2.close();
-                        return ret;
-                    } catch (Exception e) {
-                        return ret;
-                    }
-                }
-                return ret;
-            } catch (Exception ex) {
-                TiebaLog.e("DatabaseService", "getCachData", "error = " + ex.getMessage());
-                if (cursor != null) {
-                    try {
+            if (service != null) {
+                try {
+                    cursor = service.rawQuery("select * from cash_data where type = ? and account=?", new String[]{String.valueOf(type), TiebaApplication.getCurrentAccount()});
+                    if (cursor != null) {
+                        if (cursor.moveToFirst()) {
+                            ret = cursor.getString(2);
+                        }
                         cursor.close();
-                        return ret;
-                    } catch (Exception e2) {
-                        return ret;
                     }
+                    cursor = null;
+                } catch (Exception ex) {
+                    TiebaLog.e("DatabaseService", "getCachData", "error = " + ex.getMessage());
+                    if (cursor != null) {
+                        try {
+                            cursor.close();
+                            return ret;
+                        } catch (Exception e) {
+                            return ret;
+                        }
+                    }
+                    return ret;
                 }
-                return ret;
             }
+            if (cursor != null) {
+                try {
+                    cursor.close();
+                    return ret;
+                } catch (Exception e2) {
+                    return ret;
+                }
+            }
+            return ret;
         } catch (Throwable th) {
             if (cursor != null) {
                 try {
@@ -403,8 +412,10 @@ public class DatabaseService {
             DatabaseService service = new DatabaseService();
             try {
                 Date date = new Date();
-                service.ExecSQL("delete from account_data where id=?", new String[]{data.getID()});
-                service.ExecSQL("Insert into account_data(id,account,password,bduss,isactive,tbs,time) values(?,?,?,?,?,?,?)", new Object[]{data.getID(), data.getAccount(), data.getPassword(), data.getBDUSS(), Integer.valueOf(data.getIsActive()), data.getTbs(), Long.valueOf(date.getTime())});
+                if (service != null) {
+                    service.ExecSQL("delete from account_data where id=?", new String[]{data.getID()});
+                    service.ExecSQL("Insert into account_data(id,account,password,bduss,isactive,tbs,time) values(?,?,?,?,?,?,?)", new Object[]{data.getID(), data.getAccount(), data.getPassword(), data.getBDUSS(), Integer.valueOf(data.getIsActive()), data.getTbs(), Long.valueOf(date.getTime())});
+                }
             } catch (Exception ex) {
                 TiebaLog.e("DatabaseService", "saveAccountData", "error = " + ex.getMessage());
             }
@@ -413,16 +424,18 @@ public class DatabaseService {
 
     public static void clearActiveAccount() {
         DatabaseService service = new DatabaseService();
-        try {
-            service.ExecSQL("update account_data set isactive=0 where isactive=1");
-        } catch (Exception ex) {
-            TiebaLog.e("DatabaseService", "clearActiveAccount", "error = " + ex.getMessage());
+        if (service != null) {
+            try {
+                service.ExecSQL("update account_data set isactive=0 where isactive=1");
+            } catch (Exception ex) {
+                TiebaLog.e("DatabaseService", "clearActiveAccount", "error = " + ex.getMessage());
+            }
         }
     }
 
     public static void updateAccountToken(String account, String token) {
-        if (account != null && token != null) {
-            DatabaseService service = new DatabaseService();
+        DatabaseService service;
+        if (account != null && token != null && (service = new DatabaseService()) != null) {
             try {
                 service.ExecSQL("update account_data set bduss=? where account=?", new String[]{token, account});
             } catch (Exception ex) {
@@ -436,28 +449,32 @@ public class DatabaseService {
         DatabaseService service = new DatabaseService();
         ArrayList<AccountData> ret = new ArrayList<>();
         Cursor cursor = null;
-        try {
+        if (service != null) {
             try {
-                cursor = service.rawQuery("select * from account_data order by time desc", null);
-                if (cursor != null) {
-                    while (cursor.moveToNext()) {
-                        AccountData data = new AccountData();
-                        data.setID(cursor.getString(0));
-                        data.setAccount(cursor.getString(1));
-                        data.setPassword(cursor.getString(2));
-                        data.setBDUSS(cursor.getString(3));
-                        data.setIsActive(cursor.getInt(4));
-                        data.setTbs(cursor.getString(5));
-                        data.setTime(cursor.getLong(6));
-                        ret.add(data);
+                try {
+                    cursor = service.rawQuery("select * from account_data order by time desc", null);
+                    if (cursor != null) {
+                        while (cursor.moveToNext()) {
+                            AccountData data = new AccountData();
+                            data.setID(cursor.getString(0));
+                            data.setAccount(cursor.getString(1));
+                            data.setPassword(cursor.getString(2));
+                            data.setBDUSS(cursor.getString(3));
+                            data.setIsActive(cursor.getInt(4));
+                            data.setTbs(cursor.getString(5));
+                            data.setTime(cursor.getLong(6));
+                            ret.add(data);
+                        }
+                        cursor.close();
                     }
-                    cursor.close();
-                }
-                Cursor cursor2 = null;
-                if (0 != 0) {
-                    try {
-                        cursor2.close();
-                    } catch (Exception e) {
+                    cursor = null;
+                } catch (Exception ex) {
+                    TiebaLog.e("DatabaseService", "getAllAccountData", "error = " + ex.getMessage());
+                    if (cursor != null) {
+                        try {
+                            cursor.close();
+                        } catch (Exception e) {
+                        }
                     }
                 }
             } catch (Throwable th) {
@@ -469,13 +486,11 @@ public class DatabaseService {
                 }
                 throw th;
             }
-        } catch (Exception ex) {
-            TiebaLog.e("DatabaseService", "getAllAccountData", "error = " + ex.getMessage());
-            if (cursor != null) {
-                try {
-                    cursor.close();
-                } catch (Exception e3) {
-                }
+        }
+        if (cursor != null) {
+            try {
+                cursor.close();
+            } catch (Exception e3) {
             }
         }
         return ret;
@@ -487,24 +502,26 @@ public class DatabaseService {
         Cursor cursor = null;
         int num = 0;
         try {
-            try {
-                cursor = service.rawQuery("select count(*) from account_data", null);
-                if (cursor != null && cursor.moveToFirst()) {
-                    num = cursor.getInt(0);
-                }
-                if (cursor != null) {
-                    try {
-                        cursor.close();
-                    } catch (Exception e) {
+            if (service != null) {
+                try {
+                    cursor = service.rawQuery("select count(*) from account_data", null);
+                    if (cursor != null && cursor.moveToFirst()) {
+                        num = cursor.getInt(0);
+                    }
+                } catch (Exception ex) {
+                    TiebaLog.e("DatabaseService", "getAccountNum", ex.getMessage());
+                    if (cursor != null) {
+                        try {
+                            cursor.close();
+                        } catch (Exception e) {
+                        }
                     }
                 }
-            } catch (Exception ex) {
-                TiebaLog.e("DatabaseService", "getAccountNum", ex.getMessage());
-                if (cursor != null) {
-                    try {
-                        cursor.close();
-                    } catch (Exception e2) {
-                    }
+            }
+            if (cursor != null) {
+                try {
+                    cursor.close();
+                } catch (Exception e2) {
                 }
             }
             return num;
@@ -523,59 +540,61 @@ public class DatabaseService {
         DatabaseService service = new DatabaseService();
         AccountData ret = null;
         Cursor cursor = null;
-        try {
+        if (service != null) {
             try {
-                cursor = service.rawQuery("select * from account_data where isactive=?", new String[]{String.valueOf(1)});
-                if (cursor != null) {
-                    if (cursor.moveToFirst()) {
-                        AccountData ret2 = new AccountData();
-                        try {
-                            ret2.setID(cursor.getString(0));
-                            ret2.setAccount(cursor.getString(1));
-                            ret2.setPassword(cursor.getString(2));
-                            ret2.setBDUSS(cursor.getString(3));
-                            ret2.setIsActive(cursor.getInt(4));
-                            ret2.setTbs(cursor.getString(5));
-                            ret2.setTime(cursor.getLong(6));
-                            ret = ret2;
-                        } catch (Exception e) {
-                            ex = e;
-                            ret = ret2;
-                            TiebaLog.e("DatabaseService", "getActiveAccountData", "error = " + ex.getMessage());
-                            if (cursor != null) {
-                                try {
-                                    cursor.close();
-                                } catch (Exception e2) {
+                try {
+                    cursor = service.rawQuery("select * from account_data where isactive=?", new String[]{String.valueOf(1)});
+                    if (cursor != null) {
+                        if (cursor.moveToFirst()) {
+                            AccountData ret2 = new AccountData();
+                            try {
+                                ret2.setID(cursor.getString(0));
+                                ret2.setAccount(cursor.getString(1));
+                                ret2.setPassword(cursor.getString(2));
+                                ret2.setBDUSS(cursor.getString(3));
+                                ret2.setIsActive(cursor.getInt(4));
+                                ret2.setTbs(cursor.getString(5));
+                                ret2.setTime(cursor.getLong(6));
+                                ret = ret2;
+                            } catch (Exception e) {
+                                ex = e;
+                                ret = ret2;
+                                TiebaLog.e("DatabaseService", "getActiveAccountData", "error = " + ex.getMessage());
+                                if (cursor != null) {
+                                    try {
+                                        cursor.close();
+                                    } catch (Exception e2) {
+                                    }
                                 }
-                            }
-                            return ret;
-                        } catch (Throwable th) {
-                            th = th;
-                            if (cursor != null) {
-                                try {
-                                    cursor.close();
-                                } catch (Exception e3) {
+                                return ret;
+                            } catch (Throwable th) {
+                                th = th;
+                                if (cursor != null) {
+                                    try {
+                                        cursor.close();
+                                    } catch (Exception e3) {
+                                    }
                                 }
+                                throw th;
                             }
-                            throw th;
                         }
+                        cursor.close();
                     }
-                    cursor.close();
+                    cursor = null;
+                } catch (Exception e4) {
+                    ex = e4;
                 }
-                Cursor cursor2 = null;
-                if (0 != 0) {
-                    try {
-                        cursor2.close();
-                    } catch (Exception e4) {
-                    }
-                }
-            } catch (Exception e5) {
-                ex = e5;
+            } catch (Throwable th2) {
+                th = th2;
             }
-            return ret;
-        } catch (Throwable th2) {
-            th = th2;
         }
+        if (cursor != null) {
+            try {
+                cursor.close();
+            } catch (Exception e5) {
+            }
+        }
+        return ret;
     }
 
     public static AccountData getAccountData(String account) {
@@ -583,58 +602,60 @@ public class DatabaseService {
         AccountData ret = null;
         Cursor cursor = null;
         try {
-            try {
-                cursor = service.rawQuery("select * from account_data where account=?", new String[]{account});
-                if (cursor != null) {
-                    if (cursor.moveToFirst()) {
-                        AccountData ret2 = new AccountData();
-                        try {
-                            ret2.setID(cursor.getString(0));
-                            ret2.setAccount(cursor.getString(1));
-                            ret2.setPassword(cursor.getString(2));
-                            ret2.setBDUSS(cursor.getString(3));
-                            ret2.setIsActive(cursor.getInt(4));
-                            ret2.setTbs(cursor.getString(5));
-                            ret2.setTime(cursor.getLong(6));
-                            ret = ret2;
-                        } catch (Exception e) {
-                            ex = e;
-                            ret = ret2;
-                            TiebaLog.e("DatabaseService", "getAccountData", "error = " + ex.getMessage());
-                            if (cursor != null) {
-                                try {
-                                    cursor.close();
-                                } catch (Exception e2) {
+            if (service != null) {
+                try {
+                    cursor = service.rawQuery("select * from account_data where account=?", new String[]{account});
+                    if (cursor != null) {
+                        if (cursor.moveToFirst()) {
+                            AccountData ret2 = new AccountData();
+                            try {
+                                ret2.setID(cursor.getString(0));
+                                ret2.setAccount(cursor.getString(1));
+                                ret2.setPassword(cursor.getString(2));
+                                ret2.setBDUSS(cursor.getString(3));
+                                ret2.setIsActive(cursor.getInt(4));
+                                ret2.setTbs(cursor.getString(5));
+                                ret2.setTime(cursor.getLong(6));
+                                ret = ret2;
+                            } catch (Exception e) {
+                                ex = e;
+                                ret = ret2;
+                                TiebaLog.e("DatabaseService", "getAccountData", "error = " + ex.getMessage());
+                                if (cursor != null) {
+                                    try {
+                                        cursor.close();
+                                    } catch (Exception e2) {
+                                    }
                                 }
-                            }
-                            return ret;
-                        } catch (Throwable th) {
-                            th = th;
-                            if (cursor != null) {
-                                try {
-                                    cursor.close();
-                                } catch (Exception e3) {
+                                return ret;
+                            } catch (Throwable th) {
+                                th = th;
+                                if (cursor != null) {
+                                    try {
+                                        cursor.close();
+                                    } catch (Exception e3) {
+                                    }
                                 }
+                                throw th;
                             }
-                            throw th;
                         }
+                        cursor.close();
                     }
-                    cursor.close();
+                    cursor = null;
+                } catch (Exception e4) {
+                    ex = e4;
                 }
-                Cursor cursor2 = null;
-                if (0 != 0) {
-                    try {
-                        cursor2.close();
-                    } catch (Exception e4) {
-                    }
-                }
-            } catch (Throwable th2) {
-                th = th2;
             }
-        } catch (Exception e5) {
-            ex = e5;
+            if (cursor != null) {
+                try {
+                    cursor.close();
+                } catch (Exception e5) {
+                }
+            }
+            return ret;
+        } catch (Throwable th2) {
+            th = th2;
         }
-        return ret;
     }
 
     /* JADX DEBUG: Another duplicated slice has different insns count: {[IF]}, finally: {[IF, MOVE_EXCEPTION, INVOKE, MOVE_EXCEPTION] complete} */
@@ -642,23 +663,27 @@ public class DatabaseService {
         DatabaseService service = new DatabaseService();
         ArrayList<String> ret = new ArrayList<>();
         Cursor cursor = null;
-        try {
+        if (service != null) {
             try {
-                cursor = service.rawQuery("select * from search_data order by time desc limit 10", null);
-                if (cursor != null) {
-                    while (cursor.moveToNext()) {
-                        String tmp = cursor.getString(0);
-                        if (tmp != null && tmp.length() > 0) {
-                            ret.add(tmp);
+                try {
+                    cursor = service.rawQuery("select * from search_data order by time desc limit 10", null);
+                    if (cursor != null) {
+                        while (cursor.moveToNext()) {
+                            String tmp = cursor.getString(0);
+                            if (tmp != null && tmp.length() > 0) {
+                                ret.add(tmp);
+                            }
                         }
+                        cursor.close();
                     }
-                    cursor.close();
-                }
-                Cursor cursor2 = null;
-                if (0 != 0) {
-                    try {
-                        cursor2.close();
-                    } catch (Exception e) {
+                    cursor = null;
+                } catch (Exception ex) {
+                    TiebaLog.e("DatabaseService", "getAllSearchData", "error = " + ex.getMessage());
+                    if (cursor != null) {
+                        try {
+                            cursor.close();
+                        } catch (Exception e) {
+                        }
                     }
                 }
             } catch (Throwable th) {
@@ -670,13 +695,11 @@ public class DatabaseService {
                 }
                 throw th;
             }
-        } catch (Exception ex) {
-            TiebaLog.e("DatabaseService", "getAllSearchData", "error = " + ex.getMessage());
-            if (cursor != null) {
-                try {
-                    cursor.close();
-                } catch (Exception e3) {
-                }
+        }
+        if (cursor != null) {
+            try {
+                cursor.close();
+            } catch (Exception e3) {
             }
         }
         return ret;
@@ -708,10 +731,12 @@ public class DatabaseService {
 
     public static void delAllSearchData() {
         DatabaseService service = new DatabaseService();
-        try {
-            service.ExecSQL("delete from search_data");
-        } catch (Exception ex) {
-            TiebaLog.e("DatabaseService", "delAllSearchData", "error = " + ex.getMessage());
+        if (service != null) {
+            try {
+                service.ExecSQL("delete from search_data");
+            } catch (Exception ex) {
+                TiebaLog.e("DatabaseService", "delAllSearchData", "error = " + ex.getMessage());
+            }
         }
     }
 
@@ -724,63 +749,63 @@ public class DatabaseService {
         ArrayList<MarkData> ret = new ArrayList<>();
         Cursor cursor = null;
         try {
-            try {
-                Cursor cursor2 = service.rawQuery("select * from mark_data where account=? order by time desc", new String[]{TiebaApplication.getCurrentAccount()});
-                if (cursor2 != null) {
-                    while (cursor2.moveToNext()) {
-                        MarkData tmp = new MarkData();
-                        tmp.setId(cursor2.getString(0));
-                        tmp.setFloor(cursor2.getInt(1));
-                        tmp.setTime(cursor2.getInt(2));
-                        tmp.setTitle(cursor2.getString(3));
-                        tmp.setSequence(Boolean.valueOf(cursor2.getInt(4) == 1));
-                        tmp.setHostMode(cursor2.getInt(5) == 1);
-                        tmp.setPostId(cursor2.getString(6));
-                        tmp.setAccount(cursor2.getString(7));
-                        tmp.setAuthorName(cursor2.getString(8));
-                        tmp.setReplyNum(cursor2.getInt(9));
-                        tmp.setSubPost(cursor2.getInt(10));
-                        tmp.setForumName(cursor2.getString(11));
-                        tmp.setForumId(cursor2.getString(12));
-                        tmp.setThreadId(cursor2.getString(13));
-                        ret.add(tmp);
+            if (service != null) {
+                try {
+                    Cursor cursor2 = service.rawQuery("select * from mark_data where account=? order by time desc", new String[]{TiebaApplication.getCurrentAccount()});
+                    if (cursor2 != null) {
+                        while (cursor2.moveToNext()) {
+                            MarkData tmp = new MarkData();
+                            tmp.setId(cursor2.getString(0));
+                            tmp.setFloor(cursor2.getInt(1));
+                            tmp.setTime(cursor2.getInt(2));
+                            tmp.setTitle(cursor2.getString(3));
+                            tmp.setSequence(Boolean.valueOf(cursor2.getInt(4) == 1));
+                            tmp.setHostMode(cursor2.getInt(5) == 1);
+                            tmp.setPostId(cursor2.getString(6));
+                            tmp.setAccount(cursor2.getString(7));
+                            tmp.setAuthorName(cursor2.getString(8));
+                            tmp.setReplyNum(cursor2.getInt(9));
+                            tmp.setSubPost(cursor2.getInt(10));
+                            tmp.setForumName(cursor2.getString(11));
+                            tmp.setForumId(cursor2.getString(12));
+                            tmp.setThreadId(cursor2.getString(13));
+                            ret.add(tmp);
+                        }
+                        cursor2.close();
                     }
-                    cursor2.close();
-                }
-                cursor = null;
-                setMarkState(false);
-                if (0 != 0) {
-                    try {
-                        cursor.close();
-                    } catch (Exception e) {
-                    }
-                }
-            } catch (Throwable th) {
-                if (cursor != null) {
-                    try {
-                        cursor.close();
-                    } catch (Exception e2) {
+                    cursor = null;
+                    setMarkState(false);
+                } catch (Exception ex) {
+                    TiebaLog.e("DatabaseService", "getAllMarkData", "error = " + ex.getMessage());
+                    if (cursor != null) {
+                        try {
+                            cursor.close();
+                        } catch (Exception e) {
+                        }
                     }
                 }
-                throw th;
             }
-        } catch (Exception ex) {
-            TiebaLog.e("DatabaseService", "getAllMarkData", "error = " + ex.getMessage());
+            if (cursor != null) {
+                try {
+                    cursor.close();
+                } catch (Exception e2) {
+                }
+            }
+            TiebaLog.i("DatabaseService", "getAllMarkData", "success = " + String.valueOf(ret.size()));
+            return ret;
+        } catch (Throwable th) {
             if (cursor != null) {
                 try {
                     cursor.close();
                 } catch (Exception e3) {
                 }
             }
+            throw th;
         }
-        TiebaLog.i("DatabaseService", "getAllMarkData", "success = " + String.valueOf(ret.size()));
-        return ret;
     }
 
     public static void setMarkState(Boolean changed) {
-        synchronized (mMarkChanged) {
-            mMarkChanged = changed;
-        }
+        mMarkChanged = changed;
     }
 
     public static Boolean getMarkState() {
@@ -788,9 +813,7 @@ public class DatabaseService {
     }
 
     public static void setMarkNumState(Boolean changed) {
-        synchronized (mMarkNumChanged) {
-            mMarkNumChanged = changed;
-        }
+        mMarkNumChanged = changed;
     }
 
     public static Boolean getMarkNumState() {
@@ -804,69 +827,71 @@ public class DatabaseService {
         DatabaseService service = new DatabaseService();
         Cursor cursor = null;
         MarkData data = null;
-        try {
+        if (service != null) {
             try {
-                cursor = service.rawQuery("select * from mark_data where id=? and account=?", new String[]{id, TiebaApplication.getCurrentAccount()});
-                if (cursor != null) {
-                    if (cursor.moveToFirst()) {
-                        MarkData data2 = new MarkData();
-                        try {
-                            data2.setId(cursor.getString(0));
-                            data2.setFloor(cursor.getInt(1));
-                            data2.setTime(cursor.getInt(2));
-                            data2.setTitle(cursor.getString(3));
-                            data2.setSequence(Boolean.valueOf(cursor.getInt(4) == 1));
-                            data2.setHostMode(cursor.getInt(5) == 1);
-                            data2.setPostId(cursor.getString(6));
-                            data2.setAuthorName(cursor.getString(8));
-                            data2.setReplyNum(cursor.getInt(9));
-                            data2.setSubPost(cursor.getInt(10));
-                            data2.setForumName(cursor.getString(11));
-                            data2.setForumId(cursor.getString(12));
-                            data2.setThreadId(cursor.getString(13));
-                            data = data2;
-                        } catch (Exception e) {
-                            ex = e;
-                            data = data2;
-                            TiebaLog.e("DatabaseService", "getMarkDataById", "error = " + ex.getMessage());
-                            if (cursor != null) {
-                                try {
-                                    cursor.close();
-                                    return data;
-                                } catch (Exception e2) {
-                                    return data;
+                try {
+                    cursor = service.rawQuery("select * from mark_data where id=? and account=?", new String[]{id, TiebaApplication.getCurrentAccount()});
+                    if (cursor != null) {
+                        if (cursor.moveToFirst()) {
+                            MarkData data2 = new MarkData();
+                            try {
+                                data2.setId(cursor.getString(0));
+                                data2.setFloor(cursor.getInt(1));
+                                data2.setTime(cursor.getInt(2));
+                                data2.setTitle(cursor.getString(3));
+                                data2.setSequence(Boolean.valueOf(cursor.getInt(4) == 1));
+                                data2.setHostMode(cursor.getInt(5) == 1);
+                                data2.setPostId(cursor.getString(6));
+                                data2.setAuthorName(cursor.getString(8));
+                                data2.setReplyNum(cursor.getInt(9));
+                                data2.setSubPost(cursor.getInt(10));
+                                data2.setForumName(cursor.getString(11));
+                                data2.setForumId(cursor.getString(12));
+                                data2.setThreadId(cursor.getString(13));
+                                data = data2;
+                            } catch (Exception e) {
+                                ex = e;
+                                data = data2;
+                                TiebaLog.e("DatabaseService", "getMarkDataById", "error = " + ex.getMessage());
+                                if (cursor != null) {
+                                    try {
+                                        cursor.close();
+                                        return data;
+                                    } catch (Exception e2) {
+                                        return data;
+                                    }
                                 }
-                            }
-                            return data;
-                        } catch (Throwable th) {
-                            th = th;
-                            if (cursor != null) {
-                                try {
-                                    cursor.close();
-                                } catch (Exception e3) {
+                                return data;
+                            } catch (Throwable th) {
+                                th = th;
+                                if (cursor != null) {
+                                    try {
+                                        cursor.close();
+                                    } catch (Exception e3) {
+                                    }
                                 }
+                                throw th;
                             }
-                            throw th;
                         }
+                        cursor.close();
                     }
-                    cursor.close();
+                    cursor = null;
+                } catch (Exception e4) {
+                    ex = e4;
                 }
-                Cursor cursor2 = null;
-                if (0 != 0) {
-                    try {
-                        cursor2.close();
-                        return data;
-                    } catch (Exception e4) {
-                        return data;
-                    }
-                }
-                return data;
             } catch (Throwable th2) {
                 th = th2;
             }
-        } catch (Exception e5) {
-            ex = e5;
         }
+        if (cursor != null) {
+            try {
+                cursor.close();
+                return data;
+            } catch (Exception e5) {
+                return data;
+            }
+        }
+        return data;
     }
 
     /* JADX DEBUG: Another duplicated slice has different insns count: {[IF]}, finally: {[IF, CONST, MOVE_EXCEPTION, INVOKE, MOVE_EXCEPTION] complete} */
@@ -877,25 +902,27 @@ public class DatabaseService {
             Cursor cursor = null;
             num = 0;
             try {
-                try {
-                    cursor = service.rawQuery("select count(*) from mark_data where account=?", new String[]{TiebaApplication.getCurrentAccount()});
-                    if (cursor != null && cursor.moveToFirst()) {
-                        num = cursor.getInt(0);
-                        setMarkNumState(false);
-                    }
-                    if (cursor != null) {
-                        try {
-                            cursor.close();
-                        } catch (Exception e) {
+                if (service != null) {
+                    try {
+                        cursor = service.rawQuery("select count(*) from mark_data where account=?", new String[]{TiebaApplication.getCurrentAccount()});
+                        if (cursor != null && cursor.moveToFirst()) {
+                            num = cursor.getInt(0);
+                            setMarkNumState(false);
+                        }
+                    } catch (Exception ex) {
+                        TiebaLog.e("DatabaseService", "getMarkDatanum", ex.getMessage());
+                        if (cursor != null) {
+                            try {
+                                cursor.close();
+                            } catch (Exception e) {
+                            }
                         }
                     }
-                } catch (Exception ex) {
-                    TiebaLog.e("DatabaseService", "getMarkDatanum", ex.getMessage());
-                    if (cursor != null) {
-                        try {
-                            cursor.close();
-                        } catch (Exception e2) {
-                        }
+                }
+                if (cursor != null) {
+                    try {
+                        cursor.close();
+                    } catch (Exception e2) {
                     }
                 }
             } catch (Throwable th) {
@@ -953,14 +980,16 @@ public class DatabaseService {
         if (TiebaApplication.getCurrentAccount() != null) {
             ret = false;
             DatabaseService service = new DatabaseService();
-            try {
-                ret = service.ExecSQL("delete from mark_data where id=? and account=?", new String[]{id, TiebaApplication.getCurrentAccount()}).booleanValue();
-                if (ret) {
-                    setMarkState(true);
-                    setMarkNumState(true);
+            if (service != null) {
+                try {
+                    ret = service.ExecSQL("delete from mark_data where id=? and account=?", new String[]{id, TiebaApplication.getCurrentAccount()}).booleanValue();
+                    if (ret) {
+                        setMarkState(true);
+                        setMarkNumState(true);
+                    }
+                } catch (Exception ex) {
+                    TiebaLog.e("DatabaseService", "deleteMarkData", "error = " + ex.getMessage());
                 }
-            } catch (Exception ex) {
-                TiebaLog.e("DatabaseService", "deleteMarkData", "error = " + ex.getMessage());
             }
         }
         return ret;
@@ -1171,8 +1200,8 @@ public class DatabaseService {
     }
 
     public static void delOverdueChunkUploadData() {
-        if (TiebaApplication.getCurrentAccount() != null) {
-            DatabaseService service = new DatabaseService();
+        DatabaseService service;
+        if (TiebaApplication.getCurrentAccount() != null && (service = new DatabaseService()) != null) {
             try {
                 service.ExecSQL("delete from chunk_upload_data where strftime('%s','now') - time > 48 * 3600 and account=?", new String[]{TiebaApplication.getCurrentAccount()});
             } catch (Exception ex) {
@@ -1220,55 +1249,57 @@ public class DatabaseService {
         Cursor cursor = null;
         ChunkUploadData data = null;
         try {
-            try {
-                cursor = service.rawQuery("select * from chunk_upload_data where md5=? and account=? and strftime('%s','now') - time < 48 * 3600", new String[]{md5, TiebaApplication.getCurrentAccount()});
-                if (cursor != null) {
-                    if (cursor.moveToFirst()) {
-                        ChunkUploadData data2 = new ChunkUploadData();
-                        try {
-                            data2.setMd5(md5);
-                            data2.setChunkNo(cursor.getInt(3));
-                            data2.setTotalLength(cursor.getLong(2));
-                            data = data2;
-                        } catch (Exception e) {
-                            ex = e;
-                            data = data2;
-                            TiebaLog.e("DatabaseService", "getChunkUploadDataByMd5", "error = " + ex.getMessage());
-                            if (cursor != null) {
-                                try {
-                                    cursor.close();
-                                    return data;
-                                } catch (Exception e2) {
-                                    return data;
+            if (service != null) {
+                try {
+                    cursor = service.rawQuery("select * from chunk_upload_data where md5=? and account=? and strftime('%s','now') - time < 48 * 3600", new String[]{md5, TiebaApplication.getCurrentAccount()});
+                    if (cursor != null) {
+                        if (cursor.moveToFirst()) {
+                            ChunkUploadData data2 = new ChunkUploadData();
+                            try {
+                                data2.setMd5(md5);
+                                data2.setChunkNo(cursor.getInt(3));
+                                data2.setTotalLength(cursor.getLong(2));
+                                data = data2;
+                            } catch (Exception e) {
+                                ex = e;
+                                data = data2;
+                                TiebaLog.e("DatabaseService", "getChunkUploadDataByMd5", "error = " + ex.getMessage());
+                                if (cursor != null) {
+                                    try {
+                                        cursor.close();
+                                        return data;
+                                    } catch (Exception e2) {
+                                        return data;
+                                    }
                                 }
-                            }
-                            return data;
-                        } catch (Throwable th) {
-                            th = th;
-                            if (cursor != null) {
-                                try {
-                                    cursor.close();
-                                } catch (Exception e3) {
+                                return data;
+                            } catch (Throwable th) {
+                                th = th;
+                                if (cursor != null) {
+                                    try {
+                                        cursor.close();
+                                    } catch (Exception e3) {
+                                    }
                                 }
+                                throw th;
                             }
-                            throw th;
                         }
+                        cursor.close();
                     }
-                    cursor.close();
+                    cursor = null;
+                } catch (Exception e4) {
+                    ex = e4;
                 }
-                Cursor cursor2 = null;
-                if (0 != 0) {
-                    try {
-                        cursor2.close();
-                        return data;
-                    } catch (Exception e4) {
-                        return data;
-                    }
-                }
-                return data;
-            } catch (Exception e5) {
-                ex = e5;
             }
+            if (cursor != null) {
+                try {
+                    cursor.close();
+                    return data;
+                } catch (Exception e5) {
+                    return data;
+                }
+            }
+            return data;
         } catch (Throwable th2) {
             th = th2;
         }
@@ -1309,8 +1340,8 @@ public class DatabaseService {
     }
 
     public static void deleteAccountAllInfo(String id) {
-        if (id != null) {
-            DatabaseService service = new DatabaseService();
+        DatabaseService service;
+        if (id != null && (service = new DatabaseService()) != null) {
             try {
                 service.ExecSQL("delete from cash_data where account=?", new String[]{id});
                 service.ExecSQL("delete from mark_data where account=?", new String[]{id});
@@ -1325,13 +1356,16 @@ public class DatabaseService {
 
     public static boolean cashNoAccountData(String data, int type) {
         DatabaseService service = new DatabaseService();
-        try {
-            service.ExecSQL("delete from cash_data where type=?", new String[]{String.valueOf(type)});
-            return service.ExecSQL("Insert into cash_data(type ,account ,data ) values(?,?,?)", new String[]{String.valueOf(type), "", data}).booleanValue();
-        } catch (Exception ex) {
-            TiebaLog.e("DatabaseService", "cashHostspot", "error = " + ex.getMessage());
-            return false;
+        if (service != null) {
+            try {
+                service.ExecSQL("delete from cash_data where type=?", new String[]{String.valueOf(type)});
+                return service.ExecSQL("Insert into cash_data(type ,account ,data ) values(?,?,?)", new String[]{String.valueOf(type), "", data}).booleanValue();
+            } catch (Exception ex) {
+                TiebaLog.e("DatabaseService", "cashHostspot", "error = " + ex.getMessage());
+                return false;
+            }
         }
+        return false;
     }
 
     /* JADX DEBUG: Another duplicated slice has different insns count: {[IF]}, finally: {[IF, CONST, CONST, MOVE_EXCEPTION, INVOKE, MOVE_EXCEPTION] complete} */
@@ -1340,33 +1374,35 @@ public class DatabaseService {
         Cursor cursor = null;
         String data = null;
         try {
-            try {
-                cursor = service.rawQuery("select * from cash_data where type=? ", new String[]{String.valueOf(type)});
-                if (cursor != null) {
-                    if (cursor.moveToFirst()) {
-                        data = cursor.getString(2);
-                    }
-                    cursor.close();
-                }
-                Cursor cursor2 = null;
-                if (0 != 0) {
-                    try {
-                        cursor2.close();
-                    } catch (Exception e) {
-                    }
-                }
-                return data;
-            } catch (Exception ex) {
-                TiebaLog.e("DatabaseService", "getHotspot", "error = " + ex.getMessage());
-                if (cursor != null) {
-                    try {
+            if (service != null) {
+                try {
+                    cursor = service.rawQuery("select * from cash_data where type=? ", new String[]{String.valueOf(type)});
+                    if (cursor != null) {
+                        if (cursor.moveToFirst()) {
+                            data = cursor.getString(2);
+                        }
                         cursor.close();
-                    } catch (Exception e2) {
-                        return data;
                     }
+                    cursor = null;
+                } catch (Exception ex) {
+                    TiebaLog.e("DatabaseService", "getHotspot", "error = " + ex.getMessage());
+                    if (cursor != null) {
+                        try {
+                            cursor.close();
+                        } catch (Exception e) {
+                            return data;
+                        }
+                    }
+                    return data;
                 }
-                return data;
             }
+            if (cursor != null) {
+                try {
+                    cursor.close();
+                } catch (Exception e2) {
+                }
+            }
+            return data;
         } catch (Throwable th) {
             if (cursor != null) {
                 try {

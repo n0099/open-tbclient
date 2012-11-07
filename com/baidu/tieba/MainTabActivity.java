@@ -23,6 +23,7 @@ import com.baidu.tieba.account.AccountShareHelper;
 import com.baidu.tieba.account.LoginActivity;
 import com.baidu.tieba.data.Config;
 import com.baidu.tieba.data.RequestResponseCode;
+import com.baidu.tieba.frs.FrsActivity;
 import com.baidu.tieba.home.HomeActivity;
 import com.baidu.tieba.home.LikeActivity;
 import com.baidu.tieba.home.MarkActivity;
@@ -37,10 +38,10 @@ import com.baidu.tieba.service.TiebaSyncService;
 import com.baidu.tieba.util.NetWorkCore;
 import com.baidu.tieba.util.TiebaLog;
 import com.baidu.tieba.util.UtilHelper;
-import java.util.Date;
 /* loaded from: classes.dex */
 public class MainTabActivity extends TabActivity implements CompoundButton.OnCheckedChangeListener {
     public static final String CURRENT_TAB = "home_tab";
+    public static final String FRS_NAME = "frs_name";
     public static final String GOTO_CLOSE = "close";
     public static final String GOTO_HOME = "goto_home";
     public static final String GOTO_MORE = "goto_more";
@@ -56,6 +57,8 @@ public class MainTabActivity extends TabActivity implements CompoundButton.OnChe
     public static final String PERSON_INFO_TAB = "person_info_tab";
     public static final String RECOMMEND_TAB = "recommend_tab";
     public static final String SORT_TAB = "sort_tab";
+    public static final int SPEED_OPEN_TYPE_FRS = 2;
+    public static final int SPEED_OPEN_TYPE_PB = 1;
     private Intent mHomeIntent;
     private TabHost mHost;
     private Intent mMoreIntent;
@@ -110,13 +113,17 @@ public class MainTabActivity extends TabActivity implements CompoundButton.OnChe
         context.startActivity(intent);
     }
 
-    public static void startActivity(Context context, String gotoView, String pbId) {
+    public static void startActivity(Context context, String gotoView, int type, String str) {
         Intent intent = new Intent(context, MainTabActivity.class);
         intent.setFlags(603979776);
         if (gotoView != null) {
             intent.putExtra(GOTO_TYPE, gotoView);
         }
-        intent.putExtra(PB_ID, pbId);
+        if (type == 1) {
+            intent.putExtra(PB_ID, str);
+        } else if (type == 2) {
+            intent.putExtra(FRS_NAME, str);
+        }
         intent.putExtra(KEY_CLOSE_DIALOG, true);
         context.startActivity(intent);
     }
@@ -148,7 +155,7 @@ public class MainTabActivity extends TabActivity implements CompoundButton.OnChe
     @Override // android.app.ActivityGroup, android.app.Activity
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        dealPbMessagePush(savedInstanceState);
+        dealSpeedOpen(savedInstanceState);
         TiebaLog.i(getClass().toString(), "onCreate", "debug");
         setContentView(R.layout.maintabs_activity);
         this.mHost = getTabHost();
@@ -182,8 +189,9 @@ public class MainTabActivity extends TabActivity implements CompoundButton.OnChe
         }
     }
 
-    private void dealPbMessagePush(Bundle savedInstanceState) {
+    private void dealSpeedOpen(Bundle savedInstanceState) {
         String pb_id;
+        String frs_name;
         if (savedInstanceState != null) {
             pb_id = savedInstanceState.getString(PB_ID);
         } else {
@@ -191,6 +199,14 @@ public class MainTabActivity extends TabActivity implements CompoundButton.OnChe
         }
         if (pb_id != null && pb_id.length() > 0) {
             PbActivity.startAcitivityBackSpecial(this, pb_id);
+        }
+        if (savedInstanceState != null) {
+            frs_name = savedInstanceState.getString(FRS_NAME);
+        } else {
+            frs_name = getIntent().getStringExtra(FRS_NAME);
+        }
+        if (frs_name != null && frs_name.length() > 0) {
+            FrsActivity.startAcitivityBackSpecial(this, frs_name, null, true);
         }
     }
 
@@ -205,12 +221,12 @@ public class MainTabActivity extends TabActivity implements CompoundButton.OnChe
         stopSyncService();
         stopActiveServide();
         unregReceiver();
-        if (TiebaApplication.app != null) {
-            TiebaApplication.app.cancelNotification();
-        }
+        TiebaApplication.app.cancelNotification();
         TiebaApplication.app.stopMsgReceive();
         TiebaApplication.app.resetMsg();
-        TiebaApplication.app.getSdramImage().clearPicAndPhoto();
+        if (TiebaApplication.app.getSdramImage() != null) {
+            TiebaApplication.app.getSdramImage().clearPicAndPhoto();
+        }
         if (this.mWaitingDialog != null) {
             this.mWaitingDialog.dismiss();
             this.mWaitingDialog = null;
@@ -310,35 +326,35 @@ public class MainTabActivity extends TabActivity implements CompoundButton.OnChe
             buttonView.setTextColor(-13588993);
             if (id == null || id.length() <= 0) {
                 switch (buttonView.getId()) {
-                    case R.id.radio_home /* 2131230930 */:
+                    case R.id.radio_home /* 2131230949 */:
                         this.mOldButton = tmp;
                         LoginActivity.startActivity(this, GOTO_HOME, getString(R.string.login_home_tab), (int) RequestResponseCode.REQUEST_LOGIN_USE);
                         return;
-                    case R.id.radio_sort /* 2131230932 */:
+                    case R.id.radio_sort /* 2131230950 */:
                         this.mOldButton = tmp;
                         LoginActivity.startActivity(this, GOTO_SORT, getString(R.string.login_msg_tab), (int) RequestResponseCode.REQUEST_LOGIN_USE);
                         return;
-                    case R.id.radio_person_info /* 2131230933 */:
+                    case R.id.radio_person_info /* 2131230951 */:
                         this.mOldButton = tmp;
                         LoginActivity.startActivity(this, GOTO_PERSON, getString(R.string.login_person_tab), (int) RequestResponseCode.REQUEST_LOGIN_USE);
                         return;
                 }
             }
             switch (buttonView.getId()) {
-                case R.id.radio_home /* 2131230930 */:
-                    this.mHost.setCurrentTabByTag("home_tab");
-                    return;
-                case R.id.radio_recommend /* 2131230931 */:
+                case R.id.radio_recommend /* 2131230948 */:
                     this.mHost.setCurrentTabByTag(RECOMMEND_TAB);
                     return;
-                case R.id.radio_sort /* 2131230932 */:
+                case R.id.radio_home /* 2131230949 */:
+                    this.mHost.setCurrentTabByTag("home_tab");
+                    return;
+                case R.id.radio_sort /* 2131230950 */:
                     this.mHost.setCurrentTabByTag(SORT_TAB);
                     return;
-                case R.id.radio_person_info /* 2131230933 */:
+                case R.id.radio_person_info /* 2131230951 */:
                     this.mPersonIntent.putExtra("un", TiebaApplication.getCurrentAccount());
                     this.mHost.setCurrentTabByTag(PERSON_INFO_TAB);
                     return;
-                case R.id.radio_more /* 2131230934 */:
+                case R.id.radio_more /* 2131230952 */:
                     this.mHost.setCurrentTabByTag(MORE_TAB);
                     return;
                 default:
@@ -386,6 +402,7 @@ public class MainTabActivity extends TabActivity implements CompoundButton.OnChe
         super.onSaveInstanceState(outState);
         outState.putString(GOTO_TYPE, this.mTabType);
         outState.putString(PB_ID, "");
+        outState.putString(FRS_NAME, "");
     }
 
     @Override // android.app.Activity
@@ -476,6 +493,9 @@ public class MainTabActivity extends TabActivity implements CompoundButton.OnChe
         }
         if (GOTO_RECOMMEND.equals(type)) {
             index = 1;
+            if (intent.getBooleanExtra("is_message_pv", false)) {
+                RecommendActivity.pvSign = true;
+            }
             localTabHost.addTab(buildTabSpec(RECOMMEND_TAB, this.mReCommendIntent));
             this.mCurrentButton = this.mRecommendButton;
         } else if (GOTO_SORT.equals(type)) {
@@ -527,66 +547,92 @@ public class MainTabActivity extends TabActivity implements CompoundButton.OnChe
     }
 
     private void checkNetwork() {
-        NetWorkCore.NetworkState state;
-        Date date = new Date();
-        if (date.getTime() - TiebaApplication.app.getCheckNetworkNotify() > Config.CHECK_NETWORK_NOTIFY_TIME && (state = NetWorkCore.getNetworkState(this)) != NetWorkCore.NetworkState.UNAVAIL) {
+        NetWorkCore.NetworkState state = NetWorkCore.getNetworkState(this);
+        if (state != NetWorkCore.NetworkState.UNAVAIL) {
             if (state == NetWorkCore.NetworkState.WIFI) {
-                if ((TiebaApplication.app.isShowImages() && TiebaApplication.app.getViewImageQuality() != 1) || TiebaApplication.app.getUploadImageQuality() != 1) {
-                    if (this.mWifiAffirmDialog == null) {
-                        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-                        builder.setTitle(R.string.network_title);
-                        builder.setMessage(R.string.network_wifi);
-                        DialogInterface.OnClickListener listener = new DialogInterface.OnClickListener() { // from class: com.baidu.tieba.MainTabActivity.1
+                int op = TiebaApplication.app.getCheckNetworkNotify(true);
+                if (op != 0) {
+                    if (op == 1) {
+                        changeSettingByNetwork(true);
+                        return;
+                    } else if ((TiebaApplication.app.isShowImages() && TiebaApplication.app.getViewImageQuality() != 1) || TiebaApplication.app.getUploadImageQuality() != 1) {
+                        if (this.mWifiAffirmDialog == null) {
+                            AlertDialog.Builder builder = new AlertDialog.Builder(this);
+                            builder.setTitle(R.string.network_title);
+                            builder.setMessage(R.string.network_wifi);
+                            DialogInterface.OnClickListener listener = new DialogInterface.OnClickListener() { // from class: com.baidu.tieba.MainTabActivity.1
+                                @Override // android.content.DialogInterface.OnClickListener
+                                public void onClick(DialogInterface arg0, int which) {
+                                    if (which != -2) {
+                                        MainTabActivity.this.mWifiAffirmDialog.dismiss();
+                                        TiebaApplication.app.setCheckNetworkNotify(false, true);
+                                        return;
+                                    }
+                                    MainTabActivity.this.changeSettingByNetwork(true);
+                                    TiebaApplication.app.setCheckNetworkNotify(true, true);
+                                }
+                            };
+                            builder.setPositiveButton(getString(R.string.cancel), listener);
+                            builder.setNegativeButton(getString(R.string.network_accept), listener);
+                            this.mWifiAffirmDialog = builder.create();
+                        }
+                        this.mWifiAffirmDialog.setCancelable(false);
+                        this.mWifiAffirmDialog.setCanceledOnTouchOutside(false);
+                        this.mWifiAffirmDialog.show();
+                        return;
+                    } else {
+                        return;
+                    }
+                }
+                return;
+            }
+            int op2 = TiebaApplication.app.getCheckNetworkNotify(false);
+            if (op2 != 0) {
+                if (op2 == 1) {
+                    changeSettingByNetwork(false);
+                } else if ((TiebaApplication.app.isShowImages() && TiebaApplication.app.getViewImageQuality() != 2) || TiebaApplication.app.getUploadImageQuality() == 1) {
+                    if (this.mNotWifiAffirmDialog == null) {
+                        AlertDialog.Builder builder2 = new AlertDialog.Builder(this);
+                        builder2.setTitle(R.string.network_title);
+                        builder2.setMessage(R.string.network_not_wifi);
+                        DialogInterface.OnClickListener listener2 = new DialogInterface.OnClickListener() { // from class: com.baidu.tieba.MainTabActivity.2
                             @Override // android.content.DialogInterface.OnClickListener
                             public void onClick(DialogInterface arg0, int which) {
                                 if (which != -2) {
-                                    MainTabActivity.this.mWifiAffirmDialog.dismiss();
-                                    TiebaApplication.app.setCheckNetworkNotify();
+                                    MainTabActivity.this.mNotWifiAffirmDialog.dismiss();
+                                    TiebaApplication.app.setCheckNetworkNotify(false, false);
                                     return;
                                 }
-                                if (TiebaApplication.app.isShowImages()) {
-                                    TiebaApplication.app.setViewImageQuality(1);
-                                }
-                                TiebaApplication.app.setUploadImageQuality(1);
+                                MainTabActivity.this.changeSettingByNetwork(false);
+                                TiebaApplication.app.setCheckNetworkNotify(true, false);
                             }
                         };
-                        builder.setPositiveButton(getString(R.string.cancel), listener);
-                        builder.setNegativeButton(getString(R.string.network_accept), listener);
-                        this.mWifiAffirmDialog = builder.create();
+                        builder2.setPositiveButton(getString(R.string.cancel), listener2);
+                        builder2.setNegativeButton(getString(R.string.network_accept), listener2);
+                        this.mNotWifiAffirmDialog = builder2.create();
                     }
-                    this.mWifiAffirmDialog.setCancelable(false);
-                    this.mWifiAffirmDialog.setCanceledOnTouchOutside(false);
-                    this.mWifiAffirmDialog.show();
+                    this.mNotWifiAffirmDialog.setCancelable(false);
+                    this.mNotWifiAffirmDialog.setCanceledOnTouchOutside(false);
+                    this.mNotWifiAffirmDialog.show();
                 }
-            } else if ((TiebaApplication.app.isShowImages() && TiebaApplication.app.getViewImageQuality() != 2) || TiebaApplication.app.getUploadImageQuality() == 1) {
-                if (this.mNotWifiAffirmDialog == null) {
-                    AlertDialog.Builder builder2 = new AlertDialog.Builder(this);
-                    builder2.setTitle(R.string.network_title);
-                    builder2.setMessage(R.string.network_not_wifi);
-                    DialogInterface.OnClickListener listener2 = new DialogInterface.OnClickListener() { // from class: com.baidu.tieba.MainTabActivity.2
-                        @Override // android.content.DialogInterface.OnClickListener
-                        public void onClick(DialogInterface arg0, int which) {
-                            if (which != -2) {
-                                MainTabActivity.this.mNotWifiAffirmDialog.dismiss();
-                                TiebaApplication.app.setCheckNetworkNotify();
-                                return;
-                            }
-                            if (TiebaApplication.app.isShowImages()) {
-                                TiebaApplication.app.setViewImageQuality(2);
-                            }
-                            if (TiebaApplication.app.getUploadImageQuality() == 1) {
-                                TiebaApplication.app.setUploadImageQuality(2);
-                            }
-                        }
-                    };
-                    builder2.setPositiveButton(getString(R.string.cancel), listener2);
-                    builder2.setNegativeButton(getString(R.string.network_accept), listener2);
-                    this.mNotWifiAffirmDialog = builder2.create();
-                }
-                this.mNotWifiAffirmDialog.setCancelable(false);
-                this.mNotWifiAffirmDialog.setCanceledOnTouchOutside(false);
-                this.mNotWifiAffirmDialog.show();
             }
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void changeSettingByNetwork(boolean wifi) {
+        if (wifi) {
+            if (TiebaApplication.app.isShowImages()) {
+                TiebaApplication.app.setViewImageQuality(1);
+            }
+            TiebaApplication.app.setUploadImageQuality(1);
+            return;
+        }
+        if (TiebaApplication.app.isShowImages()) {
+            TiebaApplication.app.setViewImageQuality(2);
+        }
+        if (TiebaApplication.app.getUploadImageQuality() == 1) {
+            TiebaApplication.app.setUploadImageQuality(2);
         }
     }
 }

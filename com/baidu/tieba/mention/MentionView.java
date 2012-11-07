@@ -461,7 +461,6 @@ public class MentionView {
                 this.mNetwork.setPostData(this.mParams);
                 this.mNetwork.setContext(MentionView.this.mActivity);
                 String data = this.mNetwork.postNetData();
-                TiebaLog.i("MentionAsyncTask", "doInBackground", "net data.size: " + String.valueOf(data.length()));
                 if (!this.mNetwork.isRequestSuccess() || data == null) {
                     return null;
                 }
@@ -638,7 +637,7 @@ public class MentionView {
         public void onPostExecute(String data) {
             try {
                 MentionView.this.mProgress.setVisibility(8);
-                if (this.mNetwork.isRequestSuccess()) {
+                if (this.mNetwork != null && this.mNetwork.isRequestSuccess()) {
                     if (this.mRequestType == 1) {
                         PbData pbData = new PbData();
                         pbData.parserJson(data);

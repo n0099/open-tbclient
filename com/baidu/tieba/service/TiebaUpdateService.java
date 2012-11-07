@@ -10,7 +10,6 @@ import android.os.Handler;
 import android.os.IBinder;
 import android.os.Message;
 import android.widget.RemoteViews;
-import com.baidu.location.LocationClientOption;
 import com.baidu.tieba.R;
 import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.data.Config;
@@ -36,9 +35,9 @@ public class TiebaUpdateService extends Service {
                     int progress = (int) ((msg.arg1 * 100) / msg.arg2);
                     TiebaUpdateService.this.mNotify.contentView.setProgressBar(R.id.progress, 100, progress, false);
                     StringBuffer buffer = new StringBuffer(20);
-                    buffer.append(String.valueOf(msg.arg1 / LocationClientOption.MIN_SCAN_SPAN));
+                    buffer.append(String.valueOf(msg.arg1 / 1000));
                     buffer.append("K/");
-                    buffer.append(String.valueOf(msg.arg2 / LocationClientOption.MIN_SCAN_SPAN));
+                    buffer.append(String.valueOf(msg.arg2 / 1000));
                     buffer.append("K");
                     TiebaUpdateService.this.mNotify.contentView.setTextViewText(R.id.schedule, buffer);
                     TiebaUpdateService.this.mNotificationManager.notify(10, TiebaUpdateService.this.mNotify);
@@ -92,9 +91,9 @@ public class TiebaUpdateService extends Service {
 
     @Override // android.app.Service
     public void onStart(Intent intent, int startId) {
+        VersionData data;
         TiebaLog.i(getClass().getName(), "onStart", "onStart");
-        if (intent.getBooleanExtra(TAG_UPDATE, false)) {
-            VersionData data = (VersionData) intent.getSerializableExtra(TAG_VERSION);
+        if (intent != null && intent.getBooleanExtra(TAG_UPDATE, false) && (data = (VersionData) intent.getSerializableExtra(TAG_VERSION)) != null) {
             String info = String.format(getString(R.string.downloading), data.getNew_version());
             this.mNotify.contentView.setTextViewText(R.id.info, info);
             this.mNotify.contentView.setTextViewText(R.id.schedule, "0/0");

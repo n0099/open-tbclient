@@ -15,9 +15,14 @@ import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.baidu.tieba.R;
+import com.baidu.tieba.data.Config;
+import com.baidu.tieba.data.MediaData;
 import com.baidu.tieba.data.ThreadData;
+import com.baidu.tieba.util.AsyncImageLoader;
 import com.baidu.tieba.util.StringHelper;
 import com.baidu.tieba.util.TiebaLog;
+import com.baidu.tieba.util.UtilHelper;
+import com.baidu.tieba.view.FrsImageView;
 import java.util.ArrayList;
 import java.util.Date;
 /* loaded from: classes.dex */
@@ -27,20 +32,70 @@ public class FrsAdapter extends BaseAdapter {
     private boolean mHaveFooter;
     private boolean mHaveHeader;
     private int mHeaderType;
+    private AsyncImageLoader mImageLoader;
     private boolean mIsProcessNext;
     private boolean mIsProcessPre;
+    private int mScreenWidth;
     private String mSignText;
+    private View.OnClickListener mImageOnClickListener = null;
     private ArrayList<ProgressBar> mProgressbars = new ArrayList<>();
     private boolean mOnlyLike = false;
     private boolean mOnlySign = false;
     private boolean mLike = false;
+    private boolean isAbstractOn = false;
     private boolean mSign = false;
+    private boolean mCanRank = true;
+
+    private LinearLayout createImageView(final MediaData media, int n) {
+        if (media.getVideoUrl() != null && (media.getVideoUrl().length() < 1 || media.getVideoUrl().endsWith("swf"))) {
+            return null;
+        }
+        FrsImageView imageView = new FrsImageView(this.mContext, media.getType());
+        LinearLayout mLinearLayout = new LinearLayout(this.mContext);
+        if (n == 3) {
+            imageView.setIsThree(true);
+        }
+        LinearLayout.LayoutParams imageViewparams = new LinearLayout.LayoutParams(((UtilHelper.px2dip(this.mContext, this.mScreenWidth) - 40) - (n * 2)) / n, (UtilHelper.px2dip(this.mContext, this.mScreenWidth) - 30) / 4);
+        LinearLayout.LayoutParams layoutViewparams = new LinearLayout.LayoutParams((ViewGroup.MarginLayoutParams) imageViewparams);
+        int px_v = UtilHelper.dip2px(this.mContext, 10.0f);
+        layoutViewparams.rightMargin = UtilHelper.dip2px(this.mContext, 2.0f);
+        layoutViewparams.topMargin = px_v;
+        layoutViewparams.bottomMargin = 0;
+        imageView.setTag(media.getPicUrl());
+        imageView.setClickable(true);
+        imageView.setFocusable(false);
+        imageView.setLayoutParams(imageViewparams);
+        mLinearLayout.setLayoutParams(layoutViewparams);
+        mLinearLayout.addView(imageView);
+        if (media.getType() == 5) {
+            imageView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.frs.FrsAdapter.1
+                @Override // android.view.View.OnClickListener
+                public void onClick(View v) {
+                    UtilHelper.startWebActivity(FrsAdapter.this.mContext, media.getVideoUrl());
+                }
+            });
+            return mLinearLayout;
+        } else if (media.getType() == 3) {
+            imageView.setOnClickListener(this.mImageOnClickListener);
+            return mLinearLayout;
+        } else {
+            return mLinearLayout;
+        }
+    }
+
+    public void setImageOnclickListener(View.OnClickListener listener) {
+        this.mImageOnClickListener = listener;
+    }
 
     public void setLikeSign(boolean liked, boolean signed) {
         this.mOnlyLike = false;
         this.mOnlySign = false;
         this.mLike = liked;
         this.mSign = signed;
+    }
+
+    public void setAbstractState(boolean src) {
+        this.isAbstractOn = src;
     }
 
     public void setLike(boolean liked) {
@@ -56,15 +111,25 @@ public class FrsAdapter extends BaseAdapter {
         this.mLike = liked;
     }
 
-    public void setOnlySigned(boolean signed, String signText) {
+    public void setOnlySigned(boolean signed, String signText, boolean canSignRank) {
         this.mOnlySign = true;
         this.mSign = signed;
         this.mSignText = signText;
+        this.mCanRank = canSignRank;
     }
 
-    public FrsAdapter(Context context, ArrayList<ThreadData> data) {
+    public FrsAdapter(Context context, ArrayList<ThreadData> data, int imageMaxWidth) {
         this.mContext = context;
         this.mData = data;
+        this.mImageLoader = new AsyncImageLoader(this.mContext);
+        this.mImageLoader.setSmallPic(true);
+        this.mScreenWidth = imageMaxWidth;
+        imageMaxWidth = imageMaxWidth > Config.THREAD_IMAGE_MAX_WIDTH ? Config.THREAD_IMAGE_MAX_WIDTH : imageMaxWidth;
+        this.mImageLoader.setImagesize(imageMaxWidth, (imageMaxWidth - UtilHelper.dip2px(this.mContext, 6.0f)) / 4);
+    }
+
+    public AsyncImageLoader getImageLoader() {
+        return this.mImageLoader;
     }
 
     public void setIsProcessNext(boolean b) {
@@ -164,6 +229,7 @@ public class FrsAdapter extends BaseAdapter {
     @Override // android.widget.Adapter
     public View getView(int position, View convertView, ViewGroup parent) {
         ViewHolder holder;
+        View temp;
         String likeTextString;
         SpannableString text;
         try {
@@ -172,13 +238,17 @@ public class FrsAdapter extends BaseAdapter {
                 convertView = mInflater.inflate(R.layout.frs_item, (ViewGroup) null);
                 ViewHolder holder2 = new ViewHolder(this, null);
                 try {
-                    holder2.mContent = (RelativeLayout) convertView.findViewById(R.id.frs_list_item);
+                    holder2.mContent = (LinearLayout) convertView.findViewById(R.id.frs_list_item);
                     holder2.mReplyNum = (TextView) convertView.findViewById(R.id.frs_lv_reply_num);
                     holder2.mReplyTime = (TextView) convertView.findViewById(R.id.frs_lv_reply_time);
                     holder2.mTitle = (TextView) convertView.findViewById(R.id.frs_lv_title);
                     holder2.mAuthor = (TextView) convertView.findViewById(R.id.frs_lv_author);
                     holder2.mSignLike = (LinearLayout) convertView.findViewById(R.id.signlike_layout);
                     holder2.mSignOnly = (LinearLayout) convertView.findViewById(R.id.signonly_layout);
+                    holder2.abstractLayout = (LinearLayout) convertView.findViewById(R.id.frs_lv_abstract);
+                    holder2.abstractTextView = (TextView) convertView.findViewById(R.id.abstract_text);
+                    holder2.mSeg = (LinearLayout) convertView.findViewById(R.id.abstract_img_layout);
+                    holder2.mReplayIcon = (ImageView) convertView.findViewById(R.id.frs_lv_autor_icon);
                     holder2.mSignOnly.setEnabled(false);
                     holder2.mSignLike.setEnabled(false);
                     holder2.mControl = (RelativeLayout) convertView.findViewById(R.id.frs_list_control);
@@ -211,25 +281,25 @@ public class FrsAdapter extends BaseAdapter {
                 holder.mControl.setVisibility(0);
                 holder.mSignLike.setVisibility(8);
                 holder.mSignOnly.setVisibility(8);
-                holder.likeLayout.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.frs.FrsAdapter.1
+                holder.likeLayout.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.frs.FrsAdapter.2
                     @Override // android.view.View.OnClickListener
                     public void onClick(View arg0) {
                         ((FrsActivity) FrsAdapter.this.mContext).execLike();
                     }
                 });
-                holder.signLayout.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.frs.FrsAdapter.2
+                holder.signLayout.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.frs.FrsAdapter.3
                     @Override // android.view.View.OnClickListener
                     public void onClick(View arg0) {
                         ((FrsActivity) FrsAdapter.this.mContext).execSign();
                     }
                 });
-                holder.signOnlyLayout.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.frs.FrsAdapter.3
+                holder.signOnlyLayout.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.frs.FrsAdapter.4
                     @Override // android.view.View.OnClickListener
                     public void onClick(View arg0) {
                         ((FrsActivity) FrsAdapter.this.mContext).execSign();
                     }
                 });
-                holder.signOnlyCon.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.frs.FrsAdapter.4
+                holder.signOnlyCon.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.frs.FrsAdapter.5
                     @Override // android.view.View.OnClickListener
                     public void onClick(View arg0) {
                     }
@@ -249,22 +319,34 @@ public class FrsAdapter extends BaseAdapter {
                                 holder.signOnlyLayout.setEnabled(true);
                                 holder.signOnlyIcon.setVisibility(0);
                                 holder.signOnlyIcoText.setTextColor(rs.getColor(R.color.frs_sign_enable));
-                                int signRankInt = Integer.valueOf(this.mSignText).intValue();
-                                if (signRankInt != 0) {
-                                    String signRank = rs.getString(R.string.sign_forum);
-                                    text = new SpannableString(signRank.replace("?", this.mSignText));
-                                    text.setSpan(new ForegroundColorSpan(Color.rgb(232, 0, 0)), 9, this.mSignText.length() + 9, 33);
+                                if (this.mCanRank) {
+                                    int signRankInt = Integer.valueOf(this.mSignText).intValue();
+                                    if (signRankInt != 0) {
+                                        String signRank = rs.getString(R.string.sign_forum);
+                                        text = new SpannableString(signRank.replace("?", this.mSignText));
+                                        text.setSpan(new ForegroundColorSpan(Color.rgb(232, 0, 0)), 9, this.mSignText.length() + 9, 33);
+                                    } else {
+                                        String noRank = rs.getString(R.string.nosign_forum);
+                                        text = new SpannableString(noRank);
+                                    }
                                 } else {
-                                    String noRank = rs.getString(R.string.nosign_forum);
-                                    text = new SpannableString(noRank);
+                                    int signNumInt = Integer.valueOf(this.mSignText).intValue();
+                                    if (signNumInt != 0) {
+                                        String signRank2 = rs.getString(R.string.sign_number);
+                                        text = new SpannableString(signRank2.replace("?", this.mSignText));
+                                        text.setSpan(new ForegroundColorSpan(Color.rgb(232, 0, 0)), 3, this.mSignText.length() + 3, 33);
+                                    } else {
+                                        String noRank2 = rs.getString(R.string.nosign_forum);
+                                        text = new SpannableString(noRank2);
+                                    }
                                 }
                             } else {
                                 holder.signOnlyIcoText.setText(this.mContext.getResources().getString(R.string.signed));
                                 holder.signOnlyLayout.setEnabled(false);
                                 holder.signOnlyIcon.setVisibility(8);
                                 holder.signOnlyIcoText.setTextColor(rs.getColor(R.color.frs_likesign_disable));
-                                String signRank2 = rs.getString(R.string.sign_user);
-                                text = new SpannableString(signRank2.replace("?", this.mSignText));
+                                String signRank3 = rs.getString(R.string.sign_user);
+                                text = new SpannableString(signRank3.replace("?", this.mSignText));
                                 text.setSpan(new ForegroundColorSpan(Color.rgb(232, 0, 0)), 10, this.mSignText.length() + 10, 33);
                             }
                             holder.signOnlyConText.setText(text);
@@ -326,7 +408,13 @@ public class FrsAdapter extends BaseAdapter {
                 ThreadData data = (ThreadData) getItem(position);
                 int replyNum = data.getReply_num();
                 if (replyNum <= 999) {
-                    holder.mReplyNum.setText(String.valueOf(replyNum));
+                    if (replyNum > 0) {
+                        holder.mReplayIcon.setVisibility(0);
+                        holder.mReplyNum.setText(String.valueOf(replyNum));
+                    } else {
+                        holder.mReplayIcon.setVisibility(8);
+                        holder.mReplyNum.setText((CharSequence) null);
+                    }
                 } else {
                     holder.mReplyNum.setText("999+");
                 }
@@ -336,6 +424,51 @@ public class FrsAdapter extends BaseAdapter {
                 holder.mReplyTime.setText(d);
                 holder.mTitle.setText(data.getSpan_str());
                 holder.mAuthor.setText(data.getAuthor().getName());
+                if (this.isAbstractOn && data.getIs_top() != 1) {
+                    holder.abstractLayout.setVisibility(0);
+                    holder.mSeg.setVisibility(0);
+                    holder.abstractTextView.setVisibility(0);
+                    ArrayList<MediaData> medias = data.getMedias();
+                    String abstractText = "";
+                    if (data.getAbstract() != null) {
+                        abstractText = String.valueOf("") + data.getAbstract();
+                    }
+                    if (medias != null) {
+                        for (int i = 0; i < medias.size(); i++) {
+                            if (medias.get(i).getVideoUrl() != null && medias.get(i).getVideoUrl().endsWith("swf")) {
+                                abstractText = String.valueOf(abstractText) + medias.get(i).getVideoUrl();
+                            }
+                        }
+                        if (abstractText != null && abstractText.length() > 1) {
+                            holder.abstractTextView.setText(abstractText);
+                        } else {
+                            holder.abstractTextView.setVisibility(8);
+                        }
+                        if (medias.size() > 0) {
+                            holder.mSeg.removeAllViews();
+                            int picNum = 0;
+                            for (int i2 = 0; i2 < medias.size(); i2++) {
+                                if (medias.get(i2) != null && (medias.get(i2).getType() == 3 || medias.get(i2).getType() == 5)) {
+                                    picNum++;
+                                }
+                            }
+                            if (picNum > 3) {
+                                picNum = 3;
+                            }
+                            int j = 0;
+                            for (int i3 = 0; i3 < medias.size() && j < picNum; i3++) {
+                                if ((medias.get(i3).getType() == 3 || medias.get(i3).getType() == 5) && (temp = createImageView(medias.get(i3), picNum)) != null) {
+                                    holder.mSeg.addView(temp);
+                                    j++;
+                                }
+                            }
+                        } else {
+                            holder.mSeg.setVisibility(8);
+                        }
+                    }
+                } else {
+                    holder.abstractLayout.setVisibility(8);
+                }
             }
         } catch (Exception e2) {
             ex = e2;
@@ -345,15 +478,19 @@ public class FrsAdapter extends BaseAdapter {
 
     /* loaded from: classes.dex */
     private class ViewHolder {
+        LinearLayout abstractLayout;
+        TextView abstractTextView;
         LinearLayout likeLayout;
         TextView likeText;
         TextView mAuthor;
-        RelativeLayout mContent;
+        LinearLayout mContent;
         RelativeLayout mControl;
         ProgressBar mCtlProg;
         TextView mCtlText;
+        ImageView mReplayIcon;
         TextView mReplyNum;
         TextView mReplyTime;
+        LinearLayout mSeg;
         LinearLayout mSignLike;
         LinearLayout mSignOnly;
         TextView mTitle;

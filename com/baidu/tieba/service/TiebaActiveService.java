@@ -46,18 +46,20 @@ public class TiebaActiveService extends Service {
     }
 
     private String getChannelyFile() {
+        String from = null;
         try {
             File file = FileHelper.GetFile(Config.CHANNEL_FILE);
-            if (file == null) {
-                return null;
+            if (file != null) {
+                BufferedReader reader = new BufferedReader(new FileReader(file));
+                from = reader.readLine();
+                if (reader != null) {
+                    reader.close();
+                }
             }
-            BufferedReader reader = new BufferedReader(new FileReader(file));
-            String from = reader.readLine();
-            return from;
         } catch (Exception ex) {
             TiebaLog.e(getClass().getName(), "getFromByFile", ex.getMessage());
-            return null;
         }
+        return from;
     }
 
     private void saveChannelToFile(String channel) {

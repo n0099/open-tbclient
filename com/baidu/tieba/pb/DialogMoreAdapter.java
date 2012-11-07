@@ -39,6 +39,12 @@ public class DialogMoreAdapter extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public int getCount() {
+        if (this.mModel == null || this.mModel.getData() == null) {
+            return 0;
+        }
+        if (this.mModel.getData().getUserIdentity() != 0) {
+            return 3;
+        }
         return 2;
     }
 
@@ -105,6 +111,15 @@ public class DialogMoreAdapter extends BaseAdapter {
                 holder.mImage.setVisibility(8);
             } else {
                 holder.mImage.setVisibility(0);
+            }
+        } else if (position == 2) {
+            holder.mNum.setVisibility(8);
+            holder.mProgress.setVisibility(8);
+            holder.mText.setText(this.mContext.getString(R.string.manage_mode));
+            if (this.mModel.getManageMode()) {
+                holder.mImage.setVisibility(0);
+            } else {
+                holder.mImage.setVisibility(8);
             }
         }
         return convertView;

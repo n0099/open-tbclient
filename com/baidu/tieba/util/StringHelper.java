@@ -47,13 +47,6 @@ public class StringHelper {
             return "";
         }
         Date tClient = new Date();
-        long tDiff = tClient.getTime() - tObj.getTime();
-        if (tDiff < 60000) {
-            return "1分钟前";
-        }
-        if (tDiff < 3600000) {
-            return String.valueOf(String.valueOf((tDiff / 1000) / 60)) + "分钟前";
-        }
         if (tClient.getYear() == tObj.getYear()) {
             if (tClient.getMonth() == tObj.getMonth() && tClient.getDate() == tObj.getDate()) {
                 return FORMATE_DATE_TIME.format(tObj);
@@ -348,5 +341,9 @@ public class StringHelper {
             TiebaLog.e("StringHelper", "getNameFromUrl", ex.getMessage());
         }
         return name;
+    }
+
+    public static String getNameMd5FromUrl(String url) {
+        return ToMd5(url);
     }
 }

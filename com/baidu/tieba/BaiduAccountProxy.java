@@ -47,8 +47,8 @@ public class BaiduAccountProxy {
                 TiebaApplication.app.refreshMsg(0L, 0L, 0L);
                 TiebaApplication.app.initSetting();
                 if (account2 == null || account2.equals("BaiduUser")) {
+                    TiebaApplication.app.setMsgFrequency(0);
                 }
-                TiebaApplication.app.setMsgFrequency(0);
             }
         });
     }

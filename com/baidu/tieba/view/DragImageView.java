@@ -33,7 +33,7 @@ public class DragImageView extends ImageView {
     public static final int IMAGE_TYPE_DEFAULT = 2;
     public static final int IMAGE_TYPE_DYNAMIC = 1;
     public static final int IMAGE_TYPE_STATIC = 0;
-    private static final int MAX_IMAGE_SIZE = 1000;
+    private static final int MAX_IMAGE_SIZE = 1300;
     static final int NORMAL = 0;
     static final int ZOOM = 2;
     private static final float ZOOM_IN_MULTIPLE = 1.25f;
@@ -283,7 +283,7 @@ public class DragImageView extends ImageView {
                 }
                 this.mInitScale = sx;
             }
-            this.mMaxScale = 1000000 / (bitmap.getWidth() * bitmap.getHeight());
+            this.mMaxScale = 1690000 / (bitmap.getWidth() * bitmap.getHeight());
             this.mMaxScale = (float) Math.sqrt(this.mMaxScale);
             if (this.mMaxScale > 10.0f) {
                 this.mMaxScale = 10.0f;
@@ -702,7 +702,7 @@ public class DragImageView extends ImageView {
         }
         float scale = this.mScale.get(size - 1).floatValue();
         int current_size = (int) (bitmap.getWidth() * bitmap.getHeight() * scale * scale);
-        return (((float) current_size) * ZOOM_IN_MULTIPLE) * ZOOM_IN_MULTIPLE <= ((float) 1000000) && scale <= 5.0f;
+        return (((float) current_size) * ZOOM_IN_MULTIPLE) * ZOOM_IN_MULTIPLE <= ((float) 1690000) && scale <= 5.0f;
     }
 
     public boolean canZoomOut() {

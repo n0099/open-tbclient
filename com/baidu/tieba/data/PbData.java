@@ -11,6 +11,7 @@ public class PbData {
     private ArrayList<PostData> post_list = new ArrayList<>();
     private PageData page = new PageData();
     private AntiData anti = new AntiData();
+    private int userIdentity = 0;
     private boolean isHasFloor = false;
 
     public ForumData getForum() {
@@ -79,6 +80,7 @@ public class PbData {
                 this.anti.parserJson(json.optJSONObject("anti"));
                 int hasFloor = json.optInt("has_floor");
                 this.isHasFloor = hasFloor == 1;
+                this.userIdentity = json.optJSONObject("user").optInt("is_manager", 0);
             } catch (Exception ex) {
                 TiebaLog.e("PbData", "parserJson", "error = " + ex.getMessage());
             }
@@ -93,9 +95,14 @@ public class PbData {
         }
         this.page.logPrint();
         this.anti.logPrint();
+        TiebaLog.v("UserData", "logPrint", "userIdentity = " + this.userIdentity);
     }
 
     public boolean getIsHasFloor() {
         return this.isHasFloor;
+    }
+
+    public int getUserIdentity() {
+        return this.userIdentity;
     }
 }

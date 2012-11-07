@@ -4,7 +4,6 @@ import android.content.Context;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.util.AttributeSet;
-import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
@@ -21,7 +20,6 @@ import java.util.ArrayList;
 public class MultiImageView extends RelativeLayout {
     private ImagePagerAdapter mAdapter;
     private GalleryViewPager mGalleryViewPager;
-    private GestureDetector mGestureDetector;
     private int mGifMaxMemory;
     private boolean mGifPlayRealseOther;
     private View.OnClickListener mOnClickListener;
@@ -42,7 +40,6 @@ public class MultiImageView extends RelativeLayout {
         this.mGalleryViewPager = null;
         this.mOnPageChangeListener = null;
         this.mUserOnPageChangeListener = null;
-        this.mGestureDetector = null;
         this.mOnSizeChangedListener = null;
         this.mAdapter = null;
         this.mOnGifSetListener = null;
@@ -60,7 +57,6 @@ public class MultiImageView extends RelativeLayout {
         this.mGalleryViewPager = null;
         this.mOnPageChangeListener = null;
         this.mUserOnPageChangeListener = null;
-        this.mGestureDetector = null;
         this.mOnSizeChangedListener = null;
         this.mAdapter = null;
         this.mOnGifSetListener = null;
@@ -78,7 +74,6 @@ public class MultiImageView extends RelativeLayout {
         this.mGalleryViewPager = null;
         this.mOnPageChangeListener = null;
         this.mUserOnPageChangeListener = null;
-        this.mGestureDetector = null;
         this.mOnSizeChangedListener = null;
         this.mAdapter = null;
         this.mOnGifSetListener = null;
@@ -305,7 +300,6 @@ public class MultiImageView extends RelativeLayout {
 
     @Override // android.view.View
     public boolean onTouchEvent(MotionEvent event) {
-        this.mGestureDetector.onTouchEvent(event);
         return super.onTouchEvent(event);
     }
 

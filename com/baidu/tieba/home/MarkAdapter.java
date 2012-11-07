@@ -71,12 +71,7 @@ public class MarkAdapter extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public long getItemId(int position) {
-        Object item;
-        if (this.mIsNodata || (item = getItem(position)) == null) {
-            return 0L;
-        }
-        MarkData data = (MarkData) item;
-        return Integer.parseInt(data.getId());
+        return position;
     }
 
     @Override // android.widget.Adapter

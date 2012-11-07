@@ -100,20 +100,20 @@ public class ImageActivity extends BaseActivity {
             public void onClick(View v) {
                 if (v != ImageActivity.this.mBack) {
                     if (v == ImageActivity.this.mSave) {
-                        try {
-                            byte[] data = ImageActivity.this.mMultiImageView.getCurrentImageData();
-                            if (data != null) {
-                                String name = ImageActivity.this.mMultiImageView.getCurrentImageUrl();
-                                ImageActivity.this.mSaveImageTask = new SaveImageAsyncTask(name, data);
-                                ImageActivity.this.mSaveImageTask.execute(new String[0]);
-                                ImageActivity.this.mSave.setVisibility(4);
-                                ImageActivity.this.mProgress.setVisibility(0);
-                            } else {
-                                ImageActivity.this.showToast(ImageActivity.this.getString(R.string.no_data));
+                        if (ImageActivity.this.mTitle.getVisibility() != 8) {
+                            try {
+                                byte[] data = ImageActivity.this.mMultiImageView.getCurrentImageData();
+                                if (data != null) {
+                                    String name = ImageActivity.this.mMultiImageView.getCurrentImageUrl();
+                                    ImageActivity.this.mSaveImageTask = new SaveImageAsyncTask(name, data);
+                                    ImageActivity.this.mSaveImageTask.execute(new String[0]);
+                                    ImageActivity.this.mSave.setVisibility(4);
+                                    ImageActivity.this.mProgress.setVisibility(0);
+                                } else {
+                                    ImageActivity.this.showToast(ImageActivity.this.getString(R.string.no_data));
+                                }
+                            } catch (Exception e) {
                             }
-                            return;
-                        } catch (Exception e) {
-                            return;
                         }
                     } else if (ImageActivity.this.mAnimFinished) {
                         if (ImageActivity.this.mTitle.getVisibility() != 0) {
@@ -147,12 +147,10 @@ public class ImageActivity extends BaseActivity {
                         });
                         ImageActivity.this.mAnimFinished = false;
                         ImageActivity.this.mTitle.startAnimation(ImageActivity.this.mAnim);
-                        return;
-                    } else {
-                        return;
                     }
+                } else if (ImageActivity.this.mTitle.getVisibility() != 8) {
+                    ImageActivity.this.finish();
                 }
-                ImageActivity.this.finish();
             }
         };
         this.mOnPageChangeListener = new ViewPager.OnPageChangeListener() { // from class: com.baidu.tieba.pb.ImageActivity.2
@@ -239,12 +237,12 @@ public class ImageActivity extends BaseActivity {
     /* loaded from: classes.dex */
     private class SaveImageAsyncTask extends AsyncTask<String, Integer, String> {
         byte[] mData;
-        String mName;
+        String mUrl;
 
-        public SaveImageAsyncTask(String name, byte[] data) {
-            this.mName = null;
+        public SaveImageAsyncTask(String url, byte[] data) {
+            this.mUrl = null;
             this.mData = null;
-            this.mName = name;
+            this.mUrl = url;
             this.mData = data;
         }
 
@@ -253,23 +251,14 @@ public class ImageActivity extends BaseActivity {
         @Override // android.os.AsyncTask
         public String doInBackground(String... arg0) {
             try {
-                if (this.mName != null && this.mName.length() > 0 && this.mData != null) {
-                    String sname = null;
-                    if (this.mName != null && this.mName.length() > 0) {
-                        String sname2 = StringHelper.getUrlDecode(this.mName);
-                        sname = sname2.substring(sname2.lastIndexOf("/") + 1).trim();
-                    }
-                    if (sname == null || sname.length() < 1) {
-                        sname = this.mName;
-                    }
-                    String postfix = null;
-                    int index = sname.lastIndexOf(".");
-                    if (index != -1) {
-                        postfix = sname.substring(index);
-                        sname = sname.substring(0, index);
-                    }
+                if (this.mUrl != null && this.mUrl.length() > 0 && this.mData != null) {
+                    String postfix = ".jpg";
                     if (UtilHelper.isGif(this.mData)) {
                         postfix = ".gif";
+                    }
+                    String sname = StringHelper.getNameMd5FromUrl(this.mUrl);
+                    if (sname == null) {
+                        return ImageActivity.this.getString(R.string.save_error);
                     }
                     String xfilename = String.valueOf(sname) + postfix;
                     for (int i = 0; FileHelper.CheckFile(xfilename) && i < 10000; i++) {
@@ -279,18 +268,16 @@ public class ImageActivity extends BaseActivity {
                     if (xfilename2 != null) {
                         MediaScannerClient client = new MediaScannerClient(ImageActivity.this);
                         client.saveImage(xfilename2);
-                        String notifyStr = ImageActivity.this.getString(R.string.save_to);
-                        return String.valueOf(notifyStr) + xfilename2;
+                        String notifyStr = ImageActivity.this.getString(R.string.save_image_to_album);
+                        return notifyStr;
                     }
                     String notifyStr2 = FileHelper.getSdErrorString();
                     return notifyStr2;
                 }
-                String notifyStr3 = ImageActivity.this.getString(R.string.save_error);
-                return notifyStr3;
+                return ImageActivity.this.getString(R.string.save_error);
             } catch (Exception ex) {
                 TiebaLog.e("SaveImageAsyncTask", "doInBackground", "error" + ex.getMessage());
-                String notifyStr4 = ImageActivity.this.getString(R.string.save_error);
-                return notifyStr4;
+                return ImageActivity.this.getString(R.string.save_error);
             }
         }
 

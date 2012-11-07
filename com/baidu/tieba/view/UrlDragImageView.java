@@ -142,8 +142,8 @@ public class UrlDragImageView extends RelativeLayout {
     }
 
     public void checkImage() {
-        String url = (String) this.mImageView.getTag();
-        if (url != null && this.mImageView != null && this.mTask == null) {
+        String url;
+        if (this.mImageView != null && (url = (String) this.mImageView.getTag()) != null && this.mImageView != null && this.mTask == null) {
             if (this.mImageView.getImageType() == 1) {
                 if (this.mImageView.getGifCache() == null) {
                     this.mTask = new ImageAsyncTask(url);
@@ -179,21 +179,7 @@ public class UrlDragImageView extends RelativeLayout {
             this.mUrl = null;
             this.mFileName = null;
             this.mUrl = url;
-            this.mFileName = getFileName(url);
-        }
-
-        private String getFileName(String url) {
-            try {
-                String name = StringHelper.getUrlDecode(url);
-                String name2 = name.substring(name.lastIndexOf("/") + 1).trim();
-                int index = name2.lastIndexOf(".");
-                if (index != -1) {
-                    name2 = name2.substring(0, index);
-                }
-                return String.valueOf(name2) + "large";
-            } catch (Exception e) {
-                return null;
-            }
+            this.mFileName = StringHelper.getNameMd5FromUrl(url);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -202,12 +188,16 @@ public class UrlDragImageView extends RelativeLayout {
         public ImageData doInBackground(String... params) {
             String url;
             ImageData im = null;
+            if (this.mUrl == null || this.mFileName == null) {
+                return null;
+            }
             String url2 = String.valueOf(this.mUrl) + "&imgtype=0";
             if (TiebaApplication.app.getViewImageQuality() == 1) {
                 url = String.valueOf(url2) + "&qulity=" + String.valueOf(80);
             } else {
                 url = String.valueOf(url2) + "&qulity=" + String.valueOf(45);
             }
+            String url3 = String.valueOf(url) + "&ispv=1";
             Bitmap bm = null;
             try {
                 byte[] data = UrlDragImageView.this.mImageView.getImageData();
@@ -218,7 +208,7 @@ public class UrlDragImageView extends RelativeLayout {
                     bm = BitmapHelper.Bytes2Bitmap(data);
                 }
                 if (bm == null) {
-                    String fullUrl = Config.IMAGE_ADDRESS + url;
+                    String fullUrl = Config.IMAGE_ADDRESS + url3;
                     this.mNetwork = new NetWork(fullUrl);
                     this.mNetwork.setIsBDImage(true);
                     data = this.mNetwork.getNetData();
@@ -232,7 +222,7 @@ public class UrlDragImageView extends RelativeLayout {
                     im2.url = this.mUrl;
                     im2.data = data;
                     im2.bitmap = bm;
-                    return im2;
+                    im = im2;
                 } catch (Exception e) {
                     ex = e;
                     im = im2;
@@ -242,6 +232,7 @@ public class UrlDragImageView extends RelativeLayout {
             } catch (Exception e2) {
                 ex = e2;
             }
+            return im;
         }
 
         /* JADX DEBUG: Method merged with bridge method */

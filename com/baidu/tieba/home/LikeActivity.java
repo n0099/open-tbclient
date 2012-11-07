@@ -300,7 +300,6 @@ public class LikeActivity extends BaseActivity {
                 this.mNetwork = new NetWork(this.mUrl);
                 this.mNetwork.addPostData(this.mParam);
                 String data = this.mNetwork.postNetData();
-                TiebaLog.i("HomeLikeAsyncTask", "doInBackground", "net data.size: " + String.valueOf(data.length()));
                 if (!this.mNetwork.isRequestSuccess() || data == null) {
                     return null;
                 }

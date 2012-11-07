@@ -6,14 +6,16 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import com.baidu.tieba.R;
+import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.data.Config;
 import com.baidu.tieba.data.ContentData;
 import com.baidu.tieba.data.PostData;
+import com.baidu.tieba.data.ThreadData;
+import com.baidu.tieba.model.SubPbModel;
 import com.baidu.tieba.person.PersonInfoActivity;
 import com.baidu.tieba.util.ContentHelper;
 import com.baidu.tieba.util.StringHelper;
@@ -23,21 +25,46 @@ import java.util.List;
 /* loaded from: classes.dex */
 public class SubPbAdapter extends BaseAdapter {
     private Context mContext;
+    private String mCurrAccount;
     private List<PostData> mData;
     private int mHaveFooter;
     private int mHaveHeader;
     private boolean mIsProcessMore;
     private boolean mIsProcessPre;
+    private ArrayList<ProgressBar> mProgressbars;
+    private SubPbModel mSubPbModel;
+    private boolean mIsManageMode = false;
+    private int mUserIdentity = 0;
     private View.OnClickListener mReplyListener = null;
-    private ArrayList<ProgressBar> mProgressbars = new ArrayList<>();
 
-    public SubPbAdapter(Context context, List<PostData> data) {
+    public SubPbAdapter(Context context, SubPbModel model) {
+        this.mCurrAccount = null;
         this.mContext = context;
-        this.mData = data;
+        this.mSubPbModel = model;
+        if (this.mSubPbModel != null && this.mSubPbModel.getSubPbData() != null) {
+            this.mData = model.getSubPbData().getSubPbList();
+        }
+        this.mProgressbars = new ArrayList<>();
+        this.mCurrAccount = TiebaApplication.getCurrentAccount();
     }
 
     public void setData(List<PostData> data) {
         this.mData = data;
+    }
+
+    public void setSubPbModel(SubPbModel model) {
+        this.mSubPbModel = model;
+        if (this.mSubPbModel != null && this.mSubPbModel.getSubPbData() != null) {
+            this.mData = model.getSubPbData().getSubPbList();
+        }
+    }
+
+    public void setIsManageMode(boolean mode) {
+        this.mIsManageMode = mode;
+    }
+
+    public void setUserIdentity(int identity) {
+        this.mUserIdentity = identity;
     }
 
     public void setReplyListener(View.OnClickListener listener) {
@@ -114,8 +141,8 @@ public class SubPbAdapter extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public Object getItem(int position) {
-        int index = (int) getItemId(position);
-        if (index < 0 || index >= this.mData.size()) {
+        int index;
+        if (this.mData == null || (index = (int) getItemId(position)) < 0 || index >= this.mData.size()) {
             return null;
         }
         Object item = this.mData.get(index);
@@ -148,6 +175,8 @@ public class SubPbAdapter extends BaseAdapter {
     public View getView(int position, View convertView, ViewGroup parent) {
         ViewHolder holder;
         long data_index;
+        ThreadData thread;
+        String authorId;
         ViewHolder holder2;
         if (this.mData == null) {
             return convertView;
@@ -163,11 +192,16 @@ public class SubPbAdapter extends BaseAdapter {
                         holder2.mTime = (TextView) convertView.findViewById(R.id.text_time);
                         holder2.mText = (TextView) convertView.findViewById(R.id.text_content);
                         holder2.mText.setLineSpacing(0.0f, 1.2f);
-                        holder2.mReply = (Button) convertView.findViewById(R.id.button_reply);
+                        holder2.mReply = (TextView) convertView.findViewById(R.id.text_reply);
                         holder2.mSeg = (LinearLayout) convertView.findViewById(R.id.seg);
                         holder2.mReply.setOnClickListener(this.mReplyListener);
                         holder2.mPhotoClick = new PhotoOnClickListener();
                         holder2.mUserName.setOnClickListener(holder2.mPhotoClick);
+                        holder2.mDelPostClick = new DelPostClickListener();
+                        holder2.mForbidUserClick = new ForbidUserClickListener();
+                        holder2.mForbidUser = (TextView) convertView.findViewById(R.id.forbid_user);
+                        holder2.mDelPost = (TextView) convertView.findViewById(R.id.del_post);
+                        holder2.mManageDivider = convertView.findViewById(R.id.manage_divider);
                         holder = holder2;
                     } else {
                         convertView = inflater.inflate(R.layout.page_item, (ViewGroup) null);
@@ -248,9 +282,32 @@ public class SubPbAdapter extends BaseAdapter {
         if (id == null || id.length() <= 0 || id.equals("0")) {
             holder.mUserName.setTextColor(-16777216);
         } else {
-            holder.mUserName.setTextColor(-16749848);
+            holder.mUserName.setTextColor(-9989158);
         }
         holder.mTime.setText(StringHelper.getTimeString(data.getTime()));
+        holder.mForbidUser.setVisibility(4);
+        holder.mDelPost.setVisibility(4);
+        if (this.mUserIdentity != 0 && this.mIsManageMode) {
+            holder.mForbidUser.setVisibility(0);
+            holder.mDelPost.setVisibility(0);
+            String authorId2 = data.getAuthor().getId();
+            if (authorId2 != null && authorId2.equals(this.mCurrAccount)) {
+                holder.mForbidUser.setVisibility(4);
+            }
+            if (authorId2 == null || authorId2.equals("0") || authorId2.length() == 0) {
+                holder.mForbidUser.setVisibility(4);
+            }
+        } else if (this.mSubPbModel != null && (thread = this.mSubPbModel.getSubPbData().getThreadData()) != null && (authorId = thread.getAuthor().getId()) != null && authorId.equals(this.mCurrAccount) && data.getFloor_num() != 1) {
+            holder.mDelPost.setVisibility(0);
+        }
+        holder.mManageDivider.setVisibility(4);
+        if (holder.mForbidUser.getVisibility() == 0 && holder.mDelPost.getVisibility() == 0) {
+            holder.mManageDivider.setVisibility(0);
+        }
+        holder.mDelPostClick.setPostId(data.getId());
+        holder.mDelPost.setOnClickListener(holder.mDelPostClick);
+        holder.mForbidUserClick.setUserName(data.getAuthor().getName());
+        holder.mForbidUser.setOnClickListener(holder.mForbidUserClick);
         ArrayList<ContentData> content = data.getUnite_content();
         ContentHelper helper = new ContentHelper(this.mContext);
         helper.setContent(holder.mText, holder.mSeg, content, false);
@@ -259,10 +316,15 @@ public class SubPbAdapter extends BaseAdapter {
 
     /* loaded from: classes.dex */
     private class ViewHolder {
+        TextView mDelPost;
+        DelPostClickListener mDelPostClick;
+        TextView mForbidUser;
+        ForbidUserClickListener mForbidUserClick;
+        View mManageDivider;
         TextView mPageText;
         PhotoOnClickListener mPhotoClick;
         ProgressBar mProgress;
-        Button mReply;
+        TextView mReply;
         LinearLayout mSeg;
         TextView mText;
         TextView mTime;
@@ -297,6 +359,40 @@ public class SubPbAdapter extends BaseAdapter {
 
         public void setId(String id) {
             this.id = id;
+        }
+    }
+
+    /* loaded from: classes.dex */
+    private class DelPostClickListener implements View.OnClickListener {
+        private String postId = null;
+
+        public DelPostClickListener() {
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View v) {
+            ((SubPbActivity) SubPbAdapter.this.mContext).openDelPostDialog(1, this.postId);
+        }
+
+        public void setPostId(String id) {
+            this.postId = id;
+        }
+    }
+
+    /* loaded from: classes.dex */
+    private class ForbidUserClickListener implements View.OnClickListener {
+        private String userName = null;
+
+        public ForbidUserClickListener() {
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View v) {
+            ((SubPbActivity) SubPbAdapter.this.mContext).openForbidUserDialog(this.userName);
+        }
+
+        public void setUserName(String name) {
+            this.userName = name;
         }
     }
 }

@@ -1,6 +1,7 @@
 package com.baidu.tieba.pb;
 
 import android.app.Activity;
+import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -14,12 +15,15 @@ import android.text.Spanned;
 import android.text.TextWatcher;
 import android.text.method.LinkMovementMethod;
 import android.text.style.ImageSpan;
+import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
 import android.widget.AbsListView;
 import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.GridView;
 import android.widget.ImageView;
@@ -27,6 +31,8 @@ import android.widget.LinearLayout;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.ProgressBar;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.TextView;
 import com.baidu.android.pushservice.PushConstants;
 import com.baidu.tieba.BaseActivity;
@@ -51,6 +57,7 @@ import com.baidu.tieba.util.AsyncImageLoader;
 import com.baidu.tieba.util.ContentHelper;
 import com.baidu.tieba.util.DatabaseService;
 import com.baidu.tieba.util.NetWork;
+import com.baidu.tieba.util.NetWorkCore;
 import com.baidu.tieba.util.StringHelper;
 import com.baidu.tieba.util.TiebaLog;
 import com.baidu.tieba.util.UtilHelper;
@@ -96,6 +103,24 @@ public class SubPbActivity extends BaseActivity {
     private int mPageTop = 1;
     private int mPageBottom = 1;
     private String mUid = null;
+    private boolean mIsManageMode = false;
+    private int mUserIdentity = 0;
+    private Dialog mDialogDelPost = null;
+    private View mDelPostView = null;
+    private Button mBtnDoDelPost = null;
+    private Button mBtnCancelDelPost = null;
+    private Dialog mDialogForbidUser = null;
+    private View mForbidUserView = null;
+    private int mForbidTime = 0;
+    RadioGroup mRadioGroup = null;
+    RadioButton mBtn1Day = null;
+    RadioButton mBtn3Day = null;
+    RadioButton mBtn10Day = null;
+    private Button mBtnDoForbidUser = null;
+    private Button mBtnCancelForbidUser = null;
+    private TextView mTxtUserName = null;
+    private DelPostAsyncTask mDelPostAsyncTask = null;
+    private ForbidUserAsyncTask mForbidUserAsyncTask = null;
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.BaseActivity, android.app.Activity
@@ -123,6 +148,15 @@ public class SubPbActivity extends BaseActivity {
             if (this.mSubPbAdapter != null) {
                 this.mSubPbAdapter.releaseProgressBar();
             }
+            if (this.mDelPostAsyncTask != null) {
+                this.mDelPostAsyncTask.cancel();
+                this.mDelPostAsyncTask = null;
+            }
+            if (this.mForbidUserAsyncTask != null) {
+                this.mForbidUserAsyncTask.cancel();
+                this.mForbidUserAsyncTask = null;
+            }
+            closeAllDialog();
         } catch (Exception e) {
             TiebaLog.d(getClass().getName(), "onDestroy", e.getMessage());
         }
@@ -185,7 +219,7 @@ public class SubPbActivity extends BaseActivity {
         back.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pb.SubPbActivity.3
             @Override // android.view.View.OnClickListener
             public void onClick(View v) {
-                SubPbActivity.this.finish();
+                SubPbActivity.this.closeActivity();
             }
         });
         this.mButtonReply = (Button) findViewById(R.id.reply_button);
@@ -207,6 +241,8 @@ public class SubPbActivity extends BaseActivity {
         this.mProgress = (ProgressBar) findViewById(R.id.progress);
         this.mProgress.setVisibility(0);
         setTextWatcher();
+        this.mIsManageMode = getIntent().getBooleanExtra("manage_mode", false);
+        this.mUserIdentity = getIntent().getIntExtra("user_identity", 0);
         this.mMarkData = (MarkData) getIntent().getSerializableExtra("mark");
         this.mIsMarked = getIntent().getBooleanExtra("isMarked", false);
         this.mIsFromMention = getIntent().getBooleanExtra("isFromMention", false);
@@ -362,7 +398,9 @@ public class SubPbActivity extends BaseActivity {
             }
         };
         this.mSubPbData = new ArrayList();
-        this.mSubPbAdapter = new SubPbAdapter(this, this.mSubPbData);
+        this.mSubPbAdapter = new SubPbAdapter(this, this.mSubPbModel);
+        this.mSubPbAdapter.setIsManageMode(this.mIsManageMode);
+        this.mSubPbAdapter.setUserIdentity(this.mUserIdentity);
         this.mSubPbAdapter.setReplyListener(new View.OnClickListener() { // from class: com.baidu.tieba.pb.SubPbActivity.16
             @Override // android.view.View.OnClickListener
             public void onClick(View v) {
@@ -527,6 +565,7 @@ public class SubPbActivity extends BaseActivity {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void refresh() {
+        String authorId;
         if (this.mSubPbModel != null && this.mSubPbModel.getSubPbData().getPostData() != null) {
             TextView text = (TextView) this.mPostLayout.findViewById(R.id.text);
             TextView user = (TextView) this.mPostLayout.findViewById(R.id.user_name);
@@ -537,13 +576,21 @@ public class SubPbActivity extends BaseActivity {
             TextView title = (TextView) findViewById(R.id.text_title);
             LinearLayout seg = (LinearLayout) this.mPostLayout.findViewById(R.id.seg);
             TextView replyNum = (TextView) this.mPostLayout.findViewById(R.id.text_reply_num);
-            PostData postData = this.mSubPbModel.getSubPbData().getPostData();
+            TextView delPost = (TextView) this.mPostLayout.findViewById(R.id.del_post);
+            TextView forbidUser = (TextView) this.mPostLayout.findViewById(R.id.forbid_user);
+            View manageDivider = this.mPostLayout.findViewById(R.id.manage_divider);
+            final PostData postData = this.mSubPbModel.getSubPbData().getPostData();
             title.setText(getString(R.string.format_floor, new Object[]{Integer.valueOf(postData.getFloor_num())}));
             rank.setText(getString(R.string.format_grade, new Object[]{Integer.valueOf(postData.getAuthor().getLevel_id())}));
             floor.setText(getString(R.string.format_floor, new Object[]{Integer.valueOf(postData.getFloor_num())}));
             time.setText(StringHelper.getTimeString(postData.getTime()));
             text.setMovementMethod(LinkMovementMethod.getInstance());
-            replyNum.setText(String.valueOf(this.mSubPbModel.getSubPbData().getTotalCount()));
+            int totalReplyNum = this.mSubPbModel.getSubPbData().getTotalCount();
+            if (totalReplyNum > 0) {
+                replyNum.setText(String.valueOf(totalReplyNum));
+            } else {
+                replyNum.setVisibility(4);
+            }
             user.setTextSize(Config.getNameSize());
             user.setText(this.mSubPbModel.getSubPbData().getPostData().getAuthor().getName_show());
             ArrayList<ContentData> content = postData.getUnite_content();
@@ -564,11 +611,45 @@ public class SubPbActivity extends BaseActivity {
             if (id == null || id.length() <= 0 || id.equals("0")) {
                 user.setTextColor(-16777216);
             } else {
-                user.setTextColor(-16749848);
+                user.setTextColor(-9989158);
             }
             this.mReplyPostId = postData.getId();
             this.mProgress.setVisibility(8);
             this.mPostLayout.setVisibility(0);
+            forbidUser.setVisibility(4);
+            delPost.setVisibility(4);
+            if (this.mIsManageMode && this.mUserIdentity != 0) {
+                forbidUser.setVisibility(0);
+                delPost.setVisibility(0);
+                String authorId2 = postData.getAuthor().getId();
+                if (authorId2 != null && authorId2.equals(TiebaApplication.getCurrentAccount())) {
+                    forbidUser.setVisibility(4);
+                }
+                if (authorId2 == null || authorId2.equals("0") || authorId2.length() == 0) {
+                    forbidUser.setVisibility(4);
+                }
+            } else {
+                ThreadData threadData = this.mSubPbModel.getSubPbData().getThreadData();
+                if (threadData != null && (authorId = threadData.getAuthor().getId()) != null && authorId.equals(TiebaApplication.getCurrentAccount()) && postData.getFloor_num() != 1) {
+                    delPost.setVisibility(0);
+                }
+            }
+            manageDivider.setVisibility(4);
+            if (forbidUser.getVisibility() == 0 && delPost.getVisibility() == 0) {
+                manageDivider.setVisibility(0);
+            }
+            delPost.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pb.SubPbActivity.21
+                @Override // android.view.View.OnClickListener
+                public void onClick(View v) {
+                    SubPbActivity.this.openDelPostDialog(0, postData.getId());
+                }
+            });
+            forbidUser.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pb.SubPbActivity.22
+                @Override // android.view.View.OnClickListener
+                public void onClick(View v) {
+                    SubPbActivity.this.openForbidUserDialog(postData.getAuthor().getName());
+                }
+            });
             if (TiebaApplication.app.getDisplayPhoto()) {
                 photo.setVisibility(0);
                 loadPhoto(photo);
@@ -671,6 +752,21 @@ public class SubPbActivity extends BaseActivity {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
+    public void closeActivity() {
+        closeAllDialog();
+        finish();
+    }
+
+    private void closeAllDialog() {
+        if (this.mDialogDelPost != null && this.mDialogDelPost.isShowing()) {
+            this.mDialogDelPost.dismiss();
+        }
+        if (this.mDialogForbidUser != null && this.mDialogForbidUser.isShowing()) {
+            this.mDialogForbidUser.dismiss();
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public class SubPbAsyncTask extends AsyncTask<String, Integer, String> {
         private NetWork mNetwork = null;
@@ -724,21 +820,34 @@ public class SubPbActivity extends BaseActivity {
                             SubPbActivity.this.mSubPbAdapter.setHaveHeader(0);
                         }
                         List<PostData> list = SubPbActivity.this.mSubPbModel.getSubPbData().getSubPbList();
-                        int listSize = list.size();
                         if (list != null && list.size() > 0) {
+                            int listSize = list.size();
                             if (this.mType == 3) {
                                 SubPbActivity.this.mSubPbData.addAll(list);
                             }
                             if (this.mType == 1) {
-                                if (this.mRequestPage == data.getTotalPage()) {
-                                    int lastPageCount = SubPbActivity.this.mSubPbData.size() % 10;
-                                    if (listSize > lastPageCount) {
-                                        for (int i = lastPageCount; i < listSize; i++) {
+                                int currListSize = SubPbActivity.this.mSubPbData.size();
+                                for (int i = 0; i < listSize; i++) {
+                                    String id = list.get(i).getId();
+                                    if (id != null) {
+                                        boolean isExist = false;
+                                        int j = 0;
+                                        while (true) {
+                                            if (j < currListSize) {
+                                                if (!id.equals(((PostData) SubPbActivity.this.mSubPbData.get(j)).getId())) {
+                                                    j++;
+                                                } else {
+                                                    isExist = true;
+                                                    break;
+                                                }
+                                            } else {
+                                                break;
+                                            }
+                                        }
+                                        if (!isExist) {
                                             SubPbActivity.this.mSubPbData.add(list.get(i));
                                         }
                                     }
-                                } else {
-                                    SubPbActivity.this.mSubPbData.addAll(list);
                                 }
                             }
                             if (this.mType == 2) {
@@ -786,6 +895,7 @@ public class SubPbActivity extends BaseActivity {
                         SubPbActivity.this.mSubPbModel = new SubPbModel(SubPbActivity.this, result);
                         SubPbActivity.this.mForumId = SubPbActivity.this.mSubPbModel.getSubPbData().getForumData().getId();
                         SubPbActivity.this.mForumName = SubPbActivity.this.mSubPbModel.getSubPbData().getForumData().getName();
+                        SubPbActivity.this.mSubPbAdapter.setSubPbModel(SubPbActivity.this.mSubPbModel);
                         SubPbActivity.this.mIsFromMention = false;
                         SubPbActivity.this.setMarkData();
                         refreshActivity();
@@ -793,7 +903,7 @@ public class SubPbActivity extends BaseActivity {
                         SubPbActivity.this.showToast(this.mNetwork.getErrorString());
                         int errorCode = this.mNetwork.getErrorCode();
                         if (errorCode == 4 || errorCode == 28 || errorCode == 29) {
-                            SubPbActivity.this.finish();
+                            SubPbActivity.this.closeActivity();
                         }
                     }
                 }
@@ -905,6 +1015,289 @@ public class SubPbActivity extends BaseActivity {
                 this.mNetwork.cancelNetConnect();
             }
             super.cancel(true);
+        }
+    }
+
+    public void openDelPostDialog(final int delType, final String postId) {
+        if (this.mDialogDelPost == null) {
+            this.mDialogDelPost = new Dialog(this, R.style.common_alert_dialog);
+            this.mDialogDelPost.setCanceledOnTouchOutside(true);
+            this.mDialogDelPost.setCancelable(true);
+            LayoutInflater mInflater = getLayoutInflater();
+            this.mDelPostView = mInflater.inflate(R.layout.del_post, (ViewGroup) null);
+            this.mDialogDelPost.setContentView(this.mDelPostView);
+            WindowManager.LayoutParams wmParams = this.mDialogDelPost.getWindow().getAttributes();
+            wmParams.width = (int) (UtilHelper.getEquipmentWidth(this) * 0.9d);
+            this.mDialogDelPost.getWindow().setAttributes(wmParams);
+            this.mBtnDoDelPost = (Button) this.mDelPostView.findViewById(R.id.dialog_button_ok);
+            this.mBtnCancelDelPost = (Button) this.mDelPostView.findViewById(R.id.dialog_button_cancel);
+            this.mBtnCancelDelPost.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pb.SubPbActivity.23
+                @Override // android.view.View.OnClickListener
+                public void onClick(View v) {
+                    SubPbActivity.this.mDialogDelPost.dismiss();
+                }
+            });
+        }
+        if (this.mSubPbModel != null) {
+            this.mBtnDoDelPost.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pb.SubPbActivity.24
+                @Override // android.view.View.OnClickListener
+                public void onClick(View v) {
+                    SubPbActivity.this.startDelPostAsyncTask(delType, postId);
+                    SubPbActivity.this.mDialogDelPost.dismiss();
+                }
+            });
+            this.mDialogDelPost.show();
+        }
+    }
+
+    public void openForbidUserDialog(final String userName) {
+        if (this.mDialogForbidUser == null) {
+            this.mDialogForbidUser = new Dialog(this, R.style.common_alert_dialog);
+            this.mDialogForbidUser.setCanceledOnTouchOutside(true);
+            this.mDialogForbidUser.setCancelable(true);
+            LayoutInflater mInflater = getLayoutInflater();
+            this.mForbidUserView = mInflater.inflate(R.layout.forbid_user, (ViewGroup) null);
+            this.mDialogForbidUser.setContentView(this.mForbidUserView);
+            WindowManager.LayoutParams wmParams = this.mDialogForbidUser.getWindow().getAttributes();
+            wmParams.width = (int) (UtilHelper.getEquipmentWidth(this) * 0.9d);
+            this.mDialogForbidUser.getWindow().setAttributes(wmParams);
+            this.mRadioGroup = (RadioGroup) this.mForbidUserView.findViewById(R.id.radio_group);
+            this.mBtn1Day = (RadioButton) this.mForbidUserView.findViewById(R.id.radio_button_1day);
+            this.mBtn3Day = (RadioButton) this.mForbidUserView.findViewById(R.id.radio_button_3day);
+            this.mBtn10Day = (RadioButton) this.mForbidUserView.findViewById(R.id.radio_button_10day);
+            CompoundButton.OnCheckedChangeListener radioButtonCheckedListener = new CompoundButton.OnCheckedChangeListener() { // from class: com.baidu.tieba.pb.SubPbActivity.25
+                @Override // android.widget.CompoundButton.OnCheckedChangeListener
+                public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                    if (isChecked) {
+                        switch (buttonView.getId()) {
+                            case R.id.radio_button_1day /* 2131230840 */:
+                                SubPbActivity.this.mForbidTime = 1;
+                                return;
+                            case R.id.radio_button_3day /* 2131230841 */:
+                                SubPbActivity.this.mForbidTime = 3;
+                                return;
+                            case R.id.radio_button_10day /* 2131230842 */:
+                                SubPbActivity.this.mForbidTime = 10;
+                                return;
+                            default:
+                                return;
+                        }
+                    }
+                }
+            };
+            this.mBtn1Day.setOnCheckedChangeListener(radioButtonCheckedListener);
+            this.mBtn3Day.setOnCheckedChangeListener(radioButtonCheckedListener);
+            this.mBtn10Day.setOnCheckedChangeListener(radioButtonCheckedListener);
+            this.mBtnDoForbidUser = (Button) this.mForbidUserView.findViewById(R.id.dialog_button_ok);
+            this.mBtnCancelForbidUser = (Button) this.mForbidUserView.findViewById(R.id.dialog_button_cancel);
+            this.mBtnCancelForbidUser.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pb.SubPbActivity.26
+                @Override // android.view.View.OnClickListener
+                public void onClick(View v) {
+                    SubPbActivity.this.mDialogForbidUser.dismiss();
+                }
+            });
+            this.mTxtUserName = (TextView) this.mForbidUserView.findViewById(R.id.user_name);
+        }
+        if (this.mSubPbModel != null) {
+            this.mTxtUserName.setText(userName);
+            this.mRadioGroup.check(R.id.radio_button_1day);
+            if (this.mUserIdentity == 2) {
+                this.mBtn3Day.setVisibility(8);
+                this.mBtn10Day.setVisibility(8);
+            }
+            this.mBtnDoForbidUser.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pb.SubPbActivity.27
+                @Override // android.view.View.OnClickListener
+                public void onClick(View v) {
+                    SubPbActivity.this.startForbidUserAsyncTask(userName);
+                    SubPbActivity.this.mDialogForbidUser.dismiss();
+                }
+            });
+            this.mDialogForbidUser.show();
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void startDelPostAsyncTask(int delType, String postId) {
+        String accountId = TiebaApplication.getCurrentAccount();
+        if (accountId == null || accountId.length() <= 0) {
+            LoginActivity.startActivity((Activity) this, getString(R.string.login_to_use), true, (int) RequestResponseCode.REQUEST_LOGIN_SUBPB_DEL_POST);
+        } else if (!this.mSubPbModel.getIsProcessDelPost()) {
+            this.mSubPbModel.setIsProcessDelPost(true);
+            if (this.mDelPostAsyncTask != null) {
+                this.mDelPostAsyncTask.cancel();
+                this.mDelPostAsyncTask = null;
+            }
+            ForumData forum = this.mSubPbModel.getSubPbData().getForumData();
+            ThreadData thread = this.mSubPbModel.getSubPbData().getThreadData();
+            if (forum != null) {
+                this.mDelPostAsyncTask = new DelPostAsyncTask(forum.getId(), forum.getName(), thread.getId(), postId, delType);
+                this.mDelPostAsyncTask.execute("http://c.tieba.baidu.com/c/c/bawu/delpost");
+            }
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    /* loaded from: classes.dex */
+    public class DelPostAsyncTask extends AsyncTask<String, Integer, String> {
+        private int mDelType;
+        private String mForumId;
+        private String mForumName;
+        private NetWork mNetwork = null;
+        private String mPostId;
+        private String mThreadId;
+
+        public DelPostAsyncTask(String forumId, String forumName, String threadId, String postId, int delType) {
+            this.mForumId = forumId;
+            this.mForumName = forumName;
+            this.mThreadId = threadId;
+            this.mPostId = postId;
+            this.mDelType = delType;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        /* JADX INFO: Access modifiers changed from: protected */
+        @Override // android.os.AsyncTask
+        public String doInBackground(String... params) {
+            String url = params[0];
+            this.mNetwork = new NetWork(url);
+            this.mNetwork.addPostData("fid", this.mForumId);
+            this.mNetwork.addPostData("word", this.mForumName);
+            this.mNetwork.addPostData("z", this.mThreadId);
+            this.mNetwork.addPostData("pid", this.mPostId);
+            this.mNetwork.addPostData("isfloor", NetWorkCore.NET_TYPE_NET);
+            this.mNetwork.addPostData("src", NetWorkCore.NET_TYPE_WIFI);
+            this.mNetwork.setIsNeedTbs(true);
+            this.mNetwork.postNetData();
+            if (this.mNetwork.isRequestSuccess()) {
+                return null;
+            }
+            return this.mNetwork.getErrorString();
+        }
+
+        public void cancel() {
+            if (this.mNetwork != null) {
+                this.mNetwork.cancelNetConnect();
+            }
+            SubPbActivity.this.mDelPostAsyncTask = null;
+            super.cancel(true);
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        /* JADX INFO: Access modifiers changed from: protected */
+        @Override // android.os.AsyncTask
+        public void onPostExecute(String result) {
+            super.onPostExecute((DelPostAsyncTask) result);
+            SubPbActivity.this.mDelPostAsyncTask = null;
+            SubPbActivity.this.mSubPbModel.setIsProcessDelPost(false);
+            if (this.mNetwork != null) {
+                if (result == null) {
+                    SubPbActivity.this.showToast(SubPbActivity.this.getString(R.string.success));
+                    if (this.mDelType != 0) {
+                        List<PostData> list = SubPbActivity.this.mSubPbData;
+                        int size = list.size();
+                        int i = 0;
+                        while (true) {
+                            if (i >= size) {
+                                break;
+                            } else if (!this.mPostId.equals(list.get(i).getId())) {
+                                i++;
+                            } else {
+                                list.remove(i);
+                                break;
+                            }
+                        }
+                        SubPbActivity.this.mSubPbAdapter.notifyDataSetChanged();
+                        return;
+                    }
+                    Intent intent = new Intent(SubPbActivity.this, PbActivity.class);
+                    intent.putExtra("del_post_id", this.mPostId);
+                    SubPbActivity.this.setResult(-1, intent);
+                    SubPbActivity.this.closeActivity();
+                    return;
+                }
+                SubPbActivity.this.showToast(result);
+            }
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void startForbidUserAsyncTask(String userName) {
+        String accountId = TiebaApplication.getCurrentAccount();
+        if (accountId == null || accountId.length() <= 0) {
+            LoginActivity.startActivity((Activity) this, getString(R.string.login_to_use), true, (int) RequestResponseCode.REQUEST_LOGIN_SUBPB_FORBID_USER);
+        } else if (!this.mSubPbModel.getIsProcessForbidUser()) {
+            this.mSubPbModel.setIsProcessForbidUser(true);
+            if (this.mForbidUserAsyncTask != null) {
+                this.mForbidUserAsyncTask.cancel();
+                this.mForbidUserAsyncTask = null;
+            }
+            ForumData forum = this.mSubPbModel.getSubPbData().getForumData();
+            ThreadData thread = this.mSubPbModel.getSubPbData().getThreadData();
+            this.mForbidUserAsyncTask = new ForbidUserAsyncTask(forum.getId(), forum.getName(), thread.getId(), userName, String.valueOf(this.mForbidTime));
+            this.mForbidUserAsyncTask.execute("http://c.tieba.baidu.com/c/c/bawu/commitprison");
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    /* loaded from: classes.dex */
+    public class ForbidUserAsyncTask extends AsyncTask<String, Integer, String> {
+        private String mForbidTime;
+        private String mForumId;
+        private String mForumName;
+        private NetWork mNetwork = null;
+        private String mThreadId;
+        private String mUserName;
+
+        public ForbidUserAsyncTask(String forumId, String forumName, String threadId, String userName, String forbidTime) {
+            this.mForumId = forumId;
+            this.mForumName = forumName;
+            this.mThreadId = threadId;
+            this.mUserName = userName;
+            this.mForbidTime = forbidTime;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        /* JADX INFO: Access modifiers changed from: protected */
+        @Override // android.os.AsyncTask
+        public String doInBackground(String... params) {
+            String url = params[0];
+            this.mNetwork = new NetWork(url);
+            this.mNetwork.addPostData("day", this.mForbidTime);
+            this.mNetwork.addPostData("un", this.mUserName);
+            this.mNetwork.addPostData("fid", this.mForumId);
+            this.mNetwork.addPostData("word", this.mForumName);
+            this.mNetwork.addPostData("z", this.mThreadId);
+            this.mNetwork.addPostData("ntn", "banid");
+            this.mNetwork.setIsNeedTbs(true);
+            this.mNetwork.postNetData();
+            if (this.mNetwork.isRequestSuccess()) {
+                return null;
+            }
+            return this.mNetwork.getErrorString();
+        }
+
+        public void cancel() {
+            if (this.mNetwork != null) {
+                this.mNetwork.cancelNetConnect();
+            }
+            SubPbActivity.this.mForbidUserAsyncTask = null;
+            super.cancel(true);
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        /* JADX INFO: Access modifiers changed from: protected */
+        @Override // android.os.AsyncTask
+        public void onPostExecute(String result) {
+            super.onPostExecute((ForbidUserAsyncTask) result);
+            SubPbActivity.this.mForbidUserAsyncTask = null;
+            SubPbActivity.this.mSubPbModel.setIsProcessForbidUser(false);
+            if (this.mNetwork != null) {
+                if (result == null) {
+                    SubPbActivity.this.showToast(SubPbActivity.this.getString(R.string.success));
+                } else {
+                    SubPbActivity.this.showToast(result);
+                }
+            }
         }
     }
 }

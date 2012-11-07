@@ -81,7 +81,7 @@ public class AccountAdapter extends BaseAdapter {
             } else {
                 holder = (ViewHolder) convertView.getTag();
             }
-            if (getItemViewType(position) == 0) {
+            if (getItemViewType(position) == 0 && holder != null) {
                 AccountData account = (AccountData) getItem(position);
                 holder.mActive.setVisibility(8);
                 holder.mDelete.setVisibility(8);

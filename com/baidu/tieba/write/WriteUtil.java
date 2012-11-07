@@ -70,11 +70,8 @@ public class WriteUtil {
         if (requestCode == 1200001) {
             Bitmap bm = photoResult(max_size);
             return bm;
-        } else if (requestCode != 1200002) {
-            return null;
-        } else {
-            Bitmap bm2 = AlbumImageResult(context, uri, max_size);
-            return bm2;
         }
+        Bitmap bm2 = AlbumImageResult(context, uri, max_size);
+        return bm2;
     }
 }

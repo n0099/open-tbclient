@@ -5,11 +5,9 @@ import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.os.Handler;
 import android.os.Parcelable;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
-import android.util.DisplayMetrics;
 import android.view.View;
 import android.view.ViewGroup;
 import android.webkit.WebView;
@@ -17,6 +15,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import cn.jingling.lib.file.Shared;
 import com.baidu.location.BDLocation;
 import com.baidu.tieba.BaseActivity;
 import com.baidu.tieba.R;
@@ -35,6 +34,7 @@ import com.baidu.tieba.util.NetWork;
 import com.baidu.tieba.util.NetWorkCore;
 import com.baidu.tieba.util.StringHelper;
 import com.baidu.tieba.util.TiebaLog;
+import com.baidu.tieba.util.UtilHelper;
 import com.baidu.tieba.view.BaseWebView;
 import com.baidu.tieba.view.CustomScrollView;
 import java.io.File;
@@ -47,8 +47,8 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class RecommendActivity extends BaseActivity implements BaseWebView.OnLoadUrlListener, AsyncImageLoader.ImageCallback {
-    private static final int FLIP_INTERVAL = 2000;
     private static final int IMAGE_NUM = 3;
+    public static boolean pvSign = false;
     private TextView bannerText;
     private HotspotData[] currentHotspot;
     private HotspotPagerAdapter hotspotAdapter;
@@ -68,28 +68,19 @@ public class RecommendActivity extends BaseActivity implements BaseWebView.OnLoa
     private ImageView radioButton0;
     private ImageView radioButton1;
     private ImageView radioButton2;
-    MyReceiver receiver;
     private Button refreshButton;
     private Button searchButton;
     private BaseWebView webview;
     private ImageView webviewFailImageView;
     private int position = 1073741823;
-    Handler mHandler = new Handler();
     private boolean webviewCached = false;
     private boolean refreshHotspot = false;
     private boolean refreshWebview = false;
     private boolean webviewSucess = true;
     private boolean hotspotSucess = true;
     private boolean isRefreshing = false;
-    private Runnable playRunnable = new Runnable() { // from class: com.baidu.tieba.recommend.RecommendActivity.1
-        @Override // java.lang.Runnable
-        public void run() {
-            RecommendActivity.this.position++;
-            RecommendActivity.this.hotspotPager.setCurrentItem(RecommendActivity.this.position, true);
-            RecommendActivity.this.mHandler.postDelayed(this, 2000L);
-        }
-    };
-    private View.OnClickListener mOncClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.recommend.RecommendActivity.2
+    MyReceiver receiver = null;
+    private View.OnClickListener mOncClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.recommend.RecommendActivity.1
         @Override // android.view.View.OnClickListener
         public void onClick(View v) {
             switch (v.getId()) {
@@ -99,8 +90,8 @@ public class RecommendActivity extends BaseActivity implements BaseWebView.OnLoa
                 case R.id.search /* 2131230809 */:
                     SearchActivity.startActivity(RecommendActivity.this, RecommendActivity.this.getString(R.string.recommend_title));
                     return;
-                case R.id.refresh /* 2131230871 */:
-                case R.id.hotspot_webview_item /* 2131231008 */:
+                case R.id.refresh /* 2131230889 */:
+                case R.id.hotspot_webview_item /* 2131231038 */:
                     RecommendActivity.this.refresh();
                     return;
                 default:
@@ -108,12 +99,12 @@ public class RecommendActivity extends BaseActivity implements BaseWebView.OnLoa
             }
         }
     };
-    private View.OnClickListener hotspotClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.recommend.RecommendActivity.3
+    private View.OnClickListener hotspotClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.recommend.RecommendActivity.2
         @Override // android.view.View.OnClickListener
         public void onClick(View arg0) {
             String id = (String) arg0.getTag(R.id.pburl_id);
             if (id != null) {
-                PbActivity.startActivityToFrs(RecommendActivity.this, id, "image_pblist");
+                PbActivity.startAcitivity(RecommendActivity.this, id, "image_pblist");
             }
         }
     };
@@ -128,7 +119,6 @@ public class RecommendActivity extends BaseActivity implements BaseWebView.OnLoa
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.BaseActivity, android.app.Activity
     public void onPause() {
-        this.mHandler.removeCallbacks(this.playRunnable);
         super.onPause();
     }
 
@@ -145,8 +135,6 @@ public class RecommendActivity extends BaseActivity implements BaseWebView.OnLoa
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.BaseActivity, android.app.Activity
     public void onResume() {
-        this.mHandler.removeCallbacks(this.playRunnable);
-        this.mHandler.postDelayed(this.playRunnable, 2000L);
         String id = TiebaApplication.getCurrentAccount();
         if (id != null && id.length() > 0) {
             this.loginButton.setVisibility(4);
@@ -172,9 +160,7 @@ public class RecommendActivity extends BaseActivity implements BaseWebView.OnLoa
         this.refreshButton = (Button) findViewById(R.id.refresh);
         this.mProgressBar = (ProgressBar) findViewById(R.id.recommend_progress);
         ViewGroup.LayoutParams hotspotLayout = this.hotspotPager.getLayoutParams();
-        DisplayMetrics dm = new DisplayMetrics();
-        getWindowManager().getDefaultDisplay().getMetrics(dm);
-        hotspotLayout.height = (dm.widthPixels * 25) / 64;
+        hotspotLayout.height = (UtilHelper.getEquipmentWidth(this) * 25) / 64;
         this.hotspotPager.setLayoutParams(hotspotLayout);
         this.hotspotBitmap = new HashMap<>();
         this.mImageLoader = new AsyncImageLoader(this);
@@ -238,7 +224,7 @@ public class RecommendActivity extends BaseActivity implements BaseWebView.OnLoa
 
         @Override // android.support.v4.view.PagerAdapter
         public int getCount() {
-            return Integer.MAX_VALUE;
+            return Shared.INFINITY;
         }
 
         @Override // android.support.v4.view.PagerAdapter
@@ -300,12 +286,6 @@ public class RecommendActivity extends BaseActivity implements BaseWebView.OnLoa
 
         @Override // android.support.v4.view.ViewPager.OnPageChangeListener
         public void onPageScrollStateChanged(int arg0) {
-            if (arg0 == 1) {
-                RecommendActivity.this.mHandler.removeCallbacks(RecommendActivity.this.playRunnable);
-            } else if (arg0 == 0) {
-                RecommendActivity.this.mHandler.removeCallbacks(RecommendActivity.this.playRunnable);
-                RecommendActivity.this.mHandler.postDelayed(RecommendActivity.this.playRunnable, 2000L);
-            }
         }
 
         @Override // android.support.v4.view.ViewPager.OnPageChangeListener
@@ -350,6 +330,10 @@ public class RecommendActivity extends BaseActivity implements BaseWebView.OnLoa
         public String doInBackground(Object... arg0) {
             this.mNetWork = new NetWork(Config.RECOMMEND_ADDRESS);
             this.mNetWork.addPostData("_version_more", NetWorkCore.NET_TYPE_NET);
+            if (RecommendActivity.pvSign) {
+                RecommendActivity.pvSign = false;
+                this.mNetWork.addPostData("msg_click", NetWorkCore.NET_TYPE_NET);
+            }
             BDLocation mLocation = TiebaApplication.app.getLocation();
             if (mLocation != null) {
                 this.mNetWork.addPostData("lbs", String.valueOf(String.valueOf(mLocation.getLatitude())) + "," + String.valueOf(mLocation.getLongitude()));
@@ -464,7 +448,7 @@ public class RecommendActivity extends BaseActivity implements BaseWebView.OnLoa
                                 }
                                 String name = StringHelper.getNameFromUrl(RecommendActivity.this.hotspotInfo[j].getBitmap());
                                 String cachename = StringHelper.getNameFromUrl(list[i2].getPath());
-                                if (!name.equals(cachename)) {
+                                if (name == null || !name.equals(cachename)) {
                                     j++;
                                 } else {
                                     needCached = true;
@@ -612,8 +596,8 @@ public class RecommendActivity extends BaseActivity implements BaseWebView.OnLoa
                 end++;
             }
             String id = url.substring(start, end);
-            if (id != null && id != "") {
-                PbActivity.startActivityToFrs(this, id, "hot_pblist");
+            if (id != null && id.length() >= 0) {
+                PbActivity.startAcitivity(this, id, "hot_pblist");
             }
         }
         int start2 = url.indexOf("kw=") + 3;
@@ -623,7 +607,7 @@ public class RecommendActivity extends BaseActivity implements BaseWebView.OnLoa
                 end2++;
             }
             String id2 = URLDecoder.decode(url.substring(start2, end2));
-            if (id2 != null && id2 != "") {
+            if (id2 != null && id2.length() >= 0) {
                 FrsActivity.startAcitivity(this, id2, null);
                 return true;
             }

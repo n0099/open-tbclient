@@ -21,13 +21,13 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class GuideActivity extends Activity {
-    private static final int IMAGE_NUM = 3;
+    private static final int IMAGE_NUM = 4;
     private HotspotPagerAdapter hotspotAdapter;
     ViewPager hotspotPager;
     private List<Bitmap> mBitmapList;
     ArrayList<View> mHotspotViews;
     private Button startButton;
-    private int[] image = {R.drawable.guide1, R.drawable.guide2, R.drawable.guide3};
+    private int[] image = {R.drawable.guide0, R.drawable.guide1, R.drawable.guide2, R.drawable.guide3};
     public View.OnClickListener startOnClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.GuideActivity.1
         @Override // android.view.View.OnClickListener
         public void onClick(View arg0) {
@@ -117,7 +117,7 @@ public class GuideActivity extends Activity {
 
         @Override // android.support.v4.view.PagerAdapter
         public int getCount() {
-            return 3;
+            return 4;
         }
 
         @Override // android.support.v4.view.PagerAdapter

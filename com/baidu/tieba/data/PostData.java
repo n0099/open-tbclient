@@ -89,7 +89,7 @@ public class PostData {
                 try {
                     unite_type = this.unite_content.get(unite_size - 1).getType();
                 } catch (Exception ex) {
-                    TiebaLog.e("PostData", "uniteContent", "error = " + ex.getMessage());
+                    TiebaLog.e("PostData", "uniteContentExcepFace", "error = " + ex.getMessage());
                     return;
                 }
             }
@@ -106,6 +106,50 @@ public class PostData {
                         tmp.setType(0);
                         tmp.appendUniteString(data.getSpannableString(context));
                         this.unite_content.add(tmp);
+                        unite_type = 0;
+                    }
+                    unite_size++;
+                }
+            }
+        }
+    }
+
+    public void uniteContentExcepFaceVideo(Context context) {
+        if (this.content != null) {
+            int unite_type = -1;
+            int unite_size = this.unite_content.size();
+            if (unite_size > 0) {
+                try {
+                    unite_type = this.unite_content.get(unite_size - 1).getType();
+                } catch (Exception ex) {
+                    TiebaLog.e("PostData", "uniteContentExcepFaceVideo", "error = " + ex.getMessage());
+                    return;
+                }
+            }
+            for (int i = 0; i < this.content.size(); i++) {
+                ContentData data = this.content.get(i);
+                if (ContentData.isNeedUniteExcepFaceVideo(unite_type, data.getType())) {
+                    this.unite_content.get(unite_size - 1).appendUniteString(data.getSpannableString(context));
+                } else {
+                    if (data.getType() == 3 || data.getType() == 2) {
+                        this.unite_content.add(data);
+                        unite_type = data.getType();
+                    } else if (data.getType() == 5) {
+                        ContentData tmp = new ContentData();
+                        tmp.setType(1000);
+                        tmp.setLink(data.getText());
+                        this.unite_content.add(tmp);
+                        unite_size++;
+                        ContentData tmp2 = new ContentData();
+                        tmp2.setType(0);
+                        tmp2.appendUniteString(data.getSpannableString(context));
+                        this.unite_content.add(tmp2);
+                        unite_type = 0;
+                    } else {
+                        ContentData tmp3 = new ContentData();
+                        tmp3.setType(0);
+                        tmp3.appendUniteString(data.getSpannableString(context));
+                        this.unite_content.add(tmp3);
                         unite_type = 0;
                     }
                     unite_size++;

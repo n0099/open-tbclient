@@ -13,6 +13,7 @@ public class GifDecoder {
     public static final int MAX_MEM_NUM = 8388608;
     public static final int MAX_PIX_NUM = 307200;
     protected static final int MAX_STACK_SIZE = 4096;
+    public static final int OTHER_ERROR = 4;
     public static final int OUT_OF_MEMORY_ERROR = 3;
     public static final int STATUS_FORMAT_ERROR = 1;
     public static final int STATUS_OK = 0;
@@ -59,7 +60,7 @@ public class GifDecoder {
     protected boolean transparency = false;
     protected int delay = 0;
     protected int memstate = 0;
-    private boolean interrupted = false;
+    private volatile boolean interrupted = false;
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
@@ -188,6 +189,9 @@ public class GifDecoder {
     }
 
     public int read(InputStream is) {
+        if (this.interrupted) {
+            return 4;
+        }
         init();
         if (is != null) {
             this.in = is;
@@ -205,9 +209,14 @@ public class GifDecoder {
         } else {
             this.status = 2;
         }
-        try {
-            is.close();
-        } catch (Exception e) {
+        if (is != null) {
+            try {
+                is.close();
+            } catch (Exception e) {
+            }
+        }
+        if (this.interrupted) {
+            return 4;
         }
         return this.status;
     }

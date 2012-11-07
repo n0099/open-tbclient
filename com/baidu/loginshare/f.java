@@ -229,7 +229,7 @@ public final class f {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static boolean c(Token token) {
-        return (token == null || token.mExtras == null || !l.a(token.mBduss)) ? false : true;
+        return token != null && token.mExtras != null && l.a(token.mBduss) && l.a(token.mPtoken);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */

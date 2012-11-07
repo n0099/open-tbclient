@@ -183,13 +183,15 @@ public class ForumData {
                     if (forum_info != null) {
                         int signOn = forum_info.optInt("is_on");
                         if (signOn == 0) {
-                            this.mSignData.setForumRank(-1);
+                            this.mSignData.setForumRank(-2);
                             return;
                         }
                         JSONObject rank_info = forum_info.optJSONObject("current_rank_info");
                         if (rank_info != null) {
                             int forum_rank = rank_info.optInt("sign_rank");
                             this.mSignData.setForumRank(forum_rank);
+                            int sign_count = rank_info.optInt("sign_count");
+                            this.mSignData.setSignCount(sign_count);
                         }
                     }
                 }

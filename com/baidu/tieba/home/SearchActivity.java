@@ -30,7 +30,6 @@ import com.baidu.tieba.util.DatabaseService;
 import com.baidu.tieba.util.NetWork;
 import com.baidu.tieba.util.TiebaLog;
 import com.baidu.tieba.util.UtilHelper;
-import com.baidu.tieba.view.GifDecoder;
 import java.util.ArrayList;
 import org.apache.http.message.BasicNameValuePair;
 /* loaded from: classes.dex */
@@ -241,7 +240,7 @@ public class SearchActivity extends BaseActivity {
         this.mEditSearch.setText("");
         this.mEditSearch.requestFocus();
         showHistory();
-        ShowSoftKeyPadDelay(this.mEditSearch, GifDecoder.MAX_FRAME_NUM);
+        ShowSoftKeyPadDelay(this.mEditSearch, 150);
     }
 
     public void releaseProgressBar() {
@@ -331,7 +330,6 @@ public class SearchActivity extends BaseActivity {
                 this.mNetwork = new NetWork(this.mUrl);
                 this.mNetwork.addPostData(this.mParam);
                 String data = this.mNetwork.postNetData();
-                TiebaLog.i("HomeLikeAsyncTask", "doInBackground", "net data.size: " + String.valueOf(data.length()));
                 if (!this.mNetwork.isRequestSuccess() || data == null) {
                     return null;
                 }

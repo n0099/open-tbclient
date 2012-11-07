@@ -337,12 +337,10 @@ public class PostActivity extends BaseActivity {
                         }
                     });
                 }
-                int index = -1;
                 int contentSize = content.size();
                 if (this.mIsShowImages) {
                     for (int j = 0; j < contentSize; j++) {
                         if (content.get(j).getType() == 3) {
-                            index++;
                             this.mImageLoader.loadImage(content.get(j).getLink(), new AsyncImageLoader.ImageCallback() { // from class: com.baidu.tieba.mention.PostActivity.5
                                 @Override // com.baidu.tieba.util.AsyncImageLoader.ImageCallback
                                 public void imageLoaded(Bitmap bitmap, String imageUrl, boolean iscached) {

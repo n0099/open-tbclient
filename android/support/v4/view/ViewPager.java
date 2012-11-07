@@ -28,7 +28,6 @@ import android.view.accessibility.AccessibilityEvent;
 import android.view.animation.Interpolator;
 import android.widget.Scroller;
 import com.baidu.location.BDLocation;
-import com.baidu.location.LocationClientOption;
 import com.baidu.tieba.util.NetWorkErr;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -1038,7 +1037,7 @@ public class ViewPager extends ViewGroup {
             case 1:
                 if (this.mIsBeingDragged) {
                     VelocityTracker velocityTracker = this.mVelocityTracker;
-                    velocityTracker.computeCurrentVelocity(LocationClientOption.MIN_SCAN_SPAN, this.mMaximumVelocity);
+                    velocityTracker.computeCurrentVelocity(1000, this.mMaximumVelocity);
                     int initialVelocity = (int) VelocityTrackerCompat.getXVelocity(velocityTracker, this.mActivePointerId);
                     this.mPopulatePending = true;
                     int widthWithMargin = getWidth() + this.mPageMargin;
@@ -1214,7 +1213,7 @@ public class ViewPager extends ViewGroup {
             throw new IllegalStateException("No fake drag in progress. Call beginFakeDrag first.");
         }
         VelocityTracker velocityTracker = this.mVelocityTracker;
-        velocityTracker.computeCurrentVelocity(LocationClientOption.MIN_SCAN_SPAN, this.mMaximumVelocity);
+        velocityTracker.computeCurrentVelocity(1000, this.mMaximumVelocity);
         int initialVelocity = (int) VelocityTrackerCompat.getYVelocity(velocityTracker, this.mActivePointerId);
         this.mPopulatePending = true;
         int totalDelta = (int) (this.mLastMotionX - this.mInitialMotionX);

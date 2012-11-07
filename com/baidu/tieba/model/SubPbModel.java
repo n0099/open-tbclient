@@ -14,14 +14,20 @@ import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class SubPbModel {
     private Context mContext;
-    private SubPbData mSubPbData = new SubPbData();
+    private boolean mIsProcessDelPost;
+    private boolean mIsProcessForbidUser;
+    private SubPbData mSubPbData;
 
     public SubPbModel(Context context) {
         this.mContext = context;
+        this.mSubPbData = new SubPbData();
+        this.mIsProcessDelPost = false;
+        this.mIsProcessForbidUser = false;
     }
 
     public SubPbModel(Context context, String result) {
         this.mContext = context;
+        this.mSubPbData = new SubPbData();
         parseJson(result);
     }
 
@@ -72,5 +78,21 @@ public class SubPbModel {
 
     public SubPbData getSubPbData() {
         return this.mSubPbData;
+    }
+
+    public boolean getIsProcessDelPost() {
+        return this.mIsProcessDelPost;
+    }
+
+    public void setIsProcessDelPost(boolean isProcess) {
+        this.mIsProcessDelPost = isProcess;
+    }
+
+    public boolean getIsProcessForbidUser() {
+        return this.mIsProcessForbidUser;
+    }
+
+    public void setIsProcessForbidUser(boolean isProcess) {
+        this.mIsProcessForbidUser = isProcess;
     }
 }

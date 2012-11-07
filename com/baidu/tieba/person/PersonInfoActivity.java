@@ -198,14 +198,8 @@ public class PersonInfoActivity extends BaseActivity {
                             return;
                         }
                     }
-                    String id = TiebaApplication.getCurrentAccount();
-                    if (id == null || id.length() <= 0) {
-                        MainTabActivity.startActivity(PersonInfoActivity.this, MainTabActivity.GOTO_RECOMMEND);
-                        return;
-                    } else {
-                        MainTabActivity.startActivity(PersonInfoActivity.this, MainTabActivity.GOTO_HOME);
-                        return;
-                    }
+                    MainTabActivity.startActivity(PersonInfoActivity.this, MainTabActivity.GOTO_RECOMMEND);
+                    return;
                 }
                 PersonInfoActivity.this.finish();
             }

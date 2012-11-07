@@ -1,9 +1,12 @@
 package com.baidu.tieba.data;
 
+import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.util.TiebaLog;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class ConfigData {
+    private boolean isMotuOn = true;
+    private boolean isFrsAbstractOn = true;
     private int pb_max_floor_total_num = 0;
     private int pb_big_image_width = 0;
     private int img_chunk_upload_enable = 1;
@@ -60,6 +63,14 @@ public class ConfigData {
         return this.pb_big_image_width;
     }
 
+    public boolean getIsMotuOn() {
+        return this.isMotuOn;
+    }
+
+    public boolean getIsFrsAbstractOn() {
+        return this.isFrsAbstractOn;
+    }
+
     public void parserJson(String data) {
         try {
             JSONObject json = new JSONObject(data);
@@ -79,6 +90,20 @@ public class ConfigData {
                 this.yijianfankui_fname = json.optString("yijianfankui_fname");
                 this.yijianfankui_fid = json.optString("yijianfankui_fid");
                 this.img_chunk_upload_enable = json.optInt("img_chunk_upload_enable", 1);
+                int open_filter = json.optInt("open_filter", 1);
+                if (open_filter == 2) {
+                    this.isMotuOn = false;
+                } else {
+                    this.isMotuOn = true;
+                }
+                int open_abstract = json.optInt("open_abstract", 1);
+                if (open_abstract == 2) {
+                    this.isFrsAbstractOn = false;
+                } else {
+                    this.isFrsAbstractOn = true;
+                }
+                TiebaApplication.app.setIsMotuOn(this.isMotuOn);
+                TiebaApplication.app.setIsAbstractOn(this.isFrsAbstractOn);
                 Config.setPbListNum(this.pb_max_floor_total_num);
                 Config.setThreadImageWidth(this.pb_big_image_width);
                 Config.setBigPhotoAdress(this.big_head_image_host);

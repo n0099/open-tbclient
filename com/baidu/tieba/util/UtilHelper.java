@@ -10,6 +10,8 @@ import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Build;
+import android.text.Html;
+import android.util.DisplayMetrics;
 import android.view.Display;
 import android.view.View;
 import android.view.Window;
@@ -127,7 +129,7 @@ public class UtilHelper {
         if (max_width <= 0) {
             max_width = 1;
         }
-        if (max_width > 370) {
+        if (max_width > 350) {
             max_width = Config.PB_IMAGE_NEW_MAX_WIDTH;
         }
         int max_height = (int) (max_width * 1.62f);
@@ -173,5 +175,34 @@ public class UtilHelper {
 
     public static boolean isSupportGesture() {
         return Build.VERSION.SDK_INT > 4;
+    }
+
+    public static void startWebActivity(Context context, String url) {
+        try {
+            String url2 = Html.fromHtml(url).toString();
+            Intent intent = new Intent("android.intent.action.VIEW");
+            intent.setData(Uri.parse(url2));
+            context.startActivity(intent);
+        } catch (Exception e) {
+            TiebaLog.e("UtilHelper", "startWebActivity", e.getMessage());
+        }
+    }
+
+    public static DisplayMetrics getScreenSize(Activity activity) {
+        DisplayMetrics result = null;
+        try {
+            DisplayMetrics result2 = new DisplayMetrics();
+            try {
+                activity.getWindowManager().getDefaultDisplay().getMetrics(result2);
+                return result2;
+            } catch (Exception e) {
+                e = e;
+                result = result2;
+                TiebaLog.i("UtilHelper", "getScreenSize", e.toString());
+                return result;
+            }
+        } catch (Exception e2) {
+            e = e2;
+        }
     }
 }

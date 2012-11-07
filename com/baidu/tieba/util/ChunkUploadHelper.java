@@ -24,7 +24,9 @@ public class ChunkUploadHelper {
     }
 
     public void cancel() {
-        this.mNetWork.cancelNetConnect();
+        if (this.mNetWork != null) {
+            this.mNetWork.cancelNetConnect();
+        }
         this.mIsCancelled = true;
     }
 

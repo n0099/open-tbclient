@@ -230,7 +230,7 @@ public class VcodeActivity extends BaseActivity {
     public class GetImageTask extends AsyncTask<String, Integer, Bitmap> {
         private volatile boolean mCanceled;
         VcodeInfoData mInfoData;
-        NetWork mNetWork;
+        volatile NetWork mNetWork;
 
         private GetImageTask() {
             this.mNetWork = null;
@@ -246,7 +246,6 @@ public class VcodeActivity extends BaseActivity {
             VcodeActivity.this.mGetImageTask = null;
             if (this.mNetWork != null) {
                 this.mNetWork.cancelNetConnect();
-                this.mNetWork = null;
             }
             this.mCanceled = true;
             VcodeActivity.this.mProgressBar.setVisibility(8);

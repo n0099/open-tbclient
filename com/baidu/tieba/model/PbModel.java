@@ -2,6 +2,7 @@ package com.baidu.tieba.model;
 
 import android.content.Context;
 import com.baidu.tieba.R;
+import com.baidu.tieba.data.Config;
 import com.baidu.tieba.data.PbData;
 /* loaded from: classes.dex */
 public class PbModel {
@@ -11,12 +12,18 @@ public class PbModel {
     private boolean mIsDisplayPhoto = true;
     private boolean mSequence = true;
     private boolean mHostMode = false;
+    private boolean mIsManageMode = false;
     private boolean mIsprogressTip = false;
+    private boolean mIsProcessDelPost = false;
+    private boolean mIsProcessForbidUser = false;
     private String mMarkId = null;
     private boolean mMarkMode = false;
     private String mForumName = null;
     private String mForumId = null;
     private String mThreadTitle = null;
+    private int mBigPageNumber = 1;
+    private int mSmallPageNumber = 1;
+    private boolean mIsLastPage = false;
 
     public void setData(PbData data) {
         this.mData = data;
@@ -58,12 +65,60 @@ public class PbModel {
         return this.mIsprogressTip;
     }
 
+    public boolean getIsProcessDelPost() {
+        return this.mIsProcessDelPost;
+    }
+
+    public void setIsProcessDelPost(boolean isProcess) {
+        this.mIsProcessDelPost = isProcess;
+    }
+
+    public boolean getIsProcessForbidUser() {
+        return this.mIsProcessForbidUser;
+    }
+
+    public void setIsProcessForbidUser(boolean isProcess) {
+        this.mIsProcessForbidUser = isProcess;
+    }
+
+    public boolean getManageMode() {
+        return this.mIsManageMode;
+    }
+
+    public void setManageMode(boolean mode) {
+        this.mIsManageMode = mode;
+    }
+
     public void setMarkId(String markId) {
         this.mMarkId = markId;
     }
 
     public String getMarkId() {
         return this.mMarkId;
+    }
+
+    public void setBigPageNumber(int bigPageNumber) {
+        this.mBigPageNumber = bigPageNumber;
+    }
+
+    public int getBigPageNumber() {
+        return this.mBigPageNumber;
+    }
+
+    public void setSmallPageNumber(int smallPageNumber) {
+        this.mSmallPageNumber = smallPageNumber;
+    }
+
+    public int getSmallPageNumber() {
+        return this.mSmallPageNumber;
+    }
+
+    public void setIsLastPage(boolean isLastPage) {
+        this.mIsLastPage = isLastPage;
+    }
+
+    public boolean getIsLastPage() {
+        return this.mIsLastPage;
     }
 
     public boolean isCanTip() {
@@ -133,5 +188,9 @@ public class PbModel {
 
     public int getHavePre() {
         return this.mHavePre;
+    }
+
+    public int getMaxShowPageCount() {
+        return Config.PB_LIST_ITEM_MAX_NUM / 60;
     }
 }

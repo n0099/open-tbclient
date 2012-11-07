@@ -1,31 +1,27 @@
 package com.baidu.tieba.util;
 
 import android.graphics.Bitmap;
+import com.baidu.tieba.data.Config;
 import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class SDRamImage {
-    private static HashMap<String, Image> photo;
-    private static HashMap<String, Image> pic;
-    private int weight;
-
-    public SDRamImage() {
-        photo = new HashMap<>();
-        pic = new HashMap<>();
-        this.weight = 0;
-    }
+    private volatile HashMap<String, Image> photo = new HashMap<>();
+    private volatile HashMap<String, Image> pic = new HashMap<>();
+    private volatile int weight = 0;
+    private volatile int pic_mem = 0;
 
     public void addPhoto(String name, Bitmap bitmap) {
         synchronized (this) {
             try {
                 this.weight++;
-                if (photo.size() >= 50) {
+                if (this.photo.size() >= 50) {
                     deletePhoto();
                 }
                 Image image = new Image(this, null);
                 image.image = bitmap;
                 image.weight = Integer.valueOf(this.weight);
-                photo.put(name, image);
+                this.photo.put(name, image);
             } catch (Exception ex) {
                 TiebaLog.e(getClass().getName(), "addPhoto", ex.getMessage());
             }
@@ -34,35 +30,43 @@ public class SDRamImage {
 
     public void addPic(String name, Bitmap bitmap, boolean isGif) {
         synchronized (this) {
-            try {
-                this.weight++;
-                if (pic.size() >= 15) {
-                    deletePic();
+            if (bitmap != null) {
+                try {
+                    this.weight++;
+                    int pic_size = bitmap.getWidth() * bitmap.getHeight() * 2;
+                    if (this.pic_mem + pic_size > Config.getBigImageMaxUsedMemory()) {
+                        deletePic((this.pic_mem + pic_size) - Config.getBigImageMaxUsedMemory());
+                    }
+                    Image image = new Image(this, null);
+                    image.image = bitmap;
+                    image.weight = Integer.valueOf(this.weight);
+                    image.isGif = isGif;
+                    this.pic.put(name, image);
+                    this.pic_mem += pic_size;
+                } catch (Exception ex) {
+                    TiebaLog.e(getClass().getName(), "addPic", ex.getMessage());
                 }
-                Image image = new Image(this, null);
-                image.image = bitmap;
-                image.weight = Integer.valueOf(this.weight);
-                image.isGif = isGif;
-                pic.put(name, image);
-            } catch (Exception ex) {
-                TiebaLog.e(getClass().getName(), "addPic", ex.getMessage());
             }
         }
     }
 
     public void addPic(String name, Bitmap bitmap) {
         synchronized (this) {
-            try {
-                this.weight++;
-                if (pic.size() >= 15) {
-                    deletePic();
+            if (bitmap != null) {
+                try {
+                    this.weight++;
+                    int pic_size = bitmap.getWidth() * bitmap.getHeight() * 2;
+                    if (this.pic_mem + pic_size > Config.getBigImageMaxUsedMemory()) {
+                        deletePic((this.pic_mem + pic_size) - Config.getBigImageMaxUsedMemory());
+                    }
+                    Image image = new Image(this, null);
+                    image.image = bitmap;
+                    image.weight = Integer.valueOf(this.weight);
+                    this.pic_mem += pic_size;
+                    this.pic.put(name, image);
+                } catch (Exception ex) {
+                    TiebaLog.e(getClass().getName(), "addPic", ex.getMessage());
                 }
-                Image image = new Image(this, null);
-                image.image = bitmap;
-                image.weight = Integer.valueOf(this.weight);
-                pic.put(name, image);
-            } catch (Exception ex) {
-                TiebaLog.e(getClass().getName(), "addPic", ex.getMessage());
             }
         }
     }
@@ -71,42 +75,53 @@ public class SDRamImage {
         synchronized (this) {
             String key = null;
             int tmp = 134217727;
-            for (Map.Entry<String, Image> entry : photo.entrySet()) {
+            for (Map.Entry<String, Image> entry : this.photo.entrySet()) {
                 if (entry.getValue().weight.intValue() < tmp) {
                     tmp = entry.getValue().weight.intValue();
                     key = entry.getKey();
                 }
             }
             if (key != null) {
-                photo.remove(key);
+                this.photo.remove(key);
             } else {
-                photo.clear();
+                this.photo.clear();
             }
         }
     }
 
     public void deletePhoto(String key) {
         synchronized (this) {
-            photo.remove(key);
+            this.photo.remove(key);
         }
     }
 
-    public void deletePic() {
+    public void deletePic(int size) {
         synchronized (this) {
-            if (pic.size() >= 15) {
-                String key = null;
-                int tmp = 134217727;
-                for (Map.Entry<String, Image> entry : pic.entrySet()) {
-                    if (entry.getValue().weight.intValue() < tmp) {
-                        tmp = entry.getValue().weight.intValue();
-                        String key2 = entry.getKey();
-                        key = key2;
+            if (this.pic_mem + size > Config.getBigImageMaxUsedMemory()) {
+                while (size > 0) {
+                    int image_size = 0;
+                    String key = null;
+                    int tmp = 134217727;
+                    for (Map.Entry<String, Image> entry : this.pic.entrySet()) {
+                        if (entry.getValue().weight.intValue() < tmp) {
+                            tmp = entry.getValue().weight.intValue();
+                            String key2 = entry.getKey();
+                            key = key2;
+                        }
                     }
-                }
-                if (key != null) {
-                    pic.remove(key);
-                } else {
-                    pic.clear();
+                    if (key != null) {
+                        Image image = this.pic.remove(key);
+                        if (this.pic != null && image.image != null) {
+                            image_size = image.image.getWidth() * image.image.getHeight() * 2;
+                            this.pic_mem -= image_size;
+                            size -= image_size;
+                        }
+                    } else {
+                        this.pic.clear();
+                        this.pic_mem = 0;
+                        size = 0;
+                    }
+                    size -= image_size;
                 }
             }
         }
@@ -116,7 +131,7 @@ public class SDRamImage {
         Bitmap bitmap;
         synchronized (this) {
             bitmap = null;
-            Image image = photo.get(name);
+            Image image = this.photo.get(name);
             if (image != null) {
                 this.weight++;
                 bitmap = image.image;
@@ -130,7 +145,7 @@ public class SDRamImage {
         Bitmap bitmap;
         synchronized (this) {
             bitmap = null;
-            Image image = pic.get(name);
+            Image image = this.pic.get(name);
             if (image != null) {
                 this.weight++;
                 bitmap = image.image;
@@ -144,7 +159,7 @@ public class SDRamImage {
         boolean isGif;
         synchronized (this) {
             isGif = false;
-            Image image = pic.get(name);
+            Image image = this.pic.get(name);
             if (image != null) {
                 isGif = image.isGif;
             }
@@ -153,15 +168,18 @@ public class SDRamImage {
     }
 
     public void clearPicAndPhoto() {
-        photo.clear();
-        pic.clear();
+        synchronized (this) {
+            this.photo.clear();
+            this.pic.clear();
+            this.pic_mem = 0;
+        }
     }
 
     public void LogCount() {
-        int photo_size = photo.size();
+        int photo_size = this.photo.size();
         int i = 0;
         TiebaLog.log_e(0, getClass().getName(), "logPrint", "photo.size = " + String.valueOf(photo_size));
-        for (Map.Entry<String, Image> entry : photo.entrySet()) {
+        for (Map.Entry<String, Image> entry : this.photo.entrySet()) {
             StringBuffer log = new StringBuffer(50);
             log.append("photo[");
             log.append(i);
@@ -174,10 +192,10 @@ public class SDRamImage {
             TiebaLog.log_e(0, getClass().getName(), "logPrint", log.toString());
             i++;
         }
-        int pic_size = pic.size();
+        int pic_size = this.pic.size();
         int i2 = 0;
         TiebaLog.log_e(0, getClass().getName(), "logPrint", "pic.size = " + String.valueOf(pic_size));
-        for (Map.Entry<String, Image> entry2 : pic.entrySet()) {
+        for (Map.Entry<String, Image> entry2 : this.pic.entrySet()) {
             StringBuffer log2 = new StringBuffer(50);
             log2.append("pic[");
             log2.append(i2);

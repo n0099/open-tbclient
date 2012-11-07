@@ -14,6 +14,7 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.OutputStream;
 /* loaded from: classes.dex */
 public class FileHelper {
     public static final File EXTERNAL_STORAGE_DIRECTORY = Environment.getExternalStorageDirectory();
@@ -207,7 +208,9 @@ public class FileHelper {
             byte[] temp = new byte[7];
             fStream.read(temp, 0, 6);
             result = UtilHelper.isGif(temp);
-            fStream.close();
+            if (fStream != null) {
+                fStream.close();
+            }
         } catch (FileNotFoundException e3) {
             e = e3;
             e.printStackTrace();
@@ -300,24 +303,64 @@ public class FileHelper {
         }
         File file = new File(String.valueOf(all_path) + filename);
         try {
-            if (!file.exists()) {
-                return null;
-            }
-            FileInputStream fStream = new FileInputStream(file);
-            ByteArrayOutputStream outputstream = new ByteArrayOutputStream(AccessibilityEventCompat.TYPE_TOUCH_EXPLORATION_GESTURE_END);
-            byte[] temp = new byte[AccessibilityEventCompat.TYPE_TOUCH_EXPLORATION_GESTURE_END];
-            while (true) {
-                int num = fStream.read(temp, 0, AccessibilityEventCompat.TYPE_TOUCH_EXPLORATION_GESTURE_END);
-                if (num != -1) {
+            if (file.exists()) {
+                FileInputStream fStream = new FileInputStream(file);
+                ByteArrayOutputStream outputstream = new ByteArrayOutputStream(AccessibilityEventCompat.TYPE_TOUCH_EXPLORATION_GESTURE_END);
+                byte[] temp = new byte[AccessibilityEventCompat.TYPE_TOUCH_EXPLORATION_GESTURE_END];
+                while (true) {
+                    int num = fStream.read(temp, 0, AccessibilityEventCompat.TYPE_TOUCH_EXPLORATION_GESTURE_END);
+                    if (num == -1) {
+                        break;
+                    }
                     outputstream.write(temp, 0, num);
-                } else {
-                    return outputstream.toByteArray();
                 }
+                if (fStream != null) {
+                    fStream.close();
+                }
+                return outputstream.toByteArray();
             }
+            return null;
         } catch (IOException ex) {
             TiebaLog.e("FileHelper", "GetFileData", "error = " + ex.getMessage());
             return null;
         }
+    }
+
+    public static boolean CopyFile(String srcPath, String dstPath) {
+        OutputStream fosto;
+        String fromPath = EXTERNAL_STORAGE_DIRECTORY + "/" + Config.TMPDIRNAME + "/" + srcPath;
+        String toPath = EXTERNAL_STORAGE_DIRECTORY + "/" + Config.TMPDIRNAME + "/" + dstPath;
+        try {
+            File srcFile = new File(fromPath);
+            File dstFile = new File(toPath);
+            if (srcFile.exists()) {
+                InputStream fosfrom = new FileInputStream(srcFile);
+                try {
+                    fosto = new FileOutputStream(dstFile);
+                } catch (Exception e) {
+                    e = e;
+                }
+                try {
+                    byte[] bt = new byte[AccessibilityEventCompat.TYPE_TOUCH_EXPLORATION_GESTURE_END];
+                    while (true) {
+                        int c = fosfrom.read(bt);
+                        if (c <= 0) {
+                            break;
+                        }
+                        fosto.write(bt, 0, c);
+                    }
+                    fosfrom.close();
+                    fosto.close();
+                } catch (Exception e2) {
+                    e = e2;
+                    TiebaLog.e("FileHelper", "CopyFile", e.toString());
+                    return false;
+                }
+            }
+        } catch (Exception e3) {
+            e = e3;
+        }
+        return false;
     }
 
     public static InputStream GetStreamFromFile(String filename) {

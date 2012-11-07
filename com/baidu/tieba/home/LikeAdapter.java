@@ -113,15 +113,17 @@ public class LikeAdapter extends BaseAdapter {
                         return convertView;
                     }
                 } else if (type == 0) {
-                    convertView = mInflater.inflate(R.layout.home_like_nodata_item, (ViewGroup) null);
+                    return mInflater.inflate(R.layout.home_like_nodata_item, (ViewGroup) null);
                 }
             } else {
                 holder = (ViewHolder) convertView.getTag();
             }
-            if (position == 0) {
-                holder.mItem.setPadding(0, this.mMargin, 0, this.mMargin);
-            } else {
-                holder.mItem.setPadding(0, 0, 0, this.mMargin);
+            if (holder != null) {
+                if (position == 0) {
+                    holder.mItem.setPadding(0, this.mMargin, 0, this.mMargin);
+                } else {
+                    holder.mItem.setPadding(0, 0, 0, this.mMargin);
+                }
             }
             if (type == 1 && holder != null) {
                 if (position >= 0) {

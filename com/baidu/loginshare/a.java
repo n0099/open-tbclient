@@ -1,6 +1,7 @@
 package com.baidu.loginshare;
 
 import android.content.Context;
+import android.util.Log;
 import com.baidu.share.Crypto;
 import java.io.File;
 import java.io.FileInputStream;
@@ -23,6 +24,7 @@ public class a {
         this.a = null;
         this.b = null;
         this.c = null;
+        this.d = "loginshare";
         this.e = false;
         this.a = context;
         c();
@@ -75,7 +77,10 @@ public class a {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void c() {
-        this.c = new File(String.valueOf(this.a.getFilesDir().getAbsolutePath()) + "/" + Keystore.e());
+        File filesDir = this.a.getFilesDir();
+        Log.d(this.d, "FileStorage.init.fileDir." + filesDir);
+        this.c = new File(String.valueOf(filesDir.getAbsolutePath()) + "/" + Keystore.e());
+        Log.d(this.d, "FileStorage.init.mFile." + this.c);
         if (!this.c.exists()) {
             this.b = new JSONObject();
             return;

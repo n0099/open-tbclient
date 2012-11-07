@@ -48,7 +48,6 @@ public class NetWorkCore {
     private String mErrorString;
     private HashMap<String, byte[]> mFileData;
     private boolean mIsBDImage;
-    private boolean mIsBaiduServer = true;
     private volatile boolean mIsInterrupte;
     private boolean mIsLimited;
     private int mNetErrorCode;
@@ -65,6 +64,8 @@ public class NetWorkCore {
     private static volatile String mProxyUser = null;
     private static volatile boolean mHaveInitProxyUser = false;
     private static Pattern mPattern = Pattern.compile("^[0]{0,1}10\\.[0]{1,3}\\.[0]{1,3}\\.172$", 8);
+    private boolean mIsBaiduServer = true;
+    private int mDataSize = 0;
 
     /* loaded from: classes.dex */
     public enum NetworkState {
@@ -319,9 +320,9 @@ public class NetWorkCore {
         return false;
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [512=8, 504=8, 505=8, 509=8, 510=8] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [512=8, 514=8, 506=8, 507=8, 511=8] */
     /* JADX WARN: Code restructure failed: missing block: B:57:0x019a, code lost:
-        if (0 == 0) goto L63;
+        if (0 == 0) goto L67;
      */
     /* JADX WARN: Code restructure failed: missing block: B:58:0x019c, code lost:
         r9.close();
@@ -425,6 +426,7 @@ public class NetWorkCore {
                             } catch (Exception e5) {
                             }
                         } else {
+                            this.mDataSize = size;
                             TiebaLog.i(getClass().getName(), "getNetData", "time = " + String.valueOf(new Date().getTime() - time) + "ms");
                             if (size < MAX_DATA_LENG) {
                                 output = outputstream.toByteArray();
@@ -619,11 +621,11 @@ public class NetWorkCore {
         }
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [729=9, 730=9, 734=9, 735=9, 737=9] */
-    /* JADX WARN: Code restructure failed: missing block: B:113:0x0444, code lost:
-        if (r11 == null) goto L108;
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [734=9, 735=9, 739=9, 740=9, 742=9] */
+    /* JADX WARN: Code restructure failed: missing block: B:112:0x0449, code lost:
+        if (r11 == null) goto L110;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:114:0x0446, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:113:0x044b, code lost:
         r11.close();
      */
     /*
@@ -632,7 +634,6 @@ public class NetWorkCore {
     public String postNetData() {
         InputStream in;
         String retData;
-        int num;
         String retData2 = null;
         boolean is_net_error = true;
         StringBuffer build = new StringBuffer(1024);
@@ -717,9 +718,15 @@ public class NetWorkCore {
                 in = this.mConn.getInputStream();
                 byte[] buf = new byte[1024];
                 ByteArrayOutputStream outputstream = new ByteArrayOutputStream(1024);
-                while (!this.mIsInterrupte && (num = in.read(buf)) != -1) {
+                int size = 0;
+                while (!this.mIsInterrupte) {
                     try {
+                        int num = in.read(buf);
+                        if (num == -1) {
+                            break;
+                        }
                         outputstream.write(buf, 0, num);
+                        size += num;
                     } catch (SocketException e4) {
                         ex = e4;
                     } catch (SocketTimeoutException e5) {
@@ -746,6 +753,7 @@ public class NetWorkCore {
                     } catch (Exception e8) {
                     }
                 } else {
+                    this.mDataSize = size;
                     TiebaLog.i(getClass().getName(), "postNetData", "time = " + String.valueOf(new Date().getTime() - time) + "ms");
                     byte[] output = outputstream.toByteArray();
                     TiebaLog.i(getClass().getName(), "postNetData", "Get data.zise = " + String.valueOf(output.length));
@@ -902,7 +910,11 @@ public class NetWorkCore {
         return retData2;
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [891=9, 892=9, 894=9, 896=9, 897=9, 899=5, 901=9, 902=9, 904=9, 905=9, 906=9] */
+    public int getNetDataSize() {
+        return this.mDataSize;
+    }
+
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [899=9, 900=9, 902=9, 904=9, 905=9, 907=5, 909=9, 910=9, 912=9, 913=9, 914=9] */
     /* JADX WARN: Code restructure failed: missing block: B:14:0x0066, code lost:
         if (0 == 0) goto L15;
      */
@@ -1293,7 +1305,7 @@ public class NetWorkCore {
         return this.mNetErrorCode == 200 || this.mNetErrorCode == 206;
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [1040=7, 1042=7, 1043=7, 1045=5, 1047=7, 1048=7, 1052=7, 1053=7, 1055=7] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [1048=7, 1050=7, 1051=7, 1053=5, 1055=7, 1056=7, 1060=7, 1061=7, 1063=7] */
     public Boolean downloadFile(String name, Handler handler) {
         String length;
         int index;
@@ -1602,7 +1614,7 @@ public class NetWorkCore {
 
     private int getAddPostIndex(ArrayList<BasicNameValuePair> data, String key) {
         int index = 0;
-        if (data == null && key == null) {
+        if (data == null || key == null) {
             return -1;
         }
         int size = data.size();
@@ -1667,9 +1679,9 @@ public class NetWorkCore {
                     case NetWorkErr.UID_PRISON /* 9 */:
                     case 10:
                     case NetWorkErr.CONTENT_BUHEXIE /* 12 */:
-                    case NetWorkErr.INSERT_TO_MANY_SMILE /* 13 */:
+                    case 13:
                     case 14:
-                    case 15:
+                    case NetWorkErr.FILE_UPLOAD_SIZE_ERROR /* 15 */:
                         TiebaLog.i("NetWorkCore", "NetworkStateInfo", "ThreeG");
                         return NetworkStateInfo.ThreeG;
                     default:

@@ -5,8 +5,11 @@ import android.graphics.drawable.BitmapDrawable;
 import android.text.SpannableString;
 import android.text.style.ImageSpan;
 import com.baidu.tieba.R;
+import com.baidu.tieba.mention.MentionActivity;
 import com.baidu.tieba.util.BitmapHelper;
 import com.baidu.tieba.util.TiebaLog;
+import java.util.ArrayList;
+import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class ThreadData {
@@ -23,10 +26,12 @@ public class ThreadData {
     private int is_good = 0;
     private MetaData author = new MetaData();
     private MetaData last_replyer = new MetaData();
+    ArrayList<MediaData> mMedias = new ArrayList<>();
     private int comment_num = 0;
     private int has_commented = 0;
     private int show_commented = 0;
     private String ad_url = null;
+    private String abstract_text = null;
 
     public void setId(String id) {
         this.id = id;
@@ -156,6 +161,14 @@ public class ThreadData {
         this.ad_url = url;
     }
 
+    public String getAbstract() {
+        return this.abstract_text;
+    }
+
+    public ArrayList<MediaData> getMedias() {
+        return this.mMedias;
+    }
+
     public void parserJson(String data) {
         try {
             JSONObject json = new JSONObject(data);
@@ -184,6 +197,26 @@ public class ThreadData {
                 this.has_commented = json.optInt("has_commented", 0);
                 this.show_commented = json.optInt("show_commented", 0);
                 this.ad_url = json.optString("click_url");
+                JSONArray temp = json.optJSONArray("abstract");
+                if (temp != null) {
+                    for (int i = 0; i < temp.length(); i++) {
+                        if (temp.getJSONObject(i) != null) {
+                            if (temp.getJSONObject(i).optInt(MentionActivity.TYPE) == 0) {
+                                this.abstract_text = temp.getJSONObject(i).optString("text");
+                            }
+                        } else {
+                            return;
+                        }
+                    }
+                }
+                JSONArray media = json.optJSONArray("media");
+                if (media != null) {
+                    for (int i2 = 0; i2 < media.length(); i2++) {
+                        MediaData tempData = new MediaData();
+                        tempData.parserJson(media.getJSONObject(i2));
+                        this.mMedias.add(tempData);
+                    }
+                }
             } catch (Exception ex) {
                 TiebaLog.e("ThreadData", "parserJson", "error = " + ex.getMessage());
             }

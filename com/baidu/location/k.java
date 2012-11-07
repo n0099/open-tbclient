@@ -2,6 +2,7 @@ package com.baidu.location;
 
 import android.location.Location;
 import android.support.v4.view.accessibility.AccessibilityEventCompat;
+import cn.jingling.lib.file.ImageFile;
 import com.baidu.location.c;
 import com.baidu.location.e;
 import java.io.File;
@@ -66,7 +67,7 @@ public class k {
     }
 
     private static int a(int i2, int i3, int i4, long j2) {
-        if (i2 < 0 || i2 > 256 || i3 > 2048 || i4 > 1024 || j2 > 5242880) {
+        if (i2 < 0 || i2 > 256 || i3 > 2048 || i4 > 1024 || j2 > ImageFile.MIN_SD_CARD_SPACE) {
             return -1;
         }
         j.a(f195else, "upload manager start to init cache ...");
