@@ -453,6 +453,7 @@ public class PbAdapter extends BaseAdapter {
         }
         holder.mDelPostClick.setDelType(delType);
         holder.mDelPostClick.setPostId(data.getId());
+        holder.mDelPostClick.setUserIdentity(this.mUserIdentity);
         holder.mDelPost.setOnClickListener(holder.mDelPostClick);
         holder.mForbidUserClick.setUserName(data.getAuthor().getName());
         holder.mForbidUserClick.setUserIdentity(this.mUserIdentity);
@@ -691,13 +692,14 @@ public class PbAdapter extends BaseAdapter {
     private class DelPostClickListener implements View.OnClickListener {
         private String postId = null;
         private int delType = 0;
+        private int userIdentity = 0;
 
         public DelPostClickListener() {
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View v) {
-            ((PbActivity) PbAdapter.this.mContext).openDelPostDialog(this.delType, this.postId);
+            ((PbActivity) PbAdapter.this.mContext).openDelPostDialog(this.delType, this.postId, this.userIdentity);
         }
 
         public void setPostId(String id) {
@@ -706,6 +708,10 @@ public class PbAdapter extends BaseAdapter {
 
         public void setDelType(int type) {
             this.delType = type;
+        }
+
+        public void setUserIdentity(int identity) {
+            this.userIdentity = identity;
         }
     }
 

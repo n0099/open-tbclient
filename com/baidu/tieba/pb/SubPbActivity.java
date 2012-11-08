@@ -1166,6 +1166,11 @@ public class SubPbActivity extends BaseActivity {
             this.mNetwork.addPostData("pid", this.mPostId);
             this.mNetwork.addPostData("isfloor", NetWorkCore.NET_TYPE_NET);
             this.mNetwork.addPostData("src", NetWorkCore.NET_TYPE_WIFI);
+            if (SubPbActivity.this.mUserIdentity == 0) {
+                this.mNetwork.addPostData("is_vipdel", NetWorkCore.NET_TYPE_NET);
+            } else {
+                this.mNetwork.addPostData("is_vipdel", "0");
+            }
             this.mNetwork.setIsNeedTbs(true);
             this.mNetwork.postNetData();
             if (this.mNetwork.isRequestSuccess()) {

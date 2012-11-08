@@ -103,7 +103,9 @@ public class ConfigData {
                     this.isFrsAbstractOn = true;
                 }
                 TiebaApplication.app.setIsMotuOn(this.isMotuOn);
-                TiebaApplication.app.setIsAbstractOn(this.isFrsAbstractOn);
+                if (!this.isFrsAbstractOn) {
+                    TiebaApplication.app.setIsAbstractOn(this.isFrsAbstractOn);
+                }
                 Config.setPbListNum(this.pb_max_floor_total_num);
                 Config.setThreadImageWidth(this.pb_big_image_width);
                 Config.setBigPhotoAdress(this.big_head_image_host);

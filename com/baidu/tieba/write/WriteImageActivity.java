@@ -543,6 +543,9 @@ public class WriteImageActivity extends BaseActivity {
         public Bitmap doInBackground(String... arg0) {
             this.mLabel = arg0[0];
             this.bitmap = WriteImageActivity.this.mBitmap.copy(WriteImageActivity.this.mBitmap.getConfig(), true);
+            if (this.bitmap.getWidth() > 600 || this.bitmap.getHeight() > 600) {
+                this.bitmap = BitmapHelper.resizeBitmap(this.bitmap, (int) Config.POST_IMAGE_MIDDLE);
+            }
             this.bitmap = FilterFactory.createOneKeyFilter(WriteImageActivity.this, this.mLabel).apply(WriteImageActivity.this, this.bitmap);
             return this.bitmap;
         }
@@ -565,8 +568,12 @@ public class WriteImageActivity extends BaseActivity {
             WriteImageActivity.this.mDelete.setClickable(true);
             if (bm != null && !bm.isRecycled()) {
                 WriteImageActivity.this.isEdited = true;
+                Bitmap tempBitmap = WriteImageActivity.this.mPreparedBitmap;
                 WriteImageActivity.this.mPreparedBitmap = bm;
                 WriteImageActivity.this.mImage.setImageBitmap(WriteImageActivity.this.mPreparedBitmap);
+                if (tempBitmap != null && !tempBitmap.isRecycled()) {
+                    tempBitmap.recycle();
+                }
             }
         }
     }

@@ -1230,7 +1230,7 @@ public class PbActivity extends BaseActivity {
         refreshActivity();
     }
 
-    public void openDelPostDialog(final int delType, final String postId) {
+    public void openDelPostDialog(final int delType, final String postId, final int userIdentity) {
         if (this.mDialogDelPost == null) {
             this.mDialogDelPost = new Dialog(this, R.style.common_alert_dialog);
             this.mDialogDelPost.setCanceledOnTouchOutside(true);
@@ -1255,7 +1255,7 @@ public class PbActivity extends BaseActivity {
             this.mBtnDoDelPost.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pb.PbActivity.17
                 @Override // android.view.View.OnClickListener
                 public void onClick(View v) {
-                    PbActivity.this.startDelPostAsyncTask(delType, postId);
+                    PbActivity.this.startDelPostAsyncTask(delType, postId, userIdentity);
                     PbActivity.this.mDialogDelPost.dismiss();
                 }
             });
@@ -1845,7 +1845,7 @@ public class PbActivity extends BaseActivity {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void startDelPostAsyncTask(int delType, String postId) {
+    public void startDelPostAsyncTask(int delType, String postId, int userIdentity) {
         String addr;
         String accountId = TiebaApplication.getCurrentAccount();
         if (accountId == null || accountId.length() <= 0) {
@@ -1857,7 +1857,7 @@ public class PbActivity extends BaseActivity {
                 this.mDelPostAsyncTask = null;
             }
             ForumData forum = this.mModel.getData().getForum();
-            this.mDelPostAsyncTask = new DelPostAsyncTask(forum.getId(), forum.getName(), this.mModel.getData().getThread().getId(), postId, delType);
+            this.mDelPostAsyncTask = new DelPostAsyncTask(forum.getId(), forum.getName(), this.mModel.getData().getThread().getId(), postId, delType, userIdentity);
             if (delType == 1) {
                 addr = String.valueOf(Config.SERVER_ADDRESS) + Config.DEL_THREAD_ADDRESS;
             } else {
@@ -1876,13 +1876,15 @@ public class PbActivity extends BaseActivity {
         private NetWork mNetwork = null;
         private String mPostId;
         private String mThreadId;
+        private int mUserIdentity;
 
-        public DelPostAsyncTask(String forumId, String forumName, String threadId, String postId, int delType) {
+        public DelPostAsyncTask(String forumId, String forumName, String threadId, String postId, int delType, int userIdentity) {
             this.mForumId = forumId;
             this.mForumName = forumName;
             this.mThreadId = threadId;
             this.mPostId = postId;
             this.mDelType = delType;
+            this.mUserIdentity = userIdentity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -1898,6 +1900,11 @@ public class PbActivity extends BaseActivity {
                 this.mNetwork.addPostData(PbActivity.URL_PID, this.mPostId);
                 this.mNetwork.addPostData("isfloor", "0");
                 this.mNetwork.addPostData("src", NetWorkCore.NET_TYPE_NET);
+            }
+            if (this.mUserIdentity == 0) {
+                this.mNetwork.addPostData("is_vipdel", NetWorkCore.NET_TYPE_NET);
+            } else {
+                this.mNetwork.addPostData("is_vipdel", "0");
             }
             this.mNetwork.setIsNeedTbs(true);
             this.mNetwork.postNetData();

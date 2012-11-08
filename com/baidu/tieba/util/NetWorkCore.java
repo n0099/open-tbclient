@@ -320,7 +320,7 @@ public class NetWorkCore {
         return false;
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [512=8, 514=8, 506=8, 507=8, 511=8] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [512=8, 513=8, 515=8, 507=8, 508=8] */
     /* JADX WARN: Code restructure failed: missing block: B:57:0x019a, code lost:
         if (0 == 0) goto L67;
      */
@@ -430,6 +430,7 @@ public class NetWorkCore {
                             TiebaLog.i(getClass().getName(), "getNetData", "time = " + String.valueOf(new Date().getTime() - time) + "ms");
                             if (size < MAX_DATA_LENG) {
                                 output = outputstream.toByteArray();
+                                outputstream.close();
                                 TiebaLog.i(getClass().getName(), "getNetData", "data.zise = " + String.valueOf(size));
                                 if (encodeing != null && encodeing.contains("gzip")) {
                                     ByteArrayInputStream tmpInput = new ByteArrayInputStream(output);
@@ -621,7 +622,7 @@ public class NetWorkCore {
         }
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [734=9, 735=9, 739=9, 740=9, 742=9] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [735=9, 736=9, 740=9, 741=9, 743=9] */
     /* JADX WARN: Code restructure failed: missing block: B:112:0x0449, code lost:
         if (r11 == null) goto L110;
      */
@@ -914,7 +915,7 @@ public class NetWorkCore {
         return this.mDataSize;
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [899=9, 900=9, 902=9, 904=9, 905=9, 907=5, 909=9, 910=9, 912=9, 913=9, 914=9] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [900=9, 901=9, 903=9, 905=9, 906=9, 908=5, 910=9, 911=9, 913=9, 914=9, 915=9] */
     /* JADX WARN: Code restructure failed: missing block: B:14:0x0066, code lost:
         if (0 == 0) goto L15;
      */
@@ -1305,7 +1306,7 @@ public class NetWorkCore {
         return this.mNetErrorCode == 200 || this.mNetErrorCode == 206;
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [1048=7, 1050=7, 1051=7, 1053=5, 1055=7, 1056=7, 1060=7, 1061=7, 1063=7] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [1049=7, 1051=7, 1052=7, 1054=5, 1056=7, 1057=7, 1061=7, 1062=7, 1064=7] */
     public Boolean downloadFile(String name, Handler handler) {
         String length;
         int index;
