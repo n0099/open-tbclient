@@ -2,6 +2,8 @@ package com.baidu.tieba.more;
 
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.app.Dialog;
+import android.content.ComponentName;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
@@ -11,7 +13,11 @@ import android.text.SpannableString;
 import android.text.style.AbsoluteSizeSpan;
 import android.text.style.ForegroundColorSpan;
 import android.text.style.RelativeSizeSpan;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
+import android.view.WindowManager;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -21,6 +27,8 @@ import com.baidu.tieba.MainTabActivity;
 import com.baidu.tieba.R;
 import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.account.LoginActivity;
+import com.baidu.tieba.account.PvThread;
+import com.baidu.tieba.compatible.CompatibleUtile;
 import com.baidu.tieba.data.AntiData;
 import com.baidu.tieba.data.Config;
 import com.baidu.tieba.data.RequestResponseCode;
@@ -33,6 +41,8 @@ import java.io.File;
 /* loaded from: classes.dex */
 public class MoreActivity extends BaseActivity {
     private AlertDialog mAbstractDialog;
+    private Dialog mDialogEyeShieldTip;
+    private AlertDialog mEyeShieldModeDialog;
     private AlertDialog mFontSizeDialog;
     private AlertDialog mFrequencyDialog;
     private AlertDialog mImageQualityDialog;
@@ -53,6 +63,7 @@ public class MoreActivity extends BaseActivity {
     private LinearLayout mAbout = null;
     private LinearLayout mPositionPaper = null;
     private LinearLayout mRemindTone = null;
+    private LinearLayout mEyeShieldMode = null;
     private LinearLayout mAbstractState = null;
     private LinearLayout mPromotedMessage = null;
     private LinearLayout mShowPhoto = null;
@@ -65,7 +76,8 @@ public class MoreActivity extends BaseActivity {
     private TextView mPromotedMessageInfo = null;
     private TextView mPhotoSwitch = null;
     private TextView mAbstractOn = null;
-    private TextView mAbstractText = null;
+    private TextView mEyeShieldModeOn = null;
+    private TextView mEyeShieldModeText = null;
     TextView accountText = null;
     private View.OnClickListener mClickListener = null;
     private String[] mFrequencyMenu = null;
@@ -133,7 +145,7 @@ public class MoreActivity extends BaseActivity {
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 switch (view.getId()) {
-                    case R.id.account_manager /* 2131230973 */:
+                    case R.id.account_manager /* 2131231043 */:
                         String id = TiebaApplication.getCurrentAccount();
                         if ((id == null || id.length() <= 0) && DatabaseService.getAccountNum() <= 0) {
                             LoginActivity.startActivity(MoreActivity.this, MainTabActivity.GOTO_MORE, MoreActivity.this.getString(R.string.login_manage_account), (int) RequestResponseCode.REQUEST_LOGIN_USE);
@@ -142,21 +154,23 @@ public class MoreActivity extends BaseActivity {
                             AccountActivity.startActivity(MoreActivity.this);
                             return;
                         }
-                    case R.id.account_name /* 2131230974 */:
-                    case R.id.arrow /* 2131230975 */:
-                    case R.id.frequency_time /* 2131230977 */:
-                    case R.id.text_remind_tone /* 2131230980 */:
-                    case R.id.abstract_state_on /* 2131230982 */:
-                    case R.id.text_font_size /* 2131230984 */:
-                    case R.id.show_photo_text /* 2131230986 */:
-                    case R.id.photo_switch /* 2131230987 */:
-                    case R.id.text_view_images /* 2131230989 */:
-                    case R.id.text_view_images_switch /* 2131230991 */:
-                    case R.id.text_upload_image_quality /* 2131230993 */:
-                    case R.id.promoted_message_textview /* 2131230995 */:
+                    case R.id.account_name /* 2131231044 */:
+                    case R.id.arrow /* 2131231045 */:
+                    case R.id.frequency_time /* 2131231047 */:
+                    case R.id.text_remind_tone /* 2131231050 */:
+                    case R.id.eyeshield_mode_text /* 2131231052 */:
+                    case R.id.eyeshield_mode_on /* 2131231053 */:
+                    case R.id.abstract_state_on /* 2131231055 */:
+                    case R.id.text_font_size /* 2131231057 */:
+                    case R.id.show_photo_text /* 2131231059 */:
+                    case R.id.photo_switch /* 2131231060 */:
+                    case R.id.text_view_images /* 2131231062 */:
+                    case R.id.text_view_images_switch /* 2131231064 */:
+                    case R.id.text_upload_image_quality /* 2131231066 */:
+                    case R.id.promoted_message_textview /* 2131231068 */:
                     default:
                         return;
-                    case R.id.frequency /* 2131230976 */:
+                    case R.id.frequency /* 2131231046 */:
                         String id2 = TiebaApplication.getCurrentAccount();
                         if (id2 == null || id2.length() <= 0) {
                             LoginActivity.startActivity(MoreActivity.this, MainTabActivity.GOTO_MORE, MoreActivity.this.getString(R.string.login_get_msg), (int) RequestResponseCode.REQUEST_LOGIN_USE);
@@ -189,7 +203,7 @@ public class MoreActivity extends BaseActivity {
                         MoreActivity.this.mFrequencyDialog.setCanceledOnTouchOutside(true);
                         MoreActivity.this.mFrequencyDialog.show();
                         return;
-                    case R.id.remind_info /* 2131230978 */:
+                    case R.id.remind_info /* 2131231048 */:
                         AlertDialog.Builder builder2 = new AlertDialog.Builder(MoreActivity.this);
                         builder2.setTitle(R.string.remind_info);
                         builder2.setMultiChoiceItems(MoreActivity.this.mMsgInfoMenu, MoreActivity.this.mMsgInfoMenuState, new DialogInterface.OnMultiChoiceClickListener() { // from class: com.baidu.tieba.more.MoreActivity.2.2
@@ -235,7 +249,7 @@ public class MoreActivity extends BaseActivity {
                         MoreActivity.this.mRemindInfoDialog.setCanceledOnTouchOutside(true);
                         MoreActivity.this.mRemindInfoDialog.show();
                         return;
-                    case R.id.remind_tone /* 2131230979 */:
+                    case R.id.remind_tone /* 2131231049 */:
                         MoreActivity.this.mRemindToneDialog = new AlertDialog.Builder(MoreActivity.this).setTitle(R.string.remind_tone).setItems(R.array.menu_remind_tone, new DialogInterface.OnClickListener() { // from class: com.baidu.tieba.more.MoreActivity.2.7
                             @Override // android.content.DialogInterface.OnClickListener
                             public void onClick(DialogInterface dialog, int which) {
@@ -260,7 +274,12 @@ public class MoreActivity extends BaseActivity {
                         MoreActivity.this.mRemindToneDialog.setCanceledOnTouchOutside(true);
                         MoreActivity.this.mRemindToneDialog.show();
                         return;
-                    case R.id.abstract_selection /* 2131230981 */:
+                    case R.id.eyeshield_mode /* 2131231051 */:
+                        MoreActivity.this.openEyeShieldSettingDialog();
+                        PvThread pv = new PvThread(Config.ST_TYPE_EYESHIELD_MODE);
+                        pv.start();
+                        return;
+                    case R.id.abstract_selection /* 2131231054 */:
                         if (MoreActivity.this.mAbstractDialog == null) {
                             MoreActivity.this.mAbstractDialog = new AlertDialog.Builder(MoreActivity.this).setTitle(R.string.abstract_state).setItems(R.array.menu_view_images, new DialogInterface.OnClickListener() { // from class: com.baidu.tieba.more.MoreActivity.2.12
                                 @Override // android.content.DialogInterface.OnClickListener
@@ -279,13 +298,8 @@ public class MoreActivity extends BaseActivity {
                         }
                         MoreActivity.this.mAbstractDialog.setCanceledOnTouchOutside(true);
                         MoreActivity.this.mAbstractDialog.show();
-                        if (TiebaApplication.app.getDisplayAbstractNew() == null) {
-                            TiebaApplication.app.setDisplayAbstractNew();
-                            MoreActivity.this.mAbstractText.setText(MoreActivity.this.getString(R.string.abstract_state));
-                            return;
-                        }
                         return;
-                    case R.id.font_size /* 2131230983 */:
+                    case R.id.font_size /* 2131231056 */:
                         SpannableString fontBig = new SpannableString(MoreActivity.this.getString(R.string.font_size_big));
                         fontBig.setSpan(new AbsoluteSizeSpan(UtilHelper.dip2px(MoreActivity.this, 18.0f)), 0, fontBig.length(), 18);
                         SpannableString fontMid = new SpannableString(MoreActivity.this.getString(R.string.font_size_mid));
@@ -313,7 +327,7 @@ public class MoreActivity extends BaseActivity {
                         MoreActivity.this.mFontSizeDialog.setCanceledOnTouchOutside(true);
                         MoreActivity.this.mFontSizeDialog.show();
                         return;
-                    case R.id.show_photo /* 2131230985 */:
+                    case R.id.show_photo /* 2131231058 */:
                         if (MoreActivity.this.mPhotoSwitchDialog == null) {
                             MoreActivity.this.mPhotoSwitchDialog = new AlertDialog.Builder(MoreActivity.this).setTitle(R.string.show_photo).setItems(R.array.menu_view_images, new DialogInterface.OnClickListener() { // from class: com.baidu.tieba.more.MoreActivity.2.11
                                 @Override // android.content.DialogInterface.OnClickListener
@@ -333,7 +347,7 @@ public class MoreActivity extends BaseActivity {
                         MoreActivity.this.mPhotoSwitchDialog.setCanceledOnTouchOutside(true);
                         MoreActivity.this.mPhotoSwitchDialog.show();
                         return;
-                    case R.id.view_images /* 2131230988 */:
+                    case R.id.view_images /* 2131231061 */:
                         MoreActivity.this.mViewImagesDialog = new AlertDialog.Builder(MoreActivity.this).setTitle(R.string.view_images).setItems(R.array.menu_view_images, new DialogInterface.OnClickListener() { // from class: com.baidu.tieba.more.MoreActivity.2.9
                             @Override // android.content.DialogInterface.OnClickListener
                             public void onClick(DialogInterface dialog, int which) {
@@ -351,7 +365,7 @@ public class MoreActivity extends BaseActivity {
                         MoreActivity.this.mViewImagesDialog.setCanceledOnTouchOutside(true);
                         MoreActivity.this.mViewImagesDialog.show();
                         return;
-                    case R.id.view_images_quality /* 2131230990 */:
+                    case R.id.view_images_quality /* 2131231063 */:
                         SpannableString viewQualityHigh = new SpannableString(MoreActivity.this.getString(R.string.view_image_quality_high_menu));
                         viewQualityHigh.setSpan(new AbsoluteSizeSpan(UtilHelper.dip2px(MoreActivity.this, 16.0f)), 1, viewQualityHigh.length(), 18);
                         SpannableString viewQualityLow = new SpannableString(MoreActivity.this.getString(R.string.view_image_quality_low_menu));
@@ -374,7 +388,7 @@ public class MoreActivity extends BaseActivity {
                         MoreActivity.this.mViewImageQualityDialog.setCanceledOnTouchOutside(true);
                         MoreActivity.this.mViewImageQualityDialog.show();
                         return;
-                    case R.id.upload_image_quality /* 2131230992 */:
+                    case R.id.upload_image_quality /* 2131231065 */:
                         SpannableString qualityHigh = new SpannableString(MoreActivity.this.getString(R.string.image_quality_high_menu));
                         qualityHigh.setSpan(new AbsoluteSizeSpan(UtilHelper.dip2px(MoreActivity.this, 16.0f)), 1, qualityHigh.length(), 18);
                         SpannableString qualityLow = new SpannableString(MoreActivity.this.getString(R.string.image_quality_low_menu));
@@ -400,7 +414,7 @@ public class MoreActivity extends BaseActivity {
                         MoreActivity.this.mImageQualityDialog.setCanceledOnTouchOutside(true);
                         MoreActivity.this.mImageQualityDialog.show();
                         return;
-                    case R.id.promoted_message /* 2131230994 */:
+                    case R.id.promoted_message /* 2131231067 */:
                         MoreActivity.this.mPromotedDialog = new AlertDialog.Builder(MoreActivity.this).setTitle(R.string.promoted_message_text).setItems(R.array.menu_remind_tone, new DialogInterface.OnClickListener() { // from class: com.baidu.tieba.more.MoreActivity.2.10
                             @Override // android.content.DialogInterface.OnClickListener
                             public void onClick(DialogInterface dialog, int which) {
@@ -418,17 +432,17 @@ public class MoreActivity extends BaseActivity {
                         MoreActivity.this.mPromotedDialog.setCanceledOnTouchOutside(true);
                         MoreActivity.this.mPromotedDialog.show();
                         return;
-                    case R.id.clear_cash /* 2131230996 */:
+                    case R.id.clear_cash /* 2131231069 */:
                         if (MoreActivity.this.mClearTaks == null) {
                             MoreActivity.this.mClearTaks = new ClearAsyncTask(MoreActivity.this, null);
                             MoreActivity.this.mClearTaks.execute(new String[0]);
                             return;
                         }
                         return;
-                    case R.id.about_bieta /* 2131230997 */:
+                    case R.id.about_bieta /* 2131231070 */:
                         AboutActivity.startActivity(MoreActivity.this);
                         return;
-                    case R.id.position_paper /* 2131230998 */:
+                    case R.id.position_paper /* 2131231071 */:
                         MoreActivity.this.writeFeedback();
                         return;
                 }
@@ -469,17 +483,20 @@ public class MoreActivity extends BaseActivity {
         this.mShowPhoto = (LinearLayout) findViewById(R.id.show_photo);
         this.mShowPhoto.setOnClickListener(this.mClickListener);
         this.mPhotoSwitch = (TextView) findViewById(R.id.photo_switch);
-        this.mAbstractText = (TextView) findViewById(R.id.abstract_text);
+        this.mEyeShieldModeText = (TextView) findViewById(R.id.eyeshield_mode_text);
+        this.mEyeShieldMode = (LinearLayout) findViewById(R.id.eyeshield_mode);
+        this.mEyeShieldModeOn = (TextView) findViewById(R.id.eyeshield_mode_on);
+        this.mEyeShieldMode.setOnClickListener(this.mClickListener);
         this.mAbstractState = (LinearLayout) findViewById(R.id.abstract_selection);
         this.mAbstractOn = (TextView) findViewById(R.id.abstract_state_on);
         this.mAbstractState.setOnClickListener(this.mClickListener);
-        if (TiebaApplication.app.getDisplayAbstractNew() == null) {
-            String str = getString(R.string.abstract_state);
+        if (TiebaApplication.app.getDisplayEyeShieldModeNew() == null) {
+            String str = getString(R.string.eyeshield_mode);
             int start = str.length();
             SpannableString info = new SpannableString(String.valueOf(str) + " NEW");
             info.setSpan(new ForegroundColorSpan(Color.rgb(229, 4, 0)), start, " NEW".length() + start, 33);
             info.setSpan(new RelativeSizeSpan(0.8f), start, " NEW".length() + start, 33);
-            this.mAbstractText.setText(info);
+            this.mEyeShieldModeText.setText(info);
         }
         updateFrequencyTime();
         updateImageQuality();
@@ -490,6 +507,73 @@ public class MoreActivity extends BaseActivity {
         updatePromotedTone();
         updatePhotoSwitch();
         updateAbstracSwitch();
+        updateEyeShieldModeSwitch();
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void openEyeShieldSettingDialog() {
+        if (this.mEyeShieldModeDialog == null) {
+            this.mEyeShieldModeDialog = new AlertDialog.Builder(this).setTitle(R.string.eyeshield_mode).setItems(R.array.menu_view_images, new DialogInterface.OnClickListener() { // from class: com.baidu.tieba.more.MoreActivity.3
+                @Override // android.content.DialogInterface.OnClickListener
+                public void onClick(DialogInterface dialog, int which) {
+                    switch (which) {
+                        case 0:
+                            TiebaApplication.app.setIsEyeShieldModeOn(true);
+                            if (CompatibleUtile.getInstance().isAutoBrightness(MoreActivity.this)) {
+                                MoreActivity.this.openEyeShieldTipDialog();
+                                break;
+                            }
+                            break;
+                        case 1:
+                            TiebaApplication.app.setIsEyeShieldModeOn(false);
+                            break;
+                    }
+                    MoreActivity.this.updateEyeShieldModeSwitch();
+                    UtilHelper.setEyeShieldMode(MoreActivity.this);
+                }
+            }).create();
+        }
+        this.mEyeShieldModeDialog.setCanceledOnTouchOutside(true);
+        this.mEyeShieldModeDialog.show();
+        if (TiebaApplication.app.getDisplayEyeShieldModeNew() == null) {
+            TiebaApplication.app.setDisplayEyeShieldModeNew();
+            this.mEyeShieldModeText.setText(getString(R.string.eyeshield_mode));
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void openEyeShieldTipDialog() {
+        if (this.mDialogEyeShieldTip == null) {
+            this.mDialogEyeShieldTip = new Dialog(this, R.style.common_alert_dialog);
+            this.mDialogEyeShieldTip.setCanceledOnTouchOutside(true);
+            this.mDialogEyeShieldTip.setCancelable(true);
+            LayoutInflater inflater = getLayoutInflater();
+            View view = inflater.inflate(R.layout.dialog_tip_bright_setting, (ViewGroup) null);
+            this.mDialogEyeShieldTip.setContentView(view);
+            WindowManager.LayoutParams wmParams = this.mDialogEyeShieldTip.getWindow().getAttributes();
+            wmParams.width = (int) (UtilHelper.getEquipmentWidth(this) * 0.9d);
+            this.mDialogEyeShieldTip.getWindow().setAttributes(wmParams);
+            Button mBtnOk = (Button) view.findViewById(R.id.dialog_button_ok);
+            Button mBtnCancel = (Button) view.findViewById(R.id.dialog_button_cancel);
+            mBtnCancel.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.more.MoreActivity.4
+                @Override // android.view.View.OnClickListener
+                public void onClick(View v) {
+                    MoreActivity.this.mDialogEyeShieldTip.dismiss();
+                }
+            });
+            mBtnOk.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.more.MoreActivity.5
+                @Override // android.view.View.OnClickListener
+                public void onClick(View v) {
+                    Intent intent = new Intent("/");
+                    ComponentName cm = new ComponentName("com.android.settings", "com.android.settings.DisplaySettings");
+                    intent.setComponent(cm);
+                    intent.setAction("android.intent.action.VIEW");
+                    MoreActivity.this.startActivityForResult(intent, 0);
+                    MoreActivity.this.mDialogEyeShieldTip.dismiss();
+                }
+            });
+        }
+        this.mDialogEyeShieldTip.show();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -634,6 +718,15 @@ public class MoreActivity extends BaseActivity {
         }
     }
 
+    /* JADX INFO: Access modifiers changed from: private */
+    public void updateEyeShieldModeSwitch() {
+        if (TiebaApplication.app.getIsEyeShieldMode()) {
+            this.mEyeShieldModeOn.setText(R.string.eyeshield_mode_open);
+        } else {
+            this.mEyeShieldModeOn.setText(R.string.eyeshield_mode_close);
+        }
+    }
+
     /* loaded from: classes.dex */
     private class ClearAsyncTask extends AsyncTask<String, Integer, String> {
         private ClearAsyncTask() {
@@ -708,6 +801,9 @@ public class MoreActivity extends BaseActivity {
         }
         if (this.mAbstractDialog != null) {
             this.mAbstractDialog.dismiss();
+        }
+        if (this.mEyeShieldModeDialog != null) {
+            this.mEyeShieldModeDialog.dismiss();
         }
         if (this.mPromotedDialog != null) {
             this.mPromotedDialog.dismiss();

@@ -168,7 +168,7 @@ public class GifDecoder {
                 int sx2 = sx;
                 while (dx < dlim) {
                     int sx3 = sx2 + 1;
-                    int index = this.pixels[sx2] & 255;
+                    int index = this.pixels[sx2] & KeyboardLayout.KEYBOARD_STATE_INIT;
                     int c2 = this.act[index];
                     if (c2 != 0) {
                         dest[dx] = c2;
@@ -269,7 +269,7 @@ public class GifDecoder {
                     }
                     bi = 0;
                 }
-                datum += (this.block[bi] & 255) << bits;
+                datum += (this.block[bi] & KeyboardLayout.KEYBOARD_STATE_INIT) << bits;
                 bits += 8;
                 bi++;
                 count--;
@@ -298,7 +298,7 @@ public class GifDecoder {
                             code2 = this.prefix[code2];
                             top2++;
                         }
-                        first = this.suffix[code2] & 255;
+                        first = this.suffix[code2] & KeyboardLayout.KEYBOARD_STATE_INIT;
                         if (available >= 4096) {
                             break;
                         }
@@ -393,10 +393,10 @@ public class GifDecoder {
             int j = 0;
             for (int i = 0; i < ncolors; i++) {
                 int j2 = j + 1;
-                int r = c[j] & 255;
+                int r = c[j] & KeyboardLayout.KEYBOARD_STATE_INIT;
                 int j3 = j2 + 1;
-                int g = c[j2] & 255;
-                int b = c[j3] & 255;
+                int g = c[j2] & KeyboardLayout.KEYBOARD_STATE_INIT;
+                int b = c[j3] & KeyboardLayout.KEYBOARD_STATE_INIT;
                 tab[i] = (-16777216) | (r << 16) | (g << 8) | b;
                 j = j3 + 1;
             }
@@ -542,8 +542,8 @@ public class GifDecoder {
         do {
             readBlock();
             if (this.block[0] == 1) {
-                int b1 = this.block[1] & 255;
-                int b2 = this.block[2] & 255;
+                int b1 = this.block[1] & KeyboardLayout.KEYBOARD_STATE_INIT;
+                int b2 = this.block[2] & KeyboardLayout.KEYBOARD_STATE_INIT;
                 this.loopCount = (b2 << 8) | b1;
             }
             if (this.blockSize <= 0) {

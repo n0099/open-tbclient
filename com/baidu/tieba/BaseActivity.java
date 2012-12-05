@@ -4,11 +4,14 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
+import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import com.baidu.tieba.account.AccountShareHelper;
+import com.baidu.tieba.util.BitmapHelper;
 import com.baidu.tieba.util.TiebaLog;
 import com.baidu.tieba.util.UtilHelper;
 /* loaded from: classes.dex */
@@ -80,6 +83,10 @@ public class BaseActivity extends Activity {
         }
     }
 
+    public ProgressDialog getLoadingDialog() {
+        return this.mWaitingDialog;
+    }
+
     public void showToast(String str) {
         UtilHelper.showToast(this, str);
     }
@@ -110,16 +117,18 @@ public class BaseActivity extends Activity {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public AlertDialog createListMenu(String[] items, DialogInterface.OnClickListener listener) {
-        if (this.mListMenu != null) {
-            return this.mListMenu;
-        }
+    public AlertDialog newListMenu(String[] items, DialogInterface.OnClickListener listener) {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle(R.string.operation);
         builder.setItems(items, listener);
         this.mListMenu = builder.create();
         this.mListMenu.setCanceledOnTouchOutside(true);
         return this.mListMenu;
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    public AlertDialog createListMenu(String[] items, DialogInterface.OnClickListener listener) {
+        return this.mListMenu != null ? this.mListMenu : newListMenu(items, listener);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -134,6 +143,12 @@ public class BaseActivity extends Activity {
         }
     }
 
+    protected void hideListMenu() {
+        if (this.mListMenu != null && this.mListMenu.isShowing()) {
+            this.mListMenu.dismiss();
+        }
+    }
+
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.app.Activity
     public void onPause() {
@@ -144,6 +159,7 @@ public class BaseActivity extends Activity {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.app.Activity
     public void onResume() {
+        UtilHelper.setEyeShieldMode(this);
         super.onResume();
         TiebaApplication.app.AddResumeNum();
     }
@@ -151,6 +167,24 @@ public class BaseActivity extends Activity {
     /* JADX INFO: Access modifiers changed from: protected */
     public void quitDialog() {
         UtilHelper.quitDialog(this);
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    public void checkShowGuidePage(int maskid, View pageView, int imgId) {
+        if (pageView != null) {
+            if (!TiebaApplication.app.isGuidePageShown(maskid)) {
+                Bitmap bm = BitmapHelper.getResBitmap(this, imgId);
+                if (bm != null) {
+                    pageView.setBackgroundDrawable(new BitmapDrawable(bm));
+                    pageView.setVisibility(0);
+                    TiebaApplication.app.setGuidePageShown(maskid);
+                    return;
+                }
+                pageView.setVisibility(8);
+                return;
+            }
+            pageView.setVisibility(8);
+        }
     }
 
     /* loaded from: classes.dex */

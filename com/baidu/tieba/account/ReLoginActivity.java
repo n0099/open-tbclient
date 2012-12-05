@@ -73,7 +73,6 @@ public class ReLoginActivity extends BaseActivity {
     };
 
     public static void startActivityBaiduYi(Activity context, String goto_view, int requestCode, boolean close, AccountData accountData) {
-        TiebaLog.i("ReLoginActivity", "startActivityBaiduYi", goto_view);
         Intent intent = new Intent(context, ReLoginActivity.class);
         intent.putExtra("goto_view", goto_view);
         intent.putExtra("close", close);

@@ -14,6 +14,7 @@ import com.baidu.tieba.data.Config;
 import com.baidu.tieba.util.NetWorkCore;
 import com.baidu.tieba.util.TiebaLog;
 import com.baidu.tieba.util.UtilHelper;
+import com.baidu.tieba.view.BaseViewPager;
 import com.baidu.tieba.view.DragImageView;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
@@ -22,6 +23,7 @@ public class MultiImageView extends RelativeLayout {
     private GalleryViewPager mGalleryViewPager;
     private int mGifMaxMemory;
     private boolean mGifPlayRealseOther;
+    private boolean mIsSupportGesture;
     private View.OnClickListener mOnClickListener;
     private DragImageView.OnGifSetListener mOnGifSetListener;
     private ViewPager.OnPageChangeListener mOnPageChangeListener;
@@ -45,7 +47,14 @@ public class MultiImageView extends RelativeLayout {
         this.mOnGifSetListener = null;
         this.mGifMaxMemory = 0;
         this.mGifPlayRealseOther = true;
+        this.mIsSupportGesture = false;
         init();
+    }
+
+    public void setOnScrollOutListener(BaseViewPager.OnScrollOutListener listener) {
+        if (this.mGalleryViewPager != null) {
+            this.mGalleryViewPager.setOnScrollOutListener(listener);
+        }
     }
 
     public MultiImageView(Context context, AttributeSet attrs) {
@@ -62,6 +71,7 @@ public class MultiImageView extends RelativeLayout {
         this.mOnGifSetListener = null;
         this.mGifMaxMemory = 0;
         this.mGifPlayRealseOther = true;
+        this.mIsSupportGesture = false;
         init();
     }
 
@@ -79,10 +89,12 @@ public class MultiImageView extends RelativeLayout {
         this.mOnGifSetListener = null;
         this.mGifMaxMemory = 0;
         this.mGifPlayRealseOther = true;
+        this.mIsSupportGesture = false;
         init();
     }
 
     private void init() {
+        this.mIsSupportGesture = UtilHelper.isSupportGesture(getContext());
         initEvent();
         initUI();
     }
@@ -241,7 +253,7 @@ public class MultiImageView extends RelativeLayout {
         this.mZoomIn.setOnClickListener(this.mOnClickListener);
         this.mZoomIn.setEnabled(false);
         this.mTools.addView(this.mZoomIn);
-        if (UtilHelper.isSupportGesture()) {
+        if (this.mIsSupportGesture) {
             this.mTools.setVisibility(8);
         }
         this.mAdapter = new ImagePagerAdapter(getContext(), null, this.mOnGifSetListener);
@@ -272,7 +284,7 @@ public class MultiImageView extends RelativeLayout {
     }
 
     public void switchTools() {
-        if (!UtilHelper.isSupportGesture()) {
+        if (!this.mIsSupportGesture) {
             if (this.mTools.getVisibility() != 0) {
                 this.mTools.setVisibility(0);
             } else {
@@ -282,13 +294,13 @@ public class MultiImageView extends RelativeLayout {
     }
 
     public void showTools() {
-        if (!UtilHelper.isSupportGesture()) {
+        if (!this.mIsSupportGesture) {
             this.mTools.setVisibility(0);
         }
     }
 
     public void hideTools() {
-        if (!UtilHelper.isSupportGesture()) {
+        if (!this.mIsSupportGesture) {
             this.mTools.setVisibility(8);
         }
     }
@@ -338,6 +350,15 @@ public class MultiImageView extends RelativeLayout {
 
     public void setUrlData(ArrayList<String> data) {
         this.mAdapter.setData(data);
+        this.mAdapter.notifyDataSetChanged();
+    }
+
+    public void setHasNext(boolean hasNext) {
+        this.mAdapter.setHasNext(hasNext);
+    }
+
+    public void setNextTitle(String title) {
+        this.mAdapter.setNextTitle(title);
     }
 
     public byte[] getCurrentImageData() {

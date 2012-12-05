@@ -5,24 +5,32 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.res.Resources;
 import android.graphics.Bitmap;
+import android.graphics.Paint;
 import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Build;
+import android.provider.Settings;
 import android.text.Html;
+import android.text.TextPaint;
+import android.text.TextUtils;
 import android.util.DisplayMetrics;
+import android.util.TypedValue;
 import android.view.Display;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
+import android.webkit.WebSettings;
 import android.widget.Toast;
 import com.baidu.tieba.R;
 import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.compatible.CompatibleUtile;
 import com.baidu.tieba.data.Config;
 import com.baidu.tieba.data.ContentData;
+import com.baidu.tieba.pb.WebActivity;
 import java.io.File;
 import java.lang.reflect.Field;
 /* loaded from: classes.dex */
@@ -47,7 +55,7 @@ public class UtilHelper {
 
     public static void showToast(Context context, String str) {
         if (str != null && str.length() > 0) {
-            Toast toast = Toast.makeText(TiebaApplication.app, str, 2000);
+            Toast toast = Toast.makeText(TiebaApplication.app, str, 0);
             int y_offset = dip2px(context, 100.0f);
             toast.setGravity(17, 0, y_offset);
             toast.show();
@@ -154,7 +162,7 @@ public class UtilHelper {
     }
 
     public static int getBitmapMaxMemory(Context context) {
-        int memory = CompatibleUtile.getBitmapMaxMemory(context);
+        int memory = CompatibleUtile.getInstance().getBitmapMaxMemory(context);
         TiebaLog.d("UtilHelper", "getBitmapMaxMemory", String.valueOf(memory));
         return memory;
     }
@@ -173,19 +181,31 @@ public class UtilHelper {
         }
     }
 
-    public static boolean isSupportGesture() {
-        return Build.VERSION.SDK_INT > 4;
+    public static boolean isSupportGesture(Context context) {
+        return Build.VERSION.SDK_INT > 4 && CompatibleUtile.getInstance().supportMultiTouch(context);
+    }
+
+    public static void openGpu(Activity context) {
+        CompatibleUtile.getInstance().openGpu(context);
     }
 
     public static void startWebActivity(Context context, String url) {
         try {
-            String url2 = Html.fromHtml(url).toString();
-            Intent intent = new Intent("android.intent.action.VIEW");
-            intent.setData(Uri.parse(url2));
-            context.startActivity(intent);
+            if (TiebaApplication.app.getBrowserType() == 1) {
+                WebActivity.startActivity(context, url);
+            } else {
+                String url2 = Html.fromHtml(url).toString();
+                Intent intent = new Intent("android.intent.action.VIEW");
+                intent.setData(Uri.parse(url2));
+                context.startActivity(intent);
+            }
         } catch (Exception e) {
             TiebaLog.e("UtilHelper", "startWebActivity", e.getMessage());
         }
+    }
+
+    public static void WebViewNoDataBase(WebSettings settings) {
+        CompatibleUtile.getInstance().WebViewNoDataBase(settings);
     }
 
     public static DisplayMetrics getScreenSize(Activity activity) {
@@ -204,5 +224,91 @@ public class UtilHelper {
         } catch (Exception e2) {
             e = e2;
         }
+    }
+
+    public static float measureTextWidth(Paint paint, String str) {
+        return paint.measureText(str);
+    }
+
+    public static Rect measureText(Paint paint, String str) {
+        Rect rect = new Rect();
+        paint.getTextBounds(str, 0, str.length(), rect);
+        return rect;
+    }
+
+    public static int getTextWidth(Paint paint, String str) {
+        int iRet = 0;
+        if (str != null && str.length() > 0) {
+            int len = str.length();
+            float[] widths = new float[len];
+            paint.getTextWidths(str, widths);
+            for (int j = 0; j < len; j++) {
+                iRet += (int) Math.ceil(widths[j]);
+            }
+        }
+        return iRet;
+    }
+
+    public static String getTextOmit(TextPaint paint, String str, int width) {
+        CharSequence sequence = TextUtils.ellipsize(str, paint, width, TextUtils.TruncateAt.END);
+        if (sequence == null) {
+            return null;
+        }
+        String des = sequence.toString();
+        return des;
+    }
+
+    public static TextPaint setTextSize(Context c, TextPaint paint, float size) {
+        Resources r;
+        if (c == null) {
+            r = Resources.getSystem();
+        } else {
+            r = c.getResources();
+        }
+        if (r != null) {
+            paint.setTextSize(TypedValue.applyDimension(2, size, r.getDisplayMetrics()));
+        }
+        return paint;
+    }
+
+    public static int getFontHeight(Context context, float fontSize) {
+        TextPaint paint = new TextPaint();
+        setTextSize(context, paint, fontSize);
+        Paint.FontMetrics fm = paint.getFontMetrics();
+        return (int) Math.ceil(fm.descent - fm.ascent);
+    }
+
+    public static void setWindowAlpha(Activity activity, float alpha) {
+        WindowManager.LayoutParams params = activity.getWindow().getAttributes();
+        params.screenBrightness = alpha;
+        activity.getWindow().setAttributes(params);
+    }
+
+    public static void setEyeShieldMode(Activity activity) {
+        if (activity != null) {
+            Activity temp = activity;
+            if (temp.getParent() != null) {
+                temp = temp.getParent();
+            }
+            if (TiebaApplication.app.getIsEyeShieldMode()) {
+                setWindowAlpha(temp, 0.05f);
+            } else {
+                setWindowAlpha(temp, getScreenBrightness(activity));
+            }
+        }
+    }
+
+    public static int getScreenBrightness(Activity activity) {
+        try {
+            int screenBrightness = Settings.System.getInt(activity.getContentResolver(), "screen_brightness");
+            return screenBrightness;
+        } catch (Exception ex) {
+            TiebaLog.e("UtilHelper", "getScreenBrightness", "error = " + ex.getMessage());
+            return 0;
+        }
+    }
+
+    public static boolean isAutoBrightness(Context context) {
+        return CompatibleUtile.getInstance().isAutoBrightness(context);
     }
 }

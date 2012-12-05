@@ -25,6 +25,14 @@ public class MediaData {
         return this.video_url;
     }
 
+    public void setType(int t) {
+        this.type = t;
+    }
+
+    public void setPic(String url) {
+        this.pic_url = url;
+    }
+
     public void parserJson(JSONObject json) {
         if (json != null) {
             try {

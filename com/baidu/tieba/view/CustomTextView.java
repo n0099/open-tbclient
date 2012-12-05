@@ -20,6 +20,7 @@ public class CustomTextView extends TextView {
 
     @Override // android.widget.TextView, android.view.View
     public boolean onTouchEvent(MotionEvent event) {
+        setLongClickable(false);
         super.onTouchEvent(event);
         return event.getAction() == 0 && hasSelection();
     }

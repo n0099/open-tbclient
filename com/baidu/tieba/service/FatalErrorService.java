@@ -63,7 +63,7 @@ public class FatalErrorService extends Service {
             try {
                 try {
                     File file = FileHelper.GetFile(name);
-                    if (file != null && file.length() > Config.FATAL_ERROR_FILE_UPLOAD_SIZE) {
+                    if (file != null && file.length() > 100) {
                         FileInputStream in2 = new FileInputStream(file);
                         try {
                             byte[] bArr = null;

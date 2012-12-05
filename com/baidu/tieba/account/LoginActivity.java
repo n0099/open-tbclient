@@ -28,7 +28,7 @@ import com.baidu.tieba.data.Config;
 import com.baidu.tieba.data.RequestResponseCode;
 import com.baidu.tieba.data.VcodeInfoData;
 import com.baidu.tieba.model.LoginModel;
-import com.baidu.tieba.recommend.RecommendActivity;
+import com.baidu.tieba.recommend.NewHomeActivity;
 import com.baidu.tieba.util.BitmapHelper;
 import com.baidu.tieba.util.DatabaseService;
 import com.baidu.tieba.util.NetWork;
@@ -96,7 +96,7 @@ public class LoginActivity extends BaseActivity {
 
     public static void startActivityNoExitDialog(Context context) {
         if (TiebaApplication.isBaiduAccountManager()) {
-            if (context instanceof RecommendActivity) {
+            if (context instanceof NewHomeActivity) {
                 BaiduAccountProxy.getAccountData((Activity) context, 0, MainTabActivity.GOTO_RECOMMEND, false);
                 return;
             }

@@ -1,6 +1,5 @@
 package com.baidu.tieba.model;
 
-import com.baidu.android.pushservice.PushConstants;
 import com.baidu.tieba.data.FeedData;
 import com.baidu.tieba.data.MessageData;
 import com.baidu.tieba.data.PageData;
@@ -66,7 +65,7 @@ public class MentionModel {
                     this.feed_list.add(tmp);
                 }
             }
-            this.message.parserJson(json.optJSONObject(PushConstants.EXTRA_PUSH_MESSAGE));
+            this.message.parserJson(json.optJSONObject("message"));
             this.page.parserJson(json.optJSONObject("page"));
         } catch (Exception ex) {
             this.isSucc = false;

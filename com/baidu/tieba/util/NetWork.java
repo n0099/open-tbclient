@@ -47,6 +47,10 @@ public class NetWork {
         initNetWork();
     }
 
+    public void setIsJson(boolean is_json) {
+        this.mNet.setIsJson(is_json);
+    }
+
     public boolean isNeedBackgroundLogin() {
         return this.mNeedBackgroundLogin;
     }

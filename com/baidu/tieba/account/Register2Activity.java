@@ -24,6 +24,7 @@ import android.widget.TextView;
 import com.baidu.tieba.BaseActivity;
 import com.baidu.tieba.R;
 import com.baidu.tieba.data.Config;
+import com.baidu.tieba.data.ContentData;
 import com.baidu.tieba.data.RegistData;
 import com.baidu.tieba.model.LoginModel;
 import com.baidu.tieba.util.BitmapHelper;
@@ -33,7 +34,7 @@ import com.baidu.tieba.util.TiebaLog;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class Register2Activity extends BaseActivity {
-    private static int REQUEST_CODE = 1000;
+    private static int REQUEST_CODE = ContentData.TYPE_VIDEO_IMAGE;
     private static int ERROR_NAME = 27;
     private static int ERROR_PSW = 29;
     private static int ERROR_PHONE = 28;

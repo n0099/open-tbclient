@@ -20,6 +20,7 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.compatible.CompatibleUtile;
 import com.baidu.tieba.util.BitmapHelper;
 import com.baidu.tieba.util.TiebaLog;
+import com.baidu.tieba.util.UtilHelper;
 import java.io.ByteArrayInputStream;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
@@ -35,6 +36,7 @@ public class DragImageView extends ImageView {
     public static final int IMAGE_TYPE_STATIC = 0;
     private static final int MAX_IMAGE_SIZE = 1300;
     static final int NORMAL = 0;
+    private static final float STRETCH_SCALE = 0.7f;
     static final int ZOOM = 2;
     private static final float ZOOM_IN_MULTIPLE = 1.25f;
     private DecelerateAnimation mAnimation;
@@ -57,6 +59,7 @@ public class DragImageView extends ImageView {
     private OnSizeChangedListener mListener;
     private Matrix mMatrix;
     private float mMaxScale;
+    private int mMaxZoomInSize;
     private int mMode;
     private float mOldDist;
     private float mOldScale;
@@ -88,6 +91,7 @@ public class DragImageView extends ImageView {
         this.mIsTouched = false;
         this.mImageData = null;
         this.mGifMaxUseableMem = 0;
+        this.mMaxZoomInSize = MAX_IMAGE_SIZE;
         this.mListener = null;
         this.mClick = null;
         this.mOnGifSetListener = null;
@@ -116,6 +120,7 @@ public class DragImageView extends ImageView {
         this.mIsTouched = false;
         this.mImageData = null;
         this.mGifMaxUseableMem = 0;
+        this.mMaxZoomInSize = MAX_IMAGE_SIZE;
         this.mListener = null;
         this.mClick = null;
         this.mOnGifSetListener = null;
@@ -144,6 +149,7 @@ public class DragImageView extends ImageView {
         this.mIsTouched = false;
         this.mImageData = null;
         this.mGifMaxUseableMem = 0;
+        this.mMaxZoomInSize = MAX_IMAGE_SIZE;
         this.mListener = null;
         this.mClick = null;
         this.mOnGifSetListener = null;
@@ -207,9 +213,9 @@ public class DragImageView extends ImageView {
                 }
                 break;
         }
-        if (action == CompatibleUtile.getActionPointerUp()) {
+        if (action == CompatibleUtile.getInstance().getActionPointerUp()) {
             this.mMode = 1;
-        } else if (action == CompatibleUtile.getActionPointerDown()) {
+        } else if (action == CompatibleUtile.getInstance().getActionPointerDown()) {
             this.mOldDist = spacing(event);
             if (this.mOldDist > 10.0f) {
                 this.mMode = 2;
@@ -252,7 +258,7 @@ public class DragImageView extends ImageView {
     }
 
     public float spacing(MotionEvent event) {
-        return CompatibleUtile.getSpacing(event);
+        return CompatibleUtile.getInstance().getSpacing(event);
     }
 
     @Override // android.view.View
@@ -274,16 +280,12 @@ public class DragImageView extends ImageView {
         if (bitmap != null && !bitmap.isRecycled() && bitmap.getWidth() > 0 && bitmap.getHeight() > 0) {
             float sx = this.mViewWidth / bitmap.getWidth();
             float sy = this.mViewHeight / bitmap.getHeight();
-            if (bitmap.getWidth() <= this.mViewWidth && bitmap.getHeight() <= this.mViewHeight) {
+            if (bitmap.getWidth() <= this.mViewWidth * STRETCH_SCALE && bitmap.getHeight() <= this.mViewHeight * STRETCH_SCALE) {
                 this.mInitScale = 1.0f;
             } else {
                 this.mInitScale = Math.min(sx, sy);
-                if (sx >= sy) {
-                    sx = sy;
-                }
-                this.mInitScale = sx;
             }
-            this.mMaxScale = 1690000 / (bitmap.getWidth() * bitmap.getHeight());
+            this.mMaxScale = this.mMaxZoomInSize / (bitmap.getWidth() * bitmap.getHeight());
             this.mMaxScale = (float) Math.sqrt(this.mMaxScale);
             if (this.mMaxScale > 10.0f) {
                 this.mMaxScale = 10.0f;
@@ -501,6 +503,10 @@ public class DragImageView extends ImageView {
     }
 
     private void initData() {
+        this.mMaxZoomInSize = UtilHelper.getEquipmentHeight(getContext()) * UtilHelper.getEquipmentWidth(getContext()) * 2;
+        if (this.mMaxZoomInSize < 1690000) {
+            this.mMaxZoomInSize = 1690000;
+        }
         this.mResizedWidth = 0.0f;
         this.mResizedHeight = 0.0f;
         this.mScale = new ArrayList<>();
@@ -630,6 +636,9 @@ public class DragImageView extends ImageView {
     }
 
     public void onDestroy() {
+        if (this.mAnimation.getIsAnimationInProgre()) {
+            this.mAnimation.stopAnimation();
+        }
         super.setImageBitmap(null);
         stopDecode();
         this.mImageData = null;
@@ -639,6 +648,9 @@ public class DragImageView extends ImageView {
     }
 
     public void release() {
+        if (this.mAnimation.getIsAnimationInProgre()) {
+            this.mAnimation.stopAnimation();
+        }
         super.setImageBitmap(null);
         stopDecode();
         this.mDecodeStatus = 0;
@@ -702,7 +714,8 @@ public class DragImageView extends ImageView {
         }
         float scale = this.mScale.get(size - 1).floatValue();
         int current_size = (int) (bitmap.getWidth() * bitmap.getHeight() * scale * scale);
-        return (((float) current_size) * ZOOM_IN_MULTIPLE) * ZOOM_IN_MULTIPLE <= ((float) 1690000) && scale <= 5.0f;
+        int max_size = this.mMaxZoomInSize;
+        return (((float) current_size) * ZOOM_IN_MULTIPLE) * ZOOM_IN_MULTIPLE <= ((float) max_size) && scale <= 5.0f;
     }
 
     public boolean canZoomOut() {
@@ -877,11 +890,16 @@ public class DragImageView extends ImageView {
                 if (DragImageView.this.mIsTouched) {
                     this.mIsAnimationInProgres = false;
                     return false;
-                } else if (!super.getTransformation(currentTime, outTransformation)) {
+                }
+                try {
+                    if (!super.getTransformation(currentTime, outTransformation)) {
+                        this.mIsAnimationInProgres = false;
+                        return false;
+                    }
+                    return true;
+                } catch (Exception e) {
                     this.mIsAnimationInProgres = false;
                     return false;
-                } else {
-                    return true;
                 }
             }
             this.mStop = false;

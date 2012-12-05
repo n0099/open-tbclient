@@ -1,6 +1,8 @@
 package com.baidu.tieba.util;
 
 import android.support.v4.view.accessibility.AccessibilityEventCompat;
+import com.baidu.tieba.data.Config;
+import com.baidu.tieba.view.KeyboardLayout;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
@@ -25,21 +27,53 @@ public class StringHelper {
     private static byte[] base64DecodeChars = {-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, 62, -1, -1, -1, 63, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, -1, -1, -1, -1, -1, -1, -1, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, -1, -1, -1, -1, -1, -1, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, -1, -1, -1, -1, -1};
 
     public static String getDateStringMdHm(Date date) {
-        return FORMATE_DATE_MOUTH_TIME.format(date);
+        String format;
+        synchronized (FORMATE_DATE_MOUTH_TIME) {
+            format = FORMATE_DATE_MOUTH_TIME.format(date);
+        }
+        return format;
     }
 
     public static String getDateStringHm(Date date) {
-        return FORMATE_DATE_TIME.format(date);
+        String format;
+        synchronized (FORMATE_DATE_TIME) {
+            format = FORMATE_DATE_TIME.format(date);
+        }
+        return format;
+    }
+
+    public static String getDateStringYear(Date date) {
+        String format;
+        synchronized (FORMATE_DATE_YEAR) {
+            format = FORMATE_DATE_YEAR.format(date);
+        }
+        return format;
+    }
+
+    public static String getDateStringMouth(Date date) {
+        String format;
+        synchronized (FORMATE_DATE_MOUTH) {
+            format = FORMATE_DATE_MOUTH.format(date);
+        }
+        return format;
     }
 
     public static String getTimeString(long time) {
+        String format;
         Date date = new Date(time);
-        return FORMATE_DATE_ALL.format(date);
+        synchronized (FORMATE_DATE_ALL) {
+            format = FORMATE_DATE_ALL.format(date);
+        }
+        return format;
     }
 
     public static String getCurrentString() {
+        String format;
         Date date = new Date();
-        return FORMATE_DATE_ALL.format(date);
+        synchronized (FORMATE_DATE_ALL) {
+            format = FORMATE_DATE_ALL.format(date);
+        }
+        return format;
     }
 
     public static String GetTimeString(Date tObj) {
@@ -49,11 +83,11 @@ public class StringHelper {
         Date tClient = new Date();
         if (tClient.getYear() == tObj.getYear()) {
             if (tClient.getMonth() == tObj.getMonth() && tClient.getDate() == tObj.getDate()) {
-                return FORMATE_DATE_TIME.format(tObj);
+                return getDateStringHm(tObj);
             }
-            return FORMATE_DATE_MOUTH.format(tObj);
+            return getDateStringMouth(tObj);
         }
-        return FORMATE_DATE_YEAR.format(tObj);
+        return getDateStringYear(tObj);
     }
 
     public static String toHexString(byte[] b) {
@@ -228,7 +262,7 @@ public class StringHelper {
                 break;
             }
             int i2 = i + 1;
-            int b1 = data[i] & 255;
+            int b1 = data[i] & KeyboardLayout.KEYBOARD_STATE_INIT;
             if (i2 == len) {
                 sb.append(base64EncodeChars[b1 >>> 2]);
                 sb.append(base64EncodeChars[(b1 & 3) << 4]);
@@ -236,17 +270,17 @@ public class StringHelper {
                 break;
             }
             int i3 = i2 + 1;
-            int b2 = data[i2] & 255;
+            int b2 = data[i2] & KeyboardLayout.KEYBOARD_STATE_INIT;
             if (i3 == len) {
                 sb.append(base64EncodeChars[b1 >>> 2]);
-                sb.append(base64EncodeChars[((b1 & 3) << 4) | ((b2 & 240) >>> 4)]);
+                sb.append(base64EncodeChars[((b1 & 3) << 4) | ((b2 & Config.FRS_WATER_FALL_PAGE_NUM) >>> 4)]);
                 sb.append(base64EncodeChars[(b2 & 15) << 2]);
                 sb.append("=");
                 break;
             }
-            int b3 = data[i3] & 255;
+            int b3 = data[i3] & KeyboardLayout.KEYBOARD_STATE_INIT;
             sb.append(base64EncodeChars[b1 >>> 2]);
-            sb.append(base64EncodeChars[((b1 & 3) << 4) | ((b2 & 240) >>> 4)]);
+            sb.append(base64EncodeChars[((b1 & 3) << 4) | ((b2 & Config.FRS_WATER_FALL_PAGE_NUM) >>> 4)]);
             sb.append(base64EncodeChars[((b2 & 15) << 2) | ((b3 & 192) >>> 6)]);
             sb.append(base64EncodeChars[b3 & 63]);
             i = i3 + 1;

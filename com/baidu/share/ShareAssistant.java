@@ -5,19 +5,15 @@ import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class ShareAssistant {
     private static ShareAssistant a = null;
-    private a b = new a();
-    private b c;
-
-    static {
-        System.loadLibrary("share");
-    }
+    private d b = new d();
+    private a c;
 
     private ShareAssistant(Context context) {
         this.c = null;
         if (context == null) {
             throw new IllegalArgumentException("context cannot be null");
         }
-        this.c = new b(context);
+        this.c = new a(context);
     }
 
     public static synchronized ShareAssistant a(Context context) {
@@ -32,30 +28,21 @@ public class ShareAssistant {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public final void a(ShareModel shareModel) {
-        a aVar = this.b;
-        if (shareModel == null || aVar.a == null) {
-            return;
-        }
-        synchronized (aVar.a) {
-            int size = aVar.a.size();
-            for (int i = 0; i < size; i++) {
-                ((IShareListener) aVar.a.get(i)).onShareEvent(shareModel);
-            }
-        }
+    public void a(ShareModel shareModel) {
+        this.b.a(shareModel);
     }
 
     public void destroy() {
         if (this.b != null) {
-            a aVar = this.b;
-            synchronized (aVar.a) {
-                aVar.a.clear();
-            }
+            this.b.a();
         }
         if (this.c != null) {
-            this.c.a = null;
+            this.c.a();
         }
-        Crypto.a();
+        try {
+            Crypto.a();
+        } catch (Throwable th) {
+        }
         a = null;
     }
 
@@ -64,7 +51,7 @@ public class ShareAssistant {
     }
 
     public boolean share(ShareModel shareModel) {
-        return this.c.a(shareModel, null);
+        return this.c.a(shareModel);
     }
 
     public boolean share(ShareModel shareModel, ArrayList arrayList) {

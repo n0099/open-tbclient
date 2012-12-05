@@ -18,6 +18,7 @@ import com.baidu.tieba.account.AccountShareHelper;
 import com.baidu.tieba.account.LoginActivity;
 import com.baidu.tieba.data.AccountData;
 import com.baidu.tieba.util.DatabaseService;
+import com.baidu.tieba.util.NetWork;
 import com.baidu.tieba.util.TiebaLog;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
@@ -210,6 +211,10 @@ public class AccountActivity extends BaseActivity {
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // android.os.AsyncTask
         public void onPostExecute(AccountData data) {
+            if (this.mDelAccount != null) {
+                LogoutThread logout = new LogoutThread(this.mDelAccount.getBDUSS());
+                logout.start();
+            }
             AccountActivity.this.closeLoadingDialog();
             switch (this.mType) {
                 case 0:
@@ -228,6 +233,26 @@ public class AccountActivity extends BaseActivity {
                     break;
             }
             AccountActivity.this.mDeleteTask = null;
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    /* loaded from: classes.dex */
+    public class LogoutThread extends Thread {
+        private String mBduss;
+
+        public LogoutThread(String bduss) {
+            this.mBduss = null;
+            this.mBduss = bduss;
+        }
+
+        @Override // java.lang.Thread, java.lang.Runnable
+        public void run() {
+            super.run();
+            NetWork network = new NetWork("http://c.tieba.baidu.com/c/s/logout");
+            network.setNeedBackgroundLogin(false);
+            network.addPostData("bduss", this.mBduss);
+            network.postNetData();
         }
     }
 }

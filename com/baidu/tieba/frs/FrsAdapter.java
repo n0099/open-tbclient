@@ -1,28 +1,30 @@
 package com.baidu.tieba.frs;
 
 import android.content.Context;
-import android.content.res.Resources;
-import android.graphics.Color;
-import android.text.SpannableString;
-import android.text.style.ForegroundColorSpan;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.baidu.tieba.R;
+import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.data.Config;
+import com.baidu.tieba.data.FrsStarData;
 import com.baidu.tieba.data.MediaData;
 import com.baidu.tieba.data.ThreadData;
 import com.baidu.tieba.util.AsyncImageLoader;
+import com.baidu.tieba.util.ReadThreadHistory;
 import com.baidu.tieba.util.StringHelper;
 import com.baidu.tieba.util.TiebaLog;
 import com.baidu.tieba.util.UtilHelper;
+import com.baidu.tieba.view.CustomTimerView;
 import com.baidu.tieba.view.FrsImageView;
+import com.baidu.tieba.view.FrsStarImageView;
 import java.util.ArrayList;
 import java.util.Date;
 /* loaded from: classes.dex */
@@ -31,20 +33,18 @@ public class FrsAdapter extends BaseAdapter {
     ArrayList<ThreadData> mData;
     private boolean mHaveFooter;
     private boolean mHaveHeader;
-    private int mHeaderType;
     private AsyncImageLoader mImageLoader;
     private boolean mIsProcessNext;
     private boolean mIsProcessPre;
     private int mScreenWidth;
-    private String mSignText;
+    private AsyncImageLoader mStarImageLoader;
+    FrsStarData mStarData = null;
+    String mForumName = null;
+    ThreadData mStarTitleImg = null;
+    private boolean mIsShowStarTitle = false;
     private View.OnClickListener mImageOnClickListener = null;
     private ArrayList<ProgressBar> mProgressbars = new ArrayList<>();
-    private boolean mOnlyLike = false;
-    private boolean mOnlySign = false;
-    private boolean mLike = false;
     private boolean isAbstractOn = false;
-    private boolean mSign = false;
-    private boolean mCanRank = true;
 
     private LinearLayout createImageView(final MediaData media, int n) {
         if (media.getVideoUrl() != null && (media.getVideoUrl().length() < 1 || media.getVideoUrl().endsWith("swf"))) {
@@ -55,7 +55,7 @@ public class FrsAdapter extends BaseAdapter {
         if (n == 3) {
             imageView.setIsThree(true);
         }
-        LinearLayout.LayoutParams imageViewparams = new LinearLayout.LayoutParams(((UtilHelper.px2dip(this.mContext, this.mScreenWidth) - 40) - (n * 2)) / n, (UtilHelper.px2dip(this.mContext, this.mScreenWidth) - 30) / 4);
+        LinearLayout.LayoutParams imageViewparams = new LinearLayout.LayoutParams((this.mScreenWidth - UtilHelper.dip2px(this.mContext, (n * 2) + 30)) / n, (this.mScreenWidth - UtilHelper.px2dip(this.mContext, 30.0f)) / 4);
         LinearLayout.LayoutParams layoutViewparams = new LinearLayout.LayoutParams((ViewGroup.MarginLayoutParams) imageViewparams);
         int px_v = UtilHelper.dip2px(this.mContext, 10.0f);
         layoutViewparams.rightMargin = UtilHelper.dip2px(this.mContext, 2.0f);
@@ -87,49 +87,29 @@ public class FrsAdapter extends BaseAdapter {
         this.mImageOnClickListener = listener;
     }
 
-    public void setLikeSign(boolean liked, boolean signed) {
-        this.mOnlyLike = false;
-        this.mOnlySign = false;
-        this.mLike = liked;
-        this.mSign = signed;
-    }
-
     public void setAbstractState(boolean src) {
         this.isAbstractOn = src;
-    }
-
-    public void setLike(boolean liked) {
-        this.mLike = liked;
-    }
-
-    public void setSign(boolean signed) {
-        this.mSign = signed;
-    }
-
-    public void setOnlyLike(boolean liked) {
-        this.mOnlyLike = true;
-        this.mLike = liked;
-    }
-
-    public void setOnlySigned(boolean signed, String signText, boolean canSignRank) {
-        this.mOnlySign = true;
-        this.mSign = signed;
-        this.mSignText = signText;
-        this.mCanRank = canSignRank;
     }
 
     public FrsAdapter(Context context, ArrayList<ThreadData> data, int imageMaxWidth) {
         this.mContext = context;
         this.mData = data;
         this.mImageLoader = new AsyncImageLoader(this.mContext);
-        this.mImageLoader.setSmallPic(true);
+        this.mImageLoader.setSuffix(AsyncImageLoader.SMALL);
+        this.mImageLoader.setQuality(true);
         this.mScreenWidth = imageMaxWidth;
         imageMaxWidth = imageMaxWidth > Config.THREAD_IMAGE_MAX_WIDTH ? Config.THREAD_IMAGE_MAX_WIDTH : imageMaxWidth;
         this.mImageLoader.setImagesize(imageMaxWidth, (imageMaxWidth - UtilHelper.dip2px(this.mContext, 6.0f)) / 4);
+        this.mStarImageLoader = new AsyncImageLoader(this.mContext);
+        this.mStarImageLoader.setImagesize(UtilHelper.getEquipmentWidth(this.mContext), UtilHelper.getEquipmentWidth(this.mContext));
     }
 
     public AsyncImageLoader getImageLoader() {
         return this.mImageLoader;
+    }
+
+    public AsyncImageLoader getStarImageLoader() {
+        return this.mStarImageLoader;
     }
 
     public void setIsProcessNext(boolean b) {
@@ -148,14 +128,6 @@ public class FrsAdapter extends BaseAdapter {
         return this.mIsProcessPre;
     }
 
-    public void setHeaderType(int type) {
-        this.mHeaderType = type;
-    }
-
-    public int getHeaderType() {
-        return this.mHeaderType;
-    }
-
     public void setHaveHeader(boolean b) {
         this.mHaveHeader = b;
     }
@@ -172,8 +144,34 @@ public class FrsAdapter extends BaseAdapter {
         return this.mHaveFooter;
     }
 
+    public void setHaveStarTitle(boolean b) {
+        this.mIsShowStarTitle = b;
+    }
+
+    public boolean getHaveStarTitle() {
+        return this.mIsShowStarTitle;
+    }
+
     public void setData(ArrayList<ThreadData> data) {
         this.mData = data;
+    }
+
+    public void setStarData(FrsStarData data, String forumName) {
+        this.mStarData = data;
+        this.mForumName = forumName;
+        this.mStarTitleImg = new ThreadData();
+        MediaData topPicData = new MediaData();
+        topPicData.setType(3);
+        topPicData.setPic(data.getTopPic());
+        this.mStarTitleImg.getMedias().add(topPicData);
+        MediaData photoData = new MediaData();
+        photoData.setType(3);
+        photoData.setPic(data.getPhoto());
+        this.mStarTitleImg.getMedias().add(photoData);
+    }
+
+    public ThreadData getStarTitleImg() {
+        return this.mStarTitleImg;
     }
 
     public void releaseProgressBar() {
@@ -199,6 +197,9 @@ public class FrsAdapter extends BaseAdapter {
             if (this.mHaveFooter) {
                 count++;
             }
+            if (this.mIsShowStarTitle) {
+                count++;
+            }
             return count;
         }
         return 0;
@@ -217,168 +218,134 @@ public class FrsAdapter extends BaseAdapter {
     @Override // android.widget.Adapter
     public long getItemId(int position) {
         int index = position;
+        if (this.mIsShowStarTitle) {
+            index--;
+        }
         if (this.mHaveHeader) {
             index--;
         }
         if (this.mHaveFooter && position == getCount() - 1) {
             index = -2;
         }
+        if (this.mIsShowStarTitle && position == 0) {
+            index = -3;
+        }
         return index;
+    }
+
+    @Override // android.widget.BaseAdapter, android.widget.Adapter
+    public int getItemViewType(int position) {
+        long id = getItemId(position);
+        return id == -3 ? 1 : 0;
+    }
+
+    @Override // android.widget.BaseAdapter, android.widget.Adapter
+    public int getViewTypeCount() {
+        return 2;
     }
 
     @Override // android.widget.Adapter
     public View getView(int position, View convertView, ViewGroup parent) {
-        ViewHolder holder;
         View temp;
-        String likeTextString;
-        SpannableString text;
+        ViewHolder holder = null;
+        StarViewHolder starHolder = null;
         try {
+            int viewType = getItemViewType(position);
             if (convertView == null) {
-                LayoutInflater mInflater = LayoutInflater.from(this.mContext);
-                convertView = mInflater.inflate(R.layout.frs_item, (ViewGroup) null);
-                ViewHolder holder2 = new ViewHolder(this, null);
-                try {
-                    holder2.mContent = (LinearLayout) convertView.findViewById(R.id.frs_list_item);
-                    holder2.mReplyNum = (TextView) convertView.findViewById(R.id.frs_lv_reply_num);
-                    holder2.mReplyTime = (TextView) convertView.findViewById(R.id.frs_lv_reply_time);
-                    holder2.mTitle = (TextView) convertView.findViewById(R.id.frs_lv_title);
-                    holder2.mAuthor = (TextView) convertView.findViewById(R.id.frs_lv_author);
-                    holder2.mSignLike = (LinearLayout) convertView.findViewById(R.id.signlike_layout);
-                    holder2.mSignOnly = (LinearLayout) convertView.findViewById(R.id.signonly_layout);
-                    holder2.abstractLayout = (LinearLayout) convertView.findViewById(R.id.frs_lv_abstract);
-                    holder2.abstractTextView = (TextView) convertView.findViewById(R.id.abstract_text);
-                    holder2.mSeg = (LinearLayout) convertView.findViewById(R.id.abstract_img_layout);
-                    holder2.mReplayIcon = (ImageView) convertView.findViewById(R.id.frs_lv_autor_icon);
-                    holder2.mSignOnly.setEnabled(false);
-                    holder2.mSignLike.setEnabled(false);
-                    holder2.mControl = (RelativeLayout) convertView.findViewById(R.id.frs_list_control);
-                    holder2.mCtlText = (TextView) convertView.findViewById(R.id.frs_list_control_tv);
-                    holder2.mCtlProg = (ProgressBar) convertView.findViewById(R.id.frs_list_control_progress);
-                    holder2.likeLayout = (LinearLayout) convertView.findViewById(R.id.frs_list_like);
-                    holder2.signLayout = (LinearLayout) convertView.findViewById(R.id.frs_list_sign);
-                    holder2.likeText = (TextView) convertView.findViewById(R.id.like_textview);
-                    holder2.signText = (TextView) convertView.findViewById(R.id.sign_textview);
-                    holder2.signIcon = (ImageView) convertView.findViewById(R.id.sign_icon);
-                    holder2.signOnlyCon = (LinearLayout) convertView.findViewById(R.id.signonly_text);
-                    holder2.signOnlyLayout = (LinearLayout) convertView.findViewById(R.id.signonly_sign);
-                    holder2.signOnlyConText = (TextView) convertView.findViewById(R.id.signonly_textview);
-                    holder2.signOnlyIcoText = (TextView) convertView.findViewById(R.id.sign0_textview);
-                    holder2.signOnlyIcon = (ImageView) convertView.findViewById(R.id.sign0_icon);
-                    convertView.setTag(holder2);
-                    this.mProgressbars.add(holder2.mCtlProg);
-                    holder = holder2;
-                } catch (Exception e) {
-                    ex = e;
-                    TiebaLog.e(getClass().getName(), "", "FrsAdapter.getView error = " + ex.getMessage());
-                    return convertView;
+                if (viewType == 0) {
+                    LayoutInflater mInflater = LayoutInflater.from(this.mContext);
+                    convertView = mInflater.inflate(R.layout.frs_item, (ViewGroup) null);
+                    ViewHolder holder2 = new ViewHolder(this, null);
+                    try {
+                        holder2.mContent = (LinearLayout) convertView.findViewById(R.id.frs_list_item);
+                        holder2.mReplyNum = (TextView) convertView.findViewById(R.id.frs_lv_reply_num);
+                        holder2.mReplyTime = (TextView) convertView.findViewById(R.id.frs_lv_reply_time);
+                        holder2.mTitle = (TextView) convertView.findViewById(R.id.frs_lv_title);
+                        holder2.mAuthor = (TextView) convertView.findViewById(R.id.frs_lv_author);
+                        holder2.abstractLayout = (LinearLayout) convertView.findViewById(R.id.frs_lv_abstract);
+                        holder2.abstractTextView = (TextView) convertView.findViewById(R.id.abstract_text);
+                        holder2.mSeg = (LinearLayout) convertView.findViewById(R.id.abstract_img_layout);
+                        holder2.mReplayIcon = (ImageView) convertView.findViewById(R.id.frs_lv_autor_icon);
+                        holder2.mControl = (RelativeLayout) convertView.findViewById(R.id.frs_list_control);
+                        holder2.mCtlText = (TextView) convertView.findViewById(R.id.frs_list_control_tv);
+                        holder2.mCtlProg = (ProgressBar) convertView.findViewById(R.id.frs_list_control_progress);
+                        convertView.setTag(holder2);
+                        this.mProgressbars.add(holder2.mCtlProg);
+                        holder = holder2;
+                    } catch (Exception e) {
+                        ex = e;
+                        TiebaLog.e(getClass().getName(), "", "FrsAdapter.getView error = " + ex.getMessage());
+                        return convertView;
+                    }
+                } else {
+                    LayoutInflater inflater = LayoutInflater.from(this.mContext);
+                    convertView = inflater.inflate(R.layout.frs_star_title, (ViewGroup) null);
+                    StarViewHolder starHolder2 = new StarViewHolder(this, null);
+                    try {
+                        starHolder2.mStarTopPic = (FrsStarImageView) convertView.findViewById(R.id.frs_star_top_pic);
+                        starHolder2.mStarPhoto = (FrsStarImageView) convertView.findViewById(R.id.frs_star_photo);
+                        starHolder2.mStarTopPic.setImageType(0);
+                        starHolder2.mStarPhoto.setImageType(1);
+                        RelativeLayout.LayoutParams params = (RelativeLayout.LayoutParams) starHolder2.mStarTopPic.getLayoutParams();
+                        params.width = UtilHelper.getEquipmentWidth(this.mContext);
+                        if (this.mStarData.getTopPicWidth() == 0) {
+                            params.height = 1;
+                        } else {
+                            params.height = (params.width * this.mStarData.getTopPicHeight()) / this.mStarData.getTopPicWidth();
+                        }
+                        starHolder2.mStarTopPic.setLayoutParams(params);
+                        RelativeLayout.LayoutParams params2 = (RelativeLayout.LayoutParams) starHolder2.mStarPhoto.getLayoutParams();
+                        params2.width = UtilHelper.getEquipmentWidth(this.mContext) / 4;
+                        if (this.mStarData.getPhotoWidth() == 0) {
+                            params2.height = params2.width;
+                        } else {
+                            params2.height = (params2.width * this.mStarData.getPhotoHeight()) / this.mStarData.getPhotoWidth();
+                        }
+                        starHolder2.mStarPhoto.setLayoutParams(params2);
+                        starHolder2.mStarTopPic.setTag(this.mStarData.getTopPic());
+                        starHolder2.mStarPhoto.setTag(this.mStarData.getPhoto());
+                        starHolder2.mTxtAddFanTip = (TextView) convertView.findViewById(R.id.add_fan_tip);
+                        starHolder2.mStarTextLayout = (RelativeLayout) convertView.findViewById(R.id.frs_star_text_layout);
+                        RelativeLayout.LayoutParams params3 = (RelativeLayout.LayoutParams) starHolder2.mStarTextLayout.getLayoutParams();
+                        params3.leftMargin = params2.leftMargin + params2.width + UtilHelper.dip2px(this.mContext, 13.0f);
+                        starHolder2.mStarTextLayout.setLayoutParams(params3);
+                        starHolder2.mStarText1 = (TextView) convertView.findViewById(R.id.frs_star_text1);
+                        starHolder2.mBtnAddFan = (Button) convertView.findViewById(R.id.add_fan);
+                        starHolder2.mBtnAddFan.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.frs.FrsAdapter.2
+                            @Override // android.view.View.OnClickListener
+                            public void onClick(View arg0) {
+                                ((FrsActivity) FrsAdapter.this.mContext).startAddFanAsyncTask();
+                            }
+                        });
+                        starHolder2.mTxtFanNum = (TextView) convertView.findViewById(R.id.fan_num);
+                        starHolder2.mTimer = (CustomTimerView) convertView.findViewById(R.id.open_timer);
+                        starHolder2.mTimer.setTitle(R.string.star_timer_title);
+                        starHolder2.mTimer.setTitleSize(15);
+                        starHolder2.mTimer.setTitleColor(-8289919);
+                        starHolder2.mTimer.setTextSize(14);
+                        starHolder2.mTimer.setTextColor(-8289919);
+                        starHolder2.mTimer.setNumSize(14);
+                        starHolder2.mTimer.setNumColor(-16749848);
+                        starHolder2.mTimer.setTextMargin(12);
+                        starHolder2.mTimer.setNumMargin(6);
+                        convertView.setTag(starHolder2);
+                        starHolder = starHolder2;
+                    } catch (Exception e2) {
+                        ex = e2;
+                        TiebaLog.e(getClass().getName(), "", "FrsAdapter.getView error = " + ex.getMessage());
+                        return convertView;
+                    }
                 }
-            } else {
+            } else if (viewType == 0) {
                 holder = (ViewHolder) convertView.getTag();
+            } else {
+                starHolder = (StarViewHolder) convertView.getTag();
             }
             long data_index = getItemId(position);
             if (data_index == -1) {
                 holder.mContent.setVisibility(8);
                 holder.mControl.setVisibility(0);
-                holder.mSignLike.setVisibility(8);
-                holder.mSignOnly.setVisibility(8);
-                holder.likeLayout.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.frs.FrsAdapter.2
-                    @Override // android.view.View.OnClickListener
-                    public void onClick(View arg0) {
-                        ((FrsActivity) FrsAdapter.this.mContext).execLike();
-                    }
-                });
-                holder.signLayout.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.frs.FrsAdapter.3
-                    @Override // android.view.View.OnClickListener
-                    public void onClick(View arg0) {
-                        ((FrsActivity) FrsAdapter.this.mContext).execSign();
-                    }
-                });
-                holder.signOnlyLayout.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.frs.FrsAdapter.4
-                    @Override // android.view.View.OnClickListener
-                    public void onClick(View arg0) {
-                        ((FrsActivity) FrsAdapter.this.mContext).execSign();
-                    }
-                });
-                holder.signOnlyCon.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.frs.FrsAdapter.5
-                    @Override // android.view.View.OnClickListener
-                    public void onClick(View arg0) {
-                    }
-                });
-                if (this.mHeaderType == 1) {
-                    if (this.mIsProcessPre) {
-                        holder.mCtlText.setText(R.string.loading);
-                        holder.mCtlProg.setVisibility(0);
-                    } else {
-                        holder.mControl.setEnabled(false);
-                        Resources rs = this.mContext.getResources();
-                        holder.mControl.setVisibility(8);
-                        if (this.mOnlySign) {
-                            holder.mSignOnly.setVisibility(0);
-                            if (!this.mSign) {
-                                holder.signOnlyIcoText.setText(this.mContext.getResources().getString(R.string.sign));
-                                holder.signOnlyLayout.setEnabled(true);
-                                holder.signOnlyIcon.setVisibility(0);
-                                holder.signOnlyIcoText.setTextColor(rs.getColor(R.color.frs_sign_enable));
-                                if (this.mCanRank) {
-                                    int signRankInt = Integer.valueOf(this.mSignText).intValue();
-                                    if (signRankInt != 0) {
-                                        String signRank = rs.getString(R.string.sign_forum);
-                                        text = new SpannableString(signRank.replace("?", this.mSignText));
-                                        text.setSpan(new ForegroundColorSpan(Color.rgb(232, 0, 0)), 9, this.mSignText.length() + 9, 33);
-                                    } else {
-                                        String noRank = rs.getString(R.string.nosign_forum);
-                                        text = new SpannableString(noRank);
-                                    }
-                                } else {
-                                    int signNumInt = Integer.valueOf(this.mSignText).intValue();
-                                    if (signNumInt != 0) {
-                                        String signRank2 = rs.getString(R.string.sign_number);
-                                        text = new SpannableString(signRank2.replace("?", this.mSignText));
-                                        text.setSpan(new ForegroundColorSpan(Color.rgb(232, 0, 0)), 3, this.mSignText.length() + 3, 33);
-                                    } else {
-                                        String noRank2 = rs.getString(R.string.nosign_forum);
-                                        text = new SpannableString(noRank2);
-                                    }
-                                }
-                            } else {
-                                holder.signOnlyIcoText.setText(this.mContext.getResources().getString(R.string.signed));
-                                holder.signOnlyLayout.setEnabled(false);
-                                holder.signOnlyIcon.setVisibility(8);
-                                holder.signOnlyIcoText.setTextColor(rs.getColor(R.color.frs_likesign_disable));
-                                String signRank3 = rs.getString(R.string.sign_user);
-                                text = new SpannableString(signRank3.replace("?", this.mSignText));
-                                text.setSpan(new ForegroundColorSpan(Color.rgb(232, 0, 0)), 10, this.mSignText.length() + 10, 33);
-                            }
-                            holder.signOnlyConText.setText(text);
-                        } else {
-                            holder.mSignLike.setVisibility(0);
-                            if (!this.mLike) {
-                                likeTextString = this.mContext.getResources().getString(R.string.ilike);
-                                holder.likeLayout.setEnabled(true);
-                                holder.likeText.setTextColor(rs.getColor(R.color.frs_like_enable));
-                            } else {
-                                likeTextString = this.mContext.getResources().getString(R.string.iliked);
-                                holder.likeLayout.setEnabled(false);
-                                holder.likeText.setTextColor(rs.getColor(R.color.frs_likesign_disable));
-                            }
-                            if (!this.mSign) {
-                                holder.signText.setText(this.mContext.getResources().getString(R.string.sign));
-                                holder.signLayout.setEnabled(true);
-                                holder.signIcon.setVisibility(0);
-                                holder.signText.setTextColor(rs.getColor(R.color.frs_sign_enable));
-                            } else {
-                                holder.signText.setText(this.mContext.getResources().getString(R.string.signed));
-                                holder.signLayout.setEnabled(false);
-                                holder.signIcon.setVisibility(8);
-                                holder.signText.setTextColor(rs.getColor(R.color.frs_likesign_disable));
-                            }
-                            holder.likeText.setText(likeTextString);
-                            if (this.mOnlyLike) {
-                                holder.signLayout.setVisibility(8);
-                            }
-                        }
-                    }
-                } else if (this.mIsProcessPre) {
+                if (this.mIsProcessPre) {
                     holder.mCtlText.setText(R.string.loading);
                     holder.mCtlProg.setVisibility(0);
                 } else {
@@ -388,10 +355,6 @@ public class FrsAdapter extends BaseAdapter {
             } else if (data_index == -2) {
                 holder.mContent.setVisibility(8);
                 holder.mControl.setVisibility(0);
-                holder.mSignLike.setVisibility(8);
-                holder.mCtlProg.setVisibility(8);
-                holder.mSignLike.setVisibility(8);
-                holder.mSignOnly.setVisibility(8);
                 if (this.mIsProcessNext) {
                     holder.mCtlText.setText(R.string.loading);
                     holder.mCtlProg.setVisibility(0);
@@ -399,12 +362,33 @@ public class FrsAdapter extends BaseAdapter {
                     holder.mCtlText.setText(R.string.frs_next);
                     holder.mCtlProg.setVisibility(8);
                 }
+            } else if (data_index == -3) {
+                if (this.mStarData.isOpen() == 0) {
+                    starHolder.mTxtFanNum.setVisibility(8);
+                    starHolder.mBtnAddFan.setVisibility(8);
+                    starHolder.mTimer.setVisibility(0);
+                    starHolder.mStarTextLayout.setVisibility(8);
+                    starHolder.mTxtAddFanTip.setVisibility(0);
+                } else {
+                    starHolder.mStarTextLayout.setVisibility(0);
+                    starHolder.mTxtAddFanTip.setVisibility(8);
+                    if (this.mStarData.isFan() == 0) {
+                        starHolder.mTxtFanNum.setVisibility(8);
+                        starHolder.mTimer.setVisibility(8);
+                        starHolder.mBtnAddFan.setVisibility(0);
+                        starHolder.mStarText1.setText(R.string.click_get);
+                    } else {
+                        starHolder.mBtnAddFan.setVisibility(8);
+                        starHolder.mTimer.setVisibility(8);
+                        starHolder.mTxtFanNum.setVisibility(0);
+                        starHolder.mTxtFanNum.setText(String.valueOf(this.mStarData.getFanNum()));
+                        starHolder.mStarText1.setText("我的" + this.mForumName + "吧");
+                    }
+                }
             } else {
                 holder.mContent.setVisibility(0);
                 holder.mControl.setVisibility(8);
                 holder.mCtlProg.setVisibility(8);
-                holder.mSignLike.setVisibility(8);
-                holder.mSignOnly.setVisibility(8);
                 ThreadData data = (ThreadData) getItem(position);
                 int replyNum = data.getReply_num();
                 if (replyNum <= 999) {
@@ -423,6 +407,11 @@ public class FrsAdapter extends BaseAdapter {
                 String d = StringHelper.GetTimeString(tmpDate);
                 holder.mReplyTime.setText(d);
                 holder.mTitle.setText(data.getSpan_str());
+                holder.mTitle.setTextColor(-16777216);
+                ReadThreadHistory history = TiebaApplication.app.getReadThreadHistory();
+                if (history != null && history.getThread(data.getId())) {
+                    holder.mTitle.setTextColor(this.mContext.getResources().getColor(R.color.read_thread_color));
+                }
                 holder.mAuthor.setText(data.getAuthor().getName());
                 if (this.isAbstractOn && data.getIs_top() != 1) {
                     holder.abstractLayout.setVisibility(0);
@@ -470,8 +459,8 @@ public class FrsAdapter extends BaseAdapter {
                     holder.abstractLayout.setVisibility(8);
                 }
             }
-        } catch (Exception e2) {
-            ex = e2;
+        } catch (Exception e3) {
+            ex = e3;
         }
         return convertView;
     }
@@ -480,8 +469,6 @@ public class FrsAdapter extends BaseAdapter {
     private class ViewHolder {
         LinearLayout abstractLayout;
         TextView abstractTextView;
-        LinearLayout likeLayout;
-        TextView likeText;
         TextView mAuthor;
         LinearLayout mContent;
         RelativeLayout mControl;
@@ -491,22 +478,31 @@ public class FrsAdapter extends BaseAdapter {
         TextView mReplyNum;
         TextView mReplyTime;
         LinearLayout mSeg;
-        LinearLayout mSignLike;
-        LinearLayout mSignOnly;
         TextView mTitle;
-        ImageView signIcon;
-        LinearLayout signLayout;
-        LinearLayout signOnlyCon;
-        TextView signOnlyConText;
-        TextView signOnlyIcoText;
-        ImageView signOnlyIcon;
-        LinearLayout signOnlyLayout;
-        TextView signText;
 
         private ViewHolder() {
         }
 
         /* synthetic */ ViewHolder(FrsAdapter frsAdapter, ViewHolder viewHolder) {
+            this();
+        }
+    }
+
+    /* loaded from: classes.dex */
+    private class StarViewHolder {
+        Button mBtnAddFan;
+        FrsStarImageView mStarPhoto;
+        TextView mStarText1;
+        RelativeLayout mStarTextLayout;
+        FrsStarImageView mStarTopPic;
+        CustomTimerView mTimer;
+        TextView mTxtAddFanTip;
+        TextView mTxtFanNum;
+
+        private StarViewHolder() {
+        }
+
+        /* synthetic */ StarViewHolder(FrsAdapter frsAdapter, StarViewHolder starViewHolder) {
             this();
         }
     }

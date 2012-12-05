@@ -15,17 +15,20 @@ import android.widget.ImageView;
 import android.widget.ProgressBar;
 import com.baidu.tieba.BaseActivity;
 import com.baidu.tieba.R;
+import com.baidu.tieba.compatible.CompatibleUtile;
 import com.baidu.tieba.util.TiebaLog;
+import com.baidu.tieba.util.UtilHelper;
 import java.lang.reflect.Method;
 /* loaded from: classes.dex */
 public class WebActivity extends BaseActivity {
-    WebView mWebView = null;
-    ImageView mWebback = null;
-    ImageView mWebForward = null;
-    Button mRefresh = null;
-    Button mBack = null;
-    ProgressBar progress = null;
-    String url = null;
+    private WebView mWebView = null;
+    private ImageView mWebback = null;
+    private ImageView mWebForward = null;
+    private Button mRefresh = null;
+    private Button mBack = null;
+    private ProgressBar progress = null;
+    private String url = null;
+    private WebChromeClient mChromeClient = null;
 
     public static void startActivity(Context context, String url) {
         Intent intent = new Intent(context, WebActivity.class);
@@ -37,6 +40,7 @@ public class WebActivity extends BaseActivity {
     @Override // com.baidu.tieba.BaseActivity, android.app.Activity
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        UtilHelper.openGpu(this);
         InitUI();
         InitData(savedInstanceState);
     }
@@ -80,19 +84,16 @@ public class WebActivity extends BaseActivity {
                 WebActivity.this.mRefresh.setVisibility(8);
             }
         });
-        this.mWebView.setWebChromeClient(new WebChromeClient() { // from class: com.baidu.tieba.pb.WebActivity.2
-            @Override // android.webkit.WebChromeClient
-            public void onProgressChanged(WebView view, int newProgress) {
-                super.onProgressChanged(view, newProgress);
-            }
-        });
+        this.mChromeClient = CompatibleUtile.getInstance().getWebChromeClient(this);
+        this.mWebView.setWebChromeClient(this.mChromeClient);
         WebSettings webSettings = this.mWebView.getSettings();
         webSettings.setBuiltInZoomControls(true);
         webSettings.setJavaScriptEnabled(true);
         webSettings.setPluginsEnabled(true);
+        UtilHelper.WebViewNoDataBase(webSettings);
         this.mWebback = (ImageView) findViewById(R.id.webBack);
         this.mWebback.setEnabled(false);
-        this.mWebback.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pb.WebActivity.3
+        this.mWebback.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pb.WebActivity.2
             @Override // android.view.View.OnClickListener
             public void onClick(View v) {
                 if (WebActivity.this.mWebView.canGoBack()) {
@@ -102,7 +103,7 @@ public class WebActivity extends BaseActivity {
         });
         this.mWebForward = (ImageView) findViewById(R.id.webForward);
         this.mWebForward.setEnabled(false);
-        this.mWebForward.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pb.WebActivity.4
+        this.mWebForward.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pb.WebActivity.3
             @Override // android.view.View.OnClickListener
             public void onClick(View v) {
                 if (WebActivity.this.mWebView.canGoForward()) {
@@ -111,14 +112,14 @@ public class WebActivity extends BaseActivity {
             }
         });
         this.mRefresh = (Button) findViewById(R.id.refresh);
-        this.mRefresh.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pb.WebActivity.5
+        this.mRefresh.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pb.WebActivity.4
             @Override // android.view.View.OnClickListener
             public void onClick(View v) {
                 WebActivity.this.mWebView.reload();
             }
         });
         this.mBack = (Button) findViewById(R.id.back);
-        this.mBack.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pb.WebActivity.6
+        this.mBack.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pb.WebActivity.5
             @Override // android.view.View.OnClickListener
             public void onClick(View v) {
                 WebActivity.this.finish();
@@ -142,6 +143,18 @@ public class WebActivity extends BaseActivity {
         callHiddenWebViewMethod("onResume");
     }
 
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.tieba.BaseActivity, android.app.Activity
+    public void onDestroy() {
+        super.onDestroy();
+        if (this.progress != null) {
+            this.progress.setVisibility(8);
+        }
+        if (this.mChromeClient != null && (this.mChromeClient instanceof CompatibleUtile.FullscreenableChromeClient)) {
+            ((CompatibleUtile.FullscreenableChromeClient) this.mChromeClient).onHideCustomView();
+        }
+    }
+
     private void InitData(Bundle savedInstanceState) {
         if (savedInstanceState != null) {
             this.url = savedInstanceState.getString("url");
@@ -152,15 +165,6 @@ public class WebActivity extends BaseActivity {
         String validUrl = URLUtil.guessUrl(this.url);
         if (this.url != null && URLUtil.isNetworkUrl(validUrl)) {
             this.mWebView.loadUrl(validUrl);
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.BaseActivity, android.app.Activity
-    public void onDestroy() {
-        super.onDestroy();
-        if (this.progress != null) {
-            this.progress.setVisibility(8);
         }
     }
 

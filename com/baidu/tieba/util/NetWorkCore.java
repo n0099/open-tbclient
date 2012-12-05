@@ -9,6 +9,7 @@ import android.net.Uri;
 import android.os.Handler;
 import android.os.Message;
 import android.telephony.TelephonyManager;
+import com.baidu.loginshare.e;
 import com.baidu.tieba.R;
 import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.data.Config;
@@ -65,6 +66,7 @@ public class NetWorkCore {
     private static volatile boolean mHaveInitProxyUser = false;
     private static Pattern mPattern = Pattern.compile("^[0]{0,1}10\\.[0]{1,3}\\.[0]{1,3}\\.172$", 8);
     private boolean mIsBaiduServer = true;
+    private boolean mIsJson = true;
     private int mDataSize = 0;
 
     /* loaded from: classes.dex */
@@ -116,7 +118,12 @@ public class NetWorkCore {
         this.mIsBDImage = false;
         this.mFileData = null;
         this.mIsLimited = false;
+        this.mIsJson = true;
         initPorxyUser();
+    }
+
+    public void setIsJson(boolean is_json) {
+        this.mIsJson = is_json;
     }
 
     public String getNetType() {
@@ -288,7 +295,7 @@ public class NetWorkCore {
             if (isCMCCServer(proxyHost)) {
                 this.mIsLimited = true;
                 StringBuffer new_address = new StringBuffer(80);
-                new_address.append("http://");
+                new_address.append(e.f);
                 new_address.append(Proxy.getDefaultHost());
                 String file = url.getFile();
                 if (file != null && file.startsWith("?")) {
@@ -320,11 +327,11 @@ public class NetWorkCore {
         return false;
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [512=8, 513=8, 515=8, 507=8, 508=8] */
-    /* JADX WARN: Code restructure failed: missing block: B:57:0x019a, code lost:
-        if (0 == 0) goto L67;
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [513=8, 514=8, 518=8, 519=8, 521=8] */
+    /* JADX WARN: Code restructure failed: missing block: B:57:0x019e, code lost:
+        if (0 == 0) goto L63;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:58:0x019c, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:58:0x01a0, code lost:
         r9.close();
      */
     /*
@@ -353,7 +360,7 @@ public class NetWorkCore {
                     }
                     buffer.append(this.mPostData.get(i).getName());
                     buffer.append("=");
-                    buffer.append(this.mPostData.get(i).getValue());
+                    buffer.append(StringHelper.getUrlEncode(this.mPostData.get(i).getValue()));
                 }
                 URL url3 = new URL(buffer.toString());
                 url = url3;
@@ -546,14 +553,14 @@ public class NetWorkCore {
                     retry++;
                 }
             }
-            this.mWapRetryConnt = 0;
-            return output;
             try {
                 if (this.mConn != null) {
                     this.mConn.disconnect();
                 }
             } catch (Exception e21) {
             }
+            this.mWapRetryConnt = 0;
+            return output;
             this.mWapRetryConnt = 0;
             return output;
         } catch (Exception ex) {
@@ -622,11 +629,11 @@ public class NetWorkCore {
         }
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [735=9, 736=9, 740=9, 741=9, 743=9] */
-    /* JADX WARN: Code restructure failed: missing block: B:112:0x0449, code lost:
-        if (r11 == null) goto L110;
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [741=9, 742=9, 746=9, 747=9, 749=9] */
+    /* JADX WARN: Code restructure failed: missing block: B:114:0x0451, code lost:
+        if (r11 == null) goto L107;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:113:0x044b, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:115:0x0453, code lost:
         r11.close();
      */
     /*
@@ -768,7 +775,7 @@ public class NetWorkCore {
                     String charset = getCharset();
                     retData = new String(output, 0, output.length, charset);
                     try {
-                        if (!this.mIsBaiduServer) {
+                        if (!this.mIsBaiduServer || !this.mIsJson) {
                             break;
                         }
                         parseServerCode(retData);
@@ -915,7 +922,7 @@ public class NetWorkCore {
         return this.mDataSize;
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [900=9, 901=9, 903=9, 905=9, 906=9, 908=5, 910=9, 911=9, 913=9, 914=9, 915=9] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [906=9, 907=9, 909=9, 911=9, 912=9, 914=5, 916=9, 917=9, 919=9, 920=9, 921=9] */
     /* JADX WARN: Code restructure failed: missing block: B:14:0x0066, code lost:
         if (0 == 0) goto L15;
      */
@@ -1306,7 +1313,7 @@ public class NetWorkCore {
         return this.mNetErrorCode == 200 || this.mNetErrorCode == 206;
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [1049=7, 1051=7, 1052=7, 1054=5, 1056=7, 1057=7, 1061=7, 1062=7, 1064=7] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [1055=7, 1057=7, 1058=7, 1060=5, 1062=7, 1063=7, 1067=7, 1068=7, 1070=7] */
     public Boolean downloadFile(String name, Handler handler) {
         String length;
         int index;

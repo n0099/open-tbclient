@@ -2,7 +2,6 @@ package com.baidu.tieba.view;
 
 import android.content.Context;
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Matrix;
 import android.graphics.Paint;
@@ -20,21 +19,21 @@ public class PbImageView extends ImageView {
 
     public PbImageView(Context context) {
         super(context);
-        this.icon = BitmapFactory.decodeResource(getResources(), R.drawable.icon_gif);
+        this.icon = BitmapHelper.getCashBitmap(R.drawable.icon_gif);
         this.mMatrix = new Matrix();
         this.mPaint = new Paint();
     }
 
     public PbImageView(Context context, AttributeSet attrs) {
         super(context, attrs);
-        this.icon = BitmapFactory.decodeResource(getResources(), R.drawable.icon_gif);
+        this.icon = BitmapHelper.getCashBitmap(R.drawable.icon_gif);
         this.mMatrix = new Matrix();
         this.mPaint = new Paint();
     }
 
     public PbImageView(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
-        this.icon = BitmapFactory.decodeResource(getResources(), R.drawable.icon_gif);
+        this.icon = BitmapHelper.getCashBitmap(R.drawable.icon_gif);
         this.mMatrix = new Matrix();
         this.mPaint = new Paint();
     }

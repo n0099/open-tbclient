@@ -8,6 +8,7 @@ import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class ForumData {
     private int favo_type;
+    private String level_name;
     private String id = null;
     private String name = null;
     private String first_class = null;
@@ -19,12 +20,17 @@ public class ForumData {
     private int member_num = 0;
     private int is_like = 0;
     private int user_level = 0;
+    private int album_open_photo_frs = 0;
     private SignData mSignData = new SignData();
     private ArrayList<String> managers = new ArrayList<>();
     private ArrayList<GoodData> good_classify = new ArrayList<>();
 
     public void setId(String id) {
         this.id = id;
+    }
+
+    public int getFrsImageOpen() {
+        return this.album_open_photo_frs;
     }
 
     public String getId() {
@@ -131,6 +137,10 @@ public class ForumData {
         return this.good_classify;
     }
 
+    public String getLevelName() {
+        return this.level_name;
+    }
+
     public void parserJson(String data) {
         try {
             JSONObject json = new JSONObject(data);
@@ -154,6 +164,8 @@ public class ForumData {
                 this.member_num = json.optInt("member_num", 0);
                 this.is_like = json.optInt("is_like", 0);
                 this.user_level = json.optInt("level_id", 0);
+                this.level_name = json.optString("level_name", null);
+                this.album_open_photo_frs = json.optInt("album_open_photo_frs", 0);
                 setFavo_type(json.optInt("favo_type", 0));
                 JSONArray jlist = json.optJSONArray("managers");
                 if (jlist != null) {

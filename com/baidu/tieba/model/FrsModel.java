@@ -2,6 +2,7 @@ package com.baidu.tieba.model;
 
 import com.baidu.tieba.data.AntiData;
 import com.baidu.tieba.data.ForumData;
+import com.baidu.tieba.data.FrsStarData;
 import com.baidu.tieba.data.PageData;
 import com.baidu.tieba.data.ThreadData;
 import com.baidu.tieba.util.TiebaLog;
@@ -11,9 +12,11 @@ import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class FrsModel {
     private AntiData anti;
+    private boolean mIsProcessAddFan = false;
     private ForumData forum = new ForumData();
     private ArrayList<ThreadData> thread_list = new ArrayList<>();
     private PageData page = new PageData();
+    private FrsStarData star = new FrsStarData();
 
     public FrsModel() {
         setAnti(new AntiData());
@@ -51,6 +54,14 @@ public class FrsModel {
         this.page = page;
     }
 
+    public FrsStarData getStarData() {
+        return this.star;
+    }
+
+    public void setStarData(FrsStarData data) {
+        this.star = data;
+    }
+
     public void parserJson(String data) {
         try {
             JSONObject json = new JSONObject(data);
@@ -74,6 +85,7 @@ public class FrsModel {
             }
             this.anti.parserJson(json.optJSONObject("anti"));
             this.page.parserJson(json.optJSONObject("page"));
+            this.star.parserJson(json.optJSONObject("frs_star"));
         } catch (Exception ex) {
             TiebaLog.e("FrsModel", "parserJson", "error = " + ex.getMessage());
         }
@@ -86,5 +98,14 @@ public class FrsModel {
         }
         this.anti.logPrint();
         this.page.logPrint();
+        this.star.logPrint();
+    }
+
+    public void setIsProcessAddFan(boolean b) {
+        this.mIsProcessAddFan = b;
+    }
+
+    public boolean getIsProcessAddFan() {
+        return this.mIsProcessAddFan;
     }
 }

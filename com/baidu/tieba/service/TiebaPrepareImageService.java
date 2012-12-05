@@ -71,7 +71,9 @@ public class TiebaPrepareImageService extends Service {
     @Override // android.app.Service
     public void onStart(Intent intent, int startId) {
         super.onStart(intent, startId);
-        startPrepareImage(intent);
+        if (intent != null) {
+            startPrepareImage(intent);
+        }
     }
 
     private void startPrepareImage(Intent intent) {
@@ -80,7 +82,7 @@ public class TiebaPrepareImageService extends Service {
         }
         this.mUri = intent.getData();
         this.mRequestCode = intent.getIntExtra("request_code", 0);
-        this.mMaxSize = intent.getIntExtra(MAX_SIZE, Config.POST_IMAGE_MIDDLE);
+        this.mMaxSize = intent.getIntExtra(MAX_SIZE, 600);
         TiebaApplication.app.addRemoteActivity(null);
         if (!IS_DECODING) {
             this.mTask = new PrepareImageTask(this.mRequestCode, this.mUri);

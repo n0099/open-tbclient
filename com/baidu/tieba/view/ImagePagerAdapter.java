@@ -3,11 +3,13 @@ package com.baidu.tieba.view;
 import android.content.Context;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewParent;
 import android.widget.Gallery;
-import com.baidu.tieba.util.TiebaLog;
+import android.widget.TextView;
+import com.baidu.tieba.R;
 import com.baidu.tieba.view.DragImageView;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
@@ -18,6 +20,8 @@ public class ImagePagerAdapter extends PagerAdapter {
     private View.OnClickListener mOnClickListener = null;
     private DragImageView.OnSizeChangedListener mOnSizeChangedListener = null;
     private int mGifMaxUseableMem = 0;
+    private boolean mHasNext = false;
+    private String mNextTitle = null;
 
     /* loaded from: classes.dex */
     public interface ImageLoadCallBack {
@@ -38,12 +42,23 @@ public class ImagePagerAdapter extends PagerAdapter {
         notifyDataSetChanged();
     }
 
+    public void setNextTitle(String nextTitle) {
+        this.mNextTitle = nextTitle;
+    }
+
+    public void setHasNext(boolean hasNext) {
+        this.mHasNext = hasNext;
+    }
+
     @Override // android.support.v4.view.PagerAdapter
     public int getCount() {
         if (this.mUrl == null) {
             return 0;
         }
         int num = this.mUrl.size();
+        if (this.mHasNext) {
+            return num + 1;
+        }
         return num;
     }
 
@@ -75,8 +90,21 @@ public class ImagePagerAdapter extends PagerAdapter {
 
     @Override // android.support.v4.view.PagerAdapter
     public Object instantiateItem(ViewGroup container, int position) {
+        if (position == this.mUrl.size()) {
+            LayoutInflater mInflater = LayoutInflater.from(this.mContext);
+            View nextView = mInflater.inflate(R.layout.big_image_next, (ViewGroup) null);
+            TextView threadText = (TextView) nextView.findViewById(R.id.thread_name);
+            threadText.setText(this.mNextTitle);
+            container.addView(nextView);
+            nextView.setOnClickListener(this.mOnClickListener);
+            return nextView;
+        }
         UrlDragImageView iv = new UrlDragImageView(this.mContext);
-        String url = this.mUrl.get(position);
+        String url = null;
+        if (position < this.mUrl.size()) {
+            String url2 = this.mUrl.get(position);
+            url = url2;
+        }
         iv.setLayoutParams(new Gallery.LayoutParams(-1, -1));
         iv.setImageOnClickListener(this.mOnClickListener);
         iv.setOnSizeChangedListener(this.mOnSizeChangedListener);
@@ -90,7 +118,6 @@ public class ImagePagerAdapter extends PagerAdapter {
 
     @Override // android.support.v4.view.PagerAdapter
     public void setPrimaryItem(ViewGroup container, int position, Object object) {
-        TiebaLog.d(getClass().getName(), "setPrimaryItem", "position = " + String.valueOf(position));
         super.setPrimaryItem(container, position, object);
         if (object instanceof UrlDragImageView) {
             GalleryViewPager pager = (GalleryViewPager) container;

@@ -136,40 +136,46 @@ public class MessagePullService extends Service {
 
     static void showNotification(Context context, PullMessageData message) {
         Intent intent;
-        NotificationManager nm = (NotificationManager) context.getSystemService("notification");
-        String tickerText = message.getContent();
-        String url = message.getLink();
-        if (TiebaApplication.app.isPromotedMessageOn()) {
-            Notification notif = new Notification(R.drawable.icon, tickerText, System.currentTimeMillis());
-            if (url != null && url.length() > 0) {
-                if (url.startsWith("http:")) {
-                    String id = url.substring(url.lastIndexOf("/") + 1);
-                    intent = new Intent(context, PbActivity.class);
-                    intent.putExtra("id", id);
-                    intent.putExtra("sequence", true);
-                    intent.putExtra("is_message_pv", true);
-                    intent.putExtra("hostMode", false);
-                    intent.putExtra(PbActivity.MESSAGE_PUSH_ENTRY, true);
-                    intent.setFlags(268435456);
-                } else if (url.equals("tab://1")) {
-                    intent = new Intent(context, MainTabActivity.class);
-                    intent.putExtra("is_message_pv", true);
-                    intent.putExtra(MainTabActivity.KEY_REFRESH, true);
-                    intent.putExtra(MainTabActivity.KEY_CLOSE_DIALOG, true);
-                    intent.putExtra(MainTabActivity.GOTO_TYPE, MainTabActivity.GOTO_RECOMMEND);
-                    intent.setFlags(603979776);
-                } else {
-                    return;
+        Date current = new Date(System.currentTimeMillis());
+        int hour = current.getHours();
+        if ((hour < 0 || hour > 7) && hour < 23) {
+            NotificationManager nm = (NotificationManager) context.getSystemService("notification");
+            String tickerText = message.getContent();
+            String url = message.getLink();
+            if (TiebaApplication.app.isPromotedMessageOn()) {
+                Notification notif = new Notification(R.drawable.icon, tickerText, System.currentTimeMillis());
+                if (url != null && url.length() > 0) {
+                    if (url.startsWith("http:")) {
+                        String id = url.substring(url.lastIndexOf("/") + 1);
+                        intent = new Intent(context, PbActivity.class);
+                        intent.putExtra("id", id);
+                        intent.putExtra("sequence", true);
+                        intent.putExtra("is_message_pv", true);
+                        intent.putExtra("hostMode", false);
+                        intent.putExtra(PbActivity.MESSAGE_PUSH_ENTRY, true);
+                        intent.setFlags(268435456);
+                    } else if (url.equals("tab://1")) {
+                        intent = new Intent(context, MainTabActivity.class);
+                        intent.putExtra("is_message_pv", true);
+                        intent.putExtra(MainTabActivity.KEY_REFRESH, true);
+                        intent.putExtra(MainTabActivity.KEY_CLOSE_DIALOG, true);
+                        intent.putExtra(MainTabActivity.GOTO_TYPE, MainTabActivity.GOTO_RECOMMEND);
+                        intent.setFlags(603979776);
+                    } else {
+                        return;
+                    }
+                    PendingIntent contentIntent = PendingIntent.getActivity(context, 0, intent, 134217728);
+                    String from = context.getString(R.string.app_name);
+                    notif.icon = R.drawable.icon;
+                    notif.setLatestEventInfo(context, from, tickerText, contentIntent);
+                    notif.defaults = -1;
+                    notif.defaults &= -2;
+                    notif.defaults &= -3;
+                    notif.flags |= 16;
+                    notif.audioStreamType = 5;
+                    notif.sound = Uri.parse("android.resource://com.baidu.tieba/2131034113");
+                    nm.notify(11, notif);
                 }
-                PendingIntent contentIntent = PendingIntent.getActivity(context, 0, intent, 134217728);
-                String from = context.getString(R.string.app_name);
-                notif.icon = R.drawable.icon;
-                notif.setLatestEventInfo(context, from, String.valueOf(new Date(System.currentTimeMillis()).toLocaleString()) + "  " + tickerText, contentIntent);
-                notif.defaults = -1;
-                notif.defaults ^= 1;
-                notif.flags |= 16;
-                notif.sound = Uri.parse("android.resource://com.baidu.tieba/2131034113");
-                nm.notify(11, notif);
             }
         }
     }

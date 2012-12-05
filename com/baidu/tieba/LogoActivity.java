@@ -15,6 +15,7 @@ import com.baidu.tieba.service.FatalErrorService;
 import com.baidu.tieba.util.BitmapHelper;
 import com.baidu.tieba.util.DatabaseService;
 import com.baidu.tieba.util.TiebaLog;
+import java.io.File;
 /* loaded from: classes.dex */
 public class LogoActivity extends BaseActivity {
     private boolean mHaveFinishiAnim = false;
@@ -77,7 +78,7 @@ public class LogoActivity extends BaseActivity {
                     }
                     DatabaseService.delOverdueDraft();
                     DatabaseService.delOverdueChunkUploadData();
-                    app.startLocationServer();
+                    LogoActivity.this.deleteAllfile(LogoActivity.this.getCacheDir());
                 } catch (Exception e) {
                 }
                 LogoActivity.this.mHandler.handleMessage(LogoActivity.this.mHandler.obtainMessage());
@@ -99,6 +100,31 @@ public class LogoActivity extends BaseActivity {
         return super.onKeyDown(keyCode, event);
     }
 
+    /* JADX INFO: Access modifiers changed from: private */
+    public void deleteAllfile(File file) {
+        if (file != null) {
+            try {
+                if (file.isDirectory()) {
+                    File[] list = file.listFiles();
+                    if (list != null) {
+                        for (int i = 0; i < list.length; i++) {
+                            if (list[i].isDirectory()) {
+                                deleteAllfile(list[i]);
+                            } else {
+                                list[i].delete();
+                            }
+                        }
+                        return;
+                    }
+                    return;
+                }
+                file.delete();
+            } catch (Exception ex) {
+                TiebaLog.e(getClass().getName(), "deleteAllfile", ex.getMessage());
+            }
+        }
+    }
+
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.BaseActivity, android.app.Activity
     public void onDestroy() {
@@ -112,6 +138,7 @@ public class LogoActivity extends BaseActivity {
     /* JADX INFO: Access modifiers changed from: private */
     public void startApp() {
         AccountShareHelper.getInstance().prepare();
+        TiebaApplication.app.startLocationServer();
         if (TiebaApplication.app.getIsFirstUse()) {
             TiebaApplication.app.setUsed();
             GuideActivity.startActivity(this);
@@ -119,14 +146,9 @@ public class LogoActivity extends BaseActivity {
             return;
         }
         String id = TiebaApplication.getCurrentAccount();
-        if (id != null && id.length() > 0) {
-            MainTabActivity.startActivity(this, MainTabActivity.GOTO_HOME);
-        } else {
-            MainTabActivity.startActivity(this, MainTabActivity.GOTO_RECOMMEND);
-            if (TiebaApplication.isBaiduAccountManager() && BaiduAccountProxy.hasValidBaiduAccount(this)) {
-                TiebaLog.i(getClass().getName(), "startAPP", "getAccountData");
-                BaiduAccountProxy.getAccountData(this, 0, MainTabActivity.GOTO_HOME, false);
-            }
+        MainTabActivity.startActivity(this, MainTabActivity.GOTO_RECOMMEND);
+        if ((id == null || id.length() <= 0) && TiebaApplication.isBaiduAccountManager() && BaiduAccountProxy.hasValidBaiduAccount(this)) {
+            BaiduAccountProxy.getAccountData(this, 0, MainTabActivity.GOTO_RECOMMEND, false);
         }
         finish();
     }

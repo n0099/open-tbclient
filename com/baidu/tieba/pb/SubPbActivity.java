@@ -9,9 +9,7 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
 import android.text.Editable;
-import android.text.InputFilter;
 import android.text.SpannableStringBuilder;
-import android.text.Spanned;
 import android.text.TextWatcher;
 import android.text.method.LinkMovementMethod;
 import android.text.style.ImageSpan;
@@ -34,7 +32,6 @@ import android.widget.ProgressBar;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
-import com.baidu.android.pushservice.PushConstants;
 import com.baidu.tieba.BaseActivity;
 import com.baidu.tieba.R;
 import com.baidu.tieba.TiebaApplication;
@@ -365,17 +362,7 @@ public class SubPbActivity extends BaseActivity {
             }
         });
         this.mSubPbListView.setOnItemLongClickListener(this.mItemLongClickListener);
-        this.mSubPbListView.setOnTouchListener(new View.OnTouchListener() { // from class: com.baidu.tieba.pb.SubPbActivity.13
-            @Override // android.view.View.OnTouchListener
-            public boolean onTouch(View v, MotionEvent event) {
-                if (event.getAction() == 0) {
-                    SubPbActivity.this.mSubPbListView.setOnItemLongClickListener(SubPbActivity.this.mItemLongClickListener);
-                    return false;
-                }
-                return false;
-            }
-        });
-        AbsListView.OnScrollListener scrollListener = new AbsListView.OnScrollListener() { // from class: com.baidu.tieba.pb.SubPbActivity.14
+        AbsListView.OnScrollListener scrollListener = new AbsListView.OnScrollListener() { // from class: com.baidu.tieba.pb.SubPbActivity.13
             @Override // android.widget.AbsListView.OnScrollListener
             public void onScrollStateChanged(AbsListView view, int scrollState) {
                 if (scrollState == 2 || scrollState == 1) {
@@ -383,7 +370,6 @@ public class SubPbActivity extends BaseActivity {
                     SubPbActivity.this.mButtonFace.setBackgroundResource(R.drawable.sub_pb_face);
                     faceView.setVisibility(8);
                 }
-                SubPbActivity.this.mSubPbListView.setOnItemLongClickListener(null);
             }
 
             @Override // android.widget.AbsListView.OnScrollListener
@@ -391,7 +377,7 @@ public class SubPbActivity extends BaseActivity {
             }
         };
         this.mSubPbListView.setOnScrollListener(scrollListener);
-        final Runnable scrollRunnable = new Runnable() { // from class: com.baidu.tieba.pb.SubPbActivity.15
+        final Runnable scrollRunnable = new Runnable() { // from class: com.baidu.tieba.pb.SubPbActivity.14
             @Override // java.lang.Runnable
             public void run() {
                 SubPbActivity.this.mSubPbListView.setSelection(SubPbActivity.this.mReplyFloor + 1);
@@ -401,7 +387,7 @@ public class SubPbActivity extends BaseActivity {
         this.mSubPbAdapter = new SubPbAdapter(this, this.mSubPbModel);
         this.mSubPbAdapter.setIsManageMode(this.mIsManageMode);
         this.mSubPbAdapter.setUserIdentity(this.mUserIdentity);
-        this.mSubPbAdapter.setReplyListener(new View.OnClickListener() { // from class: com.baidu.tieba.pb.SubPbActivity.16
+        this.mSubPbAdapter.setReplyListener(new View.OnClickListener() { // from class: com.baidu.tieba.pb.SubPbActivity.15
             @Override // android.view.View.OnClickListener
             public void onClick(View v) {
                 SubPbActivity.this.mReplyFloor = Integer.valueOf((String) v.getTag()).intValue();
@@ -409,6 +395,9 @@ public class SubPbActivity extends BaseActivity {
                 SubPbActivity.this.mEditReply.setText(SubPbActivity.this.getString(R.string.reply_sub_floor, new Object[]{data.getAuthor().getName()}));
                 SubPbActivity.this.mEditReply.setSelection(SubPbActivity.this.mEditReply.getText().length());
                 SubPbActivity.this.mEditReply.requestFocus();
+                if (faceView.getVisibility() == 0) {
+                    faceView.setVisibility(8);
+                }
                 UtilHelper.showSoftKeyPad(SubPbActivity.this, SubPbActivity.this.mEditReply);
                 SubPbActivity.this.mButtonFace.setBackgroundResource(R.drawable.sub_pb_face);
                 handler.postDelayed(scrollRunnable, 600L);
@@ -507,7 +496,7 @@ public class SubPbActivity extends BaseActivity {
         if (avatar != null) {
             view.setImageBitmap(avatar);
         } else {
-            imageLoader.loadFriendPhotoByNet(url, new AsyncImageLoader.ImageCallback() { // from class: com.baidu.tieba.pb.SubPbActivity.17
+            imageLoader.loadFriendPhotoByNet(url, new AsyncImageLoader.ImageCallback() { // from class: com.baidu.tieba.pb.SubPbActivity.16
                 @Override // com.baidu.tieba.util.AsyncImageLoader.ImageCallback
                 public void imageLoaded(Bitmap bitmap, String imageUrl, boolean isCached) {
                     view.setImageBitmap(bitmap);
@@ -517,7 +506,7 @@ public class SubPbActivity extends BaseActivity {
     }
 
     private void setTextWatcher() {
-        TextWatcher textWatcher = new TextWatcher() { // from class: com.baidu.tieba.pb.SubPbActivity.18
+        TextWatcher textWatcher = new TextWatcher() { // from class: com.baidu.tieba.pb.SubPbActivity.17
             @Override // android.text.TextWatcher
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
             }
@@ -536,18 +525,6 @@ public class SubPbActivity extends BaseActivity {
             }
         };
         this.mEditReply.addTextChangedListener(textWatcher);
-        this.mEditReply.setFilters(new InputFilter[]{new InputFilter() { // from class: com.baidu.tieba.pb.SubPbActivity.19
-            @Override // android.text.InputFilter
-            public CharSequence filter(CharSequence source, int start, int end, Spanned dest, int dstart, int dend) {
-                if (SubPbActivity.this.checkTextNum()) {
-                    if (source.length() <= 0 && dest.length() > 0) {
-                        return dest.subSequence(dstart, dend - 1);
-                    }
-                    return "";
-                }
-                return null;
-            }
-        }});
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -597,7 +574,7 @@ public class SubPbActivity extends BaseActivity {
             ContentHelper helper = new ContentHelper(this);
             helper.setIsEllipsized(true);
             helper.setContent(text, seg, content, false);
-            View.OnClickListener onclick = new View.OnClickListener() { // from class: com.baidu.tieba.pb.SubPbActivity.20
+            View.OnClickListener onclick = new View.OnClickListener() { // from class: com.baidu.tieba.pb.SubPbActivity.18
                 @Override // android.view.View.OnClickListener
                 public void onClick(View v) {
                     String id = SubPbActivity.this.mSubPbModel.getSubPbData().getPostData().getAuthor().getId();
@@ -638,13 +615,13 @@ public class SubPbActivity extends BaseActivity {
             if (forbidUser.getVisibility() == 0 && delPost.getVisibility() == 0) {
                 manageDivider.setVisibility(0);
             }
-            delPost.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pb.SubPbActivity.21
+            delPost.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pb.SubPbActivity.19
                 @Override // android.view.View.OnClickListener
                 public void onClick(View v) {
                     SubPbActivity.this.openDelPostDialog(0, postData.getId());
                 }
             });
-            forbidUser.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pb.SubPbActivity.22
+            forbidUser.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pb.SubPbActivity.20
                 @Override // android.view.View.OnClickListener
                 public void onClick(View v) {
                     SubPbActivity.this.openForbidUserDialog(postData.getAuthor().getName());
@@ -964,7 +941,7 @@ public class SubPbActivity extends BaseActivity {
             this.mNetwork.addPostData("anonymous", "0");
             this.mNetwork.addPostData("fid", this.mWriteModel.getForumId());
             this.mNetwork.addPostData("kw", this.mWriteModel.getForumName());
-            this.mNetwork.addPostData(PushConstants.EXTRA_CONTENT, this.mWriteModel.getContent());
+            this.mNetwork.addPostData("content", this.mWriteModel.getContent());
             this.mNetwork.addPostData("tid", this.mWriteModel.getThreadId());
             if (this.mWriteModel.getVcode() != null && this.mWriteModel.getVcode().length() > 0) {
                 this.mNetwork.addPostData("vcode", this.mWriteModel.getVcode());
@@ -1031,7 +1008,7 @@ public class SubPbActivity extends BaseActivity {
             this.mDialogDelPost.getWindow().setAttributes(wmParams);
             this.mBtnDoDelPost = (Button) this.mDelPostView.findViewById(R.id.dialog_button_ok);
             this.mBtnCancelDelPost = (Button) this.mDelPostView.findViewById(R.id.dialog_button_cancel);
-            this.mBtnCancelDelPost.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pb.SubPbActivity.23
+            this.mBtnCancelDelPost.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pb.SubPbActivity.21
                 @Override // android.view.View.OnClickListener
                 public void onClick(View v) {
                     SubPbActivity.this.mDialogDelPost.dismiss();
@@ -1039,7 +1016,7 @@ public class SubPbActivity extends BaseActivity {
             });
         }
         if (this.mSubPbModel != null) {
-            this.mBtnDoDelPost.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pb.SubPbActivity.24
+            this.mBtnDoDelPost.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pb.SubPbActivity.22
                 @Override // android.view.View.OnClickListener
                 public void onClick(View v) {
                     SubPbActivity.this.startDelPostAsyncTask(delType, postId);
@@ -1065,18 +1042,18 @@ public class SubPbActivity extends BaseActivity {
             this.mBtn1Day = (RadioButton) this.mForbidUserView.findViewById(R.id.radio_button_1day);
             this.mBtn3Day = (RadioButton) this.mForbidUserView.findViewById(R.id.radio_button_3day);
             this.mBtn10Day = (RadioButton) this.mForbidUserView.findViewById(R.id.radio_button_10day);
-            CompoundButton.OnCheckedChangeListener radioButtonCheckedListener = new CompoundButton.OnCheckedChangeListener() { // from class: com.baidu.tieba.pb.SubPbActivity.25
+            CompoundButton.OnCheckedChangeListener radioButtonCheckedListener = new CompoundButton.OnCheckedChangeListener() { // from class: com.baidu.tieba.pb.SubPbActivity.23
                 @Override // android.widget.CompoundButton.OnCheckedChangeListener
                 public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                     if (isChecked) {
                         switch (buttonView.getId()) {
-                            case R.id.radio_button_1day /* 2131230840 */:
+                            case R.id.radio_button_1day /* 2131230854 */:
                                 SubPbActivity.this.mForbidTime = 1;
                                 return;
-                            case R.id.radio_button_3day /* 2131230841 */:
+                            case R.id.radio_button_3day /* 2131230855 */:
                                 SubPbActivity.this.mForbidTime = 3;
                                 return;
-                            case R.id.radio_button_10day /* 2131230842 */:
+                            case R.id.radio_button_10day /* 2131230856 */:
                                 SubPbActivity.this.mForbidTime = 10;
                                 return;
                             default:
@@ -1090,7 +1067,7 @@ public class SubPbActivity extends BaseActivity {
             this.mBtn10Day.setOnCheckedChangeListener(radioButtonCheckedListener);
             this.mBtnDoForbidUser = (Button) this.mForbidUserView.findViewById(R.id.dialog_button_ok);
             this.mBtnCancelForbidUser = (Button) this.mForbidUserView.findViewById(R.id.dialog_button_cancel);
-            this.mBtnCancelForbidUser.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pb.SubPbActivity.26
+            this.mBtnCancelForbidUser.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pb.SubPbActivity.24
                 @Override // android.view.View.OnClickListener
                 public void onClick(View v) {
                     SubPbActivity.this.mDialogForbidUser.dismiss();
@@ -1105,7 +1082,7 @@ public class SubPbActivity extends BaseActivity {
                 this.mBtn3Day.setVisibility(8);
                 this.mBtn10Day.setVisibility(8);
             }
-            this.mBtnDoForbidUser.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pb.SubPbActivity.27
+            this.mBtnDoForbidUser.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pb.SubPbActivity.25
                 @Override // android.view.View.OnClickListener
                 public void onClick(View v) {
                     SubPbActivity.this.startForbidUserAsyncTask(userName);

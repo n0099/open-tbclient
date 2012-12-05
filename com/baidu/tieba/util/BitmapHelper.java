@@ -12,15 +12,20 @@ import android.graphics.PorterDuffXfermode;
 import android.graphics.Rect;
 import android.graphics.RectF;
 import android.net.Uri;
+import android.os.Build;
 import android.os.ParcelFileDescriptor;
 import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.data.Config;
 import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
-import java.util.HashMap;
+import java.util.Hashtable;
 /* loaded from: classes.dex */
 public class BitmapHelper {
-    private static volatile HashMap<Integer, Bitmap> mBitmapHash = new HashMap<>();
+    public static final int ROTATE_LEFT = 0;
+    public static final int ROTATE_LEFT_RIGHT = 2;
+    public static final int ROTATE_RIGHT = 1;
+    public static final int ROTATE_UP_DOWN = 3;
+    private static volatile Hashtable<Integer, Bitmap> mBitmapHash = new Hashtable<>();
 
     public static Bitmap getCashBitmap(int id) {
         Bitmap bm = mBitmapHash.get(Integer.valueOf(id));
@@ -29,22 +34,25 @@ public class BitmapHelper {
         }
         Bitmap bm2 = getResBitmap(TiebaApplication.app, id);
         if (bm2 != null) {
-            synchronized (BitmapHelper.class) {
-                mBitmapHash.put(Integer.valueOf(id), bm2);
-            }
+            mBitmapHash.put(Integer.valueOf(id), bm2);
         }
         return bm2;
     }
 
     public static Bitmap getResBitmap(Context context, int resId) {
+        Bitmap bm = null;
         try {
             BitmapFactory.Options opt = new BitmapFactory.Options();
-            opt.inPreferredConfig = Config.BitmapConfig;
-            Bitmap bm = BitmapFactory.decodeResource(context.getResources(), resId, opt);
+            if (Build.VERSION.SDK_INT >= 16) {
+                opt.inPreferredConfig = Bitmap.Config.ARGB_4444;
+            } else {
+                opt.inPreferredConfig = Config.BitmapConfig;
+            }
+            bm = BitmapFactory.decodeResource(context.getResources(), resId, opt);
             return bm;
         } catch (Exception ex) {
             TiebaLog.e("BitmapHelper", "getResBitmap", "error = " + ex.getMessage());
-            return null;
+            return bm;
         }
     }
 
@@ -224,12 +232,40 @@ public class BitmapHelper {
         return BitmapFactory.decodeByteArray(b, 0, b.length, opt);
     }
 
-    public static Bitmap rotateBitmap(Bitmap bm, float degrees) {
+    public static Bitmap rotateBitmap(Bitmap bm, int direction) {
         int w = bm.getWidth();
         int h = bm.getHeight();
         Matrix matrix = new Matrix();
-        matrix.postRotate(degrees);
+        if (direction == 0) {
+            matrix.postRotate(-90.0f);
+        } else if (direction == 1) {
+            matrix.postRotate(90.0f);
+        }
         Bitmap returnBm = Bitmap.createBitmap(bm, 0, 0, w, h, matrix, true);
+        if (bm != returnBm) {
+            bm.recycle();
+        }
+        return returnBm;
+    }
+
+    public static Bitmap reversalBitmap(Bitmap bm, int direction) {
+        Matrix mx = new Matrix();
+        int w = bm.getWidth();
+        int h = bm.getHeight();
+        if (direction == 2) {
+            mx.setScale(1.0f, -1.0f);
+        } else if (direction == 3) {
+            mx.setScale(-1.0f, 1.0f);
+        }
+        Bitmap btt = Bitmap.createBitmap(bm, 0, 0, w, h, mx, true);
+        mx.setRotate(180.0f);
+        Bitmap returnBm = Bitmap.createBitmap(btt, 0, 0, btt.getWidth(), btt.getHeight(), mx, true);
+        if (btt != returnBm) {
+            btt.recycle();
+        }
+        if (bm != returnBm) {
+            bm.recycle();
+        }
         return returnBm;
     }
 }

@@ -2,7 +2,6 @@ package com.baidu.tieba.data;
 
 import android.content.Context;
 import android.text.ClipboardManager;
-import com.baidu.android.pushservice.PushConstants;
 import com.baidu.tieba.R;
 import com.baidu.tieba.util.FaceHelper;
 import com.baidu.tieba.util.TiebaLog;
@@ -136,7 +135,7 @@ public class PostData {
                         unite_type = data.getType();
                     } else if (data.getType() == 5) {
                         ContentData tmp = new ContentData();
-                        tmp.setType(1000);
+                        tmp.setType(ContentData.TYPE_VIDEO_IMAGE);
                         tmp.setLink(data.getText());
                         this.unite_content.add(tmp);
                         unite_size++;
@@ -238,7 +237,7 @@ public class PostData {
                 this.floor_num = json.optInt("floor", 0);
                 this.time = json.optLong("time", 0L) * 1000;
                 this.author.parserJson(json.optJSONObject("author"));
-                JSONArray list = json.optJSONArray(PushConstants.EXTRA_CONTENT);
+                JSONArray list = json.optJSONArray("content");
                 this.subPostNum = json.optInt("sub_post_number");
                 if (list != null) {
                     for (int i = 0; i < list.length(); i++) {

@@ -5,6 +5,7 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.location.Location;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
@@ -27,8 +28,6 @@ import android.widget.ImageView;
 import android.widget.ListAdapter;
 import android.widget.ProgressBar;
 import android.widget.TextView;
-import com.baidu.android.pushservice.PushConstants;
-import com.baidu.location.BDLocation;
 import com.baidu.tieba.BaseActivity;
 import com.baidu.tieba.R;
 import com.baidu.tieba.TiebaApplication;
@@ -53,8 +52,6 @@ import com.baidu.tieba.util.TiebaLog;
 import com.baidu.tieba.util.UtilHelper;
 import com.baidu.tieba.view.MyBitmapDrawable;
 import java.io.File;
-import java.io.IOException;
-import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class WriteActivity extends BaseActivity {
@@ -154,6 +151,10 @@ public class WriteActivity extends BaseActivity {
 
     public static void startAcitivityForResult(Activity context, String forumId, String forumName, AntiData anti, boolean isFresh, String filename) {
         startAcitivityForResult(context, WriteModel.NEW, forumId, forumName, null, null, 0, anti, RequestResponseCode.REQUEST_WRITE_NEW, false, false, false, isFresh, filename);
+    }
+
+    public static void startAcitivityForResult(Activity context, String forumId, String forumName, String threadId, String filename) {
+        startAcitivityForResult(context, WriteModel.REPLY, forumId, forumName, threadId, null, 0, null, RequestResponseCode.REQUEST_WRITE_REPLY, false, false, false, true, filename);
     }
 
     public static void startAcitivity(Activity context, String forumId, String forumName, AntiData anti) {
@@ -799,14 +800,16 @@ public class WriteActivity extends BaseActivity {
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         /* JADX WARN: Removed duplicated region for block: B:39:0x01b7 A[RETURN, SYNTHETIC] */
-        /* JADX WARN: Removed duplicated region for block: B:45:0x01cc  */
+        /* JADX WARN: Removed duplicated region for block: B:43:0x01d2  */
         @Override // android.os.AsyncTask
         /*
             Code decompiled incorrectly, please refer to instructions dump.
         */
         public String doInBackground(Integer... arg0) {
-            BDLocation mLocation;
+            Location mLocation;
             String ret;
+            JSONObject json;
+            InfoData info;
             if (WriteActivity.this.mBitmap != null && this.mDate.getBitmapId() == null) {
                 TiebaLog.d("PostThreadTask", "doInBackground", "start upload image");
                 try {
@@ -849,25 +852,19 @@ public class WriteActivity extends BaseActivity {
                             return null;
                         }
                     }
-                    JSONObject json = new JSONObject(ret);
-                    InfoData info = new InfoData();
-                    try {
-                        info.parserJson(json.optJSONObject(LoginActivity.INFO));
-                        this.mDate.setBitmapId(info);
-                    } catch (IOException e) {
-                        e = e;
-                        e.printStackTrace();
-                        return null;
-                    } catch (JSONException e2) {
-                        e = e2;
-                        e.printStackTrace();
-                        if (!this.mCanceled) {
-                        }
+                    json = new JSONObject(ret);
+                    info = new InfoData();
+                } catch (Exception e) {
+                    e = e;
+                }
+                try {
+                    info.parserJson(json.optJSONObject(LoginActivity.INFO));
+                    this.mDate.setBitmapId(info);
+                } catch (Exception e2) {
+                    e = e2;
+                    TiebaLog.e(getClass().getName(), "doInBackground", e.getMessage());
+                    if (!this.mCanceled) {
                     }
-                } catch (IOException e3) {
-                    e = e3;
-                } catch (JSONException e4) {
-                    e = e4;
                 }
             }
             if (!this.mCanceled) {
@@ -881,7 +878,7 @@ public class WriteActivity extends BaseActivity {
             if (this.mDate.getBitmapId() != null && this.mDate.getBitmapId().getPic_id() != null && this.mDate.getBitmapId().getPic_id().length() > 0) {
                 pic_str = String.format("#(pic,%s,%d,%d)", this.mDate.getBitmapId().getPic_id(), Integer.valueOf(this.mDate.getBitmapId().getWidth()), Integer.valueOf(this.mDate.getBitmapId().getHeight()));
             }
-            this.mNetwork.addPostData(PushConstants.EXTRA_CONTENT, String.valueOf(this.mDate.getContent()) + pic_str);
+            this.mNetwork.addPostData("content", String.valueOf(this.mDate.getContent()) + pic_str);
             if (this.mDate.getVcode() != null && this.mDate.getVcode().length() > 0) {
                 this.mNetwork.addPostData("vcode", this.mDate.getVcode());
             }

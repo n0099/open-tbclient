@@ -6,6 +6,7 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+import com.baidu.tieba.util.UtilHelper;
 /* loaded from: classes.dex */
 public class BaseWebView extends WebView {
     private OnLoadUrlListener mOnLoadUrlListener;
@@ -31,6 +32,7 @@ public class BaseWebView extends WebView {
     public void init() {
         getSettings().setJavaScriptEnabled(true);
         getSettings().setCacheMode(2);
+        UtilHelper.WebViewNoDataBase(getSettings());
         this.mWebViewClient = new MyWebViewClient();
         setWebViewClient(this.mWebViewClient);
         setOnLongClickListener(new View.OnLongClickListener() { // from class: com.baidu.tieba.view.BaseWebView.1

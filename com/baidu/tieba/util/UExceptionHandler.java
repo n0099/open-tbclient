@@ -1,16 +1,20 @@
 package com.baidu.tieba.util;
 
+import android.app.ActivityManager;
 import android.os.Build;
+import android.os.Process;
 import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.account.ReLoginActivity;
 import com.baidu.tieba.data.Config;
 import com.baidu.tieba.service.TiebaUpdateService;
+import com.baidu.tieba.write.VcodeActivity;
 import com.baidu.tieba.write.WriteImageActivity;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.PrintStream;
 import java.lang.Thread;
+import java.util.List;
 /* loaded from: classes.dex */
 public class UExceptionHandler implements Thread.UncaughtExceptionHandler {
     private Thread.UncaughtExceptionHandler mHandler;
@@ -20,9 +24,9 @@ public class UExceptionHandler implements Thread.UncaughtExceptionHandler {
         this.mHandler = Thread.getDefaultUncaughtExceptionHandler();
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:40:0x0109  */
-    /* JADX WARN: Removed duplicated region for block: B:52:0x0130  */
-    /* JADX WARN: Removed duplicated region for block: B:94:? A[RETURN, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:106:? A[RETURN, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:50:0x01b9  */
+    /* JADX WARN: Removed duplicated region for block: B:63:0x01ea  */
     @Override // java.lang.Thread.UncaughtExceptionHandler
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -51,13 +55,29 @@ public class UExceptionHandler implements Thread.UncaughtExceptionHandler {
                                         addInfo(writer2, time, null);
                                         addInfo(writer2, "tieba_crash_new_info", null);
                                         addInfo(writer2, TiebaUpdateService.TAG_VERSION, Config.VERSION);
-                                        addInfo(writer2, "model", Build.MODEL);
+                                        addInfo(writer2, VcodeActivity.SAVE_KEY, Build.MODEL);
                                         addInfo(writer2, "android_version", Build.VERSION.RELEASE);
                                         addInfo(writer2, WriteImageActivity.FROM, Config.FROM);
                                         addInfo(writer2, "uid", TiebaApplication.getCurrentAccount());
                                         addInfo(writer2, "client_id", TiebaApplication.getClientId());
                                         addInfo(writer2, "imei", TiebaApplication.app.getImei());
                                         addInfo(writer2, ReLoginActivity.UNAME, TiebaApplication.getCurrentAccountName());
+                                        ActivityManager am = (ActivityManager) TiebaApplication.app.getSystemService("activity");
+                                        List<ActivityManager.RunningAppProcessInfo> list = am.getRunningAppProcesses();
+                                        int pid = Process.myPid();
+                                        if (list != null) {
+                                            int i = 0;
+                                            while (true) {
+                                                if (i >= list.size()) {
+                                                    break;
+                                                } else if (list.get(i).pid != pid) {
+                                                    i++;
+                                                } else {
+                                                    addInfo(writer2, "process_name", list.get(i).processName);
+                                                    break;
+                                                }
+                                            }
+                                        }
                                         addInfo(writer2, "error", info);
                                         addInfo(writer2, "tieba_crash_new_info_end", null);
                                         writer2.append("\n");
@@ -170,11 +190,11 @@ public class UExceptionHandler implements Thread.UncaughtExceptionHandler {
                 if (this.mHandler != null) {
                     this.mHandler.uncaughtException(thread, ex);
                 }
-            } catch (Exception e8) {
-                e = e8;
+            } catch (Throwable th5) {
+                th = th5;
             }
-        } catch (Throwable th5) {
-            th = th5;
+        } catch (Exception e8) {
+            e = e8;
         }
     }
 

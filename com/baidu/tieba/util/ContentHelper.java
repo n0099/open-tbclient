@@ -45,51 +45,53 @@ public class ContentHelper {
     }
 
     public void setContent(TextView textView, LinearLayout layout, List<ContentData> content, boolean isShowImage) {
-        if (content != null && content.size() > 0) {
-            if (this.mIsEllipsized) {
-                content = getSubContent(content);
-            }
-            int i = 0;
-            TextView textView_tmp = null;
-            ContentData seg = content.get(0);
-            if (seg != null && (seg.getType() == 0 || seg.getType() == 2)) {
-                textView.setTextSize(Config.getContentSize());
-                textView.setVisibility(0);
-                setTextForView(textView, seg);
-                textView_tmp = textView;
-                i = 0 + 1;
-            }
-            if (layout != null) {
-                int index = -1;
-                layout.setVisibility(8);
-                while (i < content.size()) {
-                    layout.setVisibility(0);
-                    ContentData seg2 = content.get(i);
-                    if (seg2.getType() == 3) {
-                        if (isShowImage) {
-                            index++;
-                            layout.addView(createImageView(content, seg2, index));
-                            textView_tmp = null;
-                        }
-                    } else if (textView_tmp != null) {
-                        if (seg2.getType() == 2) {
-                            textView_tmp.append(seg2.getSpannableString(this.mContext, this.mLineHeight, this.mFontHeight));
+        if (textView != null && layout != null && content != null) {
+            if (content != null && content.size() > 0) {
+                if (this.mIsEllipsized) {
+                    content = getSubContent(content);
+                }
+                int i = 0;
+                TextView textView_tmp = null;
+                ContentData seg = content.get(0);
+                if (seg != null && (seg.getType() == 0 || seg.getType() == 2)) {
+                    textView.setTextSize(Config.getContentSize());
+                    textView.setVisibility(0);
+                    setTextForView(textView, seg);
+                    textView_tmp = textView;
+                    i = 0 + 1;
+                }
+                if (layout != null) {
+                    int index = -1;
+                    layout.setVisibility(8);
+                    while (i < content.size()) {
+                        layout.setVisibility(0);
+                        ContentData seg2 = content.get(i);
+                        if (seg2.getType() == 3) {
+                            if (isShowImage) {
+                                index++;
+                                layout.addView(createImageView(content, seg2, index));
+                                textView_tmp = null;
+                            }
+                        } else if (textView_tmp != null) {
+                            if (seg2.getType() == 2) {
+                                textView_tmp.append(seg2.getSpannableString(this.mContext, this.mLineHeight, this.mFontHeight));
+                            } else {
+                                textView_tmp.append(seg2.getUniteString());
+                            }
                         } else {
-                            textView_tmp.append(seg2.getUniteString());
+                            TextView view = createTextView(seg2);
+                            layout.addView(view);
+                            textView_tmp = view;
                         }
-                    } else {
-                        TextView view = createTextView(seg2);
-                        layout.addView(view);
-                        textView_tmp = view;
+                        i++;
                     }
-                    i++;
+                    return;
                 }
                 return;
             }
-            return;
+            textView.setVisibility(0);
+            textView.setText((CharSequence) null);
         }
-        textView.setVisibility(0);
-        textView.setText((CharSequence) null);
     }
 
     private List<ContentData> getSubContent(List<ContentData> content) {

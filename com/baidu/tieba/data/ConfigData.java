@@ -7,6 +7,7 @@ import org.json.JSONObject;
 public class ConfigData {
     private boolean isMotuOn = true;
     private boolean isFrsAbstractOn = true;
+    private int mBrowserType = 0;
     private int pb_max_floor_total_num = 0;
     private int pb_big_image_width = 0;
     private int img_chunk_upload_enable = 1;
@@ -106,8 +107,9 @@ public class ConfigData {
                 if (!this.isFrsAbstractOn) {
                     TiebaApplication.app.setIsAbstractOn(this.isFrsAbstractOn);
                 }
+                this.mBrowserType = json.optInt("browser_type", 1);
+                TiebaApplication.app.setBrowserType(this.mBrowserType);
                 Config.setPbListNum(this.pb_max_floor_total_num);
-                Config.setThreadImageWidth(this.pb_big_image_width);
                 Config.setBigPhotoAdress(this.big_head_image_host);
                 Config.setSmallPhotoAdress(this.small_head_image_host);
                 Config.setFeedBack(this.yijianfankui_fname, this.yijianfankui_fid);

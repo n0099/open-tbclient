@@ -16,7 +16,6 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
-import com.baidu.tieba.util.TiebaLog;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
@@ -94,14 +93,9 @@ public class GuideActivity extends Activity {
     public void startApp() {
         ((ProgressBar) findViewById(R.id.guide_progress)).setVisibility(0);
         String id = TiebaApplication.getCurrentAccount();
-        if (id != null && id.length() > 0) {
-            MainTabActivity.startActivity(this, MainTabActivity.GOTO_HOME);
-        } else {
-            MainTabActivity.startActivity(this, MainTabActivity.GOTO_RECOMMEND);
-            if (TiebaApplication.isBaiduAccountManager() && BaiduAccountProxy.hasValidBaiduAccount(this)) {
-                TiebaLog.i(getClass().getName(), "startAPP", "getAccountData");
-                BaiduAccountProxy.getAccountData(this, 0, MainTabActivity.GOTO_HOME, false);
-            }
+        MainTabActivity.startActivity(this, MainTabActivity.GOTO_RECOMMEND);
+        if ((id == null || id.length() <= 0) && TiebaApplication.isBaiduAccountManager() && BaiduAccountProxy.hasValidBaiduAccount(this)) {
+            BaiduAccountProxy.getAccountData(this, 0, MainTabActivity.GOTO_RECOMMEND, false);
         }
         finish();
     }

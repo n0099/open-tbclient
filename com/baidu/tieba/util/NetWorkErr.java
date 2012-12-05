@@ -5,6 +5,7 @@ public class NetWorkErr {
     public static final int FILE_UPLOAD_NET_ERROR = 103;
     public static final int FILE_UPLOAD_SIZE_ERROR = 15;
     public static final int FORUM_NOT_EXIST = 3;
+    public static final int FRS_IMAGE_NO_EXIST = 2000;
     public static final int HAVE_DING = 14;
     public static final int HAVE_SIGNED = 160002;
     public static final int INSERT_TO_MANY_SMILE = 13;
@@ -37,6 +38,7 @@ public class NetWorkErr {
     public static final int USERNAME_IS_INVALID = 17;
     public static final int USERNAME_OR_PASSWD_ERROR = 2;
     public static final int USER_CANNOT_LOGIN = 21;
+    public static final int USER_HAS_ADD_FAN = 120002;
     public static final int USER_HAS_LIKE_FORUM = 22;
     public static final int USER_NOT_LOGIN = 1;
     public static final int VCODE_INPUT_ERROR = 6;

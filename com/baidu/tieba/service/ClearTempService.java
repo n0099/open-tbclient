@@ -49,7 +49,6 @@ public class ClearTempService extends Service {
                 public void run() {
                     super.run();
                     try {
-                        ClearTempService.this.deleteAllfile(ClearTempService.this.getCacheDir());
                         File file = new File(FileHelper.EXTERNAL_STORAGE_DIRECTORY + "/" + Config.TMPDIRNAME + "/" + Config.TMP_PIC_DIR_NAME + "/");
                         File[] list = file.listFiles();
                         long current_time = new Date().getTime();
@@ -69,31 +68,6 @@ public class ClearTempService extends Service {
                 }
             };
             this.thread.start();
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void deleteAllfile(File file) {
-        if (file != null) {
-            try {
-                if (file.isDirectory()) {
-                    File[] list = file.listFiles();
-                    if (list != null) {
-                        for (int i = 0; i < list.length && !this.interrupted; i++) {
-                            if (list[i].isDirectory()) {
-                                deleteAllfile(list[i]);
-                            } else {
-                                list[i].delete();
-                            }
-                        }
-                        return;
-                    }
-                    return;
-                }
-                file.delete();
-            } catch (Exception ex) {
-                TiebaLog.e(getClass().getName(), "deleteAllfile", ex.getMessage());
-            }
         }
     }
 }

@@ -7,11 +7,15 @@ import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.content.SharedPreferences;
 import android.content.pm.PackageInfo;
 import android.content.res.Configuration;
 import android.database.ContentObserver;
 import android.graphics.Bitmap;
+import android.location.Location;
+import android.location.LocationListener;
+import android.location.LocationManager;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
@@ -21,21 +25,21 @@ import android.os.Process;
 import android.support.v4.view.accessibility.AccessibilityEventCompat;
 import android.telephony.TelephonyManager;
 import com.baidu.account.AccountProxy;
-import com.baidu.location.BDLocation;
-import com.baidu.location.BDLocationListener;
-import com.baidu.location.LocationClient;
-import com.baidu.location.LocationClientOption;
 import com.baidu.tieba.account.AccountShareHelper;
 import com.baidu.tieba.account.LoginActivity;
+import com.baidu.tieba.account.PvImageThread;
 import com.baidu.tieba.account.PvThread;
 import com.baidu.tieba.data.AccountData;
 import com.baidu.tieba.data.Config;
 import com.baidu.tieba.service.MessagePullService;
+import com.baidu.tieba.service.MyReceiver;
 import com.baidu.tieba.service.TiebaMessageService;
 import com.baidu.tieba.util.DatabaseService;
 import com.baidu.tieba.util.FaceHelper;
 import com.baidu.tieba.util.FileHelper;
+import com.baidu.tieba.util.FrsImageThread;
 import com.baidu.tieba.util.NetWorkCore;
+import com.baidu.tieba.util.ReadThreadHistory;
 import com.baidu.tieba.util.SDRamImage;
 import com.baidu.tieba.util.StringHelper;
 import com.baidu.tieba.util.TiebaLog;
@@ -50,7 +54,10 @@ import java.lang.ref.SoftReference;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.Hashtable;
 import java.util.List;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 /* loaded from: classes.dex */
 public class TiebaApplication extends Application {
     private static final String ACCOUNT_SHARE = "account_share";
@@ -60,14 +67,23 @@ public class TiebaApplication extends Application {
     public static final int APP_EVENT_LOGIN = 1;
     public static final int APP_PV_STAT = 4;
     public static final int APP_START_MSG_SERVICE = 2;
-    public static final int APP_STOP_LOCATION_SERVICE = 5;
     public static final int APP_STOP_MSG_SERVICE = 3;
     public static final int BIND_FLAG = 0;
+    private static final String BROWSER_TYPE = "browser_type";
+    public static final int BROWSER_TYPE_BAIDU = 2;
+    public static final int BROWSER_TYPE_DEFAULT = 1;
+    public static final int BROWSER_TYPE_NATIVE = 0;
+    public static final int BROWSER_TYPE_TIEBA = 1;
     private static final String CHECK_NETWORK_NOTIFY_CONFIRM = "check_network_confirm";
     private static final String CLIENT_ID = "client_id";
-    private static final String DISPLAY_ABSTRACT_NEW = "display_abstract_new";
+    private static final String DISPLAY_EYESHIELDMODE_NEW = "display_eyeshieldmode_new";
     private static final String DISPLAY_PHOTO = "display_photo";
     private static final String FROM_ID = "from_id";
+    private static final String GUIDE_PAGE_BITS = "guide_page_bits";
+    public static final int GUIDE_PAGE_BOOK_MARK_1 = 0;
+    public static final int GUIDE_PAGE_BOOK_MARK_2 = 1;
+    public static final int GUIDE_PAGE_FRS_IMG_MODE = 2;
+    public static final int GUIDE_PAGE_PB_IMG_MODE = 3;
     private static final String LAST_VERSION = "lase_version";
     private static final long LOCATION_EXPIRATION = 300000;
     private static final String LOCATION_ON = "location_on";
@@ -75,11 +91,17 @@ public class TiebaApplication extends Application {
     private static final String MESSAGE_ID = "message_id";
     private static final String MOTU_ON = "motu_on";
     private static final String PERMOTED_MESSAGE = "permoted_message";
+    private static final String REFRESH_GUESS_TIME = "refresh_guess_time";
+    private static final String REFRESH_RECOMMEND_TIME = "refresh_recommend_time";
     public static final String SECRET_KEY = "e2I50gtYExCFyFWbhaun813ETVAlrG5b";
+    private static final String SHOW_ALL_LIKE_ITEMS = "show_all_like_items";
     private static final String TDATABASECREATETIME = "tdatabasecreatetime";
+    private static final int TEN_METERS = 100;
+    private static final int TEN_SECONDS = 10000;
     public static final int UNBIND_FLAG = 1;
     private static final String UPDATE_NOTIFY_TIME = "update_notify_time";
     public static TiebaApplication app;
+    private LocationManager mLocationManager;
     private static AccountData mAccount = null;
     private static String clientId = null;
     private static boolean is_baidu_account_manager = false;
@@ -89,26 +111,34 @@ public class TiebaApplication extends Application {
     private boolean mIsDisplayPhoto = true;
     private boolean mLikeChanged = false;
     private SDRamImage mSdramImage = null;
+    private ReadThreadHistory mReadThreadHistory = null;
+    private ReadThreadHistory mReadGuessHistory = null;
     private String mImei = null;
     private boolean mIsMainProcess = false;
     private int mResumeNum = 0;
     private long mStartTime = 0;
     private long mMessageID = 0;
-    private LocationClient mLocationClient = null;
-    private MyLocationListenner myListener = null;
-    private BDLocation lastLocation = null;
+    private String mIsShowAllLikeItems = null;
     public long lastLocationTime = 0;
     private int network_notify_confirm = -1;
+    private Location lastLocation = null;
+    private ExecutorService imagePvThread = null;
     private int mUploadImageQuality = 2;
     private int mViewImageQuality = 1;
     private boolean mIsShowImages = true;
     private int mFontSize = 3;
     private boolean mIsAbstractOn = true;
-    private String mIsAbstractNew = null;
+    private boolean mIsEyeShieldMode = false;
+    private String mIsEyeShieldModeNew = null;
     private boolean mIsLocationOn = true;
     private boolean mIsMotuOn = true;
+    private int mBrowserType = 1;
     private boolean mIsManageMode = false;
+    private int mGuidePageBits = 0;
+    private long mRefreshRecommendTime = 0;
+    private long mRefreshGuessTime = 0;
     public ArrayList<BaseActivity> mRemoteActivity = null;
+    private Hashtable<String, Integer> mFrsImageForums = null;
     public Handler handler = new Handler(new Handler.Callback() { // from class: com.baidu.tieba.TiebaApplication.1
         @Override // android.os.Handler.Callback
         public boolean handleMessage(Message msg) {
@@ -146,9 +176,6 @@ public class TiebaApplication extends Application {
                     }
                     TiebaApplication.this.mStartTime = 0L;
                     break;
-                case 5:
-                    TiebaApplication.this.stopLocationServer();
-                    break;
             }
             return false;
         }
@@ -163,6 +190,33 @@ public class TiebaApplication extends Application {
     private long mMsgAtme = 0;
     private long mMsgFans = 0;
     NotificationManager mNotificationManager = null;
+    private Runnable stopRunnable = new Runnable() { // from class: com.baidu.tieba.TiebaApplication.2
+        @Override // java.lang.Runnable
+        public void run() {
+            TiebaApplication.this.stopLocationServer();
+        }
+    };
+    private final LocationListener listener = new LocationListener() { // from class: com.baidu.tieba.TiebaApplication.3
+        @Override // android.location.LocationListener
+        public void onLocationChanged(Location location) {
+            if (location != null) {
+                TiebaApplication.this.lastLocation = location;
+                TiebaApplication.this.stopLocationServer();
+            }
+        }
+
+        @Override // android.location.LocationListener
+        public void onProviderDisabled(String provider) {
+        }
+
+        @Override // android.location.LocationListener
+        public void onProviderEnabled(String provider) {
+        }
+
+        @Override // android.location.LocationListener
+        public void onStatusChanged(String provider, int status, Bundle extras) {
+        }
+    };
 
     @Override // android.app.Application
     public void onCreate() {
@@ -174,6 +228,7 @@ public class TiebaApplication extends Application {
         initSettings();
         clientId = readClientId(this);
         initImei();
+        Config.initBigImageWidth(this);
         Config.initBigImageMaxUsedMemory(this);
         try {
             UExceptionHandler UEHandler = new UExceptionHandler();
@@ -182,7 +237,7 @@ public class TiebaApplication extends Application {
             TiebaLog.e(getClass().getName(), "onCreate", ex.getMessage());
         }
         Uri uri = Uri.parse("content://telephony/carriers");
-        getContentResolver().registerContentObserver(uri, true, new ContentObserver(new Handler()) { // from class: com.baidu.tieba.TiebaApplication.2
+        getContentResolver().registerContentObserver(uri, true, new ContentObserver(new Handler()) { // from class: com.baidu.tieba.TiebaApplication.4
             @Override // android.database.ContentObserver
             public void onChange(boolean selfChange) {
                 super.onChange(selfChange);
@@ -200,7 +255,10 @@ public class TiebaApplication extends Application {
                 AccountShareHelper.getInstance().init(this);
             }
             DatabaseService.getSettingData();
+            initFrsImageForums();
             this.mSdramImage = new SDRamImage();
+            this.mReadThreadHistory = new ReadThreadHistory(300);
+            this.mReadGuessHistory = new ReadThreadHistory(100);
             this.mNotificationManager = (NotificationManager) getSystemService("notification");
             PvThread pv = new PvThread(Config.ST_TYPE_OPEN);
             pv.start();
@@ -214,7 +272,35 @@ public class TiebaApplication extends Application {
         } else {
             this.mRemoteActivity = new ArrayList<>();
         }
+        IntentFilter filter = new IntentFilter("android.net.conn.CONNECTIVITY_CHANGE");
+        registerReceiver(new MyReceiver(), filter);
         super.onCreate();
+    }
+
+    public boolean isFrsImageForum(String id) {
+        return (this.mFrsImageForums == null || id == null || !this.mFrsImageForums.containsKey(id)) ? false : true;
+    }
+
+    public void addFrsImageForum(String name) {
+        if (!isFrsImageForum(name) && this.mFrsImageForums != null && name != null) {
+            this.mFrsImageForums.put(name, 1);
+            FrsImageThread thread = new FrsImageThread(FrsImageThread.TYPE_ADD, name);
+            thread.start();
+        }
+    }
+
+    public void delFrsImageForum(String name) {
+        if (isFrsImageForum(name) && this.mFrsImageForums != null && name != null) {
+            this.mFrsImageForums.remove(name);
+            FrsImageThread thread = new FrsImageThread(FrsImageThread.TYPE_DEL, name);
+            thread.start();
+        }
+    }
+
+    public void initFrsImageForums() {
+        this.mFrsImageForums = new Hashtable<>();
+        FrsImageThread thread = new FrsImageThread(this.mFrsImageForums);
+        thread.start();
     }
 
     public void startPullMessageService() {
@@ -308,11 +394,31 @@ public class TiebaApplication extends Application {
         this.mPromotedMessageOn = preference.getBoolean(PERMOTED_MESSAGE, true);
         this.mIsDisplayPhoto = preference.getBoolean(DISPLAY_PHOTO, true);
         this.mIsAbstractOn = preference.getBoolean(Config.PREFS_ABSTRACT_STATE, true);
-        this.mIsAbstractNew = preference.getString(DISPLAY_ABSTRACT_NEW, null);
+        this.mIsEyeShieldMode = preference.getBoolean("eyeshield_mode", false);
+        this.mIsEyeShieldModeNew = preference.getString(DISPLAY_EYESHIELDMODE_NEW, null);
         this.mMessageID = preference.getLong(MESSAGE_ID, 0L);
         this.mIsMotuOn = preference.getBoolean(MOTU_ON, true);
+        this.mBrowserType = preference.getInt(BROWSER_TYPE, 1);
         this.mIsManageMode = preference.getBoolean(MANAGE_MODE, false);
         this.mIsLocationOn = preference.getBoolean(LOCATION_ON, true);
+        this.mRefreshRecommendTime = preference.getLong(REFRESH_RECOMMEND_TIME, 0L);
+        this.mRefreshGuessTime = preference.getLong(REFRESH_GUESS_TIME, 0L);
+        this.mGuidePageBits = preference.getInt(GUIDE_PAGE_BITS, 0);
+        this.mIsShowAllLikeItems = preference.getString(SHOW_ALL_LIKE_ITEMS, null);
+    }
+
+    public int getBrowserType() {
+        return this.mBrowserType;
+    }
+
+    public void setBrowserType(int type) {
+        if (this.mBrowserType != type) {
+            SharedPreferences preference = getSharedPreferences(Config.SETTINGFILE, 0);
+            SharedPreferences.Editor editor = preference.edit();
+            editor.putInt(BROWSER_TYPE, type);
+            editor.commit();
+            this.mBrowserType = type;
+        }
     }
 
     public void setIsLocationOn(boolean ison) {
@@ -324,7 +430,7 @@ public class TiebaApplication extends Application {
     }
 
     public boolean getIsLocationOn() {
-        return false;
+        return this.mIsLocationOn;
     }
 
     public void setIsMotuOn(boolean ison) {
@@ -339,22 +445,37 @@ public class TiebaApplication extends Application {
         return this.mIsMotuOn;
     }
 
-    public void setDisplayAbstractNew() {
+    public void setDisplayEyeShieldModeNew() {
         SharedPreferences preference = getSharedPreferences(Config.SETTINGFILE, 0);
         SharedPreferences.Editor editor = preference.edit();
-        editor.putString(DISPLAY_ABSTRACT_NEW, Config.VERSION);
+        editor.putString(DISPLAY_EYESHIELDMODE_NEW, Config.VERSION);
         editor.commit();
-        this.mIsAbstractNew = Config.VERSION;
+        this.mIsEyeShieldModeNew = Config.VERSION;
     }
 
-    public String getDisplayAbstractNew() {
-        return this.mIsAbstractNew;
+    public String getDisplayEyeShieldModeNew() {
+        return this.mIsEyeShieldModeNew;
+    }
+
+    public void setShowAllLikeItems() {
+        SharedPreferences preference = getSharedPreferences(Config.SETTINGFILE, 0);
+        SharedPreferences.Editor editor = preference.edit();
+        editor.putString(SHOW_ALL_LIKE_ITEMS, Config.VERSION);
+        editor.commit();
+        this.mIsShowAllLikeItems = Config.VERSION;
+    }
+
+    public String getShowAllLikeItems() {
+        return this.mIsShowAllLikeItems;
     }
 
     private void InitVersion() {
         try {
             PackageInfo pinfo = getPackageManager().getPackageInfo("com.baidu.tieba", 16384);
             Config.VERSION = pinfo.versionName;
+            if (Config.VERSION == null) {
+                Config.VERSION = "";
+            }
         } catch (Exception e) {
             TiebaLog.e(getClass().getName(), "InitVersion", e.getMessage());
             Config.VERSION = "";
@@ -479,6 +600,49 @@ public class TiebaApplication extends Application {
 
     public boolean getIsManageMode() {
         return this.mIsManageMode;
+    }
+
+    public boolean isGuidePageShown(int bit) {
+        if (bit < 0 || bit >= 32) {
+            return true;
+        }
+        int mask = 1 << bit;
+        return (this.mGuidePageBits & mask) != 0;
+    }
+
+    public void setGuidePageShown(int bit) {
+        if (bit >= 0 && bit < 32) {
+            int mask = 1 << bit;
+            this.mGuidePageBits |= mask;
+            SharedPreferences preference = getSharedPreferences(Config.SETTINGFILE, 0);
+            SharedPreferences.Editor editor = preference.edit();
+            editor.putInt(GUIDE_PAGE_BITS, this.mGuidePageBits);
+            editor.commit();
+        }
+    }
+
+    public void setRefreshRecommendTime(long time) {
+        this.mRefreshRecommendTime = time;
+        SharedPreferences preference = getSharedPreferences(Config.SETTINGFILE, 0);
+        SharedPreferences.Editor editor = preference.edit();
+        editor.putLong(REFRESH_RECOMMEND_TIME, time);
+        editor.commit();
+    }
+
+    public long getRefreshRecommendTime() {
+        return this.mRefreshRecommendTime;
+    }
+
+    public void setRefreshGuessTime(long time) {
+        this.mRefreshGuessTime = time;
+        SharedPreferences preference = getSharedPreferences(Config.SETTINGFILE, 0);
+        SharedPreferences.Editor editor = preference.edit();
+        editor.putLong(REFRESH_GUESS_TIME, time);
+        editor.commit();
+    }
+
+    public long getRefreshGuessTime() {
+        return this.mRefreshGuessTime;
     }
 
     @Override // android.app.Application, android.content.ComponentCallbacks
@@ -872,6 +1036,27 @@ public class TiebaApplication extends Application {
         return this.mIsAbstractOn;
     }
 
+    public void setIsEyeShieldModeOn(boolean src) {
+        setIsEyeShieldModeValue(src);
+        getSharedPreferences(Config.SETTINGFILE, 0).edit().putBoolean("eyeshield_mode", src).commit();
+        SendEyeShieldBroadcast(src);
+    }
+
+    public void setIsEyeShieldModeValue(boolean src) {
+        this.mIsEyeShieldMode = src;
+    }
+
+    private void SendEyeShieldBroadcast(boolean src) {
+        Intent intent = new Intent();
+        intent.setAction(Config.BROADCAST_EYESHIELD);
+        intent.putExtra("eyeshield_mode", src);
+        sendBroadcast(intent);
+    }
+
+    public boolean getIsEyeShieldMode() {
+        return this.mIsEyeShieldMode;
+    }
+
     public void refreshMsg(long r, long a, long f) {
         if (r != this.mMsgReplyme || a != this.mMsgAtme || f != this.mMsgFans) {
             int notifyFlag = 0;
@@ -904,8 +1089,10 @@ public class TiebaApplication extends Application {
                     PendingIntent contentIntent = PendingIntent.getActivity(this, 0, intent, 0);
                     notification.setLatestEventInfo(this, "百度贴吧", String.valueOf(String.valueOf(getMsgTotal())) + "条新消息，刷新看看", contentIntent);
                     notification.defaults = -1;
-                    notification.defaults ^= 1;
+                    notification.defaults &= -2;
+                    notification.defaults &= -3;
                     notification.flags = 16;
+                    notification.audioStreamType = 5;
                     if (this.mRemindToneOn) {
                         notification.sound = Uri.parse("android.resource://" + getPackageName() + "/" + R.raw.remind_tone);
                     }
@@ -942,13 +1129,21 @@ public class TiebaApplication extends Application {
         return this.mSdramImage;
     }
 
+    public ReadThreadHistory getReadThreadHistory() {
+        return this.mReadThreadHistory;
+    }
+
+    public ReadThreadHistory getReadGuessHistory() {
+        return this.mReadGuessHistory;
+    }
+
     public int getPostImageSize() {
         switch (this.mUploadImageQuality) {
             case 1:
                 return Config.POST_IMAGE_BIG;
             case 2:
             default:
-                return Config.POST_IMAGE_MIDDLE;
+                return 600;
             case 3:
                 return 300;
         }
@@ -1012,18 +1207,10 @@ public class TiebaApplication extends Application {
         editor.commit();
     }
 
-    public void requestLocation() {
-        if (this.mLocationClient != null) {
-            this.mLocationClient.requestLocation();
-        }
-    }
-
     private void initLocationServer() {
-        if (Build.VERSION.SDK_INT > 4 && getIsLocationOn()) {
+        if (getIsLocationOn()) {
             try {
-                this.mLocationClient = new LocationClient(this);
-                this.myListener = new MyLocationListenner(this, null);
-                this.mLocationClient.registerLocationListener(this.myListener);
+                this.mLocationManager = (LocationManager) getSystemService("location");
             } catch (Exception e) {
                 TiebaLog.e(getClass().getName(), "initLocationServer", e.toString());
             }
@@ -1031,18 +1218,14 @@ public class TiebaApplication extends Application {
     }
 
     public void startLocationServer() {
-        if (Build.VERSION.SDK_INT > 4 && getIsLocationOn()) {
+        if (getIsLocationOn()) {
             try {
                 if (this.lastLocation == null || System.currentTimeMillis() - this.lastLocationTime > LOCATION_EXPIRATION) {
                     this.lastLocation = null;
-                    if (this.mLocationClient.isStarted()) {
-                        this.mLocationClient.requestLocation();
-                    } else {
-                        setLocationOption();
-                        this.mLocationClient.start();
-                    }
-                    this.handler.removeMessages(5);
-                    this.handler.sendEmptyMessageDelayed(5, 60000L);
+                    requestUpdatesFromProvider("gps");
+                    requestUpdatesFromProvider("network");
+                    this.handler.removeCallbacks(this.stopRunnable);
+                    this.handler.postDelayed(this.stopRunnable, 60000L);
                 }
             } catch (Exception e) {
                 TiebaLog.e(getClass().getName(), "startLocationServer", e.toString());
@@ -1050,54 +1233,19 @@ public class TiebaApplication extends Application {
         }
     }
 
+    private void requestUpdatesFromProvider(String provider) {
+        if (this.mLocationManager.isProviderEnabled(provider)) {
+            this.mLocationManager.requestLocationUpdates(provider, 10000L, 100.0f, this.listener);
+        }
+    }
+
     public void stopLocationServer() {
-        if (this.mLocationClient != null && this.mLocationClient.isStarted()) {
-            this.mLocationClient.stop();
+        if (this.mLocationManager != null) {
+            this.mLocationManager.removeUpdates(this.listener);
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes.dex */
-    public class MyLocationListenner implements BDLocationListener {
-        private MyLocationListenner() {
-        }
-
-        /* synthetic */ MyLocationListenner(TiebaApplication tiebaApplication, MyLocationListenner myLocationListenner) {
-            this();
-        }
-
-        @Override // com.baidu.location.BDLocationListener
-        public void onReceiveLocation(BDLocation location) {
-            TiebaApplication.this.stopLocationServer();
-            if (location != null) {
-                int errorCode = location.getLocType();
-                if (errorCode == 61 || errorCode == 161 || errorCode == 65) {
-                    TiebaApplication.this.lastLocation = location;
-                    TiebaApplication.this.lastLocationTime = System.currentTimeMillis();
-                }
-                TiebaLog.i(getClass().getName(), "listener", "errorcode=" + errorCode + ' ' + location.getLatitude());
-            }
-        }
-
-        @Override // com.baidu.location.BDLocationListener
-        public void onReceivePoi(BDLocation poiLocation) {
-            if (poiLocation == null) {
-            }
-        }
-    }
-
-    private void setLocationOption() {
-        LocationClientOption option = new LocationClientOption();
-        option.setProdName(Config.TMPDIRNAME);
-        option.setServiceName("com.baidu.location.service_tieba");
-        option.setOpenGps(true);
-        option.setCoorType("bd09ll");
-        option.setPriority(2);
-        option.setScanSpan(10);
-        this.mLocationClient.setLocOption(option);
-    }
-
-    public BDLocation getLocation() {
+    public Location getLocation() {
         return this.lastLocation;
     }
 
@@ -1148,5 +1296,15 @@ public class TiebaApplication extends Application {
 
     public long getMessageID() {
         return this.mMessageID;
+    }
+
+    public void sendImagePv(int pvNum, int pvTotalNum, String type) {
+        if (this.imagePvThread == null) {
+            this.imagePvThread = Executors.newSingleThreadExecutor();
+        }
+        TiebaLog.i(getClass().getName(), "pv_addImagePv", "img_num=" + pvNum + " img_total" + pvTotalNum);
+        PvImageThread imagePv = new PvImageThread(pvNum, pvTotalNum);
+        imagePv.setType(type);
+        this.imagePvThread.execute(imagePv);
     }
 }

@@ -10,6 +10,7 @@ import android.widget.RelativeLayout;
 import com.baidu.tieba.R;
 import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.data.Config;
+import com.baidu.tieba.pb.ImageActivity;
 import com.baidu.tieba.util.BitmapHelper;
 import com.baidu.tieba.util.FileHelper;
 import com.baidu.tieba.util.NetWork;
@@ -197,7 +198,6 @@ public class UrlDragImageView extends RelativeLayout {
             } else {
                 url = String.valueOf(url2) + "&qulity=" + String.valueOf(45);
             }
-            String url3 = String.valueOf(url) + "&ispv=1";
             Bitmap bm = null;
             try {
                 byte[] data = UrlDragImageView.this.mImageView.getImageData();
@@ -208,8 +208,19 @@ public class UrlDragImageView extends RelativeLayout {
                     bm = BitmapHelper.Bytes2Bitmap(data);
                 }
                 if (bm == null) {
-                    String fullUrl = Config.IMAGE_ADDRESS + url3;
+                    String fullUrl = Config.IMAGE_ADDRESS + url;
                     this.mNetwork = new NetWork(fullUrl);
+                    if (UrlDragImageView.this.mContext != null && (UrlDragImageView.this.mContext instanceof ImageActivity)) {
+                        if (((ImageActivity) UrlDragImageView.this.mContext).getFid() != null) {
+                            this.mNetwork.addPostData("fid", ((ImageActivity) UrlDragImageView.this.mContext).getFid());
+                        }
+                        if (((ImageActivity) UrlDragImageView.this.mContext).getTid() != null) {
+                            this.mNetwork.addPostData("tid", ((ImageActivity) UrlDragImageView.this.mContext).getTid());
+                        }
+                        if (((ImageActivity) UrlDragImageView.this.mContext).getFname() != null) {
+                            this.mNetwork.addPostData("fname", ((ImageActivity) UrlDragImageView.this.mContext).getFname());
+                        }
+                    }
                     this.mNetwork.setIsBDImage(true);
                     data = this.mNetwork.getNetData();
                     if (this.mNetwork.isRequestSuccess()) {

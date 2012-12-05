@@ -20,6 +20,7 @@ import cn.jingling.lib.filters.onekey.ReallyClassicHDR;
 import cn.jingling.lib.filters.onekey.SingleColorPurple;
 import cn.jingling.lib.filters.onekey.SingleColorRed;
 import cn.jingling.lib.filters.onekey.Sketch;
+import cn.jingling.lib.filters.onekey.Skin;
 import cn.jingling.lib.filters.onekey.Sunny;
 import cn.jingling.lib.filters.onekey.Sweety;
 import cn.jingling.lib.filters.onekey.XingGuang;
@@ -36,6 +37,7 @@ public class FilterFactory {
         private static final long serialVersionUID = -4215192030410560547L;
 
         {
+            put("skin", Skin.class);
             put("fleeting", JiuShiGuang.class);
             put("dazzle", XuanCai.class);
             put("old", Archive.class);

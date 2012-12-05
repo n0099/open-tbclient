@@ -11,6 +11,7 @@ public interface RequestResponseCode {
     public static final int REQUEST_IMAGE_VIEW = 1200003;
     public static final int REQUEST_LOGIN_CAMERA_OR_IMAGE = 1100016;
     public static final int REQUEST_LOGIN_CREATE_BAR = 1100013;
+    public static final int REQUEST_LOGIN_FRS_ADD_FAN = 1100021;
     public static final int REQUEST_LOGIN_FRS_HOST = 1100011;
     public static final int REQUEST_LOGIN_FRS_REVERSE = 1100012;
     public static final int REQUEST_LOGIN_HOME_REFRESHLIKE = 1100015;
@@ -29,6 +30,7 @@ public interface RequestResponseCode {
     public static final int REQUEST_LOGIN_SUBPB_FORBID_USER = 1100020;
     public static final int REQUEST_LOGIN_USE = 1100003;
     public static final int REQUEST_LOGIN_WRITE = 1100001;
+    public static final int REQUEST_PB_BIG_IMAGE = 1400001;
     public static final int REQUEST_REGIST = 1200006;
     public static final int REQUEST_VCODE = 1200005;
     public static final int REQUEST_WRITE_NEW = 1300003;

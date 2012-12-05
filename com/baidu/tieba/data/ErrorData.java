@@ -1,6 +1,5 @@
 package com.baidu.tieba.data;
 
-import com.baidu.android.pushservice.PushConstants;
 import com.baidu.tieba.util.TiebaLog;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
@@ -46,7 +45,7 @@ public class ErrorData {
         if (json != null) {
             try {
                 this.error_code = json.optInt("error_code", 0);
-                this.error_msg = json.optString(PushConstants.EXTRA_ERROR_CODE);
+                this.error_msg = json.optString("error_msg");
                 this.error_data = json.optString("error_data");
             } catch (Exception ex) {
                 TiebaLog.e(getClass().getName(), "parserJson", ex.getMessage());

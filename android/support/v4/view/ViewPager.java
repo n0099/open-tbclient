@@ -27,7 +27,7 @@ import android.view.ViewParent;
 import android.view.accessibility.AccessibilityEvent;
 import android.view.animation.Interpolator;
 import android.widget.Scroller;
-import com.baidu.location.BDLocation;
+import com.baidu.tieba.data.ContentData;
 import com.baidu.tieba.util.NetWorkErr;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -1037,7 +1037,7 @@ public class ViewPager extends ViewGroup {
             case 1:
                 if (this.mIsBeingDragged) {
                     VelocityTracker velocityTracker = this.mVelocityTracker;
-                    velocityTracker.computeCurrentVelocity(1000, this.mMaximumVelocity);
+                    velocityTracker.computeCurrentVelocity(ContentData.TYPE_VIDEO_IMAGE, this.mMaximumVelocity);
                     int initialVelocity = (int) VelocityTrackerCompat.getXVelocity(velocityTracker, this.mActivePointerId);
                     this.mPopulatePending = true;
                     int widthWithMargin = getWidth() + this.mPageMargin;
@@ -1213,7 +1213,7 @@ public class ViewPager extends ViewGroup {
             throw new IllegalStateException("No fake drag in progress. Call beginFakeDrag first.");
         }
         VelocityTracker velocityTracker = this.mVelocityTracker;
-        velocityTracker.computeCurrentVelocity(1000, this.mMaximumVelocity);
+        velocityTracker.computeCurrentVelocity(ContentData.TYPE_VIDEO_IMAGE, this.mMaximumVelocity);
         int initialVelocity = (int) VelocityTrackerCompat.getYVelocity(velocityTracker, this.mActivePointerId);
         this.mPopulatePending = true;
         int totalDelta = (int) (this.mLastMotionX - this.mInitialMotionX);
@@ -1315,7 +1315,7 @@ public class ViewPager extends ViewGroup {
             case NetWorkErr.USER_HAS_LIKE_FORUM /* 22 */:
                 boolean handled2 = arrowScroll(66);
                 return handled2;
-            case BDLocation.TypeGpsLocation /* 61 */:
+            case 61:
                 if (Build.VERSION.SDK_INT < 11) {
                     return false;
                 }

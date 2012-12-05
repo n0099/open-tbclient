@@ -12,6 +12,7 @@ import com.baidu.tieba.data.Config;
 import com.baidu.tieba.util.FileHelper;
 import com.baidu.tieba.util.NetWorkCore;
 import com.baidu.tieba.util.TiebaLog;
+import com.baidu.tieba.write.VcodeActivity;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
@@ -160,7 +161,7 @@ public class TiebaActiveService extends Service {
                 this.mNetWorkCore.setContext(TiebaActiveService.this.getApplicationContext());
                 this.mNetWorkCore.addPostData("apk", TiebaApplication.app.getPackageName());
                 this.mNetWorkCore.addPostData("imei", TiebaApplication.app.getImei());
-                this.mNetWorkCore.addPostData("model", Build.MODEL);
+                this.mNetWorkCore.addPostData(VcodeActivity.SAVE_KEY, Build.MODEL);
                 this.mNetWorkCore.addPostData("edition", Config.VERSION);
                 this.mNetWorkCore.addPostData("system", Build.VERSION.SDK);
                 this.mNetWorkCore.setIsBaiduServer(false);

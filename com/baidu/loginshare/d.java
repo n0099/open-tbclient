@@ -1,93 +1,65 @@
 package com.baidu.loginshare;
 
-import android.content.Context;
 import android.util.Log;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileWriter;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.util.ArrayList;
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.entity.UrlEncodedFormEntity;
+import org.apache.http.client.methods.HttpPost;
+import org.apache.http.impl.client.DefaultHttpClient;
+import org.apache.http.message.BasicNameValuePair;
+import org.apache.http.params.BasicHttpParams;
+import org.apache.http.params.HttpConnectionParams;
+import org.apache.http.params.HttpParams;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class d {
-    private Context a;
-    private JSONObject b;
-    private File c;
+public class d implements Runnable {
+    private static final int g = 15000;
+    private static final String h = "appid";
+    private static final String i = "bduss";
+    private static final String j = "tpl";
+    private static final String k = "sName";
+    private static final String l = "utf-8";
+    final /* synthetic */ c a;
+    private String b;
+    private String c;
     private String d;
-    private boolean e;
+    private HttpClient e;
+    private HttpParams f;
 
-    /* JADX DEBUG: Multi-variable search result rejected for r1v0, resolved type: com.baidu.loginshare.d */
-    /* JADX WARN: Multi-variable type inference failed */
-    d(Context context) {
-        this.a = null;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public d(c cVar, String str, String str2, String str3) {
+        this.a = cVar;
         this.b = null;
         this.c = null;
-        this.d = "loginshare";
-        this.e = false;
-        this.a = context;
-        c();
+        this.d = null;
+        this.e = null;
+        this.f = null;
+        this.b = str;
+        this.c = str2;
+        this.d = str3;
+        this.f = new BasicHttpParams();
+        HttpConnectionParams.setConnectionTimeout(this.f, g);
+        HttpConnectionParams.setSoTimeout(this.f, g);
+        this.e = new DefaultHttpClient(this.f);
     }
 
-    /* JADX DEBUG: Multi-variable search result rejected for r4v0, resolved type: com.baidu.loginshare.d */
-    /* JADX WARN: Multi-variable type inference failed */
-    private void c() {
-        File filesDir = this.a.getFilesDir();
-        Log.d(this.d, "FileStorage.init.fileDir." + filesDir);
-        this.c = new File(String.valueOf(filesDir.getAbsolutePath()) + "/" + Keystore.e());
-        Log.d(this.d, "FileStorage.init.mFile." + this.c);
-        if (!this.c.exists()) {
-            this.b = new JSONObject();
-            return;
-        }
+    @Override // java.lang.Runnable
+    public void run() {
+        String str;
+        String str2;
+        ArrayList arrayList = new ArrayList();
+        str = this.a.d;
+        arrayList.add(new BasicNameValuePair(h, str));
+        arrayList.add(new BasicNameValuePair("bduss", this.c));
+        str2 = this.a.c;
+        arrayList.add(new BasicNameValuePair(j, str2));
+        arrayList.add(new BasicNameValuePair(k, this.d));
         try {
-            FileInputStream fileInputStream = new FileInputStream(this.c);
-            byte[] bArr = new byte[(int) this.c.length()];
-            fileInputStream.read(bArr);
-            this.b = new JSONObject(new String(bArr));
+            HttpPost httpPost = new HttpPost(this.b);
+            httpPost.setEntity(new UrlEncodedFormEntity(arrayList, l));
+            this.e.execute(httpPost);
         } catch (Exception e) {
-            this.b = new JSONObject();
+            Log.d("loginshare", "exception = " + e.toString());
         }
-    }
-
-    /* JADX DEBUG: Multi-variable search result rejected for r1v0, resolved type: com.baidu.loginshare.d */
-    /* JADX WARN: Multi-variable type inference failed */
-    public String a(String str) {
-        return this.b.optString(str);
-    }
-
-    /* JADX DEBUG: Multi-variable search result rejected for r1v0, resolved type: com.baidu.loginshare.d */
-    /* JADX WARN: Multi-variable type inference failed */
-    public void a(String str, String str2) {
-        try {
-            this.b.put(str, str2);
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-        if (this.e) {
-            return;
-        }
-        String a = a(str);
-        this.e = a != null ? a.equals(str2) : str2 == null;
-    }
-
-    /* JADX DEBUG: Multi-variable search result rejected for r4v0, resolved type: com.baidu.loginshare.d */
-    /* JADX WARN: Multi-variable type inference failed */
-    public boolean a() {
-        if (this.e) {
-            try {
-                FileWriter fileWriter = new FileWriter(this.c);
-                fileWriter.write(this.b.toString());
-                fileWriter.flush();
-                fileWriter.close();
-                this.e = false;
-                return true;
-            } catch (Exception e) {
-                e.printStackTrace();
-                return false;
-            }
-        }
-        return true;
-    }
-
-    public void b() {
     }
 }

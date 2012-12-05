@@ -612,56 +612,90 @@ public class PbAdapter extends BaseAdapter {
     public class ImageOnClickListener implements View.OnClickListener {
         private ArrayList<ContentData> mContent;
         private int mIndex;
+        private int mOriIndex;
 
         public ImageOnClickListener(ArrayList<ContentData> content, int index) {
             this.mContent = content;
             this.mIndex = index;
+            this.mOriIndex = index;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View v) {
-            boolean index_valid = false;
             try {
-                ArrayList<String> data = new ArrayList<>();
-                int num = PbAdapter.this.mData.size();
-                for (int i = 0; i < num; i++) {
-                    ArrayList<ContentData> content = ((PostData) PbAdapter.this.mData.get(i)).getUnite_content();
-                    if (content == this.mContent) {
-                        index_valid = true;
-                    }
-                    if (content != null) {
-                        int content_num = content.size();
-                        for (int j = 0; j < content_num; j++) {
-                            if (content.get(j) != null && content.get(j).getType() == 3) {
-                                StringBuffer buffer = new StringBuffer(100);
-                                if (content.get(j).getWidth() * content.get(j).getHeight() > Config.THREAD_IMAGE_MAX_WIDTH * Config.THREAD_IMAGE_MAX_WIDTH) {
-                                    double a = Math.sqrt((Config.THREAD_IMAGE_MAX_WIDTH * Config.THREAD_IMAGE_MAX_WIDTH) / (content.get(j).getWidth() * content.get(j).getHeight()));
-                                    buffer.append("width=");
-                                    buffer.append(String.valueOf((int) (content.get(j).getWidth() * a)));
-                                    buffer.append("&height=");
-                                    buffer.append(String.valueOf((int) (content.get(j).getHeight() * a)));
-                                } else {
-                                    buffer.append("width=");
-                                    buffer.append(String.valueOf(content.get(j).getWidth()));
-                                    buffer.append("&height=");
-                                    buffer.append(String.valueOf(content.get(j).getHeight()));
-                                }
-                                buffer.append("&src=");
-                                String encode = StringHelper.getUrlEncode(content.get(j).getLink());
-                                buffer.append(encode);
-                                data.add(buffer.toString());
-                                if (!index_valid) {
-                                    this.mIndex++;
+                if (PbAdapter.this.validImage(this.mContent, this.mIndex)) {
+                    boolean index_valid = false;
+                    ArrayList<String> data = new ArrayList<>();
+                    int num = PbAdapter.this.mData.size();
+                    for (int i = 0; i < num; i++) {
+                        ArrayList<ContentData> content = ((PostData) PbAdapter.this.mData.get(i)).getUnite_content();
+                        if (content == this.mContent) {
+                            index_valid = true;
+                        }
+                        if (content != null) {
+                            int content_num = content.size();
+                            int pic_index = -1;
+                            for (int j = 0; j < content_num; j++) {
+                                if (content.get(j) != null && content.get(j).getType() == 3) {
+                                    pic_index++;
+                                    if (content.get(j).getWidth() < 50 && content.get(j).getHeight() < 50) {
+                                        if (content == this.mContent && pic_index <= this.mOriIndex) {
+                                            this.mIndex--;
+                                        }
+                                    } else {
+                                        StringBuffer buffer = new StringBuffer(100);
+                                        if (content.get(j).getWidth() * content.get(j).getHeight() > Config.THREAD_IMAGE_MAX_WIDTH * Config.THREAD_IMAGE_MAX_WIDTH) {
+                                            double a = Math.sqrt((Config.THREAD_IMAGE_MAX_WIDTH * Config.THREAD_IMAGE_MAX_WIDTH) / (content.get(j).getWidth() * content.get(j).getHeight()));
+                                            buffer.append("width=");
+                                            buffer.append(String.valueOf((int) (content.get(j).getWidth() * a)));
+                                            buffer.append("&height=");
+                                            buffer.append(String.valueOf((int) (content.get(j).getHeight() * a)));
+                                        } else {
+                                            float f = content.get(j).getWidth() / content.get(j).getHeight();
+                                            double a2 = Math.sqrt((Config.THREAD_IMAGE_MAX_WIDTH * Config.THREAD_IMAGE_MAX_WIDTH) / f);
+                                            buffer.append("width=");
+                                            buffer.append(String.valueOf((int) (f * a2)));
+                                            buffer.append("&height=");
+                                            buffer.append(String.valueOf((int) a2));
+                                        }
+                                        buffer.append("&src=");
+                                        String encode = StringHelper.getUrlEncode(content.get(j).getLink());
+                                        buffer.append(encode);
+                                        data.add(buffer.toString());
+                                        if (!index_valid) {
+                                            this.mIndex++;
+                                        }
+                                    }
                                 }
                             }
                         }
                     }
+                    ImageActivity.startActivity(PbAdapter.this.mContext, data, this.mIndex, PbAdapter.this.mPbModel);
                 }
-                ImageActivity.startActivity(PbAdapter.this.mContext, data, this.mIndex);
             } catch (Exception ex) {
                 TiebaLog.e("PbAdapter", "ImageOnClickListener", "error = " + ex.getMessage());
             }
         }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public boolean validImage(ArrayList<ContentData> content, int index) {
+        if (content == null || index < 0) {
+            return false;
+        }
+        int content_num = content.size();
+        int i = -1;
+        for (int j = 0; j < content_num; j++) {
+            if (content.get(j) != null && content.get(j).getType() == 3) {
+                i++;
+                if (i == index) {
+                    return content.get(j).getWidth() >= 50 || content.get(j).getHeight() >= 50;
+                } else if (i > index) {
+                    return false;
+                }
+            }
+        }
+        return false;
     }
 
     /* loaded from: classes.dex */

@@ -8,6 +8,7 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.mention.MentionActivity;
 import com.baidu.tieba.util.BitmapHelper;
 import com.baidu.tieba.util.TiebaLog;
+import com.baidu.tieba.write.WriteImageActivity;
 import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -25,13 +26,14 @@ public class ThreadData {
     private int is_top = 0;
     private int is_good = 0;
     private MetaData author = new MetaData();
-    private MetaData last_replyer = new MetaData();
+    private String forum_name = null;
     ArrayList<MediaData> mMedias = new ArrayList<>();
     private int comment_num = 0;
     private int has_commented = 0;
     private int show_commented = 0;
     private String ad_url = null;
     private String abstract_text = null;
+    private String from = null;
 
     public void setId(String id) {
         this.id = id;
@@ -121,12 +123,12 @@ public class ThreadData {
         this.author = author;
     }
 
-    public MetaData getLast_replyer() {
-        return this.last_replyer;
+    public String getForum_name() {
+        return this.forum_name;
     }
 
-    public void setLast_replyer(MetaData last_replyer) {
-        this.last_replyer = last_replyer;
+    public void setForum_name(String forum_name) {
+        this.forum_name = forum_name;
     }
 
     public int getComment_num() {
@@ -165,6 +167,10 @@ public class ThreadData {
         return this.abstract_text;
     }
 
+    public String getFrom() {
+        return this.from;
+    }
+
     public ArrayList<MediaData> getMedias() {
         return this.mMedias;
     }
@@ -192,11 +198,12 @@ public class ThreadData {
                 this.is_top = json.optInt("is_top", 0);
                 this.is_good = json.optInt("is_good", 0);
                 this.author.parserJson(json.optJSONObject("author"));
-                this.last_replyer.parserJson(json.optJSONObject("last_replyer"));
+                this.forum_name = json.optString("fname");
                 this.comment_num = json.optInt("comment_num", 0);
                 this.has_commented = json.optInt("has_commented", 0);
                 this.show_commented = json.optInt("show_commented", 0);
                 this.ad_url = json.optString("click_url");
+                this.from = json.optString(WriteImageActivity.FROM);
                 JSONArray temp = json.optJSONArray("abstract");
                 if (temp != null) {
                     for (int i = 0; i < temp.length(); i++) {
@@ -232,13 +239,13 @@ public class ThreadData {
         TiebaLog.v("ThreadData", "logPrint", "view_num = " + String.valueOf(this.view_num));
         TiebaLog.v("ThreadData", "logPrint", "last_time = " + String.valueOf(this.last_time));
         TiebaLog.v("ThreadData", "logPrint", "last_time_int = " + this.last_time_int);
+        TiebaLog.v("ThreadData", "logPrint", "forum_name = " + this.forum_name);
         TiebaLog.v("ThreadData", "logPrint", "is_top = " + String.valueOf(this.is_top));
         TiebaLog.v("ThreadData", "logPrint", "is_good = " + String.valueOf(this.is_good));
         TiebaLog.v("ThreadData", "logPrint", "comment_num = " + String.valueOf(this.comment_num));
         TiebaLog.v("ThreadData", "logPrint", "has_commented = " + String.valueOf(this.has_commented));
         TiebaLog.v("ThreadData", "logPrint", "ad_url = " + this.ad_url);
         this.author.logPrint();
-        this.last_replyer.logPrint();
     }
 
     public void setSpan_str(SpannableString span_str) {

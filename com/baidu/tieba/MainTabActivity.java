@@ -10,11 +10,16 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.KeyEvent;
+import android.view.View;
+import android.view.WindowManager;
 import android.widget.CompoundButton;
 import android.widget.FrameLayout;
+import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.TabHost;
 import android.widget.TabWidget;
@@ -25,19 +30,21 @@ import com.baidu.tieba.data.Config;
 import com.baidu.tieba.data.RequestResponseCode;
 import com.baidu.tieba.frs.FrsActivity;
 import com.baidu.tieba.home.HomeActivity;
-import com.baidu.tieba.home.LikeActivity;
-import com.baidu.tieba.home.MarkActivity;
 import com.baidu.tieba.mention.MentionActivity;
 import com.baidu.tieba.more.MoreActivity;
 import com.baidu.tieba.pb.PbActivity;
 import com.baidu.tieba.person.PersonInfoActivity;
+import com.baidu.tieba.recommend.GuessActivity;
+import com.baidu.tieba.recommend.NewHomeActivity;
 import com.baidu.tieba.recommend.RecommendActivity;
 import com.baidu.tieba.service.ClearTempService;
 import com.baidu.tieba.service.TiebaActiveService;
 import com.baidu.tieba.service.TiebaSyncService;
+import com.baidu.tieba.util.BitmapHelper;
 import com.baidu.tieba.util.NetWorkCore;
 import com.baidu.tieba.util.TiebaLog;
 import com.baidu.tieba.util.UtilHelper;
+import com.baidu.tieba.view.ImageViewDialog;
 /* loaded from: classes.dex */
 public class MainTabActivity extends TabActivity implements CompoundButton.OnCheckedChangeListener {
     public static final String CURRENT_TAB = "home_tab";
@@ -82,6 +89,9 @@ public class MainTabActivity extends TabActivity implements CompoundButton.OnChe
     private RadioButton mMoreButton = null;
     private AlertDialog mWifiAffirmDialog = null;
     private AlertDialog mNotWifiAffirmDialog = null;
+    private ImageViewDialog mImageViewDialog = null;
+    private ImageView mGuidePage1 = null;
+    private ImageView mGuidePage2 = null;
     private UpdateReceiver receiver = null;
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -100,6 +110,54 @@ public class MainTabActivity extends TabActivity implements CompoundButton.OnChe
             MainTabActivity.this.mMsgAtme = intent.getLongExtra(Config.BROADCAST_AT_ME_NUM, 0L);
             MainTabActivity.this.mMsgFans = intent.getLongExtra(Config.BROADCAST_FANS_NUM, 0L);
             MainTabActivity.this.refreshMsg();
+        }
+    }
+
+    public void showBigImageDialog(Bitmap bm, boolean loading) {
+        if (bm != null) {
+            if (this.mImageViewDialog == null) {
+                this.mImageViewDialog = new ImageViewDialog(this, UtilHelper.getScreenSize(getCurrentActivity()).widthPixels, UtilHelper.getScreenSize(getCurrentActivity()).heightPixels - UtilHelper.getStatusBarHeight(getCurrentActivity()));
+                this.mImageViewDialog.setOnDismissListener(new DialogInterface.OnDismissListener() { // from class: com.baidu.tieba.MainTabActivity.1
+                    @Override // android.content.DialogInterface.OnDismissListener
+                    public void onDismiss(DialogInterface dialog) {
+                        MainTabActivity.this.closeBigImageDialog();
+                    }
+                });
+                this.mImageViewDialog.setOnCancelListener(new DialogInterface.OnCancelListener() { // from class: com.baidu.tieba.MainTabActivity.2
+                    @Override // android.content.DialogInterface.OnCancelListener
+                    public void onCancel(DialogInterface dialog) {
+                        MainTabActivity.this.closeBigImageDialog();
+                    }
+                });
+            }
+            if (this.mImageViewDialog.isShowing()) {
+                this.mImageViewDialog.setImage(bm);
+            } else {
+                this.mImageViewDialog.showDialog(bm, loading);
+            }
+            setActivityDim(0.3f);
+        }
+    }
+
+    public void errorBigImageDialog() {
+        if (this.mImageViewDialog != null) {
+            this.mImageViewDialog.ImageError();
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void closeBigImageDialog() {
+        setActivityDim(1.0f);
+        if (this.mImageViewDialog != null) {
+            this.mImageViewDialog.setImage(null);
+        }
+    }
+
+    private void setActivityDim(float alpha) {
+        if (!TiebaApplication.app.getIsEyeShieldMode()) {
+            WindowManager.LayoutParams params = getWindow().getAttributes();
+            params.alpha = alpha;
+            getWindow().setAttributes(params);
         }
     }
 
@@ -160,7 +218,7 @@ public class MainTabActivity extends TabActivity implements CompoundButton.OnChe
         setContentView(R.layout.maintabs_activity);
         this.mHost = getTabHost();
         this.mHomeIntent = new Intent(this, HomeActivity.class);
-        this.mReCommendIntent = new Intent(this, RecommendActivity.class);
+        this.mReCommendIntent = new Intent(this, NewHomeActivity.class);
         this.mSortIntent = new Intent(this, MentionActivity.class);
         this.mPersonIntent = new Intent(this, PersonInfoActivity.class);
         this.mPersonIntent.putExtra(PersonInfoActivity.TAG_SELF, true);
@@ -169,6 +227,34 @@ public class MainTabActivity extends TabActivity implements CompoundButton.OnChe
         this.mMoreIntent = new Intent(this, MoreActivity.class);
         this.mMessageTipsMention = (TextView) findViewById(R.id.message_mention);
         this.mMessageTipsPerson = (TextView) findViewById(R.id.message_person);
+        this.mGuidePage1 = (ImageView) findViewById(R.id.guide_page_book_mark_1);
+        this.mGuidePage1.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.MainTabActivity.3
+            @Override // android.view.View.OnClickListener
+            public void onClick(View arg0) {
+                if (MainTabActivity.this.mGuidePage1 != null && MainTabActivity.this.mGuidePage1.getBackground() != null) {
+                    Bitmap bm = ((BitmapDrawable) MainTabActivity.this.mGuidePage1.getBackground()).getBitmap();
+                    MainTabActivity.this.mGuidePage1.setBackgroundDrawable(null);
+                    if (bm != null && !bm.isRecycled()) {
+                        bm.recycle();
+                    }
+                    MainTabActivity.this.mGuidePage1.setVisibility(8);
+                }
+            }
+        });
+        this.mGuidePage2 = (ImageView) findViewById(R.id.guide_page_book_mark_2);
+        this.mGuidePage2.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.MainTabActivity.4
+            @Override // android.view.View.OnClickListener
+            public void onClick(View arg0) {
+                if (MainTabActivity.this.mGuidePage2 != null && MainTabActivity.this.mGuidePage2.getBackground() != null) {
+                    Bitmap bm = ((BitmapDrawable) MainTabActivity.this.mGuidePage2.getBackground()).getBitmap();
+                    MainTabActivity.this.mGuidePage2.setBackgroundDrawable(null);
+                    if (bm != null && !bm.isRecycled()) {
+                        bm.recycle();
+                    }
+                    MainTabActivity.this.mGuidePage2.setVisibility(8);
+                }
+            }
+        });
         initRadios();
         Intent intent = new Intent();
         intent.putExtras(getIntent());
@@ -237,6 +323,20 @@ public class MainTabActivity extends TabActivity implements CompoundButton.OnChe
         }
         if (this.mHandler != null) {
             this.mHandler.removeMessages(1);
+        }
+        if (this.mGuidePage1 != null && this.mGuidePage1.getBackground() != null) {
+            Bitmap bm = ((BitmapDrawable) this.mGuidePage1.getBackground()).getBitmap();
+            this.mGuidePage1.setBackgroundDrawable(null);
+            if (bm != null && !bm.isRecycled()) {
+                bm.recycle();
+            }
+        }
+        if (this.mGuidePage2 != null && this.mGuidePage2.getBackground() != null) {
+            Bitmap bm2 = ((BitmapDrawable) this.mGuidePage2.getBackground()).getBitmap();
+            this.mGuidePage2.setBackgroundDrawable(null);
+            if (bm2 != null && !bm2.isRecycled()) {
+                bm2.recycle();
+            }
         }
         super.onDestroy();
         System.gc();
@@ -326,35 +426,39 @@ public class MainTabActivity extends TabActivity implements CompoundButton.OnChe
             buttonView.setTextColor(-13588993);
             if (id == null || id.length() <= 0) {
                 switch (buttonView.getId()) {
-                    case R.id.radio_home /* 2131230949 */:
-                        this.mOldButton = tmp;
-                        LoginActivity.startActivity(this, GOTO_HOME, getString(R.string.login_home_tab), (int) RequestResponseCode.REQUEST_LOGIN_USE);
-                        return;
-                    case R.id.radio_sort /* 2131230950 */:
+                    case R.id.radio_sort /* 2131231016 */:
                         this.mOldButton = tmp;
                         LoginActivity.startActivity(this, GOTO_SORT, getString(R.string.login_msg_tab), (int) RequestResponseCode.REQUEST_LOGIN_USE);
                         return;
-                    case R.id.radio_person_info /* 2131230951 */:
+                    case R.id.radio_person_info /* 2131231017 */:
                         this.mOldButton = tmp;
                         LoginActivity.startActivity(this, GOTO_PERSON, getString(R.string.login_person_tab), (int) RequestResponseCode.REQUEST_LOGIN_USE);
                         return;
                 }
             }
             switch (buttonView.getId()) {
-                case R.id.radio_recommend /* 2131230948 */:
+                case R.id.radio_recommend /* 2131231014 */:
                     this.mHost.setCurrentTabByTag(RECOMMEND_TAB);
                     return;
-                case R.id.radio_home /* 2131230949 */:
+                case R.id.radio_home /* 2131231015 */:
                     this.mHost.setCurrentTabByTag("home_tab");
+                    if (id != null && id.length() > 0 && this.mGuidePage1.getVisibility() != 0) {
+                        checkShowGuidePage(0, this.mGuidePage1, R.drawable.guide_page_book_mark_1);
+                        return;
+                    }
                     return;
-                case R.id.radio_sort /* 2131230950 */:
+                case R.id.radio_sort /* 2131231016 */:
                     this.mHost.setCurrentTabByTag(SORT_TAB);
                     return;
-                case R.id.radio_person_info /* 2131230951 */:
+                case R.id.radio_person_info /* 2131231017 */:
                     this.mPersonIntent.putExtra("un", TiebaApplication.getCurrentAccount());
                     this.mHost.setCurrentTabByTag(PERSON_INFO_TAB);
+                    if (id != null && id.length() > 0 && this.mGuidePage2.getVisibility() != 0) {
+                        checkShowGuidePage(1, this.mGuidePage2, R.drawable.guide_page_book_mark_2);
+                        return;
+                    }
                     return;
-                case R.id.radio_more /* 2131230952 */:
+                case R.id.radio_more /* 2131231018 */:
                     this.mHost.setCurrentTabByTag(MORE_TAB);
                     return;
                 default:
@@ -373,28 +477,30 @@ public class MainTabActivity extends TabActivity implements CompoundButton.OnChe
             if (id == null || id.length() <= 0) {
                 if (this.mCurrentButton != null && (this.mCurrentButton == this.mRecommendButton || this.mCurrentButton == this.mMoreButton)) {
                     this.mCurrentButton.setChecked(true);
-                    return;
                 } else {
                     this.mRecommendButton.setChecked(true);
-                    return;
                 }
             }
-            return;
-        }
-        if ((id == null || id.length() <= 0) && this.mOldButton != null) {
-            if (this.mOldButton == this.mRecommendButton || this.mOldButton == this.mMoreButton) {
-                this.mOldButton.setChecked(true);
-            } else {
-                this.mRecommendButton.setChecked(true);
+        } else {
+            if ((id == null || id.length() <= 0) && this.mOldButton != null) {
+                if (this.mOldButton == this.mRecommendButton || this.mOldButton == this.mMoreButton) {
+                    this.mOldButton.setChecked(true);
+                } else {
+                    this.mRecommendButton.setChecked(true);
+                }
             }
+            AccountShareHelper.getInstance().relogin(this);
         }
-        AccountShareHelper.getInstance().relogin(this);
+        UtilHelper.setEyeShieldMode(this);
     }
 
     @Override // android.app.ActivityGroup, android.app.Activity
     protected void onPause() {
         super.onPause();
         TiebaApplication.app.DelResumeNum();
+        if (this.mImageViewDialog != null) {
+            this.mImageViewDialog.dismiss();
+        }
     }
 
     @Override // android.app.TabActivity, android.app.ActivityGroup, android.app.Activity
@@ -424,32 +530,41 @@ public class MainTabActivity extends TabActivity implements CompoundButton.OnChe
         }
         String type = intent.getStringExtra(GOTO_TYPE);
         this.mTabType = type;
+        String id = TiebaApplication.getCurrentAccount();
         if (GOTO_RECOMMEND.equals(type)) {
             this.mRecommendButton.setChecked(true);
         } else if (GOTO_SORT.equals(type)) {
             this.mSortButton.setChecked(true);
         } else if (GOTO_PERSON.equals(type)) {
             this.mPersonButton.setChecked(true);
+            if (id != null && id.length() > 0 && this.mGuidePage2.getVisibility() != 0) {
+                checkShowGuidePage(1, this.mGuidePage2, R.drawable.guide_page_book_mark_2);
+            }
         } else if (GOTO_MORE.equals(type)) {
             this.mMoreButton.setChecked(true);
         } else if (GOTO_HOME.equals(type)) {
             this.mHomeButton.setChecked(true);
+            if (id != null && id.length() > 0 && this.mGuidePage1.getVisibility() != 0) {
+                checkShowGuidePage(0, this.mGuidePage1, R.drawable.guide_page_book_mark_1);
+            }
         } else if ("close".equals(type)) {
             finish();
         }
     }
 
     private void closeAllDialog() {
-        HomeActivity home;
+        NewHomeActivity home;
         LocalActivityManager manager = getLocalActivityManager();
         String currentTab = manager.getCurrentId();
-        if (!currentTab.equals("home_tab") && (home = (HomeActivity) manager.getActivity("home_tab")) != null) {
-            Activity activity = home.getCurrentActivity();
-            if (activity instanceof LikeActivity) {
-                ((LikeActivity) activity).closeDialog();
+        if (!currentTab.equals("home_tab")) {
+            HomeActivity home2 = (HomeActivity) manager.getActivity("home_tab");
+            if (home2 != null) {
+                home2.closeDialog();
             }
-            if (activity instanceof MarkActivity) {
-                ((MarkActivity) activity).closeDialog();
+        } else if (!currentTab.equals(RECOMMEND_TAB) && (home = (NewHomeActivity) manager.getActivity(RECOMMEND_TAB)) != null) {
+            Activity activity = home.getCurrentActivity();
+            if (activity instanceof GuessActivity) {
+                ((GuessActivity) activity).closeDialog();
             }
         }
         MentionActivity mention = (MentionActivity) manager.getActivity(SORT_TAB);
@@ -560,7 +675,7 @@ public class MainTabActivity extends TabActivity implements CompoundButton.OnChe
                             AlertDialog.Builder builder = new AlertDialog.Builder(this);
                             builder.setTitle(R.string.network_title);
                             builder.setMessage(R.string.network_wifi);
-                            DialogInterface.OnClickListener listener = new DialogInterface.OnClickListener() { // from class: com.baidu.tieba.MainTabActivity.1
+                            DialogInterface.OnClickListener listener = new DialogInterface.OnClickListener() { // from class: com.baidu.tieba.MainTabActivity.5
                                 @Override // android.content.DialogInterface.OnClickListener
                                 public void onClick(DialogInterface arg0, int which) {
                                     if (which != -2) {
@@ -595,7 +710,7 @@ public class MainTabActivity extends TabActivity implements CompoundButton.OnChe
                         AlertDialog.Builder builder2 = new AlertDialog.Builder(this);
                         builder2.setTitle(R.string.network_title);
                         builder2.setMessage(R.string.network_not_wifi);
-                        DialogInterface.OnClickListener listener2 = new DialogInterface.OnClickListener() { // from class: com.baidu.tieba.MainTabActivity.2
+                        DialogInterface.OnClickListener listener2 = new DialogInterface.OnClickListener() { // from class: com.baidu.tieba.MainTabActivity.6
                             @Override // android.content.DialogInterface.OnClickListener
                             public void onClick(DialogInterface arg0, int which) {
                                 if (which != -2) {
@@ -633,6 +748,23 @@ public class MainTabActivity extends TabActivity implements CompoundButton.OnChe
         }
         if (TiebaApplication.app.getUploadImageQuality() == 1) {
             TiebaApplication.app.setUploadImageQuality(2);
+        }
+    }
+
+    private void checkShowGuidePage(int maskid, View pageView, int imgId) {
+        if (pageView != null) {
+            if (!TiebaApplication.app.isGuidePageShown(maskid)) {
+                Bitmap bm = BitmapHelper.getResBitmap(this, imgId);
+                if (bm != null) {
+                    pageView.setBackgroundDrawable(new BitmapDrawable(bm));
+                    pageView.setVisibility(0);
+                    TiebaApplication.app.setGuidePageShown(maskid);
+                    return;
+                }
+                pageView.setVisibility(8);
+                return;
+            }
+            pageView.setVisibility(8);
         }
     }
 }

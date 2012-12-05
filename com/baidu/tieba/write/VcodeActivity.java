@@ -12,7 +12,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
-import com.baidu.android.pushservice.PushConstants;
 import com.baidu.tieba.BaseActivity;
 import com.baidu.tieba.R;
 import com.baidu.tieba.TiebaApplication;
@@ -23,7 +22,7 @@ import com.baidu.tieba.util.NetWork;
 import com.baidu.tieba.util.NetWorkCore;
 /* loaded from: classes.dex */
 public class VcodeActivity extends BaseActivity {
-    private static final String SAVE_KEY = "model";
+    public static final String SAVE_KEY = "model";
     private WriteModel mModel = null;
     private Button mBack = null;
     private Button mPost = null;
@@ -165,7 +164,7 @@ public class VcodeActivity extends BaseActivity {
             if (this.mDate.getBitmapId() != null && this.mDate.getBitmapId().getPic_id() != null && this.mDate.getBitmapId().getPic_id().length() > 0) {
                 pic_str = String.format("#(pic,%s,%d,%d)", this.mDate.getBitmapId().getPic_id(), Integer.valueOf(this.mDate.getBitmapId().getWidth()), Integer.valueOf(this.mDate.getBitmapId().getHeight()));
             }
-            this.mNetwork.addPostData(PushConstants.EXTRA_CONTENT, String.valueOf(this.mDate.getContent()) + pic_str);
+            this.mNetwork.addPostData("content", String.valueOf(this.mDate.getContent()) + pic_str);
             this.mNetwork.addPostData("vcode_md5", this.mDate.getVcodeMD5());
             String vcode = VcodeActivity.this.mEdit.getText().toString();
             if (vcode.length() > 0) {
@@ -205,7 +204,7 @@ public class VcodeActivity extends BaseActivity {
             if (this.mNetwork != null) {
                 if (this.mNetwork.isRequestSuccess()) {
                     VcodeActivity.this.showToast(TiebaApplication.app.getString(R.string.send_success));
-                    VcodeActivity.this.setResult(-1, null);
+                    VcodeActivity.this.setResult(-1, VcodeActivity.this.getIntent());
                     VcodeActivity.this.finish();
                 } else {
                     if (this.mNetwork.getErrorCode() == 5 || this.mNetwork.getErrorCode() == 6) {

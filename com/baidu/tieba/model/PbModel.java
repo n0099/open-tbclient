@@ -191,6 +191,6 @@ public class PbModel {
     }
 
     public int getMaxShowPageCount() {
-        return Config.PB_LIST_ITEM_MAX_NUM / 60;
+        return Config.PB_LIST_ITEM_MAX_NUM / 30;
     }
 }

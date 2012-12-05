@@ -13,6 +13,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import com.baidu.loginshare.Token;
 import com.baidu.tieba.BaseActivity;
 import com.baidu.tieba.MainTabActivity;
 import com.baidu.tieba.R;
@@ -183,7 +184,7 @@ public class ReLoginShareActivity extends BaseActivity {
     public void gotoMain() {
         DatabaseService.saveAccountData(this.mAccount);
         TiebaApplication.setCurrentAccountObj(this.mAccount);
-        MainTabActivity.startActivityOnUserChanged(this, MainTabActivity.GOTO_HOME);
+        MainTabActivity.startActivityOnUserChanged(this, MainTabActivity.GOTO_RECOMMEND);
         AccountShareHelper.getInstance().remove();
     }
 
@@ -222,6 +223,13 @@ public class ReLoginShareActivity extends BaseActivity {
                 loginData.parserJson(ret);
             } else {
                 TiebaLog.d(getClass().getName(), "doInBackground", "relogin fail");
+            }
+            if (this.mNetwork.isNetSuccess() && this.mNetwork.getErrorCode() == 1) {
+                Token token = new Token();
+                token.mBduss = ReLoginShareActivity.this.mBDUSS;
+                token.mPtoken = ReLoginShareActivity.this.mPtoken;
+                AccountShareHelper.getInstance().invalid(token);
+                AccountShareHelper.getInstance().remove();
             }
             long time = 2000 - ((System.nanoTime() - start) / 1000000);
             if (time > 0 && time < 2000) {

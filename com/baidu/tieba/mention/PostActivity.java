@@ -495,7 +495,7 @@ public class PostActivity extends BaseActivity {
                         data.add(buffer.toString());
                     }
                 }
-                ImageActivity.startActivity(PostActivity.this, data, this.mIndex);
+                ImageActivity.startActivity(PostActivity.this, data, this.mIndex, PostActivity.this.mModel);
             } catch (Exception ex) {
                 TiebaLog.e("PbAdapter", "ImageOnClickListener", "error = " + ex.getMessage());
             }

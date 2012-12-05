@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.TiebaApplication;
+import com.baidu.tieba.util.AsyncImageLoader;
 import com.baidu.tieba.util.BitmapHelper;
 import com.baidu.tieba.util.SDRamImage;
 /* loaded from: classes.dex */
@@ -73,7 +74,7 @@ public class FrsImageView extends ImageView {
     protected void onDraw(Canvas canvas) {
         int x;
         super.onDraw(canvas);
-        String url = String.valueOf((String) getTag()) + "_small";
+        String url = String.valueOf((String) getTag()) + AsyncImageLoader.SMALL;
         Bitmap bm = null;
         boolean needResize = false;
         SDRamImage sdramImage = TiebaApplication.app.getSdramImage();
@@ -102,26 +103,28 @@ public class FrsImageView extends ImageView {
             int bh = bm.getHeight();
             int wi = getWidth();
             int he = getHeight();
-            float scale = Math.min(wi / bw, he / bh);
-            if (scale > 1.0f) {
-                scale = 1.0f;
-            }
-            this.mMatrix.setScale(scale, scale);
-            if (!this.isThree) {
-                x = 0;
-                if (needResize) {
-                    int width = (int) (bw * scale);
-                    ViewGroup.LayoutParams imageViewparams = getLayoutParams();
-                    imageViewparams.width = width;
-                    setLayoutParams(imageViewparams);
+            if (bw != 0 && bh != 0 && wi != 0 && he != 0) {
+                float scale = Math.min(wi / bw, he / bh);
+                if (scale > 1.0f) {
+                    scale = 1.0f;
                 }
-            } else {
-                x = ((int) (wi - (bw * scale))) / 2;
+                this.mMatrix.setScale(scale, scale);
+                if (!this.isThree) {
+                    x = 0;
+                    if (needResize) {
+                        int width = (int) (bw * scale);
+                        ViewGroup.LayoutParams imageViewparams = getLayoutParams();
+                        imageViewparams.width = width;
+                        setLayoutParams(imageViewparams);
+                    }
+                } else {
+                    x = ((int) (wi - (bw * scale))) / 2;
+                }
+                int y = (int) (he - (bh * scale));
+                this.mMatrix.postTranslate(x, y);
+                canvas.drawBitmap(bm, this.mMatrix, this.mPaint);
+                this.mMatrix.reset();
             }
-            int y = (int) (he - (bh * scale));
-            this.mMatrix.postTranslate(x, y);
-            canvas.drawBitmap(bm, this.mMatrix, this.mPaint);
-            this.mMatrix.reset();
         }
     }
 }

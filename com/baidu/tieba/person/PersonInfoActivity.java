@@ -148,7 +148,7 @@ public class PersonInfoActivity extends BaseActivity {
             }
             this.mAdapter.notifyDataSetChanged();
         }
-        super.onStart();
+        super.onResume();
     }
 
     /* JADX INFO: Access modifiers changed from: private */

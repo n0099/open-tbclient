@@ -50,7 +50,7 @@ public class UserData extends MetaData {
                 this.fans_num = json.optInt("fans_num");
                 this.concern_num = json.optInt("concern_num");
                 this.sex = json.optInt("sex", 1);
-                this.like_bars = json.optInt("like_forum_num");
+                this.like_bars = json.optInt("my_like_num");
                 this.intro = json.optString("intro");
                 this.have_attention = json.optInt("has_concerned");
             }

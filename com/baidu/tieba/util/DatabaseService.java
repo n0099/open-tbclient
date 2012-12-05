@@ -286,6 +286,18 @@ public class DatabaseService {
         return getCachData(0);
     }
 
+    public static void cashLikeData(String data, String account) {
+        cachData(0, data, account);
+    }
+
+    public static void delLikeData(String account) {
+        delCachData(0, account);
+    }
+
+    public static String getLikeData(String account) {
+        return getCachData(0, account);
+    }
+
     public static void cashRemindData(String data) {
         cachData(1, data);
     }
@@ -390,6 +402,76 @@ public class DatabaseService {
                     return ret;
                 } catch (Exception e2) {
                     return ret;
+                }
+            }
+            return ret;
+        } catch (Throwable th) {
+            if (cursor != null) {
+                try {
+                    cursor.close();
+                } catch (Exception e3) {
+                }
+            }
+            throw th;
+        }
+    }
+
+    private static void cachData(int type, String data, String account) {
+        account = (account == null || account.length() == 0) ? "0" : "0";
+        DatabaseService service = new DatabaseService();
+        if (service != null) {
+            try {
+                service.ExecSQL("delete from cash_data where type=? and account=?", new String[]{String.valueOf(type), account});
+                service.ExecSQL("Insert into cash_data(account,type,data) values(?,?,?)", new Object[]{account, Integer.valueOf(type), data});
+            } catch (Exception ex) {
+                TiebaLog.e("DatabaseService", "cachData", "error = " + ex.getMessage());
+            }
+        }
+    }
+
+    private static void delCachData(int type, String account) {
+        account = (account == null || account.length() == 0) ? "0" : "0";
+        DatabaseService service = new DatabaseService();
+        if (service != null) {
+            try {
+                service.ExecSQL("delete from cash_data where type=? and account=?", new String[]{String.valueOf(type), account});
+            } catch (Exception ex) {
+                TiebaLog.e("DatabaseService", "cachData", "error = " + ex.getMessage());
+            }
+        }
+    }
+
+    /* JADX DEBUG: Another duplicated slice has different insns count: {[IF]}, finally: {[IF, MOVE_EXCEPTION, INVOKE, MOVE_EXCEPTION] complete} */
+    private static String getCachData(int type, String account) {
+        account = (account == null || account.length() == 0) ? "0" : "0";
+        String ret = null;
+        DatabaseService service = new DatabaseService();
+        Cursor cursor = null;
+        try {
+            if (service != null) {
+                try {
+                    cursor = service.rawQuery("select * from cash_data where type = ? and account=?", new String[]{String.valueOf(type), account});
+                    if (cursor != null) {
+                        if (cursor.moveToFirst()) {
+                            ret = cursor.getString(2);
+                        }
+                        cursor.close();
+                    }
+                    cursor = null;
+                } catch (Exception ex) {
+                    TiebaLog.e("DatabaseService", "getCachData", "error = " + ex.getMessage());
+                    if (cursor != null) {
+                        try {
+                            cursor.close();
+                        } catch (Exception e) {
+                        }
+                    }
+                }
+            }
+            if (cursor != null) {
+                try {
+                    cursor.close();
+                } catch (Exception e2) {
                 }
             }
             return ret;
@@ -1412,6 +1494,84 @@ public class DatabaseService {
                 }
             }
             throw th;
+        }
+    }
+
+    public static void insertFrsImageForum(String name) {
+        DatabaseService service = new DatabaseService();
+        if (service != null && name != null) {
+            try {
+                service.ExecSQL("delete from frs_image_forums where forum_name=?", new String[]{name});
+                service.ExecSQL("Insert into frs_image_forums(forum_name) values(?)", new Object[]{name});
+            } catch (Exception ex) {
+                TiebaLog.e("DatabaseService", "insertFrsImageForum", ex.getMessage());
+            }
+        }
+    }
+
+    public static void delFrsImageForum(String name) {
+        DatabaseService service = new DatabaseService();
+        if (service != null && name != null) {
+            try {
+                service.ExecSQL("delete from frs_image_forums where forum_name=?", new String[]{name});
+            } catch (Exception ex) {
+                TiebaLog.e("DatabaseService", "delFrsImageForum", ex.getMessage());
+            }
+        }
+    }
+
+    public static ArrayList<String> getAllFrsImageForums() {
+        DatabaseService service = new DatabaseService();
+        Cursor cursor = null;
+        ArrayList<String> data = null;
+        try {
+            if (service != null) {
+                try {
+                    cursor = service.rawQuery("select * from frs_image_forums", null);
+                    if (cursor != null) {
+                        ArrayList<String> data2 = new ArrayList<>();
+                        while (cursor.moveToNext()) {
+                            try {
+                                data2.add(cursor.getString(0));
+                            } catch (Exception e) {
+                                ex = e;
+                                data = data2;
+                                TiebaLog.e("DatabaseService", "getAllFrsImageForums", ex.getMessage());
+                                if (cursor != null) {
+                                    try {
+                                        cursor.close();
+                                    } catch (Exception e2) {
+                                    }
+                                }
+                                return data;
+                            } catch (Throwable th) {
+                                th = th;
+                                if (cursor != null) {
+                                    try {
+                                        cursor.close();
+                                    } catch (Exception e3) {
+                                    }
+                                }
+                                throw th;
+                            }
+                        }
+                        cursor.close();
+                        data = data2;
+                    }
+                    cursor = null;
+                } catch (Exception e4) {
+                    ex = e4;
+                }
+            }
+            if (cursor != null) {
+                try {
+                    cursor.close();
+                } catch (Exception e5) {
+                }
+            }
+            return data;
+        } catch (Throwable th2) {
+            th = th2;
         }
     }
 }

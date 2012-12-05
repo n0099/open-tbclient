@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.tieba.R;
@@ -18,6 +19,8 @@ public class MarkAdapter extends BaseAdapter {
     private ArrayList<MarkData> mData;
     private boolean mIsNodata;
     private int mSize;
+    private boolean mEditState = false;
+    private View.OnClickListener mDelMarkClickListener = null;
 
     public MarkAdapter(Context context, ArrayList<MarkData> data) {
         this.mContext = context;
@@ -89,6 +92,7 @@ public class MarkAdapter extends BaseAdapter {
                     holder2.mTitle = (TextView) convertView.findViewById(R.id.home_lv_markitem_title);
                     holder2.mAuthor = (TextView) convertView.findViewById(R.id.home_lv_markitem_author);
                     holder2.mNodata = (TextView) convertView.findViewById(R.id.forum_lv_nodata);
+                    holder2.mDelMark = (ImageButton) convertView.findViewById(R.id.home_lv_markitem_delete);
                     convertView.setTag(holder2);
                     holder = holder2;
                 } catch (Exception e) {
@@ -102,11 +106,17 @@ public class MarkAdapter extends BaseAdapter {
             if (this.mIsNodata) {
                 holder.mReplyNum.setVisibility(8);
                 holder.mContent.setVisibility(8);
+                holder.mDelMark.setVisibility(8);
                 holder.mNodata.setVisibility(0);
             } else {
                 holder.mReplyNum.setVisibility(0);
                 holder.mContent.setVisibility(0);
                 holder.mNodata.setVisibility(8);
+                if (this.mEditState) {
+                    holder.mDelMark.setVisibility(0);
+                } else {
+                    holder.mDelMark.setVisibility(8);
+                }
             }
             obData = getItem(position);
         } catch (Exception e2) {
@@ -124,6 +134,9 @@ public class MarkAdapter extends BaseAdapter {
         }
         holder.mTitle.setText(data.getTitle());
         holder.mAuthor.setText(data.getAuthorName());
+        holder.mDelMark.setOnClickListener(this.mDelMarkClickListener);
+        holder.mDelMark.setFocusable(false);
+        holder.mDelMark.setTag(Integer.valueOf(position));
         return convertView;
     }
 
@@ -143,10 +156,23 @@ public class MarkAdapter extends BaseAdapter {
         return this.displayNull;
     }
 
+    public void setEditState(boolean editState) {
+        this.mEditState = editState;
+    }
+
+    public boolean getEditState() {
+        return this.mEditState;
+    }
+
+    public void setDelMarkListener(View.OnClickListener listener) {
+        this.mDelMarkClickListener = listener;
+    }
+
     /* loaded from: classes.dex */
     private class ViewHolder {
         TextView mAuthor;
         LinearLayout mContent;
+        ImageButton mDelMark;
         TextView mNodata;
         TextView mReplyNum;
         TextView mTitle;

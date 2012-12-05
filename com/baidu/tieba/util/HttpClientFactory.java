@@ -2,6 +2,7 @@ package com.baidu.tieba.util;
 
 import android.net.Proxy;
 import android.util.Log;
+import com.baidu.tieba.data.ContentData;
 import java.io.IOException;
 import java.net.Socket;
 import java.net.UnknownHostException;
@@ -169,7 +170,7 @@ public class HttpClientFactory {
             while (true) {
                 try {
                     synchronized (this) {
-                        wait(this.checkIntervalSeconds * 1000);
+                        wait(this.checkIntervalSeconds * ContentData.TYPE_VIDEO_IMAGE);
                     }
                     this.manager.closeExpiredConnections();
                     this.manager.closeIdleConnections(this.idleTimeoutSeconds, TimeUnit.SECONDS);

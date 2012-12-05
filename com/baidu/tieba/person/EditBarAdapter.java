@@ -74,15 +74,11 @@ public class EditBarAdapter extends BaseAdapter {
                 holder.mNameText.append(data.getName());
                 holder.mNameText.append(this.mContext.getString(R.string.bar));
                 holder.mName.setText(holder.mNameText);
-                if (data.isIs_like() == 1) {
-                    holder.mDegreeText.delete(0, holder.mDegreeText.length());
-                    holder.mDegreeText.append(this.mContext.getString(R.string.degree));
-                    holder.mDegreeText.append(data.getUser_level());
-                    holder.mDegree.setText(holder.mDegreeText);
-                    holder.mDegree.setVisibility(0);
-                } else {
-                    holder.mDegree.setVisibility(8);
-                }
+                holder.mDegreeText.delete(0, holder.mDegreeText.length());
+                holder.mDegreeText.append(this.mContext.getString(R.string.degree));
+                holder.mDegreeText.append(data.getUser_level());
+                holder.mDegree.setText(holder.mDegreeText);
+                holder.mDegree.setVisibility(0);
             }
         } catch (Exception e2) {
             ex = e2;

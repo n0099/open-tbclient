@@ -2,12 +2,12 @@ package com.baidu.tieba.view;
 
 import android.content.Context;
 import android.graphics.PointF;
-import android.support.v4.view.ViewPager;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import com.baidu.tieba.compatible.CompatibleUtile;
+import com.baidu.tieba.util.TiebaLog;
 /* loaded from: classes.dex */
-public class GalleryViewPager extends ViewPager {
+public class GalleryViewPager extends BaseViewPager {
     private PointF last;
     private DragImageView mCurrentView;
     private DragImageView mSelectedView;
@@ -41,7 +41,7 @@ public class GalleryViewPager extends ViewPager {
         return null;
     }
 
-    @Override // android.support.v4.view.ViewPager, android.view.View
+    @Override // com.baidu.tieba.view.BaseViewPager, android.support.v4.view.ViewPager, android.view.View
     public boolean onTouchEvent(MotionEvent event) {
         if ((event.getAction() & CompatibleUtile.getActionMask()) == 1) {
             super.onTouchEvent(event);
@@ -57,18 +57,19 @@ public class GalleryViewPager extends ViewPager {
             return super.onTouchEvent(event);
         }
         if (difference != null && this.mCurrentView.onRightSide() && difference[0] < 0.0f) {
+            TiebaLog.i(getClass().getName(), "onTouchEvent", "right");
             return super.onTouchEvent(event);
-        }
-        if (difference != null && this.mCurrentView.onLeftSide() && difference[0] > 0.0f) {
+        } else if (difference != null && this.mCurrentView.onLeftSide() && difference[0] > 0.0f) {
+            TiebaLog.i(getClass().getName(), "onTouchEvent", "left");
             return super.onTouchEvent(event);
-        }
-        if (difference == null) {
+        } else if (difference == null) {
             if (this.mCurrentView.onLeftSide() || this.mCurrentView.onRightSide()) {
                 return super.onTouchEvent(event);
             }
             return false;
+        } else {
+            return false;
         }
-        return false;
     }
 
     @Override // android.support.v4.view.ViewPager, android.view.ViewGroup

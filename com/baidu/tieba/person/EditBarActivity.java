@@ -173,7 +173,7 @@ public class EditBarActivity extends BaseActivity {
         public BarlistModel doInBackground(Object... params) {
             BarlistModel barlistData = null;
             try {
-                this.mNetwork = new NetWork("http://c.tieba.baidu.com/c/f/forum/favolike");
+                this.mNetwork = new NetWork("http://c.tieba.baidu.com/c/f/forum/like");
                 String data = this.mNetwork.postNetData();
                 if (!this.mNetwork.isRequestSuccess()) {
                     return null;

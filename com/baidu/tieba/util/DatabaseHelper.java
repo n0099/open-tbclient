@@ -7,7 +7,7 @@ import com.baidu.tieba.data.Config;
 /* loaded from: classes.dex */
 public class DatabaseHelper extends SQLiteOpenHelper {
     public DatabaseHelper(Context context) {
-        super(context, Config.PHONE_DATEBASE_NAME, (SQLiteDatabase.CursorFactory) null, 4);
+        super(context, Config.PHONE_DATEBASE_NAME, (SQLiteDatabase.CursorFactory) null, 5);
     }
 
     private void ExecSQL(SQLiteDatabase db, String sql) {
@@ -31,6 +31,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         ExecSQL(db, "CREATE TABLE if not exists draft_box(account varchar(30),type int,forum_id varchar(20),forum_name TEXT,thread_id varchar(30),floor_id TEXT,title TEXT,content TEXT, time long)");
         ExecSQL(db, "CREATE TABLE if not exists setting(account varchar(30),frequency,fans_switch,reply_me_switch,at_me_switch,remind_tone)");
         ExecSQL(db, "CREATE TABLE if not exists chunk_upload_data(account varchar(30),md5,total_length,chunk_no,time)");
+        ExecSQL(db, "CREATE TABLE if not exists frs_image_forums(forum_name)");
     }
 
     @Override // android.database.sqlite.SQLiteOpenHelper
@@ -46,6 +47,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         }
         if (oldVersion < 4) {
             ExecSQL(db, "ALTER TABLE setting ADD remind_tone");
+        }
+        if (oldVersion < 5) {
+            ExecSQL(db, "CREATE TABLE if not exists frs_image_forums(forum_name)");
         }
     }
 }

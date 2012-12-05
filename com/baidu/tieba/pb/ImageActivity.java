@@ -1,11 +1,15 @@
 package com.baidu.tieba.pb;
 
+import android.app.Activity;
+import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.content.res.Configuration;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;
+import android.view.KeyEvent;
 import android.view.View;
 import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
@@ -17,18 +21,28 @@ import com.baidu.tieba.BaseActivity;
 import com.baidu.tieba.R;
 import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.data.Config;
+import com.baidu.tieba.data.ImagePbData;
+import com.baidu.tieba.data.RequestResponseCode;
+import com.baidu.tieba.model.PbModel;
 import com.baidu.tieba.util.FileHelper;
 import com.baidu.tieba.util.MediaScannerClient;
 import com.baidu.tieba.util.StringHelper;
 import com.baidu.tieba.util.TiebaLog;
 import com.baidu.tieba.util.UtilHelper;
+import com.baidu.tieba.view.BaseViewPager;
 import com.baidu.tieba.view.MultiImageView;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 /* loaded from: classes.dex */
 public class ImageActivity extends BaseActivity {
+    private static final long INV_TIME = 300000000;
     private ProgressBar mProgress = null;
     private ArrayList<String> mUrl = null;
     private int mIndex = -1;
+    private int mCount = -1;
+    private boolean mHasNext = false;
+    private String mNextTitle = null;
     private SaveImageAsyncTask mSaveImageTask = null;
     private Button mSave = null;
     private Button mBack = null;
@@ -36,17 +50,54 @@ public class ImageActivity extends BaseActivity {
     private LinearLayout mTitle = null;
     private MultiImageView mMultiImageView = null;
     private View.OnClickListener mOnClickListener = null;
+    private BaseViewPager.OnScrollOutListener mOnscOnScrollOutListener = null;
     private ViewPager.OnPageChangeListener mOnPageChangeListener = null;
     private AlphaAnimation mAnim = null;
     private boolean mAnimFinished = true;
     private boolean mTitleGone = false;
+    private PageAddedReceiver mPageAddedReceiver = null;
+    private long pageDoneTime = 0;
+    private HashMap<String, Boolean> pvHash = null;
+    private String mFid = null;
+    private String mTid = null;
+    private String mFname = null;
+    private String mPvType = null;
 
-    public static void startActivity(Context context, ArrayList<String> data, int index) {
+    public static void startActivity(Context context, ArrayList<String> data, int index, PbModel pbModel) {
         Intent intent = new Intent(context, ImageActivity.class);
         if (data != null && data.size() > 0) {
             intent.putStringArrayListExtra("url", data);
             intent.putExtra("index", index);
+            intent.putExtra("is_pv", true);
+            intent.putExtra("pv_type", "pb");
+            if (pbModel != null) {
+                if (pbModel.getData() != null && pbModel.getData().getForum() != null) {
+                    intent.putExtra("fname", pbModel.getData().getForum().getName());
+                    intent.putExtra("fid", pbModel.getData().getForum().getId());
+                }
+                if (pbModel.getData() != null && pbModel.getData().getThread() != null) {
+                    intent.putExtra("tid", pbModel.getData().getThread().getId());
+                }
+            }
             context.startActivity(intent);
+        }
+    }
+
+    public static void startActivityForResult(Context context, ArrayList<String> data, int index, int count, boolean hasNext, ImagePbData fData) {
+        Intent intent = new Intent(context, ImageActivity.class);
+        if (data != null && data.size() > 0) {
+            intent.putStringArrayListExtra("url", data);
+            intent.putExtra("index", index);
+            intent.putExtra("count", count);
+            intent.putExtra("hasnext", hasNext);
+            intent.putExtra("pv_type", "photo");
+            if (fData != null) {
+                intent.putExtra("nexttitle", fData.getNextTitle());
+                intent.putExtra("fname", fData.getForum());
+                intent.putExtra("fid", fData.getFid());
+                intent.putExtra("tid", fData.getTid());
+            }
+            ((Activity) context).startActivityForResult(intent, RequestResponseCode.REQUEST_PB_BIG_IMAGE);
         }
     }
 
@@ -58,6 +109,26 @@ public class ImageActivity extends BaseActivity {
         setContentView(R.layout.image_activity);
         InitData(savedInstanceState);
         InitUI();
+        initReceiver();
+    }
+
+    public String getFid() {
+        return this.mFid;
+    }
+
+    public String getTid() {
+        return this.mTid;
+    }
+
+    public String getFname() {
+        return this.mFname;
+    }
+
+    private void initReceiver() {
+        this.mPageAddedReceiver = new PageAddedReceiver(this, null);
+        IntentFilter filter = new IntentFilter();
+        filter.addAction(Config.BROADCAST_PAGE_ADDED);
+        registerReceiver(this.mPageAddedReceiver, filter);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -83,6 +154,8 @@ public class ImageActivity extends BaseActivity {
     @Override // com.baidu.tieba.BaseActivity, android.app.Activity
     public void onDestroy() {
         TiebaApplication.app.delRemoteActivity(this);
+        imageChange(this.mIndex, this.mIndex);
+        sendImagePv();
         this.mMultiImageView.onDestroy();
         if (this.mSaveImageTask != null) {
             this.mSaveImageTask.cancel();
@@ -91,7 +164,20 @@ public class ImageActivity extends BaseActivity {
         if (this.mProgress != null) {
             this.mProgress.setVisibility(8);
         }
+        unregisterReceiver(this.mPageAddedReceiver);
         super.onDestroy();
+    }
+
+    @Override // android.app.Activity, android.view.KeyEvent.Callback
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if (keyCode == 4) {
+            Intent intent = new Intent();
+            intent.putExtra("index", this.mIndex);
+            setResult(-1, intent);
+            finish();
+            return true;
+        }
+        return super.onKeyDown(keyCode, event);
     }
 
     private void InitUI() {
@@ -149,6 +235,9 @@ public class ImageActivity extends BaseActivity {
                         ImageActivity.this.mTitle.startAnimation(ImageActivity.this.mAnim);
                     }
                 } else if (ImageActivity.this.mTitle.getVisibility() != 8) {
+                    Intent intent = new Intent();
+                    intent.putExtra("index", ImageActivity.this.mIndex);
+                    ImageActivity.this.setResult(-1, intent);
                     ImageActivity.this.finish();
                 }
             }
@@ -156,6 +245,10 @@ public class ImageActivity extends BaseActivity {
         this.mOnPageChangeListener = new ViewPager.OnPageChangeListener() { // from class: com.baidu.tieba.pb.ImageActivity.2
             @Override // android.support.v4.view.ViewPager.OnPageChangeListener
             public void onPageSelected(int arg0) {
+                Intent intent = new Intent(Config.BROADCAST_PAGE_CHANGED);
+                intent.putExtra("index", arg0);
+                ImageActivity.this.sendBroadcast(intent);
+                ImageActivity.this.imageChange(ImageActivity.this.mIndex, arg0);
                 ImageActivity.this.mIndex = arg0;
                 ImageActivity.this.setTitle();
             }
@@ -166,6 +259,18 @@ public class ImageActivity extends BaseActivity {
 
             @Override // android.support.v4.view.ViewPager.OnPageChangeListener
             public void onPageScrollStateChanged(int arg0) {
+                if (arg0 == 1 && System.nanoTime() - ImageActivity.this.pageDoneTime > ImageActivity.INV_TIME && ImageActivity.this.mUrl != null && ImageActivity.this.mIndex < ImageActivity.this.mUrl.size()) {
+                    ImageActivity.this.pvHash.put((String) ImageActivity.this.mUrl.get(ImageActivity.this.mIndex), true);
+                }
+            }
+        };
+        this.mOnscOnScrollOutListener = new BaseViewPager.OnScrollOutListener() { // from class: com.baidu.tieba.pb.ImageActivity.3
+            @Override // com.baidu.tieba.view.BaseViewPager.OnScrollOutListener
+            public void onScrollOut(int state) {
+                Intent intent = new Intent(Config.BROADCAST_PAGE_CHANGED);
+                intent.putExtra("index", -1);
+                intent.putExtra("state", state);
+                ImageActivity.this.sendBroadcast(intent);
             }
         };
         this.mTitle = (LinearLayout) findViewById(R.id.title);
@@ -178,22 +283,39 @@ public class ImageActivity extends BaseActivity {
         this.mMultiImageView = (MultiImageView) findViewById(R.id.viewpager);
         this.mMultiImageView.setPageMargin(UtilHelper.dip2px(this, 8.0f));
         this.mMultiImageView.setOffscreenPageLimit(2, Config.THREAD_IMAGE_MAX_WIDTH * Config.THREAD_IMAGE_MAX_WIDTH);
-        this.mMultiImageView.setUrlData(this.mUrl);
         this.mMultiImageView.setOnPageChangeListener(this.mOnPageChangeListener);
+        this.mMultiImageView.setUrlData(this.mUrl);
         this.mMultiImageView.setItemOnclickListener(this.mOnClickListener);
         this.mMultiImageView.setCurrentItem(calCurrentIndex(), false);
+        this.mMultiImageView.setOnScrollOutListener(this.mOnscOnScrollOutListener);
+        this.mMultiImageView.setHasNext(this.mHasNext);
+        this.mMultiImageView.setNextTitle(this.mNextTitle);
+        imageChange(this.mIndex, this.mIndex);
         setTitle();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void setTitle() {
+        String title;
         if (this.mUrl != null) {
-            String title = String.valueOf(this.mIndex + 1);
-            this.mTextView.setText(String.valueOf(String.valueOf(title) + "/") + this.mUrl.size());
+            String title2 = String.valueOf(String.valueOf(this.mIndex + 1)) + "/";
+            if (this.mCount > 0) {
+                title = String.valueOf(title2) + this.mCount;
+            } else {
+                title = String.valueOf(title2) + this.mUrl.size();
+            }
+            if (this.mIndex == this.mCount) {
+                this.mTextView.setText(getString(R.string.image_recommend));
+                this.mSave.setVisibility(4);
+                return;
+            }
+            this.mTextView.setText(title);
+            this.mSave.setVisibility(0);
         }
     }
 
-    private int calCurrentIndex() {
+    /* JADX INFO: Access modifiers changed from: private */
+    public int calCurrentIndex() {
         if (this.mUrl != null && this.mUrl.size() > 0) {
             int num = this.mUrl.size();
             if (this.mIndex >= num) {
@@ -212,13 +334,28 @@ public class ImageActivity extends BaseActivity {
         if (savedInstanceState != null) {
             this.mUrl = savedInstanceState.getStringArrayList("url");
             this.mIndex = savedInstanceState.getInt("index", -1);
-            return;
+            this.mCount = savedInstanceState.getInt("count", -1);
+            this.mHasNext = savedInstanceState.getBoolean("hasnext", false);
+            this.mNextTitle = savedInstanceState.getString("nexttitle");
+            this.mFid = savedInstanceState.getString("fid");
+            this.mTid = savedInstanceState.getString("tid");
+            this.mFname = savedInstanceState.getString("fname");
+            this.mPvType = savedInstanceState.getString("pv_type");
+        } else {
+            Intent intent = getIntent();
+            if (intent != null) {
+                this.mUrl = intent.getStringArrayListExtra("url");
+                this.mIndex = intent.getIntExtra("index", -1);
+                this.mCount = intent.getIntExtra("count", -1);
+                this.mHasNext = intent.getBooleanExtra("hasnext", false);
+                this.mNextTitle = intent.getStringExtra("nexttitle");
+                this.mFid = intent.getStringExtra("fid");
+                this.mTid = intent.getStringExtra("tid");
+                this.mFname = intent.getStringExtra("fname");
+                this.mPvType = intent.getStringExtra("pv_type");
+            }
         }
-        Intent intent = getIntent();
-        if (intent != null) {
-            this.mUrl = intent.getStringArrayListExtra("url");
-            this.mIndex = intent.getIntExtra("index", -1);
-        }
+        this.pvHash = new HashMap<>();
     }
 
     @Override // android.app.Activity
@@ -226,6 +363,13 @@ public class ImageActivity extends BaseActivity {
         super.onSaveInstanceState(outState);
         outState.putStringArrayList("url", this.mUrl);
         outState.putInt("index", this.mIndex);
+        outState.putInt("count", this.mCount);
+        outState.putBoolean("hasNext", this.mHasNext);
+        outState.putString("nexttitle", this.mNextTitle);
+        outState.putString("fid", this.mFid);
+        outState.putString("tid", this.mTid);
+        outState.putString("fname", this.mFname);
+        outState.putString("pv_type", this.mPvType);
     }
 
     @Override // android.app.Activity, android.content.ComponentCallbacks
@@ -302,6 +446,66 @@ public class ImageActivity extends BaseActivity {
             ImageActivity.this.mSave.setVisibility(0);
             ImageActivity.this.mProgress.setVisibility(8);
             super.cancel(true);
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    /* loaded from: classes.dex */
+    public class PageAddedReceiver extends BroadcastReceiver {
+        private PageAddedReceiver() {
+        }
+
+        /* synthetic */ PageAddedReceiver(ImageActivity imageActivity, PageAddedReceiver pageAddedReceiver) {
+            this();
+        }
+
+        @Override // android.content.BroadcastReceiver
+        public void onReceive(Context context, Intent intent) {
+            ImageActivity.this.mHasNext = intent.getBooleanExtra("hasnext", false);
+            ImageActivity.this.mNextTitle = intent.getStringExtra("nexttitle");
+            ImageActivity.this.mUrl = intent.getStringArrayListExtra("url");
+            ImageActivity.this.mCount = intent.getIntExtra("count", -1);
+            int index = intent.getIntExtra("index", -1);
+            ImageActivity.this.mMultiImageView.setUrlData(ImageActivity.this.mUrl);
+            ImageActivity.this.mMultiImageView.setNextTitle(ImageActivity.this.mNextTitle);
+            ImageActivity.this.mMultiImageView.setHasNext(ImageActivity.this.mHasNext);
+            if (index >= 0) {
+                ImageActivity.this.mIndex = index;
+                ImageActivity.this.mMultiImageView.setCurrentItem(ImageActivity.this.calCurrentIndex(), false);
+            }
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void imageChange(int srcIndex, int dstIndex) {
+        synchronized (this.pvHash) {
+            if (System.nanoTime() - this.pageDoneTime > INV_TIME && this.mUrl != null && srcIndex < this.mUrl.size()) {
+                this.pvHash.put(this.mUrl.get(srcIndex), true);
+            }
+            this.pageDoneTime = System.nanoTime();
+            if (this.mUrl != null && dstIndex < this.mUrl.size() && this.pvHash.get(this.mUrl.get(dstIndex)) == null) {
+                this.pvHash.put(this.mUrl.get(dstIndex), false);
+            }
+        }
+        if (this.pvHash.size() >= 100) {
+            sendImagePv();
+        }
+    }
+
+    private void sendImagePv() {
+        if (this.pvHash != null) {
+            synchronized (this.pvHash) {
+                if (this.pvHash.size() > 0) {
+                    int count = 0;
+                    for (Map.Entry<String, Boolean> entry : this.pvHash.entrySet()) {
+                        if (entry.getValue().booleanValue()) {
+                            count++;
+                        }
+                    }
+                    TiebaApplication.app.sendImagePv(count, this.pvHash.size(), this.mPvType);
+                    this.pvHash.clear();
+                }
+            }
         }
     }
 }

@@ -1,6 +1,5 @@
 package com.baidu.tieba.data;
 
-import com.baidu.android.pushservice.PushConstants;
 import com.baidu.tieba.util.TiebaLog;
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -29,7 +28,7 @@ public class PullMessageData {
                         if (this.messageID < temp.getLong("message_id")) {
                             this.messageID = temp.getLong("message_id");
                             this.link = temp.getString("link");
-                            this.content = temp.getString(PushConstants.EXTRA_CONTENT);
+                            this.content = temp.getString("content");
                         }
                     }
                 }
