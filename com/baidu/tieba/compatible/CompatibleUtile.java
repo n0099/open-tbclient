@@ -181,6 +181,10 @@ public class CompatibleUtile {
             }
         }
 
+        public void hideCustomView() {
+            onHideCustomView();
+        }
+
         private void setFullscreen(boolean enabled) {
             Window win = this.mActivity.getWindow();
             WindowManager.LayoutParams winParams = win.getAttributes();

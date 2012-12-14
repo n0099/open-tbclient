@@ -1089,12 +1089,11 @@ public class TiebaApplication extends Application {
                     PendingIntent contentIntent = PendingIntent.getActivity(this, 0, intent, 0);
                     notification.setLatestEventInfo(this, "百度贴吧", String.valueOf(String.valueOf(getMsgTotal())) + "条新消息，刷新看看", contentIntent);
                     notification.defaults = -1;
-                    notification.defaults &= -2;
                     notification.defaults &= -3;
                     notification.flags = 16;
                     notification.audioStreamType = 5;
-                    if (this.mRemindToneOn) {
-                        notification.sound = Uri.parse("android.resource://" + getPackageName() + "/" + R.raw.remind_tone);
+                    if (!this.mRemindToneOn) {
+                        notification.defaults &= -2;
                     }
                     this.mNotificationManager.notify(R.drawable.icon, notification);
                 } else if (flag == 2) {

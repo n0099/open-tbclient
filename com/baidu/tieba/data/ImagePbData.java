@@ -35,6 +35,10 @@ public class ImagePbData {
         this.antiData = new AntiData();
     }
 
+    public boolean isFinished() {
+        return this.imageNumber > 0 && this.imageNumber <= this.imageInfos.size();
+    }
+
     public boolean hasNext() {
         return (this.nextTid == null || this.nextTid.length() == 0 || this.nextTitle == null || this.nextTitle.length() == 0) ? false : true;
     }

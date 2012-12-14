@@ -6,7 +6,6 @@ import android.app.PendingIntent;
 import android.app.Service;
 import android.content.Context;
 import android.content.Intent;
-import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Handler;
 import android.os.IBinder;
@@ -169,11 +168,9 @@ public class MessagePullService extends Service {
                     notif.icon = R.drawable.icon;
                     notif.setLatestEventInfo(context, from, tickerText, contentIntent);
                     notif.defaults = -1;
-                    notif.defaults &= -2;
                     notif.defaults &= -3;
                     notif.flags |= 16;
                     notif.audioStreamType = 5;
-                    notif.sound = Uri.parse("android.resource://com.baidu.tieba/2131034113");
                     nm.notify(11, notif);
                 }
             }

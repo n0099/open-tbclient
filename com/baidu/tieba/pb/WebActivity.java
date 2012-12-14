@@ -1,5 +1,6 @@
 package com.baidu.tieba.pb;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -15,10 +16,17 @@ import android.widget.ImageView;
 import android.widget.ProgressBar;
 import com.baidu.tieba.BaseActivity;
 import com.baidu.tieba.R;
+import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.compatible.CompatibleUtile;
+import com.baidu.tieba.frs.FrsActivity;
 import com.baidu.tieba.util.TiebaLog;
 import com.baidu.tieba.util.UtilHelper;
 import java.lang.reflect.Method;
+import java.net.URI;
+import java.util.List;
+import org.apache.http.NameValuePair;
+import org.apache.http.client.utils.URLEncodedUtils;
+@SuppressLint({"SetJavaScriptEnabled"})
 /* loaded from: classes.dex */
 public class WebActivity extends BaseActivity {
     private WebView mWebView = null;
@@ -40,9 +48,16 @@ public class WebActivity extends BaseActivity {
     @Override // com.baidu.tieba.BaseActivity, android.app.Activity
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        TiebaApplication.app.addRemoteActivity(this);
         UtilHelper.openGpu(this);
         InitUI();
         InitData(savedInstanceState);
+    }
+
+    @Override // com.baidu.tieba.BaseActivity
+    public void releaseResouce() {
+        super.releaseResouce();
+        finish();
     }
 
     private void InitUI() {
@@ -82,6 +97,29 @@ public class WebActivity extends BaseActivity {
                 }
                 WebActivity.this.progress.setVisibility(0);
                 WebActivity.this.mRefresh.setVisibility(8);
+            }
+
+            /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:16:0x0043 -> B:9:0x0020). Please submit an issue!!! */
+            @Override // android.webkit.WebViewClient
+            public boolean shouldOverrideUrlLoading(WebView view, String url) {
+                if (url != null && url.contains("jump_tieba_native=1")) {
+                    try {
+                        URI uri = new URI(url);
+                        List<NameValuePair> list = URLEncodedUtils.parse(uri, "utf-8");
+                        for (NameValuePair nameValuePair : list) {
+                            if (nameValuePair.getName().equalsIgnoreCase("kz")) {
+                                PbActivity.startAcitivity(WebActivity.this, nameValuePair.getValue(), null);
+                                return true;
+                            } else if (nameValuePair.getName().equalsIgnoreCase("kw")) {
+                                FrsActivity.startAcitivity(WebActivity.this, nameValuePair.getValue(), null);
+                                return true;
+                            }
+                        }
+                    } catch (Exception e) {
+                        TiebaLog.e(getClass().getName(), "shouldOverrideUrlLoading", e.getMessage());
+                    }
+                }
+                return super.shouldOverrideUrlLoading(view, url);
             }
         });
         this.mChromeClient = CompatibleUtile.getInstance().getWebChromeClient(this);
@@ -147,11 +185,12 @@ public class WebActivity extends BaseActivity {
     @Override // com.baidu.tieba.BaseActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
+        TiebaApplication.app.delRemoteActivity(this);
         if (this.progress != null) {
             this.progress.setVisibility(8);
         }
         if (this.mChromeClient != null && (this.mChromeClient instanceof CompatibleUtile.FullscreenableChromeClient)) {
-            ((CompatibleUtile.FullscreenableChromeClient) this.mChromeClient).onHideCustomView();
+            ((CompatibleUtile.FullscreenableChromeClient) this.mChromeClient).hideCustomView();
         }
     }
 

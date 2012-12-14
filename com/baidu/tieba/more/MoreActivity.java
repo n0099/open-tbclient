@@ -564,12 +564,22 @@ public class MoreActivity extends BaseActivity {
             mBtnOk.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.more.MoreActivity.5
                 @Override // android.view.View.OnClickListener
                 public void onClick(View v) {
-                    Intent intent = new Intent("/");
-                    ComponentName cm = new ComponentName("com.android.settings", "com.android.settings.DisplaySettings");
-                    intent.setComponent(cm);
-                    intent.setAction("android.intent.action.VIEW");
-                    MoreActivity.this.startActivityForResult(intent, 0);
-                    MoreActivity.this.mDialogEyeShieldTip.dismiss();
+                    try {
+                        try {
+                            Intent intent = new Intent("/");
+                            ComponentName cm = new ComponentName("com.android.settings", "com.android.settings.DisplaySettings");
+                            intent.setComponent(cm);
+                            intent.setAction("android.intent.action.VIEW");
+                            MoreActivity.this.startActivityForResult(intent, 0);
+                            MoreActivity.this.mDialogEyeShieldTip.dismiss();
+                        } catch (Exception e) {
+                            MoreActivity.this.showToast(MoreActivity.this.getString(R.string.goto_setting_tip));
+                            MoreActivity.this.mDialogEyeShieldTip.dismiss();
+                        }
+                    } catch (Throwable th) {
+                        MoreActivity.this.mDialogEyeShieldTip.dismiss();
+                        throw th;
+                    }
                 }
             });
         }

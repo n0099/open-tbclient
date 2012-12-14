@@ -156,17 +156,17 @@ public class ImagePbImageView extends ImageView {
             int wi = getWidth() - pading;
             int he = getHeight();
             this.mMatrix.reset();
-            float x = ((wi + pading) - bw) / 2;
+            float x = ((wi + pading) - bw) >> 1;
             float y = 0.0f;
             if (!this.isLoaded || this.mScaleType == 0) {
-                y = (he - bh) / 2;
+                y = (he - bh) >> 1;
             }
             this.mMatrix.postTranslate(x, y);
             canvas.drawBitmap(bm, this.mMatrix, this.mPaint);
             if (this.isFirst && this.next != null && this.isLoaded) {
                 this.mMatrix.reset();
                 float x2 = (wi + pading) - this.next.getWidth();
-                float y2 = (he - this.next.getHeight()) / 2;
+                float y2 = (he - this.next.getHeight()) >> 1;
                 this.mMatrix.postTranslate(x2, y2);
                 canvas.drawBitmap(this.next, this.mMatrix, this.mPaint);
             }

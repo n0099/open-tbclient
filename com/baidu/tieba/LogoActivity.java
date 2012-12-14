@@ -81,7 +81,7 @@ public class LogoActivity extends BaseActivity {
                     LogoActivity.this.deleteAllfile(LogoActivity.this.getCacheDir());
                 } catch (Exception e) {
                 }
-                LogoActivity.this.mHandler.handleMessage(LogoActivity.this.mHandler.obtainMessage());
+                LogoActivity.this.mHandler.sendMessage(LogoActivity.this.mHandler.obtainMessage());
             }
         }.start();
         startErrorUploadService();

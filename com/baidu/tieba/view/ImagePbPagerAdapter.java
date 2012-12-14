@@ -52,6 +52,7 @@ public class ImagePbPagerAdapter extends PagerAdapter {
     private boolean mHasNext = true;
     private int mIndex = 0;
     private ArrayList<View> mListViews = null;
+    private ArrayList<View> mUsedListViews = null;
     LayoutInflater mInflater = null;
     private View.OnClickListener mImageClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.view.ImagePbPagerAdapter.1
         @Override // android.view.View.OnClickListener
@@ -133,11 +134,14 @@ public class ImagePbPagerAdapter extends PagerAdapter {
     @Override // android.support.v4.view.PagerAdapter
     public void destroyItem(ViewGroup container, int position, Object object) {
         ListView listView = (ListView) ((View) object).findViewById(R.id.image_pb_listview);
-        if (listView != null && listView.getTag() != null) {
+        if (listView != null && listView.getTag() != null && (listView.getTag() instanceof ImagePbAdapter)) {
             ((ImagePbAdapter) listView.getTag()).releaseProgressBar();
+            listView.setAdapter((ListAdapter) null);
             if (this.mListViews.size() < 5) {
                 this.mListViews.add((View) object);
             }
+            this.mUsedListViews.remove(object);
+            TiebaLog.i(getClass().getName(), "destroyItem", String.valueOf(this.mUsedListViews.size()));
         }
         container.removeView((View) object);
     }
@@ -173,6 +177,11 @@ public class ImagePbPagerAdapter extends PagerAdapter {
         } else {
             listView = this.mInflater.inflate(R.layout.image_pb_list, (ViewGroup) null);
         }
+        if (this.mUsedListViews.size() > 5) {
+            this.mUsedListViews.clear();
+        }
+        this.mUsedListViews.add(listView);
+        TiebaLog.i(getClass().getName(), "instantiateItem", String.valueOf(this.mUsedListViews.size()));
         ListView commentList = (ListView) listView.findViewById(R.id.image_pb_listview);
         commentList.setAdapter((ListAdapter) null);
         if (imageData == null) {
@@ -188,7 +197,6 @@ public class ImagePbPagerAdapter extends PagerAdapter {
         final ImagePbAdapter tempAdapter = new ImagePbAdapter(this.mContext, imageData);
         tempAdapter.setImageHeight(this.minHeight, this.maxHeight);
         tempAdapter.setImageClickListener(this.mImageClickListener);
-        commentList.setTag(tempAdapter);
         commentList.setAdapter((ListAdapter) tempAdapter);
         commentList.setVerticalScrollBarEnabled(false);
         commentList.setOnItemClickListener(new AdapterView.OnItemClickListener() { // from class: com.baidu.tieba.view.ImagePbPagerAdapter.2
@@ -210,6 +218,7 @@ public class ImagePbPagerAdapter extends PagerAdapter {
             this.postDataCache.put(imageData.getCommentID(), datas);
             startCommentTask(1, imageData.getImageID(), 10, tempAdapter);
         }
+        listView.setTag(tempAdapter);
         if (listView.getParent() == container) {
             container.removeView(listView);
         }
@@ -299,6 +308,7 @@ public class ImagePbPagerAdapter extends PagerAdapter {
         this.commentTasks = new ArrayList<>();
         this.postDataCache = new HashMap<>();
         this.mListViews = new ArrayList<>();
+        this.mUsedListViews = new ArrayList<>();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -316,6 +326,7 @@ public class ImagePbPagerAdapter extends PagerAdapter {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public class ImagePbCommentAsyncTask extends AsyncTask<String, Integer, String> {
+        private String commentID;
         private ImagePbAdapter mAdapter;
         private NetWork mNetwork = null;
         private int mNumPerPage;
@@ -329,11 +340,13 @@ public class ImagePbPagerAdapter extends PagerAdapter {
             this.mTid = null;
             this.mPicId = null;
             this.mAdapter = null;
+            this.commentID = null;
             this.mRequestPage = requestPage;
             this.mNumPerPage = numPerPage;
             this.mTid = tid;
             this.mPicId = picId;
             this.mAdapter = adapter;
+            this.commentID = adapter.getImageData().getCommentID();
         }
 
         @Override // android.os.AsyncTask
@@ -363,12 +376,11 @@ public class ImagePbPagerAdapter extends PagerAdapter {
             if (this.mNetwork != null) {
                 this.mNetwork.cancelNetConnect();
             }
-            this.mNetwork = null;
             if (this.mAdapter != null) {
                 this.mAdapter.setIsProcessMore(false);
                 this.mAdapter.notifyDataSetChanged();
             }
-            cancel(true);
+            super.cancel(true);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -398,6 +410,14 @@ public class ImagePbPagerAdapter extends PagerAdapter {
                         this.mAdapter.setDatas(datas);
                         this.mAdapter.notifyDataSetChanged();
                         this.mAdapter = null;
+                    }
+                    for (int i = 0; i < ImagePbPagerAdapter.this.mUsedListViews.size(); i++) {
+                        if (((View) ImagePbPagerAdapter.this.mUsedListViews.get(i)).getTag() instanceof ImagePbAdapter) {
+                            ImagePbAdapter temp = (ImagePbAdapter) ((View) ImagePbPagerAdapter.this.mUsedListViews.get(i)).getTag();
+                            if (temp.getImageData() != null && this.commentID.equals(temp.getImageData().getCommentID())) {
+                                temp.notifyDataSetChanged();
+                            }
+                        }
                     }
                 }
             } catch (Exception ex) {

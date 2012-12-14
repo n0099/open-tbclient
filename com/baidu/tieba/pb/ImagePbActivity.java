@@ -493,12 +493,6 @@ public class ImagePbActivity extends BaseActivity implements BaseViewPager.OnScr
         if (mLoader != null) {
             mLoader.cancelAllAsyncTask();
         }
-        if (this.mImagePbAsyncTask != null) {
-            this.mImagePbAsyncTask.cancel();
-        }
-        this.mTid = getIntent().getStringExtra(ID);
-        this.mForum = getIntent().getStringExtra(FORUM);
-        this.mPbTitle = getIntent().getStringExtra(TITLE);
         if (!isNext) {
             String toastString = this.mPbTitle;
             if (this.mPbTitle != null && this.mPbTitle.length() > 6) {
@@ -623,11 +617,10 @@ public class ImagePbActivity extends BaseActivity implements BaseViewPager.OnScr
     /* JADX INFO: Access modifiers changed from: private */
     public void startImagePbAsyncTask(String picId, int prev, int next, boolean isFirst) {
         TiebaLog.i(getClass().getName(), picId, new StringBuilder().append(next).toString());
-        if (this.mData.getImageNum() <= 0 || this.mData.getImageInfo().size() != this.mData.getImageNum()) {
+        if (!this.mData.isFinished()) {
             if (this.mImagePbAsyncTask != null) {
                 this.mImagePbAsyncTask.cancel();
             }
-            this.mImagePbAsyncTask = null;
             ArrayList<BasicNameValuePair> param = new ArrayList<>();
             BasicNameValuePair temp = new BasicNameValuePair("kw", this.mForum);
             param.add(temp);
@@ -653,6 +646,7 @@ public class ImagePbActivity extends BaseActivity implements BaseViewPager.OnScr
     public class ImagePbAsyncTask extends AsyncTask<Object, Integer, String> {
         private String address;
         private String data = null;
+        private boolean isCanceled = false;
         private boolean isFirst;
         private NetWork mNetWork;
         private ArrayList<BasicNameValuePair> param;
@@ -680,9 +674,9 @@ public class ImagePbActivity extends BaseActivity implements BaseViewPager.OnScr
             if (this.mNetWork != null) {
                 this.mNetWork.cancelNetConnect();
             }
-            this.mNetWork = null;
             ImagePbActivity.this.mImagePbAsyncTask = null;
             ImagePbActivity.this.setIsRefresh(false);
+            this.isCanceled = true;
             super.cancel(true);
         }
 
@@ -691,37 +685,41 @@ public class ImagePbActivity extends BaseActivity implements BaseViewPager.OnScr
         @Override // android.os.AsyncTask
         public void onPostExecute(String result) {
             super.onPostExecute((ImagePbAsyncTask) result);
-            if (this.mNetWork != null && this.mNetWork.isNetSuccess() && ImagePbActivity.this.mData != null) {
-                if (this.mNetWork.isRequestSuccess()) {
-                    ImagePbActivity.this.mData.paserJson(this.data, true);
-                    ImagePbActivity.this.mViewPagerAdapter.setDatas(ImagePbActivity.this.mData);
-                    ImagePbActivity.this.mViewPagerAdapter.notifyDataSetChanged();
-                    ImagePbActivity.this.pageChangeListener.onPageSelected(ImagePbActivity.this.mIndex);
-                    if (ImagePbActivity.this.isActive) {
-                        ImagePbActivity.this.mHandler.removeCallbacks(ImagePbActivity.this.mGetImageRunnble);
-                        ImagePbActivity.this.mHandler.post(ImagePbActivity.this.mGetImageRunnble);
-                    } else if (this.isFirst) {
-                        ImagePbActivity.this.sendUrlIntent(1);
+            if (!this.isCanceled) {
+                if (this.mNetWork != null && this.mNetWork.isNetSuccess() && ImagePbActivity.this.mData != null) {
+                    if (this.mNetWork.isRequestSuccess()) {
+                        if (!ImagePbActivity.this.mData.isFinished()) {
+                            ImagePbActivity.this.mData.paserJson(this.data, true);
+                        }
+                        ImagePbActivity.this.mViewPagerAdapter.setDatas(ImagePbActivity.this.mData);
+                        ImagePbActivity.this.mViewPagerAdapter.notifyDataSetChanged();
+                        ImagePbActivity.this.pageChangeListener.onPageSelected(ImagePbActivity.this.mIndex);
+                        if (ImagePbActivity.this.isActive) {
+                            ImagePbActivity.this.mHandler.removeCallbacks(ImagePbActivity.this.mGetImageRunnble);
+                            ImagePbActivity.this.mHandler.post(ImagePbActivity.this.mGetImageRunnble);
+                        } else if (this.isFirst) {
+                            ImagePbActivity.this.sendUrlIntent(1);
+                        } else {
+                            ImagePbActivity.this.sendUrlIntent(2);
+                        }
+                        ImagePbActivity.this.setImagePv();
+                        if (ImagePbActivity.this.mIndex >= ImagePbActivity.this.mData.getImageInfo().size() && ImagePbActivity.this.mIndex < ImagePbActivity.this.mData.getImageNum() && ImagePbActivity.this.mData.getImageInfo().size() < ImagePbActivity.this.mData.getImageNum()) {
+                            ImagePbActivity.this.startImagePbAsyncTask(ImagePbActivity.this.mData.getLastPicID(), 0, 10, false);
+                        }
                     } else {
-                        ImagePbActivity.this.sendUrlIntent(2);
-                    }
-                    ImagePbActivity.this.setImagePv();
-                    if (ImagePbActivity.this.mIndex >= ImagePbActivity.this.mData.getImageInfo().size() && ImagePbActivity.this.mIndex < ImagePbActivity.this.mData.getImageNum() && ImagePbActivity.this.mData.getImageInfo().size() < ImagePbActivity.this.mData.getImageNum()) {
-                        ImagePbActivity.this.startImagePbAsyncTask(ImagePbActivity.this.mData.getLastPicID(), 0, 10, false);
+                        ImagePbActivity.this.showToast(ImagePbActivity.this.getString(R.string.pb_nodata));
+                        if (this.isFirst && ImagePbActivity.this.mPreData != null) {
+                            ImagePbActivity.this.onScrollOut(0);
+                        } else {
+                            ImagePbActivity.this.finish();
+                        }
                     }
                 } else {
-                    ImagePbActivity.this.showToast(ImagePbActivity.this.getString(R.string.pb_nodata));
-                    if (this.isFirst && ImagePbActivity.this.mPreData != null) {
-                        ImagePbActivity.this.onScrollOut(0);
-                    } else {
-                        ImagePbActivity.this.finish();
-                    }
+                    ImagePbActivity.this.showToast(ImagePbActivity.this.getString(R.string.neterror));
                 }
-            } else {
-                ImagePbActivity.this.showToast(ImagePbActivity.this.getString(R.string.neterror));
+                ImagePbActivity.this.mImagePbAsyncTask = null;
+                ImagePbActivity.this.setIsRefresh(false);
             }
-            ImagePbActivity.this.mImagePbAsyncTask = null;
-            ImagePbActivity.this.setIsRefresh(false);
         }
     }
 
@@ -1029,6 +1027,7 @@ public class ImagePbActivity extends BaseActivity implements BaseViewPager.OnScr
             } else if (ImagePbActivity.this.mIndex == 0 || (ImagePbActivity.this.mIndex >= ImagePbActivity.this.mData.getImageNum() - 1 && ImagePbActivity.this.mData.getImageInfo().size() == ImagePbActivity.this.mData.getImageNum())) {
                 int state = intent.getIntExtra("state", -1);
                 ImagePbActivity.this.onScrollOut(state);
+                TiebaLog.i(getClass().getName(), "find_bug_onReceive", "state=" + String.valueOf(state));
             }
         }
     }
@@ -1048,11 +1047,11 @@ public class ImagePbActivity extends BaseActivity implements BaseViewPager.OnScr
         @Override // android.os.AsyncTask
         public String doInBackground(String... arg0) {
             try {
-                if (ImagePbActivity.this.mData == null || ImagePbActivity.this.mData.getImageInfo() == null || ImagePbActivity.this.mData.getImageInfo().get(ImagePbActivity.this.mIndex) == null) {
+                if (ImagePbActivity.this.mData == null || ImagePbActivity.this.mData.getImageInfo() == null || ImagePbActivity.this.mData.getImageInfo().size() <= ImagePbActivity.this.mIndex) {
                     return null;
                 }
                 String mUrl = String.valueOf(ImagePbActivity.this.mData.getImageInfo().get(ImagePbActivity.this.mIndex).getImageUrl()) + AsyncImageLoader.BIG;
-                if (mUrl != null && mUrl.length() > 0 && ImagePbActivity.this.mData != null) {
+                if (mUrl != null && mUrl.length() > 0) {
                     String sname = StringHelper.getNameMd5FromUrl(mUrl);
                     if (sname != null) {
                         String xfilename = String.valueOf(sname) + ".jpg";
@@ -1060,16 +1059,17 @@ public class ImagePbActivity extends BaseActivity implements BaseViewPager.OnScr
                             xfilename = String.valueOf(sname) + String.valueOf(Math.round(Math.random() * 9.9999999E7d)) + ".jpg";
                         }
                         if (TiebaApplication.app.getSdramImage().getPic(mUrl) != null) {
-                            xfilename = FileHelper.SaveFile(null, xfilename, TiebaApplication.app.getSdramImage().getPic(mUrl), 80);
+                            String xfilename2 = FileHelper.SaveFile(null, xfilename, TiebaApplication.app.getSdramImage().getPic(mUrl), 80);
+                            if (xfilename2 != null) {
+                                MediaScannerClient client = new MediaScannerClient(ImagePbActivity.this);
+                                client.saveImage(xfilename2);
+                                String notifyStr = ImagePbActivity.this.getString(R.string.save_image_to_album);
+                                return notifyStr;
+                            }
+                            String notifyStr2 = FileHelper.getSdErrorString();
+                            return notifyStr2;
                         }
-                        if (xfilename != null) {
-                            MediaScannerClient client = new MediaScannerClient(ImagePbActivity.this);
-                            client.saveImage(xfilename);
-                            String notifyStr = ImagePbActivity.this.getString(R.string.save_image_to_album);
-                            return notifyStr;
-                        }
-                        String notifyStr2 = FileHelper.getSdErrorString();
-                        return notifyStr2;
+                        return null;
                     }
                     return ImagePbActivity.this.getString(R.string.save_error);
                 }
@@ -1099,31 +1099,42 @@ public class ImagePbActivity extends BaseActivity implements BaseViewPager.OnScr
 
     @Override // com.baidu.tieba.view.BaseViewPager.OnScrollOutListener
     public void onScrollOut(int state) {
-        if (state == 0) {
-            if (this.mData.getNextTid() != null && this.mData.getNextTitle() != null) {
-                Intent newIntent = new Intent();
-                newIntent.putExtra(ID, this.mData.getNextTid());
-                newIntent.putExtra(FORUM, this.mData.getForum());
-                newIntent.putExtra(TITLE, this.mData.getNextTitle());
-                setIntent(newIntent);
-                this.mIndex = 0;
-                this.mViewPager.setCurrentItem(0, false);
-                this.mPage.setText((CharSequence) null);
-                this.mPreData = this.mData;
-                this.mData = new ImagePbData();
-                freshData(true);
-            }
-        } else if (this.mPreData != null) {
-            this.mData = this.mPreData;
-            this.mPreData = null;
-            Intent newIntent2 = new Intent();
-            newIntent2.putExtra(ID, this.mData.getTid());
-            newIntent2.putExtra(FORUM, this.mData.getForum());
-            newIntent2.putExtra(TITLE, this.mData.getTitle());
-            setIntent(newIntent2);
-            this.mIndex = this.mData.getImageNum() - 1;
-            freshData(false);
-            this.mViewPager.setCurrentItem(this.mIndex, false);
+        switch (state) {
+            case 0:
+                if (this.mData.getNextTid() != null && this.mData.getNextTitle() != null) {
+                    if (this.mImagePbAsyncTask != null) {
+                        this.mImagePbAsyncTask.cancel();
+                    }
+                    this.mTid = this.mData.getNextTid();
+                    this.mForum = this.mData.getForum();
+                    this.mPbTitle = this.mData.getNextTitle();
+                    this.mIndex = 0;
+                    this.mViewPager.setCurrentItem(0, false);
+                    this.mPage.setText((CharSequence) null);
+                    this.mPreData = this.mData;
+                    this.mData = new ImagePbData();
+                    freshData(true);
+                    return;
+                }
+                return;
+            case 1:
+                if (this.mPreData != null) {
+                    if (this.mImagePbAsyncTask != null) {
+                        this.mImagePbAsyncTask.cancel();
+                    }
+                    this.mData = this.mPreData;
+                    this.mPreData = null;
+                    this.mTid = this.mData.getTid();
+                    this.mForum = this.mData.getForum();
+                    this.mPbTitle = this.mData.getTitle();
+                    this.mIndex = this.mData.getImageNum() - 1;
+                    freshData(false);
+                    this.mViewPager.setCurrentItem(this.mIndex, false);
+                    return;
+                }
+                return;
+            default:
+                return;
         }
     }
 
