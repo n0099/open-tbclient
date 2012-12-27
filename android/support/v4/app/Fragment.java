@@ -5,12 +5,9 @@ import android.content.ComponentCallbacks;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.Configuration;
-import android.content.res.Resources;
 import android.os.Bundle;
 import android.os.Parcel;
 import android.os.Parcelable;
-import android.support.v4.util.DebugUtils;
-import android.support.v4.view.accessibility.AccessibilityEventCompat;
 import android.util.AttributeSet;
 import android.util.SparseArray;
 import android.view.ContextMenu;
@@ -26,82 +23,59 @@ import java.io.PrintWriter;
 import java.util.HashMap;
 /* loaded from: classes.dex */
 public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuListener {
-    static final int ACTIVITY_CREATED = 2;
-    static final int CREATED = 1;
-    static final int INITIALIZING = 0;
-    static final int RESUMED = 5;
-    static final int STARTED = 4;
-    static final int STOPPED = 3;
-    private static final HashMap<String, Class<?>> sClassMap = new HashMap<>();
-    FragmentActivity mActivity;
-    boolean mAdded;
-    View mAnimatingAway;
-    Bundle mArguments;
-    int mBackStackNesting;
-    boolean mCalled;
-    boolean mCheckedForLoaderManager;
-    ViewGroup mContainer;
-    int mContainerId;
-    boolean mDeferStart;
-    boolean mDetached;
-    int mFragmentId;
-    FragmentManagerImpl mFragmentManager;
-    boolean mFromLayout;
-    boolean mHasMenu;
-    boolean mHidden;
-    boolean mInLayout;
-    View mInnerView;
-    LoaderManagerImpl mLoaderManager;
-    boolean mLoadersStarted;
-    int mNextAnim;
-    boolean mRemoving;
-    boolean mRestored;
-    boolean mResumed;
-    boolean mRetainInstance;
-    boolean mRetaining;
-    Bundle mSavedFragmentState;
-    SparseArray<Parcelable> mSavedViewState;
-    int mStateAfterAnimating;
-    String mTag;
-    Fragment mTarget;
-    int mTargetRequestCode;
-    View mView;
-    String mWho;
-    int mState = 0;
-    int mIndex = -1;
-    int mTargetIndex = -1;
-    boolean mMenuVisible = true;
-    boolean mUserVisibleHint = true;
+    private static final HashMap a = new HashMap();
+    l A;
+    g B;
+    int C;
+    int D;
+    String E;
+    boolean F;
+    boolean G;
+    boolean H;
+    boolean I;
+    boolean J;
+    boolean L;
+    int M;
+    ViewGroup N;
+    View O;
+    View P;
+    boolean Q;
+    w S;
+    boolean T;
+    boolean U;
+    View j;
+    int k;
+    Bundle l;
+    SparseArray m;
+    String o;
+    Bundle p;
+    Fragment q;
+    int s;
+    boolean t;
+    boolean u;
+    boolean v;
+    boolean w;
+    boolean x;
+    boolean y;
+    int z;
+    int i = 0;
+    int n = -1;
+    int r = -1;
+    boolean K = true;
+    boolean R = true;
 
     /* loaded from: classes.dex */
-    public static class SavedState implements Parcelable {
-        public static final Parcelable.Creator<SavedState> CREATOR = new Parcelable.Creator<SavedState>() { // from class: android.support.v4.app.Fragment.SavedState.1
-            /* JADX DEBUG: Method merged with bridge method */
-            /* JADX WARN: Can't rename method to resolve collision */
-            @Override // android.os.Parcelable.Creator
-            public SavedState createFromParcel(Parcel in) {
-                return new SavedState(in, null);
-            }
-
-            /* JADX DEBUG: Method merged with bridge method */
-            /* JADX WARN: Can't rename method to resolve collision */
-            @Override // android.os.Parcelable.Creator
-            public SavedState[] newArray(int size) {
-                return new SavedState[size];
-            }
-        };
-        final Bundle mState;
+    public class SavedState implements Parcelable {
+        public static final Parcelable.Creator CREATOR = new f();
+        final Bundle a;
 
         /* JADX INFO: Access modifiers changed from: package-private */
-        public SavedState(Bundle state) {
-            this.mState = state;
-        }
-
-        SavedState(Parcel in, ClassLoader loader) {
-            this.mState = in.readBundle();
-            if (loader != null && this.mState != null) {
-                this.mState.setClassLoader(loader);
+        public SavedState(Parcel parcel, ClassLoader classLoader) {
+            this.a = parcel.readBundle();
+            if (classLoader == null || this.a == null) {
+                return;
             }
+            this.a.setClassLoader(classLoader);
         }
 
         @Override // android.os.Parcelable
@@ -110,551 +84,387 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
         }
 
         @Override // android.os.Parcelable
-        public void writeToParcel(Parcel dest, int flags) {
-            dest.writeBundle(this.mState);
+        public void writeToParcel(Parcel parcel, int i) {
+            parcel.writeBundle(this.a);
         }
     }
 
-    /* loaded from: classes.dex */
-    public static class InstantiationException extends RuntimeException {
-        public InstantiationException(String msg, Exception cause) {
-            super(msg, cause);
-        }
+    public static Fragment a(Context context, String str) {
+        return a(context, str, (Bundle) null);
     }
 
-    public static Fragment instantiate(Context context, String fname) {
-        return instantiate(context, fname, null);
-    }
-
-    public static Fragment instantiate(Context context, String fname, Bundle args) {
+    public static Fragment a(Context context, String str, Bundle bundle) {
         try {
-            Class<?> clazz = sClassMap.get(fname);
-            if (clazz == null) {
-                clazz = context.getClassLoader().loadClass(fname);
-                sClassMap.put(fname, clazz);
+            Class<?> cls = (Class) a.get(str);
+            if (cls == null) {
+                cls = context.getClassLoader().loadClass(str);
+                a.put(str, cls);
             }
-            Fragment f = (Fragment) clazz.newInstance();
-            if (args != null) {
-                args.setClassLoader(f.getClass().getClassLoader());
-                f.mArguments = args;
+            Fragment fragment = (Fragment) cls.newInstance();
+            if (bundle != null) {
+                bundle.setClassLoader(fragment.getClass().getClassLoader());
+                fragment.p = bundle;
             }
-            return f;
+            return fragment;
         } catch (ClassNotFoundException e) {
-            throw new InstantiationException("Unable to instantiate fragment " + fname + ": make sure class name exists, is public, and has an empty constructor that is public", e);
+            throw new e("Unable to instantiate fragment " + str + ": make sure class name exists, is public, and has an empty constructor that is public", e);
         } catch (IllegalAccessException e2) {
-            throw new InstantiationException("Unable to instantiate fragment " + fname + ": make sure class name exists, is public, and has an empty constructor that is public", e2);
-        } catch (java.lang.InstantiationException e3) {
-            throw new InstantiationException("Unable to instantiate fragment " + fname + ": make sure class name exists, is public, and has an empty constructor that is public", e3);
+            throw new e("Unable to instantiate fragment " + str + ": make sure class name exists, is public, and has an empty constructor that is public", e2);
+        } catch (InstantiationException e3) {
+            throw new e("Unable to instantiate fragment " + str + ": make sure class name exists, is public, and has an empty constructor that is public", e3);
         }
     }
 
+    public View a(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
+        return null;
+    }
+
+    public Animation a(int i, boolean z, int i2) {
+        return null;
+    }
+
     /* JADX INFO: Access modifiers changed from: package-private */
-    public final void restoreViewState() {
-        if (this.mSavedViewState != null) {
-            this.mInnerView.restoreHierarchyState(this.mSavedViewState);
-            this.mSavedViewState = null;
+    public final void a(int i) {
+        this.n = i;
+        this.o = "android:fragment:" + this.n;
+    }
+
+    public void a(int i, int i2, Intent intent) {
+    }
+
+    public void a(Activity activity) {
+        this.L = true;
+    }
+
+    public void a(Activity activity, AttributeSet attributeSet, Bundle bundle) {
+        this.L = true;
+    }
+
+    public void a(Bundle bundle) {
+        this.L = true;
+    }
+
+    public void a(Menu menu) {
+    }
+
+    public void a(Menu menu, MenuInflater menuInflater) {
+    }
+
+    public void a(View view, Bundle bundle) {
+    }
+
+    public void a(String str, FileDescriptor fileDescriptor, PrintWriter printWriter, String[] strArr) {
+        printWriter.print(str);
+        printWriter.print("mFragmentId=#");
+        printWriter.print(Integer.toHexString(this.C));
+        printWriter.print(" mContainerId#=");
+        printWriter.print(Integer.toHexString(this.D));
+        printWriter.print(" mTag=");
+        printWriter.println(this.E);
+        printWriter.print(str);
+        printWriter.print("mState=");
+        printWriter.print(this.i);
+        printWriter.print(" mIndex=");
+        printWriter.print(this.n);
+        printWriter.print(" mWho=");
+        printWriter.print(this.o);
+        printWriter.print(" mBackStackNesting=");
+        printWriter.println(this.z);
+        printWriter.print(str);
+        printWriter.print("mAdded=");
+        printWriter.print(this.t);
+        printWriter.print(" mRemoving=");
+        printWriter.print(this.u);
+        printWriter.print(" mResumed=");
+        printWriter.print(this.v);
+        printWriter.print(" mFromLayout=");
+        printWriter.print(this.w);
+        printWriter.print(" mInLayout=");
+        printWriter.println(this.x);
+        printWriter.print(str);
+        printWriter.print("mHidden=");
+        printWriter.print(this.F);
+        printWriter.print(" mDetached=");
+        printWriter.print(this.G);
+        printWriter.print(" mMenuVisible=");
+        printWriter.print(this.K);
+        printWriter.print(" mHasMenu=");
+        printWriter.println(this.J);
+        printWriter.print(str);
+        printWriter.print("mRetainInstance=");
+        printWriter.print(this.H);
+        printWriter.print(" mRetaining=");
+        printWriter.print(this.I);
+        printWriter.print(" mUserVisibleHint=");
+        printWriter.println(this.R);
+        if (this.A != null) {
+            printWriter.print(str);
+            printWriter.print("mFragmentManager=");
+            printWriter.println(this.A);
+        }
+        if (this.B != null) {
+            printWriter.print(str);
+            printWriter.print("mActivity=");
+            printWriter.println(this.B);
+        }
+        if (this.p != null) {
+            printWriter.print(str);
+            printWriter.print("mArguments=");
+            printWriter.println(this.p);
+        }
+        if (this.l != null) {
+            printWriter.print(str);
+            printWriter.print("mSavedFragmentState=");
+            printWriter.println(this.l);
+        }
+        if (this.m != null) {
+            printWriter.print(str);
+            printWriter.print("mSavedViewState=");
+            printWriter.println(this.m);
+        }
+        if (this.q != null) {
+            printWriter.print(str);
+            printWriter.print("mTarget=");
+            printWriter.print(this.q);
+            printWriter.print(" mTargetRequestCode=");
+            printWriter.println(this.s);
+        }
+        if (this.M != 0) {
+            printWriter.print(str);
+            printWriter.print("mNextAnim=");
+            printWriter.println(this.M);
+        }
+        if (this.N != null) {
+            printWriter.print(str);
+            printWriter.print("mContainer=");
+            printWriter.println(this.N);
+        }
+        if (this.O != null) {
+            printWriter.print(str);
+            printWriter.print("mView=");
+            printWriter.println(this.O);
+        }
+        if (this.P != null) {
+            printWriter.print(str);
+            printWriter.print("mInnerView=");
+            printWriter.println(this.O);
+        }
+        if (this.j != null) {
+            printWriter.print(str);
+            printWriter.print("mAnimatingAway=");
+            printWriter.println(this.j);
+            printWriter.print(str);
+            printWriter.print("mStateAfterAnimating=");
+            printWriter.println(this.k);
+        }
+        if (this.S != null) {
+            printWriter.print(str);
+            printWriter.println("Loader Manager:");
+            this.S.a(str + "  ", fileDescriptor, printWriter, strArr);
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public final void setIndex(int index) {
-        this.mIndex = index;
-        this.mWho = "android:fragment:" + this.mIndex;
+    public boolean a(MenuItem menuItem) {
+        return false;
+    }
+
+    public LayoutInflater b(Bundle bundle) {
+        return this.B.getLayoutInflater();
+    }
+
+    public void b() {
+        this.L = true;
+        if (this.T) {
+            return;
+        }
+        this.T = true;
+        if (!this.U) {
+            this.U = true;
+            this.S = this.B.a(this.n, this.T, false);
+        }
+        if (this.S != null) {
+            this.S.b();
+        }
+    }
+
+    public void b(Menu menu) {
+    }
+
+    public void b(boolean z) {
+    }
+
+    public boolean b(MenuItem menuItem) {
+        return false;
+    }
+
+    public void c() {
+        this.L = true;
+    }
+
+    public void d() {
+        this.L = true;
+    }
+
+    public void d(Bundle bundle) {
+        this.L = true;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public final boolean isInBackStack() {
-        return this.mBackStackNesting > 0;
+    public final void e() {
+        if (this.m != null) {
+            this.P.restoreHierarchyState(this.m);
+            this.m = null;
+        }
     }
 
-    public final boolean equals(Object o) {
-        return super.equals(o);
+    public void e(Bundle bundle) {
+    }
+
+    public final boolean equals(Object obj) {
+        return super.equals(obj);
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public final boolean f() {
+        return this.z > 0;
+    }
+
+    public final g g() {
+        return this.B;
+    }
+
+    public final j h() {
+        return this.A;
     }
 
     public final int hashCode() {
         return super.hashCode();
     }
 
-    public String toString() {
-        StringBuilder sb = new StringBuilder((int) AccessibilityEventCompat.TYPE_VIEW_HOVER_ENTER);
-        DebugUtils.buildShortClassTag(this, sb);
-        if (this.mIndex >= 0) {
-            sb.append(" #");
-            sb.append(this.mIndex);
+    public View i() {
+        return this.O;
+    }
+
+    public void j() {
+        this.L = true;
+    }
+
+    public void k() {
+        this.L = true;
+    }
+
+    public void l() {
+        this.L = true;
+        if (!this.U) {
+            this.U = true;
+            this.S = this.B.a(this.n, this.T, false);
         }
-        if (this.mFragmentId != 0) {
-            sb.append(" id=0x");
-            sb.append(Integer.toHexString(this.mFragmentId));
-        }
-        if (this.mTag != null) {
-            sb.append(" ");
-            sb.append(this.mTag);
-        }
-        sb.append('}');
-        return sb.toString();
-    }
-
-    public final int getId() {
-        return this.mFragmentId;
-    }
-
-    public final String getTag() {
-        return this.mTag;
-    }
-
-    public void setArguments(Bundle args) {
-        if (this.mIndex >= 0) {
-            throw new IllegalStateException("Fragment already active");
-        }
-        this.mArguments = args;
-    }
-
-    public final Bundle getArguments() {
-        return this.mArguments;
-    }
-
-    public void setInitialSavedState(SavedState state) {
-        if (this.mIndex >= 0) {
-            throw new IllegalStateException("Fragment already active");
-        }
-        this.mSavedFragmentState = (state == null || state.mState == null) ? null : state.mState;
-    }
-
-    public void setTargetFragment(Fragment fragment, int requestCode) {
-        this.mTarget = fragment;
-        this.mTargetRequestCode = requestCode;
-    }
-
-    public final Fragment getTargetFragment() {
-        return this.mTarget;
-    }
-
-    public final int getTargetRequestCode() {
-        return this.mTargetRequestCode;
-    }
-
-    public final FragmentActivity getActivity() {
-        return this.mActivity;
-    }
-
-    public final Resources getResources() {
-        if (this.mActivity == null) {
-            throw new IllegalStateException("Fragment " + this + " not attached to Activity");
-        }
-        return this.mActivity.getResources();
-    }
-
-    public final CharSequence getText(int resId) {
-        return getResources().getText(resId);
-    }
-
-    public final String getString(int resId) {
-        return getResources().getString(resId);
-    }
-
-    public final String getString(int resId, Object... formatArgs) {
-        return getResources().getString(resId, formatArgs);
-    }
-
-    public final FragmentManager getFragmentManager() {
-        return this.mFragmentManager;
-    }
-
-    public final boolean isAdded() {
-        return this.mActivity != null && this.mAdded;
-    }
-
-    public final boolean isDetached() {
-        return this.mDetached;
-    }
-
-    public final boolean isRemoving() {
-        return this.mRemoving;
-    }
-
-    public final boolean isInLayout() {
-        return this.mInLayout;
-    }
-
-    public final boolean isResumed() {
-        return this.mResumed;
-    }
-
-    public final boolean isVisible() {
-        return (!isAdded() || isHidden() || this.mView == null || this.mView.getWindowToken() == null || this.mView.getVisibility() != 0) ? false : true;
-    }
-
-    public final boolean isHidden() {
-        return this.mHidden;
-    }
-
-    public void onHiddenChanged(boolean hidden) {
-    }
-
-    public void setRetainInstance(boolean retain) {
-        this.mRetainInstance = retain;
-    }
-
-    public final boolean getRetainInstance() {
-        return this.mRetainInstance;
-    }
-
-    public void setHasOptionsMenu(boolean hasMenu) {
-        if (this.mHasMenu != hasMenu) {
-            this.mHasMenu = hasMenu;
-            if (isAdded() && !isHidden()) {
-                this.mActivity.supportInvalidateOptionsMenu();
-            }
+        if (this.S != null) {
+            this.S.h();
         }
     }
 
-    public void setMenuVisibility(boolean menuVisible) {
-        if (this.mMenuVisible != menuVisible) {
-            this.mMenuVisible = menuVisible;
-            if (this.mHasMenu && isAdded() && !isHidden()) {
-                this.mActivity.supportInvalidateOptionsMenu();
-            }
-        }
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public void m() {
+        this.n = -1;
+        this.o = null;
+        this.t = false;
+        this.u = false;
+        this.v = false;
+        this.w = false;
+        this.x = false;
+        this.y = false;
+        this.z = 0;
+        this.A = null;
+        this.B = null;
+        this.C = 0;
+        this.D = 0;
+        this.E = null;
+        this.F = false;
+        this.G = false;
+        this.I = false;
+        this.S = null;
+        this.T = false;
+        this.U = false;
     }
 
-    public void setUserVisibleHint(boolean isVisibleToUser) {
-        if (!this.mUserVisibleHint && isVisibleToUser && this.mState < 4) {
-            this.mFragmentManager.performPendingDeferredStart(this);
-        }
-        this.mUserVisibleHint = isVisibleToUser;
-        this.mDeferStart = !isVisibleToUser;
+    public void n() {
+        this.L = true;
     }
 
-    public boolean getUserVisibleHint() {
-        return this.mUserVisibleHint;
-    }
-
-    public LoaderManager getLoaderManager() {
-        if (this.mLoaderManager != null) {
-            return this.mLoaderManager;
-        }
-        if (this.mActivity == null) {
-            throw new IllegalStateException("Fragment " + this + " not attached to Activity");
-        }
-        this.mCheckedForLoaderManager = true;
-        this.mLoaderManager = this.mActivity.getLoaderManager(this.mIndex, this.mLoadersStarted, true);
-        return this.mLoaderManager;
-    }
-
-    public void startActivity(Intent intent) {
-        if (this.mActivity == null) {
-            throw new IllegalStateException("Fragment " + this + " not attached to Activity");
-        }
-        this.mActivity.startActivityFromFragment(this, intent, -1);
-    }
-
-    public void startActivityForResult(Intent intent, int requestCode) {
-        if (this.mActivity == null) {
-            throw new IllegalStateException("Fragment " + this + " not attached to Activity");
-        }
-        this.mActivity.startActivityFromFragment(this, intent, requestCode);
-    }
-
-    public void onActivityResult(int requestCode, int resultCode, Intent data) {
-    }
-
-    public LayoutInflater getLayoutInflater(Bundle savedInstanceState) {
-        return this.mActivity.getLayoutInflater();
-    }
-
-    public void onInflate(Activity activity, AttributeSet attrs, Bundle savedInstanceState) {
-        this.mCalled = true;
-    }
-
-    public void onAttach(Activity activity) {
-        this.mCalled = true;
-    }
-
-    public Animation onCreateAnimation(int transit, boolean enter, int nextAnim) {
-        return null;
-    }
-
-    public void onCreate(Bundle savedInstanceState) {
-        this.mCalled = true;
-    }
-
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        return null;
-    }
-
-    public void onViewCreated(View view, Bundle savedInstanceState) {
-    }
-
-    public View getView() {
-        return this.mView;
-    }
-
-    public void onActivityCreated(Bundle savedInstanceState) {
-        this.mCalled = true;
-    }
-
-    public void onStart() {
-        this.mCalled = true;
-        if (!this.mLoadersStarted) {
-            this.mLoadersStarted = true;
-            if (!this.mCheckedForLoaderManager) {
-                this.mCheckedForLoaderManager = true;
-                this.mLoaderManager = this.mActivity.getLoaderManager(this.mIndex, this.mLoadersStarted, false);
-            }
-            if (this.mLoaderManager != null) {
-                this.mLoaderManager.doStart();
-            }
-        }
-    }
-
-    public void onResume() {
-        this.mCalled = true;
-    }
-
-    public void onSaveInstanceState(Bundle outState) {
+    public void o() {
     }
 
     @Override // android.content.ComponentCallbacks
-    public void onConfigurationChanged(Configuration newConfig) {
-        this.mCalled = true;
+    public void onConfigurationChanged(Configuration configuration) {
+        this.L = true;
     }
 
-    public void onPause() {
-        this.mCalled = true;
-    }
-
-    public void onStop() {
-        this.mCalled = true;
+    @Override // android.view.View.OnCreateContextMenuListener
+    public void onCreateContextMenu(ContextMenu contextMenu, View view, ContextMenu.ContextMenuInfo contextMenuInfo) {
+        g().onCreateContextMenu(contextMenu, view, contextMenuInfo);
     }
 
     @Override // android.content.ComponentCallbacks
     public void onLowMemory() {
-        this.mCalled = true;
+        this.L = true;
     }
 
-    public void onDestroyView() {
-        this.mCalled = true;
-    }
-
-    public void onDestroy() {
-        this.mCalled = true;
-        if (!this.mCheckedForLoaderManager) {
-            this.mCheckedForLoaderManager = true;
-            this.mLoaderManager = this.mActivity.getLoaderManager(this.mIndex, this.mLoadersStarted, false);
-        }
-        if (this.mLoaderManager != null) {
-            this.mLoaderManager.doDestroy();
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public void p() {
+        b();
+        if (this.S != null) {
+            this.S.g();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void initState() {
-        this.mIndex = -1;
-        this.mWho = null;
-        this.mAdded = false;
-        this.mRemoving = false;
-        this.mResumed = false;
-        this.mFromLayout = false;
-        this.mInLayout = false;
-        this.mRestored = false;
-        this.mBackStackNesting = 0;
-        this.mFragmentManager = null;
-        this.mActivity = null;
-        this.mFragmentId = 0;
-        this.mContainerId = 0;
-        this.mTag = null;
-        this.mHidden = false;
-        this.mDetached = false;
-        this.mRetaining = false;
-        this.mLoaderManager = null;
-        this.mLoadersStarted = false;
-        this.mCheckedForLoaderManager = false;
-    }
-
-    public void onDetach() {
-        this.mCalled = true;
-    }
-
-    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
-    }
-
-    public void onPrepareOptionsMenu(Menu menu) {
-    }
-
-    public void onDestroyOptionsMenu() {
-    }
-
-    public boolean onOptionsItemSelected(MenuItem item) {
-        return false;
-    }
-
-    public void onOptionsMenuClosed(Menu menu) {
-    }
-
-    @Override // android.view.View.OnCreateContextMenuListener
-    public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
-        getActivity().onCreateContextMenu(menu, v, menuInfo);
-    }
-
-    public void registerForContextMenu(View view) {
-        view.setOnCreateContextMenuListener(this);
-    }
-
-    public void unregisterForContextMenu(View view) {
-        view.setOnCreateContextMenuListener(null);
-    }
-
-    public boolean onContextItemSelected(MenuItem item) {
-        return false;
-    }
-
-    public void dump(String prefix, FileDescriptor fd, PrintWriter writer, String[] args) {
-        writer.print(prefix);
-        writer.print("mFragmentId=#");
-        writer.print(Integer.toHexString(this.mFragmentId));
-        writer.print(" mContainerId#=");
-        writer.print(Integer.toHexString(this.mContainerId));
-        writer.print(" mTag=");
-        writer.println(this.mTag);
-        writer.print(prefix);
-        writer.print("mState=");
-        writer.print(this.mState);
-        writer.print(" mIndex=");
-        writer.print(this.mIndex);
-        writer.print(" mWho=");
-        writer.print(this.mWho);
-        writer.print(" mBackStackNesting=");
-        writer.println(this.mBackStackNesting);
-        writer.print(prefix);
-        writer.print("mAdded=");
-        writer.print(this.mAdded);
-        writer.print(" mRemoving=");
-        writer.print(this.mRemoving);
-        writer.print(" mResumed=");
-        writer.print(this.mResumed);
-        writer.print(" mFromLayout=");
-        writer.print(this.mFromLayout);
-        writer.print(" mInLayout=");
-        writer.println(this.mInLayout);
-        writer.print(prefix);
-        writer.print("mHidden=");
-        writer.print(this.mHidden);
-        writer.print(" mDetached=");
-        writer.print(this.mDetached);
-        writer.print(" mMenuVisible=");
-        writer.print(this.mMenuVisible);
-        writer.print(" mHasMenu=");
-        writer.println(this.mHasMenu);
-        writer.print(prefix);
-        writer.print("mRetainInstance=");
-        writer.print(this.mRetainInstance);
-        writer.print(" mRetaining=");
-        writer.print(this.mRetaining);
-        writer.print(" mUserVisibleHint=");
-        writer.println(this.mUserVisibleHint);
-        if (this.mFragmentManager != null) {
-            writer.print(prefix);
-            writer.print("mFragmentManager=");
-            writer.println(this.mFragmentManager);
-        }
-        if (this.mActivity != null) {
-            writer.print(prefix);
-            writer.print("mActivity=");
-            writer.println(this.mActivity);
-        }
-        if (this.mArguments != null) {
-            writer.print(prefix);
-            writer.print("mArguments=");
-            writer.println(this.mArguments);
-        }
-        if (this.mSavedFragmentState != null) {
-            writer.print(prefix);
-            writer.print("mSavedFragmentState=");
-            writer.println(this.mSavedFragmentState);
-        }
-        if (this.mSavedViewState != null) {
-            writer.print(prefix);
-            writer.print("mSavedViewState=");
-            writer.println(this.mSavedViewState);
-        }
-        if (this.mTarget != null) {
-            writer.print(prefix);
-            writer.print("mTarget=");
-            writer.print(this.mTarget);
-            writer.print(" mTargetRequestCode=");
-            writer.println(this.mTargetRequestCode);
-        }
-        if (this.mNextAnim != 0) {
-            writer.print(prefix);
-            writer.print("mNextAnim=");
-            writer.println(this.mNextAnim);
-        }
-        if (this.mContainer != null) {
-            writer.print(prefix);
-            writer.print("mContainer=");
-            writer.println(this.mContainer);
-        }
-        if (this.mView != null) {
-            writer.print(prefix);
-            writer.print("mView=");
-            writer.println(this.mView);
-        }
-        if (this.mInnerView != null) {
-            writer.print(prefix);
-            writer.print("mInnerView=");
-            writer.println(this.mView);
-        }
-        if (this.mAnimatingAway != null) {
-            writer.print(prefix);
-            writer.print("mAnimatingAway=");
-            writer.println(this.mAnimatingAway);
-            writer.print(prefix);
-            writer.print("mStateAfterAnimating=");
-            writer.println(this.mStateAfterAnimating);
-        }
-        if (this.mLoaderManager != null) {
-            writer.print(prefix);
-            writer.println("Loader Manager:");
-            this.mLoaderManager.dump(prefix + "  ", fd, writer, args);
-        }
+    public void q() {
+        c();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void performStart() {
-        onStart();
-        if (this.mLoaderManager != null) {
-            this.mLoaderManager.doReportStart();
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void performStop() {
-        onStop();
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void performReallyStop() {
-        if (this.mLoadersStarted) {
-            this.mLoadersStarted = false;
-            if (!this.mCheckedForLoaderManager) {
-                this.mCheckedForLoaderManager = true;
-                this.mLoaderManager = this.mActivity.getLoaderManager(this.mIndex, this.mLoadersStarted, false);
+    public void r() {
+        if (this.T) {
+            this.T = false;
+            if (!this.U) {
+                this.U = true;
+                this.S = this.B.a(this.n, this.T, false);
             }
-            if (this.mLoaderManager != null) {
-                if (!this.mActivity.mRetaining) {
-                    this.mLoaderManager.doStop();
+            if (this.S != null) {
+                if (this.B.g) {
+                    this.S.d();
                 } else {
-                    this.mLoaderManager.doRetain();
+                    this.S.c();
                 }
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void performDestroyView() {
-        onDestroyView();
-        if (this.mLoaderManager != null) {
-            this.mLoaderManager.doReportNextStart();
+    public void s() {
+        d();
+        if (this.S != null) {
+            this.S.f();
         }
+    }
+
+    public String toString() {
+        StringBuilder sb = new StringBuilder(128);
+        android.support.v4.b.a.a(this, sb);
+        if (this.n >= 0) {
+            sb.append(" #");
+            sb.append(this.n);
+        }
+        if (this.C != 0) {
+            sb.append(" id=0x");
+            sb.append(Integer.toHexString(this.C));
+        }
+        if (this.E != null) {
+            sb.append(" ");
+            sb.append(this.E);
+        }
+        sb.append('}');
+        return sb.toString();
     }
 }

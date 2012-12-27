@@ -1,226 +1,132 @@
 package com.baidu.tieba.pb;
 
-import android.annotation.SuppressLint;
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.Bitmap;
 import android.os.Bundle;
-import android.view.View;
 import android.webkit.URLUtil;
 import android.webkit.WebChromeClient;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
-import android.webkit.WebViewClient;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
-import com.baidu.tieba.BaseActivity;
 import com.baidu.tieba.R;
 import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.compatible.CompatibleUtile;
-import com.baidu.tieba.frs.FrsActivity;
-import com.baidu.tieba.util.TiebaLog;
-import com.baidu.tieba.util.UtilHelper;
-import java.lang.reflect.Method;
-import java.net.URI;
-import java.util.List;
-import org.apache.http.NameValuePair;
-import org.apache.http.client.utils.URLEncodedUtils;
-@SuppressLint({"SetJavaScriptEnabled"})
 /* loaded from: classes.dex */
-public class WebActivity extends BaseActivity {
-    private WebView mWebView = null;
-    private ImageView mWebback = null;
-    private ImageView mWebForward = null;
-    private Button mRefresh = null;
-    private Button mBack = null;
-    private ProgressBar progress = null;
-    private String url = null;
-    private WebChromeClient mChromeClient = null;
+public class WebActivity extends com.baidu.tieba.e {
+    private WebView b = null;
+    private ImageView c = null;
+    private ImageView d = null;
+    private Button e = null;
+    private Button f = null;
+    private ProgressBar g = null;
+    private String h = null;
+    private WebChromeClient i = null;
 
-    public static void startActivity(Context context, String url) {
+    public static void a(Context context, String str) {
         Intent intent = new Intent(context, WebActivity.class);
-        intent.putExtra("url", url);
+        intent.putExtra("url", str);
         context.startActivity(intent);
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.BaseActivity, android.app.Activity
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        TiebaApplication.app.addRemoteActivity(this);
-        UtilHelper.openGpu(this);
-        InitUI();
-        InitData(savedInstanceState);
+    private void a(Bundle bundle) {
+        if (bundle != null) {
+            this.h = bundle.getString("url");
+        } else {
+            this.h = getIntent().getStringExtra("url");
+        }
+        String guessUrl = URLUtil.guessUrl(this.h);
+        if (this.h == null || !URLUtil.isNetworkUrl(guessUrl)) {
+            return;
+        }
+        this.b.loadUrl(guessUrl);
     }
 
-    @Override // com.baidu.tieba.BaseActivity
-    public void releaseResouce() {
-        super.releaseResouce();
+    private void c(String str) {
+        if (this.b != null) {
+            try {
+                WebView.class.getMethod(str, new Class[0]).invoke(this.b, new Object[0]);
+            } catch (Exception e) {
+                com.baidu.tieba.c.ae.b(getClass().getName(), "callHiddenWebViewMethod", "error = " + e.getMessage());
+            }
+        }
+    }
+
+    private void g() {
+        setContentView(R.layout.web_activity);
+        this.g = (ProgressBar) findViewById(R.id.progress);
+        this.b = (WebView) findViewById(R.id.webview);
+        this.b.setWebViewClient(new dk(this));
+        this.i = CompatibleUtile.getInstance().getWebChromeClient(this);
+        this.b.setWebChromeClient(this.i);
+        WebSettings settings = this.b.getSettings();
+        settings.setBuiltInZoomControls(true);
+        settings.setJavaScriptEnabled(true);
+        settings.setPluginsEnabled(true);
+        com.baidu.tieba.c.ag.a(settings);
+        this.c = (ImageView) findViewById(R.id.webBack);
+        this.c.setEnabled(false);
+        this.c.setOnClickListener(new dl(this));
+        this.d = (ImageView) findViewById(R.id.webForward);
+        this.d.setEnabled(false);
+        this.d.setOnClickListener(new dm(this));
+        this.e = (Button) findViewById(R.id.refresh);
+        this.e.setOnClickListener(new dn(this));
+        this.f = (Button) findViewById(R.id.back);
+        this.f.setOnClickListener(new Cdo(this));
+    }
+
+    @Override // com.baidu.tieba.e
+    public void a() {
+        super.a();
         finish();
     }
 
-    private void InitUI() {
-        setContentView(R.layout.web_activity);
-        this.progress = (ProgressBar) findViewById(R.id.progress);
-        this.mWebView = (WebView) findViewById(R.id.webview);
-        this.mWebView.setWebViewClient(new WebViewClient() { // from class: com.baidu.tieba.pb.WebActivity.1
-            @Override // android.webkit.WebViewClient
-            public void onPageFinished(WebView view, String url) {
-                super.onPageFinished(view, url);
-                if (WebActivity.this.mWebView.canGoBack()) {
-                    WebActivity.this.mWebback.setEnabled(true);
-                } else {
-                    WebActivity.this.mWebback.setEnabled(false);
-                }
-                if (WebActivity.this.mWebView.canGoForward()) {
-                    WebActivity.this.mWebForward.setEnabled(true);
-                } else {
-                    WebActivity.this.mWebForward.setEnabled(false);
-                }
-                WebActivity.this.progress.setVisibility(8);
-                WebActivity.this.mRefresh.setVisibility(0);
-            }
-
-            @Override // android.webkit.WebViewClient
-            public void onPageStarted(WebView view, String url, Bitmap favicon) {
-                super.onPageStarted(view, url, favicon);
-                if (WebActivity.this.mWebView.canGoBack()) {
-                    WebActivity.this.mWebback.setEnabled(true);
-                } else {
-                    WebActivity.this.mWebback.setEnabled(false);
-                }
-                if (WebActivity.this.mWebView.canGoForward()) {
-                    WebActivity.this.mWebForward.setEnabled(true);
-                } else {
-                    WebActivity.this.mWebForward.setEnabled(false);
-                }
-                WebActivity.this.progress.setVisibility(0);
-                WebActivity.this.mRefresh.setVisibility(8);
-            }
-
-            /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:16:0x0043 -> B:9:0x0020). Please submit an issue!!! */
-            @Override // android.webkit.WebViewClient
-            public boolean shouldOverrideUrlLoading(WebView view, String url) {
-                if (url != null && url.contains("jump_tieba_native=1")) {
-                    try {
-                        URI uri = new URI(url);
-                        List<NameValuePair> list = URLEncodedUtils.parse(uri, "utf-8");
-                        for (NameValuePair nameValuePair : list) {
-                            if (nameValuePair.getName().equalsIgnoreCase("kz")) {
-                                PbActivity.startAcitivity(WebActivity.this, nameValuePair.getValue(), null);
-                                return true;
-                            } else if (nameValuePair.getName().equalsIgnoreCase("kw")) {
-                                FrsActivity.startAcitivity(WebActivity.this, nameValuePair.getValue(), null);
-                                return true;
-                            }
-                        }
-                    } catch (Exception e) {
-                        TiebaLog.e(getClass().getName(), "shouldOverrideUrlLoading", e.getMessage());
-                    }
-                }
-                return super.shouldOverrideUrlLoading(view, url);
-            }
-        });
-        this.mChromeClient = CompatibleUtile.getInstance().getWebChromeClient(this);
-        this.mWebView.setWebChromeClient(this.mChromeClient);
-        WebSettings webSettings = this.mWebView.getSettings();
-        webSettings.setBuiltInZoomControls(true);
-        webSettings.setJavaScriptEnabled(true);
-        webSettings.setPluginsEnabled(true);
-        UtilHelper.WebViewNoDataBase(webSettings);
-        this.mWebback = (ImageView) findViewById(R.id.webBack);
-        this.mWebback.setEnabled(false);
-        this.mWebback.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pb.WebActivity.2
-            @Override // android.view.View.OnClickListener
-            public void onClick(View v) {
-                if (WebActivity.this.mWebView.canGoBack()) {
-                    WebActivity.this.mWebView.goBack();
-                }
-            }
-        });
-        this.mWebForward = (ImageView) findViewById(R.id.webForward);
-        this.mWebForward.setEnabled(false);
-        this.mWebForward.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pb.WebActivity.3
-            @Override // android.view.View.OnClickListener
-            public void onClick(View v) {
-                if (WebActivity.this.mWebView.canGoForward()) {
-                    WebActivity.this.mWebView.goForward();
-                }
-            }
-        });
-        this.mRefresh = (Button) findViewById(R.id.refresh);
-        this.mRefresh.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pb.WebActivity.4
-            @Override // android.view.View.OnClickListener
-            public void onClick(View v) {
-                WebActivity.this.mWebView.reload();
-            }
-        });
-        this.mBack = (Button) findViewById(R.id.back);
-        this.mBack.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pb.WebActivity.5
-            @Override // android.view.View.OnClickListener
-            public void onClick(View v) {
-                WebActivity.this.finish();
-            }
-        });
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.tieba.e, android.app.Activity
+    public void onCreate(Bundle bundle) {
+        super.onCreate(bundle);
+        TiebaApplication.a().a((com.baidu.tieba.e) this);
+        com.baidu.tieba.c.ag.c((Activity) this);
+        g();
+        a(bundle);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.BaseActivity, android.app.Activity
-    public void onPause() {
-        super.onPause();
-        this.mWebView.pauseTimers();
-        callHiddenWebViewMethod("onPause");
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.BaseActivity, android.app.Activity
-    public void onResume() {
-        super.onResume();
-        this.mWebView.resumeTimers();
-        callHiddenWebViewMethod("onResume");
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.BaseActivity, android.app.Activity
+    @Override // com.baidu.tieba.e, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        TiebaApplication.app.delRemoteActivity(this);
-        if (this.progress != null) {
-            this.progress.setVisibility(8);
+        TiebaApplication.a().b((com.baidu.tieba.e) this);
+        if (this.g != null) {
+            this.g.setVisibility(8);
         }
-        if (this.mChromeClient != null && (this.mChromeClient instanceof CompatibleUtile.FullscreenableChromeClient)) {
-            ((CompatibleUtile.FullscreenableChromeClient) this.mChromeClient).hideCustomView();
+        if (this.i == null || !(this.i instanceof CompatibleUtile.FullscreenableChromeClient)) {
+            return;
         }
+        ((CompatibleUtile.FullscreenableChromeClient) this.i).hideCustomView();
     }
 
-    private void InitData(Bundle savedInstanceState) {
-        if (savedInstanceState != null) {
-            this.url = savedInstanceState.getString("url");
-        } else {
-            Intent intent = getIntent();
-            this.url = intent.getStringExtra("url");
-        }
-        String validUrl = URLUtil.guessUrl(this.url);
-        if (this.url != null && URLUtil.isNetworkUrl(validUrl)) {
-            this.mWebView.loadUrl(validUrl);
-        }
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.tieba.e, android.app.Activity
+    public void onPause() {
+        super.onPause();
+        this.b.pauseTimers();
+        c("onPause");
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.tieba.e, android.app.Activity
+    public void onResume() {
+        super.onResume();
+        this.b.resumeTimers();
+        c("onResume");
     }
 
     @Override // android.app.Activity
-    protected void onSaveInstanceState(Bundle outState) {
-        super.onSaveInstanceState(outState);
-        outState.putString("url", this.url);
-    }
-
-    private void callHiddenWebViewMethod(String name) {
-        if (this.mWebView != null) {
-            try {
-                Method method = WebView.class.getMethod(name, new Class[0]);
-                method.invoke(this.mWebView, new Object[0]);
-            } catch (Exception ex) {
-                TiebaLog.e(getClass().getName(), "callHiddenWebViewMethod", "error = " + ex.getMessage());
-            }
-        }
+    protected void onSaveInstanceState(Bundle bundle) {
+        super.onSaveInstanceState(bundle);
+        bundle.putString("url", this.h);
     }
 }

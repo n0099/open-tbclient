@@ -6,56 +6,48 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.text.SpannableString;
 import android.text.style.ForegroundColorSpan;
-import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-import com.baidu.tieba.BaseActivity;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
-public class CreateBarSuccessActivity extends BaseActivity {
-    private static final String BAR_NAME_STRING = "barname";
-    private String mBarName = null;
-    private Button mBack = null;
-    private TextView mTextView = null;
+public class CreateBarSuccessActivity extends com.baidu.tieba.e {
+    private String b = null;
+    private Button c = null;
+    private TextView d = null;
 
-    public static void startActivity(Context context, String bar_name) {
-        if (bar_name != null && bar_name.length() > 0) {
-            Intent intent = new Intent(context, CreateBarSuccessActivity.class);
-            intent.putExtra(BAR_NAME_STRING, bar_name);
-            context.startActivity(intent);
+    public static void a(Context context, String str) {
+        if (str == null || str.length() <= 0) {
+            return;
         }
+        Intent intent = new Intent(context, CreateBarSuccessActivity.class);
+        intent.putExtra("barname", str);
+        context.startActivity(intent);
+    }
+
+    private void g() {
+        this.b = getIntent().getStringExtra("barname");
+        if (this.b == null) {
+            this.b = "";
+        }
+    }
+
+    private void h() {
+        this.c = (Button) findViewById(R.id.back);
+        this.c.setOnClickListener(new e(this));
+        this.d = (TextView) findViewById(R.id.text);
+        String string = getString(R.string.create_bar_info1);
+        int length = string.length();
+        SpannableString spannableString = new SpannableString(String.valueOf(string) + this.b + getString(R.string.create_bar_info2));
+        spannableString.setSpan(new ForegroundColorSpan(Color.rgb(229, 4, 0)), length, this.b.length() + length, 33);
+        this.d.setText(spannableString);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.BaseActivity, android.app.Activity
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+    @Override // com.baidu.tieba.e, android.app.Activity
+    public void onCreate(Bundle bundle) {
+        super.onCreate(bundle);
         setContentView(R.layout.create_bar_success_activity);
-        initData();
-        initUi();
-    }
-
-    private void initData() {
-        Intent intent = getIntent();
-        this.mBarName = intent.getStringExtra(BAR_NAME_STRING);
-        if (this.mBarName == null) {
-            this.mBarName = "";
-        }
-    }
-
-    private void initUi() {
-        this.mBack = (Button) findViewById(R.id.back);
-        this.mBack.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.home.CreateBarSuccessActivity.1
-            @Override // android.view.View.OnClickListener
-            public void onClick(View v) {
-                CreateBarSuccessActivity.this.finish();
-            }
-        });
-        this.mTextView = (TextView) findViewById(R.id.text);
-        String str = getString(R.string.create_bar_info1);
-        int start = str.length();
-        SpannableString info = new SpannableString(String.valueOf(str) + this.mBarName + getString(R.string.create_bar_info2));
-        info.setSpan(new ForegroundColorSpan(Color.rgb(229, 4, 0)), start, this.mBarName.length() + start, 33);
-        this.mTextView.setText(info);
+        g();
+        h();
     }
 }

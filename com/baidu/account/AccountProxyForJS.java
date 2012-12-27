@@ -8,40 +8,41 @@ public class AccountProxyForJS {
     private AccountProxy mAccountProxy;
     private WebView mWebView;
 
-    public AccountProxyForJS(Activity context, WebView webview) {
-        this.mAccountProxy = new AccountProxy(context);
-        this.mWebView = webview;
+    public AccountProxyForJS(Activity activity, WebView webView) {
+        this.mAccountProxy = new AccountProxy(activity);
+        this.mWebView = webView;
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void tokenCallback(String str, String str2) {
+        if (this.mWebView == null || str == null) {
+            return;
+        }
+        this.mWebView.loadUrl("javascript:" + str + "(\"" + str2 + "\")");
+    }
+
+    public int getNumOfAccounts(String str) {
+        return this.mAccountProxy.getNumOfAccounts(str);
+    }
+
+    public void getTokenAsync(String str, final String str2) {
+        this.mAccountProxy.getTokenAsync(str, new AccountProxy.TokenCallback() { // from class: com.baidu.account.AccountProxyForJS.1
+            @Override // com.baidu.account.AccountProxy.TokenCallback
+            public void callBack(String str3) {
+                AccountProxyForJS.this.tokenCallback(str2, str3);
+            }
+        });
+    }
+
+    public String getTokenSync(String str) {
+        return this.mAccountProxy.getTokenSync(str);
     }
 
     public boolean hasBaiduAccount() {
         return this.mAccountProxy.hasBaiduAccount();
     }
 
-    public void setAccount(String accountType) {
-        this.mAccountProxy.setAccount(accountType);
-    }
-
-    public int getNumOfAccounts(String accountType) {
-        return this.mAccountProxy.getNumOfAccounts(accountType);
-    }
-
-    public String getTokenSync(String accountType) {
-        return this.mAccountProxy.getTokenSync(accountType);
-    }
-
-    public void getTokenAsync(String accountType, final String callbackName) {
-        this.mAccountProxy.getTokenAsync(accountType, new AccountProxy.TokenCallback() { // from class: com.baidu.account.AccountProxyForJS.1
-            @Override // com.baidu.account.AccountProxy.TokenCallback
-            public void callBack(String token) {
-                AccountProxyForJS.this.tokenCallback(callbackName, token);
-            }
-        });
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void tokenCallback(String callbackName, String token) {
-        if (this.mWebView != null && callbackName != null) {
-            this.mWebView.loadUrl("javascript:" + callbackName + "(\"" + token + "\")");
-        }
+    public void setAccount(String str) {
+        this.mAccountProxy.setAccount(str);
     }
 }

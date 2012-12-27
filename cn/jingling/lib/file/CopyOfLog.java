@@ -28,20 +28,21 @@ public class CopyOfLog {
         }
     }
 
-    public void writeArrayAsMatrix(int[] origPixel, int lineLenth) {
-        if (origPixel != null && origPixel.length != 0) {
-            for (int i = 0; i < origPixel.length; i++) {
-                try {
-                    fos.write(Integer.toString(origPixel[i]).getBytes());
-                    if ((i + 1) % lineLenth == 0 || i + 1 == origPixel.length) {
-                        fos.write(10);
-                    } else {
-                        fos.write(44);
-                    }
-                } catch (IOException e) {
-                    e.printStackTrace();
-                    return;
+    public void writeArrayAsMatrix(int[] iArr, int i) {
+        if (iArr == null || iArr.length == 0) {
+            return;
+        }
+        for (int i2 = 0; i2 < iArr.length; i2++) {
+            try {
+                fos.write(Integer.toString(iArr[i2]).getBytes());
+                if ((i2 + 1) % i == 0 || i2 + 1 == iArr.length) {
+                    fos.write(10);
+                } else {
+                    fos.write(44);
                 }
+            } catch (IOException e) {
+                e.printStackTrace();
+                return;
             }
         }
     }

@@ -33,7 +33,7 @@ import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class FilterFactory {
-    private static final Map<String, Class<? extends OneKeyFilter>> sOneKeyFilters = new HashMap<String, Class<? extends OneKeyFilter>>() { // from class: cn.jingling.lib.filters.FilterFactory.1
+    private static final Map sOneKeyFilters = new HashMap() { // from class: cn.jingling.lib.filters.FilterFactory.1
         private static final long serialVersionUID = -4215192030410560547L;
 
         {
@@ -68,14 +68,22 @@ public class FilterFactory {
         }
     };
 
-    public static OneKeyFilter createOneKeyFilter(Context cx, String label) {
-        boolean checkPackageName = checkPackage(cx);
-        if (!checkPackageName) {
+    private static boolean checkPackage(Context context) {
+        for (int i = 0; i < AllowedPackageList.packs.size(); i++) {
+            if (context.getApplicationInfo().packageName.equals(AllowedPackageList.packs.get(i))) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public static OneKeyFilter createOneKeyFilter(Context context, String str) {
+        if (!checkPackage(context)) {
             System.out.println("packageName error");
             return null;
         }
         try {
-            return sOneKeyFilters.get(label.toLowerCase()).newInstance();
+            return (OneKeyFilter) ((Class) sOneKeyFilters.get(str.toLowerCase())).newInstance();
         } catch (IllegalAccessException e) {
             e.printStackTrace();
             return null;
@@ -86,14 +94,5 @@ public class FilterFactory {
             e3.printStackTrace();
             return null;
         }
-    }
-
-    private static boolean checkPackage(Context cx) {
-        for (int i = 0; i < AllowedPackageList.packs.size(); i++) {
-            if (cx.getApplicationInfo().packageName.equals(AllowedPackageList.packs.get(i))) {
-                return true;
-            }
-        }
-        return false;
     }
 }

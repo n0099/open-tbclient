@@ -9,46 +9,34 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.SharedPreferences;
-import android.content.pm.PackageInfo;
 import android.content.res.Configuration;
-import android.database.ContentObserver;
 import android.graphics.Bitmap;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
 import android.net.Uri;
 import android.os.Build;
-import android.os.Bundle;
 import android.os.Handler;
-import android.os.Message;
 import android.os.Process;
-import android.support.v4.view.accessibility.AccessibilityEventCompat;
 import android.telephony.TelephonyManager;
 import com.baidu.account.AccountProxy;
-import com.baidu.tieba.account.AccountShareHelper;
-import com.baidu.tieba.account.LoginActivity;
-import com.baidu.tieba.account.PvImageThread;
-import com.baidu.tieba.account.PvThread;
-import com.baidu.tieba.data.AccountData;
-import com.baidu.tieba.data.Config;
+import com.baidu.location.BDLocation;
+import com.baidu.location.BDLocationListener;
+import com.baidu.location.LocationClient;
+import com.baidu.location.LocationClientOption;
+import com.baidu.tieba.account.aj;
+import com.baidu.tieba.account.ak;
+import com.baidu.tieba.c.aa;
+import com.baidu.tieba.c.ab;
+import com.baidu.tieba.c.ad;
+import com.baidu.tieba.c.ae;
+import com.baidu.tieba.c.af;
 import com.baidu.tieba.service.MessagePullService;
-import com.baidu.tieba.service.MyReceiver;
 import com.baidu.tieba.service.TiebaMessageService;
-import com.baidu.tieba.util.DatabaseService;
-import com.baidu.tieba.util.FaceHelper;
-import com.baidu.tieba.util.FileHelper;
-import com.baidu.tieba.util.FrsImageThread;
-import com.baidu.tieba.util.NetWorkCore;
-import com.baidu.tieba.util.ReadThreadHistory;
-import com.baidu.tieba.util.SDRamImage;
-import com.baidu.tieba.util.StringHelper;
-import com.baidu.tieba.util.TiebaLog;
-import com.baidu.tieba.util.UExceptionHandler;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
-import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.lang.ref.SoftReference;
 import java.util.ArrayList;
@@ -60,1086 +48,807 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 /* loaded from: classes.dex */
 public class TiebaApplication extends Application {
-    private static final String ACCOUNT_SHARE = "account_share";
-    public static final String ACTION_RESPONSE = "com.baidu.push.RESPONSE";
-    public static final String API_KEY = "efbGYV7ELR2HpjgsnxwMDvCf";
-    private static final String APPUSETIMES = "tdatabaseusetimes";
-    public static final int APP_EVENT_LOGIN = 1;
-    public static final int APP_PV_STAT = 4;
-    public static final int APP_START_MSG_SERVICE = 2;
-    public static final int APP_STOP_MSG_SERVICE = 3;
-    public static final int BIND_FLAG = 0;
-    private static final String BROWSER_TYPE = "browser_type";
-    public static final int BROWSER_TYPE_BAIDU = 2;
-    public static final int BROWSER_TYPE_DEFAULT = 1;
-    public static final int BROWSER_TYPE_NATIVE = 0;
-    public static final int BROWSER_TYPE_TIEBA = 1;
-    private static final String CHECK_NETWORK_NOTIFY_CONFIRM = "check_network_confirm";
-    private static final String CLIENT_ID = "client_id";
-    private static final String DISPLAY_EYESHIELDMODE_NEW = "display_eyeshieldmode_new";
-    private static final String DISPLAY_PHOTO = "display_photo";
-    private static final String FROM_ID = "from_id";
-    private static final String GUIDE_PAGE_BITS = "guide_page_bits";
-    public static final int GUIDE_PAGE_BOOK_MARK_1 = 0;
-    public static final int GUIDE_PAGE_BOOK_MARK_2 = 1;
-    public static final int GUIDE_PAGE_FRS_IMG_MODE = 2;
-    public static final int GUIDE_PAGE_PB_IMG_MODE = 3;
-    private static final String LAST_VERSION = "lase_version";
-    private static final long LOCATION_EXPIRATION = 300000;
-    private static final String LOCATION_ON = "location_on";
-    private static final String MANAGE_MODE = "manage_mode";
-    private static final String MESSAGE_ID = "message_id";
-    private static final String MOTU_ON = "motu_on";
-    private static final String PERMOTED_MESSAGE = "permoted_message";
-    private static final String REFRESH_GUESS_TIME = "refresh_guess_time";
-    private static final String REFRESH_RECOMMEND_TIME = "refresh_recommend_time";
-    public static final String SECRET_KEY = "e2I50gtYExCFyFWbhaun813ETVAlrG5b";
-    private static final String SHOW_ALL_LIKE_ITEMS = "show_all_like_items";
-    private static final String TDATABASECREATETIME = "tdatabasecreatetime";
-    private static final int TEN_METERS = 100;
-    private static final int TEN_SECONDS = 10000;
-    public static final int UNBIND_FLAG = 1;
-    private static final String UPDATE_NOTIFY_TIME = "update_notify_time";
-    public static TiebaApplication app;
-    private LocationManager mLocationManager;
-    private static AccountData mAccount = null;
-    private static String clientId = null;
-    private static boolean is_baidu_account_manager = false;
-    public static boolean IS_APP_RUNNING = false;
-    private int updata_state = 0;
-    private HashMap<String, SoftReference<Bitmap>> mFaces = null;
-    private boolean mIsDisplayPhoto = true;
-    private boolean mLikeChanged = false;
-    private SDRamImage mSdramImage = null;
-    private ReadThreadHistory mReadThreadHistory = null;
-    private ReadThreadHistory mReadGuessHistory = null;
-    private String mImei = null;
-    private boolean mIsMainProcess = false;
-    private int mResumeNum = 0;
-    private long mStartTime = 0;
-    private long mMessageID = 0;
-    private String mIsShowAllLikeItems = null;
-    public long lastLocationTime = 0;
-    private int network_notify_confirm = -1;
-    private Location lastLocation = null;
-    private ExecutorService imagePvThread = null;
-    private int mUploadImageQuality = 2;
-    private int mViewImageQuality = 1;
-    private boolean mIsShowImages = true;
-    private int mFontSize = 3;
-    private boolean mIsAbstractOn = true;
-    private boolean mIsEyeShieldMode = false;
-    private String mIsEyeShieldModeNew = null;
-    private boolean mIsLocationOn = true;
-    private boolean mIsMotuOn = true;
-    private int mBrowserType = 1;
-    private boolean mIsManageMode = false;
-    private int mGuidePageBits = 0;
-    private long mRefreshRecommendTime = 0;
-    private long mRefreshGuessTime = 0;
-    public ArrayList<BaseActivity> mRemoteActivity = null;
-    private Hashtable<String, Integer> mFrsImageForums = null;
-    public Handler handler = new Handler(new Handler.Callback() { // from class: com.baidu.tieba.TiebaApplication.1
-        @Override // android.os.Handler.Callback
-        public boolean handleMessage(Message msg) {
-            switch (msg.what) {
-                case 1:
-                    TiebaLog.e("TiebaApplication", "handleMessage", "Do Aoto Login" + String.valueOf(msg.what));
-                    if (TiebaApplication.isBaiduAccountManager()) {
-                        TiebaApplication.setCurrentAccount(null);
-                        MainTabActivity.startActivityOnUserChanged(TiebaApplication.this, null, true);
-                        break;
-                    } else {
-                        Intent intent = new Intent(TiebaApplication.app, LoginActivity.class);
-                        Bundle data = msg.getData();
-                        String account = data.getString(LoginActivity.ACCOUNT);
-                        if (account == null) {
-                            account = "";
-                        }
-                        intent.putExtra(LoginActivity.ACCOUNT, account);
-                        intent.putExtra(LoginActivity.HAS_EXIT_DIALOG, false);
-                        intent.setFlags(268435456);
-                        TiebaApplication.app.startActivity(intent);
-                        break;
-                    }
-                case 2:
-                    TiebaApplication.this.startMsgReceive();
-                    break;
-                case 3:
-                    TiebaApplication.this.stopMsgReceive();
-                    break;
-                case 4:
-                    long time = (((System.nanoTime() - TiebaApplication.this.mStartTime) / 1000000) - Config.USE_TIME_INTERVAL) / 1000;
-                    if (time > 0) {
-                        PvThread pv = new PvThread(Config.ST_TYPE_USE, String.valueOf(time));
-                        pv.start();
-                    }
-                    TiebaApplication.this.mStartTime = 0L;
-                    break;
+    private static TiebaApplication f;
+    private LocationManager B;
+    private static com.baidu.tieba.a.a i = null;
+    private static String o = null;
+    private static boolean p = false;
+    private static boolean V = false;
+    private int e = 0;
+    private HashMap g = null;
+    private boolean h = true;
+    private boolean j = false;
+    private ab k = null;
+    private aa l = null;
+    private aa m = null;
+    private String n = null;
+    private boolean q = false;
+    private String r = null;
+    private int s = 0;
+    private long t = 0;
+    private long u = 0;
+    private String v = null;
+    public long a = 0;
+    private int w = -1;
+    private boolean x = true;
+    private LocationClient y = null;
+    private BDLocationListener z = null;
+    private int A = 0;
+    private Location C = null;
+    private ArrayList D = null;
+    private ExecutorService E = null;
+    private int F = 2;
+    private int G = 1;
+    private boolean H = true;
+    private int I = 3;
+    private boolean J = true;
+    private float K = 0.0f;
+    private boolean L = true;
+    private boolean M = true;
+    private boolean N = false;
+    private int O = 1;
+    private boolean P = true;
+    private int Q = 0;
+    private boolean R = false;
+    private int S = 0;
+    private long T = 0;
+    private long U = 0;
+    public ArrayList b = null;
+    private Hashtable W = null;
+    public Handler c = new Handler(new r(this));
+    private int X = 0;
+    private boolean Y = true;
+    private boolean Z = true;
+    private boolean aa = true;
+    private boolean ab = true;
+    private boolean ac = false;
+    private boolean ad = true;
+    private long ae = 0;
+    private long af = 0;
+    private long ag = 0;
+    NotificationManager d = null;
+    private final LocationListener ah = new s(this);
+
+    /* loaded from: classes.dex */
+    public class MyBDLocationListenner implements BDLocationListener {
+        public MyBDLocationListenner() {
+        }
+
+        @Override // com.baidu.location.BDLocationListener
+        public void onReceiveLocation(BDLocation bDLocation) {
+            if (bDLocation == null || bDLocation.getLocType() == 62 || bDLocation.getLocType() == 63 || bDLocation.getLocType() == 68 || bDLocation.getLocType() > 161) {
+                return;
             }
-            return false;
-        }
-    });
-    private int mMsgFrequency = 0;
-    private boolean mMsgFansOn = Config.MSG_DEFAULT_FANS_SWITCH;
-    private boolean mMsgAtmeOn = Config.MSG_DEFAULT_ATME_SWITCH;
-    private boolean mMsgReplymeOn = Config.MSG_DEFAULT_REPLYME_SWITCH;
-    private boolean mRemindToneOn = Config.MSG_DEFAULT_REMIND_TONE;
-    private boolean mPromotedMessageOn = Config.PROMOTED_DEFAULT;
-    private long mMsgReplyme = 0;
-    private long mMsgAtme = 0;
-    private long mMsgFans = 0;
-    NotificationManager mNotificationManager = null;
-    private Runnable stopRunnable = new Runnable() { // from class: com.baidu.tieba.TiebaApplication.2
-        @Override // java.lang.Runnable
-        public void run() {
-            TiebaApplication.this.stopLocationServer();
-        }
-    };
-    private final LocationListener listener = new LocationListener() { // from class: com.baidu.tieba.TiebaApplication.3
-        @Override // android.location.LocationListener
-        public void onLocationChanged(Location location) {
-            if (location != null) {
-                TiebaApplication.this.lastLocation = location;
-                TiebaApplication.this.stopLocationServer();
-            }
+            TiebaApplication.this.A = 0;
+            TiebaApplication.this.as();
+            TiebaApplication.this.C = new Location("baidu_provider");
+            TiebaApplication.this.C.setAltitude(bDLocation.getAltitude());
+            TiebaApplication.this.C.setLatitude(bDLocation.getLatitude());
+            TiebaApplication.this.C.setLongitude(bDLocation.getLongitude());
+            TiebaApplication.this.a = System.currentTimeMillis();
+            TiebaApplication.this.a(TiebaApplication.this.A, "", TiebaApplication.this.C);
         }
 
-        @Override // android.location.LocationListener
-        public void onProviderDisabled(String provider) {
-        }
-
-        @Override // android.location.LocationListener
-        public void onProviderEnabled(String provider) {
-        }
-
-        @Override // android.location.LocationListener
-        public void onStatusChanged(String provider, int status, Bundle extras) {
-        }
-    };
-
-    @Override // android.app.Application
-    public void onCreate() {
-        app = this;
-        NetWorkCore.initNetWorkCore();
-        InitVersion();
-        InitFrom();
-        initAccountManager();
-        initSettings();
-        clientId = readClientId(this);
-        initImei();
-        Config.initBigImageWidth(this);
-        Config.initBigImageMaxUsedMemory(this);
-        try {
-            UExceptionHandler UEHandler = new UExceptionHandler();
-            Thread.setDefaultUncaughtExceptionHandler(UEHandler);
-        } catch (SecurityException ex) {
-            TiebaLog.e(getClass().getName(), "onCreate", ex.getMessage());
-        }
-        Uri uri = Uri.parse("content://telephony/carriers");
-        getContentResolver().registerContentObserver(uri, true, new ContentObserver(new Handler()) { // from class: com.baidu.tieba.TiebaApplication.4
-            @Override // android.database.ContentObserver
-            public void onChange(boolean selfChange) {
-                super.onChange(selfChange);
-                NetWorkCore.initPorxyUser();
-            }
-        });
-        this.mIsMainProcess = isMainProcess();
-        if (this.mIsMainProcess) {
-            readCheckNetworkNotify();
-            this.mFaces = new HashMap<>();
-            mAccount = DatabaseService.getActiveAccountData();
-            if (isBaiduAccountManager()) {
-                BaiduAccountProxy.initAccount(this);
-            } else {
-                AccountShareHelper.getInstance().init(this);
-            }
-            DatabaseService.getSettingData();
-            initFrsImageForums();
-            this.mSdramImage = new SDRamImage();
-            this.mReadThreadHistory = new ReadThreadHistory(300);
-            this.mReadGuessHistory = new ReadThreadHistory(100);
-            this.mNotificationManager = (NotificationManager) getSystemService("notification");
-            PvThread pv = new PvThread(Config.ST_TYPE_OPEN);
-            pv.start();
-            if (isPromotedMessageOn()) {
-                startPullMessageService();
-            }
-            if (getIsAbstractState()) {
-                new PvThread("frs_abstract", NetWorkCore.NET_TYPE_NET).start();
-            }
-            initLocationServer();
-        } else {
-            this.mRemoteActivity = new ArrayList<>();
-        }
-        IntentFilter filter = new IntentFilter("android.net.conn.CONNECTIVITY_CHANGE");
-        registerReceiver(new MyReceiver(), filter);
-        super.onCreate();
-    }
-
-    public boolean isFrsImageForum(String id) {
-        return (this.mFrsImageForums == null || id == null || !this.mFrsImageForums.containsKey(id)) ? false : true;
-    }
-
-    public void addFrsImageForum(String name) {
-        if (!isFrsImageForum(name) && this.mFrsImageForums != null && name != null) {
-            this.mFrsImageForums.put(name, 1);
-            FrsImageThread thread = new FrsImageThread(FrsImageThread.TYPE_ADD, name);
-            thread.start();
+        @Override // com.baidu.location.BDLocationListener
+        public void onReceivePoi(BDLocation bDLocation) {
         }
     }
 
-    public void delFrsImageForum(String name) {
-        if (isFrsImageForum(name) && this.mFrsImageForums != null && name != null) {
-            this.mFrsImageForums.remove(name);
-            FrsImageThread thread = new FrsImageThread(FrsImageThread.TYPE_DEL, name);
-            thread.start();
-        }
+    public static String E() {
+        return o;
     }
 
-    public void initFrsImageForums() {
-        this.mFrsImageForums = new Hashtable<>();
-        FrsImageThread thread = new FrsImageThread(this.mFrsImageForums);
-        thread.start();
+    public static TiebaApplication a() {
+        return f;
     }
 
-    public void startPullMessageService() {
-        Intent service = new Intent(this, MessagePullService.class);
-        startService(service);
-    }
-
-    public void stopPullMessageService() {
-        Intent service = new Intent(this, MessagePullService.class);
-        stopService(service);
-    }
-
-    public void addRemoteActivity(BaseActivity activity) {
-        if (this.mRemoteActivity != null) {
-            int size = this.mRemoteActivity.size();
-            for (int i = 0; i < size; i++) {
-                try {
-                    this.mRemoteActivity.get(i).releaseResouce();
-                } catch (Exception ex) {
-                    TiebaLog.e(getClass().getName(), "addRemoteActivity", ex.getMessage());
+    public static String a(Context context) {
+        String str = null;
+        String string = context.getSharedPreferences("settings", 0).getString("client_id", null);
+        if (string != null) {
+            int indexOf = string.indexOf("\t");
+            if (indexOf != -1) {
+                if (com.baidu.tieba.a.h.h().equals(string.substring(0, indexOf))) {
+                    str = string.substring(indexOf + 1);
+                } else {
+                    b((Context) a());
                 }
+            } else {
+                b((Context) a());
             }
-            if (activity != null) {
-                this.mRemoteActivity.add(activity);
-            }
+        } else {
+            str = string;
         }
+        ae.a("TiebaApplication", "readClientId", str);
+        return str;
     }
 
-    public void delRemoteActivity(BaseActivity activity) {
-        if (this.mRemoteActivity != null) {
-            this.mRemoteActivity.remove(activity);
-        }
-    }
-
-    private void initAccountManager() {
-        if (Build.VERSION.SDK_INT >= 5) {
-            AccountProxy proxy = new AccountProxy(this);
-            is_baidu_account_manager = proxy.hasBaiduAccount();
+    public static void a(Context context, String str) {
+        if (str == null || str.length() <= 0) {
             return;
         }
-        is_baidu_account_manager = false;
+        SharedPreferences.Editor edit = context.getSharedPreferences("settings", 0).edit();
+        edit.putString("client_id", String.valueOf(com.baidu.tieba.a.h.h()) + "\t" + str);
+        edit.commit();
     }
 
-    public static boolean isBaiduAccountManager() {
-        return is_baidu_account_manager;
+    public static void a(com.baidu.tieba.a.a aVar) {
+        i = aVar;
     }
 
-    private void initImei() {
-        TelephonyManager mTelephonyMgr = (TelephonyManager) getSystemService("phone");
-        if (mTelephonyMgr != null) {
-            this.mImei = mTelephonyMgr.getDeviceId();
-        }
-    }
-
-    public String getImei() {
-        return this.mImei;
-    }
-
-    private boolean isMainProcess() {
-        boolean ret = true;
-        ActivityManager am = (ActivityManager) getSystemService("activity");
-        if (am == null) {
-            return true;
-        }
-        List<ActivityManager.RunningAppProcessInfo> list = am.getRunningAppProcesses();
-        int pid = Process.myPid();
-        if (list != null) {
-            int i = 0;
-            while (true) {
-                if (i >= list.size()) {
-                    break;
-                } else if (list.get(i).pid != pid) {
-                    i++;
-                } else {
-                    String name = list.get(i).processName;
-                    if (name != null && (name.equalsIgnoreCase("com.baidu.tieba:pushservice_v1") || name.equalsIgnoreCase("com.baidu.tieba:remote"))) {
-                        ret = false;
-                    }
-                }
-            }
-        }
-        return ret;
-    }
-
-    private void initSettings() {
-        SharedPreferences preference = getSharedPreferences(Config.SETTINGFILE, 0);
-        this.mUploadImageQuality = preference.getInt(Config.PREFS_IMAGE_QUALITY, 2);
-        this.mViewImageQuality = preference.getInt(Config.PREFS_VIEW_IMAGE_QUALITY, 2);
-        this.mIsShowImages = preference.getBoolean(Config.PREFS_SHOW_IMAGES, true);
-        this.mFontSize = preference.getInt(Config.PREFS_FONT_SIZE, 2);
-        this.mPromotedMessageOn = preference.getBoolean(PERMOTED_MESSAGE, true);
-        this.mIsDisplayPhoto = preference.getBoolean(DISPLAY_PHOTO, true);
-        this.mIsAbstractOn = preference.getBoolean(Config.PREFS_ABSTRACT_STATE, true);
-        this.mIsEyeShieldMode = preference.getBoolean("eyeshield_mode", false);
-        this.mIsEyeShieldModeNew = preference.getString(DISPLAY_EYESHIELDMODE_NEW, null);
-        this.mMessageID = preference.getLong(MESSAGE_ID, 0L);
-        this.mIsMotuOn = preference.getBoolean(MOTU_ON, true);
-        this.mBrowserType = preference.getInt(BROWSER_TYPE, 1);
-        this.mIsManageMode = preference.getBoolean(MANAGE_MODE, false);
-        this.mIsLocationOn = preference.getBoolean(LOCATION_ON, true);
-        this.mRefreshRecommendTime = preference.getLong(REFRESH_RECOMMEND_TIME, 0L);
-        this.mRefreshGuessTime = preference.getLong(REFRESH_GUESS_TIME, 0L);
-        this.mGuidePageBits = preference.getInt(GUIDE_PAGE_BITS, 0);
-        this.mIsShowAllLikeItems = preference.getString(SHOW_ALL_LIKE_ITEMS, null);
-    }
-
-    public int getBrowserType() {
-        return this.mBrowserType;
-    }
-
-    public void setBrowserType(int type) {
-        if (this.mBrowserType != type) {
-            SharedPreferences preference = getSharedPreferences(Config.SETTINGFILE, 0);
-            SharedPreferences.Editor editor = preference.edit();
-            editor.putInt(BROWSER_TYPE, type);
-            editor.commit();
-            this.mBrowserType = type;
-        }
-    }
-
-    public void setIsLocationOn(boolean ison) {
-        SharedPreferences preference = getSharedPreferences(Config.SETTINGFILE, 0);
-        SharedPreferences.Editor editor = preference.edit();
-        editor.putBoolean(LOCATION_ON, ison);
-        editor.commit();
-        this.mIsLocationOn = ison;
-    }
-
-    public boolean getIsLocationOn() {
-        return this.mIsLocationOn;
-    }
-
-    public void setIsMotuOn(boolean ison) {
-        SharedPreferences preference = getSharedPreferences(Config.SETTINGFILE, 0);
-        SharedPreferences.Editor editor = preference.edit();
-        editor.putBoolean(MOTU_ON, ison);
-        editor.commit();
-        this.mIsMotuOn = ison;
-    }
-
-    public boolean getIsMotuOn() {
-        return this.mIsMotuOn;
-    }
-
-    public void setDisplayEyeShieldModeNew() {
-        SharedPreferences preference = getSharedPreferences(Config.SETTINGFILE, 0);
-        SharedPreferences.Editor editor = preference.edit();
-        editor.putString(DISPLAY_EYESHIELDMODE_NEW, Config.VERSION);
-        editor.commit();
-        this.mIsEyeShieldModeNew = Config.VERSION;
-    }
-
-    public String getDisplayEyeShieldModeNew() {
-        return this.mIsEyeShieldModeNew;
-    }
-
-    public void setShowAllLikeItems() {
-        SharedPreferences preference = getSharedPreferences(Config.SETTINGFILE, 0);
-        SharedPreferences.Editor editor = preference.edit();
-        editor.putString(SHOW_ALL_LIKE_ITEMS, Config.VERSION);
-        editor.commit();
-        this.mIsShowAllLikeItems = Config.VERSION;
-    }
-
-    public String getShowAllLikeItems() {
-        return this.mIsShowAllLikeItems;
-    }
-
-    private void InitVersion() {
+    private void aA() {
         try {
-            PackageInfo pinfo = getPackageManager().getPackageInfo("com.baidu.tieba", 16384);
-            Config.VERSION = pinfo.versionName;
-            if (Config.VERSION == null) {
-                Config.VERSION = "";
+            com.baidu.tieba.a.h.b(getPackageManager().getPackageInfo("com.baidu.tieba", 16384).versionName);
+            if (com.baidu.tieba.a.h.h() == null) {
+                com.baidu.tieba.a.h.b("");
             }
         } catch (Exception e) {
-            TiebaLog.e(getClass().getName(), "InitVersion", e.getMessage());
-            Config.VERSION = "";
+            ae.b(getClass().getName(), "InitVersion", e.getMessage());
+            com.baidu.tieba.a.h.b("");
         }
     }
 
-    private void InitFrom() {
+    private void aB() {
+        BufferedReader bufferedReader;
+        BufferedReader bufferedReader2 = null;
         try {
-            String from = getFromByShare();
-            if (from == null) {
-                String from2 = getFromByFile();
-                if (from2 != null && from2.length() > 0) {
-                    Config.FROM = from2;
-                    saveFromToShare(from2);
+            try {
+                String aC = aC();
+                if (aC == null) {
+                    String aD = aD();
+                    if (aD == null || aD.length() <= 0) {
+                        bufferedReader = new BufferedReader(new InputStreamReader(getResources().getAssets().open("channel"), "gbk"));
+                        try {
+                            String readLine = bufferedReader.readLine();
+                            if (readLine != null && readLine.length() > 0) {
+                                com.baidu.tieba.a.h.a(readLine);
+                                j(readLine);
+                                k(readLine);
+                            }
+                        } catch (Exception e) {
+                            e = e;
+                            bufferedReader2 = bufferedReader;
+                            ae.b(getClass().getName(), "InitFrom", e.getMessage());
+                            if (bufferedReader2 != null) {
+                                try {
+                                    bufferedReader2.close();
+                                } catch (Exception e2) {
+                                    e2.printStackTrace();
+                                }
+                            }
+                            ae.a(getClass().getName(), "InitFrom", "from = " + com.baidu.tieba.a.h.a());
+                        } catch (Throwable th) {
+                            th = th;
+                            bufferedReader2 = bufferedReader;
+                            if (bufferedReader2 != null) {
+                                try {
+                                    bufferedReader2.close();
+                                } catch (Exception e3) {
+                                    e3.printStackTrace();
+                                }
+                            }
+                            throw th;
+                        }
+                    } else {
+                        com.baidu.tieba.a.h.a(aD);
+                        j(aD);
+                        bufferedReader = null;
+                    }
                 } else {
-                    InputStream inputStream = getResources().getAssets().open("channel");
-                    BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream, "gbk"));
-                    String from3 = reader.readLine();
-                    if (from3 != null && from3.length() > 0) {
-                        Config.FROM = from3;
-                        saveFromToShare(from3);
-                        saveFromToFile(from3);
+                    com.baidu.tieba.a.h.a(aC);
+                    bufferedReader = null;
+                }
+                if (bufferedReader != null) {
+                    try {
+                        bufferedReader.close();
+                    } catch (Exception e4) {
+                        e4.printStackTrace();
                     }
                 }
-            } else {
-                Config.FROM = from;
+            } catch (Throwable th2) {
+                th = th2;
             }
-        } catch (Exception ex) {
-            TiebaLog.e(getClass().getName(), "InitFrom", ex.getMessage());
+        } catch (Exception e5) {
+            e = e5;
         }
-        TiebaLog.i(getClass().getName(), "InitFrom", "from = " + Config.FROM);
+        ae.a(getClass().getName(), "InitFrom", "from = " + com.baidu.tieba.a.h.a());
     }
 
-    private String getFromByShare() {
-        SharedPreferences preference = getSharedPreferences(Config.SETTINGFILE, 0);
-        return preference.getString(FROM_ID, null);
+    private String aC() {
+        return getSharedPreferences("settings", 0).getString("from_id", null);
     }
 
-    private void saveFromToShare(String from) {
-        if (from != null && from.length() > 0) {
-            SharedPreferences preference = getSharedPreferences(Config.SETTINGFILE, 0);
-            SharedPreferences.Editor editor = preference.edit();
-            editor.putString(FROM_ID, from);
-            editor.commit();
-        }
-    }
-
-    private String getFromByFile() {
-        String from = null;
+    private String aD() {
+        String str = null;
         try {
-            File file = FileHelper.GetFile(Config.FROM_FILE);
-            if (file != null) {
-                BufferedReader reader = new BufferedReader(new FileReader(file));
-                from = reader.readLine();
-                if (reader != null) {
-                    reader.close();
+            File c = com.baidu.tieba.c.o.c("from.dat");
+            if (c != null) {
+                BufferedReader bufferedReader = new BufferedReader(new FileReader(c));
+                str = bufferedReader.readLine();
+                if (bufferedReader != null) {
+                    bufferedReader.close();
                 }
             }
-        } catch (Exception ex) {
-            TiebaLog.e(getClass().getName(), "getFromByFile", ex.getMessage());
+        } catch (Exception e) {
+            ae.b(getClass().getName(), "getFromByFile", e.getMessage());
         }
-        return from;
+        return str;
     }
 
-    private void saveFromToFile(String from) {
-        if (from != null && from.length() > 0) {
-            try {
-                File file = FileHelper.CreateFile(Config.FROM_FILE);
-                if (file != null) {
-                    FileWriter write = new FileWriter(file);
-                    write.append((CharSequence) from);
-                    write.flush();
-                    write.close();
-                }
-            } catch (Exception ex) {
-                TiebaLog.e(getClass().getName(), "saveFromToFile", ex.getMessage());
+    private void aE() {
+        Intent intent = new Intent("com.baidu.tieba.broadcast.notify");
+        intent.putExtra("relay", S());
+        intent.putExtra("at_me", T());
+        intent.putExtra("fans", U());
+        sendBroadcast(intent);
+        ae.a(getClass().getName(), "broadcastMsg", "sendBroadcast: " + String.format("%d %d %d", Long.valueOf(S()), Long.valueOf(T()), Long.valueOf(U())));
+    }
+
+    private void aF() {
+        if (this.q) {
+            if (this.s < 0) {
+                this.s = 0;
             }
+            if (this.t == 0 && this.s > 0) {
+                this.t = System.nanoTime();
+            }
+            ae.a(getClass().getName(), "mResumeNum = ", String.valueOf(this.s));
+            this.c.removeMessages(4);
+            if (this.s != 0 || this.t <= 0) {
+                return;
+            }
+            this.c.sendMessageDelayed(this.c.obtainMessage(4), 180000L);
         }
     }
 
-    public static String getFrom() {
-        return Config.FROM;
-    }
-
-    public void onUserChanged() {
-        refreshMsg(0L, 0L, 0L);
-        DatabaseService.getSettingData();
-    }
-
-    public Bitmap getFace(String key) {
-        SoftReference<Bitmap> sr = this.mFaces.get(key);
-        if (sr != null && sr.get() != null) {
-            return sr.get();
+    private void aG() {
+        try {
+            this.B = (LocationManager) getSystemService("location");
+            if (this.x) {
+                this.z = new MyBDLocationListenner();
+                LocationClientOption locationClientOption = new LocationClientOption();
+                locationClientOption.setOpenGps(true);
+                locationClientOption.setProdName("tieba");
+                locationClientOption.setAddrType("all");
+                locationClientOption.setCoorType("bd09ll");
+                locationClientOption.setScanSpan(500);
+                locationClientOption.disableCache(true);
+                this.y = new LocationClient(getApplicationContext());
+                this.y.registerLocationListener(this.z);
+                this.y.setLocOption(locationClientOption);
+            }
+        } catch (Exception e) {
+            ae.b(getClass().getName(), "initLocationServer", e.toString());
         }
-        Bitmap bm = FaceHelper.getBitmap(app, key);
-        if (bm != null) {
-            this.mFaces.put(key, new SoftReference<>(bm));
-            return bm;
+    }
+
+    public static boolean ag() {
+        return V;
+    }
+
+    private void aw() {
+        if (Build.VERSION.SDK_INT >= 5) {
+            p = new AccountProxy(this).hasBaiduAccount();
+        } else {
+            p = false;
         }
-        return bm;
     }
 
-    public void setDisplayPhoto(Boolean display) {
-        this.mIsDisplayPhoto = display.booleanValue();
-        SharedPreferences preference = getSharedPreferences(Config.SETTINGFILE, 0);
-        SharedPreferences.Editor editor = preference.edit();
-        editor.putBoolean(DISPLAY_PHOTO, display.booleanValue());
-        editor.commit();
+    private void ax() {
+        TelephonyManager telephonyManager = (TelephonyManager) getSystemService("phone");
+        if (telephonyManager != null) {
+            this.n = telephonyManager.getDeviceId();
+        }
     }
 
-    public boolean getDisplayPhoto() {
-        return this.mIsDisplayPhoto;
-    }
-
-    public void setIsManageMode(Boolean isOpen) {
-        this.mIsManageMode = isOpen.booleanValue();
-        SharedPreferences preference = getSharedPreferences(Config.SETTINGFILE, 0);
-        SharedPreferences.Editor editor = preference.edit();
-        editor.putBoolean(MANAGE_MODE, isOpen.booleanValue());
-        editor.commit();
-    }
-
-    public boolean getIsManageMode() {
-        return this.mIsManageMode;
-    }
-
-    public boolean isGuidePageShown(int bit) {
-        if (bit < 0 || bit >= 32) {
+    /* JADX WARN: Code restructure failed: missing block: B:19:0x0043, code lost:
+        if (r0.equalsIgnoreCase("com.baidu.tieba:remote") != false) goto L18;
+     */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    private boolean ay() {
+        boolean z = false;
+        ActivityManager activityManager = (ActivityManager) getSystemService("activity");
+        if (activityManager == null) {
             return true;
         }
-        int mask = 1 << bit;
-        return (this.mGuidePageBits & mask) != 0;
-    }
-
-    public void setGuidePageShown(int bit) {
-        if (bit >= 0 && bit < 32) {
-            int mask = 1 << bit;
-            this.mGuidePageBits |= mask;
-            SharedPreferences preference = getSharedPreferences(Config.SETTINGFILE, 0);
-            SharedPreferences.Editor editor = preference.edit();
-            editor.putInt(GUIDE_PAGE_BITS, this.mGuidePageBits);
-            editor.commit();
-        }
-    }
-
-    public void setRefreshRecommendTime(long time) {
-        this.mRefreshRecommendTime = time;
-        SharedPreferences preference = getSharedPreferences(Config.SETTINGFILE, 0);
-        SharedPreferences.Editor editor = preference.edit();
-        editor.putLong(REFRESH_RECOMMEND_TIME, time);
-        editor.commit();
-    }
-
-    public long getRefreshRecommendTime() {
-        return this.mRefreshRecommendTime;
-    }
-
-    public void setRefreshGuessTime(long time) {
-        this.mRefreshGuessTime = time;
-        SharedPreferences preference = getSharedPreferences(Config.SETTINGFILE, 0);
-        SharedPreferences.Editor editor = preference.edit();
-        editor.putLong(REFRESH_GUESS_TIME, time);
-        editor.commit();
-    }
-
-    public long getRefreshGuessTime() {
-        return this.mRefreshGuessTime;
-    }
-
-    @Override // android.app.Application, android.content.ComponentCallbacks
-    public void onConfigurationChanged(Configuration newConfig) {
-        super.onConfigurationChanged(newConfig);
-    }
-
-    @Override // android.app.Application, android.content.ComponentCallbacks
-    public void onLowMemory() {
-        super.onLowMemory();
-        System.gc();
-    }
-
-    public int getTDatabaseVersion() {
-        DatabaseService database = new DatabaseService(DatabaseService.DatabaseLocation.SDCARD);
-        return database.getVersion();
-    }
-
-    public static String getCurrentAccount() {
-        if (mAccount != null) {
-            TiebaLog.i("TiebaApplication", "getCurrentAccount", String.valueOf(mAccount.getID()));
-            return mAccount.getID();
-        }
-        return null;
-    }
-
-    public static void setCurrentAccount(AccountData account) {
-        mAccount = account;
-    }
-
-    public static String getCurrentBduss() {
-        if (mAccount != null) {
-            return mAccount.getBDUSS();
-        }
-        return null;
-    }
-
-    public static void setCurrentBduss(String token) {
-        if (mAccount != null) {
-            mAccount.setBDUSS(token);
-        }
-    }
-
-    public static void setCurrentAccountName(String account) {
-        if (mAccount != null) {
-            mAccount.setAccount(account);
-        }
-    }
-
-    public static void delCurrentBduss() {
-        if (mAccount != null) {
-            mAccount.setBDUSS("");
-        }
-    }
-
-    public static AccountData getCurrentAccountObj() {
-        return mAccount;
-    }
-
-    public static String getCurrentAccountName() {
-        if (mAccount != null) {
-            return mAccount.getAccount();
-        }
-        return null;
-    }
-
-    public static void setCurrentAccountObj(AccountData data) {
-        mAccount = data;
-    }
-
-    public int getAPPUseTimes() {
-        SharedPreferences preference = getSharedPreferences(Config.SETTINGFILE, 0);
-        int times = preference.getInt(APPUSETIMES, 0);
-        TiebaLog.i("TiebaApplication", "getAPPUseTimes", String.valueOf(times));
-        return times;
-    }
-
-    public void setAPPUseTimes(int times) {
-        SharedPreferences preference = getSharedPreferences(Config.SETTINGFILE, 0);
-        SharedPreferences.Editor editor = preference.edit();
-        editor.putInt(APPUSETIMES, times);
-        editor.commit();
-    }
-
-    public long getTDatabaseCreateTime() {
-        SharedPreferences preference = getSharedPreferences(Config.SETTINGFILE, 0);
-        long time = preference.getLong(TDATABASECREATETIME, 0L);
-        TiebaLog.i("TiebaApplication", "getTDatabaseCreateTime", StringHelper.getTimeString(time));
-        return time;
-    }
-
-    public void setUpdateNotifyTime(long times) {
-        SharedPreferences preference = getSharedPreferences(Config.SETTINGFILE, 0);
-        SharedPreferences.Editor editor = preference.edit();
-        editor.putLong(UPDATE_NOTIFY_TIME, times);
-        editor.commit();
-    }
-
-    public long getUpdateNotifyTime() {
-        SharedPreferences preference = getSharedPreferences(Config.SETTINGFILE, 0);
-        return preference.getLong(UPDATE_NOTIFY_TIME, 0L);
-    }
-
-    public void resetTDatabaseCreateTime() {
-        SharedPreferences preference = getSharedPreferences(Config.SETTINGFILE, 0);
-        SharedPreferences.Editor editor = preference.edit();
-        Date date = new Date();
-        editor.putLong(TDATABASECREATETIME, date.getTime());
-        editor.commit();
-    }
-
-    public boolean isInvalidTDatabase() {
-        Date date = new Date();
-        return getAPPUseTimes() > 50 && date.getTime() - getTDatabaseCreateTime() > Config.APP_DATE_UPDATA_SD_DATABASE;
-    }
-
-    @Override // android.app.Application
-    public void onTerminate() {
-        super.onTerminate();
-    }
-
-    public void setTbs(String tbs) {
-        if (tbs != null && tbs.length() > 0) {
-            synchronized (this) {
-                if (mAccount != null) {
-                    mAccount.setTbs(tbs);
-                }
-            }
-        }
-    }
-
-    public String getTbs() {
-        if (mAccount != null) {
-            return mAccount.getTbs();
-        }
-        return null;
-    }
-
-    public static String readClientId(Context context) {
-        SharedPreferences preference = context.getSharedPreferences(Config.SETTINGFILE, 0);
-        String id = preference.getString(CLIENT_ID, null);
-        if (id != null) {
-            int index = id.indexOf("\t");
-            if (index != -1) {
-                String version = id.substring(0, index);
-                if (Config.VERSION.equals(version)) {
-                    id = id.substring(index + 1);
+        List<ActivityManager.RunningAppProcessInfo> runningAppProcesses = activityManager.getRunningAppProcesses();
+        int myPid = Process.myPid();
+        if (runningAppProcesses != null) {
+            int i2 = 0;
+            while (true) {
+                if (i2 >= runningAppProcesses.size()) {
+                    break;
+                } else if (runningAppProcesses.get(i2).pid == myPid) {
+                    String str = runningAppProcesses.get(i2).processName;
+                    if (str != null) {
+                        if (!str.equalsIgnoreCase("com.baidu.tieba:pushservice_v1")) {
+                        }
+                    }
                 } else {
-                    removeClientId(app);
-                    id = null;
+                    i2++;
                 }
-            } else {
-                removeClientId(app);
-                id = null;
             }
         }
-        TiebaLog.i("TiebaApplication", "readClientId", id);
-        return id;
+        z = true;
+        return z;
     }
 
-    public static String getClientId() {
-        return clientId;
-    }
-
-    public static void removeClientId(Context context) {
-        SharedPreferences preference = context.getSharedPreferences(Config.SETTINGFILE, 0);
-        SharedPreferences.Editor editor = preference.edit();
-        editor.remove(CLIENT_ID);
-        editor.commit();
-    }
-
-    public static void saveClientId(Context context, String id) {
-        if (id != null && id.length() > 0) {
-            SharedPreferences preference = context.getSharedPreferences(Config.SETTINGFILE, 0);
-            SharedPreferences.Editor editor = preference.edit();
-            String _id = String.valueOf(Config.VERSION) + "\t" + id;
-            editor.putString(CLIENT_ID, _id);
-            editor.commit();
+    private void az() {
+        SharedPreferences sharedPreferences = getSharedPreferences("settings", 0);
+        this.F = sharedPreferences.getInt("image_quality", 2);
+        this.G = sharedPreferences.getInt("view_image_quality", 2);
+        this.H = sharedPreferences.getBoolean("show_images", true);
+        this.I = sharedPreferences.getInt("font_size", 2);
+        this.ad = sharedPreferences.getBoolean("permoted_message", true);
+        this.h = sharedPreferences.getBoolean("display_photo", true);
+        this.J = sharedPreferences.getBoolean("abstract_state", true);
+        this.K = sharedPreferences.getFloat("eyeshield_mode_1", 0.0f);
+        this.u = sharedPreferences.getLong("message_id", 0L);
+        this.M = sharedPreferences.getBoolean("motu_on", true);
+        this.N = sharedPreferences.getBoolean("app_switcher", false);
+        this.O = sharedPreferences.getInt("browser_type", 1);
+        this.R = sharedPreferences.getBoolean("manage_mode", false);
+        this.L = sharedPreferences.getBoolean("location_on", true);
+        this.T = sharedPreferences.getLong("refresh_recommend_time", 0L);
+        this.U = sharedPreferences.getLong("refresh_guess_time", 0L);
+        this.S = sharedPreferences.getInt("guide_page_bits", 0);
+        this.v = sharedPreferences.getString("show_all_like_items", null);
+        this.Q = sharedPreferences.getInt("webview_crash_count", 0);
+        this.x = sharedPreferences.getBoolean("bd_loc_switcher", true);
+        if (Build.VERSION.SDK_INT <= 4) {
+            this.x = false;
         }
     }
 
-    public static void setClientId(String id) {
-        clientId = id;
+    public static void b(Context context) {
+        SharedPreferences.Editor edit = context.getSharedPreferences("settings", 0).edit();
+        edit.remove("client_id");
+        edit.commit();
     }
 
-    public void setLikeChanged(boolean likeChanged) {
-        this.mLikeChanged = likeChanged;
+    public static void b(com.baidu.tieba.a.a aVar) {
+        i = aVar;
     }
 
-    public boolean getLikeChanged() {
-        return this.mLikeChanged;
+    private void c(float f2) {
+        Intent intent = new Intent();
+        intent.setAction("com.baidu.tieba.broadcast.eyeshield");
+        intent.putExtra("eyeshield_mode", f2);
+        sendBroadcast(intent);
     }
 
-    public void setUpdata_state(int updata_state) {
-        this.updata_state = updata_state;
-    }
-
-    public int getUpdata_state() {
-        return this.updata_state;
-    }
-
-    public int getMsgFrequency() {
-        return this.mMsgFrequency;
-    }
-
-    public void initSetting() {
-        setMsgFrequency(Config.MSG_DEFAULT_FREQUENCY);
-        setMsgFansOn(true);
-        setMsgReplymeOn(true);
-        setMsgAtmeOn(true);
-    }
-
-    public void setPromotedMessage(boolean promotedTone) {
-        this.mPromotedMessageOn = promotedTone;
-        SharedPreferences preference = getSharedPreferences(Config.SETTINGFILE, 0);
-        SharedPreferences.Editor editor = preference.edit();
-        editor.putBoolean(PERMOTED_MESSAGE, promotedTone);
-        editor.commit();
-        if (promotedTone) {
-            startPullMessageService();
-        } else {
-            stopPullMessageService();
+    public static void f(String str) {
+        if (i != null) {
+            i.d(str);
         }
     }
 
-    public boolean isPromotedMessageOn() {
-        return this.mPromotedMessageOn;
+    public static boolean f() {
+        return p;
     }
 
-    public void setMsgTone(boolean msgTone) {
-        if (this.mRemindToneOn != msgTone) {
-            this.mRemindToneOn = msgTone;
-        }
+    public static void h(String str) {
+        o = str;
     }
 
-    public boolean isMsgToneOn() {
-        return this.mRemindToneOn;
-    }
-
-    /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(r8v0 'msgFrequency' int A[D('msgFrequency' int)])] */
-    public void setMsgFrequency(int msgFrequency) {
-        TiebaLog.i(getClass().getName(), "setMsgFrequence", new StringBuilder().append(msgFrequency).toString());
-        this.mMsgFrequency = msgFrequency;
-        if (msgFrequency == 0) {
-            refreshMsg(0L, 0L, 0L);
-            this.handler.sendMessage(this.handler.obtainMessage(3));
+    private void i(int i2) {
+        if (this.d == null) {
             return;
         }
-        this.handler.sendMessage(this.handler.obtainMessage(2));
-    }
-
-    public boolean isMsgFansOn() {
-        return this.mMsgFansOn;
-    }
-
-    public void setMsgFansOn(boolean mMsgFansOn) {
-        this.mMsgFansOn = mMsgFansOn;
-        if (!mMsgFansOn) {
-            setMsgFans(0L);
-        }
-    }
-
-    public boolean isMsgAtmeOn() {
-        return this.mMsgAtmeOn;
-    }
-
-    public void setMsgAtmeOn(boolean msgAtmeOn) {
-        this.mMsgAtmeOn = msgAtmeOn;
-        if (!msgAtmeOn) {
-            setMsgAtme(0L);
-        }
-    }
-
-    public boolean isMsgReplymeOn() {
-        return this.mMsgReplymeOn;
-    }
-
-    public void setMsgReplymeOn(boolean msgReplymeOn) {
-        this.mMsgReplymeOn = msgReplymeOn;
-        if (!msgReplymeOn) {
-            setMsgReplyme(0L);
-        }
-    }
-
-    public boolean isMsgRemindOn() {
-        return this.mMsgFrequency > 0 && (this.mMsgReplymeOn || this.mMsgAtmeOn || this.mMsgFansOn);
-    }
-
-    public void startMsgReceive() {
-        if (app.isMsgRemindOn()) {
-            Intent intent = new Intent(this, TiebaMessageService.class);
-            startService(intent);
-        }
-    }
-
-    public void stopMsgReceive() {
-        Intent intent = new Intent(this, TiebaMessageService.class);
-        stopService(intent);
-    }
-
-    public long getMsgReplyme() {
-        return this.mMsgReplyme;
-    }
-
-    public void setMsgReplyme(long l) {
-        if (l >= 0) {
-            refreshMsg(l, this.mMsgAtme, this.mMsgFans);
-        }
-    }
-
-    public long getMsgAtme() {
-        return this.mMsgAtme;
-    }
-
-    public void setMsgAtme(long l) {
-        if (l >= 0) {
-            refreshMsg(this.mMsgReplyme, l, this.mMsgFans);
-        }
-    }
-
-    public long getMsgFans() {
-        return this.mMsgFans;
-    }
-
-    public void setMsgFans(long l) {
-        if (l >= 0) {
-            refreshMsg(this.mMsgReplyme, this.mMsgAtme, l);
-        }
-    }
-
-    public long getMsgTotal() {
-        return this.mMsgReplyme + this.mMsgAtme + this.mMsgFans;
-    }
-
-    public void resetMsg() {
-        this.mMsgReplyme = 0L;
-        this.mMsgAtme = 0L;
-        this.mMsgFans = 0L;
-    }
-
-    public int getUploadImageQuality() {
-        return this.mUploadImageQuality;
-    }
-
-    public int getViewImageQuality() {
-        return this.mViewImageQuality;
-    }
-
-    public void setUploadImageQuality(int quality) {
-        if (this.mUploadImageQuality != quality) {
-            this.mUploadImageQuality = quality;
-            getSharedPreferences(Config.SETTINGFILE, 0).edit().putInt(Config.PREFS_IMAGE_QUALITY, quality).commit();
-        }
-    }
-
-    public void setViewImageQuality(int quality) {
-        if (this.mViewImageQuality != quality) {
-            this.mViewImageQuality = quality;
-            getSharedPreferences(Config.SETTINGFILE, 0).edit().putInt(Config.PREFS_VIEW_IMAGE_QUALITY, quality).commit();
-        }
-    }
-
-    public boolean isShowImages() {
-        return this.mIsShowImages;
-    }
-
-    public void setShowImages(boolean isShowImages) {
-        if (this.mIsShowImages != isShowImages) {
-            this.mIsShowImages = isShowImages;
-            getSharedPreferences(Config.SETTINGFILE, 0).edit().putBoolean(Config.PREFS_SHOW_IMAGES, isShowImages).commit();
-        }
-    }
-
-    public int getFontSize() {
-        return this.mFontSize;
-    }
-
-    public void setFontSize(int size) {
-        if (this.mFontSize != size) {
-            this.mFontSize = size;
-            getSharedPreferences(Config.SETTINGFILE, 0).edit().putInt(Config.PREFS_FONT_SIZE, size).commit();
-        }
-    }
-
-    public void setIsAbstractOn(boolean src) {
-        this.mIsAbstractOn = src;
-        getSharedPreferences(Config.SETTINGFILE, 0).edit().putBoolean(Config.PREFS_ABSTRACT_STATE, src).commit();
-    }
-
-    public boolean getIsAbstractState() {
-        return this.mIsAbstractOn;
-    }
-
-    public void setIsEyeShieldModeOn(boolean src) {
-        setIsEyeShieldModeValue(src);
-        getSharedPreferences(Config.SETTINGFILE, 0).edit().putBoolean("eyeshield_mode", src).commit();
-        SendEyeShieldBroadcast(src);
-    }
-
-    public void setIsEyeShieldModeValue(boolean src) {
-        this.mIsEyeShieldMode = src;
-    }
-
-    private void SendEyeShieldBroadcast(boolean src) {
-        Intent intent = new Intent();
-        intent.setAction(Config.BROADCAST_EYESHIELD);
-        intent.putExtra("eyeshield_mode", src);
-        sendBroadcast(intent);
-    }
-
-    public boolean getIsEyeShieldMode() {
-        return this.mIsEyeShieldMode;
-    }
-
-    public void refreshMsg(long r, long a, long f) {
-        if (r != this.mMsgReplyme || a != this.mMsgAtme || f != this.mMsgFans) {
-            int notifyFlag = 0;
-            if (r > this.mMsgReplyme || a > this.mMsgAtme || f > this.mMsgFans) {
-                notifyFlag = 1;
-            } else if (r < this.mMsgReplyme || a < this.mMsgAtme || f < this.mMsgFans) {
-                notifyFlag = 2;
-            }
-            this.mMsgReplyme = r;
-            this.mMsgAtme = a;
-            this.mMsgFans = f;
-            broadcastMsg();
-            showNotification(notifyFlag);
-        }
-    }
-
-    private void showNotification(int flag) {
-        if (this.mNotificationManager != null) {
-            try {
-                if (flag == 1) {
-                    Notification notification = new Notification(R.drawable.icon, "您有新消息了", System.currentTimeMillis());
-                    Intent intent = new Intent(this, MainTabActivity.class);
-                    if (this.mMsgReplyme > 0 || this.mMsgAtme > 0) {
-                        intent.putExtra(MainTabActivity.GOTO_TYPE, MainTabActivity.GOTO_SORT);
-                    } else if (this.mMsgFans > 0) {
-                        intent.putExtra(MainTabActivity.GOTO_TYPE, MainTabActivity.GOTO_PERSON);
-                    }
-                    intent.putExtra(MainTabActivity.KEY_CLOSE_DIALOG, true);
-                    intent.setFlags(872415232);
-                    PendingIntent contentIntent = PendingIntent.getActivity(this, 0, intent, 0);
-                    notification.setLatestEventInfo(this, "百度贴吧", String.valueOf(String.valueOf(getMsgTotal())) + "条新消息，刷新看看", contentIntent);
-                    notification.defaults = -1;
-                    notification.defaults &= -3;
-                    notification.flags = 16;
-                    notification.audioStreamType = 5;
-                    if (!this.mRemindToneOn) {
-                        notification.defaults &= -2;
-                    }
-                    this.mNotificationManager.notify(R.drawable.icon, notification);
-                } else if (flag == 2) {
-                    this.mNotificationManager.cancel(R.drawable.icon);
+        try {
+            if (i2 != 1) {
+                if (i2 == 2) {
+                    this.d.cancel(R.drawable.icon);
+                    return;
                 }
-            } catch (Exception e) {
-                TiebaLog.e(getClass().toString(), "showNotification", e.getMessage());
+                return;
+            }
+            Notification notification = new Notification(R.drawable.icon, "您有新消息了", System.currentTimeMillis());
+            Intent intent = new Intent(this, MainTabActivity.class);
+            if (this.ae > 0 || this.af > 0 || this.ag > 0) {
+                intent.putExtra("goto_type", "goto_person");
+            }
+            intent.putExtra("close_dialog", true);
+            intent.setFlags(872415232);
+            notification.setLatestEventInfo(this, "百度贴吧", String.valueOf(String.valueOf(V())) + "条新消息，刷新看看", PendingIntent.getActivity(this, 0, intent, 0));
+            notification.defaults = -1;
+            notification.flags = 16;
+            notification.audioStreamType = 5;
+            if (!this.ab) {
+                notification.defaults &= -2;
+            }
+            if (!this.ac) {
+                notification.defaults &= -3;
+            }
+            this.d.notify(R.drawable.icon, notification);
+        } catch (Exception e) {
+            ae.b(getClass().toString(), "showNotification", e.getMessage());
+        }
+    }
+
+    private void j(String str) {
+        if (str == null || str.length() <= 0) {
+            return;
+        }
+        SharedPreferences.Editor edit = getSharedPreferences("settings", 0).edit();
+        edit.putString("from_id", str);
+        edit.commit();
+    }
+
+    private void k(String str) {
+        if (str == null || str.length() <= 0) {
+            return;
+        }
+        try {
+            File e = com.baidu.tieba.c.o.e("from.dat");
+            if (e != null) {
+                FileWriter fileWriter = new FileWriter(e);
+                fileWriter.append((CharSequence) str);
+                fileWriter.flush();
+                fileWriter.close();
+            }
+        } catch (Exception e2) {
+            ae.b(getClass().getName(), "saveFromToFile", e2.getMessage());
+        }
+    }
+
+    private void l(String str) {
+        if (this.B.isProviderEnabled(str)) {
+            this.B.requestLocationUpdates(str, 10000L, 100.0f, this.ah);
+        }
+    }
+
+    public static String o() {
+        return com.baidu.tieba.a.h.a();
+    }
+
+    public static void o(boolean z) {
+        V = z;
+    }
+
+    public static String u() {
+        if (i != null) {
+            ae.a("TiebaApplication", "getCurrentAccount", String.valueOf(i.a()));
+            return i.a();
+        }
+        return null;
+    }
+
+    public static String v() {
+        if (i != null) {
+            return i.d();
+        }
+        return null;
+    }
+
+    public static com.baidu.tieba.a.a w() {
+        return i;
+    }
+
+    public static String x() {
+        if (i != null) {
+            return i.b();
+        }
+        return null;
+    }
+
+    public long A() {
+        return getSharedPreferences("settings", 0).getLong("update_notify_time", 0L);
+    }
+
+    public void B() {
+        SharedPreferences.Editor edit = getSharedPreferences("settings", 0).edit();
+        edit.putLong("tdatabasecreatetime", new Date().getTime());
+        edit.commit();
+    }
+
+    public boolean C() {
+        return y() > 50 && new Date().getTime() - z() > 2592000000L;
+    }
+
+    public String D() {
+        if (i != null) {
+            return i.f();
+        }
+        return null;
+    }
+
+    public boolean F() {
+        return this.j;
+    }
+
+    public int G() {
+        return this.X;
+    }
+
+    public void H() {
+        d(300);
+        j(true);
+        l(true);
+        k(true);
+    }
+
+    public boolean I() {
+        return this.ad;
+    }
+
+    public boolean J() {
+        return this.ab;
+    }
+
+    public boolean K() {
+        return this.ac;
+    }
+
+    public int L() {
+        if (this.ab || this.ac) {
+            if (!this.ab || this.ac) {
+                return (this.ab || !this.ac) ? 3 : 2;
+            }
+            return 1;
+        }
+        return 0;
+    }
+
+    public boolean M() {
+        return this.Y;
+    }
+
+    public boolean N() {
+        return this.Z;
+    }
+
+    public boolean O() {
+        return this.aa;
+    }
+
+    public boolean P() {
+        return this.X > 0 && (this.aa || this.Z || this.Y);
+    }
+
+    public void Q() {
+        if (a().P()) {
+            startService(new Intent(this, TiebaMessageService.class));
+        }
+    }
+
+    public void R() {
+        stopService(new Intent(this, TiebaMessageService.class));
+    }
+
+    public long S() {
+        return this.ae;
+    }
+
+    public long T() {
+        return this.af;
+    }
+
+    public long U() {
+        return this.ag;
+    }
+
+    public long V() {
+        return this.ae + this.af + this.ag;
+    }
+
+    public void W() {
+        this.ae = 0L;
+        this.af = 0L;
+        this.ag = 0L;
+    }
+
+    public int X() {
+        return this.F;
+    }
+
+    public int Y() {
+        return this.G;
+    }
+
+    public boolean Z() {
+        return this.H;
+    }
+
+    public Location a(u uVar) {
+        boolean z;
+        if (this.C == null || System.currentTimeMillis() - this.a > 300000) {
+            if (uVar != null) {
+                int i2 = 0;
+                while (true) {
+                    if (i2 < this.D.size()) {
+                        u uVar2 = (u) ((SoftReference) this.D.get(i2)).get();
+                        if (uVar2 != null && uVar2.equals(uVar)) {
+                            z = true;
+                            break;
+                        }
+                        i2++;
+                    } else {
+                        z = false;
+                        break;
+                    }
+                }
+                if (!z) {
+                    if (this.D.size() > 10) {
+                        this.D.remove(0);
+                    }
+                    this.D.add(new SoftReference(uVar));
+                }
+                ar();
+            }
+            return null;
+        }
+        return this.C;
+    }
+
+    public void a(float f2) {
+        b(f2);
+        getSharedPreferences("settings", 0).edit().putFloat("eyeshield_mode_1", f2).commit();
+        c(f2);
+    }
+
+    public void a(int i2) {
+        if (this.O == i2) {
+            return;
+        }
+        SharedPreferences.Editor edit = getSharedPreferences("settings", 0).edit();
+        edit.putInt("browser_type", i2);
+        edit.commit();
+        this.O = i2;
+    }
+
+    public void a(int i2, int i3, String str) {
+        if (this.E == null) {
+            this.E = Executors.newSingleThreadExecutor();
+        }
+        ae.a(getClass().getName(), "pv_addImagePv", "img_num=" + i2 + " img_total" + i3);
+        aj ajVar = new aj(i2, i3);
+        ajVar.a(str);
+        this.E.execute(ajVar);
+    }
+
+    public void a(int i2, String str, Location location) {
+        if (this.D == null) {
+            return;
+        }
+        int i3 = 0;
+        while (true) {
+            int i4 = i3;
+            if (i4 >= this.D.size()) {
+                this.D.clear();
+                return;
+            }
+            u uVar = (u) ((SoftReference) this.D.get(i4)).get();
+            if (uVar != null) {
+                uVar.a(i2, str, location);
+            }
+            i3 = i4 + 1;
+        }
+    }
+
+    public void a(long j) {
+        this.T = j;
+        SharedPreferences.Editor edit = getSharedPreferences("settings", 0).edit();
+        edit.putLong("refresh_recommend_time", j);
+        edit.commit();
+    }
+
+    public void a(long j, long j2, long j3) {
+        if (j == this.ae && j2 == this.af && j3 == this.ag) {
+            return;
+        }
+        int i2 = 0;
+        if (j > this.ae || j2 > this.af || j3 > this.ag) {
+            i2 = 1;
+        } else if (j < this.ae || j2 < this.af || j3 < this.ag) {
+            i2 = 2;
+        }
+        this.ae = j;
+        this.af = j2;
+        this.ag = j3;
+        aE();
+        i(i2);
+    }
+
+    public void a(e eVar) {
+        if (this.b != null) {
+            int size = this.b.size();
+            for (int i2 = 0; i2 < size; i2++) {
+                try {
+                    ((e) this.b.get(i2)).a();
+                } catch (Exception e) {
+                    ae.b(getClass().getName(), "addRemoteActivity", e.getMessage());
+                }
+            }
+            if (eVar != null) {
+                this.b.add(eVar);
             }
         }
     }
 
-    public void cancelNotification() {
-        if (this.mNotificationManager != null) {
-            this.mNotificationManager.cancel(R.drawable.icon);
+    public void a(Boolean bool) {
+        this.h = bool.booleanValue();
+        SharedPreferences.Editor edit = getSharedPreferences("settings", 0).edit();
+        edit.putBoolean("display_photo", bool.booleanValue());
+        edit.commit();
+    }
+
+    public void a(String str) {
+        this.r = str;
+    }
+
+    public void a(boolean z) {
+        this.x = z;
+        SharedPreferences.Editor edit = getSharedPreferences("settings", 0).edit();
+        edit.putBoolean("bd_loc_switcher", this.x);
+        edit.commit();
+    }
+
+    public void a(boolean z, boolean z2) {
+        SharedPreferences.Editor edit = getSharedPreferences("settings", 0).edit();
+        if (z2) {
+            this.w |= 16;
+            if (z) {
+                this.w |= 32;
+            }
+        } else {
+            this.w |= 256;
+            if (z) {
+                this.w |= 512;
+            }
+        }
+        edit.putInt("check_network_confirm", this.w);
+        edit.commit();
+    }
+
+    public int aa() {
+        return this.I;
+    }
+
+    public boolean ab() {
+        return this.J;
+    }
+
+    public float ac() {
+        return this.K;
+    }
+
+    public int ad() {
+        return this.Q;
+    }
+
+    public void ae() {
+        int i2 = getSharedPreferences("settings", 0).getInt("bd_loc_crash_count", 0) + 1;
+        getSharedPreferences("settings", 0).edit().putInt("bd_loc_crash_count", i2).commit();
+        if (i2 > 3) {
+            a(false);
         }
     }
 
-    private void broadcastMsg() {
-        Intent intent = new Intent(Config.BROADCAST_NOTIFY);
-        intent.putExtra(Config.BROADCAST_RELAY_ME_NUM, getMsgReplyme());
-        intent.putExtra(Config.BROADCAST_AT_ME_NUM, getMsgAtme());
-        intent.putExtra(Config.BROADCAST_FANS_NUM, getMsgFans());
-        sendBroadcast(intent);
-        TiebaLog.i(getClass().getName(), "broadcastMsg", "sendBroadcast: " + String.format("%d %d %d", Long.valueOf(getMsgReplyme()), Long.valueOf(getMsgAtme()), Long.valueOf(getMsgFans())));
+    public void af() {
+        if (this.d != null) {
+            this.d.cancel(R.drawable.icon);
+        }
     }
 
-    public void setSdramImage(SDRamImage sdramImage) {
-        this.mSdramImage = sdramImage;
+    public ab ah() {
+        return this.k;
     }
 
-    public SDRamImage getSdramImage() {
-        return this.mSdramImage;
+    public aa ai() {
+        return this.l;
     }
 
-    public ReadThreadHistory getReadThreadHistory() {
-        return this.mReadThreadHistory;
+    public aa aj() {
+        return this.m;
     }
 
-    public ReadThreadHistory getReadGuessHistory() {
-        return this.mReadGuessHistory;
-    }
-
-    public int getPostImageSize() {
-        switch (this.mUploadImageQuality) {
+    public int ak() {
+        switch (this.F) {
             case 1:
-                return Config.POST_IMAGE_BIG;
+                return 900;
             case 2:
             default:
                 return 600;
@@ -1148,162 +857,537 @@ public class TiebaApplication extends Application {
         }
     }
 
-    public void AddResumeNum() {
-        this.mResumeNum++;
-        processResumeNum();
+    public void al() {
+        this.s++;
+        aF();
     }
 
-    public void DelResumeNum() {
-        this.mResumeNum--;
-        processResumeNum();
+    public void am() {
+        this.s--;
+        aF();
     }
 
-    private void processResumeNum() {
-        if (this.mIsMainProcess) {
-            if (this.mResumeNum < 0) {
-                this.mResumeNum = 0;
-            }
-            if (this.mStartTime == 0 && this.mResumeNum > 0) {
-                this.mStartTime = System.nanoTime();
-            }
-            TiebaLog.i(getClass().getName(), "mResumeNum = ", String.valueOf(this.mResumeNum));
-            this.handler.removeMessages(4);
-            if (this.mResumeNum == 0 && this.mStartTime > 0) {
-                this.handler.sendMessageDelayed(this.handler.obtainMessage(4), Config.USE_TIME_INTERVAL);
-            }
-        }
+    public boolean an() {
+        return !getSharedPreferences("settings", 0).getString("lase_version", "").equals(com.baidu.tieba.a.h.h());
     }
 
-    public boolean getIsFirstUse() {
-        SharedPreferences preference = getSharedPreferences(Config.SETTINGFILE, 0);
-        String lastVersion = preference.getString(LAST_VERSION, "");
-        return !lastVersion.equals(Config.VERSION);
+    public void ao() {
+        SharedPreferences.Editor edit = getSharedPreferences("settings", 0).edit();
+        edit.putString("lase_version", com.baidu.tieba.a.h.h());
+        edit.commit();
     }
 
-    public void setUsed() {
-        SharedPreferences preference = getSharedPreferences(Config.SETTINGFILE, 0);
-        SharedPreferences.Editor editor = preference.edit();
-        editor.putString(LAST_VERSION, Config.VERSION);
-        editor.commit();
+    public void ap() {
+        SharedPreferences.Editor edit = getSharedPreferences("settings", 0).edit();
+        edit.remove("account_share");
+        edit.commit();
     }
 
-    public void loginShareRemove() {
-        SharedPreferences preference = getSharedPreferences(Config.SETTINGFILE, 0);
-        SharedPreferences.Editor editor = preference.edit();
-        editor.remove(ACCOUNT_SHARE);
-        editor.commit();
+    public String aq() {
+        return getSharedPreferences("settings", 0).getString("account_share", null);
     }
 
-    public String loginShareRead() {
-        SharedPreferences preference = getSharedPreferences(Config.SETTINGFILE, 0);
-        return preference.getString(ACCOUNT_SHARE, null);
-    }
-
-    public void loginShareSave(String str) {
-        SharedPreferences preference = getSharedPreferences(Config.SETTINGFILE, 0);
-        SharedPreferences.Editor editor = preference.edit();
-        editor.putString(ACCOUNT_SHARE, str);
-        editor.commit();
-    }
-
-    private void initLocationServer() {
-        if (getIsLocationOn()) {
-            try {
-                this.mLocationManager = (LocationManager) getSystemService("location");
-            } catch (Exception e) {
-                TiebaLog.e(getClass().getName(), "initLocationServer", e.toString());
-            }
-        }
-    }
-
-    public void startLocationServer() {
-        if (getIsLocationOn()) {
-            try {
-                if (this.lastLocation == null || System.currentTimeMillis() - this.lastLocationTime > LOCATION_EXPIRATION) {
-                    this.lastLocation = null;
-                    requestUpdatesFromProvider("gps");
-                    requestUpdatesFromProvider("network");
-                    this.handler.removeCallbacks(this.stopRunnable);
-                    this.handler.postDelayed(this.stopRunnable, 60000L);
+    public void ar() {
+        try {
+            if (this.C == null || System.currentTimeMillis() - this.a > 300000) {
+                this.C = null;
+                if (this.c.hasMessages(5)) {
+                    this.c.removeMessages(5);
                 }
-            } catch (Exception e) {
-                TiebaLog.e(getClass().getName(), "startLocationServer", e.toString());
+                if (this.B != null) {
+                    this.B.removeUpdates(this.ah);
+                }
+                if (this.x) {
+                    if (!this.y.isStarted()) {
+                        this.y.start();
+                    }
+                    this.y.requestLocation();
+                }
+                this.A = 4;
+                if (this.B != null && !this.B.isProviderEnabled("gps") && !this.B.isProviderEnabled("network")) {
+                    this.A = 3;
+                    if (!this.x) {
+                        this.c.sendMessageDelayed(this.c.obtainMessage(5), 100L);
+                        return;
+                    }
+                }
+                if (this.B == null || !this.B.isProviderEnabled("gps")) {
+                    this.A = 1;
+                } else {
+                    l("gps");
+                }
+                if (this.B == null || !this.B.isProviderEnabled("network")) {
+                    this.A = 2;
+                } else {
+                    l("network");
+                }
+                this.c.sendMessageDelayed(this.c.obtainMessage(5), 60000L);
             }
+        } catch (Exception e) {
+            ae.b(getClass().getName(), "startLocationServer", e.toString());
         }
     }
 
-    private void requestUpdatesFromProvider(String provider) {
-        if (this.mLocationManager.isProviderEnabled(provider)) {
-            this.mLocationManager.requestLocationUpdates(provider, 10000L, 100.0f, this.listener);
+    public void as() {
+        if (this.c.hasMessages(5)) {
+            this.c.removeMessages(5);
+        }
+        if (this.B != null) {
+            this.B.removeUpdates(this.ah);
+        }
+        if (this.x && this.y != null && this.y.isStarted()) {
+            this.y.stop();
         }
     }
 
-    public void stopLocationServer() {
-        if (this.mLocationManager != null) {
-            this.mLocationManager.removeUpdates(this.listener);
+    public Location at() {
+        return this.C;
+    }
+
+    public int au() {
+        this.w = getSharedPreferences("settings", 0).getInt("check_network_confirm", 0);
+        return this.w;
+    }
+
+    public long av() {
+        return this.u;
+    }
+
+    public String b() {
+        return this.r;
+    }
+
+    public void b(float f2) {
+        this.K = f2;
+    }
+
+    public void b(int i2) {
+        SharedPreferences.Editor edit = getSharedPreferences("settings", 0).edit();
+        edit.putInt("tdatabaseusetimes", i2);
+        edit.commit();
+    }
+
+    public void b(long j) {
+        this.U = j;
+        SharedPreferences.Editor edit = getSharedPreferences("settings", 0).edit();
+        edit.putLong("refresh_guess_time", j);
+        edit.commit();
+    }
+
+    public void b(e eVar) {
+        if (this.b != null) {
+            this.b.remove(eVar);
         }
     }
 
-    public Location getLocation() {
-        return this.lastLocation;
-    }
-
-    public void setCheckNetworkNotify(boolean ok, boolean wifi) {
-        SharedPreferences preference = getSharedPreferences(Config.SETTINGFILE, 0);
-        SharedPreferences.Editor editor = preference.edit();
-        if (wifi) {
-            this.network_notify_confirm |= 16;
-            if (ok) {
-                this.network_notify_confirm |= 32;
+    public void b(u uVar) {
+        int i2 = 0;
+        while (true) {
+            int i3 = i2;
+            if (i3 >= this.D.size()) {
+                return;
             }
+            SoftReference softReference = (SoftReference) this.D.get(i3);
+            u uVar2 = (u) softReference.get();
+            if (uVar2 != null && uVar2.equals(uVar)) {
+                this.D.remove(softReference);
+                return;
+            }
+            i2 = i3 + 1;
+        }
+    }
+
+    public void b(Boolean bool) {
+        this.R = bool.booleanValue();
+        SharedPreferences.Editor edit = getSharedPreferences("settings", 0).edit();
+        edit.putBoolean("manage_mode", bool.booleanValue());
+        edit.commit();
+    }
+
+    public void b(boolean z) {
+        this.P = z;
+    }
+
+    public boolean b(String str) {
+        return (this.W == null || str == null || !this.W.containsKey(str)) ? false : true;
+    }
+
+    public void c() {
+        this.W = new Hashtable();
+        new com.baidu.tieba.c.p(this.W).start();
+    }
+
+    public void c(int i2) {
+        if (i2 == 0) {
+            a().h(false);
+            a().i(false);
+        } else if (i2 == 1) {
+            a().h(true);
+            a().i(false);
+        } else if (i2 == 2) {
+            a().h(false);
+            a().i(true);
         } else {
-            this.network_notify_confirm |= AccessibilityEventCompat.TYPE_VIEW_HOVER_EXIT;
-            if (ok) {
-                this.network_notify_confirm |= 512;
+            a().h(true);
+            a().i(true);
+        }
+    }
+
+    public void c(long j) {
+        SharedPreferences.Editor edit = getSharedPreferences("settings", 0).edit();
+        edit.putLong("update_notify_time", j);
+        edit.commit();
+    }
+
+    public void c(String str) {
+        if (b(str) || this.W == null || str == null) {
+            return;
+        }
+        this.W.put(str, 1);
+        new com.baidu.tieba.c.p(1, str).start();
+    }
+
+    public void c(boolean z) {
+        this.L = z;
+        SharedPreferences.Editor edit = getSharedPreferences("settings", 0).edit();
+        edit.putBoolean("location_on", this.L);
+        edit.commit();
+    }
+
+    public void d() {
+        startService(new Intent(this, MessagePullService.class));
+    }
+
+    /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(r8v0 int)] */
+    public void d(int i2) {
+        ae.a(getClass().getName(), "setMsgFrequence", new StringBuilder().append(i2).toString());
+        this.X = i2;
+        if (i2 != 0) {
+            this.c.sendMessage(this.c.obtainMessage(2));
+            return;
+        }
+        a(0L, 0L, 0L);
+        this.c.sendMessage(this.c.obtainMessage(3));
+    }
+
+    public void d(long j) {
+        if (j >= 0) {
+            a(j, this.af, this.ag);
+        }
+    }
+
+    public void d(String str) {
+        if (!b(str) || this.W == null || str == null) {
+            return;
+        }
+        this.W.remove(str);
+        new com.baidu.tieba.c.p(2, str).start();
+    }
+
+    public void d(boolean z) {
+        SharedPreferences.Editor edit = getSharedPreferences("settings", 0).edit();
+        edit.putBoolean("motu_on", z);
+        edit.commit();
+        this.M = z;
+    }
+
+    public Bitmap e(String str) {
+        SoftReference softReference = (SoftReference) this.g.get(str);
+        if (softReference == null || softReference.get() == null) {
+            Bitmap a = com.baidu.tieba.c.n.a(f, str);
+            if (a != null) {
+                this.g.put(str, new SoftReference(a));
+                return a;
+            }
+            return a;
+        }
+        return (Bitmap) softReference.get();
+    }
+
+    public void e() {
+        stopService(new Intent(this, MessagePullService.class));
+    }
+
+    public void e(int i2) {
+        if (this.F == i2) {
+            return;
+        }
+        this.F = i2;
+        getSharedPreferences("settings", 0).edit().putInt("image_quality", i2).commit();
+    }
+
+    public void e(long j) {
+        if (j >= 0) {
+            a(this.ae, j, this.ag);
+        }
+    }
+
+    public void e(boolean z) {
+        SharedPreferences.Editor edit = getSharedPreferences("settings", 0).edit();
+        edit.putBoolean("app_switcher", z);
+        edit.commit();
+        this.N = z;
+    }
+
+    public void f(int i2) {
+        if (this.G == i2) {
+            return;
+        }
+        this.G = i2;
+        getSharedPreferences("settings", 0).edit().putInt("view_image_quality", i2).commit();
+    }
+
+    public void f(long j) {
+        if (j >= 0) {
+            a(this.ae, this.af, j);
+        }
+    }
+
+    public void f(boolean z) {
+        this.j = z;
+    }
+
+    public String g() {
+        return this.n;
+    }
+
+    public void g(int i2) {
+        if (this.I == i2) {
+            return;
+        }
+        this.I = i2;
+        getSharedPreferences("settings", 0).edit().putInt("font_size", i2).commit();
+    }
+
+    public void g(long j) {
+        this.u = j;
+        SharedPreferences.Editor edit = getSharedPreferences("settings", 0).edit();
+        edit.putLong("message_id", j);
+        edit.commit();
+    }
+
+    public void g(String str) {
+        if (str == null || str.length() <= 0) {
+            return;
+        }
+        synchronized (this) {
+            if (i != null) {
+                i.e(str);
             }
         }
-        editor.putInt(CHECK_NETWORK_NOTIFY_CONFIRM, this.network_notify_confirm);
-        editor.commit();
     }
 
-    public int readCheckNetworkNotify() {
-        SharedPreferences preference = getSharedPreferences(Config.SETTINGFILE, 0);
-        this.network_notify_confirm = preference.getInt(CHECK_NETWORK_NOTIFY_CONFIRM, 0);
-        return this.network_notify_confirm;
+    public void g(boolean z) {
+        this.ad = z;
+        SharedPreferences.Editor edit = getSharedPreferences("settings", 0).edit();
+        edit.putBoolean("permoted_message", z);
+        edit.commit();
+        if (z) {
+            d();
+        } else {
+            e();
+        }
     }
 
-    public int getCheckNetworkNotify(boolean wifi) {
-        if (wifi) {
-            if ((this.network_notify_confirm & 16) == 0) {
+    public int h() {
+        return this.O;
+    }
+
+    public void h(int i2) {
+        this.Q = i2;
+        getSharedPreferences("settings", 0).edit().putInt("webview_crash_count", i2).commit();
+    }
+
+    public void h(boolean z) {
+        if (this.ab == z) {
+            return;
+        }
+        this.ab = z;
+    }
+
+    public void i(String str) {
+        SharedPreferences.Editor edit = getSharedPreferences("settings", 0).edit();
+        edit.putString("account_share", str);
+        edit.commit();
+    }
+
+    public void i(boolean z) {
+        this.ac = z;
+    }
+
+    public boolean i() {
+        return this.P;
+    }
+
+    public void j(boolean z) {
+        this.Y = z;
+        if (z) {
+            return;
+        }
+        f(0L);
+    }
+
+    public boolean j() {
+        return this.L;
+    }
+
+    public void k(boolean z) {
+        this.Z = z;
+        if (z) {
+            return;
+        }
+        e(0L);
+    }
+
+    public boolean k() {
+        return this.M;
+    }
+
+    public void l(boolean z) {
+        this.aa = z;
+        if (z) {
+            return;
+        }
+        d(0L);
+    }
+
+    public boolean l() {
+        return this.N;
+    }
+
+    public void m() {
+        SharedPreferences.Editor edit = getSharedPreferences("settings", 0).edit();
+        edit.putString("show_all_like_items", com.baidu.tieba.a.h.h());
+        edit.commit();
+        this.v = com.baidu.tieba.a.h.h();
+    }
+
+    public void m(boolean z) {
+        if (this.H == z) {
+            return;
+        }
+        this.H = z;
+        getSharedPreferences("settings", 0).edit().putBoolean("show_images", z).commit();
+    }
+
+    public String n() {
+        return this.v;
+    }
+
+    public void n(boolean z) {
+        this.J = z;
+        getSharedPreferences("settings", 0).edit().putBoolean("abstract_state", z).commit();
+    }
+
+    @Override // android.app.Application, android.content.ComponentCallbacks
+    public void onConfigurationChanged(Configuration configuration) {
+        super.onConfigurationChanged(configuration);
+    }
+
+    @Override // android.app.Application
+    public void onCreate() {
+        f = this;
+        com.baidu.tieba.c.w.c();
+        aA();
+        aB();
+        aw();
+        az();
+        o = a((Context) this);
+        ax();
+        com.baidu.tieba.a.h.c(this);
+        com.baidu.tieba.a.h.b(this);
+        try {
+            Thread.setDefaultUncaughtExceptionHandler(new af());
+        } catch (SecurityException e) {
+            ae.b(getClass().getName(), "onCreate", e.getMessage());
+        }
+        getContentResolver().registerContentObserver(Uri.parse("content://telephony/carriers"), true, new t(this, new Handler()));
+        this.q = ay();
+        if (this.q) {
+            au();
+            this.g = new HashMap();
+            i = com.baidu.tieba.c.k.l();
+            if (f()) {
+                a.a(this);
+            } else {
+                com.baidu.tieba.account.a.a().a(this);
+            }
+            com.baidu.tieba.c.k.u();
+            c();
+            this.k = new ab();
+            this.l = new aa(300);
+            this.m = new aa(100);
+            this.d = (NotificationManager) getSystemService("notification");
+            new ak("open").start();
+            if (I()) {
+                d();
+            }
+            if (ab()) {
+                new ak("frs_abstract", "1").start();
+            }
+            aG();
+            this.D = new ArrayList();
+        } else {
+            this.b = new ArrayList();
+        }
+        registerReceiver(new com.baidu.tieba.service.f(), new IntentFilter("android.net.conn.CONNECTIVITY_CHANGE"));
+        super.onCreate();
+    }
+
+    @Override // android.app.Application, android.content.ComponentCallbacks
+    public void onLowMemory() {
+        super.onLowMemory();
+        System.gc();
+    }
+
+    @Override // android.app.Application
+    public void onTerminate() {
+        super.onTerminate();
+    }
+
+    public int p(boolean z) {
+        if (z) {
+            if ((this.w & 16) == 0) {
                 return -1;
             }
-            return (this.network_notify_confirm & 32) == 0 ? 0 : 1;
-        } else if ((this.network_notify_confirm & AccessibilityEventCompat.TYPE_VIEW_HOVER_EXIT) != 0) {
-            return (this.network_notify_confirm & 512) == 0 ? 0 : 1;
+            return (this.w & 32) == 0 ? 0 : 1;
+        } else if ((this.w & 256) != 0) {
+            return (this.w & 512) == 0 ? 0 : 1;
         } else {
             return -1;
         }
     }
 
-    public void setMessageID(long messageID) {
-        this.mMessageID = messageID;
-        SharedPreferences preference = getSharedPreferences(Config.SETTINGFILE, 0);
-        SharedPreferences.Editor editor = preference.edit();
-        editor.putLong(MESSAGE_ID, messageID);
-        editor.commit();
+    public void p() {
+        a(0L, 0L, 0L);
+        com.baidu.tieba.c.k.u();
     }
 
-    public long getMessageID() {
-        return this.mMessageID;
+    public boolean q() {
+        return this.h;
     }
 
-    public void sendImagePv(int pvNum, int pvTotalNum, String type) {
-        if (this.imagePvThread == null) {
-            this.imagePvThread = Executors.newSingleThreadExecutor();
-        }
-        TiebaLog.i(getClass().getName(), "pv_addImagePv", "img_num=" + pvNum + " img_total" + pvTotalNum);
-        PvImageThread imagePv = new PvImageThread(pvNum, pvTotalNum);
-        imagePv.setType(type);
-        this.imagePvThread.execute(imagePv);
+    public boolean r() {
+        return this.R;
+    }
+
+    public long s() {
+        return this.T;
+    }
+
+    public long t() {
+        return this.U;
+    }
+
+    public int y() {
+        int i2 = getSharedPreferences("settings", 0).getInt("tdatabaseusetimes", 0);
+        ae.a("TiebaApplication", "getAPPUseTimes", String.valueOf(i2));
+        return i2;
+    }
+
+    public long z() {
+        long j = getSharedPreferences("settings", 0).getLong("tdatabasecreatetime", 0L);
+        ae.a("TiebaApplication", "getTDatabaseCreateTime", ad.a(j));
+        return j;
     }
 }

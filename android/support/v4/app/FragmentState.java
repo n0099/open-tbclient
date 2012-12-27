@@ -3,84 +3,68 @@ package android.support.v4.app;
 import android.os.Bundle;
 import android.os.Parcel;
 import android.os.Parcelable;
-/* JADX INFO: Access modifiers changed from: package-private */
-/* compiled from: Fragment.java */
 /* loaded from: classes.dex */
-public final class FragmentState implements Parcelable {
-    public static final Parcelable.Creator<FragmentState> CREATOR = new Parcelable.Creator<FragmentState>() { // from class: android.support.v4.app.FragmentState.1
-        /* JADX DEBUG: Method merged with bridge method */
-        /* JADX WARN: Can't rename method to resolve collision */
-        @Override // android.os.Parcelable.Creator
-        public FragmentState createFromParcel(Parcel in) {
-            return new FragmentState(in);
-        }
+final class FragmentState implements Parcelable {
+    public static final Parcelable.Creator CREATOR = new p();
+    final String a;
+    final int b;
+    final boolean c;
+    final int d;
+    final int e;
+    final String f;
+    final boolean g;
+    final boolean h;
+    final Bundle i;
+    Bundle j;
+    Fragment k;
 
-        /* JADX DEBUG: Method merged with bridge method */
-        /* JADX WARN: Can't rename method to resolve collision */
-        @Override // android.os.Parcelable.Creator
-        public FragmentState[] newArray(int size) {
-            return new FragmentState[size];
-        }
-    };
-    final Bundle mArguments;
-    final String mClassName;
-    final int mContainerId;
-    final boolean mDetached;
-    final int mFragmentId;
-    final boolean mFromLayout;
-    final int mIndex;
-    Fragment mInstance;
-    final boolean mRetainInstance;
-    Bundle mSavedFragmentState;
-    final String mTag;
-
-    public FragmentState(Fragment frag) {
-        this.mClassName = frag.getClass().getName();
-        this.mIndex = frag.mIndex;
-        this.mFromLayout = frag.mFromLayout;
-        this.mFragmentId = frag.mFragmentId;
-        this.mContainerId = frag.mContainerId;
-        this.mTag = frag.mTag;
-        this.mRetainInstance = frag.mRetainInstance;
-        this.mDetached = frag.mDetached;
-        this.mArguments = frag.mArguments;
+    public FragmentState(Parcel parcel) {
+        this.a = parcel.readString();
+        this.b = parcel.readInt();
+        this.c = parcel.readInt() != 0;
+        this.d = parcel.readInt();
+        this.e = parcel.readInt();
+        this.f = parcel.readString();
+        this.g = parcel.readInt() != 0;
+        this.h = parcel.readInt() != 0;
+        this.i = parcel.readBundle();
+        this.j = parcel.readBundle();
     }
 
-    public FragmentState(Parcel in) {
-        this.mClassName = in.readString();
-        this.mIndex = in.readInt();
-        this.mFromLayout = in.readInt() != 0;
-        this.mFragmentId = in.readInt();
-        this.mContainerId = in.readInt();
-        this.mTag = in.readString();
-        this.mRetainInstance = in.readInt() != 0;
-        this.mDetached = in.readInt() != 0;
-        this.mArguments = in.readBundle();
-        this.mSavedFragmentState = in.readBundle();
+    public FragmentState(Fragment fragment) {
+        this.a = fragment.getClass().getName();
+        this.b = fragment.n;
+        this.c = fragment.w;
+        this.d = fragment.C;
+        this.e = fragment.D;
+        this.f = fragment.E;
+        this.g = fragment.H;
+        this.h = fragment.G;
+        this.i = fragment.p;
     }
 
-    public Fragment instantiate(FragmentActivity activity) {
-        if (this.mInstance != null) {
-            return this.mInstance;
+    public Fragment a(g gVar) {
+        if (this.k != null) {
+            return this.k;
         }
-        if (this.mArguments != null) {
-            this.mArguments.setClassLoader(activity.getClassLoader());
+        if (this.i != null) {
+            this.i.setClassLoader(gVar.getClassLoader());
         }
-        this.mInstance = Fragment.instantiate(activity, this.mClassName, this.mArguments);
-        if (this.mSavedFragmentState != null) {
-            this.mSavedFragmentState.setClassLoader(activity.getClassLoader());
-            this.mInstance.mSavedFragmentState = this.mSavedFragmentState;
+        this.k = Fragment.a(gVar, this.a, this.i);
+        if (this.j != null) {
+            this.j.setClassLoader(gVar.getClassLoader());
+            this.k.l = this.j;
         }
-        this.mInstance.setIndex(this.mIndex);
-        this.mInstance.mFromLayout = this.mFromLayout;
-        this.mInstance.mRestored = true;
-        this.mInstance.mFragmentId = this.mFragmentId;
-        this.mInstance.mContainerId = this.mContainerId;
-        this.mInstance.mTag = this.mTag;
-        this.mInstance.mRetainInstance = this.mRetainInstance;
-        this.mInstance.mDetached = this.mDetached;
-        this.mInstance.mFragmentManager = activity.mFragments;
-        return this.mInstance;
+        this.k.a(this.b);
+        this.k.w = this.c;
+        this.k.y = true;
+        this.k.C = this.d;
+        this.k.D = this.e;
+        this.k.E = this.f;
+        this.k.H = this.g;
+        this.k.G = this.h;
+        this.k.A = gVar.b;
+        return this.k;
     }
 
     @Override // android.os.Parcelable
@@ -89,16 +73,16 @@ public final class FragmentState implements Parcelable {
     }
 
     @Override // android.os.Parcelable
-    public void writeToParcel(Parcel dest, int flags) {
-        dest.writeString(this.mClassName);
-        dest.writeInt(this.mIndex);
-        dest.writeInt(this.mFromLayout ? 1 : 0);
-        dest.writeInt(this.mFragmentId);
-        dest.writeInt(this.mContainerId);
-        dest.writeString(this.mTag);
-        dest.writeInt(this.mRetainInstance ? 1 : 0);
-        dest.writeInt(this.mDetached ? 1 : 0);
-        dest.writeBundle(this.mArguments);
-        dest.writeBundle(this.mSavedFragmentState);
+    public void writeToParcel(Parcel parcel, int i) {
+        parcel.writeString(this.a);
+        parcel.writeInt(this.b);
+        parcel.writeInt(this.c ? 1 : 0);
+        parcel.writeInt(this.d);
+        parcel.writeInt(this.e);
+        parcel.writeString(this.f);
+        parcel.writeInt(this.g ? 1 : 0);
+        parcel.writeInt(this.h ? 1 : 0);
+        parcel.writeBundle(this.i);
+        parcel.writeBundle(this.j);
     }
 }

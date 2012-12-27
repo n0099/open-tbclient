@@ -1,6 +1,5 @@
 package com.baidu.tieba.recommend;
 
-import android.app.Activity;
 import android.app.ActivityGroup;
 import android.content.Intent;
 import android.os.Bundle;
@@ -11,104 +10,63 @@ import android.widget.FrameLayout;
 import android.widget.RadioButton;
 import com.baidu.tieba.R;
 import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.account.LoginActivity;
-import com.baidu.tieba.home.SearchActivity;
-import com.baidu.tieba.util.UtilHelper;
+import com.baidu.tieba.c.ag;
 /* loaded from: classes.dex */
 public class NewHomeActivity extends ActivityGroup {
-    private Button loginButton;
-    private RadioButton mBtnGuess;
-    private RadioButton mBtnRecommend;
-    private FrameLayout mContent;
-    private CompoundButton.OnCheckedChangeListener mOnCheckedChangeListener = null;
-    private View.OnClickListener mOncClickListener;
-    private Button refreshButton;
-    private Button searchButton;
+    private Button a;
+    private Button b;
+    private Button c;
+    private View.OnClickListener d;
+    private RadioButton e;
+    private RadioButton f;
+    private CompoundButton.OnCheckedChangeListener g = null;
+    private FrameLayout h;
 
-    @Override // android.app.ActivityGroup, android.app.Activity
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.new_home_activity);
-        initUI();
+    private void a() {
+        this.c = (Button) findViewById(R.id.login);
+        this.b = (Button) findViewById(R.id.search);
+        this.a = (Button) findViewById(R.id.refresh);
+        this.d = new o(this);
+        this.c.setOnClickListener(this.d);
+        this.b.setOnClickListener(this.d);
+        this.a.setOnClickListener(this.d);
+        this.h = (FrameLayout) findViewById(R.id.content);
+        this.e = (RadioButton) findViewById(R.id.recommend_tab);
+        this.f = (RadioButton) findViewById(R.id.guess_tab);
+        this.g = new p(this);
+        this.e.setOnCheckedChangeListener(this.g);
+        this.f.setOnCheckedChangeListener(this.g);
+        if (TiebaApplication.a().ad() >= 3) {
+            this.f.setChecked(true);
+        } else {
+            this.e.setChecked(true);
+        }
     }
 
-    private void initUI() {
-        this.loginButton = (Button) findViewById(R.id.login);
-        this.searchButton = (Button) findViewById(R.id.search);
-        this.refreshButton = (Button) findViewById(R.id.refresh);
-        this.mOncClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.recommend.NewHomeActivity.1
-            @Override // android.view.View.OnClickListener
-            public void onClick(View v) {
-                switch (v.getId()) {
-                    case R.id.login /* 2131230785 */:
-                        LoginActivity.startActivityNoExitDialog(NewHomeActivity.this);
-                        return;
-                    case R.id.search /* 2131230809 */:
-                        SearchActivity.startActivity(NewHomeActivity.this, NewHomeActivity.this.getString(R.string.recommend_title));
-                        return;
-                    case R.id.refresh /* 2131230933 */:
-                        Activity activity = NewHomeActivity.this.getLocalActivityManager().getCurrentActivity();
-                        if (activity instanceof RecommendActivity) {
-                            ((RecommendActivity) activity).resetPage();
-                            ((RecommendActivity) activity).refresh();
-                            return;
-                        } else if (activity instanceof GuessActivity) {
-                            ((GuessActivity) activity).refresh();
-                            return;
-                        } else {
-                            return;
-                        }
-                    default:
-                        return;
-                }
-            }
-        };
-        this.loginButton.setOnClickListener(this.mOncClickListener);
-        this.searchButton.setOnClickListener(this.mOncClickListener);
-        this.refreshButton.setOnClickListener(this.mOncClickListener);
-        this.mContent = (FrameLayout) findViewById(R.id.content);
-        this.mBtnRecommend = (RadioButton) findViewById(R.id.recommend_tab);
-        this.mBtnGuess = (RadioButton) findViewById(R.id.guess_tab);
-        this.mOnCheckedChangeListener = new CompoundButton.OnCheckedChangeListener() { // from class: com.baidu.tieba.recommend.NewHomeActivity.2
-            @Override // android.widget.CompoundButton.OnCheckedChangeListener
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if (isChecked) {
-                    buttonView.setTextColor(NewHomeActivity.this.getResources().getColor(R.color.tab_hightlight_text_color));
-                    if (buttonView != NewHomeActivity.this.mBtnRecommend) {
-                        if (buttonView == NewHomeActivity.this.mBtnGuess) {
-                            NewHomeActivity.this.addView("guess", GuessActivity.class);
-                            return;
-                        }
-                        return;
-                    }
-                    NewHomeActivity.this.addView("recommend", RecommendActivity.class);
-                    return;
-                }
-                buttonView.setTextColor(NewHomeActivity.this.getResources().getColor(R.color.tab_text_color));
-            }
-        };
-        this.mBtnRecommend.setOnCheckedChangeListener(this.mOnCheckedChangeListener);
-        this.mBtnGuess.setOnCheckedChangeListener(this.mOnCheckedChangeListener);
-        this.mBtnRecommend.setChecked(true);
+    public void a(String str, Class cls) {
+        Intent intent = new Intent(this, cls);
+        this.h.removeAllViews();
+        this.h.addView(getLocalActivityManager().startActivity(str, intent).getDecorView());
+    }
+
+    @Override // android.app.ActivityGroup, android.app.Activity
+    protected void onCreate(Bundle bundle) {
+        super.onCreate(bundle);
+        setContentView(R.layout.new_home_activity);
+        a();
     }
 
     @Override // android.app.ActivityGroup, android.app.Activity
     protected void onResume() {
-        String id = TiebaApplication.getCurrentAccount();
-        if (id != null && id.length() > 0) {
-            this.loginButton.setVisibility(4);
-            this.loginButton.setClickable(false);
+        String u = TiebaApplication.u();
+        if (u == null || u.length() <= 0) {
+            this.c.setVisibility(0);
+            this.c.setClickable(true);
         } else {
-            this.loginButton.setVisibility(0);
-            this.loginButton.setClickable(true);
+            this.c.setVisibility(4);
+            this.c.setClickable(false);
         }
         super.onResume();
-        UtilHelper.setEyeShieldMode(this);
-    }
-
-    public void addView(String id, Class<?> cls) {
-        Intent intent = new Intent(this, cls);
-        this.mContent.removeAllViews();
-        this.mContent.addView(getLocalActivityManager().startActivity(id, intent).getDecorView());
+        ag.e(this);
     }
 }

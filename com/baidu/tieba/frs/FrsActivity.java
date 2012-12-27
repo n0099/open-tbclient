@@ -4,25 +4,16 @@ import android.app.Activity;
 import android.app.ActivityManager;
 import android.app.AlertDialog;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
-import android.graphics.Color;
-import android.graphics.drawable.BitmapDrawable;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
-import android.os.Message;
-import android.text.SpannableString;
-import android.text.style.ForegroundColorSpan;
 import android.view.KeyEvent;
-import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
-import android.widget.AbsListView;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -31,353 +22,407 @@ import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
-import com.baidu.tieba.BaseActivity;
 import com.baidu.tieba.MainTabActivity;
 import com.baidu.tieba.R;
 import com.baidu.tieba.TiebaApplication;
+import com.baidu.tieba.a.as;
 import com.baidu.tieba.account.LoginActivity;
-import com.baidu.tieba.account.PvThread;
-import com.baidu.tieba.data.Config;
-import com.baidu.tieba.data.ForumData;
-import com.baidu.tieba.data.GoodData;
-import com.baidu.tieba.data.MediaData;
-import com.baidu.tieba.data.RequestResponseCode;
-import com.baidu.tieba.data.ThreadData;
 import com.baidu.tieba.home.CreateBarActivity;
-import com.baidu.tieba.model.FrsModel;
 import com.baidu.tieba.pb.PbActivity;
-import com.baidu.tieba.person.PersonListActivity;
-import com.baidu.tieba.util.AsyncImageLoader;
-import com.baidu.tieba.util.DatabaseService;
-import com.baidu.tieba.util.NetWork;
-import com.baidu.tieba.util.NetWorkCore;
-import com.baidu.tieba.util.ReadThreadHistory;
-import com.baidu.tieba.util.TiebaLog;
-import com.baidu.tieba.util.UtilHelper;
-import com.baidu.tieba.view.CustomTimerView;
-import com.baidu.tieba.view.FrsHeaderView;
-import com.baidu.tieba.view.FrsImageView;
-import com.baidu.tieba.view.ImageViewDialog;
 import com.baidu.tieba.write.WriteActivity;
 import com.baidu.tieba.write.WriteImageActivity;
-import com.baidu.tieba.write.WriteUtil;
+import com.baidu.tieba.write.ba;
 import java.util.ArrayList;
 import java.util.Iterator;
-import java.util.List;
 import org.apache.http.message.BasicNameValuePair;
-import org.json.JSONObject;
 /* loaded from: classes.dex */
-public class FrsActivity extends BaseActivity {
-    private static final String BACK_SPECIAL = "back_special";
-    private static final int DIALOG_UNLIKE = 1;
-    private static final String FLAG = "flag";
-    private static final String FROM = "from";
-    public static final String FROM_SHORT_CUT = "from_short_cut";
-    public static final int FRS_FLAG_ADD_SEARCH_HIS = 1;
-    public static final int FRS_FLAG_NORMAL = 0;
-    public static final String FRS_FROM_LIKE = "tb_forumlist";
-    public static final String FRS_FROM_SEARCH = "tb_searchlist";
-    public static final String FRS_TO_PB = "tb_frslist";
-    public static final int HERDER_TYPE_LIKE = 1;
-    public static final int HERDER_TYPE_PRE = 2;
-    private static final int MENU_ID_LIKE = 3;
-    private static final int MENU_ID_POST = 0;
-    private static final int MENU_ID_REFRESH = 1;
-    private static final int MENU_ID_UNLIKE = 4;
-    private static final int MENU_ID_VIEWGOOD = 2;
-    private static final int MESSAGE_UPDATE_TIMER = 1;
-    private static final String NAME = "name";
-    public static final String REFRESH_TO_FRS = "tb_frslist";
-    private static final int UPDATA_TYPE_LIKE = 4;
-    private static final int UPDATA_TYPE_NEXT = 1;
-    private static final int UPDATA_TYPE_PREVIOUS = 2;
-    private static final int UPDATA_TYPE_REFRESH = 3;
-    private static final String URL_ST_TYPE = "st_type";
-    private static final int WRITE_PIC = 1;
-    private static final int WRITE_TEXT = 0;
-    private String mForumSuffix;
-    private static volatile long mPbLoadTime = 0;
-    private static volatile long mPbLoadDataSize = 0;
-    private static volatile int mNetError = 0;
-    private boolean mIsFirst = true;
-    private int mType = 3;
-    private String mForum = null;
-    private String mFrom = null;
-    private int mFlag = 0;
-    private String mGoodName = null;
-    private long mGoodId = 0;
-    private int mIsGood = 0;
-    private int mPn = 1;
-    private boolean isShowMenu = false;
-    private String mThreadId = null;
-    private boolean mIsRefresh = false;
-    private Button mButtonBack = null;
-    private TextView mFrsTitle = null;
-    private LinearLayout mBtGood = null;
-    private Button mButtonWrite = null;
-    private Button mButtonRefresh = null;
-    private Button mButtonCamera = null;
-    private ListView mListFrs = null;
-    private FrsAdapter mAdapterFrs = null;
-    private FrsAsyncTask mFrsTask = null;
-    private FrsModel mModel = null;
-    private ProgressBar mProgress = null;
-    private TextView mForumNoExist = null;
-    private LinearLayout mForumNoExistLayout = null;
-    private TextView mForumNoExistLayoutText = null;
-    private ImageView mTitleGood = null;
-    private Button mCreateForumBotton = null;
-    private Menu mMenu = null;
-    private AlertDialog mSelectImageDialog = null;
-    private String mSource = null;
-    private String mUid = null;
-    private ThreadData mThreanData = null;
-    private FrsHeaderView mHeader = null;
-    private Button mGoHomeButton = null;
-    private LinearLayout mBottomLayout = null;
-    private AddFanAsyncTask mAddFanTask = null;
-    private Handler mStarTimerHandler = null;
-    private long mStarSyncTime = 0;
-    private AlertDialog mDialogGood = null;
-    private View mDialogView = null;
-    private DialogGoodAdapter mDialogAdapter = null;
-    private LinearLayout mPageTitle = null;
-    AlertDialog mMenuFrs = null;
-    private ImageView mGuidePage = null;
-    private Handler mHandler = null;
-    private AsyncImageLoader mBigImageLoader = null;
-    private ImageViewDialog mImageViewDialog = null;
-    private Runnable mGetImageRunnble = new Runnable() { // from class: com.baidu.tieba.frs.FrsActivity.1
-        @Override // java.lang.Runnable
-        public void run() {
-            boolean supportHold;
-            try {
-                int start = FrsActivity.this.mListFrs.getFirstVisiblePosition();
-                int end = FrsActivity.this.mListFrs.getLastVisiblePosition();
-                int image_num = 0;
-                if (FrsActivity.this.mHeader != null) {
-                    start--;
-                    end--;
-                    if (start < 0) {
-                        start = 0;
+public class FrsActivity extends com.baidu.tieba.e {
+    private static volatile long N = 0;
+    private static volatile long O = 0;
+    private static volatile int P = 0;
+    private String c;
+    private boolean d = true;
+    private int e = 3;
+    private String f = null;
+    private String g = null;
+    private int h = 0;
+    private String i = null;
+    private long j = 0;
+    private int k = 0;
+    private int l = 1;
+    private boolean m = false;
+    private String n = null;
+    private boolean o = false;
+    private Button p = null;
+    private TextView q = null;
+    private LinearLayout r = null;
+    private Button s = null;
+    private Button t = null;
+    private Button u = null;
+    private ListView v = null;
+    private ab w = null;
+    private aa x = null;
+    private com.baidu.tieba.b.c y = null;
+    private ProgressBar z = null;
+    private TextView A = null;
+    private LinearLayout B = null;
+    private TextView C = null;
+    private ImageView D = null;
+    private Button E = null;
+    private Menu F = null;
+    private AlertDialog G = null;
+    private String H = null;
+    private String I = null;
+    private as J = null;
+    private com.baidu.tieba.view.l K = null;
+    private Button L = null;
+    private LinearLayout M = null;
+    private z Q = null;
+    private Handler R = null;
+    private long S = 0;
+    private AlertDialog T = null;
+    private View U = null;
+    private a V = null;
+    private LinearLayout W = null;
+    AlertDialog b = null;
+    private Handler X = null;
+    private com.baidu.tieba.c.a Y = null;
+    private com.baidu.tieba.view.x Z = null;
+    private Runnable aa = new c(this);
+    private AdapterView.OnItemLongClickListener ab = new q(this);
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void A() {
+        this.v.setVisibility(0);
+        this.s.setVisibility(0);
+        this.t.setVisibility(0);
+        this.w.a(TiebaApplication.a().ab());
+        try {
+            if (this.y == null) {
+                return;
+            }
+            this.f = this.y.a().c();
+            x();
+            y();
+            z();
+            ArrayList b = this.y.b();
+            if (b != null) {
+                this.w.a(b);
+                D();
+                if (this.K != null) {
+                    this.K.a(this.f, this.y.a().b());
+                    this.K.a(this.y.a().d(), this.y.a().h(), this.y.a().e());
+                    this.K.a(this.y.a().f().b());
+                    if (this.y.a().f().a() == -2) {
+                        this.K.a(false);
                     }
-                    if (end < 0) {
-                        end = 0;
+                    if (this.y.a().a() == 0) {
+                        this.K.d();
                     }
                 }
-                NetWorkCore.NetworkStateInfo info = NetWorkCore.getStatusInfo(FrsActivity.this);
-                FrsActivity.this.mAdapterFrs.getImageLoader().clearHoldUrl();
-                FrsActivity.this.mAdapterFrs.getStarImageLoader().clearHoldUrl();
-                if (info == NetWorkCore.NetworkStateInfo.WIFI || info == NetWorkCore.NetworkStateInfo.ThreeG) {
-                    supportHold = true;
+                if (this.l > 1) {
+                    this.w.d(true);
                 } else {
-                    supportHold = false;
+                    this.w.d(false);
                 }
-                FrsActivity.this.mAdapterFrs.getImageLoader().setSupportHoldUrl(supportHold);
-                FrsActivity.this.mAdapterFrs.getStarImageLoader().setSupportHoldUrl(supportHold);
-                for (int i = start; i < FrsActivity.this.mAdapterFrs.getCount(); i++) {
-                    if (supportHold || i <= end) {
-                        ThreadData data = (ThreadData) FrsActivity.this.mAdapterFrs.getItem(i);
-                        if (FrsActivity.this.mAdapterFrs.getItemId(i) == -3) {
-                            data = FrsActivity.this.mAdapterFrs.getStarTitleImg();
-                        }
-                        if (data != null) {
-                            ArrayList<MediaData> content = data.getMedias();
-                            int contentSize = content.size();
-                            if (image_num < 13) {
-                                if (FrsActivity.this.mAdapterFrs.getItemId(i) == -3) {
-                                    for (int j = 0; j < contentSize; j++) {
-                                        if (content.get(j).getType() == 3) {
-                                            if (image_num >= 13) {
-                                                break;
-                                            }
-                                            image_num++;
-                                            FrsActivity.this.mAdapterFrs.getStarImageLoader().loadImage(content.get(j).getPicUrl(), new AsyncImageLoader.ImageCallback() { // from class: com.baidu.tieba.frs.FrsActivity.1.1
-                                                @Override // com.baidu.tieba.util.AsyncImageLoader.ImageCallback
-                                                public void imageLoaded(Bitmap bitmap, String imageUrl, boolean iscached) {
-                                                    View view;
-                                                    if (bitmap != null && (view = FrsActivity.this.mListFrs.findViewWithTag(imageUrl)) != null) {
-                                                        view.invalidate();
-                                                    }
-                                                }
-                                            });
-                                        }
-                                    }
-                                } else if (TiebaApplication.app.getIsAbstractState()) {
-                                    for (int j2 = 0; j2 < contentSize; j2++) {
-                                        if (content.get(j2).getType() == 3) {
-                                            if (image_num >= 13) {
-                                                break;
-                                            }
-                                            image_num++;
-                                            FrsActivity.this.mAdapterFrs.getImageLoader().loadImage(content.get(j2).getPicUrl(), new AsyncImageLoader.ImageCallback() { // from class: com.baidu.tieba.frs.FrsActivity.1.2
-                                                @Override // com.baidu.tieba.util.AsyncImageLoader.ImageCallback
-                                                public void imageLoaded(Bitmap bitmap, String imageUrl, boolean iscached) {
-                                                    View view;
-                                                    if (bitmap != null && (view = FrsActivity.this.mListFrs.findViewWithTag(imageUrl)) != null) {
-                                                        view.invalidate();
-                                                    }
-                                                }
-                                            });
-                                        }
-                                    }
-                                }
-                            }
-                            if (supportHold && image_num >= 13 && 0 >= 30) {
-                                return;
-                            }
-                        }
-                    } else {
-                        return;
-                    }
+                if (this.y.d().c() == 1) {
+                    this.w.e(true);
+                } else {
+                    this.w.e(false);
                 }
-            } catch (Exception ex) {
-                TiebaLog.e("PbActivity", "mGetImageRunnble.run", "error = " + ex.getMessage());
-            }
-        }
-    };
-    private AdapterView.OnItemLongClickListener frsItemLongClickListener = new AdapterView.OnItemLongClickListener() { // from class: com.baidu.tieba.frs.FrsActivity.2
-        @Override // android.widget.AdapterView.OnItemLongClickListener
-        public boolean onItemLongClick(AdapterView<?> arg0, View arg1, int arg2, long arg3) {
-            if (FrsActivity.this.mHeader != null) {
-                arg2--;
-            }
-            if (arg2 >= 0) {
-                long index = FrsActivity.this.mAdapterFrs.getItemId(arg2);
-                if (index != -1 && index != -2 && index != -3) {
-                    ThreadData data = (ThreadData) FrsActivity.this.mAdapterFrs.getItem(arg2);
-                    FrsActivity.this.mThreadId = data.getId();
-                    FrsActivity.this.prepareFrsMenuDialog(data);
-                    FrsActivity.this.mMenuFrs.show();
+                this.w.b(false);
+                this.w.c(false);
+                this.w.notifyDataSetInvalidated();
+                if (this.e != 1) {
+                    this.v.setSelection(0);
+                } else if (this.K != null) {
+                    this.v.setSelection(2);
+                } else {
+                    this.v.setSelection(1);
                 }
+                this.A.setVisibility(8);
+                a(false);
+                C();
             }
-            return false;
-        }
-    };
-
-    public static void startAcitivity(Context context, String name, String from) {
-        if (TiebaApplication.app.isFrsImageForum(name)) {
-            FrsImageActivity.startAcitivity(context, name, from, 0);
-        } else {
-            startAcitivityBackSpecial(context, name, from, false);
+            if ((b == null || b.size() <= 0) && this.k != 1) {
+                this.A.setText(R.string.frs_nodata);
+                this.A.setVisibility(0);
+            }
+        } catch (Exception e) {
+            com.baidu.tieba.c.ae.b(getClass().getName(), "", "HomeActivity.refreshFrs error = " + e.getMessage());
         }
     }
 
-    public static void startAcitivityBackSpecial(Context context, String name, String from, boolean special) {
-        Intent intent = new Intent(context, FrsActivity.class);
-        if (name != null && name.length() > 0) {
-            intent.putExtra("name", name);
-            intent.putExtra("from", from);
-            intent.putExtra("back_special", special);
-            context.startActivity(intent);
+    private void B() {
+        if (this.x != null) {
+            this.x.a();
+            this.x = null;
         }
+        a(false);
+        this.w.b(false);
+        this.w.c(false);
+        this.w.notifyDataSetChanged();
     }
 
-    public static void startAcitivity(Context context, String name, String from, int flag) {
-        if (TiebaApplication.app.isFrsImageForum(name)) {
-            FrsImageActivity.startAcitivity(context, name, from, flag);
+    private void C() {
+        if (this.F == null) {
             return;
         }
-        Intent intent = new Intent(context, FrsActivity.class);
-        if (name != null && name.length() > 0) {
-            intent.putExtra("name", name);
-            intent.putExtra("from", from);
-            intent.putExtra(FLAG, flag);
-            context.startActivity(intent);
+        try {
+            MenuItem findItem = this.F.findItem(0);
+            MenuItem findItem2 = this.F.findItem(1);
+            MenuItem findItem3 = this.F.findItem(2);
+            MenuItem findItem4 = this.F.findItem(3);
+            MenuItem findItem5 = this.F.findItem(4);
+            if (findItem != null) {
+                findItem.setVisible(true);
+            }
+            if (findItem2 != null) {
+                findItem2.setVisible(true);
+            }
+            if (findItem3 != null) {
+                findItem3.setVisible(true);
+            }
+            if (this.y == null) {
+                if (findItem != null) {
+                    findItem.setEnabled(false);
+                }
+                if (findItem3 != null) {
+                    findItem3.setEnabled(false);
+                }
+                if (findItem5 != null) {
+                    findItem5.setEnabled(false);
+                }
+                if (findItem4 != null) {
+                    findItem4.setEnabled(false);
+                }
+            } else {
+                if (findItem != null) {
+                    findItem.setEnabled(true);
+                }
+                if (findItem3 != null) {
+                    findItem3.setEnabled(true);
+                }
+                if (findItem5 != null) {
+                    findItem5.setEnabled(true);
+                }
+                if (findItem4 != null) {
+                    findItem4.setEnabled(true);
+                }
+            }
+            if (this.y == null || this.y.a().d() != 1) {
+                if (findItem5 != null) {
+                    findItem5.setVisible(false);
+                }
+                if (findItem4 != null) {
+                    findItem4.setVisible(true);
+                    return;
+                }
+                return;
+            }
+            if (findItem5 != null) {
+                findItem5.setVisible(true);
+            }
+            if (findItem4 != null) {
+                findItem4.setVisible(false);
+            }
+        } catch (Exception e) {
+            com.baidu.tieba.c.ae.b("FrsActivity", "onPrepareOptionsMenu", "exp: " + e.toString());
         }
     }
 
-    public static Intent getIntent(Context context, String name) {
-        if (name == null || name.length() <= 0) {
+    private void D() {
+        this.w.a(this.y.e(), this.y.a().c());
+        this.R.removeMessages(1);
+        if (this.l != 1 || this.y.e().a() != 1) {
+            this.w.f(false);
+            return;
+        }
+        this.w.f(true);
+        if (this.y.e().h() == 0) {
+            this.S = System.nanoTime() / 1000000000;
+            this.R.sendMessageDelayed(this.R.obtainMessage(1), 1000L);
+        }
+    }
+
+    public static Intent a(Context context, String str) {
+        if (str == null || str.length() <= 0) {
             return null;
         }
         Intent intent = new Intent(context, FrsActivity.class);
-        intent.putExtra("name", name);
+        intent.putExtra("name", str);
         return intent;
     }
 
-    private void initBigImageLoader() {
-        this.mBigImageLoader = new AsyncImageLoader(this);
-        this.mBigImageLoader.setIsPv(true);
-        int width = UtilHelper.dip2px(this, 234.0f);
-        if (width > 350) {
-            width = Config.PB_IMAGE_NEW_MAX_WIDTH;
+    private void a(float f) {
+        if (TiebaApplication.a().ac() != 0.0f) {
+            return;
         }
-        this.mBigImageLoader.setImagesize(width, (int) (width * 1.62f));
+        WindowManager.LayoutParams attributes = getWindow().getAttributes();
+        attributes.alpha = f;
+        getWindow().setAttributes(attributes);
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.BaseActivity, android.app.Activity
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (dealShortCut()) {
-            setContentView(R.layout.frs_activity);
-            this.mHandler = new Handler();
-            initBigImageLoader();
-            initUI();
-            this.mUid = TiebaApplication.getCurrentAccount();
-            if (savedInstanceState != null) {
-                this.mForum = savedInstanceState.getString("name");
-                this.mFrom = savedInstanceState.getString("from");
-                this.mFlag = savedInstanceState.getInt(FLAG, 0);
-            } else {
-                Intent intent = getIntent();
-                this.mForum = intent.getStringExtra("name");
-                this.mFrom = intent.getStringExtra("from");
-                this.mFlag = intent.getIntExtra(FLAG, 0);
-            }
-            if (this.mForum != null && this.mForum.length() > 0) {
-                if (this.mFrom == null || this.mFrom.length() <= 0) {
-                    this.mFrom = FRS_FROM_LIKE;
+    public static void a(Context context, String str, String str2) {
+        if (TiebaApplication.a().b(str)) {
+            FrsImageActivity.a(context, str, str2, 0);
+        } else {
+            a(context, str, str2, false);
+        }
+    }
+
+    public static void a(Context context, String str, String str2, int i) {
+        if (TiebaApplication.a().b(str)) {
+            FrsImageActivity.a(context, str, str2, i);
+            return;
+        }
+        Intent intent = new Intent(context, FrsActivity.class);
+        if (str == null || str.length() <= 0) {
+            return;
+        }
+        intent.putExtra("name", str);
+        intent.putExtra("from", str2);
+        intent.putExtra("flag", i);
+        context.startActivity(intent);
+    }
+
+    public static void a(Context context, String str, String str2, boolean z) {
+        Intent intent = new Intent(context, FrsActivity.class);
+        if (str == null || str.length() <= 0) {
+            return;
+        }
+        intent.putExtra("name", str);
+        intent.putExtra("from", str2);
+        intent.putExtra("back_special", z);
+        context.startActivity(intent);
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void a(Bitmap bitmap, boolean z) {
+        if (bitmap == null) {
+            return;
+        }
+        if (this.Z == null) {
+            View findViewById = findViewById(R.id.frs);
+            this.Z = new com.baidu.tieba.view.x(this, findViewById.getWidth(), findViewById.getHeight());
+            this.Z.setOnDismissListener(new l(this));
+            this.Z.setOnCancelListener(new m(this));
+        }
+        if (this.Z.isShowing()) {
+            this.Z.a(bitmap);
+        } else {
+            this.Z.a(bitmap, z);
+        }
+        a(0.3f);
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void a(boolean z) {
+        this.o = z;
+        if (z) {
+            this.z.setVisibility(0);
+        } else {
+            this.z.setVisibility(8);
+        }
+    }
+
+    private boolean a(as asVar) {
+        String a;
+        return asVar == null || asVar.h() == null || (a = asVar.h().a()) == null || a.equals("0");
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void b(int i) {
+        String u = TiebaApplication.u();
+        if (u != null && u.length() > 0) {
+            if (this.y != null) {
+                if (i == 0) {
+                    WriteActivity.a(this, this.y.a().b(), this.f, this.y.c(), false, null);
+                    return;
+                } else {
+                    this.G.show();
+                    return;
                 }
-                this.mSource = this.mFrom;
-                this.mStarTimerHandler = new Handler() { // from class: com.baidu.tieba.frs.FrsActivity.3
-                    @Override // android.os.Handler
-                    public void handleMessage(Message msg) {
-                        switch (msg.what) {
-                            case 1:
-                                removeMessages(1);
-                                if (FrsActivity.this.mModel != null) {
-                                    long currTime = System.nanoTime() / 1000000000;
-                                    long leftTime = FrsActivity.this.mModel.getStarData().getLeftTime() - (currTime - FrsActivity.this.mStarSyncTime);
-                                    if (leftTime > 0) {
-                                        CustomTimerView timerView = (CustomTimerView) FrsActivity.this.mListFrs.findViewById(R.id.open_timer);
-                                        if (timerView != null) {
-                                            timerView.setTime(leftTime);
-                                        }
-                                        sendMessageDelayed(obtainMessage(1), 1000L);
-                                        return;
-                                    }
-                                    FrsActivity.this.mModel.getStarData().setIsOpen(1);
-                                    FrsActivity.this.mAdapterFrs.notifyDataSetChanged();
-                                    return;
-                                }
-                                return;
-                            default:
-                                super.handleMessage(msg);
-                                return;
-                        }
-                    }
-                };
-                refresh();
+            }
+            return;
+        }
+        if (this.y != null && this.y.c() != null) {
+            this.y.c().a(1);
+        }
+        if (i == 0) {
+            LoginActivity.a((Activity) this, getString(R.string.login_to_use), true, 1100001);
+        } else {
+            LoginActivity.a((Activity) this, getString(R.string.login_to_use), true, 1100016);
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void b(as asVar) {
+        boolean a = a(asVar);
+        n nVar = new n(this, asVar);
+        String string = getString(R.string.view);
+        String string2 = getString(R.string.view_host);
+        String string3 = getString(R.string.view_reverse);
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle(R.string.operation);
+        if (a) {
+            builder.setItems(new String[]{string, string3}, nVar);
+        } else {
+            builder.setItems(new String[]{string, string2, string3}, nVar);
+        }
+        this.b = builder.create();
+        this.b.setCanceledOnTouchOutside(true);
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void c(as asVar) {
+        boolean a = a(asVar);
+        if (this.n != null) {
+            if (a) {
+                PbActivity.a(this, this.n, false, false, "tb_frslist", false);
+            } else {
+                PbActivity.a(this, this.n, true, true, "tb_frslist", false);
             }
         }
     }
 
-    private boolean dealShortCut() {
-        boolean from_short_cut = getIntent().getBooleanExtra(FROM_SHORT_CUT, false);
-        if (from_short_cut) {
-            ActivityManager am = (ActivityManager) getSystemService("activity");
-            List<ActivityManager.RunningTaskInfo> list = am.getRunningTasks(10);
-            Iterator<ActivityManager.RunningTaskInfo> it = list.iterator();
+    /* JADX INFO: Access modifiers changed from: private */
+    public void c(String str) {
+        Intent a;
+        if (str == null || (a = a((Context) this, str)) == null) {
+            return;
+        }
+        a.setAction("android.intent.action.MAIN");
+        a.putExtra("from_short_cut", true);
+        a.putExtra("back_special", true);
+        Intent intent = new Intent("com.android.launcher.action.INSTALL_SHORTCUT");
+        intent.putExtra("duplicate", false);
+        intent.putExtra("android.intent.extra.shortcut.NAME", String.valueOf(str) + getString(R.string.bar));
+        intent.putExtra("android.intent.extra.shortcut.INTENT", a);
+        intent.putExtra("android.intent.extra.shortcut.ICON_RESOURCE", Intent.ShortcutIconResource.fromContext(this, R.drawable.icon));
+        sendBroadcast(intent);
+        new com.baidu.tieba.account.ak("add_to_launcher").start();
+    }
+
+    private void l() {
+        this.Y = new com.baidu.tieba.c.a(this);
+        this.Y.b(true);
+        int a = com.baidu.tieba.c.ag.a((Context) this, 234.0f);
+        int i = a <= 350 ? a : 350;
+        this.Y.a(i, (int) (i * 1.62f));
+    }
+
+    private boolean m() {
+        if (getIntent().getBooleanExtra("from_short_cut", false)) {
+            Iterator<ActivityManager.RunningTaskInfo> it = ((ActivityManager) getSystemService("activity")).getRunningTasks(10).iterator();
             while (true) {
                 if (!it.hasNext()) {
                     break;
                 }
-                ActivityManager.RunningTaskInfo runningTaskInfo = it.next();
-                if (runningTaskInfo.topActivity.getClassName().equals(getClass().getName())) {
-                    if (runningTaskInfo.numActivities <= 1) {
-                        MainTabActivity.startActivity(this, MainTabActivity.GOTO_MORE, 2, getIntent().getStringExtra("name"));
+                ActivityManager.RunningTaskInfo next = it.next();
+                if (next.topActivity.getClassName().equals(getClass().getName())) {
+                    if (next.numActivities <= 1) {
+                        MainTabActivity.a(this, "goto_more", 2, getIntent().getStringExtra("name"), null);
                         finish();
                         return false;
                     }
@@ -387,1026 +432,357 @@ public class FrsActivity extends BaseActivity {
         return true;
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.BaseActivity, android.app.Activity
-    public void onDestroy() {
-        if (this.mHandler != null) {
-            this.mHandler.removeCallbacks(this.mGetImageRunnble);
-        }
-        if (this.mHeader != null) {
-            this.mHeader.release();
-        }
-        if (this.mStarTimerHandler != null) {
-            this.mStarTimerHandler.removeMessages(1);
-        }
-        if (this.mGuidePage != null && this.mGuidePage.getBackground() != null) {
-            Bitmap bm = ((BitmapDrawable) this.mGuidePage.getBackground()).getBitmap();
-            this.mGuidePage.setBackgroundDrawable(null);
-            if (bm != null && !bm.isRecycled()) {
-                bm.recycle();
-            }
-        }
-        super.onDestroy();
-        try {
-            if (this.mFrsTask != null) {
-                this.mFrsTask.cancel();
-                this.mFrsTask = null;
-            }
-            if (this.mAddFanTask != null) {
-                this.mAddFanTask.cancel();
-                this.mAddFanTask = null;
-            }
-            if (this.mAdapterFrs != null) {
-                this.mAdapterFrs.releaseProgressBar();
-            }
-            if (this.mProgress != null) {
-                this.mProgress.setVisibility(8);
-            }
-            System.gc();
-        } catch (Exception e) {
-        }
-    }
-
-    @Override // android.app.Activity
-    protected void onSaveInstanceState(Bundle outState) {
-        super.onSaveInstanceState(outState);
-        outState.putString("name", this.mForum);
-        outState.putString("from", this.mFrom);
-    }
-
-    @Override // android.app.Activity
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        if (resultCode == -1) {
-            switch (requestCode) {
-                case RequestResponseCode.REQUEST_LOGIN_WRITE /* 1100001 */:
-                    writeBlog(0);
-                    return;
-                case RequestResponseCode.REQUEST_LOGIN_LIKE /* 1100002 */:
-                    if (this.mHeader != null) {
-                        this.mHeader.startLikeTask();
-                        return;
-                    }
-                    return;
-                case RequestResponseCode.REQUEST_LOGIN_FRS_HOST /* 1100011 */:
-                    gotoPbHost(this.mThreanData);
-                    return;
-                case RequestResponseCode.REQUEST_LOGIN_FRS_REVERSE /* 1100012 */:
-                    gotoPbReverse();
-                    return;
-                case RequestResponseCode.REQUEST_LOGIN_CREATE_BAR /* 1100013 */:
-                    createBar();
-                    return;
-                case RequestResponseCode.REQUEST_LOGIN_SIGN /* 1100014 */:
-                    if (this.mHeader != null) {
-                        this.mHeader.startSignTask();
-                        return;
-                    }
-                    return;
-                case RequestResponseCode.REQUEST_LOGIN_CAMERA_OR_IMAGE /* 1100016 */:
-                    this.mSelectImageDialog.show();
-                    return;
-                case RequestResponseCode.REQUEST_LOGIN_FRS_ADD_FAN /* 1100021 */:
-                    if (this.mModel != null) {
-                        startAddFanAsyncTask();
-                        return;
-                    }
-                    return;
-                case RequestResponseCode.REQUEST_CAMERA /* 1200001 */:
-                    if (this.mModel != null && this.mModel.getForum() != null) {
-                        WriteImageActivity.startActivityForResult(this, RequestResponseCode.REQUEST_CAMERA, RequestResponseCode.REQUEST_CAMERA_VIEW, null, this.mModel.getForum().getId(), this.mForum, this.mModel.getAnti());
-                        return;
-                    }
-                    return;
-                case RequestResponseCode.REQUEST_ALBUM_IMAGE /* 1200002 */:
-                    if (this.mModel != null && this.mModel.getForum() != null) {
-                        if (data != null && data.getData() != null) {
-                            WriteImageActivity.startActivityForResult(this, RequestResponseCode.REQUEST_ALBUM_IMAGE, RequestResponseCode.REQUEST_ALBUM_IMAGE_VIEW, data.getData(), this.mModel.getForum().getId(), this.mForum, this.mModel.getAnti());
-                            return;
-                        } else {
-                            WriteUtil.getAlbumImage(this);
-                            return;
-                        }
-                    }
-                    return;
-                case RequestResponseCode.REQUEST_WRITE_NEW /* 1300003 */:
-                case RequestResponseCode.REQUEST_DEL_POST /* 1300004 */:
-                    refresh();
-                    return;
-                default:
-                    return;
-            }
-        } else if (resultCode == 0) {
-            switch (requestCode) {
-                case RequestResponseCode.REQUEST_ALBUM_IMAGE_VIEW /* 1200008 */:
-                    WriteUtil.getAlbumImage(this);
-                    return;
-                case RequestResponseCode.REQUEST_CAMERA_VIEW /* 12000010 */:
-                    WriteUtil.takePhoto(this);
-                    return;
-                default:
-                    return;
-            }
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.BaseActivity, android.app.Activity
-    public void onResume() {
-        super.onResume();
-        String id = TiebaApplication.getCurrentAccount();
-        if (this.mUid == null && id != null && id.length() > 0) {
-            this.mUid = id;
-            if (this.mModel != null && this.mModel.getAnti() != null) {
-                this.mModel.getAnti().setIfpost(1);
-            }
-        }
-        this.mGetImageRunnble.run();
-        if (this.mStarTimerHandler != null) {
-            this.mStarTimerHandler.removeMessages(1);
-            this.mStarTimerHandler.sendMessageDelayed(this.mStarTimerHandler.obtainMessage(1), 1000L);
-        }
-    }
-
-    public void closeActivity() {
-        if (!getIntent().getBooleanExtra("back_special", false)) {
-            finish();
-        } else {
-            MainTabActivity.startActivity(this, MainTabActivity.GOTO_RECOMMEND);
-        }
-    }
-
-    private void initUI() {
-        this.mForumSuffix = getText(R.string.forum).toString();
-        this.mIsFirst = true;
-        this.mForum = "";
-        this.mFrom = "";
-        this.mFlag = 0;
-        this.mIsGood = 0;
-        this.mGoodId = 0L;
-        this.mGoodName = "";
-        this.mPn = 1;
-        this.mType = 3;
-        this.mFrsTitle = (TextView) findViewById(R.id.frs_tv_title);
-        this.mTitleGood = (ImageView) findViewById(R.id.frs_tv_title_good);
-        this.mButtonBack = (Button) findViewById(R.id.frs_bt_back);
-        this.mButtonBack.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.frs.FrsActivity.4
-            @Override // android.view.View.OnClickListener
-            public void onClick(View v) {
-                FrsActivity.this.closeActivity();
-            }
-        });
-        this.mButtonWrite = (Button) findViewById(R.id.frs_bt_post);
-        this.mButtonWrite.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.frs.FrsActivity.5
-            @Override // android.view.View.OnClickListener
-            public void onClick(View v) {
-                FrsActivity.this.writeBlog(0);
-            }
-        });
-        this.mButtonRefresh = (Button) findViewById(R.id.frs_bt_refresh);
-        this.mButtonRefresh.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.frs.FrsActivity.6
-            @Override // android.view.View.OnClickListener
-            public void onClick(View v) {
-                FrsActivity.this.mSource = "tb_frslist";
-                FrsActivity.this.refresh();
-            }
-        });
-        this.mButtonCamera = (Button) findViewById(R.id.frs_bt_camera);
-        this.mButtonCamera.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.frs.FrsActivity.7
-            @Override // android.view.View.OnClickListener
-            public void onClick(View arg0) {
-                FrsActivity.this.writeBlog(1);
-            }
-        });
-        String[] items = {getString(R.string.take_photo), getString(R.string.album)};
+    private void n() {
+        this.c = getText(R.string.forum).toString();
+        this.d = true;
+        this.f = "";
+        this.g = "";
+        this.h = 0;
+        this.k = 0;
+        this.j = 0L;
+        this.i = "";
+        this.l = 1;
+        this.e = 3;
+        this.q = (TextView) findViewById(R.id.frs_tv_title);
+        this.D = (ImageView) findViewById(R.id.frs_tv_title_good);
+        this.p = (Button) findViewById(R.id.frs_bt_back);
+        this.p.setOnClickListener(new s(this));
+        this.s = (Button) findViewById(R.id.frs_bt_post);
+        this.s.setOnClickListener(new t(this));
+        this.t = (Button) findViewById(R.id.frs_bt_refresh);
+        this.t.setOnClickListener(new u(this));
+        this.u = (Button) findViewById(R.id.frs_bt_camera);
+        this.u.setOnClickListener(new v(this));
+        String[] strArr = {getString(R.string.take_photo), getString(R.string.album)};
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle(getString(R.string.operation));
-        builder.setItems(items, new DialogInterface.OnClickListener() { // from class: com.baidu.tieba.frs.FrsActivity.8
-            @Override // android.content.DialogInterface.OnClickListener
-            public void onClick(DialogInterface dialog, int which) {
-                if (which == 0) {
-                    WriteUtil.takePhoto(FrsActivity.this);
-                } else if (which == 1) {
-                    WriteUtil.getAlbumImage(FrsActivity.this);
-                }
-            }
-        });
-        if (this.mSelectImageDialog == null) {
-            this.mSelectImageDialog = builder.create();
-            this.mSelectImageDialog.setCanceledOnTouchOutside(true);
+        builder.setItems(strArr, new w(this));
+        if (this.G == null) {
+            this.G = builder.create();
+            this.G.setCanceledOnTouchOutside(true);
         }
-        this.mListFrs = (ListView) findViewById(R.id.frs_lv_thread);
-        this.mHeader = new FrsHeaderView(this, FrsHeaderView.PAGE.FRS_LIST, null, null);
-        this.mListFrs.addHeaderView(this.mHeader.getView());
-        this.mAdapterFrs = new FrsAdapter(this, null, UtilHelper.getEquipmentWidth(this));
-        this.mAdapterFrs.setImageOnclickListener(new View.OnClickListener() { // from class: com.baidu.tieba.frs.FrsActivity.9
-            @Override // android.view.View.OnClickListener
-            public void onClick(View v) {
-                if (((FrsImageView) v).isLoaded()) {
-                    FrsActivity.this.mBigImageLoader.cancelAllAsyncTask();
-                    if (v.getTag() != null && (v.getTag() instanceof String)) {
-                        Bitmap bm = FrsActivity.this.mBigImageLoader.loadImage((String) v.getTag(), new AsyncImageLoader.ImageCallback() { // from class: com.baidu.tieba.frs.FrsActivity.9.1
-                            @Override // com.baidu.tieba.util.AsyncImageLoader.ImageCallback
-                            public void imageLoaded(Bitmap bitmap, String imageUrl, boolean isCached) {
-                                if (bitmap == null) {
-                                    FrsActivity.this.errorBigImageDialog();
-                                } else {
-                                    FrsActivity.this.showBigImageDialog(bitmap, false);
-                                }
-                            }
-                        });
-                        if (bm == null) {
-                            Bitmap small = FrsActivity.this.mAdapterFrs.getImageLoader().getPic(String.valueOf((String) v.getTag()) + AsyncImageLoader.SMALL);
-                            if (small == null) {
-                                return;
-                            }
-                            FrsActivity.this.showBigImageDialog(small, true);
-                            return;
-                        }
-                        FrsActivity.this.showBigImageDialog(bm, false);
-                    }
-                }
-            }
-        });
-        this.mListFrs.setAdapter((ListAdapter) this.mAdapterFrs);
-        this.mListFrs.setOnItemClickListener(new AdapterView.OnItemClickListener() { // from class: com.baidu.tieba.frs.FrsActivity.10
-            @Override // android.widget.AdapterView.OnItemClickListener
-            public void onItemClick(AdapterView<?> arg0, View arg1, int arg2, long arg3) {
-                ThreadData data;
-                if (FrsActivity.this.mHeader != null) {
-                    arg2--;
-                }
-                if (arg2 >= 0) {
-                    long index = FrsActivity.this.mAdapterFrs.getItemId(arg2);
-                    if (index == -1) {
-                        if (FrsActivity.this.mPn <= 1) {
-                            FrsActivity.this.mType = 4;
-                            return;
-                        }
-                        FrsActivity frsActivity = FrsActivity.this;
-                        frsActivity.mPn--;
-                        FrsActivity.this.mType = 2;
-                        FrsActivity.this.exec();
-                    } else if (index == -2) {
-                        FrsActivity.this.mPn++;
-                        FrsActivity.this.mType = 1;
-                        FrsActivity.this.exec();
-                    } else if (index != -3 && (data = (ThreadData) FrsActivity.this.mAdapterFrs.getItem(arg2)) != null) {
-                        ReadThreadHistory history = TiebaApplication.app.getReadThreadHistory();
-                        if (history != null && !history.getThread(data.getId())) {
-                            history.addThread(data.getId());
-                        }
-                        FrsActivity.this.mAdapterFrs.notifyDataSetChanged();
-                        boolean isAd = false;
-                        final String adUrl = data.getAd_url();
-                        if (adUrl != null && !adUrl.equals("")) {
-                            isAd = true;
-                            new Thread(new Runnable() { // from class: com.baidu.tieba.frs.FrsActivity.10.1
-                                @Override // java.lang.Runnable
-                                public void run() {
-                                    NetWorkCore adNetwork = new NetWorkCore(adUrl);
-                                    adNetwork.getNetData();
-                                }
-                            }).start();
-                        }
-                        PbActivity.startAcitivity(FrsActivity.this, data.getId(), "tb_frslist", isAd);
-                    }
-                }
-            }
-        });
-        this.mListFrs.setOnItemLongClickListener(this.frsItemLongClickListener);
-        this.mProgress = (ProgressBar) findViewById(R.id.frs_progress);
-        setIsRefresh(false);
-        this.mForumNoExist = (TextView) findViewById(R.id.frs_noexist);
-        this.mForumNoExist.setVisibility(8);
-        this.mForumNoExistLayoutText = (TextView) findViewById(R.id.frs_noexist_text);
-        this.mPageTitle = (LinearLayout) findViewById(R.id.frs_title);
-        this.mBtGood = (LinearLayout) findViewById(R.id.frs_ll_bt_good);
-        this.mBtGood.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.frs.FrsActivity.11
-            @Override // android.view.View.OnClickListener
-            public void onClick(View v) {
-                if (FrsActivity.this.getIsRefresh()) {
-                    return;
-                }
-                FrsActivity.this.showGoodDialog();
-            }
-        });
-        this.mForumNoExistLayout = (LinearLayout) findViewById(R.id.frs_noexist_layout);
-        this.mCreateForumBotton = (Button) findViewById(R.id.frs_bt_create);
-        this.mCreateForumBotton.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.frs.FrsActivity.12
-            @Override // android.view.View.OnClickListener
-            public void onClick(View arg0) {
-                FrsActivity.this.createBar();
-            }
-        });
-        this.mListFrs.setOnScrollListener(new AbsListView.OnScrollListener() { // from class: com.baidu.tieba.frs.FrsActivity.13
-            @Override // android.widget.AbsListView.OnScrollListener
-            public void onScroll(AbsListView arg0, int arg1, int arg2, int arg3) {
-                FrsActivity.this.mHandler.removeCallbacks(FrsActivity.this.mGetImageRunnble);
-                FrsActivity.this.mHandler.postDelayed(FrsActivity.this.mGetImageRunnble, 300L);
-            }
-
-            @Override // android.widget.AbsListView.OnScrollListener
-            public void onScrollStateChanged(AbsListView view, int scrollState) {
-                if (scrollState != 0) {
-                    FrsActivity.this.mListFrs.setOnItemLongClickListener(null);
-                } else {
-                    FrsActivity.this.mListFrs.setOnItemLongClickListener(FrsActivity.this.frsItemLongClickListener);
-                }
-            }
-        });
-        this.mGoHomeButton = (Button) findViewById(R.id.go_home);
-        this.mGoHomeButton.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.frs.FrsActivity.14
-            @Override // android.view.View.OnClickListener
-            public void onClick(View v) {
-                MainTabActivity.startActivity(FrsActivity.this, MainTabActivity.GOTO_RECOMMEND);
-                FrsActivity.this.finish();
-            }
-        });
-        this.mBottomLayout = (LinearLayout) findViewById(R.id.frs_bottom);
-        this.mGuidePage = (ImageView) findViewById(R.id.guide_page_frs_img_mode);
-        this.mGuidePage.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.frs.FrsActivity.15
-            @Override // android.view.View.OnClickListener
-            public void onClick(View arg0) {
-                if (FrsActivity.this.mGuidePage != null && FrsActivity.this.mGuidePage.getBackground() != null) {
-                    Bitmap bm = ((BitmapDrawable) FrsActivity.this.mGuidePage.getBackground()).getBitmap();
-                    FrsActivity.this.mGuidePage.setBackgroundDrawable(null);
-                    if (bm != null && !bm.isRecycled()) {
-                        bm.recycle();
-                    }
-                    FrsActivity.this.mGuidePage.setVisibility(8);
-                }
-            }
-        });
+        this.v = (ListView) findViewById(R.id.frs_lv_thread);
+        this.K = new com.baidu.tieba.view.l(this, com.baidu.tieba.view.o.FRS_LIST, null, null);
+        this.v.addHeaderView(this.K.c());
+        this.w = new ab(this, null, com.baidu.tieba.c.ag.a((Context) this));
+        this.w.a(new x(this));
+        this.v.setAdapter((ListAdapter) this.w);
+        this.v.setOnItemClickListener(new f(this));
+        this.v.setOnItemLongClickListener(this.ab);
+        this.z = (ProgressBar) findViewById(R.id.frs_progress);
+        a(false);
+        this.A = (TextView) findViewById(R.id.frs_noexist);
+        this.A.setVisibility(8);
+        this.C = (TextView) findViewById(R.id.frs_noexist_text);
+        this.W = (LinearLayout) findViewById(R.id.frs_title);
+        this.r = (LinearLayout) findViewById(R.id.frs_ll_bt_good);
+        this.r.setOnClickListener(new h(this));
+        this.B = (LinearLayout) findViewById(R.id.frs_noexist_layout);
+        this.E = (Button) findViewById(R.id.frs_bt_create);
+        this.E.setOnClickListener(new i(this));
+        this.v.setOnScrollListener(new j(this));
+        this.L = (Button) findViewById(R.id.go_home);
+        this.L.setOnClickListener(new k(this));
+        this.M = (LinearLayout) findViewById(R.id.frs_bottom);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void errorBigImageDialog() {
-        if (this.mImageViewDialog != null) {
-            this.mImageViewDialog.ImageError();
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void showBigImageDialog(Bitmap bm, boolean loading) {
-        if (bm != null) {
-            if (this.mImageViewDialog == null) {
-                View view = findViewById(R.id.frs);
-                this.mImageViewDialog = new ImageViewDialog(this, view.getWidth(), view.getHeight());
-                this.mImageViewDialog.setOnDismissListener(new DialogInterface.OnDismissListener() { // from class: com.baidu.tieba.frs.FrsActivity.16
-                    @Override // android.content.DialogInterface.OnDismissListener
-                    public void onDismiss(DialogInterface dialog) {
-                        FrsActivity.this.closeBigImageDialog();
-                    }
-                });
-                this.mImageViewDialog.setOnCancelListener(new DialogInterface.OnCancelListener() { // from class: com.baidu.tieba.frs.FrsActivity.17
-                    @Override // android.content.DialogInterface.OnCancelListener
-                    public void onCancel(DialogInterface dialog) {
-                        FrsActivity.this.closeBigImageDialog();
-                    }
-                });
-            }
-            if (this.mImageViewDialog.isShowing()) {
-                this.mImageViewDialog.setImage(bm);
-            } else {
-                this.mImageViewDialog.showDialog(bm, loading);
-            }
-            setActivityDim(0.3f);
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void closeBigImageDialog() {
-        if (this.mBigImageLoader != null) {
-            this.mBigImageLoader.cancelAllAsyncTask();
-        }
-        setActivityDim(1.0f);
-        if (this.mImageViewDialog != null) {
-            this.mImageViewDialog.setImage(null);
-        }
-    }
-
-    private void setActivityDim(float alpha) {
-        if (!TiebaApplication.app.getIsEyeShieldMode()) {
-            WindowManager.LayoutParams params = getWindow().getAttributes();
-            params.alpha = alpha;
-            getWindow().setAttributes(params);
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void createBar() {
-        String id = TiebaApplication.getCurrentAccount();
-        if (id == null || id.length() <= 0) {
-            LoginActivity.startActivity((Activity) this, getString(R.string.login_to_use), true, (int) RequestResponseCode.REQUEST_LOGIN_CREATE_BAR);
+    public void o() {
+        if (this.Z == null) {
             return;
         }
-        CreateBarActivity.startActivity(this, this.mForum, true);
+        this.Z.a();
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void p() {
+        if (this.Y != null) {
+            this.Y.b();
+        }
+        a(1.0f);
+        if (this.Z != null) {
+            this.Z.a(null);
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void q() {
+        String u = TiebaApplication.u();
+        if (u == null || u.length() <= 0) {
+            LoginActivity.a((Activity) this, getString(R.string.login_to_use), true, 1100013);
+            return;
+        }
+        CreateBarActivity.a(this, this.f, true);
         finish();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void writeBlog(int type) {
-        String id = TiebaApplication.getCurrentAccount();
-        if (id == null || id.length() <= 0) {
-            if (this.mModel != null && this.mModel.getAnti() != null) {
-                this.mModel.getAnti().setIfpost(1);
-            }
-            if (type == 0) {
-                LoginActivity.startActivity((Activity) this, getString(R.string.login_to_use), true, (int) RequestResponseCode.REQUEST_LOGIN_WRITE);
-            } else {
-                LoginActivity.startActivity((Activity) this, getString(R.string.login_to_use), true, (int) RequestResponseCode.REQUEST_LOGIN_CAMERA_OR_IMAGE);
-            }
-        } else if (this.mModel != null) {
-            if (type == 0) {
-                WriteActivity.startAcitivityForResult(this, this.mModel.getForum().getId(), this.mForum, this.mModel.getAnti(), false, null);
-            } else {
-                this.mSelectImageDialog.show();
-            }
-        }
-    }
-
-    private boolean isAnonymityUser(ThreadData thread) {
-        String id;
-        return thread == null || thread.getAuthor() == null || (id = thread.getAuthor().getId()) == null || id.equals("0");
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void prepareFrsMenuDialog(final ThreadData thread) {
-        boolean isAnonymous = isAnonymityUser(thread);
-        DialogInterface.OnClickListener menuFrsListener = new DialogInterface.OnClickListener() { // from class: com.baidu.tieba.frs.FrsActivity.18
-            @Override // android.content.DialogInterface.OnClickListener
-            public void onClick(DialogInterface dialog, int item) {
-                switch (item) {
-                    case 0:
-                        if (FrsActivity.this.mThreadId != null) {
-                            PbActivity.startAcitivity(FrsActivity.this, FrsActivity.this.mThreadId, "tb_frslist");
-                            break;
-                        }
-                        break;
-                    case 1:
-                        FrsActivity.this.gotoPbHost(thread);
-                        break;
-                    case 2:
-                        FrsActivity.this.gotoPbReverse();
-                        break;
-                }
-                ReadThreadHistory history = TiebaApplication.app.getReadThreadHistory();
-                if (history != null && !history.getThread(thread.getId())) {
-                    history.addThread(thread.getId());
-                }
-                if (FrsActivity.this.mAdapterFrs != null) {
-                    FrsActivity.this.mAdapterFrs.notifyDataSetChanged();
-                }
-            }
-        };
-        String menuView = getString(R.string.view);
-        String menuHost = getString(R.string.view_host);
-        String menuReverse = getString(R.string.view_reverse);
-        AlertDialog.Builder builderLike = new AlertDialog.Builder(this);
-        builderLike.setTitle(R.string.operation);
-        if (isAnonymous) {
-            builderLike.setItems(new String[]{menuView, menuReverse}, menuFrsListener);
-        } else {
-            builderLike.setItems(new String[]{menuView, menuHost, menuReverse}, menuFrsListener);
-        }
-        this.mMenuFrs = builderLike.create();
-        this.mMenuFrs.setCanceledOnTouchOutside(true);
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void gotoPbHost(ThreadData thread) {
-        boolean isAnonymous = isAnonymityUser(thread);
-        if (this.mThreadId != null) {
-            if (!isAnonymous) {
-                PbActivity.startAcitivity(this, this.mThreadId, true, true, "tb_frslist", false);
-            } else {
-                PbActivity.startAcitivity(this, this.mThreadId, false, false, "tb_frslist", false);
-            }
+    public void r() {
+        if (this.n != null) {
+            PbActivity.a(this, this.n, false, false, "tb_frslist", false);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void gotoPbReverse() {
-        if (this.mThreadId != null) {
-            PbActivity.startAcitivity(this, this.mThreadId, false, false, "tb_frslist", false);
+    public void s() {
+        if (this.T == null) {
+            this.T = new AlertDialog.Builder(this).create();
+            this.T.setCanceledOnTouchOutside(true);
+            this.U = getLayoutInflater().inflate(R.layout.dialog_good, (ViewGroup) null);
+            ListView listView = (ListView) this.U.findViewById(R.id.frs_dia_list);
+            this.V = new a(this, null);
+            TextView textView = new TextView(this);
+            textView.setText(getString(R.string.add_to_screen));
+            textView.setTextColor(-1);
+            textView.setTextSize(2, 18.0f);
+            textView.setGravity(17);
+            textView.setOnClickListener(new o(this));
+            listView.addHeaderView(textView);
+            listView.setAdapter((ListAdapter) this.V);
+            listView.setOnItemClickListener(new p(this));
         }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void showGoodDialog() {
-        if (this.mDialogGood == null) {
-            AlertDialog.Builder builder = new AlertDialog.Builder(this);
-            this.mDialogGood = builder.create();
-            this.mDialogGood.setCanceledOnTouchOutside(true);
-            LayoutInflater mInflater = getLayoutInflater();
-            this.mDialogView = mInflater.inflate(R.layout.dialog_good, (ViewGroup) null);
-            ListView list = (ListView) this.mDialogView.findViewById(R.id.frs_dia_list);
-            this.mDialogAdapter = new DialogGoodAdapter(this, null);
-            TextView tempTextView = new TextView(this);
-            tempTextView.setText(getString(R.string.add_to_screen));
-            tempTextView.setTextColor(-1);
-            tempTextView.setTextSize(2, 18.0f);
-            tempTextView.setGravity(17);
-            tempTextView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.frs.FrsActivity.19
-                @Override // android.view.View.OnClickListener
-                public void onClick(View v) {
-                    FrsActivity.this.addShortcut(FrsActivity.this.mForum);
-                    FrsActivity.this.mDialogGood.dismiss();
-                }
-            });
-            list.addHeaderView(tempTextView);
-            list.setAdapter((ListAdapter) this.mDialogAdapter);
-            list.setOnItemClickListener(new AdapterView.OnItemClickListener() { // from class: com.baidu.tieba.frs.FrsActivity.20
-                @Override // android.widget.AdapterView.OnItemClickListener
-                public void onItemClick(AdapterView<?> arg0, View arg1, int arg2, long arg3) {
-                    if (arg2 > 0) {
-                        FrsActivity.this.mDialogGood.dismiss();
-                        ListView tmpList = (ListView) arg0;
-                        GoodData data = (GoodData) tmpList.getAdapter().getItem(arg2);
-                        if (data.getClass_id() != DialogGoodAdapter.FRS_ALLTHREAD_CLASS_ID) {
-                            FrsActivity.this.mIsGood = 1;
-                            FrsActivity.this.mGoodId = data.getClass_id();
-                            FrsActivity.this.mGoodName = data.getClass_name();
-                            FrsActivity.this.mPn = 1;
-                            FrsActivity.this.mType = 3;
-                            FrsActivity.this.exec();
-                            return;
-                        }
-                        FrsActivity.this.refresh();
-                    }
-                }
-            });
+        if (this.V == null || this.y == null || this.y.a() == null) {
+            return;
         }
-        if (this.mDialogAdapter != null && this.mModel != null && this.mModel.getForum() != null) {
-            this.mDialogAdapter.setData(this.mModel.getForum().getGood_classify());
-            this.mDialogAdapter.notifyDataSetInvalidated();
-            this.mDialogGood.show();
-            this.mDialogGood.setContentView(this.mDialogView);
-            int y = (this.mPageTitle.getTop() + this.mPageTitle.getHeight()) - 5;
-            WindowManager.LayoutParams wmParams = this.mDialogGood.getWindow().getAttributes();
-            wmParams.gravity = 49;
-            wmParams.y = y;
-            wmParams.alpha = 1.0f;
-            wmParams.width = UtilHelper.dip2px(this, 160.0f);
-            wmParams.height = -2;
-            this.mDialogGood.getWindow().setAttributes(wmParams);
-        }
+        this.V.a(this.y.a().g());
+        this.V.notifyDataSetInvalidated();
+        this.T.show();
+        this.T.setContentView(this.U);
+        WindowManager.LayoutParams attributes = this.T.getWindow().getAttributes();
+        attributes.gravity = 49;
+        attributes.y = (this.W.getTop() + this.W.getHeight()) - 5;
+        attributes.alpha = 1.0f;
+        attributes.width = com.baidu.tieba.c.ag.a((Context) this, 160.0f);
+        attributes.height = -2;
+        this.T.getWindow().setAttributes(attributes);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void refresh() {
-        this.mIsGood = 0;
-        this.mGoodId = 0L;
-        this.mGoodName = "";
-        this.mPn = 1;
-        this.mType = 3;
-        exec();
+    public void t() {
+        this.k = 0;
+        this.j = 0L;
+        this.i = "";
+        this.l = 1;
+        this.e = 3;
+        v();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void setIsRefresh(boolean b) {
-        this.mIsRefresh = b;
-        if (b) {
-            this.mProgress.setVisibility(0);
-        } else {
-            this.mProgress.setVisibility(8);
-        }
+    public boolean u() {
+        return this.o;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean getIsRefresh() {
-        return this.mIsRefresh;
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void exec() {
-        BasicNameValuePair tmp;
-        switch (this.mType) {
+    public void v() {
+        switch (this.e) {
             case 1:
-                if (this.mAdapterFrs.getIsProcessNext()) {
+                if (this.w.c()) {
                     return;
                 }
                 break;
             case 2:
-                if (this.mAdapterFrs.getIsProcessPre()) {
+                if (this.w.d()) {
                     return;
                 }
                 break;
             case 3:
-                if (getIsRefresh()) {
+                if (u()) {
                     return;
                 }
                 break;
         }
-        StringBuffer address = new StringBuffer(30);
-        address.append(Config.SERVER_ADDRESS);
-        address.append(Config.FRS_ADDRESS);
-        ArrayList<BasicNameValuePair> param = new ArrayList<>();
-        BasicNameValuePair tmp2 = new BasicNameValuePair("kw", this.mForum);
-        param.add(tmp2);
-        BasicNameValuePair tmp3 = new BasicNameValuePair(PersonListActivity.TAG_PAGE, String.valueOf(this.mPn));
-        param.add(tmp3);
-        if (TiebaApplication.app.getIsAbstractState()) {
-            tmp = new BasicNameValuePair("rn", String.valueOf(35));
-        } else {
-            tmp = new BasicNameValuePair("rn", String.valueOf(50));
+        StringBuffer stringBuffer = new StringBuffer(30);
+        stringBuffer.append("http://c.tieba.baidu.com/");
+        stringBuffer.append("c/f/frs/page");
+        ArrayList arrayList = new ArrayList();
+        arrayList.add(new BasicNameValuePair("kw", this.f));
+        arrayList.add(new BasicNameValuePair("pn", String.valueOf(this.l)));
+        arrayList.add(TiebaApplication.a().ab() ? new BasicNameValuePair("rn", String.valueOf(35)) : new BasicNameValuePair("rn", String.valueOf(50)));
+        if (this.k == 1) {
+            arrayList.add(new BasicNameValuePair("is_good", "1"));
+            arrayList.add(new BasicNameValuePair("cid", String.valueOf(this.j)));
         }
-        param.add(tmp);
-        if (this.mIsGood == 1) {
-            BasicNameValuePair tmp4 = new BasicNameValuePair("is_good", NetWorkCore.NET_TYPE_NET);
-            param.add(tmp4);
-            BasicNameValuePair tmp5 = new BasicNameValuePair("cid", String.valueOf(this.mGoodId));
-            param.add(tmp5);
+        if (this.H != null) {
+            arrayList.add(new BasicNameValuePair("st_type", this.H));
         }
-        if (this.mSource != null) {
-            BasicNameValuePair st_type = new BasicNameValuePair(URL_ST_TYPE, this.mSource);
-            param.add(st_type);
-        }
-        cancelAsyncTask();
-        this.mFrsTask = new FrsAsyncTask(address.toString(), param, this.mType);
-        this.mFrsTask.execute(address.toString(), param);
+        B();
+        this.x = new aa(this, stringBuffer.toString(), arrayList, this.e);
+        this.x.execute(stringBuffer.toString(), arrayList);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void hiddenGoodBar() {
-        if (this.mIsFirst) {
-            this.mBtGood.setVisibility(4);
+    public void w() {
+        if (this.d) {
+            this.r.setVisibility(4);
         } else {
-            this.mBtGood.setClickable(false);
+            this.r.setClickable(false);
         }
     }
 
-    private void showGoodBar() {
-        if (this.mIsGood == 0) {
-            this.mFrsTitle.setText(this.mForum.concat(this.mForumSuffix));
+    private void x() {
+        if (this.k == 0) {
+            this.q.setText(this.f.concat(this.c));
         } else {
-            this.mFrsTitle.setText(this.mGoodName);
+            this.q.setText(this.i);
         }
-        if (this.mIsFirst) {
-            this.mBtGood.setVisibility(0);
+        if (this.d) {
+            this.r.setVisibility(0);
         } else {
-            this.mBtGood.setClickable(true);
+            this.r.setClickable(true);
         }
     }
 
-    private void processFlag() {
-        switch (this.mFlag) {
+    private void y() {
+        switch (this.h) {
             case 1:
-                DatabaseService.saveOneSearchData(this.mForum);
+                com.baidu.tieba.c.k.j(this.f);
                 break;
         }
-        this.mFlag = 0;
+        this.h = 0;
     }
 
-    private void processFirst() {
-        this.mIsFirst = false;
+    private void z() {
+        this.d = false;
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void refreshFrs() {
-        this.mListFrs.setVisibility(0);
-        this.mButtonWrite.setVisibility(0);
-        this.mButtonRefresh.setVisibility(0);
-        this.mAdapterFrs.setAbstractState(TiebaApplication.app.getIsAbstractState());
-        try {
-            if (this.mModel != null) {
-                this.mForum = this.mModel.getForum().getName();
-                showGoodBar();
-                processFlag();
-                processFirst();
-                ArrayList<ThreadData> list = this.mModel.getThread_list();
-                if (list != null) {
-                    this.mAdapterFrs.setData(list);
-                    processStarTitle();
-                    if (this.mHeader != null) {
-                        this.mHeader.setForum(this.mForum, this.mModel.getForum().getId());
-                        this.mHeader.setHaveLike(this.mModel.getForum().isIs_like(), this.mModel.getForum().getLevelName(), this.mModel.getForum().getUser_level());
-                        this.mHeader.setHaveSign(this.mModel.getForum().getSignData().getSigned());
-                        if (this.mModel.getForum().getSignData().getForumRank() == -2) {
-                            this.mHeader.canSign(false);
-                        }
-                        if (this.mModel.getForum().getFrsImageOpen() == 0) {
-                            this.mHeader.setNoSwitch();
-                        }
-                    }
-                    if (this.mPn > 1) {
-                        this.mAdapterFrs.setHaveHeader(true);
-                    } else {
-                        this.mAdapterFrs.setHaveHeader(false);
-                    }
-                    if (this.mModel.getPage().getHave_more() == 1) {
-                        this.mAdapterFrs.setHaveFooter(true);
-                    } else {
-                        this.mAdapterFrs.setHaveFooter(false);
-                    }
-                    this.mAdapterFrs.setIsProcessNext(false);
-                    this.mAdapterFrs.setIsProcessPre(false);
-                    this.mAdapterFrs.notifyDataSetInvalidated();
-                    if (this.mType == 1) {
-                        if (this.mHeader != null) {
-                            this.mListFrs.setSelection(2);
-                        } else {
-                            this.mListFrs.setSelection(1);
-                        }
-                    } else if (this.mAdapterFrs.getHaveHeader()) {
-                        this.mListFrs.setSelection(0);
-                    } else {
-                        this.mListFrs.setSelection(0);
-                    }
-                    this.mForumNoExist.setVisibility(8);
-                    setIsRefresh(false);
-                    refreshMenu();
-                }
-                if ((list == null || list.size() <= 0) && this.mIsGood != 1) {
-                    this.mForumNoExist.setText(R.string.frs_nodata);
-                    this.mForumNoExist.setVisibility(0);
-                }
-                if (this.mModel.getForum().getFrsImageOpen() != 0) {
-                    checkShowGuidePage(2, this.mGuidePage, R.drawable.guide_page_frs_img_mode);
+    public void g() {
+        if (getIntent().getBooleanExtra("back_special", false)) {
+            MainTabActivity.a(this, "goto_recommend");
+        } else {
+            finish();
+        }
+    }
+
+    public void h() {
+        String u = TiebaApplication.u();
+        if (u == null || u.length() <= 0) {
+            LoginActivity.a((Activity) this, getString(R.string.login_to_use), true, 1100021);
+        } else if (this.y.f()) {
+        } else {
+            this.y.a(true);
+            if (this.Q != null) {
+                this.Q.a();
+                this.Q = null;
+            }
+            com.baidu.tieba.a.p a = this.y.a();
+            this.Q = new z(this, a.b(), a.c(), String.valueOf(a.d()));
+            this.Q.execute("http://c.tieba.baidu.com/c/c/user/fansno");
+        }
+    }
+
+    @Override // android.app.Activity
+    protected void onActivityResult(int i, int i2, Intent intent) {
+        super.onActivityResult(i, i2, intent);
+        if (i2 != -1) {
+            if (i2 == 0) {
+                switch (i) {
+                    case 1200008:
+                        ba.b(this);
+                        return;
+                    case 12000010:
+                        ba.a(this);
+                        return;
+                    default:
+                        return;
                 }
             }
-        } catch (Exception ex) {
-            TiebaLog.e(getClass().getName(), "", "HomeActivity.refreshFrs error = " + ex.getMessage());
+            return;
+        }
+        switch (i) {
+            case 1100001:
+                b(0);
+                return;
+            case 1100002:
+                if (this.K != null) {
+                    this.K.a();
+                    return;
+                }
+                return;
+            case 1100011:
+                c(this.J);
+                return;
+            case 1100012:
+                r();
+                return;
+            case 1100013:
+                q();
+                return;
+            case 1100014:
+                if (this.K != null) {
+                    this.K.b();
+                    return;
+                }
+                return;
+            case 1100016:
+                this.G.show();
+                return;
+            case 1100021:
+                if (this.y != null) {
+                    h();
+                    return;
+                }
+                return;
+            case 1200001:
+                if (this.y == null || this.y.a() == null) {
+                    return;
+                }
+                WriteImageActivity.a(this, 1200001, 12000010, null, this.y.a().b(), this.f, this.y.c());
+                return;
+            case 1200002:
+                if (this.y == null || this.y.a() == null) {
+                    return;
+                }
+                if (intent == null || intent.getData() == null) {
+                    ba.b(this);
+                    return;
+                } else {
+                    WriteImageActivity.a(this, 1200002, 1200008, intent.getData(), this.y.a().b(), this.f, this.y.c());
+                    return;
+                }
+            case 1300003:
+            case 1300004:
+                t();
+                return;
+            default:
+                return;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.BaseActivity, android.app.Activity
-    public void onPause() {
-        super.onPause();
-        this.mAdapterFrs.getImageLoader().cancelAllAsyncTask();
-        this.mAdapterFrs.getStarImageLoader().cancelAllAsyncTask();
-        if (this.mImageViewDialog != null) {
-            this.mImageViewDialog.dismiss();
-        }
-        if (this.mStarTimerHandler != null) {
-            this.mStarTimerHandler.removeMessages(1);
-        }
-    }
-
-    private void cancelAsyncTask() {
-        if (this.mFrsTask != null) {
-            this.mFrsTask.cancel();
-            this.mFrsTask = null;
-        }
-        setIsRefresh(false);
-        this.mAdapterFrs.setIsProcessNext(false);
-        this.mAdapterFrs.setIsProcessPre(false);
-        this.mAdapterFrs.notifyDataSetChanged();
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes.dex */
-    public class FrsAsyncTask extends AsyncTask<Object, Integer, FrsModel> {
-        ArrayList<BasicNameValuePair> mParams;
-        private int mUpdateType;
-        private String mUrl;
-        private NetWork mNetwork = null;
-        private volatile long mStartTime = 0;
-
-        public FrsAsyncTask(String url, ArrayList<BasicNameValuePair> param, int type) {
-            this.mUrl = null;
-            this.mUpdateType = 3;
-            this.mParams = null;
-            this.mUrl = url;
-            this.mParams = param;
-            this.mUpdateType = type;
-        }
-
-        @Override // android.os.AsyncTask
-        protected void onPreExecute() {
-            FrsActivity.this.hiddenGoodBar();
-            this.mStartTime = System.nanoTime();
-            switch (this.mUpdateType) {
-                case 1:
-                    FrsActivity.this.mAdapterFrs.setIsProcessNext(true);
-                    FrsActivity.this.mAdapterFrs.notifyDataSetChanged();
-                    return;
-                case 2:
-                    FrsActivity.this.mAdapterFrs.setIsProcessPre(true);
-                    FrsActivity.this.mAdapterFrs.notifyDataSetChanged();
-                    return;
-                case 3:
-                    FrsActivity.this.setIsRefresh(true);
-                    return;
-                default:
-                    return;
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        /* JADX INFO: Access modifiers changed from: protected */
-        /* JADX WARN: Can't rename method to resolve collision */
-        @Override // android.os.AsyncTask
-        public FrsModel doInBackground(Object... params) {
-            FrsModel frsData = null;
-            try {
-                this.mNetwork = new NetWork(this.mUrl);
-                this.mNetwork.setPostData(this.mParams);
-                if (FrsActivity.mPbLoadTime != 0) {
-                    this.mNetwork.addPostData("ctime", String.valueOf(FrsActivity.mPbLoadTime));
-                }
-                if (FrsActivity.mPbLoadDataSize != 0) {
-                    this.mNetwork.addPostData("data_size", String.valueOf(FrsActivity.mPbLoadDataSize));
-                }
-                if (FrsActivity.mNetError != 0) {
-                    this.mNetwork.addPostData("net_error", String.valueOf(FrsActivity.mNetError));
-                }
-                this.mNetwork.setContext(FrsActivity.this);
-                String data = this.mNetwork.postNetData();
-                if (this.mNetwork.isRequestSuccess()) {
-                    FrsModel frsData2 = new FrsModel();
-                    try {
-                        frsData2.parserJson(data);
-                        frsData = frsData2;
-                    } catch (Exception e) {
-                        ex = e;
-                        frsData = frsData2;
-                        TiebaLog.e(getClass().getName(), "", "FrsAsyncTask.doInBackground error = " + ex.getMessage());
-                        return frsData;
-                    }
-                }
-                if (this.mNetwork.isNetSuccess()) {
-                    FrsActivity.mPbLoadTime = 0L;
-                    FrsActivity.mPbLoadDataSize = 0L;
-                    FrsActivity.mNetError = 0;
-                } else {
-                    FrsActivity.mNetError = 1;
-                }
-            } catch (Exception e2) {
-                ex = e2;
-            }
-            return frsData;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        /* JADX INFO: Access modifiers changed from: protected */
-        @Override // android.os.AsyncTask
-        public void onPostExecute(FrsModel data) {
-            switch (this.mUpdateType) {
-                case 1:
-                    FrsActivity.this.mAdapterFrs.setIsProcessNext(false);
-                    FrsActivity.this.mAdapterFrs.notifyDataSetChanged();
-                    break;
-                case 2:
-                    FrsActivity.this.mAdapterFrs.setIsProcessPre(false);
-                    FrsActivity.this.mAdapterFrs.notifyDataSetChanged();
-                    break;
-                case 3:
-                    FrsActivity.this.setIsRefresh(false);
-                    break;
-            }
-            if (data != null) {
-                FrsActivity.this.mModel = data;
-                FrsActivity.this.refreshFrs();
-                long end_time = System.nanoTime();
-                FrsActivity.mPbLoadTime = (end_time - this.mStartTime) / 1000000;
-                if (this.mNetwork != null) {
-                    FrsActivity.mPbLoadDataSize = this.mNetwork.getNetDataSize();
-                }
+    @Override // com.baidu.tieba.e, android.app.Activity
+    public void onCreate(Bundle bundle) {
+        super.onCreate(bundle);
+        if (m()) {
+            setContentView(R.layout.frs_activity);
+            this.X = new Handler();
+            l();
+            n();
+            this.I = TiebaApplication.u();
+            if (bundle != null) {
+                this.f = bundle.getString("name");
+                this.g = bundle.getString("from");
+                this.h = bundle.getInt("flag", 0);
             } else {
-                processError();
+                Intent intent = getIntent();
+                this.f = intent.getStringExtra("name");
+                this.g = intent.getStringExtra("from");
+                this.h = intent.getIntExtra("flag", 0);
             }
-            FrsActivity.this.mFrsTask = null;
-            FrsActivity.this.mSource = null;
-            System.gc();
-        }
-
-        @Override // android.os.AsyncTask
-        protected void onCancelled() {
-            super.onCancelled();
-        }
-
-        public void cancel() {
-            if (this.mNetwork != null) {
-                this.mNetwork.cancelNetConnect();
-            }
-            super.cancel(true);
-        }
-
-        private void processError() {
-            if (FrsActivity.this.mIsFirst) {
-                if (this.mNetwork != null) {
-                    if (this.mNetwork.isNetSuccess()) {
-                        if (this.mNetwork.getErrorCode() == 3) {
-                            FrsActivity.this.isShowMenu = false;
-                            FrsActivity.this.mForumNoExist.setText(R.string.frs_noforum);
-                            FrsActivity.this.mForum = FrsActivity.this.mForum.replace(" ", "");
-                            String mForumShort = FrsActivity.this.mForum;
-                            if (mForumShort.length() > 31) {
-                                mForumShort = String.valueOf(mForumShort.substring(0, 31)) + "...";
-                            }
-                            String info = String.valueOf(mForumShort) + FrsActivity.this.getString(R.string.frs_remind_noforum);
-                            SpannableString noForum = new SpannableString(info);
-                            noForum.setSpan(new ForegroundColorSpan(Color.rgb(229, 4, 0)), 0, mForumShort.length(), 33);
-                            FrsActivity.this.mForumNoExistLayout.setVisibility(0);
-                            FrsActivity.this.mForumNoExistLayoutText.setText(noForum);
-                            FrsActivity.this.mBtGood.setVisibility(0);
-                            FrsActivity.this.mBtGood.setClickable(false);
-                            FrsActivity.this.mFrsTitle.setText(R.string.frs_create_forum);
-                            FrsActivity.this.mTitleGood.setVisibility(8);
-                            FrsActivity.this.mListFrs.setVisibility(8);
-                            FrsActivity.this.mButtonRefresh.setVisibility(4);
-                            FrsActivity.this.mButtonRefresh.setClickable(false);
-                            FrsActivity.this.mButtonWrite.setVisibility(4);
-                            FrsActivity.this.mButtonWrite.setClickable(false);
-                            FrsActivity.this.mBottomLayout.setVisibility(8);
-                            return;
-                        }
-                        FrsActivity.this.showToast(this.mNetwork.getErrorString());
-                        return;
-                    }
-                    FrsActivity.this.showToast(this.mNetwork.getErrorString());
-                    return;
-                }
+            if (this.f == null || this.f.length() <= 0) {
                 return;
             }
-            FrsActivity.this.showToast(this.mNetwork.getErrorString());
-            FrsActivity.this.mBtGood.setClickable(true);
-        }
-    }
-
-    private void refreshMenu() {
-        if (this.mMenu != null) {
-            try {
-                MenuItem menuPost = this.mMenu.findItem(0);
-                MenuItem menuRefresh = this.mMenu.findItem(1);
-                MenuItem menuViewGood = this.mMenu.findItem(2);
-                MenuItem menuLike = this.mMenu.findItem(3);
-                MenuItem menuUnlike = this.mMenu.findItem(4);
-                if (menuPost != null) {
-                    menuPost.setVisible(true);
-                }
-                if (menuRefresh != null) {
-                    menuRefresh.setVisible(true);
-                }
-                if (menuViewGood != null) {
-                    menuViewGood.setVisible(true);
-                }
-                if (this.mModel == null) {
-                    if (menuPost != null) {
-                        menuPost.setEnabled(false);
-                    }
-                    if (menuViewGood != null) {
-                        menuViewGood.setEnabled(false);
-                    }
-                    if (menuUnlike != null) {
-                        menuUnlike.setEnabled(false);
-                    }
-                    if (menuLike != null) {
-                        menuLike.setEnabled(false);
-                    }
-                } else {
-                    if (menuPost != null) {
-                        menuPost.setEnabled(true);
-                    }
-                    if (menuViewGood != null) {
-                        menuViewGood.setEnabled(true);
-                    }
-                    if (menuUnlike != null) {
-                        menuUnlike.setEnabled(true);
-                    }
-                    if (menuLike != null) {
-                        menuLike.setEnabled(true);
-                    }
-                }
-                if (this.mModel != null && this.mModel.getForum().isIs_like() == 1) {
-                    if (menuUnlike != null) {
-                        menuUnlike.setVisible(true);
-                    }
-                    if (menuLike != null) {
-                        menuLike.setVisible(false);
-                        return;
-                    }
-                    return;
-                }
-                if (menuUnlike != null) {
-                    menuUnlike.setVisible(false);
-                }
-                if (menuLike != null) {
-                    menuLike.setVisible(true);
-                }
-            } catch (Exception ex) {
-                TiebaLog.e("FrsActivity", "onPrepareOptionsMenu", "exp: " + ex.toString());
+            if (this.g == null || this.g.length() <= 0) {
+                this.g = "tb_forumlist";
             }
+            this.H = this.g;
+            this.R = new r(this);
+            t();
         }
-    }
-
-    @Override // android.app.Activity
-    public void onOptionsMenuClosed(Menu menu) {
-        super.onOptionsMenuClosed(menu);
-    }
-
-    @Override // android.app.Activity
-    public boolean onPrepareOptionsMenu(Menu menu) {
-        refreshMenu();
-        return super.onPrepareOptionsMenu(menu);
     }
 
     @Override // android.app.Activity
     public boolean onCreateOptionsMenu(Menu menu) {
-        this.mMenu = menu;
+        this.F = menu;
         menu.add(0, 0, 1, getString(R.string.write_msg)).setIcon(R.drawable.menu_post);
         menu.add(0, 1, 2, getString(R.string.refresh)).setIcon(R.drawable.menu_refresh);
         menu.add(0, 2, 3, getString(R.string.view_good)).setIcon(R.drawable.menu_view_good);
@@ -1415,21 +791,67 @@ public class FrsActivity extends BaseActivity {
         return true;
     }
 
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.tieba.e, android.app.Activity
+    public void onDestroy() {
+        if (this.X != null) {
+            this.X.removeCallbacks(this.aa);
+        }
+        if (this.K != null) {
+            this.K.e();
+        }
+        if (this.R != null) {
+            this.R.removeMessages(1);
+        }
+        super.onDestroy();
+        try {
+            if (this.x != null) {
+                this.x.a();
+                this.x = null;
+            }
+            if (this.Q != null) {
+                this.Q.a();
+                this.Q = null;
+            }
+            if (this.w != null) {
+                this.w.f();
+            }
+            if (this.z != null) {
+                this.z.setVisibility(8);
+            }
+            System.gc();
+        } catch (Exception e) {
+            com.baidu.tieba.c.ae.b(getClass().getName(), "onDestroy", e.getMessage());
+        }
+    }
+
+    @Override // android.app.Activity, android.view.KeyEvent.Callback
+    public boolean onKeyDown(int i, KeyEvent keyEvent) {
+        if (i != 82 || this.m) {
+            if (i == 4) {
+                g();
+                return true;
+            }
+            return super.onKeyDown(i, keyEvent);
+        }
+        return true;
+    }
+
     @Override // android.app.Activity
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
+    public boolean onOptionsItemSelected(MenuItem menuItem) {
+        switch (menuItem.getItemId()) {
             case 0:
-                writeBlog(0);
+                b(0);
                 break;
             case 1:
-                if (this.mForum != null && this.mForum.length() > 0) {
-                    refresh();
+                if (this.f != null && this.f.length() > 0) {
+                    t();
                     break;
                 }
                 break;
             case 2:
-                if (!getIsRefresh()) {
-                    showGoodDialog();
+                if (!u()) {
+                    s();
                     break;
                 }
                 break;
@@ -1437,167 +859,56 @@ public class FrsActivity extends BaseActivity {
                 showDialog(1);
                 break;
         }
-        return super.onOptionsItemSelected(item);
+        return super.onOptionsItemSelected(menuItem);
     }
 
-    @Override // android.app.Activity, android.view.KeyEvent.Callback
-    public boolean onKeyDown(int keyCode, KeyEvent event) {
-        if (keyCode != 82 || this.isShowMenu) {
-            if (keyCode == 4) {
-                closeActivity();
-                return true;
-            }
-            return super.onKeyDown(keyCode, event);
+    @Override // android.app.Activity
+    public void onOptionsMenuClosed(Menu menu) {
+        super.onOptionsMenuClosed(menu);
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.tieba.e, android.app.Activity
+    public void onPause() {
+        super.onPause();
+        this.w.a().b();
+        this.w.b().b();
+        if (this.Z != null) {
+            this.Z.dismiss();
         }
-        return true;
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void addShortcut(String name) {
-        Intent target;
-        if (name != null && (target = getIntent(this, name)) != null) {
-            target.setAction("android.intent.action.MAIN");
-            target.putExtra(FROM_SHORT_CUT, true);
-            target.putExtra("back_special", true);
-            Intent shortcut = new Intent("com.android.launcher.action.INSTALL_SHORTCUT");
-            shortcut.putExtra("duplicate", false);
-            shortcut.putExtra("android.intent.extra.shortcut.NAME", String.valueOf(name) + getString(R.string.bar));
-            shortcut.putExtra("android.intent.extra.shortcut.INTENT", target);
-            Intent.ShortcutIconResource iconRes = Intent.ShortcutIconResource.fromContext(this, R.drawable.icon);
-            shortcut.putExtra("android.intent.extra.shortcut.ICON_RESOURCE", iconRes);
-            sendBroadcast(shortcut);
-            PvThread pv = new PvThread(Config.ST_TYPE_ADD_TO_LAUNCHER);
-            pv.start();
+        if (this.R != null) {
+            this.R.removeMessages(1);
         }
     }
 
-    private void processStarTitle() {
-        this.mAdapterFrs.setStarData(this.mModel.getStarData(), this.mModel.getForum().getName());
-        this.mStarTimerHandler.removeMessages(1);
-        if (this.mPn == 1 && this.mModel.getStarData().isStarForum() == 1) {
-            this.mAdapterFrs.setHaveStarTitle(true);
-            if (this.mModel.getStarData().isOpen() == 0) {
-                this.mStarSyncTime = System.nanoTime() / 1000000000;
-                this.mStarTimerHandler.sendMessageDelayed(this.mStarTimerHandler.obtainMessage(1), 1000L);
-                return;
-            }
-            return;
-        }
-        this.mAdapterFrs.setHaveStarTitle(false);
+    @Override // android.app.Activity
+    public boolean onPrepareOptionsMenu(Menu menu) {
+        C();
+        return super.onPrepareOptionsMenu(menu);
     }
 
-    public void startAddFanAsyncTask() {
-        String accountId = TiebaApplication.getCurrentAccount();
-        if (accountId == null || accountId.length() <= 0) {
-            LoginActivity.startActivity((Activity) this, getString(R.string.login_to_use), true, (int) RequestResponseCode.REQUEST_LOGIN_FRS_ADD_FAN);
-        } else if (!this.mModel.getIsProcessAddFan()) {
-            this.mModel.setIsProcessAddFan(true);
-            if (this.mAddFanTask != null) {
-                this.mAddFanTask.cancel();
-                this.mAddFanTask = null;
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.tieba.e, android.app.Activity
+    public void onResume() {
+        super.onResume();
+        String u = TiebaApplication.u();
+        if (this.I == null && u != null && u.length() > 0) {
+            this.I = u;
+            if (this.y != null && this.y.c() != null) {
+                this.y.c().a(1);
             }
-            ForumData forum = this.mModel.getForum();
-            this.mAddFanTask = new AddFanAsyncTask(forum.getId(), forum.getName(), String.valueOf(forum.isIs_like()));
-            this.mAddFanTask.execute("http://c.tieba.baidu.com/c/c/user/fansno");
+        }
+        this.aa.run();
+        if (this.R != null) {
+            this.R.removeMessages(1);
+            this.R.sendMessageDelayed(this.R.obtainMessage(1), 1000L);
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes.dex */
-    public class AddFanAsyncTask extends AsyncTask<String, Integer, Boolean> {
-        private String mForumId;
-        private String mForumName;
-        private String mIsLike;
-        private NetWork mNetwork = null;
-        private int mFanNum = -1;
-        private int mLevel = -1;
-        private String mLevelName = null;
-        private boolean mIsUpdateLike = false;
-
-        public AddFanAsyncTask(String forumId, String forumName, String isLike) {
-            this.mForumId = forumId;
-            this.mForumName = forumName;
-            this.mIsLike = isLike;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        /* JADX INFO: Access modifiers changed from: protected */
-        @Override // android.os.AsyncTask
-        public Boolean doInBackground(String... params) {
-            String url = params[0];
-            this.mNetwork = new NetWork(url);
-            this.mNetwork.addPostData("fid", this.mForumId);
-            this.mNetwork.addPostData("kw", this.mForumName);
-            this.mNetwork.addPostData("is_like", this.mIsLike);
-            this.mNetwork.setIsNeedTbs(true);
-            String ret = this.mNetwork.postNetData();
-            boolean isAddFanSucess = false;
-            if (this.mNetwork.isNetSuccess()) {
-                if (this.mIsLike.equals("0")) {
-                    try {
-                        JSONObject obj = new JSONObject(ret);
-                        JSONObject data = obj.optJSONObject("like_data");
-                        if (data.optInt("is_success", 0) == 1) {
-                            this.mLevel = data.optInt("level_id");
-                            this.mLevelName = data.optString("level_name");
-                            this.mIsUpdateLike = true;
-                        }
-                    } catch (Exception ex) {
-                        TiebaLog.e(getClass().getName(), "doInBackground", ex.getMessage());
-                    }
-                }
-                if (this.mNetwork.isRequestSuccess()) {
-                    try {
-                        JSONObject obj2 = new JSONObject(ret);
-                        this.mFanNum = obj2.optInt("num");
-                        isAddFanSucess = true;
-                    } catch (Exception ex2) {
-                        TiebaLog.e(getClass().getName(), "doInBackground", ex2.getMessage());
-                    }
-                }
-            }
-            return Boolean.valueOf(isAddFanSucess);
-        }
-
-        public void cancel() {
-            if (this.mNetwork != null) {
-                this.mNetwork.cancelNetConnect();
-            }
-            FrsActivity.this.mAddFanTask = null;
-            if (FrsActivity.this.mModel != null) {
-                FrsActivity.this.mModel.setIsProcessAddFan(false);
-            }
-            super.cancel(true);
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        /* JADX INFO: Access modifiers changed from: protected */
-        @Override // android.os.AsyncTask
-        public void onPostExecute(Boolean isAddFanSucess) {
-            FrsActivity.this.mAddFanTask = null;
-            if (FrsActivity.this.mModel != null) {
-                FrsActivity.this.mModel.setIsProcessAddFan(false);
-                if (this.mNetwork != null) {
-                    if (this.mIsUpdateLike && FrsActivity.this.mHeader != null) {
-                        FrsActivity.this.mHeader.setHaveLike(1, this.mLevelName, this.mLevel);
-                    }
-                    if (isAddFanSucess.booleanValue()) {
-                        FrsActivity.this.showToast(FrsActivity.this.getString(R.string.add_fan_sucess));
-                        FrsActivity.this.mModel.getStarData().setIsFan(1);
-                        FrsActivity.this.mModel.getStarData().setFanNum(this.mFanNum);
-                        FrsActivity.this.mAdapterFrs.notifyDataSetChanged();
-                        return;
-                    }
-                    if (this.mNetwork.getErrorString() != null) {
-                        FrsActivity.this.showToast(this.mNetwork.getErrorString());
-                    } else {
-                        FrsActivity.this.showToast(FrsActivity.this.getString(R.string.add_fan_error));
-                    }
-                    if (this.mNetwork.getErrorCode() == 120002) {
-                        FrsActivity.this.refresh();
-                    }
-                }
-            }
-        }
+    @Override // android.app.Activity
+    protected void onSaveInstanceState(Bundle bundle) {
+        super.onSaveInstanceState(bundle);
+        bundle.putString("name", this.f);
+        bundle.putString("from", this.g);
     }
 }

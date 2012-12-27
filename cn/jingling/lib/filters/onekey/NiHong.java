@@ -10,16 +10,16 @@ import cn.jingling.lib.filters.OneKeyFilter;
 /* loaded from: classes.dex */
 public class NiHong extends OneKeyFilter {
     @Override // cn.jingling.lib.filters.OneKeyFilter
-    public Bitmap apply(Context cx, Bitmap bm) {
-        int w = bm.getWidth();
-        int h = bm.getHeight();
-        int[] pixels = new int[w * h];
-        bm.getPixels(pixels, 0, w, 0, 0, w, h);
-        int[] pixels2 = ImageProcessUtils.saturationPs(pixels, w, h, -25);
-        Curve c = new Curve(cx, "curves/nihong.dat");
-        CMTProcessor.curveEffect(pixels2, c.getCurveRed(), c.getCurveGreen(), c.getCurveBlue(), w, h);
-        CMTProcessor.screenEffect(pixels2, Layer.getLayerPixels(cx, "layers/nihonglayer", w, h, Layer.Type.CROP), w, h);
-        bm.setPixels(pixels2, 0, w, 0, 0, w, h);
-        return bm;
+    public Bitmap apply(Context context, Bitmap bitmap) {
+        int width = bitmap.getWidth();
+        int height = bitmap.getHeight();
+        int[] iArr = new int[width * height];
+        bitmap.getPixels(iArr, 0, width, 0, 0, width, height);
+        int[] saturationPs = ImageProcessUtils.saturationPs(iArr, width, height, -25);
+        Curve curve = new Curve(context, "curves/nihong.dat");
+        CMTProcessor.curveEffect(saturationPs, curve.getCurveRed(), curve.getCurveGreen(), curve.getCurveBlue(), width, height);
+        CMTProcessor.screenEffect(saturationPs, Layer.getLayerPixels(context, "layers/nihonglayer", width, height, Layer.Type.CROP), width, height);
+        bitmap.setPixels(saturationPs, 0, width, 0, 0, width, height);
+        return bitmap;
     }
 }

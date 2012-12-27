@@ -9,15 +9,15 @@ import cn.jingling.lib.filters.OneKeyFilter;
 /* loaded from: classes.dex */
 public class QingXin extends OneKeyFilter {
     @Override // cn.jingling.lib.filters.OneKeyFilter
-    public Bitmap apply(Context cx, Bitmap bm) {
-        int w = bm.getWidth();
-        int h = bm.getHeight();
-        int[] pixels = new int[w * h];
-        bm.getPixels(pixels, 0, w, 0, 0, w, h);
-        int[] pixels2 = ImageProcessUtils.saturationPs(pixels, w, h, -30);
-        Curve c = new Curve(cx, "curves/qingxin.dat");
-        CMTProcessor.curveEffect(pixels2, c.getCurveRed(), c.getCurveGreen(), c.getCurveBlue(), w, h);
-        bm.setPixels(pixels2, 0, w, 0, 0, w, h);
-        return bm;
+    public Bitmap apply(Context context, Bitmap bitmap) {
+        int width = bitmap.getWidth();
+        int height = bitmap.getHeight();
+        int[] iArr = new int[width * height];
+        bitmap.getPixels(iArr, 0, width, 0, 0, width, height);
+        int[] saturationPs = ImageProcessUtils.saturationPs(iArr, width, height, -30);
+        Curve curve = new Curve(context, "curves/qingxin.dat");
+        CMTProcessor.curveEffect(saturationPs, curve.getCurveRed(), curve.getCurveGreen(), curve.getCurveBlue(), width, height);
+        bitmap.setPixels(saturationPs, 0, width, 0, 0, width, height);
+        return bitmap;
     }
 }

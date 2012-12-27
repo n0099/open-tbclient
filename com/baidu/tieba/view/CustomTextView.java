@@ -10,18 +10,18 @@ public class CustomTextView extends TextView {
         super(context);
     }
 
-    public CustomTextView(Context context, AttributeSet attrs) {
-        super(context, attrs);
+    public CustomTextView(Context context, AttributeSet attributeSet) {
+        super(context, attributeSet);
     }
 
-    public CustomTextView(Context context, AttributeSet attrs, int defStyle) {
-        super(context, attrs, defStyle);
+    public CustomTextView(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
     }
 
     @Override // android.widget.TextView, android.view.View
-    public boolean onTouchEvent(MotionEvent event) {
+    public boolean onTouchEvent(MotionEvent motionEvent) {
         setLongClickable(false);
-        super.onTouchEvent(event);
-        return event.getAction() == 0 && hasSelection();
+        super.onTouchEvent(motionEvent);
+        return motionEvent.getAction() == 0 && hasSelection();
     }
 }

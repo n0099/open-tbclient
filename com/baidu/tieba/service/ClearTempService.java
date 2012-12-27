@@ -4,27 +4,14 @@ import android.app.Service;
 import android.content.Intent;
 import android.os.Handler;
 import android.os.IBinder;
-import android.os.Message;
-import com.baidu.tieba.data.Config;
-import com.baidu.tieba.util.FileHelper;
-import com.baidu.tieba.util.TiebaLog;
-import java.io.File;
-import java.util.Date;
 /* loaded from: classes.dex */
 public class ClearTempService extends Service {
-    private volatile boolean interrupted = false;
-    private Thread thread = null;
-    private Handler handler = new Handler() { // from class: com.baidu.tieba.service.ClearTempService.1
-        @Override // android.os.Handler
-        public void handleMessage(Message msg) {
-            super.handleMessage(msg);
-            ClearTempService.this.stopSelf();
-            ClearTempService.this.thread = null;
-        }
-    };
+    private volatile boolean a = false;
+    private Thread b = null;
+    private Handler c = new a(this);
 
     @Override // android.app.Service
-    public IBinder onBind(Intent arg0) {
+    public IBinder onBind(Intent intent) {
         return null;
     }
 
@@ -36,38 +23,16 @@ public class ClearTempService extends Service {
     @Override // android.app.Service
     public void onDestroy() {
         super.onDestroy();
-        this.interrupted = true;
+        this.a = true;
     }
 
     @Override // android.app.Service
-    public void onStart(Intent intent, int startId) {
-        super.onStart(intent, startId);
-        this.interrupted = false;
-        if (this.thread == null) {
-            this.thread = new Thread() { // from class: com.baidu.tieba.service.ClearTempService.2
-                @Override // java.lang.Thread, java.lang.Runnable
-                public void run() {
-                    super.run();
-                    try {
-                        File file = new File(FileHelper.EXTERNAL_STORAGE_DIRECTORY + "/" + Config.TMPDIRNAME + "/" + Config.TMP_PIC_DIR_NAME + "/");
-                        File[] list = file.listFiles();
-                        long current_time = new Date().getTime();
-                        if (list != null) {
-                            for (int i = 0; i < list.length && !ClearTempService.this.interrupted; i++) {
-                                long temp = current_time - list[i].lastModified();
-                                if (temp > 86400000) {
-                                    list[i].delete();
-                                }
-                            }
-                        }
-                        File[] fileArr = null;
-                    } catch (Exception ex) {
-                        TiebaLog.e(getClass().getName(), "run", ex.getMessage());
-                    }
-                    ClearTempService.this.handler.sendMessage(ClearTempService.this.handler.obtainMessage());
-                }
-            };
-            this.thread.start();
+    public void onStart(Intent intent, int i) {
+        super.onStart(intent, i);
+        this.a = false;
+        if (this.b == null) {
+            this.b = new b(this);
+            this.b.start();
         }
     }
 }

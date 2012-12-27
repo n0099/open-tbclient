@@ -7,6 +7,20 @@ public class FragmentCompat {
     static final FragmentCompatImpl IMPL;
 
     /* loaded from: classes.dex */
+    class BaseFragmentCompatImpl implements FragmentCompatImpl {
+        BaseFragmentCompatImpl() {
+        }
+
+        @Override // android.support.v13.app.FragmentCompat.FragmentCompatImpl
+        public void setMenuVisibility(Fragment fragment, boolean z) {
+        }
+
+        @Override // android.support.v13.app.FragmentCompat.FragmentCompatImpl
+        public void setUserVisibleHint(Fragment fragment, boolean z) {
+        }
+    }
+
+    /* loaded from: classes.dex */
     interface FragmentCompatImpl {
         void setMenuVisibility(Fragment fragment, boolean z);
 
@@ -14,38 +28,24 @@ public class FragmentCompat {
     }
 
     /* loaded from: classes.dex */
-    static class BaseFragmentCompatImpl implements FragmentCompatImpl {
-        BaseFragmentCompatImpl() {
-        }
-
-        @Override // android.support.v13.app.FragmentCompat.FragmentCompatImpl
-        public void setMenuVisibility(Fragment f, boolean visible) {
-        }
-
-        @Override // android.support.v13.app.FragmentCompat.FragmentCompatImpl
-        public void setUserVisibleHint(Fragment f, boolean deferStart) {
-        }
-    }
-
-    /* loaded from: classes.dex */
-    static class ICSFragmentCompatImpl extends BaseFragmentCompatImpl {
+    class ICSFragmentCompatImpl extends BaseFragmentCompatImpl {
         ICSFragmentCompatImpl() {
         }
 
         @Override // android.support.v13.app.FragmentCompat.BaseFragmentCompatImpl, android.support.v13.app.FragmentCompat.FragmentCompatImpl
-        public void setMenuVisibility(Fragment f, boolean visible) {
-            FragmentCompatICS.setMenuVisibility(f, visible);
+        public void setMenuVisibility(Fragment fragment, boolean z) {
+            FragmentCompatICS.setMenuVisibility(fragment, z);
         }
     }
 
     /* loaded from: classes.dex */
-    static class ICSMR1FragmentCompatImpl extends ICSFragmentCompatImpl {
+    class ICSMR1FragmentCompatImpl extends ICSFragmentCompatImpl {
         ICSMR1FragmentCompatImpl() {
         }
 
         @Override // android.support.v13.app.FragmentCompat.BaseFragmentCompatImpl, android.support.v13.app.FragmentCompat.FragmentCompatImpl
-        public void setUserVisibleHint(Fragment f, boolean deferStart) {
-            FragmentCompatICSMR1.setUserVisibleHint(f, deferStart);
+        public void setUserVisibleHint(Fragment fragment, boolean z) {
+            FragmentCompatICSMR1.setUserVisibleHint(fragment, z);
         }
     }
 
@@ -59,11 +59,11 @@ public class FragmentCompat {
         }
     }
 
-    public static void setMenuVisibility(Fragment f, boolean visible) {
-        IMPL.setMenuVisibility(f, visible);
+    public static void setMenuVisibility(Fragment fragment, boolean z) {
+        IMPL.setMenuVisibility(fragment, z);
     }
 
-    public static void setUserVisibleHint(Fragment f, boolean deferStart) {
-        IMPL.setUserVisibleHint(f, deferStart);
+    public static void setUserVisibleHint(Fragment fragment, boolean z) {
+        IMPL.setUserVisibleHint(fragment, z);
     }
 }

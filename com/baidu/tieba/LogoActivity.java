@@ -1,155 +1,111 @@
 package com.baidu.tieba;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.os.Handler;
-import android.os.Message;
-import android.support.v4.view.accessibility.AccessibilityEventCompat;
 import android.view.KeyEvent;
 import android.view.animation.AlphaAnimation;
-import android.view.animation.Animation;
 import android.widget.ImageView;
-import com.baidu.tieba.account.AccountShareHelper;
+import com.baidu.tieba.c.ae;
 import com.baidu.tieba.service.FatalErrorService;
-import com.baidu.tieba.util.BitmapHelper;
-import com.baidu.tieba.util.DatabaseService;
-import com.baidu.tieba.util.TiebaLog;
 import java.io.File;
 /* loaded from: classes.dex */
-public class LogoActivity extends BaseActivity {
-    private boolean mHaveFinishiAnim = false;
-    private boolean mHaveInitData = false;
-    private ImageView mImage = null;
-    private Bitmap mBitmap = null;
-    private AlphaAnimation mAnim = null;
-    private Handler mHandler = new Handler() { // from class: com.baidu.tieba.LogoActivity.1
-        @Override // android.os.Handler
-        public void handleMessage(Message msg) {
-            LogoActivity.this.mHaveInitData = true;
-            if (LogoActivity.this.mHaveFinishiAnim) {
-                LogoActivity.this.startApp();
-            }
-            super.handleMessage(msg);
-        }
-    };
+public class LogoActivity extends e {
+    private boolean b = false;
+    private boolean c = false;
+    private ImageView d = null;
+    private Bitmap e = null;
+    private AlphaAnimation f = null;
+    private Handler g = new j(this);
 
-    /* JADX WARN: Type inference failed for: r0v14, types: [com.baidu.tieba.LogoActivity$3] */
-    @Override // com.baidu.tieba.BaseActivity, android.app.Activity
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        TiebaLog.i(getClass().getName(), "onCreate", null);
-        getWindow().setFlags(AccessibilityEventCompat.TYPE_TOUCH_EXPLORATION_GESTURE_END, AccessibilityEventCompat.TYPE_TOUCH_EXPLORATION_GESTURE_END);
-        setContentView(R.layout.logo_activity);
-        this.mImage = (ImageView) findViewById(R.id.logo);
-        this.mBitmap = BitmapHelper.getResBitmap(this, R.drawable.logo);
-        this.mImage.setImageBitmap(this.mBitmap);
-        this.mAnim = new AlphaAnimation(0.5f, 1.0f);
-        this.mAnim.setDuration(2000L);
-        this.mAnim.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.tieba.LogoActivity.2
-            @Override // android.view.animation.Animation.AnimationListener
-            public void onAnimationEnd(Animation arg0) {
-                LogoActivity.this.mHaveFinishiAnim = true;
-                if (!LogoActivity.this.mHaveInitData) {
+    /* JADX INFO: Access modifiers changed from: private */
+    public void a(File file) {
+        if (file == null) {
+            return;
+        }
+        try {
+            if (!file.isDirectory()) {
+                if (file.delete()) {
                     return;
                 }
-                LogoActivity.this.startApp();
+                ae.b(getClass().getName(), "deleteAllfile", "file.delete error");
+                return;
             }
-
-            @Override // android.view.animation.Animation.AnimationListener
-            public void onAnimationRepeat(Animation arg0) {
-            }
-
-            @Override // android.view.animation.Animation.AnimationListener
-            public void onAnimationStart(Animation arg0) {
-            }
-        });
-        this.mImage.startAnimation(this.mAnim);
-        new Thread() { // from class: com.baidu.tieba.LogoActivity.3
-            @Override // java.lang.Thread, java.lang.Runnable
-            public void run() {
-                super.run();
-                try {
-                    TiebaApplication app = (TiebaApplication) LogoActivity.this.getApplication();
-                    app.setAPPUseTimes(app.getAPPUseTimes() + 1);
-                    if (app.isInvalidTDatabase()) {
-                        DatabaseService.deletSdDatebase();
-                        app.setAPPUseTimes(0);
+            File[] listFiles = file.listFiles();
+            if (listFiles != null) {
+                for (int i = 0; i < listFiles.length; i++) {
+                    if (listFiles[i].isDirectory()) {
+                        a(listFiles[i]);
+                    } else if (!listFiles[i].delete()) {
+                        ae.b(getClass().getName(), "deleteAllfile", "list[i].delete error");
                     }
-                    DatabaseService.delOverdueDraft();
-                    DatabaseService.delOverdueChunkUploadData();
-                    LogoActivity.this.deleteAllfile(LogoActivity.this.getCacheDir());
-                } catch (Exception e) {
                 }
-                LogoActivity.this.mHandler.sendMessage(LogoActivity.this.mHandler.obtainMessage());
             }
-        }.start();
-        startErrorUploadService();
-    }
-
-    private void startErrorUploadService() {
-        Intent service = new Intent(this, FatalErrorService.class);
-        startService(service);
-    }
-
-    @Override // android.app.Activity, android.view.KeyEvent.Callback
-    public boolean onKeyDown(int keyCode, KeyEvent event) {
-        if (keyCode == 4) {
-            return true;
+        } catch (Exception e) {
+            ae.b(getClass().getName(), "deleteAllfile", e.getMessage());
         }
-        return super.onKeyDown(keyCode, event);
+    }
+
+    private void g() {
+        startService(new Intent(this, FatalErrorService.class));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void deleteAllfile(File file) {
-        if (file != null) {
-            try {
-                if (file.isDirectory()) {
-                    File[] list = file.listFiles();
-                    if (list != null) {
-                        for (int i = 0; i < list.length; i++) {
-                            if (list[i].isDirectory()) {
-                                deleteAllfile(list[i]);
-                            } else {
-                                list[i].delete();
-                            }
-                        }
-                        return;
-                    }
-                    return;
-                }
-                file.delete();
-            } catch (Exception ex) {
-                TiebaLog.e(getClass().getName(), "deleteAllfile", ex.getMessage());
-            }
+    public void h() {
+        com.baidu.tieba.account.a.a().d();
+        if (TiebaApplication.a().j()) {
+            TiebaApplication.a().ar();
         }
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.BaseActivity, android.app.Activity
-    public void onDestroy() {
-        super.onDestroy();
-        this.mImage.setImageBitmap(null);
-        if (this.mBitmap != null && !this.mBitmap.isRecycled()) {
-            this.mBitmap.recycle();
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void startApp() {
-        AccountShareHelper.getInstance().prepare();
-        TiebaApplication.app.startLocationServer();
-        if (TiebaApplication.app.getIsFirstUse()) {
-            TiebaApplication.app.setUsed();
-            GuideActivity.startActivity(this);
+        if (TiebaApplication.a().an()) {
+            TiebaApplication.a().ao();
+            GuideActivity.a(this);
             finish();
             return;
         }
-        String id = TiebaApplication.getCurrentAccount();
-        MainTabActivity.startActivity(this, MainTabActivity.GOTO_RECOMMEND);
-        if ((id == null || id.length() <= 0) && TiebaApplication.isBaiduAccountManager() && BaiduAccountProxy.hasValidBaiduAccount(this)) {
-            BaiduAccountProxy.getAccountData(this, 0, MainTabActivity.GOTO_RECOMMEND, false);
+        String u = TiebaApplication.u();
+        String str = TiebaApplication.a().ad() >= 3 ? "goto_home" : "goto_recommend";
+        MainTabActivity.a(this, str);
+        if ((u == null || u.length() <= 0) && TiebaApplication.f() && a.a((Activity) this)) {
+            a.a(this, 0, str, false);
         }
         finish();
+    }
+
+    @Override // com.baidu.tieba.e, android.app.Activity
+    public void onCreate(Bundle bundle) {
+        super.onCreate(bundle);
+        ae.a(getClass().getName(), "onCreate", null);
+        getWindow().setFlags(1024, 1024);
+        setContentView(R.layout.logo_activity);
+        this.d = (ImageView) findViewById(R.id.logo);
+        this.e = com.baidu.tieba.c.e.a(this, (int) R.drawable.logo);
+        this.d.setImageBitmap(this.e);
+        this.f = new AlphaAnimation(0.5f, 1.0f);
+        this.f.setDuration(2000L);
+        this.f.setAnimationListener(new k(this));
+        this.d.startAnimation(this.f);
+        new l(this).start();
+        g();
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.tieba.e, android.app.Activity
+    public void onDestroy() {
+        super.onDestroy();
+        this.d.setImageBitmap(null);
+        if (this.e == null || this.e.isRecycled()) {
+            return;
+        }
+        this.e.recycle();
+    }
+
+    @Override // android.app.Activity, android.view.KeyEvent.Callback
+    public boolean onKeyDown(int i, KeyEvent keyEvent) {
+        if (i == 4) {
+            return true;
+        }
+        return super.onKeyDown(i, keyEvent);
     }
 }

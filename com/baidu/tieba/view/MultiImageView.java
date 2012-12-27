@@ -1,8 +1,6 @@
 package com.baidu.tieba.view;
 
 import android.content.Context;
-import android.support.v4.view.PagerAdapter;
-import android.support.v4.view.ViewPager;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
@@ -10,373 +8,271 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import com.baidu.tieba.R;
-import com.baidu.tieba.data.Config;
-import com.baidu.tieba.util.NetWorkCore;
-import com.baidu.tieba.util.TiebaLog;
-import com.baidu.tieba.util.UtilHelper;
-import com.baidu.tieba.view.BaseViewPager;
-import com.baidu.tieba.view.DragImageView;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class MultiImageView extends RelativeLayout {
-    private ImagePagerAdapter mAdapter;
-    private GalleryViewPager mGalleryViewPager;
-    private int mGifMaxMemory;
-    private boolean mGifPlayRealseOther;
-    private boolean mIsSupportGesture;
-    private View.OnClickListener mOnClickListener;
-    private DragImageView.OnGifSetListener mOnGifSetListener;
-    private ViewPager.OnPageChangeListener mOnPageChangeListener;
-    private DragImageView.OnSizeChangedListener mOnSizeChangedListener;
-    private LinearLayout mTools;
-    private ViewPager.OnPageChangeListener mUserOnPageChangeListener;
-    private Button mZoomIn;
-    private Button mZoomOut;
+    private Button a;
+    private Button b;
+    private LinearLayout c;
+    private View.OnClickListener d;
+    private GalleryViewPager e;
+    private android.support.v4.view.aj f;
+    private android.support.v4.view.aj g;
+    private k h;
+    private ImagePagerAdapter i;
+    private j j;
+    private int k;
+    private boolean l;
+    private boolean m;
 
     public MultiImageView(Context context) {
         super(context);
-        this.mZoomIn = null;
-        this.mZoomOut = null;
-        this.mTools = null;
-        this.mOnClickListener = null;
-        this.mGalleryViewPager = null;
-        this.mOnPageChangeListener = null;
-        this.mUserOnPageChangeListener = null;
-        this.mOnSizeChangedListener = null;
-        this.mAdapter = null;
-        this.mOnGifSetListener = null;
-        this.mGifMaxMemory = 0;
-        this.mGifPlayRealseOther = true;
-        this.mIsSupportGesture = false;
-        init();
+        this.a = null;
+        this.b = null;
+        this.c = null;
+        this.d = null;
+        this.e = null;
+        this.f = null;
+        this.g = null;
+        this.h = null;
+        this.i = null;
+        this.j = null;
+        this.k = 0;
+        this.l = true;
+        this.m = false;
+        f();
     }
 
-    public void setOnScrollOutListener(BaseViewPager.OnScrollOutListener listener) {
-        if (this.mGalleryViewPager != null) {
-            this.mGalleryViewPager.setOnScrollOutListener(listener);
-        }
+    public MultiImageView(Context context, AttributeSet attributeSet) {
+        super(context, attributeSet);
+        this.a = null;
+        this.b = null;
+        this.c = null;
+        this.d = null;
+        this.e = null;
+        this.f = null;
+        this.g = null;
+        this.h = null;
+        this.i = null;
+        this.j = null;
+        this.k = 0;
+        this.l = true;
+        this.m = false;
+        f();
     }
 
-    public MultiImageView(Context context, AttributeSet attrs) {
-        super(context, attrs);
-        this.mZoomIn = null;
-        this.mZoomOut = null;
-        this.mTools = null;
-        this.mOnClickListener = null;
-        this.mGalleryViewPager = null;
-        this.mOnPageChangeListener = null;
-        this.mUserOnPageChangeListener = null;
-        this.mOnSizeChangedListener = null;
-        this.mAdapter = null;
-        this.mOnGifSetListener = null;
-        this.mGifMaxMemory = 0;
-        this.mGifPlayRealseOther = true;
-        this.mIsSupportGesture = false;
-        init();
+    public MultiImageView(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
+        this.a = null;
+        this.b = null;
+        this.c = null;
+        this.d = null;
+        this.e = null;
+        this.f = null;
+        this.g = null;
+        this.h = null;
+        this.i = null;
+        this.j = null;
+        this.k = 0;
+        this.l = true;
+        this.m = false;
+        f();
     }
 
-    public MultiImageView(Context context, AttributeSet attrs, int defStyle) {
-        super(context, attrs, defStyle);
-        this.mZoomIn = null;
-        this.mZoomOut = null;
-        this.mTools = null;
-        this.mOnClickListener = null;
-        this.mGalleryViewPager = null;
-        this.mOnPageChangeListener = null;
-        this.mUserOnPageChangeListener = null;
-        this.mOnSizeChangedListener = null;
-        this.mAdapter = null;
-        this.mOnGifSetListener = null;
-        this.mGifMaxMemory = 0;
-        this.mGifPlayRealseOther = true;
-        this.mIsSupportGesture = false;
-        init();
+    private void f() {
+        this.m = com.baidu.tieba.c.ag.d(getContext());
+        g();
+        h();
     }
 
-    private void init() {
-        this.mIsSupportGesture = UtilHelper.isSupportGesture(getContext());
-        initEvent();
-        initUI();
-    }
-
-    private void initEvent() {
-        this.mOnClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.view.MultiImageView.1
-            @Override // android.view.View.OnClickListener
-            public void onClick(View v) {
-                DragImageView view;
-                if (v != MultiImageView.this.mZoomIn) {
-                    if (v == MultiImageView.this.mZoomOut && (view = MultiImageView.this.getCurrentImageView()) != null) {
-                        view.zoomOutBitmap();
-                        return;
-                    }
-                    return;
-                }
-                DragImageView view2 = MultiImageView.this.getCurrentImageView();
-                if (view2 != null) {
-                    view2.zoomInBitmap();
-                }
-            }
-        };
-        this.mOnPageChangeListener = new ViewPager.OnPageChangeListener() { // from class: com.baidu.tieba.view.MultiImageView.2
-            @Override // android.support.v4.view.ViewPager.OnPageChangeListener
-            public void onPageScrollStateChanged(int arg0) {
-                if (MultiImageView.this.mUserOnPageChangeListener != null) {
-                    MultiImageView.this.mUserOnPageChangeListener.onPageScrollStateChanged(arg0);
-                }
-            }
-
-            @Override // android.support.v4.view.ViewPager.OnPageChangeListener
-            public void onPageScrolled(int arg0, float arg1, int arg2) {
-                if (MultiImageView.this.mUserOnPageChangeListener != null) {
-                    MultiImageView.this.mUserOnPageChangeListener.onPageScrolled(arg0, arg1, arg2);
-                }
-            }
-
-            @Override // android.support.v4.view.ViewPager.OnPageChangeListener
-            public void onPageSelected(int postion) {
-                DragImageView drag;
-                TiebaLog.d(getClass().getName(), "onPageSelected", "postion = " + String.valueOf(postion));
-                View view = MultiImageView.this.mGalleryViewPager.findViewWithTag(String.valueOf(postion));
-                if (view != null && (view instanceof UrlDragImageView) && (drag = ((UrlDragImageView) view).getImageView()) != null) {
-                    MultiImageView.this.mGalleryViewPager.setSelectedView(drag);
-                    drag.restoreSize();
-                }
-                int num = MultiImageView.this.mGalleryViewPager.getChildCount();
-                for (int i = 0; i < num; i++) {
-                    View child = MultiImageView.this.mGalleryViewPager.getChildAt(i);
-                    if (child != null && (child instanceof UrlDragImageView)) {
-                        ((UrlDragImageView) child).stopGif();
-                    }
-                }
-                NetWorkCore.NetworkStateInfo info = NetWorkCore.getStatusInfo(MultiImageView.this.getContext());
-                if (MultiImageView.this.mGifPlayRealseOther && (info == NetWorkCore.NetworkStateInfo.WIFI || info == NetWorkCore.NetworkStateInfo.ThreeG)) {
-                    for (int i2 = 0; i2 < num; i2++) {
-                        View child2 = MultiImageView.this.mGalleryViewPager.getChildAt(i2);
-                        if (child2 != null && (child2 instanceof UrlDragImageView)) {
-                            ((UrlDragImageView) child2).checkImage();
-                        }
-                    }
-                }
-                if (MultiImageView.this.mUserOnPageChangeListener != null) {
-                    MultiImageView.this.mUserOnPageChangeListener.onPageSelected(postion);
-                }
-            }
-        };
-        this.mOnSizeChangedListener = new DragImageView.OnSizeChangedListener() { // from class: com.baidu.tieba.view.MultiImageView.3
-            @Override // com.baidu.tieba.view.DragImageView.OnSizeChangedListener
-            public void sizeChenged(DragImageView view, boolean canZoomIn, boolean canZoomOut) {
-                if (MultiImageView.this.mGalleryViewPager.getSelectedView() == view) {
-                    MultiImageView.this.setZoomButton(view);
-                }
-            }
-        };
-        this.mOnGifSetListener = new DragImageView.OnGifSetListener() { // from class: com.baidu.tieba.view.MultiImageView.4
-            @Override // com.baidu.tieba.view.DragImageView.OnGifSetListener
-            public void gifSet(DragImageView view) {
-                if (view == MultiImageView.this.mGalleryViewPager.getCurrentView()) {
-                    if (MultiImageView.this.mGifPlayRealseOther) {
-                        int num = MultiImageView.this.mGalleryViewPager.getChildCount();
-                        for (int i = 0; i < num; i++) {
-                            View child = MultiImageView.this.mGalleryViewPager.getChildAt(i);
-                            if (child != null && (child instanceof UrlDragImageView) && ((UrlDragImageView) child).getImageView() != view) {
-                                ((UrlDragImageView) child).release();
-                            }
-                        }
-                    }
-                    view.play();
-                }
-            }
-        };
-    }
-
-    public void onResume() {
-        if (this.mGalleryViewPager.getCurrentView() != null) {
-            if (this.mGifPlayRealseOther) {
-                int num = this.mGalleryViewPager.getChildCount();
-                for (int i = 0; i < num; i++) {
-                    View child = this.mGalleryViewPager.getChildAt(i);
-                    if (child != null && (child instanceof UrlDragImageView) && ((UrlDragImageView) child).getImageView() != this.mGalleryViewPager.getCurrentView()) {
-                        ((UrlDragImageView) child).release();
-                    }
-                }
-            }
-            int index = this.mGalleryViewPager.getCurrentItem();
-            View view = this.mGalleryViewPager.findViewWithTag(String.valueOf(index));
-            if (view != null && (view instanceof UrlDragImageView)) {
-                ((UrlDragImageView) view).checkImage();
-            }
-            this.mGalleryViewPager.getCurrentView().play();
-        }
-    }
-
-    public void onPause() {
-        if (this.mGalleryViewPager.getCurrentView() != null) {
-            this.mGalleryViewPager.getCurrentView().pause();
-        }
-    }
-
-    public void onDestroy() {
-        if (this.mGalleryViewPager != null) {
-            int num = this.mGalleryViewPager.getChildCount();
-            for (int i = 0; i < num; i++) {
-                View child = this.mGalleryViewPager.getChildAt(i);
-                if (child != null && (child instanceof UrlDragImageView)) {
-                    ((UrlDragImageView) child).onDestroy();
-                }
-            }
-        }
-    }
-
-    private void initUI() {
-        this.mGalleryViewPager = new GalleryViewPager(getContext());
-        this.mGalleryViewPager.setLayoutParams(new RelativeLayout.LayoutParams(-1, -1));
-        this.mGalleryViewPager.setOnPageChangeListener(this.mOnPageChangeListener);
-        addView(this.mGalleryViewPager);
-        this.mTools = new LinearLayout(getContext());
-        RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(-2, -2);
-        params.bottomMargin = UtilHelper.dip2px(getContext(), 10.0f);
-        params.addRule(12);
-        params.addRule(14);
-        this.mTools.setOrientation(0);
-        this.mTools.setLayoutParams(params);
-        addView(this.mTools);
-        LinearLayout.LayoutParams l_param = new LinearLayout.LayoutParams(-2, -2);
-        this.mZoomOut = new Button(getContext());
-        this.mZoomOut.setBackgroundDrawable(getContext().getResources().getDrawable(R.drawable.image_zoomout));
-        this.mZoomOut.setLayoutParams(l_param);
-        this.mZoomOut.setOnClickListener(this.mOnClickListener);
-        this.mZoomOut.setEnabled(false);
-        this.mTools.addView(this.mZoomOut);
-        this.mZoomIn = new Button(getContext());
-        this.mZoomIn.setBackgroundDrawable(getContext().getResources().getDrawable(R.drawable.image_zoomin));
-        this.mZoomIn.setLayoutParams(l_param);
-        this.mZoomIn.setOnClickListener(this.mOnClickListener);
-        this.mZoomIn.setEnabled(false);
-        this.mTools.addView(this.mZoomIn);
-        if (this.mIsSupportGesture) {
-            this.mTools.setVisibility(8);
-        }
-        this.mAdapter = new ImagePagerAdapter(getContext(), null, this.mOnGifSetListener);
-        setAdapter(this.mAdapter);
-    }
-
-    public void setOnPageChangeListener(ViewPager.OnPageChangeListener listener) {
-        this.mUserOnPageChangeListener = listener;
-    }
-
-    public void setZoomButton(DragImageView view) {
-        if (view != null) {
-            if (view.canZoomIn()) {
-                this.mZoomIn.setEnabled(true);
-            } else {
-                this.mZoomIn.setEnabled(false);
-            }
-            if (view.canZoomOut()) {
-                this.mZoomOut.setEnabled(true);
-                return;
-            } else {
-                this.mZoomOut.setEnabled(false);
-                return;
-            }
-        }
-        this.mZoomOut.setEnabled(false);
-        this.mZoomIn.setEnabled(false);
-    }
-
-    public void switchTools() {
-        if (!this.mIsSupportGesture) {
-            if (this.mTools.getVisibility() != 0) {
-                this.mTools.setVisibility(0);
-            } else {
-                this.mTools.setVisibility(8);
-            }
-        }
-    }
-
-    public void showTools() {
-        if (!this.mIsSupportGesture) {
-            this.mTools.setVisibility(0);
-        }
-    }
-
-    public void hideTools() {
-        if (!this.mIsSupportGesture) {
-            this.mTools.setVisibility(8);
-        }
+    private void g() {
+        this.d = new ab(this);
+        this.f = new ac(this);
+        this.h = new ad(this);
+        this.j = new ae(this);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public DragImageView getCurrentImageView() {
-        return this.mGalleryViewPager.getCurrentView();
+    public f getCurrentImageView() {
+        return this.e.getCurrentView();
     }
 
-    @Override // android.view.View
-    public boolean onTouchEvent(MotionEvent event) {
-        return super.onTouchEvent(event);
+    private void h() {
+        this.e = new GalleryViewPager(getContext());
+        this.e.setLayoutParams(new RelativeLayout.LayoutParams(-1, -1));
+        this.e.setOnPageChangeListener(this.f);
+        addView(this.e);
+        this.c = new LinearLayout(getContext());
+        RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
+        layoutParams.bottomMargin = com.baidu.tieba.c.ag.a(getContext(), 10.0f);
+        layoutParams.addRule(12);
+        layoutParams.addRule(14);
+        this.c.setOrientation(0);
+        this.c.setLayoutParams(layoutParams);
+        addView(this.c);
+        LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(-2, -2);
+        this.b = new Button(getContext());
+        this.b.setBackgroundDrawable(getContext().getResources().getDrawable(R.drawable.image_zoomout));
+        this.b.setLayoutParams(layoutParams2);
+        this.b.setOnClickListener(this.d);
+        this.b.setEnabled(false);
+        this.c.addView(this.b);
+        this.a = new Button(getContext());
+        this.a.setBackgroundDrawable(getContext().getResources().getDrawable(R.drawable.image_zoomin));
+        this.a.setLayoutParams(layoutParams2);
+        this.a.setOnClickListener(this.d);
+        this.a.setEnabled(false);
+        this.c.addView(this.a);
+        if (this.m) {
+            this.c.setVisibility(8);
+        }
+        this.i = new ImagePagerAdapter(getContext(), null, this.j);
+        setAdapter(this.i);
     }
 
-    public void setPageMargin(int px) {
-        this.mGalleryViewPager.setPageMargin(px);
+    private void setAdapter(ImagePagerAdapter imagePagerAdapter) {
+        imagePagerAdapter.a(this.h);
+        this.e.setAdapter(imagePagerAdapter);
     }
 
-    public void setOffscreenPageLimit(int limit, int image_size) {
-        this.mGalleryViewPager.setOffscreenPageLimit(limit);
-        this.mGifMaxMemory = UtilHelper.getBitmapMaxMemory(getContext()) - ((((limit * 2) + 1) * image_size) * 2);
-        this.mGifMaxMemory = (int) (this.mGifMaxMemory * 0.8d);
-        if (this.mGifMaxMemory < Config.THREAD_GIF_MIN_USE_MEMORY) {
-            this.mGifPlayRealseOther = true;
-            this.mGifMaxMemory = (int) (UtilHelper.getBitmapMaxMemory(getContext()) * 0.7d);
+    public void a() {
+        if (this.e.getCurrentView() == null) {
+            return;
+        }
+        if (this.l) {
+            int childCount = this.e.getChildCount();
+            for (int i = 0; i < childCount; i++) {
+                View childAt = this.e.getChildAt(i);
+                if (childAt != null && (childAt instanceof ah) && ((ah) childAt).getImageView() != this.e.getCurrentView()) {
+                    ((ah) childAt).d();
+                }
+            }
+        }
+        View findViewWithTag = this.e.findViewWithTag(String.valueOf(this.e.getCurrentItem()));
+        if (findViewWithTag != null && (findViewWithTag instanceof ah)) {
+            ((ah) findViewWithTag).f();
+        }
+        this.e.getCurrentView().e();
+    }
+
+    public void a(int i, int i2) {
+        this.e.setOffscreenPageLimit(i);
+        this.k = com.baidu.tieba.c.ag.c(getContext()) - ((((i * 2) + 1) * i2) * 2);
+        this.k = (int) (this.k * 0.8d);
+        if (this.k < 6291456) {
+            this.l = true;
+            this.k = (int) (com.baidu.tieba.c.ag.c(getContext()) * 0.7d);
         } else {
-            this.mGifPlayRealseOther = false;
+            this.l = false;
         }
-        PagerAdapter adapter = this.mGalleryViewPager.getAdapter();
-        if (adapter != null && (adapter instanceof ImagePagerAdapter)) {
-            ((ImagePagerAdapter) adapter).setGifMaxUseableMem(this.mGifMaxMemory);
+        android.support.v4.view.k adapter = this.e.getAdapter();
+        if (adapter == null || !(adapter instanceof ImagePagerAdapter)) {
+            return;
+        }
+        ((ImagePagerAdapter) adapter).a(this.k);
+    }
+
+    public void a(int i, boolean z) {
+        this.e.a(i, z);
+    }
+
+    public void b() {
+        if (this.e.getCurrentView() != null) {
+            this.e.getCurrentView().f();
         }
     }
 
-    private void setAdapter(ImagePagerAdapter adapter) {
-        adapter.setmOnSizeChangedListener(this.mOnSizeChangedListener);
-        this.mGalleryViewPager.setAdapter(adapter);
+    public void c() {
+        if (this.e != null) {
+            int childCount = this.e.getChildCount();
+            for (int i = 0; i < childCount; i++) {
+                View childAt = this.e.getChildAt(i);
+                if (childAt != null && (childAt instanceof ah)) {
+                    ((ah) childAt).c();
+                }
+            }
+        }
     }
 
-    public void setCurrentItem(int item, boolean smoothScroll) {
-        this.mGalleryViewPager.setCurrentItem(item, smoothScroll);
+    public void d() {
+        if (this.m) {
+            return;
+        }
+        this.c.setVisibility(0);
     }
 
-    public void setItemOnclickListener(View.OnClickListener listener) {
-        this.mAdapter.setOnClickListener(listener);
-    }
-
-    public void setUrlData(ArrayList<String> data) {
-        this.mAdapter.setData(data);
-        this.mAdapter.notifyDataSetChanged();
-    }
-
-    public void setHasNext(boolean hasNext) {
-        this.mAdapter.setHasNext(hasNext);
-    }
-
-    public void setNextTitle(String title) {
-        this.mAdapter.setNextTitle(title);
+    public void e() {
+        if (this.m) {
+            return;
+        }
+        this.c.setVisibility(8);
     }
 
     public byte[] getCurrentImageData() {
-        byte[] data = null;
-        DragImageView view = this.mGalleryViewPager.getSelectedView();
-        if (view != null) {
-            byte[] data2 = view.getImageData();
-            return data2;
-        }
-        return data;
+        byte[] bArr = null;
+        f selectedView = this.e.getSelectedView();
+        return selectedView != null ? selectedView.getImageData() : bArr;
     }
 
     public String getCurrentImageUrl() {
-        DragImageView view = this.mGalleryViewPager.getSelectedView();
-        if (!(view.getTag() instanceof String)) {
-            return null;
+        f selectedView = this.e.getSelectedView();
+        if (selectedView.getTag() instanceof String) {
+            return (String) selectedView.getTag();
         }
-        String url = (String) view.getTag();
-        return url;
+        return null;
+    }
+
+    @Override // android.view.View
+    public boolean onTouchEvent(MotionEvent motionEvent) {
+        return super.onTouchEvent(motionEvent);
+    }
+
+    public void setHasNext(boolean z) {
+        this.i.a(z);
+    }
+
+    public void setItemOnclickListener(View.OnClickListener onClickListener) {
+        this.i.a(onClickListener);
+    }
+
+    public void setNextTitle(String str) {
+        this.i.a(str);
+    }
+
+    public void setOnPageChangeListener(android.support.v4.view.aj ajVar) {
+        this.g = ajVar;
+    }
+
+    public void setOnScrollOutListener(a aVar) {
+        if (this.e != null) {
+            this.e.setOnScrollOutListener(aVar);
+        }
+    }
+
+    public void setPageMargin(int i) {
+        this.e.setPageMargin(i);
+    }
+
+    public void setUrlData(ArrayList arrayList) {
+        this.i.a(arrayList);
+        this.i.notifyDataSetChanged();
+    }
+
+    public void setZoomButton(f fVar) {
+        if (fVar == null) {
+            this.b.setEnabled(false);
+            this.a.setEnabled(false);
+            return;
+        }
+        if (fVar.p()) {
+            this.a.setEnabled(true);
+        } else {
+            this.a.setEnabled(false);
+        }
+        if (fVar.q()) {
+            this.b.setEnabled(true);
+        } else {
+            this.b.setEnabled(false);
+        }
     }
 }

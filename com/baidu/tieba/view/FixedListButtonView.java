@@ -5,22 +5,23 @@ import android.util.AttributeSet;
 import android.widget.ImageView;
 /* loaded from: classes.dex */
 public class FixedListButtonView extends ImageView {
-    public FixedListButtonView(Context ctx) {
-        super(ctx);
+    public FixedListButtonView(Context context) {
+        super(context);
     }
 
-    public FixedListButtonView(Context ctx, AttributeSet attrs) {
-        super(ctx, attrs);
+    public FixedListButtonView(Context context, AttributeSet attributeSet) {
+        super(context, attributeSet);
     }
 
-    public FixedListButtonView(Context ctx, AttributeSet attrs, int defStyle) {
-        super(ctx, attrs, defStyle);
+    public FixedListButtonView(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
     }
 
     @Override // android.view.View
-    public void setPressed(boolean pressed) {
-        if (!pressed) {
-            super.setPressed(pressed);
+    public void setPressed(boolean z) {
+        if (z) {
+            return;
         }
+        super.setPressed(z);
     }
 }

@@ -1,504 +1,307 @@
 package com.baidu.tieba.mention;
 
-import android.app.AlertDialog;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.text.method.LinkMovementMethod;
-import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
-import com.baidu.tieba.BaseActivity;
 import com.baidu.tieba.R;
 import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.data.Config;
-import com.baidu.tieba.data.ContentData;
-import com.baidu.tieba.data.PbData;
-import com.baidu.tieba.data.PostData;
-import com.baidu.tieba.model.PbModel;
-import com.baidu.tieba.pb.ImageActivity;
-import com.baidu.tieba.person.PersonInfoActivity;
-import com.baidu.tieba.util.AsyncImageLoader;
-import com.baidu.tieba.util.BitmapHelper;
-import com.baidu.tieba.util.NetWork;
-import com.baidu.tieba.util.StringHelper;
-import com.baidu.tieba.util.TiebaLog;
-import com.baidu.tieba.util.UtilHelper;
+import com.baidu.tieba.a.ak;
+import com.baidu.tieba.a.am;
+import com.baidu.tieba.c.ad;
+import com.baidu.tieba.c.ae;
+import com.baidu.tieba.c.ag;
 import com.baidu.tieba.view.CustomTextView;
-import com.baidu.tieba.write.WriteActivity;
 import java.util.ArrayList;
 import org.apache.http.message.BasicNameValuePair;
 /* loaded from: classes.dex */
-public class PostActivity extends BaseActivity {
-    private static final String PARAM_PID = "pid";
-    private static final String PARAM_TID = "tid";
-    private TextView mFloorText;
-    private AsyncImageLoader mImageLoader;
-    private boolean mIsShowImages;
-    private ImageView mPhoto;
-    private TextView mRank;
-    private LinearLayout mSeg;
-    private TextView mText;
-    private int mTextConfig;
-    private TextView mTime;
-    private TextView mUserName;
-    private LinearLayout mPost = null;
-    private TextView mTitleText = null;
-    private Button mReply = null;
-    private Button mBack = null;
-    private ProgressBar mProgress = null;
-    private String mTid = null;
-    private String mPid = null;
-    private PostAsyncTask mTask = null;
-    private PbModel mModel = null;
+public class PostActivity extends com.baidu.tieba.e {
+    private LinearLayout b = null;
+    private TextView c = null;
+    private Button d = null;
+    private Button e = null;
+    private ProgressBar f = null;
+    private String g = null;
+    private String h = null;
+    private String i = null;
+    private x j = null;
+    private com.baidu.tieba.b.n k = null;
+    private com.baidu.tieba.c.a l;
+    private ImageView m;
+    private TextView n;
+    private TextView o;
+    private TextView p;
+    private TextView q;
+    private TextView r;
+    private LinearLayout s;
+    private int t;
+    private boolean u;
 
-    public static void startAcitivity(Context context, String threadId, String postId) {
+    public static void a(Context context, String str, String str2, String str3) {
         Intent intent = new Intent(context, PostActivity.class);
-        if (threadId != null && threadId.length() > 0 && postId != null && postId.length() > 0) {
-            intent.putExtra(PARAM_TID, threadId);
-            intent.putExtra(PARAM_PID, postId);
-            context.startActivity(intent);
+        if (str == null || str.length() <= 0 || str2 == null || str2.length() <= 0) {
+            return;
+        }
+        intent.putExtra("tid", str);
+        intent.putExtra("pid", str2);
+        intent.putExtra("st_type", str3);
+        context.startActivity(intent);
+    }
+
+    private void g() {
+        this.c = (TextView) findViewById(R.id.titel_text);
+        this.b = (LinearLayout) findViewById(R.id.post);
+        this.e = (Button) findViewById(R.id.back);
+        this.e.setOnClickListener(new r(this));
+        this.d = (Button) findViewById(R.id.reply);
+        this.d.setOnClickListener(new s(this));
+        this.f = (ProgressBar) findViewById(R.id.progress);
+        this.f.setVisibility(8);
+        this.m = (ImageView) findViewById(R.id.photo);
+        this.m.setOnClickListener(new t(this));
+        this.n = (TextView) findViewById(R.id.user_name);
+        this.n.getPaint().setFakeBoldText(true);
+        this.o = (TextView) findViewById(R.id.floor);
+        this.o.setVisibility(8);
+        this.p = (TextView) findViewById(R.id.rank);
+        this.q = (TextView) findViewById(R.id.time);
+        this.r = (TextView) findViewById(R.id.text);
+        this.r.setMovementMethod(LinkMovementMethod.getInstance());
+        this.r.setFocusable(false);
+        this.r.setLineSpacing(0.0f, 1.2f);
+        this.s = (LinearLayout) findViewById(R.id.seg);
+        this.n.setTextSize(com.baidu.tieba.a.h.l());
+        this.r.setTextSize(com.baidu.tieba.a.h.k());
+        this.t = TiebaApplication.a().aa();
+        this.u = TiebaApplication.a().Z();
+    }
+
+    private void h() {
+        if (this.j != null) {
+            this.j.a();
+            this.j = null;
+        }
+        if (this.l != null) {
+            this.l.b();
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void i() {
+        try {
+            StringBuffer stringBuffer = new StringBuffer(30);
+            stringBuffer.append("http://c.tieba.baidu.com/");
+            stringBuffer.append("c/f/pb/page");
+            ArrayList arrayList = new ArrayList();
+            arrayList.add(new BasicNameValuePair("kz", this.g));
+            arrayList.add(new BasicNameValuePair("pid", this.h));
+            arrayList.add(new BasicNameValuePair("mark", String.valueOf(1)));
+            arrayList.add(new BasicNameValuePair("rn", String.valueOf(1)));
+            if (this.i != null) {
+                arrayList.add(new BasicNameValuePair("st_type", this.i));
+            }
+            this.j = new x(this, stringBuffer.toString(), arrayList);
+            this.j.execute(stringBuffer.toString(), arrayList);
+        } catch (Exception e) {
+            ae.b("PbActivity", "startPbAsyncTask", "error" + e.getMessage());
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void j() {
+        ArrayList c;
+        int i;
+        int i2;
+        try {
+            if (this.k == null || this.k.a() == null || (c = this.k.a().c()) == null || c.size() <= 0) {
+                return;
+            }
+            am amVar = (am) c.get(0);
+            this.c.setText(String.format(getString(R.string.post_x_floor), Integer.valueOf(amVar.b())));
+            this.m.setVisibility(0);
+            String d = amVar.d().d();
+            if (d == null || d.length() <= 0) {
+                this.m.setImageResource(R.drawable.photo);
+            } else {
+                Bitmap b = this.l.b(d);
+                if (b != null) {
+                    this.m.setImageBitmap(b);
+                } else {
+                    this.m.setTag(d);
+                    this.m.setImageResource(R.drawable.photo);
+                }
+            }
+            if (amVar.d() == null || amVar.d().c() == null) {
+                this.n.setText((CharSequence) null);
+            } else {
+                this.n.setText(amVar.d().c());
+            }
+            if (amVar.d() == null || amVar.d().k() == 0) {
+                this.p.setText((CharSequence) null);
+            } else {
+                this.p.setText(String.valueOf(String.valueOf(amVar.d().k())) + getString(R.string.grade));
+            }
+            this.q.setText(ad.a(amVar.c()));
+            this.o.setVisibility(0);
+            this.o.setText(String.valueOf(String.valueOf(amVar.b())) + getString(R.string.floor));
+            ArrayList e = amVar.e();
+            if (e == null || e.size() <= 0) {
+                this.r.setVisibility(0);
+                this.r.setText((CharSequence) null);
+            } else {
+                com.baidu.tieba.a.j jVar = (com.baidu.tieba.a.j) e.get(0);
+                if (jVar == null || jVar.a() != 0) {
+                    i = 0;
+                } else {
+                    this.r.setVisibility(0);
+                    this.r.setText(jVar.e());
+                    i = 1;
+                }
+                int i3 = -1;
+                this.s.setVisibility(8);
+                int i4 = i;
+                while (i4 < e.size()) {
+                    this.s.setVisibility(0);
+                    com.baidu.tieba.a.j jVar2 = (com.baidu.tieba.a.j) e.get(i4);
+                    if (jVar2.a() != 3) {
+                        CustomTextView customTextView = new CustomTextView(this);
+                        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, -2);
+                        int a = ag.a((Context) this, 15.0f);
+                        layoutParams.rightMargin = 0;
+                        layoutParams.leftMargin = 0;
+                        layoutParams.topMargin = a;
+                        customTextView.setTextSize(com.baidu.tieba.a.h.k());
+                        customTextView.setTextColor(-11974584);
+                        customTextView.setText(jVar2.e());
+                        customTextView.setLineSpacing(0.0f, 1.2f);
+                        customTextView.setMovementMethod(LinkMovementMethod.getInstance());
+                        customTextView.setFocusable(false);
+                        this.s.addView(customTextView, layoutParams);
+                    } else if (this.u) {
+                        int i5 = i3 + 1;
+                        ImageView imageView = new ImageView(this);
+                        int a2 = ag.a((Context) this, 105.0f);
+                        int a3 = ag.a((Context) this, 105.0f);
+                        LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(-2, a2);
+                        layoutParams2.topMargin = ag.a((Context) this, 15.0f);
+                        Bitmap c2 = this.l.c(jVar2.f());
+                        imageView.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
+                        imageView.setMaxWidth(a3);
+                        if (c2 != null) {
+                            imageView.setTag(null);
+                            imageView.setImageBitmap(c2);
+                        } else {
+                            imageView.setTag(jVar2.f());
+                            imageView.setImageBitmap(com.baidu.tieba.c.e.a((int) R.drawable.image_default));
+                        }
+                        imageView.setClickable(true);
+                        imageView.setFocusable(false);
+                        imageView.setOnClickListener(new w(this, e, i5));
+                        this.s.addView(imageView, layoutParams2);
+                        i2 = i5;
+                        i4++;
+                        i3 = i2;
+                    }
+                    i2 = i3;
+                    i4++;
+                    i3 = i2;
+                }
+            }
+            k();
+        } catch (Exception e2) {
+            ae.b("PbActivity", "refreshActivity", "error = " + e2.getMessage());
+        }
+    }
+
+    private void k() {
+        try {
+            am amVar = (am) this.k.a().c().get(0);
+            if (amVar != null) {
+                ArrayList e = amVar.e();
+                String d = amVar.d().d();
+                if (this.k.b() && d != null && d.length() > 0) {
+                    this.l.d(d, new u(this));
+                }
+                int size = e.size();
+                if (this.u) {
+                    for (int i = 0; i < size; i++) {
+                        if (((com.baidu.tieba.a.j) e.get(i)).a() == 3) {
+                            this.l.a(((com.baidu.tieba.a.j) e.get(i)).f(), new v(this));
+                        }
+                    }
+                }
+            }
+        } catch (Exception e2) {
+            ae.b("PbActivity", "mGetImageRunnble.run", "error = " + e2.getMessage());
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.BaseActivity, android.app.Activity
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+    @Override // com.baidu.tieba.e, android.app.Activity
+    public void onCreate(Bundle bundle) {
+        super.onCreate(bundle);
         setContentView(R.layout.post_activity);
-        initUI();
-        if (savedInstanceState != null) {
-            this.mTid = savedInstanceState.getString(PARAM_TID);
-            this.mPid = savedInstanceState.getString(PARAM_PID);
+        g();
+        if (bundle != null) {
+            this.g = bundle.getString("tid");
+            this.h = bundle.getString("pid");
+            this.i = bundle.getString("st_type");
         } else {
             Intent intent = getIntent();
-            this.mTid = intent.getStringExtra(PARAM_TID);
-            this.mPid = intent.getStringExtra(PARAM_PID);
+            this.g = intent.getStringExtra("tid");
+            this.h = intent.getStringExtra("pid");
+            this.i = intent.getStringExtra("st_type");
         }
-        this.mImageLoader = new AsyncImageLoader(this);
-        this.mModel = new PbModel();
-        startAsyncTask();
+        this.l = new com.baidu.tieba.c.a(this);
+        this.k = new com.baidu.tieba.b.n();
+        i();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.BaseActivity, android.app.Activity
-    public void onResume() {
-        if (this.mTextConfig != TiebaApplication.app.getFontSize()) {
-            this.mTextConfig = TiebaApplication.app.getFontSize();
-            this.mUserName.setTextSize(Config.getNameSize());
-            this.mText.setTextSize(Config.getContentSize());
-            refreshActivity();
+    @Override // com.baidu.tieba.e, android.app.Activity
+    public void onDestroy() {
+        super.onDestroy();
+        try {
+            h();
+            if (this.k != null) {
+                if (this.k.a() != null) {
+                    this.k.a((ak) null);
+                }
+                this.k = null;
+            }
+            this.f.setVisibility(8);
+            System.gc();
+        } catch (Exception e) {
+            ae.b(getClass().getName(), "onDestroy", e.getMessage());
         }
-        if (this.mIsShowImages != TiebaApplication.app.isShowImages()) {
-            this.mIsShowImages = TiebaApplication.app.isShowImages();
-            refreshActivity();
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.tieba.e, android.app.Activity
+    public void onResume() {
+        if (this.t != TiebaApplication.a().aa()) {
+            this.t = TiebaApplication.a().aa();
+            this.n.setTextSize(com.baidu.tieba.a.h.l());
+            this.r.setTextSize(com.baidu.tieba.a.h.k());
+            j();
+        }
+        if (this.u != TiebaApplication.a().Z()) {
+            this.u = TiebaApplication.a().Z();
+            j();
         }
         super.onResume();
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.BaseActivity, android.app.Activity
-    public void onDestroy() {
-        super.onDestroy();
-        try {
-            cancelAsyncTask();
-            if (this.mModel != null) {
-                if (this.mModel.getData() != null) {
-                    this.mModel.setData(null);
-                }
-                this.mModel = null;
-            }
-            this.mProgress.setVisibility(8);
-            System.gc();
-        } catch (Exception e) {
-        }
-    }
-
     @Override // android.app.Activity
-    protected void onSaveInstanceState(Bundle outState) {
-        super.onSaveInstanceState(outState);
-        outState.putString(PARAM_TID, this.mTid);
-        outState.putString(PARAM_PID, this.mPid);
-    }
-
-    private void initUI() {
-        this.mTitleText = (TextView) findViewById(R.id.titel_text);
-        this.mPost = (LinearLayout) findViewById(R.id.post);
-        this.mBack = (Button) findViewById(R.id.back);
-        this.mBack.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.mention.PostActivity.1
-            @Override // android.view.View.OnClickListener
-            public void onClick(View v) {
-                PostActivity.this.finish();
-            }
-        });
-        this.mReply = (Button) findViewById(R.id.reply);
-        this.mReply.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.mention.PostActivity.2
-            @Override // android.view.View.OnClickListener
-            public void onClick(View v) {
-                if (PostActivity.this.mModel != null && PostActivity.this.mModel.getData() != null) {
-                    PbData data = PostActivity.this.mModel.getData();
-                    PostData post = data.getPost_list().get(0);
-                    if (post != null) {
-                        WriteActivity.startAcitivity(PostActivity.this, data.getForum().getId(), data.getForum().getName(), data.getThread().getId(), post.getId(), post.getFloor_num(), data.getAnti(), PostActivity.this.mModel.getData().getIsHasFloor());
-                    }
-                }
-            }
-        });
-        this.mProgress = (ProgressBar) findViewById(R.id.progress);
-        this.mProgress.setVisibility(8);
-        this.mPhoto = (ImageView) findViewById(R.id.photo);
-        this.mPhoto.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.mention.PostActivity.3
-            @Override // android.view.View.OnClickListener
-            public void onClick(View v) {
-                if (PostActivity.this.mModel != null && PostActivity.this.mModel.getData() != null) {
-                    PbData data = PostActivity.this.mModel.getData();
-                    PostData post = data.getPost_list().get(0);
-                    if (post != null) {
-                        PersonInfoActivity.startActivity(PostActivity.this, post.getAuthor().getId(), post.getAuthor().getName());
-                    }
-                }
-            }
-        });
-        this.mUserName = (TextView) findViewById(R.id.user_name);
-        this.mUserName.getPaint().setFakeBoldText(true);
-        this.mFloorText = (TextView) findViewById(R.id.floor);
-        this.mFloorText.setVisibility(8);
-        this.mRank = (TextView) findViewById(R.id.rank);
-        this.mTime = (TextView) findViewById(R.id.time);
-        this.mText = (TextView) findViewById(R.id.text);
-        this.mText.setMovementMethod(LinkMovementMethod.getInstance());
-        this.mText.setFocusable(false);
-        this.mText.setLineSpacing(0.0f, 1.2f);
-        this.mSeg = (LinearLayout) findViewById(R.id.seg);
-        this.mUserName.setTextSize(Config.getNameSize());
-        this.mText.setTextSize(Config.getContentSize());
-        this.mTextConfig = TiebaApplication.app.getFontSize();
-        this.mIsShowImages = TiebaApplication.app.isShowImages();
-    }
-
-    private void cancelAsyncTask() {
-        if (this.mTask != null) {
-            this.mTask.cancel();
-            this.mTask = null;
-        }
-        if (this.mImageLoader != null) {
-            this.mImageLoader.cancelAllAsyncTask();
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void startAsyncTask() {
-        try {
-            StringBuffer address = new StringBuffer(30);
-            address.append(Config.SERVER_ADDRESS);
-            address.append(Config.PB_ADDRESS);
-            ArrayList<BasicNameValuePair> param = new ArrayList<>();
-            BasicNameValuePair theme = new BasicNameValuePair("kz", this.mTid);
-            param.add(theme);
-            BasicNameValuePair theme2 = new BasicNameValuePair(PARAM_PID, this.mPid);
-            param.add(theme2);
-            BasicNameValuePair theme3 = new BasicNameValuePair("mark", String.valueOf(1));
-            param.add(theme3);
-            BasicNameValuePair theme4 = new BasicNameValuePair("rn", String.valueOf(1));
-            param.add(theme4);
-            this.mTask = new PostAsyncTask(address.toString(), param);
-            this.mTask.execute(address.toString(), param);
-        } catch (Exception ex) {
-            TiebaLog.e("PbActivity", "startPbAsyncTask", "error" + ex.getMessage());
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void refreshActivity() {
-        ArrayList<PostData> list;
-        try {
-            if (this.mModel != null && this.mModel.getData() != null && (list = this.mModel.getData().getPost_list()) != null && list.size() > 0) {
-                PostData post = list.get(0);
-                String floor = String.format(getString(R.string.post_x_floor), Integer.valueOf(post.getFloor_num()));
-                this.mTitleText.setText(floor);
-                this.mPhoto.setVisibility(0);
-                String portrait = post.getAuthor().getPortrait();
-                if (portrait != null && portrait.length() > 0) {
-                    Bitmap bm = this.mImageLoader.getPhoto(portrait);
-                    if (bm != null) {
-                        this.mPhoto.setImageBitmap(bm);
-                    } else {
-                        this.mPhoto.setTag(portrait);
-                        this.mPhoto.setImageResource(R.drawable.photo);
-                    }
-                } else {
-                    this.mPhoto.setImageResource(R.drawable.photo);
-                }
-                if (post.getAuthor() != null && post.getAuthor().getName_show() != null) {
-                    this.mUserName.setText(post.getAuthor().getName_show());
-                } else {
-                    this.mUserName.setText((CharSequence) null);
-                }
-                if (post.getAuthor() != null && post.getAuthor().getLevel_id() != 0) {
-                    this.mRank.setText(String.valueOf(String.valueOf(post.getAuthor().getLevel_id())) + getString(R.string.grade));
-                } else {
-                    this.mRank.setText((CharSequence) null);
-                }
-                this.mTime.setText(StringHelper.getTimeString(post.getTime()));
-                this.mFloorText.setVisibility(0);
-                this.mFloorText.setText(String.valueOf(String.valueOf(post.getFloor_num())) + getString(R.string.floor));
-                ArrayList<ContentData> content = post.getUnite_content();
-                if (content != null && content.size() > 0) {
-                    int i = 0;
-                    ContentData seg = content.get(0);
-                    if (seg != null && seg.getType() == 0) {
-                        this.mText.setVisibility(0);
-                        this.mText.setText(seg.getUniteString());
-                        i = 0 + 1;
-                    }
-                    int index = -1;
-                    this.mSeg.setVisibility(8);
-                    while (i < content.size()) {
-                        this.mSeg.setVisibility(0);
-                        ContentData seg2 = content.get(i);
-                        if (seg2.getType() == 3) {
-                            if (this.mIsShowImages) {
-                                index++;
-                                ImageView imageView = new ImageView(this);
-                                int height = UtilHelper.dip2px(this, 105.0f);
-                                int width = UtilHelper.dip2px(this, 105.0f);
-                                LinearLayout.LayoutParams imageViewparams = new LinearLayout.LayoutParams(-2, height);
-                                int px_v = UtilHelper.dip2px(this, 15.0f);
-                                imageViewparams.topMargin = px_v;
-                                Bitmap image = this.mImageLoader.getPic(seg2.getLink());
-                                imageView.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
-                                imageView.setMaxWidth(width);
-                                if (image != null) {
-                                    imageView.setTag(null);
-                                    imageView.setImageBitmap(image);
-                                } else {
-                                    imageView.setTag(seg2.getLink());
-                                    imageView.setImageBitmap(BitmapHelper.getCashBitmap(R.drawable.image_default));
-                                }
-                                imageView.setClickable(true);
-                                imageView.setFocusable(false);
-                                ImageOnClickListener listern = new ImageOnClickListener(content, index);
-                                imageView.setOnClickListener(listern);
-                                this.mSeg.addView(imageView, imageViewparams);
-                            }
-                        } else {
-                            CustomTextView textView = new CustomTextView(this);
-                            LinearLayout.LayoutParams textViewparams = new LinearLayout.LayoutParams(-1, -2);
-                            int px_v2 = UtilHelper.dip2px(this, 15.0f);
-                            textViewparams.rightMargin = 0;
-                            textViewparams.leftMargin = 0;
-                            textViewparams.topMargin = px_v2;
-                            textView.setTextSize(Config.getContentSize());
-                            textView.setTextColor(-11974584);
-                            textView.setText(seg2.getUniteString());
-                            textView.setLineSpacing(0.0f, 1.2f);
-                            textView.setMovementMethod(LinkMovementMethod.getInstance());
-                            textView.setFocusable(false);
-                            this.mSeg.addView(textView, textViewparams);
-                        }
-                        i++;
-                    }
-                } else {
-                    this.mText.setVisibility(0);
-                    this.mText.setText((CharSequence) null);
-                }
-                refreshPhoto();
-            }
-        } catch (Exception ex) {
-            TiebaLog.e("PbActivity", "refreshActivity", "error = " + ex.getMessage());
-        }
-    }
-
-    private void refreshPhoto() {
-        try {
-            ArrayList<PostData> list = this.mModel.getData().getPost_list();
-            PostData data = list.get(0);
-            if (data != null) {
-                ArrayList<ContentData> content = data.getUnite_content();
-                String authorPhoto = data.getAuthor().getPortrait();
-                if (this.mModel.getIsDisplayPhoto() && authorPhoto != null && authorPhoto.length() > 0) {
-                    this.mImageLoader.loadPbPhoto(authorPhoto, new AsyncImageLoader.ImageCallback() { // from class: com.baidu.tieba.mention.PostActivity.4
-                        @Override // com.baidu.tieba.util.AsyncImageLoader.ImageCallback
-                        public void imageLoaded(Bitmap bitmap, String imageUrl, boolean iscached) {
-                            ImageView view = (ImageView) PostActivity.this.mPost.findViewWithTag(imageUrl);
-                            while (view != null) {
-                                view.setTag(null);
-                                if (view != null && bitmap != null) {
-                                    view.setImageBitmap(bitmap);
-                                }
-                                view = (ImageView) PostActivity.this.mPost.findViewWithTag(imageUrl);
-                            }
-                        }
-                    });
-                }
-                int contentSize = content.size();
-                if (this.mIsShowImages) {
-                    for (int j = 0; j < contentSize; j++) {
-                        if (content.get(j).getType() == 3) {
-                            this.mImageLoader.loadImage(content.get(j).getLink(), new AsyncImageLoader.ImageCallback() { // from class: com.baidu.tieba.mention.PostActivity.5
-                                @Override // com.baidu.tieba.util.AsyncImageLoader.ImageCallback
-                                public void imageLoaded(Bitmap bitmap, String imageUrl, boolean iscached) {
-                                    ImageView view = (ImageView) PostActivity.this.mPost.findViewWithTag(imageUrl);
-                                    while (view != null) {
-                                        view.setTag(null);
-                                        if (view != null && bitmap != null) {
-                                            view.setImageBitmap(bitmap);
-                                        }
-                                        view = (ImageView) PostActivity.this.mPost.findViewWithTag(imageUrl);
-                                    }
-                                }
-                            });
-                        }
-                    }
-                }
-            }
-        } catch (Exception ex) {
-            TiebaLog.e("PbActivity", "mGetImageRunnble.run", "error = " + ex.getMessage());
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes.dex */
-    public class PostAsyncTask extends AsyncTask<Object, Integer, PbData> {
-        private NetWork mNetwork = null;
-        ArrayList<BasicNameValuePair> mParam;
-        private String mUrl;
-
-        public PostAsyncTask(String url, ArrayList<BasicNameValuePair> param) {
-            this.mUrl = null;
-            this.mParam = null;
-            this.mUrl = url;
-            this.mParam = param;
-        }
-
-        @Override // android.os.AsyncTask
-        protected void onPreExecute() {
-            PostActivity.this.mProgress.setVisibility(0);
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        /* JADX INFO: Access modifiers changed from: protected */
-        /* JADX WARN: Can't rename method to resolve collision */
-        @Override // android.os.AsyncTask
-        public PbData doInBackground(Object... params) {
-            PbData pbData = null;
-            try {
-                this.mNetwork = new NetWork(this.mUrl);
-                this.mNetwork.setPostData(this.mParam);
-                String data = this.mNetwork.postNetData();
-                if (!this.mNetwork.isRequestSuccess()) {
-                    return null;
-                }
-                PbData pbData2 = new PbData();
-                try {
-                    pbData2.parserJson(data);
-                    int size = pbData2.getPost_list().size();
-                    for (int i = 0; i < size; i++) {
-                        pbData2.getPost_list().get(i).uniteContent(PostActivity.this);
-                        pbData2.getPost_list().get(i).setContent(null);
-                    }
-                    return pbData2;
-                } catch (Exception e) {
-                    ex = e;
-                    pbData = pbData2;
-                    TiebaLog.e("PostAsyncTask", "doInBackground", "error = " + ex.getMessage());
-                    return pbData;
-                }
-            } catch (Exception e2) {
-                ex = e2;
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        /* JADX INFO: Access modifiers changed from: protected */
-        @Override // android.os.AsyncTask
-        public void onPostExecute(PbData data) {
-            try {
-                PostActivity.this.mProgress.setVisibility(8);
-                if (data != null) {
-                    PostActivity.this.mModel.setData(data);
-                } else if (this.mNetwork != null) {
-                    if (this.mNetwork.isNetSuccess()) {
-                        PostActivity.this.showToast(this.mNetwork.getErrorString());
-                        if (this.mNetwork.getErrorCode() == 4 || this.mNetwork.getErrorCode() == 28 || this.mNetwork.getErrorCode() == 29) {
-                            PostActivity.this.finish();
-                            return;
-                        }
-                    } else {
-                        AlertDialog.Builder builder = new AlertDialog.Builder(PostActivity.this);
-                        builder.setTitle(PostActivity.this.getString(R.string.error));
-                        builder.setMessage(this.mNetwork.getErrorString());
-                        builder.setPositiveButton(PostActivity.this.getString(R.string.retry), new DialogInterface.OnClickListener() { // from class: com.baidu.tieba.mention.PostActivity.PostAsyncTask.1
-                            @Override // android.content.DialogInterface.OnClickListener
-                            public void onClick(DialogInterface dialog, int which) {
-                                PostActivity.this.startAsyncTask();
-                            }
-                        });
-                        builder.setNegativeButton(PostActivity.this.getString(R.string.cancel), new DialogInterface.OnClickListener() { // from class: com.baidu.tieba.mention.PostActivity.PostAsyncTask.2
-                            @Override // android.content.DialogInterface.OnClickListener
-                            public void onClick(DialogInterface dialog, int which) {
-                                dialog.dismiss();
-                            }
-                        });
-                        builder.create().show();
-                    }
-                }
-                PostActivity.this.refreshActivity();
-            } catch (Exception e) {
-            }
-            PostActivity.this.mTask = null;
-        }
-
-        @Override // android.os.AsyncTask
-        protected void onCancelled() {
-            super.onCancelled();
-        }
-
-        public void cancel() {
-            if (this.mNetwork != null) {
-                this.mNetwork.cancelNetConnect();
-            }
-            PostActivity.this.mProgress.setVisibility(8);
-            super.cancel(true);
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes.dex */
-    public class ImageOnClickListener implements View.OnClickListener {
-        private ArrayList<ContentData> mContent;
-        private int mIndex;
-
-        public ImageOnClickListener(ArrayList<ContentData> content, int index) {
-            this.mContent = content;
-            this.mIndex = index;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View v) {
-            try {
-                ArrayList<String> data = new ArrayList<>();
-                for (int i = 0; i < this.mContent.size(); i++) {
-                    if (this.mContent.get(i).getType() == 3) {
-                        StringBuffer buffer = new StringBuffer(100);
-                        buffer.append("size=");
-                        buffer.append(Config.THREAD_IMAGE_MAX_WIDTH);
-                        buffer.append("&src=");
-                        String encode = StringHelper.getUrlEncode(this.mContent.get(i).getLink());
-                        buffer.append(encode);
-                        data.add(buffer.toString());
-                    }
-                }
-                ImageActivity.startActivity(PostActivity.this, data, this.mIndex, PostActivity.this.mModel);
-            } catch (Exception ex) {
-                TiebaLog.e("PbAdapter", "ImageOnClickListener", "error = " + ex.getMessage());
-            }
-        }
+    protected void onSaveInstanceState(Bundle bundle) {
+        super.onSaveInstanceState(bundle);
+        bundle.putString("tid", this.g);
+        bundle.putString("pid", this.h);
     }
 }

@@ -6,15 +6,15 @@ public class SDCardFullException extends Exception {
     public SDCardFullException() {
     }
 
-    public SDCardFullException(String msg) {
-        super(msg);
+    public SDCardFullException(String str) {
+        super(str);
     }
 
-    public SDCardFullException(Throwable cause) {
-        super(cause);
+    public SDCardFullException(String str, Throwable th) {
+        super(str, th);
     }
 
-    public SDCardFullException(String msg, Throwable cause) {
-        super(msg, cause);
+    public SDCardFullException(Throwable th) {
+        super(th);
     }
 }

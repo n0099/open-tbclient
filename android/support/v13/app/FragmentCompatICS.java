@@ -6,7 +6,7 @@ class FragmentCompatICS {
     FragmentCompatICS() {
     }
 
-    public static void setMenuVisibility(Fragment f, boolean visible) {
-        f.setMenuVisibility(visible);
+    public static void setMenuVisibility(Fragment fragment, boolean z) {
+        fragment.setMenuVisibility(z);
     }
 }

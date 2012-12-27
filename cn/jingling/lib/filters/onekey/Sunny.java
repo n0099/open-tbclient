@@ -9,23 +9,17 @@ import cn.jingling.lib.filters.OneKeyFilter;
 /* loaded from: classes.dex */
 public class Sunny extends OneKeyFilter {
     @Override // cn.jingling.lib.filters.OneKeyFilter
-    public Bitmap apply(Context cx, Bitmap bm) {
-        Bitmap layer;
-        int w = bm.getWidth();
-        int h = bm.getHeight();
-        int[] pixels = new int[w * h];
-        bm.getPixels(pixels, 0, w, 0, 0, w, h);
-        int[] layerPixels = new int[w * h];
-        if (w < 200) {
-            layer = Layer.getLayerImage(cx, "layers/sunnysmall", w, h, Layer.Type.ROTATABLE);
-        } else {
-            layer = Layer.getLayerImage(cx, "layers/sunny", w, h, Layer.Type.ROTATABLE);
-        }
-        layer.getPixels(layerPixels, 0, w, 0, 0, w, h);
-        CMTProcessor.screenEffect(pixels, layerPixels, w, h);
-        Curve curve = new Curve(cx, "curves/sunny.dat");
-        CMTProcessor.curveEffect(pixels, curve.getCurveRed(), curve.getCurveGreen(), curve.getCurveBlue(), w, h);
-        bm.setPixels(pixels, 0, w, 0, 0, w, h);
-        return bm;
+    public Bitmap apply(Context context, Bitmap bitmap) {
+        int width = bitmap.getWidth();
+        int height = bitmap.getHeight();
+        int[] iArr = new int[width * height];
+        bitmap.getPixels(iArr, 0, width, 0, 0, width, height);
+        int[] iArr2 = new int[width * height];
+        (width < 200 ? Layer.getLayerImage(context, "layers/sunnysmall", width, height, Layer.Type.ROTATABLE) : Layer.getLayerImage(context, "layers/sunny", width, height, Layer.Type.ROTATABLE)).getPixels(iArr2, 0, width, 0, 0, width, height);
+        CMTProcessor.screenEffect(iArr, iArr2, width, height);
+        Curve curve = new Curve(context, "curves/sunny.dat");
+        CMTProcessor.curveEffect(iArr, curve.getCurveRed(), curve.getCurveGreen(), curve.getCurveBlue(), width, height);
+        bitmap.setPixels(iArr, 0, width, 0, 0, width, height);
+        return bitmap;
     }
 }

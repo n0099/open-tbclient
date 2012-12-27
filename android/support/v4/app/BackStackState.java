@@ -2,156 +2,132 @@ package android.support.v4.app;
 
 import android.os.Parcel;
 import android.os.Parcelable;
-import android.support.v4.app.BackStackRecord;
 import android.text.TextUtils;
 import android.util.Log;
 import java.util.ArrayList;
-/* JADX INFO: Access modifiers changed from: package-private */
-/* compiled from: BackStackRecord.java */
 /* loaded from: classes.dex */
-public final class BackStackState implements Parcelable {
-    public static final Parcelable.Creator<BackStackState> CREATOR = new Parcelable.Creator<BackStackState>() { // from class: android.support.v4.app.BackStackState.1
-        /* JADX DEBUG: Method merged with bridge method */
-        /* JADX WARN: Can't rename method to resolve collision */
-        @Override // android.os.Parcelable.Creator
-        public BackStackState createFromParcel(Parcel in) {
-            return new BackStackState(in);
-        }
+final class BackStackState implements Parcelable {
+    public static final Parcelable.Creator CREATOR = new d();
+    final int[] a;
+    final int b;
+    final int c;
+    final String d;
+    final int e;
+    final int f;
+    final CharSequence g;
+    final int h;
+    final CharSequence i;
 
-        /* JADX DEBUG: Method merged with bridge method */
-        /* JADX WARN: Can't rename method to resolve collision */
-        @Override // android.os.Parcelable.Creator
-        public BackStackState[] newArray(int size) {
-            return new BackStackState[size];
-        }
-    };
-    final int mBreadCrumbShortTitleRes;
-    final CharSequence mBreadCrumbShortTitleText;
-    final int mBreadCrumbTitleRes;
-    final CharSequence mBreadCrumbTitleText;
-    final int mIndex;
-    final String mName;
-    final int[] mOps;
-    final int mTransition;
-    final int mTransitionStyle;
+    public BackStackState(Parcel parcel) {
+        this.a = parcel.createIntArray();
+        this.b = parcel.readInt();
+        this.c = parcel.readInt();
+        this.d = parcel.readString();
+        this.e = parcel.readInt();
+        this.f = parcel.readInt();
+        this.g = (CharSequence) TextUtils.CHAR_SEQUENCE_CREATOR.createFromParcel(parcel);
+        this.h = parcel.readInt();
+        this.i = (CharSequence) TextUtils.CHAR_SEQUENCE_CREATOR.createFromParcel(parcel);
+    }
 
-    public BackStackState(FragmentManagerImpl fm, BackStackRecord bse) {
-        int pos;
-        int numRemoved = 0;
-        for (BackStackRecord.Op op = bse.mHead; op != null; op = op.next) {
-            if (op.removed != null) {
-                numRemoved += op.removed.size();
+    public BackStackState(l lVar, b bVar) {
+        int i = 0;
+        for (c cVar = bVar.b; cVar != null; cVar = cVar.a) {
+            if (cVar.i != null) {
+                i += cVar.i.size();
             }
         }
-        this.mOps = new int[(bse.mNumOp * 7) + numRemoved];
-        if (!bse.mAddToBackStack) {
+        this.a = new int[i + (bVar.d * 7)];
+        if (!bVar.k) {
             throw new IllegalStateException("Not on back stack");
         }
-        BackStackRecord.Op op2 = bse.mHead;
-        int pos2 = 0;
-        while (op2 != null) {
-            int pos3 = pos2 + 1;
-            this.mOps[pos2] = op2.cmd;
-            int pos4 = pos3 + 1;
-            this.mOps[pos3] = op2.fragment.mIndex;
-            int pos5 = pos4 + 1;
-            this.mOps[pos4] = op2.enterAnim;
-            int pos6 = pos5 + 1;
-            this.mOps[pos5] = op2.exitAnim;
-            int pos7 = pos6 + 1;
-            this.mOps[pos6] = op2.popEnterAnim;
-            int pos8 = pos7 + 1;
-            this.mOps[pos7] = op2.popExitAnim;
-            if (op2.removed != null) {
-                int N = op2.removed.size();
-                this.mOps[pos8] = N;
-                int i = 0;
-                int pos9 = pos8 + 1;
-                while (i < N) {
-                    this.mOps[pos9] = op2.removed.get(i).mIndex;
-                    i++;
-                    pos9++;
+        int i2 = 0;
+        for (c cVar2 = bVar.b; cVar2 != null; cVar2 = cVar2.a) {
+            int i3 = i2 + 1;
+            this.a[i2] = cVar2.c;
+            int i4 = i3 + 1;
+            this.a[i3] = cVar2.d.n;
+            int i5 = i4 + 1;
+            this.a[i4] = cVar2.e;
+            int i6 = i5 + 1;
+            this.a[i5] = cVar2.f;
+            int i7 = i6 + 1;
+            this.a[i6] = cVar2.g;
+            int i8 = i7 + 1;
+            this.a[i7] = cVar2.h;
+            if (cVar2.i != null) {
+                int size = cVar2.i.size();
+                int i9 = i8 + 1;
+                this.a[i8] = size;
+                int i10 = 0;
+                while (i10 < size) {
+                    this.a[i9] = ((Fragment) cVar2.i.get(i10)).n;
+                    i10++;
+                    i9++;
                 }
-                pos = pos9;
+                i2 = i9;
             } else {
-                pos = pos8 + 1;
-                this.mOps[pos8] = 0;
+                i2 = i8 + 1;
+                this.a[i8] = 0;
             }
-            op2 = op2.next;
-            pos2 = pos;
         }
-        this.mTransition = bse.mTransition;
-        this.mTransitionStyle = bse.mTransitionStyle;
-        this.mName = bse.mName;
-        this.mIndex = bse.mIndex;
-        this.mBreadCrumbTitleRes = bse.mBreadCrumbTitleRes;
-        this.mBreadCrumbTitleText = bse.mBreadCrumbTitleText;
-        this.mBreadCrumbShortTitleRes = bse.mBreadCrumbShortTitleRes;
-        this.mBreadCrumbShortTitleText = bse.mBreadCrumbShortTitleText;
+        this.b = bVar.i;
+        this.c = bVar.j;
+        this.d = bVar.m;
+        this.e = bVar.o;
+        this.f = bVar.p;
+        this.g = bVar.q;
+        this.h = bVar.r;
+        this.i = bVar.s;
     }
 
-    public BackStackState(Parcel in) {
-        this.mOps = in.createIntArray();
-        this.mTransition = in.readInt();
-        this.mTransitionStyle = in.readInt();
-        this.mName = in.readString();
-        this.mIndex = in.readInt();
-        this.mBreadCrumbTitleRes = in.readInt();
-        this.mBreadCrumbTitleText = (CharSequence) TextUtils.CHAR_SEQUENCE_CREATOR.createFromParcel(in);
-        this.mBreadCrumbShortTitleRes = in.readInt();
-        this.mBreadCrumbShortTitleText = (CharSequence) TextUtils.CHAR_SEQUENCE_CREATOR.createFromParcel(in);
-    }
-
-    public BackStackRecord instantiate(FragmentManagerImpl fm) {
-        BackStackRecord bse = new BackStackRecord(fm);
-        int pos = 0;
-        while (pos < this.mOps.length) {
-            BackStackRecord.Op op = new BackStackRecord.Op();
-            int pos2 = pos + 1;
-            op.cmd = this.mOps[pos];
-            if (FragmentManagerImpl.DEBUG) {
-                Log.v("FragmentManager", "BSE " + bse + " set base fragment #" + this.mOps[pos2]);
+    public b a(l lVar) {
+        b bVar = new b(lVar);
+        int i = 0;
+        while (i < this.a.length) {
+            c cVar = new c();
+            int i2 = i + 1;
+            cVar.c = this.a[i];
+            if (l.a) {
+                Log.v("FragmentManager", "BSE " + bVar + " set base fragment #" + this.a[i2]);
             }
-            int pos3 = pos2 + 1;
-            Fragment f = fm.mActive.get(this.mOps[pos2]);
-            op.fragment = f;
-            int pos4 = pos3 + 1;
-            op.enterAnim = this.mOps[pos3];
-            int pos5 = pos4 + 1;
-            op.exitAnim = this.mOps[pos4];
-            int pos6 = pos5 + 1;
-            op.popEnterAnim = this.mOps[pos5];
-            int pos7 = pos6 + 1;
-            op.popExitAnim = this.mOps[pos6];
-            int pos8 = pos7 + 1;
-            int N = this.mOps[pos7];
-            if (N > 0) {
-                op.removed = new ArrayList<>(N);
-                int i = 0;
-                while (i < N) {
-                    if (FragmentManagerImpl.DEBUG) {
-                        Log.v("FragmentManager", "BSE " + bse + " set remove fragment #" + this.mOps[pos8]);
+            int i3 = i2 + 1;
+            cVar.d = (Fragment) lVar.f.get(this.a[i2]);
+            int i4 = i3 + 1;
+            cVar.e = this.a[i3];
+            int i5 = i4 + 1;
+            cVar.f = this.a[i4];
+            int i6 = i5 + 1;
+            cVar.g = this.a[i5];
+            int i7 = i6 + 1;
+            cVar.h = this.a[i6];
+            i = i7 + 1;
+            int i8 = this.a[i7];
+            if (i8 > 0) {
+                cVar.i = new ArrayList(i8);
+                int i9 = 0;
+                while (i9 < i8) {
+                    if (l.a) {
+                        Log.v("FragmentManager", "BSE " + bVar + " set remove fragment #" + this.a[i]);
                     }
-                    Fragment r = fm.mActive.get(this.mOps[pos8]);
-                    op.removed.add(r);
+                    cVar.i.add((Fragment) lVar.f.get(this.a[i]));
+                    i9++;
                     i++;
-                    pos8++;
                 }
             }
-            pos = pos8;
-            bse.addOp(op);
+            bVar.a(cVar);
         }
-        bse.mTransition = this.mTransition;
-        bse.mTransitionStyle = this.mTransitionStyle;
-        bse.mName = this.mName;
-        bse.mIndex = this.mIndex;
-        bse.mAddToBackStack = true;
-        bse.mBreadCrumbTitleRes = this.mBreadCrumbTitleRes;
-        bse.mBreadCrumbTitleText = this.mBreadCrumbTitleText;
-        bse.mBreadCrumbShortTitleRes = this.mBreadCrumbShortTitleRes;
-        bse.mBreadCrumbShortTitleText = this.mBreadCrumbShortTitleText;
-        bse.bumpBackStackNesting(1);
-        return bse;
+        bVar.i = this.b;
+        bVar.j = this.c;
+        bVar.m = this.d;
+        bVar.o = this.e;
+        bVar.k = true;
+        bVar.p = this.f;
+        bVar.q = this.g;
+        bVar.r = this.h;
+        bVar.s = this.i;
+        bVar.a(1);
+        return bVar;
     }
 
     @Override // android.os.Parcelable
@@ -160,15 +136,15 @@ public final class BackStackState implements Parcelable {
     }
 
     @Override // android.os.Parcelable
-    public void writeToParcel(Parcel dest, int flags) {
-        dest.writeIntArray(this.mOps);
-        dest.writeInt(this.mTransition);
-        dest.writeInt(this.mTransitionStyle);
-        dest.writeString(this.mName);
-        dest.writeInt(this.mIndex);
-        dest.writeInt(this.mBreadCrumbTitleRes);
-        TextUtils.writeToParcel(this.mBreadCrumbTitleText, dest, 0);
-        dest.writeInt(this.mBreadCrumbShortTitleRes);
-        TextUtils.writeToParcel(this.mBreadCrumbShortTitleText, dest, 0);
+    public void writeToParcel(Parcel parcel, int i) {
+        parcel.writeIntArray(this.a);
+        parcel.writeInt(this.b);
+        parcel.writeInt(this.c);
+        parcel.writeString(this.d);
+        parcel.writeInt(this.e);
+        parcel.writeInt(this.f);
+        TextUtils.writeToParcel(this.g, parcel, 0);
+        parcel.writeInt(this.h);
+        TextUtils.writeToParcel(this.i, parcel, 0);
     }
 }

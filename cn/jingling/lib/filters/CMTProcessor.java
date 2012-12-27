@@ -1,6 +1,10 @@
 package cn.jingling.lib.filters;
 /* loaded from: classes.dex */
 public class CMTProcessor {
+    static {
+        System.loadLibrary("mtprocessor-jni");
+    }
+
     public static native void alphaCompositeEffect(int[] iArr, int[] iArr2, int i, int i2, int i3);
 
     public static native void autoLevels(int[] iArr, int i, int i2);
@@ -112,8 +116,4 @@ public class CMTProcessor {
     public static native void yuv420sp2rgb(int[] iArr, byte[] bArr, int i, int i2);
 
     public static native void yuv420sp2rgb2(byte[] bArr, int i, int i2, int i3, byte[] bArr2, int i4, byte[] bArr3, byte[] bArr4, byte[] bArr5);
-
-    static {
-        System.loadLibrary("mtprocessor-jni");
-    }
 }

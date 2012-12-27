@@ -2,7 +2,6 @@ package cn.jingling.lib.filters;
 
 import android.graphics.Bitmap;
 import android.graphics.Color;
-import android.support.v4.view.MotionEventCompat;
 /* loaded from: classes.dex */
 public class ImageSelection {
     private static /* synthetic */ int[] $SWITCH_TABLE$cn$jingling$lib$filters$ImageSelection$Align;
@@ -48,9 +47,9 @@ public class ImageSelection {
         return iArr;
     }
 
-    public ImageSelection(int width, int height) {
-        this.mWidth = width;
-        this.mHeight = height;
+    public ImageSelection(int i, int i2) {
+        this.mWidth = i;
+        this.mHeight = i2;
         this.mSelection = new int[this.mWidth * this.mHeight];
     }
 
@@ -64,21 +63,42 @@ public class ImageSelection {
         }
     }
 
-    public Bitmap getSelectedBitmap(Bitmap bm) {
-        int w = bm.getWidth();
-        int h = bm.getHeight();
-        int[] pixels = new int[w * h];
-        bm.getPixels(pixels, 0, w, 0, 0, w, h);
-        for (int i = 0; i < w * h; i++) {
-            int c = pixels[i];
-            pixels[i] = Color.argb(this.mSelection[i], Color.red(c), Color.green(c), Color.blue(c));
-        }
-        Bitmap rst = Bitmap.createBitmap(pixels, w, h, bm.getConfig());
-        return rst;
+    private int dist2(int i, int i2, int i3, int i4) {
+        return ((i - i3) * (i - i3)) + ((i2 - i4) * (i2 - i4));
     }
 
-    public int getWidth() {
-        return this.mWidth;
+    private int getSquareFeatherValue(int i, int i2, int i3, int i4, int i5) {
+        if (i5 == 0) {
+            return 255;
+        }
+        double d = i3 < i5 ? (1.0d * i3) / i5 : 1.0d;
+        if (i3 > i - i5) {
+            d = (d * (i - i3)) / i5;
+        }
+        if (i4 < i5) {
+            d = (d * i4) / i5;
+        }
+        if (i4 > i2 - i5) {
+            d = (d * (i2 - i4)) / i5;
+        }
+        return (int) (d * 255.0d);
+    }
+
+    private boolean isOutTheCorner(int i, int i2, int i3, int i4, int i5) {
+        if (i5 == 0) {
+            return false;
+        }
+        int i6 = i5 * i5;
+        if (i3 >= i5 || i4 >= i5 || dist2(i3, i4, i5, i5) <= i6) {
+            if (i3 <= i - i5 || i4 >= i5 || dist2(i3, i4, i - i5, i5) <= i6) {
+                if (i3 >= i5 || i4 <= i2 - i5 || dist2(i3, i4, i5, i2 - i5) <= i6) {
+                    return i3 > i - i5 && i4 > i2 - i5 && dist2(i3, i4, i - i5, i2 - i5) > i6;
+                }
+                return true;
+            }
+            return true;
+        }
+        return true;
     }
 
     public int getHeight() {
@@ -89,10 +109,20 @@ public class ImageSelection {
         return this.mSelection;
     }
 
-    public void selectAll() {
-        for (int i = 0; i < this.mWidth * this.mHeight; i++) {
-            this.mSelection[i] = 255;
+    public Bitmap getSelectedBitmap(Bitmap bitmap) {
+        int width = bitmap.getWidth();
+        int height = bitmap.getHeight();
+        int[] iArr = new int[width * height];
+        bitmap.getPixels(iArr, 0, width, 0, 0, width, height);
+        for (int i = 0; i < width * height; i++) {
+            int i2 = iArr[i];
+            iArr[i] = Color.argb(this.mSelection[i], Color.red(i2), Color.green(i2), Color.blue(i2));
         }
+        return Bitmap.createBitmap(iArr, width, height, bitmap.getConfig());
+    }
+
+    public int getWidth() {
+        return this.mWidth;
     }
 
     public void reverse() {
@@ -101,128 +131,102 @@ public class ImageSelection {
         }
     }
 
-    public void setPoint(int x, int y, int value) {
-        this.mSelection[(this.mWidth * y) + x] = value;
+    public void selectAll() {
+        for (int i = 0; i < this.mWidth * this.mHeight; i++) {
+            this.mSelection[i] = 255;
+        }
     }
 
-    public void selectSquare(int width, int height, Align align) {
-        selectSquare(width, height, align, 0, 0);
+    public void selectRound(int i, int i2, int i3, int i4) {
+        int i5 = i3 * i3;
+        int i6 = (i3 - i4) * (i3 - i4);
+        for (int i7 = 0; i7 < this.mHeight; i7++) {
+            for (int i8 = 0; i8 < this.mWidth; i8++) {
+                int dist2 = dist2(i7, i8, i2, i);
+                if (dist2 < i6) {
+                    this.mSelection[(this.mWidth * i7) + i8] = 255;
+                } else if (dist2 < i5) {
+                    this.mSelection[(this.mWidth * i7) + i8] = ((i3 - ((int) Math.sqrt(dist2))) * 255) / i4;
+                } else {
+                    this.mSelection[(this.mWidth * i7) + i8] = 0;
+                }
+            }
+        }
     }
 
-    public void selectSquare(int width, int height, Align align, int roundCornerRadius, int featherSize) {
-        int y;
-        int x;
+    public void selectRound(int i, Align align) {
+        selectRound(i, align, 0);
+    }
+
+    public void selectRound(int i, Align align, int i2) {
+        int i3;
+        int i4;
         switch ($SWITCH_TABLE$cn$jingling$lib$filters$ImageSelection$Align()[align.ordinal()]) {
             case 1:
-                y = (this.mHeight - height) / 2;
-                x = (this.mWidth - width) / 2;
+                i3 = this.mHeight / 2;
+                i4 = this.mWidth / 2;
                 break;
             case 2:
             default:
-                y = 0;
-                x = 0;
+                i3 = i;
+                i4 = i;
                 break;
             case 3:
-                y = this.mHeight - height;
-                x = this.mWidth - width;
+                i3 = this.mHeight - i;
+                i4 = this.mWidth - i;
                 break;
         }
-        for (int i = 0; i < this.mHeight; i++) {
-            for (int j = 0; j < this.mWidth; j++) {
-                if (i >= y && i < y + height && j >= x && j < x + width) {
-                    if (isOutTheCorner(width, height, j - x, i - y, roundCornerRadius)) {
-                        this.mSelection[(this.mWidth * i) + j] = 0;
-                    } else {
-                        this.mSelection[(this.mWidth * i) + j] = getSquareFeatherValue(width, height, j - x, i - y, featherSize);
-                    }
-                } else {
-                    this.mSelection[(this.mWidth * i) + j] = 0;
-                }
-            }
-        }
+        selectRound(i4, i3, i, i2);
     }
 
-    public void selectRound(int r, Align align) {
-        selectRound(r, align, 0);
+    public void selectSquare(int i, int i2, Align align) {
+        selectSquare(i, i2, align, 0, 0);
     }
 
-    public void selectRound(int r, Align align, int featherSize) {
-        int y;
-        int x;
+    public void selectSquare(int i, int i2, Align align, int i3, int i4) {
+        int i5;
+        int i6;
         switch ($SWITCH_TABLE$cn$jingling$lib$filters$ImageSelection$Align()[align.ordinal()]) {
             case 1:
-                y = this.mHeight / 2;
-                x = this.mWidth / 2;
+                i5 = (this.mHeight - i2) / 2;
+                i6 = (this.mWidth - i) / 2;
                 break;
             case 2:
             default:
-                y = r;
-                x = r;
+                i5 = 0;
+                i6 = 0;
                 break;
             case 3:
-                y = this.mHeight - r;
-                x = this.mWidth - r;
+                i5 = this.mHeight - i2;
+                i6 = this.mWidth - i;
                 break;
         }
-        selectRound(x, y, r, featherSize);
-    }
-
-    public void selectRound(int x, int y, int r, int featherSize) {
-        int r2 = r * r;
-        int fr2 = (r - featherSize) * (r - featherSize);
-        for (int i = 0; i < this.mHeight; i++) {
-            for (int j = 0; j < this.mWidth; j++) {
-                int d2 = dist2(i, j, y, x);
-                if (d2 < fr2) {
-                    this.mSelection[(this.mWidth * i) + j] = 255;
-                } else if (d2 < r2) {
-                    int d = (int) Math.sqrt(d2);
-                    this.mSelection[(this.mWidth * i) + j] = ((r - d) * MotionEventCompat.ACTION_MASK) / featherSize;
+        int i7 = 0;
+        while (true) {
+            int i8 = i7;
+            if (i8 >= this.mHeight) {
+                return;
+            }
+            int i9 = 0;
+            while (true) {
+                int i10 = i9;
+                if (i10 >= this.mWidth) {
+                    break;
+                }
+                if (i8 < i5 || i8 >= i5 + i2 || i10 < i6 || i10 >= i6 + i) {
+                    this.mSelection[(this.mWidth * i8) + i10] = 0;
+                } else if (isOutTheCorner(i, i2, i10 - i6, i8 - i5, i3)) {
+                    this.mSelection[(this.mWidth * i8) + i10] = 0;
                 } else {
-                    this.mSelection[(this.mWidth * i) + j] = 0;
+                    this.mSelection[(this.mWidth * i8) + i10] = getSquareFeatherValue(i, i2, i10 - i6, i8 - i5, i4);
                 }
+                i9 = i10 + 1;
             }
+            i7 = i8 + 1;
         }
     }
 
-    private boolean isOutTheCorner(int w, int h, int x, int y, int r) {
-        if (r == 0) {
-            return false;
-        }
-        int r2 = r * r;
-        if (x >= r || y >= r || dist2(x, y, r, r) <= r2) {
-            if (x <= w - r || y >= r || dist2(x, y, w - r, r) <= r2) {
-                if (x >= r || y <= h - r || dist2(x, y, r, h - r) <= r2) {
-                    return x > w - r && y > h - r && dist2(x, y, w - r, h - r) > r2;
-                }
-                return true;
-            }
-            return true;
-        }
-        return true;
-    }
-
-    private int getSquareFeatherValue(int w, int h, int x, int y, int featherSize) {
-        if (featherSize == 0) {
-            return MotionEventCompat.ACTION_MASK;
-        }
-        double rate = 1.0d;
-        if (x < featherSize) {
-            rate = (x * 1.0d) / featherSize;
-        }
-        if (x > w - featherSize) {
-            rate = ((w - x) * rate) / featherSize;
-        }
-        if (y < featherSize) {
-            rate = (y * rate) / featherSize;
-        }
-        if (y > h - featherSize) {
-            rate = ((h - y) * rate) / featherSize;
-        }
-        return (int) (255.0d * rate);
-    }
-
-    private int dist2(int x1, int y1, int x2, int y2) {
-        return ((x1 - x2) * (x1 - x2)) + ((y1 - y2) * (y1 - y2));
+    public void setPoint(int i, int i2, int i3) {
+        this.mSelection[(this.mWidth * i2) + i] = i3;
     }
 }

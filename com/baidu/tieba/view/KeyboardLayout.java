@@ -5,61 +5,53 @@ import android.util.AttributeSet;
 import android.widget.RelativeLayout;
 /* loaded from: classes.dex */
 public class KeyboardLayout extends RelativeLayout {
-    public static final byte KEYBOARD_STATE_HIDE = -2;
-    public static final byte KEYBOARD_STATE_INIT = -1;
-    public static final byte KEYBOARD_STATE_SHOW = -3;
-    private boolean mHasInit;
-    private boolean mHasKeybord;
-    private int mHeight;
-    private onKybdsChangeListener mListener;
-
-    /* loaded from: classes.dex */
-    public interface onKybdsChangeListener {
-        void onKeyBoardStateChange(int i);
-    }
-
-    public KeyboardLayout(Context context, AttributeSet attrs, int defStyle) {
-        super(context, attrs, defStyle);
-        this.mHasInit = false;
-    }
-
-    public KeyboardLayout(Context context, AttributeSet attrs) {
-        super(context, attrs);
-        this.mHasInit = false;
-    }
+    private boolean a;
+    private boolean b;
+    private int c;
+    private aa d;
 
     public KeyboardLayout(Context context) {
         super(context);
-        this.mHasInit = false;
+        this.a = false;
     }
 
-    public void setOnkbdStateListener(onKybdsChangeListener listener) {
-        this.mListener = listener;
+    public KeyboardLayout(Context context, AttributeSet attributeSet) {
+        super(context, attributeSet);
+        this.a = false;
+    }
+
+    public KeyboardLayout(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
+        this.a = false;
     }
 
     @Override // android.widget.RelativeLayout, android.view.ViewGroup, android.view.View
-    protected void onLayout(boolean changed, int l, int t, int r, int b) {
-        super.onLayout(changed, l, t, r, b);
-        if (!this.mHasInit) {
-            this.mHasInit = true;
-            this.mHeight = b;
-            if (this.mListener != null) {
-                this.mListener.onKeyBoardStateChange(-1);
-            }
+    protected void onLayout(boolean z, int i, int i2, int i3, int i4) {
+        super.onLayout(z, i, i2, i3, i4);
+        if (this.a) {
+            this.c = this.c < i4 ? i4 : this.c;
         } else {
-            this.mHeight = this.mHeight < b ? b : this.mHeight;
-        }
-        if (this.mHasInit && this.mHeight > b) {
-            this.mHasKeybord = true;
-            if (this.mListener != null) {
-                this.mListener.onKeyBoardStateChange(-3);
+            this.a = true;
+            this.c = i4;
+            if (this.d != null) {
+                this.d.a(-1);
             }
         }
-        if (this.mHasInit && this.mHasKeybord && this.mHeight == b) {
-            this.mHasKeybord = false;
-            if (this.mListener != null) {
-                this.mListener.onKeyBoardStateChange(-2);
+        if (this.a && this.c > i4) {
+            this.b = true;
+            if (this.d != null) {
+                this.d.a(-3);
             }
         }
+        if (this.a && this.b && this.c == i4) {
+            this.b = false;
+            if (this.d != null) {
+                this.d.a(-2);
+            }
+        }
+    }
+
+    public void setOnkbdStateListener(aa aaVar) {
+        this.d = aaVar;
     }
 }

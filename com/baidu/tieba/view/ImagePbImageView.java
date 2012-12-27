@@ -6,170 +6,119 @@ import android.graphics.Canvas;
 import android.graphics.Matrix;
 import android.graphics.Paint;
 import android.os.Handler;
-import android.os.Message;
-import android.support.v4.view.MotionEventCompat;
 import android.util.AttributeSet;
 import android.widget.ImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.util.AsyncImageLoader;
-import com.baidu.tieba.util.BitmapHelper;
-import com.baidu.tieba.util.SDRamImage;
-import com.baidu.tieba.util.UtilHelper;
 /* loaded from: classes.dex */
 public class ImagePbImageView extends ImageView {
-    private static final int ANIM_SEPEED = 20;
-    public static final int CENTER = 0;
-    private static final int MAX_FRAME_COUNT = 10;
-    public static final int TOP = 1;
-    private boolean isFirst;
-    private boolean isLoaded;
-    private int mAnimFrameIndex;
-    private Handler mHandler;
-    private Matrix mMatrix;
-    private Paint mPaint;
-    private int mScaleType;
-    private Bitmap next;
+    private int a;
+    private Matrix b;
+    private Paint c;
+    private boolean d;
+    private boolean e;
+    private Bitmap f;
+    private int g;
+    private Handler h;
 
-    public void setScale(int scaleType) {
-        this.mScaleType = scaleType;
+    public ImagePbImageView(Context context) {
+        super(context);
+        this.a = 0;
+        this.b = new Matrix();
+        this.c = new Paint();
+        this.d = false;
+        this.e = false;
+        this.f = com.baidu.tieba.c.e.a((int) R.drawable.image_pb_next);
+        this.g = -1;
+        this.h = new t(this);
+    }
+
+    public ImagePbImageView(Context context, AttributeSet attributeSet) {
+        super(context, attributeSet);
+        this.a = 0;
+        this.b = new Matrix();
+        this.c = new Paint();
+        this.d = false;
+        this.e = false;
+        this.f = com.baidu.tieba.c.e.a((int) R.drawable.image_pb_next);
+        this.g = -1;
+        this.h = new t(this);
+    }
+
+    public ImagePbImageView(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
+        this.a = 0;
+        this.b = new Matrix();
+        this.c = new Paint();
+        this.d = false;
+        this.e = false;
+        this.f = com.baidu.tieba.c.e.a((int) R.drawable.image_pb_next);
+        this.g = -1;
+        this.h = new t(this);
+    }
+
+    public void a() {
+        this.g = 10;
+        this.h.sendMessageDelayed(this.h.obtainMessage(1), 20L);
+        invalidate();
+    }
+
+    public void b() {
+        this.g = 0;
+        this.h.removeMessages(1);
     }
 
     @Override // android.widget.ImageView, android.view.View
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        stopAnim();
-    }
-
-    public void startAnim() {
-        this.mAnimFrameIndex = 10;
-        this.mHandler.sendMessageDelayed(this.mHandler.obtainMessage(1), 20L);
-        invalidate();
-    }
-
-    public void stopAnim() {
-        this.mAnimFrameIndex = 0;
-        this.mHandler.removeMessages(1);
-    }
-
-    public boolean isLoaded() {
-        return this.isLoaded;
-    }
-
-    public void setFirst(boolean isFirst) {
-        this.isFirst = isFirst;
-    }
-
-    public ImagePbImageView(Context context) {
-        super(context);
-        this.mScaleType = 0;
-        this.mMatrix = new Matrix();
-        this.mPaint = new Paint();
-        this.isLoaded = false;
-        this.isFirst = false;
-        this.next = BitmapHelper.getCashBitmap(R.drawable.image_pb_next);
-        this.mAnimFrameIndex = -1;
-        this.mHandler = new Handler() { // from class: com.baidu.tieba.view.ImagePbImageView.1
-            @Override // android.os.Handler
-            public void handleMessage(Message msg) {
-                super.handleMessage(msg);
-                ImagePbImageView imagePbImageView = ImagePbImageView.this;
-                imagePbImageView.mAnimFrameIndex--;
-                if (ImagePbImageView.this.mAnimFrameIndex >= 0) {
-                    ImagePbImageView.this.mHandler.sendMessageDelayed(ImagePbImageView.this.mHandler.obtainMessage(1), 20L);
-                    ImagePbImageView.this.invalidate();
-                }
-            }
-        };
-    }
-
-    public ImagePbImageView(Context context, AttributeSet attrs) {
-        super(context, attrs);
-        this.mScaleType = 0;
-        this.mMatrix = new Matrix();
-        this.mPaint = new Paint();
-        this.isLoaded = false;
-        this.isFirst = false;
-        this.next = BitmapHelper.getCashBitmap(R.drawable.image_pb_next);
-        this.mAnimFrameIndex = -1;
-        this.mHandler = new Handler() { // from class: com.baidu.tieba.view.ImagePbImageView.1
-            @Override // android.os.Handler
-            public void handleMessage(Message msg) {
-                super.handleMessage(msg);
-                ImagePbImageView imagePbImageView = ImagePbImageView.this;
-                imagePbImageView.mAnimFrameIndex--;
-                if (ImagePbImageView.this.mAnimFrameIndex >= 0) {
-                    ImagePbImageView.this.mHandler.sendMessageDelayed(ImagePbImageView.this.mHandler.obtainMessage(1), 20L);
-                    ImagePbImageView.this.invalidate();
-                }
-            }
-        };
-    }
-
-    public ImagePbImageView(Context context, AttributeSet attrs, int defStyle) {
-        super(context, attrs, defStyle);
-        this.mScaleType = 0;
-        this.mMatrix = new Matrix();
-        this.mPaint = new Paint();
-        this.isLoaded = false;
-        this.isFirst = false;
-        this.next = BitmapHelper.getCashBitmap(R.drawable.image_pb_next);
-        this.mAnimFrameIndex = -1;
-        this.mHandler = new Handler() { // from class: com.baidu.tieba.view.ImagePbImageView.1
-            @Override // android.os.Handler
-            public void handleMessage(Message msg) {
-                super.handleMessage(msg);
-                ImagePbImageView imagePbImageView = ImagePbImageView.this;
-                imagePbImageView.mAnimFrameIndex--;
-                if (ImagePbImageView.this.mAnimFrameIndex >= 0) {
-                    ImagePbImageView.this.mHandler.sendMessageDelayed(ImagePbImageView.this.mHandler.obtainMessage(1), 20L);
-                    ImagePbImageView.this.invalidate();
-                }
-            }
-        };
+        b();
     }
 
     @Override // android.widget.ImageView, android.view.View
     protected void onDraw(Canvas canvas) {
+        Bitmap bitmap;
         super.onDraw(canvas);
-        String url = String.valueOf((String) getTag()) + AsyncImageLoader.BIG;
-        Bitmap bm = null;
-        SDRamImage sdramImage = TiebaApplication.app.getSdramImage();
-        if (sdramImage != null) {
-            bm = sdramImage.getPic(url);
-        }
-        if (bm == null) {
-            this.isLoaded = false;
-            bm = BitmapHelper.getCashBitmap(R.drawable.image_default);
+        String str = String.valueOf((String) getTag()) + "_big";
+        com.baidu.tieba.c.ab ah = TiebaApplication.a().ah();
+        Bitmap c = ah != null ? ah.c(str) : null;
+        if (c == null) {
+            this.d = false;
+            bitmap = com.baidu.tieba.c.e.a((int) R.drawable.image_default);
         } else {
-            this.isLoaded = true;
+            this.d = true;
+            bitmap = c;
         }
-        if (bm != null) {
-            this.mPaint.setAlpha(MotionEventCompat.ACTION_MASK);
-            if (this.mAnimFrameIndex >= 0) {
-                int alpha = (this.mAnimFrameIndex * MotionEventCompat.ACTION_MASK) / 10;
-                this.mPaint.setAlpha(255 - alpha);
+        if (bitmap != null) {
+            this.c.setAlpha(255);
+            if (this.g >= 0) {
+                this.c.setAlpha(255 - ((this.g * 255) / 10));
             }
-            int pading = UtilHelper.dip2px(getContext(), 8.0f);
-            int bw = bm.getWidth();
-            int bh = bm.getHeight();
-            int wi = getWidth() - pading;
-            int he = getHeight();
-            this.mMatrix.reset();
-            float x = ((wi + pading) - bw) >> 1;
-            float y = 0.0f;
-            if (!this.isLoaded || this.mScaleType == 0) {
-                y = (he - bh) >> 1;
+            int a = com.baidu.tieba.c.ag.a(getContext(), 8.0f);
+            int width = bitmap.getWidth();
+            int height = bitmap.getHeight();
+            int width2 = getWidth() - a;
+            int height2 = getHeight();
+            this.b.reset();
+            float f = ((width2 + a) - width) >> 1;
+            float f2 = 0.0f;
+            if (!this.d || this.a == 0) {
+                f2 = (height2 - height) >> 1;
             }
-            this.mMatrix.postTranslate(x, y);
-            canvas.drawBitmap(bm, this.mMatrix, this.mPaint);
-            if (this.isFirst && this.next != null && this.isLoaded) {
-                this.mMatrix.reset();
-                float x2 = (wi + pading) - this.next.getWidth();
-                float y2 = (he - this.next.getHeight()) >> 1;
-                this.mMatrix.postTranslate(x2, y2);
-                canvas.drawBitmap(this.next, this.mMatrix, this.mPaint);
+            this.b.postTranslate(f, f2);
+            canvas.drawBitmap(bitmap, this.b, this.c);
+            if (this.e && this.f != null && this.d) {
+                this.b.reset();
+                this.b.postTranslate((width2 + a) - this.f.getWidth(), (height2 - this.f.getHeight()) >> 1);
+                canvas.drawBitmap(this.f, this.b, this.c);
             }
         }
+    }
+
+    public void setFirst(boolean z) {
+        this.e = z;
+    }
+
+    public void setScale(int i) {
+        this.a = i;
     }
 }

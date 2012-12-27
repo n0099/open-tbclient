@@ -8,7 +8,6 @@ import com.baidu.tieba.TiebaApplication;
 public class EyeShieldReceiver extends BroadcastReceiver {
     @Override // android.content.BroadcastReceiver
     public void onReceive(Context context, Intent intent) {
-        boolean isEyeShieldMode = intent.getBooleanExtra("eyeshield_mode", false);
-        TiebaApplication.app.setIsEyeShieldModeValue(isEyeShieldMode);
+        TiebaApplication.a().b(intent.getFloatExtra("eyeshield_mode", 0.0f));
     }
 }

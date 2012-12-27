@@ -8,17 +8,17 @@ import cn.jingling.lib.filters.OneKeyFilter;
 /* loaded from: classes.dex */
 public class ReallyClassicHDR extends OneKeyFilter {
     @Override // cn.jingling.lib.filters.OneKeyFilter
-    public Bitmap apply(Context cx, Bitmap bm) {
-        int w = bm.getWidth();
-        int h = bm.getHeight();
-        int[] pixels = new int[w * h];
-        int[] blurPixels = new int[w * h];
-        bm.getPixels(pixels, 0, w, 0, 0, w, h);
-        System.arraycopy(pixels, 0, blurPixels, 0, w * h);
-        CMTProcessor.unsharpEffect(pixels, blurPixels, w, h, 1, 0, 1.5f);
-        Curve c = new Curve(cx, "curves/mofangjingdianHDR.dat");
-        CMTProcessor.curveEffect(pixels, c.getCurveRed(), c.getCurveGreen(), c.getCurveBlue(), w, h);
-        bm.setPixels(pixels, 0, w, 0, 0, w, h);
-        return bm;
+    public Bitmap apply(Context context, Bitmap bitmap) {
+        int width = bitmap.getWidth();
+        int height = bitmap.getHeight();
+        int[] iArr = new int[width * height];
+        int[] iArr2 = new int[width * height];
+        bitmap.getPixels(iArr, 0, width, 0, 0, width, height);
+        System.arraycopy(iArr, 0, iArr2, 0, width * height);
+        CMTProcessor.unsharpEffect(iArr, iArr2, width, height, 1, 0, 1.5f);
+        Curve curve = new Curve(context, "curves/mofangjingdianHDR.dat");
+        CMTProcessor.curveEffect(iArr, curve.getCurveRed(), curve.getCurveGreen(), curve.getCurveBlue(), width, height);
+        bitmap.setPixels(iArr, 0, width, 0, 0, width, height);
+        return bitmap;
     }
 }

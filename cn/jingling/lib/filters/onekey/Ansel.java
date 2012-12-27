@@ -10,16 +10,16 @@ import cn.jingling.lib.filters.OneKeyFilter;
 /* loaded from: classes.dex */
 public class Ansel extends OneKeyFilter {
     @Override // cn.jingling.lib.filters.OneKeyFilter
-    public Bitmap apply(Context cx, Bitmap bm) {
-        int w = bm.getWidth();
-        int h = bm.getHeight();
-        int[] pixels = new int[w * h];
-        bm.getPixels(pixels, 0, w, 0, 0, w, h);
-        int[] pixels2 = ImageProcessUtils.saturationPs(pixels, w, h, -100);
-        Curve c = new Curve(cx, "curves/ansel.dat");
-        CMTProcessor.curveEffect(pixels2, c.getCurveRed(), c.getCurveGreen(), c.getCurveBlue(), w, h);
-        CMTProcessor.multiplyEffect(pixels2, Layer.getLayerPixels(cx, "layers/ansel", w, h, Layer.Type.ROTATABLE, 178), w, h);
-        bm.setPixels(pixels2, 0, w, 0, 0, w, h);
-        return bm;
+    public Bitmap apply(Context context, Bitmap bitmap) {
+        int width = bitmap.getWidth();
+        int height = bitmap.getHeight();
+        int[] iArr = new int[width * height];
+        bitmap.getPixels(iArr, 0, width, 0, 0, width, height);
+        int[] saturationPs = ImageProcessUtils.saturationPs(iArr, width, height, -100);
+        Curve curve = new Curve(context, "curves/ansel.dat");
+        CMTProcessor.curveEffect(saturationPs, curve.getCurveRed(), curve.getCurveGreen(), curve.getCurveBlue(), width, height);
+        CMTProcessor.multiplyEffect(saturationPs, Layer.getLayerPixels(context, "layers/ansel", width, height, Layer.Type.ROTATABLE, 178), width, height);
+        bitmap.setPixels(saturationPs, 0, width, 0, 0, width, height);
+        return bitmap;
     }
 }

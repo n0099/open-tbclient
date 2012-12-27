@@ -1,7 +1,6 @@
 package com.baidu.tieba.view;
 
 import android.content.Context;
-import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,134 +9,118 @@ import android.view.ViewParent;
 import android.widget.Gallery;
 import android.widget.TextView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.view.DragImageView;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
-public class ImagePagerAdapter extends PagerAdapter {
-    private Context mContext;
-    private DragImageView.OnGifSetListener mOnGifSetListener;
-    private ArrayList<String> mUrl;
-    private View.OnClickListener mOnClickListener = null;
-    private DragImageView.OnSizeChangedListener mOnSizeChangedListener = null;
-    private int mGifMaxUseableMem = 0;
-    private boolean mHasNext = false;
-    private String mNextTitle = null;
+public class ImagePagerAdapter extends android.support.v4.view.k {
+    private Context a;
+    private ArrayList b;
+    private j e;
+    private View.OnClickListener c = null;
+    private k d = null;
+    private int f = 0;
+    private boolean g = false;
+    private String h = null;
 
-    /* loaded from: classes.dex */
-    public interface ImageLoadCallBack {
-        void callback();
+    public ImagePagerAdapter(Context context, ArrayList arrayList, j jVar) {
+        this.a = null;
+        this.b = null;
+        this.e = null;
+        this.a = context;
+        this.b = arrayList;
+        this.e = jVar;
     }
 
-    public ImagePagerAdapter(Context context, ArrayList<String> url, DragImageView.OnGifSetListener onGifSetListener) {
-        this.mContext = null;
-        this.mUrl = null;
-        this.mOnGifSetListener = null;
-        this.mContext = context;
-        this.mUrl = url;
-        this.mOnGifSetListener = onGifSetListener;
+    public void a(int i) {
+        this.f = i;
     }
 
-    public void setData(ArrayList<String> data) {
-        this.mUrl = data;
+    public void a(View.OnClickListener onClickListener) {
+        this.c = onClickListener;
+    }
+
+    public void a(k kVar) {
+        this.d = kVar;
+    }
+
+    public void a(String str) {
+        this.h = str;
+    }
+
+    public void a(ArrayList arrayList) {
+        this.b = arrayList;
         notifyDataSetChanged();
     }
 
-    public void setNextTitle(String nextTitle) {
-        this.mNextTitle = nextTitle;
+    public void a(boolean z) {
+        this.g = z;
     }
 
-    public void setHasNext(boolean hasNext) {
-        this.mHasNext = hasNext;
+    @Override // android.support.v4.view.k
+    public void destroyItem(ViewGroup viewGroup, int i, Object obj) {
+        ((ViewPager) viewGroup).removeView((View) obj);
+        if (obj instanceof ah) {
+            ((ah) obj).c();
+        }
     }
 
-    @Override // android.support.v4.view.PagerAdapter
+    @Override // android.support.v4.view.k
     public int getCount() {
-        if (this.mUrl == null) {
-            return 0;
+        if (this.b != null) {
+            int size = this.b.size();
+            return this.g ? size + 1 : size;
         }
-        int num = this.mUrl.size();
-        if (this.mHasNext) {
-            return num + 1;
+        return 0;
+    }
+
+    @Override // android.support.v4.view.k
+    public Object instantiateItem(ViewGroup viewGroup, int i) {
+        if (i == this.b.size()) {
+            View inflate = LayoutInflater.from(this.a).inflate(R.layout.big_image_next, (ViewGroup) null);
+            ((TextView) inflate.findViewById(R.id.thread_name)).setText(this.h);
+            viewGroup.addView(inflate);
+            inflate.setOnClickListener(this.c);
+            return inflate;
         }
-        return num;
+        ah ahVar = new ah(this.a);
+        String str = i < this.b.size() ? (String) this.b.get(i) : null;
+        ahVar.setLayoutParams(new Gallery.LayoutParams(-1, -1));
+        ahVar.setImageOnClickListener(this.c);
+        ahVar.setOnSizeChangedListener(this.d);
+        ((ViewPager) viewGroup).addView(ahVar, 0);
+        ahVar.setUrl(str);
+        ahVar.setGifMaxUseableMem(this.f);
+        ahVar.setTag(String.valueOf(i));
+        ahVar.setGifSetListener(this.e);
+        return ahVar;
     }
 
-    public void setOnClickListener(View.OnClickListener listener) {
-        this.mOnClickListener = listener;
+    @Override // android.support.v4.view.k
+    public boolean isViewFromObject(View view, Object obj) {
+        return view.equals(obj);
     }
 
-    public void setGifMaxUseableMem(int mem) {
-        this.mGifMaxUseableMem = mem;
-    }
-
-    public void setmOnSizeChangedListener(DragImageView.OnSizeChangedListener listener) {
-        this.mOnSizeChangedListener = listener;
-    }
-
-    @Override // android.support.v4.view.PagerAdapter
-    public boolean isViewFromObject(View view, Object object) {
-        return view.equals(object);
-    }
-
-    @Override // android.support.v4.view.PagerAdapter
-    public void destroyItem(ViewGroup container, int position, Object object) {
-        ((ViewPager) container).removeView((View) object);
-        if (object instanceof UrlDragImageView) {
-            UrlDragImageView urlImage = (UrlDragImageView) object;
-            urlImage.onDestroy();
-        }
-    }
-
-    @Override // android.support.v4.view.PagerAdapter
-    public Object instantiateItem(ViewGroup container, int position) {
-        if (position == this.mUrl.size()) {
-            LayoutInflater mInflater = LayoutInflater.from(this.mContext);
-            View nextView = mInflater.inflate(R.layout.big_image_next, (ViewGroup) null);
-            TextView threadText = (TextView) nextView.findViewById(R.id.thread_name);
-            threadText.setText(this.mNextTitle);
-            container.addView(nextView);
-            nextView.setOnClickListener(this.mOnClickListener);
-            return nextView;
-        }
-        UrlDragImageView iv = new UrlDragImageView(this.mContext);
-        String url = null;
-        if (position < this.mUrl.size()) {
-            String url2 = this.mUrl.get(position);
-            url = url2;
-        }
-        iv.setLayoutParams(new Gallery.LayoutParams(-1, -1));
-        iv.setImageOnClickListener(this.mOnClickListener);
-        iv.setOnSizeChangedListener(this.mOnSizeChangedListener);
-        ((ViewPager) container).addView(iv, 0);
-        iv.setUrl(url);
-        iv.setGifMaxUseableMem(this.mGifMaxUseableMem);
-        iv.setTag(String.valueOf(position));
-        iv.setGifSetListener(this.mOnGifSetListener);
-        return iv;
-    }
-
-    @Override // android.support.v4.view.PagerAdapter
-    public void setPrimaryItem(ViewGroup container, int position, Object object) {
-        super.setPrimaryItem(container, position, object);
-        if (object instanceof UrlDragImageView) {
-            GalleryViewPager pager = (GalleryViewPager) container;
-            DragImageView drag = ((UrlDragImageView) object).getImageView();
-            if (pager.getSelectedView() == null) {
-                pager.setSelectedView(drag);
-                ViewParent Parent = pager.getParent();
-                if (Parent != null && (Parent instanceof MultiImageView)) {
-                    ((MultiImageView) Parent).setZoomButton(drag);
+    @Override // android.support.v4.view.k
+    public void setPrimaryItem(ViewGroup viewGroup, int i, Object obj) {
+        super.setPrimaryItem(viewGroup, i, obj);
+        if (obj instanceof ah) {
+            GalleryViewPager galleryViewPager = (GalleryViewPager) viewGroup;
+            f imageView = ((ah) obj).getImageView();
+            if (galleryViewPager.getSelectedView() == null) {
+                galleryViewPager.setSelectedView(imageView);
+                ViewParent parent = galleryViewPager.getParent();
+                if (parent != null && (parent instanceof MultiImageView)) {
+                    ((MultiImageView) parent).setZoomButton(imageView);
                 }
             }
-            DragImageView tmp = pager.getCurrentView();
-            if (drag != tmp) {
-                if (tmp != null) {
-                    tmp.restoreSize();
+            f currentView = galleryViewPager.getCurrentView();
+            if (imageView != currentView) {
+                if (currentView != null) {
+                    currentView.o();
                 }
-                ((UrlDragImageView) object).checkImage();
-                pager.setCurrentView(drag);
-                if (((UrlDragImageView) object).getImageType() == 1) {
-                    this.mOnGifSetListener.gifSet(drag);
+                ((ah) obj).f();
+                galleryViewPager.setCurrentView(imageView);
+                if (((ah) obj).getImageType() == 1) {
+                    this.e.a(imageView);
                 }
             }
         }

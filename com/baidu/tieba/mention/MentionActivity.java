@@ -1,441 +1,138 @@
 package com.baidu.tieba.mention;
 
-import android.content.BroadcastReceiver;
-import android.content.Context;
+import android.app.Activity;
+import android.app.ActivityGroup;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CompoundButton;
 import android.widget.FrameLayout;
-import android.widget.ListView;
-import android.widget.ProgressBar;
-import android.widget.TextView;
-import com.baidu.tieba.BaseActivity;
-import com.baidu.tieba.MainTabActivity;
+import android.widget.RadioButton;
 import com.baidu.tieba.R;
 import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.data.AntiData;
-import com.baidu.tieba.data.Config;
-import com.baidu.tieba.home.SearchActivity;
-import com.baidu.tieba.mention.MentionView;
-import com.baidu.tieba.model.MentionModel;
-import com.baidu.tieba.more.AboutActivity;
-import com.baidu.tieba.more.AccountActivity;
-import com.baidu.tieba.util.DatabaseService;
-import com.baidu.tieba.util.TiebaLog;
-import com.baidu.tieba.write.WriteActivity;
+import com.baidu.tieba.c.ag;
 /* loaded from: classes.dex */
-public class MentionActivity extends BaseActivity {
-    private static final int MENU_ID_ABOUT = 4;
-    private static final int MENU_ID_ACCOUNT = 2;
-    private static final int MENU_ID_FEEDBACK = 3;
-    private static final int MENU_ID_QUIT = 5;
-    private static final int MENU_ID_SETUP = 1;
-    public static final int PAGE_TYPE_ATME = 1;
-    public static final int PAGE_TYPE_REPLYME = 0;
-    public static final String TYPE = "type";
-    private int mPageType;
-    private Button mButtonAtme = null;
-    private Button mButtonReplyme = null;
-    private Button mButtonSearch = null;
-    private Button mButtonRefresh = null;
-    private View.OnClickListener mOnClickListener = null;
-    private MentionView mViewReplyme = null;
-    private MentionView mViewAtme = null;
-    private TextView mTextNoReply = null;
-    private TextView mTextNoAt = null;
-    private UpdateReceiver receiver = null;
+public class MentionActivity extends ActivityGroup {
+    private FrameLayout g;
+    private RadioButton a = null;
+    private RadioButton b = null;
+    private Button c = null;
+    private Button d = null;
+    private View.OnClickListener e = null;
+    private CompoundButton.OnCheckedChangeListener f = null;
+    private d h = null;
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.BaseActivity, android.app.Activity
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.mention_activity);
-        regReceiver();
-        initUI();
-        if (savedInstanceState != null) {
-            this.mPageType = savedInstanceState.getInt(TYPE, 0);
+    private void a() {
+        this.h = new d(this, null);
+        IntentFilter intentFilter = new IntentFilter();
+        intentFilter.addAction("com.baidu.tieba.broadcast.notify");
+        registerReceiver(this.h, intentFilter);
+    }
+
+    public void a(long j, long j2) {
+        if (j > 0) {
+            this.b.setText(String.format("%s(%s)", getString(R.string.mention_replyme), String.valueOf(j)));
+        } else {
+            this.b.setText(R.string.mention_replyme);
+        }
+        if (j2 > 0) {
+            this.a.setText(String.format("%s(%s)", getString(R.string.mention_atme), String.valueOf(j2)));
+        } else {
+            this.a.setText(R.string.mention_atme);
+        }
+    }
+
+    public static void a(Activity activity, int i) {
+        activity.startActivityForResult(new Intent(activity, MentionActivity.class), i);
+    }
+
+    private void a(Bundle bundle) {
+        this.e = new b(this);
+        this.d = (Button) findViewById(R.id.back);
+        this.c = (Button) findViewById(R.id.refresh);
+        this.d.setOnClickListener(this.e);
+        this.c.setOnClickListener(this.e);
+        this.g = (FrameLayout) findViewById(R.id.content);
+        this.b = (RadioButton) findViewById(R.id.replyme_tab);
+        this.a = (RadioButton) findViewById(R.id.atme_tab);
+        this.f = new c(this);
+        this.b.setOnCheckedChangeListener(this.f);
+        this.a.setOnCheckedChangeListener(this.f);
+        if ((bundle != null ? bundle.getInt("type", 0) : getIntent().getIntExtra("type", 0)) == 1) {
+            this.a.setChecked(true);
+        } else {
+            this.b.setChecked(true);
+        }
+    }
+
+    private void b() {
+        if (this.h != null) {
+            unregisterReceiver(this.h);
+        }
+    }
+
+    public void a(int i, boolean z) {
+        long S = TiebaApplication.a().S();
+        long T = TiebaApplication.a().T();
+        if (!z) {
+            a(S, T);
             return;
         }
-        Intent intent = getIntent();
-        this.mPageType = intent.getIntExtra(TYPE, 0);
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.BaseActivity, android.app.Activity
-    public void onResume() {
-        super.onResume();
-        if (TiebaApplication.app.getMsgReplyme() > 0) {
-            this.mPageType = 0;
-            this.mViewReplyme.setUpdateType(2);
-            this.mViewReplyme.show();
-        } else if (TiebaApplication.app.getMsgAtme() > 0) {
-            this.mPageType = 1;
-            this.mViewAtme.setUpdateType(2);
-            this.mViewAtme.show();
-        } else {
-            switch (this.mPageType) {
-                case 0:
-                    this.mViewReplyme.setUpdateType(1);
-                    this.mViewReplyme.show();
-                    this.mViewReplyme.checkFontConfig();
-                    return;
-                case 1:
-                    this.mViewAtme.setUpdateType(1);
-                    this.mViewAtme.show();
-                    this.mViewAtme.checkFontConfig();
-                    return;
-                default:
-                    return;
-            }
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.BaseActivity, android.app.Activity
-    public void onDestroy() {
-        super.onDestroy();
-        unregReceiver();
-        try {
-            if (this.mViewReplyme != null) {
-                this.mViewReplyme.cancelAsyncTask();
-                this.mViewReplyme.releaseProgressBar();
-            }
-            if (this.mViewAtme != null) {
-                this.mViewAtme.cancelAsyncTask();
-                this.mViewAtme.releaseProgressBar();
-            }
-            System.gc();
-        } catch (Exception e) {
-        }
-    }
-
-    @Override // android.app.Activity
-    protected void onSaveInstanceState(Bundle outState) {
-        super.onSaveInstanceState(outState);
-        outState.putInt(TYPE, this.mPageType);
-    }
-
-    public int getPageType() {
-        return this.mPageType;
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void gotoReply() {
-        this.mPageType = 0;
-        if (TiebaApplication.app.getMsgReplyme() > 0) {
-            this.mViewReplyme.setUpdateType(2);
-        } else {
-            this.mViewReplyme.setUpdateType(1);
-        }
-        this.mTextNoAt.setVisibility(8);
-        this.mTextNoReply.setVisibility(0);
-        this.mViewReplyme.show();
-        if (this.mViewAtme != null) {
-            this.mViewAtme.cancelAsyncTask();
-            this.mViewAtme.releaseProgressBar();
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void gotoAtme() {
-        this.mPageType = 1;
-        if (TiebaApplication.app.getMsgAtme() > 0) {
-            this.mViewAtme.setUpdateType(2);
-        } else {
-            this.mViewAtme.setUpdateType(1);
-        }
-        this.mTextNoReply.setVisibility(8);
-        this.mTextNoAt.setVisibility(0);
-        this.mViewAtme.show();
-        if (this.mViewReplyme != null) {
-            this.mViewReplyme.cancelAsyncTask();
-            this.mViewReplyme.releaseProgressBar();
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void refresh() {
-        if (this.mPageType == 1) {
-            this.mViewAtme.refresh();
-        } else if (this.mPageType == 0) {
-            this.mViewReplyme.refresh();
-        }
-    }
-
-    private void initUI() {
-        this.mOnClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.mention.MentionActivity.1
-            @Override // android.view.View.OnClickListener
-            public void onClick(View v) {
-                if (v != MentionActivity.this.mButtonSearch) {
-                    if (v != MentionActivity.this.mButtonRefresh) {
-                        if (v != MentionActivity.this.mButtonReplyme) {
-                            if (v == MentionActivity.this.mButtonAtme) {
-                                MentionActivity.this.gotoAtme();
-                                return;
-                            }
-                            return;
-                        }
-                        MentionActivity.this.gotoReply();
-                        return;
-                    }
-                    MentionActivity.this.refresh();
-                    return;
-                }
-                SearchActivity.startActivity(MentionActivity.this, MentionActivity.this.getString(R.string.msg_remind));
-            }
-        };
-        this.mButtonSearch = (Button) findViewById(R.id.search);
-        this.mButtonRefresh = (Button) findViewById(R.id.refresh);
-        this.mButtonSearch.setOnClickListener(this.mOnClickListener);
-        this.mButtonRefresh.setOnClickListener(this.mOnClickListener);
-        this.mPageType = 0;
-        this.mTextNoReply = (TextView) findViewById(R.id.reply_nodata);
-        this.mTextNoAt = (TextView) findViewById(R.id.at_nodata);
-        this.mButtonReplyme = (Button) findViewById(R.id.mention_bt_replyme);
-        this.mButtonReplyme.setOnClickListener(this.mOnClickListener);
-        this.mButtonAtme = (Button) findViewById(R.id.mention_bt_atme);
-        this.mButtonAtme.setOnClickListener(this.mOnClickListener);
-        this.mViewReplyme = new MentionView(this, 0, new MentionView.CacheCallback() { // from class: com.baidu.tieba.mention.MentionActivity.2
-            @Override // com.baidu.tieba.mention.MentionView.CacheCallback
-            public void set(String data) {
-                DatabaseService.cashReplymeData(data);
-            }
-
-            @Override // com.baidu.tieba.mention.MentionView.CacheCallback
-            public String get() {
-                return DatabaseService.getReplymeData();
-            }
-
-            @Override // com.baidu.tieba.mention.MentionView.CacheCallback
-            public void delete() {
-                DatabaseService.delReplymeData();
-            }
-        });
-        ListView list1 = (ListView) findViewById(R.id.mention_lv_replyme);
-        this.mViewReplyme.setListView(list1);
-        ProgressBar progress1 = (ProgressBar) findViewById(R.id.mention_progress_replyme);
-        this.mViewReplyme.setProgressBar(progress1);
-        FrameLayout layout1 = (FrameLayout) findViewById(R.id.mention_layout_replyme);
-        this.mViewReplyme.setLayout(layout1);
-        this.mViewReplyme.setNoDataText(R.string.mention_replyme_nodata);
-        this.mViewReplyme.setTextNoData(this.mTextNoReply);
-        this.mViewReplyme.setURL(Config.REPLYME_ADDRESS);
-        this.mViewReplyme.init();
-        this.mViewAtme = new MentionView(this, 1, new MentionView.CacheCallback() { // from class: com.baidu.tieba.mention.MentionActivity.3
-            @Override // com.baidu.tieba.mention.MentionView.CacheCallback
-            public void set(String data) {
-                DatabaseService.cashAtmeData(data);
-            }
-
-            @Override // com.baidu.tieba.mention.MentionView.CacheCallback
-            public String get() {
-                return DatabaseService.getAtmeData();
-            }
-
-            @Override // com.baidu.tieba.mention.MentionView.CacheCallback
-            public void delete() {
-                DatabaseService.delAtmeData();
-            }
-        });
-        ListView list2 = (ListView) findViewById(R.id.mention_lv_atme);
-        this.mViewAtme.setListView(list2);
-        ProgressBar progress2 = (ProgressBar) findViewById(R.id.mention_progress_atme);
-        this.mViewAtme.setProgressBar(progress2);
-        FrameLayout layout2 = (FrameLayout) findViewById(R.id.mention_layout_atme);
-        this.mViewAtme.setLayout(layout2);
-        this.mViewAtme.setNoDataText(R.string.mention_atme_nodata);
-        this.mViewAtme.setTextNoData(this.mTextNoAt);
-        this.mViewAtme.setURL(Config.ATME_ADDRESS);
-        this.mViewAtme.init();
-    }
-
-    public void showButton() {
-        if (this.mPageType == 0) {
-            this.mViewReplyme.getLayout().setVisibility(0);
-            this.mViewAtme.getLayout().setVisibility(8);
-            this.mButtonReplyme.setClickable(false);
-            this.mButtonReplyme.setBackgroundResource(R.drawable.home_radio_hilight_image);
-            this.mButtonReplyme.setTextColor(getResources().getColor(R.color.tab_hightlight_text_color));
-            this.mButtonAtme.setClickable(true);
-            this.mButtonAtme.setBackgroundResource(R.drawable.home_radio_button);
-            this.mButtonAtme.setTextColor(getResources().getColor(R.color.tab_text_color));
-        } else if (this.mPageType == 1) {
-            this.mViewReplyme.getLayout().setVisibility(8);
-            this.mViewAtme.getLayout().setVisibility(0);
-            this.mButtonReplyme.setClickable(true);
-            this.mButtonReplyme.setBackgroundResource(R.drawable.home_radio_button);
-            this.mButtonReplyme.setTextColor(getResources().getColor(R.color.tab_text_color));
-            this.mButtonAtme.setClickable(false);
-            this.mButtonAtme.setBackgroundResource(R.drawable.home_radio_hilight_image);
-            this.mButtonAtme.setTextColor(getResources().getColor(R.color.tab_hightlight_text_color));
-        }
-    }
-
-    public void showMsg(int pageType, boolean needRefresh) {
-        long replyme = TiebaApplication.app.getMsgReplyme();
-        long atme = TiebaApplication.app.getMsgAtme();
-        if (needRefresh) {
-            switch (pageType) {
-                case 0:
-                    refreshMsg(0L, atme);
-                    TiebaApplication.app.setMsgReplyme(0L);
-                    return;
-                case 1:
-                    refreshMsg(replyme, 0L);
-                    TiebaApplication.app.setMsgAtme(0L);
-                    return;
-                default:
-                    return;
-            }
-        }
-        refreshMsg(replyme, atme);
-    }
-
-    public void refreshMsgNumByTalk(MentionModel model) {
-        if (this.mPageType == 0) {
-            this.mButtonReplyme.setText(R.string.mention_replyme);
-            if (model != null) {
-                long num = model.getMessage().getAtme();
-                StringBuffer msg = new StringBuffer(40);
-                msg.append(getText(R.string.mention_atme));
-                msg.append('(');
-                msg.append(num);
-                msg.append(')');
-                this.mButtonAtme.setText(msg);
-            }
-        } else if (this.mPageType == 1) {
-            this.mButtonAtme.setText(R.string.mention_atme);
-            if (model != null) {
-                long num2 = model.getMessage().getReplyme();
-                StringBuffer msg2 = new StringBuffer(40);
-                msg2.append(getText(R.string.mention_replyme));
-                msg2.append('(');
-                msg2.append(num2);
-                msg2.append(')');
-                this.mButtonReplyme.setText(msg2);
-            }
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void refreshMsg(long replyme, long atme) {
-        if (replyme > 0) {
-            String s = String.format("%s(%s)", getString(R.string.mention_replyme), String.valueOf(replyme));
-            this.mButtonReplyme.setText(s);
-        } else {
-            this.mButtonReplyme.setText(R.string.mention_replyme);
-        }
-        if (atme > 0) {
-            String s2 = String.format("%s(%s)", getString(R.string.mention_atme), String.valueOf(atme));
-            this.mButtonAtme.setText(s2);
-            return;
-        }
-        this.mButtonAtme.setText(R.string.mention_atme);
-    }
-
-    public void closeMenuDialog() {
-        if (this.mViewAtme != null) {
-            this.mViewAtme.closeMenuDialog();
-        }
-        if (this.mViewReplyme != null) {
-            this.mViewReplyme.closeMenuDialog();
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes.dex */
-    public class UpdateReceiver extends BroadcastReceiver {
-        private UpdateReceiver() {
-        }
-
-        /* synthetic */ UpdateReceiver(MentionActivity mentionActivity, UpdateReceiver updateReceiver) {
-            this();
-        }
-
-        @Override // android.content.BroadcastReceiver
-        public void onReceive(Context context, Intent intent) {
-            long r = intent.getLongExtra(Config.BROADCAST_RELAY_ME_NUM, 0L);
-            long a = intent.getLongExtra(Config.BROADCAST_AT_ME_NUM, 0L);
-            MentionActivity.this.refreshMsg(r, a);
-        }
-    }
-
-    private void regReceiver() {
-        this.receiver = new UpdateReceiver(this, null);
-        IntentFilter filter = new IntentFilter();
-        filter.addAction(Config.BROADCAST_NOTIFY);
-        registerReceiver(this.receiver, filter);
-    }
-
-    private void unregReceiver() {
-        if (this.receiver != null) {
-            unregisterReceiver(this.receiver);
-        }
-    }
-
-    @Override // android.app.Activity
-    public void onOptionsMenuClosed(Menu menu) {
-        super.onOptionsMenuClosed(menu);
-    }
-
-    @Override // android.app.Activity
-    public boolean onPrepareOptionsMenu(Menu menu) {
-        try {
-            MenuItem item = menu.findItem(1);
-            item.setVisible(true);
-            if (!TiebaApplication.isBaiduAccountManager()) {
-                MenuItem item2 = menu.findItem(2);
-                item2.setVisible(true);
-            }
-            MenuItem item3 = menu.findItem(3);
-            item3.setVisible(true);
-            MenuItem item4 = menu.findItem(4);
-            item4.setVisible(true);
-            MenuItem item5 = menu.findItem(5);
-            item5.setVisible(true);
-        } catch (Exception ex) {
-            TiebaLog.e("HomeActivity", "onPrepareOptionsMenu", "exp: " + ex.toString());
-        }
-        return super.onPrepareOptionsMenu(menu);
-    }
-
-    @Override // android.app.Activity
-    public boolean onCreateOptionsMenu(Menu menu) {
-        menu.add(0, 1, 1, getString(R.string.setup)).setIcon(R.drawable.menu_setup);
-        if (!TiebaApplication.isBaiduAccountManager()) {
-            menu.add(0, 2, 2, getString(R.string.account)).setIcon(R.drawable.menu_account);
-        }
-        menu.add(0, 3, 3, getString(R.string.feedback)).setIcon(R.drawable.menu_feedback);
-        menu.add(0, 4, 4, getString(R.string.about)).setIcon(R.drawable.menu_about);
-        menu.add(0, 5, 5, getString(R.string.quit)).setIcon(R.drawable.menu_quit);
-        return true;
-    }
-
-    @Override // android.app.Activity
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
+        switch (i) {
+            case 0:
+                a(0L, T);
+                TiebaApplication.a().d(0L);
+                return;
             case 1:
-                MainTabActivity.startActivity(this, MainTabActivity.GOTO_MORE);
-                break;
-            case 2:
-                AccountActivity.startActivity(this);
-                break;
-            case 3:
-                AntiData anti = new AntiData();
-                anti.setIfpost(1);
-                WriteActivity.startActivityFeedBack(this, Config.POSITION_PAGER_ID, Config.POSITION_PAGER_NAME, anti);
-                break;
-            case 4:
-                AboutActivity.startActivity(this);
-                break;
-            case 5:
-                quitDialog();
-                break;
+                a(S, 0L);
+                TiebaApplication.a().e(0L);
+                return;
+            default:
+                return;
         }
-        return super.onOptionsItemSelected(item);
+    }
+
+    public void a(String str, Class cls) {
+        Intent intent = new Intent(this, cls);
+        this.g.removeAllViews();
+        this.g.addView(getLocalActivityManager().startActivity(str, intent).getDecorView());
+    }
+
+    @Override // android.app.ActivityGroup, android.app.Activity
+    protected void onCreate(Bundle bundle) {
+        super.onCreate(bundle);
+        setContentView(R.layout.mention_activity);
+        a();
+        a(bundle);
+    }
+
+    @Override // android.app.ActivityGroup, android.app.Activity
+    protected void onDestroy() {
+        super.onDestroy();
+        b();
+    }
+
+    @Override // android.app.ActivityGroup, android.app.Activity
+    protected void onResume() {
+        super.onResume();
+        ag.e(this);
+        if (TiebaApplication.a().S() > 0 && this.b != null) {
+            this.b.setChecked(true);
+        } else if (TiebaApplication.a().T() <= 0 || this.a == null) {
+        } else {
+            this.a.setChecked(true);
+        }
+    }
+
+    @Override // android.app.ActivityGroup, android.app.Activity
+    protected void onSaveInstanceState(Bundle bundle) {
+        super.onSaveInstanceState(bundle);
+        if (getLocalActivityManager().getCurrentActivity() instanceof AtMeActivity) {
+            bundle.putInt("type", 1);
+        } else {
+            bundle.putInt("type", 0);
+        }
     }
 }

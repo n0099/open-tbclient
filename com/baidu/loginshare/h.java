@@ -1,6 +1,4 @@
 package com.baidu.loginshare;
-
-import com.baidu.tieba.account.ReLoginShareActivity;
 /* loaded from: classes.dex */
 public class h {
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -50,7 +48,7 @@ public class h {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static String j() {
-        return ReLoginShareActivity.PTOKEN;
+        return "ptoken";
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */

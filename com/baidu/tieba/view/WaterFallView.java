@@ -3,7 +3,6 @@ package com.baidu.tieba.view;
 import android.content.Context;
 import android.graphics.Rect;
 import android.os.Handler;
-import android.os.Message;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,340 +11,241 @@ import android.widget.LinearLayout;
 import android.widget.ScrollView;
 import android.widget.Scroller;
 import com.baidu.tieba.R;
-import com.baidu.tieba.util.TiebaLog;
-import com.baidu.tieba.util.UtilHelper;
-import java.lang.reflect.Field;
-import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class WaterFallView extends ScrollView {
-    private static final int ITEM_MARGIN = 3;
-    private static final int STOP_SCROLL = 101;
-    private int mBottomOffset;
-    private View mFooter;
-    private Handler mHandler;
-    private View mHeader;
-    private View mHeader2;
-    private int mHeight;
-    private int mItemMargin;
-    private LinearLayout mLine1;
-    private LinearLayout mLine2;
-    private LineHeight mLineHeight1;
-    private LineHeight mLineHeight2;
-    private int mLineWidth;
-    private OnScrollListener mOnScrollListener;
-    private LinearLayout mParentView;
-    private int mScrollHeight;
-
-    /* loaded from: classes.dex */
-    public interface OnScrollListener {
-        void onBottom();
-
-        void onScroll();
-
-        void onStop();
-
-        void onTop();
-    }
+    private int a;
+    private LinearLayout b;
+    private LinearLayout c;
+    private am d;
+    private LinearLayout e;
+    private am f;
+    private View g;
+    private View h;
+    private View i;
+    private int j;
+    private Handler k;
+    private int l;
+    private int m;
+    private int n;
+    private an o;
 
     public WaterFallView(Context context) {
         super(context);
-        this.mItemMargin = 0;
-        this.mParentView = null;
-        this.mLine1 = null;
-        this.mLineHeight1 = null;
-        this.mLine2 = null;
-        this.mLineHeight2 = null;
-        this.mHeader = null;
-        this.mHeader2 = null;
-        this.mFooter = null;
-        this.mLineWidth = 0;
-        this.mHandler = null;
-        this.mHeight = 0;
-        this.mScrollHeight = 0;
-        this.mBottomOffset = 20;
-        this.mOnScrollListener = null;
-        init();
+        this.a = 0;
+        this.b = null;
+        this.c = null;
+        this.d = null;
+        this.e = null;
+        this.f = null;
+        this.g = null;
+        this.h = null;
+        this.i = null;
+        this.j = 0;
+        this.k = null;
+        this.l = 0;
+        this.m = 0;
+        this.n = 20;
+        this.o = null;
+        c();
     }
 
-    public WaterFallView(Context context, AttributeSet attrs) {
-        super(context, attrs);
-        this.mItemMargin = 0;
-        this.mParentView = null;
-        this.mLine1 = null;
-        this.mLineHeight1 = null;
-        this.mLine2 = null;
-        this.mLineHeight2 = null;
-        this.mHeader = null;
-        this.mHeader2 = null;
-        this.mFooter = null;
-        this.mLineWidth = 0;
-        this.mHandler = null;
-        this.mHeight = 0;
-        this.mScrollHeight = 0;
-        this.mBottomOffset = 20;
-        this.mOnScrollListener = null;
-        init();
+    public WaterFallView(Context context, AttributeSet attributeSet) {
+        super(context, attributeSet);
+        this.a = 0;
+        this.b = null;
+        this.c = null;
+        this.d = null;
+        this.e = null;
+        this.f = null;
+        this.g = null;
+        this.h = null;
+        this.i = null;
+        this.j = 0;
+        this.k = null;
+        this.l = 0;
+        this.m = 0;
+        this.n = 20;
+        this.o = null;
+        c();
     }
 
-    public WaterFallView(Context context, AttributeSet attrs, int defStyle) {
-        super(context, attrs, defStyle);
-        this.mItemMargin = 0;
-        this.mParentView = null;
-        this.mLine1 = null;
-        this.mLineHeight1 = null;
-        this.mLine2 = null;
-        this.mLineHeight2 = null;
-        this.mHeader = null;
-        this.mHeader2 = null;
-        this.mFooter = null;
-        this.mLineWidth = 0;
-        this.mHandler = null;
-        this.mHeight = 0;
-        this.mScrollHeight = 0;
-        this.mBottomOffset = 20;
-        this.mOnScrollListener = null;
-        init();
+    public WaterFallView(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
+        this.a = 0;
+        this.b = null;
+        this.c = null;
+        this.d = null;
+        this.e = null;
+        this.f = null;
+        this.g = null;
+        this.h = null;
+        this.i = null;
+        this.j = 0;
+        this.k = null;
+        this.l = 0;
+        this.m = 0;
+        this.n = 20;
+        this.o = null;
+        c();
     }
 
-    public void setOnScrollListener(OnScrollListener onScrollListener) {
-        this.mOnScrollListener = onScrollListener;
+    private void c() {
+        this.d = new am(this);
+        this.f = new am(this);
+        this.n = com.baidu.tieba.c.ag.a(getContext(), 20.0f);
+        this.a = com.baidu.tieba.c.ag.a(getContext(), 3.0f);
+        this.b = (LinearLayout) LayoutInflater.from(getContext()).inflate(R.layout.water_fall_view, (ViewGroup) null);
+        addView(this.b);
+        this.c = (LinearLayout) this.b.findViewById(R.id.line1);
+        this.e = (LinearLayout) this.b.findViewById(R.id.line2);
+        measure(View.MeasureSpec.makeMeasureSpec(com.baidu.tieba.c.ag.a(getContext()), 1073741824), 0);
+        this.j = this.c.getMeasuredWidth();
+        d();
     }
 
-    public void addHeader(View view) {
-        if (this.mHeader != null) {
-            this.mParentView.removeView(this.mHeader);
-        }
-        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(-1, -2);
-        this.mParentView.addView(view, 0, params);
-        this.mHeader = view;
+    private void d() {
+        this.k = new al(this);
     }
 
-    public View getHeader() {
-        return this.mHeader;
+    public LinearLayout a(int i) {
+        return i == 2 ? this.e : this.c;
     }
 
-    public void addHeader2(View view) {
-        if (this.mHeader2 != null) {
-            this.mParentView.removeView(this.mHeader2);
-        }
-        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(-1, -2);
-        if (this.mHeader == null) {
-            this.mParentView.addView(view, 0, params);
-        } else {
-            this.mParentView.addView(view, 1, params);
-        }
-        this.mHeader2 = view;
-    }
-
-    public void removeHeader2() {
-        if (this.mHeader2 != null) {
-            this.mParentView.removeView(this.mHeader2);
-            this.mHeader2 = null;
+    public void a() {
+        if (this.h != null) {
+            this.b.removeView(this.h);
+            this.h = null;
         }
     }
 
-    public View getHeader2() {
-        return this.mHeader2;
-    }
-
-    public void addFooter(View view) {
-        if (this.mFooter != null) {
-            this.mParentView.removeView(this.mFooter);
+    public void a(View view) {
+        if (this.g != null) {
+            this.b.removeView(this.g);
         }
-        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(-1, -2);
-        this.mParentView.addView(view, params);
-        this.mFooter = view;
+        this.b.addView(view, 0, new LinearLayout.LayoutParams(-1, -2));
+        this.g = view;
     }
 
-    public View getFooter() {
-        return this.mFooter;
-    }
-
-    private void init() {
-        this.mLineHeight1 = new LineHeight();
-        this.mLineHeight2 = new LineHeight();
-        this.mBottomOffset = UtilHelper.dip2px(getContext(), 20.0f);
-        this.mItemMargin = UtilHelper.dip2px(getContext(), 3.0f);
-        LayoutInflater mInflater = LayoutInflater.from(getContext());
-        this.mParentView = (LinearLayout) mInflater.inflate(R.layout.water_fall_view, (ViewGroup) null);
-        addView(this.mParentView);
-        this.mLine1 = (LinearLayout) this.mParentView.findViewById(R.id.line1);
-        this.mLine2 = (LinearLayout) this.mParentView.findViewById(R.id.line2);
-        int widthMeasureSpec = View.MeasureSpec.makeMeasureSpec(UtilHelper.getEquipmentWidth(getContext()), 1073741824);
-        measure(widthMeasureSpec, 0);
-        this.mLineWidth = this.mLine1.getMeasuredWidth();
-        initHandler();
-    }
-
-    public int getLineWidth() {
-        return this.mLineWidth;
-    }
-
-    private void initHandler() {
-        this.mHandler = new Handler() { // from class: com.baidu.tieba.view.WaterFallView.1
-            @Override // android.os.Handler
-            public void handleMessage(Message msg) {
-                super.handleMessage(msg);
-                if (msg.what == 101 && WaterFallView.this.mOnScrollListener != null) {
-                    WaterFallView.this.mOnScrollListener.onStop();
-                }
-            }
-        };
-    }
-
-    @Override // android.view.View
-    protected void onScrollChanged(int l, int t, int oldl, int oldt) {
-        super.onScrollChanged(l, t, oldl, oldt);
-        this.mHandler.removeMessages(101);
-        boolean stop = false;
-        if (this.mScrollHeight - this.mHeight == t) {
-            stop = true;
-        }
-        if (t == 0 || stop) {
-            try {
-                Field filed = UtilHelper.getDeclaredField(this, "mScroller");
-                Object ob = filed.get(this);
-                if (ob != null && (ob instanceof Scroller)) {
-                    Scroller sc = (Scroller) ob;
-                    sc.abortAnimation();
-                }
-            } catch (Exception e) {
-                TiebaLog.e(getClass().getName(), "onScrollChanged", e.getMessage());
-            }
-        }
-        if (this.mOnScrollListener != null) {
-            if (t == 0) {
-                this.mOnScrollListener.onTop();
-            } else if (this.mParentView.getHeight() - this.mBottomOffset <= getScrollY() + getHeight() && t > oldt && this.mOnScrollListener != null) {
-                this.mOnScrollListener.onBottom();
-            }
-            this.mOnScrollListener.onScroll();
-            this.mHandler.sendMessageDelayed(this.mHandler.obtainMessage(101), 300L);
-        }
-    }
-
-    public void addItem(View view, int height) {
-        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(-1, height);
-        params.topMargin = this.mItemMargin;
-        params.bottomMargin = this.mItemMargin;
-        if (this.mLineHeight1.getHeight() <= this.mLineHeight2.getHeight()) {
-            this.mLine1.addView(view, params);
-            this.mLineHeight1.addItem((this.mItemMargin * 2) + height);
+    public void a(View view, int i) {
+        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, i);
+        layoutParams.topMargin = this.a;
+        layoutParams.bottomMargin = this.a;
+        if (this.d.b() <= this.f.b()) {
+            this.c.addView(view, layoutParams);
+            this.d.a((this.a * 2) + i);
             return;
         }
-        this.mLine2.addView(view, params);
-        this.mLineHeight2.addItem((this.mItemMargin * 2) + height);
+        this.e.addView(view, layoutParams);
+        this.f.a((this.a * 2) + i);
     }
 
-    public LinearLayout getLine(int index) {
-        return index == 2 ? this.mLine2 : this.mLine1;
-    }
-
-    public int getFirstVisibleIndex(int line_index) {
+    public int b(int i) {
         Rect rect = new Rect();
-        if (line_index == 2) {
-            this.mLine2.getLocalVisibleRect(rect);
-            int index = this.mLineHeight2.getTop(rect.top);
-            return index;
+        if (i == 2) {
+            this.e.getLocalVisibleRect(rect);
+            return this.f.b(rect.top);
         }
-        this.mLine1.getLocalVisibleRect(rect);
-        int index2 = this.mLineHeight1.getTop(rect.top);
-        return index2;
+        this.c.getLocalVisibleRect(rect);
+        return this.d.b(rect.top);
     }
 
-    public int getLastVisibleIndex(int line_index) {
+    public void b() {
+        this.c.removeAllViews();
+        this.d.a();
+        this.e.removeAllViews();
+        this.f.a();
+    }
+
+    public void b(View view) {
+        if (this.h != null) {
+            this.b.removeView(this.h);
+        }
+        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, -2);
+        if (this.g == null) {
+            this.b.addView(view, 0, layoutParams);
+        } else {
+            this.b.addView(view, 1, layoutParams);
+        }
+        this.h = view;
+    }
+
+    public int c(int i) {
         Rect rect = new Rect();
-        if (line_index == 2) {
-            this.mLine2.getLocalVisibleRect(rect);
-            int index = this.mLineHeight2.getBottom(rect.bottom);
-            return index;
+        if (i == 2) {
+            this.e.getLocalVisibleRect(rect);
+            return this.f.c(rect.bottom);
         }
-        this.mLine1.getLocalVisibleRect(rect);
-        int index2 = this.mLineHeight1.getBottom(rect.bottom);
-        return index2;
+        this.c.getLocalVisibleRect(rect);
+        return this.d.c(rect.bottom);
     }
 
-    public void removeAllItems() {
-        this.mLine1.removeAllViews();
-        this.mLineHeight1.reset();
-        this.mLine2.removeAllViews();
-        this.mLineHeight2.reset();
+    public void c(View view) {
+        if (this.i != null) {
+            this.b.removeView(this.i);
+        }
+        this.b.addView(view, new LinearLayout.LayoutParams(-1, -2));
+        this.i = view;
     }
 
     @Override // android.widget.ScrollView, android.view.View
     protected int computeVerticalScrollRange() {
-        this.mScrollHeight = super.computeVerticalScrollRange();
-        return this.mScrollHeight;
+        this.m = super.computeVerticalScrollRange();
+        return this.m;
+    }
+
+    public View getFooter() {
+        return this.i;
+    }
+
+    public View getHeader() {
+        return this.g;
+    }
+
+    public View getHeader2() {
+        return this.h;
+    }
+
+    public int getLineWidth() {
+        return this.j;
     }
 
     @Override // android.widget.ScrollView, android.widget.FrameLayout, android.view.ViewGroup, android.view.View
-    protected void onLayout(boolean changed, int l, int t, int r, int b) {
-        super.onLayout(changed, l, t, r, b);
-        if (changed) {
-            this.mHeight = b - t;
+    protected void onLayout(boolean z, int i, int i2, int i3, int i4) {
+        super.onLayout(z, i, i2, i3, i4);
+        if (z) {
+            this.l = i4 - i2;
         }
-        this.mHandler.removeMessages(101);
-        this.mHandler.sendMessageDelayed(this.mHandler.obtainMessage(101), 300L);
+        this.k.removeMessages(101);
+        this.k.sendMessageDelayed(this.k.obtainMessage(101), 300L);
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes.dex */
-    public class LineHeight {
-        int mHeigh = 0;
-        ArrayList<int[]> mItemsHeight = new ArrayList<>();
-
-        public LineHeight() {
-        }
-
-        public void addItem(int height) {
-            this.mHeigh += height;
-            int[] sign = {this.mHeigh, this.mHeigh};
-            this.mItemsHeight.add(sign);
-        }
-
-        public void reset() {
-            this.mHeigh = 0;
-            this.mItemsHeight.clear();
-        }
-
-        public int getHeight() {
-            return this.mHeigh;
-        }
-
-        public int getTop(int top) {
-            int num = this.mItemsHeight.size();
-            for (int i = 0; i < num; i++) {
-                if (this.mItemsHeight.get(i)[1] > top) {
-                    return i;
+    @Override // android.view.View
+    protected void onScrollChanged(int i, int i2, int i3, int i4) {
+        super.onScrollChanged(i, i2, i3, i4);
+        this.k.removeMessages(101);
+        boolean z = this.m - this.l == i2;
+        if (i2 == 0 || z) {
+            try {
+                Object obj = com.baidu.tieba.c.ag.a(this, "mScroller").get(this);
+                if (obj != null && (obj instanceof Scroller)) {
+                    ((Scroller) obj).abortAnimation();
                 }
+            } catch (Exception e) {
+                com.baidu.tieba.c.ae.b(getClass().getName(), "onScrollChanged", e.getMessage());
             }
-            return -1;
         }
+        if (this.o != null) {
+            if (i2 == 0) {
+                this.o.b();
+            } else if (this.b.getHeight() - this.n <= getScrollY() + getHeight() && i2 > i4) {
+                this.o.a();
+            }
+            this.o.c();
+            this.k.sendMessageDelayed(this.k.obtainMessage(101), 300L);
+        }
+    }
 
-        public int getBottom(int bottom) {
-            int num = this.mItemsHeight.size();
-            if (num <= 0) {
-                return -1;
-            }
-            int i = 0;
-            while (true) {
-                if (i >= num) {
-                    break;
-                } else if (this.mItemsHeight.get(i)[0] <= bottom) {
-                    i++;
-                } else {
-                    i--;
-                    break;
-                }
-            }
-            if (i < 0) {
-                i = 0;
-            }
-            if (i >= num) {
-                int i2 = num - 1;
-                return i2;
-            }
-            return i;
-        }
+    public void setOnScrollListener(an anVar) {
+        this.o = anVar;
     }
 }

@@ -2,25 +2,17 @@ package com.baidu.tieba.write;
 
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
-import android.location.Location;
-import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
-import android.text.Editable;
-import android.text.SpannableString;
-import android.text.SpannableStringBuilder;
-import android.text.TextWatcher;
-import android.text.style.ImageSpan;
 import android.view.KeyEvent;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
-import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.GridView;
@@ -28,974 +20,519 @@ import android.widget.ImageView;
 import android.widget.ListAdapter;
 import android.widget.ProgressBar;
 import android.widget.TextView;
-import com.baidu.tieba.BaseActivity;
 import com.baidu.tieba.R;
 import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.account.LoginActivity;
-import com.baidu.tieba.data.AntiData;
-import com.baidu.tieba.data.ChunkUploadData;
-import com.baidu.tieba.data.ChunkUploadResult;
-import com.baidu.tieba.data.Config;
-import com.baidu.tieba.data.InfoData;
-import com.baidu.tieba.data.RequestResponseCode;
-import com.baidu.tieba.data.VcodeInfoData;
-import com.baidu.tieba.model.WriteModel;
 import com.baidu.tieba.service.TiebaPrepareImageService;
-import com.baidu.tieba.util.ChunkUploadHelper;
-import com.baidu.tieba.util.DatabaseService;
-import com.baidu.tieba.util.FaceHelper;
-import com.baidu.tieba.util.FileHelper;
-import com.baidu.tieba.util.NetWork;
-import com.baidu.tieba.util.NetWorkCore;
-import com.baidu.tieba.util.StringHelper;
-import com.baidu.tieba.util.TiebaLog;
-import com.baidu.tieba.util.UtilHelper;
-import com.baidu.tieba.view.MyBitmapDrawable;
-import java.io.File;
-import org.json.JSONObject;
 /* loaded from: classes.dex */
-public class WriteActivity extends BaseActivity {
-    private static final String FEED_BACK = "feed_back";
-    private static final String FLOOR_ID = "floor_id";
-    private static final String FLOOR_NUM = "floor_num";
-    private static final String FORUM_ID = "forum_id";
-    private static final String FORUM_NAME = "forum_name";
-    private static final String IS_AD = "is_ad";
-    private static final String REFRESH_PIC = "refresh_pic";
-    private static final String REPLY_SUB_PB = "reply_sub_pb";
-    private static final String THREAD_ID = "thread_id";
-    private static final String TYPE = "type";
-    private WriteModel mModel = null;
-    private boolean isFeedBack = false;
-    private boolean hasChanged = false;
-    private InputMethodManager mInputManager = null;
-    private EditText mPostTitle = null;
-    private EditText mPostContent = null;
-    private Button mBack = null;
-    private Button mPost = null;
-    private ImageView mFace = null;
-    private ImageView mselectAt = null;
-    private ImageView mSelectImage = null;
-    private ProgressBar mImageProgressBar = null;
-    private ImageView mImage = null;
-    private TextView mName = null;
-    private GridView mGridView = null;
-    private AlertDialog mSelectImageDialog = null;
-    private FaceAdapter mFaceAdapter = null;
-    private GetImageTask mImageTask = null;
-    private PostThreadTask mPostThreadTask = null;
-    private DialogInterface.OnCancelListener mDialogCancelListener = null;
-    private AlertDialog mDraftDialog = null;
-    private Bitmap mBitmap = null;
-    private Handler mHandler = new Handler();
-    private boolean mIsLoadingImage = false;
-    private boolean mIsReplySubPb = false;
-    private Runnable mKeyBoradRun = new Runnable() { // from class: com.baidu.tieba.write.WriteActivity.1
-        @Override // java.lang.Runnable
-        public void run() {
-            if (WriteActivity.this.mPostTitle.getVisibility() == 0) {
-                WriteActivity.this.ShowSoftKeyPad(WriteActivity.this.mInputManager, WriteActivity.this.mPostTitle);
-            } else {
-                WriteActivity.this.ShowSoftKeyPad(WriteActivity.this.mInputManager, WriteActivity.this.mPostContent);
-            }
-        }
-    };
-    private Runnable mLoadImageRun = new Runnable() { // from class: com.baidu.tieba.write.WriteActivity.2
-        @Override // java.lang.Runnable
-        public void run() {
-            WriteActivity.this.stopLoadImage(null);
-        }
-    };
-    private Runnable mShowFaceRun = new Runnable() { // from class: com.baidu.tieba.write.WriteActivity.3
-        @Override // java.lang.Runnable
-        public void run() {
-            if (WriteActivity.this.mGridView.getVisibility() != 0) {
-                WriteActivity.this.mGridView.setVisibility(0);
-            }
-        }
-    };
-    private View.OnClickListener mEditOnClicked = new View.OnClickListener() { // from class: com.baidu.tieba.write.WriteActivity.4
-        @Override // android.view.View.OnClickListener
-        public void onClick(View v) {
-            if (WriteActivity.this.mGridView.getVisibility() == 0) {
-                WriteActivity.this.mGridView.setVisibility(8);
-            }
-        }
-    };
-    private View.OnFocusChangeListener mFocusChangeListener = new View.OnFocusChangeListener() { // from class: com.baidu.tieba.write.WriteActivity.5
-        @Override // android.view.View.OnFocusChangeListener
-        public void onFocusChange(View v, boolean hasFocus) {
-            if ((v == WriteActivity.this.mPostTitle || v == WriteActivity.this.mBack || v == WriteActivity.this.mPost) && hasFocus) {
-                WriteActivity.this.mGridView.setVisibility(8);
-                WriteActivity.this.mFace.setClickable(false);
-                WriteActivity.this.mselectAt.setClickable(false);
-                WriteActivity.this.mSelectImage.setClickable(false);
-            }
-            if (v == WriteActivity.this.mPostContent) {
-                if (!hasFocus) {
-                    if (WriteActivity.this.mModel.getType() == WriteModel.NEW) {
-                        WriteActivity.this.mPostContent.setHint(R.string.content);
-                        return;
-                    }
-                    return;
-                }
-                WriteActivity.this.mFace.setClickable(true);
-                WriteActivity.this.mselectAt.setClickable(true);
-                WriteActivity.this.mSelectImage.setClickable(true);
-                if (WriteActivity.this.mModel.getType() == WriteModel.NEW) {
-                    WriteActivity.this.mPostContent.setHint((CharSequence) null);
-                }
-            }
-        }
-    };
+public class WriteActivity extends com.baidu.tieba.e {
+    private com.baidu.tieba.b.u b = null;
+    private boolean c = false;
+    private boolean d = false;
+    private InputMethodManager e = null;
+    private EditText f = null;
+    private EditText g = null;
+    private Button h = null;
+    private Button i = null;
+    private ImageView j = null;
+    private ImageView k = null;
+    private ImageView l = null;
+    private ProgressBar m = null;
+    private ImageView n = null;
+    private TextView o = null;
+    private GridView p = null;
+    private AlertDialog q = null;
+    private m r = null;
+    private an s = null;
+    private ao t = null;
+    private DialogInterface.OnCancelListener u = null;
+    private AlertDialog v = null;
+    private Bitmap w = null;
+    private Handler x = new Handler();
+    private boolean y = false;
+    private boolean z = false;
+    private String A = null;
+    private Runnable B = new t(this);
+    private Runnable C = new ae(this);
+    private Runnable D = new ag(this);
+    private View.OnClickListener E = new ah(this);
+    private View.OnFocusChangeListener F = new ai(this);
 
-    public static void startAcitivityForResult(Activity context, String forumId, String forumName, AntiData anti, boolean isFresh, String filename) {
-        startAcitivityForResult(context, WriteModel.NEW, forumId, forumName, null, null, 0, anti, RequestResponseCode.REQUEST_WRITE_NEW, false, false, false, isFresh, filename);
-    }
-
-    public static void startAcitivityForResult(Activity context, String forumId, String forumName, String threadId, String filename) {
-        startAcitivityForResult(context, WriteModel.REPLY, forumId, forumName, threadId, null, 0, null, RequestResponseCode.REQUEST_WRITE_REPLY, false, false, false, true, filename);
-    }
-
-    public static void startAcitivity(Activity context, String forumId, String forumName, AntiData anti) {
-        startAcitivityForResult(context, WriteModel.NEW, forumId, forumName, null, null, 0, anti, RequestResponseCode.REQUEST_WRITE_NEW, false, false, false, false, null);
-    }
-
-    public static void startActivityFeedBack(Activity context, String forumId, String forumName, AntiData anti) {
-        startAcitivityForResult(context, WriteModel.NEW, forumId, forumName, null, null, 0, anti, RequestResponseCode.REQUEST_WRITE_NEW, true, false, false, false, null);
-    }
-
-    public static void startAcitivity(Activity context, String forumId, String forumName, String threadId, String floorId, int floorNum, boolean isAd, AntiData anti) {
-        if (floorId != null) {
-            startAcitivityForResult(context, WriteModel.REPLY_FLOOR, forumId, forumName, threadId, floorId, floorNum, anti, RequestResponseCode.REQUEST_WRITE_REPLY_FLOOR, false, false, isAd, false, null);
-        } else {
-            startAcitivityForResult(context, WriteModel.REPLY, forumId, forumName, threadId, floorId, floorNum, anti, RequestResponseCode.REQUEST_WRITE_REPLY, false, false, isAd, false, null);
-        }
-    }
-
-    public static void startAcitivity(Activity context, String forumId, String forumName, String threadId, String floorId, int floorNum, AntiData anti, boolean isReplySubPb) {
-        if (floorId != null) {
-            startAcitivityForResult(context, WriteModel.REPLY_FLOOR, forumId, forumName, threadId, floorId, floorNum, anti, RequestResponseCode.REQUEST_WRITE_REPLY_FLOOR, false, isReplySubPb, false, false, null);
-        } else {
-            startAcitivityForResult(context, WriteModel.REPLY, forumId, forumName, threadId, floorId, floorNum, anti, RequestResponseCode.REQUEST_WRITE_REPLY, false, isReplySubPb, false, false, null);
-        }
-    }
-
-    private static void startAcitivityForResult(Activity context, int type, String forumId, String forumName, String threadId, String floorId, int floorNum, AntiData anti, int requestCode, boolean feedBack, boolean isReplySubPb, boolean isAd, boolean refreshImage, String filename) {
-        if (anti != null && anti.getIfpost() == 0) {
-            UtilHelper.showToast(context, anti.getForbid_info());
+    private static void a(Activity activity, int i, String str, String str2, String str3, String str4, int i2, com.baidu.tieba.a.b bVar, int i3, boolean z, boolean z2, String str5, boolean z3, boolean z4, String str6) {
+        if (bVar != null && bVar.a() == 0) {
+            com.baidu.tieba.c.ag.a((Context) activity, bVar.e());
             return;
         }
-        Intent intent = new Intent(context, WriteActivity.class);
-        intent.putExtra("type", type);
-        intent.putExtra(FORUM_ID, forumId);
-        intent.putExtra(FORUM_NAME, forumName);
-        intent.putExtra(REPLY_SUB_PB, isReplySubPb);
-        intent.putExtra(IS_AD, isAd);
-        if (filename != null) {
-            intent.putExtra(WriteImageActivity.FILE_NAME, filename);
+        Intent intent = new Intent(activity, WriteActivity.class);
+        intent.putExtra("type", i);
+        intent.putExtra("forum_id", str);
+        intent.putExtra("forum_name", str2);
+        intent.putExtra("reply_sub_pb", z2);
+        intent.putExtra("is_ad", z3);
+        if (str6 != null) {
+            intent.putExtra("file_name", str6);
         }
-        intent.putExtra(REFRESH_PIC, refreshImage);
-        if (feedBack) {
-            intent.putExtra(FEED_BACK, true);
+        intent.putExtra("refresh_pic", z4);
+        if (z) {
+            intent.putExtra("feed_back", true);
         }
-        if (threadId != null) {
-            intent.putExtra(THREAD_ID, threadId);
+        if (str3 != null) {
+            intent.putExtra("thread_id", str3);
         }
-        if (floorId != null) {
-            intent.putExtra(FLOOR_ID, floorId);
+        if (str4 != null) {
+            intent.putExtra("floor_id", str4);
         }
-        if (floorNum > 0) {
-            intent.putExtra(FLOOR_NUM, floorNum);
+        if (i2 > 0) {
+            intent.putExtra("floor_num", i2);
         }
-        context.startActivityForResult(intent, requestCode);
+        if (str5 != null) {
+            intent.putExtra("sub_user_name", str5);
+        }
+        activity.startActivityForResult(intent, i3);
+    }
+
+    public static void a(Activity activity, String str, String str2, com.baidu.tieba.a.b bVar) {
+        a(activity, 0, str, str2, null, null, 0, bVar, 1300003, true, false, null, false, false, null);
+    }
+
+    public static void a(Activity activity, String str, String str2, com.baidu.tieba.a.b bVar, boolean z, String str3) {
+        a(activity, 0, str, str2, null, null, 0, bVar, 1300003, false, false, null, false, z, str3);
+    }
+
+    public static void a(Activity activity, String str, String str2, String str3, String str4) {
+        a(activity, 1, str, str2, str3, null, 0, null, 1300002, false, false, null, false, true, str4);
+    }
+
+    public static void a(Activity activity, String str, String str2, String str3, String str4, int i, String str5, com.baidu.tieba.a.b bVar, boolean z) {
+        if (str4 != null) {
+            a(activity, 2, str, str2, str3, str4, i, bVar, 1300001, false, z, str5, false, false, null);
+        } else {
+            a(activity, 1, str, str2, str3, null, i, bVar, 1300002, false, z, str5, false, false, null);
+        }
+    }
+
+    public static void a(Activity activity, String str, String str2, String str3, String str4, int i, boolean z, com.baidu.tieba.a.b bVar) {
+        if (str4 != null) {
+            a(activity, 2, str, str2, str3, str4, i, bVar, 1300001, false, false, null, z, false, null);
+        } else {
+            a(activity, 1, str, str2, str3, null, i, bVar, 1300002, false, false, null, z, false, null);
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void a(Bitmap bitmap) {
+        this.x.removeCallbacks(this.C);
+        this.y = false;
+        this.m.setVisibility(8);
+        if (bitmap != null) {
+            this.w = bitmap;
+            this.b.a((com.baidu.tieba.a.w) null);
+            this.n.setImageBitmap(this.w);
+            this.n.setVisibility(0);
+        } else {
+            this.n.setVisibility(8);
+            b(getString(R.string.pic_parser_error));
+        }
+        k();
+    }
+
+    private void a(Bundle bundle) {
+        int intExtra;
+        this.u = new af(this);
+        this.b = new com.baidu.tieba.b.u();
+        if (bundle != null) {
+            this.b.a(bundle.getInt("type", 0));
+            this.b.e(bundle.getString("forum_id"));
+            this.b.f(bundle.getString("forum_name"));
+            this.b.c(bundle.getString("thread_id"));
+            this.b.d(bundle.getString("floor_id"));
+            intExtra = bundle.getInt("floor_num", 0);
+            this.b.b(intExtra);
+            this.c = bundle.getBoolean("feed_back", false);
+            this.z = bundle.getBoolean("reply_sub_pb", false);
+            this.A = bundle.getString("sub_user_name");
+        } else {
+            Intent intent = getIntent();
+            this.b.a(intent.getIntExtra("type", 0));
+            this.b.e(intent.getStringExtra("forum_id"));
+            this.b.f(intent.getStringExtra("forum_name"));
+            this.b.c(intent.getStringExtra("thread_id"));
+            this.b.d(intent.getStringExtra("floor_id"));
+            intExtra = intent.getIntExtra("floor_num", 0);
+            this.b.b(intExtra);
+            this.c = intent.getBooleanExtra("feed_back", false);
+            this.z = intent.getBooleanExtra("reply_sub_pb", false);
+            this.A = intent.getStringExtra("sub_user_name");
+        }
+        com.baidu.tieba.b.u a = com.baidu.tieba.c.k.a(this.b.a(), this.b.f(), this.b.d(), this.b.e());
+        if (a != null) {
+            this.b = a;
+            this.b.b(intExtra);
+            this.b.a(true);
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void h() {
+        if (this.b != null && this.b.a() == 2 && this.z) {
+            finish();
+        } else if (this.v == null || (this.f.getText().toString().length() <= 0 && this.g.getText().toString().length() <= 0)) {
+            if (this.b.m()) {
+                com.baidu.tieba.c.k.a(this.b);
+            }
+            finish();
+        } else if (!this.d) {
+            finish();
+        } else {
+            this.v.show();
+            Button button = this.v.getButton(-3);
+            if (button != null) {
+                ViewGroup.LayoutParams layoutParams = button.getLayoutParams();
+                layoutParams.width = -2;
+                button.setLayoutParams(layoutParams);
+            }
+            Button button2 = this.v.getButton(-2);
+            if (button2 != null) {
+                ViewGroup.LayoutParams layoutParams2 = button2.getLayoutParams();
+                layoutParams2.width = -2;
+                button2.setLayoutParams(layoutParams2);
+            }
+            Button button3 = this.v.getButton(-1);
+            if (button3 != null) {
+                ViewGroup.LayoutParams layoutParams3 = button3.getLayoutParams();
+                layoutParams3.width = -2;
+                button3.setLayoutParams(layoutParams3);
+            }
+        }
+    }
+
+    private void i() {
+        setContentView(R.layout.write_activity);
+        String[] strArr = {getString(R.string.take_photo), getString(R.string.album)};
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle(getString(R.string.operation));
+        builder.setItems(strArr, new aj(this));
+        if (this.q == null) {
+            this.q = builder.create();
+            this.q.setCanceledOnTouchOutside(true);
+        }
+        this.i = (Button) findViewById(R.id.post);
+        this.i.setOnFocusChangeListener(this.F);
+        this.m = (ProgressBar) findViewById(R.id.image_progress);
+        this.n = (ImageView) findViewById(R.id.image);
+        this.n.setOnClickListener(new ak(this));
+        this.f = (EditText) findViewById(R.id.post_title);
+        this.f.setOnClickListener(this.E);
+        this.f.setOnFocusChangeListener(this.F);
+        if (this.b.a() == 0) {
+            if (this.b.b() != null) {
+                this.f.setText(this.b.b());
+            } else if (this.c) {
+                this.f.setText(getResources().getString(R.string.android_feedback));
+                this.f.setSelection(getResources().getString(R.string.android_feedback).length());
+            }
+        } else if (this.b.a() != 1) {
+            this.b.a();
+        }
+        this.f.addTextChangedListener(new al(this));
+        this.x.postDelayed(this.B, 200L);
+        this.r = new m(this);
+        this.p = (GridView) findViewById(R.id.face_view);
+        this.p.setAdapter((ListAdapter) this.r);
+        this.p.setOnItemClickListener(new am(this));
+        this.g = (EditText) findViewById(R.id.post_content);
+        this.g.setOnClickListener(this.E);
+        this.l = (ImageView) findViewById(R.id.select_image);
+        this.l.setOnClickListener(new u(this));
+        if (this.b.c() != null && this.b.c().length() > 0) {
+            this.g.setText(com.baidu.tieba.c.n.b(this, this.b.c()));
+        } else if (this.b.a() == 2) {
+            if (this.z) {
+                this.l.setVisibility(8);
+                if (this.A != null && this.A.length() > 0) {
+                    this.g.setText(getString(R.string.reply_sub_floor, new Object[]{this.A}));
+                    this.g.setSelection(this.g.getText().length());
+                }
+            } else if (this.b.h() > 0) {
+                String format = String.format(getString(R.string.reply_x_floor), Integer.valueOf(this.b.h()));
+                this.g.setText(format);
+                this.g.setSelection(format.length());
+            }
+        } else if (this.b.a() == 0 && this.c) {
+            StringBuffer stringBuffer = new StringBuffer(30);
+            stringBuffer.append(getResources().getString(R.string.tieba_client));
+            stringBuffer.append(com.baidu.tieba.a.h.h());
+            stringBuffer.append(", ");
+            stringBuffer.append(Build.VERSION.RELEASE);
+            stringBuffer.append(":");
+            this.g.setText(stringBuffer);
+        }
+        this.g.setOnFocusChangeListener(this.F);
+        this.g.setOnTouchListener(new v(this));
+        this.g.addTextChangedListener(new w(this));
+        this.h = (Button) findViewById(R.id.back);
+        this.h.setOnFocusChangeListener(this.F);
+        this.o = (TextView) findViewById(R.id.name);
+        this.h.setOnClickListener(new x(this));
+        this.k = (ImageView) findViewById(R.id.select_at);
+        this.k.setOnClickListener(new y(this));
+        this.i.setOnClickListener(new z(this));
+        this.j = (ImageView) findViewById(R.id.select_face);
+        this.j.setOnClickListener(new aa(this));
+        if (this.b.a() == 0) {
+            if (this.c) {
+                this.o.setText(R.string.feedback);
+            } else {
+                this.o.setText(R.string.post_new_thread);
+            }
+            this.f.setVisibility(0);
+        } else {
+            this.o.setText(R.string.send_reply);
+            this.f.setVisibility(8);
+        }
+        AlertDialog.Builder builder2 = new AlertDialog.Builder(this);
+        builder2.setMessage(getString(R.string.is_save_draft)).setCancelable(false).setPositiveButton(getString(R.string.save), new ab(this)).setNeutralButton(getString(R.string.not_save), new ac(this)).setNegativeButton(getString(R.string.cancel), new ad(this));
+        this.v = builder2.create();
+        k();
+        l();
+    }
+
+    private void j() {
+        try {
+            if (this.v != null && this.v.isShowing()) {
+                this.v.dismiss();
+            }
+            if (this.q == null || !this.q.isShowing()) {
+                return;
+            }
+            this.q.dismiss();
+        } catch (Exception e) {
+            com.baidu.tieba.c.ae.b(getClass().getName(), "closeDialog", e.getMessage());
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void k() {
+        String trim = this.b.a() == 0 ? this.f.getText().toString().trim() : this.w != null ? "1" : this.g.getText().toString().trim();
+        if (this.y || trim == null || trim.length() <= 0 || this.s != null) {
+            this.i.setEnabled(false);
+            this.i.setTextColor(-7688462);
+            return;
+        }
+        this.i.setEnabled(true);
+        this.i.setTextColor(-1);
+    }
+
+    private void l() {
+        if (getIntent().getBooleanExtra("refresh_pic", false)) {
+            if (this.s != null) {
+                this.s.a();
+            }
+            this.s = null;
+            m();
+            if (getIntent().getStringExtra("file_name") != null) {
+                this.s = new an(this, getIntent().getStringExtra("file_name"));
+                this.s.execute(new Object[0]);
+            } else {
+                this.s = new an(this, "tieba_resized_image_display");
+                this.s.execute(new Object[0]);
+            }
+            this.x.removeCallbacks(this.C);
+            this.x.postDelayed(this.C, 10000L);
+        }
+    }
+
+    private void m() {
+        this.y = true;
+        this.n.setVisibility(8);
+        this.n.setImageBitmap(null);
+        if (this.w != null && !this.w.isRecycled()) {
+            this.w.recycle();
+        }
+        this.w = null;
+        this.b.a((com.baidu.tieba.a.w) null);
+        this.m.setVisibility(0);
+        k();
+    }
+
+    public void g() {
+        this.b.a(this.f.getText().toString());
+        this.b.b(this.g.getText().toString());
+        a(getString(R.string.sending), this.u);
+        if (this.t != null) {
+            this.t.a();
+        }
+        this.b.g(null);
+        this.t = new ao(this, this.b);
+        this.t.execute(0);
+    }
+
+    @Override // android.app.Activity
+    protected void onActivityResult(int i, int i2, Intent intent) {
+        super.onActivityResult(i, i2, intent);
+        if (i2 != -1) {
+            if (i2 == 0) {
+                switch (i) {
+                    case 1200001:
+                    case 1200002:
+                        this.q.show();
+                        return;
+                    case 1200008:
+                        ba.b(this);
+                        return;
+                    case 12000010:
+                        ba.a(this);
+                        return;
+                    default:
+                        return;
+                }
+            }
+        } else if (i == 1200003) {
+            if (intent.getBooleanExtra("delete", false)) {
+                this.w = null;
+                this.n.setVisibility(8);
+                return;
+            }
+            if (intent.getBooleanExtra("change", false)) {
+                if (this.s != null) {
+                    this.s.a();
+                }
+                this.s = null;
+                m();
+                if (this.s != null) {
+                    this.s.a();
+                }
+                this.s = null;
+                if (intent.getStringExtra("file_name") != null) {
+                    this.s = new an(this, intent.getStringExtra("file_name"));
+                } else {
+                    this.s = new an(this, "tieba_resized_image_display");
+                }
+                this.s.execute(new Object[0]);
+                this.x.removeCallbacks(this.C);
+                this.x.postDelayed(this.C, 10000L);
+            }
+            k();
+        } else if (i == 12000010 || i == 1200008) {
+            m();
+            if (this.s != null) {
+                this.s.a();
+            }
+            this.s = null;
+            if (intent.getStringExtra("file_name") != null) {
+                this.s = new an(this, intent.getStringExtra("file_name"));
+            } else {
+                this.s = new an(this, "tieba_resized_image_display");
+            }
+            this.s.execute(new Object[0]);
+            this.x.removeCallbacks(this.C);
+            this.x.postDelayed(this.C, 10000L);
+            k();
+            a(this.g, 300);
+        } else if (i == 1200004) {
+            String a = AtListActivity.a(intent);
+            if (a != null) {
+                this.g.getText().insert(this.g.getSelectionStart(), "@" + a + " ");
+            }
+        } else if (i == 1200005) {
+            com.baidu.tieba.c.k.a(this.b);
+            setResult(-1);
+            finish();
+        } else {
+            if (this.s != null) {
+                this.s.a();
+            }
+            this.s = null;
+            if (i != 1200002) {
+                if (i == 1200001) {
+                    WriteImageActivity.a(this, 1200001, 12000010, null, null, null, null);
+                }
+            } else if (intent == null || intent.getData() == null) {
+                ba.b(this);
+            } else {
+                WriteImageActivity.a(this, 1200002, 1200008, intent.getData(), null, null, null);
+            }
+        }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.BaseActivity, android.app.Activity
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        this.mInputManager = (InputMethodManager) getSystemService("input_method");
-        initData(savedInstanceState);
-        initUI();
-        if (getIntent().getExtras().getInt("type") == WriteModel.NEW && !Config.POSITION_PAGER_ID.equals(getIntent().getStringExtra(FORUM_ID))) {
-            TiebaApplication.app.startLocationServer();
+    @Override // com.baidu.tieba.e, android.app.Activity
+    public void onCreate(Bundle bundle) {
+        super.onCreate(bundle);
+        this.e = (InputMethodManager) getSystemService("input_method");
+        a(bundle);
+        i();
+        if (TiebaApplication.a().j() && getIntent().getExtras().getInt("type") == 0 && !com.baidu.tieba.a.h.f().equals(getIntent().getStringExtra("forum_id"))) {
+            TiebaApplication.a().ar();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.BaseActivity, android.app.Activity
+    @Override // com.baidu.tieba.e, android.app.Activity
     public void onDestroy() {
-        TiebaPrepareImageService.StopService();
-        if (this.mImageTask != null) {
-            this.mImageTask.cancel();
-            this.mImageTask = null;
+        TiebaPrepareImageService.a();
+        if (this.s != null) {
+            this.s.a();
+            this.s = null;
         }
-        if (this.mPostThreadTask != null) {
-            this.mPostThreadTask.cancel();
-            this.mPostThreadTask = null;
+        if (this.t != null) {
+            this.t.a();
+            this.t = null;
         }
-        if (this.mImageProgressBar != null) {
-            this.mImageProgressBar.setVisibility(8);
+        if (this.m != null) {
+            this.m.setVisibility(8);
         }
-        closeDialog();
-        this.mImage.setImageBitmap(null);
-        if (this.mBitmap != null && !this.mBitmap.isRecycled()) {
-            this.mBitmap.recycle();
-            this.mBitmap = null;
+        j();
+        this.n.setImageBitmap(null);
+        if (this.w != null && !this.w.isRecycled()) {
+            this.w.recycle();
+            this.w = null;
         }
-        this.mHandler.removeCallbacks(this.mLoadImageRun);
-        TiebaApplication.app.stopLocationServer();
+        this.x.removeCallbacks(this.C);
+        TiebaApplication.a().as();
         super.onDestroy();
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void popupSaveDraft() {
-        if (this.mModel != null && this.mModel.getType() == WriteModel.REPLY_FLOOR && this.mIsReplySubPb) {
-            finish();
-        } else if (this.mDraftDialog != null && (this.mPostTitle.getText().toString().length() > 0 || this.mPostContent.getText().toString().length() > 0)) {
-            if (this.hasChanged) {
-                this.mDraftDialog.show();
-                Button neutral = this.mDraftDialog.getButton(-3);
-                if (neutral != null) {
-                    ViewGroup.LayoutParams params = neutral.getLayoutParams();
-                    params.width = -2;
-                    neutral.setLayoutParams(params);
-                }
-                Button negatview = this.mDraftDialog.getButton(-2);
-                if (negatview != null) {
-                    ViewGroup.LayoutParams params2 = negatview.getLayoutParams();
-                    params2.width = -2;
-                    negatview.setLayoutParams(params2);
-                }
-                Button positive = this.mDraftDialog.getButton(-1);
-                if (positive != null) {
-                    ViewGroup.LayoutParams params3 = positive.getLayoutParams();
-                    params3.width = -2;
-                    positive.setLayoutParams(params3);
-                    return;
-                }
-                return;
-            }
-            finish();
-        } else {
-            if (this.mModel.getHaveDraft()) {
-                DatabaseService.deleteDraftBox(this.mModel);
-            }
-            finish();
-        }
-    }
-
     @Override // android.app.Activity, android.view.KeyEvent.Callback
-    public boolean onKeyDown(int keyCode, KeyEvent event) {
-        if (keyCode == 4) {
-            popupSaveDraft();
+    public boolean onKeyDown(int i, KeyEvent keyEvent) {
+        if (i == 4) {
+            h();
             return true;
         }
-        return super.onKeyDown(keyCode, event);
-    }
-
-    private void initUI() {
-        setContentView(R.layout.write_activity);
-        String[] items = {getString(R.string.take_photo), getString(R.string.album)};
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle(getString(R.string.operation));
-        builder.setItems(items, new DialogInterface.OnClickListener() { // from class: com.baidu.tieba.write.WriteActivity.6
-            @Override // android.content.DialogInterface.OnClickListener
-            public void onClick(DialogInterface dialog, int which) {
-                if (which == 0) {
-                    WriteUtil.takePhoto(WriteActivity.this);
-                    WriteActivity.this.mModel.setPicType(2);
-                } else if (which == 1) {
-                    WriteUtil.getAlbumImage(WriteActivity.this);
-                    WriteActivity.this.mModel.setPicType(1);
-                }
-            }
-        });
-        if (this.mSelectImageDialog == null) {
-            this.mSelectImageDialog = builder.create();
-            this.mSelectImageDialog.setCanceledOnTouchOutside(true);
-        }
-        this.mPost = (Button) findViewById(R.id.post);
-        this.mPost.setOnFocusChangeListener(this.mFocusChangeListener);
-        this.mImageProgressBar = (ProgressBar) findViewById(R.id.image_progress);
-        this.mImage = (ImageView) findViewById(R.id.image);
-        this.mImage.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.write.WriteActivity.7
-            @Override // android.view.View.OnClickListener
-            public void onClick(View v) {
-                WriteImageActivity.startActivityForResult(WriteActivity.this, WriteActivity.this.mBitmap, (int) RequestResponseCode.REQUEST_IMAGE_VIEW);
-            }
-        });
-        this.mPostTitle = (EditText) findViewById(R.id.post_title);
-        this.mPostTitle.setOnClickListener(this.mEditOnClicked);
-        this.mPostTitle.setOnFocusChangeListener(this.mFocusChangeListener);
-        if (this.mModel.getType() == WriteModel.NEW) {
-            if (this.mModel.getTitle() != null) {
-                this.mPostTitle.setText(this.mModel.getTitle());
-            } else if (this.isFeedBack) {
-                this.mPostTitle.setText(getResources().getString(R.string.android_feedback));
-            }
-        } else if (this.mModel.getType() != WriteModel.REPLY) {
-            this.mModel.getType();
-            int i = WriteModel.REPLY_FLOOR;
-        }
-        this.mPostTitle.addTextChangedListener(new TextWatcher() { // from class: com.baidu.tieba.write.WriteActivity.8
-            @Override // android.text.TextWatcher
-            public void afterTextChanged(Editable arg0) {
-                WriteActivity.this.refreshPostButton();
-            }
-
-            @Override // android.text.TextWatcher
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-            }
-
-            @Override // android.text.TextWatcher
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-                WriteActivity.this.hasChanged = true;
-            }
-        });
-        this.mHandler.postDelayed(this.mKeyBoradRun, 200L);
-        this.mFaceAdapter = new FaceAdapter(this);
-        this.mGridView = (GridView) findViewById(R.id.face_view);
-        this.mGridView.setAdapter((ListAdapter) this.mFaceAdapter);
-        this.mGridView.setOnItemClickListener(new AdapterView.OnItemClickListener() { // from class: com.baidu.tieba.write.WriteActivity.9
-            @Override // android.widget.AdapterView.OnItemClickListener
-            public void onItemClick(AdapterView<?> arg0, View arg1, int arg2, long arg3) {
-                ImageSpan[] all = (ImageSpan[]) WriteActivity.this.mPostContent.getText().getSpans(0, WriteActivity.this.mPostContent.getText().length(), ImageSpan.class);
-                if (all.length < 10) {
-                    String name = WriteActivity.this.mFaceAdapter.getName(arg2);
-                    if (name != null) {
-                        int pos = WriteActivity.this.mPostContent.getSelectionStart();
-                        SpannableStringBuilder spanName = new SpannableStringBuilder(name);
-                        Bitmap bm = (Bitmap) WriteActivity.this.mFaceAdapter.getItem(arg2);
-                        if (bm != null) {
-                            MyBitmapDrawable dr = new MyBitmapDrawable(bm);
-                            dr.setBounds(0, 0, bm.getWidth() + 1, bm.getHeight());
-                            dr.setGravity(3);
-                            ImageSpan span = new ImageSpan(dr, 0);
-                            spanName.setSpan(span, 0, spanName.length(), 33);
-                            WriteActivity.this.mPostContent.getText().insert(pos, spanName);
-                            return;
-                        }
-                        return;
-                    }
-                    return;
-                }
-                WriteActivity.this.showToast(WriteActivity.this.getString(R.string.too_many_face));
-            }
-        });
-        this.mPostContent = (EditText) findViewById(R.id.post_content);
-        this.mPostContent.setOnClickListener(this.mEditOnClicked);
-        this.mSelectImage = (ImageView) findViewById(R.id.select_image);
-        this.mSelectImage.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.write.WriteActivity.10
-            @Override // android.view.View.OnClickListener
-            public void onClick(View v) {
-                WriteActivity.this.mSelectImageDialog.show();
-            }
-        });
-        if (this.mModel.getContent() != null && this.mModel.getContent().length() > 0) {
-            SpannableString spanstr = FaceHelper.parserFace(this, this.mModel.getContent());
-            this.mPostContent.setText(spanstr);
-        } else if (this.mModel.getType() == WriteModel.REPLY_FLOOR) {
-            if (this.mIsReplySubPb) {
-                this.mSelectImage.setVisibility(8);
-            } else if (this.mModel.getFloorNum() > 0) {
-                String text = String.format(getString(R.string.reply_x_floor), Integer.valueOf(this.mModel.getFloorNum()));
-                this.mPostContent.setText(text);
-                this.mPostContent.setSelection(text.length());
-            }
-        } else if (this.mModel.getType() == WriteModel.NEW && this.isFeedBack) {
-            StringBuffer text2 = new StringBuffer(30);
-            text2.append(getResources().getString(R.string.tieba_client));
-            text2.append(Config.VERSION);
-            text2.append(", ");
-            text2.append(Build.VERSION.RELEASE);
-            text2.append(":");
-            this.mPostContent.setText(text2);
-        }
-        this.mPostContent.setOnFocusChangeListener(this.mFocusChangeListener);
-        this.mPostContent.setOnTouchListener(new View.OnTouchListener() { // from class: com.baidu.tieba.write.WriteActivity.11
-            @Override // android.view.View.OnTouchListener
-            public boolean onTouch(View v, MotionEvent event) {
-                if (event.getAction() == 1) {
-                    WriteActivity.this.mGridView.setVisibility(8);
-                    return false;
-                }
-                return false;
-            }
-        });
-        this.mPostContent.addTextChangedListener(new TextWatcher() { // from class: com.baidu.tieba.write.WriteActivity.12
-            @Override // android.text.TextWatcher
-            public void afterTextChanged(Editable arg0) {
-                WriteActivity.this.refreshPostButton();
-            }
-
-            @Override // android.text.TextWatcher
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-            }
-
-            @Override // android.text.TextWatcher
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-                WriteActivity.this.hasChanged = true;
-            }
-        });
-        this.mBack = (Button) findViewById(R.id.back);
-        this.mBack.setOnFocusChangeListener(this.mFocusChangeListener);
-        this.mName = (TextView) findViewById(R.id.name);
-        this.mBack.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.write.WriteActivity.13
-            @Override // android.view.View.OnClickListener
-            public void onClick(View v) {
-                WriteActivity.this.popupSaveDraft();
-            }
-        });
-        this.mselectAt = (ImageView) findViewById(R.id.select_at);
-        this.mselectAt.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.write.WriteActivity.14
-            @Override // android.view.View.OnClickListener
-            public void onClick(View arg0) {
-                if (WriteActivity.this.mGridView.getVisibility() == 0) {
-                    WriteActivity.this.mGridView.setVisibility(8);
-                }
-                AtListActivity.startActivityForResult(WriteActivity.this, (int) RequestResponseCode.REQUEST_AT_SELECT);
-            }
-        });
-        this.mPost.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.write.WriteActivity.15
-            @Override // android.view.View.OnClickListener
-            public void onClick(View v) {
-                WriteActivity.this.HidenSoftKeyPad(WriteActivity.this.mInputManager, WriteActivity.this.mPostTitle);
-                WriteActivity.this.HidenSoftKeyPad(WriteActivity.this.mInputManager, WriteActivity.this.mPostContent);
-                if (WriteActivity.this.mGridView.getVisibility() == 0) {
-                    WriteActivity.this.mGridView.setVisibility(8);
-                }
-                WriteActivity.this.PostNewMessage();
-            }
-        });
-        this.mFace = (ImageView) findViewById(R.id.select_face);
-        this.mFace.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.write.WriteActivity.16
-            @Override // android.view.View.OnClickListener
-            public void onClick(View v) {
-                if (WriteActivity.this.mGridView.getVisibility() != 0) {
-                    WriteActivity.this.HidenSoftKeyPad(WriteActivity.this.mInputManager, WriteActivity.this.mPostTitle);
-                    WriteActivity.this.HidenSoftKeyPad(WriteActivity.this.mInputManager, WriteActivity.this.mPostContent);
-                    WriteActivity.this.mHandler.postDelayed(WriteActivity.this.mShowFaceRun, 200L);
-                    return;
-                }
-                WriteActivity.this.mPostContent.requestFocus();
-                WriteActivity.this.mGridView.setVisibility(8);
-                WriteActivity.this.ShowSoftKeyPad(WriteActivity.this.mInputManager, WriteActivity.this.mPostContent);
-            }
-        });
-        if (this.mModel.getType() == WriteModel.NEW) {
-            if (this.isFeedBack) {
-                this.mName.setText(R.string.feedback);
-            } else {
-                this.mName.setText(R.string.post_new_thread);
-            }
-            this.mPostTitle.setVisibility(0);
-        } else {
-            this.mName.setText(R.string.send_reply);
-            this.mPostTitle.setVisibility(8);
-        }
-        AlertDialog.Builder draft_builder = new AlertDialog.Builder(this);
-        draft_builder.setMessage(getString(R.string.is_save_draft)).setCancelable(false).setPositiveButton(getString(R.string.save), new DialogInterface.OnClickListener() { // from class: com.baidu.tieba.write.WriteActivity.17
-            @Override // android.content.DialogInterface.OnClickListener
-            public void onClick(DialogInterface dialog, int id) {
-                WriteActivity.this.mModel.setTitle(WriteActivity.this.mPostTitle.getText().toString());
-                WriteActivity.this.mModel.setContent(WriteActivity.this.mPostContent.getText().toString());
-                DatabaseService.saveDraftBox(WriteActivity.this.mModel);
-                WriteActivity.this.finish();
-            }
-        }).setNeutralButton(getString(R.string.not_save), new DialogInterface.OnClickListener() { // from class: com.baidu.tieba.write.WriteActivity.18
-            @Override // android.content.DialogInterface.OnClickListener
-            public void onClick(DialogInterface dialog, int which) {
-                DatabaseService.deleteDraftBox(WriteActivity.this.mModel);
-                WriteActivity.this.finish();
-            }
-        }).setNegativeButton(getString(R.string.cancel), new DialogInterface.OnClickListener() { // from class: com.baidu.tieba.write.WriteActivity.19
-            @Override // android.content.DialogInterface.OnClickListener
-            public void onClick(DialogInterface dialog, int id) {
-                dialog.cancel();
-            }
-        });
-        this.mDraftDialog = draft_builder.create();
-        refreshPostButton();
-        reloadPic();
-    }
-
-    private void closeDialog() {
-        try {
-            if (this.mDraftDialog != null && this.mDraftDialog.isShowing()) {
-                this.mDraftDialog.dismiss();
-            }
-            if (this.mSelectImageDialog != null && this.mSelectImageDialog.isShowing()) {
-                this.mSelectImageDialog.dismiss();
-            }
-        } catch (Exception ex) {
-            TiebaLog.e(getClass().getName(), "closeDialog", ex.getMessage());
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void refreshPostButton() {
-        String check;
-        if (this.mModel.getType() == WriteModel.NEW) {
-            check = this.mPostTitle.getText().toString().trim();
-        } else if (this.mBitmap != null) {
-            check = NetWorkCore.NET_TYPE_NET;
-        } else {
-            check = this.mPostContent.getText().toString().trim();
-        }
-        if (this.mIsLoadingImage || check == null || check.length() <= 0 || this.mImageTask != null) {
-            this.mPost.setEnabled(false);
-            this.mPost.setTextColor(-7688462);
-            return;
-        }
-        this.mPost.setEnabled(true);
-        this.mPost.setTextColor(-1);
-    }
-
-    private void initData(Bundle savedInstanceState) {
-        int floorNum;
-        this.mDialogCancelListener = new DialogInterface.OnCancelListener() { // from class: com.baidu.tieba.write.WriteActivity.20
-            @Override // android.content.DialogInterface.OnCancelListener
-            public void onCancel(DialogInterface dialog) {
-                WriteActivity.this.DeinitWaitingDialog();
-                if (WriteActivity.this.mPostThreadTask != null) {
-                    WriteActivity.this.mPostThreadTask.cancel();
-                }
-            }
-        };
-        this.mModel = new WriteModel();
-        if (savedInstanceState != null) {
-            this.mModel.setType(savedInstanceState.getInt("type", WriteModel.NEW));
-            this.mModel.setForumId(savedInstanceState.getString(FORUM_ID));
-            this.mModel.setForumName(savedInstanceState.getString(FORUM_NAME));
-            this.mModel.setThreadId(savedInstanceState.getString(THREAD_ID));
-            this.mModel.setFloor(savedInstanceState.getString(FLOOR_ID));
-            floorNum = savedInstanceState.getInt(FLOOR_NUM, 0);
-            this.mModel.setFloorNum(floorNum);
-            this.isFeedBack = savedInstanceState.getBoolean(FEED_BACK, false);
-            this.mIsReplySubPb = savedInstanceState.getBoolean(REPLY_SUB_PB, false);
-        } else {
-            Intent intent = getIntent();
-            this.mModel.setType(intent.getIntExtra("type", WriteModel.NEW));
-            this.mModel.setForumId(intent.getStringExtra(FORUM_ID));
-            this.mModel.setForumName(intent.getStringExtra(FORUM_NAME));
-            this.mModel.setThreadId(intent.getStringExtra(THREAD_ID));
-            this.mModel.setFloor(intent.getStringExtra(FLOOR_ID));
-            floorNum = intent.getIntExtra(FLOOR_NUM, 0);
-            this.mModel.setFloorNum(floorNum);
-            this.isFeedBack = intent.getBooleanExtra(FEED_BACK, false);
-            this.mIsReplySubPb = intent.getBooleanExtra(REPLY_SUB_PB, false);
-        }
-        WriteModel tmp = DatabaseService.getDraftBox(this.mModel.getType(), this.mModel.getForumId(), this.mModel.getThreadId(), this.mModel.getFloor());
-        if (tmp != null) {
-            this.mModel = tmp;
-            this.mModel.setFloorNum(floorNum);
-            this.mModel.setHaveDraft(true);
-        }
-    }
-
-    private void reloadPic() {
-        if (getIntent().getBooleanExtra(REFRESH_PIC, false)) {
-            if (this.mImageTask != null) {
-                this.mImageTask.cancel();
-            }
-            this.mImageTask = null;
-            startLoadImage();
-            if (getIntent().getStringExtra(WriteImageActivity.FILE_NAME) != null) {
-                this.mImageTask = new GetImageTask(getIntent().getStringExtra(WriteImageActivity.FILE_NAME));
-                this.mImageTask.execute(new Object[0]);
-            } else {
-                this.mImageTask = new GetImageTask(Config.IMAGE_RESIZED_FILE_DISPLAY);
-                this.mImageTask.execute(new Object[0]);
-            }
-            this.mHandler.removeCallbacks(this.mLoadImageRun);
-            this.mHandler.postDelayed(this.mLoadImageRun, 10000L);
-        }
-    }
-
-    @Override // android.app.Activity
-    protected void onSaveInstanceState(Bundle outState) {
-        outState.putInt("type", this.mModel.getType());
-        outState.putString(FORUM_ID, this.mModel.getForumId());
-        outState.putString(FORUM_NAME, this.mModel.getForumName());
-        outState.putString(THREAD_ID, this.mModel.getThreadId());
-        outState.putString(FLOOR_ID, this.mModel.getFloor());
-        outState.putInt(FLOOR_NUM, this.mModel.getFloorNum());
-        outState.putBoolean(REPLY_SUB_PB, this.mIsReplySubPb);
-        if (this.isFeedBack) {
-            outState.putBoolean(FEED_BACK, true);
-        }
-        super.onSaveInstanceState(outState);
-    }
-
-    @Override // android.app.Activity
-    protected void onRestoreInstanceState(Bundle savedInstanceState) {
-        super.onRestoreInstanceState(savedInstanceState);
-        String content = this.mPostContent.getEditableText().toString();
-        if (content != null) {
-            this.mPostContent.setText(FaceHelper.parserFace(this, content));
-        }
-    }
-
-    public void PostNewMessage() {
-        this.mModel.setTitle(this.mPostTitle.getText().toString());
-        this.mModel.setContent(this.mPostContent.getText().toString());
-        showLoadingDialog(getString(R.string.sending), this.mDialogCancelListener);
-        if (this.mPostThreadTask != null) {
-            this.mPostThreadTask.cancel();
-        }
-        this.mModel.setVcode(null);
-        this.mPostThreadTask = new PostThreadTask(this.mModel);
-        this.mPostThreadTask.execute(0);
-    }
-
-    @Override // android.app.Activity
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        if (resultCode == -1) {
-            if (requestCode == 1200003) {
-                boolean del = data.getBooleanExtra(WriteImageActivity.DELET_FLAG, false);
-                if (del) {
-                    this.mBitmap = null;
-                    this.mImage.setVisibility(8);
-                    return;
-                }
-                boolean change = data.getBooleanExtra(WriteImageActivity.CHANGE_FLAG, false);
-                if (change) {
-                    if (this.mImageTask != null) {
-                        this.mImageTask.cancel();
-                    }
-                    this.mImageTask = null;
-                    startLoadImage();
-                    if (this.mImageTask != null) {
-                        this.mImageTask.cancel();
-                    }
-                    this.mImageTask = null;
-                    if (data.getStringExtra(WriteImageActivity.FILE_NAME) != null) {
-                        this.mImageTask = new GetImageTask(data.getStringExtra(WriteImageActivity.FILE_NAME));
-                    } else {
-                        this.mImageTask = new GetImageTask(Config.IMAGE_RESIZED_FILE_DISPLAY);
-                    }
-                    this.mImageTask.execute(new Object[0]);
-                    this.mHandler.removeCallbacks(this.mLoadImageRun);
-                    this.mHandler.postDelayed(this.mLoadImageRun, 10000L);
-                }
-                refreshPostButton();
-            } else if (requestCode == 12000010 || requestCode == 1200008) {
-                startLoadImage();
-                if (this.mImageTask != null) {
-                    this.mImageTask.cancel();
-                }
-                this.mImageTask = null;
-                if (data.getStringExtra(WriteImageActivity.FILE_NAME) != null) {
-                    this.mImageTask = new GetImageTask(data.getStringExtra(WriteImageActivity.FILE_NAME));
-                } else {
-                    this.mImageTask = new GetImageTask(Config.IMAGE_RESIZED_FILE_DISPLAY);
-                }
-                this.mImageTask.execute(new Object[0]);
-                this.mHandler.removeCallbacks(this.mLoadImageRun);
-                this.mHandler.postDelayed(this.mLoadImageRun, 10000L);
-                refreshPostButton();
-            } else if (requestCode == 1200004) {
-                String name = AtListActivity.getName(data);
-                if (name != null) {
-                    String str = "@" + name + " ";
-                    int pos = this.mPostContent.getSelectionStart();
-                    this.mPostContent.getText().insert(pos, str);
-                }
-            } else if (requestCode == 1200005) {
-                DatabaseService.deleteDraftBox(this.mModel);
-                setResult(-1);
-                finish();
-            } else {
-                if (this.mImageTask != null) {
-                    this.mImageTask.cancel();
-                }
-                this.mImageTask = null;
-                if (requestCode == 1200002) {
-                    if (data != null && data.getData() != null) {
-                        WriteImageActivity.startActivityForResult(this, RequestResponseCode.REQUEST_ALBUM_IMAGE, RequestResponseCode.REQUEST_ALBUM_IMAGE_VIEW, data.getData(), null, null, null);
-                    } else {
-                        WriteUtil.getAlbumImage(this);
-                    }
-                } else if (requestCode == 1200001) {
-                    WriteImageActivity.startActivityForResult(this, RequestResponseCode.REQUEST_CAMERA, RequestResponseCode.REQUEST_CAMERA_VIEW, null, null, null, null);
-                }
-            }
-        } else if (resultCode == 0) {
-            switch (requestCode) {
-                case RequestResponseCode.REQUEST_CAMERA /* 1200001 */:
-                case RequestResponseCode.REQUEST_ALBUM_IMAGE /* 1200002 */:
-                    this.mSelectImageDialog.show();
-                    return;
-                case RequestResponseCode.REQUEST_ALBUM_IMAGE_VIEW /* 1200008 */:
-                    WriteUtil.getAlbumImage(this);
-                    return;
-                case RequestResponseCode.REQUEST_CAMERA_VIEW /* 12000010 */:
-                    WriteUtil.takePhoto(this);
-                    return;
-                default:
-                    return;
-            }
-        }
-    }
-
-    private void startLoadImage() {
-        this.mIsLoadingImage = true;
-        this.mImage.setVisibility(8);
-        this.mImage.setImageBitmap(null);
-        if (this.mBitmap != null && !this.mBitmap.isRecycled()) {
-            this.mBitmap.recycle();
-        }
-        this.mBitmap = null;
-        this.mModel.setBitmapId(null);
-        this.mImageProgressBar.setVisibility(0);
-        refreshPostButton();
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void stopLoadImage(Bitmap bitmap) {
-        this.mHandler.removeCallbacks(this.mLoadImageRun);
-        this.mIsLoadingImage = false;
-        this.mImageProgressBar.setVisibility(8);
-        if (bitmap != null) {
-            this.mBitmap = bitmap;
-            this.mModel.setBitmapId(null);
-            this.mImage.setImageBitmap(this.mBitmap);
-            this.mImage.setVisibility(0);
-        } else {
-            this.mImage.setVisibility(8);
-            showToast(getString(R.string.pic_parser_error));
-        }
-        refreshPostButton();
+        return super.onKeyDown(i, keyEvent);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.BaseActivity, android.app.Activity
+    @Override // com.baidu.tieba.e, android.app.Activity
     public void onPause() {
-        HidenSoftKeyPad(this.mInputManager, this.mPostTitle);
-        HidenSoftKeyPad(this.mInputManager, this.mPostContent);
-        if (this.mGridView.getVisibility() == 0) {
-            this.mGridView.setVisibility(8);
+        a(this.e, this.f);
+        a(this.e, this.g);
+        if (this.p.getVisibility() == 0) {
+            this.p.setVisibility(8);
         }
         super.onPause();
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes.dex */
-    public class PostThreadTask extends AsyncTask<Integer, Integer, String> {
-        private WriteModel mDate;
-        private NetWork mNetwork = null;
-        private String mRetData = null;
-        private ChunkUploadResult mChunkUploadResult = null;
-        private ChunkUploadHelper mChunkUploadHelper = null;
-        private volatile boolean mCanceled = false;
-
-        public PostThreadTask(WriteModel data) {
-            this.mDate = null;
-            this.mDate = data;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        /* JADX INFO: Access modifiers changed from: protected */
-        /* JADX WARN: Removed duplicated region for block: B:39:0x01b7 A[RETURN, SYNTHETIC] */
-        /* JADX WARN: Removed duplicated region for block: B:43:0x01d2  */
-        @Override // android.os.AsyncTask
-        /*
-            Code decompiled incorrectly, please refer to instructions dump.
-        */
-        public String doInBackground(Integer... arg0) {
-            Location mLocation;
-            String ret;
-            JSONObject json;
-            InfoData info;
-            if (WriteActivity.this.mBitmap != null && this.mDate.getBitmapId() == null) {
-                TiebaLog.d("PostThreadTask", "doInBackground", "start upload image");
-                try {
-                    File image = FileHelper.GetFile(Config.IMAGE_RESIZED_FILE);
-                    this.mNetwork = new NetWork("http://c.tieba.baidu.com/c/c/img/upload");
-                    if (image.length() <= 102400 || (Config.IMG_CHUNK_UPLOAD_ENABLE == 0 && this.mNetwork.getNetType() != null && !this.mNetwork.getNetType().equals(NetWorkCore.NET_TYPE_WAP))) {
-                        TiebaLog.d("PostThreadTask", "doInBackground", "image size is less than 100K");
-                        this.mNetwork.addPostData(Config.PIC_TYPE, String.valueOf(WriteActivity.this.mModel.getPicType()));
-                        ret = this.mNetwork.uploadImage(Config.IMAGE_RESIZED_FILE);
-                        if (!this.mNetwork.isRequestSuccess()) {
-                            return null;
-                        }
-                    } else {
-                        TiebaLog.d("PostThreadTask", "doInBackground", "image size is more than 100K");
-                        String md5 = StringHelper.ToMd5(FileHelper.GetStreamFromFile(image));
-                        ChunkUploadData uploadData = DatabaseService.getChunkUploadDataByMd5(md5);
-                        if (uploadData == null) {
-                            TiebaLog.d("PostThreadTask", "doInBackground", "upload data is null");
-                            uploadData = new ChunkUploadData();
-                            uploadData.setMd5(md5);
-                            uploadData.setChunkNo(0);
-                            uploadData.setTotalLength(image.length());
-                        }
-                        this.mChunkUploadHelper = new ChunkUploadHelper(Config.IMAGE_RESIZED_FILE, uploadData, "http://c.tieba.baidu.com/c/c/img/chunkupload");
-                        this.mChunkUploadResult = this.mChunkUploadHelper.uploadChunkFile();
-                        if (this.mChunkUploadResult.isSuccess()) {
-                            this.mNetwork = new NetWork("http://c.tieba.baidu.com/c/c/img/finupload");
-                            this.mNetwork.addPostData("md5", uploadData.getMd5());
-                            this.mNetwork.addPostData(Config.PIC_TYPE, String.valueOf(WriteActivity.this.mModel.getPicType()));
-                            ret = this.mNetwork.postNetData();
-                            if (ret == null || !this.mNetwork.isRequestSuccess()) {
-                                long totalLength = uploadData.getTotalLength();
-                                long chunkNo = totalLength % 102400 == 0 ? totalLength / 102400 : (totalLength / 102400) + 1;
-                                uploadData.setChunkNo((int) chunkNo);
-                                DatabaseService.saveChunkUploadData(uploadData);
-                                return null;
-                            }
-                            DatabaseService.delChunkUploadData(md5);
-                        } else {
-                            return null;
-                        }
-                    }
-                    json = new JSONObject(ret);
-                    info = new InfoData();
-                } catch (Exception e) {
-                    e = e;
-                }
-                try {
-                    info.parserJson(json.optJSONObject(LoginActivity.INFO));
-                    this.mDate.setBitmapId(info);
-                } catch (Exception e2) {
-                    e = e2;
-                    TiebaLog.e(getClass().getName(), "doInBackground", e.getMessage());
-                    if (!this.mCanceled) {
-                    }
-                }
-            }
-            if (!this.mCanceled) {
-                return null;
-            }
-            this.mNetwork = new NetWork();
-            this.mNetwork.addPostData("anonymous", "0");
-            this.mNetwork.addPostData("fid", this.mDate.getForumId());
-            this.mNetwork.addPostData("kw", this.mDate.getForumName());
-            String pic_str = "";
-            if (this.mDate.getBitmapId() != null && this.mDate.getBitmapId().getPic_id() != null && this.mDate.getBitmapId().getPic_id().length() > 0) {
-                pic_str = String.format("#(pic,%s,%d,%d)", this.mDate.getBitmapId().getPic_id(), Integer.valueOf(this.mDate.getBitmapId().getWidth()), Integer.valueOf(this.mDate.getBitmapId().getHeight()));
-            }
-            this.mNetwork.addPostData("content", String.valueOf(this.mDate.getContent()) + pic_str);
-            if (this.mDate.getVcode() != null && this.mDate.getVcode().length() > 0) {
-                this.mNetwork.addPostData("vcode", this.mDate.getVcode());
-            }
-            this.mNetwork.setIsNeedTbs(true);
-            if (this.mDate.getType() == WriteModel.NEW) {
-                this.mNetwork.setUrl("http://c.tieba.baidu.com/c/c/thread/add");
-                this.mNetwork.addPostData("title", this.mDate.getTitle());
-                if (!Config.POSITION_PAGER_ID.equals(WriteActivity.this.getIntent().getStringExtra(WriteActivity.FORUM_ID)) && (mLocation = TiebaApplication.app.getLocation()) != null) {
-                    this.mNetwork.addPostData("lbs", String.valueOf(String.valueOf(mLocation.getLatitude())) + "," + String.valueOf(mLocation.getLongitude()));
-                }
-            } else {
-                this.mNetwork.setUrl("http://c.tieba.baidu.com/c/c/post/add");
-                this.mNetwork.addPostData("tid", this.mDate.getThreadId());
-                this.mNetwork.addPostData(WriteActivity.IS_AD, WriteActivity.this.getIntent().getBooleanExtra(WriteActivity.IS_AD, false) ? NetWorkCore.NET_TYPE_NET : "0");
-                if (this.mDate.getType() == WriteModel.REPLY_FLOOR) {
-                    this.mNetwork.addPostData("quote_id", String.valueOf(this.mDate.getFloor()));
-                    this.mNetwork.addPostData(WriteActivity.FLOOR_NUM, String.valueOf(this.mDate.getFloorNum()));
-                }
-            }
-            this.mRetData = this.mNetwork.postNetData();
-            return null;
-        }
-
-        public void cancel() {
-            WriteActivity.this.mPostThreadTask = null;
-            WriteActivity.this.closeLoadingDialog();
-            this.mCanceled = true;
-            if (this.mNetwork != null) {
-                this.mNetwork.cancelNetConnect();
-            }
-            if (this.mChunkUploadHelper != null) {
-                this.mChunkUploadHelper.cancel();
-            }
-            super.cancel(true);
-        }
-
-        private void handleRequestFail(int errorCode, String errorString) {
-            if (errorCode == 5 || errorCode == 6) {
-                VcodeInfoData info = new VcodeInfoData();
-                info.parserJson(this.mRetData);
-                if (info.getVcode_pic_url() != null) {
-                    WriteActivity.this.mModel.setVcodeMD5(info.getVcode_md5());
-                    WriteActivity.this.mModel.setVcodeUrl(info.getVcode_pic_url());
-                    VcodeActivity.startActivityForResult(WriteActivity.this, WriteActivity.this.mModel, (int) RequestResponseCode.REQUEST_VCODE);
-                    return;
-                }
-                WriteActivity.this.showToast(errorString);
-                return;
-            }
-            WriteActivity.this.showToast(errorString);
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        /* JADX INFO: Access modifiers changed from: protected */
-        @Override // android.os.AsyncTask
-        public void onPostExecute(String result) {
-            WriteActivity.this.closeLoadingDialog();
-            WriteActivity.this.mPostThreadTask = null;
-            if (this.mChunkUploadResult != null && !this.mChunkUploadResult.isSuccess()) {
-                handleRequestFail(this.mChunkUploadResult.getErrorCode(), this.mChunkUploadResult.getErrorString());
-            } else if (this.mNetwork != null) {
-                if (this.mNetwork.isRequestSuccess()) {
-                    DatabaseService.deleteDraftBox(WriteActivity.this.mModel);
-                    WriteActivity.this.showToast(TiebaApplication.app.getString(R.string.send_success));
-                    WriteActivity.this.setResult(-1);
-                    WriteActivity.this.finish();
-                } else {
-                    handleRequestFail(this.mNetwork.getErrorCode(), this.mNetwork.getErrorString());
-                }
-            }
-            super.onPostExecute((PostThreadTask) result);
+    @Override // android.app.Activity
+    protected void onRestoreInstanceState(Bundle bundle) {
+        super.onRestoreInstanceState(bundle);
+        String editable = this.g.getEditableText().toString();
+        if (editable != null) {
+            this.g.setText(com.baidu.tieba.c.n.b(this, editable));
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes.dex */
-    public class GetImageTask extends AsyncTask<Object, Integer, Bitmap> {
-        private String filename;
-
-        public GetImageTask(String filename) {
-            this.filename = null;
-            this.filename = filename;
+    @Override // android.app.Activity
+    protected void onSaveInstanceState(Bundle bundle) {
+        bundle.putInt("type", this.b.a());
+        bundle.putString("forum_id", this.b.f());
+        bundle.putString("forum_name", this.b.g());
+        bundle.putString("thread_id", this.b.d());
+        bundle.putString("floor_id", this.b.e());
+        bundle.putInt("floor_num", this.b.h());
+        bundle.putBoolean("reply_sub_pb", this.z);
+        if (this.c) {
+            bundle.putBoolean("feed_back", true);
         }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        /* JADX INFO: Access modifiers changed from: protected */
-        /* JADX WARN: Can't rename method to resolve collision */
-        @Override // android.os.AsyncTask
-        public Bitmap doInBackground(Object... params) {
-            if (this.filename != null && !this.filename.equals(Config.IMAGE_RESIZED_FILE)) {
-                FileHelper.CopyFile("photos/" + this.filename, Config.IMAGE_RESIZED_FILE);
-            }
-            Bitmap bitmap = FileHelper.getImage(null, Config.IMAGE_RESIZED_FILE_DISPLAY);
-            return bitmap;
-        }
-
-        public void cancel() {
-            WriteActivity.this.mImageTask = null;
-            WriteActivity.this.mImageProgressBar.setVisibility(8);
-            WriteActivity.this.mImage.setVisibility(8);
-            WriteActivity.this.refreshPostButton();
-            super.cancel(true);
-        }
-
-        @Override // android.os.AsyncTask
-        protected void onCancelled() {
-            super.onCancelled();
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        /* JADX INFO: Access modifiers changed from: protected */
-        @Override // android.os.AsyncTask
-        public void onPostExecute(Bitmap result) {
-            super.onPostExecute((GetImageTask) result);
-            WriteActivity.this.mImageTask = null;
-            TiebaLog.i(getClass().getName(), "onPostExecute", "is Null?" + String.valueOf(result == null));
-            WriteActivity.this.stopLoadImage(result);
-        }
+        super.onSaveInstanceState(bundle);
     }
 }

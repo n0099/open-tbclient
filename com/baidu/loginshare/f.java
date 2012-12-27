@@ -7,7 +7,7 @@ public class f {
     /* JADX INFO: Access modifiers changed from: package-private */
     public static String a(Context context, String str) {
         try {
-            return Crypto.encrypt(context, str);
+            return Crypto.a(context, str);
         } catch (Throwable th) {
             return null;
         }
@@ -16,7 +16,7 @@ public class f {
     /* JADX INFO: Access modifiers changed from: package-private */
     public static String b(Context context, String str) {
         try {
-            return Crypto.decrypt(context, str);
+            return Crypto.b(context, str);
         } catch (Throwable th) {
             return null;
         }

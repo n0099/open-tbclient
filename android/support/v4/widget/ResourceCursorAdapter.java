@@ -7,47 +7,17 @@ import android.view.View;
 import android.view.ViewGroup;
 /* loaded from: classes.dex */
 public abstract class ResourceCursorAdapter extends CursorAdapter {
-    private int mDropDownLayout;
-    private LayoutInflater mInflater;
-    private int mLayout;
+    private int j;
+    private int k;
+    private LayoutInflater l;
 
-    @Deprecated
-    public ResourceCursorAdapter(Context context, int layout, Cursor c) {
-        super(context, c);
-        this.mDropDownLayout = layout;
-        this.mLayout = layout;
-        this.mInflater = (LayoutInflater) context.getSystemService("layout_inflater");
-    }
-
-    public ResourceCursorAdapter(Context context, int layout, Cursor c, boolean autoRequery) {
-        super(context, c, autoRequery);
-        this.mDropDownLayout = layout;
-        this.mLayout = layout;
-        this.mInflater = (LayoutInflater) context.getSystemService("layout_inflater");
-    }
-
-    public ResourceCursorAdapter(Context context, int layout, Cursor c, int flags) {
-        super(context, c, flags);
-        this.mDropDownLayout = layout;
-        this.mLayout = layout;
-        this.mInflater = (LayoutInflater) context.getSystemService("layout_inflater");
+    @Override // android.support.v4.widget.CursorAdapter
+    public View a(Context context, Cursor cursor, ViewGroup viewGroup) {
+        return this.l.inflate(this.j, viewGroup, false);
     }
 
     @Override // android.support.v4.widget.CursorAdapter
-    public View newView(Context context, Cursor cursor, ViewGroup parent) {
-        return this.mInflater.inflate(this.mLayout, parent, false);
-    }
-
-    @Override // android.support.v4.widget.CursorAdapter
-    public View newDropDownView(Context context, Cursor cursor, ViewGroup parent) {
-        return this.mInflater.inflate(this.mDropDownLayout, parent, false);
-    }
-
-    public void setViewResource(int layout) {
-        this.mLayout = layout;
-    }
-
-    public void setDropDownViewResource(int dropDownLayout) {
-        this.mDropDownLayout = dropDownLayout;
+    public View b(Context context, Cursor cursor, ViewGroup viewGroup) {
+        return this.l.inflate(this.k, viewGroup, false);
     }
 }

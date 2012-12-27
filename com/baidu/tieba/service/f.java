@@ -1,0 +1,19 @@
+package com.baidu.tieba.service;
+
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
+import android.webkit.WebView;
+import com.baidu.tieba.c.ae;
+/* loaded from: classes.dex */
+public class f extends BroadcastReceiver {
+    @Override // android.content.BroadcastReceiver
+    public void onReceive(Context context, Intent intent) {
+        try {
+            WebView.disablePlatformNotifications();
+            WebView.enablePlatformNotifications();
+        } catch (Exception e) {
+            ae.b(getClass().getName(), "onReceive", e.getMessage());
+        }
+    }
+}

@@ -56,367 +56,11 @@ public class ImageFile {
     private ThreadNote mThreadNote;
     private static final String[] ACCEPTABLE_IMAGE_TYPES = {"image/jpeg", "image/png", "image/gif"};
     private static final String[] IMAGE_PROJECTION = {"_id", "datetaken", "date_added", "orientation", "_data"};
-    private static Set<ThreadNote> sImageTaskQueue = new HashSet();
+    private static Set sImageTaskQueue = new HashSet();
 
+    /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
-    public interface OnFileLoadedListener {
-        void onFileLoaded(int i, Bitmap bitmap, Object obj);
-    }
-
-    /* loaded from: classes.dex */
-    public interface OnFileSavedListener {
-        void onFileSaved(int i, Uri uri);
-    }
-
-    /* loaded from: classes.dex */
-    public interface OnSampleFileListener {
-        void onGetSampleFile(int i, File file);
-    }
-
-    public int loadImageAsync(Context context, Uri uri, int width, int height, OnFileLoadedListener l) {
-        return loadImageAsync(context, uri, width, height, null, l);
-    }
-
-    public int loadImageAsync(Context context, Uri uri, int width, int height, Object tag, OnFileLoadedListener l) {
-        this.mOnFileLoadedListener = l;
-        if (this.mLoadTask == null || this.mLoadTask.getStatus() == AsyncTask.Status.FINISHED) {
-            this.mLoadTask = new LoadTask(this, null);
-        }
-        if (this.mLoadTask.getStatus() == AsyncTask.Status.RUNNING) {
-            return -6;
-        }
-        synchronized (sImageTaskQueue) {
-            this.mThreadNote = new ThreadNote(this.mLoadTask, context, uri, Integer.valueOf(width), Integer.valueOf(height), tag);
-            sImageTaskQueue.add(this.mThreadNote);
-            if (sImageTaskQueue.size() <= 1) {
-                ((LoadTask) this.mThreadNote.task).execute(this.mThreadNote.params);
-            }
-        }
-        return 0;
-    }
-
-    public int saveImageAsync(Context context, Bitmap bitmap, String path, int type, OnFileSavedListener l) {
-        this.mOnFileSavedListener = l;
-        if (this.mSaveTask == null || this.mSaveTask.getStatus() == AsyncTask.Status.FINISHED) {
-            this.mSaveTask = new SaveTask(this, null);
-        }
-        if (this.mSaveTask.getStatus() == AsyncTask.Status.RUNNING) {
-            return -6;
-        }
-        this.mSaveTask.execute(context, bitmap, path, Integer.valueOf(type));
-        return 0;
-    }
-
-    public int getSampleFileAsync(Context cx, Uri uri, int w, int h, String path, int type, OnSampleFileListener l) {
-        this.mOnSampleFileListener = l;
-        if (this.mSampleFileTask == null || this.mSampleFileTask.getStatus() == AsyncTask.Status.FINISHED) {
-            this.mSampleFileTask = new SampleFileTask(this, null);
-        }
-        if (this.mSampleFileTask.getStatus() == AsyncTask.Status.RUNNING) {
-            return -6;
-        }
-        this.mSampleFileTask.execute(cx, uri, Integer.valueOf(w), Integer.valueOf(h), path, Integer.valueOf(type));
-        return 0;
-    }
-
-    public static Bitmap getBitmapSample(Context context, Uri uri, int width, int height) throws FileNotFoundException, OutOfMemoryError {
-        int nLong;
-        int nShort;
-        BitmapFactory.Options options = new BitmapFactory.Options();
-        options.inPurgeable = true;
-        InputStream is = context.getContentResolver().openInputStream(uri);
-        options.inJustDecodeBounds = true;
-        BitmapFactory.decodeStream(is, null, options);
-        int nSample = 1;
-        if (options.outHeight > options.outWidth) {
-            nLong = options.outHeight;
-            nShort = options.outWidth;
-        } else {
-            nLong = options.outWidth;
-            nShort = options.outHeight;
-        }
-        while (true) {
-            if (nShort > (nSample + 1) * height || nLong > (nSample + 1) * width) {
-                nSample++;
-            } else {
-                try {
-                    break;
-                } catch (IOException e) {
-                    LogUtils.w(TAG, "file close error");
-                }
-            }
-        }
-        is.close();
-        InputStream is2 = context.getContentResolver().openInputStream(uri);
-        options.inJustDecodeBounds = false;
-        options.inSampleSize = nSample;
-        options.inDither = true;
-        options.inPreferredConfig = Bitmap.Config.RGB_565;
-        Bitmap bitmap = BitmapFactory.decodeStream(is2, null, options);
-        try {
-            is2.close();
-        } catch (IOException e2) {
-            LogUtils.w(TAG, "file close error");
-        }
-        return bitmap;
-    }
-
-    public static Bitmap getBitmapSample(byte[] data, int width, int height) throws OutOfMemoryError {
-        int nLong;
-        int nShort;
-        BitmapFactory.Options options = new BitmapFactory.Options();
-        options.inPurgeable = true;
-        options.inJustDecodeBounds = true;
-        BitmapFactory.decodeByteArray(data, 0, data.length, options);
-        int nSample = 1;
-        if (options.outHeight > options.outWidth) {
-            nLong = options.outHeight;
-            nShort = options.outWidth;
-        } else {
-            nLong = options.outWidth;
-            nShort = options.outHeight;
-        }
-        while (true) {
-            if (nShort > (nSample + 1) * height || nLong > (nSample + 1) * width) {
-                nSample++;
-            } else {
-                options.inJustDecodeBounds = false;
-                options.inSampleSize = nSample;
-                options.inDither = true;
-                options.inPreferredConfig = Bitmap.Config.RGB_565;
-                Bitmap bitmap = BitmapFactory.decodeByteArray(data, 0, data.length, options);
-                return bitmap;
-            }
-        }
-    }
-
-    public static String getFileNameFromPath(String path) {
-        String file;
-        if (path == null) {
-            return null;
-        }
-        if (path.contains("/")) {
-            int s = path.lastIndexOf("/") + 1;
-            int e = path.length();
-            LogUtils.w(TAG, String.format("name: %s. s: %d. n:%d", path, Integer.valueOf(s), Integer.valueOf(e)));
-            file = path.substring(s, e);
-        } else {
-            file = path;
-        }
-        if (file.contains(".")) {
-            return file.substring(0, file.indexOf("."));
-        }
-        return file;
-    }
-
-    public static boolean isSdcardFull() {
-        String sdcard = Environment.getExternalStorageDirectory().getPath();
-        File file = new File(sdcard);
-        StatFs statFs = new StatFs(file.getPath());
-        long availableSpare = statFs.getBlockSize() * (statFs.getAvailableBlocks() - 4);
-        LogUtils.w("----------availableSpare-------------", String.valueOf(availableSpare));
-        return availableSpare < MIN_SD_CARD_SPACE;
-    }
-
-    public static String getRealPathFromUri(Context context, Uri contentUri) {
-        LogUtils.w(TAG, String.format("getRealPathFromUri: %s", contentUri.toString()));
-        String[] proj = {"_data"};
-        try {
-            Cursor cursor = ((Activity) context).managedQuery(contentUri, proj, null, null, null);
-            if (cursor == null) {
-                return null;
-            }
-            int column_index = cursor.getColumnIndex("_data");
-            cursor.moveToFirst();
-            if (column_index != -1) {
-                try {
-                    return cursor.getString(column_index);
-                } catch (Exception e) {
-                    return null;
-                }
-            }
-            return null;
-        } catch (Exception e2) {
-            return null;
-        }
-    }
-
-    public static byte[] getImageByte(Bitmap bitmap, int type) {
-        ByteArrayOutputStream os = new ByteArrayOutputStream();
-        if (type == 0) {
-            bitmap.compress(Bitmap.CompressFormat.JPEG, 80, os);
-        }
-        byte[] b = os.toByteArray();
-        return b;
-    }
-
-    public static Uri saveImage(Context context, Bitmap bitmap, String path, int type, int quality) throws OtherException, SDCardFullException {
-        int pos = path.lastIndexOf(47);
-        if (pos <= 0) {
-            return null;
-        }
-        String dir = path.substring(0, pos + 1);
-        String name = path.substring(pos + 1, path.length());
-        if (type == 1) {
-            return saveImage(context, bitmap, dir, name, ".png", "image/png", Bitmap.CompressFormat.PNG, 100);
-        }
-        if (type == 0) {
-            return saveImage(context, bitmap, dir, name, ".jpg", "image/jpeg", Bitmap.CompressFormat.JPEG, quality);
-        }
-        throw new OtherException("");
-    }
-
-    public static Bitmap loadImage(Context context, Uri uri, int width, int height) throws OtherException, OutOfMemoryError, FileNotFoundException {
-        Bitmap bitmap;
-        try {
-            Bitmap bitmap2 = getBitmapSample(context, uri, width, height);
-            if (bitmap2 == null) {
-                throw new OtherException();
-            }
-            if (bitmap2.getWidth() > bitmap2.getHeight()) {
-                bitmap = resizeBitmap(bitmap2, width, height);
-            } else {
-                bitmap = resizeBitmap(bitmap2, height, width);
-            }
-            int rotation = getRotationFromMedia(context, uri);
-            if (rotation == 0) {
-                rotation = getRotationFromExif(uri);
-            }
-            if (rotation != 0) {
-                Matrix mtx = new Matrix();
-                mtx.setRotate(rotation);
-                return Bitmap.createBitmap(bitmap, 0, 0, bitmap.getWidth(), bitmap.getHeight(), mtx, true);
-            }
-            return bitmap;
-        } catch (Exception e) {
-            e.printStackTrace();
-            throw new OtherException();
-        }
-    }
-
-    public static Bitmap scaleBitmap(Bitmap bitmap, float scale) {
-        int w = bitmap.getWidth();
-        int h = bitmap.getHeight();
-        int w1 = (int) (w / scale);
-        int h1 = (int) (h / scale);
-        Bitmap newBitmap = Bitmap.createBitmap(w1, h1, bitmap.getConfig());
-        Canvas canvas = new Canvas(newBitmap);
-        Paint paint = new Paint();
-        paint.setDither(true);
-        paint.setFilterBitmap(true);
-        canvas.drawBitmap(bitmap, new Rect(0, 0, w, h), new Rect(0, 0, w1, h1), paint);
-        bitmap.recycle();
-        return newBitmap;
-    }
-
-    public static File getSampleFile(Context cx, Uri uri, int w, int h, String path, int type) throws OutOfMemoryError, FileNotFoundException, OtherException, SDCardFullException {
-        Bitmap bm = loadImage(cx, uri, w, h);
-        saveImage(cx, bm, path, 0, 80);
-        return new File(path);
-    }
-
-    private static int getRotationFromMedia(Context context, Uri imageUri) {
-        ContentResolver mContentResolver = context.getContentResolver();
-        int rotation = 0;
-        Cursor c = createCursor(mContentResolver, imageUri);
-        if (c != null) {
-            if (c.moveToFirst()) {
-                rotation = c.getInt(3);
-            }
-            c.close();
-        }
-        return rotation;
-    }
-
-    private static int getRotationFromExif(Uri uri) {
-        try {
-            String targetScheme = uri.getScheme();
-            if (!targetScheme.equals("file")) {
-                return 0;
-            }
-            ExifInterface exif = new ExifInterface(uri.getPath());
-            int rotation = (int) Shared.exifOrientationToDegrees(exif.getAttributeInt("Orientation", 1));
-            return rotation;
-        } catch (IOException e) {
-            e.printStackTrace();
-            return 0;
-        }
-    }
-
-    private static String sortOrder() {
-        return String.valueOf("case ifnull(datetaken,0) when 0 then date_modified*1000 else datetaken end") + " DESC, _id DESC";
-    }
-
-    private static Cursor createCursor(ContentResolver mContentResolver, Uri mBaseUri) {
-        Cursor c;
-        try {
-            if (mBaseUri.getScheme().startsWith("file")) {
-                String[] args = {""};
-                args[0] = mBaseUri.getPath();
-                c = MediaStore.Images.Media.query(mContentResolver, MediaStore.Images.Media.EXTERNAL_CONTENT_URI, IMAGE_PROJECTION, "(_data=?)", args, sortOrder());
-            } else {
-                c = MediaStore.Images.Media.query(mContentResolver, mBaseUri, IMAGE_PROJECTION, WHERE_CLAUSE, ACCEPTABLE_IMAGE_TYPES, sortOrder());
-            }
-            return c;
-        } catch (Exception e) {
-            return null;
-        }
-    }
-
-    private static Uri saveImage(Context context, Bitmap bitmap, String dir, String name, String suffix, String mimeType, Bitmap.CompressFormat format, int quality) throws OtherException, SDCardFullException {
-        String newPath;
-        if (isSdcardFull()) {
-            throw new SDCardFullException();
-        }
-        String[] nameArr = name.split("\\.");
-        if (nameArr.length > 2 && (nameArr[1].equals("jpg") || nameArr[1].equals("png"))) {
-            newPath = String.valueOf(dir) + name + suffix;
-        } else {
-            newPath = String.valueOf(dir) + name;
-        }
-        ContentValues values = new ContentValues(8);
-        values.put("title", name);
-        values.put("_display_name", name);
-        values.put("description", "edited_by_photowonder");
-        values.put("datetaken", Long.valueOf(System.currentTimeMillis()));
-        values.put("mime_type", mimeType);
-        values.put("orientation", (Integer) 0);
-        values.put("bucket_id", Integer.valueOf(dir.hashCode()));
-        new File(dir).mkdirs();
-        File f = new File(newPath);
-        values.put("bucket_display_name", f.getName().toLowerCase());
-        try {
-            f.createNewFile();
-            FileOutputStream fileOS = new FileOutputStream(f);
-            bitmap.compress(format, quality, fileOS);
-            fileOS.close();
-            context.sendBroadcast(new Intent("android.intent.action.MEDIA_MOUNTED", Uri.parse("file://" + Environment.getExternalStorageDirectory())));
-            LogUtils.d(TAG, "save ok at:" + newPath);
-            return Uri.fromFile(new File(newPath));
-        } catch (Exception e) {
-            e.printStackTrace();
-            throw new OtherException("cannot save image");
-        }
-    }
-
-    private static Bitmap resizeBitmap(Bitmap bitmap, int newWidth, int newHeight) throws OtherException {
-        int w = bitmap.getWidth();
-        int h = bitmap.getHeight();
-        float rw = w / newWidth;
-        float rh = h / newHeight;
-        float r = rw > rh ? rw : rh;
-        if (r < 1.0f) {
-            Bitmap newBitmap = bitmap.copy(bitmap.getConfig(), true);
-            bitmap.recycle();
-            return newBitmap;
-        }
-        Bitmap newBitmap2 = scaleBitmap(bitmap, r);
-        return newBitmap2;
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes.dex */
-    public class LoadTask extends AsyncTask<Object, Void, Integer> {
+    public class LoadTask extends AsyncTask {
         private Bitmap miBitmap;
         private Object tag;
 
@@ -429,18 +73,17 @@ public class ImageFile {
 
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
-        /* JADX WARN: Can't rename method to resolve collision */
         @Override // android.os.AsyncTask
-        public Integer doInBackground(Object... params) {
+        public Integer doInBackground(Object... objArr) {
             try {
-                Context context = (Context) params[0];
-                Uri uri = (Uri) params[1];
-                Integer width = (Integer) params[2];
-                Integer height = (Integer) params[3];
-                if (params.length == 5) {
-                    this.tag = params[4];
+                Context context = (Context) objArr[0];
+                Uri uri = (Uri) objArr[1];
+                Integer num = (Integer) objArr[2];
+                Integer num2 = (Integer) objArr[3];
+                if (objArr.length == 5) {
+                    this.tag = objArr[4];
                 }
-                this.miBitmap = ImageFile.loadImage(context, uri, width.intValue(), height.intValue());
+                this.miBitmap = ImageFile.loadImage(context, uri, num.intValue(), num2.intValue());
                 return 0;
             } catch (OtherException e) {
                 e.printStackTrace();
@@ -457,75 +100,47 @@ public class ImageFile {
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // android.os.AsyncTask
-        public void onPostExecute(Integer rst) {
+        public void onPostExecute(Integer num) {
             synchronized (ImageFile.sImageTaskQueue) {
                 ImageFile.sImageTaskQueue.remove(ImageFile.this.mThreadNote);
                 if (ImageFile.sImageTaskQueue.size() > 0) {
-                    Iterator<ThreadNote> iter = ImageFile.sImageTaskQueue.iterator();
+                    Iterator it = ImageFile.sImageTaskQueue.iterator();
                     while (true) {
-                        if (!iter.hasNext()) {
+                        if (!it.hasNext()) {
                             break;
                         }
-                        ThreadNote note = iter.next();
-                        if (note.task.getStatus() == AsyncTask.Status.PENDING) {
-                            ((LoadTask) note.task).execute(note.params);
+                        ThreadNote threadNote = (ThreadNote) it.next();
+                        if (threadNote.task.getStatus() == AsyncTask.Status.PENDING) {
+                            ((LoadTask) threadNote.task).execute(threadNote.params);
                             break;
                         }
                     }
                 }
             }
             if (ImageFile.this.mOnFileLoadedListener != null) {
-                ImageFile.this.mOnFileLoadedListener.onFileLoaded(rst.intValue(), this.miBitmap, this.tag);
+                ImageFile.this.mOnFileLoadedListener.onFileLoaded(num.intValue(), this.miBitmap, this.tag);
                 ImageFile.this.mOnFileLoadedListener = null;
             }
         }
     }
 
     /* loaded from: classes.dex */
-    private class SaveTask extends AsyncTask<Object, Void, Integer> {
-        private Uri miUri;
-
-        private SaveTask() {
-        }
-
-        /* synthetic */ SaveTask(ImageFile imageFile, SaveTask saveTask) {
-            this();
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        /* JADX INFO: Access modifiers changed from: protected */
-        /* JADX WARN: Can't rename method to resolve collision */
-        @Override // android.os.AsyncTask
-        public Integer doInBackground(Object... params) {
-            Context context = (Context) params[0];
-            Bitmap bitmap = (Bitmap) params[1];
-            String path = (String) params[2];
-            Integer type = (Integer) params[3];
-            try {
-                this.miUri = ImageFile.saveImage(context, bitmap, path, type.intValue(), 80);
-                return 0;
-            } catch (OtherException e) {
-                e.printStackTrace();
-                return -1;
-            } catch (SDCardFullException e2) {
-                e2.printStackTrace();
-                return -7;
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        /* JADX INFO: Access modifiers changed from: protected */
-        @Override // android.os.AsyncTask
-        public void onPostExecute(Integer rst) {
-            if (ImageFile.this.mOnFileSavedListener != null) {
-                ImageFile.this.mOnFileSavedListener.onFileSaved(rst.intValue(), this.miUri);
-                ImageFile.this.mOnFileSavedListener = null;
-            }
-        }
+    public interface OnFileLoadedListener {
+        void onFileLoaded(int i, Bitmap bitmap, Object obj);
     }
 
     /* loaded from: classes.dex */
-    private class SampleFileTask extends AsyncTask<Object, Void, Integer> {
+    public interface OnFileSavedListener {
+        void onFileSaved(int i, Uri uri);
+    }
+
+    /* loaded from: classes.dex */
+    public interface OnSampleFileListener {
+        void onGetSampleFile(int i, File file);
+    }
+
+    /* loaded from: classes.dex */
+    class SampleFileTask extends AsyncTask {
         private File file;
 
         private SampleFileTask() {
@@ -537,17 +152,10 @@ public class ImageFile {
 
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
-        /* JADX WARN: Can't rename method to resolve collision */
         @Override // android.os.AsyncTask
-        public Integer doInBackground(Object... params) {
-            Context cx = (Context) params[0];
-            Uri uri = (Uri) params[1];
-            int w = ((Integer) params[2]).intValue();
-            int h = ((Integer) params[3]).intValue();
-            String path = (String) params[4];
-            Integer type = (Integer) params[5];
+        public Integer doInBackground(Object... objArr) {
             try {
-                this.file = ImageFile.getSampleFile(cx, uri, w, h, path, type.intValue());
+                this.file = ImageFile.getSampleFile((Context) objArr[0], (Uri) objArr[1], ((Integer) objArr[2]).intValue(), ((Integer) objArr[3]).intValue(), (String) objArr[4], ((Integer) objArr[5]).intValue());
                 return 0;
             } catch (OtherException e) {
                 e.printStackTrace();
@@ -567,23 +175,377 @@ public class ImageFile {
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // android.os.AsyncTask
-        public void onPostExecute(Integer rst) {
+        public void onPostExecute(Integer num) {
             if (ImageFile.this.mOnSampleFileListener != null) {
-                ImageFile.this.mOnSampleFileListener.onGetSampleFile(rst.intValue(), this.file);
+                ImageFile.this.mOnSampleFileListener.onGetSampleFile(num.intValue(), this.file);
                 ImageFile.this.mOnSampleFileListener = null;
             }
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
+    /* loaded from: classes.dex */
+    class SaveTask extends AsyncTask {
+        private Uri miUri;
+
+        private SaveTask() {
+        }
+
+        /* synthetic */ SaveTask(ImageFile imageFile, SaveTask saveTask) {
+            this();
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        /* JADX INFO: Access modifiers changed from: protected */
+        @Override // android.os.AsyncTask
+        public Integer doInBackground(Object... objArr) {
+            try {
+                this.miUri = ImageFile.saveImage((Context) objArr[0], (Bitmap) objArr[1], (String) objArr[2], ((Integer) objArr[3]).intValue(), 80);
+                return 0;
+            } catch (OtherException e) {
+                e.printStackTrace();
+                return -1;
+            } catch (SDCardFullException e2) {
+                e2.printStackTrace();
+                return -7;
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        /* JADX INFO: Access modifiers changed from: protected */
+        @Override // android.os.AsyncTask
+        public void onPostExecute(Integer num) {
+            if (ImageFile.this.mOnFileSavedListener != null) {
+                ImageFile.this.mOnFileSavedListener.onFileSaved(num.intValue(), this.miUri);
+                ImageFile.this.mOnFileSavedListener = null;
+            }
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
     public class ThreadNote {
         public Object[] params;
         public AsyncTask task;
 
-        public ThreadNote(AsyncTask task, Object... params) {
-            this.task = task;
-            this.params = params;
+        public ThreadNote(AsyncTask asyncTask, Object... objArr) {
+            this.task = asyncTask;
+            this.params = objArr;
         }
+    }
+
+    private static Cursor createCursor(ContentResolver contentResolver, Uri uri) {
+        Cursor query;
+        try {
+            if (uri.getScheme().startsWith("file")) {
+                String[] strArr = {""};
+                strArr[0] = uri.getPath();
+                query = MediaStore.Images.Media.query(contentResolver, MediaStore.Images.Media.EXTERNAL_CONTENT_URI, IMAGE_PROJECTION, "(_data=?)", strArr, sortOrder());
+            } else {
+                query = MediaStore.Images.Media.query(contentResolver, uri, IMAGE_PROJECTION, WHERE_CLAUSE, ACCEPTABLE_IMAGE_TYPES, sortOrder());
+            }
+            return query;
+        } catch (Exception e) {
+            return null;
+        }
+    }
+
+    public static Bitmap getBitmapSample(Context context, Uri uri, int i, int i2) {
+        int i3;
+        int i4;
+        int i5;
+        BitmapFactory.Options options = new BitmapFactory.Options();
+        options.inPurgeable = true;
+        InputStream openInputStream = context.getContentResolver().openInputStream(uri);
+        options.inJustDecodeBounds = true;
+        BitmapFactory.decodeStream(openInputStream, null, options);
+        if (options.outHeight > options.outWidth) {
+            i3 = options.outHeight;
+            i4 = options.outWidth;
+            i5 = 1;
+        } else {
+            i3 = options.outWidth;
+            i4 = options.outHeight;
+            i5 = 1;
+        }
+        while (true) {
+            if (i4 > (i5 + 1) * i2 || i3 > (i5 + 1) * i) {
+                i5++;
+            } else {
+                try {
+                    break;
+                } catch (IOException e) {
+                    LogUtils.w(TAG, "file close error");
+                }
+            }
+        }
+        openInputStream.close();
+        InputStream openInputStream2 = context.getContentResolver().openInputStream(uri);
+        options.inJustDecodeBounds = false;
+        options.inSampleSize = i5;
+        options.inDither = true;
+        options.inPreferredConfig = Bitmap.Config.RGB_565;
+        Bitmap decodeStream = BitmapFactory.decodeStream(openInputStream2, null, options);
+        try {
+            openInputStream2.close();
+        } catch (IOException e2) {
+            LogUtils.w(TAG, "file close error");
+        }
+        return decodeStream;
+    }
+
+    public static Bitmap getBitmapSample(byte[] bArr, int i, int i2) {
+        int i3;
+        int i4;
+        int i5;
+        BitmapFactory.Options options = new BitmapFactory.Options();
+        options.inPurgeable = true;
+        options.inJustDecodeBounds = true;
+        BitmapFactory.decodeByteArray(bArr, 0, bArr.length, options);
+        if (options.outHeight > options.outWidth) {
+            i3 = options.outHeight;
+            i4 = options.outWidth;
+            i5 = 1;
+        } else {
+            i3 = options.outWidth;
+            i4 = options.outHeight;
+            i5 = 1;
+        }
+        while (true) {
+            if (i4 <= (i5 + 1) * i2 && i3 <= (i5 + 1) * i) {
+                options.inJustDecodeBounds = false;
+                options.inSampleSize = i5;
+                options.inDither = true;
+                options.inPreferredConfig = Bitmap.Config.RGB_565;
+                return BitmapFactory.decodeByteArray(bArr, 0, bArr.length, options);
+            }
+            i5++;
+        }
+    }
+
+    public static String getFileNameFromPath(String str) {
+        if (str == null) {
+            return null;
+        }
+        if (str.contains("/")) {
+            int lastIndexOf = str.lastIndexOf("/") + 1;
+            int length = str.length();
+            LogUtils.w(TAG, String.format("name: %s. s: %d. n:%d", str, Integer.valueOf(lastIndexOf), Integer.valueOf(length)));
+            str = str.substring(lastIndexOf, length);
+        }
+        return str.contains(".") ? str.substring(0, str.indexOf(".")) : str;
+    }
+
+    public static byte[] getImageByte(Bitmap bitmap, int i) {
+        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+        if (i == 0) {
+            bitmap.compress(Bitmap.CompressFormat.JPEG, 80, byteArrayOutputStream);
+        }
+        return byteArrayOutputStream.toByteArray();
+    }
+
+    public static String getRealPathFromUri(Context context, Uri uri) {
+        String str;
+        LogUtils.w(TAG, String.format("getRealPathFromUri: %s", uri.toString()));
+        try {
+            Cursor managedQuery = ((Activity) context).managedQuery(uri, new String[]{"_data"}, null, null, null);
+            if (managedQuery == null) {
+                return null;
+            }
+            int columnIndex = managedQuery.getColumnIndex("_data");
+            managedQuery.moveToFirst();
+            if (columnIndex != -1) {
+                try {
+                    str = managedQuery.getString(columnIndex);
+                } catch (Exception e) {
+                    str = null;
+                }
+                return str;
+            }
+            return null;
+        } catch (Exception e2) {
+            return null;
+        }
+    }
+
+    private static int getRotationFromExif(Uri uri) {
+        try {
+            if (uri.getScheme().equals("file")) {
+                return (int) Shared.exifOrientationToDegrees(new ExifInterface(uri.getPath()).getAttributeInt("Orientation", 1));
+            }
+            return 0;
+        } catch (IOException e) {
+            e.printStackTrace();
+            return 0;
+        }
+    }
+
+    private static int getRotationFromMedia(Context context, Uri uri) {
+        Cursor createCursor = createCursor(context.getContentResolver(), uri);
+        if (createCursor != null) {
+            r0 = createCursor.moveToFirst() ? createCursor.getInt(3) : 0;
+            createCursor.close();
+        }
+        return r0;
+    }
+
+    public static File getSampleFile(Context context, Uri uri, int i, int i2, String str, int i3) {
+        saveImage(context, loadImage(context, uri, i, i2), str, 0, 80);
+        return new File(str);
+    }
+
+    public static boolean isSdcardFull() {
+        StatFs statFs = new StatFs(new File(Environment.getExternalStorageDirectory().getPath()).getPath());
+        long blockSize = statFs.getBlockSize() * (statFs.getAvailableBlocks() - 4);
+        LogUtils.w("----------availableSpare-------------", String.valueOf(blockSize));
+        return blockSize < MIN_SD_CARD_SPACE;
+    }
+
+    public static Bitmap loadImage(Context context, Uri uri, int i, int i2) {
+        try {
+            Bitmap bitmapSample = getBitmapSample(context, uri, i, i2);
+            if (bitmapSample == null) {
+                throw new OtherException();
+            }
+            Bitmap resizeBitmap = bitmapSample.getWidth() > bitmapSample.getHeight() ? resizeBitmap(bitmapSample, i, i2) : resizeBitmap(bitmapSample, i2, i);
+            int rotationFromMedia = getRotationFromMedia(context, uri);
+            if (rotationFromMedia == 0) {
+                rotationFromMedia = getRotationFromExif(uri);
+            }
+            if (rotationFromMedia != 0) {
+                Matrix matrix = new Matrix();
+                matrix.setRotate(rotationFromMedia);
+                return Bitmap.createBitmap(resizeBitmap, 0, 0, resizeBitmap.getWidth(), resizeBitmap.getHeight(), matrix, true);
+            }
+            return resizeBitmap;
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw new OtherException();
+        }
+    }
+
+    private static Bitmap resizeBitmap(Bitmap bitmap, int i, int i2) {
+        float width = bitmap.getWidth() / i;
+        float height = bitmap.getHeight() / i2;
+        if (width <= height) {
+            width = height;
+        }
+        if (width < 1.0f) {
+            Bitmap copy = bitmap.copy(bitmap.getConfig(), true);
+            bitmap.recycle();
+            return copy;
+        }
+        return scaleBitmap(bitmap, width);
+    }
+
+    public static Uri saveImage(Context context, Bitmap bitmap, String str, int i, int i2) {
+        int lastIndexOf = str.lastIndexOf(47);
+        if (lastIndexOf <= 0) {
+            return null;
+        }
+        String substring = str.substring(0, lastIndexOf + 1);
+        String substring2 = str.substring(lastIndexOf + 1, str.length());
+        if (i == 1) {
+            return saveImage(context, bitmap, substring, substring2, ".png", "image/png", Bitmap.CompressFormat.PNG, 100);
+        }
+        if (i == 0) {
+            return saveImage(context, bitmap, substring, substring2, ".jpg", "image/jpeg", Bitmap.CompressFormat.JPEG, i2);
+        }
+        throw new OtherException("");
+    }
+
+    private static Uri saveImage(Context context, Bitmap bitmap, String str, String str2, String str3, String str4, Bitmap.CompressFormat compressFormat, int i) {
+        if (isSdcardFull()) {
+            throw new SDCardFullException();
+        }
+        String[] split = str2.split("\\.");
+        String str5 = (split.length <= 2 || !(split[1].equals("jpg") || split[1].equals("png"))) ? String.valueOf(str) + str2 : String.valueOf(str) + str2 + str3;
+        ContentValues contentValues = new ContentValues(8);
+        contentValues.put("title", str2);
+        contentValues.put("_display_name", str2);
+        contentValues.put("description", "edited_by_photowonder");
+        contentValues.put("datetaken", Long.valueOf(System.currentTimeMillis()));
+        contentValues.put("mime_type", str4);
+        contentValues.put("orientation", (Integer) 0);
+        contentValues.put("bucket_id", Integer.valueOf(str.hashCode()));
+        new File(str).mkdirs();
+        File file = new File(str5);
+        contentValues.put("bucket_display_name", file.getName().toLowerCase());
+        try {
+            file.createNewFile();
+            FileOutputStream fileOutputStream = new FileOutputStream(file);
+            bitmap.compress(compressFormat, i, fileOutputStream);
+            fileOutputStream.close();
+            context.sendBroadcast(new Intent("android.intent.action.MEDIA_MOUNTED", Uri.parse("file://" + Environment.getExternalStorageDirectory())));
+            LogUtils.d(TAG, "save ok at:" + str5);
+            return Uri.fromFile(new File(str5));
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw new OtherException("cannot save image");
+        }
+    }
+
+    public static Bitmap scaleBitmap(Bitmap bitmap, float f) {
+        int width = bitmap.getWidth();
+        int height = bitmap.getHeight();
+        int i = (int) (width / f);
+        int i2 = (int) (height / f);
+        Bitmap createBitmap = Bitmap.createBitmap(i, i2, bitmap.getConfig());
+        Canvas canvas = new Canvas(createBitmap);
+        Paint paint = new Paint();
+        paint.setDither(true);
+        paint.setFilterBitmap(true);
+        canvas.drawBitmap(bitmap, new Rect(0, 0, width, height), new Rect(0, 0, i, i2), paint);
+        bitmap.recycle();
+        return createBitmap;
+    }
+
+    private static String sortOrder() {
+        return String.valueOf("case ifnull(datetaken,0) when 0 then date_modified*1000 else datetaken end") + " DESC, _id DESC";
+    }
+
+    public int getSampleFileAsync(Context context, Uri uri, int i, int i2, String str, int i3, OnSampleFileListener onSampleFileListener) {
+        this.mOnSampleFileListener = onSampleFileListener;
+        if (this.mSampleFileTask == null || this.mSampleFileTask.getStatus() == AsyncTask.Status.FINISHED) {
+            this.mSampleFileTask = new SampleFileTask(this, null);
+        }
+        if (this.mSampleFileTask.getStatus() == AsyncTask.Status.RUNNING) {
+            return -6;
+        }
+        this.mSampleFileTask.execute(context, uri, Integer.valueOf(i), Integer.valueOf(i2), str, Integer.valueOf(i3));
+        return 0;
+    }
+
+    public int loadImageAsync(Context context, Uri uri, int i, int i2, OnFileLoadedListener onFileLoadedListener) {
+        return loadImageAsync(context, uri, i, i2, null, onFileLoadedListener);
+    }
+
+    public int loadImageAsync(Context context, Uri uri, int i, int i2, Object obj, OnFileLoadedListener onFileLoadedListener) {
+        this.mOnFileLoadedListener = onFileLoadedListener;
+        if (this.mLoadTask == null || this.mLoadTask.getStatus() == AsyncTask.Status.FINISHED) {
+            this.mLoadTask = new LoadTask(this, null);
+        }
+        if (this.mLoadTask.getStatus() == AsyncTask.Status.RUNNING) {
+            return -6;
+        }
+        synchronized (sImageTaskQueue) {
+            this.mThreadNote = new ThreadNote(this.mLoadTask, context, uri, Integer.valueOf(i), Integer.valueOf(i2), obj);
+            sImageTaskQueue.add(this.mThreadNote);
+            if (sImageTaskQueue.size() <= 1) {
+                ((LoadTask) this.mThreadNote.task).execute(this.mThreadNote.params);
+            }
+        }
+        return 0;
+    }
+
+    public int saveImageAsync(Context context, Bitmap bitmap, String str, int i, OnFileSavedListener onFileSavedListener) {
+        this.mOnFileSavedListener = onFileSavedListener;
+        if (this.mSaveTask == null || this.mSaveTask.getStatus() == AsyncTask.Status.FINISHED) {
+            this.mSaveTask = new SaveTask(this, null);
+        }
+        if (this.mSaveTask.getStatus() == AsyncTask.Status.RUNNING) {
+            return -6;
+        }
+        this.mSaveTask.execute(context, bitmap, str, Integer.valueOf(i));
+        return 0;
     }
 }

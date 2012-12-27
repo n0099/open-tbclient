@@ -6,15 +6,15 @@ public class OtherException extends Exception {
     public OtherException() {
     }
 
-    public OtherException(String msg) {
-        super(msg);
+    public OtherException(String str) {
+        super(str);
     }
 
-    public OtherException(Throwable cause) {
-        super(cause);
+    public OtherException(String str, Throwable th) {
+        super(str, th);
     }
 
-    public OtherException(String msg, Throwable cause) {
-        super(msg, cause);
+    public OtherException(Throwable th) {
+        super(th);
     }
 }

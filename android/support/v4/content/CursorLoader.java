@@ -1,171 +1,118 @@
 package android.support.v4.content;
 
-import android.content.Context;
 import android.database.ContentObserver;
 import android.database.Cursor;
 import android.net.Uri;
-import android.support.v4.content.Loader;
 import java.io.FileDescriptor;
 import java.io.PrintWriter;
 import java.util.Arrays;
 /* loaded from: classes.dex */
-public class CursorLoader extends AsyncTaskLoader<Cursor> {
-    Cursor mCursor;
-    final Loader<Cursor>.ForceLoadContentObserver mObserver;
-    String[] mProjection;
-    String mSelection;
-    String[] mSelectionArgs;
-    String mSortOrder;
-    Uri mUri;
+public class CursorLoader extends AsyncTaskLoader {
+    final c f;
+    Uri g;
+    String[] h;
+    String i;
+    String[] j;
+    String k;
+    Cursor l;
 
     /* JADX DEBUG: Method merged with bridge method */
-    /* JADX WARN: Can't rename method to resolve collision */
-    @Override // android.support.v4.content.AsyncTaskLoader
-    public Cursor loadInBackground() {
-        Cursor cursor = getContext().getContentResolver().query(this.mUri, this.mProjection, this.mSelection, this.mSelectionArgs, this.mSortOrder);
-        if (cursor != null) {
-            cursor.getCount();
-            registerContentObserver(cursor, this.mObserver);
-        }
-        return cursor;
-    }
-
-    void registerContentObserver(Cursor cursor, ContentObserver observer) {
-        cursor.registerContentObserver(this.mObserver);
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // android.support.v4.content.Loader
-    public void deliverResult(Cursor cursor) {
-        if (isReset()) {
+    @Override // android.support.v4.content.b
+    /* renamed from: a */
+    public void b(Cursor cursor) {
+        if (m()) {
             if (cursor != null) {
                 cursor.close();
                 return;
             }
             return;
         }
-        Cursor oldCursor = this.mCursor;
-        this.mCursor = cursor;
-        if (isStarted()) {
-            super.deliverResult((CursorLoader) cursor);
+        Cursor cursor2 = this.l;
+        this.l = cursor;
+        if (k()) {
+            super.b((Object) cursor);
         }
-        if (oldCursor != null && oldCursor != cursor && !oldCursor.isClosed()) {
-            oldCursor.close();
+        if (cursor2 == null || cursor2 == cursor || cursor2.isClosed()) {
+            return;
         }
+        cursor2.close();
     }
 
-    public CursorLoader(Context context) {
-        super(context);
-        this.mObserver = new Loader.ForceLoadContentObserver();
+    void a(Cursor cursor, ContentObserver contentObserver) {
+        cursor.registerContentObserver(this.f);
     }
 
-    public CursorLoader(Context context, Uri uri, String[] projection, String selection, String[] selectionArgs, String sortOrder) {
-        super(context);
-        this.mObserver = new Loader.ForceLoadContentObserver();
-        this.mUri = uri;
-        this.mProjection = projection;
-        this.mSelection = selection;
-        this.mSelectionArgs = selectionArgs;
-        this.mSortOrder = sortOrder;
-    }
-
-    @Override // android.support.v4.content.Loader
-    protected void onStartLoading() {
-        if (this.mCursor != null) {
-            deliverResult(this.mCursor);
-        }
-        if (takeContentChanged() || this.mCursor == null) {
-            forceLoad();
-        }
-    }
-
-    @Override // android.support.v4.content.Loader
-    protected void onStopLoading() {
-        cancelLoad();
+    @Override // android.support.v4.content.AsyncTaskLoader, android.support.v4.content.b
+    public void a(String str, FileDescriptor fileDescriptor, PrintWriter printWriter, String[] strArr) {
+        super.a(str, fileDescriptor, printWriter, strArr);
+        printWriter.print(str);
+        printWriter.print("mUri=");
+        printWriter.println(this.g);
+        printWriter.print(str);
+        printWriter.print("mProjection=");
+        printWriter.println(Arrays.toString(this.h));
+        printWriter.print(str);
+        printWriter.print("mSelection=");
+        printWriter.println(this.i);
+        printWriter.print(str);
+        printWriter.print("mSelectionArgs=");
+        printWriter.println(Arrays.toString(this.j));
+        printWriter.print(str);
+        printWriter.print("mSortOrder=");
+        printWriter.println(this.k);
+        printWriter.print(str);
+        printWriter.print("mCursor=");
+        printWriter.println(this.l);
+        printWriter.print(str);
+        printWriter.print("mContentChanged=");
+        printWriter.println(this.s);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.support.v4.content.AsyncTaskLoader
-    public void onCanceled(Cursor cursor) {
-        if (cursor != null && !cursor.isClosed()) {
-            cursor.close();
+    /* renamed from: b */
+    public void a(Cursor cursor) {
+        if (cursor == null || cursor.isClosed()) {
+            return;
         }
+        cursor.close();
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // android.support.v4.content.AsyncTaskLoader
+    /* renamed from: f */
+    public Cursor d() {
+        Cursor query = j().getContentResolver().query(this.g, this.h, this.i, this.j, this.k);
+        if (query != null) {
+            query.getCount();
+            a(query, this.f);
+        }
+        return query;
+    }
+
+    @Override // android.support.v4.content.b
+    protected void g() {
+        if (this.l != null) {
+            b(this.l);
+        }
+        if (r() || this.l == null) {
+            o();
+        }
+    }
+
+    @Override // android.support.v4.content.b
+    protected void h() {
+        b();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // android.support.v4.content.Loader
-    public void onReset() {
-        super.onReset();
-        onStopLoading();
-        if (this.mCursor != null && !this.mCursor.isClosed()) {
-            this.mCursor.close();
+    @Override // android.support.v4.content.b
+    public void i() {
+        super.i();
+        h();
+        if (this.l != null && !this.l.isClosed()) {
+            this.l.close();
         }
-        this.mCursor = null;
-    }
-
-    public Uri getUri() {
-        return this.mUri;
-    }
-
-    public void setUri(Uri uri) {
-        this.mUri = uri;
-    }
-
-    public String[] getProjection() {
-        return this.mProjection;
-    }
-
-    public void setProjection(String[] projection) {
-        this.mProjection = projection;
-    }
-
-    public String getSelection() {
-        return this.mSelection;
-    }
-
-    public void setSelection(String selection) {
-        this.mSelection = selection;
-    }
-
-    public String[] getSelectionArgs() {
-        return this.mSelectionArgs;
-    }
-
-    public void setSelectionArgs(String[] selectionArgs) {
-        this.mSelectionArgs = selectionArgs;
-    }
-
-    public String getSortOrder() {
-        return this.mSortOrder;
-    }
-
-    public void setSortOrder(String sortOrder) {
-        this.mSortOrder = sortOrder;
-    }
-
-    @Override // android.support.v4.content.AsyncTaskLoader, android.support.v4.content.Loader
-    public void dump(String prefix, FileDescriptor fd, PrintWriter writer, String[] args) {
-        super.dump(prefix, fd, writer, args);
-        writer.print(prefix);
-        writer.print("mUri=");
-        writer.println(this.mUri);
-        writer.print(prefix);
-        writer.print("mProjection=");
-        writer.println(Arrays.toString(this.mProjection));
-        writer.print(prefix);
-        writer.print("mSelection=");
-        writer.println(this.mSelection);
-        writer.print(prefix);
-        writer.print("mSelectionArgs=");
-        writer.println(Arrays.toString(this.mSelectionArgs));
-        writer.print(prefix);
-        writer.print("mSortOrder=");
-        writer.println(this.mSortOrder);
-        writer.print(prefix);
-        writer.print("mCursor=");
-        writer.println(this.mCursor);
-        writer.print(prefix);
-        writer.print("mContentChanged=");
-        writer.println(this.mContentChanged);
+        this.l = null;
     }
 }

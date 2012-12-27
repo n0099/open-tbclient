@@ -6,110 +6,93 @@ public final class Shared {
     public static final int INFINITY = Integer.MAX_VALUE;
     public static final int INVALID = -1;
 
-    public static int argb(float a, float r, float g, float b) {
-        return Color.argb((int) (a * 255.0f), (int) (r * 255.0f), (int) (g * 255.0f), (int) (255.0f * b));
+    public static int argb(float f, float f2, float f3, float f4) {
+        return Color.argb((int) (f * 255.0f), (int) (f2 * 255.0f), (int) (f3 * 255.0f), (int) (255.0f * f4));
     }
 
-    public static boolean isPowerOf2(int n) {
-        return ((-n) & n) == n;
+    public static int clamp(int i, int i2, int i3) {
+        return i < i2 ? i2 : i > i3 ? i3 : i;
+    }
+
+    public static long clamp(long j, long j2, long j3) {
+        return j < j2 ? j2 : j > j3 ? j3 : j;
+    }
+
+    public static int degreesToExifOrientation(float f) {
+        if (f == 0.0f) {
+            return 1;
+        }
+        if (f == 90.0f) {
+            return 6;
+        }
+        if (f == 180.0f) {
+            return 3;
+        }
+        return f == 270.0f ? 8 : 1;
+    }
+
+    public static float exifOrientationToDegrees(int i) {
+        if (i == 6) {
+            return 90.0f;
+        }
+        if (i == 3) {
+            return 180.0f;
+        }
+        return i == 8 ? 270.0f : 0.0f;
+    }
+
+    public static boolean isPowerOf2(int i) {
+        return ((-i) & i) == i;
     }
 
     public static int midPointIterator(int i) {
         if (i != 0) {
-            int tick = ((i - 1) / 2) + 1;
-            int pass = (i + (-1)) % 2 == 0 ? 1 : -1;
-            return tick * pass;
+            return ((i + (-1)) % 2 == 0 ? 1 : -1) * (((i - 1) / 2) + 1);
         }
         return 0;
     }
 
-    public static int nextPowerOf2(int n) {
-        int n2 = n - 1;
-        int n3 = n2 | (n2 >>> 16);
-        int n4 = n3 | (n3 >>> 8);
-        int n5 = n4 | (n4 >>> 4);
-        int n6 = n5 | (n5 >>> 2);
-        return (n6 | (n6 >>> 1)) + 1;
+    public static int nextPowerOf2(int i) {
+        int i2 = i - 1;
+        int i3 = i2 | (i2 >>> 16);
+        int i4 = i3 | (i3 >>> 8);
+        int i5 = i4 | (i4 >>> 4);
+        int i6 = i5 | (i5 >>> 2);
+        return (i6 | (i6 >>> 1)) + 1;
     }
 
-    public static int prevPowerOf2(int n) {
-        return isPowerOf2(n) ? nextPowerOf2(n) : nextPowerOf2(n) - 1;
-    }
-
-    public static int clamp(int value, int min, int max) {
-        if (value < min) {
-            return min;
-        }
-        if (value > max) {
-            return max;
-        }
-        return value;
-    }
-
-    public static long clamp(long value, long min, long max) {
-        if (value < min) {
-            return min;
-        }
-        if (value > max) {
-            return max;
-        }
-        return value;
-    }
-
-    public static float scaleToFit(float srcWidth, float srcHeight, float outerWidth, float outerHeight, boolean clipToFit) {
-        float scaleX = outerWidth / srcWidth;
-        float scaleY = outerHeight / srcHeight;
-        if (clipToFit) {
-            if (scaleX > scaleY) {
-                return scaleX;
-            }
-        } else if (scaleX < scaleY) {
-            return scaleX;
-        }
-        return scaleY;
-    }
-
-    public static float normalizePositive(float angleToRotate) {
-        if (angleToRotate == 0.0f) {
+    public static float normalizePositive(float f) {
+        if (f == 0.0f) {
             return 0.0f;
         }
-        float nf = angleToRotate / 360.0f;
-        int n = 0;
-        if (angleToRotate < 0.0f) {
-            n = (int) (nf - 1.0f);
-        } else if (angleToRotate > 360.0f) {
-            n = (int) nf;
+        float f2 = f / 360.0f;
+        int i = 0;
+        if (f < 0.0f) {
+            i = (int) (f2 - 1.0f);
+        } else if (f > 360.0f) {
+            i = (int) f2;
         }
-        float angleToRotate2 = angleToRotate - (n * 360.0f);
-        if (angleToRotate2 == 360.0f) {
-            return 0.0f;
-        }
-        return angleToRotate2;
-    }
-
-    public static int degreesToExifOrientation(float normalizedAngle) {
-        if (normalizedAngle == 0.0f) {
-            return 1;
-        }
-        if (normalizedAngle == 90.0f) {
-            return 6;
-        }
-        if (normalizedAngle == 180.0f) {
-            return 3;
-        }
-        return normalizedAngle == 270.0f ? 8 : 1;
-    }
-
-    public static float exifOrientationToDegrees(int exifOrientation) {
-        if (exifOrientation == 6) {
-            return 90.0f;
-        }
-        if (exifOrientation == 3) {
-            return 180.0f;
-        }
-        if (exifOrientation == 8) {
-            return 270.0f;
+        float f3 = f - (i * 360.0f);
+        if (f3 != 360.0f) {
+            return f3;
         }
         return 0.0f;
+    }
+
+    public static int prevPowerOf2(int i) {
+        return isPowerOf2(i) ? nextPowerOf2(i) : nextPowerOf2(i) - 1;
+    }
+
+    public static float scaleToFit(float f, float f2, float f3, float f4, boolean z) {
+        float f5 = f3 / f;
+        float f6 = f4 / f2;
+        if (z) {
+            if (f5 > f6) {
+                return f5;
+            }
+        } else if (f5 < f6) {
+            return f5;
+        }
+        return f6;
     }
 }

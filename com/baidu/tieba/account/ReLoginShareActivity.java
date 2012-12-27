@@ -3,9 +3,7 @@ package com.baidu.tieba.account;
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Color;
-import android.os.AsyncTask;
 import android.os.Bundle;
-import android.support.v4.view.MotionEventCompat;
 import android.text.SpannableString;
 import android.text.style.ForegroundColorSpan;
 import android.text.style.RelativeSizeSpan;
@@ -13,297 +11,154 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.TextView;
-import com.baidu.loginshare.Token;
-import com.baidu.tieba.BaseActivity;
 import com.baidu.tieba.MainTabActivity;
 import com.baidu.tieba.R;
 import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.account.InputUserNameDialog;
-import com.baidu.tieba.data.AccountData;
-import com.baidu.tieba.model.LoginModel;
-import com.baidu.tieba.util.DatabaseService;
-import com.baidu.tieba.util.NetWork;
-import com.baidu.tieba.util.TiebaLog;
 /* loaded from: classes.dex */
-public class ReLoginShareActivity extends BaseActivity {
-    public static final String BDUSS = "bduss";
-    public static final String PTOKEN = "ptoken";
-    private static final int RELOADFAIL = 1;
-    private static final int RELOADING = 0;
-    public static final String UNAME = "user_name";
-    private ReLoginAsyncTask mReloginTask = null;
-    private Button mRetryButton = null;
-    private Button mCancelButton = null;
-    private Button mBackButton = null;
-    private TextView mTextView = null;
-    private ProgressBar mProgressBar = null;
-    private String mName = null;
-    private String mBDUSS = null;
-    private String mPtoken = null;
-    private AccountData mAccount = null;
-    private InputUserNameDialog mInputUserNameDialog = null;
-    private View.OnClickListener mOnClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.account.ReLoginShareActivity.1
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view) {
-            if (view != ReLoginShareActivity.this.mCancelButton && view != ReLoginShareActivity.this.mBackButton) {
-                if (view != ReLoginShareActivity.this.mRetryButton) {
-                    return;
-                }
-                ReLoginShareActivity.this.reLogin();
-                return;
-            }
-            ReLoginShareActivity.this.finishActivity();
-        }
-    };
-
-    public static void startActivity(Activity context, String name, String bduss, String ptoken) {
-        Intent intent = new Intent(context, ReLoginShareActivity.class);
-        intent.putExtra(UNAME, name);
-        intent.putExtra("bduss", bduss);
-        intent.putExtra(PTOKEN, ptoken);
-        context.startActivity(intent);
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.BaseActivity, android.app.Activity
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.relogin_activity);
-        initData();
-        initUI();
-        reLogin();
-    }
-
-    private void initData() {
-        Intent intent = getIntent();
-        this.mName = intent.getStringExtra(UNAME);
-        this.mBDUSS = intent.getStringExtra("bduss");
-        this.mPtoken = intent.getStringExtra(PTOKEN);
-    }
-
-    @Override // android.app.Activity
-    protected void onRestoreInstanceState(Bundle savedInstanceState) {
-        super.onRestoreInstanceState(savedInstanceState);
-        this.mName = savedInstanceState.getString(UNAME);
-        this.mBDUSS = savedInstanceState.getString("bduss");
-        this.mPtoken = savedInstanceState.getString(PTOKEN);
-    }
-
-    @Override // android.app.Activity
-    protected void onSaveInstanceState(Bundle outState) {
-        super.onSaveInstanceState(outState);
-        outState.putString(UNAME, this.mName);
-        outState.putString("bduss", this.mBDUSS);
-        outState.putString(PTOKEN, this.mPtoken);
-    }
-
-    private void initUI() {
-        this.mRetryButton = (Button) findViewById(R.id.relogin_retry_button);
-        this.mRetryButton.setOnClickListener(this.mOnClickListener);
-        this.mCancelButton = (Button) findViewById(R.id.relogin_cacel_button);
-        this.mCancelButton.setOnClickListener(this.mOnClickListener);
-        this.mBackButton = (Button) findViewById(R.id.relogin_bt_back);
-        this.mBackButton.setOnClickListener(this.mOnClickListener);
-        this.mProgressBar = (ProgressBar) findViewById(R.id.relogin_progressbar);
-        this.mTextView = (TextView) findViewById(R.id.relogin_textview);
-        switchLayout(0, this.mName);
-    }
+public class ReLoginShareActivity extends com.baidu.tieba.e {
+    private at b = null;
+    private Button c = null;
+    private Button d = null;
+    private Button e = null;
+    private TextView f = null;
+    private ProgressBar g = null;
+    private String h = null;
+    private String i = null;
+    private String j = null;
+    private com.baidu.tieba.a.a k = null;
+    private o l = null;
+    private View.OnClickListener m = new as(this);
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void switchLayout(int layoutId, String info) {
-        String reloginFail;
-        if (info == null) {
-            info = "";
+    public void a(int i, String str) {
+        String str2;
+        if (str == null) {
+            str = "";
         }
-        switch (layoutId) {
+        switch (i) {
             case 0:
-                this.mRetryButton.setVisibility(8);
-                this.mProgressBar.setVisibility(0);
-                String reLoging = getString(R.string.relogin_statement);
-                int start = reLoging.indexOf(63);
-                String reLoging2 = reLoging.replace("?", info);
-                this.mTextView.setTextSize(2, 16.0f);
-                if (info.length() <= 0) {
-                    this.mTextView.setText(reLoging2);
+                this.c.setVisibility(8);
+                this.g.setVisibility(0);
+                String string = getString(R.string.relogin_statement);
+                int indexOf = string.indexOf(63);
+                String replace = string.replace("?", str);
+                this.f.setTextSize(2, 16.0f);
+                if (str.length() <= 0) {
+                    this.f.setText(replace);
                     return;
                 }
-                SpannableString loging = new SpannableString(reLoging2);
-                loging.setSpan(new ForegroundColorSpan(Color.rgb((int) MotionEventCompat.ACTION_MASK, 47, 47)), start, info.length() + start, 33);
-                this.mTextView.setText(loging);
+                SpannableString spannableString = new SpannableString(replace);
+                spannableString.setSpan(new ForegroundColorSpan(Color.rgb(255, 47, 47)), indexOf, str.length() + indexOf, 33);
+                this.f.setText(spannableString);
                 return;
             case 1:
-                this.mRetryButton.setVisibility(0);
-                this.mProgressBar.setVisibility(8);
-                String reloginFail2 = getString(R.string.relogin_fail);
-                this.mTextView.setTextSize(2, 16.0f);
-                if (info.length() <= 0) {
-                    this.mTextView.setText(reloginFail2);
+                this.c.setVisibility(0);
+                this.g.setVisibility(8);
+                String string2 = getString(R.string.relogin_fail);
+                this.f.setTextSize(2, 16.0f);
+                if (str.length() <= 0) {
+                    this.f.setText(string2);
                     return;
                 }
-                SpannableString fail = new SpannableString(String.valueOf(reloginFail) + info);
-                int start2 = (String.valueOf(reloginFail2) + "\n\n").length();
-                fail.setSpan(new ForegroundColorSpan(Color.rgb((int) MotionEventCompat.ACTION_MASK, 47, 47)), start2, info.length() + start2, 33);
-                fail.setSpan(new RelativeSizeSpan(0.9f), start2, info.length() + start2, 33);
-                this.mTextView.setText(fail);
+                SpannableString spannableString2 = new SpannableString(String.valueOf(str2) + str);
+                int length = (String.valueOf(string2) + "\n\n").length();
+                spannableString2.setSpan(new ForegroundColorSpan(Color.rgb(255, 47, 47)), length, str.length() + length, 33);
+                spannableString2.setSpan(new RelativeSizeSpan(0.9f), length, str.length() + length, 33);
+                this.f.setText(spannableString2);
                 return;
             default:
                 return;
         }
     }
 
+    public static void a(Activity activity, String str, String str2, String str3) {
+        Intent intent = new Intent(activity, ReLoginShareActivity.class);
+        intent.putExtra("user_name", str);
+        intent.putExtra("bduss", str2);
+        intent.putExtra("ptoken", str3);
+        activity.startActivity(intent);
+    }
+
+    private void g() {
+        Intent intent = getIntent();
+        this.h = intent.getStringExtra("user_name");
+        this.i = intent.getStringExtra("bduss");
+        this.j = intent.getStringExtra("ptoken");
+    }
+
+    private void h() {
+        this.c = (Button) findViewById(R.id.relogin_retry_button);
+        this.c.setOnClickListener(this.m);
+        this.d = (Button) findViewById(R.id.relogin_cacel_button);
+        this.d.setOnClickListener(this.m);
+        this.e = (Button) findViewById(R.id.relogin_bt_back);
+        this.e.setOnClickListener(this.m);
+        this.g = (ProgressBar) findViewById(R.id.relogin_progressbar);
+        this.f = (TextView) findViewById(R.id.relogin_textview);
+        a(0, this.h);
+    }
+
     /* JADX INFO: Access modifiers changed from: private */
-    public void finishActivity() {
-        String id = TiebaApplication.getCurrentAccount();
-        if (id == null || id.length() <= 0) {
-            MainTabActivity.startActivity(this, MainTabActivity.GOTO_RECOMMEND);
+    public void i() {
+        String u = TiebaApplication.u();
+        if (u == null || u.length() <= 0) {
+            MainTabActivity.a(this, "goto_recommend");
             return;
         }
-        DatabaseService.clearActiveAccount();
-        TiebaApplication.setCurrentAccountObj(null);
-        MainTabActivity.startActivityOnUserChanged(this, MainTabActivity.GOTO_RECOMMEND);
+        com.baidu.tieba.c.k.i();
+        TiebaApplication.b((com.baidu.tieba.a.a) null);
+        MainTabActivity.b(this, "goto_recommend");
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void j() {
+        if (this.b != null || this.i == null || this.j == null) {
+            return;
+        }
+        this.b = new at(this, null);
+        this.b.execute(new String[0]);
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void k() {
+        com.baidu.tieba.c.k.a(this.k);
+        TiebaApplication.b(this.k);
+        MainTabActivity.b(this, TiebaApplication.a().ad() >= 3 ? "goto_home" : "goto_recommend");
+        a.a().e();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.BaseActivity, android.app.Activity
+    @Override // com.baidu.tieba.e, android.app.Activity
+    public void onCreate(Bundle bundle) {
+        super.onCreate(bundle);
+        setContentView(R.layout.relogin_activity);
+        g();
+        h();
+        j();
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.tieba.e, android.app.Activity
     public void onDestroy() {
-        if (this.mReloginTask != null) {
-            this.mReloginTask.cancel();
+        if (this.b != null) {
+            this.b.a();
         }
         super.onDestroy();
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void reLogin() {
-        if (this.mReloginTask == null && this.mBDUSS != null && this.mPtoken != null) {
-            this.mReloginTask = new ReLoginAsyncTask(this, null);
-            this.mReloginTask.execute(new String[0]);
-        }
+    @Override // android.app.Activity
+    protected void onRestoreInstanceState(Bundle bundle) {
+        super.onRestoreInstanceState(bundle);
+        this.h = bundle.getString("user_name");
+        this.i = bundle.getString("bduss");
+        this.j = bundle.getString("ptoken");
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void gotoMain() {
-        DatabaseService.saveAccountData(this.mAccount);
-        TiebaApplication.setCurrentAccountObj(this.mAccount);
-        MainTabActivity.startActivityOnUserChanged(this, MainTabActivity.GOTO_RECOMMEND);
-        AccountShareHelper.getInstance().remove();
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes.dex */
-    public class ReLoginAsyncTask extends AsyncTask<String, Integer, LoginModel> {
-        private volatile NetWork mNetwork;
-
-        private ReLoginAsyncTask() {
-            this.mNetwork = null;
-        }
-
-        /* synthetic */ ReLoginAsyncTask(ReLoginShareActivity reLoginShareActivity, ReLoginAsyncTask reLoginAsyncTask) {
-            this();
-        }
-
-        @Override // android.os.AsyncTask
-        protected void onPreExecute() {
-            ReLoginShareActivity.this.switchLayout(0, ReLoginShareActivity.this.mName);
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        /* JADX INFO: Access modifiers changed from: protected */
-        @Override // android.os.AsyncTask
-        public LoginModel doInBackground(String... arg0) {
-            LoginModel loginData = null;
-            long start = System.nanoTime();
-            this.mNetwork = new NetWork("http://c.tieba.baidu.com/c/s/login");
-            this.mNetwork.addPostData("bdusstoken", String.valueOf(ReLoginShareActivity.this.mBDUSS) + "|" + ReLoginShareActivity.this.mPtoken);
-            this.mNetwork.setNeedBackgroundLogin(false);
-            TiebaLog.d("", "mBDUSS = ", ReLoginShareActivity.this.mBDUSS);
-            TiebaLog.d("", "mPtoken = ", ReLoginShareActivity.this.mPtoken);
-            String ret = this.mNetwork.postNetData();
-            if (this.mNetwork.isRequestSuccess()) {
-                loginData = new LoginModel();
-                loginData.parserJson(ret);
-            } else {
-                TiebaLog.d(getClass().getName(), "doInBackground", "relogin fail");
-            }
-            if (this.mNetwork.isNetSuccess() && this.mNetwork.getErrorCode() == 1) {
-                Token token = new Token();
-                token.mBduss = ReLoginShareActivity.this.mBDUSS;
-                token.mPtoken = ReLoginShareActivity.this.mPtoken;
-                AccountShareHelper.getInstance().invalid(token);
-                AccountShareHelper.getInstance().remove();
-            }
-            long time = 2000 - ((System.nanoTime() - start) / 1000000);
-            if (time > 0 && time < 2000) {
-                try {
-                    Thread.sleep(time);
-                } catch (InterruptedException e) {
-                }
-            }
-            return loginData;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        /* JADX INFO: Access modifiers changed from: protected */
-        @Override // android.os.AsyncTask
-        public void onPostExecute(LoginModel result) {
-            super.onPostExecute((ReLoginAsyncTask) result);
-            ReLoginShareActivity.this.mReloginTask = null;
-            if (result != null) {
-                ReLoginShareActivity.this.mAccount = new AccountData();
-                ReLoginShareActivity.this.mAccount.setAccount(result.getUser().getName());
-                ReLoginShareActivity.this.mAccount.setPassword("");
-                ReLoginShareActivity.this.mAccount.setID(result.getUser().getId());
-                String bduss = null;
-                if (result.getUser().getBDUSS() != null) {
-                    bduss = String.valueOf(result.getUser().getBDUSS()) + "|" + ReLoginShareActivity.this.mPtoken;
-                }
-                ReLoginShareActivity.this.mAccount.setBDUSS(bduss);
-                ReLoginShareActivity.this.mAccount.setIsActive(1);
-                if (result.getAnti() != null) {
-                    ReLoginShareActivity.this.mAccount.setTbs(result.getAnti().getTbs());
-                }
-                if (ReLoginShareActivity.this.mAccount.getAccount() == null) {
-                    if (ReLoginShareActivity.this.mInputUserNameDialog == null) {
-                        ReLoginShareActivity.this.mInputUserNameDialog = new InputUserNameDialog(ReLoginShareActivity.this);
-                        ReLoginShareActivity.this.mInputUserNameDialog.setCallBackListener(new InputUserNameDialog.CallBackListener() { // from class: com.baidu.tieba.account.ReLoginShareActivity.ReLoginAsyncTask.1
-                            @Override // com.baidu.tieba.account.InputUserNameDialog.CallBackListener
-                            public void callback(AccountData account) {
-                                ReLoginShareActivity.this.mAccount = account;
-                                ReLoginShareActivity.this.gotoMain();
-                            }
-                        });
-                        ReLoginShareActivity.this.mInputUserNameDialog.setCallBackCancelListener(new InputUserNameDialog.CallBackListener() { // from class: com.baidu.tieba.account.ReLoginShareActivity.ReLoginAsyncTask.2
-                            @Override // com.baidu.tieba.account.InputUserNameDialog.CallBackListener
-                            public void callback(AccountData account) {
-                                ReLoginShareActivity.this.finishActivity();
-                            }
-                        });
-                    }
-                    ReLoginShareActivity.this.mInputUserNameDialog.closeInputUserNameDialog();
-                    ReLoginShareActivity.this.mInputUserNameDialog.setPhone("");
-                    ReLoginShareActivity.this.mInputUserNameDialog.setAccountData(ReLoginShareActivity.this.mAccount);
-                    ReLoginShareActivity.this.mInputUserNameDialog.showInputUserNameDialog();
-                    ReLoginShareActivity.this.mProgressBar.setVisibility(4);
-                    return;
-                }
-                ReLoginShareActivity.this.gotoMain();
-                return;
-            }
-            String error = null;
-            if (this.mNetwork != null) {
-                error = this.mNetwork.getErrorString();
-            }
-            if (error == null) {
-                error = ReLoginShareActivity.this.getString(R.string.data_load_error);
-            }
-            ReLoginShareActivity.this.switchLayout(1, error);
-        }
-
-        public boolean cancel() {
-            if (this.mNetwork != null) {
-                this.mNetwork.cancelNetConnect();
-            }
-            ReLoginShareActivity.this.mReloginTask = null;
-            return super.cancel(true);
-        }
+    @Override // android.app.Activity
+    protected void onSaveInstanceState(Bundle bundle) {
+        super.onSaveInstanceState(bundle);
+        bundle.putString("user_name", this.h);
+        bundle.putString("bduss", this.i);
+        bundle.putString("ptoken", this.j);
     }
 }

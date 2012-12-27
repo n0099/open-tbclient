@@ -2,69 +2,87 @@ package com.baidu.tieba.view;
 
 import android.content.Context;
 import android.graphics.PointF;
-import android.util.AttributeSet;
 import android.view.MotionEvent;
 import com.baidu.tieba.compatible.CompatibleUtile;
-import com.baidu.tieba.util.TiebaLog;
 /* loaded from: classes.dex */
 public class GalleryViewPager extends BaseViewPager {
-    private PointF last;
-    private DragImageView mCurrentView;
-    private DragImageView mSelectedView;
+    private PointF c;
+    private f d;
+    private f e;
 
     public GalleryViewPager(Context context) {
         super(context);
     }
 
-    public GalleryViewPager(Context context, AttributeSet attrs) {
-        super(context, attrs);
-    }
-
-    public void setCurrentView(DragImageView view) {
-        this.mCurrentView = view;
-    }
-
-    public DragImageView getCurrentView() {
-        return this.mCurrentView;
-    }
-
-    private float[] handleMotionEvent(MotionEvent event) {
-        switch (event.getAction() & CompatibleUtile.getActionMask()) {
+    private float[] a(MotionEvent motionEvent) {
+        switch (motionEvent.getAction() & CompatibleUtile.getActionMask()) {
             case 1:
             case 2:
-                PointF curr = new PointF(event.getX(), event.getY());
-                return new float[]{curr.x - this.last.x, curr.y - this.last.y};
+                PointF pointF = new PointF(motionEvent.getX(), motionEvent.getY());
+                return new float[]{pointF.x - this.c.x, pointF.y - this.c.y};
             case 0:
-                this.last = new PointF(event.getX(), event.getY());
+                this.c = new PointF(motionEvent.getX(), motionEvent.getY());
                 break;
         }
         return null;
     }
 
+    public f getCurrentView() {
+        return this.d;
+    }
+
+    public f getSelectedView() {
+        return this.e;
+    }
+
+    @Override // android.support.v4.view.ViewPager, android.view.ViewGroup
+    public boolean onInterceptTouchEvent(MotionEvent motionEvent) {
+        if ((motionEvent.getAction() & CompatibleUtile.getActionMask()) == 1) {
+            super.onInterceptTouchEvent(motionEvent);
+        }
+        float[] a = a(motionEvent);
+        if (this.d != null && !this.d.b()) {
+            if (a == null || !this.d.h() || a[0] >= 0.0f) {
+                if (a == null || !this.d.i() || a[0] <= 0.0f) {
+                    if (a == null) {
+                        if (this.d.i() || this.d.h()) {
+                            return super.onInterceptTouchEvent(motionEvent);
+                        }
+                        return false;
+                    }
+                    return false;
+                }
+                return super.onInterceptTouchEvent(motionEvent);
+            }
+            return super.onInterceptTouchEvent(motionEvent);
+        }
+        return super.onInterceptTouchEvent(motionEvent);
+    }
+
     @Override // com.baidu.tieba.view.BaseViewPager, android.support.v4.view.ViewPager, android.view.View
-    public boolean onTouchEvent(MotionEvent event) {
-        if ((event.getAction() & CompatibleUtile.getActionMask()) == 1) {
-            super.onTouchEvent(event);
-            if (this.mCurrentView != null) {
-                this.mCurrentView.actionUp();
+    public boolean onTouchEvent(MotionEvent motionEvent) {
+        if ((motionEvent.getAction() & CompatibleUtile.getActionMask()) == 1) {
+            super.onTouchEvent(motionEvent);
+            if (this.d != null) {
+                this.d.a();
             }
         }
-        if (this.mCurrentView == null) {
-            return onTouchEvent(event);
+        if (this.d == null) {
+            return onTouchEvent(motionEvent);
         }
-        float[] difference = handleMotionEvent(event);
-        if (this.mCurrentView.pagerCantScroll()) {
-            return super.onTouchEvent(event);
+        float[] a = a(motionEvent);
+        if (this.d.b()) {
+            return super.onTouchEvent(motionEvent);
         }
-        if (difference != null && this.mCurrentView.onRightSide() && difference[0] < 0.0f) {
-            TiebaLog.i(getClass().getName(), "onTouchEvent", "right");
-            return super.onTouchEvent(event);
-        } else if (difference != null && this.mCurrentView.onLeftSide() && difference[0] > 0.0f) {
-            TiebaLog.i(getClass().getName(), "onTouchEvent", "left");
-            return super.onTouchEvent(event);
-        } else if (difference == null) {
-            if (this.mCurrentView.onLeftSide() || this.mCurrentView.onRightSide()) {
-                return super.onTouchEvent(event);
+        if (a != null && this.d.h() && a[0] < 0.0f) {
+            com.baidu.tieba.c.ae.a(getClass().getName(), "onTouchEvent", "right");
+            return super.onTouchEvent(motionEvent);
+        } else if (a != null && this.d.i() && a[0] > 0.0f) {
+            com.baidu.tieba.c.ae.a(getClass().getName(), "onTouchEvent", "left");
+            return super.onTouchEvent(motionEvent);
+        } else if (a == null) {
+            if (this.d.i() || this.d.h()) {
+                return super.onTouchEvent(motionEvent);
             }
             return false;
         } else {
@@ -72,38 +90,11 @@ public class GalleryViewPager extends BaseViewPager {
         }
     }
 
-    @Override // android.support.v4.view.ViewPager, android.view.ViewGroup
-    public boolean onInterceptTouchEvent(MotionEvent event) {
-        if ((event.getAction() & CompatibleUtile.getActionMask()) == 1) {
-            super.onInterceptTouchEvent(event);
-        }
-        float[] difference = handleMotionEvent(event);
-        if (this.mCurrentView == null) {
-            return super.onInterceptTouchEvent(event);
-        }
-        if (this.mCurrentView.pagerCantScroll()) {
-            return super.onInterceptTouchEvent(event);
-        }
-        if (difference != null && this.mCurrentView.onRightSide() && difference[0] < 0.0f) {
-            return super.onInterceptTouchEvent(event);
-        }
-        if (difference != null && this.mCurrentView.onLeftSide() && difference[0] > 0.0f) {
-            return super.onInterceptTouchEvent(event);
-        }
-        if (difference == null) {
-            if (this.mCurrentView.onLeftSide() || this.mCurrentView.onRightSide()) {
-                return super.onInterceptTouchEvent(event);
-            }
-            return false;
-        }
-        return false;
+    public void setCurrentView(f fVar) {
+        this.d = fVar;
     }
 
-    public void setSelectedView(DragImageView mSelectedView) {
-        this.mSelectedView = mSelectedView;
-    }
-
-    public DragImageView getSelectedView() {
-        return this.mSelectedView;
+    public void setSelectedView(f fVar) {
+        this.e = fVar;
     }
 }

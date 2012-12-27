@@ -5,33 +5,27 @@ import android.app.AlertDialog;
 import android.app.LocalActivityManager;
 import android.app.ProgressDialog;
 import android.app.TabActivity;
-import android.content.BroadcastReceiver;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.graphics.Bitmap;
-import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.KeyEvent;
-import android.view.View;
 import android.view.WindowManager;
 import android.widget.CompoundButton;
 import android.widget.FrameLayout;
-import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.TabHost;
 import android.widget.TabWidget;
 import android.widget.TextView;
-import com.baidu.tieba.account.AccountShareHelper;
 import com.baidu.tieba.account.LoginActivity;
-import com.baidu.tieba.data.Config;
-import com.baidu.tieba.data.RequestResponseCode;
+import com.baidu.tieba.c.ae;
+import com.baidu.tieba.c.ag;
 import com.baidu.tieba.frs.FrsActivity;
 import com.baidu.tieba.home.HomeActivity;
-import com.baidu.tieba.mention.MentionActivity;
 import com.baidu.tieba.more.MoreActivity;
+import com.baidu.tieba.nearby.NearbyActivity;
 import com.baidu.tieba.pb.PbActivity;
 import com.baidu.tieba.person.PersonInfoActivity;
 import com.baidu.tieba.recommend.GuessActivity;
@@ -40,731 +34,531 @@ import com.baidu.tieba.recommend.RecommendActivity;
 import com.baidu.tieba.service.ClearTempService;
 import com.baidu.tieba.service.TiebaActiveService;
 import com.baidu.tieba.service.TiebaSyncService;
-import com.baidu.tieba.util.BitmapHelper;
-import com.baidu.tieba.util.NetWorkCore;
-import com.baidu.tieba.util.TiebaLog;
-import com.baidu.tieba.util.UtilHelper;
-import com.baidu.tieba.view.ImageViewDialog;
 /* loaded from: classes.dex */
 public class MainTabActivity extends TabActivity implements CompoundButton.OnCheckedChangeListener {
-    public static final String CURRENT_TAB = "home_tab";
-    public static final String FRS_NAME = "frs_name";
-    public static final String GOTO_CLOSE = "close";
-    public static final String GOTO_HOME = "goto_home";
-    public static final String GOTO_MORE = "goto_more";
-    public static final String GOTO_PERSON = "goto_person";
-    public static final String GOTO_RECOMMEND = "goto_recommend";
-    public static final String GOTO_SORT = "goto_sort";
-    public static final String GOTO_TYPE = "goto_type";
-    public static final String HOME_TAB = "home_tab";
-    public static final String KEY_CLOSE_DIALOG = "close_dialog";
-    public static final String KEY_REFRESH = "refresh_all";
-    public static final String MORE_TAB = "more_tab";
-    public static final String PB_ID = "pb_id";
-    public static final String PERSON_INFO_TAB = "person_info_tab";
-    public static final String RECOMMEND_TAB = "recommend_tab";
-    public static final String SORT_TAB = "sort_tab";
-    public static final int SPEED_OPEN_TYPE_FRS = 2;
-    public static final int SPEED_OPEN_TYPE_PB = 1;
-    private Intent mHomeIntent;
-    private TabHost mHost;
-    private Intent mMoreIntent;
-    private Intent mPersonIntent;
-    private Intent mReCommendIntent;
-    private Intent mSortIntent;
-    private String mTabType = null;
-    private long mMsgReplyme = 0;
-    private long mMsgAtme = 0;
-    private long mMsgFans = 0;
-    private TextView mMessageTipsMention = null;
-    private TextView mMessageTipsPerson = null;
-    private CompoundButton mOldButton = null;
-    private CompoundButton mCurrentButton = null;
-    private Handler mHandler = null;
-    private ProgressDialog mWaitingDialog = null;
-    private RadioButton mHomeButton = null;
-    private RadioButton mRecommendButton = null;
-    private RadioButton mSortButton = null;
-    private RadioButton mPersonButton = null;
-    private RadioButton mMoreButton = null;
-    private AlertDialog mWifiAffirmDialog = null;
-    private AlertDialog mNotWifiAffirmDialog = null;
-    private ImageViewDialog mImageViewDialog = null;
-    private ImageView mGuidePage1 = null;
-    private ImageView mGuidePage2 = null;
-    private UpdateReceiver receiver = null;
+    private TabHost a;
+    private Intent b;
+    private Intent c;
+    private Intent d;
+    private Intent e;
+    private Intent f;
+    private String g = null;
+    private long h = 0;
+    private long i = 0;
+    private long j = 0;
+    private TextView k = null;
+    private CompoundButton l = null;
+    private CompoundButton m = null;
+    private Handler n = null;
+    private ProgressDialog o = null;
+    private RadioButton p = null;
+    private RadioButton q = null;
+    private RadioButton r = null;
+    private RadioButton s = null;
+    private RadioButton t = null;
+    private AlertDialog u = null;
+    private AlertDialog v = null;
+    private com.baidu.tieba.view.x w = null;
+    private q x = null;
 
-    /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes.dex */
-    public class UpdateReceiver extends BroadcastReceiver {
-        private UpdateReceiver() {
-        }
-
-        /* synthetic */ UpdateReceiver(MainTabActivity mainTabActivity, UpdateReceiver updateReceiver) {
-            this();
-        }
-
-        @Override // android.content.BroadcastReceiver
-        public void onReceive(Context context, Intent intent) {
-            MainTabActivity.this.mMsgReplyme = intent.getLongExtra(Config.BROADCAST_RELAY_ME_NUM, 0L);
-            MainTabActivity.this.mMsgAtme = intent.getLongExtra(Config.BROADCAST_AT_ME_NUM, 0L);
-            MainTabActivity.this.mMsgFans = intent.getLongExtra(Config.BROADCAST_FANS_NUM, 0L);
-            MainTabActivity.this.refreshMsg();
-        }
+    private TabHost.TabSpec a(String str, Intent intent) {
+        TabHost.TabSpec newTabSpec = this.a.newTabSpec(str);
+        newTabSpec.setContent(intent).setIndicator("", getResources().getDrawable(R.drawable.icon));
+        return newTabSpec;
     }
 
-    public void showBigImageDialog(Bitmap bm, boolean loading) {
-        if (bm != null) {
-            if (this.mImageViewDialog == null) {
-                this.mImageViewDialog = new ImageViewDialog(this, UtilHelper.getScreenSize(getCurrentActivity()).widthPixels, UtilHelper.getScreenSize(getCurrentActivity()).heightPixels - UtilHelper.getStatusBarHeight(getCurrentActivity()));
-                this.mImageViewDialog.setOnDismissListener(new DialogInterface.OnDismissListener() { // from class: com.baidu.tieba.MainTabActivity.1
-                    @Override // android.content.DialogInterface.OnDismissListener
-                    public void onDismiss(DialogInterface dialog) {
-                        MainTabActivity.this.closeBigImageDialog();
-                    }
-                });
-                this.mImageViewDialog.setOnCancelListener(new DialogInterface.OnCancelListener() { // from class: com.baidu.tieba.MainTabActivity.2
-                    @Override // android.content.DialogInterface.OnCancelListener
-                    public void onCancel(DialogInterface dialog) {
-                        MainTabActivity.this.closeBigImageDialog();
-                    }
-                });
-            }
-            if (this.mImageViewDialog.isShowing()) {
-                this.mImageViewDialog.setImage(bm);
-            } else {
-                this.mImageViewDialog.showDialog(bm, loading);
-            }
-            setActivityDim(0.3f);
-        }
-    }
-
-    public void errorBigImageDialog() {
-        if (this.mImageViewDialog != null) {
-            this.mImageViewDialog.ImageError();
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void closeBigImageDialog() {
-        setActivityDim(1.0f);
-        if (this.mImageViewDialog != null) {
-            this.mImageViewDialog.setImage(null);
-        }
-    }
-
-    private void setActivityDim(float alpha) {
-        if (!TiebaApplication.app.getIsEyeShieldMode()) {
-            WindowManager.LayoutParams params = getWindow().getAttributes();
-            params.alpha = alpha;
-            getWindow().setAttributes(params);
-        }
-    }
-
-    public static void startActivity(Context context, String gotoView) {
-        Intent intent = new Intent(context, MainTabActivity.class);
-        intent.setFlags(603979776);
-        if (gotoView != null) {
-            intent.putExtra(GOTO_TYPE, gotoView);
-        }
-        intent.putExtra(KEY_CLOSE_DIALOG, true);
-        context.startActivity(intent);
-    }
-
-    public static void startActivity(Context context, String gotoView, int type, String str) {
-        Intent intent = new Intent(context, MainTabActivity.class);
-        intent.setFlags(603979776);
-        if (gotoView != null) {
-            intent.putExtra(GOTO_TYPE, gotoView);
-        }
-        if (type == 1) {
-            intent.putExtra(PB_ID, str);
-        } else if (type == 2) {
-            intent.putExtra(FRS_NAME, str);
-        }
-        intent.putExtra(KEY_CLOSE_DIALOG, true);
-        context.startActivity(intent);
-    }
-
-    public static void startActivityRefresh(Context context, String gotoView, boolean new_task) {
-        Intent intent = new Intent(context, MainTabActivity.class);
-        intent.setFlags(603979776);
-        intent.putExtra(KEY_REFRESH, true);
-        if (gotoView != null) {
-            intent.putExtra(GOTO_TYPE, gotoView);
-        }
-        if (new_task) {
-            intent.addFlags(268435456);
-        }
-        intent.putExtra(KEY_CLOSE_DIALOG, true);
-        context.startActivity(intent);
-    }
-
-    public static void startActivityOnUserChanged(Context context, String gotoView) {
-        TiebaApplication.app.onUserChanged();
-        startActivityRefresh(context, gotoView, false);
-    }
-
-    public static void startActivityOnUserChanged(Context context, String gotoView, boolean new_task) {
-        TiebaApplication.app.onUserChanged();
-        startActivityRefresh(context, gotoView, new_task);
-    }
-
-    @Override // android.app.ActivityGroup, android.app.Activity
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        dealSpeedOpen(savedInstanceState);
-        TiebaLog.i(getClass().toString(), "onCreate", "debug");
-        setContentView(R.layout.maintabs_activity);
-        this.mHost = getTabHost();
-        this.mHomeIntent = new Intent(this, HomeActivity.class);
-        this.mReCommendIntent = new Intent(this, NewHomeActivity.class);
-        this.mSortIntent = new Intent(this, MentionActivity.class);
-        this.mPersonIntent = new Intent(this, PersonInfoActivity.class);
-        this.mPersonIntent.putExtra(PersonInfoActivity.TAG_SELF, true);
-        this.mPersonIntent.putExtra(PersonInfoActivity.TAG_TAB_PAGE, true);
-        this.mPersonIntent.putExtra("un", TiebaApplication.getCurrentAccount());
-        this.mMoreIntent = new Intent(this, MoreActivity.class);
-        this.mMessageTipsMention = (TextView) findViewById(R.id.message_mention);
-        this.mMessageTipsPerson = (TextView) findViewById(R.id.message_person);
-        this.mGuidePage1 = (ImageView) findViewById(R.id.guide_page_book_mark_1);
-        this.mGuidePage1.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.MainTabActivity.3
-            @Override // android.view.View.OnClickListener
-            public void onClick(View arg0) {
-                if (MainTabActivity.this.mGuidePage1 != null && MainTabActivity.this.mGuidePage1.getBackground() != null) {
-                    Bitmap bm = ((BitmapDrawable) MainTabActivity.this.mGuidePage1.getBackground()).getBitmap();
-                    MainTabActivity.this.mGuidePage1.setBackgroundDrawable(null);
-                    if (bm != null && !bm.isRecycled()) {
-                        bm.recycle();
-                    }
-                    MainTabActivity.this.mGuidePage1.setVisibility(8);
-                }
-            }
-        });
-        this.mGuidePage2 = (ImageView) findViewById(R.id.guide_page_book_mark_2);
-        this.mGuidePage2.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.MainTabActivity.4
-            @Override // android.view.View.OnClickListener
-            public void onClick(View arg0) {
-                if (MainTabActivity.this.mGuidePage2 != null && MainTabActivity.this.mGuidePage2.getBackground() != null) {
-                    Bitmap bm = ((BitmapDrawable) MainTabActivity.this.mGuidePage2.getBackground()).getBitmap();
-                    MainTabActivity.this.mGuidePage2.setBackgroundDrawable(null);
-                    if (bm != null && !bm.isRecycled()) {
-                        bm.recycle();
-                    }
-                    MainTabActivity.this.mGuidePage2.setVisibility(8);
-                }
-            }
-        });
-        initRadios();
-        Intent intent = new Intent();
-        intent.putExtras(getIntent());
-        if (savedInstanceState != null) {
-            String type = savedInstanceState.getString(GOTO_TYPE);
-            intent.putExtra(GOTO_TYPE, type);
-        }
-        setupIntent(intent);
-        startSyncService();
-        if (TiebaApplication.getFrom() != null && TiebaApplication.getFrom().equals("aishide")) {
-            startActiveService();
-        }
-        regReceiver();
-        startClearTempService();
-        TiebaApplication.app.startMsgReceive();
-        if (savedInstanceState == null) {
-            checkNetwork();
-        }
-    }
-
-    private void dealSpeedOpen(Bundle savedInstanceState) {
-        String pb_id;
-        String frs_name;
-        if (savedInstanceState != null) {
-            pb_id = savedInstanceState.getString(PB_ID);
-        } else {
-            pb_id = getIntent().getStringExtra(PB_ID);
-        }
-        if (pb_id != null && pb_id.length() > 0) {
-            PbActivity.startAcitivityBackSpecial(this, pb_id);
-        }
-        if (savedInstanceState != null) {
-            frs_name = savedInstanceState.getString(FRS_NAME);
-        } else {
-            frs_name = getIntent().getStringExtra(FRS_NAME);
-        }
-        if (frs_name != null && frs_name.length() > 0) {
-            FrsActivity.startAcitivityBackSpecial(this, frs_name, null, true);
-        }
-    }
-
-    private void startClearTempService() {
-        Intent service = new Intent(this, ClearTempService.class);
-        startService(service);
-    }
-
-    @Override // android.app.ActivityGroup, android.app.Activity
-    protected void onDestroy() {
-        TiebaLog.i(getClass().getName(), "onDestroy", "");
-        stopSyncService();
-        stopActiveServide();
-        unregReceiver();
-        TiebaApplication.app.cancelNotification();
-        TiebaApplication.app.stopMsgReceive();
-        TiebaApplication.app.resetMsg();
-        if (TiebaApplication.app.getSdramImage() != null) {
-            TiebaApplication.app.getSdramImage().clearPicAndPhoto();
-        }
-        if (this.mWaitingDialog != null) {
-            this.mWaitingDialog.dismiss();
-            this.mWaitingDialog = null;
-        }
-        if (this.mWifiAffirmDialog != null) {
-            this.mWifiAffirmDialog.dismiss();
-            this.mWifiAffirmDialog = null;
-        }
-        if (this.mHandler != null) {
-            this.mHandler.removeMessages(1);
-        }
-        if (this.mGuidePage1 != null && this.mGuidePage1.getBackground() != null) {
-            Bitmap bm = ((BitmapDrawable) this.mGuidePage1.getBackground()).getBitmap();
-            this.mGuidePage1.setBackgroundDrawable(null);
-            if (bm != null && !bm.isRecycled()) {
-                bm.recycle();
-            }
-        }
-        if (this.mGuidePage2 != null && this.mGuidePage2.getBackground() != null) {
-            Bitmap bm2 = ((BitmapDrawable) this.mGuidePage2.getBackground()).getBitmap();
-            this.mGuidePage2.setBackgroundDrawable(null);
-            if (bm2 != null && !bm2.isRecycled()) {
-                bm2.recycle();
-            }
-        }
-        super.onDestroy();
-        System.gc();
-    }
-
-    private void startSyncService() {
-        Intent service = new Intent(this, TiebaSyncService.class);
-        startService(service);
-    }
-
-    private void stopSyncService() {
-        Intent service = new Intent(this, TiebaSyncService.class);
-        stopService(service);
-    }
-
-    private void startActiveService() {
-        Intent service = new Intent(this, TiebaActiveService.class);
-        startService(service);
-    }
-
-    private void stopActiveServide() {
-        Intent service = new Intent(this, TiebaActiveService.class);
-        stopService(service);
-    }
-
-    private void regReceiver() {
-        this.receiver = new UpdateReceiver(this, null);
-        IntentFilter filter = new IntentFilter();
-        filter.addAction(Config.BROADCAST_NOTIFY);
-        registerReceiver(this.receiver, filter);
-    }
-
-    private void unregReceiver() {
-        if (this.receiver != null) {
-            unregisterReceiver(this.receiver);
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void refreshMsg() {
-        long mention = this.mMsgReplyme + this.mMsgAtme;
-        if (mention > 0) {
-            int left = this.mPersonButton.getLeft();
-            int left2 = (this.mSortButton.getLeft() + left) / 2;
-            FrameLayout.LayoutParams param = (FrameLayout.LayoutParams) this.mMessageTipsMention.getLayoutParams();
-            param.leftMargin = left2;
-            this.mMessageTipsMention.setLayoutParams(param);
-            this.mMessageTipsMention.setText(String.valueOf(mention));
-            this.mMessageTipsMention.setVisibility(0);
-        } else {
-            this.mMessageTipsMention.setVisibility(8);
-        }
-        if (this.mMsgFans > 0) {
-            int left3 = this.mMoreButton.getLeft();
-            int left4 = (this.mPersonButton.getLeft() + left3) / 2;
-            FrameLayout.LayoutParams param2 = (FrameLayout.LayoutParams) this.mMessageTipsPerson.getLayoutParams();
-            param2.leftMargin = left4;
-            this.mMessageTipsPerson.setLayoutParams(param2);
-            this.mMessageTipsPerson.setText(String.valueOf(this.mMsgFans));
-            this.mMessageTipsPerson.setVisibility(0);
+    private void a(float f) {
+        if (TiebaApplication.a().ac() != 0.0f) {
             return;
         }
-        this.mMessageTipsPerson.setVisibility(8);
+        WindowManager.LayoutParams attributes = getWindow().getAttributes();
+        attributes.alpha = f;
+        getWindow().setAttributes(attributes);
     }
 
-    private void initRadios() {
-        this.mHomeButton = (RadioButton) findViewById(R.id.radio_home);
-        this.mRecommendButton = (RadioButton) findViewById(R.id.radio_recommend);
-        this.mSortButton = (RadioButton) findViewById(R.id.radio_sort);
-        this.mPersonButton = (RadioButton) findViewById(R.id.radio_person_info);
-        this.mMoreButton = (RadioButton) findViewById(R.id.radio_more);
-        this.mHomeButton.setOnCheckedChangeListener(this);
-        this.mRecommendButton.setOnCheckedChangeListener(this);
-        this.mSortButton.setOnCheckedChangeListener(this);
-        this.mPersonButton.setOnCheckedChangeListener(this);
-        this.mMoreButton.setOnCheckedChangeListener(this);
+    public static void a(Context context, String str) {
+        Intent intent = new Intent(context, MainTabActivity.class);
+        intent.setFlags(603979776);
+        if (str != null) {
+            intent.putExtra("goto_type", str);
+        }
+        intent.putExtra("close_dialog", true);
+        context.startActivity(intent);
+    }
+
+    public static void a(Context context, String str, int i, String str2, Intent intent) {
+        Intent intent2 = new Intent(context, MainTabActivity.class);
+        intent2.setFlags(603979776);
+        if (str != null) {
+            intent2.putExtra("goto_type", str);
+        }
+        if (i == 1) {
+            intent2.putExtra("pb_id", str2);
+            if (intent != null) {
+                intent2.putExtra("is_message_pv", intent.getBooleanExtra("is_message_pv", false));
+                intent2.putExtra("message_id", intent.getLongExtra("message_id", 0L));
+            }
+        } else if (i == 2) {
+            intent2.putExtra("frs_name", str2);
+        }
+        intent2.putExtra("close_dialog", true);
+        context.startActivity(intent2);
+    }
+
+    public static void a(Context context, String str, boolean z) {
+        Intent intent = new Intent(context, MainTabActivity.class);
+        intent.setFlags(603979776);
+        intent.putExtra("refresh_all", true);
+        if (str != null) {
+            intent.putExtra("goto_type", str);
+        }
+        if (z) {
+            intent.addFlags(268435456);
+        }
+        intent.putExtra("close_dialog", true);
+        context.startActivity(intent);
+    }
+
+    private void a(Intent intent) {
+        char c;
+        TabHost tabHost = this.a;
+        String stringExtra = intent.getStringExtra("goto_type");
+        String u = TiebaApplication.u();
+        if ((u == null || u.length() <= 0) && "goto_person".equals(stringExtra)) {
+            stringExtra = "goto_recommend";
+        }
+        if ("goto_recommend".equals(stringExtra)) {
+            if (intent.getBooleanExtra("is_message_pv", false)) {
+                RecommendActivity.a(true);
+                RecommendActivity.a(intent.getLongExtra("message_id", 0L));
+            }
+            tabHost.addTab(a("recommend_tab", this.c));
+            this.m = this.q;
+            c = 1;
+        } else if ("goto_person".equals(stringExtra)) {
+            tabHost.addTab(a("person_info_tab", this.d));
+            this.m = this.r;
+            c = 2;
+        } else if ("goto_more".equals(stringExtra)) {
+            tabHost.addTab(a("more_tab", this.e));
+            this.m = this.t;
+            c = 4;
+        } else if ("goto_nearby".equals(stringExtra)) {
+            c = 5;
+            tabHost.addTab(a("nearby_tab", this.f));
+            this.m = this.s;
+        } else {
+            tabHost.addTab(a("home_tab", this.b));
+            this.m = this.p;
+            c = 0;
+        }
+        if (c != 0) {
+            tabHost.addTab(a("home_tab", this.b));
+        }
+        if (c != 1) {
+            tabHost.addTab(a("recommend_tab", this.c));
+        }
+        if (c != 2) {
+            tabHost.addTab(a("person_info_tab", this.d));
+        }
+        if (c != 3) {
+            tabHost.addTab(a("nearby_tab", this.f));
+        }
+        if (c != 4) {
+            tabHost.addTab(a("more_tab", this.e));
+        }
+        this.m.setChecked(true);
+        TabWidget tabWidget = tabHost.getTabWidget();
+        if (tabWidget != null) {
+            int childCount = tabWidget.getChildCount();
+            for (int i = 0; i < childCount; i++) {
+                tabWidget.getChildAt(i).setFocusable(false);
+            }
+        }
+    }
+
+    private void a(Bundle bundle) {
+        String string = bundle != null ? bundle.getString("pb_id") : getIntent().getStringExtra("pb_id");
+        if (string != null && string.length() > 0) {
+            PbActivity.a((Context) this, string, true, getIntent().getLongExtra("message_id", 0L));
+        }
+        String string2 = bundle != null ? bundle.getString("frs_name") : getIntent().getStringExtra("frs_name");
+        if (string2 == null || string2.length() <= 0) {
+            return;
+        }
+        FrsActivity.a((Context) this, string2, (String) null, true);
+    }
+
+    public void a(boolean z) {
+        if (z) {
+            if (TiebaApplication.a().Z()) {
+                TiebaApplication.a().f(1);
+            }
+            TiebaApplication.a().e(1);
+            return;
+        }
+        if (TiebaApplication.a().Z()) {
+            TiebaApplication.a().f(2);
+        }
+        if (TiebaApplication.a().X() == 1) {
+            TiebaApplication.a().e(2);
+        }
+    }
+
+    public void b() {
+        a(1.0f);
+        if (this.w != null) {
+            this.w.a(null);
+        }
+    }
+
+    public static void b(Context context, String str) {
+        TiebaApplication.a().p();
+        a(context, str, false);
+    }
+
+    public static void b(Context context, String str, boolean z) {
+        TiebaApplication.a().p();
+        a(context, str, z);
+    }
+
+    private void c() {
+        startService(new Intent(this, ClearTempService.class));
+    }
+
+    private void d() {
+        startService(new Intent(this, TiebaSyncService.class));
+    }
+
+    private void e() {
+        stopService(new Intent(this, TiebaSyncService.class));
+    }
+
+    private void f() {
+        startService(new Intent(this, TiebaActiveService.class));
+    }
+
+    private void g() {
+        stopService(new Intent(this, TiebaActiveService.class));
+    }
+
+    private void h() {
+        this.x = new q(this, null);
+        IntentFilter intentFilter = new IntentFilter();
+        intentFilter.addAction("com.baidu.tieba.broadcast.notify");
+        registerReceiver(this.x, intentFilter);
+    }
+
+    private void i() {
+        if (this.x != null) {
+            unregisterReceiver(this.x);
+        }
+    }
+
+    public void j() {
+        long j = this.h + this.i + this.j;
+        if (j <= 0) {
+            this.k.setVisibility(8);
+            return;
+        }
+        int left = (this.s.getLeft() + this.r.getLeft()) / 2;
+        FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.k.getLayoutParams();
+        layoutParams.leftMargin = left;
+        this.k.setLayoutParams(layoutParams);
+        this.k.setText(String.valueOf(j));
+        this.k.setVisibility(0);
+    }
+
+    private void k() {
+        this.p = (RadioButton) findViewById(R.id.radio_home);
+        this.q = (RadioButton) findViewById(R.id.radio_recommend);
+        this.r = (RadioButton) findViewById(R.id.radio_person_info);
+        this.s = (RadioButton) findViewById(R.id.radio_nearby);
+        this.t = (RadioButton) findViewById(R.id.radio_more);
+        this.p.setOnCheckedChangeListener(this);
+        this.q.setOnCheckedChangeListener(this);
+        this.r.setOnCheckedChangeListener(this);
+        this.s.setOnCheckedChangeListener(this);
+        this.t.setOnCheckedChangeListener(this);
+    }
+
+    private void l() {
+        NewHomeActivity newHomeActivity;
+        LocalActivityManager localActivityManager = getLocalActivityManager();
+        String currentId = localActivityManager.getCurrentId();
+        if (!currentId.equals("home_tab")) {
+            HomeActivity homeActivity = (HomeActivity) localActivityManager.getActivity("home_tab");
+            if (homeActivity != null) {
+                homeActivity.g();
+            }
+        } else if (!currentId.equals("recommend_tab") && (newHomeActivity = (NewHomeActivity) localActivityManager.getActivity("recommend_tab")) != null) {
+            Activity currentActivity = newHomeActivity.getCurrentActivity();
+            if (currentActivity instanceof GuessActivity) {
+                ((GuessActivity) currentActivity).g();
+            }
+        }
+        MoreActivity moreActivity = (MoreActivity) localActivityManager.getActivity("more_tab");
+        if (moreActivity != null) {
+            moreActivity.g();
+        }
+    }
+
+    private void m() {
+        com.baidu.tieba.c.y a = com.baidu.tieba.c.w.a(this);
+        if (a == com.baidu.tieba.c.y.UNAVAIL) {
+            return;
+        }
+        if (a == com.baidu.tieba.c.y.WIFI) {
+            int p = TiebaApplication.a().p(true);
+            if (p != 0) {
+                if (p == 1) {
+                    a(true);
+                    return;
+                } else if ((!TiebaApplication.a().Z() || TiebaApplication.a().Y() == 1) && TiebaApplication.a().X() == 1) {
+                    return;
+                } else {
+                    if (this.u == null) {
+                        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+                        builder.setTitle(R.string.network_title);
+                        builder.setMessage(R.string.network_wifi);
+                        o oVar = new o(this);
+                        builder.setPositiveButton(getString(R.string.cancel), oVar);
+                        builder.setNegativeButton(getString(R.string.network_accept), oVar);
+                        this.u = builder.create();
+                    }
+                    this.u.setCancelable(false);
+                    this.u.setCanceledOnTouchOutside(false);
+                    this.u.show();
+                    return;
+                }
+            }
+            return;
+        }
+        int p2 = TiebaApplication.a().p(false);
+        if (p2 != 0) {
+            if (p2 == 1) {
+                a(false);
+            } else if ((!TiebaApplication.a().Z() || TiebaApplication.a().Y() == 2) && TiebaApplication.a().X() != 1) {
+            } else {
+                if (this.v == null) {
+                    AlertDialog.Builder builder2 = new AlertDialog.Builder(this);
+                    builder2.setTitle(R.string.network_title);
+                    builder2.setMessage(R.string.network_not_wifi);
+                    p pVar = new p(this);
+                    builder2.setPositiveButton(getString(R.string.cancel), pVar);
+                    builder2.setNegativeButton(getString(R.string.network_accept), pVar);
+                    this.v = builder2.create();
+                }
+                this.v.setCancelable(false);
+                this.v.setCanceledOnTouchOutside(false);
+                this.v.show();
+            }
+        }
+    }
+
+    public void a() {
+        if (this.w == null) {
+            return;
+        }
+        this.w.a();
+    }
+
+    public void a(Bitmap bitmap, boolean z) {
+        if (bitmap == null) {
+            return;
+        }
+        if (this.w == null) {
+            this.w = new com.baidu.tieba.view.x(this, ag.d(getCurrentActivity()).widthPixels, ag.d(getCurrentActivity()).heightPixels - ag.b(getCurrentActivity()));
+            this.w.setOnDismissListener(new m(this));
+            this.w.setOnCancelListener(new n(this));
+        }
+        if (this.w.isShowing()) {
+            this.w.a(bitmap);
+        } else {
+            this.w.a(bitmap, z);
+        }
+        a(0.3f);
+    }
+
+    @Override // android.app.Activity, android.view.Window.Callback
+    public boolean dispatchKeyEvent(KeyEvent keyEvent) {
+        if (keyEvent.getAction() == 0 && keyEvent.getKeyCode() == 4) {
+            ae.c(getClass().getName(), "dispatchKeyEvent", "KEYCODE_BACK");
+            ag.a((Activity) this);
+            return false;
+        }
+        return super.dispatchKeyEvent(keyEvent);
     }
 
     @Override // android.widget.CompoundButton.OnCheckedChangeListener
-    public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-        if (isChecked) {
-            this.mOldButton = null;
-            buttonView.setTextColor(getResources().getColor(R.color.main_button_hightlight_color));
-            String id = TiebaApplication.getCurrentAccount();
-            CompoundButton tmp = this.mCurrentButton;
-            this.mCurrentButton = buttonView;
-            buttonView.setTextColor(-13588993);
-            if (id == null || id.length() <= 0) {
-                switch (buttonView.getId()) {
-                    case R.id.radio_sort /* 2131231016 */:
-                        this.mOldButton = tmp;
-                        LoginActivity.startActivity(this, GOTO_SORT, getString(R.string.login_msg_tab), (int) RequestResponseCode.REQUEST_LOGIN_USE);
-                        return;
-                    case R.id.radio_person_info /* 2131231017 */:
-                        this.mOldButton = tmp;
-                        LoginActivity.startActivity(this, GOTO_PERSON, getString(R.string.login_person_tab), (int) RequestResponseCode.REQUEST_LOGIN_USE);
+    public void onCheckedChanged(CompoundButton compoundButton, boolean z) {
+        if (z) {
+            this.l = null;
+            String u = TiebaApplication.u();
+            CompoundButton compoundButton2 = this.m;
+            this.m = compoundButton;
+            if (u == null || u.length() <= 0) {
+                switch (compoundButton.getId()) {
+                    case R.id.radio_person_info /* 2131231054 */:
+                        this.l = compoundButton2;
+                        LoginActivity.a(this, "goto_person", getString(R.string.login_person_tab), 1100003);
                         return;
                 }
             }
-            switch (buttonView.getId()) {
-                case R.id.radio_recommend /* 2131231014 */:
-                    this.mHost.setCurrentTabByTag(RECOMMEND_TAB);
+            switch (compoundButton.getId()) {
+                case R.id.radio_recommend /* 2131231052 */:
+                    this.a.setCurrentTabByTag("recommend_tab");
                     return;
-                case R.id.radio_home /* 2131231015 */:
-                    this.mHost.setCurrentTabByTag("home_tab");
-                    if (id != null && id.length() > 0 && this.mGuidePage1.getVisibility() != 0) {
-                        checkShowGuidePage(0, this.mGuidePage1, R.drawable.guide_page_book_mark_1);
-                        return;
-                    }
+                case R.id.radio_home /* 2131231053 */:
+                    this.a.setCurrentTabByTag("home_tab");
                     return;
-                case R.id.radio_sort /* 2131231016 */:
-                    this.mHost.setCurrentTabByTag(SORT_TAB);
+                case R.id.radio_person_info /* 2131231054 */:
+                    this.d.putExtra("un", TiebaApplication.u());
+                    this.a.setCurrentTabByTag("person_info_tab");
                     return;
-                case R.id.radio_person_info /* 2131231017 */:
-                    this.mPersonIntent.putExtra("un", TiebaApplication.getCurrentAccount());
-                    this.mHost.setCurrentTabByTag(PERSON_INFO_TAB);
-                    if (id != null && id.length() > 0 && this.mGuidePage2.getVisibility() != 0) {
-                        checkShowGuidePage(1, this.mGuidePage2, R.drawable.guide_page_book_mark_2);
-                        return;
-                    }
+                case R.id.radio_nearby /* 2131231055 */:
+                    this.a.setCurrentTabByTag("nearby_tab");
                     return;
-                case R.id.radio_more /* 2131231018 */:
-                    this.mHost.setCurrentTabByTag(MORE_TAB);
+                case R.id.radio_more /* 2131231056 */:
+                    this.a.setCurrentTabByTag("more_tab");
                     return;
                 default:
                     return;
             }
         }
-        buttonView.setTextColor(getResources().getColor(R.color.main_button_color));
     }
 
     @Override // android.app.ActivityGroup, android.app.Activity
-    protected void onResume() {
-        super.onResume();
-        TiebaApplication.app.AddResumeNum();
-        String id = TiebaApplication.getCurrentAccount();
-        if (TiebaApplication.isBaiduAccountManager()) {
-            if (id == null || id.length() <= 0) {
-                if (this.mCurrentButton != null && (this.mCurrentButton == this.mRecommendButton || this.mCurrentButton == this.mMoreButton)) {
-                    this.mCurrentButton.setChecked(true);
-                } else {
-                    this.mRecommendButton.setChecked(true);
-                }
-            }
-        } else {
-            if ((id == null || id.length() <= 0) && this.mOldButton != null) {
-                if (this.mOldButton == this.mRecommendButton || this.mOldButton == this.mMoreButton) {
-                    this.mOldButton.setChecked(true);
-                } else {
-                    this.mRecommendButton.setChecked(true);
-                }
-            }
-            AccountShareHelper.getInstance().relogin(this);
+    public void onCreate(Bundle bundle) {
+        super.onCreate(bundle);
+        a(bundle);
+        ae.a(getClass().toString(), "onCreate", "debug");
+        setContentView(R.layout.maintabs_activity);
+        this.a = getTabHost();
+        this.b = new Intent(this, HomeActivity.class);
+        this.c = new Intent(this, NewHomeActivity.class);
+        this.d = new Intent(this, PersonInfoActivity.class);
+        this.d.putExtra("self", true);
+        this.d.putExtra("tab_page", true);
+        this.d.putExtra("un", TiebaApplication.u());
+        this.e = new Intent(this, MoreActivity.class);
+        this.f = new Intent(this, NearbyActivity.class);
+        this.k = (TextView) findViewById(R.id.message_person);
+        k();
+        Intent intent = new Intent();
+        intent.putExtras(getIntent());
+        if (bundle != null) {
+            intent.putExtra("goto_type", bundle.getString("goto_type"));
         }
-        UtilHelper.setEyeShieldMode(this);
+        a(intent);
+        d();
+        if (TiebaApplication.o() != null && TiebaApplication.o().equals("aishide")) {
+            f();
+        }
+        h();
+        c();
+        TiebaApplication.a().Q();
+        if (bundle == null) {
+            m();
+        }
+    }
+
+    @Override // android.app.ActivityGroup, android.app.Activity
+    protected void onDestroy() {
+        ae.a(getClass().getName(), "onDestroy", "");
+        e();
+        g();
+        i();
+        TiebaApplication.a().af();
+        TiebaApplication.a().R();
+        TiebaApplication.a().W();
+        if (TiebaApplication.a().ah() != null) {
+            TiebaApplication.a().ah().b();
+        }
+        if (this.o != null) {
+            this.o.dismiss();
+            this.o = null;
+        }
+        if (this.u != null) {
+            this.u.dismiss();
+            this.u = null;
+        }
+        if (this.n != null) {
+            this.n.removeMessages(1);
+        }
+        super.onDestroy();
+        System.gc();
+    }
+
+    @Override // android.app.Activity
+    protected void onNewIntent(Intent intent) {
+        ae.a(getClass().getName(), "onNewIntent", "");
+        super.onNewIntent(intent);
+        if (intent.getBooleanExtra("close_dialog", false)) {
+            l();
+        }
+        if (intent.getBooleanExtra("refresh_all", false)) {
+            this.d.putExtra("un", TiebaApplication.u());
+            this.a.setCurrentTab(0);
+            this.a.clearAllTabs();
+            getLocalActivityManager().removeAllActivities();
+            a(intent);
+        }
+        String stringExtra = intent.getStringExtra("goto_type");
+        this.g = stringExtra;
+        if ("goto_recommend".equals(stringExtra)) {
+            this.q.setChecked(true);
+        } else if ("goto_nearby".equals(stringExtra)) {
+            this.s.setChecked(true);
+        } else if ("goto_person".equals(stringExtra)) {
+            this.r.setChecked(true);
+        } else if ("goto_more".equals(stringExtra)) {
+            this.t.setChecked(true);
+        } else if ("goto_home".equals(stringExtra)) {
+            this.p.setChecked(true);
+        } else if ("close".equals(stringExtra)) {
+            finish();
+        }
     }
 
     @Override // android.app.ActivityGroup, android.app.Activity
     protected void onPause() {
         super.onPause();
-        TiebaApplication.app.DelResumeNum();
-        if (this.mImageViewDialog != null) {
-            this.mImageViewDialog.dismiss();
+        TiebaApplication.a().am();
+        if (this.w != null) {
+            this.w.dismiss();
         }
+    }
+
+    @Override // android.app.ActivityGroup, android.app.Activity
+    protected void onResume() {
+        super.onResume();
+        TiebaApplication.a().al();
+        String u = TiebaApplication.u();
+        if (!TiebaApplication.f()) {
+            if ((u == null || u.length() <= 0) && this.l != null) {
+                if (this.l != this.r) {
+                    this.l.setChecked(true);
+                } else {
+                    this.q.setChecked(true);
+                }
+            }
+            com.baidu.tieba.account.a.a().a((Activity) this);
+        } else if (u == null || u.length() <= 0) {
+            if (this.m == null || !(this.m == this.q || this.m == this.t)) {
+                this.q.setChecked(true);
+            } else {
+                this.m.setChecked(true);
+            }
+        }
+        ag.e(this);
     }
 
     @Override // android.app.TabActivity, android.app.ActivityGroup, android.app.Activity
-    protected void onSaveInstanceState(Bundle outState) {
-        super.onSaveInstanceState(outState);
-        outState.putString(GOTO_TYPE, this.mTabType);
-        outState.putString(PB_ID, "");
-        outState.putString(FRS_NAME, "");
-    }
-
-    @Override // android.app.Activity
-    protected void onNewIntent(Intent intent) {
-        TiebaLog.i(getClass().getName(), "onNewIntent", "");
-        super.onNewIntent(intent);
-        boolean isCloseDialog = intent.getBooleanExtra(KEY_CLOSE_DIALOG, false);
-        if (isCloseDialog) {
-            closeAllDialog();
-        }
-        boolean isRefresh = intent.getBooleanExtra(KEY_REFRESH, false);
-        if (isRefresh) {
-            this.mPersonIntent.putExtra("un", TiebaApplication.getCurrentAccount());
-            this.mHost.setCurrentTab(0);
-            this.mHost.clearAllTabs();
-            LocalActivityManager manager = getLocalActivityManager();
-            manager.removeAllActivities();
-            setupIntent(intent);
-        }
-        String type = intent.getStringExtra(GOTO_TYPE);
-        this.mTabType = type;
-        String id = TiebaApplication.getCurrentAccount();
-        if (GOTO_RECOMMEND.equals(type)) {
-            this.mRecommendButton.setChecked(true);
-        } else if (GOTO_SORT.equals(type)) {
-            this.mSortButton.setChecked(true);
-        } else if (GOTO_PERSON.equals(type)) {
-            this.mPersonButton.setChecked(true);
-            if (id != null && id.length() > 0 && this.mGuidePage2.getVisibility() != 0) {
-                checkShowGuidePage(1, this.mGuidePage2, R.drawable.guide_page_book_mark_2);
-            }
-        } else if (GOTO_MORE.equals(type)) {
-            this.mMoreButton.setChecked(true);
-        } else if (GOTO_HOME.equals(type)) {
-            this.mHomeButton.setChecked(true);
-            if (id != null && id.length() > 0 && this.mGuidePage1.getVisibility() != 0) {
-                checkShowGuidePage(0, this.mGuidePage1, R.drawable.guide_page_book_mark_1);
-            }
-        } else if ("close".equals(type)) {
-            finish();
-        }
-    }
-
-    private void closeAllDialog() {
-        NewHomeActivity home;
-        LocalActivityManager manager = getLocalActivityManager();
-        String currentTab = manager.getCurrentId();
-        if (!currentTab.equals("home_tab")) {
-            HomeActivity home2 = (HomeActivity) manager.getActivity("home_tab");
-            if (home2 != null) {
-                home2.closeDialog();
-            }
-        } else if (!currentTab.equals(RECOMMEND_TAB) && (home = (NewHomeActivity) manager.getActivity(RECOMMEND_TAB)) != null) {
-            Activity activity = home.getCurrentActivity();
-            if (activity instanceof GuessActivity) {
-                ((GuessActivity) activity).closeDialog();
-            }
-        }
-        MentionActivity mention = (MentionActivity) manager.getActivity(SORT_TAB);
-        if (mention != null) {
-            mention.closeMenuDialog();
-        }
-        MoreActivity more = (MoreActivity) manager.getActivity(MORE_TAB);
-        if (more != null) {
-            more.closeMenuDialog();
-        }
-    }
-
-    public void refreshAllUI() {
-        closeAllDialog();
-        this.mPersonIntent.putExtra("un", TiebaApplication.getCurrentAccount());
-        this.mHost.setCurrentTab(0);
-        this.mHost.clearAllTabs();
-        LocalActivityManager manager = getLocalActivityManager();
-        manager.removeAllActivities();
-        Intent intent = new Intent();
-        setupIntent(intent);
-    }
-
-    @Override // android.app.Activity, android.view.Window.Callback
-    public boolean dispatchKeyEvent(KeyEvent event) {
-        if (event.getAction() == 0 && event.getKeyCode() == 4) {
-            TiebaLog.d(getClass().getName(), "dispatchKeyEvent", "KEYCODE_BACK");
-            UtilHelper.quitDialog(this);
-            return false;
-        }
-        return super.dispatchKeyEvent(event);
-    }
-
-    private void setupIntent(Intent intent) {
-        int index;
-        TabHost localTabHost = this.mHost;
-        String type = intent.getStringExtra(GOTO_TYPE);
-        String id = TiebaApplication.getCurrentAccount();
-        if ((id == null || id.length() <= 0) && !GOTO_RECOMMEND.equals(type) && !GOTO_MORE.equals(type)) {
-            type = GOTO_RECOMMEND;
-        }
-        if (GOTO_RECOMMEND.equals(type)) {
-            index = 1;
-            if (intent.getBooleanExtra("is_message_pv", false)) {
-                RecommendActivity.pvSign = true;
-            }
-            localTabHost.addTab(buildTabSpec(RECOMMEND_TAB, this.mReCommendIntent));
-            this.mCurrentButton = this.mRecommendButton;
-        } else if (GOTO_SORT.equals(type)) {
-            index = 2;
-            localTabHost.addTab(buildTabSpec(SORT_TAB, this.mSortIntent));
-            this.mCurrentButton = this.mSortButton;
-        } else if (GOTO_PERSON.equals(type)) {
-            index = 3;
-            localTabHost.addTab(buildTabSpec(PERSON_INFO_TAB, this.mPersonIntent));
-            this.mCurrentButton = this.mPersonButton;
-        } else if (GOTO_MORE.equals(type)) {
-            index = 4;
-            localTabHost.addTab(buildTabSpec(MORE_TAB, this.mMoreIntent));
-            this.mCurrentButton = this.mMoreButton;
-        } else {
-            index = 0;
-            localTabHost.addTab(buildTabSpec("home_tab", this.mHomeIntent));
-            this.mCurrentButton = this.mHomeButton;
-        }
-        if (index != 0) {
-            localTabHost.addTab(buildTabSpec("home_tab", this.mHomeIntent));
-        }
-        if (index != 1) {
-            localTabHost.addTab(buildTabSpec(RECOMMEND_TAB, this.mReCommendIntent));
-        }
-        if (index != 2) {
-            localTabHost.addTab(buildTabSpec(SORT_TAB, this.mSortIntent));
-        }
-        if (index != 3) {
-            localTabHost.addTab(buildTabSpec(PERSON_INFO_TAB, this.mPersonIntent));
-        }
-        if (index != 4) {
-            localTabHost.addTab(buildTabSpec(MORE_TAB, this.mMoreIntent));
-        }
-        this.mCurrentButton.setChecked(true);
-        TabWidget tabs = localTabHost.getTabWidget();
-        if (tabs != null) {
-            int num = tabs.getChildCount();
-            for (int i = 0; i < num; i++) {
-                tabs.getChildAt(i).setFocusable(false);
-            }
-        }
-    }
-
-    private TabHost.TabSpec buildTabSpec(String tag, Intent content) {
-        TabHost.TabSpec tab = this.mHost.newTabSpec(tag);
-        tab.setContent(content).setIndicator("", getResources().getDrawable(R.drawable.icon));
-        return tab;
-    }
-
-    private void checkNetwork() {
-        NetWorkCore.NetworkState state = NetWorkCore.getNetworkState(this);
-        if (state != NetWorkCore.NetworkState.UNAVAIL) {
-            if (state == NetWorkCore.NetworkState.WIFI) {
-                int op = TiebaApplication.app.getCheckNetworkNotify(true);
-                if (op != 0) {
-                    if (op == 1) {
-                        changeSettingByNetwork(true);
-                        return;
-                    } else if ((TiebaApplication.app.isShowImages() && TiebaApplication.app.getViewImageQuality() != 1) || TiebaApplication.app.getUploadImageQuality() != 1) {
-                        if (this.mWifiAffirmDialog == null) {
-                            AlertDialog.Builder builder = new AlertDialog.Builder(this);
-                            builder.setTitle(R.string.network_title);
-                            builder.setMessage(R.string.network_wifi);
-                            DialogInterface.OnClickListener listener = new DialogInterface.OnClickListener() { // from class: com.baidu.tieba.MainTabActivity.5
-                                @Override // android.content.DialogInterface.OnClickListener
-                                public void onClick(DialogInterface arg0, int which) {
-                                    if (which != -2) {
-                                        MainTabActivity.this.mWifiAffirmDialog.dismiss();
-                                        TiebaApplication.app.setCheckNetworkNotify(false, true);
-                                        return;
-                                    }
-                                    MainTabActivity.this.changeSettingByNetwork(true);
-                                    TiebaApplication.app.setCheckNetworkNotify(true, true);
-                                }
-                            };
-                            builder.setPositiveButton(getString(R.string.cancel), listener);
-                            builder.setNegativeButton(getString(R.string.network_accept), listener);
-                            this.mWifiAffirmDialog = builder.create();
-                        }
-                        this.mWifiAffirmDialog.setCancelable(false);
-                        this.mWifiAffirmDialog.setCanceledOnTouchOutside(false);
-                        this.mWifiAffirmDialog.show();
-                        return;
-                    } else {
-                        return;
-                    }
-                }
-                return;
-            }
-            int op2 = TiebaApplication.app.getCheckNetworkNotify(false);
-            if (op2 != 0) {
-                if (op2 == 1) {
-                    changeSettingByNetwork(false);
-                } else if ((TiebaApplication.app.isShowImages() && TiebaApplication.app.getViewImageQuality() != 2) || TiebaApplication.app.getUploadImageQuality() == 1) {
-                    if (this.mNotWifiAffirmDialog == null) {
-                        AlertDialog.Builder builder2 = new AlertDialog.Builder(this);
-                        builder2.setTitle(R.string.network_title);
-                        builder2.setMessage(R.string.network_not_wifi);
-                        DialogInterface.OnClickListener listener2 = new DialogInterface.OnClickListener() { // from class: com.baidu.tieba.MainTabActivity.6
-                            @Override // android.content.DialogInterface.OnClickListener
-                            public void onClick(DialogInterface arg0, int which) {
-                                if (which != -2) {
-                                    MainTabActivity.this.mNotWifiAffirmDialog.dismiss();
-                                    TiebaApplication.app.setCheckNetworkNotify(false, false);
-                                    return;
-                                }
-                                MainTabActivity.this.changeSettingByNetwork(false);
-                                TiebaApplication.app.setCheckNetworkNotify(true, false);
-                            }
-                        };
-                        builder2.setPositiveButton(getString(R.string.cancel), listener2);
-                        builder2.setNegativeButton(getString(R.string.network_accept), listener2);
-                        this.mNotWifiAffirmDialog = builder2.create();
-                    }
-                    this.mNotWifiAffirmDialog.setCancelable(false);
-                    this.mNotWifiAffirmDialog.setCanceledOnTouchOutside(false);
-                    this.mNotWifiAffirmDialog.show();
-                }
-            }
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void changeSettingByNetwork(boolean wifi) {
-        if (wifi) {
-            if (TiebaApplication.app.isShowImages()) {
-                TiebaApplication.app.setViewImageQuality(1);
-            }
-            TiebaApplication.app.setUploadImageQuality(1);
-            return;
-        }
-        if (TiebaApplication.app.isShowImages()) {
-            TiebaApplication.app.setViewImageQuality(2);
-        }
-        if (TiebaApplication.app.getUploadImageQuality() == 1) {
-            TiebaApplication.app.setUploadImageQuality(2);
-        }
-    }
-
-    private void checkShowGuidePage(int maskid, View pageView, int imgId) {
-        if (pageView != null) {
-            if (!TiebaApplication.app.isGuidePageShown(maskid)) {
-                Bitmap bm = BitmapHelper.getResBitmap(this, imgId);
-                if (bm != null) {
-                    pageView.setBackgroundDrawable(new BitmapDrawable(bm));
-                    pageView.setVisibility(0);
-                    TiebaApplication.app.setGuidePageShown(maskid);
-                    return;
-                }
-                pageView.setVisibility(8);
-                return;
-            }
-            pageView.setVisibility(8);
-        }
+    protected void onSaveInstanceState(Bundle bundle) {
+        super.onSaveInstanceState(bundle);
+        bundle.putString("goto_type", this.g);
+        bundle.putString("pb_id", "");
+        bundle.putString("frs_name", "");
     }
 }

@@ -6,7 +6,7 @@ class FragmentCompatICSMR1 {
     FragmentCompatICSMR1() {
     }
 
-    public static void setUserVisibleHint(Fragment f, boolean isVisible) {
-        f.setUserVisibleHint(isVisible);
+    public static void setUserVisibleHint(Fragment fragment, boolean z) {
+        fragment.setUserVisibleHint(z);
     }
 }

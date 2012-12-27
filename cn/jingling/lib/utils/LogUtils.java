@@ -9,33 +9,33 @@ public class LogUtils {
         isLog = false;
     }
 
-    public static void d(String tag, String msg) {
+    public static void d(String str, String str2) {
         if (isLog) {
-            Log.d(tag, msg);
+            Log.d(str, str2);
         }
     }
 
-    public static void e(String tag, String msg) {
+    public static void e(String str, String str2) {
         if (isLog) {
-            Log.e(tag, msg);
+            Log.e(str, str2);
         }
     }
 
-    public static void v(String tag, String msg) {
+    public static void i(String str, String str2) {
         if (isLog) {
-            Log.v(tag, msg);
+            Log.i(str, str2);
         }
     }
 
-    public static void w(String tag, String msg) {
+    public static void v(String str, String str2) {
         if (isLog) {
-            Log.w(tag, msg);
+            Log.v(str, str2);
         }
     }
 
-    public static void i(String tag, String msg) {
+    public static void w(String str, String str2) {
         if (isLog) {
-            Log.i(tag, msg);
+            Log.w(str, str2);
         }
     }
 }

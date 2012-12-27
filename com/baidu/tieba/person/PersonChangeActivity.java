@@ -2,12 +2,12 @@ package com.baidu.tieba.person;
 
 import android.app.Activity;
 import android.app.AlertDialog;
-import android.content.Context;
+import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
-import android.os.AsyncTask;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
@@ -18,387 +18,230 @@ import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
-import com.baidu.tieba.BaseActivity;
 import com.baidu.tieba.R;
 import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.model.PersonChangeModel;
-import com.baidu.tieba.util.AsyncImageLoader;
-import com.baidu.tieba.util.BitmapHelper;
-import com.baidu.tieba.util.DatabaseService;
-import com.baidu.tieba.util.NetWork;
-import com.baidu.tieba.write.WriteUtil;
+import com.baidu.tieba.write.ba;
 /* loaded from: classes.dex */
-public class PersonChangeActivity extends BaseActivity {
-    public static final String TAG_DATA = "data";
-    private AlertDialog mSelectImageDialog = null;
-    private ImageView mImageView = null;
-    private Button mBack = null;
-    private Button mSave = null;
-    private TextView mName = null;
-    private LinearLayout mIntroClick = null;
-    private TextView mIntro = null;
-    private EditText mEdit = null;
-    private RadioGroup mSexgrop = null;
-    private RadioButton mMale = null;
-    private RadioButton mFemale = null;
-    private InputMethodManager mInputManager = null;
-    private boolean mClickOnEditor = false;
-    private PersonChangeModel mModel = null;
-    private Bitmap mPhoto = null;
-    private GetImageTask mImageTask = null;
-    private ProfileModifyTask mModifyTask = null;
-    private ProgressBar mImageProgressBar = null;
-    private DialogInterface.OnCancelListener mDialogCancelListener = null;
-    private AsyncImageLoader mImageLoader = null;
+public class PersonChangeActivity extends com.baidu.tieba.e {
+    private AlertDialog b = null;
+    private ImageView c = null;
+    private Button d = null;
+    private Button e = null;
+    private TextView f = null;
+    private LinearLayout g = null;
+    private RelativeLayout h = null;
+    private TextView i = null;
+    private EditText j = null;
+    private RadioGroup k = null;
+    private RadioButton l = null;
+    private RadioButton m = null;
+    private InputMethodManager n = null;
+    private boolean o = false;
+    private com.baidu.tieba.b.o p = null;
+    private Bitmap q = null;
+    private ak r = null;
+    private al s = null;
+    private ProgressBar t = null;
+    private DialogInterface.OnCancelListener u = null;
+    private com.baidu.tieba.c.a v = null;
+    private Dialog w = null;
+    private boolean x = false;
+    private View.OnClickListener y = new y(this);
 
-    public static void startActivityForResult(Activity activity, int requestCode, PersonChangeModel data) {
+    public static void a(Activity activity, int i, com.baidu.tieba.b.o oVar) {
         Intent intent = new Intent(activity, PersonChangeActivity.class);
-        intent.putExtra("data", data);
-        activity.startActivityForResult(intent, requestCode);
+        intent.putExtra("data", oVar);
+        activity.startActivityForResult(intent, i);
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.BaseActivity, android.app.Activity
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+    private void a(Bundle bundle) {
+        this.u = new ac(this);
+        if (bundle != null) {
+            this.p = (com.baidu.tieba.b.o) bundle.getSerializable("data");
+        } else {
+            this.p = (com.baidu.tieba.b.o) getIntent().getSerializableExtra("data");
+        }
+        if (this.p == null) {
+            this.p = new com.baidu.tieba.b.o();
+        }
+        this.v = new com.baidu.tieba.c.a(this);
+    }
+
+    public void g() {
+        if (this.j.getVisibility() == 0) {
+            this.j.setVisibility(8);
+            if (this.j.getText().length() > 0) {
+                this.i.setText(this.j.getText());
+            } else if (this.p.a() == null || this.p.a().length() <= 0) {
+                this.i.setText(getString(R.string.add_intro));
+            } else {
+                this.i.setText(this.p.a());
+            }
+            if (this.p.a() == null || !this.p.a().equals(this.j.getText().toString())) {
+                this.x = true;
+            }
+            this.p.a(this.j.getText().toString());
+            this.i.setVisibility(0);
+            a(this.n, this.j);
+        }
+    }
+
+    public void h() {
+        if (this.j.getVisibility() != 0) {
+            this.i.setVisibility(8);
+            this.j.setText(this.p.a());
+            this.j.setVisibility(0);
+            this.j.requestFocus();
+            b(this.n, this.j);
+        }
+    }
+
+    private void i() {
+        String[] strArr = {getString(R.string.take_photo), getString(R.string.album)};
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle(getString(R.string.operation));
+        builder.setItems(strArr, new ad(this));
+        if (this.b == null) {
+            this.b = builder.create();
+        }
+        this.h = (RelativeLayout) findViewById(R.id.info);
+        this.h.setOnClickListener(new ae(this));
+        this.c = (ImageView) findViewById(R.id.photo);
+        this.q = this.v.b(this.p.e());
+        if (this.q != null) {
+            this.c.setImageBitmap(this.q);
+        } else {
+            this.v.c(this.p.e(), new af(this));
+        }
+        this.d = (Button) findViewById(R.id.back);
+        this.d.setOnClickListener(this.y);
+        this.e = (Button) findViewById(R.id.save);
+        this.e.setOnClickListener(new ag(this));
+        this.g = (LinearLayout) findViewById(R.id.intro_click);
+        this.g.setOnClickListener(new ah(this));
+        this.g.setOnTouchListener(new ai(this));
+        this.i = (TextView) findViewById(R.id.intro);
+        if (this.p.a() == null || this.p.a().length() <= 0) {
+            this.i.setText(getString(R.string.add_intro));
+        } else {
+            this.i.setText(this.p.a());
+        }
+        this.j = (EditText) findViewById(R.id.edit);
+        this.j.setText(this.p.a());
+        this.j.setOnFocusChangeListener(new aj(this));
+        this.j.setOnTouchListener(new z(this));
+        this.k = (RadioGroup) findViewById(R.id.sexgroup);
+        this.l = (RadioButton) findViewById(R.id.man);
+        this.m = (RadioButton) findViewById(R.id.woman);
+        if (this.p.b() == 1) {
+            this.l.setChecked(true);
+        } else if (this.p.b() == 2) {
+            this.m.setChecked(true);
+        }
+        this.f = (TextView) findViewById(R.id.name);
+        this.f.setText(this.p.c());
+        this.t = (ProgressBar) findViewById(R.id.image_progress);
+        AlertDialog.Builder builder2 = new AlertDialog.Builder(this);
+        builder2.setMessage(getString(R.string.confirm_giveup));
+        builder2.setPositiveButton(getString(R.string.alert_yes_button), new aa(this));
+        builder2.setNeutralButton(getString(R.string.cancel), new ab(this));
+        this.w = builder2.create();
+    }
+
+    private void j() {
+        if (this.r != null) {
+            this.r.a();
+        }
+        this.q = null;
+        this.r = new ak(this, null);
+        this.r.execute(new Object[0]);
+    }
+
+    @Override // android.app.Activity, android.view.Window.Callback
+    public boolean dispatchTouchEvent(MotionEvent motionEvent) {
+        this.o = false;
+        boolean dispatchTouchEvent = super.dispatchTouchEvent(motionEvent);
+        if (motionEvent.getAction() == 1 && !this.o) {
+            g();
+        }
+        return dispatchTouchEvent;
+    }
+
+    @Override // android.app.Activity
+    protected void onActivityResult(int i, int i2, Intent intent) {
+        super.onActivityResult(i, i2, intent);
+        if (i2 != -1) {
+            if (i2 == 0) {
+                switch (i) {
+                    case 1200008:
+                        ba.b(this);
+                        return;
+                    case 12000010:
+                        ba.a(this);
+                        return;
+                    default:
+                        return;
+                }
+            }
+            return;
+        }
+        switch (i) {
+            case 1200001:
+                EditHeadActivity.a(this, 1200001, 12000010, null, TiebaApplication.w());
+                return;
+            case 1200002:
+                if (intent != null) {
+                    EditHeadActivity.a(this, 1200002, 1200008, intent.getData(), TiebaApplication.w());
+                    return;
+                }
+                return;
+            case 1200008:
+            case 12000010:
+                this.p.a(true);
+                j();
+                return;
+            default:
+                return;
+        }
+    }
+
+    @Override // com.baidu.tieba.e, android.app.Activity
+    public void onCreate(Bundle bundle) {
+        super.onCreate(bundle);
         setContentView(R.layout.person_change_activity);
-        this.mInputManager = (InputMethodManager) getSystemService("input_method");
-        InitData(savedInstanceState);
-        InitUI();
+        this.n = (InputMethodManager) getSystemService("input_method");
+        a(bundle);
+        i();
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.BaseActivity, android.app.Activity
+    @Override // com.baidu.tieba.e, android.app.Activity
     public void onDestroy() {
-        if (this.mImageTask != null) {
-            this.mImageTask.cancel();
+        if (this.r != null) {
+            this.r.a();
         }
-        if (this.mModifyTask != null) {
-            this.mModifyTask.cancel();
+        if (this.s != null) {
+            this.s.a();
         }
-        if (this.mImageProgressBar != null) {
-            this.mImageProgressBar.setVisibility(8);
+        if (this.t != null) {
+            this.t.setVisibility(8);
         }
         super.onDestroy();
     }
 
-    @Override // android.app.Activity, android.view.Window.Callback
-    public boolean dispatchTouchEvent(MotionEvent ev) {
-        this.mClickOnEditor = false;
-        boolean ret = super.dispatchTouchEvent(ev);
-        if (ev.getAction() == 1 && !this.mClickOnEditor) {
-            hideEditor();
+    @Override // android.app.Activity, android.view.KeyEvent.Callback
+    public boolean onKeyDown(int i, KeyEvent keyEvent) {
+        if (i == 4) {
+            this.y.onClick(null);
+            return true;
         }
-        return ret;
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void hideEditor() {
-        if (this.mEdit.getVisibility() == 0) {
-            this.mEdit.setVisibility(8);
-            if (this.mEdit.getText().length() > 0) {
-                this.mIntro.setText(this.mEdit.getText());
-            } else {
-                this.mIntro.setText(getString(R.string.add_intro));
-            }
-            this.mModel.setIntro(this.mEdit.getText().toString());
-            this.mIntro.setVisibility(0);
-            HidenSoftKeyPad(this.mInputManager, this.mEdit);
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void showEditor() {
-        if (this.mEdit.getVisibility() != 0) {
-            this.mIntro.setVisibility(8);
-            this.mEdit.setText(this.mModel.getIntro());
-            this.mEdit.setVisibility(0);
-            this.mEdit.requestFocus();
-            ShowSoftKeyPad(this.mInputManager, this.mEdit);
-        }
-    }
-
-    private void InitData(Bundle savedInstanceState) {
-        this.mDialogCancelListener = new DialogInterface.OnCancelListener() { // from class: com.baidu.tieba.person.PersonChangeActivity.1
-            @Override // android.content.DialogInterface.OnCancelListener
-            public void onCancel(DialogInterface dialog) {
-                PersonChangeActivity.this.DeinitWaitingDialog();
-                if (PersonChangeActivity.this.mModifyTask != null) {
-                    PersonChangeActivity.this.mModifyTask.cancel();
-                }
-            }
-        };
-        if (savedInstanceState != null) {
-            this.mModel = (PersonChangeModel) savedInstanceState.getSerializable("data");
-        } else {
-            Intent intent = getIntent();
-            this.mModel = (PersonChangeModel) intent.getSerializableExtra("data");
-        }
-        if (this.mModel == null) {
-            this.mModel = new PersonChangeModel();
-        }
-        this.mImageLoader = new AsyncImageLoader(this);
+        return super.onKeyDown(i, keyEvent);
     }
 
     @Override // android.app.Activity
-    protected void onSaveInstanceState(Bundle outState) {
-        super.onSaveInstanceState(outState);
-        outState.putSerializable("data", this.mModel);
-    }
-
-    private void InitUI() {
-        String[] items = {getString(R.string.take_photo), getString(R.string.album)};
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle(getString(R.string.operation));
-        builder.setItems(items, new DialogInterface.OnClickListener() { // from class: com.baidu.tieba.person.PersonChangeActivity.2
-            @Override // android.content.DialogInterface.OnClickListener
-            public void onClick(DialogInterface dialog, int which) {
-                if (which == 0) {
-                    WriteUtil.takePhoto(PersonChangeActivity.this);
-                } else if (which == 1) {
-                    WriteUtil.getAlbumImage(PersonChangeActivity.this);
-                }
-            }
-        });
-        if (this.mSelectImageDialog == null) {
-            this.mSelectImageDialog = builder.create();
-        }
-        this.mImageView = (ImageView) findViewById(R.id.photo);
-        this.mPhoto = this.mImageLoader.getPhoto(this.mModel.getPortrait());
-        if (this.mPhoto != null) {
-            this.mImageView.setImageBitmap(this.mPhoto);
-        } else {
-            this.mImageLoader.loadFriendPhotoByNet(this.mModel.getPortrait(), new AsyncImageLoader.ImageCallback() { // from class: com.baidu.tieba.person.PersonChangeActivity.3
-                @Override // com.baidu.tieba.util.AsyncImageLoader.ImageCallback
-                public void imageLoaded(Bitmap bitmap, String imageUrl, boolean isCached) {
-                    PersonChangeActivity.this.mImageView.setImageBitmap(bitmap);
-                }
-            });
-        }
-        this.mBack = (Button) findViewById(R.id.back);
-        this.mBack.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.person.PersonChangeActivity.4
-            @Override // android.view.View.OnClickListener
-            public void onClick(View v) {
-                PersonChangeActivity.this.finish();
-            }
-        });
-        this.mSave = (Button) findViewById(R.id.save);
-        this.mSave.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.person.PersonChangeActivity.5
-            @Override // android.view.View.OnClickListener
-            public void onClick(View v) {
-                PersonChangeActivity.this.hideEditor();
-                PersonChangeActivity.this.mModel.setIntro(PersonChangeActivity.this.mEdit.getText().toString());
-                if (PersonChangeActivity.this.mSexgrop.getCheckedRadioButtonId() != R.id.man) {
-                    if (PersonChangeActivity.this.mSexgrop.getCheckedRadioButtonId() == R.id.woman) {
-                        PersonChangeActivity.this.mModel.setSex(2);
-                    }
-                } else {
-                    PersonChangeActivity.this.mModel.setSex(1);
-                }
-                if (PersonChangeActivity.this.mModifyTask == null) {
-                    PersonChangeActivity.this.mModifyTask = new ProfileModifyTask(PersonChangeActivity.this.mModel);
-                    PersonChangeActivity.this.mModifyTask.execute(new String[0]);
-                }
-            }
-        });
-        this.mIntroClick = (LinearLayout) findViewById(R.id.intro_click);
-        this.mIntroClick.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.person.PersonChangeActivity.6
-            @Override // android.view.View.OnClickListener
-            public void onClick(View v) {
-                PersonChangeActivity.this.showEditor();
-            }
-        });
-        this.mIntroClick.setOnTouchListener(new View.OnTouchListener() { // from class: com.baidu.tieba.person.PersonChangeActivity.7
-            @Override // android.view.View.OnTouchListener
-            public boolean onTouch(View arg0, MotionEvent event) {
-                if (event.getAction() == 1) {
-                    PersonChangeActivity.this.mClickOnEditor = true;
-                    return false;
-                }
-                return false;
-            }
-        });
-        this.mIntro = (TextView) findViewById(R.id.intro);
-        if (this.mModel.getIntro() != null && this.mModel.getIntro().length() > 0) {
-            this.mIntro.setText(this.mModel.getIntro());
-        } else {
-            this.mIntro.setText(getString(R.string.add_intro));
-        }
-        this.mEdit = (EditText) findViewById(R.id.edit);
-        this.mEdit.setText(this.mModel.getIntro());
-        this.mEdit.setOnFocusChangeListener(new View.OnFocusChangeListener() { // from class: com.baidu.tieba.person.PersonChangeActivity.8
-            @Override // android.view.View.OnFocusChangeListener
-            public void onFocusChange(View v, boolean hasFocus) {
-                if (!hasFocus) {
-                    PersonChangeActivity.this.hideEditor();
-                }
-            }
-        });
-        this.mEdit.setOnTouchListener(new View.OnTouchListener() { // from class: com.baidu.tieba.person.PersonChangeActivity.9
-            @Override // android.view.View.OnTouchListener
-            public boolean onTouch(View v, MotionEvent event) {
-                if (event.getAction() == 1) {
-                    PersonChangeActivity.this.mClickOnEditor = true;
-                    return false;
-                }
-                return false;
-            }
-        });
-        this.mSexgrop = (RadioGroup) findViewById(R.id.sexgroup);
-        this.mMale = (RadioButton) findViewById(R.id.man);
-        this.mFemale = (RadioButton) findViewById(R.id.woman);
-        if (this.mModel.getSex() == 1) {
-            this.mMale.setChecked(true);
-        } else if (this.mModel.getSex() == 2) {
-            this.mFemale.setChecked(true);
-        }
-        this.mName = (TextView) findViewById(R.id.name);
-        this.mName.setText(this.mModel.getName());
-        this.mImageProgressBar = (ProgressBar) findViewById(R.id.image_progress);
-    }
-
-    @Override // android.app.Activity
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        if (resultCode == -1) {
-            if (requestCode == 1200002 || requestCode == 1200001) {
-                if (this.mImageTask != null) {
-                    this.mImageTask.cancel();
-                }
-                this.mPhoto = null;
-                this.mImageTask = new GetImageTask(this, requestCode, data);
-                this.mImageTask.execute(new Object[0]);
-            }
-        }
-    }
-
-    /* loaded from: classes.dex */
-    private class GetImageTask extends AsyncTask<Object, Integer, Bitmap> {
-        private Context mContext;
-        private Intent mIntent;
-        private int mRequestCode;
-
-        public GetImageTask(Context context, int requestCode, Intent intent) {
-            this.mContext = null;
-            this.mRequestCode = 0;
-            this.mIntent = null;
-            this.mContext = context;
-            this.mRequestCode = requestCode;
-            this.mIntent = intent;
-        }
-
-        @Override // android.os.AsyncTask
-        protected void onPreExecute() {
-            PersonChangeActivity.this.mImageProgressBar.setVisibility(0);
-            PersonChangeActivity.this.mSave.setEnabled(false);
-            PersonChangeActivity.this.mImageView.setImageBitmap(null);
-            PersonChangeActivity.this.mPhoto = null;
-            super.onPreExecute();
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        /* JADX INFO: Access modifiers changed from: protected */
-        /* JADX WARN: Can't rename method to resolve collision */
-        @Override // android.os.AsyncTask
-        public Bitmap doInBackground(Object... params) {
-            if (this.mRequestCode == 1200002 && this.mIntent != null) {
-                Bitmap bitmap = WriteUtil.ImageResult(this.mRequestCode, this.mContext, this.mIntent.getData(), TiebaApplication.app.getPostImageSize());
-                return bitmap;
-            }
-            Bitmap bitmap2 = WriteUtil.ImageResult(this.mRequestCode, this.mContext, null, TiebaApplication.app.getPostImageSize());
-            return bitmap2;
-        }
-
-        public void cancel() {
-            PersonChangeActivity.this.mImageTask = null;
-            PersonChangeActivity.this.mImageProgressBar.setVisibility(8);
-            PersonChangeActivity.this.mSave.setEnabled(true);
-            super.cancel(true);
-        }
-
-        @Override // android.os.AsyncTask
-        protected void onCancelled() {
-            super.onCancelled();
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        /* JADX INFO: Access modifiers changed from: protected */
-        @Override // android.os.AsyncTask
-        public void onPostExecute(Bitmap result) {
-            super.onPostExecute((GetImageTask) result);
-            PersonChangeActivity.this.mImageTask = null;
-            PersonChangeActivity.this.mSave.setEnabled(true);
-            PersonChangeActivity.this.mImageProgressBar.setVisibility(8);
-            if (result != null) {
-                PersonChangeActivity.this.mPhoto = result;
-                PersonChangeActivity.this.mImageView.setImageBitmap(PersonChangeActivity.this.mPhoto);
-                PersonChangeActivity.this.mModel.setPhotoChanged(true);
-            }
-        }
-    }
-
-    /* loaded from: classes.dex */
-    private class ProfileModifyTask extends AsyncTask<String, Integer, String> {
-        private PersonChangeModel mModel;
-        private NetWork mNetWork = null;
-
-        public ProfileModifyTask(PersonChangeModel model) {
-            this.mModel = null;
-            this.mModel = model;
-        }
-
-        public void cancel() {
-            PersonChangeActivity.this.mModifyTask = null;
-            if (this.mNetWork != null) {
-                this.mNetWork.cancelNetConnect();
-            }
-            super.cancel(true);
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        /* JADX INFO: Access modifiers changed from: protected */
-        @Override // android.os.AsyncTask
-        public void onPostExecute(String result) {
-            PersonChangeActivity.this.mModifyTask = null;
-            PersonChangeActivity.this.closeLoadingDialog();
-            if (this.mNetWork != null) {
-                if (this.mNetWork.isRequestSuccess()) {
-                    PersonChangeActivity.this.showToast(PersonChangeActivity.this.getString(R.string.success));
-                    Intent intent = new Intent();
-                    intent.putExtra("data", this.mModel);
-                    PersonChangeActivity.this.setResult(-1, intent);
-                    PersonChangeActivity.this.finish();
-                } else {
-                    PersonChangeActivity.this.showToast(this.mNetWork.getErrorString());
-                }
-            }
-            super.onPostExecute((ProfileModifyTask) result);
-        }
-
-        @Override // android.os.AsyncTask
-        protected void onPreExecute() {
-            PersonChangeActivity.this.showLoadingDialog(PersonChangeActivity.this.getString(R.string.saving), PersonChangeActivity.this.mDialogCancelListener);
-            super.onPreExecute();
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        /* JADX INFO: Access modifiers changed from: protected */
-        @Override // android.os.AsyncTask
-        public String doInBackground(String... arg0) {
-            if (this.mModel != null) {
-                this.mNetWork = new NetWork("http://c.tieba.baidu.com/c/c/profile/modify");
-                this.mNetWork.addPostData("sex", String.valueOf(this.mModel.getSex()));
-                this.mNetWork.addPostData("intro", this.mModel.getIntro());
-                if (this.mModel.getPhotoChanged() && PersonChangeActivity.this.mPhoto != null) {
-                    this.mNetWork.addPostData("head_pic", BitmapHelper.Bitmap2Bytes(PersonChangeActivity.this.mPhoto, 80));
-                }
-                this.mNetWork.postMultiNetData();
-                if (this.mNetWork.isRequestSuccess()) {
-                    DatabaseService.delPersonData();
-                }
-            }
-            return null;
-        }
+    protected void onSaveInstanceState(Bundle bundle) {
+        super.onSaveInstanceState(bundle);
+        bundle.putSerializable("data", this.p);
     }
 }

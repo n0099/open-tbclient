@@ -9,15 +9,15 @@ import cn.jingling.lib.filters.OneKeyFilter;
 /* loaded from: classes.dex */
 public class XuanCai extends OneKeyFilter {
     @Override // cn.jingling.lib.filters.OneKeyFilter
-    public Bitmap apply(Context cx, Bitmap bm) {
-        int w = bm.getWidth();
-        int h = bm.getHeight();
-        int[] pixels = new int[w * h];
-        bm.getPixels(pixels, 0, w, 0, 0, w, h);
-        Curve c = new Curve(cx, "curves/xuancai.dat");
-        CMTProcessor.curveEffect(pixels, c.getCurveRed(), c.getCurveGreen(), c.getCurveBlue(), w, h);
-        CMTProcessor.linearBurn(pixels, Layer.getLayerPixels(cx, "layers/xuancai", w, h, Layer.Type.NORMAL), w, h, 100);
-        bm.setPixels(pixels, 0, w, 0, 0, w, h);
-        return bm;
+    public Bitmap apply(Context context, Bitmap bitmap) {
+        int width = bitmap.getWidth();
+        int height = bitmap.getHeight();
+        int[] iArr = new int[width * height];
+        bitmap.getPixels(iArr, 0, width, 0, 0, width, height);
+        Curve curve = new Curve(context, "curves/xuancai.dat");
+        CMTProcessor.curveEffect(iArr, curve.getCurveRed(), curve.getCurveGreen(), curve.getCurveBlue(), width, height);
+        CMTProcessor.linearBurn(iArr, Layer.getLayerPixels(context, "layers/xuancai", width, height, Layer.Type.NORMAL), width, height, 100);
+        bitmap.setPixels(iArr, 0, width, 0, 0, width, height);
+        return bitmap;
     }
 }

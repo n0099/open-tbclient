@@ -1,8 +1,6 @@
 package com.baidu.loginshare;
 
 import android.util.Log;
-import com.baidu.share.ShareAssistant;
-import com.baidu.share.ShareModel;
 import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
@@ -43,8 +41,8 @@ public class k implements Runnable {
                 httpURLConnection2.setDoInput(true);
                 httpURLConnection2.setDoOutput(true);
                 httpURLConnection2.setUseCaches(false);
-                httpURLConnection2.setReadTimeout(5000);
-                httpURLConnection2.setConnectTimeout(5000);
+                httpURLConnection2.setReadTimeout(b);
+                httpURLConnection2.setConnectTimeout(b);
                 httpURLConnection2.setRequestMethod("GET");
                 httpURLConnection2.connect();
                 if (httpURLConnection2.getResponseCode() != 200) {
@@ -113,8 +111,8 @@ public class k implements Runnable {
         j jVar3;
         ArrayList arrayList;
         ArrayList arrayList2;
-        ShareAssistant shareAssistant;
-        ShareAssistant shareAssistant2;
+        com.baidu.share.b bVar;
+        com.baidu.share.b bVar2;
         c cVar;
         ArrayList arrayList3;
         ArrayList arrayList4;
@@ -130,23 +128,23 @@ public class k implements Runnable {
         jVar2.a(h.m(), booleanValue ? this.a.k : this.a.l);
         jVar3 = this.a.d;
         jVar3.a();
-        ShareModel shareModel = null;
+        com.baidu.share.c cVar2 = null;
         arrayList = this.a.r;
         synchronized (arrayList) {
             arrayList2 = this.a.r;
             int size = arrayList2.size();
             if (size > 0) {
                 arrayList3 = this.a.r;
-                shareModel = (ShareModel) arrayList3.get(size - 1);
+                cVar2 = (com.baidu.share.c) arrayList3.get(size - 1);
                 arrayList4 = this.a.r;
                 arrayList4.clear();
             }
         }
-        if (shareModel != null) {
-            shareAssistant = this.a.b;
-            if (shareAssistant != null) {
-                shareAssistant2 = this.a.b;
-                if (shareAssistant2.share(shareModel) && this.e) {
+        if (cVar2 != null) {
+            bVar = this.a.b;
+            if (bVar != null) {
+                bVar2 = this.a.b;
+                if (bVar2.a(cVar2) && this.e) {
                     cVar = this.a.f;
                     cVar.a(1, this.d);
                 }

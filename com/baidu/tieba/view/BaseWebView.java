@@ -1,88 +1,59 @@
 package com.baidu.tieba.view;
 
 import android.content.Context;
-import android.graphics.Bitmap;
 import android.util.AttributeSet;
-import android.view.View;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
-import com.baidu.tieba.util.UtilHelper;
 /* loaded from: classes.dex */
 public class BaseWebView extends WebView {
-    private OnLoadUrlListener mOnLoadUrlListener;
-    private WebViewClient mWebViewClient;
-
-    /* loaded from: classes.dex */
-    public interface OnLoadUrlListener {
-        boolean shouldOverrideUrlLoading(WebView webView, String str);
-    }
+    private WebViewClient a;
+    private e b;
+    private Context c;
+    private e d;
 
     public BaseWebView(Context context) {
         super(context);
-        this.mOnLoadUrlListener = null;
-        init();
+        this.b = null;
+        this.c = null;
+        this.d = null;
+        this.c = context;
+        a();
     }
 
-    public BaseWebView(Context context, AttributeSet attrs) {
-        super(context, attrs);
-        this.mOnLoadUrlListener = null;
-        init();
+    public BaseWebView(Context context, AttributeSet attributeSet) {
+        super(context, attributeSet);
+        this.b = null;
+        this.c = null;
+        this.d = null;
+        this.c = context;
+        a();
     }
 
-    public void init() {
+    private void b() {
+        this.d = new c(this);
+    }
+
+    public void a() {
         getSettings().setJavaScriptEnabled(true);
         getSettings().setCacheMode(2);
-        UtilHelper.WebViewNoDataBase(getSettings());
-        this.mWebViewClient = new MyWebViewClient();
-        setWebViewClient(this.mWebViewClient);
-        setOnLongClickListener(new View.OnLongClickListener() { // from class: com.baidu.tieba.view.BaseWebView.1
-            @Override // android.view.View.OnLongClickListener
-            public boolean onLongClick(View arg0) {
-                return true;
-            }
-        });
+        com.baidu.tieba.c.ag.a(getSettings());
+        this.a = new d(this);
+        setWebViewClient(this.a);
+        setOnLongClickListener(new b(this));
     }
 
-    /* loaded from: classes.dex */
-    public class MyWebViewClient extends WebViewClient {
-        public MyWebViewClient() {
+    public void setDownloadEnabled(boolean z) {
+        if (!z) {
+            setOnLoadUrlListener(null);
+            return;
         }
-
-        @Override // android.webkit.WebViewClient
-        public void onPageStarted(WebView view, String url, Bitmap favicon) {
-            super.onPageStarted(view, url, favicon);
+        if (this.d == null) {
+            b();
         }
-
-        @Override // android.webkit.WebViewClient
-        public void onLoadResource(WebView view, String url) {
-            super.onLoadResource(view, url);
-        }
-
-        @Override // android.webkit.WebViewClient
-        public void onPageFinished(WebView view, String url) {
-            super.onPageFinished(view, url);
-        }
-
-        @Override // android.webkit.WebViewClient
-        public boolean shouldOverrideUrlLoading(WebView view, String url) {
-            if (BaseWebView.this.mOnLoadUrlListener != null) {
-                return BaseWebView.this.mOnLoadUrlListener.shouldOverrideUrlLoading(view, url);
-            }
-            return super.shouldOverrideUrlLoading(view, url);
-        }
-
-        @Override // android.webkit.WebViewClient
-        public void onReceivedError(WebView view, int errorCode, String description, String failingUrl) {
-            super.onReceivedError(view, errorCode, description, failingUrl);
-        }
+        setOnLoadUrlListener(this.d);
     }
 
-    public void setOnLoadUrlListener(OnLoadUrlListener src) {
-        this.mOnLoadUrlListener = src;
-    }
-
-    public void resetProxy(int type) {
-        disablePlatformNotifications();
-        enablePlatformNotifications();
+    public void setOnLoadUrlListener(e eVar) {
+        this.b = eVar;
     }
 }
