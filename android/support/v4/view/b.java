@@ -1,16 +1,21 @@
 package android.support.v4.view;
+
+import com.baidu.zeus.bouncycastle.DERTags;
 /* loaded from: classes.dex */
 class b implements d {
     private static int a(int i, int i2, int i3, int i4, int i5) {
         boolean z = (i2 & i3) != 0;
         int i6 = i4 | i5;
         boolean z2 = (i2 & i6) != 0;
-        if (!z) {
-            return z2 ? i & (i3 ^ (-1)) : i;
-        } else if (z2) {
-            throw new IllegalArgumentException("bad arguments");
-        } else {
+        if (z) {
+            if (z2) {
+                throw new IllegalArgumentException("bad arguments");
+            }
             return i & (i6 ^ (-1));
+        } else if (z2) {
+            return i & (i3 ^ (-1));
+        } else {
+            return i;
         }
     }
 
@@ -24,7 +29,7 @@ class b implements d {
 
     @Override // android.support.v4.view.d
     public boolean a(int i, int i2) {
-        return a(a(a(i) & 247, i2, 1, 64, 128), i2, 2, 16, 32) == i2;
+        return a(a(a(i) & 247, i2, 1, 64, DERTags.TAGGED), i2, 2, 16, 32) == i2;
     }
 
     @Override // android.support.v4.view.d

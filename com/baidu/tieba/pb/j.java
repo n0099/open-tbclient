@@ -20,32 +20,31 @@ class j implements Runnable {
         ImagePbPagerAdapter imagePbPagerAdapter2;
         ImagePbPagerAdapter imagePbPagerAdapter3;
         try {
-            z = this.a.A;
-            if (!z || this.a.F == null) {
-                return;
-            }
-            int i3 = this.a.I > 0 ? this.a.I - 1 : 0;
-            int k = this.a.I >= this.a.F.k() + (-1) ? this.a.F.k() - 1 : this.a.I + 1;
-            com.baidu.tieba.c.z c = com.baidu.tieba.c.w.c(this.a);
-            imagePbPagerAdapter = this.a.y;
-            imagePbPagerAdapter.d().a();
-            if (c == com.baidu.tieba.c.z.WIFI || c == com.baidu.tieba.c.z.ThreeG) {
-                i = i3;
-                i2 = k;
-                z2 = true;
-            } else {
-                i = this.a.I;
-                i2 = this.a.I;
-                z2 = false;
-            }
-            imagePbPagerAdapter2 = this.a.y;
-            imagePbPagerAdapter2.d().a(z2);
-            for (int i4 = i; i4 <= i2; i4++) {
-                imagePbPagerAdapter3 = this.a.y;
-                imagePbPagerAdapter3.d().a(((com.baidu.tieba.a.t) this.a.F.h().get(i4)).b(), new k(this));
+            z = this.a.C;
+            if (z && this.a.H != null) {
+                int i3 = this.a.K > 0 ? this.a.K - 1 : 0;
+                int k = this.a.K >= this.a.H.k() - 1 ? this.a.H.k() - 1 : this.a.K + 1;
+                com.baidu.tieba.c.z c = com.baidu.tieba.c.w.c(this.a);
+                imagePbPagerAdapter = this.a.A;
+                imagePbPagerAdapter.d().a();
+                if (c != com.baidu.tieba.c.z.WIFI && c != com.baidu.tieba.c.z.ThreeG) {
+                    i = this.a.K;
+                    i2 = this.a.K;
+                    z2 = false;
+                } else {
+                    i = i3;
+                    i2 = k;
+                    z2 = true;
+                }
+                imagePbPagerAdapter2 = this.a.A;
+                imagePbPagerAdapter2.d().a(z2);
+                for (int i4 = i; i4 <= i2; i4++) {
+                    imagePbPagerAdapter3 = this.a.A;
+                    imagePbPagerAdapter3.d().a(((com.baidu.tieba.a.u) this.a.H.h().get(i4)).b(), new k(this));
+                }
             }
         } catch (Exception e) {
-            com.baidu.tieba.c.ae.b("ImagePbActivity", "mGetImageRunnble.run", "error = " + e.getMessage());
+            com.baidu.tieba.c.af.b("ImagePbActivity", "mGetImageRunnble.run", "error = " + e.getMessage());
         }
     }
 }

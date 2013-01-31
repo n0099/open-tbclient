@@ -16,11 +16,11 @@ public class g implements AdapterView.OnItemClickListener {
     @Override // android.widget.AdapterView.OnItemClickListener
     public void onItemClick(AdapterView adapterView, View view, int i, long j) {
         k kVar;
-        kVar = this.a.j;
-        com.baidu.tieba.a.ah ahVar = (com.baidu.tieba.a.ah) kVar.getItem(i);
-        if (ahVar != null) {
+        kVar = this.a.k;
+        com.baidu.tieba.a.ai aiVar = (com.baidu.tieba.a.ai) kVar.getItem(i);
+        if (aiVar != null) {
             Intent intent = new Intent();
-            intent.putExtra("name", ahVar.c());
+            intent.putExtra("name", aiVar.c());
             this.a.setResult(-1, intent);
             this.a.finish();
         }

@@ -19,23 +19,24 @@ public class c implements ILoginShareListener {
 
     @Override // com.baidu.loginshare.ILoginShareListener
     public void onLoginShareEvent(Token token) {
-        if (token == null) {
-            return;
-        }
-        LoginShareEvent loginShareEvent = token.mEvent;
-        String str = token.mUsername;
-        String str2 = token.mBduss;
-        String str3 = token.mPtoken;
-        com.baidu.tieba.c.ae.c(getClass().getName(), "onLoginShareEvent", "bduss = " + str2);
-        com.baidu.tieba.c.ae.c(getClass().getName(), "onLoginShareEvent", "username = " + str);
-        com.baidu.tieba.c.ae.c(getClass().getName(), "onLoginShareEvent", "ptoken = " + str3);
-        if (loginShareEvent != LoginShareEvent.VALID) {
-            com.baidu.tieba.c.ae.c(getClass().getName(), "onLoginShareEvent", "logout");
+        if (token != null) {
+            LoginShareEvent loginShareEvent = token.mEvent;
+            String str = token.mUsername;
+            String str2 = token.mBduss;
+            String str3 = token.mPtoken;
+            com.baidu.tieba.c.af.e(getClass().getName(), "onLoginShareEvent", "bduss = " + str2);
+            com.baidu.tieba.c.af.e(getClass().getName(), "onLoginShareEvent", "username = " + str);
+            com.baidu.tieba.c.af.e(getClass().getName(), "onLoginShareEvent", "ptoken = " + str3);
+            if (loginShareEvent == LoginShareEvent.VALID) {
+                if (str2 != null && str3 != null) {
+                    com.baidu.tieba.c.af.e(getClass().getName(), "onLoginShareEvent", "login");
+                    this.a.a(true, str2, str3, str);
+                    return;
+                }
+                return;
+            }
+            com.baidu.tieba.c.af.e(getClass().getName(), "onLoginShareEvent", "logout");
             this.a.a(false, null, null, null);
-        } else if (str2 == null || str3 == null) {
-        } else {
-            com.baidu.tieba.c.ae.c(getClass().getName(), "onLoginShareEvent", "login");
-            this.a.a(true, str2, str3, str);
         }
     }
 }

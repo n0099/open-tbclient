@@ -1,10 +1,9 @@
 package com.baidu.tieba.frs;
 
-import android.view.View;
-import com.baidu.tieba.MainTabActivity;
+import android.content.DialogInterface;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class k implements View.OnClickListener {
+public class k implements DialogInterface.OnDismissListener {
     final /* synthetic */ FrsActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -12,9 +11,8 @@ public class k implements View.OnClickListener {
         this.a = frsActivity;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        MainTabActivity.a(this.a, "goto_recommend");
-        this.a.finish();
+    @Override // android.content.DialogInterface.OnDismissListener
+    public void onDismiss(DialogInterface dialogInterface) {
+        this.a.q();
     }
 }

@@ -16,14 +16,13 @@ class al implements com.baidu.tieba.c.d {
     public void a(Bitmap bitmap, String str, boolean z) {
         PbActivity pbActivity;
         ListView listView;
-        if (bitmap == null) {
-            return;
-        }
-        pbActivity = this.a.a;
-        listView = pbActivity.c;
-        ImageView imageView = (ImageView) listView.findViewWithTag(str);
-        if (imageView != null) {
-            imageView.invalidate();
+        if (bitmap != null) {
+            pbActivity = this.a.a;
+            listView = pbActivity.d;
+            ImageView imageView = (ImageView) listView.findViewWithTag(str);
+            if (imageView != null) {
+                imageView.invalidate();
+            }
         }
     }
 }

@@ -1,68 +1,42 @@
 package com.baidu.tieba.person;
 
-import android.app.Dialog;
-import android.content.Intent;
 import android.view.View;
-import android.widget.RadioButton;
+import android.widget.Button;
+import com.baidu.tieba.R;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class y implements View.OnClickListener {
-    final /* synthetic */ PersonChangeActivity a;
+public class y implements View.OnClickListener {
+    final /* synthetic */ EditMarkActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public y(PersonChangeActivity personChangeActivity) {
-        this.a = personChangeActivity;
+    public y(EditMarkActivity editMarkActivity) {
+        this.a = editMarkActivity;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        RadioButton radioButton;
-        RadioButton radioButton2;
-        com.baidu.tieba.b.o oVar;
-        com.baidu.tieba.b.o oVar2;
-        boolean z;
-        com.baidu.tieba.b.o oVar3;
-        com.baidu.tieba.b.o oVar4;
-        com.baidu.tieba.b.o oVar5;
-        Dialog dialog;
-        com.baidu.tieba.b.o oVar6;
-        com.baidu.tieba.b.o oVar7;
-        radioButton = this.a.l;
-        if (radioButton.isChecked()) {
-            oVar6 = this.a.p;
-            if (oVar6 != null) {
-                oVar7 = this.a.p;
-                if (oVar7.b() != 1) {
-                    this.a.x = true;
-                }
-            }
-        } else {
-            radioButton2 = this.a.m;
-            if (radioButton2.isChecked()) {
-                oVar = this.a.p;
-                if (oVar != null) {
-                    oVar2 = this.a.p;
-                    if (oVar2.b() != 2) {
-                        this.a.x = true;
-                    }
-                }
-            }
-        }
-        z = this.a.x;
-        if (z) {
-            dialog = this.a.w;
-            dialog.show();
+        com.baidu.tieba.home.af afVar;
+        com.baidu.tieba.home.af afVar2;
+        Button button;
+        com.baidu.tieba.home.af afVar3;
+        com.baidu.tieba.home.af afVar4;
+        Button button2;
+        com.baidu.tieba.home.af afVar5;
+        afVar = this.a.c;
+        if (!afVar.c()) {
+            afVar4 = this.a.c;
+            afVar4.b(true);
+            button2 = this.a.g;
+            button2.setText(R.string.done);
+            afVar5 = this.a.c;
+            afVar5.notifyDataSetChanged();
             return;
         }
-        oVar3 = this.a.p;
-        if (oVar3 != null) {
-            oVar4 = this.a.p;
-            if (oVar4.d()) {
-                Intent intent = new Intent();
-                oVar5 = this.a.p;
-                intent.putExtra("data", oVar5);
-                this.a.setResult(-1, intent);
-            }
-        }
-        this.a.finish();
+        afVar2 = this.a.c;
+        afVar2.b(false);
+        button = this.a.g;
+        button.setText(R.string.edit);
+        afVar3 = this.a.c;
+        afVar3.notifyDataSetChanged();
     }
 }

@@ -24,104 +24,103 @@ public class ap implements AdapterView.OnItemClickListener {
     */
     public void onItemClick(AdapterView adapterView, View view, int i, long j) {
         AlertDialog alertDialog;
-        com.baidu.tieba.b.n nVar;
-        bt btVar;
+        com.baidu.tieba.b.p pVar;
+        bv bvVar;
         a aVar;
         a aVar2;
         AlertDialog alertDialog2;
-        com.baidu.tieba.b.n nVar2;
-        com.baidu.tieba.b.n nVar3;
+        com.baidu.tieba.b.p pVar2;
+        com.baidu.tieba.b.p pVar3;
         a aVar3;
-        com.baidu.tieba.b.n nVar4;
-        com.baidu.tieba.b.n nVar5;
+        com.baidu.tieba.b.p pVar4;
+        com.baidu.tieba.b.p pVar5;
         String str;
-        com.baidu.tieba.b.n nVar6;
-        com.baidu.tieba.b.n nVar7;
-        com.baidu.tieba.b.n nVar8;
-        com.baidu.tieba.a.ae l;
-        com.baidu.tieba.b.n nVar9;
-        com.baidu.tieba.b.n nVar10;
-        com.baidu.tieba.b.n nVar11;
-        com.baidu.tieba.b.n nVar12;
-        bt btVar2;
-        bt btVar3;
+        com.baidu.tieba.b.p pVar6;
+        com.baidu.tieba.b.p pVar7;
+        com.baidu.tieba.b.p pVar8;
+        com.baidu.tieba.a.af o;
+        com.baidu.tieba.b.p pVar9;
+        com.baidu.tieba.b.p pVar10;
+        com.baidu.tieba.b.p pVar11;
+        com.baidu.tieba.b.p pVar12;
+        bv bvVar2;
+        bv bvVar3;
         boolean z = true;
-        this.a.t = -1L;
-        if (j == -3) {
-            return;
-        }
-        if (j == -1) {
-            btVar3 = this.a.l;
-            if (btVar3.h()) {
-                return;
-            }
-            this.a.q();
-        } else if (j == -2) {
-            btVar2 = this.a.l;
-            if (btVar2.g()) {
-                return;
-            }
-            this.a.p();
-        } else {
-            alertDialog = this.a.d;
-            if (alertDialog != null) {
-                this.a.t = j;
-                nVar = this.a.n;
-                if (nVar.a() != null) {
-                    btVar = this.a.l;
-                    com.baidu.tieba.a.am amVar = (com.baidu.tieba.a.am) btVar.getItem(i);
-                    if (amVar != null) {
-                        nVar4 = this.a.n;
-                        if (nVar4.a().f() && amVar.b() != 1) {
-                            nVar5 = this.a.n;
-                            if (nVar5.j() != null) {
-                                nVar12 = this.a.n;
-                            }
-                            z = false;
-                            Intent intent = new Intent(this.a, SubPbActivity.class);
-                            str = this.a.o;
-                            intent.putExtra("themeId", str);
-                            intent.putExtra("postId", amVar.a());
-                            nVar6 = this.a.n;
-                            intent.putExtra("fid", nVar6.a().a().b());
-                            nVar7 = this.a.n;
-                            intent.putExtra("kw", nVar7.a().a().c());
-                            nVar8 = this.a.n;
-                            intent.putExtra("threadId", nVar8.a().b().a());
-                            l = this.a.l();
-                            intent.putExtra("mark", l);
-                            intent.putExtra("isMarked", z);
-                            nVar9 = this.a.n;
-                            intent.putExtra("anti", nVar9.a().e());
-                            nVar10 = this.a.n;
-                            intent.putExtra("manage_mode", nVar10.i());
-                            nVar11 = this.a.n;
-                            intent.putExtra("user_identity", nVar11.a().g());
-                            this.a.startActivityForResult(intent, 1300004);
-                            return;
-                        }
-                    }
-                    if (amVar != null) {
-                        nVar2 = this.a.n;
-                        if (nVar2.j() != null) {
-                            nVar3 = this.a.n;
-                            if (nVar3.j().equals(amVar.a())) {
-                                aVar3 = this.a.ac;
-                                aVar3.a(1, this.a.getString(R.string.remove_mark));
-                                aVar2 = this.a.ac;
-                                aVar2.notifyDataSetInvalidated();
-                                alertDialog2 = this.a.d;
-                                alertDialog2.show();
-                            }
-                        }
-                    }
-                    aVar = this.a.ac;
-                    aVar.a(1, this.a.getString(R.string.add_mark));
-                    aVar2 = this.a.ac;
-                    aVar2.notifyDataSetInvalidated();
-                    alertDialog2 = this.a.d;
-                    alertDialog2.show();
+        this.a.v = -1L;
+        if (j != -3) {
+            if (j == -1) {
+                bvVar3 = this.a.m;
+                if (bvVar3.h()) {
+                    return;
                 }
+                this.a.v();
+            } else if (j != -2) {
+                alertDialog = this.a.e;
+                if (alertDialog != null) {
+                    this.a.v = j;
+                    pVar = this.a.o;
+                    if (pVar.a() != null) {
+                        bvVar = this.a.m;
+                        com.baidu.tieba.a.an anVar = (com.baidu.tieba.a.an) bvVar.getItem(i);
+                        if (anVar != null) {
+                            pVar4 = this.a.o;
+                            if (pVar4.a().f() && anVar.b() != 1) {
+                                pVar5 = this.a.o;
+                                if (pVar5.j() != null) {
+                                    pVar12 = this.a.o;
+                                }
+                                z = false;
+                                Intent intent = new Intent(this.a, SubPbActivity.class);
+                                str = this.a.p;
+                                intent.putExtra("themeId", str);
+                                intent.putExtra("postId", anVar.a());
+                                pVar6 = this.a.o;
+                                intent.putExtra("fid", pVar6.a().a().b());
+                                pVar7 = this.a.o;
+                                intent.putExtra("kw", pVar7.a().a().c());
+                                pVar8 = this.a.o;
+                                intent.putExtra("threadId", pVar8.a().b().a());
+                                o = this.a.o();
+                                intent.putExtra("mark", o);
+                                intent.putExtra("isMarked", z);
+                                pVar9 = this.a.o;
+                                intent.putExtra("anti", pVar9.a().e());
+                                pVar10 = this.a.o;
+                                intent.putExtra("manage_mode", pVar10.i());
+                                pVar11 = this.a.o;
+                                intent.putExtra("user_identity", pVar11.a().g());
+                                this.a.startActivityForResult(intent, 1300004);
+                                return;
+                            }
+                        }
+                        if (anVar != null) {
+                            pVar2 = this.a.o;
+                            if (pVar2.j() != null) {
+                                pVar3 = this.a.o;
+                                if (pVar3.j().equals(anVar.a())) {
+                                    aVar3 = this.a.ae;
+                                    aVar3.a(1, this.a.getString(R.string.remove_mark));
+                                    aVar2 = this.a.ae;
+                                    aVar2.notifyDataSetInvalidated();
+                                    alertDialog2 = this.a.e;
+                                    alertDialog2.show();
+                                }
+                            }
+                        }
+                        aVar = this.a.ae;
+                        aVar.a(1, this.a.getString(R.string.add_mark));
+                        aVar2 = this.a.ae;
+                        aVar2.notifyDataSetInvalidated();
+                        alertDialog2 = this.a.e;
+                        alertDialog2.show();
+                    }
+                }
+            } else {
+                bvVar2 = this.a.m;
+                if (bvVar2.g()) {
+                    return;
+                }
+                this.a.u();
             }
         }
     }

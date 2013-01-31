@@ -15,7 +15,7 @@ public class u implements View.OnClickListener {
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         AlertDialog alertDialog;
-        alertDialog = this.a.q;
+        alertDialog = this.a.r;
         alertDialog.show();
     }
 }

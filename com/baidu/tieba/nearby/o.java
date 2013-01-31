@@ -17,15 +17,16 @@ public class o implements CompoundButton.OnCheckedChangeListener {
         RadioButton radioButton;
         RadioButton radioButton2;
         if (z) {
-            radioButton = this.a.b;
-            if (compoundButton == radioButton) {
-                this.a.a("radar", LbsActivity.class);
+            radioButton = this.a.e;
+            if (compoundButton != radioButton) {
+                radioButton2 = this.a.f;
+                if (compoundButton == radioButton2) {
+                    this.a.a("list", NearbyListActivity.class);
+                    return;
+                }
                 return;
             }
-            radioButton2 = this.a.c;
-            if (compoundButton == radioButton2) {
-                this.a.a("list", NearbyListActivity.class);
-            }
+            this.a.a("radar", LbsActivity.class);
         }
     }
 }

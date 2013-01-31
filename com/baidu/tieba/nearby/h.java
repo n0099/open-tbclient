@@ -2,8 +2,8 @@ package com.baidu.tieba.nearby;
 
 import android.widget.LinearLayout;
 import android.widget.ListView;
-import com.baidu.tieba.a.aa;
-import com.baidu.tieba.c.ae;
+import com.baidu.tieba.a.ab;
+import com.baidu.tieba.c.af;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class h implements Runnable {
@@ -26,50 +26,52 @@ public class h implements Runnable {
         com.baidu.tieba.c.d dVar;
         int i = 0;
         try {
-            linearLayout = this.a.j;
-            if (linearLayout.getParent() == null) {
-                return;
-            }
-            listView = this.a.k;
-            int firstVisiblePosition = listView.getFirstVisiblePosition();
-            listView2 = this.a.k;
-            int lastVisiblePosition = listView2.getLastVisiblePosition();
-            com.baidu.tieba.c.z c = com.baidu.tieba.c.w.c(this.a);
-            mVar = this.a.g;
-            mVar.a().a();
-            boolean z = c == com.baidu.tieba.c.z.WIFI || c == com.baidu.tieba.c.z.ThreeG;
-            while (true) {
-                int i2 = firstVisiblePosition;
-                int i3 = i;
-                mVar2 = this.a.g;
-                if (i2 >= mVar2.getCount()) {
-                    return;
-                }
-                if (!z && i2 > lastVisiblePosition) {
-                    return;
-                }
-                mVar3 = this.a.g;
-                Object item = mVar3.getItem(i2);
-                if (item != null && (item instanceof aa)) {
-                    aa aaVar = (aa) item;
-                    if (i3 >= 13) {
+            linearLayout = this.a.k;
+            if (linearLayout.getParent() != null) {
+                listView = this.a.l;
+                int firstVisiblePosition = listView.getFirstVisiblePosition();
+                listView2 = this.a.l;
+                int lastVisiblePosition = listView2.getLastVisiblePosition();
+                com.baidu.tieba.c.z c = com.baidu.tieba.c.w.c(this.a);
+                mVar = this.a.h;
+                mVar.a().a();
+                boolean z = c == com.baidu.tieba.c.z.WIFI || c == com.baidu.tieba.c.z.ThreeG;
+                while (true) {
+                    int i2 = firstVisiblePosition;
+                    int i3 = i;
+                    mVar2 = this.a.h;
+                    if (i2 < mVar2.getCount()) {
+                        if (z || i2 <= lastVisiblePosition) {
+                            mVar3 = this.a.h;
+                            Object item = mVar3.getItem(i2);
+                            if (item != null && (item instanceof ab)) {
+                                ab abVar = (ab) item;
+                                if (i3 < 13) {
+                                    if (abVar.a() == 1) {
+                                        mVar4 = this.a.h;
+                                        com.baidu.tieba.c.a a = mVar4.a();
+                                        String d = abVar.d();
+                                        dVar = this.a.C;
+                                        a.a(d, dVar);
+                                        i = i3 + 1;
+                                        firstVisiblePosition = i2 + 1;
+                                    }
+                                } else {
+                                    return;
+                                }
+                            }
+                            i = i3;
+                            firstVisiblePosition = i2 + 1;
+                        } else {
+                            return;
+                        }
+                    } else {
                         return;
                     }
-                    if (aaVar.a() == 1) {
-                        mVar4 = this.a.g;
-                        com.baidu.tieba.c.a a = mVar4.a();
-                        String d = aaVar.d();
-                        dVar = this.a.B;
-                        a.a(d, dVar);
-                        i = i3 + 1;
-                        firstVisiblePosition = i2 + 1;
-                    }
                 }
-                i = i3;
-                firstVisiblePosition = i2 + 1;
             }
         } catch (Exception e) {
-            ae.b(getClass().getName(), "run", e.getMessage());
+            af.b(getClass().getName(), "run", e.getMessage());
         }
     }
 }

@@ -31,26 +31,26 @@ public class o implements View.OnClickListener {
         GridView gridView2;
         EditText editText3;
         Button button2;
-        gridView = this.a.n;
-        if (gridView.getVisibility() != 0) {
-            keyboardLayout = this.a.r;
-            keyboardLayout.setOnkbdStateListener(null);
+        gridView = this.a.p;
+        if (gridView.getVisibility() == 0) {
+            editText2 = this.a.m;
+            editText2.requestFocus();
+            gridView2 = this.a.p;
+            gridView2.setVisibility(8);
             ImagePbActivity imagePbActivity = this.a;
-            editText = this.a.k;
-            com.baidu.tieba.c.ag.a(imagePbActivity, editText);
-            this.b.postDelayed(this.c, 200L);
-            button = this.a.m;
-            button.setBackgroundResource(R.drawable.sub_pb_keyboard);
+            editText3 = this.a.m;
+            com.baidu.tieba.c.ah.b(imagePbActivity, editText3);
+            button2 = this.a.o;
+            button2.setBackgroundResource(R.drawable.sub_pb_face);
             return;
         }
-        editText2 = this.a.k;
-        editText2.requestFocus();
-        gridView2 = this.a.n;
-        gridView2.setVisibility(8);
+        keyboardLayout = this.a.t;
+        keyboardLayout.setOnkbdStateListener(null);
         ImagePbActivity imagePbActivity2 = this.a;
-        editText3 = this.a.k;
-        com.baidu.tieba.c.ag.b(imagePbActivity2, editText3);
-        button2 = this.a.m;
-        button2.setBackgroundResource(R.drawable.sub_pb_face);
+        editText = this.a.m;
+        com.baidu.tieba.c.ah.a(imagePbActivity2, editText);
+        this.b.postDelayed(this.c, 200L);
+        button = this.a.o;
+        button.setBackgroundResource(R.drawable.sub_pb_keyboard);
     }
 }

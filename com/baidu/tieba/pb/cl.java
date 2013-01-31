@@ -1,24 +1,21 @@
 package com.baidu.tieba.pb;
 
-import android.view.View;
-import com.baidu.tieba.person.PersonInfoActivity;
+import android.graphics.Bitmap;
+import android.widget.ImageView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class cl implements View.OnClickListener {
+public class cl implements com.baidu.tieba.c.d {
     final /* synthetic */ SubPbActivity a;
+    private final /* synthetic */ ImageView b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public cl(SubPbActivity subPbActivity) {
+    public cl(SubPbActivity subPbActivity, ImageView imageView) {
         this.a = subPbActivity;
+        this.b = imageView;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        com.baidu.tieba.b.r rVar;
-        com.baidu.tieba.b.r rVar2;
-        rVar = this.a.f;
-        String a = rVar.a().a().d().a();
-        rVar2 = this.a.f;
-        PersonInfoActivity.a(this.a, a, rVar2.a().a().d().b());
+    @Override // com.baidu.tieba.c.d
+    public void a(Bitmap bitmap, String str, boolean z) {
+        this.b.setImageBitmap(bitmap);
     }
 }

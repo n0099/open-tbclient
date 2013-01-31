@@ -1,25 +1,21 @@
 package com.baidu.tieba.frs;
-
-import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class an implements View.OnClickListener {
-    final /* synthetic */ FrsImageActivity a;
+public enum an {
+    NORMAL,
+    LOADING,
+    NEXT,
+    LAST,
+    GONE,
+    NO_ITEM;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public an(FrsImageActivity frsImageActivity) {
-        this.a = frsImageActivity;
-    }
-
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        int i;
-        int i2;
-        i = this.a.v;
-        if (i > 240) {
-            FrsImageActivity frsImageActivity = this.a;
-            i2 = this.a.v;
-            frsImageActivity.c(i2 - 240);
-        }
+    /* JADX DEBUG: Replace access to removed values field (g) with 'values()' method */
+    /* renamed from: values  reason: to resolve conflict with enum method */
+    public static an[] valuesCustom() {
+        an[] valuesCustom = values();
+        int length = valuesCustom.length;
+        an[] anVarArr = new an[length];
+        System.arraycopy(valuesCustom, 0, anVarArr, 0, length);
+        return anVarArr;
     }
 }

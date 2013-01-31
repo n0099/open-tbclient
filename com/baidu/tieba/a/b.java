@@ -22,33 +22,12 @@ public class b implements Serializable {
         this.a = i;
     }
 
-    public void a(String str) {
-        this.d = str;
-    }
-
-    public void a(JSONObject jSONObject) {
-        if (jSONObject == null) {
-            return;
-        }
-        try {
-            this.a = jSONObject.optInt("ifpost", 0);
-            this.b = jSONObject.optInt("ifposta", 0);
-            this.c = jSONObject.optInt("forbid_flag", 0);
-            this.d = jSONObject.optString("tbs");
-            if (TiebaApplication.a() != null && this.d != null && this.d.length() > 0) {
-                TiebaApplication.a().g(this.d);
-            }
-            this.e = jSONObject.optInt("need_vcode", 0);
-            this.f = jSONObject.optString("vcode_md5");
-            this.g = jSONObject.optString("vcode_pic_url");
-            this.h = jSONObject.optString("forbid_info");
-        } catch (Exception e) {
-            com.baidu.tieba.c.ae.b("AntiData", "parserJson", "error = " + e.getMessage());
-        }
-    }
-
     public String b() {
         return this.d;
+    }
+
+    public void a(String str) {
+        this.d = str;
     }
 
     public String c() {
@@ -57,6 +36,26 @@ public class b implements Serializable {
 
     public String d() {
         return this.g;
+    }
+
+    public void a(JSONObject jSONObject) {
+        if (jSONObject != null) {
+            try {
+                this.a = jSONObject.optInt("ifpost", 0);
+                this.b = jSONObject.optInt("ifposta", 0);
+                this.c = jSONObject.optInt("forbid_flag", 0);
+                this.d = jSONObject.optString("tbs");
+                if (TiebaApplication.b() != null && this.d != null && this.d.length() > 0) {
+                    TiebaApplication.b().h(this.d);
+                }
+                this.e = jSONObject.optInt("need_vcode", 0);
+                this.f = jSONObject.optString("vcode_md5");
+                this.g = jSONObject.optString("vcode_pic_url");
+                this.h = jSONObject.optString("forbid_info");
+            } catch (Exception e) {
+                com.baidu.tieba.c.af.b("AntiData", "parserJson", "error = " + e.getMessage());
+            }
+        }
     }
 
     public String e() {

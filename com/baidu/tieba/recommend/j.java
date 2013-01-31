@@ -1,18 +1,18 @@
 package com.baidu.tieba.recommend;
 
 import android.content.DialogInterface;
-import com.baidu.tieba.a.as;
+import com.baidu.tieba.a.av;
 import com.baidu.tieba.pb.PbActivity;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class j implements DialogInterface.OnClickListener {
     final /* synthetic */ GuessActivity a;
-    private final /* synthetic */ as b;
+    private final /* synthetic */ av b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public j(GuessActivity guessActivity, as asVar) {
+    public j(GuessActivity guessActivity, av avVar) {
         this.a = guessActivity;
-        this.b = asVar;
+        this.b = avVar;
     }
 
     @Override // android.content.DialogInterface.OnClickListener
@@ -21,10 +21,10 @@ public class j implements DialogInterface.OnClickListener {
         String str2;
         switch (i) {
             case 0:
-                str = this.a.e;
+                str = this.a.f;
                 if (str != null) {
                     GuessActivity guessActivity = this.a;
-                    str2 = this.a.e;
+                    str2 = this.a.f;
                     PbActivity.a(guessActivity, str2, (String) null);
                     return;
                 }
@@ -33,7 +33,7 @@ public class j implements DialogInterface.OnClickListener {
                 this.a.c(this.b);
                 return;
             case 2:
-                this.a.n();
+                this.a.p();
                 return;
             default:
                 return;

@@ -17,14 +17,14 @@ public class ac implements View.OnClickListener {
     public void onClick(View view) {
         EditText editText;
         EditText editText2;
-        this.a.t();
+        this.a.w();
         LoginActivity loginActivity = this.a;
-        InputMethodManager inputMethodManager = this.a.b;
-        editText = this.a.o;
+        InputMethodManager inputMethodManager = this.a.f;
+        editText = this.a.s;
         loginActivity.a(inputMethodManager, editText);
         LoginActivity loginActivity2 = this.a;
-        InputMethodManager inputMethodManager2 = this.a.b;
-        editText2 = this.a.p;
+        InputMethodManager inputMethodManager2 = this.a.f;
+        editText2 = this.a.t;
         loginActivity2.a(inputMethodManager2, editText2);
         Register2Activity.a(this.a, 1200006);
     }

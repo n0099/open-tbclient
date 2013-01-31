@@ -28,53 +28,56 @@ class ai implements View.OnFocusChangeListener {
         ImageView imageView;
         ImageView imageView2;
         ImageView imageView3;
-        EditText editText2;
-        com.baidu.tieba.b.u uVar;
-        EditText editText3;
         ImageView imageView4;
+        EditText editText2;
+        com.baidu.tieba.b.w wVar;
+        EditText editText3;
         ImageView imageView5;
         ImageView imageView6;
-        com.baidu.tieba.b.u uVar2;
+        ImageView imageView7;
+        com.baidu.tieba.b.w wVar2;
         EditText editText4;
         Button button;
         Button button2;
-        editText = this.a.f;
+        editText = this.a.g;
         if (view != editText) {
-            button = this.a.h;
+            button = this.a.i;
             if (view != button) {
-                button2 = this.a.i;
+                button2 = this.a.j;
             }
         }
         if (z) {
-            gridView = this.a.p;
+            gridView = this.a.q;
             gridView.setVisibility(8);
-            imageView = this.a.j;
+            imageView = this.a.k;
             imageView.setClickable(false);
-            imageView2 = this.a.k;
+            imageView2 = this.a.l;
             imageView2.setClickable(false);
-            imageView3 = this.a.l;
+            imageView3 = this.a.m;
             imageView3.setClickable(false);
+            imageView4 = this.a.k;
+            imageView4.setImageDrawable(this.a.getResources().getDrawable(R.drawable.write_face));
         }
-        editText2 = this.a.g;
+        editText2 = this.a.h;
         if (view == editText2) {
             if (!z) {
-                uVar = this.a.b;
-                if (uVar.a() == 0) {
-                    editText3 = this.a.g;
+                wVar = this.a.c;
+                if (wVar.a() == 0) {
+                    editText3 = this.a.h;
                     editText3.setHint(R.string.content);
                     return;
                 }
                 return;
             }
-            imageView4 = this.a.j;
-            imageView4.setClickable(true);
             imageView5 = this.a.k;
             imageView5.setClickable(true);
             imageView6 = this.a.l;
             imageView6.setClickable(true);
-            uVar2 = this.a.b;
-            if (uVar2.a() == 0) {
-                editText4 = this.a.g;
+            imageView7 = this.a.m;
+            imageView7.setClickable(true);
+            wVar2 = this.a.c;
+            if (wVar2.a() == 0) {
+                editText4 = this.a.h;
                 editText4.setHint((CharSequence) null);
             }
         }

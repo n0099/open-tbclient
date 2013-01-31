@@ -1,54 +1,20 @@
 package com.baidu.tieba.a;
 
-import android.webkit.URLUtil;
-import java.io.Serializable;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
-public class aw implements Serializable {
-    private String c;
-    private int e;
-    private String f;
-    private String h;
-    private int a = 0;
-    private int d = 0;
+public class aw {
+    private String a = null;
+    private String d = null;
     private String b = null;
-    private String g = null;
-
-    public aw() {
-        a((String) null);
-        this.c = null;
-    }
+    private int c = 0;
+    private ba e = new ba();
 
     public String a() {
-        return this.f;
+        return this.d;
     }
 
-    public void a(String str) {
-        this.h = str;
-    }
-
-    public void a(JSONObject jSONObject) {
-        if (jSONObject == null) {
-            return;
-        }
-        try {
-            this.a = jSONObject.optInt("force_update", 0);
-            this.b = jSONObject.optString("new_version", null);
-            this.g = jSONObject.optString("new_version_url");
-            this.e = jSONObject.optInt("new_version_remind", 0);
-            this.f = jSONObject.optString("new_version_desc", null);
-            if (this.e != 1 || this.g == null || !URLUtil.isHttpUrl(this.g) || this.b == null || h.h().equalsIgnoreCase(this.b)) {
-                return;
-            }
-            this.d = 1;
-            this.c = "tieba_" + this.b + ".apk";
-        } catch (Exception e) {
-            com.baidu.tieba.c.ae.b(getClass().getName(), "parserJson", e.getMessage());
-        }
-    }
-
-    public int b() {
-        return this.a;
+    public ba b() {
+        return this.e;
     }
 
     public String c() {
@@ -56,14 +22,27 @@ public class aw implements Serializable {
     }
 
     public String d() {
-        return this.g;
+        return this.a;
     }
 
     public int e() {
-        return this.d;
+        return this.c;
     }
 
-    public String f() {
-        return this.c;
+    public void a(JSONObject jSONObject) {
+        if (jSONObject != null) {
+            try {
+                this.a = jSONObject.optString("tid");
+                this.b = jSONObject.optString("title");
+                this.c = jSONObject.optInt("reply_amount", 0);
+                JSONObject optJSONObject = jSONObject.optJSONObject("user");
+                if (optJSONObject != null) {
+                    this.d = optJSONObject.optString("name_show");
+                }
+                this.e.a(jSONObject.optJSONObject("photo"));
+            } catch (Exception e) {
+                com.baidu.tieba.c.af.b("HotspotData", "parserJson", "error = " + e.getMessage());
+            }
+        }
     }
 }

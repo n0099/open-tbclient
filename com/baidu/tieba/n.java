@@ -1,18 +1,31 @@
 package com.baidu.tieba;
 
-import android.content.DialogInterface;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.view.animation.Animation;
 /* loaded from: classes.dex */
-public class n implements DialogInterface.OnCancelListener {
-    final /* synthetic */ MainTabActivity a;
+class n implements Animation.AnimationListener {
+    final /* synthetic */ LogoActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public n(MainTabActivity mainTabActivity) {
-        this.a = mainTabActivity;
+    public n(LogoActivity logoActivity) {
+        this.a = logoActivity;
     }
 
-    @Override // android.content.DialogInterface.OnCancelListener
-    public void onCancel(DialogInterface dialogInterface) {
-        this.a.b();
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationEnd(Animation animation) {
+        boolean z;
+        this.a.d = true;
+        z = this.a.e;
+        if (!z) {
+            return;
+        }
+        this.a.j();
+    }
+
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationRepeat(Animation animation) {
+    }
+
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationStart(Animation animation) {
     }
 }

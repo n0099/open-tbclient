@@ -8,46 +8,25 @@ import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.FrameLayout;
 import android.widget.RadioButton;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.c.ag;
+import com.baidu.tieba.c.ad;
 /* loaded from: classes.dex */
 public class NewHomeActivity extends ActivityGroup {
-    private Button a;
     private Button b;
     private Button c;
-    private View.OnClickListener d;
-    private RadioButton e;
+    private Button d;
+    private View.OnClickListener e;
     private RadioButton f;
-    private CompoundButton.OnCheckedChangeListener g = null;
-    private FrameLayout h;
-
-    private void a() {
-        this.c = (Button) findViewById(R.id.login);
-        this.b = (Button) findViewById(R.id.search);
-        this.a = (Button) findViewById(R.id.refresh);
-        this.d = new o(this);
-        this.c.setOnClickListener(this.d);
-        this.b.setOnClickListener(this.d);
-        this.a.setOnClickListener(this.d);
-        this.h = (FrameLayout) findViewById(R.id.content);
-        this.e = (RadioButton) findViewById(R.id.recommend_tab);
-        this.f = (RadioButton) findViewById(R.id.guess_tab);
-        this.g = new p(this);
-        this.e.setOnCheckedChangeListener(this.g);
-        this.f.setOnCheckedChangeListener(this.g);
-        if (TiebaApplication.a().ad() >= 3) {
-            this.f.setChecked(true);
-        } else {
-            this.e.setChecked(true);
-        }
-    }
-
-    public void a(String str, Class cls) {
-        Intent intent = new Intent(this, cls);
-        this.h.removeAllViews();
-        this.h.addView(getLocalActivityManager().startActivity(str, intent).getDecorView());
-    }
+    private RadioButton g;
+    private FrameLayout i;
+    private CompoundButton.OnCheckedChangeListener h = null;
+    protected int a = -1;
+    private RelativeLayout j = null;
+    private RelativeLayout k = null;
+    private TextView l = null;
 
     @Override // android.app.ActivityGroup, android.app.Activity
     protected void onCreate(Bundle bundle) {
@@ -56,17 +35,70 @@ public class NewHomeActivity extends ActivityGroup {
         a();
     }
 
+    private void a() {
+        this.j = (RelativeLayout) findViewById(R.id.parent);
+        this.k = (RelativeLayout) findViewById(R.id.title);
+        this.l = (TextView) findViewById(R.id.title_text);
+        this.d = (Button) findViewById(R.id.login);
+        this.c = (Button) findViewById(R.id.search);
+        this.b = (Button) findViewById(R.id.refresh);
+        this.e = new o(this);
+        this.d.setOnClickListener(this.e);
+        this.c.setOnClickListener(this.e);
+        this.b.setOnClickListener(this.e);
+        this.i = (FrameLayout) findViewById(R.id.content);
+        this.f = (RadioButton) findViewById(R.id.recommend_tab);
+        this.g = (RadioButton) findViewById(R.id.guess_tab);
+        this.h = new p(this);
+        this.f.setOnCheckedChangeListener(this.h);
+        this.g.setOnCheckedChangeListener(this.h);
+        if (TiebaApplication.b().ag() >= 3) {
+            this.g.setChecked(true);
+        } else {
+            this.f.setChecked(true);
+        }
+    }
+
     @Override // android.app.ActivityGroup, android.app.Activity
     protected void onResume() {
-        String u = TiebaApplication.u();
-        if (u == null || u.length() <= 0) {
-            this.c.setVisibility(0);
-            this.c.setClickable(true);
-        } else {
-            this.c.setVisibility(4);
-            this.c.setClickable(false);
-        }
         super.onResume();
-        ag.e(this);
+        String w = TiebaApplication.w();
+        if (w != null && w.length() > 0) {
+            this.d.setVisibility(4);
+            this.d.setClickable(false);
+        } else {
+            this.d.setVisibility(0);
+            this.d.setClickable(true);
+        }
+        if (TiebaApplication.b().af() != this.a) {
+            this.a = TiebaApplication.b().af();
+            a(this.a);
+        }
+    }
+
+    protected void a(int i) {
+        ad.a(this.j, i);
+        ad.c(this.k, i);
+        ad.c(this.l, i);
+        ad.e((View) this.b, i);
+        ad.g(this.d, i);
+        ad.f(this.c, i);
+        if (i == 1) {
+            ad.i(this.f, R.drawable.home_radio_button_1);
+            ad.i(this.g, R.drawable.home_radio_button_1);
+            this.f.setTextColor(getResources().getColorStateList(R.color.tab_text_color_bg_1));
+            this.g.setTextColor(getResources().getColorStateList(R.color.tab_text_color_bg_1));
+            return;
+        }
+        ad.i(this.f, R.drawable.home_radio_button);
+        ad.i(this.g, R.drawable.home_radio_button);
+        this.f.setTextColor(getResources().getColorStateList(R.color.tab_text_color_bg));
+        this.g.setTextColor(getResources().getColorStateList(R.color.tab_text_color_bg));
+    }
+
+    public void a(String str, Class cls) {
+        Intent intent = new Intent(this, cls);
+        this.i.removeAllViews();
+        this.i.addView(getLocalActivityManager().startActivity(str, intent).getDecorView());
     }
 }

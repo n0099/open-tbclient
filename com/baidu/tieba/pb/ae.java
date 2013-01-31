@@ -6,30 +6,14 @@ import com.baidu.tieba.write.VcodeActivity;
 /* loaded from: classes.dex */
 public class ae extends AsyncTask {
     final /* synthetic */ ImagePbActivity a;
-    private com.baidu.tieba.b.u b;
+    private com.baidu.tieba.b.w b;
     private com.baidu.tieba.c.t c = null;
     private boolean d = false;
 
-    public ae(ImagePbActivity imagePbActivity, com.baidu.tieba.b.u uVar) {
+    public ae(ImagePbActivity imagePbActivity, com.baidu.tieba.b.w wVar) {
         this.a = imagePbActivity;
         this.b = null;
-        this.b = uVar;
-    }
-
-    private void a(int i, String str, String str2) {
-        if (i != 5 && i != 6) {
-            this.a.b(str);
-            return;
-        }
-        com.baidu.tieba.a.av avVar = new com.baidu.tieba.a.av();
-        avVar.a(str2);
-        if (avVar.b() == null) {
-            this.a.b(str);
-            return;
-        }
-        this.b.h(avVar.a());
-        this.b.i(avVar.b());
-        VcodeActivity.a(this.a, this.b, 1200005);
+        this.b = wVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -55,14 +39,20 @@ public class ae extends AsyncTask {
         return this.c.i();
     }
 
-    public void a() {
-        this.a.t = null;
-        this.a.c();
-        this.d = true;
-        if (this.c != null) {
-            this.c.g();
+    private void a(int i, String str, String str2) {
+        if (i == 5 || i == 6) {
+            com.baidu.tieba.a.ay ayVar = new com.baidu.tieba.a.ay();
+            ayVar.a(str2);
+            if (ayVar.b() != null) {
+                this.b.h(ayVar.a());
+                this.b.i(ayVar.b());
+                VcodeActivity.a(this.a, this.b, 1200005);
+                return;
+            }
+            this.a.b(str);
+            return;
         }
-        super.cancel(true);
+        this.a.b(str);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -71,14 +61,24 @@ public class ae extends AsyncTask {
     /* renamed from: a */
     public void onPostExecute(String str) {
         super.onPostExecute(str);
-        this.a.c();
-        this.a.t = null;
+        this.a.d();
+        this.a.v = null;
         if (this.c != null) {
-            if (this.c.b()) {
-                this.a.n();
-            } else {
+            if (!this.c.b()) {
                 a(this.c.d(), this.c.f(), str);
+            } else {
+                this.a.p();
             }
         }
+    }
+
+    public void a() {
+        this.a.v = null;
+        this.a.d();
+        this.d = true;
+        if (this.c != null) {
+            this.c.g();
+        }
+        super.cancel(true);
     }
 }

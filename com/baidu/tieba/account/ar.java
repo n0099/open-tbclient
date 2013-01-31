@@ -19,19 +19,27 @@ public class ar extends AsyncTask {
         this.d = str2;
     }
 
+    @Override // android.os.AsyncTask
+    protected void onPreExecute() {
+        this.a.m = null;
+        this.a.p = null;
+        this.a.o = System.currentTimeMillis();
+        this.a.a(0, this.a.getIntent().getStringExtra("uname"));
+    }
+
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.os.AsyncTask
     /* renamed from: a */
     public com.baidu.tieba.a.a doInBackground(String... strArr) {
-        String l;
+        String n;
         this.b = new com.baidu.tieba.c.t();
         if (this.d != null) {
             com.baidu.tieba.c.t tVar = this.b;
             String str = this.c;
             StringBuilder append = new StringBuilder(String.valueOf(this.d)).append('|');
-            l = this.a.l();
-            return com.baidu.tieba.a.a(tVar, str, append.append(l).toString());
+            n = this.a.n();
+            return com.baidu.tieba.a.a(tVar, str, append.append(n).toString());
         }
         return null;
     }
@@ -48,27 +56,27 @@ public class ar extends AsyncTask {
         Handler handler2;
         Runnable runnable2;
         super.onPostExecute(aVar);
-        this.a.j = aVar;
+        this.a.m = aVar;
         if (this.b != null) {
-            this.a.m = this.b.f();
+            this.a.p = this.b.f();
         }
-        str = this.a.m;
+        str = this.a.p;
         if (str == null) {
-            this.a.m = this.a.getString(R.string.data_load_error);
+            this.a.p = this.a.getString(R.string.data_load_error);
         }
         this.b = null;
-        this.a.b = null;
+        this.a.e = null;
         long currentTimeMillis = 1000 - System.currentTimeMillis();
-        j = this.a.l;
+        j = this.a.o;
         long j2 = currentTimeMillis + j;
         if (j2 <= 0) {
             j2 = 0;
         }
-        handler = this.a.n;
-        runnable = this.a.o;
+        handler = this.a.q;
+        runnable = this.a.r;
         handler.removeCallbacks(runnable);
-        handler2 = this.a.n;
-        runnable2 = this.a.o;
+        handler2 = this.a.q;
+        runnable2 = this.a.r;
         handler2.postDelayed(runnable2, j2);
     }
 
@@ -76,15 +84,7 @@ public class ar extends AsyncTask {
         if (this.b != null) {
             this.b.g();
         }
-        this.a.b = null;
+        this.a.e = null;
         return super.cancel(true);
-    }
-
-    @Override // android.os.AsyncTask
-    protected void onPreExecute() {
-        this.a.j = null;
-        this.a.m = null;
-        this.a.l = System.currentTimeMillis();
-        this.a.a(0, this.a.getIntent().getStringExtra("uname"));
     }
 }

@@ -5,8 +5,27 @@ import android.graphics.Bitmap;
 import cn.jingling.lib.filters.CMTProcessor;
 import cn.jingling.lib.filters.Curve;
 import cn.jingling.lib.filters.OneKeyFilter;
+import com.baidu.browser.explorer.BdWebErrorView;
+import com.baidu.zeus.bouncycastle.DERTags;
 /* loaded from: classes.dex */
 public class Sweety extends OneKeyFilter {
+    private void RGB2Lab(int[] iArr, int i, int i2) {
+        int[] iArr2 = new int[3];
+        int[] iArr3 = new int[3];
+        for (int i3 = 0; i3 < i2; i3++) {
+            for (int i4 = 0; i4 < i; i4++) {
+                int i5 = iArr[(i3 * i) + i4];
+                iArr2[0] = (i5 >> 16) & 255;
+                iArr2[1] = (i5 >> 8) & 255;
+                iArr2[2] = i5 & 255;
+                iArr3[0] = (((iArr2[0] * 13933) + (46871 * iArr2[1])) + (iArr2[2] * 4732)) >> 16;
+                iArr3[1] = (((((iArr2[0] * 14503) - (iArr2[1] * 22218)) + (iArr2[2] * 7714)) * 377) >> 24) + DERTags.TAGGED;
+                iArr3[2] = (((((iArr2[0] * 12773) + (39695 * iArr2[1])) - (52468 * iArr2[2])) * 160) >> 24) + DERTags.TAGGED;
+                iArr[(i3 * i) + i4] = (((i5 >> 24) & 255) << 24) | (iArr3[0] << 16) | (iArr3[1] << 8) | iArr3[2];
+            }
+        }
+    }
+
     private void Lab2RGB(int[] iArr, int i, int i2) {
         int[] iArr2 = new int[3];
         int[] iArr3 = new int[3];
@@ -19,7 +38,7 @@ public class Sweety extends OneKeyFilter {
                 iArr3[2] = i5 & 255;
                 int i7 = iArr3[0];
                 int i8 = (iArr3[1] - 128) * 174;
-                int i9 = (iArr3[2] - 128) * 410;
+                int i9 = (iArr3[2] - 128) * BdWebErrorView.ERROR_CODE_410;
                 iArr2[0] = (((100922 * i8) + (i9 * 17790)) >> 23) + i7;
                 iArr2[1] = i7 - (((i8 * 30176) + (i9 * 1481)) >> 23);
                 iArr2[2] = i7 + (((i8 * 1740) - (i9 * 37719)) >> 23);
@@ -39,23 +58,6 @@ public class Sweety extends OneKeyFilter {
                     iArr2[2] = 255;
                 }
                 iArr[(i3 * i) + i4] = (i6 << 24) | (iArr2[0] << 16) | (iArr2[1] << 8) | iArr2[2];
-            }
-        }
-    }
-
-    private void RGB2Lab(int[] iArr, int i, int i2) {
-        int[] iArr2 = new int[3];
-        int[] iArr3 = new int[3];
-        for (int i3 = 0; i3 < i2; i3++) {
-            for (int i4 = 0; i4 < i; i4++) {
-                int i5 = iArr[(i3 * i) + i4];
-                iArr2[0] = (i5 >> 16) & 255;
-                iArr2[1] = (i5 >> 8) & 255;
-                iArr2[2] = i5 & 255;
-                iArr3[0] = (((iArr2[0] * 13933) + (46871 * iArr2[1])) + (iArr2[2] * 4732)) >> 16;
-                iArr3[1] = (((((iArr2[0] * 14503) - (iArr2[1] * 22218)) + (iArr2[2] * 7714)) * 377) >> 24) + 128;
-                iArr3[2] = (((((iArr2[0] * 12773) + (39695 * iArr2[1])) - (52468 * iArr2[2])) * 160) >> 24) + 128;
-                iArr[(i3 * i) + i4] = (((i5 >> 24) & 255) << 24) | (iArr3[0] << 16) | (iArr3[1] << 8) | iArr3[2];
             }
         }
     }

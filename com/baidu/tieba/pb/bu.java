@@ -1,24 +1,93 @@
 package com.baidu.tieba.pb;
 
-import android.content.Context;
-import android.view.View;
+import android.os.AsyncTask;
+import com.baidu.tieba.R;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class bu implements View.OnClickListener {
-    final /* synthetic */ bt a;
+public class bu extends AsyncTask {
+    final /* synthetic */ PbActivity b;
+    private String d;
+    private String e;
+    private String f;
+    private int g;
+    private com.baidu.tieba.c.t c = null;
+    String a = null;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public bu(bt btVar) {
-        this.a = btVar;
+    public bu(PbActivity pbActivity, String str, String str2, String str3, int i) {
+        this.b = pbActivity;
+        this.d = str;
+        this.e = str2;
+        this.f = str3;
+        this.g = i;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        Context context;
-        if (view.getTag() == null || !(view.getTag() instanceof String)) {
-            return;
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // android.os.AsyncTask
+    /* renamed from: a */
+    public Boolean doInBackground(String... strArr) {
+        String str;
+        this.c = new com.baidu.tieba.c.t(strArr[0]);
+        this.c.a("word", this.e);
+        if (this.g != 5) {
+            this.c.a("fid", this.d);
+            this.c.a("z", this.f);
+            if (this.g == 3) {
+                this.c.a("ntn", "set");
+            } else if (this.g == 4) {
+                this.c.a("ntn", "");
+            } else if (this.g == 1) {
+                this.c.a("ntn", "set");
+                com.baidu.tieba.c.t tVar = this.c;
+                str = this.b.Z;
+                tVar.a("cid", str);
+            } else {
+                this.c.a("ntn", "");
+            }
         }
-        context = this.a.a;
-        com.baidu.tieba.c.ag.c(context, (String) view.getTag());
+        this.c.d(true);
+        String i = this.c.i();
+        if (this.c.b()) {
+            if (this.g == 5) {
+                this.a = i;
+            }
+            return true;
+        }
+        return false;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // android.os.AsyncTask
+    /* renamed from: a */
+    public void onPostExecute(Boolean bool) {
+        com.baidu.tieba.b.p pVar;
+        super.onPostExecute(bool);
+        this.b.ac = null;
+        pVar = this.b.o;
+        pVar.f(false);
+        if (this.c != null) {
+            if (bool.booleanValue()) {
+                if (this.g != 5) {
+                    this.b.b(this.b.getString(R.string.success));
+                    return;
+                } else {
+                    this.b.d(this.a);
+                    return;
+                }
+            }
+            this.b.b(this.c.f());
+        }
+    }
+
+    public void a() {
+        com.baidu.tieba.b.p pVar;
+        if (this.c != null) {
+            this.c.g();
+        }
+        this.b.ac = null;
+        pVar = this.b.o;
+        pVar.f(false);
+        super.cancel(true);
     }
 }

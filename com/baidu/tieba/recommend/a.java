@@ -1,9 +1,9 @@
 package com.baidu.tieba.recommend;
 
 import android.widget.ListView;
-import com.baidu.tieba.a.af;
-import com.baidu.tieba.a.as;
-import com.baidu.tieba.c.ae;
+import com.baidu.tieba.a.ag;
+import com.baidu.tieba.a.av;
+import com.baidu.tieba.c.af;
 import com.baidu.tieba.c.w;
 import com.baidu.tieba.c.z;
 import java.util.ArrayList;
@@ -31,55 +31,56 @@ class a implements Runnable {
         int i;
         l lVar5;
         try {
-            listView = this.a.h;
+            listView = this.a.i;
             int firstVisiblePosition = listView.getFirstVisiblePosition();
-            listView2 = this.a.h;
+            listView2 = this.a.i;
             int lastVisiblePosition = listView2.getLastVisiblePosition();
             z c = w.c(this.a);
-            lVar = this.a.i;
+            lVar = this.a.j;
             lVar.a().a();
             boolean z = c == z.WIFI || c == z.ThreeG;
-            lVar2 = this.a.i;
+            lVar2 = this.a.j;
             lVar2.a().a(z);
             int i2 = firstVisiblePosition;
             int i3 = 0;
             while (i2 < lVar3.getCount()) {
-                if (!z && i2 > lastVisiblePosition) {
+                if (z || i2 <= lastVisiblePosition) {
+                    lVar4 = this.a.j;
+                    av avVar = (av) lVar4.getItem(i2);
+                    if (avVar != null) {
+                        ArrayList n = avVar.n();
+                        int size = n.size();
+                        if (i3 < 13) {
+                            int i4 = 0;
+                            while (i4 < size) {
+                                if (((ag) n.get(i4)).a() == 3) {
+                                    if (i3 >= 13) {
+                                        i = i3;
+                                        break;
+                                    }
+                                    i3++;
+                                    lVar5 = this.a.j;
+                                    lVar5.a().a(((ag) n.get(i4)).b(), new b(this));
+                                }
+                                i4++;
+                                i3 = i3;
+                            }
+                        }
+                        i = i3;
+                        if (z && i >= 13 && 0 >= 30) {
+                            return;
+                        }
+                    } else {
+                        i = i3;
+                    }
+                    i2++;
+                    i3 = i;
+                } else {
                     return;
                 }
-                lVar4 = this.a.i;
-                as asVar = (as) lVar4.getItem(i2);
-                if (asVar != null) {
-                    ArrayList n = asVar.n();
-                    int size = n.size();
-                    if (i3 < 13) {
-                        int i4 = 0;
-                        while (i4 < size) {
-                            if (((af) n.get(i4)).a() == 3) {
-                                if (i3 >= 13) {
-                                    i = i3;
-                                    break;
-                                }
-                                i3++;
-                                lVar5 = this.a.i;
-                                lVar5.a().a(((af) n.get(i4)).b(), new b(this));
-                            }
-                            i4++;
-                            i3 = i3;
-                        }
-                    }
-                    i = i3;
-                    if (z && i >= 13 && 0 >= 30) {
-                        return;
-                    }
-                } else {
-                    i = i3;
-                }
-                i2++;
-                i3 = i;
             }
         } catch (Exception e) {
-            ae.b("GuessActivity", "mGetImageRunnble.run", "error = " + e.getMessage());
+            af.b("GuessActivity", "mGetImageRunnble.run", "error = " + e.getMessage());
         }
     }
 }

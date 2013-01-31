@@ -17,22 +17,22 @@ class h {
         return ((EdgeEffect) obj).isFinished();
     }
 
+    public static void b(Object obj) {
+        ((EdgeEffect) obj).finish();
+    }
+
     public static boolean a(Object obj, float f) {
         ((EdgeEffect) obj).onPull(f);
         return true;
-    }
-
-    public static boolean a(Object obj, Canvas canvas) {
-        return ((EdgeEffect) obj).draw(canvas);
-    }
-
-    public static void b(Object obj) {
-        ((EdgeEffect) obj).finish();
     }
 
     public static boolean c(Object obj) {
         EdgeEffect edgeEffect = (EdgeEffect) obj;
         edgeEffect.onRelease();
         return edgeEffect.isFinished();
+    }
+
+    public static boolean a(Object obj, Canvas canvas) {
+        return ((EdgeEffect) obj).draw(canvas);
     }
 }

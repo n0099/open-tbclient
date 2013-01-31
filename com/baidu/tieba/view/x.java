@@ -43,7 +43,7 @@ public class x extends Dialog {
         this.k = 0;
         this.l = 0;
         this.m = 0;
-        this.l = com.baidu.tieba.c.ag.a(context, 0.0f);
+        this.l = com.baidu.tieba.c.ah.a(context, 0.0f);
         this.f = i;
         this.g = i2;
         if (this.f <= 0) {
@@ -56,7 +56,7 @@ public class x extends Dialog {
         this.b = (ImageView) this.c.findViewById(R.id.image);
         this.b.setScaleType(ImageView.ScaleType.FIT_CENTER);
         this.b.setPadding(this.l, this.l, this.l, this.l);
-        this.h = com.baidu.tieba.c.ag.a(context, 234.0f);
+        this.h = com.baidu.tieba.c.ah.a(context, 234.0f);
         if (this.h > 350) {
             this.h = 350;
         }
@@ -65,62 +65,75 @@ public class x extends Dialog {
         this.e = new y(this);
     }
 
-    private void b(Bitmap bitmap) {
-        int i;
-        int height;
-        if (bitmap == null) {
-            return;
-        }
-        if (this.h / this.i > bitmap.getWidth() / bitmap.getHeight()) {
-            i = (bitmap.getWidth() * this.i) / bitmap.getHeight();
-            height = this.i;
-        } else {
-            i = this.h;
-            height = (bitmap.getHeight() * this.h) / bitmap.getWidth();
-        }
-        ViewGroup.LayoutParams layoutParams = this.b.getLayoutParams();
-        int i2 = i + (this.l * 2);
-        int i3 = height + (this.l * 2);
-        layoutParams.width = i2;
-        layoutParams.height = i3;
-        this.b.setLayoutParams(layoutParams);
-        this.j = (this.f - (i2 + (this.m * 2))) / 2;
-        this.k = (this.g - (i3 + (this.m * 2))) / 2;
-        this.b.setImageBitmap(bitmap);
-    }
-
     public void a() {
         if (isShowing()) {
             this.d.setVisibility(8);
-            com.baidu.tieba.c.ag.a(getContext(), getContext().getResources().getString(R.string.image_error));
+            com.baidu.tieba.c.ah.a(getContext(), getContext().getResources().getString(R.string.image_error));
         }
     }
 
     public void a(Bitmap bitmap) {
         this.d.setVisibility(8);
-        if (bitmap == null) {
-            return;
+        if (bitmap != null) {
+            ViewGroup.LayoutParams layoutParams = this.b.getLayoutParams();
+            if (layoutParams.width <= bitmap.getWidth() + 4) {
+                layoutParams.width = bitmap.getWidth();
+            }
+            if (layoutParams.height <= bitmap.getHeight() + 4) {
+                layoutParams.height = bitmap.getHeight();
+            }
+            this.b.setLayoutParams(layoutParams);
+            this.b.setImageBitmap(bitmap);
         }
-        ViewGroup.LayoutParams layoutParams = this.b.getLayoutParams();
-        if (layoutParams.width <= bitmap.getWidth() + 4) {
-            layoutParams.width = bitmap.getWidth();
-        }
-        if (layoutParams.height <= bitmap.getHeight() + 4) {
-            layoutParams.height = bitmap.getHeight();
-        }
-        this.b.setLayoutParams(layoutParams);
-        this.b.setImageBitmap(bitmap);
     }
 
     public void a(Bitmap bitmap, boolean z) {
         b(bitmap);
-        if (z) {
-            this.d.setVisibility(0);
-        } else {
+        if (!z) {
             this.d.setVisibility(8);
+        } else {
+            this.d.setVisibility(0);
         }
         b();
         show();
+    }
+
+    private void b(Bitmap bitmap) {
+        int i;
+        int height;
+        if (bitmap != null) {
+            if (this.h / this.i > bitmap.getWidth() / bitmap.getHeight()) {
+                i = (bitmap.getWidth() * this.i) / bitmap.getHeight();
+                height = this.i;
+            } else {
+                i = this.h;
+                height = (bitmap.getHeight() * this.h) / bitmap.getWidth();
+            }
+            ViewGroup.LayoutParams layoutParams = this.b.getLayoutParams();
+            int i2 = i + (this.l * 2);
+            int i3 = height + (this.l * 2);
+            layoutParams.width = i2;
+            layoutParams.height = i3;
+            this.b.setLayoutParams(layoutParams);
+            this.j = (this.f - (i2 + (this.m * 2))) / 2;
+            this.k = (this.g - (i3 + (this.m * 2))) / 2;
+            this.b.setImageBitmap(bitmap);
+        }
+    }
+
+    @Override // android.app.Dialog
+    protected void onStop() {
+        super.onStop();
+        this.d.setVisibility(8);
+    }
+
+    @Override // android.app.Dialog
+    protected void onCreate(Bundle bundle) {
+        super.onCreate(bundle);
+        setContentView(this.c);
+        setCanceledOnTouchOutside(true);
+        setCancelable(true);
+        getWindow().getDecorView().setOnTouchListener(this.e);
     }
 
     public void b() {
@@ -133,20 +146,5 @@ public class x extends Dialog {
         attributes.verticalMargin = 0.0f;
         attributes.gravity = 51;
         this.a.setAttributes(attributes);
-    }
-
-    @Override // android.app.Dialog
-    protected void onCreate(Bundle bundle) {
-        super.onCreate(bundle);
-        setContentView(this.c);
-        setCanceledOnTouchOutside(true);
-        setCancelable(true);
-        getWindow().getDecorView().setOnTouchListener(this.e);
-    }
-
-    @Override // android.app.Dialog
-    protected void onStop() {
-        super.onStop();
-        this.d.setVisibility(8);
     }
 }

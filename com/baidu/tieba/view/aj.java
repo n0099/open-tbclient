@@ -18,7 +18,7 @@ public class aj extends AsyncTask {
         this.c = null;
         this.d = null;
         this.c = str;
-        this.d = com.baidu.tieba.c.ad.g(str);
+        this.d = com.baidu.tieba.c.ae.h(str);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -26,6 +26,7 @@ public class aj extends AsyncTask {
     @Override // android.os.AsyncTask
     /* renamed from: a */
     public ak doInBackground(String... strArr) {
+        String str;
         ak akVar;
         Exception e;
         byte[] imageData;
@@ -33,8 +34,12 @@ public class aj extends AsyncTask {
         if (this.c == null || this.d == null) {
             return null;
         }
-        String str = String.valueOf(this.c) + "&imgtype=0";
-        String str2 = TiebaApplication.a().Y() == 1 ? String.valueOf(str) + "&qulity=" + String.valueOf(80) : String.valueOf(str) + "&qulity=" + String.valueOf(45);
+        String str2 = String.valueOf(this.c) + "&imgtype=0";
+        if (TiebaApplication.b().ab() == 1) {
+            str = String.valueOf(str2) + "&qulity=" + String.valueOf(80);
+        } else {
+            str = String.valueOf(str2) + "&qulity=" + String.valueOf(45);
+        }
         try {
             imageData = this.a.b.getImageData();
             a = imageData != null ? com.baidu.tieba.c.e.a(imageData) : null;
@@ -42,16 +47,16 @@ public class aj extends AsyncTask {
                 a = com.baidu.tieba.c.e.a(imageData);
             }
             if (a == null) {
-                this.b = new com.baidu.tieba.c.t("http://c.tieba.baidu.com/c/p/img?" + str2);
+                this.b = new com.baidu.tieba.c.t("http://c.tieba.baidu.com/c/p/img?" + str);
                 if (this.a.c != null && (this.a.c instanceof ImageActivity)) {
-                    if (((ImageActivity) this.a.c).g() != null) {
-                        this.b.a("fid", ((ImageActivity) this.a.c).g());
-                    }
-                    if (((ImageActivity) this.a.c).h() != null) {
-                        this.b.a("tid", ((ImageActivity) this.a.c).h());
-                    }
                     if (((ImageActivity) this.a.c).i() != null) {
-                        this.b.a("fname", ((ImageActivity) this.a.c).i());
+                        this.b.a("fid", ((ImageActivity) this.a.c).i());
+                    }
+                    if (((ImageActivity) this.a.c).j() != null) {
+                        this.b.a("tid", ((ImageActivity) this.a.c).j());
+                    }
+                    if (((ImageActivity) this.a.c).k() != null) {
+                        this.b.a("fname", ((ImageActivity) this.a.c).k());
                     }
                 }
                 this.b.c(true);
@@ -73,19 +78,9 @@ public class aj extends AsyncTask {
             return akVar;
         } catch (Exception e3) {
             e = e3;
-            com.baidu.tieba.c.ae.b(getClass().getName(), "doInBackground", e.getMessage());
+            com.baidu.tieba.c.af.b(getClass().getName(), "doInBackground", e.getMessage());
             return akVar;
         }
-    }
-
-    public void a() {
-        if (this.b != null) {
-            this.b.g();
-        }
-        this.a.b.setVisibility(0);
-        this.a.a.setVisibility(8);
-        this.a.d = null;
-        super.cancel(true);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -97,22 +92,21 @@ public class aj extends AsyncTask {
         ai aiVar2;
         this.a.a.setVisibility(8);
         this.a.d = null;
-        if (akVar == null) {
-            return;
-        }
-        aiVar = this.a.e;
-        if (aiVar != null) {
-            aiVar2 = this.a.e;
-            aiVar2.a(akVar.a, akVar.b);
-        }
-        Bitmap bitmap = akVar.c;
-        if (bitmap == null) {
-            this.a.b.l();
-        } else if (com.baidu.tieba.c.ag.a(akVar.b)) {
-            this.a.b.a(akVar.b, bitmap);
-        } else {
-            this.a.b.setImageBitmap(bitmap);
-            this.a.b.setImageData(akVar.b);
+        if (akVar != null) {
+            aiVar = this.a.e;
+            if (aiVar != null) {
+                aiVar2 = this.a.e;
+                aiVar2.a(akVar.a, akVar.b);
+            }
+            Bitmap bitmap = akVar.c;
+            if (bitmap == null) {
+                this.a.b.l();
+            } else if (com.baidu.tieba.c.ah.a(akVar.b)) {
+                this.a.b.a(akVar.b, bitmap);
+            } else {
+                this.a.b.setImageBitmap(bitmap);
+                this.a.b.setImageData(akVar.b);
+            }
         }
     }
 
@@ -121,5 +115,15 @@ public class aj extends AsyncTask {
         this.a.b.setImageBitmap(null);
         this.a.a.setVisibility(0);
         super.onPreExecute();
+    }
+
+    public void a() {
+        if (this.b != null) {
+            this.b.g();
+        }
+        this.a.b.setVisibility(0);
+        this.a.a.setVisibility(8);
+        this.a.d = null;
+        super.cancel(true);
     }
 }

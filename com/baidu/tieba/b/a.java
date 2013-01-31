@@ -1,24 +1,24 @@
 package com.baidu.tieba.b;
 
-import com.baidu.tieba.a.ar;
+import com.baidu.tieba.a.au;
 /* loaded from: classes.dex */
 public class a {
-    private com.baidu.tieba.a.q a = null;
-    private ar b = null;
+    private com.baidu.tieba.a.r a = null;
+    private au b = null;
 
-    public com.baidu.tieba.a.q a() {
+    public com.baidu.tieba.a.r a() {
         return this.a;
     }
 
-    public void a(ar arVar) {
-        this.b = arVar;
+    public void a(com.baidu.tieba.a.r rVar) {
+        this.a = rVar;
     }
 
-    public void a(com.baidu.tieba.a.q qVar) {
-        this.a = qVar;
-    }
-
-    public ar b() {
+    public au b() {
         return this.b;
+    }
+
+    public void a(au auVar) {
+        this.b = auVar;
     }
 }

@@ -17,6 +17,27 @@ public class bb extends AsyncTask {
         this.c = str;
     }
 
+    public void a() {
+        ProgressBar progressBar;
+        this.a.Q = null;
+        progressBar = this.a.I;
+        progressBar.setVisibility(8);
+        if (this.b != null) {
+            this.b.g();
+        }
+        super.cancel(true);
+    }
+
+    @Override // android.os.AsyncTask
+    protected void onPreExecute() {
+        ImageView imageView;
+        ProgressBar progressBar;
+        imageView = this.a.J;
+        imageView.setImageBitmap(null);
+        progressBar = this.a.I;
+        progressBar.setVisibility(0);
+    }
+
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.os.AsyncTask
@@ -24,17 +45,6 @@ public class bb extends AsyncTask {
     public Bitmap doInBackground(String... strArr) {
         this.b = new com.baidu.tieba.c.t(this.c);
         return com.baidu.tieba.c.e.a(this.b.h());
-    }
-
-    public void a() {
-        ProgressBar progressBar;
-        this.a.L = null;
-        progressBar = this.a.D;
-        progressBar.setVisibility(8);
-        if (this.b != null) {
-            this.b.g();
-        }
-        super.cancel(true);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -45,20 +55,10 @@ public class bb extends AsyncTask {
         ProgressBar progressBar;
         ImageView imageView;
         super.onPostExecute(bitmap);
-        this.a.L = null;
-        progressBar = this.a.D;
+        this.a.Q = null;
+        progressBar = this.a.I;
         progressBar.setVisibility(8);
-        imageView = this.a.E;
+        imageView = this.a.J;
         imageView.setImageBitmap(bitmap);
-    }
-
-    @Override // android.os.AsyncTask
-    protected void onPreExecute() {
-        ImageView imageView;
-        ProgressBar progressBar;
-        imageView = this.a.E;
-        imageView.setImageBitmap(null);
-        progressBar = this.a.D;
-        progressBar.setVisibility(0);
     }
 }

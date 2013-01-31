@@ -23,16 +23,16 @@ public class p implements View.OnTouchListener {
         GridView gridView2;
         EditText editText2;
         Button button;
-        gridView = this.a.n;
+        gridView = this.a.p;
         if (gridView.getVisibility() == 0) {
-            editText = this.a.k;
+            editText = this.a.m;
             editText.requestFocus();
-            gridView2 = this.a.n;
+            gridView2 = this.a.p;
             gridView2.setVisibility(8);
             ImagePbActivity imagePbActivity = this.a;
-            editText2 = this.a.k;
-            com.baidu.tieba.c.ag.b(imagePbActivity, editText2);
-            button = this.a.m;
+            editText2 = this.a.m;
+            com.baidu.tieba.c.ah.b(imagePbActivity, editText2);
+            button = this.a.o;
             button.setBackgroundResource(R.drawable.sub_pb_face);
             return true;
         }

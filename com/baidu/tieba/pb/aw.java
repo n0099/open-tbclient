@@ -15,7 +15,7 @@ public class aw implements View.OnClickListener {
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         Dialog dialog;
-        dialog = this.a.H;
+        dialog = this.a.z;
         dialog.dismiss();
     }
 }

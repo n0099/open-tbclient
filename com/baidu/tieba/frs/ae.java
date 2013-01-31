@@ -1,28 +1,32 @@
 package com.baidu.tieba.frs;
 
-import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import com.baidu.tieba.view.CustomTimerView;
-import com.baidu.tieba.view.FrsStarImageView;
 /* loaded from: classes.dex */
 class ae {
-    FrsStarImageView a;
+    LinearLayout a;
     TextView b;
-    FrsStarImageView c;
+    LinearLayout c;
     RelativeLayout d;
     TextView e;
-    Button f;
-    TextView g;
-    CustomTimerView h;
-    final /* synthetic */ ab i;
+    ProgressBar f;
+    LinearLayout g;
+    TextView h;
+    TextView i;
+    TextView j;
+    TextView k;
+    ImageView l;
+    final /* synthetic */ aa m;
 
-    private ae(ab abVar) {
-        this.i = abVar;
+    private ae(aa aaVar) {
+        this.m = aaVar;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ ae(ab abVar, ae aeVar) {
-        this(abVar);
+    public /* synthetic */ ae(aa aaVar, ae aeVar) {
+        this(aaVar);
     }
 }

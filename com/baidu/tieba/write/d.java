@@ -25,33 +25,32 @@ public class d implements TextWatcher {
         Handler handler2;
         Runnable runnable2;
         String editable2 = editable.toString();
-        if (editable2 == null) {
-            return;
+        if (editable2 != null) {
+            str = this.a.l;
+            if (!editable2.equals(str)) {
+                handler = this.a.g;
+                runnable = this.a.q;
+                handler.removeCallbacks(runnable);
+                handler2 = this.a.g;
+                runnable2 = this.a.q;
+                handler2.postDelayed(runnable2, 300L);
+            }
+            if (editable2.length() > 0) {
+                button2 = this.a.d;
+                button2.setVisibility(0);
+                return;
+            }
+            button = this.a.d;
+            button.setVisibility(8);
         }
-        str = this.a.k;
-        if (!editable2.equals(str)) {
-            handler = this.a.f;
-            runnable = this.a.m;
-            handler.removeCallbacks(runnable);
-            handler2 = this.a.f;
-            runnable2 = this.a.m;
-            handler2.postDelayed(runnable2, 300L);
-        }
-        if (editable2.length() > 0) {
-            button2 = this.a.c;
-            button2.setVisibility(0);
-            return;
-        }
-        button = this.a.c;
-        button.setVisibility(8);
     }
 
     @Override // android.text.TextWatcher
     public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
         EditText editText;
         AtListActivity atListActivity = this.a;
-        editText = this.a.b;
-        atListActivity.k = editText.getText().toString();
+        editText = this.a.c;
+        atListActivity.l = editText.getText().toString();
     }
 
     @Override // android.text.TextWatcher

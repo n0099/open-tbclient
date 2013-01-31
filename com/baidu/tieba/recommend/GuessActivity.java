@@ -12,52 +12,127 @@ import android.widget.ListView;
 import android.widget.ProgressBar;
 import com.baidu.tieba.R;
 import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.a.as;
-import com.baidu.tieba.c.ae;
-import com.baidu.tieba.c.ag;
+import com.baidu.tieba.a.av;
+import com.baidu.tieba.c.ad;
+import com.baidu.tieba.c.af;
+import com.baidu.tieba.c.ah;
 import com.baidu.tieba.pb.PbActivity;
 import java.util.ArrayList;
 import org.apache.http.message.BasicNameValuePair;
 /* loaded from: classes.dex */
 public class GuessActivity extends com.baidu.tieba.e {
-    private static volatile long m = 0;
     private static volatile long n = 0;
-    private static volatile int o = 0;
-    private int c = 3;
-    private int d = 1;
-    private String e = null;
-    private boolean f = false;
-    private String g = null;
-    private ListView h = null;
-    private l i = null;
-    private k j = null;
-    private com.baidu.tieba.b.e k = null;
-    private ProgressBar l = null;
-    AlertDialog b = null;
-    private Handler p = null;
-    private com.baidu.tieba.c.a q = null;
-    private Runnable r = new a(this);
-    private AdapterView.OnItemLongClickListener s = new c(this);
+    private static volatile long o = 0;
+    private static volatile int p = 0;
+    private int d = 3;
+    private int e = 1;
+    private String f = null;
+    private boolean g = false;
+    private String h = null;
+    private ListView i = null;
+    private l j = null;
+    private k k = null;
+    private com.baidu.tieba.b.e l = null;
+    private ProgressBar m = null;
+    AlertDialog c = null;
+    private Handler q = null;
+    private com.baidu.tieba.c.a r = null;
+    private Runnable s = new a(this);
+    private AdapterView.OnItemLongClickListener t = new c(this);
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void a(boolean z) {
-        this.f = z;
-        if (z) {
-            this.l.setVisibility(0);
-        } else {
-            this.l.setVisibility(8);
+    private void n() {
+        this.r = new com.baidu.tieba.c.a(this);
+        this.r.b(true);
+        int a = ah.a(this, 234.0f);
+        int i = a <= 350 ? a : 350;
+        this.r.a(i, (int) (i * 1.62f));
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.tieba.e, android.app.Activity
+    public void onCreate(Bundle bundle) {
+        super.onCreate(bundle);
+        setContentView(R.layout.guess_activity);
+        this.q = new Handler();
+        n();
+        o();
+        j();
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.tieba.e
+    public void b(int i) {
+        super.b(i);
+        ad.b(this.i, i);
+        this.j.notifyDataSetChanged();
+    }
+
+    public void i() {
+        if (this.c != null) {
+            this.c.dismiss();
         }
     }
 
-    private boolean a(as asVar) {
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.tieba.e, android.app.Activity
+    public void onDestroy() {
+        if (this.q != null) {
+            this.q.removeCallbacks(this.s);
+        }
+        super.onDestroy();
+        try {
+            if (this.k != null) {
+                this.k.a();
+                this.k = null;
+            }
+            if (this.j != null) {
+                this.j.d();
+            }
+            if (this.m != null) {
+                this.m.setVisibility(8);
+            }
+            System.gc();
+        } catch (Exception e) {
+            af.b(getClass().getName(), "onDestroy", e.toString());
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.tieba.e, android.app.Activity
+    public void onResume() {
+        super.onResume();
+        Long valueOf = Long.valueOf(TiebaApplication.b().v());
+        if (!this.g && System.currentTimeMillis() - valueOf.longValue() > com.baidu.tieba.a.i.c.longValue()) {
+            j();
+        } else {
+            this.s.run();
+        }
+    }
+
+    private void o() {
+        this.e = 1;
+        this.d = 3;
+        this.i = (ListView) findViewById(R.id.home_lv_guess);
+        this.j = new l(this, null, ah.a((Context) this));
+        this.j.b(new d(this));
+        this.j.a(new e(this));
+        this.i.setAdapter((ListAdapter) this.j);
+        this.i.setOnItemClickListener(new g(this));
+        this.i.setOnItemLongClickListener(this.t);
+        this.m = (ProgressBar) findViewById(R.id.recommend_progress);
+        a(false);
+        this.i.setOnScrollListener(new i(this));
+    }
+
+    private boolean a(av avVar) {
         String a;
-        return asVar == null || asVar.h() == null || (a = asVar.h().a()) == null || a.equals("0");
+        return avVar == null || avVar.h() == null || (a = avVar.h().a()) == null || a.equals("0");
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void b(as asVar) {
-        boolean a = a(asVar);
-        j jVar = new j(this, asVar);
+    public void b(av avVar) {
+        boolean a = a(avVar);
+        j jVar = new j(this, avVar);
         String string = getString(R.string.view);
         String string2 = getString(R.string.view_host);
         String string3 = getString(R.string.view_reverse);
@@ -68,71 +143,64 @@ public class GuessActivity extends com.baidu.tieba.e {
         } else {
             builder.setItems(new String[]{string, string2, string3}, jVar);
         }
-        this.b = builder.create();
-        this.b.setCanceledOnTouchOutside(true);
+        this.c = builder.create();
+        this.c.setCanceledOnTouchOutside(true);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void c(as asVar) {
-        boolean a = a(asVar);
-        if (this.e != null) {
-            if (a) {
-                PbActivity.a(this, this.e, false, false, null, false);
+    public void c(av avVar) {
+        boolean a = a(avVar);
+        if (this.f != null) {
+            if (!a) {
+                PbActivity.a(this, this.f, true, true, null, false);
             } else {
-                PbActivity.a(this, this.e, true, true, null, false);
+                PbActivity.a(this, this.f, false, false, null, false);
             }
         }
     }
 
-    private void l() {
-        this.q = new com.baidu.tieba.c.a(this);
-        this.q.b(true);
-        int a = ag.a((Context) this, 234.0f);
-        int i = a <= 350 ? a : 350;
-        this.q.a(i, (int) (i * 1.62f));
-    }
-
-    private void m() {
-        this.d = 1;
-        this.c = 3;
-        this.h = (ListView) findViewById(R.id.home_lv_guess);
-        this.i = new l(this, null, ag.a((Context) this));
-        this.i.b(new d(this));
-        this.i.a(new e(this));
-        this.h.setAdapter((ListAdapter) this.i);
-        this.h.setOnItemClickListener(new g(this));
-        this.h.setOnItemLongClickListener(this.s);
-        this.l = (ProgressBar) findViewById(R.id.recommend_progress);
-        a(false);
-        this.h.setOnScrollListener(new i(this));
-    }
-
     /* JADX INFO: Access modifiers changed from: private */
-    public void n() {
-        if (this.e != null) {
-            PbActivity.a(this, this.e, false, false, null, false);
+    public void p() {
+        if (this.f != null) {
+            PbActivity.a(this, this.f, false, false, null, false);
         }
     }
 
-    private boolean o() {
-        return this.f;
+    public void j() {
+        this.e = 1;
+        this.d = 3;
+        r();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void p() {
-        switch (this.c) {
+    public void a(boolean z) {
+        this.g = z;
+        if (z) {
+            this.m.setVisibility(0);
+        } else {
+            this.m.setVisibility(8);
+        }
+    }
+
+    private boolean q() {
+        return this.g;
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void r() {
+        switch (this.d) {
             case 1:
-                if (this.i.b()) {
+                if (this.j.b()) {
                     return;
                 }
                 break;
             case 2:
-                if (this.i.c()) {
+                if (this.j.c()) {
                     return;
                 }
                 break;
             case 3:
-                if (o()) {
+                if (q()) {
                     return;
                 }
                 break;
@@ -141,129 +209,69 @@ public class GuessActivity extends com.baidu.tieba.e {
         stringBuffer.append("http://c.tieba.baidu.com/");
         stringBuffer.append("c/s/hotfeed");
         ArrayList arrayList = new ArrayList();
-        arrayList.add(new BasicNameValuePair("pn", String.valueOf(this.d)));
+        arrayList.add(new BasicNameValuePair("pn", String.valueOf(this.e)));
         arrayList.add(new BasicNameValuePair("rn", String.valueOf(35)));
-        if (this.g != null) {
-            arrayList.add(new BasicNameValuePair("from", this.g));
+        if (this.h != null) {
+            arrayList.add(new BasicNameValuePair("from", this.h));
         }
-        r();
-        this.j = new k(this, stringBuffer.toString(), arrayList, this.c);
-        this.j.execute(stringBuffer.toString(), arrayList);
+        t();
+        this.k = new k(this, stringBuffer.toString(), arrayList, this.d);
+        this.k.execute(stringBuffer.toString(), arrayList);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void q() {
+    public void s() {
         ArrayList a;
-        this.h.setVisibility(0);
+        this.i.setVisibility(0);
         try {
-            if (this.k == null || (a = this.k.a()) == null) {
-                return;
+            if (this.l != null && (a = this.l.a()) != null) {
+                this.j.a(a);
+                if (this.e > 1) {
+                    this.j.c(true);
+                } else {
+                    this.j.c(false);
+                }
+                if (this.l.b().c() == 1) {
+                    this.j.d(true);
+                } else {
+                    this.j.d(false);
+                }
+                this.j.a(false);
+                this.j.b(false);
+                this.j.notifyDataSetInvalidated();
+                if (this.d == 1) {
+                    this.i.setSelection(1);
+                } else {
+                    this.i.setSelection(0);
+                }
+                a(false);
             }
-            this.i.a(a);
-            if (this.d > 1) {
-                this.i.c(true);
-            } else {
-                this.i.c(false);
-            }
-            if (this.k.b().c() == 1) {
-                this.i.d(true);
-            } else {
-                this.i.d(false);
-            }
-            this.i.a(false);
-            this.i.b(false);
-            this.i.notifyDataSetInvalidated();
-            if (this.c == 1) {
-                this.h.setSelection(1);
-            } else {
-                this.h.setSelection(0);
-            }
-            a(false);
         } catch (Exception e) {
-            ae.b(getClass().getName(), "", "GuessActivity.refreshGuess error = " + e.getMessage());
+            af.b(getClass().getName(), "", "GuessActivity.refreshGuess error = " + e.getMessage());
         }
-    }
-
-    private void r() {
-        if (this.j != null) {
-            this.j.a();
-            this.j = null;
-        }
-        a(false);
-        this.i.a(false);
-        this.i.b(false);
-        this.i.notifyDataSetChanged();
-    }
-
-    public void g() {
-        if (this.b != null) {
-            this.b.dismiss();
-        }
-    }
-
-    public void h() {
-        this.d = 1;
-        this.c = 3;
-        p();
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.e, android.app.Activity
-    public void onCreate(Bundle bundle) {
-        super.onCreate(bundle);
-        setContentView(R.layout.guess_activity);
-        this.p = new Handler();
-        l();
-        m();
-        h();
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.e, android.app.Activity
-    public void onDestroy() {
-        if (this.p != null) {
-            this.p.removeCallbacks(this.r);
-        }
-        super.onDestroy();
-        try {
-            if (this.j != null) {
-                this.j.a();
-                this.j = null;
-            }
-            if (this.i != null) {
-                this.i.d();
-            }
-            if (this.l != null) {
-                this.l.setVisibility(8);
-            }
-            System.gc();
-        } catch (Exception e) {
-            ae.b(getClass().getName(), "onDestroy", e.toString());
-        }
-    }
-
-    @Override // android.app.Activity
-    public void onOptionsMenuClosed(Menu menu) {
-        super.onOptionsMenuClosed(menu);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.e, android.app.Activity
     public void onPause() {
         super.onPause();
-        this.i.a().b();
+        this.j.a().b();
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.e, android.app.Activity
-    public void onResume() {
-        super.onResume();
-        Long valueOf = Long.valueOf(TiebaApplication.a().t());
-        if (this.f || System.currentTimeMillis() - valueOf.longValue() <= com.baidu.tieba.a.h.c.longValue()) {
-            this.r.run();
-        } else {
-            h();
+    private void t() {
+        if (this.k != null) {
+            this.k.a();
+            this.k = null;
         }
+        a(false);
+        this.j.a(false);
+        this.j.b(false);
+        this.j.notifyDataSetChanged();
+    }
+
+    @Override // android.app.Activity
+    public void onOptionsMenuClosed(Menu menu) {
+        super.onOptionsMenuClosed(menu);
     }
 
     @Override // android.app.Activity, android.view.Window.Callback

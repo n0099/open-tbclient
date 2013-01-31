@@ -16,18 +16,18 @@ class as implements View.OnClickListener {
         Button button;
         Button button2;
         Button button3;
-        button = this.a.d;
+        button = this.a.g;
         if (view != button) {
-            button2 = this.a.e;
+            button2 = this.a.h;
             if (view != button2) {
-                button3 = this.a.c;
-                if (view == button3) {
-                    this.a.j();
+                button3 = this.a.f;
+                if (view != button3) {
                     return;
                 }
+                this.a.l();
                 return;
             }
         }
-        this.a.i();
+        this.a.k();
     }
 }

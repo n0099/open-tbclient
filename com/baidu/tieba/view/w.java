@@ -34,6 +34,14 @@ public class w extends AsyncTask {
         this.h = agVar.e().d();
     }
 
+    @Override // android.os.AsyncTask
+    protected void onPreExecute() {
+        if (this.g != null) {
+            this.g.a(true);
+            this.g.notifyDataSetChanged();
+        }
+    }
+
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.os.AsyncTask
@@ -80,7 +88,7 @@ public class w extends AsyncTask {
         ArrayList arrayList2;
         ArrayList arrayList3;
         HashMap hashMap2;
-        com.baidu.tieba.a.v vVar = null;
+        com.baidu.tieba.a.w wVar = null;
         super.onPostExecute(str);
         try {
             if (this.g != null) {
@@ -94,17 +102,17 @@ public class w extends AsyncTask {
                     return;
                 }
                 if (this.g != null) {
-                    this.g.a((com.baidu.tieba.a.v) null);
+                    this.g.a((com.baidu.tieba.a.w) null);
                     this.g.notifyDataSetChanged();
                 }
                 hashMap = this.a.h;
                 if (hashMap.get(this.g.e().d()) != null) {
                     hashMap2 = this.a.h;
-                    vVar = (com.baidu.tieba.a.v) hashMap2.get(this.g.e().d());
-                    vVar.a(str);
+                    wVar = (com.baidu.tieba.a.w) hashMap2.get(this.g.e().d());
+                    wVar.a(str);
                 }
                 if (this.g != null) {
-                    this.g.a(vVar);
+                    this.g.a(wVar);
                     this.g.notifyDataSetChanged();
                     this.g = null;
                 }
@@ -120,15 +128,7 @@ public class w extends AsyncTask {
                 }
             }
         } catch (Exception e) {
-            com.baidu.tieba.c.ae.b(getClass().getName(), "onPostExecute", e.getMessage());
-        }
-    }
-
-    @Override // android.os.AsyncTask
-    protected void onPreExecute() {
-        if (this.g != null) {
-            this.g.a(true);
-            this.g.notifyDataSetChanged();
+            com.baidu.tieba.c.af.b(getClass().getName(), "onPostExecute", e.getMessage());
         }
     }
 }

@@ -14,23 +14,23 @@ public class r implements TextWatcher {
     }
 
     @Override // android.text.TextWatcher
-    public void afterTextChanged(Editable editable) {
-        Button button;
-        Button button2;
-        if (editable == null || editable.length() <= 0) {
-            button = this.a.l;
-            button.setEnabled(false);
-            return;
-        }
-        button2 = this.a.l;
-        button2.setEnabled(true);
-    }
-
-    @Override // android.text.TextWatcher
     public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
     }
 
     @Override // android.text.TextWatcher
     public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
+    }
+
+    @Override // android.text.TextWatcher
+    public void afterTextChanged(Editable editable) {
+        Button button;
+        Button button2;
+        if (editable == null || editable.length() <= 0) {
+            button = this.a.n;
+            button.setEnabled(false);
+            return;
+        }
+        button2 = this.a.n;
+        button2.setEnabled(true);
     }
 }

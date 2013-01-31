@@ -1,25 +1,40 @@
 package com.baidu.tieba.pb;
 
-import android.content.DialogInterface;
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.ProgressBar;
+import android.widget.TextView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class cd implements DialogInterface.OnCancelListener {
-    final /* synthetic */ SubPbActivity a;
+public class cd {
+    int a;
+    TextView b;
+    ProgressBar c;
+    cb d;
+    bz e;
+    by f;
+    ImageView g;
+    ImageView h;
+    TextView i;
+    TextView j;
+    TextView k;
+    TextView l;
+    TextView m;
+    LinearLayout n;
+    TextView o;
+    ImageView p;
+    TextView q;
+    TextView r;
+    View s;
+    final /* synthetic */ bv t;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public cd(SubPbActivity subPbActivity) {
-        this.a = subPbActivity;
+    private cd(bv bvVar) {
+        this.t = bvVar;
     }
 
-    @Override // android.content.DialogInterface.OnCancelListener
-    public void onCancel(DialogInterface dialogInterface) {
-        dd ddVar;
-        dd ddVar2;
-        this.a.b();
-        ddVar = this.a.F;
-        if (ddVar != null) {
-            ddVar2 = this.a.F;
-            ddVar2.a();
-        }
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public /* synthetic */ cd(bv bvVar, cd cdVar) {
+        this(bvVar);
     }
 }

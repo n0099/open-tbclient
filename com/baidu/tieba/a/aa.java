@@ -2,58 +2,36 @@ package com.baidu.tieba.a;
 
 import org.json.JSONObject;
 /* loaded from: classes.dex */
-public class aa extends c {
-    final /* synthetic */ x a;
+public class aa extends d {
+    final /* synthetic */ y a;
     private String b = null;
     private String c = null;
-    private String d = null;
+    private int d = 0;
     private int e = 0;
-    private String f = null;
-    private String g = null;
-    private int h = 0;
-    private long i = 0;
+    private int f = 0;
 
-    public aa(x xVar) {
-        this.a = xVar;
+    public aa(y yVar) {
+        this.a = yVar;
     }
 
-    public int a() {
+    public String a() {
+        return this.b;
+    }
+
+    public int b() {
         return this.e;
     }
 
-    @Override // com.baidu.tieba.a.c
+    @Override // com.baidu.tieba.a.d
     public void a(JSONObject jSONObject) {
         try {
-            this.b = jSONObject.optString("fname");
-            this.c = jSONObject.optString("fid");
-            this.d = jSONObject.optString("tid");
-            this.e = jSONObject.optInt("type", 0);
-            this.f = jSONObject.optString("title");
-            this.g = jSONObject.optString("pic_url");
-            this.h = jSONObject.optInt("reply_num", 0);
-            this.i = jSONObject.optLong("time", 0L);
+            this.b = jSONObject.optString("name");
+            this.c = jSONObject.optString("id");
+            this.d = jSONObject.optInt("type", 0);
+            this.e = jSONObject.optInt("level", 0);
+            this.f = jSONObject.optInt("is_like", 0);
         } catch (Exception e) {
-            com.baidu.tieba.c.ae.b(getClass().getName(), "parserJson", e.getMessage());
+            com.baidu.tieba.c.af.b(getClass().getName(), "parserJson", e.getMessage());
         }
-    }
-
-    public String b() {
-        return this.d;
-    }
-
-    public String c() {
-        return this.f;
-    }
-
-    public String d() {
-        return this.g;
-    }
-
-    public int e() {
-        return this.h;
-    }
-
-    public long f() {
-        return this.i;
     }
 }

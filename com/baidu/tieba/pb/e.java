@@ -20,14 +20,14 @@ class e implements Animation.AnimationListener {
         ImageActivity imageActivity4;
         LinearLayout linearLayout;
         imageActivity = this.a.a;
-        imageActivity.r = true;
+        imageActivity.s = true;
         imageActivity2 = this.a.a;
-        z = imageActivity2.s;
+        z = imageActivity2.t;
         if (z) {
             imageActivity3 = this.a.a;
-            imageActivity3.s = false;
+            imageActivity3.t = false;
             imageActivity4 = this.a.a;
-            linearLayout = imageActivity4.l;
+            linearLayout = imageActivity4.m;
             linearLayout.setVisibility(8);
         }
     }

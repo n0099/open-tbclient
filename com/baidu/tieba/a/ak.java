@@ -1,91 +1,43 @@
 package com.baidu.tieba.a;
 
-import java.util.ArrayList;
-import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class ak {
-    private p a = new p();
-    private as b = new as();
-    private ArrayList c = new ArrayList();
-    private aj d = new aj();
-    private b e = new b();
-    private int g = 0;
-    private boolean f = false;
+    private int a = 0;
+    private int b = 0;
+    private int c = 0;
+    private int d = 0;
+    private int e = 0;
+    private int f = 0;
 
-    public p a() {
+    public int a() {
         return this.a;
     }
 
-    public void a(aj ajVar) {
-        this.d = ajVar;
-    }
-
-    public void a(as asVar) {
-        this.b = asVar;
-    }
-
-    public void a(b bVar) {
-        this.e = bVar;
-    }
-
-    public void a(p pVar) {
-        this.a = pVar;
-    }
-
-    public void a(String str) {
-        try {
-            a(new JSONObject(str));
-        } catch (Exception e) {
-            com.baidu.tieba.c.ae.b("PbData", "parserJson", "error = " + e.getMessage());
-        }
-    }
-
-    public void a(JSONObject jSONObject) {
-        if (jSONObject == null) {
-            return;
-        }
-        try {
-            this.a.a(jSONObject.optJSONObject("forum"));
-            this.b.a(jSONObject.optJSONObject("thread"));
-            JSONArray optJSONArray = jSONObject.optJSONArray("post_list");
-            if (optJSONArray != null) {
-                for (int i = 0; i < optJSONArray.length(); i++) {
-                    am amVar = new am();
-                    amVar.a(optJSONArray.optJSONObject(i));
-                    this.c.add(amVar);
-                }
-            }
-            this.d.a(jSONObject.optJSONObject("page"));
-            this.e.a(jSONObject.optJSONObject("anti"));
-            this.f = jSONObject.optInt("has_floor") == 1;
-            this.g = jSONObject.optJSONObject("user").optInt("is_manager", 0);
-        } catch (Exception e) {
-            com.baidu.tieba.c.ae.b("PbData", "parserJson", "error = " + e.getMessage());
-        }
-    }
-
-    public as b() {
-        return this.b;
-    }
-
-    public ArrayList c() {
+    public int b() {
         return this.c;
     }
 
-    public aj d() {
-        return this.d;
-    }
-
-    public b e() {
+    public int c() {
         return this.e;
     }
 
-    public boolean f() {
+    public int d() {
         return this.f;
     }
 
-    public int g() {
-        return this.g;
+    public void a(JSONObject jSONObject) {
+        if (jSONObject != null) {
+            try {
+                this.a = jSONObject.optInt("total_page", 0);
+                this.b = jSONObject.optInt("total_num", 0);
+                this.c = jSONObject.optInt("current_page", 0);
+                this.d = jSONObject.optInt("page_size", 0);
+                this.e = jSONObject.optInt("has_more", 0);
+                this.f = jSONObject.optInt("has_prev", 0);
+            } catch (Exception e) {
+                com.baidu.tieba.c.af.b("PageData", "parserJson", "error = " + e.getMessage());
+            }
+        }
     }
 }

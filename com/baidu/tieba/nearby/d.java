@@ -16,40 +16,37 @@ public class d extends Handler {
 
     @Override // android.os.Handler
     public void handleMessage(Message message) {
-        View t;
+        View v;
         Handler handler;
         AbsoluteLayout absoluteLayout;
         boolean z;
-        int b;
+        int d;
         AbsoluteLayout absoluteLayout2;
         View view;
         super.handleMessage(message);
-        if (message.what != 1) {
-            if (message.what == 2) {
-                t = this.a.t();
-                if (t != null) {
-                    this.a.r();
-                    return;
-                }
+        if (message.what == 1) {
+            handler = this.a.A;
+            handler.removeMessages(1);
+            absoluteLayout = this.a.d;
+            int childCount = absoluteLayout.getChildCount();
+            z = this.a.B;
+            if (!z || childCount <= 1) {
                 return;
             }
-            return;
+            d = this.a.d(childCount - 1);
+            absoluteLayout2 = this.a.d;
+            View childAt = absoluteLayout2.getChildAt(d + 1);
+            view = this.a.r;
+            if (childAt != view && childAt.getVisibility() == 0) {
+                this.a.a(childAt);
+            }
+        } else if (message.what != 2) {
+        } else {
+            v = this.a.v();
+            if (v == null) {
+                return;
+            }
+            this.a.t();
         }
-        handler = this.a.z;
-        handler.removeMessages(1);
-        absoluteLayout = this.a.c;
-        int childCount = absoluteLayout.getChildCount();
-        z = this.a.A;
-        if (!z || childCount <= 1) {
-            return;
-        }
-        b = this.a.b(childCount - 1);
-        absoluteLayout2 = this.a.c;
-        View childAt = absoluteLayout2.getChildAt(b + 1);
-        view = this.a.q;
-        if (childAt == view || childAt.getVisibility() != 0) {
-            return;
-        }
-        this.a.a(childAt);
     }
 }

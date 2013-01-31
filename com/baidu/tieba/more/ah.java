@@ -16,20 +16,20 @@ public class ah implements RadioGroup.OnCheckedChangeListener {
     @Override // android.widget.RadioGroup.OnCheckedChangeListener
     public void onCheckedChanged(RadioGroup radioGroup, int i) {
         switch (i) {
-            case R.id.radio_30sec /* 2131231091 */:
-                TiebaApplication.a().d(30);
+            case R.id.radio_30sec /* 2131231169 */:
+                TiebaApplication.b().d(30);
                 break;
-            case R.id.radio_2min /* 2131231092 */:
-                TiebaApplication.a().d(120);
+            case R.id.radio_2min /* 2131231170 */:
+                TiebaApplication.b().d(120);
                 break;
-            case R.id.radio_5min /* 2131231093 */:
-                TiebaApplication.a().d(300);
+            case R.id.radio_5min /* 2131231171 */:
+                TiebaApplication.b().d(300);
                 break;
-            case R.id.radio_no /* 2131231094 */:
-                TiebaApplication.a().d(0);
+            case R.id.radio_no /* 2131231172 */:
+                TiebaApplication.b().d(0);
                 break;
         }
-        com.baidu.tieba.c.k.t();
-        this.a.i();
+        com.baidu.tieba.c.k.v();
+        this.a.k();
     }
 }

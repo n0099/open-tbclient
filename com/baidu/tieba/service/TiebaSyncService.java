@@ -4,23 +4,15 @@ import android.app.Service;
 import android.content.Intent;
 import android.os.Handler;
 import android.os.IBinder;
-import com.baidu.tieba.b.t;
+import com.baidu.tieba.b.v;
+import com.baidu.tieba.c.af;
 /* loaded from: classes.dex */
 public class TiebaSyncService extends Service {
-    private n a = null;
+    private o a = null;
     private int b = 0;
-    private t c = null;
+    private v c = null;
     private Handler d = new Handler();
-    private Runnable e = new m(this);
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void a() {
-        if (this.a != null) {
-            this.a.a();
-        }
-        this.a = new n(this, null);
-        this.a.execute(new String[0]);
-    }
+    private Runnable e = new n(this);
 
     @Override // android.app.Service
     public IBinder onBind(Intent intent) {
@@ -30,6 +22,15 @@ public class TiebaSyncService extends Service {
     @Override // android.app.Service
     public void onCreate() {
         super.onCreate();
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void a() {
+        if (this.a != null) {
+            this.a.a();
+        }
+        this.a = new o(this, null);
+        this.a.execute(new String[0]);
     }
 
     @Override // android.app.Service
@@ -47,5 +48,13 @@ public class TiebaSyncService extends Service {
         super.onStart(intent, i);
         this.b = 0;
         a();
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void b() {
+        if (this.c != null) {
+            sendBroadcast(new Intent("com.baidu.tieba.broadcast.sync"));
+            af.a(getClass().getName(), "broadcastNewVersion", "sendBroadcast: " + String.format("%s", this.c.a().c()));
+        }
     }
 }

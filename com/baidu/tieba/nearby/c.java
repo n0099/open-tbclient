@@ -12,8 +12,7 @@ public class c implements Animation.AnimationListener {
     }
 
     @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationEnd(Animation animation) {
-        this.a.h();
+    public void onAnimationStart(Animation animation) {
     }
 
     @Override // android.view.animation.Animation.AnimationListener
@@ -21,6 +20,7 @@ public class c implements Animation.AnimationListener {
     }
 
     @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationStart(Animation animation) {
+    public void onAnimationEnd(Animation animation) {
+        this.a.j();
     }
 }

@@ -17,6 +17,22 @@ public class CursorLoader extends AsyncTaskLoader {
     Cursor l;
 
     /* JADX DEBUG: Method merged with bridge method */
+    @Override // android.support.v4.content.AsyncTaskLoader
+    /* renamed from: f */
+    public Cursor d() {
+        Cursor query = j().getContentResolver().query(this.g, this.h, this.i, this.j, this.k);
+        if (query != null) {
+            query.getCount();
+            a(query, this.f);
+        }
+        return query;
+    }
+
+    void a(Cursor cursor, ContentObserver contentObserver) {
+        cursor.registerContentObserver(this.f);
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // android.support.v4.content.b
     /* renamed from: a */
     public void b(Cursor cursor) {
@@ -32,14 +48,44 @@ public class CursorLoader extends AsyncTaskLoader {
         if (k()) {
             super.b((Object) cursor);
         }
-        if (cursor2 == null || cursor2 == cursor || cursor2.isClosed()) {
-            return;
+        if (cursor2 != null && cursor2 != cursor && !cursor2.isClosed()) {
+            cursor2.close();
         }
-        cursor2.close();
     }
 
-    void a(Cursor cursor, ContentObserver contentObserver) {
-        cursor.registerContentObserver(this.f);
+    @Override // android.support.v4.content.b
+    protected void g() {
+        if (this.l != null) {
+            b(this.l);
+        }
+        if (r() || this.l == null) {
+            o();
+        }
+    }
+
+    @Override // android.support.v4.content.b
+    protected void h() {
+        b();
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // android.support.v4.content.AsyncTaskLoader
+    /* renamed from: b */
+    public void a(Cursor cursor) {
+        if (cursor != null && !cursor.isClosed()) {
+            cursor.close();
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // android.support.v4.content.b
+    public void i() {
+        super.i();
+        h();
+        if (this.l != null && !this.l.isClosed()) {
+            this.l.close();
+        }
+        this.l = null;
     }
 
     @Override // android.support.v4.content.AsyncTaskLoader, android.support.v4.content.b
@@ -66,53 +112,5 @@ public class CursorLoader extends AsyncTaskLoader {
         printWriter.print(str);
         printWriter.print("mContentChanged=");
         printWriter.println(this.s);
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // android.support.v4.content.AsyncTaskLoader
-    /* renamed from: b */
-    public void a(Cursor cursor) {
-        if (cursor == null || cursor.isClosed()) {
-            return;
-        }
-        cursor.close();
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // android.support.v4.content.AsyncTaskLoader
-    /* renamed from: f */
-    public Cursor d() {
-        Cursor query = j().getContentResolver().query(this.g, this.h, this.i, this.j, this.k);
-        if (query != null) {
-            query.getCount();
-            a(query, this.f);
-        }
-        return query;
-    }
-
-    @Override // android.support.v4.content.b
-    protected void g() {
-        if (this.l != null) {
-            b(this.l);
-        }
-        if (r() || this.l == null) {
-            o();
-        }
-    }
-
-    @Override // android.support.v4.content.b
-    protected void h() {
-        b();
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // android.support.v4.content.b
-    public void i() {
-        super.i();
-        h();
-        if (this.l != null && !this.l.isClosed()) {
-            this.l.close();
-        }
-        this.l = null;
     }
 }

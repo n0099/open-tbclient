@@ -26,66 +26,62 @@ public class as implements View.OnClickListener {
         Bitmap bitmap3;
         Bitmap bitmap4;
         boolean d2;
-        z = this.a.y;
-        if (z) {
-            z3 = this.a.x;
-            if (z3) {
-                bitmap3 = this.a.q;
-                if (bitmap3 != null) {
-                    bitmap4 = this.a.q;
-                    if (!bitmap4.isRecycled()) {
-                        String str = "tieba" + String.valueOf(new Date().getTime()) + ".jpg";
-                        d2 = this.a.d(str);
-                        if (d2) {
-                            Intent intent = this.a.getIntent();
-                            if (intent.getStringExtra("threadid") == null) {
-                                WriteActivity.a(this.a, intent.getStringExtra("forumid"), intent.getStringExtra("foruimname"), null, true, str);
-                            } else {
-                                WriteActivity.a(this.a, intent.getStringExtra("forumid"), intent.getStringExtra("foruimname"), intent.getStringExtra("threadid"), str);
-                            }
-                        }
-                    }
-                }
-            } else {
-                Intent intent2 = this.a.getIntent();
-                if (intent2.getStringExtra("threadid") == null) {
-                    WriteActivity.a(this.a, intent2.getStringExtra("forumid"), intent2.getStringExtra("foruimname"), null, true, null);
-                } else {
-                    WriteActivity.a(this.a, intent2.getStringExtra("forumid"), intent2.getStringExtra("foruimname"), intent2.getStringExtra("threadid"), null);
-                }
-            }
-            this.a.setResult(-1, new Intent());
-        } else {
-            i = this.a.z;
+        z = this.a.z;
+        if (!z) {
+            i = this.a.A;
             if (i == 1200003) {
-                Intent intent3 = new Intent();
-                intent3.putExtra("delete", true);
-                this.a.setResult(-1, intent3);
+                Intent intent = new Intent();
+                intent.putExtra("delete", true);
+                this.a.setResult(-1, intent);
             } else {
-                Intent intent4 = new Intent();
-                z2 = this.a.x;
+                Intent intent2 = new Intent();
+                z2 = this.a.y;
                 if (z2) {
-                    bitmap = this.a.q;
+                    bitmap = this.a.r;
                     if (bitmap != null) {
-                        bitmap2 = this.a.q;
+                        bitmap2 = this.a.r;
                         if (!bitmap2.isRecycled()) {
-                            String str2 = "tieba" + String.valueOf(new Date().getTime()) + ".jpg";
-                            d = this.a.d(str2);
+                            String str = "tieba" + String.valueOf(new Date().getTime()) + ".jpg";
+                            d = this.a.d(str);
                             if (d) {
-                                intent4.putExtra("change", true);
-                                intent4.putExtra("file_name", str2);
+                                intent2.putExtra("change", true);
+                                intent2.putExtra("file_name", str);
                             } else {
-                                intent4.putExtra("change", false);
+                                intent2.putExtra("change", false);
                             }
                         }
                     }
-                    intent4.putExtra("change", false);
+                    intent2.putExtra("change", false);
                 } else {
-                    intent4.setData(this.a.getIntent().getData());
-                    this.a.setResult(-1, intent4);
+                    intent2.setData(this.a.getIntent().getData());
+                    this.a.setResult(-1, intent2);
                 }
-                this.a.setResult(-1, intent4);
+                this.a.setResult(-1, intent2);
             }
+        } else {
+            Intent intent3 = new Intent();
+            Intent intent4 = this.a.getIntent();
+            z3 = this.a.y;
+            if (z3) {
+                bitmap3 = this.a.r;
+                if (bitmap3 != null) {
+                    bitmap4 = this.a.r;
+                    if (!bitmap4.isRecycled()) {
+                        String str2 = "tieba" + String.valueOf(new Date().getTime()) + ".jpg";
+                        d2 = this.a.d(str2);
+                        if (d2) {
+                            if (intent4.getStringExtra("threadid") == null) {
+                                intent3.putExtra("filename", str2);
+                            } else {
+                                WriteActivity.a(this.a, intent4.getStringExtra("forumid"), intent4.getStringExtra("foruimname"), intent4.getStringExtra("threadid"), str2);
+                            }
+                        }
+                    }
+                }
+            } else if (intent4.getStringExtra("threadid") != null) {
+                WriteActivity.a(this.a, intent4.getStringExtra("forumid"), intent4.getStringExtra("foruimname"), intent4.getStringExtra("threadid"), null);
+            }
+            this.a.setResult(-1, intent3);
         }
         this.a.finish();
     }

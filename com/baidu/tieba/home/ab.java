@@ -1,22 +1,31 @@
 package com.baidu.tieba.home;
 
-import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ListView;
-import com.baidu.tieba.frs.FrsActivity;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.content.DialogInterface;
 /* loaded from: classes.dex */
-public class ab implements AdapterView.OnItemClickListener {
-    final /* synthetic */ SearchActivity a;
+class ab implements DialogInterface.OnClickListener {
+    final /* synthetic */ MarkActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ab(SearchActivity searchActivity) {
-        this.a = searchActivity;
+    public ab(MarkActivity markActivity) {
+        this.a = markActivity;
     }
 
-    @Override // android.widget.AdapterView.OnItemClickListener
-    public void onItemClick(AdapterView adapterView, View view, int i, long j) {
-        FrsActivity.a(this.a, (String) ((ListView) adapterView).getAdapter().getItem(i), "tb_searchlist", 1);
-        this.a.finish();
+    @Override // android.content.DialogInterface.OnClickListener
+    public void onClick(DialogInterface dialogInterface, int i) {
+        com.baidu.tieba.a.af afVar;
+        switch (i) {
+            case 0:
+                afVar = this.a.h;
+                if (afVar == null) {
+                    return;
+                }
+                this.a.k();
+                return;
+            case 1:
+                this.a.l();
+                return;
+            default:
+                return;
+        }
     }
 }

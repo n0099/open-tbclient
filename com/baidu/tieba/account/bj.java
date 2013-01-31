@@ -16,7 +16,7 @@ public class bj extends TimerTask {
     @Override // java.util.TimerTask, java.lang.Runnable
     public void run() {
         EditText editText;
-        editText = this.a.c;
+        editText = this.a.d;
         ((InputMethodManager) this.a.getSystemService("input_method")).showSoftInput(editText, 0);
     }
 }

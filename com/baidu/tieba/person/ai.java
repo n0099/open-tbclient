@@ -1,23 +1,15 @@
 package com.baidu.tieba.person;
 
-import android.view.MotionEvent;
-import android.view.View;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.widget.ImageView;
+import android.widget.TextView;
 /* loaded from: classes.dex */
-public class ai implements View.OnTouchListener {
-    final /* synthetic */ PersonChangeActivity a;
+class ai {
+    ImageView a;
+    TextView b;
+    final /* synthetic */ ad c;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ai(PersonChangeActivity personChangeActivity) {
-        this.a = personChangeActivity;
-    }
-
-    @Override // android.view.View.OnTouchListener
-    public boolean onTouch(View view, MotionEvent motionEvent) {
-        if (motionEvent.getAction() == 1) {
-            this.a.o = true;
-            return false;
-        }
-        return false;
+    public ai(ad adVar) {
+        this.c = adVar;
     }
 }

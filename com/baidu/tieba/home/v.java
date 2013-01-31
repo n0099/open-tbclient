@@ -1,25 +1,37 @@
 package com.baidu.tieba.home;
 
-import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ListView;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class v implements AdapterView.OnItemClickListener {
-    final /* synthetic */ MarkActivity a;
+public class v implements DialogInterface.OnClickListener {
+    final /* synthetic */ HomeActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public v(MarkActivity markActivity) {
-        this.a = markActivity;
+    public v(HomeActivity homeActivity) {
+        this.a = homeActivity;
     }
 
-    @Override // android.widget.AdapterView.OnItemClickListener
-    public void onItemClick(AdapterView adapterView, View view, int i, long j) {
-        com.baidu.tieba.a.ae aeVar;
-        this.a.g = (com.baidu.tieba.a.ae) ((ListView) adapterView).getAdapter().getItem(i);
-        aeVar = this.a.g;
-        if (aeVar != null) {
-            this.a.i();
+    @Override // android.content.DialogInterface.OnClickListener
+    public void onClick(DialogInterface dialogInterface, int i) {
+        AlertDialog alertDialog;
+        z zVar;
+        com.baidu.tieba.a.ad adVar;
+        z zVar2;
+        if (i == -1) {
+            zVar = this.a.o;
+            if (zVar == null) {
+                HomeActivity homeActivity = this.a;
+                HomeActivity homeActivity2 = this.a;
+                adVar = this.a.r;
+                homeActivity.o = new z(homeActivity2, adVar);
+                zVar2 = this.a.o;
+                zVar2.execute(new com.baidu.tieba.a.ad[0]);
+                return;
+            }
+            return;
         }
+        alertDialog = this.a.p;
+        alertDialog.dismiss();
     }
 }

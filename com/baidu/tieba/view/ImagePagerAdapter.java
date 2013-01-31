@@ -30,29 +30,46 @@ public class ImagePagerAdapter extends android.support.v4.view.k {
         this.e = jVar;
     }
 
-    public void a(int i) {
-        this.f = i;
-    }
-
-    public void a(View.OnClickListener onClickListener) {
-        this.c = onClickListener;
-    }
-
-    public void a(k kVar) {
-        this.d = kVar;
+    public void a(ArrayList arrayList) {
+        this.b = arrayList;
+        notifyDataSetChanged();
     }
 
     public void a(String str) {
         this.h = str;
     }
 
-    public void a(ArrayList arrayList) {
-        this.b = arrayList;
-        notifyDataSetChanged();
-    }
-
     public void a(boolean z) {
         this.g = z;
+    }
+
+    @Override // android.support.v4.view.k
+    public int getCount() {
+        if (this.b == null) {
+            return 0;
+        }
+        int size = this.b.size();
+        if (this.g) {
+            return size + 1;
+        }
+        return size;
+    }
+
+    public void a(View.OnClickListener onClickListener) {
+        this.c = onClickListener;
+    }
+
+    public void a(int i) {
+        this.f = i;
+    }
+
+    public void a(k kVar) {
+        this.d = kVar;
+    }
+
+    @Override // android.support.v4.view.k
+    public boolean isViewFromObject(View view, Object obj) {
+        return view.equals(obj);
     }
 
     @Override // android.support.v4.view.k
@@ -61,15 +78,6 @@ public class ImagePagerAdapter extends android.support.v4.view.k {
         if (obj instanceof ah) {
             ((ah) obj).c();
         }
-    }
-
-    @Override // android.support.v4.view.k
-    public int getCount() {
-        if (this.b != null) {
-            int size = this.b.size();
-            return this.g ? size + 1 : size;
-        }
-        return 0;
     }
 
     @Override // android.support.v4.view.k
@@ -92,11 +100,6 @@ public class ImagePagerAdapter extends android.support.v4.view.k {
         ahVar.setTag(String.valueOf(i));
         ahVar.setGifSetListener(this.e);
         return ahVar;
-    }
-
-    @Override // android.support.v4.view.k
-    public boolean isViewFromObject(View view, Object obj) {
-        return view.equals(obj);
     }
 
     @Override // android.support.v4.view.k

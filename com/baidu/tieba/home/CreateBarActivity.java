@@ -12,104 +12,42 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class CreateBarActivity extends com.baidu.tieba.e {
-    private TextView b = null;
-    private TextView c = null;
-    private EditText d = null;
-    private EditText e = null;
-    private RelativeLayout f = null;
-    private Button g = null;
-    private FrameLayout h = null;
-    private ImageView i = null;
-    private ProgressBar j = null;
-    private ProgressBar k = null;
-    private c l = null;
-    private d m = null;
-    private View.OnClickListener n = null;
-    private TextWatcher o = null;
-    private String p = null;
-    private TextView q = null;
-    private String r = null;
-    private boolean s = false;
+    private TextView g = null;
+    private TextView h = null;
+    private EditText i = null;
+    private EditText j = null;
+    private RelativeLayout k = null;
+    private Button l = null;
+    private FrameLayout m = null;
+    private ImageView n = null;
+    private ProgressBar o = null;
+    private ProgressBar p = null;
+    private c q = null;
+    private d r = null;
+    private View.OnClickListener s = null;
+    private TextWatcher t = null;
+    private String u = null;
+    private TextView v = null;
+    RelativeLayout c = null;
+    LinearLayout d = null;
+    TextView e = null;
+    TextView f = null;
+    private String w = null;
+    private boolean x = false;
 
     public static void a(Context context, String str, boolean z) {
-        if (str == null || str.length() <= 0) {
-            return;
-        }
-        Intent intent = new Intent(context, CreateBarActivity.class);
-        intent.putExtra("barname", str);
-        intent.putExtra("isvalid", z);
-        context.startActivity(intent);
-    }
-
-    private void g() {
-        if (this.m == null) {
-            this.m = new d(this, null);
-            this.m.execute(new String[0]);
-        }
-    }
-
-    private void h() {
-        Intent intent = getIntent();
-        this.r = intent.getStringExtra("barname");
-        this.s = intent.getBooleanExtra("isvalid", false);
-        if (this.r == null) {
-            this.r = "";
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void i() {
-        if (this.m == null && this.l == null) {
-            this.m = new d(this, null);
-            this.m.execute(new String[0]);
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void j() {
-        if (this.l == null) {
-            this.l = new c(this, this.d.getText().toString().trim(), this.e.getText().toString().trim());
-            this.l.execute(new String[0]);
-        }
-    }
-
-    private void k() {
-        this.n = new a(this);
-        this.o = new b(this);
-        this.q = (TextView) findViewById(R.id.error);
-        this.b = (TextView) findViewById(R.id.info);
-        SpannableString spannableString = new SpannableString(String.valueOf(this.r) + getString(R.string.bar_not_create));
-        spannableString.setSpan(new ForegroundColorSpan(Color.rgb(229, 4, 0)), 0, this.r.length(), 33);
-        this.b.setText(spannableString);
-        this.f = (RelativeLayout) findViewById(R.id.create);
-        this.f.setOnClickListener(this.n);
-        this.c = (TextView) findViewById(R.id.info2);
-        this.d = (EditText) findViewById(R.id.edit_name);
-        this.d.addTextChangedListener(this.o);
-        this.e = (EditText) findViewById(R.id.edit_vcode);
-        this.e.addTextChangedListener(this.o);
-        if (this.s) {
-            this.c.setText(getString(R.string.bar_name_valid));
-            this.d.setText(this.r);
-        } else {
-            this.c.setText(getString(R.string.bar_name_invalid));
-        }
-        this.g = (Button) findViewById(R.id.back);
-        this.g.setOnClickListener(this.n);
-        this.h = (FrameLayout) findViewById(R.id.image_button);
-        this.h.setOnClickListener(this.n);
-        this.i = (ImageView) findViewById(R.id.image);
-        this.f.setEnabled(false);
-        this.j = (ProgressBar) findViewById(R.id.progress);
-        this.k = (ProgressBar) findViewById(R.id.progress_image);
-        if (this.s) {
-            this.e.requestFocus();
+        if (str != null && str.length() > 0) {
+            Intent intent = new Intent(context, CreateBarActivity.class);
+            intent.putExtra("barname", str);
+            intent.putExtra("isvalid", z);
+            context.startActivity(intent);
         }
     }
 
@@ -118,20 +56,107 @@ public class CreateBarActivity extends com.baidu.tieba.e {
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         setContentView(R.layout.create_bar_activity);
-        h();
-        k();
-        g();
+        j();
+        m();
+        i();
+    }
+
+    private void i() {
+        if (this.r == null) {
+            this.r = new d(this, null);
+            this.r.execute(new String[0]);
+        }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.e, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        if (this.l != null) {
-            this.l.a();
+        if (this.q != null) {
+            this.q.a();
         }
-        if (this.m != null) {
-            this.m.a();
+        if (this.r != null) {
+            this.r.a();
         }
+    }
+
+    private void j() {
+        Intent intent = getIntent();
+        this.w = intent.getStringExtra("barname");
+        this.x = intent.getBooleanExtra("isvalid", false);
+        if (this.w == null) {
+            this.w = "";
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void k() {
+        if (this.r == null && this.q == null) {
+            this.r = new d(this, null);
+            this.r.execute(new String[0]);
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void l() {
+        if (this.q == null) {
+            this.q = new c(this, this.i.getText().toString().trim(), this.j.getText().toString().trim());
+            this.q.execute(new String[0]);
+        }
+    }
+
+    private void m() {
+        this.s = new a(this);
+        this.t = new b(this);
+        this.c = (RelativeLayout) findViewById(R.id.container);
+        this.d = (LinearLayout) findViewById(R.id.title);
+        this.e = (TextView) findViewById(R.id.title_text);
+        this.f = (TextView) findViewById(R.id.text);
+        this.v = (TextView) findViewById(R.id.error);
+        this.g = (TextView) findViewById(R.id.info);
+        this.k = (RelativeLayout) findViewById(R.id.create);
+        this.k.setOnClickListener(this.s);
+        this.h = (TextView) findViewById(R.id.info2);
+        this.i = (EditText) findViewById(R.id.edit_name);
+        this.i.addTextChangedListener(this.t);
+        this.j = (EditText) findViewById(R.id.edit_vcode);
+        this.j.addTextChangedListener(this.t);
+        if (this.x) {
+            this.h.setText(getString(R.string.bar_name_valid));
+            this.i.setText(this.w);
+        } else {
+            this.h.setText(getString(R.string.bar_name_invalid));
+        }
+        this.l = (Button) findViewById(R.id.back);
+        this.l.setOnClickListener(this.s);
+        this.m = (FrameLayout) findViewById(R.id.image_button);
+        this.m.setOnClickListener(this.s);
+        this.n = (ImageView) findViewById(R.id.image);
+        this.k.setEnabled(false);
+        this.o = (ProgressBar) findViewById(R.id.progress);
+        this.p = (ProgressBar) findViewById(R.id.progress_image);
+        if (this.x) {
+            this.j.requestFocus();
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.tieba.e
+    public void b(int i) {
+        super.b(i);
+        com.baidu.tieba.c.ad.c(this.e, i);
+        com.baidu.tieba.c.ad.c((TextView) this.l, i);
+        com.baidu.tieba.c.ad.e((TextView) this.l, i);
+        com.baidu.tieba.c.ad.a(this.c, i);
+        com.baidu.tieba.c.ad.c(this.d, i);
+        com.baidu.tieba.c.ad.a(this.f, i);
+        com.baidu.tieba.c.ad.b(this.h, i);
+        String str = String.valueOf(this.w) + getString(R.string.bar_not_create);
+        SpannableString spannableString = new SpannableString(str);
+        spannableString.setSpan(new ForegroundColorSpan(Color.rgb(229, 4, 0)), 0, this.w.length(), 33);
+        if (i == 1) {
+            spannableString.setSpan(new ForegroundColorSpan(getResources().getColor(R.color.skin_1_common_color)), this.w.length(), str.length(), 33);
+        }
+        this.g.setText(spannableString);
     }
 }

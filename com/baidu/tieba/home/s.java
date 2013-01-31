@@ -1,99 +1,37 @@
 package com.baidu.tieba.home;
 
-import android.os.AsyncTask;
-import android.widget.ProgressBar;
-import com.baidu.tieba.TiebaApplication;
-import java.util.ArrayList;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.view.KeyEvent;
+import android.view.View;
+import android.widget.ListView;
 /* loaded from: classes.dex */
-public class s extends AsyncTask {
-    ArrayList a;
-    final /* synthetic */ HomeActivity b;
-    private com.baidu.tieba.c.t c = null;
-    private String d;
+class s implements View.OnKeyListener {
+    final /* synthetic */ HomeActivity a;
 
-    public s(HomeActivity homeActivity, String str, ArrayList arrayList) {
-        this.b = homeActivity;
-        this.d = null;
-        this.a = null;
-        this.d = str;
-        this.a = arrayList;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public s(HomeActivity homeActivity) {
+        this.a = homeActivity;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // android.os.AsyncTask
-    /* renamed from: a */
-    public com.baidu.tieba.b.f doInBackground(Object... objArr) {
-        com.baidu.tieba.b.f fVar;
-        Exception e;
-        Boolean bool;
-        try {
-            this.c = new com.baidu.tieba.c.t(this.d);
-            this.c.a(this.a);
-            String i = this.c.i();
-            if (!this.c.b() || i == null) {
-                return null;
-            }
-            fVar = new com.baidu.tieba.b.f();
-            try {
-                fVar.a(i);
-                if (fVar.a()) {
-                    this.b.n = Boolean.valueOf(fVar.b() == 1);
-                    bool = this.b.n;
-                    if (bool.booleanValue()) {
-                        com.baidu.tieba.c.k.d(i);
-                    } else {
-                        com.baidu.tieba.c.k.a(i, "0");
+    @Override // android.view.View.OnKeyListener
+    public boolean onKey(View view, int i, KeyEvent keyEvent) {
+        if (view instanceof ListView) {
+            ListView listView = (ListView) view;
+            if (keyEvent.getAction() == 0) {
+                if (i == 21) {
+                    if (listView.getSelectedView() == null) {
+                        listView.dispatchKeyEvent(new KeyEvent(0, 19));
+                        return true;
                     }
+                    return false;
+                } else if (i == 22 && listView.getSelectedView() == null) {
+                    listView.dispatchKeyEvent(new KeyEvent(0, 20));
+                    return true;
                 } else {
-                    fVar = null;
+                    return false;
                 }
-                return fVar;
-            } catch (Exception e2) {
-                e = e2;
-                com.baidu.tieba.c.ae.b(getClass().getName(), "", "doInBackground error = " + e.getMessage());
-                return fVar;
             }
-        } catch (Exception e3) {
-            fVar = null;
-            e = e3;
+            return false;
         }
-    }
-
-    public void a() {
-        ProgressBar progressBar;
-        if (this.c != null) {
-            this.c.g();
-            this.c = null;
-        }
-        progressBar = this.b.e;
-        progressBar.setVisibility(8);
-        super.cancel(true);
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // android.os.AsyncTask
-    /* renamed from: a */
-    public void onPostExecute(com.baidu.tieba.b.f fVar) {
-        ProgressBar progressBar;
-        progressBar = this.b.e;
-        progressBar.setVisibility(8);
-        if (fVar != null) {
-            this.b.h = fVar;
-            TiebaApplication.a().f(false);
-            this.b.k();
-        } else if (this.c != null) {
-            this.b.b(this.c.f());
-        }
-        this.b.g = null;
-    }
-
-    @Override // android.os.AsyncTask
-    protected void onPreExecute() {
-        ProgressBar progressBar;
-        progressBar = this.b.e;
-        progressBar.setVisibility(0);
+        return false;
     }
 }

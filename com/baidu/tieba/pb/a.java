@@ -18,13 +18,6 @@ public class a extends BaseAdapter {
         this.a = strArr;
     }
 
-    public void a(int i, String str) {
-        if (this.a == null || i < 0 || i >= getCount()) {
-            return;
-        }
-        this.a[i] = str;
-    }
-
     @Override // android.widget.Adapter
     public int getCount() {
         if (this.a != null) {
@@ -39,6 +32,12 @@ public class a extends BaseAdapter {
             return null;
         }
         return this.a[i];
+    }
+
+    public void a(int i, String str) {
+        if (this.a != null && i >= 0 && i < getCount()) {
+            this.a[i] = str;
+        }
     }
 
     @Override // android.widget.Adapter

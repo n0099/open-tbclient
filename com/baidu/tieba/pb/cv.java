@@ -1,18 +1,24 @@
 package com.baidu.tieba.pb;
 
+import android.app.Dialog;
 import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class cv implements View.OnClickListener {
     final /* synthetic */ SubPbActivity a;
+    private final /* synthetic */ String b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public cv(SubPbActivity subPbActivity) {
+    public cv(SubPbActivity subPbActivity, String str) {
         this.a = subPbActivity;
+        this.b = str;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        this.a.o();
+        Dialog dialog;
+        this.a.d(this.b);
+        dialog = this.a.S;
+        dialog.dismiss();
     }
 }

@@ -15,50 +15,157 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.TiebaApplication;
+import com.baidu.zeus.WebChromeClient;
 /* loaded from: classes.dex */
 public class ActivationActivity extends com.baidu.tieba.e {
-    private static int b = 60;
-    private Button c = null;
-    private LinearLayout d = null;
-    private ImageView e = null;
-    private ProgressBar f = null;
+    private static int c = 60;
+    private Button d = null;
+    private LinearLayout e = null;
+    private ImageView f = null;
     private ProgressBar g = null;
-    private TextView h = null;
+    private ProgressBar h = null;
     private TextView i = null;
-    private EditText j = null;
-    private RelativeLayout k = null;
+    private TextView j = null;
+    private EditText k = null;
     private RelativeLayout l = null;
-    private n m = null;
-    private m n = null;
-    private boolean o = false;
-    private int p = b;
-    private com.baidu.tieba.a.ao q = null;
-    private Handler r = new Handler();
-    private int s = 0;
-    private int t = 0;
-    private int u = 0;
-    private Runnable v = new i(this);
-    private View.OnClickListener w = new j(this);
-    private TextWatcher x = new k(this);
-    private View.OnFocusChangeListener y = new l(this);
+    private RelativeLayout m = null;
+    private n n = null;
+    private m o = null;
+    private boolean p = false;
+    private int q = c;
+    private com.baidu.tieba.a.ap r = null;
+    private Handler s = new Handler();
+    private RelativeLayout t = null;
+    private TextView u = null;
+    private LinearLayout v = null;
+    private TextView w = null;
+    private TextView x = null;
+    private int y = 0;
+    private int z = 0;
+    private int A = 0;
+    private Runnable B = new i(this);
+    private View.OnClickListener C = new j(this);
+    private TextWatcher D = new k(this);
+    private View.OnFocusChangeListener E = new l(this);
 
-    public static void a(Activity activity, com.baidu.tieba.a.ao aoVar, int i) {
+    public static void a(Activity activity, com.baidu.tieba.a.ap apVar, int i) {
         Intent intent = new Intent(activity, ActivationActivity.class);
-        intent.putExtra("data", aoVar);
+        intent.putExtra("data", apVar);
         activity.startActivityForResult(intent, i);
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.tieba.e, android.app.Activity
+    public void onCreate(Bundle bundle) {
+        super.onCreate(bundle);
+        setContentView(R.layout.account_register_activation);
+        a(bundle);
+        j();
+        i();
     }
 
     private void a(Bundle bundle) {
         if (bundle != null) {
-            this.q = (com.baidu.tieba.a.ao) bundle.getSerializable("data");
+            this.r = (com.baidu.tieba.a.ap) bundle.getSerializable("data");
         } else {
-            this.q = (com.baidu.tieba.a.ao) getIntent().getSerializableExtra("data");
+            this.r = (com.baidu.tieba.a.ap) getIntent().getSerializableExtra("data");
         }
-        if (this.q == null) {
+        if (this.r == null) {
             setResult(0);
             finish();
-        } else if (this.q.f() > 0) {
-            b = this.q.f();
+        } else if (this.r.f() > 0) {
+            c = this.r.f();
+        }
+    }
+
+    @Override // android.app.Activity
+    protected void onRestoreInstanceState(Bundle bundle) {
+        super.onRestoreInstanceState(bundle);
+        this.r = (com.baidu.tieba.a.ap) bundle.getSerializable("data");
+    }
+
+    @Override // android.app.Activity
+    protected void onSaveInstanceState(Bundle bundle) {
+        super.onSaveInstanceState(bundle);
+        bundle.putSerializable("data", this.r);
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.tieba.e, android.app.Activity
+    public void onDestroy() {
+        this.s.removeCallbacks(this.B);
+        if (this.n != null) {
+            this.n.a();
+        }
+        if (this.o != null) {
+            this.o.a();
+        }
+        super.onDestroy();
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void i() {
+        this.p = false;
+        this.m.setEnabled(false);
+        this.q = c;
+        this.i.setText(String.format(getString(R.string.resend_code_second), Integer.valueOf(this.q)));
+        this.s.postDelayed(this.B, 1000L);
+    }
+
+    private void j() {
+        this.t = (RelativeLayout) findViewById(R.id.container);
+        this.v = (LinearLayout) findViewById(R.id.title);
+        this.u = (TextView) findViewById(R.id.title_text);
+        this.w = (TextView) findViewById(R.id.done_text);
+        this.d = (Button) findViewById(R.id.back);
+        this.l = (RelativeLayout) findViewById(R.id.done);
+        this.l.setEnabled(false);
+        this.m = (RelativeLayout) findViewById(R.id.resend);
+        this.d.setOnClickListener(this.C);
+        this.l.setOnClickListener(this.C);
+        this.m.setOnClickListener(this.C);
+        this.i = (TextView) findViewById(R.id.resend_text);
+        this.k = (EditText) findViewById(R.id.edit_code);
+        this.k.addTextChangedListener(this.D);
+        this.k.setOnFocusChangeListener(this.E);
+        this.g = (ProgressBar) findViewById(R.id.progress_resend);
+        this.h = (ProgressBar) findViewById(R.id.progress_done);
+        this.f = (ImageView) findViewById(R.id.del_code);
+        this.f.setOnClickListener(this.C);
+        this.j = (TextView) findViewById(R.id.text_error);
+        this.e = (LinearLayout) findViewById(R.id.sms_code_input_bg);
+        this.y = this.e.getPaddingLeft();
+        this.z = this.e.getPaddingRight();
+        this.e.setBackgroundResource(R.drawable.pass_input);
+        this.e.setPadding(this.y, 0, this.z, 0);
+        this.x = (TextView) findViewById(R.id.no_receive_code);
+        a(this.k, WebChromeClient.STRING_DLG_BTN_SET);
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.tieba.e
+    public void b(int i) {
+        super.b(i);
+        com.baidu.tieba.c.ad.a(this.t, i);
+        com.baidu.tieba.c.ad.c(this.v, i);
+        com.baidu.tieba.c.ad.e((TextView) this.d, i);
+        com.baidu.tieba.c.ad.c(this.u, i);
+        com.baidu.tieba.c.ad.c((TextView) this.d, i);
+        com.baidu.tieba.c.ad.a(this.w, i);
+        com.baidu.tieba.c.ad.a(this.i, i);
+        com.baidu.tieba.c.ad.b(this.x, i);
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void a(boolean z) {
+        this.k.setEnabled(z);
+        this.k.setFocusable(z);
+        this.k.setFocusableInTouchMode(z);
+        this.f.setEnabled(z);
+        if (z) {
+            this.k.setTextColor(getResources().getColor(R.color.reg_font_color));
+        } else {
+            this.k.setTextColor(getResources().getColor(R.color.text_hint_color));
         }
     }
 
@@ -69,7 +176,7 @@ public class ActivationActivity extends com.baidu.tieba.e {
         if (gVar.a().e() != null) {
             aVar.c(gVar.a().e());
         } else {
-            aVar.c(this.q.b());
+            aVar.c(this.r.b());
         }
         aVar.a(gVar.a().a());
         aVar.d(gVar.a().j());
@@ -81,87 +188,5 @@ public class ActivationActivity extends com.baidu.tieba.e {
         TiebaApplication.b(aVar);
         setResult(-1);
         finish();
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void a(boolean z) {
-        this.j.setEnabled(z);
-        this.j.setFocusable(z);
-        this.j.setFocusableInTouchMode(z);
-        this.e.setEnabled(z);
-        if (z) {
-            this.j.setTextColor(getResources().getColor(R.color.reg_font_color));
-        } else {
-            this.j.setTextColor(getResources().getColor(R.color.text_hint_color));
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void g() {
-        this.o = false;
-        this.l.setEnabled(false);
-        this.p = b;
-        this.h.setText(String.format(getString(R.string.resend_code_second), Integer.valueOf(this.p)));
-        this.r.postDelayed(this.v, 1000L);
-    }
-
-    private void h() {
-        this.c = (Button) findViewById(R.id.back);
-        this.k = (RelativeLayout) findViewById(R.id.done);
-        this.k.setEnabled(false);
-        this.l = (RelativeLayout) findViewById(R.id.resend);
-        this.c.setOnClickListener(this.w);
-        this.k.setOnClickListener(this.w);
-        this.l.setOnClickListener(this.w);
-        this.h = (TextView) findViewById(R.id.resend_text);
-        this.j = (EditText) findViewById(R.id.edit_code);
-        this.j.addTextChangedListener(this.x);
-        this.j.setOnFocusChangeListener(this.y);
-        this.f = (ProgressBar) findViewById(R.id.progress_resend);
-        this.g = (ProgressBar) findViewById(R.id.progress_done);
-        this.e = (ImageView) findViewById(R.id.del_code);
-        this.e.setOnClickListener(this.w);
-        this.i = (TextView) findViewById(R.id.text_error);
-        this.d = (LinearLayout) findViewById(R.id.sms_code_input_bg);
-        this.s = this.d.getPaddingLeft();
-        this.t = this.d.getPaddingRight();
-        this.d.setBackgroundResource(R.drawable.pass_input);
-        this.d.setPadding(this.s, 0, this.t, 0);
-        a(this.j, 150);
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.e, android.app.Activity
-    public void onCreate(Bundle bundle) {
-        super.onCreate(bundle);
-        setContentView(R.layout.account_register_activation);
-        a(bundle);
-        h();
-        g();
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.e, android.app.Activity
-    public void onDestroy() {
-        this.r.removeCallbacks(this.v);
-        if (this.m != null) {
-            this.m.a();
-        }
-        if (this.n != null) {
-            this.n.a();
-        }
-        super.onDestroy();
-    }
-
-    @Override // android.app.Activity
-    protected void onRestoreInstanceState(Bundle bundle) {
-        super.onRestoreInstanceState(bundle);
-        this.q = (com.baidu.tieba.a.ao) bundle.getSerializable("data");
-    }
-
-    @Override // android.app.Activity
-    protected void onSaveInstanceState(Bundle bundle) {
-        super.onSaveInstanceState(bundle);
-        bundle.putSerializable("data", this.q);
     }
 }

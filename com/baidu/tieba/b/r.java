@@ -1,87 +1,105 @@
 package com.baidu.tieba.b;
 
 import android.content.Context;
-import com.baidu.tieba.a.am;
-import com.baidu.tieba.a.aq;
-import com.baidu.tieba.a.as;
-import com.baidu.tieba.c.ae;
-import java.util.ArrayList;
-import org.json.JSONArray;
-import org.json.JSONObject;
+import com.baidu.tieba.a.ax;
 /* loaded from: classes.dex */
 public class r {
-    private Context a;
-    private aq b = new aq();
-    private boolean c;
-    private boolean d;
+    private long d;
+    private long e;
+    private long f;
+    private String g;
+    private com.baidu.tieba.c.a j;
+    private boolean a = true;
+    private String b = null;
+    private int c = 0;
+    private ax k = null;
+    private boolean h = false;
+    private boolean i = false;
 
-    public r(Context context, String str) {
-        this.a = context;
-        a(str);
+    public r(Context context) {
+        a(0L);
+        b(0L);
+        c(0L);
+        this.j = new com.baidu.tieba.c.a(context);
     }
 
-    private void a(String str) {
-        try {
-            JSONObject jSONObject = new JSONObject(str);
-            JSONObject optJSONObject = jSONObject.optJSONObject("post");
-            JSONArray optJSONArray = jSONObject.optJSONArray("subpost_list");
-            JSONObject optJSONObject2 = jSONObject.optJSONObject("forum");
-            JSONObject optJSONObject3 = jSONObject.optJSONObject("thread");
-            JSONObject optJSONObject4 = jSONObject.optJSONObject("anti");
-            com.baidu.tieba.a.b bVar = new com.baidu.tieba.a.b();
-            bVar.a(optJSONObject4);
-            this.b.a(bVar);
-            as asVar = new as();
-            asVar.a(optJSONObject3);
-            this.b.a(asVar);
-            com.baidu.tieba.a.p pVar = new com.baidu.tieba.a.p();
-            pVar.a(optJSONObject2);
-            this.b.a(pVar);
-            am amVar = new am();
-            amVar.a(optJSONObject);
-            amVar.a(this.a);
-            this.b.a(amVar);
-            int length = optJSONArray.length();
-            ArrayList arrayList = new ArrayList();
-            for (int i = 0; i < length; i++) {
-                JSONObject jSONObject2 = optJSONArray.getJSONObject(i);
-                am amVar2 = new am();
-                amVar2.a(jSONObject2);
-                amVar2.a(this.a);
-                arrayList.add(amVar2);
-            }
-            this.b.a(arrayList);
-            JSONObject optJSONObject5 = jSONObject.optJSONObject("page");
-            int optInt = optJSONObject5.optInt("total_page");
-            int optInt2 = optJSONObject5.optInt("page_size");
-            int optInt3 = optJSONObject5.optInt("current_page");
-            int optInt4 = optJSONObject5.optInt("total_count");
-            this.b.d(optInt3);
-            this.b.c(optInt2);
-            this.b.b(optInt4);
-            this.b.a(optInt);
-        } catch (Exception e) {
-            ae.b("SubPbModel", "parseJson", "error = " + e.getMessage());
-        }
-    }
-
-    public aq a() {
+    public String a() {
         return this.b;
     }
 
-    public void a(boolean z) {
-        this.c = z;
+    public void a(String str) {
+        this.b = str;
     }
 
-    public void b(boolean z) {
-        this.d = z;
+    public void a(boolean z) {
+        this.a = z;
     }
 
     public boolean b() {
+        return this.a;
+    }
+
+    public int c() {
         return this.c;
     }
 
-    public boolean c() {
+    public void a(int i) {
+        this.c = i;
+    }
+
+    public void a(ax axVar) {
+        this.k = axVar;
+    }
+
+    public ax d() {
+        return this.k;
+    }
+
+    public com.baidu.tieba.c.a e() {
+        return this.j;
+    }
+
+    public void b(String str) {
+        this.g = str;
+    }
+
+    public String f() {
+        return this.g;
+    }
+
+    public void a(long j) {
+        this.d = j;
+    }
+
+    public long g() {
         return this.d;
+    }
+
+    public void b(long j) {
+        this.e = j;
+    }
+
+    public long h() {
+        return this.e + this.f;
+    }
+
+    public void c(long j) {
+        this.f = j;
+    }
+
+    public void b(boolean z) {
+        this.h = z;
+    }
+
+    public boolean i() {
+        return this.h;
+    }
+
+    public void c(boolean z) {
+        this.i = z;
+    }
+
+    public boolean j() {
+        return this.i;
     }
 }

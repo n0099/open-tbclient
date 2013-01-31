@@ -5,8 +5,9 @@ import android.os.AsyncTask;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import com.baidu.browser.core.util.BdUtil;
 import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.c.ae;
+import com.baidu.tieba.c.af;
 import com.baidu.tieba.c.t;
 import com.baidu.tieba.view.BaseWebView;
 /* JADX INFO: Access modifiers changed from: package-private */
@@ -36,22 +37,25 @@ public class r extends AsyncTask {
         long j;
         this.b = new t("http://c.tieba.baidu.com/c/s/classic");
         this.b.a(false);
+        if (TiebaApplication.b().af() == 1) {
+            this.b.a("night_type", "1");
+        }
         this.b.a("_version_more", "1");
         this.b.a("platform", "android");
         t tVar = this.b;
-        str = this.a.n;
+        str = this.a.p;
         tVar.a("page", str);
-        z = RecommendActivity.l;
+        z = RecommendActivity.m;
         if (z) {
-            RecommendActivity.l = false;
+            RecommendActivity.m = false;
             this.b.a("msg_click", "1");
             t tVar2 = this.b;
-            j = RecommendActivity.m;
+            j = RecommendActivity.n;
             tVar2.a("message_id", String.valueOf(j));
         }
-        Location at = TiebaApplication.a().at();
-        if (at != null && TiebaApplication.a().j()) {
-            this.b.a("lbs", String.valueOf(String.valueOf(at.getLatitude())) + "," + String.valueOf(at.getLongitude()));
+        Location aw = TiebaApplication.b().aw();
+        if (aw != null && TiebaApplication.b().l()) {
+            this.b.a("lbs", String.valueOf(String.valueOf(aw.getLatitude())) + "," + String.valueOf(aw.getLongitude()));
         }
         try {
             this.c = this.b.i();
@@ -59,7 +63,7 @@ public class r extends AsyncTask {
                 return this.c;
             }
         } catch (Exception e) {
-            ae.b("RecommendAsyncTask", "doInBackground", "error = " + e.getMessage());
+            af.b("RecommendAsyncTask", "doInBackground", "error = " + e.getMessage());
         }
         return null;
     }
@@ -68,7 +72,7 @@ public class r extends AsyncTask {
         if (this.b != null) {
             this.b.g();
         }
-        this.a.k = false;
+        this.a.l = false;
         super.cancel(true);
     }
 
@@ -87,37 +91,37 @@ public class r extends AsyncTask {
         BaseWebView baseWebView3;
         TextView textView2;
         BaseWebView baseWebView4;
-        linearLayout = this.a.d;
+        linearLayout = this.a.e;
         linearLayout.setOnClickListener(null);
         if (this.b == null || !this.b.c() || str == null || str.length() <= 0) {
-            this.a.h = false;
-            String a = com.baidu.tieba.c.k.a(6);
-            if (a != null && a.length() > 1) {
-                this.a.f = true;
-                baseWebView2 = this.a.b;
-                baseWebView2.loadDataWithBaseURL("http://c.tieba.baidu.com/", a, "text/html", "utf-8", "");
+            this.a.i = false;
+            String b = com.baidu.tieba.c.k.b(6);
+            if (b != null && b.length() > 1) {
+                this.a.g = true;
+                baseWebView2 = this.a.c;
+                baseWebView2.loadDataWithBaseURL("http://c.tieba.baidu.com/", b, "text/html", BdUtil.UTF8, "");
             }
-            z = this.a.f;
+            z = this.a.g;
             if (!z) {
-                textView = this.a.i;
+                textView = this.a.j;
                 textView.setVisibility(0);
-                baseWebView = this.a.b;
+                baseWebView = this.a.c;
                 baseWebView.setVisibility(8);
-                linearLayout2 = this.a.d;
-                onClickListener = this.a.o;
+                linearLayout2 = this.a.e;
+                onClickListener = this.a.q;
                 linearLayout2.setOnClickListener(onClickListener);
             }
         } else {
             com.baidu.tieba.c.k.a(str, 6);
-            baseWebView3 = this.a.b;
-            baseWebView3.loadDataWithBaseURL("http://c.tieba.baidu.com/", str, "text/html", "utf-8", "");
-            this.a.f = true;
-            textView2 = this.a.i;
+            baseWebView3 = this.a.c;
+            baseWebView3.loadDataWithBaseURL("http://c.tieba.baidu.com/", str, "text/html", BdUtil.UTF8, "");
+            this.a.g = true;
+            textView2 = this.a.j;
             textView2.setVisibility(8);
-            baseWebView4 = this.a.b;
+            baseWebView4 = this.a.c;
             baseWebView4.setVisibility(0);
         }
-        this.a.g = true;
-        this.a.n();
+        this.a.h = true;
+        this.a.p();
     }
 }

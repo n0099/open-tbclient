@@ -16,14 +16,14 @@ class am implements DialogInterface.OnClickListener {
         MsgRemindActivity msgRemindActivity;
         switch (i) {
             case 0:
-                TiebaApplication.a().i(true);
+                TiebaApplication.b().j(true);
                 break;
             case 1:
-                TiebaApplication.a().i(false);
+                TiebaApplication.b().j(false);
                 break;
         }
-        com.baidu.tieba.c.k.t();
+        com.baidu.tieba.c.k.v();
         msgRemindActivity = this.a.a;
-        msgRemindActivity.l();
+        msgRemindActivity.n();
     }
 }

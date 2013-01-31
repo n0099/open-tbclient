@@ -1,105 +1,52 @@
 package com.baidu.tieba.pb;
 
-import android.content.Intent;
-import android.os.AsyncTask;
+import android.os.Handler;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.GridView;
 import com.baidu.tieba.R;
-import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class db extends AsyncTask {
+public class db implements View.OnClickListener {
     final /* synthetic */ SubPbActivity a;
-    private com.baidu.tieba.c.t b = null;
-    private String c;
-    private String d;
-    private String e;
-    private String f;
-    private int g;
+    private final /* synthetic */ Handler b;
+    private final /* synthetic */ Runnable c;
 
-    public db(SubPbActivity subPbActivity, String str, String str2, String str3, String str4, int i) {
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public db(SubPbActivity subPbActivity, Handler handler, Runnable runnable) {
         this.a = subPbActivity;
-        this.c = str;
-        this.d = str2;
-        this.e = str3;
-        this.f = str4;
-        this.g = i;
+        this.b = handler;
+        this.c = runnable;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // android.os.AsyncTask
-    /* renamed from: a */
-    public String doInBackground(String... strArr) {
-        int i;
-        this.b = new com.baidu.tieba.c.t(strArr[0]);
-        this.b.a("fid", this.c);
-        this.b.a("word", this.d);
-        this.b.a("z", this.e);
-        this.b.a("pid", this.f);
-        this.b.a("isfloor", "1");
-        this.b.a("src", "3");
-        i = this.a.M;
-        if (i == 0) {
-            this.b.a("is_vipdel", "1");
-        } else {
-            this.b.a("is_vipdel", "0");
-        }
-        this.b.d(true);
-        this.b.i();
-        if (this.b.b()) {
-            return null;
-        }
-        return this.b.f();
-    }
-
-    public void a() {
-        if (this.b != null) {
-            this.b.g();
-        }
-        this.a.X = null;
-        super.cancel(true);
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // android.os.AsyncTask
-    /* renamed from: a */
-    public void onPostExecute(String str) {
-        com.baidu.tieba.b.r rVar;
-        List list;
-        df dfVar;
-        super.onPostExecute(str);
-        this.a.X = null;
-        rVar = this.a.f;
-        rVar.a(false);
-        if (this.b == null) {
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        GridView gridView;
+        EditText editText;
+        Button button;
+        EditText editText2;
+        GridView gridView2;
+        EditText editText3;
+        Button button2;
+        gridView = this.a.ad;
+        if (gridView.getVisibility() == 0) {
+            editText2 = this.a.t;
+            editText2.requestFocus();
+            gridView2 = this.a.ad;
+            gridView2.setVisibility(8);
+            SubPbActivity subPbActivity = this.a;
+            editText3 = this.a.t;
+            com.baidu.tieba.c.ah.b(subPbActivity, editText3);
+            button2 = this.a.y;
+            button2.setBackgroundResource(R.drawable.sub_pb_face);
             return;
         }
-        if (str != null) {
-            this.a.b(str);
-            return;
-        }
-        this.a.b(this.a.getString(R.string.success));
-        if (this.g == 0) {
-            Intent intent = new Intent(this.a, PbActivity.class);
-            intent.putExtra("del_post_id", this.f);
-            this.a.setResult(-1, intent);
-            this.a.p();
-            return;
-        }
-        list = this.a.J;
-        int size = list.size();
-        int i = 0;
-        while (true) {
-            if (i >= size) {
-                break;
-            } else if (this.f.equals(((com.baidu.tieba.a.am) list.get(i)).a())) {
-                list.remove(i);
-                break;
-            } else {
-                i++;
-            }
-        }
-        dfVar = this.a.g;
-        dfVar.notifyDataSetChanged();
+        SubPbActivity subPbActivity2 = this.a;
+        editText = this.a.t;
+        com.baidu.tieba.c.ah.a(subPbActivity2, editText);
+        this.b.postDelayed(this.c, 200L);
+        button = this.a.y;
+        button.setBackgroundResource(R.drawable.sub_pb_keyboard);
     }
 }

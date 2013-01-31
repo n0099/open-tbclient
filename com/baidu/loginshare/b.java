@@ -1,6 +1,9 @@
 package com.baidu.loginshare;
 
 import android.content.Context;
+import com.baidu.share.IShareListener;
+import com.baidu.share.ShareAssistant;
+import com.baidu.share.ShareModel;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
@@ -12,7 +15,7 @@ public class b {
     private static final int m = 100;
     private static final int n = 1;
     private Context a = null;
-    private com.baidu.share.b b = null;
+    private ShareAssistant b = null;
     private String c = "loginshare";
     private j d = null;
     private Token e = null;
@@ -27,11 +30,11 @@ public class b {
     private k p = null;
     private volatile boolean q = false;
     private ArrayList r = new ArrayList();
-    private com.baidu.share.a s = new m(this);
+    private IShareListener s = new m(this);
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void a(com.baidu.share.c cVar) {
-        HashMap hashMap = cVar.d;
+    public void a(ShareModel shareModel) {
+        HashMap hashMap = shareModel.mData;
         Token token = new Token();
         HashMap hashMap2 = new HashMap();
         for (String str : hashMap.keySet()) {
@@ -64,17 +67,17 @@ public class b {
         }
     }
 
-    private boolean a(com.baidu.share.c cVar, boolean z, String str) {
+    private boolean a(ShareModel shareModel, boolean z, String str) {
         if (d()) {
-            boolean a = this.g.a() ? this.b.a(cVar) : false;
-            if (a && z) {
+            boolean share = this.g.a() ? this.b.share(shareModel) : false;
+            if (share && z) {
                 this.f.a(1, str);
-                return a;
+                return share;
             }
-            return a;
+            return share;
         }
         synchronized (this.r) {
-            this.r.add(cVar);
+            this.r.add(shareModel);
         }
         if (!this.q) {
             this.p = new k(this, z, str);
@@ -116,8 +119,8 @@ public class b {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void b(com.baidu.share.c cVar) {
-        HashMap hashMap = cVar.d;
+    public void b(ShareModel shareModel) {
+        HashMap hashMap = shareModel.mData;
         Token token = new Token();
         HashMap hashMap2 = new HashMap();
         for (String str : hashMap.keySet()) {
@@ -150,23 +153,23 @@ public class b {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void c(com.baidu.share.c cVar) {
-        String str = cVar.b;
+    public void c(ShareModel shareModel) {
+        String str = shareModel.mFrom;
         if (e.a(this.d.a(h.k()))) {
             String a = f.a(this.a, this.d.a(h.i()));
             if (e.a(a)) {
-                com.baidu.share.c cVar2 = new com.baidu.share.c();
-                cVar2.a = h.b();
-                cVar2.d.put(h.k(), f.a(this.a, this.d.a(h.k())));
-                cVar2.d.put(h.f(), f.a(this.a, this.d.a(h.f())));
-                cVar2.d.put(h.g(), f.a(this.a, this.d.a(h.g())));
-                cVar2.d.put(h.h(), f.a(this.a, this.d.a(h.h())));
-                cVar2.d.put(h.i(), a);
-                cVar2.d.put(h.j(), f.a(this.a, this.d.a(h.j())));
-                cVar2.d.put(h.n(), f.a(this.a, this.d.a(h.n())));
+                ShareModel shareModel2 = new ShareModel();
+                shareModel2.mAction = h.b();
+                shareModel2.mData.put(h.k(), f.a(this.a, this.d.a(h.k())));
+                shareModel2.mData.put(h.f(), f.a(this.a, this.d.a(h.f())));
+                shareModel2.mData.put(h.g(), f.a(this.a, this.d.a(h.g())));
+                shareModel2.mData.put(h.h(), f.a(this.a, this.d.a(h.h())));
+                shareModel2.mData.put(h.i(), a);
+                shareModel2.mData.put(h.j(), f.a(this.a, this.d.a(h.j())));
+                shareModel2.mData.put(h.n(), f.a(this.a, this.d.a(h.n())));
                 ArrayList arrayList = new ArrayList();
                 arrayList.add(str);
-                this.b.a(cVar2, arrayList);
+                this.b.share(shareModel2, arrayList);
             }
         }
     }
@@ -176,8 +179,8 @@ public class b {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void d(com.baidu.share.c cVar) {
-        HashMap hashMap = cVar.d;
+    public void d(ShareModel shareModel) {
+        HashMap hashMap = shareModel.mData;
         String str = (String) hashMap.get(h.g());
         String str2 = (String) hashMap.get(h.h());
         String str3 = (String) hashMap.get(h.i());
@@ -242,8 +245,8 @@ public class b {
         }
         this.a = context;
         this.f = new c(str, str2);
-        this.b = com.baidu.share.b.a(this.a);
-        this.b.a(this.s);
+        this.b = ShareAssistant.a(this.a);
+        this.b.registListener(this.s);
         this.d = new j(this.a);
         String a = this.d.a(h.k());
         if (!e.a(a)) {
@@ -311,22 +314,22 @@ public class b {
             String a4 = f.a(this.a, str4);
             String a5 = f.a(this.a, str5);
             HashMap hashMap = new HashMap();
-            com.baidu.share.c cVar = new com.baidu.share.c();
-            cVar.a = h.c();
-            cVar.d.put(h.f(), a);
-            cVar.d.put(h.g(), a2);
-            cVar.d.put(h.h(), a3);
-            cVar.d.put(h.i(), a4);
-            cVar.d.put(h.j(), a5);
+            ShareModel shareModel = new ShareModel();
+            shareModel.mAction = h.c();
+            shareModel.mData.put(h.f(), a);
+            shareModel.mData.put(h.g(), a2);
+            shareModel.mData.put(h.h(), a3);
+            shareModel.mData.put(h.i(), a4);
+            shareModel.mData.put(h.j(), a5);
             for (String str6 : token.mExtras.keySet()) {
                 String a6 = f.a(this.a, (String) token.mExtras.get(str6));
                 hashMap.put(str6, a6);
-                cVar.d.put(str6, a6);
+                shareModel.mData.put(str6, a6);
             }
             a(true, str, str2, str3, str4, str5, token.mExtras);
             token.mEvent = LoginShareEvent.VALID;
             this.e = token;
-            return a(cVar, true, str4);
+            return a(shareModel, true, str4);
         }
         return false;
     }
@@ -334,7 +337,7 @@ public class b {
     /* JADX INFO: Access modifiers changed from: package-private */
     public void b() {
         if (this.b != null && this.s != null) {
-            this.b.b(this.s);
+            this.b.unRegistListener(this.s);
             this.b = null;
         }
         this.f = null;
@@ -356,22 +359,22 @@ public class b {
             String a4 = f.a(this.a, str4);
             String a5 = f.a(this.a, str5);
             HashMap hashMap = new HashMap();
-            com.baidu.share.c cVar = new com.baidu.share.c();
-            cVar.a = h.d();
-            cVar.d.put(h.f(), a);
-            cVar.d.put(h.g(), a2);
-            cVar.d.put(h.h(), a3);
-            cVar.d.put(h.i(), a4);
-            cVar.d.put(h.j(), a5);
+            ShareModel shareModel = new ShareModel();
+            shareModel.mAction = h.d();
+            shareModel.mData.put(h.f(), a);
+            shareModel.mData.put(h.g(), a2);
+            shareModel.mData.put(h.h(), a3);
+            shareModel.mData.put(h.i(), a4);
+            shareModel.mData.put(h.j(), a5);
             for (String str6 : token.mExtras.keySet()) {
                 String a6 = f.a(this.a, (String) token.mExtras.get(str6));
                 hashMap.put(str6, a6);
-                cVar.d.put(str6, a6);
+                shareModel.mData.put(str6, a6);
             }
             a(false, str, str2, str3, str4, str5, token.mExtras);
             token.mEvent = LoginShareEvent.INVALID;
             this.e = token;
-            return a(cVar, false, str4);
+            return a(shareModel, false, str4);
         }
         return false;
     }

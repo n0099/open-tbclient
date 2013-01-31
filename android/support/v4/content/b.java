@@ -13,8 +13,14 @@ public class b {
     boolean r;
     boolean s;
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public void a() {
+    public void b(Object obj) {
+        if (this.n != null) {
+            this.n.a(this, obj);
+        }
+    }
+
+    public Context j() {
+        return this.o;
     }
 
     public void a(int i, d dVar) {
@@ -33,50 +39,6 @@ public class b {
             throw new IllegalArgumentException("Attempting to unregister the wrong listener");
         }
         this.n = null;
-    }
-
-    public void a(String str, FileDescriptor fileDescriptor, PrintWriter printWriter, String[] strArr) {
-        printWriter.print(str);
-        printWriter.print("mId=");
-        printWriter.print(this.m);
-        printWriter.print(" mListener=");
-        printWriter.println(this.n);
-        printWriter.print(str);
-        printWriter.print("mStarted=");
-        printWriter.print(this.p);
-        printWriter.print(" mContentChanged=");
-        printWriter.print(this.s);
-        printWriter.print(" mAbandoned=");
-        printWriter.print(this.q);
-        printWriter.print(" mReset=");
-        printWriter.println(this.r);
-    }
-
-    public void b(Object obj) {
-        if (this.n != null) {
-            this.n.a(this, obj);
-        }
-    }
-
-    public String c(Object obj) {
-        StringBuilder sb = new StringBuilder(64);
-        android.support.v4.b.a.a(obj, sb);
-        sb.append("}");
-        return sb.toString();
-    }
-
-    protected void g() {
-    }
-
-    protected void h() {
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    public void i() {
-    }
-
-    public Context j() {
-        return this.o;
     }
 
     public boolean k() {
@@ -98,13 +60,23 @@ public class b {
         g();
     }
 
+    protected void g() {
+    }
+
     public void o() {
         a();
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    public void a() {
     }
 
     public void p() {
         this.p = false;
         h();
+    }
+
+    protected void h() {
     }
 
     public void q() {
@@ -113,6 +85,10 @@ public class b {
         this.p = false;
         this.q = false;
         this.s = false;
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    public void i() {
     }
 
     public boolean r() {
@@ -129,6 +105,13 @@ public class b {
         }
     }
 
+    public String c(Object obj) {
+        StringBuilder sb = new StringBuilder(64);
+        android.support.v4.b.a.a(obj, sb);
+        sb.append("}");
+        return sb.toString();
+    }
+
     public String toString() {
         StringBuilder sb = new StringBuilder(64);
         android.support.v4.b.a.a(this, sb);
@@ -136,5 +119,22 @@ public class b {
         sb.append(this.m);
         sb.append("}");
         return sb.toString();
+    }
+
+    public void a(String str, FileDescriptor fileDescriptor, PrintWriter printWriter, String[] strArr) {
+        printWriter.print(str);
+        printWriter.print("mId=");
+        printWriter.print(this.m);
+        printWriter.print(" mListener=");
+        printWriter.println(this.n);
+        printWriter.print(str);
+        printWriter.print("mStarted=");
+        printWriter.print(this.p);
+        printWriter.print(" mContentChanged=");
+        printWriter.print(this.s);
+        printWriter.print(" mAbandoned=");
+        printWriter.print(this.q);
+        printWriter.print(" mReset=");
+        printWriter.println(this.r);
     }
 }

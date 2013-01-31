@@ -1,42 +1,67 @@
 package com.baidu.tieba.more;
 
-import android.app.Dialog;
-import android.content.ComponentName;
-import android.content.Intent;
-import android.view.View;
+import android.os.AsyncTask;
 import com.baidu.tieba.R;
+import java.io.File;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class af implements View.OnClickListener {
+public class af extends AsyncTask {
     final /* synthetic */ MoreActivity a;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public af(MoreActivity moreActivity) {
+    private af(MoreActivity moreActivity) {
         this.a = moreActivity;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        Dialog dialog;
-        Dialog dialog2;
-        Dialog dialog3;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public /* synthetic */ af(MoreActivity moreActivity, af afVar) {
+        this(moreActivity);
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // android.os.AsyncTask
+    /* renamed from: a */
+    public void onPostExecute(String str) {
+        super.onPostExecute(str);
+        this.a.L = null;
+        this.a.d();
+        this.a.b(this.a.getString(R.string.image_cash_del_suc));
+    }
+
+    @Override // android.os.AsyncTask
+    protected void onPreExecute() {
+        super.onPreExecute();
+        this.a.a(this.a.getString(R.string.deleting));
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // android.os.AsyncTask
+    /* renamed from: a */
+    public String doInBackground(String... strArr) {
+        com.baidu.tieba.c.k.y();
         try {
-            try {
-                Intent intent = new Intent("/");
-                intent.setComponent(new ComponentName("com.android.settings", "com.android.settings.DisplaySettings"));
-                intent.setAction("android.intent.action.VIEW");
-                this.a.startActivityForResult(intent, 0);
-                dialog3 = this.a.z;
-                dialog3.dismiss();
-            } catch (Exception e) {
-                this.a.b(this.a.getString(R.string.goto_setting_tip));
-                dialog = this.a.z;
-                dialog.dismiss();
+            File[] listFiles = new File(com.baidu.tieba.c.o.a + "/tieba/image/").listFiles();
+            if (listFiles != null) {
+                for (File file : listFiles) {
+                    if (!file.delete()) {
+                        com.baidu.tieba.c.af.b(getClass().getName(), "doInBackground", "list[i].delete error");
+                    }
+                }
             }
-        } catch (Throwable th) {
-            dialog2 = this.a.z;
-            dialog2.dismiss();
-            throw th;
+            File[] listFiles2 = new File(com.baidu.tieba.c.o.a + "/tieba/hotspot/").listFiles();
+            if (listFiles2 != null) {
+                for (File file2 : listFiles2) {
+                    if (!file2.delete()) {
+                        com.baidu.tieba.c.af.b(getClass().getName(), "doInBackground", "list[i].delete error");
+                    }
+                }
+                return null;
+            }
+            return null;
+        } catch (Exception e) {
+            com.baidu.tieba.c.af.b(getClass().getName(), "doInBackground", e.getMessage());
+            return null;
         }
     }
 }

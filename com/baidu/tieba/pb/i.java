@@ -24,40 +24,34 @@ public class i extends AsyncTask {
     @Override // android.os.AsyncTask
     /* renamed from: a */
     public String doInBackground(String... strArr) {
-        String g;
+        String str;
+        String h;
         try {
-            if (this.a == null || this.a.length() <= 0 || this.b == null) {
-                return this.c.getString(R.string.save_error);
+            if (this.a != null && this.a.length() > 0 && this.b != null) {
+                if (!com.baidu.tieba.c.ah.a(this.b)) {
+                    str = ".jpg";
+                } else {
+                    str = ".gif";
+                }
+                if (com.baidu.tieba.c.ae.h(this.a) == null) {
+                    return this.c.getString(R.string.save_error);
+                }
+                String str2 = String.valueOf(h) + str;
+                for (int i = 0; com.baidu.tieba.c.o.b(str2) && i < 10000; i++) {
+                    str2 = String.valueOf(h) + String.valueOf(Math.round(Math.random() * 9.9999999E7d)) + str;
+                }
+                String a = com.baidu.tieba.c.o.a(str2, this.b);
+                if (a != null) {
+                    new com.baidu.tieba.c.s(this.c).a(a);
+                    return this.c.getString(R.string.save_image_to_album);
+                }
+                return com.baidu.tieba.c.o.b();
             }
-            String str = com.baidu.tieba.c.ag.a(this.b) ? ".gif" : ".jpg";
-            if (com.baidu.tieba.c.ad.g(this.a) == null) {
-                return this.c.getString(R.string.save_error);
-            }
-            String str2 = String.valueOf(g) + str;
-            for (int i = 0; com.baidu.tieba.c.o.b(str2) && i < 10000; i++) {
-                str2 = String.valueOf(g) + String.valueOf(Math.round(Math.random() * 9.9999999E7d)) + str;
-            }
-            String a = com.baidu.tieba.c.o.a(str2, this.b);
-            if (a != null) {
-                new com.baidu.tieba.c.s(this.c).a(a);
-                return this.c.getString(R.string.save_image_to_album);
-            }
-            return com.baidu.tieba.c.o.b();
+            return this.c.getString(R.string.save_error);
         } catch (Exception e) {
-            com.baidu.tieba.c.ae.b("SaveImageAsyncTask", "doInBackground", "error" + e.getMessage());
+            com.baidu.tieba.c.af.b("SaveImageAsyncTask", "doInBackground", "error" + e.getMessage());
             return this.c.getString(R.string.save_error);
         }
-    }
-
-    public void a() {
-        Button button;
-        ProgressBar progressBar;
-        this.c.h = null;
-        button = this.c.i;
-        button.setVisibility(0);
-        progressBar = this.c.b;
-        progressBar.setVisibility(8);
-        super.cancel(true);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -69,15 +63,26 @@ public class i extends AsyncTask {
         ProgressBar progressBar;
         super.onPostExecute(str);
         this.c.b(str);
-        this.c.h = null;
-        button = this.c.i;
+        this.c.i = null;
+        button = this.c.j;
         button.setVisibility(0);
-        progressBar = this.c.b;
+        progressBar = this.c.c;
         progressBar.setVisibility(8);
     }
 
     @Override // android.os.AsyncTask
     protected void onCancelled() {
         super.onCancelled();
+    }
+
+    public void a() {
+        Button button;
+        ProgressBar progressBar;
+        this.c.i = null;
+        button = this.c.j;
+        button.setVisibility(0);
+        progressBar = this.c.c;
+        progressBar.setVisibility(8);
+        super.cancel(true);
     }
 }

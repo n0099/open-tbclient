@@ -1,123 +1,79 @@
 package com.baidu.tieba.a;
 
-import java.util.ArrayList;
-import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class p {
-    private String l;
-    private int m;
-    private String a = null;
-    private String b = null;
+    private int a = 0;
+    private long b = 0;
     private String c = null;
     private String d = null;
-    private int e = 0;
-    private int f = 1;
-    private int g = 0;
-    private int h = 0;
-    private int i = 0;
-    private int j = 0;
-    private int k = 0;
-    private int q = 0;
-    private ap n = new ap();
-    private ArrayList o = new ArrayList();
-    private ArrayList p = new ArrayList();
+    private String e = null;
+    private String f = null;
+    private String g = null;
+    private String h = null;
+    private ai i = new ai();
+    private ai j = new ai();
+    private int k;
+    private String l;
 
     public int a() {
-        return this.q;
-    }
-
-    public void a(int i) {
-        this.m = i;
-    }
-
-    public void a(JSONObject jSONObject) {
-        if (jSONObject == null) {
-            return;
-        }
-        try {
-            this.a = jSONObject.optString("id");
-            this.b = jSONObject.optString("name");
-            this.c = jSONObject.optString("first_class");
-            this.d = jSONObject.optString("second_class");
-            this.e = jSONObject.optInt("is_exists", 0);
-            this.f = jSONObject.optInt("is_forbidden", 1);
-            this.g = jSONObject.optInt("thread_num", 0);
-            this.h = jSONObject.optInt("post_num", 0);
-            this.i = jSONObject.optInt("member_num", 0);
-            this.j = jSONObject.optInt("is_like", 0);
-            this.k = jSONObject.optInt("level_id", 0);
-            this.l = jSONObject.optString("level_name", null);
-            this.q = jSONObject.optInt("album_open_photo_frs", 0);
-            a(jSONObject.optInt("favo_type", 0));
-            JSONArray optJSONArray = jSONObject.optJSONArray("managers");
-            if (optJSONArray != null) {
-                for (int i = 0; i < optJSONArray.length(); i++) {
-                    this.o.add(((JSONObject) optJSONArray.opt(i)).optString("name"));
-                }
-            }
-            JSONArray optJSONArray2 = jSONObject.optJSONArray("good_classify");
-            if (optJSONArray2 != null) {
-                for (int i2 = 0; i2 < optJSONArray2.length(); i2++) {
-                    s sVar = new s();
-                    sVar.a(optJSONArray2.optJSONObject(i2));
-                    this.p.add(sVar);
-                }
-            }
-            JSONObject optJSONObject = jSONObject.optJSONObject("sign_in_info");
-            if (optJSONObject != null) {
-                JSONObject optJSONObject2 = optJSONObject.optJSONObject("user_info");
-                if (optJSONObject2 != null) {
-                    this.n.b(optJSONObject2.optInt("is_sign_in"));
-                    this.n.c(optJSONObject2.optInt("user_sign_rank"));
-                }
-                JSONObject optJSONObject3 = optJSONObject.optJSONObject("forum_info");
-                if (optJSONObject3 != null) {
-                    if (optJSONObject3.optInt("is_on") == 0) {
-                        this.n.a(-2);
-                        return;
-                    }
-                    JSONObject optJSONObject4 = optJSONObject3.optJSONObject("current_rank_info");
-                    if (optJSONObject4 != null) {
-                        this.n.a(optJSONObject4.optInt("sign_rank"));
-                        this.n.d(optJSONObject4.optInt("sign_count"));
-                    }
-                }
-            }
-        } catch (Exception e) {
-            com.baidu.tieba.c.ae.b("ForumData", "parserJson", "error = " + e.getMessage());
-        }
-    }
-
-    public String b() {
         return this.a;
     }
 
-    public String c() {
+    public long b() {
         return this.b;
     }
 
-    public int d() {
-        return this.j;
+    public String c() {
+        return this.c;
     }
 
-    public int e() {
-        return this.k;
+    public String d() {
+        return this.d;
     }
 
-    public ap f() {
-        return this.n;
+    public String e() {
+        return this.e;
     }
 
-    public ArrayList g() {
-        return this.p;
+    public String f() {
+        return this.f;
+    }
+
+    public String g() {
+        return this.g;
     }
 
     public String h() {
-        return this.l;
+        return this.h;
     }
 
-    public int i() {
-        return this.m;
+    public ai i() {
+        return this.i;
+    }
+
+    public boolean j() {
+        return this.k == 1;
+    }
+
+    public void a(JSONObject jSONObject) {
+        if (jSONObject != null) {
+            try {
+                this.a = jSONObject.optInt("type", 0);
+                this.c = jSONObject.optString("title");
+                this.b = jSONObject.optLong("time", 0L) * 1000;
+                this.d = jSONObject.optString("fname");
+                this.e = jSONObject.optString("content");
+                this.f = jSONObject.optString("quote_content");
+                this.g = jSONObject.optString("thread_id");
+                this.h = jSONObject.optString("post_id");
+                this.k = jSONObject.optInt("is_floor");
+                this.l = jSONObject.optString("quote_pid");
+                this.i.a(jSONObject.optJSONObject("replyer"));
+                this.j.a(jSONObject.optJSONObject("quote_user"));
+            } catch (Exception e) {
+                com.baidu.tieba.c.af.b("FeedData", "parserJson", "error = " + e.getMessage());
+            }
+        }
     }
 }

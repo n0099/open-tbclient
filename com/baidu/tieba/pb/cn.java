@@ -1,9 +1,10 @@
 package com.baidu.tieba.pb;
 
-import android.content.DialogInterface;
+import android.view.View;
+import com.baidu.tieba.person.PersonInfoActivity;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class cn implements DialogInterface.OnClickListener {
+public class cn implements View.OnClickListener {
     final /* synthetic */ SubPbActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -11,17 +12,13 @@ public class cn implements DialogInterface.OnClickListener {
         this.a = subPbActivity;
     }
 
-    @Override // android.content.DialogInterface.OnClickListener
-    public void onClick(DialogInterface dialogInterface, int i) {
-        com.baidu.tieba.a.am amVar;
-        com.baidu.tieba.a.am amVar2;
-        if (i == 0) {
-            amVar = this.a.z;
-            if (amVar != null) {
-                amVar2 = this.a.z;
-                amVar2.d(this.a);
-            }
-            this.a.z = null;
-        }
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        com.baidu.tieba.b.t tVar;
+        com.baidu.tieba.b.t tVar2;
+        tVar = this.a.g;
+        String a = tVar.a().a().d().a();
+        tVar2 = this.a.g;
+        PersonInfoActivity.a(this.a, a, tVar2.a().a().d().b());
     }
 }

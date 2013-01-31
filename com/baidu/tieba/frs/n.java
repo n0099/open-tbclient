@@ -1,52 +1,30 @@
 package com.baidu.tieba.frs;
 
-import android.content.DialogInterface;
+import android.app.AlertDialog;
+import android.view.View;
+import com.baidu.mobstat.StatService;
 import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.a.as;
-import com.baidu.tieba.pb.PbActivity;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class n implements DialogInterface.OnClickListener {
+public class n implements View.OnClickListener {
     final /* synthetic */ FrsActivity a;
-    private final /* synthetic */ as b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public n(FrsActivity frsActivity, as asVar) {
+    public n(FrsActivity frsActivity) {
         this.a = frsActivity;
-        this.b = asVar;
     }
 
-    @Override // android.content.DialogInterface.OnClickListener
-    public void onClick(DialogInterface dialogInterface, int i) {
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
         String str;
-        String str2;
-        ab abVar;
-        ab abVar2;
-        switch (i) {
-            case 0:
-                str = this.a.n;
-                if (str != null) {
-                    FrsActivity frsActivity = this.a;
-                    str2 = this.a.n;
-                    PbActivity.a(frsActivity, str2, "tb_frslist");
-                    break;
-                }
-                break;
-            case 1:
-                this.a.c(this.b);
-                break;
-            case 2:
-                this.a.r();
-                break;
+        AlertDialog alertDialog;
+        if (TiebaApplication.b().k()) {
+            StatService.onEvent(this.a, "frs_add_main_screen", "frsclick", 1);
         }
-        com.baidu.tieba.c.aa ai = TiebaApplication.a().ai();
-        if (ai != null && !ai.b(this.b.a())) {
-            ai.a(this.b.a());
-        }
-        abVar = this.a.w;
-        if (abVar != null) {
-            abVar2 = this.a.w;
-            abVar2.notifyDataSetChanged();
-        }
+        FrsActivity frsActivity = this.a;
+        str = this.a.g;
+        frsActivity.c(str);
+        alertDialog = this.a.U;
+        alertDialog.dismiss();
     }
 }

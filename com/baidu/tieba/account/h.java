@@ -20,6 +20,14 @@ public class h extends AsyncTask {
         this.a = arrayList;
     }
 
+    @Override // android.os.AsyncTask
+    protected void onPreExecute() {
+        ProgressBar progressBar;
+        progressBar = this.b.l;
+        progressBar.setVisibility(0);
+        com.baidu.tieba.c.af.a("LoginAsyncTask", "doInBackground", "url: " + this.d);
+    }
+
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.os.AsyncTask
@@ -32,7 +40,7 @@ public class h extends AsyncTask {
             this.c.a(this.a);
             this.e = this.c.i();
             if (this.e != null) {
-                com.baidu.tieba.c.ae.a("LoginAsyncTask", "doInBackground", "data: " + this.e);
+                com.baidu.tieba.c.af.a("LoginAsyncTask", "doInBackground", "data: " + this.e);
             }
             if (!this.c.b() || this.e == null) {
                 return null;
@@ -43,24 +51,13 @@ public class h extends AsyncTask {
                 return gVar;
             } catch (Exception e2) {
                 e = e2;
-                com.baidu.tieba.c.ae.b(getClass().getName(), "", "doInBackground error = " + e.getMessage());
+                com.baidu.tieba.c.af.b(getClass().getName(), "", "doInBackground error = " + e.getMessage());
                 return gVar;
             }
         } catch (Exception e3) {
             gVar = null;
             e = e3;
         }
-    }
-
-    public void a() {
-        ProgressBar progressBar;
-        if (this.c != null) {
-            this.c.g();
-            this.c = null;
-        }
-        progressBar = this.b.k;
-        progressBar.setVisibility(8);
-        super.cancel(true);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -70,11 +67,11 @@ public class h extends AsyncTask {
     public void onPostExecute(com.baidu.tieba.b.g gVar) {
         ProgressBar progressBar;
         String str;
-        progressBar = this.b.k;
+        progressBar = this.b.l;
         progressBar.setVisibility(8);
         if (gVar != null) {
-            this.b.i = gVar;
-            this.b.j();
+            this.b.j = gVar;
+            this.b.l();
         } else if (this.c != null) {
             this.b.b(this.c.f());
             if (this.c.c() && this.e != null) {
@@ -82,24 +79,27 @@ public class h extends AsyncTask {
                     this.b.setResult(0);
                     this.b.finish();
                 } else if (this.c.d() == 6 || this.c.d() == 5) {
-                    com.baidu.tieba.a.av avVar = new com.baidu.tieba.a.av();
-                    avVar.a(this.e);
-                    this.b.e = avVar.a();
-                    this.b.f = avVar.b();
+                    com.baidu.tieba.a.ay ayVar = new com.baidu.tieba.a.ay();
+                    ayVar.a(this.e);
+                    this.b.f = ayVar.a();
+                    this.b.g = ayVar.b();
                     AccountVcodeActivity accountVcodeActivity = this.b;
-                    str = this.b.f;
+                    str = this.b.g;
                     accountVcodeActivity.c(str);
                 }
             }
         }
-        this.b.h = null;
+        this.b.i = null;
     }
 
-    @Override // android.os.AsyncTask
-    protected void onPreExecute() {
+    public void a() {
         ProgressBar progressBar;
-        progressBar = this.b.k;
-        progressBar.setVisibility(0);
-        com.baidu.tieba.c.ae.a("LoginAsyncTask", "doInBackground", "url: " + this.d);
+        if (this.c != null) {
+            this.c.g();
+            this.c = null;
+        }
+        progressBar = this.b.l;
+        progressBar.setVisibility(8);
+        super.cancel(true);
     }
 }

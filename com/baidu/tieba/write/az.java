@@ -18,7 +18,7 @@ class az extends BroadcastReceiver {
 
     @Override // android.content.BroadcastReceiver
     public void onReceive(Context context, Intent intent) {
-        this.a.a();
+        this.a.b();
         if (intent.getBooleanExtra("result", false)) {
             WriteImageActivity.k(this.a);
         } else {

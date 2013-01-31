@@ -1,21 +1,22 @@
 package com.baidu.tieba.person;
 
-import android.app.AlertDialog;
 import android.view.View;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.tieba.frs.FrsActivity;
 /* loaded from: classes.dex */
-public class ae implements View.OnClickListener {
-    final /* synthetic */ PersonChangeActivity a;
+class ae implements View.OnClickListener {
+    final /* synthetic */ ad a;
+    private final /* synthetic */ com.baidu.tieba.b.k b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ae(PersonChangeActivity personChangeActivity) {
-        this.a = personChangeActivity;
+    public ae(ad adVar, com.baidu.tieba.b.k kVar) {
+        this.a = adVar;
+        this.b = kVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        AlertDialog alertDialog;
-        alertDialog = this.a.b;
-        alertDialog.show();
+        if (this.b.f() != null) {
+            FrsActivity.a(this.a.a, this.b.f(), (String) null);
+        }
     }
 }

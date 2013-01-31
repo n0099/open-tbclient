@@ -1,22 +1,18 @@
 package com.baidu.tieba.pb;
 
-import android.widget.GridView;
+import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class cy implements Runnable {
+public class cy implements View.OnClickListener {
     final /* synthetic */ SubPbActivity a;
-    private final /* synthetic */ GridView b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public cy(SubPbActivity subPbActivity, GridView gridView) {
+    public cy(SubPbActivity subPbActivity) {
         this.a = subPbActivity;
-        this.b = gridView;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        if (this.b.getVisibility() != 0) {
-            this.b.setVisibility(0);
-        }
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        this.a.k();
     }
 }

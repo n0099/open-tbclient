@@ -31,98 +31,29 @@ public class g extends Activity {
     r k;
     w l;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public w a(int i, boolean z, boolean z2) {
-        if (this.k == null) {
-            this.k = new r();
-        }
-        w wVar = (w) this.k.a(i);
-        if (wVar != null) {
-            wVar.a(this);
-            return wVar;
-        } else if (z2) {
-            w wVar2 = new w(this, z);
-            this.k.b(i, wVar2);
-            return wVar2;
-        } else {
-            return wVar;
-        }
-    }
-
-    public void a() {
-        if (this.b.c()) {
-            return;
-        }
-        finish();
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void a(int i) {
-        w wVar;
-        if (this.k == null || (wVar = (w) this.k.a(i)) == null || wVar.f) {
-            return;
-        }
-        wVar.h();
-        this.k.c(i);
-    }
-
-    public void a(Fragment fragment) {
-    }
-
-    void a(boolean z) {
-        if (this.f) {
-            return;
-        }
-        this.f = true;
-        this.g = z;
-        this.a.removeMessages(1);
-        d();
-    }
-
-    public Object b() {
-        return null;
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void c() {
-        if (Build.VERSION.SDK_INT >= 11) {
-            a.a(this);
-        } else {
-            this.h = true;
-        }
-    }
-
-    void d() {
-        if (this.j) {
-            this.j = false;
-            if (this.l != null) {
-                if (this.g) {
-                    this.l.d();
-                } else {
-                    this.l.c();
-                }
-            }
-        }
-        this.b.p();
-    }
-
     @Override // android.app.Activity
     protected void onActivityResult(int i, int i2, Intent intent) {
         int i3 = i >> 16;
-        if (i3 == 0) {
-            super.onActivityResult(i, i2, intent);
+        if (i3 != 0) {
+            int i4 = i3 - 1;
+            if (this.b.f == null || i4 < 0 || i4 >= this.b.f.size()) {
+                Log.w("FragmentActivity", "Activity result fragment index out of range: 0x" + Integer.toHexString(i));
+                return;
+            }
+            Fragment fragment = (Fragment) this.b.f.get(i4);
+            if (fragment == null) {
+                Log.w("FragmentActivity", "Activity result no fragment exists for index: 0x" + Integer.toHexString(i));
+            }
+            fragment.a(65535 & i, i2, intent);
             return;
         }
-        int i4 = i3 - 1;
-        if (this.b.f == null || i4 < 0 || i4 >= this.b.f.size()) {
-            Log.w("FragmentActivity", "Activity result fragment index out of range: 0x" + Integer.toHexString(i));
-            return;
+        super.onActivityResult(i, i2, intent);
+    }
+
+    public void a() {
+        if (!this.b.c()) {
+            finish();
         }
-        Fragment fragment = (Fragment) this.b.f.get(i4);
-        if (fragment == null) {
-            Log.w("FragmentActivity", "Activity result no fragment exists for index: 0x" + Integer.toHexString(i));
-        }
-        fragment.a(65535 & i, i2, intent);
     }
 
     @Override // android.app.Activity, android.content.ComponentCallbacks
@@ -152,10 +83,10 @@ public class g extends Activity {
     public boolean onCreatePanelMenu(int i, Menu menu) {
         if (i == 0) {
             boolean onCreatePanelMenu = super.onCreatePanelMenu(i, menu) | this.b.a(menu, getMenuInflater());
-            if (Build.VERSION.SDK_INT >= 11) {
-                return onCreatePanelMenu;
+            if (Build.VERSION.SDK_INT < 11) {
+                return true;
             }
-            return true;
+            return onCreatePanelMenu;
         }
         return super.onCreatePanelMenu(i, menu);
     }
@@ -173,62 +104,62 @@ public class g extends Activity {
     @Override // android.app.Activity, android.view.LayoutInflater.Factory
     public View onCreateView(String str, Context context, AttributeSet attributeSet) {
         Fragment fragment;
-        if ("fragment".equals(str)) {
-            String attributeValue = attributeSet.getAttributeValue(null, "class");
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, h.a);
-            if (attributeValue == null) {
-                attributeValue = obtainStyledAttributes.getString(0);
-            }
-            int resourceId = obtainStyledAttributes.getResourceId(1, -1);
-            String string = obtainStyledAttributes.getString(2);
-            obtainStyledAttributes.recycle();
-            int id = 0 != 0 ? r1.getId() : 0;
-            if (id == -1 && resourceId == -1 && string == null) {
-                throw new IllegalArgumentException(attributeSet.getPositionDescription() + ": Must specify unique android:id, android:tag, or have a parent with an id for " + attributeValue);
-            }
-            r1 = resourceId != -1 ? this.b.a(resourceId) : 0;
-            if (r1 == 0 && string != null) {
-                r1 = this.b.a(string);
-            }
-            if (r1 == 0 && id != -1) {
-                r1 = this.b.a(id);
-            }
-            if (l.a) {
-                Log.v("FragmentActivity", "onCreateView: id=0x" + Integer.toHexString(resourceId) + " fname=" + attributeValue + " existing=" + ((Object) r1));
-            }
-            if (r1 == 0) {
-                Fragment a = Fragment.a(this, attributeValue);
-                a.w = true;
-                a.C = resourceId != 0 ? resourceId : id;
-                a.D = id;
-                a.E = string;
-                a.x = true;
-                a.A = this.b;
-                a.a(this, attributeSet, a.l);
-                this.b.a(a, true);
-                fragment = a;
-            } else if (r1.x) {
-                throw new IllegalArgumentException(attributeSet.getPositionDescription() + ": Duplicate id 0x" + Integer.toHexString(resourceId) + ", tag " + string + ", or parent id 0x" + Integer.toHexString(id) + " with another fragment for " + attributeValue);
-            } else {
-                r1.x = true;
-                if (!r1.I) {
-                    r1.a(this, attributeSet, r1.l);
-                }
-                this.b.b(r1);
-                fragment = r1;
-            }
-            if (fragment.O == null) {
-                throw new IllegalStateException("Fragment " + attributeValue + " did not create a view.");
-            }
-            if (resourceId != 0) {
-                fragment.O.setId(resourceId);
-            }
-            if (fragment.O.getTag() == null) {
-                fragment.O.setTag(string);
-            }
-            return fragment.O;
+        if (!"fragment".equals(str)) {
+            return super.onCreateView(str, context, attributeSet);
         }
-        return super.onCreateView(str, context, attributeSet);
+        String attributeValue = attributeSet.getAttributeValue(null, "class");
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, h.a);
+        if (attributeValue == null) {
+            attributeValue = obtainStyledAttributes.getString(0);
+        }
+        int resourceId = obtainStyledAttributes.getResourceId(1, -1);
+        String string = obtainStyledAttributes.getString(2);
+        obtainStyledAttributes.recycle();
+        int id = 0 != 0 ? r1.getId() : 0;
+        if (id == -1 && resourceId == -1 && string == null) {
+            throw new IllegalArgumentException(attributeSet.getPositionDescription() + ": Must specify unique android:id, android:tag, or have a parent with an id for " + attributeValue);
+        }
+        r1 = resourceId != -1 ? this.b.a(resourceId) : 0;
+        if (r1 == 0 && string != null) {
+            r1 = this.b.a(string);
+        }
+        if (r1 == 0 && id != -1) {
+            r1 = this.b.a(id);
+        }
+        if (l.a) {
+            Log.v("FragmentActivity", "onCreateView: id=0x" + Integer.toHexString(resourceId) + " fname=" + attributeValue + " existing=" + ((Object) r1));
+        }
+        if (r1 == 0) {
+            Fragment a = Fragment.a(this, attributeValue);
+            a.w = true;
+            a.C = resourceId != 0 ? resourceId : id;
+            a.D = id;
+            a.E = string;
+            a.x = true;
+            a.A = this.b;
+            a.a(this, attributeSet, a.l);
+            this.b.a(a, true);
+            fragment = a;
+        } else if (r1.x) {
+            throw new IllegalArgumentException(attributeSet.getPositionDescription() + ": Duplicate id 0x" + Integer.toHexString(resourceId) + ", tag " + string + ", or parent id 0x" + Integer.toHexString(id) + " with another fragment for " + attributeValue);
+        } else {
+            r1.x = true;
+            if (!r1.I) {
+                r1.a(this, attributeSet, r1.l);
+            }
+            this.b.b(r1);
+            fragment = r1;
+        }
+        if (fragment.O == null) {
+            throw new IllegalStateException("Fragment " + attributeValue + " did not create a view.");
+        }
+        if (resourceId != 0) {
+            fragment.O.setId(resourceId);
+        }
+        if (fragment.O.getTag() == null) {
+            fragment.O.setTag(string);
+        }
+        return fragment.O;
     }
 
     @Override // android.app.Activity
@@ -293,6 +224,14 @@ public class g extends Activity {
     }
 
     @Override // android.app.Activity
+    protected void onResume() {
+        super.onResume();
+        this.a.sendEmptyMessage(2);
+        this.d = true;
+        this.b.e();
+    }
+
+    @Override // android.app.Activity
     protected void onPostResume() {
         super.onPostResume();
         this.a.removeMessages(2);
@@ -311,14 +250,6 @@ public class g extends Activity {
             onCreatePanelMenu(i, menu);
         }
         return (super.onPreparePanel(i, view, menu) || this.b.a(menu)) && menu.hasVisibleItems();
-    }
-
-    @Override // android.app.Activity
-    protected void onResume() {
-        super.onResume();
-        this.a.sendEmptyMessage(2);
-        this.d = true;
-        this.b.e();
     }
 
     @Override // android.app.Activity
@@ -405,11 +336,77 @@ public class g extends Activity {
         this.b.o();
     }
 
+    public Object b() {
+        return null;
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public void c() {
+        if (Build.VERSION.SDK_INT >= 11) {
+            a.a(this);
+        } else {
+            this.h = true;
+        }
+    }
+
+    void a(boolean z) {
+        if (!this.f) {
+            this.f = true;
+            this.g = z;
+            this.a.removeMessages(1);
+            d();
+        }
+    }
+
+    void d() {
+        if (this.j) {
+            this.j = false;
+            if (this.l != null) {
+                if (!this.g) {
+                    this.l.c();
+                } else {
+                    this.l.d();
+                }
+            }
+        }
+        this.b.p();
+    }
+
+    public void a(Fragment fragment) {
+    }
+
     @Override // android.app.Activity
     public void startActivityForResult(Intent intent, int i) {
         if (i != -1 && ((-65536) & i) != 0) {
             throw new IllegalArgumentException("Can only use lower 16 bits for requestCode");
         }
         super.startActivityForResult(intent, i);
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public void a(int i) {
+        w wVar;
+        if (this.k != null && (wVar = (w) this.k.a(i)) != null && !wVar.f) {
+            wVar.h();
+            this.k.c(i);
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public w a(int i, boolean z, boolean z2) {
+        if (this.k == null) {
+            this.k = new r();
+        }
+        w wVar = (w) this.k.a(i);
+        if (wVar == null) {
+            if (z2) {
+                w wVar2 = new w(this, z);
+                this.k.b(i, wVar2);
+                return wVar2;
+            }
+            return wVar;
+        }
+        wVar.a(this);
+        return wVar;
     }
 }

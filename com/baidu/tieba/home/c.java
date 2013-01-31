@@ -10,6 +10,17 @@ public class c extends AsyncTask {
     private String c;
     private com.baidu.tieba.c.t d = null;
 
+    public void a() {
+        ProgressBar progressBar;
+        super.cancel(true);
+        if (this.d != null) {
+            this.d.g();
+        }
+        progressBar = this.a.o;
+        progressBar.setVisibility(8);
+        this.a.q = null;
+    }
+
     public c(CreateBarActivity createBarActivity, String str, String str2) {
         this.a = createBarActivity;
         this.b = null;
@@ -30,25 +41,14 @@ public class c extends AsyncTask {
             this.d.a("kw", this.b);
             this.d.a("vcode", this.c);
             com.baidu.tieba.c.t tVar = this.d;
-            str = this.a.p;
+            str = this.a.u;
             tVar.a("vcode_md5", str);
             this.d.i();
             return null;
         } catch (Exception e) {
-            com.baidu.tieba.c.ae.b(getClass().getName(), "doInBackground", e.getMessage());
+            com.baidu.tieba.c.af.b(getClass().getName(), "doInBackground", e.getMessage());
             return null;
         }
-    }
-
-    public void a() {
-        ProgressBar progressBar;
-        super.cancel(true);
-        if (this.d != null) {
-            this.d.g();
-        }
-        progressBar = this.a.j;
-        progressBar.setVisibility(8);
-        this.a.l = null;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -58,9 +58,9 @@ public class c extends AsyncTask {
     public void onPostExecute(String str) {
         ProgressBar progressBar;
         super.onPostExecute(str);
-        progressBar = this.a.j;
+        progressBar = this.a.o;
         progressBar.setVisibility(8);
-        this.a.l = null;
+        this.a.q = null;
         if (this.d.b()) {
             CreateBarSuccessActivity.a(this.a, this.b);
             this.a.finish();
@@ -68,7 +68,7 @@ public class c extends AsyncTask {
         }
         this.a.b(this.d.f());
         if (this.d.c()) {
-            this.a.i();
+            this.a.k();
         }
     }
 
@@ -76,7 +76,7 @@ public class c extends AsyncTask {
     protected void onPreExecute() {
         ProgressBar progressBar;
         super.onPreExecute();
-        progressBar = this.a.j;
+        progressBar = this.a.o;
         progressBar.setVisibility(0);
     }
 }

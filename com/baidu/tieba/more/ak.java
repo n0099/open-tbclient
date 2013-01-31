@@ -16,14 +16,14 @@ class ak implements DialogInterface.OnClickListener {
         MsgRemindActivity msgRemindActivity;
         switch (i) {
             case 0:
-                TiebaApplication.a().h(true);
+                TiebaApplication.b().i(true);
                 break;
             case 1:
-                TiebaApplication.a().h(false);
+                TiebaApplication.b().i(false);
                 break;
         }
-        com.baidu.tieba.c.k.t();
+        com.baidu.tieba.c.k.v();
         msgRemindActivity = this.a.a;
-        msgRemindActivity.k();
+        msgRemindActivity.m();
     }
 }

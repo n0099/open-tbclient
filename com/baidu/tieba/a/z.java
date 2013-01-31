@@ -2,36 +2,38 @@ package com.baidu.tieba.a;
 
 import org.json.JSONObject;
 /* loaded from: classes.dex */
-public class z extends c {
-    final /* synthetic */ x a;
+public class z extends d {
+    final /* synthetic */ y a;
     private String b = null;
     private String c = null;
-    private int d = 0;
-    private int e = 0;
-    private int f = 0;
+    private String d = null;
+    private String e = null;
 
-    public z(x xVar) {
-        this.a = xVar;
+    public z(y yVar) {
+        this.a = yVar;
     }
 
     public String a() {
-        return this.b;
+        return this.c;
     }
 
-    @Override // com.baidu.tieba.a.c
+    public String b() {
+        return this.d;
+    }
+
+    public String c() {
+        return this.e;
+    }
+
+    @Override // com.baidu.tieba.a.d
     public void a(JSONObject jSONObject) {
         try {
-            this.b = jSONObject.optString("name");
-            this.c = jSONObject.optString("id");
-            this.d = jSONObject.optInt("type", 0);
-            this.e = jSONObject.optInt("level", 0);
-            this.f = jSONObject.optInt("is_like", 0);
+            this.b = jSONObject.optString("provice");
+            this.c = jSONObject.optString("city");
+            this.d = jSONObject.optString("district");
+            this.e = jSONObject.optString("street");
         } catch (Exception e) {
-            com.baidu.tieba.c.ae.b(getClass().getName(), "parserJson", e.getMessage());
+            com.baidu.tieba.c.af.b(getClass().getName(), "parserJson", e.getMessage());
         }
-    }
-
-    public int b() {
-        return this.e;
     }
 }

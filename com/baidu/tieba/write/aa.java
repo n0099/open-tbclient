@@ -32,32 +32,32 @@ public class aa implements View.OnClickListener {
         InputMethodManager inputMethodManager3;
         EditText editText4;
         ImageView imageView2;
-        gridView = this.a.p;
+        gridView = this.a.q;
         if (gridView.getVisibility() == 0) {
-            editText3 = this.a.g;
+            editText3 = this.a.h;
             editText3.requestFocus();
-            gridView2 = this.a.p;
+            gridView2 = this.a.q;
             gridView2.setVisibility(8);
             WriteActivity writeActivity = this.a;
-            inputMethodManager3 = this.a.e;
-            editText4 = this.a.g;
+            inputMethodManager3 = this.a.f;
+            editText4 = this.a.h;
             writeActivity.b(inputMethodManager3, editText4);
-            imageView2 = this.a.j;
+            imageView2 = this.a.k;
             imageView2.setImageDrawable(this.a.getResources().getDrawable(R.drawable.write_face));
             return;
         }
         WriteActivity writeActivity2 = this.a;
-        inputMethodManager = this.a.e;
-        editText = this.a.f;
+        inputMethodManager = this.a.f;
+        editText = this.a.g;
         writeActivity2.a(inputMethodManager, editText);
         WriteActivity writeActivity3 = this.a;
-        inputMethodManager2 = this.a.e;
-        editText2 = this.a.g;
+        inputMethodManager2 = this.a.f;
+        editText2 = this.a.h;
         writeActivity3.a(inputMethodManager2, editText2);
-        handler = this.a.x;
-        runnable = this.a.D;
+        handler = this.a.y;
+        runnable = this.a.G;
         handler.postDelayed(runnable, 200L);
-        imageView = this.a.j;
+        imageView = this.a.k;
         imageView.setImageDrawable(this.a.getResources().getDrawable(R.drawable.write_keyboard));
     }
 }

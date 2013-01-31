@@ -2,6 +2,7 @@ package com.baidu.tieba.nearby;
 
 import android.location.Location;
 import android.view.View;
+import android.widget.ImageView;
 import com.baidu.tieba.view.LbsView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
@@ -16,24 +17,23 @@ public class b implements View.OnClickListener {
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         LbsView lbsView;
-        View view2;
-        boolean k;
-        lbsView = this.a.b;
-        if (view == lbsView) {
-            k = this.a.k();
-            if (k) {
-                this.a.l();
+        ImageView imageView;
+        boolean m;
+        lbsView = this.a.c;
+        if (view != lbsView) {
+            imageView = this.a.t;
+            if (view == imageView) {
+                this.a.n();
+                this.a.a((Location) null);
                 return;
             }
+            this.a.n();
+            this.a.a(view);
             return;
         }
-        view2 = this.a.s;
-        if (view == view2) {
-            this.a.l();
-            this.a.a((Location) null);
-            return;
+        m = this.a.m();
+        if (m) {
+            this.a.n();
         }
-        this.a.l();
-        this.a.a(view);
     }
 }

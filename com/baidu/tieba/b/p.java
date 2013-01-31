@@ -1,96 +1,145 @@
 package com.baidu.tieba.b;
 
-import android.content.Context;
-import com.baidu.tieba.a.au;
+import com.baidu.tieba.a.al;
 /* loaded from: classes.dex */
 public class p {
-    private long d;
-    private long e;
-    private long f;
-    private String g;
-    private com.baidu.tieba.c.a i;
-    private boolean a = true;
-    private String b = null;
-    private int c = 0;
-    private au j = null;
+    private boolean k;
+    private int r;
+    private int s;
+    private al a = null;
+    private boolean d = true;
+    private boolean c = true;
+    private boolean e = false;
+    private boolean g = false;
     private boolean h = false;
+    private boolean i = false;
+    private boolean j = false;
+    private String b = null;
+    private boolean f = false;
+    private String l = null;
+    private String m = null;
+    private String n = null;
+    private int o = 1;
+    private int p = 1;
+    private boolean q = false;
 
-    public p(Context context) {
-        a(0L);
-        b(0L);
-        c(0L);
-        this.i = new com.baidu.tieba.c.a(context);
+    public void a(al alVar) {
+        this.a = alVar;
     }
 
-    public String a() {
-        return this.b;
+    public al a() {
+        return this.a;
     }
 
-    public void a(int i) {
-        this.c = i;
+    public void a(boolean z) {
+        this.d = z;
     }
 
-    public void a(long j) {
-        this.d = j;
+    public boolean b() {
+        return this.d;
     }
 
-    public void a(au auVar) {
-        this.j = auVar;
+    public void b(boolean z) {
+        this.c = z;
+    }
+
+    public boolean c() {
+        return this.c;
+    }
+
+    public void c(boolean z) {
+        this.e = z;
+    }
+
+    public boolean d() {
+        return this.e;
+    }
+
+    public boolean e() {
+        return this.h;
+    }
+
+    public boolean f() {
+        return this.i;
+    }
+
+    public void d(boolean z) {
+        this.i = z;
+    }
+
+    public boolean g() {
+        return this.j;
+    }
+
+    public void e(boolean z) {
+        this.j = z;
+    }
+
+    public boolean h() {
+        return this.k;
+    }
+
+    public void f(boolean z) {
+        this.k = z;
+    }
+
+    public boolean i() {
+        return this.g;
+    }
+
+    public void g(boolean z) {
+        this.g = z;
     }
 
     public void a(String str) {
         this.b = str;
     }
 
-    public void a(boolean z) {
-        this.a = z;
+    public String j() {
+        return this.b;
     }
 
-    public void b(long j) {
-        this.e = j;
+    public void a(int i) {
+        this.o = i;
     }
 
-    public void b(String str) {
-        this.g = str;
+    public int k() {
+        return this.o;
     }
 
-    public void b(boolean z) {
-        this.h = z;
+    public void b(int i) {
+        this.p = i;
     }
 
-    public boolean b() {
-        return this.a;
+    public int l() {
+        return this.p;
     }
 
-    public int c() {
-        return this.c;
+    public void h(boolean z) {
+        this.q = z;
     }
 
-    public void c(long j) {
-        this.f = j;
+    public boolean m() {
+        return this.q;
     }
 
-    public au d() {
-        return this.j;
+    public void i(boolean z) {
+        this.f = z;
     }
 
-    public com.baidu.tieba.c.a e() {
-        return this.i;
+    public boolean n() {
+        return this.f;
     }
 
-    public String f() {
-        return this.g;
+    public void c(int i) {
+        this.r = i;
     }
 
-    public long g() {
-        return this.d;
+    public void d(int i) {
+        this.s = i;
     }
 
-    public long h() {
-        return this.e + this.f;
-    }
-
-    public boolean i() {
-        return this.h;
+    public int o() {
+        return com.baidu.tieba.a.i.b() / 30;
     }
 }

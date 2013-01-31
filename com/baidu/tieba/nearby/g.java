@@ -16,13 +16,12 @@ public class g implements com.baidu.tieba.c.d {
     @Override // com.baidu.tieba.c.d
     public void a(Bitmap bitmap, String str, boolean z) {
         LinearLayout linearLayout;
-        if (bitmap == null) {
-            return;
-        }
-        linearLayout = this.a.j;
-        ImageView imageView = (ImageView) linearLayout.findViewWithTag(str);
-        if (imageView != null) {
-            imageView.invalidate();
+        if (bitmap != null) {
+            linearLayout = this.a.k;
+            ImageView imageView = (ImageView) linearLayout.findViewWithTag(str);
+            if (imageView != null) {
+                imageView.invalidate();
+            }
         }
     }
 }

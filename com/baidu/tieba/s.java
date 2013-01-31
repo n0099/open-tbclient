@@ -1,37 +1,27 @@
 package com.baidu.tieba;
 
-import android.location.Location;
-import android.location.LocationListener;
-import android.os.Bundle;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class s implements LocationListener {
-    final /* synthetic */ TiebaApplication a;
+public class s implements DialogInterface.OnClickListener {
+    final /* synthetic */ MainTabActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public s(TiebaApplication tiebaApplication) {
-        this.a = tiebaApplication;
+    public s(MainTabActivity mainTabActivity) {
+        this.a = mainTabActivity;
     }
 
-    @Override // android.location.LocationListener
-    public void onLocationChanged(Location location) {
-        if (location != null) {
-            this.a.A = 0;
-            this.a.C = location;
-            this.a.as();
-            this.a.a = System.currentTimeMillis();
-            this.a.a(this.a.A, "", location);
+    @Override // android.content.DialogInterface.OnClickListener
+    public void onClick(DialogInterface dialogInterface, int i) {
+        AlertDialog alertDialog;
+        if (i != -2) {
+            alertDialog = this.a.x;
+            alertDialog.dismiss();
+            TiebaApplication.b().a(false, false);
+            return;
         }
-    }
-
-    @Override // android.location.LocationListener
-    public void onProviderDisabled(String str) {
-    }
-
-    @Override // android.location.LocationListener
-    public void onProviderEnabled(String str) {
-    }
-
-    @Override // android.location.LocationListener
-    public void onStatusChanged(String str, int i, Bundle bundle) {
+        this.a.a(false);
+        TiebaApplication.b().a(true, false);
     }
 }

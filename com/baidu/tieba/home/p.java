@@ -1,9 +1,10 @@
 package com.baidu.tieba.home;
 
 import android.view.View;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.tieba.R;
+import com.baidu.tieba.account.LoginActivity;
 /* loaded from: classes.dex */
-public class p implements View.OnClickListener {
+class p implements View.OnClickListener {
     final /* synthetic */ HomeActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -13,6 +14,6 @@ public class p implements View.OnClickListener {
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        this.a.a(true);
+        LoginActivity.a(this.a, "goto_home", this.a.getString(R.string.login_home_tab), 1100003);
     }
 }

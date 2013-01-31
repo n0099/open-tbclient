@@ -3,63 +3,51 @@ package com.baidu.tieba.a;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class ah {
-    private String a = null;
-    private int b = 0;
-    private String c = null;
-    private String d = null;
-    private String e = null;
+    private long a = 0;
+    private long b = 0;
+    private long c = 0;
 
-    public String a() {
+    public void a(long j) {
+        this.a = j;
+    }
+
+    public long a() {
         return this.a;
     }
 
-    public void a(String str) {
-        this.c = str;
+    public void b(long j) {
+        this.b = j;
     }
 
-    public void a(JSONObject jSONObject) {
-        if (jSONObject == null) {
-            return;
-        }
-        try {
-            this.a = jSONObject.optString("id");
-            this.b = jSONObject.optInt("type", 0);
-            this.c = jSONObject.optString("name");
-            if (this.c != null && this.c.length() <= 0) {
-                this.c = null;
-            }
-            this.d = jSONObject.optString("name_show");
-            this.e = jSONObject.optString("portrait");
-        } catch (Exception e) {
-            com.baidu.tieba.c.ae.b("MetaData", "parserJson", "error = " + e.getMessage());
-        }
+    public long b() {
+        return this.b;
     }
 
-    public String b() {
+    public void c(long j) {
+        this.c = j;
+    }
+
+    public long c() {
         return this.c;
     }
 
-    public void b(String str) {
-        this.d = str;
-    }
-
-    public String c() {
-        return this.d;
-    }
-
-    public void c(String str) {
-        this.e = str;
-    }
-
-    public String d() {
-        return this.e;
-    }
-
-    public void d(String str) {
+    public void a(String str) {
         try {
-            a(new JSONObject(str));
+            a(new JSONObject(str).optJSONObject("message"));
         } catch (Exception e) {
-            com.baidu.tieba.c.ae.b("MetaData", "parserJson", "error = " + e.getMessage());
+            com.baidu.tieba.c.af.b("MessageData", "parserJson", "error = " + e.getMessage());
+        }
+    }
+
+    public void a(JSONObject jSONObject) {
+        if (jSONObject != null) {
+            try {
+                this.a = jSONObject.optLong("replyme", 0L);
+                this.b = jSONObject.optLong("atme", 0L);
+                this.c = jSONObject.optLong("fans", 0L);
+            } catch (Exception e) {
+                com.baidu.tieba.c.af.b("MessageData", "parserJson", "error = " + e.getMessage());
+            }
         }
     }
 }

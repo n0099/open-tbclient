@@ -11,40 +11,17 @@ import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class ao extends AsyncTask {
     final /* synthetic */ WriteActivity a;
-    private com.baidu.tieba.b.u b;
+    private com.baidu.tieba.b.w b;
     private com.baidu.tieba.c.t c = null;
     private String d = null;
-    private com.baidu.tieba.a.f e = null;
+    private com.baidu.tieba.a.g e = null;
     private com.baidu.tieba.c.f f = null;
     private volatile boolean g = false;
 
-    public ao(WriteActivity writeActivity, com.baidu.tieba.b.u uVar) {
+    public ao(WriteActivity writeActivity, com.baidu.tieba.b.w wVar) {
         this.a = writeActivity;
         this.b = null;
-        this.b = uVar;
-    }
-
-    private void a(int i, String str) {
-        com.baidu.tieba.b.u uVar;
-        com.baidu.tieba.b.u uVar2;
-        com.baidu.tieba.b.u uVar3;
-        if (i != 5 && i != 6) {
-            this.a.b(str);
-            return;
-        }
-        com.baidu.tieba.a.av avVar = new com.baidu.tieba.a.av();
-        avVar.a(this.d);
-        if (avVar.b() == null) {
-            this.a.b(str);
-            return;
-        }
-        uVar = this.a.b;
-        uVar.h(avVar.a());
-        uVar2 = this.a.b;
-        uVar2.i(avVar.b());
-        WriteActivity writeActivity = this.a;
-        uVar3 = this.a.b;
-        VcodeActivity.a(writeActivity, uVar3, 1200005);
+        this.b = wVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -59,63 +36,64 @@ public class ao extends AsyncTask {
     */
     public String doInBackground(Integer... numArr) {
         Bitmap bitmap;
-        Location at;
+        Location aw;
         File c;
-        com.baidu.tieba.b.u uVar;
+        com.baidu.tieba.b.w wVar;
         String b;
-        com.baidu.tieba.a.e eVar;
-        com.baidu.tieba.b.u uVar2;
-        bitmap = this.a.w;
+        com.baidu.tieba.a.f fVar;
+        com.baidu.tieba.b.w wVar2;
+        bitmap = this.a.x;
         if (bitmap != null && this.b.j() == null) {
-            com.baidu.tieba.c.ae.c("PostThreadTask", "doInBackground", "start upload image");
+            com.baidu.tieba.c.af.e("PostThreadTask", "doInBackground", "start upload image");
             try {
                 c = com.baidu.tieba.c.o.c("tieba_resized_image");
                 this.c = new com.baidu.tieba.c.t("http://c.tieba.baidu.com/c/c/img/upload");
             } catch (Exception e) {
-                com.baidu.tieba.c.ae.b(getClass().getName(), "doInBackground", e.getMessage());
+                com.baidu.tieba.c.af.b(getClass().getName(), "doInBackground", e.getMessage());
             }
-            if (c.length() > 102400 && (com.baidu.tieba.a.h.j() != 0 || this.c.e() == null || this.c.e().equals("2"))) {
-                com.baidu.tieba.c.ae.c("PostThreadTask", "doInBackground", "image size is more than 100K");
-                String a = com.baidu.tieba.c.ad.a(com.baidu.tieba.c.o.a(c));
-                com.baidu.tieba.a.e n = com.baidu.tieba.c.k.n(a);
-                if (n == null) {
-                    com.baidu.tieba.c.ae.c("PostThreadTask", "doInBackground", "upload data is null");
-                    com.baidu.tieba.a.e eVar2 = new com.baidu.tieba.a.e();
-                    eVar2.a(a);
-                    eVar2.a(0);
-                    eVar2.a(c.length());
-                    eVar = eVar2;
+            if (c.length() <= 102400 || (com.baidu.tieba.a.i.j() == 0 && this.c.e() != null && !this.c.e().equals("2"))) {
+                com.baidu.tieba.c.af.e("PostThreadTask", "doInBackground", "image size is less than 100K");
+                com.baidu.tieba.c.t tVar = this.c;
+                wVar = this.a.c;
+                tVar.a("pic_type", String.valueOf(wVar.n()));
+                b = this.c.b("tieba_resized_image");
+            } else {
+                com.baidu.tieba.c.af.e("PostThreadTask", "doInBackground", "image size is more than 100K");
+                String a = com.baidu.tieba.c.ae.a(com.baidu.tieba.c.o.a(c));
+                com.baidu.tieba.a.f o = com.baidu.tieba.c.k.o(a);
+                if (o == null) {
+                    com.baidu.tieba.c.af.e("PostThreadTask", "doInBackground", "upload data is null");
+                    com.baidu.tieba.a.f fVar2 = new com.baidu.tieba.a.f();
+                    fVar2.a(a);
+                    fVar2.a(0);
+                    fVar2.a(c.length());
+                    fVar = fVar2;
                 } else {
-                    eVar = n;
+                    fVar = o;
                 }
-                this.f = new com.baidu.tieba.c.f("tieba_resized_image", eVar, "http://c.tieba.baidu.com/c/c/img/chunkupload");
+                this.f = new com.baidu.tieba.c.f("tieba_resized_image", fVar, "http://c.tieba.baidu.com/c/c/img/chunkupload");
                 this.e = this.f.b();
                 if (this.e.a()) {
                     this.c = new com.baidu.tieba.c.t("http://c.tieba.baidu.com/c/c/img/finupload");
-                    this.c.a("md5", eVar.a());
-                    com.baidu.tieba.c.t tVar = this.c;
-                    uVar2 = this.a.b;
-                    tVar.a("pic_type", String.valueOf(uVar2.n()));
+                    this.c.a("md5", fVar.a());
+                    com.baidu.tieba.c.t tVar2 = this.c;
+                    wVar2 = this.a.c;
+                    tVar2.a("pic_type", String.valueOf(wVar2.n()));
                     b = this.c.i();
                     if (b == null || !this.c.b()) {
-                        long b2 = eVar.b();
-                        eVar.a((int) (b2 % 102400 == 0 ? b2 / 102400 : (b2 / 102400) + 1));
-                        com.baidu.tieba.c.k.a(eVar);
+                        long b2 = fVar.b();
+                        fVar.a((int) (b2 % 102400 == 0 ? b2 / 102400 : (b2 / 102400) + 1));
+                        com.baidu.tieba.c.k.a(fVar);
                     } else {
-                        com.baidu.tieba.c.k.m(a);
+                        com.baidu.tieba.c.k.n(a);
                         JSONObject jSONObject = new JSONObject(b);
-                        com.baidu.tieba.a.w wVar = new com.baidu.tieba.a.w();
-                        wVar.a(jSONObject.optJSONObject("info"));
-                        this.b.a(wVar);
+                        com.baidu.tieba.a.x xVar = new com.baidu.tieba.a.x();
+                        xVar.a(jSONObject.optJSONObject("info"));
+                        this.b.a(xVar);
                     }
                 }
                 return null;
             }
-            com.baidu.tieba.c.ae.c("PostThreadTask", "doInBackground", "image size is less than 100K");
-            com.baidu.tieba.c.t tVar2 = this.c;
-            uVar = this.a.b;
-            tVar2.a("pic_type", String.valueOf(uVar.n()));
-            b = this.c.b("tieba_resized_image");
         }
         if (!this.g) {
             this.c = new com.baidu.tieba.c.t();
@@ -134,8 +112,8 @@ public class ao extends AsyncTask {
             if (this.b.a() == 0) {
                 this.c.a("http://c.tieba.baidu.com/c/c/thread/add");
                 this.c.a("title", this.b.b());
-                if (!com.baidu.tieba.a.h.f().equals(this.a.getIntent().getStringExtra("forum_id")) && TiebaApplication.a().j() && (at = TiebaApplication.a().at()) != null) {
-                    this.c.a("lbs", String.valueOf(String.valueOf(at.getLatitude())) + "," + String.valueOf(at.getLongitude()));
+                if (!com.baidu.tieba.a.i.f().equals(this.a.getIntent().getStringExtra("forum_id")) && TiebaApplication.b().l() && (aw = TiebaApplication.b().aw()) != null) {
+                    this.c.a("lbs", String.valueOf(String.valueOf(aw.getLatitude())) + "," + String.valueOf(aw.getLongitude()));
                 }
             } else {
                 this.c.a("http://c.tieba.baidu.com/c/c/post/add");
@@ -152,8 +130,8 @@ public class ao extends AsyncTask {
     }
 
     public void a() {
-        this.a.t = null;
-        this.a.c();
+        this.a.u = null;
+        this.a.d();
         this.g = true;
         if (this.c != null) {
             this.c.g();
@@ -164,21 +142,44 @@ public class ao extends AsyncTask {
         super.cancel(true);
     }
 
+    private void a(int i, String str) {
+        com.baidu.tieba.b.w wVar;
+        com.baidu.tieba.b.w wVar2;
+        com.baidu.tieba.b.w wVar3;
+        if (i == 5 || i == 6) {
+            com.baidu.tieba.a.ay ayVar = new com.baidu.tieba.a.ay();
+            ayVar.a(this.d);
+            if (ayVar.b() != null) {
+                wVar = this.a.c;
+                wVar.h(ayVar.a());
+                wVar2 = this.a.c;
+                wVar2.i(ayVar.b());
+                WriteActivity writeActivity = this.a;
+                wVar3 = this.a.c;
+                VcodeActivity.a(writeActivity, wVar3, 1200005);
+                return;
+            }
+            this.a.b(str);
+            return;
+        }
+        this.a.b(str);
+    }
+
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.os.AsyncTask
     /* renamed from: a */
     public void onPostExecute(String str) {
-        com.baidu.tieba.b.u uVar;
-        this.a.c();
-        this.a.t = null;
+        com.baidu.tieba.b.w wVar;
+        this.a.d();
+        this.a.u = null;
         if (this.e != null && !this.e.a()) {
             a(this.e.b(), this.e.c());
         } else if (this.c != null) {
             if (this.c.b()) {
-                uVar = this.a.b;
-                com.baidu.tieba.c.k.a(uVar);
-                this.a.b(TiebaApplication.a().getString(R.string.send_success));
+                wVar = this.a.c;
+                com.baidu.tieba.c.k.a(wVar);
+                this.a.b(TiebaApplication.b().getString(R.string.send_success));
                 this.a.setResult(-1);
                 this.a.finish();
             } else {

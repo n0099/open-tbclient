@@ -25,18 +25,17 @@ public class ab implements View.OnClickListener {
         f currentImageView;
         f currentImageView2;
         button = this.a.a;
-        if (view == button) {
-            currentImageView2 = this.a.getCurrentImageView();
-            if (currentImageView2 != null) {
-                currentImageView2.m();
+        if (view != button) {
+            button2 = this.a.b;
+            if (view == button2 && currentImageView != null) {
+                currentImageView.n();
                 return;
             }
             return;
         }
-        button2 = this.a.b;
-        if (view != button2 || currentImageView == null) {
-            return;
+        currentImageView2 = this.a.getCurrentImageView();
+        if (currentImageView2 != null) {
+            currentImageView2.m();
         }
-        currentImageView.n();
     }
 }

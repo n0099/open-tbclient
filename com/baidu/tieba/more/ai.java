@@ -15,31 +15,31 @@ class ai implements CompoundButton.OnCheckedChangeListener {
     @Override // android.widget.CompoundButton.OnCheckedChangeListener
     public void onCheckedChanged(CompoundButton compoundButton, boolean z) {
         switch (compoundButton.getId()) {
-            case R.id.check_replyme /* 2131231096 */:
-                if (!z) {
-                    TiebaApplication.a().l(false);
+            case R.id.check_replyme /* 2131231174 */:
+                if (z) {
+                    TiebaApplication.b().m(true);
                     break;
                 } else {
-                    TiebaApplication.a().l(true);
+                    TiebaApplication.b().m(false);
                     break;
                 }
-            case R.id.check_atme /* 2131231097 */:
-                if (!z) {
-                    TiebaApplication.a().k(false);
+            case R.id.check_atme /* 2131231175 */:
+                if (z) {
+                    TiebaApplication.b().l(true);
                     break;
                 } else {
-                    TiebaApplication.a().k(true);
+                    TiebaApplication.b().l(false);
                     break;
                 }
-            case R.id.check_newfans /* 2131231098 */:
-                if (!z) {
-                    TiebaApplication.a().j(false);
+            case R.id.check_newfans /* 2131231176 */:
+                if (z) {
+                    TiebaApplication.b().k(true);
                     break;
                 } else {
-                    TiebaApplication.a().j(true);
+                    TiebaApplication.b().k(false);
                     break;
                 }
         }
-        com.baidu.tieba.c.k.t();
+        com.baidu.tieba.c.k.v();
     }
 }

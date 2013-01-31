@@ -19,12 +19,12 @@ class t extends Handler {
         Handler handler2;
         super.handleMessage(message);
         ImagePbImageView imagePbImageView = this.a;
-        i = imagePbImageView.g;
-        imagePbImageView.g = i - 1;
-        i2 = this.a.g;
+        i = imagePbImageView.j;
+        imagePbImageView.j = i - 1;
+        i2 = this.a.j;
         if (i2 >= 0) {
-            handler = this.a.h;
-            handler2 = this.a.h;
+            handler = this.a.k;
+            handler2 = this.a.k;
             handler.sendMessageDelayed(handler2.obtainMessage(1), 20L);
             this.a.invalidate();
         }

@@ -15,114 +15,34 @@ import java.util.Timer;
 import org.apache.http.message.BasicNameValuePair;
 /* loaded from: classes.dex */
 public class RegisterActivity extends com.baidu.tieba.e {
-    private EditText c = null;
     private EditText d = null;
     private EditText e = null;
-    private Button f = null;
+    private EditText f = null;
     private Button g = null;
-    private View.OnClickListener h = null;
-    private RelativeLayout i = null;
-    private Button j = null;
+    private Button h = null;
+    private View.OnClickListener i = null;
+    private RelativeLayout j = null;
     private Button k = null;
     private Button l = null;
-    private String m = null;
+    private Button m = null;
     private String n = null;
     private String o = null;
-    private int p = 1;
-    private boolean q = true;
-    private bk r = null;
-    private com.baidu.tieba.b.g s = null;
-    InputMethodManager b = null;
-    private DialogInterface.OnCancelListener t = null;
+    private String p = null;
+    private int q = 1;
+    private boolean r = true;
+    private bk s = null;
+    private com.baidu.tieba.b.g t = null;
+    InputMethodManager c = null;
+    private DialogInterface.OnCancelListener u = null;
 
-    private void g() {
-        this.b = (InputMethodManager) getSystemService("input_method");
-        this.c = (EditText) findViewById(R.id.regist_edit_account);
-        this.d = (EditText) findViewById(R.id.regist_edit_password);
-        this.e = (EditText) findViewById(R.id.regist_edit_apassword);
-        this.f = (Button) findViewById(R.id.regist_sex_male);
-        this.g = (Button) findViewById(R.id.regist_sex_female);
-        this.h = new bd(this);
-        this.f.setOnClickListener(this.h);
-        this.g.setOnClickListener(this.h);
-        this.i = (RelativeLayout) findViewById(R.id.regist_protocol);
-        this.i.setOnClickListener(new be(this));
-        this.j = (Button) findViewById(R.id.regist_protocol_icon);
-        this.j.setOnClickListener(new bf(this));
-        this.k = (Button) findViewById(R.id.back);
-        this.k.setOnClickListener(new bg(this));
-        this.l = (Button) findViewById(R.id.regist_submit);
-        this.l.setOnClickListener(new bh(this));
-        this.t = new bi(this);
-    }
-
-    private void h() {
-        new Timer().schedule(new bj(this), 200L);
-    }
-
-    private void i() {
-        setResult(-1);
-        finish();
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void j() {
-        this.m = this.c.getText().toString();
-        String editable = this.d.getText().toString();
-        this.n = com.baidu.tieba.c.ad.b(editable.getBytes());
-        this.o = com.baidu.tieba.c.ad.b(this.e.getText().toString().getBytes());
-        if (!com.baidu.tieba.c.ad.b(this.m)) {
-            b(getText(R.string.account_err_account).toString());
-        } else if (!com.baidu.tieba.c.ad.c(editable)) {
-            b(getText(R.string.account_err_passwd).toString());
-        } else if (!this.n.equals(this.o)) {
-            b(getText(R.string.account_err_apasswd).toString());
-        } else if (!this.q) {
-            b(getText(R.string.account_err_protocol).toString());
-        } else {
-            StringBuffer stringBuffer = new StringBuffer(30);
-            stringBuffer.append("http://c.tieba.baidu.com/");
-            stringBuffer.append("c/s/reg");
-            ArrayList arrayList = new ArrayList();
-            arrayList.add(new BasicNameValuePair("un", this.m));
-            arrayList.add(new BasicNameValuePair("passwd", this.n));
-            arrayList.add(new BasicNameValuePair("sex", String.valueOf(this.p)));
-            m();
-            this.r = new bk(this, stringBuffer.toString(), arrayList);
-            this.r.execute(stringBuffer.toString(), arrayList);
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void k() {
-        com.baidu.tieba.a.a aVar = new com.baidu.tieba.a.a();
-        aVar.b(this.s.a().b());
-        if (this.s.a().e() != null) {
-            aVar.c(this.s.a().e());
-        } else {
-            aVar.c(this.n);
-        }
-        aVar.a(this.s.a().a());
-        aVar.d(this.s.a().j());
-        aVar.a(1);
-        if (this.s.b() != null) {
-            aVar.e(this.s.b().b());
-        }
-        com.baidu.tieba.c.k.a(aVar);
-        TiebaApplication.b(aVar);
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.tieba.e, android.app.Activity
+    public void onCreate(Bundle bundle) {
+        super.onCreate(bundle);
+        setContentView(R.layout.account_register_activity);
         i();
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void l() {
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void m() {
-        if (this.r != null) {
-            this.r.a();
-            this.r = null;
-        }
+        j();
+        new ak("reg").start();
     }
 
     @Override // android.app.Activity
@@ -130,7 +50,7 @@ public class RegisterActivity extends com.baidu.tieba.e {
         super.onActivityResult(i, i2, intent);
         switch (i2) {
             case -1:
-                i();
+                k();
                 return;
             default:
                 return;
@@ -139,23 +59,103 @@ public class RegisterActivity extends com.baidu.tieba.e {
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.e, android.app.Activity
-    public void onCreate(Bundle bundle) {
-        super.onCreate(bundle);
-        setContentView(R.layout.account_register_activity);
-        g();
-        h();
-        new ak("reg").start();
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.e, android.app.Activity
     public void onDestroy() {
         try {
-            m();
+            o();
             System.gc();
         } catch (Exception e) {
-            com.baidu.tieba.c.ae.b(getClass().getName(), "onDestroy", e.getMessage());
+            com.baidu.tieba.c.af.b(getClass().getName(), "onDestroy", e.getMessage());
         }
         super.onDestroy();
+    }
+
+    private void i() {
+        this.c = (InputMethodManager) getSystemService("input_method");
+        this.d = (EditText) findViewById(R.id.regist_edit_account);
+        this.e = (EditText) findViewById(R.id.regist_edit_password);
+        this.f = (EditText) findViewById(R.id.regist_edit_apassword);
+        this.g = (Button) findViewById(R.id.regist_sex_male);
+        this.h = (Button) findViewById(R.id.regist_sex_female);
+        this.i = new bd(this);
+        this.g.setOnClickListener(this.i);
+        this.h.setOnClickListener(this.i);
+        this.j = (RelativeLayout) findViewById(R.id.regist_protocol);
+        this.j.setOnClickListener(new be(this));
+        this.k = (Button) findViewById(R.id.regist_protocol_icon);
+        this.k.setOnClickListener(new bf(this));
+        this.l = (Button) findViewById(R.id.back);
+        this.l.setOnClickListener(new bg(this));
+        this.m = (Button) findViewById(R.id.regist_submit);
+        this.m.setOnClickListener(new bh(this));
+        this.u = new bi(this);
+    }
+
+    private void j() {
+        new Timer().schedule(new bj(this), 200L);
+    }
+
+    private void k() {
+        setResult(-1);
+        finish();
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void l() {
+        this.n = this.d.getText().toString();
+        String editable = this.e.getText().toString();
+        this.o = com.baidu.tieba.c.ae.b(editable.getBytes());
+        this.p = com.baidu.tieba.c.ae.b(this.f.getText().toString().getBytes());
+        if (!com.baidu.tieba.c.ae.b(this.n)) {
+            b(getText(R.string.account_err_account).toString());
+        } else if (!com.baidu.tieba.c.ae.c(editable)) {
+            b(getText(R.string.account_err_passwd).toString());
+        } else if (!this.o.equals(this.p)) {
+            b(getText(R.string.account_err_apasswd).toString());
+        } else if (!this.r) {
+            b(getText(R.string.account_err_protocol).toString());
+        } else {
+            StringBuffer stringBuffer = new StringBuffer(30);
+            stringBuffer.append("http://c.tieba.baidu.com/");
+            stringBuffer.append("c/s/reg");
+            ArrayList arrayList = new ArrayList();
+            arrayList.add(new BasicNameValuePair("un", this.n));
+            arrayList.add(new BasicNameValuePair("passwd", this.o));
+            arrayList.add(new BasicNameValuePair("sex", String.valueOf(this.q)));
+            o();
+            this.s = new bk(this, stringBuffer.toString(), arrayList);
+            this.s.execute(stringBuffer.toString(), arrayList);
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void m() {
+        com.baidu.tieba.a.a aVar = new com.baidu.tieba.a.a();
+        aVar.b(this.t.a().b());
+        if (this.t.a().e() != null) {
+            aVar.c(this.t.a().e());
+        } else {
+            aVar.c(this.o);
+        }
+        aVar.a(this.t.a().a());
+        aVar.d(this.t.a().j());
+        aVar.a(1);
+        if (this.t.b() != null) {
+            aVar.e(this.t.b().b());
+        }
+        com.baidu.tieba.c.k.a(aVar);
+        TiebaApplication.b(aVar);
+        k();
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void n() {
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void o() {
+        if (this.s != null) {
+            this.s.a();
+            this.s = null;
+        }
     }
 }

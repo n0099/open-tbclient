@@ -23,6 +23,7 @@ import android.view.animation.Interpolator;
 import android.widget.Scroller;
 import com.baidu.location.BDLocation;
 import com.baidu.location.LocationClientOption;
+import com.baidu.zeus.bouncycastle.DERTags;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -73,45 +74,13 @@ public class ViewPager extends ViewGroup {
     private float z;
 
     /* loaded from: classes.dex */
-    public class SavedState extends View.BaseSavedState {
-        public static final Parcelable.Creator CREATOR = android.support.v4.a.a.a(new al());
-        int a;
-        Parcelable b;
-        ClassLoader c;
-
-        /* JADX INFO: Access modifiers changed from: package-private */
-        public SavedState(Parcel parcel, ClassLoader classLoader) {
-            super(parcel);
-            classLoader = classLoader == null ? getClass().getClassLoader() : classLoader;
-            this.a = parcel.readInt();
-            this.b = parcel.readParcelable(classLoader);
-            this.c = classLoader;
-        }
-
-        public SavedState(Parcelable parcelable) {
-            super(parcelable);
-        }
-
-        public String toString() {
-            return "FragmentPager.SavedState{" + Integer.toHexString(System.identityHashCode(this)) + " position=" + this.a + "}";
-        }
-
-        @Override // android.view.View.BaseSavedState, android.view.AbsSavedState, android.os.Parcelable
-        public void writeToParcel(Parcel parcel, int i) {
-            super.writeToParcel(parcel, i);
-            parcel.writeInt(this.a);
-            parcel.writeParcelable(this.b, i);
-        }
-    }
-
-    /* loaded from: classes.dex */
     public class SimpleOnPageChangeListener implements aj {
         @Override // android.support.v4.view.aj
-        public void a(int i) {
+        public void a(int i, float f, int i2) {
         }
 
         @Override // android.support.v4.view.aj
-        public void a(int i, float f, int i2) {
+        public void a(int i) {
         }
 
         @Override // android.support.v4.view.aj
@@ -145,148 +114,6 @@ public class ViewPager extends ViewGroup {
         a();
     }
 
-    private int a(int i, float f, int i2, int i3) {
-        return (Math.abs(i3) <= this.G || Math.abs(i2) <= this.E) ? (int) (i + f + 0.5f) : i2 > 0 ? i : i + 1;
-    }
-
-    private void a(int i, int i2, int i3, int i4) {
-        int i5 = i + i3;
-        if (i2 <= 0) {
-            int i6 = this.f * i5;
-            if (i6 != getScrollX()) {
-                h();
-                scrollTo(i6, getScrollY());
-                return;
-            }
-            return;
-        }
-        int scrollX = getScrollX();
-        int i7 = i2 + i4;
-        int i8 = (int) ((((scrollX % i7) / i7) + (scrollX / i7)) * i5);
-        scrollTo(i8, getScrollY());
-        if (this.j.isFinished()) {
-            return;
-        }
-        this.j.startScroll(i8, 0, i5 * this.f, 0, this.j.getDuration() - this.j.timePassed());
-    }
-
-    private void a(MotionEvent motionEvent) {
-        int a2 = f.a(motionEvent);
-        if (f.b(motionEvent, a2) == this.C) {
-            int i = a2 == 0 ? 1 : 0;
-            this.A = f.c(motionEvent, i);
-            this.C = f.b(motionEvent, i);
-            if (this.D != null) {
-                this.D.clear();
-            }
-        }
-    }
-
-    private void b(int i) {
-        int width = getWidth() + this.l;
-        int i2 = i % width;
-        this.L = false;
-        a(i / width, i2 / width, i2);
-        if (!this.L) {
-            throw new IllegalStateException("onPageScrolled did not call superclass implementation");
-        }
-    }
-
-    private void g() {
-        int i = 0;
-        while (true) {
-            int i2 = i;
-            if (i2 >= getChildCount()) {
-                return;
-            }
-            if (!((ah) getChildAt(i2).getLayoutParams()).a) {
-                removeViewAt(i2);
-                i2--;
-            }
-            i = i2 + 1;
-        }
-    }
-
-    private void h() {
-        boolean z = this.u;
-        if (z) {
-            setScrollingCacheEnabled(false);
-            this.j.abortAnimation();
-            int scrollX = getScrollX();
-            int scrollY = getScrollY();
-            int currX = this.j.getCurrX();
-            int currY = this.j.getCurrY();
-            if (scrollX != currX || scrollY != currY) {
-                scrollTo(currX, currY);
-            }
-            setScrollState(0);
-        }
-        this.t = false;
-        this.u = false;
-        boolean z2 = z;
-        for (int i = 0; i < this.d.size(); i++) {
-            ag agVar = (ag) this.d.get(i);
-            if (agVar.c) {
-                z2 = true;
-                agVar.c = false;
-            }
-        }
-        if (z2) {
-            c();
-        }
-    }
-
-    private void i() {
-        this.w = false;
-        this.x = false;
-        if (this.D != null) {
-            this.D.recycle();
-            this.D = null;
-        }
-    }
-
-    private void setScrollState(int i) {
-        if (this.Q == i) {
-            return;
-        }
-        this.Q = i;
-        if (this.N != null) {
-            this.N.b(i);
-        }
-    }
-
-    private void setScrollingCacheEnabled(boolean z) {
-        if (this.s != z) {
-            this.s = z;
-        }
-    }
-
-    float a(float f) {
-        return (float) Math.sin((float) ((f - 0.5f) * 0.4712389167638204d));
-    }
-
-    ag a(View view) {
-        int i = 0;
-        while (true) {
-            int i2 = i;
-            if (i2 >= this.d.size()) {
-                return null;
-            }
-            ag agVar = (ag) this.d.get(i2);
-            if (this.e.isViewFromObject(view, agVar.a)) {
-                return agVar;
-            }
-            i = i2 + 1;
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public aj a(aj ajVar) {
-        aj ajVar2 = this.O;
-        this.O = ajVar;
-        return ajVar2;
-    }
-
     void a() {
         setWillNotDraw(false);
         setDescendantFocusability(262144);
@@ -302,113 +129,89 @@ public class ViewPager extends ViewGroup {
         this.G = (int) (context.getResources().getDisplayMetrics().density * 25.0f);
     }
 
-    protected void a(int i, float f, int i2) {
-        int measuredWidth;
-        int i3;
-        int i4;
-        if (this.M > 0) {
-            int scrollX = getScrollX();
-            int paddingLeft = getPaddingLeft();
-            int paddingRight = getPaddingRight();
-            int width = getWidth();
-            int childCount = getChildCount();
-            int i5 = 0;
-            while (i5 < childCount) {
-                View childAt = getChildAt(i5);
-                ah ahVar = (ah) childAt.getLayoutParams();
-                if (ahVar.a) {
-                    switch (ahVar.b & 7) {
-                        case 1:
-                            measuredWidth = Math.max((width - childAt.getMeasuredWidth()) / 2, paddingLeft);
-                            int i6 = paddingRight;
-                            i3 = paddingLeft;
-                            i4 = i6;
-                            break;
-                        case 2:
-                        case 4:
-                        default:
-                            measuredWidth = paddingLeft;
-                            int i7 = paddingRight;
-                            i3 = paddingLeft;
-                            i4 = i7;
-                            break;
-                        case 3:
-                            int width2 = childAt.getWidth() + paddingLeft;
-                            int i8 = paddingLeft;
-                            i4 = paddingRight;
-                            i3 = width2;
-                            measuredWidth = i8;
-                            break;
-                        case 5:
-                            measuredWidth = (width - paddingRight) - childAt.getMeasuredWidth();
-                            int measuredWidth2 = paddingRight + childAt.getMeasuredWidth();
-                            i3 = paddingLeft;
-                            i4 = measuredWidth2;
-                            break;
-                    }
-                    int left = (measuredWidth + scrollX) - childAt.getLeft();
-                    if (left != 0) {
-                        childAt.offsetLeftAndRight(left);
-                    }
-                } else {
-                    int i9 = paddingRight;
-                    i3 = paddingLeft;
-                    i4 = i9;
-                }
-                i5++;
-                int i10 = i4;
-                paddingLeft = i3;
-                paddingRight = i10;
+    private void setScrollState(int i) {
+        if (this.Q != i) {
+            this.Q = i;
+            if (this.N != null) {
+                this.N.b(i);
             }
         }
-        if (this.N != null) {
-            this.N.a(i, f, i2);
-        }
-        if (this.O != null) {
-            this.O.a(i, f, i2);
-        }
-        this.L = true;
     }
 
-    void a(int i, int i2) {
-        ag agVar = new ag();
-        agVar.b = i;
-        agVar.a = this.e.instantiateItem((ViewGroup) this, i);
-        if (i2 < 0) {
-            this.d.add(agVar);
-        } else {
-            this.d.add(i2, agVar);
+    public void setAdapter(k kVar) {
+        if (this.e != null) {
+            this.e.unregisterDataSetObserver(this.k);
+            this.e.startUpdate((ViewGroup) this);
+            for (int i = 0; i < this.d.size(); i++) {
+                ag agVar = (ag) this.d.get(i);
+                this.e.destroyItem((ViewGroup) this, agVar.b, agVar.a);
+            }
+            this.e.finishUpdate((ViewGroup) this);
+            this.d.clear();
+            g();
+            this.f = 0;
+            scrollTo(0, 0);
+        }
+        k kVar2 = this.e;
+        this.e = kVar;
+        if (this.e != null) {
+            if (this.k == null) {
+                this.k = new ak(this, null);
+            }
+            this.e.registerDataSetObserver(this.k);
+            this.t = false;
+            if (this.g >= 0) {
+                this.e.restoreState(this.h, this.i);
+                a(this.g, false, true);
+                this.g = -1;
+                this.h = null;
+                this.i = null;
+            } else {
+                c();
+            }
+        }
+        if (this.P != null && kVar2 != kVar) {
+            this.P.a(kVar2, kVar);
         }
     }
 
-    void a(int i, int i2, int i3) {
-        if (getChildCount() == 0) {
-            setScrollingCacheEnabled(false);
-            return;
+    private void g() {
+        int i = 0;
+        while (true) {
+            int i2 = i;
+            if (i2 < getChildCount()) {
+                if (!((ah) getChildAt(i2).getLayoutParams()).a) {
+                    removeViewAt(i2);
+                    i2--;
+                }
+                i = i2 + 1;
+            } else {
+                return;
+            }
         }
-        int scrollX = getScrollX();
-        int scrollY = getScrollY();
-        int i4 = i - scrollX;
-        int i5 = i2 - scrollY;
-        if (i4 == 0 && i5 == 0) {
-            h();
-            setScrollState(0);
-            return;
-        }
-        setScrollingCacheEnabled(true);
-        this.u = true;
-        setScrollState(2);
-        int width = getWidth();
-        int i6 = width / 2;
-        float a2 = (i6 * a(Math.min(1.0f, (Math.abs(i4) * 1.0f) / width))) + i6;
-        int abs = Math.abs(i3);
-        this.j.startScroll(scrollX, scrollY, i4, i5, Math.min(abs > 0 ? Math.round(1000.0f * Math.abs(a2 / abs)) * 4 : (int) (((Math.abs(i4) / (width + this.l)) + 1.0f) * 100.0f), 600));
-        invalidate();
+    }
+
+    public k getAdapter() {
+        return this.e;
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public void setOnAdapterChangeListener(ai aiVar) {
+        this.P = aiVar;
+    }
+
+    public void setCurrentItem(int i) {
+        this.t = false;
+        a(i, !this.K, false);
     }
 
     public void a(int i, boolean z) {
         this.t = false;
         a(i, z, false);
+    }
+
+    public int getCurrentItem() {
+        return this.f;
     }
 
     void a(int i, boolean z, boolean z2) {
@@ -418,7 +221,9 @@ public class ViewPager extends ViewGroup {
     void a(int i, boolean z, boolean z2, int i2) {
         if (this.e == null || this.e.getCount() <= 0) {
             setScrollingCacheEnabled(false);
-        } else if (z2 || this.f != i || this.d.size() == 0) {
+        } else if (!z2 && this.f == i && this.d.size() != 0) {
+            setScrollingCacheEnabled(false);
+        } else {
             if (i < 0) {
                 i = 0;
             } else if (i >= this.e.getCount()) {
@@ -439,10 +244,10 @@ public class ViewPager extends ViewGroup {
                 if (z3 && this.N != null) {
                     this.N.a(i);
                 }
-                if (!z3 || this.O == null) {
+                if (z3 && this.O != null) {
+                    this.O.a(i);
                     return;
                 }
-                this.O.a(i);
                 return;
             }
             if (z3 && this.N != null) {
@@ -453,140 +258,118 @@ public class ViewPager extends ViewGroup {
             }
             h();
             scrollTo(width, 0);
-        } else {
+        }
+    }
+
+    public void setOnPageChangeListener(aj ajVar) {
+        this.N = ajVar;
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public aj a(aj ajVar) {
+        aj ajVar2 = this.O;
+        this.O = ajVar;
+        return ajVar2;
+    }
+
+    public int getOffscreenPageLimit() {
+        return this.v;
+    }
+
+    public void setOffscreenPageLimit(int i) {
+        if (i < 1) {
+            Log.w("ViewPager", "Requested offscreen page limit " + i + " too small; defaulting to 1");
+            i = 1;
+        }
+        if (i != this.v) {
+            this.v = i;
+            c();
+        }
+    }
+
+    public void setPageMargin(int i) {
+        int i2 = this.l;
+        this.l = i;
+        int width = getWidth();
+        a(width, width, i, i2);
+        requestLayout();
+    }
+
+    public int getPageMargin() {
+        return this.l;
+    }
+
+    public void setPageMarginDrawable(Drawable drawable) {
+        this.m = drawable;
+        if (drawable != null) {
+            refreshDrawableState();
+        }
+        setWillNotDraw(drawable == null);
+        invalidate();
+    }
+
+    public void setPageMarginDrawable(int i) {
+        setPageMarginDrawable(getContext().getResources().getDrawable(i));
+    }
+
+    @Override // android.view.View
+    protected boolean verifyDrawable(Drawable drawable) {
+        return super.verifyDrawable(drawable) || drawable == this.m;
+    }
+
+    @Override // android.view.ViewGroup, android.view.View
+    protected void drawableStateChanged() {
+        super.drawableStateChanged();
+        Drawable drawable = this.m;
+        if (drawable != null && drawable.isStateful()) {
+            drawable.setState(getDrawableState());
+        }
+    }
+
+    float a(float f) {
+        return (float) Math.sin((float) ((f - 0.5f) * 0.4712389167638204d));
+    }
+
+    void a(int i, int i2, int i3) {
+        int abs;
+        if (getChildCount() == 0) {
             setScrollingCacheEnabled(false);
+            return;
         }
-    }
-
-    public boolean a(int i) {
-        boolean d;
-        View findFocus = findFocus();
-        if (findFocus == this) {
-            findFocus = null;
+        int scrollX = getScrollX();
+        int scrollY = getScrollY();
+        int i4 = i - scrollX;
+        int i5 = i2 - scrollY;
+        if (i4 == 0 && i5 == 0) {
+            h();
+            setScrollState(0);
+            return;
         }
-        View findNextFocus = FocusFinder.getInstance().findNextFocus(this, findFocus, i);
-        if (findNextFocus == null || findNextFocus == findFocus) {
-            if (i == 17 || i == 1) {
-                d = d();
-            } else {
-                if (i == 66 || i == 2) {
-                    d = e();
-                }
-                d = false;
-            }
-        } else if (i == 17) {
-            d = (findFocus == null || findNextFocus.getLeft() < findFocus.getLeft()) ? findNextFocus.requestFocus() : d();
+        setScrollingCacheEnabled(true);
+        this.u = true;
+        setScrollState(2);
+        int width = getWidth();
+        int i6 = width / 2;
+        float a2 = (i6 * a(Math.min(1.0f, (Math.abs(i4) * 1.0f) / width))) + i6;
+        int abs2 = Math.abs(i3);
+        if (abs2 > 0) {
+            abs = Math.round(1000.0f * Math.abs(a2 / abs2)) * 4;
         } else {
-            if (i == 66) {
-                d = (findFocus == null || findNextFocus.getLeft() > findFocus.getLeft()) ? findNextFocus.requestFocus() : e();
-            }
-            d = false;
+            abs = (int) (((Math.abs(i4) / (width + this.l)) + 1.0f) * 100.0f);
         }
-        if (d) {
-            playSoundEffect(SoundEffectConstants.getContantForFocusDirection(i));
-        }
-        return d;
+        this.j.startScroll(scrollX, scrollY, i4, i5, Math.min(abs, 600));
+        invalidate();
     }
 
-    public boolean a(KeyEvent keyEvent) {
-        if (keyEvent.getAction() == 0) {
-            switch (keyEvent.getKeyCode()) {
-                case 21:
-                    return a(17);
-                case 22:
-                    return a(66);
-                case BDLocation.TypeGpsLocation /* 61 */:
-                    if (Build.VERSION.SDK_INT >= 11) {
-                        if (a.a(keyEvent)) {
-                            return a(2);
-                        }
-                        if (a.a(keyEvent, 1)) {
-                            return a(1);
-                        }
-                        return false;
-                    }
-                    return false;
-                default:
-                    return false;
-            }
-        }
-        return false;
-    }
-
-    protected boolean a(View view, boolean z, int i, int i2, int i3) {
-        if (view instanceof ViewGroup) {
-            ViewGroup viewGroup = (ViewGroup) view;
-            int scrollX = view.getScrollX();
-            int scrollY = view.getScrollY();
-            for (int childCount = viewGroup.getChildCount() - 1; childCount >= 0; childCount--) {
-                View childAt = viewGroup.getChildAt(childCount);
-                if (i2 + scrollX >= childAt.getLeft() && i2 + scrollX < childAt.getRight() && i3 + scrollY >= childAt.getTop() && i3 + scrollY < childAt.getBottom() && a(childAt, true, i, (i2 + scrollX) - childAt.getLeft(), (i3 + scrollY) - childAt.getTop())) {
-                    return true;
-                }
-            }
-        }
-        return z && r.a(view, -i);
-    }
-
-    @Override // android.view.ViewGroup, android.view.View
-    public void addFocusables(ArrayList arrayList, int i, int i2) {
-        ag a2;
-        int size = arrayList.size();
-        int descendantFocusability = getDescendantFocusability();
-        if (descendantFocusability != 393216) {
-            for (int i3 = 0; i3 < getChildCount(); i3++) {
-                View childAt = getChildAt(i3);
-                if (childAt.getVisibility() == 0 && (a2 = a(childAt)) != null && a2.b == this.f) {
-                    childAt.addFocusables(arrayList, i, i2);
-                }
-            }
-        }
-        if ((descendantFocusability != 262144 || size == arrayList.size()) && isFocusable()) {
-            if (((i2 & 1) == 1 && isInTouchMode() && !isFocusableInTouchMode()) || arrayList == null) {
-                return;
-            }
-            arrayList.add(this);
-        }
-    }
-
-    @Override // android.view.ViewGroup, android.view.View
-    public void addTouchables(ArrayList arrayList) {
-        ag a2;
-        for (int i = 0; i < getChildCount(); i++) {
-            View childAt = getChildAt(i);
-            if (childAt.getVisibility() == 0 && (a2 = a(childAt)) != null && a2.b == this.f) {
-                childAt.addTouchables(arrayList);
-            }
-        }
-    }
-
-    @Override // android.view.ViewGroup
-    public void addView(View view, int i, ViewGroup.LayoutParams layoutParams) {
-        ViewGroup.LayoutParams generateLayoutParams = !checkLayoutParams(layoutParams) ? generateLayoutParams(layoutParams) : layoutParams;
-        ah ahVar = (ah) generateLayoutParams;
-        ahVar.a |= view instanceof af;
-        if (!this.r) {
-            super.addView(view, i, generateLayoutParams);
-        } else if (ahVar != null && ahVar.a) {
-            throw new IllegalStateException("Cannot add pager decor view during layout");
+    void a(int i, int i2) {
+        ag agVar = new ag();
+        agVar.b = i;
+        agVar.a = this.e.instantiateItem((ViewGroup) this, i);
+        if (i2 < 0) {
+            this.d.add(agVar);
         } else {
-            addViewInLayout(view, i, generateLayoutParams);
-            view.measure(this.p, this.q);
+            this.d.add(i2, agVar);
         }
-    }
-
-    ag b(View view) {
-        while (true) {
-            ViewParent parent = view.getParent();
-            if (parent == this) {
-                return a(view);
-            }
-            if (parent == null || !(parent instanceof View)) {
-                break;
-            }
-            view = (View) parent;
-        }
-        return null;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -664,208 +447,185 @@ public class ViewPager extends ViewGroup {
 
     void c() {
         ag agVar;
-        if (this.e == null || this.t || getWindowToken() == null) {
-            return;
-        }
-        this.e.startUpdate((ViewGroup) this);
-        int i = this.v;
-        int max = Math.max(0, this.f - i);
-        int min = Math.min(this.e.getCount() - 1, i + this.f);
-        int i2 = 0;
-        int i3 = -1;
-        while (i2 < this.d.size()) {
-            ag agVar2 = (ag) this.d.get(i2);
-            if ((agVar2.b < max || agVar2.b > min) && !agVar2.c) {
-                this.d.remove(i2);
-                i2--;
-                this.e.destroyItem((ViewGroup) this, agVar2.b, agVar2.a);
-            } else if (i3 < min && agVar2.b > max) {
-                int i4 = i3 + 1;
-                if (i4 < max) {
-                    i4 = max;
+        if (this.e != null && !this.t && getWindowToken() != null) {
+            this.e.startUpdate((ViewGroup) this);
+            int i = this.v;
+            int max = Math.max(0, this.f - i);
+            int min = Math.min(this.e.getCount() - 1, i + this.f);
+            int i2 = 0;
+            int i3 = -1;
+            while (i2 < this.d.size()) {
+                ag agVar2 = (ag) this.d.get(i2);
+                if ((agVar2.b < max || agVar2.b > min) && !agVar2.c) {
+                    this.d.remove(i2);
+                    i2--;
+                    this.e.destroyItem((ViewGroup) this, agVar2.b, agVar2.a);
+                } else if (i3 < min && agVar2.b > max) {
+                    int i4 = i3 + 1;
+                    if (i4 < max) {
+                        i4 = max;
+                    }
+                    while (i4 <= min && i4 < agVar2.b) {
+                        a(i4, i2);
+                        i4++;
+                        i2++;
+                    }
                 }
-                while (i4 <= min && i4 < agVar2.b) {
-                    a(i4, i2);
-                    i4++;
-                    i2++;
+                int i5 = i2;
+                int i6 = agVar2.b;
+                int i7 = i5 + 1;
+                i3 = i6;
+                i2 = i7;
+            }
+            int i8 = this.d.size() > 0 ? ((ag) this.d.get(this.d.size() - 1)).b : -1;
+            if (i8 < min) {
+                int i9 = i8 + 1;
+                if (i9 <= max) {
+                    i9 = max;
+                }
+                while (i9 <= min) {
+                    a(i9, -1);
+                    i9++;
                 }
             }
-            int i5 = i2;
-            int i6 = agVar2.b;
-            int i7 = i5 + 1;
-            i3 = i6;
-            i2 = i7;
-        }
-        int i8 = this.d.size() > 0 ? ((ag) this.d.get(this.d.size() - 1)).b : -1;
-        if (i8 < min) {
-            int i9 = i8 + 1;
-            if (i9 <= max) {
-                i9 = max;
+            int i10 = 0;
+            while (true) {
+                if (i10 < this.d.size()) {
+                    if (((ag) this.d.get(i10)).b != this.f) {
+                        i10++;
+                    } else {
+                        agVar = (ag) this.d.get(i10);
+                        break;
+                    }
+                } else {
+                    agVar = null;
+                    break;
+                }
             }
-            while (i9 <= min) {
-                a(i9, -1);
-                i9++;
-            }
-        }
-        int i10 = 0;
-        while (true) {
-            if (i10 >= this.d.size()) {
-                agVar = null;
-                break;
-            } else if (((ag) this.d.get(i10)).b == this.f) {
-                agVar = (ag) this.d.get(i10);
-                break;
-            } else {
-                i10++;
-            }
-        }
-        this.e.setPrimaryItem((ViewGroup) this, this.f, agVar != null ? agVar.a : null);
-        this.e.finishUpdate((ViewGroup) this);
-        if (hasFocus()) {
-            View findFocus = findFocus();
-            ag b2 = findFocus != null ? b(findFocus) : null;
-            if (b2 == null || b2.b != this.f) {
-                for (int i11 = 0; i11 < getChildCount(); i11++) {
-                    View childAt = getChildAt(i11);
-                    ag a2 = a(childAt);
-                    if (a2 != null && a2.b == this.f && childAt.requestFocus(2)) {
-                        return;
+            this.e.setPrimaryItem((ViewGroup) this, this.f, agVar != null ? agVar.a : null);
+            this.e.finishUpdate((ViewGroup) this);
+            if (hasFocus()) {
+                View findFocus = findFocus();
+                ag b2 = findFocus != null ? b(findFocus) : null;
+                if (b2 == null || b2.b != this.f) {
+                    for (int i11 = 0; i11 < getChildCount(); i11++) {
+                        View childAt = getChildAt(i11);
+                        ag a2 = a(childAt);
+                        if (a2 != null && a2.b == this.f && childAt.requestFocus(2)) {
+                            return;
+                        }
                     }
                 }
             }
         }
     }
 
-    @Override // android.view.ViewGroup
-    protected boolean checkLayoutParams(ViewGroup.LayoutParams layoutParams) {
-        return (layoutParams instanceof ah) && super.checkLayoutParams(layoutParams);
+    /* loaded from: classes.dex */
+    public class SavedState extends View.BaseSavedState {
+        public static final Parcelable.Creator CREATOR = android.support.v4.a.a.a(new al());
+        int a;
+        Parcelable b;
+        ClassLoader c;
+
+        public SavedState(Parcelable parcelable) {
+            super(parcelable);
+        }
+
+        @Override // android.view.View.BaseSavedState, android.view.AbsSavedState, android.os.Parcelable
+        public void writeToParcel(Parcel parcel, int i) {
+            super.writeToParcel(parcel, i);
+            parcel.writeInt(this.a);
+            parcel.writeParcelable(this.b, i);
+        }
+
+        public String toString() {
+            return "FragmentPager.SavedState{" + Integer.toHexString(System.identityHashCode(this)) + " position=" + this.a + "}";
+        }
+
+        /* JADX INFO: Access modifiers changed from: package-private */
+        public SavedState(Parcel parcel, ClassLoader classLoader) {
+            super(parcel);
+            classLoader = classLoader == null ? getClass().getClassLoader() : classLoader;
+            this.a = parcel.readInt();
+            this.b = parcel.readParcelable(classLoader);
+            this.c = classLoader;
+        }
     }
 
     @Override // android.view.View
-    public void computeScroll() {
-        if (this.j.isFinished() || !this.j.computeScrollOffset()) {
-            h();
+    public Parcelable onSaveInstanceState() {
+        SavedState savedState = new SavedState(super.onSaveInstanceState());
+        savedState.a = this.f;
+        if (this.e != null) {
+            savedState.b = this.e.saveState();
+        }
+        return savedState;
+    }
+
+    @Override // android.view.View
+    public void onRestoreInstanceState(Parcelable parcelable) {
+        if (!(parcelable instanceof SavedState)) {
+            super.onRestoreInstanceState(parcelable);
             return;
         }
-        int scrollX = getScrollX();
-        int scrollY = getScrollY();
-        int currX = this.j.getCurrX();
-        int currY = this.j.getCurrY();
-        if (scrollX != currX || scrollY != currY) {
-            scrollTo(currX, currY);
-            b(currX);
-        }
-        invalidate();
-    }
-
-    boolean d() {
-        if (this.f > 0) {
-            a(this.f - 1, true);
-            return true;
-        }
-        return false;
-    }
-
-    @Override // android.view.ViewGroup, android.view.View
-    public boolean dispatchKeyEvent(KeyEvent keyEvent) {
-        return super.dispatchKeyEvent(keyEvent) || a(keyEvent);
-    }
-
-    @Override // android.view.View
-    public boolean dispatchPopulateAccessibilityEvent(AccessibilityEvent accessibilityEvent) {
-        ag a2;
-        int childCount = getChildCount();
-        for (int i = 0; i < childCount; i++) {
-            View childAt = getChildAt(i);
-            if (childAt.getVisibility() == 0 && (a2 = a(childAt)) != null && a2.b == this.f && childAt.dispatchPopulateAccessibilityEvent(accessibilityEvent)) {
-                return true;
-            }
-        }
-        return false;
-    }
-
-    @Override // android.view.View
-    public void draw(Canvas canvas) {
-        super.draw(canvas);
-        boolean z = false;
-        int a2 = r.a(this);
-        if (a2 == 0 || (a2 == 1 && this.e != null && this.e.getCount() > 1)) {
-            if (!this.I.a()) {
-                int save = canvas.save();
-                int height = (getHeight() - getPaddingTop()) - getPaddingBottom();
-                canvas.rotate(270.0f);
-                canvas.translate((-height) + getPaddingTop(), 0.0f);
-                this.I.a(height, getWidth());
-                z = false | this.I.a(canvas);
-                canvas.restoreToCount(save);
-            }
-            if (!this.J.a()) {
-                int save2 = canvas.save();
-                int width = getWidth();
-                int height2 = (getHeight() - getPaddingTop()) - getPaddingBottom();
-                int count = this.e != null ? this.e.getCount() : 1;
-                canvas.rotate(90.0f);
-                canvas.translate(-getPaddingTop(), ((-count) * (this.l + width)) + this.l);
-                this.J.a(height2, width);
-                z |= this.J.a(canvas);
-                canvas.restoreToCount(save2);
-            }
-        } else {
-            this.I.b();
-            this.J.b();
-        }
-        if (z) {
-            invalidate();
-        }
-    }
-
-    @Override // android.view.ViewGroup, android.view.View
-    protected void drawableStateChanged() {
-        super.drawableStateChanged();
-        Drawable drawable = this.m;
-        if (drawable == null || !drawable.isStateful()) {
+        SavedState savedState = (SavedState) parcelable;
+        super.onRestoreInstanceState(savedState.getSuperState());
+        if (this.e != null) {
+            this.e.restoreState(savedState.b, savedState.c);
+            a(savedState.a, false, true);
             return;
         }
-        drawable.setState(getDrawableState());
+        this.g = savedState.a;
+        this.h = savedState.b;
+        this.i = savedState.c;
     }
 
-    boolean e() {
-        if (this.e == null || this.f >= this.e.getCount() - 1) {
-            return false;
+    @Override // android.view.ViewGroup
+    public void addView(View view, int i, ViewGroup.LayoutParams layoutParams) {
+        ViewGroup.LayoutParams generateLayoutParams = !checkLayoutParams(layoutParams) ? generateLayoutParams(layoutParams) : layoutParams;
+        ah ahVar = (ah) generateLayoutParams;
+        ahVar.a |= view instanceof af;
+        if (this.r) {
+            if (ahVar != null && ahVar.a) {
+                throw new IllegalStateException("Cannot add pager decor view during layout");
+            }
+            addViewInLayout(view, i, generateLayoutParams);
+            view.measure(this.p, this.q);
+            return;
         }
-        a(this.f + 1, true);
-        return true;
+        super.addView(view, i, generateLayoutParams);
     }
 
-    @Override // android.view.ViewGroup
-    protected ViewGroup.LayoutParams generateDefaultLayoutParams() {
-        return new ah();
+    ag a(View view) {
+        int i = 0;
+        while (true) {
+            int i2 = i;
+            if (i2 < this.d.size()) {
+                ag agVar = (ag) this.d.get(i2);
+                if (!this.e.isViewFromObject(view, agVar.a)) {
+                    i = i2 + 1;
+                } else {
+                    return agVar;
+                }
+            } else {
+                return null;
+            }
+        }
     }
 
-    @Override // android.view.ViewGroup
-    public ViewGroup.LayoutParams generateLayoutParams(AttributeSet attributeSet) {
-        return new ah(getContext(), attributeSet);
-    }
-
-    @Override // android.view.ViewGroup
-    protected ViewGroup.LayoutParams generateLayoutParams(ViewGroup.LayoutParams layoutParams) {
-        return generateDefaultLayoutParams();
-    }
-
-    public k getAdapter() {
-        return this.e;
-    }
-
-    public int getCurrentItem() {
-        return this.f;
-    }
-
-    public int getOffscreenPageLimit() {
-        return this.v;
-    }
-
-    public int getPageMargin() {
-        return this.l;
+    ag b(View view) {
+        while (true) {
+            ViewParent parent = view.getParent();
+            if (parent != this) {
+                if (parent == null || !(parent instanceof View)) {
+                    break;
+                }
+                view = (View) parent;
+            } else {
+                return a(view);
+            }
+        }
+        return null;
     }
 
     @Override // android.view.ViewGroup, android.view.View
@@ -875,100 +635,89 @@ public class ViewPager extends ViewGroup {
     }
 
     @Override // android.view.View
-    protected void onDraw(Canvas canvas) {
-        super.onDraw(canvas);
-        if (this.l <= 0 || this.m == null) {
-            return;
+    protected void onMeasure(int i, int i2) {
+        ah ahVar;
+        int i3;
+        int i4;
+        ah ahVar2;
+        setMeasuredDimension(getDefaultSize(0, i), getDefaultSize(0, i2));
+        int measuredWidth = (getMeasuredWidth() - getPaddingLeft()) - getPaddingRight();
+        int measuredHeight = (getMeasuredHeight() - getPaddingTop()) - getPaddingBottom();
+        int childCount = getChildCount();
+        int i5 = 0;
+        while (i5 < childCount) {
+            View childAt = getChildAt(i5);
+            if (childAt.getVisibility() != 8 && (ahVar2 = (ah) childAt.getLayoutParams()) != null && ahVar2.a) {
+                int i6 = ahVar2.b & 7;
+                int i7 = ahVar2.b & 112;
+                Log.d("ViewPager", "gravity: " + ahVar2.b + " hgrav: " + i6 + " vgrav: " + i7);
+                int i8 = Integer.MIN_VALUE;
+                int i9 = Integer.MIN_VALUE;
+                boolean z = i7 == 48 || i7 == 80;
+                boolean z2 = i6 == 3 || i6 == 5;
+                if (z) {
+                    i8 = 1073741824;
+                } else if (z2) {
+                    i9 = 1073741824;
+                }
+                childAt.measure(View.MeasureSpec.makeMeasureSpec(measuredWidth, i8), View.MeasureSpec.makeMeasureSpec(measuredHeight, i9));
+                if (z) {
+                    i3 = measuredHeight - childAt.getMeasuredHeight();
+                    i4 = measuredWidth;
+                } else if (z2) {
+                    i4 = measuredWidth - childAt.getMeasuredWidth();
+                    i3 = measuredHeight;
+                }
+                i5++;
+                measuredWidth = i4;
+                measuredHeight = i3;
+            }
+            i3 = measuredHeight;
+            i4 = measuredWidth;
+            i5++;
+            measuredWidth = i4;
+            measuredHeight = i3;
         }
-        int scrollX = getScrollX();
-        int width = getWidth();
-        int i = scrollX % (this.l + width);
-        if (i != 0) {
-            int i2 = (scrollX - i) + width;
-            this.m.setBounds(i2, this.n, this.l + i2, this.o);
-            this.m.draw(canvas);
+        this.p = View.MeasureSpec.makeMeasureSpec(measuredWidth, 1073741824);
+        this.q = View.MeasureSpec.makeMeasureSpec(measuredHeight, 1073741824);
+        this.r = true;
+        c();
+        this.r = false;
+        int childCount2 = getChildCount();
+        for (int i10 = 0; i10 < childCount2; i10++) {
+            View childAt2 = getChildAt(i10);
+            if (childAt2.getVisibility() != 8 && ((ahVar = (ah) childAt2.getLayoutParams()) == null || !ahVar.a)) {
+                childAt2.measure(this.p, this.q);
+            }
         }
     }
 
-    @Override // android.view.ViewGroup
-    public boolean onInterceptTouchEvent(MotionEvent motionEvent) {
-        int action = motionEvent.getAction() & 255;
-        if (action == 3 || action == 1) {
-            this.w = false;
-            this.x = false;
-            this.C = -1;
-            if (this.D != null) {
-                this.D.recycle();
-                this.D = null;
-                return false;
-            }
-            return false;
+    @Override // android.view.View
+    protected void onSizeChanged(int i, int i2, int i3, int i4) {
+        super.onSizeChanged(i, i2, i3, i4);
+        if (i != i3) {
+            a(i, i3, this.l, this.l);
         }
-        if (action != 0) {
-            if (this.w) {
-                return true;
+    }
+
+    private void a(int i, int i2, int i3, int i4) {
+        int i5 = i + i3;
+        if (i2 > 0) {
+            int scrollX = getScrollX();
+            int i6 = i2 + i4;
+            int i7 = (int) ((((scrollX % i6) / i6) + (scrollX / i6)) * i5);
+            scrollTo(i7, getScrollY());
+            if (!this.j.isFinished()) {
+                this.j.startScroll(i7, 0, i5 * this.f, 0, this.j.getDuration() - this.j.timePassed());
+                return;
             }
-            if (this.x) {
-                return false;
-            }
+            return;
         }
-        switch (action) {
-            case 0:
-                float x = motionEvent.getX();
-                this.z = x;
-                this.A = x;
-                this.B = motionEvent.getY();
-                this.C = f.b(motionEvent, 0);
-                if (this.Q != 2) {
-                    h();
-                    this.w = false;
-                    this.x = false;
-                    break;
-                } else {
-                    this.w = true;
-                    this.x = false;
-                    setScrollState(1);
-                    break;
-                }
-            case 2:
-                int i = this.C;
-                if (i != -1) {
-                    int a2 = f.a(motionEvent, i);
-                    float c2 = f.c(motionEvent, a2);
-                    float f = c2 - this.A;
-                    float abs = Math.abs(f);
-                    float d = f.d(motionEvent, a2);
-                    float abs2 = Math.abs(d - this.B);
-                    if (!a(this, false, (int) f, (int) c2, (int) d)) {
-                        if (abs > this.y && abs > abs2) {
-                            this.w = true;
-                            setScrollState(1);
-                            this.A = c2;
-                            setScrollingCacheEnabled(true);
-                            break;
-                        } else if (abs2 > this.y) {
-                            this.x = true;
-                            break;
-                        }
-                    } else {
-                        this.A = c2;
-                        this.z = c2;
-                        this.B = d;
-                        return false;
-                    }
-                }
-                break;
-            case 6:
-                a(motionEvent);
-                break;
+        int i8 = this.f * i5;
+        if (i8 != getScrollX()) {
+            h();
+            scrollTo(i8, getScrollY());
         }
-        if (!this.w) {
-            if (this.D == null) {
-                this.D = VelocityTracker.obtain();
-            }
-            this.D.addMovement(motionEvent);
-        }
-        return this.w;
     }
 
     @Override // android.view.ViewGroup, android.view.View
@@ -1078,120 +827,206 @@ public class ViewPager extends ViewGroup {
     }
 
     @Override // android.view.View
-    protected void onMeasure(int i, int i2) {
-        ah ahVar;
+    public void computeScroll() {
+        if (!this.j.isFinished() && this.j.computeScrollOffset()) {
+            int scrollX = getScrollX();
+            int scrollY = getScrollY();
+            int currX = this.j.getCurrX();
+            int currY = this.j.getCurrY();
+            if (scrollX != currX || scrollY != currY) {
+                scrollTo(currX, currY);
+                b(currX);
+            }
+            invalidate();
+            return;
+        }
+        h();
+    }
+
+    private void b(int i) {
+        int width = getWidth() + this.l;
+        int i2 = i % width;
+        this.L = false;
+        a(i / width, i2 / width, i2);
+        if (!this.L) {
+            throw new IllegalStateException("onPageScrolled did not call superclass implementation");
+        }
+    }
+
+    protected void a(int i, float f, int i2) {
+        int measuredWidth;
         int i3;
         int i4;
-        ah ahVar2;
-        setMeasuredDimension(getDefaultSize(0, i), getDefaultSize(0, i2));
-        int measuredWidth = (getMeasuredWidth() - getPaddingLeft()) - getPaddingRight();
-        int measuredHeight = (getMeasuredHeight() - getPaddingTop()) - getPaddingBottom();
-        int childCount = getChildCount();
-        int i5 = 0;
-        while (i5 < childCount) {
-            View childAt = getChildAt(i5);
-            if (childAt.getVisibility() != 8 && (ahVar2 = (ah) childAt.getLayoutParams()) != null && ahVar2.a) {
-                int i6 = ahVar2.b & 7;
-                int i7 = ahVar2.b & 112;
-                Log.d("ViewPager", "gravity: " + ahVar2.b + " hgrav: " + i6 + " vgrav: " + i7);
-                int i8 = Integer.MIN_VALUE;
-                int i9 = Integer.MIN_VALUE;
-                boolean z = i7 == 48 || i7 == 80;
-                boolean z2 = i6 == 3 || i6 == 5;
-                if (z) {
-                    i8 = 1073741824;
-                } else if (z2) {
-                    i9 = 1073741824;
-                }
-                childAt.measure(View.MeasureSpec.makeMeasureSpec(measuredWidth, i8), View.MeasureSpec.makeMeasureSpec(measuredHeight, i9));
-                if (z) {
-                    i3 = measuredHeight - childAt.getMeasuredHeight();
-                    i4 = measuredWidth;
-                } else if (z2) {
-                    i4 = measuredWidth - childAt.getMeasuredWidth();
-                    i3 = measuredHeight;
+        if (this.M > 0) {
+            int scrollX = getScrollX();
+            int paddingLeft = getPaddingLeft();
+            int paddingRight = getPaddingRight();
+            int width = getWidth();
+            int childCount = getChildCount();
+            int i5 = 0;
+            while (i5 < childCount) {
+                View childAt = getChildAt(i5);
+                ah ahVar = (ah) childAt.getLayoutParams();
+                if (ahVar.a) {
+                    switch (ahVar.b & 7) {
+                        case 1:
+                            measuredWidth = Math.max((width - childAt.getMeasuredWidth()) / 2, paddingLeft);
+                            int i6 = paddingRight;
+                            i3 = paddingLeft;
+                            i4 = i6;
+                            break;
+                        case 2:
+                        case 4:
+                        default:
+                            measuredWidth = paddingLeft;
+                            int i7 = paddingRight;
+                            i3 = paddingLeft;
+                            i4 = i7;
+                            break;
+                        case 3:
+                            int width2 = childAt.getWidth() + paddingLeft;
+                            int i8 = paddingLeft;
+                            i4 = paddingRight;
+                            i3 = width2;
+                            measuredWidth = i8;
+                            break;
+                        case 5:
+                            measuredWidth = (width - paddingRight) - childAt.getMeasuredWidth();
+                            int measuredWidth2 = paddingRight + childAt.getMeasuredWidth();
+                            i3 = paddingLeft;
+                            i4 = measuredWidth2;
+                            break;
+                    }
+                    int left = (measuredWidth + scrollX) - childAt.getLeft();
+                    if (left != 0) {
+                        childAt.offsetLeftAndRight(left);
+                    }
+                } else {
+                    int i9 = paddingRight;
+                    i3 = paddingLeft;
+                    i4 = i9;
                 }
                 i5++;
-                measuredWidth = i4;
-                measuredHeight = i3;
+                int i10 = i4;
+                paddingLeft = i3;
+                paddingRight = i10;
             }
-            i3 = measuredHeight;
-            i4 = measuredWidth;
-            i5++;
-            measuredWidth = i4;
-            measuredHeight = i3;
         }
-        this.p = View.MeasureSpec.makeMeasureSpec(measuredWidth, 1073741824);
-        this.q = View.MeasureSpec.makeMeasureSpec(measuredHeight, 1073741824);
-        this.r = true;
-        c();
-        this.r = false;
-        int childCount2 = getChildCount();
-        for (int i10 = 0; i10 < childCount2; i10++) {
-            View childAt2 = getChildAt(i10);
-            if (childAt2.getVisibility() != 8 && ((ahVar = (ah) childAt2.getLayoutParams()) == null || !ahVar.a)) {
-                childAt2.measure(this.p, this.q);
+        if (this.N != null) {
+            this.N.a(i, f, i2);
+        }
+        if (this.O != null) {
+            this.O.a(i, f, i2);
+        }
+        this.L = true;
+    }
+
+    private void h() {
+        boolean z = this.u;
+        if (z) {
+            setScrollingCacheEnabled(false);
+            this.j.abortAnimation();
+            int scrollX = getScrollX();
+            int scrollY = getScrollY();
+            int currX = this.j.getCurrX();
+            int currY = this.j.getCurrY();
+            if (scrollX != currX || scrollY != currY) {
+                scrollTo(currX, currY);
             }
+            setScrollState(0);
+        }
+        this.t = false;
+        this.u = false;
+        boolean z2 = z;
+        for (int i = 0; i < this.d.size(); i++) {
+            ag agVar = (ag) this.d.get(i);
+            if (agVar.c) {
+                z2 = true;
+                agVar.c = false;
+            }
+        }
+        if (z2) {
+            c();
         }
     }
 
     @Override // android.view.ViewGroup
-    protected boolean onRequestFocusInDescendants(int i, Rect rect) {
-        int i2;
-        ag a2;
-        int i3 = -1;
-        int childCount = getChildCount();
-        if ((i & 2) != 0) {
-            i3 = 1;
-            i2 = 0;
-        } else {
-            i2 = childCount - 1;
-            childCount = -1;
+    public boolean onInterceptTouchEvent(MotionEvent motionEvent) {
+        int action = motionEvent.getAction() & 255;
+        if (action == 3 || action == 1) {
+            this.w = false;
+            this.x = false;
+            this.C = -1;
+            if (this.D != null) {
+                this.D.recycle();
+                this.D = null;
+                return false;
+            }
+            return false;
         }
-        while (i2 != childCount) {
-            View childAt = getChildAt(i2);
-            if (childAt.getVisibility() == 0 && (a2 = a(childAt)) != null && a2.b == this.f && childAt.requestFocus(i, rect)) {
+        if (action != 0) {
+            if (this.w) {
                 return true;
             }
-            i2 += i3;
+            if (this.x) {
+                return false;
+            }
         }
-        return false;
-    }
-
-    @Override // android.view.View
-    public void onRestoreInstanceState(Parcelable parcelable) {
-        if (!(parcelable instanceof SavedState)) {
-            super.onRestoreInstanceState(parcelable);
-            return;
+        switch (action) {
+            case 0:
+                float x = motionEvent.getX();
+                this.z = x;
+                this.A = x;
+                this.B = motionEvent.getY();
+                this.C = f.b(motionEvent, 0);
+                if (this.Q == 2) {
+                    this.w = true;
+                    this.x = false;
+                    setScrollState(1);
+                    break;
+                } else {
+                    h();
+                    this.w = false;
+                    this.x = false;
+                    break;
+                }
+            case 2:
+                int i = this.C;
+                if (i != -1) {
+                    int a2 = f.a(motionEvent, i);
+                    float c2 = f.c(motionEvent, a2);
+                    float f = c2 - this.A;
+                    float abs = Math.abs(f);
+                    float d = f.d(motionEvent, a2);
+                    float abs2 = Math.abs(d - this.B);
+                    if (a(this, false, (int) f, (int) c2, (int) d)) {
+                        this.A = c2;
+                        this.z = c2;
+                        this.B = d;
+                        return false;
+                    } else if (abs > this.y && abs > abs2) {
+                        this.w = true;
+                        setScrollState(1);
+                        this.A = c2;
+                        setScrollingCacheEnabled(true);
+                        break;
+                    } else if (abs2 > this.y) {
+                        this.x = true;
+                        break;
+                    }
+                }
+                break;
+            case 6:
+                a(motionEvent);
+                break;
         }
-        SavedState savedState = (SavedState) parcelable;
-        super.onRestoreInstanceState(savedState.getSuperState());
-        if (this.e != null) {
-            this.e.restoreState(savedState.b, savedState.c);
-            a(savedState.a, false, true);
-            return;
+        if (!this.w) {
+            if (this.D == null) {
+                this.D = VelocityTracker.obtain();
+            }
+            this.D.addMovement(motionEvent);
         }
-        this.g = savedState.a;
-        this.h = savedState.b;
-        this.i = savedState.c;
-    }
-
-    @Override // android.view.View
-    public Parcelable onSaveInstanceState() {
-        SavedState savedState = new SavedState(super.onSaveInstanceState());
-        savedState.a = this.f;
-        if (this.e != null) {
-            savedState.b = this.e.saveState();
-        }
-        return savedState;
-    }
-
-    @Override // android.view.View
-    protected void onSizeChanged(int i, int i2, int i3, int i4) {
-        super.onSizeChanged(i, i2, i3, i4);
-        if (i != i3) {
-            a(i, i3, this.l, this.l);
-        }
+        return this.w;
     }
 
     @Override // android.view.View
@@ -1296,92 +1131,276 @@ public class ViewPager extends ViewGroup {
         return true;
     }
 
-    public void setAdapter(k kVar) {
-        if (this.e != null) {
-            this.e.unregisterDataSetObserver(this.k);
-            this.e.startUpdate((ViewGroup) this);
-            for (int i = 0; i < this.d.size(); i++) {
-                ag agVar = (ag) this.d.get(i);
-                this.e.destroyItem((ViewGroup) this, agVar.b, agVar.a);
+    private int a(int i, float f, int i2, int i3) {
+        if (Math.abs(i3) > this.G && Math.abs(i2) > this.E) {
+            if (i2 <= 0) {
+                return i + 1;
             }
-            this.e.finishUpdate((ViewGroup) this);
-            this.d.clear();
-            g();
-            this.f = 0;
-            scrollTo(0, 0);
+            return i;
         }
-        k kVar2 = this.e;
-        this.e = kVar;
-        if (this.e != null) {
-            if (this.k == null) {
-                this.k = new ak(this, null);
-            }
-            this.e.registerDataSetObserver(this.k);
-            this.t = false;
-            if (this.g >= 0) {
-                this.e.restoreState(this.h, this.i);
-                a(this.g, false, true);
-                this.g = -1;
-                this.h = null;
-                this.i = null;
-            } else {
-                c();
-            }
-        }
-        if (this.P == null || kVar2 == kVar) {
-            return;
-        }
-        this.P.a(kVar2, kVar);
-    }
-
-    public void setCurrentItem(int i) {
-        this.t = false;
-        a(i, !this.K, false);
-    }
-
-    public void setOffscreenPageLimit(int i) {
-        if (i < 1) {
-            Log.w("ViewPager", "Requested offscreen page limit " + i + " too small; defaulting to 1");
-            i = 1;
-        }
-        if (i != this.v) {
-            this.v = i;
-            c();
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void setOnAdapterChangeListener(ai aiVar) {
-        this.P = aiVar;
-    }
-
-    public void setOnPageChangeListener(aj ajVar) {
-        this.N = ajVar;
-    }
-
-    public void setPageMargin(int i) {
-        int i2 = this.l;
-        this.l = i;
-        int width = getWidth();
-        a(width, width, i, i2);
-        requestLayout();
-    }
-
-    public void setPageMarginDrawable(int i) {
-        setPageMarginDrawable(getContext().getResources().getDrawable(i));
-    }
-
-    public void setPageMarginDrawable(Drawable drawable) {
-        this.m = drawable;
-        if (drawable != null) {
-            refreshDrawableState();
-        }
-        setWillNotDraw(drawable == null);
-        invalidate();
+        return (int) (i + f + 0.5f);
     }
 
     @Override // android.view.View
-    protected boolean verifyDrawable(Drawable drawable) {
-        return super.verifyDrawable(drawable) || drawable == this.m;
+    public void draw(Canvas canvas) {
+        super.draw(canvas);
+        boolean z = false;
+        int a2 = r.a(this);
+        if (a2 == 0 || (a2 == 1 && this.e != null && this.e.getCount() > 1)) {
+            if (!this.I.a()) {
+                int save = canvas.save();
+                int height = (getHeight() - getPaddingTop()) - getPaddingBottom();
+                canvas.rotate(270.0f);
+                canvas.translate((-height) + getPaddingTop(), 0.0f);
+                this.I.a(height, getWidth());
+                z = false | this.I.a(canvas);
+                canvas.restoreToCount(save);
+            }
+            if (!this.J.a()) {
+                int save2 = canvas.save();
+                int width = getWidth();
+                int height2 = (getHeight() - getPaddingTop()) - getPaddingBottom();
+                int count = this.e != null ? this.e.getCount() : 1;
+                canvas.rotate(90.0f);
+                canvas.translate(-getPaddingTop(), ((-count) * (this.l + width)) + this.l);
+                this.J.a(height2, width);
+                z |= this.J.a(canvas);
+                canvas.restoreToCount(save2);
+            }
+        } else {
+            this.I.b();
+            this.J.b();
+        }
+        if (z) {
+            invalidate();
+        }
+    }
+
+    @Override // android.view.View
+    protected void onDraw(Canvas canvas) {
+        super.onDraw(canvas);
+        if (this.l > 0 && this.m != null) {
+            int scrollX = getScrollX();
+            int width = getWidth();
+            int i = scrollX % (this.l + width);
+            if (i != 0) {
+                int i2 = (scrollX - i) + width;
+                this.m.setBounds(i2, this.n, this.l + i2, this.o);
+                this.m.draw(canvas);
+            }
+        }
+    }
+
+    private void a(MotionEvent motionEvent) {
+        int a2 = f.a(motionEvent);
+        if (f.b(motionEvent, a2) == this.C) {
+            int i = a2 == 0 ? 1 : 0;
+            this.A = f.c(motionEvent, i);
+            this.C = f.b(motionEvent, i);
+            if (this.D != null) {
+                this.D.clear();
+            }
+        }
+    }
+
+    private void i() {
+        this.w = false;
+        this.x = false;
+        if (this.D != null) {
+            this.D.recycle();
+            this.D = null;
+        }
+    }
+
+    private void setScrollingCacheEnabled(boolean z) {
+        if (this.s != z) {
+            this.s = z;
+        }
+    }
+
+    protected boolean a(View view, boolean z, int i, int i2, int i3) {
+        if (view instanceof ViewGroup) {
+            ViewGroup viewGroup = (ViewGroup) view;
+            int scrollX = view.getScrollX();
+            int scrollY = view.getScrollY();
+            for (int childCount = viewGroup.getChildCount() - 1; childCount >= 0; childCount--) {
+                View childAt = viewGroup.getChildAt(childCount);
+                if (i2 + scrollX >= childAt.getLeft() && i2 + scrollX < childAt.getRight() && i3 + scrollY >= childAt.getTop() && i3 + scrollY < childAt.getBottom() && a(childAt, true, i, (i2 + scrollX) - childAt.getLeft(), (i3 + scrollY) - childAt.getTop())) {
+                    return true;
+                }
+            }
+        }
+        return z && r.a(view, -i);
+    }
+
+    @Override // android.view.ViewGroup, android.view.View
+    public boolean dispatchKeyEvent(KeyEvent keyEvent) {
+        return super.dispatchKeyEvent(keyEvent) || a(keyEvent);
+    }
+
+    public boolean a(KeyEvent keyEvent) {
+        if (keyEvent.getAction() != 0) {
+            return false;
+        }
+        switch (keyEvent.getKeyCode()) {
+            case 21:
+                return a(17);
+            case DERTags.IA5_STRING /* 22 */:
+                return a(66);
+            case BDLocation.TypeGpsLocation /* 61 */:
+                if (Build.VERSION.SDK_INT < 11) {
+                    return false;
+                }
+                if (a.a(keyEvent)) {
+                    return a(2);
+                }
+                if (!a.a(keyEvent, 1)) {
+                    return false;
+                }
+                return a(1);
+            default:
+                return false;
+        }
+    }
+
+    public boolean a(int i) {
+        boolean d;
+        View findFocus = findFocus();
+        if (findFocus == this) {
+            findFocus = null;
+        }
+        View findNextFocus = FocusFinder.getInstance().findNextFocus(this, findFocus, i);
+        if (findNextFocus != null && findNextFocus != findFocus) {
+            if (i == 17) {
+                if (findFocus != null && findNextFocus.getLeft() >= findFocus.getLeft()) {
+                    d = d();
+                } else {
+                    d = findNextFocus.requestFocus();
+                }
+            } else {
+                if (i == 66) {
+                    if (findFocus != null && findNextFocus.getLeft() <= findFocus.getLeft()) {
+                        d = e();
+                    } else {
+                        d = findNextFocus.requestFocus();
+                    }
+                }
+                d = false;
+            }
+        } else if (i == 17 || i == 1) {
+            d = d();
+        } else {
+            if (i == 66 || i == 2) {
+                d = e();
+            }
+            d = false;
+        }
+        if (d) {
+            playSoundEffect(SoundEffectConstants.getContantForFocusDirection(i));
+        }
+        return d;
+    }
+
+    boolean d() {
+        if (this.f > 0) {
+            a(this.f - 1, true);
+            return true;
+        }
+        return false;
+    }
+
+    boolean e() {
+        if (this.e == null || this.f >= this.e.getCount() - 1) {
+            return false;
+        }
+        a(this.f + 1, true);
+        return true;
+    }
+
+    @Override // android.view.ViewGroup, android.view.View
+    public void addFocusables(ArrayList arrayList, int i, int i2) {
+        ag a2;
+        int size = arrayList.size();
+        int descendantFocusability = getDescendantFocusability();
+        if (descendantFocusability != 393216) {
+            for (int i3 = 0; i3 < getChildCount(); i3++) {
+                View childAt = getChildAt(i3);
+                if (childAt.getVisibility() == 0 && (a2 = a(childAt)) != null && a2.b == this.f) {
+                    childAt.addFocusables(arrayList, i, i2);
+                }
+            }
+        }
+        if ((descendantFocusability != 262144 || size == arrayList.size()) && isFocusable()) {
+            if (((i2 & 1) != 1 || !isInTouchMode() || isFocusableInTouchMode()) && arrayList != null) {
+                arrayList.add(this);
+            }
+        }
+    }
+
+    @Override // android.view.ViewGroup, android.view.View
+    public void addTouchables(ArrayList arrayList) {
+        ag a2;
+        for (int i = 0; i < getChildCount(); i++) {
+            View childAt = getChildAt(i);
+            if (childAt.getVisibility() == 0 && (a2 = a(childAt)) != null && a2.b == this.f) {
+                childAt.addTouchables(arrayList);
+            }
+        }
+    }
+
+    @Override // android.view.ViewGroup
+    protected boolean onRequestFocusInDescendants(int i, Rect rect) {
+        int i2;
+        ag a2;
+        int i3 = -1;
+        int childCount = getChildCount();
+        if ((i & 2) != 0) {
+            i3 = 1;
+            i2 = 0;
+        } else {
+            i2 = childCount - 1;
+            childCount = -1;
+        }
+        while (i2 != childCount) {
+            View childAt = getChildAt(i2);
+            if (childAt.getVisibility() == 0 && (a2 = a(childAt)) != null && a2.b == this.f && childAt.requestFocus(i, rect)) {
+                return true;
+            }
+            i2 += i3;
+        }
+        return false;
+    }
+
+    @Override // android.view.View
+    public boolean dispatchPopulateAccessibilityEvent(AccessibilityEvent accessibilityEvent) {
+        ag a2;
+        int childCount = getChildCount();
+        for (int i = 0; i < childCount; i++) {
+            View childAt = getChildAt(i);
+            if (childAt.getVisibility() == 0 && (a2 = a(childAt)) != null && a2.b == this.f && childAt.dispatchPopulateAccessibilityEvent(accessibilityEvent)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    @Override // android.view.ViewGroup
+    protected ViewGroup.LayoutParams generateDefaultLayoutParams() {
+        return new ah();
+    }
+
+    @Override // android.view.ViewGroup
+    protected ViewGroup.LayoutParams generateLayoutParams(ViewGroup.LayoutParams layoutParams) {
+        return generateDefaultLayoutParams();
+    }
+
+    @Override // android.view.ViewGroup
+    protected boolean checkLayoutParams(ViewGroup.LayoutParams layoutParams) {
+        return (layoutParams instanceof ah) && super.checkLayoutParams(layoutParams);
+    }
+
+    @Override // android.view.ViewGroup
+    public ViewGroup.LayoutParams generateLayoutParams(AttributeSet attributeSet) {
+        return new ah(getContext(), attributeSet);
     }
 }

@@ -1,20 +1,20 @@
 package com.baidu.tieba.home;
 
-import android.content.DialogInterface;
+import android.view.View;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class ak implements DialogInterface.OnClickListener {
-    final /* synthetic */ aj a;
+public class ak implements View.OnFocusChangeListener {
+    final /* synthetic */ SearchActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ak(aj ajVar) {
-        this.a = ajVar;
+    public ak(SearchActivity searchActivity) {
+        this.a = searchActivity;
     }
 
-    @Override // android.content.DialogInterface.OnClickListener
-    public void onClick(DialogInterface dialogInterface, int i) {
-        SearchActivity searchActivity;
-        com.baidu.tieba.c.k.n();
-        searchActivity = this.a.a;
-        searchActivity.k();
+    @Override // android.view.View.OnFocusChangeListener
+    public void onFocusChange(View view, boolean z) {
+        if (!z) {
+            com.baidu.tieba.c.ah.a(this.a, view);
+        }
     }
 }

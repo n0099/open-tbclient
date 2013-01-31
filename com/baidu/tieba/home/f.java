@@ -42,81 +42,37 @@ public class f extends BaseAdapter {
         this.i = null;
         this.j = null;
         this.k = null;
-        this.m = com.baidu.tieba.c.ag.a(this.a, 10.0f);
+        this.m = com.baidu.tieba.c.ah.a(this.a, 10.0f);
         this.l = new ArrayList();
-        this.f = Boolean.valueOf(TiebaApplication.a().n() != null);
-    }
-
-    private int a(int i) {
-        if (this.c.booleanValue()) {
-            if (this.b == null || this.b.c() == null || this.b.c().size() == 0) {
-                return 4;
-            }
-            return (i == 5 && this.e.booleanValue() && !this.f.booleanValue()) ? 6 : 5;
-        }
-        return 1;
-    }
-
-    private void a(com.baidu.tieba.a.ac acVar, g gVar) {
-        if (acVar == null || gVar == null) {
-            return;
-        }
-        int f = acVar.f();
-        gVar.b.setTag(acVar);
-        gVar.c.setText(acVar.b());
-        if (f == 0 || acVar.d() == 0) {
-            gVar.d.setVisibility(8);
-            gVar.e.setVisibility(8);
-            return;
-        }
-        gVar.d.setVisibility(0);
-        gVar.e.setVisibility(0);
-        if (1 <= f && f <= 3) {
-            gVar.d.setImageBitmap(com.baidu.tieba.c.e.a((int) R.drawable.home_grade_1));
-        } else if (4 <= f && f <= 9) {
-            gVar.d.setImageBitmap(com.baidu.tieba.c.e.a((int) R.drawable.home_grade_2));
-        } else if (10 > f || f > 15) {
-            gVar.d.setImageBitmap(com.baidu.tieba.c.e.a((int) R.drawable.home_grade_4));
-        } else {
-            gVar.d.setImageBitmap(com.baidu.tieba.c.e.a((int) R.drawable.home_grade_3));
-        }
-        gVar.e.setText(String.valueOf(acVar.f()).concat(this.g));
+        this.f = Boolean.valueOf(TiebaApplication.b().p() != null);
     }
 
     public void a() {
-        if (this.l == null) {
-            return;
-        }
-        int i = 0;
-        while (true) {
-            int i2 = i;
-            if (i2 >= this.l.size()) {
-                this.l.clear();
-                return;
+        if (this.l != null) {
+            int i = 0;
+            while (true) {
+                int i2 = i;
+                if (i2 < this.l.size()) {
+                    try {
+                        ((ProgressBar) this.l.get(i2)).setVisibility(8);
+                    } catch (Exception e) {
+                        com.baidu.tieba.c.af.b(getClass().getName(), "releaseProgressBar", e.getMessage());
+                    }
+                    i = i2 + 1;
+                } else {
+                    this.l.clear();
+                    return;
+                }
             }
-            try {
-                ((ProgressBar) this.l.get(i2)).setVisibility(8);
-            } catch (Exception e) {
-                com.baidu.tieba.c.ae.b(getClass().getName(), "releaseProgressBar", e.getMessage());
-            }
-            i = i2 + 1;
         }
-    }
-
-    public void a(View.OnClickListener onClickListener) {
-        this.h = onClickListener;
-    }
-
-    public void a(View.OnLongClickListener onLongClickListener) {
-        this.i = onLongClickListener;
     }
 
     public void a(com.baidu.tieba.b.f fVar) {
         this.b = fVar;
-        if (fVar == null || fVar.c() == null || fVar.c().size() <= 8) {
-            this.e = false;
-        } else {
+        if (fVar != null && fVar.c() != null && fVar.c().size() > 8) {
             this.e = true;
+        } else {
+            this.e = false;
         }
         if (fVar != null) {
             if (fVar.d() == null || fVar.d().size() == 0) {
@@ -134,21 +90,6 @@ public class f extends BaseAdapter {
         this.f = true;
     }
 
-    public void b(View.OnClickListener onClickListener) {
-        this.j = onClickListener;
-    }
-
-    public int c() {
-        if (this.b == null || this.b.d() == null) {
-            return 3;
-        }
-        return this.b.d().size() == 0 ? (getCount() - this.b.d().size()) - 1 : getCount() - this.b.d().size();
-    }
-
-    public void c(View.OnClickListener onClickListener) {
-        this.k = onClickListener;
-    }
-
     @Override // android.widget.Adapter
     public int getCount() {
         int i = 2;
@@ -157,9 +98,20 @@ public class f extends BaseAdapter {
         }
         if (this.c.booleanValue() && this.b.c() != null && this.b.c().size() > 0) {
             int size = this.b.c().size();
-            i = size > 8 ? this.f.booleanValue() ? (size % 2) + 1 + (size / 2) : 6 : (size % 2) + 1 + (size / 2);
+            if (size > 8) {
+                if (this.f.booleanValue()) {
+                    i = (size % 2) + 1 + (size / 2);
+                } else {
+                    i = 6;
+                }
+            } else {
+                i = (size % 2) + 1 + (size / 2);
+            }
         }
-        return (this.b.d() == null || this.b.d().size() <= 0) ? i : i + this.b.d().size() + 1;
+        if (this.b.d() != null && this.b.d().size() > 0) {
+            return i + this.b.d().size() + 1;
+        }
+        return i;
     }
 
     @Override // android.widget.Adapter
@@ -174,9 +126,323 @@ public class f extends BaseAdapter {
         return Integer.valueOf(itemViewType);
     }
 
+    public int c() {
+        if (this.b != null && this.b.d() != null) {
+            if (this.b.d().size() == 0) {
+                return (getCount() - this.b.d().size()) - 1;
+            }
+            return getCount() - this.b.d().size();
+        }
+        return 3;
+    }
+
     @Override // android.widget.Adapter
     public long getItemId(int i) {
         return i;
+    }
+
+    /* JADX WARN: Not initialized variable reg: 2, insn: 0x05fb: MOVE  (r1 I:??[OBJECT, ARRAY]) = (r2 I:??[OBJECT, ARRAY]), block:B:121:0x05fa */
+    @Override // android.widget.Adapter
+    public View getView(int i, View view, ViewGroup viewGroup) {
+        Exception exc;
+        View view2;
+        int af;
+        int itemViewType;
+        Resources resources;
+        View view3;
+        j jVar;
+        View view4;
+        m mVar;
+        try {
+            af = TiebaApplication.b().af();
+            itemViewType = getItemViewType(i);
+            resources = this.a.getResources();
+            try {
+            } catch (Exception e) {
+                view2 = view3;
+                exc = e;
+                com.baidu.tieba.c.af.b(getClass().getName(), "getView", exc.getMessage());
+                return view2;
+            }
+        } catch (Exception e2) {
+            exc = e2;
+            view2 = view;
+        }
+        if (itemViewType == 0) {
+            if (view == null) {
+                View inflate = LayoutInflater.from(this.a).inflate(R.layout.enter_forum_enter, (ViewGroup) null);
+                h hVar = new h(this, null);
+                hVar.a = (RelativeLayout) inflate.findViewById(R.id.container);
+                hVar.b = (LinearLayout) inflate.findViewById(R.id.home_search_bg_layout);
+                hVar.c = inflate.findViewById(R.id.lv_seperator);
+                hVar.d = (ImageView) inflate.findViewById(R.id.lottery_image);
+                ViewGroup.LayoutParams layoutParams = hVar.d.getLayoutParams();
+                layoutParams.width = com.baidu.tieba.c.ah.a(this.a);
+                layoutParams.height = (layoutParams.width * 176) / 320;
+                hVar.d.setLayoutParams(layoutParams);
+                hVar.d.setOnClickListener(new g(this));
+                inflate.setTag(hVar);
+                view = inflate;
+            }
+            h hVar2 = (h) view.getTag();
+            if (af == 1) {
+                hVar2.a.setBackgroundColor(resources.getColor(R.color.skin_1_common_bg));
+                com.baidu.tieba.c.ad.i(hVar2.b, R.drawable.home_search_bg_1);
+                hVar2.c.setBackgroundColor(resources.getColor(R.color.skin_1_lv_divider_bg));
+            } else {
+                hVar2.a.setBackgroundColor(resources.getColor(R.color.backgroundcolor));
+                com.baidu.tieba.c.ad.i(hVar2.b, R.drawable.home_search_bg);
+                hVar2.c.setBackgroundColor(-2960686);
+            }
+            if (TiebaApplication.b().az() != null && TiebaApplication.b().az().a() == 1) {
+                if (hVar2.d.getVisibility() != 0) {
+                    hVar2.d.setVisibility(0);
+                    hVar2.d.setImageResource(R.drawable.banner_image);
+                    return view;
+                }
+                return view;
+            } else if (hVar2.d.getVisibility() != 8) {
+                hVar2.d.setVisibility(8);
+                hVar2.d.setImageResource(0);
+                return view;
+            } else {
+                return view;
+            }
+        } else if (itemViewType == 1) {
+            if (view == null) {
+                View inflate2 = LayoutInflater.from(this.a).inflate(R.layout.enter_forum_login, (ViewGroup) null);
+                k kVar = new k(this, null);
+                kVar.a = (LinearLayout) inflate2.findViewById(R.id.container);
+                kVar.b = (TextView) inflate2.findViewById(R.id.tip);
+                kVar.c = (Button) inflate2.findViewById(R.id.want_login);
+                kVar.c.setOnClickListener(this.j);
+                inflate2.setTag(kVar);
+                view = inflate2;
+            }
+            k kVar2 = (k) view.getTag();
+            if (af == 1) {
+                kVar2.a.setBackgroundColor(resources.getColor(R.color.skin_1_common_bg));
+                kVar2.b.setTextColor(resources.getColor(R.color.skin_1_common_color));
+                kVar2.c.setTextColor(resources.getColor(R.color.skin_1_common_button_color));
+            } else {
+                kVar2.a.setBackgroundColor(-328966);
+                kVar2.b.setTextColor(-13421773);
+                kVar2.c.setTextColor(resources.getColor(R.color.white));
+            }
+            if (this.d.booleanValue()) {
+                view.setVisibility(4);
+                return view;
+            }
+            view.setVisibility(0);
+            return view;
+        } else if (itemViewType == 2) {
+            if (view == null) {
+                View inflate3 = LayoutInflater.from(this.a).inflate(R.layout.enter_forum_recommend_tip, (ViewGroup) null);
+                l lVar = new l(this, null);
+                lVar.a = (LinearLayout) inflate3.findViewById(R.id.container);
+                lVar.c = inflate3.findViewById(R.id.seperator1);
+                lVar.d = inflate3.findViewById(R.id.seperator2);
+                lVar.b = (TextView) inflate3.findViewById(R.id.tip_text);
+                inflate3.setTag(lVar);
+                view = inflate3;
+            }
+            l lVar2 = (l) view.getTag();
+            if (af == 1) {
+                lVar2.a.setBackgroundColor(-14540254);
+                lVar2.c.setBackgroundColor(resources.getColor(R.color.skin_1_lv_divider_bg));
+                lVar2.d.setBackgroundColor(resources.getColor(R.color.skin_1_lv_divider_bg));
+                lVar2.b.setTextColor(-7237231);
+                return view;
+            }
+            lVar2.a.setBackgroundColor(resources.getColor(R.color.backgroundcolor));
+            lVar2.c.setBackgroundColor(-2960686);
+            lVar2.d.setBackgroundColor(-2960686);
+            lVar2.b.setTextColor(-13421773);
+            return view;
+        } else if (itemViewType == 4) {
+            if (view == null) {
+                return LayoutInflater.from(this.a).inflate(R.layout.home_like_nodata_item, (ViewGroup) null);
+            }
+            return view;
+        } else if (itemViewType == 6) {
+            if (view == null) {
+                View inflate4 = LayoutInflater.from(this.a).inflate(R.layout.enter_forum_goon_show_like, (ViewGroup) null);
+                i iVar = new i(this, null);
+                iVar.a = (LinearLayout) inflate4.findViewById(R.id.container);
+                iVar.b = inflate4.findViewById(R.id.like_more);
+                inflate4.setTag(iVar);
+                view = inflate4;
+            }
+            i iVar2 = (i) view.getTag();
+            if (af == 1) {
+                iVar2.a.setBackgroundColor(resources.getColor(R.color.skin_1_common_bg));
+                iVar2.b.setBackgroundResource(R.drawable.button_like_more_1);
+                return view;
+            }
+            iVar2.a.setBackgroundColor(resources.getColor(R.color.backgroundcolor));
+            iVar2.b.setBackgroundResource(R.drawable.button_like_more);
+            return view;
+        } else {
+            if (itemViewType == 3) {
+                if (view == null) {
+                    view4 = LayoutInflater.from(this.a).inflate(R.layout.enter_forum_recommand_item, (ViewGroup) null);
+                    m mVar2 = new m(this, null);
+                    mVar2.a = (RelativeLayout) view4;
+                    mVar2.b = (TextView) view4.findViewById(R.id.recommend_forum_name);
+                    mVar2.c = (TextView) view4.findViewById(R.id.member_count);
+                    mVar2.d = (TextView) view4.findViewById(R.id.forum_abstract);
+                    mVar2.e = (ImageView) view4.findViewById(R.id.recommend_like);
+                    mVar2.f = view4.findViewById(R.id.lv_seperator);
+                    mVar2.e.setOnClickListener(this.k);
+                    view4.setTag(mVar2);
+                } else {
+                    view4 = view;
+                }
+                m mVar3 = (m) view4.getTag();
+                if (af == 1) {
+                    mVar3.b.setTextColor(resources.getColor(R.color.skin_1_common_color));
+                    mVar3.c.setTextColor(-10855846);
+                    mVar3.c.setTextColor(-7697782);
+                    mVar3.f.setBackgroundColor(resources.getColor(R.color.skin_1_lv_divider_bg));
+                    mVar3.e.setImageResource(R.drawable.add_like_1);
+                    jVar = null;
+                    mVar = mVar3;
+                } else {
+                    mVar3.b.setTextColor(-13421773);
+                    mVar3.c.setTextColor(-10066330);
+                    mVar3.c.setTextColor(-10066330);
+                    mVar3.f.setBackgroundColor(-2960686);
+                    mVar3.e.setImageResource(R.drawable.add_like);
+                    jVar = null;
+                    mVar = mVar3;
+                }
+            } else if (itemViewType != 5) {
+                jVar = null;
+                view4 = view;
+                mVar = null;
+            } else {
+                if (view == null) {
+                    View inflate5 = LayoutInflater.from(this.a).inflate(R.layout.home_like_item, (ViewGroup) null);
+                    j jVar2 = new j(this, null);
+                    jVar2.a = (LinearLayout) inflate5;
+                    jVar2.b = (LinearLayout) inflate5.findViewById(R.id.first);
+                    jVar2.b.setOnClickListener(this.h);
+                    jVar2.b.setOnLongClickListener(this.i);
+                    jVar2.c = (TextView) inflate5.findViewById(R.id.home_lv_like_forum1);
+                    jVar2.d = (ImageView) inflate5.findViewById(R.id.home_lv_like_gimg1);
+                    jVar2.e = (TextView) inflate5.findViewById(R.id.forum_lv_like_grade1);
+                    jVar2.f = new j(this, null);
+                    jVar2.f.b = (LinearLayout) inflate5.findViewById(R.id.second);
+                    jVar2.f.b.setOnClickListener(this.h);
+                    jVar2.f.b.setOnLongClickListener(this.i);
+                    jVar2.f.c = (TextView) inflate5.findViewById(R.id.home_lv_like_forum2);
+                    jVar2.f.d = (ImageView) inflate5.findViewById(R.id.home_lv_like_gimg2);
+                    jVar2.f.e = (TextView) inflate5.findViewById(R.id.forum_lv_like_grade2);
+                    inflate5.setTag(jVar2);
+                    view = inflate5;
+                }
+                j jVar3 = (j) view.getTag();
+                LinearLayout linearLayout = (LinearLayout) view.findViewById(R.id.container);
+                if (af == 1) {
+                    linearLayout.setBackgroundColor(resources.getColor(R.color.skin_1_common_bg));
+                    com.baidu.tieba.c.ad.i(jVar3.b, R.drawable.home_like_item_bg_1);
+                    jVar3.c.setTextColor(resources.getColor(R.color.skin_1_common_color));
+                    jVar3.e.setTextColor(resources.getColor(R.color.skin_1_second_common_color));
+                    com.baidu.tieba.c.ad.i(jVar3.f.b, R.drawable.home_like_item_bg_1);
+                    jVar3.f.c.setTextColor(resources.getColor(R.color.skin_1_common_color));
+                    jVar3.f.e.setTextColor(resources.getColor(R.color.skin_1_second_common_color));
+                    mVar = null;
+                    jVar = jVar3;
+                    view4 = view;
+                } else {
+                    linearLayout.setBackgroundColor(resources.getColor(R.color.backgroundcolor));
+                    com.baidu.tieba.c.ad.i(jVar3.b, R.drawable.home_like_item_bg);
+                    jVar3.c.setTextColor(-12895429);
+                    jVar3.e.setTextColor(-8947332);
+                    com.baidu.tieba.c.ad.i(jVar3.f.b, R.drawable.home_like_item_bg);
+                    jVar3.f.c.setTextColor(-12895429);
+                    jVar3.f.e.setTextColor(-8947332);
+                    mVar = null;
+                    jVar = jVar3;
+                    view4 = view;
+                }
+            }
+            if (itemViewType == 3 && mVar != null && this.b.d() != null) {
+                Object item = getItem(i);
+                com.baidu.tieba.a.ad adVar = null;
+                if (item != null && (item instanceof com.baidu.tieba.a.ad)) {
+                    adVar = (com.baidu.tieba.a.ad) item;
+                }
+                if (adVar != null) {
+                    mVar.b.setText(String.valueOf(adVar.b()) + resources.getString(R.string.forum));
+                    mVar.c.setText(MessageFormat.format(resources.getString(R.string.forum_like_memeber), Integer.valueOf(adVar.c())));
+                    mVar.d.setText(adVar.h());
+                    mVar.e.setVisibility(this.c.booleanValue() ? 0 : 4);
+                    mVar.a.setVisibility(0);
+                    mVar.e.setTag(adVar);
+                } else {
+                    mVar.a.setVisibility(4);
+                }
+            }
+            if (itemViewType == 5 && jVar != null && this.b.c() != null) {
+                if (i == 1) {
+                    jVar.a.setPadding(0, this.m, 0, this.m);
+                } else {
+                    jVar.a.setPadding(0, 0, 0, this.m);
+                }
+                if (i >= 1) {
+                    if ((i - 1) * 2 < this.b.c().size()) {
+                        a((com.baidu.tieba.a.ad) this.b.c().get((i - 1) * 2), jVar);
+                    }
+                    if (((i - 1) * 2) + 1 < this.b.c().size()) {
+                        jVar.f.b.setVisibility(0);
+                        a((com.baidu.tieba.a.ad) this.b.c().get(((i - 1) * 2) + 1), jVar.f);
+                        view2 = view4;
+                    } else {
+                        jVar.f.b.setVisibility(4);
+                        view2 = view4;
+                    }
+                    return view2;
+                }
+            }
+            view2 = view4;
+            return view2;
+        }
+    }
+
+    private void a(com.baidu.tieba.a.ad adVar, j jVar) {
+        if (adVar != null && jVar != null) {
+            int f = adVar.f();
+            jVar.b.setTag(adVar);
+            jVar.c.setText(adVar.b());
+            if (f == 0 || adVar.d() == 0) {
+                jVar.d.setVisibility(8);
+                jVar.e.setVisibility(8);
+                return;
+            }
+            jVar.d.setVisibility(0);
+            jVar.e.setVisibility(0);
+            if (1 <= f && f <= 3) {
+                jVar.d.setImageBitmap(com.baidu.tieba.c.e.a((int) R.drawable.home_grade_1));
+            } else if (4 <= f && f <= 9) {
+                jVar.d.setImageBitmap(com.baidu.tieba.c.e.a((int) R.drawable.home_grade_2));
+            } else if (10 <= f && f <= 15) {
+                jVar.d.setImageBitmap(com.baidu.tieba.c.e.a((int) R.drawable.home_grade_3));
+            } else {
+                jVar.d.setImageBitmap(com.baidu.tieba.c.e.a((int) R.drawable.home_grade_4));
+            }
+            jVar.e.setText(String.valueOf(adVar.f()).concat(this.g));
+        }
+    }
+
+    private int a(int i) {
+        if (!this.c.booleanValue()) {
+            return 1;
+        }
+        if (this.b == null || this.b.c() == null || this.b.c().size() == 0) {
+            return 4;
+        }
+        return (i == 5 && this.e.booleanValue() && !this.f.booleanValue()) ? 6 : 5;
     }
 
     @Override // android.widget.BaseAdapter, android.widget.Adapter
@@ -196,140 +462,9 @@ public class f extends BaseAdapter {
         return a(i);
     }
 
-    /* JADX WARN: Not initialized variable reg: 2, insn: 0x0047: MOVE  (r1 I:??[OBJECT, ARRAY]) = (r2 I:??[OBJECT, ARRAY]), block:B:20:0x0046 */
-    @Override // android.widget.Adapter
-    public View getView(int i, View view, ViewGroup viewGroup) {
-        Exception exc;
-        View view2;
-        int itemViewType;
-        View view3;
-        g gVar;
-        h hVar;
-        View view4;
-        try {
-            itemViewType = getItemViewType(i);
-        } catch (Exception e) {
-            exc = e;
-            view2 = view;
-        }
-        try {
-            if (view == null) {
-                LayoutInflater from = LayoutInflater.from(this.a);
-                if (itemViewType == 0) {
-                    return from.inflate(R.layout.enter_forum_enter, (ViewGroup) null);
-                }
-                if (itemViewType == 1) {
-                    View inflate = from.inflate(R.layout.enter_forum_login, (ViewGroup) null);
-                    ((Button) inflate.findViewById(R.id.want_login)).setOnClickListener(this.j);
-                    if (this.d.booleanValue()) {
-                        inflate.setVisibility(4);
-                    } else {
-                        inflate.setVisibility(0);
-                    }
-                    return inflate;
-                } else if (itemViewType == 2) {
-                    return from.inflate(R.layout.enter_forum_recommend_tip, (ViewGroup) null);
-                } else {
-                    if (itemViewType == 4) {
-                        return from.inflate(R.layout.home_like_nodata_item, (ViewGroup) null);
-                    }
-                    if (itemViewType == 6) {
-                        return from.inflate(R.layout.enter_forum_goon_show_like, (ViewGroup) null);
-                    }
-                    if (itemViewType == 3) {
-                        view4 = from.inflate(R.layout.enter_forum_recommand_item, (ViewGroup) null);
-                        h hVar2 = new h(this, null);
-                        hVar2.a = (RelativeLayout) view4;
-                        hVar2.b = (TextView) view4.findViewById(R.id.recommend_forum_name);
-                        hVar2.c = (TextView) view4.findViewById(R.id.member_count);
-                        hVar2.d = (TextView) view4.findViewById(R.id.forum_abstract);
-                        hVar2.e = (ImageView) view4.findViewById(R.id.recommend_like);
-                        hVar2.e.setOnClickListener(this.k);
-                        view4.setTag(hVar2);
-                        gVar = null;
-                        hVar = hVar2;
-                    } else if (itemViewType == 5) {
-                        view4 = from.inflate(R.layout.home_like_item, (ViewGroup) null);
-                        g gVar2 = new g(this, null);
-                        gVar2.a = (LinearLayout) view4;
-                        gVar2.b = (LinearLayout) view4.findViewById(R.id.first);
-                        gVar2.b.setOnClickListener(this.h);
-                        gVar2.b.setOnLongClickListener(this.i);
-                        gVar2.c = (TextView) view4.findViewById(R.id.home_lv_like_forum1);
-                        gVar2.d = (ImageView) view4.findViewById(R.id.home_lv_like_gimg1);
-                        gVar2.e = (TextView) view4.findViewById(R.id.forum_lv_like_grade1);
-                        gVar2.f = new g(this, null);
-                        gVar2.f.b = (LinearLayout) view4.findViewById(R.id.second);
-                        gVar2.f.b.setOnClickListener(this.h);
-                        gVar2.f.b.setOnLongClickListener(this.i);
-                        gVar2.f.c = (TextView) view4.findViewById(R.id.home_lv_like_forum2);
-                        gVar2.f.d = (ImageView) view4.findViewById(R.id.home_lv_like_gimg2);
-                        gVar2.f.e = (TextView) view4.findViewById(R.id.forum_lv_like_grade2);
-                        view4.setTag(gVar2);
-                        gVar = gVar2;
-                        hVar = null;
-                    } else {
-                        gVar = null;
-                        view4 = view;
-                        hVar = null;
-                    }
-                }
-            } else {
-                h hVar3 = itemViewType == 3 ? (h) view.getTag() : null;
-                if (itemViewType == 5) {
-                    hVar = hVar3;
-                    gVar = (g) view.getTag();
-                    view4 = view;
-                } else {
-                    gVar = null;
-                    hVar = hVar3;
-                    view4 = view;
-                }
-            }
-            Resources resources = this.a.getResources();
-            if (itemViewType == 3 && hVar != null && this.b.d() != null) {
-                Object item = getItem(i);
-                com.baidu.tieba.a.ac acVar = null;
-                if (item != null && (item instanceof com.baidu.tieba.a.ac)) {
-                    acVar = (com.baidu.tieba.a.ac) item;
-                }
-                if (acVar != null) {
-                    hVar.b.setText(String.valueOf(acVar.b()) + resources.getString(R.string.forum));
-                    hVar.c.setText(MessageFormat.format(resources.getString(R.string.forum_like_memeber), Integer.valueOf(acVar.c())));
-                    hVar.d.setText(acVar.h());
-                    hVar.e.setVisibility(this.c.booleanValue() ? 0 : 4);
-                    hVar.a.setVisibility(0);
-                    hVar.e.setTag(acVar);
-                } else {
-                    hVar.a.setVisibility(4);
-                }
-            }
-            if (itemViewType == 5 && gVar != null && this.b.c() != null) {
-                if (i == 1) {
-                    gVar.a.setPadding(0, this.m, 0, this.m);
-                } else {
-                    gVar.a.setPadding(0, 0, 0, this.m);
-                }
-                if (i >= 1) {
-                    if ((i - 1) * 2 < this.b.c().size()) {
-                        a((com.baidu.tieba.a.ac) this.b.c().get((i - 1) * 2), gVar);
-                    }
-                    if (((i - 1) * 2) + 1 >= this.b.c().size()) {
-                        gVar.f.b.setVisibility(4);
-                        return view4;
-                    }
-                    gVar.f.b.setVisibility(0);
-                    a((com.baidu.tieba.a.ac) this.b.c().get(((i - 1) * 2) + 1), gVar.f);
-                    return view4;
-                }
-            }
-            return view4;
-        } catch (Exception e2) {
-            view2 = view3;
-            exc = e2;
-            com.baidu.tieba.c.ae.b(getClass().getName(), "getView", exc.getMessage());
-            return view2;
-        }
+    @Override // android.widget.BaseAdapter, android.widget.ListAdapter
+    public boolean isEnabled(int i) {
+        return getItemViewType(i) == 3 || getItemViewType(i) == 6 || getItemViewType(i) == 0;
     }
 
     @Override // android.widget.BaseAdapter, android.widget.Adapter
@@ -337,8 +472,19 @@ public class f extends BaseAdapter {
         return 7;
     }
 
-    @Override // android.widget.BaseAdapter, android.widget.ListAdapter
-    public boolean isEnabled(int i) {
-        return getItemViewType(i) == 3 || getItemViewType(i) == 6 || getItemViewType(i) == 0;
+    public void a(View.OnClickListener onClickListener) {
+        this.h = onClickListener;
+    }
+
+    public void a(View.OnLongClickListener onLongClickListener) {
+        this.i = onLongClickListener;
+    }
+
+    public void b(View.OnClickListener onClickListener) {
+        this.j = onClickListener;
+    }
+
+    public void c(View.OnClickListener onClickListener) {
+        this.k = onClickListener;
     }
 }

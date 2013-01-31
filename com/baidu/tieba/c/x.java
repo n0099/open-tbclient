@@ -14,7 +14,7 @@ public class x extends Handler {
                 wVar.i();
             }
         } catch (Exception e) {
-            ae.b(getClass().getName(), "initNetWorkCore", e.getMessage());
+            af.b(getClass().getName(), "initNetWorkCore", e.getMessage());
         }
     }
 }

@@ -1,6 +1,8 @@
 package com.baidu.loginshare;
 
 import android.content.Context;
+import com.baidu.share.ShareAssistant;
+import com.baidu.share.ShareModel;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class l extends Thread {
@@ -22,10 +24,10 @@ public class l extends Thread {
             if (token == null) {
                 context = this.a.a;
                 if (context != null) {
-                    com.baidu.share.c cVar = new com.baidu.share.c();
-                    cVar.a = h.a();
+                    ShareModel shareModel = new ShareModel();
+                    shareModel.mAction = h.a();
                     context2 = this.a.a;
-                    com.baidu.share.b.a(context2).a(cVar);
+                    ShareAssistant.a(context2).share(shareModel);
                 }
             }
         } catch (InterruptedException e) {

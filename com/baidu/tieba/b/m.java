@@ -1,44 +1,25 @@
 package com.baidu.tieba.b;
 /* loaded from: classes.dex */
 public class m {
-    final /* synthetic */ j a;
+    final /* synthetic */ l a;
     private String b;
     private String c;
     private String d;
-    private long e;
-    private int f;
-    private String g;
-    private int h;
+    private String e;
 
-    public m(j jVar) {
-        this.a = jVar;
+    public m(l lVar) {
+        this.a = lVar;
     }
 
-    public int a() {
-        return this.h;
-    }
-
-    public String b() {
-        return this.b;
-    }
-
-    public String c() {
+    public String a() {
         return this.c;
     }
 
-    public String d() {
+    public String b() {
         return this.d;
     }
 
-    public long e() {
+    public String c() {
         return this.e;
-    }
-
-    public int f() {
-        return this.f;
-    }
-
-    public String g() {
-        return this.g;
     }
 }

@@ -14,7 +14,7 @@ public class l implements j {
     @Override // com.baidu.tieba.c.j
     public void a() {
         try {
-            TiebaApplication.a().B();
+            TiebaApplication.b().F();
         } catch (Exception e) {
         }
     }

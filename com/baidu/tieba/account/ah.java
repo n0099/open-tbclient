@@ -24,6 +24,29 @@ public class ah extends AsyncTask {
         this.a = arrayList;
     }
 
+    @Override // android.os.AsyncTask
+    protected void onPreExecute() {
+        EditText editText;
+        EditText editText2;
+        ProgressBar progressBar;
+        TextView textView;
+        TextView textView2;
+        LoginActivity loginActivity = this.b;
+        InputMethodManager inputMethodManager = this.b.f;
+        editText = this.b.s;
+        loginActivity.a(inputMethodManager, editText);
+        LoginActivity loginActivity2 = this.b;
+        InputMethodManager inputMethodManager2 = this.b.f;
+        editText2 = this.b.t;
+        loginActivity2.a(inputMethodManager2, editText2);
+        progressBar = this.b.B;
+        progressBar.setVisibility(0);
+        textView = this.b.L;
+        textView.setVisibility(4);
+        textView2 = this.b.N;
+        textView2.setText(R.string.account_login_loading);
+    }
+
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.os.AsyncTask
@@ -36,7 +59,7 @@ public class ah extends AsyncTask {
             this.c.a(this.a);
             this.e = this.c.i();
             if (this.e != null) {
-                com.baidu.tieba.c.ae.a("LoginAsyncTask", "doInBackground", "data: " + this.e);
+                com.baidu.tieba.c.af.a("LoginAsyncTask", "doInBackground", "data: " + this.e);
             }
             if (!this.c.b() || this.e == null) {
                 return null;
@@ -47,28 +70,13 @@ public class ah extends AsyncTask {
                 return gVar;
             } catch (Exception e2) {
                 e = e2;
-                com.baidu.tieba.c.ae.b(getClass().getName(), "", "doInBackground error = " + e.getMessage());
+                com.baidu.tieba.c.af.b(getClass().getName(), "", "doInBackground error = " + e.getMessage());
                 return gVar;
             }
         } catch (Exception e3) {
             gVar = null;
             e = e3;
         }
-    }
-
-    public void a() {
-        ProgressBar progressBar;
-        TextView textView;
-        super.cancel(true);
-        if (this.c != null) {
-            this.c.g();
-            this.c = null;
-        }
-        progressBar = this.b.x;
-        progressBar.setVisibility(8);
-        textView = this.b.J;
-        textView.setText(R.string.account_login);
-        this.b.r();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -86,70 +94,62 @@ public class ah extends AsyncTask {
         TextView textView7;
         String str;
         EditText editText;
-        progressBar = this.b.x;
+        progressBar = this.b.B;
         progressBar.setVisibility(8);
-        textView = this.b.J;
+        textView = this.b.N;
         textView.setText(R.string.account_login);
-        this.b.r();
+        this.b.u();
         if (gVar != null) {
-            this.b.N = gVar;
-            this.b.m();
+            this.b.R = gVar;
+            this.b.p();
         } else if (this.c != null) {
-            if ((this.c.c() && this.c.d() == 5) || this.c.d() == 6) {
-                com.baidu.tieba.a.av avVar = new com.baidu.tieba.a.av();
-                avVar.a(this.e);
-                if (avVar.b() != null) {
-                    this.b.h = avVar.a();
-                    this.b.i = avVar.b();
-                    LoginActivity loginActivity = this.b;
-                    str = this.b.i;
-                    loginActivity.c(str);
-                    this.b.o();
-                    LoginActivity loginActivity2 = this.b;
-                    editText = this.b.o;
-                    loginActivity2.f = editText.getText().toString();
-                } else {
-                    textView5 = this.b.H;
-                    textView5.setVisibility(0);
-                    textView6 = this.b.H;
-                    textView6.setText(this.c.f());
-                    textView7 = this.b.I;
-                    textView7.setVisibility(8);
-                    this.b.n();
-                }
-            } else {
-                textView2 = this.b.H;
+            if ((!this.c.c() || this.c.d() != 5) && this.c.d() != 6) {
+                textView2 = this.b.L;
                 textView2.setVisibility(0);
-                textView3 = this.b.H;
+                textView3 = this.b.L;
                 textView3.setText(this.c.f());
-                textView4 = this.b.I;
+                textView4 = this.b.M;
                 textView4.setVisibility(8);
-                this.b.n();
+                this.b.q();
+            } else {
+                com.baidu.tieba.a.ay ayVar = new com.baidu.tieba.a.ay();
+                ayVar.a(this.e);
+                if (ayVar.b() == null) {
+                    textView5 = this.b.L;
+                    textView5.setVisibility(0);
+                    textView6 = this.b.L;
+                    textView6.setText(this.c.f());
+                    textView7 = this.b.M;
+                    textView7.setVisibility(8);
+                    this.b.q();
+                } else {
+                    this.b.l = ayVar.a();
+                    this.b.m = ayVar.b();
+                    LoginActivity loginActivity = this.b;
+                    str = this.b.m;
+                    loginActivity.c(str);
+                    this.b.r();
+                    LoginActivity loginActivity2 = this.b;
+                    editText = this.b.s;
+                    loginActivity2.j = editText.getText().toString();
+                }
             }
         }
-        this.b.M = null;
+        this.b.Q = null;
     }
 
-    @Override // android.os.AsyncTask
-    protected void onPreExecute() {
-        EditText editText;
-        EditText editText2;
+    public void a() {
         ProgressBar progressBar;
         TextView textView;
-        TextView textView2;
-        LoginActivity loginActivity = this.b;
-        InputMethodManager inputMethodManager = this.b.b;
-        editText = this.b.o;
-        loginActivity.a(inputMethodManager, editText);
-        LoginActivity loginActivity2 = this.b;
-        InputMethodManager inputMethodManager2 = this.b.b;
-        editText2 = this.b.p;
-        loginActivity2.a(inputMethodManager2, editText2);
-        progressBar = this.b.x;
-        progressBar.setVisibility(0);
-        textView = this.b.H;
-        textView.setVisibility(4);
-        textView2 = this.b.J;
-        textView2.setText(R.string.account_login_loading);
+        super.cancel(true);
+        if (this.c != null) {
+            this.c.g();
+            this.c = null;
+        }
+        progressBar = this.b.B;
+        progressBar.setVisibility(8);
+        textView = this.b.N;
+        textView.setText(R.string.account_login);
+        this.b.u();
     }
 }

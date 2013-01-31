@@ -17,14 +17,14 @@ public class u implements com.baidu.tieba.c.d {
     public void a(Bitmap bitmap, String str, boolean z) {
         LinearLayout linearLayout;
         LinearLayout linearLayout2;
-        linearLayout = this.a.b;
+        linearLayout = this.a.c;
         ImageView imageView = (ImageView) linearLayout.findViewWithTag(str);
         while (imageView != null) {
             imageView.setTag(null);
             if (imageView != null && bitmap != null) {
                 imageView.setImageBitmap(bitmap);
             }
-            linearLayout2 = this.a.b;
+            linearLayout2 = this.a.c;
             imageView = (ImageView) linearLayout2.findViewWithTag(str);
         }
     }

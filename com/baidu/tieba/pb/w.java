@@ -13,6 +13,6 @@ public class w implements View.OnClickListener {
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        this.a.l();
+        this.a.n();
     }
 }

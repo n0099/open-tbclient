@@ -1,6 +1,7 @@
 package com.baidu.mobstat;
 
 import android.content.Context;
+import com.baidu.zeus.NotificationProxy;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -67,7 +68,7 @@ class a implements Thread.UncaughtExceptionHandler {
             if (file.exists()) {
                 FileInputStream openFileInput = context.openFileInput("__local_except_cache.json");
                 StringBuffer stringBuffer = new StringBuffer();
-                byte[] bArr = new byte[1024];
+                byte[] bArr = new byte[NotificationProxy.MAX_URL_LENGTH];
                 while (true) {
                     int read = openFileInput.read(bArr);
                     if (read == -1) {

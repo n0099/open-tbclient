@@ -12,36 +12,20 @@ public class TiebaPrepareImageService extends Service {
     private int f;
     private int b = 0;
     private Uri c = null;
-    private l d = null;
+    private m d = null;
     private Handler e = new Handler();
-    private Runnable g = new k(this);
-
-    public static void a() {
-        TiebaApplication.a().stopService(new Intent(TiebaApplication.a(), TiebaPrepareImageService.class));
-    }
+    private Runnable g = new l(this);
 
     public static void a(int i, Uri uri, int i2) {
-        Intent intent = new Intent(TiebaApplication.a(), TiebaPrepareImageService.class);
+        Intent intent = new Intent(TiebaApplication.b(), TiebaPrepareImageService.class);
         intent.putExtra("request_code", i);
         intent.putExtra("max_size", i2);
         intent.setData(uri);
-        TiebaApplication.a().startService(intent);
+        TiebaApplication.b().startService(intent);
     }
 
-    private void a(Intent intent) {
-        if (this.d != null) {
-            this.d.a();
-        }
-        this.c = intent.getData();
-        this.b = intent.getIntExtra("request_code", 0);
-        this.f = intent.getIntExtra("max_size", 600);
-        TiebaApplication.a().a((com.baidu.tieba.e) null);
-        if (a) {
-            this.e.postDelayed(this.g, 1000L);
-            return;
-        }
-        this.d = new l(this, this.b, this.c);
-        this.d.execute(new Object[0]);
+    public static void a() {
+        TiebaApplication.b().stopService(new Intent(TiebaApplication.b(), TiebaPrepareImageService.class));
     }
 
     @Override // android.app.Service
@@ -70,5 +54,21 @@ public class TiebaPrepareImageService extends Service {
         if (intent != null) {
             a(intent);
         }
+    }
+
+    private void a(Intent intent) {
+        if (this.d != null) {
+            this.d.a();
+        }
+        this.c = intent.getData();
+        this.b = intent.getIntExtra("request_code", 0);
+        this.f = intent.getIntExtra("max_size", 600);
+        TiebaApplication.b().a((com.baidu.tieba.e) null);
+        if (!a) {
+            this.d = new m(this, this.b, this.c);
+            this.d.execute(new Object[0]);
+            return;
+        }
+        this.e.postDelayed(this.g, 1000L);
     }
 }

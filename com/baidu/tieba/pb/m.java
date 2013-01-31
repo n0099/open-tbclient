@@ -15,7 +15,7 @@ public class m implements View.OnClickListener {
     public void onClick(View view) {
         int i;
         ImagePbActivity imagePbActivity = this.a;
-        i = this.a.v;
-        imagePbActivity.c(i);
+        i = this.a.x;
+        imagePbActivity.d(i);
     }
 }

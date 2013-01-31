@@ -13,11 +13,11 @@ public class h implements View.OnClickListener {
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        boolean u;
-        u = this.a.u();
-        if (u) {
+        boolean v;
+        v = this.a.v();
+        if (v) {
             return;
         }
-        this.a.s();
+        this.a.t();
     }
 }

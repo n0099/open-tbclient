@@ -33,9 +33,8 @@ class b extends Filter {
     @Override // android.widget.Filter
     protected void publishResults(CharSequence charSequence, Filter.FilterResults filterResults) {
         Cursor a = this.a.a();
-        if (filterResults.values == null || filterResults.values == a) {
-            return;
+        if (filterResults.values != null && filterResults.values != a) {
+            this.a.a((Cursor) filterResults.values);
         }
-        this.a.a((Cursor) filterResults.values);
     }
 }

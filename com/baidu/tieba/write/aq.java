@@ -19,17 +19,17 @@ public class aq implements View.OnClickListener {
         LinearLayout linearLayout3;
         LinearLayout linearLayout4;
         LinearLayout linearLayout5;
-        linearLayout = this.a.g;
+        linearLayout = this.a.h;
         if (linearLayout.getVisibility() == 0) {
-            linearLayout4 = this.a.g;
+            linearLayout4 = this.a.h;
             linearLayout4.setVisibility(8);
-            linearLayout5 = this.a.o;
+            linearLayout5 = this.a.p;
             linearLayout5.setVisibility(8);
             return;
         }
-        linearLayout2 = this.a.g;
+        linearLayout2 = this.a.h;
         linearLayout2.setVisibility(0);
-        linearLayout3 = this.a.o;
+        linearLayout3 = this.a.p;
         linearLayout3.setVisibility(0);
     }
 }

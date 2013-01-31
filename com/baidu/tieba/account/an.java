@@ -14,11 +14,11 @@ public class an implements AccountProxy.TokenCallback {
 
     @Override // com.baidu.account.AccountProxy.TokenCallback
     public void callBack(String str) {
-        com.baidu.tieba.c.ae.c("BaiduAccountProxy", "getAccountData", "token = " + str);
-        if (str == null) {
-            this.a.finish();
+        com.baidu.tieba.c.af.e("BaiduAccountProxy", "getAccountData", "token = " + str);
+        if (str != null) {
+            this.a.a(BaiduAccount.get(this.a).getCurrentAccount(), str);
             return;
         }
-        this.a.a(BaiduAccount.get(this.a).getCurrentAccount(), str);
+        this.a.finish();
     }
 }

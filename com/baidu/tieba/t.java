@@ -1,21 +1,31 @@
 package com.baidu.tieba;
 
-import android.database.ContentObserver;
-import android.os.Handler;
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
 /* loaded from: classes.dex */
-class t extends ContentObserver {
-    final /* synthetic */ TiebaApplication a;
+class t extends BroadcastReceiver {
+    final /* synthetic */ MainTabActivity a;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public t(TiebaApplication tiebaApplication, Handler handler) {
-        super(handler);
-        this.a = tiebaApplication;
+    private t(MainTabActivity mainTabActivity) {
+        this.a = mainTabActivity;
     }
 
-    @Override // android.database.ContentObserver
-    public void onChange(boolean z) {
-        super.onChange(z);
-        com.baidu.tieba.c.w.b();
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public /* synthetic */ t(MainTabActivity mainTabActivity, t tVar) {
+        this(mainTabActivity);
+    }
+
+    @Override // android.content.BroadcastReceiver
+    public void onReceive(Context context, Intent intent) {
+        String action = intent.getAction();
+        if (action.equals("com.baidu.tieba.broadcast.notify")) {
+            MainTabActivity.a(this.a, intent.getLongExtra("relay", 0L));
+            MainTabActivity.b(this.a, intent.getLongExtra("at_me", 0L));
+            MainTabActivity.c(this.a, intent.getLongExtra("fans", 0L));
+            MainTabActivity.a(this.a);
+        } else if (action.equals("com.baidu.tieba.broadcast.newversion")) {
+            MainTabActivity.b(this.a);
+        }
     }
 }

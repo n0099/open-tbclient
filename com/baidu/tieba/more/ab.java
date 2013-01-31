@@ -4,11 +4,11 @@ import android.content.DialogInterface;
 import com.baidu.tieba.TiebaApplication;
 /* loaded from: classes.dex */
 class ab implements DialogInterface.OnClickListener {
-    final /* synthetic */ y a;
+    final /* synthetic */ z a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ab(y yVar) {
-        this.a = yVar;
+    public ab(z zVar) {
+        this.a = zVar;
     }
 
     @Override // android.content.DialogInterface.OnClickListener
@@ -16,10 +16,10 @@ class ab implements DialogInterface.OnClickListener {
         MoreActivity moreActivity;
         switch (i) {
             case 0:
-                TiebaApplication.a().n(true);
+                TiebaApplication.b().h(true);
                 break;
             case 1:
-                TiebaApplication.a().n(false);
+                TiebaApplication.b().h(false);
                 break;
         }
         moreActivity = this.a.a;

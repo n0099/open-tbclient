@@ -8,7 +8,8 @@ import android.widget.TextView;
 import com.baidu.location.LocationClientOption;
 import com.baidu.tieba.a.aa;
 import com.baidu.tieba.a.ab;
-import com.baidu.tieba.c.ae;
+import com.baidu.tieba.a.ac;
+import com.baidu.tieba.c.af;
 import com.baidu.tieba.view.LbsView;
 import java.util.ArrayList;
 /* JADX INFO: Access modifiers changed from: package-private */
@@ -28,12 +29,12 @@ public class k extends AsyncTask {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.os.AsyncTask
     /* renamed from: a */
-    public com.baidu.tieba.a.x doInBackground(String... strArr) {
-        com.baidu.tieba.a.x xVar;
+    public com.baidu.tieba.a.y doInBackground(String... strArr) {
+        com.baidu.tieba.a.y yVar;
         Exception e;
         try {
         } catch (Exception e2) {
-            xVar = null;
+            yVar = null;
             e = e2;
         }
         if (this.c == null) {
@@ -44,40 +45,40 @@ public class k extends AsyncTask {
         String valueOf2 = String.valueOf(this.c.getLongitude());
         this.b.a("lat", valueOf);
         this.b.a("lng", valueOf2);
-        ae.c(getClass().getName(), "latitude = ", valueOf);
-        ae.c(getClass().getName(), "longitude = ", valueOf2);
+        af.e(getClass().getName(), "latitude = ", valueOf);
+        af.e(getClass().getName(), "longitude = ", valueOf2);
         String i = this.b.i();
         if (this.b.b()) {
-            xVar = new com.baidu.tieba.a.x();
+            yVar = new com.baidu.tieba.a.y();
             try {
-                xVar.a(i);
+                yVar.a(i);
             } catch (Exception e3) {
                 e = e3;
-                ae.b(getClass().getName(), "doInBackground", e.getMessage());
-                return xVar;
+                af.b(getClass().getName(), "doInBackground", e.getMessage());
+                return yVar;
             }
         } else {
-            xVar = null;
+            yVar = null;
         }
-        return xVar;
+        return yVar;
     }
 
-    public void a() {
+    @Override // android.os.AsyncTask
+    protected void onPreExecute() {
         ProgressBar progressBar;
         TextView textView;
-        this.a.l = null;
-        progressBar = this.a.F;
-        progressBar.setVisibility(8);
-        textView = this.a.f;
+        progressBar = this.a.G;
+        progressBar.setVisibility(0);
+        textView = this.a.g;
         textView.setVisibility(8);
-        super.cancel(true);
+        super.onPreExecute();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.os.AsyncTask
     /* renamed from: a */
-    public void onPostExecute(com.baidu.tieba.a.x xVar) {
+    public void onPostExecute(com.baidu.tieba.a.y yVar) {
         ProgressBar progressBar;
         TextView textView;
         TextView textView2;
@@ -86,83 +87,83 @@ public class k extends AsyncTask {
         Handler handler3;
         LbsView lbsView;
         int size;
-        aa aaVar;
+        ab abVar;
         com.baidu.tieba.c.a aVar;
         com.baidu.tieba.c.d dVar;
         int size2;
         LbsView lbsView2;
-        super.onPostExecute(xVar);
-        progressBar = this.a.F;
+        super.onPostExecute(yVar);
+        progressBar = this.a.G;
         progressBar.setVisibility(8);
-        this.a.l = null;
-        this.a.s();
-        this.a.p();
-        if (xVar == null) {
-            textView = this.a.f;
+        this.a.m = null;
+        this.a.u();
+        this.a.r();
+        if (yVar == null) {
+            textView = this.a.g;
             textView.setVisibility(0);
-            textView2 = this.a.f;
+            textView2 = this.a.g;
             textView2.setText(this.b.f());
             return;
         }
-        int size3 = xVar.b().size();
+        int size3 = yVar.b().size();
         for (int i = 0; i < size3; i++) {
-            ab abVar = (ab) xVar.b().get(i);
-            if (abVar.a() >= 1000) {
-                lbsView2 = this.a.b;
-                lbsView2.a(String.valueOf(String.valueOf(abVar.a() / LocationClientOption.MIN_SCAN_SPAN)) + "km");
+            ac acVar = (ac) yVar.b().get(i);
+            if (acVar.a() >= 1000) {
+                lbsView2 = this.a.c;
+                lbsView2.a(String.valueOf(String.valueOf(acVar.a() / LocationClientOption.MIN_SCAN_SPAN)) + "km");
             } else {
-                lbsView = this.a.b;
-                lbsView.a(String.valueOf(String.valueOf(abVar.a())) + "m");
+                lbsView = this.a.c;
+                lbsView.a(String.valueOf(String.valueOf(acVar.a())) + "m");
             }
-            ArrayList b = abVar.b();
-            ArrayList c = abVar.c();
+            ArrayList b = acVar.b();
+            ArrayList c = acVar.c();
             int size4 = b != null ? b.size() + 0 : 0;
             int size5 = c != null ? size4 + c.size() : size4;
             if (b != null && (size2 = b.size()) > 0) {
                 for (int i2 = 0; i2 < size2; i2++) {
-                    com.baidu.tieba.a.z zVar = (com.baidu.tieba.a.z) b.get(i2);
-                    if (zVar != null) {
-                        this.a.a((size3 - i) - 1, size5, zVar);
+                    aa aaVar = (aa) b.get(i2);
+                    if (aaVar != null) {
+                        this.a.a((size3 - i) - 1, size5, aaVar);
                     }
                 }
             }
             if (c != null && (size = c.size()) > 0) {
                 for (int i3 = 0; i3 < size; i3++) {
                     ArrayList arrayList = (ArrayList) c.get(i3);
-                    if (arrayList != null && arrayList.size() > 0 && (aaVar = (aa) arrayList.get(0)) != null) {
-                        if (aaVar.a() != 1 || aaVar.d() == null) {
-                            this.a.b((size3 - i) - 1, size5, arrayList);
-                        } else {
+                    if (arrayList != null && arrayList.size() > 0 && (abVar = (ab) arrayList.get(0)) != null) {
+                        if (abVar.a() == 1 && abVar.d() != null) {
                             this.a.a((size3 - i) - 1, size5, arrayList);
-                            aVar = this.a.E;
-                            String d = aaVar.d();
-                            dVar = this.a.C;
+                            aVar = this.a.F;
+                            String d = abVar.d();
+                            dVar = this.a.D;
                             aVar.a(d, dVar);
+                        } else {
+                            this.a.b((size3 - i) - 1, size5, arrayList);
                         }
                     }
                 }
             }
         }
-        if (this.a.getParent() != null && (this.a.getParent() instanceof NearbyActivity) && xVar.a() != null) {
-            ((NearbyActivity) this.a.getParent()).a(xVar.a().a() + xVar.a().b() + xVar.a().c());
+        if (this.a.getParent() != null && (this.a.getParent() instanceof NearbyActivity) && yVar.a() != null) {
+            ((NearbyActivity) this.a.getParent()).a(yVar.a().a() + yVar.a().b() + yVar.a().c());
         }
-        this.a.A = true;
-        handler = this.a.z;
+        this.a.B = true;
+        handler = this.a.A;
         handler.removeMessages(1);
-        handler2 = this.a.z;
-        handler3 = this.a.z;
+        handler2 = this.a.A;
+        handler3 = this.a.A;
         handler2.sendMessageDelayed(handler3.obtainMessage(1), 5000L);
-        this.a.r();
+        this.a.t();
     }
 
-    @Override // android.os.AsyncTask
-    protected void onPreExecute() {
+    public void a() {
         ProgressBar progressBar;
         TextView textView;
-        progressBar = this.a.F;
-        progressBar.setVisibility(0);
-        textView = this.a.f;
+        this.a.m = null;
+        progressBar = this.a.G;
+        progressBar.setVisibility(8);
+        textView = this.a.g;
         textView.setVisibility(8);
-        super.onPreExecute();
+        super.cancel(true);
     }
 }

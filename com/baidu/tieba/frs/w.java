@@ -1,10 +1,10 @@
 package com.baidu.tieba.frs;
 
-import android.content.DialogInterface;
-import com.baidu.tieba.write.ba;
+import android.graphics.Bitmap;
+import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class w implements DialogInterface.OnClickListener {
+public class w implements View.OnClickListener {
     final /* synthetic */ FrsActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -12,12 +12,28 @@ public class w implements DialogInterface.OnClickListener {
         this.a = frsActivity;
     }
 
-    @Override // android.content.DialogInterface.OnClickListener
-    public void onClick(DialogInterface dialogInterface, int i) {
-        if (i == 0) {
-            ba.a(this.a);
-        } else if (i == 1) {
-            ba.b(this.a);
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        com.baidu.tieba.c.a aVar;
+        com.baidu.tieba.c.a aVar2;
+        aa aaVar;
+        if (((com.baidu.tieba.view.q) view).a()) {
+            aVar = this.a.Z;
+            aVar.b();
+            if (view.getTag() != null && (view.getTag() instanceof String)) {
+                aVar2 = this.a.Z;
+                Bitmap a = aVar2.a((String) view.getTag(), new x(this));
+                if (a == null) {
+                    aaVar = this.a.x;
+                    Bitmap c = aaVar.a().c(String.valueOf((String) view.getTag()) + "_small");
+                    if (c == null) {
+                        return;
+                    }
+                    this.a.a(c, true);
+                    return;
+                }
+                this.a.a(a, false);
+            }
         }
     }
 }

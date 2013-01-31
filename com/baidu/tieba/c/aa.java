@@ -12,6 +12,21 @@ public class aa {
         this.b = i;
     }
 
+    public void a(String str) {
+        try {
+            Long valueOf = Long.valueOf(Long.parseLong(str));
+            synchronized (this) {
+                if (this.c.size() >= this.b) {
+                    a();
+                }
+                this.a++;
+                this.c.put(valueOf, Integer.valueOf(this.a));
+            }
+        } catch (Exception e) {
+            af.b(getClass().getName(), "addThread", e.getMessage());
+        }
+    }
+
     public void a() {
         synchronized (this) {
             int i = 134217727;
@@ -30,21 +45,6 @@ public class aa {
         }
     }
 
-    public void a(String str) {
-        try {
-            Long valueOf = Long.valueOf(Long.parseLong(str));
-            synchronized (this) {
-                if (this.c.size() >= this.b) {
-                    a();
-                }
-                this.a++;
-                this.c.put(valueOf, Integer.valueOf(this.a));
-            }
-        } catch (Exception e) {
-            ae.b(getClass().getName(), "addThread", e.getMessage());
-        }
-    }
-
     public boolean b(String str) {
         boolean z = false;
         try {
@@ -55,7 +55,7 @@ public class aa {
                 }
             }
         } catch (Exception e) {
-            ae.b(getClass().getName(), "getThread", e.getMessage());
+            af.b(getClass().getName(), "getThread", e.getMessage());
         }
         return z;
     }

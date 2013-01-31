@@ -1,15 +1,19 @@
 package com.baidu.tieba.service;
+
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
+import android.webkit.WebView;
+import com.baidu.tieba.c.af;
 /* loaded from: classes.dex */
-class g implements Runnable {
-    final /* synthetic */ TiebaActiveService a;
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public g(TiebaActiveService tiebaActiveService) {
-        this.a = tiebaActiveService;
-    }
-
-    @Override // java.lang.Runnable
-    public void run() {
-        this.a.d();
+public class g extends BroadcastReceiver {
+    @Override // android.content.BroadcastReceiver
+    public void onReceive(Context context, Intent intent) {
+        try {
+            WebView.disablePlatformNotifications();
+            WebView.enablePlatformNotifications();
+        } catch (Exception e) {
+            af.b(getClass().getName(), "onReceive", e.getMessage());
+        }
     }
 }

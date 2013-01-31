@@ -22,41 +22,36 @@ public class af extends AsyncTask {
     @Override // android.os.AsyncTask
     /* renamed from: a */
     public String doInBackground(String... strArr) {
-        String g;
+        String h;
         try {
-            if (this.a.F == null || this.a.F.h() == null || this.a.F.h().get(this.a.I) == null) {
+            if (this.a.H == null || this.a.H.h() == null || this.a.H.h().get(this.a.K) == null) {
                 return null;
             }
-            String str = String.valueOf(((com.baidu.tieba.a.t) this.a.F.h().get(this.a.I)).b()) + "_big";
-            if (str == null || str.length() <= 0 || this.a.F == null) {
+            String str = String.valueOf(((com.baidu.tieba.a.u) this.a.H.h().get(this.a.K)).b()) + "_big";
+            if (str != null && str.length() > 0 && this.a.H != null) {
+                if (com.baidu.tieba.c.ae.h(str) != null) {
+                    String str2 = String.valueOf(h) + ".jpg";
+                    int i = 0;
+                    while (com.baidu.tieba.c.o.b(str2) && i < 10000) {
+                        i++;
+                        str2 = String.valueOf(h) + String.valueOf(Math.round(Math.random() * 9.9999999E7d)) + ".jpg";
+                    }
+                    if (TiebaApplication.b().ak().c(str) != null) {
+                        str2 = com.baidu.tieba.c.o.a(null, str2, TiebaApplication.b().ak().c(str), 80);
+                    }
+                    if (str2 != null) {
+                        new com.baidu.tieba.c.s(this.a).a(str2);
+                        return this.a.getString(R.string.save_image_to_album);
+                    }
+                    return com.baidu.tieba.c.o.b();
+                }
                 return this.a.getString(R.string.save_error);
             }
-            if (com.baidu.tieba.c.ad.g(str) == null) {
-                return this.a.getString(R.string.save_error);
-            }
-            String str2 = String.valueOf(g) + ".jpg";
-            int i = 0;
-            while (com.baidu.tieba.c.o.b(str2) && i < 10000) {
-                i++;
-                str2 = String.valueOf(g) + String.valueOf(Math.round(Math.random() * 9.9999999E7d)) + ".jpg";
-            }
-            if (TiebaApplication.a().ah().c(str) != null) {
-                str2 = com.baidu.tieba.c.o.a(null, str2, TiebaApplication.a().ah().c(str), 80);
-            }
-            if (str2 != null) {
-                new com.baidu.tieba.c.s(this.a).a(str2);
-                return this.a.getString(R.string.save_image_to_album);
-            }
-            return com.baidu.tieba.c.o.b();
+            return this.a.getString(R.string.save_error);
         } catch (Exception e) {
-            com.baidu.tieba.c.ae.b("SaveImageAsyncTask", "doInBackground", "error" + e.getMessage());
+            com.baidu.tieba.c.af.b("SaveImageAsyncTask", "doInBackground", "error" + e.getMessage());
             return this.a.getString(R.string.save_error);
         }
-    }
-
-    public void a() {
-        this.a.w = null;
-        super.cancel(true);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -68,6 +63,11 @@ public class af extends AsyncTask {
         if (str != null) {
             this.a.b(str);
         }
-        this.a.w = null;
+        this.a.y = null;
+    }
+
+    public void a() {
+        this.a.y = null;
+        super.cancel(true);
     }
 }

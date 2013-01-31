@@ -1,11 +1,11 @@
 package com.baidu.tieba.person;
 
 import android.view.View;
-import android.widget.Button;
-import com.baidu.tieba.R;
+import android.widget.AdapterView;
+import com.baidu.tieba.pb.PbActivity;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class w implements View.OnClickListener {
+public class w implements AdapterView.OnItemClickListener {
     final /* synthetic */ EditMarkActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -13,30 +13,13 @@ public class w implements View.OnClickListener {
         this.a = editMarkActivity;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        com.baidu.tieba.home.y yVar;
-        com.baidu.tieba.home.y yVar2;
-        Button button;
-        com.baidu.tieba.home.y yVar3;
-        com.baidu.tieba.home.y yVar4;
-        Button button2;
-        com.baidu.tieba.home.y yVar5;
-        yVar = this.a.b;
-        if (yVar.c()) {
-            yVar2 = this.a.b;
-            yVar2.b(false);
-            button = this.a.f;
-            button.setText(R.string.edit);
-            yVar3 = this.a.b;
-            yVar3.notifyDataSetChanged();
-            return;
+    @Override // android.widget.AdapterView.OnItemClickListener
+    public void onItemClick(AdapterView adapterView, View view, int i, long j) {
+        com.baidu.tieba.home.af afVar;
+        afVar = this.a.c;
+        com.baidu.tieba.a.af afVar2 = (com.baidu.tieba.a.af) afVar.getItem(i);
+        if (afVar2 != null) {
+            PbActivity.a(this.a, afVar2);
         }
-        yVar4 = this.a.b;
-        yVar4.b(true);
-        button2 = this.a.f;
-        button2.setText(R.string.done);
-        yVar5 = this.a.b;
-        yVar5.notifyDataSetChanged();
     }
 }

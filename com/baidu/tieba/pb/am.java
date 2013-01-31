@@ -18,18 +18,17 @@ class am implements com.baidu.tieba.c.d {
         ListView listView;
         PbActivity pbActivity2;
         ListView listView2;
-        if (bitmap == null) {
-            return;
-        }
-        pbActivity = this.a.a;
-        listView = pbActivity.c;
-        ImageView imageView = (ImageView) listView.findViewWithTag(str);
-        while (imageView != null) {
-            imageView.setTag(null);
-            imageView.setImageBitmap(bitmap);
-            pbActivity2 = this.a.a;
-            listView2 = pbActivity2.c;
-            imageView = (ImageView) listView2.findViewWithTag(str);
+        if (bitmap != null) {
+            pbActivity = this.a.a;
+            listView = pbActivity.d;
+            ImageView imageView = (ImageView) listView.findViewWithTag(str);
+            while (imageView != null) {
+                imageView.setTag(null);
+                imageView.setImageBitmap(bitmap);
+                pbActivity2 = this.a.a;
+                listView2 = pbActivity2.d;
+                imageView = (ImageView) listView2.findViewWithTag(str);
+            }
         }
     }
 }

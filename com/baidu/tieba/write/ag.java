@@ -14,9 +14,9 @@ class ag implements Runnable {
     public void run() {
         GridView gridView;
         GridView gridView2;
-        gridView = this.a.p;
+        gridView = this.a.q;
         if (gridView.getVisibility() != 0) {
-            gridView2 = this.a.p;
+            gridView2 = this.a.q;
             gridView2.setVisibility(0);
         }
     }

@@ -12,6 +12,7 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 import com.baidu.tieba.R;
+import com.baidu.zeus.WebChromeClient;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class o {
@@ -43,22 +44,20 @@ public class o {
         this.j = eVar;
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void b(String str) {
-        if (str == null) {
-            this.n.setVisibility(8);
-            this.n.setText((CharSequence) null);
-            return;
-        }
-        this.n.setVisibility(0);
-        this.n.setText(str);
+    public void a(String str) {
+        this.s = str;
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void f() {
-        if (this.v != null) {
-            this.v.a(null);
-        }
+    public void a(com.baidu.tieba.a.a aVar) {
+        this.t = aVar;
+    }
+
+    public void a(t tVar) {
+        this.u = tVar;
+    }
+
+    public void b(t tVar) {
+        this.v = tVar;
     }
 
     public void a() {
@@ -91,40 +90,34 @@ public class o {
             this.b.setCancelable(false);
             this.b.setCanceledOnTouchOutside(false);
         }
-        if (this.b.isShowing()) {
-            return;
+        if (!this.b.isShowing()) {
+            this.c.setText((CharSequence) null);
+            d();
+            b((String) null);
+            if (this.s == null || this.s.length() <= 0) {
+                this.r.setText("Hi," + this.j.getString(R.string.bar_friend));
+            } else {
+                this.r.setText("Hi," + this.s);
+            }
+            this.b.show();
+            this.b.setContentView(this.a);
+            WindowManager.LayoutParams attributes = this.b.getWindow().getAttributes();
+            attributes.gravity = 51;
+            attributes.x = 0;
+            attributes.y = 0;
+            attributes.width = -1;
+            attributes.height = -1;
+            this.b.getWindow().setAttributes(attributes);
+            this.j.a(this.c, WebChromeClient.STRING_DLG_BTN_SET);
+            this.c.requestFocus();
         }
-        this.c.setText((CharSequence) null);
-        d();
-        b((String) null);
-        if (this.s == null || this.s.length() <= 0) {
-            this.r.setText("Hi," + this.j.getString(R.string.bar_friend));
-        } else {
-            this.r.setText("Hi," + this.s);
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void f() {
+        if (this.v != null) {
+            this.v.a(null);
         }
-        this.b.show();
-        this.b.setContentView(this.a);
-        WindowManager.LayoutParams attributes = this.b.getWindow().getAttributes();
-        attributes.gravity = 51;
-        attributes.x = 0;
-        attributes.y = 0;
-        attributes.width = -1;
-        attributes.height = -1;
-        this.b.getWindow().setAttributes(attributes);
-        this.j.a(this.c, 150);
-        this.c.requestFocus();
-    }
-
-    public void a(com.baidu.tieba.a.a aVar) {
-        this.t = aVar;
-    }
-
-    public void a(t tVar) {
-        this.u = tVar;
-    }
-
-    public void a(String str) {
-        this.s = str;
     }
 
     public void a(ArrayList arrayList) {
@@ -139,11 +132,10 @@ public class o {
                 this.g.setText((CharSequence) arrayList.get(1));
                 this.g.setVisibility(0);
             }
-            if (size <= 2 || arrayList.get(2) == null) {
-                return;
+            if (size > 2 && arrayList.get(2) != null) {
+                this.h.setText((CharSequence) arrayList.get(2));
+                this.h.setVisibility(0);
             }
-            this.h.setText((CharSequence) arrayList.get(2));
-            this.h.setVisibility(0);
         }
     }
 
@@ -157,10 +149,6 @@ public class o {
             this.m = null;
         }
         e();
-    }
-
-    public void b(t tVar) {
-        this.v = tVar;
     }
 
     public boolean c() {
@@ -179,9 +167,19 @@ public class o {
     }
 
     public void e() {
-        if (this.b == null || !this.b.isShowing()) {
+        if (this.b != null && this.b.isShowing()) {
+            this.b.dismiss();
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void b(String str) {
+        if (str == null) {
+            this.n.setVisibility(8);
+            this.n.setText((CharSequence) null);
             return;
         }
-        this.b.dismiss();
+        this.n.setVisibility(0);
+        this.n.setText(str);
     }
 }

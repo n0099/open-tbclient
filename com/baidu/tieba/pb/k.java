@@ -16,15 +16,14 @@ class k implements com.baidu.tieba.c.d {
     public void a(Bitmap bitmap, String str, boolean z) {
         ImagePbActivity imagePbActivity;
         BaseViewPager baseViewPager;
-        if (bitmap == null) {
-            return;
-        }
-        imagePbActivity = this.a.a;
-        baseViewPager = imagePbActivity.x;
-        ImagePbImageView imagePbImageView = (ImagePbImageView) baseViewPager.findViewWithTag(str);
-        if (imagePbImageView != null) {
-            imagePbImageView.invalidate();
-            imagePbImageView.a();
+        if (bitmap != null) {
+            imagePbActivity = this.a.a;
+            baseViewPager = imagePbActivity.z;
+            ImagePbImageView imagePbImageView = (ImagePbImageView) baseViewPager.findViewWithTag(str);
+            if (imagePbImageView != null) {
+                imagePbImageView.invalidate();
+                imagePbImageView.a();
+            }
         }
     }
 }

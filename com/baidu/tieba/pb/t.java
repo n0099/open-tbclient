@@ -11,10 +11,9 @@ class t implements ac {
     @Override // com.baidu.tieba.pb.ac
     public void a(int i, int i2, int i3) {
         ab abVar;
-        abVar = this.a.b;
-        if (abVar != null) {
-            return;
+        abVar = this.a.c;
+        if (abVar == null) {
+            this.a.a(this.a.H.l(), 0, 10, false);
         }
-        this.a.a(this.a.F.l(), 0, 10, false);
     }
 }

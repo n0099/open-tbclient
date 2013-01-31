@@ -28,14 +28,11 @@ public class n extends AsyncTask {
         this(lVar);
     }
 
-    private void a(String str) {
-        try {
-            JSONObject optJSONObject = new JSONObject(str).optJSONObject("info");
-            this.d = optJSONObject.optInt("level_id");
-            this.e = optJSONObject.optString("level_name");
-        } catch (Exception e) {
-            com.baidu.tieba.c.ae.b(getClass().getName(), "getLevel", e.getMessage());
-        }
+    @Override // android.os.AsyncTask
+    protected void onPreExecute() {
+        ProgressBar progressBar;
+        progressBar = this.a.i;
+        progressBar.setVisibility(0);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -48,10 +45,10 @@ public class n extends AsyncTask {
         try {
             this.b = new com.baidu.tieba.c.t("http://c.tieba.baidu.com/c/c/forum/like");
             com.baidu.tieba.c.t tVar = this.b;
-            str = this.a.p;
+            str = this.a.q;
             tVar.a("kw", str);
             com.baidu.tieba.c.t tVar2 = this.b;
-            str2 = this.a.q;
+            str2 = this.a.r;
             tVar2.a("fid", str2);
             this.b.d(true);
             String i = this.b.i();
@@ -65,20 +62,19 @@ public class n extends AsyncTask {
                 }
             }
         } catch (Exception e) {
-            com.baidu.tieba.c.ae.b(getClass().getName(), "doInBackground", e.getMessage());
+            com.baidu.tieba.c.af.b(getClass().getName(), "doInBackground", e.getMessage());
         }
         return false;
     }
 
-    public void a() {
-        ProgressBar progressBar;
-        if (this.b != null) {
-            this.b.g();
+    private void a(String str) {
+        try {
+            JSONObject optJSONObject = new JSONObject(str).optJSONObject("info");
+            this.d = optJSONObject.optInt("level_id");
+            this.e = optJSONObject.optString("level_name");
+        } catch (Exception e) {
+            com.baidu.tieba.c.af.b(getClass().getName(), "getLevel", e.getMessage());
         }
-        progressBar = this.a.h;
-        progressBar.setVisibility(8);
-        this.a.s = null;
-        super.cancel(true);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -91,28 +87,32 @@ public class n extends AsyncTask {
         Activity activity2;
         Activity activity3;
         Activity activity4;
-        progressBar = this.a.h;
+        progressBar = this.a.i;
         progressBar.setVisibility(8);
-        this.a.s = null;
+        this.a.t = null;
         if (this.c) {
             this.a.a(1, this.e, this.d);
-            activity4 = this.a.n;
-            com.baidu.tieba.c.ag.a((Context) activity4, this.b.f());
+            activity4 = this.a.o;
+            com.baidu.tieba.c.ah.a((Context) activity4, this.b.f());
         } else if (!bool.booleanValue()) {
-            activity = this.a.n;
-            com.baidu.tieba.c.ag.a((Context) activity, this.b.f());
+            activity = this.a.o;
+            com.baidu.tieba.c.ah.a((Context) activity, this.b.f());
         } else {
             this.a.a(1, this.e, this.d);
-            activity2 = this.a.n;
-            activity3 = this.a.n;
-            com.baidu.tieba.c.ag.a((Context) activity2, activity3.getString(R.string.like_success));
+            activity2 = this.a.o;
+            activity3 = this.a.o;
+            com.baidu.tieba.c.ah.a((Context) activity2, activity3.getString(R.string.like_success));
         }
     }
 
-    @Override // android.os.AsyncTask
-    protected void onPreExecute() {
+    public void a() {
         ProgressBar progressBar;
-        progressBar = this.a.h;
-        progressBar.setVisibility(0);
+        if (this.b != null) {
+            this.b.g();
+        }
+        progressBar = this.a.i;
+        progressBar.setVisibility(8);
+        this.a.t = null;
+        super.cancel(true);
     }
 }

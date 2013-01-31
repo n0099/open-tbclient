@@ -23,18 +23,18 @@ public class z implements View.OnClickListener {
         GridView gridView;
         GridView gridView2;
         WriteActivity writeActivity = this.a;
-        inputMethodManager = this.a.e;
-        editText = this.a.f;
+        inputMethodManager = this.a.f;
+        editText = this.a.g;
         writeActivity.a(inputMethodManager, editText);
         WriteActivity writeActivity2 = this.a;
-        inputMethodManager2 = this.a.e;
-        editText2 = this.a.g;
+        inputMethodManager2 = this.a.f;
+        editText2 = this.a.h;
         writeActivity2.a(inputMethodManager2, editText2);
-        gridView = this.a.p;
+        gridView = this.a.q;
         if (gridView.getVisibility() == 0) {
-            gridView2 = this.a.p;
+            gridView2 = this.a.q;
             gridView2.setVisibility(8);
         }
-        this.a.g();
+        this.a.i();
     }
 }
