@@ -10,11 +10,11 @@ public class OtherException extends Exception {
         super(str);
     }
 
-    public OtherException(Throwable th) {
-        super(th);
-    }
-
     public OtherException(String str, Throwable th) {
         super(str, th);
+    }
+
+    public OtherException(Throwable th) {
+        super(th);
     }
 }

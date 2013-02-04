@@ -16,12 +16,13 @@ public class f implements com.baidu.tieba.c.d {
     @Override // com.baidu.tieba.c.d
     public void a(Bitmap bitmap, String str, boolean z) {
         AbsoluteLayout absoluteLayout;
-        if (bitmap != null) {
-            absoluteLayout = this.a.d;
-            ImageView imageView = (ImageView) absoluteLayout.findViewWithTag(str);
-            if (imageView != null) {
-                imageView.invalidate();
-            }
+        if (bitmap == null) {
+            return;
+        }
+        absoluteLayout = this.a.c;
+        ImageView imageView = (ImageView) absoluteLayout.findViewWithTag(str);
+        if (imageView != null) {
+            imageView.invalidate();
         }
     }
 }

@@ -1,47 +1,31 @@
 package com.baidu.tieba.a;
-
-import java.util.ArrayList;
-import org.json.JSONArray;
-import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class e {
-    private ax a;
-    private ArrayList b;
+    private String a;
+    private long b;
+    private int c;
 
-    public e() {
-        this.a = null;
-        this.b = null;
-        this.a = new ax();
-        this.b = new ArrayList(3);
-    }
-
-    public ax a() {
+    public String a() {
         return this.a;
     }
 
-    public ArrayList b() {
-        return this.b;
+    public void a(int i) {
+        this.c = i;
+    }
+
+    public void a(long j) {
+        this.b = j;
     }
 
     public void a(String str) {
-        try {
-            a(new JSONObject(str));
-        } catch (Exception e) {
-            com.baidu.tieba.c.af.b(getClass().getName(), "parserJson", e.getMessage());
-        }
+        this.a = str;
     }
 
-    public void a(JSONObject jSONObject) {
-        try {
-            this.a.a(jSONObject.optJSONObject("user"));
-            JSONArray optJSONArray = jSONObject.optJSONArray("suggnames");
-            if (optJSONArray != null) {
-                for (int i = 0; i < optJSONArray.length(); i++) {
-                    this.b.add(optJSONArray.optString(i, null));
-                }
-            }
-        } catch (Exception e) {
-            com.baidu.tieba.c.af.b(getClass().getName(), "parserJson", e.getMessage());
-        }
+    public long b() {
+        return this.b;
+    }
+
+    public int c() {
+        return this.c;
     }
 }

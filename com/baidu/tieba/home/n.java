@@ -1,9 +1,10 @@
 package com.baidu.tieba.home;
 
-import android.content.DialogInterface;
-import com.baidu.tieba.frs.FrsActivity;
+import android.view.KeyEvent;
+import android.view.View;
+import android.widget.ListView;
 /* loaded from: classes.dex */
-class n implements DialogInterface.OnClickListener {
+class n implements View.OnKeyListener {
     final /* synthetic */ HomeActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -11,28 +12,26 @@ class n implements DialogInterface.OnClickListener {
         this.a = homeActivity;
     }
 
-    @Override // android.content.DialogInterface.OnClickListener
-    public void onClick(DialogInterface dialogInterface, int i) {
-        com.baidu.tieba.a.ad adVar;
-        com.baidu.tieba.a.ad adVar2;
-        switch (i) {
-            case 0:
-                adVar = this.a.r;
-                if (adVar != null) {
-                    adVar2 = this.a.r;
-                    String b = adVar2.b();
-                    if (com.baidu.tieba.c.ae.d(b)) {
-                        FrsActivity.a(this.a, b, "tb_forumlist");
-                        return;
+    @Override // android.view.View.OnKeyListener
+    public boolean onKey(View view, int i, KeyEvent keyEvent) {
+        if (view instanceof ListView) {
+            ListView listView = (ListView) view;
+            if (keyEvent.getAction() == 0) {
+                if (i == 21) {
+                    if (listView.getSelectedView() == null) {
+                        listView.dispatchKeyEvent(new KeyEvent(0, 19));
+                        return true;
                     }
-                    return;
+                    return false;
+                } else if (i == 22 && listView.getSelectedView() == null) {
+                    listView.dispatchKeyEvent(new KeyEvent(0, 20));
+                    return true;
+                } else {
+                    return false;
                 }
-                return;
-            case 1:
-                this.a.m();
-                return;
-            default:
-                return;
+            }
+            return false;
         }
+        return false;
     }
 }

@@ -15,7 +15,7 @@ public class f implements View.OnClickListener {
     public void onClick(View view) {
         String str;
         AccountVcodeActivity accountVcodeActivity = this.a;
-        str = this.a.g;
+        str = this.a.f;
         accountVcodeActivity.c(str);
     }
 }

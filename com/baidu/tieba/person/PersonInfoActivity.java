@@ -11,458 +11,289 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
-import android.widget.RelativeLayout;
-import android.widget.ScrollView;
 import android.widget.TextView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.TiebaApplication;
 /* loaded from: classes.dex */
 public class PersonInfoActivity extends com.baidu.tieba.e {
+    private Button b = null;
     private Button c = null;
-    private Button d = null;
-    private ImageView e = null;
-    private TextView f = null;
-    private ImageView g = null;
-    private TextView h = null;
+    private ImageView d = null;
+    private TextView e = null;
+    private ImageView f = null;
+    private TextView g = null;
+    private Button h = null;
     private Button i = null;
-    private Button j = null;
-    private LinearLayout k = null;
-    private LinearLayout l = null;
-    private TextView m = null;
-    private ScrollView n = null;
-    private RelativeLayout o = null;
-    private com.baidu.tieba.b.r p = null;
-    private View.OnClickListener q = null;
-    private View.OnClickListener r = null;
-    private bc s = null;
-    private ProgressBar t = null;
-    private ProgressBar u = null;
+    private TextView j = null;
+    private com.baidu.tieba.b.p k = null;
+    private View.OnClickListener l = null;
+    private View.OnClickListener m = null;
+    private ar n = null;
+    private ProgressBar o = null;
+    private ProgressBar p = null;
+    private LinearLayout q = null;
+    private TextView r = null;
+    private LinearLayout s = null;
+    private LinearLayout t = null;
+    private LinearLayout u = null;
     private LinearLayout v = null;
-    private TextView w = null;
-    private LinearLayout x = null;
-    private LinearLayout y = null;
-    private LinearLayout z = null;
-    private LinearLayout A = null;
-    private LinearLayout B = null;
-    private LinearLayout C = null;
+    private LinearLayout w = null;
+    private TextView x = null;
+    private TextView y = null;
+    private TextView z = null;
+    private TextView A = null;
+    private TextView B = null;
+    private TextView C = null;
     private TextView D = null;
     private TextView E = null;
-    private ImageView F = null;
-    private TextView G = null;
-    private TextView H = null;
-    private ImageView I = null;
-    private TextView J = null;
-    private TextView K = null;
-    private ImageView L = null;
-    private TextView M = null;
-    private TextView N = null;
-    private ImageView O = null;
-    private TextView P = null;
-    private ImageView Q = null;
-    private TextView R = null;
-    private ImageView S = null;
-    private TextView T = null;
-    private TextView U = null;
-    private bb V = null;
-    private BroadcastReceiver W = null;
+    private TextView F = null;
+    private aq G = null;
+    private BroadcastReceiver H = null;
 
     public static void a(Context context, String str, String str2) {
         a(context, str, str2, false);
     }
 
     public static void a(Context context, String str, String str2, boolean z) {
-        if (str != null && str.length() > 0 && !str.equals("0")) {
-            Intent intent = new Intent(context, PersonInfoActivity.class);
-            intent.putExtra("un", str);
-            intent.putExtra("name", str2);
-            if (TiebaApplication.w() != null && TiebaApplication.w().equals(str)) {
-                intent.putExtra("self", true);
-            } else {
-                intent.putExtra("self", false);
-            }
-            intent.putExtra("tab_page", false);
-            if (z) {
-                intent.setFlags(268435456);
-            }
-            context.startActivity(intent);
+        if (str == null || str.length() <= 0 || str.equals("0")) {
+            return;
         }
+        Intent intent = new Intent(context, PersonInfoActivity.class);
+        intent.putExtra("un", str);
+        intent.putExtra("name", str2);
+        if (TiebaApplication.u() == null || !TiebaApplication.u().equals(str)) {
+            intent.putExtra("self", false);
+        } else {
+            intent.putExtra("self", true);
+        }
+        intent.putExtra("tab_page", false);
+        if (z) {
+            intent.setFlags(268435456);
+        }
+        context.startActivity(intent);
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.e, android.app.Activity
-    public void onCreate(Bundle bundle) {
-        super.onCreate(bundle);
-        setContentView(R.layout.person_info_activity);
-        a(bundle);
-        i();
-        com.baidu.tieba.c.k.b((Boolean) true);
-        if (this.p.b()) {
-            a(true, true);
-        } else {
-            a(false, true);
+    private void a(Intent intent) {
+        com.baidu.tieba.b.o oVar = (com.baidu.tieba.b.o) intent.getSerializableExtra("data");
+        if (oVar != null && this.k.d() != null) {
+            this.k.d().a(oVar.b());
+            this.k.d().a(oVar.c());
+            this.k.d().e(oVar.a());
+            if (oVar.d()) {
+                this.d.setImageResource(R.drawable.person_photo);
+                if (this.k.d() != null) {
+                    this.k.e().d(this.k.d().d());
+                }
+            }
+            h();
+            k();
         }
-        k();
+        a(false, false);
     }
 
     private void a(Bundle bundle) {
-        this.p = new com.baidu.tieba.b.r(this);
+        this.k = new com.baidu.tieba.b.p(this);
         if (bundle != null) {
-            this.p.a(bundle.getBoolean("self", true));
-            this.p.a(bundle.getString("un"));
-            this.p.b(bundle.getString("name"));
-            this.p.b(bundle.getBoolean("tab_page", false));
-            this.p.c(bundle.getBoolean("tab_msg", false));
+            this.k.a(bundle.getBoolean("self", true));
+            this.k.a(bundle.getString("un"));
+            this.k.b(bundle.getString("name"));
+            this.k.b(bundle.getBoolean("tab_page", false));
         } else {
             Intent intent = getIntent();
-            this.p.a(intent.getBooleanExtra("self", true));
-            this.p.a(intent.getStringExtra("un"));
-            this.p.b(intent.getStringExtra("name"));
-            this.p.b(intent.getBooleanExtra("tab_page", false));
-            this.p.c(intent.getBooleanExtra("tab_msg", false));
+            this.k.a(intent.getBooleanExtra("self", true));
+            this.k.a(intent.getStringExtra("un"));
+            this.k.b(intent.getStringExtra("name"));
+            this.k.b(intent.getBooleanExtra("tab_page", false));
         }
-        if (this.p.b()) {
+        if (this.k.b()) {
             IntentFilter intentFilter = new IntentFilter();
-            this.W = new ax(this);
+            this.H = new am(this);
             intentFilter.addAction("com.baidu.tieba.broadcast.notify");
-            registerReceiver(this.W, intentFilter);
-        }
-    }
-
-    @Override // android.app.Activity
-    protected void onSaveInstanceState(Bundle bundle) {
-        super.onSaveInstanceState(bundle);
-        bundle.putBoolean("self", this.p.b());
-        bundle.putString("un", this.p.a());
-        bundle.putBoolean("tab_page", this.p.i());
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.e, android.app.Activity
-    public void onResume() {
-        super.onResume();
-        if (this.p.b()) {
-            this.p.a(TiebaApplication.b().Y());
-            this.p.c(TiebaApplication.b().W());
-            this.p.b(TiebaApplication.b().X());
-            if (com.baidu.tieba.c.k.s().booleanValue()) {
-                this.p.a(com.baidu.tieba.c.k.t());
-            }
-            k();
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.e
-    public void b(int i) {
-        super.b(i);
-        com.baidu.tieba.c.ad.a(this.k, i);
-        com.baidu.tieba.c.ad.c(this.m, i);
-        com.baidu.tieba.c.ad.c(this.l, i);
-        com.baidu.tieba.c.ad.e((View) this.j, i);
-        com.baidu.tieba.c.ad.e((TextView) this.c, i);
-        com.baidu.tieba.c.ad.h(this.i, i);
-        a(i, this.G, this.H);
-        a(i, this.J, this.K);
-        a(i, this.M, this.N);
-        a(i, this.E, this.D);
-        a(i, this.P, (TextView) null);
-        a(i, this.R, (TextView) null);
-        if (i == 1) {
-            com.baidu.tieba.c.ad.i(this.o, R.drawable.person_seperator_1);
-            this.f.setTextColor(com.baidu.tieba.c.ad.a(i));
-            this.h.setTextColor(com.baidu.tieba.c.ad.b(i));
-            this.d.setBackgroundResource(R.drawable.button_change_1);
-            this.n.setBackgroundColor(com.baidu.tieba.c.ad.d(i));
-            this.x.setBackgroundResource(R.drawable.person_button_1);
-            this.y.setBackgroundResource(R.drawable.person_button_1);
-            this.z.setBackgroundResource(R.drawable.person_button_1);
-            this.A.setBackgroundResource(R.drawable.person_button_1);
-            this.B.setBackgroundResource(R.drawable.person_button_1);
-            this.C.setBackgroundResource(R.drawable.person_button_1);
-            this.I.setImageResource(R.drawable.person_likes_1);
-            this.L.setImageResource(R.drawable.person_attention_1);
-            this.O.setImageResource(R.drawable.person_fans_1);
-            this.F.setImageResource(R.drawable.person_bookmark_1);
-            this.Q.setImageResource(R.drawable.person_mention_1);
-            this.S.setImageResource(R.drawable.person_mypost_1);
-            return;
-        }
-        com.baidu.tieba.c.ad.i(this.o, R.drawable.person_seperator);
-        this.f.setTextColor(-14277082);
-        this.h.setTextColor(-7566196);
-        this.d.setBackgroundResource(R.drawable.button_change);
-        this.n.setBackgroundColor(-2302756);
-        this.x.setBackgroundResource(R.drawable.person_button);
-        this.y.setBackgroundResource(R.drawable.person_button);
-        this.z.setBackgroundResource(R.drawable.person_button);
-        this.A.setBackgroundResource(R.drawable.person_button);
-        this.B.setBackgroundResource(R.drawable.person_button);
-        this.C.setBackgroundResource(R.drawable.person_button);
-        this.I.setImageResource(R.drawable.person_likes);
-        this.L.setImageResource(R.drawable.person_attention);
-        this.O.setImageResource(R.drawable.person_fans);
-        this.F.setImageResource(R.drawable.person_bookmark);
-        this.Q.setImageResource(R.drawable.person_mention);
-        this.S.setImageResource(R.drawable.person_mypost);
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.e
-    public void g() {
-        super.g();
-        a_(-1);
-        this.d.setBackgroundResource(0);
-        this.x.setBackgroundResource(0);
-        this.y.setBackgroundResource(0);
-        this.z.setBackgroundResource(0);
-        this.A.setBackgroundResource(0);
-        this.B.setBackgroundResource(0);
-        this.C.setBackgroundColor(0);
-        this.I.setImageResource(0);
-        this.L.setImageResource(0);
-        this.O.setImageResource(0);
-        this.F.setImageResource(0);
-        this.Q.setImageResource(0);
-        this.S.setImageResource(0);
-    }
-
-    private void a(int i, TextView textView, TextView textView2) {
-        if (i == 1) {
-            if (textView != null) {
-                textView.setTextColor(com.baidu.tieba.c.ad.a(i));
-            }
-            if (textView2 != null) {
-                textView2.setTextColor(com.baidu.tieba.c.ad.c(i));
-                return;
-            }
-            return;
-        }
-        if (textView != null) {
-            textView.setTextColor(-14277082);
-        }
-        if (textView2 != null) {
-            textView2.setTextColor(-7566196);
+            registerReceiver(this.H, intentFilter);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(boolean z, boolean z2) {
-        if (this.s == null) {
-            this.s = new bc(this, null);
-            this.s.execute(Boolean.valueOf(z), Boolean.valueOf(z2));
+        if (this.n == null) {
+            this.n = new ar(this, null);
+            this.n.execute(Boolean.valueOf(z), Boolean.valueOf(z2));
         }
     }
 
-    private void i() {
-        this.t = (ProgressBar) findViewById(R.id.progress);
-        this.u = (ProgressBar) findViewById(R.id.attention_progress);
-        this.q = new ay(this);
-        this.k = (LinearLayout) findViewById(R.id.parent);
-        this.l = (LinearLayout) findViewById(R.id.title);
-        this.n = (ScrollView) findViewById(R.id.scrollview);
-        this.o = (RelativeLayout) findViewById(R.id.info);
-        this.m = (TextView) findViewById(R.id.titel_text);
-        if (this.p.b()) {
-            this.m.setText(R.string.person_info);
-        } else if (this.p.d() == null) {
-            this.m.setText(this.p.f());
+    private void g() {
+        this.o = (ProgressBar) findViewById(R.id.progress);
+        this.p = (ProgressBar) findViewById(R.id.attention_progress);
+        this.l = new an(this);
+        this.j = (TextView) findViewById(R.id.titel_text);
+        if (this.k.b()) {
+            this.j.setText(R.string.person_info);
+        } else if (this.k.d() == null) {
+            this.j.setText(this.k.f());
         }
-        this.e = (ImageView) findViewById(R.id.photo);
-        this.d = (Button) findViewById(R.id.change);
-        this.d.setOnClickListener(this.q);
-        this.c = (Button) findViewById(R.id.back);
-        this.c.setOnClickListener(this.q);
-        this.i = (Button) findViewById(R.id.home);
-        this.i.setOnClickListener(this.q);
-        this.j = (Button) findViewById(R.id.refresh);
-        this.j.setOnClickListener(this.q);
-        if (this.p.b()) {
-            this.d.setVisibility(0);
-            if (this.p.i()) {
-                this.c.setVisibility(4);
-                this.i.setVisibility(8);
-                this.j.setVisibility(0);
-            } else if (this.p.j()) {
-                this.c.setVisibility(0);
-                this.i.setVisibility(8);
-                this.j.setVisibility(0);
-            } else {
-                this.c.setVisibility(0);
+        this.d = (ImageView) findViewById(R.id.photo);
+        this.c = (Button) findViewById(R.id.change);
+        this.c.setOnClickListener(this.l);
+        this.b = (Button) findViewById(R.id.back);
+        this.b.setOnClickListener(this.l);
+        this.h = (Button) findViewById(R.id.home);
+        this.h.setOnClickListener(this.l);
+        this.i = (Button) findViewById(R.id.refresh);
+        this.i.setOnClickListener(this.l);
+        if (this.k.b()) {
+            this.c.setVisibility(0);
+            if (this.k.i()) {
+                this.b.setVisibility(4);
+                this.h.setVisibility(8);
                 this.i.setVisibility(0);
-                this.j.setVisibility(8);
+            } else {
+                this.b.setVisibility(0);
+                this.h.setVisibility(0);
+                this.i.setVisibility(8);
             }
         } else {
+            this.b.setVisibility(0);
+            this.c.setVisibility(8);
+            this.h.setVisibility(0);
+            this.i.setVisibility(8);
+        }
+        this.x = (TextView) findViewById(R.id.bookmark_number);
+        this.y = (TextView) findViewById(R.id.likes_text);
+        this.z = (TextView) findViewById(R.id.likes_number);
+        this.A = (TextView) findViewById(R.id.my_attention_text);
+        this.B = (TextView) findViewById(R.id.attention_number);
+        this.C = (TextView) findViewById(R.id.fans_text);
+        this.D = (TextView) findViewById(R.id.fans_number);
+        this.s = (LinearLayout) findViewById(R.id.button_mention);
+        this.t = (LinearLayout) findViewById(R.id.button_bookmark);
+        this.u = (LinearLayout) findViewById(R.id.button_likes);
+        this.v = (LinearLayout) findViewById(R.id.button_attention);
+        this.w = (LinearLayout) findViewById(R.id.button_fans);
+        this.E = (TextView) findViewById(R.id.new_fans_count);
+        this.F = (TextView) findViewById(R.id.new_mention_count);
+        this.m = new ao(this);
+        this.s.setOnClickListener(this.m);
+        this.t.setOnClickListener(this.m);
+        this.u.setOnClickListener(this.m);
+        this.v.setOnClickListener(this.m);
+        this.w.setOnClickListener(this.m);
+        this.e = (TextView) findViewById(R.id.name);
+        if (this.k.d() == null) {
+            this.e.setText(this.k.f());
+        }
+        this.f = (ImageView) findViewById(R.id.sex);
+        this.g = (TextView) findViewById(R.id.intro);
+        this.q = (LinearLayout) findViewById(R.id.attention);
+        if (this.k.b()) {
+            this.q.setVisibility(8);
             this.c.setVisibility(0);
-            this.d.setVisibility(8);
-            this.i.setVisibility(0);
-            this.j.setVisibility(8);
-        }
-        this.Q = (ImageView) findViewById(R.id.my_msg_image);
-        this.P = (TextView) findViewById(R.id.my_msg_text);
-        this.D = (TextView) findViewById(R.id.bookmark_number);
-        this.F = (ImageView) findViewById(R.id.bookmark_image);
-        this.E = (TextView) findViewById(R.id.bookmark_text);
-        this.G = (TextView) findViewById(R.id.likes_text);
-        this.H = (TextView) findViewById(R.id.likes_number);
-        this.I = (ImageView) findViewById(R.id.likes_image);
-        this.J = (TextView) findViewById(R.id.my_attention_text);
-        this.K = (TextView) findViewById(R.id.attention_number);
-        this.L = (ImageView) findViewById(R.id.attention_image);
-        this.M = (TextView) findViewById(R.id.fans_text);
-        this.N = (TextView) findViewById(R.id.fans_number);
-        this.O = (ImageView) findViewById(R.id.fans_image);
-        this.x = (LinearLayout) findViewById(R.id.button_mention);
-        this.y = (LinearLayout) findViewById(R.id.button_bookmark);
-        this.z = (LinearLayout) findViewById(R.id.button_likes);
-        this.A = (LinearLayout) findViewById(R.id.button_attention);
-        this.B = (LinearLayout) findViewById(R.id.button_fans);
-        this.C = (LinearLayout) findViewById(R.id.button_mypost);
-        this.R = (TextView) findViewById(R.id.my_post_text);
-        this.S = (ImageView) findViewById(R.id.my_post_image);
-        this.T = (TextView) findViewById(R.id.new_fans_count);
-        this.U = (TextView) findViewById(R.id.new_mention_count);
-        this.r = new az(this);
-        this.x.setOnClickListener(this.r);
-        this.y.setOnClickListener(this.r);
-        this.z.setOnClickListener(this.r);
-        this.A.setOnClickListener(this.r);
-        this.B.setOnClickListener(this.r);
-        this.C.setOnClickListener(this.r);
-        this.f = (TextView) findViewById(R.id.name);
-        if (this.p.d() == null) {
-            this.f.setText(this.p.f());
-        }
-        this.g = (ImageView) findViewById(R.id.sex);
-        this.h = (TextView) findViewById(R.id.intro);
-        this.v = (LinearLayout) findViewById(R.id.attention);
-        if (this.p.b()) {
-            this.v.setVisibility(8);
-            this.d.setVisibility(0);
         } else {
-            this.d.setVisibility(8);
-            this.v.setVisibility(8);
+            this.c.setVisibility(8);
+            this.q.setVisibility(8);
         }
-        this.w = (TextView) findViewById(R.id.attention_text);
-        this.v.setOnClickListener(this.q);
-        k();
+        this.r = (TextView) findViewById(R.id.attention_text);
+        this.q.setOnClickListener(this.l);
+        i();
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void h() {
+        i();
+        if (this.k == null || this.k.d() == null) {
+            return;
+        }
+        this.e.setText(this.k.d().c());
+        if (this.k.d().i() == 1) {
+            this.f.setImageResource(R.drawable.male);
+        } else if (this.k.d().i() == 2) {
+            this.f.setImageResource(R.drawable.female);
+        }
+        this.g.setText(this.k.d().h());
+        if (!this.k.b()) {
+            this.j.setText(this.k.d().c());
+        }
+        j();
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void i() {
+        if (this.k.b()) {
+            this.s.setVisibility(0);
+            this.t.setVisibility(0);
+            this.y.setText(R.string.my_like_forums);
+            this.A.setText(R.string.my_attention);
+            this.C.setText(R.string.my_fans);
+            this.u.setEnabled(true);
+            this.v.setEnabled(true);
+            this.w.setEnabled(true);
+            long h = this.k.h();
+            if (h > 0) {
+                this.F.setVisibility(0);
+                if (h > 99) {
+                    h = 99;
+                }
+                this.F.setText(String.valueOf(h));
+            } else {
+                this.F.setVisibility(8);
+            }
+            long g = this.k.g();
+            if (g > 0) {
+                this.E.setVisibility(0);
+                this.E.setText(String.valueOf(g <= 99 ? g : 99L));
+            } else {
+                this.E.setVisibility(8);
+            }
+        } else {
+            this.s.setVisibility(8);
+            this.t.setVisibility(8);
+            this.E.setVisibility(8);
+            this.F.setVisibility(8);
+            this.y.setText(R.string.hisbars);
+            this.A.setText(R.string.his_attention);
+            this.C.setText(R.string.his_fans);
+            this.u.setEnabled(false);
+            this.v.setEnabled(false);
+            this.w.setEnabled(false);
+        }
+        if (this.k.d() != null) {
+            this.x.setText(String.valueOf(this.k.c()));
+            this.z.setText(String.valueOf(this.k.d().l()));
+            this.B.setText(String.valueOf(this.k.d().g()));
+            this.D.setText(String.valueOf(this.k.d().f()));
+        }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void j() {
-        k();
-        if (this.p != null && this.p.d() != null) {
-            this.f.setText(this.p.d().c());
-            if (this.p.d().i() == 1) {
-                this.g.setImageResource(R.drawable.male);
-            } else if (this.p.d().i() == 2) {
-                this.g.setImageResource(R.drawable.female);
-            }
-            this.h.setText(this.p.d().h());
-            if (!this.p.b()) {
-                this.m.setText(this.p.d().c());
-            }
-            l();
+        if (this.k.b()) {
+            return;
         }
+        if (this.k.d() == null) {
+            this.q.setVisibility(8);
+            return;
+        }
+        this.q.setVisibility(0);
+        if (this.k.d().m() == 1) {
+            this.q.setBackgroundResource(R.drawable.attention_cancel);
+            this.r.setText(R.string.attention_cancel);
+            return;
+        }
+        this.q.setBackgroundResource(R.drawable.attention);
+        this.r.setText(R.string.attention);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void k() {
-        if (this.p.b()) {
-            this.x.setVisibility(0);
-            this.y.setVisibility(0);
-            this.C.setVisibility(0);
-            this.G.setText(R.string.my_like_forums);
-            this.J.setText(R.string.my_attention);
-            this.M.setText(R.string.my_fans);
-            long h = this.p.h();
-            if (h > 0) {
-                this.U.setVisibility(0);
-                if (h > 99) {
-                    h = 99;
-                }
-                this.U.setText(String.valueOf(h));
-            } else {
-                this.U.setVisibility(8);
-            }
-            long g = this.p.g();
-            if (g > 0) {
-                this.T.setVisibility(0);
-                this.T.setText(String.valueOf(g <= 99 ? g : 99L));
-            } else {
-                this.T.setVisibility(8);
-            }
-        } else {
-            this.x.setVisibility(8);
-            this.y.setVisibility(8);
-            this.C.setVisibility(8);
-            this.T.setVisibility(8);
-            this.U.setVisibility(8);
-            this.G.setText(R.string.hisbars);
-            this.J.setText(R.string.his_attention);
-            this.M.setText(R.string.his_fans);
-        }
-        if (this.p.d() != null) {
-            this.D.setText(String.valueOf(this.p.c()));
-            this.H.setText(String.valueOf(this.p.d().l()));
-            this.K.setText(String.valueOf(this.p.d().g()));
-            this.N.setText(String.valueOf(this.p.d().f()));
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void l() {
-        if (!this.p.b()) {
-            if (this.p.d() != null) {
-                this.v.setVisibility(0);
-                if (this.p.d().m() == 1) {
-                    this.v.setBackgroundResource(R.drawable.attention_cancel);
-                    this.w.setText(R.string.attention_cancel);
-                    return;
-                }
-                this.v.setBackgroundResource(R.drawable.attention);
-                this.w.setText(R.string.attention);
-                return;
-            }
-            this.v.setVisibility(8);
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void m() {
         String d;
-        if (this.p != null && this.p.d() != null && (d = this.p.d().d()) != null && d.length() > 0) {
-            Bitmap b = this.p.e().b(d);
-            if (b == null) {
-                this.p.e().c(d, new ba(this));
-            } else {
-                this.e.setImageBitmap(b);
-            }
+        if (this.k == null || this.k.d() == null || (d = this.k.d().d()) == null || d.length() <= 0) {
+            return;
         }
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.e, android.app.Activity
-    public void onDestroy() {
-        if (this.s != null) {
-            this.s.a();
+        Bitmap b = this.k.e().b(d);
+        if (b == null) {
+            this.k.e().c(d, new ap(this));
+        } else {
+            this.d.setImageBitmap(b);
         }
-        if (this.V != null) {
-            this.V.a();
-        }
-        if (this.p.e() != null) {
-            this.p.e().b();
-        }
-        if (this.p.b()) {
-            unregisterReceiver(this.W);
-        }
-        if (this.t != null) {
-            this.t.setVisibility(8);
-        }
-        if (this.u != null) {
-            this.u.setVisibility(8);
-        }
-        com.baidu.tieba.c.k.b((Boolean) true);
-        super.onDestroy();
     }
 
     @Override // android.app.Activity
@@ -473,21 +304,67 @@ public class PersonInfoActivity extends com.baidu.tieba.e {
         }
     }
 
-    private void a(Intent intent) {
-        com.baidu.tieba.b.q qVar = (com.baidu.tieba.b.q) intent.getSerializableExtra("data");
-        if (qVar != null && this.p.d() != null) {
-            this.p.d().a(qVar.b());
-            this.p.d().a(qVar.c());
-            this.p.d().e(qVar.a());
-            if (qVar.d()) {
-                this.e.setImageResource(R.drawable.person_photo);
-                if (this.p.d() != null) {
-                    this.p.e().d(this.p.d().d());
-                }
-            }
-            j();
-            m();
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.tieba.e, android.app.Activity
+    public void onCreate(Bundle bundle) {
+        super.onCreate(bundle);
+        setContentView(R.layout.person_info_activity);
+        a(bundle);
+        g();
+        com.baidu.tieba.c.k.b((Boolean) true);
+        if (this.k.b()) {
+            a(true, true);
+        } else {
+            a(false, true);
         }
-        a(false, false);
+        i();
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.tieba.e, android.app.Activity
+    public void onDestroy() {
+        if (this.n != null) {
+            this.n.a();
+        }
+        if (this.G != null) {
+            this.G.a();
+        }
+        if (this.k.e() != null) {
+            this.k.e().b();
+        }
+        if (this.k.b()) {
+            unregisterReceiver(this.H);
+        }
+        if (this.o != null) {
+            this.o.setVisibility(8);
+        }
+        if (this.p != null) {
+            this.p.setVisibility(8);
+        }
+        com.baidu.tieba.c.k.b((Boolean) true);
+        super.onDestroy();
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.tieba.e, android.app.Activity
+    public void onResume() {
+        if (this.k.b()) {
+            this.k.a(TiebaApplication.a().U());
+            this.k.c(TiebaApplication.a().S());
+            this.k.b(TiebaApplication.a().T());
+            if (com.baidu.tieba.c.k.q().booleanValue()) {
+                this.k.a(com.baidu.tieba.c.k.r());
+            }
+            i();
+        }
+        super.onResume();
+    }
+
+    @Override // android.app.Activity
+    protected void onSaveInstanceState(Bundle bundle) {
+        super.onSaveInstanceState(bundle);
+        bundle.putBoolean("self", this.k.b());
+        bundle.putString("un", this.k.a());
+        bundle.putBoolean("tab_page", this.k.i());
     }
 }

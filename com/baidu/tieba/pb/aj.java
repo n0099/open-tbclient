@@ -12,16 +12,15 @@ class aj {
     LinearLayout d;
     TextView e;
     ProgressBar f;
-    LinearLayout g;
-    ImagePbImageView h;
+    ImagePbImageView g;
+    TextView h;
     TextView i;
     TextView j;
-    TextView k;
-    LinearLayout l;
-    final /* synthetic */ ag m;
+    LinearLayout k;
+    final /* synthetic */ ag l;
 
     private aj(ag agVar) {
-        this.m = agVar;
+        this.l = agVar;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */

@@ -8,11 +8,8 @@ import android.net.Proxy;
 import android.net.Uri;
 import android.os.Handler;
 import android.telephony.TelephonyManager;
-import com.baidu.browser.core.util.BdUtil;
-import com.baidu.browser.explorer.BdWebErrorView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.TiebaApplication;
-import com.baidu.zeus.NotificationProxy;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.DataOutputStream;
@@ -59,139 +56,49 @@ public class w {
     private boolean w = true;
     private int x = 0;
 
-    private void r() {
-        this.i = null;
-        this.j = null;
-        this.k = 0;
-        this.l = 0;
-        this.m = null;
-        this.o = null;
-        this.r = null;
-        this.q = true;
-        this.n = 0;
-        this.u = false;
-        this.s = false;
-        this.p = null;
-        this.t = false;
-        this.w = true;
-        b();
-    }
-
-    public void a(boolean z) {
-        this.w = z;
-    }
-
-    public String a() {
-        try {
-            NetworkInfo activeNetworkInfo = ((ConnectivityManager) this.r.getSystemService("connectivity")).getActiveNetworkInfo();
-            if (activeNetworkInfo.isAvailable()) {
-                if (activeNetworkInfo.getTypeName().equalsIgnoreCase("WIFI")) {
-                    return "3";
-                }
-                String defaultHost = Proxy.getDefaultHost();
-                if (defaultHost != null) {
-                    if (defaultHost.length() > 0) {
-                        return "2";
-                    }
-                }
-                return "1";
-            }
-            return null;
-        } catch (Exception e2) {
-            return null;
-        }
-    }
-
-    public static void b() {
-        synchronized (w.class) {
-            if (!g) {
-                g = true;
-                try {
-                    Cursor query = TiebaApplication.b().getContentResolver().query(Uri.parse("content://telephony/carriers/preferapn"), null, null, null, null);
-                    if (query != null && query.moveToNext()) {
-                        String string = query.getString(query.getColumnIndex("user"));
-                        String string2 = query.getString(query.getColumnIndex("password"));
-                        query.close();
-                        f = "Basic " + ae.b((String.valueOf(string) + ":" + string2).getBytes());
-                    }
-                } catch (Exception e2) {
-                }
-            }
-        }
-    }
-
-    public static void c() {
-        e = new x();
-    }
-
     public w() {
         r();
-        this.r = TiebaApplication.b();
+        this.r = TiebaApplication.a();
     }
 
     public w(String str) {
         r();
-        this.r = TiebaApplication.b();
+        this.r = TiebaApplication.a();
         this.j = str;
     }
 
-    public void a(Boolean bool) {
-        this.q = bool.booleanValue();
+    private int a(ArrayList arrayList, String str) {
+        int i = 0;
+        if (arrayList == null || str == null) {
+            return -1;
+        }
+        int size = arrayList.size();
+        int i2 = 0;
+        while (true) {
+            if (i >= size) {
+                break;
+            }
+            int compareTo = str.compareTo(((BasicNameValuePair) arrayList.get(i)).getName());
+            if (compareTo < 0) {
+                i2 = i;
+                break;
+            } else if (compareTo == 0) {
+                return -1;
+            } else {
+                i2 = i;
+                i++;
+            }
+        }
+        return i >= size ? size : i2;
     }
 
     public static y a(Context context) {
-        y yVar;
-        y yVar2 = y.UNAVAIL;
+        y yVar = y.UNAVAIL;
         try {
             NetworkInfo activeNetworkInfo = ((ConnectivityManager) context.getSystemService("connectivity")).getActiveNetworkInfo();
-            if (!activeNetworkInfo.isAvailable()) {
-                yVar = y.UNAVAIL;
-            } else if (activeNetworkInfo.getTypeName().equalsIgnoreCase("WIFI")) {
-                yVar = y.WIFI;
-            } else {
-                yVar = y.MOBILE;
-            }
+            return !activeNetworkInfo.isAvailable() ? y.UNAVAIL : activeNetworkInfo.getTypeName().equalsIgnoreCase("WIFI") ? y.WIFI : y.MOBILE;
+        } catch (Exception e2) {
             return yVar;
-        } catch (Exception e2) {
-            return yVar2;
-        }
-    }
-
-    public void a(String str) {
-        this.j = str;
-    }
-
-    public boolean d() {
-        return this.k == 200 && this.l == 0;
-    }
-
-    public boolean e() {
-        return this.k == 200;
-    }
-
-    public int f() {
-        return this.l;
-    }
-
-    public String g() {
-        return this.m;
-    }
-
-    public void h() {
-        this.m = "";
-    }
-
-    public void b(String str) {
-        this.m = str;
-    }
-
-    public void i() {
-        this.u = true;
-        try {
-            if (this.i != null) {
-                this.i.disconnect();
-            }
-        } catch (Exception e2) {
         }
     }
 
@@ -237,7 +144,7 @@ public class w {
                     }
                 } catch (Exception e3) {
                     e2 = e3;
-                    af.b(getClass().getName(), "getConnect", "error = " + e2.getMessage());
+                    ae.b(getClass().getName(), "getConnect", "error = " + e2.getMessage());
                     return r0;
                 }
             }
@@ -247,7 +154,7 @@ public class w {
                 } catch (Exception e4) {
                     r0 = httpURLConnection;
                     e2 = e4;
-                    af.b(getClass().getName(), "getConnect", "error = " + e2.getMessage());
+                    ae.b(getClass().getName(), "getConnect", "error = " + e2.getMessage());
                     return r0;
                 }
             }
@@ -258,14 +165,550 @@ public class w {
         }
     }
 
-    private boolean d(String str) {
-        if (h.matcher(str).find()) {
-            return true;
+    public static void b() {
+        synchronized (w.class) {
+            if (!g) {
+                g = true;
+                try {
+                    Cursor query = TiebaApplication.a().getContentResolver().query(Uri.parse("content://telephony/carriers/preferapn"), null, null, null, null);
+                    if (query != null && query.moveToNext()) {
+                        String string = query.getString(query.getColumnIndex("user"));
+                        String string2 = query.getString(query.getColumnIndex("password"));
+                        query.close();
+                        f = "Basic " + ad.b((String.valueOf(string) + ":" + string2).getBytes());
+                    }
+                } catch (Exception e2) {
+                }
+            }
         }
-        return false;
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [515=8, 516=8, 520=8, 521=8, 523=8] */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:19:0x0069 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:24:0x0002 */
+    /* JADX WARN: Multi-variable type inference failed */
+    /* JADX WARN: Type inference failed for: r1v0, types: [com.baidu.tieba.c.z] */
+    /* JADX WARN: Type inference failed for: r1v1 */
+    /* JADX WARN: Type inference failed for: r1v2 */
+    /* JADX WARN: Type inference failed for: r1v3, types: [java.lang.Exception] */
+    /* JADX WARN: Type inference failed for: r1v4, types: [java.lang.String] */
+    public static z c(Context context) {
+        z zVar;
+        ?? e2 = z.UNAVAIL;
+        try {
+            NetworkInfo activeNetworkInfo = ((ConnectivityManager) context.getSystemService("connectivity")).getActiveNetworkInfo();
+            if (!activeNetworkInfo.isAvailable()) {
+                zVar = z.UNAVAIL;
+                try {
+                    e2 = "NetWorkCore";
+                    ae.a("NetWorkCore", "NetworkStateInfo", "UNAVAIL");
+                } catch (Exception e3) {
+                    e2 = e3;
+                }
+            } else if (activeNetworkInfo.getType() != 1) {
+                switch (((TelephonyManager) context.getSystemService("phone")).getNetworkType()) {
+                    case 0:
+                    case 1:
+                    case 2:
+                    case 4:
+                    case 7:
+                    case 11:
+                        ae.a("NetWorkCore", "NetworkStateInfo", "TwoG");
+                        zVar = z.TwoG;
+                        break;
+                    case 3:
+                    case 5:
+                    case 6:
+                    case 8:
+                    case 9:
+                    case 10:
+                    case 12:
+                    case 13:
+                    case 14:
+                    case 15:
+                        ae.a("NetWorkCore", "NetworkStateInfo", "ThreeG");
+                        zVar = z.ThreeG;
+                        break;
+                    default:
+                        ae.a("NetWorkCore", "NetworkStateInfo-default", "TwoG");
+                        zVar = z.TwoG;
+                        break;
+                }
+            } else {
+                ae.a("NetWorkCore", "NetworkStateInfo", "WIFI");
+                zVar = z.WIFI;
+            }
+            return zVar;
+        } catch (Exception e4) {
+            return e2;
+        }
+    }
+
+    public static void c() {
+        e = new x();
+    }
+
+    private boolean d(String str) {
+        return h.matcher(str).find();
+    }
+
+    private void r() {
+        this.i = null;
+        this.j = null;
+        this.k = 0;
+        this.l = 0;
+        this.m = null;
+        this.o = null;
+        this.r = null;
+        this.q = true;
+        this.n = 0;
+        this.u = false;
+        this.s = false;
+        this.p = null;
+        this.t = false;
+        this.w = true;
+        b();
+    }
+
+    private String s() {
+        int indexOf;
+        String contentType = this.i != null ? this.i.getContentType() : null;
+        if (contentType == null || (indexOf = contentType.indexOf("charset")) == -1) {
+            return "utf-8";
+        }
+        int indexOf2 = contentType.indexOf(32, indexOf);
+        return indexOf2 == -1 ? contentType.substring(indexOf + 8) : contentType.substring(indexOf + 8, indexOf2);
+    }
+
+    /* JADX WARN: Removed duplicated region for block: B:166:0x035c A[Catch: Exception -> 0x0385, TRY_LEAVE, TryCatch #28 {Exception -> 0x0385, blocks: (B:164:0x0356, B:166:0x035c), top: B:254:0x0356 }] */
+    /* JADX WARN: Removed duplicated region for block: B:250:0x0365 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:252:0x0353 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public Boolean a(String str, Handler handler) {
+        FileOutputStream fileOutputStream;
+        Exception e2;
+        InputStream inputStream;
+        String headerField;
+        int indexOf;
+        InputStream inputStream2 = null;
+        FileOutputStream fileOutputStream2 = null;
+        try {
+            try {
+                this.i = a(new URL(this.j));
+            } catch (Throwable th) {
+                th = th;
+            }
+        } catch (FileNotFoundException e3) {
+            inputStream = null;
+        } catch (Exception e4) {
+            fileOutputStream = null;
+            e2 = e4;
+        } catch (Throwable th2) {
+            th = th2;
+            fileOutputStream = null;
+        }
+        if (this.i == null) {
+            throw new SocketException();
+        }
+        this.i.setConnectTimeout(5000);
+        this.i.setReadTimeout(30000);
+        this.i.setInstanceFollowRedirects(false);
+        if (this.u) {
+            r1 = false;
+            this.n = 0;
+            if (0 != 0) {
+                try {
+                    inputStream2.close();
+                } catch (Exception e5) {
+                }
+            }
+            try {
+                if (this.i != null) {
+                    this.i.disconnect();
+                }
+            } catch (Exception e6) {
+            }
+            if (0 != 0) {
+                try {
+                    fileOutputStream2.close();
+                } catch (Exception e7) {
+                }
+            }
+        } else {
+            long time = new Date().getTime();
+            File f2 = o.f(str);
+            if (f2 == null) {
+                throw new FileNotFoundException();
+            }
+            long length = f2.length();
+            fileOutputStream = new FileOutputStream(f2, true);
+            try {
+                if (this.t) {
+                    this.i.addRequestProperty("Range", "bytes=" + String.valueOf(length) + "-" + String.valueOf(200000 + length));
+                } else {
+                    this.i.addRequestProperty("Range", "bytes=" + String.valueOf(length) + "-");
+                }
+                this.i.connect();
+                this.k = this.i.getResponseCode();
+                if (!o()) {
+                    throw new SocketException();
+                }
+                if (!this.i.getContentType().contains("text/vnd.wap.wml") || this.n >= 1) {
+                    this.n = 0;
+                    int i = 0;
+                    String headerField2 = this.i.getHeaderField("Content-Range");
+                    if (headerField2 != null && (indexOf = headerField2.indexOf("/")) != -1) {
+                        i = Integer.valueOf(headerField2.substring(indexOf + 1)).intValue();
+                    }
+                    int intValue = (i == 0 && this.k == 200 && (headerField = this.i.getHeaderField("Content-Length")) != null) ? Integer.valueOf(headerField).intValue() : i;
+                    if (length >= intValue) {
+                        r1 = true;
+                        this.n = 0;
+                        if (0 != 0) {
+                            try {
+                                inputStream2.close();
+                            } catch (Exception e8) {
+                            }
+                        }
+                        try {
+                            if (this.i != null) {
+                                this.i.disconnect();
+                            }
+                        } catch (Exception e9) {
+                        }
+                        if (fileOutputStream != null) {
+                            try {
+                                fileOutputStream.close();
+                            } catch (Exception e10) {
+                            }
+                        }
+                    } else {
+                        InputStream inputStream3 = this.i.getInputStream();
+                        try {
+                            try {
+                                byte[] bArr = new byte[1024];
+                                int i2 = 0;
+                                int i3 = intValue > 0 ? intValue / 50 : 0;
+                                int i4 = 0;
+                                if (handler != null && length > 0) {
+                                    handler.sendMessage(handler.obtainMessage(900002, (int) length, intValue));
+                                }
+                                while (!this.u) {
+                                    int read = inputStream3.read(bArr);
+                                    if (read != -1) {
+                                        try {
+                                            fileOutputStream.write(bArr, 0, read);
+                                            i2 += read;
+                                            i4 += read;
+                                            if (handler != null && (i4 > i3 || i2 == intValue)) {
+                                                i4 = 0;
+                                                handler.sendMessage(handler.obtainMessage(900002, (int) (i2 + length), intValue));
+                                            }
+                                        } catch (Exception e11) {
+                                            throw new FileNotFoundException();
+                                        }
+                                    }
+                                }
+                                try {
+                                    fileOutputStream.flush();
+                                    ae.a("NetWork", "downloadFile", "time = " + String.valueOf(new Date().getTime() - time) + "ms");
+                                    if (intValue != -1) {
+                                        ae.a("NetWork", "downloadFile", "data.zise = " + String.valueOf(intValue));
+                                    }
+                                    r1 = ((long) i2) + length >= ((long) intValue);
+                                    this.n = 0;
+                                    if (inputStream3 != null) {
+                                        try {
+                                            inputStream3.close();
+                                        } catch (Exception e12) {
+                                        }
+                                    }
+                                    try {
+                                        if (this.i != null) {
+                                            this.i.disconnect();
+                                        }
+                                    } catch (Exception e13) {
+                                    }
+                                    if (fileOutputStream != null) {
+                                        try {
+                                            fileOutputStream.close();
+                                        } catch (Exception e14) {
+                                        }
+                                    }
+                                } catch (Exception e15) {
+                                    throw new FileNotFoundException();
+                                }
+                            } catch (Throwable th3) {
+                                th = th3;
+                                inputStream2 = inputStream3;
+                                this.n = 0;
+                                if (inputStream2 != null) {
+                                    try {
+                                        inputStream2.close();
+                                    } catch (Exception e16) {
+                                    }
+                                }
+                                try {
+                                    if (this.i != null) {
+                                        this.i.disconnect();
+                                    }
+                                } catch (Exception e17) {
+                                }
+                                if (fileOutputStream != null) {
+                                    try {
+                                        fileOutputStream.close();
+                                    } catch (Exception e18) {
+                                    }
+                                }
+                                throw th;
+                            }
+                        } catch (FileNotFoundException e19) {
+                            inputStream = inputStream3;
+                            fileOutputStream2 = fileOutputStream;
+                            try {
+                                this.k = -2;
+                                this.m = this.r.getResources().getString(R.string.FileWriteError);
+                                this.n = 0;
+                                if (inputStream != null) {
+                                    try {
+                                        inputStream.close();
+                                    } catch (Exception e20) {
+                                    }
+                                }
+                                try {
+                                    if (this.i != null) {
+                                        this.i.disconnect();
+                                    }
+                                } catch (Exception e21) {
+                                }
+                                if (fileOutputStream2 != null) {
+                                    try {
+                                        fileOutputStream2.close();
+                                    } catch (Exception e22) {
+                                    }
+                                }
+                                return r1;
+                            } catch (Throwable th4) {
+                                th = th4;
+                                inputStream2 = inputStream;
+                                fileOutputStream = fileOutputStream2;
+                                this.n = 0;
+                                if (inputStream2 != null) {
+                                }
+                                if (this.i != null) {
+                                }
+                                if (fileOutputStream != null) {
+                                }
+                                throw th;
+                            }
+                        } catch (Exception e23) {
+                            inputStream2 = inputStream3;
+                            e2 = e23;
+                            this.k = 0;
+                            this.m = this.r.getResources().getString(R.string.neterror);
+                            ae.b("NetWork", "downloadFile", "error = " + e2.getMessage());
+                            this.n = 0;
+                            if (inputStream2 != null) {
+                                try {
+                                    inputStream2.close();
+                                } catch (Exception e24) {
+                                }
+                            }
+                            try {
+                                if (this.i != null) {
+                                    this.i.disconnect();
+                                }
+                            } catch (Exception e25) {
+                            }
+                            if (fileOutputStream != null) {
+                                try {
+                                    fileOutputStream.close();
+                                } catch (Exception e26) {
+                                }
+                            }
+                            return r1;
+                        }
+                    }
+                } else {
+                    this.i.disconnect();
+                    this.n++;
+                    this.k = 0;
+                    r1 = a(str, handler);
+                    this.n = 0;
+                    if (0 != 0) {
+                        try {
+                            inputStream2.close();
+                        } catch (Exception e27) {
+                        }
+                    }
+                    try {
+                        if (this.i != null) {
+                            this.i.disconnect();
+                        }
+                    } catch (Exception e28) {
+                    }
+                    if (fileOutputStream != null) {
+                        try {
+                            fileOutputStream.close();
+                        } catch (Exception e29) {
+                        }
+                    }
+                }
+            } catch (FileNotFoundException e30) {
+                fileOutputStream2 = fileOutputStream;
+                inputStream = null;
+            } catch (Exception e31) {
+                e2 = e31;
+            }
+        }
+        return r1;
+    }
+
+    public String a() {
+        try {
+            NetworkInfo activeNetworkInfo = ((ConnectivityManager) this.r.getSystemService("connectivity")).getActiveNetworkInfo();
+            if (activeNetworkInfo.isAvailable()) {
+                if (activeNetworkInfo.getTypeName().equalsIgnoreCase("WIFI")) {
+                    return "3";
+                }
+                String defaultHost = android.net.Proxy.getDefaultHost();
+                if (defaultHost != null) {
+                    if (defaultHost.length() > 0) {
+                        return "2";
+                    }
+                }
+                return "1";
+            }
+            return null;
+        } catch (Exception e2) {
+            return null;
+        }
+    }
+
+    public void a(Boolean bool) {
+        this.q = bool.booleanValue();
+    }
+
+    public void a(String str) {
+        this.j = str;
+    }
+
+    public void a(String str, String str2) {
+        a(new BasicNameValuePair(str, str2));
+    }
+
+    public void a(String str, byte[] bArr) {
+        if (this.p == null) {
+            this.p = new HashMap();
+        }
+        this.p.put(str, bArr);
+    }
+
+    public void a(ArrayList arrayList) {
+        if (this.o != null) {
+            this.o.clear();
+        }
+        int i = 0;
+        while (true) {
+            int i2 = i;
+            if (i2 >= arrayList.size()) {
+                return;
+            }
+            a((BasicNameValuePair) arrayList.get(i2));
+            i = i2 + 1;
+        }
+    }
+
+    public void a(BasicNameValuePair basicNameValuePair) {
+        if (basicNameValuePair == null || basicNameValuePair.getName() == null) {
+            return;
+        }
+        if (this.o == null) {
+            this.o = new ArrayList();
+        }
+        int a2 = a(this.o, basicNameValuePair.getName());
+        int size = this.o.size();
+        if (a2 < 0 || a2 >= size) {
+            if (a2 == size) {
+                this.o.add(a2, basicNameValuePair);
+            }
+        } else if (basicNameValuePair.getName().equals(((BasicNameValuePair) this.o.get(a2)).getName())) {
+            this.o.set(a2, basicNameValuePair);
+        } else {
+            this.o.add(a2, basicNameValuePair);
+        }
+    }
+
+    public void a(boolean z) {
+        this.w = z;
+    }
+
+    public void b(Context context) {
+        this.r = context;
+    }
+
+    public void b(String str) {
+        this.m = str;
+    }
+
+    public void b(boolean z) {
+        this.s = z;
+    }
+
+    public void c(String str) {
+        this.l = -1;
+        if (str != null) {
+            try {
+                com.baidu.tieba.a.n nVar = new com.baidu.tieba.a.n();
+                nVar.a(str);
+                this.l = nVar.a();
+                if (this.l == -1) {
+                    this.m = this.r.getString(R.string.error_unkown);
+                } else if (this.l != 0) {
+                    this.m = nVar.b();
+                }
+            } catch (Exception e2) {
+                ae.b("NetWork", "parseServerCode", "error = " + e2.getMessage());
+                this.m = this.r.getString(R.string.error_unkown);
+            }
+        }
+    }
+
+    public void c(boolean z) {
+        this.v = z;
+    }
+
+    public boolean d() {
+        return this.k == 200 && this.l == 0;
+    }
+
+    public boolean e() {
+        return this.k == 200;
+    }
+
+    public int f() {
+        return this.l;
+    }
+
+    public String g() {
+        return this.m;
+    }
+
+    public void h() {
+        this.m = "";
+    }
+
+    public void i() {
+        this.u = true;
+        try {
+            if (this.i != null) {
+                this.i.disconnect();
+            }
+        } catch (Exception e2) {
+        }
+    }
+
     /* JADX WARN: Code restructure failed: missing block: B:56:0x014b, code lost:
         if (0 == 0) goto L62;
      */
@@ -301,7 +744,7 @@ public class w {
                     }
                     stringBuffer.append(((BasicNameValuePair) this.o.get(i)).getName());
                     stringBuffer.append("=");
-                    stringBuffer.append(ae.f(((BasicNameValuePair) this.o.get(i)).getValue()));
+                    stringBuffer.append(ad.f(((BasicNameValuePair) this.o.get(i)).getValue()));
                 }
                 url = new URL(stringBuffer.toString());
             }
@@ -345,8 +788,8 @@ public class w {
                     String contentEncoding = this.i.getContentEncoding();
                     inputStream = this.i.getInputStream();
                     try {
-                        byte[] bArr3 = new byte[NotificationProxy.MAX_URL_LENGTH];
-                        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream(NotificationProxy.MAX_URL_LENGTH);
+                        byte[] bArr3 = new byte[1024];
+                        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream(1024);
                         int i3 = 0;
                         if (this.s) {
                             byte[] bArr4 = new byte[23];
@@ -375,14 +818,14 @@ public class w {
                             }
                         } else {
                             this.x = i3;
-                            af.a(getClass().getName(), "getNetData", "time = " + String.valueOf(new Date().getTime() - time) + "ms");
+                            ae.a(getClass().getName(), "getNetData", "time = " + String.valueOf(new Date().getTime() - time) + "ms");
                             if (i3 < d) {
                                 bArr2 = byteArrayOutputStream.toByteArray();
                                 byteArrayOutputStream.close();
-                                af.a(getClass().getName(), "getNetData", "data.zise = " + String.valueOf(i3));
+                                ae.a(getClass().getName(), "getNetData", "data.zise = " + String.valueOf(i3));
                                 if (contentEncoding != null && contentEncoding.contains("gzip")) {
                                     ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(bArr2);
-                                    ByteArrayOutputStream byteArrayOutputStream2 = new ByteArrayOutputStream(NotificationProxy.MAX_URL_LENGTH);
+                                    ByteArrayOutputStream byteArrayOutputStream2 = new ByteArrayOutputStream(1024);
                                     q.a(byteArrayInputStream, byteArrayOutputStream2);
                                     bArr2 = byteArrayOutputStream2.toByteArray();
                                 }
@@ -464,7 +907,7 @@ public class w {
                             this.k = 0;
                             z = false;
                             this.m = this.r.getResources().getString(R.string.neterror);
-                            af.b(getClass().getName(), "getNetData", "error = " + e2.getMessage());
+                            ae.b(getClass().getName(), "getNetData", "error = " + e2.getMessage());
                             if (inputStream2 != null) {
                                 try {
                                     inputStream2.close();
@@ -528,43 +971,8 @@ public class w {
             this.n = 0;
             return bArr2;
         } catch (Exception e24) {
-            af.b(getClass().getName(), "getNetData", e24.getMessage());
+            ae.b(getClass().getName(), "getNetData", e24.getMessage());
             return bArr;
-        }
-    }
-
-    private String s() {
-        int indexOf;
-        String str = null;
-        if (this.i != null) {
-            str = this.i.getContentType();
-        }
-        if (str == null || (indexOf = str.indexOf("charset")) == -1) {
-            return BdUtil.UTF8;
-        }
-        int indexOf2 = str.indexOf(32, indexOf);
-        if (indexOf2 == -1) {
-            return str.substring(indexOf + 8);
-        }
-        return str.substring(indexOf + 8, indexOf2);
-    }
-
-    public void c(String str) {
-        this.l = -1;
-        if (str != null) {
-            try {
-                com.baidu.tieba.a.o oVar = new com.baidu.tieba.a.o();
-                oVar.a(str);
-                this.l = oVar.a();
-                if (this.l == -1) {
-                    this.m = this.r.getString(R.string.error_unkown);
-                } else if (this.l != 0) {
-                    this.m = oVar.b();
-                }
-            } catch (Exception e2) {
-                af.b("NetWork", "parseServerCode", "error = " + e2.getMessage());
-                this.m = this.r.getString(R.string.error_unkown);
-            }
         }
     }
 
@@ -582,7 +990,7 @@ public class w {
                 return str;
             } catch (Exception e3) {
                 e2 = e3;
-                af.b(getClass().getName(), "getNetString", "error = " + e2.getMessage());
+                ae.b(getClass().getName(), "getNetString", "error = " + e2.getMessage());
                 return str;
             }
         } catch (Exception e4) {
@@ -591,7 +999,6 @@ public class w {
         }
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [743=9, 744=9, 748=9, 749=9, 751=9] */
     /* JADX WARN: Code restructure failed: missing block: B:32:0x00c1, code lost:
         if (0 == 0) goto L222;
      */
@@ -613,8 +1020,8 @@ public class w {
         InputStream inputStream4;
         String str;
         int read;
-        StringBuffer stringBuffer = new StringBuffer((int) NotificationProxy.MAX_URL_LENGTH);
-        StringBuffer stringBuffer2 = new StringBuffer((int) NotificationProxy.MAX_URL_LENGTH);
+        StringBuffer stringBuffer = new StringBuffer(1024);
+        StringBuffer stringBuffer2 = new StringBuffer(1024);
         int i = 0;
         while (true) {
             int i2 = i;
@@ -629,7 +1036,7 @@ public class w {
                     stringBuffer.append("&");
                 }
                 stringBuffer.append(String.valueOf(name) + "=");
-                stringBuffer.append(ae.f(value));
+                stringBuffer.append(ad.f(value));
                 stringBuffer2.append(name);
                 stringBuffer2.append("=");
                 stringBuffer2.append(value);
@@ -638,7 +1045,7 @@ public class w {
         }
         if (this.v) {
             stringBuffer2.append("tiebaclient!!!");
-            String a2 = ae.a(stringBuffer2.toString());
+            String a2 = ad.a(stringBuffer2.toString());
             if (stringBuffer.length() > 0) {
                 stringBuffer.append("&");
             }
@@ -699,7 +1106,7 @@ public class w {
                     dataOutputStream.writeBytes(stringBuffer3);
                 }
                 dataOutputStream.flush();
-                af.a("NetWork", "postNetData", "Post data.zise = " + String.valueOf(dataOutputStream.size()));
+                ae.a("NetWork", "postNetData", "Post data.zise = " + String.valueOf(dataOutputStream.size()));
                 dataOutputStream.close();
                 this.k = this.i.getResponseCode();
                 if (this.k != 200) {
@@ -709,8 +1116,8 @@ public class w {
                     String contentEncoding = this.i.getContentEncoding();
                     inputStream4 = this.i.getInputStream();
                     try {
-                        byte[] bArr = new byte[NotificationProxy.MAX_URL_LENGTH];
-                        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream(NotificationProxy.MAX_URL_LENGTH);
+                        byte[] bArr = new byte[1024];
+                        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream(1024);
                         int i4 = 0;
                         while (!this.u && (read = inputStream4.read(bArr)) != -1) {
                             byteArrayOutputStream.write(bArr, 0, read);
@@ -733,15 +1140,15 @@ public class w {
                             }
                         } else {
                             this.x = i4;
-                            af.a(getClass().getName(), "postNetData", "time = " + String.valueOf(new Date().getTime() - time) + "ms");
+                            ae.a(getClass().getName(), "postNetData", "time = " + String.valueOf(new Date().getTime() - time) + "ms");
                             byte[] byteArray = byteArrayOutputStream.toByteArray();
-                            af.a(getClass().getName(), "postNetData", "Get data.zise = " + String.valueOf(byteArray.length));
+                            ae.a(getClass().getName(), "postNetData", "Get data.zise = " + String.valueOf(byteArray.length));
                             if (contentEncoding != null && contentEncoding.contains("gzip")) {
                                 ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(byteArray);
-                                ByteArrayOutputStream byteArrayOutputStream2 = new ByteArrayOutputStream(NotificationProxy.MAX_URL_LENGTH);
+                                ByteArrayOutputStream byteArrayOutputStream2 = new ByteArrayOutputStream(1024);
                                 q.a(byteArrayInputStream, byteArrayOutputStream2);
                                 byteArray = byteArrayOutputStream2.toByteArray();
-                                af.a(getClass().getName(), "postNetData", "After ungzip data.zise = " + String.valueOf(byteArray.length));
+                                ae.a(getClass().getName(), "postNetData", "After ungzip data.zise = " + String.valueOf(byteArray.length));
                             }
                             byte[] bArr2 = byteArray;
                             str = new String(bArr2, 0, bArr2.length, s());
@@ -758,7 +1165,7 @@ public class w {
                                 this.k = 0;
                                 z = true;
                                 this.m = this.r.getResources().getString(R.string.neterror);
-                                af.b(getClass().getName(), "postNetData", "SocketException " + socketException.getMessage());
+                                ae.b(getClass().getName(), "postNetData", "SocketException " + socketException.getMessage());
                                 if (inputStream3 != null) {
                                     try {
                                         inputStream3.close();
@@ -780,7 +1187,7 @@ public class w {
                                     this.k = 0;
                                     z = true;
                                     this.m = this.r.getResources().getString(R.string.neterror);
-                                    af.b(getClass().getName(), "postNetData", "SocketTimeoutException " + socketTimeoutException.getMessage());
+                                    ae.b(getClass().getName(), "postNetData", "SocketTimeoutException " + socketTimeoutException.getMessage());
                                     if (inputStream2 != null) {
                                         try {
                                             inputStream2.close();
@@ -815,7 +1222,7 @@ public class w {
                                 this.k = 0;
                                 z = false;
                                 this.m = this.r.getResources().getString(R.string.neterror);
-                                af.b(getClass().getName(), "postNetData", exc.getMessage());
+                                ae.b(getClass().getName(), "postNetData", exc.getMessage());
                                 if (inputStream != null) {
                                     try {
                                         inputStream.close();
@@ -910,7 +1317,6 @@ public class w {
         return this.x;
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [908=9, 909=9, 911=9, 913=9, 914=9, 916=5, 918=9, 919=9, 921=9, 922=9, 923=9] */
     /* JADX WARN: Code restructure failed: missing block: B:14:0x0037, code lost:
         if (0 == 0) goto L15;
      */
@@ -1050,7 +1456,7 @@ public class w {
             }
             dataOutputStream2.writeBytes(String.valueOf(b) + c + b + a);
             dataOutputStream2.flush();
-            af.a("NetWork", "postMultiNetData", "Post data.zise = " + String.valueOf(dataOutputStream2.size()));
+            ae.a("NetWork", "postMultiNetData", "Post data.zise = " + String.valueOf(dataOutputStream2.size()));
             dataOutputStream2.close();
             if (e != null) {
                 e.sendMessageDelayed(e.obtainMessage(0, this), 45000L);
@@ -1067,8 +1473,8 @@ public class w {
                 InputStream inputStream3 = this.i.getInputStream();
                 try {
                     try {
-                        byte[] bArr3 = new byte[NotificationProxy.MAX_URL_LENGTH];
-                        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream(NotificationProxy.MAX_URL_LENGTH);
+                        byte[] bArr3 = new byte[1024];
+                        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream(1024);
                         while (!this.u && (read = inputStream3.read(bArr3)) != -1) {
                             byteArrayOutputStream.write(bArr3, 0, read);
                         }
@@ -1097,14 +1503,14 @@ public class w {
                         } else {
                             inputStream3.close();
                             this.i.disconnect();
-                            af.a("NetWork", "postMultiNetData", "time = " + String.valueOf(new Date().getTime() - time) + "ms");
+                            ae.a("NetWork", "postMultiNetData", "time = " + String.valueOf(new Date().getTime() - time) + "ms");
                             byte[] byteArray = byteArrayOutputStream.toByteArray();
-                            af.a("NetWork", "postMultiNetData", "Get data.zise = " + String.valueOf(byteArray.length));
+                            ae.a("NetWork", "postMultiNetData", "Get data.zise = " + String.valueOf(byteArray.length));
                             if (contentEncoding == null || !contentEncoding.contains("gzip")) {
                                 bArr = byteArray;
                             } else {
                                 ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(byteArray);
-                                ByteArrayOutputStream byteArrayOutputStream2 = new ByteArrayOutputStream(NotificationProxy.MAX_URL_LENGTH);
+                                ByteArrayOutputStream byteArrayOutputStream2 = new ByteArrayOutputStream(1024);
                                 q.a(byteArrayInputStream, byteArrayOutputStream2);
                                 bArr = byteArrayOutputStream2.toByteArray();
                             }
@@ -1180,7 +1586,7 @@ public class w {
                                 this.k = 0;
                                 z = false;
                                 this.m = this.r.getResources().getString(R.string.neterror);
-                                af.b("NetWork", "postMultiNetData", "error = " + exc.getMessage());
+                                ae.b("NetWork", "postMultiNetData", "error = " + exc.getMessage());
                                 if (inputStream2 != null) {
                                 }
                                 if (this.i != null) {
@@ -1348,7 +1754,7 @@ public class w {
                     this.k = 0;
                     z = false;
                     this.m = this.r.getResources().getString(R.string.neterror);
-                    af.b("NetWork", "postMultiNetData", "error = " + exc.getMessage());
+                    ae.b("NetWork", "postMultiNetData", "error = " + exc.getMessage());
                     if (inputStream2 != null) {
                         try {
                             inputStream2.close();
@@ -1436,450 +1842,11 @@ public class w {
         return this.k == 200 || this.k == 206;
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [1061=7, 1063=7, 1064=7, 1068=7, 1069=7, 1073=7, 1074=7, 1076=7] */
-    /* JADX WARN: Removed duplicated region for block: B:166:0x0355 A[Catch: Exception -> 0x0385, TRY_LEAVE, TryCatch #29 {Exception -> 0x0385, blocks: (B:164:0x034f, B:166:0x0355), top: B:259:0x034f }] */
-    /* JADX WARN: Removed duplicated region for block: B:255:0x035e A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:257:0x034c A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public Boolean a(String str, Handler handler) {
-        FileOutputStream fileOutputStream;
-        FileOutputStream fileOutputStream2;
-        Exception e2;
-        InputStream inputStream;
-        String headerField;
-        int indexOf;
-        InputStream inputStream2 = null;
-        FileOutputStream fileOutputStream3 = null;
-        try {
-            try {
-                this.i = a(new URL(this.j));
-            } catch (Throwable th) {
-                th = th;
-                this.n = 0;
-                if (inputStream2 != null) {
-                    try {
-                        inputStream2.close();
-                    } catch (Exception e3) {
-                    }
-                }
-                try {
-                    if (this.i != null) {
-                        this.i.disconnect();
-                    }
-                } catch (Exception e4) {
-                }
-                if (fileOutputStream != null) {
-                    try {
-                        fileOutputStream.close();
-                    } catch (Exception e5) {
-                    }
-                }
-                throw th;
-            }
-        } catch (FileNotFoundException e6) {
-            inputStream = null;
-        } catch (Exception e7) {
-            fileOutputStream2 = null;
-            e2 = e7;
-        } catch (Throwable th2) {
-            th = th2;
-            fileOutputStream = null;
-            this.n = 0;
-            if (inputStream2 != null) {
-            }
-            if (this.i != null) {
-            }
-            if (fileOutputStream != null) {
-            }
-            throw th;
-        }
-        if (this.i == null) {
-            throw new SocketException();
-        }
-        this.i.setConnectTimeout(5000);
-        this.i.setReadTimeout(30000);
-        this.i.setInstanceFollowRedirects(false);
-        if (this.u) {
-            r1 = false;
-            this.n = 0;
-            if (0 != 0) {
-                try {
-                    inputStream2.close();
-                } catch (Exception e8) {
-                }
-            }
-            try {
-                if (this.i != null) {
-                    this.i.disconnect();
-                }
-            } catch (Exception e9) {
-            }
-            if (0 != 0) {
-                try {
-                    fileOutputStream3.close();
-                } catch (Exception e10) {
-                }
-            }
-        } else {
-            long time = new Date().getTime();
-            File f2 = o.f(str);
-            if (f2 == null) {
-                throw new FileNotFoundException();
-            }
-            long length = f2.length();
-            fileOutputStream2 = new FileOutputStream(f2, true);
-            try {
-                try {
-                    if (this.t) {
-                        this.i.addRequestProperty("Range", "bytes=" + String.valueOf(length) + "-" + String.valueOf(200000 + length));
-                    } else {
-                        this.i.addRequestProperty("Range", "bytes=" + String.valueOf(length) + "-");
-                    }
-                    this.i.connect();
-                    this.k = this.i.getResponseCode();
-                    if (!o()) {
-                        throw new SocketException();
-                    }
-                    if (!this.i.getContentType().contains("text/vnd.wap.wml") || this.n >= 1) {
-                        this.n = 0;
-                        int i = 0;
-                        String headerField2 = this.i.getHeaderField("Content-Range");
-                        if (headerField2 != null && (indexOf = headerField2.indexOf("/")) != -1) {
-                            i = Integer.valueOf(headerField2.substring(indexOf + 1)).intValue();
-                        }
-                        int intValue = (i == 0 && this.k == 200 && (headerField = this.i.getHeaderField("Content-Length")) != null) ? Integer.valueOf(headerField).intValue() : i;
-                        if (length >= intValue) {
-                            r1 = true;
-                            this.n = 0;
-                            if (0 != 0) {
-                                try {
-                                    inputStream2.close();
-                                } catch (Exception e11) {
-                                }
-                            }
-                            try {
-                                if (this.i != null) {
-                                    this.i.disconnect();
-                                }
-                            } catch (Exception e12) {
-                            }
-                            if (fileOutputStream2 != null) {
-                                try {
-                                    fileOutputStream2.close();
-                                } catch (Exception e13) {
-                                }
-                            }
-                        } else {
-                            InputStream inputStream3 = this.i.getInputStream();
-                            try {
-                                byte[] bArr = new byte[NotificationProxy.MAX_URL_LENGTH];
-                                int i2 = 0;
-                                int i3 = intValue > 0 ? intValue / 50 : 0;
-                                int i4 = 0;
-                                if (handler != null && length > 0) {
-                                    handler.sendMessage(handler.obtainMessage(900002, (int) length, intValue));
-                                }
-                                while (!this.u) {
-                                    int read = inputStream3.read(bArr);
-                                    if (read != -1) {
-                                        try {
-                                            try {
-                                                fileOutputStream2.write(bArr, 0, read);
-                                                i2 += read;
-                                                i4 += read;
-                                                if (handler != null && (i4 > i3 || i2 == intValue)) {
-                                                    i4 = 0;
-                                                    handler.sendMessage(handler.obtainMessage(900002, (int) (i2 + length), intValue));
-                                                }
-                                            } catch (Exception e14) {
-                                                throw new FileNotFoundException();
-                                            }
-                                        } finally {
-                                            if (inputStream3 != null) {
-                                                inputStream3.close();
-                                            }
-                                        }
-                                    }
-                                }
-                                try {
-                                    fileOutputStream2.flush();
-                                    af.a("NetWork", "downloadFile", "time = " + String.valueOf(new Date().getTime() - time) + "ms");
-                                    if (intValue != -1) {
-                                        af.a("NetWork", "downloadFile", "data.zise = " + String.valueOf(intValue));
-                                    }
-                                    r1 = ((long) i2) + length >= ((long) intValue);
-                                    this.n = 0;
-                                    if (inputStream3 != null) {
-                                        try {
-                                            inputStream3.close();
-                                        } catch (Exception e15) {
-                                        }
-                                    }
-                                    try {
-                                        if (this.i != null) {
-                                            this.i.disconnect();
-                                        }
-                                    } catch (Exception e16) {
-                                    }
-                                    if (fileOutputStream2 != null) {
-                                        try {
-                                            fileOutputStream2.close();
-                                        } catch (Exception e17) {
-                                        }
-                                    }
-                                } catch (Exception e18) {
-                                    throw new FileNotFoundException();
-                                }
-                            } catch (FileNotFoundException e19) {
-                                fileOutputStream3 = fileOutputStream2;
-                                inputStream = inputStream3;
-                                try {
-                                    this.k = -2;
-                                    this.m = this.r.getResources().getString(R.string.FileWriteError);
-                                    this.n = 0;
-                                    if (inputStream != null) {
-                                        try {
-                                            inputStream.close();
-                                        } catch (Exception e20) {
-                                        }
-                                    }
-                                    try {
-                                        if (this.i != null) {
-                                            this.i.disconnect();
-                                        }
-                                    } catch (Exception e21) {
-                                    }
-                                    if (fileOutputStream3 != null) {
-                                        try {
-                                            fileOutputStream3.close();
-                                        } catch (Exception e22) {
-                                        }
-                                    }
-                                    return r1;
-                                } catch (Throwable th3) {
-                                    th = th3;
-                                    inputStream2 = inputStream;
-                                    fileOutputStream = fileOutputStream3;
-                                    this.n = 0;
-                                    if (inputStream2 != null) {
-                                    }
-                                    if (this.i != null) {
-                                    }
-                                    if (fileOutputStream != null) {
-                                    }
-                                    throw th;
-                                }
-                            }
-                        }
-                    } else {
-                        this.i.disconnect();
-                        this.n++;
-                        this.k = 0;
-                        r1 = a(str, handler);
-                        this.n = 0;
-                        if (0 != 0) {
-                            try {
-                                inputStream2.close();
-                            } catch (Exception e23) {
-                            }
-                        }
-                        try {
-                            if (this.i != null) {
-                                this.i.disconnect();
-                            }
-                        } catch (Exception e24) {
-                        }
-                        if (fileOutputStream2 != null) {
-                            try {
-                                fileOutputStream2.close();
-                            } catch (Exception e25) {
-                            }
-                        }
-                    }
-                } catch (Exception e26) {
-                    e2 = e26;
-                    this.k = 0;
-                    this.m = this.r.getResources().getString(R.string.neterror);
-                    af.b("NetWork", "downloadFile", "error = " + e2.getMessage());
-                    this.n = 0;
-                    if (0 != 0) {
-                        try {
-                            inputStream2.close();
-                        } catch (Exception e27) {
-                        }
-                    }
-                    try {
-                        if (this.i != null) {
-                            this.i.disconnect();
-                        }
-                    } catch (Exception e28) {
-                    }
-                    if (fileOutputStream2 != null) {
-                        try {
-                            fileOutputStream2.close();
-                        } catch (Exception e29) {
-                        }
-                    }
-                    return r1;
-                }
-            } catch (FileNotFoundException e30) {
-                fileOutputStream3 = fileOutputStream2;
-                inputStream = null;
-            }
-        }
-        return r1;
-    }
-
-    public void b(Context context) {
-        this.r = context;
-    }
-
     public Context p() {
         return this.r;
     }
 
     public ArrayList q() {
         return this.o;
-    }
-
-    public void a(ArrayList arrayList) {
-        if (this.o != null) {
-            this.o.clear();
-        }
-        int i = 0;
-        while (true) {
-            int i2 = i;
-            if (i2 < arrayList.size()) {
-                a((BasicNameValuePair) arrayList.get(i2));
-                i = i2 + 1;
-            } else {
-                return;
-            }
-        }
-    }
-
-    public void a(String str, String str2) {
-        a(new BasicNameValuePair(str, str2));
-    }
-
-    public void a(String str, byte[] bArr) {
-        if (this.p == null) {
-            this.p = new HashMap();
-        }
-        this.p.put(str, bArr);
-    }
-
-    public void a(BasicNameValuePair basicNameValuePair) {
-        if (basicNameValuePair != null && basicNameValuePair.getName() != null) {
-            if (this.o == null) {
-                this.o = new ArrayList();
-            }
-            int a2 = a(this.o, basicNameValuePair.getName());
-            int size = this.o.size();
-            if (a2 >= 0 && a2 < size) {
-                if (basicNameValuePair.getName().equals(((BasicNameValuePair) this.o.get(a2)).getName())) {
-                    this.o.set(a2, basicNameValuePair);
-                } else {
-                    this.o.add(a2, basicNameValuePair);
-                }
-            } else if (a2 == size) {
-                this.o.add(a2, basicNameValuePair);
-            }
-        }
-    }
-
-    private int a(ArrayList arrayList, String str) {
-        int i = 0;
-        if (arrayList == null || str == null) {
-            return -1;
-        }
-        int size = arrayList.size();
-        int i2 = 0;
-        while (true) {
-            if (i >= size) {
-                break;
-            }
-            int compareTo = str.compareTo(((BasicNameValuePair) arrayList.get(i)).getName());
-            if (compareTo < 0) {
-                i2 = i;
-                break;
-            } else if (compareTo == 0) {
-                return -1;
-            } else {
-                i2 = i;
-                i++;
-            }
-        }
-        return i >= size ? size : i2;
-    }
-
-    public void b(boolean z) {
-        this.s = z;
-    }
-
-    public void c(boolean z) {
-        this.v = z;
-    }
-
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:19:0x0069 */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:24:0x0002 */
-    /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Type inference failed for: r1v0, types: [com.baidu.tieba.c.z] */
-    /* JADX WARN: Type inference failed for: r1v1 */
-    /* JADX WARN: Type inference failed for: r1v2 */
-    /* JADX WARN: Type inference failed for: r1v3, types: [java.lang.Exception] */
-    /* JADX WARN: Type inference failed for: r1v4, types: [java.lang.String] */
-    public static z c(Context context) {
-        z zVar;
-        ?? e2 = z.UNAVAIL;
-        try {
-            NetworkInfo activeNetworkInfo = ((ConnectivityManager) context.getSystemService("connectivity")).getActiveNetworkInfo();
-            if (!activeNetworkInfo.isAvailable()) {
-                zVar = z.UNAVAIL;
-                try {
-                    e2 = "NetWorkCore";
-                    af.a("NetWorkCore", "NetworkStateInfo", "UNAVAIL");
-                } catch (Exception e3) {
-                    e2 = e3;
-                }
-            } else if (activeNetworkInfo.getType() == 1) {
-                af.a("NetWorkCore", "NetworkStateInfo", "WIFI");
-                zVar = z.WIFI;
-            } else {
-                switch (((TelephonyManager) context.getSystemService("phone")).getNetworkType()) {
-                    case 0:
-                    case 1:
-                    case 2:
-                    case 4:
-                    case 7:
-                    case 11:
-                        af.a("NetWorkCore", "NetworkStateInfo", "TwoG");
-                        zVar = z.TwoG;
-                        break;
-                    case 3:
-                    case 5:
-                    case 6:
-                    case 8:
-                    case 9:
-                    case 10:
-                    case 12:
-                    case BdWebErrorView.HTTP_NOT_MODIFIED /* 13 */:
-                    case 14:
-                    case 15:
-                        af.a("NetWorkCore", "NetworkStateInfo", "ThreeG");
-                        zVar = z.ThreeG;
-                        break;
-                    default:
-                        af.a("NetWorkCore", "NetworkStateInfo-default", "TwoG");
-                        zVar = z.TwoG;
-                        break;
-                }
-            }
-            return zVar;
-        } catch (Exception e4) {
-            return e2;
-        }
     }
 }

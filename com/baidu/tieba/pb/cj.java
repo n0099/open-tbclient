@@ -1,22 +1,21 @@
 package com.baidu.tieba.pb;
 
-import android.widget.ListView;
+import android.graphics.Bitmap;
+import android.widget.ImageView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class cj implements Runnable {
+public class cj implements com.baidu.tieba.c.d {
     final /* synthetic */ SubPbActivity a;
+    private final /* synthetic */ ImageView b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public cj(SubPbActivity subPbActivity) {
+    public cj(SubPbActivity subPbActivity, ImageView imageView) {
         this.a = subPbActivity;
+        this.b = imageView;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        ListView listView;
-        int i;
-        listView = this.a.u;
-        i = this.a.B;
-        listView.setSelection(i + 1);
+    @Override // com.baidu.tieba.c.d
+    public void a(Bitmap bitmap, String str, boolean z) {
+        this.b.setImageBitmap(bitmap);
     }
 }

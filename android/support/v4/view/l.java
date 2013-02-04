@@ -8,14 +8,6 @@ public class l extends DataSetObserver implements ai, aj {
     private int b;
 
     @Override // android.support.v4.view.aj
-    public void a(int i, float f, int i2) {
-        if (f > 0.5f) {
-            i++;
-        }
-        this.a.a(i, f);
-    }
-
-    @Override // android.support.v4.view.aj
     public void a(int i) {
         if (this.b == 0) {
             this.a.a(this.a.a.getCurrentItem(), this.a.a.getAdapter());
@@ -23,13 +15,21 @@ public class l extends DataSetObserver implements ai, aj {
     }
 
     @Override // android.support.v4.view.aj
-    public void b(int i) {
-        this.b = i;
+    public void a(int i, float f, int i2) {
+        if (f > 0.5f) {
+            i++;
+        }
+        this.a.a(i, f);
     }
 
     @Override // android.support.v4.view.ai
     public void a(k kVar, k kVar2) {
         this.a.a(kVar, kVar2);
+    }
+
+    @Override // android.support.v4.view.aj
+    public void b(int i) {
+        this.b = i;
     }
 
     @Override // android.database.DataSetObserver

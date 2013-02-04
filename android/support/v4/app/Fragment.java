@@ -18,7 +18,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
-import com.baidu.zeus.bouncycastle.DERTags;
 import java.io.FileDescriptor;
 import java.io.PrintWriter;
 import java.util.HashMap;
@@ -73,9 +72,10 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
         /* JADX INFO: Access modifiers changed from: package-private */
         public SavedState(Parcel parcel, ClassLoader classLoader) {
             this.a = parcel.readBundle();
-            if (classLoader != null && this.a != null) {
-                this.a.setClassLoader(classLoader);
+            if (classLoader == null || this.a == null) {
+                return;
             }
+            this.a.setClassLoader(classLoader);
         }
 
         @Override // android.os.Parcelable
@@ -115,12 +115,12 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public final void e() {
-        if (this.m != null) {
-            this.P.restoreHierarchyState(this.m);
-            this.m = null;
-        }
+    public View a(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
+        return null;
+    }
+
+    public Animation a(int i, boolean z, int i2) {
+        return null;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -129,192 +129,28 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
         this.o = "android:fragment:" + this.n;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public final boolean f() {
-        return this.z > 0;
-    }
-
-    public final boolean equals(Object obj) {
-        return super.equals(obj);
-    }
-
-    public final int hashCode() {
-        return super.hashCode();
-    }
-
-    public String toString() {
-        StringBuilder sb = new StringBuilder((int) DERTags.TAGGED);
-        android.support.v4.b.a.a(this, sb);
-        if (this.n >= 0) {
-            sb.append(" #");
-            sb.append(this.n);
-        }
-        if (this.C != 0) {
-            sb.append(" id=0x");
-            sb.append(Integer.toHexString(this.C));
-        }
-        if (this.E != null) {
-            sb.append(" ");
-            sb.append(this.E);
-        }
-        sb.append('}');
-        return sb.toString();
-    }
-
-    public final g g() {
-        return this.B;
-    }
-
-    public final j h() {
-        return this.A;
-    }
-
-    public void b(boolean z) {
-    }
-
     public void a(int i, int i2, Intent intent) {
-    }
-
-    public LayoutInflater b(Bundle bundle) {
-        return this.B.getLayoutInflater();
-    }
-
-    public void a(Activity activity, AttributeSet attributeSet, Bundle bundle) {
-        this.L = true;
     }
 
     public void a(Activity activity) {
         this.L = true;
     }
 
-    public Animation a(int i, boolean z, int i2) {
-        return null;
+    public void a(Activity activity, AttributeSet attributeSet, Bundle bundle) {
+        this.L = true;
     }
 
     public void a(Bundle bundle) {
         this.L = true;
     }
 
-    public View a(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
-        return null;
-    }
-
-    public void a(View view, Bundle bundle) {
-    }
-
-    public View i() {
-        return this.O;
-    }
-
-    public void d(Bundle bundle) {
-        this.L = true;
-    }
-
-    public void b() {
-        this.L = true;
-        if (!this.T) {
-            this.T = true;
-            if (!this.U) {
-                this.U = true;
-                this.S = this.B.a(this.n, this.T, false);
-            }
-            if (this.S != null) {
-                this.S.b();
-            }
-        }
-    }
-
-    public void j() {
-        this.L = true;
-    }
-
-    public void e(Bundle bundle) {
-    }
-
-    @Override // android.content.ComponentCallbacks
-    public void onConfigurationChanged(Configuration configuration) {
-        this.L = true;
-    }
-
-    public void k() {
-        this.L = true;
-    }
-
-    public void c() {
-        this.L = true;
-    }
-
-    @Override // android.content.ComponentCallbacks
-    public void onLowMemory() {
-        this.L = true;
-    }
-
-    public void d() {
-        this.L = true;
-    }
-
-    public void l() {
-        this.L = true;
-        if (!this.U) {
-            this.U = true;
-            this.S = this.B.a(this.n, this.T, false);
-        }
-        if (this.S != null) {
-            this.S.h();
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void m() {
-        this.n = -1;
-        this.o = null;
-        this.t = false;
-        this.u = false;
-        this.v = false;
-        this.w = false;
-        this.x = false;
-        this.y = false;
-        this.z = 0;
-        this.A = null;
-        this.B = null;
-        this.C = 0;
-        this.D = 0;
-        this.E = null;
-        this.F = false;
-        this.G = false;
-        this.I = false;
-        this.S = null;
-        this.T = false;
-        this.U = false;
-    }
-
-    public void n() {
-        this.L = true;
+    public void a(Menu menu) {
     }
 
     public void a(Menu menu, MenuInflater menuInflater) {
     }
 
-    public void a(Menu menu) {
-    }
-
-    public void o() {
-    }
-
-    public boolean a(MenuItem menuItem) {
-        return false;
-    }
-
-    public void b(Menu menu) {
-    }
-
-    @Override // android.view.View.OnCreateContextMenuListener
-    public void onCreateContextMenu(ContextMenu contextMenu, View view, ContextMenu.ContextMenuInfo contextMenuInfo) {
-        g().onCreateContextMenu(contextMenu, view, contextMenuInfo);
-    }
-
-    public boolean b(MenuItem menuItem) {
-        return false;
+    public void a(View view, Bundle bundle) {
     }
 
     public void a(String str, FileDescriptor fileDescriptor, PrintWriter printWriter, String[] strArr) {
@@ -428,6 +264,152 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
         }
     }
 
+    public boolean a(MenuItem menuItem) {
+        return false;
+    }
+
+    public LayoutInflater b(Bundle bundle) {
+        return this.B.getLayoutInflater();
+    }
+
+    public void b() {
+        this.L = true;
+        if (this.T) {
+            return;
+        }
+        this.T = true;
+        if (!this.U) {
+            this.U = true;
+            this.S = this.B.a(this.n, this.T, false);
+        }
+        if (this.S != null) {
+            this.S.b();
+        }
+    }
+
+    public void b(Menu menu) {
+    }
+
+    public void b(boolean z) {
+    }
+
+    public boolean b(MenuItem menuItem) {
+        return false;
+    }
+
+    public void c() {
+        this.L = true;
+    }
+
+    public void d() {
+        this.L = true;
+    }
+
+    public void d(Bundle bundle) {
+        this.L = true;
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public final void e() {
+        if (this.m != null) {
+            this.P.restoreHierarchyState(this.m);
+            this.m = null;
+        }
+    }
+
+    public void e(Bundle bundle) {
+    }
+
+    public final boolean equals(Object obj) {
+        return super.equals(obj);
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public final boolean f() {
+        return this.z > 0;
+    }
+
+    public final g g() {
+        return this.B;
+    }
+
+    public final j h() {
+        return this.A;
+    }
+
+    public final int hashCode() {
+        return super.hashCode();
+    }
+
+    public View i() {
+        return this.O;
+    }
+
+    public void j() {
+        this.L = true;
+    }
+
+    public void k() {
+        this.L = true;
+    }
+
+    public void l() {
+        this.L = true;
+        if (!this.U) {
+            this.U = true;
+            this.S = this.B.a(this.n, this.T, false);
+        }
+        if (this.S != null) {
+            this.S.h();
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public void m() {
+        this.n = -1;
+        this.o = null;
+        this.t = false;
+        this.u = false;
+        this.v = false;
+        this.w = false;
+        this.x = false;
+        this.y = false;
+        this.z = 0;
+        this.A = null;
+        this.B = null;
+        this.C = 0;
+        this.D = 0;
+        this.E = null;
+        this.F = false;
+        this.G = false;
+        this.I = false;
+        this.S = null;
+        this.T = false;
+        this.U = false;
+    }
+
+    public void n() {
+        this.L = true;
+    }
+
+    public void o() {
+    }
+
+    @Override // android.content.ComponentCallbacks
+    public void onConfigurationChanged(Configuration configuration) {
+        this.L = true;
+    }
+
+    @Override // android.view.View.OnCreateContextMenuListener
+    public void onCreateContextMenu(ContextMenu contextMenu, View view, ContextMenu.ContextMenuInfo contextMenuInfo) {
+        g().onCreateContextMenu(contextMenu, view, contextMenuInfo);
+    }
+
+    @Override // android.content.ComponentCallbacks
+    public void onLowMemory() {
+        this.L = true;
+    }
+
     /* JADX INFO: Access modifiers changed from: package-private */
     public void p() {
         b();
@@ -450,10 +432,10 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
                 this.S = this.B.a(this.n, this.T, false);
             }
             if (this.S != null) {
-                if (!this.B.g) {
-                    this.S.c();
-                } else {
+                if (this.B.g) {
                     this.S.d();
+                } else {
+                    this.S.c();
                 }
             }
         }
@@ -465,5 +447,24 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
         if (this.S != null) {
             this.S.f();
         }
+    }
+
+    public String toString() {
+        StringBuilder sb = new StringBuilder(128);
+        android.support.v4.b.a.a(this, sb);
+        if (this.n >= 0) {
+            sb.append(" #");
+            sb.append(this.n);
+        }
+        if (this.C != 0) {
+            sb.append(" id=0x");
+            sb.append(Integer.toHexString(this.C));
+        }
+        if (this.E != null) {
+            sb.append(" ");
+            sb.append(this.E);
+        }
+        sb.append('}');
+        return sb.toString();
     }
 }

@@ -15,8 +15,8 @@ public class ae implements t {
     public void a(com.baidu.tieba.a.a aVar) {
         com.baidu.tieba.a.a aVar2;
         com.baidu.tieba.c.k.a(aVar);
-        aVar2 = this.a.T;
+        aVar2 = this.a.P;
         TiebaApplication.b(aVar2);
-        this.a.i();
+        this.a.g();
     }
 }

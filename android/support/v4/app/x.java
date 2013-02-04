@@ -28,7 +28,8 @@ public final class x implements android.support.v4.content.d {
     public void a() {
         if (this.i && this.j) {
             this.h = true;
-        } else if (!this.h) {
+        } else if (this.h) {
+        } else {
             this.h = true;
             if (w.a) {
                 Log.v("LoaderManager", "  Starting: " + this);
@@ -46,99 +47,6 @@ public final class x implements android.support.v4.content.d {
                 }
                 this.d.n();
             }
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void b() {
-        if (w.a) {
-            Log.v("LoaderManager", "  Retaining: " + this);
-        }
-        this.i = true;
-        this.j = this.h;
-        this.h = false;
-        this.c = null;
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void c() {
-        if (this.i) {
-            if (w.a) {
-                Log.v("LoaderManager", "  Finished Retaining: " + this);
-            }
-            this.i = false;
-            if (this.h != this.j && !this.h) {
-                e();
-            }
-        }
-        if (this.h && this.e && !this.k) {
-            b(this.d, this.g);
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void d() {
-        if (this.h && this.k) {
-            this.k = false;
-            if (this.e) {
-                b(this.d, this.g);
-            }
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void e() {
-        if (w.a) {
-            Log.v("LoaderManager", "  Stopping: " + this);
-        }
-        this.h = false;
-        if (!this.i && this.d != null && this.m) {
-            this.m = false;
-            this.d.a(this);
-            this.d.p();
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void f() {
-        String str;
-        if (w.a) {
-            Log.v("LoaderManager", "  Destroying: " + this);
-        }
-        this.l = true;
-        boolean z = this.f;
-        this.f = false;
-        if (this.c != null && this.d != null && this.e && z) {
-            if (w.a) {
-                Log.v("LoaderManager", "  Reseting: " + this);
-            }
-            if (this.o.d != null) {
-                String str2 = this.o.d.b.s;
-                this.o.d.b.s = "onLoaderReset";
-                str = str2;
-            } else {
-                str = null;
-            }
-            try {
-                this.c.a(this.d);
-            } finally {
-                if (this.o.d != null) {
-                    this.o.d.b.s = str;
-                }
-            }
-        }
-        this.c = null;
-        this.g = null;
-        this.e = false;
-        if (this.d != null) {
-            if (this.m) {
-                this.m = false;
-                this.d.a(this);
-            }
-            this.d.q();
-        }
-        if (this.n != null) {
-            this.n.f();
         }
     }
 
@@ -180,46 +88,11 @@ public final class x implements android.support.v4.content.d {
                 xVar2.f();
                 this.o.c.c(this.a);
             }
-            if (this.o.d != null && !this.o.a()) {
-                this.o.d.b.d();
+            if (this.o.d == null || this.o.a()) {
+                return;
             }
+            this.o.d.b.d();
         }
-    }
-
-    void b(android.support.v4.content.b bVar, Object obj) {
-        String str;
-        if (this.c != null) {
-            if (this.o.d == null) {
-                str = null;
-            } else {
-                String str2 = this.o.d.b.s;
-                this.o.d.b.s = "onLoadFinished";
-                str = str2;
-            }
-            try {
-                if (w.a) {
-                    Log.v("LoaderManager", "  onLoadFinished in " + bVar + ": " + bVar.c(obj));
-                }
-                this.c.a(bVar, obj);
-                this.f = true;
-            } finally {
-                if (this.o.d != null) {
-                    this.o.d.b.s = str;
-                }
-            }
-        }
-    }
-
-    public String toString() {
-        StringBuilder sb = new StringBuilder(64);
-        sb.append("LoaderInfo{");
-        sb.append(Integer.toHexString(System.identityHashCode(this)));
-        sb.append(" #");
-        sb.append(this.a);
-        sb.append(" : ");
-        android.support.v4.b.a.a(this.d, sb);
-        sb.append("}}");
-        return sb.toString();
     }
 
     public void a(String str, FileDescriptor fileDescriptor, PrintWriter printWriter, String[] strArr) {
@@ -268,5 +141,135 @@ public final class x implements android.support.v4.content.d {
             printWriter.println(":");
             this.n.a(str + "  ", fileDescriptor, printWriter, strArr);
         }
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public void b() {
+        if (w.a) {
+            Log.v("LoaderManager", "  Retaining: " + this);
+        }
+        this.i = true;
+        this.j = this.h;
+        this.h = false;
+        this.c = null;
+    }
+
+    void b(android.support.v4.content.b bVar, Object obj) {
+        String str;
+        if (this.c != null) {
+            if (this.o.d != null) {
+                String str2 = this.o.d.b.s;
+                this.o.d.b.s = "onLoadFinished";
+                str = str2;
+            } else {
+                str = null;
+            }
+            try {
+                if (w.a) {
+                    Log.v("LoaderManager", "  onLoadFinished in " + bVar + ": " + bVar.c(obj));
+                }
+                this.c.a(bVar, obj);
+                this.f = true;
+            } finally {
+                if (this.o.d != null) {
+                    this.o.d.b.s = str;
+                }
+            }
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public void c() {
+        if (this.i) {
+            if (w.a) {
+                Log.v("LoaderManager", "  Finished Retaining: " + this);
+            }
+            this.i = false;
+            if (this.h != this.j && !this.h) {
+                e();
+            }
+        }
+        if (this.h && this.e && !this.k) {
+            b(this.d, this.g);
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public void d() {
+        if (this.h && this.k) {
+            this.k = false;
+            if (this.e) {
+                b(this.d, this.g);
+            }
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public void e() {
+        if (w.a) {
+            Log.v("LoaderManager", "  Stopping: " + this);
+        }
+        this.h = false;
+        if (this.i || this.d == null || !this.m) {
+            return;
+        }
+        this.m = false;
+        this.d.a(this);
+        this.d.p();
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public void f() {
+        String str;
+        if (w.a) {
+            Log.v("LoaderManager", "  Destroying: " + this);
+        }
+        this.l = true;
+        boolean z = this.f;
+        this.f = false;
+        if (this.c != null && this.d != null && this.e && z) {
+            if (w.a) {
+                Log.v("LoaderManager", "  Reseting: " + this);
+            }
+            if (this.o.d != null) {
+                String str2 = this.o.d.b.s;
+                this.o.d.b.s = "onLoaderReset";
+                str = str2;
+            } else {
+                str = null;
+            }
+            try {
+                this.c.a(this.d);
+            } finally {
+                if (this.o.d != null) {
+                    this.o.d.b.s = str;
+                }
+            }
+        }
+        this.c = null;
+        this.g = null;
+        this.e = false;
+        if (this.d != null) {
+            if (this.m) {
+                this.m = false;
+                this.d.a(this);
+            }
+            this.d.q();
+        }
+        if (this.n != null) {
+            this.n.f();
+        }
+    }
+
+    public String toString() {
+        StringBuilder sb = new StringBuilder(64);
+        sb.append("LoaderInfo{");
+        sb.append(Integer.toHexString(System.identityHashCode(this)));
+        sb.append(" #");
+        sb.append(this.a);
+        sb.append(" : ");
+        android.support.v4.b.a.a(this.d, sb);
+        sb.append("}}");
+        return sb.toString();
     }
 }

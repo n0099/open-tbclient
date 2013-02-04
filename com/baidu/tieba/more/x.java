@@ -1,18 +1,17 @@
 package com.baidu.tieba.more;
 
 import android.view.View;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class x implements View.OnClickListener {
-    final /* synthetic */ BrowseSettingActivity a;
+class x implements View.OnClickListener {
+    final /* synthetic */ MoreActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public x(BrowseSettingActivity browseSettingActivity) {
-        this.a = browseSettingActivity;
+    public x(MoreActivity moreActivity) {
+        this.a = moreActivity;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        this.a.finish();
+        com.baidu.tieba.a.a(this.a, 0, "goto_more", false);
     }
 }

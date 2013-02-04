@@ -1,7 +1,7 @@
 package com.baidu.tieba.mention;
 
 import android.widget.ListView;
-import com.baidu.tieba.c.af;
+import com.baidu.tieba.c.ae;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class i implements Runnable {
@@ -27,19 +27,18 @@ public class i implements Runnable {
             int lastVisiblePosition = listView2.getLastVisiblePosition();
             for (int i = firstVisiblePosition; i <= lastVisiblePosition; i++) {
                 eVar = this.a.e;
-                if (i < eVar.getCount()) {
-                    eVar2 = this.a.e;
-                    com.baidu.tieba.a.p pVar = (com.baidu.tieba.a.p) eVar2.getItem(i);
-                    if (pVar != null && (d = pVar.i().d()) != null && d.length() > 0) {
-                        eVar3 = this.a.e;
-                        eVar3.e().d(d, new j(this));
-                    }
-                } else {
+                if (i >= eVar.getCount()) {
                     return;
+                }
+                eVar2 = this.a.e;
+                com.baidu.tieba.a.o oVar = (com.baidu.tieba.a.o) eVar2.getItem(i);
+                if (oVar != null && (d = oVar.i().d()) != null && d.length() > 0) {
+                    eVar3 = this.a.e;
+                    eVar3.e().d(d, new j(this));
                 }
             }
         } catch (Exception e) {
-            af.b("MentionView", "mGetImageRunnble.run", "error = " + e.getMessage());
+            ae.b("MentionView", "mGetImageRunnble.run", "error = " + e.getMessage());
         }
     }
 }

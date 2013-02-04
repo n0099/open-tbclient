@@ -13,14 +13,6 @@ class ax implements TextWatcher {
         this.a = register2Activity;
     }
 
-    @Override // android.text.TextWatcher
-    public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-    }
-
-    @Override // android.text.TextWatcher
-    public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-    }
-
     /* JADX WARN: Code restructure failed: missing block: B:19:0x006a, code lost:
         if (r4 != r0.getEditableText()) goto L22;
      */
@@ -61,89 +53,97 @@ class ax implements TextWatcher {
         RelativeLayout relativeLayout2;
         EditText editText9;
         RelativeLayout relativeLayout3;
-        editText = this.a.z;
+        editText = this.a.u;
         if (editable == editText.getEditableText()) {
             this.a.a(false);
         }
-        editText2 = this.a.x;
+        editText2 = this.a.s;
         if (editText2.length() > 0) {
-            editText7 = this.a.y;
+            editText7 = this.a.t;
             if (editText7.length() >= 6) {
-                editText8 = this.a.z;
+                editText8 = this.a.u;
                 if (editText8.length() > 0) {
-                    z = this.a.M;
+                    z = this.a.H;
                     if (z) {
-                        editText9 = this.a.A;
+                        editText9 = this.a.v;
                         if (editText9.length() <= 0) {
-                            relativeLayout3 = this.a.B;
+                            relativeLayout3 = this.a.w;
                             relativeLayout3.setEnabled(false);
-                            i = this.a.O;
-                            i2 = Register2Activity.h;
+                            i = this.a.J;
+                            i2 = Register2Activity.c;
                             if (i == i2) {
-                                editText6 = this.a.x;
+                                editText6 = this.a.s;
                             }
-                            i3 = this.a.O;
-                            i4 = Register2Activity.i;
+                            i3 = this.a.J;
+                            i4 = Register2Activity.d;
                             if (i3 == i4) {
-                                editText5 = this.a.y;
+                                editText5 = this.a.t;
                             }
-                            i5 = this.a.O;
-                            i6 = Register2Activity.j;
+                            i5 = this.a.J;
+                            i6 = Register2Activity.e;
                             if (i5 == i6) {
-                                editText4 = this.a.z;
+                                editText4 = this.a.u;
                             }
-                            i7 = this.a.O;
-                            i8 = Register2Activity.k;
+                            i7 = this.a.J;
+                            i8 = Register2Activity.f;
                             if (i7 == i8) {
-                                editText3 = this.a.A;
+                                editText3 = this.a.v;
                                 if (editable != editText3.getEditableText()) {
                                     return;
                                 }
-                                this.a.O = -1;
-                                this.a.s();
+                                this.a.J = -1;
+                                this.a.q();
                                 return;
                             }
                             return;
                         }
                     }
-                    relativeLayout2 = this.a.B;
+                    relativeLayout2 = this.a.w;
                     relativeLayout2.setEnabled(true);
-                    i = this.a.O;
-                    i2 = Register2Activity.h;
+                    i = this.a.J;
+                    i2 = Register2Activity.c;
                     if (i == i2) {
                     }
-                    i3 = this.a.O;
-                    i4 = Register2Activity.i;
+                    i3 = this.a.J;
+                    i4 = Register2Activity.d;
                     if (i3 == i4) {
                     }
-                    i5 = this.a.O;
-                    i6 = Register2Activity.j;
+                    i5 = this.a.J;
+                    i6 = Register2Activity.e;
                     if (i5 == i6) {
                     }
-                    i7 = this.a.O;
-                    i8 = Register2Activity.k;
+                    i7 = this.a.J;
+                    i8 = Register2Activity.f;
                     if (i7 == i8) {
                     }
                 }
             }
         }
-        relativeLayout = this.a.B;
+        relativeLayout = this.a.w;
         relativeLayout.setEnabled(false);
-        i = this.a.O;
-        i2 = Register2Activity.h;
+        i = this.a.J;
+        i2 = Register2Activity.c;
         if (i == i2) {
         }
-        i3 = this.a.O;
-        i4 = Register2Activity.i;
+        i3 = this.a.J;
+        i4 = Register2Activity.d;
         if (i3 == i4) {
         }
-        i5 = this.a.O;
-        i6 = Register2Activity.j;
+        i5 = this.a.J;
+        i6 = Register2Activity.e;
         if (i5 == i6) {
         }
-        i7 = this.a.O;
-        i8 = Register2Activity.k;
+        i7 = this.a.J;
+        i8 = Register2Activity.f;
         if (i7 == i8) {
         }
+    }
+
+    @Override // android.text.TextWatcher
+    public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
+    }
+
+    @Override // android.text.TextWatcher
+    public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
     }
 }

@@ -1,6 +1,8 @@
 package com.baidu.tieba.person;
 
 import android.view.View;
+import android.widget.Button;
+import com.baidu.tieba.R;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class d implements View.OnClickListener {
@@ -13,32 +15,28 @@ public class d implements View.OnClickListener {
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        int i;
-        int i2;
-        i iVar;
-        i iVar2;
-        int i3;
-        h hVar;
-        h hVar2;
-        h hVar3;
-        this.a.j = ((Integer) view.getTag()).intValue();
-        i = this.a.j;
-        if (i >= 0) {
-            i2 = this.a.j;
-            iVar = this.a.g;
-            if (i2 < iVar.getCount()) {
-                iVar2 = this.a.g;
-                i3 = this.a.j;
-                com.baidu.tieba.a.q qVar = (com.baidu.tieba.a.q) iVar2.getItem(i3);
-                hVar = this.a.k;
-                if (hVar != null) {
-                    hVar3 = this.a.k;
-                    hVar3.a();
-                }
-                this.a.k = new h(this.a, null);
-                hVar2 = this.a.k;
-                hVar2.execute(qVar);
-            }
+        g gVar;
+        g gVar2;
+        Button button;
+        g gVar3;
+        g gVar4;
+        Button button2;
+        g gVar5;
+        gVar = this.a.f;
+        if (gVar.a()) {
+            gVar2 = this.a.f;
+            gVar2.a(false);
+            button = this.a.e;
+            button.setText(R.string.edit);
+            gVar3 = this.a.f;
+            gVar3.notifyDataSetChanged();
+            return;
         }
+        gVar4 = this.a.f;
+        gVar4.a(true);
+        button2 = this.a.e;
+        button2.setText(R.string.done);
+        gVar5 = this.a.f;
+        gVar5.notifyDataSetChanged();
     }
 }

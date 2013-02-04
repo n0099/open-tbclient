@@ -17,23 +17,19 @@ public class b implements View.OnClickListener {
     public void onClick(View view) {
         Button button;
         Button button2;
-        button = this.a.h;
-        if (view != button) {
-            button2 = this.a.g;
-            if (view == button2) {
-                Activity currentActivity = this.a.getLocalActivityManager().getCurrentActivity();
-                if (currentActivity instanceof ReplyMeActivity) {
-                    ((ReplyMeActivity) currentActivity).i();
-                    return;
-                } else if (currentActivity instanceof AtMeActivity) {
-                    ((AtMeActivity) currentActivity).i();
-                    return;
-                } else {
-                    return;
-                }
-            }
+        button = this.a.d;
+        if (view == button) {
+            this.a.finish();
             return;
         }
-        this.a.finish();
+        button2 = this.a.c;
+        if (view == button2) {
+            Activity currentActivity = this.a.getLocalActivityManager().getCurrentActivity();
+            if (currentActivity instanceof ReplyMeActivity) {
+                ((ReplyMeActivity) currentActivity).g();
+            } else if (currentActivity instanceof AtMeActivity) {
+                ((AtMeActivity) currentActivity).g();
+            }
+        }
     }
 }

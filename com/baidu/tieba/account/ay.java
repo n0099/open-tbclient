@@ -17,21 +17,22 @@ class ay implements View.OnFocusChangeListener {
         EditText editText;
         EditText editText2;
         ImageView imageView = null;
-        editText = this.a.x;
+        editText = this.a.s;
         if (view == editText) {
-            imageView = this.a.o;
+            imageView = this.a.j;
         } else {
-            editText2 = this.a.z;
+            editText2 = this.a.u;
             if (view == editText2) {
-                imageView = this.a.p;
+                imageView = this.a.k;
             }
         }
-        if (imageView != null) {
-            if (z) {
-                imageView.setVisibility(0);
-            } else {
-                imageView.setVisibility(8);
-            }
+        if (imageView == null) {
+            return;
+        }
+        if (z) {
+            imageView.setVisibility(0);
+        } else {
+            imageView.setVisibility(8);
         }
     }
 }

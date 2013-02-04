@@ -1,6 +1,5 @@
 package android.support.v4.content;
 
-import com.baidu.zeus.bouncycastle.DERTags;
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.Executor;
 import java.util.concurrent.FutureTask;
@@ -13,7 +12,7 @@ import java.util.concurrent.atomic.AtomicBoolean;
 abstract class e {
     private static final ThreadFactory a = new f();
     private static final BlockingQueue b = new LinkedBlockingQueue(10);
-    public static final Executor d = new ThreadPoolExecutor(5, (int) DERTags.TAGGED, 1, TimeUnit.SECONDS, b, a);
+    public static final Executor d = new ThreadPoolExecutor(5, 128, 1, TimeUnit.SECONDS, b, a);
     private static final k c = new k(null);
     private static volatile Executor e = d;
     private volatile l h = l.PENDING;
@@ -21,14 +20,12 @@ abstract class e {
     private final m f = new g(this);
     private final FutureTask g = new h(this, this.f);
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public abstract Object a(Object... objArr);
-
     /* JADX INFO: Access modifiers changed from: private */
     public void c(Object obj) {
-        if (!this.i.get()) {
-            d(obj);
+        if (this.i.get()) {
+            return;
         }
+        d(obj);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -37,29 +34,14 @@ abstract class e {
         return obj;
     }
 
-    protected void b() {
-    }
-
-    protected void a(Object obj) {
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    public void b(Object... objArr) {
-    }
-
-    protected void b(Object obj) {
-        a();
-    }
-
-    protected void a() {
-    }
-
-    public final boolean c() {
-        return this.g.isCancelled();
-    }
-
-    public final boolean a(boolean z) {
-        return this.g.cancel(z);
+    /* JADX INFO: Access modifiers changed from: private */
+    public void e(Object obj) {
+        if (c()) {
+            b(obj);
+        } else {
+            a(obj);
+        }
+        this.h = l.FINISHED;
     }
 
     public final e a(Executor executor, Object... objArr) {
@@ -78,13 +60,31 @@ abstract class e {
         return this;
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void e(Object obj) {
-        if (c()) {
-            b(obj);
-        } else {
-            a(obj);
-        }
-        this.h = l.FINISHED;
+    /* JADX INFO: Access modifiers changed from: protected */
+    public abstract Object a(Object... objArr);
+
+    protected void a() {
+    }
+
+    protected void a(Object obj) {
+    }
+
+    public final boolean a(boolean z) {
+        return this.g.cancel(z);
+    }
+
+    protected void b() {
+    }
+
+    protected void b(Object obj) {
+        a();
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    public void b(Object... objArr) {
+    }
+
+    public final boolean c() {
+        return this.g.isCancelled();
     }
 }

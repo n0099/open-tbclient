@@ -12,7 +12,6 @@ import android.os.Message;
 import android.os.Messenger;
 import android.os.RemoteException;
 import android.util.Log;
-import com.baidu.zeus.bouncycastle.DERTags;
 import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes.dex */
@@ -95,15 +94,15 @@ public final class LocationClient {
             LocationClient.this.q = true;
             Log.d("baidu_location_client", "baidu location connected ...");
             try {
-                Message obtain = Message.obtain((Handler) null, 11);
+                Message obtain = Message.obtain((Handler) null, (int) LocationClient.y);
                 obtain.replyTo = LocationClient.this.i;
-                obtain.setData(LocationClient.this.m19if());
+                obtain.setData(LocationClient.this.m18if());
                 LocationClient.this.k.send(obtain);
                 LocationClient.this.q = true;
                 LocationClient.this.f38int = true;
                 j.a(LocationClient.f28for, "bindService ...");
                 if (LocationClient.this.l != null) {
-                    LocationClient.this.f36do.obtainMessage(4).sendToTarget();
+                    LocationClient.this.f36do.obtainMessage(LocationClient.B).sendToTarget();
                 }
             } catch (RemoteException e) {
             }
@@ -127,49 +126,49 @@ public final class LocationClient {
         public void handleMessage(Message message) {
             switch (message.what) {
                 case 1:
-                    LocationClient.this.m14for();
+                    LocationClient.this.m13for();
                     return;
                 case 2:
-                    LocationClient.this.m24int();
+                    LocationClient.this.m23int();
                     return;
                 case 3:
-                    LocationClient.this.m20if(message);
+                    LocationClient.this.m19if(message);
                     return;
-                case 4:
-                    LocationClient.this.m3byte();
+                case LocationClient.B /* 4 */:
+                    LocationClient.this.m2byte();
                     return;
-                case 5:
-                    LocationClient.this.m15for(message);
+                case LocationClient.m /* 5 */:
+                    LocationClient.this.m14for(message);
                     return;
-                case 6:
+                case LocationClient.o /* 6 */:
                     LocationClient.this.a(message);
                     return;
-                case 7:
-                    LocationClient.this.m8do();
+                case LocationClient.h /* 7 */:
+                    LocationClient.this.m7do();
                     return;
-                case 8:
+                case LocationClient.b /* 8 */:
                     LocationClient.this.onRegisterNotifyLocationListener(message);
                     return;
-                case 9:
+                case LocationClient.f /* 9 */:
                     LocationClient.this.onRegisterNotify(message);
                     return;
-                case 10:
+                case LocationClient.f30if /* 10 */:
                     LocationClient.this.onRemoveNotifyEvent(message);
                     return;
-                case 11:
-                    LocationClient.this.m28new();
+                case LocationClient.y /* 11 */:
+                    LocationClient.this.m27new();
                     return;
-                case 12:
-                    LocationClient.this.m30try();
+                case LocationClient.n /* 12 */:
+                    LocationClient.this.m29try();
                     return;
                 case 21:
                     LocationClient.this.a(message, 21);
                     return;
-                case DERTags.VISIBLE_STRING /* 26 */:
+                case 26:
                     LocationClient.this.a(message, 26);
                     return;
-                case DERTags.GENERAL_STRING /* 27 */:
-                    LocationClient.this.m9do(message);
+                case 27:
+                    LocationClient.this.m8do(message);
                     return;
                 case 54:
                     if (LocationClient.this.l.f53void) {
@@ -207,7 +206,7 @@ public final class LocationClient {
                     return;
                 }
                 j.a(LocationClient.f28for, "request location ...");
-                LocationClient.this.f36do.obtainMessage(4).sendToTarget();
+                LocationClient.this.f36do.obtainMessage(LocationClient.B).sendToTarget();
             }
         }
     }
@@ -282,14 +281,14 @@ public final class LocationClient {
     public void a(Message message, int i) {
         String string = message.getData().getString("locStr");
         j.a(f28for, "on receive new location : " + string);
-        j.m240if(f28for, "on receive new location : " + string);
+        j.m239if(f28for, "on receive new location : " + string);
         this.x = new BDLocation(string);
         a(i);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: byte  reason: not valid java name */
-    public void m3byte() {
+    public void m2byte() {
         if (this.k == null) {
             j.a(f28for, "server not connected");
             return;
@@ -319,7 +318,7 @@ public final class LocationClient {
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: do  reason: not valid java name */
-    public void m8do() {
+    public void m7do() {
         if (this.k == null) {
             return;
         }
@@ -338,7 +337,7 @@ public final class LocationClient {
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: do  reason: not valid java name */
-    public void m9do(Message message) {
+    public void m8do(Message message) {
         BDLocation bDLocation = new BDLocation(message.getData().getString("locStr"));
         if (this.c != null) {
             if (this.l != null && this.l.isDisableCache() && bDLocation.getLocType() == 65) {
@@ -350,11 +349,11 @@ public final class LocationClient {
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: for  reason: not valid java name */
-    public void m14for() {
+    public void m13for() {
         if (this.q) {
             return;
         }
-        j.m236for();
+        j.m235for();
         this.A = this.j.getPackageName();
         this.z = this.A + "_bdls_v2.9";
         j.a(f28for, this.z);
@@ -372,7 +371,7 @@ public final class LocationClient {
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: for  reason: not valid java name */
-    public void m15for(Message message) {
+    public void m14for(Message message) {
         if (message == null || message.obj == null) {
             return;
         }
@@ -385,7 +384,7 @@ public final class LocationClient {
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: if  reason: not valid java name */
-    public Bundle m19if() {
+    public Bundle m18if() {
         if (this.l == null) {
             return null;
         }
@@ -407,7 +406,7 @@ public final class LocationClient {
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: if  reason: not valid java name */
-    public void m20if(Message message) {
+    public void m19if(Message message) {
         j.a(f28for, "onSetOption...");
         if (message == null || message.obj == null) {
             j.a(f28for, "setOption, but msg.obj is null");
@@ -444,7 +443,7 @@ public final class LocationClient {
         try {
             Message obtain = Message.obtain((Handler) null, 15);
             obtain.replyTo = this.i;
-            obtain.setData(m19if());
+            obtain.setData(m18if());
             this.k.send(obtain);
             j.a(f28for, "change option ...");
         } catch (RemoteException e2) {
@@ -454,11 +453,11 @@ public final class LocationClient {
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: int  reason: not valid java name */
-    public void m24int() {
+    public void m23int() {
         if (!this.q || this.k == null) {
             return;
         }
-        Message obtain = Message.obtain((Handler) null, 12);
+        Message obtain = Message.obtain((Handler) null, (int) n);
         obtain.replyTo = this.i;
         try {
             this.k.send(obtain);
@@ -475,15 +474,15 @@ public final class LocationClient {
             } catch (Exception e2) {
             }
         }
-        this.f37else.m232if();
+        this.f37else.m231if();
         this.k = null;
-        j.m241int();
+        j.m240int();
         this.q = false;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: new  reason: not valid java name */
-    public void m28new() {
+    public void m27new() {
         if (this.k == null) {
             j.a(f28for, "server not connected");
             return;
@@ -499,7 +498,7 @@ public final class LocationClient {
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: try  reason: not valid java name */
-    public void m30try() {
+    public void m29try() {
         Message obtain = Message.obtain((Handler) null, 28);
         try {
             obtain.replyTo = this.i;
@@ -529,7 +528,7 @@ public final class LocationClient {
         if (message == null || message.obj == null) {
             return;
         }
-        this.f37else.m231if((BDNotifyListener) message.obj);
+        this.f37else.m230if((BDNotifyListener) message.obj);
     }
 
     public void onRegisterNotifyLocationListener(Message message) {
@@ -543,29 +542,29 @@ public final class LocationClient {
         if (message == null || message.obj == null) {
             return;
         }
-        this.f37else.m230do((BDNotifyListener) message.obj);
+        this.f37else.m229do((BDNotifyListener) message.obj);
     }
 
     public void registerLocationListener(BDLocationListener bDLocationListener) {
-        Message obtainMessage = this.f36do.obtainMessage(5);
+        Message obtainMessage = this.f36do.obtainMessage(m);
         obtainMessage.obj = bDLocationListener;
         obtainMessage.sendToTarget();
     }
 
     public void registerNotify(BDNotifyListener bDNotifyListener) {
-        Message obtainMessage = this.f36do.obtainMessage(9);
+        Message obtainMessage = this.f36do.obtainMessage(f);
         obtainMessage.obj = bDNotifyListener;
         obtainMessage.sendToTarget();
     }
 
     public void registerNotifyLocationListener(BDLocationListener bDLocationListener) {
-        Message obtainMessage = this.f36do.obtainMessage(8);
+        Message obtainMessage = this.f36do.obtainMessage(b);
         obtainMessage.obj = bDLocationListener;
         obtainMessage.sendToTarget();
     }
 
     public void removeNotifyEvent(BDNotifyListener bDNotifyListener) {
-        Message obtainMessage = this.f36do.obtainMessage(10);
+        Message obtainMessage = this.f36do.obtainMessage(f30if);
         obtainMessage.obj = bDNotifyListener;
         obtainMessage.sendToTarget();
     }
@@ -578,15 +577,15 @@ public final class LocationClient {
             return 2;
         }
         if (System.currentTimeMillis() - this.r < 1000) {
-            return 6;
+            return o;
         }
         j.a(f28for, "request location ...");
-        this.f36do.obtainMessage(4).sendToTarget();
+        this.f36do.obtainMessage(B).sendToTarget();
         return 0;
     }
 
     public void requestNotifyLocation() {
-        this.f36do.obtainMessage(11).sendToTarget();
+        this.f36do.obtainMessage(y).sendToTarget();
     }
 
     public int requestOfflineLocation() {
@@ -596,7 +595,7 @@ public final class LocationClient {
         if (this.C == null || this.C.size() < 1) {
             return 2;
         }
-        this.f36do.obtainMessage(12).sendToTarget();
+        this.f36do.obtainMessage(n).sendToTarget();
         return 0;
     }
 
@@ -608,14 +607,14 @@ public final class LocationClient {
             return 2;
         }
         if (System.currentTimeMillis() - this.f35char < 6000) {
-            return 6;
+            return o;
         }
         if (this.l.a >= 1) {
             j.a(f28for, "request location ...");
-            this.f36do.obtainMessage(7).sendToTarget();
+            this.f36do.obtainMessage(h).sendToTarget();
             return 0;
         }
-        return 7;
+        return h;
     }
 
     public void setForBaiduMap(boolean z) {
@@ -654,7 +653,7 @@ public final class LocationClient {
     }
 
     public void unRegisterLocationListener(BDLocationListener bDLocationListener) {
-        Message obtainMessage = this.f36do.obtainMessage(6);
+        Message obtainMessage = this.f36do.obtainMessage(o);
         obtainMessage.obj = bDLocationListener;
         obtainMessage.sendToTarget();
     }

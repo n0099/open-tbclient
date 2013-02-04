@@ -13,6 +13,6 @@ public class av implements t {
     public void a(com.baidu.tieba.a.a aVar) {
         ReLoginShareActivity reLoginShareActivity;
         reLoginShareActivity = this.a.a;
-        reLoginShareActivity.k();
+        reLoginShareActivity.i();
     }
 }

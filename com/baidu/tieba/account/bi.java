@@ -13,7 +13,7 @@ public class bi implements DialogInterface.OnCancelListener {
 
     @Override // android.content.DialogInterface.OnCancelListener
     public void onCancel(DialogInterface dialogInterface) {
-        this.a.c();
-        this.a.o();
+        this.a.b();
+        this.a.m();
     }
 }

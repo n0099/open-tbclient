@@ -35,7 +35,7 @@ class d {
             for (int i5 = 0; i5 < length2; i5++) {
                 bArr2[length + i5] = (byte) str2.charAt(i5);
             }
-            return new String(m116if(bArr2));
+            return new String(m115if(bArr2));
         } catch (Exception e) {
             e.printStackTrace();
             return "UnsupportedEncodingException";
@@ -63,7 +63,7 @@ class d {
     }
 
     /* renamed from: if  reason: not valid java name */
-    private static char[] m116if(byte[] bArr) {
+    private static char[] m115if(byte[] bArr) {
         boolean z;
         boolean z2;
         char[] cArr = new char[((bArr.length + 2) / 3) * 4];

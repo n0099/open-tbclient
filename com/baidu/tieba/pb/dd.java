@@ -1,66 +1,67 @@
 package com.baidu.tieba.pb;
 
-import android.content.Intent;
 import android.os.AsyncTask;
-import com.baidu.tieba.R;
-import java.util.List;
+import com.baidu.tieba.write.VcodeActivity;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class dd extends AsyncTask {
     final /* synthetic */ SubPbActivity a;
-    private com.baidu.tieba.c.t b = null;
-    private String c;
-    private String d;
-    private String e;
-    private String f;
-    private int g;
+    private com.baidu.tieba.b.u b;
+    private com.baidu.tieba.c.t c = null;
+    private boolean d = false;
 
-    public dd(SubPbActivity subPbActivity, String str, String str2, String str3, String str4, int i) {
+    public dd(SubPbActivity subPbActivity, com.baidu.tieba.b.u uVar) {
         this.a = subPbActivity;
-        this.c = str;
-        this.d = str2;
-        this.e = str3;
-        this.f = str4;
-        this.g = i;
+        this.b = null;
+        this.b = uVar;
+    }
+
+    private void a(int i, String str, String str2) {
+        if (i != 5 && i != 6) {
+            this.a.b(str);
+            return;
+        }
+        com.baidu.tieba.a.av avVar = new com.baidu.tieba.a.av();
+        avVar.a(str2);
+        if (avVar.b() == null) {
+            this.a.b(str);
+            return;
+        }
+        this.b.h(avVar.a());
+        this.b.i(avVar.b());
+        VcodeActivity.a(this.a, this.b, 1200005);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.os.AsyncTask
     /* renamed from: a */
-    public String doInBackground(String... strArr) {
-        int i;
-        this.b = new com.baidu.tieba.c.t(strArr[0]);
-        this.b.a("fid", this.c);
-        this.b.a("word", this.d);
-        this.b.a("z", this.e);
-        this.b.a("pid", this.f);
-        if (this.g == 0) {
-            this.b.a("isfloor", "0");
-            this.b.a("src", "1");
-        } else {
-            this.b.a("isfloor", "1");
-            this.b.a("src", "3");
-        }
-        i = this.a.N;
-        if (i == 0) {
-            this.b.a("is_vipdel", "1");
-        } else {
-            this.b.a("is_vipdel", "0");
-        }
-        this.b.d(true);
-        this.b.i();
-        if (this.b.b()) {
+    public String doInBackground(Integer... numArr) {
+        if (this.d) {
             return null;
         }
-        return this.b.f();
+        this.c = new com.baidu.tieba.c.t("http://c.tieba.baidu.com/c/c/post/add");
+        this.c.a("anonymous", "0");
+        this.c.a("fid", this.b.f());
+        this.c.a("kw", this.b.g());
+        this.c.a("content", this.b.c());
+        this.c.a("tid", this.b.d());
+        if (this.b.i() != null && this.b.i().length() > 0) {
+            this.c.a("vcode", this.b.i());
+        }
+        this.c.a("quote_id", this.b.e());
+        this.c.a("floor_num", String.valueOf(this.b.h()));
+        this.c.d(true);
+        return this.c.i();
     }
 
     public void a() {
-        if (this.b != null) {
-            this.b.g();
+        this.a.F = null;
+        this.a.c();
+        this.d = true;
+        if (this.c != null) {
+            this.c.g();
         }
-        this.a.af = null;
         super.cancel(true);
     }
 
@@ -69,41 +70,15 @@ public class dd extends AsyncTask {
     @Override // android.os.AsyncTask
     /* renamed from: a */
     public void onPostExecute(String str) {
-        com.baidu.tieba.b.t tVar;
-        List list;
-        dh dhVar;
         super.onPostExecute(str);
-        this.a.af = null;
-        tVar = this.a.g;
-        tVar.a(false);
-        if (this.b != null) {
-            if (str == null) {
-                this.a.b(this.a.getString(R.string.success));
-                if (this.g != 0) {
-                    list = this.a.K;
-                    int size = list.size();
-                    int i = 0;
-                    while (true) {
-                        if (i >= size) {
-                            break;
-                        } else if (!this.f.equals(((com.baidu.tieba.a.an) list.get(i)).a())) {
-                            i++;
-                        } else {
-                            list.remove(i);
-                            break;
-                        }
-                    }
-                    dhVar = this.a.h;
-                    dhVar.notifyDataSetChanged();
-                    return;
-                }
-                Intent intent = new Intent(this.a, PbActivity.class);
-                intent.putExtra("del_post_id", this.f);
-                this.a.setResult(-1, intent);
-                this.a.a();
-                return;
+        this.a.c();
+        this.a.F = null;
+        if (this.c != null) {
+            if (this.c.b()) {
+                this.a.m();
+            } else {
+                a(this.c.d(), this.c.f(), str);
             }
-            this.a.b(str);
         }
     }
 }

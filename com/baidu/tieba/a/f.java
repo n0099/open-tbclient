@@ -1,31 +1,36 @@
 package com.baidu.tieba.a;
 /* loaded from: classes.dex */
 public class f {
-    private String a;
-    private long b;
+    private e a;
+    private boolean b;
     private int c;
-
-    public String a() {
-        return this.a;
-    }
-
-    public void a(String str) {
-        this.a = str;
-    }
-
-    public long b() {
-        return this.b;
-    }
-
-    public void a(long j) {
-        this.b = j;
-    }
-
-    public int c() {
-        return this.c;
-    }
+    private String d;
 
     public void a(int i) {
         this.c = i;
+    }
+
+    public void a(e eVar) {
+        this.a = eVar;
+    }
+
+    public void a(String str) {
+        this.d = str;
+    }
+
+    public void a(boolean z) {
+        this.b = z;
+    }
+
+    public boolean a() {
+        return this.b;
+    }
+
+    public int b() {
+        return this.c;
+    }
+
+    public String c() {
+        return this.d;
     }
 }

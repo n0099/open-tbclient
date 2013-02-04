@@ -1,9 +1,10 @@
 package com.baidu.tieba.home;
 
-import android.view.View;
-import com.baidu.tieba.frs.FrsActivity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class q implements View.OnClickListener {
+public class q implements DialogInterface.OnClickListener {
     final /* synthetic */ HomeActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -11,17 +12,25 @@ class q implements View.OnClickListener {
         this.a = homeActivity;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        com.baidu.tieba.a.ad adVar = null;
-        if (view.getTag() instanceof com.baidu.tieba.a.ad) {
-            adVar = (com.baidu.tieba.a.ad) view.getTag();
+    @Override // android.content.DialogInterface.OnClickListener
+    public void onClick(DialogInterface dialogInterface, int i) {
+        AlertDialog alertDialog;
+        t tVar;
+        com.baidu.tieba.a.ac acVar;
+        t tVar2;
+        if (i != -1) {
+            alertDialog = this.a.j;
+            alertDialog.dismiss();
+            return;
         }
-        if (adVar != null) {
-            String b = adVar.b();
-            if (com.baidu.tieba.c.ae.d(b)) {
-                FrsActivity.a(this.a, b, "tb_forumlist");
-            }
+        tVar = this.a.i;
+        if (tVar == null) {
+            HomeActivity homeActivity = this.a;
+            HomeActivity homeActivity2 = this.a;
+            acVar = this.a.l;
+            homeActivity.i = new t(homeActivity2, acVar);
+            tVar2 = this.a.i;
+            tVar2.execute(new com.baidu.tieba.a.ac[0]);
         }
     }
 }

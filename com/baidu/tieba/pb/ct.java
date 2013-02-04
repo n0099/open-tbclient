@@ -1,33 +1,24 @@
 package com.baidu.tieba.pb;
 
-import android.widget.CompoundButton;
-import com.baidu.tieba.R;
+import android.app.Dialog;
+import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ct implements CompoundButton.OnCheckedChangeListener {
+public class ct implements View.OnClickListener {
     final /* synthetic */ SubPbActivity a;
+    private final /* synthetic */ String b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ct(SubPbActivity subPbActivity) {
+    public ct(SubPbActivity subPbActivity, String str) {
         this.a = subPbActivity;
+        this.b = str;
     }
 
-    @Override // android.widget.CompoundButton.OnCheckedChangeListener
-    public void onCheckedChanged(CompoundButton compoundButton, boolean z) {
-        if (z) {
-            switch (compoundButton.getId()) {
-                case R.id.radio_button_1day /* 2131230951 */:
-                    this.a.U = 1;
-                    return;
-                case R.id.radio_button_3day /* 2131230952 */:
-                    this.a.U = 3;
-                    return;
-                case R.id.radio_button_10day /* 2131230953 */:
-                    this.a.U = 10;
-                    return;
-                default:
-                    return;
-            }
-        }
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        Dialog dialog;
+        this.a.d(this.b);
+        dialog = this.a.R;
+        dialog.dismiss();
     }
 }

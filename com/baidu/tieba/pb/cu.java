@@ -1,6 +1,5 @@
 package com.baidu.tieba.pb;
 
-import android.app.Dialog;
 import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
@@ -14,8 +13,6 @@ public class cu implements View.OnClickListener {
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        Dialog dialog;
-        dialog = this.a.S;
-        dialog.dismiss();
+        this.a.p();
     }
 }

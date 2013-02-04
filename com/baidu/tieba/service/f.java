@@ -1,76 +1,19 @@
 package com.baidu.tieba.service;
 
-import android.os.AsyncTask;
-import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.a.ao;
-import com.baidu.tieba.c.af;
-import com.baidu.tieba.c.t;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
+import android.webkit.WebView;
+import com.baidu.tieba.c.ae;
 /* loaded from: classes.dex */
-public class f extends AsyncTask {
-    t a;
-    final /* synthetic */ MessagePullService b;
-
-    private f(MessagePullService messagePullService) {
-        this.b = messagePullService;
-        this.a = null;
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ f(MessagePullService messagePullService, f fVar) {
-        this(messagePullService);
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // android.os.AsyncTask
-    /* renamed from: a */
-    public String doInBackground(String... strArr) {
-        af.a(getClass().getName(), "doBackGround", "pull message...");
+public class f extends BroadcastReceiver {
+    @Override // android.content.BroadcastReceiver
+    public void onReceive(Context context, Intent intent) {
         try {
-            this.a = new t("http://c.tieba.baidu.com/c/m/getmsg");
-            this.a.a("message_id", String.valueOf(TiebaApplication.b().ay()));
-            return this.a.i();
+            WebView.disablePlatformNotifications();
+            WebView.enablePlatformNotifications();
         } catch (Exception e) {
-            af.b(getClass().getName(), "doBackground", e.toString());
-            return null;
+            ae.b(getClass().getName(), "onReceive", e.getMessage());
         }
-    }
-
-    public void a() {
-        this.b.a = null;
-        if (this.a != null) {
-            this.a.g();
-        }
-        super.cancel(true);
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // android.os.AsyncTask
-    /* renamed from: a */
-    public void onPostExecute(String str) {
-        ao aoVar;
-        ao aoVar2;
-        ao aoVar3;
-        ao aoVar4;
-        super.onPostExecute(str);
-        if (this.a.c()) {
-            af.a(getClass().getName(), "onPostExecute", "result=" + str);
-            if (this.a.b()) {
-                aoVar = this.b.b;
-                aoVar.a(str);
-                aoVar2 = this.b.b;
-                if (aoVar2.a() > TiebaApplication.b().ay()) {
-                    TiebaApplication b = TiebaApplication.b();
-                    aoVar3 = this.b.b;
-                    b.g(aoVar3.a());
-                    MessagePullService messagePullService = this.b;
-                    aoVar4 = this.b.b;
-                    MessagePullService.a(messagePullService, aoVar4);
-                }
-            }
-        }
-        this.b.a = null;
     }
 }

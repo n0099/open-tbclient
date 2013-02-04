@@ -21,44 +21,44 @@ public class n extends AsyncTask {
         this(activationActivity);
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // android.os.AsyncTask
+    /* renamed from: a */
+    public Boolean doInBackground(String... strArr) {
+        com.baidu.tieba.a.ao aoVar;
+        boolean z = false;
+        try {
+            this.b = new com.baidu.tieba.c.t("http://c.tieba.baidu.com/c/s/getsmscode");
+            com.baidu.tieba.c.t tVar = this.b;
+            aoVar = this.a.q;
+            tVar.a("phonenum", aoVar.c());
+            this.b.i();
+            if (this.b.b()) {
+                z = true;
+            }
+        } catch (Exception e) {
+            com.baidu.tieba.c.ae.b(getClass().getName(), "doInBackground", e.getMessage());
+        }
+        return Boolean.valueOf(z);
+    }
+
     public void a() {
         ProgressBar progressBar;
         EditText editText;
         RelativeLayout relativeLayout;
-        this.a.n = null;
-        progressBar = this.a.g;
+        this.a.m = null;
+        progressBar = this.a.f;
         progressBar.setVisibility(8);
-        editText = this.a.k;
+        editText = this.a.j;
         if (editText.length() == 6) {
-            relativeLayout = this.a.l;
+            relativeLayout = this.a.k;
             relativeLayout.setEnabled(true);
         }
         if (this.b != null) {
             this.b.g();
         }
         super.cancel(true);
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // android.os.AsyncTask
-    /* renamed from: a */
-    public Boolean doInBackground(String... strArr) {
-        com.baidu.tieba.a.ap apVar;
-        boolean z = false;
-        try {
-            this.b = new com.baidu.tieba.c.t("http://c.tieba.baidu.com/c/s/getsmscode");
-            com.baidu.tieba.c.t tVar = this.b;
-            apVar = this.a.r;
-            tVar.a("phonenum", apVar.c());
-            this.b.i();
-            if (this.b.b()) {
-                z = true;
-            }
-        } catch (Exception e) {
-            com.baidu.tieba.c.af.b(getClass().getName(), "doInBackground", e.getMessage());
-        }
-        return Boolean.valueOf(z);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -72,25 +72,26 @@ public class n extends AsyncTask {
         TextView textView2;
         RelativeLayout relativeLayout;
         super.onPostExecute(bool);
-        this.a.n = null;
-        progressBar = this.a.g;
+        this.a.m = null;
+        progressBar = this.a.f;
         progressBar.setVisibility(8);
-        editText = this.a.k;
+        editText = this.a.j;
         if (editText.length() == 6) {
-            relativeLayout = this.a.l;
+            relativeLayout = this.a.k;
             relativeLayout.setEnabled(true);
         }
         if (bool.booleanValue()) {
-            this.a.i();
+            this.a.g();
             return;
         }
         String f = this.b.f();
-        if (f != null && f.length() > 0) {
-            textView = this.a.j;
-            textView.setVisibility(0);
-            textView2 = this.a.j;
-            textView2.setText(f);
+        if (f == null || f.length() <= 0) {
+            return;
         }
+        textView = this.a.i;
+        textView.setVisibility(0);
+        textView2 = this.a.i;
+        textView2.setText(f);
     }
 
     @Override // android.os.AsyncTask
@@ -99,13 +100,13 @@ public class n extends AsyncTask {
         TextView textView;
         TextView textView2;
         RelativeLayout relativeLayout;
-        progressBar = this.a.g;
+        progressBar = this.a.f;
         progressBar.setVisibility(0);
-        textView = this.a.j;
+        textView = this.a.i;
         textView.setVisibility(4);
-        textView2 = this.a.j;
+        textView2 = this.a.i;
         textView2.setText((CharSequence) null);
-        relativeLayout = this.a.l;
+        relativeLayout = this.a.k;
         relativeLayout.setEnabled(false);
         super.onPreExecute();
     }

@@ -1,29 +1,35 @@
 package com.baidu.tieba.b;
 
-import com.baidu.tieba.a.am;
+import com.baidu.tieba.c.ae;
+import java.util.ArrayList;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class s {
-    private am a = new am();
-    private boolean b = true;
-    private String c = null;
+    private ArrayList a = new ArrayList();
+
+    public ArrayList a() {
+        return this.a;
+    }
 
     public void a(String str) {
-        this.c = str;
+        try {
+            a(new JSONObject(str));
+        } catch (Exception e) {
+            ae.b("BarlistModel", "parserJson", "error = " + e.getMessage());
+        }
     }
 
-    public String a() {
-        return this.c;
-    }
-
-    public void a(boolean z) {
-        this.b = z;
-    }
-
-    public boolean b() {
-        return this.b;
-    }
-
-    public am c() {
-        return this.a;
+    public void a(JSONObject jSONObject) {
+        try {
+            JSONArray optJSONArray = jSONObject.optJSONArray("fname");
+            if (optJSONArray != null) {
+                for (int i = 0; i < optJSONArray.length(); i++) {
+                    this.a.add(optJSONArray.getString(i));
+                }
+            }
+        } catch (Exception e) {
+            ae.b("BarlistModel", "parserJson", "error = " + e.getMessage());
+        }
     }
 }

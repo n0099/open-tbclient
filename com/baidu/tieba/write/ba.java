@@ -8,11 +8,31 @@ import com.baidu.tieba.R;
 import java.io.File;
 /* loaded from: classes.dex */
 public class ba {
+    private static Bitmap a(int i) {
+        try {
+            return com.baidu.tieba.c.e.a("camera.jpg", i);
+        } catch (Exception e) {
+            com.baidu.tieba.c.ae.b("WriteUtil", "photoResult", "error = " + e.getMessage());
+            return null;
+        }
+    }
+
+    public static Bitmap a(int i, Context context, Uri uri, int i2) {
+        return i == 1200001 ? a(i2) : a(context, uri, i2);
+    }
+
+    private static Bitmap a(Context context, Uri uri, int i) {
+        try {
+            return com.baidu.tieba.c.e.a(context, uri, i);
+        } catch (Exception e) {
+            com.baidu.tieba.c.ae.b("WriteUtil", "AlbumImageResult", "error = " + e.getMessage());
+            return null;
+        }
+    }
+
     public static void a(com.baidu.tieba.e eVar) {
         try {
-            if (!com.baidu.tieba.c.o.a()) {
-                eVar.b(com.baidu.tieba.c.o.b());
-            } else {
+            if (com.baidu.tieba.c.o.a()) {
                 File e = com.baidu.tieba.c.o.e("camera.jpg");
                 if (e != null) {
                     Uri fromFile = Uri.fromFile(e);
@@ -22,9 +42,11 @@ public class ba {
                 } else {
                     eVar.b(eVar.getString(R.string.error_sd_error));
                 }
+            } else {
+                eVar.b(com.baidu.tieba.c.o.b());
             }
         } catch (Exception e2) {
-            com.baidu.tieba.c.af.b("WriteUtil", "takePhoto", "error = " + e2.getMessage());
+            com.baidu.tieba.c.ae.b("WriteUtil", "takePhoto", "error = " + e2.getMessage());
         }
     }
 
@@ -35,32 +57,7 @@ public class ba {
             intent.setAction("android.intent.action.GET_CONTENT");
             eVar.startActivityForResult(intent, 1200002);
         } catch (Exception e) {
-            com.baidu.tieba.c.af.b("WriteUtil", "getAlbumImage", "error = " + e.getMessage());
+            com.baidu.tieba.c.ae.b("WriteUtil", "getAlbumImage", "error = " + e.getMessage());
         }
-    }
-
-    private static Bitmap a(int i) {
-        try {
-            return com.baidu.tieba.c.e.a("camera.jpg", i);
-        } catch (Exception e) {
-            com.baidu.tieba.c.af.b("WriteUtil", "photoResult", "error = " + e.getMessage());
-            return null;
-        }
-    }
-
-    private static Bitmap a(Context context, Uri uri, int i) {
-        try {
-            return com.baidu.tieba.c.e.a(context, uri, i);
-        } catch (Exception e) {
-            com.baidu.tieba.c.af.b("WriteUtil", "AlbumImageResult", "error = " + e.getMessage());
-            return null;
-        }
-    }
-
-    public static Bitmap a(int i, Context context, Uri uri, int i2) {
-        if (i == 1200001) {
-            return a(i2);
-        }
-        return a(context, uri, i2);
     }
 }

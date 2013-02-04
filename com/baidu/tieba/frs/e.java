@@ -16,13 +16,14 @@ class e implements com.baidu.tieba.c.d {
     public void a(Bitmap bitmap, String str, boolean z) {
         FrsActivity frsActivity;
         ListView listView;
-        if (bitmap != null) {
-            frsActivity = this.a.a;
-            listView = frsActivity.w;
-            View findViewWithTag = listView.findViewWithTag(str);
-            if (findViewWithTag != null) {
-                findViewWithTag.invalidate();
-            }
+        if (bitmap == null) {
+            return;
+        }
+        frsActivity = this.a.a;
+        listView = frsActivity.v;
+        View findViewWithTag = listView.findViewWithTag(str);
+        if (findViewWithTag != null) {
+            findViewWithTag.invalidate();
         }
     }
 }

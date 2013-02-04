@@ -1,27 +1,21 @@
 package com.baidu.tieba.person;
 
-import android.view.View;
-import com.baidu.tieba.pb.PbActivity;
-import com.baidu.tieba.pb.SubPbActivity;
+import android.graphics.Bitmap;
+import android.widget.ImageView;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class af implements View.OnClickListener {
-    final /* synthetic */ ad a;
-    private final /* synthetic */ com.baidu.tieba.b.k b;
+public class af implements com.baidu.tieba.c.d {
+    final /* synthetic */ PersonChangeActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public af(ad adVar, com.baidu.tieba.b.k kVar) {
-        this.a = adVar;
-        this.b = kVar;
+    public af(PersonChangeActivity personChangeActivity) {
+        this.a = personChangeActivity;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        if (this.b.a() == 2) {
-            PbActivity.a(this.a.a, this.b.g(), "");
-        } else if (this.b.i()) {
-            SubPbActivity.a(this.a.a, this.b.g(), this.b.h(), true);
-        } else {
-            PbActivity.a(this.a.a, this.b.g(), this.b.h(), "");
-        }
+    @Override // com.baidu.tieba.c.d
+    public void a(Bitmap bitmap, String str, boolean z) {
+        ImageView imageView;
+        imageView = this.a.c;
+        imageView.setImageBitmap(bitmap);
     }
 }

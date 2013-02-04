@@ -2,42 +2,25 @@ package com.baidu.tieba.account;
 
 import android.os.Bundle;
 import android.widget.Button;
-import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.baidu.tieba.R;
-import com.baidu.zeus.NotificationProxy;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 /* loaded from: classes.dex */
 public class ProtocolActivity extends com.baidu.tieba.e {
-    private Button f = null;
-    private TextView g = null;
-    RelativeLayout c = null;
-    LinearLayout d = null;
-    TextView e = null;
+    private Button b = null;
+    private TextView c = null;
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.e, android.app.Activity
-    public void onCreate(Bundle bundle) {
-        super.onCreate(bundle);
-        setContentView(R.layout.account_protocol_activity);
-        i();
-    }
-
-    /* JADX WARN: Removed duplicated region for block: B:37:0x008f A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:38:0x006e A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private void i() {
+    private void g() {
         BufferedReader bufferedReader;
-        this.c = (RelativeLayout) findViewById(R.id.container);
-        this.d = (LinearLayout) findViewById(R.id.title);
-        this.e = (TextView) findViewById(R.id.title_text);
-        this.f = (Button) findViewById(R.id.back);
-        this.f.setOnClickListener(new ai(this));
-        this.g = (TextView) findViewById(R.id.text);
-        StringBuilder sb = new StringBuilder((int) NotificationProxy.MAX_URL_LENGTH);
+        this.b = (Button) findViewById(R.id.back);
+        this.b.setOnClickListener(new ai(this));
+        this.c = (TextView) findViewById(R.id.text);
+        StringBuilder sb = new StringBuilder(1024);
         BufferedReader bufferedReader2 = null;
         try {
             bufferedReader = new BufferedReader(new InputStreamReader(getResources().openRawResource(R.raw.baidu_protocol), "unicode"));
@@ -60,7 +43,7 @@ public class ProtocolActivity extends com.baidu.tieba.e {
                                 e2.printStackTrace();
                             }
                         }
-                        this.g.setText(sb.toString());
+                        this.c.setText(sb.toString());
                     }
                 } catch (Throwable th) {
                     th = th;
@@ -91,18 +74,14 @@ public class ProtocolActivity extends com.baidu.tieba.e {
             }
             throw th;
         }
-        this.g.setText(sb.toString());
+        this.c.setText(sb.toString());
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.e
-    public void b(int i) {
-        super.b(i);
-        com.baidu.tieba.c.ad.c(this.e, i);
-        com.baidu.tieba.c.ad.c((TextView) this.f, i);
-        com.baidu.tieba.c.ad.b(this.c, i);
-        com.baidu.tieba.c.ad.c(this.d, i);
-        com.baidu.tieba.c.ad.e((TextView) this.f, i);
-        com.baidu.tieba.c.ad.b(this.g, i);
+    @Override // com.baidu.tieba.e, android.app.Activity
+    public void onCreate(Bundle bundle) {
+        super.onCreate(bundle);
+        setContentView(R.layout.account_protocol_activity);
+        g();
     }
 }

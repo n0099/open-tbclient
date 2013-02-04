@@ -1,46 +1,39 @@
 package com.baidu.tieba.a;
 
-import java.util.ArrayList;
-import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
-public class y extends d {
-    private z a;
-    private ArrayList b;
+public class y extends c {
+    final /* synthetic */ x a;
+    private String b = null;
+    private String c = null;
+    private String d = null;
+    private String e = null;
 
-    public y() {
-        this.a = null;
-        this.b = null;
-        this.a = new z(this);
-        this.b = new ArrayList();
+    public y(x xVar) {
+        this.a = xVar;
     }
 
-    public z a() {
-        return this.a;
+    public String a() {
+        return this.c;
     }
 
-    public ArrayList b() {
-        return this.b;
-    }
-
-    @Override // com.baidu.tieba.a.d
+    @Override // com.baidu.tieba.a.c
     public void a(JSONObject jSONObject) {
         try {
-            JSONArray optJSONArray = jSONObject.optJSONArray("zlist");
-            if (optJSONArray != null) {
-                int length = optJSONArray.length();
-                for (int i = 0; i < length; i++) {
-                    JSONObject optJSONObject = optJSONArray.optJSONObject(i);
-                    if (optJSONObject != null) {
-                        ac acVar = new ac(this);
-                        acVar.a(optJSONObject);
-                        this.b.add(acVar);
-                    }
-                }
-            }
-            this.a.a(jSONObject.optJSONObject("area"));
+            this.b = jSONObject.optString("provice");
+            this.c = jSONObject.optString("city");
+            this.d = jSONObject.optString("district");
+            this.e = jSONObject.optString("street");
         } catch (Exception e) {
-            com.baidu.tieba.c.af.b(getClass().getName(), "parserJson", e.getMessage());
+            com.baidu.tieba.c.ae.b(getClass().getName(), "parserJson", e.getMessage());
         }
+    }
+
+    public String b() {
+        return this.d;
+    }
+
+    public String c() {
+        return this.e;
     }
 }

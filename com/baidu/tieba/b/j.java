@@ -1,88 +1,84 @@
 package com.baidu.tieba.b;
 
-import com.baidu.tieba.c.af;
+import com.baidu.tieba.c.ae;
 import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class j {
-    private int b = 0;
-    private boolean c = false;
-    private ArrayList a = new ArrayList();
+    private ArrayList a;
+    private ArrayList b;
+    private k c;
+
+    public j() {
+        this.a = null;
+        this.b = null;
+        this.c = null;
+        this.a = new ArrayList();
+        this.b = new ArrayList();
+        this.c = new k(this);
+    }
 
     public ArrayList a() {
         return this.a;
-    }
-
-    public void b() {
-        this.a.clear();
-        this.b = 0;
-        this.c = false;
-    }
-
-    public int c() {
-        return this.b;
-    }
-
-    public boolean d() {
-        return this.c;
     }
 
     public void a(String str) {
         try {
             a(new JSONObject(str));
         } catch (Exception e) {
-            af.b("MyPostModel", "parserJson", "error = " + e.getMessage());
+            ae.b("NearbyListModel", "parserJson", "error = " + e.getMessage());
         }
     }
 
     public void a(JSONObject jSONObject) {
-        k kVar = null;
+        int i;
         try {
-            int size = this.a.size();
-            if (size > 0) {
-                kVar = (k) this.a.get(size - 1);
+            JSONArray optJSONArray = jSONObject.optJSONArray("forums");
+            if (optJSONArray != null) {
+                for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
+                    l lVar = new l(this);
+                    lVar.c = optJSONArray.optJSONObject(i2).optString("name");
+                    lVar.b = optJSONArray.optJSONObject(i2).optString("id");
+                    lVar.d = optJSONArray.optJSONObject(i2).optString("level");
+                    this.a.add(lVar);
+                }
             }
-            JSONArray optJSONArray = jSONObject.optJSONArray("post_list");
-            if (optJSONArray != null && optJSONArray.length() > 0) {
-                int i = 0;
-                k kVar2 = kVar;
-                while (i < optJSONArray.length()) {
-                    JSONObject optJSONObject = optJSONArray.optJSONObject(i);
-                    k kVar3 = new k(this);
-                    kVar3.b = optJSONObject.optString("time_shaft");
-                    kVar3.a = optJSONObject.optInt("type", 0);
-                    kVar3.c = optJSONObject.optString("title");
-                    kVar3.d = optJSONObject.optString("reply_num");
-                    kVar3.e = optJSONObject.optString("reply_time");
-                    kVar3.f = optJSONObject.optString("fname");
-                    kVar3.g = optJSONObject.optString("tid");
-                    kVar3.h = optJSONObject.optString("pid");
-                    kVar3.i = optJSONObject.optInt("is_floor", 0) == 1;
-                    if (kVar2 != null && kVar3.b.equals(kVar2.b)) {
-                        this.a.add(kVar3);
-                    } else {
-                        k kVar4 = new k(this);
-                        kVar4.b = kVar3.b;
-                        kVar4.a = 0;
-                        this.a.add(kVar4);
-                        this.a.add(kVar3);
+            JSONArray optJSONArray2 = jSONObject.optJSONArray("threads");
+            if (optJSONArray2 != null) {
+                for (int i3 = 0; i3 < optJSONArray2.length(); i3++) {
+                    JSONObject optJSONObject = optJSONArray2.optJSONObject(i3);
+                    m mVar = new m(this);
+                    mVar.b = optJSONObject.optString("tid");
+                    mVar.c = optJSONObject.optString("title");
+                    mVar.d = optJSONObject.optString("reply_num");
+                    mVar.e = optJSONObject.optLong("time", 0L) * 1000;
+                    mVar.f = optJSONObject.optInt("distance", 0);
+                    mVar.h = optJSONObject.optInt("type", 0);
+                    i = mVar.h;
+                    if (i == 1) {
+                        mVar.g = optJSONObject.optString("pic_url", "");
                     }
-                    i++;
-                    kVar2 = kVar3;
+                    this.b.add(mVar);
                 }
-                JSONObject jSONObject2 = jSONObject.getJSONObject("page");
-                int optInt = jSONObject2.optInt("current_page", 0);
-                if (optInt > this.b) {
-                    this.b = optInt;
-                    this.c = jSONObject2.optInt("has_more", 0) == 1;
-                    return;
-                }
-                return;
             }
-            this.c = false;
+            JSONObject optJSONObject2 = jSONObject.optJSONObject("area");
+            if (optJSONObject2 != null) {
+                this.c.b = optJSONObject2.optString("provice", "");
+                this.c.c = optJSONObject2.optString("city", "");
+                this.c.d = optJSONObject2.optString("district", "");
+                this.c.e = optJSONObject2.optString("street", "");
+            }
         } catch (Exception e) {
-            af.b("MyPostModel", "parserJson", "error = " + e.getMessage());
+            ae.b("NearbyListModel", "parserJson", "error = " + e.getMessage());
         }
+    }
+
+    public ArrayList b() {
+        return this.b;
+    }
+
+    public k c() {
+        return this.c;
     }
 }

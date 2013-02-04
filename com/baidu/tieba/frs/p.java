@@ -1,10 +1,12 @@
 package com.baidu.tieba.frs;
 
+import android.app.AlertDialog;
 import android.view.View;
 import android.widget.AdapterView;
-import com.baidu.tieba.a.av;
+import android.widget.ListView;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class p implements AdapterView.OnItemLongClickListener {
+public class p implements AdapterView.OnItemClickListener {
     final /* synthetic */ FrsActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -12,26 +14,24 @@ class p implements AdapterView.OnItemLongClickListener {
         this.a = frsActivity;
     }
 
-    @Override // android.widget.AdapterView.OnItemLongClickListener
-    public boolean onItemLongClick(AdapterView adapterView, View view, int i, long j) {
-        com.baidu.tieba.view.l lVar;
-        aa aaVar;
-        aa aaVar2;
-        lVar = this.a.L;
-        if (lVar != null) {
-            i--;
+    @Override // android.widget.AdapterView.OnItemClickListener
+    public void onItemClick(AdapterView adapterView, View view, int i, long j) {
+        AlertDialog alertDialog;
+        if (i <= 0) {
+            return;
         }
-        if (i >= 0) {
-            aaVar = this.a.x;
-            long itemId = aaVar.getItemId(i);
-            if (itemId != -1 && itemId != -2 && itemId != -3) {
-                aaVar2 = this.a.x;
-                av avVar = (av) aaVar2.getItem(i);
-                this.a.o = avVar.a();
-                this.a.b(avVar);
-                this.a.c.show();
-            }
+        alertDialog = this.a.T;
+        alertDialog.dismiss();
+        com.baidu.tieba.a.s sVar = (com.baidu.tieba.a.s) ((ListView) adapterView).getAdapter().getItem(i);
+        if (sVar.b() == -1) {
+            this.a.t();
+            return;
         }
-        return false;
+        this.a.k = 1;
+        this.a.j = sVar.b();
+        this.a.i = sVar.a();
+        this.a.l = 1;
+        this.a.e = 3;
+        this.a.v();
     }
 }

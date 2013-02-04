@@ -22,26 +22,25 @@ public class aj implements View.OnClickListener {
         AlertDialog alertDialog5;
         AlertDialog alertDialog6;
         switch (view.getId()) {
-            case R.id.remind_tone /* 2131231177 */:
-                this.a.k = new AlertDialog.Builder(this.a).setTitle(R.string.remind_tone).setItems(R.array.menu_remind_tone, new ak(this)).create();
-                alertDialog4 = this.a.k;
+            case R.id.remind_tone /* 2131231099 */:
+                this.a.j = new AlertDialog.Builder(this.a).setTitle(R.string.remind_tone).setItems(R.array.menu_remind_tone, new ak(this)).create();
+                alertDialog4 = this.a.j;
                 alertDialog4.setOnCancelListener(new al(this));
-                alertDialog5 = this.a.k;
+                alertDialog5 = this.a.j;
                 alertDialog5.setCanceledOnTouchOutside(true);
-                alertDialog6 = this.a.k;
+                alertDialog6 = this.a.j;
                 alertDialog6.show();
                 return;
-            case R.id.tone_text /* 2131231178 */:
-            case R.id.text_remind_tone /* 2131231179 */:
+            case R.id.text_remind_tone /* 2131231100 */:
             default:
                 return;
-            case R.id.remind_vibrate /* 2131231180 */:
-                this.a.n = new AlertDialog.Builder(this.a).setTitle(R.string.remind_vibrate).setItems(R.array.menu_remind_tone, new am(this)).create();
-                alertDialog = this.a.n;
+            case R.id.remind_vibrate /* 2131231101 */:
+                this.a.m = new AlertDialog.Builder(this.a).setTitle(R.string.remind_vibrate).setItems(R.array.menu_remind_tone, new am(this)).create();
+                alertDialog = this.a.m;
                 alertDialog.setOnCancelListener(new an(this));
-                alertDialog2 = this.a.n;
+                alertDialog2 = this.a.m;
                 alertDialog2.setCanceledOnTouchOutside(true);
-                alertDialog3 = this.a.n;
+                alertDialog3 = this.a.m;
                 alertDialog3.show();
                 return;
         }

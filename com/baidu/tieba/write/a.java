@@ -14,7 +14,7 @@ class a implements Runnable {
     public void run() {
         EditText editText;
         AtListActivity atListActivity = this.a;
-        editText = this.a.c;
+        editText = this.a.b;
         atListActivity.c(editText.getText().toString());
     }
 }

@@ -18,18 +18,6 @@ final class FragmentState implements Parcelable {
     Bundle j;
     Fragment k;
 
-    public FragmentState(Fragment fragment) {
-        this.a = fragment.getClass().getName();
-        this.b = fragment.n;
-        this.c = fragment.w;
-        this.d = fragment.C;
-        this.e = fragment.D;
-        this.f = fragment.E;
-        this.g = fragment.H;
-        this.h = fragment.G;
-        this.i = fragment.p;
-    }
-
     public FragmentState(Parcel parcel) {
         this.a = parcel.readString();
         this.b = parcel.readInt();
@@ -41,6 +29,18 @@ final class FragmentState implements Parcelable {
         this.h = parcel.readInt() != 0;
         this.i = parcel.readBundle();
         this.j = parcel.readBundle();
+    }
+
+    public FragmentState(Fragment fragment) {
+        this.a = fragment.getClass().getName();
+        this.b = fragment.n;
+        this.c = fragment.w;
+        this.d = fragment.C;
+        this.e = fragment.D;
+        this.f = fragment.E;
+        this.g = fragment.H;
+        this.h = fragment.G;
+        this.i = fragment.p;
     }
 
     public Fragment a(g gVar) {

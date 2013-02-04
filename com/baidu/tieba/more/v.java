@@ -1,36 +1,28 @@
 package com.baidu.tieba.more;
 
-import android.app.AlertDialog;
-import android.view.View;
-import com.baidu.tieba.R;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.content.DialogInterface;
+import com.baidu.tieba.TiebaApplication;
 /* loaded from: classes.dex */
-public class v implements View.OnClickListener {
-    final /* synthetic */ BrowseSettingActivity a;
+class v implements DialogInterface.OnClickListener {
+    final /* synthetic */ u a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public v(BrowseSettingActivity browseSettingActivity) {
-        this.a = browseSettingActivity;
+    public v(u uVar) {
+        this.a = uVar;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        AlertDialog alertDialog;
-        AlertDialog alertDialog2;
-        AlertDialog alertDialog3;
-        switch (view.getId()) {
-            case R.id.show_photo /* 2131230864 */:
-                alertDialog = this.a.g;
-                if (alertDialog == null) {
-                    this.a.g = new AlertDialog.Builder(this.a).setTitle(R.string.show_photo).setItems(R.array.menu_view_images, new w(this)).create();
-                }
-                alertDialog2 = this.a.g;
-                alertDialog2.setCanceledOnTouchOutside(true);
-                alertDialog3 = this.a.g;
-                alertDialog3.show();
-                return;
-            default:
-                return;
+    @Override // android.content.DialogInterface.OnClickListener
+    public void onClick(DialogInterface dialogInterface, int i) {
+        BrowseSettingActivity browseSettingActivity;
+        switch (i) {
+            case 0:
+                TiebaApplication.a().a((Boolean) true);
+                break;
+            case 1:
+                TiebaApplication.a().a((Boolean) false);
+                break;
         }
+        browseSettingActivity = this.a.a;
+        browseSettingActivity.j();
     }
 }

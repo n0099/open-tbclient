@@ -10,8 +10,8 @@ public class KeyboardLayout extends RelativeLayout {
     private int c;
     private aa d;
 
-    public KeyboardLayout(Context context, AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
+    public KeyboardLayout(Context context) {
+        super(context);
         this.a = false;
     }
 
@@ -20,26 +20,22 @@ public class KeyboardLayout extends RelativeLayout {
         this.a = false;
     }
 
-    public KeyboardLayout(Context context) {
-        super(context);
+    public KeyboardLayout(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
         this.a = false;
-    }
-
-    public void setOnkbdStateListener(aa aaVar) {
-        this.d = aaVar;
     }
 
     @Override // android.widget.RelativeLayout, android.view.ViewGroup, android.view.View
     protected void onLayout(boolean z, int i, int i2, int i3, int i4) {
         super.onLayout(z, i, i2, i3, i4);
-        if (!this.a) {
+        if (this.a) {
+            this.c = this.c < i4 ? i4 : this.c;
+        } else {
             this.a = true;
             this.c = i4;
             if (this.d != null) {
                 this.d.a(-1);
             }
-        } else {
-            this.c = this.c < i4 ? i4 : this.c;
         }
         if (this.a && this.c > i4) {
             this.b = true;
@@ -53,5 +49,9 @@ public class KeyboardLayout extends RelativeLayout {
                 this.d.a(-2);
             }
         }
+    }
+
+    public void setOnkbdStateListener(aa aaVar) {
+        this.d = aaVar;
     }
 }

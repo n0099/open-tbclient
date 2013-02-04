@@ -23,8 +23,8 @@ class z extends Handler {
         imageViewDrawer.b = i - 1;
         i2 = this.a.b;
         if (i2 >= 0) {
-            handler = this.a.g;
-            handler2 = this.a.g;
+            handler = this.a.f;
+            handler2 = this.a.f;
             handler.sendMessageDelayed(handler2.obtainMessage(1), 15L);
             this.a.invalidate();
         }

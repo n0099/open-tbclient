@@ -4,26 +4,42 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
-import android.widget.LinearLayout;
 import android.widget.ListAdapter;
 import android.widget.ListView;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
 import com.baidu.tieba.R;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class EditMarkActivity extends com.baidu.tieba.e {
-    private com.baidu.tieba.home.af c = null;
-    private com.baidu.tieba.b.h d = null;
-    private ListView e = null;
+    private com.baidu.tieba.home.y b = null;
+    private com.baidu.tieba.b.h c = null;
+    private ListView d = null;
+    private Button e = null;
     private Button f = null;
-    private Button g = null;
-    private RelativeLayout h = null;
-    private LinearLayout i = null;
-    private TextView j = null;
 
     public static void a(Activity activity, int i) {
         activity.startActivityForResult(new Intent(activity, EditMarkActivity.class), i);
+    }
+
+    private void g() {
+        this.c = new com.baidu.tieba.b.h();
+        this.c.a(com.baidu.tieba.c.k.o());
+    }
+
+    private void h() {
+        this.b = new com.baidu.tieba.home.y(this, this.c.a());
+        this.b.a(true);
+        this.b.a();
+        this.d = (ListView) findViewById(R.id.list);
+        this.d.setAdapter((ListAdapter) this.b);
+        this.d.setOnItemClickListener(new u(this));
+        this.e = (Button) findViewById(R.id.back);
+        this.e.setOnClickListener(new v(this));
+        this.f = (Button) findViewById(R.id.edit);
+        this.f.setOnClickListener(new w(this));
+        if (this.c.a().size() == 0) {
+            this.f.setVisibility(4);
+        }
+        this.b.a(new x(this));
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -31,69 +47,25 @@ public class EditMarkActivity extends com.baidu.tieba.e {
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         setContentView(R.layout.edit_mark_activity);
-        i();
-        j();
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.e
-    public void b(int i) {
-        super.b(i);
-        com.baidu.tieba.c.ad.a(this.h, i);
-        com.baidu.tieba.c.ad.c(this.i, i);
-        com.baidu.tieba.c.ad.c(this.j, i);
-        com.baidu.tieba.c.ad.e((TextView) this.f, i);
-        com.baidu.tieba.c.ad.d((TextView) this.g, i);
-        this.c.notifyDataSetChanged();
-        if (i == 1) {
-            this.e.setDivider(getResources().getDrawable(R.drawable.list_divider_1));
-            this.e.setSelector(R.drawable.list_selector_1);
-            return;
-        }
-        this.e.setDivider(getResources().getDrawable(R.drawable.list_divider));
-        this.e.setSelector(R.drawable.list_selector);
-    }
-
-    private void i() {
-        this.d = new com.baidu.tieba.b.h();
-        this.d.a(com.baidu.tieba.c.k.q());
-    }
-
-    private void j() {
-        this.h = (RelativeLayout) findViewById(R.id.parent);
-        this.i = (LinearLayout) findViewById(R.id.title);
-        this.j = (TextView) findViewById(R.id.title_text);
-        this.c = new com.baidu.tieba.home.af(this, this.d.a());
-        this.c.a(true);
-        this.c.a();
-        this.e = (ListView) findViewById(R.id.list);
-        this.e.setAdapter((ListAdapter) this.c);
-        this.e.setOnItemClickListener(new w(this));
-        this.f = (Button) findViewById(R.id.back);
-        this.f.setOnClickListener(new x(this));
-        this.g = (Button) findViewById(R.id.edit);
-        this.g.setOnClickListener(new y(this));
-        if (this.d.a().size() == 0) {
-            this.g.setVisibility(4);
-        }
-        this.c.a(new z(this));
+        g();
+        h();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.e, android.app.Activity
     public void onResume() {
         super.onResume();
-        if (com.baidu.tieba.c.k.r().booleanValue()) {
-            this.d.a(com.baidu.tieba.c.k.q());
-            ArrayList a = this.d.a();
+        if (com.baidu.tieba.c.k.p().booleanValue()) {
+            this.c.a(com.baidu.tieba.c.k.o());
+            ArrayList a = this.c.a();
             if (a != null) {
-                this.c.a(a);
-                this.c.a();
-                this.c.notifyDataSetInvalidated();
+                this.b.a(a);
+                this.b.a();
+                this.b.notifyDataSetInvalidated();
                 if (a.size() == 0) {
-                    this.g.setVisibility(4);
+                    this.f.setVisibility(4);
                 } else {
-                    this.g.setVisibility(0);
+                    this.f.setVisibility(0);
                 }
             }
         }

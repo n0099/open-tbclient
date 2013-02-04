@@ -20,36 +20,24 @@ public class bc extends AsyncTask {
         this(register2Activity);
     }
 
-    public void a() {
-        ProgressBar progressBar;
-        if (this.b != null) {
-            this.b.g();
-        }
-        this.a.R = null;
-        progressBar = this.a.H;
-        progressBar.setVisibility(8);
-        this.a.t();
-        super.cancel(true);
-    }
-
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.os.AsyncTask
     /* renamed from: a */
     public com.baidu.tieba.b.g doInBackground(String... strArr) {
-        com.baidu.tieba.a.ap u;
+        com.baidu.tieba.a.ao s;
         com.baidu.tieba.b.g gVar = new com.baidu.tieba.b.g();
         try {
-            u = this.a.u();
+            s = this.a.s();
             this.b = new com.baidu.tieba.c.t("http://c.tieba.baidu.com/c/s/regreal");
-            this.b.a("un", u.a());
-            this.b.a("phonenum", u.c());
-            this.b.a("passwd", u.b());
-            if (u.d() != null) {
-                this.b.a("vcode", u.d());
+            this.b.a("un", s.a());
+            this.b.a("phonenum", s.c());
+            this.b.a("passwd", s.b());
+            if (s.d() != null) {
+                this.b.a("vcode", s.d());
             }
-            if (u.e() != null) {
-                this.b.a("vcode_md5", u.e());
+            if (s.e() != null) {
+                this.b.a("vcode_md5", s.e());
             }
             String i = this.b.i();
             if ((this.b.c() && (this.b.d() == 0 || this.b.d() == 36)) || this.b.d() == 5) {
@@ -59,9 +47,21 @@ public class bc extends AsyncTask {
             }
             return gVar;
         } catch (Exception e) {
-            com.baidu.tieba.c.af.b(getClass().getName(), "doInBackground", e.getMessage());
+            com.baidu.tieba.c.ae.b(getClass().getName(), "doInBackground", e.getMessage());
             return null;
         }
+    }
+
+    public void a() {
+        ProgressBar progressBar;
+        if (this.b != null) {
+            this.b.g();
+        }
+        this.a.M = null;
+        progressBar = this.a.C;
+        progressBar.setVisibility(8);
+        this.a.r();
+        super.cancel(true);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -70,42 +70,42 @@ public class bc extends AsyncTask {
     /* renamed from: a */
     public void onPostExecute(com.baidu.tieba.b.g gVar) {
         ProgressBar progressBar;
-        com.baidu.tieba.a.ap u;
+        com.baidu.tieba.a.ao s;
         int i;
         int i2;
         int i3;
         super.onPostExecute(gVar);
-        this.a.R = null;
-        progressBar = this.a.H;
+        this.a.M = null;
+        progressBar = this.a.C;
         progressBar.setVisibility(8);
-        this.a.t();
-        this.a.S = gVar;
+        this.a.r();
+        this.a.N = gVar;
         if (!this.b.c()) {
-            this.a.O = -1;
-            this.a.P = this.b.f();
-            this.a.s();
+            this.a.J = -1;
+            this.a.K = this.b.f();
+            this.a.q();
         } else if (this.b.d() == 36) {
             this.a.a(gVar.c());
             Register2Activity register2Activity = this.a;
-            i3 = Register2Activity.h;
-            register2Activity.O = i3;
-            this.a.P = this.b.f();
-            this.a.s();
+            i3 = Register2Activity.c;
+            register2Activity.J = i3;
+            this.a.K = this.b.f();
+            this.a.q();
         } else if (this.b.d() == 5) {
             Register2Activity register2Activity2 = this.a;
-            i2 = Register2Activity.k;
-            register2Activity2.O = i2;
+            i2 = Register2Activity.f;
+            register2Activity2.J = i2;
             this.a.a(true);
         } else if (this.b.d() == 0) {
-            u = this.a.u();
+            s = this.a.s();
             Register2Activity register2Activity3 = this.a;
-            i = Register2Activity.g;
-            ActivationActivity.a(register2Activity3, u, i);
+            i = Register2Activity.b;
+            ActivationActivity.a(register2Activity3, s, i);
             this.a.a(false);
         } else {
-            this.a.O = this.b.d();
-            this.a.P = this.b.f();
-            this.a.s();
+            this.a.J = this.b.d();
+            this.a.K = this.b.f();
+            this.a.q();
         }
     }
 
@@ -115,17 +115,17 @@ public class bc extends AsyncTask {
         LinearLayout linearLayout;
         TextView textView;
         TextView textView2;
-        progressBar = this.a.H;
+        progressBar = this.a.C;
         progressBar.setVisibility(0);
+        this.a.o();
+        this.a.J = -1;
+        this.a.K = null;
         this.a.q();
-        this.a.O = -1;
-        this.a.P = null;
-        this.a.s();
-        linearLayout = this.a.D;
+        linearLayout = this.a.y;
         linearLayout.setVisibility(8);
-        textView = this.a.w;
+        textView = this.a.r;
         textView.setVisibility(4);
-        textView2 = this.a.w;
+        textView2 = this.a.r;
         textView2.setText((CharSequence) null);
         super.onPreExecute();
     }

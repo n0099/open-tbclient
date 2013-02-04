@@ -17,10 +17,6 @@ public class FrsStarImageView extends ImageView {
     private int c;
     private Bitmap d;
 
-    public void setImageType(int i) {
-        this.c = i;
-    }
-
     public FrsStarImageView(Context context) {
         super(context);
         this.a = new Matrix();
@@ -50,8 +46,8 @@ public class FrsStarImageView extends ImageView {
         Bitmap bitmap;
         super.onDraw(canvas);
         String str = (String) getTag();
-        com.baidu.tieba.c.ab ak = TiebaApplication.b().ak();
-        Bitmap c = ak != null ? ak.c(str) : null;
+        com.baidu.tieba.c.ab ah = TiebaApplication.a().ah();
+        Bitmap c = ah != null ? ah.c(str) : null;
         if (c == null) {
             switch (this.c) {
                 case 0:
@@ -79,17 +75,19 @@ public class FrsStarImageView extends ImageView {
             int height = bitmap.getHeight();
             int width2 = getWidth();
             int height2 = getHeight();
-            if (width != 0 && height != 0 && width2 != 0 && height2 != 0) {
-                int i = 0;
-                if (this.c == 1) {
-                    i = com.baidu.tieba.c.ah.a(getContext(), 3.0f);
-                }
-                this.a.setScale((width2 - (i * 2)) / width, (height2 - (i * 2)) / height);
-                this.a.postTranslate(i, i);
-                canvas.drawColor(-1);
-                canvas.drawBitmap(bitmap, this.a, this.b);
-                this.a.reset();
+            if (width == 0 || height == 0 || width2 == 0 || height2 == 0) {
+                return;
             }
+            int a = this.c == 1 ? com.baidu.tieba.c.ag.a(getContext(), 3.0f) : 0;
+            this.a.setScale((width2 - (a * 2)) / width, (height2 - (a * 2)) / height);
+            this.a.postTranslate(a, a);
+            canvas.drawColor(-1);
+            canvas.drawBitmap(bitmap, this.a, this.b);
+            this.a.reset();
         }
+    }
+
+    public void setImageType(int i) {
+        this.c = i;
     }
 }

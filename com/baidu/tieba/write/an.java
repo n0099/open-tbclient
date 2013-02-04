@@ -30,18 +30,13 @@ public class an extends AsyncTask {
     public void a() {
         ProgressBar progressBar;
         ImageView imageView;
-        this.a.t = null;
-        progressBar = this.a.n;
+        this.a.s = null;
+        progressBar = this.a.m;
         progressBar.setVisibility(8);
-        imageView = this.a.o;
+        imageView = this.a.n;
         imageView.setVisibility(8);
-        this.a.m();
+        this.a.k();
         super.cancel(true);
-    }
-
-    @Override // android.os.AsyncTask
-    protected void onCancelled() {
-        super.onCancelled();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -50,8 +45,13 @@ public class an extends AsyncTask {
     /* renamed from: a */
     public void onPostExecute(Bitmap bitmap) {
         super.onPostExecute(bitmap);
-        this.a.t = null;
-        com.baidu.tieba.c.af.a(getClass().getName(), "onPostExecute", "is Null?" + String.valueOf(bitmap == null));
+        this.a.s = null;
+        com.baidu.tieba.c.ae.a(getClass().getName(), "onPostExecute", "is Null?" + String.valueOf(bitmap == null));
         this.a.a(bitmap);
+    }
+
+    @Override // android.os.AsyncTask
+    protected void onCancelled() {
+        super.onCancelled();
     }
 }

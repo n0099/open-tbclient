@@ -14,9 +14,9 @@ public class h {
     }
 
     public void b() {
-        ArrayList q = com.baidu.tieba.c.k.q();
-        if (q != null) {
-            a(q);
+        ArrayList o = com.baidu.tieba.c.k.o();
+        if (o != null) {
+            a(o);
         }
     }
 }

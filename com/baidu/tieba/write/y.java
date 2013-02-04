@@ -16,9 +16,9 @@ public class y implements View.OnClickListener {
     public void onClick(View view) {
         GridView gridView;
         GridView gridView2;
-        gridView = this.a.q;
+        gridView = this.a.p;
         if (gridView.getVisibility() == 0) {
-            gridView2 = this.a.q;
+            gridView2 = this.a.p;
             gridView2.setVisibility(8);
         }
         AtListActivity.a(this.a, 1200004);

@@ -14,19 +14,19 @@ public class ab implements DialogInterface.OnClickListener {
 
     @Override // android.content.DialogInterface.OnClickListener
     public void onClick(DialogInterface dialogInterface, int i) {
-        com.baidu.tieba.b.w wVar;
+        com.baidu.tieba.b.u uVar;
         EditText editText;
-        com.baidu.tieba.b.w wVar2;
+        com.baidu.tieba.b.u uVar2;
         EditText editText2;
-        com.baidu.tieba.b.w wVar3;
-        wVar = this.a.c;
-        editText = this.a.g;
-        wVar.a(editText.getText().toString());
-        wVar2 = this.a.c;
-        editText2 = this.a.h;
-        wVar2.b(editText2.getText().toString());
-        wVar3 = this.a.c;
-        com.baidu.tieba.c.k.b(wVar3);
+        com.baidu.tieba.b.u uVar3;
+        uVar = this.a.b;
+        editText = this.a.f;
+        uVar.a(editText.getText().toString());
+        uVar2 = this.a.b;
+        editText2 = this.a.g;
+        uVar2.b(editText2.getText().toString());
+        uVar3 = this.a.b;
+        com.baidu.tieba.c.k.b(uVar3);
         this.a.finish();
     }
 }

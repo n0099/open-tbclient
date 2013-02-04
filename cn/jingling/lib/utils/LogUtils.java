@@ -21,6 +21,12 @@ public class LogUtils {
         }
     }
 
+    public static void i(String str, String str2) {
+        if (isLog) {
+            Log.i(str, str2);
+        }
+    }
+
     public static void v(String str, String str2) {
         if (isLog) {
             Log.v(str, str2);
@@ -30,12 +36,6 @@ public class LogUtils {
     public static void w(String str, String str2) {
         if (isLog) {
             Log.w(str, str2);
-        }
-    }
-
-    public static void i(String str, String str2) {
-        if (isLog) {
-            Log.i(str, str2);
         }
     }
 }

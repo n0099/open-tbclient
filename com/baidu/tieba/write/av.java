@@ -23,14 +23,15 @@ public class av implements View.OnClickListener {
         ProgressBar progressBar;
         ImageView imageView;
         Bitmap bitmap;
-        progressBar = this.a.j;
-        if (progressBar.getVisibility() != 0) {
-            imageView = this.a.d;
-            bitmap = this.a.e;
-            imageView.setImageBitmap(bitmap);
-            this.a.y = false;
-            this.a.e(this.b);
-            this.a.u = this.c;
+        progressBar = this.a.i;
+        if (progressBar.getVisibility() == 0) {
+            return;
         }
+        imageView = this.a.c;
+        bitmap = this.a.d;
+        imageView.setImageBitmap(bitmap);
+        this.a.x = false;
+        this.a.e(this.b);
+        this.a.t = this.c;
     }
 }

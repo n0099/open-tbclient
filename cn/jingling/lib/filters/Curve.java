@@ -1,7 +1,6 @@
 package cn.jingling.lib.filters;
 
 import android.content.Context;
-import com.baidu.zeus.bouncycastle.DERTags;
 import java.io.BufferedInputStream;
 import java.io.DataInputStream;
 import java.io.IOException;
@@ -24,18 +23,6 @@ public class Curve {
         }
     }
 
-    public int[] getCurveRed() {
-        return this.mCurveRed;
-    }
-
-    public int[] getCurveGreen() {
-        return this.mCurveGreen;
-    }
-
-    public int[] getCurveBlue() {
-        return this.mCurveBlue;
-    }
-
     private void makeCurve() {
         this.mCurveRed = new int[256];
         this.mCurveGreen = new int[256];
@@ -45,7 +32,7 @@ public class Curve {
             this.mCurveGreen[i] = (int) (i * 1.252d);
             this.mCurveBlue[i] = (int) (i * 1.252d);
         }
-        for (int i2 = DERTags.TAGGED; i2 < 256; i2++) {
+        for (int i2 = 128; i2 < 256; i2++) {
             this.mCurveRed[i2] = (int) ((1.2422d * i2) - 62.0d);
             this.mCurveGreen[i2] = (int) ((i2 * 0.75d) + 63.0d);
             this.mCurveBlue[i2] = (int) ((i2 * 0.75d) + 63.0d);
@@ -83,5 +70,17 @@ public class Curve {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    public int[] getCurveBlue() {
+        return this.mCurveBlue;
+    }
+
+    public int[] getCurveGreen() {
+        return this.mCurveGreen;
+    }
+
+    public int[] getCurveRed() {
+        return this.mCurveRed;
     }
 }

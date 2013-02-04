@@ -15,6 +15,14 @@ public class a implements Serializable {
         return this.a;
     }
 
+    public void a(int i) {
+        this.g = i;
+    }
+
+    public void a(long j) {
+        this.f = j;
+    }
+
     public void a(String str) {
         this.a = str;
     }
@@ -47,19 +55,11 @@ public class a implements Serializable {
         return this.g;
     }
 
-    public void a(int i) {
-        this.g = i;
-    }
-
     public void e(String str) {
         this.e = str;
     }
 
     public String f() {
         return this.e;
-    }
-
-    public void a(long j) {
-        this.f = j;
     }
 }

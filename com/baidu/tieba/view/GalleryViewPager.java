@@ -14,14 +14,6 @@ public class GalleryViewPager extends BaseViewPager {
         super(context);
     }
 
-    public void setCurrentView(f fVar) {
-        this.d = fVar;
-    }
-
-    public f getCurrentView() {
-        return this.d;
-    }
-
     private float[] a(MotionEvent motionEvent) {
         switch (motionEvent.getAction() & CompatibleUtile.getActionMask()) {
             case 1:
@@ -33,6 +25,38 @@ public class GalleryViewPager extends BaseViewPager {
                 break;
         }
         return null;
+    }
+
+    public f getCurrentView() {
+        return this.d;
+    }
+
+    public f getSelectedView() {
+        return this.e;
+    }
+
+    @Override // android.support.v4.view.ViewPager, android.view.ViewGroup
+    public boolean onInterceptTouchEvent(MotionEvent motionEvent) {
+        if ((motionEvent.getAction() & CompatibleUtile.getActionMask()) == 1) {
+            super.onInterceptTouchEvent(motionEvent);
+        }
+        float[] a = a(motionEvent);
+        if (this.d != null && !this.d.b()) {
+            if (a == null || !this.d.h() || a[0] >= 0.0f) {
+                if (a == null || !this.d.i() || a[0] <= 0.0f) {
+                    if (a == null) {
+                        if (this.d.i() || this.d.h()) {
+                            return super.onInterceptTouchEvent(motionEvent);
+                        }
+                        return false;
+                    }
+                    return false;
+                }
+                return super.onInterceptTouchEvent(motionEvent);
+            }
+            return super.onInterceptTouchEvent(motionEvent);
+        }
+        return super.onInterceptTouchEvent(motionEvent);
     }
 
     @Override // com.baidu.tieba.view.BaseViewPager, android.support.v4.view.ViewPager, android.view.View
@@ -51,10 +75,10 @@ public class GalleryViewPager extends BaseViewPager {
             return super.onTouchEvent(motionEvent);
         }
         if (a != null && this.d.h() && a[0] < 0.0f) {
-            com.baidu.tieba.c.af.a(getClass().getName(), "onTouchEvent", "right");
+            com.baidu.tieba.c.ae.a(getClass().getName(), "onTouchEvent", "right");
             return super.onTouchEvent(motionEvent);
         } else if (a != null && this.d.i() && a[0] > 0.0f) {
-            com.baidu.tieba.c.af.a(getClass().getName(), "onTouchEvent", "left");
+            com.baidu.tieba.c.ae.a(getClass().getName(), "onTouchEvent", "left");
             return super.onTouchEvent(motionEvent);
         } else if (a == null) {
             if (this.d.i() || this.d.h()) {
@@ -66,38 +90,11 @@ public class GalleryViewPager extends BaseViewPager {
         }
     }
 
-    @Override // android.support.v4.view.ViewPager, android.view.ViewGroup
-    public boolean onInterceptTouchEvent(MotionEvent motionEvent) {
-        if ((motionEvent.getAction() & CompatibleUtile.getActionMask()) == 1) {
-            super.onInterceptTouchEvent(motionEvent);
-        }
-        float[] a = a(motionEvent);
-        if (this.d == null) {
-            return super.onInterceptTouchEvent(motionEvent);
-        }
-        if (this.d.b()) {
-            return super.onInterceptTouchEvent(motionEvent);
-        }
-        if (a != null && this.d.h() && a[0] < 0.0f) {
-            return super.onInterceptTouchEvent(motionEvent);
-        }
-        if (a != null && this.d.i() && a[0] > 0.0f) {
-            return super.onInterceptTouchEvent(motionEvent);
-        }
-        if (a == null) {
-            if (this.d.i() || this.d.h()) {
-                return super.onInterceptTouchEvent(motionEvent);
-            }
-            return false;
-        }
-        return false;
+    public void setCurrentView(f fVar) {
+        this.d = fVar;
     }
 
     public void setSelectedView(f fVar) {
         this.e = fVar;
-    }
-
-    public f getSelectedView() {
-        return this.e;
     }
 }

@@ -107,7 +107,7 @@ public class i {
     private void a() {
         boolean z;
         int i = 10000;
-        if (!m228do()) {
+        if (!m227do()) {
             return;
         }
         int i2 = this.f188goto > 5000.0f ? 600000 : this.f188goto > 1000.0f ? 120000 : this.f188goto > 500.0f ? 60000 : 10000;
@@ -186,7 +186,7 @@ public class i {
     }
 
     /* renamed from: do  reason: not valid java name */
-    private boolean m228do() {
+    private boolean m227do() {
         boolean z = false;
         if (this.f182byte == null || this.f182byte.isEmpty()) {
             return false;
@@ -207,9 +207,9 @@ public class i {
             return;
         }
         if (!bDNotifyListener.mCoorType.equals("gcj02")) {
-            double[] m2if = Jni.m2if(bDNotifyListener.mLongitude, bDNotifyListener.mLatitude, bDNotifyListener.mCoorType + "2gcj");
-            bDNotifyListener.mLongitudeC = m2if[0];
-            bDNotifyListener.mLatitudeC = m2if[1];
+            double[] m1if = Jni.m1if(bDNotifyListener.mLongitude, bDNotifyListener.mLatitude, bDNotifyListener.mCoorType + "2gcj");
+            bDNotifyListener.mLongitudeC = m1if[0];
+            bDNotifyListener.mLatitudeC = m1if[1];
             j.a(this.f185do, bDNotifyListener.mCoorType + "2gcj");
             j.a(this.f185do, "coor:" + bDNotifyListener.mLongitude + "," + bDNotifyListener.mLatitude + ":" + bDNotifyListener.mLongitudeC + "," + bDNotifyListener.mLatitudeC);
         }
@@ -235,7 +235,7 @@ public class i {
     }
 
     /* renamed from: do  reason: not valid java name */
-    public int m230do(BDNotifyListener bDNotifyListener) {
+    public int m229do(BDNotifyListener bDNotifyListener) {
         if (this.f182byte == null) {
             return 0;
         }
@@ -249,7 +249,7 @@ public class i {
     }
 
     /* renamed from: if  reason: not valid java name */
-    public int m231if(BDNotifyListener bDNotifyListener) {
+    public int m230if(BDNotifyListener bDNotifyListener) {
         if (this.f182byte == null) {
             this.f182byte = new ArrayList();
         }
@@ -262,9 +262,9 @@ public class i {
         }
         if (bDNotifyListener.mCoorType != null) {
             if (!bDNotifyListener.mCoorType.equals("gcj02")) {
-                double[] m2if = Jni.m2if(bDNotifyListener.mLongitude, bDNotifyListener.mLatitude, bDNotifyListener.mCoorType + "2gcj");
-                bDNotifyListener.mLongitudeC = m2if[0];
-                bDNotifyListener.mLatitudeC = m2if[1];
+                double[] m1if = Jni.m1if(bDNotifyListener.mLongitude, bDNotifyListener.mLatitude, bDNotifyListener.mCoorType + "2gcj");
+                bDNotifyListener.mLongitudeC = m1if[0];
+                bDNotifyListener.mLatitudeC = m1if[1];
                 j.a(this.f185do, bDNotifyListener.mCoorType + "2gcj");
                 j.a(this.f185do, "coor:" + bDNotifyListener.mLongitude + "," + bDNotifyListener.mLatitude + ":" + bDNotifyListener.mLongitudeC + "," + bDNotifyListener.mLatitudeC);
             }
@@ -292,7 +292,7 @@ public class i {
     }
 
     /* renamed from: if  reason: not valid java name */
-    public void m232if() {
+    public void m231if() {
         if (this.f193void) {
             this.f187for.cancel(this.f192try);
         }

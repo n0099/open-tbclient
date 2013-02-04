@@ -15,7 +15,7 @@ public class f implements View.OnClickListener {
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         EditText editText;
-        editText = this.a.c;
+        editText = this.a.b;
         editText.getText().clear();
     }
 }

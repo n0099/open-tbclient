@@ -23,41 +23,40 @@ class ap implements View.OnClickListener {
         Bitmap bitmap;
         Bitmap bitmap2;
         boolean d;
-        z = this.a.z;
-        if (!z) {
-            i = this.a.A;
+        z = this.a.y;
+        if (z) {
+            this.a.setResult(0, new Intent());
+        } else {
+            i = this.a.z;
             if (i == 1200003) {
                 Intent intent = new Intent();
-                progressBar = this.a.j;
-                if (progressBar.getVisibility() != 0) {
-                    z2 = this.a.y;
-                    if (z2) {
-                        bitmap = this.a.r;
-                        if (bitmap != null) {
-                            bitmap2 = this.a.r;
-                            if (!bitmap2.isRecycled()) {
-                                String str = "tieba" + String.valueOf(new Date().getTime()) + ".jpg";
-                                d = this.a.d(str);
-                                if (d) {
-                                    intent.putExtra("change", true);
-                                    intent.putExtra("file_name", str);
-                                } else {
-                                    intent.putExtra("change", false);
-                                }
-                                this.a.setResult(-1, intent);
-                            }
-                        }
-                    }
-                    intent.putExtra("change", false);
-                    this.a.setResult(-1, intent);
-                } else {
+                progressBar = this.a.i;
+                if (progressBar.getVisibility() == 0) {
                     return;
                 }
+                z2 = this.a.x;
+                if (z2) {
+                    bitmap = this.a.q;
+                    if (bitmap != null) {
+                        bitmap2 = this.a.q;
+                        if (!bitmap2.isRecycled()) {
+                            String str = "tieba" + String.valueOf(new Date().getTime()) + ".jpg";
+                            d = this.a.d(str);
+                            if (d) {
+                                intent.putExtra("change", true);
+                                intent.putExtra("file_name", str);
+                            } else {
+                                intent.putExtra("change", false);
+                            }
+                            this.a.setResult(-1, intent);
+                        }
+                    }
+                }
+                intent.putExtra("change", false);
+                this.a.setResult(-1, intent);
             } else {
                 this.a.setResult(0, new Intent());
             }
-        } else {
-            this.a.setResult(0, new Intent());
         }
         this.a.finish();
     }

@@ -17,14 +17,14 @@ class l implements View.OnFocusChangeListener {
         EditText editText;
         ImageView imageView;
         ImageView imageView2;
-        editText = this.a.k;
+        editText = this.a.j;
         if (view == editText) {
             if (z) {
-                imageView2 = this.a.f;
+                imageView2 = this.a.e;
                 imageView2.setVisibility(0);
                 return;
             }
-            imageView = this.a.f;
+            imageView = this.a.e;
             imageView.setVisibility(8);
         }
     }

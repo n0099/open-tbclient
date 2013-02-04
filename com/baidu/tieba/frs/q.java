@@ -1,12 +1,10 @@
 package com.baidu.tieba.frs;
 
-import android.os.Handler;
-import android.os.Message;
-import android.widget.ListView;
-import com.baidu.tieba.R;
-import com.baidu.tieba.view.CustomTimerView;
+import android.view.View;
+import android.widget.AdapterView;
+import com.baidu.tieba.a.as;
 /* loaded from: classes.dex */
-class q extends Handler {
+class q implements AdapterView.OnItemLongClickListener {
     final /* synthetic */ FrsActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -14,42 +12,26 @@ class q extends Handler {
         this.a = frsActivity;
     }
 
-    @Override // android.os.Handler
-    public void handleMessage(Message message) {
-        com.baidu.tieba.b.c cVar;
-        com.baidu.tieba.b.c cVar2;
-        long j;
-        com.baidu.tieba.b.c cVar3;
-        aa aaVar;
-        ListView listView;
-        switch (message.what) {
-            case 1:
-                removeMessages(1);
-                cVar = this.a.z;
-                if (cVar != null) {
-                    cVar2 = this.a.z;
-                    long i = cVar2.e().i();
-                    j = this.a.T;
-                    long nanoTime = i - ((System.nanoTime() / 1000000000) - j);
-                    if (nanoTime > 0) {
-                        listView = this.a.w;
-                        CustomTimerView customTimerView = (CustomTimerView) listView.findViewById(R.id.open_timer);
-                        if (customTimerView != null) {
-                            customTimerView.setTime(nanoTime);
-                        }
-                        sendMessageDelayed(obtainMessage(1), 1000L);
-                        return;
-                    }
-                    cVar3 = this.a.z;
-                    cVar3.e().a(1);
-                    aaVar = this.a.x;
-                    aaVar.notifyDataSetChanged();
-                    return;
-                }
-                return;
-            default:
-                super.handleMessage(message);
-                return;
+    @Override // android.widget.AdapterView.OnItemLongClickListener
+    public boolean onItemLongClick(AdapterView adapterView, View view, int i, long j) {
+        com.baidu.tieba.view.l lVar;
+        ab abVar;
+        ab abVar2;
+        lVar = this.a.K;
+        if (lVar != null) {
+            i--;
         }
+        if (i >= 0) {
+            abVar = this.a.w;
+            long itemId = abVar.getItemId(i);
+            if (itemId != -1 && itemId != -2 && itemId != -3) {
+                abVar2 = this.a.w;
+                as asVar = (as) abVar2.getItem(i);
+                this.a.n = asVar.a();
+                this.a.b(asVar);
+                this.a.b.show();
+            }
+        }
+        return false;
     }
 }

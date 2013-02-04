@@ -21,27 +21,27 @@ public class p implements View.OnClickListener {
         EditText editText;
         DialogInterface.OnCancelListener onCancelListener;
         s sVar;
-        com.baidu.tieba.b.w wVar;
+        com.baidu.tieba.b.u uVar;
         s sVar2;
         s sVar3;
         VcodeActivity vcodeActivity = this.a;
-        inputMethodManager = this.a.k;
-        editText = this.a.g;
+        inputMethodManager = this.a.j;
+        editText = this.a.f;
         vcodeActivity.a(inputMethodManager, editText);
         VcodeActivity vcodeActivity2 = this.a;
         String string = this.a.getString(R.string.sending);
-        onCancelListener = this.a.l;
+        onCancelListener = this.a.k;
         vcodeActivity2.a(string, onCancelListener);
-        sVar = this.a.i;
+        sVar = this.a.h;
         if (sVar != null) {
-            sVar3 = this.a.i;
+            sVar3 = this.a.h;
             sVar3.a();
         }
         VcodeActivity vcodeActivity3 = this.a;
         VcodeActivity vcodeActivity4 = this.a;
-        wVar = this.a.c;
-        vcodeActivity3.i = new s(vcodeActivity4, wVar);
-        sVar2 = this.a.i;
+        uVar = this.a.b;
+        vcodeActivity3.h = new s(vcodeActivity4, uVar);
+        sVar2 = this.a.h;
         sVar2.execute(0);
     }
 }

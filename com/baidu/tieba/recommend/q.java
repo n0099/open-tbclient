@@ -14,8 +14,8 @@ class q implements View.OnClickListener {
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         switch (view.getId()) {
-            case R.id.hotspot_webview_item /* 2131231281 */:
-                this.a.i();
+            case R.id.hotspot_webview_item /* 2131231176 */:
+                this.a.g();
                 return;
             default:
                 return;

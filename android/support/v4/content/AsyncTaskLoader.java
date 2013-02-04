@@ -12,8 +12,6 @@ public abstract class AsyncTaskLoader extends b {
     long d;
     Handler e;
 
-    public abstract Object d();
-
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.support.v4.content.b
     public void a() {
@@ -21,49 +19,6 @@ public abstract class AsyncTaskLoader extends b {
         b();
         this.a = new a(this);
         c();
-    }
-
-    public boolean b() {
-        boolean z = false;
-        if (this.a != null) {
-            if (this.b != null) {
-                if (this.a.b) {
-                    this.a.b = false;
-                    this.e.removeCallbacks(this.a);
-                }
-                this.a = null;
-            } else if (this.a.b) {
-                this.a.b = false;
-                this.e.removeCallbacks(this.a);
-                this.a = null;
-            } else {
-                z = this.a.a(false);
-                if (z) {
-                    this.b = this.a;
-                }
-                this.a = null;
-            }
-        }
-        return z;
-    }
-
-    public void a(Object obj) {
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void c() {
-        if (this.b == null && this.a != null) {
-            if (this.a.b) {
-                this.a.b = false;
-                this.e.removeCallbacks(this.a);
-            }
-            if (this.c > 0 && SystemClock.uptimeMillis() < this.d + this.c) {
-                this.a.b = true;
-                this.e.postAtTime(this.a, this.d + this.c);
-                return;
-            }
-            this.a.a(e.d, (Object[]) null);
-        }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -76,22 +31,7 @@ public abstract class AsyncTaskLoader extends b {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void b(a aVar, Object obj) {
-        if (this.a != aVar) {
-            a(aVar, obj);
-        } else if (l()) {
-            a(obj);
-        } else {
-            this.d = SystemClock.uptimeMillis();
-            this.a = null;
-            b(obj);
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    public Object e() {
-        return d();
+    public void a(Object obj) {
     }
 
     @Override // android.support.v4.content.b
@@ -119,5 +59,66 @@ public abstract class AsyncTaskLoader extends b {
             android.support.v4.b.c.a(this.d, SystemClock.uptimeMillis(), printWriter);
             printWriter.println();
         }
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public void b(a aVar, Object obj) {
+        if (this.a != aVar) {
+            a(aVar, obj);
+        } else if (l()) {
+            a(obj);
+        } else {
+            this.d = SystemClock.uptimeMillis();
+            this.a = null;
+            b(obj);
+        }
+    }
+
+    public boolean b() {
+        boolean z = false;
+        if (this.a != null) {
+            if (this.b != null) {
+                if (this.a.b) {
+                    this.a.b = false;
+                    this.e.removeCallbacks(this.a);
+                }
+                this.a = null;
+            } else if (this.a.b) {
+                this.a.b = false;
+                this.e.removeCallbacks(this.a);
+                this.a = null;
+            } else {
+                z = this.a.a(false);
+                if (z) {
+                    this.b = this.a;
+                }
+                this.a = null;
+            }
+        }
+        return z;
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public void c() {
+        if (this.b != null || this.a == null) {
+            return;
+        }
+        if (this.a.b) {
+            this.a.b = false;
+            this.e.removeCallbacks(this.a);
+        }
+        if (this.c <= 0 || SystemClock.uptimeMillis() >= this.d + this.c) {
+            this.a.a(e.d, (Object[]) null);
+            return;
+        }
+        this.a.b = true;
+        this.e.postAtTime(this.a, this.d + this.c);
+    }
+
+    public abstract Object d();
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    public Object e() {
+        return d();
     }
 }

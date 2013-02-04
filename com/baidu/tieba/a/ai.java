@@ -3,62 +3,26 @@ package com.baidu.tieba.a;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class ai {
-    private String a = null;
-    private int b = 0;
+    private int a = 0;
+    private String b = null;
+    private int e = 0;
     private String c = null;
     private String d = null;
-    private String e = null;
-
-    public String a() {
-        return this.a;
-    }
-
-    public void a(String str) {
-        this.c = str;
-    }
-
-    public String b() {
-        return this.c;
-    }
-
-    public void b(String str) {
-        this.d = str;
-    }
-
-    public String c() {
-        return this.d;
-    }
-
-    public void c(String str) {
-        this.e = str;
-    }
-
-    public String d() {
-        return this.e;
-    }
-
-    public void d(String str) {
-        try {
-            a(new JSONObject(str));
-        } catch (Exception e) {
-            com.baidu.tieba.c.af.b("MetaData", "parserJson", "error = " + e.getMessage());
-        }
-    }
+    private String f = null;
 
     public void a(JSONObject jSONObject) {
-        if (jSONObject != null) {
-            try {
-                this.a = jSONObject.optString("id");
-                this.b = jSONObject.optInt("type", 0);
-                this.c = jSONObject.optString("name");
-                if (this.c != null && this.c.length() <= 0) {
-                    this.c = null;
-                }
-                this.d = jSONObject.optString("name_show");
-                this.e = jSONObject.optString("portrait");
-            } catch (Exception e) {
-                com.baidu.tieba.c.af.b("MetaData", "parserJson", "error = " + e.getMessage());
-            }
+        if (jSONObject == null) {
+            return;
+        }
+        try {
+            this.b = jSONObject.optString("id");
+            this.a = jSONObject.optInt("is_login", 0);
+            this.e = jSONObject.optInt("no_un", 0);
+            this.c = jSONObject.optString("name");
+            this.d = jSONObject.optString("name_show");
+            this.f = jSONObject.optString("portrait");
+        } catch (Exception e) {
+            com.baidu.tieba.c.ae.b(getClass().getName(), "parserJson", "error = " + e.getMessage());
         }
     }
 }

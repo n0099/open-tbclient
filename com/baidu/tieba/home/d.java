@@ -4,6 +4,7 @@ import android.graphics.Bitmap;
 import android.os.AsyncTask;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
+import com.baidu.tieba.a.av;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class d extends AsyncTask {
@@ -22,18 +23,6 @@ public class d extends AsyncTask {
         this(createBarActivity);
     }
 
-    public void a() {
-        ProgressBar progressBar;
-        super.cancel(true);
-        this.c = true;
-        if (this.b != null) {
-            this.b.g();
-        }
-        progressBar = this.a.p;
-        progressBar.setVisibility(8);
-        this.a.r = null;
-    }
-
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.os.AsyncTask
@@ -47,23 +36,35 @@ public class d extends AsyncTask {
             this.b.a("tid", "0");
             String i = this.b.i();
             if (this.b.b()) {
-                com.baidu.tieba.a.ay ayVar = new com.baidu.tieba.a.ay();
-                ayVar.a(i);
-                if (ayVar.b() == null || ayVar.b().length() <= 0) {
+                av avVar = new av();
+                avVar.a(i);
+                if (avVar.b() == null || avVar.b().length() <= 0) {
                     return null;
                 }
-                this.a.u = ayVar.a();
+                this.a.p = avVar.a();
                 if (this.c) {
                     return null;
                 }
-                this.b = new com.baidu.tieba.c.t(ayVar.b());
+                this.b = new com.baidu.tieba.c.t(avVar.b());
                 return com.baidu.tieba.c.e.a(this.b.h());
             }
             return null;
         } catch (Exception e) {
-            com.baidu.tieba.c.af.b(getClass().getName(), "doInBackground", e.getMessage());
+            com.baidu.tieba.c.ae.b(getClass().getName(), "doInBackground", e.getMessage());
             return null;
         }
+    }
+
+    public void a() {
+        ProgressBar progressBar;
+        super.cancel(true);
+        this.c = true;
+        if (this.b != null) {
+            this.b.g();
+        }
+        progressBar = this.a.k;
+        progressBar.setVisibility(8);
+        this.a.m = null;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -74,11 +75,11 @@ public class d extends AsyncTask {
         ProgressBar progressBar;
         ImageView imageView;
         super.onPostExecute(bitmap);
-        progressBar = this.a.p;
+        progressBar = this.a.k;
         progressBar.setVisibility(8);
-        this.a.r = null;
+        this.a.m = null;
         if (bitmap != null) {
-            imageView = this.a.n;
+            imageView = this.a.i;
             imageView.setImageBitmap(bitmap);
         }
     }
@@ -88,10 +89,10 @@ public class d extends AsyncTask {
         ProgressBar progressBar;
         ImageView imageView;
         super.onPreExecute();
-        this.a.u = null;
-        progressBar = this.a.p;
+        this.a.p = null;
+        progressBar = this.a.k;
         progressBar.setVisibility(0);
-        imageView = this.a.n;
+        imageView = this.a.i;
         imageView.setImageBitmap(null);
     }
 }

@@ -16,6 +16,23 @@ public class DialogFragment extends Fragment implements DialogInterface.OnCancel
     boolean g;
     boolean h;
 
+    public int a() {
+        return this.b;
+    }
+
+    @Override // android.support.v4.app.Fragment
+    public void a(Bundle bundle) {
+        super.a(bundle);
+        this.d = this.D == 0;
+        if (bundle != null) {
+            this.a = bundle.getInt("android:style", 0);
+            this.b = bundle.getInt("android:theme", 0);
+            this.c = bundle.getBoolean("android:cancelable", true);
+            this.d = bundle.getBoolean("android:showsDialog", this.d);
+            this.e = bundle.getInt("android:backStackId", -1);
+        }
+    }
+
     void a(boolean z) {
         if (this.f != null) {
             this.f.dismiss();
@@ -36,53 +53,53 @@ public class DialogFragment extends Fragment implements DialogInterface.OnCancel
         }
     }
 
-    public int a() {
-        return this.b;
-    }
-
-    @Override // android.support.v4.app.Fragment
-    public void a(Bundle bundle) {
-        super.a(bundle);
-        this.d = this.D == 0;
-        if (bundle != null) {
-            this.a = bundle.getInt("android:style", 0);
-            this.b = bundle.getInt("android:theme", 0);
-            this.c = bundle.getBoolean("android:cancelable", true);
-            this.d = bundle.getBoolean("android:showsDialog", this.d);
-            this.e = bundle.getInt("android:backStackId", -1);
-        }
-    }
-
     @Override // android.support.v4.app.Fragment
     public LayoutInflater b(Bundle bundle) {
-        if (!this.d) {
-            return super.b(bundle);
+        if (this.d) {
+            this.f = c(bundle);
+            this.g = false;
+            switch (this.a) {
+                case 3:
+                    this.f.getWindow().addFlags(24);
+                case 1:
+                case 2:
+                    this.f.requestWindowFeature(1);
+                    break;
+            }
+            return (LayoutInflater) this.f.getContext().getSystemService("layout_inflater");
         }
-        this.f = c(bundle);
-        this.g = false;
-        switch (this.a) {
-            case 3:
-                this.f.getWindow().addFlags(24);
-            case 1:
-            case 2:
-                this.f.requestWindowFeature(1);
-                break;
+        return super.b(bundle);
+    }
+
+    @Override // android.support.v4.app.Fragment
+    public void b() {
+        super.b();
+        if (this.f != null) {
+            this.h = false;
+            this.f.show();
         }
-        return (LayoutInflater) this.f.getContext().getSystemService("layout_inflater");
     }
 
     public Dialog c(Bundle bundle) {
         return new Dialog(g(), a());
     }
 
-    @Override // android.content.DialogInterface.OnCancelListener
-    public void onCancel(DialogInterface dialogInterface) {
+    @Override // android.support.v4.app.Fragment
+    public void c() {
+        super.c();
+        if (this.f != null) {
+            this.f.hide();
+        }
     }
 
-    @Override // android.content.DialogInterface.OnDismissListener
-    public void onDismiss(DialogInterface dialogInterface) {
-        if (!this.h) {
-            a(true);
+    @Override // android.support.v4.app.Fragment
+    public void d() {
+        super.d();
+        this.g = true;
+        if (this.f != null) {
+            this.h = true;
+            this.f.dismiss();
+            this.f = null;
         }
     }
 
@@ -102,18 +119,10 @@ public class DialogFragment extends Fragment implements DialogInterface.OnCancel
             this.f.setCancelable(this.c);
             this.f.setOnCancelListener(this);
             this.f.setOnDismissListener(this);
-            if (bundle != null && (bundle2 = bundle.getBundle("android:savedDialogState")) != null) {
-                this.f.onRestoreInstanceState(bundle2);
+            if (bundle == null || (bundle2 = bundle.getBundle("android:savedDialogState")) == null) {
+                return;
             }
-        }
-    }
-
-    @Override // android.support.v4.app.Fragment
-    public void b() {
-        super.b();
-        if (this.f != null) {
-            this.h = false;
-            this.f.show();
+            this.f.onRestoreInstanceState(bundle2);
         }
     }
 
@@ -141,22 +150,15 @@ public class DialogFragment extends Fragment implements DialogInterface.OnCancel
         }
     }
 
-    @Override // android.support.v4.app.Fragment
-    public void c() {
-        super.c();
-        if (this.f != null) {
-            this.f.hide();
-        }
+    @Override // android.content.DialogInterface.OnCancelListener
+    public void onCancel(DialogInterface dialogInterface) {
     }
 
-    @Override // android.support.v4.app.Fragment
-    public void d() {
-        super.d();
-        this.g = true;
-        if (this.f != null) {
-            this.h = true;
-            this.f.dismiss();
-            this.f = null;
+    @Override // android.content.DialogInterface.OnDismissListener
+    public void onDismiss(DialogInterface dialogInterface) {
+        if (this.h) {
+            return;
         }
+        a(true);
     }
 }

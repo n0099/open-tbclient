@@ -18,9 +18,9 @@ public class e implements View.OnClickListener {
         InputMethodManager inputMethodManager;
         EditText editText;
         AccountVcodeActivity accountVcodeActivity = this.a;
-        inputMethodManager = this.a.r;
-        editText = this.a.p;
+        inputMethodManager = this.a.q;
+        editText = this.a.o;
         accountVcodeActivity.a(inputMethodManager, editText);
-        this.a.j();
+        this.a.h();
     }
 }

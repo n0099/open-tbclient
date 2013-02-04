@@ -1,16 +1,15 @@
 package com.baidu.tieba.view;
 
 import android.content.Context;
-import android.graphics.Bitmap;
 import android.util.AttributeSet;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 /* loaded from: classes.dex */
 public class BaseWebView extends WebView {
     private WebViewClient a;
-    private d b;
+    private e b;
     private Context c;
-    private d d;
+    private e d;
 
     public BaseWebView(Context context) {
         super(context);
@@ -19,17 +18,6 @@ public class BaseWebView extends WebView {
         this.d = null;
         this.c = context;
         a();
-    }
-
-    public void setDownloadEnabled(boolean z) {
-        if (z) {
-            if (this.d == null) {
-                b();
-            }
-            setOnLoadUrlListener(this.d);
-            return;
-        }
-        setOnLoadUrlListener(null);
     }
 
     public BaseWebView(Context context, AttributeSet attributeSet) {
@@ -41,54 +29,31 @@ public class BaseWebView extends WebView {
         a();
     }
 
+    private void b() {
+        this.d = new c(this);
+    }
+
     public void a() {
         getSettings().setJavaScriptEnabled(true);
         getSettings().setCacheMode(2);
-        com.baidu.tieba.c.ah.a(getSettings());
-        this.a = new MyWebViewClient();
+        com.baidu.tieba.c.ag.a(getSettings());
+        this.a = new d(this);
         setWebViewClient(this.a);
         setOnLongClickListener(new b(this));
     }
 
-    /* loaded from: classes.dex */
-    public class MyWebViewClient extends WebViewClient {
-        public MyWebViewClient() {
+    public void setDownloadEnabled(boolean z) {
+        if (!z) {
+            setOnLoadUrlListener(null);
+            return;
         }
-
-        @Override // android.webkit.WebViewClient
-        public void onPageStarted(WebView webView, String str, Bitmap bitmap) {
-            super.onPageStarted(webView, str, bitmap);
+        if (this.d == null) {
+            b();
         }
-
-        @Override // android.webkit.WebViewClient
-        public void onLoadResource(WebView webView, String str) {
-            super.onLoadResource(webView, str);
-        }
-
-        @Override // android.webkit.WebViewClient
-        public void onPageFinished(WebView webView, String str) {
-            super.onPageFinished(webView, str);
-        }
-
-        @Override // android.webkit.WebViewClient
-        public boolean shouldOverrideUrlLoading(WebView webView, String str) {
-            if (BaseWebView.this.b != null) {
-                return BaseWebView.this.b.a(webView, str);
-            }
-            return super.shouldOverrideUrlLoading(webView, str);
-        }
-
-        @Override // android.webkit.WebViewClient
-        public void onReceivedError(WebView webView, int i, String str, String str2) {
-            super.onReceivedError(webView, i, str, str2);
-        }
+        setOnLoadUrlListener(this.d);
     }
 
-    public void setOnLoadUrlListener(d dVar) {
-        this.b = dVar;
-    }
-
-    private void b() {
-        this.d = new c(this);
+    public void setOnLoadUrlListener(e eVar) {
+        this.b = eVar;
     }
 }

@@ -8,12 +8,12 @@ public abstract class GlobalFilter extends Filter {
 
     public abstract Bitmap apply(Context context, int i);
 
-    public void setup(Context context, Bitmap bitmap) {
-        this.mOriginalBitmap = bitmap.copy(bitmap.getConfig(), true);
-    }
-
     public void release() {
         this.mOriginalBitmap.recycle();
         this.mOriginalBitmap = null;
+    }
+
+    public void setup(Context context, Bitmap bitmap) {
+        this.mOriginalBitmap = bitmap.copy(bitmap.getConfig(), true);
     }
 }

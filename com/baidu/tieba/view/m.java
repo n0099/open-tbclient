@@ -33,47 +33,45 @@ public class m implements View.OnClickListener {
         Activity activity3;
         String str4;
         Activity activity4;
-        linearLayout = this.a.b;
-        if (view != linearLayout) {
-            linearLayout2 = this.a.c;
-            if (view != linearLayout2) {
-                button = this.a.f;
-                if (view != button) {
-                    button2 = this.a.g;
-                    if (view == button2) {
-                        oVar = this.a.p;
-                        if (oVar != o.FRS_IMAGE) {
-                            TiebaApplication b = TiebaApplication.b();
-                            str = this.a.q;
-                            b.c(str);
-                            activity = this.a.o;
-                            str2 = this.a.q;
-                            FrsImageActivity.a(activity, str2, null, 0);
-                            activity2 = this.a.o;
-                            activity2.finish();
-                            return;
-                        }
-                        return;
-                    }
-                    return;
-                }
-                oVar2 = this.a.p;
-                if (oVar2 != o.FRS_LIST) {
-                    TiebaApplication b2 = TiebaApplication.b();
-                    str3 = this.a.q;
-                    b2.d(str3);
-                    activity3 = this.a.o;
-                    str4 = this.a.q;
-                    FrsActivity.a(activity3, str4, (String) null);
-                    activity4 = this.a.o;
-                    activity4.finish();
-                    return;
-                }
-                return;
-            }
+        linearLayout = this.a.a;
+        if (view == linearLayout) {
+            this.a.a();
+            return;
+        }
+        linearLayout2 = this.a.b;
+        if (view == linearLayout2) {
             this.a.b();
             return;
         }
-        this.a.a();
+        button = this.a.e;
+        if (view == button) {
+            oVar2 = this.a.o;
+            if (oVar2 != o.FRS_LIST) {
+                TiebaApplication a = TiebaApplication.a();
+                str3 = this.a.p;
+                a.d(str3);
+                activity3 = this.a.n;
+                str4 = this.a.p;
+                FrsActivity.a(activity3, str4, (String) null);
+                activity4 = this.a.n;
+                activity4.finish();
+                return;
+            }
+            return;
+        }
+        button2 = this.a.f;
+        if (view == button2) {
+            oVar = this.a.o;
+            if (oVar != o.FRS_IMAGE) {
+                TiebaApplication a2 = TiebaApplication.a();
+                str = this.a.p;
+                a2.c(str);
+                activity = this.a.n;
+                str2 = this.a.p;
+                FrsImageActivity.a(activity, str2, null, 0);
+                activity2 = this.a.n;
+                activity2.finish();
+            }
+        }
     }
 }

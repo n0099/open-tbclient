@@ -19,32 +19,18 @@ class r {
         this.e = 0;
     }
 
-    public Object a(int i) {
-        return a(i, null);
-    }
-
-    public Object a(int i, Object obj) {
-        int a2 = a(this.c, 0, this.e, i);
-        return (a2 < 0 || this.d[a2] == a) ? obj : this.d[a2];
-    }
-
-    public void b(int i) {
-        int a2 = a(this.c, 0, this.e, i);
-        if (a2 >= 0 && this.d[a2] != a) {
-            this.d[a2] = a;
-            this.b = true;
+    private static int a(int[] iArr, int i, int i2, int i3) {
+        int i4 = i - 1;
+        int i5 = i + i2;
+        while (i5 - i4 > 1) {
+            int i6 = (i5 + i4) / 2;
+            if (iArr[i6] < i3) {
+                i4 = i6;
+            } else {
+                i5 = i6;
+            }
         }
-    }
-
-    public void c(int i) {
-        b(i);
-    }
-
-    public void d(int i) {
-        if (this.d[i] != a) {
-            this.d[i] = a;
-            this.b = true;
-        }
+        return i5 == i + i2 ? (i + i2) ^ (-1) : iArr[i5] != i3 ? i5 ^ (-1) : i5;
     }
 
     private void c() {
@@ -64,6 +50,54 @@ class r {
         }
         this.b = false;
         this.e = i2;
+    }
+
+    static int g(int i) {
+        for (int i2 = 4; i2 < 32; i2++) {
+            if (i <= (1 << i2) - 12) {
+                return (1 << i2) - 12;
+            }
+        }
+        return i;
+    }
+
+    static int h(int i) {
+        return g(i * 4) / 4;
+    }
+
+    public int a() {
+        if (this.b) {
+            c();
+        }
+        return this.e;
+    }
+
+    public Object a(int i) {
+        return a(i, null);
+    }
+
+    public Object a(int i, Object obj) {
+        int a2 = a(this.c, 0, this.e, i);
+        return (a2 < 0 || this.d[a2] == a) ? obj : this.d[a2];
+    }
+
+    public void b() {
+        int i = this.e;
+        Object[] objArr = this.d;
+        for (int i2 = 0; i2 < i; i2++) {
+            objArr[i2] = null;
+        }
+        this.e = 0;
+        this.b = false;
+    }
+
+    public void b(int i) {
+        int a2 = a(this.c, 0, this.e, i);
+        if (a2 < 0 || this.d[a2] == a) {
+            return;
+        }
+        this.d[a2] = a;
+        this.b = true;
     }
 
     public void b(int i, Object obj) {
@@ -100,11 +134,15 @@ class r {
         this.e++;
     }
 
-    public int a() {
-        if (this.b) {
-            c();
+    public void c(int i) {
+        b(i);
+    }
+
+    public void d(int i) {
+        if (this.d[i] != a) {
+            this.d[i] = a;
+            this.b = true;
         }
-        return this.e;
     }
 
     public int e(int i) {
@@ -119,45 +157,5 @@ class r {
             c();
         }
         return this.d[i];
-    }
-
-    public void b() {
-        int i = this.e;
-        Object[] objArr = this.d;
-        for (int i2 = 0; i2 < i; i2++) {
-            objArr[i2] = null;
-        }
-        this.e = 0;
-        this.b = false;
-    }
-
-    private static int a(int[] iArr, int i, int i2, int i3) {
-        int i4 = i - 1;
-        int i5 = i + i2;
-        while (i5 - i4 > 1) {
-            int i6 = (i5 + i4) / 2;
-            if (iArr[i6] < i3) {
-                i4 = i6;
-            } else {
-                i5 = i6;
-            }
-        }
-        if (i5 == i + i2) {
-            return (i + i2) ^ (-1);
-        }
-        return iArr[i5] != i3 ? i5 ^ (-1) : i5;
-    }
-
-    static int g(int i) {
-        for (int i2 = 4; i2 < 32; i2++) {
-            if (i <= (1 << i2) - 12) {
-                return (1 << i2) - 12;
-            }
-        }
-        return i;
-    }
-
-    static int h(int i) {
-        return g(i * 4) / 4;
     }
 }

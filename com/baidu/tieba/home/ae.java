@@ -1,50 +1,21 @@
 package com.baidu.tieba.home;
 
-import android.os.AsyncTask;
+import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ae extends AsyncTask {
-    final /* synthetic */ MarkActivity a;
-
-    private ae(MarkActivity markActivity) {
-        this.a = markActivity;
-    }
+public class ae implements View.OnFocusChangeListener {
+    final /* synthetic */ SearchActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ ae(MarkActivity markActivity, ae aeVar) {
-        this(markActivity);
+    public ae(SearchActivity searchActivity) {
+        this.a = searchActivity;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // android.os.AsyncTask
-    /* renamed from: a */
-    public com.baidu.tieba.b.h doInBackground(Object... objArr) {
-        com.baidu.tieba.b.h hVar = new com.baidu.tieba.b.h();
-        try {
-            hVar.b();
-        } catch (Exception e) {
-            com.baidu.tieba.c.af.b(getClass().getName(), "", "PbAsyncTask.doInBackground error = " + e.getMessage());
+    @Override // android.view.View.OnFocusChangeListener
+    public void onFocusChange(View view, boolean z) {
+        if (z) {
+            return;
         }
-        return hVar;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // android.os.AsyncTask
-    /* renamed from: a */
-    public void onPostExecute(com.baidu.tieba.b.h hVar) {
-        if (hVar != null) {
-            this.a.g = hVar;
-            this.a.m();
-            System.gc();
-        } else {
-            this.a.b("");
-        }
-        this.a.f = null;
-    }
-
-    public void a() {
-        super.cancel(true);
+        com.baidu.tieba.c.ag.a(this.a, view);
     }
 }

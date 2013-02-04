@@ -1,5 +1,6 @@
 package com.baidu.tieba.write;
 
+import android.content.Context;
 import android.graphics.Bitmap;
 import android.os.AsyncTask;
 import android.os.Build;
@@ -42,21 +43,21 @@ public class ay extends AsyncTask {
                 c.recycle();
                 return null;
             }
-            int a = com.baidu.tieba.c.ah.a(this.a, 63.5f);
+            int a = com.baidu.tieba.c.ag.a((Context) this.a, 63.5f);
             if (Build.VERSION.SDK_INT >= 7) {
-                z = this.a.v;
+                z = this.a.u;
                 if (z) {
-                    Bitmap a2 = com.baidu.tieba.c.e.a(com.baidu.tieba.c.e.b(c, a), com.baidu.tieba.c.ah.a(this.a, 5.0f));
+                    Bitmap a2 = com.baidu.tieba.c.e.a(com.baidu.tieba.c.e.b(c, a), com.baidu.tieba.c.ag.a((Context) this.a, 5.0f));
+                    this.a.A = new HashMap();
                     this.a.B = new HashMap();
-                    this.a.C = new HashMap();
-                    hashMap = this.a.B;
+                    hashMap = this.a.A;
                     hashMap.put("normal", a2);
-                    strArr = WriteImageActivity.c;
+                    strArr = WriteImageActivity.b;
                     for (String str : strArr) {
                         String substring = str.substring(0, str.indexOf("|"));
                         if (!substring.equals("normal")) {
                             Bitmap apply = FilterFactory.createOneKeyFilter(this.a, substring).apply(this.a, a2.copy(a2.getConfig(), true));
-                            hashMap2 = this.a.B;
+                            hashMap2 = this.a.A;
                             hashMap2.put(substring, apply);
                         }
                     }
@@ -67,23 +68,15 @@ public class ay extends AsyncTask {
         } catch (Exception e2) {
             bitmap = c;
             e = e2;
-            com.baidu.tieba.c.af.b(getClass().getName(), "GetImageTask", e.toString());
+            com.baidu.tieba.c.ae.b(getClass().getName(), "GetImageTask", e.toString());
             return bitmap;
         }
     }
 
-    @Override // android.os.AsyncTask
-    protected void onPreExecute() {
-        ProgressBar progressBar;
-        progressBar = this.a.j;
-        progressBar.setVisibility(0);
-        super.onPreExecute();
-    }
-
     public void a() {
         ProgressBar progressBar;
-        this.a.k = null;
-        progressBar = this.a.j;
+        this.a.j = null;
+        progressBar = this.a.i;
         progressBar.setVisibility(8);
         super.cancel(true);
     }
@@ -98,21 +91,30 @@ public class ay extends AsyncTask {
         boolean z;
         String[] strArr;
         super.onPostExecute(bitmap);
-        this.a.k = null;
-        this.a.e = bitmap;
-        progressBar = this.a.j;
+        this.a.j = null;
+        this.a.d = bitmap;
+        progressBar = this.a.i;
         progressBar.setVisibility(8);
-        if (bitmap != null && !bitmap.isRecycled() && bitmap != null) {
-            imageView = this.a.d;
-            imageView.setImageBitmap(bitmap);
-            if (Build.VERSION.SDK_INT >= 7) {
-                z = this.a.v;
-                if (z) {
-                    WriteImageActivity writeImageActivity = this.a;
-                    strArr = WriteImageActivity.c;
-                    writeImageActivity.a(strArr);
-                }
+        if (bitmap == null || bitmap.isRecycled() || bitmap == null) {
+            return;
+        }
+        imageView = this.a.c;
+        imageView.setImageBitmap(bitmap);
+        if (Build.VERSION.SDK_INT >= 7) {
+            z = this.a.u;
+            if (z) {
+                WriteImageActivity writeImageActivity = this.a;
+                strArr = WriteImageActivity.b;
+                writeImageActivity.a(strArr);
             }
         }
+    }
+
+    @Override // android.os.AsyncTask
+    protected void onPreExecute() {
+        ProgressBar progressBar;
+        progressBar = this.a.i;
+        progressBar.setVisibility(0);
+        super.onPreExecute();
     }
 }

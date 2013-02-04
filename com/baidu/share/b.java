@@ -1,53 +1,50 @@
 package com.baidu.share;
+
+import android.content.Context;
+import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class b {
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static String a() {
-        return "baidu.intent.action.SHARE";
+    private static b a = null;
+    private g b = new g();
+    private d c;
+
+    private b(Context context) {
+        this.c = null;
+        if (context == null) {
+            throw new IllegalArgumentException("context cannot be null");
+        }
+        this.c = new d(context);
+    }
+
+    public static synchronized b a(Context context) {
+        b bVar;
+        synchronized (b.class) {
+            if (a == null) {
+                a = new b(context);
+            }
+            bVar = a;
+        }
+        return bVar;
+    }
+
+    public boolean a(a aVar) {
+        return this.b.a(aVar);
+    }
+
+    public boolean a(c cVar) {
+        return this.c.a(cVar);
+    }
+
+    public boolean a(c cVar, ArrayList arrayList) {
+        return this.c.a(cVar, arrayList);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static String b() {
-        return "com.baidu.permission.SHARE";
+    public void b(c cVar) {
+        this.b.a(cVar);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static String c() {
-        return "action";
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static String d() {
-        return "from";
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static String e() {
-        return "data";
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static String f() {
-        return "timestamp";
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static String g() {
-        return "receiver";
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static String h() {
-        return ";";
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static String i() {
-        return "share.json";
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static int j() {
-        return 15;
+    public boolean b(a aVar) {
+        return this.b.b(aVar);
     }
 }

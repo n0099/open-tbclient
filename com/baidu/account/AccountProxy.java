@@ -23,16 +23,18 @@ public class AccountProxy {
     private boolean mIsActivity;
 
     /* loaded from: classes.dex */
-    public interface TokenCallback {
-        void callBack(String str);
-    }
-
-    /* loaded from: classes.dex */
     class MyAccountManagerCallback implements AccountManagerCallback {
         private String mAccountType;
         private TokenCallback mCallback;
         private boolean mIfAddAccount;
         public String mytoken = null;
+
+        public MyAccountManagerCallback(TokenCallback tokenCallback, String str, boolean z) {
+            this.mCallback = null;
+            this.mCallback = tokenCallback;
+            this.mAccountType = str;
+            this.mIfAddAccount = z;
+        }
 
         private void endAll() {
             if (this.mCallback != null) {
@@ -47,13 +49,6 @@ public class AccountProxy {
                 AccountProxy.this.mContext.sendBroadcast(intent);
             }
             notify();
-        }
-
-        public MyAccountManagerCallback(TokenCallback tokenCallback, String str, boolean z) {
-            this.mCallback = null;
-            this.mCallback = tokenCallback;
-            this.mAccountType = str;
-            this.mIfAddAccount = z;
         }
 
         @Override // android.accounts.AccountManagerCallback
@@ -71,14 +66,19 @@ public class AccountProxy {
                 } catch (Exception e) {
                     endAll();
                 }
-                if (this.mIfAddAccount && this.mytoken == null && accountsByType.length > 0) {
-                    Log.d(AccountProxy.TAG, "continue to get token after addAccount");
-                    accountManager.getAuthToken(accountsByType[0], "BDUSS", (Bundle) null, AccountProxy.this.getActivity(), this, (Handler) null);
+                if (!this.mIfAddAccount || this.mytoken != null || accountsByType.length <= 0) {
+                    endAll();
                     return;
                 }
-                endAll();
+                Log.d(AccountProxy.TAG, "continue to get token after addAccount");
+                accountManager.getAuthToken(accountsByType[0], "BDUSS", (Bundle) null, AccountProxy.this.getActivity(), this, (Handler) null);
             }
         }
+    }
+
+    /* loaded from: classes.dex */
+    public interface TokenCallback {
+        void callBack(String str);
     }
 
     public AccountProxy(Context context) {
@@ -86,13 +86,60 @@ public class AccountProxy {
         this.mIsActivity = context instanceof Activity;
     }
 
-    public boolean hasBaiduAccount() {
-        for (AuthenticatorDescription authenticatorDescription : AccountManager.get(this.mContext).getAuthenticatorTypes()) {
-            if (authenticatorDescription.type.equalsIgnoreCase(BAIDUACCOUNT_TYPE)) {
-                return true;
-            }
+    /* JADX INFO: Access modifiers changed from: private */
+    public Activity getActivity() {
+        if (this.mIsActivity) {
+            return (Activity) this.mContext;
         }
-        return false;
+        return null;
+    }
+
+    private void manageAccount() {
+        this.mContext.startActivity(new Intent("android.settings.SYNC_SETTINGS"));
+    }
+
+    public String getBaiduAccountDisplayName() {
+        Cursor query = this.mContext.getContentResolver().query(Uri.parse("content://com.baidu.account.provider.AccountInfoProvider/accountInfo"), new String[]{"displayname"}, null, null, null);
+        return (query == null || !query.moveToFirst()) ? "" : query.getString(query.getColumnIndex("displayname"));
+    }
+
+    public String getBaiduAccountPhone() {
+        Cursor query = this.mContext.getContentResolver().query(Uri.parse("content://com.baidu.account.provider.AccountInfoProvider/accountInfo"), new String[]{"phone"}, null, null, null);
+        return (query == null || !query.moveToFirst()) ? "" : query.getString(query.getColumnIndex("phone"));
+    }
+
+    public String getBaiduAccountUID() {
+        Cursor query = this.mContext.getContentResolver().query(Uri.parse("content://com.baidu.account.provider.AccountInfoProvider/accountInfo"), new String[]{"uid"}, null, null, null);
+        return (query == null || !query.moveToFirst()) ? "" : query.getString(query.getColumnIndex("uid"));
+    }
+
+    public int getNumOfAccounts(String str) {
+        if (str == null || str.length() == 0) {
+            str = BAIDUACCOUNT_TYPE;
+        }
+        Log.d(TAG, "about to set the account " + str);
+        return AccountManager.get(this.mContext).getAccountsByType(str).length;
+    }
+
+    public void getTokenAsync(String str, TokenCallback tokenCallback) {
+        String str2 = (str == null || str.length() == 0) ? BAIDUACCOUNT_TYPE : str;
+        AccountManager accountManager = AccountManager.get(this.mContext);
+        if (accountManager == null) {
+            if (tokenCallback != null) {
+                tokenCallback.callBack(null);
+                return;
+            }
+            return;
+        }
+        Account[] accountsByType = accountManager.getAccountsByType(str2);
+        Bundle bundle = new Bundle();
+        bundle.putBoolean("PASSWDCK", true);
+        MyAccountManagerCallback myAccountManagerCallback = new MyAccountManagerCallback(tokenCallback, str2, accountsByType.length == 0);
+        if (accountsByType.length != 0) {
+            accountManager.getAuthToken(accountsByType[0], "BDUSS", (Bundle) null, getActivity(), myAccountManagerCallback, (Handler) null);
+        } else {
+            accountManager.addAccount(str2, "BDUSS", null, bundle, getActivity(), myAccountManagerCallback, null);
+        }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -119,6 +166,15 @@ public class AccountProxy {
         return str2;
     }
 
+    public boolean hasBaiduAccount() {
+        for (AuthenticatorDescription authenticatorDescription : AccountManager.get(this.mContext).getAuthenticatorTypes()) {
+            if (authenticatorDescription.type.equalsIgnoreCase(BAIDUACCOUNT_TYPE)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
     public void invalidateToken(String str, String str2) {
         if (str == null || str.length() == 0) {
             str = BAIDUACCOUNT_TYPE;
@@ -129,22 +185,8 @@ public class AccountProxy {
         }
     }
 
-    public void getTokenAsync(String str, TokenCallback tokenCallback) {
-        String str2 = (str == null || str.length() == 0) ? BAIDUACCOUNT_TYPE : str;
-        AccountManager accountManager = AccountManager.get(this.mContext);
-        if (accountManager != null) {
-            Account[] accountsByType = accountManager.getAccountsByType(str2);
-            Bundle bundle = new Bundle();
-            bundle.putBoolean("PASSWDCK", true);
-            MyAccountManagerCallback myAccountManagerCallback = new MyAccountManagerCallback(tokenCallback, str2, accountsByType.length == 0);
-            if (accountsByType.length != 0) {
-                accountManager.getAuthToken(accountsByType[0], "BDUSS", (Bundle) null, getActivity(), myAccountManagerCallback, (Handler) null);
-            } else {
-                accountManager.addAccount(str2, "BDUSS", null, bundle, getActivity(), myAccountManagerCallback, null);
-            }
-        } else if (tokenCallback != null) {
-            tokenCallback.callBack(null);
-        }
+    public boolean isBaiduAccountLogin() {
+        return hasBaiduAccount() && getNumOfAccounts(BAIDUACCOUNT_TYPE) > 0;
     }
 
     public void setAccount(String str) {
@@ -154,62 +196,14 @@ public class AccountProxy {
         AccountManager accountManager = AccountManager.get(this.mContext);
         if (accountManager != null) {
             Account[] accountsByType = accountManager.getAccountsByType(str);
-            if (accountsByType.length == 1) {
-                Intent intent = new Intent("android.settings.ACCOUNT_SYNC_SETTINGS");
-                intent.putExtra("account", accountsByType[0]);
-                this.mContext.startActivity(intent);
+            if (accountsByType.length != 1) {
+                manageAccount();
                 return;
             }
-            manageAccount();
+            Intent intent = new Intent("android.settings.ACCOUNT_SYNC_SETTINGS");
+            intent.putExtra("account", accountsByType[0]);
+            this.mContext.startActivity(intent);
         }
-    }
-
-    public int getNumOfAccounts(String str) {
-        if (str == null || str.length() == 0) {
-            str = BAIDUACCOUNT_TYPE;
-        }
-        Log.d(TAG, "about to set the account " + str);
-        return AccountManager.get(this.mContext).getAccountsByType(str).length;
-    }
-
-    private void manageAccount() {
-        this.mContext.startActivity(new Intent("android.settings.SYNC_SETTINGS"));
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public Activity getActivity() {
-        if (this.mIsActivity) {
-            return (Activity) this.mContext;
-        }
-        return null;
-    }
-
-    public boolean isBaiduAccountLogin() {
-        return hasBaiduAccount() && getNumOfAccounts(BAIDUACCOUNT_TYPE) > 0;
-    }
-
-    public String getBaiduAccountUID() {
-        Cursor query = this.mContext.getContentResolver().query(Uri.parse("content://com.baidu.account.provider.AccountInfoProvider/accountInfo"), new String[]{"uid"}, null, null, null);
-        if (query == null || !query.moveToFirst()) {
-            return "";
-        }
-        return query.getString(query.getColumnIndex("uid"));
-    }
-
-    public String getBaiduAccountDisplayName() {
-        Cursor query = this.mContext.getContentResolver().query(Uri.parse("content://com.baidu.account.provider.AccountInfoProvider/accountInfo"), new String[]{"displayname"}, null, null, null);
-        if (query == null || !query.moveToFirst()) {
-            return "";
-        }
-        return query.getString(query.getColumnIndex("displayname"));
-    }
-
-    public String getBaiduAccountPhone() {
-        Cursor query = this.mContext.getContentResolver().query(Uri.parse("content://com.baidu.account.provider.AccountInfoProvider/accountInfo"), new String[]{"phone"}, null, null, null);
-        if (query == null || !query.moveToFirst()) {
-            return "";
-        }
-        return query.getString(query.getColumnIndex("phone"));
     }
 
     public void startFillNameActivity(boolean z) {

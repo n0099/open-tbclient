@@ -11,14 +11,14 @@ class am {
         this.c = waterFallView;
     }
 
-    public void a(int i) {
-        this.a += i;
-        this.b.add(new int[]{this.a, this.a});
-    }
-
     public void a() {
         this.a = 0;
         this.b.clear();
+    }
+
+    public void a(int i) {
+        this.a += i;
+        this.b.add(new int[]{this.a, this.a});
     }
 
     public int b() {
@@ -46,19 +46,16 @@ class am {
             if (i3 >= size) {
                 i2 = i3;
                 break;
-            } else if (((int[]) this.b.get(i3))[0] <= i) {
-                i3++;
-            } else {
+            } else if (((int[]) this.b.get(i3))[0] > i) {
                 i2 = i3 - 1;
                 break;
+            } else {
+                i3++;
             }
         }
         if (i2 < 0) {
             i2 = 0;
         }
-        if (i2 >= size) {
-            return size - 1;
-        }
-        return i2;
+        return i2 >= size ? size - 1 : i2;
     }
 }

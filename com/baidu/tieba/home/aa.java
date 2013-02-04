@@ -1,60 +1,39 @@
 package com.baidu.tieba.home;
 
-import android.widget.TextView;
-import com.baidu.tieba.R;
-import com.baidu.tieba.frs.FrsActivity;
-import com.baidu.tieba.pb.PbActivity;
-import com.baidu.tieba.pb.ds;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-/* JADX INFO: Access modifiers changed from: package-private */
+import org.apache.http.message.BasicNameValuePair;
 /* loaded from: classes.dex */
-public class aa implements ds {
-    final /* synthetic */ LotteryActivity a;
+class aa implements Runnable {
+    final /* synthetic */ SearchActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public aa(LotteryActivity lotteryActivity) {
-        this.a = lotteryActivity;
+    public aa(SearchActivity searchActivity) {
+        this.a = searchActivity;
     }
 
-    @Override // com.baidu.tieba.pb.ds
-    public boolean a(String str) {
-        Pattern pattern;
-        Pattern pattern2;
-        Pattern pattern3;
-        TextView textView;
-        TextView textView2;
-        if (str == null) {
-            return false;
-        }
-        pattern = this.a.A;
-        Matcher matcher = pattern.matcher(str);
-        if (!matcher.find()) {
-            pattern2 = this.a.B;
-            Matcher matcher2 = pattern2.matcher(str);
-            if (!matcher2.find()) {
-                pattern3 = this.a.z;
-                if (pattern3.matcher(str).find()) {
-                    this.a.x = true;
-                    textView2 = this.a.o;
-                    textView2.setText(R.string.lottery);
-                    return false;
+    @Override // java.lang.Runnable
+    public void run() {
+        String str;
+        String str2;
+        String str3;
+        an anVar;
+        try {
+            str = this.a.r;
+            if (str != null) {
+                str2 = this.a.r;
+                if (str2.length() > 0) {
+                    StringBuffer stringBuffer = new StringBuffer(30);
+                    stringBuffer.append("http://c.tieba.baidu.com/");
+                    stringBuffer.append("c/f/forum/sug");
+                    str3 = this.a.r;
+                    BasicNameValuePair basicNameValuePair = new BasicNameValuePair("q", str3);
+                    this.a.g();
+                    this.a.q = new an(this.a, stringBuffer.toString(), basicNameValuePair, true);
+                    anVar = this.a.q;
+                    anVar.execute(stringBuffer.toString(), basicNameValuePair);
                 }
-                this.a.x = false;
-                textView = this.a.o;
-                textView.setText((CharSequence) null);
-                return false;
             }
-            String g = com.baidu.tieba.c.ae.g(matcher2.group(1));
-            if (g != null && g.length() > 0) {
-                FrsActivity.a(this.a, g, (String) null);
-            }
-            return true;
+        } catch (Exception e) {
+            com.baidu.tieba.c.ae.b(getClass().getName(), "mSuggestRunnble.run", "error = " + e.getMessage());
         }
-        String group = matcher.group(1);
-        if (group != null && group.length() > 0) {
-            PbActivity.a(this.a, group, (String) null);
-        }
-        return true;
     }
 }

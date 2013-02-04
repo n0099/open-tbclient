@@ -18,17 +18,17 @@ class t implements Runnable {
         EditText editText2;
         InputMethodManager inputMethodManager2;
         EditText editText3;
-        editText = this.a.g;
+        editText = this.a.f;
         if (editText.getVisibility() == 0) {
             WriteActivity writeActivity = this.a;
-            inputMethodManager2 = this.a.f;
-            editText3 = this.a.g;
+            inputMethodManager2 = this.a.e;
+            editText3 = this.a.f;
             writeActivity.b(inputMethodManager2, editText3);
             return;
         }
         WriteActivity writeActivity2 = this.a;
-        inputMethodManager = this.a.f;
-        editText2 = this.a.h;
+        inputMethodManager = this.a.e;
+        editText2 = this.a.g;
         writeActivity2.b(inputMethodManager, editText2);
     }
 }

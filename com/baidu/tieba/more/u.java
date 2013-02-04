@@ -1,11 +1,11 @@
 package com.baidu.tieba.more;
 
-import android.widget.RadioGroup;
+import android.app.AlertDialog;
+import android.view.View;
 import com.baidu.tieba.R;
-import com.baidu.tieba.TiebaApplication;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class u implements RadioGroup.OnCheckedChangeListener {
+public class u implements View.OnClickListener {
     final /* synthetic */ BrowseSettingActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -13,17 +13,21 @@ public class u implements RadioGroup.OnCheckedChangeListener {
         this.a = browseSettingActivity;
     }
 
-    @Override // android.widget.RadioGroup.OnCheckedChangeListener
-    public void onCheckedChanged(RadioGroup radioGroup, int i) {
-        switch (i) {
-            case R.id.font_size_big /* 2131230861 */:
-                TiebaApplication.b().g(1);
-                return;
-            case R.id.font_size_mid /* 2131230862 */:
-                TiebaApplication.b().g(2);
-                return;
-            case R.id.font_size_small /* 2131230863 */:
-                TiebaApplication.b().g(3);
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        AlertDialog alertDialog;
+        AlertDialog alertDialog2;
+        AlertDialog alertDialog3;
+        switch (view.getId()) {
+            case R.id.show_photo /* 2131230845 */:
+                alertDialog = this.a.f;
+                if (alertDialog == null) {
+                    this.a.f = new AlertDialog.Builder(this.a).setTitle(R.string.show_photo).setItems(R.array.menu_view_images, new v(this)).create();
+                }
+                alertDialog2 = this.a.f;
+                alertDialog2.setCanceledOnTouchOutside(true);
+                alertDialog3 = this.a.f;
+                alertDialog3.show();
                 return;
             default:
                 return;

@@ -20,11 +20,11 @@ public class j implements AbsListView.OnScrollListener {
         Runnable runnable;
         Handler handler2;
         Runnable runnable2;
-        handler = this.a.Y;
-        runnable = this.a.ab;
+        handler = this.a.X;
+        runnable = this.a.aa;
         handler.removeCallbacks(runnable);
-        handler2 = this.a.Y;
-        runnable2 = this.a.ab;
+        handler2 = this.a.X;
+        runnable2 = this.a.aa;
         handler2.postDelayed(runnable2, 300L);
     }
 
@@ -33,13 +33,13 @@ public class j implements AbsListView.OnScrollListener {
         ListView listView;
         ListView listView2;
         AdapterView.OnItemLongClickListener onItemLongClickListener;
-        if (i == 0) {
-            listView2 = this.a.w;
-            onItemLongClickListener = this.a.ac;
-            listView2.setOnItemLongClickListener(onItemLongClickListener);
+        if (i != 0) {
+            listView = this.a.v;
+            listView.setOnItemLongClickListener(null);
             return;
         }
-        listView = this.a.w;
-        listView.setOnItemLongClickListener(null);
+        listView2 = this.a.v;
+        onItemLongClickListener = this.a.ab;
+        listView2.setOnItemLongClickListener(onItemLongClickListener);
     }
 }

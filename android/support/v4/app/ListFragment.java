@@ -27,6 +27,84 @@ public class ListFragment extends Fragment {
     CharSequence g;
     boolean h;
 
+    private void a() {
+        if (this.b != null) {
+            return;
+        }
+        View i = i();
+        if (i == null) {
+            throw new IllegalStateException("Content view not yet created");
+        }
+        if (i instanceof ListView) {
+            this.b = (ListView) i;
+        } else {
+            this.d = (TextView) i.findViewById(16711681);
+            if (this.d == null) {
+                this.c = i.findViewById(16908292);
+            } else {
+                this.d.setVisibility(8);
+            }
+            this.e = i.findViewById(16711682);
+            this.f = i.findViewById(16711683);
+            View findViewById = i.findViewById(16908298);
+            if (!(findViewById instanceof ListView)) {
+                if (findViewById != null) {
+                    throw new RuntimeException("Content has view with id attribute 'android.R.id.list' that is not a ListView class");
+                }
+                throw new RuntimeException("Your content must have a ListView whose id attribute is 'android.R.id.list'");
+            }
+            this.b = (ListView) findViewById;
+            if (this.c != null) {
+                this.b.setEmptyView(this.c);
+            } else if (this.g != null) {
+                this.d.setText(this.g);
+                this.b.setEmptyView(this.d);
+            }
+        }
+        this.h = true;
+        this.b.setOnItemClickListener(this.X);
+        if (this.a != null) {
+            ListAdapter listAdapter = this.a;
+            this.a = null;
+            a(listAdapter);
+        } else if (this.e != null) {
+            a(false, false);
+        }
+        this.V.post(this.W);
+    }
+
+    private void a(boolean z, boolean z2) {
+        a();
+        if (this.e == null) {
+            throw new IllegalStateException("Can't be used with a custom content view");
+        }
+        if (this.h == z) {
+            return;
+        }
+        this.h = z;
+        if (z) {
+            if (z2) {
+                this.e.startAnimation(AnimationUtils.loadAnimation(g(), 17432577));
+                this.f.startAnimation(AnimationUtils.loadAnimation(g(), 17432576));
+            } else {
+                this.e.clearAnimation();
+                this.f.clearAnimation();
+            }
+            this.e.setVisibility(8);
+            this.f.setVisibility(0);
+            return;
+        }
+        if (z2) {
+            this.e.startAnimation(AnimationUtils.loadAnimation(g(), 17432576));
+            this.f.startAnimation(AnimationUtils.loadAnimation(g(), 17432577));
+        } else {
+            this.e.clearAnimation();
+            this.f.clearAnimation();
+        }
+        this.e.setVisibility(0);
+        this.f.setVisibility(8);
+    }
+
     @Override // android.support.v4.app.Fragment
     public View a(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
         g g = g();
@@ -59,6 +137,21 @@ public class ListFragment extends Fragment {
         a();
     }
 
+    public void a(ListAdapter listAdapter) {
+        boolean z = this.a != null;
+        this.a = listAdapter;
+        if (this.b != null) {
+            this.b.setAdapter(listAdapter);
+            if (this.h || z) {
+                return;
+            }
+            a(true, i().getWindowToken() != null);
+        }
+    }
+
+    public void a(ListView listView, View view, int i, long j) {
+    }
+
     @Override // android.support.v4.app.Fragment
     public void d() {
         this.V.removeCallbacks(this.W);
@@ -69,95 +162,5 @@ public class ListFragment extends Fragment {
         this.c = null;
         this.d = null;
         super.d();
-    }
-
-    public void a(ListView listView, View view, int i, long j) {
-    }
-
-    public void a(ListAdapter listAdapter) {
-        boolean z = this.a != null;
-        this.a = listAdapter;
-        if (this.b != null) {
-            this.b.setAdapter(listAdapter);
-            if (!this.h && !z) {
-                a(true, i().getWindowToken() != null);
-            }
-        }
-    }
-
-    private void a(boolean z, boolean z2) {
-        a();
-        if (this.e == null) {
-            throw new IllegalStateException("Can't be used with a custom content view");
-        }
-        if (this.h != z) {
-            this.h = z;
-            if (z) {
-                if (z2) {
-                    this.e.startAnimation(AnimationUtils.loadAnimation(g(), 17432577));
-                    this.f.startAnimation(AnimationUtils.loadAnimation(g(), 17432576));
-                } else {
-                    this.e.clearAnimation();
-                    this.f.clearAnimation();
-                }
-                this.e.setVisibility(8);
-                this.f.setVisibility(0);
-                return;
-            }
-            if (z2) {
-                this.e.startAnimation(AnimationUtils.loadAnimation(g(), 17432576));
-                this.f.startAnimation(AnimationUtils.loadAnimation(g(), 17432577));
-            } else {
-                this.e.clearAnimation();
-                this.f.clearAnimation();
-            }
-            this.e.setVisibility(0);
-            this.f.setVisibility(8);
-        }
-    }
-
-    private void a() {
-        if (this.b == null) {
-            View i = i();
-            if (i == null) {
-                throw new IllegalStateException("Content view not yet created");
-            }
-            if (i instanceof ListView) {
-                this.b = (ListView) i;
-            } else {
-                this.d = (TextView) i.findViewById(16711681);
-                if (this.d == null) {
-                    this.c = i.findViewById(16908292);
-                } else {
-                    this.d.setVisibility(8);
-                }
-                this.e = i.findViewById(16711682);
-                this.f = i.findViewById(16711683);
-                View findViewById = i.findViewById(16908298);
-                if (!(findViewById instanceof ListView)) {
-                    if (findViewById == null) {
-                        throw new RuntimeException("Your content must have a ListView whose id attribute is 'android.R.id.list'");
-                    }
-                    throw new RuntimeException("Content has view with id attribute 'android.R.id.list' that is not a ListView class");
-                }
-                this.b = (ListView) findViewById;
-                if (this.c != null) {
-                    this.b.setEmptyView(this.c);
-                } else if (this.g != null) {
-                    this.d.setText(this.g);
-                    this.b.setEmptyView(this.d);
-                }
-            }
-            this.h = true;
-            this.b.setOnItemClickListener(this.X);
-            if (this.a != null) {
-                ListAdapter listAdapter = this.a;
-                this.a = null;
-                a(listAdapter);
-            } else if (this.e != null) {
-                a(false, false);
-            }
-            this.V.post(this.W);
-        }
     }
 }

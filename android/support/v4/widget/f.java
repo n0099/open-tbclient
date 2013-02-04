@@ -20,22 +20,22 @@ class f implements g {
     }
 
     @Override // android.support.v4.widget.g
-    public void b(Object obj) {
-        h.b(obj);
-    }
-
-    @Override // android.support.v4.widget.g
     public boolean a(Object obj, float f) {
         return h.a(obj, f);
     }
 
     @Override // android.support.v4.widget.g
-    public boolean c(Object obj) {
-        return h.c(obj);
+    public boolean a(Object obj, Canvas canvas) {
+        return h.a(obj, canvas);
     }
 
     @Override // android.support.v4.widget.g
-    public boolean a(Object obj, Canvas canvas) {
-        return h.a(obj, canvas);
+    public void b(Object obj) {
+        h.b(obj);
+    }
+
+    @Override // android.support.v4.widget.g
+    public boolean c(Object obj) {
+        return h.c(obj);
     }
 }

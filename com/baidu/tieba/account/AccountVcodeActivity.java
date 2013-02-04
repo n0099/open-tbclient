@@ -14,22 +14,22 @@ import java.util.ArrayList;
 import org.apache.http.message.BasicNameValuePair;
 /* loaded from: classes.dex */
 public class AccountVcodeActivity extends com.baidu.tieba.e {
-    private int c = 1;
+    private int b = 1;
+    private String c = null;
     private String d = null;
     private String e = null;
     private String f = null;
-    private String g = null;
-    private int h = 1;
-    private h i = null;
-    private com.baidu.tieba.b.g j = null;
+    private int g = 1;
+    private h h = null;
+    private com.baidu.tieba.b.g i = null;
+    private ProgressBar j = null;
     private ProgressBar k = null;
-    private ProgressBar l = null;
+    private Button l = null;
     private Button m = null;
-    private Button n = null;
-    private ImageView o = null;
-    private EditText p = null;
-    private g q = null;
-    private InputMethodManager r = null;
+    private ImageView n = null;
+    private EditText o = null;
+    private g p = null;
+    private InputMethodManager q = null;
 
     public static void a(Activity activity, String str, String str2, int i, String str3, String str4) {
         Intent intent = new Intent(activity, AccountVcodeActivity.class);
@@ -43,125 +43,82 @@ public class AccountVcodeActivity extends com.baidu.tieba.e {
         activity.startActivityForResult(intent, 2);
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.e, android.app.Activity
-    public void onCreate(Bundle bundle) {
-        super.onCreate(bundle);
-        if (bundle != null) {
-            this.c = bundle.getInt("type", 0);
-            this.d = bundle.getString("un");
-            this.e = bundle.getString("passwd");
-            this.f = bundle.getString("vcode_md5");
-            this.g = bundle.getString("vcode_pic_url");
-            this.h = bundle.getInt("sex", 1);
-        } else {
-            Intent intent = getIntent();
-            this.c = intent.getIntExtra("type", 0);
-            this.d = intent.getStringExtra("un");
-            this.e = intent.getStringExtra("passwd");
-            this.f = intent.getStringExtra("vcode_md5");
-            this.g = intent.getStringExtra("vcode_pic_url");
-            this.h = intent.getIntExtra("sex", 1);
-        }
-        setContentView(R.layout.account_vcode_activity);
+    /* JADX INFO: Access modifiers changed from: private */
+    public void c(String str) {
         i();
-        c(this.g);
+        this.p = new g(this, null);
+        this.p.execute(str);
     }
 
-    @Override // android.app.Activity
-    protected void onSaveInstanceState(Bundle bundle) {
-        super.onSaveInstanceState(bundle);
-        bundle.putInt("type", this.c);
-        bundle.putString("un", this.d);
-        bundle.putString("passwd", this.e);
-        bundle.putString("vcode_md5", this.f);
-        bundle.putString("vcode_pic_url", this.g);
-        bundle.putInt("sex", this.h);
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.e, android.app.Activity
-    public void onDestroy() {
-        try {
-            k();
-            this.k.setVisibility(8);
-            this.l.setVisibility(8);
-            System.gc();
-        } catch (Exception e) {
-            com.baidu.tieba.c.af.b(getClass().getName(), "onDestroy", e.getMessage());
+    private void g() {
+        this.q = (InputMethodManager) getSystemService("input_method");
+        this.l = (Button) findViewById(R.id.back);
+        this.l.setOnClickListener(new d(this));
+        this.m = (Button) findViewById(R.id.submit);
+        this.m.setOnClickListener(new e(this));
+        if (this.b == 1) {
+            this.m.setText(R.string.account_login);
+        } else if (this.b == 2) {
+            this.m.setText(R.string.account_regedit);
         }
-        super.onDestroy();
+        this.o = (EditText) findViewById(R.id.input);
+        this.n = (ImageView) findViewById(R.id.vcode_image);
+        this.n.setImageBitmap(null);
+        this.n.setOnClickListener(new f(this));
+        this.j = (ProgressBar) findViewById(R.id.progress);
+        this.k = (ProgressBar) findViewById(R.id.login_progress);
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void h() {
+        String editable = this.o.getText().toString();
+        StringBuffer stringBuffer = new StringBuffer(30);
+        stringBuffer.append("http://c.tieba.baidu.com/");
+        if (this.b == 1) {
+            stringBuffer.append("c/s/login");
+        } else if (this.b != 2) {
+            return;
+        } else {
+            stringBuffer.append("c/s/reg");
+        }
+        ArrayList arrayList = new ArrayList();
+        arrayList.add(new BasicNameValuePair("un", this.c));
+        arrayList.add(new BasicNameValuePair("passwd", this.d));
+        arrayList.add(new BasicNameValuePair("vcode", editable));
+        arrayList.add(new BasicNameValuePair("vcode_md5", this.e));
+        if (this.b == 2) {
+            arrayList.add(new BasicNameValuePair("sex", String.valueOf(this.g)));
+        }
+        i();
+        this.h = new h(this, stringBuffer.toString(), arrayList);
+        this.h.execute(stringBuffer.toString(), arrayList);
     }
 
     private void i() {
-        this.r = (InputMethodManager) getSystemService("input_method");
-        this.m = (Button) findViewById(R.id.back);
-        this.m.setOnClickListener(new d(this));
-        this.n = (Button) findViewById(R.id.submit);
-        this.n.setOnClickListener(new e(this));
-        if (this.c == 1) {
-            this.n.setText(R.string.account_login);
-        } else if (this.c == 2) {
-            this.n.setText(R.string.account_regedit);
+        if (this.h != null) {
+            this.h.a();
+            this.h = null;
         }
-        this.p = (EditText) findViewById(R.id.input);
-        this.o = (ImageView) findViewById(R.id.vcode_image);
-        this.o.setImageBitmap(null);
-        this.o.setOnClickListener(new f(this));
-        this.k = (ProgressBar) findViewById(R.id.progress);
-        this.l = (ProgressBar) findViewById(R.id.login_progress);
+        if (this.p != null) {
+            this.p.a();
+            this.p = null;
+        }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void j() {
-        String editable = this.p.getText().toString();
-        StringBuffer stringBuffer = new StringBuffer(30);
-        stringBuffer.append("http://c.tieba.baidu.com/");
-        if (this.c == 1) {
-            stringBuffer.append("c/s/login");
-        } else if (this.c == 2) {
-            stringBuffer.append("c/s/reg");
-        } else {
-            return;
-        }
-        ArrayList arrayList = new ArrayList();
-        arrayList.add(new BasicNameValuePair("un", this.d));
-        arrayList.add(new BasicNameValuePair("passwd", this.e));
-        arrayList.add(new BasicNameValuePair("vcode", editable));
-        arrayList.add(new BasicNameValuePair("vcode_md5", this.f));
-        if (this.c == 2) {
-            arrayList.add(new BasicNameValuePair("sex", String.valueOf(this.h)));
-        }
-        k();
-        this.i = new h(this, stringBuffer.toString(), arrayList);
-        this.i.execute(stringBuffer.toString(), arrayList);
-    }
-
-    private void k() {
-        if (this.i != null) {
-            this.i.a();
-            this.i = null;
-        }
-        if (this.q != null) {
-            this.q.a();
-            this.q = null;
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void l() {
         com.baidu.tieba.a.a aVar = new com.baidu.tieba.a.a();
-        aVar.b(this.j.a().b());
-        if (this.j.a().e() != null) {
-            aVar.c(this.j.a().e());
+        aVar.b(this.i.a().b());
+        if (this.i.a().e() != null) {
+            aVar.c(this.i.a().e());
         } else {
-            aVar.c(this.e);
+            aVar.c(this.d);
         }
-        aVar.a(this.j.a().a());
-        aVar.d(this.j.a().j());
+        aVar.a(this.i.a().a());
+        aVar.d(this.i.a().j());
         aVar.a(1);
-        if (this.j.b() != null) {
-            aVar.e(this.j.b().b());
+        if (this.i.b() != null) {
+            aVar.e(this.i.b().b());
         }
         com.baidu.tieba.c.k.a(aVar);
         TiebaApplication.b(aVar);
@@ -169,10 +126,53 @@ public class AccountVcodeActivity extends com.baidu.tieba.e {
         finish();
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void c(String str) {
-        k();
-        this.q = new g(this, null);
-        this.q.execute(str);
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.tieba.e, android.app.Activity
+    public void onCreate(Bundle bundle) {
+        super.onCreate(bundle);
+        if (bundle != null) {
+            this.b = bundle.getInt("type", 0);
+            this.c = bundle.getString("un");
+            this.d = bundle.getString("passwd");
+            this.e = bundle.getString("vcode_md5");
+            this.f = bundle.getString("vcode_pic_url");
+            this.g = bundle.getInt("sex", 1);
+        } else {
+            Intent intent = getIntent();
+            this.b = intent.getIntExtra("type", 0);
+            this.c = intent.getStringExtra("un");
+            this.d = intent.getStringExtra("passwd");
+            this.e = intent.getStringExtra("vcode_md5");
+            this.f = intent.getStringExtra("vcode_pic_url");
+            this.g = intent.getIntExtra("sex", 1);
+        }
+        setContentView(R.layout.account_vcode_activity);
+        g();
+        c(this.f);
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.tieba.e, android.app.Activity
+    public void onDestroy() {
+        try {
+            i();
+            this.j.setVisibility(8);
+            this.k.setVisibility(8);
+            System.gc();
+        } catch (Exception e) {
+            com.baidu.tieba.c.ae.b(getClass().getName(), "onDestroy", e.getMessage());
+        }
+        super.onDestroy();
+    }
+
+    @Override // android.app.Activity
+    protected void onSaveInstanceState(Bundle bundle) {
+        super.onSaveInstanceState(bundle);
+        bundle.putInt("type", this.b);
+        bundle.putString("un", this.c);
+        bundle.putString("passwd", this.d);
+        bundle.putString("vcode_md5", this.e);
+        bundle.putString("vcode_pic_url", this.f);
+        bundle.putInt("sex", this.g);
     }
 }

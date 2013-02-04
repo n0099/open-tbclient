@@ -26,31 +26,29 @@ public class am implements AdapterView.OnItemClickListener {
         EditText editText3;
         m mVar2;
         EditText editText4;
-        editText = this.a.h;
+        editText = this.a.g;
         Editable text = editText.getText();
-        editText2 = this.a.h;
-        if (((ImageSpan[]) text.getSpans(0, editText2.getText().length(), ImageSpan.class)).length < 10) {
-            mVar = this.a.s;
-            String a = mVar.a(i);
-            if (a != null) {
-                editText3 = this.a.h;
-                int selectionStart = editText3.getSelectionStart();
-                SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(a);
-                mVar2 = this.a.s;
-                Bitmap bitmap = (Bitmap) mVar2.getItem(i);
-                if (bitmap != null) {
-                    com.baidu.tieba.view.af afVar = new com.baidu.tieba.view.af(bitmap);
-                    afVar.setBounds(0, 0, bitmap.getWidth() + 1, bitmap.getHeight());
-                    afVar.setGravity(3);
-                    spannableStringBuilder.setSpan(new ImageSpan(afVar, 0), 0, spannableStringBuilder.length(), 33);
-                    editText4 = this.a.h;
-                    editText4.getText().insert(selectionStart, spannableStringBuilder);
-                    return;
-                }
-                return;
-            }
+        editText2 = this.a.g;
+        if (((ImageSpan[]) text.getSpans(0, editText2.getText().length(), ImageSpan.class)).length >= 10) {
+            this.a.b(this.a.getString(R.string.too_many_face));
             return;
         }
-        this.a.b(this.a.getString(R.string.too_many_face));
+        mVar = this.a.r;
+        String a = mVar.a(i);
+        if (a != null) {
+            editText3 = this.a.g;
+            int selectionStart = editText3.getSelectionStart();
+            SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(a);
+            mVar2 = this.a.r;
+            Bitmap bitmap = (Bitmap) mVar2.getItem(i);
+            if (bitmap != null) {
+                com.baidu.tieba.view.af afVar = new com.baidu.tieba.view.af(bitmap);
+                afVar.setBounds(0, 0, bitmap.getWidth() + 1, bitmap.getHeight());
+                afVar.setGravity(3);
+                spannableStringBuilder.setSpan(new ImageSpan(afVar, 0), 0, spannableStringBuilder.length(), 33);
+                editText4 = this.a.g;
+                editText4.getText().insert(selectionStart, spannableStringBuilder);
+            }
+        }
     }
 }

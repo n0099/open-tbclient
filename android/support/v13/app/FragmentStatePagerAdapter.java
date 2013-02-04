@@ -20,37 +20,8 @@ public abstract class FragmentStatePagerAdapter extends k {
     private ArrayList mFragments = new ArrayList();
     private Fragment mCurrentPrimaryItem = null;
 
-    public abstract Fragment getItem(int i);
-
     public FragmentStatePagerAdapter(FragmentManager fragmentManager) {
         this.mFragmentManager = fragmentManager;
-    }
-
-    @Override // android.support.v4.view.k
-    public void startUpdate(ViewGroup viewGroup) {
-    }
-
-    @Override // android.support.v4.view.k
-    public Object instantiateItem(ViewGroup viewGroup, int i) {
-        Fragment.SavedState savedState;
-        Fragment fragment;
-        if (this.mFragments.size() <= i || (fragment = (Fragment) this.mFragments.get(i)) == null) {
-            if (this.mCurTransaction == null) {
-                this.mCurTransaction = this.mFragmentManager.beginTransaction();
-            }
-            Fragment item = getItem(i);
-            if (this.mSavedState.size() > i && (savedState = (Fragment.SavedState) this.mSavedState.get(i)) != null) {
-                item.setInitialSavedState(savedState);
-            }
-            while (this.mFragments.size() <= i) {
-                this.mFragments.add(null);
-            }
-            FragmentCompat.setMenuVisibility(item, false);
-            this.mFragments.set(i, item);
-            this.mCurTransaction.add(viewGroup.getId(), item);
-            return item;
-        }
-        return fragment;
     }
 
     @Override // android.support.v4.view.k
@@ -68,20 +39,6 @@ public abstract class FragmentStatePagerAdapter extends k {
     }
 
     @Override // android.support.v4.view.k
-    public void setPrimaryItem(ViewGroup viewGroup, int i, Object obj) {
-        Fragment fragment = (Fragment) obj;
-        if (fragment != this.mCurrentPrimaryItem) {
-            if (this.mCurrentPrimaryItem != null) {
-                FragmentCompat.setMenuVisibility(this.mCurrentPrimaryItem, false);
-            }
-            if (fragment != null) {
-                FragmentCompat.setMenuVisibility(fragment, true);
-            }
-            this.mCurrentPrimaryItem = fragment;
-        }
-    }
-
-    @Override // android.support.v4.view.k
     public void finishUpdate(ViewGroup viewGroup) {
         if (this.mCurTransaction != null) {
             this.mCurTransaction.commitAllowingStateLoss();
@@ -90,9 +47,68 @@ public abstract class FragmentStatePagerAdapter extends k {
         }
     }
 
+    public abstract Fragment getItem(int i);
+
+    @Override // android.support.v4.view.k
+    public Object instantiateItem(ViewGroup viewGroup, int i) {
+        Fragment.SavedState savedState;
+        Fragment fragment;
+        if (this.mFragments.size() <= i || (fragment = (Fragment) this.mFragments.get(i)) == null) {
+            if (this.mCurTransaction == null) {
+                this.mCurTransaction = this.mFragmentManager.beginTransaction();
+            }
+            Fragment item = getItem(i);
+            if (this.mSavedState.size() > i && (savedState = (Fragment.SavedState) this.mSavedState.get(i)) != null) {
+                item.setInitialSavedState(savedState);
+            }
+            while (this.mFragments.size() <= i) {
+                this.mFragments.add(null);
+            }
+            FragmentCompat.setMenuVisibility(item, DEBUG);
+            this.mFragments.set(i, item);
+            this.mCurTransaction.add(viewGroup.getId(), item);
+            return item;
+        }
+        return fragment;
+    }
+
     @Override // android.support.v4.view.k
     public boolean isViewFromObject(View view, Object obj) {
-        return ((Fragment) obj).getView() == view;
+        if (((Fragment) obj).getView() == view) {
+            return true;
+        }
+        return DEBUG;
+    }
+
+    @Override // android.support.v4.view.k
+    public void restoreState(Parcelable parcelable, ClassLoader classLoader) {
+        if (parcelable != null) {
+            Bundle bundle = (Bundle) parcelable;
+            bundle.setClassLoader(classLoader);
+            Parcelable[] parcelableArray = bundle.getParcelableArray("states");
+            this.mSavedState.clear();
+            this.mFragments.clear();
+            if (parcelableArray != null) {
+                for (Parcelable parcelable2 : parcelableArray) {
+                    this.mSavedState.add((Fragment.SavedState) parcelable2);
+                }
+            }
+            for (String str : bundle.keySet()) {
+                if (str.startsWith("f")) {
+                    int parseInt = Integer.parseInt(str.substring(1));
+                    Fragment fragment = this.mFragmentManager.getFragment(bundle, str);
+                    if (fragment != null) {
+                        while (this.mFragments.size() <= parseInt) {
+                            this.mFragments.add(null);
+                        }
+                        FragmentCompat.setMenuVisibility(fragment, DEBUG);
+                        this.mFragments.set(parseInt, fragment);
+                    } else {
+                        Log.w(TAG, "Bad fragment at key " + str);
+                    }
+                }
+            }
+        }
     }
 
     @Override // android.support.v4.view.k
@@ -118,33 +134,20 @@ public abstract class FragmentStatePagerAdapter extends k {
     }
 
     @Override // android.support.v4.view.k
-    public void restoreState(Parcelable parcelable, ClassLoader classLoader) {
-        if (parcelable != null) {
-            Bundle bundle = (Bundle) parcelable;
-            bundle.setClassLoader(classLoader);
-            Parcelable[] parcelableArray = bundle.getParcelableArray("states");
-            this.mSavedState.clear();
-            this.mFragments.clear();
-            if (parcelableArray != null) {
-                for (Parcelable parcelable2 : parcelableArray) {
-                    this.mSavedState.add((Fragment.SavedState) parcelable2);
-                }
+    public void setPrimaryItem(ViewGroup viewGroup, int i, Object obj) {
+        Fragment fragment = (Fragment) obj;
+        if (fragment != this.mCurrentPrimaryItem) {
+            if (this.mCurrentPrimaryItem != null) {
+                FragmentCompat.setMenuVisibility(this.mCurrentPrimaryItem, DEBUG);
             }
-            for (String str : bundle.keySet()) {
-                if (str.startsWith("f")) {
-                    int parseInt = Integer.parseInt(str.substring(1));
-                    Fragment fragment = this.mFragmentManager.getFragment(bundle, str);
-                    if (fragment != null) {
-                        while (this.mFragments.size() <= parseInt) {
-                            this.mFragments.add(null);
-                        }
-                        FragmentCompat.setMenuVisibility(fragment, false);
-                        this.mFragments.set(parseInt, fragment);
-                    } else {
-                        Log.w(TAG, "Bad fragment at key " + str);
-                    }
-                }
+            if (fragment != null) {
+                FragmentCompat.setMenuVisibility(fragment, true);
             }
+            this.mCurrentPrimaryItem = fragment;
         }
+    }
+
+    @Override // android.support.v4.view.k
+    public void startUpdate(ViewGroup viewGroup) {
     }
 }

@@ -15,35 +15,35 @@ class ax implements DialogInterface.OnClickListener {
 
     @Override // android.content.DialogInterface.OnClickListener
     public void onClick(DialogInterface dialogInterface, int i) {
-        com.baidu.tieba.b.p pVar;
-        com.baidu.tieba.b.p pVar2;
+        com.baidu.tieba.b.n nVar;
+        com.baidu.tieba.b.n nVar2;
         long j;
         long j2;
-        com.baidu.tieba.b.p pVar3;
-        com.baidu.tieba.b.p pVar4;
+        com.baidu.tieba.b.n nVar3;
+        com.baidu.tieba.b.n nVar4;
         long j3;
-        com.baidu.tieba.a.af o;
+        com.baidu.tieba.a.ae l;
         a aVar;
         boolean z;
         String str;
         String str2;
-        com.baidu.tieba.b.p pVar5;
-        com.baidu.tieba.b.p pVar6;
+        com.baidu.tieba.b.n nVar5;
+        com.baidu.tieba.b.n nVar6;
         long j4;
         switch (i) {
             case 0:
-                str = this.a.p;
+                str = this.a.o;
                 if (str != null) {
-                    str2 = this.a.p;
+                    str2 = this.a.o;
                     if (str2.length() > 0) {
-                        pVar5 = this.a.o;
-                        if (pVar5.a() != null) {
-                            pVar6 = this.a.o;
-                            ArrayList c = pVar6.a().c();
-                            j4 = this.a.v;
-                            com.baidu.tieba.a.an anVar = (com.baidu.tieba.a.an) c.get((int) j4);
-                            this.a.w = anVar;
-                            this.a.a(anVar);
+                        nVar5 = this.a.n;
+                        if (nVar5.a() != null) {
+                            nVar6 = this.a.n;
+                            ArrayList c = nVar6.a().c();
+                            j4 = this.a.t;
+                            com.baidu.tieba.a.am amVar = (com.baidu.tieba.a.am) c.get((int) j4);
+                            this.a.u = amVar;
+                            this.a.a(amVar);
                             return;
                         }
                         return;
@@ -52,39 +52,39 @@ class ax implements DialogInterface.OnClickListener {
                 }
                 return;
             case 1:
-                o = this.a.o();
-                this.a.ah = o;
-                aVar = this.a.ae;
+                l = this.a.l();
+                this.a.af = l;
+                aVar = this.a.ac;
                 String str3 = (String) aVar.getItem(1);
                 if (str3 == null || !str3.equals(this.a.getString(R.string.remove_mark))) {
-                    this.a.ai = true;
+                    this.a.ag = true;
                 } else {
-                    this.a.ai = false;
+                    this.a.ag = false;
                 }
                 PbActivity pbActivity = this.a;
-                z = this.a.ai;
-                pbActivity.a(o, z);
+                z = this.a.ag;
+                pbActivity.a(l, z);
                 return;
             case 2:
-                pVar = this.a.o;
-                if (pVar != null) {
-                    pVar2 = this.a.o;
-                    if (pVar2.a() != null) {
-                        j = this.a.v;
+                nVar = this.a.n;
+                if (nVar != null) {
+                    nVar2 = this.a.n;
+                    if (nVar2.a() != null) {
+                        j = this.a.t;
                         if (j >= 0) {
-                            j2 = this.a.v;
-                            pVar3 = this.a.o;
-                            if (j2 < pVar3.a().c().size()) {
-                                pVar4 = this.a.o;
-                                ArrayList c2 = pVar4.a().c();
-                                j3 = this.a.v;
-                                com.baidu.tieba.a.an anVar2 = (com.baidu.tieba.a.an) c2.get((int) j3);
-                                if (anVar2.d() != null) {
-                                    if (anVar2.d().a() != null && anVar2.d().a().equalsIgnoreCase("0")) {
-                                        this.a.b(this.a.getString(R.string.invalid_user));
+                            j2 = this.a.t;
+                            nVar3 = this.a.n;
+                            if (j2 < nVar3.a().c().size()) {
+                                nVar4 = this.a.n;
+                                ArrayList c2 = nVar4.a().c();
+                                j3 = this.a.t;
+                                com.baidu.tieba.a.am amVar2 = (com.baidu.tieba.a.am) c2.get((int) j3);
+                                if (amVar2.d() != null) {
+                                    if (amVar2.d().a() == null || !amVar2.d().a().equalsIgnoreCase("0")) {
+                                        PersonInfoActivity.a(this.a, amVar2.d().a(), amVar2.d().b());
                                         return;
                                     } else {
-                                        PersonInfoActivity.a(this.a, anVar2.d().a(), anVar2.d().b());
+                                        this.a.b(this.a.getString(R.string.invalid_user));
                                         return;
                                     }
                                 }

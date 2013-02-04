@@ -44,121 +44,106 @@ public class i extends Animation {
         this.b = true;
     }
 
+    public boolean a() {
+        return this.b;
+    }
+
     @Override // android.view.animation.Animation
     protected void applyTransformation(float f, Transformation transformation) {
-        long j;
+        float f2;
         int i;
         int i2;
-        float f2;
-        int i3;
-        int i4;
         float f3;
         float f4;
-        int i5;
+        int i3;
         float f5;
-        int i6;
+        int i4;
         float f6;
+        int i5;
+        int i6;
+        float f7;
         int i7;
         int i8;
-        float f7;
         int i9;
-        int i10;
-        int i11;
-        int i12 = 0;
+        int i10 = 0;
         if (f > 1.0f) {
             f = 1.0f;
         }
-        if (this.h > this.i) {
-            j = ((float) this.h) * f;
-        } else {
-            j = ((float) this.i) * f;
-        }
+        long j = this.h > this.i ? ((float) this.h) * f : ((float) this.i) * f;
         float f8 = ((float) (j > this.h ? this.h : j)) / 1000.0f;
-        if (this.d > 0) {
-            i = this.f - ((int) (f8 * (((float) this.d) - ((2500.0f * f8) / 2.0f))));
-        } else {
-            i = this.f - ((int) (f8 * (((float) this.d) + ((2500.0f * f8) / 2.0f))));
-        }
+        int i11 = this.d > 0 ? this.f - ((int) (f8 * (((float) this.d) - ((2500.0f * f8) / 2.0f)))) : this.f - ((int) (f8 * (((float) this.d) + ((2500.0f * f8) / 2.0f))));
         if (j > this.i) {
             j = this.i;
         }
         float f9 = ((float) j) / 1000.0f;
-        if (this.e > 0) {
-            i2 = this.g - ((int) (f9 * (((float) this.e) - ((2500.0f * f9) / 2.0f))));
-        } else {
-            i2 = this.g - ((int) (f9 * (((float) this.e) + ((2500.0f * f9) / 2.0f))));
-        }
+        int i12 = this.e > 0 ? this.g - ((int) (f9 * (((float) this.e) - ((2500.0f * f9) / 2.0f)))) : this.g - ((int) (f9 * (((float) this.e) + ((2500.0f * f9) / 2.0f))));
         f2 = this.a.f;
-        i3 = this.a.H;
-        float f10 = f2 + i3;
-        i4 = this.a.I;
-        if (f10 + i4 > this.a.getHeight()) {
-            i6 = this.a.J;
-            if (i2 < (-i6)) {
-                i11 = this.a.J;
-                i2 = -i11;
+        i = this.a.H;
+        float f10 = f2 + i;
+        i2 = this.a.I;
+        if (f10 + i2 > this.a.getHeight()) {
+            i4 = this.a.J;
+            if (i12 < (-i4)) {
+                i9 = this.a.J;
+                i12 = -i9;
             }
             f6 = this.a.f;
-            i7 = this.a.I;
-            float f11 = f6 + i7;
-            i8 = this.a.K;
-            if (this.a.getHeight() + i2 > f11 + i8) {
+            i5 = this.a.I;
+            float f11 = f6 + i5;
+            i6 = this.a.K;
+            if (this.a.getHeight() + i12 > f11 + i6) {
                 f7 = this.a.f;
-                i9 = this.a.I;
-                float height = (f7 - this.a.getHeight()) + i9;
-                i10 = this.a.K;
-                i2 = (int) (height + i10);
+                i7 = this.a.I;
+                float height = (f7 - this.a.getHeight()) + i7;
+                i8 = this.a.K;
+                i12 = (int) (height + i8);
             }
         } else {
-            i2 = 0;
+            i12 = 0;
         }
         f3 = this.a.e;
         if (f3 > this.a.getWidth()) {
             f4 = this.a.e;
-            if (this.a.getWidth() + i > f4) {
+            if (this.a.getWidth() + i11 > f4) {
                 f5 = this.a.e;
-                i5 = (int) (f5 - this.a.getWidth());
+                i3 = (int) (f5 - this.a.getWidth());
             } else {
-                i5 = i;
+                i3 = i11;
             }
-            if (i5 >= 0) {
-                i12 = i5;
+            if (i3 >= 0) {
+                i10 = i3;
             }
         }
-        this.a.scrollTo(i12, i2);
+        this.a.scrollTo(i10, i12);
         this.a.invalidate();
+    }
+
+    public void b() {
+        this.c = true;
     }
 
     @Override // android.view.animation.Animation
     public boolean getTransformation(long j, Transformation transformation) {
         boolean z;
-        if (!this.c) {
-            z = this.a.l;
-            if (z) {
-                this.b = false;
-                return false;
-            }
-            try {
-                if (!super.getTransformation(j, transformation)) {
-                    this.b = false;
-                    return false;
-                }
-                return true;
-            } catch (Exception e) {
-                this.b = false;
-                return false;
-            }
+        if (this.c) {
+            this.c = false;
+            this.b = false;
+            return false;
         }
-        this.c = false;
-        this.b = false;
-        return false;
-    }
-
-    public boolean a() {
-        return this.b;
-    }
-
-    public void b() {
-        this.c = true;
+        z = this.a.l;
+        if (z) {
+            this.b = false;
+            return false;
+        }
+        try {
+            if (super.getTransformation(j, transformation)) {
+                return true;
+            }
+            this.b = false;
+            return false;
+        } catch (Exception e) {
+            this.b = false;
+            return false;
+        }
     }
 }

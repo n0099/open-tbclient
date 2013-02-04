@@ -24,19 +24,6 @@ public class BaseViewPager extends ViewPager implements GestureDetector.OnGestur
         g();
     }
 
-    public void setOnScrollOutListener(a aVar) {
-        this.b = aVar;
-    }
-
-    @Override // android.support.v4.view.ViewPager, android.view.View
-    public boolean onTouchEvent(MotionEvent motionEvent) {
-        if (this.a == null || getAdapter() == null || getAdapter().getCount() == 0 || (getCurrentItem() != 0 && getAdapter().getCount() != getCurrentItem() + 1)) {
-            return super.onTouchEvent(motionEvent);
-        }
-        this.a.onTouchEvent(motionEvent);
-        return super.onTouchEvent(motionEvent);
-    }
-
     private void g() {
         this.a = new GestureDetector(this);
     }
@@ -76,5 +63,18 @@ public class BaseViewPager extends ViewPager implements GestureDetector.OnGestur
     @Override // android.view.GestureDetector.OnGestureListener
     public boolean onSingleTapUp(MotionEvent motionEvent) {
         return false;
+    }
+
+    @Override // android.support.v4.view.ViewPager, android.view.View
+    public boolean onTouchEvent(MotionEvent motionEvent) {
+        if (this.a == null || getAdapter() == null || getAdapter().getCount() == 0 || !(getCurrentItem() == 0 || getAdapter().getCount() == getCurrentItem() + 1)) {
+            return super.onTouchEvent(motionEvent);
+        }
+        this.a.onTouchEvent(motionEvent);
+        return super.onTouchEvent(motionEvent);
+    }
+
+    public void setOnScrollOutListener(a aVar) {
+        this.b = aVar;
     }
 }

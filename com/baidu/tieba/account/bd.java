@@ -28,35 +28,35 @@ public class bd implements View.OnClickListener {
         Button button10;
         Button button11;
         Button button12;
-        i = this.a.q;
+        i = this.a.p;
         if (i == 1) {
-            this.a.q = 2;
-            button7 = this.a.g;
+            this.a.p = 2;
+            button7 = this.a.f;
             button7.setClickable(true);
-            button8 = this.a.g;
+            button8 = this.a.f;
             button8.setBackgroundDrawable(null);
-            button9 = this.a.g;
+            button9 = this.a.f;
             button9.setTextColor(this.a.getResources().getColor(R.color.white));
-            button10 = this.a.h;
+            button10 = this.a.g;
             button10.setClickable(false);
-            button11 = this.a.h;
+            button11 = this.a.g;
             button11.setBackgroundResource(R.drawable.account_sex);
-            button12 = this.a.h;
+            button12 = this.a.g;
             button12.setTextColor(this.a.getResources().getColor(R.color.black));
             return;
         }
-        this.a.q = 1;
-        button = this.a.g;
+        this.a.p = 1;
+        button = this.a.f;
         button.setClickable(false);
-        button2 = this.a.g;
+        button2 = this.a.f;
         button2.setBackgroundResource(R.drawable.account_sex);
-        button3 = this.a.g;
+        button3 = this.a.f;
         button3.setTextColor(this.a.getResources().getColor(R.color.black));
-        button4 = this.a.h;
+        button4 = this.a.g;
         button4.setClickable(true);
-        button5 = this.a.h;
+        button5 = this.a.g;
         button5.setBackgroundDrawable(null);
-        button6 = this.a.h;
+        button6 = this.a.g;
         button6.setTextColor(this.a.getResources().getColor(R.color.white));
     }
 }

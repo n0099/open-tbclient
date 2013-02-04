@@ -3,11 +3,10 @@ package com.baidu.tieba.pb;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.view.View;
-import android.widget.AdapterView;
 import com.baidu.tieba.R;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ce implements AdapterView.OnItemLongClickListener {
+public class ce implements View.OnLongClickListener {
     final /* synthetic */ SubPbActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -15,24 +14,30 @@ public class ce implements AdapterView.OnItemLongClickListener {
         this.a = subPbActivity;
     }
 
-    @Override // android.widget.AdapterView.OnItemLongClickListener
-    public boolean onItemLongClick(AdapterView adapterView, View view, int i, long j) {
-        dh dhVar;
-        AlertDialog e;
+    @Override // android.view.View.OnLongClickListener
+    public boolean onLongClick(View view) {
+        com.baidu.tieba.b.r rVar;
+        AlertDialog d;
         DialogInterface.OnClickListener onClickListener;
-        dhVar = this.a.h;
-        com.baidu.tieba.a.an anVar = (com.baidu.tieba.a.an) dhVar.getItem(i - 1);
-        if (anVar != null) {
-            this.a.A = anVar;
-            e = this.a.e();
-            if (e == null) {
-                SubPbActivity subPbActivity = this.a;
-                String[] strArr = {this.a.getString(R.string.copy)};
-                onClickListener = this.a.z;
-                subPbActivity.b(strArr, onClickListener);
+        com.baidu.tieba.b.r rVar2;
+        com.baidu.tieba.a.am amVar = null;
+        rVar = this.a.f;
+        if (rVar != null) {
+            rVar2 = this.a.f;
+            amVar = rVar2.a().a();
+            if (amVar == null) {
+                return false;
             }
-            this.a.f();
         }
+        this.a.z = amVar;
+        d = this.a.d();
+        if (d == null) {
+            SubPbActivity subPbActivity = this.a;
+            String[] strArr = {this.a.getString(R.string.copy)};
+            onClickListener = this.a.y;
+            subPbActivity.b(strArr, onClickListener);
+        }
+        this.a.e();
         return true;
     }
 }

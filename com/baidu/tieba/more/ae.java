@@ -1,10 +1,10 @@
 package com.baidu.tieba.more;
 
-import android.content.DialogInterface;
-import com.baidu.tieba.TiebaApplication;
+import android.app.Dialog;
+import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ae implements DialogInterface.OnClickListener {
+public class ae implements View.OnClickListener {
     final /* synthetic */ MoreActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -12,37 +12,10 @@ public class ae implements DialogInterface.OnClickListener {
         this.a = moreActivity;
     }
 
-    @Override // android.content.DialogInterface.OnClickListener
-    public void onClick(DialogInterface dialogInterface, int i) {
-        int i2;
-        int i3;
-        switch (i) {
-            case 0:
-                if (TiebaApplication.b().af() != 1) {
-                    TiebaApplication.b().h(1);
-                    this.a.b = 1;
-                    MoreActivity moreActivity = this.a;
-                    i3 = this.a.b;
-                    moreActivity.b(i3);
-                    new com.baidu.tieba.account.ak("eyeshield").start();
-                    break;
-                } else {
-                    return;
-                }
-            case 1:
-                if (TiebaApplication.b().af() != 0) {
-                    TiebaApplication.b().h(0);
-                    this.a.b = 0;
-                    MoreActivity moreActivity2 = this.a;
-                    i2 = this.a.b;
-                    moreActivity2.b(i2);
-                    break;
-                } else {
-                    return;
-                }
-        }
-        this.a.s();
-        this.a.m();
-        com.baidu.tieba.c.e.a();
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        Dialog dialog;
+        dialog = this.a.z;
+        dialog.dismiss();
     }
 }

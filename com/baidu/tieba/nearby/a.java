@@ -19,19 +19,19 @@ public class a implements AbsListView.OnScrollListener {
         m mVar;
         Handler handler2;
         Runnable runnable2;
-        handler = this.a.A;
-        runnable = this.a.E;
+        handler = this.a.z;
+        runnable = this.a.D;
         handler.removeCallbacks(runnable);
-        mVar = this.a.h;
+        mVar = this.a.g;
         if (mVar.b() != null) {
-            handler2 = this.a.A;
-            runnable2 = this.a.E;
+            handler2 = this.a.z;
+            runnable2 = this.a.D;
             handler2.postDelayed(runnable2, 300L);
         }
     }
 
     @Override // android.widget.AbsListView.OnScrollListener
     public void onScrollStateChanged(AbsListView absListView, int i) {
-        this.a.n();
+        this.a.l();
     }
 }

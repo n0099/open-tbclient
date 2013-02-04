@@ -2,28 +2,31 @@ package com.baidu.tieba.pb;
 
 import android.content.Context;
 import android.view.View;
+import com.baidu.tieba.person.PersonInfoActivity;
 /* loaded from: classes.dex */
 class bz implements View.OnClickListener {
-    final /* synthetic */ bv a;
-    private String b = null;
-    private int c = 0;
+    final /* synthetic */ bt a;
+    private String b;
+    private String c;
 
-    public bz(bv bvVar) {
-        this.a = bvVar;
+    public bz(bt btVar) {
+        this.a = btVar;
+        b(null);
+        a(null);
+    }
+
+    public void a(String str) {
+        this.c = str;
+    }
+
+    public void b(String str) {
+        this.b = str;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         Context context;
         context = this.a.a;
-        ((PbActivity) context).a(this.b, this.c);
-    }
-
-    public void a(String str) {
-        this.b = str;
-    }
-
-    public void a(int i) {
-        this.c = i;
+        PersonInfoActivity.a(context, this.b, this.c);
     }
 }

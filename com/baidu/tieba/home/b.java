@@ -16,14 +16,6 @@ public class b implements TextWatcher {
         this.a = createBarActivity;
     }
 
-    @Override // android.text.TextWatcher
-    public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-    }
-
-    @Override // android.text.TextWatcher
-    public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-    }
-
     /* JADX WARN: Removed duplicated region for block: B:12:0x0069  */
     /* JADX WARN: Removed duplicated region for block: B:9:0x0040  */
     @Override // android.text.TextWatcher
@@ -39,30 +31,38 @@ public class b implements TextWatcher {
         TextView textView4;
         EditText editText2;
         RelativeLayout relativeLayout2;
-        editText = this.a.i;
+        editText = this.a.d;
         int length = editText.getText().toString().trim().length();
         if (length > 0 && length < 32) {
-            editText2 = this.a.j;
+            editText2 = this.a.e;
             if (editText2.getText().toString().trim().length() > 0) {
-                relativeLayout2 = this.a.k;
+                relativeLayout2 = this.a.f;
                 relativeLayout2.setEnabled(true);
                 if (length < 32) {
-                    textView3 = this.a.v;
+                    textView3 = this.a.q;
                     textView3.setText(this.a.getString(R.string.bar_name_long));
-                    textView4 = this.a.v;
+                    textView4 = this.a.q;
                     textView4.setTextColor(-65536);
                     return;
                 }
-                textView = this.a.v;
+                textView = this.a.q;
                 textView.setText(this.a.getString(R.string.bar_name_rule));
-                textView2 = this.a.v;
+                textView2 = this.a.q;
                 textView2.setTextColor(-6250336);
                 return;
             }
         }
-        relativeLayout = this.a.k;
+        relativeLayout = this.a.f;
         relativeLayout.setEnabled(false);
         if (length < 32) {
         }
+    }
+
+    @Override // android.text.TextWatcher
+    public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
+    }
+
+    @Override // android.text.TextWatcher
+    public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
     }
 }

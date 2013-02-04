@@ -1,219 +1,215 @@
 package com.baidu.tieba.c;
 
-import android.util.Log;
+import android.app.ActivityManager;
+import android.os.Build;
+import android.os.Process;
+import com.baidu.tieba.TiebaApplication;
+import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileWriter;
-import java.util.Date;
+import java.io.PrintStream;
+import java.lang.Thread;
+import java.util.List;
 /* loaded from: classes.dex */
-public class af {
-    private static int a = 0;
-    private static int b = 0;
-    private static int c = 0;
-    private static int d = 0;
+public class af implements Thread.UncaughtExceptionHandler {
+    private Thread.UncaughtExceptionHandler a;
 
-    public static int a(String str, String str2, String str3) {
-        if (com.baidu.tieba.a.i.n()) {
-            StringBuffer stringBuffer = new StringBuffer(100);
-            stringBuffer.append(str);
-            stringBuffer.append(":");
-            stringBuffer.append(str2);
-            stringBuffer.append(":");
-            stringBuffer.append(str3);
-            return Log.i("TiebaLog", stringBuffer.toString());
-        }
-        return 0;
+    public af() {
+        this.a = null;
+        this.a = Thread.getDefaultUncaughtExceptionHandler();
     }
 
-    public static int b(String str, String str2, String str3) {
-        if (com.baidu.tieba.a.i.n()) {
-            StringBuffer stringBuffer = new StringBuffer(100);
-            stringBuffer.append(str);
-            stringBuffer.append(":");
-            stringBuffer.append(str2);
-            stringBuffer.append(":");
-            stringBuffer.append(str3);
-            return Log.e("TiebaLog", stringBuffer.toString());
-        }
-        return 0;
-    }
-
-    public static int c(String str, String str2, String str3) {
-        if (com.baidu.tieba.a.i.n()) {
-            StringBuffer stringBuffer = new StringBuffer(100);
-            stringBuffer.append(str);
-            stringBuffer.append(":");
-            stringBuffer.append(str2);
-            stringBuffer.append(":");
-            stringBuffer.append(str3);
-            return Log.w("TiebaLog", stringBuffer.toString());
-        }
-        return 0;
-    }
-
-    public static int d(String str, String str2, String str3) {
-        if (com.baidu.tieba.a.i.n()) {
-            StringBuffer stringBuffer = new StringBuffer(100);
-            stringBuffer.append(str);
-            stringBuffer.append(":");
-            stringBuffer.append(str2);
-            stringBuffer.append(":");
-            stringBuffer.append(str3);
-            return Log.v("TiebaLog", stringBuffer.toString());
-        }
-        return 0;
-    }
-
-    public static int e(String str, String str2, String str3) {
-        if (com.baidu.tieba.a.i.n()) {
-            StringBuffer stringBuffer = new StringBuffer(100);
-            stringBuffer.append(str);
-            stringBuffer.append(":");
-            stringBuffer.append(str2);
-            stringBuffer.append(":");
-            stringBuffer.append(str3);
-            return Log.d("TiebaLog", stringBuffer.toString());
-        }
-        return 0;
-    }
-
-    public static int a(int i, String str) {
-        if (com.baidu.tieba.a.i.n()) {
-            StackTraceElement[] stackTrace = Thread.currentThread().getStackTrace();
-            if (stackTrace.length < 4) {
-                return -1;
-            }
-            StackTraceElement stackTraceElement = stackTrace[3];
-            String methodName = stackTraceElement.getMethodName();
-            String className = stackTraceElement.getClassName();
-            if (i == 0) {
-                b(className, methodName, str);
-            } else if (i == 1) {
-                c(className, methodName, str);
-            } else if (i == 2) {
-                a(className, methodName, str);
-            } else if (i == 3) {
-                e(className, methodName, str);
-            } else {
-                d(className, methodName, str);
-            }
-            return 0;
-        }
-        return -1;
-    }
-
-    public static int a(String str) {
-        return a(0, str);
-    }
-
-    public static int b(String str) {
-        return a(2, str);
-    }
-
-    /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
-    public static void a(int i, String str, String str2, String str3) {
-        FileWriter fileWriter;
-        Throwable th;
-        boolean z = true;
-        FileWriter fileWriter2 = null;
-        switch (i) {
-            case 1:
-                if (a < 10) {
-                    a++;
-                    break;
-                }
-                z = false;
-                break;
-            case 2:
-                if (b < 10) {
-                    b++;
-                    break;
-                }
-                z = false;
-                break;
-            case 3:
-                if (c < 10) {
-                    c++;
-                    break;
-                }
-                z = false;
-                break;
-            case 4:
-                if (d < 10) {
-                    d++;
-                    break;
-                }
-                z = false;
-                break;
-            default:
-                z = false;
-                break;
-        }
+    private void a(FileWriter fileWriter, String str, String str2) {
         try {
-            if (com.baidu.tieba.a.i.n() || z) {
-                StringBuffer stringBuffer = new StringBuffer(100);
-                stringBuffer.append(new Date().getTime() / 1000);
-                stringBuffer.append("\t");
-                stringBuffer.append(i);
-                stringBuffer.append("\t");
-                stringBuffer.append(str2);
-                if (str3 != null) {
-                    stringBuffer.append(":");
-                    stringBuffer.append(str3.replace("\n", " ").replace("\t", " "));
-                }
-                stringBuffer.append("\t");
-                stringBuffer.append(str);
-                stringBuffer.append("\t");
-                stringBuffer.append(0);
-                stringBuffer.append("\n");
-                String stringBuffer2 = stringBuffer.toString();
-                if (com.baidu.tieba.a.i.n()) {
-                    Log.e("TiebaLog", stringBuffer2);
-                }
-                if (z) {
-                    File f = o.f("log_error.log");
-                    if (stringBuffer2 != null && f != null && f.length() < 204800) {
-                        fileWriter = new FileWriter(f, true);
-                        try {
-                            fileWriter.append((CharSequence) stringBuffer2);
-                            fileWriter.flush();
-                            fileWriter2 = fileWriter;
-                        } catch (Exception e) {
-                            fileWriter2 = fileWriter;
-                            if (fileWriter2 != null) {
-                                try {
-                                    fileWriter2.close();
-                                    return;
-                                } catch (Exception e2) {
-                                    e2.printStackTrace();
-                                    return;
-                                }
-                            }
-                            return;
-                        } catch (Throwable th2) {
-                            th = th2;
-                            if (fileWriter != null) {
-                                try {
-                                    fileWriter.close();
-                                } catch (Exception e3) {
-                                    e3.printStackTrace();
-                                }
-                            }
-                            throw th;
-                        }
-                    }
-                }
+            fileWriter.append((CharSequence) str);
+            if (str2 != null) {
+                fileWriter.append("=");
+                fileWriter.append((CharSequence) str2);
             }
-            if (fileWriter2 != null) {
+            fileWriter.append("\n");
+        } catch (Exception e) {
+        }
+    }
+
+    /* JADX WARN: Removed duplicated region for block: B:102:? A[RETURN, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:45:0x012c  */
+    /* JADX WARN: Removed duplicated region for block: B:55:0x014f A[Catch: Exception -> 0x0166, TryCatch #7 {Exception -> 0x0166, blocks: (B:53:0x014a, B:55:0x014f, B:57:0x0154), top: B:86:0x014a }] */
+    /* JADX WARN: Removed duplicated region for block: B:57:0x0154 A[Catch: Exception -> 0x0166, TRY_LEAVE, TryCatch #7 {Exception -> 0x0166, blocks: (B:53:0x014a, B:55:0x014f, B:57:0x0154), top: B:86:0x014a }] */
+    /* JADX WARN: Removed duplicated region for block: B:60:0x015b  */
+    /* JADX WARN: Removed duplicated region for block: B:86:0x014a A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    @Override // java.lang.Thread.UncaughtExceptionHandler
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public void uncaughtException(Thread thread, Throwable th) {
+        FileWriter fileWriter;
+        PrintStream printStream;
+        ByteArrayOutputStream byteArrayOutputStream;
+        ByteArrayOutputStream byteArrayOutputStream2;
+        PrintStream printStream2 = null;
+        try {
+            File f = o.f("fatal_error.log");
+            if (f == null || f.length() >= 204800) {
+                fileWriter = null;
+                printStream = null;
+                byteArrayOutputStream = null;
+            } else {
+                byteArrayOutputStream = new ByteArrayOutputStream();
                 try {
-                    fileWriter2.close();
-                } catch (Exception e4) {
-                    e4.printStackTrace();
+                    printStream = new PrintStream(byteArrayOutputStream);
+                    try {
+                        th.printStackTrace(printStream);
+                        String str = new String(byteArrayOutputStream.toByteArray());
+                        byte[] bArr = null;
+                        if (str != null) {
+                            fileWriter = new FileWriter(f, true);
+                            try {
+                                a(fileWriter, ad.a(), null);
+                                a(fileWriter, "tieba_crash_new_info", null);
+                                a(fileWriter, "version", com.baidu.tieba.a.h.h());
+                                a(fileWriter, "model", Build.MODEL);
+                                a(fileWriter, "android_version", Build.VERSION.RELEASE);
+                                a(fileWriter, "from", com.baidu.tieba.a.h.a());
+                                a(fileWriter, "uid", TiebaApplication.u());
+                                a(fileWriter, "client_id", TiebaApplication.E());
+                                a(fileWriter, "imei", TiebaApplication.a().g());
+                                a(fileWriter, "uname", TiebaApplication.x());
+                                a(fileWriter, "activity", TiebaApplication.a().b());
+                                List<ActivityManager.RunningAppProcessInfo> runningAppProcesses = ((ActivityManager) TiebaApplication.a().getSystemService("activity")).getRunningAppProcesses();
+                                int myPid = Process.myPid();
+                                if (runningAppProcesses != null) {
+                                    int i = 0;
+                                    while (true) {
+                                        int i2 = i;
+                                        if (i2 >= runningAppProcesses.size()) {
+                                            break;
+                                        } else if (runningAppProcesses.get(i2).pid == myPid) {
+                                            a(fileWriter, "process_name", runningAppProcesses.get(i2).processName);
+                                            break;
+                                        } else {
+                                            i = i2 + 1;
+                                        }
+                                    }
+                                }
+                                a(fileWriter, "error", str);
+                                a(fileWriter, "tieba_crash_new_info_end", null);
+                                fileWriter.append("\n");
+                                fileWriter.flush();
+                                if (str.contains("java.lang.SecurityException: No permission to modify given thread")) {
+                                    TiebaApplication.a().h(TiebaApplication.a().ad() + 1);
+                                } else if (str.contains("com.baidu.location")) {
+                                    TiebaApplication.a().ae();
+                                }
+                            } catch (Exception e) {
+                                e = e;
+                                printStream2 = printStream;
+                                byteArrayOutputStream2 = byteArrayOutputStream;
+                                try {
+                                    e.printStackTrace();
+                                    if (printStream2 != null) {
+                                        try {
+                                            printStream2.close();
+                                        } catch (Exception e2) {
+                                            e2.printStackTrace();
+                                            if (this.a == null) {
+                                                this.a.uncaughtException(thread, th);
+                                                return;
+                                            }
+                                            return;
+                                        }
+                                    }
+                                    if (byteArrayOutputStream2 != null) {
+                                        byteArrayOutputStream2.close();
+                                    }
+                                    if (fileWriter != null) {
+                                        fileWriter.close();
+                                    }
+                                    if (this.a == null) {
+                                    }
+                                } catch (Throwable th2) {
+                                    th = th2;
+                                    byteArrayOutputStream = byteArrayOutputStream2;
+                                    printStream = printStream2;
+                                    if (printStream != null) {
+                                        try {
+                                            printStream.close();
+                                        } catch (Exception e3) {
+                                            e3.printStackTrace();
+                                            if (this.a != null) {
+                                                this.a.uncaughtException(thread, th);
+                                            }
+                                            throw th;
+                                        }
+                                    }
+                                    if (byteArrayOutputStream != null) {
+                                        byteArrayOutputStream.close();
+                                    }
+                                    if (fileWriter != null) {
+                                        fileWriter.close();
+                                    }
+                                    if (this.a != null) {
+                                    }
+                                    throw th;
+                                }
+                            } catch (Throwable th3) {
+                                th = th3;
+                                if (printStream != null) {
+                                }
+                                if (byteArrayOutputStream != null) {
+                                }
+                                if (fileWriter != null) {
+                                }
+                                if (this.a != null) {
+                                }
+                                throw th;
+                            }
+                        } else {
+                            fileWriter = null;
+                        }
+                    } catch (Exception e4) {
+                        e = e4;
+                        fileWriter = null;
+                        printStream2 = printStream;
+                        byteArrayOutputStream2 = byteArrayOutputStream;
+                    } catch (Throwable th4) {
+                        th = th4;
+                        fileWriter = null;
+                    }
+                } catch (Exception e5) {
+                    e = e5;
+                    fileWriter = null;
+                    byteArrayOutputStream2 = byteArrayOutputStream;
+                } catch (Throwable th5) {
+                    th = th5;
+                    fileWriter = null;
+                    printStream = null;
                 }
             }
-        } catch (Exception e5) {
-        } catch (Throwable th3) {
+            if (printStream != null) {
+                try {
+                    printStream.close();
+                } catch (Exception e6) {
+                    e6.printStackTrace();
+                }
+            }
+            if (byteArrayOutputStream != null) {
+                byteArrayOutputStream.close();
+            }
+            if (fileWriter != null) {
+                fileWriter.close();
+            }
+            if (this.a != null) {
+                this.a.uncaughtException(thread, th);
+            }
+        } catch (Exception e7) {
+            e = e7;
             fileWriter = null;
-            th = th3;
+            byteArrayOutputStream2 = null;
+        } catch (Throwable th6) {
+            th = th6;
+            fileWriter = null;
+            printStream = null;
+            byteArrayOutputStream = null;
         }
     }
 }

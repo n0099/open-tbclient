@@ -5,8 +5,6 @@ import android.graphics.Bitmap;
 import cn.jingling.lib.filters.OneKeyFilter;
 /* loaded from: classes.dex */
 public abstract class SingleColor extends OneKeyFilter {
-    public abstract void singleColorEffect(int[] iArr, int i, int i2, float[] fArr);
-
     @Override // cn.jingling.lib.filters.OneKeyFilter
     public Bitmap apply(Context context, Bitmap bitmap) {
         int width = bitmap.getWidth();
@@ -17,4 +15,6 @@ public abstract class SingleColor extends OneKeyFilter {
         bitmap.setPixels(iArr, 0, width, 0, 0, width, height);
         return bitmap;
     }
+
+    public abstract void singleColorEffect(int[] iArr, int i, int i2, float[] fArr);
 }

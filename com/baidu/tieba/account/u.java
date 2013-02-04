@@ -20,6 +20,22 @@ public class u extends AsyncTask {
         this.d = str2;
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // android.os.AsyncTask
+    /* renamed from: a */
+    public com.baidu.tieba.a.d doInBackground(String... strArr) {
+        this.b = new com.baidu.tieba.c.t(this.c);
+        this.b.a("un", this.d);
+        String i = this.b.i();
+        if (this.b.c() && this.b.d() == 36) {
+            com.baidu.tieba.a.d dVar = new com.baidu.tieba.a.d();
+            dVar.a(i);
+            return dVar;
+        }
+        return null;
+    }
+
     public void a() {
         ProgressBar progressBar;
         Button button;
@@ -35,27 +51,11 @@ public class u extends AsyncTask {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.os.AsyncTask
     /* renamed from: a */
-    public com.baidu.tieba.a.e doInBackground(String... strArr) {
-        this.b = new com.baidu.tieba.c.t(this.c);
-        this.b.a("un", this.d);
-        String i = this.b.i();
-        if (!this.b.c() || this.b.d() != 36) {
-            return null;
-        }
-        com.baidu.tieba.a.e eVar = new com.baidu.tieba.a.e();
-        eVar.a(i);
-        return eVar;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // android.os.AsyncTask
-    /* renamed from: a */
-    public void onPostExecute(com.baidu.tieba.a.e eVar) {
+    public void onPostExecute(com.baidu.tieba.a.d dVar) {
         ProgressBar progressBar;
         Button button;
-        com.baidu.tieba.e eVar2;
-        super.onPostExecute(eVar);
+        com.baidu.tieba.e eVar;
+        super.onPostExecute(dVar);
         this.a.m = null;
         progressBar = this.a.p;
         progressBar.setVisibility(8);
@@ -65,15 +65,15 @@ public class u extends AsyncTask {
             this.a.b(this.b.f());
         } else if (this.b.d() == 0) {
             o oVar = this.a;
-            eVar2 = this.a.j;
-            oVar.b(eVar2.getString(R.string.name_not_use));
-        } else if (this.b.d() == 36) {
+            eVar = this.a.j;
+            oVar.b(eVar.getString(R.string.name_not_use));
+        } else if (this.b.d() != 36) {
             this.a.b(this.b.f());
-            if (eVar != null) {
-                this.a.a(eVar.b());
-            }
         } else {
             this.a.b(this.b.f());
+            if (dVar != null) {
+                this.a.a(dVar.b());
+            }
         }
     }
 

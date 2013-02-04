@@ -8,33 +8,61 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.ProgressBar;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class VcodeActivity extends com.baidu.tieba.e {
-    private com.baidu.tieba.b.w c = null;
+    private com.baidu.tieba.b.u b = null;
+    private Button c = null;
     private Button d = null;
-    private Button e = null;
-    private ImageView f = null;
-    private EditText g = null;
-    private ProgressBar h = null;
-    private s i = null;
-    private r j = null;
-    private InputMethodManager k = null;
-    private DialogInterface.OnCancelListener l = null;
-    private RelativeLayout m = null;
-    private LinearLayout n = null;
-    private TextView o = null;
+    private ImageView e = null;
+    private EditText f = null;
+    private ProgressBar g = null;
+    private s h = null;
+    private r i = null;
+    private InputMethodManager j = null;
+    private DialogInterface.OnCancelListener k = null;
 
-    public static void a(Activity activity, com.baidu.tieba.b.w wVar, int i) {
-        if (wVar != null) {
-            Intent intent = new Intent(activity, VcodeActivity.class);
-            intent.putExtra("model", wVar);
-            activity.startActivityForResult(intent, i);
+    public static void a(Activity activity, com.baidu.tieba.b.u uVar, int i) {
+        if (uVar == null) {
+            return;
         }
+        Intent intent = new Intent(activity, VcodeActivity.class);
+        intent.putExtra("model", uVar);
+        activity.startActivityForResult(intent, i);
+    }
+
+    private void a(Bundle bundle) {
+        this.k = new n(this);
+        if (bundle != null) {
+            this.b = (com.baidu.tieba.b.u) bundle.getSerializable("model");
+        } else {
+            this.b = (com.baidu.tieba.b.u) getIntent().getSerializableExtra("model");
+        }
+        this.j = (InputMethodManager) getSystemService("input_method");
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void c(String str) {
+        if (this.i != null) {
+            this.i.a();
+        }
+        this.g.setVisibility(0);
+        this.e.setImageBitmap(null);
+        this.i = new r(this, null);
+        this.i.execute(str);
+    }
+
+    private void g() {
+        this.c = (Button) findViewById(R.id.back);
+        this.c.setOnClickListener(new o(this));
+        this.d = (Button) findViewById(R.id.post);
+        this.d.setOnClickListener(new p(this));
+        this.f = (EditText) findViewById(R.id.input);
+        this.e = (ImageView) findViewById(R.id.vcode_image);
+        this.e.setImageBitmap(null);
+        this.e.setOnClickListener(new q(this));
+        this.g = (ProgressBar) findViewById(R.id.progress);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -42,82 +70,29 @@ public class VcodeActivity extends com.baidu.tieba.e {
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         setContentView(R.layout.vcode_activity);
-        i();
+        g();
         a(bundle);
-        c(this.c.l());
-    }
-
-    private void a(Bundle bundle) {
-        this.l = new n(this);
-        if (bundle != null) {
-            this.c = (com.baidu.tieba.b.w) bundle.getSerializable("model");
-        } else {
-            this.c = (com.baidu.tieba.b.w) getIntent().getSerializableExtra("model");
-        }
-        this.k = (InputMethodManager) getSystemService("input_method");
+        c(this.b.l());
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.e, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
+        if (this.h != null) {
+            this.h.a();
+        }
         if (this.i != null) {
             this.i.a();
         }
-        if (this.j != null) {
-            this.j.a();
-        }
-        if (this.h != null) {
-            this.h.setVisibility(8);
+        if (this.g != null) {
+            this.g.setVisibility(8);
         }
     }
 
     @Override // android.app.Activity
     protected void onSaveInstanceState(Bundle bundle) {
-        bundle.putSerializable("model", this.c);
+        bundle.putSerializable("model", this.b);
         super.onSaveInstanceState(bundle);
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.e
-    public void b(int i) {
-        int i2;
-        super.b(i);
-        com.baidu.tieba.c.ad.a(this.m, i);
-        com.baidu.tieba.c.ad.c(this.n, i);
-        com.baidu.tieba.c.ad.e((TextView) this.d, i);
-        com.baidu.tieba.c.ad.d((TextView) this.e, i);
-        if (i == 1) {
-            i2 = com.baidu.tieba.c.ad.a(i);
-        } else {
-            i2 = -12895429;
-        }
-        this.o.setTextColor(i2);
-    }
-
-    private void i() {
-        this.m = (RelativeLayout) findViewById(R.id.parent);
-        this.n = (LinearLayout) findViewById(R.id.title);
-        this.o = (TextView) findViewById(R.id.info);
-        this.d = (Button) findViewById(R.id.back);
-        this.d.setOnClickListener(new o(this));
-        this.e = (Button) findViewById(R.id.post);
-        this.e.setOnClickListener(new p(this));
-        this.g = (EditText) findViewById(R.id.input);
-        this.f = (ImageView) findViewById(R.id.vcode_image);
-        this.f.setImageBitmap(null);
-        this.f.setOnClickListener(new q(this));
-        this.h = (ProgressBar) findViewById(R.id.progress);
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void c(String str) {
-        if (this.j != null) {
-            this.j.a();
-        }
-        this.h.setVisibility(0);
-        this.f.setImageBitmap(null);
-        this.j = new r(this, null);
-        this.j.execute(str);
     }
 }

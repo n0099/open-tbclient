@@ -1,25 +1,39 @@
 package com.baidu.tieba.frs;
 
 import android.graphics.Bitmap;
+import android.view.View;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class x implements com.baidu.tieba.c.d {
-    final /* synthetic */ w a;
+public class x implements View.OnClickListener {
+    final /* synthetic */ FrsActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public x(w wVar) {
-        this.a = wVar;
+    public x(FrsActivity frsActivity) {
+        this.a = frsActivity;
     }
 
-    @Override // com.baidu.tieba.c.d
-    public void a(Bitmap bitmap, String str, boolean z) {
-        FrsActivity frsActivity;
-        FrsActivity frsActivity2;
-        if (bitmap == null) {
-            frsActivity2 = this.a.a;
-            frsActivity2.p();
-            return;
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        com.baidu.tieba.c.a aVar;
+        com.baidu.tieba.c.a aVar2;
+        ab abVar;
+        if (((com.baidu.tieba.view.q) view).a()) {
+            aVar = this.a.Y;
+            aVar.b();
+            if (view.getTag() == null || !(view.getTag() instanceof String)) {
+                return;
+            }
+            aVar2 = this.a.Y;
+            Bitmap a = aVar2.a((String) view.getTag(), new y(this));
+            if (a != null) {
+                this.a.a(a, false);
+                return;
+            }
+            abVar = this.a.w;
+            Bitmap c = abVar.a().c(String.valueOf((String) view.getTag()) + "_small");
+            if (c != null) {
+                this.a.a(c, true);
+            }
         }
-        frsActivity = this.a.a;
-        frsActivity.a(bitmap, false);
     }
 }

@@ -1,32 +1,17 @@
 package com.baidu.tieba.home;
 
-import android.view.KeyEvent;
-import android.widget.TextView;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.content.DialogInterface;
 /* loaded from: classes.dex */
-public class al implements TextView.OnEditorActionListener {
-    final /* synthetic */ SearchActivity a;
+class al implements DialogInterface.OnClickListener {
+    final /* synthetic */ aj a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public al(SearchActivity searchActivity) {
-        this.a = searchActivity;
+    public al(aj ajVar) {
+        this.a = ajVar;
     }
 
-    @Override // android.widget.TextView.OnEditorActionListener
-    public boolean onEditorAction(TextView textView, int i, KeyEvent keyEvent) {
-        int i2;
-        String str;
-        if (i == 2) {
-            i2 = this.a.D;
-            if (i2 == 0) {
-                this.a.l();
-                return true;
-            }
-            SearchActivity searchActivity = this.a;
-            str = this.a.x;
-            searchActivity.a(1, str);
-            return true;
-        }
-        return false;
+    @Override // android.content.DialogInterface.OnClickListener
+    public void onClick(DialogInterface dialogInterface, int i) {
+        dialogInterface.cancel();
     }
 }

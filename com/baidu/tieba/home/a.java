@@ -19,20 +19,19 @@ public class a implements View.OnClickListener {
         RelativeLayout relativeLayout;
         FrameLayout frameLayout;
         Button button;
-        relativeLayout = this.a.k;
-        if (view != relativeLayout) {
-            frameLayout = this.a.m;
-            if (view != frameLayout) {
-                button = this.a.l;
-                if (view == button) {
-                    this.a.finish();
-                    return;
-                }
-                return;
-            }
-            this.a.k();
+        relativeLayout = this.a.f;
+        if (view == relativeLayout) {
+            this.a.j();
             return;
         }
-        this.a.l();
+        frameLayout = this.a.h;
+        if (view == frameLayout) {
+            this.a.i();
+            return;
+        }
+        button = this.a.g;
+        if (view == button) {
+            this.a.finish();
+        }
     }
 }

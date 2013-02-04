@@ -15,13 +15,14 @@ class b implements com.baidu.tieba.c.d {
     public void a(Bitmap bitmap, String str, boolean z) {
         GuessActivity guessActivity;
         ListView listView;
-        if (bitmap != null) {
-            guessActivity = this.a.a;
-            listView = guessActivity.i;
-            com.baidu.tieba.view.q qVar = (com.baidu.tieba.view.q) listView.findViewWithTag(str);
-            if (qVar != null) {
-                qVar.invalidate();
-            }
+        if (bitmap == null) {
+            return;
+        }
+        guessActivity = this.a.a;
+        listView = guessActivity.h;
+        com.baidu.tieba.view.q qVar = (com.baidu.tieba.view.q) listView.findViewWithTag(str);
+        if (qVar != null) {
+            qVar.invalidate();
         }
     }
 }

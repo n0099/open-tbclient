@@ -1,8 +1,8 @@
 package com.baidu.tieba.frs;
 
 import android.view.View;
-import com.baidu.tieba.a.aw;
-import com.baidu.tieba.pb.ImagePbActivity;
+import android.widget.Button;
+import com.baidu.tieba.MainTabActivity;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ag implements View.OnClickListener {
@@ -15,13 +15,35 @@ public class ag implements View.OnClickListener {
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        String str;
-        if (view.getTag() != null && (view.getTag() instanceof aw)) {
-            aw awVar = (aw) view.getTag();
-            FrsImageActivity frsImageActivity = this.a;
-            String d = awVar.d();
-            str = this.a.e;
-            ImagePbActivity.a(frsImageActivity, d, str, awVar.c());
+        Button button;
+        Button button2;
+        Button button3;
+        Button button4;
+        Button button5;
+        button = this.a.j;
+        if (view == button) {
+            this.a.finish();
+            return;
+        }
+        button2 = this.a.k;
+        if (view == button2) {
+            MainTabActivity.a(this.a, "goto_recommend");
+            this.a.finish();
+            return;
+        }
+        button3 = this.a.x;
+        if (view == button3) {
+            this.a.a(0);
+            return;
+        }
+        button4 = this.a.y;
+        if (view == button4) {
+            this.a.c(1);
+            return;
+        }
+        button5 = this.a.z;
+        if (view == button5) {
+            this.a.a(1);
         }
     }
 }

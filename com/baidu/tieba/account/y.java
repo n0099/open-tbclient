@@ -13,15 +13,19 @@ public class y implements TextWatcher {
     }
 
     @Override // android.text.TextWatcher
-    public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-        boolean z;
-        z = this.a.q;
-        if (z) {
-            this.a.s();
+    public void afterTextChanged(Editable editable) {
+        String str;
+        String str2;
+        this.a.i();
+        str = this.a.f;
+        if (com.baidu.tieba.c.ad.e(str)) {
+            return;
         }
-        this.a.r = true;
-        this.a.v();
-        this.a.w();
+        String editable2 = editable.toString();
+        str2 = this.a.f;
+        if (editable2.equals(str2)) {
+            this.a.o();
+        }
     }
 
     @Override // android.text.TextWatcher
@@ -29,18 +33,14 @@ public class y implements TextWatcher {
     }
 
     @Override // android.text.TextWatcher
-    public void afterTextChanged(Editable editable) {
-        String str;
-        String str2;
-        this.a.l();
-        str = this.a.j;
-        if (!com.baidu.tieba.c.ae.e(str)) {
-            String editable2 = editable.toString();
-            str2 = this.a.j;
-            if (!editable2.equals(str2)) {
-                return;
-            }
-            this.a.r();
+    public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
+        boolean z;
+        z = this.a.m;
+        if (z) {
+            this.a.p();
         }
+        this.a.n = true;
+        this.a.s();
+        this.a.t();
     }
 }

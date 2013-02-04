@@ -18,13 +18,13 @@ public class n implements Runnable {
         KeyboardLayout keyboardLayout;
         com.baidu.tieba.view.aa aaVar;
         GridView gridView2;
-        gridView = this.a.p;
+        gridView = this.a.n;
         if (gridView.getVisibility() != 0) {
-            gridView2 = this.a.p;
+            gridView2 = this.a.n;
             gridView2.setVisibility(0);
         }
-        keyboardLayout = this.a.t;
-        aaVar = this.a.T;
+        keyboardLayout = this.a.r;
+        aaVar = this.a.R;
         keyboardLayout.setOnkbdStateListener(aaVar);
     }
 }

@@ -1,28 +1,25 @@
 package com.baidu.tieba.person;
 
-import android.content.BroadcastReceiver;
-import android.content.Context;
-import android.content.Intent;
+import android.view.View;
+import android.widget.AdapterView;
+import com.baidu.tieba.pb.PbActivity;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class u extends BroadcastReceiver {
-    final /* synthetic */ EditHeadActivity a;
-
-    private u(EditHeadActivity editHeadActivity) {
-        this.a = editHeadActivity;
-    }
+public class u implements AdapterView.OnItemClickListener {
+    final /* synthetic */ EditMarkActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ u(EditHeadActivity editHeadActivity, u uVar) {
-        this(editHeadActivity);
+    public u(EditMarkActivity editMarkActivity) {
+        this.a = editMarkActivity;
     }
 
-    @Override // android.content.BroadcastReceiver
-    public void onReceive(Context context, Intent intent) {
-        this.a.b();
-        if (intent.getBooleanExtra("result", false)) {
-            EditHeadActivity.h(this.a);
-        } else {
-            this.a.b(intent.getStringExtra("error"));
+    @Override // android.widget.AdapterView.OnItemClickListener
+    public void onItemClick(AdapterView adapterView, View view, int i, long j) {
+        com.baidu.tieba.home.y yVar;
+        yVar = this.a.b;
+        com.baidu.tieba.a.ae aeVar = (com.baidu.tieba.a.ae) yVar.getItem(i);
+        if (aeVar != null) {
+            PbActivity.a(this.a, aeVar);
         }
     }
 }

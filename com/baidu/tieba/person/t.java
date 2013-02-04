@@ -1,19 +1,21 @@
 package com.baidu.tieba.person;
 
-import android.graphics.Bitmap;
 import android.os.AsyncTask;
-import android.os.Build;
-import android.widget.ProgressBar;
-import cn.jingling.lib.filters.FilterFactory;
-import com.baidu.tieba.view.EditHeadImageView;
-import java.util.HashMap;
+import com.baidu.tieba.R;
+import java.io.File;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class t extends AsyncTask {
     final /* synthetic */ EditHeadActivity a;
+    private com.baidu.tieba.c.t b;
+    private com.baidu.tieba.a.f c;
+    private com.baidu.tieba.c.f d;
 
     private t(EditHeadActivity editHeadActivity) {
         this.a = editHeadActivity;
+        this.b = null;
+        this.c = null;
+        this.d = null;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -21,79 +23,78 @@ public class t extends AsyncTask {
         this(editHeadActivity);
     }
 
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:32:0x00ef */
     /* JADX DEBUG: Method merged with bridge method */
+    /* JADX DEBUG: Multi-variable search result rejected for r0v3, resolved type: java.lang.String */
     /* JADX INFO: Access modifiers changed from: protected */
+    /* JADX WARN: Multi-variable type inference failed */
+    /* JADX WARN: Type inference failed for: r0v2 */
+    /* JADX WARN: Type inference failed for: r0v5, types: [int] */
     @Override // android.os.AsyncTask
     /* renamed from: a */
-    public Bitmap doInBackground(Object... objArr) {
-        boolean z;
-        HashMap hashMap;
-        String[] strArr;
-        HashMap hashMap2;
-        Bitmap bitmap = null;
+    public String doInBackground(String... strArr) {
+        String str;
+        Exception e;
+        com.baidu.tieba.a.e eVar;
+        this.b = new com.baidu.tieba.c.t("http://c.tieba.baidu.com/c/c/img/portrait");
         try {
-            Bitmap c = com.baidu.tieba.c.o.c(null, "tieba_resized_image");
+            File c = com.baidu.tieba.c.o.c("tieba_head_image");
+            str = (c.length() > 102400L ? 1 : (c.length() == 102400L ? 0 : -1));
             try {
-                if (c.getWidth() > 600 || c.getHeight() > 600) {
-                    Bitmap a = com.baidu.tieba.c.e.a(c, 600);
-                    try {
-                        c.recycle();
-                        c = a;
-                    } catch (Exception e) {
-                        e = e;
-                        bitmap = a;
-                        com.baidu.tieba.c.af.b(getClass().getName(), "GetImageTask", e.toString());
-                        return bitmap;
+                if (str <= 0 || !(com.baidu.tieba.a.h.j() != 0 || this.b.e() == null || this.b.e().equals("2"))) {
+                    com.baidu.tieba.c.ae.c("PostThreadTask", "doInBackground", "image size is less than 100K");
+                    String b = this.b.b("tieba_head_image");
+                    if (this.b.b()) {
+                        return b;
                     }
-                }
-                if (isCancelled() && c != null && !c.isRecycled()) {
-                    c.recycle();
                     return null;
                 }
-                int a2 = com.baidu.tieba.c.ah.a(this.a, 63.5f);
-                if (Build.VERSION.SDK_INT >= 7) {
-                    z = this.a.z;
-                    if (z) {
-                        Bitmap a3 = com.baidu.tieba.c.e.a(com.baidu.tieba.c.e.b(c, a2), com.baidu.tieba.c.ah.a(this.a, 5.0f));
-                        this.a.E = new HashMap();
-                        this.a.F = new HashMap();
-                        hashMap = this.a.E;
-                        hashMap.put("normal", a3);
-                        strArr = EditHeadActivity.f;
-                        for (String str : strArr) {
-                            String substring = str.substring(0, str.indexOf("|"));
-                            if (!substring.equals("normal")) {
-                                Bitmap apply = FilterFactory.createOneKeyFilter(this.a, substring).apply(this.a, a3.copy(a3.getConfig(), true));
-                                hashMap2 = this.a.E;
-                                hashMap2.put(substring, apply);
-                            }
-                        }
-                        return c;
-                    }
+                com.baidu.tieba.c.ae.c("PostThreadTask", "doInBackground", "image size is more than 100K");
+                String a = com.baidu.tieba.c.ad.a(com.baidu.tieba.c.o.a(c));
+                com.baidu.tieba.a.e n = com.baidu.tieba.c.k.n(a);
+                if (n == null) {
+                    com.baidu.tieba.c.ae.c("PostThreadTask", "doInBackground", "upload data is null");
+                    com.baidu.tieba.a.e eVar2 = new com.baidu.tieba.a.e();
+                    eVar2.a(a);
+                    eVar2.a(0);
+                    eVar2.a(c.length());
+                    eVar = eVar2;
+                } else {
+                    eVar = n;
                 }
-                return c;
+                this.d = new com.baidu.tieba.c.f("tieba_head_image", eVar, "http://c.tieba.baidu.com/c/c/img/chunkupload");
+                this.c = this.d.b();
+                if (this.c.a()) {
+                    this.b = new com.baidu.tieba.c.t("http://c.tieba.baidu.com/c/c/img/finupload");
+                    this.b.a("md5", eVar.a());
+                    String i = this.b.i();
+                    if (i != null && this.b.b()) {
+                        com.baidu.tieba.c.k.m(a);
+                        return i;
+                    }
+                    long b2 = eVar.b();
+                    eVar.a((int) (b2 % 102400 == 0 ? b2 / 102400 : (b2 / 102400) + 1));
+                    com.baidu.tieba.c.k.a(eVar);
+                    return null;
+                }
+                return null;
             } catch (Exception e2) {
-                bitmap = c;
                 e = e2;
+                com.baidu.tieba.c.ae.b(getClass().getName(), "doInBackground", e.getMessage());
+                return str;
             }
         } catch (Exception e3) {
+            str = 0;
             e = e3;
         }
     }
 
-    @Override // android.os.AsyncTask
-    protected void onPreExecute() {
-        ProgressBar progressBar;
-        progressBar = this.a.n;
-        progressBar.setVisibility(0);
-        super.onPreExecute();
-    }
-
     public void a() {
-        ProgressBar progressBar;
-        this.a.o = null;
-        progressBar = this.a.n;
-        progressBar.setVisibility(8);
+        this.a.c();
+        this.a.t = null;
+        if (this.b != null) {
+            this.b.g();
+        }
         super.cancel(true);
     }
 
@@ -101,27 +102,21 @@ public class t extends AsyncTask {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.os.AsyncTask
     /* renamed from: a */
-    public void onPostExecute(Bitmap bitmap) {
-        ProgressBar progressBar;
-        EditHeadImageView editHeadImageView;
-        boolean z;
-        String[] strArr;
-        super.onPostExecute(bitmap);
-        this.a.o = null;
-        this.a.h = bitmap;
-        progressBar = this.a.n;
-        progressBar.setVisibility(8);
-        if (bitmap != null && !bitmap.isRecycled() && bitmap != null) {
-            editHeadImageView = this.a.g;
-            editHeadImageView.setImageBitmap(bitmap);
-            if (Build.VERSION.SDK_INT >= 7) {
-                z = this.a.z;
-                if (z) {
-                    EditHeadActivity editHeadActivity = this.a;
-                    strArr = EditHeadActivity.f;
-                    editHeadActivity.a(strArr);
-                }
+    public void onPostExecute(String str) {
+        this.a.c();
+        if (this.b != null) {
+            if (!this.b.b()) {
+                this.a.b(this.b.f());
+                return;
             }
+            this.a.setResult(-1);
+            this.a.finish();
+            this.a.b(this.a.getString(R.string.upload_head_ok));
         }
+    }
+
+    @Override // android.os.AsyncTask
+    protected void onPreExecute() {
+        this.a.a(this.a.getString(R.string.upload_head));
     }
 }

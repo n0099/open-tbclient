@@ -5,7 +5,6 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Environment;
 import android.util.Log;
-import com.baidu.browser.core.util.BdUtil;
 import com.baidu.loginshare.e;
 import java.io.File;
 import java.io.FileInputStream;
@@ -26,7 +25,7 @@ public final class a {
         try {
             byte[] b2 = b(context, str);
             if (b2 != null) {
-                return new String(b2, BdUtil.UTF8);
+                return new String(b2, "utf-8");
             }
         } catch (Exception e) {
             Log.w("Mobads SDK", "AdUtil.read", e);
@@ -67,7 +66,7 @@ public final class a {
             try {
                 FileOutputStream openFileOutput = context.openFileOutput(str, z ? 32768 : 0);
                 if (openFileOutput != null) {
-                    openFileOutput.write(str2.getBytes(BdUtil.UTF8));
+                    openFileOutput.write(str2.getBytes("utf-8"));
                 } else {
                     Log.w("Mobads SDK", "AdUtil.write fout is null:" + (openFileOutput == null));
                 }
@@ -102,7 +101,7 @@ public final class a {
 
     public static void a(String str, String str2, boolean z) {
         FileOutputStream fileOutputStream;
-        if (Environment.MEDIA_MOUNTED.equals(Environment.getExternalStorageState())) {
+        if ("mounted".equals(Environment.getExternalStorageState())) {
             FileOutputStream fileOutputStream2 = null;
             try {
                 try {
@@ -121,7 +120,7 @@ public final class a {
                 e = e2;
             }
             try {
-                fileOutputStream.write(str2.getBytes(BdUtil.UTF8));
+                fileOutputStream.write(str2.getBytes("utf-8"));
                 if (fileOutputStream != null) {
                     try {
                         fileOutputStream.close();
@@ -176,7 +175,7 @@ public final class a {
 
     public static boolean a(String str) {
         b.a("AdUtil.deleteExt", str);
-        if (Environment.MEDIA_MOUNTED.equals(Environment.getExternalStorageState())) {
+        if ("mounted".equals(Environment.getExternalStorageState())) {
             File file = new File(Environment.getExternalStorageDirectory() + File.separator + str);
             if (file.exists()) {
                 return file.delete();
@@ -203,7 +202,7 @@ public final class a {
         String str2;
         b.a("AdUtil.readExt", str);
         String externalStorageState = Environment.getExternalStorageState();
-        if (Environment.MEDIA_MOUNTED.equals(externalStorageState) || Environment.MEDIA_MOUNTED_READ_ONLY.equals(externalStorageState)) {
+        if ("mounted".equals(externalStorageState) || "mounted_ro".equals(externalStorageState)) {
             File file = new File(Environment.getExternalStorageDirectory() + File.separator + str);
             if (file.exists()) {
                 try {
@@ -212,7 +211,7 @@ public final class a {
                         try {
                             byte[] bArr = new byte[fileInputStream2.available()];
                             fileInputStream2.read(bArr);
-                            str2 = new String(bArr, BdUtil.UTF8);
+                            str2 = new String(bArr, "utf-8");
                             fileInputStream = fileInputStream2;
                             if (fileInputStream2 != null) {
                                 try {

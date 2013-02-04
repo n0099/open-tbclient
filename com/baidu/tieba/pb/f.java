@@ -20,10 +20,10 @@ public class f implements android.support.v4.view.aj {
         intent.putExtra("index", i);
         this.a.sendBroadcast(intent);
         ImageActivity imageActivity = this.a;
-        i2 = this.a.e;
+        i2 = this.a.d;
         imageActivity.a(i2, i);
-        this.a.e = i;
-        this.a.n();
+        this.a.d = i;
+        this.a.l();
     }
 
     @Override // android.support.v4.view.aj
@@ -41,16 +41,16 @@ public class f implements android.support.v4.view.aj {
         int i3;
         if (i == 1) {
             long nanoTime = System.nanoTime();
-            j = this.a.v;
+            j = this.a.u;
             if (nanoTime - j > 300000000) {
-                arrayList = this.a.d;
+                arrayList = this.a.c;
                 if (arrayList != null) {
-                    i2 = this.a.e;
-                    arrayList2 = this.a.d;
+                    i2 = this.a.d;
+                    arrayList2 = this.a.c;
                     if (i2 < arrayList2.size()) {
-                        hashMap = this.a.w;
-                        arrayList3 = this.a.d;
-                        i3 = this.a.e;
+                        hashMap = this.a.v;
+                        arrayList3 = this.a.c;
+                        i3 = this.a.d;
                         hashMap.put((String) arrayList3.get(i3), true);
                     }
                 }

@@ -19,8 +19,9 @@ public class FixedListButtonView extends ImageView {
 
     @Override // android.view.View
     public void setPressed(boolean z) {
-        if (!z) {
-            super.setPressed(z);
+        if (z) {
+            return;
         }
+        super.setPressed(z);
     }
 }

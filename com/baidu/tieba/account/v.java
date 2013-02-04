@@ -20,65 +20,6 @@ public class v extends AsyncTask {
         this.d = str2;
     }
 
-    public void a() {
-        ProgressBar progressBar;
-        Button button;
-        this.a.l = null;
-        progressBar = this.a.q;
-        progressBar.setVisibility(8);
-        button = this.a.o;
-        button.setEnabled(true);
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // android.os.AsyncTask
-    /* renamed from: a */
-    public void onPostExecute(com.baidu.tieba.a.e eVar) {
-        ProgressBar progressBar;
-        Button button;
-        com.baidu.tieba.a.a aVar;
-        t tVar;
-        t tVar2;
-        com.baidu.tieba.a.a aVar2;
-        super.onPostExecute(eVar);
-        this.a.l = null;
-        progressBar = this.a.q;
-        progressBar.setVisibility(8);
-        button = this.a.o;
-        button.setEnabled(true);
-        if (eVar == null) {
-            this.a.b(this.b.f());
-        } else if (eVar.a().b() == null) {
-            this.a.b(this.b.f());
-            this.a.a(eVar.b());
-        } else {
-            this.a.e();
-            aVar = this.a.t;
-            TiebaApplication.b(aVar);
-            a.a().b();
-            tVar = this.a.u;
-            if (tVar != null) {
-                tVar2 = this.a.u;
-                aVar2 = this.a.t;
-                tVar2.a(aVar2);
-            }
-        }
-    }
-
-    @Override // android.os.AsyncTask
-    protected void onPreExecute() {
-        ProgressBar progressBar;
-        Button button;
-        progressBar = this.a.q;
-        progressBar.setVisibility(0);
-        button = this.a.o;
-        button.setEnabled(false);
-        this.a.b((String) null);
-        this.a.d();
-        super.onPreExecute();
-    }
-
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:20:0x0093 */
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:30:0x0001 */
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:32:0x007f */
@@ -97,11 +38,11 @@ public class v extends AsyncTask {
     /* JADX WARN: Type inference failed for: r0v26 */
     /* JADX WARN: Type inference failed for: r0v27 */
     /* JADX WARN: Type inference failed for: r0v28 */
-    /* JADX WARN: Type inference failed for: r0v3, types: [com.baidu.tieba.a.e] */
+    /* JADX WARN: Type inference failed for: r0v3, types: [com.baidu.tieba.a.d] */
     /* JADX WARN: Type inference failed for: r1v12, types: [com.baidu.tieba.a.a] */
     @Override // android.os.AsyncTask
     /* renamed from: a */
-    public com.baidu.tieba.a.e doInBackground(String... strArr) {
+    public com.baidu.tieba.a.d doInBackground(String... strArr) {
         String str;
         Exception e;
         com.baidu.tieba.a.a aVar;
@@ -130,17 +71,17 @@ public class v extends AsyncTask {
             str = this.b.d();
             try {
                 if (str == 0) {
-                    com.baidu.tieba.a.e eVar = new com.baidu.tieba.a.e();
-                    eVar.a(i);
-                    String b = eVar.a().b();
-                    String j = eVar.a().j();
-                    str = eVar;
-                    str = eVar;
+                    com.baidu.tieba.a.d dVar = new com.baidu.tieba.a.d();
+                    dVar.a(i);
+                    String b = dVar.a().b();
+                    String j = dVar.a().j();
+                    str = dVar;
+                    str = dVar;
                     str2 = b;
                     str2 = b;
                     if (b != null && j != null) {
                         aVar2 = this.a.t;
-                        str = eVar;
+                        str = dVar;
                         str2 = b;
                         if (aVar2 != null) {
                             aVar3 = this.a.t;
@@ -149,26 +90,85 @@ public class v extends AsyncTask {
                             aVar4.d(j);
                             r1 = this.a.t;
                             com.baidu.tieba.c.k.a((com.baidu.tieba.a.a) r1);
-                            str = eVar;
+                            str = dVar;
                             str2 = r1;
                         }
                     }
                 } else if (this.b.d() == 36) {
-                    com.baidu.tieba.a.e eVar2 = new com.baidu.tieba.a.e();
-                    eVar2.a(i);
-                    str = eVar2;
+                    com.baidu.tieba.a.d dVar2 = new com.baidu.tieba.a.d();
+                    dVar2.a(i);
+                    str = dVar2;
                 } else if (this.b.d() == 1) {
                     this.a.e();
                     str = 0;
                 }
             } catch (Exception e3) {
                 e = e3;
-                com.baidu.tieba.c.af.b(getClass().getName(), "doInBackground", e.getMessage());
+                com.baidu.tieba.c.ae.b(getClass().getName(), "doInBackground", e.getMessage());
                 return str;
             }
             return str;
         }
         str = 0;
         return str;
+    }
+
+    public void a() {
+        ProgressBar progressBar;
+        Button button;
+        this.a.l = null;
+        progressBar = this.a.q;
+        progressBar.setVisibility(8);
+        button = this.a.o;
+        button.setEnabled(true);
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // android.os.AsyncTask
+    /* renamed from: a */
+    public void onPostExecute(com.baidu.tieba.a.d dVar) {
+        ProgressBar progressBar;
+        Button button;
+        com.baidu.tieba.a.a aVar;
+        t tVar;
+        t tVar2;
+        com.baidu.tieba.a.a aVar2;
+        super.onPostExecute(dVar);
+        this.a.l = null;
+        progressBar = this.a.q;
+        progressBar.setVisibility(8);
+        button = this.a.o;
+        button.setEnabled(true);
+        if (dVar == null) {
+            this.a.b(this.b.f());
+        } else if (dVar.a().b() == null) {
+            this.a.b(this.b.f());
+            this.a.a(dVar.b());
+        } else {
+            this.a.e();
+            aVar = this.a.t;
+            TiebaApplication.b(aVar);
+            a.a().b();
+            tVar = this.a.u;
+            if (tVar != null) {
+                tVar2 = this.a.u;
+                aVar2 = this.a.t;
+                tVar2.a(aVar2);
+            }
+        }
+    }
+
+    @Override // android.os.AsyncTask
+    protected void onPreExecute() {
+        ProgressBar progressBar;
+        Button button;
+        progressBar = this.a.q;
+        progressBar.setVisibility(0);
+        button = this.a.o;
+        button.setEnabled(false);
+        this.a.b((String) null);
+        this.a.d();
+        super.onPreExecute();
     }
 }

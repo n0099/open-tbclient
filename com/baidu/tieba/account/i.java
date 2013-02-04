@@ -25,28 +25,28 @@ class i implements Runnable {
         m mVar;
         RelativeLayout relativeLayout;
         ActivationActivity activationActivity = this.a;
-        i = activationActivity.q;
-        activationActivity.q = i - 1;
-        i2 = this.a.q;
+        i = activationActivity.p;
+        activationActivity.p = i - 1;
+        i2 = this.a.p;
         if (i2 <= 0) {
-            this.a.p = true;
-            textView2 = this.a.i;
+            this.a.o = true;
+            textView2 = this.a.h;
             textView2.setText(this.a.getString(R.string.resend_code));
-            mVar = this.a.o;
+            mVar = this.a.n;
             if (mVar == null) {
-                relativeLayout = this.a.m;
+                relativeLayout = this.a.l;
                 relativeLayout.setEnabled(true);
                 return;
             }
             return;
         }
         String string = this.a.getString(R.string.resend_code_second);
-        i3 = this.a.q;
+        i3 = this.a.p;
         String format = String.format(string, Integer.valueOf(i3));
-        textView = this.a.i;
+        textView = this.a.h;
         textView.setText(format);
-        handler = this.a.s;
-        runnable = this.a.B;
+        handler = this.a.r;
+        runnable = this.a.v;
         handler.postDelayed(runnable, 1000L);
     }
 }

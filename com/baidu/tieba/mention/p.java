@@ -1,11 +1,8 @@
 package com.baidu.tieba.mention;
 
-import android.app.Activity;
-import android.content.Context;
 import android.os.AsyncTask;
 import android.widget.ProgressBar;
-import com.baidu.tieba.c.af;
-import com.baidu.tieba.c.ah;
+import com.baidu.tieba.c.ae;
 import java.util.ArrayList;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
@@ -24,55 +21,6 @@ public class p extends AsyncTask {
         this.c = str;
         this.d = arrayList;
         this.e = eVar;
-    }
-
-    @Override // android.os.AsyncTask
-    protected void onPreExecute() {
-        a(true);
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // android.os.AsyncTask
-    /* renamed from: a */
-    public com.baidu.tieba.b.i doInBackground(Object... objArr) {
-        com.baidu.tieba.b.i iVar;
-        Exception e;
-        com.baidu.tieba.e eVar;
-        int i;
-        n nVar;
-        try {
-            this.b = new com.baidu.tieba.c.t(this.c);
-            this.b.a(this.d);
-            com.baidu.tieba.c.t tVar = this.b;
-            eVar = this.a.b;
-            tVar.a(eVar);
-            String i2 = this.b.i();
-            if (!this.b.b() || i2 == null) {
-                return null;
-            }
-            iVar = new com.baidu.tieba.b.i();
-            try {
-                iVar.a(i2);
-                if (iVar.a()) {
-                    i = this.a.o;
-                    if (i != 4) {
-                        nVar = this.a.j;
-                        nVar.a(i2);
-                        return iVar;
-                    }
-                    return iVar;
-                }
-                return null;
-            } catch (Exception e2) {
-                e = e2;
-                af.b(getClass().getName(), "", "doInBackground error = " + e.getMessage());
-                return iVar;
-            }
-        } catch (Exception e3) {
-            iVar = null;
-            e = e3;
-        }
     }
 
     private void a(boolean z) {
@@ -118,21 +66,44 @@ public class p extends AsyncTask {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.os.AsyncTask
     /* renamed from: a */
-    public void onPostExecute(com.baidu.tieba.b.i iVar) {
+    public com.baidu.tieba.b.i doInBackground(Object... objArr) {
+        com.baidu.tieba.b.i iVar;
+        Exception e;
         com.baidu.tieba.e eVar;
-        a(false);
-        if (this.b != null) {
-            if (!this.b.c() || iVar == null) {
-                eVar = this.a.b;
-                Activity parent = eVar.getParent();
-                if (parent != null && (parent instanceof MentionActivity)) {
-                    ah.a((Context) ((MentionActivity) parent), this.b.f());
-                }
-            } else {
-                this.a.a(iVar);
+        int i;
+        n nVar;
+        try {
+            this.b = new com.baidu.tieba.c.t(this.c);
+            this.b.a(this.d);
+            com.baidu.tieba.c.t tVar = this.b;
+            eVar = this.a.b;
+            tVar.a(eVar);
+            String i2 = this.b.i();
+            if (!this.b.b() || i2 == null) {
+                return null;
             }
+            iVar = new com.baidu.tieba.b.i();
+            try {
+                iVar.a(i2);
+                if (iVar.a()) {
+                    i = this.a.o;
+                    if (i != 4) {
+                        nVar = this.a.j;
+                        nVar.a(i2);
+                        return iVar;
+                    }
+                    return iVar;
+                }
+                return null;
+            } catch (Exception e2) {
+                e = e2;
+                ae.b(getClass().getName(), "", "doInBackground error = " + e.getMessage());
+                return iVar;
+            }
+        } catch (Exception e3) {
+            iVar = null;
+            e = e3;
         }
-        this.a.k = null;
     }
 
     public void a() {
@@ -142,5 +113,47 @@ public class p extends AsyncTask {
         a(false);
         this.a.k = null;
         super.cancel(true);
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // android.os.AsyncTask
+    /* renamed from: a */
+    public void onPostExecute(com.baidu.tieba.b.i iVar) {
+        com.baidu.tieba.b.i iVar2;
+        com.baidu.tieba.e eVar;
+        com.baidu.tieba.e eVar2;
+        com.baidu.tieba.e eVar3;
+        a(false);
+        if (iVar == null && this.b != null) {
+            if (this.b.c()) {
+                eVar3 = this.a.b;
+                eVar3.b(this.b.f());
+            } else {
+                iVar2 = this.a.f;
+                if (iVar2 == null) {
+                    eVar2 = this.a.b;
+                    eVar2.b(this.b.f());
+                    iVar = new com.baidu.tieba.b.i();
+                    this.e.a(false);
+                    ArrayList b = iVar.b();
+                    if (b != null) {
+                        this.e.a(b);
+                        this.e.notifyDataSetInvalidated();
+                    }
+                    this.a.f = iVar;
+                } else {
+                    eVar = this.a.b;
+                    eVar.b(this.b.f());
+                }
+            }
+        }
+        this.a.a(iVar);
+        this.a.k = null;
+    }
+
+    @Override // android.os.AsyncTask
+    protected void onPreExecute() {
+        a(true);
     }
 }

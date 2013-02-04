@@ -18,15 +18,15 @@ public class bf implements View.OnClickListener {
         boolean z;
         Button button;
         Button button2;
-        z = this.a.r;
+        z = this.a.q;
         if (z) {
-            this.a.r = false;
-            button2 = this.a.k;
+            this.a.q = false;
+            button2 = this.a.j;
             button2.setBackgroundResource(R.drawable.account_check_pro);
             return;
         }
-        this.a.r = true;
-        button = this.a.k;
+        this.a.q = true;
+        button = this.a.j;
         button.setBackgroundResource(R.drawable.account_check_pro_on);
     }
 }

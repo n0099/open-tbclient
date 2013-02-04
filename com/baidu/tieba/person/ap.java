@@ -1,21 +1,23 @@
 package com.baidu.tieba.person;
 
-import android.app.AlertDialog;
-import android.view.View;
+import android.graphics.Bitmap;
+import android.widget.ImageView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ap implements View.OnClickListener {
-    final /* synthetic */ PersonChangeActivity a;
+public class ap implements com.baidu.tieba.c.d {
+    final /* synthetic */ PersonInfoActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ap(PersonChangeActivity personChangeActivity) {
-        this.a = personChangeActivity;
+    public ap(PersonInfoActivity personInfoActivity) {
+        this.a = personInfoActivity;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        AlertDialog alertDialog;
-        alertDialog = this.a.c;
-        alertDialog.show();
+    @Override // com.baidu.tieba.c.d
+    public void a(Bitmap bitmap, String str, boolean z) {
+        ImageView imageView;
+        if (bitmap != null) {
+            imageView = this.a.d;
+            imageView.setImageBitmap(bitmap);
+        }
     }
 }

@@ -34,69 +34,69 @@ class aw implements View.OnClickListener {
         bb bbVar4;
         EditText editText;
         EditText editText2;
-        button = this.a.l;
+        button = this.a.g;
         if (view != button) {
-            button2 = this.a.m;
+            button2 = this.a.h;
             if (view != button2) {
-                button3 = this.a.n;
-                if (view != button3) {
-                    imageView = this.a.o;
-                    if (view != imageView) {
-                        imageView2 = this.a.p;
-                        if (view == imageView2) {
-                            editText = this.a.z;
-                            editText.setText((CharSequence) null);
-                            return;
-                        }
-                        relativeLayout = this.a.B;
-                        if (view != relativeLayout) {
-                            imageView3 = this.a.J;
-                            if (view != imageView3) {
-                                button4 = this.a.q;
-                                if (view != button4) {
-                                    return;
-                                }
-                            }
-                            bbVar = this.a.Q;
-                            if (bbVar == null) {
-                                gVar = this.a.S;
-                                if (gVar != null) {
-                                    Register2Activity register2Activity = this.a;
-                                    Register2Activity register2Activity2 = this.a;
-                                    gVar2 = this.a.S;
-                                    register2Activity.Q = new bb(register2Activity2, gVar2.b().d());
-                                    bbVar2 = this.a.Q;
-                                    bbVar2.execute(new String[0]);
-                                    return;
-                                }
-                                return;
-                            }
-                            return;
-                        }
-                        bcVar = this.a.R;
-                        if (bcVar == null) {
-                            bbVar3 = this.a.Q;
-                            if (bbVar3 != null) {
-                                bbVar4 = this.a.Q;
-                                bbVar4.a();
-                            }
-                            this.a.R = new bc(this.a, null);
-                            bcVar2 = this.a.R;
-                            bcVar2.execute(new String[0]);
-                            return;
-                        }
-                        return;
-                    }
-                    editText2 = this.a.x;
+                button3 = this.a.i;
+                if (view == button3) {
+                    this.a.m();
+                    return;
+                }
+                imageView = this.a.j;
+                if (view == imageView) {
+                    editText2 = this.a.s;
                     editText2.setText((CharSequence) null);
                     return;
                 }
-                this.a.o();
+                imageView2 = this.a.k;
+                if (view == imageView2) {
+                    editText = this.a.u;
+                    editText.setText((CharSequence) null);
+                    return;
+                }
+                relativeLayout = this.a.w;
+                if (view == relativeLayout) {
+                    bcVar = this.a.M;
+                    if (bcVar == null) {
+                        bbVar3 = this.a.L;
+                        if (bbVar3 != null) {
+                            bbVar4 = this.a.L;
+                            bbVar4.a();
+                        }
+                        this.a.M = new bc(this.a, null);
+                        bcVar2 = this.a.M;
+                        bcVar2.execute(new String[0]);
+                        return;
+                    }
+                    return;
+                }
+                imageView3 = this.a.E;
+                if (view != imageView3) {
+                    button4 = this.a.l;
+                    if (view != button4) {
+                        return;
+                    }
+                }
+                bbVar = this.a.L;
+                if (bbVar == null) {
+                    gVar = this.a.N;
+                    if (gVar != null) {
+                        Register2Activity register2Activity = this.a;
+                        Register2Activity register2Activity2 = this.a;
+                        gVar2 = this.a.N;
+                        register2Activity.L = new bb(register2Activity2, gVar2.b().d());
+                        bbVar2 = this.a.L;
+                        bbVar2.execute(new String[0]);
+                        return;
+                    }
+                    return;
+                }
                 return;
             }
         }
         this.a.setResult(0);
         this.a.finish();
-        com.baidu.tieba.c.af.a("Register2Activity", "mButtonBack", "onClick");
+        com.baidu.tieba.c.ae.a("Register2Activity", "mButtonBack", "onClick");
     }
 }

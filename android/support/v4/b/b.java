@@ -1,15 +1,21 @@
 package android.support.v4.b;
 
 import android.util.Log;
-import com.baidu.zeus.bouncycastle.DERTags;
 import java.io.Writer;
 /* loaded from: classes.dex */
 public class b extends Writer {
     private final String a;
-    private StringBuilder b = new StringBuilder((int) DERTags.TAGGED);
+    private StringBuilder b = new StringBuilder(128);
 
     public b(String str) {
         this.a = str;
+    }
+
+    private void a() {
+        if (this.b.length() > 0) {
+            Log.d(this.a, this.b.toString());
+            this.b.delete(0, this.b.length());
+        }
     }
 
     @Override // java.io.Writer, java.io.Closeable, java.lang.AutoCloseable
@@ -31,13 +37,6 @@ public class b extends Writer {
             } else {
                 this.b.append(c);
             }
-        }
-    }
-
-    private void a() {
-        if (this.b.length() > 0) {
-            Log.d(this.a, this.b.toString());
-            this.b.delete(0, this.b.length());
         }
     }
 }

@@ -14,13 +14,10 @@ public class s implements InputFilter {
 
     @Override // android.text.InputFilter
     public CharSequence filter(CharSequence charSequence, int i, int i2, Spanned spanned, int i3, int i4) {
-        boolean o;
-        o = this.a.o();
-        if (o) {
-            if (charSequence.length() <= 0 && spanned.length() > 0) {
-                return spanned.subSequence(i3, i4 - 1);
-            }
-            return "";
+        boolean m;
+        m = this.a.m();
+        if (m) {
+            return (charSequence.length() > 0 || spanned.length() <= 0) ? "" : spanned.subSequence(i3, i4 - 1);
         }
         return null;
     }

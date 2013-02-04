@@ -5,7 +5,6 @@ import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Matrix;
 import android.graphics.Paint;
-import android.graphics.RectF;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import com.baidu.tieba.R;
@@ -17,17 +16,56 @@ public class ag extends ImageView {
     private Matrix c;
     private Matrix d;
     private Paint e;
-    private RectF f;
 
     public ag(Context context) {
         super(context);
         this.a = com.baidu.tieba.c.e.a((int) R.drawable.icon_gif);
-        this.b = null;
+        this.b = com.baidu.tieba.c.e.a((int) R.drawable.image_default);
         this.c = new Matrix();
         this.d = new Matrix();
         this.e = new Paint();
-        this.f = new RectF();
-        a();
+    }
+
+    @Override // android.widget.ImageView, android.view.View
+    protected void onDraw(Canvas canvas) {
+        Bitmap bitmap;
+        boolean z;
+        boolean z2 = false;
+        super.onDraw(canvas);
+        String str = (String) getTag();
+        com.baidu.tieba.c.ab ah = TiebaApplication.a().ah();
+        if (ah != null) {
+            Bitmap c = ah.c(str);
+            if (c != null) {
+                z = ah.d(str);
+                bitmap = c;
+            } else {
+                bitmap = c;
+                z = false;
+            }
+        } else {
+            bitmap = null;
+            z = false;
+        }
+        if (bitmap == null) {
+            bitmap = this.b;
+        } else {
+            z2 = true;
+        }
+        if (bitmap != null) {
+            if (!z2) {
+                canvas.drawBitmap(bitmap, this.d, this.e);
+                return;
+            }
+            float height = (getHeight() - bitmap.getHeight()) >> 1;
+            canvas.drawBitmap(bitmap, 0.0f, height, this.e);
+            this.c.reset();
+            this.c.setTranslate(0.0f, height);
+            if (!z || bitmap.getHeight() <= this.a.getHeight() || bitmap.getWidth() <= this.a.getWidth()) {
+                return;
+            }
+            canvas.drawBitmap(this.a, this.c, this.e);
+        }
     }
 
     @Override // android.view.View
@@ -39,62 +77,5 @@ public class ag extends ImageView {
         this.d.setScale(f, f);
         this.d.postTranslate((layoutParams.width - (this.b.getWidth() * f)) / 2.0f, (layoutParams.height - (this.b.getHeight() * f)) / 2.0f);
         super.setLayoutParams(layoutParams);
-    }
-
-    private void a() {
-        this.e.setColor(1275068416);
-        if (TiebaApplication.b().af() == 1) {
-            this.b = com.baidu.tieba.c.e.a((int) R.drawable.image_default_1);
-        } else {
-            this.b = com.baidu.tieba.c.e.a((int) R.drawable.image_default);
-        }
-    }
-
-    @Override // android.widget.ImageView, android.view.View
-    protected void onDraw(Canvas canvas) {
-        Bitmap bitmap;
-        boolean z;
-        boolean z2 = false;
-        super.onDraw(canvas);
-        String str = (String) getTag();
-        com.baidu.tieba.c.ab ak = TiebaApplication.b().ak();
-        if (ak != null) {
-            Bitmap c = ak.c(str);
-            if (c != null) {
-                z = ak.d(str);
-                bitmap = c;
-            } else {
-                bitmap = c;
-                z = false;
-            }
-        } else {
-            bitmap = null;
-            z = false;
-        }
-        if (bitmap != null) {
-            z2 = true;
-        } else if (TiebaApplication.b().af() == 1) {
-            bitmap = com.baidu.tieba.c.e.a((int) R.drawable.image_default_1);
-        } else {
-            bitmap = com.baidu.tieba.c.e.a((int) R.drawable.image_default);
-        }
-        if (bitmap != null) {
-            if (z2) {
-                float height = (getHeight() - bitmap.getHeight()) >> 1;
-                canvas.drawBitmap(bitmap, 0.0f, height, (Paint) null);
-                this.c.reset();
-                this.c.setTranslate(0.0f, height);
-                if (z && bitmap.getHeight() > this.a.getHeight() && bitmap.getWidth() > this.a.getWidth()) {
-                    canvas.drawBitmap(this.a, this.c, null);
-                }
-                if (TiebaApplication.b().af() == 1) {
-                    this.f.set(0.0f, height, bitmap.getWidth() + 0.0f, bitmap.getHeight() + height);
-                    canvas.drawRect(this.f, this.e);
-                    return;
-                }
-                return;
-            }
-            canvas.drawBitmap(bitmap, this.d, null);
-        }
     }
 }

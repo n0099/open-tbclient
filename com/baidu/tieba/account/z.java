@@ -13,10 +13,8 @@ public class z implements TextWatcher {
     }
 
     @Override // android.text.TextWatcher
-    public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-        this.a.r = true;
-        this.a.v();
-        this.a.w();
+    public void afterTextChanged(Editable editable) {
+        this.a.i();
     }
 
     @Override // android.text.TextWatcher
@@ -24,7 +22,9 @@ public class z implements TextWatcher {
     }
 
     @Override // android.text.TextWatcher
-    public void afterTextChanged(Editable editable) {
-        this.a.l();
+    public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
+        this.a.n = true;
+        this.a.s();
+        this.a.t();
     }
 }

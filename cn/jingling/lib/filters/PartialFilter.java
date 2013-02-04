@@ -10,10 +10,6 @@ public abstract class PartialFilter extends Filter {
 
     public abstract Bitmap apply(Bitmap bitmap, View view, MotionEvent motionEvent);
 
-    public void setup(Context context, Bitmap bitmap, View view, View view2) {
-        this.mOriginalBitmap = bitmap.copy(bitmap.getConfig(), true);
-    }
-
     protected final int getBitmapX(View view, int i) {
         return (this.mOriginalBitmap.getWidth() * i) / view.getWidth();
     }
@@ -25,5 +21,9 @@ public abstract class PartialFilter extends Filter {
     public void release() {
         this.mOriginalBitmap.recycle();
         this.mOriginalBitmap = null;
+    }
+
+    public void setup(Context context, Bitmap bitmap, View view, View view2) {
+        this.mOriginalBitmap = bitmap.copy(bitmap.getConfig(), true);
     }
 }

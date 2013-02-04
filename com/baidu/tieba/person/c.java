@@ -1,8 +1,11 @@
 package com.baidu.tieba.person;
 
 import android.view.View;
+import android.widget.AdapterView;
+import com.baidu.tieba.frs.FrsActivity;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class c implements View.OnClickListener {
+public class c implements AdapterView.OnItemClickListener {
     final /* synthetic */ EditBarActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -10,8 +13,22 @@ class c implements View.OnClickListener {
         this.a = editBarActivity;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        this.a.finish();
+    @Override // android.widget.AdapterView.OnItemClickListener
+    public void onItemClick(AdapterView adapterView, View view, int i, long j) {
+        g gVar;
+        f fVar;
+        g gVar2;
+        gVar = this.a.f;
+        if (gVar.getItem(i) != null) {
+            fVar = this.a.j;
+            if (fVar == null) {
+                this.a.i = i;
+                gVar2 = this.a.f;
+                com.baidu.tieba.a.p pVar = (com.baidu.tieba.a.p) gVar2.getItem(i);
+                if (pVar != null) {
+                    FrsActivity.a(this.a, pVar.c(), "tb_mytieba");
+                }
+            }
+        }
     }
 }

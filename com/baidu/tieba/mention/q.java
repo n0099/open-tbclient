@@ -2,10 +2,10 @@ package com.baidu.tieba.mention;
 
 import android.os.AsyncTask;
 import android.widget.ProgressBar;
-import com.baidu.tieba.a.al;
-import com.baidu.tieba.a.an;
-import com.baidu.tieba.a.at;
-import com.baidu.tieba.c.af;
+import com.baidu.tieba.a.ak;
+import com.baidu.tieba.a.am;
+import com.baidu.tieba.a.aq;
+import com.baidu.tieba.c.ae;
 import com.baidu.tieba.write.WriteActivity;
 import java.util.ArrayList;
 /* JADX INFO: Access modifiers changed from: package-private */
@@ -29,14 +29,6 @@ public class q extends AsyncTask {
         this.e = str2;
     }
 
-    @Override // android.os.AsyncTask
-    protected void onPreExecute() {
-        ProgressBar progressBar;
-        super.onPreExecute();
-        progressBar = this.b.l;
-        progressBar.setVisibility(0);
-    }
-
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.os.AsyncTask
@@ -47,9 +39,19 @@ public class q extends AsyncTask {
             this.c.a(this.a);
             return this.c.i();
         } catch (Exception e) {
-            af.b("PostAsyncTask", "doInBackground", "error = " + e.getMessage());
+            ae.b("PostAsyncTask", "doInBackground", "error = " + e.getMessage());
             return null;
         }
+    }
+
+    public void a() {
+        ProgressBar progressBar;
+        if (this.c != null) {
+            this.c.g();
+        }
+        progressBar = this.b.l;
+        progressBar.setVisibility(8);
+        super.cancel(true);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -67,19 +69,18 @@ public class q extends AsyncTask {
             progressBar.setVisibility(8);
             if (this.c != null && this.c.b()) {
                 if (this.f == 1) {
-                    al alVar = new al();
-                    alVar.a(str);
-                    an anVar = (an) alVar.c().get(0);
-                    if (anVar != null) {
-                        eVar4 = this.b.b;
-                        WriteActivity.a(eVar4, alVar.a().b(), alVar.a().c(), alVar.b().a(), anVar.a(), anVar.b(), this.e, alVar.e(), alVar.f());
-                    } else {
+                    ak akVar = new ak();
+                    akVar.a(str);
+                    am amVar = (am) akVar.c().get(0);
+                    if (amVar == null) {
                         return;
                     }
+                    eVar4 = this.b.b;
+                    WriteActivity.a(eVar4, akVar.a().b(), akVar.a().c(), akVar.b().a(), amVar.a(), amVar.b(), this.e, akVar.e(), akVar.f());
                 }
                 if (this.f == 2) {
                     eVar2 = this.b.b;
-                    at a = new com.baidu.tieba.b.t(eVar2, str).a();
+                    aq a = new com.baidu.tieba.b.r(eVar2, str).a();
                     String b = a.f().b();
                     String c = a.f().c();
                     String a2 = a.h().a();
@@ -98,13 +99,11 @@ public class q extends AsyncTask {
         this.b.m = null;
     }
 
-    public void a() {
+    @Override // android.os.AsyncTask
+    protected void onPreExecute() {
         ProgressBar progressBar;
-        if (this.c != null) {
-            this.c.g();
-        }
+        super.onPreExecute();
         progressBar = this.b.l;
-        progressBar.setVisibility(8);
-        super.cancel(true);
+        progressBar.setVisibility(0);
     }
 }

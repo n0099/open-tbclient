@@ -1,9 +1,8 @@
 package com.baidu.tieba;
 
-import android.os.Handler;
-import android.os.Message;
+import android.view.animation.Animation;
 /* loaded from: classes.dex */
-class k extends Handler {
+class k implements Animation.AnimationListener {
     final /* synthetic */ LogoActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -11,17 +10,21 @@ class k extends Handler {
         this.a = logoActivity;
     }
 
-    @Override // android.os.Handler
-    public void handleMessage(Message message) {
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationEnd(Animation animation) {
         boolean z;
-        this.a.e = true;
-        z = this.a.d;
+        this.a.b = true;
+        z = this.a.c;
         if (z) {
-            if (!this.a.getDatabasePath("baidu_tieba.db").exists()) {
-                TiebaApplication.a(com.baidu.tieba.c.k.l());
-            }
-            this.a.j();
+            this.a.h();
         }
-        super.handleMessage(message);
+    }
+
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationRepeat(Animation animation) {
+    }
+
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationStart(Animation animation) {
     }
 }

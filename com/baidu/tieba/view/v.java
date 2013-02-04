@@ -15,9 +15,8 @@ class v implements AdapterView.OnItemClickListener {
 
     @Override // android.widget.AdapterView.OnItemClickListener
     public void onItemClick(AdapterView adapterView, View view, int i, long j) {
-        if (this.b == null || !this.b.b() || j != this.b.getCount() - 1) {
-            return;
+        if (this.b != null && this.b.b() && j == this.b.getCount() - 1) {
+            this.a.a(this.b.d(), this.b.e().c(), 10, this.b);
         }
-        this.a.a(this.b.d(), this.b.e().c(), 10, this.b);
     }
 }

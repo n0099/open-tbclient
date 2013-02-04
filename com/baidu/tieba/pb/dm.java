@@ -1,8 +1,10 @@
 package com.baidu.tieba.pb;
 
-import android.webkit.URLUtil;
+import android.view.View;
+import android.webkit.WebView;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class dm implements Runnable {
+public class dm implements View.OnClickListener {
     final /* synthetic */ WebActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -10,11 +12,14 @@ class dm implements Runnable {
         this.a = webActivity;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        String guessUrl = URLUtil.guessUrl(this.a.e);
-        if (URLUtil.isNetworkUrl(guessUrl)) {
-            this.a.c.loadUrl(guessUrl);
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        WebView webView;
+        WebView webView2;
+        webView = this.a.b;
+        if (webView.canGoForward()) {
+            webView2 = this.a.b;
+            webView2.goForward();
         }
     }
 }

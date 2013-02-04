@@ -8,7 +8,6 @@ import android.graphics.RectF;
 import android.text.TextPaint;
 import android.util.AttributeSet;
 import android.widget.RelativeLayout;
-import com.baidu.tieba.R;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class LbsView extends RelativeLayout {
@@ -27,8 +26,6 @@ public class LbsView extends RelativeLayout {
     private ArrayList m;
     private float n;
     private int o;
-    private int p;
-    private int q;
 
     public LbsView(Context context) {
         super(context);
@@ -47,8 +44,6 @@ public class LbsView extends RelativeLayout {
         this.m = null;
         this.n = 0.0f;
         this.o = 0;
-        this.p = 0;
-        this.q = 446273945;
         a();
     }
 
@@ -69,8 +64,6 @@ public class LbsView extends RelativeLayout {
         this.m = null;
         this.n = 0.0f;
         this.o = 0;
-        this.p = 0;
-        this.q = 446273945;
         a();
     }
 
@@ -91,127 +84,11 @@ public class LbsView extends RelativeLayout {
         this.m = null;
         this.n = 0.0f;
         this.o = 0;
-        this.p = 0;
-        this.q = 446273945;
         a();
     }
 
-    public void a() {
-        setWillNotDraw(false);
-        setDrawingCacheEnabled(false);
-        this.j = com.baidu.tieba.c.ah.a(getContext(), 1.0f);
-        this.k = com.baidu.tieba.c.ah.a(getContext(), 8.0f);
-        this.h = com.baidu.tieba.c.ah.a(getContext(), 10.0f);
-        this.l = com.baidu.tieba.c.ah.a(getContext(), 2.0f);
-        this.m = new ArrayList(3);
-        this.c.setAntiAlias(true);
-        this.d.setAntiAlias(true);
-        this.n = com.baidu.tieba.c.ah.c(getContext(), 10.0f);
-        this.d.setTextSize(this.n);
-        this.d.setColor(-5917250);
-        this.d.setFakeBoldText(true);
-    }
-
-    public void a(int i) {
-        if (i == 1) {
-            this.d.setColor(-11842741);
-            setBackgroundColor(com.baidu.tieba.c.ad.d(i));
-            this.q = 436207616;
-            this.p = 446405531;
-        } else {
-            this.d.setColor(-5917250);
-            setBackgroundColor(getContext().getResources().getColor(R.color.backgroundcolor));
-            this.q = 446273945;
-            this.p = 1288490188;
-        }
-        invalidate();
-    }
-
-    public float getDistanceOffset() {
-        return this.b;
-    }
-
-    public float getFontSize() {
-        return this.n;
-    }
-
-    public void b() {
-        this.m.clear();
-        this.o = 0;
-    }
-
-    public void a(String str) {
-        this.m.add(str);
-    }
-
-    public void setZoneNum(int i) {
-        if (i > 0) {
-            this.g = i;
-            this.a /= i;
-        }
-    }
-
-    public void setDisplayNum(int i) {
-        if (i > this.o) {
-            this.o = i;
-            invalidate();
-        }
-    }
-
-    public int getZoneNum() {
-        return this.g;
-    }
-
-    public void b(int i) {
-        int height;
-        int height2 = getHeight() - i;
-        if (height2 >= 0 && (height = getHeight() / this.g) != 0) {
-            int i2 = height2 / height;
-            if (height2 % height > (height >> 1)) {
-                i2++;
-            }
-            setDisplayNum(i2);
-        }
-    }
-
-    public int c(int i) {
-        int size = this.m.size();
-        if (i < 0 || i >= size) {
-            return 0;
-        }
-        return ((int) com.baidu.tieba.c.ah.a((Paint) this.d, (String) this.m.get(i))) + this.l;
-    }
-
-    @Override // android.widget.RelativeLayout, android.view.ViewGroup, android.view.View
-    protected void onLayout(boolean z, int i, int i2, int i3, int i4) {
-        super.onLayout(z, i, i2, i3, i4);
-        if (z) {
-            int i5 = i4 - i2;
-            int i6 = (i3 - i) >> 1;
-            int i7 = (int) (i5 * this.a);
-            this.e.x = i6;
-            if (i5 <= 0) {
-                this.f = i6;
-            } else {
-                this.f = (((i6 * i6) / i7) + i7) >> 1;
-            }
-            this.e.y = (i5 + this.f) - i7;
-        }
-    }
-
-    @Override // android.view.View
-    protected void onDraw(Canvas canvas) {
-        super.onDraw(canvas);
-        a(canvas);
-        int size = this.m.size();
-        for (int i = 0; i < this.g && i < size && i < this.o; i++) {
-            a(canvas, i);
-        }
-        b(canvas);
-    }
-
     private void a(Canvas canvas) {
-        this.c.setColor(this.q);
+        this.c.setColor(446273945);
         this.c.setStyle(Paint.Style.STROKE);
         this.c.setStrokeWidth(this.j);
         int i = this.h;
@@ -231,7 +108,7 @@ public class LbsView extends RelativeLayout {
     }
 
     private void a(Canvas canvas, int i) {
-        this.c.setColor(this.p);
+        this.c.setColor(1288490188);
         this.c.setStyle(Paint.Style.STROKE);
         this.c.setStrokeWidth(this.k);
         int height = this.e.y - ((getHeight() * i) / this.g);
@@ -248,12 +125,111 @@ public class LbsView extends RelativeLayout {
         int i = 0;
         while (true) {
             int i2 = i;
-            if (i2 < this.g && i2 < size && i2 < this.o) {
-                canvas.drawText((String) this.m.get(i2), this.l, (int) (height * (((this.g - i2) - 1) + this.b)), this.d);
-                i = i2 + 1;
-            } else {
+            if (i2 >= this.g || i2 >= size || i2 >= this.o) {
                 return;
             }
+            canvas.drawText((String) this.m.get(i2), this.l, (int) (height * (((this.g - i2) - 1) + this.b)), this.d);
+            i = i2 + 1;
         }
+    }
+
+    public void a() {
+        setWillNotDraw(false);
+        setDrawingCacheEnabled(false);
+        this.j = com.baidu.tieba.c.ag.a(getContext(), 1.0f);
+        this.k = com.baidu.tieba.c.ag.a(getContext(), 8.0f);
+        this.h = com.baidu.tieba.c.ag.a(getContext(), 10.0f);
+        this.l = com.baidu.tieba.c.ag.a(getContext(), 2.0f);
+        this.m = new ArrayList(3);
+        this.c.setAntiAlias(true);
+        this.d.setAntiAlias(true);
+        this.n = com.baidu.tieba.c.ag.c(getContext(), 10.0f);
+        this.d.setTextSize(this.n);
+        this.d.setColor(-5917250);
+        this.d.setFakeBoldText(true);
+    }
+
+    public void a(int i) {
+        int height;
+        int height2 = getHeight() - i;
+        if (height2 >= 0 && (height = getHeight() / this.g) != 0) {
+            int i2 = height2 / height;
+            if (height2 % height > (height >> 1)) {
+                i2++;
+            }
+            setDisplayNum(i2);
+        }
+    }
+
+    public void a(String str) {
+        this.m.add(str);
+    }
+
+    public int b(int i) {
+        int size = this.m.size();
+        if (i < 0 || i >= size) {
+            return 0;
+        }
+        return ((int) com.baidu.tieba.c.ag.a((Paint) this.d, (String) this.m.get(i))) + this.l;
+    }
+
+    public void b() {
+        this.m.clear();
+        this.o = 0;
+    }
+
+    public float getDistanceOffset() {
+        return this.b;
+    }
+
+    public float getFontSize() {
+        return this.n;
+    }
+
+    public int getZoneNum() {
+        return this.g;
+    }
+
+    @Override // android.view.View
+    protected void onDraw(Canvas canvas) {
+        super.onDraw(canvas);
+        a(canvas);
+        int size = this.m.size();
+        for (int i = 0; i < this.g && i < size && i < this.o; i++) {
+            a(canvas, i);
+        }
+        b(canvas);
+    }
+
+    @Override // android.widget.RelativeLayout, android.view.ViewGroup, android.view.View
+    protected void onLayout(boolean z, int i, int i2, int i3, int i4) {
+        super.onLayout(z, i, i2, i3, i4);
+        if (z) {
+            int i5 = i4 - i2;
+            int i6 = (i3 - i) >> 1;
+            int i7 = (int) (i5 * this.a);
+            this.e.x = i6;
+            if (i5 <= 0) {
+                this.f = i6;
+            } else {
+                this.f = (((i6 * i6) / i7) + i7) >> 1;
+            }
+            this.e.y = (i5 + this.f) - i7;
+        }
+    }
+
+    public void setDisplayNum(int i) {
+        if (i > this.o) {
+            this.o = i;
+            invalidate();
+        }
+    }
+
+    public void setZoneNum(int i) {
+        if (i <= 0) {
+            return;
+        }
+        this.g = i;
+        this.a /= i;
     }
 }

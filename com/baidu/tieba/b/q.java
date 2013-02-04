@@ -1,51 +1,29 @@
 package com.baidu.tieba.b;
 
-import java.io.Serializable;
+import com.baidu.tieba.a.al;
 /* loaded from: classes.dex */
-public class q implements Serializable {
-    private String a = null;
-    private int b = 1;
+public class q {
+    private al a = new al();
+    private boolean b = true;
     private String c = null;
-    private String d = null;
-    private boolean e = false;
 
     public String a() {
-        return this.a;
-    }
-
-    public void a(String str) {
-        this.a = str;
-    }
-
-    public int b() {
-        return this.b;
-    }
-
-    public void a(int i) {
-        this.b = i;
-    }
-
-    public void b(String str) {
-        this.c = str;
-    }
-
-    public String c() {
         return this.c;
     }
 
+    public void a(String str) {
+        this.c = str;
+    }
+
     public void a(boolean z) {
-        this.e = z;
+        this.b = z;
     }
 
-    public boolean d() {
-        return this.e;
+    public boolean b() {
+        return this.b;
     }
 
-    public void c(String str) {
-        this.d = str;
-    }
-
-    public String e() {
-        return this.d;
+    public al c() {
+        return this.a;
     }
 }

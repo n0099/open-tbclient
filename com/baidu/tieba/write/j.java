@@ -20,12 +20,20 @@ public class j extends AsyncTask {
         this(atListActivity);
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.os.AsyncTask
-    protected void onPreExecute() {
-        ProgressBar progressBar;
-        progressBar = this.a.m;
-        progressBar.setVisibility(0);
-        super.onPreExecute();
+    /* renamed from: a */
+    public com.baidu.tieba.a.q doInBackground(String... strArr) {
+        this.b = new com.baidu.tieba.c.t();
+        this.b.a("http://c.tieba.baidu.com/c/u/follow/list");
+        String i = this.b.i();
+        if (this.b.b()) {
+            com.baidu.tieba.a.q qVar = new com.baidu.tieba.a.q();
+            qVar.a(i);
+            return qVar;
+        }
+        return null;
     }
 
     public void a() {
@@ -33,8 +41,8 @@ public class j extends AsyncTask {
         if (this.b != null) {
             this.b.g();
         }
-        this.a.i = null;
-        progressBar = this.a.m;
+        this.a.h = null;
+        progressBar = this.a.l;
         progressBar.setVisibility(8);
         super.cancel(true);
     }
@@ -43,23 +51,7 @@ public class j extends AsyncTask {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.os.AsyncTask
     /* renamed from: a */
-    public com.baidu.tieba.a.r doInBackground(String... strArr) {
-        this.b = new com.baidu.tieba.c.t();
-        this.b.a("http://c.tieba.baidu.com/c/u/follow/list");
-        String i = this.b.i();
-        if (!this.b.b()) {
-            return null;
-        }
-        com.baidu.tieba.a.r rVar = new com.baidu.tieba.a.r();
-        rVar.a(i);
-        return rVar;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // android.os.AsyncTask
-    /* renamed from: a */
-    public void onPostExecute(com.baidu.tieba.a.r rVar) {
+    public void onPostExecute(com.baidu.tieba.a.q qVar) {
         ProgressBar progressBar;
         com.baidu.tieba.b.a aVar;
         k kVar;
@@ -70,35 +62,42 @@ public class j extends AsyncTask {
         k kVar3;
         k kVar4;
         ListView listView;
-        this.a.i = null;
-        progressBar = this.a.m;
+        this.a.h = null;
+        progressBar = this.a.l;
         progressBar.setVisibility(8);
         if (this.b.b()) {
-            aVar = this.a.j;
-            aVar.a(rVar);
-            kVar = this.a.k;
-            if (kVar != null) {
-                editText = this.a.c;
-                if (editText.getText().toString().length() != 0) {
-                    aVar2 = this.a.j;
-                    if (aVar2.b() != null) {
-                        aVar3 = this.a.j;
-                        aVar3.b().a(rVar.b());
-                        kVar2 = this.a.k;
-                        kVar2.notifyDataSetInvalidated();
-                    }
-                } else {
-                    kVar3 = this.a.k;
-                    kVar3.a(rVar.a());
-                    kVar4 = this.a.k;
-                    kVar4.notifyDataSetInvalidated();
-                    listView = this.a.f;
-                    listView.setSelection(0);
-                }
-            } else {
+            aVar = this.a.i;
+            aVar.a(qVar);
+            kVar = this.a.j;
+            if (kVar == null) {
                 return;
             }
+            editText = this.a.b;
+            if (editText.getText().toString().length() == 0) {
+                kVar3 = this.a.j;
+                kVar3.a(qVar.a());
+                kVar4 = this.a.j;
+                kVar4.notifyDataSetInvalidated();
+                listView = this.a.e;
+                listView.setSelection(0);
+            } else {
+                aVar2 = this.a.i;
+                if (aVar2.b() != null) {
+                    aVar3 = this.a.i;
+                    aVar3.b().a(qVar.b());
+                    kVar2 = this.a.j;
+                    kVar2.notifyDataSetInvalidated();
+                }
+            }
         }
-        super.onPostExecute(rVar);
+        super.onPostExecute(qVar);
+    }
+
+    @Override // android.os.AsyncTask
+    protected void onPreExecute() {
+        ProgressBar progressBar;
+        progressBar = this.a.l;
+        progressBar.setVisibility(0);
+        super.onPreExecute();
     }
 }

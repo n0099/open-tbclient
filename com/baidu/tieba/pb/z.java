@@ -23,28 +23,29 @@ public class z implements View.OnClickListener {
         View view3;
         AlertDialog alertDialog3;
         AlertDialog alertDialog4;
-        if (this.a.F != null && this.a.F.length() != 0) {
-            this.a.j();
-            view2 = this.a.l;
-            TextView textView = (TextView) view2.findViewById(R.id.text);
-            if (textView != null) {
-                alertDialog = this.a.k;
-                alertDialog.show();
-                textView.setText(String.valueOf(this.a.getString(R.string.title)) + this.a.F);
-                alertDialog2 = this.a.k;
-                view3 = this.a.l;
-                alertDialog2.setContentView(view3);
-                alertDialog3 = this.a.k;
-                WindowManager.LayoutParams attributes = alertDialog3.getWindow().getAttributes();
-                attributes.gravity = 51;
-                attributes.x = 0;
-                attributes.y = (this.a.i.getTop() + this.a.i.getHeight()) - 5;
-                attributes.width = -1;
-                attributes.height = -2;
-                attributes.alpha = 1.0f;
-                alertDialog4 = this.a.k;
-                alertDialog4.getWindow().setAttributes(attributes);
-            }
+        if (this.a.D == null || this.a.D.length() == 0) {
+            return;
+        }
+        this.a.h();
+        view2 = this.a.j;
+        TextView textView = (TextView) view2.findViewById(R.id.text);
+        if (textView != null) {
+            alertDialog = this.a.i;
+            alertDialog.show();
+            textView.setText(String.valueOf(this.a.getString(R.string.title)) + this.a.D);
+            alertDialog2 = this.a.i;
+            view3 = this.a.j;
+            alertDialog2.setContentView(view3);
+            alertDialog3 = this.a.i;
+            WindowManager.LayoutParams attributes = alertDialog3.getWindow().getAttributes();
+            attributes.gravity = 51;
+            attributes.x = 0;
+            attributes.y = (this.a.g.getTop() + this.a.g.getHeight()) - 5;
+            attributes.width = -1;
+            attributes.height = -2;
+            attributes.alpha = 1.0f;
+            alertDialog4 = this.a.i;
+            alertDialog4.getWindow().setAttributes(attributes);
         }
     }
 }

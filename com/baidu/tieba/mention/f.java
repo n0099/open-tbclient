@@ -15,20 +15,21 @@ class f implements View.OnClickListener {
         a(null);
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        Context context;
-        if (this.b != null && this.b.length() > 0) {
-            context = this.a.a;
-            PersonInfoActivity.a(context, this.b, this.c);
-        }
-    }
-
     public void a(String str) {
         this.c = str;
     }
 
     public void b(String str) {
         this.b = str;
+    }
+
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        Context context;
+        if (this.b == null || this.b.length() <= 0) {
+            return;
+        }
+        context = this.a.a;
+        PersonInfoActivity.a(context, this.b, this.c);
     }
 }

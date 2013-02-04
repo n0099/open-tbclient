@@ -19,21 +19,21 @@ class e implements g {
     }
 
     @Override // android.support.v4.widget.g
-    public void b(Object obj) {
-    }
-
-    @Override // android.support.v4.widget.g
     public boolean a(Object obj, float f) {
         return false;
     }
 
     @Override // android.support.v4.widget.g
-    public boolean c(Object obj) {
+    public boolean a(Object obj, Canvas canvas) {
         return false;
     }
 
     @Override // android.support.v4.widget.g
-    public boolean a(Object obj, Canvas canvas) {
+    public void b(Object obj) {
+    }
+
+    @Override // android.support.v4.widget.g
+    public boolean c(Object obj) {
         return false;
     }
 }

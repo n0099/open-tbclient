@@ -15,12 +15,13 @@ class az implements RadioGroup.OnCheckedChangeListener {
     @Override // android.widget.RadioGroup.OnCheckedChangeListener
     public void onCheckedChanged(RadioGroup radioGroup, int i) {
         EditText editText;
-        if (i > 0) {
-            RadioButton radioButton = (RadioButton) this.a.findViewById(i);
-            if (radioButton.isChecked()) {
-                editText = this.a.x;
-                editText.setText(radioButton.getText());
-            }
+        if (i <= 0) {
+            return;
+        }
+        RadioButton radioButton = (RadioButton) this.a.findViewById(i);
+        if (radioButton.isChecked()) {
+            editText = this.a.s;
+            editText.setText(radioButton.getText());
         }
     }
 }

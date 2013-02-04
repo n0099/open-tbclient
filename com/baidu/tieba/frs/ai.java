@@ -23,8 +23,8 @@ public class ai implements com.baidu.tieba.c.d {
         Rect rect3;
         Rect rect4;
         try {
-            waterFallView = this.a.d;
-            View findViewWithTag = waterFallView.a(2).findViewWithTag(str);
+            waterFallView = this.a.c;
+            View findViewWithTag = waterFallView.a(1).findViewWithTag(str);
             if (findViewWithTag != null && (findViewWithTag instanceof ImageViewDrawer)) {
                 rect = this.a.D;
                 if (findViewWithTag.getLocalVisibleRect(rect)) {
@@ -43,7 +43,7 @@ public class ai implements com.baidu.tieba.c.d {
                 }
             }
         } catch (Exception e) {
-            com.baidu.tieba.c.af.b(getClass().getName(), "imageLoaded", e.getMessage());
+            com.baidu.tieba.c.ae.b(getClass().getName(), "imageLoaded", e.getMessage());
         }
     }
 }

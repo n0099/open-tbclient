@@ -20,15 +20,16 @@ public class aw implements View.OnClickListener {
     public void onClick(View view) {
         ProgressBar progressBar;
         String str;
-        progressBar = this.a.j;
+        progressBar = this.a.i;
         if (progressBar.getVisibility() != 0) {
             String str2 = this.b;
-            str = this.a.w;
-            if (!str2.equals(str)) {
-                this.a.c(this.b);
-                this.a.e(this.b);
-                this.a.u = this.c;
+            str = this.a.v;
+            if (str2.equals(str)) {
+                return;
             }
+            this.a.c(this.b);
+            this.a.e(this.b);
+            this.a.t = this.c;
         }
     }
 }

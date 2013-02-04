@@ -40,71 +40,71 @@ public class d implements View.OnClickListener {
         ProgressBar progressBar;
         LinearLayout linearLayout5;
         int i;
-        button = this.a.k;
-        if (view != button) {
-            button2 = this.a.j;
-            if (view == button2) {
-                linearLayout4 = this.a.m;
-                if (linearLayout4.getVisibility() != 8) {
-                    try {
-                        multiImageView3 = this.a.n;
-                        byte[] currentImageData = multiImageView3.getCurrentImageData();
-                        if (currentImageData != null) {
-                            multiImageView4 = this.a.n;
-                            String currentImageUrl = multiImageView4.getCurrentImageUrl();
-                            this.a.i = new i(this.a, currentImageUrl, currentImageData);
-                            iVar = this.a.i;
-                            iVar.execute(new String[0]);
-                            button3 = this.a.j;
-                            button3.setVisibility(4);
-                            progressBar = this.a.c;
-                            progressBar.setVisibility(0);
-                        } else {
-                            this.a.b(this.a.getString(R.string.no_data));
-                        }
-                        return;
-                    } catch (Exception e) {
-                        return;
-                    }
-                }
+        button = this.a.j;
+        if (view == button) {
+            linearLayout5 = this.a.l;
+            if (linearLayout5.getVisibility() == 8) {
                 return;
             }
-            z = this.a.s;
-            if (z) {
-                linearLayout = this.a.m;
-                if (linearLayout.getVisibility() != 0) {
-                    linearLayout3 = this.a.m;
-                    linearLayout3.setVisibility(0);
-                    multiImageView2 = this.a.n;
-                    multiImageView2.d();
-                    this.a.r = new AlphaAnimation(0.0f, 1.0f);
-                } else {
-                    this.a.r = new AlphaAnimation(1.0f, 0.0f);
-                    this.a.t = true;
-                    multiImageView = this.a.n;
-                    multiImageView.e();
-                }
-                alphaAnimation = this.a.r;
-                alphaAnimation.setDuration(300L);
-                alphaAnimation2 = this.a.r;
-                alphaAnimation2.setFillAfter(true);
-                alphaAnimation3 = this.a.r;
-                alphaAnimation3.setAnimationListener(new e(this));
-                this.a.s = false;
-                linearLayout2 = this.a.m;
-                alphaAnimation4 = this.a.r;
-                linearLayout2.startAnimation(alphaAnimation4);
-                return;
-            }
-            return;
-        }
-        linearLayout5 = this.a.m;
-        if (linearLayout5.getVisibility() != 8) {
             Intent intent = new Intent();
-            i = this.a.e;
+            i = this.a.d;
             intent.putExtra("index", i);
             this.a.setResult(-1, intent);
             this.a.finish();
+            return;
+        }
+        button2 = this.a.i;
+        if (view == button2) {
+            linearLayout4 = this.a.l;
+            if (linearLayout4.getVisibility() != 8) {
+                try {
+                    multiImageView3 = this.a.m;
+                    byte[] currentImageData = multiImageView3.getCurrentImageData();
+                    if (currentImageData != null) {
+                        multiImageView4 = this.a.m;
+                        String currentImageUrl = multiImageView4.getCurrentImageUrl();
+                        this.a.h = new i(this.a, currentImageUrl, currentImageData);
+                        iVar = this.a.h;
+                        iVar.execute(new String[0]);
+                        button3 = this.a.i;
+                        button3.setVisibility(4);
+                        progressBar = this.a.b;
+                        progressBar.setVisibility(0);
+                    } else {
+                        this.a.b(this.a.getString(R.string.no_data));
+                    }
+                    return;
+                } catch (Exception e) {
+                    return;
+                }
+            }
+            return;
+        }
+        z = this.a.r;
+        if (z) {
+            linearLayout = this.a.l;
+            if (linearLayout.getVisibility() != 0) {
+                linearLayout3 = this.a.l;
+                linearLayout3.setVisibility(0);
+                multiImageView2 = this.a.m;
+                multiImageView2.d();
+                this.a.q = new AlphaAnimation(0.0f, 1.0f);
+            } else {
+                this.a.q = new AlphaAnimation(1.0f, 0.0f);
+                this.a.s = true;
+                multiImageView = this.a.m;
+                multiImageView.e();
+            }
+            alphaAnimation = this.a.q;
+            alphaAnimation.setDuration(300L);
+            alphaAnimation2 = this.a.q;
+            alphaAnimation2.setFillAfter(true);
+            alphaAnimation3 = this.a.q;
+            alphaAnimation3.setAnimationListener(new e(this));
+            this.a.r = false;
+            linearLayout2 = this.a.l;
+            alphaAnimation4 = this.a.q;
+            linearLayout2.startAnimation(alphaAnimation4);
         }
     }
 }

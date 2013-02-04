@@ -34,49 +34,10 @@ public class CustomTimerView extends LinearLayout {
         this.h = (TextView) findViewById(R.id.sec_text);
     }
 
-    public void setTitle(int i) {
-        this.b.setText(i);
-    }
-
-    public void setTitleSize(int i) {
-        this.b.setTextSize(2, i);
-    }
-
-    public void setTitleColor(int i) {
-        this.b.setTextColor(i);
-    }
-
-    public void setTextSize(int i) {
-        this.d.setTextSize(2, i);
-        this.f.setTextSize(2, i);
-        this.h.setTextSize(2, i);
-    }
-
-    public void setTextColor(int i) {
-        this.d.setTextColor(i);
-        this.f.setTextColor(i);
-        this.h.setTextColor(i);
-    }
-
-    public void setNumSize(int i) {
-        this.c.setTextSize(2, i);
-        this.e.setTextSize(2, i);
-        this.g.setTextSize(2, i);
-    }
-
     public void setNumColor(int i) {
         this.c.setTextColor(i);
         this.e.setTextColor(i);
         this.g.setTextColor(i);
-    }
-
-    public void setTextMargin(int i) {
-        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.d.getLayoutParams();
-        layoutParams.rightMargin = i;
-        this.d.setLayoutParams(layoutParams);
-        LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) this.f.getLayoutParams();
-        layoutParams2.rightMargin = i;
-        this.f.setLayoutParams(layoutParams2);
     }
 
     public void setNumMargin(int i) {
@@ -91,6 +52,33 @@ public class CustomTimerView extends LinearLayout {
         this.g.setLayoutParams(layoutParams3);
     }
 
+    public void setNumSize(int i) {
+        this.c.setTextSize(2, i);
+        this.e.setTextSize(2, i);
+        this.g.setTextSize(2, i);
+    }
+
+    public void setTextColor(int i) {
+        this.d.setTextColor(i);
+        this.f.setTextColor(i);
+        this.h.setTextColor(i);
+    }
+
+    public void setTextMargin(int i) {
+        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.d.getLayoutParams();
+        layoutParams.rightMargin = i;
+        this.d.setLayoutParams(layoutParams);
+        LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) this.f.getLayoutParams();
+        layoutParams2.rightMargin = i;
+        this.f.setLayoutParams(layoutParams2);
+    }
+
+    public void setTextSize(int i) {
+        this.d.setTextSize(2, i);
+        this.f.setTextSize(2, i);
+        this.h.setTextSize(2, i);
+    }
+
     public void setTime(long j) {
         if (j < 0 || j > a) {
             j = a;
@@ -98,5 +86,17 @@ public class CustomTimerView extends LinearLayout {
         this.c.setText(String.format("%1$02d", Long.valueOf(j / 3600)));
         this.e.setText(String.format("%1$02d", Long.valueOf((j % 3600) / 60)));
         this.g.setText(String.format("%1$02d", Long.valueOf((j % 3600) % 60)));
+    }
+
+    public void setTitle(int i) {
+        this.b.setText(i);
+    }
+
+    public void setTitleColor(int i) {
+        this.b.setTextColor(i);
+    }
+
+    public void setTitleSize(int i) {
+        this.b.setTextSize(2, i);
     }
 }

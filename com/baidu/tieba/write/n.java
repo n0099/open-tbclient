@@ -15,10 +15,10 @@ public class n implements DialogInterface.OnCancelListener {
     public void onCancel(DialogInterface dialogInterface) {
         s sVar;
         s sVar2;
-        this.a.c();
-        sVar = this.a.i;
+        this.a.b();
+        sVar = this.a.h;
         if (sVar != null) {
-            sVar2 = this.a.i;
+            sVar2 = this.a.h;
             sVar2.a();
         }
     }

@@ -17,10 +17,10 @@ class u implements com.baidu.tieba.view.aa {
         LinearLayout linearLayout;
         Button button;
         if (i == -2) {
-            linearLayout = this.a.r;
+            linearLayout = this.a.p;
             linearLayout.setVisibility(8);
-            this.a.s.setVisibility(0);
-            button = this.a.o;
+            this.a.q.setVisibility(0);
+            button = this.a.m;
             button.setBackgroundResource(R.drawable.sub_pb_face);
         }
     }

@@ -18,19 +18,20 @@ public class au implements View.OnClickListener {
         ProgressBar progressBar;
         Bitmap bitmap;
         Bitmap bitmap2;
-        progressBar = this.a.j;
-        if (progressBar.getVisibility() != 0) {
-            bitmap = this.a.e;
-            if (bitmap == null) {
-                bitmap2 = this.a.r;
-                if (bitmap2 == null) {
-                    return;
-                }
+        progressBar = this.a.i;
+        if (progressBar.getVisibility() == 0) {
+            return;
+        }
+        bitmap = this.a.d;
+        if (bitmap == null) {
+            bitmap2 = this.a.q;
+            if (bitmap2 == null) {
+                return;
             }
-            if (view.getTag() != null) {
-                this.a.y = false;
-                this.a.c(view.getTag().toString());
-            }
+        }
+        if (view.getTag() != null) {
+            this.a.x = false;
+            this.a.c(view.getTag().toString());
         }
     }
 }

@@ -28,43 +28,21 @@ class j implements View.OnClickListener {
         m mVar2;
         n nVar3;
         m mVar3;
-        button = this.a.d;
-        if (view != button) {
-            relativeLayout = this.a.l;
-            if (view != relativeLayout) {
-                relativeLayout2 = this.a.m;
-                if (view != relativeLayout2) {
-                    imageView = this.a.f;
-                    if (view == imageView) {
-                        editText = this.a.k;
-                        editText.setText((CharSequence) null);
-                        return;
-                    }
-                    return;
-                }
-                z = this.a.p;
-                if (z) {
-                    nVar = this.a.n;
-                    if (nVar == null) {
-                        mVar = this.a.o;
-                        if (mVar == null) {
-                            this.a.n = new n(this.a, null);
-                            nVar2 = this.a.n;
-                            nVar2.execute(new String[0]);
-                            return;
-                        }
-                        return;
-                    }
-                    return;
-                }
-                return;
-            }
-            mVar2 = this.a.o;
+        button = this.a.c;
+        if (view == button) {
+            this.a.setResult(0);
+            this.a.finish();
+            com.baidu.tieba.c.ae.a("ActivationActivity", "mBack", "onClick");
+            return;
+        }
+        relativeLayout = this.a.k;
+        if (view == relativeLayout) {
+            mVar2 = this.a.n;
             if (mVar2 == null) {
-                nVar3 = this.a.n;
+                nVar3 = this.a.m;
                 if (nVar3 == null) {
-                    this.a.o = new m(this.a, null);
-                    mVar3 = this.a.o;
+                    this.a.n = new m(this.a, null);
+                    mVar3 = this.a.n;
                     mVar3.execute(new String[0]);
                     return;
                 }
@@ -72,8 +50,27 @@ class j implements View.OnClickListener {
             }
             return;
         }
-        this.a.setResult(0);
-        this.a.finish();
-        com.baidu.tieba.c.af.a("ActivationActivity", "mBack", "onClick");
+        relativeLayout2 = this.a.l;
+        if (view != relativeLayout2) {
+            imageView = this.a.e;
+            if (view == imageView) {
+                editText = this.a.j;
+                editText.setText((CharSequence) null);
+                return;
+            }
+            return;
+        }
+        z = this.a.o;
+        if (z) {
+            nVar = this.a.m;
+            if (nVar == null) {
+                mVar = this.a.n;
+                if (mVar == null) {
+                    this.a.m = new n(this.a, null);
+                    nVar2 = this.a.m;
+                    nVar2.execute(new String[0]);
+                }
+            }
+        }
     }
 }

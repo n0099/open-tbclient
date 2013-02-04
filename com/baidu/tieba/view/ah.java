@@ -13,10 +13,6 @@ public class ah extends RelativeLayout {
     private aj d;
     private ai e;
 
-    public void setCallback(ai aiVar) {
-        this.e = aiVar;
-    }
-
     public ah(Context context) {
         super(context);
         this.a = null;
@@ -26,22 +22,6 @@ public class ah extends RelativeLayout {
         this.e = null;
         this.c = context;
         a();
-    }
-
-    public f getImageView() {
-        return this.b;
-    }
-
-    public void setGifSetListener(j jVar) {
-        this.b.setGifSetListener(jVar);
-    }
-
-    public void setImageOnClickListener(View.OnClickListener onClickListener) {
-        this.b.setImageOnClickListener(onClickListener);
-    }
-
-    public void setOnSizeChangedListener(k kVar) {
-        this.b.setOnSizeChangedListener(kVar);
     }
 
     protected void a() {
@@ -55,24 +35,6 @@ public class ah extends RelativeLayout {
         this.a.setLayoutParams(layoutParams);
         this.a.setIndeterminate(true);
         addView(this.a);
-    }
-
-    public void setUrl(String str) {
-        this.b.setTag(str);
-        com.baidu.tieba.c.z c = com.baidu.tieba.c.w.c(getContext());
-        if (c == com.baidu.tieba.c.z.WIFI || c == com.baidu.tieba.c.z.ThreeG) {
-            if (this.d != null) {
-                this.d.a();
-            }
-            if (str != null) {
-                this.d = new aj(this, str);
-                this.d.execute(new String[0]);
-            }
-        }
-    }
-
-    public void setGifMaxUseableMem(int i) {
-        this.b.setGifMaxUseableMem(i);
     }
 
     public void b() {
@@ -99,28 +61,30 @@ public class ah extends RelativeLayout {
     }
 
     public void e() {
-        if (this.b != null && this.b.getImageType() == 1) {
-            this.b.g();
+        if (this.b == null || this.b.getImageType() != 1) {
+            return;
         }
+        this.b.g();
     }
 
     public void f() {
         String str;
-        if (this.b != null && (str = (String) this.b.getTag()) != null && this.b != null && this.d == null) {
-            if (this.b.getImageType() == 1) {
-                if (this.b.getGifCache() == null) {
-                    this.d = new aj(this, str);
-                    this.d.execute(new String[0]);
-                }
-            } else if (this.b.getImageType() == 2) {
-                if (com.baidu.tieba.c.w.a(getContext()) != com.baidu.tieba.c.y.UNAVAIL) {
-                    this.d = new aj(this, str);
-                    this.d.execute(new String[0]);
-                }
-            } else if (this.b.getImageBitmap() == null) {
+        if (this.b == null || (str = (String) this.b.getTag()) == null || this.b == null || this.d != null) {
+            return;
+        }
+        if (this.b.getImageType() == 1) {
+            if (this.b.getGifCache() == null) {
                 this.d = new aj(this, str);
                 this.d.execute(new String[0]);
             }
+        } else if (this.b.getImageType() == 2) {
+            if (com.baidu.tieba.c.w.a(getContext()) != com.baidu.tieba.c.y.UNAVAIL) {
+                this.d = new aj(this, str);
+                this.d.execute(new String[0]);
+            }
+        } else if (this.b.getImageBitmap() == null) {
+            this.d = new aj(this, str);
+            this.d.execute(new String[0]);
         }
     }
 
@@ -129,5 +93,43 @@ public class ah extends RelativeLayout {
             return this.b.getImageType();
         }
         return 0;
+    }
+
+    public f getImageView() {
+        return this.b;
+    }
+
+    public void setCallback(ai aiVar) {
+        this.e = aiVar;
+    }
+
+    public void setGifMaxUseableMem(int i) {
+        this.b.setGifMaxUseableMem(i);
+    }
+
+    public void setGifSetListener(j jVar) {
+        this.b.setGifSetListener(jVar);
+    }
+
+    public void setImageOnClickListener(View.OnClickListener onClickListener) {
+        this.b.setImageOnClickListener(onClickListener);
+    }
+
+    public void setOnSizeChangedListener(k kVar) {
+        this.b.setOnSizeChangedListener(kVar);
+    }
+
+    public void setUrl(String str) {
+        this.b.setTag(str);
+        com.baidu.tieba.c.z c = com.baidu.tieba.c.w.c(getContext());
+        if (c == com.baidu.tieba.c.z.WIFI || c == com.baidu.tieba.c.z.ThreeG) {
+            if (this.d != null) {
+                this.d.a();
+            }
+            if (str != null) {
+                this.d = new aj(this, str);
+                this.d.execute(new String[0]);
+            }
+        }
     }
 }

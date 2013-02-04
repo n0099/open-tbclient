@@ -27,22 +27,6 @@ public class h extends GestureDetector.SimpleOnGestureListener {
         return super.onFling(motionEvent, motionEvent2, f, f2);
     }
 
-    @Override // android.view.GestureDetector.SimpleOnGestureListener, android.view.GestureDetector.OnGestureListener
-    public boolean onSingleTapUp(MotionEvent motionEvent) {
-        View.OnClickListener onClickListener;
-        boolean z;
-        View.OnClickListener onClickListener2;
-        onClickListener = this.a.r;
-        if (onClickListener != null) {
-            z = this.a.y;
-            if (!z) {
-                onClickListener2 = this.a.r;
-                onClickListener2.onClick(this.a);
-            }
-        }
-        return super.onSingleTapUp(motionEvent);
-    }
-
     /* JADX WARN: Removed duplicated region for block: B:17:0x0084  */
     @Override // android.view.GestureDetector.SimpleOnGestureListener, android.view.GestureDetector.OnGestureListener
     /*
@@ -138,5 +122,21 @@ public class h extends GestureDetector.SimpleOnGestureListener {
         this.a.scrollTo(i2, scrollY);
         this.a.invalidate();
         return true;
+    }
+
+    @Override // android.view.GestureDetector.SimpleOnGestureListener, android.view.GestureDetector.OnGestureListener
+    public boolean onSingleTapUp(MotionEvent motionEvent) {
+        View.OnClickListener onClickListener;
+        boolean z;
+        View.OnClickListener onClickListener2;
+        onClickListener = this.a.r;
+        if (onClickListener != null) {
+            z = this.a.y;
+            if (!z) {
+                onClickListener2 = this.a.r;
+                onClickListener2.onClick(this.a);
+            }
+        }
+        return super.onSingleTapUp(motionEvent);
     }
 }

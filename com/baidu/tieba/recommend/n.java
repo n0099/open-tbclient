@@ -1,5 +1,7 @@
 package com.baidu.tieba.recommend;
 
+import android.view.View;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
@@ -12,15 +14,18 @@ class n {
     RelativeLayout d;
     TextView e;
     ProgressBar f;
-    LinearLayout g;
-    TextView h;
-    TextView i;
+    View g;
+    View h;
+    LinearLayout i;
     TextView j;
     TextView k;
-    final /* synthetic */ l l;
+    TextView l;
+    TextView m;
+    ImageView n;
+    final /* synthetic */ l o;
 
     private n(l lVar) {
-        this.l = lVar;
+        this.o = lVar;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */

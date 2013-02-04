@@ -1,44 +1,51 @@
 package com.baidu.tieba.b;
+
+import java.io.Serializable;
 /* loaded from: classes.dex */
-public class o {
-    final /* synthetic */ l a;
-    private String b;
-    private String c;
-    private String d;
-    private long e;
-    private int f;
-    private String g;
-    private int h;
+public class o implements Serializable {
+    private String a = null;
+    private int b = 1;
+    private String c = null;
+    private String d = null;
+    private boolean e = false;
 
-    public o(l lVar) {
-        this.a = lVar;
+    public String a() {
+        return this.a;
     }
 
-    public int a() {
-        return this.h;
+    public void a(int i) {
+        this.b = i;
     }
 
-    public String b() {
+    public void a(String str) {
+        this.a = str;
+    }
+
+    public void a(boolean z) {
+        this.e = z;
+    }
+
+    public int b() {
         return this.b;
+    }
+
+    public void b(String str) {
+        this.c = str;
     }
 
     public String c() {
         return this.c;
     }
 
-    public String d() {
-        return this.d;
+    public void c(String str) {
+        this.d = str;
     }
 
-    public long e() {
+    public boolean d() {
         return this.e;
     }
 
-    public int f() {
-        return this.f;
-    }
-
-    public String g() {
-        return this.g;
+    public String e() {
+        return this.d;
     }
 }

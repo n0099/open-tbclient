@@ -2,7 +2,7 @@ package com.baidu.tieba.recommend;
 
 import android.os.AsyncTask;
 import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.c.af;
+import com.baidu.tieba.c.ae;
 import com.baidu.tieba.c.t;
 import java.util.ArrayList;
 /* JADX INFO: Access modifiers changed from: package-private */
@@ -25,32 +25,8 @@ public class k extends AsyncTask {
         this.e = i;
     }
 
-    @Override // android.os.AsyncTask
-    protected void onPreExecute() {
-        l lVar;
-        l lVar2;
-        l lVar3;
-        l lVar4;
-        this.f = System.nanoTime();
-        switch (this.e) {
-            case 1:
-                lVar3 = this.b.j;
-                lVar3.a(true);
-                lVar4 = this.b.j;
-                lVar4.notifyDataSetChanged();
-                return;
-            case 2:
-                lVar = this.b.j;
-                lVar.b(true);
-                lVar2 = this.b.j;
-                lVar2.notifyDataSetChanged();
-                return;
-            case 3:
-                this.b.a(true);
-                return;
-            default:
-                return;
-        }
+    private void b() {
+        this.b.b(this.c.f());
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -69,40 +45,40 @@ public class k extends AsyncTask {
         try {
             this.c = new t(this.d);
             this.c.a(this.a);
-            j = GuessActivity.n;
+            j = GuessActivity.m;
             if (j != 0) {
                 t tVar = this.c;
-                j4 = GuessActivity.n;
+                j4 = GuessActivity.m;
                 tVar.a("ctime", String.valueOf(j4));
             }
-            j2 = GuessActivity.o;
+            j2 = GuessActivity.n;
             if (j2 != 0) {
                 t tVar2 = this.c;
-                j3 = GuessActivity.o;
+                j3 = GuessActivity.n;
                 tVar2.a("data_size", String.valueOf(j3));
             }
-            i = GuessActivity.p;
+            i = GuessActivity.o;
             if (i != 0) {
                 t tVar3 = this.c;
-                i2 = GuessActivity.p;
+                i2 = GuessActivity.o;
                 tVar3.a("net_error", String.valueOf(i2));
             }
             this.c.a(this.b);
             String i3 = this.c.i();
-            if (!this.c.b()) {
-                eVar = null;
-            } else {
+            if (this.c.b()) {
                 com.baidu.tieba.b.e eVar2 = new com.baidu.tieba.b.e();
                 try {
                     eVar2.a(i3);
-                    af.a(getClass().getName(), "doInBackground", i3);
+                    ae.a(getClass().getName(), "doInBackground", i3);
                     eVar = eVar2;
                 } catch (Exception e2) {
                     e = e2;
                     eVar = eVar2;
-                    af.b(getClass().getName(), "", "GuessAsyncTask.doInBackground error = " + e.getMessage());
+                    ae.b(getClass().getName(), "", "GuessAsyncTask.doInBackground error = " + e.getMessage());
                     return eVar;
                 }
+            } else {
+                eVar = null;
             }
         } catch (Exception e3) {
             eVar = null;
@@ -110,18 +86,25 @@ public class k extends AsyncTask {
         }
         try {
             if (this.c.c()) {
+                GuessActivity.m = 0L;
                 GuessActivity.n = 0L;
-                GuessActivity.o = 0L;
-                GuessActivity.p = 0;
+                GuessActivity.o = 0;
             } else {
-                GuessActivity.p = 1;
+                GuessActivity.o = 1;
             }
         } catch (Exception e4) {
             e = e4;
-            af.b(getClass().getName(), "", "GuessAsyncTask.doInBackground error = " + e.getMessage());
+            ae.b(getClass().getName(), "", "GuessAsyncTask.doInBackground error = " + e.getMessage());
             return eVar;
         }
         return eVar;
+    }
+
+    public void a() {
+        if (this.c != null) {
+            this.c.g();
+        }
+        super.cancel(true);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -135,34 +118,34 @@ public class k extends AsyncTask {
         l lVar4;
         switch (this.e) {
             case 1:
-                lVar3 = this.b.j;
+                lVar3 = this.b.i;
                 lVar3.a(false);
-                lVar4 = this.b.j;
+                lVar4 = this.b.i;
                 lVar4.notifyDataSetChanged();
                 break;
             case 2:
-                lVar = this.b.j;
+                lVar = this.b.i;
                 lVar.b(false);
-                lVar2 = this.b.j;
+                lVar2 = this.b.i;
                 lVar2.notifyDataSetChanged();
                 break;
             case 3:
                 this.b.a(false);
                 break;
         }
-        if (eVar != null) {
-            this.b.l = eVar;
-            this.b.s();
-            GuessActivity.n = (System.nanoTime() - this.f) / 1000000;
-            if (this.c != null) {
-                GuessActivity.o = this.c.a();
-            }
-            TiebaApplication.b().b(System.currentTimeMillis());
-        } else {
+        if (eVar == null) {
             b();
+        } else {
+            this.b.k = eVar;
+            this.b.q();
+            GuessActivity.m = (System.nanoTime() - this.f) / 1000000;
+            if (this.c != null) {
+                GuessActivity.n = this.c.a();
+            }
+            TiebaApplication.a().b(System.currentTimeMillis());
         }
-        this.b.k = null;
-        this.b.h = null;
+        this.b.j = null;
+        this.b.g = null;
         System.gc();
     }
 
@@ -171,14 +154,31 @@ public class k extends AsyncTask {
         super.onCancelled();
     }
 
-    public void a() {
-        if (this.c != null) {
-            this.c.g();
+    @Override // android.os.AsyncTask
+    protected void onPreExecute() {
+        l lVar;
+        l lVar2;
+        l lVar3;
+        l lVar4;
+        this.f = System.nanoTime();
+        switch (this.e) {
+            case 1:
+                lVar3 = this.b.i;
+                lVar3.a(true);
+                lVar4 = this.b.i;
+                lVar4.notifyDataSetChanged();
+                return;
+            case 2:
+                lVar = this.b.i;
+                lVar.b(true);
+                lVar2 = this.b.i;
+                lVar2.notifyDataSetChanged();
+                return;
+            case 3:
+                this.b.a(true);
+                return;
+            default:
+                return;
         }
-        super.cancel(true);
-    }
-
-    private void b() {
-        this.b.b(this.c.f());
     }
 }

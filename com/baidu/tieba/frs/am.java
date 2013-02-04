@@ -13,13 +13,13 @@ public class am implements View.OnClickListener {
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
+        ao aoVar;
         int i;
-        int i2;
-        i = this.a.v;
-        if (i > 240) {
+        aoVar = this.a.t;
+        if (aoVar == ao.NEXT) {
             FrsImageActivity frsImageActivity = this.a;
-            i2 = this.a.v;
-            frsImageActivity.e(i2 - 240);
+            i = this.a.v;
+            frsImageActivity.c(i + 240);
         }
     }
 }

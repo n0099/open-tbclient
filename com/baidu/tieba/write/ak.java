@@ -16,7 +16,7 @@ public class ak implements View.OnClickListener {
     public void onClick(View view) {
         Bitmap bitmap;
         WriteActivity writeActivity = this.a;
-        bitmap = this.a.x;
+        bitmap = this.a.w;
         WriteImageActivity.a(writeActivity, bitmap, 1200003);
     }
 }

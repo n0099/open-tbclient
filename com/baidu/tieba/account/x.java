@@ -17,14 +17,14 @@ public class x implements TextView.OnEditorActionListener {
     public boolean onEditorAction(TextView textView, int i, KeyEvent keyEvent) {
         View view;
         View view2;
-        view = this.a.G;
+        view = this.a.C;
         if (view.getVisibility() != 8 || i != 4) {
-            view2 = this.a.G;
+            view2 = this.a.C;
             if (view2.getVisibility() != 0 || i != 6) {
                 return false;
             }
         }
-        this.a.o();
+        this.a.l();
         return true;
     }
 }

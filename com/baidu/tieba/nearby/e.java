@@ -3,7 +3,6 @@ package com.baidu.tieba.nearby;
 import android.view.View;
 import android.widget.AdapterView;
 import com.baidu.tieba.a.aa;
-import com.baidu.tieba.a.ab;
 import com.baidu.tieba.frs.FrsActivity;
 import com.baidu.tieba.pb.PbActivity;
 /* JADX INFO: Access modifiers changed from: package-private */
@@ -19,15 +18,16 @@ public class e implements AdapterView.OnItemClickListener {
     @Override // android.widget.AdapterView.OnItemClickListener
     public void onItemClick(AdapterView adapterView, View view, int i, long j) {
         m mVar;
-        this.a.n();
-        mVar = this.a.h;
+        this.a.l();
+        mVar = this.a.g;
         Object item = mVar.getItem(i);
-        if (item != null) {
-            if (item instanceof aa) {
-                FrsActivity.a(this.a, ((aa) item).a(), "radar");
-            } else if (item instanceof ab) {
-                PbActivity.a(this.a, ((ab) item).b(), "radar");
-            }
+        if (item == null) {
+            return;
+        }
+        if (item instanceof com.baidu.tieba.a.z) {
+            FrsActivity.a(this.a, ((com.baidu.tieba.a.z) item).a(), "radar");
+        } else if (item instanceof aa) {
+            PbActivity.a(this.a, ((aa) item).b(), "radar");
         }
     }
 }

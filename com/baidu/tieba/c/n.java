@@ -6,7 +6,6 @@ import android.graphics.drawable.BitmapDrawable;
 import android.text.SpannableString;
 import android.text.style.ImageSpan;
 import com.baidu.tieba.R;
-import com.baidu.zeus.WebChromeClient;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.regex.Matcher;
@@ -453,35 +452,7 @@ public class n {
         a.put("yz_044", Integer.valueOf((int) R.drawable.yz_044));
         a.put("yz_045", Integer.valueOf((int) R.drawable.yz_045));
         a.put("yz_046", Integer.valueOf((int) R.drawable.yz_046));
-        a.put("she_001", Integer.valueOf((int) R.drawable.she_001));
-        a.put("she_002", Integer.valueOf((int) R.drawable.she_002));
-        a.put("she_003", Integer.valueOf((int) R.drawable.she_003));
-        a.put("she_004", Integer.valueOf((int) R.drawable.she_004));
-        a.put("she_005", Integer.valueOf((int) R.drawable.she_005));
-        a.put("she_006", Integer.valueOf((int) R.drawable.she_006));
-        a.put("she_007", Integer.valueOf((int) R.drawable.she_007));
-        a.put("she_008", Integer.valueOf((int) R.drawable.she_008));
-        a.put("she_009", Integer.valueOf((int) R.drawable.she_009));
-        a.put("she_010", Integer.valueOf((int) R.drawable.she_010));
-        a.put("she_011", Integer.valueOf((int) R.drawable.she_011));
-        a.put("she_012", Integer.valueOf((int) R.drawable.she_012));
-        a.put("she_013", Integer.valueOf((int) R.drawable.she_013));
-        a.put("she_014", Integer.valueOf((int) R.drawable.she_014));
         b = new ArrayList();
-        b.add(Integer.valueOf((int) R.drawable.write_she_001));
-        b.add(Integer.valueOf((int) R.drawable.write_she_002));
-        b.add(Integer.valueOf((int) R.drawable.write_she_003));
-        b.add(Integer.valueOf((int) R.drawable.write_she_004));
-        b.add(Integer.valueOf((int) R.drawable.write_she_005));
-        b.add(Integer.valueOf((int) R.drawable.write_she_006));
-        b.add(Integer.valueOf((int) R.drawable.write_she_007));
-        b.add(Integer.valueOf((int) R.drawable.write_she_008));
-        b.add(Integer.valueOf((int) R.drawable.write_she_009));
-        b.add(Integer.valueOf((int) R.drawable.write_she_010));
-        b.add(Integer.valueOf((int) R.drawable.write_she_011));
-        b.add(Integer.valueOf((int) R.drawable.write_she_012));
-        b.add(Integer.valueOf((int) R.drawable.write_she_013));
-        b.add(Integer.valueOf((int) R.drawable.write_she_014));
         b.add(Integer.valueOf((int) R.drawable.write_face_01));
         b.add(Integer.valueOf((int) R.drawable.write_face_02));
         b.add(Integer.valueOf((int) R.drawable.write_face_03));
@@ -593,130 +564,116 @@ public class n {
         b.add(Integer.valueOf((int) R.drawable.e_b19));
         b.add(Integer.valueOf((int) R.drawable.e_b20));
         c = new HashMap();
-        c.put("#(蛇年)", (Integer) b.get(0));
-        c.put("#(红包拿来)", (Integer) b.get(1));
-        c.put("#(美人鱼)", (Integer) b.get(2));
-        c.put("#(恭喜发财)", (Integer) b.get(3));
-        c.put("#(回家过年)", (Integer) b.get(4));
-        c.put("#(点灯笼)", (Integer) b.get(5));
-        c.put("#(招财兔)", (Integer) b.get(6));
-        c.put("#(喜庆鼓)", (Integer) b.get(7));
-        c.put("#(扭一扭)", (Integer) b.get(8));
-        c.put("#(又长一岁)", (Integer) b.get(9));
-        c.put("#(年年有鱼)", (Integer) b.get(10));
-        c.put("#(求红包)", (Integer) b.get(11));
-        c.put("#(压岁钱)", (Integer) b.get(12));
-        c.put("#(拜年)", (Integer) b.get(13));
-        c.put("#(呵呵)", (Integer) b.get(14));
-        c.put("#(哈哈)", (Integer) b.get(15));
-        c.put("#(吐舌)", (Integer) b.get(16));
-        c.put("#(啊)", (Integer) b.get(17));
-        c.put("#(酷)", (Integer) b.get(18));
-        c.put("#(怒)", (Integer) b.get(19));
-        c.put("#(开心)", (Integer) b.get(20));
-        c.put("#(汗)", (Integer) b.get(21));
-        c.put("#(泪)", (Integer) b.get(22));
-        c.put("#(黑线)", (Integer) b.get(23));
-        c.put("#(鄙视)", (Integer) b.get(24));
-        c.put("#(不高兴)", (Integer) b.get(25));
-        c.put("#(真棒)", (Integer) b.get(26));
-        c.put("#(钱)", (Integer) b.get(27));
-        c.put("#(疑问)", (Integer) b.get(28));
-        c.put("#(阴险)", (Integer) b.get(29));
-        c.put("#(吐)", (Integer) b.get(30));
-        c.put("#(咦)", (Integer) b.get(31));
-        c.put("#(委屈)", (Integer) b.get(32));
-        c.put("#(花心)", (Integer) b.get(33));
-        c.put("#(呼~)", (Integer) b.get(34));
-        c.put("#(笑眼)", (Integer) b.get(35));
-        c.put("#(冷)", (Integer) b.get(36));
-        c.put("#(太开心)", (Integer) b.get(37));
-        c.put("#(滑稽)", (Integer) b.get(38));
-        c.put("#(勉强)", (Integer) b.get(39));
-        c.put("#(狂汗)", (Integer) b.get(40));
-        c.put("#(乖)", (Integer) b.get(41));
-        c.put("#(睡觉)", (Integer) b.get(42));
-        c.put("#(惊哭)", (Integer) b.get(43));
-        c.put("#(升起)", (Integer) b.get(44));
-        c.put("#(惊讶)", (Integer) b.get(45));
-        c.put("#(喷)", (Integer) b.get(46));
-        c.put("#(爱心)", (Integer) b.get(47));
-        c.put("#(心碎)", (Integer) b.get(48));
-        c.put("#(玫瑰)", (Integer) b.get(49));
-        c.put("#(礼物)", (Integer) b.get(50));
-        c.put("#(彩虹)", (Integer) b.get(51));
-        c.put("#(星星月亮)", (Integer) b.get(52));
-        c.put("#(太阳)", (Integer) b.get(53));
-        c.put("#(钱币)", (Integer) b.get(54));
-        c.put("#(灯泡)", (Integer) b.get(55));
-        c.put("#(茶杯)", (Integer) b.get(56));
-        c.put("#(蛋糕)", (Integer) b.get(57));
-        c.put("#(音乐)", (Integer) b.get(58));
-        c.put("#(haha)", (Integer) b.get(59));
-        c.put("#(胜利)", (Integer) b.get(60));
-        c.put("#(大拇指)", (Integer) b.get(61));
-        c.put("#(弱)", (Integer) b.get(62));
-        c.put("#(OK)", (Integer) b.get(63));
-        c.put("#(哭着跑)", (Integer) b.get(64));
-        c.put("#(惆怅~)", (Integer) b.get(65));
-        c.put("#(摸头)", (Integer) b.get(66));
-        c.put("#(蹭)", (Integer) b.get(67));
-        c.put("#(打滚)", (Integer) b.get(68));
-        c.put("#(叩拜)", (Integer) b.get(69));
-        c.put("#(摸)", (Integer) b.get(70));
-        c.put("#(数钱)", (Integer) b.get(71));
-        c.put("#(加1)", (Integer) b.get(72));
-        c.put("#(压力)", (Integer) b.get(73));
-        c.put("#(表逼我)", (Integer) b.get(74));
-        c.put("#(人呢)", (Integer) b.get(75));
-        c.put("#(摇晃)", (Integer) b.get(76));
-        c.put("#(打地鼠)", (Integer) b.get(77));
-        c.put("#(这个屌)", (Integer) b.get(78));
-        c.put("#(恐慌)", (Integer) b.get(79));
-        c.put("#(晕乎乎)", (Integer) b.get(80));
-        c.put("#(浮云)", (Integer) b.get(81));
-        c.put("#(给力)", (Integer) b.get(82));
-        c.put("#(杯具了)", (Integer) b.get(83));
-        c.put("#(焦糖舞)", (Integer) b.get(84));
-        c.put("#(翻滚)", (Integer) b.get(85));
-        c.put("#(拍屁股做鬼脸)", (Integer) b.get(86));
-        c.put("#(不)", (Integer) b.get(87));
-        c.put("#(河蟹掉啦)", (Integer) b.get(88));
-        c.put("#(哦耶)", (Integer) b.get(89));
-        c.put("#(我倒)", (Integer) b.get(90));
-        c.put("#(投降)", (Integer) b.get(91));
-        c.put("#(听音乐)", (Integer) b.get(92));
-        c.put("#(被砸)", (Integer) b.get(93));
-        c.put("#(吐舌头)", (Integer) b.get(94));
-        c.put("#(太好啦)", (Integer) b.get(95));
-        c.put("#(财源滚滚)", (Integer) b.get(96));
-        c.put("#(人去哪了)", (Integer) b.get(97));
-        c.put("#(偷笑)", (Integer) b.get(98));
-        c.put("#(卷被)", (Integer) b.get(99));
-        c.put("#(看楼上)", (Integer) b.get(100));
-        c.put("#(我抽)", (Integer) b.get(WebChromeClient.STRING_DLG_TITLE_DATETIME));
-        c.put("#(有木有)", (Integer) b.get(WebChromeClient.STRING_DLG_TITLE_WEEK));
-        c.put("#(哭)", (Integer) b.get(103));
-        c.put("#(微笑)", (Integer) b.get(WebChromeClient.STRING_DLG_TITLE_TIME));
-        c.put("#(帅哥)", (Integer) b.get(WebChromeClient.STRING_DLG_TITLE_COLOR));
-        c.put("#(美女)", (Integer) b.get(106));
-        c.put("#(老大)", (Integer) b.get(107));
-        c.put("#(哈哈哈)", (Integer) b.get(108));
-        c.put("#(奸笑)", (Integer) b.get(109));
-        c.put("#(傻乐)", (Integer) b.get(110));
-        c.put("#(飞吻)", (Integer) b.get(111));
-        c.put("#(害羞)", (Integer) b.get(112));
-        c.put("#(花痴)", (Integer) b.get(113));
-        c.put("#(憧憬)", (Integer) b.get(114));
-        c.put("#(你牛)", (Integer) b.get(115));
-        c.put("#(鼓掌)", (Integer) b.get(116));
-        c.put("#(可爱)", (Integer) b.get(117));
-        c.put("#(太委屈)", (Integer) b.get(118));
-        c.put("#(大哭)", (Integer) b.get(119));
-        c.put("#(泪奔)", (Integer) b.get(120));
-        c.put("#(寻死)", (Integer) b.get(121));
-        c.put("#(非常惊讶)", (Integer) b.get(122));
-        c.put("#(表示疑问)", (Integer) b.get(123));
+        c.put("#(呵呵)", (Integer) b.get(0));
+        c.put("#(哈哈)", (Integer) b.get(1));
+        c.put("#(吐舌)", (Integer) b.get(2));
+        c.put("#(啊)", (Integer) b.get(3));
+        c.put("#(酷)", (Integer) b.get(4));
+        c.put("#(怒)", (Integer) b.get(5));
+        c.put("#(开心)", (Integer) b.get(6));
+        c.put("#(汗)", (Integer) b.get(7));
+        c.put("#(泪)", (Integer) b.get(8));
+        c.put("#(黑线)", (Integer) b.get(9));
+        c.put("#(鄙视)", (Integer) b.get(10));
+        c.put("#(不高兴)", (Integer) b.get(11));
+        c.put("#(真棒)", (Integer) b.get(12));
+        c.put("#(钱)", (Integer) b.get(13));
+        c.put("#(疑问)", (Integer) b.get(14));
+        c.put("#(阴险)", (Integer) b.get(15));
+        c.put("#(吐)", (Integer) b.get(16));
+        c.put("#(咦)", (Integer) b.get(17));
+        c.put("#(委屈)", (Integer) b.get(18));
+        c.put("#(花心)", (Integer) b.get(19));
+        c.put("#(呼~)", (Integer) b.get(20));
+        c.put("#(笑眼)", (Integer) b.get(21));
+        c.put("#(冷)", (Integer) b.get(22));
+        c.put("#(太开心)", (Integer) b.get(23));
+        c.put("#(滑稽)", (Integer) b.get(24));
+        c.put("#(勉强)", (Integer) b.get(25));
+        c.put("#(狂汗)", (Integer) b.get(26));
+        c.put("#(乖)", (Integer) b.get(27));
+        c.put("#(睡觉)", (Integer) b.get(28));
+        c.put("#(惊哭)", (Integer) b.get(29));
+        c.put("#(升起)", (Integer) b.get(30));
+        c.put("#(惊讶)", (Integer) b.get(31));
+        c.put("#(喷)", (Integer) b.get(32));
+        c.put("#(爱心)", (Integer) b.get(33));
+        c.put("#(心碎)", (Integer) b.get(34));
+        c.put("#(玫瑰)", (Integer) b.get(35));
+        c.put("#(礼物)", (Integer) b.get(36));
+        c.put("#(彩虹)", (Integer) b.get(37));
+        c.put("#(星星月亮)", (Integer) b.get(38));
+        c.put("#(太阳)", (Integer) b.get(39));
+        c.put("#(钱币)", (Integer) b.get(40));
+        c.put("#(灯泡)", (Integer) b.get(41));
+        c.put("#(茶杯)", (Integer) b.get(42));
+        c.put("#(蛋糕)", (Integer) b.get(43));
+        c.put("#(音乐)", (Integer) b.get(44));
+        c.put("#(haha)", (Integer) b.get(45));
+        c.put("#(胜利)", (Integer) b.get(46));
+        c.put("#(大拇指)", (Integer) b.get(47));
+        c.put("#(弱)", (Integer) b.get(48));
+        c.put("#(OK)", (Integer) b.get(49));
+        c.put("#(哭着跑)", (Integer) b.get(50));
+        c.put("#(惆怅~)", (Integer) b.get(51));
+        c.put("#(摸头)", (Integer) b.get(52));
+        c.put("#(蹭)", (Integer) b.get(53));
+        c.put("#(打滚)", (Integer) b.get(54));
+        c.put("#(叩拜)", (Integer) b.get(55));
+        c.put("#(摸)", (Integer) b.get(56));
+        c.put("#(数钱)", (Integer) b.get(57));
+        c.put("#(加1)", (Integer) b.get(58));
+        c.put("#(压力)", (Integer) b.get(59));
+        c.put("#(表逼我)", (Integer) b.get(60));
+        c.put("#(人呢)", (Integer) b.get(61));
+        c.put("#(摇晃)", (Integer) b.get(62));
+        c.put("#(打地鼠)", (Integer) b.get(63));
+        c.put("#(这个屌)", (Integer) b.get(64));
+        c.put("#(恐慌)", (Integer) b.get(65));
+        c.put("#(晕乎乎)", (Integer) b.get(66));
+        c.put("#(浮云)", (Integer) b.get(67));
+        c.put("#(给力)", (Integer) b.get(68));
+        c.put("#(杯具了)", (Integer) b.get(69));
+        c.put("#(焦糖舞)", (Integer) b.get(70));
+        c.put("#(翻滚)", (Integer) b.get(71));
+        c.put("#(拍屁股做鬼脸)", (Integer) b.get(72));
+        c.put("#(不)", (Integer) b.get(73));
+        c.put("#(河蟹掉啦)", (Integer) b.get(74));
+        c.put("#(哦耶)", (Integer) b.get(75));
+        c.put("#(我倒)", (Integer) b.get(76));
+        c.put("#(投降)", (Integer) b.get(77));
+        c.put("#(听音乐)", (Integer) b.get(78));
+        c.put("#(被砸)", (Integer) b.get(79));
+        c.put("#(吐舌头)", (Integer) b.get(80));
+        c.put("#(太好啦)", (Integer) b.get(81));
+        c.put("#(财源滚滚)", (Integer) b.get(82));
+        c.put("#(人去哪了)", (Integer) b.get(83));
+        c.put("#(偷笑)", (Integer) b.get(84));
+        c.put("#(卷被)", (Integer) b.get(85));
+        c.put("#(看楼上)", (Integer) b.get(86));
+        c.put("#(我抽)", (Integer) b.get(87));
+        c.put("#(有木有)", (Integer) b.get(88));
+        c.put("#(哭)", (Integer) b.get(89));
+        c.put("#(微笑)", (Integer) b.get(90));
+        c.put("#(帅哥)", (Integer) b.get(91));
+        c.put("#(美女)", (Integer) b.get(92));
+        c.put("#(老大)", (Integer) b.get(93));
+        c.put("#(哈哈哈)", (Integer) b.get(94));
+        c.put("#(奸笑)", (Integer) b.get(95));
+        c.put("#(傻乐)", (Integer) b.get(96));
+        c.put("#(飞吻)", (Integer) b.get(97));
+        c.put("#(害羞)", (Integer) b.get(98));
+        c.put("#(花痴)", (Integer) b.get(99));
+        c.put("#(憧憬)", (Integer) b.get(100));
+        c.put("#(你牛)", (Integer) b.get(101));
+        c.put("#(鼓掌)", (Integer) b.get(102));
+        c.put("#(可爱)", (Integer) b.get(103));
+        c.put("#(太委屈)", (Integer) b.get(104));
+        c.put("#(大哭)", (Integer) b.get(105));
+        c.put("#(泪奔)", (Integer) b.get(106));
+        c.put("#(寻死)", (Integer) b.get(107));
+        c.put("#(非常惊讶)", (Integer) b.get(108));
+        c.put("#(表示疑问)", (Integer) b.get(109));
         d = new HashMap();
         d.put("B_0001", "HI");
         d.put("B_0002", "KISS");
@@ -1152,32 +1109,6 @@ public class n {
         d.put("yz_044", "抽风");
         d.put("yz_045", "吃苹果");
         d.put("yz_046", "光棍");
-        d.put("she_001", "蛇年");
-        d.put("she_002", "红包拿来");
-        d.put("she_003", "美人鱼");
-        d.put("she_004", "恭喜发财");
-        d.put("she_005", "回家过年");
-        d.put("she_006", "点灯笼");
-        d.put("she_007", "招财兔");
-        d.put("she_008", "喜庆鼓");
-        d.put("she_009", "扭一扭");
-        d.put("she_010", "又长一岁");
-        d.put("she_011", "年年有鱼");
-        d.put("she_012", "求红包");
-        d.put("she_013", "压岁钱");
-        d.put("she_014", "拜年");
-    }
-
-    public static String a(String str) {
-        return (String) d.get(str);
-    }
-
-    public static HashMap a() {
-        return c;
-    }
-
-    public static ArrayList b() {
-        return b;
     }
 
     public static Bitmap a(Context context, String str) {
@@ -1186,6 +1117,14 @@ public class n {
             return e.a(context, num.intValue());
         }
         return null;
+    }
+
+    public static String a(String str) {
+        return (String) d.get(str);
+    }
+
+    public static HashMap a() {
+        return c;
     }
 
     public static SpannableString b(Context context, String str) {
@@ -1207,5 +1146,9 @@ public class n {
             }
         }
         return spannableString;
+    }
+
+    public static ArrayList b() {
+        return b;
     }
 }

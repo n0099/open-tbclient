@@ -7,14 +7,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.c.ad;
 import com.baidu.tieba.c.ae;
-import com.baidu.tieba.c.af;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class e extends BaseAdapter {
@@ -37,23 +34,27 @@ public class e extends BaseAdapter {
     }
 
     public void a() {
-        if (this.j != null) {
-            int i = 0;
-            while (true) {
-                int i2 = i;
-                if (i2 < this.j.size()) {
-                    try {
-                        ((ProgressBar) this.j.get(i2)).setVisibility(8);
-                    } catch (Exception e) {
-                        af.b(getClass().getName(), "releaseProgressBar", e.getMessage());
-                    }
-                    i = i2 + 1;
-                } else {
-                    this.j.clear();
-                    return;
-                }
-            }
+        if (this.j == null) {
+            return;
         }
+        int i = 0;
+        while (true) {
+            int i2 = i;
+            if (i2 >= this.j.size()) {
+                this.j.clear();
+                return;
+            }
+            try {
+                ((ProgressBar) this.j.get(i2)).setVisibility(8);
+            } catch (Exception e) {
+                ae.b(getClass().getName(), "releaseProgressBar", e.getMessage());
+            }
+            i = i2 + 1;
+        }
+    }
+
+    public void a(int i) {
+        this.h = i;
     }
 
     public void a(ArrayList arrayList) {
@@ -62,6 +63,10 @@ public class e extends BaseAdapter {
 
     public void a(boolean z) {
         this.e = z;
+    }
+
+    public void b(int i) {
+        this.i = i;
     }
 
     public void b(boolean z) {
@@ -80,14 +85,6 @@ public class e extends BaseAdapter {
         return this.g;
     }
 
-    public void a(int i) {
-        this.h = i;
-    }
-
-    public void b(int i) {
-        this.i = i;
-    }
-
     public int d() {
         return this.i;
     }
@@ -96,24 +93,11 @@ public class e extends BaseAdapter {
         return this.c;
     }
 
-    @Override // android.widget.BaseAdapter, android.widget.Adapter
-    public int getItemViewType(int i) {
-        return getItemId(i) >= 0 ? 0 : 1;
-    }
-
-    @Override // android.widget.BaseAdapter, android.widget.Adapter
-    public int getViewTypeCount() {
-        return 2;
-    }
-
     @Override // android.widget.Adapter
     public int getCount() {
         if (this.b != null) {
             int size = this.b.size();
-            if (this.e) {
-                return size + 1;
-            }
-            return size;
+            return this.e ? size + 1 : size;
         }
         return 0;
     }
@@ -135,7 +119,12 @@ public class e extends BaseAdapter {
         return i;
     }
 
-    /* JADX WARN: Not initialized variable reg: 1, insn: 0x00e6: MOVE  (r0 I:??[OBJECT, ARRAY]) = (r1 I:??[OBJECT, ARRAY]), block:B:32:0x00e5 */
+    @Override // android.widget.BaseAdapter, android.widget.Adapter
+    public int getItemViewType(int i) {
+        return getItemId(i) >= 0 ? 0 : 1;
+    }
+
+    /* JADX WARN: Not initialized variable reg: 1, insn: 0x00bb: MOVE  (r0 I:??[OBJECT, ARRAY]) = (r1 I:??[OBJECT, ARRAY]), block:B:27:0x00ba */
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
         Exception exc;
@@ -152,30 +141,24 @@ public class e extends BaseAdapter {
         if (this.b == null) {
             return view;
         }
-        int af = TiebaApplication.b().af();
         try {
             if (view == null) {
                 LayoutInflater from = LayoutInflater.from(this.a);
                 if (getItemViewType(i) == 0) {
-                    if (this.h == 0) {
-                        view4 = from.inflate(R.layout.mention_replyme_item, (ViewGroup) null);
-                    } else {
-                        view4 = from.inflate(R.layout.mention_atme_item, (ViewGroup) null);
-                    }
+                    view4 = this.h == 0 ? from.inflate(R.layout.mention_replyme_item, (ViewGroup) null) : from.inflate(R.layout.mention_atme_item, (ViewGroup) null);
                     g gVar3 = new g(this, null);
-                    gVar3.d = (LinearLayout) view4.findViewById(R.id.contentContainer);
-                    gVar3.e = (ImageView) view4.findViewById(R.id.photo);
-                    gVar3.f = (TextView) view4.findViewById(R.id.user_name);
-                    gVar3.f.getPaint().setFakeBoldText(true);
-                    gVar3.g = (TextView) view4.findViewById(R.id.time);
-                    gVar3.h = (TextView) view4.findViewById(R.id.content);
+                    gVar3.d = (ImageView) view4.findViewById(R.id.photo);
+                    gVar3.e = (TextView) view4.findViewById(R.id.user_name);
+                    gVar3.e.getPaint().setFakeBoldText(true);
+                    gVar3.f = (TextView) view4.findViewById(R.id.time);
+                    gVar3.g = (TextView) view4.findViewById(R.id.content);
                     if (this.h == 0) {
-                        gVar3.i = (TextView) view4.findViewById(R.id.title);
-                        gVar3.j = (TextView) view4.findViewById(R.id.forum);
-                        gVar3.k = (TextView) view4.findViewById(R.id.reply_type);
+                        gVar3.h = (TextView) view4.findViewById(R.id.title);
+                        gVar3.i = (TextView) view4.findViewById(R.id.forum);
+                        gVar3.j = (TextView) view4.findViewById(R.id.reply_type);
                     }
                     gVar3.c = new f(this);
-                    gVar3.e.setOnClickListener(gVar3.c);
+                    gVar3.d.setOnClickListener(gVar3.c);
                     gVar2 = gVar3;
                 } else {
                     view4 = from.inflate(R.layout.page_item, (ViewGroup) null);
@@ -194,7 +177,7 @@ public class e extends BaseAdapter {
         } catch (Exception e2) {
             view2 = view3;
             exc = e2;
-            af.b(getClass().getName(), "", "ReplymeAdapter.getView error = " + exc.getMessage());
+            ae.b(getClass().getName(), "", "ReplymeAdapter.getView error = " + exc.getMessage());
             return view2;
         }
         if (getItemViewType(i) == 1) {
@@ -203,93 +186,71 @@ public class e extends BaseAdapter {
                 if (this.f) {
                     gVar.b.setVisibility(0);
                     gVar.a.setText(R.string.loading);
-                } else {
-                    gVar.b.setVisibility(8);
-                    gVar.a.setText(R.string.refresh);
+                    return view4;
                 }
+                gVar.b.setVisibility(8);
+                gVar.a.setText(R.string.refresh);
+                return view4;
             } else if (itemId == -2) {
                 if (this.g) {
                     gVar.b.setVisibility(0);
                     gVar.a.setText(R.string.loading);
-                } else {
-                    gVar.b.setVisibility(8);
-                    gVar.a.setText(R.string.more);
-                }
-            }
-            if (af == 1) {
-                if (gVar.a != null) {
-                    gVar.a.setTextColor(this.a.getResources().getColor(R.color.skin_1_common_color));
                     return view4;
                 }
+                gVar.b.setVisibility(8);
+                gVar.a.setText(R.string.more);
+                return view4;
+            } else {
                 return view4;
             }
-            gVar.a.setTextColor(this.a.getResources().getColor(R.color.black));
-            return view4;
         }
-        com.baidu.tieba.a.p pVar = (com.baidu.tieba.a.p) getItem(i);
-        if (pVar != null) {
-            gVar.f.setText(pVar.i().c());
-            gVar.g.setText(ae.a(pVar.b()));
-            gVar.h.setText(pVar.e());
-            gVar.f.setTextSize(com.baidu.tieba.a.i.l());
-            gVar.h.setTextSize(com.baidu.tieba.a.i.k());
+        com.baidu.tieba.a.o oVar = (com.baidu.tieba.a.o) getItem(i);
+        if (oVar != null) {
+            gVar.e.setText(oVar.i().c());
+            gVar.f.setText(ad.a(oVar.b()));
+            gVar.g.setText(oVar.e());
+            gVar.e.setTextSize(com.baidu.tieba.a.h.l());
+            gVar.g.setTextSize(com.baidu.tieba.a.h.k());
             if (this.h == 0) {
-                if (pVar.a() == 1) {
-                    gVar.k.setText(this.a.getString(R.string.mention_replyme_post));
-                    gVar.i.setText(pVar.f());
+                if (oVar.a() == 1) {
+                    gVar.j.setText(this.a.getString(R.string.mention_replyme_post));
+                    gVar.h.setText(oVar.f());
                 } else {
-                    gVar.k.setText(this.a.getString(R.string.mention_replyme_thread));
-                    gVar.i.setText(pVar.c());
+                    gVar.j.setText(this.a.getString(R.string.mention_replyme_thread));
+                    gVar.h.setText(oVar.c());
                 }
-                if (pVar.d() != null && pVar.d().length() > 0) {
-                    gVar.j.setVisibility(0);
-                    gVar.j.setText(">" + ae.a(pVar.d(), 12).concat(this.d));
+                if (oVar.d() == null || oVar.d().length() <= 0) {
+                    gVar.i.setVisibility(8);
                 } else {
-                    gVar.j.setVisibility(8);
+                    gVar.i.setVisibility(0);
+                    gVar.i.setText(">" + ad.a(oVar.d(), 12).concat(this.d));
                 }
             }
-            gVar.e.setVisibility(0);
-            String d = pVar.i().d();
-            gVar.e.setTag(null);
-            if (d != null && d.length() > 0) {
+            gVar.d.setVisibility(0);
+            String d = oVar.i().d();
+            gVar.d.setTag(null);
+            if (d == null || d.length() <= 0) {
+                gVar.d.setImageResource(R.drawable.photo);
+            } else {
                 Bitmap b = this.c.b(d);
                 if (b != null) {
-                    gVar.e.setImageBitmap(b);
+                    gVar.d.setImageBitmap(b);
                 } else {
-                    gVar.e.setTag(d);
-                    gVar.e.setImageResource(R.drawable.photo);
+                    gVar.d.setTag(d);
+                    gVar.d.setImageResource(R.drawable.photo);
                 }
-            } else {
-                gVar.e.setImageResource(R.drawable.photo);
             }
-            gVar.c.b(pVar.i().a());
-            gVar.c.a(pVar.i().b());
-            gVar.e.setOnClickListener(gVar.c);
-            if (gVar.k != null) {
-                ad.b(gVar.k, af);
-            }
-            ad.b(gVar.f, af);
-            if (af == 1) {
-                if (gVar.d != null) {
-                    ad.i(gVar.d, R.drawable.message_replyme_1);
-                }
-                if (gVar.i != null) {
-                    gVar.i.setTextColor(this.a.getResources().getColor(R.color.skin_1_third_common_color));
-                }
-                gVar.h.setTextColor(this.a.getResources().getColor(R.color.skin_1_second_common_color));
-                view2 = view4;
-            } else {
-                if (gVar.d != null) {
-                    ad.i(gVar.d, R.drawable.message_replyme);
-                }
-                if (gVar.i != null) {
-                    gVar.i.setTextColor(-12040120);
-                }
-                gVar.h.setTextColor(-12040120);
-                view2 = view4;
-            }
+            gVar.c.b(oVar.i().a());
+            gVar.c.a(oVar.i().b());
+            gVar.d.setOnClickListener(gVar.c);
+            view2 = view4;
             return view2;
         }
         return view4;
+    }
+
+    @Override // android.widget.BaseAdapter, android.widget.Adapter
+    public int getViewTypeCount() {
+        return 2;
     }
 }

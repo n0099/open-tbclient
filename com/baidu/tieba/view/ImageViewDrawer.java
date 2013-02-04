@@ -15,9 +15,8 @@ public class ImageViewDrawer extends ImageView {
     private int b;
     private String c;
     private int d;
-    private int e;
-    private Paint f;
-    private Handler g;
+    private Paint e;
+    private Handler f;
 
     public ImageViewDrawer(Context context) {
         super(context);
@@ -25,9 +24,8 @@ public class ImageViewDrawer extends ImageView {
         this.b = -1;
         this.c = null;
         this.d = R.drawable.image_default;
-        this.e = R.drawable.image_default_1;
-        this.f = new Paint();
-        this.g = new z(this);
+        this.e = new Paint();
+        this.f = new z(this);
     }
 
     public ImageViewDrawer(Context context, AttributeSet attributeSet) {
@@ -36,9 +34,8 @@ public class ImageViewDrawer extends ImageView {
         this.b = -1;
         this.c = null;
         this.d = R.drawable.image_default;
-        this.e = R.drawable.image_default_1;
-        this.f = new Paint();
-        this.g = new z(this);
+        this.e = new Paint();
+        this.f = new z(this);
     }
 
     public ImageViewDrawer(Context context, AttributeSet attributeSet, int i) {
@@ -47,20 +44,19 @@ public class ImageViewDrawer extends ImageView {
         this.b = -1;
         this.c = null;
         this.d = R.drawable.image_default;
-        this.e = R.drawable.image_default_1;
-        this.f = new Paint();
-        this.g = new z(this);
+        this.e = new Paint();
+        this.f = new z(this);
     }
 
     public void a() {
         this.b = 10;
-        this.g.sendMessageDelayed(this.g.obtainMessage(1), 15L);
+        this.f.sendMessageDelayed(this.f.obtainMessage(1), 15L);
         invalidate();
     }
 
     public void b() {
         this.b = 0;
-        this.g.removeMessages(1);
+        this.f.removeMessages(1);
     }
 
     @Override // android.widget.ImageView, android.view.View
@@ -69,83 +65,61 @@ public class ImageViewDrawer extends ImageView {
         b();
     }
 
-    public void setImageSearchUrl(String str) {
-        this.c = str;
-    }
-
-    public void setDefaultId(int i) {
-        this.d = i;
-        this.e = i;
-    }
-
-    public void setNightDefaultId(int i) {
-        this.e = i;
-    }
-
     @Override // android.widget.ImageView, android.view.View
     protected void onDraw(Canvas canvas) {
-        String str;
-        boolean z;
-        boolean z2;
         Bitmap bitmap;
+        boolean z;
         super.onDraw(canvas);
-        if (this.c != null) {
-            str = this.c;
-        } else {
-            str = (String) getTag();
-        }
-        com.baidu.tieba.c.ab ak = TiebaApplication.b().ak();
-        if (ak == null || str == null) {
-            z = false;
-            z2 = false;
+        String str = this.c != null ? this.c : (String) getTag();
+        com.baidu.tieba.c.ab ah = TiebaApplication.a().ah();
+        if (ah == null || str == null) {
             bitmap = null;
+            z = false;
         } else {
-            Bitmap c = ak.c(str);
+            Bitmap c = ah.c(str);
             if (c != null) {
-                boolean d = ak.d(str);
-                z = true;
-                z2 = d;
+                z = ah.d(str);
                 bitmap = c;
             } else {
-                z = false;
-                z2 = false;
                 bitmap = c;
+                z = false;
             }
         }
         if (this.b <= 0) {
             if (bitmap == null) {
-                bitmap = getDefalutBitmap();
+                bitmap = com.baidu.tieba.c.e.a(this.d);
             }
             if (bitmap != null) {
                 canvas.drawBitmap(bitmap, (getWidth() - bitmap.getWidth()) >> 1, (getHeight() - bitmap.getHeight()) >> 1, (Paint) null);
-                if (z2) {
+                if (z) {
                     canvas.drawBitmap(this.a, 0.0f, 0.0f, (Paint) null);
                 }
             }
-        } else if (bitmap != null) {
-            int i = (this.b * 255) / 10;
-            Bitmap defalutBitmap = getDefalutBitmap();
-            if (defalutBitmap != null) {
-                this.f.setAlpha(i);
-                canvas.drawBitmap(defalutBitmap, (getWidth() - defalutBitmap.getWidth()) >> 1, (getHeight() - defalutBitmap.getHeight()) >> 1, this.f);
-            }
-            this.f.setAlpha(255 - i);
-            canvas.drawBitmap(bitmap, (getWidth() - bitmap.getWidth()) >> 1, (getHeight() - bitmap.getHeight()) >> 1, this.f);
-            if (z2) {
-                canvas.drawBitmap(this.a, 0.0f, 0.0f, (Paint) null);
+        } else if (bitmap == null) {
+            Bitmap a = com.baidu.tieba.c.e.a(this.d);
+            if (a != null) {
+                canvas.drawBitmap(a, (getWidth() - a.getWidth()) >> 1, (getHeight() - a.getHeight()) >> 1, (Paint) null);
             }
         } else {
-            Bitmap defalutBitmap2 = getDefalutBitmap();
-            if (defalutBitmap2 != null) {
-                canvas.drawBitmap(defalutBitmap2, (getWidth() - defalutBitmap2.getWidth()) >> 1, (getHeight() - defalutBitmap2.getHeight()) >> 1, (Paint) null);
+            int i = (this.b * 255) / 10;
+            Bitmap a2 = com.baidu.tieba.c.e.a(this.d);
+            if (a2 != null) {
+                this.e.setAlpha(i);
+                canvas.drawBitmap(a2, (getWidth() - a2.getWidth()) >> 1, (getHeight() - a2.getHeight()) >> 1, this.e);
             }
-        }
-        if (TiebaApplication.b().af() == 1 && z) {
-            canvas.drawColor(1275068416);
+            this.e.setAlpha(255 - i);
+            canvas.drawBitmap(bitmap, (getWidth() - bitmap.getWidth()) >> 1, (getHeight() - bitmap.getHeight()) >> 1, this.e);
+            if (z) {
+                canvas.drawBitmap(this.a, 0.0f, 0.0f, (Paint) null);
+            }
         }
     }
 
-    private Bitmap getDefalutBitmap() {
-        return TiebaApplication.b().af() == 1 ? com.baidu.tieba.c.e.a(this.e) : com.baidu.tieba.c.e.a(this.d);
+    public void setDefaultId(int i) {
+        this.d = i;
+    }
+
+    public void setImageSearchUrl(String str) {
+        this.c = str;
     }
 }

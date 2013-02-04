@@ -1,22 +1,24 @@
 package com.baidu.tieba.home;
 
 import android.view.View;
-import android.widget.LinearLayout;
-import android.widget.TextView;
+import com.baidu.tieba.frs.FrsActivity;
 /* loaded from: classes.dex */
-class l {
-    LinearLayout a;
-    TextView b;
-    View c;
-    View d;
-    final /* synthetic */ f e;
-
-    private l(f fVar) {
-        this.e = fVar;
-    }
+class l implements View.OnClickListener {
+    final /* synthetic */ HomeActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ l(f fVar, l lVar) {
-        this(fVar);
+    public l(HomeActivity homeActivity) {
+        this.a = homeActivity;
+    }
+
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        com.baidu.tieba.a.ac acVar = view.getTag() instanceof com.baidu.tieba.a.ac ? (com.baidu.tieba.a.ac) view.getTag() : null;
+        if (acVar != null) {
+            String b = acVar.b();
+            if (com.baidu.tieba.c.ad.d(b)) {
+                FrsActivity.a(this.a, b, "tb_forumlist");
+            }
+        }
     }
 }

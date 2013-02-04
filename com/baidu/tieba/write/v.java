@@ -17,7 +17,7 @@ public class v implements View.OnTouchListener {
     public boolean onTouch(View view, MotionEvent motionEvent) {
         GridView gridView;
         if (motionEvent.getAction() == 1) {
-            gridView = this.a.q;
+            gridView = this.a.p;
             gridView.setVisibility(8);
             return false;
         }

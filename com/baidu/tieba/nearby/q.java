@@ -16,13 +16,14 @@ class q implements com.baidu.tieba.c.d {
     public void a(Bitmap bitmap, String str, boolean z) {
         NearbyListActivity nearbyListActivity;
         ListView listView;
-        if (bitmap != null) {
-            nearbyListActivity = this.a.a;
-            listView = nearbyListActivity.c;
-            View findViewWithTag = listView.findViewWithTag(str);
-            if (findViewWithTag != null) {
-                findViewWithTag.invalidate();
-            }
+        if (bitmap == null) {
+            return;
+        }
+        nearbyListActivity = this.a.a;
+        listView = nearbyListActivity.b;
+        View findViewWithTag = listView.findViewWithTag(str);
+        if (findViewWithTag != null) {
+            findViewWithTag.invalidate();
         }
     }
 }

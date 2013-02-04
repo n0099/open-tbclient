@@ -15,6 +15,20 @@ public class SimpleCursorAdapter extends ResourceCursorAdapter {
     private i n;
     private j o;
 
+    private void a(String[] strArr) {
+        if (this.c == null) {
+            this.j = null;
+            return;
+        }
+        int length = strArr.length;
+        if (this.j == null || this.j.length != length) {
+            this.j = new int[length];
+        }
+        for (int i = 0; i < length; i++) {
+            this.j[i] = this.c.getColumnIndexOrThrow(strArr[i]);
+        }
+    }
+
     @Override // android.support.v4.widget.CursorAdapter
     public void a(View view, Context context, Cursor cursor) {
         j jVar = this.o;
@@ -33,10 +47,10 @@ public class SimpleCursorAdapter extends ResourceCursorAdapter {
                     }
                     if (findViewById instanceof TextView) {
                         a((TextView) findViewById, string);
-                    } else if (findViewById instanceof ImageView) {
-                        a((ImageView) findViewById, string);
-                    } else {
+                    } else if (!(findViewById instanceof ImageView)) {
                         throw new IllegalStateException(findViewById.getClass().getName() + " is not a  view that can be bounds by this SimpleCursorAdapter");
+                    } else {
+                        a((ImageView) findViewById, string);
                     }
                 }
             }
@@ -55,35 +69,15 @@ public class SimpleCursorAdapter extends ResourceCursorAdapter {
         textView.setText(str);
     }
 
-    @Override // android.support.v4.widget.CursorAdapter, android.support.v4.widget.c
-    public CharSequence c(Cursor cursor) {
-        if (this.n != null) {
-            return this.n.a(cursor);
-        }
-        if (this.m > -1) {
-            return cursor.getString(this.m);
-        }
-        return super.c(cursor);
-    }
-
-    private void a(String[] strArr) {
-        if (this.c != null) {
-            int length = strArr.length;
-            if (this.j == null || this.j.length != length) {
-                this.j = new int[length];
-            }
-            for (int i = 0; i < length; i++) {
-                this.j[i] = this.c.getColumnIndexOrThrow(strArr[i]);
-            }
-            return;
-        }
-        this.j = null;
-    }
-
     @Override // android.support.v4.widget.CursorAdapter
     public Cursor b(Cursor cursor) {
         Cursor b = super.b(cursor);
         a(this.l);
         return b;
+    }
+
+    @Override // android.support.v4.widget.CursorAdapter, android.support.v4.widget.c
+    public CharSequence c(Cursor cursor) {
+        return this.n != null ? this.n.a(cursor) : this.m > -1 ? cursor.getString(this.m) : super.c(cursor);
     }
 }

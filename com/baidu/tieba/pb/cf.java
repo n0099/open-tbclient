@@ -1,9 +1,10 @@
 package com.baidu.tieba.pb;
 
-import android.content.DialogInterface;
+import android.view.View;
+import android.widget.AdapterView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class cf implements DialogInterface.OnCancelListener {
+public class cf implements AdapterView.OnItemClickListener {
     final /* synthetic */ SubPbActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -11,15 +12,22 @@ public class cf implements DialogInterface.OnCancelListener {
         this.a = subPbActivity;
     }
 
-    @Override // android.content.DialogInterface.OnCancelListener
-    public void onCancel(DialogInterface dialogInterface) {
+    @Override // android.widget.AdapterView.OnItemClickListener
+    public void onItemClick(AdapterView adapterView, View view, int i, long j) {
         df dfVar;
         df dfVar2;
-        this.a.c();
-        dfVar = this.a.G;
-        if (dfVar != null) {
-            dfVar2 = this.a.G;
-            dfVar2.a();
+        if (j == -1) {
+            dfVar2 = this.a.g;
+            if (dfVar2.b()) {
+                return;
+            }
+            this.a.a(2);
+        } else if (j == -2) {
+            dfVar = this.a.g;
+            if (dfVar.a()) {
+                return;
+            }
+            this.a.a(1);
         }
     }
 }

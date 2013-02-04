@@ -12,28 +12,6 @@ public class ac implements android.support.v4.view.aj {
     }
 
     @Override // android.support.v4.view.aj
-    public void b(int i) {
-        android.support.v4.view.aj ajVar;
-        android.support.v4.view.aj ajVar2;
-        ajVar = this.a.g;
-        if (ajVar != null) {
-            ajVar2 = this.a.g;
-            ajVar2.b(i);
-        }
-    }
-
-    @Override // android.support.v4.view.aj
-    public void a(int i, float f, int i2) {
-        android.support.v4.view.aj ajVar;
-        android.support.v4.view.aj ajVar2;
-        ajVar = this.a.g;
-        if (ajVar != null) {
-            ajVar2 = this.a.g;
-            ajVar2.a(i, f, i2);
-        }
-    }
-
-    @Override // android.support.v4.view.aj
     public void a(int i) {
         GalleryViewPager galleryViewPager;
         GalleryViewPager galleryViewPager2;
@@ -44,7 +22,7 @@ public class ac implements android.support.v4.view.aj {
         GalleryViewPager galleryViewPager4;
         f imageView;
         GalleryViewPager galleryViewPager5;
-        com.baidu.tieba.c.af.e(getClass().getName(), "onPageSelected", "postion = " + String.valueOf(i));
+        com.baidu.tieba.c.ae.c(getClass().getName(), "onPageSelected", "postion = " + String.valueOf(i));
         galleryViewPager = this.a.e;
         View findViewWithTag = galleryViewPager.findViewWithTag(String.valueOf(i));
         if (findViewWithTag != null && (findViewWithTag instanceof ah) && (imageView = ((ah) findViewWithTag).getImageView()) != null) {
@@ -76,6 +54,28 @@ public class ac implements android.support.v4.view.aj {
         if (ajVar != null) {
             ajVar2 = this.a.g;
             ajVar2.a(i);
+        }
+    }
+
+    @Override // android.support.v4.view.aj
+    public void a(int i, float f, int i2) {
+        android.support.v4.view.aj ajVar;
+        android.support.v4.view.aj ajVar2;
+        ajVar = this.a.g;
+        if (ajVar != null) {
+            ajVar2 = this.a.g;
+            ajVar2.a(i, f, i2);
+        }
+    }
+
+    @Override // android.support.v4.view.aj
+    public void b(int i) {
+        android.support.v4.view.aj ajVar;
+        android.support.v4.view.aj ajVar2;
+        ajVar = this.a.g;
+        if (ajVar != null) {
+            ajVar2 = this.a.g;
+            ajVar2.b(i);
         }
     }
 }

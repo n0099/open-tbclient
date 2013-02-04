@@ -17,6 +17,6 @@ public class v implements BaiduAccount.CallbackListener {
     public void callback() {
         w wVar;
         wVar = this.a.a;
-        wVar.b(TiebaApplication.b().getString(R.string.error_unkown));
+        wVar.b(TiebaApplication.a().getString(R.string.error_unkown));
     }
 }

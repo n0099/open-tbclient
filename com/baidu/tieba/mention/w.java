@@ -1,8 +1,8 @@
 package com.baidu.tieba.mention;
 
 import android.view.View;
+import com.baidu.tieba.c.ad;
 import com.baidu.tieba.c.ae;
-import com.baidu.tieba.c.af;
 import com.baidu.tieba.pb.ImageActivity;
 import java.util.ArrayList;
 /* JADX INFO: Access modifiers changed from: package-private */
@@ -20,32 +20,31 @@ public class w implements View.OnClickListener {
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        com.baidu.tieba.b.p pVar;
+        com.baidu.tieba.b.n nVar;
         try {
             ArrayList arrayList = new ArrayList();
             int i = 0;
             while (true) {
                 int i2 = i;
-                if (i2 < this.b.size()) {
-                    if (((com.baidu.tieba.a.k) this.b.get(i2)).a() == 3) {
-                        StringBuffer stringBuffer = new StringBuffer(100);
-                        stringBuffer.append("size=");
-                        stringBuffer.append(com.baidu.tieba.a.i.g());
-                        stringBuffer.append("&src=");
-                        stringBuffer.append(ae.f(((com.baidu.tieba.a.k) this.b.get(i2)).f()));
-                        arrayList.add(stringBuffer.toString());
-                    }
-                    i = i2 + 1;
-                } else {
+                if (i2 >= this.b.size()) {
                     PostActivity postActivity = this.a;
                     int i3 = this.c;
-                    pVar = this.a.n;
-                    ImageActivity.a(postActivity, arrayList, i3, pVar);
+                    nVar = this.a.k;
+                    ImageActivity.a(postActivity, arrayList, i3, nVar);
                     return;
                 }
+                if (((com.baidu.tieba.a.j) this.b.get(i2)).a() == 3) {
+                    StringBuffer stringBuffer = new StringBuffer(100);
+                    stringBuffer.append("size=");
+                    stringBuffer.append(com.baidu.tieba.a.h.g());
+                    stringBuffer.append("&src=");
+                    stringBuffer.append(ad.f(((com.baidu.tieba.a.j) this.b.get(i2)).f()));
+                    arrayList.add(stringBuffer.toString());
+                }
+                i = i2 + 1;
             }
         } catch (Exception e) {
-            af.b("PbAdapter", "ImageOnClickListener", "error = " + e.getMessage());
+            ae.b("PbAdapter", "ImageOnClickListener", "error = " + e.getMessage());
         }
     }
 }
