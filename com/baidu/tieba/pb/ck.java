@@ -1,11 +1,9 @@
 package com.baidu.tieba.pb;
 
-import android.text.Editable;
-import android.text.TextWatcher;
-import android.widget.Button;
+import android.content.DialogInterface;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ck implements TextWatcher {
+public class ck implements DialogInterface.OnCancelListener {
     final /* synthetic */ SubPbActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -13,24 +11,15 @@ public class ck implements TextWatcher {
         this.a = subPbActivity;
     }
 
-    @Override // android.text.TextWatcher
-    public void afterTextChanged(Editable editable) {
-        Button button;
-        Button button2;
-        if (editable == null || editable.length() <= 0) {
-            button = this.a.w;
-            button.setEnabled(false);
-            return;
+    @Override // android.content.DialogInterface.OnCancelListener
+    public void onCancel(DialogInterface dialogInterface) {
+        dk dkVar;
+        dk dkVar2;
+        this.a.c();
+        dkVar = this.a.G;
+        if (dkVar != null) {
+            dkVar2 = this.a.G;
+            dkVar2.a();
         }
-        button2 = this.a.w;
-        button2.setEnabled(true);
-    }
-
-    @Override // android.text.TextWatcher
-    public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-    }
-
-    @Override // android.text.TextWatcher
-    public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
     }
 }

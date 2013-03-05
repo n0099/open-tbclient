@@ -1,10 +1,15 @@
 package com.baidu.tieba.write;
 
-import android.content.BroadcastReceiver;
-import android.content.Context;
-import android.content.Intent;
+import android.graphics.Bitmap;
+import android.os.AsyncTask;
+import android.os.Build;
+import android.widget.ImageView;
+import android.widget.ProgressBar;
+import cn.jingling.lib.filters.FilterFactory;
+import java.util.HashMap;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class az extends BroadcastReceiver {
+public class az extends AsyncTask {
     final /* synthetic */ WriteImageActivity a;
 
     private az(WriteImageActivity writeImageActivity) {
@@ -16,13 +21,98 @@ class az extends BroadcastReceiver {
         this(writeImageActivity);
     }
 
-    @Override // android.content.BroadcastReceiver
-    public void onReceive(Context context, Intent intent) {
-        this.a.a();
-        if (intent.getBooleanExtra("result", false)) {
-            WriteImageActivity.k(this.a);
-        } else {
-            this.a.b(intent.getStringExtra("error"));
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // android.os.AsyncTask
+    /* renamed from: a */
+    public Bitmap doInBackground(Object... objArr) {
+        Bitmap c;
+        boolean z;
+        HashMap hashMap;
+        String[] strArr;
+        HashMap hashMap2;
+        Bitmap bitmap = null;
+        try {
+            c = com.baidu.tieba.c.o.c(null, "tieba_resized_image");
+        } catch (Exception e) {
+            e = e;
+        }
+        try {
+            if (isCancelled() && c != null && !c.isRecycled()) {
+                c.recycle();
+                return null;
+            }
+            int a = com.baidu.tieba.c.ai.a(this.a, 63.5f);
+            if (Build.VERSION.SDK_INT >= 7) {
+                z = this.a.v;
+                if (z) {
+                    Bitmap a2 = com.baidu.tieba.c.e.a(com.baidu.tieba.c.e.b(c, a), com.baidu.tieba.c.ai.a(this.a, 5.0f));
+                    this.a.B = new HashMap();
+                    this.a.C = new HashMap();
+                    hashMap = this.a.B;
+                    hashMap.put("normal", a2);
+                    strArr = WriteImageActivity.c;
+                    for (String str : strArr) {
+                        String substring = str.substring(0, str.indexOf("|"));
+                        if (!substring.equals("normal")) {
+                            Bitmap apply = FilterFactory.createOneKeyFilter(this.a, substring).apply(this.a, a2.copy(a2.getConfig(), true));
+                            hashMap2 = this.a.B;
+                            hashMap2.put(substring, apply);
+                        }
+                    }
+                    return c;
+                }
+            }
+            return c;
+        } catch (Exception e2) {
+            bitmap = c;
+            e = e2;
+            com.baidu.tieba.c.ag.b(getClass().getName(), "GetImageTask", e.toString());
+            return bitmap;
+        }
+    }
+
+    @Override // android.os.AsyncTask
+    protected void onPreExecute() {
+        ProgressBar progressBar;
+        progressBar = this.a.j;
+        progressBar.setVisibility(0);
+        super.onPreExecute();
+    }
+
+    public void a() {
+        ProgressBar progressBar;
+        this.a.k = null;
+        progressBar = this.a.j;
+        progressBar.setVisibility(8);
+        super.cancel(true);
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // android.os.AsyncTask
+    /* renamed from: a */
+    public void onPostExecute(Bitmap bitmap) {
+        ProgressBar progressBar;
+        ImageView imageView;
+        boolean z;
+        String[] strArr;
+        super.onPostExecute(bitmap);
+        this.a.k = null;
+        this.a.e = bitmap;
+        progressBar = this.a.j;
+        progressBar.setVisibility(8);
+        if (bitmap != null && !bitmap.isRecycled() && bitmap != null) {
+            imageView = this.a.d;
+            imageView.setImageBitmap(bitmap);
+            if (Build.VERSION.SDK_INT >= 7) {
+                z = this.a.v;
+                if (z) {
+                    WriteImageActivity writeImageActivity = this.a;
+                    strArr = WriteImageActivity.c;
+                    writeImageActivity.a(strArr);
+                }
+            }
         }
     }
 }

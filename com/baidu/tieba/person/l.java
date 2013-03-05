@@ -1,7 +1,8 @@
 package com.baidu.tieba.person;
 
 import android.view.View;
-import com.baidu.tieba.view.EditHeadImageView;
+import android.widget.Button;
+import android.widget.LinearLayout;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class l implements View.OnClickListener {
@@ -14,12 +15,11 @@ public class l implements View.OnClickListener {
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        EditHeadImageView editHeadImageView;
-        boolean a;
-        editHeadImageView = this.a.f;
-        a = this.a.a("tieba_head_image", editHeadImageView.getHeadBitmap());
-        if (a) {
-            this.a.j();
-        }
+        LinearLayout linearLayout;
+        Button button;
+        linearLayout = this.a.t;
+        linearLayout.setVisibility(0);
+        button = this.a.l;
+        button.setVisibility(8);
     }
 }

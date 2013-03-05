@@ -1,10 +1,12 @@
 package com.baidu.tieba.pb;
 
-import android.widget.CompoundButton;
-import com.baidu.tieba.R;
+import android.os.Handler;
+import android.view.animation.TranslateAnimation;
+import android.widget.AbsListView;
+import android.widget.LinearLayout;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class av implements CompoundButton.OnCheckedChangeListener {
+public class av implements AbsListView.OnScrollListener {
     final /* synthetic */ PbActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -12,21 +14,56 @@ public class av implements CompoundButton.OnCheckedChangeListener {
         this.a = pbActivity;
     }
 
-    @Override // android.widget.CompoundButton.OnCheckedChangeListener
-    public void onCheckedChanged(CompoundButton compoundButton, boolean z) {
-        if (z) {
-            switch (compoundButton.getId()) {
-                case R.id.radio_button_1day /* 2131230891 */:
-                    this.a.J = 1;
+    @Override // android.widget.AbsListView.OnScrollListener
+    public void onScroll(AbsListView absListView, int i, int i2, int i3) {
+        Handler handler;
+        Runnable runnable;
+        Handler handler2;
+        Runnable runnable2;
+        handler = this.a.t;
+        runnable = this.a.az;
+        handler.removeCallbacks(runnable);
+        handler2 = this.a.t;
+        runnable2 = this.a.az;
+        handler2.postDelayed(runnable2, 300L);
+    }
+
+    @Override // android.widget.AbsListView.OnScrollListener
+    public void onScrollStateChanged(AbsListView absListView, int i) {
+        boolean z;
+        boolean z2;
+        LinearLayout linearLayout;
+        TranslateAnimation translateAnimation;
+        boolean z3;
+        boolean z4;
+        LinearLayout linearLayout2;
+        TranslateAnimation translateAnimation2;
+        LinearLayout linearLayout3;
+        if (i == 0) {
+            if (absListView.getLastVisiblePosition() == absListView.getCount() - 1) {
+                z3 = this.a.aw;
+                if (!z3) {
+                    z4 = this.a.av;
+                    if (z4) {
+                        linearLayout3 = this.a.C;
+                        linearLayout3.clearAnimation();
+                    }
+                    linearLayout2 = this.a.C;
+                    translateAnimation2 = this.a.at;
+                    linearLayout2.startAnimation(translateAnimation2);
                     return;
-                case R.id.radio_button_3day /* 2131230892 */:
-                    this.a.J = 3;
-                    return;
-                case R.id.radio_button_10day /* 2131230893 */:
-                    this.a.J = 10;
-                    return;
-                default:
-                    return;
+                }
+            }
+            if (absListView.getFirstVisiblePosition() == 0) {
+                z = this.a.aw;
+                if (!z) {
+                    z2 = this.a.av;
+                    if (!z2) {
+                        linearLayout = this.a.C;
+                        translateAnimation = this.a.at;
+                        linearLayout.startAnimation(translateAnimation);
+                    }
+                }
             }
         }
     }

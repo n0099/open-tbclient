@@ -1,28 +1,23 @@
 package com.baidu.tieba.person;
 
-import android.graphics.Bitmap;
-import android.widget.ImageView;
-import android.widget.ListView;
+import android.view.MotionEvent;
+import android.view.View;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class at implements com.baidu.tieba.c.d {
-    final /* synthetic */ as a;
+public class at implements View.OnTouchListener {
+    final /* synthetic */ PersonChangeActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public at(as asVar) {
-        this.a = asVar;
+    public at(PersonChangeActivity personChangeActivity) {
+        this.a = personChangeActivity;
     }
 
-    @Override // com.baidu.tieba.c.d
-    public void a(Bitmap bitmap, String str, boolean z) {
-        PersonListActivity personListActivity;
-        ListView listView;
-        personListActivity = this.a.a;
-        listView = personListActivity.c;
-        ImageView imageView = (ImageView) listView.findViewWithTag(str);
-        if (imageView == null || bitmap == null) {
-            return;
+    @Override // android.view.View.OnTouchListener
+    public boolean onTouch(View view, MotionEvent motionEvent) {
+        if (motionEvent.getAction() == 1) {
+            this.a.y = true;
+            return false;
         }
-        imageView.setImageBitmap(bitmap);
-        imageView.setTag(null);
+        return false;
     }
 }

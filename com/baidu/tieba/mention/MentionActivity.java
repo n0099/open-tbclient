@@ -10,120 +10,56 @@ import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.FrameLayout;
 import android.widget.RadioButton;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.c.ag;
+import com.baidu.tieba.c.ae;
 /* loaded from: classes.dex */
 public class MentionActivity extends ActivityGroup {
-    private FrameLayout g;
-    private RadioButton a = null;
-    private RadioButton b = null;
-    private Button c = null;
-    private Button d = null;
-    private View.OnClickListener e = null;
-    private CompoundButton.OnCheckedChangeListener f = null;
-    private d h = null;
-
-    private void a() {
-        this.h = new d(this, null);
-        IntentFilter intentFilter = new IntentFilter();
-        intentFilter.addAction("com.baidu.tieba.broadcast.notify");
-        registerReceiver(this.h, intentFilter);
-    }
-
-    public void a(long j, long j2) {
-        if (j > 0) {
-            this.b.setText(String.format("%s(%s)", getString(R.string.mention_replyme), String.valueOf(j)));
-        } else {
-            this.b.setText(R.string.mention_replyme);
-        }
-        if (j2 > 0) {
-            this.a.setText(String.format("%s(%s)", getString(R.string.mention_atme), String.valueOf(j2)));
-        } else {
-            this.a.setText(R.string.mention_atme);
-        }
-    }
+    private FrameLayout k;
+    private RadioButton e = null;
+    private RadioButton f = null;
+    private Button g = null;
+    private Button h = null;
+    private View.OnClickListener i = null;
+    private CompoundButton.OnCheckedChangeListener j = null;
+    RelativeLayout a = null;
+    RelativeLayout b = null;
+    TextView c = null;
+    protected int d = -1;
+    private d l = null;
 
     public static void a(Activity activity, int i) {
         activity.startActivityForResult(new Intent(activity, MentionActivity.class), i);
-    }
-
-    private void a(Bundle bundle) {
-        this.e = new b(this);
-        this.d = (Button) findViewById(R.id.back);
-        this.c = (Button) findViewById(R.id.refresh);
-        this.d.setOnClickListener(this.e);
-        this.c.setOnClickListener(this.e);
-        this.g = (FrameLayout) findViewById(R.id.content);
-        this.b = (RadioButton) findViewById(R.id.replyme_tab);
-        this.a = (RadioButton) findViewById(R.id.atme_tab);
-        this.f = new c(this);
-        this.b.setOnCheckedChangeListener(this.f);
-        this.a.setOnCheckedChangeListener(this.f);
-        if ((bundle != null ? bundle.getInt("type", 0) : getIntent().getIntExtra("type", 0)) == 1) {
-            this.a.setChecked(true);
-        } else {
-            this.b.setChecked(true);
-        }
-    }
-
-    private void b() {
-        if (this.h != null) {
-            unregisterReceiver(this.h);
-        }
-    }
-
-    public void a(int i, boolean z) {
-        long S = TiebaApplication.a().S();
-        long T = TiebaApplication.a().T();
-        if (!z) {
-            a(S, T);
-            return;
-        }
-        switch (i) {
-            case 0:
-                a(0L, T);
-                TiebaApplication.a().d(0L);
-                return;
-            case 1:
-                a(S, 0L);
-                TiebaApplication.a().e(0L);
-                return;
-            default:
-                return;
-        }
-    }
-
-    public void a(String str, Class cls) {
-        Intent intent = new Intent(this, cls);
-        this.g.removeAllViews();
-        this.g.addView(getLocalActivityManager().startActivity(str, intent).getDecorView());
     }
 
     @Override // android.app.ActivityGroup, android.app.Activity
     protected void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         setContentView(R.layout.mention_activity);
-        a();
-        a(bundle);
-    }
-
-    @Override // android.app.ActivityGroup, android.app.Activity
-    protected void onDestroy() {
-        super.onDestroy();
         b();
+        a(bundle);
     }
 
     @Override // android.app.ActivityGroup, android.app.Activity
     protected void onResume() {
         super.onResume();
-        ag.e(this);
-        if (TiebaApplication.a().S() > 0 && this.b != null) {
-            this.b.setChecked(true);
-        } else if (TiebaApplication.a().T() <= 0 || this.a == null) {
-        } else {
-            this.a.setChecked(true);
+        if (TiebaApplication.b().ag() != this.d) {
+            this.d = TiebaApplication.b().ag();
+            a(this.d);
         }
+        if (TiebaApplication.b().X() > 0 && this.f != null) {
+            this.f.setChecked(true);
+        } else if (TiebaApplication.b().Y() > 0 && this.e != null) {
+            this.e.setChecked(true);
+        }
+    }
+
+    @Override // android.app.ActivityGroup, android.app.Activity
+    protected void onDestroy() {
+        super.onDestroy();
+        c();
     }
 
     @Override // android.app.ActivityGroup, android.app.Activity
@@ -133,6 +69,119 @@ public class MentionActivity extends ActivityGroup {
             bundle.putInt("type", 1);
         } else {
             bundle.putInt("type", 0);
+        }
+    }
+
+    private void a(Bundle bundle) {
+        int intExtra;
+        this.i = new b(this);
+        this.h = (Button) findViewById(R.id.back);
+        this.g = (Button) findViewById(R.id.refresh);
+        this.h.setOnClickListener(this.i);
+        this.g.setOnClickListener(this.i);
+        this.k = (FrameLayout) findViewById(R.id.content);
+        this.a = (RelativeLayout) findViewById(R.id.container);
+        this.b = (RelativeLayout) findViewById(R.id.title);
+        this.c = (TextView) findViewById(R.id.title_text);
+        this.f = (RadioButton) findViewById(R.id.replyme_tab);
+        this.e = (RadioButton) findViewById(R.id.atme_tab);
+        this.j = new c(this);
+        this.f.setOnCheckedChangeListener(this.j);
+        this.e.setOnCheckedChangeListener(this.j);
+        if (bundle != null) {
+            intExtra = bundle.getInt("type", 0);
+        } else {
+            intExtra = getIntent().getIntExtra("type", 0);
+        }
+        if (intExtra == 1) {
+            this.e.setChecked(true);
+        } else {
+            this.f.setChecked(true);
+        }
+    }
+
+    private void a(int i) {
+        ae.c((TextView) this.h, i);
+        ae.e((TextView) this.h, i);
+        ae.e((View) this.g, i);
+        ae.a(this.a, i);
+        ae.c(this.b, i);
+        ae.c(this.c, i);
+        ae.d((View) this.f, i);
+        ae.d((View) this.e, i);
+        a();
+    }
+
+    public void a() {
+        if (this.f.isChecked()) {
+            if (this.d == 1) {
+                this.f.setTextColor(getResources().getColor(R.color.skin_1_common_color));
+                this.e.setTextColor(getResources().getColor(R.color.skin_1_tab_unsel_color));
+            } else {
+                this.f.setTextColor(getResources().getColor(R.color.tab_hightlight_text_color));
+                this.e.setTextColor(getResources().getColor(R.color.tab_text_color));
+            }
+        }
+        if (this.e.isChecked()) {
+            if (this.d == 1) {
+                this.e.setTextColor(getResources().getColor(R.color.skin_1_common_color));
+                this.f.setTextColor(getResources().getColor(R.color.skin_1_tab_unsel_color));
+                return;
+            }
+            this.e.setTextColor(getResources().getColor(R.color.tab_hightlight_text_color));
+            this.f.setTextColor(getResources().getColor(R.color.tab_text_color));
+        }
+    }
+
+    public void a(String str, Class cls) {
+        Intent intent = new Intent(this, cls);
+        this.k.removeAllViews();
+        this.k.addView(getLocalActivityManager().startActivity(str, intent).getDecorView());
+    }
+
+    public void a(int i, boolean z) {
+        long X = TiebaApplication.b().X();
+        long Y = TiebaApplication.b().Y();
+        if (z) {
+            switch (i) {
+                case 0:
+                    a(0L, Y);
+                    TiebaApplication.b().e(0L);
+                    return;
+                case 1:
+                    a(X, 0L);
+                    TiebaApplication.b().f(0L);
+                    return;
+                default:
+                    return;
+            }
+        }
+        a(X, Y);
+    }
+
+    public void a(long j, long j2) {
+        if (j > 0) {
+            this.f.setText(String.format("%s(%s)", getString(R.string.mention_replyme), String.valueOf(j)));
+        } else {
+            this.f.setText(R.string.mention_replyme);
+        }
+        if (j2 > 0) {
+            this.e.setText(String.format("%s(%s)", getString(R.string.mention_atme), String.valueOf(j2)));
+        } else {
+            this.e.setText(R.string.mention_atme);
+        }
+    }
+
+    private void b() {
+        this.l = new d(this, null);
+        IntentFilter intentFilter = new IntentFilter();
+        intentFilter.addAction("com.baidu.tieba.broadcast.notify");
+        registerReceiver(this.l, intentFilter);
+    }
+
+    private void c() {
+        if (this.l != null) {
+            unregisterReceiver(this.l);
         }
     }
 }

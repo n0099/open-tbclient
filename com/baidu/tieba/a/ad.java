@@ -3,32 +3,43 @@ package com.baidu.tieba.a;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class ad {
-    private int a = 0;
+    private int a = -1;
     private String b = null;
-    private ac c = new ac();
+    private String c = null;
 
-    public ac a() {
+    public int a() {
+        return this.a;
+    }
+
+    public String b() {
+        return this.b;
+    }
+
+    public String c() {
         return this.c;
     }
 
+    public void a(int i) {
+        this.a = i;
+    }
+
     public void a(String str) {
-        try {
-            a(new JSONObject(str));
-        } catch (Exception e) {
-            com.baidu.tieba.c.ae.b("LikeReturnData", "parserJson", "error = " + e.getMessage());
-        }
+        this.b = str;
     }
 
     public void a(JSONObject jSONObject) {
-        if (jSONObject == null) {
-            return;
-        }
-        try {
-            this.b = jSONObject.optString("error_msg");
-            this.a = jSONObject.optInt("error_code", 0);
-            this.c.a(jSONObject.optJSONObject("info"));
-        } catch (Exception e) {
-            com.baidu.tieba.c.ae.b("LikeReturnData", "parserJson", "error = " + e.getMessage());
+        if (jSONObject != null) {
+            try {
+                this.a = jSONObject.optInt("type");
+                if (this.a == 3) {
+                    this.b = jSONObject.optString("big_pic");
+                } else if (this.a == 5) {
+                    this.b = jSONObject.optString("vpic");
+                    this.c = jSONObject.optString("vsrc");
+                }
+            } catch (Exception e) {
+                com.baidu.tieba.c.ag.b(getClass().getName(), "parserJson", "error=" + e.toString());
+            }
         }
     }
 }

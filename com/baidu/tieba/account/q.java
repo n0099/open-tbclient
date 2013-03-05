@@ -22,20 +22,22 @@ public class q implements View.OnClickListener {
         u uVar2;
         editText = this.a.c;
         String editable = editText.getText().toString();
-        if (editable == null || editable.length() <= 0) {
-            o oVar = this.a;
-            eVar = this.a.j;
-            oVar.b(eVar.getString(R.string.input_name));
+        if (editable != null && editable.length() > 0) {
+            vVar = this.a.l;
+            if (vVar == null) {
+                uVar = this.a.m;
+                if (uVar == null) {
+                    this.a.m = new u(this.a, "http://c.tieba.baidu.com/c/s/detectuname", editable);
+                    uVar2 = this.a.m;
+                    uVar2.execute(new String[0]);
+                    return;
+                }
+                return;
+            }
             return;
         }
-        vVar = this.a.l;
-        if (vVar == null) {
-            uVar = this.a.m;
-            if (uVar == null) {
-                this.a.m = new u(this.a, "http://c.tieba.baidu.com/c/s/detectuname", editable);
-                uVar2 = this.a.m;
-                uVar2.execute(new String[0]);
-            }
-        }
+        o oVar = this.a;
+        eVar = this.a.j;
+        oVar.b(eVar.getString(R.string.input_name));
     }
 }

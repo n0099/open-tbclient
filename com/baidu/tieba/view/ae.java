@@ -26,8 +26,8 @@ public class ae implements j {
                 for (int i = 0; i < childCount; i++) {
                     galleryViewPager3 = this.a.e;
                     View childAt = galleryViewPager3.getChildAt(i);
-                    if (childAt != null && (childAt instanceof ah) && ((ah) childAt).getImageView() != fVar) {
-                        ((ah) childAt).d();
+                    if (childAt != null && (childAt instanceof ag) && ((ag) childAt).getImageView() != fVar) {
+                        ((ag) childAt).d();
                     }
                 }
             }

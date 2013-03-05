@@ -15,7 +15,8 @@ public class ba implements View.OnClickListener {
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         Dialog dialog;
-        dialog = this.a.R;
+        this.a.e(5);
+        dialog = this.a.A;
         dialog.dismiss();
     }
 }

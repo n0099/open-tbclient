@@ -1,21 +1,38 @@
 package com.baidu.tieba.pb;
 
-import android.graphics.Bitmap;
-import android.widget.ImageView;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
+import android.view.View;
+import android.widget.AdapterView;
+import com.baidu.tieba.R;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class cj implements com.baidu.tieba.c.d {
+public class cj implements AdapterView.OnItemLongClickListener {
     final /* synthetic */ SubPbActivity a;
-    private final /* synthetic */ ImageView b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public cj(SubPbActivity subPbActivity, ImageView imageView) {
+    public cj(SubPbActivity subPbActivity) {
         this.a = subPbActivity;
-        this.b = imageView;
     }
 
-    @Override // com.baidu.tieba.c.d
-    public void a(Bitmap bitmap, String str, boolean z) {
-        this.b.setImageBitmap(bitmap);
+    @Override // android.widget.AdapterView.OnItemLongClickListener
+    public boolean onItemLongClick(AdapterView adapterView, View view, int i, long j) {
+        dm dmVar;
+        AlertDialog e;
+        DialogInterface.OnClickListener onClickListener;
+        dmVar = this.a.h;
+        com.baidu.tieba.a.al alVar = (com.baidu.tieba.a.al) dmVar.getItem(i - 1);
+        if (alVar != null) {
+            this.a.A = alVar;
+            e = this.a.e();
+            if (e == null) {
+                SubPbActivity subPbActivity = this.a;
+                String[] strArr = {this.a.getString(R.string.copy)};
+                onClickListener = this.a.z;
+                subPbActivity.b(strArr, onClickListener);
+            }
+            this.a.f();
+        }
+        return true;
     }
 }

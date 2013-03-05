@@ -11,10 +11,10 @@ public class x extends Handler {
         try {
             w wVar = (w) message.obj;
             if (wVar != null) {
-                wVar.i();
+                wVar.j();
             }
         } catch (Exception e) {
-            ae.b(getClass().getName(), "initNetWorkCore", e.getMessage());
+            ag.b(getClass().getName(), "initNetWorkCore", e.getMessage());
         }
     }
 }

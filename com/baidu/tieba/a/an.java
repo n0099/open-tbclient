@@ -1,51 +1,63 @@
 package com.baidu.tieba.a;
 
-import org.json.JSONArray;
-import org.json.JSONObject;
+import java.io.Serializable;
 /* loaded from: classes.dex */
-public class an {
-    private long a = 0;
-    private String b = null;
-    private String c = null;
+public class an implements Serializable {
+    private String a;
+    private String b;
+    private String c;
+    private String d;
+    private int e;
+    private String f;
 
-    public long a() {
+    public String a() {
         return this.a;
     }
 
     public void a(String str) {
-        try {
-            a(new JSONObject(str));
-        } catch (Exception e) {
-            com.baidu.tieba.c.ae.b("MssageData", "parserJson", "error = " + e.getMessage());
-        }
-    }
-
-    public void a(JSONObject jSONObject) {
-        if (jSONObject == null) {
-            return;
-        }
-        try {
-            JSONArray jSONArray = jSONObject.getJSONArray("data");
-            for (int i = 0; i < jSONArray.length(); i++) {
-                if (jSONArray.getJSONObject(i) != null) {
-                    JSONObject jSONObject2 = jSONArray.getJSONObject(i);
-                    if (this.a < jSONObject2.getLong("message_id")) {
-                        this.a = jSONObject2.getLong("message_id");
-                        this.b = jSONObject2.getString("link");
-                        this.c = jSONObject2.getString("content");
-                    }
-                }
-            }
-        } catch (Exception e) {
-            com.baidu.tieba.c.ae.b("MssageData", "parserJson", "error = " + e.getMessage());
-        }
+        this.a = str;
     }
 
     public String b() {
         return this.b;
     }
 
+    public void b(String str) {
+        if (str != null) {
+            str = com.baidu.tieba.c.af.b(str.getBytes());
+        }
+        this.b = str;
+    }
+
     public String c() {
         return this.c;
+    }
+
+    public void c(String str) {
+        this.c = str;
+    }
+
+    public void d(String str) {
+        this.d = str;
+    }
+
+    public String d() {
+        return this.d;
+    }
+
+    public void e(String str) {
+        this.f = str;
+    }
+
+    public String e() {
+        return this.f;
+    }
+
+    public void a(int i) {
+        this.e = i;
+    }
+
+    public int f() {
+        return this.e;
     }
 }

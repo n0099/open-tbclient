@@ -1,88 +1,35 @@
 package com.baidu.tieba.home;
 
-import android.content.Context;
-import android.view.LayoutInflater;
+import android.app.AlertDialog;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.BaseAdapter;
-import android.widget.TextView;
-import com.baidu.tieba.R;
-import java.util.ArrayList;
+import android.widget.AdapterView;
 /* loaded from: classes.dex */
-public class ao extends BaseAdapter {
-    private Context a;
-    private ArrayList b;
-    private String c;
+class ao implements AdapterView.OnItemClickListener {
+    final /* synthetic */ an a;
 
-    public ao(Context context, ArrayList arrayList) {
-        this.a = context;
-        this.b = arrayList;
-        this.c = this.a.getText(R.string.forum).toString();
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public ao(an anVar) {
+        this.a = anVar;
     }
 
-    public void a(int i) {
-        this.b.remove(i);
-        this.b.add(0, (String) this.b.get(i));
-    }
-
-    public void a(ArrayList arrayList) {
-        this.b = arrayList;
-    }
-
-    @Override // android.widget.Adapter
-    public int getCount() {
-        if (this.b == null) {
-            return 0;
+    @Override // android.widget.AdapterView.OnItemClickListener
+    public void onItemClick(AdapterView adapterView, View view, int i, long j) {
+        SearchActivity searchActivity;
+        SearchActivity searchActivity2;
+        SearchActivity searchActivity3;
+        AlertDialog alertDialog;
+        switch (i) {
+            case 0:
+                searchActivity2 = this.a.a;
+                searchActivity2.c(0);
+                break;
+            case 1:
+                searchActivity = this.a.a;
+                searchActivity.c(1);
+                break;
         }
-        return this.b.size();
-    }
-
-    @Override // android.widget.Adapter
-    public Object getItem(int i) {
-        int count = getCount();
-        if (count <= 0 || i >= count) {
-            return null;
-        }
-        return this.b.get(i);
-    }
-
-    @Override // android.widget.Adapter
-    public long getItemId(int i) {
-        return i;
-    }
-
-    @Override // android.widget.Adapter
-    public View getView(int i, View view, ViewGroup viewGroup) {
-        Exception exc;
-        View view2;
-        ap apVar;
-        View view3;
-        try {
-            if (view == null) {
-                view3 = LayoutInflater.from(this.a).inflate(R.layout.home_dialog_search_item, (ViewGroup) null);
-                try {
-                    apVar = new ap(this, null);
-                    apVar.a = (TextView) view3.findViewById(R.id.home_lv_search_forum);
-                    view3.setTag(apVar);
-                } catch (Exception e) {
-                    view2 = view3;
-                    exc = e;
-                    com.baidu.tieba.c.ae.b(getClass().getName(), "", "PbAdapter.getView error = " + exc.getMessage());
-                    return view2;
-                }
-            } else {
-                apVar = (ap) view.getTag();
-                view3 = view;
-            }
-            Object item = getItem(i);
-            if (item == null) {
-                return view3;
-            }
-            apVar.a.setText(((String) item).concat(this.c));
-            return view3;
-        } catch (Exception e2) {
-            exc = e2;
-            view2 = view;
-        }
+        searchActivity3 = this.a.a;
+        alertDialog = searchActivity3.y;
+        alertDialog.dismiss();
     }
 }

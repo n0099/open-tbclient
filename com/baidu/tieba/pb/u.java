@@ -1,10 +1,9 @@
 package com.baidu.tieba.pb;
 
-import android.widget.Button;
-import android.widget.LinearLayout;
-import com.baidu.tieba.R;
+import android.content.DialogInterface;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class u implements com.baidu.tieba.view.aa {
+public class u implements DialogInterface.OnCancelListener {
     final /* synthetic */ ImagePbActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -12,16 +11,15 @@ class u implements com.baidu.tieba.view.aa {
         this.a = imagePbActivity;
     }
 
-    @Override // com.baidu.tieba.view.aa
-    public void a(int i) {
-        LinearLayout linearLayout;
-        Button button;
-        if (i == -2) {
-            linearLayout = this.a.p;
-            linearLayout.setVisibility(8);
-            this.a.q.setVisibility(0);
-            button = this.a.m;
-            button.setBackgroundResource(R.drawable.sub_pb_face);
+    @Override // android.content.DialogInterface.OnCancelListener
+    public void onCancel(DialogInterface dialogInterface) {
+        ai aiVar;
+        ai aiVar2;
+        this.a.c();
+        aiVar = this.a.v;
+        if (aiVar != null) {
+            aiVar2 = this.a.v;
+            aiVar2.a();
         }
     }
 }

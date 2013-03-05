@@ -14,6 +14,7 @@ public class a extends BaseAdapter {
     private ArrayList b;
     private String c;
     private String d;
+    private int e = 0;
 
     public a(Context context, ArrayList arrayList) {
         this.a = context;
@@ -23,39 +24,38 @@ public class a extends BaseAdapter {
         a();
     }
 
-    private void a() {
-        int i = 0;
-        if (this.b == null) {
-            return;
-        }
-        ArrayList arrayList = new ArrayList();
-        com.baidu.tieba.a.s sVar = new com.baidu.tieba.a.s();
-        sVar.a(-1);
-        sVar.a(this.c);
-        com.baidu.tieba.a.s sVar2 = new com.baidu.tieba.a.s();
-        sVar2.a(0);
-        sVar2.a(this.d);
-        arrayList.add(sVar);
-        arrayList.add(sVar2);
-        if (this.b != null && this.b.size() > 0) {
-            while (true) {
-                int i2 = i;
-                if (i2 >= this.b.size()) {
-                    break;
-                }
-                com.baidu.tieba.a.s sVar3 = (com.baidu.tieba.a.s) this.b.get(i2);
-                if (sVar3.b() != 0) {
-                    arrayList.add(sVar3);
-                }
-                i = i2 + 1;
-            }
-        }
-        this.b = arrayList;
-    }
-
     public void a(ArrayList arrayList) {
         this.b = arrayList;
         a();
+    }
+
+    private void a() {
+        int i = 0;
+        if (this.b != null) {
+            ArrayList arrayList = new ArrayList();
+            com.baidu.tieba.a.t tVar = new com.baidu.tieba.a.t();
+            tVar.a(-1);
+            tVar.a(this.c);
+            com.baidu.tieba.a.t tVar2 = new com.baidu.tieba.a.t();
+            tVar2.a(0);
+            tVar2.a(this.d);
+            arrayList.add(tVar);
+            arrayList.add(tVar2);
+            if (this.b != null && this.b.size() > 0) {
+                while (true) {
+                    int i2 = i;
+                    if (i2 >= this.b.size()) {
+                        break;
+                    }
+                    com.baidu.tieba.a.t tVar3 = (com.baidu.tieba.a.t) this.b.get(i2);
+                    if (tVar3.b() != 0) {
+                        arrayList.add(tVar3);
+                    }
+                    i = i2 + 1;
+                }
+            }
+            this.b = arrayList;
+        }
     }
 
     @Override // android.widget.Adapter
@@ -88,32 +88,39 @@ public class a extends BaseAdapter {
         View view3;
         try {
             if (view == null) {
-                view = LayoutInflater.from(this.a).inflate(R.layout.dialog_good_item, (ViewGroup) null);
-                b bVar2 = new b(this, null);
-                bVar2.a = (TextView) view.findViewById(R.id.frs_dia_good_text);
-                view.setTag(bVar2);
-                bVar = bVar2;
-                view3 = view;
+                view3 = LayoutInflater.from(this.a).inflate(R.layout.dialog_good_item, (ViewGroup) null);
+                try {
+                    bVar = new b(this, null);
+                    bVar.a = (TextView) view3.findViewById(R.id.frs_dia_good_text);
+                    view3.setTag(bVar);
+                } catch (Exception e) {
+                    view2 = view3;
+                    exc = e;
+                    com.baidu.tieba.c.ag.b(getClass().getName(), "", "DialogGoodAdapter.getView error = " + exc.getMessage());
+                    return view2;
+                }
             } else {
                 bVar = (b) view.getTag();
                 view3 = view;
             }
-            try {
-                Object item = getItem(i);
-                if (item == null) {
-                    return view3;
-                }
-                bVar.a.setText(((com.baidu.tieba.a.s) item).a());
-                return view3;
-            } catch (Exception e) {
-                view2 = view3;
-                exc = e;
-                com.baidu.tieba.c.ae.b(getClass().getName(), "", "DialogGoodAdapter.getView error = " + exc.getMessage());
-                return view2;
+            if (this.e == 1) {
+                bVar.a.setTextColor(this.a.getResources().getColor(R.color.skin_1_common_color));
+            } else {
+                bVar.a.setTextColor(this.a.getResources().getColor(R.color.white));
             }
+            Object item = getItem(i);
+            if (item == null) {
+                return view3;
+            }
+            bVar.a.setText(((com.baidu.tieba.a.t) item).a());
+            return view3;
         } catch (Exception e2) {
             exc = e2;
             view2 = view;
         }
+    }
+
+    public void a(int i) {
+        this.e = i;
     }
 }

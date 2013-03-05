@@ -1,22 +1,20 @@
 package com.baidu.tieba.pb;
 
-import android.view.View;
+import android.widget.CompoundButton;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class bj implements View.OnFocusChangeListener {
-    final /* synthetic */ bi a;
+public class bj implements CompoundButton.OnCheckedChangeListener {
+    final /* synthetic */ PbActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bj(bi biVar) {
-        this.a = biVar;
+    public bj(PbActivity pbActivity) {
+        this.a = pbActivity;
     }
 
-    @Override // android.view.View.OnFocusChangeListener
-    public void onFocusChange(View view, boolean z) {
-        PbActivity pbActivity;
+    @Override // android.widget.CompoundButton.OnCheckedChangeListener
+    public void onCheckedChanged(CompoundButton compoundButton, boolean z) {
         if (z) {
-            return;
+            this.a.aa = (String) compoundButton.getTag();
         }
-        pbActivity = this.a.a;
-        com.baidu.tieba.c.ag.a(pbActivity, view);
     }
 }

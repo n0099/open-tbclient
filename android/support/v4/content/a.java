@@ -23,18 +23,18 @@ public final class a extends e implements Runnable {
     }
 
     @Override // android.support.v4.content.e
-    protected void a() {
+    protected void a(Object obj) {
         try {
-            this.c.a(this, this.a);
+            this.c.b(this, obj);
         } finally {
             this.e.countDown();
         }
     }
 
     @Override // android.support.v4.content.e
-    protected void a(Object obj) {
+    protected void a() {
         try {
-            this.c.b(this, obj);
+            this.c.a(this, this.a);
         } finally {
             this.e.countDown();
         }

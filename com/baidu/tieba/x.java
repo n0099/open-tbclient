@@ -1,17 +1,21 @@
 package com.baidu.tieba;
 
-import android.content.DialogInterface;
+import android.database.ContentObserver;
+import android.os.Handler;
 /* loaded from: classes.dex */
-class x implements DialogInterface.OnCancelListener {
-    final /* synthetic */ UpdateDialog a;
+class x extends ContentObserver {
+    final /* synthetic */ TiebaApplication a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public x(UpdateDialog updateDialog) {
-        this.a = updateDialog;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public x(TiebaApplication tiebaApplication, Handler handler) {
+        super(handler);
+        this.a = tiebaApplication;
     }
 
-    @Override // android.content.DialogInterface.OnCancelListener
-    public void onCancel(DialogInterface dialogInterface) {
-        this.a.finish();
+    @Override // android.database.ContentObserver
+    public void onChange(boolean z) {
+        super.onChange(z);
+        com.baidu.tieba.c.w.c();
     }
 }

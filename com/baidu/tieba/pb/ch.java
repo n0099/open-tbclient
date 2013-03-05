@@ -1,22 +1,31 @@
 package com.baidu.tieba.pb;
 
-import android.widget.ListView;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.view.View;
+import android.widget.Button;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 /* loaded from: classes.dex */
-public class ch implements Runnable {
-    final /* synthetic */ SubPbActivity a;
+class ch {
+    int a;
+    TextView b;
+    LinearLayout c;
+    LinearLayout d;
+    Button e;
+    Button f;
+    Button g;
+    Button h;
+    Button i;
+    View j;
+    View k;
+    View l;
+    final /* synthetic */ ca m;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public ch(SubPbActivity subPbActivity) {
-        this.a = subPbActivity;
+    private ch(ca caVar) {
+        this.m = caVar;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        ListView listView;
-        int i;
-        listView = this.a.t;
-        i = this.a.A;
-        listView.setSelection(i + 1);
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public /* synthetic */ ch(ca caVar, ch chVar) {
+        this(caVar);
     }
 }

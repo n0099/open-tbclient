@@ -1,5 +1,6 @@
 package com.baidu.tieba.write;
 
+import android.location.Address;
 import android.os.AsyncTask;
 import android.widget.EditText;
 import com.baidu.tieba.R;
@@ -8,22 +9,23 @@ import com.baidu.tieba.TiebaApplication;
 /* loaded from: classes.dex */
 public class s extends AsyncTask {
     final /* synthetic */ VcodeActivity a;
-    private com.baidu.tieba.b.u b;
+    private com.baidu.tieba.b.y b;
     private com.baidu.tieba.c.t c = null;
     private String d = null;
 
-    public s(VcodeActivity vcodeActivity, com.baidu.tieba.b.u uVar) {
+    public s(VcodeActivity vcodeActivity, com.baidu.tieba.b.y yVar) {
         this.a = vcodeActivity;
         this.b = null;
-        this.b = uVar;
+        this.b = yVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.os.AsyncTask
     /* renamed from: a */
-    public com.baidu.tieba.a.av doInBackground(Integer... numArr) {
+    public com.baidu.tieba.a.aw doInBackground(Integer... numArr) {
         EditText editText;
+        Address ax;
         this.c = new com.baidu.tieba.c.t();
         this.c.a("anonymous", "0");
         this.c.a("fid", this.b.f());
@@ -34,18 +36,27 @@ public class s extends AsyncTask {
         }
         this.c.a("content", String.valueOf(this.b.c()) + str);
         this.c.a("vcode_md5", this.b.k());
-        editText = this.a.f;
+        editText = this.a.g;
         String editable = editText.getText().toString();
         if (editable.length() > 0) {
             this.c.a("vcode", editable);
         }
         this.c.d(true);
-        if (this.b.a() == 0) {
+        if (this.b.a() == 0 || this.b.a() == 3) {
             this.c.a("http://c.tieba.baidu.com/c/c/thread/add");
-            this.c.a("title", this.b.b());
+            if (this.b.a() == 0) {
+                this.c.a("title", this.b.b());
+            } else {
+                this.c.a("thread_type", "7");
+                this.c.a("st_type", "tb_suishoufa");
+            }
+            if (!com.baidu.tieba.a.i.f().equals(this.a.getIntent().getStringExtra("forum_id")) && TiebaApplication.b().l() && (ax = TiebaApplication.b().ax()) != null) {
+                this.c.a("lbs", String.valueOf(String.valueOf(ax.getLatitude())) + "," + String.valueOf(ax.getLongitude()));
+            }
         } else {
             this.c.a("http://c.tieba.baidu.com/c/c/post/add");
             this.c.a("tid", this.b.d());
+            this.c.a("is_ad", this.a.getIntent().getBooleanExtra("is_ad", false) ? "1" : "0");
             if (this.b.a() == 2) {
                 this.c.a("quote_id", String.valueOf(this.b.e()));
                 this.c.a("floor_num", String.valueOf(this.b.h()));
@@ -56,8 +67,8 @@ public class s extends AsyncTask {
     }
 
     public void a() {
-        this.a.h = null;
-        this.a.c();
+        this.a.i = null;
+        this.a.d();
         if (this.c != null) {
             this.c.g();
         }
@@ -68,37 +79,43 @@ public class s extends AsyncTask {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.os.AsyncTask
     /* renamed from: a */
-    public void onPostExecute(com.baidu.tieba.a.av avVar) {
+    public void onPostExecute(com.baidu.tieba.a.aw awVar) {
         EditText editText;
-        com.baidu.tieba.b.u uVar;
-        com.baidu.tieba.b.u uVar2;
-        com.baidu.tieba.b.u uVar3;
-        this.a.c();
-        this.a.h = null;
+        com.baidu.tieba.b.y yVar;
+        com.baidu.tieba.b.y yVar2;
+        com.baidu.tieba.b.y yVar3;
+        this.a.d();
+        this.a.i = null;
         if (this.c != null) {
             if (this.c.b()) {
-                this.a.b(TiebaApplication.a().getString(R.string.send_success));
+                com.baidu.tieba.a.o oVar = new com.baidu.tieba.a.o();
+                oVar.a(this.d);
+                if (oVar.b() == null || oVar.b().length() <= 0) {
+                    this.a.b(TiebaApplication.b().getString(R.string.send_success));
+                } else {
+                    this.a.b(oVar.b());
+                }
                 this.a.setResult(-1, this.a.getIntent());
                 this.a.finish();
             } else {
                 if (this.c.d() == 5 || this.c.d() == 6) {
-                    com.baidu.tieba.a.av avVar2 = new com.baidu.tieba.a.av();
-                    avVar2.a(this.d);
-                    if (avVar2.b() != null) {
-                        uVar = this.a.b;
-                        uVar.h(avVar2.a());
-                        uVar2 = this.a.b;
-                        uVar2.i(avVar2.b());
+                    com.baidu.tieba.a.aw awVar2 = new com.baidu.tieba.a.aw();
+                    awVar2.a(this.d);
+                    if (awVar2.b() != null) {
+                        yVar = this.a.c;
+                        yVar.h(awVar2.a());
+                        yVar2 = this.a.c;
+                        yVar2.i(awVar2.b());
                         VcodeActivity vcodeActivity = this.a;
-                        uVar3 = this.a.b;
-                        vcodeActivity.c(uVar3.l());
+                        yVar3 = this.a.c;
+                        vcodeActivity.c(yVar3.l());
                     }
-                    editText = this.a.f;
+                    editText = this.a.g;
                     editText.setText((CharSequence) null);
                 }
                 this.a.b(this.c.f());
             }
         }
-        super.onPostExecute(avVar);
+        super.onPostExecute(awVar);
     }
 }

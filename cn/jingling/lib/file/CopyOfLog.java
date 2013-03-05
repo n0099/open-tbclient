@@ -12,7 +12,7 @@ public class CopyOfLog {
     static File logFile;
 
     public CopyOfLog() {
-        if (Environment.getExternalStorageState().equals("mounted")) {
+        if (Environment.getExternalStorageState().equals(Environment.MEDIA_MOUNTED)) {
             try {
                 SDFile = Environment.getExternalStorageDirectory();
                 logFile = new File(String.valueOf(SDFile.getAbsolutePath()) + File.separator + "myMatrix.txt");
@@ -29,20 +29,19 @@ public class CopyOfLog {
     }
 
     public void writeArrayAsMatrix(int[] iArr, int i) {
-        if (iArr == null || iArr.length == 0) {
-            return;
-        }
-        for (int i2 = 0; i2 < iArr.length; i2++) {
-            try {
-                fos.write(Integer.toString(iArr[i2]).getBytes());
-                if ((i2 + 1) % i == 0 || i2 + 1 == iArr.length) {
-                    fos.write(10);
-                } else {
-                    fos.write(44);
+        if (iArr != null && iArr.length != 0) {
+            for (int i2 = 0; i2 < iArr.length; i2++) {
+                try {
+                    fos.write(Integer.toString(iArr[i2]).getBytes());
+                    if ((i2 + 1) % i == 0 || i2 + 1 == iArr.length) {
+                        fos.write(10);
+                    } else {
+                        fos.write(44);
+                    }
+                } catch (IOException e) {
+                    e.printStackTrace();
+                    return;
                 }
-            } catch (IOException e) {
-                e.printStackTrace();
-                return;
             }
         }
     }

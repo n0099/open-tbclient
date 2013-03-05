@@ -26,28 +26,28 @@ public class w implements View.OnFocusChangeListener {
         Button button9;
         if (z) {
             switch (view.getId()) {
-                case R.id.login_edit_account /* 2131230743 */:
-                    button7 = this.a.E;
+                case R.id.login_edit_account /* 2131230759 */:
+                    button7 = this.a.I;
                     button7.setVisibility(8);
-                    button8 = this.a.D;
+                    button8 = this.a.H;
                     button8.setVisibility(0);
-                    button9 = this.a.F;
+                    button9 = this.a.J;
                     button9.setVisibility(8);
                     return;
-                case R.id.login_edit_password /* 2131230747 */:
-                    button = this.a.E;
+                case R.id.login_edit_password /* 2131230763 */:
+                    button = this.a.I;
                     button.setVisibility(0);
-                    button2 = this.a.D;
+                    button2 = this.a.H;
                     button2.setVisibility(8);
-                    button3 = this.a.F;
+                    button3 = this.a.J;
                     button3.setVisibility(8);
                     return;
-                case R.id.edit_vcode /* 2131230750 */:
-                    button4 = this.a.E;
+                case R.id.edit_vcode /* 2131230766 */:
+                    button4 = this.a.I;
                     button4.setVisibility(8);
-                    button5 = this.a.D;
+                    button5 = this.a.H;
                     button5.setVisibility(8);
-                    button6 = this.a.F;
+                    button6 = this.a.J;
                     button6.setVisibility(0);
                     return;
                 default:

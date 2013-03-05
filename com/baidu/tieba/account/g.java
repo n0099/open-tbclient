@@ -23,6 +23,29 @@ public class g extends AsyncTask {
         this(accountVcodeActivity);
     }
 
+    public void a() {
+        ProgressBar progressBar;
+        this.b.q = null;
+        if (this.a != null) {
+            this.a.g();
+            this.a = null;
+        }
+        this.c = true;
+        progressBar = this.b.k;
+        progressBar.setVisibility(8);
+        super.cancel(true);
+    }
+
+    @Override // android.os.AsyncTask
+    protected void onPreExecute() {
+        ProgressBar progressBar;
+        ImageView imageView;
+        progressBar = this.b.k;
+        progressBar.setVisibility(0);
+        imageView = this.b.o;
+        imageView.setImageBitmap(null);
+    }
+
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.os.AsyncTask
@@ -36,19 +59,6 @@ public class g extends AsyncTask {
         return com.baidu.tieba.c.e.a(this.a.h());
     }
 
-    public void a() {
-        ProgressBar progressBar;
-        this.b.p = null;
-        if (this.a != null) {
-            this.a.g();
-            this.a = null;
-        }
-        this.c = true;
-        progressBar = this.b.j;
-        progressBar.setVisibility(8);
-        super.cancel(true);
-    }
-
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.os.AsyncTask
@@ -57,26 +67,16 @@ public class g extends AsyncTask {
         ImageView imageView;
         ProgressBar progressBar;
         ImageView imageView2;
-        this.b.p = null;
+        this.b.q = null;
         if (bitmap != null) {
-            imageView2 = this.b.n;
+            imageView2 = this.b.o;
             imageView2.setImageBitmap(bitmap);
         } else {
-            imageView = this.b.n;
+            imageView = this.b.o;
             imageView.setImageResource(R.drawable.background);
         }
-        progressBar = this.b.j;
+        progressBar = this.b.k;
         progressBar.setVisibility(8);
         super.onPostExecute(bitmap);
-    }
-
-    @Override // android.os.AsyncTask
-    protected void onPreExecute() {
-        ProgressBar progressBar;
-        ImageView imageView;
-        progressBar = this.b.j;
-        progressBar.setVisibility(0);
-        imageView = this.b.n;
-        imageView.setImageBitmap(null);
     }
 }

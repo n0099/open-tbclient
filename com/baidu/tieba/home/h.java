@@ -1,19 +1,19 @@
 package com.baidu.tieba.home;
 
+import android.view.View;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
-import android.widget.TextView;
 /* loaded from: classes.dex */
 class h {
     RelativeLayout a;
-    TextView b;
-    TextView c;
-    TextView d;
-    ImageView e;
-    final /* synthetic */ f f;
+    LinearLayout b;
+    View c;
+    ImageView d;
+    final /* synthetic */ f e;
 
     private h(f fVar) {
-        this.f = fVar;
+        this.e = fVar;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */

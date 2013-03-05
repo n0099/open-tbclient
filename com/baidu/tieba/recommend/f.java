@@ -35,30 +35,30 @@ class f implements com.baidu.tieba.c.d {
                 Activity parent = guessActivity5.getParent().getParent();
                 if (parent instanceof MainTabActivity) {
                     mainTabActivity = (MainTabActivity) parent;
-                    if (bitmap == null) {
+                    if (bitmap != null) {
+                        guessActivity2 = this.a.a;
+                        aVar = guessActivity2.r;
+                        if (aVar != null) {
+                            guessActivity3 = this.a.a;
+                            aVar2 = guessActivity3.r;
+                            aVar2.b();
+                        }
                         if (mainTabActivity != null) {
-                            mainTabActivity.a(bitmap, false);
+                            mainTabActivity.b();
                             return;
                         }
                         return;
-                    }
-                    guessActivity2 = this.a.a;
-                    aVar = guessActivity2.q;
-                    if (aVar != null) {
-                        guessActivity3 = this.a.a;
-                        aVar2 = guessActivity3.q;
-                        aVar2.b();
-                    }
-                    if (mainTabActivity != null) {
-                        mainTabActivity.a();
+                    } else if (mainTabActivity != null) {
+                        mainTabActivity.a(bitmap, false);
+                        return;
+                    } else {
                         return;
                     }
-                    return;
                 }
             }
         }
         mainTabActivity = null;
-        if (bitmap == null) {
+        if (bitmap != null) {
         }
     }
 }

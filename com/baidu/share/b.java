@@ -1,50 +1,75 @@
 package com.baidu.share;
 
 import android.content.Context;
+import android.content.Intent;
 import java.util.ArrayList;
+import java.util.HashMap;
+import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class b {
-    private static b a = null;
-    private g b = new g();
-    private d c;
+    private Context a;
 
-    private b(Context context) {
-        this.c = null;
-        if (context == null) {
-            throw new IllegalArgumentException("context cannot be null");
-        }
-        this.c = new d(context);
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public b(Context context) {
+        this.a = null;
+        this.a = context;
     }
 
-    public static synchronized b a(Context context) {
-        b bVar;
-        synchronized (b.class) {
-            if (a == null) {
-                a = new b(context);
+    private static boolean a(Context context, String str, String str2, String str3, long j, HashMap hashMap) {
+        try {
+            Intent intent = new Intent(a.a());
+            intent.putExtra(a.c(), Crypto.encrypt(context, str));
+            intent.putExtra(a.d(), Crypto.encrypt(context, str2));
+            intent.putExtra(a.f(), Crypto.encrypt(context, new StringBuilder(String.valueOf(j)).toString()));
+            intent.putExtra(a.g(), Crypto.encrypt(context, str3));
+            String str4 = null;
+            if (hashMap != null && hashMap.size() > 0) {
+                str4 = new JSONObject(hashMap).toString();
             }
-            bVar = a;
+            intent.putExtra(a.e(), Crypto.encrypt(context, str4));
+            intent.addFlags(32);
+            context.sendBroadcast(intent, a.b());
+            return true;
+        } catch (Throwable th) {
+            return false;
         }
-        return bVar;
     }
 
-    public boolean a(a aVar) {
-        return this.b.a(aVar);
-    }
-
-    public boolean a(c cVar) {
-        return this.c.a(cVar);
-    }
-
-    public boolean a(c cVar, ArrayList arrayList) {
-        return this.c.a(cVar, arrayList);
+    private static boolean b(ShareModel shareModel) {
+        if (shareModel == null || shareModel.mAction == null || shareModel.mAction.equals("")) {
+            return false;
+        }
+        return shareModel.mData == null || shareModel.mData.get(a.c()) == null;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void b(c cVar) {
-        this.b.a(cVar);
+    public void a() {
+        this.a = null;
     }
 
-    public boolean b(a aVar) {
-        return this.b.b(aVar);
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public boolean a(ShareModel shareModel) {
+        return a(shareModel, null);
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public boolean a(ShareModel shareModel, ArrayList arrayList) {
+        if (b(shareModel)) {
+            String str = shareModel.mAction;
+            String packageName = this.a.getPackageName();
+            long currentTimeMillis = System.currentTimeMillis();
+            String str2 = null;
+            if (arrayList != null) {
+                str2 = new String();
+                for (int i = 0; i < arrayList.size(); i++) {
+                    str2 = String.valueOf(str2) + ((String) arrayList.get(i)).replace(a.h(), "") + a.h();
+                }
+                if (str2.length() > 0) {
+                    str2 = str2.substring(0, str2.length() - 1);
+                }
+            }
+            return a(this.a, str, packageName, str2, currentTimeMillis, shareModel.mData);
+        }
+        return false;
     }
 }

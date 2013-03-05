@@ -1,17 +1,28 @@
 package com.baidu.tieba.frs;
 
-import android.view.View;
+import android.widget.Button;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
+import com.baidu.tieba.view.CustomTimerView;
+import com.baidu.tieba.view.FrsStarImageView;
 /* loaded from: classes.dex */
-class ad implements View.OnClickListener {
-    final /* synthetic */ ab a;
+class ad {
+    FrsStarImageView a;
+    TextView b;
+    FrsStarImageView c;
+    RelativeLayout d;
+    TextView e;
+    Button f;
+    TextView g;
+    CustomTimerView h;
+    final /* synthetic */ aa i;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public ad(ab abVar) {
-        this.a = abVar;
+    private ad(aa aaVar) {
+        this.i = aaVar;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        ((FrsActivity) this.a.a).h();
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public /* synthetic */ ad(aa aaVar, ad adVar) {
+        this(aaVar);
     }
 }

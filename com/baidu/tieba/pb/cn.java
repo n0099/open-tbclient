@@ -1,9 +1,12 @@
 package com.baidu.tieba.pb;
 
-import android.content.DialogInterface;
+import android.widget.AbsListView;
+import android.widget.Button;
+import android.widget.GridView;
+import com.baidu.tieba.R;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class cn implements DialogInterface.OnClickListener {
+public class cn implements AbsListView.OnScrollListener {
     final /* synthetic */ SubPbActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -11,17 +14,20 @@ public class cn implements DialogInterface.OnClickListener {
         this.a = subPbActivity;
     }
 
-    @Override // android.content.DialogInterface.OnClickListener
-    public void onClick(DialogInterface dialogInterface, int i) {
-        com.baidu.tieba.a.am amVar;
-        com.baidu.tieba.a.am amVar2;
-        if (i == 0) {
-            amVar = this.a.z;
-            if (amVar != null) {
-                amVar2 = this.a.z;
-                amVar2.d(this.a);
-            }
-            this.a.z = null;
+    @Override // android.widget.AbsListView.OnScrollListener
+    public void onScrollStateChanged(AbsListView absListView, int i) {
+        Button button;
+        GridView gridView;
+        if (i == 2 || i == 1) {
+            com.baidu.tieba.c.ai.a(this.a, absListView);
+            button = this.a.y;
+            button.setBackgroundResource(R.drawable.sub_pb_face);
+            gridView = this.a.ad;
+            gridView.setVisibility(8);
         }
+    }
+
+    @Override // android.widget.AbsListView.OnScrollListener
+    public void onScroll(AbsListView absListView, int i, int i2, int i3) {
     }
 }

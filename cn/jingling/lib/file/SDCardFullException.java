@@ -10,11 +10,11 @@ public class SDCardFullException extends Exception {
         super(str);
     }
 
-    public SDCardFullException(String str, Throwable th) {
-        super(str, th);
-    }
-
     public SDCardFullException(Throwable th) {
         super(th);
+    }
+
+    public SDCardFullException(String str, Throwable th) {
+        super(str, th);
     }
 }

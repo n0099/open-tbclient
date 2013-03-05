@@ -18,18 +18,6 @@ final class BackStackState implements Parcelable {
     final int h;
     final CharSequence i;
 
-    public BackStackState(Parcel parcel) {
-        this.a = parcel.createIntArray();
-        this.b = parcel.readInt();
-        this.c = parcel.readInt();
-        this.d = parcel.readString();
-        this.e = parcel.readInt();
-        this.f = parcel.readInt();
-        this.g = (CharSequence) TextUtils.CHAR_SEQUENCE_CREATOR.createFromParcel(parcel);
-        this.h = parcel.readInt();
-        this.i = (CharSequence) TextUtils.CHAR_SEQUENCE_CREATOR.createFromParcel(parcel);
-    }
-
     public BackStackState(l lVar, b bVar) {
         int i = 0;
         for (c cVar = bVar.b; cVar != null; cVar = cVar.a) {
@@ -79,6 +67,18 @@ final class BackStackState implements Parcelable {
         this.g = bVar.q;
         this.h = bVar.r;
         this.i = bVar.s;
+    }
+
+    public BackStackState(Parcel parcel) {
+        this.a = parcel.createIntArray();
+        this.b = parcel.readInt();
+        this.c = parcel.readInt();
+        this.d = parcel.readString();
+        this.e = parcel.readInt();
+        this.f = parcel.readInt();
+        this.g = (CharSequence) TextUtils.CHAR_SEQUENCE_CREATOR.createFromParcel(parcel);
+        this.h = parcel.readInt();
+        this.i = (CharSequence) TextUtils.CHAR_SEQUENCE_CREATOR.createFromParcel(parcel);
     }
 
     public b a(l lVar) {

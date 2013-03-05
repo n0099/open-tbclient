@@ -1,75 +1,35 @@
 package com.baidu.tieba.pb;
 
-import android.os.AsyncTask;
+import android.view.View;
 import com.baidu.tieba.R;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class bo extends AsyncTask {
+public class bo implements View.OnClickListener {
     final /* synthetic */ PbActivity a;
-    private com.baidu.tieba.c.t b = null;
-    private String c;
-    private String d;
-    private String e;
-    private String f;
-    private String g;
 
-    public bo(PbActivity pbActivity, String str, String str2, String str3, String str4, String str5) {
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public bo(PbActivity pbActivity) {
         this.a = pbActivity;
-        this.c = str;
-        this.d = str2;
-        this.e = str3;
-        this.f = str4;
-        this.g = str5;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // android.os.AsyncTask
-    /* renamed from: a */
-    public String doInBackground(String... strArr) {
-        this.b = new com.baidu.tieba.c.t(strArr[0]);
-        this.b.a("day", this.g);
-        this.b.a("un", this.f);
-        this.b.a("fid", this.c);
-        this.b.a("word", this.d);
-        this.b.a("z", this.e);
-        this.b.a("ntn", "banid");
-        this.b.d(true);
-        this.b.i();
-        if (this.b.b()) {
-            return null;
-        }
-        return this.b.f();
-    }
-
-    public void a() {
-        com.baidu.tieba.b.n nVar;
-        if (this.b != null) {
-            this.b.g();
-        }
-        this.a.Z = null;
-        nVar = this.a.n;
-        nVar.e(false);
-        super.cancel(true);
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // android.os.AsyncTask
-    /* renamed from: a */
-    public void onPostExecute(String str) {
-        com.baidu.tieba.b.n nVar;
-        super.onPostExecute(str);
-        this.a.Z = null;
-        nVar = this.a.n;
-        nVar.e(false);
-        if (this.b == null) {
-            return;
-        }
-        if (str == null) {
-            this.a.b(this.a.getString(R.string.success));
-        } else {
-            this.a.b(str);
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        switch (view.getId()) {
+            case R.id.commit_top /* 2131231273 */:
+                this.a.f(3);
+                return;
+            case R.id.cancel_top /* 2131231274 */:
+                this.a.f(4);
+                return;
+            case R.id.commit_good /* 2131231275 */:
+                this.a.f(5);
+                return;
+            case R.id.line3 /* 2131231276 */:
+            default:
+                return;
+            case R.id.cancel_good /* 2131231277 */:
+                this.a.f(2);
+                return;
         }
     }
 }

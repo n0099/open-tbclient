@@ -20,30 +20,29 @@ public class e implements View.OnClickListener {
         com.baidu.tieba.c.a aVar2;
         l lVar;
         if (((com.baidu.tieba.view.q) view).a()) {
-            aVar = this.a.q;
+            aVar = this.a.r;
             aVar.b();
-            if (view.getTag() == null || !(view.getTag() instanceof String)) {
-                return;
-            }
-            aVar2 = this.a.q;
-            Bitmap a = aVar2.a((String) view.getTag(), new f(this));
-            MainTabActivity mainTabActivity = null;
-            if (this.a.getParent() != null && this.a.getParent().getParent() != null) {
-                Activity parent = this.a.getParent().getParent();
-                if (parent instanceof MainTabActivity) {
-                    mainTabActivity = (MainTabActivity) parent;
+            if (view.getTag() != null && (view.getTag() instanceof String)) {
+                aVar2 = this.a.r;
+                Bitmap a = aVar2.a((String) view.getTag(), new f(this));
+                MainTabActivity mainTabActivity = null;
+                if (this.a.getParent() != null && this.a.getParent().getParent() != null) {
+                    Activity parent = this.a.getParent().getParent();
+                    if (parent instanceof MainTabActivity) {
+                        mainTabActivity = (MainTabActivity) parent;
+                    }
                 }
-            }
-            if (a != null && mainTabActivity != null) {
+                if (a == null || mainTabActivity == null) {
+                    lVar = this.a.j;
+                    Bitmap c = lVar.a().c(String.valueOf((String) view.getTag()) + "_small");
+                    if (c != null && mainTabActivity != null) {
+                        mainTabActivity.a(c, true);
+                        return;
+                    }
+                    return;
+                }
                 mainTabActivity.a(a, false);
-                return;
             }
-            lVar = this.a.i;
-            Bitmap c = lVar.a().c(String.valueOf((String) view.getTag()) + "_small");
-            if (c == null || mainTabActivity == null) {
-                return;
-            }
-            mainTabActivity.a(c, true);
         }
     }
 }

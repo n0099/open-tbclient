@@ -11,6 +11,18 @@ public class BetterSkin extends GlobalFilter {
     private Bitmap mPerformedBitmap;
 
     @Override // cn.jingling.lib.filters.GlobalFilter
+    public void setup(Context context, Bitmap bitmap) {
+        super.setup(context, bitmap);
+        int width = bitmap.getWidth();
+        int height = bitmap.getHeight();
+        int[] iArr = new int[width * height];
+        bitmap.getPixels(iArr, 0, width, 0, 0, width, height);
+        CMTProcessor.brightEffect(iArr, width, height, WHITE_DEGREE);
+        CMTProcessor.fastAverageBlurWithThreshold(iArr, width, height, 5, 10);
+        this.mPerformedBitmap = Bitmap.createBitmap(iArr, width, height, bitmap.getConfig());
+    }
+
+    @Override // cn.jingling.lib.filters.GlobalFilter
     public Bitmap apply(Context context, int i) {
         return ImageProcessUtils.mergeBitmap(this.mPerformedBitmap, this.mOriginalBitmap, i / 100.0d);
     }
@@ -22,17 +34,5 @@ public class BetterSkin extends GlobalFilter {
             this.mPerformedBitmap.recycle();
             this.mPerformedBitmap = null;
         }
-    }
-
-    @Override // cn.jingling.lib.filters.GlobalFilter
-    public void setup(Context context, Bitmap bitmap) {
-        super.setup(context, bitmap);
-        int width = bitmap.getWidth();
-        int height = bitmap.getHeight();
-        int[] iArr = new int[width * height];
-        bitmap.getPixels(iArr, 0, width, 0, 0, width, height);
-        CMTProcessor.brightEffect(iArr, width, height, WHITE_DEGREE);
-        CMTProcessor.fastAverageBlurWithThreshold(iArr, width, height, 5, 10);
-        this.mPerformedBitmap = Bitmap.createBitmap(iArr, width, height, bitmap.getConfig());
     }
 }

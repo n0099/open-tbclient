@@ -1,110 +1,89 @@
 package com.baidu.tieba.pb;
 
-import android.content.Intent;
-import android.view.View;
-import android.view.animation.AlphaAnimation;
-import android.widget.Button;
-import android.widget.LinearLayout;
-import android.widget.ProgressBar;
-import com.baidu.tieba.R;
-import com.baidu.tieba.view.MultiImageView;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.zeus.WebChromeClient;
+import java.util.ArrayList;
 /* loaded from: classes.dex */
-public class d implements View.OnClickListener {
-    final /* synthetic */ ImageActivity a;
+public class d {
+    private ArrayList a;
+    private String d;
+    private String e;
+    private String f;
+    private boolean k;
+    private String b = null;
+    private String c = null;
+    private boolean g = false;
+    private e h = null;
+    private int i = 0;
+    private boolean j = false;
+    private f l = null;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public d(ImageActivity imageActivity) {
-        this.a = imageActivity;
+    public d(ArrayList arrayList, String str, String str2, String str3) {
+        this.a = null;
+        this.d = null;
+        this.e = null;
+        this.f = null;
+        this.k = false;
+        this.a = arrayList;
+        if (this.a == null) {
+            this.a = new ArrayList();
+        }
+        this.d = str2;
+        this.e = str;
+        this.f = str3;
+        if (this.f == null) {
+            this.k = true;
+        }
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        Button button;
-        Button button2;
-        boolean z;
-        LinearLayout linearLayout;
-        MultiImageView multiImageView;
-        AlphaAnimation alphaAnimation;
-        AlphaAnimation alphaAnimation2;
-        AlphaAnimation alphaAnimation3;
-        LinearLayout linearLayout2;
-        AlphaAnimation alphaAnimation4;
-        LinearLayout linearLayout3;
-        MultiImageView multiImageView2;
-        LinearLayout linearLayout4;
-        MultiImageView multiImageView3;
-        MultiImageView multiImageView4;
-        i iVar;
-        Button button3;
-        ProgressBar progressBar;
-        LinearLayout linearLayout5;
-        int i;
-        button = this.a.j;
-        if (view == button) {
-            linearLayout5 = this.a.l;
-            if (linearLayout5.getVisibility() == 8) {
+    public void a() {
+        if (!this.g && !this.k) {
+            a(this.d, this.f, 10, 0);
+        }
+    }
+
+    public void b() {
+        if (!this.k) {
+            if (!this.g) {
+                a();
+            } else if (this.b != null && this.b.length() > 0) {
+                a(this.b, null, 0, 10);
+            }
+        }
+    }
+
+    private void a(String str, String str2, int i, int i2) {
+        if (this.h != null) {
+            if (str2 == null || !str2.equals(this.h.a())) {
+                this.h.b();
+            } else {
                 return;
             }
-            Intent intent = new Intent();
-            i = this.a.d;
-            intent.putExtra("index", i);
-            this.a.setResult(-1, intent);
-            this.a.finish();
-            return;
         }
-        button2 = this.a.i;
-        if (view == button2) {
-            linearLayout4 = this.a.l;
-            if (linearLayout4.getVisibility() != 8) {
-                try {
-                    multiImageView3 = this.a.m;
-                    byte[] currentImageData = multiImageView3.getCurrentImageData();
-                    if (currentImageData != null) {
-                        multiImageView4 = this.a.m;
-                        String currentImageUrl = multiImageView4.getCurrentImageUrl();
-                        this.a.h = new i(this.a, currentImageUrl, currentImageData);
-                        iVar = this.a.h;
-                        iVar.execute(new String[0]);
-                        button3 = this.a.i;
-                        button3.setVisibility(4);
-                        progressBar = this.a.b;
-                        progressBar.setVisibility(0);
-                    } else {
-                        this.a.b(this.a.getString(R.string.no_data));
-                    }
-                    return;
-                } catch (Exception e) {
-                    return;
-                }
-            }
-            return;
+        this.h = new e(this, str, str2, i, i2);
+        this.h.execute(new Object[0]);
+    }
+
+    public void a(f fVar) {
+        this.l = fVar;
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public String a(com.baidu.tieba.a.u uVar) {
+        StringBuffer stringBuffer = new StringBuffer((int) WebChromeClient.STRING_DLG_BTN_SET);
+        if (uVar.g() * uVar.f() > com.baidu.tieba.a.i.g() * com.baidu.tieba.a.i.g()) {
+            double sqrt = Math.sqrt((com.baidu.tieba.a.i.g() * com.baidu.tieba.a.i.g()) / (uVar.g() * uVar.f()));
+            stringBuffer.append("width=");
+            stringBuffer.append(String.valueOf((int) (uVar.f() * sqrt)));
+            stringBuffer.append("&height=");
+            stringBuffer.append(String.valueOf((int) (sqrt * uVar.g())));
+        } else {
+            stringBuffer.append("width=");
+            stringBuffer.append(String.valueOf(uVar.f()));
+            stringBuffer.append("&height=");
+            stringBuffer.append(String.valueOf(uVar.g()));
         }
-        z = this.a.r;
-        if (z) {
-            linearLayout = this.a.l;
-            if (linearLayout.getVisibility() != 0) {
-                linearLayout3 = this.a.l;
-                linearLayout3.setVisibility(0);
-                multiImageView2 = this.a.m;
-                multiImageView2.d();
-                this.a.q = new AlphaAnimation(0.0f, 1.0f);
-            } else {
-                this.a.q = new AlphaAnimation(1.0f, 0.0f);
-                this.a.s = true;
-                multiImageView = this.a.m;
-                multiImageView.e();
-            }
-            alphaAnimation = this.a.q;
-            alphaAnimation.setDuration(300L);
-            alphaAnimation2 = this.a.q;
-            alphaAnimation2.setFillAfter(true);
-            alphaAnimation3 = this.a.q;
-            alphaAnimation3.setAnimationListener(new e(this));
-            this.a.r = false;
-            linearLayout2 = this.a.l;
-            alphaAnimation4 = this.a.q;
-            linearLayout2.startAnimation(alphaAnimation4);
-        }
+        stringBuffer.append("&src=");
+        stringBuffer.append(com.baidu.tieba.c.af.f(uVar.b()));
+        return stringBuffer.toString();
     }
 }

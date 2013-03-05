@@ -24,20 +24,20 @@ class k implements TextWatcher {
         int i3;
         RelativeLayout relativeLayout2;
         if (editable.length() == 6) {
-            relativeLayout2 = this.a.k;
+            relativeLayout2 = this.a.l;
             relativeLayout2.setEnabled(true);
         } else {
-            relativeLayout = this.a.k;
+            relativeLayout = this.a.l;
             relativeLayout.setEnabled(false);
         }
-        i = this.a.u;
+        i = this.a.A;
         if (i != 0) {
-            this.a.u = 0;
-            linearLayout = this.a.d;
+            this.a.A = 0;
+            linearLayout = this.a.e;
             linearLayout.setBackgroundResource(R.drawable.pass_input);
-            linearLayout2 = this.a.d;
-            i2 = this.a.s;
-            i3 = this.a.t;
+            linearLayout2 = this.a.e;
+            i2 = this.a.y;
+            i3 = this.a.z;
             linearLayout2.setPadding(i2, 0, i3, 0);
         }
     }

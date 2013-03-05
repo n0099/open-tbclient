@@ -17,11 +17,11 @@ public class r {
         }
     }
 
-    public static int a(View view) {
-        return a.a(view);
-    }
-
     public static boolean a(View view, int i) {
         return a.a(view, i);
+    }
+
+    public static int a(View view) {
+        return a.a(view);
     }
 }

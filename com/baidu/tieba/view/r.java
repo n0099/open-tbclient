@@ -1,6 +1,7 @@
 package com.baidu.tieba.view;
 
 import android.graphics.Bitmap;
+import com.baidu.zeus.bouncycastle.DERTags;
 import java.io.InputStream;
 import java.util.Vector;
 /* loaded from: classes.dex */
@@ -54,6 +55,10 @@ public class r {
         this.Q = i;
     }
 
+    public boolean a() {
+        return this.P;
+    }
+
     public int a(int i) {
         this.G = -1;
         if (i >= 0 && i < this.N) {
@@ -62,52 +67,8 @@ public class r {
         return this.G;
     }
 
-    public int a(InputStream inputStream) {
-        if (this.P) {
-            return 4;
-        }
-        f();
-        if (inputStream != null) {
-            this.a = inputStream;
-            k();
-            if (!e()) {
-                i();
-                com.baidu.tieba.c.ae.a(getClass().getName(), "read", "gif mem ==" + String.valueOf(this.O / 1024.0f) + "k");
-                if (this.O >= this.Q) {
-                    return 3;
-                }
-                if (this.N < 0) {
-                    this.b = 1;
-                }
-            }
-        } else {
-            this.b = 2;
-        }
-        if (inputStream != null) {
-            try {
-                inputStream.close();
-            } catch (Exception e) {
-            }
-        }
-        if (this.P) {
-            return 4;
-        }
-        return this.b;
-    }
-
-    public boolean a() {
-        return this.P;
-    }
-
     public int b() {
         return this.N;
-    }
-
-    public Bitmap b(int i) {
-        if (this.N <= 0) {
-            return null;
-        }
-        return ((s) this.M.elementAt(i % this.N)).a;
     }
 
     protected void c() {
@@ -188,30 +149,44 @@ public class r {
         this.z = Bitmap.createBitmap(iArr, this.c, this.d, Bitmap.Config.ARGB_4444);
     }
 
-    protected int[] c(int i) {
-        int i2;
-        int i3 = i * 3;
-        int[] iArr = null;
-        byte[] bArr = new byte[i3];
-        try {
-            i2 = this.a.read(bArr);
-        } catch (Exception e) {
-            e.printStackTrace();
-            i2 = 0;
+    public Bitmap b(int i) {
+        if (this.N <= 0) {
+            return null;
         }
-        if (i2 < i3) {
-            this.b = 1;
+        return ((s) this.M.elementAt(i % this.N)).a;
+    }
+
+    public int a(InputStream inputStream) {
+        if (this.P) {
+            return 4;
+        }
+        f();
+        if (inputStream != null) {
+            this.a = inputStream;
+            k();
+            if (!e()) {
+                i();
+                com.baidu.tieba.c.ag.a(getClass().getName(), "read", "gif mem ==" + String.valueOf(this.O / 1024.0f) + "k");
+                if (this.O >= this.Q) {
+                    return 3;
+                }
+                if (this.N < 0) {
+                    this.b = 1;
+                }
+            }
         } else {
-            iArr = new int[256];
-            int i4 = 0;
-            for (int i5 = 0; i5 < i; i5++) {
-                int i6 = i4 + 1;
-                int i7 = i6 + 1;
-                i4 = i7 + 1;
-                iArr[i5] = ((bArr[i4] & 255) << 16) | (-16777216) | ((bArr[i6] & 255) << 8) | (bArr[i7] & 255);
+            this.b = 2;
+        }
+        if (inputStream != null) {
+            try {
+                inputStream.close();
+            } catch (Exception e) {
             }
         }
-        return iArr;
+        if (this.P) {
+            return 4;
+        }
+        return this.b;
     }
 
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:79:0x00df */
@@ -270,7 +245,19 @@ public class r {
                 i6 = i20;
                 i7 = i24;
                 i8 = i13;
-            } else if (i23 >= i14) {
+            } else if (i23 < i14) {
+                if (i22 == 0) {
+                    i22 = h();
+                    if (i22 <= 0) {
+                        break;
+                    }
+                    i25 = 0;
+                }
+                i20 += (this.B[i25] & 255) << i23;
+                i23 += 8;
+                i25++;
+                i22--;
+            } else {
                 int i26 = i20 & i15;
                 i20 >>= i14;
                 i23 -= i14;
@@ -281,7 +268,12 @@ public class r {
                     i15 = (1 << i14) - 1;
                     i13 = i11 + 2;
                     i24 = -1;
-                } else if (i24 != -1) {
+                } else if (i24 == -1) {
+                    this.K[i18] = this.J[i26];
+                    i18++;
+                    i24 = i26;
+                    i19 = i26;
+                } else {
                     if (i26 == i13) {
                         i9 = i18 + 1;
                         this.K[i18] = (byte) i19;
@@ -315,24 +307,7 @@ public class r {
                     i3 = i23;
                     i4 = i14;
                     i5 = i28;
-                } else {
-                    this.K[i18] = this.J[i26];
-                    i18++;
-                    i24 = i26;
-                    i19 = i26;
                 }
-            } else {
-                if (i22 == 0) {
-                    i22 = h();
-                    if (i22 <= 0) {
-                        break;
-                    }
-                    i25 = 0;
-                }
-                i20 += (this.B[i25] & 255) << i23;
-                i23 += 8;
-                i25++;
-                i22--;
             }
             int i29 = i5 - 1;
             this.L[i17] = this.K[i29];
@@ -395,6 +370,32 @@ public class r {
             }
         }
         return i;
+    }
+
+    protected int[] c(int i) {
+        int i2;
+        int i3 = i * 3;
+        int[] iArr = null;
+        byte[] bArr = new byte[i3];
+        try {
+            i2 = this.a.read(bArr);
+        } catch (Exception e) {
+            e.printStackTrace();
+            i2 = 0;
+        }
+        if (i2 < i3) {
+            this.b = 1;
+        } else {
+            iArr = new int[256];
+            int i4 = 0;
+            for (int i5 = 0; i5 < i; i5++) {
+                int i6 = i4 + 1;
+                int i7 = i6 + 1;
+                i4 = i7 + 1;
+                iArr[i5] = ((bArr[i4] & 255) << 16) | (-16777216) | ((bArr[i6] & 255) << 8) | (bArr[i7] & 255);
+            }
+        }
+        return iArr;
     }
 
     protected void i() {
@@ -471,11 +472,10 @@ public class r {
             return;
         }
         m();
-        if (!this.e || e()) {
-            return;
+        if (this.e && !e()) {
+            this.h = c(this.f);
+            this.l = this.h[this.k];
         }
-        this.h = c(this.f);
-        this.l = this.h[this.k];
     }
 
     protected void l() {
@@ -485,7 +485,7 @@ public class r {
         this.t = o();
         this.u = o();
         int g = g();
-        this.o = (g & 128) != 0;
+        this.o = (g & DERTags.TAGGED) != 0;
         this.q = (int) Math.pow(2.0d, (g & 7) + 1);
         this.p = (g & 64) != 0;
         if (this.o) {
@@ -505,30 +505,28 @@ public class r {
         if (this.j == null) {
             this.b = 1;
         }
-        if (e()) {
-            return;
+        if (!e()) {
+            d();
+            q();
+            if (!e()) {
+                this.N++;
+                this.z = Bitmap.createBitmap(this.c, this.d, Bitmap.Config.ARGB_4444);
+                c();
+                this.M.addElement(new s(this.z, this.G));
+                this.O += this.c * this.d * 2;
+                if (this.F) {
+                    this.j[this.H] = i;
+                }
+                p();
+            }
         }
-        d();
-        q();
-        if (e()) {
-            return;
-        }
-        this.N++;
-        this.z = Bitmap.createBitmap(this.c, this.d, Bitmap.Config.ARGB_4444);
-        c();
-        this.M.addElement(new s(this.z, this.G));
-        this.O += this.c * this.d * 2;
-        if (this.F) {
-            this.j[this.H] = i;
-        }
-        p();
     }
 
     protected void m() {
         this.c = o();
         this.d = o();
         int g = g();
-        this.e = (g & 128) != 0;
+        this.e = (g & DERTags.TAGGED) != 0;
         this.f = 2 << (g & 7);
         this.k = g();
         this.n = g();
@@ -576,17 +574,17 @@ public class r {
     /* JADX INFO: Access modifiers changed from: protected */
     public void r() {
         this.P = true;
-        if (this.M == null) {
-            return;
-        }
-        int i = 0;
-        while (true) {
-            int i2 = i;
-            if (i2 >= this.M.size()) {
-                return;
+        if (this.M != null) {
+            int i = 0;
+            while (true) {
+                int i2 = i;
+                if (i2 < this.M.size()) {
+                    ((s) this.M.get(i2)).a = null;
+                    i = i2 + 1;
+                } else {
+                    return;
+                }
             }
-            ((s) this.M.get(i2)).a = null;
-            i = i2 + 1;
         }
     }
 }

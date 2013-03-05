@@ -18,10 +18,9 @@ public class ba extends com.baidu.tieba.c.r {
     @Override // com.baidu.tieba.c.r, android.text.style.ClickableSpan
     public void onClick(View view) {
         bc bcVar;
-        bcVar = this.a.M;
-        if (bcVar != null) {
-            return;
+        bcVar = this.a.R;
+        if (bcVar == null) {
+            a().startActivity(new Intent(a(), ProtocolActivity.class));
         }
-        a().startActivity(new Intent(a(), ProtocolActivity.class));
     }
 }

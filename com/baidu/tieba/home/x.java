@@ -1,50 +1,99 @@
 package com.baidu.tieba.home;
 
 import android.os.AsyncTask;
+import android.widget.ProgressBar;
+import com.baidu.tieba.TiebaApplication;
+import java.util.ArrayList;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class x extends AsyncTask {
-    final /* synthetic */ MarkActivity a;
+    ArrayList a;
+    final /* synthetic */ HomeActivity b;
+    private com.baidu.tieba.c.t c = null;
+    private String d;
 
-    private x(MarkActivity markActivity) {
-        this.a = markActivity;
+    public x(HomeActivity homeActivity, String str, ArrayList arrayList) {
+        this.b = homeActivity;
+        this.d = null;
+        this.a = null;
+        this.d = str;
+        this.a = arrayList;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ x(MarkActivity markActivity, x xVar) {
-        this(markActivity);
+    @Override // android.os.AsyncTask
+    protected void onPreExecute() {
+        ProgressBar progressBar;
+        progressBar = this.b.k;
+        progressBar.setVisibility(0);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.os.AsyncTask
     /* renamed from: a */
-    public com.baidu.tieba.b.h doInBackground(Object... objArr) {
-        com.baidu.tieba.b.h hVar = new com.baidu.tieba.b.h();
+    public com.baidu.tieba.b.f doInBackground(Object... objArr) {
+        com.baidu.tieba.b.f fVar;
+        Exception e;
+        Boolean bool;
         try {
-            hVar.b();
-        } catch (Exception e) {
-            com.baidu.tieba.c.ae.b(getClass().getName(), "", "PbAsyncTask.doInBackground error = " + e.getMessage());
+            this.c = new com.baidu.tieba.c.t(this.d);
+            this.c.a(this.a);
+            String i = this.c.i();
+            if (!this.c.b() || i == null) {
+                return null;
+            }
+            fVar = new com.baidu.tieba.b.f();
+            try {
+                fVar.a(i);
+                if (fVar.a()) {
+                    this.b.t = Boolean.valueOf(fVar.b() == 1);
+                    bool = this.b.t;
+                    if (bool.booleanValue()) {
+                        com.baidu.tieba.c.k.d(i);
+                    } else {
+                        com.baidu.tieba.c.k.a(i, "0");
+                    }
+                } else {
+                    fVar = null;
+                }
+                return fVar;
+            } catch (Exception e2) {
+                e = e2;
+                com.baidu.tieba.c.ag.b(getClass().getName(), "", "doInBackground error = " + e.getMessage());
+                return fVar;
+            }
+        } catch (Exception e3) {
+            fVar = null;
+            e = e3;
         }
-        return hVar;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // android.os.AsyncTask
+    /* renamed from: a */
+    public void onPostExecute(com.baidu.tieba.b.f fVar) {
+        ProgressBar progressBar;
+        progressBar = this.b.k;
+        progressBar.setVisibility(8);
+        if (fVar != null) {
+            this.b.n = fVar;
+            TiebaApplication.b().g(false);
+            this.b.n();
+        } else if (this.c != null) {
+            this.b.b(this.c.f());
+        }
+        this.b.m = null;
     }
 
     public void a() {
-        super.cancel(true);
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // android.os.AsyncTask
-    /* renamed from: a */
-    public void onPostExecute(com.baidu.tieba.b.h hVar) {
-        if (hVar == null) {
-            this.a.b("");
-        } else {
-            this.a.f = hVar;
-            this.a.k();
-            System.gc();
+        ProgressBar progressBar;
+        if (this.c != null) {
+            this.c.g();
+            this.c = null;
         }
-        this.a.e = null;
+        progressBar = this.b.k;
+        progressBar.setVisibility(8);
+        super.cancel(true);
     }
 }

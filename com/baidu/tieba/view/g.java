@@ -33,40 +33,39 @@ public class g extends Thread {
             fVar.B = new r(i);
             rVar = this.a.B;
             bArr = this.a.m;
-            if (rVar.a(new ByteArrayInputStream(bArr)) != 0) {
-                return;
-            }
-            rVar2 = this.a.B;
-            if (rVar2.c != 0) {
-                rVar5 = this.a.B;
-                if (rVar5.d != 0) {
-                    this.a.A = 1;
-                    rVar3 = this.a.B;
-                    if (!rVar3.e()) {
-                        this.a.postInvalidate();
-                    }
-                    this.a.E = System.currentTimeMillis();
-                    this.a.a = 2;
-                    z = this.a.G;
-                    if (z) {
+            if (rVar.a(new ByteArrayInputStream(bArr)) == 0) {
+                rVar2 = this.a.B;
+                if (rVar2.c != 0) {
+                    rVar5 = this.a.B;
+                    if (rVar5.d != 0) {
+                        this.a.A = 1;
+                        rVar3 = this.a.B;
+                        if (!rVar3.e()) {
+                            this.a.postInvalidate();
+                        }
+                        this.a.E = System.currentTimeMillis();
+                        this.a.a = 2;
+                        z = this.a.G;
+                        if (!z) {
+                            rVar4 = this.a.B;
+                            if (!rVar4.a()) {
+                                this.a.postInvalidate();
+                                return;
+                            }
+                            return;
+                        }
                         return;
                     }
-                    rVar4 = this.a.B;
-                    if (rVar4.a()) {
-                        return;
-                    }
-                    this.a.postInvalidate();
-                    return;
                 }
-            }
-            this.a.A = 0;
-            rVar3 = this.a.B;
-            if (!rVar3.e()) {
-            }
-            this.a.E = System.currentTimeMillis();
-            this.a.a = 2;
-            z = this.a.G;
-            if (z) {
+                this.a.A = 0;
+                rVar3 = this.a.B;
+                if (!rVar3.e()) {
+                }
+                this.a.E = System.currentTimeMillis();
+                this.a.a = 2;
+                z = this.a.G;
+                if (!z) {
+                }
             }
         } catch (Exception e) {
             this.a.a = 0;

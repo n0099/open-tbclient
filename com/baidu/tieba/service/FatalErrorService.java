@@ -5,7 +5,7 @@ import android.content.Intent;
 import android.os.IBinder;
 /* loaded from: classes.dex */
 public class FatalErrorService extends Service {
-    private c a = null;
+    private d a = null;
 
     @Override // android.app.Service
     public IBinder onBind(Intent intent) {
@@ -29,7 +29,7 @@ public class FatalErrorService extends Service {
     public void onStart(Intent intent, int i) {
         super.onStart(intent, i);
         if (this.a == null) {
-            this.a = new c(this, null);
+            this.a = new d(this, null);
             this.a.execute(new String[0]);
         }
     }

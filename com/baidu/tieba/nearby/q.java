@@ -1,29 +1,25 @@
 package com.baidu.tieba.nearby;
 
-import android.graphics.Bitmap;
-import android.view.View;
-import android.widget.ListView;
+import android.content.DialogInterface;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class q implements com.baidu.tieba.c.d {
-    final /* synthetic */ p a;
+public class q implements DialogInterface.OnCancelListener {
+    final /* synthetic */ NearbyPbActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public q(p pVar) {
-        this.a = pVar;
+    public q(NearbyPbActivity nearbyPbActivity) {
+        this.a = nearbyPbActivity;
     }
 
-    @Override // com.baidu.tieba.c.d
-    public void a(Bitmap bitmap, String str, boolean z) {
-        NearbyListActivity nearbyListActivity;
-        ListView listView;
-        if (bitmap == null) {
-            return;
-        }
-        nearbyListActivity = this.a.a;
-        listView = nearbyListActivity.b;
-        View findViewWithTag = listView.findViewWithTag(str);
-        if (findViewWithTag != null) {
-            findViewWithTag.invalidate();
+    @Override // android.content.DialogInterface.OnCancelListener
+    public void onCancel(DialogInterface dialogInterface) {
+        ae aeVar;
+        ae aeVar2;
+        this.a.c();
+        aeVar = this.a.l;
+        if (aeVar != null) {
+            aeVar2 = this.a.l;
+            aeVar2.a();
         }
     }
 }

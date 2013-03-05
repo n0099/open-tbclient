@@ -1,55 +1,34 @@
 package com.baidu.tieba.pb;
 
-import android.graphics.Bitmap;
-import android.text.Editable;
-import android.text.SpannableStringBuilder;
-import android.text.style.ImageSpan;
-import android.view.View;
-import android.widget.AdapterView;
-import android.widget.EditText;
-import com.baidu.tieba.R;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
 /* loaded from: classes.dex */
-public class l implements AdapterView.OnItemClickListener {
-    final /* synthetic */ ImagePbActivity a;
-    private final /* synthetic */ com.baidu.tieba.write.m b;
+class l extends BroadcastReceiver {
+    final /* synthetic */ ImageActivity a;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public l(ImagePbActivity imagePbActivity, com.baidu.tieba.write.m mVar) {
-        this.a = imagePbActivity;
-        this.b = mVar;
+    private l(ImageActivity imageActivity) {
+        this.a = imageActivity;
     }
 
-    @Override // android.widget.AdapterView.OnItemClickListener
-    public void onItemClick(AdapterView adapterView, View view, int i, long j) {
-        EditText editText;
-        EditText editText2;
-        boolean m;
-        String a;
-        EditText editText3;
-        EditText editText4;
-        editText = this.a.k;
-        Editable text = editText.getText();
-        editText2 = this.a.k;
-        if (((ImageSpan[]) text.getSpans(0, editText2.getText().length(), ImageSpan.class)).length >= 10) {
-            this.a.b(this.a.getString(R.string.too_many_face));
-            return;
-        }
-        m = this.a.m();
-        if (m || (a = this.b.a(i)) == null) {
-            return;
-        }
-        editText3 = this.a.k;
-        int selectionStart = editText3.getSelectionStart();
-        SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(a);
-        Bitmap bitmap = (Bitmap) this.b.getItem(i);
-        if (bitmap != null) {
-            com.baidu.tieba.view.af afVar = new com.baidu.tieba.view.af(bitmap);
-            afVar.setBounds(0, 0, bitmap.getWidth() + 1, bitmap.getHeight());
-            afVar.setGravity(3);
-            spannableStringBuilder.setSpan(new ImageSpan(afVar, 0), 0, spannableStringBuilder.length(), 33);
-            editText4 = this.a.k;
-            editText4.getText().insert(selectionStart, spannableStringBuilder);
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public /* synthetic */ l(ImageActivity imageActivity, l lVar) {
+        this(imageActivity);
+    }
+
+    @Override // android.content.BroadcastReceiver
+    public void onReceive(Context context, Intent intent) {
+        ImageActivity.a(this.a, intent.getBooleanExtra("hasnext", false));
+        ImageActivity.a(this.a, intent.getStringExtra("nexttitle"));
+        ImageActivity.a(this.a, intent.getStringArrayListExtra("url"));
+        ImageActivity.a(this.a, intent.getIntExtra("count", -1));
+        int intExtra = intent.getIntExtra("index", -1);
+        ImageActivity.c(this.a).setUrlData(ImageActivity.d(this.a));
+        ImageActivity.c(this.a).setNextTitle(ImageActivity.e(this.a));
+        ImageActivity.c(this.a).setHasNext(ImageActivity.f(this.a));
+        if (intExtra >= 0) {
+            ImageActivity.b(this.a, intExtra);
+            ImageActivity.c(this.a).a(ImageActivity.g(this.a), false);
         }
     }
 }

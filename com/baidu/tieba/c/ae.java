@@ -1,129 +1,234 @@
 package com.baidu.tieba.c;
 
-import java.io.File;
-import java.io.FileWriter;
-import java.util.Date;
+import android.view.View;
+import android.widget.ListView;
+import android.widget.TextView;
+import com.baidu.tieba.R;
+import com.baidu.tieba.TiebaApplication;
 /* loaded from: classes.dex */
 public class ae {
-    private static int a = 0;
-    private static int b = 0;
-    private static int c = 0;
-    private static int d = 0;
+    private static String a = "skinType not support";
 
-    public static int a(String str, String str2, String str3) {
-        return 0;
-    }
-
-    /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
-    public static void a(int i, String str, String str2, String str3) {
-        FileWriter fileWriter;
-        Throwable th;
-        boolean z = true;
-        FileWriter fileWriter2 = null;
-        switch (i) {
-            case 1:
-                if (a < 10) {
-                    a++;
-                    break;
-                }
-                z = false;
-                break;
-            case 2:
-                if (b < 10) {
-                    b++;
-                    break;
-                }
-                z = false;
-                break;
-            case 3:
-                if (c < 10) {
-                    c++;
-                    break;
-                }
-                z = false;
-                break;
-            case 4:
-                if (d < 10) {
-                    d++;
-                    break;
-                }
-                z = false;
-                break;
-            default:
-                z = false;
-                break;
-        }
-        if (z) {
-            try {
-                StringBuffer stringBuffer = new StringBuffer(100);
-                stringBuffer.append(new Date().getTime() / 1000);
-                stringBuffer.append("\t");
-                stringBuffer.append(i);
-                stringBuffer.append("\t");
-                stringBuffer.append(str2);
-                if (str3 != null) {
-                    stringBuffer.append(":");
-                    stringBuffer.append(str3.replace("\n", " ").replace("\t", " "));
-                }
-                stringBuffer.append("\t");
-                stringBuffer.append(str);
-                stringBuffer.append("\t");
-                stringBuffer.append(0);
-                stringBuffer.append("\n");
-                String stringBuffer2 = stringBuffer.toString();
-                if (z) {
-                    File f = o.f("log_error.log");
-                    if (stringBuffer2 != null && f != null && f.length() < 204800) {
-                        fileWriter = new FileWriter(f, true);
-                        try {
-                            fileWriter.append((CharSequence) stringBuffer2);
-                            fileWriter.flush();
-                            fileWriter2 = fileWriter;
-                        } catch (Exception e) {
-                            fileWriter2 = fileWriter;
-                            if (fileWriter2 != null) {
-                                try {
-                                    fileWriter2.close();
-                                    return;
-                                } catch (Exception e2) {
-                                    e2.printStackTrace();
-                                    return;
-                                }
-                            }
-                            return;
-                        } catch (Throwable th2) {
-                            th = th2;
-                            if (fileWriter != null) {
-                                try {
-                                    fileWriter.close();
-                                } catch (Exception e3) {
-                                    e3.printStackTrace();
-                                }
-                            }
-                            throw th;
-                        }
-                    }
-                }
-            } catch (Exception e4) {
-            } catch (Throwable th3) {
-                fileWriter = null;
-                th = th3;
-            }
-        }
-        if (fileWriter2 != null) {
-            try {
-                fileWriter2.close();
-            } catch (Exception e5) {
-                e5.printStackTrace();
+    public static void a(TextView textView, int i) {
+        if (textView != null) {
+            TiebaApplication b = TiebaApplication.b();
+            if (i == 1) {
+                textView.setTextColor(b.getResources().getColor(R.color.skin_1_common_button_color));
+            } else {
+                textView.setTextColor(b.getResources().getColor(R.color.white));
             }
         }
     }
 
-    public static int b(String str, String str2, String str3) {
-        return 0;
+    public static void b(TextView textView, int i) {
+        if (textView != null) {
+            TiebaApplication b = TiebaApplication.b();
+            if (i == 1) {
+                textView.setTextColor(b.getResources().getColor(R.color.skin_1_common_color));
+            } else {
+                textView.setTextColor(b.getResources().getColor(R.color.black));
+            }
+        }
     }
 
-    public static int c(String str, String str2, String str3) {
-        return 0;
+    public static void a(View view, int i) {
+        if (view != null) {
+            TiebaApplication b = TiebaApplication.b();
+            if (i == 1) {
+                view.setBackgroundColor(b.getResources().getColor(R.color.skin_1_common_bg));
+            } else {
+                view.setBackgroundColor(b.getResources().getColor(R.color.backgroundcolor));
+            }
+        }
+    }
+
+    public static void b(View view, int i) {
+        if (view != null) {
+            TiebaApplication b = TiebaApplication.b();
+            if (i == 1) {
+                view.setBackgroundColor(b.getResources().getColor(R.color.skin_1_common_bg));
+            } else {
+                view.setBackgroundColor(b.getResources().getColor(R.color.login_bg_color));
+            }
+        }
+    }
+
+    public static void c(TextView textView, int i) {
+        if (textView != null) {
+            TiebaApplication b = TiebaApplication.b();
+            if (i == 1) {
+                textView.setTextColor(b.getResources().getColor(R.color.skin_1_common_color));
+            } else {
+                textView.setTextColor(b.getResources().getColor(R.color.white));
+            }
+        }
+    }
+
+    public static void c(View view, int i) {
+        if (view != null) {
+            int paddingLeft = view.getPaddingLeft();
+            int paddingRight = view.getPaddingRight();
+            int paddingTop = view.getPaddingTop();
+            int paddingBottom = view.getPaddingBottom();
+            if (i == 1) {
+                view.setBackgroundResource(R.drawable.title_bg_1);
+            } else {
+                view.setBackgroundResource(R.drawable.title_bg);
+            }
+            view.setPadding(paddingLeft, paddingTop, paddingRight, paddingBottom);
+        }
+    }
+
+    public static void d(TextView textView, int i) {
+        if (textView != null) {
+            if (i == 1) {
+                textView.setBackgroundResource(R.drawable.title_comm_1);
+            } else {
+                textView.setBackgroundResource(R.drawable.title_comm);
+            }
+        }
+        c(textView, i);
+    }
+
+    public static void e(TextView textView, int i) {
+        if (textView != null) {
+            if (i == 1) {
+                textView.setBackgroundResource(R.drawable.title_back_1);
+            } else {
+                textView.setBackgroundResource(R.drawable.title_back);
+            }
+            c(textView, i);
+        }
+    }
+
+    public static void d(View view, int i) {
+        if (view != null) {
+            if (i == 1) {
+                view.setBackgroundResource(R.drawable.home_radio_button_1);
+            } else {
+                view.setBackgroundResource(R.drawable.home_radio_button);
+            }
+        }
+    }
+
+    public static void e(View view, int i) {
+        if (view != null) {
+            if (i == 1) {
+                view.setBackgroundResource(R.drawable.title_refresh_1);
+            } else {
+                view.setBackgroundResource(R.drawable.title_refresh);
+            }
+        }
+    }
+
+    public static void f(View view, int i) {
+        if (view != null) {
+            if (i == 1) {
+                view.setBackgroundResource(R.drawable.title_search_1);
+            } else {
+                view.setBackgroundResource(R.drawable.title_search);
+            }
+        }
+    }
+
+    public static void g(View view, int i) {
+        if (view != null) {
+            if (i == 1) {
+                view.setBackgroundResource(R.drawable.title_login_1);
+            } else {
+                view.setBackgroundResource(R.drawable.title_login);
+            }
+        }
+    }
+
+    public static void h(View view, int i) {
+        if (view != null) {
+            if (i == 1) {
+                view.setBackgroundResource(R.drawable.title_home_1);
+            } else {
+                view.setBackgroundResource(R.drawable.title_home);
+            }
+        }
+    }
+
+    public static int a(int i) {
+        if (i == 1) {
+            return TiebaApplication.b().getResources().getColor(R.color.skin_1_common_color);
+        }
+        throw new IllegalArgumentException(a);
+    }
+
+    public static int b(int i) {
+        if (i == 1) {
+            return TiebaApplication.b().getResources().getColor(R.color.skin_1_second_common_color);
+        }
+        throw new IllegalArgumentException(a);
+    }
+
+    public static int c(int i) {
+        if (i == 1) {
+            return TiebaApplication.b().getResources().getColor(R.color.skin_1_third_common_color);
+        }
+        throw new IllegalArgumentException(a);
+    }
+
+    public static int d(int i) {
+        TiebaApplication b = TiebaApplication.b();
+        return i == 1 ? b.getResources().getColor(R.color.skin_1_common_bg) : b.getResources().getColor(R.color.backgroundcolor);
+    }
+
+    public static void i(View view, int i) {
+        if (view != null) {
+            int paddingLeft = view.getPaddingLeft();
+            int paddingRight = view.getPaddingRight();
+            int paddingTop = view.getPaddingTop();
+            int paddingBottom = view.getPaddingBottom();
+            view.setBackgroundResource(i);
+            if (paddingLeft != 0 || paddingRight != 0 || paddingTop != 0 || paddingBottom != 0) {
+                view.setPadding(paddingLeft, paddingTop, paddingRight, paddingBottom);
+            }
+        }
+    }
+
+    public static void a(ListView listView, int i) {
+        if (listView != null) {
+            if (i == 1) {
+                listView.setSelector(R.drawable.list_selector_1);
+            } else {
+                listView.setSelector(R.drawable.list_selector);
+            }
+        }
+    }
+
+    public static void b(ListView listView, int i) {
+        if (listView != null) {
+            TiebaApplication b = TiebaApplication.b();
+            if (i == 1) {
+                listView.setBackgroundColor(b.getResources().getColor(R.color.skin_1_common_bg));
+                listView.setCacheColorHint(b.getResources().getColor(17170445));
+                listView.setDivider(b.getResources().getDrawable(R.drawable.list_divider_1));
+                listView.setSelector(R.drawable.list_selector_1);
+                return;
+            }
+            listView.setBackgroundColor(b.getResources().getColor(R.color.backgroundcolor));
+            listView.setCacheColorHint(b.getResources().getColor(17170445));
+            listView.setDivider(b.getResources().getDrawable(R.drawable.list_divider));
+            listView.setSelector(R.drawable.list_selector);
+        }
+    }
+
+    public static void c(ListView listView, int i) {
+        if (listView != null) {
+            TiebaApplication b = TiebaApplication.b();
+            if (i == 1) {
+                listView.setBackgroundColor(b.getResources().getColor(R.color.skin_1_common_bg));
+                listView.setCacheColorHint(b.getResources().getColor(17170445));
+                listView.setSelector(R.drawable.list_selector_1);
+                return;
+            }
+            listView.setBackgroundColor(b.getResources().getColor(R.color.backgroundcolor));
+            listView.setCacheColorHint(b.getResources().getColor(17170445));
+            listView.setSelector(R.drawable.list_selector);
+        }
     }
 }

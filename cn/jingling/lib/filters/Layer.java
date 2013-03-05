@@ -29,6 +29,18 @@ public class Layer {
         }
     }
 
+    public static int[] getLayerPixels(Context context, String str, int i, int i2, Type type) {
+        return getLayerPixels(context, str, i, i2, type, -1);
+    }
+
+    public static int[] getLayerPixels(Context context, String str, int i, int i2, Type type, int i3) {
+        Bitmap layerImage = getLayerImage(context, str, i, i2, type, i3);
+        int[] iArr = new int[i * i2];
+        layerImage.getPixels(iArr, 0, i, 0, 0, i, i2);
+        layerImage.recycle();
+        return iArr;
+    }
+
     public static Bitmap getLayerImage(Context context, String str, int i, int i2, Type type) {
         try {
             return getLayerImage(context.getAssets().open(str), i, i2, type, -1);
@@ -116,17 +128,5 @@ public class Layer {
             return createBitmap3;
         }
         return bitmap2;
-    }
-
-    public static int[] getLayerPixels(Context context, String str, int i, int i2, Type type) {
-        return getLayerPixels(context, str, i, i2, type, -1);
-    }
-
-    public static int[] getLayerPixels(Context context, String str, int i, int i2, Type type, int i3) {
-        Bitmap layerImage = getLayerImage(context, str, i, i2, type, i3);
-        int[] iArr = new int[i * i2];
-        layerImage.getPixels(iArr, 0, i, 0, 0, i, i2);
-        layerImage.recycle();
-        return iArr;
     }
 }

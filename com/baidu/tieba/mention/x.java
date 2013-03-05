@@ -4,9 +4,9 @@ import android.app.AlertDialog;
 import android.os.AsyncTask;
 import android.widget.ProgressBar;
 import com.baidu.tieba.R;
-import com.baidu.tieba.a.ak;
-import com.baidu.tieba.a.am;
-import com.baidu.tieba.c.ae;
+import com.baidu.tieba.a.ai;
+import com.baidu.tieba.a.al;
+import com.baidu.tieba.c.ag;
 import java.util.ArrayList;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
@@ -24,31 +24,38 @@ public class x extends AsyncTask {
         this.a = arrayList;
     }
 
+    @Override // android.os.AsyncTask
+    protected void onPreExecute() {
+        ProgressBar progressBar;
+        progressBar = this.b.h;
+        progressBar.setVisibility(0);
+    }
+
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.os.AsyncTask
     /* renamed from: a */
-    public ak doInBackground(Object... objArr) {
-        ak akVar = null;
+    public ai doInBackground(Object... objArr) {
+        ai aiVar = null;
         try {
             this.c = new com.baidu.tieba.c.t(this.d);
             this.c.a(this.a);
             String i = this.c.i();
             if (this.c.b()) {
-                ak akVar2 = new ak();
+                ai aiVar2 = new ai();
                 try {
-                    akVar2.a(i);
-                    int size = akVar2.c().size();
+                    aiVar2.a(i);
+                    int size = aiVar2.d().size();
                     for (int i2 = 0; i2 < size; i2++) {
-                        ((am) akVar2.c().get(i2)).c(this.b);
-                        ((am) akVar2.c().get(i2)).a((ArrayList) null);
+                        ((al) aiVar2.d().get(i2)).c(this.b);
+                        ((al) aiVar2.d().get(i2)).a((ArrayList) null);
                     }
-                    return akVar2;
+                    return aiVar2;
                 } catch (Exception e) {
-                    akVar = akVar2;
+                    aiVar = aiVar2;
                     e = e;
-                    ae.b("PostAsyncTask", "doInBackground", "error = " + e.getMessage());
-                    return akVar;
+                    ag.b("PostAsyncTask", "doInBackground", "error = " + e.getMessage());
+                    return aiVar;
                 }
             }
             return null;
@@ -57,29 +64,19 @@ public class x extends AsyncTask {
         }
     }
 
-    public void a() {
-        ProgressBar progressBar;
-        if (this.c != null) {
-            this.c.g();
-        }
-        progressBar = this.b.f;
-        progressBar.setVisibility(8);
-        super.cancel(true);
-    }
-
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.os.AsyncTask
     /* renamed from: a */
-    public void onPostExecute(ak akVar) {
+    public void onPostExecute(ai aiVar) {
         ProgressBar progressBar;
-        com.baidu.tieba.b.n nVar;
+        com.baidu.tieba.b.q qVar;
         try {
-            progressBar = this.b.f;
+            progressBar = this.b.h;
             progressBar.setVisibility(8);
-            if (akVar != null) {
-                nVar = this.b.k;
-                nVar.a(akVar);
+            if (aiVar != null) {
+                qVar = this.b.n;
+                qVar.a(aiVar);
             } else if (this.c != null) {
                 if (this.c.c()) {
                     this.b.b(this.c.f());
@@ -96,10 +93,10 @@ public class x extends AsyncTask {
                     builder.create().show();
                 }
             }
-            this.b.j();
+            this.b.l();
         } catch (Exception e) {
         }
-        this.b.j = null;
+        this.b.m = null;
     }
 
     @Override // android.os.AsyncTask
@@ -107,10 +104,13 @@ public class x extends AsyncTask {
         super.onCancelled();
     }
 
-    @Override // android.os.AsyncTask
-    protected void onPreExecute() {
+    public void a() {
         ProgressBar progressBar;
-        progressBar = this.b.f;
-        progressBar.setVisibility(0);
+        if (this.c != null) {
+            this.c.g();
+        }
+        progressBar = this.b.h;
+        progressBar.setVisibility(8);
+        super.cancel(true);
     }
 }

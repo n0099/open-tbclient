@@ -1,32 +1,75 @@
 package com.baidu.tieba.person;
 
-import android.os.Handler;
-import android.widget.AbsListView;
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.os.AsyncTask;
+import com.baidu.tieba.R;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class aw implements AbsListView.OnScrollListener {
-    final /* synthetic */ PersonListActivity a;
+public class aw extends AsyncTask {
+    final /* synthetic */ PersonChangeActivity a;
+    private com.baidu.tieba.c.t b = null;
+    private com.baidu.tieba.b.r c;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public aw(PersonListActivity personListActivity) {
-        this.a = personListActivity;
+    public aw(PersonChangeActivity personChangeActivity, com.baidu.tieba.b.r rVar) {
+        this.a = personChangeActivity;
+        this.c = null;
+        this.c = rVar;
     }
 
-    @Override // android.widget.AbsListView.OnScrollListener
-    public void onScroll(AbsListView absListView, int i, int i2, int i3) {
-        Handler handler;
-        Runnable runnable;
-        Handler handler2;
-        Runnable runnable2;
-        handler = this.a.g;
-        runnable = this.a.j;
-        handler.removeCallbacks(runnable);
-        handler2 = this.a.g;
-        runnable2 = this.a.j;
-        handler2.postDelayed(runnable2, 300L);
+    public void a() {
+        this.a.C = null;
+        if (this.b != null) {
+            this.b.g();
+        }
+        super.cancel(true);
     }
 
-    @Override // android.widget.AbsListView.OnScrollListener
-    public void onScrollStateChanged(AbsListView absListView, int i) {
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // android.os.AsyncTask
+    /* renamed from: a */
+    public void onPostExecute(String str) {
+        this.a.C = null;
+        this.a.d();
+        if (this.b != null) {
+            if (this.b.b()) {
+                this.a.b(this.a.getString(R.string.success));
+                Intent intent = new Intent();
+                intent.putExtra("data", this.c);
+                this.a.setResult(-1, intent);
+                this.a.finish();
+            } else {
+                this.a.b(this.b.f());
+            }
+        }
+        super.onPostExecute(str);
+    }
+
+    @Override // android.os.AsyncTask
+    protected void onPreExecute() {
+        DialogInterface.OnCancelListener onCancelListener;
+        PersonChangeActivity personChangeActivity = this.a;
+        String string = this.a.getString(R.string.saving);
+        onCancelListener = this.a.E;
+        personChangeActivity.a(string, onCancelListener);
+        super.onPreExecute();
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // android.os.AsyncTask
+    /* renamed from: a */
+    public String doInBackground(String... strArr) {
+        if (this.c != null) {
+            this.b = new com.baidu.tieba.c.t("http://c.tieba.baidu.com/c/c/profile/modify");
+            this.b.a("sex", String.valueOf(this.c.b()));
+            this.b.a("intro", this.c.a());
+            this.b.j();
+            if (this.b.b()) {
+                com.baidu.tieba.c.k.d();
+            }
+        }
+        return null;
     }
 }

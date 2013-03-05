@@ -17,12 +17,11 @@ class c implements com.baidu.tieba.c.d {
         AtListActivity atListActivity;
         ListView listView;
         atListActivity = this.a.a;
-        listView = atListActivity.e;
+        listView = atListActivity.f;
         ImageView imageView = (ImageView) listView.findViewWithTag(str);
-        if (imageView == null || bitmap == null) {
-            return;
+        if (imageView != null && bitmap != null) {
+            imageView.setImageBitmap(bitmap);
+            imageView.setTag(null);
         }
-        imageView.setImageBitmap(bitmap);
-        imageView.setTag(null);
     }
 }

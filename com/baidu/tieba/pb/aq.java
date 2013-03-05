@@ -1,32 +1,34 @@
 package com.baidu.tieba.pb;
 
-import android.os.Handler;
-import android.widget.AbsListView;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.graphics.Bitmap;
+import android.widget.ImageView;
+import android.widget.ListView;
 /* loaded from: classes.dex */
-public class aq implements AbsListView.OnScrollListener {
-    final /* synthetic */ PbActivity a;
+class aq implements com.baidu.tieba.c.d {
+    final /* synthetic */ ao a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public aq(PbActivity pbActivity) {
-        this.a = pbActivity;
+    public aq(ao aoVar) {
+        this.a = aoVar;
     }
 
-    @Override // android.widget.AbsListView.OnScrollListener
-    public void onScroll(AbsListView absListView, int i, int i2, int i3) {
-        Handler handler;
-        Runnable runnable;
-        Handler handler2;
-        Runnable runnable2;
-        handler = this.a.q;
-        runnable = this.a.ar;
-        handler.removeCallbacks(runnable);
-        handler2 = this.a.q;
-        runnable2 = this.a.ar;
-        handler2.postDelayed(runnable2, 300L);
-    }
-
-    @Override // android.widget.AbsListView.OnScrollListener
-    public void onScrollStateChanged(AbsListView absListView, int i) {
+    @Override // com.baidu.tieba.c.d
+    public void a(Bitmap bitmap, String str, boolean z) {
+        PbActivity pbActivity;
+        ListView listView;
+        PbActivity pbActivity2;
+        ListView listView2;
+        if (bitmap != null) {
+            pbActivity = this.a.a;
+            listView = pbActivity.d;
+            ImageView imageView = (ImageView) listView.findViewWithTag(str);
+            while (imageView != null) {
+                imageView.setTag(null);
+                imageView.setImageBitmap(bitmap);
+                pbActivity2 = this.a.a;
+                listView2 = pbActivity2.d;
+                imageView = (ImageView) listView2.findViewWithTag(str);
+            }
+        }
     }
 }

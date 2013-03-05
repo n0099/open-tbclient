@@ -1,18 +1,24 @@
 package com.baidu.tieba.home;
 
-import android.view.View;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.widget.ImageButton;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 /* loaded from: classes.dex */
-public class ag implements View.OnClickListener {
-    final /* synthetic */ SearchActivity a;
+class ag {
+    TextView a;
+    LinearLayout b;
+    TextView c;
+    TextView d;
+    TextView e;
+    ImageButton f;
+    final /* synthetic */ af g;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public ag(SearchActivity searchActivity) {
-        this.a = searchActivity;
+    private ag(af afVar) {
+        this.g = afVar;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        this.a.j();
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public /* synthetic */ ag(af afVar, ag agVar) {
+        this(afVar);
     }
 }

@@ -1,24 +1,34 @@
 package com.baidu.tieba;
 
-import android.os.Handler;
-import android.os.Message;
+import android.os.AsyncTask;
 /* loaded from: classes.dex */
-class j extends Handler {
-    final /* synthetic */ LogoActivity a;
+class j extends AsyncTask {
+    final /* synthetic */ GuideActivity a;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public j(LogoActivity logoActivity) {
-        this.a = logoActivity;
+    private j(GuideActivity guideActivity) {
+        this.a = guideActivity;
     }
 
-    @Override // android.os.Handler
-    public void handleMessage(Message message) {
-        boolean z;
-        this.a.c = true;
-        z = this.a.b;
-        if (z) {
-            this.a.h();
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public /* synthetic */ j(GuideActivity guideActivity, j jVar) {
+        this(guideActivity);
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // android.os.AsyncTask
+    /* renamed from: a */
+    public Boolean doInBackground(String... strArr) {
+        return Boolean.valueOf(GuideActivity.f(this.a));
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // android.os.AsyncTask
+    /* renamed from: a */
+    public void onPostExecute(Boolean bool) {
+        if (!bool.booleanValue()) {
+            GuideActivity.g(this.a);
         }
-        super.handleMessage(message);
     }
 }

@@ -2,36 +2,32 @@ package com.baidu.tieba.a;
 
 import org.json.JSONObject;
 /* loaded from: classes.dex */
-public class z extends c {
-    final /* synthetic */ x a;
+public class z {
+    private int a = 0;
     private String b = null;
-    private String c = null;
-    private int d = 0;
-    private int e = 0;
-    private int f = 0;
+    private y c = new y();
 
-    public z(x xVar) {
-        this.a = xVar;
+    public y a() {
+        return this.c;
     }
 
-    public String a() {
-        return this.b;
-    }
-
-    @Override // com.baidu.tieba.a.c
-    public void a(JSONObject jSONObject) {
+    public void a(String str) {
         try {
-            this.b = jSONObject.optString("name");
-            this.c = jSONObject.optString("id");
-            this.d = jSONObject.optInt("type", 0);
-            this.e = jSONObject.optInt("level", 0);
-            this.f = jSONObject.optInt("is_like", 0);
+            a(new JSONObject(str));
         } catch (Exception e) {
-            com.baidu.tieba.c.ae.b(getClass().getName(), "parserJson", e.getMessage());
+            com.baidu.tieba.c.ag.b("LikeReturnData", "parserJson", "error = " + e.getMessage());
         }
     }
 
-    public int b() {
-        return this.e;
+    public void a(JSONObject jSONObject) {
+        if (jSONObject != null) {
+            try {
+                this.b = jSONObject.optString("error_msg");
+                this.a = jSONObject.optInt("error_code", 0);
+                this.c.a(jSONObject.optJSONObject("info"));
+            } catch (Exception e) {
+                com.baidu.tieba.c.ag.b("LikeReturnData", "parserJson", "error = " + e.getMessage());
+            }
+        }
     }
 }

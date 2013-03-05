@@ -9,13 +9,13 @@ class aa implements n {
     }
 
     @Override // com.baidu.tieba.mention.n
-    public String a() {
-        return com.baidu.tieba.c.k.f();
+    public void a(String str) {
+        com.baidu.tieba.c.k.h(str);
     }
 
     @Override // com.baidu.tieba.mention.n
-    public void a(String str) {
-        com.baidu.tieba.c.k.h(str);
+    public String a() {
+        return com.baidu.tieba.c.k.f();
     }
 
     @Override // com.baidu.tieba.mention.n

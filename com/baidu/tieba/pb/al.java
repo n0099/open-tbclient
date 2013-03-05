@@ -1,29 +1,25 @@
 package com.baidu.tieba.pb;
 
-import android.graphics.Bitmap;
-import android.widget.ImageView;
-import android.widget.ListView;
+import android.content.Context;
+import android.view.View;
+import com.baidu.tieba.person.PersonInfoActivity;
 /* loaded from: classes.dex */
-class al implements com.baidu.tieba.c.d {
+class al implements View.OnClickListener {
     final /* synthetic */ ak a;
+    private final /* synthetic */ String b;
+    private final /* synthetic */ String c;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public al(ak akVar) {
+    public al(ak akVar, String str, String str2) {
         this.a = akVar;
+        this.b = str;
+        this.c = str2;
     }
 
-    @Override // com.baidu.tieba.c.d
-    public void a(Bitmap bitmap, String str, boolean z) {
-        PbActivity pbActivity;
-        ListView listView;
-        if (bitmap == null) {
-            return;
-        }
-        pbActivity = this.a.a;
-        listView = pbActivity.c;
-        ImageView imageView = (ImageView) listView.findViewWithTag(str);
-        if (imageView != null) {
-            imageView.invalidate();
-        }
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        Context context;
+        context = this.a.c;
+        PersonInfoActivity.a(context, String.valueOf(this.b), this.c);
     }
 }

@@ -15,10 +15,10 @@ public class w extends AsyncTask {
     private int d;
     private String e;
     private String f;
-    private com.baidu.tieba.pb.ag g;
+    private com.baidu.tieba.pb.ak g;
     private String h;
 
-    public w(ImagePbPagerAdapter imagePbPagerAdapter, com.baidu.tieba.pb.ag agVar, int i, int i2, String str, String str2) {
+    public w(ImagePbPagerAdapter imagePbPagerAdapter, com.baidu.tieba.pb.ak akVar, int i, int i2, String str, String str2) {
         this.a = imagePbPagerAdapter;
         this.c = 0;
         this.d = 10;
@@ -30,8 +30,16 @@ public class w extends AsyncTask {
         this.d = i2;
         this.e = str;
         this.f = str2;
-        this.g = agVar;
-        this.h = agVar.e().d();
+        this.g = akVar;
+        this.h = akVar.e().d();
+    }
+
+    @Override // android.os.AsyncTask
+    protected void onPreExecute() {
+        if (this.g != null) {
+            this.g.a(true);
+            this.g.notifyDataSetChanged();
+        }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -80,7 +88,7 @@ public class w extends AsyncTask {
         ArrayList arrayList2;
         ArrayList arrayList3;
         HashMap hashMap2;
-        com.baidu.tieba.a.v vVar = null;
+        com.baidu.tieba.a.w wVar = null;
         super.onPostExecute(str);
         try {
             if (this.g != null) {
@@ -94,41 +102,33 @@ public class w extends AsyncTask {
                     return;
                 }
                 if (this.g != null) {
-                    this.g.a((com.baidu.tieba.a.v) null);
+                    this.g.a((com.baidu.tieba.a.w) null);
                     this.g.notifyDataSetChanged();
                 }
                 hashMap = this.a.h;
                 if (hashMap.get(this.g.e().d()) != null) {
                     hashMap2 = this.a.h;
-                    vVar = (com.baidu.tieba.a.v) hashMap2.get(this.g.e().d());
-                    vVar.a(str);
+                    wVar = (com.baidu.tieba.a.w) hashMap2.get(this.g.e().d());
+                    wVar.a(str);
                 }
                 if (this.g != null) {
-                    this.g.a(vVar);
+                    this.g.a(wVar);
                     this.g.notifyDataSetChanged();
                     this.g = null;
                 }
                 for (int i = 0; i < arrayList.size(); i++) {
                     arrayList2 = this.a.s;
-                    if (((View) arrayList2.get(i)).getTag() instanceof com.baidu.tieba.pb.ag) {
+                    if (((View) arrayList2.get(i)).getTag() instanceof com.baidu.tieba.pb.ak) {
                         arrayList3 = this.a.s;
-                        com.baidu.tieba.pb.ag agVar = (com.baidu.tieba.pb.ag) ((View) arrayList3.get(i)).getTag();
-                        if (agVar.e() != null && this.h.equals(agVar.e().d())) {
-                            agVar.notifyDataSetChanged();
+                        com.baidu.tieba.pb.ak akVar = (com.baidu.tieba.pb.ak) ((View) arrayList3.get(i)).getTag();
+                        if (akVar.e() != null && this.h.equals(akVar.e().d())) {
+                            akVar.notifyDataSetChanged();
                         }
                     }
                 }
             }
         } catch (Exception e) {
-            com.baidu.tieba.c.ae.b(getClass().getName(), "onPostExecute", e.getMessage());
-        }
-    }
-
-    @Override // android.os.AsyncTask
-    protected void onPreExecute() {
-        if (this.g != null) {
-            this.g.a(true);
-            this.g.notifyDataSetChanged();
+            com.baidu.tieba.c.ag.b(getClass().getName(), "onPostExecute", e.getMessage());
         }
     }
 }

@@ -2,10 +2,9 @@ package com.baidu.tieba.view;
 
 import android.content.Context;
 import android.webkit.WebView;
-import java.net.URLDecoder;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class c implements e {
+public class c implements d {
     final /* synthetic */ BaseWebView a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -13,19 +12,15 @@ public class c implements e {
         this.a = baseWebView;
     }
 
-    @Override // com.baidu.tieba.view.e
+    @Override // com.baidu.tieba.view.d
     public boolean a(WebView webView, String str) {
         Context context;
         if (str != null) {
             try {
-                String[] split = str.split("appname=");
                 context = this.a.c;
-                com.baidu.tieba.c.ag.d(context, str);
-                if (split.length > 1) {
-                    new com.baidu.tieba.account.ak("app_download", URLDecoder.decode(split[1]));
-                }
+                com.baidu.tieba.c.ai.e(context, str);
             } catch (Exception e) {
-                com.baidu.tieba.c.ae.a(getClass().getName(), "shouldOverrideUrlLoading", e.toString());
+                com.baidu.tieba.c.ag.a(getClass().getName(), "shouldOverrideUrlLoading", e.toString());
             }
         }
         return true;

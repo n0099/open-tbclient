@@ -1,18 +1,19 @@
 package com.baidu.tieba.person;
 
-import android.view.View;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 /* loaded from: classes.dex */
-public class ah implements View.OnClickListener {
-    final /* synthetic */ PersonChangeActivity a;
+class ah {
+    LinearLayout a;
+    ImageView b;
+    TextView c;
+    TextView d;
+    TextView e;
+    final /* synthetic */ ad f;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ah(PersonChangeActivity personChangeActivity) {
-        this.a = personChangeActivity;
-    }
-
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        this.a.h();
+    public ah(ad adVar) {
+        this.f = adVar;
     }
 }

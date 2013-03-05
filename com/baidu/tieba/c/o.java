@@ -5,6 +5,7 @@ import android.graphics.BitmapFactory;
 import android.os.Environment;
 import com.baidu.tieba.R;
 import com.baidu.tieba.TiebaApplication;
+import com.baidu.zeus.NotificationProxy;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
@@ -16,132 +17,49 @@ import java.io.InputStream;
 public class o {
     public static final File a = Environment.getExternalStorageDirectory();
 
-    public static InputStream a(File file) {
-        if (file != null) {
-            try {
-                return new FileInputStream(file);
-            } catch (Exception e) {
-                ae.b("FileHelper", "GetStreamFromFile", "error = " + e.getMessage());
-                return null;
-            }
-        }
-        return null;
-    }
-
-    public static String a(String str, String str2, Bitmap bitmap, int i) {
-        String str3 = str != null ? a + "/tieba/" + str + "/" : a + "/tieba/";
-        if (!a(str3) || bitmap == null) {
-            return null;
-        }
-        File file = new File(String.valueOf(str3) + str2);
-        try {
-            if ((!file.exists() || file.delete()) && file.createNewFile()) {
-                FileOutputStream fileOutputStream = new FileOutputStream(file);
-                bitmap.compress(Bitmap.CompressFormat.JPEG, i, fileOutputStream);
-                fileOutputStream.flush();
-                fileOutputStream.close();
-                return file.getPath();
-            }
-            return null;
-        } catch (Exception e) {
-            ae.b("FileHelper", "SaveFile", e.getMessage());
-            return null;
-        }
-    }
-
-    /* JADX WARN: Removed duplicated region for block: B:56:0x0125 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public static String a(String str, String str2, byte[] bArr) {
-        String str3;
-        FileOutputStream fileOutputStream;
-        if (!a(str != null ? a + "/tieba/" + str + "/" : a + "/tieba/") || bArr == null || str2 == null) {
-            return null;
-        }
-        File file = new File(String.valueOf(str3) + str2);
-        FileOutputStream fileOutputStream2 = null;
-        try {
-            if ((file.exists() && !file.delete()) || !file.createNewFile()) {
-                if (0 != 0) {
-                    try {
-                        fileOutputStream2.close();
-                    } catch (Exception e) {
-                        ae.b("FileHelper", "SaveFile", "error = " + e.getMessage());
-                    }
-                }
-                return null;
-            }
-            fileOutputStream = new FileOutputStream(file);
-            try {
-                try {
-                    fileOutputStream.write(bArr, 0, bArr.length);
-                    fileOutputStream.flush();
-                    fileOutputStream.close();
-                    FileOutputStream fileOutputStream3 = null;
-                    String path = file.getPath();
-                    if (0 != 0) {
-                        try {
-                            fileOutputStream3.close();
-                            return path;
-                        } catch (Exception e2) {
-                            ae.b("FileHelper", "SaveFile", "error = " + e2.getMessage());
-                            return path;
-                        }
-                    }
-                    return path;
-                } catch (IOException e3) {
-                    e = e3;
-                    ae.b("FileHelper", "SaveFile", "error = " + e.getMessage());
-                    if (fileOutputStream != null) {
-                        try {
-                            fileOutputStream.close();
-                        } catch (Exception e4) {
-                            ae.b("FileHelper", "SaveFile", "error = " + e4.getMessage());
-                        }
-                    }
-                    return null;
-                }
-            } catch (Throwable th) {
-                th = th;
-                if (fileOutputStream != null) {
-                    try {
-                        fileOutputStream.close();
-                    } catch (Exception e5) {
-                        ae.b("FileHelper", "SaveFile", "error = " + e5.getMessage());
-                    }
-                }
-                throw th;
-            }
-        } catch (IOException e6) {
-            e = e6;
-            fileOutputStream = null;
-        } catch (Throwable th2) {
-            th = th2;
-            fileOutputStream = null;
-            if (fileOutputStream != null) {
-            }
-            throw th;
-        }
-    }
-
-    public static String a(String str, byte[] bArr) {
-        return a(null, str, bArr);
-    }
-
     public static boolean a() {
-        return Environment.getExternalStorageState().equals("mounted");
+        return Environment.getExternalStorageState().equals(Environment.MEDIA_MOUNTED);
+    }
+
+    public static String b() {
+        String externalStorageState = Environment.getExternalStorageState();
+        if (externalStorageState.equals(Environment.MEDIA_REMOVED)) {
+            return TiebaApplication.b().getString(R.string.error_no_sdcard);
+        }
+        if (externalStorageState.equals(Environment.MEDIA_UNMOUNTED) || externalStorageState.equals(Environment.MEDIA_UNMOUNTABLE)) {
+            return TiebaApplication.b().getString(R.string.error_sd_unmount);
+        }
+        if (externalStorageState.equals(Environment.MEDIA_SHARED)) {
+            return TiebaApplication.b().getString(R.string.error_sd_shared);
+        }
+        return TiebaApplication.b().getString(R.string.error_sd_error);
     }
 
     public static boolean a(String str) {
         if (a()) {
             File file = new File(str);
-            if (file.exists()) {
-                return true;
+            if (!file.exists()) {
+                try {
+                    return file.mkdir();
+                } catch (Exception e) {
+                    return false;
+                }
             }
+            return true;
+        }
+        return false;
+    }
+
+    public static boolean c() {
+        return a(a + "/tieba/");
+    }
+
+    public static boolean b(String str) {
+        if (a()) {
             try {
-                return file.mkdir();
+                return new File(new StringBuilder().append(a).append("/").append("tieba").append("/").append(str).toString()).exists();
             } catch (Exception e) {
+                ag.b("FileHelper", "CheckFile", "error = " + e.getMessage());
                 return false;
             }
         }
@@ -153,30 +71,75 @@ public class o {
             try {
                 return new File(new StringBuilder().append(a).append("/").append("tieba").append("/").append(str).append("/").append(str2).toString()).exists();
             } catch (Exception e) {
-                ae.b("FileHelper", "CheckFile", "error = " + e.getMessage());
+                ag.b("FileHelper", "CheckFile", "error = " + e.getMessage());
                 return false;
             }
         }
         return false;
     }
 
-    public static String b() {
-        String externalStorageState = Environment.getExternalStorageState();
-        return externalStorageState.equals("removed") ? TiebaApplication.a().getString(R.string.error_no_sdcard) : (externalStorageState.equals("unmounted") || externalStorageState.equals("unmountable")) ? TiebaApplication.a().getString(R.string.error_sd_unmount) : externalStorageState.equals("shared") ? TiebaApplication.a().getString(R.string.error_sd_shared) : TiebaApplication.a().getString(R.string.error_sd_error);
-    }
-
-    public static boolean b(String str) {
-        if (a()) {
+    public static File c(String str) {
+        if (c()) {
+            File file = new File(a + "/tieba/" + str);
             try {
-                return new File(new StringBuilder().append(a).append("/").append("tieba").append("/").append(str).toString()).exists();
-            } catch (Exception e) {
-                ae.b("FileHelper", "CheckFile", "error = " + e.getMessage());
-                return false;
+                if (file.exists()) {
+                    return file;
+                }
+                return null;
+            } catch (SecurityException e) {
+                ag.b("FileHelper", "GetFile", "error = " + e.getMessage());
+                return null;
             }
         }
-        return false;
+        return null;
     }
 
+    public static File d(String str) {
+        if (!c()) {
+            return null;
+        }
+        return new File(a + "/tieba/" + str);
+    }
+
+    public static File e(String str) {
+        if (c()) {
+            File file = new File(a + "/tieba/" + str);
+            try {
+                if (!file.exists() || file.delete()) {
+                    if (file.createNewFile()) {
+                        return file;
+                    }
+                    return null;
+                }
+                return null;
+            } catch (Exception e) {
+                ag.b("FileHelper", "CreateFile", "error = " + e.getMessage());
+                return null;
+            }
+        }
+        return null;
+    }
+
+    public static File f(String str) {
+        if (c()) {
+            File file = new File(a + "/tieba/" + str);
+            try {
+                if (file.exists()) {
+                    return file;
+                }
+                if (file.createNewFile()) {
+                    return file;
+                }
+                return null;
+            } catch (Exception e) {
+                ag.b("FileHelper", "CreateFile", "error = " + e.getMessage());
+                return null;
+            }
+        }
+        return null;
+    }
+
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [323=4, 324=4, 326=4, 327=4] */
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:42:0x00bd */
     /* JADX WARN: Multi-variable type inference failed */
     /* JADX WARN: Removed duplicated region for block: B:60:0x00af A[EXC_TOP_SPLITTER, SYNTHETIC] */
@@ -198,7 +161,7 @@ public class o {
                 fileInputStream = new FileInputStream(new File(sb.append(str2).toString()));
                 try {
                     byte[] bArr = new byte[7];
-                    z = fileInputStream.read(bArr, 0, 6) == 6 ? ag.a(bArr) : false;
+                    z = fileInputStream.read(bArr, 0, 6) == 6 ? ai.a(bArr) : false;
                     if (fileInputStream != null) {
                         try {
                             fileInputStream.close();
@@ -271,49 +234,141 @@ public class o {
         return z;
     }
 
-    public static Bitmap c(String str, String str2) {
-        return BitmapFactory.decodeFile(String.valueOf(str != null ? a + "/tieba/" + str + "/" : a + "/tieba/") + str2);
+    public static String a(String str, String str2, Bitmap bitmap, int i) {
+        String str3;
+        if (str != null) {
+            str3 = a + "/tieba/" + str + "/";
+        } else {
+            str3 = a + "/tieba/";
+        }
+        if (!a(str3) || bitmap == null) {
+            return null;
+        }
+        File file = new File(String.valueOf(str3) + str2);
+        try {
+            if ((!file.exists() || file.delete()) && file.createNewFile()) {
+                FileOutputStream fileOutputStream = new FileOutputStream(file);
+                bitmap.compress(Bitmap.CompressFormat.JPEG, i, fileOutputStream);
+                fileOutputStream.flush();
+                fileOutputStream.close();
+                return file.getPath();
+            }
+            return null;
+        } catch (Exception e) {
+            ag.b("FileHelper", "SaveFile", e.getMessage());
+            return null;
+        }
     }
 
-    public static File c(String str) {
-        if (c()) {
-            File file = new File(a + "/tieba/" + str);
-            try {
-                if (file.exists()) {
-                    return file;
+    public static Bitmap c(String str, String str2) {
+        String str3;
+        if (str != null) {
+            str3 = a + "/tieba/" + str + "/";
+        } else {
+            str3 = a + "/tieba/";
+        }
+        return BitmapFactory.decodeFile(String.valueOf(str3) + str2);
+    }
+
+    public static String a(String str, byte[] bArr) {
+        return a(null, str, bArr);
+    }
+
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [418=4, 419=4, 421=4, 422=4] */
+    /* JADX WARN: Removed duplicated region for block: B:56:0x0125 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static String a(String str, String str2, byte[] bArr) {
+        String str3;
+        FileOutputStream fileOutputStream;
+        if (!a(str != null ? a + "/tieba/" + str + "/" : a + "/tieba/") || bArr == null || str2 == null) {
+            return null;
+        }
+        File file = new File(String.valueOf(str3) + str2);
+        FileOutputStream fileOutputStream2 = null;
+        try {
+            if ((file.exists() && !file.delete()) || !file.createNewFile()) {
+                if (0 != 0) {
+                    try {
+                        fileOutputStream2.close();
+                    } catch (Exception e) {
+                        ag.b("FileHelper", "SaveFile", "error = " + e.getMessage());
+                    }
                 }
                 return null;
-            } catch (SecurityException e) {
-                ae.b("FileHelper", "GetFile", "error = " + e.getMessage());
-                return null;
             }
+            fileOutputStream = new FileOutputStream(file);
+            try {
+                try {
+                    fileOutputStream.write(bArr, 0, bArr.length);
+                    fileOutputStream.flush();
+                    fileOutputStream.close();
+                    FileOutputStream fileOutputStream3 = null;
+                    String path = file.getPath();
+                    if (0 != 0) {
+                        try {
+                            fileOutputStream3.close();
+                            return path;
+                        } catch (Exception e2) {
+                            ag.b("FileHelper", "SaveFile", "error = " + e2.getMessage());
+                            return path;
+                        }
+                    }
+                    return path;
+                } catch (IOException e3) {
+                    e = e3;
+                    ag.b("FileHelper", "SaveFile", "error = " + e.getMessage());
+                    if (fileOutputStream != null) {
+                        try {
+                            fileOutputStream.close();
+                        } catch (Exception e4) {
+                            ag.b("FileHelper", "SaveFile", "error = " + e4.getMessage());
+                        }
+                    }
+                    return null;
+                }
+            } catch (Throwable th) {
+                th = th;
+                if (fileOutputStream != null) {
+                    try {
+                        fileOutputStream.close();
+                    } catch (Exception e5) {
+                        ag.b("FileHelper", "SaveFile", "error = " + e5.getMessage());
+                    }
+                }
+                throw th;
+            }
+        } catch (IOException e6) {
+            e = e6;
+            fileOutputStream = null;
+        } catch (Throwable th2) {
+            th = th2;
+            fileOutputStream = null;
+            if (fileOutputStream != null) {
+            }
+            throw th;
         }
-        return null;
-    }
-
-    public static boolean c() {
-        return a(a + "/tieba/");
-    }
-
-    public static File d(String str) {
-        if (c()) {
-            return new File(a + "/tieba/" + str);
-        }
-        return null;
     }
 
     public static byte[] d(String str, String str2) {
+        String str3;
         if (!c() || str2 == null) {
             return null;
         }
-        File file = new File(String.valueOf(str != null ? a + "/tieba/" + str + "/" : a + "/tieba/") + str2);
+        if (str != null) {
+            str3 = a + "/tieba/" + str + "/";
+        } else {
+            str3 = a + "/tieba/";
+        }
+        File file = new File(String.valueOf(str3) + str2);
         try {
             if (file.exists()) {
                 FileInputStream fileInputStream = new FileInputStream(file);
-                ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream(1024);
-                byte[] bArr = new byte[1024];
+                ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream(NotificationProxy.MAX_URL_LENGTH);
+                byte[] bArr = new byte[NotificationProxy.MAX_URL_LENGTH];
                 while (true) {
-                    int read = fileInputStream.read(bArr, 0, 1024);
+                    int read = fileInputStream.read(bArr, 0, NotificationProxy.MAX_URL_LENGTH);
                     if (read == -1) {
                         break;
                     }
@@ -326,30 +381,12 @@ public class o {
             }
             return null;
         } catch (IOException e) {
-            ae.b("FileHelper", "GetFileData", "error = " + e.getMessage());
+            ag.b("FileHelper", "GetFileData", "error = " + e.getMessage());
             return null;
         }
     }
 
-    public static File e(String str) {
-        if (c()) {
-            File file = new File(a + "/tieba/" + str);
-            try {
-                if (!file.exists() || file.delete()) {
-                    if (file.createNewFile()) {
-                        return file;
-                    }
-                    return null;
-                }
-                return null;
-            } catch (Exception e) {
-                ae.b("FileHelper", "CreateFile", "error = " + e.getMessage());
-                return null;
-            }
-        }
-        return null;
-    }
-
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [485=4, 486=4, 488=4, 489=4, 492=4, 493=4, 495=4, 496=4] */
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:39:0x00ce */
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:63:0x0129 */
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:69:0x0132 */
@@ -408,14 +445,14 @@ public class o {
                 try {
                     inputStream.close();
                 } catch (Exception e2) {
-                    ae.b("FileHelper", "CopyFile", e2.toString());
+                    ag.b("FileHelper", "CopyFile", e2.toString());
                 }
             }
             if (0 != 0) {
                 try {
                     r1.close();
                 } catch (Exception e3) {
-                    ae.b("FileHelper", "CopyFile", e3.toString());
+                    ag.b("FileHelper", "CopyFile", e3.toString());
                 }
             }
             return false;
@@ -433,7 +470,7 @@ public class o {
             fileInputStream = fileInputStream3;
         }
         try {
-            byte[] bArr = new byte[1024];
+            byte[] bArr = new byte[NotificationProxy.MAX_URL_LENGTH];
             while (true) {
                 int read = fileInputStream3.read(bArr);
                 if (read <= 0) {
@@ -451,7 +488,7 @@ public class o {
                     try {
                         inputStream2.close();
                     } catch (Exception e5) {
-                        ae.b("FileHelper", "CopyFile", e5.toString());
+                        ag.b("FileHelper", "CopyFile", e5.toString());
                     }
                 }
                 if (0 != 0) {
@@ -460,19 +497,19 @@ public class o {
                     } catch (Exception e6) {
                         r1 = "FileHelper";
                         fileInputStream = "CopyFile";
-                        ae.b("FileHelper", "CopyFile", e6.toString());
+                        ag.b("FileHelper", "CopyFile", e6.toString());
                     }
                 }
             } catch (Exception e7) {
                 e = e7;
-                ae.b("FileHelper", "CopyFile", e.toString());
+                ag.b("FileHelper", "CopyFile", e.toString());
                 fileInputStream = fileInputStream2;
                 if (fileInputStream2 != null) {
                     try {
                         fileInputStream2.close();
                         fileInputStream = fileInputStream2;
                     } catch (Exception e8) {
-                        ae.b("FileHelper", "CopyFile", e8.toString());
+                        ag.b("FileHelper", "CopyFile", e8.toString());
                         fileInputStream = "FileHelper";
                     }
                 }
@@ -482,7 +519,7 @@ public class o {
                     } catch (Exception e9) {
                         r1 = "FileHelper";
                         fileInputStream = "CopyFile";
-                        ae.b("FileHelper", "CopyFile", e9.toString());
+                        ag.b("FileHelper", "CopyFile", e9.toString());
                     }
                 }
                 return false;
@@ -497,14 +534,14 @@ public class o {
                 try {
                     fileInputStream.close();
                 } catch (Exception e11) {
-                    ae.b("FileHelper", "CopyFile", e11.toString());
+                    ag.b("FileHelper", "CopyFile", e11.toString());
                 }
             }
             if (r1 != 0) {
                 try {
                     r1.close();
                 } catch (Exception e12) {
-                    ae.b("FileHelper", "CopyFile", e12.toString());
+                    ag.b("FileHelper", "CopyFile", e12.toString());
                 }
             }
             throw th;
@@ -512,27 +549,20 @@ public class o {
         return false;
     }
 
-    public static File f(String str) {
-        if (c()) {
-            File file = new File(a + "/tieba/" + str);
+    public static InputStream g(String str) {
+        return a(c(str));
+    }
+
+    public static InputStream a(File file) {
+        if (file != null) {
             try {
-                if (file.exists()) {
-                    return file;
-                }
-                if (file.createNewFile()) {
-                    return file;
-                }
-                return null;
+                return new FileInputStream(file);
             } catch (Exception e) {
-                ae.b("FileHelper", "CreateFile", "error = " + e.getMessage());
+                ag.b("FileHelper", "GetStreamFromFile", "error = " + e.getMessage());
                 return null;
             }
         }
         return null;
-    }
-
-    public static InputStream g(String str) {
-        return a(c(str));
     }
 
     public static boolean h(String str) {
@@ -544,7 +574,7 @@ public class o {
                 }
                 return false;
             } catch (Exception e) {
-                ae.b("FileHelper", "DelFile", "error = " + e.getMessage());
+                ag.b("FileHelper", "DelFile", "error = " + e.getMessage());
                 return false;
             }
         }

@@ -18,11 +18,11 @@ public class h implements AbsListView.OnScrollListener {
         Runnable runnable;
         Handler handler2;
         Runnable runnable2;
-        handler = this.a.f;
-        runnable = this.a.n;
+        handler = this.a.g;
+        runnable = this.a.r;
         handler.removeCallbacks(runnable);
-        handler2 = this.a.f;
-        runnable2 = this.a.n;
+        handler2 = this.a.g;
+        runnable2 = this.a.r;
         handler2.postDelayed(runnable2, 300L);
     }
 

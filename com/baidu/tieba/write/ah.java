@@ -1,9 +1,8 @@
 package com.baidu.tieba.write;
 
-import android.view.View;
 import android.widget.GridView;
 /* loaded from: classes.dex */
-class ah implements View.OnClickListener {
+class ah implements Runnable {
     final /* synthetic */ WriteActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -11,14 +10,14 @@ class ah implements View.OnClickListener {
         this.a = writeActivity;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
+    @Override // java.lang.Runnable
+    public void run() {
         GridView gridView;
         GridView gridView2;
-        gridView = this.a.p;
-        if (gridView.getVisibility() == 0) {
-            gridView2 = this.a.p;
-            gridView2.setVisibility(8);
+        gridView = this.a.r;
+        if (gridView.getVisibility() != 0) {
+            gridView2 = this.a.r;
+            gridView2.setVisibility(0);
         }
     }
 }

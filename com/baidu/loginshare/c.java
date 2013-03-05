@@ -29,10 +29,10 @@ public class c {
             d dVar = null;
             switch (i) {
                 case 1:
-                    dVar = new d(this, h.q(), str, e);
+                    dVar = new d(this, g.q(), str, e);
                     break;
                 case 2:
-                    dVar = new d(this, h.r(), str, f);
+                    dVar = new d(this, g.r(), str, f);
                     break;
             }
             if (dVar != null) {

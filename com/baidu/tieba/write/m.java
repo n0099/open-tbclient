@@ -23,16 +23,6 @@ public class m extends BaseAdapter {
         this.d = context;
     }
 
-    public String a(int i) {
-        int intValue = ((Integer) this.b.get(i)).intValue();
-        for (Map.Entry entry : this.a.entrySet()) {
-            if (((Integer) entry.getValue()).intValue() == intValue) {
-                return (String) entry.getKey();
-            }
-        }
-        return null;
-    }
-
     @Override // android.widget.Adapter
     public int getCount() {
         if (this.b != null) {
@@ -43,9 +33,14 @@ public class m extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public Object getItem(int i) {
+        Bitmap bitmap;
         int intValue = ((Integer) this.b.get(i)).intValue();
         SoftReference softReference = (SoftReference) this.c.get(Integer.valueOf(intValue));
-        Bitmap bitmap = softReference != null ? (Bitmap) softReference.get() : null;
+        if (softReference == null) {
+            bitmap = null;
+        } else {
+            bitmap = (Bitmap) softReference.get();
+        }
         if (bitmap == null) {
             Bitmap a = com.baidu.tieba.c.e.a(this.d, intValue);
             this.c.put(Integer.valueOf(intValue), new SoftReference(a));
@@ -65,7 +60,7 @@ public class m extends BaseAdapter {
         if (view == null) {
             ImageView imageView2 = new ImageView(this.d);
             imageView2.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
-            int a = com.baidu.tieba.c.ag.a(this.d, 50.0f);
+            int a = com.baidu.tieba.c.ai.a(this.d, 50.0f);
             imageView2.setLayoutParams(new AbsListView.LayoutParams(a, a));
             imageView = imageView2;
             view = imageView2;
@@ -75,5 +70,15 @@ public class m extends BaseAdapter {
         imageView.setFocusable(false);
         imageView.setImageBitmap((Bitmap) getItem(i));
         return view;
+    }
+
+    public String a(int i) {
+        int intValue = ((Integer) this.b.get(i)).intValue();
+        for (Map.Entry entry : this.a.entrySet()) {
+            if (((Integer) entry.getValue()).intValue() == intValue) {
+                return (String) entry.getKey();
+            }
+        }
+        return null;
     }
 }

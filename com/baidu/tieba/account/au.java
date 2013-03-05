@@ -14,8 +14,8 @@ public class au implements t {
         ReLoginShareActivity reLoginShareActivity;
         ReLoginShareActivity reLoginShareActivity2;
         reLoginShareActivity = this.a.a;
-        reLoginShareActivity.k = aVar;
+        reLoginShareActivity.n = aVar;
         reLoginShareActivity2 = this.a.a;
-        reLoginShareActivity2.k();
+        reLoginShareActivity2.m();
     }
 }

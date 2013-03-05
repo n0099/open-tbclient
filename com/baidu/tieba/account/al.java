@@ -15,23 +15,23 @@ class al implements Runnable {
         com.baidu.tieba.a.a aVar2;
         com.baidu.tieba.a.a aVar3;
         com.baidu.tieba.a.a aVar4;
-        aVar = this.a.j;
-        if (aVar == null) {
-            ReLoginActivity reLoginActivity = this.a;
-            str = this.a.m;
-            reLoginActivity.a(1, str);
+        aVar = this.a.m;
+        if (aVar != null) {
+            aVar2 = this.a.m;
+            if (aVar2.b() != null) {
+                aVar3 = this.a.m;
+                if (!aVar3.b().equals("BaiduUser")) {
+                    ReLoginActivity reLoginActivity = this.a;
+                    aVar4 = this.a.m;
+                    reLoginActivity.a(aVar4);
+                    return;
+                }
+            }
+            this.a.m();
             return;
         }
-        aVar2 = this.a.j;
-        if (aVar2.b() != null) {
-            aVar3 = this.a.j;
-            if (!aVar3.b().equals("BaiduUser")) {
-                ReLoginActivity reLoginActivity2 = this.a;
-                aVar4 = this.a.j;
-                reLoginActivity2.a(aVar4);
-                return;
-            }
-        }
-        this.a.k();
+        ReLoginActivity reLoginActivity2 = this.a;
+        str = this.a.p;
+        reLoginActivity2.a(1, str);
     }
 }

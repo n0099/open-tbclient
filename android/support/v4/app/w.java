@@ -1,6 +1,7 @@
 package android.support.v4.app;
 
 import android.util.Log;
+import com.baidu.zeus.bouncycastle.DERTags;
 import java.io.FileDescriptor;
 import java.io.PrintWriter;
 /* JADX INFO: Access modifiers changed from: package-private */
@@ -30,48 +31,6 @@ public class w extends u {
         if (this.e) {
             xVar.a();
         }
-    }
-
-    public void a(String str, FileDescriptor fileDescriptor, PrintWriter printWriter, String[] strArr) {
-        if (this.b.a() > 0) {
-            printWriter.print(str);
-            printWriter.println("Active Loaders:");
-            String str2 = str + "    ";
-            for (int i = 0; i < this.b.a(); i++) {
-                x xVar = (x) this.b.f(i);
-                printWriter.print(str);
-                printWriter.print("  #");
-                printWriter.print(this.b.e(i));
-                printWriter.print(": ");
-                printWriter.println(xVar.toString());
-                xVar.a(str2, fileDescriptor, printWriter, strArr);
-            }
-        }
-        if (this.c.a() > 0) {
-            printWriter.print(str);
-            printWriter.println("Inactive Loaders:");
-            String str3 = str + "    ";
-            for (int i2 = 0; i2 < this.c.a(); i2++) {
-                x xVar2 = (x) this.c.f(i2);
-                printWriter.print(str);
-                printWriter.print("  #");
-                printWriter.print(this.c.e(i2));
-                printWriter.print(": ");
-                printWriter.println(xVar2.toString());
-                xVar2.a(str3, fileDescriptor, printWriter, strArr);
-            }
-        }
-    }
-
-    @Override // android.support.v4.app.u
-    public boolean a() {
-        int a2 = this.b.a();
-        boolean z = false;
-        for (int i = 0; i < a2; i++) {
-            x xVar = (x) this.b.f(i);
-            z |= xVar.h && !xVar.f;
-        }
-        return z;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -173,12 +132,54 @@ public class w extends u {
     }
 
     public String toString() {
-        StringBuilder sb = new StringBuilder(128);
+        StringBuilder sb = new StringBuilder((int) DERTags.TAGGED);
         sb.append("LoaderManager{");
         sb.append(Integer.toHexString(System.identityHashCode(this)));
         sb.append(" in ");
         android.support.v4.b.a.a(this.d, sb);
         sb.append("}}");
         return sb.toString();
+    }
+
+    public void a(String str, FileDescriptor fileDescriptor, PrintWriter printWriter, String[] strArr) {
+        if (this.b.a() > 0) {
+            printWriter.print(str);
+            printWriter.println("Active Loaders:");
+            String str2 = str + "    ";
+            for (int i = 0; i < this.b.a(); i++) {
+                x xVar = (x) this.b.f(i);
+                printWriter.print(str);
+                printWriter.print("  #");
+                printWriter.print(this.b.e(i));
+                printWriter.print(": ");
+                printWriter.println(xVar.toString());
+                xVar.a(str2, fileDescriptor, printWriter, strArr);
+            }
+        }
+        if (this.c.a() > 0) {
+            printWriter.print(str);
+            printWriter.println("Inactive Loaders:");
+            String str3 = str + "    ";
+            for (int i2 = 0; i2 < this.c.a(); i2++) {
+                x xVar2 = (x) this.c.f(i2);
+                printWriter.print(str);
+                printWriter.print("  #");
+                printWriter.print(this.c.e(i2));
+                printWriter.print(": ");
+                printWriter.println(xVar2.toString());
+                xVar2.a(str3, fileDescriptor, printWriter, strArr);
+            }
+        }
+    }
+
+    @Override // android.support.v4.app.u
+    public boolean a() {
+        int a2 = this.b.a();
+        boolean z = false;
+        for (int i = 0; i < a2; i++) {
+            x xVar = (x) this.b.f(i);
+            z |= xVar.h && !xVar.f;
+        }
+        return z;
     }
 }

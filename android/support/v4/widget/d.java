@@ -28,19 +28,19 @@ public class d {
         return b.a(this.a);
     }
 
-    public boolean a(float f) {
-        return b.a(this.a, f);
-    }
-
-    public boolean a(Canvas canvas) {
-        return b.a(this.a, canvas);
-    }
-
     public void b() {
         b.b(this.a);
     }
 
+    public boolean a(float f) {
+        return b.a(this.a, f);
+    }
+
     public boolean c() {
         return b.c(this.a);
+    }
+
+    public boolean a(Canvas canvas) {
+        return b.a(this.a, canvas);
     }
 }

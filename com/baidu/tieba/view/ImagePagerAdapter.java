@@ -20,6 +20,7 @@ public class ImagePagerAdapter extends android.support.v4.view.k {
     private int f = 0;
     private boolean g = false;
     private String h = null;
+    private int i = 0;
 
     public ImagePagerAdapter(Context context, ArrayList arrayList, j jVar) {
         this.a = null;
@@ -30,46 +31,62 @@ public class ImagePagerAdapter extends android.support.v4.view.k {
         this.e = jVar;
     }
 
-    public void a(int i) {
-        this.f = i;
-    }
-
-    public void a(View.OnClickListener onClickListener) {
-        this.c = onClickListener;
-    }
-
-    public void a(k kVar) {
-        this.d = kVar;
+    public void a(ArrayList arrayList) {
+        this.b = arrayList;
+        notifyDataSetChanged();
     }
 
     public void a(String str) {
         this.h = str;
     }
 
-    public void a(ArrayList arrayList) {
-        this.b = arrayList;
-        notifyDataSetChanged();
-    }
-
     public void a(boolean z) {
         this.g = z;
+    }
+
+    public boolean a() {
+        return this.g;
+    }
+
+    @Override // android.support.v4.view.k
+    public int getCount() {
+        int i = 0;
+        if (this.b != null) {
+            i = this.b.size();
+            if (this.g) {
+                i++;
+            }
+        }
+        return i + this.i;
+    }
+
+    public void a(int i) {
+        this.i = i;
+    }
+
+    public void a(View.OnClickListener onClickListener) {
+        this.c = onClickListener;
+    }
+
+    public void b(int i) {
+        this.f = i;
+    }
+
+    public void a(k kVar) {
+        this.d = kVar;
+    }
+
+    @Override // android.support.v4.view.k
+    public boolean isViewFromObject(View view, Object obj) {
+        return view.equals(obj);
     }
 
     @Override // android.support.v4.view.k
     public void destroyItem(ViewGroup viewGroup, int i, Object obj) {
         ((ViewPager) viewGroup).removeView((View) obj);
-        if (obj instanceof ah) {
-            ((ah) obj).c();
+        if (obj instanceof ag) {
+            ((ag) obj).c();
         }
-    }
-
-    @Override // android.support.v4.view.k
-    public int getCount() {
-        if (this.b != null) {
-            int size = this.b.size();
-            return this.g ? size + 1 : size;
-        }
-        return 0;
     }
 
     @Override // android.support.v4.view.k
@@ -81,30 +98,25 @@ public class ImagePagerAdapter extends android.support.v4.view.k {
             inflate.setOnClickListener(this.c);
             return inflate;
         }
-        ah ahVar = new ah(this.a);
+        ag agVar = new ag(this.a);
         String str = i < this.b.size() ? (String) this.b.get(i) : null;
-        ahVar.setLayoutParams(new Gallery.LayoutParams(-1, -1));
-        ahVar.setImageOnClickListener(this.c);
-        ahVar.setOnSizeChangedListener(this.d);
-        ((ViewPager) viewGroup).addView(ahVar, 0);
-        ahVar.setUrl(str);
-        ahVar.setGifMaxUseableMem(this.f);
-        ahVar.setTag(String.valueOf(i));
-        ahVar.setGifSetListener(this.e);
-        return ahVar;
-    }
-
-    @Override // android.support.v4.view.k
-    public boolean isViewFromObject(View view, Object obj) {
-        return view.equals(obj);
+        agVar.setLayoutParams(new Gallery.LayoutParams(-1, -1));
+        agVar.setImageOnClickListener(this.c);
+        agVar.setOnSizeChangedListener(this.d);
+        ((ViewPager) viewGroup).addView(agVar, 0);
+        agVar.setUrl(str);
+        agVar.setGifMaxUseableMem(this.f);
+        agVar.setTag(String.valueOf(i));
+        agVar.setGifSetListener(this.e);
+        return agVar;
     }
 
     @Override // android.support.v4.view.k
     public void setPrimaryItem(ViewGroup viewGroup, int i, Object obj) {
         super.setPrimaryItem(viewGroup, i, obj);
-        if (obj instanceof ah) {
+        if (obj instanceof ag) {
             GalleryViewPager galleryViewPager = (GalleryViewPager) viewGroup;
-            f imageView = ((ah) obj).getImageView();
+            f imageView = ((ag) obj).getImageView();
             if (galleryViewPager.getSelectedView() == null) {
                 galleryViewPager.setSelectedView(imageView);
                 ViewParent parent = galleryViewPager.getParent();
@@ -117,9 +129,9 @@ public class ImagePagerAdapter extends android.support.v4.view.k {
                 if (currentView != null) {
                     currentView.o();
                 }
-                ((ah) obj).f();
+                ((ag) obj).f();
                 galleryViewPager.setCurrentView(imageView);
-                if (((ah) obj).getImageType() == 1) {
+                if (((ag) obj).getImageType() == 1) {
                     this.e.a(imageView);
                 }
             }

@@ -1,78 +1,63 @@
 package com.baidu.tieba.a;
 
-import java.util.ArrayList;
-import org.json.JSONArray;
-import org.json.JSONObject;
+import com.baidu.mapapi.GeoPoint;
+import com.baidu.tieba.nearby.MapOverlayItem;
+import java.io.Serializable;
 /* loaded from: classes.dex */
-public class ab extends c {
-    final /* synthetic */ x a;
-    private int b;
-    private int c;
-    private ArrayList d;
-    private ArrayList e;
+public class ab implements Serializable {
+    private String a = null;
+    private String b = null;
+    private String c = null;
+    private af d = null;
+    private int e;
+    private int f;
 
-    public ab(x xVar) {
-        this.a = xVar;
-        this.b = 0;
-        this.c = 0;
-        this.d = null;
-        this.e = null;
-        this.b = 0;
-        this.c = 0;
-        this.d = new ArrayList();
-        this.e = new ArrayList();
+    public ab(int i, int i2) {
+        this.e = 0;
+        this.f = 0;
+        this.e = i;
+        this.f = i2;
     }
 
-    public int a() {
-        return this.c;
+    public void a(af afVar) {
+        this.d = afVar;
     }
 
-    @Override // com.baidu.tieba.a.c
-    public void a(JSONObject jSONObject) {
-        JSONArray optJSONArray;
-        try {
-            this.c = jSONObject.optInt("distance", 0);
-            JSONArray optJSONArray2 = jSONObject.optJSONArray("points");
-            if (optJSONArray2 != null) {
-                int length = optJSONArray2.length();
-                for (int i = 0; i < length; i++) {
-                    JSONObject optJSONObject = optJSONArray2.optJSONObject(i);
-                    if (optJSONObject != null) {
-                        int optInt = optJSONObject.optInt("type");
-                        if (optInt == 1) {
-                            JSONObject optJSONObject2 = optJSONObject.optJSONObject("forum");
-                            if (optJSONObject2 != null) {
-                                z zVar = new z(this.a);
-                                zVar.a(optJSONObject2);
-                                this.d.add(zVar);
-                            }
-                        } else if (optInt == 0 && (optJSONArray = optJSONObject.optJSONArray("threads")) != null) {
-                            int length2 = optJSONArray.length();
-                            ArrayList arrayList = new ArrayList();
-                            for (int i2 = 0; i2 < length2; i2++) {
-                                JSONObject optJSONObject3 = optJSONArray.optJSONObject(i2);
-                                if (optJSONObject3 != null) {
-                                    aa aaVar = new aa(this.a);
-                                    aaVar.a(optJSONObject3);
-                                    arrayList.add(aaVar);
-                                }
-                            }
-                            this.e.add(arrayList);
-                        }
-                    }
-                }
-            }
-            this.b = this.d.size() + this.e.size();
-        } catch (Exception e) {
-            com.baidu.tieba.c.ae.b(getClass().getName(), "parserJson", e.getMessage());
-        }
-    }
-
-    public ArrayList b() {
+    public af a() {
         return this.d;
     }
 
-    public ArrayList c() {
+    public String b() {
+        return this.a;
+    }
+
+    public void a(String str) {
+        this.a = str;
+    }
+
+    public String c() {
+        return this.b;
+    }
+
+    public void b(String str) {
+        this.b = str;
+    }
+
+    public String d() {
+        return this.c;
+    }
+
+    public int e() {
         return this.e;
+    }
+
+    public int f() {
+        return this.f;
+    }
+
+    public MapOverlayItem g() {
+        MapOverlayItem mapOverlayItem = new MapOverlayItem(new GeoPoint(e(), f()), c(), d());
+        mapOverlayItem.a(this);
+        return mapOverlayItem;
     }
 }

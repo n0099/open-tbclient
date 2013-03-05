@@ -1,8 +1,9 @@
 package com.baidu.tieba.write;
 
-import android.widget.GridView;
+import android.content.DialogInterface;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class ag implements Runnable {
+public class ag implements DialogInterface.OnCancelListener {
     final /* synthetic */ WriteActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -10,14 +11,15 @@ class ag implements Runnable {
         this.a = writeActivity;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        GridView gridView;
-        GridView gridView2;
-        gridView = this.a.p;
-        if (gridView.getVisibility() != 0) {
-            gridView2 = this.a.p;
-            gridView2.setVisibility(0);
+    @Override // android.content.DialogInterface.OnCancelListener
+    public void onCancel(DialogInterface dialogInterface) {
+        ap apVar;
+        ap apVar2;
+        this.a.c();
+        apVar = this.a.v;
+        if (apVar != null) {
+            apVar2 = this.a.v;
+            apVar2.a();
         }
     }
 }

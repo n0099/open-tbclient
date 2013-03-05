@@ -14,11 +14,11 @@ public class a {
         }
     }
 
-    public static boolean a(KeyEvent keyEvent) {
-        return a.b(keyEvent.getMetaState());
-    }
-
     public static boolean a(KeyEvent keyEvent, int i) {
         return a.a(keyEvent.getMetaState(), i);
+    }
+
+    public static boolean a(KeyEvent keyEvent) {
+        return a.b(keyEvent.getMetaState());
     }
 }

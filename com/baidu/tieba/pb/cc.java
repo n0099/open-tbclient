@@ -1,38 +1,35 @@
 package com.baidu.tieba.pb;
 
-import android.app.AlertDialog;
-import android.content.DialogInterface;
+import android.content.Context;
+import android.graphics.drawable.Drawable;
 import android.view.View;
-import android.widget.AdapterView;
+import android.widget.Button;
+import android.widget.LinearLayout;
 import com.baidu.tieba.R;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class cc implements AdapterView.OnItemLongClickListener {
-    final /* synthetic */ SubPbActivity a;
+class cc implements View.OnClickListener {
+    final /* synthetic */ ca a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public cc(SubPbActivity subPbActivity) {
-        this.a = subPbActivity;
+    public cc(ca caVar) {
+        this.a = caVar;
     }
 
-    @Override // android.widget.AdapterView.OnItemLongClickListener
-    public boolean onItemLongClick(AdapterView adapterView, View view, int i, long j) {
-        df dfVar;
-        AlertDialog d;
-        DialogInterface.OnClickListener onClickListener;
-        dfVar = this.a.g;
-        com.baidu.tieba.a.am amVar = (com.baidu.tieba.a.am) dfVar.getItem(i - 1);
-        if (amVar != null) {
-            this.a.z = amVar;
-            d = this.a.d();
-            if (d == null) {
-                SubPbActivity subPbActivity = this.a;
-                String[] strArr = {this.a.getString(R.string.copy)};
-                onClickListener = this.a.y;
-                subPbActivity.b(strArr, onClickListener);
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        Context context;
+        Context context2;
+        if (view.getTag() instanceof LinearLayout) {
+            LinearLayout linearLayout = (LinearLayout) view.getTag();
+            if (linearLayout.getVisibility() == 0) {
+                linearLayout.setVisibility(8);
+                context2 = this.a.a;
+                ((Button) view).setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, context2.getResources().getDrawable(R.drawable.manage_btn_left), (Drawable) null);
+                return;
             }
-            this.a.e();
+            linearLayout.setVisibility(0);
+            context = this.a.a;
+            ((Button) view).setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, context.getResources().getDrawable(R.drawable.manage_btn_down), (Drawable) null);
         }
-        return true;
     }
 }

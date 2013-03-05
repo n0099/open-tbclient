@@ -13,6 +13,6 @@ public class u implements BaiduAccount.CallbackListener {
 
     @Override // com.baidu.tieba.BaiduAccount.BaiduAccount.CallbackListener
     public void callback() {
-        this.a.p();
+        this.a.q();
     }
 }

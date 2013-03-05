@@ -68,15 +68,6 @@ public class FilterFactory {
         }
     };
 
-    private static boolean checkPackage(Context context) {
-        for (int i = 0; i < AllowedPackageList.packs.size(); i++) {
-            if (context.getApplicationInfo().packageName.equals(AllowedPackageList.packs.get(i))) {
-                return true;
-            }
-        }
-        return false;
-    }
-
     public static OneKeyFilter createOneKeyFilter(Context context, String str) {
         if (!checkPackage(context)) {
             System.out.println("packageName error");
@@ -94,5 +85,14 @@ public class FilterFactory {
             e3.printStackTrace();
             return null;
         }
+    }
+
+    private static boolean checkPackage(Context context) {
+        for (int i = 0; i < AllowedPackageList.packs.size(); i++) {
+            if (context.getApplicationInfo().packageName.equals(AllowedPackageList.packs.get(i))) {
+                return true;
+            }
+        }
+        return false;
     }
 }

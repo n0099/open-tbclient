@@ -1,24 +1,41 @@
 package com.baidu.tieba.pb;
 
-import android.content.Context;
+import android.view.MotionEvent;
 import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.GridView;
+import com.baidu.tieba.R;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class dh implements View.OnClickListener {
-    final /* synthetic */ df a;
-    private String b = null;
+public class dh implements View.OnTouchListener {
+    final /* synthetic */ SubPbActivity a;
 
-    public dh(df dfVar) {
-        this.a = dfVar;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public dh(SubPbActivity subPbActivity) {
+        this.a = subPbActivity;
     }
 
-    public void a(String str) {
-        this.b = str;
-    }
-
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        Context context;
-        context = this.a.a;
-        ((SubPbActivity) context).c(this.b);
+    @Override // android.view.View.OnTouchListener
+    public boolean onTouch(View view, MotionEvent motionEvent) {
+        GridView gridView;
+        EditText editText;
+        GridView gridView2;
+        EditText editText2;
+        Button button;
+        gridView = this.a.ad;
+        if (gridView.getVisibility() == 0) {
+            editText = this.a.t;
+            editText.requestFocus();
+            gridView2 = this.a.ad;
+            gridView2.setVisibility(8);
+            SubPbActivity subPbActivity = this.a;
+            editText2 = this.a.t;
+            com.baidu.tieba.c.ai.b(subPbActivity, editText2);
+            button = this.a.y;
+            button.setBackgroundResource(R.drawable.sub_pb_face);
+            return true;
+        }
+        return false;
     }
 }

@@ -1,51 +1,77 @@
 package com.baidu.tieba.pb;
 
-import com.baidu.tieba.view.ImagePbPagerAdapter;
+import android.content.Intent;
+import com.baidu.tieba.view.MultiImageView;
+import java.util.ArrayList;
+import java.util.HashMap;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class j implements Runnable {
-    final /* synthetic */ ImagePbActivity a;
+public class j implements android.support.v4.view.aj {
+    final /* synthetic */ ImageActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public j(ImagePbActivity imagePbActivity) {
-        this.a = imagePbActivity;
+    public j(ImageActivity imageActivity) {
+        this.a = imageActivity;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
+    @Override // android.support.v4.view.aj
+    public void a(int i) {
         boolean z;
-        ImagePbPagerAdapter imagePbPagerAdapter;
-        int i;
+        d dVar;
+        MultiImageView multiImageView;
+        d dVar2;
         int i2;
-        boolean z2;
-        ImagePbPagerAdapter imagePbPagerAdapter2;
-        ImagePbPagerAdapter imagePbPagerAdapter3;
-        try {
-            z = this.a.A;
-            if (!z || this.a.F == null) {
-                return;
+        z = this.a.D;
+        if (!z) {
+            dVar = this.a.w;
+            if (dVar != null) {
+                multiImageView = this.a.o;
+                if (i > multiImageView.getItemNum() - 5) {
+                    dVar2 = this.a.w;
+                    dVar2.a();
+                }
             }
-            int i3 = this.a.I > 0 ? this.a.I - 1 : 0;
-            int k = this.a.I >= this.a.F.k() + (-1) ? this.a.F.k() - 1 : this.a.I + 1;
-            com.baidu.tieba.c.z c = com.baidu.tieba.c.w.c(this.a);
-            imagePbPagerAdapter = this.a.y;
-            imagePbPagerAdapter.d().a();
-            if (c == com.baidu.tieba.c.z.WIFI || c == com.baidu.tieba.c.z.ThreeG) {
-                i = i3;
-                i2 = k;
-                z2 = true;
-            } else {
-                i = this.a.I;
-                i2 = this.a.I;
-                z2 = false;
+        } else {
+            Intent intent = new Intent("com.baidu.tieba.broadcast.imagepb.pagechanged");
+            intent.putExtra("index", i);
+            this.a.sendBroadcast(intent);
+        }
+        ImageActivity imageActivity = this.a;
+        i2 = this.a.f;
+        imageActivity.a(i2, i);
+        this.a.f = i;
+        this.a.n();
+    }
+
+    @Override // android.support.v4.view.aj
+    public void a(int i, float f, int i2) {
+    }
+
+    @Override // android.support.v4.view.aj
+    public void b(int i) {
+        long j;
+        ArrayList arrayList;
+        int i2;
+        ArrayList arrayList2;
+        HashMap hashMap;
+        ArrayList arrayList3;
+        int i3;
+        if (i == 1) {
+            long nanoTime = System.nanoTime();
+            j = this.a.x;
+            if (nanoTime - j > 300000000) {
+                arrayList = this.a.e;
+                if (arrayList != null) {
+                    i2 = this.a.f;
+                    arrayList2 = this.a.e;
+                    if (i2 < arrayList2.size()) {
+                        hashMap = this.a.y;
+                        arrayList3 = this.a.e;
+                        i3 = this.a.f;
+                        hashMap.put((String) arrayList3.get(i3), true);
+                    }
+                }
             }
-            imagePbPagerAdapter2 = this.a.y;
-            imagePbPagerAdapter2.d().a(z2);
-            for (int i4 = i; i4 <= i2; i4++) {
-                imagePbPagerAdapter3 = this.a.y;
-                imagePbPagerAdapter3.d().a(((com.baidu.tieba.a.t) this.a.F.h().get(i4)).b(), new k(this));
-            }
-        } catch (Exception e) {
-            com.baidu.tieba.c.ae.b("ImagePbActivity", "mGetImageRunnble.run", "error = " + e.getMessage());
         }
     }
 }

@@ -1,35 +1,74 @@
 package com.baidu.tieba.pb;
 
-import android.content.Context;
-import android.graphics.drawable.Drawable;
-import android.view.View;
-import android.widget.Button;
-import android.widget.LinearLayout;
+import android.os.AsyncTask;
 import com.baidu.tieba.R;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class bv implements View.OnClickListener {
-    final /* synthetic */ bt a;
+public class bv extends AsyncTask {
+    final /* synthetic */ PbActivity a;
+    private com.baidu.tieba.c.t b = null;
+    private String c;
+    private String d;
+    private String e;
+    private String f;
+    private String g;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public bv(bt btVar) {
-        this.a = btVar;
+    public bv(PbActivity pbActivity, String str, String str2, String str3, String str4, String str5) {
+        this.a = pbActivity;
+        this.c = str;
+        this.d = str2;
+        this.e = str3;
+        this.f = str4;
+        this.g = str5;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        Context context;
-        Context context2;
-        if (view.getTag() instanceof LinearLayout) {
-            LinearLayout linearLayout = (LinearLayout) view.getTag();
-            if (linearLayout.getVisibility() == 0) {
-                linearLayout.setVisibility(8);
-                context2 = this.a.a;
-                ((Button) view).setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, context2.getResources().getDrawable(R.drawable.manage_btn_left), (Drawable) null);
-                return;
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // android.os.AsyncTask
+    /* renamed from: a */
+    public String doInBackground(String... strArr) {
+        this.b = new com.baidu.tieba.c.t(strArr[0]);
+        this.b.a("day", this.g);
+        this.b.a("un", this.f);
+        this.b.a("fid", this.c);
+        this.b.a("word", this.d);
+        this.b.a("z", this.e);
+        this.b.a("ntn", "banid");
+        this.b.d(true);
+        this.b.i();
+        if (this.b.b()) {
+            return null;
+        }
+        return this.b.f();
+    }
+
+    public void a() {
+        com.baidu.tieba.b.q qVar;
+        if (this.b != null) {
+            this.b.g();
+        }
+        this.a.ac = null;
+        qVar = this.a.p;
+        qVar.e(false);
+        super.cancel(true);
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // android.os.AsyncTask
+    /* renamed from: a */
+    public void onPostExecute(String str) {
+        com.baidu.tieba.b.q qVar;
+        super.onPostExecute(str);
+        this.a.ac = null;
+        qVar = this.a.p;
+        qVar.e(false);
+        if (this.b != null) {
+            if (str == null) {
+                this.a.b(this.a.getString(R.string.success));
+            } else {
+                this.a.b(str);
             }
-            linearLayout.setVisibility(0);
-            context = this.a.a;
-            ((Button) view).setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, context.getResources().getDrawable(R.drawable.manage_btn_down), (Drawable) null);
         }
     }
 }

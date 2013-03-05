@@ -1,7 +1,7 @@
 package com.baidu.tieba.b;
 
-import com.baidu.tieba.a.au;
-import com.baidu.tieba.c.ae;
+import com.baidu.tieba.a.av;
+import com.baidu.tieba.c.ag;
 import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -9,7 +9,7 @@ import org.json.JSONObject;
 public class g {
     private ArrayList c;
     private int d = 0;
-    private au a = new au();
+    private av a = new av();
     private com.baidu.tieba.a.b b = new com.baidu.tieba.a.b();
 
     public g() {
@@ -18,19 +18,19 @@ public class g {
         a(0);
     }
 
-    public au a() {
+    public av a() {
         return this.a;
     }
 
-    public void a(int i) {
-        this.d = i;
+    public com.baidu.tieba.a.b b() {
+        return this.b;
     }
 
     public void a(String str) {
         try {
             a(new JSONObject(str));
         } catch (Exception e) {
-            ae.b("LoginModel", "parserJson", "error = " + e.getMessage());
+            ag.b("LoginModel", "parserJson", "error = " + e.getMessage());
         }
     }
 
@@ -46,16 +46,16 @@ public class g {
             }
             a(jSONObject.optInt("retrytime"));
         } catch (Exception e) {
-            ae.b("LoginModel", "parserJson", "error = " + e.getMessage());
+            ag.b("LoginModel", "parserJson", "error = " + e.getMessage());
         }
-    }
-
-    public com.baidu.tieba.a.b b() {
-        return this.b;
     }
 
     public ArrayList c() {
         return this.c;
+    }
+
+    public void a(int i) {
+        this.d = i;
     }
 
     public int d() {

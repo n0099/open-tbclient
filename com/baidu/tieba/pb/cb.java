@@ -1,38 +1,23 @@
 package com.baidu.tieba.pb;
 
+import android.content.Context;
 import android.view.View;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.ProgressBar;
-import android.widget.TextView;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class cb {
-    TextView a;
-    ProgressBar b;
-    bz c;
-    bx d;
-    bw e;
-    ImageView f;
-    ImageView g;
-    TextView h;
-    TextView i;
-    TextView j;
-    TextView k;
-    TextView l;
-    LinearLayout m;
-    TextView n;
-    ImageView o;
-    TextView p;
-    TextView q;
-    View r;
-    final /* synthetic */ bt s;
-
-    private cb(bt btVar) {
-        this.s = btVar;
-    }
+public class cb implements View.OnClickListener {
+    final /* synthetic */ ca a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ cb(bt btVar, cb cbVar) {
-        this(btVar);
+    public cb(ca caVar) {
+        this.a = caVar;
+    }
+
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        Context context;
+        if (view.getTag() != null && (view.getTag() instanceof String)) {
+            context = this.a.a;
+            com.baidu.tieba.c.ai.c(context, (String) view.getTag());
+        }
     }
 }

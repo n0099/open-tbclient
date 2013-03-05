@@ -1,109 +1,84 @@
 package com.baidu.tieba.pb;
 
-import android.graphics.Bitmap;
-import android.webkit.WebView;
-import android.webkit.WebViewClient;
-import android.widget.Button;
-import android.widget.ImageView;
-import android.widget.ProgressBar;
-import com.baidu.tieba.frs.FrsActivity;
-import java.net.URI;
-import org.apache.http.NameValuePair;
-import org.apache.http.client.utils.URLEncodedUtils;
+import android.os.AsyncTask;
+import com.baidu.tieba.write.VcodeActivity;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class dk extends WebViewClient {
-    final /* synthetic */ WebActivity a;
+public class dk extends AsyncTask {
+    final /* synthetic */ SubPbActivity a;
+    private com.baidu.tieba.b.y b;
+    private com.baidu.tieba.c.t c = null;
+    private boolean d = false;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public dk(WebActivity webActivity) {
-        this.a = webActivity;
+    public dk(SubPbActivity subPbActivity, com.baidu.tieba.b.y yVar) {
+        this.a = subPbActivity;
+        this.b = null;
+        this.b = yVar;
     }
 
-    @Override // android.webkit.WebViewClient
-    public void onPageFinished(WebView webView, String str) {
-        WebView webView2;
-        ImageView imageView;
-        WebView webView3;
-        ImageView imageView2;
-        ProgressBar progressBar;
-        Button button;
-        ImageView imageView3;
-        ImageView imageView4;
-        super.onPageFinished(webView, str);
-        webView2 = this.a.b;
-        if (webView2.canGoBack()) {
-            imageView4 = this.a.c;
-            imageView4.setEnabled(true);
-        } else {
-            imageView = this.a.c;
-            imageView.setEnabled(false);
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // android.os.AsyncTask
+    /* renamed from: a */
+    public String doInBackground(Integer... numArr) {
+        if (this.d) {
+            return null;
         }
-        webView3 = this.a.b;
-        if (webView3.canGoForward()) {
-            imageView3 = this.a.d;
-            imageView3.setEnabled(true);
-        } else {
-            imageView2 = this.a.d;
-            imageView2.setEnabled(false);
+        this.c = new com.baidu.tieba.c.t("http://c.tieba.baidu.com/c/c/post/add");
+        this.c.a("anonymous", "0");
+        this.c.a("fid", this.b.f());
+        this.c.a("kw", this.b.g());
+        this.c.a("content", this.b.c());
+        this.c.a("tid", this.b.d());
+        if (this.b.i() != null && this.b.i().length() > 0) {
+            this.c.a("vcode", this.b.i());
         }
-        progressBar = this.a.g;
-        progressBar.setVisibility(8);
-        button = this.a.e;
-        button.setVisibility(0);
+        this.c.a("quote_id", this.b.e());
+        this.c.a("floor_num", String.valueOf(this.b.h()));
+        this.c.d(true);
+        return this.c.i();
     }
 
-    @Override // android.webkit.WebViewClient
-    public void onPageStarted(WebView webView, String str, Bitmap bitmap) {
-        WebView webView2;
-        ImageView imageView;
-        WebView webView3;
-        ImageView imageView2;
-        ProgressBar progressBar;
-        Button button;
-        ImageView imageView3;
-        ImageView imageView4;
-        super.onPageStarted(webView, str, bitmap);
-        webView2 = this.a.b;
-        if (webView2.canGoBack()) {
-            imageView4 = this.a.c;
-            imageView4.setEnabled(true);
-        } else {
-            imageView = this.a.c;
-            imageView.setEnabled(false);
+    private void a(int i, String str, String str2) {
+        if (i == 5 || i == 6) {
+            com.baidu.tieba.a.aw awVar = new com.baidu.tieba.a.aw();
+            awVar.a(str2);
+            if (awVar.b() != null) {
+                this.b.h(awVar.a());
+                this.b.i(awVar.b());
+                VcodeActivity.a(this.a, this.b, 1200005);
+                return;
+            }
+            this.a.b(str);
+            return;
         }
-        webView3 = this.a.b;
-        if (webView3.canGoForward()) {
-            imageView3 = this.a.d;
-            imageView3.setEnabled(true);
-        } else {
-            imageView2 = this.a.d;
-            imageView2.setEnabled(false);
-        }
-        progressBar = this.a.g;
-        progressBar.setVisibility(0);
-        button = this.a.e;
-        button.setVisibility(8);
+        this.a.b(str);
     }
 
-    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:19:0x005c -> B:9:0x0020). Please submit an issue!!! */
-    @Override // android.webkit.WebViewClient
-    public boolean shouldOverrideUrlLoading(WebView webView, String str) {
-        if (str != null && str.contains("jump_tieba_native=1")) {
-            try {
-                for (NameValuePair nameValuePair : URLEncodedUtils.parse(new URI(str), "utf-8")) {
-                    if (nameValuePair.getName().equalsIgnoreCase("kz")) {
-                        PbActivity.a(this.a, nameValuePair.getValue(), (String) null);
-                        return true;
-                    } else if (nameValuePair.getName().equalsIgnoreCase("kw")) {
-                        FrsActivity.a(this.a, nameValuePair.getValue(), (String) null);
-                        return true;
-                    }
-                }
-            } catch (Exception e) {
-                com.baidu.tieba.c.ae.b(getClass().getName(), "shouldOverrideUrlLoading", e.getMessage());
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // android.os.AsyncTask
+    /* renamed from: a */
+    public void onPostExecute(String str) {
+        super.onPostExecute(str);
+        this.a.d();
+        this.a.G = null;
+        if (this.c != null) {
+            if (this.c.b()) {
+                this.a.o();
+            } else {
+                a(this.c.d(), this.c.f(), str);
             }
         }
-        return super.shouldOverrideUrlLoading(webView, str);
+    }
+
+    public void a() {
+        this.a.G = null;
+        this.a.d();
+        this.d = true;
+        if (this.c != null) {
+            this.c.g();
+        }
+        super.cancel(true);
     }
 }

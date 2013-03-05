@@ -37,13 +37,13 @@ public class c extends AsyncTask {
         this.f = null;
         this.h = z;
         str2 = aVar.h;
-        if (str2 == null) {
-            this.i = str;
+        if (str2 != null) {
+            StringBuilder sb = new StringBuilder(String.valueOf(str));
+            str3 = aVar.h;
+            this.i = sb.append(str3).toString();
             return;
         }
-        StringBuilder sb = new StringBuilder(String.valueOf(str));
-        str3 = aVar.h;
-        this.i = sb.append(str3).toString();
+        this.i = str;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -62,7 +62,7 @@ public class c extends AsyncTask {
         int i2;
         Context context;
         ArrayList arrayList;
-        ab ah;
+        ac al;
         ArrayList arrayList2;
         ArrayList arrayList3;
         int i3;
@@ -74,19 +74,19 @@ public class c extends AsyncTask {
         boolean z3;
         Context context2;
         Context context3;
-        ab ah2;
+        ac al2;
         String str4;
         int i7 = 0;
         try {
             byte[] bArr = null;
-            String g = ad.g(this.d);
+            String h = af.h(this.d);
             str = this.a.h;
             if (str != null) {
-                StringBuilder sb = new StringBuilder(String.valueOf(g));
+                StringBuilder sb = new StringBuilder(String.valueOf(h));
                 str4 = this.a.h;
                 str2 = sb.append(str4).toString();
             } else {
-                str2 = g;
+                str2 = h;
             }
             if (this.h) {
                 if (this.e == 1) {
@@ -98,8 +98,8 @@ public class c extends AsyncTask {
                         this.f = o.c("hotspot", str2);
                     }
                 } else if (this.e == 0 && str2 != null) {
-                    if (o.a("image", str2) && (ah2 = TiebaApplication.a().ah()) != null) {
-                        ah2.a(com.baidu.tieba.a.h.i());
+                    if (o.a("image", str2) && (al2 = TiebaApplication.b().al()) != null) {
+                        al2.a(com.baidu.tieba.a.i.i());
                     }
                     this.f = o.c("image", str2);
                     if (this.f != null) {
@@ -113,12 +113,12 @@ public class c extends AsyncTask {
                     StringBuffer stringBuffer = new StringBuffer(100);
                     stringBuffer.append("http://c.tieba.baidu.com/c/p/img?");
                     stringBuffer.append("src=");
-                    stringBuffer.append(ad.f(this.d));
+                    stringBuffer.append(af.f(this.d));
                     stringBuffer.append("&width=");
                     i3 = this.a.b;
                     if (i3 == 0) {
                         context3 = this.a.a;
-                        i4 = ag.a(context3, 105.0f);
+                        i4 = ai.a(context3, 105.0f);
                     } else {
                         i4 = this.a.b;
                     }
@@ -127,7 +127,7 @@ public class c extends AsyncTask {
                     i5 = this.a.c;
                     if (i5 == 0) {
                         context2 = this.a.a;
-                        i6 = ag.a(context2, 105.0f);
+                        i6 = ai.a(context2, 105.0f);
                     } else {
                         i6 = this.a.c;
                     }
@@ -136,7 +136,7 @@ public class c extends AsyncTask {
                     z = this.a.i;
                     if (z) {
                         stringBuffer.append("&qulity=" + String.valueOf(45));
-                    } else if (TiebaApplication.a().Y() == 1) {
+                    } else if (TiebaApplication.b().ac() == 1) {
                         stringBuffer.append("&qulity=" + String.valueOf(80));
                     } else {
                         stringBuffer.append("&qulity=" + String.valueOf(45));
@@ -159,7 +159,7 @@ public class c extends AsyncTask {
                     i = 0;
                     i2 = 0;
                 } else {
-                    str3 = String.valueOf(com.baidu.tieba.a.h.c()) + this.d;
+                    str3 = String.valueOf(com.baidu.tieba.a.i.c()) + this.d;
                     i = 0;
                     i2 = 0;
                 }
@@ -179,20 +179,20 @@ public class c extends AsyncTask {
                 }
                 bArr = this.b.h();
                 if (this.b.b()) {
-                    if (this.e == 0 && (ah = TiebaApplication.a().ah()) != null) {
-                        ah.a(com.baidu.tieba.a.h.i());
+                    if (this.e == 0 && (al = TiebaApplication.b().al()) != null) {
+                        al.a(com.baidu.tieba.a.i.i());
                     }
                     this.f = e.a(bArr);
-                    this.j = ag.a(bArr);
+                    this.j = ai.a(bArr);
                     if (this.f != null) {
                         if (this.e == 0) {
                             if (this.f.getWidth() > i2 || this.f.getHeight() > i) {
-                                ae.a(1, getClass().getName(), "doInBackground", "Pb_image_too_big:" + String.valueOf(String.valueOf(this.f.getWidth()) + "*" + String.valueOf(this.f.getHeight())));
+                                ag.a(1, getClass().getName(), "doInBackground", "Pb_image_too_big:" + String.valueOf(String.valueOf(this.f.getWidth()) + "*" + String.valueOf(this.f.getHeight())));
                                 this.f = e.a(this.f, i2, i);
                                 i7 = 1;
                             }
                         } else if (this.e != 3 && (this.f.getWidth() > 80 || this.f.getHeight() > 80)) {
-                            ae.a(1, getClass().getName(), "doInBackground", "Pb_photo_too_big:" + String.valueOf(String.valueOf(this.f.getWidth()) + "*" + String.valueOf(this.f.getHeight())));
+                            ag.a(1, getClass().getName(), "doInBackground", "Pb_photo_too_big:" + String.valueOf(String.valueOf(this.f.getWidth()) + "*" + String.valueOf(this.f.getHeight())));
                             this.f = e.a(this.f, 80);
                         }
                     }
@@ -214,13 +214,32 @@ public class c extends AsyncTask {
                 }
             }
         } catch (Exception e) {
-            ae.b("ImageAsyncTask", "doInBackground", "error = " + e.getMessage());
+            ag.b("ImageAsyncTask", "doInBackground", "error = " + e.getMessage());
         }
         return this.f;
     }
 
     public String a() {
         return this.d;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // android.os.AsyncTask
+    /* renamed from: a */
+    public void onProgressUpdate(Integer... numArr) {
+        ac al = TiebaApplication.b().al();
+        if (al != null && this.f != null) {
+            if (this.e == 0) {
+                al.a(this.i, this.f, this.j);
+            } else if (this.e == 1 || this.e == 2) {
+                al.a(this.i, this.f);
+            }
+        }
+        if (this.c != null) {
+            this.c.a(this.f, this.d, this.g);
+        }
+        super.onProgressUpdate(numArr);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -245,23 +264,9 @@ public class c extends AsyncTask {
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.os.AsyncTask
-    /* renamed from: a */
-    public void onProgressUpdate(Integer... numArr) {
-        ab ah = TiebaApplication.a().ah();
-        if (ah != null && this.f != null) {
-            if (this.e == 0) {
-                ah.a(this.i, this.f, this.j);
-            } else if (this.e == 1 || this.e == 2) {
-                ah.a(this.i, this.f);
-            }
-        }
-        if (this.c != null) {
-            this.c.a(this.f, this.d, this.g);
-        }
-        super.onProgressUpdate(numArr);
+    protected void onCancelled() {
+        super.onCancelled();
     }
 
     public void b() {
@@ -283,10 +288,5 @@ public class c extends AsyncTask {
             }
         }
         super.cancel(true);
-    }
-
-    @Override // android.os.AsyncTask
-    protected void onCancelled() {
-        super.onCancelled();
     }
 }

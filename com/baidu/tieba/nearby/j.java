@@ -1,20 +1,20 @@
 package com.baidu.tieba.nearby;
 
 import android.view.View;
+import com.baidu.tieba.R;
+import com.baidu.tieba.compatible.CompatibleUtile;
 /* loaded from: classes.dex */
-class j {
-    public View a;
-    public int b;
-    final /* synthetic */ LbsActivity c;
-
-    private j(LbsActivity lbsActivity) {
-        this.c = lbsActivity;
-        this.a = null;
-        this.b = 0;
-    }
+class j implements View.OnClickListener {
+    final /* synthetic */ NearbyMapActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ j(LbsActivity lbsActivity, j jVar) {
-        this(lbsActivity);
+    public j(NearbyMapActivity nearbyMapActivity) {
+        this.a = nearbyMapActivity;
+    }
+
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        this.a.finish();
+        CompatibleUtile.setAnim(this.a, 0, R.anim.up);
     }
 }

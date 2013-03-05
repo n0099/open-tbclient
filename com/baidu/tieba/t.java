@@ -1,21 +1,27 @@
 package com.baidu.tieba;
 
-import android.database.ContentObserver;
-import android.os.Handler;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class t extends ContentObserver {
-    final /* synthetic */ TiebaApplication a;
+public class t implements DialogInterface.OnClickListener {
+    final /* synthetic */ MainTabActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public t(TiebaApplication tiebaApplication, Handler handler) {
-        super(handler);
-        this.a = tiebaApplication;
+    public t(MainTabActivity mainTabActivity) {
+        this.a = mainTabActivity;
     }
 
-    @Override // android.database.ContentObserver
-    public void onChange(boolean z) {
-        super.onChange(z);
-        com.baidu.tieba.c.w.b();
+    @Override // android.content.DialogInterface.OnClickListener
+    public void onClick(DialogInterface dialogInterface, int i) {
+        AlertDialog alertDialog;
+        if (i != -2) {
+            alertDialog = this.a.y;
+            alertDialog.dismiss();
+            TiebaApplication.b().a(false, false);
+            return;
+        }
+        this.a.a(false);
+        TiebaApplication.b().a(true, false);
     }
 }

@@ -1,32 +1,42 @@
 package com.baidu.tieba.frs;
 
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.ProgressBar;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
+import android.view.View;
+import android.widget.Button;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class af {
-    LinearLayout a;
-    TextView b;
-    LinearLayout c;
-    RelativeLayout d;
-    TextView e;
-    ProgressBar f;
-    LinearLayout g;
-    TextView h;
-    TextView i;
-    TextView j;
-    TextView k;
-    ImageView l;
-    final /* synthetic */ ab m;
-
-    private af(ab abVar) {
-        this.m = abVar;
-    }
+public class af implements View.OnClickListener {
+    final /* synthetic */ FrsImageActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ af(ab abVar, af afVar) {
-        this(abVar);
+    public af(FrsImageActivity frsImageActivity) {
+        this.a = frsImageActivity;
+    }
+
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        Button button;
+        Button button2;
+        Button button3;
+        Button button4;
+        button = this.a.k;
+        if (view != button) {
+            button2 = this.a.x;
+            if (view != button2) {
+                button3 = this.a.y;
+                if (view != button3) {
+                    button4 = this.a.z;
+                    if (view != button4) {
+                        return;
+                    }
+                    this.a.c(1);
+                    return;
+                }
+                this.a.e(1);
+                return;
+            }
+            this.a.c(0);
+            return;
+        }
+        this.a.finish();
     }
 }

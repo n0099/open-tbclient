@@ -1,42 +1,50 @@
 package com.baidu.tieba.pb;
 
-import android.content.BroadcastReceiver;
-import android.content.Context;
-import android.content.Intent;
+import android.app.AlertDialog;
+import android.view.View;
+import android.view.WindowManager;
+import android.widget.TextView;
+import com.baidu.tieba.R;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ad extends BroadcastReceiver {
+public class ad implements View.OnClickListener {
     final /* synthetic */ ImagePbActivity a;
 
-    private ad(ImagePbActivity imagePbActivity) {
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public ad(ImagePbActivity imagePbActivity) {
         this.a = imagePbActivity;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ ad(ImagePbActivity imagePbActivity, ad adVar) {
-        this(imagePbActivity);
-    }
-
-    @Override // android.content.BroadcastReceiver
-    public void onReceive(Context context, Intent intent) {
-        ab abVar;
-        int intExtra = intent.getIntExtra("index", -1);
-        if (intExtra < 0) {
-            if (this.a.I == 0 || (this.a.I >= this.a.F.k() - 1 && this.a.F.h().size() == this.a.F.k())) {
-                int intExtra2 = intent.getIntExtra("state", -1);
-                this.a.a(intExtra2);
-                com.baidu.tieba.c.ae.a(getClass().getName(), "find_bug_onReceive", "state=" + String.valueOf(intExtra2));
-                return;
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        View view2;
+        AlertDialog alertDialog;
+        AlertDialog alertDialog2;
+        View view3;
+        AlertDialog alertDialog3;
+        AlertDialog alertDialog4;
+        if (this.a.F != null && this.a.F.length() != 0) {
+            this.a.j();
+            view2 = this.a.l;
+            TextView textView = (TextView) view2.findViewById(R.id.text);
+            if (textView != null) {
+                alertDialog = this.a.k;
+                alertDialog.show();
+                textView.setText(String.valueOf(this.a.getString(R.string.title)) + this.a.F);
+                alertDialog2 = this.a.k;
+                view3 = this.a.l;
+                alertDialog2.setContentView(view3);
+                alertDialog3 = this.a.k;
+                WindowManager.LayoutParams attributes = alertDialog3.getWindow().getAttributes();
+                attributes.gravity = 51;
+                attributes.x = 0;
+                attributes.y = (this.a.i.getTop() + this.a.i.getHeight()) - 5;
+                attributes.width = -1;
+                attributes.height = -2;
+                attributes.alpha = 1.0f;
+                alertDialog4 = this.a.k;
+                alertDialog4.getWindow().setAttributes(attributes);
             }
-            return;
-        }
-        this.a.I = intExtra;
-        if (this.a.F == null || intExtra + 5 < this.a.F.h().size() || this.a.F.h().size() == this.a.F.k()) {
-            return;
-        }
-        abVar = this.a.b;
-        if (abVar == null) {
-            this.a.a(this.a.F.l(), 0, 10, false);
         }
     }
 }

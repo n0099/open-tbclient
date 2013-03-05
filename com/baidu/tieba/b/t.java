@@ -1,42 +1,34 @@
 package com.baidu.tieba.b;
 
-import com.baidu.tieba.a.aw;
-import com.baidu.tieba.c.ae;
+import com.baidu.tieba.a.ah;
+import com.baidu.tieba.a.aj;
+import java.util.ArrayList;
+import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
-public class t {
-    private int d = 0;
-    private aw a = new aw();
-    private com.baidu.tieba.a.g b = new com.baidu.tieba.a.g();
-    private com.baidu.tieba.a.i c = new com.baidu.tieba.a.i();
+public class t extends com.baidu.tieba.a.d {
+    private ArrayList a = new ArrayList();
+    private ah b = new ah();
 
-    public aw a() {
+    public ArrayList a() {
         return this.a;
     }
 
-    public void a(String str) {
-        try {
-            a(new JSONObject(str));
-        } catch (Exception e) {
-            ae.b(getClass().getName(), "parserJson", e.getMessage());
-        }
-    }
-
-    public void a(JSONObject jSONObject) {
-        if (jSONObject == null) {
-            return;
-        }
-        try {
-            this.a.a(jSONObject.optJSONObject("version"));
-            this.b.a(jSONObject.optJSONObject("client"));
-            this.c.a(jSONObject.optJSONObject("config"));
-            this.d = jSONObject.optInt("sync_active", 0);
-        } catch (Exception e) {
-            ae.b(getClass().getName(), "parserJson", e.getMessage());
-        }
-    }
-
-    public com.baidu.tieba.a.g b() {
+    public ah b() {
         return this.b;
+    }
+
+    @Override // com.baidu.tieba.a.d
+    public void a(JSONObject jSONObject) {
+        JSONArray optJSONArray = jSONObject.optJSONArray("thread_list");
+        if (optJSONArray != null) {
+            int length = optJSONArray.length();
+            for (int i = 0; i < length; i++) {
+                aj ajVar = new aj();
+                ajVar.a(optJSONArray.optJSONObject(i));
+                this.a.add(ajVar);
+            }
+        }
+        this.b.a(jSONObject.optJSONObject("page"));
     }
 }

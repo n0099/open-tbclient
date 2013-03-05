@@ -1,22 +1,36 @@
 package com.baidu.tieba.a;
-
-import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class g {
-    private String a = null;
+    private f a;
+    private boolean b;
+    private int c;
+    private String d;
 
-    public String a() {
-        return this.a;
+    public void a(f fVar) {
+        this.a = fVar;
     }
 
-    public void a(JSONObject jSONObject) {
-        if (jSONObject == null) {
-            return;
-        }
-        try {
-            this.a = jSONObject.optString("client_id");
-        } catch (Exception e) {
-            com.baidu.tieba.c.ae.b(getClass().getName(), "parserJson", e.getMessage());
-        }
+    public boolean a() {
+        return this.b;
+    }
+
+    public void a(boolean z) {
+        this.b = z;
+    }
+
+    public int b() {
+        return this.c;
+    }
+
+    public void a(int i) {
+        this.c = i;
+    }
+
+    public String c() {
+        return this.d;
+    }
+
+    public void a(String str) {
+        this.d = str;
     }
 }

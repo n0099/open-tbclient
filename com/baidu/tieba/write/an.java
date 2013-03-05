@@ -1,57 +1,28 @@
 package com.baidu.tieba.write;
 
-import android.graphics.Bitmap;
-import android.os.AsyncTask;
-import android.widget.ImageView;
-import android.widget.ProgressBar;
+import android.text.Editable;
+import android.text.TextWatcher;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class an extends AsyncTask {
+public class an implements TextWatcher {
     final /* synthetic */ WriteActivity a;
-    private String b;
 
-    public an(WriteActivity writeActivity, String str) {
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public an(WriteActivity writeActivity) {
         this.a = writeActivity;
-        this.b = null;
-        this.b = str;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // android.os.AsyncTask
-    /* renamed from: a */
-    public Bitmap doInBackground(Object... objArr) {
-        if (this.b != null && !this.b.equals("tieba_resized_image")) {
-            com.baidu.tieba.c.o.e("photos/" + this.b, "tieba_resized_image");
-        }
-        return com.baidu.tieba.c.o.c(null, "tieba_resized_image_display");
+    @Override // android.text.TextWatcher
+    public void afterTextChanged(Editable editable) {
+        this.a.o();
     }
 
-    public void a() {
-        ProgressBar progressBar;
-        ImageView imageView;
-        this.a.s = null;
-        progressBar = this.a.m;
-        progressBar.setVisibility(8);
-        imageView = this.a.n;
-        imageView.setVisibility(8);
-        this.a.k();
-        super.cancel(true);
+    @Override // android.text.TextWatcher
+    public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // android.os.AsyncTask
-    /* renamed from: a */
-    public void onPostExecute(Bitmap bitmap) {
-        super.onPostExecute(bitmap);
-        this.a.s = null;
-        com.baidu.tieba.c.ae.a(getClass().getName(), "onPostExecute", "is Null?" + String.valueOf(bitmap == null));
-        this.a.a(bitmap);
-    }
-
-    @Override // android.os.AsyncTask
-    protected void onCancelled() {
-        super.onCancelled();
+    @Override // android.text.TextWatcher
+    public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
+        this.a.e = true;
     }
 }

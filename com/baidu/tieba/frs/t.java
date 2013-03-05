@@ -1,6 +1,8 @@
 package com.baidu.tieba.frs;
 
 import android.view.View;
+import com.baidu.mobstat.StatService;
+import com.baidu.tieba.TiebaApplication;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class t implements View.OnClickListener {
@@ -13,6 +15,10 @@ public class t implements View.OnClickListener {
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        this.a.b(0);
+        if (TiebaApplication.b().k()) {
+            StatService.onEvent(this.a, "frs_refrsh", "frsclick", 1);
+        }
+        this.a.J = "tb_frslist";
+        this.a.u();
     }
 }

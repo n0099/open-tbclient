@@ -15,32 +15,15 @@ public abstract class FragmentPagerAdapter extends k {
     private Fragment mCurrentPrimaryItem = null;
     private final FragmentManager mFragmentManager;
 
+    public abstract Fragment getItem(int i);
+
     public FragmentPagerAdapter(FragmentManager fragmentManager) {
         this.mFragmentManager = fragmentManager;
     }
 
-    private static String makeFragmentName(int i, int i2) {
-        return "android:switcher:" + i + ":" + i2;
-    }
-
     @Override // android.support.v4.view.k
-    public void destroyItem(ViewGroup viewGroup, int i, Object obj) {
-        if (this.mCurTransaction == null) {
-            this.mCurTransaction = this.mFragmentManager.beginTransaction();
-        }
-        this.mCurTransaction.detach((Fragment) obj);
+    public void startUpdate(ViewGroup viewGroup) {
     }
-
-    @Override // android.support.v4.view.k
-    public void finishUpdate(ViewGroup viewGroup) {
-        if (this.mCurTransaction != null) {
-            this.mCurTransaction.commitAllowingStateLoss();
-            this.mCurTransaction = null;
-            this.mFragmentManager.executePendingTransactions();
-        }
-    }
-
-    public abstract Fragment getItem(int i);
 
     @Override // android.support.v4.view.k
     public Object instantiateItem(ViewGroup viewGroup, int i) {
@@ -55,27 +38,18 @@ public abstract class FragmentPagerAdapter extends k {
             this.mCurTransaction.add(viewGroup.getId(), findFragmentByTag, makeFragmentName(viewGroup.getId(), i));
         }
         if (findFragmentByTag != this.mCurrentPrimaryItem) {
-            FragmentCompat.setMenuVisibility(findFragmentByTag, DEBUG);
-            FragmentCompat.setUserVisibleHint(findFragmentByTag, DEBUG);
+            FragmentCompat.setMenuVisibility(findFragmentByTag, false);
+            FragmentCompat.setUserVisibleHint(findFragmentByTag, false);
         }
         return findFragmentByTag;
     }
 
     @Override // android.support.v4.view.k
-    public boolean isViewFromObject(View view, Object obj) {
-        if (((Fragment) obj).getView() == view) {
-            return true;
+    public void destroyItem(ViewGroup viewGroup, int i, Object obj) {
+        if (this.mCurTransaction == null) {
+            this.mCurTransaction = this.mFragmentManager.beginTransaction();
         }
-        return DEBUG;
-    }
-
-    @Override // android.support.v4.view.k
-    public void restoreState(Parcelable parcelable, ClassLoader classLoader) {
-    }
-
-    @Override // android.support.v4.view.k
-    public Parcelable saveState() {
-        return null;
+        this.mCurTransaction.detach((Fragment) obj);
     }
 
     @Override // android.support.v4.view.k
@@ -83,8 +57,8 @@ public abstract class FragmentPagerAdapter extends k {
         Fragment fragment = (Fragment) obj;
         if (fragment != this.mCurrentPrimaryItem) {
             if (this.mCurrentPrimaryItem != null) {
-                FragmentCompat.setMenuVisibility(this.mCurrentPrimaryItem, DEBUG);
-                FragmentCompat.setUserVisibleHint(this.mCurrentPrimaryItem, DEBUG);
+                FragmentCompat.setMenuVisibility(this.mCurrentPrimaryItem, false);
+                FragmentCompat.setUserVisibleHint(this.mCurrentPrimaryItem, false);
             }
             if (fragment != null) {
                 FragmentCompat.setMenuVisibility(fragment, true);
@@ -95,6 +69,29 @@ public abstract class FragmentPagerAdapter extends k {
     }
 
     @Override // android.support.v4.view.k
-    public void startUpdate(ViewGroup viewGroup) {
+    public void finishUpdate(ViewGroup viewGroup) {
+        if (this.mCurTransaction != null) {
+            this.mCurTransaction.commitAllowingStateLoss();
+            this.mCurTransaction = null;
+            this.mFragmentManager.executePendingTransactions();
+        }
+    }
+
+    @Override // android.support.v4.view.k
+    public boolean isViewFromObject(View view, Object obj) {
+        return ((Fragment) obj).getView() == view;
+    }
+
+    @Override // android.support.v4.view.k
+    public Parcelable saveState() {
+        return null;
+    }
+
+    @Override // android.support.v4.view.k
+    public void restoreState(Parcelable parcelable, ClassLoader classLoader) {
+    }
+
+    private static String makeFragmentName(int i, int i2) {
+        return "android:switcher:" + i + ":" + i2;
     }
 }

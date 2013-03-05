@@ -1,6 +1,8 @@
 package com.baidu.loginshare;
 
 import android.util.Log;
+import com.baidu.share.ShareAssistant;
+import com.baidu.share.ShareModel;
 import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
@@ -36,7 +38,7 @@ public class k implements Runnable {
         String str3;
         long currentTimeMillis = System.currentTimeMillis();
         try {
-            HttpURLConnection httpURLConnection2 = (HttpURLConnection) new URL(h.o()).openConnection();
+            HttpURLConnection httpURLConnection2 = (HttpURLConnection) new URL(g.o()).openConnection();
             try {
                 httpURLConnection2.setDoInput(true);
                 httpURLConnection2.setDoOutput(true);
@@ -106,13 +108,13 @@ public class k implements Runnable {
     private void a(Boolean bool) {
         a aVar;
         a aVar2;
-        j jVar;
-        j jVar2;
-        j jVar3;
+        i iVar;
+        i iVar2;
+        i iVar3;
         ArrayList arrayList;
         ArrayList arrayList2;
-        com.baidu.share.b bVar;
-        com.baidu.share.b bVar2;
+        ShareAssistant shareAssistant;
+        ShareAssistant shareAssistant2;
         c cVar;
         ArrayList arrayList3;
         ArrayList arrayList4;
@@ -122,29 +124,29 @@ public class k implements Runnable {
         aVar.a(booleanValue);
         aVar2 = this.a.g;
         aVar2.a(currentTimeMillis);
-        jVar = this.a.d;
-        jVar.a(h.p(), new StringBuilder(String.valueOf(currentTimeMillis)).toString());
-        jVar2 = this.a.d;
-        jVar2.a(h.m(), booleanValue ? this.a.k : this.a.l);
-        jVar3 = this.a.d;
-        jVar3.a();
-        com.baidu.share.c cVar2 = null;
+        iVar = this.a.d;
+        iVar.a(g.p(), new StringBuilder(String.valueOf(currentTimeMillis)).toString());
+        iVar2 = this.a.d;
+        iVar2.a(g.m(), booleanValue ? this.a.k : this.a.l);
+        iVar3 = this.a.d;
+        iVar3.a();
+        ShareModel shareModel = null;
         arrayList = this.a.r;
         synchronized (arrayList) {
             arrayList2 = this.a.r;
             int size = arrayList2.size();
             if (size > 0) {
                 arrayList3 = this.a.r;
-                cVar2 = (com.baidu.share.c) arrayList3.get(size - 1);
+                shareModel = (ShareModel) arrayList3.get(size - 1);
                 arrayList4 = this.a.r;
                 arrayList4.clear();
             }
         }
-        if (cVar2 != null) {
-            bVar = this.a.b;
-            if (bVar != null) {
-                bVar2 = this.a.b;
-                if (bVar2.a(cVar2) && this.e) {
+        if (shareModel != null) {
+            shareAssistant = this.a.b;
+            if (shareAssistant != null) {
+                shareAssistant2 = this.a.b;
+                if (shareAssistant2.share(shareModel) && this.e) {
                     cVar = this.a.f;
                     cVar.a(1, this.d);
                 }

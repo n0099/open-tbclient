@@ -1,20 +1,31 @@
 package com.baidu.tieba.pb;
 
-import android.view.View;
-import com.baidu.tieba.MainTabActivity;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.widget.LinearLayout;
+import android.widget.ProgressBar;
+import android.widget.TextView;
+import com.baidu.tieba.view.ImagePbImageView;
 /* loaded from: classes.dex */
-public class an implements View.OnClickListener {
-    final /* synthetic */ PbActivity a;
+class an {
+    TextView a;
+    TextView b;
+    TextView c;
+    LinearLayout d;
+    TextView e;
+    ProgressBar f;
+    LinearLayout g;
+    ImagePbImageView h;
+    TextView i;
+    TextView j;
+    TextView k;
+    LinearLayout l;
+    final /* synthetic */ ak m;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public an(PbActivity pbActivity) {
-        this.a = pbActivity;
+    private an(ak akVar) {
+        this.m = akVar;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        MainTabActivity.a(this.a, "goto_recommend");
-        this.a.g();
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public /* synthetic */ an(ak akVar, an anVar) {
+        this(akVar);
     }
 }

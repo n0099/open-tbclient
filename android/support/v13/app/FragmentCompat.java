@@ -7,6 +7,13 @@ public class FragmentCompat {
     static final FragmentCompatImpl IMPL;
 
     /* loaded from: classes.dex */
+    interface FragmentCompatImpl {
+        void setMenuVisibility(Fragment fragment, boolean z);
+
+        void setUserVisibleHint(Fragment fragment, boolean z);
+    }
+
+    /* loaded from: classes.dex */
     class BaseFragmentCompatImpl implements FragmentCompatImpl {
         BaseFragmentCompatImpl() {
         }
@@ -18,13 +25,6 @@ public class FragmentCompat {
         @Override // android.support.v13.app.FragmentCompat.FragmentCompatImpl
         public void setUserVisibleHint(Fragment fragment, boolean z) {
         }
-    }
-
-    /* loaded from: classes.dex */
-    interface FragmentCompatImpl {
-        void setMenuVisibility(Fragment fragment, boolean z);
-
-        void setUserVisibleHint(Fragment fragment, boolean z);
     }
 
     /* loaded from: classes.dex */

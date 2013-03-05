@@ -1,43 +1,29 @@
 package com.baidu.tieba.pb;
 
-import android.app.AlertDialog;
-import android.content.DialogInterface;
+import android.content.Context;
 import android.view.View;
-import com.baidu.tieba.R;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ce implements View.OnLongClickListener {
-    final /* synthetic */ SubPbActivity a;
+class ce implements View.OnClickListener {
+    final /* synthetic */ ca a;
+    private String b = null;
+    private int c = 0;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public ce(SubPbActivity subPbActivity) {
-        this.a = subPbActivity;
+    public ce(ca caVar) {
+        this.a = caVar;
     }
 
-    @Override // android.view.View.OnLongClickListener
-    public boolean onLongClick(View view) {
-        com.baidu.tieba.b.r rVar;
-        AlertDialog d;
-        DialogInterface.OnClickListener onClickListener;
-        com.baidu.tieba.b.r rVar2;
-        com.baidu.tieba.a.am amVar = null;
-        rVar = this.a.f;
-        if (rVar != null) {
-            rVar2 = this.a.f;
-            amVar = rVar2.a().a();
-            if (amVar == null) {
-                return false;
-            }
-        }
-        this.a.z = amVar;
-        d = this.a.d();
-        if (d == null) {
-            SubPbActivity subPbActivity = this.a;
-            String[] strArr = {this.a.getString(R.string.copy)};
-            onClickListener = this.a.y;
-            subPbActivity.b(strArr, onClickListener);
-        }
-        this.a.e();
-        return true;
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        Context context;
+        context = this.a.a;
+        ((PbActivity) context).a(this.b, this.c);
+    }
+
+    public void a(String str) {
+        this.b = str;
+    }
+
+    public void a(int i) {
+        this.c = i;
     }
 }

@@ -1,20 +1,24 @@
 package com.baidu.tieba.write;
 
-import android.content.Context;
 import android.graphics.Bitmap;
 import android.os.AsyncTask;
-import android.os.Build;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import cn.jingling.lib.filters.FilterFactory;
-import java.util.HashMap;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ay extends AsyncTask {
     final /* synthetic */ WriteImageActivity a;
+    private String b;
+    private Bitmap c;
+    private Boolean d;
+    private Boolean e;
 
     private ay(WriteImageActivity writeImageActivity) {
         this.a = writeImageActivity;
+        this.d = false;
+        this.e = false;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -22,99 +26,160 @@ public class ay extends AsyncTask {
         this(writeImageActivity);
     }
 
+    @Override // android.os.AsyncTask
+    protected void onPreExecute() {
+        ProgressBar progressBar;
+        Button button;
+        progressBar = this.a.j;
+        progressBar.setVisibility(0);
+        button = this.a.g;
+        button.setClickable(false);
+    }
+
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.os.AsyncTask
     /* renamed from: a */
-    public Bitmap doInBackground(Object... objArr) {
-        Bitmap c;
-        boolean z;
-        HashMap hashMap;
-        String[] strArr;
-        HashMap hashMap2;
-        Bitmap bitmap = null;
-        try {
-            c = com.baidu.tieba.c.o.c(null, "tieba_resized_image");
-        } catch (Exception e) {
-            e = e;
-        }
-        try {
-            if (isCancelled() && c != null && !c.isRecycled()) {
-                c.recycle();
+    public Bitmap doInBackground(String... strArr) {
+        Bitmap bitmap;
+        Bitmap bitmap2;
+        Bitmap bitmap3;
+        Bitmap bitmap4;
+        Bitmap bitmap5;
+        Bitmap bitmap6;
+        Bitmap bitmap7;
+        Bitmap bitmap8;
+        Bitmap bitmap9;
+        Bitmap bitmap10;
+        Bitmap bitmap11;
+        Bitmap bitmap12;
+        this.b = strArr[0];
+        bitmap = this.a.e;
+        if (bitmap == null) {
+            bitmap12 = this.a.r;
+            if (bitmap12 == null) {
                 return null;
             }
-            int a = com.baidu.tieba.c.ag.a((Context) this.a, 63.5f);
-            if (Build.VERSION.SDK_INT >= 7) {
-                z = this.a.u;
-                if (z) {
-                    Bitmap a2 = com.baidu.tieba.c.e.a(com.baidu.tieba.c.e.b(c, a), com.baidu.tieba.c.ag.a((Context) this.a, 5.0f));
-                    this.a.A = new HashMap();
-                    this.a.B = new HashMap();
-                    hashMap = this.a.A;
-                    hashMap.put("normal", a2);
-                    strArr = WriteImageActivity.b;
-                    for (String str : strArr) {
-                        String substring = str.substring(0, str.indexOf("|"));
-                        if (!substring.equals("normal")) {
-                            Bitmap apply = FilterFactory.createOneKeyFilter(this.a, substring).apply(this.a, a2.copy(a2.getConfig(), true));
-                            hashMap2 = this.a.A;
-                            hashMap2.put(substring, apply);
-                        }
-                    }
-                    return c;
+        }
+        if (this.b.equals("0") || this.b.equals("1")) {
+            this.d = true;
+        } else if (this.b.equals("2") || this.b.equals("3")) {
+            this.e = true;
+        }
+        if (!this.d.booleanValue() && !this.e.booleanValue()) {
+            bitmap9 = this.a.e;
+            if (!bitmap9.isRecycled()) {
+                bitmap10 = this.a.e;
+                bitmap11 = this.a.e;
+                this.c = bitmap10.copy(bitmap11.getConfig(), true);
+            }
+        } else {
+            bitmap2 = this.a.r;
+            if (bitmap2 != null) {
+                bitmap6 = this.a.r;
+                if (!bitmap6.isRecycled()) {
+                    bitmap7 = this.a.r;
+                    bitmap8 = this.a.r;
+                    this.c = bitmap7.copy(bitmap8.getConfig(), true);
                 }
             }
-            return c;
-        } catch (Exception e2) {
-            bitmap = c;
-            e = e2;
-            com.baidu.tieba.c.ae.b(getClass().getName(), "GetImageTask", e.toString());
-            return bitmap;
+            bitmap3 = this.a.e;
+            if (!bitmap3.isRecycled()) {
+                bitmap4 = this.a.e;
+                bitmap5 = this.a.e;
+                this.c = bitmap4.copy(bitmap5.getConfig(), true);
+            }
         }
+        if (this.c.getWidth() > 600 || this.c.getHeight() > 600) {
+            this.c = com.baidu.tieba.c.e.a(this.c, 600);
+        }
+        if (this.d.booleanValue()) {
+            this.c = com.baidu.tieba.c.e.d(this.c, Integer.parseInt(this.b));
+        } else if (this.e.booleanValue()) {
+            this.c = com.baidu.tieba.c.e.e(this.c, Integer.parseInt(this.b));
+        } else {
+            this.c = FilterFactory.createOneKeyFilter(this.a, this.b).apply(this.a, this.c);
+        }
+        return this.c;
     }
 
     public void a() {
         ProgressBar progressBar;
-        this.a.j = null;
-        progressBar = this.a.i;
+        Button button;
+        Bitmap bitmap;
+        if (this.c != null && !this.c.isRecycled()) {
+            bitmap = this.a.r;
+            if (bitmap != this.c) {
+                this.c.recycle();
+            }
+        }
+        this.c = null;
+        progressBar = this.a.j;
         progressBar.setVisibility(8);
+        button = this.a.g;
+        button.setClickable(true);
         super.cancel(true);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
+    /* JADX WARN: Code restructure failed: missing block: B:15:0x005b, code lost:
+        if (r0.getHeight() > 600) goto L21;
+     */
     @Override // android.os.AsyncTask
     /* renamed from: a */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
     public void onPostExecute(Bitmap bitmap) {
         ProgressBar progressBar;
+        Button button;
         ImageView imageView;
-        boolean z;
-        String[] strArr;
-        super.onPostExecute(bitmap);
-        this.a.j = null;
-        this.a.d = bitmap;
-        progressBar = this.a.i;
+        Bitmap bitmap2;
+        Bitmap bitmap3;
+        Bitmap bitmap4;
+        Bitmap bitmap5;
+        Bitmap bitmap6;
+        Bitmap bitmap7;
+        Bitmap bitmap8;
+        Bitmap bitmap9;
+        Bitmap bitmap10;
+        progressBar = this.a.j;
         progressBar.setVisibility(8);
-        if (bitmap == null || bitmap.isRecycled() || bitmap == null) {
-            return;
-        }
-        imageView = this.a.c;
-        imageView.setImageBitmap(bitmap);
-        if (Build.VERSION.SDK_INT >= 7) {
-            z = this.a.u;
-            if (z) {
+        button = this.a.g;
+        button.setClickable(true);
+        if (bitmap != null && !bitmap.isRecycled()) {
+            this.a.y = true;
+            imageView = this.a.d;
+            imageView.setImageBitmap(bitmap);
+            bitmap2 = this.a.e;
+            if (bitmap2 != null && (this.d.booleanValue() || this.e.booleanValue())) {
+                bitmap6 = this.a.e;
+                if (bitmap6.getWidth() <= 600) {
+                    bitmap10 = this.a.e;
+                }
                 WriteImageActivity writeImageActivity = this.a;
-                strArr = WriteImageActivity.b;
-                writeImageActivity.a(strArr);
+                bitmap7 = this.a.e;
+                writeImageActivity.e = com.baidu.tieba.c.e.a(bitmap7, 600);
+                if (this.d.booleanValue()) {
+                    WriteImageActivity writeImageActivity2 = this.a;
+                    bitmap9 = this.a.e;
+                    writeImageActivity2.e = com.baidu.tieba.c.e.d(bitmap9, Integer.parseInt(this.b));
+                } else if (this.e.booleanValue()) {
+                    WriteImageActivity writeImageActivity3 = this.a;
+                    bitmap8 = this.a.e;
+                    writeImageActivity3.e = com.baidu.tieba.c.e.e(bitmap8, Integer.parseInt(this.b));
+                }
             }
+            bitmap3 = this.a.r;
+            if (bitmap3 != null) {
+                bitmap4 = this.a.r;
+                if (!bitmap4.isRecycled()) {
+                    bitmap5 = this.a.r;
+                    bitmap5.recycle();
+                }
+            }
+            this.a.r = bitmap;
         }
-    }
-
-    @Override // android.os.AsyncTask
-    protected void onPreExecute() {
-        ProgressBar progressBar;
-        progressBar = this.a.i;
-        progressBar.setVisibility(0);
-        super.onPreExecute();
     }
 }

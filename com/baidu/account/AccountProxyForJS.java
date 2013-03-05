@@ -13,16 +13,20 @@ public class AccountProxyForJS {
         this.mWebView = webView;
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void tokenCallback(String str, String str2) {
-        if (this.mWebView == null || str == null) {
-            return;
-        }
-        this.mWebView.loadUrl("javascript:" + str + "(\"" + str2 + "\")");
+    public boolean hasBaiduAccount() {
+        return this.mAccountProxy.hasBaiduAccount();
+    }
+
+    public void setAccount(String str) {
+        this.mAccountProxy.setAccount(str);
     }
 
     public int getNumOfAccounts(String str) {
         return this.mAccountProxy.getNumOfAccounts(str);
+    }
+
+    public String getTokenSync(String str) {
+        return this.mAccountProxy.getTokenSync(str);
     }
 
     public void getTokenAsync(String str, final String str2) {
@@ -34,15 +38,10 @@ public class AccountProxyForJS {
         });
     }
 
-    public String getTokenSync(String str) {
-        return this.mAccountProxy.getTokenSync(str);
-    }
-
-    public boolean hasBaiduAccount() {
-        return this.mAccountProxy.hasBaiduAccount();
-    }
-
-    public void setAccount(String str) {
-        this.mAccountProxy.setAccount(str);
+    /* JADX INFO: Access modifiers changed from: private */
+    public void tokenCallback(String str, String str2) {
+        if (this.mWebView != null && str != null) {
+            this.mWebView.loadUrl("javascript:" + str + "(\"" + str2 + "\")");
+        }
     }
 }

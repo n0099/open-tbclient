@@ -1,26 +1,21 @@
 package com.baidu.tieba.pb;
 
-import android.app.Dialog;
-import android.view.View;
+import android.graphics.Bitmap;
+import android.widget.ImageView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class cq implements View.OnClickListener {
+public class cq implements com.baidu.tieba.c.d {
     final /* synthetic */ SubPbActivity a;
-    private final /* synthetic */ int b;
-    private final /* synthetic */ String c;
+    private final /* synthetic */ ImageView b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public cq(SubPbActivity subPbActivity, int i, String str) {
+    public cq(SubPbActivity subPbActivity, ImageView imageView) {
         this.a = subPbActivity;
-        this.b = i;
-        this.c = str;
+        this.b = imageView;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        Dialog dialog;
-        this.a.b(this.b, this.c);
-        dialog = this.a.N;
-        dialog.dismiss();
+    @Override // com.baidu.tieba.c.d
+    public void a(Bitmap bitmap, String str, boolean z) {
+        this.b.setImageBitmap(bitmap);
     }
 }

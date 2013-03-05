@@ -1,18 +1,29 @@
 package com.baidu.tieba;
 
-import android.content.DialogInterface;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.graphics.Bitmap;
+import android.view.animation.AlphaAnimation;
+import android.widget.ImageView;
 /* loaded from: classes.dex */
-public class m implements DialogInterface.OnDismissListener {
-    final /* synthetic */ MainTabActivity a;
+class m implements Runnable {
+    final /* synthetic */ LogoActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public m(MainTabActivity mainTabActivity) {
-        this.a = mainTabActivity;
+    public m(LogoActivity logoActivity) {
+        this.a = logoActivity;
     }
 
-    @Override // android.content.DialogInterface.OnDismissListener
-    public void onDismiss(DialogInterface dialogInterface) {
-        this.a.b();
+    @Override // java.lang.Runnable
+    public void run() {
+        ImageView imageView;
+        Bitmap bitmap;
+        ImageView imageView2;
+        AlphaAnimation alphaAnimation;
+        this.a.g = com.baidu.tieba.c.e.a(this.a, (int) R.drawable.logo);
+        imageView = this.a.f;
+        bitmap = this.a.g;
+        imageView.setImageBitmap(bitmap);
+        imageView2 = this.a.f;
+        alphaAnimation = this.a.h;
+        imageView2.startAnimation(alphaAnimation);
     }
 }

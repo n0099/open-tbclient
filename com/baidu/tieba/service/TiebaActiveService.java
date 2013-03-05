@@ -5,29 +5,28 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Handler;
 import android.os.IBinder;
-import com.baidu.tieba.c.ae;
+import com.baidu.tieba.c.ag;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 /* loaded from: classes.dex */
 public class TiebaActiveService extends Service {
-    private h a = null;
+    private i a = null;
     private int b = 0;
     private Handler c = new Handler();
-    private Runnable d = new g(this);
+    private Runnable d = new h(this);
 
     private String a() {
         return getSharedPreferences("settings", 0).getString("channel_id", null);
     }
 
     private void a(String str) {
-        if (str == null || str.length() <= 0) {
-            return;
+        if (str != null && str.length() > 0) {
+            SharedPreferences.Editor edit = getSharedPreferences("settings", 0).edit();
+            edit.putString("channel_id", str);
+            edit.commit();
         }
-        SharedPreferences.Editor edit = getSharedPreferences("settings", 0).edit();
-        edit.putString("channel_id", str);
-        edit.commit();
     }
 
     private String b() {
@@ -42,25 +41,24 @@ public class TiebaActiveService extends Service {
                 }
             }
         } catch (Exception e) {
-            ae.b(getClass().getName(), "getFromByFile", e.getMessage());
+            ag.b(getClass().getName(), "getFromByFile", e.getMessage());
         }
         return str;
     }
 
     private void b(String str) {
-        if (str == null || str.length() <= 0) {
-            return;
-        }
-        try {
-            File e = com.baidu.tieba.c.o.e("channel.dat");
-            if (e != null) {
-                FileWriter fileWriter = new FileWriter(e);
-                fileWriter.append((CharSequence) str);
-                fileWriter.flush();
-                fileWriter.close();
+        if (str != null && str.length() > 0) {
+            try {
+                File e = com.baidu.tieba.c.o.e("channel.dat");
+                if (e != null) {
+                    FileWriter fileWriter = new FileWriter(e);
+                    fileWriter.append((CharSequence) str);
+                    fileWriter.flush();
+                    fileWriter.close();
+                }
+            } catch (Exception e2) {
+                ag.b(getClass().getName(), "saveFromToFile", e2.getMessage());
             }
-        } catch (Exception e2) {
-            ae.b(getClass().getName(), "saveFromToFile", e2.getMessage());
         }
     }
 
@@ -69,36 +67,38 @@ public class TiebaActiveService extends Service {
             String a = a();
             if (a == null) {
                 String b = b();
-                if (b == null || b.length() <= 0) {
+                if (b != null && b.length() > 0) {
+                    a(b);
+                } else {
                     if ("aishide" != 0 && "aishide".length() > 0) {
                         a("aishide");
                         b("aishide");
                     }
                     return false;
                 }
-                a(b);
             } else {
                 b(a);
             }
         } catch (Exception e) {
-            ae.b(getClass().getName(), "getActiveState", e.getMessage());
+            ag.b(getClass().getName(), "getActiveState", e.getMessage());
         }
-        ae.a(getClass().getName(), "getActiveState", "channel = ");
+        ag.a(getClass().getName(), "getActiveState", "channel = ");
         return true;
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void d() {
-        if (this.a != null) {
-            this.a.a();
-        }
-        this.a = new h(this, null);
-        this.a.execute(new String[0]);
     }
 
     @Override // android.app.Service
     public IBinder onBind(Intent intent) {
         return null;
+    }
+
+    @Override // android.app.Service
+    public void onStart(Intent intent, int i) {
+        super.onStart(intent, i);
+        if (c() && getSharedPreferences("settings", 0).getInt("active", 2) != 1) {
+            stopSelf();
+        } else {
+            d();
+        }
     }
 
     @Override // android.app.Service
@@ -111,13 +111,12 @@ public class TiebaActiveService extends Service {
         super.onDestroy();
     }
 
-    @Override // android.app.Service
-    public void onStart(Intent intent, int i) {
-        super.onStart(intent, i);
-        if (!c() || getSharedPreferences("settings", 0).getInt("active", 2) == 1) {
-            d();
-        } else {
-            stopSelf();
+    /* JADX INFO: Access modifiers changed from: private */
+    public void d() {
+        if (this.a != null) {
+            this.a.a();
         }
+        this.a = new i(this, null);
+        this.a.execute(new String[0]);
     }
 }

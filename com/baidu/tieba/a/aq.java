@@ -1,84 +1,69 @@
 package com.baidu.tieba.a;
 
-import java.util.ArrayList;
-import java.util.List;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class aq {
-    private p a;
-    private am b = null;
-    private List c = new ArrayList();
-    private int d;
-    private int e;
-    private int f;
-    private int g;
-    private b h;
-    private as i;
+    private int a = 0;
+    private int c = 0;
+    private int d = 0;
+    private int e = 0;
+    private int b = 0;
+    private int f = 3;
+    private int g = 0;
 
-    public am a() {
+    public void a(int i) {
+        this.b = i;
+    }
+
+    public int a() {
         return this.b;
     }
 
-    public void a(int i) {
-        this.d = i;
+    public int b() {
+        return this.a;
     }
 
-    public void a(am amVar) {
-        this.b = amVar;
-    }
-
-    public void a(as asVar) {
-        this.i = asVar;
-    }
-
-    public void a(b bVar) {
-        this.h = bVar;
-    }
-
-    public void a(p pVar) {
-        this.a = pVar;
-    }
-
-    public void a(List list) {
-        this.c = list;
-    }
-
-    public List b() {
+    public int c() {
         return this.c;
     }
 
     public void b(int i) {
-        this.e = i;
-    }
-
-    public int c() {
-        return this.d;
+        this.a = i;
     }
 
     public void c(int i) {
-        this.f = i;
+        this.c = i;
     }
 
     public int d() {
-        return this.e;
+        return this.f;
     }
 
     public void d(int i) {
         this.g = i;
     }
 
-    public int e() {
-        return this.g;
+    public void a(String str) {
+        try {
+            a(new JSONObject(str));
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
     }
 
-    public p f() {
-        return this.a;
-    }
-
-    public b g() {
-        return this.h;
-    }
-
-    public as h() {
-        return this.i;
+    public void a(JSONObject jSONObject) {
+        try {
+            JSONObject optJSONObject = jSONObject.optJSONObject("user_info");
+            if (optJSONObject != null) {
+                this.a = optJSONObject.getInt("is_sign_in");
+                this.c = optJSONObject.getInt("user_sign_rank");
+                this.d = optJSONObject.getInt("cont_sign_num");
+                this.e = optJSONObject.getInt("cout_total_sing_num");
+                this.f = optJSONObject.getInt("sign_bonus_point");
+            }
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
     }
 }

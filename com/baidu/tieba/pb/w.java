@@ -1,9 +1,10 @@
 package com.baidu.tieba.pb;
 
-import android.view.View;
+import android.text.InputFilter;
+import android.text.Spanned;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class w implements View.OnClickListener {
+public class w implements InputFilter {
     final /* synthetic */ ImagePbActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -11,8 +12,16 @@ public class w implements View.OnClickListener {
         this.a = imagePbActivity;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        this.a.l();
+    @Override // android.text.InputFilter
+    public CharSequence filter(CharSequence charSequence, int i, int i2, Spanned spanned, int i3, int i4) {
+        boolean o;
+        o = this.a.o();
+        if (o) {
+            if (charSequence.length() <= 0 && spanned.length() > 0) {
+                return spanned.subSequence(i3, i4 - 1);
+            }
+            return "";
+        }
+        return null;
     }
 }

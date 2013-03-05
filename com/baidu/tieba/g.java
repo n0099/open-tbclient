@@ -16,6 +16,8 @@ public class g implements Runnable {
 
     @Override // java.lang.Runnable
     public void run() {
-        this.a.b((InputMethodManager) this.a.getSystemService("input_method"), this.b);
+        if (!this.a.isFinishing()) {
+            this.a.b((InputMethodManager) this.a.getSystemService("input_method"), this.b);
+        }
     }
 }

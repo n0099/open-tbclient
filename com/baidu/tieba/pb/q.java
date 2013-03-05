@@ -1,9 +1,9 @@
 package com.baidu.tieba.pb;
 
-import android.content.DialogInterface;
+import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class q implements DialogInterface.OnCancelListener {
+public class q implements View.OnClickListener {
     final /* synthetic */ ImagePbActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -11,15 +11,11 @@ public class q implements DialogInterface.OnCancelListener {
         this.a = imagePbActivity;
     }
 
-    @Override // android.content.DialogInterface.OnCancelListener
-    public void onCancel(DialogInterface dialogInterface) {
-        ae aeVar;
-        ae aeVar2;
-        this.a.b();
-        aeVar = this.a.t;
-        if (aeVar != null) {
-            aeVar2 = this.a.t;
-            aeVar2.a();
-        }
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        int i;
+        ImagePbActivity imagePbActivity = this.a;
+        i = this.a.x;
+        imagePbActivity.d(i);
     }
 }

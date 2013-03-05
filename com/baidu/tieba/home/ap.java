@@ -1,17 +1,21 @@
 package com.baidu.tieba.home;
 
-import android.widget.TextView;
+import android.view.View;
+import android.widget.EditText;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class ap {
-    TextView a;
-    final /* synthetic */ ao b;
-
-    private ap(ao aoVar) {
-        this.b = aoVar;
-    }
+public class ap implements View.OnClickListener {
+    final /* synthetic */ SearchActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ ap(ao aoVar, ap apVar) {
-        this(aoVar);
+    public ap(SearchActivity searchActivity) {
+        this.a = searchActivity;
+    }
+
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        EditText editText;
+        editText = this.a.c;
+        editText.setText("");
     }
 }

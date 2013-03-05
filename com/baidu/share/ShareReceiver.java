@@ -20,7 +20,7 @@ public class ShareReceiver extends BroadcastReceiver {
         String str = new String();
         int i = 0;
         while (i < size) {
-            String str2 = String.valueOf(str) + ((String) arrayList.get(i)) + e.h();
+            String str2 = String.valueOf(str) + ((String) arrayList.get(i)) + a.h();
             i++;
             str = str2;
         }
@@ -29,25 +29,25 @@ public class ShareReceiver extends BroadcastReceiver {
 
     private void a(Context context, Bundle bundle) {
         boolean z = false;
-        String string = bundle.getString(e.c());
-        if (f.a(string)) {
-            String b = Crypto.b(context, string);
-            if (f.a(b)) {
-                String string2 = bundle.getString(e.d());
-                if (f.a(string2)) {
+        String string = bundle.getString(a.c());
+        if (c.a(string)) {
+            String decrypt = Crypto.decrypt(context, string);
+            if (c.a(decrypt)) {
+                String string2 = bundle.getString(a.d());
+                if (c.a(string2)) {
                     String packageName = context.getPackageName();
-                    String b2 = Crypto.b(context, string2);
-                    if (f.a(b2)) {
-                        if (f.a(packageName) && packageName.equals(b2)) {
+                    String decrypt2 = Crypto.decrypt(context, string2);
+                    if (c.a(decrypt2)) {
+                        if (c.a(packageName) && packageName.equals(decrypt2)) {
                             return;
                         }
-                        String string3 = bundle.getString(e.g());
+                        String string3 = bundle.getString(a.g());
                         if (string3 != null) {
-                            String b3 = Crypto.b(context, string3);
-                            if (!f.a(b3)) {
+                            String decrypt3 = Crypto.decrypt(context, string3);
+                            if (!c.a(decrypt3)) {
                                 return;
                             }
-                            String[] split = b3.split(e.h());
+                            String[] split = decrypt3.split(a.h());
                             if (split != null) {
                                 int length = split.length;
                                 int i = 0;
@@ -66,18 +66,18 @@ public class ShareReceiver extends BroadcastReceiver {
                                 }
                             }
                         }
-                        String string4 = bundle.getString(e.f());
-                        if (f.a(string4)) {
+                        String string4 = bundle.getString(a.f());
+                        if (c.a(string4)) {
                             try {
-                                long parseLong = Long.parseLong(Crypto.b(context, string4));
+                                long parseLong = Long.parseLong(Crypto.decrypt(context, string4));
                                 if (a(context, parseLong)) {
-                                    String string5 = bundle.getString(e.e());
+                                    String string5 = bundle.getString(a.e());
                                     HashMap hashMap = new HashMap();
-                                    if (f.a(string5)) {
-                                        String b4 = Crypto.b(context, string5);
-                                        if (f.a(b4)) {
+                                    if (c.a(string5)) {
+                                        String decrypt4 = Crypto.decrypt(context, string5);
+                                        if (c.a(decrypt4)) {
                                             try {
-                                                JSONObject jSONObject = new JSONObject(b4);
+                                                JSONObject jSONObject = new JSONObject(decrypt4);
                                                 Iterator<String> keys = jSONObject.keys();
                                                 while (keys.hasNext()) {
                                                     String next = keys.next();
@@ -88,12 +88,12 @@ public class ShareReceiver extends BroadcastReceiver {
                                             }
                                         }
                                     }
-                                    c cVar = new c();
-                                    cVar.a = b;
-                                    cVar.b = b2;
-                                    cVar.c = parseLong;
-                                    cVar.d = hashMap;
-                                    b.a(context).b(cVar);
+                                    ShareModel shareModel = new ShareModel();
+                                    shareModel.mAction = decrypt;
+                                    shareModel.mFrom = decrypt2;
+                                    shareModel.mTimestamp = parseLong;
+                                    shareModel.mData = hashMap;
+                                    ShareAssistant.a(context).a(shareModel);
                                 }
                             } catch (Exception e2) {
                             }
@@ -108,16 +108,16 @@ public class ShareReceiver extends BroadcastReceiver {
         File filesDir = context.getFilesDir();
         if (filesDir != null && filesDir.exists() && filesDir.isDirectory()) {
             String sb = new StringBuilder(String.valueOf(j)).toString();
-            File file = new File(String.valueOf(filesDir.getAbsolutePath()) + "/" + e.i());
+            File file = new File(String.valueOf(filesDir.getAbsolutePath()) + "/" + a.i());
             try {
                 ArrayList arrayList = new ArrayList();
                 if (file.exists()) {
                     FileInputStream fileInputStream = new FileInputStream(file);
                     byte[] bArr = new byte[(int) file.length()];
                     fileInputStream.read(bArr);
-                    String optString = new JSONObject(new String(bArr)).optString(e.f());
-                    if (f.a(optString)) {
-                        String[] split = optString.split(e.h());
+                    String optString = new JSONObject(new String(bArr)).optString(a.f());
+                    if (c.a(optString)) {
+                        String[] split = optString.split(a.h());
                         if (split.length > 0) {
                             int length = split.length;
                             for (int i = 0; i < length; i++) {
@@ -127,7 +127,7 @@ public class ShareReceiver extends BroadcastReceiver {
                                     return false;
                                 }
                             }
-                            int j2 = e.j() - length;
+                            int j2 = a.j() - length;
                             if (j2 <= 0) {
                                 Collections.sort(arrayList);
                                 for (int i2 = 0; i2 < (-j2) + 1; i2++) {
@@ -140,7 +140,7 @@ public class ShareReceiver extends BroadcastReceiver {
                 }
                 arrayList.add(sb);
                 JSONObject jSONObject = new JSONObject();
-                jSONObject.put(e.f(), a(arrayList));
+                jSONObject.put(a.f(), a(arrayList));
                 FileWriter fileWriter = new FileWriter(file);
                 fileWriter.write(jSONObject.toString());
                 fileWriter.flush();
@@ -158,7 +158,7 @@ public class ShareReceiver extends BroadcastReceiver {
         Bundle extras;
         try {
             String action = intent.getAction();
-            if ((action == null || e.a() == null || action.equals(e.a())) && (extras = intent.getExtras()) != null) {
+            if ((action == null || a.a() == null || action.equals(a.a())) && (extras = intent.getExtras()) != null) {
                 a(context, extras);
             }
         } catch (Throwable th) {

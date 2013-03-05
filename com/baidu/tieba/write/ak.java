@@ -1,10 +1,9 @@
 package com.baidu.tieba.write;
 
-import android.graphics.Bitmap;
-import android.view.View;
+import android.location.Address;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ak implements View.OnClickListener {
+public class ak implements com.baidu.tieba.y {
     final /* synthetic */ WriteActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -12,11 +11,9 @@ public class ak implements View.OnClickListener {
         this.a = writeActivity;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        Bitmap bitmap;
-        WriteActivity writeActivity = this.a;
-        bitmap = this.a.w;
-        WriteImageActivity.a(writeActivity, bitmap, 1200003);
+    @Override // com.baidu.tieba.y
+    public void a(int i, String str, Address address) {
+        this.a.H = address;
+        this.a.k();
     }
 }

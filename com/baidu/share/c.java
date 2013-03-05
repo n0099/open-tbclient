@@ -1,10 +1,8 @@
 package com.baidu.share;
-
-import java.util.HashMap;
 /* loaded from: classes.dex */
 public class c {
-    public String a;
-    public String b;
-    public long c;
-    public HashMap d = new HashMap();
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public static boolean a(String str) {
+        return str != null && str.length() > 0;
+    }
 }

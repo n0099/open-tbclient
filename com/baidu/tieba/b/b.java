@@ -1,7 +1,7 @@
 package com.baidu.tieba.b;
 
-import com.baidu.tieba.a.aj;
-import com.baidu.tieba.c.ae;
+import com.baidu.tieba.a.ah;
+import com.baidu.tieba.c.ag;
 import java.util.ArrayList;
 import java.util.Date;
 import org.json.JSONArray;
@@ -9,7 +9,7 @@ import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class b {
     private ArrayList a = new ArrayList();
-    private aj b = new aj();
+    private ah b = new ah();
     private Date c = null;
     private boolean d = true;
 
@@ -17,17 +17,17 @@ public class b {
         return this.a;
     }
 
+    public void a(ArrayList arrayList) {
+        this.a = arrayList;
+    }
+
     public void a(String str) {
         try {
             a(new JSONObject(str));
         } catch (Exception e) {
             this.d = false;
-            ae.b("BarlistModel", "parserJson", "error = " + e.getMessage());
+            ag.b("BarlistModel", "parserJson", "error = " + e.getMessage());
         }
-    }
-
-    public void a(ArrayList arrayList) {
-        this.a = arrayList;
     }
 
     public void a(JSONObject jSONObject) {
@@ -35,9 +35,9 @@ public class b {
             JSONArray optJSONArray = jSONObject.optJSONArray("forum_list");
             if (optJSONArray != null) {
                 for (int i = 0; i < optJSONArray.length(); i++) {
-                    com.baidu.tieba.a.p pVar = new com.baidu.tieba.a.p();
-                    pVar.a(optJSONArray.getJSONObject(i));
-                    this.a.add(pVar);
+                    com.baidu.tieba.a.q qVar = new com.baidu.tieba.a.q();
+                    qVar.a(optJSONArray.getJSONObject(i));
+                    this.a.add(qVar);
                 }
             }
             this.b.a(jSONObject.optJSONObject("page"));
@@ -49,7 +49,7 @@ public class b {
             }
         } catch (Exception e) {
             this.d = false;
-            ae.b("BarlistModel", "parserJson", "error = " + e.getMessage());
+            ag.b("BarlistModel", "parserJson", "error = " + e.getMessage());
         }
     }
 }

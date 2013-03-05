@@ -1,215 +1,322 @@
 package com.baidu.tieba.c;
 
-import android.app.ActivityManager;
-import android.os.Build;
-import android.os.Process;
-import com.baidu.tieba.TiebaApplication;
-import java.io.ByteArrayOutputStream;
-import java.io.File;
-import java.io.FileWriter;
-import java.io.PrintStream;
-import java.lang.Thread;
-import java.util.List;
+import android.graphics.Color;
+import com.baidu.browser.core.util.BdUtil;
+import com.baidu.zeus.NotificationProxy;
+import java.io.ByteArrayInputStream;
+import java.io.InputStream;
+import java.io.UnsupportedEncodingException;
+import java.lang.Character;
+import java.net.URLDecoder;
+import java.net.URLEncoder;
+import java.security.MessageDigest;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.regex.Pattern;
 /* loaded from: classes.dex */
-public class af implements Thread.UncaughtExceptionHandler {
-    private Thread.UncaughtExceptionHandler a;
+public class af {
+    private static SimpleDateFormat a = new SimpleDateFormat("yyyy-MM-dd HH:mm");
+    private static SimpleDateFormat b = new SimpleDateFormat("yyyy年");
+    private static SimpleDateFormat c = new SimpleDateFormat("HH:mm");
+    private static SimpleDateFormat d = new SimpleDateFormat("M月d日");
+    private static SimpleDateFormat e = new SimpleDateFormat("M月d日 HH:mm");
+    private static SimpleDateFormat f = new SimpleDateFormat("yyyy-MM-dd");
+    private static final char[] g = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'};
+    private static final char[] h = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '+', '/'};
+    private static byte[] i = {-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, 62, -1, -1, -1, 63, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, -1, -1, -1, -1, -1, -1, -1, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, -1, -1, -1, -1, -1, -1, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, -1, -1, -1, -1, -1};
 
-    public af() {
-        this.a = null;
-        this.a = Thread.getDefaultUncaughtExceptionHandler();
+    public static String a(Date date) {
+        String format;
+        synchronized (c) {
+            format = c.format(date);
+        }
+        return format;
     }
 
-    private void a(FileWriter fileWriter, String str, String str2) {
-        try {
-            fileWriter.append((CharSequence) str);
-            if (str2 != null) {
-                fileWriter.append("=");
-                fileWriter.append((CharSequence) str2);
+    public static String b(Date date) {
+        String format;
+        synchronized (b) {
+            format = b.format(date);
+        }
+        return format;
+    }
+
+    public static String c(Date date) {
+        String format;
+        synchronized (d) {
+            format = d.format(date);
+        }
+        return format;
+    }
+
+    public static String d(Date date) {
+        String format;
+        synchronized (f) {
+            format = f.format(date);
+        }
+        return format;
+    }
+
+    public static String a(long j) {
+        String format;
+        Date date = new Date(j);
+        synchronized (a) {
+            format = a.format(date);
+        }
+        return format;
+    }
+
+    public static String a() {
+        String format;
+        Date date = new Date();
+        synchronized (a) {
+            format = a.format(date);
+        }
+        return format;
+    }
+
+    public static String e(Date date) {
+        if (date == null) {
+            return "";
+        }
+        Date date2 = new Date();
+        if (date2.getYear() == date.getYear()) {
+            if (date2.getMonth() == date.getMonth() && date2.getDate() == date.getDate()) {
+                return a(date);
             }
-            fileWriter.append("\n");
-        } catch (Exception e) {
+            return c(date);
+        }
+        return b(date);
+    }
+
+    public static String f(Date date) {
+        if (date == null) {
+            return "";
+        }
+        Date date2 = new Date();
+        if (date2.getMonth() == date.getMonth() && date2.getDate() == date.getDate()) {
+            return a(date);
+        }
+        return d(date);
+    }
+
+    public static String a(byte[] bArr) {
+        if (bArr == null) {
+            return null;
+        }
+        StringBuilder sb = new StringBuilder(bArr.length * 2);
+        for (int i2 = 0; i2 < bArr.length; i2++) {
+            sb.append(g[(bArr[i2] & 240) >>> 4]);
+            sb.append(g[bArr[i2] & 15]);
+        }
+        return sb.toString();
+    }
+
+    public static String a(InputStream inputStream) {
+        String str = null;
+        if (inputStream == null) {
+            return null;
+        }
+        try {
+            byte[] bArr = new byte[NotificationProxy.MAX_URL_LENGTH];
+            MessageDigest messageDigest = MessageDigest.getInstance("MD5");
+            while (true) {
+                int read = inputStream.read(bArr);
+                if (read > 0) {
+                    messageDigest.update(bArr, 0, read);
+                } else {
+                    inputStream.close();
+                    str = a(messageDigest.digest());
+                    return str;
+                }
+            }
+        } catch (Exception e2) {
+            ag.a("StringHelper", "ToMd5", e2.toString());
+            return str;
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:102:? A[RETURN, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:45:0x012c  */
-    /* JADX WARN: Removed duplicated region for block: B:55:0x014f A[Catch: Exception -> 0x0166, TryCatch #7 {Exception -> 0x0166, blocks: (B:53:0x014a, B:55:0x014f, B:57:0x0154), top: B:86:0x014a }] */
-    /* JADX WARN: Removed duplicated region for block: B:57:0x0154 A[Catch: Exception -> 0x0166, TRY_LEAVE, TryCatch #7 {Exception -> 0x0166, blocks: (B:53:0x014a, B:55:0x014f, B:57:0x0154), top: B:86:0x014a }] */
-    /* JADX WARN: Removed duplicated region for block: B:60:0x015b  */
-    /* JADX WARN: Removed duplicated region for block: B:86:0x014a A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    @Override // java.lang.Thread.UncaughtExceptionHandler
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public void uncaughtException(Thread thread, Throwable th) {
-        FileWriter fileWriter;
-        PrintStream printStream;
-        ByteArrayOutputStream byteArrayOutputStream;
-        ByteArrayOutputStream byteArrayOutputStream2;
-        PrintStream printStream2 = null;
+    public static String a(String str) {
         try {
-            File f = o.f("fatal_error.log");
-            if (f == null || f.length() >= 204800) {
-                fileWriter = null;
-                printStream = null;
-                byteArrayOutputStream = null;
+            return a(new ByteArrayInputStream(str.getBytes("UTF-8")));
+        } catch (Exception e2) {
+            return null;
+        }
+    }
+
+    public static boolean a(char c2) {
+        Character.UnicodeBlock of = Character.UnicodeBlock.of(c2);
+        return of == Character.UnicodeBlock.CJK_UNIFIED_IDEOGRAPHS || of == Character.UnicodeBlock.CJK_COMPATIBILITY_IDEOGRAPHS || of == Character.UnicodeBlock.CJK_UNIFIED_IDEOGRAPHS_EXTENSION_A || of == Character.UnicodeBlock.GENERAL_PUNCTUATION || of == Character.UnicodeBlock.CJK_SYMBOLS_AND_PUNCTUATION || of == Character.UnicodeBlock.HALFWIDTH_AND_FULLWIDTH_FORMS;
+    }
+
+    public static boolean b(String str) {
+        if (Pattern.compile("^[\\u4E00-\\u9FA5\\uF900-\\uFA2D\\w]+$").matcher(str).matches()) {
+            int i2 = 0;
+            for (int i3 = 0; i3 < str.length(); i3++) {
+                if (String.valueOf(str.charAt(i3)).getBytes().length == 1) {
+                    i2++;
+                } else {
+                    i2 += 2;
+                }
+            }
+            return i2 > 0 && i2 <= 14;
+        }
+        return false;
+    }
+
+    public static boolean c(String str) {
+        int length = str.length();
+        return length >= 6 && length <= 14 && str.getBytes().length <= length;
+    }
+
+    public static boolean d(String str) {
+        return str != null && str.length() > 0;
+    }
+
+    public static boolean e(String str) {
+        return str == null || str.length() == 0 || str.equals("null");
+    }
+
+    public static String f(String str) {
+        if (str == null) {
+            return null;
+        }
+        try {
+            return URLEncoder.encode(str, BdUtil.UTF8);
+        } catch (UnsupportedEncodingException e2) {
+            e2.printStackTrace();
+            return "";
+        }
+    }
+
+    public static String g(String str) {
+        try {
+            return URLDecoder.decode(str, BdUtil.UTF8);
+        } catch (UnsupportedEncodingException e2) {
+            e2.printStackTrace();
+            return null;
+        }
+    }
+
+    public static String a(String str, int i2) {
+        if (str == null || i2 <= 0) {
+            return String.valueOf("");
+        }
+        int length = str.length();
+        int i3 = 0;
+        int i4 = 0;
+        while (i3 < length) {
+            if (a(str.charAt(i3))) {
+                i4 += 2;
             } else {
-                byteArrayOutputStream = new ByteArrayOutputStream();
-                try {
-                    printStream = new PrintStream(byteArrayOutputStream);
-                    try {
-                        th.printStackTrace(printStream);
-                        String str = new String(byteArrayOutputStream.toByteArray());
-                        byte[] bArr = null;
-                        if (str != null) {
-                            fileWriter = new FileWriter(f, true);
-                            try {
-                                a(fileWriter, ad.a(), null);
-                                a(fileWriter, "tieba_crash_new_info", null);
-                                a(fileWriter, "version", com.baidu.tieba.a.h.h());
-                                a(fileWriter, "model", Build.MODEL);
-                                a(fileWriter, "android_version", Build.VERSION.RELEASE);
-                                a(fileWriter, "from", com.baidu.tieba.a.h.a());
-                                a(fileWriter, "uid", TiebaApplication.u());
-                                a(fileWriter, "client_id", TiebaApplication.E());
-                                a(fileWriter, "imei", TiebaApplication.a().g());
-                                a(fileWriter, "uname", TiebaApplication.x());
-                                a(fileWriter, "activity", TiebaApplication.a().b());
-                                List<ActivityManager.RunningAppProcessInfo> runningAppProcesses = ((ActivityManager) TiebaApplication.a().getSystemService("activity")).getRunningAppProcesses();
-                                int myPid = Process.myPid();
-                                if (runningAppProcesses != null) {
-                                    int i = 0;
-                                    while (true) {
-                                        int i2 = i;
-                                        if (i2 >= runningAppProcesses.size()) {
-                                            break;
-                                        } else if (runningAppProcesses.get(i2).pid == myPid) {
-                                            a(fileWriter, "process_name", runningAppProcesses.get(i2).processName);
-                                            break;
-                                        } else {
-                                            i = i2 + 1;
-                                        }
-                                    }
-                                }
-                                a(fileWriter, "error", str);
-                                a(fileWriter, "tieba_crash_new_info_end", null);
-                                fileWriter.append("\n");
-                                fileWriter.flush();
-                                if (str.contains("java.lang.SecurityException: No permission to modify given thread")) {
-                                    TiebaApplication.a().h(TiebaApplication.a().ad() + 1);
-                                } else if (str.contains("com.baidu.location")) {
-                                    TiebaApplication.a().ae();
-                                }
-                            } catch (Exception e) {
-                                e = e;
-                                printStream2 = printStream;
-                                byteArrayOutputStream2 = byteArrayOutputStream;
-                                try {
-                                    e.printStackTrace();
-                                    if (printStream2 != null) {
-                                        try {
-                                            printStream2.close();
-                                        } catch (Exception e2) {
-                                            e2.printStackTrace();
-                                            if (this.a == null) {
-                                                this.a.uncaughtException(thread, th);
-                                                return;
-                                            }
-                                            return;
-                                        }
-                                    }
-                                    if (byteArrayOutputStream2 != null) {
-                                        byteArrayOutputStream2.close();
-                                    }
-                                    if (fileWriter != null) {
-                                        fileWriter.close();
-                                    }
-                                    if (this.a == null) {
-                                    }
-                                } catch (Throwable th2) {
-                                    th = th2;
-                                    byteArrayOutputStream = byteArrayOutputStream2;
-                                    printStream = printStream2;
-                                    if (printStream != null) {
-                                        try {
-                                            printStream.close();
-                                        } catch (Exception e3) {
-                                            e3.printStackTrace();
-                                            if (this.a != null) {
-                                                this.a.uncaughtException(thread, th);
-                                            }
-                                            throw th;
-                                        }
-                                    }
-                                    if (byteArrayOutputStream != null) {
-                                        byteArrayOutputStream.close();
-                                    }
-                                    if (fileWriter != null) {
-                                        fileWriter.close();
-                                    }
-                                    if (this.a != null) {
-                                    }
-                                    throw th;
-                                }
-                            } catch (Throwable th3) {
-                                th = th3;
-                                if (printStream != null) {
-                                }
-                                if (byteArrayOutputStream != null) {
-                                }
-                                if (fileWriter != null) {
-                                }
-                                if (this.a != null) {
-                                }
-                                throw th;
-                            }
-                        } else {
-                            fileWriter = null;
-                        }
-                    } catch (Exception e4) {
-                        e = e4;
-                        fileWriter = null;
-                        printStream2 = printStream;
-                        byteArrayOutputStream2 = byteArrayOutputStream;
-                    } catch (Throwable th4) {
-                        th = th4;
-                        fileWriter = null;
-                    }
-                } catch (Exception e5) {
-                    e = e5;
-                    fileWriter = null;
-                    byteArrayOutputStream2 = byteArrayOutputStream;
-                } catch (Throwable th5) {
-                    th = th5;
-                    fileWriter = null;
-                    printStream = null;
-                }
+                i4++;
             }
-            if (printStream != null) {
-                try {
-                    printStream.close();
-                } catch (Exception e6) {
-                    e6.printStackTrace();
-                }
+            if (i4 >= i2) {
+                break;
             }
-            if (byteArrayOutputStream != null) {
-                byteArrayOutputStream.close();
-            }
-            if (fileWriter != null) {
-                fileWriter.close();
-            }
-            if (this.a != null) {
-                this.a.uncaughtException(thread, th);
-            }
-        } catch (Exception e7) {
-            e = e7;
-            fileWriter = null;
-            byteArrayOutputStream2 = null;
-        } catch (Throwable th6) {
-            th = th6;
-            fileWriter = null;
-            printStream = null;
-            byteArrayOutputStream = null;
+            i3++;
         }
+        if (i3 < length) {
+            return String.valueOf(str.substring(0, i3 + 1)) + "...";
+        }
+        return str;
+    }
+
+    public static String b(byte[] bArr) {
+        StringBuffer stringBuffer = new StringBuffer();
+        int length = bArr.length;
+        int i2 = 0;
+        while (true) {
+            if (i2 >= length) {
+                break;
+            }
+            int i3 = i2 + 1;
+            int i4 = bArr[i2] & 255;
+            if (i3 == length) {
+                stringBuffer.append(h[i4 >>> 2]);
+                stringBuffer.append(h[(i4 & 3) << 4]);
+                stringBuffer.append("==");
+                break;
+            }
+            int i5 = i3 + 1;
+            int i6 = bArr[i3] & 255;
+            if (i5 == length) {
+                stringBuffer.append(h[i4 >>> 2]);
+                stringBuffer.append(h[((i4 & 3) << 4) | ((i6 & 240) >>> 4)]);
+                stringBuffer.append(h[(i6 & 15) << 2]);
+                stringBuffer.append("=");
+                break;
+            }
+            i2 = i5 + 1;
+            int i7 = bArr[i5] & 255;
+            stringBuffer.append(h[i4 >>> 2]);
+            stringBuffer.append(h[((i4 & 3) << 4) | ((i6 & 240) >>> 4)]);
+            stringBuffer.append(h[((i6 & 15) << 2) | ((i7 & 192) >>> 6)]);
+            stringBuffer.append(h[i7 & 63]);
+        }
+        return stringBuffer.toString();
+    }
+
+    public static String h(String str) {
+        return a(str);
+    }
+
+    public static String a(String str, Color color) {
+        String str2;
+        Exception exc;
+        if (str == null) {
+            return "";
+        }
+        try {
+            String replaceAll = str.replaceAll("<em>", "<font color='#007bd1'>");
+            try {
+                return replaceAll.replaceAll("</em>", "</font>");
+            } catch (Exception e2) {
+                str2 = replaceAll;
+                exc = e2;
+                ag.a("StringHelper", "getHighLightString", exc.toString());
+                return str2;
+            }
+        } catch (Exception e3) {
+            str2 = null;
+            exc = e3;
+        }
+    }
+
+    private static long[] i(String str) {
+        long[] jArr = new long[3];
+        if (str != null) {
+            String[] split = str.replace(".", "#").split("#");
+            jArr[0] = Long.parseLong(split[0]);
+            jArr[1] = Long.parseLong(split[1]);
+            jArr[2] = Long.parseLong(split[2]);
+        }
+        return jArr;
+    }
+
+    public static int a(String str, String str2) {
+        if (str == null) {
+            return -1;
+        }
+        if (str2 == null) {
+            return 1;
+        }
+        long[] i2 = i(str);
+        long[] i3 = i(str2);
+        long j = 0;
+        long j2 = 0;
+        for (int i4 = 0; i4 < 3; i4++) {
+            j += i2[i4] << (24 - (i4 * 8));
+        }
+        for (int i5 = 0; i5 < 3; i5++) {
+            j2 += i3[i5] << (24 - (i5 * 8));
+        }
+        if (j > j2) {
+            return 1;
+        }
+        if (j == j2) {
+            return 0;
+        }
+        return -1;
     }
 }

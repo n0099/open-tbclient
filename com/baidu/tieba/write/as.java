@@ -3,6 +3,7 @@ package com.baidu.tieba.write;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.view.View;
+import android.widget.ProgressBar;
 import java.util.Date;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
@@ -18,74 +19,46 @@ public class as implements View.OnClickListener {
     public void onClick(View view) {
         boolean z;
         int i;
+        ProgressBar progressBar;
         boolean z2;
         Bitmap bitmap;
         Bitmap bitmap2;
         boolean d;
-        boolean z3;
-        Bitmap bitmap3;
-        Bitmap bitmap4;
-        boolean d2;
-        z = this.a.y;
-        if (z) {
-            z3 = this.a.x;
-            if (z3) {
-                bitmap3 = this.a.q;
-                if (bitmap3 != null) {
-                    bitmap4 = this.a.q;
-                    if (!bitmap4.isRecycled()) {
-                        String str = "tieba" + String.valueOf(new Date().getTime()) + ".jpg";
-                        d2 = this.a.d(str);
-                        if (d2) {
-                            Intent intent = this.a.getIntent();
-                            if (intent.getStringExtra("threadid") == null) {
-                                WriteActivity.a(this.a, intent.getStringExtra("forumid"), intent.getStringExtra("foruimname"), null, true, str);
-                            } else {
-                                WriteActivity.a(this.a, intent.getStringExtra("forumid"), intent.getStringExtra("foruimname"), intent.getStringExtra("threadid"), str);
-                            }
-                        }
-                    }
-                }
-            } else {
-                Intent intent2 = this.a.getIntent();
-                if (intent2.getStringExtra("threadid") == null) {
-                    WriteActivity.a(this.a, intent2.getStringExtra("forumid"), intent2.getStringExtra("foruimname"), null, true, null);
-                } else {
-                    WriteActivity.a(this.a, intent2.getStringExtra("forumid"), intent2.getStringExtra("foruimname"), intent2.getStringExtra("threadid"), null);
-                }
-            }
-            this.a.setResult(-1, new Intent());
-        } else {
-            i = this.a.z;
+        z = this.a.z;
+        if (!z) {
+            i = this.a.A;
             if (i == 1200003) {
-                Intent intent3 = new Intent();
-                intent3.putExtra("delete", true);
-                this.a.setResult(-1, intent3);
-            } else {
-                Intent intent4 = new Intent();
-                z2 = this.a.x;
-                if (z2) {
-                    bitmap = this.a.q;
-                    if (bitmap != null) {
-                        bitmap2 = this.a.q;
-                        if (!bitmap2.isRecycled()) {
-                            String str2 = "tieba" + String.valueOf(new Date().getTime()) + ".jpg";
-                            d = this.a.d(str2);
-                            if (d) {
-                                intent4.putExtra("change", true);
-                                intent4.putExtra("file_name", str2);
-                            } else {
-                                intent4.putExtra("change", false);
+                Intent intent = new Intent();
+                progressBar = this.a.j;
+                if (progressBar.getVisibility() != 0) {
+                    z2 = this.a.y;
+                    if (z2) {
+                        bitmap = this.a.r;
+                        if (bitmap != null) {
+                            bitmap2 = this.a.r;
+                            if (!bitmap2.isRecycled()) {
+                                String str = "tieba" + String.valueOf(new Date().getTime()) + ".jpg";
+                                d = this.a.d(str);
+                                if (d) {
+                                    intent.putExtra("change", true);
+                                    intent.putExtra("file_name", str);
+                                } else {
+                                    intent.putExtra("change", false);
+                                }
+                                this.a.setResult(-1, intent);
                             }
                         }
                     }
-                    intent4.putExtra("change", false);
+                    intent.putExtra("change", false);
+                    this.a.setResult(-1, intent);
                 } else {
-                    intent4.setData(this.a.getIntent().getData());
-                    this.a.setResult(-1, intent4);
+                    return;
                 }
-                this.a.setResult(-1, intent4);
+            } else {
+                this.a.setResult(0, new Intent());
             }
+        } else {
+            this.a.setResult(0, new Intent());
         }
         this.a.finish();
     }

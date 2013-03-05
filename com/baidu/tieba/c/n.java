@@ -6,6 +6,7 @@ import android.graphics.drawable.BitmapDrawable;
 import android.text.SpannableString;
 import android.text.style.ImageSpan;
 import com.baidu.tieba.R;
+import com.baidu.zeus.WebChromeClient;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.regex.Matcher;
@@ -452,6 +453,20 @@ public class n {
         a.put("yz_044", Integer.valueOf((int) R.drawable.yz_044));
         a.put("yz_045", Integer.valueOf((int) R.drawable.yz_045));
         a.put("yz_046", Integer.valueOf((int) R.drawable.yz_046));
+        a.put("she_001", Integer.valueOf((int) R.drawable.she_001));
+        a.put("she_002", Integer.valueOf((int) R.drawable.she_002));
+        a.put("she_003", Integer.valueOf((int) R.drawable.she_003));
+        a.put("she_004", Integer.valueOf((int) R.drawable.she_004));
+        a.put("she_005", Integer.valueOf((int) R.drawable.she_005));
+        a.put("she_006", Integer.valueOf((int) R.drawable.she_006));
+        a.put("she_007", Integer.valueOf((int) R.drawable.she_007));
+        a.put("she_008", Integer.valueOf((int) R.drawable.she_008));
+        a.put("she_009", Integer.valueOf((int) R.drawable.she_009));
+        a.put("she_010", Integer.valueOf((int) R.drawable.she_010));
+        a.put("she_011", Integer.valueOf((int) R.drawable.she_011));
+        a.put("she_012", Integer.valueOf((int) R.drawable.she_012));
+        a.put("she_013", Integer.valueOf((int) R.drawable.she_013));
+        a.put("she_014", Integer.valueOf((int) R.drawable.she_014));
         b = new ArrayList();
         b.add(Integer.valueOf((int) R.drawable.write_face_01));
         b.add(Integer.valueOf((int) R.drawable.write_face_02));
@@ -665,11 +680,11 @@ public class n {
         c.put("#(害羞)", (Integer) b.get(98));
         c.put("#(花痴)", (Integer) b.get(99));
         c.put("#(憧憬)", (Integer) b.get(100));
-        c.put("#(你牛)", (Integer) b.get(101));
-        c.put("#(鼓掌)", (Integer) b.get(102));
+        c.put("#(你牛)", (Integer) b.get(WebChromeClient.STRING_DLG_TITLE_DATETIME));
+        c.put("#(鼓掌)", (Integer) b.get(WebChromeClient.STRING_DLG_TITLE_WEEK));
         c.put("#(可爱)", (Integer) b.get(103));
-        c.put("#(太委屈)", (Integer) b.get(104));
-        c.put("#(大哭)", (Integer) b.get(105));
+        c.put("#(太委屈)", (Integer) b.get(WebChromeClient.STRING_DLG_TITLE_TIME));
+        c.put("#(大哭)", (Integer) b.get(WebChromeClient.STRING_DLG_TITLE_COLOR));
         c.put("#(泪奔)", (Integer) b.get(106));
         c.put("#(寻死)", (Integer) b.get(107));
         c.put("#(非常惊讶)", (Integer) b.get(108));
@@ -1109,14 +1124,20 @@ public class n {
         d.put("yz_044", "抽风");
         d.put("yz_045", "吃苹果");
         d.put("yz_046", "光棍");
-    }
-
-    public static Bitmap a(Context context, String str) {
-        Integer num = (Integer) a.get(str);
-        if (num != null) {
-            return e.a(context, num.intValue());
-        }
-        return null;
+        d.put("she_001", "蛇年");
+        d.put("she_002", "红包拿来");
+        d.put("she_003", "美人鱼");
+        d.put("she_004", "恭喜发财");
+        d.put("she_005", "回家过年");
+        d.put("she_006", "点灯笼");
+        d.put("she_007", "招财兔");
+        d.put("she_008", "喜庆鼓");
+        d.put("she_009", "扭一扭");
+        d.put("she_010", "又长一岁");
+        d.put("she_011", "年年有鱼");
+        d.put("she_012", "求红包");
+        d.put("she_013", "压岁钱");
+        d.put("she_014", "拜年");
     }
 
     public static String a(String str) {
@@ -1125,6 +1146,18 @@ public class n {
 
     public static HashMap a() {
         return c;
+    }
+
+    public static ArrayList b() {
+        return b;
+    }
+
+    public static Bitmap a(Context context, String str) {
+        Integer num = (Integer) a.get(str);
+        if (num != null) {
+            return e.a(context, num.intValue());
+        }
+        return null;
     }
 
     public static SpannableString b(Context context, String str) {
@@ -1146,9 +1179,5 @@ public class n {
             }
         }
         return spannableString;
-    }
-
-    public static ArrayList b() {
-        return b;
     }
 }

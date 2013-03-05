@@ -11,14 +11,15 @@ import android.widget.LinearLayout;
 import android.widget.ScrollView;
 import android.widget.Scroller;
 import com.baidu.tieba.R;
+import com.baidu.zeus.WebChromeClient;
 /* loaded from: classes.dex */
 public class WaterFallView extends ScrollView {
     private int a;
     private LinearLayout b;
     private LinearLayout c;
-    private am d;
+    private al d;
     private LinearLayout e;
-    private am f;
+    private al f;
     private View g;
     private View h;
     private View i;
@@ -27,7 +28,7 @@ public class WaterFallView extends ScrollView {
     private int l;
     private int m;
     private int n;
-    private an o;
+    private am o;
 
     public WaterFallView(Context context) {
         super(context);
@@ -89,33 +90,8 @@ public class WaterFallView extends ScrollView {
         c();
     }
 
-    private void c() {
-        this.d = new am(this);
-        this.f = new am(this);
-        this.n = com.baidu.tieba.c.ag.a(getContext(), 20.0f);
-        this.a = com.baidu.tieba.c.ag.a(getContext(), 3.0f);
-        this.b = (LinearLayout) LayoutInflater.from(getContext()).inflate(R.layout.water_fall_view, (ViewGroup) null);
-        addView(this.b);
-        this.c = (LinearLayout) this.b.findViewById(R.id.line1);
-        this.e = (LinearLayout) this.b.findViewById(R.id.line2);
-        measure(View.MeasureSpec.makeMeasureSpec(com.baidu.tieba.c.ag.a(getContext()), 1073741824), 0);
-        this.j = this.c.getMeasuredWidth();
-        d();
-    }
-
-    private void d() {
-        this.k = new al(this);
-    }
-
-    public LinearLayout a(int i) {
-        return i == 2 ? this.e : this.c;
-    }
-
-    public void a() {
-        if (this.h != null) {
-            this.b.removeView(this.h);
-            this.h = null;
-        }
+    public void setOnScrollListener(am amVar) {
+        this.o = amVar;
     }
 
     public void a(View view) {
@@ -126,34 +102,8 @@ public class WaterFallView extends ScrollView {
         this.g = view;
     }
 
-    public void a(View view, int i) {
-        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, i);
-        layoutParams.topMargin = this.a;
-        layoutParams.bottomMargin = this.a;
-        if (this.d.b() <= this.f.b()) {
-            this.c.addView(view, layoutParams);
-            this.d.a((this.a * 2) + i);
-            return;
-        }
-        this.e.addView(view, layoutParams);
-        this.f.a((this.a * 2) + i);
-    }
-
-    public int b(int i) {
-        Rect rect = new Rect();
-        if (i == 2) {
-            this.e.getLocalVisibleRect(rect);
-            return this.f.b(rect.top);
-        }
-        this.c.getLocalVisibleRect(rect);
-        return this.d.b(rect.top);
-    }
-
-    public void b() {
-        this.c.removeAllViews();
-        this.d.a();
-        this.e.removeAllViews();
-        this.f.a();
+    public View getHeader() {
+        return this.g;
     }
 
     public void b(View view) {
@@ -169,14 +119,15 @@ public class WaterFallView extends ScrollView {
         this.h = view;
     }
 
-    public int c(int i) {
-        Rect rect = new Rect();
-        if (i == 2) {
-            this.e.getLocalVisibleRect(rect);
-            return this.f.c(rect.bottom);
+    public void a() {
+        if (this.h != null) {
+            this.b.removeView(this.h);
+            this.h = null;
         }
-        this.c.getLocalVisibleRect(rect);
-        return this.d.c(rect.bottom);
+    }
+
+    public View getHeader2() {
+        return this.h;
     }
 
     public void c(View view) {
@@ -187,51 +138,48 @@ public class WaterFallView extends ScrollView {
         this.i = view;
     }
 
-    @Override // android.widget.ScrollView, android.view.View
-    protected int computeVerticalScrollRange() {
-        this.m = super.computeVerticalScrollRange();
-        return this.m;
-    }
-
     public View getFooter() {
         return this.i;
     }
 
-    public View getHeader() {
-        return this.g;
-    }
-
-    public View getHeader2() {
-        return this.h;
+    private void c() {
+        this.d = new al(this);
+        this.f = new al(this);
+        this.n = com.baidu.tieba.c.ai.a(getContext(), 20.0f);
+        this.a = com.baidu.tieba.c.ai.a(getContext(), 3.0f);
+        this.b = (LinearLayout) LayoutInflater.from(getContext()).inflate(R.layout.water_fall_view, (ViewGroup) null);
+        addView(this.b);
+        this.c = (LinearLayout) this.b.findViewById(R.id.line1);
+        this.e = (LinearLayout) this.b.findViewById(R.id.line2);
+        measure(View.MeasureSpec.makeMeasureSpec(com.baidu.tieba.c.ai.a(getContext()), 1073741824), 0);
+        this.j = this.c.getMeasuredWidth();
+        d();
     }
 
     public int getLineWidth() {
         return this.j;
     }
 
-    @Override // android.widget.ScrollView, android.widget.FrameLayout, android.view.ViewGroup, android.view.View
-    protected void onLayout(boolean z, int i, int i2, int i3, int i4) {
-        super.onLayout(z, i, i2, i3, i4);
-        if (z) {
-            this.l = i4 - i2;
-        }
-        this.k.removeMessages(101);
-        this.k.sendMessageDelayed(this.k.obtainMessage(101), 300L);
+    private void d() {
+        this.k = new ak(this);
     }
 
     @Override // android.view.View
     protected void onScrollChanged(int i, int i2, int i3, int i4) {
         super.onScrollChanged(i, i2, i3, i4);
-        this.k.removeMessages(101);
-        boolean z = this.m - this.l == i2;
+        this.k.removeMessages(WebChromeClient.STRING_DLG_TITLE_DATETIME);
+        boolean z = false;
+        if (this.m - this.l == i2) {
+            z = true;
+        }
         if (i2 == 0 || z) {
             try {
-                Object obj = com.baidu.tieba.c.ag.a(this, "mScroller").get(this);
+                Object obj = com.baidu.tieba.c.ai.a(this, "mScroller").get(this);
                 if (obj != null && (obj instanceof Scroller)) {
                     ((Scroller) obj).abortAnimation();
                 }
             } catch (Exception e) {
-                com.baidu.tieba.c.ae.b(getClass().getName(), "onScrollChanged", e.getMessage());
+                com.baidu.tieba.c.ag.b(getClass().getName(), "onScrollChanged", e.getMessage());
             }
         }
         if (this.o != null) {
@@ -241,11 +189,67 @@ public class WaterFallView extends ScrollView {
                 this.o.a();
             }
             this.o.c();
-            this.k.sendMessageDelayed(this.k.obtainMessage(101), 300L);
+            this.k.sendMessageDelayed(this.k.obtainMessage(WebChromeClient.STRING_DLG_TITLE_DATETIME), 300L);
         }
     }
 
-    public void setOnScrollListener(an anVar) {
-        this.o = anVar;
+    public void a(View view, int i) {
+        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, i);
+        layoutParams.topMargin = this.a;
+        layoutParams.bottomMargin = this.a;
+        if (this.d.b() <= this.f.b()) {
+            this.c.addView(view, layoutParams);
+            this.d.a((this.a * 2) + i);
+            return;
+        }
+        this.e.addView(view, layoutParams);
+        this.f.a((this.a * 2) + i);
+    }
+
+    public LinearLayout a(int i) {
+        return i == 2 ? this.e : this.c;
+    }
+
+    public int b(int i) {
+        Rect rect = new Rect();
+        if (i == 2) {
+            this.e.getLocalVisibleRect(rect);
+            return this.f.b(rect.top);
+        }
+        this.c.getLocalVisibleRect(rect);
+        return this.d.b(rect.top);
+    }
+
+    public int c(int i) {
+        Rect rect = new Rect();
+        if (i == 2) {
+            this.e.getLocalVisibleRect(rect);
+            return this.f.c(rect.bottom);
+        }
+        this.c.getLocalVisibleRect(rect);
+        return this.d.c(rect.bottom);
+    }
+
+    public void b() {
+        this.c.removeAllViews();
+        this.d.a();
+        this.e.removeAllViews();
+        this.f.a();
+    }
+
+    @Override // android.widget.ScrollView, android.view.View
+    protected int computeVerticalScrollRange() {
+        this.m = super.computeVerticalScrollRange();
+        return this.m;
+    }
+
+    @Override // android.widget.ScrollView, android.widget.FrameLayout, android.view.ViewGroup, android.view.View
+    protected void onLayout(boolean z, int i, int i2, int i3, int i4) {
+        super.onLayout(z, i, i2, i3, i4);
+        if (z) {
+            this.l = i4 - i2;
+        }
+        this.k.removeMessages(WebChromeClient.STRING_DLG_TITLE_DATETIME);
+        this.k.sendMessageDelayed(this.k.obtainMessage(WebChromeClient.STRING_DLG_TITLE_DATETIME), 300L);
     }
 }

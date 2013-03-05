@@ -1,10 +1,11 @@
 package com.baidu.tieba.pb;
 
-import android.widget.CompoundButton;
-import com.baidu.tieba.R;
+import android.text.Editable;
+import android.text.TextWatcher;
+import android.widget.Button;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class cr implements CompoundButton.OnCheckedChangeListener {
+public class cr implements TextWatcher {
     final /* synthetic */ SubPbActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -12,22 +13,24 @@ public class cr implements CompoundButton.OnCheckedChangeListener {
         this.a = subPbActivity;
     }
 
-    @Override // android.widget.CompoundButton.OnCheckedChangeListener
-    public void onCheckedChanged(CompoundButton compoundButton, boolean z) {
-        if (z) {
-            switch (compoundButton.getId()) {
-                case R.id.radio_button_1day /* 2131230891 */:
-                    this.a.T = 1;
-                    return;
-                case R.id.radio_button_3day /* 2131230892 */:
-                    this.a.T = 3;
-                    return;
-                case R.id.radio_button_10day /* 2131230893 */:
-                    this.a.T = 10;
-                    return;
-                default:
-                    return;
-            }
+    @Override // android.text.TextWatcher
+    public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
+    }
+
+    @Override // android.text.TextWatcher
+    public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
+    }
+
+    @Override // android.text.TextWatcher
+    public void afterTextChanged(Editable editable) {
+        Button button;
+        Button button2;
+        if (editable == null || editable.length() <= 0) {
+            button = this.a.x;
+            button.setEnabled(false);
+            return;
         }
+        button2 = this.a.x;
+        button2.setEnabled(true);
     }
 }

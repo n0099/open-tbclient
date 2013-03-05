@@ -1,18 +1,16 @@
 package com.baidu.tieba;
-
-import android.content.DialogInterface;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class n implements DialogInterface.OnCancelListener {
-    final /* synthetic */ MainTabActivity a;
+class n implements Runnable {
+    final /* synthetic */ LogoActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public n(MainTabActivity mainTabActivity) {
-        this.a = mainTabActivity;
+    public n(LogoActivity logoActivity) {
+        this.a = logoActivity;
     }
 
-    @Override // android.content.DialogInterface.OnCancelListener
-    public void onCancel(DialogInterface dialogInterface) {
+    @Override // java.lang.Runnable
+    public void run() {
         this.a.b();
+        this.a.j();
     }
 }

@@ -1,25 +1,34 @@
 package com.baidu.tieba.pb;
 
-import android.content.DialogInterface;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.content.Context;
+import android.view.View;
 /* loaded from: classes.dex */
-public class cd implements DialogInterface.OnCancelListener {
-    final /* synthetic */ SubPbActivity a;
+class cd implements View.OnClickListener {
+    final /* synthetic */ ca a;
+    private String b = null;
+    private int c = 0;
+    private int d = 0;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public cd(SubPbActivity subPbActivity) {
-        this.a = subPbActivity;
+    public cd(ca caVar) {
+        this.a = caVar;
     }
 
-    @Override // android.content.DialogInterface.OnCancelListener
-    public void onCancel(DialogInterface dialogInterface) {
-        dd ddVar;
-        dd ddVar2;
-        this.a.b();
-        ddVar = this.a.F;
-        if (ddVar != null) {
-            ddVar2 = this.a.F;
-            ddVar2.a();
-        }
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        Context context;
+        context = this.a.a;
+        ((PbActivity) context).a(this.c, this.b, this.d);
+    }
+
+    public void a(String str) {
+        this.b = str;
+    }
+
+    public void a(int i) {
+        this.c = i;
+    }
+
+    public void b(int i) {
+        this.d = i;
     }
 }

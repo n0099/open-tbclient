@@ -12,6 +12,6 @@ class al implements DialogInterface.OnCancelListener {
 
     @Override // android.content.DialogInterface.OnCancelListener
     public void onCancel(DialogInterface dialogInterface) {
-        com.baidu.tieba.c.k.t();
+        com.baidu.tieba.c.k.v();
     }
 }

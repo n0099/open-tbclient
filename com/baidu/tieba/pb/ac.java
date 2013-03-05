@@ -1,5 +1,18 @@
 package com.baidu.tieba.pb;
+
+import android.view.View;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public interface ac {
-    void a(int i, int i2, int i3);
+public class ac implements View.OnClickListener {
+    final /* synthetic */ ImagePbActivity a;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public ac(ImagePbActivity imagePbActivity) {
+        this.a = imagePbActivity;
+    }
+
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        this.a.m();
+    }
 }

@@ -12,19 +12,6 @@ public class CurveFilter extends OneKeyFilter {
     protected int[] mPixels;
     protected int mWidth;
 
-    @Override // cn.jingling.lib.filters.OneKeyFilter
-    public Bitmap apply(Context context, Bitmap bitmap) {
-        initial(bitmap);
-        curvePixels(context);
-        setPicxels(bitmap);
-        return bitmap;
-    }
-
-    protected void curvePixels(Context context) {
-        Curve curve = new Curve(context, this.mPath);
-        CMTProcessor.curveEffect(this.mPixels, curve.getCurveRed(), curve.getCurveGreen(), curve.getCurveBlue(), this.mWidth, this.mHeight);
-    }
-
     protected void initial(Bitmap bitmap) {
         this.mWidth = bitmap.getWidth();
         this.mHeight = bitmap.getHeight();
@@ -32,8 +19,21 @@ public class CurveFilter extends OneKeyFilter {
         bitmap.getPixels(this.mPixels, 0, this.mWidth, 0, 0, this.mWidth, this.mHeight);
     }
 
+    protected void curvePixels(Context context) {
+        Curve curve = new Curve(context, this.mPath);
+        CMTProcessor.curveEffect(this.mPixels, curve.getCurveRed(), curve.getCurveGreen(), curve.getCurveBlue(), this.mWidth, this.mHeight);
+    }
+
     protected void setPicxels(Bitmap bitmap) {
         bitmap.setPixels(this.mPixels, 0, this.mWidth, 0, 0, this.mWidth, this.mHeight);
         this.mPixels = null;
+    }
+
+    @Override // cn.jingling.lib.filters.OneKeyFilter
+    public Bitmap apply(Context context, Bitmap bitmap) {
+        initial(bitmap);
+        curvePixels(context);
+        setPicxels(bitmap);
+        return bitmap;
     }
 }

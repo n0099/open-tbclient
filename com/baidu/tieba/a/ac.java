@@ -1,72 +1,128 @@
 package com.baidu.tieba.a;
 
-import org.json.JSONObject;
+import java.io.Serializable;
 /* loaded from: classes.dex */
-public class ac {
-    private String a = null;
+public class ac implements Serializable {
+    private String a;
+    private String d;
+    private String l;
+    private String m;
+    private String n;
     private String b = null;
     private int c = 0;
-    private int d = 0;
-    private int e = 0;
-    private int f = 0;
-    private int g = 0;
+    private long e = 0;
     private String h = null;
+    private boolean f = true;
+    private boolean g = false;
+    private String i = null;
+    private int j = 0;
+    private int k = 0;
 
     public String a() {
-        return this.a;
+        return this.i;
+    }
+
+    public void a(String str) {
+        this.i = str;
+    }
+
+    public int b() {
+        return this.j;
     }
 
     public void a(int i) {
-        this.d = i;
-    }
-
-    public void a(JSONObject jSONObject) {
-        if (jSONObject == null) {
-            return;
-        }
-        try {
-            this.a = jSONObject.optString("id");
-            this.b = jSONObject.optString("name");
-            this.c = jSONObject.optInt("member_count", 0);
-            this.d = jSONObject.optInt("is_like", 0);
-            this.e = this.d;
-            this.f = jSONObject.optInt("level_id", 1);
-            this.g = jSONObject.optInt("favo_type", 0);
-            this.h = jSONObject.optString("desc");
-        } catch (Exception e) {
-            com.baidu.tieba.c.ae.b("LikeForumData", "parserJson", "error = " + e.getMessage());
-        }
-    }
-
-    public String b() {
-        return this.b;
+        this.j = i;
     }
 
     public void b(int i) {
-        this.f = i;
+        this.k = i;
     }
 
     public int c() {
-        return this.c;
+        return this.k;
     }
 
-    public int d() {
-        return this.d;
+    public String d() {
+        return this.b;
+    }
+
+    public void b(String str) {
+        this.b = str;
     }
 
     public int e() {
+        return this.c;
+    }
+
+    public void c(int i) {
+        this.c = i;
+    }
+
+    public long f() {
         return this.e;
     }
 
-    public int f() {
-        return this.f;
+    public void a(long j) {
+        this.e = j;
     }
 
-    public int g() {
+    public void c(String str) {
+        this.h = str;
+    }
+
+    public String g() {
+        return this.h;
+    }
+
+    public void a(Boolean bool) {
+        this.f = bool.booleanValue();
+    }
+
+    public Boolean h() {
+        return Boolean.valueOf(this.f);
+    }
+
+    public void a(boolean z) {
+        this.g = z;
+    }
+
+    public boolean i() {
         return this.g;
     }
 
-    public String h() {
-        return this.h;
+    public void d(String str) {
+        this.d = str;
+    }
+
+    public String j() {
+        return this.d;
+    }
+
+    public void e(String str) {
+        this.a = str;
+    }
+
+    public String k() {
+        return this.l;
+    }
+
+    public void f(String str) {
+        this.l = str;
+    }
+
+    public String l() {
+        return this.m;
+    }
+
+    public void g(String str) {
+        this.m = str;
+    }
+
+    public String m() {
+        return this.n;
+    }
+
+    public void h(String str) {
+        this.n = str;
     }
 }

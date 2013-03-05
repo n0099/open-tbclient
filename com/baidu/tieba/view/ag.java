@@ -1,81 +1,133 @@
 package com.baidu.tieba.view;
 
 import android.content.Context;
-import android.graphics.Bitmap;
-import android.graphics.Canvas;
-import android.graphics.Matrix;
-import android.graphics.Paint;
-import android.view.ViewGroup;
-import android.widget.ImageView;
+import android.view.View;
+import android.widget.ProgressBar;
+import android.widget.RelativeLayout;
 import com.baidu.tieba.R;
-import com.baidu.tieba.TiebaApplication;
 /* loaded from: classes.dex */
-public class ag extends ImageView {
-    private Bitmap a;
-    private Bitmap b;
-    private Matrix c;
-    private Matrix d;
-    private Paint e;
+public class ag extends RelativeLayout {
+    protected ProgressBar a;
+    protected f b;
+    protected Context c;
+    private ai d;
+    private ah e;
+
+    public void setCallback(ah ahVar) {
+        this.e = ahVar;
+    }
 
     public ag(Context context) {
         super(context);
-        this.a = com.baidu.tieba.c.e.a((int) R.drawable.icon_gif);
-        this.b = com.baidu.tieba.c.e.a((int) R.drawable.image_default);
-        this.c = new Matrix();
-        this.d = new Matrix();
-        this.e = new Paint();
+        this.a = null;
+        this.b = null;
+        this.d = null;
+        this.c = null;
+        this.e = null;
+        this.c = context;
+        a();
     }
 
-    @Override // android.widget.ImageView, android.view.View
-    protected void onDraw(Canvas canvas) {
-        Bitmap bitmap;
-        boolean z;
-        boolean z2 = false;
-        super.onDraw(canvas);
-        String str = (String) getTag();
-        com.baidu.tieba.c.ab ah = TiebaApplication.a().ah();
-        if (ah != null) {
-            Bitmap c = ah.c(str);
-            if (c != null) {
-                z = ah.d(str);
-                bitmap = c;
-            } else {
-                bitmap = c;
-                z = false;
+    public f getImageView() {
+        return this.b;
+    }
+
+    public void setGifSetListener(j jVar) {
+        this.b.setGifSetListener(jVar);
+    }
+
+    public void setImageOnClickListener(View.OnClickListener onClickListener) {
+        this.b.setImageOnClickListener(onClickListener);
+    }
+
+    public void setOnSizeChangedListener(k kVar) {
+        this.b.setOnSizeChangedListener(kVar);
+    }
+
+    protected void a() {
+        this.b = new f(this.c);
+        this.b.setLayoutParams(new RelativeLayout.LayoutParams(-1, -1));
+        addView(this.b);
+        this.a = new ProgressBar(this.c, null, 16843399);
+        this.a.setIndeterminateDrawable(this.c.getResources().getDrawable(R.drawable.progressbar));
+        RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
+        layoutParams.addRule(13);
+        this.a.setLayoutParams(layoutParams);
+        this.a.setIndeterminate(true);
+        addView(this.a);
+    }
+
+    public void setUrl(String str) {
+        this.b.setTag(str);
+        com.baidu.tieba.c.z c = com.baidu.tieba.c.w.c(getContext());
+        if (c == com.baidu.tieba.c.z.WIFI || c == com.baidu.tieba.c.z.ThreeG) {
+            if (this.d != null) {
+                this.d.a();
             }
-        } else {
-            bitmap = null;
-            z = false;
-        }
-        if (bitmap == null) {
-            bitmap = this.b;
-        } else {
-            z2 = true;
-        }
-        if (bitmap != null) {
-            if (!z2) {
-                canvas.drawBitmap(bitmap, this.d, this.e);
-                return;
+            if (str != null) {
+                this.d = new ai(this, str);
+                this.d.execute(new String[0]);
             }
-            float height = (getHeight() - bitmap.getHeight()) >> 1;
-            canvas.drawBitmap(bitmap, 0.0f, height, this.e);
-            this.c.reset();
-            this.c.setTranslate(0.0f, height);
-            if (!z || bitmap.getHeight() <= this.a.getHeight() || bitmap.getWidth() <= this.a.getWidth()) {
-                return;
-            }
-            canvas.drawBitmap(this.a, this.c, this.e);
         }
     }
 
-    @Override // android.view.View
-    public void setLayoutParams(ViewGroup.LayoutParams layoutParams) {
-        float height = layoutParams.height / this.b.getHeight();
-        float f = height <= 1.0f ? height : 1.0f;
-        layoutParams.width = (int) (((float) layoutParams.width) > ((float) this.b.getWidth()) * f ? layoutParams.width : this.b.getWidth() * f);
-        this.d.reset();
-        this.d.setScale(f, f);
-        this.d.postTranslate((layoutParams.width - (this.b.getWidth() * f)) / 2.0f, (layoutParams.height - (this.b.getHeight() * f)) / 2.0f);
-        super.setLayoutParams(layoutParams);
+    public void setGifMaxUseableMem(int i) {
+        this.b.setGifMaxUseableMem(i);
+    }
+
+    public void b() {
+        if (this.d != null) {
+            this.d.a();
+            this.d = null;
+        }
+    }
+
+    public void c() {
+        b();
+        if (this.b != null) {
+            this.b.j();
+        }
+        this.a.setVisibility(8);
+    }
+
+    public void d() {
+        b();
+        if (this.b != null) {
+            this.b.k();
+        }
+        this.a.setVisibility(8);
+    }
+
+    public void e() {
+        if (this.b != null && this.b.getImageType() == 1) {
+            this.b.g();
+        }
+    }
+
+    public void f() {
+        String str;
+        if (this.b != null && (str = (String) this.b.getTag()) != null && this.b != null && this.d == null) {
+            if (this.b.getImageType() == 1) {
+                if (this.b.getGifCache() == null) {
+                    this.d = new ai(this, str);
+                    this.d.execute(new String[0]);
+                }
+            } else if (this.b.getImageType() == 2) {
+                if (com.baidu.tieba.c.w.a(getContext()) != com.baidu.tieba.c.y.UNAVAIL) {
+                    this.d = new ai(this, str);
+                    this.d.execute(new String[0]);
+                }
+            } else if (this.b.getImageBitmap() == null) {
+                this.d = new ai(this, str);
+                this.d.execute(new String[0]);
+            }
+        }
+    }
+
+    public int getImageType() {
+        if (this.b != null) {
+            return this.b.getImageType();
+        }
+        return 0;
     }
 }

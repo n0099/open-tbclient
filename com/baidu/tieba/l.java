@@ -1,8 +1,9 @@
 package com.baidu.tieba;
 
 import android.os.Handler;
+import android.os.Message;
 /* loaded from: classes.dex */
-class l extends Thread {
+class l extends Handler {
     final /* synthetic */ LogoActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -10,25 +11,17 @@ class l extends Thread {
         this.a = logoActivity;
     }
 
-    @Override // java.lang.Thread, java.lang.Runnable
-    public void run() {
-        Handler handler;
-        Handler handler2;
-        super.run();
-        try {
-            TiebaApplication tiebaApplication = (TiebaApplication) this.a.getApplication();
-            tiebaApplication.b(tiebaApplication.y() + 1);
-            if (tiebaApplication.C()) {
-                com.baidu.tieba.c.k.w();
-                tiebaApplication.b(0);
+    @Override // android.os.Handler
+    public void handleMessage(Message message) {
+        boolean z;
+        this.a.e = true;
+        z = this.a.d;
+        if (z) {
+            if (!this.a.getDatabasePath("baidu_tieba.db").exists()) {
+                TiebaApplication.a(com.baidu.tieba.c.k.l());
             }
-            com.baidu.tieba.c.k.s();
-            com.baidu.tieba.c.k.v();
-            this.a.a(this.a.getCacheDir());
-        } catch (Exception e) {
+            this.a.j();
         }
-        handler = this.a.g;
-        handler2 = this.a.g;
-        handler.sendMessage(handler2.obtainMessage());
+        super.handleMessage(message);
     }
 }

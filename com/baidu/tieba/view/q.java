@@ -5,6 +5,7 @@ import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Matrix;
 import android.graphics.Paint;
+import android.graphics.RectF;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import com.baidu.tieba.R;
@@ -16,6 +17,15 @@ public class q extends ImageView {
     private int c;
     private boolean d;
     private boolean e;
+    private RectF f;
+
+    public boolean a() {
+        return this.d;
+    }
+
+    public void setIsThree(boolean z) {
+        this.e = z;
+    }
 
     public q(Context context, int i) {
         super(context);
@@ -24,68 +34,82 @@ public class q extends ImageView {
         this.c = 0;
         this.d = false;
         this.e = false;
+        this.f = new RectF();
         this.c = i;
+        b();
     }
 
-    public boolean a() {
-        return this.d;
+    private void b() {
+        this.b.setColor(1275068416);
+    }
+
+    public void setType(int i) {
+        this.c = i;
     }
 
     @Override // android.widget.ImageView, android.view.View
     protected void onDraw(Canvas canvas) {
+        Bitmap bitmap;
         boolean z;
         int i = 0;
         super.onDraw(canvas);
         String str = String.valueOf((String) getTag()) + "_small";
-        com.baidu.tieba.c.ab ah = TiebaApplication.a().ah();
-        Bitmap c = ah != null ? ah.c(str) : null;
+        com.baidu.tieba.c.ac al = TiebaApplication.b().al();
+        Bitmap c = al != null ? al.c(str) : null;
         if (c == null) {
             boolean z2 = this.d;
             this.d = false;
             if (this.c == 5) {
-                c = com.baidu.tieba.c.e.a((int) R.drawable.video_pic);
+                Bitmap a = com.baidu.tieba.c.e.a((int) R.drawable.video_pic);
                 this.d = true;
+                bitmap = a;
+                z = z2;
+            } else if (TiebaApplication.b().ag() == 1) {
+                bitmap = com.baidu.tieba.c.e.a((int) R.drawable.image_default_1);
                 z = z2;
             } else {
-                c = com.baidu.tieba.c.e.a((int) R.drawable.image_default);
+                bitmap = com.baidu.tieba.c.e.a((int) R.drawable.image_default);
                 z = z2;
             }
         } else {
             boolean z3 = !this.d;
             this.d = true;
+            bitmap = c;
             z = z3;
         }
-        if (c != null) {
-            int width = c.getWidth();
-            int height = c.getHeight();
+        if (bitmap != null) {
+            int width = bitmap.getWidth();
+            int height = bitmap.getHeight();
             int width2 = getWidth();
             int height2 = getHeight();
-            if (width == 0 || height == 0 || width2 == 0 || height2 == 0) {
-                return;
+            if (width != 0 && height != 0 && width2 != 0 && height2 != 0) {
+                float min = Math.min(width2 / width, height2 / height);
+                if (min > 1.0f) {
+                    min = 1.0f;
+                }
+                this.a.setScale(min, min);
+                if (!this.e) {
+                    if (z) {
+                        int i2 = ((int) (width * min)) + 1;
+                        ViewGroup.LayoutParams layoutParams = getLayoutParams();
+                        if (i2 > layoutParams.width) {
+                            i2 = layoutParams.width;
+                        }
+                        layoutParams.width = i2;
+                        setLayoutParams(layoutParams);
+                    }
+                } else {
+                    i = ((int) (width2 - (width * min))) / 2;
+                }
+                int i3 = (int) (height2 - (min * height));
+                this.a.postTranslate(i, i3);
+                canvas.drawBitmap(bitmap, this.a, null);
+                this.a.reset();
+                if (this.d && TiebaApplication.b().ag() == 1) {
+                    this.f.set(i, i3, i + bitmap.getWidth(), i3 + bitmap.getHeight());
+                    canvas.drawRect(this.f, this.b);
+                }
             }
-            float min = Math.min(width2 / width, height2 / height);
-            if (min > 1.0f) {
-                min = 1.0f;
-            }
-            this.a.setScale(min, min);
-            if (this.e) {
-                i = ((int) (width2 - (width * min))) / 2;
-            } else if (z) {
-                ViewGroup.LayoutParams layoutParams = getLayoutParams();
-                layoutParams.width = (int) (width * min);
-                setLayoutParams(layoutParams);
-            }
-            this.a.postTranslate(i, (int) (height2 - (min * height)));
-            canvas.drawBitmap(c, this.a, this.b);
-            this.a.reset();
         }
-    }
-
-    public void setIsThree(boolean z) {
-        this.e = z;
-    }
-
-    public void setType(int i) {
-        this.c = i;
     }
 }

@@ -8,14 +8,6 @@ public class p extends Thread {
     private String b;
     private Hashtable c;
 
-    public p(int i, String str) {
-        this.a = 3;
-        this.b = null;
-        this.c = null;
-        this.a = i;
-        this.b = str;
-    }
-
     public p(Hashtable hashtable) {
         this.a = 3;
         this.b = null;
@@ -24,25 +16,33 @@ public class p extends Thread {
         this.c = hashtable;
     }
 
+    public p(int i, String str) {
+        this.a = 3;
+        this.b = null;
+        this.c = null;
+        this.a = i;
+        this.b = str;
+    }
+
     @Override // java.lang.Thread, java.lang.Runnable
     public void run() {
-        ArrayList x;
+        ArrayList z;
         super.run();
         try {
-            if (this.a != 3) {
-                if (this.a == 2) {
-                    k.q(this.b);
-                } else if (this.a == 1) {
-                    k.p(this.b);
+            if (this.a == 3) {
+                if (this.c != null && (z = k.z()) != null) {
+                    int size = z.size();
+                    for (int i = 0; i < size; i++) {
+                        this.c.put((String) z.get(i), 1);
+                    }
                 }
-            } else if (this.c != null && (x = k.x()) != null) {
-                int size = x.size();
-                for (int i = 0; i < size; i++) {
-                    this.c.put((String) x.get(i), 1);
-                }
+            } else if (this.a == 2) {
+                k.r(this.b);
+            } else if (this.a == 1) {
+                k.q(this.b);
             }
         } catch (Exception e) {
-            ae.b(getClass().getName(), "run", e.getMessage());
+            ag.b(getClass().getName(), "run", e.getMessage());
         }
     }
 }

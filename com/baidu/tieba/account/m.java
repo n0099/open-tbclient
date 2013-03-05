@@ -28,39 +28,39 @@ public class m extends AsyncTask {
     @Override // android.os.AsyncTask
     /* renamed from: a */
     public com.baidu.tieba.b.g doInBackground(String... strArr) {
-        com.baidu.tieba.a.ao aoVar;
-        com.baidu.tieba.a.ao aoVar2;
-        com.baidu.tieba.a.ao aoVar3;
-        com.baidu.tieba.a.ao aoVar4;
-        com.baidu.tieba.a.ao aoVar5;
+        com.baidu.tieba.a.an anVar;
+        com.baidu.tieba.a.an anVar2;
+        com.baidu.tieba.a.an anVar3;
+        com.baidu.tieba.a.an anVar4;
+        com.baidu.tieba.a.an anVar5;
         EditText editText;
-        com.baidu.tieba.a.ao aoVar6;
-        com.baidu.tieba.a.ao aoVar7;
+        com.baidu.tieba.a.an anVar6;
+        com.baidu.tieba.a.an anVar7;
         try {
             this.b = new com.baidu.tieba.c.t("http://c.tieba.baidu.com/c/s/regreal");
             com.baidu.tieba.c.t tVar = this.b;
-            aoVar = this.a.q;
-            tVar.a("un", aoVar.a());
+            anVar = this.a.r;
+            tVar.a("un", anVar.a());
             com.baidu.tieba.c.t tVar2 = this.b;
-            aoVar2 = this.a.q;
-            tVar2.a("phonenum", aoVar2.c());
+            anVar2 = this.a.r;
+            tVar2.a("phonenum", anVar2.c());
             com.baidu.tieba.c.t tVar3 = this.b;
-            aoVar3 = this.a.q;
-            tVar3.a("passwd", aoVar3.b());
-            aoVar4 = this.a.q;
-            if (aoVar4.d() != null) {
+            anVar3 = this.a.r;
+            tVar3.a("passwd", anVar3.b());
+            anVar4 = this.a.r;
+            if (anVar4.d() != null) {
                 com.baidu.tieba.c.t tVar4 = this.b;
-                aoVar7 = this.a.q;
-                tVar4.a("vcode", aoVar7.d());
+                anVar7 = this.a.r;
+                tVar4.a("vcode", anVar7.d());
             }
-            aoVar5 = this.a.q;
-            if (aoVar5.e() != null) {
+            anVar5 = this.a.r;
+            if (anVar5.e() != null) {
                 com.baidu.tieba.c.t tVar5 = this.b;
-                aoVar6 = this.a.q;
-                tVar5.a("vcode_md5", aoVar6.e());
+                anVar6 = this.a.r;
+                tVar5.a("vcode_md5", anVar6.e());
             }
             com.baidu.tieba.c.t tVar6 = this.b;
-            editText = this.a.j;
+            editText = this.a.k;
             tVar6.a("smscode", editText.getText().toString());
             String i = this.b.i();
             if (this.b.b()) {
@@ -70,28 +70,9 @@ public class m extends AsyncTask {
             }
             return null;
         } catch (Exception e) {
-            com.baidu.tieba.c.ae.b(getClass().getName(), "doInBackground", e.getMessage());
+            com.baidu.tieba.c.ag.b(getClass().getName(), "doInBackground", e.getMessage());
             return null;
         }
-    }
-
-    public void a() {
-        ProgressBar progressBar;
-        boolean z;
-        RelativeLayout relativeLayout;
-        this.a.n = null;
-        progressBar = this.a.g;
-        progressBar.setVisibility(8);
-        z = this.a.o;
-        if (z) {
-            relativeLayout = this.a.l;
-            relativeLayout.setEnabled(true);
-        }
-        if (this.b != null) {
-            this.b.g();
-        }
-        this.a.a(true);
-        super.cancel(true);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -109,13 +90,13 @@ public class m extends AsyncTask {
         TextView textView2;
         RelativeLayout relativeLayout;
         super.onPostExecute(gVar);
-        progressBar = this.a.g;
+        progressBar = this.a.h;
         progressBar.setVisibility(8);
-        this.a.n = null;
+        this.a.o = null;
         this.a.a(true);
-        z = this.a.o;
+        z = this.a.p;
         if (z) {
-            relativeLayout = this.a.l;
+            relativeLayout = this.a.m;
             relativeLayout.setEnabled(true);
         }
         if (gVar != null) {
@@ -124,18 +105,18 @@ public class m extends AsyncTask {
         }
         String f = this.b.f();
         if (f != null && f.length() > 0) {
-            textView = this.a.i;
+            textView = this.a.j;
             textView.setVisibility(0);
-            textView2 = this.a.i;
+            textView2 = this.a.j;
             textView2.setText(f);
         }
         if (this.b.d() == 26) {
-            this.a.u = 26;
-            linearLayout = this.a.d;
+            this.a.A = 26;
+            linearLayout = this.a.e;
             linearLayout.setBackgroundResource(R.drawable.pass_input_wrong);
-            linearLayout2 = this.a.d;
-            i = this.a.s;
-            i2 = this.a.t;
+            linearLayout2 = this.a.e;
+            i = this.a.y;
+            i2 = this.a.z;
             linearLayout2.setPadding(i, 0, i2, 0);
         }
     }
@@ -150,21 +131,40 @@ public class m extends AsyncTask {
         LinearLayout linearLayout2;
         int i;
         int i2;
-        progressBar = this.a.g;
+        progressBar = this.a.h;
         progressBar.setVisibility(0);
-        relativeLayout = this.a.l;
+        relativeLayout = this.a.m;
         relativeLayout.setEnabled(false);
         this.a.a(false);
-        textView = this.a.i;
+        textView = this.a.j;
         textView.setVisibility(4);
-        textView2 = this.a.i;
+        textView2 = this.a.j;
         textView2.setText((CharSequence) null);
-        linearLayout = this.a.d;
+        linearLayout = this.a.e;
         linearLayout.setBackgroundResource(R.drawable.pass_input);
-        linearLayout2 = this.a.d;
-        i = this.a.s;
-        i2 = this.a.t;
+        linearLayout2 = this.a.e;
+        i = this.a.y;
+        i2 = this.a.z;
         linearLayout2.setPadding(i, 0, i2, 0);
         super.onPreExecute();
+    }
+
+    public void a() {
+        ProgressBar progressBar;
+        boolean z;
+        RelativeLayout relativeLayout;
+        this.a.o = null;
+        progressBar = this.a.h;
+        progressBar.setVisibility(8);
+        z = this.a.p;
+        if (z) {
+            relativeLayout = this.a.m;
+            relativeLayout.setEnabled(true);
+        }
+        if (this.b != null) {
+            this.b.g();
+        }
+        this.a.a(true);
+        super.cancel(true);
     }
 }
