@@ -35,7 +35,7 @@ public class c extends AsyncTask {
                 if (it.next().baseActivity.getClassName().startsWith(this.a.getPackageName())) {
                     switch (this.b.getExtras().getInt("class", -1)) {
                         case 0:
-                            ai.d(this.a, this.b.getExtras().getString("url"));
+                            ai.c(this.a, this.b.getExtras().getString("url"));
                             break;
                         case 1:
                             if (this.b.getBooleanExtra("is_message_pv", false)) {

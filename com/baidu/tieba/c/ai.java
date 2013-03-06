@@ -166,7 +166,7 @@ public class ai {
                     WebBdActivity.a(context, str, null, null);
                 }
             } else {
-                e(context, str);
+                d(context, str);
             }
         } catch (Exception e) {
             ag.b("UtilHelper", "startWebActivity", e.getMessage());
@@ -174,25 +174,6 @@ public class ai {
     }
 
     public static void d(Context context, String str) {
-        try {
-            Token b = com.baidu.tieba.account.a.b(TiebaApplication.y());
-            if (TiebaApplication.b().i() == 2) {
-                if (b != null) {
-                    WebBdActivity.a(context, str, b.mBduss, b.mPtoken);
-                } else {
-                    WebBdActivity.a(context, str, null, null);
-                }
-            } else if (b != null) {
-                WebActivity.a(context, str, b.mBduss, b.mPtoken);
-            } else {
-                WebActivity.a(context, str, null, null);
-            }
-        } catch (Exception e) {
-            ag.b("UtilHelper", "startInternalWebActivity", e.getMessage());
-        }
-    }
-
-    public static void e(Context context, String str) {
         try {
             Intent intent = new Intent("android.intent.action.VIEW");
             intent.setData(Uri.parse(str));

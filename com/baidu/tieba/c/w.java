@@ -1527,64 +1527,35 @@ public class w {
         return this.k == 200 || this.k == 206;
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [1152=7, 1156=7, 1157=7, 1159=7, 1144=7, 1146=7, 1147=7, 1151=7] */
-    /* JADX WARN: Removed duplicated region for block: B:166:0x0355 A[Catch: Exception -> 0x0385, TRY_LEAVE, TryCatch #29 {Exception -> 0x0385, blocks: (B:164:0x034f, B:166:0x0355), top: B:259:0x034f }] */
-    /* JADX WARN: Removed duplicated region for block: B:255:0x035e A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:257:0x034c A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [1152=7, 1153=7, 1155=7, 1140=7, 1142=7, 1143=7, 1147=7, 1148=7] */
+    /* JADX WARN: Removed duplicated region for block: B:166:0x035c A[Catch: Exception -> 0x0385, TRY_LEAVE, TryCatch #28 {Exception -> 0x0385, blocks: (B:164:0x0356, B:166:0x035c), top: B:254:0x0356 }] */
+    /* JADX WARN: Removed duplicated region for block: B:250:0x0365 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:252:0x0353 A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public Boolean a(String str, Handler handler) {
         FileOutputStream fileOutputStream;
-        FileOutputStream fileOutputStream2;
         Exception e2;
         InputStream inputStream;
         String headerField;
         int indexOf;
         InputStream inputStream2 = null;
-        FileOutputStream fileOutputStream3 = null;
+        FileOutputStream fileOutputStream2 = null;
         try {
             try {
                 this.i = a(new URL(this.j));
             } catch (Throwable th) {
                 th = th;
-                this.n = 0;
-                if (inputStream2 != null) {
-                    try {
-                        inputStream2.close();
-                    } catch (Exception e3) {
-                    }
-                }
-                try {
-                    if (this.i != null) {
-                        this.i.disconnect();
-                    }
-                } catch (Exception e4) {
-                }
-                if (fileOutputStream != null) {
-                    try {
-                        fileOutputStream.close();
-                    } catch (Exception e5) {
-                    }
-                }
-                throw th;
             }
-        } catch (FileNotFoundException e6) {
+        } catch (FileNotFoundException e3) {
             inputStream = null;
-        } catch (Exception e7) {
-            fileOutputStream2 = null;
-            e2 = e7;
+        } catch (Exception e4) {
+            fileOutputStream = null;
+            e2 = e4;
         } catch (Throwable th2) {
             th = th2;
             fileOutputStream = null;
-            this.n = 0;
-            if (inputStream2 != null) {
-            }
-            if (this.i != null) {
-            }
-            if (fileOutputStream != null) {
-            }
-            throw th;
         }
         if (this.i == null) {
             throw new SocketException();
@@ -1598,19 +1569,19 @@ public class w {
             if (0 != 0) {
                 try {
                     inputStream2.close();
-                } catch (Exception e8) {
+                } catch (Exception e5) {
                 }
             }
             try {
                 if (this.i != null) {
                     this.i.disconnect();
                 }
-            } catch (Exception e9) {
+            } catch (Exception e6) {
             }
             if (0 != 0) {
                 try {
-                    fileOutputStream3.close();
-                } catch (Exception e10) {
+                    fileOutputStream2.close();
+                } catch (Exception e7) {
                 }
             }
         } else {
@@ -1620,50 +1591,50 @@ public class w {
                 throw new FileNotFoundException();
             }
             long length = f2.length();
-            fileOutputStream2 = new FileOutputStream(f2, true);
+            fileOutputStream = new FileOutputStream(f2, true);
             try {
-                try {
-                    if (this.t) {
-                        this.i.addRequestProperty("Range", "bytes=" + String.valueOf(length) + "-" + String.valueOf(200000 + length));
-                    } else {
-                        this.i.addRequestProperty("Range", "bytes=" + String.valueOf(length) + "-");
+                if (this.t) {
+                    this.i.addRequestProperty("Range", "bytes=" + String.valueOf(length) + "-" + String.valueOf(200000 + length));
+                } else {
+                    this.i.addRequestProperty("Range", "bytes=" + String.valueOf(length) + "-");
+                }
+                this.i.connect();
+                this.k = this.i.getResponseCode();
+                if (!p()) {
+                    throw new SocketException();
+                }
+                if (!this.i.getContentType().contains("text/vnd.wap.wml") || this.n >= 1) {
+                    this.n = 0;
+                    int i = 0;
+                    String headerField2 = this.i.getHeaderField("Content-Range");
+                    if (headerField2 != null && (indexOf = headerField2.indexOf("/")) != -1) {
+                        i = Integer.valueOf(headerField2.substring(indexOf + 1)).intValue();
                     }
-                    this.i.connect();
-                    this.k = this.i.getResponseCode();
-                    if (!p()) {
-                        throw new SocketException();
-                    }
-                    if (!this.i.getContentType().contains("text/vnd.wap.wml") || this.n >= 1) {
+                    int intValue = (i == 0 && this.k == 200 && (headerField = this.i.getHeaderField("Content-Length")) != null) ? Integer.valueOf(headerField).intValue() : i;
+                    if (length >= intValue) {
+                        r1 = true;
                         this.n = 0;
-                        int i = 0;
-                        String headerField2 = this.i.getHeaderField("Content-Range");
-                        if (headerField2 != null && (indexOf = headerField2.indexOf("/")) != -1) {
-                            i = Integer.valueOf(headerField2.substring(indexOf + 1)).intValue();
-                        }
-                        int intValue = (i == 0 && this.k == 200 && (headerField = this.i.getHeaderField("Content-Length")) != null) ? Integer.valueOf(headerField).intValue() : i;
-                        if (length >= intValue) {
-                            r1 = true;
-                            this.n = 0;
-                            if (0 != 0) {
-                                try {
-                                    inputStream2.close();
-                                } catch (Exception e11) {
-                                }
-                            }
+                        if (0 != 0) {
                             try {
-                                if (this.i != null) {
-                                    this.i.disconnect();
-                                }
-                            } catch (Exception e12) {
+                                inputStream2.close();
+                            } catch (Exception e8) {
                             }
-                            if (fileOutputStream2 != null) {
-                                try {
-                                    fileOutputStream2.close();
-                                } catch (Exception e13) {
-                                }
+                        }
+                        try {
+                            if (this.i != null) {
+                                this.i.disconnect();
                             }
-                        } else {
-                            InputStream inputStream3 = this.i.getInputStream();
+                        } catch (Exception e9) {
+                        }
+                        if (fileOutputStream != null) {
+                            try {
+                                fileOutputStream.close();
+                            } catch (Exception e10) {
+                            }
+                        }
+                    } else {
+                        InputStream inputStream3 = this.i.getInputStream();
+                        try {
                             try {
                                 byte[] bArr = new byte[NotificationProxy.MAX_URL_LENGTH];
                                 int i2 = 0;
@@ -1676,26 +1647,20 @@ public class w {
                                     int read = inputStream3.read(bArr);
                                     if (read != -1) {
                                         try {
-                                            try {
-                                                fileOutputStream2.write(bArr, 0, read);
-                                                i2 += read;
-                                                i4 += read;
-                                                if (handler != null && (i4 > i3 || i2 == intValue)) {
-                                                    i4 = 0;
-                                                    handler.sendMessage(handler.obtainMessage(900002, (int) (i2 + length), intValue));
-                                                }
-                                            } catch (Exception e14) {
-                                                throw new FileNotFoundException();
+                                            fileOutputStream.write(bArr, 0, read);
+                                            i2 += read;
+                                            i4 += read;
+                                            if (handler != null && (i4 > i3 || i2 == intValue)) {
+                                                i4 = 0;
+                                                handler.sendMessage(handler.obtainMessage(900002, (int) (i2 + length), intValue));
                                             }
-                                        } finally {
-                                            if (inputStream3 != null) {
-                                                inputStream3.close();
-                                            }
+                                        } catch (Exception e11) {
+                                            throw new FileNotFoundException();
                                         }
                                     }
                                 }
                                 try {
-                                    fileOutputStream2.flush();
+                                    fileOutputStream.flush();
                                     ag.a("NetWork", "downloadFile", "time = " + String.valueOf(new Date().getTime() - time) + "ms");
                                     if (intValue != -1) {
                                         ag.a("NetWork", "downloadFile", "data.zise = " + String.valueOf(intValue));
@@ -1705,95 +1670,120 @@ public class w {
                                     if (inputStream3 != null) {
                                         try {
                                             inputStream3.close();
-                                        } catch (Exception e15) {
+                                        } catch (Exception e12) {
                                         }
                                     }
                                     try {
                                         if (this.i != null) {
                                             this.i.disconnect();
                                         }
-                                    } catch (Exception e16) {
-                                    }
-                                    if (fileOutputStream2 != null) {
-                                        try {
-                                            fileOutputStream2.close();
-                                        } catch (Exception e17) {
-                                        }
-                                    }
-                                } catch (Exception e18) {
-                                    throw new FileNotFoundException();
-                                }
-                            } catch (FileNotFoundException e19) {
-                                fileOutputStream3 = fileOutputStream2;
-                                inputStream = inputStream3;
-                                try {
-                                    this.k = -2;
-                                    this.m = this.r.getResources().getString(R.string.FileWriteError);
-                                    this.n = 0;
-                                    if (inputStream != null) {
-                                        try {
-                                            inputStream.close();
-                                        } catch (Exception e20) {
-                                        }
-                                    }
-                                    try {
-                                        if (this.i != null) {
-                                            this.i.disconnect();
-                                        }
-                                    } catch (Exception e21) {
-                                    }
-                                    if (fileOutputStream3 != null) {
-                                        try {
-                                            fileOutputStream3.close();
-                                        } catch (Exception e22) {
-                                        }
-                                    }
-                                    return r1;
-                                } catch (Throwable th3) {
-                                    th = th3;
-                                    inputStream2 = inputStream;
-                                    fileOutputStream = fileOutputStream3;
-                                    this.n = 0;
-                                    if (inputStream2 != null) {
-                                    }
-                                    if (this.i != null) {
+                                    } catch (Exception e13) {
                                     }
                                     if (fileOutputStream != null) {
+                                        try {
+                                            fileOutputStream.close();
+                                        } catch (Exception e14) {
+                                        }
                                     }
-                                    throw th;
+                                } catch (Exception e15) {
+                                    throw new FileNotFoundException();
+                                }
+                            } catch (Throwable th3) {
+                                th = th3;
+                                inputStream2 = inputStream3;
+                                this.n = 0;
+                                if (inputStream2 != null) {
+                                    try {
+                                        inputStream2.close();
+                                    } catch (Exception e16) {
+                                    }
+                                }
+                                try {
+                                    if (this.i != null) {
+                                        this.i.disconnect();
+                                    }
+                                } catch (Exception e17) {
+                                }
+                                if (fileOutputStream != null) {
+                                    try {
+                                        fileOutputStream.close();
+                                    } catch (Exception e18) {
+                                    }
+                                }
+                                throw th;
+                            }
+                        } catch (FileNotFoundException e19) {
+                            inputStream = inputStream3;
+                            fileOutputStream2 = fileOutputStream;
+                            try {
+                                this.k = -2;
+                                this.m = this.r.getResources().getString(R.string.FileWriteError);
+                                this.n = 0;
+                                if (inputStream != null) {
+                                    try {
+                                        inputStream.close();
+                                    } catch (Exception e20) {
+                                    }
+                                }
+                                try {
+                                    if (this.i != null) {
+                                        this.i.disconnect();
+                                    }
+                                } catch (Exception e21) {
+                                }
+                                if (fileOutputStream2 != null) {
+                                    try {
+                                        fileOutputStream2.close();
+                                    } catch (Exception e22) {
+                                    }
+                                }
+                                return r1;
+                            } catch (Throwable th4) {
+                                th = th4;
+                                inputStream2 = inputStream;
+                                fileOutputStream = fileOutputStream2;
+                                this.n = 0;
+                                if (inputStream2 != null) {
+                                }
+                                if (this.i != null) {
+                                }
+                                if (fileOutputStream != null) {
+                                }
+                                throw th;
+                            }
+                        } catch (Exception e23) {
+                            inputStream2 = inputStream3;
+                            e2 = e23;
+                            this.k = 0;
+                            this.m = this.r.getResources().getString(R.string.neterror);
+                            ag.b("NetWork", "downloadFile", "error = " + e2.getMessage());
+                            this.n = 0;
+                            if (inputStream2 != null) {
+                                try {
+                                    inputStream2.close();
+                                } catch (Exception e24) {
                                 }
                             }
-                        }
-                    } else {
-                        this.i.disconnect();
-                        this.n++;
-                        this.k = 0;
-                        r1 = a(str, handler);
-                        this.n = 0;
-                        if (0 != 0) {
                             try {
-                                inputStream2.close();
-                            } catch (Exception e23) {
-                            }
-                        }
-                        try {
-                            if (this.i != null) {
-                                this.i.disconnect();
-                            }
-                        } catch (Exception e24) {
-                        }
-                        if (fileOutputStream2 != null) {
-                            try {
-                                fileOutputStream2.close();
+                                if (this.i != null) {
+                                    this.i.disconnect();
+                                }
                             } catch (Exception e25) {
                             }
+                            if (fileOutputStream != null) {
+                                try {
+                                    fileOutputStream.close();
+                                } catch (Exception e26) {
+                                }
+                            }
+                            return r1;
                         }
                     }
-                } catch (Exception e26) {
-                    e2 = e26;
+                } else {
+                    this.i.disconnect();
+                    this.n++;
                     this.k = 0;
-                    this.m = this.r.getResources().getString(R.string.neterror);
-                    ag.b("NetWork", "downloadFile", "error = " + e2.getMessage());
+                    r1 = a(str, handler);
                     this.n = 0;
                     if (0 != 0) {
                         try {
@@ -1807,17 +1797,18 @@ public class w {
                         }
                     } catch (Exception e28) {
                     }
-                    if (fileOutputStream2 != null) {
+                    if (fileOutputStream != null) {
                         try {
-                            fileOutputStream2.close();
+                            fileOutputStream.close();
                         } catch (Exception e29) {
                         }
                     }
-                    return r1;
                 }
             } catch (FileNotFoundException e30) {
-                fileOutputStream3 = fileOutputStream2;
+                fileOutputStream2 = fileOutputStream;
                 inputStream = null;
+            } catch (Exception e31) {
+                e2 = e31;
             }
         }
         return r1;

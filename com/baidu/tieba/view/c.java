@@ -18,7 +18,7 @@ public class c implements d {
         if (str != null) {
             try {
                 context = this.a.c;
-                com.baidu.tieba.c.ai.e(context, str);
+                com.baidu.tieba.c.ai.d(context, str);
             } catch (Exception e) {
                 com.baidu.tieba.c.ag.a(getClass().getName(), "shouldOverrideUrlLoading", e.toString());
             }

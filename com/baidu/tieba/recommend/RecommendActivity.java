@@ -162,60 +162,62 @@ public class RecommendActivity extends com.baidu.tieba.e implements com.baidu.ti
     @Override // com.baidu.tieba.view.d
     public boolean a(WebView webView, String str) {
         int indexOf;
-        int indexOf2 = str.indexOf("kz=") + 3;
-        if (indexOf2 > 2) {
-            int i = indexOf2;
-            while (i < str.length() && str.charAt(i) != '&') {
-                i++;
-            }
-            String substring = str.substring(indexOf2, i);
-            if (substring != null && substring.length() >= 0) {
-                PbActivity.a(this, substring, "hot_pblist");
-            }
+        if (str.contains("nearby=1")) {
+            MainTabActivity.a(this, "goto_nearby");
         } else {
-            int indexOf3 = str.indexOf("kw=") + 3;
-            if (indexOf3 > 2) {
-                int i2 = indexOf3;
-                while (i2 < str.length() && str.charAt(i2) != '&') {
-                    i2++;
+            int indexOf2 = str.indexOf("kz=") + 3;
+            if (indexOf2 > 2) {
+                int i = indexOf2;
+                while (i < str.length() && str.charAt(i) != '&') {
+                    i++;
                 }
-                String decode = URLDecoder.decode(str.substring(indexOf3, i2));
-                if (decode != null && decode.length() >= 0) {
-                    FrsActivity.a(this, decode, "tb_remindlist");
+                String substring = str.substring(indexOf2, i);
+                if (substring != null && substring.length() >= 0) {
+                    PbActivity.a(this, substring, "hot_pblist");
                 }
-            } else if (str.indexOf("jump_lottery_native=1") != -1 && (indexOf = str.indexOf("lotteryurl=")) != -1) {
-                int i3 = indexOf + 11;
-                int i4 = i3;
-                while (i4 < str.length() && str.charAt(i4) != '&') {
-                    i4++;
-                }
-                String decode2 = URLDecoder.decode(str.substring(i3, i4));
-                Token b = com.baidu.tieba.account.a.b(TiebaApplication.y());
-                if (b != null) {
-                    LotteryActivity.a(this, str, decode2, b.mBduss, b.mPtoken, TiebaApplication.z());
-                } else {
-                    LotteryActivity.a(this, str, decode2, null, null, TiebaApplication.z());
-                }
-            } else if (str.indexOf("http://c.tieba.baidu.com/c/s/classic") != -1) {
-                int indexOf4 = str.indexOf("page=");
-                if (indexOf4 != -1) {
-                    int i5 = indexOf4 + 5;
-                    int i6 = i5;
-                    while (i6 < str.length() && str.charAt(i6) != '&') {
-                        i6++;
-                    }
-                    String decode3 = URLDecoder.decode(str.substring(i5, i6));
-                    if (decode3 != null && decode3.length() >= 0) {
-                        this.p = decode3;
-                    }
-                } else {
-                    this.p = "0";
-                }
-                i();
-            } else if (str.contains("nearby=1")) {
-                MainTabActivity.a(this, "goto_nearby");
             } else {
-                ai.c(this, str);
+                int indexOf3 = str.indexOf("kw=") + 3;
+                if (indexOf3 > 2) {
+                    int i2 = indexOf3;
+                    while (i2 < str.length() && str.charAt(i2) != '&') {
+                        i2++;
+                    }
+                    String decode = URLDecoder.decode(str.substring(indexOf3, i2));
+                    if (decode != null && decode.length() >= 0) {
+                        FrsActivity.a(this, decode, "tb_remindlist");
+                    }
+                } else if (str.indexOf("jump_lottery_native=1") != -1 && (indexOf = str.indexOf("lotteryurl=")) != -1) {
+                    int i3 = indexOf + 11;
+                    int i4 = i3;
+                    while (i4 < str.length() && str.charAt(i4) != '&') {
+                        i4++;
+                    }
+                    String decode2 = URLDecoder.decode(str.substring(i3, i4));
+                    Token b = com.baidu.tieba.account.a.b(TiebaApplication.y());
+                    if (b != null) {
+                        LotteryActivity.a(this, str, decode2, b.mBduss, b.mPtoken, TiebaApplication.z());
+                    } else {
+                        LotteryActivity.a(this, str, decode2, null, null, TiebaApplication.z());
+                    }
+                } else if (str.indexOf("http://c.tieba.baidu.com/c/s/classic") != -1) {
+                    int indexOf4 = str.indexOf("page=");
+                    if (indexOf4 != -1) {
+                        int i5 = indexOf4 + 5;
+                        int i6 = i5;
+                        while (i6 < str.length() && str.charAt(i6) != '&') {
+                            i6++;
+                        }
+                        String decode3 = URLDecoder.decode(str.substring(i5, i6));
+                        if (decode3 != null && decode3.length() >= 0) {
+                            this.p = decode3;
+                        }
+                    } else {
+                        this.p = "0";
+                    }
+                    i();
+                } else {
+                    ai.c(this, str);
+                }
             }
         }
         return true;

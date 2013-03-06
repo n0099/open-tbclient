@@ -2,9 +2,8 @@ package com.baidu.tieba.person;
 
 import android.widget.RadioGroup;
 import com.baidu.tieba.R;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ac implements RadioGroup.OnCheckedChangeListener {
+class ac implements RadioGroup.OnCheckedChangeListener {
     final /* synthetic */ MyPostActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
