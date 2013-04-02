@@ -37,9 +37,9 @@ public class p extends Thread {
                     }
                 }
             } else if (this.a == 2) {
-                k.r(this.b);
-            } else if (this.a == 1) {
                 k.q(this.b);
+            } else if (this.a == 1) {
+                k.p(this.b);
             }
         } catch (Exception e) {
             ag.b(getClass().getName(), "run", e.getMessage());

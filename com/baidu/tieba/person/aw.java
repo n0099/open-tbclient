@@ -1,75 +1,53 @@
 package com.baidu.tieba.person;
 
-import android.content.DialogInterface;
-import android.content.Intent;
-import android.os.AsyncTask;
+import android.view.View;
+import android.widget.EditText;
+import android.widget.RadioGroup;
 import com.baidu.tieba.R;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class aw extends AsyncTask {
+public class aw implements View.OnClickListener {
     final /* synthetic */ PersonChangeActivity a;
-    private com.baidu.tieba.c.t b = null;
-    private com.baidu.tieba.b.r c;
 
-    public aw(PersonChangeActivity personChangeActivity, com.baidu.tieba.b.r rVar) {
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public aw(PersonChangeActivity personChangeActivity) {
         this.a = personChangeActivity;
-        this.c = null;
-        this.c = rVar;
     }
 
-    public void a() {
-        this.a.C = null;
-        if (this.b != null) {
-            this.b.g();
-        }
-        super.cancel(true);
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // android.os.AsyncTask
-    /* renamed from: a */
-    public void onPostExecute(String str) {
-        this.a.C = null;
-        this.a.d();
-        if (this.b != null) {
-            if (this.b.b()) {
-                this.a.b(this.a.getString(R.string.success));
-                Intent intent = new Intent();
-                intent.putExtra("data", this.c);
-                this.a.setResult(-1, intent);
-                this.a.finish();
-            } else {
-                this.a.b(this.b.f());
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        com.baidu.tieba.b.s sVar;
+        EditText editText;
+        RadioGroup radioGroup;
+        RadioGroup radioGroup2;
+        com.baidu.tieba.b.s sVar2;
+        bb bbVar;
+        com.baidu.tieba.b.s sVar3;
+        bb bbVar2;
+        com.baidu.tieba.b.s sVar4;
+        this.a.i();
+        sVar = this.a.z;
+        editText = this.a.t;
+        sVar.a(editText.getText().toString());
+        radioGroup = this.a.u;
+        if (radioGroup.getCheckedRadioButtonId() != R.id.man) {
+            radioGroup2 = this.a.u;
+            if (radioGroup2.getCheckedRadioButtonId() == R.id.woman) {
+                sVar2 = this.a.z;
+                sVar2.a(2);
             }
+        } else {
+            sVar4 = this.a.z;
+            sVar4.a(1);
         }
-        super.onPostExecute(str);
-    }
-
-    @Override // android.os.AsyncTask
-    protected void onPreExecute() {
-        DialogInterface.OnCancelListener onCancelListener;
-        PersonChangeActivity personChangeActivity = this.a;
-        String string = this.a.getString(R.string.saving);
-        onCancelListener = this.a.E;
-        personChangeActivity.a(string, onCancelListener);
-        super.onPreExecute();
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // android.os.AsyncTask
-    /* renamed from: a */
-    public String doInBackground(String... strArr) {
-        if (this.c != null) {
-            this.b = new com.baidu.tieba.c.t("http://c.tieba.baidu.com/c/c/profile/modify");
-            this.b.a("sex", String.valueOf(this.c.b()));
-            this.b.a("intro", this.c.a());
-            this.b.j();
-            if (this.b.b()) {
-                com.baidu.tieba.c.k.d();
-            }
+        bbVar = this.a.C;
+        if (bbVar == null) {
+            PersonChangeActivity personChangeActivity = this.a;
+            PersonChangeActivity personChangeActivity2 = this.a;
+            sVar3 = this.a.z;
+            personChangeActivity.C = new bb(personChangeActivity2, sVar3);
+            bbVar2 = this.a.C;
+            bbVar2.execute(new String[0]);
         }
-        return null;
     }
 }

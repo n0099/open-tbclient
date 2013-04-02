@@ -56,15 +56,15 @@ public class b extends AsyncTask {
     /* renamed from: a */
     public void onPostExecute(Boolean bool) {
         ProgressBar progressBar;
-        com.baidu.tieba.b.m mVar;
+        com.baidu.tieba.b.n nVar;
         d dVar;
         progressBar = this.a.m;
         progressBar.setVisibility(8);
         this.a.n = null;
         this.a.l = false;
         if (bool.booleanValue()) {
-            mVar = this.a.d;
-            mVar.a(this.d);
+            nVar = this.a.d;
+            nVar.a(this.d);
             dVar = this.a.f;
             dVar.notifyDataSetChanged();
             this.a.b(this.a.getString(R.string.like_success));

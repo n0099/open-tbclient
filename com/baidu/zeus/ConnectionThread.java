@@ -3,6 +3,7 @@ package com.baidu.zeus;
 import android.content.Context;
 import android.os.Process;
 import android.os.SystemClock;
+import com.baidu.android.common.util.HanziToPinyin;
 import com.baidu.zeus.RequestQueue;
 /* loaded from: classes.dex */
 class ConnectionThread extends Thread {
@@ -79,6 +80,6 @@ class ConnectionThread extends Thread {
 
     @Override // java.lang.Thread
     public synchronized String toString() {
-        return "cid " + this.mId + " " + (this.mWaiting ? "w" : "a") + " " + (this.mConnection == null ? "" : this.mConnection.toString());
+        return "cid " + this.mId + HanziToPinyin.Token.SEPARATOR + (this.mWaiting ? "w" : "a") + HanziToPinyin.Token.SEPARATOR + (this.mConnection == null ? "" : this.mConnection.toString());
     }
 }

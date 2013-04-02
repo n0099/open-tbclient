@@ -79,49 +79,49 @@ public class t {
     }
 
     private void m() {
-        String y = TiebaApplication.y();
-        if (y != null) {
-            this.a.a("BDUSS", y);
+        String z = TiebaApplication.z();
+        if (z != null) {
+            this.a.a("BDUSS", z);
         }
     }
 
     private void n() {
-        String y = TiebaApplication.y();
-        BasicNameValuePair basicNameValuePair = new BasicNameValuePair("BDUSS", y);
-        BasicNameValuePair basicNameValuePair2 = new BasicNameValuePair("tbs", TiebaApplication.b().I());
-        ag.a("NetWork", "modSessionData", "== BDUSS:" + y);
-        ag.a("NetWork", "modSessionData", "== TBS:" + TiebaApplication.b().I());
-        if (y != null) {
-            ArrayList r = this.a.r();
-            int size = r.size();
+        String z = TiebaApplication.z();
+        BasicNameValuePair basicNameValuePair = new BasicNameValuePair("BDUSS", z);
+        BasicNameValuePair basicNameValuePair2 = new BasicNameValuePair("tbs", TiebaApplication.b().J());
+        ag.a("NetWork", "modSessionData", "== BDUSS:" + z);
+        ag.a("NetWork", "modSessionData", "== TBS:" + TiebaApplication.b().J());
+        if (z != null) {
+            ArrayList s = this.a.s();
+            int size = s.size();
             for (int i = 0; i < size; i++) {
-                BasicNameValuePair basicNameValuePair3 = (BasicNameValuePair) r.get(i);
+                BasicNameValuePair basicNameValuePair3 = (BasicNameValuePair) s.get(i);
                 if (basicNameValuePair3.getName().equals("BDUSS")) {
-                    r.set(i, basicNameValuePair);
+                    s.set(i, basicNameValuePair);
                 } else if (basicNameValuePair3.getName().equals("tbs") && !TiebaApplication.g()) {
-                    r.set(i, basicNameValuePair2);
+                    s.set(i, basicNameValuePair2);
                 }
             }
         }
     }
 
     public int a() {
-        return this.a.n();
+        return this.a.o();
     }
 
     private void o() {
         this.a.a("_client_type", "2");
         this.a.a("_client_version", com.baidu.tieba.a.i.h());
-        if (TiebaApplication.b().h() != null) {
-            this.a.a("_phone_imei", TiebaApplication.b().h());
+        if (TiebaApplication.b().i() != null) {
+            this.a.a("_phone_imei", TiebaApplication.b().i());
         }
-        String J = TiebaApplication.J();
-        if (J != null) {
-            this.a.a("_client_id", J);
+        String K = TiebaApplication.K();
+        if (K != null) {
+            this.a.a("_client_id", K);
         }
-        String q = TiebaApplication.q();
-        if (q != null && q.length() > 0) {
-            this.a.a("from", q);
+        String r = TiebaApplication.r();
+        if (r != null && r.length() > 0) {
+            this.a.a("from", r);
         }
         String b = this.a.b();
         if (b != null) {
@@ -131,9 +131,14 @@ public class t {
             if (TiebaApplication.g()) {
                 this.a.a("tbs", "ignore");
             } else {
-                this.a.a("tbs", TiebaApplication.b().I());
+                this.a.a("tbs", TiebaApplication.b().J());
             }
         }
+        String h = TiebaApplication.b().h();
+        if (h != null) {
+            this.a.a("cuid", h);
+        }
+        this.a.a("timestamp", Long.toString(System.currentTimeMillis()));
     }
 
     private void p() {
@@ -152,15 +157,15 @@ public class t {
     }
 
     public boolean b() {
-        return this.a.e();
-    }
-
-    public boolean c() {
         return this.a.f();
     }
 
-    public int d() {
+    public boolean c() {
         return this.a.g();
+    }
+
+    public int d() {
+        return this.a.h();
     }
 
     public String e() {
@@ -168,20 +173,20 @@ public class t {
     }
 
     public String f() {
-        return this.a.h();
+        return this.a.i();
     }
 
     public void g() {
         if (this.a != null) {
-            this.a.j();
+            this.a.k();
         }
         if (this.b != null) {
-            this.b.j();
+            this.b.k();
         }
     }
 
-    public com.baidu.tieba.b.g a(String str, String str2, boolean z) {
-        String m;
+    public com.baidu.tieba.b.h a(String str, String str2, boolean z) {
+        String n;
         try {
             ag.a(getClass().toString(), "login", "=== need auto login");
             StringBuffer stringBuffer = new StringBuffer(30);
@@ -194,44 +199,44 @@ public class t {
             if (this.b == null) {
                 this.b = new w();
             } else {
-                this.b.j();
+                this.b.k();
             }
             this.b.a(stringBuffer.toString());
             this.b.a(arrayList);
             this.b.a((Boolean) true);
-            this.b.b(this.a.q());
-            m = this.b.m();
+            this.b.b(this.a.r());
+            n = this.b.n();
         } catch (Exception e) {
             ag.b(getClass().toString(), "login", e.getMessage());
         }
-        if (this.b.e() && m != null) {
-            com.baidu.tieba.b.g gVar = new com.baidu.tieba.b.g();
-            gVar.a(m);
-            String a = gVar.a().a();
+        if (this.b.f() && n != null) {
+            com.baidu.tieba.b.h hVar = new com.baidu.tieba.b.h();
+            hVar.a(n);
+            String a = hVar.a().a();
             if (a == null || a.length() <= 0) {
-                this.b.b(this.b.q().getString(R.string.neterror));
+                this.b.b(this.b.r().getString(R.string.neterror));
                 return null;
             }
             com.baidu.tieba.a.a aVar = new com.baidu.tieba.a.a();
-            aVar.b(gVar.a().b());
-            if (gVar.a().e() != null) {
-                aVar.c(gVar.a().e());
+            aVar.b(hVar.a().b());
+            if (hVar.a().e() != null) {
+                aVar.c(hVar.a().e());
             } else {
                 aVar.c(str2);
             }
-            aVar.a(gVar.a().a());
-            aVar.d(gVar.a().j());
+            aVar.a(hVar.a().a());
+            aVar.d(hVar.a().j());
             aVar.a(1);
-            if (gVar.b() != null) {
-                aVar.e(gVar.b().b());
+            if (hVar.b() != null) {
+                aVar.e(hVar.b().b());
             }
             k.a(aVar);
             TiebaApplication.b(aVar);
             com.baidu.tieba.account.a.a().b();
-            return gVar;
+            return hVar;
         }
-        if (this.b.f()) {
-            switch (this.b.g()) {
+        if (this.b.g()) {
+            switch (this.b.h()) {
                 case 1:
                 case 2:
                 case 5:
@@ -242,7 +247,7 @@ public class t {
                         obtainMessage.setData(bundle);
                         TiebaApplication.b().c.sendMessage(obtainMessage);
                     }
-                    this.b.i();
+                    this.b.j();
                     break;
             }
             return null;
@@ -252,7 +257,7 @@ public class t {
 
     public byte[] h() {
         o();
-        return this.a.k();
+        return this.a.l();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -262,65 +267,65 @@ public class t {
     }
 
     private String a(int i) {
-        String o;
+        String p;
         switch (i) {
             case 1:
                 o();
                 p();
-                o = this.a.l();
+                p = this.a.m();
                 break;
             case 2:
                 m();
                 o();
                 p();
-                o = this.a.m();
+                p = this.a.n();
                 break;
             case 3:
                 m();
                 o();
-                o = this.a.o();
+                p = this.a.p();
                 break;
             default:
                 return null;
         }
-        if (!this.a.f()) {
+        if (!this.a.g()) {
             w.a(this.e);
             w.b(this.f);
-            return o;
-        } else if (this.a.e()) {
-            return o;
+            return p;
+        } else if (this.a.f()) {
+            return p;
         } else {
-            if (this.a.g() == 1 && this.d) {
-                this.a.i();
+            if (this.a.h() == 1 && this.d) {
+                this.a.j();
                 if (TiebaApplication.g()) {
-                    String backgroundReLogin = BaiduAccount.get(TiebaApplication.b()).backgroundReLogin(TiebaApplication.B(), TiebaApplication.y(), new u(this), new v(this));
+                    String backgroundReLogin = BaiduAccount.get(TiebaApplication.b()).backgroundReLogin(TiebaApplication.C(), TiebaApplication.z(), new u(this), new v(this));
                     if (backgroundReLogin != null) {
-                        k.b(TiebaApplication.B(), backgroundReLogin);
+                        k.b(TiebaApplication.C(), backgroundReLogin);
                         TiebaApplication.f(backgroundReLogin);
-                        o = b(i);
+                        p = b(i);
                     } else {
-                        o = null;
+                        p = null;
                     }
                 } else {
-                    com.baidu.tieba.a.a A = TiebaApplication.A();
-                    if (A == null) {
-                        A = k.l();
+                    com.baidu.tieba.a.a B = TiebaApplication.B();
+                    if (B == null) {
+                        B = k.m();
                     }
-                    if (A == null) {
+                    if (B == null) {
                         TiebaApplication.b().c.sendMessage(TiebaApplication.b().c.obtainMessage(1));
                         return null;
-                    } else if (a(A.b(), A.c(), true) == null) {
+                    } else if (a(B.b(), B.c(), true) == null) {
                         if (this.b != null) {
-                            this.a.b(this.b.h());
+                            this.a.b(this.b.i());
                             return null;
                         }
                         return null;
                     } else {
-                        o = b(i);
+                        p = b(i);
                     }
                 }
             }
-            return o;
+            return p;
         }
     }
 
@@ -328,11 +333,11 @@ public class t {
         n();
         switch (i) {
             case 1:
-                return this.a.l();
-            case 2:
                 return this.a.m();
+            case 2:
+                return this.a.n();
             case 3:
-                return this.a.o();
+                return this.a.p();
             default:
                 return null;
         }
@@ -371,7 +376,7 @@ public class t {
     }
 
     public boolean k() {
-        return this.a.p();
+        return this.a.q();
     }
 
     public Boolean a(String str, Handler handler) {

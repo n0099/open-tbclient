@@ -45,25 +45,25 @@ public class i extends AsyncTask {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.os.AsyncTask
     /* renamed from: a */
-    public com.baidu.tieba.a.as doInBackground(String... strArr) {
+    public com.baidu.tieba.a.au doInBackground(String... strArr) {
         com.baidu.tieba.b.a aVar;
         this.c = strArr[0];
         this.b = new com.baidu.tieba.c.t();
         if (this.c != null && this.c.length() > 0) {
             this.b.a("http://c.tieba.baidu.com/c/u/follow/sug");
-            this.b.a("uid", TiebaApplication.x());
+            this.b.a("uid", TiebaApplication.y());
             this.b.a("q", this.c);
             String i = this.b.i();
             if (this.b.b()) {
-                com.baidu.tieba.a.as asVar = new com.baidu.tieba.a.as();
+                com.baidu.tieba.a.au auVar = new com.baidu.tieba.a.au();
                 aVar = this.a.j;
                 com.baidu.tieba.a.r a = aVar.a();
                 if (a != null) {
-                    asVar.a(i, a.b());
-                    return asVar;
+                    auVar.a(i, a.b());
+                    return auVar;
                 }
-                asVar.a(i, (HashMap) null);
-                return asVar;
+                auVar.a(i, (HashMap) null);
+                return auVar;
             }
         }
         return null;
@@ -73,7 +73,7 @@ public class i extends AsyncTask {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.os.AsyncTask
     /* renamed from: a */
-    public void onPostExecute(com.baidu.tieba.a.as asVar) {
+    public void onPostExecute(com.baidu.tieba.a.au auVar) {
         ProgressBar progressBar;
         EditText editText;
         com.baidu.tieba.b.a aVar;
@@ -86,15 +86,15 @@ public class i extends AsyncTask {
             editText = this.a.c;
             if (editText.getText().toString().equals(this.c)) {
                 aVar = this.a.j;
-                aVar.a(asVar);
+                aVar.a(auVar);
                 kVar = this.a.k;
-                kVar.a(asVar.a());
+                kVar.a(auVar.a());
                 kVar2 = this.a.k;
                 kVar2.notifyDataSetInvalidated();
                 listView = this.a.f;
                 listView.setSelection(0);
             }
         }
-        super.onPostExecute(asVar);
+        super.onPostExecute(auVar);
     }
 }

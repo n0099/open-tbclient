@@ -74,7 +74,7 @@ public class PbImageView extends ImageView {
 
     private void a() {
         this.e.setColor(1275068416);
-        if (TiebaApplication.b().ag() == 1) {
+        if (TiebaApplication.b().ah() == 1) {
             this.b = com.baidu.tieba.c.e.a((int) R.drawable.image_default_1);
         } else {
             this.b = com.baidu.tieba.c.e.a((int) R.drawable.image_default);
@@ -89,11 +89,11 @@ public class PbImageView extends ImageView {
         boolean z2;
         super.onDraw(canvas);
         String str = (String) getTag();
-        com.baidu.tieba.c.ac al = TiebaApplication.b().al();
-        if (al != null) {
-            Bitmap c = al.c(str);
+        com.baidu.tieba.c.ac an = TiebaApplication.b().an();
+        if (an != null) {
+            Bitmap c = an.c(str);
             if (c != null) {
-                z = al.d(str);
+                z = an.d(str);
                 bitmap = c;
             } else {
                 bitmap = c;
@@ -106,7 +106,7 @@ public class PbImageView extends ImageView {
         if (bitmap != null) {
             bitmap2 = bitmap;
             z2 = true;
-        } else if (TiebaApplication.b().ag() == 1) {
+        } else if (TiebaApplication.b().ah() == 1) {
             z2 = false;
             bitmap2 = com.baidu.tieba.c.e.a((int) R.drawable.image_default_1);
         } else {
@@ -129,7 +129,7 @@ public class PbImageView extends ImageView {
                 if (z && bitmap2.getHeight() > this.a.getHeight() && bitmap2.getWidth() > this.a.getWidth()) {
                     canvas.drawBitmap(this.a, this.c, null);
                 }
-                if (TiebaApplication.b().ag() == 1) {
+                if (TiebaApplication.b().ah() == 1) {
                     this.f.set(0.0f, height, (bitmap2.getWidth() * width) + 0.0f, (bitmap2.getHeight() * width) + height);
                     canvas.drawRect(this.f, this.e);
                     return;

@@ -1,78 +1,111 @@
 package com.baidu.tieba;
 
-import android.content.Intent;
-import android.location.Address;
-import android.os.Handler;
-import android.os.Message;
-import com.baidu.tieba.account.LoginActivity;
-import com.baidu.tieba.account.ak;
-import com.baidu.tieba.c.ag;
+import android.os.AsyncTask;
+import java.util.ArrayList;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class v implements Handler.Callback {
-    final /* synthetic */ TiebaApplication a;
+public class v extends AsyncTask {
+    ArrayList a;
+    final /* synthetic */ LabelActivity b;
+    private String d;
+    private boolean f;
+    private com.baidu.tieba.c.t c = null;
+    private int e = 1;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public v(TiebaApplication tiebaApplication) {
-        this.a = tiebaApplication;
+    public v(LabelActivity labelActivity, String str, boolean z, ArrayList arrayList) {
+        this.b = labelActivity;
+        this.d = null;
+        this.a = null;
+        this.d = str;
+        this.a = arrayList;
+        this.f = z;
     }
 
-    @Override // android.os.Handler.Callback
-    public boolean handleMessage(Message message) {
-        long j;
-        switch (message.what) {
-            case 1:
-                ag.b("TiebaApplication", "handleMessage", "Do Aoto Login" + String.valueOf(message.what));
-                if (TiebaApplication.g()) {
-                    TiebaApplication.a((com.baidu.tieba.a.a) null);
-                    MainTabActivity.b(this.a, null, true);
-                    break;
-                } else {
-                    Intent intent = new Intent(TiebaApplication.b(), LoginActivity.class);
-                    String string = message.getData().getString("account");
-                    if (string == null) {
-                        string = "";
-                    }
-                    intent.putExtra("account", string);
-                    intent.putExtra("has_exit_dialog", false);
-                    intent.setFlags(268435456);
-                    TiebaApplication.b().startActivity(intent);
-                    break;
+    @Override // android.os.AsyncTask
+    protected void onPreExecute() {
+        this.b.b(true);
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // android.os.AsyncTask
+    /* renamed from: a */
+    public Boolean doInBackground(Object... objArr) {
+        com.baidu.tieba.b.f fVar;
+        com.baidu.tieba.b.f fVar2;
+        com.baidu.tieba.b.f fVar3;
+        com.baidu.tieba.b.f fVar4;
+        com.baidu.tieba.b.f fVar5;
+        com.baidu.tieba.b.f fVar6;
+        try {
+            this.c = new com.baidu.tieba.c.t(this.d);
+            this.c.a(this.a);
+            fVar = this.b.q;
+            if (fVar != null) {
+                fVar5 = this.b.q;
+                if (fVar5.h().size() != 0) {
+                    fVar6 = this.b.q;
+                    this.c.a("tag_info", fVar6.g());
                 }
-            case 2:
-                this.a.V();
-                break;
-            case 3:
-                this.a.W();
-                break;
-            case 4:
-                long nanoTime = System.nanoTime();
-                j = this.a.t;
-                long j2 = (((nanoTime - j) / 1000000) - 180000) / 1000;
-                if (j2 > 0) {
-                    new ak("use", String.valueOf(j2)).start();
+            }
+            com.baidu.tieba.c.ag.b("begin to get label data...url is " + this.d);
+            String i = this.c.i();
+            com.baidu.tieba.c.ag.b("end to get label data...");
+            if (this.c.b()) {
+                fVar2 = this.b.q;
+                if (fVar2 == null) {
+                    this.b.q = new com.baidu.tieba.b.f();
                 }
-                this.a.t = 0L;
-                break;
-            case 5:
-                this.a.aw();
-                String str = "";
-                switch (this.a.C) {
-                    case 1:
-                        str = this.a.getString(R.string.loc_gps_off);
-                        break;
-                    case 2:
-                        str = this.a.getString(R.string.loc_net_off);
-                        break;
-                    case 3:
-                        str = this.a.getString(R.string.loc_gps_net_off);
-                        break;
-                    case 4:
-                        str = this.a.getString(R.string.loc_out_of_time);
-                        break;
+                fVar3 = this.b.q;
+                fVar3.a(i);
+                if (this.f) {
+                    fVar4 = this.b.q;
+                    fVar4.b(com.baidu.tieba.c.k.b(12));
                 }
-                this.a.a(this.a.C, str, (Address) null);
-                break;
+                com.baidu.tieba.c.ag.a(getClass().getName(), "doInBackground", i);
+                System.gc();
+            }
+            if (this.c.c()) {
+                this.e = 0;
+            } else {
+                this.e = 1;
+            }
+            return true;
+        } catch (Exception e) {
+            com.baidu.tieba.c.ag.b(getClass().getName(), "", "LabelAsyncTask.doInBackground error = " + e.getMessage());
+            return false;
         }
-        return false;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // android.os.AsyncTask
+    /* renamed from: a */
+    public void onPostExecute(Boolean bool) {
+        this.b.b(false);
+        if (bool.booleanValue() && this.e != 1) {
+            this.b.n();
+            this.b.c(false);
+        } else {
+            b();
+        }
+        this.b.M = null;
+        System.gc();
+    }
+
+    @Override // android.os.AsyncTask
+    protected void onCancelled() {
+        super.onCancelled();
+    }
+
+    public void a() {
+        if (this.c != null) {
+            this.c.g();
+        }
+        super.cancel(true);
+    }
+
+    private void b() {
+        this.b.b(this.c.f());
     }
 }

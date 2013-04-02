@@ -1,9 +1,9 @@
 package com.baidu.tieba.person;
 
-import android.view.View;
+import android.content.DialogInterface;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class as implements View.OnClickListener {
+public class as implements DialogInterface.OnCancelListener {
     final /* synthetic */ PersonChangeActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -11,8 +11,15 @@ public class as implements View.OnClickListener {
         this.a = personChangeActivity;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        this.a.j();
+    @Override // android.content.DialogInterface.OnCancelListener
+    public void onCancel(DialogInterface dialogInterface) {
+        bb bbVar;
+        bb bbVar2;
+        this.a.c();
+        bbVar = this.a.C;
+        if (bbVar != null) {
+            bbVar2 = this.a.C;
+            bbVar2.a();
+        }
     }
 }

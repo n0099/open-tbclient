@@ -1,5 +1,6 @@
 package com.baidu.tieba.a;
 
+import com.baidu.android.pushservice.PushConstants;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class p {
@@ -11,8 +12,8 @@ public class p {
     private String f = null;
     private String g = null;
     private String h = null;
-    private af i = new af();
-    private af j = new af();
+    private ah i = new ah();
+    private ah j = new ah();
     private int k;
     private String l;
 
@@ -48,7 +49,7 @@ public class p {
         return this.h;
     }
 
-    public af i() {
+    public ah i() {
         return this.i;
     }
 
@@ -63,7 +64,7 @@ public class p {
                 this.c = jSONObject.optString("title");
                 this.b = jSONObject.optLong("time", 0L) * 1000;
                 this.d = jSONObject.optString("fname");
-                this.e = jSONObject.optString("content");
+                this.e = jSONObject.optString(PushConstants.EXTRA_CONTENT);
                 this.f = jSONObject.optString("quote_content");
                 this.g = jSONObject.optString("thread_id");
                 this.h = jSONObject.optString("post_id");

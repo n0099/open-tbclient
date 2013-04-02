@@ -108,6 +108,9 @@ public class i {
         if (sqrt > p) {
             p = sqrt;
         }
+        if (Runtime.getRuntime().maxMemory() <= 16777216) {
+            p = (int) (p * 0.8d);
+        }
     }
 
     public static void a(String str, String str2) {
@@ -126,7 +129,7 @@ public class i {
     }
 
     public static int k() {
-        switch (TiebaApplication.b().ae()) {
+        switch (TiebaApplication.b().af()) {
             case 1:
                 return 18;
             case 2:
@@ -137,7 +140,7 @@ public class i {
     }
 
     public static int l() {
-        switch (TiebaApplication.b().ae()) {
+        switch (TiebaApplication.b().af()) {
             case 1:
                 return 13;
             case 2:

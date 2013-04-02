@@ -1,42 +1,29 @@
 package com.baidu.tieba.person;
 
-import android.widget.ListView;
+import android.view.View;
+import android.widget.AdapterView;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class bm implements Runnable {
-    final /* synthetic */ PersonListActivity a;
+public class bm implements AdapterView.OnItemClickListener {
+    final /* synthetic */ PersonLbsActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bm(PersonListActivity personListActivity) {
-        this.a = personListActivity;
+    public bm(PersonLbsActivity personLbsActivity) {
+        this.a = personLbsActivity;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        ListView listView;
-        ListView listView2;
-        com.baidu.tieba.write.k kVar;
-        com.baidu.tieba.write.k kVar2;
-        com.baidu.tieba.write.k kVar3;
-        try {
-            listView = this.a.d;
-            int firstVisiblePosition = listView.getFirstVisiblePosition();
-            listView2 = this.a.d;
-            int lastVisiblePosition = listView2.getLastVisiblePosition();
-            for (int i = firstVisiblePosition; i <= lastVisiblePosition; i++) {
-                kVar = this.a.f;
-                if (i < kVar.getCount()) {
-                    kVar2 = this.a.f;
-                    com.baidu.tieba.a.af afVar = (com.baidu.tieba.a.af) kVar2.getItem(i);
-                    if (afVar != null && afVar.d() != null) {
-                        kVar3 = this.a.f;
-                        kVar3.c().b(afVar.d(), new bn(this));
-                    }
-                } else {
-                    return;
-                }
-            }
-        } catch (Exception e) {
-            com.baidu.tieba.c.ag.b(getClass().getName(), "mGetImageRunnble.run", e.getMessage());
+    @Override // android.widget.AdapterView.OnItemClickListener
+    public void onItemClick(AdapterView adapterView, View view, int i, long j) {
+        int i2;
+        int i3;
+        if (j == -1) {
+            PersonLbsActivity personLbsActivity = this.a;
+            i3 = this.a.r;
+            personLbsActivity.a(1, i3 - 1);
+        } else if (j == -2) {
+            PersonLbsActivity personLbsActivity2 = this.a;
+            i2 = this.a.s;
+            personLbsActivity2.a(2, i2 + 1);
         }
     }
 }

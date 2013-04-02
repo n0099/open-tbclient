@@ -60,6 +60,7 @@ public class af extends AsyncTask {
     /* renamed from: a */
     public void onPostExecute(String str) {
         com.baidu.tieba.a.v vVar;
+        String str2;
         ImagePbPagerAdapter imagePbPagerAdapter;
         ImagePbPagerAdapter imagePbPagerAdapter2;
         ImagePbActivity.MyOnPageChangeListener myOnPageChangeListener;
@@ -72,6 +73,9 @@ public class af extends AsyncTask {
                         this.a.H.a(this.e, true);
                     }
                     com.baidu.tieba.c.ag.a(getClass().getName(), "onPostExecute", new StringBuilder().append(this.a.H.h().size()).toString());
+                    com.baidu.tieba.a.v vVar2 = this.a.H;
+                    str2 = this.a.D;
+                    vVar2.c(str2);
                     imagePbPagerAdapter = this.a.A;
                     imagePbPagerAdapter.a(this.a.H);
                     imagePbPagerAdapter2 = this.a.A;

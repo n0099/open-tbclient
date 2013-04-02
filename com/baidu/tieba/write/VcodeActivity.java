@@ -15,7 +15,7 @@ import android.widget.TextView;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class VcodeActivity extends com.baidu.tieba.e {
-    private com.baidu.tieba.b.y c = null;
+    private com.baidu.tieba.b.z c = null;
     private Button d = null;
     private Button e = null;
     private ImageView f = null;
@@ -29,18 +29,18 @@ public class VcodeActivity extends com.baidu.tieba.e {
     private LinearLayout n = null;
     private TextView o = null;
 
-    public static void a(Activity activity, com.baidu.tieba.b.y yVar, int i) {
-        if (yVar != null) {
+    public static void a(Activity activity, com.baidu.tieba.b.z zVar, int i) {
+        if (zVar != null) {
             Intent intent = new Intent(activity, VcodeActivity.class);
-            intent.putExtra("model", yVar);
+            intent.putExtra("model", zVar);
             activity.startActivityForResult(intent, i);
         }
     }
 
-    public static void a(Activity activity, com.baidu.tieba.b.y yVar, boolean z, int i) {
-        if (yVar != null) {
+    public static void a(Activity activity, com.baidu.tieba.b.z zVar, boolean z, int i) {
+        if (zVar != null) {
             Intent intent = new Intent(activity, VcodeActivity.class);
-            intent.putExtra("model", yVar);
+            intent.putExtra("model", zVar);
             intent.putExtra("is_ad", z);
             activity.startActivityForResult(intent, i);
         }
@@ -59,9 +59,9 @@ public class VcodeActivity extends com.baidu.tieba.e {
     private void a(Bundle bundle) {
         this.l = new n(this);
         if (bundle != null) {
-            this.c = (com.baidu.tieba.b.y) bundle.getSerializable("model");
+            this.c = (com.baidu.tieba.b.z) bundle.getSerializable("model");
         } else {
-            this.c = (com.baidu.tieba.b.y) getIntent().getSerializableExtra("model");
+            this.c = (com.baidu.tieba.b.z) getIntent().getSerializableExtra("model");
         }
         this.k = (InputMethodManager) getSystemService("input_method");
     }

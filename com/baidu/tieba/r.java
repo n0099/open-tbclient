@@ -1,18 +1,18 @@
 package com.baidu.tieba;
 
-import android.content.DialogInterface;
+import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class r implements DialogInterface.OnCancelListener {
-    final /* synthetic */ MainTabActivity a;
+public class r implements View.OnClickListener {
+    final /* synthetic */ LabelActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public r(MainTabActivity mainTabActivity) {
-        this.a = mainTabActivity;
+    public r(LabelActivity labelActivity) {
+        this.a = labelActivity;
     }
 
-    @Override // android.content.DialogInterface.OnCancelListener
-    public void onCancel(DialogInterface dialogInterface) {
-        this.a.c();
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        this.a.a(false);
     }
 }

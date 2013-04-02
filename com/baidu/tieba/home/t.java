@@ -27,11 +27,11 @@ public class t implements AdapterView.OnItemClickListener {
         fVar = this.a.l;
         if (fVar.getItem(i) != null) {
             fVar2 = this.a.l;
-            if (fVar2.getItem(i) instanceof com.baidu.tieba.a.y) {
+            if (fVar2.getItem(i) instanceof com.baidu.tieba.a.aa) {
                 fVar7 = this.a.l;
-                com.baidu.tieba.a.y yVar = (com.baidu.tieba.a.y) fVar7.getItem(i);
-                if (yVar != null) {
-                    String b = yVar.b();
+                com.baidu.tieba.a.aa aaVar = (com.baidu.tieba.a.aa) fVar7.getItem(i);
+                if (aaVar != null) {
+                    String b = aaVar.b();
                     if (com.baidu.tieba.c.af.d(b)) {
                         FrsActivity.a(this.a, b, "dimension_door");
                         return;
@@ -46,7 +46,7 @@ public class t implements AdapterView.OnItemClickListener {
                 fVar5.b();
                 fVar6 = this.a.l;
                 fVar6.notifyDataSetChanged();
-                TiebaApplication.b().o();
+                TiebaApplication.b().p();
                 return;
             }
             fVar4 = this.a.l;

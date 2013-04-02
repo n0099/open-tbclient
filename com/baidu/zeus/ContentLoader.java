@@ -1,6 +1,7 @@
 package com.baidu.zeus;
 
 import android.net.Uri;
+import com.baidu.android.common.util.HanziToPinyin;
 import java.io.FileNotFoundException;
 /* loaded from: classes.dex */
 class ContentLoader extends StreamLoader {
@@ -21,7 +22,7 @@ class ContentLoader extends StreamLoader {
 
     private String errString(Exception exc) {
         String message = exc.getMessage();
-        return message != null ? "The requested file was not found. " + message : "The requested file was not found.";
+        return message != null ? "The requested file was not found." + HanziToPinyin.Token.SEPARATOR + message : "The requested file was not found.";
     }
 
     @Override // com.baidu.zeus.StreamLoader

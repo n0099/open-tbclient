@@ -83,7 +83,7 @@ public class h extends AsyncTask {
                         }
                     }
                 }
-                if (!TiebaApplication.b().K()) {
+                if (!TiebaApplication.b().L()) {
                     TiebaApplication.b().g(true);
                     com.baidu.tieba.c.k.a();
                 }

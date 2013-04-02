@@ -19,7 +19,7 @@ public class AboutActivity extends com.baidu.tieba.e {
     private Button e = null;
     private Button f = null;
     private c g = null;
-    private com.baidu.tieba.b.x h = null;
+    private com.baidu.tieba.b.y h = null;
     private LinearLayout i = null;
     private ProgressBar j = null;
     private LinearLayout k = null;
@@ -101,7 +101,7 @@ public class AboutActivity extends com.baidu.tieba.e {
     }
 
     public void j() {
-        if (TiebaApplication.aC()) {
+        if (TiebaApplication.aH()) {
             this.p.setVisibility(0);
         } else {
             this.p.setVisibility(8);

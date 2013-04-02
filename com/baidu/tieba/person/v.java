@@ -57,8 +57,8 @@ public class v extends AsyncTask {
                 }
                 com.baidu.tieba.c.ag.e("PostThreadTask", "doInBackground", "image size is more than 100K");
                 String a = com.baidu.tieba.c.af.a(com.baidu.tieba.c.o.a(c));
-                com.baidu.tieba.a.f o = com.baidu.tieba.c.k.o(a);
-                if (o == null) {
+                com.baidu.tieba.a.f n = com.baidu.tieba.c.k.n(a);
+                if (n == null) {
                     com.baidu.tieba.c.ag.e("PostThreadTask", "doInBackground", "upload data is null");
                     com.baidu.tieba.a.f fVar2 = new com.baidu.tieba.a.f();
                     fVar2.a(a);
@@ -66,7 +66,7 @@ public class v extends AsyncTask {
                     fVar2.a(c.length());
                     fVar = fVar2;
                 } else {
-                    fVar = o;
+                    fVar = n;
                 }
                 this.d = new com.baidu.tieba.c.f("tieba_head_image", fVar, "http://c.tieba.baidu.com/c/c/img/chunkupload");
                 this.c = this.d.b();
@@ -85,7 +85,7 @@ public class v extends AsyncTask {
                         com.baidu.tieba.c.k.a(fVar);
                         return null;
                     }
-                    com.baidu.tieba.c.k.n(a);
+                    com.baidu.tieba.c.k.m(a);
                     return i;
                 }
                 return null;

@@ -5,16 +5,16 @@ import android.view.View;
 /* loaded from: classes.dex */
 public class cv implements View.OnClickListener {
     final /* synthetic */ SubPbActivity a;
-    private final /* synthetic */ com.baidu.tieba.a.al b;
+    private final /* synthetic */ com.baidu.tieba.a.an b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public cv(SubPbActivity subPbActivity, com.baidu.tieba.a.al alVar) {
+    public cv(SubPbActivity subPbActivity, com.baidu.tieba.a.an anVar) {
         this.a = subPbActivity;
-        this.b = alVar;
+        this.b = anVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        this.a.c(this.b.e().b());
+        this.a.a(0, this.b.a());
     }
 }

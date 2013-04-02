@@ -1,27 +1,32 @@
 package com.baidu.tieba.person;
 
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.ProgressBar;
-import android.widget.TextView;
+import android.os.Handler;
+import android.widget.AbsListView;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class bl {
-    int a;
-    TextView b;
-    ProgressBar c;
-    LinearLayout d;
-    LinearLayout e;
-    ImageView f;
-    TextView g;
-    TextView h;
-    final /* synthetic */ bj i;
-
-    private bl(bj bjVar) {
-        this.i = bjVar;
-    }
+public class bl implements AbsListView.OnScrollListener {
+    final /* synthetic */ PersonLbsActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ bl(bj bjVar, bl blVar) {
-        this(bjVar);
+    public bl(PersonLbsActivity personLbsActivity) {
+        this.a = personLbsActivity;
+    }
+
+    @Override // android.widget.AbsListView.OnScrollListener
+    public void onScrollStateChanged(AbsListView absListView, int i) {
+        Handler handler;
+        Runnable runnable;
+        Handler handler2;
+        Runnable runnable2;
+        handler = this.a.u;
+        runnable = this.a.v;
+        handler.removeCallbacks(runnable);
+        handler2 = this.a.u;
+        runnable2 = this.a.v;
+        handler2.postDelayed(runnable2, 300L);
+    }
+
+    @Override // android.widget.AbsListView.OnScrollListener
+    public void onScroll(AbsListView absListView, int i, int i2, int i3) {
     }
 }

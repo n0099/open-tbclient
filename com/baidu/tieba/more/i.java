@@ -31,8 +31,8 @@ public class i extends AsyncTask {
         ArrayList arrayList2;
         try {
             Thread.sleep(1000L);
-            com.baidu.tieba.c.k.p(this.b.a());
-            if (this.b.a().equals(TiebaApplication.x())) {
+            com.baidu.tieba.c.k.o(this.b.a());
+            if (this.b.a().equals(TiebaApplication.y())) {
                 TiebaApplication.b((com.baidu.tieba.a.a) null);
                 arrayList = this.a.c;
                 if (arrayList.size() >= 2) {

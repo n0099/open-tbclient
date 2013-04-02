@@ -1,11 +1,11 @@
 package com.baidu.tieba.person;
 
 import android.view.View;
-import android.widget.Button;
-import com.baidu.tieba.R;
+import android.widget.AdapterView;
+import com.baidu.tieba.pb.PbActivity;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class y implements View.OnClickListener {
+public class y implements AdapterView.OnItemClickListener {
     final /* synthetic */ EditMarkActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -13,30 +13,21 @@ public class y implements View.OnClickListener {
         this.a = editMarkActivity;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        com.baidu.tieba.home.af afVar;
-        com.baidu.tieba.home.af afVar2;
-        Button button;
-        com.baidu.tieba.home.af afVar3;
-        com.baidu.tieba.home.af afVar4;
-        Button button2;
-        com.baidu.tieba.home.af afVar5;
-        afVar = this.a.c;
-        if (!afVar.c()) {
-            afVar4 = this.a.c;
-            afVar4.b(true);
-            button2 = this.a.g;
-            button2.setText(R.string.done);
-            afVar5 = this.a.c;
-            afVar5.notifyDataSetChanged();
+    @Override // android.widget.AdapterView.OnItemClickListener
+    public void onItemClick(AdapterView adapterView, View view, int i, long j) {
+        com.baidu.tieba.home.ab abVar;
+        com.baidu.tieba.home.ab abVar2;
+        abVar = this.a.c;
+        if (abVar.getItemId(i) >= 0) {
+            this.a.p = i;
+            abVar2 = this.a.c;
+            com.baidu.tieba.a.ae aeVar = (com.baidu.tieba.a.ae) abVar2.getItem(i);
+            if (aeVar != null) {
+                PbActivity.a(this.a, 1700001, aeVar);
+                return;
+            }
             return;
         }
-        afVar2 = this.a.c;
-        afVar2.b(false);
-        button = this.a.g;
-        button.setText(R.string.edit);
-        afVar3 = this.a.c;
-        afVar3.notifyDataSetChanged();
+        this.a.n();
     }
 }

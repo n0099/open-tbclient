@@ -150,23 +150,44 @@ public class ai {
         CompatibleUtile.getInstance().openGpu(activity);
     }
 
+    public static String a(String str) {
+        StringBuffer stringBuffer = new StringBuffer();
+        stringBuffer.append(str);
+        if (str.indexOf("?") > 0) {
+            stringBuffer.append("&");
+        } else {
+            stringBuffer.append("?");
+        }
+        stringBuffer.append("cuid=");
+        stringBuffer.append(TiebaApplication.b().h());
+        stringBuffer.append("&timestamp=");
+        stringBuffer.append(Long.toString(System.currentTimeMillis()));
+        return stringBuffer.toString();
+    }
+
+    public static String b(String str) {
+        return String.valueOf(str) + "&_client_version=" + com.baidu.tieba.a.i.h();
+    }
+
     public static void c(Context context, String str) {
         try {
-            Token b = com.baidu.tieba.account.a.b(TiebaApplication.y());
-            if (TiebaApplication.b().i() == 1) {
+            Token b = com.baidu.tieba.account.a.b(TiebaApplication.z());
+            int i = Build.VERSION.SDK_INT;
+            String b2 = b(a(str));
+            if (TiebaApplication.b().j() == 1) {
                 if (b != null) {
-                    WebActivity.a(context, str, b.mBduss, b.mPtoken);
+                    WebActivity.a(context, b2, b.mBduss, b.mPtoken);
                 } else {
-                    WebActivity.a(context, str, null, null);
+                    WebActivity.a(context, b2, null, null);
                 }
-            } else if (TiebaApplication.b().i() == 2) {
+            } else if (i >= 7 && TiebaApplication.b().j() == 2) {
                 if (b != null) {
-                    WebBdActivity.a(context, str, b.mBduss, b.mPtoken);
+                    WebBdActivity.a(context, b2, b.mBduss, b.mPtoken);
                 } else {
-                    WebBdActivity.a(context, str, null, null);
+                    WebBdActivity.a(context, b2, null, null);
                 }
             } else {
-                d(context, str);
+                e(context, b2);
             }
         } catch (Exception e) {
             ag.b("UtilHelper", "startWebActivity", e.getMessage());
@@ -174,9 +195,31 @@ public class ai {
     }
 
     public static void d(Context context, String str) {
+        String b = b(a(str));
+        try {
+            int i = Build.VERSION.SDK_INT;
+            Token b2 = com.baidu.tieba.account.a.b(TiebaApplication.z());
+            if (i > 7 && TiebaApplication.b().j() == 2) {
+                if (b2 != null) {
+                    WebBdActivity.a(context, b, b2.mBduss, b2.mPtoken);
+                } else {
+                    WebBdActivity.a(context, b, null, null);
+                }
+            } else if (b2 != null) {
+                WebActivity.a(context, b, b2.mBduss, b2.mPtoken);
+            } else {
+                WebActivity.a(context, b, null, null);
+            }
+        } catch (Exception e) {
+            ag.b("UtilHelper", "startInternalWebActivity", e.getMessage());
+        }
+    }
+
+    public static void e(Context context, String str) {
+        String b = b(a(str));
         try {
             Intent intent = new Intent("android.intent.action.VIEW");
-            intent.setData(Uri.parse(str));
+            intent.setData(Uri.parse(b));
             if (!(context instanceof Activity)) {
                 intent.addFlags(268435456);
             }
@@ -254,21 +297,5 @@ public class ai {
             return String.valueOf(str) + str2;
         }
         return str;
-    }
-
-    public static void a(Context context, String str, String str2, String str3) {
-        try {
-            Intent intent = new Intent("android.intent.action.SEND", (Uri) null);
-            intent.addCategory("android.intent.category.DEFAULT");
-            if (str2.length() > 140) {
-                str2 = str2.substring(0, 140);
-            }
-            intent.putExtra("android.intent.extra.TEXT", str2);
-            intent.setFlags(268435456);
-            intent.setType("text/plain");
-            context.startActivity(Intent.createChooser(intent, TiebaApplication.b().getResources().getString(R.string.share_to)));
-        } catch (Exception e) {
-            ag.b("UtilHelper", "share", e.toString());
-        }
     }
 }

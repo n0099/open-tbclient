@@ -1,9 +1,10 @@
 package com.baidu.tieba.pb;
 
-import android.widget.ListView;
+import android.view.View;
+import android.widget.AdapterView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class co implements Runnable {
+public class co implements AdapterView.OnItemClickListener {
     final /* synthetic */ SubPbActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -11,12 +12,22 @@ public class co implements Runnable {
         this.a = subPbActivity;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        ListView listView;
-        int i;
-        listView = this.a.u;
-        i = this.a.B;
-        listView.setSelection(i + 1);
+    @Override // android.widget.AdapterView.OnItemClickListener
+    public void onItemClick(AdapterView adapterView, View view, int i, long j) {
+        Cdo cdo;
+        Cdo cdo2;
+        if (j == -1) {
+            cdo2 = this.a.h;
+            if (cdo2.b()) {
+                return;
+            }
+            this.a.c(2);
+        } else if (j == -2) {
+            cdo = this.a.h;
+            if (cdo.a()) {
+                return;
+            }
+            this.a.c(1);
+        }
     }
 }

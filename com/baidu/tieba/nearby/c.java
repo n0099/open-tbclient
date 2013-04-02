@@ -23,7 +23,7 @@ public class c extends AsyncTask {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.os.AsyncTask
     /* renamed from: a */
-    public com.baidu.tieba.b.m doInBackground(String... strArr) {
+    public com.baidu.tieba.b.n doInBackground(String... strArr) {
         try {
             this.a = new com.baidu.tieba.c.t(strArr[0]);
             this.a.a("lng", String.valueOf(this.b.getLongitude()));
@@ -35,9 +35,9 @@ public class c extends AsyncTask {
             }
             String i = this.a.i();
             if (this.a.b()) {
-                com.baidu.tieba.b.m mVar = new com.baidu.tieba.b.m();
-                mVar.b(i);
-                return mVar;
+                com.baidu.tieba.b.n nVar = new com.baidu.tieba.b.n();
+                nVar.b(i);
+                return nVar;
             }
             return null;
         } catch (Exception e) {
@@ -50,9 +50,9 @@ public class c extends AsyncTask {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.os.AsyncTask
     /* renamed from: a */
-    public void onPostExecute(com.baidu.tieba.b.m mVar) {
+    public void onPostExecute(com.baidu.tieba.b.n nVar) {
         ProgressBar progressBar;
-        com.baidu.tieba.b.m mVar2;
+        com.baidu.tieba.b.n nVar2;
         d dVar;
         ListView listView;
         this.d.i = null;
@@ -60,9 +60,9 @@ public class c extends AsyncTask {
         progressBar = this.d.k;
         progressBar.setVisibility(8);
         if (this.a != null) {
-            if (mVar != null) {
-                mVar2 = this.d.d;
-                mVar2.a(mVar.a());
+            if (nVar != null) {
+                nVar2 = this.d.d;
+                nVar2.a(nVar.a());
                 dVar = this.d.f;
                 dVar.notifyDataSetChanged();
                 listView = this.d.e;

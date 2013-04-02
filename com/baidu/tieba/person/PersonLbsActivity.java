@@ -28,20 +28,20 @@ public class PersonLbsActivity extends com.baidu.tieba.e {
     private boolean k = false;
     private String l = null;
     private View.OnClickListener m = null;
-    private bj n = null;
-    private bi o = null;
-    private com.baidu.tieba.b.t p = null;
+    private bo n = null;
+    private bn o = null;
+    private com.baidu.tieba.b.u p = null;
     private AbsListView.OnScrollListener q = null;
     private int r = 1;
     private int s = 1;
     private AdapterView.OnItemClickListener t = null;
     private Handler u = new Handler();
-    private Runnable v = new bd(this);
+    private Runnable v = new bi(this);
 
     public static void a(Context context, String str) {
         Intent intent = new Intent(context, PersonLbsActivity.class);
         intent.putExtra("un", str);
-        if (TiebaApplication.x() != null && TiebaApplication.x().equals(str)) {
+        if (TiebaApplication.y() != null && TiebaApplication.y().equals(str)) {
             intent.putExtra("self", true);
         } else {
             intent.putExtra("self", false);
@@ -59,9 +59,9 @@ public class PersonLbsActivity extends com.baidu.tieba.e {
     }
 
     private void i() {
-        this.m = new bf(this);
-        this.q = new bg(this);
-        this.t = new bh(this);
+        this.m = new bk(this);
+        this.q = new bl(this);
+        this.t = new bm(this);
         this.j = (LinearLayout) findViewById(R.id.parent);
         this.c = (ListView) findViewById(R.id.list);
         this.d = (LinearLayout) findViewById(R.id.title);
@@ -72,7 +72,7 @@ public class PersonLbsActivity extends com.baidu.tieba.e {
         this.i = (ProgressBar) findViewById(R.id.progress);
         this.g.setOnClickListener(this.m);
         this.h.setOnClickListener(this.m);
-        this.n = new bj(this);
+        this.n = new bo(this);
         this.c.setAdapter((ListAdapter) this.n);
         this.c.setOnScrollListener(this.q);
         this.c.setOnItemClickListener(this.t);
@@ -121,7 +121,7 @@ public class PersonLbsActivity extends com.baidu.tieba.e {
                 return;
             }
         }
-        this.o = new bi(this, i2, i);
+        this.o = new bn(this, i2, i);
         this.o.execute(new String[0]);
     }
 

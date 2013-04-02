@@ -20,7 +20,7 @@ public class w implements View.OnClickListener {
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        com.baidu.tieba.b.q qVar;
+        com.baidu.tieba.b.r rVar;
         try {
             ArrayList arrayList = new ArrayList();
             int i = 0;
@@ -39,8 +39,8 @@ public class w implements View.OnClickListener {
                 } else {
                     PostActivity postActivity = this.a;
                     int i3 = this.c;
-                    qVar = this.a.n;
-                    ImageActivity.a(postActivity, arrayList, i3, qVar);
+                    rVar = this.a.n;
+                    ImageActivity.a(postActivity, arrayList, i3, rVar);
                     return;
                 }
             }

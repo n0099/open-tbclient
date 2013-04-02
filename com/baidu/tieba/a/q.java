@@ -19,7 +19,7 @@ public class q {
     private int j = 0;
     private int k = 0;
     private int q = 0;
-    private aq n = new aq();
+    private as n = new as();
     private ArrayList o = new ArrayList();
     private ArrayList p = new ArrayList();
 
@@ -43,7 +43,7 @@ public class q {
         return this.k;
     }
 
-    public aq f() {
+    public as f() {
         return this.n;
     }
 

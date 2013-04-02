@@ -14,14 +14,14 @@ import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class b extends BaseAdapter {
     private Context a;
-    private com.baidu.tieba.b.q b;
+    private com.baidu.tieba.b.r b;
     private boolean c;
     private boolean d;
     private ArrayList e = new ArrayList();
 
-    public b(Context context, com.baidu.tieba.b.q qVar, boolean z) {
+    public b(Context context, com.baidu.tieba.b.r rVar, boolean z) {
         this.a = context;
-        this.b = qVar;
+        this.b = rVar;
         this.d = z;
     }
 
@@ -50,9 +50,9 @@ public class b extends BaseAdapter {
         if (this.b == null || this.b.a() == null) {
             return 0;
         }
-        int i = 1;
-        if (this.b.a().j() != 0) {
-            i = 2;
+        int i = 2;
+        if (this.b.a().l() != 0) {
+            i = 3;
         }
         if (this.d) {
             return i + 1;
@@ -67,9 +67,7 @@ public class b extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public long getItemId(int i) {
-        if (getCount() == 1) {
-            i = 1;
-        } else if (getCount() != 3 && !this.d) {
+        if (getCount() != 4 && !this.d && i != 0) {
             i++;
         }
         return i;
@@ -99,12 +97,12 @@ public class b extends BaseAdapter {
                 if (this.b != null) {
                     cVar.a.setTextColor(-1);
                     long itemId = getItemId(i);
-                    if (itemId == 0) {
+                    if (itemId == 1) {
                         cVar.b.setVisibility(8);
                         cVar.c.setVisibility(8);
                         cVar.d.setVisibility(8);
                         cVar.a.setText(this.a.getString(R.string.skip_page));
-                    } else if (itemId == 1) {
+                    } else if (itemId == 2) {
                         cVar.b.setVisibility(8);
                         cVar.c.setVisibility(8);
                         cVar.a.setText(this.a.getString(R.string.view_reverse));
@@ -113,7 +111,7 @@ public class b extends BaseAdapter {
                         } else {
                             cVar.d.setVisibility(0);
                         }
-                    } else if (itemId == 2) {
+                    } else if (itemId == 3) {
                         cVar.b.setVisibility(8);
                         cVar.c.setVisibility(8);
                         cVar.a.setText(this.a.getString(R.string.manage_mode));
@@ -122,8 +120,13 @@ public class b extends BaseAdapter {
                         } else {
                             cVar.d.setVisibility(8);
                         }
+                    } else if (itemId == 0) {
+                        cVar.b.setVisibility(8);
+                        cVar.c.setVisibility(8);
+                        cVar.a.setText(this.a.getString(R.string.share));
+                        cVar.d.setVisibility(8);
                     }
-                    if (TiebaApplication.b().ag() == 1) {
+                    if (TiebaApplication.b().ah() == 1) {
                         cVar.a.setTextColor(com.baidu.tieba.c.ae.a(1));
                         cVar.b.setTextColor(com.baidu.tieba.c.ae.b(1));
                     } else {

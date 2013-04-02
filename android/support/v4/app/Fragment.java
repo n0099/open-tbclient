@@ -18,6 +18,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
+import com.baidu.android.common.util.HanziToPinyin;
 import com.baidu.zeus.bouncycastle.DERTags;
 import java.io.FileDescriptor;
 import java.io.PrintWriter;
@@ -154,7 +155,7 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
             sb.append(Integer.toHexString(this.C));
         }
         if (this.E != null) {
-            sb.append(" ");
+            sb.append(HanziToPinyin.Token.SEPARATOR);
             sb.append(this.E);
         }
         sb.append('}');

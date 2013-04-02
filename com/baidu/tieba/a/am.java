@@ -1,50 +1,48 @@
 package com.baidu.tieba.a;
 
+import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class am {
-    private long a = 0;
-    private String b = null;
-    private String c = null;
+    private ArrayList a = new ArrayList();
+    private aj b = new aj();
+
+    public void a(aj ajVar) {
+        this.b = ajVar;
+    }
+
+    public aj a() {
+        return this.b;
+    }
+
+    public ArrayList b() {
+        return this.a;
+    }
 
     public void a(String str) {
         try {
             a(new JSONObject(str));
         } catch (Exception e) {
-            com.baidu.tieba.c.ag.b("MssageData", "parserJson", "error = " + e.getMessage());
+            com.baidu.tieba.c.ag.b(getClass().getName(), "parserJson", e.getMessage());
         }
     }
 
     public void a(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                JSONArray jSONArray = jSONObject.getJSONArray("data");
-                for (int i = 0; i < jSONArray.length(); i++) {
-                    if (jSONArray.getJSONObject(i) != null) {
-                        JSONObject jSONObject2 = jSONArray.getJSONObject(i);
-                        if (this.a < jSONObject2.getLong("message_id")) {
-                            this.a = jSONObject2.getLong("message_id");
-                            this.b = jSONObject2.getString("link");
-                            this.c = jSONObject2.getString("content");
-                        }
+                JSONArray optJSONArray = jSONObject.optJSONArray("user_list");
+                if (optJSONArray != null) {
+                    for (int i = 0; i < optJSONArray.length(); i++) {
+                        ah ahVar = new ah();
+                        ahVar.a(optJSONArray.getJSONObject(i));
+                        this.a.add(ahVar);
                     }
                 }
+                this.b.a(jSONObject.optJSONObject("page"));
             } catch (Exception e) {
-                com.baidu.tieba.c.ag.b("MssageData", "parserJson", "error = " + e.getMessage());
+                com.baidu.tieba.c.ag.b(getClass().getName(), "parserJson", e.getMessage());
             }
         }
-    }
-
-    public long a() {
-        return this.a;
-    }
-
-    public String b() {
-        return this.b;
-    }
-
-    public String c() {
-        return this.c;
     }
 }

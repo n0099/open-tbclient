@@ -12,6 +12,6 @@ public class c extends Thread {
     @Override // java.lang.Thread, java.lang.Runnable
     public void run() {
         super.run();
-        com.baidu.tieba.c.k.p(this.a);
+        com.baidu.tieba.c.k.o(this.a);
     }
 }

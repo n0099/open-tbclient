@@ -1,31 +1,18 @@
 package com.baidu.tieba;
 
-import android.content.BroadcastReceiver;
-import android.content.Context;
-import android.content.Intent;
+import android.view.View;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class u extends BroadcastReceiver {
-    final /* synthetic */ MainTabActivity a;
-
-    private u(MainTabActivity mainTabActivity) {
-        this.a = mainTabActivity;
-    }
+public class u implements View.OnClickListener {
+    final /* synthetic */ LabelActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ u(MainTabActivity mainTabActivity, u uVar) {
-        this(mainTabActivity);
+    public u(LabelActivity labelActivity) {
+        this.a = labelActivity;
     }
 
-    @Override // android.content.BroadcastReceiver
-    public void onReceive(Context context, Intent intent) {
-        String action = intent.getAction();
-        if (action.equals("com.baidu.tieba.broadcast.notify")) {
-            MainTabActivity.a(this.a, intent.getLongExtra("relay", 0L));
-            MainTabActivity.b(this.a, intent.getLongExtra("at_me", 0L));
-            MainTabActivity.c(this.a, intent.getLongExtra("fans", 0L));
-            MainTabActivity.a(this.a);
-        } else if (action.equals("com.baidu.tieba.broadcast.newversion")) {
-            MainTabActivity.b(this.a);
-        }
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        this.a.i();
     }
 }

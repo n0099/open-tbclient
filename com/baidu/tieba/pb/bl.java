@@ -16,7 +16,7 @@ public class bl implements View.OnClickListener {
     public void onClick(View view) {
         Dialog dialog;
         this.a.f(1);
-        dialog = this.a.U;
+        dialog = this.a.T;
         dialog.dismiss();
     }
 }

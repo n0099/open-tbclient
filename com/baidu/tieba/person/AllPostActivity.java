@@ -14,8 +14,8 @@ public class AllPostActivity extends com.baidu.tieba.e {
     TextView d = null;
     ListView e = null;
     ImageView f = null;
-    ad g = null;
-    com.baidu.tieba.b.k h = null;
+    ai g = null;
+    com.baidu.tieba.b.l h = null;
     b i = null;
     private ProgressBar j = null;
     private boolean k = false;
@@ -38,14 +38,14 @@ public class AllPostActivity extends com.baidu.tieba.e {
         this.f = (ImageView) findViewById(R.id.time_line);
         this.f.setVisibility(8);
         this.e = (ListView) findViewById(R.id.all_post_list);
-        this.g = new ad(this, this.h);
+        this.g = new ai(this, this.h);
         this.e.setAdapter((ListAdapter) this.g);
         this.e.setOnItemClickListener(new a(this));
         this.j = (ProgressBar) findViewById(R.id.loading_progress);
     }
 
     void j() {
-        this.h = new com.baidu.tieba.b.k();
+        this.h = new com.baidu.tieba.b.l();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */

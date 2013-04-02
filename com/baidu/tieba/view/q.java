@@ -54,8 +54,8 @@ public class q extends ImageView {
         int i = 0;
         super.onDraw(canvas);
         String str = String.valueOf((String) getTag()) + "_small";
-        com.baidu.tieba.c.ac al = TiebaApplication.b().al();
-        Bitmap c = al != null ? al.c(str) : null;
+        com.baidu.tieba.c.ac an = TiebaApplication.b().an();
+        Bitmap c = an != null ? an.c(str) : null;
         if (c == null) {
             boolean z2 = this.d;
             this.d = false;
@@ -64,7 +64,7 @@ public class q extends ImageView {
                 this.d = true;
                 bitmap = a;
                 z = z2;
-            } else if (TiebaApplication.b().ag() == 1) {
+            } else if (TiebaApplication.b().ah() == 1) {
                 bitmap = com.baidu.tieba.c.e.a((int) R.drawable.image_default_1);
                 z = z2;
             } else {
@@ -105,7 +105,7 @@ public class q extends ImageView {
                 this.a.postTranslate(i, i3);
                 canvas.drawBitmap(bitmap, this.a, null);
                 this.a.reset();
-                if (this.d && TiebaApplication.b().ag() == 1) {
+                if (this.d && TiebaApplication.b().ah() == 1) {
                     this.f.set(i, i3, i + bitmap.getWidth(), i3 + bitmap.getHeight());
                     canvas.drawRect(this.f, this.b);
                 }

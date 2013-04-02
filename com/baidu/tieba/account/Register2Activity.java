@@ -67,7 +67,7 @@ public class Register2Activity extends com.baidu.tieba.e {
     TextView f = null;
     private bb Q = null;
     private bc R = null;
-    private com.baidu.tieba.b.g S = null;
+    private com.baidu.tieba.b.h S = null;
     private View.OnClickListener T = new aw(this);
     private TextWatcher U = new ax(this);
     private View.OnFocusChangeListener V = new ay(this);
@@ -326,19 +326,19 @@ public class Register2Activity extends com.baidu.tieba.e {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public com.baidu.tieba.a.an u() {
-        com.baidu.tieba.a.an anVar = new com.baidu.tieba.a.an();
-        anVar.a(this.x.getText().toString());
-        anVar.b(this.y.getText().toString());
-        anVar.c(this.z.getText().toString());
+    public com.baidu.tieba.a.ap u() {
+        com.baidu.tieba.a.ap apVar = new com.baidu.tieba.a.ap();
+        apVar.a(this.x.getText().toString());
+        apVar.b(this.y.getText().toString());
+        apVar.c(this.z.getText().toString());
         if (this.M) {
-            anVar.d(this.A.getText().toString());
+            apVar.d(this.A.getText().toString());
         }
         if (this.S != null) {
-            anVar.e(this.S.b().c());
-            anVar.a(this.S.d());
+            apVar.e(this.S.b().c());
+            apVar.a(this.S.d());
         }
-        return anVar;
+        return apVar;
     }
 
     private void v() {

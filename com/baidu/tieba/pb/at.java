@@ -16,11 +16,11 @@ public class at implements View.OnClickListener {
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (TiebaApplication.b().k()) {
+        if (TiebaApplication.b().l()) {
             StatService.onEvent(this.a, "pb_home_icon", "pbclick", 1);
         }
-        String x = TiebaApplication.x();
-        if ((x != null && x.length() > 0) || TiebaApplication.b().ah() >= 3) {
+        String y = TiebaApplication.y();
+        if ((y != null && y.length() > 0) || TiebaApplication.b().ai() >= 3) {
             MainTabActivity.a(this.a, "goto_home");
         } else {
             MainTabActivity.a(this.a, "goto_recommend");

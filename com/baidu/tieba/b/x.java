@@ -1,45 +1,35 @@
 package com.baidu.tieba.b;
 
-import com.baidu.tieba.a.ax;
 import com.baidu.tieba.c.ag;
+import java.util.ArrayList;
+import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class x {
-    private int d = 0;
-    private ax a = new ax();
-    private com.baidu.tieba.a.h b = new com.baidu.tieba.a.h();
-    private com.baidu.tieba.a.j c = new com.baidu.tieba.a.j();
+    private ArrayList a = new ArrayList();
+
+    public ArrayList a() {
+        return this.a;
+    }
 
     public void a(String str) {
         try {
             a(new JSONObject(str));
         } catch (Exception e) {
-            ag.b(getClass().getName(), "parserJson", e.getMessage());
+            ag.b("BarlistModel", "parserJson", "error = " + e.getMessage());
         }
     }
 
     public void a(JSONObject jSONObject) {
-        if (jSONObject != null) {
-            try {
-                this.a.a(jSONObject.optJSONObject("version"));
-                this.b.a(jSONObject.optJSONObject("client"));
-                this.c.a(jSONObject.optJSONObject("config"));
-                this.d = jSONObject.optInt("sync_active", 0);
-            } catch (Exception e) {
-                ag.b(getClass().getName(), "parserJson", e.getMessage());
+        try {
+            JSONArray optJSONArray = jSONObject.optJSONArray("fname");
+            if (optJSONArray != null) {
+                for (int i = 0; i < optJSONArray.length(); i++) {
+                    this.a.add(optJSONArray.getString(i));
+                }
             }
+        } catch (Exception e) {
+            ag.b("BarlistModel", "parserJson", "error = " + e.getMessage());
         }
-    }
-
-    public com.baidu.tieba.a.j a() {
-        return this.c;
-    }
-
-    public ax b() {
-        return this.a;
-    }
-
-    public com.baidu.tieba.a.h c() {
-        return this.b;
     }
 }

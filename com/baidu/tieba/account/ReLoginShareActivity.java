@@ -32,11 +32,12 @@ public class ReLoginShareActivity extends com.baidu.tieba.e {
     LinearLayout d = null;
     private View.OnClickListener p = new as(this);
 
-    public static void a(Activity activity, String str, String str2, String str3) {
+    public static void a(Activity activity, String str, String str2, String str3, String str4) {
         Intent intent = new Intent(activity, ReLoginShareActivity.class);
         intent.putExtra("user_name", str);
         intent.putExtra("bduss", str2);
         intent.putExtra("ptoken", str3);
+        intent.putExtra("goto_type", str4);
         activity.startActivity(intent);
     }
 
@@ -146,12 +147,12 @@ public class ReLoginShareActivity extends com.baidu.tieba.e {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void k() {
-        String x = TiebaApplication.x();
-        if (x == null || x.length() <= 0) {
+        String y = TiebaApplication.y();
+        if (y == null || y.length() <= 0) {
             MainTabActivity.a(this, "goto_recommend");
             return;
         }
-        com.baidu.tieba.c.k.i();
+        com.baidu.tieba.c.k.j();
         TiebaApplication.b((com.baidu.tieba.a.a) null);
         MainTabActivity.b(this, "goto_recommend");
     }
@@ -175,9 +176,10 @@ public class ReLoginShareActivity extends com.baidu.tieba.e {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void m() {
+        String stringExtra = getIntent().getStringExtra("goto_type");
         com.baidu.tieba.c.k.a(this.n);
         TiebaApplication.b(this.n);
-        MainTabActivity.b(this, "goto_home");
+        MainTabActivity.b(this, stringExtra);
         a.a().e();
     }
 }

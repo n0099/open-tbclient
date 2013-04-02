@@ -44,13 +44,13 @@ public class n extends AsyncTask {
     @Override // android.os.AsyncTask
     /* renamed from: a */
     public Boolean doInBackground(String... strArr) {
-        com.baidu.tieba.a.an anVar;
+        com.baidu.tieba.a.ap apVar;
         boolean z = false;
         try {
             this.b = new com.baidu.tieba.c.t("http://c.tieba.baidu.com/c/s/getsmscode");
             com.baidu.tieba.c.t tVar = this.b;
-            anVar = this.a.r;
-            tVar.a("phonenum", anVar.c());
+            apVar = this.a.r;
+            tVar.a("phonenum", apVar.c());
             this.b.i();
             if (this.b.b()) {
                 z = true;

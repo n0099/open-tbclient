@@ -2,6 +2,7 @@ package com.baidu.zeus;
 
 import android.os.SystemClock;
 import android.util.Log;
+import com.baidu.android.common.util.HanziToPinyin;
 /* loaded from: classes.dex */
 class HttpLog {
     private static final boolean DEBUG = false;
@@ -13,7 +14,7 @@ class HttpLog {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static void v(String str) {
-        Log.v(LOGTAG, SystemClock.uptimeMillis() + " " + Thread.currentThread().getName() + " " + str);
+        Log.v(LOGTAG, SystemClock.uptimeMillis() + HanziToPinyin.Token.SEPARATOR + Thread.currentThread().getName() + HanziToPinyin.Token.SEPARATOR + str);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */

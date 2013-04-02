@@ -17,17 +17,17 @@ class g implements View.OnClickListener {
     public void onClick(View view) {
         Context context;
         Context context2;
-        if (TiebaApplication.b().aA() != null) {
-            Token b = com.baidu.tieba.account.a.b(TiebaApplication.y());
-            String b2 = TiebaApplication.b().aA().b();
-            String c = TiebaApplication.b().aA().c();
+        if (TiebaApplication.b().aF() != null) {
+            Token b = com.baidu.tieba.account.a.b(TiebaApplication.z());
+            String b2 = TiebaApplication.b().aF().b();
+            String c = TiebaApplication.b().aF().c();
             if (b != null) {
                 context2 = this.a.a;
-                LotteryActivity.a(context2, b2, c, b.mBduss, b.mPtoken, TiebaApplication.z());
+                LotteryActivity.a(context2, b2, c, b.mBduss, b.mPtoken, TiebaApplication.A());
                 return;
             }
             context = this.a.a;
-            LotteryActivity.a(context, b2, c, null, null, TiebaApplication.z());
+            LotteryActivity.a(context, b2, c, null, null, TiebaApplication.A());
         }
     }
 }

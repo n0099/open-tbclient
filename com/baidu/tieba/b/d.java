@@ -1,7 +1,8 @@
 package com.baidu.tieba.b;
 
-import com.baidu.tieba.a.ag;
-import com.baidu.tieba.a.au;
+import com.baidu.tieba.a.ai;
+import com.baidu.tieba.a.ay;
+import com.baidu.tieba.c.ag;
 import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -14,7 +15,7 @@ public class d {
     private int e = 0;
     private int f = 0;
     private com.baidu.tieba.a.b g = new com.baidu.tieba.a.b();
-    private ag h = new ag();
+    private ai h = new ai();
 
     public com.baidu.tieba.a.q a() {
         return this.a;
@@ -47,9 +48,9 @@ public class d {
                     JSONArray optJSONArray = optJSONObject.optJSONArray("thread_list");
                     if (optJSONArray != null) {
                         for (int i = 0; i < optJSONArray.length(); i++) {
-                            au auVar = new au();
-                            auVar.a(optJSONArray.optJSONObject(i));
-                            this.b.add(auVar);
+                            ay ayVar = new ay();
+                            ayVar.a(optJSONArray.optJSONObject(i));
+                            this.b.add(ayVar);
                         }
                     }
                     JSONArray optJSONArray2 = optJSONObject.optJSONArray("alb_id_list");
@@ -63,7 +64,7 @@ public class d {
                     this.f = optJSONObject.optInt("current_count", 0);
                 }
             } catch (Exception e) {
-                com.baidu.tieba.c.ag.b(getClass().getName(), "parserJson", "error = " + e.getMessage());
+                ag.b(getClass().getName(), "parserJson", "error = " + e.getMessage());
             }
         }
     }
@@ -72,7 +73,7 @@ public class d {
         try {
             a(new JSONObject(str));
         } catch (Exception e) {
-            com.baidu.tieba.c.ag.b(getClass().getName(), "parserJson", "error = " + e.getMessage());
+            ag.b(getClass().getName(), "parserJson", "error = " + e.getMessage());
         }
     }
 }

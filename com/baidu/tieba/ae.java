@@ -1,17 +1,18 @@
 package com.baidu.tieba;
 
 import android.content.DialogInterface;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class ae implements DialogInterface.OnDismissListener {
-    final /* synthetic */ UpdateDialog a;
+public class ae implements DialogInterface.OnCancelListener {
+    final /* synthetic */ MainTabActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ae(UpdateDialog updateDialog) {
-        this.a = updateDialog;
+    public ae(MainTabActivity mainTabActivity) {
+        this.a = mainTabActivity;
     }
 
-    @Override // android.content.DialogInterface.OnDismissListener
-    public void onDismiss(DialogInterface dialogInterface) {
-        this.a.finish();
+    @Override // android.content.DialogInterface.OnCancelListener
+    public void onCancel(DialogInterface dialogInterface) {
+        this.a.c();
     }
 }

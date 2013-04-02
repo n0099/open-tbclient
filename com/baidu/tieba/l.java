@@ -1,27 +1,34 @@
 package com.baidu.tieba;
 
-import android.os.Handler;
-import android.os.Message;
+import android.os.AsyncTask;
 /* loaded from: classes.dex */
-class l extends Handler {
-    final /* synthetic */ LogoActivity a;
+class l extends AsyncTask {
+    final /* synthetic */ GuideActivity a;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public l(LogoActivity logoActivity) {
-        this.a = logoActivity;
+    private l(GuideActivity guideActivity) {
+        this.a = guideActivity;
     }
 
-    @Override // android.os.Handler
-    public void handleMessage(Message message) {
-        boolean z;
-        this.a.e = true;
-        z = this.a.d;
-        if (z) {
-            if (!this.a.getDatabasePath("baidu_tieba.db").exists()) {
-                TiebaApplication.a(com.baidu.tieba.c.k.l());
-            }
-            this.a.j();
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public /* synthetic */ l(GuideActivity guideActivity, l lVar) {
+        this(guideActivity);
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // android.os.AsyncTask
+    /* renamed from: a */
+    public Boolean doInBackground(String... strArr) {
+        return Boolean.valueOf(GuideActivity.g(this.a));
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // android.os.AsyncTask
+    /* renamed from: a */
+    public void onPostExecute(Boolean bool) {
+        if (!bool.booleanValue()) {
+            GuideActivity.h(this.a);
         }
-        super.handleMessage(message);
     }
 }

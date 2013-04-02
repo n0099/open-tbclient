@@ -1,43 +1,40 @@
 package com.baidu.tieba.pb;
 
-import android.app.AlertDialog;
-import android.content.DialogInterface;
 import android.view.View;
-import com.baidu.tieba.R;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.ProgressBar;
+import android.widget.TextView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class cl implements View.OnLongClickListener {
-    final /* synthetic */ SubPbActivity a;
+public class cl {
+    int a;
+    TextView b;
+    ProgressBar c;
+    cj d;
+    ch e;
+    cg f;
+    ImageView g;
+    ImageView h;
+    TextView i;
+    TextView j;
+    TextView k;
+    TextView l;
+    TextView m;
+    LinearLayout n;
+    TextView o;
+    ImageView p;
+    TextView q;
+    TextView r;
+    View s;
+    final /* synthetic */ cd t;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public cl(SubPbActivity subPbActivity) {
-        this.a = subPbActivity;
+    private cl(cd cdVar) {
+        this.t = cdVar;
     }
 
-    @Override // android.view.View.OnLongClickListener
-    public boolean onLongClick(View view) {
-        com.baidu.tieba.b.v vVar;
-        AlertDialog e;
-        DialogInterface.OnClickListener onClickListener;
-        com.baidu.tieba.b.v vVar2;
-        com.baidu.tieba.a.al alVar = null;
-        vVar = this.a.g;
-        if (vVar != null) {
-            vVar2 = this.a.g;
-            alVar = vVar2.a().a();
-            if (alVar == null) {
-                return false;
-            }
-        }
-        this.a.A = alVar;
-        e = this.a.e();
-        if (e == null) {
-            SubPbActivity subPbActivity = this.a;
-            String[] strArr = {this.a.getString(R.string.copy)};
-            onClickListener = this.a.z;
-            subPbActivity.b(strArr, onClickListener);
-        }
-        this.a.f();
-        return true;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public /* synthetic */ cl(cd cdVar, cl clVar) {
+        this(cdVar);
     }
 }

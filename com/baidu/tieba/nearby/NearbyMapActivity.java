@@ -29,7 +29,7 @@ public class NearbyMapActivity extends MapActivity {
     private Address e = null;
     private PostItemizedOverlay f = null;
     private com.baidu.tieba.c.a g = null;
-    private com.baidu.tieba.b.h h = null;
+    private com.baidu.tieba.b.i h = null;
     private Handler i = null;
     private Button j = null;
     private Button k = null;
@@ -38,11 +38,11 @@ public class NearbyMapActivity extends MapActivity {
     private Runnable n = new g(this);
     private View.OnClickListener o = new i(this);
 
-    public static void a(Context context, Address address, com.baidu.tieba.b.h hVar) {
-        if (Build.VERSION.SDK_INT >= 5 && hVar != null && address != null) {
+    public static void a(Context context, Address address, com.baidu.tieba.b.i iVar) {
+        if (Build.VERSION.SDK_INT >= 5 && iVar != null && address != null) {
             Intent intent = new Intent();
             intent.setClass(context, NearbyMapActivity.class);
-            intent.putExtra("model", hVar);
+            intent.putExtra("model", iVar);
             intent.putExtra("address", address);
             context.startActivity(intent);
         }
@@ -53,7 +53,7 @@ public class NearbyMapActivity extends MapActivity {
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         setContentView(R.layout.nearby_map_activity);
-        if (TiebaApplication.b().k()) {
+        if (TiebaApplication.b().l()) {
             try {
                 StatService.setAppChannel(com.baidu.tieba.a.i.a());
             } catch (Exception e) {
@@ -61,10 +61,10 @@ public class NearbyMapActivity extends MapActivity {
             }
         }
         boolean z = true;
-        if (TiebaApplication.b().aD() == null) {
+        if (TiebaApplication.b().aI() == null) {
             z = TiebaApplication.b().c(getApplicationContext());
         }
-        this.a = TiebaApplication.b().aD();
+        this.a = TiebaApplication.b().aI();
         if (!z || this.a == null) {
             finish();
             return;
@@ -93,7 +93,7 @@ public class NearbyMapActivity extends MapActivity {
     public void onResume() {
         this.a.start();
         super.onResume();
-        if (TiebaApplication.b().k()) {
+        if (TiebaApplication.b().l()) {
             try {
                 StatService.onResume(this);
             } catch (Exception e) {
@@ -107,7 +107,7 @@ public class NearbyMapActivity extends MapActivity {
     public void onPause() {
         this.a.stop();
         super.onPause();
-        if (TiebaApplication.b().k()) {
+        if (TiebaApplication.b().l()) {
             try {
                 StatService.onPause(this);
             } catch (Exception e) {
@@ -143,7 +143,7 @@ public class NearbyMapActivity extends MapActivity {
     }
 
     private void a(Bundle bundle) {
-        this.h = (com.baidu.tieba.b.h) getIntent().getSerializableExtra("model");
+        this.h = (com.baidu.tieba.b.i) getIntent().getSerializableExtra("model");
         this.e = (Address) getIntent().getParcelableExtra("address");
         if (this.e.getMaxAddressLineIndex() >= 0) {
             this.c.setText(this.e.getAddressLine(0));
@@ -164,14 +164,14 @@ public class NearbyMapActivity extends MapActivity {
         this.i.post(this.n);
     }
 
-    public void a(com.baidu.tieba.a.ab abVar) {
-        if (abVar != null) {
-            if (TiebaApplication.b().k()) {
+    public void a(com.baidu.tieba.a.ad adVar) {
+        if (adVar != null) {
+            if (TiebaApplication.b().l()) {
                 StatService.onEvent(this, "lbs_header_pic", "lbsclick", 1);
             }
-            GeoPoint geoPoint = new GeoPoint(abVar.e(), abVar.f());
-            this.j.setTag(abVar.b());
-            this.j.setText(abVar.c());
+            GeoPoint geoPoint = new GeoPoint(adVar.e(), adVar.f());
+            this.j.setTag(adVar.b());
+            this.j.setText(adVar.c());
             this.b.updateViewLayout(this.j, new MapView.LayoutParams(-2, -2, geoPoint, 0, -this.m, 81));
             this.j.setVisibility(0);
             this.d.animateTo(geoPoint);

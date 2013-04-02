@@ -1,21 +1,44 @@
 package com.baidu.tieba.a;
 
-import android.graphics.Color;
+import com.baidu.android.pushservice.PushConstants;
+import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class ao {
-    private String d;
-    private String a = null;
+    private long a = 0;
     private String b = null;
     private String c = null;
-    private boolean h = false;
-    private long e = 0;
-    private av f = new av();
-    private String g = null;
-    private boolean i = true;
 
-    public boolean a() {
-        return this.i;
+    public void a(String str) {
+        try {
+            a(new JSONObject(str));
+        } catch (Exception e) {
+            com.baidu.tieba.c.ag.b("MssageData", "parserJson", "error = " + e.getMessage());
+        }
+    }
+
+    public void a(JSONObject jSONObject) {
+        if (jSONObject != null) {
+            try {
+                JSONArray jSONArray = jSONObject.getJSONArray("data");
+                for (int i = 0; i < jSONArray.length(); i++) {
+                    if (jSONArray.getJSONObject(i) != null) {
+                        JSONObject jSONObject2 = jSONArray.getJSONObject(i);
+                        if (this.a < jSONObject2.getLong("message_id")) {
+                            this.a = jSONObject2.getLong("message_id");
+                            this.b = jSONObject2.getString("link");
+                            this.c = jSONObject2.getString(PushConstants.EXTRA_CONTENT);
+                        }
+                    }
+                }
+            } catch (Exception e) {
+                com.baidu.tieba.c.ag.b("MssageData", "parserJson", "error = " + e.getMessage());
+            }
+        }
+    }
+
+    public long a() {
+        return this.a;
     }
 
     public String b() {
@@ -23,45 +46,6 @@ public class ao {
     }
 
     public String c() {
-        return this.a;
-    }
-
-    public String d() {
-        return this.d;
-    }
-
-    public String e() {
         return this.c;
-    }
-
-    public String f() {
-        return this.g;
-    }
-
-    public long g() {
-        return this.e;
-    }
-
-    public void a(JSONObject jSONObject) {
-        if (jSONObject != null) {
-            try {
-                this.a = jSONObject.optString("tid");
-                this.c = jSONObject.optString("title");
-                this.b = jSONObject.optString("pid");
-                this.h = jSONObject.optInt("is_floor", 0) != 0;
-                this.e = jSONObject.optLong("time", 0L) * 1000;
-                this.f.a(jSONObject.optJSONObject("author"));
-                this.g = jSONObject.optString("content");
-                this.d = jSONObject.optString("fname");
-                this.c = com.baidu.tieba.c.af.a(this.c, (Color) null);
-                String a = com.baidu.tieba.c.af.a(this.g, (Color) null);
-                if (!a.equals(this.g)) {
-                    this.g = a;
-                    this.i = false;
-                }
-            } catch (Exception e) {
-                com.baidu.tieba.c.ag.b("PostData", "parserJson", "error = " + e.getMessage());
-            }
-        }
     }
 }

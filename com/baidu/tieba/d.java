@@ -4,7 +4,6 @@ import android.app.Activity;
 import com.baidu.account.AccountProxy;
 import com.baidu.tieba.BaiduAccount.BaiduAccount;
 import com.baidu.tieba.account.ReLoginActivity;
-import com.baidu.tieba.c.ag;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class d implements AccountProxy.TokenCallback {
@@ -23,7 +22,7 @@ public class d implements AccountProxy.TokenCallback {
 
     @Override // com.baidu.account.AccountProxy.TokenCallback
     public void callBack(String str) {
-        ag.e("BaiduAccountProxy", "getAccountData", "token = " + str);
+        com.baidu.tieba.c.ag.e("BaiduAccountProxy", "getAccountData", "token = " + str);
         if (str != null) {
             BaiduAccount baiduAccount = BaiduAccount.get(this.a);
             com.baidu.tieba.a.a aVar = new com.baidu.tieba.a.a();

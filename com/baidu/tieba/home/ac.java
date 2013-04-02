@@ -1,26 +1,19 @@
 package com.baidu.tieba.home;
 
-import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ListView;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.widget.ProgressBar;
+import android.widget.TextView;
 /* loaded from: classes.dex */
-public class ac implements AdapterView.OnItemClickListener {
-    final /* synthetic */ MarkActivity a;
+class ac {
+    TextView a;
+    ProgressBar b;
+    final /* synthetic */ ab c;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public ac(MarkActivity markActivity) {
-        this.a = markActivity;
+    private ac(ab abVar) {
+        this.c = abVar;
     }
 
-    @Override // android.widget.AdapterView.OnItemClickListener
-    public void onItemClick(AdapterView adapterView, View view, int i, long j) {
-        com.baidu.tieba.a.ac acVar;
-        this.a.h = (com.baidu.tieba.a.ac) ((ListView) adapterView).getAdapter().getItem(i);
-        acVar = this.a.h;
-        if (acVar == null) {
-            return;
-        }
-        this.a.k();
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public /* synthetic */ ac(ab abVar, ac acVar) {
+        this(abVar);
     }
 }

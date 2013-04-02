@@ -16,9 +16,9 @@ class h implements com.baidu.tieba.view.a {
         BaseViewPager baseViewPager;
         BaseViewPager baseViewPager2;
         if (i == 0) {
-            baseViewPager = this.a.e;
+            baseViewPager = this.a.f;
             if (baseViewPager != null) {
-                baseViewPager2 = this.a.e;
+                baseViewPager2 = this.a.f;
                 baseViewPager2.setOnScrollOutListener(null);
             }
             this.a.a();

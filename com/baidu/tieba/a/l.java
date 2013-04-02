@@ -17,7 +17,7 @@ public class l extends com.baidu.tieba.c.r {
     @Override // com.baidu.tieba.c.r, android.text.style.ClickableSpan
     public void onClick(View view) {
         String str;
-        str = this.a.c;
+        str = this.a.b;
         a(str);
     }
 }

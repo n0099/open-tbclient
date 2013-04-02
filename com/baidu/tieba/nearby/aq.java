@@ -29,8 +29,8 @@ public class aq extends AsyncTask {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.os.AsyncTask
     /* renamed from: a */
-    public com.baidu.tieba.b.o doInBackground(String... strArr) {
-        com.baidu.tieba.b.o oVar;
+    public com.baidu.tieba.b.p doInBackground(String... strArr) {
+        com.baidu.tieba.b.p pVar;
         int b;
         try {
             this.a = new com.baidu.tieba.c.t(strArr[0]);
@@ -45,17 +45,17 @@ public class aq extends AsyncTask {
                 this.a.a("ispv", "0");
             }
             if (this.c != 0) {
-                oVar = this.f.d;
-                b = oVar.c().b() + 1;
+                pVar = this.f.d;
+                b = pVar.c().b() + 1;
             } else {
                 b = 1;
             }
             this.a.a("pn", String.valueOf(b));
             String i = this.a.i();
             if (this.a.b()) {
-                com.baidu.tieba.b.o oVar2 = new com.baidu.tieba.b.o();
-                oVar2.a(i);
-                return oVar2;
+                com.baidu.tieba.b.p pVar2 = new com.baidu.tieba.b.p();
+                pVar2.a(i);
+                return pVar2;
             }
             return null;
         } catch (Exception e) {
@@ -68,13 +68,13 @@ public class aq extends AsyncTask {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.os.AsyncTask
     /* renamed from: a */
-    public void onPostExecute(com.baidu.tieba.b.o oVar) {
+    public void onPostExecute(com.baidu.tieba.b.p pVar) {
         ProgressBar progressBar;
-        com.baidu.tieba.b.o oVar2;
-        com.baidu.tieba.b.o oVar3;
+        com.baidu.tieba.b.p pVar2;
+        com.baidu.tieba.b.p pVar3;
         ar arVar;
-        com.baidu.tieba.b.o oVar4;
-        com.baidu.tieba.b.o oVar5;
+        com.baidu.tieba.b.p pVar4;
+        com.baidu.tieba.b.p pVar5;
         ar arVar2;
         ListView listView;
         this.f.h = null;
@@ -82,14 +82,14 @@ public class aq extends AsyncTask {
         progressBar = this.f.k;
         progressBar.setVisibility(8);
         if (this.a != null) {
-            if (oVar != null) {
-                oVar2 = this.f.d;
-                oVar2.a(oVar.c());
+            if (pVar != null) {
+                pVar2 = this.f.d;
+                pVar2.a(pVar.c());
                 if (this.c == 0) {
-                    oVar4 = this.f.d;
-                    oVar4.a(oVar.a());
-                    oVar5 = this.f.d;
-                    oVar5.a(oVar.b());
+                    pVar4 = this.f.d;
+                    pVar4.a(pVar.a());
+                    pVar5 = this.f.d;
+                    pVar5.a(pVar.b());
                     arVar2 = this.f.f;
                     arVar2.notifyDataSetChanged();
                     listView = this.f.e;
@@ -98,12 +98,12 @@ public class aq extends AsyncTask {
                         ((NewNearbyActivity) this.f.getParent()).j();
                     }
                 } else {
-                    oVar3 = this.f.d;
-                    oVar3.b(oVar.a());
+                    pVar3 = this.f.d;
+                    pVar3.b(pVar.a());
                     arVar = this.f.f;
                     arVar.notifyDataSetChanged();
                 }
-                if (this.d == 1 && TiebaApplication.b().u() == 0) {
+                if (this.d == 1 && TiebaApplication.b().v() == 0) {
                     TiebaApplication.b().a(System.currentTimeMillis());
                 }
             } else if (this.a.f() != null) {

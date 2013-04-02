@@ -1,31 +1,29 @@
 package com.baidu.tieba.pb;
 
+import android.content.Context;
 import android.view.View;
-import android.widget.Button;
-import android.widget.LinearLayout;
-import android.widget.TextView;
 /* loaded from: classes.dex */
-class ch {
-    int a;
-    TextView b;
-    LinearLayout c;
-    LinearLayout d;
-    Button e;
-    Button f;
-    Button g;
-    Button h;
-    Button i;
-    View j;
-    View k;
-    View l;
-    final /* synthetic */ ca m;
+class ch implements View.OnClickListener {
+    final /* synthetic */ cd a;
+    private String b = null;
+    private int c = 0;
 
-    private ch(ca caVar) {
-        this.m = caVar;
+    public ch(cd cdVar) {
+        this.a = cdVar;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ ch(ca caVar, ch chVar) {
-        this(caVar);
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        Context context;
+        context = this.a.a;
+        ((PbActivity) context).a(this.b, this.c);
+    }
+
+    public void a(String str) {
+        this.b = str;
+    }
+
+    public void a(int i) {
+        this.c = i;
     }
 }

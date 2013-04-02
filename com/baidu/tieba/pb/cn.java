@@ -1,12 +1,12 @@
 package com.baidu.tieba.pb;
 
-import android.widget.AbsListView;
-import android.widget.Button;
-import android.widget.GridView;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
+import android.view.View;
 import com.baidu.tieba.R;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class cn implements AbsListView.OnScrollListener {
+public class cn implements View.OnLongClickListener {
     final /* synthetic */ SubPbActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -14,20 +14,30 @@ public class cn implements AbsListView.OnScrollListener {
         this.a = subPbActivity;
     }
 
-    @Override // android.widget.AbsListView.OnScrollListener
-    public void onScrollStateChanged(AbsListView absListView, int i) {
-        Button button;
-        GridView gridView;
-        if (i == 2 || i == 1) {
-            com.baidu.tieba.c.ai.a(this.a, absListView);
-            button = this.a.y;
-            button.setBackgroundResource(R.drawable.sub_pb_face);
-            gridView = this.a.ad;
-            gridView.setVisibility(8);
+    @Override // android.view.View.OnLongClickListener
+    public boolean onLongClick(View view) {
+        com.baidu.tieba.b.w wVar;
+        AlertDialog e;
+        DialogInterface.OnClickListener onClickListener;
+        com.baidu.tieba.b.w wVar2;
+        com.baidu.tieba.a.an anVar = null;
+        wVar = this.a.g;
+        if (wVar != null) {
+            wVar2 = this.a.g;
+            anVar = wVar2.a().a();
+            if (anVar == null) {
+                return false;
+            }
         }
-    }
-
-    @Override // android.widget.AbsListView.OnScrollListener
-    public void onScroll(AbsListView absListView, int i, int i2, int i3) {
+        this.a.w = anVar;
+        e = this.a.e();
+        if (e == null) {
+            SubPbActivity subPbActivity = this.a;
+            String[] strArr = {this.a.getString(R.string.copy)};
+            onClickListener = this.a.v;
+            subPbActivity.b(strArr, onClickListener);
+        }
+        this.a.f();
+        return true;
     }
 }

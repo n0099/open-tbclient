@@ -1,5 +1,6 @@
 package com.baidu.tieba.a;
 
+import com.baidu.android.pushservice.PushConstants;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class o {
@@ -27,7 +28,7 @@ public class o {
         if (jSONObject != null) {
             try {
                 this.a = jSONObject.optInt("error_code", 0);
-                this.b = jSONObject.optString("error_msg");
+                this.b = jSONObject.optString(PushConstants.EXTRA_ERROR_CODE);
                 this.c = jSONObject.optString("error_data");
             } catch (Exception e) {
                 com.baidu.tieba.c.ag.b(getClass().getName(), "parserJson", e.getMessage());

@@ -1,11 +1,11 @@
 package com.baidu.tieba.home;
 
-import android.widget.ProgressBar;
+import android.widget.ImageView;
 import android.widget.TextView;
 /* loaded from: classes.dex */
 class ba {
     TextView a;
-    ProgressBar b;
+    ImageView b;
     final /* synthetic */ az c;
 
     private ba(az azVar) {

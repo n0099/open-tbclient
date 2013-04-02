@@ -1,7 +1,6 @@
 package com.baidu.tieba.pb;
 
 import android.content.DialogInterface;
-import com.baidu.tieba.R;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 class bb implements DialogInterface.OnClickListener {
@@ -14,28 +13,25 @@ class bb implements DialogInterface.OnClickListener {
 
     @Override // android.content.DialogInterface.OnClickListener
     public void onClick(DialogInterface dialogInterface, int i) {
-        com.baidu.tieba.a.ac o;
-        a aVar;
-        boolean z;
         String str;
         String str2;
-        com.baidu.tieba.b.q qVar;
-        com.baidu.tieba.b.q qVar2;
+        com.baidu.tieba.b.r rVar;
+        com.baidu.tieba.b.r rVar2;
         long j;
         switch (i) {
             case 0:
-                str = this.a.q;
+                str = this.a.p;
                 if (str != null) {
-                    str2 = this.a.q;
+                    str2 = this.a.p;
                     if (str2.length() > 0) {
-                        qVar = this.a.p;
-                        if (qVar.a() != null) {
-                            qVar2 = this.a.p;
-                            ArrayList d = qVar2.a().d();
-                            j = this.a.w;
-                            com.baidu.tieba.a.al alVar = (com.baidu.tieba.a.al) d.get((int) j);
-                            this.a.x = alVar;
-                            this.a.a(alVar);
+                        rVar = this.a.o;
+                        if (rVar.a() != null) {
+                            rVar2 = this.a.o;
+                            ArrayList d = rVar2.a().d();
+                            j = this.a.v;
+                            com.baidu.tieba.a.an anVar = (com.baidu.tieba.a.an) d.get((int) j);
+                            this.a.w = anVar;
+                            this.a.a(anVar);
                             return;
                         }
                         return;
@@ -44,21 +40,7 @@ class bb implements DialogInterface.OnClickListener {
                 }
                 return;
             case 1:
-                o = this.a.o();
-                this.a.ai = o;
-                aVar = this.a.af;
-                String str3 = (String) aVar.getItem(1);
-                if (str3 == null || !str3.equals(this.a.getString(R.string.remove_mark))) {
-                    this.a.aj = true;
-                } else {
-                    this.a.aj = false;
-                }
-                PbActivity pbActivity = this.a;
-                z = this.a.aj;
-                pbActivity.a(o, z);
-                return;
-            case 2:
-                this.a.s();
+                this.a.t();
                 return;
             default:
                 return;

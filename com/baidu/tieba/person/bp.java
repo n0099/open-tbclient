@@ -1,29 +1,24 @@
 package com.baidu.tieba.person;
 
+import android.content.Context;
 import android.view.View;
-import android.widget.AdapterView;
+import com.baidu.tieba.nearby.NearbyPbActivity;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class bp implements AdapterView.OnItemClickListener {
-    final /* synthetic */ PersonListActivity a;
+public class bp implements View.OnClickListener {
+    final /* synthetic */ bo a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bp(PersonListActivity personListActivity) {
-        this.a = personListActivity;
+    public bp(bo boVar) {
+        this.a = boVar;
     }
 
-    @Override // android.widget.AdapterView.OnItemClickListener
-    public void onItemClick(AdapterView adapterView, View view, int i, long j) {
-        com.baidu.tieba.write.k kVar;
-        if (j != -1) {
-            kVar = this.a.f;
-            com.baidu.tieba.a.af afVar = (com.baidu.tieba.a.af) kVar.getItem(i);
-            if (afVar != null && afVar.a() != null) {
-                PersonInfoActivity.a(this.a, afVar.a(), afVar.c());
-                return;
-            }
-            return;
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        Context context;
+        if (view != null && view.getTag() != null && (view.getTag() instanceof String)) {
+            context = this.a.a;
+            NearbyPbActivity.a(context, (String) view.getTag(), null);
         }
-        this.a.a(true);
     }
 }

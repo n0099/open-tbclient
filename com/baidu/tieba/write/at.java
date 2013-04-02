@@ -58,24 +58,25 @@ public class at implements View.OnClickListener {
                 }
                 this.a.setResult(-1, intent2);
             }
-        } else {
-            Intent intent3 = new Intent();
-            z3 = this.a.y;
-            if (z3) {
-                bitmap3 = this.a.r;
-                if (bitmap3 != null) {
-                    bitmap4 = this.a.r;
-                    if (!bitmap4.isRecycled()) {
-                        String str2 = "tieba" + String.valueOf(new Date().getTime()) + ".jpg";
-                        d2 = this.a.d(str2);
-                        if (d2) {
-                            intent3.putExtra("filename", str2);
-                        }
+            this.a.finish();
+            return;
+        }
+        Intent intent3 = new Intent();
+        z3 = this.a.y;
+        if (z3) {
+            bitmap3 = this.a.r;
+            if (bitmap3 != null) {
+                bitmap4 = this.a.r;
+                if (!bitmap4.isRecycled()) {
+                    String str2 = "tieba" + String.valueOf(new Date().getTime()) + ".jpg";
+                    d2 = this.a.d(str2);
+                    if (d2) {
+                        intent3.putExtra("filename", str2);
                     }
                 }
             }
-            this.a.setResult(-1, intent3);
         }
+        this.a.setResult(-1, intent3);
         this.a.finish();
     }
 }

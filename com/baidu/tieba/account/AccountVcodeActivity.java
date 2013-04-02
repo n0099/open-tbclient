@@ -21,7 +21,7 @@ public class AccountVcodeActivity extends com.baidu.tieba.e {
     private String g = null;
     private int h = 1;
     private h i = null;
-    private com.baidu.tieba.b.g j = null;
+    private com.baidu.tieba.b.h j = null;
     private ProgressBar k = null;
     private ProgressBar l = null;
     private Button m = null;

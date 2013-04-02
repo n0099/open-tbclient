@@ -20,9 +20,9 @@ public class ay implements DialogInterface.OnKeyListener {
         Dialog dialog;
         if (i == 4) {
             PbActivity pbActivity = this.a;
-            editText = this.a.l;
+            editText = this.a.k;
             com.baidu.tieba.c.ai.a(pbActivity, editText);
-            dialog = this.a.A;
+            dialog = this.a.z;
             dialog.dismiss();
             return true;
         }

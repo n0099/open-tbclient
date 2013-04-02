@@ -92,10 +92,10 @@ public class MultiImageView extends RelativeLayout {
     }
 
     private void g() {
-        this.d = new ab(this);
-        this.f = new ac(this);
-        this.h = new ad(this);
-        this.j = new ae(this);
+        this.d = new ac(this);
+        this.f = new ad(this);
+        this.h = new ae(this);
+        this.j = new af(this);
     }
 
     public void a() {
@@ -104,14 +104,14 @@ public class MultiImageView extends RelativeLayout {
                 int childCount = this.e.getChildCount();
                 for (int i = 0; i < childCount; i++) {
                     View childAt = this.e.getChildAt(i);
-                    if (childAt != null && (childAt instanceof ag) && ((ag) childAt).getImageView() != this.e.getCurrentView()) {
-                        ((ag) childAt).d();
+                    if (childAt != null && (childAt instanceof ah) && ((ah) childAt).getImageView() != this.e.getCurrentView()) {
+                        ((ah) childAt).d();
                     }
                 }
             }
             View findViewWithTag = this.e.findViewWithTag(String.valueOf(this.e.getCurrentItem()));
-            if (findViewWithTag != null && (findViewWithTag instanceof ag)) {
-                ((ag) findViewWithTag).f();
+            if (findViewWithTag != null && (findViewWithTag instanceof ah)) {
+                ((ah) findViewWithTag).f();
             }
             this.e.getCurrentView().e();
         }
@@ -128,8 +128,8 @@ public class MultiImageView extends RelativeLayout {
             int childCount = this.e.getChildCount();
             for (int i = 0; i < childCount; i++) {
                 View childAt = this.e.getChildAt(i);
-                if (childAt != null && (childAt instanceof ag)) {
-                    ((ag) childAt).c();
+                if (childAt != null && (childAt instanceof ah)) {
+                    ((ah) childAt).c();
                 }
             }
         }

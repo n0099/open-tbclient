@@ -35,8 +35,8 @@ public class p extends AsyncTask {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.os.AsyncTask
     /* renamed from: a */
-    public com.baidu.tieba.b.j doInBackground(Object... objArr) {
-        com.baidu.tieba.b.j jVar;
+    public com.baidu.tieba.b.k doInBackground(Object... objArr) {
+        com.baidu.tieba.b.k kVar;
         Exception e;
         com.baidu.tieba.e eVar;
         int i;
@@ -51,26 +51,26 @@ public class p extends AsyncTask {
             if (!this.b.b() || i2 == null) {
                 return null;
             }
-            jVar = new com.baidu.tieba.b.j();
+            kVar = new com.baidu.tieba.b.k();
             try {
-                jVar.a(i2);
-                if (jVar.a()) {
+                kVar.a(i2);
+                if (kVar.a()) {
                     i = this.a.o;
                     if (i != 4) {
                         nVar = this.a.j;
                         nVar.a(i2);
-                        return jVar;
+                        return kVar;
                     }
-                    return jVar;
+                    return kVar;
                 }
                 return null;
             } catch (Exception e2) {
                 e = e2;
                 ag.b(getClass().getName(), "", "doInBackground error = " + e.getMessage());
-                return jVar;
+                return kVar;
             }
         } catch (Exception e3) {
-            jVar = null;
+            kVar = null;
             e = e3;
         }
     }
@@ -118,18 +118,18 @@ public class p extends AsyncTask {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.os.AsyncTask
     /* renamed from: a */
-    public void onPostExecute(com.baidu.tieba.b.j jVar) {
+    public void onPostExecute(com.baidu.tieba.b.k kVar) {
         com.baidu.tieba.e eVar;
         a(false);
         if (this.b != null) {
-            if (!this.b.c() || jVar == null) {
+            if (!this.b.c() || kVar == null) {
                 eVar = this.a.b;
                 Activity parent = eVar.getParent();
                 if (parent != null && (parent instanceof MentionActivity)) {
                     ai.a((Context) ((MentionActivity) parent), this.b.f());
                 }
             } else {
-                this.a.a(jVar);
+                this.a.a(kVar);
             }
         }
         this.a.k = null;

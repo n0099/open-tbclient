@@ -33,7 +33,7 @@ public class ActivationActivity extends com.baidu.tieba.e {
     private m o = null;
     private boolean p = false;
     private int q = c;
-    private com.baidu.tieba.a.an r = null;
+    private com.baidu.tieba.a.ap r = null;
     private Handler s = new Handler();
     private RelativeLayout t = null;
     private TextView u = null;
@@ -48,9 +48,9 @@ public class ActivationActivity extends com.baidu.tieba.e {
     private TextWatcher D = new k(this);
     private View.OnFocusChangeListener E = new l(this);
 
-    public static void a(Activity activity, com.baidu.tieba.a.an anVar, int i) {
+    public static void a(Activity activity, com.baidu.tieba.a.ap apVar, int i) {
         Intent intent = new Intent(activity, ActivationActivity.class);
-        intent.putExtra("data", anVar);
+        intent.putExtra("data", apVar);
         activity.startActivityForResult(intent, i);
     }
 
@@ -66,9 +66,9 @@ public class ActivationActivity extends com.baidu.tieba.e {
 
     private void a(Bundle bundle) {
         if (bundle != null) {
-            this.r = (com.baidu.tieba.a.an) bundle.getSerializable("data");
+            this.r = (com.baidu.tieba.a.ap) bundle.getSerializable("data");
         } else {
-            this.r = (com.baidu.tieba.a.an) getIntent().getSerializableExtra("data");
+            this.r = (com.baidu.tieba.a.ap) getIntent().getSerializableExtra("data");
         }
         if (this.r == null) {
             setResult(0);
@@ -81,7 +81,7 @@ public class ActivationActivity extends com.baidu.tieba.e {
     @Override // android.app.Activity
     protected void onRestoreInstanceState(Bundle bundle) {
         super.onRestoreInstanceState(bundle);
-        this.r = (com.baidu.tieba.a.an) bundle.getSerializable("data");
+        this.r = (com.baidu.tieba.a.ap) bundle.getSerializable("data");
     }
 
     @Override // android.app.Activity
@@ -170,19 +170,19 @@ public class ActivationActivity extends com.baidu.tieba.e {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void a(com.baidu.tieba.b.g gVar) {
+    public void a(com.baidu.tieba.b.h hVar) {
         com.baidu.tieba.a.a aVar = new com.baidu.tieba.a.a();
-        aVar.b(gVar.a().b());
-        if (gVar.a().e() != null) {
-            aVar.c(gVar.a().e());
+        aVar.b(hVar.a().b());
+        if (hVar.a().e() != null) {
+            aVar.c(hVar.a().e());
         } else {
             aVar.c(this.r.b());
         }
-        aVar.a(gVar.a().a());
-        aVar.d(gVar.a().j());
+        aVar.a(hVar.a().a());
+        aVar.d(hVar.a().j());
         aVar.a(1);
-        if (gVar.b() != null) {
-            aVar.e(gVar.b().b());
+        if (hVar.b() != null) {
+            aVar.e(hVar.b().b());
         }
         com.baidu.tieba.c.k.a(aVar);
         TiebaApplication.b(aVar);

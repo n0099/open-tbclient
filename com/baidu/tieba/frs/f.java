@@ -3,7 +3,7 @@ package com.baidu.tieba.frs;
 import android.view.View;
 import android.widget.AdapterView;
 import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.a.at;
+import com.baidu.tieba.a.ax;
 import com.baidu.tieba.pb.PbActivity;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
@@ -51,21 +51,21 @@ public class f implements AdapterView.OnItemClickListener {
                 this.a.w();
             } else if (itemId != -3) {
                 aaVar2 = this.a.y;
-                at atVar = (at) aaVar2.getItem(i);
-                if (atVar != null) {
-                    com.baidu.tieba.c.ab am = TiebaApplication.b().am();
-                    if (am != null && !am.b(atVar.a())) {
-                        am.a(atVar.a());
+                ax axVar = (ax) aaVar2.getItem(i);
+                if (axVar != null) {
+                    com.baidu.tieba.c.ab ao = TiebaApplication.b().ao();
+                    if (ao != null && !ao.b(axVar.a())) {
+                        ao.a(axVar.a());
                     }
                     aaVar3 = this.a.y;
                     aaVar3.notifyDataSetChanged();
-                    String k = atVar.k();
+                    String k = axVar.k();
                     if (k == null || k.equals("")) {
                         z = false;
                     } else {
                         new Thread(new g(this, k)).start();
                     }
-                    PbActivity.a(this.a, atVar.a(), "tb_frslist", z);
+                    PbActivity.a(this.a, axVar.a(), "tb_frslist", z);
                 }
             }
         }

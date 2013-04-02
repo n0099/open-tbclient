@@ -28,7 +28,7 @@ import com.baidu.tieba.LogoActivity;
 import com.baidu.tieba.MainTabActivity;
 import com.baidu.tieba.R;
 import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.a.at;
+import com.baidu.tieba.a.ax;
 import com.baidu.tieba.account.LoginActivity;
 import com.baidu.tieba.home.CreateBarActivity;
 import com.baidu.tieba.pb.PbActivity;
@@ -77,7 +77,7 @@ public class FrsActivity extends com.baidu.tieba.e {
     private AlertDialog I = null;
     private String J = null;
     private String K = null;
-    private at L = null;
+    private ax L = null;
     private com.baidu.tieba.view.l M = null;
     private LinearLayout N = null;
     private RelativeLayout O = null;
@@ -165,7 +165,7 @@ public class FrsActivity extends com.baidu.tieba.e {
             this.Z = new Handler();
             m();
             o();
-            this.K = TiebaApplication.x();
+            this.K = TiebaApplication.y();
             if (bundle != null) {
                 this.g = bundle.getString("name");
                 this.h = bundle.getString("from");
@@ -306,10 +306,10 @@ public class FrsActivity extends com.baidu.tieba.e {
                 case 12000010:
                     if (this.A != null && this.A.a() != null) {
                         if (intent == null || intent.getStringExtra("filename") == null) {
-                            WriteActivity.a(this, this.A.a().b(), this.g, null, true, null);
+                            WriteActivity.a((Activity) this, this.A.a().b(), this.g, (com.baidu.tieba.a.b) null, true, (String) null);
                             return;
                         } else {
-                            WriteActivity.a(this, this.A.a().b(), this.g, null, true, intent.getStringExtra("filename"));
+                            WriteActivity.a((Activity) this, this.A.a().b(), this.g, (com.baidu.tieba.a.b) null, true, intent.getStringExtra("filename"));
                             return;
                         }
                     }
@@ -339,9 +339,9 @@ public class FrsActivity extends com.baidu.tieba.e {
     @Override // com.baidu.tieba.e, android.app.Activity
     public void onResume() {
         super.onResume();
-        String x = TiebaApplication.x();
-        if (this.K == null && x != null && x.length() > 0) {
-            this.K = x;
+        String y = TiebaApplication.y();
+        if (this.K == null && y != null && y.length() > 0) {
+            this.K = y;
             if (this.A != null && this.A.c() != null) {
                 this.A.c().a(1);
             }
@@ -359,8 +359,8 @@ public class FrsActivity extends com.baidu.tieba.e {
             finish();
             return;
         }
-        String x = TiebaApplication.x();
-        if ((x != null && x.length() > 0) || TiebaApplication.b().ah() >= 3) {
+        String y = TiebaApplication.y();
+        if ((y != null && y.length() > 0) || TiebaApplication.b().ai() >= 3) {
             MainTabActivity.a(this, "goto_home");
         } else {
             MainTabActivity.a(this, "goto_recommend");
@@ -494,8 +494,8 @@ public class FrsActivity extends com.baidu.tieba.e {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void r() {
-        String x = TiebaApplication.x();
-        if (x == null || x.length() <= 0) {
+        String y = TiebaApplication.y();
+        if (y == null || y.length() <= 0) {
             LoginActivity.a((Activity) this, getString(R.string.login_to_use), true, 1100013);
             return;
         }
@@ -505,8 +505,8 @@ public class FrsActivity extends com.baidu.tieba.e {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void d(int i) {
-        String x = TiebaApplication.x();
-        if (x == null || x.length() <= 0) {
+        String y = TiebaApplication.y();
+        if (y == null || y.length() <= 0) {
             if (this.A != null && this.A.c() != null) {
                 this.A.c().a(1);
             }
@@ -517,22 +517,22 @@ public class FrsActivity extends com.baidu.tieba.e {
             }
         } else if (this.A != null) {
             if (i == 0) {
-                WriteActivity.a(this, this.A.a().b(), this.g, this.A.c(), false, null);
+                WriteActivity.a((Activity) this, this.A.a().b(), this.g, this.A.c(), false, (String) null);
             } else {
                 this.I.show();
             }
         }
     }
 
-    private boolean a(at atVar) {
+    private boolean a(ax axVar) {
         String a;
-        return atVar == null || atVar.h() == null || (a = atVar.h().a()) == null || a.equals("0");
+        return axVar == null || axVar.h() == null || (a = axVar.h().a()) == null || a.equals("0");
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void b(at atVar) {
-        boolean a = a(atVar);
-        m mVar = new m(this, atVar);
+    public void b(ax axVar) {
+        boolean a = a(axVar);
+        m mVar = new m(this, axVar);
         String string = getString(R.string.view);
         String string2 = getString(R.string.view_host);
         String string3 = getString(R.string.view_reverse);
@@ -548,8 +548,8 @@ public class FrsActivity extends com.baidu.tieba.e {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void c(at atVar) {
-        boolean a = a(atVar);
+    public void c(ax axVar) {
+        boolean a = a(axVar);
         if (this.o != null) {
             if (!a) {
                 PbActivity.a(this, this.o, true, true, "tb_frslist", this.p);
@@ -655,7 +655,7 @@ public class FrsActivity extends com.baidu.tieba.e {
         ArrayList arrayList = new ArrayList();
         arrayList.add(new BasicNameValuePair("kw", this.g));
         arrayList.add(new BasicNameValuePair("pn", String.valueOf(this.m)));
-        if (TiebaApplication.b().af()) {
+        if (TiebaApplication.b().ag()) {
             basicNameValuePair = new BasicNameValuePair("rn", String.valueOf(35));
         } else {
             basicNameValuePair = new BasicNameValuePair("rn", String.valueOf(50));
@@ -698,7 +698,7 @@ public class FrsActivity extends com.baidu.tieba.e {
     private void z() {
         switch (this.i) {
             case 1:
-                com.baidu.tieba.c.k.j(this.g);
+                com.baidu.tieba.c.k.k(this.g);
                 break;
         }
         this.i = 0;
@@ -713,7 +713,7 @@ public class FrsActivity extends com.baidu.tieba.e {
         this.x.setVisibility(0);
         this.u.setVisibility(0);
         this.v.setVisibility(0);
-        this.y.a(TiebaApplication.b().af());
+        this.y.a(TiebaApplication.b().ag());
         try {
             if (this.A != null) {
                 this.g = this.A.a().c();
@@ -909,7 +909,7 @@ public class FrsActivity extends com.baidu.tieba.e {
         return super.onOptionsItemSelected(menuItem);
     }
 
-    @Override // android.app.Activity, android.view.KeyEvent.Callback
+    @Override // com.baidu.tieba.e, android.app.Activity, android.view.KeyEvent.Callback
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
         if (i != 82 || this.n) {
             if (i == 4) {
@@ -951,8 +951,8 @@ public class FrsActivity extends com.baidu.tieba.e {
     }
 
     public void i() {
-        String x = TiebaApplication.x();
-        if (x == null || x.length() <= 0) {
+        String y = TiebaApplication.y();
+        if (y == null || y.length() <= 0) {
             LoginActivity.a((Activity) this, getString(R.string.login_to_use), true, 1100021);
         } else if (!this.A.f()) {
             this.A.a(true);

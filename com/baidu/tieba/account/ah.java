@@ -51,8 +51,8 @@ public class ah extends AsyncTask {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.os.AsyncTask
     /* renamed from: a */
-    public com.baidu.tieba.b.g doInBackground(Object... objArr) {
-        com.baidu.tieba.b.g gVar;
+    public com.baidu.tieba.b.h doInBackground(Object... objArr) {
+        com.baidu.tieba.b.h hVar;
         Exception e;
         try {
             this.c = new com.baidu.tieba.c.t(this.d);
@@ -64,17 +64,17 @@ public class ah extends AsyncTask {
             if (!this.c.b() || this.e == null) {
                 return null;
             }
-            gVar = new com.baidu.tieba.b.g();
+            hVar = new com.baidu.tieba.b.h();
             try {
-                gVar.a(this.e);
-                return gVar;
+                hVar.a(this.e);
+                return hVar;
             } catch (Exception e2) {
                 e = e2;
                 com.baidu.tieba.c.ag.b(getClass().getName(), "", "doInBackground error = " + e.getMessage());
-                return gVar;
+                return hVar;
             }
         } catch (Exception e3) {
-            gVar = null;
+            hVar = null;
             e = e3;
         }
     }
@@ -83,7 +83,7 @@ public class ah extends AsyncTask {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.os.AsyncTask
     /* renamed from: a */
-    public void onPostExecute(com.baidu.tieba.b.g gVar) {
+    public void onPostExecute(com.baidu.tieba.b.h hVar) {
         ProgressBar progressBar;
         TextView textView;
         TextView textView2;
@@ -99,8 +99,8 @@ public class ah extends AsyncTask {
         textView = this.b.N;
         textView.setText(R.string.account_login);
         this.b.u();
-        if (gVar != null) {
-            this.b.R = gVar;
+        if (hVar != null) {
+            this.b.R = hVar;
             this.b.p();
         } else if (this.c != null) {
             if ((!this.c.c() || this.c.d() != 5) && this.c.d() != 6) {
@@ -112,9 +112,9 @@ public class ah extends AsyncTask {
                 textView4.setVisibility(8);
                 this.b.q();
             } else {
-                com.baidu.tieba.a.aw awVar = new com.baidu.tieba.a.aw();
-                awVar.a(this.e);
-                if (awVar.b() == null) {
+                com.baidu.tieba.a.ba baVar = new com.baidu.tieba.a.ba();
+                baVar.a(this.e);
+                if (baVar.b() == null) {
                     textView5 = this.b.L;
                     textView5.setVisibility(0);
                     textView6 = this.b.L;
@@ -123,8 +123,8 @@ public class ah extends AsyncTask {
                     textView7.setVisibility(8);
                     this.b.q();
                 } else {
-                    this.b.l = awVar.a();
-                    this.b.m = awVar.b();
+                    this.b.l = baVar.a();
+                    this.b.m = baVar.b();
                     LoginActivity loginActivity = this.b;
                     str = this.b.m;
                     loginActivity.c(str);

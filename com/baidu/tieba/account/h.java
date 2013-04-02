@@ -32,8 +32,8 @@ public class h extends AsyncTask {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.os.AsyncTask
     /* renamed from: a */
-    public com.baidu.tieba.b.g doInBackground(Object... objArr) {
-        com.baidu.tieba.b.g gVar;
+    public com.baidu.tieba.b.h doInBackground(Object... objArr) {
+        com.baidu.tieba.b.h hVar;
         Exception e;
         try {
             this.c = new com.baidu.tieba.c.t(this.d);
@@ -45,17 +45,17 @@ public class h extends AsyncTask {
             if (!this.c.b() || this.e == null) {
                 return null;
             }
-            gVar = new com.baidu.tieba.b.g();
+            hVar = new com.baidu.tieba.b.h();
             try {
-                gVar.a(this.e);
-                return gVar;
+                hVar.a(this.e);
+                return hVar;
             } catch (Exception e2) {
                 e = e2;
                 com.baidu.tieba.c.ag.b(getClass().getName(), "", "doInBackground error = " + e.getMessage());
-                return gVar;
+                return hVar;
             }
         } catch (Exception e3) {
-            gVar = null;
+            hVar = null;
             e = e3;
         }
     }
@@ -64,13 +64,13 @@ public class h extends AsyncTask {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.os.AsyncTask
     /* renamed from: a */
-    public void onPostExecute(com.baidu.tieba.b.g gVar) {
+    public void onPostExecute(com.baidu.tieba.b.h hVar) {
         ProgressBar progressBar;
         String str;
         progressBar = this.b.l;
         progressBar.setVisibility(8);
-        if (gVar != null) {
-            this.b.j = gVar;
+        if (hVar != null) {
+            this.b.j = hVar;
             this.b.l();
         } else if (this.c != null) {
             this.b.b(this.c.f());
@@ -79,10 +79,10 @@ public class h extends AsyncTask {
                     this.b.setResult(0);
                     this.b.finish();
                 } else if (this.c.d() == 6 || this.c.d() == 5) {
-                    com.baidu.tieba.a.aw awVar = new com.baidu.tieba.a.aw();
-                    awVar.a(this.e);
-                    this.b.f = awVar.a();
-                    this.b.g = awVar.b();
+                    com.baidu.tieba.a.ba baVar = new com.baidu.tieba.a.ba();
+                    baVar.a(this.e);
+                    this.b.f = baVar.a();
+                    this.b.g = baVar.b();
                     AccountVcodeActivity accountVcodeActivity = this.b;
                     str = this.b.g;
                     accountVcodeActivity.c(str);

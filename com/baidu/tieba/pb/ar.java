@@ -15,9 +15,9 @@ public class ar implements View.OnClickListener {
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (TiebaApplication.b().k()) {
+        if (TiebaApplication.b().l()) {
             StatService.onEvent(this.a, "pb_reply", "pbclick", 1);
         }
-        this.a.a((com.baidu.tieba.a.al) null);
+        this.a.a((com.baidu.tieba.a.an) null);
     }
 }

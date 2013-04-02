@@ -19,7 +19,7 @@ public class v implements View.OnClickListener {
         AlertDialog alertDialog2;
         AlertDialog alertDialog3;
         switch (view.getId()) {
-            case R.id.show_photo /* 2131230870 */:
+            case R.id.show_photo /* 2131230875 */:
                 alertDialog = this.a.g;
                 if (alertDialog == null) {
                     this.a.g = new AlertDialog.Builder(this.a).setTitle(R.string.show_photo).setItems(R.array.menu_view_images, new w(this)).create();

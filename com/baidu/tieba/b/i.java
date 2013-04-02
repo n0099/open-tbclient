@@ -1,9 +1,11 @@
 package com.baidu.tieba.b;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
-public class i {
-    private ArrayList a = new ArrayList();
+public class i implements Serializable {
+    private ArrayList a = null;
+    private int b;
 
     public ArrayList a() {
         return this.a;
@@ -13,10 +15,11 @@ public class i {
         this.a = arrayList;
     }
 
-    public void b() {
-        ArrayList q = com.baidu.tieba.c.k.q();
-        if (q != null) {
-            a(q);
-        }
+    public void a(int i) {
+        this.b = i;
+    }
+
+    public int b() {
+        return this.b;
     }
 }

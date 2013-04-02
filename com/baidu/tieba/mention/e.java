@@ -152,7 +152,7 @@ public class e extends BaseAdapter {
         if (this.b == null) {
             return view;
         }
-        int ag = TiebaApplication.b().ag();
+        int ah = TiebaApplication.b().ah();
         try {
             if (view == null) {
                 LayoutInflater from = LayoutInflater.from(this.a);
@@ -216,7 +216,7 @@ public class e extends BaseAdapter {
                     gVar.a.setText(R.string.more);
                 }
             }
-            if (ag == 1) {
+            if (ah == 1) {
                 if (gVar.a != null) {
                     gVar.a.setTextColor(this.a.getResources().getColor(R.color.skin_1_common_color));
                     return view4;
@@ -266,12 +266,12 @@ public class e extends BaseAdapter {
             gVar.c.a(pVar.i().b());
             gVar.e.setOnClickListener(gVar.c);
             if (gVar.k != null) {
-                ae.b(gVar.k, ag);
+                ae.b(gVar.k, ah);
             }
-            ae.b(gVar.f, ag);
-            if (ag == 1) {
+            ae.b(gVar.f, ah);
+            if (ah == 1) {
                 if (gVar.d != null) {
-                    ae.i(gVar.d, R.drawable.message_replyme_1);
+                    ae.h(gVar.d, R.drawable.message_replyme_1);
                 }
                 if (gVar.i != null) {
                     gVar.i.setTextColor(this.a.getResources().getColor(R.color.skin_1_third_common_color));
@@ -280,7 +280,7 @@ public class e extends BaseAdapter {
                 view2 = view4;
             } else {
                 if (gVar.d != null) {
-                    ae.i(gVar.d, R.drawable.message_replyme);
+                    ae.h(gVar.d, R.drawable.message_replyme);
                 }
                 if (gVar.i != null) {
                     gVar.i.setTextColor(-12040120);

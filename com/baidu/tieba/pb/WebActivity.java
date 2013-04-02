@@ -31,9 +31,9 @@ public class WebActivity extends com.baidu.tieba.e {
     private LinearLayout n = null;
     protected String f = null;
     protected String g = null;
-    protected dx h = null;
+    protected dz h = null;
     private Handler o = new Handler();
-    private Runnable p = new dr(this);
+    private Runnable p = new dt(this);
 
     public static void a(Context context, String str, String str2, String str3) {
         Intent intent = new Intent(context, WebActivity.class);
@@ -92,7 +92,7 @@ public class WebActivity extends com.baidu.tieba.e {
         this.n = (LinearLayout) findViewById(R.id.softkey);
         this.l = (ProgressBar) findViewById(R.id.progress);
         this.c = (WebView) findViewById(R.id.webview);
-        this.c.setWebViewClient(new ds(this));
+        this.c.setWebViewClient(new du(this));
         this.m = CompatibleUtile.getInstance().getWebChromeClient(this);
         this.c.setWebChromeClient(this.m);
         WebSettings settings = this.c.getSettings();
@@ -102,17 +102,17 @@ public class WebActivity extends com.baidu.tieba.e {
         com.baidu.tieba.c.ai.a(settings);
         this.i = (ImageView) findViewById(R.id.webBack);
         this.i.setEnabled(false);
-        this.i.setOnClickListener(new dt(this));
+        this.i.setOnClickListener(new dv(this));
         this.j = (ImageView) findViewById(R.id.webForward);
         this.j.setEnabled(false);
-        this.j.setOnClickListener(new du(this));
+        this.j.setOnClickListener(new dw(this));
         this.k = (Button) findViewById(R.id.refresh);
-        this.k.setOnClickListener(new dv(this));
+        this.k.setOnClickListener(new dx(this));
         this.d = (Button) findViewById(R.id.back);
-        this.d.setOnClickListener(new dw(this));
+        this.d.setOnClickListener(new dy(this));
     }
 
-    @Override // android.app.Activity, android.view.KeyEvent.Callback
+    @Override // com.baidu.tieba.e, android.app.Activity, android.view.KeyEvent.Callback
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
         if (i == 4) {
             a();
@@ -189,7 +189,7 @@ public class WebActivity extends com.baidu.tieba.e {
         }
     }
 
-    public void a(dx dxVar) {
-        this.h = dxVar;
+    public void a(dz dzVar) {
+        this.h = dzVar;
     }
 }

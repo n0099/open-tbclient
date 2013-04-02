@@ -1,33 +1,24 @@
 package com.baidu.tieba.pb;
 
+import android.content.Context;
 import android.view.View;
-import android.widget.LinearLayout;
-import android.widget.ProgressBar;
-import android.widget.TextView;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class dq {
-    TextView a;
-    TextView b;
-    TextView c;
-    TextView d;
-    LinearLayout e;
-    TextView f;
-    ProgressBar g;
-    dp h;
-    TextView i;
-    TextView j;
-    View k;
-    Cdo l;
-    dn m;
-    final /* synthetic */ dm n;
+class dq implements View.OnClickListener {
+    final /* synthetic */ Cdo a;
+    private String b = null;
 
-    private dq(dm dmVar) {
-        this.n = dmVar;
+    public dq(Cdo cdo) {
+        this.a = cdo;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ dq(dm dmVar, dq dqVar) {
-        this(dmVar);
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        Context context;
+        context = this.a.a;
+        ((SubPbActivity) context).c(this.b);
+    }
+
+    public void a(String str) {
+        this.b = str;
     }
 }

@@ -1,5 +1,17 @@
 package com.baidu.tieba.pb;
+
+import android.view.View;
 /* loaded from: classes.dex */
-public interface dx {
-    boolean a(String str);
+class dx implements View.OnClickListener {
+    final /* synthetic */ WebActivity a;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public dx(WebActivity webActivity) {
+        this.a = webActivity;
+    }
+
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        this.a.c.reload();
+    }
 }

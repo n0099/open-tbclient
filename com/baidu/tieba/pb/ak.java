@@ -188,15 +188,15 @@ public class ak extends BaseAdapter {
             anVar.a.setGravity(3);
             anVar.a.setMovementMethod(LinkMovementMethod.getInstance());
             anVar.a.setTextColor(this.c.getResources().getColor(R.color.reg_font_color));
-            com.baidu.tieba.a.al alVar = (com.baidu.tieba.a.al) this.a.a().get(i - 1);
+            com.baidu.tieba.a.an anVar5 = (com.baidu.tieba.a.an) this.a.a().get(i - 1);
             anVar.c.setVisibility(0);
             anVar.b.setVisibility(0);
-            anVar.b.setText(alVar.e().b());
-            anVar.b.setOnClickListener(new al(this, alVar.e().a(), alVar.e().b()));
-            anVar.c.setText(com.baidu.tieba.c.af.a(alVar.d()));
+            anVar.b.setText(anVar5.e().b());
+            anVar.b.setOnClickListener(new al(this, anVar5.e().a(), anVar5.e().b()));
+            anVar.c.setText(com.baidu.tieba.c.af.a(anVar5.d()));
             anVar.d.setVisibility(8);
             anVar.d.removeAllViews();
-            ArrayList f = alVar.f();
+            ArrayList f = anVar5.f();
             com.baidu.tieba.c.g gVar = new com.baidu.tieba.c.g(this.c);
             gVar.a(-13421773);
             gVar.a(anVar.a, anVar.d, f, false);
@@ -268,7 +268,7 @@ public class ak extends BaseAdapter {
 
     private void a(an anVar) {
         try {
-            if (TiebaApplication.b().ag() == 1) {
+            if (TiebaApplication.b().ah() == 1) {
                 anVar.i.setTextColor(com.baidu.tieba.c.ae.a(1));
                 anVar.k.setTextColor(com.baidu.tieba.c.ae.b(1));
                 anVar.g.setBackgroundColor(com.baidu.tieba.c.ae.d(1));
@@ -284,7 +284,7 @@ public class ak extends BaseAdapter {
 
     private void b(an anVar) {
         try {
-            if (TiebaApplication.b().ag() == 1) {
+            if (TiebaApplication.b().ah() == 1) {
                 anVar.a.setTextColor(com.baidu.tieba.c.ae.a(1));
                 anVar.c.setTextColor(com.baidu.tieba.c.ae.b(1));
             } else {
@@ -298,7 +298,7 @@ public class ak extends BaseAdapter {
 
     private void a(an anVar, boolean z) {
         try {
-            if (TiebaApplication.b().ag() == 1) {
+            if (TiebaApplication.b().ah() == 1) {
                 if (z) {
                     anVar.e.setTextColor(com.baidu.tieba.c.ae.a(1));
                 } else {

@@ -3,29 +3,30 @@ package com.baidu.tieba.write;
 import android.location.Address;
 import android.os.AsyncTask;
 import android.widget.EditText;
+import com.baidu.android.pushservice.PushConstants;
 import com.baidu.tieba.R;
 import com.baidu.tieba.TiebaApplication;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class s extends AsyncTask {
     final /* synthetic */ VcodeActivity a;
-    private com.baidu.tieba.b.y b;
+    private com.baidu.tieba.b.z b;
     private com.baidu.tieba.c.t c = null;
     private String d = null;
 
-    public s(VcodeActivity vcodeActivity, com.baidu.tieba.b.y yVar) {
+    public s(VcodeActivity vcodeActivity, com.baidu.tieba.b.z zVar) {
         this.a = vcodeActivity;
         this.b = null;
-        this.b = yVar;
+        this.b = zVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.os.AsyncTask
     /* renamed from: a */
-    public com.baidu.tieba.a.aw doInBackground(Integer... numArr) {
+    public com.baidu.tieba.a.ba doInBackground(Integer... numArr) {
         EditText editText;
-        Address ax;
+        Address aC;
         this.c = new com.baidu.tieba.c.t();
         this.c.a("anonymous", "0");
         this.c.a("fid", this.b.f());
@@ -34,7 +35,7 @@ public class s extends AsyncTask {
         if (this.b.j() != null && this.b.j().a() != null && this.b.j().a().length() > 0) {
             str = String.format("#(pic,%s,%d,%d)", this.b.j().a(), Integer.valueOf(this.b.j().b()), Integer.valueOf(this.b.j().c()));
         }
-        this.c.a("content", String.valueOf(this.b.c()) + str);
+        this.c.a(PushConstants.EXTRA_CONTENT, String.valueOf(this.b.c()) + str);
         this.c.a("vcode_md5", this.b.k());
         editText = this.a.g;
         String editable = editText.getText().toString();
@@ -50,8 +51,8 @@ public class s extends AsyncTask {
                 this.c.a("thread_type", "7");
                 this.c.a("st_type", "tb_suishoufa");
             }
-            if (!com.baidu.tieba.a.i.f().equals(this.a.getIntent().getStringExtra("forum_id")) && TiebaApplication.b().l() && (ax = TiebaApplication.b().ax()) != null) {
-                this.c.a("lbs", String.valueOf(String.valueOf(ax.getLatitude())) + "," + String.valueOf(ax.getLongitude()));
+            if (!com.baidu.tieba.a.i.f().equals(this.a.getIntent().getStringExtra("forum_id")) && TiebaApplication.b().m() && (aC = TiebaApplication.b().aC()) != null) {
+                this.c.a("lbs", String.valueOf(String.valueOf(aC.getLatitude())) + "," + String.valueOf(aC.getLongitude()));
             }
         } else {
             this.c.a("http://c.tieba.baidu.com/c/c/post/add");
@@ -79,11 +80,11 @@ public class s extends AsyncTask {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.os.AsyncTask
     /* renamed from: a */
-    public void onPostExecute(com.baidu.tieba.a.aw awVar) {
+    public void onPostExecute(com.baidu.tieba.a.ba baVar) {
         EditText editText;
-        com.baidu.tieba.b.y yVar;
-        com.baidu.tieba.b.y yVar2;
-        com.baidu.tieba.b.y yVar3;
+        com.baidu.tieba.b.z zVar;
+        com.baidu.tieba.b.z zVar2;
+        com.baidu.tieba.b.z zVar3;
         this.a.d();
         this.a.i = null;
         if (this.c != null) {
@@ -99,16 +100,16 @@ public class s extends AsyncTask {
                 this.a.finish();
             } else {
                 if (this.c.d() == 5 || this.c.d() == 6) {
-                    com.baidu.tieba.a.aw awVar2 = new com.baidu.tieba.a.aw();
-                    awVar2.a(this.d);
-                    if (awVar2.b() != null) {
-                        yVar = this.a.c;
-                        yVar.h(awVar2.a());
-                        yVar2 = this.a.c;
-                        yVar2.i(awVar2.b());
+                    com.baidu.tieba.a.ba baVar2 = new com.baidu.tieba.a.ba();
+                    baVar2.a(this.d);
+                    if (baVar2.b() != null) {
+                        zVar = this.a.c;
+                        zVar.h(baVar2.a());
+                        zVar2 = this.a.c;
+                        zVar2.i(baVar2.b());
                         VcodeActivity vcodeActivity = this.a;
-                        yVar3 = this.a.c;
-                        vcodeActivity.c(yVar3.l());
+                        zVar3 = this.a.c;
+                        vcodeActivity.c(zVar3.l());
                     }
                     editText = this.a.g;
                     editText.setText((CharSequence) null);
@@ -116,6 +117,6 @@ public class s extends AsyncTask {
                 this.a.b(this.c.f());
             }
         }
-        super.onPostExecute(awVar);
+        super.onPostExecute(baVar);
     }
 }

@@ -12,6 +12,6 @@ class g implements Runnable {
 
     @Override // java.lang.Runnable
     public void run() {
-        new com.baidu.tieba.c.w(this.b).k();
+        new com.baidu.tieba.c.w(this.b).l();
     }
 }

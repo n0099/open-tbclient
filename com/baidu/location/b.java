@@ -8,6 +8,7 @@ import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Bundle;
 import android.os.Handler;
+import com.baidu.android.common.util.HanziToPinyin;
 import com.baidu.browser.explorer.BdWebErrorView;
 import com.baidu.zeus.Headers;
 import java.io.File;
@@ -1192,7 +1193,7 @@ public class b {
             m2if[1] = this.D.getLatitude();
         }
         String format = String.format(str, Double.valueOf(m2if[0]), Double.valueOf(m2if[1]), Integer.valueOf(accuracy), Float.valueOf(this.D.getBearing()), Float.valueOf(speed), Integer.valueOf(k));
-        j.a("baidu_location_service", "wgs84: " + this.D.getLongitude() + " " + this.D.getLatitude() + " gcj02: " + m2if[0] + " " + m2if[1]);
+        j.a("baidu_location_service", "wgs84: " + this.D.getLongitude() + HanziToPinyin.Token.SEPARATOR + this.D.getLatitude() + " gcj02: " + m2if[0] + HanziToPinyin.Token.SEPARATOR + m2if[1]);
         return format;
     }
 

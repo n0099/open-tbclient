@@ -15,7 +15,7 @@ public class u implements View.OnClickListener {
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (TiebaApplication.b().k()) {
+        if (TiebaApplication.b().l()) {
             StatService.onEvent(this.a, "frs_post_pic", "frsclick", 1);
         }
         this.a.d(1);

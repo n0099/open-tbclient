@@ -17,22 +17,25 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import com.baidu.mobstat.StatService;
-import com.baidu.tieba.c.ag;
 import com.baidu.tieba.view.BaseViewPager;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class GuideActivity extends Activity {
-    private ArrayList c;
-    private k d;
-    private BaseViewPager e;
-    private Button f;
-    private List g;
-    private int[] b = {R.drawable.guide0, R.drawable.guide1, R.drawable.guide2};
-    private j h = null;
-    private com.baidu.tieba.view.a i = new h(this);
+    private ArrayList d;
+    private m e;
+    private BaseViewPager f;
+    private Button g;
+    private List h;
+    private int[] c = {R.drawable.guide0, R.drawable.guide1, R.drawable.guide2};
+    private l i = null;
+    private LinearLayout j = null;
+    private com.baidu.tieba.view.a k = new h(this);
     public View.OnClickListener a = new i(this);
+    public View.OnClickListener b = new j(this);
+    private final android.support.v4.view.aj l = new k(this);
 
     public static void a(Activity activity, int i) {
         activity.startActivityForResult(new Intent(activity, GuideActivity.class), i);
@@ -43,33 +46,36 @@ public class GuideActivity extends Activity {
         View imageView;
         super.onCreate(bundle);
         setContentView(R.layout.guide_activity);
-        this.d = new k(this, null);
-        this.e = (BaseViewPager) findViewById(R.id.guide_pager);
-        this.e.setAdapter(this.d);
-        this.e.setOnScrollOutListener(this.i);
-        this.g = new ArrayList();
+        this.e = new m(this, null);
+        this.f = (BaseViewPager) findViewById(R.id.guide_pager);
+        this.f.setAdapter(this.e);
+        this.f.setOnScrollOutListener(this.k);
+        this.f.setOnPageChangeListener(this.l);
+        this.h = new ArrayList();
         LayoutInflater layoutInflater = getLayoutInflater();
-        this.c = new ArrayList();
-        for (int i = 0; i < this.b.length; i++) {
-            Bitmap decodeResource = BitmapFactory.decodeResource(getResources(), this.b[i]);
-            if (i == this.b.length - 1) {
+        this.d = new ArrayList();
+        this.j = (LinearLayout) findViewById(R.id.tagsGroup);
+        for (int i = 0; i < this.c.length; i++) {
+            Bitmap decodeResource = BitmapFactory.decodeResource(getResources(), this.c[i]);
+            if (i == this.c.length - 1) {
                 imageView = layoutInflater.inflate(R.layout.guide_view, (ViewGroup) null);
             } else {
                 imageView = new ImageView(this);
             }
+            imageView.setOnClickListener(this.b);
             imageView.setBackgroundDrawable(new BitmapDrawable(decodeResource));
-            this.g.add(decodeResource);
-            this.c.add(i, imageView);
+            this.h.add(decodeResource);
+            this.d.add(i, imageView);
         }
-        if (TiebaApplication.b().k()) {
+        if (TiebaApplication.b().l()) {
             try {
                 StatService.setAppChannel(com.baidu.tieba.a.i.a());
             } catch (Exception e) {
-                ag.b(getClass().getName(), "onCreate", e.getMessage());
+                com.baidu.tieba.c.ag.b(getClass().getName(), "onCreate", e.getMessage());
             }
         }
-        this.h = new j(this, null);
-        this.h.execute(new String[0]);
+        this.i = new l(this, null);
+        this.i.execute(new String[0]);
     }
 
     @Override // android.app.Activity
@@ -78,33 +84,33 @@ public class GuideActivity extends Activity {
         int i = 0;
         while (true) {
             int i2 = i;
-            if (i2 >= this.b.length) {
+            if (i2 >= this.c.length) {
                 break;
             }
-            View view = (View) this.c.get(i2);
+            View view = (View) this.d.get(i2);
             if (view != null) {
                 view.setBackgroundDrawable(null);
             }
-            Bitmap bitmap = (Bitmap) this.g.get(i2);
+            Bitmap bitmap = (Bitmap) this.h.get(i2);
             if (bitmap != null && !bitmap.isRecycled()) {
                 bitmap.recycle();
             }
             i = i2 + 1;
         }
-        if (this.h != null) {
-            this.h.cancel(true);
-            this.h = null;
+        if (this.i != null) {
+            this.i.cancel(true);
+            this.i = null;
         }
     }
 
     @Override // android.app.Activity
     public void onResume() {
         super.onResume();
-        if (TiebaApplication.b().k()) {
+        if (TiebaApplication.b().l()) {
             try {
                 StatService.onResume(this);
             } catch (Exception e) {
-                ag.b(getClass().getName(), "onResume", e.getMessage());
+                com.baidu.tieba.c.ag.b(getClass().getName(), "onResume", e.getMessage());
             }
         }
     }
@@ -112,11 +118,11 @@ public class GuideActivity extends Activity {
     @Override // android.app.Activity
     public void onPause() {
         super.onPause();
-        if (TiebaApplication.b().k()) {
+        if (TiebaApplication.b().l()) {
             try {
                 StatService.onPause(this);
             } catch (Exception e) {
-                ag.b(getClass().getName(), "onPause", e.getMessage());
+                com.baidu.tieba.c.ag.b(getClass().getName(), "onPause", e.getMessage());
             }
         }
     }
@@ -134,7 +140,6 @@ public class GuideActivity extends Activity {
 
     public void a() {
         setResult(-1);
-        LogoActivity.a(false);
         finish();
     }
 
@@ -167,7 +172,7 @@ public class GuideActivity extends Activity {
                 }
             }
         } catch (Exception e) {
-            ag.a(getClass().getName(), "checkShortCut", e.toString());
+            com.baidu.tieba.c.ag.a(getClass().getName(), "checkShortCut", e.toString());
         }
         return false;
     }

@@ -5,12 +5,12 @@ import android.view.View;
 /* loaded from: classes.dex */
 public class ab implements View.OnClickListener {
     final /* synthetic */ aa a;
-    private final /* synthetic */ com.baidu.tieba.a.ad b;
+    private final /* synthetic */ com.baidu.tieba.a.af b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ab(aa aaVar, com.baidu.tieba.a.ad adVar) {
+    public ab(aa aaVar, com.baidu.tieba.a.af afVar) {
         this.a = aaVar;
-        this.b = adVar;
+        this.b = afVar;
     }
 
     @Override // android.view.View.OnClickListener

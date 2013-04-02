@@ -1,69 +1,68 @@
 package com.baidu.tieba.a;
 
-import org.json.JSONException;
+import android.graphics.Color;
+import com.baidu.android.pushservice.PushConstants;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class aq {
-    private int a = 0;
-    private int c = 0;
-    private int d = 0;
-    private int e = 0;
-    private int b = 0;
-    private int f = 3;
-    private int g = 0;
+    private String d;
+    private String a = null;
+    private String b = null;
+    private String c = null;
+    private boolean h = false;
+    private long e = 0;
+    private az f = new az();
+    private String g = null;
+    private boolean i = true;
 
-    public void a(int i) {
-        this.b = i;
+    public boolean a() {
+        return this.i;
     }
 
-    public int a() {
+    public String b() {
         return this.b;
     }
 
-    public int b() {
+    public String c() {
         return this.a;
     }
 
-    public int c() {
+    public String d() {
+        return this.d;
+    }
+
+    public String e() {
         return this.c;
     }
 
-    public void b(int i) {
-        this.a = i;
+    public String f() {
+        return this.g;
     }
 
-    public void c(int i) {
-        this.c = i;
-    }
-
-    public int d() {
-        return this.f;
-    }
-
-    public void d(int i) {
-        this.g = i;
-    }
-
-    public void a(String str) {
-        try {
-            a(new JSONObject(str));
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
+    public long g() {
+        return this.e;
     }
 
     public void a(JSONObject jSONObject) {
-        try {
-            JSONObject optJSONObject = jSONObject.optJSONObject("user_info");
-            if (optJSONObject != null) {
-                this.a = optJSONObject.getInt("is_sign_in");
-                this.c = optJSONObject.getInt("user_sign_rank");
-                this.d = optJSONObject.getInt("cont_sign_num");
-                this.e = optJSONObject.getInt("cout_total_sing_num");
-                this.f = optJSONObject.getInt("sign_bonus_point");
+        if (jSONObject != null) {
+            try {
+                this.a = jSONObject.optString("tid");
+                this.c = jSONObject.optString("title");
+                this.b = jSONObject.optString("pid");
+                this.h = jSONObject.optInt("is_floor", 0) != 0;
+                this.e = jSONObject.optLong("time", 0L) * 1000;
+                this.f.a(jSONObject.optJSONObject("author"));
+                this.g = jSONObject.optString(PushConstants.EXTRA_CONTENT);
+                this.d = jSONObject.optString("fname");
+                this.c = com.baidu.tieba.c.af.a(this.c, (Color) null);
+                String a = com.baidu.tieba.c.af.a(this.g, (Color) null);
+                if (!a.equals(this.g)) {
+                    this.g = a;
+                    this.i = false;
+                }
+            } catch (Exception e) {
+                com.baidu.tieba.c.ag.b("PostData", "parserJson", "error = " + e.getMessage());
             }
-        } catch (JSONException e) {
-            e.printStackTrace();
         }
     }
 }

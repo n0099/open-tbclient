@@ -3,6 +3,7 @@ package com.baidu.browser.version;
 import android.content.Context;
 import android.os.Build;
 import android.util.DisplayMetrics;
+import com.baidu.android.common.util.HanziToPinyin;
 import com.baidu.browser.bbm.BdBBM;
 /* loaded from: classes.dex */
 public class BdUpdateUtil {
@@ -24,7 +25,7 @@ public class BdUpdateUtil {
         if (str2.equals("--")) {
             replace = "bd-android";
         } else {
-            replace = str2.replace(" ", "").replace("_", "").replace("&", "-");
+            replace = str2.replace(HanziToPinyin.Token.SEPARATOR, "").replace("_", "").replace("&", "-");
         }
         DisplayMetrics displayMetrics = context.getResources().getDisplayMetrics();
         String replace2 = ("bd_" + Math.min(displayMetrics.widthPixels, displayMetrics.heightPixels) + "_" + Math.min(displayMetrics.heightPixels, displayMetrics.heightPixels) + "_" + replace + "_" + OUTER_VERSION + "_" + mZeusCode).replace('.', '-');

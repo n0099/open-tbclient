@@ -44,7 +44,9 @@ public class j {
                 } else {
                     this.i = true;
                 }
-                TiebaApplication.b().e(this.h);
+                if (!this.h) {
+                    TiebaApplication.b().e(this.h);
+                }
                 if (!this.i) {
                     TiebaApplication.b().o(this.i);
                 }

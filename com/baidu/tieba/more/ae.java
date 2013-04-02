@@ -18,7 +18,7 @@ public class ae implements DialogInterface.OnClickListener {
         int i3;
         switch (i) {
             case 0:
-                if (TiebaApplication.b().ag() != 1) {
+                if (TiebaApplication.b().ah() != 1) {
                     TiebaApplication.b().h(1);
                     this.a.b = 1;
                     MoreActivity moreActivity = this.a;
@@ -30,7 +30,7 @@ public class ae implements DialogInterface.OnClickListener {
                     return;
                 }
             case 1:
-                if (TiebaApplication.b().ag() != 0) {
+                if (TiebaApplication.b().ah() != 0) {
                     TiebaApplication.b().h(0);
                     this.a.b = 0;
                     MoreActivity moreActivity2 = this.a;

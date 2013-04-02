@@ -22,7 +22,7 @@ public class bf implements View.OnClickListener {
     public void onClick(View view) {
         Dialog dialog;
         this.a.b(this.b, this.c, this.d);
-        dialog = this.a.F;
+        dialog = this.a.E;
         dialog.dismiss();
     }
 }

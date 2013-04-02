@@ -66,24 +66,24 @@ public class MsgRemindActivity extends com.baidu.tieba.e {
         com.baidu.tieba.c.ae.c(this.q, i);
         if (i == 1) {
             color = com.baidu.tieba.c.ae.a(i);
-            com.baidu.tieba.c.ae.i(this.s, R.drawable.more_up_1);
-            com.baidu.tieba.c.ae.i(this.t, R.drawable.more_middle_1);
-            com.baidu.tieba.c.ae.i(this.u, R.drawable.more_middle_1);
-            com.baidu.tieba.c.ae.i(this.v, R.drawable.more_down_1);
-            com.baidu.tieba.c.ae.i(this.w, R.drawable.more_up_1);
-            com.baidu.tieba.c.ae.i(this.x, R.drawable.more_middle_1);
-            com.baidu.tieba.c.ae.i(this.y, R.drawable.more_down_1);
+            com.baidu.tieba.c.ae.h(this.s, R.drawable.more_up_1);
+            com.baidu.tieba.c.ae.h(this.t, R.drawable.more_middle_1);
+            com.baidu.tieba.c.ae.h(this.u, R.drawable.more_middle_1);
+            com.baidu.tieba.c.ae.h(this.v, R.drawable.more_down_1);
+            com.baidu.tieba.c.ae.h(this.w, R.drawable.more_up_1);
+            com.baidu.tieba.c.ae.h(this.x, R.drawable.more_middle_1);
+            com.baidu.tieba.c.ae.h(this.y, R.drawable.more_down_1);
             this.i.setBackgroundResource(R.drawable.more_up_1);
             this.l.setBackgroundResource(R.drawable.more_down_1);
         } else {
             color = getResources().getColor(R.color.more_color);
-            com.baidu.tieba.c.ae.i(this.s, R.drawable.more_up);
-            com.baidu.tieba.c.ae.i(this.t, R.drawable.more_middle);
-            com.baidu.tieba.c.ae.i(this.u, R.drawable.more_middle);
-            com.baidu.tieba.c.ae.i(this.v, R.drawable.more_down);
-            com.baidu.tieba.c.ae.i(this.w, R.drawable.more_up);
-            com.baidu.tieba.c.ae.i(this.x, R.drawable.more_middle);
-            com.baidu.tieba.c.ae.i(this.y, R.drawable.more_down);
+            com.baidu.tieba.c.ae.h(this.s, R.drawable.more_up);
+            com.baidu.tieba.c.ae.h(this.t, R.drawable.more_middle);
+            com.baidu.tieba.c.ae.h(this.u, R.drawable.more_middle);
+            com.baidu.tieba.c.ae.h(this.v, R.drawable.more_down);
+            com.baidu.tieba.c.ae.h(this.w, R.drawable.more_up);
+            com.baidu.tieba.c.ae.h(this.x, R.drawable.more_middle);
+            com.baidu.tieba.c.ae.h(this.y, R.drawable.more_down);
             this.i.setBackgroundResource(R.drawable.more_up);
             this.l.setBackgroundResource(R.drawable.more_down);
         }
@@ -154,12 +154,12 @@ public class MsgRemindActivity extends com.baidu.tieba.e {
     }
 
     private void j() {
-        int L = TiebaApplication.b().L();
-        if (L == 30) {
+        int M = TiebaApplication.b().M();
+        if (M == 30) {
             this.c.check(R.id.radio_30sec);
-        } else if (L == 120) {
+        } else if (M == 120) {
             this.c.check(R.id.radio_2min);
-        } else if (L == 300) {
+        } else if (M == 300) {
             this.c.check(R.id.radio_5min);
         } else {
             this.c.check(R.id.radio_no);
@@ -168,7 +168,7 @@ public class MsgRemindActivity extends com.baidu.tieba.e {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void k() {
-        if (TiebaApplication.b().L() <= 0) {
+        if (TiebaApplication.b().M() <= 0) {
             this.d.setVisibility(8);
             this.f.setVisibility(8);
             this.e.setVisibility(8);
@@ -186,20 +186,20 @@ public class MsgRemindActivity extends com.baidu.tieba.e {
     }
 
     private void l() {
-        if (TiebaApplication.b().T()) {
+        if (TiebaApplication.b().U()) {
             this.e.setChecked(true);
         }
-        if (TiebaApplication.b().S()) {
+        if (TiebaApplication.b().T()) {
             this.f.setChecked(true);
         }
-        if (TiebaApplication.b().R()) {
+        if (TiebaApplication.b().S()) {
             this.g.setChecked(true);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void m() {
-        if (TiebaApplication.b().O()) {
+        if (TiebaApplication.b().P()) {
             this.j.setText(getString(R.string.remind_tone_open));
         } else {
             this.j.setText(getString(R.string.remind_tone_close));
@@ -208,7 +208,7 @@ public class MsgRemindActivity extends com.baidu.tieba.e {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void n() {
-        if (TiebaApplication.b().P()) {
+        if (TiebaApplication.b().Q()) {
             this.m.setText(getString(R.string.remind_tone_open));
         } else {
             this.m.setText(getString(R.string.remind_tone_close));

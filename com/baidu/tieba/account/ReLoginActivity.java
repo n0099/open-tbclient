@@ -42,7 +42,7 @@ public class ReLoginActivity extends com.baidu.tieba.e {
 
     public static void a(Activity activity, String str, int i, boolean z, com.baidu.tieba.a.a aVar) {
         Intent intent = new Intent(activity, ReLoginActivity.class);
-        intent.putExtra("goto_view", str);
+        intent.putExtra("goto_type", str);
         intent.putExtra("close", z);
         intent.putExtra("uname", aVar.b());
         intent.putExtra("bduss", aVar.d());
@@ -121,8 +121,8 @@ public class ReLoginActivity extends com.baidu.tieba.e {
     /* JADX INFO: Access modifiers changed from: private */
     public void k() {
         if (TiebaApplication.g()) {
-            String x = TiebaApplication.x();
-            if (x == null || x.length() <= 0) {
+            String y = TiebaApplication.y();
+            if (y == null || y.length() <= 0) {
                 a(getIntent().getStringExtra("uname"), getIntent().getStringExtra("bduss"));
             }
         }
@@ -138,18 +138,18 @@ public class ReLoginActivity extends com.baidu.tieba.e {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(com.baidu.tieba.a.a aVar) {
-        com.baidu.tieba.a.a A = TiebaApplication.A();
-        if (A == null) {
+        com.baidu.tieba.a.a B = TiebaApplication.B();
+        if (B == null) {
             TiebaApplication.a(aVar);
-            TiebaApplication.b().M();
+            TiebaApplication.b().N();
         } else {
-            A.a(aVar.a());
-            A.e(aVar.f());
-            A.d(aVar.d());
+            B.a(aVar.a());
+            B.e(aVar.f());
+            B.d(aVar.d());
         }
-        com.baidu.tieba.c.k.a(TiebaApplication.A());
+        com.baidu.tieba.c.k.a(TiebaApplication.B());
         Handler handler = TiebaApplication.b().c;
-        if (TiebaApplication.b().L() > 0) {
+        if (TiebaApplication.b().M() > 0) {
             handler.sendMessage(handler.obtainMessage(2));
         } else {
             handler.sendMessage(handler.obtainMessage(3));
@@ -201,10 +201,10 @@ public class ReLoginActivity extends com.baidu.tieba.e {
 
     private void l() {
         if (this.k) {
-            TiebaApplication.b().r();
+            TiebaApplication.b().s();
             setResult(-1);
         } else {
-            MainTabActivity.b(this, getIntent().getStringExtra("goto_view"));
+            MainTabActivity.b(this, getIntent().getStringExtra("goto_type"));
         }
         finish();
     }

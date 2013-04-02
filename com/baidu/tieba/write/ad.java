@@ -13,9 +13,9 @@ public class ad implements DialogInterface.OnClickListener {
 
     @Override // android.content.DialogInterface.OnClickListener
     public void onClick(DialogInterface dialogInterface, int i) {
-        com.baidu.tieba.b.y yVar;
-        yVar = this.a.c;
-        com.baidu.tieba.c.k.a(yVar);
+        com.baidu.tieba.b.z zVar;
+        zVar = this.a.c;
+        com.baidu.tieba.c.k.a(zVar);
         this.a.finish();
     }
 }

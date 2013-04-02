@@ -1,32 +1,30 @@
 package com.baidu.tieba.recommend;
 
-import android.widget.CompoundButton;
-import android.widget.RadioButton;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.widget.LinearLayout;
+import android.widget.ProgressBar;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
 /* loaded from: classes.dex */
-public class p implements CompoundButton.OnCheckedChangeListener {
-    final /* synthetic */ NewHomeActivity a;
+class p {
+    LinearLayout a;
+    TextView b;
+    LinearLayout c;
+    RelativeLayout d;
+    TextView e;
+    ProgressBar f;
+    LinearLayout g;
+    TextView h;
+    TextView i;
+    TextView j;
+    TextView k;
+    final /* synthetic */ n l;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public p(NewHomeActivity newHomeActivity) {
-        this.a = newHomeActivity;
+    private p(n nVar) {
+        this.l = nVar;
     }
 
-    @Override // android.widget.CompoundButton.OnCheckedChangeListener
-    public void onCheckedChanged(CompoundButton compoundButton, boolean z) {
-        RadioButton radioButton;
-        RadioButton radioButton2;
-        if (z) {
-            radioButton = this.a.f;
-            if (compoundButton != radioButton) {
-                radioButton2 = this.a.g;
-                if (compoundButton == radioButton2) {
-                    this.a.a("guess", GuessActivity.class);
-                    return;
-                }
-                return;
-            }
-            this.a.a("recommend", RecommendActivity.class);
-        }
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public /* synthetic */ p(n nVar, p pVar) {
+        this(nVar);
     }
 }

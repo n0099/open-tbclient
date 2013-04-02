@@ -24,12 +24,12 @@ public class r {
             JSONArray optJSONArray = jSONObject.optJSONArray("user_list");
             if (optJSONArray != null) {
                 for (int i = 0; i < optJSONArray.length(); i++) {
-                    af afVar = new af();
-                    afVar.a(optJSONArray.getJSONObject(i));
-                    if (afVar.c() != null) {
-                        this.a.add(afVar);
+                    ah ahVar = new ah();
+                    ahVar.a(optJSONArray.getJSONObject(i));
+                    if (ahVar.c() != null) {
+                        this.a.add(ahVar);
                         if (z) {
-                            this.b.put(afVar.c(), afVar.d());
+                            this.b.put(ahVar.c(), ahVar.d());
                         }
                     }
                 }

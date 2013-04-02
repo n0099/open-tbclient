@@ -1,6 +1,7 @@
 package com.baidu.mapapi.cloud;
 
 import android.os.Bundle;
+import com.baidu.android.pushservice.PushConstants;
 import com.baidu.browser.explorer.BdWebErrorView;
 import com.baidu.mapapi.Mj;
 import java.util.ArrayList;
@@ -27,7 +28,7 @@ public class b implements c {
                 }
                 GeoSearchResult geoSearchResult = new GeoSearchResult();
                 geoSearchResult.status = newBundle.getInt("status");
-                geoSearchResult.message = newBundle.getString("message");
+                geoSearchResult.message = newBundle.getString(PushConstants.EXTRA_PUSH_MESSAGE);
                 geoSearchResult.size = newBundle.getInt("size");
                 geoSearchResult.total = newBundle.getInt("total");
                 int i = newBundle.getInt("content_size");
@@ -98,7 +99,7 @@ public class b implements c {
                 }
                 DetailResult detailResult = new DetailResult();
                 detailResult.status = newBundle2.getInt("status");
-                detailResult.message = newBundle2.getString("message");
+                detailResult.message = newBundle2.getString(PushConstants.EXTRA_PUSH_MESSAGE);
                 int i3 = newBundle2.getInt("content_size");
                 if (i3 == 1) {
                     detailResult.content = new CustomPoiInfo();

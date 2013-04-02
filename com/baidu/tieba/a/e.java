@@ -5,17 +5,17 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class e {
-    private av a;
+    private az a;
     private ArrayList b;
 
     public e() {
         this.a = null;
         this.b = null;
-        this.a = new av();
+        this.a = new az();
         this.b = new ArrayList(3);
     }
 
-    public av a() {
+    public az a() {
         return this.a;
     }
 

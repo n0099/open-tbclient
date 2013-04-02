@@ -22,7 +22,7 @@ public class aj implements View.OnClickListener {
         AlertDialog alertDialog5;
         AlertDialog alertDialog6;
         switch (view.getId()) {
-            case R.id.remind_tone /* 2131231178 */:
+            case R.id.remind_tone /* 2131231196 */:
                 this.a.k = new AlertDialog.Builder(this.a).setTitle(R.string.remind_tone).setItems(R.array.menu_remind_tone, new ak(this)).create();
                 alertDialog4 = this.a.k;
                 alertDialog4.setOnCancelListener(new al(this));
@@ -31,11 +31,11 @@ public class aj implements View.OnClickListener {
                 alertDialog6 = this.a.k;
                 alertDialog6.show();
                 return;
-            case R.id.tone_text /* 2131231179 */:
-            case R.id.text_remind_tone /* 2131231180 */:
+            case R.id.tone_text /* 2131231197 */:
+            case R.id.text_remind_tone /* 2131231198 */:
             default:
                 return;
-            case R.id.remind_vibrate /* 2131231181 */:
+            case R.id.remind_vibrate /* 2131231199 */:
                 this.a.n = new AlertDialog.Builder(this.a).setTitle(R.string.remind_vibrate).setItems(R.array.menu_remind_tone, new am(this)).create();
                 alertDialog = this.a.n;
                 alertDialog.setOnCancelListener(new an(this));

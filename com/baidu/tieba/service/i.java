@@ -34,15 +34,15 @@ public class i extends AsyncTask {
             this.a.a("http://114.113.149.3:8086/partnersService");
             this.a.b(this.b.getApplicationContext());
             this.a.a("apk", TiebaApplication.b().getPackageName());
-            this.a.a("imei", TiebaApplication.b().h());
+            this.a.a("imei", TiebaApplication.b().i());
             this.a.a("model", Build.MODEL);
             this.a.a("edition", com.baidu.tieba.a.i.h());
             this.a.a("system", Build.VERSION.SDK);
             this.a.c(false);
-            String m = this.a.m();
-            if (this.a.f()) {
-                ag.a(getClass().getName(), "task", "data=" + m);
-                return m;
+            String n = this.a.n();
+            if (this.a.g()) {
+                ag.a(getClass().getName(), "task", "data=" + n);
+                return n;
             }
         } catch (Exception e) {
             SharedPreferences.Editor edit = this.b.getSharedPreferences("settings", 0).edit();
@@ -56,7 +56,7 @@ public class i extends AsyncTask {
     public void a() {
         this.b.a = null;
         if (this.a != null) {
-            this.a.j();
+            this.a.k();
         }
         super.cancel(true);
     }

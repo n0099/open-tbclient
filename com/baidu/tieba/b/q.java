@@ -1,145 +1,167 @@
 package com.baidu.tieba.b;
 
-import com.baidu.tieba.a.ai;
+import com.baidu.tieba.R;
+import com.baidu.tieba.TiebaApplication;
+import com.baidu.tieba.a.ad;
+import com.baidu.tieba.a.ah;
+import com.baidu.tieba.c.ag;
+import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class q {
-    private boolean k;
-    private int r;
-    private int s;
-    private ai a = null;
-    private boolean d = true;
-    private boolean c = true;
-    private boolean e = false;
-    private boolean g = false;
-    private boolean h = false;
-    private boolean i = false;
-    private boolean j = false;
-    private String b = null;
-    private boolean f = false;
-    private String l = null;
-    private String m = null;
-    private String n = null;
-    private int o = 1;
-    private int p = 1;
-    private boolean q = false;
+    String b;
+    String c;
+    String d;
+    String f;
+    String g;
+    String h;
+    String i;
+    String k;
+    int m;
+    String n;
+    final /* synthetic */ p p;
+    int a = 0;
+    ArrayList e = new ArrayList();
+    ArrayList l = new ArrayList();
+    ah j = new ah();
+    ah o = new ah();
 
-    public void a(ai aiVar) {
-        this.a = aiVar;
+    public q(p pVar) {
+        this.p = pVar;
     }
 
-    public ai a() {
+    public int a() {
         return this.a;
     }
 
-    public void a(boolean z) {
-        this.d = z;
-    }
-
-    public boolean b() {
-        return this.d;
-    }
-
-    public void b(boolean z) {
-        this.c = z;
-    }
-
-    public boolean c() {
-        return this.c;
-    }
-
-    public void c(boolean z) {
-        this.e = z;
-    }
-
-    public boolean d() {
-        return this.e;
-    }
-
-    public boolean e() {
-        return this.h;
-    }
-
-    public boolean f() {
-        return this.i;
-    }
-
-    public void d(boolean z) {
-        this.i = z;
-    }
-
-    public boolean g() {
-        return this.j;
-    }
-
-    public void e(boolean z) {
-        this.j = z;
-    }
-
-    public boolean h() {
-        return this.k;
-    }
-
-    public void f(boolean z) {
-        this.k = z;
-    }
-
-    public boolean i() {
-        return this.g;
-    }
-
-    public void g(boolean z) {
-        this.g = z;
-    }
-
-    public void a(String str) {
-        this.b = str;
-    }
-
-    public String j() {
+    public String b() {
         return this.b;
     }
 
+    public ArrayList c() {
+        return this.e;
+    }
+
+    public int d() {
+        return this.m;
+    }
+
     public void a(int i) {
-        this.o = i;
+        this.m = i;
     }
 
-    public int k() {
-        return this.o;
+    public String e() {
+        return this.n;
     }
 
-    public void b(int i) {
-        this.p = i;
+    public void a(String str) {
+        if (str != null) {
+            this.n = str;
+        }
     }
 
-    public int l() {
-        return this.p;
-    }
-
-    public void h(boolean z) {
-        this.q = z;
-    }
-
-    public boolean m() {
-        return this.q;
-    }
-
-    public void i(boolean z) {
-        this.f = z;
-    }
-
-    public boolean n() {
+    public String f() {
         return this.f;
     }
 
-    public void c(int i) {
-        this.r = i;
+    public String g() {
+        if (this.e == null) {
+            return null;
+        }
+        int i = 0;
+        while (true) {
+            int i2 = i;
+            if (i2 >= this.e.size()) {
+                return null;
+            }
+            if (((com.baidu.tieba.a.k) this.e.get(i2)).a() != 3) {
+                i = i2 + 1;
+            } else {
+                return ((com.baidu.tieba.a.k) this.e.get(i2)).f();
+            }
+        }
     }
 
-    public void d(int i) {
-        this.s = i;
+    public String h() {
+        return this.g;
     }
 
-    public int o() {
-        return com.baidu.tieba.a.i.b() / 30;
+    public String i() {
+        return this.h;
+    }
+
+    public String j() {
+        return this.i;
+    }
+
+    public ArrayList k() {
+        return this.l;
+    }
+
+    public void a(ArrayList arrayList) {
+        if (arrayList != null && arrayList.size() != 0) {
+            this.l.clear();
+            this.l = arrayList;
+        }
+    }
+
+    public ah l() {
+        return this.j;
+    }
+
+    public ah m() {
+        return this.o;
+    }
+
+    public void a(ah ahVar) {
+        if (ahVar != null) {
+            this.o = ahVar;
+        }
+    }
+
+    public String n() {
+        return this.c;
+    }
+
+    public String o() {
+        return this.d;
+    }
+
+    public ad p() {
+        if (this.a != 0) {
+            return null;
+        }
+        try {
+            ad adVar = new ad((int) (Double.valueOf(this.d).doubleValue() * 1000000.0d), (int) (Double.valueOf(this.c).doubleValue() * 1000000.0d));
+            adVar.a(this.j);
+            adVar.a(this.g);
+            StringBuffer stringBuffer = new StringBuffer();
+            for (int i = 0; i < this.e.size(); i++) {
+                if (((com.baidu.tieba.a.k) this.e.get(i)).a() == 0) {
+                    stringBuffer.append(((com.baidu.tieba.a.k) this.e.get(i)).d());
+                }
+                if (((com.baidu.tieba.a.k) this.e.get(i)).a() == 2) {
+                    String a = com.baidu.tieba.c.n.a(((com.baidu.tieba.a.k) this.e.get(i)).d());
+                    if (a == null) {
+                        stringBuffer.append(TiebaApplication.b().getResources().getString(R.string.face_string));
+                    } else {
+                        stringBuffer.append("[");
+                        stringBuffer.append(a);
+                        stringBuffer.append("]");
+                    }
+                }
+                if (((com.baidu.tieba.a.k) this.e.get(i)).a() == 3) {
+                    stringBuffer.append(TiebaApplication.b().getResources().getString(R.string.pic));
+                }
+            }
+            adVar.b(stringBuffer.toString());
+            return adVar;
+        } catch (Exception e) {
+            ag.b(getClass().getName(), "getMapItem", e.toString());
+            return null;
+        }
+    }
+
+    public String q() {
+        return this.k;
     }
 }

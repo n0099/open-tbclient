@@ -7,7 +7,7 @@ import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class v {
     private String a;
-    private long b;
+    private String b;
     private int c;
     private b d;
     private Context e;
@@ -19,7 +19,7 @@ public class v {
 
     public v(Context context) {
         this.a = null;
-        this.b = 0L;
+        this.b = null;
         this.c = 0;
         this.d = null;
         this.e = null;
@@ -71,7 +71,7 @@ public class v {
 
     public v() {
         this.a = null;
-        this.b = 0L;
+        this.b = null;
         this.c = 0;
         this.d = null;
         this.e = null;
@@ -96,11 +96,15 @@ public class v {
         return this.f;
     }
 
+    public void c(String str) {
+        this.a = str;
+    }
+
     public String i() {
         return this.a;
     }
 
-    public long j() {
+    public String j() {
         return this.b;
     }
 
@@ -118,7 +122,7 @@ public class v {
                 JSONObject optJSONObject = jSONObject.optJSONObject("forum");
                 if (optJSONObject != null) {
                     this.a = optJSONObject.getString("name");
-                    this.b = optJSONObject.optLong("id");
+                    this.b = optJSONObject.optString("id");
                 }
                 this.c = jSONObject.optInt("pic_amount", 0);
                 JSONArray optJSONArray = jSONObject.optJSONArray("pic_list");

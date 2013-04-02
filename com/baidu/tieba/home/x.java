@@ -31,8 +31,8 @@ public class x extends AsyncTask {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.os.AsyncTask
     /* renamed from: a */
-    public com.baidu.tieba.b.f doInBackground(Object... objArr) {
-        com.baidu.tieba.b.f fVar;
+    public com.baidu.tieba.b.g doInBackground(Object... objArr) {
+        com.baidu.tieba.b.g gVar;
         Exception e;
         Boolean bool;
         try {
@@ -42,11 +42,11 @@ public class x extends AsyncTask {
             if (!this.c.b() || i == null) {
                 return null;
             }
-            fVar = new com.baidu.tieba.b.f();
+            gVar = new com.baidu.tieba.b.g();
             try {
-                fVar.a(i);
-                if (fVar.a()) {
-                    this.b.t = Boolean.valueOf(fVar.b() == 1);
+                gVar.a(i);
+                if (gVar.a()) {
+                    this.b.t = Boolean.valueOf(gVar.b() == 1);
                     bool = this.b.t;
                     if (bool.booleanValue()) {
                         com.baidu.tieba.c.k.d(i);
@@ -54,16 +54,16 @@ public class x extends AsyncTask {
                         com.baidu.tieba.c.k.a(i, "0");
                     }
                 } else {
-                    fVar = null;
+                    gVar = null;
                 }
-                return fVar;
+                return gVar;
             } catch (Exception e2) {
                 e = e2;
                 com.baidu.tieba.c.ag.b(getClass().getName(), "", "doInBackground error = " + e.getMessage());
-                return fVar;
+                return gVar;
             }
         } catch (Exception e3) {
-            fVar = null;
+            gVar = null;
             e = e3;
         }
     }
@@ -72,12 +72,12 @@ public class x extends AsyncTask {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.os.AsyncTask
     /* renamed from: a */
-    public void onPostExecute(com.baidu.tieba.b.f fVar) {
+    public void onPostExecute(com.baidu.tieba.b.g gVar) {
         ProgressBar progressBar;
         progressBar = this.b.k;
         progressBar.setVisibility(8);
-        if (fVar != null) {
-            this.b.n = fVar;
+        if (gVar != null) {
+            this.b.n = gVar;
             TiebaApplication.b().g(false);
             this.b.n();
         } else if (this.c != null) {

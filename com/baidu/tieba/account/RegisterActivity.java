@@ -31,7 +31,7 @@ public class RegisterActivity extends com.baidu.tieba.e {
     private int q = 1;
     private boolean r = true;
     private bk s = null;
-    private com.baidu.tieba.b.g t = null;
+    private com.baidu.tieba.b.h t = null;
     InputMethodManager c = null;
     private DialogInterface.OnCancelListener u = null;
 

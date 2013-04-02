@@ -26,10 +26,10 @@ class b implements Runnable {
                 kVar = this.a.k;
                 if (i < kVar.getCount()) {
                     kVar2 = this.a.k;
-                    com.baidu.tieba.a.af afVar = (com.baidu.tieba.a.af) kVar2.getItem(i);
-                    if (afVar != null && afVar.d() != null) {
+                    com.baidu.tieba.a.ah ahVar = (com.baidu.tieba.a.ah) kVar2.getItem(i);
+                    if (ahVar != null && ahVar.d() != null) {
                         kVar3 = this.a.k;
-                        kVar3.c().b(afVar.d(), new c(this));
+                        kVar3.c().b(ahVar.d(), new c(this));
                     }
                 } else {
                     return;

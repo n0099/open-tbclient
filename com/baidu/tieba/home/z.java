@@ -10,27 +10,27 @@ import java.util.ArrayList;
 public class z extends AsyncTask {
     final /* synthetic */ HomeActivity a;
     private com.baidu.tieba.c.t b = null;
-    private com.baidu.tieba.a.y c;
+    private com.baidu.tieba.a.aa c;
 
-    public z(HomeActivity homeActivity, com.baidu.tieba.a.y yVar) {
+    public z(HomeActivity homeActivity, com.baidu.tieba.a.aa aaVar) {
         this.a = homeActivity;
         this.c = null;
-        this.c = yVar;
+        this.c = aaVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.os.AsyncTask
     /* renamed from: a */
-    public String doInBackground(com.baidu.tieba.a.y... yVarArr) {
-        com.baidu.tieba.a.y yVar = this.c;
-        if (yVar != null) {
+    public String doInBackground(com.baidu.tieba.a.aa... aaVarArr) {
+        com.baidu.tieba.a.aa aaVar = this.c;
+        if (aaVar != null) {
             try {
-                if (yVar.a() != null && yVar.b() != null) {
+                if (aaVar.a() != null && aaVar.b() != null) {
                     this.b = new com.baidu.tieba.c.t("http://c.tieba.baidu.com/c/c/forum/unfavo");
-                    this.b.a("fid", yVar.a());
-                    this.b.a("kw", yVar.b());
-                    this.b.a("favo_type", String.valueOf(yVar.g()));
+                    this.b.a("fid", aaVar.a());
+                    this.b.a("kw", aaVar.b());
+                    this.b.a("favo_type", String.valueOf(aaVar.g()));
                     this.b.d(true);
                     this.b.i();
                     return null;
@@ -50,24 +50,24 @@ public class z extends AsyncTask {
     /* renamed from: a */
     public void onPostExecute(String str) {
         ProgressBar progressBar;
-        com.baidu.tieba.b.f fVar;
-        f fVar2;
+        com.baidu.tieba.b.g gVar;
+        f fVar;
         super.onPostExecute(str);
         this.a.o = null;
         progressBar = this.a.k;
         progressBar.setVisibility(8);
         if (this.b != null) {
             if (this.b.b()) {
-                fVar = this.a.n;
-                ArrayList c = fVar.c();
+                gVar = this.a.n;
+                ArrayList c = gVar.c();
                 if (c != null) {
                     c.remove(this.c);
-                    fVar2 = this.a.l;
-                    if (fVar2 != null) {
+                    fVar = this.a.l;
+                    if (fVar != null) {
                         this.a.n();
                     }
                 }
-                if (!TiebaApplication.b().K()) {
+                if (!TiebaApplication.b().L()) {
                     TiebaApplication.b().g(true);
                     com.baidu.tieba.c.k.a();
                 }

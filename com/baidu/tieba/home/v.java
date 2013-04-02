@@ -16,17 +16,17 @@ public class v implements DialogInterface.OnClickListener {
     public void onClick(DialogInterface dialogInterface, int i) {
         AlertDialog alertDialog;
         z zVar;
-        com.baidu.tieba.a.y yVar;
+        com.baidu.tieba.a.aa aaVar;
         z zVar2;
         if (i == -1) {
             zVar = this.a.o;
             if (zVar == null) {
                 HomeActivity homeActivity = this.a;
                 HomeActivity homeActivity2 = this.a;
-                yVar = this.a.r;
-                homeActivity.o = new z(homeActivity2, yVar);
+                aaVar = this.a.r;
+                homeActivity.o = new z(homeActivity2, aaVar);
                 zVar2 = this.a.o;
-                zVar2.execute(new com.baidu.tieba.a.y[0]);
+                zVar2.execute(new com.baidu.tieba.a.aa[0]);
                 return;
             }
             return;

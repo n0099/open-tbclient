@@ -1,70 +1,38 @@
 package com.baidu.tieba.a;
 
+import java.util.ArrayList;
+import java.util.List;
+import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
-public class y {
-    private String a = null;
-    private String b = null;
-    private int c = 0;
-    private int d = 0;
-    private int e = 0;
-    private int f = 0;
-    private int g = 0;
-    private String h = null;
+public class y extends z {
+    private List a = new ArrayList();
+    private boolean b;
 
-    public String a() {
-        return this.a;
-    }
-
-    public String b() {
+    public boolean a() {
         return this.b;
     }
 
-    public int c() {
-        return this.c;
+    public List b() {
+        return this.a;
     }
 
-    public void a(int i) {
-        this.d = i;
-    }
-
-    public int d() {
-        return this.d;
-    }
-
-    public int e() {
-        return this.e;
-    }
-
-    public void b(int i) {
-        this.f = i;
-    }
-
-    public int f() {
-        return this.f;
-    }
-
-    public int g() {
-        return this.g;
-    }
-
-    public String h() {
-        return this.h;
-    }
-
+    @Override // com.baidu.tieba.a.z
     public void a(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                this.a = jSONObject.optString("id");
-                this.b = jSONObject.optString("name");
-                this.c = jSONObject.optInt("member_count", 0);
-                this.d = jSONObject.optInt("is_like", 0);
-                this.e = this.d;
-                this.f = jSONObject.optInt("level_id", 1);
-                this.g = jSONObject.optInt("favo_type", 0);
-                this.h = jSONObject.optString("desc");
+                this.b = jSONObject.optInt("is_selected", 0) == 1;
+                super.a(jSONObject);
+                JSONArray optJSONArray = jSONObject.optJSONArray("level2_info");
+                if (optJSONArray != null) {
+                    for (int i = 0; i < optJSONArray.length(); i++) {
+                        z zVar = new z();
+                        zVar.a(optJSONArray.getJSONObject(i));
+                        this.a.add(zVar);
+                    }
+                }
             } catch (Exception e) {
-                com.baidu.tieba.c.ag.b("LikeForumData", "parserJson", "error = " + e.getMessage());
+                com.baidu.tieba.c.ag.b("LabelBigBallData", "parserJson", "error = " + e.getMessage());
             }
         }
     }

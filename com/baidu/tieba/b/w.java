@@ -1,35 +1,87 @@
 package com.baidu.tieba.b;
 
+import android.content.Context;
+import com.baidu.tieba.a.an;
+import com.baidu.tieba.a.at;
+import com.baidu.tieba.a.ax;
 import com.baidu.tieba.c.ag;
 import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class w {
-    private ArrayList a = new ArrayList();
+    private Context a;
+    private at b = new at();
+    private boolean c;
+    private boolean d;
 
-    public ArrayList a() {
-        return this.a;
+    public w(Context context, String str) {
+        this.a = context;
+        a(str);
     }
 
-    public void a(String str) {
+    private void a(String str) {
         try {
-            a(new JSONObject(str));
-        } catch (Exception e) {
-            ag.b("BarlistModel", "parserJson", "error = " + e.getMessage());
-        }
-    }
-
-    public void a(JSONObject jSONObject) {
-        try {
-            JSONArray optJSONArray = jSONObject.optJSONArray("fname");
-            if (optJSONArray != null) {
-                for (int i = 0; i < optJSONArray.length(); i++) {
-                    this.a.add(optJSONArray.getString(i));
-                }
+            JSONObject jSONObject = new JSONObject(str);
+            JSONObject optJSONObject = jSONObject.optJSONObject("post");
+            JSONArray optJSONArray = jSONObject.optJSONArray("subpost_list");
+            JSONObject optJSONObject2 = jSONObject.optJSONObject("forum");
+            JSONObject optJSONObject3 = jSONObject.optJSONObject("thread");
+            JSONObject optJSONObject4 = jSONObject.optJSONObject("anti");
+            com.baidu.tieba.a.b bVar = new com.baidu.tieba.a.b();
+            bVar.a(optJSONObject4);
+            this.b.a(bVar);
+            ax axVar = new ax();
+            axVar.a(optJSONObject3);
+            this.b.a(axVar);
+            com.baidu.tieba.a.q qVar = new com.baidu.tieba.a.q();
+            qVar.a(optJSONObject2);
+            this.b.a(qVar);
+            an anVar = new an();
+            anVar.a(optJSONObject);
+            anVar.a(this.a);
+            this.b.a(anVar);
+            int length = optJSONArray.length();
+            ArrayList arrayList = new ArrayList();
+            for (int i = 0; i < length; i++) {
+                JSONObject jSONObject2 = optJSONArray.getJSONObject(i);
+                an anVar2 = new an();
+                anVar2.a(jSONObject2);
+                anVar2.a(this.a);
+                arrayList.add(anVar2);
             }
+            this.b.a(arrayList);
+            JSONObject optJSONObject5 = jSONObject.optJSONObject("page");
+            int optInt = optJSONObject5.optInt("total_page");
+            int optInt2 = optJSONObject5.optInt("page_size");
+            int optInt3 = optJSONObject5.optInt("current_page");
+            int optInt4 = optJSONObject5.optInt("total_count");
+            this.b.d(optInt3);
+            this.b.c(optInt2);
+            this.b.b(optInt4);
+            this.b.a(optInt);
         } catch (Exception e) {
-            ag.b("BarlistModel", "parserJson", "error = " + e.getMessage());
+            ag.b("SubPbModel", "parseJson", "error = " + e.getMessage());
         }
+    }
+
+    public at a() {
+        return this.b;
+    }
+
+    public boolean b() {
+        return this.c;
+    }
+
+    public void a(boolean z) {
+        this.c = z;
+    }
+
+    public boolean c() {
+        return this.d;
+    }
+
+    public void b(boolean z) {
+        this.d = z;
     }
 }

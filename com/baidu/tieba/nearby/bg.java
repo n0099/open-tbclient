@@ -22,15 +22,15 @@ import java.util.Iterator;
 public class bg extends AsyncTask {
     com.baidu.tieba.c.t a = null;
     Address b;
-    com.baidu.tieba.b.o c;
+    com.baidu.tieba.b.p c;
     final /* synthetic */ NewNearbyActivity d;
 
-    public bg(NewNearbyActivity newNearbyActivity, Address address, com.baidu.tieba.b.o oVar) {
+    public bg(NewNearbyActivity newNearbyActivity, Address address, com.baidu.tieba.b.p pVar) {
         this.d = newNearbyActivity;
         this.b = null;
         this.c = null;
         this.b = address;
-        this.c = oVar;
+        this.c = pVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -113,15 +113,15 @@ public class bg extends AsyncTask {
             location.setLongitude(this.b.getLongitude());
             Iterator it = this.c.a().iterator();
             while (it.hasNext()) {
-                com.baidu.tieba.b.p pVar = (com.baidu.tieba.b.p) it.next();
-                if (pVar.n() != null && pVar.o() != null) {
+                com.baidu.tieba.b.q qVar = (com.baidu.tieba.b.q) it.next();
+                if (qVar.n() != null && qVar.o() != null) {
                     try {
-                        double doubleValue = Double.valueOf(pVar.n()).doubleValue();
-                        double doubleValue2 = Double.valueOf(pVar.o()).doubleValue();
+                        double doubleValue = Double.valueOf(qVar.n()).doubleValue();
+                        double doubleValue2 = Double.valueOf(qVar.o()).doubleValue();
                         View inflate = from.inflate(R.layout.nearby_map_head, (ViewGroup) null);
                         ((RelativeLayout) inflate.findViewById(R.id.nearby_head_background)).setBackgroundResource(R.drawable.nearby_head_bg);
                         ImageView imageView = (ImageView) inflate.findViewById(R.id.image);
-                        imageView.setTag(pVar.l().d());
+                        imageView.setTag(qVar.l().d());
                         location2.setLatitude(location.getLatitude());
                         location2.setLongitude(doubleValue);
                         location2.setLatitude(doubleValue2);
@@ -141,7 +141,7 @@ public class bg extends AsyncTask {
                         absoluteLayout4 = this.d.f;
                         absoluteLayout4.addView(inflate);
                         aVar = this.d.G;
-                        String d = pVar.l().d();
+                        String d = qVar.l().d();
                         dVar = this.d.H;
                         Bitmap d2 = aVar.d(d, dVar);
                         if (d2 != null) {

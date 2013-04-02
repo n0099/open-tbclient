@@ -1,66 +1,63 @@
 package com.baidu.tieba.a;
 
-import java.util.ArrayList;
-import org.json.JSONArray;
-import org.json.JSONObject;
+import java.io.Serializable;
 /* loaded from: classes.dex */
-public class ap {
-    private ArrayList f;
-    private int a = 0;
-    private int d = 0;
-    private int e = 0;
-    private boolean c = false;
-    private boolean b = false;
+public class ap implements Serializable {
+    private String a;
+    private String b;
+    private String c;
+    private String d;
+    private int e;
+    private String f;
 
-    public ap() {
-        this.f = null;
-        this.f = new ArrayList();
-    }
-
-    public ArrayList a() {
-        return this.f;
-    }
-
-    public boolean b() {
-        return this.b;
-    }
-
-    public boolean c() {
-        return this.c;
-    }
-
-    public int d() {
-        return this.d;
+    public String a() {
+        return this.a;
     }
 
     public void a(String str) {
-        try {
-            a(new JSONObject(str));
-        } catch (Exception e) {
-            com.baidu.tieba.c.ag.b("SearchPostModel", "parserJson", "error = " + e.getMessage());
-        }
+        this.a = str;
     }
 
-    public void a(JSONObject jSONObject) {
-        if (jSONObject != null) {
-            try {
-                JSONObject optJSONObject = jSONObject.optJSONObject("page");
-                JSONArray optJSONArray = jSONObject.optJSONArray("post_list");
-                this.f.clear();
-                for (int i = 0; i < optJSONArray.length(); i++) {
-                    JSONObject optJSONObject2 = optJSONArray.optJSONObject(i);
-                    ao aoVar = new ao();
-                    aoVar.a(optJSONObject2);
-                    this.f.add(aoVar);
-                }
-                this.a = optJSONObject.optInt("total_count");
-                this.e = optJSONObject.optInt("total_page");
-                this.b = optJSONObject.optInt("has_more") != 0;
-                this.c = optJSONObject.optInt("has_prev") != 0;
-                this.d = optJSONObject.optInt("current_page");
-            } catch (Exception e) {
-                com.baidu.tieba.c.ag.b("SearchPostModel", "parserJson", "error = " + e.getMessage());
-            }
+    public String b() {
+        return this.b;
+    }
+
+    public void b(String str) {
+        if (str != null) {
+            str = com.baidu.tieba.c.af.b(str.getBytes());
         }
+        this.b = str;
+    }
+
+    public String c() {
+        return this.c;
+    }
+
+    public void c(String str) {
+        this.c = str;
+    }
+
+    public void d(String str) {
+        this.d = str;
+    }
+
+    public String d() {
+        return this.d;
+    }
+
+    public void e(String str) {
+        this.f = str;
+    }
+
+    public String e() {
+        return this.f;
+    }
+
+    public void a(int i) {
+        this.e = i;
+    }
+
+    public int f() {
+        return this.e;
     }
 }

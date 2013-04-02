@@ -18,11 +18,11 @@ class o implements View.OnClickListener {
     public void onClick(View view) {
         w wVar;
         w wVar2;
-        String x = TiebaApplication.x();
-        if (x != null && x.length() > 0) {
+        String y = TiebaApplication.y();
+        if (y != null && y.length() > 0) {
             wVar = this.a.s;
-            if (wVar == null && view != null && view.getTag() != null && (view.getTag() instanceof com.baidu.tieba.a.y)) {
-                this.a.s = new w(this.a, (com.baidu.tieba.a.y) view.getTag());
+            if (wVar == null && view != null && view.getTag() != null && (view.getTag() instanceof com.baidu.tieba.a.aa)) {
+                this.a.s = new w(this.a, (com.baidu.tieba.a.aa) view.getTag());
                 wVar2 = this.a.s;
                 wVar2.execute(new Object[0]);
                 return;

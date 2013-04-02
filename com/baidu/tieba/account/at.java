@@ -32,14 +32,14 @@ public class at extends AsyncTask {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.os.AsyncTask
     /* renamed from: a */
-    public com.baidu.tieba.b.g doInBackground(String... strArr) {
+    public com.baidu.tieba.b.h doInBackground(String... strArr) {
         String str;
         String str2;
         String str3;
         String str4;
         String str5;
         String str6;
-        com.baidu.tieba.b.g gVar = null;
+        com.baidu.tieba.b.h hVar = null;
         long nanoTime = System.nanoTime();
         this.b = new com.baidu.tieba.c.t("http://c.tieba.baidu.com/c/s/login");
         com.baidu.tieba.c.t tVar = this.b;
@@ -54,8 +54,8 @@ public class at extends AsyncTask {
         com.baidu.tieba.c.ag.e("", "mPtoken = ", str4);
         String i = this.b.i();
         if (this.b.b()) {
-            gVar = new com.baidu.tieba.b.g();
-            gVar.a(i);
+            hVar = new com.baidu.tieba.b.h();
+            hVar.a(i);
         } else {
             com.baidu.tieba.c.ag.e(getClass().getName(), "doInBackground", "relogin fail");
         }
@@ -75,14 +75,14 @@ public class at extends AsyncTask {
             } catch (InterruptedException e) {
             }
         }
-        return gVar;
+        return hVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.os.AsyncTask
     /* renamed from: a */
-    public void onPostExecute(com.baidu.tieba.b.g gVar) {
+    public void onPostExecute(com.baidu.tieba.b.h hVar) {
         com.baidu.tieba.a.a aVar;
         com.baidu.tieba.a.a aVar2;
         com.baidu.tieba.a.a aVar3;
@@ -100,18 +100,18 @@ public class at extends AsyncTask {
         o oVar7;
         com.baidu.tieba.a.a aVar8;
         String str;
-        super.onPostExecute(gVar);
+        super.onPostExecute(hVar);
         this.a.e = null;
-        if (gVar != null) {
+        if (hVar != null) {
             this.a.n = new com.baidu.tieba.a.a();
             aVar = this.a.n;
-            aVar.b(gVar.a().b());
+            aVar.b(hVar.a().b());
             aVar2 = this.a.n;
             aVar2.c("");
             aVar3 = this.a.n;
-            aVar3.a(gVar.a().a());
-            if (gVar.a().j() != null) {
-                StringBuilder append = new StringBuilder(String.valueOf(gVar.a().j())).append("|");
+            aVar3.a(hVar.a().a());
+            if (hVar.a().j() != null) {
+                StringBuilder append = new StringBuilder(String.valueOf(hVar.a().j())).append("|");
                 str = this.a.m;
                 r0 = append.append(str).toString();
             }
@@ -119,9 +119,9 @@ public class at extends AsyncTask {
             aVar4.d(r0);
             aVar5 = this.a.n;
             aVar5.a(1);
-            if (gVar.b() != null) {
+            if (hVar.b() != null) {
                 aVar8 = this.a.n;
-                aVar8.e(gVar.b().b());
+                aVar8.e(hVar.b().b());
             }
             aVar6 = this.a.n;
             if (aVar6.b() == null) {

@@ -9,7 +9,7 @@ import android.util.AttributeSet;
 import android.widget.LinearLayout;
 import com.baidu.tieba.R;
 import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.a.au;
+import com.baidu.tieba.a.ay;
 /* loaded from: classes.dex */
 public class FrsWaterFallItem extends LinearLayout {
     private TextPaint a;
@@ -72,18 +72,18 @@ public class FrsWaterFallItem extends LinearLayout {
             } else {
                 canvas.drawColor(TiebaApplication.b().getResources().getColor(R.color.white));
             }
-            au auVar = (au) getTag();
+            ay ayVar = (ay) getTag();
             int height = (getHeight() - getPaddingBottom()) - this.h;
             int width = getWidth() - getPaddingRight();
             this.a.setTextSize(this.h);
             this.a.setColor(-6908266);
             int ceil = (int) Math.ceil(this.a.getFontMetrics().ascent);
-            if (auVar.e() > 0) {
+            if (ayVar.e() > 0) {
                 if (this.d == null) {
-                    if (auVar.e() > 999) {
+                    if (ayVar.e() > 999) {
                         this.d = "999+";
                     } else {
-                        this.d = String.valueOf(auVar.e());
+                        this.d = String.valueOf(ayVar.e());
                     }
                 }
                 if (this.e == -1) {
@@ -99,9 +99,9 @@ public class FrsWaterFallItem extends LinearLayout {
                 canvas.drawBitmap(a, this.f, ((this.h - a.getHeight()) / 2) + height, (Paint) null);
             }
             if (this.c == null) {
-                this.c = com.baidu.tieba.c.ai.a(this.a, auVar.a(), width - getPaddingLeft());
+                this.c = com.baidu.tieba.c.ai.a(this.a, ayVar.a(), width - getPaddingLeft());
             }
-            canvas.drawText(auVar.a(), getPaddingLeft(), height - ceil, this.a);
+            canvas.drawText(ayVar.a(), getPaddingLeft(), height - ceil, this.a);
             this.a.setTextSize(this.g);
             if (this.j == 1) {
                 this.a.setColor(TiebaApplication.b().getResources().getColor(R.color.skin_1_common_color));
@@ -110,7 +110,7 @@ public class FrsWaterFallItem extends LinearLayout {
             }
             int ceil2 = (int) Math.ceil(this.a.getFontMetrics().ascent);
             if (this.b == null) {
-                this.b = com.baidu.tieba.c.ai.a(this.a, auVar.c(), (getWidth() - getPaddingLeft()) - getPaddingRight());
+                this.b = com.baidu.tieba.c.ai.a(this.a, ayVar.c(), (getWidth() - getPaddingLeft()) - getPaddingRight());
             }
             canvas.drawText(this.b, getPaddingLeft(), (height - (this.i + this.g)) - ceil2, this.a);
         } catch (Exception e) {

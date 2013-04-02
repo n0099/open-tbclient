@@ -5,7 +5,7 @@ import android.content.Context;
 import android.os.AsyncTask;
 import android.widget.ProgressBar;
 import com.baidu.tieba.R;
-import com.baidu.tieba.a.aq;
+import com.baidu.tieba.a.as;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class p extends AsyncTask {
@@ -35,8 +35,8 @@ public class p extends AsyncTask {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.os.AsyncTask
     /* renamed from: a */
-    public aq doInBackground(Object... objArr) {
-        aq aqVar;
+    public as doInBackground(Object... objArr) {
+        as asVar;
         Exception e;
         String str;
         String str2;
@@ -52,27 +52,27 @@ public class p extends AsyncTask {
             this.b.d(true);
             i = this.b.i();
         } catch (Exception e2) {
-            aqVar = null;
+            asVar = null;
             e = e2;
         }
         if (this.b.c()) {
             if (this.b.b()) {
-                aqVar = new aq();
+                asVar = new as();
                 try {
-                    aqVar.a(i);
+                    asVar.a(i);
                 } catch (Exception e3) {
                     e = e3;
                     com.baidu.tieba.c.ag.b(getClass().getName(), "doInBackground", e.getMessage());
-                    return aqVar;
+                    return asVar;
                 }
             } else if (this.b.d() == 160002) {
                 this.c = true;
-                aqVar = null;
+                asVar = null;
             }
-            return aqVar;
+            return asVar;
         }
-        aqVar = null;
-        return aqVar;
+        asVar = null;
+        return asVar;
     }
 
     public void a() {
@@ -90,7 +90,7 @@ public class p extends AsyncTask {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.os.AsyncTask
     /* renamed from: a */
-    public void onPostExecute(aq aqVar) {
+    public void onPostExecute(as asVar) {
         ProgressBar progressBar;
         int i;
         Activity activity;
@@ -106,7 +106,7 @@ public class p extends AsyncTask {
         progressBar.setVisibility(8);
         if (this.c) {
             this.a.b(1);
-        } else if (aqVar == null) {
+        } else if (asVar == null) {
             if (this.b != null) {
                 activity8 = this.a.o;
                 com.baidu.tieba.c.ai.a((Context) activity8, this.b.f());
@@ -120,7 +120,7 @@ public class p extends AsyncTask {
                 sb.append(activity5.getString(R.string.sign_success));
                 sb.append("!\n");
                 activity6 = this.a.o;
-                sb.append(String.format(activity6.getString(R.string.sign_user), Integer.valueOf(aqVar.c())));
+                sb.append(String.format(activity6.getString(R.string.sign_user), Integer.valueOf(asVar.c())));
                 activity7 = this.a.o;
                 com.baidu.tieba.c.ai.a((Context) activity7, sb.toString());
                 return;
@@ -129,10 +129,10 @@ public class p extends AsyncTask {
             sb.append(activity.getString(R.string.sign_success));
             sb.append(",");
             activity2 = this.a.o;
-            sb.append(String.format(activity2.getString(R.string.sign_point), Integer.valueOf(aqVar.d())));
+            sb.append(String.format(activity2.getString(R.string.sign_point), Integer.valueOf(asVar.d())));
             sb.append("!\n");
             activity3 = this.a.o;
-            sb.append(String.format(activity3.getString(R.string.sign_user), Integer.valueOf(aqVar.c())));
+            sb.append(String.format(activity3.getString(R.string.sign_user), Integer.valueOf(asVar.c())));
             activity4 = this.a.o;
             com.baidu.tieba.c.ai.a((Context) activity4, sb.toString());
         }

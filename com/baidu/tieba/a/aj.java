@@ -2,35 +2,50 @@ package com.baidu.tieba.a;
 
 import org.json.JSONObject;
 /* loaded from: classes.dex */
-public class aj extends d {
+public class aj {
     private int a = 0;
-    private String b = null;
-    private String c = null;
-    private String d = null;
-    private String e = null;
-    private al f = new al();
+    private int b = 0;
+    private int c = 0;
+    private int d = 0;
+    private int e = 0;
+    private int f = 0;
 
-    public String a() {
+    public int a() {
+        return this.a;
+    }
+
+    public int b() {
+        return this.c;
+    }
+
+    public void a(int i) {
+        this.e = i;
+    }
+
+    public int c() {
         return this.e;
     }
 
-    public String b() {
-        return this.b;
+    public void b(int i) {
+        this.f = i;
     }
 
-    public al c() {
+    public int d() {
         return this.f;
     }
 
-    @Override // com.baidu.tieba.a.d
     public void a(JSONObject jSONObject) {
         if (jSONObject != null) {
-            this.a = jSONObject.optInt("type");
-            this.b = jSONObject.optString("tid", null);
-            this.c = jSONObject.optString("fid", null);
-            this.d = jSONObject.optString("fname", null);
-            this.e = jSONObject.optString("time", null);
-            this.f.a(jSONObject);
+            try {
+                this.a = jSONObject.optInt("total_page", 0);
+                this.b = jSONObject.optInt("total_num", 0);
+                this.c = jSONObject.optInt("current_page", 0);
+                this.d = jSONObject.optInt("page_size", 0);
+                this.e = jSONObject.optInt("has_more", 0);
+                this.f = jSONObject.optInt("has_prev", 0);
+            } catch (Exception e) {
+                com.baidu.tieba.c.ag.b("PageData", "parserJson", "error = " + e.getMessage());
+            }
         }
     }
 }

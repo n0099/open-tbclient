@@ -2,28 +2,22 @@ package com.baidu.tieba.pb;
 
 import android.content.Context;
 import android.view.View;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class ce implements View.OnClickListener {
-    final /* synthetic */ ca a;
-    private String b = null;
-    private int c = 0;
+public class ce implements View.OnClickListener {
+    final /* synthetic */ cd a;
 
-    public ce(ca caVar) {
-        this.a = caVar;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public ce(cd cdVar) {
+        this.a = cdVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         Context context;
-        context = this.a.a;
-        ((PbActivity) context).a(this.b, this.c);
-    }
-
-    public void a(String str) {
-        this.b = str;
-    }
-
-    public void a(int i) {
-        this.c = i;
+        if (view.getTag() != null && (view.getTag() instanceof String)) {
+            context = this.a.a;
+            com.baidu.tieba.c.ai.c(context, (String) view.getTag());
+        }
     }
 }

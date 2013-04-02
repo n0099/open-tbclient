@@ -15,13 +15,13 @@ class u implements RadioGroup.OnCheckedChangeListener {
     @Override // android.widget.RadioGroup.OnCheckedChangeListener
     public void onCheckedChanged(RadioGroup radioGroup, int i) {
         switch (i) {
-            case R.id.font_size_big /* 2131230867 */:
+            case R.id.font_size_big /* 2131230872 */:
                 TiebaApplication.b().g(1);
                 return;
-            case R.id.font_size_mid /* 2131230868 */:
+            case R.id.font_size_mid /* 2131230873 */:
                 TiebaApplication.b().g(2);
                 return;
-            case R.id.font_size_small /* 2131230869 */:
+            case R.id.font_size_small /* 2131230874 */:
                 TiebaApplication.b().g(3);
                 return;
             default:

@@ -1,7 +1,7 @@
 package com.baidu.tieba.b;
 
-import com.baidu.tieba.a.ah;
-import com.baidu.tieba.a.at;
+import com.baidu.tieba.a.aj;
+import com.baidu.tieba.a.ax;
 import com.baidu.tieba.c.ag;
 import java.util.ArrayList;
 import org.json.JSONArray;
@@ -9,13 +9,13 @@ import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class e {
     private ArrayList a = new ArrayList();
-    private ah b = new ah();
+    private aj b = new aj();
 
     public ArrayList a() {
         return this.a;
     }
 
-    public ah b() {
+    public aj b() {
         return this.b;
     }
 
@@ -32,10 +32,10 @@ public class e {
             JSONArray optJSONArray = jSONObject.optJSONArray("thread_list");
             if (optJSONArray != null) {
                 for (int i = 0; i < optJSONArray.length(); i++) {
-                    at atVar = new at();
-                    atVar.a(optJSONArray.optJSONObject(i));
-                    atVar.p();
-                    this.a.add(atVar);
+                    ax axVar = new ax();
+                    axVar.a(optJSONArray.optJSONObject(i));
+                    axVar.r();
+                    this.a.add(axVar);
                 }
             }
             this.b.a(jSONObject.optJSONObject("page"));

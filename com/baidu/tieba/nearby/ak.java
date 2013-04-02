@@ -2,6 +2,7 @@ package com.baidu.tieba.nearby;
 
 import android.app.Activity;
 import android.view.View;
+import com.baidu.mobstat.StatService;
 import com.baidu.tieba.R;
 import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.account.LoginActivity;
@@ -29,21 +30,29 @@ public class ak implements View.OnClickListener {
         String str8;
         String str9;
         switch (view.getId()) {
-            case R.id.nearby_post_layout /* 2131231209 */:
-            case R.id.nearby_reply_layout /* 2131231227 */:
+            case R.id.nearby_post_layout /* 2131231227 */:
+            case R.id.nearby_reply_layout /* 2131231245 */:
                 String str10 = (String) view.getTag(R.id.tag_nearby_thread_id);
                 String str11 = (String) view.getTag(R.id.tag_nearby_url);
+                Boolean bool = (Boolean) view.getTag(R.id.tag_nearby_guid_post);
                 if (str10 != null && !str10.equals("")) {
                     NearbyPbActivity.a(this.a.getParent(), str10, "tb_suishoufa", false, 1300006);
                     return;
-                } else if (str11 == null || str11.equals("")) {
-                    return;
-                } else {
+                } else if (str11 != null && !str11.equals("")) {
+                    if (bool.booleanValue()) {
+                        if (TiebaApplication.b().l()) {
+                            StatService.onEvent(this.a, "lbs_new_guid_post", "lbsclick", 1);
+                        }
+                    } else if (TiebaApplication.b().l()) {
+                        StatService.onEvent(this.a, "lbs_operation_post", "lbsclick", 1);
+                    }
                     this.a.c(str11);
                     return;
+                } else {
+                    return;
                 }
-            case R.id.author_photo /* 2131231224 */:
-            case R.id.author_name /* 2131231225 */:
+            case R.id.author_photo /* 2131231242 */:
+            case R.id.author_name /* 2131231243 */:
                 String str12 = (String) view.getTag(R.id.tag_nearby_person_id);
                 String str13 = (String) view.getTag(R.id.tag_nearby_person_name);
                 if (str13 != null && str12 != null && !str13.equals("") && !str12.equals("")) {
@@ -51,7 +60,7 @@ public class ak implements View.OnClickListener {
                     return;
                 }
                 return;
-            case R.id.comment_btn /* 2131231226 */:
+            case R.id.comment_btn /* 2131231244 */:
                 this.a.q = (String) view.getTag(R.id.tag_nearby_thread_id);
                 this.a.r = (String) view.getTag(R.id.tag_nearby_forum_name);
                 this.a.s = (String) view.getTag(R.id.tag_nearby_forum_id);
@@ -67,8 +76,8 @@ public class ak implements View.OnClickListener {
                                 if (str5 != null) {
                                     str6 = this.a.s;
                                     if (!str6.equals("")) {
-                                        String x = TiebaApplication.x();
-                                        if (x == null || x.length() <= 0) {
+                                        String y = TiebaApplication.y();
+                                        if (y == null || y.length() <= 0) {
                                             LoginActivity.a(this.a.getParent(), this.a.getString(R.string.login_to_post), true, 1100024);
                                             return;
                                         }

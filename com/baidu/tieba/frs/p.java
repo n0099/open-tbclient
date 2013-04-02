@@ -2,7 +2,7 @@ package com.baidu.tieba.frs;
 
 import android.view.View;
 import android.widget.AdapterView;
-import com.baidu.tieba.a.at;
+import com.baidu.tieba.a.ax;
 /* loaded from: classes.dex */
 class p implements AdapterView.OnItemLongClickListener {
     final /* synthetic */ FrsActivity a;
@@ -26,15 +26,15 @@ class p implements AdapterView.OnItemLongClickListener {
             long itemId = aaVar.getItemId(i);
             if (itemId != -1 && itemId != -2 && itemId != -3) {
                 aaVar2 = this.a.y;
-                at atVar = (at) aaVar2.getItem(i);
-                this.a.o = atVar.a();
-                String k = atVar.k();
+                ax axVar = (ax) aaVar2.getItem(i);
+                this.a.o = axVar.a();
+                String k = axVar.k();
                 if (k == null || k.equals("")) {
                     this.a.p = false;
                 } else {
                     this.a.p = true;
                 }
-                this.a.b(atVar);
+                this.a.b(axVar);
                 this.a.c.show();
             }
         }

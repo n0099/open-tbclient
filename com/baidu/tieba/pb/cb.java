@@ -1,23 +1,17 @@
 package com.baidu.tieba.pb;
 
-import android.content.Context;
-import android.view.View;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.content.DialogInterface;
 /* loaded from: classes.dex */
-public class cb implements View.OnClickListener {
-    final /* synthetic */ ca a;
+class cb implements DialogInterface.OnClickListener {
+    final /* synthetic */ bz a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public cb(ca caVar) {
-        this.a = caVar;
+    public cb(bz bzVar) {
+        this.a = bzVar;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        Context context;
-        if (view.getTag() != null && (view.getTag() instanceof String)) {
-            context = this.a.a;
-            com.baidu.tieba.c.ai.c(context, (String) view.getTag());
-        }
+    @Override // android.content.DialogInterface.OnClickListener
+    public void onClick(DialogInterface dialogInterface, int i) {
+        dialogInterface.dismiss();
     }
 }

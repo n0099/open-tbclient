@@ -13,14 +13,14 @@ class n implements DialogInterface.OnClickListener {
 
     @Override // android.content.DialogInterface.OnClickListener
     public void onClick(DialogInterface dialogInterface, int i) {
-        com.baidu.tieba.a.y yVar;
-        com.baidu.tieba.a.y yVar2;
+        com.baidu.tieba.a.aa aaVar;
+        com.baidu.tieba.a.aa aaVar2;
         switch (i) {
             case 0:
-                yVar = this.a.r;
-                if (yVar != null) {
-                    yVar2 = this.a.r;
-                    String b = yVar2.b();
+                aaVar = this.a.r;
+                if (aaVar != null) {
+                    aaVar2 = this.a.r;
+                    String b = aaVar2.b();
                     if (com.baidu.tieba.c.af.d(b)) {
                         FrsActivity.a(this.a, b, "tb_forumlist");
                         return;

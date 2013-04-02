@@ -50,20 +50,20 @@ public class ImageActivity extends com.baidu.tieba.e {
     private String C = null;
     private boolean D = false;
 
-    public static void a(Context context, ArrayList arrayList, int i, com.baidu.tieba.b.q qVar) {
+    public static void a(Context context, ArrayList arrayList, int i, com.baidu.tieba.b.r rVar) {
         Intent intent = new Intent(context, ImageActivity.class);
         if (arrayList != null && arrayList.size() > 0) {
             intent.putStringArrayListExtra("url", arrayList);
             intent.putExtra("index", i);
             intent.putExtra("is_pv", true);
             intent.putExtra("pv_type", "pb");
-            if (qVar != null) {
-                if (qVar.a() != null && qVar.a().a() != null) {
-                    intent.putExtra("fname", qVar.a().a().c());
-                    intent.putExtra("fid", qVar.a().a().b());
+            if (rVar != null) {
+                if (rVar.a() != null && rVar.a().a() != null) {
+                    intent.putExtra("fname", rVar.a().a().c());
+                    intent.putExtra("fid", rVar.a().a().b());
                 }
-                if (qVar.a() != null && qVar.a().b() != null) {
-                    intent.putExtra("tid", qVar.a().b().a());
+                if (rVar.a() != null && rVar.a().b() != null) {
+                    intent.putExtra("tid", rVar.a().b().a());
                 }
             }
             context.startActivity(intent);
@@ -175,7 +175,7 @@ public class ImageActivity extends com.baidu.tieba.e {
         super.onDestroy();
     }
 
-    @Override // android.app.Activity, android.view.KeyEvent.Callback
+    @Override // com.baidu.tieba.e, android.app.Activity, android.view.KeyEvent.Callback
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
         if (i == 4) {
             Intent intent = new Intent();

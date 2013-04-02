@@ -1,22 +1,29 @@
 package com.baidu.tieba;
 
-import com.baidu.mapapi.MKGeneralListener;
-import com.baidu.tieba.c.ag;
+import android.graphics.Bitmap;
+import android.view.animation.AlphaAnimation;
+import android.widget.ImageView;
 /* loaded from: classes.dex */
-class z implements MKGeneralListener {
-    @Override // com.baidu.mapapi.MKGeneralListener
-    public void onGetNetworkState(int i) {
-        if (i == 2) {
-            ag.a(getClass().getName(), "onGetNetworkState", "ERROR_NETWORK_CONNECT");
-        } else if (i == 3) {
-            ag.a(getClass().getName(), "onGetNetworkState", "ERROR_NETWORK_DATA");
-        }
+class z implements Runnable {
+    final /* synthetic */ LogoActivity a;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public z(LogoActivity logoActivity) {
+        this.a = logoActivity;
     }
 
-    @Override // com.baidu.mapapi.MKGeneralListener
-    public void onGetPermissionState(int i) {
-        if (i == 300) {
-            ag.a(getClass().getName(), "onGetPermissionState", "bd_map key error");
-        }
+    @Override // java.lang.Runnable
+    public void run() {
+        ImageView imageView;
+        Bitmap bitmap;
+        ImageView imageView2;
+        AlphaAnimation alphaAnimation;
+        this.a.g = com.baidu.tieba.c.e.a(this.a, (int) R.drawable.logo);
+        imageView = this.a.f;
+        bitmap = this.a.g;
+        imageView.setImageBitmap(bitmap);
+        imageView2 = this.a.f;
+        alphaAnimation = this.a.h;
+        imageView2.startAnimation(alphaAnimation);
     }
 }

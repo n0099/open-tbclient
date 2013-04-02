@@ -1,23 +1,62 @@
 package com.baidu.tieba.person;
 
 import android.graphics.Bitmap;
-import android.widget.ImageView;
+import android.os.AsyncTask;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ba implements com.baidu.tieba.c.d {
-    final /* synthetic */ PersonInfoActivity a;
+public class ba extends AsyncTask {
+    final /* synthetic */ PersonChangeActivity a;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public ba(PersonInfoActivity personInfoActivity) {
-        this.a = personInfoActivity;
+    private ba(PersonChangeActivity personChangeActivity) {
+        this.a = personChangeActivity;
     }
 
-    @Override // com.baidu.tieba.c.d
-    public void a(Bitmap bitmap, String str, boolean z) {
-        ImageView imageView;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public /* synthetic */ ba(PersonChangeActivity personChangeActivity, ba baVar) {
+        this(personChangeActivity);
+    }
+
+    @Override // android.os.AsyncTask
+    protected void onPreExecute() {
+        PersonChangeActivity.f(this.a).setVisibility(0);
+        PersonChangeActivity.g(this.a).setEnabled(false);
+        PersonChangeActivity.h(this.a).setImageBitmap(null);
+        PersonChangeActivity.a(this.a, (Bitmap) null);
+        super.onPreExecute();
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // android.os.AsyncTask
+    /* renamed from: a */
+    public Bitmap doInBackground(Object... objArr) {
+        return com.baidu.tieba.c.o.c(null, "tieba_head_image");
+    }
+
+    public void a() {
+        PersonChangeActivity.a(this.a, (ba) null);
+        PersonChangeActivity.f(this.a).setVisibility(8);
+        PersonChangeActivity.g(this.a).setEnabled(true);
+        super.cancel(true);
+    }
+
+    @Override // android.os.AsyncTask
+    protected void onCancelled() {
+        super.onCancelled();
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // android.os.AsyncTask
+    /* renamed from: a */
+    public void onPostExecute(Bitmap bitmap) {
+        super.onPostExecute(bitmap);
+        PersonChangeActivity.a(this.a, (ba) null);
+        PersonChangeActivity.g(this.a).setEnabled(true);
+        PersonChangeActivity.f(this.a).setVisibility(8);
         if (bitmap != null) {
-            imageView = this.a.e;
-            imageView.setImageBitmap(bitmap);
+            PersonChangeActivity.a(this.a, bitmap);
+            PersonChangeActivity.h(this.a).setImageBitmap(PersonChangeActivity.i(this.a));
         }
     }
 }

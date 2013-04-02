@@ -24,7 +24,7 @@ public class h {
     private FrameLayout c = null;
     private ListView d = null;
     private e e = null;
-    private com.baidu.tieba.b.j f = null;
+    private com.baidu.tieba.b.k f = null;
     private int g = 1;
     private int i = 0;
     private p k = null;
@@ -89,7 +89,7 @@ public class h {
         this.g = 1;
         this.e = new e(this.b, null);
         this.e.a(this.h);
-        this.e.b(TiebaApplication.b().ae());
+        this.e.b(TiebaApplication.b().af());
         this.d.setAdapter((ListAdapter) this.e);
         this.d.setOnItemClickListener(new k(this));
         this.q = new o(this);
@@ -139,14 +139,14 @@ public class h {
             }
             String a = this.j.a();
             if (a != null && a.length() > 0) {
-                com.baidu.tieba.b.j jVar = new com.baidu.tieba.b.j();
-                jVar.a(a);
-                if (!jVar.a()) {
+                com.baidu.tieba.b.k kVar = new com.baidu.tieba.b.k();
+                kVar.a(a);
+                if (!kVar.a()) {
                     ag.a("HomeLikeAsyncTask", "doInBackground", "cache data format err");
                     this.j.b();
                 } else {
                     ag.a("HomeLikeAsyncTask", "doInBackground", "cache data.size: " + String.valueOf(a.length()));
-                    a(jVar);
+                    a(kVar);
                     return;
                 }
             }
@@ -158,7 +158,7 @@ public class h {
         stringBuffer.append("http://c.tieba.baidu.com/");
         stringBuffer.append(this.p);
         ArrayList arrayList = new ArrayList();
-        arrayList.add(new BasicNameValuePair("uid", TiebaApplication.x()));
+        arrayList.add(new BasicNameValuePair("uid", TiebaApplication.y()));
         arrayList.add(new BasicNameValuePair("pn", String.valueOf(this.g)));
         if (this.o == 4 && this.f != null && (b = this.f.b()) != null && b.size() > 0) {
             com.baidu.tieba.a.p pVar = (com.baidu.tieba.a.p) b.get(b.size() - 1);
@@ -174,16 +174,16 @@ public class h {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void a(com.baidu.tieba.b.j jVar) {
-        if (jVar != null && jVar.b() != null) {
+    public void a(com.baidu.tieba.b.k kVar) {
+        if (kVar != null && kVar.b() != null) {
             if (this.o == 4 && this.f != null) {
                 ArrayList b = this.f.b();
-                b.addAll(jVar.b());
-                jVar.a(b);
+                b.addAll(kVar.b());
+                kVar.a(b);
                 this.f = null;
-                this.f = jVar;
+                this.f = kVar;
             } else {
-                this.f = jVar;
+                this.f = kVar;
             }
             if (this.f != null) {
                 if (this.f.c().c() == 1) {
@@ -226,8 +226,8 @@ public class h {
     }
 
     public void e() {
-        if (this.e != null && this.e.d() != TiebaApplication.b().ae()) {
-            this.e.b(TiebaApplication.b().ae());
+        if (this.e != null && this.e.d() != TiebaApplication.b().af()) {
+            this.e.b(TiebaApplication.b().af());
             this.e.notifyDataSetChanged();
         }
     }
@@ -284,7 +284,7 @@ public class h {
         String g = pVar.g();
         String h = pVar.h();
         Intent intent = new Intent(this.b, SubPbActivity.class);
-        intent.putExtra("themeId", g);
+        intent.putExtra("threadId", g);
         intent.putExtra("postId", h);
         intent.putExtra("st_type", "mention");
         intent.putExtra("isFromMention", true);

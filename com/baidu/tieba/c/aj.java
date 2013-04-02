@@ -2,8 +2,9 @@ package com.baidu.tieba.c;
 
 import android.app.Activity;
 import android.content.DialogInterface;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class aj implements DialogInterface.OnClickListener {
+public class aj implements DialogInterface.OnClickListener {
     private final /* synthetic */ Activity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */

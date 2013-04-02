@@ -7,11 +7,10 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.os.Handler;
+import android.view.KeyEvent;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import com.baidu.mobstat.StatService;
-import com.baidu.tieba.c.ag;
-import com.baidu.tieba.c.ai;
 /* loaded from: classes.dex */
 public class e extends Activity {
     protected ProgressDialog a = null;
@@ -26,12 +25,36 @@ public class e extends Activity {
         com.baidu.tieba.account.a.a().c();
         TiebaApplication.p(true);
         TiebaApplication.b().a(getClass().getName());
-        if (TiebaApplication.b().k()) {
+        if (TiebaApplication.b().l()) {
             try {
                 StatService.setAppChannel(com.baidu.tieba.a.i.a());
             } catch (Exception e) {
-                ag.b(getClass().getName(), "onCreate", e.getMessage());
+                com.baidu.tieba.c.ag.b(getClass().getName(), "onCreate", e.getMessage());
             }
+        }
+    }
+
+    @Override // android.app.Activity, android.view.KeyEvent.Callback
+    public boolean onKeyDown(int i, KeyEvent keyEvent) {
+        try {
+            return super.onKeyDown(i, keyEvent);
+        } catch (IllegalStateException e) {
+            if (i == 4) {
+                finish();
+            }
+            return true;
+        }
+    }
+
+    @Override // android.app.Activity, android.view.KeyEvent.Callback
+    public boolean onKeyUp(int i, KeyEvent keyEvent) {
+        try {
+            return super.onKeyUp(i, keyEvent);
+        } catch (IllegalStateException e) {
+            if (i == 4) {
+                finish();
+            }
+            return true;
         }
     }
 
@@ -80,14 +103,14 @@ public class e extends Activity {
                     this.a.dismiss();
                 }
             } catch (Exception e) {
-                ag.b(getClass().getName(), "closeLoadingDialog", e.getMessage());
+                com.baidu.tieba.c.ag.b(getClass().getName(), "closeLoadingDialog", e.getMessage());
             }
             this.a = null;
         }
     }
 
     public void b(String str) {
-        ai.a((Context) this, str);
+        com.baidu.tieba.c.ai.a((Context) this, str);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -95,7 +118,7 @@ public class e extends Activity {
         try {
             inputMethodManager.hideSoftInputFromWindow(view.getWindowToken(), 2);
         } catch (Exception e) {
-            ag.b(getClass().getName(), "HidenSoftKeyPad", "error = " + e.getMessage());
+            com.baidu.tieba.c.ag.b(getClass().getName(), "HidenSoftKeyPad", "error = " + e.getMessage());
         }
     }
 
@@ -144,12 +167,12 @@ public class e extends Activity {
     @Override // android.app.Activity
     public void onPause() {
         super.onPause();
-        TiebaApplication.b().aq();
-        if (TiebaApplication.b().k()) {
+        TiebaApplication.b().av();
+        if (TiebaApplication.b().l()) {
             try {
                 StatService.onPause(this);
             } catch (Exception e) {
-                ag.b(getClass().getName(), "onPause", e.getMessage());
+                com.baidu.tieba.c.ag.b(getClass().getName(), "onPause", e.getMessage());
             }
         }
     }
@@ -163,18 +186,18 @@ public class e extends Activity {
     @Override // android.app.Activity
     public void onResume() {
         super.onResume();
-        if (TiebaApplication.b().ag() != this.b) {
-            this.b = TiebaApplication.b().ag();
+        if (TiebaApplication.b().ah() != this.b) {
+            this.b = TiebaApplication.b().ah();
             b(this.b);
         }
-        if (TiebaApplication.b().k()) {
+        if (TiebaApplication.b().l()) {
             try {
                 StatService.onResume(this);
             } catch (Exception e) {
-                ag.b(getClass().getName(), "onResume", e.getMessage());
+                com.baidu.tieba.c.ag.b(getClass().getName(), "onResume", e.getMessage());
             }
         }
-        TiebaApplication.b().ap();
+        TiebaApplication.b().au();
         TiebaApplication.b().a(getClass().getName());
     }
 
@@ -195,6 +218,6 @@ public class e extends Activity {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void h() {
-        ai.a((Activity) this);
+        com.baidu.tieba.c.ai.a((Activity) this);
     }
 }

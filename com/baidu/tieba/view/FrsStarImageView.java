@@ -50,8 +50,8 @@ public class FrsStarImageView extends ImageView {
         Bitmap bitmap;
         super.onDraw(canvas);
         String str = (String) getTag();
-        com.baidu.tieba.c.ac al = TiebaApplication.b().al();
-        Bitmap c = al != null ? al.c(str) : null;
+        com.baidu.tieba.c.ac an = TiebaApplication.b().an();
+        Bitmap c = an != null ? an.c(str) : null;
         if (c == null) {
             switch (this.c) {
                 case 0:

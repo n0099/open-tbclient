@@ -1,12 +1,11 @@
 package com.baidu.tieba.recommend;
 
-import android.app.Activity;
-import android.graphics.Bitmap;
 import android.view.View;
-import com.baidu.tieba.MainTabActivity;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.widget.AdapterView;
+import android.widget.ListView;
+import com.baidu.tieba.a.ax;
 /* loaded from: classes.dex */
-public class e implements View.OnClickListener {
+class e implements AdapterView.OnItemLongClickListener {
     final /* synthetic */ GuessActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -14,35 +13,17 @@ public class e implements View.OnClickListener {
         this.a = guessActivity;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        com.baidu.tieba.c.a aVar;
-        com.baidu.tieba.c.a aVar2;
-        l lVar;
-        if (((com.baidu.tieba.view.q) view).a()) {
-            aVar = this.a.r;
-            aVar.b();
-            if (view.getTag() != null && (view.getTag() instanceof String)) {
-                aVar2 = this.a.r;
-                Bitmap a = aVar2.a((String) view.getTag(), new f(this));
-                MainTabActivity mainTabActivity = null;
-                if (this.a.getParent() != null && this.a.getParent().getParent() != null) {
-                    Activity parent = this.a.getParent().getParent();
-                    if (parent instanceof MainTabActivity) {
-                        mainTabActivity = (MainTabActivity) parent;
-                    }
-                }
-                if (a == null || mainTabActivity == null) {
-                    lVar = this.a.j;
-                    Bitmap c = lVar.a().c(String.valueOf((String) view.getTag()) + "_small");
-                    if (c != null && mainTabActivity != null) {
-                        mainTabActivity.a(c, true);
-                        return;
-                    }
-                    return;
-                }
-                mainTabActivity.a(a, false);
-            }
+    @Override // android.widget.AdapterView.OnItemLongClickListener
+    public boolean onItemLongClick(AdapterView adapterView, View view, int i, long j) {
+        n nVar = (n) ((ListView) adapterView).getAdapter();
+        long itemId = nVar.getItemId(i);
+        if (itemId != -1 && itemId != -2) {
+            ax axVar = (ax) nVar.getItem(i);
+            this.a.f = axVar.b();
+            this.a.b(axVar);
+            this.a.c.show();
+            return false;
         }
+        return false;
     }
 }

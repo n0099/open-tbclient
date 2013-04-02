@@ -134,16 +134,6 @@ public class ae {
     public static void g(View view, int i) {
         if (view != null) {
             if (i == 1) {
-                view.setBackgroundResource(R.drawable.title_login_1);
-            } else {
-                view.setBackgroundResource(R.drawable.title_login);
-            }
-        }
-    }
-
-    public static void h(View view, int i) {
-        if (view != null) {
-            if (i == 1) {
                 view.setBackgroundResource(R.drawable.title_home_1);
             } else {
                 view.setBackgroundResource(R.drawable.title_home);
@@ -177,7 +167,7 @@ public class ae {
         return i == 1 ? b.getResources().getColor(R.color.skin_1_common_bg) : b.getResources().getColor(R.color.backgroundcolor);
     }
 
-    public static void i(View view, int i) {
+    public static void h(View view, int i) {
         if (view != null) {
             int paddingLeft = view.getPaddingLeft();
             int paddingRight = view.getPaddingRight();

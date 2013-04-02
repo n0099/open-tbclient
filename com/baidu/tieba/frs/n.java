@@ -18,7 +18,7 @@ public class n implements View.OnClickListener {
     public void onClick(View view) {
         String str;
         AlertDialog alertDialog;
-        if (TiebaApplication.b().k()) {
+        if (TiebaApplication.b().l()) {
             StatService.onEvent(this.a, "frs_add_main_screen", "frsclick", 1);
         }
         FrsActivity frsActivity = this.a;

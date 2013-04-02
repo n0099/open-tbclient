@@ -31,8 +31,8 @@ public class ab extends AsyncTask {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.os.AsyncTask
     /* renamed from: a */
-    public com.baidu.tieba.a.ai doInBackground(Object... objArr) {
-        com.baidu.tieba.a.ai aiVar;
+    public com.baidu.tieba.a.ak doInBackground(Object... objArr) {
+        com.baidu.tieba.a.ak akVar;
         Exception e;
         long j;
         long j2;
@@ -63,23 +63,23 @@ public class ab extends AsyncTask {
             }
             String i3 = this.c.i();
             if (this.c.b()) {
-                com.baidu.tieba.a.ai aiVar2 = new com.baidu.tieba.a.ai();
+                com.baidu.tieba.a.ak akVar2 = new com.baidu.tieba.a.ak();
                 try {
-                    aiVar2.a(i3);
-                    int size = aiVar2.d().size();
+                    akVar2.a(i3);
+                    int size = akVar2.d().size();
                     for (int i4 = 0; i4 < size; i4++) {
-                        ((com.baidu.tieba.a.al) aiVar2.d().get(i4)).b(this.b);
-                        ((com.baidu.tieba.a.al) aiVar2.d().get(i4)).a((ArrayList) null);
+                        ((com.baidu.tieba.a.an) akVar2.d().get(i4)).b(this.b);
+                        ((com.baidu.tieba.a.an) akVar2.d().get(i4)).a((ArrayList) null);
                     }
-                    aiVar = aiVar2;
+                    akVar = akVar2;
                 } catch (Exception e2) {
                     e = e2;
-                    aiVar = aiVar2;
+                    akVar = akVar2;
                     com.baidu.tieba.c.ag.b("PbAsyncTask", "doInBackground", "error = " + e.getMessage());
-                    return aiVar;
+                    return akVar;
                 }
             } else {
-                aiVar = null;
+                akVar = null;
             }
             try {
                 if (this.c.c()) {
@@ -92,114 +92,114 @@ public class ab extends AsyncTask {
             } catch (Exception e3) {
                 e = e3;
                 com.baidu.tieba.c.ag.b("PbAsyncTask", "doInBackground", "error = " + e.getMessage());
-                return aiVar;
+                return akVar;
             }
         } catch (Exception e4) {
-            aiVar = null;
+            akVar = null;
             e = e4;
         }
-        return aiVar;
+        return akVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.os.AsyncTask
     /* renamed from: a */
-    public void onPostExecute(com.baidu.tieba.a.ai aiVar) {
+    public void onPostExecute(com.baidu.tieba.a.ak akVar) {
         LinearLayout linearLayout;
-        com.baidu.tieba.b.q qVar;
-        com.baidu.tieba.b.q qVar2;
-        com.baidu.tieba.b.q qVar3;
-        com.baidu.tieba.b.q qVar4;
-        com.baidu.tieba.b.q qVar5;
-        com.baidu.tieba.b.q qVar6;
-        com.baidu.tieba.b.q qVar7;
-        com.baidu.tieba.b.q qVar8;
+        com.baidu.tieba.b.r rVar;
+        com.baidu.tieba.b.r rVar2;
+        com.baidu.tieba.b.r rVar3;
+        com.baidu.tieba.b.r rVar4;
+        com.baidu.tieba.b.r rVar5;
+        com.baidu.tieba.b.r rVar6;
+        com.baidu.tieba.b.r rVar7;
+        com.baidu.tieba.b.r rVar8;
         af afVar;
         af afVar2;
-        com.baidu.tieba.b.q qVar9;
-        com.baidu.tieba.b.q qVar10;
-        com.baidu.tieba.b.q qVar11;
-        com.baidu.tieba.b.q qVar12;
-        com.baidu.tieba.b.q qVar13;
-        com.baidu.tieba.b.q qVar14;
+        com.baidu.tieba.b.r rVar9;
+        com.baidu.tieba.b.r rVar10;
+        com.baidu.tieba.b.r rVar11;
+        com.baidu.tieba.b.r rVar12;
+        com.baidu.tieba.b.r rVar13;
+        com.baidu.tieba.b.r rVar14;
         ListView listView;
-        com.baidu.tieba.b.q qVar15;
-        com.baidu.tieba.b.q qVar16;
-        com.baidu.tieba.b.q qVar17;
-        com.baidu.tieba.b.q qVar18;
+        com.baidu.tieba.b.r rVar15;
+        com.baidu.tieba.b.r rVar16;
+        com.baidu.tieba.b.r rVar17;
+        com.baidu.tieba.b.r rVar18;
         af afVar3;
         ListView listView2;
         af afVar4;
-        com.baidu.tieba.b.q qVar19;
-        com.baidu.tieba.b.q qVar20;
-        com.baidu.tieba.b.q qVar21;
-        com.baidu.tieba.b.q qVar22;
-        com.baidu.tieba.b.q qVar23;
-        com.baidu.tieba.b.q qVar24;
-        com.baidu.tieba.b.q qVar25;
-        com.baidu.tieba.b.q qVar26;
+        com.baidu.tieba.b.r rVar19;
+        com.baidu.tieba.b.r rVar20;
+        com.baidu.tieba.b.r rVar21;
+        com.baidu.tieba.b.r rVar22;
+        com.baidu.tieba.b.r rVar23;
+        com.baidu.tieba.b.r rVar24;
+        com.baidu.tieba.b.r rVar25;
+        com.baidu.tieba.b.r rVar26;
         af afVar5;
         af afVar6;
         af afVar7;
         af afVar8;
         try {
-            if (aiVar != null) {
-                qVar = this.b.o;
-                com.baidu.tieba.a.ai a = qVar.a();
+            if (akVar != null) {
+                rVar = this.b.o;
+                com.baidu.tieba.a.ak a = rVar.a();
                 this.b.v = null;
-                qVar2 = this.b.o;
-                qVar2.c(aiVar.e().c());
-                qVar3 = this.b.o;
-                qVar3.d(aiVar.e().d());
+                rVar2 = this.b.o;
+                rVar2.c(akVar.e().c());
+                rVar3 = this.b.o;
+                rVar3.d(akVar.e().d());
                 if (this.d == 3) {
-                    qVar22 = this.b.o;
-                    qVar22.a(aiVar);
-                    qVar23 = this.b.o;
-                    qVar24 = this.b.o;
-                    qVar23.a(qVar24.a().e().b());
-                    qVar25 = this.b.o;
-                    qVar26 = this.b.o;
-                    qVar25.b(qVar26.a().e().b());
-                    if (aiVar.e().c() == 1) {
+                    rVar22 = this.b.o;
+                    rVar22.a(akVar);
+                    rVar23 = this.b.o;
+                    rVar24 = this.b.o;
+                    rVar23.a(rVar24.a().e().b());
+                    rVar25 = this.b.o;
+                    rVar26 = this.b.o;
+                    rVar25.b(rVar26.a().e().b());
+                    if (akVar.e().c() == 1) {
                         afVar8 = this.b.m;
                         afVar8.b(2);
                     } else {
                         afVar5 = this.b.m;
                         afVar5.b(1);
                     }
-                    if (aiVar.e().d() == 1) {
+                    if (akVar.e().d() == 1) {
                         afVar7 = this.b.m;
                         afVar7.a(2);
                     } else {
                         afVar6 = this.b.m;
                         afVar6.a(0);
                     }
-                    aiVar.g();
+                    akVar.i();
                 } else if (a != null && this.d == 2) {
                     listView = this.b.d;
                     int firstVisiblePosition = listView.getFirstVisiblePosition();
                     ArrayList d = a.d();
-                    ArrayList d2 = aiVar.d();
+                    ArrayList d2 = akVar.d();
                     int size = firstVisiblePosition + d2.size();
                     d.addAll(0, d2);
-                    a.a(aiVar.e());
-                    a.a(aiVar.a());
-                    a.a(aiVar.b());
-                    a.a(aiVar.f());
-                    qVar15 = this.b.o;
-                    qVar15.b(aiVar.e().b());
-                    qVar16 = this.b.o;
-                    int k = qVar16.k();
-                    qVar17 = this.b.o;
-                    int l = k - qVar17.l();
-                    qVar18 = this.b.o;
-                    if (l >= qVar18.o()) {
-                        qVar19 = this.b.o;
-                        qVar20 = this.b.o;
-                        int l2 = qVar20.l();
-                        qVar21 = this.b.o;
-                        qVar19.a((l2 + qVar21.o()) - 1);
+                    a.a(akVar.e());
+                    a.a(akVar.a());
+                    a.a(akVar.b());
+                    a.a(akVar.f());
+                    rVar15 = this.b.o;
+                    rVar15.b(akVar.e().b());
+                    rVar16 = this.b.o;
+                    int k = rVar16.k();
+                    rVar17 = this.b.o;
+                    int l = k - rVar17.l();
+                    rVar18 = this.b.o;
+                    if (l >= rVar18.o()) {
+                        rVar19 = this.b.o;
+                        rVar20 = this.b.o;
+                        int l2 = rVar20.l();
+                        rVar21 = this.b.o;
+                        rVar19.a((l2 + rVar21.o()) - 1);
                     }
                     if (a.e().d() == 1) {
                         afVar4 = this.b.m;
@@ -211,34 +211,34 @@ public class ab extends AsyncTask {
                     listView2 = this.b.d;
                     listView2.setSelection(size);
                 } else if (a != null && this.d == 1) {
-                    a.d().addAll(aiVar.d());
-                    a.a(aiVar.e());
-                    a.a(aiVar.a());
-                    a.a(aiVar.b());
-                    a.a(aiVar.f());
-                    qVar4 = this.b.o;
-                    if (!qVar4.m()) {
-                        qVar5 = this.b.o;
-                        qVar5.a(aiVar.e().b());
+                    a.d().addAll(akVar.d());
+                    a.a(akVar.e());
+                    a.a(akVar.a());
+                    a.a(akVar.b());
+                    a.a(akVar.f());
+                    rVar4 = this.b.o;
+                    if (!rVar4.m()) {
+                        rVar5 = this.b.o;
+                        rVar5.a(akVar.e().b());
                     } else if (a.e().c() == 1) {
-                        qVar13 = this.b.o;
-                        qVar14 = this.b.o;
-                        qVar13.a(qVar14.k() + 1);
+                        rVar13 = this.b.o;
+                        rVar14 = this.b.o;
+                        rVar13.a(rVar14.k() + 1);
                     } else {
-                        qVar12 = this.b.o;
-                        qVar12.a(aiVar.e().a());
+                        rVar12 = this.b.o;
+                        rVar12.a(akVar.e().a());
                     }
-                    qVar6 = this.b.o;
-                    int k2 = qVar6.k();
-                    qVar7 = this.b.o;
-                    int l3 = k2 - qVar7.l();
-                    qVar8 = this.b.o;
-                    if (l3 >= qVar8.o()) {
-                        qVar9 = this.b.o;
-                        qVar10 = this.b.o;
-                        int k3 = qVar10.k();
-                        qVar11 = this.b.o;
-                        qVar9.b((k3 - qVar11.o()) + 1);
+                    rVar6 = this.b.o;
+                    int k2 = rVar6.k();
+                    rVar7 = this.b.o;
+                    int l3 = k2 - rVar7.l();
+                    rVar8 = this.b.o;
+                    if (l3 >= rVar8.o()) {
+                        rVar9 = this.b.o;
+                        rVar10 = this.b.o;
+                        int k3 = rVar10.k();
+                        rVar11 = this.b.o;
+                        rVar9.b((k3 - rVar11.o()) + 1);
                     }
                     if (a.e().c() == 1) {
                         afVar2 = this.b.m;

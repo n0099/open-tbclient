@@ -1,50 +1,39 @@
 package com.baidu.tieba.home;
 
-import android.os.AsyncTask;
-/* JADX INFO: Access modifiers changed from: package-private */
+import org.apache.http.message.BasicNameValuePair;
 /* loaded from: classes.dex */
-public class ae extends AsyncTask {
-    final /* synthetic */ MarkActivity a;
-
-    private ae(MarkActivity markActivity) {
-        this.a = markActivity;
-    }
+class ae implements Runnable {
+    final /* synthetic */ SearchActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ ae(MarkActivity markActivity, ae aeVar) {
-        this(markActivity);
+    public ae(SearchActivity searchActivity) {
+        this.a = searchActivity;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // android.os.AsyncTask
-    /* renamed from: a */
-    public com.baidu.tieba.b.i doInBackground(Object... objArr) {
-        com.baidu.tieba.b.i iVar = new com.baidu.tieba.b.i();
+    @Override // java.lang.Runnable
+    public void run() {
+        String str;
+        String str2;
+        String str3;
+        at atVar;
         try {
-            iVar.b();
+            str = this.a.x;
+            if (str != null) {
+                str2 = this.a.x;
+                if (str2.length() > 0) {
+                    StringBuffer stringBuffer = new StringBuffer(30);
+                    stringBuffer.append("http://c.tieba.baidu.com/");
+                    stringBuffer.append("c/f/forum/sug");
+                    str3 = this.a.x;
+                    BasicNameValuePair basicNameValuePair = new BasicNameValuePair("q", str3.trim());
+                    this.a.i();
+                    this.a.v = new at(this.a, stringBuffer.toString(), basicNameValuePair, true);
+                    atVar = this.a.v;
+                    atVar.execute(stringBuffer.toString(), basicNameValuePair);
+                }
+            }
         } catch (Exception e) {
-            com.baidu.tieba.c.ag.b(getClass().getName(), "", "PbAsyncTask.doInBackground error = " + e.getMessage());
+            com.baidu.tieba.c.ag.b(getClass().getName(), "mSuggestRunnble.run", "error = " + e.getMessage());
         }
-        return iVar;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // android.os.AsyncTask
-    /* renamed from: a */
-    public void onPostExecute(com.baidu.tieba.b.i iVar) {
-        if (iVar != null) {
-            this.a.g = iVar;
-            this.a.m();
-            System.gc();
-        } else {
-            this.a.b("");
-        }
-        this.a.f = null;
-    }
-
-    public void a() {
-        super.cancel(true);
     }
 }

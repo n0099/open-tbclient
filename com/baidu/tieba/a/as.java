@@ -1,62 +1,69 @@
 package com.baidu.tieba.a;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class as {
-    private ArrayList a = new ArrayList();
+    private int a = 0;
+    private int c = 0;
+    private int d = 0;
+    private int e = 0;
+    private int b = 0;
+    private int f = 3;
+    private int g = 0;
 
-    public void a(JSONObject jSONObject, HashMap hashMap) {
-        String str;
-        try {
-            JSONArray optJSONArray = jSONObject.optJSONArray("uname");
-            int i = 0;
-            while (true) {
-                int i2 = i;
-                if (i2 < optJSONArray.length()) {
-                    af afVar = new af();
-                    afVar.c(optJSONArray.optString(i2));
-                    if (hashMap != null && (str = (String) hashMap.get(afVar.c())) != null) {
-                        afVar.d(str);
-                    }
-                    this.a.add(afVar);
-                    i = i2 + 1;
-                } else {
-                    return;
-                }
-            }
-        } catch (Exception e) {
-            com.baidu.tieba.c.ag.b("AtListModel", "parserSuggestJson", "error = " + e.getMessage());
-        }
+    public void a(int i) {
+        this.b = i;
     }
 
-    public void a(String str, HashMap hashMap) {
-        try {
-            a(new JSONObject(str), hashMap);
-        } catch (Exception e) {
-            com.baidu.tieba.c.ag.b("AtListModel", "parserSuggestJson", "error = " + e.getMessage());
-        }
+    public int a() {
+        return this.b;
     }
 
-    public void a(HashMap hashMap) {
-        if (hashMap != null) {
-            int i = 0;
-            while (true) {
-                int i2 = i;
-                if (i2 < this.a.size()) {
-                    af afVar = (af) this.a.get(i2);
-                    afVar.d((String) hashMap.get(afVar.c()));
-                    i = i2 + 1;
-                } else {
-                    return;
-                }
-            }
-        }
-    }
-
-    public ArrayList a() {
+    public int b() {
         return this.a;
+    }
+
+    public int c() {
+        return this.c;
+    }
+
+    public void b(int i) {
+        this.a = i;
+    }
+
+    public void c(int i) {
+        this.c = i;
+    }
+
+    public int d() {
+        return this.f;
+    }
+
+    public void d(int i) {
+        this.g = i;
+    }
+
+    public void a(String str) {
+        try {
+            a(new JSONObject(str));
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void a(JSONObject jSONObject) {
+        try {
+            JSONObject optJSONObject = jSONObject.optJSONObject("user_info");
+            if (optJSONObject != null) {
+                this.a = optJSONObject.getInt("is_sign_in");
+                this.c = optJSONObject.getInt("user_sign_rank");
+                this.d = optJSONObject.getInt("cont_sign_num");
+                this.e = optJSONObject.getInt("cout_total_sing_num");
+                this.f = optJSONObject.getInt("sign_bonus_point");
+            }
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
     }
 }

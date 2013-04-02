@@ -17,10 +17,10 @@ public class g implements AdapterView.OnItemClickListener {
     public void onItemClick(AdapterView adapterView, View view, int i, long j) {
         k kVar;
         kVar = this.a.k;
-        com.baidu.tieba.a.af afVar = (com.baidu.tieba.a.af) kVar.getItem(i);
-        if (afVar != null) {
+        com.baidu.tieba.a.ah ahVar = (com.baidu.tieba.a.ah) kVar.getItem(i);
+        if (ahVar != null) {
             Intent intent = new Intent();
-            intent.putExtra("name", afVar.c());
+            intent.putExtra("name", ahVar.c());
             this.a.setResult(-1, intent);
             this.a.finish();
         }

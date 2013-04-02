@@ -85,20 +85,20 @@ public class MoreActivity extends com.baidu.tieba.e {
     @Override // com.baidu.tieba.e, android.app.Activity
     public void onResume() {
         super.onResume();
-        String x = TiebaApplication.x();
-        com.baidu.tieba.c.ag.a(getClass().getName(), "onResume", "id=" + x);
-        if (x != null && !x.equals(this.Q)) {
-            this.Q = x;
+        String y = TiebaApplication.y();
+        com.baidu.tieba.c.ag.a(getClass().getName(), "onResume", "id=" + y);
+        if (y != null && !y.equals(this.Q)) {
+            this.Q = y;
         }
         o();
         if (TiebaApplication.g()) {
-            if (x == null || TiebaApplication.B() == null || TiebaApplication.B().equals("BaiduUser")) {
+            if (y == null || TiebaApplication.C() == null || TiebaApplication.C().equals("BaiduUser")) {
                 this.c.setText(R.string.putin_account);
                 this.d.setOnClickListener(new y(this));
             } else {
                 this.d.setFocusable(false);
                 this.d.setClickable(false);
-                this.c.setText(TiebaApplication.B());
+                this.c.setText(TiebaApplication.C());
             }
             ((ImageView) findViewById(R.id.arrow)).setVisibility(8);
         }
@@ -186,7 +186,7 @@ public class MoreActivity extends com.baidu.tieba.e {
     }
 
     private void j() {
-        this.Q = TiebaApplication.x();
+        this.Q = TiebaApplication.y();
     }
 
     private void k() {
@@ -239,7 +239,7 @@ public class MoreActivity extends com.baidu.tieba.e {
         this.I = (TextView) findViewById(R.id.abstract_state_on);
         this.w = (TextView) findViewById(R.id.abstract_text);
         this.r.setOnClickListener(this.K);
-        if (!TiebaApplication.b().n()) {
+        if (!TiebaApplication.b().o()) {
             this.t.setVisibility(8);
         } else {
             this.t.setVisibility(0);
@@ -264,13 +264,13 @@ public class MoreActivity extends com.baidu.tieba.e {
     public void m() {
         Activity parent = getParent();
         if (parent != null && (parent instanceof MainTabActivity)) {
-            ((MainTabActivity) parent).a(TiebaApplication.b().ag());
+            ((MainTabActivity) parent).a(TiebaApplication.b().ah());
         }
     }
 
     public void n() {
-        String x = TiebaApplication.x();
-        if (x == null || x.length() <= 0) {
+        String y = TiebaApplication.y();
+        if (y == null || y.length() <= 0) {
             LoginActivity.a((Activity) this, getString(R.string.login_feedback), true, 1200007);
             return;
         }
@@ -294,11 +294,11 @@ public class MoreActivity extends com.baidu.tieba.e {
     }
 
     private void o() {
-        if (TiebaApplication.b().L() <= 0) {
+        if (TiebaApplication.b().M() <= 0) {
             this.F.setText(R.string.close);
-        } else if (TiebaApplication.b().L() == 30) {
+        } else if (TiebaApplication.b().M() == 30) {
             this.F.setText(R.string._30_second);
-        } else if (TiebaApplication.b().L() == 120) {
+        } else if (TiebaApplication.b().M() == 120) {
             this.F.setText(R.string.tow_minute);
         } else {
             this.F.setText(R.string.five_minute);
@@ -306,7 +306,7 @@ public class MoreActivity extends com.baidu.tieba.e {
     }
 
     public void p() {
-        if (TiebaApplication.b().N()) {
+        if (TiebaApplication.b().O()) {
             this.H.setText(R.string.promote_message_on);
         } else {
             this.H.setText(R.string.promote_message_off);
@@ -314,7 +314,7 @@ public class MoreActivity extends com.baidu.tieba.e {
     }
 
     public void q() {
-        switch (TiebaApplication.b().ab()) {
+        switch (TiebaApplication.b().ac()) {
             case 1:
                 this.G.setText(getString(R.string.image_quality_high));
                 return;
@@ -330,7 +330,7 @@ public class MoreActivity extends com.baidu.tieba.e {
     }
 
     public void r() {
-        if (TiebaApplication.b().af()) {
+        if (TiebaApplication.b().ag()) {
             this.I.setText(R.string.abstract_on);
         } else {
             this.I.setText(R.string.abstract_off);
@@ -338,7 +338,7 @@ public class MoreActivity extends com.baidu.tieba.e {
     }
 
     public void s() {
-        if (TiebaApplication.b().ag() == 1) {
+        if (TiebaApplication.b().ah() == 1) {
             this.J.setText(R.string.on);
         } else {
             this.J.setText(R.string.off);
@@ -346,7 +346,7 @@ public class MoreActivity extends com.baidu.tieba.e {
     }
 
     public void t() {
-        if (TiebaApplication.b().l()) {
+        if (TiebaApplication.b().m()) {
             this.k.setText(R.string.on);
         } else {
             this.k.setText(R.string.off);
@@ -372,7 +372,7 @@ public class MoreActivity extends com.baidu.tieba.e {
     }
 
     public void u() {
-        if (TiebaApplication.aC()) {
+        if (TiebaApplication.aH()) {
             this.R.setVisibility(0);
         } else {
             this.R.setVisibility(8);

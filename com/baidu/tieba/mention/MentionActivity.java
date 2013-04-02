@@ -45,13 +45,13 @@ public class MentionActivity extends ActivityGroup {
     @Override // android.app.ActivityGroup, android.app.Activity
     protected void onResume() {
         super.onResume();
-        if (TiebaApplication.b().ag() != this.d) {
-            this.d = TiebaApplication.b().ag();
+        if (TiebaApplication.b().ah() != this.d) {
+            this.d = TiebaApplication.b().ah();
             a(this.d);
         }
-        if (TiebaApplication.b().X() > 0 && this.f != null) {
+        if (TiebaApplication.b().Y() > 0 && this.f != null) {
             this.f.setChecked(true);
-        } else if (TiebaApplication.b().Y() > 0 && this.e != null) {
+        } else if (TiebaApplication.b().Z() > 0 && this.e != null) {
             this.e.setChecked(true);
         }
     }
@@ -140,23 +140,23 @@ public class MentionActivity extends ActivityGroup {
     }
 
     public void a(int i, boolean z) {
-        long X = TiebaApplication.b().X();
         long Y = TiebaApplication.b().Y();
+        long Z = TiebaApplication.b().Z();
         if (z) {
             switch (i) {
                 case 0:
-                    a(0L, Y);
+                    a(0L, Z);
                     TiebaApplication.b().e(0L);
                     return;
                 case 1:
-                    a(X, 0L);
+                    a(Y, 0L);
                     TiebaApplication.b().f(0L);
                     return;
                 default:
                     return;
             }
         }
-        a(X, Y);
+        a(Y, Z);
     }
 
     public void a(long j, long j2) {

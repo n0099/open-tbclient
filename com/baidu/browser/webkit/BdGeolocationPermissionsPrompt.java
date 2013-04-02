@@ -9,6 +9,7 @@ import android.widget.CheckBox;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
+import com.baidu.android.pushservice.PushConstants;
 import com.baidu.browser.webkit.BdGeolocationPermissions;
 import com.baidu.loginshare.e;
 /* loaded from: classes.dex */
@@ -31,7 +32,7 @@ public class BdGeolocationPermissionsPrompt extends LinearLayout {
 
     public void init() {
         this.mInner = (LinearLayout) findViewById(getContext().getResources().getIdentifier("inner", "id", getContext().getPackageName()));
-        this.mMessage = (TextView) findViewById(getContext().getResources().getIdentifier("message", "id", getContext().getPackageName()));
+        this.mMessage = (TextView) findViewById(getContext().getResources().getIdentifier(PushConstants.EXTRA_PUSH_MESSAGE, "id", getContext().getPackageName()));
         this.mShareButton = (Button) findViewById(getContext().getResources().getIdentifier("share_button", "id", getContext().getPackageName()));
         this.mDontShareButton = (Button) findViewById(getContext().getResources().getIdentifier("dont_share_button", "id", getContext().getPackageName()));
         this.mRemember = (CheckBox) findViewById(getContext().getResources().getIdentifier("remember", "id", getContext().getPackageName()));

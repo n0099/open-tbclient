@@ -31,11 +31,11 @@ public class HomeActivity extends com.baidu.tieba.e {
     private ProgressBar k = null;
     private f l = null;
     private x m = null;
-    private com.baidu.tieba.b.f n = null;
+    private com.baidu.tieba.b.g n = null;
     private z o = null;
     private AlertDialog p = null;
     private DialogInterface.OnClickListener q = null;
-    private com.baidu.tieba.a.y r = null;
+    private com.baidu.tieba.a.aa r = null;
     private w s = null;
     AlertDialog c = null;
     AlertDialog d = null;
@@ -227,7 +227,7 @@ public class HomeActivity extends com.baidu.tieba.e {
 
     public void a(boolean z) {
         String f;
-        this.t = Boolean.valueOf((TiebaApplication.x() == null || TiebaApplication.B() == null) ? false : true);
+        this.t = Boolean.valueOf((TiebaApplication.y() == null || TiebaApplication.C() == null) ? false : true);
         if (!z) {
             if (this.t.booleanValue()) {
                 f = com.baidu.tieba.c.k.b();
@@ -235,9 +235,9 @@ public class HomeActivity extends com.baidu.tieba.e {
                 f = com.baidu.tieba.c.k.f("0");
             }
             if (f != null && f.length() > 0) {
-                com.baidu.tieba.b.f fVar = new com.baidu.tieba.b.f();
-                fVar.a(f);
-                if (!fVar.a()) {
+                com.baidu.tieba.b.g gVar = new com.baidu.tieba.b.g();
+                gVar.a(f);
+                if (!gVar.a()) {
                     com.baidu.tieba.c.ag.a("Like_Recommend_AsyncTask", "doInBackground", "cache data format err");
                     if (this.t.booleanValue()) {
                         com.baidu.tieba.c.k.a();
@@ -246,7 +246,7 @@ public class HomeActivity extends com.baidu.tieba.e {
                     }
                 } else {
                     com.baidu.tieba.c.ag.a("Like_Recommend_AsyncTask", "doInBackground", "cache data.size: " + String.valueOf(f.length()));
-                    this.n = fVar;
+                    this.n = gVar;
                     n();
                     return;
                 }
@@ -281,7 +281,7 @@ public class HomeActivity extends com.baidu.tieba.e {
                 this.p.show();
             } else if (this.o == null) {
                 this.o = new z(this, this.r);
-                this.o.execute(new com.baidu.tieba.a.y[0]);
+                this.o.execute(new com.baidu.tieba.a.aa[0]);
             }
         }
     }

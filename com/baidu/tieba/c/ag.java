@@ -1,6 +1,7 @@
 package com.baidu.tieba.c;
 
 import android.util.Log;
+import com.baidu.android.common.util.HanziToPinyin;
 import java.io.File;
 import java.io.FileWriter;
 import java.util.Date;
@@ -162,7 +163,7 @@ public class ag {
                 stringBuffer.append(str2);
                 if (str3 != null) {
                     stringBuffer.append(":");
-                    stringBuffer.append(str3.replace("\n", " ").replace("\t", " "));
+                    stringBuffer.append(str3.replace("\n", HanziToPinyin.Token.SEPARATOR).replace("\t", HanziToPinyin.Token.SEPARATOR));
                 }
                 stringBuffer.append("\t");
                 stringBuffer.append(str);

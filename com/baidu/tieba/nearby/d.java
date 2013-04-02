@@ -15,15 +15,15 @@ import com.baidu.tieba.TiebaApplication;
 /* loaded from: classes.dex */
 public class d extends BaseAdapter {
     private Context a;
-    private com.baidu.tieba.b.m b;
+    private com.baidu.tieba.b.n b;
     private View.OnClickListener c;
 
-    public d(Context context, com.baidu.tieba.b.m mVar, View.OnClickListener onClickListener) {
+    public d(Context context, com.baidu.tieba.b.n nVar, View.OnClickListener onClickListener) {
         this.a = null;
         this.b = null;
         this.c = null;
         this.a = context;
-        this.b = mVar;
+        this.b = nVar;
         this.c = onClickListener;
     }
 
@@ -56,7 +56,7 @@ public class d extends BaseAdapter {
     @Override // android.widget.BaseAdapter, android.widget.Adapter
     public int getItemViewType(int i) {
         if (getItem(i) != null) {
-            if (((com.baidu.tieba.b.n) getItem(i)).a() == 0) {
+            if (((com.baidu.tieba.b.o) getItem(i)).a() == 0) {
                 return 0;
             }
             return 1;
@@ -70,14 +70,14 @@ public class d extends BaseAdapter {
         Exception exc;
         View view2;
         int itemViewType;
-        int ag;
+        int ah;
         View view3;
         e eVar;
         View view4;
         f fVar = null;
         try {
             itemViewType = getItemViewType(i);
-            ag = TiebaApplication.b().ag();
+            ah = TiebaApplication.b().ah();
         } catch (Exception e) {
             exc = e;
             view2 = view;
@@ -122,32 +122,32 @@ public class d extends BaseAdapter {
                 eVar = null;
                 view4 = view;
             }
-            com.baidu.tieba.b.n nVar = (com.baidu.tieba.b.n) getItem(i);
+            com.baidu.tieba.b.o oVar = (com.baidu.tieba.b.o) getItem(i);
             if (itemViewType == 0) {
-                eVar.b.setText(nVar.b());
-                if (ag == 1) {
+                eVar.b.setText(oVar.b());
+                if (ah == 1) {
                     eVar.a.setBackgroundResource(R.drawable.icon_distance_node_1);
                     return view4;
                 }
                 eVar.a.setBackgroundResource(R.drawable.icon_distance_node);
                 return view4;
             } else if (itemViewType == 1) {
-                fVar.a.setText(nVar.c());
-                fVar.d.setRating(nVar.e());
-                fVar.e.setText(String.valueOf(nVar.g()));
-                fVar.f.setText(String.valueOf(nVar.h()));
-                fVar.b.setTag(nVar.c());
-                fVar.c.setTag(R.id.tag_nearby_forum_name, nVar.c());
-                fVar.c.setTag(R.id.tag_nearby_forum_id, nVar.d());
+                fVar.a.setText(oVar.c());
+                fVar.d.setRating(oVar.e());
+                fVar.e.setText(String.valueOf(oVar.g()));
+                fVar.f.setText(String.valueOf(oVar.h()));
+                fVar.b.setTag(oVar.c());
+                fVar.c.setTag(R.id.tag_nearby_forum_name, oVar.c());
+                fVar.c.setTag(R.id.tag_nearby_forum_id, oVar.d());
                 fVar.c.setOnClickListener(this.c);
-                if (nVar.f()) {
+                if (oVar.f()) {
                     fVar.c.setBackgroundResource(R.drawable.icon_like);
                     fVar.c.setClickable(false);
                 } else {
                     fVar.c.setBackgroundResource(R.drawable.icon_not_like);
                     fVar.c.setClickable(true);
                 }
-                if (ag == 1) {
+                if (ah == 1) {
                     fVar.a.setTextColor(-6710887);
                     fVar.e.setTextColor(-10066330);
                     fVar.f.setTextColor(-10066330);

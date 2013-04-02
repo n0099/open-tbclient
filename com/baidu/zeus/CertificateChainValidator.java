@@ -1,6 +1,7 @@
 package com.baidu.zeus;
 
 import android.util.Log;
+import com.baidu.android.common.security.RSAUtil;
 import java.io.IOException;
 import java.security.cert.Certificate;
 import java.security.cert.CertificateException;
@@ -41,7 +42,7 @@ class CertificateChainValidator {
             httpsConnection.setCertificate(new SslCertificate((X509Certificate) peerCertificates[0]));
         }
         if (JniUtil.useChromiumHttpStack()) {
-            return verifyServerDomainAndCertificates((X509Certificate[]) peerCertificates, str, "RSA");
+            return verifyServerDomainAndCertificates((X509Certificate[]) peerCertificates, str, RSAUtil.ALGORITHM_RSA);
         }
         X509Certificate[] x509CertificateArr = new X509Certificate[peerCertificates.length];
         for (int i = 0; i < peerCertificates.length; i++) {
@@ -92,7 +93,7 @@ class CertificateChainValidator {
             x509CertificateArr2[i4] = x509CertificateArr[i4];
         }
         try {
-            getDefaultTrustManager(WebKitInit.getOSId()).checkServerTrusted(x509CertificateArr2, "RSA");
+            getDefaultTrustManager(WebKitInit.getOSId()).checkServerTrusted(x509CertificateArr2, RSAUtil.ALGORITHM_RSA);
             return null;
         } catch (CertificateException e3) {
             sSLSocket.getSession().invalidate();

@@ -1,7 +1,7 @@
 package com.baidu.tieba.b;
 
-import com.baidu.tieba.a.ah;
-import com.baidu.tieba.a.at;
+import com.baidu.tieba.a.aj;
+import com.baidu.tieba.a.ax;
 import com.baidu.tieba.c.ag;
 import java.util.ArrayList;
 import org.json.JSONArray;
@@ -12,7 +12,7 @@ public class c {
     private boolean f = false;
     private com.baidu.tieba.a.q a = new com.baidu.tieba.a.q();
     private ArrayList b = new ArrayList();
-    private ah d = new ah();
+    private aj d = new aj();
     private com.baidu.tieba.a.s e = new com.baidu.tieba.a.s();
 
     public c() {
@@ -35,7 +35,7 @@ public class c {
         return this.c;
     }
 
-    public ah d() {
+    public aj d() {
         return this.d;
     }
 
@@ -57,10 +57,10 @@ public class c {
             JSONArray optJSONArray = jSONObject.optJSONArray("thread_list");
             if (optJSONArray != null) {
                 for (int i = 0; i < optJSONArray.length(); i++) {
-                    at atVar = new at();
-                    atVar.a(optJSONArray.optJSONObject(i));
-                    atVar.p();
-                    this.b.add(atVar);
+                    ax axVar = new ax();
+                    axVar.a(optJSONArray.optJSONObject(i));
+                    axVar.r();
+                    this.b.add(axVar);
                 }
             }
             this.c.a(jSONObject.optJSONObject("anti"));

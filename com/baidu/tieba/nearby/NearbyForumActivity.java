@@ -11,7 +11,7 @@ import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class NearbyForumActivity extends com.baidu.tieba.e {
     private Address c = null;
-    private com.baidu.tieba.b.m d = null;
+    private com.baidu.tieba.b.n d = null;
     private ListView e = null;
     private d f = null;
     private View.OnClickListener g = null;
@@ -36,7 +36,7 @@ public class NearbyForumActivity extends com.baidu.tieba.e {
     }
 
     void i() {
-        this.d = new com.baidu.tieba.b.m();
+        this.d = new com.baidu.tieba.b.n();
     }
 
     void j() {

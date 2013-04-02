@@ -1,23 +1,24 @@
 package com.baidu.tieba.home;
 
-import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ListView;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.widget.ImageButton;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 /* loaded from: classes.dex */
-public class ad implements AdapterView.OnItemLongClickListener {
-    final /* synthetic */ MarkActivity a;
+class ad {
+    TextView a;
+    LinearLayout b;
+    TextView c;
+    TextView d;
+    TextView e;
+    ImageButton f;
+    final /* synthetic */ ab g;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public ad(MarkActivity markActivity) {
-        this.a = markActivity;
+    private ad(ab abVar) {
+        this.g = abVar;
     }
 
-    @Override // android.widget.AdapterView.OnItemLongClickListener
-    public boolean onItemLongClick(AdapterView adapterView, View view, int i, long j) {
-        this.a.h = (com.baidu.tieba.a.ac) ((ListView) adapterView).getAdapter().getItem(i);
-        this.a.i = i;
-        this.a.c.show();
-        return true;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public /* synthetic */ ad(ab abVar, ad adVar) {
+        this(abVar);
     }
 }

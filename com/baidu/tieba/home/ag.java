@@ -1,24 +1,24 @@
 package com.baidu.tieba.home;
 
-import android.widget.ImageButton;
-import android.widget.LinearLayout;
-import android.widget.TextView;
+import android.widget.AbsListView;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class ag {
-    TextView a;
-    LinearLayout b;
-    TextView c;
-    TextView d;
-    TextView e;
-    ImageButton f;
-    final /* synthetic */ af g;
-
-    private ag(af afVar) {
-        this.g = afVar;
-    }
+public class ag implements AbsListView.OnScrollListener {
+    final /* synthetic */ SearchActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ ag(af afVar, ag agVar) {
-        this(afVar);
+    public ag(SearchActivity searchActivity) {
+        this.a = searchActivity;
+    }
+
+    @Override // android.widget.AbsListView.OnScrollListener
+    public void onScrollStateChanged(AbsListView absListView, int i) {
+        if (i == 2 || i == 1) {
+            com.baidu.tieba.c.ai.a(this.a, absListView);
+        }
+    }
+
+    @Override // android.widget.AbsListView.OnScrollListener
+    public void onScroll(AbsListView absListView, int i, int i2, int i3) {
     }
 }

@@ -63,7 +63,7 @@ public class w {
     private boolean w = true;
     private int x = 0;
 
-    static /* synthetic */ int[] s() {
+    static /* synthetic */ int[] t() {
         int[] iArr = A;
         if (iArr == null) {
             iArr = new int[z.valuesCustom().length];
@@ -116,7 +116,7 @@ public class w {
     }
 
     private int a(z zVar) {
-        switch (s()[zVar.ordinal()]) {
+        switch (t()[zVar.ordinal()]) {
             case 2:
                 return 1;
             case 3:
@@ -128,7 +128,7 @@ public class w {
         }
     }
 
-    private void t() {
+    private void u() {
         this.i = null;
         this.j = null;
         this.k = 0;
@@ -175,31 +175,37 @@ public class w {
         synchronized (w.class) {
             if (!g) {
                 g = true;
-                try {
-                    Cursor query = TiebaApplication.b().getContentResolver().query(Uri.parse("content://telephony/carriers/preferapn"), null, null, null, null);
-                    if (query != null && query.moveToNext()) {
-                        String string = query.getString(query.getColumnIndex("user"));
-                        String string2 = query.getString(query.getColumnIndex("password"));
-                        query.close();
-                        f = "Basic " + af.b((String.valueOf(string) + ":" + string2).getBytes());
-                    }
-                } catch (Exception e2) {
-                }
+                d();
             }
         }
     }
 
-    public static void d() {
+    public static synchronized void d() {
+        synchronized (w.class) {
+            try {
+                Cursor query = TiebaApplication.b().getContentResolver().query(Uri.parse("content://telephony/carriers/preferapn"), null, null, null, null);
+                if (query != null && query.moveToNext()) {
+                    String string = query.getString(query.getColumnIndex("user"));
+                    String string2 = query.getString(query.getColumnIndex("password"));
+                    query.close();
+                    f = "Basic " + af.b((String.valueOf(string) + ":" + string2).getBytes());
+                }
+            } catch (Exception e2) {
+            }
+        }
+    }
+
+    public static void e() {
         e = new x();
     }
 
     public w() {
-        t();
+        u();
         this.r = TiebaApplication.b();
     }
 
     public w(String str) {
-        t();
+        u();
         this.r = TiebaApplication.b();
         this.j = str;
     }
@@ -230,23 +236,23 @@ public class w {
         this.j = str;
     }
 
-    public boolean e() {
+    public boolean f() {
         return this.k == 200 && this.l == 0;
     }
 
-    public boolean f() {
+    public boolean g() {
         return this.k == 200;
     }
 
-    public int g() {
+    public int h() {
         return this.l;
     }
 
-    public String h() {
+    public String i() {
         return this.m;
     }
 
-    public void i() {
+    public void j() {
         this.m = "";
     }
 
@@ -254,7 +260,7 @@ public class w {
         this.m = str;
     }
 
-    public void j() {
+    public void k() {
         this.u = true;
         try {
             if (this.i != null) {
@@ -334,7 +340,7 @@ public class w {
         return false;
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [585=8, 586=8, 590=8, 591=8, 593=8] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [589=8, 590=8, 594=8, 595=8, 597=8] */
     /* JADX WARN: Code restructure failed: missing block: B:59:0x015e, code lost:
         if (0 == 0) goto L66;
      */
@@ -346,7 +352,7 @@ public class w {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public byte[] k() {
+    public byte[] l() {
         String str;
         InputStream inputStream;
         InputStream inputStream2;
@@ -615,7 +621,7 @@ public class w {
         }
     }
 
-    private String u() {
+    private String v() {
         int indexOf;
         String str = null;
         if (this.i != null) {
@@ -650,15 +656,15 @@ public class w {
         }
     }
 
-    public String l() {
+    public String m() {
         String str;
         Exception e2;
-        byte[] k = k();
+        byte[] l = l();
         if (this.k != 200) {
             return null;
         }
         try {
-            str = new String(k, 0, k.length, u());
+            str = new String(l, 0, l.length, v());
             try {
                 c(str);
                 return str;
@@ -673,7 +679,7 @@ public class w {
         }
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [826=9, 827=9, 831=9, 832=9, 834=9] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [830=9, 831=9, 835=9, 836=9, 838=9] */
     /* JADX WARN: Code restructure failed: missing block: B:35:0x00ed, code lost:
         if (0 == 0) goto L222;
      */
@@ -685,7 +691,7 @@ public class w {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public String m() {
+    public String n() {
         InputStream inputStream;
         Exception exc;
         InputStream inputStream2;
@@ -833,7 +839,7 @@ public class w {
                                 ag.a(getClass().getName(), "postNetData", "After ungzip data.zise = " + String.valueOf(byteArray.length));
                             }
                             byte[] bArr2 = byteArray;
-                            String str2 = new String(bArr2, 0, bArr2.length, u());
+                            String str2 = new String(bArr2, 0, bArr2.length, v());
                             try {
                                 if (this.v && this.w) {
                                     c(str2);
@@ -997,11 +1003,11 @@ public class w {
         return str;
     }
 
-    public int n() {
+    public int o() {
         return this.x;
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [991=9, 992=9, 994=9, 996=9, 997=9, 999=5, 1001=9, 1002=9, 1004=9, 1005=9, 1006=9] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [995=9, 996=9, 998=9, 1000=9, 1001=9, 1003=5, 1005=9, 1006=9, 1008=9, 1009=9, 1010=9] */
     /* JADX WARN: Code restructure failed: missing block: B:14:0x0037, code lost:
         if (0 == 0) goto L15;
      */
@@ -1032,7 +1038,7 @@ public class w {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public String o() {
+    public String p() {
         DataOutputStream dataOutputStream;
         DataOutputStream dataOutputStream2;
         Throwable th;
@@ -1199,7 +1205,7 @@ public class w {
                                 q.a(byteArrayInputStream, byteArrayOutputStream2);
                                 bArr = byteArrayOutputStream2.toByteArray();
                             }
-                            String str4 = new String(bArr, 0, bArr.length, u());
+                            String str4 = new String(bArr, 0, bArr.length, v());
                             try {
                                 c(str4);
                                 if (inputStream3 != null) {
@@ -1523,11 +1529,11 @@ public class w {
         return str2;
     }
 
-    public boolean p() {
+    public boolean q() {
         return this.k == 200 || this.k == 206;
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [1152=7, 1153=7, 1155=7, 1140=7, 1142=7, 1143=7, 1147=7, 1148=7] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [1152=7, 1156=7, 1157=7, 1159=7, 1144=7, 1146=7, 1147=7, 1151=7] */
     /* JADX WARN: Removed duplicated region for block: B:166:0x035c A[Catch: Exception -> 0x0385, TRY_LEAVE, TryCatch #28 {Exception -> 0x0385, blocks: (B:164:0x0356, B:166:0x035c), top: B:254:0x0356 }] */
     /* JADX WARN: Removed duplicated region for block: B:250:0x0365 A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /* JADX WARN: Removed duplicated region for block: B:252:0x0353 A[EXC_TOP_SPLITTER, SYNTHETIC] */
@@ -1600,7 +1606,7 @@ public class w {
                 }
                 this.i.connect();
                 this.k = this.i.getResponseCode();
-                if (!p()) {
+                if (!q()) {
                     throw new SocketException();
                 }
                 if (!this.i.getContentType().contains("text/vnd.wap.wml") || this.n >= 1) {
@@ -1818,11 +1824,11 @@ public class w {
         this.r = context;
     }
 
-    public Context q() {
+    public Context r() {
         return this.r;
     }
 
-    public ArrayList r() {
+    public ArrayList s() {
         return this.o;
     }
 

@@ -1,31 +1,47 @@
 package com.baidu.tieba;
 
 import android.view.animation.Animation;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 /* loaded from: classes.dex */
-class o implements Animation.AnimationListener {
-    final /* synthetic */ LogoActivity a;
+class o implements android.support.v4.view.aj {
+    final /* synthetic */ LabelActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public o(LogoActivity logoActivity) {
-        this.a = logoActivity;
+    public o(LabelActivity labelActivity) {
+        this.a = labelActivity;
     }
 
-    @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationEnd(Animation animation) {
-        boolean z;
-        this.a.d = true;
-        z = this.a.e;
-        if (!z) {
-            return;
+    @Override // android.support.v4.view.aj
+    public void a(int i) {
+        LinearLayout linearLayout;
+        Animation animation;
+        Animation animation2;
+        LinearLayout linearLayout2;
+        linearLayout = this.a.t;
+        int childCount = linearLayout.getChildCount();
+        if (i < childCount) {
+            for (int i2 = 0; i2 < childCount; i2++) {
+                linearLayout2 = this.a.t;
+                ImageView imageView = (ImageView) linearLayout2.getChildAt(i2);
+                if (i2 != i) {
+                    imageView.setBackgroundResource(R.drawable.tag_page_rb_click);
+                } else {
+                    imageView.setBackgroundResource(R.drawable.tag_page_rb_normal);
+                }
+            }
         }
-        this.a.j();
+        animation = this.a.w;
+        animation.reset();
+        animation2 = this.a.w;
+        animation2.start();
     }
 
-    @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationRepeat(Animation animation) {
+    @Override // android.support.v4.view.aj
+    public void b(int i) {
     }
 
-    @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationStart(Animation animation) {
+    @Override // android.support.v4.view.aj
+    public void a(int i, float f, int i2) {
     }
 }

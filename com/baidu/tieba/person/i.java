@@ -135,7 +135,7 @@ public class i extends BaseAdapter {
                     jVar.f.setVisibility(8);
                 }
             }
-            if (TiebaApplication.b().ag() == 1) {
+            if (TiebaApplication.b().ah() == 1) {
                 int a = com.baidu.tieba.c.ae.a(1);
                 jVar.a.setTextColor(a);
                 jVar.c.setTextColor(a);

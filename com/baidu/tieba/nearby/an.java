@@ -17,8 +17,8 @@ public class an implements Runnable {
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public void run() {
-        com.baidu.tieba.b.o oVar;
-        com.baidu.tieba.b.o oVar2;
+        com.baidu.tieba.b.p pVar;
+        com.baidu.tieba.b.p pVar2;
         ar arVar;
         ar arVar2;
         ListView listView;
@@ -28,11 +28,11 @@ public class an implements Runnable {
         int i;
         int i2;
         ar arVar5;
-        com.baidu.tieba.a.af m;
+        com.baidu.tieba.a.ah m;
         String d;
         ar arVar6;
         com.baidu.tieba.c.d dVar;
-        com.baidu.tieba.a.af l;
+        com.baidu.tieba.a.ah l;
         String d2;
         ar arVar7;
         com.baidu.tieba.c.d dVar2;
@@ -41,10 +41,10 @@ public class an implements Runnable {
         com.baidu.tieba.c.d dVar3;
         int i3 = 0;
         try {
-            oVar = this.a.d;
-            if (oVar != null) {
-                oVar2 = this.a.d;
-                if (oVar2.a().size() != 0) {
+            pVar = this.a.d;
+            if (pVar != null) {
+                pVar2 = this.a.d;
+                if (pVar2.a().size() != 0) {
                     com.baidu.tieba.c.z c = com.baidu.tieba.c.w.c(this.a);
                     arVar = this.a.f;
                     arVar.a().a();
@@ -60,25 +60,25 @@ public class an implements Runnable {
                     while (i4 < arVar3.getCount()) {
                         if (z || i4 <= lastVisiblePosition) {
                             arVar4 = this.a.f;
-                            if (arVar4.getItem(i4) instanceof com.baidu.tieba.b.p) {
+                            if (arVar4.getItem(i4) instanceof com.baidu.tieba.b.q) {
                                 arVar5 = this.a.f;
-                                com.baidu.tieba.b.p pVar = (com.baidu.tieba.b.p) arVar5.getItem(i4);
-                                if (pVar.a() == 0 || pVar.a() == 1 || pVar.a() == 2) {
-                                    if (i5 < 13 && (g = pVar.g()) != null && !g.equals("")) {
+                                com.baidu.tieba.b.q qVar = (com.baidu.tieba.b.q) arVar5.getItem(i4);
+                                if (qVar.a() == 0 || qVar.a() == 1 || qVar.a() == 2) {
+                                    if (i5 < 13 && (g = qVar.g()) != null && !g.equals("")) {
                                         i5++;
                                         arVar8 = this.a.f;
                                         com.baidu.tieba.c.a a = arVar8.a();
                                         dVar3 = this.a.o;
                                         a.a(g, dVar3);
                                     }
-                                    if (i3 < 30 && (l = pVar.l()) != null && (d2 = l.d()) != null && !d2.equals("")) {
+                                    if (i3 < 30 && (l = qVar.l()) != null && (d2 = l.d()) != null && !d2.equals("")) {
                                         i3++;
                                         arVar7 = this.a.f;
                                         com.baidu.tieba.c.a a2 = arVar7.a();
                                         dVar2 = this.a.p;
                                         a2.d(d2, dVar2);
                                     }
-                                    if (i3 < 30 && (m = pVar.m()) != null && (d = m.d()) != null && !d.equals("")) {
+                                    if (i3 < 30 && (m = qVar.m()) != null && (d = m.d()) != null && !d.equals("")) {
                                         i = i3 + 1;
                                         arVar6 = this.a.f;
                                         com.baidu.tieba.c.a a3 = arVar6.a();

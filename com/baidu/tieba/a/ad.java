@@ -1,45 +1,63 @@
 package com.baidu.tieba.a;
 
-import org.json.JSONObject;
+import com.baidu.mapapi.GeoPoint;
+import com.baidu.tieba.nearby.MapOverlayItem;
+import java.io.Serializable;
 /* loaded from: classes.dex */
-public class ad {
-    private int a = -1;
+public class ad implements Serializable {
+    private String a = null;
     private String b = null;
     private String c = null;
+    private ah d = null;
+    private int e;
+    private int f;
 
-    public int a() {
-        return this.a;
+    public ad(int i, int i2) {
+        this.e = 0;
+        this.f = 0;
+        this.e = i;
+        this.f = i2;
+    }
+
+    public void a(ah ahVar) {
+        this.d = ahVar;
+    }
+
+    public ah a() {
+        return this.d;
     }
 
     public String b() {
-        return this.b;
-    }
-
-    public String c() {
-        return this.c;
-    }
-
-    public void a(int i) {
-        this.a = i;
+        return this.a;
     }
 
     public void a(String str) {
+        this.a = str;
+    }
+
+    public String c() {
+        return this.b;
+    }
+
+    public void b(String str) {
         this.b = str;
     }
 
-    public void a(JSONObject jSONObject) {
-        if (jSONObject != null) {
-            try {
-                this.a = jSONObject.optInt("type");
-                if (this.a == 3) {
-                    this.b = jSONObject.optString("big_pic");
-                } else if (this.a == 5) {
-                    this.b = jSONObject.optString("vpic");
-                    this.c = jSONObject.optString("vsrc");
-                }
-            } catch (Exception e) {
-                com.baidu.tieba.c.ag.b(getClass().getName(), "parserJson", "error=" + e.toString());
-            }
-        }
+    public String d() {
+        return this.c;
+    }
+
+    public int e() {
+        return this.e;
+    }
+
+    public int f() {
+        return this.f;
+    }
+
+    public MapOverlayItem g() {
+        MapOverlayItem mapOverlayItem = new MapOverlayItem(new GeoPoint(e(), f()), c(), d());
+        mapOverlayItem.a(this);
+        return mapOverlayItem;
     }
 }

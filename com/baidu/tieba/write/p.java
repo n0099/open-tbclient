@@ -21,7 +21,7 @@ public class p implements View.OnClickListener {
         EditText editText;
         DialogInterface.OnCancelListener onCancelListener;
         s sVar;
-        com.baidu.tieba.b.y yVar;
+        com.baidu.tieba.b.z zVar;
         s sVar2;
         s sVar3;
         VcodeActivity vcodeActivity = this.a;
@@ -39,8 +39,8 @@ public class p implements View.OnClickListener {
         }
         VcodeActivity vcodeActivity3 = this.a;
         VcodeActivity vcodeActivity4 = this.a;
-        yVar = this.a.c;
-        vcodeActivity3.i = new s(vcodeActivity4, yVar);
+        zVar = this.a.c;
+        vcodeActivity3.i = new s(vcodeActivity4, zVar);
         sVar2 = this.a.i;
         sVar2.execute(0);
     }

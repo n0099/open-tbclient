@@ -94,15 +94,15 @@ public class ImageViewDrawer extends ImageView {
         } else {
             str = (String) getTag();
         }
-        com.baidu.tieba.c.ac al = TiebaApplication.b().al();
-        if (al == null || str == null) {
+        com.baidu.tieba.c.ac an = TiebaApplication.b().an();
+        if (an == null || str == null) {
             z = false;
             z2 = false;
             bitmap = null;
         } else {
-            Bitmap c = al.c(str);
+            Bitmap c = an.c(str);
             if (c != null) {
-                boolean d = al.d(str);
+                boolean d = an.d(str);
                 z = true;
                 z2 = d;
                 bitmap = c;
@@ -140,12 +140,12 @@ public class ImageViewDrawer extends ImageView {
                 canvas.drawBitmap(defalutBitmap2, (getWidth() - defalutBitmap2.getWidth()) >> 1, (getHeight() - defalutBitmap2.getHeight()) >> 1, (Paint) null);
             }
         }
-        if (TiebaApplication.b().ag() == 1 && z) {
+        if (TiebaApplication.b().ah() == 1 && z) {
             canvas.drawColor(1275068416);
         }
     }
 
     private Bitmap getDefalutBitmap() {
-        return TiebaApplication.b().ag() == 1 ? com.baidu.tieba.c.e.a(this.e) : com.baidu.tieba.c.e.a(this.d);
+        return TiebaApplication.b().ah() == 1 ? com.baidu.tieba.c.e.a(this.e) : com.baidu.tieba.c.e.a(this.d);
     }
 }

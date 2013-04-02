@@ -19,38 +19,38 @@ class ao implements Runnable {
     public void run() {
         ListView listView;
         ListView listView2;
-        ca caVar;
-        ca caVar2;
-        ca caVar3;
-        ca caVar4;
+        cd cdVar;
+        cd cdVar2;
+        cd cdVar3;
+        cd cdVar4;
         int i;
-        ca caVar5;
-        com.baidu.tieba.b.q qVar;
-        ca caVar6;
-        ca caVar7;
+        cd cdVar5;
+        com.baidu.tieba.b.r rVar;
+        cd cdVar6;
+        cd cdVar7;
         try {
             listView = this.a.d;
             int firstVisiblePosition = listView.getFirstVisiblePosition();
             listView2 = this.a.d;
             int lastVisiblePosition = listView2.getLastVisiblePosition();
             com.baidu.tieba.c.z c = com.baidu.tieba.c.w.c(this.a);
-            caVar = this.a.n;
-            caVar.b().a();
+            cdVar = this.a.m;
+            cdVar.b().a();
             boolean z = c == com.baidu.tieba.c.z.WIFI || c == com.baidu.tieba.c.z.ThreeG;
-            caVar2 = this.a.n;
-            caVar2.b().a(z);
+            cdVar2 = this.a.m;
+            cdVar2.b().a(z);
             int i2 = firstVisiblePosition;
             int i3 = 0;
             int i4 = 0;
-            while (i2 < caVar3.getCount()) {
+            while (i2 < cdVar3.getCount()) {
                 if (z || i2 <= lastVisiblePosition) {
-                    caVar4 = this.a.n;
-                    com.baidu.tieba.a.al alVar = (com.baidu.tieba.a.al) caVar4.getItem(i2);
-                    if (alVar != null) {
-                        ArrayList f = alVar.f();
+                    cdVar4 = this.a.m;
+                    com.baidu.tieba.a.an anVar = (com.baidu.tieba.a.an) cdVar4.getItem(i2);
+                    if (anVar != null) {
+                        ArrayList f = anVar.f();
                         int size = f.size();
-                        caVar5 = this.a.n;
-                        if (caVar5.i() && i4 < 13) {
+                        cdVar5 = this.a.m;
+                        if (cdVar5.i() && i4 < 13) {
                             int i5 = 0;
                             int i6 = i4;
                             while (true) {
@@ -64,19 +64,19 @@ class ao implements Runnable {
                                         break;
                                     }
                                     i6++;
-                                    caVar7 = this.a.n;
-                                    caVar7.b().a(((com.baidu.tieba.a.k) f.get(i5)).f(), new ap(this));
+                                    cdVar7 = this.a.m;
+                                    cdVar7.b().a(((com.baidu.tieba.a.k) f.get(i5)).f(), new ap(this));
                                 }
                                 i5++;
                                 i6 = i6;
                             }
                         }
-                        String d = alVar.e().d();
-                        qVar = this.a.p;
-                        if (qVar.b() && d != null && d.length() > 0 && i3 < 30) {
+                        String d = anVar.e().d();
+                        rVar = this.a.o;
+                        if (rVar.b() && d != null && d.length() > 0 && i3 < 30) {
                             i3++;
-                            caVar6 = this.a.n;
-                            caVar6.b().d(d, new aq(this));
+                            cdVar6 = this.a.m;
+                            cdVar6.b().d(d, new aq(this));
                         }
                         i = i3;
                         if (z && i4 >= 13 && i >= 30) {

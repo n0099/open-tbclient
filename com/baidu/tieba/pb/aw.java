@@ -47,48 +47,48 @@ public class aw implements GestureDetector.OnGestureListener {
         LinearLayout linearLayout2;
         TranslateAnimation translateAnimation5;
         TranslateAnimation translateAnimation6;
-        translateAnimation = this.a.as;
+        translateAnimation = this.a.at;
         if (translateAnimation != null) {
-            translateAnimation6 = this.a.at;
+            translateAnimation6 = this.a.au;
         }
         this.a.q();
         int i2 = f2 > 0.0f ? 0 : 1;
-        i = this.a.ax;
+        i = this.a.ay;
         if (i2 == i) {
             if (f2 > 3.0f && f2 < 50.0f) {
-                translateAnimation4 = this.a.as;
+                translateAnimation4 = this.a.at;
                 if (translateAnimation4 != null) {
-                    z3 = this.a.av;
+                    z3 = this.a.aw;
                     if (!z3) {
-                        z4 = this.a.aw;
+                        z4 = this.a.ax;
                         if (z4) {
                             listView = this.a.d;
                             int lastVisiblePosition = listView.getLastVisiblePosition();
                             listView2 = this.a.d;
                             if (lastVisiblePosition != listView2.getCount() - 1) {
-                                linearLayout2 = this.a.C;
-                                translateAnimation5 = this.a.as;
+                                linearLayout2 = this.a.B;
+                                translateAnimation5 = this.a.at;
                                 linearLayout2.startAnimation(translateAnimation5);
                             }
                         }
                     }
                 }
             } else if (f2 < -3.0f && f2 > -50.0f) {
-                translateAnimation2 = this.a.at;
+                translateAnimation2 = this.a.au;
                 if (translateAnimation2 != null) {
-                    z = this.a.av;
+                    z = this.a.aw;
                     if (!z) {
-                        z2 = this.a.aw;
+                        z2 = this.a.ax;
                         if (!z2) {
-                            linearLayout = this.a.C;
-                            translateAnimation3 = this.a.at;
+                            linearLayout = this.a.B;
+                            translateAnimation3 = this.a.au;
                             linearLayout.startAnimation(translateAnimation3);
                         }
                     }
                 }
             }
         }
-        this.a.ax = i2;
+        this.a.ay = i2;
         return false;
     }
 

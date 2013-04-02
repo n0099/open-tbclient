@@ -2,7 +2,7 @@ package com.baidu.tieba.frs;
 
 import android.widget.ListView;
 import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.a.at;
+import com.baidu.tieba.a.ax;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 class c implements Runnable {
@@ -68,15 +68,15 @@ class c implements Runnable {
                     while (i3 < aaVar5.getCount()) {
                         if (z || i3 <= i) {
                             aaVar6 = this.a.y;
-                            at atVar = (at) aaVar6.getItem(i3);
+                            ax axVar = (ax) aaVar6.getItem(i3);
                             aaVar7 = this.a.y;
                             if (aaVar7.getItemId(i3) == -3) {
                                 aaVar11 = this.a.y;
-                                atVar = aaVar11.e();
+                                axVar = aaVar11.e();
                             }
-                            if (atVar != null) {
-                                ArrayList n = atVar.n();
-                                int size = n.size();
+                            if (axVar != null) {
+                                ArrayList p = axVar.p();
+                                int size = p.size();
                                 if (i5 < 13) {
                                     aaVar8 = this.a.y;
                                     if (aaVar8.getItemId(i3) == -3) {
@@ -86,29 +86,29 @@ class c implements Runnable {
                                                 i4 = i5;
                                                 break;
                                             }
-                                            if (((com.baidu.tieba.a.ad) n.get(i6)).a() == 3) {
+                                            if (((com.baidu.tieba.a.af) p.get(i6)).a() == 3) {
                                                 if (i5 >= 13) {
                                                     i4 = i5;
                                                     break;
                                                 }
                                                 i5++;
                                                 aaVar10 = this.a.y;
-                                                aaVar10.b().a(((com.baidu.tieba.a.ad) n.get(i6)).b(), new d(this));
+                                                aaVar10.b().a(((com.baidu.tieba.a.af) p.get(i6)).b(), new d(this));
                                             }
                                             i6++;
                                             i5 = i5;
                                         }
-                                    } else if (TiebaApplication.b().af()) {
+                                    } else if (TiebaApplication.b().ag()) {
                                         int i7 = 0;
                                         while (i7 < size) {
-                                            if (((com.baidu.tieba.a.ad) n.get(i7)).a() == 3) {
+                                            if (((com.baidu.tieba.a.af) p.get(i7)).a() == 3) {
                                                 if (i5 >= 13) {
                                                     i4 = i5;
                                                     break;
                                                 }
                                                 i5++;
                                                 aaVar9 = this.a.y;
-                                                aaVar9.a().a(((com.baidu.tieba.a.ad) n.get(i7)).b(), new e(this));
+                                                aaVar9.a().a(((com.baidu.tieba.a.af) p.get(i7)).b(), new e(this));
                                             }
                                             i7++;
                                             i5 = i5;

@@ -27,7 +27,7 @@ public class af extends BaseAdapter {
     private com.baidu.tieba.c.a c;
     private int d;
     private int e;
-    private com.baidu.tieba.b.q f;
+    private com.baidu.tieba.b.r f;
     private boolean g;
     private boolean h;
     private ArrayList i;
@@ -38,8 +38,8 @@ public class af extends BaseAdapter {
     private int n;
     private int o;
 
-    public af(Context context, com.baidu.tieba.b.q qVar, int i, View.OnClickListener onClickListener) {
-        this.f = qVar;
+    public af(Context context, com.baidu.tieba.b.r rVar, int i, View.OnClickListener onClickListener) {
+        this.f = rVar;
         this.a = context;
         if (this.f != null && this.f.a() != null) {
             this.b = this.f.a().d();
@@ -66,8 +66,8 @@ public class af extends BaseAdapter {
         this.m = (int) textView.getTextSize();
     }
 
-    public void a(com.baidu.tieba.b.q qVar) {
-        this.f = qVar;
+    public void a(com.baidu.tieba.b.r rVar) {
+        this.f = rVar;
         if (this.f != null && this.f.a() != null) {
             this.b = this.f.a().d();
         } else {
@@ -180,7 +180,7 @@ public class af extends BaseAdapter {
         aj ajVar;
         View view4;
         long itemId;
-        com.baidu.tieba.a.al alVar;
+        com.baidu.tieba.a.an anVar;
         String str;
         SpannableStringBuilder spannableStringBuilder;
         String str2;
@@ -316,12 +316,12 @@ public class af extends BaseAdapter {
             ajVar.l.setText((CharSequence) null);
         }
         if (itemViewType == 2) {
-            alVar = this.f.a().h();
+            anVar = this.f.a().j();
         } else {
-            alVar = (com.baidu.tieba.a.al) getItem(i);
+            anVar = (com.baidu.tieba.a.an) getItem(i);
         }
-        if (alVar != null) {
-            String d = alVar.e().d();
+        if (anVar != null) {
+            String d = anVar.e().d();
             ajVar.e.setVisibility(0);
             if (this.f.b()) {
                 Bitmap bitmap = null;
@@ -340,19 +340,19 @@ public class af extends BaseAdapter {
             } else {
                 ajVar.e.setVisibility(8);
             }
-            ajVar.d.b(alVar.e().a());
-            ajVar.d.a(alVar.e().b());
+            ajVar.d.b(anVar.e().a());
+            ajVar.d.a(anVar.e().b());
             ajVar.e.setOnClickListener(ajVar.d);
             if (itemViewType == 2) {
                 ajVar.o.setTextColor(-9989158);
-                if (alVar.e() != null) {
-                    ajVar.o.setText(alVar.e().c());
+                if (anVar.e() != null) {
+                    ajVar.o.setText(anVar.e().c());
                 } else {
                     ajVar.o.setText((CharSequence) null);
                 }
             }
-            new Date().setTime(alVar.d());
-            ajVar.f.setText(alVar.b());
+            new Date().setTime(anVar.d());
+            ajVar.f.setText(anVar.b());
             if (itemViewType == 2) {
                 String a = this.f.a().c().a();
                 if (a == null || a.equalsIgnoreCase("")) {
@@ -362,7 +362,7 @@ public class af extends BaseAdapter {
                     ajVar.l.setText(a);
                 }
             }
-            ArrayList f = alVar.f();
+            ArrayList f = anVar.f();
             if (itemViewType == 2) {
                 if (f != null && f.size() > 0) {
                     int i3 = -1;
@@ -410,15 +410,15 @@ public class af extends BaseAdapter {
                     ajVar.g.setText((CharSequence) null);
                 }
             } else if (itemViewType == 0) {
-                if (alVar.e() == null) {
+                if (anVar.e() == null) {
                     str = null;
                     spannableStringBuilder = new SpannableStringBuilder("：");
                     str2 = null;
                 } else {
-                    SpannableStringBuilder spannableStringBuilder2 = new SpannableStringBuilder(String.valueOf(alVar.e().c()) + "：");
-                    str = alVar.e().b();
+                    SpannableStringBuilder spannableStringBuilder2 = new SpannableStringBuilder(String.valueOf(anVar.e().c()) + "：");
+                    str = anVar.e().b();
                     spannableStringBuilder = spannableStringBuilder2;
-                    str2 = alVar.e().a();
+                    str2 = anVar.e().a();
                 }
                 int length = spannableStringBuilder.length();
                 if (f != null && f.size() > 0) {
@@ -445,7 +445,7 @@ public class af extends BaseAdapter {
 
     private void a(aj ajVar, boolean z) {
         try {
-            ajVar.a = TiebaApplication.b().ag();
+            ajVar.a = TiebaApplication.b().ah();
             if (ajVar.a == 1) {
                 if (z) {
                     ajVar.b.setTextColor(com.baidu.tieba.c.ae.a(1));
@@ -468,8 +468,8 @@ public class af extends BaseAdapter {
 
     private void a(aj ajVar, int i) {
         try {
-            if (ajVar.a != TiebaApplication.b().ag()) {
-                ajVar.a = TiebaApplication.b().ag();
+            if (ajVar.a != TiebaApplication.b().ah()) {
+                ajVar.a = TiebaApplication.b().ah();
                 if (ajVar.a == 1) {
                     ajVar.g.setTextColor(-6710887);
                     ajVar.g.setLinkTextColor(-9989158);

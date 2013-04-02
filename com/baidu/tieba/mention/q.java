@@ -2,9 +2,9 @@ package com.baidu.tieba.mention;
 
 import android.os.AsyncTask;
 import android.widget.ProgressBar;
-import com.baidu.tieba.a.ai;
-import com.baidu.tieba.a.al;
-import com.baidu.tieba.a.ar;
+import com.baidu.tieba.a.ak;
+import com.baidu.tieba.a.an;
+import com.baidu.tieba.a.at;
 import com.baidu.tieba.c.ag;
 import com.baidu.tieba.write.WriteActivity;
 import java.util.ArrayList;
@@ -67,19 +67,19 @@ public class q extends AsyncTask {
             progressBar.setVisibility(8);
             if (this.c != null && this.c.b()) {
                 if (this.f == 1) {
-                    ai aiVar = new ai();
-                    aiVar.a(str);
-                    al alVar = (al) aiVar.d().get(0);
-                    if (alVar != null) {
+                    ak akVar = new ak();
+                    akVar.a(str);
+                    an anVar = (an) akVar.d().get(0);
+                    if (anVar != null) {
                         eVar4 = this.b.b;
-                        WriteActivity.a(eVar4, aiVar.a().b(), aiVar.a().c(), aiVar.b().a(), alVar.a(), alVar.c(), this.e, aiVar.f(), aiVar.i());
+                        WriteActivity.a(eVar4, akVar.a().b(), akVar.a().c(), akVar.b().a(), anVar.a(), anVar.c(), this.e, akVar.f(), akVar.k());
                     } else {
                         return;
                     }
                 }
                 if (this.f == 2) {
                     eVar2 = this.b.b;
-                    ar a = new com.baidu.tieba.b.v(eVar2, str).a();
+                    at a = new com.baidu.tieba.b.w(eVar2, str).a();
                     String b = a.f().b();
                     String c = a.f().c();
                     String a2 = a.h().a();

@@ -5,6 +5,7 @@ import android.os.DeadObjectException;
 import android.os.Handler;
 import android.os.Message;
 import android.os.Messenger;
+import com.baidu.android.pushservice.PushConstants;
 import java.util.ArrayList;
 import java.util.Iterator;
 import org.json.JSONArray;
@@ -129,7 +130,7 @@ public class a {
                     try {
                         JSONObject jSONObject = new JSONObject(str);
                         JSONObject jSONObject2 = jSONObject.getJSONObject("result");
-                        JSONObject jSONObject3 = jSONObject.getJSONObject("content");
+                        JSONObject jSONObject3 = jSONObject.getJSONObject(PushConstants.EXTRA_CONTENT);
                         if (Integer.parseInt(jSONObject2.getString("error")) == 161) {
                             JSONObject jSONObject4 = jSONObject3.getJSONObject("poi");
                             JSONArray jSONArray = jSONObject4.getJSONArray("p");
@@ -147,7 +148,7 @@ public class a {
                             }
                             jSONObject4.put("p", jSONArray);
                             jSONObject3.put("poi", jSONObject4);
-                            jSONObject.put("content", jSONObject3);
+                            jSONObject.put(PushConstants.EXTRA_CONTENT, jSONObject3);
                             str = jSONObject.toString();
                         }
                     } catch (JSONException e) {

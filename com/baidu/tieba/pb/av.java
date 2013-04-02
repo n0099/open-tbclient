@@ -20,11 +20,11 @@ public class av implements AbsListView.OnScrollListener {
         Runnable runnable;
         Handler handler2;
         Runnable runnable2;
-        handler = this.a.t;
-        runnable = this.a.az;
+        handler = this.a.s;
+        runnable = this.a.aC;
         handler.removeCallbacks(runnable);
-        handler2 = this.a.t;
-        runnable2 = this.a.az;
+        handler2 = this.a.s;
+        runnable2 = this.a.aC;
         handler2.postDelayed(runnable2, 300L);
     }
 
@@ -41,26 +41,26 @@ public class av implements AbsListView.OnScrollListener {
         LinearLayout linearLayout3;
         if (i == 0) {
             if (absListView.getLastVisiblePosition() == absListView.getCount() - 1) {
-                z3 = this.a.aw;
+                z3 = this.a.ax;
                 if (!z3) {
-                    z4 = this.a.av;
+                    z4 = this.a.aw;
                     if (z4) {
-                        linearLayout3 = this.a.C;
+                        linearLayout3 = this.a.B;
                         linearLayout3.clearAnimation();
                     }
-                    linearLayout2 = this.a.C;
-                    translateAnimation2 = this.a.at;
+                    linearLayout2 = this.a.B;
+                    translateAnimation2 = this.a.au;
                     linearLayout2.startAnimation(translateAnimation2);
                     return;
                 }
             }
             if (absListView.getFirstVisiblePosition() == 0) {
-                z = this.a.aw;
+                z = this.a.ax;
                 if (!z) {
-                    z2 = this.a.av;
+                    z2 = this.a.aw;
                     if (!z2) {
-                        linearLayout = this.a.C;
-                        translateAnimation = this.a.at;
+                        linearLayout = this.a.B;
+                        translateAnimation = this.a.au;
                         linearLayout.startAnimation(translateAnimation);
                     }
                 }

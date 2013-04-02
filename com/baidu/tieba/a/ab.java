@@ -1,63 +1,34 @@
 package com.baidu.tieba.a;
 
-import com.baidu.mapapi.GeoPoint;
-import com.baidu.tieba.nearby.MapOverlayItem;
-import java.io.Serializable;
+import com.baidu.android.pushservice.PushConstants;
+import org.json.JSONObject;
 /* loaded from: classes.dex */
-public class ab implements Serializable {
-    private String a = null;
+public class ab {
+    private int a = 0;
     private String b = null;
-    private String c = null;
-    private af d = null;
-    private int e;
-    private int f;
+    private aa c = new aa();
 
-    public ab(int i, int i2) {
-        this.e = 0;
-        this.f = 0;
-        this.e = i;
-        this.f = i2;
-    }
-
-    public void a(af afVar) {
-        this.d = afVar;
-    }
-
-    public af a() {
-        return this.d;
-    }
-
-    public String b() {
-        return this.a;
-    }
-
-    public void a(String str) {
-        this.a = str;
-    }
-
-    public String c() {
-        return this.b;
-    }
-
-    public void b(String str) {
-        this.b = str;
-    }
-
-    public String d() {
+    public aa a() {
         return this.c;
     }
 
-    public int e() {
-        return this.e;
+    public void a(String str) {
+        try {
+            a(new JSONObject(str));
+        } catch (Exception e) {
+            com.baidu.tieba.c.ag.b("LikeReturnData", "parserJson", "error = " + e.getMessage());
+        }
     }
 
-    public int f() {
-        return this.f;
-    }
-
-    public MapOverlayItem g() {
-        MapOverlayItem mapOverlayItem = new MapOverlayItem(new GeoPoint(e(), f()), c(), d());
-        mapOverlayItem.a(this);
-        return mapOverlayItem;
+    public void a(JSONObject jSONObject) {
+        if (jSONObject != null) {
+            try {
+                this.b = jSONObject.optString(PushConstants.EXTRA_ERROR_CODE);
+                this.a = jSONObject.optInt("error_code", 0);
+                this.c.a(jSONObject.optJSONObject("info"));
+            } catch (Exception e) {
+                com.baidu.tieba.c.ag.b("LikeReturnData", "parserJson", "error = " + e.getMessage());
+            }
+        }
     }
 }

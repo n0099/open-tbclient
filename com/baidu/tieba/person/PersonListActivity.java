@@ -14,17 +14,17 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.TiebaApplication;
 /* loaded from: classes.dex */
 public class PersonListActivity extends com.baidu.tieba.e {
-    private com.baidu.tieba.b.u i;
+    private com.baidu.tieba.b.v i;
     private Button c = null;
     private ListView d = null;
     private ProgressBar e = null;
     private com.baidu.tieba.write.k f = null;
     private Handler g = new Handler();
-    private br h = null;
+    private bw h = null;
     private RelativeLayout j = null;
     private RelativeLayout k = null;
     private TextView l = null;
-    private Runnable m = new bm(this);
+    private Runnable m = new br(this);
 
     public static void a(Activity activity, boolean z, String str) {
         Intent intent = new Intent(activity, PersonListActivity.class);
@@ -84,7 +84,7 @@ public class PersonListActivity extends com.baidu.tieba.e {
     }
 
     private void a(Bundle bundle) {
-        this.i = new com.baidu.tieba.b.u();
+        this.i = new com.baidu.tieba.b.v();
         if (bundle != null) {
             this.i.a(bundle.getBoolean("follow", false));
             this.i.a(bundle.getString("un"));
@@ -113,13 +113,13 @@ public class PersonListActivity extends com.baidu.tieba.e {
             this.l.setText(R.string.fans);
         }
         this.c = (Button) findViewById(R.id.back);
-        this.c.setOnClickListener(new bo(this));
-        this.f = new com.baidu.tieba.write.k(this, getIntent().getBooleanExtra("follow", false), this.i.a().equals(TiebaApplication.x()));
+        this.c.setOnClickListener(new bt(this));
+        this.f = new com.baidu.tieba.write.k(this, getIntent().getBooleanExtra("follow", false), this.i.a().equals(TiebaApplication.y()));
         this.f.a(this.i.c().b());
         this.d = (ListView) findViewById(R.id.list);
         this.d.setAdapter((ListAdapter) this.f);
-        this.d.setOnItemClickListener(new bp(this));
-        this.d.setOnScrollListener(new bq(this));
+        this.d.setOnItemClickListener(new bu(this));
+        this.d.setOnScrollListener(new bv(this));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -127,7 +127,7 @@ public class PersonListActivity extends com.baidu.tieba.e {
         if (this.h == null) {
             if (!z) {
                 this.e.setVisibility(0);
-                this.h = new br(this, this.i.a(), this.i.b(), 0);
+                this.h = new bw(this, this.i.a(), this.i.b(), 0);
                 this.h.execute(new String[0]);
                 return;
             }
@@ -135,7 +135,7 @@ public class PersonListActivity extends com.baidu.tieba.e {
                 this.f.b(true);
                 this.f.notifyDataSetChanged();
             }
-            this.h = new br(this, this.i.a(), this.i.b(), this.i.c().a().b() + 1);
+            this.h = new bw(this, this.i.a(), this.i.b(), this.i.c().a().b() + 1);
             this.h.execute(new String[0]);
         }
     }

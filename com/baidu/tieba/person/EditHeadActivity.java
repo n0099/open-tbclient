@@ -76,9 +76,9 @@ public class EditHeadActivity extends com.baidu.tieba.e {
         if (this.D == 1200002 || this.D == 1200001) {
             m();
             if (intent.getData() != null) {
-                TiebaPrepareImageService.a(this.D, intent.getData(), TiebaApplication.b().ao());
+                TiebaPrepareImageService.a(this.D, intent.getData(), TiebaApplication.b().aq());
             } else {
-                TiebaPrepareImageService.a(this.D, null, TiebaApplication.b().ao());
+                TiebaPrepareImageService.a(this.D, null, TiebaApplication.b().aq());
             }
             n();
         } else {
@@ -86,7 +86,7 @@ public class EditHeadActivity extends com.baidu.tieba.e {
             k();
         }
         f = getResources().getStringArray(R.array.fiter_name);
-        this.z = TiebaApplication.b().m();
+        this.z = TiebaApplication.b().n();
     }
 
     @Override // com.baidu.tieba.e, android.app.Activity
@@ -298,7 +298,7 @@ public class EditHeadActivity extends com.baidu.tieba.e {
         registerReceiver(this.w, intentFilter);
     }
 
-    @Override // android.app.Activity, android.view.KeyEvent.Callback
+    @Override // com.baidu.tieba.e, android.app.Activity, android.view.KeyEvent.Callback
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
         if (i == 4) {
             setResult(0);

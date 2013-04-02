@@ -4,13 +4,13 @@ import android.app.Service;
 import android.content.Intent;
 import android.os.Handler;
 import android.os.IBinder;
-import com.baidu.tieba.b.x;
+import com.baidu.tieba.b.y;
 import com.baidu.tieba.c.ag;
 /* loaded from: classes.dex */
 public class TiebaSyncService extends Service {
     private o a = null;
     private int b = 0;
-    private x c = null;
+    private y c = null;
     private Handler d = new Handler();
     private Runnable e = new n(this);
 

@@ -1,9 +1,7 @@
 package com.baidu.tieba.view;
-
-import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ae implements j {
+public class ae implements k {
     final /* synthetic */ MultiImageView a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -11,27 +9,12 @@ public class ae implements j {
         this.a = multiImageView;
     }
 
-    @Override // com.baidu.tieba.view.j
-    public void a(f fVar) {
+    @Override // com.baidu.tieba.view.k
+    public void a(f fVar, boolean z, boolean z2) {
         GalleryViewPager galleryViewPager;
-        boolean z;
-        GalleryViewPager galleryViewPager2;
-        GalleryViewPager galleryViewPager3;
         galleryViewPager = this.a.e;
-        if (fVar == galleryViewPager.getCurrentView()) {
-            z = this.a.l;
-            if (z) {
-                galleryViewPager2 = this.a.e;
-                int childCount = galleryViewPager2.getChildCount();
-                for (int i = 0; i < childCount; i++) {
-                    galleryViewPager3 = this.a.e;
-                    View childAt = galleryViewPager3.getChildAt(i);
-                    if (childAt != null && (childAt instanceof ag) && ((ag) childAt).getImageView() != fVar) {
-                        ((ag) childAt).d();
-                    }
-                }
-            }
-            fVar.e();
+        if (galleryViewPager.getSelectedView() == fVar) {
+            this.a.setZoomButton(fVar);
         }
     }
 }

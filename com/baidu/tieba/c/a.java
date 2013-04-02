@@ -57,25 +57,25 @@ public class a {
     }
 
     public Bitmap b(String str) {
-        ac al = TiebaApplication.b().al();
-        if (al == null) {
+        ac an = TiebaApplication.b().an();
+        if (an == null) {
             return null;
         }
-        return al.b(str);
+        return an.b(str);
     }
 
     public Bitmap c(String str) {
-        ac al = TiebaApplication.b().al();
-        if (al == null) {
+        ac an = TiebaApplication.b().an();
+        if (an == null) {
             return null;
         }
-        return al.c(str);
+        return an.c(str);
     }
 
     public void d(String str) {
-        ac al = TiebaApplication.b().al();
-        if (al != null) {
-            al.a(str);
+        ac an = TiebaApplication.b().an();
+        if (an != null) {
+            an.a(str);
         }
     }
 
@@ -102,12 +102,12 @@ public class a {
             return null;
         }
         String str2 = this.h != null ? String.valueOf(str) + this.h : str;
-        ac al = TiebaApplication.b().al();
-        if (al != null) {
+        ac an = TiebaApplication.b().an();
+        if (an != null) {
             if (num.intValue() == 0) {
-                b = al.c(str2);
+                b = an.c(str2);
             } else {
-                b = num.intValue() != 3 ? al.b(str2) : null;
+                b = num.intValue() != 3 ? an.b(str2) : null;
             }
             if (b != null) {
                 return b;

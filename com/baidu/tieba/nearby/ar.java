@@ -21,18 +21,18 @@ import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class ar extends BaseAdapter {
     Context a;
-    com.baidu.tieba.b.o b;
+    com.baidu.tieba.b.p b;
     private ArrayList c = new ArrayList();
     private com.baidu.tieba.c.a d;
     private View.OnClickListener e;
 
-    public ar(Context context, com.baidu.tieba.b.o oVar, View.OnClickListener onClickListener) {
+    public ar(Context context, com.baidu.tieba.b.p pVar, View.OnClickListener onClickListener) {
         this.a = null;
         this.b = null;
         this.d = null;
         this.e = null;
         this.a = context;
-        this.b = oVar;
+        this.b = pVar;
         this.d = new com.baidu.tieba.c.a(this.a);
         int a = com.baidu.tieba.c.ai.a(this.a, 284.0f);
         int i = a <= 350 ? a : 350;
@@ -69,7 +69,7 @@ public class ar extends BaseAdapter {
     @Override // android.widget.BaseAdapter, android.widget.Adapter
     public int getItemViewType(int i) {
         if (getItem(i) != null) {
-            if (((com.baidu.tieba.b.p) getItem(i)).a() == 3) {
+            if (((com.baidu.tieba.b.q) getItem(i)).a() == 3) {
                 return 0;
             }
             return 1;
@@ -77,7 +77,7 @@ public class ar extends BaseAdapter {
         return 2;
     }
 
-    /* JADX WARN: Not initialized variable reg: 3, insn: 0x038f: MOVE  (r0 I:??[OBJECT, ARRAY]) = (r3 I:??[OBJECT, ARRAY]), block:B:77:0x038e */
+    /* JADX WARN: Not initialized variable reg: 3, insn: 0x03b0: MOVE  (r0 I:??[OBJECT, ARRAY]) = (r3 I:??[OBJECT, ARRAY]), block:B:80:0x03af */
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
         Exception exc;
@@ -91,7 +91,7 @@ public class ar extends BaseAdapter {
         at atVar = null;
         try {
             int itemViewType = getItemViewType(i);
-            int ag = TiebaApplication.b().ag();
+            int ah = TiebaApplication.b().ah();
             try {
                 if (view == null) {
                     LayoutInflater from = LayoutInflater.from(this.a);
@@ -173,10 +173,10 @@ public class ar extends BaseAdapter {
                     view4 = view;
                     asVar = null;
                 }
-                com.baidu.tieba.b.p pVar = (com.baidu.tieba.b.p) getItem(i);
+                com.baidu.tieba.b.q qVar = (com.baidu.tieba.b.q) getItem(i);
                 if (itemViewType == 0) {
-                    asVar.b.setText(pVar.b());
-                    if (ag == 1) {
+                    asVar.b.setText(qVar.b());
+                    if (ah == 1) {
                         asVar.a.setBackgroundResource(R.drawable.icon_distance_node_1);
                         return view4;
                     }
@@ -185,20 +185,26 @@ public class ar extends BaseAdapter {
                 } else if (itemViewType == 1) {
                     auVar.c.setVisibility(8);
                     auVar.b.setVisibility(8);
-                    if (pVar.a() == 0) {
+                    if (qVar.a() == 0) {
                         auVar.a.setEnabled(true);
-                        auVar.a.setTag(R.id.tag_nearby_thread_id, pVar.h());
+                        auVar.a.setTag(R.id.tag_nearby_thread_id, qVar.h());
                         auVar.a.setTag(R.id.tag_nearby_url, "");
+                        auVar.a.setTag(R.id.tag_nearby_guid_post, false);
                     } else {
                         auVar.a.setTag(R.id.tag_nearby_thread_id, "");
-                        auVar.a.setTag(R.id.tag_nearby_url, pVar.q());
-                        if (pVar.q().equals("")) {
+                        auVar.a.setTag(R.id.tag_nearby_url, qVar.q());
+                        if (qVar.a() == 1) {
+                            auVar.a.setTag(R.id.tag_nearby_guid_post, true);
+                        } else {
+                            auVar.a.setTag(R.id.tag_nearby_guid_post, false);
+                        }
+                        if (qVar.q().equals("")) {
                             auVar.a.setEnabled(false);
                         } else {
                             auVar.a.setEnabled(true);
                         }
                     }
-                    ArrayList c = pVar.c();
+                    ArrayList c = qVar.c();
                     if (c != null) {
                         TextView textView2 = null;
                         int i3 = 0;
@@ -252,12 +258,12 @@ public class ar extends BaseAdapter {
                             textView2 = textView;
                         }
                     }
-                    auVar.g.setText(pVar.f());
-                    if (pVar.l() != null) {
-                        auVar.f.setText(pVar.l().c());
-                        auVar.f.setTag(R.id.tag_nearby_person_id, pVar.l().a());
-                        auVar.f.setTag(R.id.tag_nearby_person_name, pVar.l().b());
-                        String d = pVar.l().d();
+                    auVar.g.setText(qVar.f());
+                    if (qVar.l() != null) {
+                        auVar.f.setText(qVar.l().c());
+                        auVar.f.setTag(R.id.tag_nearby_person_id, qVar.l().a());
+                        auVar.f.setTag(R.id.tag_nearby_person_name, qVar.l().b());
+                        String d = qVar.l().d();
                         Bitmap bitmap = null;
                         if (d != null && d.length() > 0) {
                             bitmap = this.d.b(d);
@@ -270,39 +276,39 @@ public class ar extends BaseAdapter {
                         if (bitmap == null) {
                             auVar.e.setImageBitmap(com.baidu.tieba.c.e.a((int) R.drawable.photo));
                         }
-                        auVar.e.setTag(R.id.tag_nearby_person_id, pVar.l().a());
-                        auVar.e.setTag(R.id.tag_nearby_person_name, pVar.l().b());
+                        auVar.e.setTag(R.id.tag_nearby_person_id, qVar.l().a());
+                        auVar.e.setTag(R.id.tag_nearby_person_name, qVar.l().b());
                     }
-                    if (pVar.a() == 0) {
-                        auVar.h.setTag(R.id.tag_nearby_thread_id, pVar.h());
-                        auVar.h.setTag(R.id.tag_nearby_forum_id, pVar.i());
-                        auVar.h.setTag(R.id.tag_nearby_forum_name, pVar.j());
+                    if (qVar.a() == 0) {
+                        auVar.h.setTag(R.id.tag_nearby_thread_id, qVar.h());
+                        auVar.h.setTag(R.id.tag_nearby_forum_id, qVar.i());
+                        auVar.h.setTag(R.id.tag_nearby_forum_name, qVar.j());
                         auVar.h.setVisibility(0);
                     } else {
                         auVar.h.setVisibility(8);
                     }
-                    if (pVar.d() == 0) {
+                    if (qVar.d() == 0) {
                         auVar.i.setVisibility(8);
                     } else {
                         auVar.i.setVisibility(0);
-                        auVar.i.setTag(R.id.tag_nearby_thread_id, pVar.h());
+                        auVar.i.setTag(R.id.tag_nearby_thread_id, qVar.h());
                         auVar.i.setTag(R.id.tag_nearby_url, "");
-                        if (pVar.d() == 1) {
+                        if (qVar.d() == 1) {
                             auVar.j.setVisibility(8);
                             auVar.l.setVisibility(8);
                         } else {
                             auVar.l.setVisibility(0);
                             auVar.j.setVisibility(0);
                             StringBuilder sb = new StringBuilder(this.a.getString(R.string.more));
-                            sb.append(pVar.d() - 1);
+                            sb.append(qVar.d() - 1);
                             sb.append(this.a.getString(R.string.comment_number));
                             auVar.m.setText(sb.toString());
                         }
-                        auVar.p.setText(pVar.e());
-                        if (pVar.m() != null) {
-                            SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(String.valueOf(pVar.m().c()) + "：");
+                        auVar.p.setText(qVar.e());
+                        if (qVar.m() != null) {
+                            SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(String.valueOf(qVar.m().c()) + "：");
                             int length = spannableStringBuilder.length();
-                            ArrayList k = pVar.k();
+                            ArrayList k = qVar.k();
                             if (k != null) {
                                 for (int i6 = 0; i6 < k.size(); i6++) {
                                     com.baidu.tieba.a.k kVar2 = (com.baidu.tieba.a.k) k.get(i6);
@@ -315,14 +321,14 @@ public class ar extends BaseAdapter {
                                     }
                                 }
                             }
-                            if (ag == 1) {
+                            if (ah == 1) {
                                 i2 = -9989158;
                             } else {
                                 i2 = -16610584;
                             }
                             spannableStringBuilder.setSpan(new ForegroundColorSpan(i2), 0, length, 18);
                             auVar.o.setText(spannableStringBuilder);
-                            String d2 = pVar.m().d();
+                            String d2 = qVar.m().d();
                             Bitmap bitmap2 = null;
                             if (d2 != null && d2.length() > 0) {
                                 auVar.n.setVisibility(0);
@@ -340,9 +346,9 @@ public class ar extends BaseAdapter {
                             }
                         }
                     }
-                    if (ag == 1) {
-                        com.baidu.tieba.c.ae.i(auVar.a, R.drawable.nearby_post_content_bg_selector_1);
-                        com.baidu.tieba.c.ae.i(auVar.i, R.drawable.nearby_post_reply_bg_selector_1);
+                    if (ah == 1) {
+                        com.baidu.tieba.c.ae.h(auVar.a, R.drawable.nearby_post_content_bg_selector_1);
+                        com.baidu.tieba.c.ae.h(auVar.i, R.drawable.nearby_post_reply_bg_selector_1);
                         auVar.b.setTextColor(-6710887);
                         auVar.f.setTextColor(-9989158);
                         auVar.o.setTextColor(-6710887);
@@ -355,8 +361,8 @@ public class ar extends BaseAdapter {
                         auVar.h.setCompoundDrawablesWithIntrinsicBounds(this.a.getResources().getDrawable(R.drawable.nearby_post_comment_btn_1), (Drawable) null, (Drawable) null, (Drawable) null);
                         return view4;
                     }
-                    com.baidu.tieba.c.ae.i(auVar.a, R.drawable.nearby_post_content_bg_selector);
-                    com.baidu.tieba.c.ae.i(auVar.i, R.drawable.nearby_post_reply_bg_selector);
+                    com.baidu.tieba.c.ae.h(auVar.a, R.drawable.nearby_post_content_bg_selector);
+                    com.baidu.tieba.c.ae.h(auVar.i, R.drawable.nearby_post_reply_bg_selector);
                     auVar.b.setTextColor(-14277082);
                     auVar.f.setTextColor(-16610584);
                     auVar.o.setTextColor(-14277082);
@@ -379,7 +385,7 @@ public class ar extends BaseAdapter {
                     } else {
                         atVar.b.setVisibility(8);
                     }
-                    if (ag == 1) {
+                    if (ah == 1) {
                         atVar.a.setTextColor(-3618616);
                         return view4;
                     }

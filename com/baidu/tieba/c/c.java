@@ -62,7 +62,7 @@ public class c extends AsyncTask {
         int i2;
         Context context;
         ArrayList arrayList;
-        ac al;
+        ac an;
         ArrayList arrayList2;
         ArrayList arrayList3;
         int i3;
@@ -74,7 +74,7 @@ public class c extends AsyncTask {
         boolean z3;
         Context context2;
         Context context3;
-        ac al2;
+        ac an2;
         String str4;
         int i7 = 0;
         try {
@@ -98,8 +98,8 @@ public class c extends AsyncTask {
                         this.f = o.c("hotspot", str2);
                     }
                 } else if (this.e == 0 && str2 != null) {
-                    if (o.a("image", str2) && (al2 = TiebaApplication.b().al()) != null) {
-                        al2.a(com.baidu.tieba.a.i.i());
+                    if (o.a("image", str2) && (an2 = TiebaApplication.b().an()) != null) {
+                        an2.a(com.baidu.tieba.a.i.i());
                     }
                     this.f = o.c("image", str2);
                     if (this.f != null) {
@@ -136,7 +136,7 @@ public class c extends AsyncTask {
                     z = this.a.i;
                     if (z) {
                         stringBuffer.append("&qulity=" + String.valueOf(45));
-                    } else if (TiebaApplication.b().ac() == 1) {
+                    } else if (TiebaApplication.b().ad() == 1) {
                         stringBuffer.append("&qulity=" + String.valueOf(80));
                     } else {
                         stringBuffer.append("&qulity=" + String.valueOf(45));
@@ -179,8 +179,8 @@ public class c extends AsyncTask {
                 }
                 bArr = this.b.h();
                 if (this.b.b()) {
-                    if (this.e == 0 && (al = TiebaApplication.b().al()) != null) {
-                        al.a(com.baidu.tieba.a.i.i());
+                    if (this.e == 0 && (an = TiebaApplication.b().an()) != null) {
+                        an.a(com.baidu.tieba.a.i.i());
                     }
                     this.f = e.a(bArr);
                     this.j = ai.a(bArr);
@@ -228,12 +228,12 @@ public class c extends AsyncTask {
     @Override // android.os.AsyncTask
     /* renamed from: a */
     public void onProgressUpdate(Integer... numArr) {
-        ac al = TiebaApplication.b().al();
-        if (al != null && this.f != null) {
+        ac an = TiebaApplication.b().an();
+        if (an != null && this.f != null) {
             if (this.e == 0) {
-                al.a(this.i, this.f, this.j);
+                an.a(this.i, this.f, this.j);
             } else if (this.e == 1 || this.e == 2) {
-                al.a(this.i, this.f);
+                an.a(this.i, this.f);
             }
         }
         if (this.c != null) {

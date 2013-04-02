@@ -16,14 +16,14 @@ public class bg implements CompoundButton.OnCheckedChangeListener {
     public void onCheckedChanged(CompoundButton compoundButton, boolean z) {
         if (z) {
             switch (compoundButton.getId()) {
-                case R.id.radio_button_1day /* 2131230959 */:
-                    this.a.M = 1;
+                case R.id.radio_button_1day /* 2131230968 */:
+                    this.a.L = 1;
                     return;
-                case R.id.radio_button_3day /* 2131230960 */:
-                    this.a.M = 3;
+                case R.id.radio_button_3day /* 2131230969 */:
+                    this.a.L = 3;
                     return;
-                case R.id.radio_button_10day /* 2131230961 */:
-                    this.a.M = 10;
+                case R.id.radio_button_10day /* 2131230970 */:
+                    this.a.L = 10;
                     return;
                 default:
                     return;

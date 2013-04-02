@@ -1,6 +1,6 @@
 package com.baidu.tieba.b;
 
-import com.baidu.tieba.a.ah;
+import com.baidu.tieba.a.aj;
 import com.baidu.tieba.c.ag;
 import java.util.ArrayList;
 import java.util.Date;
@@ -9,7 +9,7 @@ import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class b {
     private ArrayList a = new ArrayList();
-    private ah b = new ah();
+    private aj b = new aj();
     private Date c = null;
     private boolean d = true;
 

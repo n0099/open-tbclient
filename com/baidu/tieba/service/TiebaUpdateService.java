@@ -10,7 +10,7 @@ import android.os.IBinder;
 import android.widget.RemoteViews;
 import com.baidu.tieba.R;
 import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.a.ax;
+import com.baidu.tieba.a.bb;
 import com.baidu.tieba.c.ag;
 /* loaded from: classes.dex */
 public class TiebaUpdateService extends Service {
@@ -58,15 +58,15 @@ public class TiebaUpdateService extends Service {
 
     @Override // android.app.Service
     public void onStart(Intent intent, int i) {
-        ax axVar;
+        bb bbVar;
         ag.a(getClass().getName(), "onStart", "onStart");
-        if (intent != null && intent.getBooleanExtra("update", false) && (axVar = (ax) intent.getSerializableExtra("version")) != null) {
-            this.b.contentView.setTextViewText(R.id.info, String.format(getString(R.string.downloading), axVar.c()));
+        if (intent != null && intent.getBooleanExtra("update", false) && (bbVar = (bb) intent.getSerializableExtra("version")) != null) {
+            this.b.contentView.setTextViewText(R.id.info, String.format(getString(R.string.downloading), bbVar.c()));
             this.b.contentView.setTextViewText(R.id.schedule, "0/0");
-            if (com.baidu.tieba.c.o.c(axVar.f()) != null) {
-                this.d.sendMessageDelayed(this.d.obtainMessage(1, axVar), 100L);
-            } else if (axVar != null && this.c == null) {
-                this.c = new q(this, axVar);
+            if (com.baidu.tieba.c.o.c(bbVar.f()) != null) {
+                this.d.sendMessageDelayed(this.d.obtainMessage(1, bbVar), 100L);
+            } else if (bbVar != null && this.c == null) {
+                this.c = new q(this, bbVar);
                 this.c.execute(new String[0]);
                 this.b.contentView.setProgressBar(R.id.progress, 100, 0, false);
                 this.a.notify(10, this.b);

@@ -114,8 +114,8 @@ public class l {
     }
 
     public void a() {
-        String x = TiebaApplication.x();
-        if (x == null || x.length() <= 0) {
+        String y = TiebaApplication.y();
+        if (y == null || y.length() <= 0) {
             LoginActivity.a(this.o, this.o.getString(R.string.login_to_use), true, 1100002);
         } else if (this.m == 0 && this.t == null) {
             this.t = new n(this, null);
@@ -124,8 +124,8 @@ public class l {
     }
 
     public void b() {
-        String x = TiebaApplication.x();
-        if (x == null || x.length() <= 0) {
+        String y = TiebaApplication.y();
+        if (y == null || y.length() <= 0) {
             LoginActivity.a(this.o, this.o.getString(R.string.login_to_use), true, 1100014);
         } else if (this.n == 0 && this.s == null) {
             this.s = new p(this, null);

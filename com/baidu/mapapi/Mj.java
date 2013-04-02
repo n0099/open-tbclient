@@ -20,6 +20,7 @@ import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.Display;
 import android.view.WindowManager;
+import com.baidu.android.pushservice.PushConstants;
 import com.baidu.browser.explorer.BdWebErrorView;
 import com.baidu.mapapi.cloud.GeoSearchListener;
 import java.io.File;
@@ -401,8 +402,8 @@ public class Mj {
                     return;
                 }
                 return;
-            case 10001:
-            case 10002:
+            case PushConstants.ERROR_NETWORK_ERROR /* 10001 */:
+            case PushConstants.ERROR_SERVICE_NOT_AVAILABLE /* 10002 */:
             case 10003:
             case 10004:
             case 10006:

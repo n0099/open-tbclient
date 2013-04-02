@@ -1,31 +1,118 @@
 package com.baidu.tieba.home;
 
-import android.content.DialogInterface;
+import android.os.AsyncTask;
+import android.widget.EditText;
+import android.widget.ListView;
+import android.widget.ProgressBar;
+import android.widget.TextView;
+import com.baidu.tieba.R;
+import java.util.ArrayList;
+import java.util.Iterator;
+import org.apache.http.message.BasicNameValuePair;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class as implements DialogInterface.OnClickListener {
-    final /* synthetic */ ar a;
+public class as extends AsyncTask {
+    ArrayList a;
+    final /* synthetic */ SearchActivity b;
+    private com.baidu.tieba.c.t c = null;
+    private String d;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public as(ar arVar) {
-        this.a = arVar;
+    public as(SearchActivity searchActivity, String str, ArrayList arrayList) {
+        this.b = searchActivity;
+        this.d = null;
+        this.a = null;
+        this.d = str;
+        this.a = arrayList;
     }
 
-    @Override // android.content.DialogInterface.OnClickListener
-    public void onClick(DialogInterface dialogInterface, int i) {
-        SearchActivity searchActivity;
-        int i2;
-        SearchActivity searchActivity2;
-        SearchActivity searchActivity3;
-        searchActivity = this.a.a;
-        i2 = searchActivity.D;
-        if (i2 == 0) {
-            com.baidu.tieba.c.k.o();
-            searchActivity3 = this.a.a;
-            searchActivity3.n();
-            return;
+    @Override // android.os.AsyncTask
+    protected void onPreExecute() {
+        TextView textView;
+        EditText editText;
+        ListView listView;
+        ProgressBar progressBar;
+        textView = this.b.s;
+        textView.setVisibility(8);
+        SearchActivity searchActivity = this.b;
+        editText = this.b.c;
+        com.baidu.tieba.c.ai.a(searchActivity, editText);
+        listView = this.b.m;
+        if (listView.getVisibility() != 0) {
+            progressBar = this.b.p;
+            progressBar.setVisibility(0);
         }
-        com.baidu.tieba.c.k.p();
-        searchActivity2 = this.a.a;
-        searchActivity2.p();
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // android.os.AsyncTask
+    /* renamed from: a */
+    public com.baidu.tieba.a.ar doInBackground(Object... objArr) {
+        com.baidu.tieba.a.ar arVar;
+        Exception e;
+        String str;
+        try {
+            this.c = new com.baidu.tieba.c.t(this.d);
+            Iterator it = this.a.iterator();
+            while (it.hasNext()) {
+                this.c.a((BasicNameValuePair) it.next());
+            }
+            String i = this.c.i();
+            if (!this.c.b() || i == null) {
+                return null;
+            }
+            arVar = new com.baidu.tieba.a.ar();
+            try {
+                arVar.a(i);
+                str = this.b.x;
+                com.baidu.tieba.c.k.l(str);
+                return arVar;
+            } catch (Exception e2) {
+                e = e2;
+                com.baidu.tieba.c.ag.b(getClass().getName(), "", "doInBackground error = " + e.getMessage());
+                return arVar;
+            }
+        } catch (Exception e3) {
+            arVar = null;
+            e = e3;
+        }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // android.os.AsyncTask
+    /* renamed from: a */
+    public void onPostExecute(com.baidu.tieba.a.ar arVar) {
+        ProgressBar progressBar;
+        aw awVar;
+        aw awVar2;
+        aw awVar3;
+        progressBar = this.b.p;
+        progressBar.setVisibility(8);
+        awVar = this.b.o;
+        awVar.a(0);
+        awVar2 = this.b.o;
+        awVar2.notifyDataSetChanged();
+        if (arVar != null && this.c != null && this.c.b()) {
+            this.b.u = arVar;
+            awVar3 = this.b.o;
+            awVar3.notifyDataSetChanged();
+            this.b.q();
+        } else {
+            this.b.b(this.b.getString(R.string.neterror));
+        }
+        this.b.w = null;
+    }
+
+    public void a() {
+        ProgressBar progressBar;
+        if (this.c != null) {
+            this.c.g();
+            this.c = null;
+        }
+        progressBar = this.b.p;
+        progressBar.setVisibility(8);
+        this.b.w = null;
+        super.cancel(true);
     }
 }

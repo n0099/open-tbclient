@@ -2,6 +2,7 @@ package com.baidu.zeus;
 
 import android.content.Context;
 import android.util.Log;
+import com.baidu.android.common.security.RSAUtil;
 import com.baidu.zeus.bouncycastle.AlgorithmIdentifier;
 import com.baidu.zeus.bouncycastle.Base64;
 import com.baidu.zeus.bouncycastle.NetscapeCertRequest;
@@ -33,7 +34,7 @@ public class CertTool {
     /* JADX INFO: Access modifiers changed from: package-private */
     public static String getSignedPublicKey(Context context, int i, String str) {
         try {
-            KeyPairGenerator keyPairGenerator = KeyPairGenerator.getInstance("RSA");
+            KeyPairGenerator keyPairGenerator = KeyPairGenerator.getInstance(RSAUtil.ALGORITHM_RSA);
             keyPairGenerator.initialize(i == 0 ? 2048 : NotificationProxy.MAX_URL_LENGTH);
             KeyPair genKeyPair = keyPairGenerator.genKeyPair();
             NetscapeCertRequest netscapeCertRequest = new NetscapeCertRequest(str, MD5_WITH_RSA, genKeyPair.getPublic());

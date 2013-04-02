@@ -13,16 +13,16 @@ public class al implements DialogInterface.OnClickListener {
 
     @Override // android.content.DialogInterface.OnClickListener
     public void onClick(DialogInterface dialogInterface, int i) {
-        com.baidu.tieba.b.y yVar;
-        com.baidu.tieba.b.y yVar2;
+        com.baidu.tieba.b.z zVar;
+        com.baidu.tieba.b.z zVar2;
         if (i == 0) {
             bb.a(this.a);
-            yVar2 = this.a.c;
-            yVar2.c(2);
+            zVar2 = this.a.c;
+            zVar2.c(2);
         } else if (i == 1) {
             bb.b(this.a);
-            yVar = this.a.c;
-            yVar.c(1);
+            zVar = this.a.c;
+            zVar.c(1);
         }
     }
 }

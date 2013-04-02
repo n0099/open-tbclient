@@ -158,7 +158,7 @@ public class k extends BaseAdapter {
                     lVar.a.setVisibility(0);
                     lVar.b.setVisibility(0);
                     lVar.d.setVisibility(8);
-                    String d = ((com.baidu.tieba.a.af) this.d.get(i)).d();
+                    String d = ((com.baidu.tieba.a.ah) this.d.get(i)).d();
                     Bitmap b = this.f.b(d);
                     if (b != null) {
                         lVar.a.setTag(null);
@@ -167,7 +167,7 @@ public class k extends BaseAdapter {
                         lVar.a.setTag(d);
                         lVar.a.setImageBitmap(com.baidu.tieba.c.e.a((int) R.drawable.photo));
                     }
-                    lVar.b.setText(((com.baidu.tieba.a.af) this.d.get(i)).c());
+                    lVar.b.setText(((com.baidu.tieba.a.ah) this.d.get(i)).c());
                 }
             } else if (this.h) {
                 lVar.b.setText(this.e.getString(R.string.loading));
@@ -176,7 +176,7 @@ public class k extends BaseAdapter {
                 lVar.b.setText(this.e.getString(R.string.load_more));
                 lVar.c.setVisibility(8);
             }
-            if (TiebaApplication.b().ag() == 1) {
+            if (TiebaApplication.b().ah() == 1) {
                 int a = com.baidu.tieba.c.ae.a(1);
                 lVar.b.setTextColor(a);
                 if (lVar.d != null) {

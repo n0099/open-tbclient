@@ -1,12 +1,15 @@
 package com.baidu.tieba.recommend;
 
-import android.os.Handler;
-import android.widget.AbsListView;
+import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import com.baidu.tieba.TiebaApplication;
+import com.baidu.tieba.a.ax;
+import com.baidu.tieba.c.ab;
+import com.baidu.tieba.pb.PbActivity;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class i implements AbsListView.OnScrollListener {
+public class i implements AdapterView.OnItemClickListener {
     final /* synthetic */ GuessActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -14,32 +17,45 @@ public class i implements AbsListView.OnScrollListener {
         this.a = guessActivity;
     }
 
-    @Override // android.widget.AbsListView.OnScrollListener
-    public void onScroll(AbsListView absListView, int i, int i2, int i3) {
-        Handler handler;
-        Runnable runnable;
-        Handler handler2;
-        Runnable runnable2;
-        handler = this.a.q;
-        runnable = this.a.s;
-        handler.removeCallbacks(runnable);
-        handler2 = this.a.q;
-        runnable2 = this.a.s;
-        handler2.postDelayed(runnable2, 300L);
-    }
-
-    @Override // android.widget.AbsListView.OnScrollListener
-    public void onScrollStateChanged(AbsListView absListView, int i) {
-        ListView listView;
-        ListView listView2;
-        AdapterView.OnItemLongClickListener onItemLongClickListener;
-        if (i == 0) {
-            listView2 = this.a.i;
-            onItemLongClickListener = this.a.t;
-            listView2.setOnItemLongClickListener(onItemLongClickListener);
-            return;
+    @Override // android.widget.AdapterView.OnItemClickListener
+    public void onItemClick(AdapterView adapterView, View view, int i, long j) {
+        int i2;
+        int i3;
+        int i4;
+        boolean z = true;
+        n nVar = (n) ((ListView) adapterView).getAdapter();
+        long itemId = nVar.getItemId(i);
+        if (itemId == -1) {
+            i3 = this.a.e;
+            if (i3 > 1) {
+                GuessActivity guessActivity = this.a;
+                i4 = guessActivity.e;
+                guessActivity.e = i4 - 1;
+                this.a.d = 2;
+                this.a.q();
+            }
+        } else if (itemId == -2) {
+            GuessActivity guessActivity2 = this.a;
+            i2 = guessActivity2.e;
+            guessActivity2.e = i2 + 1;
+            this.a.d = 1;
+            this.a.q();
+        } else {
+            ax axVar = (ax) nVar.getItem(i);
+            if (axVar != null) {
+                String k = axVar.k();
+                if (k == null || k.equals("")) {
+                    z = false;
+                } else {
+                    new Thread(new j(this, k)).start();
+                }
+                ab ap = TiebaApplication.b().ap();
+                if (ap != null && !ap.b(axVar.b())) {
+                    ap.a(axVar.b());
+                }
+                nVar.notifyDataSetChanged();
+                PbActivity.a(this.a, axVar.b(), axVar.m(), z);
+            }
         }
-        listView = this.a.i;
-        listView.setOnItemLongClickListener(null);
     }
 }

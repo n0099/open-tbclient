@@ -39,7 +39,7 @@ public class NewNearbyActivity extends com.baidu.tieba.e {
     private ViewPager j = null;
     private BaseViewPagerAdapter k = null;
     LocalActivityManager c = null;
-    private com.baidu.tieba.y l = null;
+    private com.baidu.tieba.an l = null;
     private Address m = null;
     private ProgressBar n = null;
     private TextView o = null;
@@ -133,12 +133,12 @@ public class NewNearbyActivity extends com.baidu.tieba.e {
             this.z.setImageResource(R.drawable.lbs_send_normal_1);
             this.A.setImageResource(R.drawable.lbs_send_pic_1);
             this.B.setImageResource(R.drawable.lbs_send_text_1);
-            com.baidu.tieba.c.ae.i(this.r, R.drawable.lbs_title_bg_1);
-            com.baidu.tieba.c.ae.i(this.s, R.drawable.lbs_title_bg_1);
+            com.baidu.tieba.c.ae.h(this.r, R.drawable.lbs_title_bg_1);
+            com.baidu.tieba.c.ae.h(this.s, R.drawable.lbs_title_bg_1);
             this.r.setTextColor(getResources().getColorStateList(R.color.lbs_title_color_1));
             this.s.setTextColor(getResources().getColorStateList(R.color.lbs_title_color_1));
-            com.baidu.tieba.c.ae.i(this.t, R.drawable.lbs_title_bg_normal_1);
-            com.baidu.tieba.c.ae.i(this.u, R.drawable.lbs_title_bg_normal_1);
+            com.baidu.tieba.c.ae.h(this.t, R.drawable.lbs_title_bg_normal_1);
+            com.baidu.tieba.c.ae.h(this.u, R.drawable.lbs_title_bg_normal_1);
             this.u.setImageDrawable(new ColorDrawable(-13421773));
             this.j.setBackgroundColor(-13158601);
             return;
@@ -146,12 +146,12 @@ public class NewNearbyActivity extends com.baidu.tieba.e {
         this.z.setImageResource(R.drawable.lbs_send_normal);
         this.A.setImageResource(R.drawable.lbs_send_pic);
         this.B.setImageResource(R.drawable.lbs_send_text);
-        com.baidu.tieba.c.ae.i(this.r, R.drawable.lbs_title_bg);
-        com.baidu.tieba.c.ae.i(this.s, R.drawable.lbs_title_bg);
+        com.baidu.tieba.c.ae.h(this.r, R.drawable.lbs_title_bg);
+        com.baidu.tieba.c.ae.h(this.s, R.drawable.lbs_title_bg);
         this.r.setTextColor(getResources().getColorStateList(R.color.lbs_title_color));
         this.s.setTextColor(getResources().getColorStateList(R.color.lbs_title_color));
-        com.baidu.tieba.c.ae.i(this.t, R.drawable.lbs_title_bg_normal);
-        com.baidu.tieba.c.ae.i(this.u, R.drawable.lbs_title_bg_normal);
+        com.baidu.tieba.c.ae.h(this.t, R.drawable.lbs_title_bg_normal);
+        com.baidu.tieba.c.ae.h(this.u, R.drawable.lbs_title_bg_normal);
         this.u.setImageDrawable(new ColorDrawable(-2763307));
         this.j.setBackgroundColor(-1380623);
     }
@@ -218,8 +218,8 @@ public class NewNearbyActivity extends com.baidu.tieba.e {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void c(int i) {
-        String x = TiebaApplication.x();
-        if (x == null || x.length() <= 0) {
+        String y = TiebaApplication.y();
+        if (y == null || y.length() <= 0) {
             if (i == 0) {
                 LoginActivity.a((Activity) this, getString(R.string.login_to_use), true, 1100001);
             } else {
@@ -366,15 +366,15 @@ public class NewNearbyActivity extends com.baidu.tieba.e {
     /* JADX INFO: Access modifiers changed from: private */
     public void t() {
         if (this.j.getChildCount() >= 2 && (this.c.getActivity("nearby_post") instanceof NearbyPostActivity) && ((NearbyPostActivity) this.c.getActivity("nearby_post")).m() != null) {
-            com.baidu.tieba.b.o m = ((NearbyPostActivity) this.c.getActivity("nearby_post")).m();
+            com.baidu.tieba.b.p m = ((NearbyPostActivity) this.c.getActivity("nearby_post")).m();
             if (m.d().size() >= 1) {
-                if (TiebaApplication.b().k()) {
+                if (TiebaApplication.b().l()) {
                     StatService.onEvent(this, "lbs_open_map", "lbsclick", 1);
                 }
-                com.baidu.tieba.b.h hVar = new com.baidu.tieba.b.h();
-                hVar.a(m.b());
-                hVar.a(m.d());
-                NearbyMapActivity.a(this, this.m, hVar);
+                com.baidu.tieba.b.i iVar = new com.baidu.tieba.b.i();
+                iVar.a(m.b());
+                iVar.a(m.d());
+                NearbyMapActivity.a(this, this.m, iVar);
                 MainTabActivity.a();
             }
         }

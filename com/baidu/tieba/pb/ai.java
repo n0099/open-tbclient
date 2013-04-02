@@ -1,19 +1,22 @@
 package com.baidu.tieba.pb;
 
 import android.os.AsyncTask;
+import com.baidu.android.pushservice.PushConstants;
+import com.baidu.tieba.TiebaApplication;
+import com.baidu.tieba.write.NewVcodeActivity;
 import com.baidu.tieba.write.VcodeActivity;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ai extends AsyncTask {
     final /* synthetic */ ImagePbActivity a;
-    private com.baidu.tieba.b.y b;
+    private com.baidu.tieba.b.z b;
     private com.baidu.tieba.c.t c = null;
     private boolean d = false;
 
-    public ai(ImagePbActivity imagePbActivity, com.baidu.tieba.b.y yVar) {
+    public ai(ImagePbActivity imagePbActivity, com.baidu.tieba.b.z zVar) {
         this.a = imagePbActivity;
         this.b = null;
-        this.b = yVar;
+        this.b = zVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -28,10 +31,13 @@ public class ai extends AsyncTask {
         this.c.a("anonymous", "0");
         this.c.a("fid", this.b.f());
         this.c.a("kw", this.b.g());
-        this.c.a("content", this.b.c());
+        this.c.a(PushConstants.EXTRA_CONTENT, this.b.c());
         this.c.a("tid", this.b.d());
         if (this.b.i() != null && this.b.i().length() > 0) {
             this.c.a("vcode", this.b.i());
+        }
+        if (TiebaApplication.b().aj() < 3) {
+            this.c.a("vcode_tag", "11");
         }
         this.c.a("quote_id", this.b.e());
         this.c.a("floor_num", String.valueOf(this.b.h()));
@@ -41,13 +47,18 @@ public class ai extends AsyncTask {
 
     private void a(int i, String str, String str2) {
         if (i == 5 || i == 6) {
-            com.baidu.tieba.a.aw awVar = new com.baidu.tieba.a.aw();
-            awVar.a(str2);
-            if (awVar.b() != null) {
-                this.b.h(awVar.a());
-                this.b.i(awVar.b());
-                VcodeActivity.a(this.a, this.b, 1200005);
-                return;
+            com.baidu.tieba.a.ba baVar = new com.baidu.tieba.a.ba();
+            baVar.a(str2);
+            if (baVar.b() != null) {
+                this.b.h(baVar.a());
+                this.b.i(baVar.b());
+                if (baVar.c().equals("4")) {
+                    NewVcodeActivity.a(this.a, this.b, 1200005);
+                    return;
+                } else {
+                    VcodeActivity.a(this.a, this.b, 1200005);
+                    return;
+                }
             }
             this.a.b(str);
             return;

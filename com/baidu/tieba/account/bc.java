@@ -36,9 +36,9 @@ public class bc extends AsyncTask {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.os.AsyncTask
     /* renamed from: a */
-    public com.baidu.tieba.b.g doInBackground(String... strArr) {
-        com.baidu.tieba.a.an u;
-        com.baidu.tieba.b.g gVar = new com.baidu.tieba.b.g();
+    public com.baidu.tieba.b.h doInBackground(String... strArr) {
+        com.baidu.tieba.a.ap u;
+        com.baidu.tieba.b.h hVar = new com.baidu.tieba.b.h();
         try {
             u = this.a.u();
             this.b = new com.baidu.tieba.c.t("http://c.tieba.baidu.com/c/s/regreal");
@@ -53,11 +53,11 @@ public class bc extends AsyncTask {
             }
             String i = this.b.i();
             if ((this.b.c() && (this.b.d() == 0 || this.b.d() == 36)) || this.b.d() == 5) {
-                com.baidu.tieba.b.g gVar2 = new com.baidu.tieba.b.g();
-                gVar2.a(i);
-                return gVar2;
+                com.baidu.tieba.b.h hVar2 = new com.baidu.tieba.b.h();
+                hVar2.a(i);
+                return hVar2;
             }
-            return gVar;
+            return hVar;
         } catch (Exception e) {
             com.baidu.tieba.c.ag.b(getClass().getName(), "doInBackground", e.getMessage());
             return null;
@@ -68,24 +68,24 @@ public class bc extends AsyncTask {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.os.AsyncTask
     /* renamed from: a */
-    public void onPostExecute(com.baidu.tieba.b.g gVar) {
+    public void onPostExecute(com.baidu.tieba.b.h hVar) {
         ProgressBar progressBar;
-        com.baidu.tieba.a.an u;
+        com.baidu.tieba.a.ap u;
         int i;
         int i2;
         int i3;
-        super.onPostExecute(gVar);
+        super.onPostExecute(hVar);
         this.a.R = null;
         progressBar = this.a.H;
         progressBar.setVisibility(8);
         this.a.t();
-        this.a.S = gVar;
+        this.a.S = hVar;
         if (!this.b.c()) {
             this.a.O = -1;
             this.a.P = this.b.f();
             this.a.s();
         } else if (this.b.d() == 36) {
-            this.a.a(gVar.c());
+            this.a.a(hVar.c());
             Register2Activity register2Activity = this.a;
             i3 = Register2Activity.h;
             register2Activity.O = i3;

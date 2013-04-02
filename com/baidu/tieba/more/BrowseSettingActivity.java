@@ -57,21 +57,21 @@ public class BrowseSettingActivity extends com.baidu.tieba.e {
         com.baidu.tieba.c.ae.c(this.j, i);
         if (i == 1) {
             color = com.baidu.tieba.c.ae.a(i);
-            com.baidu.tieba.c.ae.i(this.l, R.drawable.more_up_1);
-            com.baidu.tieba.c.ae.i(this.m, R.drawable.more_middle_1);
-            com.baidu.tieba.c.ae.i(this.n, R.drawable.more_down_1);
-            com.baidu.tieba.c.ae.i(this.p, R.drawable.more_up_1);
-            com.baidu.tieba.c.ae.i(this.q, R.drawable.more_middle_1);
-            com.baidu.tieba.c.ae.i(this.r, R.drawable.more_down_1);
+            com.baidu.tieba.c.ae.h(this.l, R.drawable.more_up_1);
+            com.baidu.tieba.c.ae.h(this.m, R.drawable.more_middle_1);
+            com.baidu.tieba.c.ae.h(this.n, R.drawable.more_down_1);
+            com.baidu.tieba.c.ae.h(this.p, R.drawable.more_up_1);
+            com.baidu.tieba.c.ae.h(this.q, R.drawable.more_middle_1);
+            com.baidu.tieba.c.ae.h(this.r, R.drawable.more_down_1);
             this.e.setBackgroundResource(R.drawable.more_all_1);
         } else {
             color = getResources().getColor(R.color.more_color);
-            com.baidu.tieba.c.ae.i(this.l, R.drawable.more_up);
-            com.baidu.tieba.c.ae.i(this.m, R.drawable.more_middle);
-            com.baidu.tieba.c.ae.i(this.n, R.drawable.more_down);
-            com.baidu.tieba.c.ae.i(this.p, R.drawable.more_up);
-            com.baidu.tieba.c.ae.i(this.q, R.drawable.more_middle);
-            com.baidu.tieba.c.ae.i(this.r, R.drawable.more_down);
+            com.baidu.tieba.c.ae.h(this.l, R.drawable.more_up);
+            com.baidu.tieba.c.ae.h(this.m, R.drawable.more_middle);
+            com.baidu.tieba.c.ae.h(this.n, R.drawable.more_down);
+            com.baidu.tieba.c.ae.h(this.p, R.drawable.more_up);
+            com.baidu.tieba.c.ae.h(this.q, R.drawable.more_middle);
+            com.baidu.tieba.c.ae.h(this.r, R.drawable.more_down);
             this.e.setBackgroundResource(R.drawable.more_all);
         }
         this.l.setTextColor(color);
@@ -134,9 +134,9 @@ public class BrowseSettingActivity extends com.baidu.tieba.e {
     }
 
     private void j() {
-        if (!TiebaApplication.b().ad()) {
+        if (!TiebaApplication.b().ae()) {
             this.c.check(R.id.image_quality_close);
-        } else if (TiebaApplication.b().ac() == 1) {
+        } else if (TiebaApplication.b().ad() == 1) {
             this.c.check(R.id.image_quality_high);
         } else {
             this.c.check(R.id.image_quality_low);
@@ -144,9 +144,9 @@ public class BrowseSettingActivity extends com.baidu.tieba.e {
     }
 
     private void k() {
-        if (TiebaApplication.b().ae() == 1) {
+        if (TiebaApplication.b().af() == 1) {
             this.d.check(R.id.font_size_big);
-        } else if (TiebaApplication.b().ae() == 2) {
+        } else if (TiebaApplication.b().af() == 2) {
             this.d.check(R.id.font_size_mid);
         } else {
             this.d.check(R.id.font_size_small);
@@ -155,7 +155,7 @@ public class BrowseSettingActivity extends com.baidu.tieba.e {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void l() {
-        if (TiebaApplication.b().s()) {
+        if (TiebaApplication.b().t()) {
             this.f.setText(getString(R.string.view_images_open));
         } else {
             this.f.setText(getString(R.string.view_images_close));

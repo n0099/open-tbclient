@@ -30,16 +30,16 @@ class aj implements View.OnFocusChangeListener {
         ImageView imageView3;
         ImageView imageView4;
         EditText editText2;
-        com.baidu.tieba.b.y yVar;
-        com.baidu.tieba.b.y yVar2;
+        com.baidu.tieba.b.z zVar;
+        com.baidu.tieba.b.z zVar2;
         EditText editText3;
         EditText editText4;
         ImageView imageView5;
         ImageView imageView6;
         ImageView imageView7;
-        com.baidu.tieba.b.y yVar3;
+        com.baidu.tieba.b.z zVar3;
         EditText editText5;
-        com.baidu.tieba.b.y yVar4;
+        com.baidu.tieba.b.z zVar4;
         Button button;
         Button button2;
         editText = this.a.g;
@@ -64,10 +64,10 @@ class aj implements View.OnFocusChangeListener {
         editText2 = this.a.h;
         if (view == editText2) {
             if (!z) {
-                yVar = this.a.c;
-                if (yVar.a() != 0) {
-                    yVar2 = this.a.c;
-                    if (yVar2.a() == 3) {
+                zVar = this.a.c;
+                if (zVar.a() != 0) {
+                    zVar2 = this.a.c;
+                    if (zVar2.a() == 3) {
                         editText3 = this.a.h;
                         editText3.setHint(R.string.lbs_post_content_hint);
                         return;
@@ -84,10 +84,10 @@ class aj implements View.OnFocusChangeListener {
             imageView6.setClickable(true);
             imageView7 = this.a.m;
             imageView7.setClickable(true);
-            yVar3 = this.a.c;
-            if (yVar3.a() != 0) {
-                yVar4 = this.a.c;
-                if (yVar4.a() != 3) {
+            zVar3 = this.a.c;
+            if (zVar3.a() != 0) {
+                zVar4 = this.a.c;
+                if (zVar4.a() != 3) {
                     return;
                 }
             }

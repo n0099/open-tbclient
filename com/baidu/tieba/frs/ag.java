@@ -1,7 +1,7 @@
 package com.baidu.tieba.frs;
 
 import android.view.View;
-import com.baidu.tieba.a.au;
+import com.baidu.tieba.a.ay;
 import com.baidu.tieba.pb.ImagePbActivity;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
@@ -16,12 +16,12 @@ public class ag implements View.OnClickListener {
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         String str;
-        if (view.getTag() != null && (view.getTag() instanceof au)) {
-            au auVar = (au) view.getTag();
+        if (view.getTag() != null && (view.getTag() instanceof ay)) {
+            ay ayVar = (ay) view.getTag();
             FrsImageActivity frsImageActivity = this.a;
-            String d = auVar.d();
+            String d = ayVar.d();
             str = this.a.e;
-            ImagePbActivity.a(frsImageActivity, d, str, auVar.c());
+            ImagePbActivity.a(frsImageActivity, d, str, ayVar.c());
         }
     }
 }

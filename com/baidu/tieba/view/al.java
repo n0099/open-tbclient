@@ -1,64 +1,28 @@
 package com.baidu.tieba.view;
 
-import java.util.ArrayList;
+import android.os.Handler;
+import android.os.Message;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class al {
-    int a = 0;
-    ArrayList b = new ArrayList();
-    final /* synthetic */ WaterFallView c;
+public class al extends Handler {
+    final /* synthetic */ WaterFallView a;
 
+    /* JADX INFO: Access modifiers changed from: package-private */
     public al(WaterFallView waterFallView) {
-        this.c = waterFallView;
+        this.a = waterFallView;
     }
 
-    public void a(int i) {
-        this.a += i;
-        this.b.add(new int[]{this.a, this.a});
-    }
-
-    public void a() {
-        this.a = 0;
-        this.b.clear();
-    }
-
-    public int b() {
-        return this.a;
-    }
-
-    public int b(int i) {
-        int size = this.b.size();
-        for (int i2 = 0; i2 < size; i2++) {
-            if (((int[]) this.b.get(i2))[1] > i) {
-                return i2;
+    @Override // android.os.Handler
+    public void handleMessage(Message message) {
+        an anVar;
+        an anVar2;
+        super.handleMessage(message);
+        if (message.what == 101) {
+            anVar = this.a.o;
+            if (anVar != null) {
+                anVar2 = this.a.o;
+                anVar2.d();
             }
         }
-        return -1;
-    }
-
-    public int c(int i) {
-        int i2;
-        int size = this.b.size();
-        if (size <= 0) {
-            return -1;
-        }
-        int i3 = 0;
-        while (true) {
-            if (i3 >= size) {
-                i2 = i3;
-                break;
-            } else if (((int[]) this.b.get(i3))[0] <= i) {
-                i3++;
-            } else {
-                i2 = i3 - 1;
-                break;
-            }
-        }
-        if (i2 < 0) {
-            i2 = 0;
-        }
-        if (i2 >= size) {
-            return size - 1;
-        }
-        return i2;
     }
 }

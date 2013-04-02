@@ -5,20 +5,20 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
-import com.baidu.tieba.a.ax;
+import com.baidu.tieba.a.bb;
 import com.baidu.tieba.service.TiebaUpdateService;
 /* loaded from: classes.dex */
 public class UpdateDialog extends e {
-    private ax c = null;
+    private bb c = null;
     private AlertDialog d = null;
     private DialogInterface.OnClickListener e = null;
     private DialogInterface.OnClickListener f = null;
 
-    public static void a(Context context, ax axVar) {
-        if (axVar != null) {
+    public static void a(Context context, bb bbVar) {
+        if (bbVar != null) {
             Intent intent = new Intent(context, UpdateDialog.class);
             intent.setFlags(268435456);
-            intent.putExtra("data", axVar);
+            intent.putExtra("data", bbVar);
             context.startActivity(intent);
         }
     }
@@ -33,11 +33,11 @@ public class UpdateDialog extends e {
     private void a(Bundle bundle) {
         String format;
         if (bundle != null) {
-            this.c = (ax) bundle.getSerializable("data");
+            this.c = (bb) bundle.getSerializable("data");
         } else {
             Intent intent = getIntent();
             if (intent != null) {
-                this.c = (ax) intent.getSerializableExtra("data");
+                this.c = (bb) intent.getSerializableExtra("data");
             }
         }
         if (this.c == null || this.c.e() == 0) {
@@ -52,12 +52,12 @@ public class UpdateDialog extends e {
         }
         if (this.c.e() == 1) {
             if (this.c.b() == 1) {
-                this.f = new ab(this);
+                this.f = new aq(this);
                 builder.setMessage(format);
                 builder.setPositiveButton(R.string.update_new_ver, this.f);
                 builder.setNegativeButton(R.string.close, this.f);
             } else {
-                this.e = new ac(this);
+                this.e = new ar(this);
                 builder.setMessage(format);
                 builder.setPositiveButton(R.string.update_new_ver, this.e);
                 builder.setNegativeButton(R.string.remind_later, this.e);
@@ -65,8 +65,8 @@ public class UpdateDialog extends e {
         }
         this.d = builder.create();
         this.d.setCancelable(false);
-        this.d.setOnCancelListener(new ad(this));
-        this.d.setOnDismissListener(new ae(this));
+        this.d.setOnCancelListener(new as(this));
+        this.d.setOnDismissListener(new at(this));
         this.d.show();
     }
 

@@ -271,44 +271,52 @@ public class k {
         a(2, str);
     }
 
+    public static void h(String str) {
+        a(5, str);
+    }
+
     public static String c() {
+        return d(5);
+    }
+
+    public static String d() {
         return d(2);
     }
 
-    public static void d() {
+    public static void e() {
         c(2);
     }
 
-    public static void h(String str) {
+    public static void i(String str) {
         a(3, str);
     }
 
-    public static void e() {
+    public static void f() {
         c(3);
     }
 
-    public static String f() {
+    public static String g() {
         return d(3);
     }
 
-    public static void i(String str) {
+    public static void j(String str) {
         a(4, str);
     }
 
-    public static void g() {
+    public static void h() {
         c(4);
     }
 
-    public static String h() {
+    public static String i() {
         return d(4);
     }
 
     private static void a(int i, String str) {
         k kVar;
-        if (TiebaApplication.x() != null && (kVar = new k()) != null) {
+        if (TiebaApplication.y() != null && (kVar = new k()) != null) {
             try {
-                kVar.a("delete from cash_data where type=? and account=?", (Object[]) new String[]{String.valueOf(i), TiebaApplication.x()});
-                kVar.a("Insert into cash_data(account,type,data) values(?,?,?)", new Object[]{TiebaApplication.x(), Integer.valueOf(i), str});
+                kVar.a("delete from cash_data where type=? and account=?", (Object[]) new String[]{String.valueOf(i), TiebaApplication.y()});
+                kVar.a("Insert into cash_data(account,type,data) values(?,?,?)", new Object[]{TiebaApplication.y(), Integer.valueOf(i), str});
             } catch (Exception e) {
                 ag.b("DatabaseService", "cachData", "error = " + e.getMessage());
             }
@@ -317,9 +325,9 @@ public class k {
 
     private static void c(int i) {
         k kVar;
-        if (TiebaApplication.x() != null && (kVar = new k()) != null) {
+        if (TiebaApplication.y() != null && (kVar = new k()) != null) {
             try {
-                kVar.a("delete from cash_data where type=? and account=?", (Object[]) new String[]{String.valueOf(i), TiebaApplication.x()});
+                kVar.a("delete from cash_data where type=? and account=?", (Object[]) new String[]{String.valueOf(i), TiebaApplication.y()});
             } catch (Exception e) {
                 ag.b("DatabaseService", "cachData", "error = " + e.getMessage());
             }
@@ -332,14 +340,14 @@ public class k {
         Exception e;
         Cursor cursor2;
         Cursor cursor3 = null;
-        if (TiebaApplication.x() == null) {
+        if (TiebaApplication.y() == null) {
             return null;
         }
         k kVar = new k();
         try {
             if (kVar != null) {
                 try {
-                    cursor = kVar.a("select * from cash_data where type = ? and account=?", new String[]{String.valueOf(i), TiebaApplication.x()});
+                    cursor = kVar.a("select * from cash_data where type = ? and account=?", new String[]{String.valueOf(i), TiebaApplication.y()});
                     if (cursor != null) {
                         try {
                             str = cursor.moveToFirst() ? cursor.getString(2) : null;
@@ -495,7 +503,7 @@ public class k {
     public static void a(com.baidu.tieba.a.a aVar) {
         if (aVar != null && aVar.b() != null) {
             if (aVar.e() == 1) {
-                i();
+                j();
             }
             k kVar = new k();
             try {
@@ -510,7 +518,7 @@ public class k {
         }
     }
 
-    public static void i() {
+    public static void j() {
         k kVar = new k();
         if (kVar != null) {
             try {
@@ -532,7 +540,7 @@ public class k {
         }
     }
 
-    public static ArrayList j() {
+    public static ArrayList k() {
         Cursor cursor;
         Cursor cursor2;
         Cursor cursor3 = null;
@@ -598,7 +606,7 @@ public class k {
     }
 
     /* JADX DEBUG: Another duplicated slice has different insns count: {[IF]}, finally: {[IF, MOVE_EXCEPTION, INVOKE, MOVE_EXCEPTION] complete} */
-    public static int k() {
+    public static int l() {
         Cursor cursor = null;
         int i = 0;
         k kVar = new k();
@@ -642,7 +650,7 @@ public class k {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static com.baidu.tieba.a.a l() {
+    public static com.baidu.tieba.a.a m() {
         Cursor cursor;
         com.baidu.tieba.a.a aVar;
         Exception e;
@@ -731,11 +739,11 @@ public class k {
         return aVar;
     }
 
-    public static ArrayList m() {
+    public static ArrayList n() {
         return e(0);
     }
 
-    public static ArrayList n() {
+    public static ArrayList o() {
         return e(1);
     }
 
@@ -810,11 +818,11 @@ public class k {
         return arrayList;
     }
 
-    public static void j(String str) {
+    public static void k(String str) {
         d(0, str);
     }
 
-    public static void k(String str) {
+    public static void l(String str) {
         d(1, str);
     }
 
@@ -826,11 +834,11 @@ public class k {
                 switch (i) {
                     case 0:
                         kVar.a("delete from search_data where key=?", (Object[]) new String[]{str});
-                        kVar.a("Insert into search_data(key,account,time) values(?,?,?)", new Object[]{str, TiebaApplication.x(), Long.valueOf(date.getTime())});
+                        kVar.a("Insert into search_data(key,account,time) values(?,?,?)", new Object[]{str, TiebaApplication.y(), Long.valueOf(date.getTime())});
                         break;
                     case 1:
                         kVar.a("delete from search_post_data where key=?", (Object[]) new String[]{str});
-                        kVar.a("Insert into search_post_data(key,account,time) values(?,?,?)", new Object[]{str, TiebaApplication.x(), Long.valueOf(date.getTime())});
+                        kVar.a("Insert into search_post_data(key,account,time) values(?,?,?)", new Object[]{str, TiebaApplication.y(), Long.valueOf(date.getTime())});
                         break;
                 }
             } catch (Exception e) {
@@ -839,11 +847,11 @@ public class k {
         }
     }
 
-    public static void o() {
+    public static void p() {
         a(0);
     }
 
-    public static void p() {
+    public static void q() {
         a(1);
     }
 
@@ -872,11 +880,11 @@ public class k {
     /* JADX WARN: Type inference failed for: r2v0, types: [com.baidu.tieba.c.k] */
     /* JADX WARN: Type inference failed for: r2v1, types: [android.database.Cursor] */
     /* JADX WARN: Type inference failed for: r2v2 */
-    public static ArrayList q() {
+    public static ArrayList r() {
         Cursor cursor;
         Exception e;
         Cursor cursor2;
-        if (TiebaApplication.x() == null) {
+        if (TiebaApplication.y() == null) {
             return null;
         }
         ?? kVar = new k();
@@ -884,26 +892,26 @@ public class k {
         try {
             if (kVar != 0) {
                 try {
-                    cursor = kVar.a("select * from mark_data where account=? order by time desc", new String[]{TiebaApplication.x()});
+                    cursor = kVar.a("select * from mark_data where account=? order by time desc", new String[]{TiebaApplication.y()});
                     if (cursor != null) {
                         while (cursor.moveToNext()) {
                             try {
-                                com.baidu.tieba.a.ac acVar = new com.baidu.tieba.a.ac();
-                                acVar.b(cursor.getString(0));
-                                acVar.c(cursor.getInt(1));
-                                acVar.a(cursor.getInt(2));
-                                acVar.c(cursor.getString(3));
-                                acVar.a(Boolean.valueOf(cursor.getInt(4) == 1));
-                                acVar.a(cursor.getInt(5) == 1);
-                                acVar.d(cursor.getString(6));
-                                acVar.e(cursor.getString(7));
-                                acVar.a(cursor.getString(8));
-                                acVar.a(cursor.getInt(9));
-                                acVar.b(cursor.getInt(10));
-                                acVar.g(cursor.getString(11));
-                                acVar.f(cursor.getString(12));
-                                acVar.h(cursor.getString(13));
-                                arrayList.add(acVar);
+                                com.baidu.tieba.a.ae aeVar = new com.baidu.tieba.a.ae();
+                                aeVar.b(cursor.getString(0));
+                                aeVar.c(cursor.getInt(1));
+                                aeVar.a(cursor.getInt(2));
+                                aeVar.c(cursor.getString(3));
+                                aeVar.a(Boolean.valueOf(cursor.getInt(4) == 1));
+                                aeVar.a(cursor.getInt(5) == 1);
+                                aeVar.d(cursor.getString(6));
+                                aeVar.e(cursor.getString(7));
+                                aeVar.a(cursor.getString(8));
+                                aeVar.a(cursor.getInt(9));
+                                aeVar.b(cursor.getInt(10));
+                                aeVar.g(cursor.getString(11));
+                                aeVar.f(cursor.getString(12));
+                                aeVar.h(cursor.getString(13));
+                                arrayList.add(aeVar);
                             } catch (Exception e2) {
                                 e = e2;
                                 ag.b("DatabaseService", "getAllMarkData", "error = " + e.getMessage());
@@ -955,10 +963,6 @@ public class k {
         a = bool;
     }
 
-    public static Boolean r() {
-        return a;
-    }
-
     public static void b(Boolean bool) {
         b = bool;
     }
@@ -967,128 +971,16 @@ public class k {
         return b;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:57:0x00db A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:63:0x00e5 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public static com.baidu.tieba.a.ac l(String str) {
-        Cursor cursor;
-        Cursor cursor2;
-        Exception e;
-        com.baidu.tieba.a.ac acVar;
-        Cursor cursor3;
-        if (TiebaApplication.x() == null) {
-            return null;
-        }
-        k kVar = new k();
-        if (kVar != null) {
-            try {
-                cursor = kVar.a("select * from mark_data where id=? and account=?", new String[]{str, TiebaApplication.x()});
-                if (cursor != null) {
-                    try {
-                        try {
-                            if (cursor.moveToFirst()) {
-                                com.baidu.tieba.a.ac acVar2 = new com.baidu.tieba.a.ac();
-                                try {
-                                    acVar2.b(cursor.getString(0));
-                                    acVar2.c(cursor.getInt(1));
-                                    acVar2.a(cursor.getInt(2));
-                                    acVar2.c(cursor.getString(3));
-                                    acVar2.a(Boolean.valueOf(cursor.getInt(4) == 1));
-                                    acVar2.a(cursor.getInt(5) == 1);
-                                    acVar2.d(cursor.getString(6));
-                                    acVar2.a(cursor.getString(8));
-                                    acVar2.a(cursor.getInt(9));
-                                    acVar2.b(cursor.getInt(10));
-                                    acVar2.g(cursor.getString(11));
-                                    acVar2.f(cursor.getString(12));
-                                    acVar2.h(cursor.getString(13));
-                                    acVar = acVar2;
-                                } catch (Exception e2) {
-                                    e = e2;
-                                    acVar = acVar2;
-                                    cursor2 = cursor;
-                                    try {
-                                        ag.b("DatabaseService", "getMarkDataById", "error = " + e.getMessage());
-                                        if (cursor2 != null) {
-                                        }
-                                        return acVar;
-                                    } catch (Throwable th) {
-                                        th = th;
-                                        cursor = cursor2;
-                                        if (cursor != null) {
-                                        }
-                                        throw th;
-                                    }
-                                }
-                            } else {
-                                acVar = null;
-                            }
-                            try {
-                                cursor.close();
-                            } catch (Exception e3) {
-                                e = e3;
-                                cursor2 = cursor;
-                                ag.b("DatabaseService", "getMarkDataById", "error = " + e.getMessage());
-                                if (cursor2 != null) {
-                                    try {
-                                        cursor2.close();
-                                    } catch (Exception e4) {
-                                    }
-                                }
-                                return acVar;
-                            }
-                        } catch (Throwable th2) {
-                            th = th2;
-                            if (cursor != null) {
-                                try {
-                                    cursor.close();
-                                } catch (Exception e5) {
-                                }
-                            }
-                            throw th;
-                        }
-                    } catch (Exception e6) {
-                        cursor2 = cursor;
-                        e = e6;
-                        acVar = null;
-                    }
-                } else {
-                    acVar = null;
-                }
-                cursor3 = null;
-            } catch (Exception e7) {
-                cursor2 = null;
-                e = e7;
-                acVar = null;
-            } catch (Throwable th3) {
-                th = th3;
-                cursor = null;
-            }
-        } else {
-            acVar = null;
-            cursor3 = null;
-        }
-        if (0 != 0) {
-            try {
-                cursor3.close();
-            } catch (Exception e8) {
-            }
-        }
-        return acVar;
-    }
-
     /* JADX DEBUG: Another duplicated slice has different insns count: {[IF]}, finally: {[IF, MOVE_EXCEPTION, INVOKE, MOVE_EXCEPTION] complete} */
     public static int t() {
         int i = 0;
-        if (TiebaApplication.x() != null) {
+        if (TiebaApplication.y() != null) {
             k kVar = new k();
             Cursor cursor = null;
             try {
                 if (kVar != null) {
                     try {
-                        cursor = kVar.a("select count(*) from mark_data where account=?", new String[]{TiebaApplication.x()});
+                        cursor = kVar.a("select count(*) from mark_data where account=?", new String[]{TiebaApplication.y()});
                         if (cursor != null && cursor.moveToFirst()) {
                             int i2 = cursor.getInt(0);
                             try {
@@ -1123,70 +1015,16 @@ public class k {
         return i;
     }
 
-    public static boolean a(com.baidu.tieba.a.ac acVar) {
-        if (TiebaApplication.x() == null) {
-            return false;
-        }
-        Boolean bool = false;
-        k kVar = new k();
-        if (kVar != null && acVar != null) {
-            try {
-                kVar.a("delete from mark_data where id=? and account=?", (Object[]) new String[]{acVar.d(), TiebaApplication.x()});
-                Object[] objArr = new Object[14];
-                objArr[0] = acVar.d();
-                objArr[1] = Integer.valueOf(acVar.e());
-                objArr[2] = Long.valueOf(acVar.f());
-                objArr[3] = acVar.g();
-                objArr[4] = Integer.valueOf(acVar.h().booleanValue() ? 1 : 0);
-                objArr[5] = Integer.valueOf(acVar.i() ? 1 : 0);
-                objArr[6] = acVar.j();
-                objArr[7] = TiebaApplication.x();
-                objArr[8] = acVar.a();
-                objArr[9] = Integer.valueOf(acVar.b());
-                objArr[10] = Integer.valueOf(acVar.c());
-                objArr[11] = acVar.l();
-                objArr[12] = acVar.k();
-                objArr[13] = acVar.m();
-                bool = kVar.a("Insert into mark_data(id,floor,time,title,sequence,hostmode,postid,account,authorname,replynum,subPost,forumName,forumId,threadId) values(?,?,?,?,?,?,?,?,?,?,?,?,?,?)", objArr);
-                if (bool.booleanValue()) {
-                    b((Boolean) true);
-                    a((Boolean) true);
-                }
-            } catch (Exception e) {
-                ag.b("DatabaseService", "saveMarkData", "error = " + e.getMessage());
-                bool = false;
-            }
-        }
-        return bool.booleanValue();
-    }
-
-    public static boolean m(String str) {
-        k kVar;
-        boolean z = false;
-        if (TiebaApplication.x() != null && (kVar = new k()) != null) {
-            try {
-                z = kVar.a("delete from mark_data where id=? and account=?", (Object[]) new String[]{str, TiebaApplication.x()}).booleanValue();
-                if (z) {
-                    a((Boolean) true);
-                    b((Boolean) true);
-                }
-            } catch (Exception e) {
-                ag.b("DatabaseService", "deleteMarkData", "error = " + e.getMessage());
-            }
-        }
-        return z;
-    }
-
-    public static void a(com.baidu.tieba.b.y yVar) {
-        if (TiebaApplication.x() != null) {
+    public static void a(com.baidu.tieba.b.z zVar) {
+        if (TiebaApplication.y() != null) {
             k kVar = new k();
             try {
-                if (yVar.a() == 0) {
-                    kVar.a("delete from draft_box where account=? and type=? and forum_id=?", new Object[]{TiebaApplication.x(), 0, yVar.f()});
-                } else if (yVar.a() == 1) {
-                    kVar.a("delete from draft_box where account=? and type=? and thread_id=?", new Object[]{TiebaApplication.x(), 1, yVar.d()});
+                if (zVar.a() == 0) {
+                    kVar.a("delete from draft_box where account=? and type=? and forum_id=?", new Object[]{TiebaApplication.y(), 0, zVar.f()});
+                } else if (zVar.a() == 1) {
+                    kVar.a("delete from draft_box where account=? and type=? and thread_id=?", new Object[]{TiebaApplication.y(), 1, zVar.d()});
                 } else {
-                    kVar.a("delete from draft_box where account=? and type=? and thread_id=? and floor_id=?", new Object[]{TiebaApplication.x(), 2, yVar.d(), yVar.e()});
+                    kVar.a("delete from draft_box where account=? and type=? and thread_id=? and floor_id=?", new Object[]{TiebaApplication.y(), 2, zVar.d(), zVar.e()});
                 }
             } catch (Exception e) {
                 ag.b("DatabaseService", "deleteDraftBox", "error = " + e.getMessage());
@@ -1203,11 +1041,11 @@ public class k {
         }
     }
 
-    public static void b(com.baidu.tieba.b.y yVar) {
-        if (TiebaApplication.x() != null) {
-            a(yVar);
+    public static void b(com.baidu.tieba.b.z zVar) {
+        if (TiebaApplication.y() != null) {
+            a(zVar);
             try {
-                new k().a("Insert into draft_box(account,type,forum_id,forum_name,thread_id,floor_id,title,content,time) values(?,?,?,?,?,?,?,?,?)", new Object[]{TiebaApplication.x(), Integer.valueOf(yVar.a()), yVar.f(), yVar.g(), yVar.d(), yVar.e(), yVar.b(), yVar.c(), Long.valueOf(new Date().getTime())});
+                new k().a("Insert into draft_box(account,type,forum_id,forum_name,thread_id,floor_id,title,content,time) values(?,?,?,?,?,?,?,?,?)", new Object[]{TiebaApplication.y(), Integer.valueOf(zVar.a()), zVar.f(), zVar.g(), zVar.d(), zVar.e(), zVar.b(), zVar.c(), Long.valueOf(new Date().getTime())});
             } catch (Exception e) {
                 ag.b("DatabaseService", "saveDraftBox", "error = " + e.getMessage());
             }
@@ -1223,37 +1061,37 @@ public class k {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static com.baidu.tieba.b.y a(int i, String str, String str2, String str3) {
+    public static com.baidu.tieba.b.z a(int i, String str, String str2, String str3) {
         Throwable th;
         Cursor cursor;
-        com.baidu.tieba.b.y yVar = null;
+        com.baidu.tieba.b.z zVar = null;
         ?? r2 = 1;
-        if (TiebaApplication.x() != null) {
+        if (TiebaApplication.y() != null) {
             k kVar = new k();
             try {
                 try {
                     if (i == 0) {
-                        cursor = kVar.a("select * from draft_box where account=? and type=? and forum_id=?", new String[]{TiebaApplication.x(), String.valueOf(i), str});
+                        cursor = kVar.a("select * from draft_box where account=? and type=? and forum_id=?", new String[]{TiebaApplication.y(), String.valueOf(i), str});
                     } else if (i == 1) {
-                        cursor = kVar.a("select * from draft_box where account=? and type=? and thread_id=?", new String[]{TiebaApplication.x(), String.valueOf(i), str2});
+                        cursor = kVar.a("select * from draft_box where account=? and type=? and thread_id=?", new String[]{TiebaApplication.y(), String.valueOf(i), str2});
                     } else {
-                        cursor = kVar.a("select * from draft_box where account=? and type=? and thread_id=? and floor_id=?", new String[]{TiebaApplication.x(), String.valueOf(i), str2, str3});
+                        cursor = kVar.a("select * from draft_box where account=? and type=? and thread_id=? and floor_id=?", new String[]{TiebaApplication.y(), String.valueOf(i), str2, str3});
                     }
                     if (cursor != null) {
                         try {
                             if (cursor.moveToFirst()) {
-                                com.baidu.tieba.b.y yVar2 = new com.baidu.tieba.b.y();
+                                com.baidu.tieba.b.z zVar2 = new com.baidu.tieba.b.z();
                                 try {
-                                    yVar2.a(i);
-                                    yVar2.e(str);
-                                    yVar2.f(cursor.getString(3));
-                                    yVar2.c(str2);
-                                    yVar2.d(str3);
-                                    yVar2.a(cursor.getString(6));
-                                    yVar2.b(cursor.getString(7));
-                                    yVar = yVar2;
+                                    zVar2.a(i);
+                                    zVar2.e(str);
+                                    zVar2.f(cursor.getString(3));
+                                    zVar2.c(str2);
+                                    zVar2.d(str3);
+                                    zVar2.a(cursor.getString(6));
+                                    zVar2.b(cursor.getString(7));
+                                    zVar = zVar2;
                                 } catch (Exception e) {
-                                    yVar = yVar2;
+                                    zVar = zVar2;
                                     e = e;
                                     ag.b("DatabaseService", "getDraftBox", "error = " + e.getMessage());
                                     if (cursor != null) {
@@ -1262,7 +1100,7 @@ public class k {
                                         } catch (Exception e2) {
                                         }
                                     }
-                                    return yVar;
+                                    return zVar;
                                 }
                             }
                         } catch (Exception e3) {
@@ -1296,21 +1134,21 @@ public class k {
                 throw th;
             }
         }
-        return yVar;
+        return zVar;
     }
 
     public static void v() {
-        if (TiebaApplication.x() != null) {
+        if (TiebaApplication.y() != null) {
             k kVar = new k();
             try {
-                kVar.a("delete from setting where account=?", new Object[]{TiebaApplication.x()});
+                kVar.a("delete from setting where account=?", new Object[]{TiebaApplication.y()});
                 Object[] objArr = new Object[6];
-                objArr[0] = TiebaApplication.x();
-                objArr[1] = Integer.valueOf(TiebaApplication.b().L());
-                objArr[2] = Integer.valueOf(TiebaApplication.b().R() ? 1 : 0);
-                objArr[3] = Integer.valueOf(TiebaApplication.b().T() ? 1 : 0);
-                objArr[4] = Integer.valueOf(TiebaApplication.b().S() ? 1 : 0);
-                objArr[5] = Integer.valueOf(TiebaApplication.b().Q());
+                objArr[0] = TiebaApplication.y();
+                objArr[1] = Integer.valueOf(TiebaApplication.b().M());
+                objArr[2] = Integer.valueOf(TiebaApplication.b().S() ? 1 : 0);
+                objArr[3] = Integer.valueOf(TiebaApplication.b().U() ? 1 : 0);
+                objArr[4] = Integer.valueOf(TiebaApplication.b().T() ? 1 : 0);
+                objArr[5] = Integer.valueOf(TiebaApplication.b().R());
                 kVar.a("Insert into setting(account,frequency,fans_switch,reply_me_switch,at_me_switch,remind_tone) values(?,?,?,?,?,?)", objArr);
             } catch (Exception e) {
                 ag.b("DatabaseService", "saveDraftBox", "error = " + e.getMessage());
@@ -1319,15 +1157,15 @@ public class k {
     }
 
     public static void w() {
-        ag.a("databaseService", "getSetting", TiebaApplication.B());
-        if (TiebaApplication.x() == null || TiebaApplication.x().length() <= 0 || TiebaApplication.B() == null) {
+        ag.a("databaseService", "getSetting", TiebaApplication.C());
+        if (TiebaApplication.y() == null || TiebaApplication.y().length() <= 0 || TiebaApplication.C() == null) {
             TiebaApplication.b().d(0);
             return;
         }
         Cursor cursor = null;
         try {
             try {
-                Cursor a2 = new k().a("select * from setting where account=?", new String[]{TiebaApplication.x()});
+                Cursor a2 = new k().a("select * from setting where account=?", new String[]{TiebaApplication.y()});
                 if (a2 != null && a2.moveToFirst()) {
                     TiebaApplication.b().d(a2.getInt(1));
                     if (a2.getInt(2) == 0) {
@@ -1382,21 +1220,21 @@ public class k {
 
     public static void x() {
         k kVar;
-        if (TiebaApplication.x() != null && (kVar = new k()) != null) {
+        if (TiebaApplication.y() != null && (kVar = new k()) != null) {
             try {
-                kVar.a("delete from chunk_upload_data where strftime('%s','now') - time > 48 * 3600 and account=?", (Object[]) new String[]{TiebaApplication.x()});
+                kVar.a("delete from chunk_upload_data where strftime('%s','now') - time > 48 * 3600 and account=?", (Object[]) new String[]{TiebaApplication.y()});
             } catch (Exception e) {
                 ag.b("DatabaseService", "delChunkUploadData", "error = " + e.getMessage());
             }
         }
     }
 
-    public static void n(String str) {
-        if (TiebaApplication.x() != null) {
+    public static void m(String str) {
+        if (TiebaApplication.y() != null) {
             k kVar = new k();
             if (str != null && kVar != null) {
                 try {
-                    kVar.a("delete from chunk_upload_data where md5=? and account=?", (Object[]) new String[]{str, TiebaApplication.x()});
+                    kVar.a("delete from chunk_upload_data where md5=? and account=?", (Object[]) new String[]{str, TiebaApplication.y()});
                 } catch (Exception e) {
                     ag.b("DatabaseService", "delChunkUploadData", "error = " + e.getMessage());
                 }
@@ -1405,7 +1243,7 @@ public class k {
     }
 
     public static boolean a(com.baidu.tieba.a.f fVar) {
-        if (TiebaApplication.x() == null) {
+        if (TiebaApplication.y() == null) {
             return false;
         }
         k kVar = new k();
@@ -1414,8 +1252,8 @@ public class k {
             return false;
         }
         try {
-            kVar.a("delete from chunk_upload_data where md5=? and account=?", (Object[]) new String[]{fVar.a(), TiebaApplication.x()});
-            return kVar.a("Insert into chunk_upload_data(md5,total_length,chunk_no,account,time) values(?,?,?,?,?)", new Object[]{fVar.a(), Long.valueOf(fVar.b()), Integer.valueOf(fVar.c()), TiebaApplication.x(), Long.valueOf(date.getTime() / 1000)}).booleanValue();
+            kVar.a("delete from chunk_upload_data where md5=? and account=?", (Object[]) new String[]{fVar.a(), TiebaApplication.y()});
+            return kVar.a("Insert into chunk_upload_data(md5,total_length,chunk_no,account,time) values(?,?,?,?,?)", new Object[]{fVar.a(), Long.valueOf(fVar.b()), Integer.valueOf(fVar.c()), TiebaApplication.y(), Long.valueOf(date.getTime() / 1000)}).booleanValue();
         } catch (Exception e) {
             ag.b("DatabaseService", "saveChunkUploadData", "error = " + e.getMessage());
             return false;
@@ -1427,19 +1265,19 @@ public class k {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static com.baidu.tieba.a.f o(String str) {
+    public static com.baidu.tieba.a.f n(String str) {
         Cursor cursor;
         Cursor cursor2;
         Exception e;
         com.baidu.tieba.a.f fVar;
         Cursor cursor3;
-        if (TiebaApplication.x() == null) {
+        if (TiebaApplication.y() == null) {
             return null;
         }
         k kVar = new k();
         if (kVar != null) {
             try {
-                cursor = kVar.a("select * from chunk_upload_data where md5=? and account=? and strftime('%s','now') - time < 48 * 3600", new String[]{str, TiebaApplication.x()});
+                cursor = kVar.a("select * from chunk_upload_data where md5=? and account=? and strftime('%s','now') - time < 48 * 3600", new String[]{str, TiebaApplication.y()});
                 if (cursor != null) {
                     try {
                         try {
@@ -1538,7 +1376,7 @@ public class k {
         }
     }
 
-    public static void p(String str) {
+    public static void o(String str) {
         k kVar;
         if (str != null && (kVar = new k()) != null) {
             try {
@@ -1632,7 +1470,7 @@ public class k {
         }
     }
 
-    public static void q(String str) {
+    public static void p(String str) {
         k kVar = new k();
         if (kVar != null && str != null) {
             try {
@@ -1644,7 +1482,7 @@ public class k {
         }
     }
 
-    public static void r(String str) {
+    public static void q(String str) {
         k kVar = new k();
         if (kVar != null && str != null) {
             try {

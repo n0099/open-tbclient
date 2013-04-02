@@ -7,7 +7,7 @@ import android.widget.TextView;
 import com.baidu.tieba.R;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ax implements com.baidu.tieba.y {
+public class ax implements com.baidu.tieba.an {
     final /* synthetic */ NewNearbyActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -15,7 +15,7 @@ public class ax implements com.baidu.tieba.y {
         this.a = newNearbyActivity;
     }
 
-    @Override // com.baidu.tieba.y
+    @Override // com.baidu.tieba.an
     public void a(int i, String str, Address address) {
         ProgressBar progressBar;
         ViewPager viewPager;

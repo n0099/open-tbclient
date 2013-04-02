@@ -1,32 +1,35 @@
 package com.baidu.tieba.home;
 
-import android.view.KeyEvent;
-import android.widget.TextView;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.app.AlertDialog;
+import android.view.View;
+import android.widget.AdapterView;
 /* loaded from: classes.dex */
-public class al implements TextView.OnEditorActionListener {
-    final /* synthetic */ SearchActivity a;
+class al implements AdapterView.OnItemClickListener {
+    final /* synthetic */ ak a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public al(SearchActivity searchActivity) {
-        this.a = searchActivity;
+    public al(ak akVar) {
+        this.a = akVar;
     }
 
-    @Override // android.widget.TextView.OnEditorActionListener
-    public boolean onEditorAction(TextView textView, int i, KeyEvent keyEvent) {
-        int i2;
-        String str;
-        if (i == 2) {
-            i2 = this.a.D;
-            if (i2 == 0) {
-                this.a.l();
-                return true;
-            }
-            SearchActivity searchActivity = this.a;
-            str = this.a.x;
-            searchActivity.a(1, str);
-            return true;
+    @Override // android.widget.AdapterView.OnItemClickListener
+    public void onItemClick(AdapterView adapterView, View view, int i, long j) {
+        SearchActivity searchActivity;
+        SearchActivity searchActivity2;
+        SearchActivity searchActivity3;
+        AlertDialog alertDialog;
+        switch (i) {
+            case 0:
+                searchActivity2 = this.a.a;
+                searchActivity2.c(0);
+                break;
+            case 1:
+                searchActivity = this.a.a;
+                searchActivity.c(1);
+                break;
         }
-        return false;
+        searchActivity3 = this.a.a;
+        alertDialog = searchActivity3.y;
+        alertDialog.dismiss();
     }
 }

@@ -33,27 +33,27 @@ public class SearchActivity extends com.baidu.tieba.e {
     private FrameLayout i = null;
     private FrameLayout j = null;
     private ListView k = null;
-    private ax l = null;
+    private au l = null;
     private ListView m = null;
-    private ax n = null;
-    private az o = null;
+    private au n = null;
+    private aw o = null;
     private ProgressBar p = null;
     private Button q = null;
     private View r = null;
     private TextView s = null;
-    private com.baidu.tieba.b.w t = null;
-    private com.baidu.tieba.a.ap u = null;
-    private aw v = null;
-    private av w = null;
+    private com.baidu.tieba.b.x t = null;
+    private com.baidu.tieba.a.ar u = null;
+    private at v = null;
+    private as w = null;
     private String x = null;
     private AlertDialog y = null;
     private View z = null;
-    private bc A = null;
+    private az A = null;
     private ImageView B = null;
     private ListView C = null;
     private int D = 0;
     private Handler E = new Handler();
-    private Runnable F = new ah(this);
+    private Runnable F = new ae(this);
 
     public static void a(Context context, String str) {
         context.startActivity(new Intent(context, SearchActivity.class));
@@ -97,42 +97,42 @@ public class SearchActivity extends com.baidu.tieba.e {
         this.r = getLayoutInflater().inflate(R.layout.home_dialog_search_footer, (ViewGroup) null);
         this.s = (TextView) findViewById(R.id.text_no_data);
         this.c = (EditText) findViewById(R.id.home_et_search);
-        this.c.setOnFocusChangeListener(new ak(this));
+        this.c.setOnFocusChangeListener(new ah(this));
         this.g = (LinearLayout) findViewById(R.id.search_tap_text_layout);
         this.h = (LinearLayout) findViewById(R.id.search_tap_layout);
         this.i = (FrameLayout) findViewById(R.id.frame_layout);
-        this.c.setOnEditorActionListener(new al(this));
-        am amVar = new am(this);
+        this.c.setOnEditorActionListener(new ai(this));
+        aj ajVar = new aj(this);
         this.f = (Button) findViewById(R.id.home_bt_search_sel);
-        this.f.setOnClickListener(new an(this));
+        this.f.setOnClickListener(new ak(this));
         this.e = (Button) findViewById(R.id.home_bt_search_s);
-        this.e.setOnClickListener(amVar);
+        this.e.setOnClickListener(ajVar);
         this.d = (Button) findViewById(R.id.home_bt_search_del);
-        this.d.setOnClickListener(new ap(this));
-        this.c.addTextChangedListener(new aq(this));
+        this.d.setOnClickListener(new am(this));
+        this.c.addTextChangedListener(new an(this));
         this.j = (FrameLayout) findViewById(R.id.home_search_list);
         this.k = (ListView) findViewById(R.id.home_lv_search);
         this.q = (Button) this.r.findViewById(R.id.home_bt_search_footer);
-        this.q.setOnClickListener(new ar(this));
+        this.q.setOnClickListener(new ao(this));
         this.k.addFooterView(this.r, null, true);
-        this.l = new ax(this, null);
+        this.l = new au(this, null);
         this.k.setAdapter((ListAdapter) this.l);
-        this.k.setOnItemClickListener(new au(this));
+        this.k.setOnItemClickListener(new ar(this));
         this.m = (ListView) findViewById(R.id.home_lv_suggest);
-        this.n = new ax(this, null);
-        this.o = new az(this);
+        this.n = new au(this, null);
+        this.o = new aw(this);
         this.m.setAdapter((ListAdapter) this.n);
-        this.m.setOnItemClickListener(new ai(this));
-        aj ajVar = new aj(this);
-        this.m.setOnScrollListener(ajVar);
-        this.k.setOnScrollListener(ajVar);
+        this.m.setOnItemClickListener(new af(this));
+        ag agVar = new ag(this);
+        this.m.setOnScrollListener(agVar);
+        this.k.setOnScrollListener(agVar);
         this.p = (ProgressBar) findViewById(R.id.home_progress_search);
         this.p.setVisibility(8);
         this.c.setText("");
         this.c.requestFocus();
         n();
         a(this.c, WebChromeClient.STRING_DLG_BTN_SET);
-        if (TiebaApplication.b().j()) {
+        if (TiebaApplication.b().k()) {
             c(0);
         } else {
             c(1);
@@ -200,13 +200,13 @@ public class SearchActivity extends com.baidu.tieba.e {
     /* JADX INFO: Access modifiers changed from: private */
     public void n() {
         this.m.setVisibility(8);
-        ArrayList m = com.baidu.tieba.c.k.m();
-        if (m != null && m.size() > 0) {
+        ArrayList n = com.baidu.tieba.c.k.n();
+        if (n != null && n.size() > 0) {
             this.j.setVisibility(0);
             this.k.setVisibility(0);
             this.m.setVisibility(8);
             this.s.setVisibility(8);
-            this.l.a(m);
+            this.l.a(n);
             this.l.a(true);
             this.l.notifyDataSetInvalidated();
             return;
@@ -238,7 +238,7 @@ public class SearchActivity extends com.baidu.tieba.e {
                     arrayList.add(new BasicNameValuePair("rn", String.valueOf(50)));
                     arrayList.add(new BasicNameValuePair("st_type", "search_post"));
                     i();
-                    this.w = new av(this, stringBuffer.toString(), arrayList);
+                    this.w = new as(this, stringBuffer.toString(), arrayList);
                     this.w.execute(new Object[0]);
                 }
             } catch (Exception e) {
@@ -250,13 +250,13 @@ public class SearchActivity extends com.baidu.tieba.e {
     /* JADX INFO: Access modifiers changed from: private */
     public void p() {
         this.m.setVisibility(8);
-        ArrayList n = com.baidu.tieba.c.k.n();
-        if (n != null && n.size() > 0) {
+        ArrayList o = com.baidu.tieba.c.k.o();
+        if (o != null && o.size() > 0) {
             this.j.setVisibility(0);
             this.k.setVisibility(0);
             this.m.setVisibility(8);
             this.s.setVisibility(8);
-            this.l.a(n);
+            this.l.a(o);
             this.l.a(false);
             this.l.notifyDataSetInvalidated();
             return;
@@ -319,20 +319,20 @@ public class SearchActivity extends com.baidu.tieba.e {
             this.c.setTextColor(getResources().getColor(R.color.skin_1_common_bg));
             this.e.setTextColor(getResources().getColor(R.color.search_text_content_night));
             this.q.setTextColor(getResources().getColor(R.color.search_text_content_night));
-            com.baidu.tieba.c.ae.i(this.h, R.drawable.search_tap_1);
-            com.baidu.tieba.c.ae.i(this.e, R.drawable.search_tap_go_dr_1);
-            com.baidu.tieba.c.ae.i(this.q, R.drawable.search_tap_go_dr_1);
-            com.baidu.tieba.c.ae.i(this.g, R.drawable.search_tap_text_1);
-            com.baidu.tieba.c.ae.i(this.f, R.drawable.search_tap_sel_dr_1);
+            com.baidu.tieba.c.ae.h(this.h, R.drawable.search_tap_1);
+            com.baidu.tieba.c.ae.h(this.e, R.drawable.search_tap_go_dr_1);
+            com.baidu.tieba.c.ae.h(this.q, R.drawable.search_tap_go_dr_1);
+            com.baidu.tieba.c.ae.h(this.g, R.drawable.search_tap_text_1);
+            com.baidu.tieba.c.ae.h(this.f, R.drawable.search_tap_sel_dr_1);
             return;
         }
         this.c.setTextColor(getResources().getColor(R.color.search_text_content));
         this.e.setTextColor(getResources().getColor(R.color.reg_font_color));
         this.q.setTextColor(getResources().getColor(R.color.reg_font_color));
-        com.baidu.tieba.c.ae.i(this.q, R.drawable.search_tap_go_dr);
-        com.baidu.tieba.c.ae.i(this.g, R.drawable.search_tap_text);
-        com.baidu.tieba.c.ae.i(this.h, R.drawable.search_tap);
-        com.baidu.tieba.c.ae.i(this.e, R.drawable.search_tap_go_dr);
-        com.baidu.tieba.c.ae.i(this.f, R.drawable.search_tap_sel_dr);
+        com.baidu.tieba.c.ae.h(this.q, R.drawable.search_tap_go_dr);
+        com.baidu.tieba.c.ae.h(this.g, R.drawable.search_tap_text);
+        com.baidu.tieba.c.ae.h(this.h, R.drawable.search_tap);
+        com.baidu.tieba.c.ae.h(this.e, R.drawable.search_tap_go_dr);
+        com.baidu.tieba.c.ae.h(this.f, R.drawable.search_tap_sel_dr);
     }
 }

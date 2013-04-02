@@ -2,18 +2,18 @@ package com.baidu.tieba.frs;
 
 import android.content.DialogInterface;
 import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.a.at;
+import com.baidu.tieba.a.ax;
 import com.baidu.tieba.pb.PbActivity;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class m implements DialogInterface.OnClickListener {
     final /* synthetic */ FrsActivity a;
-    private final /* synthetic */ at b;
+    private final /* synthetic */ ax b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public m(FrsActivity frsActivity, at atVar) {
+    public m(FrsActivity frsActivity, ax axVar) {
         this.a = frsActivity;
-        this.b = atVar;
+        this.b = axVar;
     }
 
     @Override // android.content.DialogInterface.OnClickListener
@@ -41,9 +41,9 @@ public class m implements DialogInterface.OnClickListener {
                 this.a.s();
                 break;
         }
-        com.baidu.tieba.c.ab am = TiebaApplication.b().am();
-        if (am != null && !am.b(this.b.a())) {
-            am.a(this.b.a());
+        com.baidu.tieba.c.ab ao = TiebaApplication.b().ao();
+        if (ao != null && !ao.b(this.b.a())) {
+            ao.a(this.b.a());
         }
         aaVar = this.a.y;
         if (aaVar != null) {

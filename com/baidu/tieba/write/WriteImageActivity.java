@@ -83,23 +83,6 @@ public class WriteImageActivity extends com.baidu.tieba.e {
         activity.startActivityForResult(intent, i2);
     }
 
-    public static void a(Activity activity, int i, int i2, Uri uri, String str, String str2, String str3, com.baidu.tieba.a.b bVar) {
-        if (bVar != null && bVar.a() == 0) {
-            com.baidu.tieba.c.ai.a((Context) activity, bVar.e());
-            return;
-        }
-        Intent intent = new Intent(activity, WriteImageActivity.class);
-        intent.putExtra("request", i);
-        if ((activity instanceof FrsActivity) || (activity instanceof ImagePbActivity) || (activity instanceof FrsImageActivity)) {
-            intent.putExtra("from", "frs");
-        }
-        intent.putExtra("forumid", str);
-        intent.putExtra("foruimname", str2);
-        intent.putExtra("threadid", str3);
-        intent.setData(uri);
-        activity.startActivityForResult(intent, i2);
-    }
-
     public static void a(Activity activity, int i, int i2, Uri uri) {
         Intent intent = new Intent(activity, WriteImageActivity.class);
         intent.putExtra("request", i);
@@ -121,9 +104,9 @@ public class WriteImageActivity extends com.baidu.tieba.e {
         if (this.A == 1200002 || this.A == 1200001) {
             l();
             if (intent.getData() != null) {
-                TiebaPrepareImageService.a(this.A, intent.getData(), TiebaApplication.b().ao());
+                TiebaPrepareImageService.a(this.A, intent.getData(), TiebaApplication.b().aq());
             } else {
-                TiebaPrepareImageService.a(this.A, null, TiebaApplication.b().ao());
+                TiebaPrepareImageService.a(this.A, null, TiebaApplication.b().aq());
             }
             m();
         } else {
@@ -131,7 +114,7 @@ public class WriteImageActivity extends com.baidu.tieba.e {
             k();
         }
         c = getResources().getStringArray(R.array.fiter_name);
-        this.v = TiebaApplication.b().m();
+        this.v = TiebaApplication.b().n();
     }
 
     @Override // com.baidu.tieba.e, android.app.Activity
@@ -207,7 +190,7 @@ public class WriteImageActivity extends com.baidu.tieba.e {
         TiebaApplication.b().b((com.baidu.tieba.e) this);
     }
 
-    @Override // android.app.Activity, android.view.KeyEvent.Callback
+    @Override // com.baidu.tieba.e, android.app.Activity, android.view.KeyEvent.Callback
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
         if (i == 4) {
             this.D.onClick(null);

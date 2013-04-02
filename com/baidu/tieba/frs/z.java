@@ -9,6 +9,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
+import com.baidu.android.common.util.HanziToPinyin;
 import com.baidu.tieba.R;
 import java.util.ArrayList;
 /* JADX INFO: Access modifiers changed from: package-private */
@@ -211,7 +212,7 @@ public class z extends AsyncTask {
                         textView.setText(R.string.frs_noforum);
                         FrsActivity frsActivity = this.b;
                         str = this.b.g;
-                        frsActivity.g = str.replace(" ", "");
+                        frsActivity.g = str.replace(HanziToPinyin.Token.SEPARATOR, "");
                         str2 = this.b.g;
                         if (str2.length() > 31) {
                             str2 = String.valueOf(str2.substring(0, 31)) + "...";

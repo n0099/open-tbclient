@@ -5,6 +5,7 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Environment;
 import android.util.Log;
+import com.baidu.android.common.util.HanziToPinyin;
 import com.baidu.browser.core.util.BdUtil;
 import com.baidu.loginshare.e;
 import java.io.File;
@@ -404,7 +405,7 @@ public final class a {
 
     public static boolean c(Context context, String str) {
         boolean exists = context.getFileStreamPath(str).exists();
-        b.a("AdUtil.exists", exists + " " + str);
+        b.a("AdUtil.exists", exists + HanziToPinyin.Token.SEPARATOR + str);
         return exists;
     }
 

@@ -54,7 +54,7 @@ public class ao extends AsyncTask {
                 dVar.a(i2);
                 i = this.a.C;
                 if (i == 1) {
-                    com.baidu.tieba.c.k.j(dVar.a().c());
+                    com.baidu.tieba.c.k.k(dVar.a().c());
                     return dVar;
                 }
                 return dVar;

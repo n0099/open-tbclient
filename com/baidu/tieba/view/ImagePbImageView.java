@@ -112,13 +112,13 @@ public class ImagePbImageView extends ImageView {
         super.onDraw(canvas);
         String str = String.valueOf((String) getTag()) + "_big";
         Bitmap bitmap2 = null;
-        com.baidu.tieba.c.ac al = TiebaApplication.b().al();
-        if (al != null) {
-            bitmap2 = al.c(str);
+        com.baidu.tieba.c.ac an = TiebaApplication.b().an();
+        if (an != null) {
+            bitmap2 = an.c(str);
         }
         if (bitmap2 == null) {
             this.g = false;
-            if (TiebaApplication.b().ag() == 1) {
+            if (TiebaApplication.b().ah() == 1) {
                 bitmap = com.baidu.tieba.c.e.a((int) R.drawable.image_default_1);
             } else {
                 bitmap = com.baidu.tieba.c.e.a((int) R.drawable.image_default);
@@ -151,7 +151,7 @@ public class ImagePbImageView extends ImageView {
             }
             this.c.postTranslate(f, f2);
             canvas.drawBitmap(bitmap, this.c, this.d);
-            if (this.g && TiebaApplication.b().ag() == 1) {
+            if (this.g && TiebaApplication.b().ah() == 1) {
                 this.f.set(f, f2, width + f, height + f2);
                 canvas.drawRect(this.f, this.e);
             }

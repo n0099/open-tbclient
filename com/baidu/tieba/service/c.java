@@ -12,9 +12,8 @@ import com.baidu.tieba.c.ai;
 import com.baidu.tieba.frs.FrsActivity;
 import com.baidu.tieba.pb.PbActivity;
 import java.util.Iterator;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class c extends AsyncTask {
+class c extends AsyncTask {
     final /* synthetic */ DealIntentService a;
     private Intent b;
 

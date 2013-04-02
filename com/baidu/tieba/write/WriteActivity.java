@@ -26,6 +26,7 @@ import android.widget.ListAdapter;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import com.baidu.android.common.util.HanziToPinyin;
 import com.baidu.browser.explorer.BdWebErrorView;
 import com.baidu.mapapi.MKEvent;
 import com.baidu.tieba.R;
@@ -33,7 +34,7 @@ import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.service.TiebaPrepareImageService;
 /* loaded from: classes.dex */
 public class WriteActivity extends com.baidu.tieba.e {
-    private com.baidu.tieba.b.y c = null;
+    private com.baidu.tieba.b.z c = null;
     private boolean d = false;
     private boolean e = false;
     private InputMethodManager f = null;
@@ -63,7 +64,7 @@ public class WriteActivity extends com.baidu.tieba.e {
     private RelativeLayout D = null;
     private LinearLayout E = null;
     private TextView F = null;
-    private com.baidu.tieba.y G = null;
+    private com.baidu.tieba.an G = null;
     private Address H = null;
     private LinearLayout I = null;
     private RelativeLayout J = null;
@@ -91,6 +92,10 @@ public class WriteActivity extends com.baidu.tieba.e {
         } else {
             a(activity, 1, str, str2, str3, null, i, bVar, 1300002, false, false, null, z, false, null);
         }
+    }
+
+    public static void a(Activity activity, String str, String str2, String str3, com.baidu.tieba.a.b bVar, String str4) {
+        a(activity, 1, str, str2, str3, null, 0, bVar, 1300002, false, false, null, false, true, str4);
     }
 
     public static void a(Activity activity) {
@@ -149,7 +154,7 @@ public class WriteActivity extends com.baidu.tieba.e {
         this.f = (InputMethodManager) getSystemService("input_method");
         a(bundle);
         m();
-        if (TiebaApplication.b().l()) {
+        if (TiebaApplication.b().m()) {
             if ((getIntent().getExtras().getInt("type") == 0 || getIntent().getExtras().getInt("type") == 3) && !com.baidu.tieba.a.i.f().equals(getIntent().getStringExtra("forum_id"))) {
                 j();
             }
@@ -193,7 +198,7 @@ public class WriteActivity extends com.baidu.tieba.e {
             this.y = null;
         }
         this.z.removeCallbacks(this.L);
-        TiebaApplication.b().aw();
+        TiebaApplication.b().aB();
         super.onDestroy();
     }
 
@@ -234,7 +239,7 @@ public class WriteActivity extends com.baidu.tieba.e {
         }
     }
 
-    @Override // android.app.Activity, android.view.KeyEvent.Callback
+    @Override // com.baidu.tieba.e, android.app.Activity, android.view.KeyEvent.Callback
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
         if (i == 4) {
             l();
@@ -444,7 +449,7 @@ public class WriteActivity extends com.baidu.tieba.e {
     private void a(Bundle bundle) {
         int intExtra;
         this.w = new ag(this);
-        this.c = new com.baidu.tieba.b.y();
+        this.c = new com.baidu.tieba.b.z();
         if (bundle != null) {
             this.c.a(bundle.getInt("type", 0));
             this.c.e(bundle.getString("forum_id"));
@@ -469,7 +474,7 @@ public class WriteActivity extends com.baidu.tieba.e {
             this.B = intent.getBooleanExtra("reply_sub_pb", false);
             this.C = intent.getStringExtra("sub_user_name");
         }
-        com.baidu.tieba.b.y a = com.baidu.tieba.c.k.a(this.c.a(), this.c.f(), this.c.d(), this.c.e());
+        com.baidu.tieba.b.z a = com.baidu.tieba.c.k.a(this.c.a(), this.c.f(), this.c.d(), this.c.e());
         if (a != null) {
             this.c = a;
             this.c.b(intExtra);
@@ -582,7 +587,7 @@ public class WriteActivity extends com.baidu.tieba.e {
             } else if (i == 1200004) {
                 String a = AtListActivity.a(intent);
                 if (a != null) {
-                    this.h.getText().insert(this.h.getSelectionStart(), "@" + a + " ");
+                    this.h.getText().insert(this.h.getSelectionStart(), "@" + a + HanziToPinyin.Token.SEPARATOR);
                 }
             } else if (i == 1200005) {
                 com.baidu.tieba.c.k.a(this.c);

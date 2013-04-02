@@ -19,12 +19,12 @@ public class ah implements Thread.UncaughtExceptionHandler {
         this.a = Thread.getDefaultUncaughtExceptionHandler();
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:107:? A[RETURN, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:50:0x0145  */
-    /* JADX WARN: Removed duplicated region for block: B:60:0x0168 A[Catch: Exception -> 0x017f, TryCatch #1 {Exception -> 0x017f, blocks: (B:58:0x0163, B:60:0x0168, B:62:0x016d), top: B:89:0x0163 }] */
-    /* JADX WARN: Removed duplicated region for block: B:62:0x016d A[Catch: Exception -> 0x017f, TRY_LEAVE, TryCatch #1 {Exception -> 0x017f, blocks: (B:58:0x0163, B:60:0x0168, B:62:0x016d), top: B:89:0x0163 }] */
-    /* JADX WARN: Removed duplicated region for block: B:65:0x0174  */
-    /* JADX WARN: Removed duplicated region for block: B:89:0x0163 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:117:? A[RETURN, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:55:0x0172  */
+    /* JADX WARN: Removed duplicated region for block: B:65:0x0196 A[Catch: Exception -> 0x01bf, TryCatch #1 {Exception -> 0x01bf, blocks: (B:63:0x0191, B:65:0x0196, B:67:0x019b), top: B:98:0x0191 }] */
+    /* JADX WARN: Removed duplicated region for block: B:67:0x019b A[Catch: Exception -> 0x01bf, TRY_LEAVE, TryCatch #1 {Exception -> 0x01bf, blocks: (B:63:0x0191, B:65:0x0196, B:67:0x019b), top: B:98:0x0191 }] */
+    /* JADX WARN: Removed duplicated region for block: B:70:0x01a2  */
+    /* JADX WARN: Removed duplicated region for block: B:98:0x0191 A[EXC_TOP_SPLITTER, SYNTHETIC] */
     @Override // java.lang.Thread.UncaughtExceptionHandler
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -64,10 +64,10 @@ public class ah implements Thread.UncaughtExceptionHandler {
                                 a(fileWriter, "model", Build.MODEL);
                                 a(fileWriter, "android_version", Build.VERSION.RELEASE);
                                 a(fileWriter, "from", com.baidu.tieba.a.i.a());
-                                a(fileWriter, "uid", TiebaApplication.x());
-                                a(fileWriter, "client_id", TiebaApplication.J());
-                                a(fileWriter, "imei", TiebaApplication.b().h());
-                                a(fileWriter, "uname", TiebaApplication.B());
+                                a(fileWriter, "uid", TiebaApplication.y());
+                                a(fileWriter, "client_id", TiebaApplication.K());
+                                a(fileWriter, "imei", TiebaApplication.b().i());
+                                a(fileWriter, "uname", TiebaApplication.C());
                                 a(fileWriter, "activity", TiebaApplication.b().c());
                                 a(fileWriter, "maxMemory", String.valueOf(Runtime.getRuntime().maxMemory()));
                                 List<ActivityManager.RunningAppProcessInfo> runningAppProcesses = ((ActivityManager) TiebaApplication.b().getSystemService("activity")).getRunningAppProcesses();
@@ -75,13 +75,12 @@ public class ah implements Thread.UncaughtExceptionHandler {
                                 if (runningAppProcesses != null) {
                                     int i = 0;
                                     while (true) {
-                                        int i2 = i;
-                                        if (i2 >= runningAppProcesses.size()) {
+                                        if (i >= runningAppProcesses.size()) {
                                             break;
-                                        } else if (runningAppProcesses.get(i2).pid != myPid) {
-                                            i = i2 + 1;
+                                        } else if (runningAppProcesses.get(i).pid != myPid) {
+                                            i++;
                                         } else {
-                                            a(fileWriter, "process_name", runningAppProcesses.get(i2).processName);
+                                            a(fileWriter, "process_name", runningAppProcesses.get(i).processName);
                                             break;
                                         }
                                     }
@@ -91,9 +90,14 @@ public class ah implements Thread.UncaughtExceptionHandler {
                                 fileWriter.append("\n");
                                 fileWriter.flush();
                                 if (str2.contains("java.lang.SecurityException: No permission to modify given thread")) {
-                                    TiebaApplication.b().j(TiebaApplication.b().ah() + 1);
+                                    TiebaApplication.b().j(TiebaApplication.b().ai() + 1);
                                 } else if (str2.contains("com.baidu.location")) {
-                                    TiebaApplication.b().ai();
+                                    TiebaApplication.b().ak();
+                                } else if (str2.contains("Couldn't load mtprocessor-jni")) {
+                                    TiebaApplication.b().e(false);
+                                }
+                                if (TiebaApplication.b().c() != null && TiebaApplication.b().c().indexOf("NewVcodeActivity") != -1) {
+                                    TiebaApplication.b().k(TiebaApplication.b().aj() + 1);
                                 }
                             } catch (Exception e) {
                                 e = e;

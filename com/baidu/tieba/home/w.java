@@ -11,12 +11,12 @@ public class w extends AsyncTask {
     final /* synthetic */ HomeActivity a;
     private volatile com.baidu.tieba.c.t b = null;
     private volatile boolean c = false;
-    private com.baidu.tieba.a.y d;
+    private com.baidu.tieba.a.aa d;
 
-    public w(HomeActivity homeActivity, com.baidu.tieba.a.y yVar) {
+    public w(HomeActivity homeActivity, com.baidu.tieba.a.aa aaVar) {
         this.a = homeActivity;
         this.d = null;
-        this.d = yVar;
+        this.d = aaVar;
     }
 
     @Override // android.os.AsyncTask
@@ -30,7 +30,7 @@ public class w extends AsyncTask {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.os.AsyncTask
     /* renamed from: a */
-    public com.baidu.tieba.a.y doInBackground(Object... objArr) {
+    public com.baidu.tieba.a.aa doInBackground(Object... objArr) {
         String i;
         try {
             this.b = new com.baidu.tieba.c.t("http://c.tieba.baidu.com/c/c/forum/like");
@@ -46,10 +46,10 @@ public class w extends AsyncTask {
             com.baidu.tieba.c.ag.b(getClass().getName(), "doInBackground", e.getMessage());
         }
         if (this.b.c() && this.b.d() == 0 && i != null) {
-            com.baidu.tieba.a.z zVar = new com.baidu.tieba.a.z();
-            zVar.a(i);
+            com.baidu.tieba.a.ab abVar = new com.baidu.tieba.a.ab();
+            abVar.a(i);
             this.d.a(1);
-            return zVar.a();
+            return abVar.a();
         }
         if (this.b.d() == 22) {
             this.c = true;
@@ -61,37 +61,37 @@ public class w extends AsyncTask {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.os.AsyncTask
     /* renamed from: a */
-    public void onPostExecute(com.baidu.tieba.a.y yVar) {
+    public void onPostExecute(com.baidu.tieba.a.aa aaVar) {
         ProgressBar progressBar;
-        com.baidu.tieba.b.f fVar;
-        com.baidu.tieba.b.f fVar2;
-        f fVar3;
+        com.baidu.tieba.b.g gVar;
+        com.baidu.tieba.b.g gVar2;
+        f fVar;
         progressBar = this.a.k;
         progressBar.setVisibility(8);
         this.a.s = null;
-        fVar = this.a.n;
-        ArrayList d = fVar.d();
-        fVar2 = this.a.n;
-        ArrayList c = fVar2.c();
+        gVar = this.a.n;
+        ArrayList d = gVar.d();
+        gVar2 = this.a.n;
+        ArrayList c = gVar2.c();
         if (this.c) {
             this.a.b(this.b.f());
-        } else if (yVar != null) {
+        } else if (aaVar != null) {
             if (d != null) {
                 if (c != null) {
-                    this.d.b(yVar.f());
+                    this.d.b(aaVar.f());
                     c.add(this.d);
                 }
                 d.remove(this.d);
-                fVar3 = this.a.l;
-                if (fVar3 != null) {
+                fVar = this.a.l;
+                if (fVar != null) {
                     this.a.n();
                 }
             }
-            if (!TiebaApplication.b().K()) {
+            if (!TiebaApplication.b().L()) {
                 TiebaApplication.b().g(true);
                 com.baidu.tieba.c.k.a();
             }
-            if (yVar.e() == 1) {
+            if (aaVar.e() == 1) {
                 this.a.b(this.a.getString(R.string.like_success_and_addto_list));
             } else {
                 this.a.b(this.a.getString(R.string.like_success_and_addto_list));

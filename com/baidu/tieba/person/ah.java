@@ -1,19 +1,26 @@
 package com.baidu.tieba.person;
 
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.TextView;
+import android.widget.RadioGroup;
+import com.baidu.tieba.R;
 /* loaded from: classes.dex */
-class ah {
-    LinearLayout a;
-    ImageView b;
-    TextView c;
-    TextView d;
-    TextView e;
-    final /* synthetic */ ad f;
+class ah implements RadioGroup.OnCheckedChangeListener {
+    final /* synthetic */ MyPostActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ah(ad adVar) {
-        this.f = adVar;
+    public ah(MyPostActivity myPostActivity) {
+        this.a = myPostActivity;
+    }
+
+    @Override // android.widget.RadioGroup.OnCheckedChangeListener
+    public void onCheckedChanged(RadioGroup radioGroup, int i) {
+        switch (i) {
+            case R.id.all_tab /* 2131231204 */:
+                this.a.a("all", AllPostActivity.class);
+                return;
+            case R.id.thread_tab /* 2131231205 */:
+            case R.id.reply_tab /* 2131231206 */:
+            default:
+                return;
+        }
     }
 }

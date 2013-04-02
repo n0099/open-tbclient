@@ -66,16 +66,16 @@ public class w {
                 int size = this.e.size() - (this.e.size() % 10);
                 for (int i = 0; i < jSONArray.length(); i++) {
                     JSONObject jSONObject2 = jSONArray.getJSONObject(i);
-                    al alVar = new al();
-                    alVar.a(jSONObject2);
+                    an anVar = new an();
+                    anVar.a(jSONObject2);
                     if (this.d != null) {
-                        alVar.c(this.d);
+                        anVar.c(this.d);
                     }
                     if (size < this.e.size()) {
                         this.e.remove(size);
-                        this.e.add(size, alVar);
+                        this.e.add(size, anVar);
                     } else {
-                        this.e.add(alVar);
+                        this.e.add(anVar);
                     }
                     size++;
                 }

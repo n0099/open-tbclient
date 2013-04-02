@@ -1,97 +1,89 @@
 package com.baidu.tieba.pb;
 
 import android.app.AlertDialog;
+import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.AdapterView;
-import com.baidu.mobstat.StatService;
-import com.baidu.tieba.TiebaApplication;
+import android.view.ViewGroup;
+import android.view.WindowManager;
+import android.widget.LinearLayout;
+import android.widget.ListAdapter;
+import android.widget.ListView;
+import com.baidu.tieba.R;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class br implements AdapterView.OnItemClickListener {
-    final /* synthetic */ bq a;
+public class br implements View.OnClickListener {
+    final /* synthetic */ PbActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public br(bq bqVar) {
-        this.a = bqVar;
+    public br(PbActivity pbActivity) {
+        this.a = pbActivity;
     }
 
-    @Override // android.widget.AdapterView.OnItemClickListener
-    public void onItemClick(AdapterView adapterView, View view, int i, long j) {
-        PbActivity pbActivity;
-        b bVar;
-        PbActivity pbActivity2;
-        com.baidu.tieba.b.q qVar;
-        PbActivity pbActivity3;
-        com.baidu.tieba.b.q qVar2;
-        PbActivity pbActivity4;
-        com.baidu.tieba.b.q qVar3;
-        PbActivity pbActivity5;
-        com.baidu.tieba.b.q qVar4;
-        PbActivity pbActivity6;
-        PbActivity pbActivity7;
-        PbActivity pbActivity8;
-        com.baidu.tieba.b.q qVar5;
-        PbActivity pbActivity9;
-        PbActivity pbActivity10;
-        PbActivity pbActivity11;
-        PbActivity pbActivity12;
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
         AlertDialog alertDialog;
-        PbActivity pbActivity13;
+        com.baidu.tieba.b.r rVar;
+        b bVar;
+        AlertDialog alertDialog2;
+        AlertDialog alertDialog3;
+        View view2;
+        LinearLayout linearLayout;
+        AlertDialog alertDialog4;
+        AlertDialog alertDialog5;
+        b bVar2;
+        com.baidu.tieba.b.r rVar2;
+        b bVar3;
+        AlertDialog alertDialog6;
+        View view3;
+        com.baidu.tieba.b.r rVar3;
         boolean z;
-        PbActivity pbActivity14;
-        PbActivity pbActivity15;
-        pbActivity = this.a.a;
-        bVar = pbActivity.ae;
-        long itemId = bVar.getItemId(i);
-        if (itemId == 0) {
-            if (TiebaApplication.b().k()) {
-                pbActivity15 = this.a.a;
-                StatService.onEvent(pbActivity15, "pb_skip_page", "pbclick", 1);
-            }
-            pbActivity13 = this.a.a;
-            z = pbActivity13.ao;
-            if (z) {
-                pbActivity14 = this.a.a;
-                pbActivity14.t();
-            }
-        } else if (itemId == 1) {
-            pbActivity8 = this.a.a;
-            qVar5 = pbActivity8.p;
-            if (!qVar5.c()) {
-                pbActivity9 = this.a.a;
-                pbActivity9.A();
-            } else {
-                if (TiebaApplication.b().k()) {
-                    pbActivity11 = this.a.a;
-                    StatService.onEvent(pbActivity11, "pb_set_desc", "pbclick", 1);
-                }
-                pbActivity10 = this.a.a;
-                pbActivity10.z();
-            }
-        } else if (itemId == 2) {
-            pbActivity2 = this.a.a;
-            qVar = pbActivity2.p;
-            if (qVar != null) {
-                pbActivity3 = this.a.a;
-                qVar2 = pbActivity3.p;
-                if (qVar2.a() != null) {
-                    pbActivity4 = this.a.a;
-                    qVar3 = pbActivity4.p;
-                    if (qVar3.a().j() != 0) {
-                        pbActivity5 = this.a.a;
-                        qVar4 = pbActivity5.p;
-                        if (qVar4.i()) {
-                            pbActivity7 = this.a.a;
-                            pbActivity7.C();
-                        } else {
-                            pbActivity6 = this.a.a;
-                            pbActivity6.B();
-                        }
-                    }
-                }
-            }
+        b bVar4;
+        alertDialog = this.a.x;
+        if (alertDialog == null) {
+            AlertDialog.Builder builder = new AlertDialog.Builder(this.a);
+            this.a.x = builder.create();
+            alertDialog6 = this.a.x;
+            alertDialog6.setCanceledOnTouchOutside(true);
+            LayoutInflater layoutInflater = this.a.getLayoutInflater();
+            this.a.A = layoutInflater.inflate(R.layout.dialog_more, (ViewGroup) null);
+            view3 = this.a.A;
+            ListView listView = (ListView) view3.findViewById(R.id.list);
+            PbActivity pbActivity = this.a;
+            PbActivity pbActivity2 = this.a;
+            rVar3 = this.a.o;
+            z = this.a.ap;
+            pbActivity.ag = new b(pbActivity2, rVar3, z);
+            bVar4 = this.a.ag;
+            listView.setAdapter((ListAdapter) bVar4);
+            listView.setOnItemClickListener(new bs(this));
         }
-        pbActivity12 = this.a.a;
-        alertDialog = pbActivity12.y;
-        alertDialog.dismiss();
+        rVar = this.a.o;
+        if (rVar.a() != null) {
+            bVar = this.a.ag;
+            if (bVar != null) {
+                bVar2 = this.a.ag;
+                rVar2 = this.a.o;
+                bVar2.a(rVar2.e());
+                bVar3 = this.a.ag;
+                bVar3.notifyDataSetInvalidated();
+            }
+            alertDialog2 = this.a.x;
+            alertDialog2.show();
+            alertDialog3 = this.a.x;
+            view2 = this.a.A;
+            alertDialog3.setContentView(view2);
+            linearLayout = this.a.D;
+            int height = linearLayout.getHeight();
+            alertDialog4 = this.a.x;
+            WindowManager.LayoutParams attributes = alertDialog4.getWindow().getAttributes();
+            attributes.gravity = 85;
+            attributes.x = 2;
+            attributes.y = height;
+            attributes.alpha = 1.0f;
+            attributes.width = com.baidu.tieba.c.ai.a(this.a, 120.0f);
+            attributes.height = -2;
+            alertDialog5 = this.a.x;
+            alertDialog5.getWindow().setAttributes(attributes);
+        }
     }
 }

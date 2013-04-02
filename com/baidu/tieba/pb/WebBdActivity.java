@@ -140,7 +140,7 @@ public class WebBdActivity extends com.baidu.tieba.e implements Browser.BrowserL
         }
     }
 
-    @Override // android.app.Activity, android.view.KeyEvent.Callback
+    @Override // com.baidu.tieba.e, android.app.Activity, android.view.KeyEvent.Callback
     public boolean onKeyUp(int i, KeyEvent keyEvent) {
         return super.onKeyUp(i, keyEvent);
     }
@@ -239,7 +239,7 @@ public class WebBdActivity extends com.baidu.tieba.e implements Browser.BrowserL
     public void onWebViewTouch(MotionEvent motionEvent) {
     }
 
-    @Override // android.app.Activity, android.view.KeyEvent.Callback
+    @Override // com.baidu.tieba.e, android.app.Activity, android.view.KeyEvent.Callback
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
         if (Browser.getInstance(this).onKeyDown(i, keyEvent)) {
             return true;

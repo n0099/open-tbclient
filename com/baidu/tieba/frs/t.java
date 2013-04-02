@@ -15,7 +15,7 @@ public class t implements View.OnClickListener {
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (TiebaApplication.b().k()) {
+        if (TiebaApplication.b().l()) {
             StatService.onEvent(this.a, "frs_refrsh", "frsclick", 1);
         }
         this.a.J = "tb_frslist";

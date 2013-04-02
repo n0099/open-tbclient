@@ -27,7 +27,7 @@ public class RecommendActivity extends com.baidu.tieba.e implements com.baidu.ti
     private BaseWebView c;
     private ProgressBar d;
     private LinearLayout e;
-    private r f;
+    private u f;
     private TextView j;
     private TextView k;
     private boolean g = false;
@@ -36,14 +36,14 @@ public class RecommendActivity extends com.baidu.tieba.e implements com.baidu.ti
     private boolean l = false;
     private RelativeLayout o = null;
     private String p = "0";
-    private View.OnClickListener q = new q(this);
+    private View.OnClickListener q = new t(this);
 
     @Override // com.baidu.tieba.e, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         setContentView(R.layout.recommend_activity);
-        this.b = TiebaApplication.b().ag();
-        m();
+        this.b = TiebaApplication.b().ah();
+        l();
         ae.a(this.o, this.b);
     }
 
@@ -57,14 +57,14 @@ public class RecommendActivity extends com.baidu.tieba.e implements com.baidu.ti
     @Override // com.baidu.tieba.e, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        TiebaApplication.b().aw();
+        TiebaApplication.b().aB();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.e, android.app.Activity
     public void onResume() {
         super.onResume();
-        Long valueOf = Long.valueOf(TiebaApplication.b().v());
+        Long valueOf = Long.valueOf(TiebaApplication.b().w());
         if (!this.l && System.currentTimeMillis() - valueOf.longValue() > com.baidu.tieba.a.i.b.longValue() && this.c != null) {
             i();
         }
@@ -81,16 +81,16 @@ public class RecommendActivity extends com.baidu.tieba.e implements com.baidu.ti
         }
     }
 
-    private void m() {
+    private void l() {
         this.o = (RelativeLayout) findViewById(R.id.parent);
         this.e = (LinearLayout) findViewById(R.id.hotspot_webview_item);
         this.j = (TextView) this.e.findViewById(R.id.webview_fail);
         this.k = (TextView) this.e.findViewById(R.id.webview_crash_tip);
         this.d = (ProgressBar) findViewById(R.id.recommend_progress);
-        if (TiebaApplication.b().ah() >= 5) {
+        if (TiebaApplication.b().ai() >= 5) {
             this.j.setVisibility(8);
             this.k.setVisibility(0);
-        } else if (n()) {
+        } else if (m()) {
             this.k.setVisibility(8);
             i();
         } else {
@@ -98,11 +98,11 @@ public class RecommendActivity extends com.baidu.tieba.e implements com.baidu.ti
         }
     }
 
-    private boolean n() {
+    private boolean m() {
         if (this.c == null) {
             try {
                 this.c = new BaseWebView(this);
-                ae.a(this.c, TiebaApplication.b().ag());
+                ae.a(this.c, TiebaApplication.b().ah());
                 this.c.setOnLoadUrlListener(this);
                 this.c.setHorizontalScrollBarEnabled(false);
                 this.c.setHorizontalScrollbarOverlay(false);
@@ -118,14 +118,14 @@ public class RecommendActivity extends com.baidu.tieba.e implements com.baidu.ti
         return true;
     }
 
-    private void o() {
+    private void n() {
         if (this.f != null) {
             this.f.a();
         }
     }
 
     public void i() {
-        if (TiebaApplication.b().ah() == 0 && !n()) {
+        if (TiebaApplication.b().ai() == 0 && !m()) {
             this.k.setVisibility(0);
             return;
         }
@@ -135,14 +135,14 @@ public class RecommendActivity extends com.baidu.tieba.e implements com.baidu.ti
             this.d.setVisibility(0);
             this.h = false;
             this.i = true;
-            o();
-            this.f = new r(this, null);
+            n();
+            this.f = new u(this, null);
             this.f.execute(new Object[0]);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void p() {
+    public void o() {
         if (this.h) {
             if (!this.i) {
                 b(getResources().getString(R.string.neterror));
@@ -153,10 +153,6 @@ public class RecommendActivity extends com.baidu.tieba.e implements com.baidu.ti
             this.l = false;
             this.d.setVisibility(8);
         }
-    }
-
-    public void j() {
-        this.p = "0";
     }
 
     @Override // com.baidu.tieba.view.d
@@ -193,11 +189,11 @@ public class RecommendActivity extends com.baidu.tieba.e implements com.baidu.ti
                         i4++;
                     }
                     String decode2 = URLDecoder.decode(str.substring(i3, i4));
-                    Token b = com.baidu.tieba.account.a.b(TiebaApplication.y());
+                    Token b = com.baidu.tieba.account.a.b(TiebaApplication.z());
                     if (b != null) {
-                        LotteryActivity.a(this, str, decode2, b.mBduss, b.mPtoken, TiebaApplication.z());
+                        LotteryActivity.a(this, str, decode2, b.mBduss, b.mPtoken, TiebaApplication.A());
                     } else {
-                        LotteryActivity.a(this, str, decode2, null, null, TiebaApplication.z());
+                        LotteryActivity.a(this, str, decode2, null, null, TiebaApplication.A());
                     }
                 } else if (str.indexOf("http://c.tieba.baidu.com/c/s/classic") != -1) {
                     int indexOf4 = str.indexOf("page=");
@@ -221,13 +217,5 @@ public class RecommendActivity extends com.baidu.tieba.e implements com.baidu.ti
             }
         }
         return true;
-    }
-
-    public static void a(boolean z) {
-        m = z;
-    }
-
-    public static void a(long j) {
-        n = j;
     }
 }

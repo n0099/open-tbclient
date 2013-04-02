@@ -1,57 +1,33 @@
 package com.baidu.tieba.pb;
 
-import android.os.Handler;
-import android.view.View;
+import android.widget.AbsListView;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.GridView;
 import com.baidu.tieba.R;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class cp implements View.OnClickListener {
+public class cp implements AbsListView.OnScrollListener {
     final /* synthetic */ SubPbActivity a;
-    private final /* synthetic */ Handler b;
-    private final /* synthetic */ Runnable c;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public cp(SubPbActivity subPbActivity, Handler handler, Runnable runnable) {
+    public cp(SubPbActivity subPbActivity) {
         this.a = subPbActivity;
-        this.b = handler;
-        this.c = runnable;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        dm dmVar;
-        int i;
-        EditText editText;
-        EditText editText2;
-        EditText editText3;
-        EditText editText4;
-        GridView gridView;
-        EditText editText5;
+    @Override // android.widget.AbsListView.OnScrollListener
+    public void onScrollStateChanged(AbsListView absListView, int i) {
         Button button;
-        GridView gridView2;
-        this.a.B = Integer.valueOf((String) view.getTag()).intValue();
-        dmVar = this.a.h;
-        i = this.a.B;
-        editText = this.a.t;
-        editText.setText(this.a.getString(R.string.reply_sub_floor, new Object[]{((com.baidu.tieba.a.al) dmVar.getItem(i)).e().b()}));
-        editText2 = this.a.t;
-        editText3 = this.a.t;
-        editText2.setSelection(editText3.getText().length());
-        editText4 = this.a.t;
-        editText4.requestFocus();
-        gridView = this.a.ad;
-        if (gridView.getVisibility() == 0) {
-            gridView2 = this.a.ad;
-            gridView2.setVisibility(8);
+        GridView gridView;
+        if (i == 2 || i == 1) {
+            com.baidu.tieba.c.ai.a(this.a, absListView);
+            button = this.a.u;
+            button.setBackgroundResource(R.drawable.sub_pb_face);
+            gridView = this.a.Y;
+            gridView.setVisibility(8);
         }
-        SubPbActivity subPbActivity = this.a;
-        editText5 = this.a.t;
-        com.baidu.tieba.c.ai.b(subPbActivity, editText5);
-        button = this.a.y;
-        button.setBackgroundResource(R.drawable.sub_pb_face);
-        this.b.postDelayed(this.c, 600L);
+    }
+
+    @Override // android.widget.AbsListView.OnScrollListener
+    public void onScroll(AbsListView absListView, int i, int i2, int i3) {
     }
 }

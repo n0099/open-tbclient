@@ -63,7 +63,7 @@ public class LoginActivity extends com.baidu.tieba.e {
     LinearLayout d = null;
     TextView e = null;
     private ah Q = null;
-    private com.baidu.tieba.b.g R = null;
+    private com.baidu.tieba.b.h R = null;
     private ag S = null;
     InputMethodManager f = null;
     o g = null;
@@ -175,7 +175,7 @@ public class LoginActivity extends com.baidu.tieba.e {
         super.onResume();
     }
 
-    @Override // android.app.Activity, android.view.KeyEvent.Callback
+    @Override // com.baidu.tieba.e, android.app.Activity, android.view.KeyEvent.Callback
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
         if (i == 4) {
             if (this.o) {
@@ -203,9 +203,9 @@ public class LoginActivity extends com.baidu.tieba.e {
     public void i() {
         a.a().b();
         if (this.p) {
-            TiebaApplication.b().r();
+            TiebaApplication.b().s();
             Intent intent = new Intent();
-            intent.putExtra("BDUSS", TiebaApplication.y());
+            intent.putExtra("BDUSS", TiebaApplication.z());
             setResult(-1, intent);
         } else {
             MainTabActivity.b(this, getIntent().getStringExtra("goto_view"));
@@ -330,7 +330,7 @@ public class LoginActivity extends com.baidu.tieba.e {
 
     private void c(int i) {
         switch (i) {
-            case R.id.normal_login /* 2131230752 */:
+            case R.id.normal_login /* 2131230757 */:
                 this.x = this.y;
                 this.y.setVisibility(0);
                 this.z.setVisibility(8);
@@ -343,7 +343,7 @@ public class LoginActivity extends com.baidu.tieba.e {
                 this.s.setInputType(1);
                 k();
                 return;
-            case R.id.mobile_login /* 2131230753 */:
+            case R.id.mobile_login /* 2131230758 */:
                 this.x = this.z;
                 this.y.setVisibility(8);
                 this.z.setVisibility(0);
@@ -363,22 +363,22 @@ public class LoginActivity extends com.baidu.tieba.e {
 
     public void onClick(View view) {
         switch (view.getId()) {
-            case R.id.normal_login /* 2131230752 */:
-            case R.id.mobile_login /* 2131230753 */:
+            case R.id.normal_login /* 2131230757 */:
+            case R.id.mobile_login /* 2131230758 */:
                 c(view.getId());
                 return;
-            case R.id.button_account_del /* 2131230760 */:
+            case R.id.button_account_del /* 2131230765 */:
                 this.s.setText((CharSequence) null);
                 return;
-            case R.id.button_pass_del /* 2131230764 */:
+            case R.id.button_pass_del /* 2131230769 */:
                 this.t.setText((CharSequence) null);
                 return;
-            case R.id.button_vcode_del /* 2131230767 */:
+            case R.id.button_vcode_del /* 2131230772 */:
                 this.u.setText((CharSequence) null);
                 return;
-            case R.id.image_vcode1 /* 2131230768 */:
-            case R.id.image_vcode2 /* 2131230769 */:
-            case R.id.button_vcode_refresh /* 2131230771 */:
+            case R.id.image_vcode1 /* 2131230773 */:
+            case R.id.image_vcode2 /* 2131230774 */:
+            case R.id.button_vcode_refresh /* 2131230776 */:
                 c(this.m);
                 return;
             default:

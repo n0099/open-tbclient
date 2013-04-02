@@ -17,9 +17,9 @@ public class WaterFallView extends ScrollView {
     private int a;
     private LinearLayout b;
     private LinearLayout c;
-    private al d;
+    private am d;
     private LinearLayout e;
-    private al f;
+    private am f;
     private View g;
     private View h;
     private View i;
@@ -28,7 +28,7 @@ public class WaterFallView extends ScrollView {
     private int l;
     private int m;
     private int n;
-    private am o;
+    private an o;
 
     public WaterFallView(Context context) {
         super(context);
@@ -90,8 +90,8 @@ public class WaterFallView extends ScrollView {
         c();
     }
 
-    public void setOnScrollListener(am amVar) {
-        this.o = amVar;
+    public void setOnScrollListener(an anVar) {
+        this.o = anVar;
     }
 
     public void a(View view) {
@@ -143,8 +143,8 @@ public class WaterFallView extends ScrollView {
     }
 
     private void c() {
-        this.d = new al(this);
-        this.f = new al(this);
+        this.d = new am(this);
+        this.f = new am(this);
         this.n = com.baidu.tieba.c.ai.a(getContext(), 20.0f);
         this.a = com.baidu.tieba.c.ai.a(getContext(), 3.0f);
         this.b = (LinearLayout) LayoutInflater.from(getContext()).inflate(R.layout.water_fall_view, (ViewGroup) null);
@@ -161,7 +161,7 @@ public class WaterFallView extends ScrollView {
     }
 
     private void d() {
-        this.k = new ak(this);
+        this.k = new al(this);
     }
 
     @Override // android.view.View

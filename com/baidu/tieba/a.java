@@ -7,21 +7,21 @@ import com.baidu.tieba.BaiduAccount.BaiduAccount;
 /* loaded from: classes.dex */
 public class a {
     public static void a(Context context) {
-        com.baidu.tieba.a.a A = TiebaApplication.A();
-        if (A == null) {
-            A = new com.baidu.tieba.a.a();
-            A.a(1);
-            TiebaApplication.a(A);
+        com.baidu.tieba.a.a B = TiebaApplication.B();
+        if (B == null) {
+            B = new com.baidu.tieba.a.a();
+            B.a(1);
+            TiebaApplication.a(B);
         }
         BaiduAccount baiduAccount = BaiduAccount.get(context);
         String currentAccount = baiduAccount.getCurrentAccount();
-        if (currentAccount != null && !currentAccount.equals(A.b())) {
-            b(A.a());
-            A.b(currentAccount);
-            A.d(null);
-            A.a((String) null);
-            A.a(1);
-            TiebaApplication.b().M();
+        if (currentAccount != null && !currentAccount.equals(B.b())) {
+            b(B.a());
+            B.b(currentAccount);
+            B.d(null);
+            B.a((String) null);
+            B.a(1);
+            TiebaApplication.b().N();
             TiebaApplication.b().a(0L, 0L, 0L);
         }
         baiduAccount.addOnAccountsUpdatedListener(new b());
@@ -54,16 +54,16 @@ public class a {
             tVar.a("bdusstoken", str2);
             String i = tVar.i();
             if (tVar.b() && i != null) {
-                com.baidu.tieba.b.g gVar = new com.baidu.tieba.b.g();
-                gVar.a(i);
+                com.baidu.tieba.b.h hVar = new com.baidu.tieba.b.h();
+                hVar.a(i);
                 aVar = new com.baidu.tieba.a.a();
-                aVar.b(gVar.a().b());
-                aVar.d(gVar.a().j());
+                aVar.b(hVar.a().b());
+                aVar.d(hVar.a().j());
                 aVar.a(1);
-                if (gVar.b() != null) {
-                    aVar.e(gVar.b().b());
+                if (hVar.b() != null) {
+                    aVar.e(hVar.b().b());
                 }
-                aVar.a(gVar.a().a());
+                aVar.a(hVar.a().a());
             }
         }
         return aVar;

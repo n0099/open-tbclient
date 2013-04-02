@@ -4,8 +4,8 @@ import android.app.AlertDialog;
 import android.os.AsyncTask;
 import android.widget.ProgressBar;
 import com.baidu.tieba.R;
-import com.baidu.tieba.a.ai;
-import com.baidu.tieba.a.al;
+import com.baidu.tieba.a.ak;
+import com.baidu.tieba.a.an;
 import com.baidu.tieba.c.ag;
 import java.util.ArrayList;
 /* JADX INFO: Access modifiers changed from: package-private */
@@ -35,27 +35,27 @@ public class x extends AsyncTask {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.os.AsyncTask
     /* renamed from: a */
-    public ai doInBackground(Object... objArr) {
-        ai aiVar = null;
+    public ak doInBackground(Object... objArr) {
+        ak akVar = null;
         try {
             this.c = new com.baidu.tieba.c.t(this.d);
             this.c.a(this.a);
             String i = this.c.i();
             if (this.c.b()) {
-                ai aiVar2 = new ai();
+                ak akVar2 = new ak();
                 try {
-                    aiVar2.a(i);
-                    int size = aiVar2.d().size();
+                    akVar2.a(i);
+                    int size = akVar2.d().size();
                     for (int i2 = 0; i2 < size; i2++) {
-                        ((al) aiVar2.d().get(i2)).c(this.b);
-                        ((al) aiVar2.d().get(i2)).a((ArrayList) null);
+                        ((an) akVar2.d().get(i2)).c(this.b);
+                        ((an) akVar2.d().get(i2)).a((ArrayList) null);
                     }
-                    return aiVar2;
+                    return akVar2;
                 } catch (Exception e) {
-                    aiVar = aiVar2;
+                    akVar = akVar2;
                     e = e;
                     ag.b("PostAsyncTask", "doInBackground", "error = " + e.getMessage());
-                    return aiVar;
+                    return akVar;
                 }
             }
             return null;
@@ -68,15 +68,15 @@ public class x extends AsyncTask {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.os.AsyncTask
     /* renamed from: a */
-    public void onPostExecute(ai aiVar) {
+    public void onPostExecute(ak akVar) {
         ProgressBar progressBar;
-        com.baidu.tieba.b.q qVar;
+        com.baidu.tieba.b.r rVar;
         try {
             progressBar = this.b.h;
             progressBar.setVisibility(8);
-            if (aiVar != null) {
-                qVar = this.b.n;
-                qVar.a(aiVar);
+            if (akVar != null) {
+                rVar = this.b.n;
+                rVar.a(akVar);
             } else if (this.c != null) {
                 if (this.c.c()) {
                     this.b.b(this.c.f());

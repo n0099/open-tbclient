@@ -2,34 +2,19 @@ package com.baidu.tieba.home;
 
 import android.app.AlertDialog;
 import android.view.View;
-import android.widget.AdapterView;
+import com.baidu.tieba.R;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class ao implements AdapterView.OnItemClickListener {
-    final /* synthetic */ an a;
+public class ao implements View.OnClickListener {
+    final /* synthetic */ SearchActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ao(an anVar) {
-        this.a = anVar;
+    public ao(SearchActivity searchActivity) {
+        this.a = searchActivity;
     }
 
-    @Override // android.widget.AdapterView.OnItemClickListener
-    public void onItemClick(AdapterView adapterView, View view, int i, long j) {
-        SearchActivity searchActivity;
-        SearchActivity searchActivity2;
-        SearchActivity searchActivity3;
-        AlertDialog alertDialog;
-        switch (i) {
-            case 0:
-                searchActivity2 = this.a.a;
-                searchActivity2.c(0);
-                break;
-            case 1:
-                searchActivity = this.a.a;
-                searchActivity.c(1);
-                break;
-        }
-        searchActivity3 = this.a.a;
-        alertDialog = searchActivity3.y;
-        alertDialog.dismiss();
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        new AlertDialog.Builder(this.a).setTitle("提醒").setIcon(R.drawable.dialogue_quit).setMessage("确认清除搜索记录？").setPositiveButton("确认", new ap(this)).setNegativeButton("取消", new aq(this)).create().show();
     }
 }

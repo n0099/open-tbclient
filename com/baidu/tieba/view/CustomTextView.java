@@ -6,6 +6,7 @@ import android.text.Spanned;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.widget.TextView;
+import com.baidu.android.common.util.HanziToPinyin;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class CustomTextView extends TextView {
@@ -63,12 +64,12 @@ public class CustomTextView extends TextView {
         for (Object obj : spans) {
             int spanStart = spannableStringBuilder.getSpanStart(obj);
             if (a(spannableStringBuilder, spanStart - 1)) {
-                spannableStringBuilder.insert(spanStart, " ");
+                spannableStringBuilder.insert(spanStart, HanziToPinyin.Token.SEPARATOR);
                 arrayList.add(obj);
             }
             int spanEnd = spannableStringBuilder.getSpanEnd(obj);
             if (a(spannableStringBuilder, spanEnd)) {
-                spannableStringBuilder.insert(spanEnd, " ");
+                spannableStringBuilder.insert(spanEnd, HanziToPinyin.Token.SEPARATOR);
                 arrayList2.add(obj);
             }
             try {
@@ -98,7 +99,7 @@ public class CustomTextView extends TextView {
             try {
                 a((CharSequence) spannableStringBuilder, i, i2);
             } catch (IndexOutOfBoundsException e) {
-                spannableStringBuilder.insert(spanEnd, " ");
+                spannableStringBuilder.insert(spanEnd, HanziToPinyin.Token.SEPARATOR);
             }
         }
         boolean z = true;
@@ -109,7 +110,7 @@ public class CustomTextView extends TextView {
                 a((CharSequence) spannableStringBuilder, i, i2);
                 z = false;
             } catch (IndexOutOfBoundsException e2) {
-                spannableStringBuilder.insert(spanStart - 1, " ");
+                spannableStringBuilder.insert(spanStart - 1, HanziToPinyin.Token.SEPARATOR);
                 z = true;
             }
         }

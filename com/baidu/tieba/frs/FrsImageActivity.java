@@ -19,7 +19,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.a.au;
+import com.baidu.tieba.a.ay;
 import com.baidu.tieba.account.LoginActivity;
 import com.baidu.tieba.view.FrsWaterFallItem;
 import com.baidu.tieba.view.ImageViewDrawer;
@@ -42,7 +42,7 @@ public class FrsImageActivity extends com.baidu.tieba.e {
     private com.baidu.tieba.c.a l = null;
     private com.baidu.tieba.c.d m = null;
     private com.baidu.tieba.c.d n = null;
-    private com.baidu.tieba.view.am o = null;
+    private com.baidu.tieba.view.an o = null;
     private TextView p = null;
     private com.baidu.tieba.b.d q = null;
     private int r = 0;
@@ -175,8 +175,8 @@ public class FrsImageActivity extends com.baidu.tieba.e {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void c(int i) {
-        String x = TiebaApplication.x();
-        if (x == null || x.length() <= 0) {
+        String y = TiebaApplication.y();
+        if (y == null || y.length() <= 0) {
             if (this.q != null && this.q.e() != null) {
                 this.q.e().a(1);
             }
@@ -187,7 +187,7 @@ public class FrsImageActivity extends com.baidu.tieba.e {
             }
         } else if (this.q != null) {
             if (i == 0) {
-                WriteActivity.a(this, this.q.a().b(), this.q.a().c(), this.q.e(), false, null);
+                WriteActivity.a((Activity) this, this.q.a().b(), this.q.a().c(), this.q.e(), false, (String) null);
             } else {
                 j().show();
             }
@@ -233,10 +233,10 @@ public class FrsImageActivity extends com.baidu.tieba.e {
                 case 12000010:
                     if (this.q != null && this.q.a() != null) {
                         if (intent == null || intent.getStringExtra("filename") == null) {
-                            WriteActivity.a(this, this.q.a().b(), this.q.a().c(), null, true, null);
+                            WriteActivity.a((Activity) this, this.q.a().b(), this.q.a().c(), (com.baidu.tieba.a.b) null, true, (String) null);
                             return;
                         } else {
-                            WriteActivity.a(this, this.q.a().b(), this.q.a().c(), null, true, intent.getStringExtra("filename"));
+                            WriteActivity.a((Activity) this, this.q.a().b(), this.q.a().c(), (com.baidu.tieba.a.b) null, true, intent.getStringExtra("filename"));
                             return;
                         }
                     }
@@ -299,17 +299,17 @@ public class FrsImageActivity extends com.baidu.tieba.e {
                         if ((i4 <= c2 || z) && i4 < childCount) {
                             FrsWaterFallItem frsWaterFallItem = (FrsWaterFallItem) a.getChildAt(i4);
                             if (frsWaterFallItem != null) {
-                                au auVar = (au) frsWaterFallItem.getTag();
-                                i3 += auVar.b().d() * auVar.b().e() * 2;
+                                ay ayVar = (ay) frsWaterFallItem.getTag();
+                                i3 += ayVar.b().d() * ayVar.b().e() * 2;
                                 if (i3 > d) {
                                     break;
                                 }
                                 if (i2 == 1) {
-                                    this.l.a(auVar.b().c(), this.m);
+                                    this.l.a(ayVar.b().c(), this.m);
                                 } else {
-                                    this.l.a(auVar.b().c(), this.n);
+                                    this.l.a(ayVar.b().c(), this.n);
                                 }
-                                int d2 = auVar.b().d() + i5;
+                                int d2 = ayVar.b().d() + i5;
                                 int i6 = i4 + 1;
                                 if (i6 <= c2 || d2 < b) {
                                     i4 = i6;
@@ -475,10 +475,10 @@ public class FrsImageActivity extends com.baidu.tieba.e {
             try {
                 int size = arrayList.size();
                 for (int i2 = 0; i2 < size; i2++) {
-                    au auVar = (au) arrayList.get(i2);
-                    if (auVar != null) {
-                        int a = auVar.b().a();
-                        int b = auVar.b().b();
+                    ay ayVar = (ay) arrayList.get(i2);
+                    if (ayVar != null) {
+                        int a = ayVar.b().a();
+                        int b = ayVar.b().b();
                         if (a >= 100 && b >= 50) {
                             if (a > this.c) {
                                 float f = this.c / a;
@@ -499,18 +499,18 @@ public class FrsImageActivity extends com.baidu.tieba.e {
                             ViewGroup.LayoutParams layoutParams = imageViewDrawer.getLayoutParams();
                             layoutParams.height = height;
                             imageViewDrawer.setLayoutParams(layoutParams);
-                            frsWaterFallItem.setTag(auVar);
-                            imageViewDrawer.setImageSearchUrl(String.valueOf(auVar.b().c()) + "_water");
+                            frsWaterFallItem.setTag(ayVar);
+                            imageViewDrawer.setImageSearchUrl(String.valueOf(ayVar.b().c()) + "_water");
                             imageViewDrawer.setDefaultId(R.drawable.image_default);
                             imageViewDrawer.setNightDefaultId(R.drawable.image_default_1);
-                            imageViewDrawer.setTag(auVar.b().c());
+                            imageViewDrawer.setTag(ayVar.b().c());
                             frsWaterFallItem.setOnClickListener(this.j);
                             int a3 = com.baidu.tieba.c.ai.a(this, 5.0f);
                             int paddingBottom = height + this.r + this.s + (a3 * 3) + frsWaterFallItem.getPaddingBottom();
                             frsWaterFallItem.a(this.r, this.s, a3);
                             this.d.a(frsWaterFallItem, paddingBottom);
-                            auVar.b().a(paddingBottom);
-                            auVar.b().b(i);
+                            ayVar.b().a(paddingBottom);
+                            ayVar.b().b(i);
                         }
                     }
                 }

@@ -1,84 +1,66 @@
 package com.baidu.tieba.a;
 
 import java.util.ArrayList;
-import java.util.List;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class ar {
-    private q a;
-    private al b = null;
-    private List c = new ArrayList();
-    private int d;
-    private int e;
-    private int f;
-    private int g;
-    private b h;
-    private at i;
+    private ArrayList f;
+    private int a = 0;
+    private int d = 0;
+    private int e = 0;
+    private boolean c = false;
+    private boolean b = false;
 
-    public al a() {
+    public ar() {
+        this.f = null;
+        this.f = new ArrayList();
+    }
+
+    public ArrayList a() {
+        return this.f;
+    }
+
+    public boolean b() {
         return this.b;
     }
 
-    public void a(al alVar) {
-        this.b = alVar;
-    }
-
-    public List b() {
+    public boolean c() {
         return this.c;
     }
 
-    public void a(List list) {
-        this.c = list;
-    }
-
-    public int c() {
+    public int d() {
         return this.d;
     }
 
-    public void a(int i) {
-        this.d = i;
+    public void a(String str) {
+        try {
+            a(new JSONObject(str));
+        } catch (Exception e) {
+            com.baidu.tieba.c.ag.b("SearchPostModel", "parserJson", "error = " + e.getMessage());
+        }
     }
 
-    public int d() {
-        return this.e;
-    }
-
-    public void b(int i) {
-        this.e = i;
-    }
-
-    public void c(int i) {
-        this.f = i;
-    }
-
-    public int e() {
-        return this.g;
-    }
-
-    public void d(int i) {
-        this.g = i;
-    }
-
-    public void a(q qVar) {
-        this.a = qVar;
-    }
-
-    public q f() {
-        return this.a;
-    }
-
-    public void a(b bVar) {
-        this.h = bVar;
-    }
-
-    public b g() {
-        return this.h;
-    }
-
-    public void a(at atVar) {
-        this.i = atVar;
-    }
-
-    public at h() {
-        return this.i;
+    public void a(JSONObject jSONObject) {
+        if (jSONObject != null) {
+            try {
+                JSONObject optJSONObject = jSONObject.optJSONObject("page");
+                JSONArray optJSONArray = jSONObject.optJSONArray("post_list");
+                this.f.clear();
+                for (int i = 0; i < optJSONArray.length(); i++) {
+                    JSONObject optJSONObject2 = optJSONArray.optJSONObject(i);
+                    aq aqVar = new aq();
+                    aqVar.a(optJSONObject2);
+                    this.f.add(aqVar);
+                }
+                this.a = optJSONObject.optInt("total_count");
+                this.e = optJSONObject.optInt("total_page");
+                this.b = optJSONObject.optInt("has_more") != 0;
+                this.c = optJSONObject.optInt("has_prev") != 0;
+                this.d = optJSONObject.optInt("current_page");
+            } catch (Exception e) {
+                com.baidu.tieba.c.ag.b("SearchPostModel", "parserJson", "error = " + e.getMessage());
+            }
+        }
     }
 }

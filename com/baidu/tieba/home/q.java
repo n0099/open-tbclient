@@ -13,12 +13,12 @@ class q implements View.OnClickListener {
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        com.baidu.tieba.a.y yVar = null;
-        if (view.getTag() instanceof com.baidu.tieba.a.y) {
-            yVar = (com.baidu.tieba.a.y) view.getTag();
+        com.baidu.tieba.a.aa aaVar = null;
+        if (view.getTag() instanceof com.baidu.tieba.a.aa) {
+            aaVar = (com.baidu.tieba.a.aa) view.getTag();
         }
-        if (yVar != null) {
-            String b = yVar.b();
+        if (aaVar != null) {
+            String b = aaVar.b();
             if (com.baidu.tieba.c.af.d(b)) {
                 FrsActivity.a(this.a, b, "tb_forumlist");
             }

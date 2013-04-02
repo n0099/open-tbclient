@@ -1,167 +1,165 @@
 package com.baidu.tieba.b;
 
-import com.baidu.tieba.R;
-import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.a.ab;
-import com.baidu.tieba.a.af;
+import com.baidu.android.pushservice.PushConstants;
+import com.baidu.tieba.a.ad;
+import com.baidu.tieba.a.ah;
+import com.baidu.tieba.a.aj;
 import com.baidu.tieba.c.ag;
 import java.util.ArrayList;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class p {
-    String b;
-    String c;
-    String d;
-    String f;
-    String g;
-    String h;
-    String i;
-    String k;
-    int m;
-    String n;
-    final /* synthetic */ o p;
-    int a = 0;
-    ArrayList e = new ArrayList();
-    ArrayList l = new ArrayList();
-    af j = new af();
-    af o = new af();
+    private ArrayList a = new ArrayList();
+    private aj b = new aj();
+    private int c;
 
-    public p(o oVar) {
-        this.p = oVar;
-    }
-
-    public int a() {
+    public ArrayList a() {
         return this.a;
     }
 
-    public String b() {
-        return this.b;
-    }
-
-    public ArrayList c() {
-        return this.e;
-    }
-
-    public int d() {
-        return this.m;
-    }
-
-    public void a(int i) {
-        this.m = i;
-    }
-
-    public String e() {
-        return this.n;
-    }
-
-    public void a(String str) {
-        if (str != null) {
-            this.n = str;
-        }
-    }
-
-    public String f() {
-        return this.f;
-    }
-
-    public String g() {
-        if (this.e == null) {
-            return null;
-        }
-        int i = 0;
-        while (true) {
-            int i2 = i;
-            if (i2 >= this.e.size()) {
-                return null;
-            }
-            if (((com.baidu.tieba.a.k) this.e.get(i2)).a() != 3) {
-                i = i2 + 1;
-            } else {
-                return ((com.baidu.tieba.a.k) this.e.get(i2)).f();
-            }
-        }
-    }
-
-    public String h() {
-        return this.g;
-    }
-
-    public String i() {
-        return this.h;
-    }
-
-    public String j() {
-        return this.i;
-    }
-
-    public ArrayList k() {
-        return this.l;
-    }
-
-    public void a(ArrayList arrayList) {
-        if (arrayList != null && arrayList.size() != 0) {
-            this.l.clear();
-            this.l = arrayList;
-        }
-    }
-
-    public af l() {
-        return this.j;
-    }
-
-    public af m() {
-        return this.o;
-    }
-
-    public void a(af afVar) {
-        if (afVar != null) {
-            this.o = afVar;
-        }
-    }
-
-    public String n() {
+    public int b() {
         return this.c;
     }
 
-    public String o() {
-        return this.d;
+    public aj c() {
+        return this.b;
     }
 
-    public ab p() {
-        if (this.a != 0) {
-            return null;
+    public void a(aj ajVar) {
+        if (ajVar != null) {
+            this.b = ajVar;
         }
-        try {
-            ab abVar = new ab((int) (Double.valueOf(this.d).doubleValue() * 1000000.0d), (int) (Double.valueOf(this.c).doubleValue() * 1000000.0d));
-            abVar.a(this.j);
-            abVar.a(this.g);
-            StringBuffer stringBuffer = new StringBuffer();
-            for (int i = 0; i < this.e.size(); i++) {
-                if (((com.baidu.tieba.a.k) this.e.get(i)).a() == 0) {
-                    stringBuffer.append(((com.baidu.tieba.a.k) this.e.get(i)).d());
+    }
+
+    public void a(ArrayList arrayList) {
+        this.a = arrayList;
+    }
+
+    public void a(int i) {
+        this.c = i;
+    }
+
+    public void b(ArrayList arrayList) {
+        if (arrayList != null && arrayList.size() > 0 && ((q) arrayList.get(0)).a() == 3) {
+            int size = this.a.size();
+            if (size > 0) {
+                if (((q) this.a.get(size - 1)).b().equals(((q) arrayList.get(0)).b())) {
+                    arrayList.remove(0);
                 }
-                if (((com.baidu.tieba.a.k) this.e.get(i)).a() == 2) {
-                    String a = com.baidu.tieba.c.n.a(((com.baidu.tieba.a.k) this.e.get(i)).d());
-                    if (a == null) {
-                        stringBuffer.append(TiebaApplication.b().getResources().getString(R.string.face_string));
+                this.a.addAll(arrayList);
+                return;
+            }
+            this.a = arrayList;
+        }
+    }
+
+    public void a(String str, com.baidu.tieba.a.k kVar, String str2, ah ahVar) {
+        if (str != null && str.length() != 0 && kVar != null && kVar.a() == 0 && kVar.d() != null && this.a != null) {
+            int i = 0;
+            while (true) {
+                int i2 = i;
+                if (i2 < this.a.size()) {
+                    if (!str.equals(((q) this.a.get(i2)).h())) {
+                        i = i2 + 1;
                     } else {
-                        stringBuffer.append("(");
-                        stringBuffer.append(a);
-                        stringBuffer.append(")");
+                        ArrayList arrayList = new ArrayList();
+                        arrayList.add(kVar);
+                        ((q) this.a.get(i2)).a(arrayList);
+                        ((q) this.a.get(i2)).a(str2);
+                        ((q) this.a.get(i2)).a(((q) this.a.get(i2)).d() + 1);
+                        ((q) this.a.get(i2)).a(ahVar);
+                        return;
                     }
-                }
-                if (((com.baidu.tieba.a.k) this.e.get(i)).a() == 3) {
-                    stringBuffer.append(TiebaApplication.b().getResources().getString(R.string.pic));
+                } else {
+                    return;
                 }
             }
-            abVar.b(stringBuffer.toString());
-            return abVar;
-        } catch (Exception e) {
-            ag.b(getClass().getName(), "getMapItem", e.toString());
-            return null;
         }
     }
 
-    public String q() {
-        return this.k;
+    public void a(String str) {
+        try {
+            a(new JSONObject(str));
+        } catch (Exception e) {
+            ag.b("MyPostModel", "parserJson", "error = " + e.getMessage());
+        }
+    }
+
+    public void a(JSONObject jSONObject) {
+        try {
+            JSONArray optJSONArray = jSONObject.optJSONArray("thread_list");
+            if (optJSONArray != null && optJSONArray.length() > 0) {
+                int i = 0;
+                q qVar = null;
+                while (i < optJSONArray.length()) {
+                    JSONObject optJSONObject = optJSONArray.optJSONObject(i);
+                    q qVar2 = new q(this);
+                    qVar2.b = optJSONObject.optString("distance");
+                    qVar2.c = optJSONObject.optString("lng");
+                    qVar2.d = optJSONObject.optString("lat");
+                    qVar2.a = optJSONObject.optInt("type", 0);
+                    JSONArray optJSONArray2 = optJSONObject.optJSONArray(PushConstants.EXTRA_CONTENT);
+                    if (optJSONArray2 != null) {
+                        for (int i2 = 0; i2 < optJSONArray2.length(); i2++) {
+                            com.baidu.tieba.a.k kVar = new com.baidu.tieba.a.k();
+                            kVar.a(optJSONArray2.optJSONObject(i2));
+                            qVar2.e.add(kVar);
+                        }
+                    }
+                    qVar2.f = optJSONObject.optString("time");
+                    qVar2.g = optJSONObject.optString("tid");
+                    qVar2.h = optJSONObject.optString("fid");
+                    qVar2.i = optJSONObject.optString("fname");
+                    qVar2.k = optJSONObject.optString("link");
+                    qVar2.j.a(optJSONObject.optJSONObject("author"));
+                    JSONArray optJSONArray3 = optJSONObject.optJSONArray("reply_content");
+                    if (optJSONArray3 != null) {
+                        for (int i3 = 0; i3 < optJSONArray3.length(); i3++) {
+                            com.baidu.tieba.a.k kVar2 = new com.baidu.tieba.a.k();
+                            kVar2.a(optJSONArray3.optJSONObject(i3));
+                            qVar2.l.add(kVar2);
+                        }
+                    }
+                    qVar2.m = optJSONObject.optInt("reply_num");
+                    qVar2.n = optJSONObject.optString("reply_time");
+                    qVar2.o.a(optJSONObject.optJSONObject("replyer"));
+                    if (qVar != null && qVar2.b.equals(qVar.b)) {
+                        this.a.add(qVar2);
+                    } else {
+                        q qVar3 = new q(this);
+                        qVar3.b = qVar2.b;
+                        qVar3.a = 3;
+                        this.a.add(qVar3);
+                        this.a.add(qVar2);
+                    }
+                    i++;
+                    qVar = qVar2;
+                }
+                this.b.a(jSONObject.getJSONObject("page"));
+                this.c = jSONObject.optInt("zoom_level");
+                return;
+            }
+            this.b.a(0);
+        } catch (Exception e) {
+            ag.b("MyPostModel", "parserJson", "error = " + e.getMessage());
+        }
+    }
+
+    public ArrayList d() {
+        ad p;
+        ArrayList arrayList = new ArrayList();
+        int i = 0;
+        while (true) {
+            int i2 = i;
+            if (i2 < this.a.size()) {
+                if (((q) this.a.get(i2)).a() == 0 && (p = ((q) this.a.get(i2)).p()) != null) {
+                    arrayList.add(p);
+                }
+                i = i2 + 1;
+            } else {
+                return arrayList;
+            }
+        }
     }
 }

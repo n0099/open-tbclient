@@ -20,6 +20,7 @@ import android.os.Message;
 import android.os.Messenger;
 import android.os.Process;
 import android.util.Log;
+import com.baidu.android.pushservice.PushConstants;
 import com.baidu.browser.core.util.BdUtil;
 import com.baidu.location.c;
 import com.baidu.location.e;
@@ -1356,7 +1357,7 @@ public final class f extends Service {
             JSONObject jSONObject = new JSONObject(str);
             int parseInt = Integer.parseInt(jSONObject.getJSONObject("result").getString("error"));
             if (parseInt == 161) {
-                JSONObject jSONObject2 = jSONObject.getJSONObject("content");
+                JSONObject jSONObject2 = jSONObject.getJSONObject(PushConstants.EXTRA_CONTENT);
                 if (jSONObject2.has("clf")) {
                     String string = jSONObject2.getString("clf");
                     if (string.equals("0")) {

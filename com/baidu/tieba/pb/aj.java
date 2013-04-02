@@ -36,8 +36,8 @@ public class aj extends AsyncTask {
                         i++;
                         str2 = String.valueOf(h) + String.valueOf(Math.round(Math.random() * 9.9999999E7d)) + ".jpg";
                     }
-                    if (TiebaApplication.b().al().c(str) != null) {
-                        str2 = com.baidu.tieba.c.o.a(null, str2, TiebaApplication.b().al().c(str), 80);
+                    if (TiebaApplication.b().an().c(str) != null) {
+                        str2 = com.baidu.tieba.c.o.a(null, str2, TiebaApplication.b().an().c(str), 80);
                     }
                     if (str2 != null) {
                         new com.baidu.tieba.c.s(this.a).a(str2);

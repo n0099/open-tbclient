@@ -7,7 +7,7 @@ import android.os.Message;
 import com.baidu.location.LocationClientOption;
 import com.baidu.tieba.R;
 import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.a.ax;
+import com.baidu.tieba.a.bb;
 import com.baidu.tieba.c.ai;
 /* loaded from: classes.dex */
 class p extends Handler {
@@ -43,9 +43,9 @@ class p extends Handler {
                 notificationManager.notify(10, notification4);
             }
         } else if (message.what == 1) {
-            ax axVar = (ax) message.obj;
-            if (axVar != null) {
-                ai.b(TiebaApplication.b(), axVar.f());
+            bb bbVar = (bb) message.obj;
+            if (bbVar != null) {
+                ai.b(TiebaApplication.b(), bbVar.f());
             }
             this.a.stopSelf();
         }

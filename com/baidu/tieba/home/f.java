@@ -19,7 +19,7 @@ import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class f extends BaseAdapter {
     private Context a;
-    private com.baidu.tieba.b.f b = null;
+    private com.baidu.tieba.b.g b = null;
     private Boolean c = false;
     private Boolean d = true;
     private Boolean e = false;
@@ -32,11 +32,11 @@ public class f extends BaseAdapter {
     private ArrayList l;
     private int m;
 
-    public f(Context context, com.baidu.tieba.b.f fVar) {
+    public f(Context context, com.baidu.tieba.b.g gVar) {
         this.f = false;
         this.m = 10;
         this.a = context;
-        a(fVar);
+        a(gVar);
         this.g = this.a.getText(R.string.grade).toString();
         this.h = null;
         this.i = null;
@@ -44,7 +44,7 @@ public class f extends BaseAdapter {
         this.k = null;
         this.m = com.baidu.tieba.c.ai.a(this.a, 10.0f);
         this.l = new ArrayList();
-        this.f = Boolean.valueOf(TiebaApplication.b().p() != null);
+        this.f = Boolean.valueOf(TiebaApplication.b().q() != null);
     }
 
     public void a() {
@@ -67,15 +67,15 @@ public class f extends BaseAdapter {
         }
     }
 
-    public void a(com.baidu.tieba.b.f fVar) {
-        this.b = fVar;
-        if (fVar != null && fVar.c() != null && fVar.c().size() > 8) {
+    public void a(com.baidu.tieba.b.g gVar) {
+        this.b = gVar;
+        if (gVar != null && gVar.c() != null && gVar.c().size() > 8) {
             this.e = true;
         } else {
             this.e = false;
         }
-        if (fVar != null) {
-            if (fVar.d() == null || fVar.d().size() == 0) {
+        if (gVar != null) {
+            if (gVar.d() == null || gVar.d().size() == 0) {
                 this.f = true;
             }
         }
@@ -146,7 +146,7 @@ public class f extends BaseAdapter {
     public View getView(int i, View view, ViewGroup viewGroup) {
         Exception exc;
         View view2;
-        int ag;
+        int ah;
         int itemViewType;
         Resources resources;
         View view3;
@@ -154,7 +154,7 @@ public class f extends BaseAdapter {
         View view4;
         m mVar;
         try {
-            ag = TiebaApplication.b().ag();
+            ah = TiebaApplication.b().ah();
             itemViewType = getItemViewType(i);
             resources = this.a.getResources();
             try {
@@ -185,16 +185,16 @@ public class f extends BaseAdapter {
                 view = inflate;
             }
             h hVar2 = (h) view.getTag();
-            if (ag == 1) {
+            if (ah == 1) {
                 hVar2.a.setBackgroundColor(resources.getColor(R.color.skin_1_common_bg));
-                com.baidu.tieba.c.ae.i(hVar2.b, R.drawable.home_search_bg_1);
+                com.baidu.tieba.c.ae.h(hVar2.b, R.drawable.home_search_bg_1);
                 hVar2.c.setBackgroundColor(resources.getColor(R.color.skin_1_lv_divider_bg));
             } else {
                 hVar2.a.setBackgroundColor(resources.getColor(R.color.backgroundcolor));
-                com.baidu.tieba.c.ae.i(hVar2.b, R.drawable.home_search_bg);
+                com.baidu.tieba.c.ae.h(hVar2.b, R.drawable.home_search_bg);
                 hVar2.c.setBackgroundColor(-2960686);
             }
-            if (TiebaApplication.b().aA() != null && TiebaApplication.b().aA().a() == 1) {
+            if (TiebaApplication.b().aF() != null && TiebaApplication.b().aF().a() == 1) {
                 if (hVar2.d.getVisibility() != 0) {
                     hVar2.d.setVisibility(0);
                     hVar2.d.setImageResource(R.drawable.banner_image);
@@ -220,7 +220,7 @@ public class f extends BaseAdapter {
                 view = inflate2;
             }
             k kVar2 = (k) view.getTag();
-            if (ag == 1) {
+            if (ah == 1) {
                 kVar2.a.setBackgroundColor(resources.getColor(R.color.skin_1_common_bg));
                 kVar2.b.setTextColor(resources.getColor(R.color.skin_1_common_color));
                 kVar2.c.setTextColor(resources.getColor(R.color.skin_1_common_button_color));
@@ -247,7 +247,7 @@ public class f extends BaseAdapter {
                 view = inflate3;
             }
             l lVar2 = (l) view.getTag();
-            if (ag == 1) {
+            if (ah == 1) {
                 lVar2.a.setBackgroundColor(-14540254);
                 lVar2.c.setBackgroundColor(resources.getColor(R.color.skin_1_lv_divider_bg));
                 lVar2.d.setBackgroundColor(resources.getColor(R.color.skin_1_lv_divider_bg));
@@ -274,7 +274,7 @@ public class f extends BaseAdapter {
                 view = inflate4;
             }
             i iVar2 = (i) view.getTag();
-            if (ag == 1) {
+            if (ah == 1) {
                 iVar2.a.setBackgroundColor(resources.getColor(R.color.skin_1_common_bg));
                 iVar2.b.setBackgroundResource(R.drawable.button_like_more_1);
                 return view;
@@ -299,7 +299,7 @@ public class f extends BaseAdapter {
                     view4 = view;
                 }
                 m mVar3 = (m) view4.getTag();
-                if (ag == 1) {
+                if (ah == 1) {
                     mVar3.b.setTextColor(resources.getColor(R.color.skin_1_common_color));
                     mVar3.c.setTextColor(-10855846);
                     mVar3.c.setTextColor(-7697782);
@@ -343,12 +343,12 @@ public class f extends BaseAdapter {
                 }
                 j jVar3 = (j) view.getTag();
                 LinearLayout linearLayout = (LinearLayout) view.findViewById(R.id.container);
-                if (ag == 1) {
+                if (ah == 1) {
                     linearLayout.setBackgroundColor(resources.getColor(R.color.skin_1_common_bg));
-                    com.baidu.tieba.c.ae.i(jVar3.b, R.drawable.home_like_item_bg_1);
+                    com.baidu.tieba.c.ae.h(jVar3.b, R.drawable.home_like_item_bg_1);
                     jVar3.c.setTextColor(resources.getColor(R.color.skin_1_common_color));
                     jVar3.e.setTextColor(resources.getColor(R.color.skin_1_second_common_color));
-                    com.baidu.tieba.c.ae.i(jVar3.f.b, R.drawable.home_like_item_bg_1);
+                    com.baidu.tieba.c.ae.h(jVar3.f.b, R.drawable.home_like_item_bg_1);
                     jVar3.f.c.setTextColor(resources.getColor(R.color.skin_1_common_color));
                     jVar3.f.e.setTextColor(resources.getColor(R.color.skin_1_second_common_color));
                     mVar = null;
@@ -356,10 +356,10 @@ public class f extends BaseAdapter {
                     view4 = view;
                 } else {
                     linearLayout.setBackgroundColor(resources.getColor(R.color.backgroundcolor));
-                    com.baidu.tieba.c.ae.i(jVar3.b, R.drawable.home_like_item_bg);
+                    com.baidu.tieba.c.ae.h(jVar3.b, R.drawable.home_like_item_bg);
                     jVar3.c.setTextColor(-12895429);
                     jVar3.e.setTextColor(-8947332);
-                    com.baidu.tieba.c.ae.i(jVar3.f.b, R.drawable.home_like_item_bg);
+                    com.baidu.tieba.c.ae.h(jVar3.f.b, R.drawable.home_like_item_bg);
                     jVar3.f.c.setTextColor(-12895429);
                     jVar3.f.e.setTextColor(-8947332);
                     mVar = null;
@@ -369,17 +369,17 @@ public class f extends BaseAdapter {
             }
             if (itemViewType == 3 && mVar != null && this.b.d() != null) {
                 Object item = getItem(i);
-                com.baidu.tieba.a.y yVar = null;
-                if (item != null && (item instanceof com.baidu.tieba.a.y)) {
-                    yVar = (com.baidu.tieba.a.y) item;
+                com.baidu.tieba.a.aa aaVar = null;
+                if (item != null && (item instanceof com.baidu.tieba.a.aa)) {
+                    aaVar = (com.baidu.tieba.a.aa) item;
                 }
-                if (yVar != null) {
-                    mVar.b.setText(String.valueOf(yVar.b()) + resources.getString(R.string.forum));
-                    mVar.c.setText(MessageFormat.format(resources.getString(R.string.forum_like_memeber), Integer.valueOf(yVar.c())));
-                    mVar.d.setText(yVar.h());
+                if (aaVar != null) {
+                    mVar.b.setText(String.valueOf(aaVar.b()) + resources.getString(R.string.forum));
+                    mVar.c.setText(MessageFormat.format(resources.getString(R.string.forum_like_memeber), Integer.valueOf(aaVar.c())));
+                    mVar.d.setText(aaVar.h());
                     mVar.e.setVisibility(this.c.booleanValue() ? 0 : 4);
                     mVar.a.setVisibility(0);
-                    mVar.e.setTag(yVar);
+                    mVar.e.setTag(aaVar);
                 } else {
                     mVar.a.setVisibility(4);
                 }
@@ -392,11 +392,11 @@ public class f extends BaseAdapter {
                 }
                 if (i >= 1) {
                     if ((i - 1) * 2 < this.b.c().size()) {
-                        a((com.baidu.tieba.a.y) this.b.c().get((i - 1) * 2), jVar);
+                        a((com.baidu.tieba.a.aa) this.b.c().get((i - 1) * 2), jVar);
                     }
                     if (((i - 1) * 2) + 1 < this.b.c().size()) {
                         jVar.f.b.setVisibility(0);
-                        a((com.baidu.tieba.a.y) this.b.c().get(((i - 1) * 2) + 1), jVar.f);
+                        a((com.baidu.tieba.a.aa) this.b.c().get(((i - 1) * 2) + 1), jVar.f);
                         view2 = view4;
                     } else {
                         jVar.f.b.setVisibility(4);
@@ -410,12 +410,12 @@ public class f extends BaseAdapter {
         }
     }
 
-    private void a(com.baidu.tieba.a.y yVar, j jVar) {
-        if (yVar != null && jVar != null) {
-            int f = yVar.f();
-            jVar.b.setTag(yVar);
-            jVar.c.setText(yVar.b());
-            if (f == 0 || yVar.d() == 0) {
+    private void a(com.baidu.tieba.a.aa aaVar, j jVar) {
+        if (aaVar != null && jVar != null) {
+            int f = aaVar.f();
+            jVar.b.setTag(aaVar);
+            jVar.c.setText(aaVar.b());
+            if (f == 0 || aaVar.d() == 0) {
                 jVar.d.setVisibility(8);
                 jVar.e.setVisibility(8);
                 return;
@@ -431,7 +431,7 @@ public class f extends BaseAdapter {
             } else {
                 jVar.d.setImageBitmap(com.baidu.tieba.c.e.a((int) R.drawable.home_grade_4));
             }
-            jVar.e.setText(String.valueOf(yVar.f()).concat(this.g));
+            jVar.e.setText(String.valueOf(aaVar.f()).concat(this.g));
         }
     }
 

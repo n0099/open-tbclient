@@ -15,15 +15,15 @@ class t implements RadioGroup.OnCheckedChangeListener {
     @Override // android.widget.RadioGroup.OnCheckedChangeListener
     public void onCheckedChanged(RadioGroup radioGroup, int i) {
         switch (i) {
-            case R.id.image_quality_high /* 2131230862 */:
+            case R.id.image_quality_high /* 2131230867 */:
                 TiebaApplication.b().n(true);
                 TiebaApplication.b().f(1);
                 return;
-            case R.id.image_quality_low /* 2131230863 */:
+            case R.id.image_quality_low /* 2131230868 */:
                 TiebaApplication.b().n(true);
                 TiebaApplication.b().f(2);
                 return;
-            case R.id.image_quality_close /* 2131230864 */:
+            case R.id.image_quality_close /* 2131230869 */:
                 TiebaApplication.b().n(false);
                 return;
             default:

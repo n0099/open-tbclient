@@ -25,15 +25,15 @@ public class a {
         try {
             if (!TiebaApplication.g()) {
                 Token token = new Token();
-                String y = TiebaApplication.y();
-                if (y != null) {
+                String z = TiebaApplication.z();
+                if (z != null) {
                     e();
-                    String[] split = y.split("[|]");
+                    String[] split = z.split("[|]");
                     if (split != null && split.length == 2) {
                         token.mBduss = split[0];
                         token.mPtoken = split[1];
                         if (token.mPtoken != null && token.mPtoken.length() > 0) {
-                            token.mUsername = TiebaApplication.B();
+                            token.mUsername = TiebaApplication.C();
                             LoginShareAssistant.getInstance().valid(token);
                         }
                     }
@@ -85,11 +85,11 @@ public class a {
     }
 
     public void d() {
-        String au;
+        String az;
         try {
-            if (!TiebaApplication.g() && (au = TiebaApplication.b().au()) != null) {
+            if (!TiebaApplication.g() && (az = TiebaApplication.b().az()) != null) {
                 this.a = new b(this);
-                String[] split = au.split(":");
+                String[] split = az.split(":");
                 int length = split.length;
                 if (length >= 1) {
                     if ("1".equals(split[0])) {
@@ -112,7 +112,7 @@ public class a {
                     }
                 }
                 if (this.a != null && !this.a.a) {
-                    com.baidu.tieba.c.k.i();
+                    com.baidu.tieba.c.k.j();
                     TiebaApplication.a((com.baidu.tieba.a.a) null);
                     e();
                 }
@@ -151,17 +151,17 @@ public class a {
 
     public void e() {
         this.a = null;
-        TiebaApplication.b().at();
+        TiebaApplication.b().ay();
     }
 
     public void f() {
         this.a = null;
     }
 
-    public void a(Activity activity) {
-        String B;
-        if (this.a != null && this.a.a && TiebaApplication.x() == null && ((B = TiebaApplication.B()) == null || !B.equals(this.a.d))) {
-            ReLoginShareActivity.a(activity, this.a.d, this.a.b, this.a.c);
+    public void a(Activity activity, String str) {
+        String C;
+        if (this.a != null && this.a.a && TiebaApplication.y() == null && ((C = TiebaApplication.C()) == null || !C.equals(this.a.d))) {
+            ReLoginShareActivity.a(activity, this.a.d, this.a.b, this.a.c, str);
         }
         f();
     }

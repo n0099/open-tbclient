@@ -6,7 +6,7 @@ import android.os.AsyncTask;
 import android.os.Handler;
 import com.baidu.tieba.R;
 import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.a.ax;
+import com.baidu.tieba.a.bb;
 import com.baidu.tieba.c.ag;
 import com.baidu.tieba.c.ai;
 import com.baidu.tieba.c.t;
@@ -14,14 +14,14 @@ import java.io.File;
 /* loaded from: classes.dex */
 class q extends AsyncTask {
     final /* synthetic */ TiebaUpdateService a;
-    private ax b;
+    private bb b;
     private t c = null;
     private volatile boolean d = false;
 
-    public q(TiebaUpdateService tiebaUpdateService, ax axVar) {
+    public q(TiebaUpdateService tiebaUpdateService, bb bbVar) {
         this.a = tiebaUpdateService;
         this.b = null;
-        this.b = axVar;
+        this.b = bbVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */

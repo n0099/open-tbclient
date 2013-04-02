@@ -47,16 +47,16 @@ public class d extends AsyncTask {
             this.b.a("tid", "0");
             String i = this.b.i();
             if (this.b.b()) {
-                com.baidu.tieba.a.aw awVar = new com.baidu.tieba.a.aw();
-                awVar.a(i);
-                if (awVar.b() == null || awVar.b().length() <= 0) {
+                com.baidu.tieba.a.ba baVar = new com.baidu.tieba.a.ba();
+                baVar.a(i);
+                if (baVar.b() == null || baVar.b().length() <= 0) {
                     return null;
                 }
-                this.a.u = awVar.a();
+                this.a.u = baVar.a();
                 if (this.c) {
                     return null;
                 }
-                this.b = new com.baidu.tieba.c.t(awVar.b());
+                this.b = new com.baidu.tieba.c.t(baVar.b());
                 return com.baidu.tieba.c.e.a(this.b.h());
             }
             return null;

@@ -1,73 +1,101 @@
 package com.baidu.tieba.person;
 
-import android.widget.ListView;
-import java.util.ArrayList;
+import android.view.View;
+import android.widget.Button;
+import android.widget.LinearLayout;
+import android.widget.ProgressBar;
+import com.baidu.tieba.MainTabActivity;
+import com.baidu.tieba.TiebaApplication;
+import com.baidu.zeus.WebChromeClient;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class bd implements Runnable {
-    final /* synthetic */ PersonLbsActivity a;
+public class bd implements View.OnClickListener {
+    final /* synthetic */ PersonInfoActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bd(PersonLbsActivity personLbsActivity) {
-        this.a = personLbsActivity;
+    public bd(PersonInfoActivity personInfoActivity) {
+        this.a = personInfoActivity;
     }
 
-    /* JADX WARN: Incorrect condition in loop: B:10:0x0040 */
-    @Override // java.lang.Runnable
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public void run() {
-        ListView listView;
-        ListView listView2;
-        bj bjVar;
-        bj bjVar2;
-        bj bjVar3;
-        int i;
-        bj bjVar4;
-        try {
-            listView = this.a.c;
-            int firstVisiblePosition = listView.getFirstVisiblePosition();
-            listView2 = this.a.c;
-            int lastVisiblePosition = listView2.getLastVisiblePosition();
-            com.baidu.tieba.c.z c = com.baidu.tieba.c.w.c(this.a);
-            bjVar = this.a.n;
-            bjVar.a().a();
-            boolean z = c == com.baidu.tieba.c.z.WIFI || c == com.baidu.tieba.c.z.ThreeG;
-            int i2 = firstVisiblePosition;
-            int i3 = 0;
-            while (i2 < bjVar2.getCount()) {
-                if (z || i2 <= lastVisiblePosition) {
-                    bjVar3 = this.a.n;
-                    com.baidu.tieba.a.aj ajVar = (com.baidu.tieba.a.aj) bjVar3.getItem(i2);
-                    if (ajVar != null) {
-                        ArrayList f = ajVar.c().f();
-                        int size = f.size();
-                        if (i3 < 13) {
-                            for (int i4 = 0; i4 < size; i4++) {
-                                if (((com.baidu.tieba.a.k) f.get(i4)).a() == 3) {
-                                    int i5 = i3 + 1;
-                                    bjVar4 = this.a.n;
-                                    bjVar4.a().a(((com.baidu.tieba.a.k) f.get(i4)).f(), new be(this));
-                                    i = i5;
-                                    break;
-                                }
-                            }
-                        }
-                        i = i3;
-                        if (z && i >= 13) {
-                            return;
-                        }
-                    } else {
-                        i = i3;
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        Button button;
+        Button button2;
+        Button button3;
+        LinearLayout linearLayout;
+        Button button4;
+        ProgressBar progressBar;
+        com.baidu.tieba.b.t tVar;
+        bg bgVar;
+        com.baidu.tieba.b.t tVar2;
+        bg bgVar2;
+        bg bgVar3;
+        com.baidu.tieba.b.t tVar3;
+        com.baidu.tieba.b.t tVar4;
+        com.baidu.tieba.b.t tVar5;
+        com.baidu.tieba.b.t tVar6;
+        com.baidu.tieba.b.t tVar7;
+        button = this.a.c;
+        if (view != button) {
+            button2 = this.a.i;
+            if (view != button2) {
+                button3 = this.a.d;
+                if (view == button3) {
+                    tVar3 = this.a.p;
+                    if (tVar3.c() != null) {
+                        com.baidu.tieba.b.s sVar = new com.baidu.tieba.b.s();
+                        tVar4 = this.a.p;
+                        sVar.b(tVar4.c().c());
+                        tVar5 = this.a.p;
+                        sVar.a(tVar5.c().h());
+                        tVar6 = this.a.p;
+                        sVar.a(tVar6.c().i());
+                        tVar7 = this.a.p;
+                        sVar.c(tVar7.c().d());
+                        PersonChangeActivity.a(this.a, WebChromeClient.STRING_DLG_TITLE_DATETIME, sVar);
+                        return;
                     }
-                    i2++;
-                    i3 = i;
-                } else {
                     return;
                 }
+                linearLayout = this.a.v;
+                if (view != linearLayout) {
+                    button4 = this.a.j;
+                    if (button4 == view) {
+                        progressBar = this.a.t;
+                        progressBar.setVisibility(0);
+                        this.a.a(false, true);
+                        return;
+                    }
+                    return;
+                }
+                tVar = this.a.p;
+                if (tVar.c() != null) {
+                    bgVar = this.a.X;
+                    if (bgVar == null) {
+                        this.a.X = new bg(this.a, null);
+                        tVar2 = this.a.p;
+                        if (tVar2.c().m() == 1) {
+                            bgVar3 = this.a.X;
+                            bgVar3.execute(1);
+                            return;
+                        }
+                        bgVar2 = this.a.X;
+                        bgVar2.execute(0);
+                        return;
+                    }
+                    return;
+                }
+                return;
             }
-        } catch (Exception e) {
-            com.baidu.tieba.c.ag.b("PbActivity", "mGetImageRunnble.run", "error = " + e.getMessage());
+            String y = TiebaApplication.y();
+            if ((y != null && y.length() > 0) || TiebaApplication.b().ai() >= 3) {
+                MainTabActivity.a(this.a, "goto_home");
+                return;
+            } else {
+                MainTabActivity.a(this.a, "goto_recommend");
+                return;
+            }
         }
+        this.a.finish();
     }
 }

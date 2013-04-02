@@ -4,12 +4,12 @@ import android.widget.TextView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.frs.FrsActivity;
 import com.baidu.tieba.pb.PbActivity;
-import com.baidu.tieba.pb.dx;
+import com.baidu.tieba.pb.dz;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class aa implements dx {
+public class aa implements dz {
     final /* synthetic */ LotteryActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -17,7 +17,7 @@ public class aa implements dx {
         this.a = lotteryActivity;
     }
 
-    @Override // com.baidu.tieba.pb.dx
+    @Override // com.baidu.tieba.pb.dz
     public boolean a(String str) {
         Pattern pattern;
         Pattern pattern2;

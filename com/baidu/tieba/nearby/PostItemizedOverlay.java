@@ -56,7 +56,7 @@ public class PostItemizedOverlay extends ItemizedOverlay {
             }
             Iterator it = arrayList.iterator();
             while (it.hasNext()) {
-                this.a.add(((com.baidu.tieba.a.ab) it.next()).g());
+                this.a.add(((com.baidu.tieba.a.ad) it.next()).g());
             }
             populate();
         }

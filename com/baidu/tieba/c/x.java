@@ -11,7 +11,7 @@ public class x extends Handler {
         try {
             w wVar = (w) message.obj;
             if (wVar != null) {
-                wVar.j();
+                wVar.k();
             }
         } catch (Exception e) {
             ag.b(getClass().getName(), "initNetWorkCore", e.getMessage());

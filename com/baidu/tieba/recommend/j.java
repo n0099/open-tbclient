@@ -1,42 +1,17 @@
 package com.baidu.tieba.recommend;
-
-import android.content.DialogInterface;
-import com.baidu.tieba.a.at;
-import com.baidu.tieba.pb.PbActivity;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class j implements DialogInterface.OnClickListener {
-    final /* synthetic */ GuessActivity a;
-    private final /* synthetic */ at b;
+class j implements Runnable {
+    final /* synthetic */ i a;
+    private final /* synthetic */ String b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public j(GuessActivity guessActivity, at atVar) {
-        this.a = guessActivity;
-        this.b = atVar;
+    public j(i iVar, String str) {
+        this.a = iVar;
+        this.b = str;
     }
 
-    @Override // android.content.DialogInterface.OnClickListener
-    public void onClick(DialogInterface dialogInterface, int i) {
-        String str;
-        String str2;
-        switch (i) {
-            case 0:
-                str = this.a.f;
-                if (str != null) {
-                    GuessActivity guessActivity = this.a;
-                    str2 = this.a.f;
-                    PbActivity.a(guessActivity, str2, (String) null);
-                    return;
-                }
-                return;
-            case 1:
-                this.a.c(this.b);
-                return;
-            case 2:
-                this.a.p();
-                return;
-            default:
-                return;
-        }
+    @Override // java.lang.Runnable
+    public void run() {
+        new com.baidu.tieba.c.w(this.b).l();
     }
 }

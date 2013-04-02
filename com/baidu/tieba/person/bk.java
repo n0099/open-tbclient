@@ -1,24 +1,30 @@
 package com.baidu.tieba.person;
 
-import android.content.Context;
 import android.view.View;
-import com.baidu.tieba.nearby.NearbyPbActivity;
+import android.widget.Button;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class bk implements View.OnClickListener {
-    final /* synthetic */ bj a;
+    final /* synthetic */ PersonLbsActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bk(bj bjVar) {
-        this.a = bjVar;
+    public bk(PersonLbsActivity personLbsActivity) {
+        this.a = personLbsActivity;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        Context context;
-        if (view != null && view.getTag() != null && (view.getTag() instanceof String)) {
-            context = this.a.a;
-            NearbyPbActivity.a(context, (String) view.getTag(), null);
+        Button button;
+        Button button2;
+        button = this.a.g;
+        if (view != button) {
+            button2 = this.a.h;
+            if (view != button2) {
+                return;
+            }
+            this.a.a(0, 1);
+            return;
         }
+        this.a.finish();
     }
 }

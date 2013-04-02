@@ -1,23 +1,26 @@
 package com.baidu.tieba.recommend;
 
-import android.view.View;
-import com.baidu.tieba.c.af;
-import com.baidu.tieba.frs.FrsActivity;
+import android.graphics.Bitmap;
+import android.widget.ListView;
 /* loaded from: classes.dex */
-class d implements View.OnClickListener {
-    final /* synthetic */ GuessActivity a;
+class d implements com.baidu.tieba.c.d {
+    final /* synthetic */ c a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public d(GuessActivity guessActivity) {
-        this.a = guessActivity;
+    public d(c cVar) {
+        this.a = cVar;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        if (view.getTag() != null && (view.getTag() instanceof String)) {
-            String str = (String) view.getTag();
-            if (af.d(str)) {
-                FrsActivity.a(this.a, str, (String) null);
+    @Override // com.baidu.tieba.c.d
+    public void a(Bitmap bitmap, String str, boolean z) {
+        GuessActivity guessActivity;
+        ListView listView;
+        if (bitmap != null) {
+            guessActivity = this.a.a;
+            listView = guessActivity.i;
+            com.baidu.tieba.view.q qVar = (com.baidu.tieba.view.q) listView.findViewWithTag(str);
+            if (qVar != null) {
+                qVar.invalidate();
             }
         }
     }

@@ -2,6 +2,7 @@ package com.baidu.tieba.a;
 
 import android.content.Context;
 import android.view.View;
+import com.baidu.android.common.util.HanziToPinyin;
 import com.baidu.tieba.person.PersonInfoActivity;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
@@ -21,13 +22,13 @@ public class n extends com.baidu.tieba.c.r {
         String str2;
         String str3;
         String str4 = null;
-        str = this.a.c;
+        str = this.a.b;
         if (str != null) {
-            str3 = this.a.c;
-            str4 = str3.replace("@", "").replace(" ", "");
+            str3 = this.a.b;
+            str4 = str3.replace("@", "").replace(HanziToPinyin.Token.SEPARATOR, "");
         }
         Context a = a();
-        str2 = this.a.g;
+        str2 = this.a.f;
         PersonInfoActivity.a(a, str2, str4);
     }
 }

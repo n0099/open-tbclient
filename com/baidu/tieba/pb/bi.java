@@ -18,7 +18,7 @@ public class bi implements View.OnClickListener {
     public void onClick(View view) {
         Dialog dialog;
         this.a.c(this.b);
-        dialog = this.a.K;
+        dialog = this.a.J;
         dialog.dismiss();
     }
 }

@@ -3,7 +3,7 @@ package com.baidu.tieba.write;
 import android.location.Address;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ak implements com.baidu.tieba.y {
+public class ak implements com.baidu.tieba.an {
     final /* synthetic */ WriteActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -11,7 +11,7 @@ public class ak implements com.baidu.tieba.y {
         this.a = writeActivity;
     }
 
-    @Override // com.baidu.tieba.y
+    @Override // com.baidu.tieba.an
     public void a(int i, String str, Address address) {
         this.a.H = address;
         this.a.k();

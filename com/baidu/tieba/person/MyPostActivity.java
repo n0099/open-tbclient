@@ -36,17 +36,17 @@ public class MyPostActivity extends ActivityGroup {
         this.e = (TextView) findViewById(R.id.title_text);
         this.g = (FrameLayout) findViewById(R.id.content);
         this.c = (Button) findViewById(R.id.back);
-        this.c.setOnClickListener(new aa(this));
+        this.c.setOnClickListener(new af(this));
         this.d = (Button) findViewById(R.id.refresh);
-        this.d.setOnClickListener(new ab(this));
+        this.d.setOnClickListener(new ag(this));
         this.f = (RadioGroup) findViewById(R.id.posttype_tabs);
-        this.f.setOnCheckedChangeListener(new ac(this));
+        this.f.setOnCheckedChangeListener(new ah(this));
         this.f.check(R.id.all_tab);
         this.f.setVisibility(8);
     }
 
     void b() {
-        if (TiebaApplication.b().ag() != 0) {
+        if (TiebaApplication.b().ah() != 0) {
             a(1);
         }
     }

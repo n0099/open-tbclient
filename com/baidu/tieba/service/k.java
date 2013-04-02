@@ -2,8 +2,7 @@ package com.baidu.tieba.service;
 
 import android.os.AsyncTask;
 import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.a.ae;
-import com.baidu.tieba.c.ag;
+import com.baidu.tieba.a.ag;
 import com.baidu.tieba.c.t;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
@@ -24,30 +23,30 @@ public class k extends AsyncTask {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.os.AsyncTask
     /* renamed from: a */
-    public ae doInBackground(String... strArr) {
-        ae aeVar;
+    public ag doInBackground(String... strArr) {
+        ag agVar;
         Exception e;
         try {
         } catch (Exception e2) {
-            aeVar = null;
+            agVar = null;
             e = e2;
         }
-        if (TiebaApplication.b().U()) {
+        if (TiebaApplication.b().V()) {
             this.a = new t("http://c.tieba.baidu.com/c/s/msg");
             String i = this.a.i();
             if (this.a.b()) {
-                aeVar = new ae();
+                agVar = new ag();
                 try {
-                    aeVar.a(i);
+                    agVar.a(i);
                 } catch (Exception e3) {
                     e = e3;
-                    ag.b(getClass().getName(), "doInBackground", e.getMessage());
-                    return aeVar;
+                    com.baidu.tieba.c.ag.b(getClass().getName(), "doInBackground", e.getMessage());
+                    return agVar;
                 }
             } else {
-                aeVar = null;
+                agVar = null;
             }
-            return aeVar;
+            return agVar;
         }
         return null;
     }
@@ -64,16 +63,16 @@ public class k extends AsyncTask {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.os.AsyncTask
     /* renamed from: a */
-    public void onPostExecute(ae aeVar) {
+    public void onPostExecute(ag agVar) {
         try {
-            super.onPostExecute(aeVar);
+            super.onPostExecute(agVar);
             this.b.a = null;
-            if (aeVar != null) {
-                this.b.b = aeVar;
+            if (agVar != null) {
+                this.b.b = agVar;
                 this.b.b();
             }
         } catch (Exception e) {
-            ag.b(getClass().getName(), "onPostExecute", e.getMessage());
+            com.baidu.tieba.c.ag.b(getClass().getName(), "onPostExecute", e.getMessage());
         }
     }
 }

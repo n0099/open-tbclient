@@ -1,12 +1,13 @@
 package com.baidu.tieba.a;
 
 import android.content.Context;
+import com.baidu.android.pushservice.PushConstants;
 import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class u {
-    private al c;
+    private an c;
     private ArrayList d;
     private Context l;
     private String a = null;
@@ -24,11 +25,11 @@ public class u {
         this.d = null;
         this.l = null;
         this.l = context;
-        this.c = new al();
+        this.c = new an();
         this.d = new ArrayList();
     }
 
-    public al a() {
+    public an a() {
         return this.c;
     }
 
@@ -69,7 +70,7 @@ public class u {
         try {
             this.g = jSONObject.getString("post_id");
             this.i = jSONObject.getString("user_name");
-            this.j = jSONObject.getString("user_id");
+            this.j = jSONObject.getString(PushConstants.EXTRA_USER_ID);
             this.h = jSONObject.getString("comment_amount");
             JSONObject optJSONObject2 = jSONObject.optJSONObject("img");
             this.k = jSONObject.optInt("index", -1);
