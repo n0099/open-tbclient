@@ -1,15 +1,18 @@
 package com.baidu.tieba.account;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class aq implements t {
-    final /* synthetic */ ReLoginActivity a;
+public class aq implements o {
+    final /* synthetic */ ao a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public aq(ReLoginActivity reLoginActivity) {
-        this.a = reLoginActivity;
+    public aq(ao aoVar) {
+        this.a = aoVar;
     }
 
-    @Override // com.baidu.tieba.account.t
+    @Override // com.baidu.tieba.account.o
     public void a(com.baidu.tieba.a.a aVar) {
-        this.a.finish();
+        ReLoginShareActivity reLoginShareActivity;
+        reLoginShareActivity = this.a.a;
+        reLoginShareActivity.d();
     }
 }

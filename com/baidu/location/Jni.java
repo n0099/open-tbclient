@@ -4,99 +4,78 @@ import com.baidu.zeus.NotificationProxy;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class Jni {
-
-    /* renamed from: new  reason: not valid java name */
-    private static boolean f26new;
-
-    /* renamed from: case  reason: not valid java name */
-    private static int f21case = 0;
-
-    /* renamed from: try  reason: not valid java name */
-    private static int f27try = 1;
-
-    /* renamed from: byte  reason: not valid java name */
-    private static int f20byte = 2;
-
-    /* renamed from: for  reason: not valid java name */
-    private static int f23for = 11;
-
-    /* renamed from: int  reason: not valid java name */
-    private static int f25int = 12;
-
-    /* renamed from: if  reason: not valid java name */
-    private static int f24if = 13;
-    private static int a = 14;
-
-    /* renamed from: do  reason: not valid java name */
-    private static int f22do = NotificationProxy.MAX_URL_LENGTH;
+    private static int a = 0;
+    private static int b = 1;
+    private static int c = 2;
+    private static int d = 11;
+    private static int e = 12;
+    private static int f = 13;
+    private static int g = 14;
+    private static int h = NotificationProxy.MAX_URL_LENGTH;
+    private static boolean i;
 
     static {
-        f26new = false;
+        i = false;
         try {
             System.loadLibrary("locSDK3");
-        } catch (UnsatisfiedLinkError e) {
-            e.printStackTrace();
-            f26new = true;
+        } catch (UnsatisfiedLinkError e2) {
+            e2.printStackTrace();
+            i = true;
         }
     }
 
-    Jni() {
-    }
-
-    private static native String a(byte[] bArr, int i);
-
-    private static native String b(double d, double d2, int i, int i2);
-
-    /* renamed from: if  reason: not valid java name */
-    public static String m1if(String str) {
-        if (f26new) {
+    public static String a(String str) {
+        if (i) {
             return "err!";
         }
         byte[] bytes = str.getBytes();
-        byte[] bArr = new byte[f22do];
+        byte[] bArr = new byte[h];
         int length = bytes.length;
-        int i = length <= 740 ? length : 740;
-        int i2 = 0;
-        for (int i3 = 0; i3 < i; i3++) {
-            if (bytes[i3] != 0) {
-                bArr[i2] = bytes[i3];
-                i2++;
+        int i2 = length <= 740 ? length : 740;
+        int i3 = 0;
+        for (int i4 = 0; i4 < i2; i4++) {
+            if (bytes[i4] != 0) {
+                bArr[i3] = bytes[i4];
+                i3++;
             } else {
-                j.a(f.v, "\\0 found in string");
+                ap.a("baidu_location_service", "\\0 found in string");
             }
         }
-        j.a(f.v, "number:" + bytes.length);
+        ap.a("baidu_location_service", "number:" + bytes.length);
         return a(bArr, 132456) + "|tp=3";
     }
 
-    /* renamed from: if  reason: not valid java name */
-    public static double[] m2if(double d, double d2, String str) {
+    private static native String a(byte[] bArr, int i2);
+
+    public static double[] a(double d2, double d3, String str) {
         double[] dArr = {0.0d, 0.0d};
-        if (f26new) {
+        if (i) {
             return dArr;
         }
-        int i = -1;
+        int i2 = -1;
         if (str.equals("bd09")) {
-            i = f21case;
+            i2 = a;
         } else if (str.equals("bd09ll")) {
-            i = f27try;
+            i2 = b;
         } else if (str.equals("gcj02")) {
-            i = f20byte;
+            i2 = c;
         } else if (str.equals("gps2gcj")) {
-            i = f23for;
+            i2 = d;
         } else if (str.equals("bd092gcj")) {
-            i = f25int;
+            i2 = e;
         } else if (str.equals("bd09ll2gcj")) {
-            i = f24if;
+            i2 = f;
         }
-        j.a(f.v, "type:" + i);
+        ap.a("baidu_location_service", "type:" + i2);
         try {
-            String[] split = b(d, d2, i, 132456).split(":");
+            String[] split = b(d2, d3, i2, 132456).split(":");
             dArr[0] = Double.parseDouble(split[0]);
             dArr[1] = Double.parseDouble(split[1]);
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (Exception e2) {
+            e2.printStackTrace();
         }
         return dArr;
     }
+
+    private static native String b(double d2, double d3, int i2, int i3);
 }

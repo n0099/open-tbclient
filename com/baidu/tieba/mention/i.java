@@ -1,7 +1,7 @@
 package com.baidu.tieba.mention;
 
 import android.widget.ListView;
-import com.baidu.tieba.c.ag;
+import com.baidu.tieba.d.ae;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class i implements Runnable {
@@ -18,7 +18,7 @@ public class i implements Runnable {
         ListView listView2;
         e eVar;
         e eVar2;
-        String d;
+        String e;
         e eVar3;
         try {
             listView = this.a.d;
@@ -29,17 +29,17 @@ public class i implements Runnable {
                 eVar = this.a.e;
                 if (i < eVar.getCount()) {
                     eVar2 = this.a.e;
-                    com.baidu.tieba.a.p pVar = (com.baidu.tieba.a.p) eVar2.getItem(i);
-                    if (pVar != null && (d = pVar.i().d()) != null && d.length() > 0) {
+                    com.baidu.tieba.a.r rVar = (com.baidu.tieba.a.r) eVar2.getItem(i);
+                    if (rVar != null && (e = rVar.i().e()) != null && e.length() > 0) {
                         eVar3 = this.a.e;
-                        eVar3.e().d(d, new j(this));
+                        eVar3.e().d(e, new j(this));
                     }
                 } else {
                     return;
                 }
             }
-        } catch (Exception e) {
-            ag.b("MentionView", "mGetImageRunnble.run", "error = " + e.getMessage());
+        } catch (Exception e2) {
+            ae.b("MentionView", "mGetImageRunnble.run", "error = " + e2.getMessage());
         }
     }
 }

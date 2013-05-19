@@ -3,7 +3,6 @@ package com.baidu.mobstat;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Handler;
-import com.baidu.location.LocationClientOption;
 import java.util.Timer;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
@@ -53,6 +52,6 @@ public class h implements Runnable {
         handler = g.h;
         i iVar = new i(this);
         i = this.b.f;
-        handler.postDelayed(iVar, i * LocationClientOption.MIN_SCAN_SPAN);
+        handler.postDelayed(iVar, i * 1000);
     }
 }

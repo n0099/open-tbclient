@@ -1,34 +1,32 @@
 package com.baidu.tieba.pb;
 
-import android.content.Context;
-import android.view.View;
+import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
+import android.widget.ImageView;
+import com.baidu.adp.widget.ListView.BdListView;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class cg implements View.OnClickListener {
-    final /* synthetic */ cd a;
-    private String b = null;
-    private int c = 0;
-    private int d = 0;
+public class cg implements com.baidu.tieba.d.d {
+    final /* synthetic */ bl a;
 
-    public cg(cd cdVar) {
-        this.a = cdVar;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public cg(bl blVar) {
+        this.a = blVar;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        Context context;
-        context = this.a.a;
-        ((PbActivity) context).a(this.c, this.b, this.d);
-    }
-
-    public void a(String str) {
-        this.b = str;
-    }
-
-    public void a(int i) {
-        this.c = i;
-    }
-
-    public void b(int i) {
-        this.d = i;
+    @Override // com.baidu.tieba.d.d
+    public void a(Bitmap bitmap, String str, boolean z) {
+        BdListView bdListView;
+        BdListView bdListView2;
+        if (bitmap != null) {
+            bdListView = this.a.f;
+            ImageView imageView = (ImageView) bdListView.findViewWithTag(str);
+            while (imageView != null) {
+                imageView.setTag(null);
+                imageView.setBackgroundDrawable(new BitmapDrawable(bitmap));
+                bdListView2 = this.a.f;
+                imageView = (ImageView) bdListView2.findViewWithTag(str);
+            }
+        }
     }
 }

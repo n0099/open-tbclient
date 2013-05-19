@@ -1,23 +1,30 @@
 package com.baidu.tieba.account;
 
-import android.widget.CompoundButton;
-import android.widget.EditText;
+import android.view.KeyEvent;
+import android.view.View;
+import android.widget.TextView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class s implements CompoundButton.OnCheckedChangeListener {
-    final /* synthetic */ o a;
+public class s implements TextView.OnEditorActionListener {
+    final /* synthetic */ LoginActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public s(o oVar) {
-        this.a = oVar;
+    public s(LoginActivity loginActivity) {
+        this.a = loginActivity;
     }
 
-    @Override // android.widget.CompoundButton.OnCheckedChangeListener
-    public void onCheckedChanged(CompoundButton compoundButton, boolean z) {
-        EditText editText;
-        if (z) {
-            editText = this.a.c;
-            editText.setText(compoundButton.getText());
+    @Override // android.widget.TextView.OnEditorActionListener
+    public boolean onEditorAction(TextView textView, int i, KeyEvent keyEvent) {
+        View view;
+        View view2;
+        view = this.a.G;
+        if (view.getVisibility() != 8 || i != 4) {
+            view2 = this.a.G;
+            if (view2.getVisibility() != 0 || i != 6) {
+                return false;
+            }
         }
+        this.a.p();
+        return true;
     }
 }

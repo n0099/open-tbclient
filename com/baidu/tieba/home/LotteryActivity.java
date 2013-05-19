@@ -12,17 +12,16 @@ import android.os.Vibrator;
 import android.view.View;
 import android.widget.TextView;
 import com.baidu.browser.explorer.BdWebErrorView;
-import com.baidu.location.LocationClientOption;
 import com.baidu.loginshare.Token;
-import com.baidu.tieba.R;
 import com.baidu.tieba.account.LoginActivity;
 import com.baidu.tieba.pb.WebActivity;
+import com.slidingmenu.lib.R;
 import java.util.regex.Pattern;
 /* loaded from: classes.dex */
 public class LotteryActivity extends WebActivity implements SensorEventListener {
     private static int i = 80;
     private static int j = 15;
-    private static int k = LocationClientOption.MIN_SCAN_SPAN;
+    private static int k = 1000;
     private static int l = 4;
     private static int m = BdWebErrorView.ERROR_CODE_500;
     private SensorManager n = null;
@@ -52,19 +51,19 @@ public class LotteryActivity extends WebActivity implements SensorEventListener 
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.pb.WebActivity, com.baidu.tieba.e, android.app.Activity
+    @Override // com.baidu.tieba.pb.WebActivity, com.baidu.tieba.e, com.baidu.adp.a.a, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        k();
+        d();
         View decorView = getWindow().getDecorView();
         if (decorView != null) {
-            decorView.measure(0, View.MeasureSpec.makeMeasureSpec(com.baidu.tieba.c.ai.b((Context) this), 1073741824));
+            decorView.measure(0, View.MeasureSpec.makeMeasureSpec(com.baidu.tieba.d.ag.b((Context) this), 1073741824));
             View findViewById = decorView.findViewById(R.id.webview);
             if (findViewById != null) {
                 this.y = findViewById.getMeasuredHeight();
             }
             if (this.y > 0 && this.z.matcher(this.e).find()) {
-                this.e = com.baidu.tieba.c.ai.a(this.e, "h=" + String.valueOf(this.y));
+                this.e = com.baidu.tieba.d.ag.a(this.e, "h=" + String.valueOf(this.y));
             }
         }
         this.n = (SensorManager) getSystemService("sensor");
@@ -78,14 +77,12 @@ public class LotteryActivity extends WebActivity implements SensorEventListener 
         super.onDestroy();
     }
 
-    private void k() {
+    private void d() {
         this.o = (TextView) findViewById(R.id.title_text);
         this.o.setVisibility(0);
         this.o.setText(R.string.lottery);
-        j();
-        this.d.setBackgroundResource(R.drawable.title_comm);
-        this.d.setText(getString(R.string.close));
-        a(new aa(this));
+        c();
+        a(new u(this));
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -145,7 +142,7 @@ public class LotteryActivity extends WebActivity implements SensorEventListener 
                         this.q = currentTimeMillis;
                         this.p.vibrate(100L);
                         if (this.f != null && this.f.length() > 0) {
-                            l();
+                            m();
                         } else {
                             LoginActivity.a((Activity) this, getString(R.string.login_to_lottery), true, 1100023);
                         }
@@ -165,8 +162,8 @@ public class LotteryActivity extends WebActivity implements SensorEventListener 
                     if (intent != null && (b = com.baidu.tieba.account.a.b(intent.getStringExtra("BDUSS"))) != null) {
                         this.f = b.mBduss;
                         this.g = b.mPtoken;
-                        i();
-                        l();
+                        b();
+                        m();
                         return;
                     }
                     return;
@@ -176,8 +173,8 @@ public class LotteryActivity extends WebActivity implements SensorEventListener 
         }
     }
 
-    private void l() {
-        String a = com.baidu.tieba.c.ai.a(com.baidu.tieba.c.ai.a(getIntent().getStringExtra("lottery_url"), "tbs=" + getIntent().getStringExtra("tbs")), "h=" + String.valueOf(this.y));
+    private void m() {
+        String a = com.baidu.tieba.d.ag.a(com.baidu.tieba.d.ag.a(getIntent().getStringExtra("lottery_url"), "tbs=" + getIntent().getStringExtra("tbs")), "h=" + String.valueOf(this.y));
         if (a != null) {
             this.c.loadUrl(a);
             this.o.setText((CharSequence) null);

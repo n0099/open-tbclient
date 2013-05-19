@@ -1,119 +1,29 @@
 package com.baidu.tieba.person;
 
-import android.os.AsyncTask;
-import android.widget.ProgressBar;
-import com.baidu.tieba.R;
+import android.view.View;
+import android.widget.AdapterView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class bg extends AsyncTask {
-    final /* synthetic */ PersonInfoActivity a;
-    private com.baidu.tieba.c.t b;
-
-    private bg(PersonInfoActivity personInfoActivity) {
-        this.a = personInfoActivity;
-        this.b = null;
-    }
+public class bg implements AdapterView.OnItemClickListener {
+    final /* synthetic */ PersonLbsActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ bg(PersonInfoActivity personInfoActivity, bg bgVar) {
-        this(personInfoActivity);
+    public bg(PersonLbsActivity personLbsActivity) {
+        this.a = personLbsActivity;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // android.os.AsyncTask
-    /* renamed from: a */
-    public String doInBackground(Integer... numArr) {
-        com.baidu.tieba.b.t tVar;
-        com.baidu.tieba.b.t tVar2;
-        com.baidu.tieba.b.t tVar3;
-        try {
-            int intValue = numArr[0].intValue();
-            tVar = this.a.p;
-            if (tVar != null) {
-                tVar2 = this.a.p;
-                if (tVar2.c() != null) {
-                    this.b = new com.baidu.tieba.c.t();
-                    if (intValue == 0) {
-                        this.b.a("http://c.tieba.baidu.com/c/c/user/follow");
-                    } else {
-                        this.b.a("http://c.tieba.baidu.com/c/c/user/unfollow");
-                    }
-                    com.baidu.tieba.c.t tVar4 = this.b;
-                    tVar3 = this.a.p;
-                    tVar4.a("portrait", tVar3.c().d());
-                    this.b.d(true);
-                    this.b.i();
-                    return null;
-                }
-                return null;
-            }
-            return null;
-        } catch (Exception e) {
-            com.baidu.tieba.c.ag.b(getClass().getName(), "doInBackground", e.getMessage());
-            return null;
+    @Override // android.widget.AdapterView.OnItemClickListener
+    public void onItemClick(AdapterView adapterView, View view, int i, long j) {
+        int i2;
+        int i3;
+        if (j == -1) {
+            PersonLbsActivity personLbsActivity = this.a;
+            i3 = this.a.r;
+            personLbsActivity.a(1, i3 - 1);
+        } else if (j == -2) {
+            PersonLbsActivity personLbsActivity2 = this.a;
+            i2 = this.a.s;
+            personLbsActivity2.a(2, i2 + 1);
         }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // android.os.AsyncTask
-    /* renamed from: a */
-    public void onPostExecute(String str) {
-        ProgressBar progressBar;
-        com.baidu.tieba.b.t tVar;
-        com.baidu.tieba.b.t tVar2;
-        com.baidu.tieba.b.t tVar3;
-        com.baidu.tieba.b.t tVar4;
-        super.onPostExecute(str);
-        this.a.X = null;
-        progressBar = this.a.u;
-        progressBar.setVisibility(8);
-        if (this.b != null) {
-            if (this.b.b()) {
-                tVar = this.a.p;
-                if (tVar.c() != null) {
-                    tVar2 = this.a.p;
-                    if (tVar2.c().m() == 1) {
-                        tVar4 = this.a.p;
-                        tVar4.c().c(0);
-                    } else {
-                        tVar3 = this.a.p;
-                        tVar3.c().c(1);
-                    }
-                }
-                this.a.l();
-                this.a.b(this.a.getString(R.string.success));
-                return;
-            }
-            this.a.b(this.b.f());
-        }
-    }
-
-    @Override // android.os.AsyncTask
-    protected void onPreExecute() {
-        com.baidu.tieba.b.t tVar;
-        com.baidu.tieba.b.t tVar2;
-        ProgressBar progressBar;
-        tVar = this.a.p;
-        if (tVar != null) {
-            tVar2 = this.a.p;
-            if (tVar2.c() != null) {
-                progressBar = this.a.u;
-                progressBar.setVisibility(0);
-            }
-        }
-    }
-
-    public void a() {
-        ProgressBar progressBar;
-        if (this.b != null) {
-            this.b.g();
-            this.b = null;
-        }
-        progressBar = this.a.u;
-        progressBar.setVisibility(8);
-        this.a.X = null;
-        super.cancel(true);
     }
 }

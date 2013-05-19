@@ -1,9 +1,9 @@
 package com.baidu.tieba;
 
-import android.widget.ImageView;
-import android.widget.LinearLayout;
+import android.view.View;
+import com.baidu.tieba.view.BaseViewPager;
 /* loaded from: classes.dex */
-class k implements android.support.v4.view.aj {
+class k implements View.OnClickListener {
     final /* synthetic */ GuideActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -11,30 +11,17 @@ class k implements android.support.v4.view.aj {
         this.a = guideActivity;
     }
 
-    @Override // android.support.v4.view.aj
-    public void a(int i) {
-        LinearLayout linearLayout;
-        LinearLayout linearLayout2;
-        linearLayout = this.a.j;
-        int childCount = linearLayout.getChildCount();
-        if (i < childCount) {
-            for (int i2 = 0; i2 < childCount; i2++) {
-                linearLayout2 = this.a.j;
-                ImageView imageView = (ImageView) linearLayout2.getChildAt(i2);
-                if (i2 != i) {
-                    imageView.setBackgroundResource(R.drawable.tag_page_rb_click);
-                } else {
-                    imageView.setBackgroundResource(R.drawable.tag_page_rb_normal);
-                }
-            }
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        BaseViewPager baseViewPager;
+        int[] iArr;
+        BaseViewPager baseViewPager2;
+        baseViewPager = this.a.f;
+        int currentItem = baseViewPager.getCurrentItem();
+        iArr = this.a.c;
+        if (currentItem != iArr.length - 1) {
+            baseViewPager2 = this.a.f;
+            baseViewPager2.a(currentItem + 1, true);
         }
-    }
-
-    @Override // android.support.v4.view.aj
-    public void b(int i) {
-    }
-
-    @Override // android.support.v4.view.aj
-    public void a(int i, float f, int i2) {
     }
 }

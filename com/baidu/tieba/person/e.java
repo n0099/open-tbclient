@@ -24,9 +24,9 @@ public class e implements AdapterView.OnItemClickListener {
             if (hVar == null) {
                 this.a.j = i;
                 iVar2 = this.a.g;
-                com.baidu.tieba.a.q qVar = (com.baidu.tieba.a.q) iVar2.getItem(i);
-                if (qVar != null) {
-                    FrsActivity.a(this.a, qVar.c(), "tb_mytieba");
+                com.baidu.tieba.a.s sVar = (com.baidu.tieba.a.s) iVar2.getItem(i);
+                if (sVar != null) {
+                    FrsActivity.a(this.a, sVar.b(), "tb_mytieba");
                 }
             }
         }

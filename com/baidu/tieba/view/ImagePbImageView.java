@@ -9,8 +9,8 @@ import android.graphics.RectF;
 import android.os.Handler;
 import android.util.AttributeSet;
 import android.widget.ImageView;
-import com.baidu.tieba.R;
 import com.baidu.tieba.TiebaApplication;
+import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public class ImagePbImageView extends ImageView {
     private boolean a;
@@ -64,9 +64,9 @@ public class ImagePbImageView extends ImageView {
         this.f = new RectF();
         this.g = false;
         this.h = false;
-        this.i = com.baidu.tieba.c.e.a((int) R.drawable.image_pb_next);
+        this.i = com.baidu.tieba.d.e.a((int) R.drawable.image_pb_next);
         this.j = -1;
-        this.k = new t(this);
+        this.k = new w(this);
         c();
     }
 
@@ -80,9 +80,9 @@ public class ImagePbImageView extends ImageView {
         this.f = new RectF();
         this.g = false;
         this.h = false;
-        this.i = com.baidu.tieba.c.e.a((int) R.drawable.image_pb_next);
+        this.i = com.baidu.tieba.d.e.a((int) R.drawable.image_pb_next);
         this.j = -1;
-        this.k = new t(this);
+        this.k = new w(this);
         c();
     }
 
@@ -96,9 +96,9 @@ public class ImagePbImageView extends ImageView {
         this.f = new RectF();
         this.g = false;
         this.h = false;
-        this.i = com.baidu.tieba.c.e.a((int) R.drawable.image_pb_next);
+        this.i = com.baidu.tieba.d.e.a((int) R.drawable.image_pb_next);
         this.j = -1;
-        this.k = new t(this);
+        this.k = new w(this);
         c();
     }
 
@@ -110,29 +110,24 @@ public class ImagePbImageView extends ImageView {
     protected void onDraw(Canvas canvas) {
         Bitmap bitmap;
         super.onDraw(canvas);
-        String str = String.valueOf((String) getTag()) + "_big";
-        Bitmap bitmap2 = null;
-        com.baidu.tieba.c.ac an = TiebaApplication.b().an();
-        if (an != null) {
-            bitmap2 = an.c(str);
-        }
-        if (bitmap2 == null) {
+        Bitmap c = com.baidu.tbadk.a.d.a().c(String.valueOf((String) getTag()) + "_big");
+        if (c == null) {
             this.g = false;
-            if (TiebaApplication.b().ah() == 1) {
-                bitmap = com.baidu.tieba.c.e.a((int) R.drawable.image_default_1);
+            if (TiebaApplication.d().ai() == 1) {
+                bitmap = com.baidu.tieba.d.e.a((int) R.drawable.image_default_1);
             } else {
-                bitmap = com.baidu.tieba.c.e.a((int) R.drawable.image_default);
+                bitmap = com.baidu.tieba.d.e.a((int) R.drawable.image_default);
             }
         } else {
             this.g = true;
-            bitmap = bitmap2;
+            bitmap = c;
         }
         if (bitmap != null) {
             this.d.setAlpha(255);
             if (this.j >= 0) {
                 this.d.setAlpha(255 - ((this.j * 255) / 10));
             }
-            int a = com.baidu.tieba.c.ai.a(getContext(), 8.0f);
+            int a = com.baidu.tieba.d.ag.a(getContext(), 8.0f);
             int width = bitmap.getWidth();
             int height = bitmap.getHeight();
             int width2 = getWidth() - a;
@@ -151,7 +146,7 @@ public class ImagePbImageView extends ImageView {
             }
             this.c.postTranslate(f, f2);
             canvas.drawBitmap(bitmap, this.c, this.d);
-            if (this.g && TiebaApplication.b().ah() == 1) {
+            if (this.g && TiebaApplication.d().ai() == 1) {
                 this.f.set(f, f2, width + f, height + f2);
                 canvas.drawRect(this.f, this.e);
             }

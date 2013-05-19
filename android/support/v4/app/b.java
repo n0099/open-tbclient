@@ -6,8 +6,8 @@ import java.io.PrintWriter;
 import java.util.ArrayList;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class b extends q implements Runnable {
-    final l a;
+public final class b extends s implements Runnable {
+    final m a;
     c b;
     c c;
     int d;
@@ -117,8 +117,8 @@ public final class b extends q implements Runnable {
         }
     }
 
-    public b(l lVar) {
-        this.a = lVar;
+    public b(m mVar) {
+        this.a = mVar;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -138,8 +138,8 @@ public final class b extends q implements Runnable {
         this.d++;
     }
 
-    @Override // android.support.v4.app.q
-    public q a(Fragment fragment) {
+    @Override // android.support.v4.app.s
+    public s a(Fragment fragment) {
         c cVar = new c();
         cVar.c = 3;
         cVar.d = fragment;
@@ -150,19 +150,19 @@ public final class b extends q implements Runnable {
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a(int i) {
         if (this.k) {
-            if (l.a) {
+            if (m.a) {
                 Log.v("BackStackEntry", "Bump nesting in " + this + " by " + i);
             }
             for (c cVar = this.b; cVar != null; cVar = cVar.a) {
                 cVar.d.z += i;
-                if (l.a) {
+                if (m.a) {
                     Log.v("BackStackEntry", "Bump nesting of " + cVar.d + " to " + cVar.d.z);
                 }
                 if (cVar.i != null) {
                     for (int size = cVar.i.size() - 1; size >= 0; size--) {
                         Fragment fragment = (Fragment) cVar.i.get(size);
                         fragment.z += i;
-                        if (l.a) {
+                        if (m.a) {
                             Log.v("BackStackEntry", "Bump nesting of " + fragment + " to " + fragment.z);
                         }
                     }
@@ -171,12 +171,12 @@ public final class b extends q implements Runnable {
         }
     }
 
-    @Override // android.support.v4.app.q
+    @Override // android.support.v4.app.s
     public int a() {
         return a(false);
     }
 
-    @Override // android.support.v4.app.q
+    @Override // android.support.v4.app.s
     public int b() {
         return a(true);
     }
@@ -185,7 +185,7 @@ public final class b extends q implements Runnable {
         if (this.n) {
             throw new IllegalStateException("commit already called");
         }
-        if (l.a) {
+        if (m.a) {
             Log.v("BackStackEntry", "Commit: " + this);
         }
         this.n = true;
@@ -200,7 +200,7 @@ public final class b extends q implements Runnable {
 
     @Override // java.lang.Runnable
     public void run() {
-        if (l.a) {
+        if (m.a) {
             Log.v("BackStackEntry", "Run: " + this);
         }
         if (this.k && this.o < 0) {
@@ -219,7 +219,7 @@ public final class b extends q implements Runnable {
                     if (this.a.g != null) {
                         for (int i = 0; i < this.a.g.size(); i++) {
                             Fragment fragment3 = (Fragment) this.a.g.get(i);
-                            if (l.a) {
+                            if (m.a) {
                                 Log.v("BackStackEntry", "OP_REPLACE: adding=" + fragment2 + " old=" + fragment3);
                             }
                             if (fragment3.D == fragment2.D) {
@@ -230,7 +230,7 @@ public final class b extends q implements Runnable {
                                 fragment3.M = cVar.f;
                                 if (this.k) {
                                     fragment3.z++;
-                                    if (l.a) {
+                                    if (m.a) {
                                         Log.v("BackStackEntry", "Bump nesting of " + fragment3 + " to " + fragment3.z);
                                     }
                                 }
@@ -277,7 +277,7 @@ public final class b extends q implements Runnable {
     }
 
     public void b(boolean z) {
-        if (l.a) {
+        if (m.a) {
             Log.v("BackStackEntry", "popFromBackStack: " + this);
         }
         a(-1);
@@ -286,12 +286,12 @@ public final class b extends q implements Runnable {
                 case 1:
                     Fragment fragment = cVar.d;
                     fragment.M = cVar.h;
-                    this.a.a(fragment, l.c(this.i), this.j);
+                    this.a.a(fragment, m.c(this.i), this.j);
                     break;
                 case 2:
                     Fragment fragment2 = cVar.d;
                     fragment2.M = cVar.h;
-                    this.a.a(fragment2, l.c(this.i), this.j);
+                    this.a.a(fragment2, m.c(this.i), this.j);
                     if (cVar.i != null) {
                         for (int i = 0; i < cVar.i.size(); i++) {
                             Fragment fragment3 = (Fragment) cVar.i.get(i);
@@ -310,29 +310,29 @@ public final class b extends q implements Runnable {
                 case 4:
                     Fragment fragment5 = cVar.d;
                     fragment5.M = cVar.g;
-                    this.a.c(fragment5, l.c(this.i), this.j);
+                    this.a.c(fragment5, m.c(this.i), this.j);
                     break;
                 case 5:
                     Fragment fragment6 = cVar.d;
                     fragment6.M = cVar.h;
-                    this.a.b(fragment6, l.c(this.i), this.j);
+                    this.a.b(fragment6, m.c(this.i), this.j);
                     break;
                 case 6:
                     Fragment fragment7 = cVar.d;
                     fragment7.M = cVar.g;
-                    this.a.e(fragment7, l.c(this.i), this.j);
+                    this.a.e(fragment7, m.c(this.i), this.j);
                     break;
                 case 7:
                     Fragment fragment8 = cVar.d;
                     fragment8.M = cVar.g;
-                    this.a.d(fragment8, l.c(this.i), this.j);
+                    this.a.d(fragment8, m.c(this.i), this.j);
                     break;
                 default:
                     throw new IllegalArgumentException("Unknown cmd: " + cVar.c);
             }
         }
         if (z) {
-            this.a.a(this.a.n, l.c(this.i), this.j, true);
+            this.a.a(this.a.n, m.c(this.i), this.j, true);
         }
         if (this.o >= 0) {
             this.a.b(this.o);

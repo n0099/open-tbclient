@@ -1,63 +1,48 @@
 package com.baidu.tieba.a;
 
-import java.io.Serializable;
+import java.util.ArrayList;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes.dex */
-public class ap implements Serializable {
-    private String a;
-    private String b;
-    private String c;
-    private String d;
-    private int e;
-    private String f;
+public class ap {
+    private ArrayList a = new ArrayList();
+    private ak b = new ak();
 
-    public String a() {
+    public void a(ak akVar) {
+        this.b = akVar;
+    }
+
+    public ak a() {
+        return this.b;
+    }
+
+    public ArrayList b() {
         return this.a;
     }
 
     public void a(String str) {
-        this.a = str;
-    }
-
-    public String b() {
-        return this.b;
-    }
-
-    public void b(String str) {
-        if (str != null) {
-            str = com.baidu.tieba.c.af.b(str.getBytes());
+        try {
+            a(new JSONObject(str));
+        } catch (Exception e) {
+            com.baidu.tieba.d.ae.b(getClass().getName(), "parserJson", e.getMessage());
         }
-        this.b = str;
     }
 
-    public String c() {
-        return this.c;
-    }
-
-    public void c(String str) {
-        this.c = str;
-    }
-
-    public void d(String str) {
-        this.d = str;
-    }
-
-    public String d() {
-        return this.d;
-    }
-
-    public void e(String str) {
-        this.f = str;
-    }
-
-    public String e() {
-        return this.f;
-    }
-
-    public void a(int i) {
-        this.e = i;
-    }
-
-    public int f() {
-        return this.e;
+    public void a(JSONObject jSONObject) {
+        if (jSONObject != null) {
+            try {
+                JSONArray optJSONArray = jSONObject.optJSONArray("user_list");
+                if (optJSONArray != null) {
+                    for (int i = 0; i < optJSONArray.length(); i++) {
+                        ai aiVar = new ai();
+                        aiVar.a(optJSONArray.getJSONObject(i));
+                        this.a.add(aiVar);
+                    }
+                }
+                this.b.a(jSONObject.optJSONObject("page"));
+            } catch (Exception e) {
+                com.baidu.tieba.d.ae.b(getClass().getName(), "parserJson", e.getMessage());
+            }
+        }
     }
 }

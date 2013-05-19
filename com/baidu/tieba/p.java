@@ -1,10 +1,11 @@
 package com.baidu.tieba;
 
-import android.app.AlertDialog;
-import android.view.View;
-import com.baidu.tieba.a.aw;
+import android.view.animation.Animation;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-class p implements View.OnClickListener {
+class p implements android.support.v4.view.aj {
     final /* synthetic */ LabelActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -12,22 +13,36 @@ class p implements View.OnClickListener {
         this.a = labelActivity;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        com.baidu.tieba.b.f fVar;
-        ai aiVar;
-        com.baidu.tieba.b.f fVar2;
-        AlertDialog alertDialog;
-        fVar = this.a.q;
-        fVar.b((aw) view.getTag());
-        aiVar = this.a.J;
-        aiVar.notifyDataSetChanged();
-        fVar2 = this.a.q;
-        if (fVar2.h().size() == 0) {
-            this.a.b(this.a.getString(R.string.tag_is_null));
-            alertDialog = this.a.H;
-            alertDialog.hide();
+    @Override // android.support.v4.view.aj
+    public void a(int i) {
+        LinearLayout linearLayout;
+        Animation animation;
+        Animation animation2;
+        LinearLayout linearLayout2;
+        linearLayout = this.a.t;
+        int childCount = linearLayout.getChildCount();
+        if (i < childCount) {
+            for (int i2 = 0; i2 < childCount; i2++) {
+                linearLayout2 = this.a.t;
+                ImageView imageView = (ImageView) linearLayout2.getChildAt(i2);
+                if (i2 != i) {
+                    imageView.setBackgroundResource(R.drawable.tag_page_rb_click);
+                } else {
+                    imageView.setBackgroundResource(R.drawable.tag_page_rb_normal);
+                }
+            }
         }
-        this.a.c(false);
+        animation = this.a.w;
+        animation.reset();
+        animation2 = this.a.w;
+        animation2.start();
+    }
+
+    @Override // android.support.v4.view.aj
+    public void b(int i) {
+    }
+
+    @Override // android.support.v4.view.aj
+    public void a(int i, float f, int i2) {
     }
 }

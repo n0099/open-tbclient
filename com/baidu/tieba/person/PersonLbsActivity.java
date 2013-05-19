@@ -7,41 +7,41 @@ import android.os.Handler;
 import android.view.View;
 import android.widget.AbsListView;
 import android.widget.AdapterView;
-import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
-import com.baidu.tieba.R;
 import com.baidu.tieba.TiebaApplication;
+import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public class PersonLbsActivity extends com.baidu.tieba.e {
     private ListView c = null;
     private LinearLayout d = null;
     private TextView e = null;
     private TextView f = null;
-    private Button g = null;
-    private Button h = null;
+    private ImageView g = null;
+    private ImageView h = null;
     private ProgressBar i = null;
     private LinearLayout j = null;
     private boolean k = false;
     private String l = null;
     private View.OnClickListener m = null;
-    private bo n = null;
-    private bn o = null;
-    private com.baidu.tieba.b.u p = null;
+    private bi n = null;
+    private bh o = null;
+    private com.baidu.tieba.c.bi p = null;
     private AbsListView.OnScrollListener q = null;
     private int r = 1;
     private int s = 1;
     private AdapterView.OnItemClickListener t = null;
     private Handler u = new Handler();
-    private Runnable v = new bi(this);
+    private Runnable v = new bc(this);
 
     public static void a(Context context, String str) {
         Intent intent = new Intent(context, PersonLbsActivity.class);
         intent.putExtra("un", str);
-        if (TiebaApplication.y() != null && TiebaApplication.y().equals(str)) {
+        if (TiebaApplication.z() != null && TiebaApplication.z().equals(str)) {
             intent.putExtra("self", true);
         } else {
             intent.putExtra("self", false);
@@ -50,35 +50,35 @@ public class PersonLbsActivity extends com.baidu.tieba.e {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.e, android.app.Activity
+    @Override // com.baidu.tieba.e, com.baidu.adp.a.a, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         setContentView(R.layout.person_lbs_activity);
-        i();
-        j();
+        b();
+        c();
     }
 
-    private void i() {
-        this.m = new bk(this);
-        this.q = new bl(this);
-        this.t = new bm(this);
+    private void b() {
+        this.m = new be(this);
+        this.q = new bf(this);
+        this.t = new bg(this);
         this.j = (LinearLayout) findViewById(R.id.parent);
         this.c = (ListView) findViewById(R.id.list);
         this.d = (LinearLayout) findViewById(R.id.title);
         this.f = (TextView) findViewById(R.id.no_data);
         this.e = (TextView) findViewById(R.id.title_text);
-        this.g = (Button) findViewById(R.id.back);
-        this.h = (Button) findViewById(R.id.refresh);
+        this.g = (ImageView) findViewById(R.id.back);
+        this.h = (ImageView) findViewById(R.id.refresh);
         this.i = (ProgressBar) findViewById(R.id.progress);
         this.g.setOnClickListener(this.m);
         this.h.setOnClickListener(this.m);
-        this.n = new bo(this);
+        this.n = new bi(this);
         this.c.setAdapter((ListAdapter) this.n);
         this.c.setOnScrollListener(this.q);
         this.c.setOnItemClickListener(this.t);
     }
 
-    private void j() {
+    private void c() {
         Intent intent = getIntent();
         this.k = intent.getBooleanExtra("self", false);
         if (this.k) {
@@ -96,11 +96,11 @@ public class PersonLbsActivity extends com.baidu.tieba.e {
     @Override // com.baidu.tieba.e
     public void b(int i) {
         super.b(i);
-        com.baidu.tieba.c.ae.a(this.j, i);
-        com.baidu.tieba.c.ae.c(this.d, i);
-        com.baidu.tieba.c.ae.c(this.e, i);
-        com.baidu.tieba.c.ae.e((TextView) this.g, i);
-        com.baidu.tieba.c.ae.e((View) this.h, i);
+        com.baidu.tieba.d.ac.a(this.j, i);
+        com.baidu.tieba.d.ac.d(this.d, i);
+        com.baidu.tieba.d.ac.f(this.e, i);
+        com.baidu.tieba.d.ac.a(this.g, i);
+        com.baidu.tieba.d.ac.b(this.h, i);
         if (i == 1) {
             this.c.setBackgroundColor(getResources().getColor(R.color.skin_1_common_bg));
             this.c.setSelector(R.drawable.list_selector_1);
@@ -115,13 +115,14 @@ public class PersonLbsActivity extends com.baidu.tieba.e {
     /* JADX INFO: Access modifiers changed from: private */
     public void a(int i, int i2) {
         if (this.o != null) {
-            if (this.o.b() != i) {
-                this.o.a();
+            if (this.o.e() != i) {
+                this.o.cancel();
             } else {
                 return;
             }
         }
-        this.o = new bn(this, i2, i);
+        this.o = new bh(this, i2, i);
+        this.o.setPriority(3);
         this.o.execute(new String[0]);
     }
 
@@ -147,7 +148,7 @@ public class PersonLbsActivity extends com.baidu.tieba.e {
         super.onDestroy();
         this.u.removeCallbacks(this.v);
         if (this.o != null) {
-            this.o.a();
+            this.o.cancel();
         }
         if (this.n != null) {
             this.n.b();

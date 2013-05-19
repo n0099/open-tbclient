@@ -1,79 +1,51 @@
 package com.baidu.tieba.view;
 
 import android.app.Activity;
+import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.Button;
-import android.widget.LinearLayout;
-import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.frs.FrsActivity;
-import com.baidu.tieba.frs.FrsImageActivity;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ListAdapter;
+import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-public class m implements View.OnClickListener {
-    final /* synthetic */ l a;
+public class m {
+    private View a;
+    private GoodGridView b;
+    private Activity c;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public m(l lVar) {
-        this.a = lVar;
+    public m(Activity activity) {
+        this.a = null;
+        this.b = null;
+        this.c = null;
+        this.c = activity;
+        this.a = LayoutInflater.from(activity).inflate(R.layout.dialog_good, (ViewGroup) null);
+        this.b = (GoodGridView) this.a.findViewById(R.id.good_gridview);
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        LinearLayout linearLayout;
-        LinearLayout linearLayout2;
-        Button button;
-        Button button2;
-        o oVar;
-        String str;
-        Activity activity;
-        String str2;
-        Activity activity2;
-        o oVar2;
-        String str3;
-        Activity activity3;
-        String str4;
-        Activity activity4;
-        linearLayout = this.a.b;
-        if (view != linearLayout) {
-            linearLayout2 = this.a.c;
-            if (view != linearLayout2) {
-                button = this.a.f;
-                if (view != button) {
-                    button2 = this.a.g;
-                    if (view == button2) {
-                        oVar = this.a.p;
-                        if (oVar != o.FRS_IMAGE) {
-                            TiebaApplication b = TiebaApplication.b();
-                            str = this.a.q;
-                            b.c(str);
-                            activity = this.a.o;
-                            str2 = this.a.q;
-                            FrsImageActivity.a(activity, str2, null, 0);
-                            activity2 = this.a.o;
-                            activity2.finish();
-                            return;
-                        }
-                        return;
-                    }
-                    return;
-                }
-                oVar2 = this.a.p;
-                if (oVar2 != o.FRS_LIST) {
-                    TiebaApplication b2 = TiebaApplication.b();
-                    str3 = this.a.q;
-                    b2.d(str3);
-                    activity3 = this.a.o;
-                    str4 = this.a.q;
-                    FrsActivity.a(activity3, str4, (String) null);
-                    activity4 = this.a.o;
-                    activity4.finish();
-                    return;
-                }
-                return;
-            }
-            this.a.b();
+    public void a(com.baidu.tieba.frs.ag agVar) {
+        this.b.setAdapter((ListAdapter) agVar);
+    }
+
+    public void a(AdapterView.OnItemClickListener onItemClickListener) {
+        this.b.setOnItemClickListener(onItemClickListener);
+    }
+
+    public View a() {
+        return this.a;
+    }
+
+    public void a(int i) {
+        int a = com.baidu.tieba.d.ag.a(this.c, 10.0f);
+        if (i == 1) {
+            this.b.setBackgroundResource(R.drawable.bg_topbar_1);
+            this.b.setPadding(0, a, 0, a);
             return;
         }
-        this.a.a();
+        this.b.setBackgroundDrawable(null);
+        this.b.setBackgroundColor(-1);
+        this.b.setPadding(0, a, 0, a);
+    }
+
+    public void b() {
     }
 }

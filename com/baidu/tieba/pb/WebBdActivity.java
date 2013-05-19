@@ -54,7 +54,7 @@ public class WebBdActivity extends com.baidu.tieba.e implements Browser.BrowserL
         this.e = intent.getStringExtra("ptoken");
     }
 
-    public void i() {
+    public void b() {
         if (this.d != null) {
             BdCookieSyncManager.createInstance(this);
             BdCookieManager.getInstance().setCookie("wappass.baidu.com", "BDUSS=" + this.d + "; domain=.baidu.com;");
@@ -66,7 +66,7 @@ public class WebBdActivity extends com.baidu.tieba.e implements Browser.BrowserL
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.e, android.app.Activity
+    @Override // com.baidu.tieba.e, com.baidu.adp.a.a, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         a(bundle);
@@ -80,7 +80,7 @@ public class WebBdActivity extends com.baidu.tieba.e implements Browser.BrowserL
             return;
         }
         try {
-            i();
+            b();
             requestWindowFeature(1);
             BdWebViewManager.getInstance().addObserver(this);
             Browser.getInstance(this).onCreate(bundle);
@@ -247,14 +247,14 @@ public class WebBdActivity extends com.baidu.tieba.e implements Browser.BrowserL
         return super.onKeyDown(i, keyEvent);
     }
 
-    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:22:0x0068 -> B:9:0x0020). Please submit an issue!!! */
+    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:22:0x0069 -> B:9:0x0020). Please submit an issue!!! */
     @Override // com.baidu.browser.Browser.BrowserListener
     public boolean shouldOverrideUrlLoading(BdWebPoolView bdWebPoolView, String str) {
         if (str != null && str.contains("jump_tieba_native=1")) {
             try {
                 for (NameValuePair nameValuePair : URLEncodedUtils.parse(new URI(str), BdUtil.UTF8)) {
                     if (nameValuePair.getName().equalsIgnoreCase("kz")) {
-                        PbActivity.a(this, nameValuePair.getValue(), (String) null);
+                        NewPbActivity.a(this, nameValuePair.getValue(), null, null);
                         return true;
                     } else if (nameValuePair.getName().equalsIgnoreCase("kw")) {
                         FrsActivity.a(this, nameValuePair.getValue(), (String) null);
@@ -265,7 +265,7 @@ public class WebBdActivity extends com.baidu.tieba.e implements Browser.BrowserL
                     }
                 }
             } catch (Exception e) {
-                com.baidu.tieba.c.ag.b(getClass().getName(), "shouldOverrideUrlLoading", e.getMessage());
+                com.baidu.tieba.d.ae.b(getClass().getName(), "shouldOverrideUrlLoading", e.getMessage());
             }
         }
         return false;

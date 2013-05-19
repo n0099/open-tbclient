@@ -1,9 +1,8 @@
 package android.support.v4.view;
 
 import android.database.DataSetObserver;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ak extends DataSetObserver {
+class ak extends DataSetObserver {
     final /* synthetic */ ViewPager a;
 
     private ak(ViewPager viewPager) {

@@ -10,17 +10,17 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
-import com.baidu.tieba.R;
 import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.c.ae;
-import com.baidu.tieba.c.af;
-import com.baidu.tieba.c.ag;
+import com.baidu.tieba.d.ac;
+import com.baidu.tieba.d.ad;
+import com.baidu.tieba.d.ae;
+import com.slidingmenu.lib.R;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class e extends BaseAdapter {
     private Context a;
     private ArrayList b;
-    private com.baidu.tieba.c.a c;
+    private com.baidu.tieba.d.a c;
     private String d;
     private int h;
     private boolean e = false;
@@ -33,7 +33,7 @@ public class e extends BaseAdapter {
         this.a = context;
         this.b = arrayList;
         this.d = this.a.getText(R.string.forum).toString();
-        this.c = new com.baidu.tieba.c.a(this.a);
+        this.c = new com.baidu.tieba.d.a(this.a);
     }
 
     public void a() {
@@ -45,7 +45,7 @@ public class e extends BaseAdapter {
                     try {
                         ((ProgressBar) this.j.get(i2)).setVisibility(8);
                     } catch (Exception e) {
-                        ag.b(getClass().getName(), "releaseProgressBar", e.getMessage());
+                        ae.b(getClass().getName(), "releaseProgressBar", e.getMessage());
                     }
                     i = i2 + 1;
                 } else {
@@ -92,7 +92,7 @@ public class e extends BaseAdapter {
         return this.i;
     }
 
-    public com.baidu.tieba.c.a e() {
+    public com.baidu.tieba.d.a e() {
         return this.c;
     }
 
@@ -152,7 +152,7 @@ public class e extends BaseAdapter {
         if (this.b == null) {
             return view;
         }
-        int ah = TiebaApplication.b().ah();
+        int ai = TiebaApplication.d().ai();
         try {
             if (view == null) {
                 LayoutInflater from = LayoutInflater.from(this.a);
@@ -194,7 +194,7 @@ public class e extends BaseAdapter {
         } catch (Exception e2) {
             view2 = view3;
             exc = e2;
-            ag.b(getClass().getName(), "", "ReplymeAdapter.getView error = " + exc.getMessage());
+            ae.b(getClass().getName(), "", "ReplymeAdapter.getView error = " + exc.getMessage());
             return view2;
         }
         if (getItemViewType(i) == 1) {
@@ -216,7 +216,7 @@ public class e extends BaseAdapter {
                     gVar.a.setText(R.string.more);
                 }
             }
-            if (ah == 1) {
+            if (ai == 1) {
                 if (gVar.a != null) {
                     gVar.a.setTextColor(this.a.getResources().getColor(R.color.skin_1_common_color));
                     return view4;
@@ -226,52 +226,52 @@ public class e extends BaseAdapter {
             gVar.a.setTextColor(this.a.getResources().getColor(R.color.black));
             return view4;
         }
-        com.baidu.tieba.a.p pVar = (com.baidu.tieba.a.p) getItem(i);
-        if (pVar != null) {
-            gVar.f.setText(pVar.i().c());
-            gVar.g.setText(af.a(pVar.b()));
-            gVar.h.setText(pVar.e());
-            gVar.f.setTextSize(com.baidu.tieba.a.i.l());
-            gVar.h.setTextSize(com.baidu.tieba.a.i.k());
+        com.baidu.tieba.a.r rVar = (com.baidu.tieba.a.r) getItem(i);
+        if (rVar != null) {
+            gVar.f.setText(rVar.i().d());
+            gVar.g.setText(ad.a(rVar.b()));
+            gVar.h.setText(rVar.e());
+            gVar.f.setTextSize(com.baidu.tieba.a.i.p());
+            gVar.h.setTextSize(com.baidu.tieba.a.i.m());
             if (this.h == 0) {
-                if (pVar.a() == 1) {
+                if (rVar.a() == 1) {
                     gVar.k.setText(this.a.getString(R.string.mention_replyme_post));
-                    gVar.i.setText(pVar.f());
+                    gVar.i.setText(rVar.f());
                 } else {
                     gVar.k.setText(this.a.getString(R.string.mention_replyme_thread));
-                    gVar.i.setText(pVar.c());
+                    gVar.i.setText(rVar.c());
                 }
-                if (pVar.d() != null && pVar.d().length() > 0) {
+                if (rVar.d() != null && rVar.d().length() > 0) {
                     gVar.j.setVisibility(0);
-                    gVar.j.setText(">" + af.a(pVar.d(), 12).concat(this.d));
+                    gVar.j.setText(">" + ad.a(rVar.d(), 12).concat(this.d));
                 } else {
                     gVar.j.setVisibility(8);
                 }
             }
             gVar.e.setVisibility(0);
-            String d = pVar.i().d();
+            String e3 = rVar.i().e();
             gVar.e.setTag(null);
-            if (d != null && d.length() > 0) {
-                Bitmap b = this.c.b(d);
+            if (e3 != null && e3.length() > 0) {
+                Bitmap b = this.c.b(e3);
                 if (b != null) {
                     gVar.e.setImageBitmap(b);
                 } else {
-                    gVar.e.setTag(d);
+                    gVar.e.setTag(e3);
                     gVar.e.setImageResource(R.drawable.photo);
                 }
             } else {
                 gVar.e.setImageResource(R.drawable.photo);
             }
-            gVar.c.b(pVar.i().a());
-            gVar.c.a(pVar.i().b());
+            gVar.c.b(rVar.i().a());
+            gVar.c.a(rVar.i().c());
             gVar.e.setOnClickListener(gVar.c);
             if (gVar.k != null) {
-                ae.b(gVar.k, ah);
+                ac.b(gVar.k, ai);
             }
-            ae.b(gVar.f, ah);
-            if (ah == 1) {
+            ac.b(gVar.f, ai);
+            if (ai == 1) {
                 if (gVar.d != null) {
-                    ae.h(gVar.d, R.drawable.message_replyme_1);
+                    ac.h(gVar.d, (int) R.drawable.message_replyme_1);
                 }
                 if (gVar.i != null) {
                     gVar.i.setTextColor(this.a.getResources().getColor(R.color.skin_1_third_common_color));
@@ -280,7 +280,7 @@ public class e extends BaseAdapter {
                 view2 = view4;
             } else {
                 if (gVar.d != null) {
-                    ae.h(gVar.d, R.drawable.message_replyme);
+                    ac.h(gVar.d, (int) R.drawable.message_replyme);
                 }
                 if (gVar.i != null) {
                     gVar.i.setTextColor(-12040120);

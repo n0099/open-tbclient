@@ -1,33 +1,113 @@
 package com.baidu.tieba.pb;
 
-import android.widget.CompoundButton;
-import com.baidu.tieba.R;
+import android.graphics.Bitmap;
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
+import android.widget.ImageView;
+import android.widget.ProgressBar;
+import com.baidu.browser.core.util.BdUtil;
+import com.baidu.tieba.MainTabActivity;
+import com.baidu.tieba.frs.FrsActivity;
+import java.net.URI;
+import org.apache.http.NameValuePair;
+import org.apache.http.client.utils.URLEncodedUtils;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class da implements CompoundButton.OnCheckedChangeListener {
-    final /* synthetic */ SubPbActivity a;
+public class da extends WebViewClient {
+    final /* synthetic */ WebActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public da(SubPbActivity subPbActivity) {
-        this.a = subPbActivity;
+    public da(WebActivity webActivity) {
+        this.a = webActivity;
     }
 
-    @Override // android.widget.CompoundButton.OnCheckedChangeListener
-    public void onCheckedChanged(CompoundButton compoundButton, boolean z) {
-        if (z) {
-            switch (compoundButton.getId()) {
-                case R.id.radio_button_1day /* 2131230968 */:
-                    this.a.Q = 1;
-                    return;
-                case R.id.radio_button_3day /* 2131230969 */:
-                    this.a.Q = 3;
-                    return;
-                case R.id.radio_button_10day /* 2131230970 */:
-                    this.a.Q = 10;
-                    return;
-                default:
-                    return;
-            }
+    @Override // android.webkit.WebViewClient
+    public void onPageFinished(WebView webView, String str) {
+        ImageView imageView;
+        ImageView imageView2;
+        ProgressBar progressBar;
+        ImageView imageView3;
+        ImageView imageView4;
+        ImageView imageView5;
+        super.onPageFinished(webView, str);
+        if (this.a.c.canGoBack()) {
+            imageView5 = this.a.i;
+            imageView5.setEnabled(true);
+        } else {
+            imageView = this.a.i;
+            imageView.setEnabled(false);
         }
+        if (this.a.c.canGoForward()) {
+            imageView4 = this.a.j;
+            imageView4.setEnabled(true);
+        } else {
+            imageView2 = this.a.j;
+            imageView2.setEnabled(false);
+        }
+        progressBar = this.a.l;
+        progressBar.setVisibility(8);
+        imageView3 = this.a.k;
+        imageView3.setVisibility(0);
+    }
+
+    @Override // android.webkit.WebViewClient
+    public void onPageStarted(WebView webView, String str, Bitmap bitmap) {
+        ImageView imageView;
+        ImageView imageView2;
+        ProgressBar progressBar;
+        ImageView imageView3;
+        ImageView imageView4;
+        ImageView imageView5;
+        super.onPageStarted(webView, str, bitmap);
+        if (this.a.c.canGoBack()) {
+            imageView5 = this.a.i;
+            imageView5.setEnabled(true);
+        } else {
+            imageView = this.a.i;
+            imageView.setEnabled(false);
+        }
+        if (this.a.c.canGoForward()) {
+            imageView4 = this.a.j;
+            imageView4.setEnabled(true);
+        } else {
+            imageView2 = this.a.j;
+            imageView2.setEnabled(false);
+        }
+        progressBar = this.a.l;
+        progressBar.setVisibility(0);
+        imageView3 = this.a.k;
+        imageView3.setVisibility(4);
+    }
+
+    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:26:0x0084 -> B:14:0x0032). Please submit an issue!!! */
+    @Override // android.webkit.WebViewClient
+    public boolean shouldOverrideUrlLoading(WebView webView, String str) {
+        boolean shouldOverrideUrlLoading;
+        if (this.a.h == null || !this.a.h.a(str)) {
+            if (str != null && str.contains("jump_tieba_native=1")) {
+                try {
+                    for (NameValuePair nameValuePair : URLEncodedUtils.parse(new URI(str), BdUtil.UTF8)) {
+                        if (nameValuePair.getName().equalsIgnoreCase("nearby")) {
+                            MainTabActivity.a(this.a, "goto_nearby");
+                            shouldOverrideUrlLoading = true;
+                            break;
+                        } else if (nameValuePair.getName().equalsIgnoreCase("kz")) {
+                            NewPbActivity.a(this.a, nameValuePair.getValue(), null, null);
+                            shouldOverrideUrlLoading = true;
+                            break;
+                        } else if (nameValuePair.getName().equalsIgnoreCase("kw")) {
+                            FrsActivity.a(this.a, nameValuePair.getValue(), (String) null);
+                            shouldOverrideUrlLoading = true;
+                            break;
+                        }
+                    }
+                } catch (Exception e) {
+                    com.baidu.tieba.d.ae.b(getClass().getName(), "shouldOverrideUrlLoading", e.getMessage());
+                }
+            }
+            shouldOverrideUrlLoading = super.shouldOverrideUrlLoading(webView, str);
+            return shouldOverrideUrlLoading;
+        }
+        return true;
     }
 }

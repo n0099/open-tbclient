@@ -1,28 +1,30 @@
 package com.baidu.tieba.view;
 
-import android.os.Handler;
-import android.os.Message;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.app.Dialog;
+import android.content.Context;
+import android.view.MotionEvent;
+import android.view.View;
+import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-public class al extends Handler {
-    final /* synthetic */ WaterFallView a;
+public class al extends Dialog {
+    boolean a;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public al(WaterFallView waterFallView) {
-        this.a = waterFallView;
+    public al(Context context) {
+        super(context, R.style.common_alert_dialog);
+        this.a = false;
     }
 
-    @Override // android.os.Handler
-    public void handleMessage(Message message) {
-        an anVar;
-        an anVar2;
-        super.handleMessage(message);
-        if (message.what == 101) {
-            anVar = this.a.o;
-            if (anVar != null) {
-                anVar2 = this.a.o;
-                anVar2.d();
-            }
+    @Override // android.app.Dialog
+    public void setContentView(View view) {
+        super.setContentView(view);
+    }
+
+    @Override // android.app.Dialog, android.view.Window.Callback
+    public boolean dispatchTouchEvent(MotionEvent motionEvent) {
+        boolean dispatchTouchEvent = super.dispatchTouchEvent(motionEvent);
+        if (!dispatchTouchEvent) {
+            dismiss();
         }
+        return dispatchTouchEvent;
     }
 }

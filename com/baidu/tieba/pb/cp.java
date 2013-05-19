@@ -1,33 +1,27 @@
 package com.baidu.tieba.pb;
 
-import android.widget.AbsListView;
-import android.widget.Button;
-import android.widget.GridView;
-import com.baidu.tieba.R;
+import android.app.Dialog;
+import android.view.View;
+import com.slidingmenu.lib.R;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class cp implements AbsListView.OnScrollListener {
-    final /* synthetic */ SubPbActivity a;
+public class cp implements View.OnClickListener {
+    final /* synthetic */ bl a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public cp(SubPbActivity subPbActivity) {
-        this.a = subPbActivity;
+    public cp(bl blVar) {
+        this.a = blVar;
     }
 
-    @Override // android.widget.AbsListView.OnScrollListener
-    public void onScrollStateChanged(AbsListView absListView, int i) {
-        Button button;
-        GridView gridView;
-        if (i == 2 || i == 1) {
-            com.baidu.tieba.c.ai.a(this.a, absListView);
-            button = this.a.u;
-            button.setBackgroundResource(R.drawable.sub_pb_face);
-            gridView = this.a.Y;
-            gridView.setVisibility(8);
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        Dialog dialog;
+        Dialog dialog2;
+        dialog = this.a.Q;
+        if (dialog != null) {
+            dialog2 = this.a.Q;
+            dialog2.dismiss();
         }
-    }
-
-    @Override // android.widget.AbsListView.OnScrollListener
-    public void onScroll(AbsListView absListView, int i, int i2, int i3) {
+        this.a.a(((Integer) view.getTag(R.id.tag_del_post_type)).intValue(), (String) view.getTag(R.id.tag_del_post_id), ((Integer) view.getTag(R.id.tag_manage_user_identity)).intValue());
     }
 }

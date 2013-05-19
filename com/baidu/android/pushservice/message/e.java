@@ -9,9 +9,8 @@ import java.util.ArrayList;
 import org.apache.http.client.entity.UrlEncodedFormEntity;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.message.BasicNameValuePair;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class e implements Runnable {
+class e implements Runnable {
     final /* synthetic */ Context a;
     final /* synthetic */ String b;
     final /* synthetic */ String c;

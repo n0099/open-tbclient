@@ -11,7 +11,6 @@ import com.baidu.android.pushservice.PushService;
 import com.baidu.android.pushservice.w;
 import com.baidu.android.pushservice.y;
 import com.baidu.browser.core.util.BdUtil;
-import com.baidu.location.LocationClientOption;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -87,7 +86,7 @@ public class p implements Runnable {
             return;
         }
         try {
-            Thread.sleep((1 << (this.c - 1)) * 5 * LocationClientOption.MIN_SCAN_SPAN);
+            Thread.sleep((1 << (this.c - 1)) * 5 * 1000);
         } catch (InterruptedException e) {
         }
     }

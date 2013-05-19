@@ -1,17 +1,9 @@
 package com.baidu.tieba.frs;
 
-import android.view.View;
+import org.json.JSONObject;
 /* loaded from: classes.dex */
-class ac implements View.OnClickListener {
-    final /* synthetic */ aa a;
+public interface ac {
+    void a(int i);
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public ac(aa aaVar) {
-        this.a = aaVar;
-    }
-
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        ((FrsActivity) this.a.a).i();
-    }
+    void a(int i, JSONObject jSONObject, com.baidu.tieba.c.s sVar);
 }

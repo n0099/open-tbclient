@@ -1,8 +1,8 @@
 package com.baidu.tieba.nearby;
 
 import android.view.View;
-import com.baidu.tieba.R;
 import com.baidu.tieba.compatible.CompatibleUtile;
+import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 class j implements View.OnClickListener {
     final /* synthetic */ NearbyMapActivity a;

@@ -2,7 +2,7 @@ package com.baidu.tieba.person;
 
 import android.view.View;
 import android.widget.AdapterView;
-import com.baidu.tieba.R;
+import com.slidingmenu.lib.R;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class a implements AdapterView.OnItemClickListener {
@@ -25,7 +25,7 @@ public class a implements AdapterView.OnItemClickListener {
                     this.a.c(1);
                     return;
                 } else {
-                    this.a.b(this.a.getString(R.string.no_more_to_load));
+                    this.a.a(this.a.getString(R.string.no_more_to_load));
                     return;
                 }
         }

@@ -1,21 +1,19 @@
 package com.baidu.tieba.pb;
 
-import android.app.Dialog;
 import android.view.View;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class db implements View.OnClickListener {
-    final /* synthetic */ SubPbActivity a;
+class db implements View.OnClickListener {
+    final /* synthetic */ WebActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public db(SubPbActivity subPbActivity) {
-        this.a = subPbActivity;
+    public db(WebActivity webActivity) {
+        this.a = webActivity;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        Dialog dialog;
-        dialog = this.a.O;
-        dialog.dismiss();
+        if (this.a.c.canGoBack()) {
+            this.a.c.goBack();
+        }
     }
 }

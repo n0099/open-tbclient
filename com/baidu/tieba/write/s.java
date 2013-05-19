@@ -1,75 +1,76 @@
 package com.baidu.tieba.write;
 
 import android.location.Address;
-import android.os.AsyncTask;
 import android.widget.EditText;
 import com.baidu.android.pushservice.PushConstants;
-import com.baidu.tieba.R;
 import com.baidu.tieba.TiebaApplication;
+import com.baidu.tieba.a.be;
+import com.baidu.tieba.c.bp;
+import com.slidingmenu.lib.R;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class s extends AsyncTask {
+public class s extends com.baidu.adp.lib.a.a {
     final /* synthetic */ VcodeActivity a;
-    private com.baidu.tieba.b.z b;
-    private com.baidu.tieba.c.t c = null;
+    private bp b;
+    private com.baidu.tieba.d.t c = null;
     private String d = null;
 
-    public s(VcodeActivity vcodeActivity, com.baidu.tieba.b.z zVar) {
+    public s(VcodeActivity vcodeActivity, bp bpVar) {
         this.a = vcodeActivity;
         this.b = null;
-        this.b = zVar;
+        this.b = bpVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // android.os.AsyncTask
-    /* renamed from: a */
-    public com.baidu.tieba.a.ba doInBackground(Integer... numArr) {
+    @Override // com.baidu.adp.lib.a.a
+    public be a(Integer... numArr) {
         EditText editText;
         Address aC;
-        this.c = new com.baidu.tieba.c.t();
+        this.c = new com.baidu.tieba.d.t();
         this.c.a("anonymous", "0");
-        this.c.a("fid", this.b.f());
-        this.c.a("kw", this.b.g());
+        this.c.a("fid", this.b.g());
+        this.c.a("kw", this.b.h());
         String str = "";
-        if (this.b.j() != null && this.b.j().a() != null && this.b.j().a().length() > 0) {
-            str = String.format("#(pic,%s,%d,%d)", this.b.j().a(), Integer.valueOf(this.b.j().b()), Integer.valueOf(this.b.j().c()));
+        if (this.b.k() != null && this.b.k().a() != null && this.b.k().a().length() > 0) {
+            str = String.format("#(pic,%s,%d,%d)", this.b.k().a(), Integer.valueOf(this.b.k().b()), Integer.valueOf(this.b.k().c()));
         }
-        this.c.a(PushConstants.EXTRA_CONTENT, String.valueOf(this.b.c()) + str);
-        this.c.a("vcode_md5", this.b.k());
+        this.c.a(PushConstants.EXTRA_CONTENT, String.valueOf(this.b.d()) + str);
+        this.c.a("vcode_md5", this.b.l());
         editText = this.a.g;
         String editable = editText.getText().toString();
         if (editable.length() > 0) {
             this.c.a("vcode", editable);
         }
         this.c.d(true);
-        if (this.b.a() == 0 || this.b.a() == 3) {
-            this.c.a("http://c.tieba.baidu.com/c/c/thread/add");
-            if (this.b.a() == 0) {
-                this.c.a("title", this.b.b());
+        if (this.b.b() == 0 || this.b.b() == 3) {
+            this.c.a(String.valueOf(com.baidu.tieba.a.i.e) + "c/c/thread/add");
+            if (this.b.b() == 0) {
+                this.c.a("title", this.b.c());
             } else {
                 this.c.a("thread_type", "7");
                 this.c.a("st_type", "tb_suishoufa");
             }
-            if (!com.baidu.tieba.a.i.f().equals(this.a.getIntent().getStringExtra("forum_id")) && TiebaApplication.b().m() && (aC = TiebaApplication.b().aC()) != null) {
+            if (!com.baidu.tieba.a.i.f().equals(this.a.getIntent().getStringExtra("forum_id")) && TiebaApplication.d().o() && (aC = TiebaApplication.d().aC()) != null) {
                 this.c.a("lbs", String.valueOf(String.valueOf(aC.getLatitude())) + "," + String.valueOf(aC.getLongitude()));
             }
         } else {
-            this.c.a("http://c.tieba.baidu.com/c/c/post/add");
-            this.c.a("tid", this.b.d());
+            this.c.a(String.valueOf(com.baidu.tieba.a.i.e) + "c/c/post/add");
+            this.c.a("tid", this.b.e());
             this.c.a("is_ad", this.a.getIntent().getBooleanExtra("is_ad", false) ? "1" : "0");
-            if (this.b.a() == 2) {
-                this.c.a("quote_id", String.valueOf(this.b.e()));
-                this.c.a("floor_num", String.valueOf(this.b.h()));
+            if (this.b.b() == 2) {
+                this.c.a("quote_id", String.valueOf(this.b.f()));
+                this.c.a("floor_num", String.valueOf(this.b.i()));
             }
         }
         this.d = this.c.i();
         return null;
     }
 
-    public void a() {
+    @Override // com.baidu.adp.lib.a.a
+    public void cancel() {
         this.a.i = null;
-        this.a.d();
+        this.a.h();
         if (this.c != null) {
             this.c.g();
         }
@@ -78,45 +79,44 @@ public class s extends AsyncTask {
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // android.os.AsyncTask
-    /* renamed from: a */
-    public void onPostExecute(com.baidu.tieba.a.ba baVar) {
+    @Override // com.baidu.adp.lib.a.a
+    public void a(be beVar) {
         EditText editText;
-        com.baidu.tieba.b.z zVar;
-        com.baidu.tieba.b.z zVar2;
-        com.baidu.tieba.b.z zVar3;
-        this.a.d();
+        bp bpVar;
+        bp bpVar2;
+        bp bpVar3;
+        this.a.h();
         this.a.i = null;
         if (this.c != null) {
             if (this.c.b()) {
                 com.baidu.tieba.a.o oVar = new com.baidu.tieba.a.o();
-                oVar.a(this.d);
+                oVar.b(this.d);
                 if (oVar.b() == null || oVar.b().length() <= 0) {
-                    this.a.b(TiebaApplication.b().getString(R.string.send_success));
+                    this.a.a(TiebaApplication.d().getString(R.string.send_success));
                 } else {
-                    this.a.b(oVar.b());
+                    this.a.a(oVar.b());
                 }
                 this.a.setResult(-1, this.a.getIntent());
                 this.a.finish();
             } else {
                 if (this.c.d() == 5 || this.c.d() == 6) {
-                    com.baidu.tieba.a.ba baVar2 = new com.baidu.tieba.a.ba();
-                    baVar2.a(this.d);
-                    if (baVar2.b() != null) {
-                        zVar = this.a.c;
-                        zVar.h(baVar2.a());
-                        zVar2 = this.a.c;
-                        zVar2.i(baVar2.b());
+                    be beVar2 = new be();
+                    beVar2.a(this.d);
+                    if (beVar2.b() != null) {
+                        bpVar = this.a.c;
+                        bpVar.h(beVar2.a());
+                        bpVar2 = this.a.c;
+                        bpVar2.i(beVar2.b());
                         VcodeActivity vcodeActivity = this.a;
-                        zVar3 = this.a.c;
-                        vcodeActivity.c(zVar3.l());
+                        bpVar3 = this.a.c;
+                        vcodeActivity.c(bpVar3.m());
                     }
                     editText = this.a.g;
                     editText.setText((CharSequence) null);
                 }
-                this.a.b(this.c.f());
+                this.a.a(this.c.f());
             }
         }
-        super.onPostExecute(baVar);
+        super.a((Object) beVar);
     }
 }

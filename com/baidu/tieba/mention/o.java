@@ -1,18 +1,18 @@
 package com.baidu.tieba.mention;
 
 import android.content.DialogInterface;
-import com.baidu.tieba.pb.PbActivity;
+import com.baidu.tieba.pb.NewPbActivity;
 /* loaded from: classes.dex */
 public class o implements DialogInterface.OnClickListener {
     final /* synthetic */ h a;
-    private com.baidu.tieba.a.p b = null;
+    private com.baidu.tieba.a.r b = null;
 
     public o(h hVar) {
         this.a = hVar;
     }
 
-    public void a(com.baidu.tieba.a.p pVar) {
-        this.b = pVar;
+    public void a(com.baidu.tieba.a.r rVar) {
+        this.b = rVar;
     }
 
     @Override // android.content.DialogInterface.OnClickListener
@@ -31,7 +31,7 @@ public class o implements DialogInterface.OnClickListener {
                     return;
                 case 1:
                     if (this.b.j()) {
-                        this.a.a(this.b.g(), this.b.h(), this.b.i() != null ? this.b.i().b() : null, 2);
+                        this.a.a(this.b.g(), this.b.h(), this.b.i() != null ? this.b.i().c() : null, 2);
                         return;
                     } else {
                         this.a.a(this.b.g(), this.b.h(), null, 1);
@@ -39,7 +39,7 @@ public class o implements DialogInterface.OnClickListener {
                     }
                 case 2:
                     eVar = this.a.b;
-                    PbActivity.a(eVar, this.b.g(), "mention");
+                    NewPbActivity.a(eVar, this.b.g(), null, "mention");
                     return;
                 default:
                     return;

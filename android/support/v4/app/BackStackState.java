@@ -18,7 +18,7 @@ final class BackStackState implements Parcelable {
     final int h;
     final CharSequence i;
 
-    public BackStackState(l lVar, b bVar) {
+    public BackStackState(m mVar, b bVar) {
         int i = 0;
         for (c cVar = bVar.b; cVar != null; cVar = cVar.a) {
             if (cVar.i != null) {
@@ -81,18 +81,18 @@ final class BackStackState implements Parcelable {
         this.i = (CharSequence) TextUtils.CHAR_SEQUENCE_CREATOR.createFromParcel(parcel);
     }
 
-    public b a(l lVar) {
-        b bVar = new b(lVar);
+    public b a(m mVar) {
+        b bVar = new b(mVar);
         int i = 0;
         while (i < this.a.length) {
             c cVar = new c();
             int i2 = i + 1;
             cVar.c = this.a[i];
-            if (l.a) {
+            if (m.a) {
                 Log.v("FragmentManager", "BSE " + bVar + " set base fragment #" + this.a[i2]);
             }
             int i3 = i2 + 1;
-            cVar.d = (Fragment) lVar.f.get(this.a[i2]);
+            cVar.d = (Fragment) mVar.f.get(this.a[i2]);
             int i4 = i3 + 1;
             cVar.e = this.a[i3];
             int i5 = i4 + 1;
@@ -107,10 +107,10 @@ final class BackStackState implements Parcelable {
                 cVar.i = new ArrayList(i8);
                 int i9 = 0;
                 while (i9 < i8) {
-                    if (l.a) {
+                    if (m.a) {
                         Log.v("FragmentManager", "BSE " + bVar + " set remove fragment #" + this.a[i]);
                     }
-                    cVar.i.add((Fragment) lVar.f.get(this.a[i]));
+                    cVar.i.add((Fragment) mVar.f.get(this.a[i]));
                     i9++;
                     i++;
                 }

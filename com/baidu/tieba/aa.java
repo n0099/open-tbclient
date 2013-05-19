@@ -1,4 +1,9 @@
 package com.baidu.tieba;
+
+import android.graphics.Bitmap;
+import android.view.animation.AlphaAnimation;
+import android.widget.ImageView;
+import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 class aa implements Runnable {
     final /* synthetic */ LogoActivity a;
@@ -10,7 +15,16 @@ class aa implements Runnable {
 
     @Override // java.lang.Runnable
     public void run() {
-        this.a.b();
-        this.a.j();
+        ImageView imageView;
+        Bitmap bitmap;
+        ImageView imageView2;
+        AlphaAnimation alphaAnimation;
+        this.a.g = com.baidu.tieba.d.e.a(this.a, (int) R.drawable.logo);
+        imageView = this.a.f;
+        bitmap = this.a.g;
+        imageView.setImageBitmap(bitmap);
+        imageView2 = this.a.f;
+        alphaAnimation = this.a.h;
+        imageView2.startAnimation(alphaAnimation);
     }
 }

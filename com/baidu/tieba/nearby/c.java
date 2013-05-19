@@ -1,14 +1,13 @@
 package com.baidu.tieba.nearby;
 
 import android.location.Address;
-import android.os.AsyncTask;
 import android.widget.ListView;
 import android.widget.ProgressBar;
-import com.baidu.tieba.R;
+import com.slidingmenu.lib.R;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class c extends AsyncTask {
-    com.baidu.tieba.c.t a;
+public class c extends com.baidu.adp.lib.a.a {
+    com.baidu.tieba.d.t a;
     Address b;
     boolean c;
     final /* synthetic */ NearbyForumActivity d;
@@ -21,11 +20,10 @@ public class c extends AsyncTask {
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // android.os.AsyncTask
-    /* renamed from: a */
-    public com.baidu.tieba.b.n doInBackground(String... strArr) {
+    @Override // com.baidu.adp.lib.a.a
+    public com.baidu.tieba.c.aq a(String... strArr) {
         try {
-            this.a = new com.baidu.tieba.c.t(strArr[0]);
+            this.a = new com.baidu.tieba.d.t(strArr[0]);
             this.a.a("lng", String.valueOf(this.b.getLongitude()));
             this.a.a("lat", String.valueOf(this.b.getLatitude()));
             if (this.c) {
@@ -35,24 +33,23 @@ public class c extends AsyncTask {
             }
             String i = this.a.i();
             if (this.a.b()) {
-                com.baidu.tieba.b.n nVar = new com.baidu.tieba.b.n();
-                nVar.b(i);
-                return nVar;
+                com.baidu.tieba.c.aq aqVar = new com.baidu.tieba.c.aq();
+                aqVar.b(i);
+                return aqVar;
             }
             return null;
         } catch (Exception e) {
-            com.baidu.tieba.c.ag.b(getClass().getName(), "", "NearbyForumListModel.doInBackground error = " + e.getMessage());
+            com.baidu.tieba.d.ae.b(getClass().getName(), "", "NearbyForumListModel.doInBackground error = " + e.getMessage());
             return null;
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // android.os.AsyncTask
-    /* renamed from: a */
-    public void onPostExecute(com.baidu.tieba.b.n nVar) {
+    @Override // com.baidu.adp.lib.a.a
+    public void a(com.baidu.tieba.c.aq aqVar) {
         ProgressBar progressBar;
-        com.baidu.tieba.b.n nVar2;
+        com.baidu.tieba.c.aq aqVar2;
         d dVar;
         ListView listView;
         this.d.i = null;
@@ -60,22 +57,23 @@ public class c extends AsyncTask {
         progressBar = this.d.k;
         progressBar.setVisibility(8);
         if (this.a != null) {
-            if (nVar != null) {
-                nVar2 = this.d.d;
-                nVar2.a(nVar.a());
+            if (aqVar != null) {
+                aqVar2 = this.d.d;
+                aqVar2.a(aqVar.a());
                 dVar = this.d.f;
                 dVar.notifyDataSetChanged();
                 listView = this.d.e;
                 listView.setSelection(0);
             } else if (this.a.f() != null) {
-                this.d.b(this.a.f());
+                this.d.a(this.a.f());
             } else {
-                this.d.b(this.d.getString(R.string.neterror));
+                this.d.a(this.d.getString(R.string.neterror));
             }
         }
     }
 
-    public void a() {
+    @Override // com.baidu.adp.lib.a.a
+    public void cancel() {
         ProgressBar progressBar;
         if (this.a != null) {
             this.a.g();

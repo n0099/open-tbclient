@@ -3,7 +3,6 @@ package com.baidu.tieba.service;
 import android.app.Service;
 import android.content.Intent;
 import android.os.IBinder;
-import com.baidu.tieba.c.ag;
 /* loaded from: classes.dex */
 public class DealIntentService extends Service {
     private c a = null;
@@ -16,8 +15,9 @@ public class DealIntentService extends Service {
     @Override // android.app.Service
     public void onStart(Intent intent, int i) {
         super.onStart(intent, i);
-        ag.a(getClass().getName(), "onStart", intent.getAction());
-        a(intent);
+        if (intent != null) {
+            a(intent);
+        }
     }
 
     @Override // android.app.Service
@@ -27,7 +27,7 @@ public class DealIntentService extends Service {
 
     private void a(Intent intent) {
         if (this.a != null) {
-            this.a.a();
+            this.a.cancel();
             this.a = null;
         }
         this.a = new c(this, intent);

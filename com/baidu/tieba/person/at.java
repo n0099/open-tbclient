@@ -1,9 +1,10 @@
 package com.baidu.tieba.person;
 
-import android.content.DialogInterface;
+import android.view.MotionEvent;
+import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class at implements DialogInterface.OnClickListener {
+public class at implements View.OnTouchListener {
     final /* synthetic */ PersonChangeActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -11,12 +12,12 @@ public class at implements DialogInterface.OnClickListener {
         this.a = personChangeActivity;
     }
 
-    @Override // android.content.DialogInterface.OnClickListener
-    public void onClick(DialogInterface dialogInterface, int i) {
-        if (i == 0) {
-            com.baidu.tieba.write.bb.a(this.a);
-        } else if (i == 1) {
-            com.baidu.tieba.write.bb.b(this.a);
+    @Override // android.view.View.OnTouchListener
+    public boolean onTouch(View view, MotionEvent motionEvent) {
+        if (motionEvent.getAction() == 1) {
+            this.a.y = true;
+            return false;
         }
+        return false;
     }
 }

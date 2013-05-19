@@ -1,18 +1,75 @@
 package com.baidu.tieba.account;
 
-import android.view.View;
+import android.graphics.Bitmap;
+import android.widget.ImageView;
+import android.widget.ProgressBar;
+import com.slidingmenu.lib.R;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ab implements View.OnClickListener {
-    final /* synthetic */ LoginActivity a;
+public class ab extends com.baidu.adp.lib.a.a {
+    com.baidu.tieba.d.t a;
+    final /* synthetic */ LoginActivity b;
+    private volatile boolean c;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public ab(LoginActivity loginActivity) {
-        this.a = loginActivity;
+    private ab(LoginActivity loginActivity) {
+        this.b = loginActivity;
+        this.a = null;
+        this.c = false;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        this.a.o();
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public /* synthetic */ ab(LoginActivity loginActivity, ab abVar) {
+        this(loginActivity);
+    }
+
+    @Override // com.baidu.adp.lib.a.a
+    public void cancel() {
+        this.b.S = null;
+        if (this.a != null) {
+            this.a.g();
+            this.a = null;
+        }
+        this.c = true;
+        super.cancel(true);
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.a.a
+    public void b() {
+        ImageView imageView;
+        imageView = this.b.x;
+        imageView.setImageBitmap(null);
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.a.a
+    public Bitmap a(String... strArr) {
+        String str = strArr[0];
+        if (str == null || str.length() <= 0 || this.c) {
+            return null;
+        }
+        this.a = new com.baidu.tieba.d.t(str);
+        return com.baidu.tieba.d.e.a(this.a.h());
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.a.a
+    public void a(Bitmap bitmap) {
+        ImageView imageView;
+        ProgressBar progressBar;
+        ImageView imageView2;
+        this.b.S = null;
+        if (bitmap != null) {
+            imageView2 = this.b.x;
+            imageView2.setImageBitmap(bitmap);
+        } else {
+            imageView = this.b.x;
+            imageView.setImageResource(R.drawable.background);
+        }
+        progressBar = this.b.A;
+        progressBar.setVisibility(8);
+        super.a((Object) bitmap);
     }
 }

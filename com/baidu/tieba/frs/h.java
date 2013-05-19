@@ -1,9 +1,10 @@
 package com.baidu.tieba.frs;
 
+import android.graphics.Bitmap;
 import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class h implements View.OnClickListener {
+public class h implements com.baidu.tieba.d.d {
     final /* synthetic */ FrsActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -11,13 +12,16 @@ public class h implements View.OnClickListener {
         this.a = frsActivity;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        boolean v;
-        v = this.a.v();
-        if (v) {
-            return;
+    @Override // com.baidu.tieba.d.d
+    public void a(Bitmap bitmap, String str, boolean z) {
+        ba baVar;
+        if (bitmap != null) {
+            com.baidu.tieba.d.ae.a("iscached: " + z);
+            baVar = this.a.l;
+            View d = baVar.d(str);
+            if (d != null) {
+                d.invalidate();
+            }
         }
-        this.a.t();
     }
 }

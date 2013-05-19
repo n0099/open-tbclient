@@ -1,79 +1,185 @@
 package com.baidu.tieba.account;
 
+import android.app.Dialog;
 import android.view.View;
+import android.view.ViewGroup;
+import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.CompoundButton;
 import android.widget.EditText;
-import android.widget.ImageView;
-import android.widget.RelativeLayout;
+import android.widget.ProgressBar;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
+import android.widget.TextView;
+import com.baidu.zeus.WebChromeClient;
+import com.slidingmenu.lib.R;
+import java.util.ArrayList;
 /* loaded from: classes.dex */
-class j implements View.OnClickListener {
-    final /* synthetic */ ActivationActivity a;
+public class j {
+    private com.baidu.tieba.e j;
+    private View a = null;
+    private Dialog b = null;
+    private EditText c = null;
+    private RadioGroup d = null;
+    private CompoundButton.OnCheckedChangeListener e = null;
+    private RadioButton f = null;
+    private RadioButton g = null;
+    private RadioButton h = null;
+    private Button i = null;
+    private Button k = null;
+    private q l = null;
+    private p m = null;
+    private TextView n = null;
+    private Button o = null;
+    private ProgressBar p = null;
+    private ProgressBar q = null;
+    private TextView r = null;
+    private String s = null;
+    private com.baidu.tieba.a.a t = null;
+    private o u = null;
+    private o v = null;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public j(ActivationActivity activationActivity) {
-        this.a = activationActivity;
+    public j(com.baidu.tieba.e eVar) {
+        this.j = null;
+        this.j = eVar;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        Button button;
-        RelativeLayout relativeLayout;
-        RelativeLayout relativeLayout2;
-        ImageView imageView;
-        EditText editText;
-        boolean z;
-        n nVar;
-        m mVar;
-        n nVar2;
-        m mVar2;
-        n nVar3;
-        m mVar3;
-        button = this.a.d;
-        if (view != button) {
-            relativeLayout = this.a.l;
-            if (view != relativeLayout) {
-                relativeLayout2 = this.a.m;
-                if (view != relativeLayout2) {
-                    imageView = this.a.f;
-                    if (view == imageView) {
-                        editText = this.a.k;
-                        editText.setText((CharSequence) null);
-                        return;
-                    }
-                    return;
-                }
-                z = this.a.p;
-                if (z) {
-                    nVar = this.a.n;
-                    if (nVar == null) {
-                        mVar = this.a.o;
-                        if (mVar == null) {
-                            this.a.n = new n(this.a, null);
-                            nVar2 = this.a.n;
-                            nVar2.execute(new String[0]);
-                            return;
-                        }
-                        return;
-                    }
-                    return;
-                }
-                return;
+    public void a(String str) {
+        this.s = str;
+    }
+
+    public void a(com.baidu.tieba.a.a aVar) {
+        this.t = aVar;
+    }
+
+    public void a(o oVar) {
+        this.u = oVar;
+    }
+
+    public void b(o oVar) {
+        this.v = oVar;
+    }
+
+    public void a() {
+        if (this.b == null) {
+            this.a = this.j.getLayoutInflater().inflate(R.layout.main_input_username, (ViewGroup) null);
+            this.c = (EditText) this.a.findViewById(R.id.account);
+            this.c.setHint(String.valueOf(this.j.getString(R.string.input_name)) + ":");
+            this.i = (Button) this.a.findViewById(R.id.back);
+            this.i.setOnClickListener(new k(this));
+            this.k = (Button) this.a.findViewById(R.id.check_username);
+            this.k.setOnClickListener(new l(this));
+            this.p = (ProgressBar) this.a.findViewById(R.id.check_progress);
+            this.o = (Button) this.a.findViewById(R.id.confirm);
+            this.o.setOnClickListener(new m(this));
+            this.q = (ProgressBar) this.a.findViewById(R.id.confirm_progress);
+            this.n = (TextView) this.a.findViewById(R.id.error_info);
+            this.d = (RadioGroup) this.a.findViewById(R.id.names_group);
+            this.f = (RadioButton) this.a.findViewById(R.id.name1);
+            this.g = (RadioButton) this.a.findViewById(R.id.name2);
+            this.h = (RadioButton) this.a.findViewById(R.id.name3);
+            this.e = new n(this);
+            this.f.setOnCheckedChangeListener(this.e);
+            this.g.setOnCheckedChangeListener(this.e);
+            this.h.setOnCheckedChangeListener(this.e);
+            this.r = (TextView) this.a.findViewById(R.id.phone_info);
+            d();
+            this.b = new Dialog(this.j, R.style.input_username_dialog);
+            this.b.setCanceledOnTouchOutside(false);
+            this.b.getWindow().setSoftInputMode(20);
+            this.b.setCancelable(false);
+            this.b.setCanceledOnTouchOutside(false);
+        }
+        if (!this.b.isShowing()) {
+            this.c.setText((CharSequence) null);
+            d();
+            b((String) null);
+            if (this.s == null || this.s.length() <= 0) {
+                this.r.setText("Hi," + this.j.getString(R.string.bar_friend));
+            } else {
+                this.r.setText("Hi," + this.s);
             }
-            mVar2 = this.a.o;
-            if (mVar2 == null) {
-                nVar3 = this.a.n;
-                if (nVar3 == null) {
-                    this.a.o = new m(this.a, null);
-                    mVar3 = this.a.o;
-                    mVar3.execute(new String[0]);
-                    return;
-                }
-                return;
+            this.b.show();
+            this.b.setContentView(this.a);
+            WindowManager.LayoutParams attributes = this.b.getWindow().getAttributes();
+            attributes.gravity = 51;
+            attributes.x = 0;
+            attributes.y = 0;
+            attributes.width = -1;
+            attributes.height = -1;
+            this.b.getWindow().setAttributes(attributes);
+            this.j.a(this.c, WebChromeClient.STRING_DLG_BTN_SET);
+            this.c.requestFocus();
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void f() {
+        if (this.v != null) {
+            this.v.a(null);
+        }
+    }
+
+    public void a(ArrayList arrayList) {
+        int size;
+        if (arrayList != null && (size = arrayList.size()) > 0) {
+            this.d.setVisibility(0);
+            if (size > 0 && arrayList.get(0) != null) {
+                this.f.setText((CharSequence) arrayList.get(0));
+                this.f.setVisibility(0);
             }
+            if (size > 1 && arrayList.get(1) != null) {
+                this.g.setText((CharSequence) arrayList.get(1));
+                this.g.setVisibility(0);
+            }
+            if (size > 2 && arrayList.get(2) != null) {
+                this.h.setText((CharSequence) arrayList.get(2));
+                this.h.setVisibility(0);
+            }
+        }
+    }
+
+    public void b() {
+        if (this.l != null) {
+            this.l.cancel();
+            this.l = null;
+        }
+        if (this.m != null) {
+            this.m.cancel();
+            this.m = null;
+        }
+        e();
+    }
+
+    public boolean c() {
+        return this.b != null && this.b.isShowing();
+    }
+
+    public void d() {
+        this.d.setVisibility(8);
+        this.d.clearCheck();
+        this.f.setVisibility(8);
+        this.g.setVisibility(8);
+        this.h.setVisibility(8);
+        this.f.setChecked(false);
+        this.g.setChecked(false);
+        this.h.setChecked(false);
+    }
+
+    public void e() {
+        if (this.b != null && this.b.isShowing()) {
+            this.b.dismiss();
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void b(String str) {
+        if (str == null) {
+            this.n.setVisibility(8);
+            this.n.setText((CharSequence) null);
             return;
         }
-        this.a.setResult(0);
-        this.a.finish();
-        com.baidu.tieba.c.ag.a("ActivationActivity", "mBack", "onClick");
+        this.n.setVisibility(0);
+        this.n.setText(str);
     }
 }

@@ -21,8 +21,6 @@ import android.view.ViewParent;
 import android.view.accessibility.AccessibilityEvent;
 import android.view.animation.Interpolator;
 import android.widget.Scroller;
-import com.baidu.location.BDLocation;
-import com.baidu.location.LocationClientOption;
 import com.baidu.mapapi.MapView;
 import com.baidu.zeus.bouncycastle.DERTags;
 import java.util.ArrayList;
@@ -1056,7 +1054,7 @@ public class ViewPager extends ViewGroup {
             case 1:
                 if (this.w) {
                     VelocityTracker velocityTracker = this.D;
-                    velocityTracker.computeCurrentVelocity(LocationClientOption.MIN_SCAN_SPAN, this.F);
+                    velocityTracker.computeCurrentVelocity(1000, this.F);
                     int a2 = (int) m.a(velocityTracker, this.C);
                     this.t = true;
                     int width = getWidth() + this.l;
@@ -1248,7 +1246,7 @@ public class ViewPager extends ViewGroup {
                 return a(17);
             case DERTags.IA5_STRING /* 22 */:
                 return a(66);
-            case BDLocation.TypeGpsLocation /* 61 */:
+            case 61:
                 if (Build.VERSION.SDK_INT < 11) {
                     return false;
                 }

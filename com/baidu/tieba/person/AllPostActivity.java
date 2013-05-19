@@ -7,45 +7,45 @@ import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
-import com.baidu.tieba.R;
+import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public class AllPostActivity extends com.baidu.tieba.e {
     FrameLayout c = null;
     TextView d = null;
     ListView e = null;
     ImageView f = null;
-    ai g = null;
-    com.baidu.tieba.b.l h = null;
+    ad g = null;
+    com.baidu.tieba.c.ao h = null;
     b i = null;
     private ProgressBar j = null;
     private boolean k = false;
     private int l = 0;
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.e, android.app.Activity
+    @Override // com.baidu.tieba.e, com.baidu.adp.a.a, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         setContentView(R.layout.all_post_activity);
-        j();
-        i();
+        c();
+        b();
         c(0);
     }
 
-    void i() {
+    void b() {
         this.c = (FrameLayout) findViewById(R.id.all_post_activity_layout);
         this.d = (TextView) findViewById(R.id.no_post_view);
         this.d.setVisibility(8);
         this.f = (ImageView) findViewById(R.id.time_line);
         this.f.setVisibility(8);
         this.e = (ListView) findViewById(R.id.all_post_list);
-        this.g = new ai(this, this.h);
+        this.g = new ad(this, this.h);
         this.e.setAdapter((ListAdapter) this.g);
         this.e.setOnItemClickListener(new a(this));
         this.j = (ProgressBar) findViewById(R.id.loading_progress);
     }
 
-    void j() {
-        this.h = new com.baidu.tieba.b.l();
+    void c() {
+        this.h = new com.baidu.tieba.c.ao();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -56,7 +56,7 @@ public class AllPostActivity extends com.baidu.tieba.e {
             this.l = i;
             this.g.notifyDataSetChanged();
             if (this.i != null) {
-                this.i.a();
+                this.i.cancel();
                 this.i = null;
             }
             if (i == 0) {
@@ -66,11 +66,12 @@ public class AllPostActivity extends com.baidu.tieba.e {
                 c = this.h.c() + 1;
             }
             this.i = new b(this, 0, c, i);
-            this.i.execute("http://c.tieba.baidu.com/c/u/feed/mypost");
+            this.i.setPriority(3);
+            this.i.execute(String.valueOf(com.baidu.tieba.a.i.e) + "c/u/feed/mypost");
         }
     }
 
-    public boolean k() {
+    public boolean d() {
         return this.k && this.l == 1;
     }
 
@@ -78,9 +79,9 @@ public class AllPostActivity extends com.baidu.tieba.e {
     @Override // com.baidu.tieba.e
     public void b(int i) {
         super.b(i);
-        com.baidu.tieba.c.ae.a(this.c, i);
+        com.baidu.tieba.d.ac.a(this.c, i);
         if (i == 1) {
-            this.d.setTextColor(com.baidu.tieba.c.ae.a(i));
+            this.d.setTextColor(com.baidu.tieba.d.ac.a(i));
             this.f.setBackgroundResource(R.drawable.time_line_skin_1);
             return;
         }
@@ -104,7 +105,7 @@ public class AllPostActivity extends com.baidu.tieba.e {
     @Override // com.baidu.tieba.e, android.app.Activity
     public void onDestroy() {
         if (this.i != null) {
-            this.i.a();
+            this.i.cancel();
             this.i = null;
         }
         if (this.j != null) {

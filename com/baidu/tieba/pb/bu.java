@@ -1,33 +1,24 @@
 package com.baidu.tieba.pb;
 
-import android.view.View;
-import com.baidu.mobstat.StatService;
-import com.baidu.tieba.TiebaApplication;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.widget.ImageView;
+import com.baidu.tieba.view.KeyboardEventLayout;
 /* loaded from: classes.dex */
-public class bu implements View.OnClickListener {
-    final /* synthetic */ PbActivity a;
+class bu implements Runnable {
+    final /* synthetic */ bt a;
+    private final /* synthetic */ ImageView b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bu(PbActivity pbActivity) {
-        this.a = pbActivity;
+    public bu(bt btVar, ImageView imageView) {
+        this.a = btVar;
+        this.b = imageView;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        com.baidu.tieba.b.r rVar;
-        com.baidu.tieba.b.r rVar2;
-        rVar = this.a.o;
-        if (rVar.a() != null) {
-            if (TiebaApplication.b().l()) {
-                StatService.onEvent(this.a, "pb_set_host", "pbclick", 1);
-            }
-            rVar2 = this.a.o;
-            if (!rVar2.d()) {
-                this.a.y();
-            } else {
-                this.a.z();
-            }
-        }
+    @Override // java.lang.Runnable
+    public void run() {
+        bl blVar;
+        KeyboardEventLayout keyboardEventLayout;
+        blVar = this.a.a;
+        keyboardEventLayout = blVar.c;
+        keyboardEventLayout.removeView(this.b);
     }
 }

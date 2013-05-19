@@ -1,21 +1,13 @@
 package com.baidu.tieba.view;
 
-import android.view.View;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.graphics.Bitmap;
 /* loaded from: classes.dex */
-public class u implements View.OnClickListener {
-    final /* synthetic */ ImagePbPagerAdapter a;
+class u {
+    public Bitmap a;
+    public int b;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public u(ImagePbPagerAdapter imagePbPagerAdapter) {
-        this.a = imagePbPagerAdapter;
-    }
-
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        int i;
-        ImagePbPagerAdapter imagePbPagerAdapter = this.a;
-        i = this.a.q;
-        imagePbPagerAdapter.a(i);
+    public u(Bitmap bitmap, int i) {
+        this.a = bitmap;
+        this.b = i;
     }
 }

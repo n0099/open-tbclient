@@ -1,19 +1,32 @@
 package com.baidu.tieba.c;
-
-import android.graphics.Bitmap;
 /* loaded from: classes.dex */
-class ad {
-    Bitmap a;
-    Integer b;
-    boolean c;
-    final /* synthetic */ ac d;
+public class ad extends com.baidu.adp.a.c {
+    private String e = null;
+    private String f = null;
+    private ae g = null;
 
-    private ad(ac acVar) {
-        this.d = acVar;
+    public String d() {
+        return this.f;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ ad(ac acVar, ad adVar) {
-        this(acVar);
+    public void e() {
+        if (this.g != null) {
+            this.g.cancel();
+            this.g = null;
+        }
+    }
+
+    public void a(String str, String str2) {
+        if (str != null && str.length() > 0 && str2 != null && str2.length() > 0 && this.g == null) {
+            this.e = str;
+            this.f = str2;
+            this.g = new ae(this, null);
+            this.g.setPriority(2);
+            this.g.execute(new Object[0]);
+        }
+    }
+
+    public boolean f() {
+        return this.g != null;
     }
 }

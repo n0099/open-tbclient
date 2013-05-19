@@ -1,79 +1,68 @@
 package com.baidu.tieba.a;
 
-import com.baidu.android.pushservice.PushConstants;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class p {
-    private int a = 0;
-    private long b = 0;
-    private String c = null;
-    private String d = null;
-    private String e = null;
-    private String f = null;
-    private String g = null;
+    private String a = null;
+    private String b = null;
+    private int c = 0;
+    private int d = 0;
+    private int e = 0;
+    private int f = 0;
+    private int g = 0;
     private String h = null;
-    private ah i = new ah();
-    private ah j = new ah();
-    private int k;
-    private String l;
+    private String i = null;
 
-    public int a() {
+    public String a() {
         return this.a;
     }
 
-    public long b() {
+    public String b() {
         return this.b;
     }
 
-    public String c() {
-        return this.c;
+    public void a(int i) {
+        this.d = i;
     }
 
-    public String d() {
+    public int c() {
         return this.d;
     }
 
-    public String e() {
-        return this.e;
+    public void b(int i) {
+        this.f = i;
     }
 
-    public String f() {
+    public int d() {
         return this.f;
     }
 
-    public String g() {
+    public int e() {
         return this.g;
     }
 
-    public String h() {
+    public String f() {
         return this.h;
     }
 
-    public ah i() {
+    public String g() {
         return this.i;
-    }
-
-    public boolean j() {
-        return this.k == 1;
     }
 
     public void a(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                this.a = jSONObject.optInt("type", 0);
-                this.c = jSONObject.optString("title");
-                this.b = jSONObject.optLong("time", 0L) * 1000;
-                this.d = jSONObject.optString("fname");
-                this.e = jSONObject.optString(PushConstants.EXTRA_CONTENT);
-                this.f = jSONObject.optString("quote_content");
-                this.g = jSONObject.optString("thread_id");
-                this.h = jSONObject.optString("post_id");
-                this.k = jSONObject.optInt("is_floor");
-                this.l = jSONObject.optString("quote_pid");
-                this.i.a(jSONObject.optJSONObject("replyer"));
-                this.j.a(jSONObject.optJSONObject("quote_user"));
+                this.a = jSONObject.optString("id");
+                this.b = jSONObject.optString("name");
+                this.c = jSONObject.optInt("member_count", 0);
+                this.d = jSONObject.optInt("is_like", 0);
+                this.e = this.d;
+                this.f = jSONObject.optInt("level_id", 1);
+                this.g = jSONObject.optInt("favo_type", 0);
+                this.h = jSONObject.optString("desc");
+                this.i = jSONObject.optString("avatar", "");
             } catch (Exception e) {
-                com.baidu.tieba.c.ag.b("FeedData", "parserJson", "error = " + e.getMessage());
+                com.baidu.tieba.d.ae.b("LikeForumData", "parserJson", "error = " + e.getMessage());
             }
         }
     }

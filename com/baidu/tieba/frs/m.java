@@ -1,54 +1,51 @@
 package com.baidu.tieba.frs;
 
-import android.content.DialogInterface;
 import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.a.ax;
-import com.baidu.tieba.pb.PbActivity;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-public class m implements DialogInterface.OnClickListener {
+class m implements ab {
     final /* synthetic */ FrsActivity a;
-    private final /* synthetic */ ax b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public m(FrsActivity frsActivity, ax axVar) {
+    public m(FrsActivity frsActivity) {
         this.a = frsActivity;
-        this.b = axVar;
     }
 
-    @Override // android.content.DialogInterface.OnClickListener
-    public void onClick(DialogInterface dialogInterface, int i) {
-        String str;
-        String str2;
-        boolean z;
-        aa aaVar;
-        aa aaVar2;
-        switch (i) {
-            case 0:
-                str = this.a.o;
-                if (str != null) {
-                    FrsActivity frsActivity = this.a;
-                    str2 = this.a.o;
-                    z = this.a.p;
-                    PbActivity.a(frsActivity, str2, "tb_frslist", z);
-                    break;
-                }
-                break;
-            case 1:
-                this.a.c(this.b);
-                break;
-            case 2:
-                this.a.s();
-                break;
+    @Override // com.baidu.tieba.frs.ab
+    public void a(com.baidu.tieba.c.r rVar, com.baidu.tieba.c.s sVar) {
+        ba baVar;
+        ba baVar2;
+        ba baVar3;
+        com.baidu.tieba.c.p pVar;
+        com.baidu.tieba.c.p pVar2;
+        ba baVar4;
+        com.baidu.tieba.c.p pVar3;
+        com.baidu.tieba.c.p pVar4;
+        if (rVar.a) {
+            baVar3 = this.a.l;
+            baVar3.a(this.a.getString(R.string.add_fan_sucess));
+            pVar = this.a.v;
+            pVar.e().b(1);
+            pVar2 = this.a.v;
+            pVar2.e().c(rVar.c);
+            baVar4 = this.a.l;
+            pVar3 = this.a.v;
+            com.baidu.tieba.a.s a = pVar3.a();
+            pVar4 = this.a.v;
+            baVar4.a(1, a, pVar4.e());
+            TiebaApplication.d().h(true);
+            return;
         }
-        com.baidu.tieba.c.ab ao = TiebaApplication.b().ao();
-        if (ao != null && !ao.b(this.b.a())) {
-            ao.a(this.b.a());
+        if (sVar.d == null || sVar.d.length() <= 0) {
+            baVar = this.a.l;
+            baVar.a(this.a.getString(R.string.add_fan_error));
+        } else {
+            baVar2 = this.a.l;
+            baVar2.a(sVar.d);
         }
-        aaVar = this.a.y;
-        if (aaVar != null) {
-            aaVar2 = this.a.y;
-            aaVar2.notifyDataSetChanged();
+        if (sVar.c != 120002) {
+            return;
         }
+        this.a.y();
     }
 }

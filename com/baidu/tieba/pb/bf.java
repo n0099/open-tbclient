@@ -1,28 +1,35 @@
 package com.baidu.tieba.pb;
-
-import android.app.Dialog;
-import android.view.View;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class bf implements View.OnClickListener {
-    final /* synthetic */ PbActivity a;
-    private final /* synthetic */ int b;
-    private final /* synthetic */ String c;
-    private final /* synthetic */ int d;
+class bf implements com.baidu.tieba.c.az {
+    final /* synthetic */ NewPbActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bf(PbActivity pbActivity, int i, String str, int i2) {
-        this.a = pbActivity;
-        this.b = i;
-        this.c = str;
-        this.d = i2;
+    public bf(NewPbActivity newPbActivity) {
+        this.a = newPbActivity;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        Dialog dialog;
-        this.a.b(this.b, this.c, this.d);
-        dialog = this.a.E;
-        dialog.dismiss();
+    @Override // com.baidu.tieba.c.az
+    public void a(boolean z, int i, String str, com.baidu.tieba.a.ax axVar) {
+        bl blVar;
+        bl blVar2;
+        bl blVar3;
+        com.baidu.tieba.c.au auVar;
+        com.baidu.tieba.c.au auVar2;
+        blVar = this.a.o;
+        blVar.d(str);
+        blVar2 = this.a.o;
+        blVar2.v();
+        if (!z) {
+            if (i == 4 || i == 28) {
+                auVar2 = this.a.i;
+                if (auVar2.k()) {
+                    this.a.f();
+                }
+            }
+        } else if (axVar != null) {
+            blVar3 = this.a.o;
+            auVar = this.a.i;
+            blVar3.a(axVar, auVar.l().l());
+        }
     }
 }

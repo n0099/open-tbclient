@@ -26,17 +26,17 @@ class b implements Runnable {
                 kVar = this.a.k;
                 if (i < kVar.getCount()) {
                     kVar2 = this.a.k;
-                    com.baidu.tieba.a.ah ahVar = (com.baidu.tieba.a.ah) kVar2.getItem(i);
-                    if (ahVar != null && ahVar.d() != null) {
+                    com.baidu.tieba.a.ai aiVar = (com.baidu.tieba.a.ai) kVar2.getItem(i);
+                    if (aiVar != null && aiVar.e() != null) {
                         kVar3 = this.a.k;
-                        kVar3.c().b(ahVar.d(), new c(this));
+                        kVar3.c().b(aiVar.e(), new c(this));
                     }
                 } else {
                     return;
                 }
             }
         } catch (Exception e) {
-            com.baidu.tieba.c.ag.b(getClass().getName(), "mGetImageRunnble.run", e.getMessage());
+            com.baidu.tieba.d.ae.b(getClass().getName(), "mGetImageRunnble.run", e.getMessage());
         }
     }
 }

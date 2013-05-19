@@ -1192,7 +1192,7 @@ public final class WebViewCore {
                         case EventHub.REQUEST_EXT_REPRESENTATION /* 160 */:
                             WebViewCore.this.mBrowserFrame.externalRepresentation((Message) message.obj);
                             return;
-                        case 161:
+                        case EventHub.REQUEST_DOC_AS_TEXT /* 161 */:
                             WebViewCore.this.mBrowserFrame.documentAsText((Message) message.obj);
                             return;
                         case EventHub.DUMP_DOMTREE /* 170 */:

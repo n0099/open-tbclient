@@ -4,7 +4,7 @@ import android.graphics.Bitmap;
 import android.widget.ImageView;
 import android.widget.ListView;
 /* loaded from: classes.dex */
-class l implements com.baidu.tieba.c.d {
+class l implements com.baidu.tieba.d.d {
     final /* synthetic */ k a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -12,7 +12,7 @@ class l implements com.baidu.tieba.c.d {
         this.a = kVar;
     }
 
-    @Override // com.baidu.tieba.c.d
+    @Override // com.baidu.tieba.d.d
     public void a(Bitmap bitmap, String str, boolean z) {
         NearbyPbActivity nearbyPbActivity;
         ListView listView;

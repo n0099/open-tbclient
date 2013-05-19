@@ -7,11 +7,11 @@ import android.widget.ImageView;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.ProgressBar;
-import com.baidu.tieba.R;
+import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public class NearbyForumActivity extends com.baidu.tieba.e {
     private Address c = null;
-    private com.baidu.tieba.b.n d = null;
+    private com.baidu.tieba.c.aq d = null;
     private ListView e = null;
     private d f = null;
     private View.OnClickListener g = null;
@@ -24,22 +24,22 @@ public class NearbyForumActivity extends com.baidu.tieba.e {
     private b n = null;
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.e, android.app.Activity
+    @Override // com.baidu.tieba.e, com.baidu.adp.a.a, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         setContentView(R.layout.nearby_forum_activity);
-        i();
-        j();
+        b();
+        c();
         if (getParent() instanceof NewNearbyActivity) {
-            a(((NewNearbyActivity) getParent()).k(), false);
+            a(((NewNearbyActivity) getParent()).d(), false);
         }
     }
 
-    void i() {
-        this.d = new com.baidu.tieba.b.n();
+    void b() {
+        this.d = new com.baidu.tieba.c.aq();
     }
 
-    void j() {
+    void c() {
         this.e = (ListView) findViewById(R.id.forum_list);
         this.g = new a(this);
         this.f = new d(this, this.d, this.g);
@@ -53,11 +53,11 @@ public class NearbyForumActivity extends com.baidu.tieba.e {
     @Override // com.baidu.tieba.e, android.app.Activity
     public void onDestroy() {
         if (this.i != null) {
-            this.i.a();
+            this.i.cancel();
             this.i = null;
         }
         if (this.n != null) {
-            this.n.a();
+            this.n.cancel();
             this.n = null;
         }
         if (this.k != null) {
@@ -86,21 +86,22 @@ public class NearbyForumActivity extends com.baidu.tieba.e {
             this.c = address;
             if (!this.j) {
                 if (this.i != null) {
-                    this.i.a();
+                    this.i.cancel();
                     this.i = null;
                 }
                 this.j = true;
                 this.k.setVisibility(0);
                 this.i = new c(this, this.c, z);
-                this.i.execute("http://c.tieba.baidu.com/c/f/lbs/forum");
+                this.i.setPriority(3);
+                this.i.execute(String.valueOf(com.baidu.tieba.a.i.e) + "c/f/lbs/forum");
             }
         }
     }
 
-    @Override // com.baidu.tieba.e
-    public void b(String str) {
-        if ((getParent() instanceof NewNearbyActivity) && ((NewNearbyActivity) getParent()).l() == 1) {
-            super.b(str);
+    @Override // com.baidu.tieba.e, com.baidu.adp.a.a
+    public void a(String str) {
+        if ((getParent() instanceof NewNearbyActivity) && ((NewNearbyActivity) getParent()).m() == 1) {
+            super.a(str);
         }
     }
 
@@ -109,10 +110,11 @@ public class NearbyForumActivity extends com.baidu.tieba.e {
         if (!this.l) {
             this.l = true;
             if (this.n != null) {
-                this.n.a();
+                this.n.cancel();
                 this.n = null;
             }
             this.n = new b(this, str, str2);
+            this.n.setPriority(3);
             this.n.execute(new Object[0]);
         }
     }

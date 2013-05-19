@@ -1,8 +1,8 @@
 package com.baidu.tieba.home;
 
 import android.view.View;
-import android.widget.Button;
 import android.widget.FrameLayout;
+import android.widget.ImageView;
 import android.widget.RelativeLayout;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
@@ -18,21 +18,21 @@ public class a implements View.OnClickListener {
     public void onClick(View view) {
         RelativeLayout relativeLayout;
         FrameLayout frameLayout;
-        Button button;
+        ImageView imageView;
         relativeLayout = this.a.k;
         if (view != relativeLayout) {
             frameLayout = this.a.m;
             if (view != frameLayout) {
-                button = this.a.l;
-                if (view == button) {
+                imageView = this.a.l;
+                if (view == imageView) {
                     this.a.finish();
                     return;
                 }
                 return;
             }
-            this.a.k();
+            this.a.d();
             return;
         }
-        this.a.l();
+        this.a.m();
     }
 }

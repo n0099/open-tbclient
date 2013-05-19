@@ -1,19 +1,19 @@
 package com.baidu.tieba.view;
 
 import android.graphics.Bitmap;
+import android.graphics.Canvas;
+import android.graphics.drawable.BitmapDrawable;
 /* loaded from: classes.dex */
-class ak {
-    public String a;
-    public byte[] b;
-    public Bitmap c;
-    final /* synthetic */ ah d;
-
-    private ak(ah ahVar) {
-        this.d = ahVar;
+public class ak extends BitmapDrawable {
+    public ak(Bitmap bitmap) {
+        super(bitmap);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ ak(ah ahVar, ak akVar) {
-        this(ahVar);
+    @Override // android.graphics.drawable.BitmapDrawable, android.graphics.drawable.Drawable
+    public void draw(Canvas canvas) {
+        Bitmap bitmap = getBitmap();
+        if (bitmap != null) {
+            canvas.drawBitmap(bitmap, 0.0f, 0.0f, getPaint());
+        }
     }
 }

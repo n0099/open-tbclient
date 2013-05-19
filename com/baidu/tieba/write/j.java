@@ -1,14 +1,13 @@
 package com.baidu.tieba.write;
 
-import android.os.AsyncTask;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class j extends AsyncTask {
+public class j extends com.baidu.adp.lib.a.a {
     final /* synthetic */ AtListActivity a;
-    private com.baidu.tieba.c.t b;
+    private com.baidu.tieba.d.t b;
 
     private j(AtListActivity atListActivity) {
         this.a = atListActivity;
@@ -20,15 +19,17 @@ public class j extends AsyncTask {
         this(atListActivity);
     }
 
-    @Override // android.os.AsyncTask
-    protected void onPreExecute() {
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.a.a
+    public void b() {
         ProgressBar progressBar;
         progressBar = this.a.m;
         progressBar.setVisibility(0);
-        super.onPreExecute();
+        super.b();
     }
 
-    public void a() {
+    @Override // com.baidu.adp.lib.a.a
+    public void cancel() {
         ProgressBar progressBar;
         if (this.b != null) {
             this.b.g();
@@ -41,31 +42,29 @@ public class j extends AsyncTask {
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // android.os.AsyncTask
-    /* renamed from: a */
-    public com.baidu.tieba.a.r doInBackground(String... strArr) {
-        this.b = new com.baidu.tieba.c.t();
-        this.b.a("http://c.tieba.baidu.com/c/u/follow/list");
+    @Override // com.baidu.adp.lib.a.a
+    public com.baidu.tieba.a.t a(String... strArr) {
+        this.b = new com.baidu.tieba.d.t();
+        this.b.a(String.valueOf(com.baidu.tieba.a.i.e) + "c/u/follow/list");
         String i = this.b.i();
         if (!this.b.b()) {
             return null;
         }
-        com.baidu.tieba.a.r rVar = new com.baidu.tieba.a.r();
-        rVar.a(i);
-        return rVar;
+        com.baidu.tieba.a.t tVar = new com.baidu.tieba.a.t();
+        tVar.a(i);
+        return tVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // android.os.AsyncTask
-    /* renamed from: a */
-    public void onPostExecute(com.baidu.tieba.a.r rVar) {
+    @Override // com.baidu.adp.lib.a.a
+    public void a(com.baidu.tieba.a.t tVar) {
         ProgressBar progressBar;
-        com.baidu.tieba.b.a aVar;
+        com.baidu.tieba.c.a aVar;
         k kVar;
         EditText editText;
-        com.baidu.tieba.b.a aVar2;
-        com.baidu.tieba.b.a aVar3;
+        com.baidu.tieba.c.a aVar2;
+        com.baidu.tieba.c.a aVar3;
         k kVar2;
         k kVar3;
         k kVar4;
@@ -75,7 +74,7 @@ public class j extends AsyncTask {
         progressBar.setVisibility(8);
         if (this.b.b()) {
             aVar = this.a.j;
-            aVar.a(rVar);
+            aVar.a(tVar);
             kVar = this.a.k;
             if (kVar != null) {
                 editText = this.a.c;
@@ -83,13 +82,13 @@ public class j extends AsyncTask {
                     aVar2 = this.a.j;
                     if (aVar2.b() != null) {
                         aVar3 = this.a.j;
-                        aVar3.b().a(rVar.b());
+                        aVar3.b().a(tVar.b());
                         kVar2 = this.a.k;
                         kVar2.notifyDataSetInvalidated();
                     }
                 } else {
                     kVar3 = this.a.k;
-                    kVar3.a(rVar.a());
+                    kVar3.a(tVar.a());
                     kVar4 = this.a.k;
                     kVar4.notifyDataSetInvalidated();
                     listView = this.a.f;
@@ -99,6 +98,6 @@ public class j extends AsyncTask {
                 return;
             }
         }
-        super.onPostExecute(rVar);
+        super.a((Object) tVar);
     }
 }

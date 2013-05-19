@@ -1,29 +1,41 @@
 package com.baidu.tieba.pb;
 
-import android.content.Context;
-import android.view.View;
+import android.os.Handler;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class ch implements View.OnClickListener {
-    final /* synthetic */ cd a;
-    private String b = null;
-    private int c = 0;
+public class ch implements com.baidu.tieba.view.ad {
+    final /* synthetic */ bl a;
 
-    public ch(cd cdVar) {
-        this.a = cdVar;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public ch(bl blVar) {
+        this.a = blVar;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        Context context;
-        context = this.a.a;
-        ((PbActivity) context).a(this.b, this.c);
-    }
-
-    public void a(String str) {
-        this.b = str;
-    }
-
+    @Override // com.baidu.tieba.view.ad
     public void a(int i) {
-        this.c = i;
+        cr crVar;
+        cr crVar2;
+        switch (i) {
+            case 0:
+                if (this.a.t()) {
+                    crVar = this.a.A;
+                    crVar.c();
+                } else {
+                    new Handler().postDelayed(new cj(this), 0L);
+                }
+                this.a.ao = true;
+                return;
+            case 1:
+                if (this.a.t()) {
+                    crVar2 = this.a.A;
+                    crVar2.h();
+                } else {
+                    new Handler().postDelayed(new ci(this), 0L);
+                }
+                this.a.ao = false;
+                return;
+            default:
+                return;
+        }
     }
 }

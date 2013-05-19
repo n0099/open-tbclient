@@ -19,11 +19,11 @@ public class ar implements DialogInterface.OnClickListener {
         if (i == -1) {
             alertDialog2 = this.a.d;
             alertDialog2.dismiss();
-            this.a.i();
+            this.a.b();
         } else if (i == -2) {
             alertDialog = this.a.d;
             alertDialog.dismiss();
-            this.a.j();
+            this.a.c();
         }
     }
 }

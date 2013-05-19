@@ -1,17 +1,60 @@
 package com.baidu.tieba.home;
 
-import android.view.View;
+import android.widget.TextView;
+import com.baidu.tieba.frs.FrsActivity;
+import com.baidu.tieba.pb.NewPbActivity;
+import com.baidu.tieba.pb.df;
+import com.slidingmenu.lib.R;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class u implements View.OnClickListener {
-    final /* synthetic */ HomeActivity a;
+public class u implements df {
+    final /* synthetic */ LotteryActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public u(HomeActivity homeActivity) {
-        this.a = homeActivity;
+    public u(LotteryActivity lotteryActivity) {
+        this.a = lotteryActivity;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        this.a.a(true);
+    @Override // com.baidu.tieba.pb.df
+    public boolean a(String str) {
+        Pattern pattern;
+        Pattern pattern2;
+        Pattern pattern3;
+        TextView textView;
+        TextView textView2;
+        if (str == null) {
+            return false;
+        }
+        pattern = this.a.A;
+        Matcher matcher = pattern.matcher(str);
+        if (!matcher.find()) {
+            pattern2 = this.a.B;
+            Matcher matcher2 = pattern2.matcher(str);
+            if (!matcher2.find()) {
+                pattern3 = this.a.z;
+                if (pattern3.matcher(str).find()) {
+                    this.a.x = true;
+                    textView2 = this.a.o;
+                    textView2.setText(R.string.lottery);
+                    return false;
+                }
+                this.a.x = false;
+                textView = this.a.o;
+                textView.setText((CharSequence) null);
+                return false;
+            }
+            String e = com.baidu.tieba.d.ad.e(matcher2.group(1));
+            if (e != null && e.length() > 0) {
+                FrsActivity.a(this.a, e, (String) null);
+            }
+            return true;
+        }
+        String group = matcher.group(1);
+        if (group != null && group.length() > 0) {
+            NewPbActivity.a(this.a, group, null, null);
+        }
+        return true;
     }
 }

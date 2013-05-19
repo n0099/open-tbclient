@@ -5,17 +5,17 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class e {
-    private az a;
+    private bd a;
     private ArrayList b;
 
     public e() {
         this.a = null;
         this.b = null;
-        this.a = new az();
+        this.a = new bd();
         this.b = new ArrayList(3);
     }
 
-    public az a() {
+    public bd a() {
         return this.a;
     }
 
@@ -27,7 +27,7 @@ public class e {
         try {
             a(new JSONObject(str));
         } catch (Exception e) {
-            com.baidu.tieba.c.ag.b(getClass().getName(), "parserJson", e.getMessage());
+            com.baidu.tieba.d.ae.b(getClass().getName(), "parserJson", e.getMessage());
         }
     }
 
@@ -41,7 +41,7 @@ public class e {
                 }
             }
         } catch (Exception e) {
-            com.baidu.tieba.c.ag.b(getClass().getName(), "parserJson", e.getMessage());
+            com.baidu.tieba.d.ae.b(getClass().getName(), "parserJson", e.getMessage());
         }
     }
 }

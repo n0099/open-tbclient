@@ -1,20 +1,22 @@
 package com.baidu.tieba.pb;
 
 import android.view.View;
+import android.widget.AdapterView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class cv implements View.OnClickListener {
-    final /* synthetic */ SubPbActivity a;
-    private final /* synthetic */ com.baidu.tieba.a.an b;
+public class cv implements AdapterView.OnItemLongClickListener {
+    final /* synthetic */ cr a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public cv(SubPbActivity subPbActivity, com.baidu.tieba.a.an anVar) {
-        this.a = subPbActivity;
-        this.b = anVar;
+    public cv(cr crVar) {
+        this.a = crVar;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        this.a.a(0, this.b.a());
+    @Override // android.widget.AdapterView.OnItemLongClickListener
+    public boolean onItemLongClick(AdapterView adapterView, View view, int i, long j) {
+        View.OnLongClickListener onLongClickListener;
+        onLongClickListener = this.a.K;
+        onLongClickListener.onLongClick(view);
+        return false;
     }
 }

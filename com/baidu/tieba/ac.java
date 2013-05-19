@@ -1,8 +1,8 @@
 package com.baidu.tieba;
 
-import android.os.Handler;
+import android.view.animation.Animation;
 /* loaded from: classes.dex */
-class ac extends Thread {
+class ac implements Animation.AnimationListener {
     final /* synthetic */ LogoActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -10,25 +10,22 @@ class ac extends Thread {
         this.a = logoActivity;
     }
 
-    @Override // java.lang.Thread, java.lang.Runnable
-    public void run() {
-        Handler handler;
-        Handler handler2;
-        super.run();
-        try {
-            TiebaApplication tiebaApplication = (TiebaApplication) this.a.getApplication();
-            tiebaApplication.b(tiebaApplication.D() + 1);
-            if (tiebaApplication.I()) {
-                com.baidu.tieba.c.k.y();
-                tiebaApplication.b(0);
-            }
-            com.baidu.tieba.c.k.u();
-            com.baidu.tieba.c.k.x();
-            this.a.a(this.a.getCacheDir());
-        } catch (Exception e) {
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationEnd(Animation animation) {
+        boolean z;
+        this.a.d = true;
+        z = this.a.e;
+        if (!z) {
+            return;
         }
-        handler = this.a.k;
-        handler2 = this.a.k;
-        handler.sendMessage(handler2.obtainMessage());
+        this.a.d();
+    }
+
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationRepeat(Animation animation) {
+    }
+
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationStart(Animation animation) {
     }
 }

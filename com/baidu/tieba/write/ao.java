@@ -1,13 +1,12 @@
 package com.baidu.tieba.write;
 
 import android.graphics.Bitmap;
-import android.os.AsyncTask;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ao extends AsyncTask {
+public class ao extends com.baidu.adp.lib.a.a {
     final /* synthetic */ WriteActivity a;
     private String b;
 
@@ -19,16 +18,17 @@ public class ao extends AsyncTask {
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // android.os.AsyncTask
-    /* renamed from: a */
-    public Bitmap doInBackground(Object... objArr) {
+    @Override // com.baidu.adp.lib.a.a
+    /* renamed from: d */
+    public Bitmap a(Object... objArr) {
         if (this.b != null && !this.b.equals("tieba_resized_image")) {
-            com.baidu.tieba.c.o.e("photos/" + this.b, "tieba_resized_image");
+            com.baidu.tieba.d.o.e("photos/" + this.b, "tieba_resized_image");
         }
-        return com.baidu.tieba.c.o.c(null, "tieba_resized_image_display");
+        return com.baidu.tieba.d.o.c(null, "tieba_resized_image_display");
     }
 
-    public void a() {
+    @Override // com.baidu.adp.lib.a.a
+    public void cancel() {
         ProgressBar progressBar;
         ImageView imageView;
         FrameLayout frameLayout;
@@ -39,23 +39,23 @@ public class ao extends AsyncTask {
         imageView.setVisibility(8);
         frameLayout = this.a.o;
         frameLayout.setVisibility(8);
-        this.a.o();
+        this.a.p();
         super.cancel(true);
     }
 
-    @Override // android.os.AsyncTask
-    protected void onCancelled() {
-        super.onCancelled();
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.a.a
+    public void c() {
+        super.c();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // android.os.AsyncTask
-    /* renamed from: a */
-    public void onPostExecute(Bitmap bitmap) {
-        super.onPostExecute(bitmap);
+    @Override // com.baidu.adp.lib.a.a
+    public void a(Bitmap bitmap) {
+        super.a((Object) bitmap);
         this.a.u = null;
-        com.baidu.tieba.c.ag.a(getClass().getName(), "onPostExecute", "is Null?" + String.valueOf(bitmap == null));
+        com.baidu.tieba.d.ae.a(getClass().getName(), "onPostExecute", "is Null?" + String.valueOf(bitmap == null));
         this.a.a(bitmap);
     }
 }

@@ -2,7 +2,7 @@ package com.baidu.tieba.mention;
 
 import android.app.Activity;
 import android.view.View;
-import android.widget.Button;
+import android.widget.ImageView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class b implements View.OnClickListener {
@@ -15,18 +15,18 @@ public class b implements View.OnClickListener {
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        Button button;
-        Button button2;
-        button = this.a.h;
-        if (view != button) {
-            button2 = this.a.g;
-            if (view == button2) {
+        ImageView imageView;
+        ImageView imageView2;
+        imageView = this.a.h;
+        if (view != imageView) {
+            imageView2 = this.a.g;
+            if (view == imageView2) {
                 Activity currentActivity = this.a.getLocalActivityManager().getCurrentActivity();
                 if (currentActivity instanceof ReplyMeActivity) {
-                    ((ReplyMeActivity) currentActivity).i();
+                    ((ReplyMeActivity) currentActivity).b();
                     return;
                 } else if (currentActivity instanceof AtMeActivity) {
-                    ((AtMeActivity) currentActivity).i();
+                    ((AtMeActivity) currentActivity).b();
                     return;
                 } else {
                     return;

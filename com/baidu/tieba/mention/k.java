@@ -28,11 +28,11 @@ public class k implements AdapterView.OnItemClickListener {
             this.a.o = 4;
             this.a.d();
         } else {
-            com.baidu.tieba.a.p pVar = (com.baidu.tieba.a.p) eVar.getItem(i);
-            if (pVar != null) {
+            com.baidu.tieba.a.r rVar = (com.baidu.tieba.a.r) eVar.getItem(i);
+            if (rVar != null) {
                 oVar = this.a.q;
-                oVar.a(pVar);
-                this.a.a(pVar);
+                oVar.a(rVar);
+                this.a.a(rVar);
             }
         }
     }

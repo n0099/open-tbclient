@@ -1,115 +1,138 @@
 package com.baidu.tieba.view;
 
 import android.content.Context;
-import android.graphics.Bitmap;
-import android.graphics.Canvas;
-import android.graphics.Matrix;
-import android.graphics.Paint;
-import android.graphics.RectF;
+import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.LinearInterpolator;
+import android.view.animation.RotateAnimation;
 import android.widget.ImageView;
-import com.baidu.tieba.R;
-import com.baidu.tieba.TiebaApplication;
+import android.widget.ProgressBar;
+import android.widget.TextView;
+import com.slidingmenu.lib.R;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 /* loaded from: classes.dex */
-public class q extends ImageView {
-    private Matrix a;
-    private Paint b;
-    private int c;
-    private boolean d;
-    private boolean e;
-    private RectF f;
+public class q extends com.baidu.adp.widget.ListView.d {
+    private static SimpleDateFormat i = new SimpleDateFormat("MM-dd HH:mm");
+    private View a;
+    private ImageView b;
+    private ProgressBar c;
+    private TextView d;
+    private TextView e;
+    private RotateAnimation f;
+    private RotateAnimation g;
+    private com.baidu.adp.widget.ListView.b h;
 
-    public boolean a() {
-        return this.d;
-    }
-
-    public void setIsThree(boolean z) {
-        this.e = z;
-    }
-
-    public q(Context context, int i) {
+    public q(Context context) {
         super(context);
-        this.a = new Matrix();
-        this.b = new Paint();
-        this.c = 0;
-        this.d = false;
-        this.e = false;
-        this.f = new RectF();
-        this.c = i;
-        b();
+        this.a = null;
+        this.b = null;
+        this.c = null;
+        this.d = null;
+        this.e = null;
+        this.f = null;
+        this.g = null;
+        this.h = null;
     }
 
-    private void b() {
-        this.b.setColor(1275068416);
+    @Override // com.baidu.adp.widget.ListView.d
+    public View a() {
+        this.a = LayoutInflater.from(e()).inflate(R.layout.pull_view, (ViewGroup) null);
+        this.b = (ImageView) this.a.findViewById(R.id.pull_arrow);
+        this.c = (ProgressBar) this.a.findViewById(R.id.pull_progress);
+        this.d = (TextView) this.a.findViewById(R.id.pull_text);
+        this.e = (TextView) this.a.findViewById(R.id.pull_time);
+        a(d());
+        this.f = new RotateAnimation(0.0f, -180.0f, 1, 0.5f, 1, 0.5f);
+        this.f.setInterpolator(new LinearInterpolator());
+        this.f.setDuration(250L);
+        this.f.setFillAfter(true);
+        this.g = new RotateAnimation(-180.0f, 0.0f, 1, 0.5f, 1, 0.5f);
+        this.g.setInterpolator(new LinearInterpolator());
+        this.g.setDuration(200L);
+        this.g.setFillAfter(true);
+        return this.a;
     }
 
-    public void setType(int i) {
-        this.c = i;
+    @Override // com.baidu.adp.widget.ListView.d
+    public void b() {
+        this.b.setVisibility(0);
+        this.c.setVisibility(4);
+        this.d.setVisibility(0);
+        this.e.setVisibility(0);
+        this.b.clearAnimation();
+        this.b.startAnimation(this.f);
+        this.d.setText("释放刷新");
     }
 
-    @Override // android.widget.ImageView, android.view.View
-    protected void onDraw(Canvas canvas) {
-        Bitmap bitmap;
-        boolean z;
-        int i = 0;
-        super.onDraw(canvas);
-        String str = String.valueOf((String) getTag()) + "_small";
-        com.baidu.tieba.c.ac an = TiebaApplication.b().an();
-        Bitmap c = an != null ? an.c(str) : null;
-        if (c == null) {
-            boolean z2 = this.d;
-            this.d = false;
-            if (this.c == 5) {
-                Bitmap a = com.baidu.tieba.c.e.a((int) R.drawable.video_pic);
-                this.d = true;
-                bitmap = a;
-                z = z2;
-            } else if (TiebaApplication.b().ah() == 1) {
-                bitmap = com.baidu.tieba.c.e.a((int) R.drawable.image_default_1);
-                z = z2;
-            } else {
-                bitmap = com.baidu.tieba.c.e.a((int) R.drawable.image_default);
-                z = z2;
-            }
-        } else {
-            boolean z3 = !this.d;
-            this.d = true;
-            bitmap = c;
-            z = z3;
+    @Override // com.baidu.adp.widget.ListView.d
+    public void a(boolean z) {
+        this.c.setVisibility(4);
+        this.d.setVisibility(0);
+        this.e.setVisibility(0);
+        this.b.clearAnimation();
+        this.b.setVisibility(0);
+        if (z) {
+            this.b.clearAnimation();
+            this.b.startAnimation(this.g);
+            this.d.setText("下拉刷新");
+            return;
         }
-        if (bitmap != null) {
-            int width = bitmap.getWidth();
-            int height = bitmap.getHeight();
-            int width2 = getWidth();
-            int height2 = getHeight();
-            if (width != 0 && height != 0 && width2 != 0 && height2 != 0) {
-                float min = Math.min(width2 / width, height2 / height);
-                if (min > 1.0f) {
-                    min = 1.0f;
-                }
-                this.a.setScale(min, min);
-                if (!this.e) {
-                    if (z) {
-                        int i2 = ((int) (width * min)) + 1;
-                        ViewGroup.LayoutParams layoutParams = getLayoutParams();
-                        if (i2 > layoutParams.width) {
-                            i2 = layoutParams.width;
-                        }
-                        layoutParams.width = i2;
-                        setLayoutParams(layoutParams);
-                    }
-                } else {
-                    i = ((int) (width2 - (width * min))) / 2;
-                }
-                int i3 = (int) (height2 - (min * height));
-                this.a.postTranslate(i, i3);
-                canvas.drawBitmap(bitmap, this.a, null);
-                this.a.reset();
-                if (this.d && TiebaApplication.b().ah() == 1) {
-                    this.f.set(i, i3, i + bitmap.getWidth(), i3 + bitmap.getHeight());
-                    canvas.drawRect(this.f, this.b);
-                }
-            }
+        this.d.setText("下拉刷新");
+    }
+
+    @Override // com.baidu.adp.widget.ListView.d
+    public void c() {
+        this.c.setVisibility(0);
+        this.b.clearAnimation();
+        this.b.setVisibility(4);
+        this.d.setText("正在加载");
+        this.e.setVisibility(0);
+    }
+
+    @Override // com.baidu.adp.widget.ListView.d
+    public void b(boolean z) {
+        this.c.setVisibility(4);
+        this.b.clearAnimation();
+        this.b.setImageResource(R.drawable.pull_icon);
+        this.d.setText("下拉刷新");
+        this.e.setVisibility(0);
+        if (z) {
+            a(d());
         }
+    }
+
+    public static String d() {
+        String format;
+        synchronized (i) {
+            format = i.format(new Date());
+        }
+        return format;
+    }
+
+    public void a(String str) {
+        this.e.setText("最后更新：" + str);
+    }
+
+    @Override // com.baidu.adp.widget.ListView.d
+    public void c(boolean z) {
+        if (this.h != null) {
+            this.h.a(z);
+        }
+    }
+
+    public void a(com.baidu.adp.widget.ListView.b bVar) {
+        this.h = bVar;
+    }
+
+    public void a(int i2) {
+        if (i2 == 1) {
+            this.d.setTextColor(-8682095);
+            this.e.setTextColor(-8682095);
+            return;
+        }
+        this.d.setTextColor(-14277082);
+        this.e.setTextColor(-14277082);
     }
 }

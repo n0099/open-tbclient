@@ -3,7 +3,7 @@ package com.baidu.tieba.nearby;
 import android.graphics.Bitmap;
 import com.baidu.mapapi.MapView;
 /* loaded from: classes.dex */
-class h implements com.baidu.tieba.c.d {
+class h implements com.baidu.tieba.d.d {
     final /* synthetic */ g a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -11,7 +11,7 @@ class h implements com.baidu.tieba.c.d {
         this.a = gVar;
     }
 
-    @Override // com.baidu.tieba.c.d
+    @Override // com.baidu.tieba.d.d
     public void a(Bitmap bitmap, String str, boolean z) {
         NearbyMapActivity nearbyMapActivity;
         PostItemizedOverlay postItemizedOverlay;

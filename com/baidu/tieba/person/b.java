@@ -1,15 +1,14 @@
 package com.baidu.tieba.person;
 
-import android.os.AsyncTask;
 import android.widget.ProgressBar;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class b extends AsyncTask {
+public class b extends com.baidu.adp.lib.a.a {
     final /* synthetic */ AllPostActivity a;
     private int b;
     private int c;
     private int d;
-    private com.baidu.tieba.c.t e;
+    private com.baidu.tieba.d.t e;
 
     public b(AllPostActivity allPostActivity, int i, int i2, int i3) {
         this.a = allPostActivity;
@@ -20,11 +19,10 @@ public class b extends AsyncTask {
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // android.os.AsyncTask
-    /* renamed from: a */
-    public String doInBackground(String... strArr) {
+    @Override // com.baidu.adp.lib.a.a
+    public String a(String... strArr) {
         try {
-            this.e = new com.baidu.tieba.c.t(strArr[0]);
+            this.e = new com.baidu.tieba.d.t(strArr[0]);
             this.e.a("type", String.valueOf(this.b));
             this.e.a("pn", String.valueOf(this.c));
             String i = this.e.i();
@@ -33,16 +31,15 @@ public class b extends AsyncTask {
             }
             return null;
         } catch (Exception e) {
-            com.baidu.tieba.c.ag.b(getClass().getName(), "", "MyPostAsyncTask.doInBackground error = " + e.getMessage());
+            com.baidu.tieba.d.ae.b(getClass().getName(), "", "MyPostAsyncTask.doInBackground error = " + e.getMessage());
             return null;
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // android.os.AsyncTask
-    /* renamed from: a */
-    public void onPostExecute(String str) {
+    @Override // com.baidu.adp.lib.a.a
+    public void a(String str) {
         ProgressBar progressBar;
         this.a.i = null;
         this.a.k = false;
@@ -71,14 +68,15 @@ public class b extends AsyncTask {
                     }
                     return;
                 }
-                this.a.b(this.e.f());
+                this.a.a(this.e.f());
             } catch (Exception e) {
-                com.baidu.tieba.c.ag.b(getClass().getName(), "", "MyPostAsyncTask.onPostExecute error = " + e.getMessage());
+                com.baidu.tieba.d.ae.b(getClass().getName(), "", "MyPostAsyncTask.onPostExecute error = " + e.getMessage());
             }
         }
     }
 
-    public void a() {
+    @Override // com.baidu.adp.lib.a.a
+    public void cancel() {
         ProgressBar progressBar;
         if (this.e != null) {
             this.e.g();

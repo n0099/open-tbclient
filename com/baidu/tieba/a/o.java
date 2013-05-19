@@ -12,15 +12,23 @@ public class o {
         return this.a;
     }
 
+    public void a(int i) {
+        this.a = i;
+    }
+
     public String b() {
         return this.b;
     }
 
     public void a(String str) {
+        this.b = str;
+    }
+
+    public void b(String str) {
         try {
             a(new JSONObject(str));
         } catch (Exception e) {
-            com.baidu.tieba.c.ag.b(getClass().getName(), "parserJson", e.getMessage());
+            com.baidu.tieba.d.ae.b(getClass().getName(), "parserJson", e.getMessage());
         }
     }
 
@@ -31,7 +39,7 @@ public class o {
                 this.b = jSONObject.optString(PushConstants.EXTRA_ERROR_CODE);
                 this.c = jSONObject.optString("error_data");
             } catch (Exception e) {
-                com.baidu.tieba.c.ag.b(getClass().getName(), "parserJson", e.getMessage());
+                com.baidu.tieba.d.ae.b(getClass().getName(), "parserJson", e.getMessage());
             }
         }
     }

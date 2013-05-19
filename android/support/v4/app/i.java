@@ -1,12 +1,5 @@
 package android.support.v4.app;
-
-import java.util.ArrayList;
-import java.util.HashMap;
 /* loaded from: classes.dex */
-final class i {
-    Object a;
-    Object b;
-    HashMap c;
-    ArrayList d;
-    r e;
+class i {
+    public static final int[] a = {16842755, 16842960, 16842961};
 }

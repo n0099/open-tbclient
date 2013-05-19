@@ -1,16 +1,16 @@
 package com.baidu.tieba.home;
 
-import android.os.AsyncTask;
 import android.widget.ProgressBar;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class c extends AsyncTask {
+public class c extends com.baidu.adp.lib.a.a {
     final /* synthetic */ CreateBarActivity a;
     private String b;
     private String c;
-    private com.baidu.tieba.c.t d = null;
+    private com.baidu.tieba.d.t d = null;
 
-    public void a() {
+    @Override // com.baidu.adp.lib.a.a
+    public void cancel() {
         ProgressBar progressBar;
         super.cancel(true);
         if (this.d != null) {
@@ -31,33 +31,31 @@ public class c extends AsyncTask {
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // android.os.AsyncTask
-    /* renamed from: a */
-    public String doInBackground(String... strArr) {
+    @Override // com.baidu.adp.lib.a.a
+    public String a(String... strArr) {
         String str;
         try {
-            this.d = new com.baidu.tieba.c.t("http://c.tieba.baidu.com/c/c/forum/create");
+            this.d = new com.baidu.tieba.d.t(String.valueOf(com.baidu.tieba.a.i.e) + "c/c/forum/create");
             this.d.d(true);
             this.d.a("kw", this.b);
             this.d.a("vcode", this.c);
-            com.baidu.tieba.c.t tVar = this.d;
+            com.baidu.tieba.d.t tVar = this.d;
             str = this.a.u;
             tVar.a("vcode_md5", str);
             this.d.i();
             return null;
         } catch (Exception e) {
-            com.baidu.tieba.c.ag.b(getClass().getName(), "doInBackground", e.getMessage());
+            com.baidu.tieba.d.ae.b(getClass().getName(), "doInBackground", e.getMessage());
             return null;
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // android.os.AsyncTask
-    /* renamed from: a */
-    public void onPostExecute(String str) {
+    @Override // com.baidu.adp.lib.a.a
+    public void a(String str) {
         ProgressBar progressBar;
-        super.onPostExecute(str);
+        super.a((Object) str);
         progressBar = this.a.o;
         progressBar.setVisibility(8);
         this.a.q = null;
@@ -66,16 +64,17 @@ public class c extends AsyncTask {
             this.a.finish();
             return;
         }
-        this.a.b(this.d.f());
+        this.a.a(this.d.f());
         if (this.d.c()) {
-            this.a.k();
+            this.a.d();
         }
     }
 
-    @Override // android.os.AsyncTask
-    protected void onPreExecute() {
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.a.a
+    public void b() {
         ProgressBar progressBar;
-        super.onPreExecute();
+        super.b();
         progressBar = this.a.o;
         progressBar.setVisibility(0);
     }

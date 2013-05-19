@@ -1,36 +1,22 @@
 package com.baidu.tieba.pb;
 
-import android.text.Editable;
-import android.text.TextWatcher;
-import android.widget.Button;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.view.View;
+import android.widget.AdapterView;
+import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-public class ct implements TextWatcher {
-    final /* synthetic */ SubPbActivity a;
+class ct implements AdapterView.OnItemClickListener {
+    final /* synthetic */ cr a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ct(SubPbActivity subPbActivity) {
-        this.a = subPbActivity;
+    public ct(cr crVar) {
+        this.a = crVar;
     }
 
-    @Override // android.text.TextWatcher
-    public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-    }
-
-    @Override // android.text.TextWatcher
-    public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-    }
-
-    @Override // android.text.TextWatcher
-    public void afterTextChanged(Editable editable) {
-        Button button;
-        Button button2;
-        if (editable == null || editable.length() <= 0) {
-            button = this.a.t;
-            button.setEnabled(false);
-            return;
+    @Override // android.widget.AdapterView.OnItemClickListener
+    public void onItemClick(AdapterView adapterView, View view, int i, long j) {
+        String str = (String) view.getTag(R.id.tag_photo_username);
+        if (str != null) {
+            this.a.b(str);
         }
-        button2 = this.a.t;
-        button2.setEnabled(true);
     }
 }

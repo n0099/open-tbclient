@@ -1,10 +1,9 @@
 package com.baidu.tieba;
 
-import android.graphics.Bitmap;
-import android.view.animation.AlphaAnimation;
-import android.widget.ImageView;
+import android.os.Handler;
+import android.os.Message;
 /* loaded from: classes.dex */
-class z implements Runnable {
+class z extends Handler {
     final /* synthetic */ LogoActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -12,18 +11,17 @@ class z implements Runnable {
         this.a = logoActivity;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        ImageView imageView;
-        Bitmap bitmap;
-        ImageView imageView2;
-        AlphaAnimation alphaAnimation;
-        this.a.g = com.baidu.tieba.c.e.a(this.a, (int) R.drawable.logo);
-        imageView = this.a.f;
-        bitmap = this.a.g;
-        imageView.setImageBitmap(bitmap);
-        imageView2 = this.a.f;
-        alphaAnimation = this.a.h;
-        imageView2.startAnimation(alphaAnimation);
+    @Override // android.os.Handler
+    public void handleMessage(Message message) {
+        boolean z;
+        this.a.e = true;
+        z = this.a.d;
+        if (z) {
+            if (!this.a.getDatabasePath("baidu_tieba.db").exists()) {
+                TiebaApplication.a(com.baidu.tieba.d.k.m());
+            }
+            this.a.d();
+        }
+        super.handleMessage(message);
     }
 }

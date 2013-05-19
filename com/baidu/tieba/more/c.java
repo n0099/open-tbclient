@@ -1,16 +1,16 @@
 package com.baidu.tieba.more;
 
-import android.os.AsyncTask;
 import android.os.Build;
 import android.widget.ProgressBar;
-import com.baidu.tieba.R;
 import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.UpdateDialog;
+import com.baidu.tieba.c.bo;
+import com.slidingmenu.lib.R;
 import java.util.Date;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class c extends AsyncTask {
-    com.baidu.tieba.c.t a;
+public class c extends com.baidu.adp.lib.a.a {
+    com.baidu.tieba.d.t a;
     final /* synthetic */ AboutActivity b;
 
     private c(AboutActivity aboutActivity) {
@@ -23,30 +23,30 @@ public class c extends AsyncTask {
         this(aboutActivity);
     }
 
-    @Override // android.os.AsyncTask
-    protected void onPreExecute() {
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.a.a
+    public void b() {
         ProgressBar progressBar;
-        super.onPreExecute();
+        super.b();
         progressBar = this.b.j;
         progressBar.setVisibility(0);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // android.os.AsyncTask
-    /* renamed from: a */
-    public com.baidu.tieba.b.y doInBackground(String... strArr) {
-        com.baidu.tieba.b.y yVar;
+    @Override // com.baidu.adp.lib.a.a
+    public bo a(String... strArr) {
+        bo boVar;
         Exception e;
         try {
-            this.a = new com.baidu.tieba.c.t("http://c.tieba.baidu.com/c/s/sync");
+            this.a = new com.baidu.tieba.d.t(String.valueOf(com.baidu.tieba.a.i.e) + "c/s/sync");
             this.a.a("_os_version", Build.VERSION.RELEASE);
             StringBuffer stringBuffer = new StringBuffer(15);
-            stringBuffer.append(String.valueOf(com.baidu.tieba.c.ai.a(TiebaApplication.b())));
+            stringBuffer.append(String.valueOf(com.baidu.tieba.d.ag.a(TiebaApplication.d())));
             stringBuffer.append(",");
-            stringBuffer.append(String.valueOf(com.baidu.tieba.c.ai.b(TiebaApplication.b())));
+            stringBuffer.append(String.valueOf(com.baidu.tieba.d.ag.b(TiebaApplication.d())));
             this.a.a("_phone_screen", stringBuffer.toString());
-            if (TiebaApplication.b().M() > 0) {
+            if (TiebaApplication.d().N() > 0) {
                 this.a.a("_msg_status", "0");
             } else {
                 this.a.a("_msg_status", "1");
@@ -55,27 +55,28 @@ public class c extends AsyncTask {
             if (!this.a.b()) {
                 return null;
             }
-            yVar = new com.baidu.tieba.b.y();
+            boVar = new bo();
             try {
-                yVar.a(i);
-                if (TiebaApplication.K() == null && yVar.c().a() != null && yVar.c().a().length() > 0) {
-                    TiebaApplication.a(this.b, yVar.c().a());
-                    TiebaApplication.i(yVar.c().a());
-                    return yVar;
+                boVar.a(i);
+                if (TiebaApplication.L() == null && boVar.c().a() != null && boVar.c().a().length() > 0) {
+                    TiebaApplication.a(this.b, boVar.c().a());
+                    TiebaApplication.i(boVar.c().a());
+                    return boVar;
                 }
-                return yVar;
+                return boVar;
             } catch (Exception e2) {
                 e = e2;
-                com.baidu.tieba.c.ag.b(getClass().getName(), "doInBackground", e.getMessage());
-                return yVar;
+                com.baidu.tieba.d.ae.b(getClass().getName(), "doInBackground", e.getMessage());
+                return boVar;
             }
         } catch (Exception e3) {
-            yVar = null;
+            boVar = null;
             e = e3;
         }
     }
 
-    public void a() {
+    @Override // com.baidu.adp.lib.a.a
+    public void cancel() {
         ProgressBar progressBar;
         this.b.g = null;
         if (this.a != null) {
@@ -88,43 +89,42 @@ public class c extends AsyncTask {
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // android.os.AsyncTask
-    /* renamed from: a */
-    public void onPostExecute(com.baidu.tieba.b.y yVar) {
+    @Override // com.baidu.adp.lib.a.a
+    public void a(bo boVar) {
         ProgressBar progressBar;
-        com.baidu.tieba.b.y yVar2;
-        com.baidu.tieba.b.y yVar3;
-        com.baidu.tieba.b.y yVar4;
-        com.baidu.tieba.b.y yVar5;
-        com.baidu.tieba.b.y yVar6;
-        super.onPostExecute(yVar);
+        bo boVar2;
+        bo boVar3;
+        bo boVar4;
+        bo boVar5;
+        bo boVar6;
+        super.a((Object) boVar);
         progressBar = this.b.j;
         progressBar.setVisibility(8);
         this.b.g = null;
-        if (yVar != null) {
-            this.b.h = yVar;
-            TiebaApplication b = TiebaApplication.b();
-            yVar2 = this.b.h;
-            b.a(yVar2.b());
-            TiebaApplication.b().r(false);
-            yVar3 = this.b.h;
-            if (yVar3.b().e() == 1) {
-                yVar4 = this.b.h;
-                if (yVar4.b().b() == 1) {
-                    TiebaApplication b2 = TiebaApplication.b();
-                    yVar6 = this.b.h;
-                    UpdateDialog.a(b2, yVar6.b());
+        if (boVar != null) {
+            this.b.h = boVar;
+            TiebaApplication d = TiebaApplication.d();
+            boVar2 = this.b.h;
+            d.a(boVar2.b());
+            TiebaApplication.d().s(false);
+            boVar3 = this.b.h;
+            if (boVar3.b().e() == 1) {
+                boVar4 = this.b.h;
+                if (boVar4.b().b() == 1) {
+                    TiebaApplication d2 = TiebaApplication.d();
+                    boVar6 = this.b.h;
+                    UpdateDialog.a(d2, boVar6.b());
                     return;
                 }
-                TiebaApplication.b().d(Long.valueOf(new Date().getTime()).longValue());
-                TiebaApplication b3 = TiebaApplication.b();
-                yVar5 = this.b.h;
-                UpdateDialog.a(b3, yVar5.b());
+                TiebaApplication.d().c(Long.valueOf(new Date().getTime()).longValue());
+                TiebaApplication d3 = TiebaApplication.d();
+                boVar5 = this.b.h;
+                UpdateDialog.a(d3, boVar5.b());
                 return;
             }
-            this.b.b(this.b.getResources().getString(R.string.neednot_update));
+            this.b.a(this.b.getResources().getString(R.string.neednot_update));
             return;
         }
-        this.b.b(this.b.getResources().getString(R.string.neterror));
+        this.b.a(this.b.getResources().getString(R.string.neterror));
     }
 }

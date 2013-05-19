@@ -5,7 +5,7 @@ import android.os.Parcel;
 import android.os.Parcelable;
 /* loaded from: classes.dex */
 final class FragmentState implements Parcelable {
-    public static final Parcelable.Creator CREATOR = new p();
+    public static final Parcelable.Creator CREATOR = new r();
     final String a;
     final int b;
     final boolean c;
@@ -63,7 +63,7 @@ final class FragmentState implements Parcelable {
         this.k.E = this.f;
         this.k.H = this.g;
         this.k.G = this.h;
-        this.k.A = gVar.b;
+        this.k.A = gVar.mFragments;
         return this.k;
     }
 

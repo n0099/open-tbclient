@@ -26,7 +26,7 @@ import java.util.HashMap;
 /* loaded from: classes.dex */
 public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuListener {
     private static final HashMap a = new HashMap();
-    l A;
+    m A;
     g B;
     int C;
     int D;
@@ -42,7 +42,7 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
     View O;
     View P;
     boolean Q;
-    w S;
+    y S;
     boolean T;
     boolean U;
     View j;
@@ -166,7 +166,7 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
         return this.B;
     }
 
-    public final j h() {
+    public final k h() {
         return this.A;
     }
 
@@ -217,7 +217,7 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
             this.T = true;
             if (!this.U) {
                 this.U = true;
-                this.S = this.B.a(this.n, this.T, false);
+                this.S = this.B.getLoaderManager(this.n, this.T, false);
             }
             if (this.S != null) {
                 this.S.b();
@@ -258,7 +258,7 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
         this.L = true;
         if (!this.U) {
             this.U = true;
-            this.S = this.B.a(this.n, this.T, false);
+            this.S = this.B.getLoaderManager(this.n, this.T, false);
         }
         if (this.S != null) {
             this.S.h();
@@ -448,10 +448,10 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
             this.T = false;
             if (!this.U) {
                 this.U = true;
-                this.S = this.B.a(this.n, this.T, false);
+                this.S = this.B.getLoaderManager(this.n, this.T, false);
             }
             if (this.S != null) {
-                if (!this.B.g) {
+                if (!this.B.mRetaining) {
                     this.S.c();
                 } else {
                     this.S.d();

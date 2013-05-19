@@ -19,7 +19,7 @@ public class n implements View.OnClickListener {
         editHeadImageView = this.a.g;
         a = this.a.a("tieba_head_image", editHeadImageView.getHeadBitmap());
         if (a) {
-            this.a.l();
+            this.a.m();
         }
     }
 }

@@ -1,45 +1,156 @@
 package com.baidu.tieba.a;
 
+import java.io.Serializable;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
-public class af {
-    private int a = -1;
+public class af implements Serializable {
+    private String a;
+    private String d;
+    private String l;
+    private String m;
+    private String n;
     private String b = null;
-    private String c = null;
+    private int c = 0;
+    private long e = 0;
+    private String h = null;
+    private boolean f = true;
+    private boolean g = false;
+    private String i = null;
+    private int j = 0;
+    private int k = 0;
 
-    public int a() {
-        return this.a;
-    }
-
-    public String b() {
-        return this.b;
-    }
-
-    public String c() {
-        return this.c;
-    }
-
-    public void a(int i) {
-        this.a = i;
+    public String a() {
+        return this.i;
     }
 
     public void a(String str) {
+        this.i = str;
+    }
+
+    public int b() {
+        return this.j;
+    }
+
+    public void a(int i) {
+        this.j = i;
+    }
+
+    public void b(int i) {
+        this.k = i;
+    }
+
+    public String c() {
+        return this.b;
+    }
+
+    public void b(String str) {
         this.b = str;
     }
 
-    public void a(JSONObject jSONObject) {
-        if (jSONObject != null) {
-            try {
-                this.a = jSONObject.optInt("type");
-                if (this.a == 3) {
-                    this.b = jSONObject.optString("big_pic");
-                } else if (this.a == 5) {
-                    this.b = jSONObject.optString("vpic");
-                    this.c = jSONObject.optString("vsrc");
-                }
-            } catch (Exception e) {
-                com.baidu.tieba.c.ag.b(getClass().getName(), "parserJson", "error=" + e.toString());
+    public int d() {
+        return this.c;
+    }
+
+    public void c(int i) {
+        this.c = i;
+    }
+
+    public void a(long j) {
+        this.e = j;
+    }
+
+    public void c(String str) {
+        this.h = str;
+    }
+
+    public String e() {
+        return this.h;
+    }
+
+    public void a(Boolean bool) {
+        this.f = bool.booleanValue();
+    }
+
+    public Boolean f() {
+        return Boolean.valueOf(this.f);
+    }
+
+    public void a(boolean z) {
+        this.g = z;
+    }
+
+    public boolean g() {
+        return this.g;
+    }
+
+    public void d(String str) {
+        this.d = str;
+    }
+
+    public String h() {
+        return this.d;
+    }
+
+    public void e(String str) {
+        this.a = str;
+    }
+
+    public String i() {
+        return this.a;
+    }
+
+    public void f(String str) {
+        this.l = str;
+    }
+
+    public void g(String str) {
+        this.m = str;
+    }
+
+    public String j() {
+        return this.n;
+    }
+
+    public void h(String str) {
+        this.n = str;
+    }
+
+    public JSONObject k() {
+        try {
+            JSONObject jSONObject = new JSONObject();
+            jSONObject.put("tid", this.n);
+            jSONObject.put("pid", this.d);
+            if (this.g) {
+                jSONObject.put("status", "1");
+            } else if (!this.f) {
+                jSONObject.put("status", "2");
+            } else {
+                jSONObject.put("status", "0");
             }
+            return jSONObject;
+        } catch (Exception e) {
+            com.baidu.tieba.d.ae.b(getClass().getName(), "toJson", e.toString());
+            return null;
+        }
+    }
+
+    public void a(JSONObject jSONObject) {
+        try {
+            this.n = jSONObject.optString("thread_id");
+            this.d = jSONObject.optString("mark_pid");
+            this.m = jSONObject.optString("forum_name");
+            this.h = jSONObject.optString("title");
+            this.i = jSONObject.optJSONObject("author").optString("name_show");
+            this.b = this.n;
+            this.j = jSONObject.optInt("reply_num");
+            int optInt = jSONObject.optInt("mark_status");
+            if (optInt == 1) {
+                this.g = true;
+            } else if (optInt == 2) {
+                this.f = false;
+            }
+        } catch (Exception e) {
+            com.baidu.tieba.d.ae.b(getClass().getName(), "fromJson", e.toString());
         }
     }
 }

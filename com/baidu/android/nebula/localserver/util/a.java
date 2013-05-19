@@ -1,6 +1,4 @@
 package com.baidu.android.nebula.localserver.util;
-
-import com.baidu.location.LocationClient;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class a implements Runnable {
@@ -15,7 +13,7 @@ public class a implements Runnable {
 
     @Override // java.lang.Runnable
     public void run() {
-        LocationClient locationClient;
+        com.baidu.location.e eVar;
         if (this.a > 0) {
             try {
                 Thread.sleep(this.a);
@@ -24,7 +22,7 @@ public class a implements Runnable {
         }
         this.b.h = true;
         this.b.j = System.currentTimeMillis();
-        locationClient = this.b.d;
-        locationClient.requestLocation();
+        eVar = this.b.d;
+        eVar.b();
     }
 }

@@ -1,32 +1,30 @@
 package com.baidu.tieba.nearby;
 
-import android.widget.Button;
+import android.graphics.Bitmap;
+import android.widget.AbsoluteLayout;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.TextView;
-import com.baidu.tieba.view.PbImageView;
 /* loaded from: classes.dex */
-class au {
-    LinearLayout a;
-    TextView b;
-    PbImageView c;
-    ImageView d;
-    ImageView e;
-    TextView f;
-    TextView g;
-    Button h;
-    LinearLayout i;
-    LinearLayout j;
-    ImageView k;
-    ImageView l;
-    TextView m;
-    ImageView n;
-    TextView o;
-    TextView p;
-    final /* synthetic */ ar q;
+class au implements com.baidu.tieba.d.d {
+    final /* synthetic */ NewNearbyActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public au(ar arVar) {
-        this.q = arVar;
+    public au(NewNearbyActivity newNearbyActivity) {
+        this.a = newNearbyActivity;
+    }
+
+    @Override // com.baidu.tieba.d.d
+    public void a(Bitmap bitmap, String str, boolean z) {
+        AbsoluteLayout absoluteLayout;
+        AbsoluteLayout absoluteLayout2;
+        if (bitmap != null) {
+            absoluteLayout = this.a.g;
+            ImageView imageView = (ImageView) absoluteLayout.findViewWithTag(str);
+            while (imageView != null) {
+                imageView.setTag(null);
+                imageView.setImageBitmap(bitmap);
+                absoluteLayout2 = this.a.g;
+                imageView = (ImageView) absoluteLayout2.findViewWithTag(str);
+            }
+        }
     }
 }

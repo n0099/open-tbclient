@@ -19,38 +19,38 @@ class k implements Runnable {
     public void run() {
         ListView listView;
         ListView listView2;
-        af afVar;
-        af afVar2;
-        af afVar3;
-        af afVar4;
+        ae aeVar;
+        ae aeVar2;
+        ae aeVar3;
+        ae aeVar4;
         int i;
-        af afVar5;
-        com.baidu.tieba.b.r rVar;
-        af afVar6;
-        af afVar7;
+        ae aeVar5;
+        com.baidu.tieba.c.bd bdVar;
+        ae aeVar6;
+        ae aeVar7;
         try {
             listView = this.a.d;
             int firstVisiblePosition = listView.getFirstVisiblePosition();
             listView2 = this.a.d;
             int lastVisiblePosition = listView2.getLastVisiblePosition();
-            com.baidu.tieba.c.z c = com.baidu.tieba.c.w.c(this.a);
-            afVar = this.a.m;
-            afVar.b().a();
-            boolean z = c == com.baidu.tieba.c.z.WIFI || c == com.baidu.tieba.c.z.ThreeG;
-            afVar2 = this.a.m;
-            afVar2.b().a(z);
+            com.baidu.tieba.d.z c = com.baidu.tieba.d.w.c(this.a);
+            aeVar = this.a.l;
+            aeVar.b().a();
+            boolean z = c == com.baidu.tieba.d.z.WIFI || c == com.baidu.tieba.d.z.ThreeG;
+            aeVar2 = this.a.l;
+            aeVar2.b().a(z);
             int i2 = firstVisiblePosition;
             int i3 = 0;
             int i4 = 0;
-            while (i2 < afVar3.getCount()) {
+            while (i2 < aeVar3.getCount()) {
                 if (z || i2 <= lastVisiblePosition) {
-                    afVar4 = this.a.m;
-                    com.baidu.tieba.a.an anVar = (com.baidu.tieba.a.an) afVar4.getItem(i2);
-                    if (anVar != null) {
-                        ArrayList f = anVar.f();
-                        int size = f.size();
-                        afVar5 = this.a.m;
-                        if (afVar5.g() && i4 < 13) {
+                    aeVar4 = this.a.l;
+                    com.baidu.tieba.a.aq aqVar = (com.baidu.tieba.a.aq) aeVar4.getItem(i2);
+                    if (aqVar != null) {
+                        ArrayList j = aqVar.j();
+                        int size = j.size();
+                        aeVar5 = this.a.l;
+                        if (aeVar5.g() && i4 < 13) {
                             int i5 = 0;
                             int i6 = i4;
                             while (true) {
@@ -58,25 +58,25 @@ class k implements Runnable {
                                     i4 = i6;
                                     break;
                                 }
-                                if (((com.baidu.tieba.a.k) f.get(i5)).a() == 3 || ((com.baidu.tieba.a.k) f.get(i5)).a() == 5) {
+                                if (((com.baidu.tieba.a.k) j.get(i5)).a() == 3 || ((com.baidu.tieba.a.k) j.get(i5)).a() == 5) {
                                     if (i6 >= 13) {
                                         i4 = i6;
                                         break;
                                     }
                                     i6++;
-                                    afVar7 = this.a.m;
-                                    afVar7.b().a(((com.baidu.tieba.a.k) f.get(i5)).f(), new l(this));
+                                    aeVar7 = this.a.l;
+                                    aeVar7.b().a(((com.baidu.tieba.a.k) j.get(i5)).f(), new l(this));
                                 }
                                 i5++;
                                 i6 = i6;
                             }
                         }
-                        String d = anVar.e().d();
-                        rVar = this.a.o;
-                        if (rVar.b() && d != null && d.length() > 0 && i3 < 30) {
+                        String e = aqVar.h().e();
+                        bdVar = this.a.n;
+                        if (bdVar.b() && e != null && e.length() > 0 && i3 < 30) {
                             i3++;
-                            afVar6 = this.a.m;
-                            afVar6.b().d(d, new m(this));
+                            aeVar6 = this.a.l;
+                            aeVar6.b().d(e, new m(this));
                         }
                         i = i3;
                         if (z && i4 >= 13 && i >= 30) {
@@ -91,8 +91,8 @@ class k implements Runnable {
                     return;
                 }
             }
-        } catch (Exception e) {
-            com.baidu.tieba.c.ag.b("NearbyPbActivity", "mGetImageRunnble.run", "error = " + e.getMessage());
+        } catch (Exception e2) {
+            com.baidu.tieba.d.ae.b("NearbyPbActivity", "mGetImageRunnble.run", "error = " + e2.getMessage());
         }
     }
 }

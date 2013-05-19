@@ -10,14 +10,14 @@ import com.baidu.mapapi.GeoPoint;
 import com.baidu.mapapi.ItemizedOverlay;
 import com.baidu.mapapi.MapView;
 import com.baidu.mapapi.OverlayItem;
-import com.baidu.tieba.R;
 import com.baidu.tieba.TiebaApplication;
+import com.slidingmenu.lib.R;
 import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes.dex */
 public class PostItemizedOverlay extends ItemizedOverlay {
     private ArrayList a;
-    private com.baidu.tieba.c.a b;
+    private com.baidu.tieba.d.a b;
     private NearbyMapActivity c;
     private int d;
     private int e;
@@ -29,13 +29,13 @@ public class PostItemizedOverlay extends ItemizedOverlay {
         this.c = null;
         this.d = 0;
         this.e = -1;
-        this.b = new com.baidu.tieba.c.a(context);
+        this.b = new com.baidu.tieba.d.a(context);
         this.c = (NearbyMapActivity) context;
         populate();
-        this.d = com.baidu.tieba.c.ai.a(TiebaApplication.b(), 6.0f);
+        this.d = com.baidu.tieba.d.ag.a(TiebaApplication.d(), 6.0f);
     }
 
-    public com.baidu.tieba.c.a a() {
+    public com.baidu.tieba.d.a a() {
         return this.b;
     }
 
@@ -56,7 +56,7 @@ public class PostItemizedOverlay extends ItemizedOverlay {
             }
             Iterator it = arrayList.iterator();
             while (it.hasNext()) {
-                this.a.add(((com.baidu.tieba.a.ad) it.next()).g());
+                this.a.add(((com.baidu.tieba.a.ae) it.next()).g());
             }
             populate();
         }
@@ -77,7 +77,7 @@ public class PostItemizedOverlay extends ItemizedOverlay {
         LayerDrawable layerDrawable = new LayerDrawable(new Drawable[]{this.c.getResources().getDrawable(R.drawable.nearby_head_bg), new BitmapDrawable(bitmap)});
         layerDrawable.setLayerInset(1, this.d, this.d, this.d, this.d * 2);
         for (int i = 0; i < this.a.size(); i++) {
-            if (this.a.get(i) != null && (mapOverlayItem = (MapOverlayItem) this.a.get(i)) != null && mapOverlayItem.a() != null && mapOverlayItem.a().a().d().equals(str)) {
+            if (this.a.get(i) != null && (mapOverlayItem = (MapOverlayItem) this.a.get(i)) != null && mapOverlayItem.a() != null && mapOverlayItem.a().a().e().equals(str)) {
                 mapOverlayItem.setMarker(layerDrawable);
             }
         }
@@ -96,7 +96,7 @@ public class PostItemizedOverlay extends ItemizedOverlay {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.mapapi.ItemizedOverlay
     public boolean onTap(int i) {
-        com.baidu.tieba.c.ag.a(getClass().getName(), "onTap", new StringBuilder().append(i).toString());
+        com.baidu.tieba.d.ae.a(getClass().getName(), "onTap", new StringBuilder().append(i).toString());
         setFocus((OverlayItem) this.a.get(i));
         if (i == this.e && this.c.b() == 0) {
             this.c.a();
@@ -110,7 +110,7 @@ public class PostItemizedOverlay extends ItemizedOverlay {
     @Override // com.baidu.mapapi.ItemizedOverlay, com.baidu.mapapi.Overlay
     public boolean onTap(GeoPoint geoPoint, MapView mapView) {
         super.onTap(geoPoint, mapView);
-        com.baidu.tieba.c.ag.a(getClass().getName(), "onTap", "========");
+        com.baidu.tieba.d.ae.a(getClass().getName(), "onTap", "========");
         return false;
     }
 

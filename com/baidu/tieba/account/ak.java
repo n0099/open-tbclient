@@ -1,30 +1,16 @@
 package com.baidu.tieba.account;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ak extends Thread {
-    private String a;
-    private String b;
+public class ak implements o {
+    final /* synthetic */ ReLoginActivity a;
 
-    public ak(String str) {
-        this.a = null;
-        this.b = null;
-        this.a = str;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public ak(ReLoginActivity reLoginActivity) {
+        this.a = reLoginActivity;
     }
 
-    public ak(String str, String str2) {
-        this.a = null;
-        this.b = null;
-        this.a = str;
-        this.b = str2;
-    }
-
-    @Override // java.lang.Thread, java.lang.Runnable
-    public void run() {
-        super.run();
-        com.baidu.tieba.c.t tVar = new com.baidu.tieba.c.t("http://c.tieba.baidu.com/c/s/pv");
-        tVar.a("st_type", this.a);
-        if (this.b != null) {
-            tVar.a("st_param", this.b);
-        }
-        tVar.i();
+    @Override // com.baidu.tieba.account.o
+    public void a(com.baidu.tieba.a.a aVar) {
+        this.a.a(aVar);
     }
 }

@@ -5,7 +5,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.GridView;
 import android.widget.ImageView;
-import com.baidu.tieba.R;
+import com.baidu.tieba.c.bp;
+import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 class aj implements View.OnFocusChangeListener {
     final /* synthetic */ WriteActivity a;
@@ -30,23 +31,23 @@ class aj implements View.OnFocusChangeListener {
         ImageView imageView3;
         ImageView imageView4;
         EditText editText2;
-        com.baidu.tieba.b.z zVar;
-        com.baidu.tieba.b.z zVar2;
+        bp bpVar;
+        bp bpVar2;
         EditText editText3;
         EditText editText4;
         ImageView imageView5;
         ImageView imageView6;
         ImageView imageView7;
-        com.baidu.tieba.b.z zVar3;
+        bp bpVar3;
         EditText editText5;
-        com.baidu.tieba.b.z zVar4;
+        bp bpVar4;
+        ImageView imageView8;
         Button button;
-        Button button2;
         editText = this.a.g;
         if (view != editText) {
-            button = this.a.i;
-            if (view != button) {
-                button2 = this.a.j;
+            imageView8 = this.a.i;
+            if (view != imageView8) {
+                button = this.a.j;
             }
         }
         if (z) {
@@ -64,10 +65,10 @@ class aj implements View.OnFocusChangeListener {
         editText2 = this.a.h;
         if (view == editText2) {
             if (!z) {
-                zVar = this.a.c;
-                if (zVar.a() != 0) {
-                    zVar2 = this.a.c;
-                    if (zVar2.a() == 3) {
+                bpVar = this.a.c;
+                if (bpVar.b() != 0) {
+                    bpVar2 = this.a.c;
+                    if (bpVar2.b() == 3) {
                         editText3 = this.a.h;
                         editText3.setHint(R.string.lbs_post_content_hint);
                         return;
@@ -84,10 +85,10 @@ class aj implements View.OnFocusChangeListener {
             imageView6.setClickable(true);
             imageView7 = this.a.m;
             imageView7.setClickable(true);
-            zVar3 = this.a.c;
-            if (zVar3.a() != 0) {
-                zVar4 = this.a.c;
-                if (zVar4.a() != 3) {
+            bpVar3 = this.a.c;
+            if (bpVar3.b() != 0) {
+                bpVar4 = this.a.c;
+                if (bpVar4.b() != 3) {
                     return;
                 }
             }

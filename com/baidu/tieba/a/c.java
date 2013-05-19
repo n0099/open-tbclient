@@ -16,7 +16,7 @@ public class c extends d implements Serializable {
                 this.b = jSONObject.optString("message_url", null);
                 this.c = jSONObject.optString("dest_url", null);
             } catch (Exception e) {
-                com.baidu.tieba.c.ag.a(e.getMessage());
+                com.baidu.tieba.d.ae.a(e.getMessage());
             }
         }
     }

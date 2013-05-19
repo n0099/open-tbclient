@@ -1,17 +1,26 @@
 package com.baidu.tieba.more;
 
-import android.view.View;
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class y implements View.OnClickListener {
+public class y extends BroadcastReceiver {
     final /* synthetic */ MoreActivity a;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public y(MoreActivity moreActivity) {
+    private y(MoreActivity moreActivity) {
         this.a = moreActivity;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        com.baidu.tieba.a.a(this.a, 0, "goto_more", false);
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public /* synthetic */ y(MoreActivity moreActivity, y yVar) {
+        this(moreActivity);
+    }
+
+    @Override // android.content.BroadcastReceiver
+    public void onReceive(Context context, Intent intent) {
+        z zVar;
+        zVar = this.a.c;
+        zVar.x();
     }
 }

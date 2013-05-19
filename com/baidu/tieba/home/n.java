@@ -1,38 +1,25 @@
 package com.baidu.tieba.home;
 
-import android.content.DialogInterface;
-import com.baidu.tieba.frs.FrsActivity;
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
 /* loaded from: classes.dex */
-class n implements DialogInterface.OnClickListener {
-    final /* synthetic */ HomeActivity a;
+class n {
+    RelativeLayout a;
+    LinearLayout b;
+    View c;
+    ImageView d;
+    TextView e;
+    final /* synthetic */ l f;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public n(HomeActivity homeActivity) {
-        this.a = homeActivity;
+    private n(l lVar) {
+        this.f = lVar;
     }
 
-    @Override // android.content.DialogInterface.OnClickListener
-    public void onClick(DialogInterface dialogInterface, int i) {
-        com.baidu.tieba.a.aa aaVar;
-        com.baidu.tieba.a.aa aaVar2;
-        switch (i) {
-            case 0:
-                aaVar = this.a.r;
-                if (aaVar != null) {
-                    aaVar2 = this.a.r;
-                    String b = aaVar2.b();
-                    if (com.baidu.tieba.c.af.d(b)) {
-                        FrsActivity.a(this.a, b, "tb_forumlist");
-                        return;
-                    }
-                    return;
-                }
-                return;
-            case 1:
-                this.a.m();
-                return;
-            default:
-                return;
-        }
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public /* synthetic */ n(l lVar, n nVar) {
+        this(lVar);
     }
 }

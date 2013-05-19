@@ -5,7 +5,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class v implements com.baidu.tieba.c.d {
+public class v implements com.baidu.tieba.d.d {
     final /* synthetic */ PostActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -13,7 +13,7 @@ public class v implements com.baidu.tieba.c.d {
         this.a = postActivity;
     }
 
-    @Override // com.baidu.tieba.c.d
+    @Override // com.baidu.tieba.d.d
     public void a(Bitmap bitmap, String str, boolean z) {
         LinearLayout linearLayout;
         LinearLayout linearLayout2;

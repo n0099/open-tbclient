@@ -1,11 +1,10 @@
 package com.baidu.tieba.nearby;
 
-import android.view.View;
-import android.widget.AdapterView;
-import com.baidu.tieba.R;
+import android.os.Handler;
+import android.widget.AbsListView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class al implements AdapterView.OnItemClickListener {
+public class al implements AbsListView.OnScrollListener {
     final /* synthetic */ NearbyPostActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -13,25 +12,21 @@ public class al implements AdapterView.OnItemClickListener {
         this.a = nearbyPostActivity;
     }
 
-    @Override // android.widget.AdapterView.OnItemClickListener
-    public void onItemClick(AdapterView adapterView, View view, int i, long j) {
-        ar arVar;
-        com.baidu.tieba.b.p pVar;
-        arVar = this.a.f;
-        switch (arVar.getItemViewType(i)) {
-            case 0:
-            case 1:
-            default:
-                return;
-            case 2:
-                pVar = this.a.d;
-                if (pVar.c().c() != 0) {
-                    this.a.a(1, null, true);
-                    return;
-                } else {
-                    this.a.b(this.a.getString(R.string.no_more_to_load));
-                    return;
-                }
-        }
+    @Override // android.widget.AbsListView.OnScrollListener
+    public void onScroll(AbsListView absListView, int i, int i2, int i3) {
+        Handler handler;
+        Runnable runnable;
+        Handler handler2;
+        Runnable runnable2;
+        handler = this.a.m;
+        runnable = this.a.n;
+        handler.removeCallbacks(runnable);
+        handler2 = this.a.m;
+        runnable2 = this.a.n;
+        handler2.postDelayed(runnable2, 300L);
+    }
+
+    @Override // android.widget.AbsListView.OnScrollListener
+    public void onScrollStateChanged(AbsListView absListView, int i) {
     }
 }

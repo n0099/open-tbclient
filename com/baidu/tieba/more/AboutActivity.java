@@ -4,66 +4,66 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
-import com.baidu.tieba.R;
 import com.baidu.tieba.TiebaApplication;
+import com.baidu.tieba.c.bo;
+import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public class AboutActivity extends com.baidu.tieba.e {
-    private ImageView p;
+    private ImageView o;
     private TextView c = null;
     private TextView d = null;
-    private Button e = null;
+    private ImageView e = null;
     private Button f = null;
     private c g = null;
-    private com.baidu.tieba.b.y h = null;
+    private bo h = null;
     private LinearLayout i = null;
     private ProgressBar j = null;
-    private LinearLayout k = null;
-    private Button l = null;
+    private View k = null;
+    private TextView l = null;
     private TextView m = null;
-    private TextView n = null;
-    private ImageView o = null;
-    private d q = null;
+    private ImageView n = null;
+    private d p = null;
 
     public static void a(Context context) {
         context.startActivity(new Intent(context, AboutActivity.class));
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.e, android.app.Activity
+    @Override // com.baidu.tieba.e, com.baidu.adp.a.a, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         setContentView(R.layout.about_activity);
         this.j = (ProgressBar) findViewById(R.id.about_progress);
-        this.k = (LinearLayout) findViewById(R.id.title);
+        this.k = findViewById(R.id.title);
         this.i = (LinearLayout) findViewById(R.id.parent);
-        this.m = (TextView) findViewById(R.id.title_text);
-        this.l = (Button) findViewById(R.id.common_button);
+        this.l = (TextView) findViewById(R.id.title_text);
         this.d = (TextView) findViewById(R.id.author);
-        this.n = (TextView) findViewById(R.id.info);
-        this.o = (ImageView) findViewById(R.id.divider);
+        this.m = (TextView) findViewById(R.id.info);
+        this.n = (ImageView) findViewById(R.id.divider);
         this.c = (TextView) findViewById(R.id.version);
         this.c.setText(String.valueOf(getString(R.string.app_name)) + " Android " + com.baidu.tieba.a.i.h());
-        this.e = (Button) findViewById(R.id.back);
+        this.e = (ImageView) findViewById(R.id.title_back);
         this.e.setOnClickListener(new a(this));
         this.f = (Button) findViewById(R.id.check_update_button);
         this.f.setOnClickListener(new b(this));
-        this.p = (ImageView) findViewById(R.id.new_version_logo_about);
-        j();
-        k();
+        this.o = (ImageView) findViewById(R.id.new_version_logo_about);
+        c();
+        d();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.e, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        l();
+        m();
         if (this.g != null) {
-            this.g.a();
+            this.g.cancel();
         }
         if (this.j != null) {
             this.j.setVisibility(8);
@@ -74,50 +74,50 @@ public class AboutActivity extends com.baidu.tieba.e {
     @Override // com.baidu.tieba.e
     public void b(int i) {
         super.b(i);
-        com.baidu.tieba.c.ae.a(this.i, i);
-        com.baidu.tieba.c.ae.c(this.k, i);
-        com.baidu.tieba.c.ae.e((TextView) this.e, i);
-        com.baidu.tieba.c.ae.d((TextView) this.l, i);
-        com.baidu.tieba.c.ae.c(this.m, i);
+        com.baidu.tieba.d.ac.a(this.i, i);
+        com.baidu.tieba.d.ac.d(this.k, i);
+        com.baidu.tieba.d.ac.a(this.e, i);
+        com.baidu.tieba.d.ac.f(this.l, i);
         if (i == 1) {
-            this.c.setTextColor(com.baidu.tieba.c.ae.a(i));
-            this.d.setTextColor(com.baidu.tieba.c.ae.a(i));
-            this.n.setTextColor(com.baidu.tieba.c.ae.a(i));
-            this.o.setImageResource(R.drawable.list_divider_1);
+            this.c.setTextColor(com.baidu.tieba.d.ac.a(i));
+            this.d.setTextColor(com.baidu.tieba.d.ac.a(i));
+            this.m.setTextColor(com.baidu.tieba.d.ac.a(i));
+            this.n.setImageResource(R.drawable.list_divider_1);
             return;
         }
         this.c.setTextColor(getResources().getColor(17170444));
         this.d.setTextColor(getResources().getColor(17170444));
-        this.n.setTextColor(getResources().getColor(17170444));
-        this.o.setImageResource(R.drawable.list_divider);
+        this.m.setTextColor(getResources().getColor(17170444));
+        this.n.setImageResource(R.drawable.list_divider);
     }
 
-    public void i() {
+    public void b() {
         if (this.g != null) {
-            this.g.a();
+            this.g.cancel();
         }
         this.g = new c(this, null);
+        this.g.setPriority(3);
         this.g.execute(new String[0]);
     }
 
-    public void j() {
+    public void c() {
         if (TiebaApplication.aH()) {
-            this.p.setVisibility(0);
+            this.o.setVisibility(0);
         } else {
-            this.p.setVisibility(8);
+            this.o.setVisibility(8);
         }
     }
 
-    private void k() {
-        this.q = new d(this, null);
+    private void d() {
+        this.p = new d(this, null);
         IntentFilter intentFilter = new IntentFilter();
         intentFilter.addAction("com.baidu.tieba.broadcast.newversion");
-        registerReceiver(this.q, intentFilter);
+        registerReceiver(this.p, intentFilter);
     }
 
-    private void l() {
-        if (this.q != null) {
-            unregisterReceiver(this.q);
+    private void m() {
+        if (this.p != null) {
+            unregisterReceiver(this.p);
         }
     }
 }

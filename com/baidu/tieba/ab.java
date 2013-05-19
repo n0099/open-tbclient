@@ -1,8 +1,6 @@
 package com.baidu.tieba;
-
-import android.view.animation.Animation;
 /* loaded from: classes.dex */
-class ab implements Animation.AnimationListener {
+class ab implements Runnable {
     final /* synthetic */ LogoActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -10,22 +8,9 @@ class ab implements Animation.AnimationListener {
         this.a = logoActivity;
     }
 
-    @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationEnd(Animation animation) {
-        boolean z;
-        this.a.d = true;
-        z = this.a.e;
-        if (!z) {
-            return;
-        }
-        this.a.j();
-    }
-
-    @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationRepeat(Animation animation) {
-    }
-
-    @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationStart(Animation animation) {
+    @Override // java.lang.Runnable
+    public void run() {
+        this.a.a_();
+        this.a.d();
     }
 }

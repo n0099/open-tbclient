@@ -1,89 +1,88 @@
 package com.baidu.tieba.pb;
 
-import com.baidu.zeus.WebChromeClient;
+import com.baidu.tieba.view.MultiImageView;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
-public class d {
-    private ArrayList a;
-    private String d;
-    private String e;
-    private String f;
-    private boolean k;
-    private String b = null;
-    private String c = null;
-    private boolean g = false;
-    private e h = null;
-    private int i = 0;
-    private boolean j = false;
-    private f l = null;
+class d implements c {
+    final /* synthetic */ ImageActivity a;
 
-    public d(ArrayList arrayList, String str, String str2, String str3) {
-        this.a = null;
-        this.d = null;
-        this.e = null;
-        this.f = null;
-        this.k = false;
-        this.a = arrayList;
-        if (this.a == null) {
-            this.a = new ArrayList();
-        }
-        this.d = str2;
-        this.e = str;
-        this.f = str3;
-        if (this.f == null) {
-            this.k = true;
-        }
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public d(ImageActivity imageActivity) {
+        this.a = imageActivity;
     }
 
-    public void a() {
-        if (!this.g && !this.k) {
-            a(this.d, this.f, 10, 0);
-        }
-    }
-
-    public void b() {
-        if (!this.k) {
-            if (!this.g) {
-                a();
-            } else if (this.b != null && this.b.length() > 0) {
-                a(this.b, null, 0, 10);
+    @Override // com.baidu.tieba.pb.c
+    public void a(ArrayList arrayList, int i, int i2, boolean z, String str, boolean z2) {
+        MultiImageView multiImageView;
+        MultiImageView multiImageView2;
+        MultiImageView multiImageView3;
+        MultiImageView multiImageView4;
+        MultiImageView multiImageView5;
+        int i3;
+        MultiImageView multiImageView6;
+        MultiImageView multiImageView7;
+        MultiImageView multiImageView8;
+        MultiImageView multiImageView9;
+        MultiImageView multiImageView10;
+        MultiImageView multiImageView11;
+        MultiImageView multiImageView12;
+        MultiImageView multiImageView13;
+        MultiImageView multiImageView14;
+        if (z2) {
+            multiImageView10 = this.a.o;
+            if (multiImageView10.getCurrentItem() <= 3) {
+                multiImageView11 = this.a.o;
+                int itemNum = multiImageView11.getItemNum();
+                multiImageView12 = this.a.o;
+                multiImageView12.setTempSize(itemNum + 100);
+                multiImageView13 = this.a.o;
+                multiImageView13.a(itemNum + 90, false);
+                multiImageView14 = this.a.o;
+                multiImageView14.setTempSize(0);
             }
         }
-    }
-
-    private void a(String str, String str2, int i, int i2) {
-        if (this.h != null) {
-            if (str2 == null || !str2.equals(this.h.a())) {
-                this.h.b();
-            } else {
-                return;
+        multiImageView = this.a.o;
+        multiImageView.setUrlData(arrayList);
+        multiImageView2 = this.a.o;
+        multiImageView2.setHasNext(z);
+        multiImageView3 = this.a.o;
+        multiImageView3.setNextTitle(str);
+        if (i >= 0) {
+            multiImageView8 = this.a.o;
+            if (i < multiImageView8.getItemNum()) {
+                multiImageView9 = this.a.o;
+                multiImageView9.a(i, false);
             }
         }
-        this.h = new e(this, str, str2, i, i2);
-        this.h.execute(new Object[0]);
-    }
-
-    public void a(f fVar) {
-        this.l = fVar;
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public String a(com.baidu.tieba.a.u uVar) {
-        StringBuffer stringBuffer = new StringBuffer((int) WebChromeClient.STRING_DLG_BTN_SET);
-        if (uVar.g() * uVar.f() > com.baidu.tieba.a.i.g() * com.baidu.tieba.a.i.g()) {
-            double sqrt = Math.sqrt((com.baidu.tieba.a.i.g() * com.baidu.tieba.a.i.g()) / (uVar.g() * uVar.f()));
-            stringBuffer.append("width=");
-            stringBuffer.append(String.valueOf((int) (uVar.f() * sqrt)));
-            stringBuffer.append("&height=");
-            stringBuffer.append(String.valueOf((int) (sqrt * uVar.g())));
-        } else {
-            stringBuffer.append("width=");
-            stringBuffer.append(String.valueOf(uVar.f()));
-            stringBuffer.append("&height=");
-            stringBuffer.append(String.valueOf(uVar.g()));
+        this.a.g = i2;
+        if (arrayList.size() >= 400) {
+            multiImageView4 = this.a.o;
+            if (multiImageView4.getCurrentItem() > 200) {
+                for (int i4 = 0; i4 < 200; i4++) {
+                    arrayList.remove(0);
+                }
+                multiImageView5 = this.a.o;
+                multiImageView5.setUrlData(arrayList);
+                ImageActivity imageActivity = this.a;
+                i3 = imageActivity.d;
+                imageActivity.d = i3 + 200;
+                multiImageView6 = this.a.o;
+                multiImageView7 = this.a.o;
+                multiImageView6.a(multiImageView7.getCurrentItem() - 200, false);
+            }
         }
-        stringBuffer.append("&src=");
-        stringBuffer.append(com.baidu.tieba.c.af.f(uVar.b()));
-        return stringBuffer.toString();
+        this.a.o();
+    }
+
+    @Override // com.baidu.tieba.pb.c
+    public void a(int i, String str) {
+        ArrayList arrayList;
+        this.a.a(str);
+        if (i == 40) {
+            ImageActivity imageActivity = this.a;
+            arrayList = this.a.e;
+            imageActivity.g = arrayList.size();
+            this.a.o();
+        }
     }
 }

@@ -1,100 +1,83 @@
 package com.baidu.tieba.pb;
 
-import android.app.AlertDialog;
-import android.content.Intent;
 import android.view.View;
-import android.widget.AdapterView;
-/* JADX INFO: Access modifiers changed from: package-private */
+import java.util.ArrayList;
 /* loaded from: classes.dex */
-public class au implements AdapterView.OnItemClickListener {
-    final /* synthetic */ PbActivity a;
+class au implements com.baidu.tbadk.widget.richText.m {
+    final /* synthetic */ NewPbActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public au(PbActivity pbActivity) {
-        this.a = pbActivity;
+    public au(NewPbActivity newPbActivity) {
+        this.a = newPbActivity;
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:28:0x0098, code lost:
-        if (r2.j().equals(r0.a()) != false) goto L33;
-     */
-    @Override // android.widget.AdapterView.OnItemClickListener
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public void onItemClick(AdapterView adapterView, View view, int i, long j) {
-        AlertDialog alertDialog;
-        com.baidu.tieba.b.r rVar;
-        cd cdVar;
-        a aVar;
-        AlertDialog alertDialog2;
-        com.baidu.tieba.b.r rVar2;
-        com.baidu.tieba.b.r rVar3;
-        com.baidu.tieba.b.r rVar4;
-        com.baidu.tieba.b.r rVar5;
-        com.baidu.tieba.b.r rVar6;
-        com.baidu.tieba.b.r rVar7;
-        com.baidu.tieba.b.r rVar8;
-        com.baidu.tieba.b.r rVar9;
-        com.baidu.tieba.b.r rVar10;
-        cd cdVar2;
-        cd cdVar3;
-        boolean z = true;
-        this.a.v = -1L;
-        if (j != -3) {
-            if (j == -1) {
-                cdVar3 = this.a.m;
-                if (cdVar3.h()) {
-                    return;
-                }
-                this.a.x();
-            } else if (j != -2) {
-                alertDialog = this.a.e;
-                if (alertDialog != null) {
-                    this.a.v = j;
-                    rVar = this.a.o;
-                    if (rVar.a() != null) {
-                        cdVar = this.a.m;
-                        com.baidu.tieba.a.an anVar = (com.baidu.tieba.a.an) cdVar.getItem(i);
-                        if (anVar != null) {
-                            rVar2 = this.a.o;
-                            if (rVar2.a().k() && anVar.c() != 1) {
-                                rVar3 = this.a.o;
-                                if (rVar3.j() != null) {
-                                    rVar10 = this.a.o;
+    @Override // com.baidu.tbadk.widget.richText.m
+    public void onClick(View view, String str, int i) {
+        com.baidu.tieba.c.au auVar;
+        com.baidu.tieba.a.k a;
+        ArrayList b;
+        int i2;
+        int i3;
+        String a2;
+        String a3;
+        try {
+            auVar = this.a.i;
+            com.baidu.tieba.a.al l = auVar.l();
+            a = this.a.a(str, i);
+            b = this.a.b(str, i);
+            if (a != null) {
+                boolean z = false;
+                ArrayList arrayList = new ArrayList();
+                if (a.g()) {
+                    int size = l.d().size();
+                    int i4 = 0;
+                    int i5 = i;
+                    while (i4 < size) {
+                        ArrayList j = ((com.baidu.tieba.a.aq) l.d().get(i4)).j();
+                        boolean z2 = j == b ? true : z;
+                        if (j != null) {
+                            int size2 = j.size();
+                            int i6 = -1;
+                            int i7 = 0;
+                            while (i7 < size2) {
+                                if (j.get(i7) != null && ((com.baidu.tieba.a.k) j.get(i7)).a() == 3) {
+                                    i6++;
+                                    if ((((com.baidu.tieba.a.k) j.get(i7)).b() < 50 && ((com.baidu.tieba.a.k) j.get(i7)).c() < 50) || !((com.baidu.tieba.a.k) j.get(i7)).g()) {
+                                        if (j == b && i6 <= i) {
+                                            i3 = i5 - 1;
+                                            i2 = i6;
+                                        }
+                                    } else {
+                                        a2 = this.a.a((com.baidu.tieba.a.k) j.get(i7));
+                                        arrayList.add(a2);
+                                        if (!z2) {
+                                            i3 = i5 + 1;
+                                            i2 = i6;
+                                        }
+                                    }
+                                    i7++;
+                                    i5 = i3;
+                                    i6 = i2;
                                 }
-                                z = false;
-                                Intent intent = new Intent(this.a, SubPbActivity.class);
-                                intent.putExtra("postId", anVar.a());
-                                rVar4 = this.a.o;
-                                intent.putExtra("fid", rVar4.a().a().b());
-                                rVar5 = this.a.o;
-                                intent.putExtra("kw", rVar5.a().a().c());
-                                rVar6 = this.a.o;
-                                intent.putExtra("threadId", rVar6.a().b().a());
-                                intent.putExtra("isMarked", z);
-                                rVar7 = this.a.o;
-                                intent.putExtra("anti", rVar7.a().f());
-                                rVar8 = this.a.o;
-                                intent.putExtra("manage_mode", rVar8.i());
-                                rVar9 = this.a.o;
-                                intent.putExtra("user_identity", rVar9.a().l());
-                                this.a.startActivityForResult(intent, 1300004);
-                                return;
+                                i2 = i6;
+                                i3 = i5;
+                                i7++;
+                                i5 = i3;
+                                i6 = i2;
                             }
                         }
-                        aVar = this.a.ah;
-                        aVar.notifyDataSetInvalidated();
-                        alertDialog2 = this.a.e;
-                        alertDialog2.show();
+                        i4++;
+                        z = z2;
                     }
-                }
-            } else {
-                cdVar2 = this.a.m;
-                if (cdVar2.g()) {
+                    ImageActivity.a(this.a, arrayList, i5, l);
                     return;
                 }
-                this.a.w();
+                a3 = this.a.a(a);
+                arrayList.add(a3);
+                ImageActivity.a(this.a, arrayList, 0, l);
             }
+        } catch (Exception e) {
+            com.baidu.tieba.d.ae.b("PbAdapter", "ImageOnClickListener", "error = " + e.getMessage());
         }
     }
 }

@@ -1,10 +1,11 @@
 package com.baidu.tieba.person;
 
-import android.graphics.Bitmap;
-import android.widget.ImageView;
-import android.widget.ListView;
+import android.content.Context;
+import android.view.View;
+import com.baidu.tieba.nearby.NearbyPbActivity;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class bj implements com.baidu.tieba.c.d {
+public class bj implements View.OnClickListener {
     final /* synthetic */ bi a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -12,17 +13,12 @@ class bj implements com.baidu.tieba.c.d {
         this.a = biVar;
     }
 
-    @Override // com.baidu.tieba.c.d
-    public void a(Bitmap bitmap, String str, boolean z) {
-        PersonLbsActivity personLbsActivity;
-        ListView listView;
-        if (bitmap != null) {
-            personLbsActivity = this.a.a;
-            listView = personLbsActivity.c;
-            ImageView imageView = (ImageView) listView.findViewWithTag(str);
-            if (imageView != null) {
-                imageView.invalidate();
-            }
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        Context context;
+        if (view != null && view.getTag() != null && (view.getTag() instanceof String)) {
+            context = this.a.a;
+            NearbyPbActivity.a(context, (String) view.getTag(), null);
         }
     }
 }

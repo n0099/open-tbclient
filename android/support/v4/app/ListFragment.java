@@ -16,8 +16,8 @@ import android.widget.TextView;
 /* loaded from: classes.dex */
 public class ListFragment extends Fragment {
     private final Handler V = new Handler();
-    private final Runnable W = new s(this);
-    private final AdapterView.OnItemClickListener X = new t(this);
+    private final Runnable W = new u(this);
+    private final AdapterView.OnItemClickListener X = new v(this);
     ListAdapter a;
     ListView b;
     View c;

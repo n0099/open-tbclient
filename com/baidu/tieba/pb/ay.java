@@ -1,31 +1,26 @@
 package com.baidu.tieba.pb;
-
-import android.app.Dialog;
-import android.content.DialogInterface;
-import android.view.KeyEvent;
-import android.widget.EditText;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ay implements DialogInterface.OnKeyListener {
-    final /* synthetic */ PbActivity a;
+public class ay implements Runnable {
+    final /* synthetic */ NewPbActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ay(PbActivity pbActivity) {
-        this.a = pbActivity;
+    public ay(NewPbActivity newPbActivity) {
+        this.a = newPbActivity;
     }
 
-    @Override // android.content.DialogInterface.OnKeyListener
-    public boolean onKey(DialogInterface dialogInterface, int i, KeyEvent keyEvent) {
-        EditText editText;
-        Dialog dialog;
-        if (i == 4) {
-            PbActivity pbActivity = this.a;
-            editText = this.a.k;
-            com.baidu.tieba.c.ai.a(pbActivity, editText);
-            dialog = this.a.z;
-            dialog.dismiss();
-            return true;
+    @Override // java.lang.Runnable
+    public void run() {
+        bl blVar;
+        bl blVar2;
+        bl blVar3;
+        blVar = this.a.o;
+        if (!blVar.t()) {
+            blVar3 = this.a.o;
+            blVar3.a(false);
+            return;
         }
-        return false;
+        blVar2 = this.a.o;
+        blVar2.a(true);
     }
 }

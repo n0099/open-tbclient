@@ -4,66 +4,75 @@ import android.app.Activity;
 import android.app.ActivityGroup;
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.Button;
 import android.widget.FrameLayout;
+import android.widget.ImageView;
 import android.widget.RadioGroup;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import com.baidu.tieba.R;
 import com.baidu.tieba.TiebaApplication;
+import com.baidu.tieba.compatible.CompatibleUtile;
+import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public class MyPostActivity extends ActivityGroup {
-    private RelativeLayout a = null;
+    private FrameLayout h;
     private RelativeLayout b = null;
-    private Button c = null;
-    private Button d = null;
-    private TextView e = null;
-    private RadioGroup f = null;
-    private FrameLayout g;
+    private RelativeLayout c = null;
+    private ImageView d = null;
+    private ImageView e = null;
+    private TextView f = null;
+    private RadioGroup g = null;
+    protected int a = -1;
 
     @Override // android.app.ActivityGroup, android.app.Activity
     protected void onCreate(Bundle bundle) {
         super.onCreate(bundle);
+        if (a()) {
+            CompatibleUtile.getInstance().openGpu(this);
+        }
         setContentView(R.layout.my_post_activity);
-        a();
         b();
     }
 
-    void a() {
-        this.a = (RelativeLayout) findViewById(R.id.my_post_activity_layout);
-        this.b = (RelativeLayout) findViewById(R.id.title);
-        this.e = (TextView) findViewById(R.id.title_text);
-        this.g = (FrameLayout) findViewById(R.id.content);
-        this.c = (Button) findViewById(R.id.back);
-        this.c.setOnClickListener(new af(this));
-        this.d = (Button) findViewById(R.id.refresh);
-        this.d.setOnClickListener(new ag(this));
-        this.f = (RadioGroup) findViewById(R.id.posttype_tabs);
-        this.f.setOnCheckedChangeListener(new ah(this));
-        this.f.check(R.id.all_tab);
-        this.f.setVisibility(8);
+    public boolean a() {
+        return false;
     }
 
     void b() {
-        if (TiebaApplication.b().ah() != 0) {
-            a(1);
+        this.b = (RelativeLayout) findViewById(R.id.my_post_activity_layout);
+        this.c = (RelativeLayout) findViewById(R.id.title);
+        this.f = (TextView) findViewById(R.id.title_text);
+        this.h = (FrameLayout) findViewById(R.id.content);
+        this.d = (ImageView) findViewById(R.id.back);
+        this.d.setOnClickListener(new aa(this));
+        this.e = (ImageView) findViewById(R.id.refresh);
+        this.e.setOnClickListener(new ab(this));
+        this.g = (RadioGroup) findViewById(R.id.posttype_tabs);
+        this.g.setOnCheckedChangeListener(new ac(this));
+        this.g.check(R.id.all_tab);
+        this.g.setVisibility(8);
+    }
+
+    @Override // android.app.ActivityGroup, android.app.Activity
+    protected void onResume() {
+        super.onResume();
+        if (TiebaApplication.d().ai() != this.a) {
+            this.a = TiebaApplication.d().ai();
+            a(this.a);
         }
     }
 
     public void a(int i) {
-        com.baidu.tieba.c.ae.a(this.a, i);
-        com.baidu.tieba.c.ae.c(this.b, i);
-        com.baidu.tieba.c.ae.c(this.e, i);
-        com.baidu.tieba.c.ae.c((TextView) this.c, i);
-        com.baidu.tieba.c.ae.e((TextView) this.c, i);
-        com.baidu.tieba.c.ae.e((View) this.d, i);
+        com.baidu.tieba.d.ac.a(this.b, i);
+        com.baidu.tieba.d.ac.d(this.c, i);
+        com.baidu.tieba.d.ac.f(this.f, i);
+        com.baidu.tieba.d.ac.a(this.d, i);
+        com.baidu.tieba.d.ac.b(this.e, i);
     }
 
     public void a(String str, Class cls) {
         Intent intent = new Intent(this, cls);
-        this.g.removeAllViews();
-        this.g.addView(getLocalActivityManager().startActivity(str, intent).getDecorView());
+        this.h.removeAllViews();
+        this.h.addView(getLocalActivityManager().startActivity(str, intent).getDecorView());
     }
 
     public void c() {

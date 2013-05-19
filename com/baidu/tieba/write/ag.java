@@ -15,11 +15,11 @@ public class ag implements DialogInterface.OnCancelListener {
     public void onCancel(DialogInterface dialogInterface) {
         ap apVar;
         ap apVar2;
-        this.a.c();
+        this.a.g();
         apVar = this.a.v;
         if (apVar != null) {
             apVar2 = this.a.v;
-            apVar2.a();
+            apVar2.cancel();
         }
     }
 }

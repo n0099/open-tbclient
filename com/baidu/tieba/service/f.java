@@ -1,14 +1,12 @@
 package com.baidu.tieba.service;
 
-import android.os.AsyncTask;
 import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.a.ao;
-import com.baidu.tieba.c.ag;
-import com.baidu.tieba.c.t;
+import com.baidu.tieba.a.as;
+import com.baidu.tieba.d.ae;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class f extends AsyncTask {
-    t a;
+public class f extends com.baidu.adp.lib.a.a {
+    com.baidu.tieba.d.t a;
     final /* synthetic */ MessagePullService b;
 
     private f(MessagePullService messagePullService) {
@@ -23,21 +21,21 @@ public class f extends AsyncTask {
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // android.os.AsyncTask
-    /* renamed from: a */
-    public String doInBackground(String... strArr) {
-        ag.a(getClass().getName(), "doBackGround", "pull message...");
+    @Override // com.baidu.adp.lib.a.a
+    public String a(String... strArr) {
+        ae.a(getClass().getName(), "doBackGround", "pull message...");
         try {
-            this.a = new t("http://c.tieba.baidu.com/c/m/getmsg");
-            this.a.a("message_id", String.valueOf(TiebaApplication.b().aE()));
+            this.a = new com.baidu.tieba.d.t(String.valueOf(com.baidu.tieba.a.i.e) + "c/m/getmsg");
+            this.a.a("message_id", String.valueOf(TiebaApplication.d().aE()));
             return this.a.i();
         } catch (Exception e) {
-            ag.b(getClass().getName(), "doBackground", e.toString());
+            ae.b(getClass().getName(), "doBackground", e.toString());
             return null;
         }
     }
 
-    public void a() {
+    @Override // com.baidu.adp.lib.a.a
+    public void cancel() {
         this.b.a = null;
         if (this.a != null) {
             this.a.g();
@@ -47,27 +45,26 @@ public class f extends AsyncTask {
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // android.os.AsyncTask
-    /* renamed from: a */
-    public void onPostExecute(String str) {
-        ao aoVar;
-        ao aoVar2;
-        ao aoVar3;
-        ao aoVar4;
-        super.onPostExecute(str);
+    @Override // com.baidu.adp.lib.a.a
+    public void a(String str) {
+        as asVar;
+        as asVar2;
+        as asVar3;
+        as asVar4;
+        super.a((Object) str);
         if (this.a.c()) {
-            ag.a(getClass().getName(), "onPostExecute", "result=" + str);
+            ae.a(getClass().getName(), "onPostExecute", "result=" + str);
             if (this.a.b()) {
-                aoVar = this.b.b;
-                aoVar.a(str);
-                aoVar2 = this.b.b;
-                if (aoVar2.a() > TiebaApplication.b().aE()) {
-                    TiebaApplication b = TiebaApplication.b();
-                    aoVar3 = this.b.b;
-                    b.h(aoVar3.a());
+                asVar = this.b.b;
+                asVar.a(str);
+                asVar2 = this.b.b;
+                if (asVar2.a() > TiebaApplication.d().aE()) {
+                    TiebaApplication d = TiebaApplication.d();
+                    asVar3 = this.b.b;
+                    d.g(asVar3.a());
                     MessagePullService messagePullService = this.b;
-                    aoVar4 = this.b.b;
-                    MessagePullService.a(messagePullService, aoVar4);
+                    asVar4 = this.b.b;
+                    MessagePullService.a(messagePullService, asVar4);
                 }
             }
         }

@@ -1,49 +1,46 @@
 package com.baidu.tieba.pb;
 
-import android.content.DialogInterface;
-import java.util.ArrayList;
+import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-class bb implements DialogInterface.OnClickListener {
-    final /* synthetic */ PbActivity a;
+class bb implements com.baidu.tieba.c.aj {
+    final /* synthetic */ NewPbActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bb(PbActivity pbActivity) {
-        this.a = pbActivity;
+    public bb(NewPbActivity newPbActivity) {
+        this.a = newPbActivity;
     }
 
-    @Override // android.content.DialogInterface.OnClickListener
-    public void onClick(DialogInterface dialogInterface, int i) {
-        String str;
-        String str2;
-        com.baidu.tieba.b.r rVar;
-        com.baidu.tieba.b.r rVar2;
-        long j;
-        switch (i) {
-            case 0:
-                str = this.a.p;
-                if (str != null) {
-                    str2 = this.a.p;
-                    if (str2.length() > 0) {
-                        rVar = this.a.o;
-                        if (rVar.a() != null) {
-                            rVar2 = this.a.o;
-                            ArrayList d = rVar2.a().d();
-                            j = this.a.v;
-                            com.baidu.tieba.a.an anVar = (com.baidu.tieba.a.an) d.get((int) j);
-                            this.a.w = anVar;
-                            this.a.a(anVar);
-                            return;
-                        }
-                        return;
-                    }
-                    return;
-                }
+    @Override // com.baidu.tieba.c.aj
+    public void a(boolean z, boolean z2, String str) {
+        bl blVar;
+        com.baidu.tieba.c.ah ahVar;
+        com.baidu.tieba.c.au auVar;
+        com.baidu.tieba.c.au auVar2;
+        bl blVar2;
+        com.baidu.tieba.c.au auVar3;
+        blVar = this.a.o;
+        blVar.q();
+        if (z) {
+            ahVar = this.a.j;
+            ahVar.a(z2);
+            auVar = this.a.i;
+            auVar.c(z2);
+            auVar2 = this.a.i;
+            if (!auVar2.v()) {
+                blVar2 = this.a.o;
+                auVar3 = this.a.i;
+                blVar2.a(auVar3.l());
+            } else {
+                this.a.q();
+            }
+            if (z2) {
+                this.a.a(this.a.getString(R.string.add_mark));
                 return;
-            case 1:
-                this.a.t();
+            } else {
+                this.a.a(this.a.getString(R.string.remove_mark));
                 return;
-            default:
-                return;
+            }
         }
+        this.a.a(str);
     }
 }

@@ -1,5 +1,33 @@
 package android.support.v4.app;
+
+import android.os.Handler;
+import android.os.Message;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class h {
-    public static final int[] a = {16842755, 16842960, 16842961};
+public class h extends Handler {
+    final /* synthetic */ g a;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public h(g gVar) {
+        this.a = gVar;
+    }
+
+    @Override // android.os.Handler
+    public void handleMessage(Message message) {
+        switch (message.what) {
+            case 1:
+                if (this.a.mStopped) {
+                    this.a.doReallyStop(false);
+                    return;
+                }
+                return;
+            case 2:
+                this.a.mFragments.m();
+                this.a.mFragments.e();
+                return;
+            default:
+                super.handleMessage(message);
+                return;
+        }
+    }
 }

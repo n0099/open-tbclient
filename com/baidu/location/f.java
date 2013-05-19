@@ -1,18 +1,12 @@
 package com.baidu.location;
 
-import android.app.AlarmManager;
 import android.app.KeyguardManager;
-import android.app.PendingIntent;
 import android.app.Service;
-import android.content.BroadcastReceiver;
 import android.content.ContentValues;
-import android.content.Context;
 import android.content.Intent;
-import android.content.IntentFilter;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.location.Location;
-import android.net.wifi.ScanResult;
 import android.os.Environment;
 import android.os.Handler;
 import android.os.IBinder;
@@ -21,915 +15,130 @@ import android.os.Messenger;
 import android.os.Process;
 import android.util.Log;
 import com.baidu.android.pushservice.PushConstants;
-import com.baidu.browser.core.util.BdUtil;
-import com.baidu.location.c;
-import com.baidu.location.e;
+import com.baidu.mapapi.MKSearch;
+import com.baidu.mapapi.MapView;
+import com.baidu.zeus.WebChromeClient;
 import com.baidu.zeus.bouncycastle.DERTags;
 import java.io.File;
-import java.io.PrintWriter;
 import java.io.RandomAccessFile;
-import java.io.StringWriter;
-import java.lang.Thread;
-import java.util.ArrayList;
-import java.util.Calendar;
-import org.apache.http.client.entity.UrlEncodedFormEntity;
-import org.apache.http.client.methods.HttpPost;
-import org.apache.http.impl.client.DefaultHttpClient;
-import org.apache.http.message.BasicNameValuePair;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public final class f extends Service {
-    static final int C = 57;
-    static final int F = 52;
-    static final int H = 26;
-    static final int J = 64;
-    static final int K = 27;
-    static final int L = 62;
-    static final int Q = 1000;
-    static final int S = 54;
-    static final int T = 81;
-    static final int U = 25;
-    static final int Y = 21;
-    private static final int ad = 200;
-    static final int ae = 43;
-    static final int af = 14;
-    static final int ag = 3000;
-    static final int ai = 56;
-    static final int am = 101;
-    static final float an = 3.1f;
-    static final int ao = 61;
-    static final int ap = 53;
-    private static final int ar = 800;
-    static final int b = 63;
-
-    /* renamed from: byte  reason: not valid java name */
-    private static final int f129byte = 24;
-    static final int c = 12;
-
-    /* renamed from: case  reason: not valid java name */
-    static final int f130case = 42;
-
-    /* renamed from: do  reason: not valid java name */
-    static final int f131do = 28;
-    static final int e = 65;
-
-    /* renamed from: else  reason: not valid java name */
-    static final int f132else = 2000;
-
-    /* renamed from: for  reason: not valid java name */
-    static final int f133for = 22;
-    static final int g = 15;
-    static final int i = 55;
-
-    /* renamed from: int  reason: not valid java name */
-    static final int f134int = 31;
-    static final int l = 11;
-
-    /* renamed from: long  reason: not valid java name */
-    static final int f135long = 13;
-    static final int p = 41;
-    static final int s = 23;
-    static final int t = 91;
-    public static final String v = "baidu_location_service";
-
-    /* renamed from: void  reason: not valid java name */
-    static final int f136void = 71;
-    static final int w = 24;
-    static final int x = 3000;
-    static final int z = 51;
-    static String aa = Environment.getExternalStorageDirectory().getPath() + "/baidu/tempdata";
-    private static String a = aa + "/glb.dat";
-    private static File j = null;
-    private static File k = null;
-    private String m = aa + "/vm.dat";
-    final Handler P = new d();
-    final Messenger al = new Messenger(this.P);
-    private com.baidu.location.c r = null;
-    private com.baidu.location.b Z = null;
-    private e E = null;
-    private com.baidu.location.a as = null;
-    private e.c B = null;
-
-    /* renamed from: char  reason: not valid java name */
-    private e.c f137char = null;
-    private e.c ac = null;
-
-    /* renamed from: try  reason: not valid java name */
-    private c.a f141try = null;
-    private c.a aj = null;
-    private c.a u = null;
-    private Location f = null;
-    private String h = null;
-
-    /* renamed from: new  reason: not valid java name */
-    private String f140new = null;
-    private String G = null;
-    private boolean ab = false;
-    private boolean W = true;
-    private boolean M = false;
-    private boolean ah = false;
-    private long N = 0;
-    private long d = 0;
-    private c y = null;
-    private SQLiteDatabase R = null;
-
-    /* renamed from: if  reason: not valid java name */
-    private String f139if = "bdcltb09";
-    private String A = null;
-    private String aq = null;
-    private boolean O = false;
-
-    /* renamed from: goto  reason: not valid java name */
-    private boolean f138goto = false;
-    private String V = null;
-    private int X = 0;
-    private boolean I = true;
-    private double o = 0.0d;
-    private double n = 0.0d;
-    private double q = 0.0d;
-    private long D = 0;
-    private boolean ak = false;
-
-    /* loaded from: classes.dex */
-    public class a implements Thread.UncaughtExceptionHandler {
-
-        /* renamed from: if  reason: not valid java name */
-        private Context f142if;
-
-        a(Context context) {
-            this.f142if = context;
-            a();
-        }
-
-        private String a(Throwable th) {
-            StringWriter stringWriter = new StringWriter();
-            PrintWriter printWriter = new PrintWriter(stringWriter);
-            th.printStackTrace(printWriter);
-            printWriter.close();
-            return stringWriter.toString();
-        }
-
-        public void a() {
-            String str;
-            String str2 = null;
-            try {
-                File file = new File((Environment.getExternalStorageDirectory().getPath() + "/traces") + "/error_fs.dat");
-                if (file.exists()) {
-                    RandomAccessFile randomAccessFile = new RandomAccessFile(file, "rw");
-                    randomAccessFile.seek(280L);
-                    if (1326 == randomAccessFile.readInt()) {
-                        randomAccessFile.seek(308L);
-                        int readInt = randomAccessFile.readInt();
-                        if (readInt <= 0 || readInt >= 2048) {
-                            str = null;
-                        } else {
-                            j.a(f.v, "A" + readInt);
-                            byte[] bArr = new byte[readInt];
-                            randomAccessFile.read(bArr, 0, readInt);
-                            str = new String(bArr, 0, readInt);
-                        }
-                        randomAccessFile.seek(600L);
-                        int readInt2 = randomAccessFile.readInt();
-                        if (readInt2 > 0 && readInt2 < 2048) {
-                            j.a(f.v, "A" + readInt2);
-                            byte[] bArr2 = new byte[readInt2];
-                            randomAccessFile.read(bArr2, 0, readInt2);
-                            str2 = new String(bArr2, 0, readInt2);
-                        }
-                        j.a(f.v, str + str2);
-                        if (a(str, str2)) {
-                            randomAccessFile.seek(280L);
-                            randomAccessFile.writeInt(12346);
-                        }
-                    }
-                    randomAccessFile.close();
-                }
-            } catch (Exception e) {
-            }
-        }
-
-        public void a(File file, String str, String str2) {
-            try {
-                RandomAccessFile randomAccessFile = new RandomAccessFile(file, "rw");
-                randomAccessFile.seek(280L);
-                randomAccessFile.writeInt(12346);
-                randomAccessFile.seek(300L);
-                randomAccessFile.writeLong(System.currentTimeMillis());
-                byte[] bytes = str.getBytes();
-                randomAccessFile.writeInt(bytes.length);
-                randomAccessFile.write(bytes, 0, bytes.length);
-                randomAccessFile.seek(600L);
-                byte[] bytes2 = str2.getBytes();
-                randomAccessFile.writeInt(bytes2.length);
-                randomAccessFile.write(bytes2, 0, bytes2.length);
-                if (!a(str, str2)) {
-                    randomAccessFile.seek(280L);
-                    randomAccessFile.writeInt(1326);
-                }
-                randomAccessFile.close();
-            } catch (Exception e) {
-            }
-        }
-
-        boolean a(String str, String str2) {
-            if (g.a(this.f142if)) {
-                try {
-                    HttpPost httpPost = new HttpPost(j.f197do);
-                    ArrayList arrayList = new ArrayList();
-                    arrayList.add(new BasicNameValuePair("e0", str));
-                    arrayList.add(new BasicNameValuePair("e1", str2));
-                    httpPost.setEntity(new UrlEncodedFormEntity(arrayList, BdUtil.UTF8));
-                    DefaultHttpClient defaultHttpClient = new DefaultHttpClient();
-                    defaultHttpClient.getParams().setParameter("http.connection.timeout", 12000);
-                    defaultHttpClient.getParams().setParameter("http.socket.timeout", 12000);
-                    j.a(f.v, "send begin ...");
-                    if (defaultHttpClient.execute(httpPost).getStatusLine().getStatusCode() == 200) {
-                        j.a(f.v, "send ok....");
-                        return true;
-                    }
-                    return false;
-                } catch (Exception e) {
-                    return false;
-                }
-            }
-            return false;
-        }
-
-        /* JADX WARN: Removed duplicated region for block: B:12:0x0077 A[Catch: Exception -> 0x00bc, TryCatch #1 {Exception -> 0x00bc, blocks: (B:10:0x003e, B:12:0x0077, B:14:0x0082, B:15:0x0085, B:17:0x008b, B:23:0x009b, B:25:0x00b8), top: B:35:0x003e }] */
-        /* JADX WARN: Removed duplicated region for block: B:23:0x009b A[Catch: Exception -> 0x00bc, TRY_ENTER, TryCatch #1 {Exception -> 0x00bc, blocks: (B:10:0x003e, B:12:0x0077, B:14:0x0082, B:15:0x0085, B:17:0x008b, B:23:0x009b, B:25:0x00b8), top: B:35:0x003e }] */
-        @Override // java.lang.Thread.UncaughtExceptionHandler
-        /*
-            Code decompiled incorrectly, please refer to instructions dump.
-        */
-        public void uncaughtException(Thread thread, Throwable th) {
-            String str;
-            String str2;
-            String str3;
-            File file;
-            try {
-                str2 = a(th);
-                try {
-                    j.a(f.v, str2);
-                    com.baidu.location.c unused = f.this.r;
-                    String a = com.baidu.location.c.a(false);
-                    if (f.this.as != null) {
-                        a = a + f.this.as.m34byte();
-                    }
-                    str3 = a != null ? Jni.m1if(a) : null;
-                } catch (Exception e) {
-                    str = str2;
-                    str2 = str;
-                    str3 = null;
-                    String str4 = Environment.getExternalStorageDirectory().getPath() + "/traces";
-                    file = new File(str4 + "/error_fs.dat");
-                    if (file.exists()) {
-                    }
-                    Process.killProcess(Process.myPid());
-                }
-            } catch (Exception e2) {
-                str = null;
-            }
-            try {
-                String str42 = Environment.getExternalStorageDirectory().getPath() + "/traces";
-                file = new File(str42 + "/error_fs.dat");
-                if (file.exists()) {
-                    File file2 = new File(str42);
-                    if (!file2.exists()) {
-                        file2.mkdirs();
-                    }
-                    a(file.createNewFile() ? file : null, str3, str2);
-                } else {
-                    RandomAccessFile randomAccessFile = new RandomAccessFile(file, "rw");
-                    randomAccessFile.seek(300L);
-                    if (System.currentTimeMillis() - randomAccessFile.readLong() > 604800000) {
-                        a(file, str3, str2);
-                    }
-                }
-            } catch (Exception e3) {
-            }
-            Process.killProcess(Process.myPid());
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes.dex */
-    public class b implements Runnable {
-        private b() {
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            if (f.this.ah) {
-                f.this.ah = false;
-                f.this.m142byte();
-            }
-        }
-    }
-
-    /* loaded from: classes.dex */
-    public class c {
-
-        /* renamed from: for  reason: not valid java name */
-        public static final String f143for = "com.baidu.locTest.LocationServer";
-
-        /* renamed from: case  reason: not valid java name */
-        private a f145case;
-        private PendingIntent d;
-
-        /* renamed from: goto  reason: not valid java name */
-        private Context f149goto;
-
-        /* renamed from: try  reason: not valid java name */
-        private AlarmManager f154try;
-
-        /* renamed from: void  reason: not valid java name */
-        private long f155void;
-
-        /* renamed from: new  reason: not valid java name */
-        private final long f153new = 86100000;
-
-        /* renamed from: char  reason: not valid java name */
-        private final int f146char = 200;
-        private long[] a = new long[20];
-
-        /* renamed from: int  reason: not valid java name */
-        private int f151int = 0;
-        private c.a b = null;
-
-        /* renamed from: long  reason: not valid java name */
-        private String f152long = null;
-
-        /* renamed from: byte  reason: not valid java name */
-        private int f144byte = 1;
-
-        /* renamed from: do  reason: not valid java name */
-        private boolean f147do = false;
-
-        /* renamed from: if  reason: not valid java name */
-        private boolean f150if = false;
-
-        /* renamed from: else  reason: not valid java name */
-        private boolean f148else = false;
-        private String c = null;
-
-        /* loaded from: classes.dex */
-        public class a extends BroadcastReceiver {
-            public a() {
-            }
-
-            @Override // android.content.BroadcastReceiver
-            public void onReceive(Context context, Intent intent) {
-                String action = intent.getAction();
-                if (action.equals(c.f143for)) {
-                    f.this.P.obtainMessage(101).sendToTarget();
-                    return;
-                }
-                try {
-                    if (action.equals("android.intent.action.BATTERY_CHANGED")) {
-                        int intExtra = intent.getIntExtra("status", 0);
-                        int intExtra2 = intent.getIntExtra("plugged", 0);
-                        switch (intExtra) {
-                            case 2:
-                                c.this.c = "4";
-                                break;
-                            case 3:
-                            case 4:
-                                c.this.c = "3";
-                                break;
-                            default:
-                                c.this.c = null;
-                                break;
-                        }
-                        switch (intExtra2) {
-                            case 1:
-                                c.this.c = "6";
-                                return;
-                            case 2:
-                                c.this.c = "5";
-                                return;
-                            default:
-                                return;
-                        }
-                    }
-                } catch (Exception e) {
-                    c.this.c = null;
-                }
-            }
-        }
-
-        public c(Context context) {
-            this.f154try = null;
-            this.f145case = null;
-            this.d = null;
-            this.f149goto = null;
-            this.f155void = 0L;
-            this.f149goto = context;
-            this.f155void = System.currentTimeMillis();
-            this.f154try = (AlarmManager) context.getSystemService("alarm");
-            this.f145case = new a();
-            context.registerReceiver(this.f145case, new IntentFilter(f143for));
-            this.d = PendingIntent.getBroadcast(context, 0, new Intent(f143for), 134217728);
-            this.f154try.setRepeating(2, j.z, j.z, this.d);
-            f.this.registerReceiver(this.f145case, new IntentFilter("android.intent.action.BATTERY_CHANGED"));
-        }
-
-        public void a() {
-            m189if();
-            if (f.j == null) {
-                return;
-            }
-            try {
-                RandomAccessFile randomAccessFile = new RandomAccessFile(f.j, "rw");
-                if (randomAccessFile.length() < 1) {
-                    randomAccessFile.close();
-                    return;
-                }
-                randomAccessFile.seek(0L);
-                int readInt = randomAccessFile.readInt();
-                randomAccessFile.seek(0L);
-                randomAccessFile.writeInt(readInt + 1);
-                randomAccessFile.seek((readInt * 200) + 4);
-                randomAccessFile.writeLong(System.currentTimeMillis());
-                randomAccessFile.writeInt(this.f144byte);
-                randomAccessFile.writeInt(0);
-                randomAccessFile.writeInt(this.f151int);
-                randomAccessFile.writeInt(this.b.f106do);
-                randomAccessFile.writeInt(this.b.f108if);
-                randomAccessFile.writeInt(this.b.f107for);
-                randomAccessFile.writeInt(this.b.f111try);
-                byte[] bArr = new byte[160];
-                for (int i = 0; i < this.f151int; i++) {
-                    bArr[(i * 8) + 7] = (byte) this.a[i];
-                    bArr[(i * 8) + 6] = (byte) (this.a[i] >> 8);
-                    bArr[(i * 8) + 5] = (byte) (this.a[i] >> 16);
-                    bArr[(i * 8) + 4] = (byte) (this.a[i] >> 24);
-                    bArr[(i * 8) + 3] = (byte) (this.a[i] >> 32);
-                    bArr[(i * 8) + 2] = (byte) (this.a[i] >> 40);
-                    bArr[(i * 8) + 1] = (byte) (this.a[i] >> 48);
-                    bArr[(i * 8) + 0] = (byte) (this.a[i] >> 56);
-                }
-                if (this.f151int > 0) {
-                    randomAccessFile.write(bArr, 0, this.f151int * 8);
-                }
-                randomAccessFile.writeInt(this.f151int);
-                randomAccessFile.close();
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }
-
-        /* renamed from: byte  reason: not valid java name */
-        public void m185byte() {
-            if (this.f147do) {
-                this.f144byte = 1;
-                j.z = j.B * 1000 * 60;
-                j.q = j.z >> 2;
-                Calendar calendar = Calendar.getInstance();
-                int i = calendar.get(5);
-                int i2 = calendar.get(1);
-                String str = (i2 > f.f132else ? i2 - 2000 : 0) + "," + (calendar.get(2) + 1) + "," + i + "," + calendar.get(11) + "," + calendar.get(12) + "," + j.B;
-                if (this.f150if) {
-                    this.f152long = "&tr=" + j.f + "," + str;
-                } else {
-                    this.f152long += "|T" + str;
-                }
-                j.a(f.v, "trace begin:" + this.f152long);
-                try {
-                    RandomAccessFile randomAccessFile = new RandomAccessFile(f.k, "rw");
-                    randomAccessFile.seek(12L);
-                    randomAccessFile.writeLong(System.currentTimeMillis());
-                    randomAccessFile.writeInt(this.f144byte);
-                    randomAccessFile.close();
-                    RandomAccessFile randomAccessFile2 = new RandomAccessFile(f.j, "rw");
-                    randomAccessFile2.seek(0L);
-                    randomAccessFile2.writeInt(0);
-                    randomAccessFile2.close();
-                } catch (Exception e) {
-                }
-            }
-        }
-
-        /* renamed from: case  reason: not valid java name */
-        public void m186case() {
-            int i;
-            f.m160goto();
-            if (f.k == null) {
-                return;
-            }
-            try {
-                RandomAccessFile randomAccessFile = new RandomAccessFile(f.k, "rw");
-                if (randomAccessFile.length() < 1) {
-                    randomAccessFile.close();
-                    return;
-                }
-                randomAccessFile.seek(0L);
-                int readInt = randomAccessFile.readInt();
-                int readInt2 = randomAccessFile.readInt();
-                int readInt3 = randomAccessFile.readInt();
-                if (this.f147do && this.f150if) {
-                    j.a(f.v, "trace new info:" + readInt + ":" + readInt2 + ":" + readInt3);
-                    int i2 = (readInt2 + 1) % 200;
-                    randomAccessFile.seek(4L);
-                    randomAccessFile.writeInt(i2);
-                    readInt++;
-                    if (readInt >= 200) {
-                        readInt = 199;
-                    }
-                    if (i2 == readInt3 && readInt > 0) {
-                        readInt3 = (readInt3 + 1) % 200;
-                        randomAccessFile.writeInt(readInt3);
-                    }
-                    j.a(f.v, "trace new info:" + readInt + ":" + readInt2 + ":" + readInt3);
-                    i = (i2 * f.ar) + 24;
-                } else {
-                    i = (readInt2 * f.ar) + 24;
-                }
-                randomAccessFile.seek(i + 4);
-                byte[] bytes = this.f152long.getBytes();
-                for (int i3 = 0; i3 < bytes.length; i3++) {
-                    bytes[i3] = (byte) (bytes[i3] ^ 90);
-                }
-                randomAccessFile.write(bytes, 0, bytes.length);
-                randomAccessFile.writeInt(bytes.length);
-                randomAccessFile.seek(i);
-                randomAccessFile.writeInt(bytes.length);
-                if (this.f147do && this.f150if) {
-                    randomAccessFile.seek(0L);
-                    randomAccessFile.writeInt(readInt);
-                }
-                randomAccessFile.close();
-            } catch (Exception e) {
-            }
-        }
-
-        /* renamed from: do  reason: not valid java name */
-        public void m187do() {
-            e.c m123byte;
-            int i;
-            int i2 = 0;
-            try {
-                j.a(f.v, "regular expire...");
-                m191new();
-                if (this.f148else) {
-                    this.f148else = false;
-                    return;
-                }
-                m185byte();
-                this.f151int = 0;
-                this.b = null;
-                if (f.this.E != null) {
-                    f.this.E.m129new();
-                }
-                if (f.this.E != null && (m123byte = f.this.E.m123byte()) != null && m123byte.f126do != null) {
-                    int size = m123byte.f126do.size();
-                    if (size > 20) {
-                        size = 20;
-                    }
-                    int i3 = 0;
-                    while (i3 < size) {
-                        try {
-                            i = i2 + 1;
-                            try {
-                                this.a[i2] = Long.parseLong(((ScanResult) m123byte.f126do.get(i3)).BSSID.replace(":", ""), 16);
-                            } catch (Exception e) {
-                            }
-                        } catch (Exception e2) {
-                            i = i2;
-                        }
-                        i3++;
-                        i2 = i;
-                    }
-                    this.f151int = i2;
-                }
-                if (f.this.r != null) {
-                    this.b = f.this.r.a();
-                }
-                if (this.b != null) {
-                    m188for();
-                }
-            } catch (Exception e3) {
-            }
-        }
-
-        /* JADX WARN: Removed duplicated region for block: B:67:0x0291  */
-        /* JADX WARN: Removed duplicated region for block: B:83:0x0364  */
-        /* renamed from: for  reason: not valid java name */
-        /*
-            Code decompiled incorrectly, please refer to instructions dump.
-        */
-        public void m188for() {
-            String str;
-            boolean z;
-            String str2;
-            String m125char;
-            m189if();
-            j.a(f.v, "trace1:" + this.f152long);
-            try {
-                str = f.this.m184char() ? "y2" : "y1";
-            } catch (Exception e) {
-                str = "y";
-            }
-            if (!this.f147do) {
-                try {
-                    RandomAccessFile randomAccessFile = new RandomAccessFile(f.j, "rw");
-                    if (randomAccessFile.length() < 1) {
-                        randomAccessFile.close();
-                        return;
-                    }
-                    int readInt = randomAccessFile.readInt();
-                    for (int i = 0; i < readInt; i++) {
-                        randomAccessFile.seek((i * 200) + 4);
-                        randomAccessFile.readLong();
-                        int readInt2 = randomAccessFile.readInt();
-                        int readInt3 = randomAccessFile.readInt();
-                        int readInt4 = randomAccessFile.readInt();
-                        byte[] bArr = new byte[200];
-                        randomAccessFile.read(bArr, 0, (readInt4 * 8) + 16);
-                        int i2 = (bArr[3] & 255) | ((bArr[2] << 8) & 65280) | ((bArr[1] << 16) & 16711680) | ((bArr[0] << 24) & (-16777216));
-                        int i3 = (bArr[7] & 255) | ((bArr[6] << 8) & 65280) | ((bArr[5] << 16) & 16711680) | ((bArr[4] << 24) & (-16777216));
-                        int i4 = (bArr[11] & 255) | ((bArr[10] << 8) & 65280) | ((bArr[9] << 16) & 16711680) | ((bArr[8] << 24) & (-16777216));
-                        int i5 = (bArr[15] & 255) | ((bArr[14] << 8) & 65280) | ((bArr[13] << 16) & 16711680) | ((bArr[12] << 24) & (-16777216));
-                        if (this.b.f106do == i2 && this.b.f108if == i3 && this.b.f107for == i4 && this.b.f111try == i5) {
-                            long[] jArr = new long[readInt4];
-                            for (int i6 = 0; i6 < readInt4; i6++) {
-                                jArr[i6] = ((bArr[(i6 * 8) + 16] & 255) << 56) | ((bArr[((i6 * 8) + 16) + 1] & 255) << 48) | ((bArr[((i6 * 8) + 16) + 2] & 255) << 40) | ((bArr[((i6 * 8) + 16) + 3] & 255) << 32) | ((bArr[((i6 * 8) + 16) + 4] & 255) << 24) | ((bArr[((i6 * 8) + 16) + 5] & 255) << 16) | ((bArr[((i6 * 8) + 16) + 6] & 255) << 8) | (bArr[(i6 * 8) + 16 + 7] & 255);
-                            }
-                            int i7 = 0;
-                            int i8 = 0;
-                            while (i8 < this.f151int) {
-                                int i9 = i7;
-                                for (int i10 = 0; i10 < readInt4; i10++) {
-                                    if (this.a[i8] == jArr[i10]) {
-                                        i9++;
-                                    }
-                                }
-                                i8++;
-                                i7 = i9;
-                            }
-                            if (i7 > 5 || i7 * 8 > this.f151int + readInt4 || ((readInt4 == 0 && this.f151int == 0) || ((readInt4 == 1 && this.f151int == 1 && this.a[0] == jArr[0]) || (readInt4 > 1 && this.f151int > 1 && this.a[0] == jArr[0] && this.a[1] == jArr[1])))) {
-                                z = true;
-                                randomAccessFile.seek((i * 200) + 16);
-                                randomAccessFile.writeInt(readInt3 + 1);
-                                if (this.f152long != null) {
-                                    this.f152long += "|" + readInt2 + str;
-                                    if (this.c != null) {
-                                        this.f152long += this.c;
-                                    }
-                                }
-                                j.a(f.v, "daily info:is same");
-                                if (!z) {
-                                    String str3 = (this.b.f106do == 460 ? "|x," : "|x460,") + this.b.f108if + "," + this.b.f107for + "," + this.b.f111try;
-                                    long j = 0;
-                                    if (f.this.E != null && (m125char = f.this.E.m125char()) != null) {
-                                        try {
-                                            j = Long.parseLong(m125char, 16);
-                                        } catch (Exception e2) {
-                                        }
-                                    }
-                                    if (this.f151int == 1) {
-                                        str3 = str3 + "w" + Long.toHexString(this.a[0]) + "k";
-                                        if (this.a[0] == j) {
-                                            str2 = str3 + "k";
-                                            this.f152long += str2 + str;
-                                            if (this.c != null) {
-                                                this.f152long += this.c;
-                                            }
-                                            a();
-                                        }
-                                        str2 = str3;
-                                        this.f152long += str2 + str;
-                                        if (this.c != null) {
-                                        }
-                                        a();
-                                    } else {
-                                        if (this.f151int > 1) {
-                                            String str4 = str3 + "w" + Long.toHexString(this.a[0]);
-                                            if (this.a[0] == j) {
-                                                str4 = str4 + "k";
-                                                j = 0;
-                                            }
-                                            str2 = j > 0 ? str4 + "," + Long.toHexString(j) + "k" : str4 + "," + Long.toHexString(this.a[1]);
-                                            this.f152long += str2 + str;
-                                            if (this.c != null) {
-                                            }
-                                            a();
-                                        }
-                                        str2 = str3;
-                                        this.f152long += str2 + str;
-                                        if (this.c != null) {
-                                        }
-                                        a();
-                                    }
-                                }
-                                j.a(f.v, "trace2:" + this.f152long);
-                                m186case();
-                                this.f152long = null;
-                            }
-                        }
-                    }
-                } catch (Exception e3) {
-                    return;
-                }
-            }
-            z = false;
-            if (!z) {
-            }
-            j.a(f.v, "trace2:" + this.f152long);
-            m186case();
-            this.f152long = null;
-        }
-
-        /* renamed from: if  reason: not valid java name */
-        public void m189if() {
-            try {
-                if (f.this.m == null) {
-                    File unused = f.j = null;
-                    return;
-                }
-                File unused2 = f.j = new File(f.this.m);
-                if (f.j.exists()) {
-                    return;
-                }
-                File file = new File(f.aa);
-                if (!file.exists()) {
-                    file.mkdirs();
-                }
-                f.j.createNewFile();
-                RandomAccessFile randomAccessFile = new RandomAccessFile(f.j, "rw");
-                randomAccessFile.seek(0L);
-                randomAccessFile.writeInt(0);
-                randomAccessFile.close();
-            } catch (Exception e) {
-                e.printStackTrace();
-                File unused3 = f.j = null;
-            }
-        }
-
-        /* renamed from: int  reason: not valid java name */
-        public void m190int() {
-        }
-
-        /* renamed from: new  reason: not valid java name */
-        public void m191new() {
-            this.f147do = false;
-            this.f150if = false;
-            m189if();
-            f.m160goto();
-            try {
-                RandomAccessFile randomAccessFile = new RandomAccessFile(f.k, "rw");
-                randomAccessFile.seek(0L);
-                int readInt = randomAccessFile.readInt();
-                int readInt2 = randomAccessFile.readInt();
-                randomAccessFile.readInt();
-                long readLong = randomAccessFile.readLong();
-                int readInt3 = randomAccessFile.readInt();
-                if (readInt < 0) {
-                    this.f147do = true;
-                    this.f150if = true;
-                    randomAccessFile.close();
-                    return;
-                }
-                randomAccessFile.seek((readInt2 * f.ar) + 24);
-                int readInt4 = randomAccessFile.readInt();
-                if (readInt4 > 680) {
-                    this.f147do = true;
-                    this.f150if = true;
-                    randomAccessFile.close();
-                    return;
-                }
-                byte[] bArr = new byte[f.ar];
-                randomAccessFile.read(bArr, 0, readInt4);
-                if (readInt4 != randomAccessFile.readInt()) {
-                    j.a(f.v, "trace true check fail");
-                    this.f147do = true;
-                    this.f150if = true;
-                    randomAccessFile.close();
-                    return;
-                }
-                for (int i = 0; i < bArr.length; i++) {
-                    bArr[i] = (byte) (bArr[i] ^ 90);
-                }
-                this.f152long = new String(bArr, 0, readInt4);
-                if (!this.f152long.contains("&tr=")) {
-                    this.f147do = true;
-                    this.f150if = true;
-                    randomAccessFile.close();
-                    return;
-                }
-                long currentTimeMillis = System.currentTimeMillis();
-                long j = currentTimeMillis - readLong;
-                if (j > (j.z * 3) - j.q) {
-                    this.f147do = true;
-                } else if (j > (j.z * 2) - j.q) {
-                    this.f152long += "|" + readInt3;
-                    this.f144byte = readInt3 + 2;
-                } else if (j <= j.z - j.q) {
-                    this.f148else = true;
-                    randomAccessFile.close();
-                    return;
-                } else {
-                    this.f144byte = readInt3 + 1;
-                }
-                randomAccessFile.seek(12L);
-                randomAccessFile.writeLong(currentTimeMillis);
-                randomAccessFile.writeInt(this.f144byte);
-                randomAccessFile.close();
-                RandomAccessFile randomAccessFile2 = new RandomAccessFile(f.j, "rw");
-                randomAccessFile2.seek(0L);
-                if (randomAccessFile2.readInt() != 0) {
-                    randomAccessFile2.close();
-                    return;
-                }
-                this.f147do = true;
-                randomAccessFile2.close();
-                j.a(f.v, "Day file number 0");
-            } catch (Exception e) {
-                e.printStackTrace();
-                j.a(f.v, "exception!!!");
-                this.f147do = true;
-                this.f150if = true;
-            }
-        }
-
-        /* renamed from: try  reason: not valid java name */
-        public void m192try() {
-            this.f149goto.unregisterReceiver(this.f145case);
-            this.f154try.cancel(this.d);
-            File unused = f.j = null;
-        }
-    }
+    static String a = Environment.getExternalStorageDirectory().getPath() + "/baidu/tempdata";
+    private static String e = a + "/glb.dat";
+    private static File f = null;
+    private static File g = null;
+    private String d = a + "/vm.dat";
+    final Handler b = new d();
+    final Messenger c = new Messenger(this.b);
+    private t h = null;
+    private m i = null;
+    private w j = null;
+    private k k = null;
+    private aa l = null;
+    private aa m = null;
+    private aa n = null;
+    private u o = null;
+    private u p = null;
+    private u q = null;
+    private Location r = null;
+    private String s = null;
+    private String t = null;
+    private String u = null;
+    private boolean v = false;
+    private boolean w = true;
+    private boolean x = false;
+    private boolean y = false;
+    private long z = 0;
+    private long A = 0;
+    private af B = null;
+    private SQLiteDatabase C = null;
+    private String D = "bdcltb09";
+    private String E = null;
+    private String F = null;
+    private boolean G = false;
+    private boolean H = false;
+    private String I = null;
+    private int J = 0;
+    private boolean K = true;
+    private double L = 0.0d;
+    private double M = 0.0d;
+    private double N = 0.0d;
+    private long O = 0;
+    private boolean P = false;
 
     /* loaded from: classes.dex */
     public class d extends Handler {
         public d() {
+            f.this = r1;
         }
 
         @Override // android.os.Handler
         public void handleMessage(Message message) {
-            if (f.this.ab) {
+            if (f.this.v) {
                 switch (message.what) {
                     case 11:
-                        f.this.m150do(message);
+                        f.this.a(message);
                         break;
                     case 12:
-                        f.this.m179try(message);
+                        f.this.b(message);
                         break;
                     case 15:
-                        f.this.m143byte(message);
+                        f.this.c(message);
                         break;
                     case 21:
                         f.this.a(message, 21);
                         break;
-                    case 22:
-                        f.this.m176new(message);
+                    case DERTags.IA5_STRING /* 22 */:
+                        f.this.h(message);
                         break;
                     case DERTags.GENERALIZED_TIME /* 24 */:
-                        f.this.a(message);
+                        f.this.e(message);
                         break;
-                    case 25:
-                        f.this.m157for(message);
+                    case DERTags.GRAPHIC_STRING /* 25 */:
+                        f.this.f(message);
                         break;
-                    case 26:
+                    case DERTags.VISIBLE_STRING /* 26 */:
                         f.this.a(message, 26);
                         break;
-                    case 28:
-                        f.this.m169int(message);
+                    case DERTags.UNIVERSAL_STRING /* 28 */:
+                        f.this.g(message);
                         break;
-                    case f.f134int /* 31 */:
-                        f.this.m154else();
+                    case 31:
+                        f.this.g();
                         break;
-                    case f.p /* 41 */:
-                        f.this.m149do();
+                    case 41:
+                        f.this.h();
                         break;
                     case 51:
-                        f.this.m163if();
+                        f.this.f();
                         break;
-                    case 52:
-                        f.this.m183void();
+                    case MKSearch.POI_DETAIL_SEARCH /* 52 */:
+                        f.this.i();
                         break;
-                    case f.ap /* 53 */:
-                        f.this.b();
+                    case 53:
+                        f.this.o();
                         break;
-                    case f.C /* 57 */:
-                        f.this.m164if(message);
+                    case 57:
+                        f.this.d(message);
                         break;
                     case 62:
                     case 63:
                         f.this.a(21);
                         break;
-                    case 64:
+                    case DERTags.APPLICATION /* 64 */:
                     case 65:
                         f.this.a(26);
                         break;
-                    case 81:
-                        f.this.m178try();
+                    case MapView.LayoutParams.BOTTOM_CENTER /* 81 */:
+                        f.this.j();
                         break;
-                    case f.t /* 91 */:
-                        f.this.m168int();
+                    case 91:
+                        f.this.n();
                         break;
-                    case 101:
-                        if (j.f205try && f.this.y != null) {
-                            f.this.y.m187do();
+                    case WebChromeClient.STRING_DLG_TITLE_DATETIME /* 101 */:
+                        if (ap.a && f.this.B != null) {
+                            f.this.B.b();
                             break;
                         }
                         break;
@@ -940,348 +149,61 @@ public final class f extends Service {
     }
 
     private String a(String str) {
-        j.a(v, "generate locdata ...");
-        if ((this.f141try == null || !this.f141try.m112do()) && this.r != null) {
-            this.f141try = this.r.a();
+        ap.a("baidu_location_service", "generate locdata ...");
+        if ((this.o == null || !this.o.a()) && this.h != null) {
+            this.o = this.h.d();
         }
-        this.A = this.f141try.a();
-        if (this.f141try != null) {
-            j.m240if(v, this.f141try.m114if());
+        this.E = this.o.c();
+        if (this.o != null) {
+            ap.b("baidu_location_service", this.o.d());
         } else {
-            j.m240if(v, "cellInfo null...");
+            ap.b("baidu_location_service", "cellInfo null...");
         }
-        if ((this.B == null || !this.B.m133do()) && this.E != null) {
-            this.B = this.E.m123byte();
+        if ((this.l == null || !this.l.f()) && this.j != null) {
+            this.l = this.j.h();
         }
-        if (this.B != null) {
-            j.m240if(v, this.B.m132case());
+        if (this.l != null) {
+            ap.b("baidu_location_service", this.l.e());
         } else {
-            j.m240if(v, "wifi list null");
+            ap.b("baidu_location_service", "wifi list null");
         }
-        if (this.Z == null || !this.Z.m78for()) {
-            this.f = null;
+        if (this.i == null || !this.i.f()) {
+            this.r = null;
         } else {
-            this.f = this.Z.m79int();
+            this.r = this.i.d();
         }
-        String m34byte = this.as != null ? this.as.m34byte() : null;
-        String format = 3 == g.m196do(this) ? "&cn=32" : String.format("&cn=%d", Integer.valueOf(this.r.m111new()));
-        if (this.W) {
+        String b = this.k != null ? this.k.b() : null;
+        String format = 3 == ah.b(this) ? "&cn=32" : String.format("&cn=%d", Integer.valueOf(this.h.c()));
+        if (this.w) {
             format = format + "&rq=1";
         }
-        String str2 = format + m34byte;
+        String str2 = format + b;
         if (str != null) {
             str2 = str + str2;
         }
-        return j.a(this.f141try, this.B, this.f, str2, 0);
+        return ap.a(this.o, this.l, this.r, str2, 0);
     }
 
-    private String a(boolean z2) {
-        if ((this.f141try == null || !this.f141try.m112do()) && this.r != null) {
-            this.f141try = this.r.a();
-        }
-        m152do(this.f141try.a());
-        return m162if(z2);
+    private String a(boolean z) {
+        return this.G ? z ? String.format("{\"result\":{\"time\":\"" + ap.a() + "\",\"error\":\"66\"},\"content\":{\"point\":{\"x\":\"%f\",\"y\":\"%f\"},\"radius\":\"%f\",\"isCellChanged\":\"%b\"}}", Double.valueOf(this.L), Double.valueOf(this.M), Double.valueOf(this.N), true) : String.format("{\"result\":{\"time\":\"" + ap.a() + "\",\"error\":\"68\"},\"content\":{\"point\":{\"x\":\"%f\",\"y\":\"%f\"},\"radius\":\"%f\",\"isCellChanged\":\"%b\"}}", Double.valueOf(this.L), Double.valueOf(this.M), Double.valueOf(this.N), Boolean.valueOf(this.K)) : z ? "{\"result\":{\"time\":\"" + ap.a() + "\",\"error\":\"67\"}}" : "{\"result\":{\"time\":\"" + ap.a() + "\",\"error\":\"63\"}}";
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void a(int i2) {
-        j.a(v, "on network exception");
-        j.m240if(v, "on network exception");
-        this.f140new = null;
-        this.f137char = null;
-        if (this.as != null) {
-            this.as.a(a(false), i2);
-        }
-        if (i2 == 21) {
-            m147case();
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void a(Message message) {
-        j.a(v, "manual upload ...");
-        double d2 = message.getData().getDouble("x");
-        double d3 = message.getData().getDouble("y");
-        String string = message.getData().getString("addr");
-        if (this.r != null && this.E != null && this.as != null) {
-            k.a(this.r.a(), this.E.m128int(), this.as.m34byte(), d2, d3, string);
-        }
-        m142byte();
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void a(Message message, int i2) {
-        j.a(v, "on network success");
-        j.m240if(v, "on network success");
-        String str = (String) message.obj;
-        j.a(v, "network:" + str);
-        if (this.as != null) {
-            this.as.a(str, i2);
-        }
-        if (j.a(str)) {
-            if (i2 == 21) {
-                this.f140new = str;
-            } else {
-                this.G = str;
-            }
-        } else if (i2 == 21) {
-            this.f140new = null;
-        } else {
-            this.G = null;
-        }
-        int m237if = j.m237if(str, "ssid\":\"", "\"");
-        if (m237if == Integer.MIN_VALUE || this.f137char == null) {
-            this.h = null;
-        } else {
-            this.h = this.f137char.m136if(m237if);
-        }
-        m166if(str);
-        double m233do = j.m233do(str, "a\":\"", "\"");
-        if (m233do != Double.MIN_VALUE) {
-            k.a(m233do, j.m233do(str, "b\":\"", "\""), j.m233do(str, "c\":\"", "\""), j.m233do(str, "b\":\"", "\""));
-        }
-        int m237if2 = j.m237if(str, "rWifiN\":\"", "\"");
-        if (m237if2 > 15) {
-            j.F = m237if2;
-        }
-        int m237if3 = j.m237if(str, "rWifiT\":\"", "\"");
-        if (m237if3 > 500) {
-            j.h = m237if3;
-        }
-        float a2 = j.a(str, "hSpeedDis\":\"", "\"");
-        if (a2 > 5.0f) {
-            j.H = a2;
-        }
-        float a3 = j.a(str, "mSpeedDis\":\"", "\"");
-        if (a3 > 5.0f) {
-            j.d = a3;
-        }
-        float a4 = j.a(str, "mWifiR\":\"", "\"");
-        if (a4 < 1.0f && a4 > 0.2d) {
-            j.f204new = a4;
-        }
-        if (i2 == 21) {
-            m147case();
-        }
-    }
-
-    private boolean a(c.a aVar) {
-        if (this.r == null) {
-            return false;
-        }
-        this.f141try = this.r.a();
-        if (this.f141try != aVar) {
-            if (this.f141try == null || aVar == null) {
-                return true;
-            }
-            return aVar.a(this.f141try) ? false : true;
-        }
-        return false;
-    }
-
-    private boolean a(e.c cVar) {
-        if (this.E == null) {
-            return false;
-        }
-        this.B = this.E.m123byte();
-        if (cVar != this.B) {
-            if (this.B == null || cVar == null) {
-                return true;
-            }
-            return cVar.a(this.B) ? false : true;
-        }
-        return false;
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void b() {
-        if (this.as != null) {
-            this.as.m42new();
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    /* renamed from: byte  reason: not valid java name */
-    public void m142byte() {
-        if (this.M) {
-            return;
-        }
-        if (System.currentTimeMillis() - this.N < 1000) {
-            j.a(v, "request too frequency ...");
-            if (this.f140new != null) {
-                this.as.a(this.f140new);
-                m147case();
-                return;
-            }
-        }
-        j.a(v, "start network locating ...");
-        j.m240if(v, "start network locating ...");
-        this.M = true;
-        this.I = a(this.aj);
-        if (!a(this.f137char) && !this.I && this.f140new != null) {
-            this.as.a(this.f140new);
-            m147case();
-            return;
-        }
-        String a2 = a((String) null);
-        if (a2 == null) {
-            this.as.a("{\"result\":{\"time\":\"" + j.a() + "\",\"error\":\"62\"}}");
-            m147case();
-            return;
-        }
-        if (this.h != null) {
-            a2 = a2 + this.h;
-            this.h = null;
-        }
-        if (g.a(a2, this.P)) {
-            this.aj = this.f141try;
-            this.f137char = this.B;
-        } else {
-            j.a(v, "request error ..");
-        }
-        if (this.W) {
-            this.W = false;
-        }
-        this.N = System.currentTimeMillis();
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    /* renamed from: byte  reason: not valid java name */
-    public void m143byte(Message message) {
-        if (this.as != null && this.as.m37for(message) && this.E != null) {
-            this.E.m127for();
-        }
-        this.f140new = null;
-    }
-
-    private void c() {
-        File file = new File(aa);
-        File file2 = new File(aa + "/ls.db");
-        if (!file.exists()) {
-            file.mkdirs();
-        }
-        if (!file2.exists()) {
-            try {
-                file2.createNewFile();
-            } catch (Exception e2) {
-            }
-        }
+    public static void a() {
         try {
-            this.R = SQLiteDatabase.openOrCreateDatabase(file2, (SQLiteDatabase.CursorFactory) null);
-            this.R.execSQL("CREATE TABLE " + this.f139if + "(id CHAR(40) PRIMARY KEY,time DOUBLE,tag DOUBLE, type DOUBLE , ac INT);");
-        } catch (Exception e3) {
-        }
-    }
-
-    /* renamed from: case  reason: not valid java name */
-    private void m147case() {
-        this.M = false;
-        m173long();
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    /* renamed from: do  reason: not valid java name */
-    public void m149do() {
-        j.a(v, "on new wifi ...");
-        if (this.ah) {
-            m142byte();
-            this.ah = false;
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    /* renamed from: do  reason: not valid java name */
-    public void m150do(Message message) {
-        if (this.as != null) {
-            this.as.m41int(message);
-        }
-        if (this.E != null) {
-            this.E.m124case();
-        }
-    }
-
-    /* renamed from: do  reason: not valid java name */
-    private void m152do(String str) {
-        if (this.R == null || str == null) {
-            j.a(v, "db is null...");
-            this.O = false;
-            return;
-        }
-        j.a(v, "LOCATING...");
-        if (System.currentTimeMillis() - this.D < 1500 || str.equals(this.aq)) {
-            return;
-        }
-        this.O = false;
-        try {
-            Cursor rawQuery = this.R.rawQuery("select * from " + this.f139if + " where id = \"" + str + "\";", null);
-            this.aq = str;
-            this.D = System.currentTimeMillis();
-            if (rawQuery != null) {
-                if (rawQuery.moveToFirst()) {
-                    j.a(v, "lookup DB success:" + this.aq);
-                    this.o = rawQuery.getDouble(1) - 1235.4323d;
-                    this.q = rawQuery.getDouble(2) - 4326.0d;
-                    this.n = rawQuery.getDouble(3) - 2367.3217d;
-                    this.O = true;
-                    j.a(v, "lookup DB success:x" + this.o + "y" + this.n + "r" + this.q);
-                }
-                rawQuery.close();
-            }
-        } catch (Exception e2) {
-            this.D = System.currentTimeMillis();
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    /* renamed from: else  reason: not valid java name */
-    public void m154else() {
-        j.a(v, "on new cell ...");
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    /* renamed from: for  reason: not valid java name */
-    public void m157for(Message message) {
-        if (System.currentTimeMillis() - this.d < 3000) {
-            j.a(v, "request too frequency ...");
-            if (this.G != null) {
-                this.as.a(this.G, 26);
+            if (e == null) {
+                g = null;
                 return;
             }
-        }
-        if (this.as != null) {
-            String a2 = a(this.as.a(message));
-            if (this.h != null) {
-                a2 = a2 + this.h;
-                this.h = null;
-            }
-            g.m196do(this);
-            if (g.m209if(a2, this.P)) {
-                this.u = this.f141try;
-                this.ac = this.B;
-            } else {
-                j.a(v, "request poi error ..");
-            }
-            this.d = System.currentTimeMillis();
-        }
-    }
-
-    /* renamed from: goto  reason: not valid java name */
-    public static void m160goto() {
-        try {
-            if (a == null) {
-                k = null;
+            g = new File(e);
+            if (g.exists()) {
                 return;
             }
-            k = new File(a);
-            if (k.exists()) {
-                return;
-            }
-            File file = new File(aa);
+            File file = new File(a);
             if (!file.exists()) {
                 file.mkdirs();
             }
-            k.createNewFile();
-            RandomAccessFile randomAccessFile = new RandomAccessFile(k, "rw");
+            g.createNewFile();
+            RandomAccessFile randomAccessFile = new RandomAccessFile(g, "rw");
             randomAccessFile.seek(0L);
             randomAccessFile.writeInt(-1);
             randomAccessFile.writeInt(-1);
@@ -1292,161 +214,129 @@ public final class f extends Service {
             randomAccessFile.close();
         } catch (Exception e2) {
             e2.printStackTrace();
-            k = null;
+            g = null;
         }
     }
 
-    /* renamed from: if  reason: not valid java name */
-    private String m162if(boolean z2) {
-        return this.O ? z2 ? String.format("{\"result\":{\"time\":\"" + j.a() + "\",\"error\":\"66\"},\"content\":{\"point\":{\"x\":\"%f\",\"y\":\"%f\"},\"radius\":\"%f\",\"isCellChanged\":\"%b\"}}", Double.valueOf(this.o), Double.valueOf(this.n), Double.valueOf(this.q), true) : String.format("{\"result\":{\"time\":\"" + j.a() + "\",\"error\":\"68\"},\"content\":{\"point\":{\"x\":\"%f\",\"y\":\"%f\"},\"radius\":\"%f\",\"isCellChanged\":\"%b\"}}", Double.valueOf(this.o), Double.valueOf(this.n), Double.valueOf(this.q), Boolean.valueOf(this.I)) : z2 ? "{\"result\":{\"time\":\"" + j.a() + "\",\"error\":\"67\"}}" : "{\"result\":{\"time\":\"" + j.a() + "\",\"error\":\"63\"}}";
+    public void a(int i) {
+        ap.a("baidu_location_service", "on network exception");
+        ap.b("baidu_location_service", "on network exception");
+        this.t = null;
+        this.m = null;
+        if (this.k != null) {
+            this.k.a(b(false), i);
+        }
+        if (i == 21) {
+            p();
+        }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    /* renamed from: if  reason: not valid java name */
-    public void m163if() {
-        if (this.Z == null) {
-            return;
+    public void a(Message message) {
+        if (this.k != null) {
+            this.k.a(message);
         }
-        j.a(v, "on new gps...");
-        Location m79int = this.Z.m79int();
-        if (this.Z.m78for() && k.a(m79int, true) && this.r != null && this.E != null && this.as != null) {
-            if (this.E != null) {
-                this.E.a();
+        if (this.j != null) {
+            this.j.b();
+        }
+    }
+
+    public void a(Message message, int i) {
+        ap.a("baidu_location_service", "on network success");
+        ap.b("baidu_location_service", "on network success");
+        String str = (String) message.obj;
+        ap.a("baidu_location_service", "network:" + str);
+        if (this.k != null) {
+            this.k.a(str, i);
+        }
+        if (ap.a(str)) {
+            if (i == 21) {
+                this.t = str;
+            } else {
+                this.u = str;
             }
-            k.a(this.r.a(), this.E.m128int(), m79int, this.as.m34byte());
+        } else if (i == 21) {
+            this.t = null;
+        } else {
+            this.u = null;
         }
-        if (this.as == null || !this.Z.m78for()) {
-            return;
+        int a2 = ap.a(str, "ssid\":\"", "\"");
+        if (a2 == Integer.MIN_VALUE || this.m == null) {
+            this.s = null;
+        } else {
+            this.s = this.m.b(a2);
         }
-        this.as.m40if(this.Z.m77do());
+        c(str);
+        double c = ap.c(str, "a\":\"", "\"");
+        if (c != Double.MIN_VALUE) {
+            as.a(c, ap.c(str, "b\":\"", "\""), ap.c(str, "c\":\"", "\""), ap.c(str, "b\":\"", "\""));
+        }
+        int a3 = ap.a(str, "rWifiN\":\"", "\"");
+        if (a3 > 15) {
+            ap.J = a3;
+        }
+        int a4 = ap.a(str, "rWifiT\":\"", "\"");
+        if (a4 > 500) {
+            ap.L = a4;
+        }
+        float b = ap.b(str, "hSpeedDis\":\"", "\"");
+        if (b > 5.0f) {
+            ap.I = b;
+        }
+        float b2 = ap.b(str, "mSpeedDis\":\"", "\"");
+        if (b2 > 5.0f) {
+            ap.H = b2;
+        }
+        float b3 = ap.b(str, "mWifiR\":\"", "\"");
+        if (b3 < 1.0f && b3 > 0.2d) {
+            ap.K = b3;
+        }
+        if (i == 21) {
+            p();
+        }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    /* renamed from: if  reason: not valid java name */
-    public void m164if(Message message) {
-        if (message == null || message.obj == null) {
-            j.a(v, "Gps updateloation is null");
-            return;
+    private boolean a(aa aaVar) {
+        if (this.j == null) {
+            return false;
         }
-        Location location = (Location) message.obj;
-        if (location != null) {
-            j.a(v, "on update gps...");
-            if (!k.a(location, true) || this.r == null || this.E == null || this.as == null || !j.v) {
-                return;
+        this.l = this.j.h();
+        if (aaVar != this.l) {
+            if (this.l == null || aaVar == null) {
+                return true;
             }
-            k.a(this.r.a(), this.E.m128int(), location, this.as.m34byte());
+            return aaVar.c(this.l) ? false : true;
         }
+        return false;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:17:0x00ad  */
-    /* JADX WARN: Removed duplicated region for block: B:36:? A[RETURN, SYNTHETIC] */
-    /* renamed from: if  reason: not valid java name */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    private void m166if(String str) {
-        float f;
-        double d2;
-        double d3;
-        boolean z2 = false;
-        if (this.R == null || !this.I) {
-            return;
+    private boolean a(u uVar) {
+        if (this.h == null) {
+            return false;
         }
+        this.o = this.h.d();
+        if (this.o != uVar) {
+            if (this.o == null || uVar == null) {
+                return true;
+            }
+            return uVar.a(this.o) ? false : true;
+        }
+        return false;
+    }
+
+    public static String b() {
+        ap.a("baidu_location_service", "read trace log1..");
+        a();
         try {
-            j.a(v, "DB:" + str);
-            JSONObject jSONObject = new JSONObject(str);
-            int parseInt = Integer.parseInt(jSONObject.getJSONObject("result").getString("error"));
-            if (parseInt == 161) {
-                JSONObject jSONObject2 = jSONObject.getJSONObject(PushConstants.EXTRA_CONTENT);
-                if (jSONObject2.has("clf")) {
-                    String string = jSONObject2.getString("clf");
-                    if (string.equals("0")) {
-                        JSONObject jSONObject3 = jSONObject2.getJSONObject("point");
-                        d2 = Double.parseDouble(jSONObject3.getString("x"));
-                        d3 = Double.parseDouble(jSONObject3.getString("y"));
-                        f = Float.parseFloat(jSONObject2.getString("radius"));
-                    } else {
-                        String[] split = string.split("\\|");
-                        d2 = Double.parseDouble(split[0]);
-                        d3 = Double.parseDouble(split[1]);
-                        f = Float.parseFloat(split[2]);
-                    }
-                    j.a(v, "DB PARSE:x" + d2 + "y" + d3 + "R" + f);
-                    if (z2) {
-                        float f2 = 4326.0f + f;
-                        ContentValues contentValues = new ContentValues();
-                        contentValues.put("time", Double.valueOf(d2 + 1235.4323d));
-                        contentValues.put("tag", Float.valueOf(f2));
-                        contentValues.put("type", Double.valueOf(d3 + 2367.3217d));
-                        try {
-                            if (this.R.update(this.f139if, contentValues, "id = \"" + this.A + "\"", null) <= 0) {
-                                contentValues.put("id", this.A);
-                                this.R.insert(this.f139if, null, contentValues);
-                                j.a(v, "insert DB success!");
-                                return;
-                            }
-                            return;
-                        } catch (Exception e2) {
-                            return;
-                        }
-                    }
-                    return;
-                }
-            } else if (parseInt == 167) {
-                this.R.delete(this.f139if, "id = \"" + this.A + "\"", null);
-                return;
-            }
-            z2 = true;
-            f = 0.0f;
-            d2 = 0.0d;
-            d3 = 0.0d;
-            if (z2) {
-            }
-        } catch (Exception e3) {
-            j.a(v, "DB PARSE:exp!");
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    /* renamed from: int  reason: not valid java name */
-    public void m168int() {
-        if (g.a(this)) {
-            g.f();
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    /* renamed from: int  reason: not valid java name */
-    public void m169int(Message message) {
-        if (this.as == null) {
-            return;
-        }
-        this.as.a(a(true), message);
-    }
-
-    /* renamed from: long  reason: not valid java name */
-    private void m173long() {
-        if (this.f140new == null || !g.a(this)) {
-            return;
-        }
-        g.f();
-    }
-
-    /* renamed from: new  reason: not valid java name */
-    public static String m175new() {
-        j.a(v, "read trace log1..");
-        m160goto();
-        try {
-            if (k != null) {
-                RandomAccessFile randomAccessFile = new RandomAccessFile(k, "rw");
+            if (g != null) {
+                RandomAccessFile randomAccessFile = new RandomAccessFile(g, "rw");
                 int readInt = randomAccessFile.readInt();
                 randomAccessFile.readInt();
                 int readInt2 = randomAccessFile.readInt();
-                j.a(v, "read trace log.." + readInt2);
+                ap.a("baidu_location_service", "read trace log.." + readInt2);
                 if (readInt > 0) {
-                    randomAccessFile.seek((readInt2 * ar) + 24);
+                    randomAccessFile.seek((readInt2 * 800) + 24);
                     int readInt3 = randomAccessFile.readInt();
-                    byte[] bArr = new byte[ar];
+                    byte[] bArr = new byte[800];
                     randomAccessFile.read(bArr, 0, readInt3);
                     int readInt4 = randomAccessFile.readInt();
                     randomAccessFile.seek(0L);
@@ -1457,12 +347,12 @@ public final class f extends Service {
                         randomAccessFile.close();
                         return null;
                     }
-                    for (int i2 = 0; i2 < bArr.length; i2++) {
-                        bArr[i2] = (byte) (bArr[i2] ^ 90);
+                    for (int i = 0; i < bArr.length; i++) {
+                        bArr[i] = (byte) (bArr[i] ^ 90);
                     }
-                    String m1if = Jni.m1if(new String(bArr, 0, readInt3));
+                    String a2 = Jni.a(new String(bArr, 0, readInt3));
                     randomAccessFile.close();
-                    return m1if;
+                    return a2;
                 }
                 randomAccessFile.close();
             }
@@ -1472,128 +362,407 @@ public final class f extends Service {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    /* renamed from: new  reason: not valid java name */
-    public void m176new(Message message) {
-        j.a(v, "on request location ...");
-        j.m240if(v, "on request location ...");
-        if (this.as == null) {
+    private String b(boolean z) {
+        if ((this.o == null || !this.o.a()) && this.h != null) {
+            this.o = this.h.d();
+        }
+        b(this.o.c());
+        return a(z);
+    }
+
+    public void b(Message message) {
+        if (this.k != null) {
+            this.k.b(message);
+        }
+    }
+
+    private void b(String str) {
+        if (this.C == null || str == null) {
+            ap.a("baidu_location_service", "db is null...");
+            this.G = false;
             return;
         }
-        if (this.as.m35do(message) == 1 && this.Z != null && this.Z.m78for()) {
-            j.a(v, "send gps location to client ...");
-            this.as.a(this.Z.m77do(), message);
-        } else if (this.W) {
-            m142byte();
-        } else if (this.M) {
-        } else {
-            if (this.E == null || !this.E.m129new()) {
-                m142byte();
+        ap.a("baidu_location_service", "LOCATING...");
+        if (System.currentTimeMillis() - this.O < 1500 || str.equals(this.F)) {
+            return;
+        }
+        this.G = false;
+        try {
+            Cursor rawQuery = this.C.rawQuery("select * from " + this.D + " where id = \"" + str + "\";", null);
+            this.F = str;
+            this.O = System.currentTimeMillis();
+            if (rawQuery != null) {
+                if (rawQuery.moveToFirst()) {
+                    ap.a("baidu_location_service", "lookup DB success:" + this.F);
+                    this.L = rawQuery.getDouble(1) - 1235.4323d;
+                    this.N = rawQuery.getDouble(2) - 4326.0d;
+                    this.M = rawQuery.getDouble(3) - 2367.3217d;
+                    this.G = true;
+                    ap.a("baidu_location_service", "lookup DB success:x" + this.L + "y" + this.M + "r" + this.N);
+                }
+                rawQuery.close();
+            }
+        } catch (Exception e2) {
+            this.O = System.currentTimeMillis();
+        }
+    }
+
+    public void c(Message message) {
+        if (this.k != null && this.k.c(message) && this.j != null) {
+            this.j.i();
+        }
+        this.t = null;
+    }
+
+    /* JADX WARN: Removed duplicated region for block: B:59:0x00ad  */
+    /* JADX WARN: Removed duplicated region for block: B:78:? A[RETURN, SYNTHETIC] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    private void c(String str) {
+        float f2;
+        double d2;
+        double d3;
+        boolean z = false;
+        if (this.C == null || !this.K) {
+            return;
+        }
+        try {
+            ap.a("baidu_location_service", "DB:" + str);
+            JSONObject jSONObject = new JSONObject(str);
+            int parseInt = Integer.parseInt(jSONObject.getJSONObject("result").getString("error"));
+            if (parseInt == 161) {
+                JSONObject jSONObject2 = jSONObject.getJSONObject(PushConstants.EXTRA_CONTENT);
+                if (jSONObject2.has("clf")) {
+                    String string = jSONObject2.getString("clf");
+                    if (string.equals("0")) {
+                        JSONObject jSONObject3 = jSONObject2.getJSONObject("point");
+                        d2 = Double.parseDouble(jSONObject3.getString("x"));
+                        d3 = Double.parseDouble(jSONObject3.getString("y"));
+                        f2 = Float.parseFloat(jSONObject2.getString("radius"));
+                    } else {
+                        String[] split = string.split("\\|");
+                        d2 = Double.parseDouble(split[0]);
+                        d3 = Double.parseDouble(split[1]);
+                        f2 = Float.parseFloat(split[2]);
+                    }
+                    ap.a("baidu_location_service", "DB PARSE:x" + d2 + "y" + d3 + "R" + f2);
+                    if (z) {
+                        float f3 = 4326.0f + f2;
+                        ContentValues contentValues = new ContentValues();
+                        contentValues.put("time", Double.valueOf(d2 + 1235.4323d));
+                        contentValues.put("tag", Float.valueOf(f3));
+                        contentValues.put("type", Double.valueOf(d3 + 2367.3217d));
+                        try {
+                            if (this.C.update(this.D, contentValues, "id = \"" + this.E + "\"", null) <= 0) {
+                                contentValues.put("id", this.E);
+                                this.C.insert(this.D, null, contentValues);
+                                ap.a("baidu_location_service", "insert DB success!");
+                                return;
+                            }
+                            return;
+                        } catch (Exception e2) {
+                            return;
+                        }
+                    }
+                    return;
+                }
+            } else if (parseInt == 167) {
+                this.C.delete(this.D, "id = \"" + this.E + "\"", null);
                 return;
             }
-            this.ah = true;
-            this.P.postDelayed(new b(), 2000L);
+            z = true;
+            f2 = 0.0f;
+            d2 = 0.0d;
+            d3 = 0.0d;
+            if (z) {
+            }
+        } catch (Exception e3) {
+            ap.a("baidu_location_service", "DB PARSE:exp!");
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    /* renamed from: try  reason: not valid java name */
-    public void m178try() {
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    /* renamed from: try  reason: not valid java name */
-    public void m179try(Message message) {
-        if (this.as != null) {
-            this.as.m39if(message);
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    /* renamed from: void  reason: not valid java name */
-    public void m183void() {
-        j.a(v, "on switch gps ...");
-        if (this.as == null) {
+    public void d(Message message) {
+        if (message == null || message.obj == null) {
+            ap.a("baidu_location_service", "Gps updateloation is null");
             return;
         }
-        if (this.as.m36for()) {
-            if (this.Z == null) {
-                this.Z = new com.baidu.location.b(this, this.P);
+        Location location = (Location) message.obj;
+        if (location != null) {
+            ap.a("baidu_location_service", "on update gps...");
+            if (!as.a(location, true) || this.h == null || this.j == null || this.k == null || !ap.b) {
+                return;
             }
-            this.Z.i();
-        } else if (this.Z != null) {
-            this.Z.j();
-            this.Z = null;
+            as.a(this.h.d(), this.j.g(), location, this.k.b());
         }
     }
 
-    /* renamed from: char  reason: not valid java name */
-    public boolean m184char() {
+    public void e(Message message) {
+        ap.a("baidu_location_service", "manual upload ...");
+        double d2 = message.getData().getDouble("x");
+        double d3 = message.getData().getDouble("y");
+        String string = message.getData().getString("addr");
+        if (this.h != null && this.j != null && this.k != null) {
+            as.a(this.h.d(), this.j.g(), this.k.b(), d2, d3, string);
+        }
+        m();
+    }
+
+    public void f() {
+        if (this.i == null) {
+            return;
+        }
+        ap.a("baidu_location_service", "on new gps...");
+        Location d2 = this.i.d();
+        if (this.i.f() && as.a(d2, true) && this.h != null && this.j != null && this.k != null) {
+            if (this.j != null) {
+                this.j.d();
+            }
+            as.a(this.h.d(), this.j.g(), d2, this.k.b());
+        }
+        if (this.k == null || !this.i.f()) {
+            return;
+        }
+        this.k.b(this.i.c());
+    }
+
+    public void f(Message message) {
+        if (System.currentTimeMillis() - this.A < 3000) {
+            ap.a("baidu_location_service", "request too frequency ...");
+            if (this.u != null) {
+                this.k.a(this.u, 26);
+                return;
+            }
+        }
+        if (this.k != null) {
+            String a2 = a(this.k.d(message));
+            if (this.s != null) {
+                a2 = a2 + this.s;
+                this.s = null;
+            }
+            ah.b(this);
+            if (ah.b(a2, this.b)) {
+                this.q = this.o;
+                this.n = this.l;
+            } else {
+                ap.a("baidu_location_service", "request poi error ..");
+            }
+            this.A = System.currentTimeMillis();
+        }
+    }
+
+    public void g() {
+        ap.a("baidu_location_service", "on new cell ...");
+    }
+
+    public void g(Message message) {
+        if (this.k == null) {
+            return;
+        }
+        this.k.a(b(true), message);
+    }
+
+    public void h() {
+        ap.a("baidu_location_service", "on new wifi ...");
+        if (this.y) {
+            m();
+            this.y = false;
+        }
+    }
+
+    public void h(Message message) {
+        ap.a("baidu_location_service", "on request location ...");
+        ap.b("baidu_location_service", "on request location ...");
+        if (this.k == null) {
+            return;
+        }
+        if (this.k.e(message) == 1 && this.i != null && this.i.f()) {
+            ap.a("baidu_location_service", "send gps location to client ...");
+            this.k.a(this.i.c(), message);
+        } else if (this.w) {
+            m();
+        } else if (this.x) {
+        } else {
+            if (this.j == null || !this.j.e()) {
+                m();
+                return;
+            }
+            this.y = true;
+            this.b.postDelayed(new ae(this), 2000L);
+        }
+    }
+
+    public void i() {
+        ap.a("baidu_location_service", "on switch gps ...");
+        if (this.k == null) {
+            return;
+        }
+        if (this.k.a()) {
+            if (this.i == null) {
+                this.i = new m(this, this.b);
+            }
+            this.i.a();
+        } else if (this.i != null) {
+            this.i.b();
+            this.i = null;
+        }
+    }
+
+    public void j() {
+    }
+
+    private void k() {
+        if (this.t == null || !ah.a(this)) {
+            return;
+        }
+        ah.a();
+    }
+
+    private void l() {
+        File file = new File(a);
+        File file2 = new File(a + "/ls.db");
+        if (!file.exists()) {
+            file.mkdirs();
+        }
+        if (!file2.exists()) {
+            try {
+                file2.createNewFile();
+            } catch (Exception e2) {
+            }
+        }
+        try {
+            this.C = SQLiteDatabase.openOrCreateDatabase(file2, (SQLiteDatabase.CursorFactory) null);
+            this.C.execSQL("CREATE TABLE " + this.D + "(id CHAR(40) PRIMARY KEY,time DOUBLE,tag DOUBLE, type DOUBLE , ac INT);");
+        } catch (Exception e3) {
+        }
+    }
+
+    public void m() {
+        if (this.x) {
+            return;
+        }
+        if (System.currentTimeMillis() - this.z < 1000) {
+            ap.a("baidu_location_service", "request too frequency ...");
+            if (this.t != null) {
+                this.k.a(this.t);
+                p();
+                return;
+            }
+        }
+        ap.a("baidu_location_service", "start network locating ...");
+        ap.b("baidu_location_service", "start network locating ...");
+        this.x = true;
+        this.K = a(this.p);
+        if (!a(this.m) && !this.K && this.t != null) {
+            this.k.a(this.t);
+            p();
+            return;
+        }
+        String a2 = a((String) null);
+        if (a2 == null) {
+            this.k.a("{\"result\":{\"time\":\"" + ap.a() + "\",\"error\":\"62\"}}");
+            p();
+            return;
+        }
+        if (this.s != null) {
+            a2 = a2 + this.s;
+            this.s = null;
+        }
+        if (ah.a(a2, this.b)) {
+            this.p = this.o;
+            this.m = this.l;
+        } else {
+            ap.a("baidu_location_service", "request error ..");
+        }
+        if (this.w) {
+            this.w = false;
+        }
+        this.z = System.currentTimeMillis();
+    }
+
+    public void n() {
+        if (ah.a(this)) {
+            ah.a();
+        }
+    }
+
+    public void o() {
+        if (this.k != null) {
+            this.k.c();
+        }
+    }
+
+    private void p() {
+        this.x = false;
+        k();
+    }
+
+    public boolean c() {
         return ((KeyguardManager) getSystemService("keyguard")).inKeyguardRestrictedInputMode();
     }
 
     @Override // android.app.Service
     public IBinder onBind(Intent intent) {
-        return this.al.getBinder();
+        return this.c.getBinder();
     }
 
     @Override // android.app.Service
     public void onCreate() {
-        Thread.setDefaultUncaughtExceptionHandler(new a(this));
-        this.r = new com.baidu.location.c(this, this.P);
-        this.E = new e(this, this.P);
-        this.as = new com.baidu.location.a(this.P);
-        this.r.m108do();
-        this.E.m130try();
-        this.ab = true;
-        this.M = false;
-        this.ah = false;
-        g.m193byte();
+        Thread.setDefaultUncaughtExceptionHandler(new ad(this, this));
+        this.h = new t(this, this.b);
+        this.j = new w(this, this.b);
+        this.k = new k(this.b);
+        this.h.a();
+        this.j.a();
+        this.v = true;
+        this.x = false;
+        this.y = false;
+        ah.d();
         try {
-            c();
+            l();
         } catch (Exception e2) {
         }
         try {
-            if (j.f205try && j.M) {
-                this.y = new c(this);
+            if (ap.a && ap.l) {
+                this.B = new af(this, this);
             }
         } catch (Exception e3) {
         }
-        j.a(v, "OnCreate");
-        Log.d(v, "baidu location service start1 ..." + Process.myPid());
+        ap.a("baidu_location_service", "OnCreate");
+        Log.d("baidu_location_service", "baidu location service start1 ..." + Process.myPid());
     }
 
     @Override // android.app.Service
     public void onDestroy() {
-        if (this.r != null) {
-            this.r.m107byte();
+        if (this.h != null) {
+            this.h.b();
         }
-        if (this.E != null) {
-            this.E.m126else();
+        if (this.j != null) {
+            this.j.c();
         }
-        if (this.Z != null) {
-            this.Z.j();
+        if (this.i != null) {
+            this.i.b();
         }
-        k.m247if();
-        this.M = false;
-        this.ah = false;
-        this.ab = false;
-        if (this.y != null) {
-            this.y.m192try();
+        as.b();
+        this.x = false;
+        this.y = false;
+        this.v = false;
+        if (this.B != null) {
+            this.B.a();
         }
-        if (this.R != null) {
-            this.R.close();
+        if (this.C != null) {
+            this.C.close();
         }
-        j.a(v, "onDestroy");
-        Log.d(v, "baidu location service stop ...");
-        if (j.f205try) {
+        ap.a("baidu_location_service", "onDestroy");
+        Log.d("baidu_location_service", "baidu location service stop ...");
+        if (ap.a) {
             Process.killProcess(Process.myPid());
         }
     }
 
     @Override // android.app.Service
-    public int onStartCommand(Intent intent, int i2, int i3) {
-        j.a(v, "onStratCommandNotSticky");
+    public int onStartCommand(Intent intent, int i, int i2) {
+        ap.a("baidu_location_service", "onStratCommandNotSticky");
         return 2;
     }
 }

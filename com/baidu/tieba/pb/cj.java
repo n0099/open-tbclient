@@ -1,32 +1,21 @@
 package com.baidu.tieba.pb;
 
-import android.content.Context;
-import android.view.View;
-import com.baidu.tieba.person.PersonInfoActivity;
+import android.widget.GridView;
 /* loaded from: classes.dex */
-class cj implements View.OnClickListener {
-    final /* synthetic */ cd a;
-    private String b;
-    private String c;
+class cj implements Runnable {
+    final /* synthetic */ ch a;
 
-    public cj(cd cdVar) {
-        this.a = cdVar;
-        b(null);
-        a(null);
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public cj(ch chVar) {
+        this.a = chVar;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        Context context;
-        context = this.a.a;
-        PersonInfoActivity.a(context, this.b, this.c);
-    }
-
-    public void a(String str) {
-        this.c = str;
-    }
-
-    public void b(String str) {
-        this.b = str;
+    @Override // java.lang.Runnable
+    public void run() {
+        bl blVar;
+        GridView gridView;
+        blVar = this.a.a;
+        gridView = blVar.I;
+        gridView.setVisibility(8);
     }
 }

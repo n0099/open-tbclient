@@ -7,18 +7,18 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageButton;
 import android.widget.TextView;
-import com.baidu.tieba.R;
 import com.baidu.tieba.TiebaApplication;
+import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public class i extends BaseAdapter {
     private Context a;
-    private com.baidu.tieba.b.b b;
+    private com.baidu.tieba.c.b b;
     private boolean c = false;
     private View.OnClickListener d = null;
     private boolean e = false;
     private boolean f = true;
 
-    public i(Context context, com.baidu.tieba.b.b bVar) {
+    public i(Context context, com.baidu.tieba.c.b bVar) {
         this.a = context;
         this.b = bVar;
     }
@@ -78,7 +78,7 @@ public class i extends BaseAdapter {
         View view2;
         j jVar;
         View view3;
-        com.baidu.tieba.a.q qVar;
+        com.baidu.tieba.a.s sVar;
         try {
             if (view == null) {
                 view3 = LayoutInflater.from(this.a).inflate(R.layout.edit_bar_item, (ViewGroup) null);
@@ -94,7 +94,7 @@ public class i extends BaseAdapter {
                 } catch (Exception e) {
                     view2 = view3;
                     exc = e;
-                    com.baidu.tieba.c.ag.b(getClass().getName(), "getView", exc.getMessage());
+                    com.baidu.tieba.d.ae.b(getClass().getName(), "getView", exc.getMessage());
                     return view2;
                 }
             } else {
@@ -117,14 +117,14 @@ public class i extends BaseAdapter {
                 jVar.a.setVisibility(0);
                 jVar.e.setVisibility(8);
             }
-            if (this.b != null && this.b.a() != null && i >= 0 && i < this.b.a().size() && (qVar = (com.baidu.tieba.a.q) this.b.a().get(i)) != null) {
+            if (this.b != null && this.b.a() != null && i >= 0 && i < this.b.a().size() && (sVar = (com.baidu.tieba.a.s) this.b.a().get(i)) != null) {
                 jVar.b.delete(0, jVar.b.length());
-                jVar.b.append(qVar.c());
+                jVar.b.append(sVar.b());
                 jVar.b.append(this.a.getString(R.string.bar));
                 jVar.a.setText(jVar.b);
                 jVar.d.delete(0, jVar.d.length());
                 jVar.d.append(this.a.getString(R.string.degree));
-                jVar.d.append(qVar.e());
+                jVar.d.append(sVar.f());
                 jVar.c.setText(jVar.d);
                 jVar.c.setVisibility(0);
                 jVar.f.setOnClickListener(this.d);
@@ -135,8 +135,8 @@ public class i extends BaseAdapter {
                     jVar.f.setVisibility(8);
                 }
             }
-            if (TiebaApplication.b().ah() == 1) {
-                int a = com.baidu.tieba.c.ae.a(1);
+            if (TiebaApplication.d().ai() == 1) {
+                int a = com.baidu.tieba.d.ac.a(1);
                 jVar.a.setTextColor(a);
                 jVar.c.setTextColor(a);
                 jVar.e.setTextColor(a);

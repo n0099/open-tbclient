@@ -15,34 +15,41 @@ import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import java.io.FileDescriptor;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class g extends Activity {
-    final Handler a;
-    final l b;
-    boolean c;
-    boolean d;
-    boolean e;
-    boolean f;
-    boolean g;
-    boolean h;
-    boolean i;
-    boolean j;
-    r k;
-    w l;
+    private static final String FRAGMENTS_TAG = "android:support:fragments";
+    private static final int HONEYCOMB = 11;
+    static final int MSG_REALLY_STOPPED = 1;
+    static final int MSG_RESUME_PENDING = 2;
+    private static final String TAG = "FragmentActivity";
+    t mAllLoaderManagers;
+    boolean mCheckedForLoaderManager;
+    boolean mCreated;
+    y mLoaderManager;
+    boolean mLoadersStarted;
+    boolean mOptionsMenuInvalidated;
+    boolean mReallyStopped;
+    boolean mResumed;
+    boolean mRetaining;
+    boolean mStopped;
+    final Handler mHandler = new h(this);
+    final m mFragments = new m();
 
     @Override // android.app.Activity
     protected void onActivityResult(int i, int i2, Intent intent) {
         int i3 = i >> 16;
         if (i3 != 0) {
             int i4 = i3 - 1;
-            if (this.b.f == null || i4 < 0 || i4 >= this.b.f.size()) {
-                Log.w("FragmentActivity", "Activity result fragment index out of range: 0x" + Integer.toHexString(i));
+            if (this.mFragments.f == null || i4 < 0 || i4 >= this.mFragments.f.size()) {
+                Log.w(TAG, "Activity result fragment index out of range: 0x" + Integer.toHexString(i));
                 return;
             }
-            Fragment fragment = (Fragment) this.b.f.get(i4);
+            Fragment fragment = (Fragment) this.mFragments.f.get(i4);
             if (fragment == null) {
-                Log.w("FragmentActivity", "Activity result no fragment exists for index: 0x" + Integer.toHexString(i));
+                Log.w(TAG, "Activity result no fragment exists for index: 0x" + Integer.toHexString(i));
             }
             fragment.a(65535 & i, i2, intent);
             return;
@@ -50,8 +57,9 @@ public class g extends Activity {
         super.onActivityResult(i, i2, intent);
     }
 
-    public void a() {
-        if (!this.b.c()) {
+    @Override // android.app.Activity
+    public void onBackPressed() {
+        if (!this.mFragments.c()) {
             finish();
         }
     }
@@ -59,30 +67,31 @@ public class g extends Activity {
     @Override // android.app.Activity, android.content.ComponentCallbacks
     public void onConfigurationChanged(Configuration configuration) {
         super.onConfigurationChanged(configuration);
-        this.b.a(configuration);
+        this.mFragments.a(configuration);
     }
 
+    /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.app.Activity
-    protected void onCreate(Bundle bundle) {
-        this.b.a(this);
+    public void onCreate(Bundle bundle) {
+        this.mFragments.a(this);
         if (getLayoutInflater().getFactory() == null) {
             getLayoutInflater().setFactory(this);
         }
         super.onCreate(bundle);
-        i iVar = (i) getLastNonConfigurationInstance();
-        if (iVar != null) {
-            this.k = iVar.e;
+        j jVar = (j) getLastNonConfigurationInstance();
+        if (jVar != null) {
+            this.mAllLoaderManagers = jVar.e;
         }
         if (bundle != null) {
-            this.b.a(bundle.getParcelable("android:support:fragments"), iVar != null ? iVar.d : null);
+            this.mFragments.a(bundle.getParcelable(FRAGMENTS_TAG), jVar != null ? jVar.d : null);
         }
-        this.b.j();
+        this.mFragments.j();
     }
 
     @Override // android.app.Activity, android.view.Window.Callback
     public boolean onCreatePanelMenu(int i, Menu menu) {
         if (i == 0) {
-            boolean onCreatePanelMenu = super.onCreatePanelMenu(i, menu) | this.b.a(menu, getMenuInflater());
+            boolean onCreatePanelMenu = super.onCreatePanelMenu(i, menu) | this.mFragments.a(menu, getMenuInflater());
             if (Build.VERSION.SDK_INT < 11) {
                 return true;
             }
@@ -100,7 +109,7 @@ public class g extends Activity {
     /* JADX WARN: Type inference failed for: r1v19, types: [android.support.v4.app.Fragment] */
     /* JADX WARN: Type inference failed for: r1v2 */
     /* JADX WARN: Type inference failed for: r1v3, types: [android.support.v4.app.Fragment, java.lang.Object] */
-    /* JADX WARN: Type inference failed for: r3v3, types: [android.support.v4.app.l] */
+    /* JADX WARN: Type inference failed for: r3v3, types: [android.support.v4.app.m] */
     @Override // android.app.Activity, android.view.LayoutInflater.Factory
     public View onCreateView(String str, Context context, AttributeSet attributeSet) {
         Fragment fragment;
@@ -108,7 +117,7 @@ public class g extends Activity {
             return super.onCreateView(str, context, attributeSet);
         }
         String attributeValue = attributeSet.getAttributeValue(null, "class");
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, h.a);
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, i.a);
         if (attributeValue == null) {
             attributeValue = obtainStyledAttributes.getString(0);
         }
@@ -119,15 +128,15 @@ public class g extends Activity {
         if (id == -1 && resourceId == -1 && string == null) {
             throw new IllegalArgumentException(attributeSet.getPositionDescription() + ": Must specify unique android:id, android:tag, or have a parent with an id for " + attributeValue);
         }
-        r1 = resourceId != -1 ? this.b.a(resourceId) : 0;
+        r1 = resourceId != -1 ? this.mFragments.a(resourceId) : 0;
         if (r1 == 0 && string != null) {
-            r1 = this.b.a(string);
+            r1 = this.mFragments.a(string);
         }
         if (r1 == 0 && id != -1) {
-            r1 = this.b.a(id);
+            r1 = this.mFragments.a(id);
         }
-        if (l.a) {
-            Log.v("FragmentActivity", "onCreateView: id=0x" + Integer.toHexString(resourceId) + " fname=" + attributeValue + " existing=" + ((Object) r1));
+        if (m.a) {
+            Log.v(TAG, "onCreateView: id=0x" + Integer.toHexString(resourceId) + " fname=" + attributeValue + " existing=" + ((Object) r1));
         }
         if (r1 == 0) {
             Fragment a = Fragment.a(this, attributeValue);
@@ -136,9 +145,9 @@ public class g extends Activity {
             a.D = id;
             a.E = string;
             a.x = true;
-            a.A = this.b;
+            a.A = this.mFragments;
             a.a(this, attributeSet, a.l);
-            this.b.a(a, true);
+            this.mFragments.a(a, true);
             fragment = a;
         } else if (r1.x) {
             throw new IllegalArgumentException(attributeSet.getPositionDescription() + ": Duplicate id 0x" + Integer.toHexString(resourceId) + ", tag " + string + ", or parent id 0x" + Integer.toHexString(id) + " with another fragment for " + attributeValue);
@@ -147,7 +156,7 @@ public class g extends Activity {
             if (!r1.I) {
                 r1.a(this, attributeSet, r1.l);
             }
-            this.b.b(r1);
+            this.mFragments.b(r1);
             fragment = r1;
         }
         if (fragment.O == null) {
@@ -165,17 +174,17 @@ public class g extends Activity {
     @Override // android.app.Activity
     protected void onDestroy() {
         super.onDestroy();
-        a(false);
-        this.b.q();
-        if (this.l != null) {
-            this.l.h();
+        doReallyStop(false);
+        this.mFragments.q();
+        if (this.mLoaderManager != null) {
+            this.mLoaderManager.h();
         }
     }
 
     @Override // android.app.Activity, android.view.KeyEvent.Callback
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
         if (Build.VERSION.SDK_INT < 5 && i == 4 && keyEvent.getRepeatCount() == 0) {
-            a();
+            onBackPressed();
             return true;
         }
         return super.onKeyDown(i, keyEvent);
@@ -184,7 +193,7 @@ public class g extends Activity {
     @Override // android.app.Activity, android.content.ComponentCallbacks
     public void onLowMemory() {
         super.onLowMemory();
-        this.b.r();
+        this.mFragments.r();
     }
 
     @Override // android.app.Activity, android.view.Window.Callback
@@ -194,9 +203,9 @@ public class g extends Activity {
         }
         switch (i) {
             case 0:
-                return this.b.a(menuItem);
+                return this.mFragments.a(menuItem);
             case 6:
-                return this.b.b(menuItem);
+                return this.mFragments.b(menuItem);
             default:
                 return false;
         }
@@ -206,7 +215,7 @@ public class g extends Activity {
     public void onPanelClosed(int i, Menu menu) {
         switch (i) {
             case 0:
-                this.b.b(menu);
+                this.mFragments.b(menu);
                 break;
         }
         super.onPanelClosed(i, menu);
@@ -215,28 +224,28 @@ public class g extends Activity {
     @Override // android.app.Activity
     protected void onPause() {
         super.onPause();
-        this.d = false;
-        if (this.a.hasMessages(2)) {
-            this.a.removeMessages(2);
-            this.b.m();
+        this.mResumed = false;
+        if (this.mHandler.hasMessages(2)) {
+            this.mHandler.removeMessages(2);
+            this.mFragments.m();
         }
-        this.b.n();
+        this.mFragments.n();
     }
 
     @Override // android.app.Activity
     protected void onResume() {
         super.onResume();
-        this.a.sendEmptyMessage(2);
-        this.d = true;
-        this.b.e();
+        this.mHandler.sendEmptyMessage(2);
+        this.mResumed = true;
+        this.mFragments.e();
     }
 
     @Override // android.app.Activity
     protected void onPostResume() {
         super.onPostResume();
-        this.a.removeMessages(2);
-        this.b.m();
-        this.b.e();
+        this.mHandler.removeMessages(2);
+        this.mFragments.m();
+        this.mFragments.e();
     }
 
     @Override // android.app.Activity, android.view.Window.Callback
@@ -244,86 +253,87 @@ public class g extends Activity {
         if (i != 0 || menu == null) {
             return super.onPreparePanel(i, view, menu);
         }
-        if (this.h) {
-            this.h = false;
+        if (this.mOptionsMenuInvalidated) {
+            this.mOptionsMenuInvalidated = false;
             menu.clear();
             onCreatePanelMenu(i, menu);
         }
-        return (super.onPreparePanel(i, view, menu) || this.b.a(menu)) && menu.hasVisibleItems();
+        return (super.onPreparePanel(i, view, menu) || this.mFragments.a(menu)) && menu.hasVisibleItems();
     }
 
     @Override // android.app.Activity
     public final Object onRetainNonConfigurationInstance() {
         boolean z;
-        if (this.e) {
-            a(true);
+        if (this.mStopped) {
+            doReallyStop(true);
         }
-        Object b = b();
-        ArrayList g = this.b.g();
+        Object onRetainCustomNonConfigurationInstance = onRetainCustomNonConfigurationInstance();
+        ArrayList g = this.mFragments.g();
         boolean z2 = false;
-        if (this.k != null) {
-            int a = this.k.a() - 1;
+        if (this.mAllLoaderManagers != null) {
+            int a = this.mAllLoaderManagers.a() - 1;
             while (a >= 0) {
-                w wVar = (w) this.k.f(a);
-                if (wVar.f) {
+                y yVar = (y) this.mAllLoaderManagers.f(a);
+                if (yVar.f) {
                     z = true;
                 } else {
-                    wVar.h();
-                    this.k.d(a);
+                    yVar.h();
+                    this.mAllLoaderManagers.d(a);
                     z = z2;
                 }
                 a--;
                 z2 = z;
             }
         }
-        if (g == null && !z2 && b == null) {
+        if (g == null && !z2 && onRetainCustomNonConfigurationInstance == null) {
             return null;
         }
-        i iVar = new i();
-        iVar.a = null;
-        iVar.b = b;
-        iVar.c = null;
-        iVar.d = g;
-        iVar.e = this.k;
-        return iVar;
+        j jVar = new j();
+        jVar.a = null;
+        jVar.b = onRetainCustomNonConfigurationInstance;
+        jVar.c = null;
+        jVar.d = g;
+        jVar.e = this.mAllLoaderManagers;
+        return jVar;
     }
 
+    /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.app.Activity
-    protected void onSaveInstanceState(Bundle bundle) {
+    public void onSaveInstanceState(Bundle bundle) {
         super.onSaveInstanceState(bundle);
-        Parcelable h = this.b.h();
+        Parcelable h = this.mFragments.h();
         if (h != null) {
-            bundle.putParcelable("android:support:fragments", h);
+            bundle.putParcelable(FRAGMENTS_TAG, h);
         }
     }
 
     @Override // android.app.Activity
     protected void onStart() {
         super.onStart();
-        this.e = false;
-        this.f = false;
-        this.a.removeMessages(1);
-        if (!this.c) {
-            this.c = true;
-            this.b.k();
+        this.mStopped = false;
+        this.mReallyStopped = false;
+        this.mHandler.removeMessages(1);
+        if (!this.mCreated) {
+            this.mCreated = true;
+            this.mFragments.k();
         }
-        this.b.i();
-        this.b.e();
-        if (!this.j) {
-            this.j = true;
-            if (this.l != null) {
-                this.l.b();
-            } else if (!this.i) {
-                this.l = a(-1, this.j, false);
+        this.mFragments.i();
+        this.mFragments.e();
+        if (!this.mLoadersStarted) {
+            this.mLoadersStarted = true;
+            if (this.mLoaderManager != null) {
+                this.mLoaderManager.b();
+            } else if (!this.mCheckedForLoaderManager) {
+                this.mLoaderManager = getLoaderManager(-1, this.mLoadersStarted, false);
             }
-            this.i = true;
+            this.mCheckedForLoaderManager = true;
         }
-        this.b.l();
-        if (this.k != null) {
-            for (int a = this.k.a() - 1; a >= 0; a--) {
-                w wVar = (w) this.k.f(a);
-                wVar.e();
-                wVar.g();
+        this.mFragments.l();
+        if (this.mAllLoaderManagers != null) {
+            for (int a = this.mAllLoaderManagers.a() - 1; a >= 0; a--) {
+                y yVar = (y) this.mAllLoaderManagers.f(a);
+                yVar.e();
+                yVar.g();
             }
         }
     }
@@ -331,48 +341,92 @@ public class g extends Activity {
     @Override // android.app.Activity
     protected void onStop() {
         super.onStop();
-        this.e = true;
-        this.a.sendEmptyMessage(1);
-        this.b.o();
+        this.mStopped = true;
+        this.mHandler.sendEmptyMessage(1);
+        this.mFragments.o();
     }
 
-    public Object b() {
+    public Object onRetainCustomNonConfigurationInstance() {
+        return null;
+    }
+
+    public Object getLastCustomNonConfigurationInstance() {
+        j jVar = (j) getLastNonConfigurationInstance();
+        if (jVar != null) {
+            return jVar.b;
+        }
         return null;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void c() {
+    public void supportInvalidateOptionsMenu() {
         if (Build.VERSION.SDK_INT >= 11) {
             a.a(this);
         } else {
-            this.h = true;
+            this.mOptionsMenuInvalidated = true;
         }
     }
 
-    void a(boolean z) {
-        if (!this.f) {
-            this.f = true;
-            this.g = z;
-            this.a.removeMessages(1);
-            d();
+    @Override // android.app.Activity
+    public void dump(String str, FileDescriptor fileDescriptor, PrintWriter printWriter, String[] strArr) {
+        if (Build.VERSION.SDK_INT >= 11) {
+        }
+        printWriter.print(str);
+        printWriter.print("Local FragmentActivity ");
+        printWriter.print(Integer.toHexString(System.identityHashCode(this)));
+        printWriter.println(" State:");
+        String str2 = str + "  ";
+        printWriter.print(str2);
+        printWriter.print("mCreated=");
+        printWriter.print(this.mCreated);
+        printWriter.print("mResumed=");
+        printWriter.print(this.mResumed);
+        printWriter.print(" mStopped=");
+        printWriter.print(this.mStopped);
+        printWriter.print(" mReallyStopped=");
+        printWriter.println(this.mReallyStopped);
+        printWriter.print(str2);
+        printWriter.print("mLoadersStarted=");
+        printWriter.println(this.mLoadersStarted);
+        if (this.mLoaderManager != null) {
+            printWriter.print(str);
+            printWriter.print("Loader Manager ");
+            printWriter.print(Integer.toHexString(System.identityHashCode(this.mLoaderManager)));
+            printWriter.println(":");
+            this.mLoaderManager.a(str + "  ", fileDescriptor, printWriter, strArr);
+        }
+        this.mFragments.a(str, fileDescriptor, printWriter, strArr);
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public void doReallyStop(boolean z) {
+        if (!this.mReallyStopped) {
+            this.mReallyStopped = true;
+            this.mRetaining = z;
+            this.mHandler.removeMessages(1);
+            onReallyStop();
         }
     }
 
-    void d() {
-        if (this.j) {
-            this.j = false;
-            if (this.l != null) {
-                if (!this.g) {
-                    this.l.c();
+    void onReallyStop() {
+        if (this.mLoadersStarted) {
+            this.mLoadersStarted = false;
+            if (this.mLoaderManager != null) {
+                if (!this.mRetaining) {
+                    this.mLoaderManager.c();
                 } else {
-                    this.l.d();
+                    this.mLoaderManager.d();
                 }
             }
         }
-        this.b.p();
+        this.mFragments.p();
     }
 
-    public void a(Fragment fragment) {
+    public void onAttachFragment(Fragment fragment) {
+    }
+
+    public k getSupportFragmentManager() {
+        return this.mFragments;
     }
 
     @Override // android.app.Activity
@@ -383,30 +437,49 @@ public class g extends Activity {
         super.startActivityForResult(intent, i);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void a(int i) {
-        w wVar;
-        if (this.k != null && (wVar = (w) this.k.a(i)) != null && !wVar.f) {
-            wVar.h();
-            this.k.c(i);
+    public void startActivityFromFragment(Fragment fragment, Intent intent, int i) {
+        if (i == -1) {
+            super.startActivityForResult(intent, -1);
+        } else if (((-65536) & i) != 0) {
+            throw new IllegalArgumentException("Can only use lower 16 bits for requestCode");
+        } else {
+            super.startActivityForResult(intent, ((fragment.n + 1) << 16) + (65535 & i));
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public w a(int i, boolean z, boolean z2) {
-        if (this.k == null) {
-            this.k = new r();
+    public void invalidateSupportFragmentIndex(int i) {
+        y yVar;
+        if (this.mAllLoaderManagers != null && (yVar = (y) this.mAllLoaderManagers.a(i)) != null && !yVar.f) {
+            yVar.h();
+            this.mAllLoaderManagers.c(i);
         }
-        w wVar = (w) this.k.a(i);
-        if (wVar == null) {
+    }
+
+    public w getSupportLoaderManager() {
+        if (this.mLoaderManager != null) {
+            return this.mLoaderManager;
+        }
+        this.mCheckedForLoaderManager = true;
+        this.mLoaderManager = getLoaderManager(-1, this.mLoadersStarted, true);
+        return this.mLoaderManager;
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public y getLoaderManager(int i, boolean z, boolean z2) {
+        if (this.mAllLoaderManagers == null) {
+            this.mAllLoaderManagers = new t();
+        }
+        y yVar = (y) this.mAllLoaderManagers.a(i);
+        if (yVar == null) {
             if (z2) {
-                w wVar2 = new w(this, z);
-                this.k.b(i, wVar2);
-                return wVar2;
+                y yVar2 = new y(this, z);
+                this.mAllLoaderManagers.b(i, yVar2);
+                return yVar2;
             }
-            return wVar;
+            return yVar;
         }
-        wVar.a(this);
-        return wVar;
+        yVar.a(this);
+        return yVar;
     }
 }

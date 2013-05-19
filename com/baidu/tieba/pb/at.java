@@ -1,30 +1,25 @@
 package com.baidu.tieba.pb;
-
-import android.view.View;
-import com.baidu.mobstat.StatService;
-import com.baidu.tieba.MainTabActivity;
-import com.baidu.tieba.TiebaApplication;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class at implements View.OnClickListener {
-    final /* synthetic */ PbActivity a;
+class at implements cq {
+    final /* synthetic */ NewPbActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public at(PbActivity pbActivity) {
-        this.a = pbActivity;
+    public at(NewPbActivity newPbActivity) {
+        this.a = newPbActivity;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        if (TiebaApplication.b().l()) {
-            StatService.onEvent(this.a, "pb_home_icon", "pbclick", 1);
+    @Override // com.baidu.tieba.pb.cq
+    public void a(com.baidu.tieba.a.ax axVar) {
+        com.baidu.tieba.c.ax axVar2;
+        com.baidu.tieba.c.ax axVar3;
+        bl blVar;
+        axVar2 = this.a.m;
+        if (axVar2 != null) {
+            axVar3 = this.a.m;
+            if (axVar3.i()) {
+                blVar = this.a.o;
+                blVar.s();
+            }
         }
-        String y = TiebaApplication.y();
-        if ((y != null && y.length() > 0) || TiebaApplication.b().ai() >= 3) {
-            MainTabActivity.a(this.a, "goto_home");
-        } else {
-            MainTabActivity.a(this.a, "goto_recommend");
-        }
-        this.a.a();
     }
 }

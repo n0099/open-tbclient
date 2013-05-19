@@ -1,157 +1,179 @@
 package com.baidu.tieba.pb;
 
-import android.content.Context;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.BaseAdapter;
-import android.widget.ImageView;
-import android.widget.ProgressBar;
-import android.widget.TextView;
-import com.baidu.tieba.R;
-import com.baidu.tieba.TiebaApplication;
 import java.util.ArrayList;
+import java.util.LinkedList;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class b extends BaseAdapter {
-    private Context a;
-    private com.baidu.tieba.b.r b;
-    private boolean c;
-    private boolean d;
-    private ArrayList e = new ArrayList();
+public class b extends com.baidu.adp.lib.a.a {
+    final /* synthetic */ a a;
+    private com.baidu.tieba.d.t b = null;
+    private String c;
+    private String d;
+    private int e;
+    private int f;
 
-    public b(Context context, com.baidu.tieba.b.r rVar, boolean z) {
-        this.a = context;
-        this.b = rVar;
-        this.d = z;
+    public b(a aVar, String str, String str2, int i, int i2) {
+        this.a = aVar;
+        this.c = null;
+        this.d = null;
+        this.e = 0;
+        this.f = 0;
+        this.d = str2;
+        this.c = str;
+        this.e = i;
+        this.f = i2;
     }
 
-    public void a() {
-        if (this.e != null) {
-            int i = 0;
-            while (true) {
-                int i2 = i;
-                if (i2 < this.e.size()) {
-                    try {
-                        ((ProgressBar) this.e.get(i2)).setVisibility(8);
-                    } catch (Exception e) {
-                        com.baidu.tieba.c.ag.b(getClass().getName(), "releaseProgressBar", e.getMessage());
-                    }
-                    i = i2 + 1;
-                } else {
-                    this.e.clear();
-                    return;
-                }
-            }
-        }
+    public String e() {
+        return this.d;
     }
 
-    @Override // android.widget.Adapter
-    public int getCount() {
-        if (this.b == null || this.b.a() == null) {
-            return 0;
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.a.a
+    /* renamed from: d */
+    public com.baidu.tieba.a.x a(Object... objArr) {
+        String str;
+        boolean z;
+        this.b = new com.baidu.tieba.d.t(String.valueOf(com.baidu.tieba.a.i.e) + "c/f/pb/picpage");
+        com.baidu.tieba.d.t tVar = this.b;
+        str = this.a.e;
+        tVar.a("kw", str);
+        this.b.a("tid", this.c);
+        if (this.d != null) {
+            this.b.a("pic_id", this.d);
         }
-        int i = 2;
-        if (this.b.a().l() != 0) {
-            i = 3;
+        this.b.a("next", String.valueOf(this.e));
+        this.b.a("prev", String.valueOf(this.f));
+        z = this.a.j;
+        if (!z) {
+            this.b.a("not_see_lz", String.valueOf(1));
         }
-        if (this.d) {
-            return i + 1;
+        this.b.b(false);
+        String i = this.b.i();
+        if (!this.b.b()) {
+            return null;
         }
-        return i;
+        com.baidu.tieba.a.x xVar = new com.baidu.tieba.a.x();
+        xVar.a(i, true);
+        return xVar;
     }
 
-    @Override // android.widget.Adapter
-    public Object getItem(int i) {
-        return null;
-    }
-
-    @Override // android.widget.Adapter
-    public long getItemId(int i) {
-        if (getCount() != 4 && !this.d && i != 0) {
-            i++;
+    @Override // com.baidu.adp.lib.a.a
+    public void cancel() {
+        if (this.b != null) {
+            this.b.g();
         }
-        return i;
+        this.a.h = null;
+        super.cancel(true);
     }
 
-    @Override // android.widget.Adapter
-    public View getView(int i, View view, ViewGroup viewGroup) {
-        Exception e;
-        View view2;
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    /* JADX WARN: Removed duplicated region for block: B:32:0x00ac  */
+    /* JADX WARN: Removed duplicated region for block: B:35:0x00bd  */
+    /* JADX WARN: Removed duplicated region for block: B:39:0x0100  */
+    /* JADX WARN: Removed duplicated region for block: B:45:? A[RETURN, SYNTHETIC] */
+    @Override // com.baidu.adp.lib.a.a
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public void a(com.baidu.tieba.a.x xVar) {
+        boolean z;
+        boolean z2;
+        boolean z3;
+        int i;
         c cVar;
-        try {
-            if (view == null) {
-                view = LayoutInflater.from(this.a).inflate(R.layout.dialog_more_item, (ViewGroup) null);
-                cVar = new c(this, null);
-                cVar.a = (TextView) view.findViewById(R.id.text);
-                cVar.b = (TextView) view.findViewById(R.id.num);
-                cVar.c = (ProgressBar) view.findViewById(R.id.progress);
-                cVar.d = (ImageView) view.findViewById(R.id.image);
-                this.e.add(cVar.c);
-                view.setTag(cVar);
-                view2 = view;
-            } else {
-                cVar = (c) view.getTag();
-                view2 = view;
+        c cVar2;
+        ArrayList arrayList;
+        int i2;
+        String str;
+        String str2;
+        String str3;
+        int i3;
+        ArrayList arrayList2;
+        String a;
+        ArrayList arrayList3;
+        c cVar3;
+        int i4;
+        String str4;
+        c cVar4;
+        super.a((Object) xVar);
+        this.a.h = null;
+        if (xVar != null) {
+            this.a.i = xVar.k();
+            this.a.c = xVar.g();
+            this.a.b = xVar.f();
+            if (this.d == null) {
+                arrayList3 = this.a.a;
+                arrayList3.clear();
             }
-            try {
-                if (this.b != null) {
-                    cVar.a.setTextColor(-1);
-                    long itemId = getItemId(i);
-                    if (itemId == 1) {
-                        cVar.b.setVisibility(8);
-                        cVar.c.setVisibility(8);
-                        cVar.d.setVisibility(8);
-                        cVar.a.setText(this.a.getString(R.string.skip_page));
-                    } else if (itemId == 2) {
-                        cVar.b.setVisibility(8);
-                        cVar.c.setVisibility(8);
-                        cVar.a.setText(this.a.getString(R.string.view_reverse));
-                        if (this.b.c()) {
-                            cVar.d.setVisibility(8);
+            LinkedList h = xVar.h();
+            int size = h.size();
+            if (size <= 0) {
+                this.a.g = true;
+            } else {
+                for (int i5 = 0; i5 < size; i5++) {
+                    arrayList2 = this.a.a;
+                    a = this.a.a((com.baidu.tieba.a.w) h.get(i5));
+                    arrayList2.add(a);
+                }
+                com.baidu.tieba.a.w wVar = (com.baidu.tieba.a.w) h.get(size - 1);
+                this.a.f = wVar.c();
+                i3 = this.a.i;
+                if (i3 == wVar.h()) {
+                    this.a.g = true;
+                } else {
+                    this.a.g = false;
+                }
+            }
+            z = this.a.g;
+            if (z) {
+                str2 = this.a.b;
+                if (str2 != null) {
+                    str3 = this.a.b;
+                    if (str3.length() > 0) {
+                        z2 = true;
+                        if (this.d != null) {
+                            this.a.d = this.c;
+                            z3 = true;
+                            i = 0;
                         } else {
-                            cVar.d.setVisibility(0);
+                            z3 = false;
+                            i = -1;
                         }
-                    } else if (itemId == 3) {
-                        cVar.b.setVisibility(8);
-                        cVar.c.setVisibility(8);
-                        cVar.a.setText(this.a.getString(R.string.manage_mode));
-                        if (this.b.i()) {
-                            cVar.d.setVisibility(0);
-                        } else {
-                            cVar.d.setVisibility(8);
+                        cVar = this.a.l;
+                        if (cVar == null) {
+                            cVar2 = this.a.l;
+                            arrayList = this.a.a;
+                            i2 = this.a.i;
+                            str = this.a.c;
+                            cVar2.a(arrayList, i, i2, z2, str, z3);
+                            return;
                         }
-                    } else if (itemId == 0) {
-                        cVar.b.setVisibility(8);
-                        cVar.c.setVisibility(8);
-                        cVar.a.setText(this.a.getString(R.string.share));
-                        cVar.d.setVisibility(8);
-                    }
-                    if (TiebaApplication.b().ah() == 1) {
-                        cVar.a.setTextColor(com.baidu.tieba.c.ae.a(1));
-                        cVar.b.setTextColor(com.baidu.tieba.c.ae.b(1));
-                    } else {
-                        cVar.a.setTextColor(-1);
-                        cVar.b.setTextColor(-1);
+                        return;
                     }
                 }
-            } catch (Exception e2) {
-                e = e2;
-                com.baidu.tieba.c.ag.b("DialogMoreAdapter", "getView", "error = " + e.getMessage());
-                return view2;
             }
-        } catch (Exception e3) {
-            e = e3;
-            view2 = view;
+            z2 = false;
+            if (this.d != null) {
+            }
+            cVar = this.a.l;
+            if (cVar == null) {
+            }
+        } else {
+            cVar3 = this.a.l;
+            if (cVar3 != null) {
+                if (this.b != null) {
+                    i4 = this.b.d();
+                    str4 = this.d == null ? this.b.f() : null;
+                } else {
+                    i4 = -1;
+                    str4 = null;
+                }
+                cVar4 = this.a.l;
+                cVar4.a(i4, str4);
+            }
         }
-        return view2;
-    }
-
-    public void a(boolean z) {
-        this.c = z;
-    }
-
-    @Override // android.widget.BaseAdapter, android.widget.ListAdapter
-    public boolean isEnabled(int i) {
-        return true;
     }
 }

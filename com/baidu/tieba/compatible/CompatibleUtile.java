@@ -12,6 +12,7 @@ import android.view.WindowManager;
 import android.webkit.WebChromeClient;
 import android.webkit.WebSettings;
 import android.widget.FrameLayout;
+import android.widget.ListView;
 import com.baidu.zeus.NotificationProxy;
 /* loaded from: classes.dex */
 public class CompatibleUtile {
@@ -127,6 +128,12 @@ public class CompatibleUtile {
     public void openGpu(Activity activity) {
         if (getObject11() != null) {
             getObject11().openGpu(activity);
+        }
+    }
+
+    public void closeViewGpu(View view) {
+        if (getObject11() != null) {
+            getObject11().closeViewGpu(view);
         }
     }
 
@@ -301,6 +308,12 @@ public class CompatibleUtile {
         public void openGpu(Activity activity) {
             activity.getWindow().setFlags(16777216, 16777216);
         }
+
+        public void closeViewGpu(View view) {
+            if (view != null) {
+                view.setLayerType(1, null);
+            }
+        }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -321,6 +334,20 @@ public class CompatibleUtile {
     public static void setAnim(Activity activity, int i, int i2) {
         if (Build.VERSION.SDK_INT >= 5) {
             activity.overridePendingTransition(i, i2);
+        }
+    }
+
+    public static void scrollListViewBy(ListView listView, int i, int i2) {
+        if (Build.VERSION.SDK_INT >= 8) {
+            listView.smoothScrollBy(i, i2);
+        }
+    }
+
+    public static void scrollListViewTo(ListView listView, int i) {
+        if (Build.VERSION.SDK_INT >= 8) {
+            listView.smoothScrollToPosition(i);
+        } else {
+            listView.setSelection(i);
         }
     }
 }

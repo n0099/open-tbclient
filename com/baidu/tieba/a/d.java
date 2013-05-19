@@ -9,7 +9,7 @@ public abstract class d {
         try {
             a(new JSONObject(str));
         } catch (Exception e) {
-            com.baidu.tieba.c.ag.b(getClass().getName(), "parserJson", e.getMessage());
+            com.baidu.tieba.d.ae.b(getClass().getName(), "parserJson", e.getMessage());
         }
     }
 }

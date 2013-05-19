@@ -1,32 +1,42 @@
 package com.baidu.tieba.person;
 
-import android.os.Handler;
-import android.widget.AbsListView;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.widget.ListView;
 /* loaded from: classes.dex */
-public class bl implements AbsListView.OnScrollListener {
-    final /* synthetic */ PersonLbsActivity a;
+class bl implements Runnable {
+    final /* synthetic */ PersonListActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bl(PersonLbsActivity personLbsActivity) {
-        this.a = personLbsActivity;
+    public bl(PersonListActivity personListActivity) {
+        this.a = personListActivity;
     }
 
-    @Override // android.widget.AbsListView.OnScrollListener
-    public void onScrollStateChanged(AbsListView absListView, int i) {
-        Handler handler;
-        Runnable runnable;
-        Handler handler2;
-        Runnable runnable2;
-        handler = this.a.u;
-        runnable = this.a.v;
-        handler.removeCallbacks(runnable);
-        handler2 = this.a.u;
-        runnable2 = this.a.v;
-        handler2.postDelayed(runnable2, 300L);
-    }
-
-    @Override // android.widget.AbsListView.OnScrollListener
-    public void onScroll(AbsListView absListView, int i, int i2, int i3) {
+    @Override // java.lang.Runnable
+    public void run() {
+        ListView listView;
+        ListView listView2;
+        com.baidu.tieba.write.k kVar;
+        com.baidu.tieba.write.k kVar2;
+        com.baidu.tieba.write.k kVar3;
+        try {
+            listView = this.a.d;
+            int firstVisiblePosition = listView.getFirstVisiblePosition();
+            listView2 = this.a.d;
+            int lastVisiblePosition = listView2.getLastVisiblePosition();
+            for (int i = firstVisiblePosition; i <= lastVisiblePosition; i++) {
+                kVar = this.a.f;
+                if (i < kVar.getCount()) {
+                    kVar2 = this.a.f;
+                    com.baidu.tieba.a.ai aiVar = (com.baidu.tieba.a.ai) kVar2.getItem(i);
+                    if (aiVar != null && aiVar.e() != null) {
+                        kVar3 = this.a.f;
+                        kVar3.c().b(aiVar.e(), new bm(this));
+                    }
+                } else {
+                    return;
+                }
+            }
+        } catch (Exception e) {
+            com.baidu.tieba.d.ae.b(getClass().getName(), "mGetImageRunnble.run", e.getMessage());
+        }
     }
 }

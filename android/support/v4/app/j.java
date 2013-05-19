@@ -1,7 +1,12 @@
 package android.support.v4.app;
-/* loaded from: classes.dex */
-public abstract class j {
-    public abstract q a();
 
-    public abstract void a(int i, int i2);
+import java.util.ArrayList;
+import java.util.HashMap;
+/* loaded from: classes.dex */
+final class j {
+    Object a;
+    Object b;
+    HashMap c;
+    ArrayList d;
+    t e;
 }

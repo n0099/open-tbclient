@@ -6,20 +6,19 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.text.TextWatcher;
 import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import com.baidu.tieba.R;
 import com.baidu.tieba.TiebaApplication;
 import com.baidu.zeus.WebChromeClient;
+import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public class ActivationActivity extends com.baidu.tieba.e {
     private static int c = 60;
-    private Button d = null;
+    private ImageView d = null;
     private LinearLayout e = null;
     private ImageView f = null;
     private ProgressBar g = null;
@@ -29,46 +28,46 @@ public class ActivationActivity extends com.baidu.tieba.e {
     private EditText k = null;
     private RelativeLayout l = null;
     private RelativeLayout m = null;
-    private n n = null;
-    private m o = null;
+    private i n = null;
+    private h o = null;
     private boolean p = false;
     private int q = c;
-    private com.baidu.tieba.a.ap r = null;
+    private com.baidu.tieba.a.at r = null;
     private Handler s = new Handler();
     private RelativeLayout t = null;
     private TextView u = null;
-    private LinearLayout v = null;
+    private View v = null;
     private TextView w = null;
     private TextView x = null;
     private int y = 0;
     private int z = 0;
     private int A = 0;
-    private Runnable B = new i(this);
-    private View.OnClickListener C = new j(this);
-    private TextWatcher D = new k(this);
-    private View.OnFocusChangeListener E = new l(this);
+    private Runnable B = new d(this);
+    private View.OnClickListener C = new e(this);
+    private TextWatcher D = new f(this);
+    private View.OnFocusChangeListener E = new g(this);
 
-    public static void a(Activity activity, com.baidu.tieba.a.ap apVar, int i) {
+    public static void a(Activity activity, com.baidu.tieba.a.at atVar, int i) {
         Intent intent = new Intent(activity, ActivationActivity.class);
-        intent.putExtra("data", apVar);
+        intent.putExtra("data", atVar);
         activity.startActivityForResult(intent, i);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.e, android.app.Activity
+    @Override // com.baidu.tieba.e, com.baidu.adp.a.a, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         setContentView(R.layout.account_register_activation);
         a(bundle);
-        j();
-        i();
+        c();
+        b();
     }
 
     private void a(Bundle bundle) {
         if (bundle != null) {
-            this.r = (com.baidu.tieba.a.ap) bundle.getSerializable("data");
+            this.r = (com.baidu.tieba.a.at) bundle.getSerializable("data");
         } else {
-            this.r = (com.baidu.tieba.a.ap) getIntent().getSerializableExtra("data");
+            this.r = (com.baidu.tieba.a.at) getIntent().getSerializableExtra("data");
         }
         if (this.r == null) {
             setResult(0);
@@ -81,7 +80,7 @@ public class ActivationActivity extends com.baidu.tieba.e {
     @Override // android.app.Activity
     protected void onRestoreInstanceState(Bundle bundle) {
         super.onRestoreInstanceState(bundle);
-        this.r = (com.baidu.tieba.a.ap) bundle.getSerializable("data");
+        this.r = (com.baidu.tieba.a.at) bundle.getSerializable("data");
     }
 
     @Override // android.app.Activity
@@ -95,16 +94,16 @@ public class ActivationActivity extends com.baidu.tieba.e {
     public void onDestroy() {
         this.s.removeCallbacks(this.B);
         if (this.n != null) {
-            this.n.a();
+            this.n.cancel();
         }
         if (this.o != null) {
-            this.o.a();
+            this.o.cancel();
         }
         super.onDestroy();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void i() {
+    public void b() {
         this.p = false;
         this.m.setEnabled(false);
         this.q = c;
@@ -112,12 +111,12 @@ public class ActivationActivity extends com.baidu.tieba.e {
         this.s.postDelayed(this.B, 1000L);
     }
 
-    private void j() {
+    private void c() {
         this.t = (RelativeLayout) findViewById(R.id.container);
-        this.v = (LinearLayout) findViewById(R.id.title);
+        this.v = findViewById(R.id.title);
         this.u = (TextView) findViewById(R.id.title_text);
         this.w = (TextView) findViewById(R.id.done_text);
-        this.d = (Button) findViewById(R.id.back);
+        this.d = (ImageView) findViewById(R.id.back);
         this.l = (RelativeLayout) findViewById(R.id.done);
         this.l.setEnabled(false);
         this.m = (RelativeLayout) findViewById(R.id.resend);
@@ -146,14 +145,13 @@ public class ActivationActivity extends com.baidu.tieba.e {
     @Override // com.baidu.tieba.e
     public void b(int i) {
         super.b(i);
-        com.baidu.tieba.c.ae.a(this.t, i);
-        com.baidu.tieba.c.ae.c(this.v, i);
-        com.baidu.tieba.c.ae.e((TextView) this.d, i);
-        com.baidu.tieba.c.ae.c(this.u, i);
-        com.baidu.tieba.c.ae.c((TextView) this.d, i);
-        com.baidu.tieba.c.ae.a(this.w, i);
-        com.baidu.tieba.c.ae.a(this.i, i);
-        com.baidu.tieba.c.ae.b(this.x, i);
+        com.baidu.tieba.d.ac.a(this.t, i);
+        com.baidu.tieba.d.ac.d(this.v, i);
+        com.baidu.tieba.d.ac.a(this.d, i);
+        com.baidu.tieba.d.ac.f(this.u, i);
+        com.baidu.tieba.d.ac.a(this.w, i);
+        com.baidu.tieba.d.ac.a(this.i, i);
+        com.baidu.tieba.d.ac.b(this.x, i);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -170,21 +168,21 @@ public class ActivationActivity extends com.baidu.tieba.e {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void a(com.baidu.tieba.b.h hVar) {
+    public void a(com.baidu.tieba.c.af afVar) {
         com.baidu.tieba.a.a aVar = new com.baidu.tieba.a.a();
-        aVar.b(hVar.a().b());
-        if (hVar.a().e() != null) {
-            aVar.c(hVar.a().e());
+        aVar.b(afVar.a().c());
+        if (afVar.a().g() != null) {
+            aVar.c(afVar.a().g());
         } else {
             aVar.c(this.r.b());
         }
-        aVar.a(hVar.a().a());
-        aVar.d(hVar.a().j());
+        aVar.a(afVar.a().a());
+        aVar.d(afVar.a().j());
         aVar.a(1);
-        if (hVar.b() != null) {
-            aVar.e(hVar.b().b());
+        if (afVar.b() != null) {
+            aVar.e(afVar.b().b());
         }
-        com.baidu.tieba.c.k.a(aVar);
+        com.baidu.tieba.d.k.a(aVar);
         TiebaApplication.b(aVar);
         setResult(-1);
         finish();

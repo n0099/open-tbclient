@@ -1,18 +1,31 @@
 package com.baidu.tieba.c;
 
-import com.baidu.tieba.BaiduAccount.BaiduAccount;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.content.Context;
 /* loaded from: classes.dex */
-public class u implements BaiduAccount.CallbackListener {
-    final /* synthetic */ t a;
+public class u {
+    private long a;
+    private long b;
+    private long c;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public u(t tVar) {
-        this.a = tVar;
+    public u(Context context) {
+        a(0L);
+        b(0L);
+        c(0L);
     }
 
-    @Override // com.baidu.tieba.BaiduAccount.BaiduAccount.CallbackListener
-    public void callback() {
-        this.a.q();
+    public void a(long j) {
+        this.a = j;
+    }
+
+    public void b(long j) {
+        this.b = j;
+    }
+
+    public long a() {
+        return this.b + this.c;
+    }
+
+    public void c(long j) {
+        this.c = j;
     }
 }

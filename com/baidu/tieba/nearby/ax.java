@@ -1,13 +1,9 @@
 package com.baidu.tieba.nearby;
 
-import android.location.Address;
-import android.support.v4.view.ViewPager;
-import android.widget.ProgressBar;
-import android.widget.TextView;
-import com.baidu.tieba.R;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.view.GestureDetector;
+import android.view.MotionEvent;
 /* loaded from: classes.dex */
-public class ax implements com.baidu.tieba.an {
+class ax implements GestureDetector.OnGestureListener {
     final /* synthetic */ NewNearbyActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -15,39 +11,35 @@ public class ax implements com.baidu.tieba.an {
         this.a = newNearbyActivity;
     }
 
-    @Override // com.baidu.tieba.an
-    public void a(int i, String str, Address address) {
-        ProgressBar progressBar;
-        ViewPager viewPager;
-        TextView textView;
-        TextView textView2;
-        TextView textView3;
-        ViewPager viewPager2;
-        progressBar = this.a.n;
-        progressBar.setVisibility(8);
-        if (i != 0 || address == null) {
-            viewPager = this.a.j;
-            if (viewPager.getChildCount() == 0) {
-                if (str == null || str.length() <= 0) {
-                    str = this.a.getString(R.string.lbs_error);
-                }
-                textView = this.a.o;
-                textView.setText(str + "\n" + this.a.getString(R.string.retry_location));
-                textView2 = this.a.o;
-                textView2.setVisibility(0);
-                return;
-            }
-            this.a.b(this.a.getString(R.string.lbs_error));
-            return;
+    @Override // android.view.GestureDetector.OnGestureListener
+    public boolean onSingleTapUp(MotionEvent motionEvent) {
+        return false;
+    }
+
+    @Override // android.view.GestureDetector.OnGestureListener
+    public void onShowPress(MotionEvent motionEvent) {
+    }
+
+    @Override // android.view.GestureDetector.OnGestureListener
+    public boolean onScroll(MotionEvent motionEvent, MotionEvent motionEvent2, float f, float f2) {
+        return false;
+    }
+
+    @Override // android.view.GestureDetector.OnGestureListener
+    public void onLongPress(MotionEvent motionEvent) {
+    }
+
+    @Override // android.view.GestureDetector.OnGestureListener
+    public boolean onFling(MotionEvent motionEvent, MotionEvent motionEvent2, float f, float f2) {
+        if (motionEvent2.getY() - motionEvent.getY() > 0.0f) {
+            this.a.u();
+            return true;
         }
-        this.a.m = address;
-        textView3 = this.a.o;
-        textView3.setVisibility(8);
-        viewPager2 = this.a.j;
-        if (viewPager2.getChildCount() == 0) {
-            this.a.n();
-        } else {
-            this.a.r();
-        }
+        return false;
+    }
+
+    @Override // android.view.GestureDetector.OnGestureListener
+    public boolean onDown(MotionEvent motionEvent) {
+        return false;
     }
 }

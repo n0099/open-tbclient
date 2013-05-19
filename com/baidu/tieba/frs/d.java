@@ -1,10 +1,8 @@
 package com.baidu.tieba.frs;
 
 import android.graphics.Bitmap;
-import android.view.View;
-import android.widget.ListView;
 /* loaded from: classes.dex */
-class d implements com.baidu.tieba.c.d {
+class d implements com.baidu.tieba.d.d {
     final /* synthetic */ c a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -12,17 +10,16 @@ class d implements com.baidu.tieba.c.d {
         this.a = cVar;
     }
 
-    @Override // com.baidu.tieba.c.d
+    @Override // com.baidu.tieba.d.d
     public void a(Bitmap bitmap, String str, boolean z) {
         FrsActivity frsActivity;
-        ListView listView;
-        if (bitmap != null) {
-            frsActivity = this.a.a;
-            listView = frsActivity.x;
-            View findViewWithTag = listView.findViewWithTag(str);
-            if (findViewWithTag != null) {
-                findViewWithTag.invalidate();
-            }
+        FrsActivity frsActivity2;
+        if (bitmap == null) {
+            frsActivity2 = this.a.a;
+            frsActivity2.v();
+            return;
         }
+        frsActivity = this.a.a;
+        frsActivity.a(bitmap, false);
     }
 }

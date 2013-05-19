@@ -4,7 +4,7 @@ import android.graphics.Bitmap;
 import android.widget.ImageView;
 import android.widget.ListView;
 /* loaded from: classes.dex */
-class j implements com.baidu.tieba.c.d {
+class j implements com.baidu.tieba.d.d {
     final /* synthetic */ i a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -12,7 +12,7 @@ class j implements com.baidu.tieba.c.d {
         this.a = iVar;
     }
 
-    @Override // com.baidu.tieba.c.d
+    @Override // com.baidu.tieba.d.d
     public void a(Bitmap bitmap, String str, boolean z) {
         h hVar;
         ListView listView;

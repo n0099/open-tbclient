@@ -1,48 +1,23 @@
 package com.baidu.tieba.more;
 
-import android.content.DialogInterface;
+import android.view.View;
 import com.baidu.tieba.TiebaApplication;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ae implements DialogInterface.OnClickListener {
-    final /* synthetic */ MoreActivity a;
+class ae implements com.baidu.adp.widget.BdSwitchView.c {
+    final /* synthetic */ MsgRemindActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ae(MoreActivity moreActivity) {
-        this.a = moreActivity;
+    public ae(MsgRemindActivity msgRemindActivity) {
+        this.a = msgRemindActivity;
     }
 
-    @Override // android.content.DialogInterface.OnClickListener
-    public void onClick(DialogInterface dialogInterface, int i) {
-        int i2;
-        int i3;
-        switch (i) {
-            case 0:
-                if (TiebaApplication.b().ah() != 1) {
-                    TiebaApplication.b().h(1);
-                    this.a.b = 1;
-                    MoreActivity moreActivity = this.a;
-                    i3 = this.a.b;
-                    moreActivity.b(i3);
-                    new com.baidu.tieba.account.ak("eyeshield").start();
-                    break;
-                } else {
-                    return;
-                }
-            case 1:
-                if (TiebaApplication.b().ah() != 0) {
-                    TiebaApplication.b().h(0);
-                    this.a.b = 0;
-                    MoreActivity moreActivity2 = this.a;
-                    i2 = this.a.b;
-                    moreActivity2.b(i2);
-                    break;
-                } else {
-                    return;
-                }
+    @Override // com.baidu.adp.widget.BdSwitchView.c
+    public void a(View view, com.baidu.adp.widget.BdSwitchView.d dVar) {
+        if (dVar == com.baidu.adp.widget.BdSwitchView.d.ON) {
+            TiebaApplication.d().j(true);
+        } else {
+            TiebaApplication.d().j(false);
         }
-        this.a.s();
-        this.a.m();
-        com.baidu.tieba.c.e.a();
+        com.baidu.tieba.d.k.t();
     }
 }

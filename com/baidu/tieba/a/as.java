@@ -1,69 +1,51 @@
 package com.baidu.tieba.a;
 
-import org.json.JSONException;
+import com.baidu.android.pushservice.PushConstants;
+import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class as {
-    private int a = 0;
-    private int c = 0;
-    private int d = 0;
-    private int e = 0;
-    private int b = 0;
-    private int f = 3;
-    private int g = 0;
-
-    public void a(int i) {
-        this.b = i;
-    }
-
-    public int a() {
-        return this.b;
-    }
-
-    public int b() {
-        return this.a;
-    }
-
-    public int c() {
-        return this.c;
-    }
-
-    public void b(int i) {
-        this.a = i;
-    }
-
-    public void c(int i) {
-        this.c = i;
-    }
-
-    public int d() {
-        return this.f;
-    }
-
-    public void d(int i) {
-        this.g = i;
-    }
+    private long a = 0;
+    private String b = null;
+    private String c = null;
 
     public void a(String str) {
         try {
             a(new JSONObject(str));
-        } catch (JSONException e) {
-            e.printStackTrace();
+        } catch (Exception e) {
+            com.baidu.tieba.d.ae.b("MssageData", "parserJson", "error = " + e.getMessage());
         }
     }
 
     public void a(JSONObject jSONObject) {
-        try {
-            JSONObject optJSONObject = jSONObject.optJSONObject("user_info");
-            if (optJSONObject != null) {
-                this.a = optJSONObject.getInt("is_sign_in");
-                this.c = optJSONObject.getInt("user_sign_rank");
-                this.d = optJSONObject.getInt("cont_sign_num");
-                this.e = optJSONObject.getInt("cout_total_sing_num");
-                this.f = optJSONObject.getInt("sign_bonus_point");
+        if (jSONObject != null) {
+            try {
+                JSONArray jSONArray = jSONObject.getJSONArray("data");
+                for (int i = 0; i < jSONArray.length(); i++) {
+                    if (jSONArray.getJSONObject(i) != null) {
+                        JSONObject jSONObject2 = jSONArray.getJSONObject(i);
+                        if (this.a < jSONObject2.getLong("message_id")) {
+                            this.a = jSONObject2.getLong("message_id");
+                            this.b = jSONObject2.getString("link");
+                            this.c = jSONObject2.getString(PushConstants.EXTRA_CONTENT);
+                        }
+                    }
+                }
+            } catch (Exception e) {
+                com.baidu.tieba.d.ae.b("MssageData", "parserJson", "error = " + e.getMessage());
             }
-        } catch (JSONException e) {
-            e.printStackTrace();
         }
+    }
+
+    public long a() {
+        return this.a;
+    }
+
+    public String b() {
+        return this.b;
+    }
+
+    public String c() {
+        return this.c;
     }
 }

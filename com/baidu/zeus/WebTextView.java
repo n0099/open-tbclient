@@ -39,7 +39,6 @@ import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.TextView;
 import com.android.internal.widget.EditableInputConnection;
-import com.baidu.location.BDLocation;
 import com.baidu.zeus.bouncycastle.DERTags;
 import java.util.ArrayList;
 /* JADX INFO: Access modifiers changed from: package-private */
@@ -891,7 +890,7 @@ public class WebTextView extends AutoCompleteTextView {
         int i2 = 1;
         if (this.mWebView != null) {
             int i3 = -1;
-            int i4 = this.mWebView.nativeFocusCandidateHasNextTextfield() ? BDLocation.TypeNetWorkLocation : 1;
+            int i4 = this.mWebView.nativeFocusCandidateHasNextTextfield() ? 161 : 1;
             WebView webView = this.mWebView;
             switch (i) {
                 case 0:

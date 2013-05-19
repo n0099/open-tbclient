@@ -1,10 +1,13 @@
 package com.baidu.tieba.frs;
 
-import android.graphics.Bitmap;
 import android.view.View;
+import android.widget.AdapterView;
+import com.baidu.mobstat.StatService;
+import com.baidu.tieba.TiebaApplication;
+import com.baidu.tieba.pb.NewPbActivity;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class w implements View.OnClickListener {
+public class w implements AdapterView.OnItemClickListener {
     final /* synthetic */ FrsActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -12,27 +15,52 @@ public class w implements View.OnClickListener {
         this.a = frsActivity;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        com.baidu.tieba.c.a aVar;
-        com.baidu.tieba.c.a aVar2;
-        aa aaVar;
-        if (((com.baidu.tieba.view.q) view).a()) {
-            aVar = this.a.aa;
-            aVar.b();
-            if (view.getTag() != null && (view.getTag() instanceof String)) {
-                aVar2 = this.a.aa;
-                Bitmap a = aVar2.a((String) view.getTag(), new x(this));
-                if (a == null) {
-                    aaVar = this.a.y;
-                    Bitmap c = aaVar.a().c(String.valueOf((String) view.getTag()) + "_small");
-                    if (c == null) {
-                        return;
-                    }
-                    this.a.a(c, true);
-                    return;
+    @Override // android.widget.AdapterView.OnItemClickListener
+    public void onItemClick(AdapterView adapterView, View view, int i, long j) {
+        ba baVar;
+        ba baVar2;
+        boolean z;
+        int i2;
+        int i3;
+        int i4;
+        if (i >= 0) {
+            baVar = this.a.l;
+            long itemId = baVar.g().getItemId(i);
+            if (itemId == -1) {
+                i3 = this.a.h;
+                if (i3 > 1) {
+                    FrsActivity frsActivity = this.a;
+                    i4 = frsActivity.h;
+                    frsActivity.h = i4 - 1;
+                    this.a.d = 2;
+                    this.a.z();
                 }
-                this.a.a(a, false);
+            } else if (itemId != -2) {
+                baVar2 = this.a.l;
+                com.baidu.tieba.a.bb bbVar = (com.baidu.tieba.a.bb) baVar2.g().getItem(i);
+                if (bbVar != null) {
+                    com.baidu.tieba.d.ab ap = TiebaApplication.d().ap();
+                    if (ap != null && !ap.b(bbVar.a())) {
+                        ap.a(bbVar.a());
+                    }
+                    String i5 = bbVar.i();
+                    if (i5 == null || i5.equals("")) {
+                        z = false;
+                    } else {
+                        new Thread(new x(this, i5)).start();
+                        z = true;
+                    }
+                    NewPbActivity.a(this.a, bbVar, null, 1800003, true, false, z);
+                }
+            } else {
+                if (TiebaApplication.d().n()) {
+                    StatService.onEvent(this.a, "frs_nextpage", "frsclick", 1);
+                }
+                FrsActivity frsActivity2 = this.a;
+                i2 = frsActivity2.h;
+                frsActivity2.h = i2 + 1;
+                this.a.d = 1;
+                this.a.z();
             }
         }
     }

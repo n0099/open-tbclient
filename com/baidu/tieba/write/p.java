@@ -4,7 +4,8 @@ import android.content.DialogInterface;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
-import com.baidu.tieba.R;
+import com.baidu.tieba.c.bp;
+import com.slidingmenu.lib.R;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class p implements View.OnClickListener {
@@ -21,9 +22,10 @@ public class p implements View.OnClickListener {
         EditText editText;
         DialogInterface.OnCancelListener onCancelListener;
         s sVar;
-        com.baidu.tieba.b.z zVar;
+        bp bpVar;
         s sVar2;
         s sVar3;
+        s sVar4;
         VcodeActivity vcodeActivity = this.a;
         inputMethodManager = this.a.k;
         editText = this.a.g;
@@ -34,14 +36,16 @@ public class p implements View.OnClickListener {
         vcodeActivity2.a(string, onCancelListener);
         sVar = this.a.i;
         if (sVar != null) {
-            sVar3 = this.a.i;
-            sVar3.a();
+            sVar4 = this.a.i;
+            sVar4.cancel();
         }
         VcodeActivity vcodeActivity3 = this.a;
         VcodeActivity vcodeActivity4 = this.a;
-        zVar = this.a.c;
-        vcodeActivity3.i = new s(vcodeActivity4, zVar);
+        bpVar = this.a.c;
+        vcodeActivity3.i = new s(vcodeActivity4, bpVar);
         sVar2 = this.a.i;
-        sVar2.execute(0);
+        sVar2.setPriority(3);
+        sVar3 = this.a.i;
+        sVar3.execute(0);
     }
 }

@@ -1,47 +1,49 @@
 package com.baidu.tieba.a;
-
-import java.util.ArrayList;
-import org.json.JSONArray;
-import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class am {
-    private ArrayList a = new ArrayList();
-    private aj b = new aj();
+    private volatile long a = 0;
+    private volatile long b = 0;
+    private volatile int c = 0;
+    private volatile boolean d = false;
 
-    public void a(aj ajVar) {
-        this.b = ajVar;
-    }
-
-    public aj a() {
-        return this.b;
-    }
-
-    public ArrayList b() {
-        return this.a;
-    }
-
-    public void a(String str) {
-        try {
-            a(new JSONObject(str));
-        } catch (Exception e) {
-            com.baidu.tieba.c.ag.b(getClass().getName(), "parserJson", e.getMessage());
+    public void a(int i) {
+        if (i > 0) {
+            this.d = true;
+            this.a = i;
         }
     }
 
-    public void a(JSONObject jSONObject) {
-        if (jSONObject != null) {
-            try {
-                JSONArray optJSONArray = jSONObject.optJSONArray("user_list");
-                if (optJSONArray != null) {
-                    for (int i = 0; i < optJSONArray.length(); i++) {
-                        ah ahVar = new ah();
-                        ahVar.a(optJSONArray.getJSONObject(i));
-                        this.a.add(ahVar);
-                    }
-                }
-                this.b.a(jSONObject.optJSONObject("page"));
-            } catch (Exception e) {
-                com.baidu.tieba.c.ag.b(getClass().getName(), "parserJson", e.getMessage());
+    public void b(int i) {
+        if (i > 0) {
+            this.d = true;
+            this.b = i;
+        }
+    }
+
+    public void c(int i) {
+        if (i != 0) {
+            this.d = true;
+            this.c = i;
+        }
+    }
+
+    public void a() {
+        this.d = false;
+        this.a = 0L;
+        this.b = 0L;
+        this.c = 0;
+    }
+
+    public void a(com.baidu.tieba.d.t tVar) {
+        if (tVar != null) {
+            if (this.a != 0) {
+                tVar.a("ctime", String.valueOf(this.a));
+            }
+            if (this.b != 0) {
+                tVar.a("data_size", String.valueOf(this.b));
+            }
+            if (this.c != 0) {
+                tVar.a("net_error", String.valueOf(this.c));
             }
         }
     }

@@ -4,7 +4,7 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.webkit.WebView;
-import com.baidu.tieba.c.ag;
+import com.baidu.tieba.d.ae;
 /* loaded from: classes.dex */
 public class g extends BroadcastReceiver {
     @Override // android.content.BroadcastReceiver
@@ -13,7 +13,7 @@ public class g extends BroadcastReceiver {
             WebView.disablePlatformNotifications();
             WebView.enablePlatformNotifications();
         } catch (Exception e) {
-            ag.b(getClass().getName(), "onReceive", e.getMessage());
+            ae.b(getClass().getName(), "onReceive", e.getMessage());
         }
     }
 }

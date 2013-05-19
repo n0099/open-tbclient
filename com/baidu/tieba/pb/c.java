@@ -1,22 +1,9 @@
 package com.baidu.tieba.pb;
 
-import android.widget.ImageView;
-import android.widget.ProgressBar;
-import android.widget.TextView;
+import java.util.ArrayList;
 /* loaded from: classes.dex */
-class c {
-    TextView a;
-    TextView b;
-    ProgressBar c;
-    ImageView d;
-    final /* synthetic */ b e;
+public interface c {
+    void a(int i, String str);
 
-    private c(b bVar) {
-        this.e = bVar;
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ c(b bVar, c cVar) {
-        this(bVar);
-    }
+    void a(ArrayList arrayList, int i, int i2, boolean z, String str, boolean z2);
 }

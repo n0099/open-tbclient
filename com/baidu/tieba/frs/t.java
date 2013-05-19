@@ -1,24 +1,27 @@
 package com.baidu.tieba.frs;
 
+import android.graphics.Bitmap;
 import android.view.View;
-import com.baidu.mobstat.StatService;
-import com.baidu.tieba.TiebaApplication;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class t implements View.OnClickListener {
-    final /* synthetic */ FrsActivity a;
+class t implements com.baidu.tieba.d.d {
+    final /* synthetic */ s a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public t(FrsActivity frsActivity) {
-        this.a = frsActivity;
+    public t(s sVar) {
+        this.a = sVar;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        if (TiebaApplication.b().l()) {
-            StatService.onEvent(this.a, "frs_refrsh", "frsclick", 1);
+    @Override // com.baidu.tieba.d.d
+    public void a(Bitmap bitmap, String str, boolean z) {
+        FrsActivity frsActivity;
+        ba baVar;
+        if (bitmap != null) {
+            frsActivity = this.a.a;
+            baVar = frsActivity.l;
+            View d = baVar.d(str);
+            if (d != null) {
+                d.invalidate();
+            }
         }
-        this.a.J = "tb_frslist";
-        this.a.u();
     }
 }

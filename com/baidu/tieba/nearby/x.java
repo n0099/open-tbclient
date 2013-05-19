@@ -1,10 +1,11 @@
 package com.baidu.tieba.nearby;
 
+import android.app.AlertDialog;
 import android.view.View;
 import android.widget.AdapterView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class x implements AdapterView.OnItemClickListener {
+public class x implements AdapterView.OnItemLongClickListener {
     final /* synthetic */ NearbyPbActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -12,24 +13,16 @@ public class x implements AdapterView.OnItemClickListener {
         this.a = nearbyPbActivity;
     }
 
-    @Override // android.widget.AdapterView.OnItemClickListener
-    public void onItemClick(AdapterView adapterView, View view, int i, long j) {
-        af afVar;
-        af afVar2;
-        if (j != 0) {
-            if (j == -1) {
-                afVar2 = this.a.m;
-                if (afVar2.f()) {
-                    return;
-                }
-                this.a.p();
-            } else if (j == -2) {
-                afVar = this.a.m;
-                if (afVar.e()) {
-                    return;
-                }
-                this.a.o();
+    @Override // android.widget.AdapterView.OnItemLongClickListener
+    public boolean onItemLongClick(AdapterView adapterView, View view, int i, long j) {
+        AlertDialog o;
+        this.a.v = i;
+        if (j != -1 && j != -2) {
+            o = this.a.o();
+            if (o != null) {
+                this.a.j();
             }
         }
+        return true;
     }
 }

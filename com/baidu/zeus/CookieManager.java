@@ -528,13 +528,13 @@ public final class CookieManager {
         if (size < 15) {
             Iterator it = this.mCookieMap.values().iterator();
             int i2 = 0;
-            while (it.hasNext() && i2 < 1000) {
+            while (it.hasNext() && i2 < MAX_RAM_COOKIES_COUNT) {
                 i2 += ((ArrayList) it.next()).size();
             }
             i = i2;
         }
         arrayList = new ArrayList();
-        if (size >= 15 || i >= 1000) {
+        if (size >= 15 || i >= MAX_RAM_COOKIES_COUNT) {
             Object[] array = this.mCookieMap.keySet().toArray();
             int i3 = (size / 10) + 1;
             while (true) {

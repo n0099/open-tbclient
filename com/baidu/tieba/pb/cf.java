@@ -1,35 +1,32 @@
 package com.baidu.tieba.pb;
 
-import android.content.Context;
-import android.graphics.drawable.Drawable;
-import android.view.View;
-import android.widget.Button;
-import android.widget.LinearLayout;
-import com.baidu.tieba.R;
+import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
+import android.widget.ImageView;
+import com.baidu.adp.widget.ListView.BdListView;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class cf implements View.OnClickListener {
-    final /* synthetic */ cd a;
+public class cf implements com.baidu.tieba.d.d {
+    final /* synthetic */ bl a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public cf(cd cdVar) {
-        this.a = cdVar;
+    public cf(bl blVar) {
+        this.a = blVar;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        Context context;
-        Context context2;
-        if (view.getTag() instanceof LinearLayout) {
-            LinearLayout linearLayout = (LinearLayout) view.getTag();
-            if (linearLayout.getVisibility() == 0) {
-                linearLayout.setVisibility(8);
-                context2 = this.a.a;
-                ((Button) view).setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, context2.getResources().getDrawable(R.drawable.manage_btn_left), (Drawable) null);
-                return;
+    @Override // com.baidu.tieba.d.d
+    public void a(Bitmap bitmap, String str, boolean z) {
+        BdListView bdListView;
+        BdListView bdListView2;
+        if (bitmap != null) {
+            bdListView = this.a.f;
+            ImageView imageView = (ImageView) bdListView.findViewWithTag(str);
+            while (imageView != null) {
+                imageView.setTag(null);
+                imageView.setBackgroundDrawable(new BitmapDrawable(bitmap));
+                bdListView2 = this.a.f;
+                imageView = (ImageView) bdListView2.findViewWithTag(str);
             }
-            linearLayout.setVisibility(0);
-            context = this.a.a;
-            ((Button) view).setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, context.getResources().getDrawable(R.drawable.manage_btn_down), (Drawable) null);
         }
     }
 }

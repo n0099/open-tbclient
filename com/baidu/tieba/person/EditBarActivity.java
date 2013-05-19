@@ -4,18 +4,19 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import com.baidu.tieba.R;
+import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public class EditBarActivity extends com.baidu.tieba.e {
-    private com.baidu.tieba.b.b c = null;
+    private com.baidu.tieba.c.b c = null;
     private ListView d = null;
-    private Button e = null;
+    private ImageView e = null;
     private Button f = null;
     private i g = null;
     private ProgressBar h = null;
@@ -36,23 +37,23 @@ public class EditBarActivity extends com.baidu.tieba.e {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.e, android.app.Activity
+    @Override // com.baidu.tieba.e, com.baidu.adp.a.a, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         setContentView(R.layout.edit_bar_activity);
-        j();
-        k();
-        i();
+        c();
+        d();
+        b();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.e, android.app.Activity
     public void onDestroy() {
         if (this.i != null) {
-            this.i.a();
+            this.i.cancel();
         }
         if (this.k != null) {
-            this.k.a();
+            this.k.cancel();
         }
         if (this.h != null) {
             this.h.setVisibility(8);
@@ -60,16 +61,17 @@ public class EditBarActivity extends com.baidu.tieba.e {
         super.onDestroy();
     }
 
-    private void i() {
+    private void b() {
         if (this.i != null) {
-            this.i.a();
+            this.i.cancel();
         }
         this.i = new g(this, null);
+        this.i.setPriority(3);
         this.i.execute(new Object[0]);
     }
 
-    private void j() {
-        this.c = new com.baidu.tieba.b.b();
+    private void c() {
+        this.c = new com.baidu.tieba.c.b();
         this.o = getIntent().getStringExtra("view_user_id");
     }
 
@@ -77,11 +79,11 @@ public class EditBarActivity extends com.baidu.tieba.e {
     @Override // com.baidu.tieba.e
     public void b(int i) {
         super.b(i);
-        com.baidu.tieba.c.ae.a(this.l, i);
-        com.baidu.tieba.c.ae.c(this.m, i);
-        com.baidu.tieba.c.ae.c(this.n, i);
-        com.baidu.tieba.c.ae.e((TextView) this.e, i);
-        com.baidu.tieba.c.ae.d((TextView) this.f, i);
+        com.baidu.tieba.d.ac.a(this.l, i);
+        com.baidu.tieba.d.ac.d(this.m, i);
+        com.baidu.tieba.d.ac.f(this.n, i);
+        com.baidu.tieba.d.ac.a(this.e, i);
+        com.baidu.tieba.d.ac.g((TextView) this.f, i);
         this.g.notifyDataSetChanged();
         if (i == 1) {
             this.d.setDivider(getResources().getDrawable(R.drawable.list_divider_1));
@@ -92,12 +94,12 @@ public class EditBarActivity extends com.baidu.tieba.e {
         this.d.setSelector(R.drawable.list_selector);
     }
 
-    private void k() {
+    private void d() {
         this.l = (RelativeLayout) findViewById(R.id.parent);
         this.m = (LinearLayout) findViewById(R.id.title);
         this.n = (TextView) findViewById(R.id.title_text);
         this.h = (ProgressBar) findViewById(R.id.progress);
-        this.e = (Button) findViewById(R.id.back);
+        this.e = (ImageView) findViewById(R.id.back);
         this.e.setOnClickListener(new c(this));
         this.g = new i(this, this.c);
         this.g.a(new d(this));
@@ -117,7 +119,7 @@ public class EditBarActivity extends com.baidu.tieba.e {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void l() {
+    public void m() {
         if (this.g != null) {
             this.g.b();
             if (this.g.c()) {

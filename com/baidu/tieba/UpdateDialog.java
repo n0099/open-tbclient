@@ -5,26 +5,27 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
-import com.baidu.tieba.a.bb;
+import com.baidu.tieba.a.bf;
 import com.baidu.tieba.service.TiebaUpdateService;
+import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public class UpdateDialog extends e {
-    private bb c = null;
+    private bf c = null;
     private AlertDialog d = null;
     private DialogInterface.OnClickListener e = null;
     private DialogInterface.OnClickListener f = null;
 
-    public static void a(Context context, bb bbVar) {
-        if (bbVar != null) {
+    public static void a(Context context, bf bfVar) {
+        if (bfVar != null) {
             Intent intent = new Intent(context, UpdateDialog.class);
             intent.setFlags(268435456);
-            intent.putExtra("data", bbVar);
+            intent.putExtra("data", bfVar);
             context.startActivity(intent);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.e, android.app.Activity
+    @Override // com.baidu.tieba.e, com.baidu.adp.a.a, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         a(bundle);
@@ -33,11 +34,11 @@ public class UpdateDialog extends e {
     private void a(Bundle bundle) {
         String format;
         if (bundle != null) {
-            this.c = (bb) bundle.getSerializable("data");
+            this.c = (bf) bundle.getSerializable("data");
         } else {
             Intent intent = getIntent();
             if (intent != null) {
-                this.c = (bb) intent.getSerializableExtra("data");
+                this.c = (bf) intent.getSerializableExtra("data");
             }
         }
         if (this.c == null || this.c.e() == 0) {
@@ -88,9 +89,9 @@ public class UpdateDialog extends e {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void i() {
-        if (!com.baidu.tieba.c.o.a()) {
-            b(com.baidu.tieba.c.o.b());
+    public void b() {
+        if (!com.baidu.tieba.d.o.a()) {
+            a(com.baidu.tieba.d.o.b());
             return;
         }
         Intent intent = new Intent(this, TiebaUpdateService.class);
@@ -100,7 +101,7 @@ public class UpdateDialog extends e {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void j() {
+    public void c() {
         stopService(new Intent(this, TiebaUpdateService.class));
     }
 }

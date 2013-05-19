@@ -1,9 +1,11 @@
 package com.baidu.tieba.nearby;
 
-import android.content.DialogInterface;
+import android.text.Editable;
+import android.text.TextWatcher;
+import android.widget.Button;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class r implements DialogInterface.OnClickListener {
+public class r implements TextWatcher {
     final /* synthetic */ NearbyPbActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -11,15 +13,24 @@ public class r implements DialogInterface.OnClickListener {
         this.a = nearbyPbActivity;
     }
 
-    @Override // android.content.DialogInterface.OnClickListener
-    public void onClick(DialogInterface dialogInterface, int i) {
-        af afVar;
-        int i2;
-        afVar = this.a.m;
-        i2 = this.a.w;
-        com.baidu.tieba.a.an anVar = (com.baidu.tieba.a.an) afVar.getItem(i2);
-        if (anVar != null && i == 0) {
-            anVar.d(this.a);
+    @Override // android.text.TextWatcher
+    public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
+    }
+
+    @Override // android.text.TextWatcher
+    public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
+    }
+
+    @Override // android.text.TextWatcher
+    public void afterTextChanged(Editable editable) {
+        Button button;
+        Button button2;
+        if (editable == null || editable.length() <= 0) {
+            button = this.a.e;
+            button.setEnabled(false);
+            return;
         }
+        button2 = this.a.e;
+        button2.setEnabled(true);
     }
 }

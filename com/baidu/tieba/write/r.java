@@ -1,14 +1,15 @@
 package com.baidu.tieba.write;
 
 import android.graphics.Bitmap;
-import android.os.AsyncTask;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
+import com.baidu.tieba.a.be;
+import com.baidu.tieba.c.bp;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class r extends AsyncTask {
-    volatile com.baidu.tieba.c.t a;
-    com.baidu.tieba.a.ba b;
+public class r extends com.baidu.adp.lib.a.a {
+    volatile com.baidu.tieba.d.t a;
+    be b;
     final /* synthetic */ VcodeActivity c;
     private volatile boolean d;
 
@@ -24,7 +25,8 @@ public class r extends AsyncTask {
         this(vcodeActivity);
     }
 
-    public void a() {
+    @Override // com.baidu.adp.lib.a.a
+    public void cancel() {
         ProgressBar progressBar;
         this.c.j = null;
         if (this.a != null) {
@@ -38,54 +40,52 @@ public class r extends AsyncTask {
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // android.os.AsyncTask
-    /* renamed from: a */
-    public Bitmap doInBackground(String... strArr) {
-        com.baidu.tieba.b.z zVar;
-        com.baidu.tieba.b.z zVar2;
-        com.baidu.tieba.b.z zVar3;
-        com.baidu.tieba.b.z zVar4;
+    @Override // com.baidu.adp.lib.a.a
+    public Bitmap a(String... strArr) {
+        bp bpVar;
+        bp bpVar2;
+        bp bpVar3;
+        bp bpVar4;
         String str = strArr[0];
         if (str == null || str.length() <= 0) {
-            this.a = new com.baidu.tieba.c.t("http://c.tieba.baidu.com/c/f/anti/vcode");
-            com.baidu.tieba.c.t tVar = this.a;
-            zVar = this.c.c;
-            tVar.a("fid", zVar.f());
-            com.baidu.tieba.c.t tVar2 = this.a;
-            zVar2 = this.c.c;
-            tVar2.a("kw", zVar2.g());
-            zVar3 = this.c.c;
-            if (zVar3.a() == 0) {
+            this.a = new com.baidu.tieba.d.t(String.valueOf(com.baidu.tieba.a.i.e) + "c/f/anti/vcode");
+            com.baidu.tieba.d.t tVar = this.a;
+            bpVar = this.c.c;
+            tVar.a("fid", bpVar.g());
+            com.baidu.tieba.d.t tVar2 = this.a;
+            bpVar2 = this.c.c;
+            tVar2.a("kw", bpVar2.h());
+            bpVar3 = this.c.c;
+            if (bpVar3.b() == 0) {
                 this.a.a("pub_type", "1");
             } else {
                 this.a.a("pub_type", "2");
-                com.baidu.tieba.c.t tVar3 = this.a;
-                zVar4 = this.c.c;
-                tVar3.a("tid", zVar4.d());
+                com.baidu.tieba.d.t tVar3 = this.a;
+                bpVar4 = this.c.c;
+                tVar3.a("tid", bpVar4.e());
             }
             String i = this.a.i();
             if (!this.a.b()) {
                 return null;
             }
-            this.b = new com.baidu.tieba.a.ba();
+            this.b = new be();
             this.b.a(i);
             str = this.b.b();
         }
         if (this.d) {
             return null;
         }
-        this.a = new com.baidu.tieba.c.t(str);
-        return com.baidu.tieba.c.e.a(this.a.h());
+        this.a = new com.baidu.tieba.d.t(str);
+        return com.baidu.tieba.d.e.a(this.a.h());
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // android.os.AsyncTask
-    /* renamed from: a */
-    public void onPostExecute(Bitmap bitmap) {
+    @Override // com.baidu.adp.lib.a.a
+    public void a(Bitmap bitmap) {
         ProgressBar progressBar;
-        com.baidu.tieba.b.z zVar;
-        com.baidu.tieba.b.z zVar2;
+        bp bpVar;
+        bp bpVar2;
         ImageView imageView;
         this.c.j = null;
         if (bitmap != null) {
@@ -95,11 +95,11 @@ public class r extends AsyncTask {
         progressBar = this.c.h;
         progressBar.setVisibility(8);
         if (this.b != null) {
-            zVar = this.c.c;
-            zVar.h(this.b.a());
-            zVar2 = this.c.c;
-            zVar2.i(this.b.b());
+            bpVar = this.c.c;
+            bpVar.h(this.b.a());
+            bpVar2 = this.c.c;
+            bpVar2.i(this.b.b());
         }
-        super.onPostExecute(bitmap);
+        super.a((Object) bitmap);
     }
 }

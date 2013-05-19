@@ -1,14 +1,10 @@
 package com.baidu.tieba.pb;
 
-import android.view.MotionEvent;
-import android.view.View;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.GridView;
-import com.baidu.tieba.R;
+import android.text.InputFilter;
+import android.text.Spanned;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class t implements View.OnTouchListener {
+public class t implements InputFilter {
     final /* synthetic */ ImagePbActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -16,26 +12,16 @@ public class t implements View.OnTouchListener {
         this.a = imagePbActivity;
     }
 
-    @Override // android.view.View.OnTouchListener
-    public boolean onTouch(View view, MotionEvent motionEvent) {
-        GridView gridView;
-        EditText editText;
-        GridView gridView2;
-        EditText editText2;
-        Button button;
-        gridView = this.a.p;
-        if (gridView.getVisibility() == 0) {
-            editText = this.a.m;
-            editText.requestFocus();
-            gridView2 = this.a.p;
-            gridView2.setVisibility(8);
-            ImagePbActivity imagePbActivity = this.a;
-            editText2 = this.a.m;
-            com.baidu.tieba.c.ai.b(imagePbActivity, editText2);
-            button = this.a.o;
-            button.setBackgroundResource(R.drawable.sub_pb_face);
-            return true;
+    @Override // android.text.InputFilter
+    public CharSequence filter(CharSequence charSequence, int i, int i2, Spanned spanned, int i3, int i4) {
+        boolean p;
+        p = this.a.p();
+        if (p) {
+            if (charSequence.length() <= 0 && spanned.length() > 0) {
+                return spanned.subSequence(i3, i4 - 1);
+            }
+            return "";
         }
-        return false;
+        return null;
     }
 }

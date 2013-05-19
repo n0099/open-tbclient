@@ -1,9 +1,12 @@
 package com.baidu.tieba.pb;
 
+import android.content.Intent;
 import com.baidu.tieba.view.MultiImageView;
 import java.util.ArrayList;
+import java.util.HashMap;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class g implements f {
+public class g implements android.support.v4.view.aj {
     final /* synthetic */ ImageActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -11,78 +14,64 @@ class g implements f {
         this.a = imageActivity;
     }
 
-    @Override // com.baidu.tieba.pb.f
-    public void a(ArrayList arrayList, int i, int i2, boolean z, String str, boolean z2) {
+    @Override // android.support.v4.view.aj
+    public void a(int i) {
+        boolean z;
+        a aVar;
         MultiImageView multiImageView;
-        MultiImageView multiImageView2;
-        MultiImageView multiImageView3;
-        MultiImageView multiImageView4;
-        MultiImageView multiImageView5;
-        int i3;
-        MultiImageView multiImageView6;
-        MultiImageView multiImageView7;
-        MultiImageView multiImageView8;
-        MultiImageView multiImageView9;
-        MultiImageView multiImageView10;
-        MultiImageView multiImageView11;
-        MultiImageView multiImageView12;
-        MultiImageView multiImageView13;
-        MultiImageView multiImageView14;
-        if (z2) {
-            multiImageView10 = this.a.o;
-            if (multiImageView10.getCurrentItem() <= 3) {
-                multiImageView11 = this.a.o;
-                int itemNum = multiImageView11.getItemNum();
-                multiImageView12 = this.a.o;
-                multiImageView12.setTempSize(itemNum + 100);
-                multiImageView13 = this.a.o;
-                multiImageView13.a(itemNum + 90, false);
-                multiImageView14 = this.a.o;
-                multiImageView14.setTempSize(0);
-            }
-        }
-        multiImageView = this.a.o;
-        multiImageView.setUrlData(arrayList);
-        multiImageView2 = this.a.o;
-        multiImageView2.setHasNext(z);
-        multiImageView3 = this.a.o;
-        multiImageView3.setNextTitle(str);
-        if (i >= 0) {
-            multiImageView8 = this.a.o;
-            if (i < multiImageView8.getItemNum()) {
-                multiImageView9 = this.a.o;
-                multiImageView9.a(i, false);
-            }
-        }
-        this.a.g = i2;
-        if (arrayList.size() >= 400) {
-            multiImageView4 = this.a.o;
-            if (multiImageView4.getCurrentItem() > 200) {
-                for (int i4 = 0; i4 < 200; i4++) {
-                    arrayList.remove(0);
+        a aVar2;
+        int i2;
+        z = this.a.D;
+        if (!z) {
+            aVar = this.a.w;
+            if (aVar != null) {
+                multiImageView = this.a.o;
+                if (i > multiImageView.getItemNum() - 5) {
+                    aVar2 = this.a.w;
+                    aVar2.a();
                 }
-                multiImageView5 = this.a.o;
-                multiImageView5.setUrlData(arrayList);
-                ImageActivity imageActivity = this.a;
-                i3 = imageActivity.d;
-                imageActivity.d = i3 + 200;
-                multiImageView6 = this.a.o;
-                multiImageView7 = this.a.o;
-                multiImageView6.a(multiImageView7.getCurrentItem() - 200, false);
             }
+        } else {
+            Intent intent = new Intent("com.baidu.tieba.broadcast.imagepb.pagechanged");
+            intent.putExtra("index", i);
+            this.a.sendBroadcast(intent);
         }
-        this.a.n();
+        ImageActivity imageActivity = this.a;
+        i2 = this.a.f;
+        imageActivity.a(i2, i);
+        this.a.f = i;
+        this.a.o();
     }
 
-    @Override // com.baidu.tieba.pb.f
-    public void a(int i, String str) {
+    @Override // android.support.v4.view.aj
+    public void a(int i, float f, int i2) {
+    }
+
+    @Override // android.support.v4.view.aj
+    public void b(int i) {
+        long j;
         ArrayList arrayList;
-        this.a.b(str);
-        if (i == 40) {
-            ImageActivity imageActivity = this.a;
-            arrayList = this.a.e;
-            imageActivity.g = arrayList.size();
-            this.a.n();
+        int i2;
+        ArrayList arrayList2;
+        HashMap hashMap;
+        ArrayList arrayList3;
+        int i3;
+        if (i == 1) {
+            long nanoTime = System.nanoTime();
+            j = this.a.x;
+            if (nanoTime - j > 300000000) {
+                arrayList = this.a.e;
+                if (arrayList != null) {
+                    i2 = this.a.f;
+                    arrayList2 = this.a.e;
+                    if (i2 < arrayList2.size()) {
+                        hashMap = this.a.y;
+                        arrayList3 = this.a.e;
+                        i3 = this.a.f;
+                        hashMap.put((String) arrayList3.get(i3), true);
+                    }
+                }
+            }
         }
     }
 }

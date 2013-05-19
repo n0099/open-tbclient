@@ -1,35 +1,24 @@
 package com.baidu.tieba.home;
 
-import android.app.AlertDialog;
-import android.view.View;
-import android.widget.AdapterView;
+import android.widget.CompoundButton;
+import android.widget.RadioButton;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class al implements AdapterView.OnItemClickListener {
-    final /* synthetic */ ak a;
+public class al implements CompoundButton.OnCheckedChangeListener {
+    final /* synthetic */ SearchActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public al(ak akVar) {
-        this.a = akVar;
+    public al(SearchActivity searchActivity) {
+        this.a = searchActivity;
     }
 
-    @Override // android.widget.AdapterView.OnItemClickListener
-    public void onItemClick(AdapterView adapterView, View view, int i, long j) {
-        SearchActivity searchActivity;
-        SearchActivity searchActivity2;
-        SearchActivity searchActivity3;
-        AlertDialog alertDialog;
-        switch (i) {
-            case 0:
-                searchActivity2 = this.a.a;
-                searchActivity2.c(0);
-                break;
-            case 1:
-                searchActivity = this.a.a;
-                searchActivity.c(1);
-                break;
+    @Override // android.widget.CompoundButton.OnCheckedChangeListener
+    public void onCheckedChanged(CompoundButton compoundButton, boolean z) {
+        RadioButton radioButton;
+        if (z) {
+            this.a.c(1);
+            radioButton = this.a.j;
+            radioButton.setChecked(false);
         }
-        searchActivity3 = this.a.a;
-        alertDialog = searchActivity3.y;
-        alertDialog.dismiss();
     }
 }

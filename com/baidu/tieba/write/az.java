@@ -1,7 +1,6 @@
 package com.baidu.tieba.write;
 
 import android.graphics.Bitmap;
-import android.os.AsyncTask;
 import android.os.Build;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
@@ -9,7 +8,7 @@ import cn.jingling.lib.filters.FilterFactory;
 import java.util.HashMap;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class az extends AsyncTask {
+public class az extends com.baidu.adp.lib.a.a {
     final /* synthetic */ WriteImageActivity a;
 
     private az(WriteImageActivity writeImageActivity) {
@@ -23,9 +22,9 @@ public class az extends AsyncTask {
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // android.os.AsyncTask
-    /* renamed from: a */
-    public Bitmap doInBackground(Object... objArr) {
+    @Override // com.baidu.adp.lib.a.a
+    /* renamed from: d */
+    public Bitmap a(Object... objArr) {
         Bitmap c;
         boolean z;
         HashMap hashMap;
@@ -33,7 +32,7 @@ public class az extends AsyncTask {
         HashMap hashMap2;
         Bitmap bitmap = null;
         try {
-            c = com.baidu.tieba.c.o.c(null, "tieba_resized_image");
+            c = com.baidu.tieba.d.o.c(null, "tieba_resized_image");
         } catch (Exception e) {
             e = e;
         }
@@ -42,11 +41,11 @@ public class az extends AsyncTask {
                 c.recycle();
                 return null;
             }
-            int a = com.baidu.tieba.c.ai.a(this.a, 63.5f);
+            int a = com.baidu.tieba.d.ag.a(this.a, 63.5f);
             if (Build.VERSION.SDK_INT >= 7) {
                 z = this.a.v;
                 if (z) {
-                    Bitmap a2 = com.baidu.tieba.c.e.a(com.baidu.tieba.c.e.b(c, a), com.baidu.tieba.c.ai.a(this.a, 5.0f));
+                    Bitmap a2 = com.baidu.tieba.d.e.a(com.baidu.tieba.d.e.b(c, a), com.baidu.tieba.d.ag.a(this.a, 5.0f));
                     this.a.B = new HashMap();
                     this.a.C = new HashMap();
                     hashMap = this.a.B;
@@ -67,20 +66,22 @@ public class az extends AsyncTask {
         } catch (Exception e2) {
             bitmap = c;
             e = e2;
-            com.baidu.tieba.c.ag.b(getClass().getName(), "GetImageTask", e.toString());
+            com.baidu.tieba.d.ae.b(getClass().getName(), "GetImageTask", e.toString());
             return bitmap;
         }
     }
 
-    @Override // android.os.AsyncTask
-    protected void onPreExecute() {
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.a.a
+    public void b() {
         ProgressBar progressBar;
         progressBar = this.a.j;
         progressBar.setVisibility(0);
-        super.onPreExecute();
+        super.b();
     }
 
-    public void a() {
+    @Override // com.baidu.adp.lib.a.a
+    public void cancel() {
         ProgressBar progressBar;
         this.a.k = null;
         progressBar = this.a.j;
@@ -90,14 +91,13 @@ public class az extends AsyncTask {
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // android.os.AsyncTask
-    /* renamed from: a */
-    public void onPostExecute(Bitmap bitmap) {
+    @Override // com.baidu.adp.lib.a.a
+    public void a(Bitmap bitmap) {
         ProgressBar progressBar;
         ImageView imageView;
         boolean z;
         String[] strArr;
-        super.onPostExecute(bitmap);
+        super.a((Object) bitmap);
         this.a.k = null;
         this.a.e = bitmap;
         progressBar = this.a.j;

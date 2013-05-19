@@ -1,15 +1,9 @@
 package android.support.v4.app;
 /* loaded from: classes.dex */
-class s implements Runnable {
-    final /* synthetic */ ListFragment a;
+public abstract class s {
+    public abstract int a();
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public s(ListFragment listFragment) {
-        this.a = listFragment;
-    }
+    public abstract s a(Fragment fragment);
 
-    @Override // java.lang.Runnable
-    public void run() {
-        this.a.b.focusableViewAvailable(this.a.b);
-    }
+    public abstract int b();
 }

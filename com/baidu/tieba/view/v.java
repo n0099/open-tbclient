@@ -1,23 +1,93 @@
 package com.baidu.tieba.view;
 
-import android.view.View;
-import android.widget.AdapterView;
+import android.content.Context;
+import android.util.AttributeSet;
+import android.view.LayoutInflater;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.ProgressBar;
+import android.widget.TextView;
+import com.slidingmenu.lib.R;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 /* loaded from: classes.dex */
-class v implements AdapterView.OnItemClickListener {
-    final /* synthetic */ ImagePbPagerAdapter a;
-    private final /* synthetic */ com.baidu.tieba.pb.ak b;
+public class v extends LinearLayout implements com.baidu.adp.widget.ScrollView.c {
+    private Animation a;
+    private Animation b;
+    private ProgressBar c;
+    private ImageView d;
+    private TextView e;
+    private TextView f;
+    private boolean g;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public v(ImagePbPagerAdapter imagePbPagerAdapter, com.baidu.tieba.pb.ak akVar) {
-        this.a = imagePbPagerAdapter;
-        this.b = akVar;
+    public v(Context context) {
+        this(context, null);
+        this.a = AnimationUtils.loadAnimation(getContext(), R.anim.arrow_down_to_up);
+        this.b = AnimationUtils.loadAnimation(getContext(), R.anim.arrow_up_to_down);
+        this.a.setFillAfter(true);
+        this.b.setFillAfter(true);
+        LayoutInflater.from(context).inflate(R.layout.image_frs_pullview, this);
+        this.c = (ProgressBar) findViewById(R.id.head_layout_left_progressbar);
+        this.d = (ImageView) findViewById(R.id.head_layout_left_arrow);
+        this.e = (TextView) findViewById(R.id.head_layout_title);
+        this.f = (TextView) findViewById(R.id.head_layout_refresh_time);
     }
 
-    @Override // android.widget.AdapterView.OnItemClickListener
-    public void onItemClick(AdapterView adapterView, View view, int i, long j) {
-        if (this.b == null || !this.b.b() || j != this.b.getCount() - 1) {
+    public v(Context context, AttributeSet attributeSet) {
+        super(context, attributeSet);
+        this.c = null;
+    }
+
+    @Override // com.baidu.adp.widget.ScrollView.c
+    public void a() {
+        if (this.g) {
+            this.d.startAnimation(this.b);
+            this.g = false;
+        }
+        this.e.setText(getResources().getString(R.string.pulldown_refresh));
+    }
+
+    @Override // com.baidu.adp.widget.ScrollView.c
+    public void b() {
+        this.d.startAnimation(this.a);
+        this.g = true;
+        this.e.setText(getResources().getString(R.string.pulldown_loosen));
+    }
+
+    @Override // com.baidu.adp.widget.ScrollView.c
+    public void c() {
+        this.g = false;
+        this.c.setVisibility(0);
+        this.e.setText(getResources().getString(R.string.pulldown_loading));
+        this.d.clearAnimation();
+        this.d.setVisibility(4);
+    }
+
+    @Override // com.baidu.adp.widget.ScrollView.c
+    public void d() {
+        this.g = false;
+        this.d.setVisibility(0);
+        this.c.setVisibility(8);
+        this.e.setText(getResources().getString(R.string.pulldown_refresh));
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("MM-dd HH:mm");
+        Date date = new Date(System.currentTimeMillis());
+        this.f.setVisibility(0);
+        this.f.setText(String.valueOf(getResources().getString(R.string.pulldown_lasttime)) + simpleDateFormat.format(date));
+    }
+
+    public LinearLayout getRealView() {
+        return this;
+    }
+
+    public void a(int i) {
+        if (i == 1) {
+            this.e.setTextColor(-8682095);
+            this.f.setTextColor(-8682095);
             return;
         }
-        this.a.a(this.b.d(), this.b.e().c(), 10, this.b);
+        this.e.setTextColor(-14277082);
+        this.f.setTextColor(-14277082);
     }
 }

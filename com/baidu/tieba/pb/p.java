@@ -1,54 +1,56 @@
 package com.baidu.tieba.pb;
 
-import android.graphics.Bitmap;
-import android.text.Editable;
-import android.text.SpannableStringBuilder;
-import android.text.style.ImageSpan;
+import android.os.Handler;
 import android.view.View;
-import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.EditText;
-import com.baidu.tieba.R;
+import android.widget.GridView;
+import com.baidu.tieba.view.KeyboardLayout;
+import com.slidingmenu.lib.R;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class p implements AdapterView.OnItemClickListener {
+public class p implements View.OnClickListener {
     final /* synthetic */ ImagePbActivity a;
-    private final /* synthetic */ com.baidu.tieba.write.m b;
+    private final /* synthetic */ Handler b;
+    private final /* synthetic */ Runnable c;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public p(ImagePbActivity imagePbActivity, com.baidu.tieba.write.m mVar) {
+    public p(ImagePbActivity imagePbActivity, Handler handler, Runnable runnable) {
         this.a = imagePbActivity;
-        this.b = mVar;
+        this.b = handler;
+        this.c = runnable;
     }
 
-    @Override // android.widget.AdapterView.OnItemClickListener
-    public void onItemClick(AdapterView adapterView, View view, int i, long j) {
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        GridView gridView;
+        KeyboardLayout keyboardLayout;
         EditText editText;
+        Button button;
         EditText editText2;
-        boolean o;
-        String a;
+        GridView gridView2;
         EditText editText3;
-        EditText editText4;
-        editText = this.a.m;
-        Editable text = editText.getText();
-        editText2 = this.a.m;
-        if (((ImageSpan[]) text.getSpans(0, editText2.getText().length(), ImageSpan.class)).length >= 10) {
-            this.a.b(this.a.getString(R.string.too_many_face));
+        Button button2;
+        gridView = this.a.p;
+        if (gridView.getVisibility() == 0) {
+            editText2 = this.a.m;
+            editText2.requestFocus();
+            gridView2 = this.a.p;
+            gridView2.setVisibility(8);
+            ImagePbActivity imagePbActivity = this.a;
+            editText3 = this.a.m;
+            com.baidu.tieba.d.ag.b(imagePbActivity, editText3);
+            button2 = this.a.o;
+            button2.setBackgroundResource(R.drawable.sub_pb_face);
             return;
         }
-        o = this.a.o();
-        if (!o && (a = this.b.a(i)) != null) {
-            editText3 = this.a.m;
-            int selectionStart = editText3.getSelectionStart();
-            SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(a);
-            Bitmap bitmap = (Bitmap) this.b.getItem(i);
-            if (bitmap != null) {
-                com.baidu.tieba.view.ag agVar = new com.baidu.tieba.view.ag(bitmap);
-                agVar.setBounds(0, 0, bitmap.getWidth() + 1, bitmap.getHeight());
-                agVar.setGravity(3);
-                spannableStringBuilder.setSpan(new ImageSpan(agVar, 0), 0, spannableStringBuilder.length(), 33);
-                editText4 = this.a.m;
-                editText4.getText().insert(selectionStart, spannableStringBuilder);
-            }
-        }
+        keyboardLayout = this.a.t;
+        keyboardLayout.setOnkbdStateListener(null);
+        ImagePbActivity imagePbActivity2 = this.a;
+        editText = this.a.m;
+        com.baidu.tieba.d.ag.a(imagePbActivity2, editText);
+        this.b.postDelayed(this.c, 200L);
+        button = this.a.o;
+        button.setBackgroundResource(R.drawable.sub_pb_keyboard);
     }
 }

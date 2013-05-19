@@ -1,90 +1,105 @@
 package com.baidu.tieba.account;
 
-import android.os.AsyncTask;
-import android.os.Handler;
-import com.baidu.tieba.R;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.RelativeLayout;
 /* loaded from: classes.dex */
-public class ar extends AsyncTask {
-    final /* synthetic */ ReLoginActivity a;
-    private volatile com.baidu.tieba.c.t b = null;
-    private String c;
-    private String d;
+class ar implements View.OnClickListener {
+    final /* synthetic */ Register2Activity a;
 
-    public ar(ReLoginActivity reLoginActivity, String str, String str2) {
-        this.a = reLoginActivity;
-        this.c = null;
-        this.d = null;
-        this.c = str;
-        this.d = str2;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public ar(Register2Activity register2Activity) {
+        this.a = register2Activity;
     }
 
-    @Override // android.os.AsyncTask
-    protected void onPreExecute() {
-        this.a.m = null;
-        this.a.p = null;
-        this.a.o = System.currentTimeMillis();
-        this.a.a(0, this.a.getIntent().getStringExtra("uname"));
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // android.os.AsyncTask
-    /* renamed from: a */
-    public com.baidu.tieba.a.a doInBackground(String... strArr) {
-        String n;
-        this.b = new com.baidu.tieba.c.t();
-        if (this.d != null) {
-            com.baidu.tieba.c.t tVar = this.b;
-            String str = this.c;
-            StringBuilder append = new StringBuilder(String.valueOf(this.d)).append('|');
-            n = this.a.n();
-            return com.baidu.tieba.a.a(tVar, str, append.append(n).toString());
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        ImageView imageView;
+        Button button;
+        Button button2;
+        ImageView imageView2;
+        ImageView imageView3;
+        RelativeLayout relativeLayout;
+        ImageView imageView4;
+        aw awVar;
+        com.baidu.tieba.c.af afVar;
+        com.baidu.tieba.c.af afVar2;
+        aw awVar2;
+        Button button3;
+        ax axVar;
+        aw awVar3;
+        ax axVar2;
+        ax axVar3;
+        aw awVar4;
+        EditText editText;
+        EditText editText2;
+        imageView = this.a.l;
+        if (view != imageView) {
+            button = this.a.m;
+            if (view != button) {
+                button2 = this.a.n;
+                if (view != button2) {
+                    imageView2 = this.a.o;
+                    if (view != imageView2) {
+                        imageView3 = this.a.p;
+                        if (view == imageView3) {
+                            editText = this.a.z;
+                            editText.setText((CharSequence) null);
+                            return;
+                        }
+                        relativeLayout = this.a.B;
+                        if (view != relativeLayout) {
+                            imageView4 = this.a.J;
+                            if (view != imageView4) {
+                                button3 = this.a.q;
+                                if (view != button3) {
+                                    return;
+                                }
+                            }
+                            awVar = this.a.Q;
+                            if (awVar == null) {
+                                afVar = this.a.S;
+                                if (afVar != null) {
+                                    Register2Activity register2Activity = this.a;
+                                    Register2Activity register2Activity2 = this.a;
+                                    afVar2 = this.a.S;
+                                    register2Activity.Q = new aw(register2Activity2, afVar2.b().d());
+                                    awVar2 = this.a.Q;
+                                    awVar2.execute(new String[0]);
+                                    return;
+                                }
+                                return;
+                            }
+                            return;
+                        }
+                        axVar = this.a.R;
+                        if (axVar == null) {
+                            awVar3 = this.a.Q;
+                            if (awVar3 != null) {
+                                awVar4 = this.a.Q;
+                                awVar4.cancel();
+                            }
+                            this.a.R = new ax(this.a, null);
+                            axVar2 = this.a.R;
+                            axVar2.setPriority(3);
+                            axVar3 = this.a.R;
+                            axVar3.execute(new String[0]);
+                            return;
+                        }
+                        return;
+                    }
+                    editText2 = this.a.x;
+                    editText2.setText((CharSequence) null);
+                    return;
+                }
+                this.a.p();
+                return;
+            }
         }
-        return null;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // android.os.AsyncTask
-    /* renamed from: a */
-    public void onPostExecute(com.baidu.tieba.a.a aVar) {
-        String str;
-        long j;
-        Handler handler;
-        Runnable runnable;
-        Handler handler2;
-        Runnable runnable2;
-        super.onPostExecute(aVar);
-        this.a.m = aVar;
-        if (this.b != null) {
-            this.a.p = this.b.f();
-        }
-        str = this.a.p;
-        if (str == null) {
-            this.a.p = this.a.getString(R.string.data_load_error);
-        }
-        this.b = null;
-        this.a.e = null;
-        long currentTimeMillis = 1000 - System.currentTimeMillis();
-        j = this.a.o;
-        long j2 = currentTimeMillis + j;
-        if (j2 <= 0) {
-            j2 = 0;
-        }
-        handler = this.a.q;
-        runnable = this.a.r;
-        handler.removeCallbacks(runnable);
-        handler2 = this.a.q;
-        runnable2 = this.a.r;
-        handler2.postDelayed(runnable2, j2);
-    }
-
-    public boolean a() {
-        if (this.b != null) {
-            this.b.g();
-        }
-        this.a.e = null;
-        return super.cancel(true);
+        this.a.setResult(0);
+        this.a.finish();
+        com.baidu.tieba.d.ae.a("Register2Activity", "mButtonBack", "onClick");
     }
 }

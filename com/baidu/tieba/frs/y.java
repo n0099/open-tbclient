@@ -1,131 +1,48 @@
 package com.baidu.tieba.frs;
 
-import android.os.AsyncTask;
-import com.baidu.tieba.R;
-import org.json.JSONObject;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.view.View;
+import android.widget.AdapterView;
 /* loaded from: classes.dex */
-public class y extends AsyncTask {
+class y implements AdapterView.OnItemLongClickListener {
     final /* synthetic */ FrsActivity a;
-    private String c;
-    private String d;
-    private String e;
-    private com.baidu.tieba.c.t b = null;
-    private int f = -1;
-    private int g = -1;
-    private String h = null;
-    private boolean i = false;
 
-    public y(FrsActivity frsActivity, String str, String str2, String str3) {
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public y(FrsActivity frsActivity) {
         this.a = frsActivity;
-        this.c = str;
-        this.d = str2;
-        this.e = str3;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // android.os.AsyncTask
-    /* renamed from: a */
-    public Boolean doInBackground(String... strArr) {
-        boolean z;
-        try {
-            this.b = new com.baidu.tieba.c.t(strArr[0]);
-            this.b.a("fid", this.c);
-            this.b.a("kw", this.d);
-            this.b.a("is_like", this.e);
-            this.b.d(true);
-            String i = this.b.i();
-            if (this.b.c()) {
-                if (this.e.equals("0")) {
-                    try {
-                        JSONObject optJSONObject = new JSONObject(i).optJSONObject("like_data");
-                        if (optJSONObject.optInt("is_success", 0) == 1) {
-                            this.g = optJSONObject.optInt("level_id");
-                            this.h = optJSONObject.optString("level_name");
-                            this.i = true;
-                        }
-                    } catch (Exception e) {
-                        com.baidu.tieba.c.ag.b(getClass().getName(), "doInBackground", e.getMessage());
-                    }
-                }
-                if (this.b.b()) {
-                    try {
-                        this.f = new JSONObject(i).optInt("num");
-                        z = true;
-                    } catch (Exception e2) {
-                        com.baidu.tieba.c.ag.b(getClass().getName(), "doInBackground", e2.getMessage());
-                    }
-                    return Boolean.valueOf(z);
-                }
-            }
-            z = false;
-            return Boolean.valueOf(z);
-        } catch (Exception e3) {
-            com.baidu.tieba.c.ag.b(getClass().getName(), "", "AddFanAsyncTask.doInBackground error = " + e3.getMessage());
-            return false;
-        }
-    }
-
-    public void a() {
-        com.baidu.tieba.b.c cVar;
-        com.baidu.tieba.b.c cVar2;
-        if (this.b != null) {
-            this.b.g();
-        }
-        this.a.S = null;
-        cVar = this.a.A;
-        if (cVar != null) {
-            cVar2 = this.a.A;
-            cVar2.a(false);
-        }
-        super.cancel(true);
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // android.os.AsyncTask
-    /* renamed from: a */
-    public void onPostExecute(Boolean bool) {
-        com.baidu.tieba.b.c cVar;
-        com.baidu.tieba.b.c cVar2;
-        com.baidu.tieba.b.c cVar3;
-        com.baidu.tieba.b.c cVar4;
-        aa aaVar;
-        com.baidu.tieba.view.l lVar;
-        com.baidu.tieba.view.l lVar2;
-        this.a.S = null;
-        cVar = this.a.A;
-        if (cVar != null) {
-            cVar2 = this.a.A;
-            cVar2.a(false);
-            if (this.b != null) {
-                if (this.i) {
-                    lVar = this.a.M;
-                    if (lVar != null) {
-                        lVar2 = this.a.M;
-                        lVar2.a(1, this.h, this.g);
-                    }
-                }
-                if (bool.booleanValue()) {
-                    this.a.b(this.a.getString(R.string.add_fan_sucess));
-                    cVar3 = this.a.A;
-                    cVar3.e().b(1);
-                    cVar4 = this.a.A;
-                    cVar4.e().c(this.f);
-                    aaVar = this.a.y;
-                    aaVar.notifyDataSetChanged();
-                    return;
-                }
-                if (this.b.f() != null) {
-                    this.a.b(this.b.f());
+    @Override // android.widget.AdapterView.OnItemLongClickListener
+    public boolean onItemLongClick(AdapterView adapterView, View view, int i, long j) {
+        ba baVar;
+        ba baVar2;
+        com.baidu.tieba.a.bb bbVar;
+        com.baidu.tieba.a.bb bbVar2;
+        com.baidu.tieba.a.bb bbVar3;
+        ba baVar3;
+        if (i >= 0) {
+            baVar = this.a.l;
+            long itemId = baVar.g().getItemId(i);
+            if (itemId != -1 && itemId != -2) {
+                FrsActivity frsActivity = this.a;
+                baVar2 = this.a.l;
+                frsActivity.F = (com.baidu.tieba.a.bb) baVar2.g().getItem(i);
+                FrsActivity frsActivity2 = this.a;
+                bbVar = this.a.F;
+                frsActivity2.j = bbVar.a();
+                bbVar2 = this.a.F;
+                String i2 = bbVar2.i();
+                if (i2 == null || i2.equals("")) {
+                    this.a.k = false;
                 } else {
-                    this.a.b(this.a.getString(R.string.add_fan_error));
+                    this.a.k = true;
                 }
-                if (this.b.d() == 120002) {
-                    this.a.u();
-                }
+                FrsActivity frsActivity3 = this.a;
+                bbVar3 = this.a.F;
+                frsActivity3.b(bbVar3);
+                baVar3 = this.a.l;
+                baVar3.e();
             }
         }
+        return false;
     }
 }

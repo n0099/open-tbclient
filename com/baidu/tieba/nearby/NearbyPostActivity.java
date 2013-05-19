@@ -9,40 +9,40 @@ import android.widget.ImageView;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.ProgressBar;
-import com.baidu.tieba.R;
 import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.pb.PbActivity;
+import com.baidu.tieba.pb.NewPbActivity;
 import com.baidu.tieba.write.WriteActivity;
+import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public class NearbyPostActivity extends com.baidu.tieba.e {
     private Address c = null;
-    private com.baidu.tieba.b.p d = null;
+    private com.baidu.tieba.c.as d = null;
     private ListView e = null;
-    private ar f = null;
+    private aq f = null;
     private ImageView g = null;
-    private aq h = null;
+    private ap h = null;
     private boolean i = false;
     private int j = 0;
     private ProgressBar k = null;
     private View.OnClickListener l = null;
     private Handler m = null;
     private Runnable n = null;
-    private com.baidu.tieba.c.d o = null;
-    private com.baidu.tieba.c.d p = null;
+    private com.baidu.tieba.d.d o = null;
+    private com.baidu.tieba.d.d p = null;
     private String q = null;
     private String r = null;
     private String s = null;
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.e, android.app.Activity
+    @Override // com.baidu.tieba.e, com.baidu.adp.a.a, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         setContentView(R.layout.nearby_post_activity);
-        i();
-        k();
-        j();
+        b();
+        d();
+        c();
         if (getParent() instanceof NewNearbyActivity) {
-            a(0, ((NewNearbyActivity) getParent()).k(), true);
+            a(0, ((NewNearbyActivity) getParent()).d(), true);
         }
     }
 
@@ -72,7 +72,7 @@ public class NearbyPostActivity extends com.baidu.tieba.e {
             this.m.removeCallbacks(this.n);
         }
         if (this.h != null) {
-            this.h.a();
+            this.h.cancel();
             this.h = null;
         }
         if (this.k != null) {
@@ -101,13 +101,13 @@ public class NearbyPostActivity extends com.baidu.tieba.e {
                         com.baidu.tieba.a.k kVar = new com.baidu.tieba.a.k();
                         kVar.a(0);
                         kVar.a(stringExtra2);
-                        com.baidu.tieba.a.ah ahVar = new com.baidu.tieba.a.ah();
-                        ahVar.a(TiebaApplication.y());
-                        ahVar.b(TiebaApplication.C());
-                        ahVar.c(TiebaApplication.C());
-                        ahVar.a(1);
-                        ahVar.d("");
-                        this.d.a(stringExtra, kVar, getString(R.string.right_now), ahVar);
+                        com.baidu.tieba.a.ai aiVar = new com.baidu.tieba.a.ai();
+                        aiVar.a(TiebaApplication.z());
+                        aiVar.b(TiebaApplication.D());
+                        aiVar.c(TiebaApplication.D());
+                        aiVar.a(1);
+                        aiVar.d("");
+                        this.d.a(stringExtra, kVar, getString(R.string.right_now), aiVar);
                         this.f.notifyDataSetChanged();
                         break;
                     }
@@ -129,26 +129,26 @@ public class NearbyPostActivity extends com.baidu.tieba.e {
         }
     }
 
-    void i() {
-        this.d = new com.baidu.tieba.b.p();
+    void b() {
+        this.d = new com.baidu.tieba.c.as();
     }
 
-    void j() {
+    void c() {
         this.e = (ListView) findViewById(R.id.post_list);
-        this.l = new ak(this);
-        this.f = new ar(this, this.d, this.l);
+        this.l = new aj(this);
+        this.f = new aq(this, this.d, this.l);
         this.e.setAdapter((ListAdapter) this.f);
-        this.e.setOnItemClickListener(new al(this));
-        this.e.setOnScrollListener(new am(this));
+        this.e.setOnItemClickListener(new ak(this));
+        this.e.setOnScrollListener(new al(this));
         this.k = (ProgressBar) findViewById(R.id.post_progress);
         this.g = (ImageView) findViewById(R.id.distance_line);
     }
 
-    void k() {
+    void d() {
         this.m = new Handler();
-        this.n = new an(this);
-        this.o = new ao(this);
-        this.p = new ap(this);
+        this.n = new am(this);
+        this.o = new an(this);
+        this.p = new ao(this);
     }
 
     public void a(int i, Address address, boolean z) {
@@ -162,13 +162,13 @@ public class NearbyPostActivity extends com.baidu.tieba.e {
         }
         if (!this.i) {
             if (this.h != null) {
-                this.h.a();
+                this.h.cancel();
                 this.h = null;
             }
             if (i == 0) {
-                long v = TiebaApplication.b().v();
+                long x = TiebaApplication.d().x();
                 long currentTimeMillis = System.currentTimeMillis();
-                int i3 = (v == 0 || (v < currentTimeMillis && currentTimeMillis - v < com.baidu.tieba.a.i.d.longValue())) ? 1 : 0;
+                int i3 = (x == 0 || (x < currentTimeMillis && currentTimeMillis - x < com.baidu.tieba.a.i.d.longValue())) ? 1 : 0;
                 this.k.setVisibility(0);
                 i2 = i3;
             } else {
@@ -176,23 +176,24 @@ public class NearbyPostActivity extends com.baidu.tieba.e {
             }
             this.i = true;
             this.j = i;
-            this.h = new aq(this, this.c, i, i2, z);
-            this.h.execute("http://c.tieba.baidu.com/c/f/lbs/thread");
+            this.h = new ap(this, this.c, i, i2, z);
+            this.h.setPriority(3);
+            this.h.execute(String.valueOf(com.baidu.tieba.a.i.e) + "c/f/lbs/thread");
         }
     }
 
-    public boolean l() {
+    public boolean m() {
         return this.i && this.j == 1;
     }
 
-    public com.baidu.tieba.b.p m() {
+    public com.baidu.tieba.c.as n() {
         return this.d;
     }
 
-    @Override // com.baidu.tieba.e
-    public void b(String str) {
-        if ((getParent() instanceof NewNearbyActivity) && ((NewNearbyActivity) getParent()).l() == 0) {
-            super.b(str);
+    @Override // com.baidu.tieba.e, com.baidu.adp.a.a
+    public void a(String str) {
+        if ((getParent() instanceof NewNearbyActivity) && ((NewNearbyActivity) getParent()).m() == 0) {
+            super.a(str);
         }
     }
 
@@ -207,12 +208,12 @@ public class NearbyPostActivity extends com.baidu.tieba.e {
                 }
                 String substring = str.substring(indexOf, i);
                 if (substring != null && substring.length() >= 0) {
-                    PbActivity.a(this, substring, (String) null);
+                    NewPbActivity.a(this, substring, null, null);
                     return;
                 }
                 return;
             }
-            com.baidu.tieba.c.ai.c(this, str);
+            com.baidu.tieba.d.ag.c(this, str);
         }
     }
 }

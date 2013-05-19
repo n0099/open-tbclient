@@ -1,106 +1,112 @@
 package com.baidu.tieba;
 
-import android.os.AsyncTask;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.util.ArrayList;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class w extends AsyncTask {
-    final /* synthetic */ LabelActivity a;
-    private com.baidu.tieba.c.t b = null;
-    private boolean c;
-    private String[] d;
+public class w extends com.baidu.adp.lib.a.a {
+    ArrayList a;
+    final /* synthetic */ LabelActivity b;
+    private String d;
+    private boolean f;
+    private com.baidu.tieba.d.t c = null;
+    private int e = 1;
 
-    public w(LabelActivity labelActivity, boolean z, String[] strArr) {
-        this.a = labelActivity;
-        this.c = z;
-        this.d = strArr;
+    public w(LabelActivity labelActivity, String str, boolean z, ArrayList arrayList) {
+        this.b = labelActivity;
+        this.d = null;
+        this.a = null;
+        this.d = str;
+        this.a = arrayList;
+        this.f = z;
     }
 
-    @Override // android.os.AsyncTask
-    protected void onPreExecute() {
-        this.a.b(true);
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.a.a
+    public void b() {
+        this.b.b(true);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // android.os.AsyncTask
-    /* renamed from: a */
-    public String doInBackground(String... strArr) {
-        com.baidu.tieba.b.f fVar;
+    @Override // com.baidu.adp.lib.a.a
+    /* renamed from: d */
+    public Boolean a(Object... objArr) {
+        com.baidu.tieba.c.ac acVar;
+        com.baidu.tieba.c.ac acVar2;
+        com.baidu.tieba.c.ac acVar3;
+        com.baidu.tieba.c.ac acVar4;
+        com.baidu.tieba.c.ac acVar5;
+        com.baidu.tieba.c.ac acVar6;
         try {
-            new com.baidu.tieba.account.ak(LabelActivity.c, String.valueOf(this.d.length)).start();
-            if (!this.c) {
-                fVar = this.a.q;
-                com.baidu.tieba.c.k.a(fVar.f(), 12);
-                this.a.O = false;
-            } else {
-                this.b = new com.baidu.tieba.c.t("http://c.tieba.baidu.com/c/s/tag/edit_tag");
-                if (this.d == null || this.d.length != 2) {
-                    this.a.O = false;
-                    return null;
-                }
-                if (this.d[0].length() > 0) {
-                    this.b.a("add_tag_id_list", this.d[0]);
-                }
-                if (this.d[1].length() > 0) {
-                    this.b.a("del_tag_id_list", this.d[1]);
-                }
-                this.b.d(true);
-                String i = this.b.i();
-                if (this.b.c() && this.b.b()) {
-                    return i;
+            this.c = new com.baidu.tieba.d.t(this.d);
+            this.c.a(this.a);
+            acVar = this.b.q;
+            if (acVar != null) {
+                acVar5 = this.b.q;
+                if (acVar5.h().size() != 0) {
+                    acVar6 = this.b.q;
+                    this.c.a("tag_info", acVar6.g());
                 }
             }
-            return null;
+            com.baidu.tieba.d.ae.b("begin to get label data...url is " + this.d);
+            String i = this.c.i();
+            com.baidu.tieba.d.ae.b("end to get label data...");
+            if (this.c.b()) {
+                acVar2 = this.b.q;
+                if (acVar2 == null) {
+                    this.b.q = new com.baidu.tieba.c.ac();
+                }
+                acVar3 = this.b.q;
+                acVar3.a(i);
+                if (this.f) {
+                    acVar4 = this.b.q;
+                    acVar4.b(com.baidu.tieba.d.k.b(12));
+                }
+                com.baidu.tieba.d.ae.a(getClass().getName(), "doInBackground", i);
+                System.gc();
+            }
+            if (this.c.c()) {
+                this.e = 0;
+            } else {
+                this.e = 1;
+            }
+            return true;
         } catch (Exception e) {
-            com.baidu.tieba.c.ag.b(getClass().getName(), "", "AddFanAsyncTask.doInBackground error = " + e.getMessage());
-            return null;
+            com.baidu.tieba.d.ae.b(getClass().getName(), "", "LabelAsyncTask.doInBackground error = " + e.getMessage());
+            return false;
         }
     }
 
-    public void a() {
-        if (this.b != null) {
-            this.b.g();
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.a.a
+    public void a(Boolean bool) {
+        this.b.b(false);
+        if (bool.booleanValue() && this.e != 1) {
+            this.b.o();
+            this.b.c(false);
+        } else {
+            e();
         }
-        this.a.N = null;
-        this.a.b(false);
+        this.b.M = null;
+        System.gc();
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.a.a
+    public void c() {
+        super.c();
+    }
+
+    @Override // com.baidu.adp.lib.a.a
+    public void cancel() {
+        if (this.c != null) {
+            this.c.g();
+        }
         super.cancel(true);
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // android.os.AsyncTask
-    /* renamed from: a */
-    public void onPostExecute(String str) {
-        this.a.N = null;
-        if (str != null) {
-            try {
-                if (str.length() != 0) {
-                    JSONObject optJSONObject = new JSONObject(str).optJSONObject("error");
-                    if (optJSONObject.optInt("errno") == 0) {
-                        com.baidu.tieba.c.k.a("", 12);
-                        this.a.O = false;
-                    } else if (optJSONObject.has("usermsg")) {
-                        String optString = optJSONObject.optString("usermsg");
-                        if (optString != null && optString.length() > 0) {
-                            this.a.b(optString);
-                        } else {
-                            this.a.b(this.a.getString(R.string.add_tag_fail));
-                        }
-                    }
-                    return;
-                }
-            } catch (JSONException e) {
-                e.printStackTrace();
-                this.a.b(this.a.getString(R.string.attention_fail));
-                return;
-            } finally {
-                this.a.r();
-            }
-        }
-        if (this.b != null && this.b.f() != null) {
-            this.a.b(this.b.f());
-        }
+    private void e() {
+        this.b.a(this.c.f());
     }
 }

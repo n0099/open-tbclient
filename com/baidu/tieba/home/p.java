@@ -1,19 +1,22 @@
 package com.baidu.tieba.home;
 
-import android.view.View;
-import com.baidu.tieba.R;
-import com.baidu.tieba.account.LoginActivity;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 /* loaded from: classes.dex */
-class p implements View.OnClickListener {
-    final /* synthetic */ HomeActivity a;
+class p {
+    LinearLayout a;
+    LinearLayout b;
+    TextView c;
+    TextView d;
+    p e;
+    final /* synthetic */ l f;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public p(HomeActivity homeActivity) {
-        this.a = homeActivity;
+    private p(l lVar) {
+        this.f = lVar;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        LoginActivity.a(this.a, "goto_home", this.a.getString(R.string.login_home_tab), 1100003);
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public /* synthetic */ p(l lVar, p pVar) {
+        this(lVar);
     }
 }

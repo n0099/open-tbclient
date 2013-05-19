@@ -1,84 +1,63 @@
 package com.baidu.tieba.a;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.io.Serializable;
 /* loaded from: classes.dex */
-public class at {
-    private q a;
-    private an b = null;
-    private List c = new ArrayList();
-    private int d;
+public class at implements Serializable {
+    private String a;
+    private String b;
+    private String c;
+    private String d;
     private int e;
-    private int f;
-    private int g;
-    private b h;
-    private ax i;
+    private String f;
 
-    public an a() {
-        return this.b;
-    }
-
-    public void a(an anVar) {
-        this.b = anVar;
-    }
-
-    public List b() {
-        return this.c;
-    }
-
-    public void a(List list) {
-        this.c = list;
-    }
-
-    public int c() {
-        return this.d;
-    }
-
-    public void a(int i) {
-        this.d = i;
-    }
-
-    public int d() {
-        return this.e;
-    }
-
-    public void b(int i) {
-        this.e = i;
-    }
-
-    public void c(int i) {
-        this.f = i;
-    }
-
-    public int e() {
-        return this.g;
-    }
-
-    public void d(int i) {
-        this.g = i;
-    }
-
-    public void a(q qVar) {
-        this.a = qVar;
-    }
-
-    public q f() {
+    public String a() {
         return this.a;
     }
 
-    public void a(b bVar) {
-        this.h = bVar;
+    public void a(String str) {
+        this.a = str;
     }
 
-    public b g() {
-        return this.h;
+    public String b() {
+        return this.b;
     }
 
-    public void a(ax axVar) {
-        this.i = axVar;
+    public void b(String str) {
+        if (str != null) {
+            str = com.baidu.tieba.d.ad.b(str.getBytes());
+        }
+        this.b = str;
     }
 
-    public ax h() {
-        return this.i;
+    public String c() {
+        return this.c;
+    }
+
+    public void c(String str) {
+        this.c = str;
+    }
+
+    public void d(String str) {
+        this.d = str;
+    }
+
+    public String d() {
+        return this.d;
+    }
+
+    public void e(String str) {
+        this.f = str;
+    }
+
+    public String e() {
+        return this.f;
+    }
+
+    public void a(int i) {
+        this.e = i;
+    }
+
+    public int f() {
+        return this.e;
     }
 }

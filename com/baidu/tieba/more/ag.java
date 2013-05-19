@@ -1,23 +1,17 @@
 package com.baidu.tieba.more;
 
-import android.content.BroadcastReceiver;
-import android.content.Context;
-import android.content.Intent;
+import android.view.View;
 /* loaded from: classes.dex */
-class ag extends BroadcastReceiver {
-    final /* synthetic */ MoreActivity a;
-
-    private ag(MoreActivity moreActivity) {
-        this.a = moreActivity;
-    }
+class ag implements View.OnClickListener {
+    final /* synthetic */ MsgRemindActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ ag(MoreActivity moreActivity, ag agVar) {
-        this(moreActivity);
+    public ag(MsgRemindActivity msgRemindActivity) {
+        this.a = msgRemindActivity;
     }
 
-    @Override // android.content.BroadcastReceiver
-    public void onReceive(Context context, Intent intent) {
-        MoreActivity.a(this.a);
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        this.a.finish();
     }
 }

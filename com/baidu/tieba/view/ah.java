@@ -1,133 +1,81 @@
 package com.baidu.tieba.view;
 
-import android.content.Context;
 import android.view.View;
-import android.widget.ProgressBar;
-import android.widget.RelativeLayout;
-import com.baidu.tieba.R;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ah extends RelativeLayout {
-    protected ProgressBar a;
-    protected f b;
-    protected Context c;
-    private aj d;
-    private ai e;
+public class ah implements android.support.v4.view.aj {
+    final /* synthetic */ MultiImageView a;
 
-    public void setCallback(ai aiVar) {
-        this.e = aiVar;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public ah(MultiImageView multiImageView) {
+        this.a = multiImageView;
     }
 
-    public ah(Context context) {
-        super(context);
-        this.a = null;
-        this.b = null;
-        this.d = null;
-        this.c = null;
-        this.e = null;
-        this.c = context;
-        a();
+    @Override // android.support.v4.view.aj
+    public void b(int i) {
+        android.support.v4.view.aj ajVar;
+        android.support.v4.view.aj ajVar2;
+        ajVar = this.a.g;
+        if (ajVar != null) {
+            ajVar2 = this.a.g;
+            ajVar2.b(i);
+        }
     }
 
-    public f getImageView() {
-        return this.b;
+    @Override // android.support.v4.view.aj
+    public void a(int i, float f, int i2) {
+        android.support.v4.view.aj ajVar;
+        android.support.v4.view.aj ajVar2;
+        ajVar = this.a.g;
+        if (ajVar != null) {
+            ajVar2 = this.a.g;
+            ajVar2.a(i, f, i2);
+        }
     }
 
-    public void setGifSetListener(j jVar) {
-        this.b.setGifSetListener(jVar);
-    }
-
-    public void setImageOnClickListener(View.OnClickListener onClickListener) {
-        this.b.setImageOnClickListener(onClickListener);
-    }
-
-    public void setOnSizeChangedListener(k kVar) {
-        this.b.setOnSizeChangedListener(kVar);
-    }
-
-    protected void a() {
-        this.b = new f(this.c);
-        this.b.setLayoutParams(new RelativeLayout.LayoutParams(-1, -1));
-        addView(this.b);
-        this.a = new ProgressBar(this.c, null, 16843399);
-        this.a.setIndeterminateDrawable(this.c.getResources().getDrawable(R.drawable.progressbar));
-        RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
-        layoutParams.addRule(13);
-        this.a.setLayoutParams(layoutParams);
-        this.a.setIndeterminate(true);
-        addView(this.a);
-    }
-
-    public void setUrl(String str) {
-        this.b.setTag(str);
-        com.baidu.tieba.c.z c = com.baidu.tieba.c.w.c(getContext());
-        if (c == com.baidu.tieba.c.z.WIFI || c == com.baidu.tieba.c.z.ThreeG) {
-            if (this.d != null) {
-                this.d.a();
-            }
-            if (str != null) {
-                this.d = new aj(this, str);
-                this.d.execute(new String[0]);
+    @Override // android.support.v4.view.aj
+    public void a(int i) {
+        GalleryViewPager galleryViewPager;
+        GalleryViewPager galleryViewPager2;
+        boolean z;
+        android.support.v4.view.aj ajVar;
+        android.support.v4.view.aj ajVar2;
+        GalleryViewPager galleryViewPager3;
+        GalleryViewPager galleryViewPager4;
+        g imageView;
+        GalleryViewPager galleryViewPager5;
+        com.baidu.tieba.d.ae.e(getClass().getName(), "onPageSelected", "postion = " + String.valueOf(i));
+        galleryViewPager = this.a.e;
+        View findViewWithTag = galleryViewPager.findViewWithTag(String.valueOf(i));
+        if (findViewWithTag != null && (findViewWithTag instanceof ap) && (imageView = ((ap) findViewWithTag).getImageView()) != null) {
+            galleryViewPager5 = this.a.e;
+            galleryViewPager5.setSelectedView(imageView);
+            imageView.o();
+        }
+        galleryViewPager2 = this.a.e;
+        int childCount = galleryViewPager2.getChildCount();
+        for (int i2 = 0; i2 < childCount; i2++) {
+            galleryViewPager4 = this.a.e;
+            View childAt = galleryViewPager4.getChildAt(i2);
+            if (childAt != null && (childAt instanceof ap)) {
+                ((ap) childAt).e();
             }
         }
-    }
-
-    public void setGifMaxUseableMem(int i) {
-        this.b.setGifMaxUseableMem(i);
-    }
-
-    public void b() {
-        if (this.d != null) {
-            this.d.a();
-            this.d = null;
-        }
-    }
-
-    public void c() {
-        b();
-        if (this.b != null) {
-            this.b.j();
-        }
-        this.a.setVisibility(8);
-    }
-
-    public void d() {
-        b();
-        if (this.b != null) {
-            this.b.k();
-        }
-        this.a.setVisibility(8);
-    }
-
-    public void e() {
-        if (this.b != null && this.b.getImageType() == 1) {
-            this.b.g();
-        }
-    }
-
-    public void f() {
-        String str;
-        if (this.b != null && (str = (String) this.b.getTag()) != null && this.b != null && this.d == null) {
-            if (this.b.getImageType() == 1) {
-                if (this.b.getGifCache() == null) {
-                    this.d = new aj(this, str);
-                    this.d.execute(new String[0]);
+        com.baidu.tieba.d.z c = com.baidu.tieba.d.w.c(this.a.getContext());
+        z = this.a.l;
+        if (z && (c == com.baidu.tieba.d.z.WIFI || c == com.baidu.tieba.d.z.ThreeG)) {
+            for (int i3 = 0; i3 < childCount; i3++) {
+                galleryViewPager3 = this.a.e;
+                View childAt2 = galleryViewPager3.getChildAt(i3);
+                if (childAt2 != null && (childAt2 instanceof ap)) {
+                    ((ap) childAt2).f();
                 }
-            } else if (this.b.getImageType() == 2) {
-                if (com.baidu.tieba.c.w.a(getContext()) != com.baidu.tieba.c.y.UNAVAIL) {
-                    this.d = new aj(this, str);
-                    this.d.execute(new String[0]);
-                }
-            } else if (this.b.getImageBitmap() == null) {
-                this.d = new aj(this, str);
-                this.d.execute(new String[0]);
             }
         }
-    }
-
-    public int getImageType() {
-        if (this.b != null) {
-            return this.b.getImageType();
+        ajVar = this.a.g;
+        if (ajVar != null) {
+            ajVar2 = this.a.g;
+            ajVar2.a(i);
         }
-        return 0;
     }
 }

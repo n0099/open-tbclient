@@ -6,7 +6,9 @@ import org.json.JSONObject;
 public class j {
     private boolean h = true;
     private boolean i = true;
-    private int j = 0;
+    private boolean j = true;
+    private int k = 0;
+    private int m = 100000;
     private int a = 0;
     private int b = 0;
     private int c = 1;
@@ -14,16 +16,20 @@ public class j {
     private String e = null;
     private String f = null;
     private String g = null;
-    private c k = new c();
+    private c l = new c();
 
-    public c a() {
-        return this.k;
+    public int a() {
+        return this.m;
+    }
+
+    public c b() {
+        return this.l;
     }
 
     public void a(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                this.k.a(jSONObject.optJSONObject("banner"));
+                this.l.a(jSONObject.optJSONObject("banner"));
                 this.a = jSONObject.optInt("pb_max_floor_total_num", 0);
                 this.b = jSONObject.optInt("pb_big_image_width", 0);
                 this.d = jSONObject.optString("big_head_image_host");
@@ -39,32 +45,35 @@ public class j {
                 } else {
                     this.h = true;
                 }
+                this.j = jSONObject.optInt("gpu_open", 1) == 1;
+                TiebaApplication.d().f(this.j);
                 if (jSONObject.optInt("open_abstract", 1) == 2) {
                     this.i = false;
                 } else {
                     this.i = true;
                 }
                 if (!this.h) {
-                    TiebaApplication.b().e(this.h);
+                    TiebaApplication.d().e(this.h);
                 }
                 if (!this.i) {
-                    TiebaApplication.b().o(this.i);
+                    TiebaApplication.d().p(this.i);
                 }
                 if (optInt2 == 1) {
-                    TiebaApplication.b().f(true);
+                    TiebaApplication.d().g(true);
                 } else if (optInt2 == 0) {
-                    TiebaApplication.b().f(false);
+                    TiebaApplication.d().g(false);
                 }
-                this.j = jSONObject.optInt("browser_type", 2);
-                TiebaApplication.b().a(this.j);
-                TiebaApplication.b().c(optInt3 == 1);
+                this.k = jSONObject.optInt("browser_type", 2);
+                this.m = jSONObject.optInt("perform_sample_param", 100000);
+                TiebaApplication.d().a(this.k);
+                TiebaApplication.d().c(optInt3 == 1);
                 i.a(this.a);
                 i.d(this.d);
                 i.c(this.e);
                 i.a(this.f, this.g);
                 i.b(this.c);
             } catch (Exception e) {
-                com.baidu.tieba.c.ag.b(getClass().getName(), "parserJson", e.getMessage());
+                com.baidu.tieba.d.ae.b(getClass().getName(), "parserJson", e.getMessage());
             }
         }
     }

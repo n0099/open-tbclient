@@ -1,24 +1,34 @@
 package com.baidu.tieba.account;
 
-import com.baidu.account.AccountProxy;
-import com.baidu.tieba.BaiduAccount.BaiduAccount;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.view.View;
+import android.widget.Button;
+import android.widget.ImageView;
 /* loaded from: classes.dex */
-public class an implements AccountProxy.TokenCallback {
-    final /* synthetic */ ReLoginActivity a;
+class an implements View.OnClickListener {
+    final /* synthetic */ ReLoginShareActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public an(ReLoginActivity reLoginActivity) {
-        this.a = reLoginActivity;
+    public an(ReLoginShareActivity reLoginShareActivity) {
+        this.a = reLoginShareActivity;
     }
 
-    @Override // com.baidu.account.AccountProxy.TokenCallback
-    public void callBack(String str) {
-        com.baidu.tieba.c.ag.e("BaiduAccountProxy", "getAccountData", "token = " + str);
-        if (str != null) {
-            this.a.a(BaiduAccount.get(this.a).getCurrentAccount(), str);
-            return;
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        Button button;
+        ImageView imageView;
+        Button button2;
+        button = this.a.g;
+        if (view != button) {
+            imageView = this.a.h;
+            if (view != imageView) {
+                button2 = this.a.f;
+                if (view != button2) {
+                    return;
+                }
+                this.a.m();
+                return;
+            }
         }
-        this.a.finish();
+        this.a.d();
     }
 }

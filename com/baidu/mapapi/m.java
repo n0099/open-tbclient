@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Parcelable;
 import android.util.Log;
-import com.baidu.browser.explorer.BdWebErrorView;
 import java.util.ArrayList;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
@@ -710,7 +709,7 @@ public class m implements j {
             case 8:
             case 9:
             case 12:
-            case BdWebErrorView.HTTP_NOT_MODIFIED /* 13 */:
+            case 13:
             case 14:
             default:
                 return;

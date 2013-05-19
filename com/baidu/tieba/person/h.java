@@ -1,15 +1,14 @@
 package com.baidu.tieba.person;
 
-import android.os.AsyncTask;
 import android.widget.ProgressBar;
-import com.baidu.tieba.R;
 import com.baidu.tieba.TiebaApplication;
+import com.slidingmenu.lib.R;
 import java.util.ArrayList;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class h extends AsyncTask {
+public class h extends com.baidu.adp.lib.a.a {
     final /* synthetic */ EditBarActivity a;
-    private com.baidu.tieba.c.t b;
+    private com.baidu.tieba.d.t b;
 
     private h(EditBarActivity editBarActivity) {
         this.a = editBarActivity;
@@ -23,24 +22,23 @@ public class h extends AsyncTask {
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // android.os.AsyncTask
-    /* renamed from: a */
-    public String doInBackground(com.baidu.tieba.a.q... qVarArr) {
-        com.baidu.tieba.a.q qVar = qVarArr[0];
-        if (qVar != null) {
+    @Override // com.baidu.adp.lib.a.a
+    public String a(com.baidu.tieba.a.s... sVarArr) {
+        com.baidu.tieba.a.s sVar = sVarArr[0];
+        if (sVar != null) {
             try {
-                if (qVar.b() != null && qVar.c() != null) {
-                    this.b = new com.baidu.tieba.c.t("http://c.tieba.baidu.com/c/c/forum/unfavolike");
-                    this.b.a("fid", qVar.b());
-                    this.b.a("kw", qVar.c());
-                    this.b.a("favo_type", String.valueOf(qVar.i()));
+                if (sVar.a() != null && sVar.b() != null) {
+                    this.b = new com.baidu.tieba.d.t(String.valueOf(com.baidu.tieba.a.i.e) + "c/c/forum/unfavolike");
+                    this.b.a("fid", sVar.a());
+                    this.b.a("kw", sVar.b());
+                    this.b.a("favo_type", String.valueOf(sVar.j()));
                     this.b.d(true);
                     this.b.i();
                     return null;
                 }
                 return null;
             } catch (Exception e) {
-                com.baidu.tieba.c.ag.b(getClass().getName(), "doInBackground", e.getMessage());
+                com.baidu.tieba.d.ae.b(getClass().getName(), "doInBackground", e.getMessage());
                 return null;
             }
         }
@@ -49,17 +47,16 @@ public class h extends AsyncTask {
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // android.os.AsyncTask
-    /* renamed from: a */
-    public void onPostExecute(String str) {
+    @Override // com.baidu.adp.lib.a.a
+    public void a(String str) {
         ProgressBar progressBar;
-        com.baidu.tieba.b.b bVar;
+        com.baidu.tieba.c.b bVar;
         int i;
         int i2;
         int i3;
         i iVar;
         i iVar2;
-        super.onPostExecute(str);
+        super.a((Object) str);
         this.a.k = null;
         progressBar = this.a.h;
         progressBar.setVisibility(8);
@@ -76,32 +73,31 @@ public class h extends AsyncTask {
                             a.remove(i3);
                             iVar = this.a.g;
                             if (iVar != null) {
-                                this.a.l();
+                                this.a.m();
                                 iVar2 = this.a.g;
                                 iVar2.notifyDataSetChanged();
                             }
                         }
                     }
                 }
-                if (!TiebaApplication.b().L()) {
-                    TiebaApplication.b().g(true);
-                    com.baidu.tieba.c.k.a();
-                }
-                this.a.b(this.a.getString(R.string.success));
+                TiebaApplication.d().h(true);
+                this.a.a(this.a.getString(R.string.success));
                 return;
             }
-            this.a.b(this.b.f());
+            this.a.a(this.b.f());
         }
     }
 
-    @Override // android.os.AsyncTask
-    protected void onPreExecute() {
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.a.a
+    public void b() {
         ProgressBar progressBar;
         progressBar = this.a.h;
         progressBar.setVisibility(0);
     }
 
-    public void a() {
+    @Override // com.baidu.adp.lib.a.a
+    public void cancel() {
         ProgressBar progressBar;
         if (this.b != null) {
             this.b.g();

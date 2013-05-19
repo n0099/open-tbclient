@@ -1,7 +1,6 @@
 package com.baidu.zeus;
 
 import android.text.format.Time;
-import com.baidu.location.LocationClientOption;
 import com.baidu.mapapi.MapView;
 import com.baidu.zeus.bouncycastle.DERTags;
 import java.util.regex.Matcher;
@@ -110,7 +109,7 @@ public final class HttpDateTime {
             return ((str.charAt(0) - '0') * 100) + ((str.charAt(1) - '0') * 10) + (str.charAt(2) - '0') + 1900;
         } else {
             if (str.length() == 4) {
-                return ((str.charAt(0) - '0') * LocationClientOption.MIN_SCAN_SPAN) + ((str.charAt(1) - '0') * 100) + ((str.charAt(2) - '0') * 10) + (str.charAt(3) - '0');
+                return ((str.charAt(0) - '0') * 1000) + ((str.charAt(1) - '0') * 100) + ((str.charAt(2) - '0') * 10) + (str.charAt(3) - '0');
             }
             return 1970;
         }

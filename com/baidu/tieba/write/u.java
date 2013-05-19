@@ -7,7 +7,7 @@ import android.text.style.ImageSpan;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.EditText;
-import com.baidu.tieba.R;
+import com.slidingmenu.lib.R;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class u implements AdapterView.OnItemClickListener {
@@ -39,10 +39,10 @@ public class u implements AdapterView.OnItemClickListener {
                 mVar2 = this.a.t;
                 Bitmap bitmap = (Bitmap) mVar2.getItem(i);
                 if (bitmap != null) {
-                    com.baidu.tieba.view.ag agVar = new com.baidu.tieba.view.ag(bitmap);
-                    agVar.setBounds(0, 0, bitmap.getWidth() + 1, bitmap.getHeight());
-                    agVar.setGravity(3);
-                    spannableStringBuilder.setSpan(new ImageSpan(agVar, 0), 0, spannableStringBuilder.length(), 33);
+                    com.baidu.tieba.view.ak akVar = new com.baidu.tieba.view.ak(bitmap);
+                    akVar.setBounds(0, 0, bitmap.getWidth() + 1, bitmap.getHeight());
+                    akVar.setGravity(3);
+                    spannableStringBuilder.setSpan(new ImageSpan(akVar, 0), 0, spannableStringBuilder.length(), 33);
                     editText4 = this.a.h;
                     editText4.getText().insert(selectionStart, spannableStringBuilder);
                     return;
@@ -51,6 +51,6 @@ public class u implements AdapterView.OnItemClickListener {
             }
             return;
         }
-        this.a.b(this.a.getString(R.string.too_many_face));
+        this.a.a(this.a.getString(R.string.too_many_face));
     }
 }

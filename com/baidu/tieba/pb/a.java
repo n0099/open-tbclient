@@ -1,48 +1,90 @@
 package com.baidu.tieba.pb;
 
-import android.content.Context;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.BaseAdapter;
-import android.widget.TextView;
-import com.baidu.tieba.R;
+import com.baidu.zeus.WebChromeClient;
+import java.util.ArrayList;
 /* loaded from: classes.dex */
-public class a extends BaseAdapter {
-    String[] a;
-    LayoutInflater b;
+public class a {
+    private ArrayList a;
+    private String d;
+    private String e;
+    private String f;
+    private boolean k;
+    private String b = null;
+    private String c = null;
+    private boolean g = false;
+    private b h = null;
+    private int i = 0;
+    private boolean j = false;
+    private c l = null;
 
-    public a(Context context, String[] strArr) {
-        this.b = null;
-        this.b = LayoutInflater.from(context);
-        this.a = strArr;
-    }
-
-    @Override // android.widget.Adapter
-    public int getCount() {
-        if (this.a != null) {
-            return this.a.length;
+    public a(ArrayList arrayList, String str, String str2, String str3) {
+        this.a = null;
+        this.d = null;
+        this.e = null;
+        this.f = null;
+        this.k = false;
+        this.a = arrayList;
+        if (this.a == null) {
+            this.a = new ArrayList();
         }
-        return 0;
-    }
-
-    @Override // android.widget.Adapter
-    public Object getItem(int i) {
-        if (this.a == null || i < 0 || i >= getCount()) {
-            return null;
+        this.d = str2;
+        this.e = str;
+        this.f = str3;
+        if (this.f == null) {
+            this.k = true;
         }
-        return this.a[i];
     }
 
-    @Override // android.widget.Adapter
-    public long getItemId(int i) {
-        return i;
+    public void a() {
+        if (!this.g && !this.k) {
+            a(this.d, this.f, 10, 0);
+        }
     }
 
-    @Override // android.widget.Adapter
-    public View getView(int i, View view, ViewGroup viewGroup) {
-        View inflate = view == null ? this.b.inflate(R.layout.context_menu_item, (ViewGroup) null) : view;
-        ((TextView) inflate).setText(this.a[i]);
-        return inflate;
+    public void b() {
+        if (!this.k) {
+            if (!this.g) {
+                a();
+            } else if (this.b != null && this.b.length() > 0) {
+                a(this.b, null, 0, 10);
+            }
+        }
+    }
+
+    private void a(String str, String str2, int i, int i2) {
+        if (this.h != null) {
+            if (str2 == null || !str2.equals(this.h.e())) {
+                this.h.cancel();
+            } else {
+                return;
+            }
+        }
+        this.h = new b(this, str, str2, i, i2);
+        this.h.setPriority(3);
+        this.h.execute(new Object[0]);
+    }
+
+    public void a(c cVar) {
+        this.l = cVar;
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public String a(com.baidu.tieba.a.w wVar) {
+        StringBuilder sb = new StringBuilder((int) WebChromeClient.STRING_DLG_BTN_SET);
+        if (wVar.g() * wVar.f() > com.baidu.tieba.a.i.g() * com.baidu.tieba.a.i.g()) {
+            double sqrt = Math.sqrt((com.baidu.tieba.a.i.g() * com.baidu.tieba.a.i.g()) / (wVar.g() * wVar.f()));
+            sb.append("width=");
+            sb.append(String.valueOf((int) (wVar.f() * sqrt)));
+            sb.append("&height=");
+            sb.append(String.valueOf((int) (sqrt * wVar.g())));
+        } else {
+            sb.append("width=");
+            sb.append(String.valueOf(wVar.f()));
+            sb.append("&height=");
+            sb.append(String.valueOf(wVar.g()));
+        }
+        sb.append("&src=");
+        sb.append(com.baidu.tieba.d.ad.d(wVar.b()));
+        return sb.toString();
     }
 }

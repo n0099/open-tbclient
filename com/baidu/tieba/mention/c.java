@@ -27,6 +27,6 @@ public class c implements CompoundButton.OnCheckedChangeListener {
                 this.a.a("replyme", ReplyMeActivity.class);
             }
         }
-        this.a.a();
+        this.a.b();
     }
 }

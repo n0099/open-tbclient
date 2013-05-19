@@ -1,53 +1,82 @@
 package com.baidu.tieba.service;
 
-import android.app.Notification;
-import android.app.NotificationManager;
-import android.os.Handler;
-import android.os.Message;
-import com.baidu.location.LocationClientOption;
-import com.baidu.tieba.R;
-import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.a.bb;
-import com.baidu.tieba.c.ai;
+import android.content.Intent;
+import android.graphics.Bitmap;
+import android.net.Uri;
+import com.baidu.tieba.write.bb;
+import com.slidingmenu.lib.R;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class p extends Handler {
-    final /* synthetic */ TiebaUpdateService a;
+public class p extends com.baidu.adp.lib.a.a {
+    int a;
+    Uri b;
+    String c = null;
+    final /* synthetic */ TiebaPrepareImageService d;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public p(TiebaUpdateService tiebaUpdateService) {
-        this.a = tiebaUpdateService;
+    public p(TiebaPrepareImageService tiebaPrepareImageService, int i, Uri uri) {
+        this.d = tiebaPrepareImageService;
+        this.a = 0;
+        this.b = null;
+        this.a = i;
+        this.b = uri;
     }
 
-    @Override // android.os.Handler
-    public void handleMessage(Message message) {
-        Notification notification;
-        Notification notification2;
-        Notification notification3;
-        NotificationManager notificationManager;
-        Notification notification4;
-        super.handleMessage(message);
-        if (message.what == 900002) {
-            notification = this.a.b;
-            if (notification != null && message.arg2 > 0) {
-                notification2 = this.a.b;
-                notification2.contentView.setProgressBar(R.id.progress, 100, (int) ((message.arg1 * 100) / message.arg2), false);
-                StringBuffer stringBuffer = new StringBuffer(20);
-                stringBuffer.append(String.valueOf(message.arg1 / LocationClientOption.MIN_SCAN_SPAN));
-                stringBuffer.append("K/");
-                stringBuffer.append(String.valueOf(message.arg2 / LocationClientOption.MIN_SCAN_SPAN));
-                stringBuffer.append("K");
-                notification3 = this.a.b;
-                notification3.contentView.setTextViewText(R.id.schedule, stringBuffer);
-                notificationManager = this.a.a;
-                notification4 = this.a.b;
-                notificationManager.notify(10, notification4);
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.a.a
+    /* renamed from: d */
+    public Boolean a(Object... objArr) {
+        int i;
+        boolean z = true;
+        TiebaPrepareImageService.a = true;
+        try {
+            int i2 = this.a;
+            TiebaPrepareImageService tiebaPrepareImageService = this.d;
+            Uri uri = this.b;
+            i = this.d.f;
+            Bitmap a = bb.a(i2, tiebaPrepareImageService, uri, i);
+            if (a != null) {
+                if (com.baidu.tieba.d.o.a(null, "tieba_resized_image", a, 80) != null) {
+                    Bitmap a2 = com.baidu.tieba.d.e.a(a, 100);
+                    if (a2 == null || com.baidu.tieba.d.o.a(null, "tieba_resized_image_display", a2, 80) == null) {
+                        this.c = this.d.getString(R.string.error_sd_error);
+                        z = false;
+                    }
+                } else {
+                    this.c = this.d.getString(R.string.error_sd_error);
+                    z = false;
+                }
+            } else {
+                this.c = this.d.getString(R.string.pic_parser_error);
+                z = false;
             }
-        } else if (message.what == 1) {
-            bb bbVar = (bb) message.obj;
-            if (bbVar != null) {
-                ai.b(TiebaApplication.b(), bbVar.f());
-            }
-            this.a.stopSelf();
+            TiebaPrepareImageService.a = false;
+        } catch (Exception e) {
+            TiebaPrepareImageService.a = false;
+            z = false;
+        } catch (Throwable th) {
+            TiebaPrepareImageService.a = false;
+            throw th;
         }
+        return Boolean.valueOf(z);
+    }
+
+    @Override // com.baidu.adp.lib.a.a
+    public void cancel() {
+        this.d.d = null;
+        super.cancel(true);
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.a.a
+    public void a(Boolean bool) {
+        super.a((Object) bool);
+        Intent intent = new Intent("com.baidu.tieba.broadcast.image.resized");
+        intent.putExtra("result", bool);
+        if (this.c != null) {
+            intent.putExtra("error", this.c);
+        }
+        this.d.sendBroadcast(intent);
     }
 }

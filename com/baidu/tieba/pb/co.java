@@ -5,29 +5,20 @@ import android.widget.AdapterView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class co implements AdapterView.OnItemClickListener {
-    final /* synthetic */ SubPbActivity a;
+    final /* synthetic */ bl a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public co(SubPbActivity subPbActivity) {
-        this.a = subPbActivity;
+    public co(bl blVar) {
+        this.a = blVar;
     }
 
     @Override // android.widget.AdapterView.OnItemClickListener
     public void onItemClick(AdapterView adapterView, View view, int i, long j) {
-        Cdo cdo;
-        Cdo cdo2;
-        if (j == -1) {
-            cdo2 = this.a.h;
-            if (cdo2.b()) {
-                return;
-            }
-            this.a.c(2);
-        } else if (j == -2) {
-            cdo = this.a.h;
-            if (cdo.a()) {
-                return;
-            }
-            this.a.c(1);
+        com.baidu.tieba.write.m mVar;
+        mVar = this.a.J;
+        String a = mVar.a(i);
+        if (a != null) {
+            this.a.a.getText().insert(this.a.a.getSelectionStart(), a);
         }
     }
 }

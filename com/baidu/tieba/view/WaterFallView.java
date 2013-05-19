@@ -8,19 +8,18 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
-import android.widget.ScrollView;
 import android.widget.Scroller;
-import com.baidu.tieba.R;
+import com.baidu.adp.widget.ScrollView.BdPullRefreshScrollView;
 import com.baidu.zeus.WebChromeClient;
+import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-public class WaterFallView extends ScrollView {
-    private int a;
-    private LinearLayout b;
+public class WaterFallView extends BdPullRefreshScrollView {
+    private int b;
     private LinearLayout c;
-    private am d;
-    private LinearLayout e;
-    private am f;
-    private View g;
+    private LinearLayout d;
+    private au e;
+    private LinearLayout f;
+    private au g;
     private View h;
     private View i;
     private int j;
@@ -28,12 +27,11 @@ public class WaterFallView extends ScrollView {
     private int l;
     private int m;
     private int n;
-    private an o;
+    private av o;
 
     public WaterFallView(Context context) {
         super(context);
-        this.a = 0;
-        this.b = null;
+        this.b = 0;
         this.c = null;
         this.d = null;
         this.e = null;
@@ -47,13 +45,12 @@ public class WaterFallView extends ScrollView {
         this.m = 0;
         this.n = 20;
         this.o = null;
-        c();
+        j();
     }
 
     public WaterFallView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.a = 0;
-        this.b = null;
+        this.b = 0;
         this.c = null;
         this.d = null;
         this.e = null;
@@ -67,61 +64,24 @@ public class WaterFallView extends ScrollView {
         this.m = 0;
         this.n = 20;
         this.o = null;
-        c();
+        j();
     }
 
-    public WaterFallView(Context context, AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
-        this.a = 0;
-        this.b = null;
-        this.c = null;
-        this.d = null;
-        this.e = null;
-        this.f = null;
-        this.g = null;
-        this.h = null;
-        this.i = null;
-        this.j = 0;
-        this.k = null;
-        this.l = 0;
-        this.m = 0;
-        this.n = 20;
-        this.o = null;
-        c();
-    }
-
-    public void setOnScrollListener(an anVar) {
-        this.o = anVar;
+    public void setOnScrollListener(av avVar) {
+        this.o = avVar;
     }
 
     public void a(View view) {
-        if (this.g != null) {
-            this.b.removeView(this.g);
-        }
-        this.b.addView(view, 0, new LinearLayout.LayoutParams(-1, -2));
-        this.g = view;
-    }
-
-    public View getHeader() {
-        return this.g;
-    }
-
-    public void b(View view) {
         if (this.h != null) {
-            this.b.removeView(this.h);
+            this.c.removeView(this.h);
         }
-        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, -2);
-        if (this.g == null) {
-            this.b.addView(view, 0, layoutParams);
-        } else {
-            this.b.addView(view, 1, layoutParams);
-        }
+        this.c.addView(view, 1, new LinearLayout.LayoutParams(-1, -2));
         this.h = view;
     }
 
-    public void a() {
+    public void h() {
         if (this.h != null) {
-            this.b.removeView(this.h);
+            this.c.removeView(this.h);
             this.h = null;
         }
     }
@@ -130,11 +90,11 @@ public class WaterFallView extends ScrollView {
         return this.h;
     }
 
-    public void c(View view) {
+    public void b(View view) {
         if (this.i != null) {
-            this.b.removeView(this.i);
+            this.c.removeView(this.i);
         }
-        this.b.addView(view, new LinearLayout.LayoutParams(-1, -2));
+        this.c.addView(view, new LinearLayout.LayoutParams(-1, -2));
         this.i = view;
     }
 
@@ -142,26 +102,26 @@ public class WaterFallView extends ScrollView {
         return this.i;
     }
 
-    private void c() {
-        this.d = new am(this);
-        this.f = new am(this);
-        this.n = com.baidu.tieba.c.ai.a(getContext(), 20.0f);
-        this.a = com.baidu.tieba.c.ai.a(getContext(), 3.0f);
-        this.b = (LinearLayout) LayoutInflater.from(getContext()).inflate(R.layout.water_fall_view, (ViewGroup) null);
-        addView(this.b);
-        this.c = (LinearLayout) this.b.findViewById(R.id.line1);
-        this.e = (LinearLayout) this.b.findViewById(R.id.line2);
-        measure(View.MeasureSpec.makeMeasureSpec(com.baidu.tieba.c.ai.a(getContext()), 1073741824), 0);
-        this.j = this.c.getMeasuredWidth();
-        d();
+    private void j() {
+        this.e = new au(this);
+        this.g = new au(this);
+        this.n = com.baidu.tieba.d.ag.a(getContext(), 20.0f);
+        this.b = com.baidu.tieba.d.ag.a(getContext(), 3.0f);
+        this.c = (LinearLayout) LayoutInflater.from(getContext()).inflate(R.layout.water_fall_view, (ViewGroup) null);
+        addView(this.c);
+        this.d = (LinearLayout) this.c.findViewById(R.id.line1);
+        this.f = (LinearLayout) this.c.findViewById(R.id.line2);
+        measure(View.MeasureSpec.makeMeasureSpec(com.baidu.tieba.d.ag.a(getContext()), 1073741824), 0);
+        this.j = this.d.getMeasuredWidth();
+        k();
     }
 
     public int getLineWidth() {
         return this.j;
     }
 
-    private void d() {
-        this.k = new al(this);
+    private void k() {
+        this.k = new at(this);
     }
 
     @Override // android.view.View
@@ -174,18 +134,18 @@ public class WaterFallView extends ScrollView {
         }
         if (i2 == 0 || z) {
             try {
-                Object obj = com.baidu.tieba.c.ai.a(this, "mScroller").get(this);
+                Object obj = com.baidu.tieba.d.ag.a(this, "mScroller").get(this);
                 if (obj != null && (obj instanceof Scroller)) {
                     ((Scroller) obj).abortAnimation();
                 }
             } catch (Exception e) {
-                com.baidu.tieba.c.ag.b(getClass().getName(), "onScrollChanged", e.getMessage());
+                com.baidu.tieba.d.ae.b(getClass().getName(), "onScrollChanged", e.getMessage());
             }
         }
         if (this.o != null) {
             if (i2 == 0) {
                 this.o.b();
-            } else if (this.b.getHeight() - this.n <= getScrollY() + getHeight() && i2 > i4) {
+            } else if (this.c.getHeight() - this.n <= getScrollY() + getHeight() && i2 > i4) {
                 this.o.a();
             }
             this.o.c();
@@ -195,46 +155,46 @@ public class WaterFallView extends ScrollView {
 
     public void a(View view, int i) {
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, i);
-        layoutParams.topMargin = this.a;
-        layoutParams.bottomMargin = this.a;
-        if (this.d.b() <= this.f.b()) {
-            this.c.addView(view, layoutParams);
-            this.d.a((this.a * 2) + i);
+        layoutParams.topMargin = this.b;
+        layoutParams.bottomMargin = this.b;
+        if (this.e.b() <= this.g.b()) {
+            this.d.addView(view, layoutParams);
+            this.e.a((this.b * 2) + i);
             return;
         }
-        this.e.addView(view, layoutParams);
-        this.f.a((this.a * 2) + i);
+        this.f.addView(view, layoutParams);
+        this.g.a((this.b * 2) + i);
     }
 
     public LinearLayout a(int i) {
-        return i == 2 ? this.e : this.c;
+        return i == 2 ? this.f : this.d;
     }
 
     public int b(int i) {
         Rect rect = new Rect();
         if (i == 2) {
-            this.e.getLocalVisibleRect(rect);
-            return this.f.b(rect.top);
+            this.f.getLocalVisibleRect(rect);
+            return this.g.b(rect.top);
         }
-        this.c.getLocalVisibleRect(rect);
-        return this.d.b(rect.top);
+        this.d.getLocalVisibleRect(rect);
+        return this.e.b(rect.top);
     }
 
     public int c(int i) {
         Rect rect = new Rect();
         if (i == 2) {
-            this.e.getLocalVisibleRect(rect);
-            return this.f.c(rect.bottom);
+            this.f.getLocalVisibleRect(rect);
+            return this.g.c(rect.bottom);
         }
-        this.c.getLocalVisibleRect(rect);
-        return this.d.c(rect.bottom);
+        this.d.getLocalVisibleRect(rect);
+        return this.e.c(rect.bottom);
     }
 
-    public void b() {
-        this.c.removeAllViews();
-        this.d.a();
-        this.e.removeAllViews();
-        this.f.a();
+    public void i() {
+        this.d.removeAllViews();
+        this.e.a();
+        this.f.removeAllViews();
+        this.g.a();
     }
 
     @Override // android.widget.ScrollView, android.view.View
@@ -251,5 +211,25 @@ public class WaterFallView extends ScrollView {
         }
         this.k.removeMessages(WebChromeClient.STRING_DLG_TITLE_DATETIME);
         this.k.sendMessageDelayed(this.k.obtainMessage(WebChromeClient.STRING_DLG_TITLE_DATETIME), 300L);
+    }
+
+    public void d(int i) {
+        com.baidu.tieba.d.ac.b(this.c, i);
+        this.d.invalidate();
+        this.f.invalidate();
+        for (int i2 = 0; i2 < this.d.getChildCount(); i2++) {
+            FrsWaterFallItem frsWaterFallItem = (FrsWaterFallItem) this.d.getChildAt(i2);
+            if (frsWaterFallItem != null) {
+                frsWaterFallItem.a(i);
+                frsWaterFallItem.invalidate();
+            }
+        }
+        for (int i3 = 0; i3 < this.f.getChildCount(); i3++) {
+            FrsWaterFallItem frsWaterFallItem2 = (FrsWaterFallItem) this.f.getChildAt(i3);
+            if (frsWaterFallItem2 != null) {
+                frsWaterFallItem2.a(i);
+                frsWaterFallItem2.invalidate();
+            }
+        }
     }
 }

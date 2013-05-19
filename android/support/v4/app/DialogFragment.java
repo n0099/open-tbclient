@@ -27,7 +27,7 @@ public class DialogFragment extends Fragment implements DialogInterface.OnCancel
             this.e = -1;
             return;
         }
-        q a = h().a();
+        s a = h().a();
         a.a(this);
         if (z) {
             a.b();

@@ -1,140 +1,133 @@
 package com.baidu.tieba.view;
 
-import android.app.Activity;
 import android.content.Context;
-import android.os.AsyncTask;
-import android.widget.ProgressBar;
-import com.baidu.tieba.R;
-import com.baidu.tieba.a.as;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.graphics.Bitmap;
+import android.graphics.Canvas;
+import android.graphics.Matrix;
+import android.graphics.Paint;
+import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import com.baidu.tieba.TiebaApplication;
+import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-public class p extends AsyncTask {
-    final /* synthetic */ l a;
-    private volatile com.baidu.tieba.c.t b;
-    private volatile boolean c;
+public class p extends ImageView {
+    private Matrix a;
+    private boolean b;
+    private int c;
+    private int d;
+    private Paint e;
+    private int f;
+    private int g;
+    private boolean h;
+    private ViewGroup.LayoutParams i;
 
-    private p(l lVar) {
-        this.a = lVar;
-        this.b = null;
-        this.c = false;
+    public boolean a() {
+        return this.h;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ p(l lVar, p pVar) {
-        this(lVar);
+    public void setIsThree(boolean z) {
     }
 
-    @Override // android.os.AsyncTask
-    protected void onPreExecute() {
-        ProgressBar progressBar;
-        progressBar = this.a.h;
-        progressBar.setVisibility(0);
+    public void setPicNum(int i) {
+        this.g = i;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // android.os.AsyncTask
-    /* renamed from: a */
-    public as doInBackground(Object... objArr) {
-        as asVar;
-        Exception e;
-        String str;
-        String str2;
-        String i;
-        try {
-            this.b = new com.baidu.tieba.c.t("http://c.tieba.baidu.com/c/c/forum/sign");
-            com.baidu.tieba.c.t tVar = this.b;
-            str = this.a.q;
-            tVar.a("kw", str);
-            com.baidu.tieba.c.t tVar2 = this.b;
-            str2 = this.a.r;
-            tVar2.a("fid", str2);
-            this.b.d(true);
-            i = this.b.i();
-        } catch (Exception e2) {
-            asVar = null;
-            e = e2;
-        }
-        if (this.b.c()) {
-            if (this.b.b()) {
-                asVar = new as();
-                try {
-                    asVar.a(i);
-                } catch (Exception e3) {
-                    e = e3;
-                    com.baidu.tieba.c.ag.b(getClass().getName(), "doInBackground", e.getMessage());
-                    return asVar;
+    public p(Context context, int i) {
+        super(context);
+        this.a = new Matrix();
+        this.b = false;
+        this.c = 0;
+        this.d = 0;
+        this.e = new Paint();
+        this.f = 0;
+        this.g = 1;
+        this.h = false;
+        this.i = null;
+        this.f = i;
+        b();
+    }
+
+    private void b() {
+        this.e = new Paint();
+        this.e.setAntiAlias(true);
+    }
+
+    public void setType(int i) {
+        this.f = i;
+    }
+
+    @Override // android.widget.ImageView, android.view.View
+    protected void onDraw(Canvas canvas) {
+        Bitmap bitmap;
+        float f;
+        Bitmap a;
+        super.onDraw(canvas);
+        Bitmap c = com.baidu.tbadk.a.d.a().c(String.valueOf((String) getTag()) + "_small");
+        if (c == null) {
+            this.h = false;
+            if (this.f == 5) {
+                if (TiebaApplication.d().ai() == 1) {
+                    a = com.baidu.tieba.d.e.a((int) R.drawable.pic_video_1);
+                } else {
+                    a = com.baidu.tieba.d.e.a((int) R.drawable.pic_video);
                 }
-            } else if (this.b.d() == 160002) {
-                this.c = true;
-                asVar = null;
-            }
-            return asVar;
-        }
-        asVar = null;
-        return asVar;
-    }
-
-    public void a() {
-        ProgressBar progressBar;
-        if (this.b != null) {
-            this.b.g();
-        }
-        this.a.s = null;
-        progressBar = this.a.h;
-        progressBar.setVisibility(8);
-        super.cancel(true);
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // android.os.AsyncTask
-    /* renamed from: a */
-    public void onPostExecute(as asVar) {
-        ProgressBar progressBar;
-        int i;
-        Activity activity;
-        Activity activity2;
-        Activity activity3;
-        Activity activity4;
-        Activity activity5;
-        Activity activity6;
-        Activity activity7;
-        Activity activity8;
-        this.a.s = null;
-        progressBar = this.a.h;
-        progressBar.setVisibility(8);
-        if (this.c) {
-            this.a.b(1);
-        } else if (asVar == null) {
-            if (this.b != null) {
-                activity8 = this.a.o;
-                com.baidu.tieba.c.ai.a((Context) activity8, this.b.f());
+                this.h = true;
+                bitmap = a;
+            } else if (TiebaApplication.d().ai() == 1) {
+                bitmap = com.baidu.tieba.d.e.a((int) R.drawable.pic_image_h_not_1);
+            } else {
+                bitmap = com.baidu.tieba.d.e.a((int) R.drawable.pic_image_h_not);
             }
         } else {
-            this.a.b(1);
-            StringBuilder sb = new StringBuilder(100);
-            i = this.a.m;
-            if (i == 0) {
-                activity5 = this.a.o;
-                sb.append(activity5.getString(R.string.sign_success));
-                sb.append("!\n");
-                activity6 = this.a.o;
-                sb.append(String.format(activity6.getString(R.string.sign_user), Integer.valueOf(asVar.c())));
-                activity7 = this.a.o;
-                com.baidu.tieba.c.ai.a((Context) activity7, sb.toString());
-                return;
+            this.h = true;
+            bitmap = c;
+        }
+        if (bitmap != null) {
+            if (!this.h) {
+                this.a.reset();
+                if (TiebaApplication.d().ai() == 1) {
+                    canvas.drawColor(-13815750);
+                }
+                this.c = (getWidth() - bitmap.getWidth()) >> 1;
+                this.d = (getHeight() - bitmap.getHeight()) >> 1;
+                this.a.postTranslate(this.c, this.d);
+            } else if (!this.b) {
+                int width = bitmap.getWidth();
+                int height = bitmap.getHeight();
+                int width2 = getWidth();
+                int height2 = getHeight();
+                if (width != 0 && height != 0 && width2 != 0 && height2 != 0) {
+                    if (this.g == 1) {
+                        f = ((double) width) < ((double) (width2 * 2)) / 10.0d ? 1.0f : width2 / width;
+                    } else {
+                        f = ((float) width) < ((float) (((double) (width2 * 2)) / 10.0d)) ? 1.0f : width2 / width;
+                    }
+                    this.a.setScale(f, f);
+                    int round = Math.round(width * f);
+                    int round2 = Math.round(f * height);
+                    if (round2 <= 1.25d * height2) {
+                        this.c = 0;
+                        this.d = 0;
+                    } else {
+                        this.c = 0;
+                        this.d = (int) ((0.5d * height2) - (0.4d * round2));
+                        if (this.d > 0) {
+                            this.d = 0;
+                        }
+                    }
+                    this.a.postTranslate(this.c, this.d);
+                    this.b = true;
+                    if (round2 > height2) {
+                        round2 = height2;
+                    }
+                    this.i = new LinearLayout.LayoutParams(round, round2);
+                    setLayoutParams(this.i);
+                } else {
+                    return;
+                }
             }
-            activity = this.a.o;
-            sb.append(activity.getString(R.string.sign_success));
-            sb.append(",");
-            activity2 = this.a.o;
-            sb.append(String.format(activity2.getString(R.string.sign_point), Integer.valueOf(asVar.d())));
-            sb.append("!\n");
-            activity3 = this.a.o;
-            sb.append(String.format(activity3.getString(R.string.sign_user), Integer.valueOf(asVar.c())));
-            activity4 = this.a.o;
-            com.baidu.tieba.c.ai.a((Context) activity4, sb.toString());
+            canvas.drawBitmap(bitmap, this.a, this.e);
         }
     }
 }

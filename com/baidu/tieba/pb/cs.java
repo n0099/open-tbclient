@@ -1,21 +1,36 @@
 package com.baidu.tieba.pb;
 
-import android.graphics.Bitmap;
-import android.widget.ImageView;
+import android.widget.EditText;
+import android.widget.GridView;
+import android.widget.LinearLayout;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class cs implements com.baidu.tieba.c.d {
-    final /* synthetic */ SubPbActivity a;
-    private final /* synthetic */ ImageView b;
+public class cs implements Runnable {
+    final /* synthetic */ cr a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public cs(SubPbActivity subPbActivity, ImageView imageView) {
-        this.a = subPbActivity;
-        this.b = imageView;
+    public cs(cr crVar) {
+        this.a = crVar;
     }
 
-    @Override // com.baidu.tieba.c.d
-    public void a(Bitmap bitmap, String str, boolean z) {
-        this.b.setImageBitmap(bitmap);
+    @Override // java.lang.Runnable
+    public void run() {
+        GridView gridView;
+        LinearLayout linearLayout;
+        LinearLayout linearLayout2;
+        EditText editText;
+        EditText editText2;
+        EditText editText3;
+        gridView = this.a.A;
+        gridView.setVisibility(0);
+        linearLayout = this.a.s;
+        linearLayout.setVisibility(0);
+        linearLayout2 = this.a.p;
+        linearLayout2.setEnabled(false);
+        editText = this.a.F;
+        editText2 = this.a.F;
+        editText.setSelection(editText2.getText().length());
+        editText3 = this.a.F;
+        editText3.requestFocus();
     }
 }

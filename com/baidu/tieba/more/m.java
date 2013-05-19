@@ -14,6 +14,6 @@ class m implements DialogInterface.OnCancelListener {
     public void onCancel(DialogInterface dialogInterface) {
         AccountActivity accountActivity;
         accountActivity = this.a.a;
-        accountActivity.c();
+        accountActivity.g();
     }
 }

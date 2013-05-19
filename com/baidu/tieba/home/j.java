@@ -1,24 +1,32 @@
 package com.baidu.tieba.home;
 
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.TextView;
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
+import com.baidu.tieba.TiebaApplication;
+import java.io.Serializable;
 /* loaded from: classes.dex */
-class j {
-    LinearLayout a;
-    LinearLayout b;
-    TextView c;
-    ImageView d;
-    TextView e;
-    j f;
-    final /* synthetic */ f g;
+class j extends BroadcastReceiver {
+    final /* synthetic */ EnterForumActivity a;
 
-    private j(f fVar) {
-        this.g = fVar;
+    private j(EnterForumActivity enterForumActivity) {
+        this.a = enterForumActivity;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ j(f fVar, j jVar) {
-        this(fVar);
+    public /* synthetic */ j(EnterForumActivity enterForumActivity, j jVar) {
+        this(enterForumActivity);
+    }
+
+    @Override // android.content.BroadcastReceiver
+    public void onReceive(Context context, Intent intent) {
+        com.baidu.tieba.d.ae.b("lottery onReceive");
+        Serializable serializableExtra = intent.getSerializableExtra("lottery");
+        if (serializableExtra != null && (serializableExtra instanceof com.baidu.tieba.a.c)) {
+            TiebaApplication.d().a((com.baidu.tieba.a.c) serializableExtra);
+        } else {
+            TiebaApplication.d().a((com.baidu.tieba.a.c) null);
+        }
+        this.a.c.c();
     }
 }

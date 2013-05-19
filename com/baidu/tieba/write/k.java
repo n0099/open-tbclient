@@ -2,7 +2,6 @@ package com.baidu.tieba.write;
 
 import android.content.Context;
 import android.graphics.Bitmap;
-import android.graphics.drawable.BitmapDrawable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,15 +9,15 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
-import com.baidu.tieba.R;
 import com.baidu.tieba.TiebaApplication;
+import com.slidingmenu.lib.R;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class k extends BaseAdapter {
     boolean b;
     boolean c;
     private Context e;
-    private com.baidu.tieba.c.a f;
+    private com.baidu.tieba.d.a f;
     private ArrayList d = null;
     private boolean g = false;
     private boolean h = false;
@@ -34,7 +33,7 @@ public class k extends BaseAdapter {
                     try {
                         ((ProgressBar) this.i.get(i2)).setVisibility(8);
                     } catch (Exception e) {
-                        com.baidu.tieba.c.ag.b(getClass().getName(), "releaseProgressBar", e.getMessage());
+                        com.baidu.tieba.d.ae.b(getClass().getName(), "releaseProgressBar", e.getMessage());
                     }
                     i = i2 + 1;
                 } else {
@@ -66,12 +65,12 @@ public class k extends BaseAdapter {
         this.b = false;
         this.c = true;
         this.e = context;
-        this.f = new com.baidu.tieba.c.a(this.e);
+        this.f = new com.baidu.tieba.d.a(this.e);
         this.b = z;
         this.c = z2;
     }
 
-    public com.baidu.tieba.c.a c() {
+    public com.baidu.tieba.d.a c() {
         return this.f;
     }
 
@@ -121,7 +120,6 @@ public class k extends BaseAdapter {
                 if (getItemViewType(i) == 0) {
                     View inflate = from.inflate(R.layout.at_list_item, (ViewGroup) null);
                     lVar2.a = (ImageView) inflate.findViewById(R.id.photo);
-                    lVar2.a.setBackgroundDrawable(new BitmapDrawable(com.baidu.tieba.c.e.a((int) R.drawable.photo_bg)));
                     lVar2.b = (TextView) inflate.findViewById(R.id.name);
                     lVar2.d = (TextView) inflate.findViewById(R.id.at_list_nodata);
                     view2 = inflate;
@@ -158,16 +156,16 @@ public class k extends BaseAdapter {
                     lVar.a.setVisibility(0);
                     lVar.b.setVisibility(0);
                     lVar.d.setVisibility(8);
-                    String d = ((com.baidu.tieba.a.ah) this.d.get(i)).d();
-                    Bitmap b = this.f.b(d);
+                    String e = ((com.baidu.tieba.a.ai) this.d.get(i)).e();
+                    Bitmap b = this.f.b(e);
                     if (b != null) {
                         lVar.a.setTag(null);
                         lVar.a.setImageBitmap(b);
                     } else {
-                        lVar.a.setTag(d);
-                        lVar.a.setImageBitmap(com.baidu.tieba.c.e.a((int) R.drawable.photo));
+                        lVar.a.setTag(e);
+                        lVar.a.setImageBitmap(com.baidu.tieba.d.e.a((int) R.drawable.photo));
                     }
-                    lVar.b.setText(((com.baidu.tieba.a.ah) this.d.get(i)).c());
+                    lVar.b.setText(((com.baidu.tieba.a.ai) this.d.get(i)).d());
                 }
             } else if (this.h) {
                 lVar.b.setText(this.e.getString(R.string.loading));
@@ -176,8 +174,8 @@ public class k extends BaseAdapter {
                 lVar.b.setText(this.e.getString(R.string.load_more));
                 lVar.c.setVisibility(8);
             }
-            if (TiebaApplication.b().ah() == 1) {
-                int a = com.baidu.tieba.c.ae.a(1);
+            if (TiebaApplication.d().ai() == 1) {
+                int a = com.baidu.tieba.d.ac.a(1);
                 lVar.b.setTextColor(a);
                 if (lVar.d != null) {
                     lVar.d.setTextColor(a);

@@ -1,10 +1,9 @@
 package com.baidu.tieba.frs;
 
-import android.content.DialogInterface;
-import com.baidu.tieba.write.bb;
+import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ak implements DialogInterface.OnClickListener {
+public class ak implements View.OnClickListener {
     final /* synthetic */ FrsImageActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -12,12 +11,15 @@ public class ak implements DialogInterface.OnClickListener {
         this.a = frsImageActivity;
     }
 
-    @Override // android.content.DialogInterface.OnClickListener
-    public void onClick(DialogInterface dialogInterface, int i) {
-        if (i == 0) {
-            bb.a(this.a);
-        } else if (i == 1) {
-            bb.b(this.a);
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        aw awVar;
+        int i;
+        awVar = this.a.h;
+        if (awVar == aw.NEXT) {
+            FrsImageActivity frsImageActivity = this.a;
+            i = this.a.j;
+            frsImageActivity.e(i + 240);
         }
     }
 }

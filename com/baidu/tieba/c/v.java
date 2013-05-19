@@ -1,22 +1,52 @@
 package com.baidu.tieba.c;
 
-import com.baidu.tieba.BaiduAccount.BaiduAccount;
-import com.baidu.tieba.R;
-import com.baidu.tieba.TiebaApplication;
-/* JADX INFO: Access modifiers changed from: package-private */
+import java.util.ArrayList;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes.dex */
-public class v implements BaiduAccount.CallbackListener {
-    final /* synthetic */ t a;
+public class v {
+    private com.baidu.tieba.a.s a = new com.baidu.tieba.a.s();
+    private ArrayList b = new ArrayList();
+    private ArrayList c = new ArrayList();
+    private int d = 0;
+    private int e = 0;
+    private int f = 0;
+    private com.baidu.tieba.a.b g = new com.baidu.tieba.a.b();
+    private com.baidu.tieba.a.aj h = new com.baidu.tieba.a.aj();
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public v(t tVar) {
-        this.a = tVar;
+    public ArrayList a() {
+        return this.b;
     }
 
-    @Override // com.baidu.tieba.BaiduAccount.BaiduAccount.CallbackListener
-    public void callback() {
-        w wVar;
-        wVar = this.a.a;
-        wVar.b(TiebaApplication.b().getString(R.string.error_unkown));
+    public void a(JSONObject jSONObject) {
+        if (jSONObject != null) {
+            try {
+                this.a.a(jSONObject.optJSONObject("forum"));
+                this.h.a(jSONObject.optJSONObject("user"));
+                this.g.a(jSONObject.optJSONObject("anti"));
+                JSONObject optJSONObject = jSONObject.optJSONObject("photo_data");
+                if (optJSONObject != null) {
+                    JSONArray optJSONArray = optJSONObject.optJSONArray("thread_list");
+                    if (optJSONArray != null) {
+                        for (int i = 0; i < optJSONArray.length(); i++) {
+                            com.baidu.tieba.a.bc bcVar = new com.baidu.tieba.a.bc();
+                            bcVar.a(optJSONArray.optJSONObject(i));
+                            this.b.add(bcVar);
+                        }
+                    }
+                    JSONArray optJSONArray2 = optJSONObject.optJSONArray("alb_id_list");
+                    if (optJSONArray2 != null) {
+                        for (int i2 = 0; i2 < optJSONArray2.length(); i2++) {
+                            this.c.add(optJSONArray2.optString(i2));
+                        }
+                    }
+                    this.d = optJSONObject.optInt("has_more", 0);
+                    this.e = optJSONObject.optInt("amount", 0);
+                    this.f = optJSONObject.optInt("current_count", 0);
+                }
+            } catch (Exception e) {
+                com.baidu.tieba.d.ae.b(getClass().getName(), "parserJson", "error = " + e.getMessage());
+            }
+        }
     }
 }

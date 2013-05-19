@@ -35,6 +35,6 @@ public class aa implements View.OnClickListener {
             gridView2 = this.a.r;
             gridView2.setVisibility(8);
         }
-        this.a.i();
+        this.a.b();
     }
 }

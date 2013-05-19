@@ -1,27 +1,26 @@
 package com.baidu.tieba.pb;
 
-import android.graphics.Bitmap;
-import android.widget.ImageView;
-import android.widget.ListView;
+import com.baidu.mobstat.StatService;
+import com.baidu.tieba.TiebaApplication;
 /* loaded from: classes.dex */
-class ap implements com.baidu.tieba.c.d {
-    final /* synthetic */ ao a;
+class ap implements com.baidu.adp.widget.ListView.r {
+    final /* synthetic */ NewPbActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ap(ao aoVar) {
-        this.a = aoVar;
+    public ap(NewPbActivity newPbActivity) {
+        this.a = newPbActivity;
     }
 
-    @Override // com.baidu.tieba.c.d
-    public void a(Bitmap bitmap, String str, boolean z) {
-        PbActivity pbActivity;
-        ListView listView;
-        if (bitmap != null) {
-            pbActivity = this.a.a;
-            listView = pbActivity.d;
-            ImageView imageView = (ImageView) listView.findViewWithTag(str);
-            if (imageView != null) {
-                imageView.invalidate();
+    @Override // com.baidu.adp.widget.ListView.r
+    public void a() {
+        com.baidu.tieba.c.au auVar;
+        bl blVar;
+        auVar = this.a.i;
+        if (auVar.a(false)) {
+            blVar = this.a.o;
+            blVar.p();
+            if (TiebaApplication.d().n()) {
+                StatService.onEvent(this.a, "pb_more", "pbclick", 1);
             }
         }
     }

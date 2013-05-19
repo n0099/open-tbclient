@@ -1,24 +1,30 @@
 package com.baidu.tieba.pb;
 
-import android.app.Dialog;
-import android.view.View;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.TextView;
+import com.baidu.tbadk.widget.richText.TbRichTextView;
 /* loaded from: classes.dex */
-public class bi implements View.OnClickListener {
-    final /* synthetic */ PbActivity a;
-    private final /* synthetic */ String b;
+class bi {
+    public ImageView a;
+    public TextView b;
+    public TextView c;
+    public TextView d;
+    public TextView e;
+    public Button f;
+    public Button g;
+    public TbRichTextView h;
+    public LinearLayout i;
+    public LinearLayout j;
+    final /* synthetic */ bh k;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public bi(PbActivity pbActivity, String str) {
-        this.a = pbActivity;
-        this.b = str;
+    private bi(bh bhVar) {
+        this.k = bhVar;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        Dialog dialog;
-        this.a.c(this.b);
-        dialog = this.a.J;
-        dialog.dismiss();
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public /* synthetic */ bi(bh bhVar, bi biVar) {
+        this(bhVar);
     }
 }

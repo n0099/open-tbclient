@@ -1,8 +1,9 @@
 package com.baidu.tieba.home;
 
-import org.apache.http.message.BasicNameValuePair;
+import android.widget.AbsListView;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class ae implements Runnable {
+public class ae implements AbsListView.OnScrollListener {
     final /* synthetic */ SearchActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -10,30 +11,14 @@ class ae implements Runnable {
         this.a = searchActivity;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        String str;
-        String str2;
-        String str3;
-        at atVar;
-        try {
-            str = this.a.x;
-            if (str != null) {
-                str2 = this.a.x;
-                if (str2.length() > 0) {
-                    StringBuffer stringBuffer = new StringBuffer(30);
-                    stringBuffer.append("http://c.tieba.baidu.com/");
-                    stringBuffer.append("c/f/forum/sug");
-                    str3 = this.a.x;
-                    BasicNameValuePair basicNameValuePair = new BasicNameValuePair("q", str3.trim());
-                    this.a.i();
-                    this.a.v = new at(this.a, stringBuffer.toString(), basicNameValuePair, true);
-                    atVar = this.a.v;
-                    atVar.execute(stringBuffer.toString(), basicNameValuePair);
-                }
-            }
-        } catch (Exception e) {
-            com.baidu.tieba.c.ag.b(getClass().getName(), "mSuggestRunnble.run", "error = " + e.getMessage());
+    @Override // android.widget.AbsListView.OnScrollListener
+    public void onScrollStateChanged(AbsListView absListView, int i) {
+        if (i == 2 || i == 1) {
+            com.baidu.tieba.d.ag.a(this.a, absListView);
         }
+    }
+
+    @Override // android.widget.AbsListView.OnScrollListener
+    public void onScroll(AbsListView absListView, int i, int i2, int i3) {
     }
 }

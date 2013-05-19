@@ -44,7 +44,7 @@ public class BaseWebView extends WebView {
     public void a() {
         getSettings().setJavaScriptEnabled(true);
         getSettings().setCacheMode(2);
-        com.baidu.tieba.c.ai.a(getSettings());
+        com.baidu.tieba.d.ag.a(getSettings());
         this.a = new MyWebViewClient();
         setWebViewClient(this.a);
         setOnLongClickListener(new b(this));

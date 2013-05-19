@@ -1,75 +1,23 @@
 package com.baidu.tieba.person;
 
-import android.content.DialogInterface;
-import android.content.Intent;
-import android.os.AsyncTask;
-import com.baidu.tieba.R;
+import android.graphics.Bitmap;
+import android.widget.ImageView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class bb extends AsyncTask {
-    final /* synthetic */ PersonChangeActivity a;
-    private com.baidu.tieba.c.t b = null;
-    private com.baidu.tieba.b.s c;
+public class bb implements com.baidu.tieba.d.d {
+    final /* synthetic */ ba a;
 
-    public bb(PersonChangeActivity personChangeActivity, com.baidu.tieba.b.s sVar) {
-        this.a = personChangeActivity;
-        this.c = null;
-        this.c = sVar;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public bb(ba baVar) {
+        this.a = baVar;
     }
 
-    public void a() {
-        this.a.C = null;
-        if (this.b != null) {
-            this.b.g();
+    @Override // com.baidu.tieba.d.d
+    public void a(Bitmap bitmap, String str, boolean z) {
+        ImageView imageView;
+        if (bitmap != null) {
+            imageView = this.a.d;
+            imageView.setImageBitmap(bitmap);
         }
-        super.cancel(true);
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // android.os.AsyncTask
-    /* renamed from: a */
-    public void onPostExecute(String str) {
-        this.a.C = null;
-        this.a.d();
-        if (this.b != null) {
-            if (this.b.b()) {
-                this.a.b(this.a.getString(R.string.success));
-                Intent intent = new Intent();
-                intent.putExtra("data", this.c);
-                this.a.setResult(-1, intent);
-                this.a.finish();
-            } else {
-                this.a.b(this.b.f());
-            }
-        }
-        super.onPostExecute(str);
-    }
-
-    @Override // android.os.AsyncTask
-    protected void onPreExecute() {
-        DialogInterface.OnCancelListener onCancelListener;
-        PersonChangeActivity personChangeActivity = this.a;
-        String string = this.a.getString(R.string.saving);
-        onCancelListener = this.a.E;
-        personChangeActivity.a(string, onCancelListener);
-        super.onPreExecute();
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // android.os.AsyncTask
-    /* renamed from: a */
-    public String doInBackground(String... strArr) {
-        if (this.c != null) {
-            this.b = new com.baidu.tieba.c.t("http://c.tieba.baidu.com/c/c/profile/modify");
-            this.b.a("sex", String.valueOf(this.c.b()));
-            this.b.a("intro", this.c.a());
-            this.b.j();
-            if (this.b.b()) {
-                com.baidu.tieba.c.k.e();
-            }
-        }
-        return null;
     }
 }

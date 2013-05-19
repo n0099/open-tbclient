@@ -4,27 +4,27 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
-import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import com.baidu.tieba.R;
 import com.baidu.tieba.TiebaApplication;
+import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public class PersonListActivity extends com.baidu.tieba.e {
-    private com.baidu.tieba.b.v i;
-    private Button c = null;
+    private com.baidu.tieba.c.bj i;
+    private ImageView c = null;
     private ListView d = null;
     private ProgressBar e = null;
     private com.baidu.tieba.write.k f = null;
     private Handler g = new Handler();
-    private bw h = null;
+    private bq h = null;
     private RelativeLayout j = null;
     private RelativeLayout k = null;
     private TextView l = null;
-    private Runnable m = new br(this);
+    private Runnable m = new bl(this);
 
     public static void a(Activity activity, boolean z, String str) {
         Intent intent = new Intent(activity, PersonListActivity.class);
@@ -36,12 +36,12 @@ public class PersonListActivity extends com.baidu.tieba.e {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.e, android.app.Activity
+    @Override // com.baidu.tieba.e, com.baidu.adp.a.a, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         setContentView(R.layout.person_list_activity);
         a(bundle);
-        i();
+        b();
         a(false);
     }
 
@@ -49,10 +49,10 @@ public class PersonListActivity extends com.baidu.tieba.e {
     @Override // com.baidu.tieba.e
     public void b(int i) {
         super.b(i);
-        com.baidu.tieba.c.ae.a(this.j, i);
-        com.baidu.tieba.c.ae.c(this.k, i);
-        com.baidu.tieba.c.ae.c(this.l, i);
-        com.baidu.tieba.c.ae.e((TextView) this.c, i);
+        com.baidu.tieba.d.ac.a(this.j, i);
+        com.baidu.tieba.d.ac.d(this.k, i);
+        com.baidu.tieba.d.ac.f(this.l, i);
+        com.baidu.tieba.d.ac.a(this.c, i);
         this.f.notifyDataSetChanged();
         if (i == 1) {
             this.d.setDivider(getResources().getDrawable(R.drawable.list_divider_1));
@@ -67,7 +67,7 @@ public class PersonListActivity extends com.baidu.tieba.e {
     @Override // com.baidu.tieba.e, android.app.Activity
     public void onDestroy() {
         if (this.h != null) {
-            this.h.a();
+            this.h.cancel();
         }
         if (this.f != null) {
             this.f.a();
@@ -84,7 +84,7 @@ public class PersonListActivity extends com.baidu.tieba.e {
     }
 
     private void a(Bundle bundle) {
-        this.i = new com.baidu.tieba.b.v();
+        this.i = new com.baidu.tieba.c.bj();
         if (bundle != null) {
             this.i.a(bundle.getBoolean("follow", false));
             this.i.a(bundle.getString("un"));
@@ -102,7 +102,7 @@ public class PersonListActivity extends com.baidu.tieba.e {
         bundle.putString("un", this.i.a());
     }
 
-    private void i() {
+    private void b() {
         this.j = (RelativeLayout) findViewById(R.id.parent);
         this.k = (RelativeLayout) findViewById(R.id.title);
         this.l = (TextView) findViewById(R.id.title_text);
@@ -112,14 +112,14 @@ public class PersonListActivity extends com.baidu.tieba.e {
         } else {
             this.l.setText(R.string.fans);
         }
-        this.c = (Button) findViewById(R.id.back);
-        this.c.setOnClickListener(new bt(this));
-        this.f = new com.baidu.tieba.write.k(this, getIntent().getBooleanExtra("follow", false), this.i.a().equals(TiebaApplication.y()));
+        this.c = (ImageView) findViewById(R.id.back);
+        this.c.setOnClickListener(new bn(this));
+        this.f = new com.baidu.tieba.write.k(this, getIntent().getBooleanExtra("follow", false), this.i.a().equals(TiebaApplication.z()));
         this.f.a(this.i.c().b());
         this.d = (ListView) findViewById(R.id.list);
         this.d.setAdapter((ListAdapter) this.f);
-        this.d.setOnItemClickListener(new bu(this));
-        this.d.setOnScrollListener(new bv(this));
+        this.d.setOnItemClickListener(new bo(this));
+        this.d.setOnScrollListener(new bp(this));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -127,7 +127,7 @@ public class PersonListActivity extends com.baidu.tieba.e {
         if (this.h == null) {
             if (!z) {
                 this.e.setVisibility(0);
-                this.h = new bw(this, this.i.a(), this.i.b(), 0);
+                this.h = new bq(this, this.i.a(), this.i.b(), 0);
                 this.h.execute(new String[0]);
                 return;
             }
@@ -135,7 +135,8 @@ public class PersonListActivity extends com.baidu.tieba.e {
                 this.f.b(true);
                 this.f.notifyDataSetChanged();
             }
-            this.h = new bw(this, this.i.a(), this.i.b(), this.i.c().a().b() + 1);
+            this.h = new bq(this, this.i.a(), this.i.b(), this.i.c().a().c() + 1);
+            this.h.setPriority(3);
             this.h.execute(new String[0]);
         }
     }

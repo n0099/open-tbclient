@@ -1,24 +1,36 @@
 package com.baidu.tieba.pb;
 
-import android.view.View;
-import com.baidu.tieba.person.PersonInfoActivity;
+import android.text.Editable;
+import android.text.TextWatcher;
+import android.widget.Button;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class cu implements View.OnClickListener {
-    final /* synthetic */ SubPbActivity a;
+public class cu implements TextWatcher {
+    final /* synthetic */ cr a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public cu(SubPbActivity subPbActivity) {
-        this.a = subPbActivity;
+    public cu(cr crVar) {
+        this.a = crVar;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        com.baidu.tieba.b.w wVar;
-        com.baidu.tieba.b.w wVar2;
-        wVar = this.a.g;
-        String a = wVar.a().a().e().a();
-        wVar2 = this.a.g;
-        PersonInfoActivity.a(this.a, a, wVar2.a().a().e().b());
+    @Override // android.text.TextWatcher
+    public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
+    }
+
+    @Override // android.text.TextWatcher
+    public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
+    }
+
+    @Override // android.text.TextWatcher
+    public void afterTextChanged(Editable editable) {
+        Button button;
+        Button button2;
+        if (editable == null || editable.length() <= 0) {
+            button = this.a.C;
+            button.setEnabled(false);
+            return;
+        }
+        button2 = this.a.C;
+        button2.setEnabled(true);
     }
 }

@@ -1,10 +1,9 @@
 package com.baidu.tieba.pb;
 
-import android.widget.Button;
-import android.widget.LinearLayout;
-import com.baidu.tieba.R;
+import android.view.View;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class y implements com.baidu.tieba.view.aa {
+public class y implements View.OnClickListener {
     final /* synthetic */ ImagePbActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -12,16 +11,8 @@ class y implements com.baidu.tieba.view.aa {
         this.a = imagePbActivity;
     }
 
-    @Override // com.baidu.tieba.view.aa
-    public void a(int i) {
-        LinearLayout linearLayout;
-        Button button;
-        if (i == -2) {
-            linearLayout = this.a.r;
-            linearLayout.setVisibility(8);
-            this.a.s.setVisibility(0);
-            button = this.a.o;
-            button.setBackgroundResource(R.drawable.sub_pb_face);
-        }
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        this.a.b(true);
     }
 }

@@ -1,8 +1,8 @@
 package com.baidu.tieba.nearby;
 
 import android.view.View;
-import com.baidu.tieba.R;
 import com.baidu.tieba.frs.FrsActivity;
+import com.slidingmenu.lib.R;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class a implements View.OnClickListener {
@@ -16,19 +16,17 @@ public class a implements View.OnClickListener {
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         switch (view.getId()) {
-            case R.id.nearby_forum_node_layout /* 2131231217 */:
+            case R.id.nearby_forum_node_layout /* 2131100188 */:
                 String str = (String) view.getTag();
-                if (com.baidu.tieba.c.af.d(str)) {
+                if (com.baidu.tieba.d.ad.b(str)) {
                     FrsActivity.a(this.a, str, "tb_suishoufa");
                     return;
                 }
                 return;
-            case R.id.thread_count /* 2131231218 */:
-            case R.id.div /* 2131231219 */:
-            default:
-                return;
-            case R.id.like /* 2131231220 */:
+            case R.id.like /* 2131100194 */:
                 this.a.a((String) view.getTag(R.id.tag_nearby_forum_name), (String) view.getTag(R.id.tag_nearby_forum_id));
+                return;
+            default:
                 return;
         }
     }

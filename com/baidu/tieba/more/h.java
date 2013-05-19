@@ -19,6 +19,7 @@ public class h implements AdapterView.OnItemClickListener {
         n nVar2;
         n nVar3;
         l lVar;
+        l lVar2;
         nVar = this.a.d;
         if (nVar.getItemId(i) >= 0) {
             nVar2 = this.a.d;
@@ -28,7 +29,9 @@ public class h implements AdapterView.OnItemClickListener {
                 if (aVar != null && aVar.e() != 1) {
                     this.a.k = new l(this.a, aVar);
                     lVar = this.a.k;
-                    lVar.execute(new Object[0]);
+                    lVar.setPriority(3);
+                    lVar2 = this.a.k;
+                    lVar2.execute(new Object[0]);
                     return;
                 }
                 return;

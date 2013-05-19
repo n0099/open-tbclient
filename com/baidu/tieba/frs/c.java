@@ -1,11 +1,9 @@
 package com.baidu.tieba.frs;
 
-import android.widget.ListView;
-import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.a.ax;
-import java.util.ArrayList;
+import android.graphics.Bitmap;
+import android.view.View;
 /* loaded from: classes.dex */
-class c implements Runnable {
+class c implements View.OnClickListener {
     final /* synthetic */ FrsActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -13,146 +11,28 @@ class c implements Runnable {
         this.a = frsActivity;
     }
 
-    /* JADX WARN: Incorrect condition in loop: B:17:0x007d */
-    /* JADX WARN: Removed duplicated region for block: B:20:0x0082  */
-    @Override // java.lang.Runnable
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public void run() {
-        ListView listView;
-        ListView listView2;
-        com.baidu.tieba.view.l lVar;
-        int i;
-        int i2;
-        aa aaVar;
-        aa aaVar2;
-        aa aaVar3;
-        aa aaVar4;
-        int i3;
-        aa aaVar5;
-        aa aaVar6;
-        aa aaVar7;
-        int i4;
-        aa aaVar8;
-        aa aaVar9;
-        aa aaVar10;
-        aa aaVar11;
-        try {
-            listView = this.a.x;
-            int firstVisiblePosition = listView.getFirstVisiblePosition();
-            listView2 = this.a.x;
-            int lastVisiblePosition = listView2.getLastVisiblePosition();
-            lVar = this.a.M;
-            if (lVar != null) {
-                firstVisiblePosition--;
-                lastVisiblePosition--;
-                if (firstVisiblePosition < 0) {
-                    firstVisiblePosition = 0;
-                }
-                if (lastVisiblePosition < 0) {
-                    i = 0;
-                    i2 = firstVisiblePosition;
-                    com.baidu.tieba.c.z c = com.baidu.tieba.c.w.c(this.a);
-                    aaVar = this.a.y;
-                    aaVar.a().a();
-                    aaVar2 = this.a.y;
-                    aaVar2.b().a();
-                    boolean z = c != com.baidu.tieba.c.z.WIFI || c == com.baidu.tieba.c.z.ThreeG;
-                    aaVar3 = this.a.y;
-                    aaVar3.a().a(z);
-                    aaVar4 = this.a.y;
-                    aaVar4.b().a(z);
-                    i3 = i2;
-                    int i5 = 0;
-                    while (i3 < aaVar5.getCount()) {
-                        if (z || i3 <= i) {
-                            aaVar6 = this.a.y;
-                            ax axVar = (ax) aaVar6.getItem(i3);
-                            aaVar7 = this.a.y;
-                            if (aaVar7.getItemId(i3) == -3) {
-                                aaVar11 = this.a.y;
-                                axVar = aaVar11.e();
-                            }
-                            if (axVar != null) {
-                                ArrayList p = axVar.p();
-                                int size = p.size();
-                                if (i5 < 13) {
-                                    aaVar8 = this.a.y;
-                                    if (aaVar8.getItemId(i3) == -3) {
-                                        int i6 = 0;
-                                        while (true) {
-                                            if (i6 >= size) {
-                                                i4 = i5;
-                                                break;
-                                            }
-                                            if (((com.baidu.tieba.a.af) p.get(i6)).a() == 3) {
-                                                if (i5 >= 13) {
-                                                    i4 = i5;
-                                                    break;
-                                                }
-                                                i5++;
-                                                aaVar10 = this.a.y;
-                                                aaVar10.b().a(((com.baidu.tieba.a.af) p.get(i6)).b(), new d(this));
-                                            }
-                                            i6++;
-                                            i5 = i5;
-                                        }
-                                    } else if (TiebaApplication.b().ag()) {
-                                        int i7 = 0;
-                                        while (i7 < size) {
-                                            if (((com.baidu.tieba.a.af) p.get(i7)).a() == 3) {
-                                                if (i5 >= 13) {
-                                                    i4 = i5;
-                                                    break;
-                                                }
-                                                i5++;
-                                                aaVar9 = this.a.y;
-                                                aaVar9.a().a(((com.baidu.tieba.a.af) p.get(i7)).b(), new e(this));
-                                            }
-                                            i7++;
-                                            i5 = i5;
-                                        }
-                                    }
-                                    if (z && i4 >= 13 && 0 >= 30) {
-                                        return;
-                                    }
-                                }
-                                i4 = i5;
-                                if (z) {
-                                    return;
-                                }
-                                continue;
-                            } else {
-                                i4 = i5;
-                            }
-                            i3++;
-                            i5 = i4;
-                        } else {
-                            return;
-                        }
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        com.baidu.tieba.d.a aVar;
+        com.baidu.tieba.d.a aVar2;
+        ba baVar;
+        if (((com.baidu.tieba.view.p) view).a()) {
+            aVar = this.a.J;
+            aVar.b();
+            if (view.getTag() != null && (view.getTag() instanceof String)) {
+                aVar2 = this.a.J;
+                Bitmap a = aVar2.a((String) view.getTag(), new d(this));
+                if (a == null) {
+                    baVar = this.a.l;
+                    Bitmap c = baVar.g().a().c(String.valueOf((String) view.getTag()) + "_small");
+                    if (c != null) {
+                        this.a.a(c, true);
+                        return;
                     }
+                    return;
                 }
+                this.a.a(a, false);
             }
-            i = lastVisiblePosition;
-            i2 = firstVisiblePosition;
-            com.baidu.tieba.c.z c2 = com.baidu.tieba.c.w.c(this.a);
-            aaVar = this.a.y;
-            aaVar.a().a();
-            aaVar2 = this.a.y;
-            aaVar2.b().a();
-            if (c2 != com.baidu.tieba.c.z.WIFI) {
-            }
-            aaVar3 = this.a.y;
-            aaVar3.a().a(z);
-            aaVar4 = this.a.y;
-            aaVar4.b().a(z);
-            i3 = i2;
-            int i52 = 0;
-            while (i3 < aaVar5.getCount()) {
-            }
-        } catch (Exception e) {
-            com.baidu.tieba.c.ag.b("PbActivity", "mGetImageRunnble.run", "error = " + e.getMessage());
         }
     }
 }

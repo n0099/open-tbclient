@@ -1,149 +1,131 @@
 package com.baidu.tieba.account;
 
-import android.text.Editable;
-import android.text.TextWatcher;
-import android.widget.EditText;
-import android.widget.RelativeLayout;
+import android.widget.LinearLayout;
+import android.widget.ProgressBar;
+import android.widget.TextView;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class ax implements TextWatcher {
+public class ax extends com.baidu.adp.lib.a.a {
     final /* synthetic */ Register2Activity a;
+    private com.baidu.tieba.d.t b;
+
+    private ax(Register2Activity register2Activity) {
+        this.a = register2Activity;
+        this.b = null;
+    }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ax(Register2Activity register2Activity) {
-        this.a = register2Activity;
+    public /* synthetic */ ax(Register2Activity register2Activity, ax axVar) {
+        this(register2Activity);
     }
 
-    @Override // android.text.TextWatcher
-    public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
+    @Override // com.baidu.adp.lib.a.a
+    public void cancel() {
+        ProgressBar progressBar;
+        if (this.b != null) {
+            this.b.g();
+        }
+        this.a.R = null;
+        progressBar = this.a.H;
+        progressBar.setVisibility(8);
+        this.a.u();
+        super.cancel(true);
     }
 
-    @Override // android.text.TextWatcher
-    public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.a.a
+    public com.baidu.tieba.c.af a(String... strArr) {
+        com.baidu.tieba.a.at v;
+        com.baidu.tieba.c.af afVar = new com.baidu.tieba.c.af();
+        try {
+            v = this.a.v();
+            this.b = new com.baidu.tieba.d.t(String.valueOf(com.baidu.tieba.a.i.e) + "c/s/regreal");
+            this.b.a("un", v.a());
+            this.b.a("phonenum", v.c());
+            this.b.a("passwd", v.b());
+            if (v.d() != null) {
+                this.b.a("vcode", v.d());
+            }
+            if (v.e() != null) {
+                this.b.a("vcode_md5", v.e());
+            }
+            String i = this.b.i();
+            if ((this.b.c() && (this.b.d() == 0 || this.b.d() == 36)) || this.b.d() == 5) {
+                com.baidu.tieba.c.af afVar2 = new com.baidu.tieba.c.af();
+                afVar2.a(i);
+                return afVar2;
+            }
+            return afVar;
+        } catch (Exception e) {
+            com.baidu.tieba.d.ae.b(getClass().getName(), "doInBackground", e.getMessage());
+            return null;
+        }
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:19:0x006a, code lost:
-        if (r4 != r0.getEditableText()) goto L22;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:23:0x0082, code lost:
-        if (r4 != r0.getEditableText()) goto L26;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:27:0x009a, code lost:
-        if (r4 != r0.getEditableText()) goto L30;
-     */
-    /* JADX WARN: Removed duplicated region for block: B:18:0x0060  */
-    /* JADX WARN: Removed duplicated region for block: B:22:0x0078  */
-    /* JADX WARN: Removed duplicated region for block: B:26:0x0090  */
-    /* JADX WARN: Removed duplicated region for block: B:30:0x00a8  */
-    /* JADX WARN: Removed duplicated region for block: B:36:? A[RETURN, SYNTHETIC] */
-    @Override // android.text.TextWatcher
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public void afterTextChanged(Editable editable) {
-        EditText editText;
-        EditText editText2;
-        RelativeLayout relativeLayout;
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.a.a
+    public void a(com.baidu.tieba.c.af afVar) {
+        ProgressBar progressBar;
+        com.baidu.tieba.a.at v;
         int i;
         int i2;
         int i3;
-        int i4;
-        int i5;
-        int i6;
-        int i7;
-        int i8;
-        EditText editText3;
-        EditText editText4;
-        EditText editText5;
-        EditText editText6;
-        EditText editText7;
-        EditText editText8;
-        boolean z;
-        RelativeLayout relativeLayout2;
-        EditText editText9;
-        RelativeLayout relativeLayout3;
-        editText = this.a.z;
-        if (editable == editText.getEditableText()) {
+        super.a((Object) afVar);
+        this.a.R = null;
+        progressBar = this.a.H;
+        progressBar.setVisibility(8);
+        this.a.u();
+        this.a.S = afVar;
+        if (!this.b.c()) {
+            this.a.O = -1;
+            this.a.P = this.b.f();
+            this.a.t();
+        } else if (this.b.d() == 36) {
+            this.a.a(afVar.c());
+            Register2Activity register2Activity = this.a;
+            i3 = Register2Activity.h;
+            register2Activity.O = i3;
+            this.a.P = this.b.f();
+            this.a.t();
+        } else if (this.b.d() == 5) {
+            Register2Activity register2Activity2 = this.a;
+            i2 = Register2Activity.k;
+            register2Activity2.O = i2;
+            this.a.a(true);
+        } else if (this.b.d() == 0) {
+            v = this.a.v();
+            Register2Activity register2Activity3 = this.a;
+            i = Register2Activity.g;
+            ActivationActivity.a(register2Activity3, v, i);
             this.a.a(false);
+        } else {
+            this.a.O = this.b.d();
+            this.a.P = this.b.f();
+            this.a.t();
         }
-        editText2 = this.a.x;
-        if (editText2.length() > 0) {
-            editText7 = this.a.y;
-            if (editText7.length() >= 6) {
-                editText8 = this.a.z;
-                if (editText8.length() > 0) {
-                    z = this.a.M;
-                    if (z) {
-                        editText9 = this.a.A;
-                        if (editText9.length() <= 0) {
-                            relativeLayout3 = this.a.B;
-                            relativeLayout3.setEnabled(false);
-                            i = this.a.O;
-                            i2 = Register2Activity.h;
-                            if (i == i2) {
-                                editText6 = this.a.x;
-                            }
-                            i3 = this.a.O;
-                            i4 = Register2Activity.i;
-                            if (i3 == i4) {
-                                editText5 = this.a.y;
-                            }
-                            i5 = this.a.O;
-                            i6 = Register2Activity.j;
-                            if (i5 == i6) {
-                                editText4 = this.a.z;
-                            }
-                            i7 = this.a.O;
-                            i8 = Register2Activity.k;
-                            if (i7 == i8) {
-                                editText3 = this.a.A;
-                                if (editable != editText3.getEditableText()) {
-                                    return;
-                                }
-                                this.a.O = -1;
-                                this.a.s();
-                                return;
-                            }
-                            return;
-                        }
-                    }
-                    relativeLayout2 = this.a.B;
-                    relativeLayout2.setEnabled(true);
-                    i = this.a.O;
-                    i2 = Register2Activity.h;
-                    if (i == i2) {
-                    }
-                    i3 = this.a.O;
-                    i4 = Register2Activity.i;
-                    if (i3 == i4) {
-                    }
-                    i5 = this.a.O;
-                    i6 = Register2Activity.j;
-                    if (i5 == i6) {
-                    }
-                    i7 = this.a.O;
-                    i8 = Register2Activity.k;
-                    if (i7 == i8) {
-                    }
-                }
-            }
-        }
-        relativeLayout = this.a.B;
-        relativeLayout.setEnabled(false);
-        i = this.a.O;
-        i2 = Register2Activity.h;
-        if (i == i2) {
-        }
-        i3 = this.a.O;
-        i4 = Register2Activity.i;
-        if (i3 == i4) {
-        }
-        i5 = this.a.O;
-        i6 = Register2Activity.j;
-        if (i5 == i6) {
-        }
-        i7 = this.a.O;
-        i8 = Register2Activity.k;
-        if (i7 == i8) {
-        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.a.a
+    public void b() {
+        ProgressBar progressBar;
+        LinearLayout linearLayout;
+        TextView textView;
+        TextView textView2;
+        progressBar = this.a.H;
+        progressBar.setVisibility(0);
+        this.a.r();
+        this.a.O = -1;
+        this.a.P = null;
+        this.a.t();
+        linearLayout = this.a.D;
+        linearLayout.setVisibility(8);
+        textView = this.a.w;
+        textView.setVisibility(4);
+        textView2 = this.a.w;
+        textView2.setText((CharSequence) null);
+        super.b();
     }
 }

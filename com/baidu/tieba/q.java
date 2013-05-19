@@ -1,67 +1,34 @@
 package com.baidu.tieba;
 
-import android.os.Handler;
-import android.os.Vibrator;
-import android.view.MotionEvent;
+import android.app.AlertDialog;
 import android.view.View;
-import android.view.animation.Animation;
+import com.baidu.tieba.a.ba;
+import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-class q implements View.OnTouchListener {
-    boolean a = true;
-    final /* synthetic */ LabelActivity b;
+class q implements View.OnClickListener {
+    final /* synthetic */ LabelActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public q(LabelActivity labelActivity) {
-        this.b = labelActivity;
+        this.a = labelActivity;
     }
 
-    @Override // android.view.View.OnTouchListener
-    public boolean onTouch(View view, MotionEvent motionEvent) {
-        Handler handler;
-        Animation animation;
-        Handler handler2;
-        Vibrator vibrator;
-        Handler handler3;
-        Handler handler4;
-        switch (motionEvent.getAction()) {
-            case 0:
-                this.a = true;
-                this.b.o = view;
-                handler3 = this.b.P;
-                handler4 = this.b.P;
-                handler3.sendMessageDelayed(handler4.obtainMessage(2), 200L);
-                break;
-            case 1:
-                if (this.a) {
-                    if (view instanceof com.baidu.tieba.view.ab) {
-                        vibrator = this.b.u;
-                        vibrator.vibrate(100L);
-                        if (((com.baidu.tieba.view.ab) view).getType() == 0) {
-                            this.b.a(view);
-                        } else {
-                            this.b.startDropSmallBall(view);
-                        }
-                    }
-                    handler2 = this.b.P;
-                    handler2.removeMessages(2);
-                    view.setAnimation(null);
-                    this.b.o = null;
-                    break;
-                } else {
-                    return false;
-                }
-            case 3:
-            case 4:
-                handler = this.b.P;
-                handler.removeMessages(2);
-                view.setAnimation(null);
-                if ((view instanceof com.baidu.tieba.view.ab) && ((com.baidu.tieba.view.ab) view).getType() == 0) {
-                    animation = this.b.w;
-                    view.setAnimation(animation);
-                }
-                this.a = false;
-                break;
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        com.baidu.tieba.c.ac acVar;
+        ah ahVar;
+        com.baidu.tieba.c.ac acVar2;
+        AlertDialog alertDialog;
+        acVar = this.a.q;
+        acVar.b((ba) view.getTag());
+        ahVar = this.a.J;
+        ahVar.notifyDataSetChanged();
+        acVar2 = this.a.q;
+        if (acVar2.h().size() == 0) {
+            this.a.a(this.a.getString(R.string.tag_is_null));
+            alertDialog = this.a.H;
+            alertDialog.hide();
         }
-        return true;
+        this.a.c(false);
     }
 }

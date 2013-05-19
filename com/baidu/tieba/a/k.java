@@ -6,8 +6,8 @@ import android.text.SpannableString;
 import android.text.SpannableStringBuilder;
 import android.text.style.ImageSpan;
 import com.baidu.android.common.util.HanziToPinyin;
-import com.baidu.tieba.R;
 import com.baidu.tieba.TiebaApplication;
+import com.slidingmenu.lib.R;
 import java.util.regex.Pattern;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
@@ -92,11 +92,11 @@ public class k {
                 return spannableString;
             case 2:
                 SpannableString spannableString2 = new SpannableString(String.valueOf(this.b) + HanziToPinyin.Token.SEPARATOR);
-                Bitmap e = TiebaApplication.b().e(this.b);
+                Bitmap e = TiebaApplication.d().e(this.b);
                 if (e != null) {
-                    com.baidu.tieba.view.ag agVar = new com.baidu.tieba.view.ag(e);
-                    agVar.setBounds(0, 0, e.getWidth(), e.getHeight());
-                    spannableString2.setSpan(new ImageSpan(agVar, 1), 0, this.b.length(), 33);
+                    com.baidu.tieba.view.ak akVar = new com.baidu.tieba.view.ak(e);
+                    akVar.setBounds(0, 0, e.getWidth(), e.getHeight());
+                    spannableString2.setSpan(new ImageSpan(akVar, 1), 0, this.b.length(), 33);
                     return spannableString2;
                 }
                 return spannableString2;
@@ -127,16 +127,16 @@ public class k {
             return null;
         }
         SpannableString spannableString = new SpannableString(String.valueOf(this.b) + HanziToPinyin.Token.SEPARATOR);
-        Bitmap e = TiebaApplication.b().e(this.b);
+        Bitmap e = TiebaApplication.d().e(this.b);
         if (e != null) {
-            com.baidu.tieba.view.ag agVar = new com.baidu.tieba.view.ag(e);
+            com.baidu.tieba.view.ak akVar = new com.baidu.tieba.view.ak(e);
             if (i2 - i3 > 0) {
                 height = e.getHeight() + ((i2 - i3) >> 1);
             } else {
                 height = e.getHeight();
             }
-            agVar.setBounds(0, 0, e.getWidth(), height);
-            spannableString.setSpan(new ImageSpan(agVar, 1), 0, this.b.length(), 33);
+            akVar.setBounds(0, 0, e.getWidth(), height);
+            spannableString.setSpan(new ImageSpan(akVar, 1), 0, this.b.length(), 33);
         }
         return spannableString;
     }
@@ -174,7 +174,7 @@ public class k {
                 } else {
                     this.b = jSONObject.optString("text");
                     this.f = jSONObject.optString("link");
-                    if (this.a == 2 && !com.baidu.tieba.c.n.b(this.b)) {
+                    if (this.a == 2 && com.baidu.tbadk.a.a.a().b(this.b) == 0) {
                         this.a = 0;
                         this.b = "[" + jSONObject.optString("c") + "]";
                     }
@@ -184,7 +184,7 @@ public class k {
                     this.f = this.f.replaceAll("\n", "");
                 }
             } catch (Exception e2) {
-                com.baidu.tieba.c.ag.b("ContentData", "parserJson", "error = " + e2.getMessage());
+                com.baidu.tieba.d.ae.b("ContentData", "parserJson", "error = " + e2.getMessage());
             }
         }
     }

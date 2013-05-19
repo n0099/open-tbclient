@@ -1,26 +1,20 @@
 package com.baidu.tieba.pb;
 
-import android.app.Dialog;
-import android.view.View;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.webkit.URLUtil;
 /* loaded from: classes.dex */
-public class cz implements View.OnClickListener {
-    final /* synthetic */ SubPbActivity a;
-    private final /* synthetic */ int b;
-    private final /* synthetic */ String c;
+class cz implements Runnable {
+    final /* synthetic */ WebActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public cz(SubPbActivity subPbActivity, int i, String str) {
-        this.a = subPbActivity;
-        this.b = i;
-        this.c = str;
+    public cz(WebActivity webActivity) {
+        this.a = webActivity;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        Dialog dialog;
-        this.a.b(this.b, this.c);
-        dialog = this.a.K;
-        dialog.dismiss();
+    @Override // java.lang.Runnable
+    public void run() {
+        String guessUrl = URLUtil.guessUrl(this.a.e);
+        if (URLUtil.isNetworkUrl(guessUrl)) {
+            this.a.c.loadUrl(guessUrl);
+        }
     }
 }

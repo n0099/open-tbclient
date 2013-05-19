@@ -11,27 +11,36 @@ import android.view.KeyEvent;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import com.baidu.mobstat.StatService;
+import com.baidu.tieba.compatible.CompatibleUtile;
+import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-public class e extends Activity {
+public class e extends com.baidu.adp.a.a {
     protected ProgressDialog a = null;
     private DialogInterface.OnCancelListener c = null;
     private AlertDialog d = null;
     protected int b = -1;
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // android.app.Activity
+    @Override // com.baidu.adp.a.a, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
+        if (e()) {
+            CompatibleUtile.getInstance().openGpu(this);
+        }
         com.baidu.tieba.account.a.a().c();
-        TiebaApplication.p(true);
-        TiebaApplication.b().a(getClass().getName());
-        if (TiebaApplication.b().l()) {
+        TiebaApplication.q(true);
+        TiebaApplication.d().a(getClass().getName());
+        if (TiebaApplication.d().n()) {
             try {
                 StatService.setAppChannel(com.baidu.tieba.a.i.a());
             } catch (Exception e) {
-                com.baidu.tieba.c.ag.b(getClass().getName(), "onCreate", e.getMessage());
+                com.baidu.tieba.d.ae.b(getClass().getName(), "onCreate", e.getMessage());
             }
         }
+    }
+
+    public boolean e() {
+        return false;
     }
 
     @Override // android.app.Activity, android.view.KeyEvent.Callback
@@ -59,21 +68,22 @@ public class e extends Activity {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void a() {
+    public void f() {
         finish();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.app.Activity
     public void onDestroy() {
-        d();
+        h();
         super.onDestroy();
     }
 
-    public void b() {
+    @Override // com.baidu.adp.a.a
+    public void a_() {
     }
 
-    public void a(String str) {
+    public void b(String str) {
         if (this.c == null) {
             this.c = new f(this);
         }
@@ -84,7 +94,7 @@ public class e extends Activity {
         }
     }
 
-    public void c() {
+    public void g() {
         this.a = null;
     }
 
@@ -96,21 +106,22 @@ public class e extends Activity {
         }
     }
 
-    public void d() {
+    public void h() {
         if (this.a != null) {
             try {
                 if (this.a.isShowing()) {
                     this.a.dismiss();
                 }
             } catch (Exception e) {
-                com.baidu.tieba.c.ag.b(getClass().getName(), "closeLoadingDialog", e.getMessage());
+                com.baidu.tieba.d.ae.b(getClass().getName(), "closeLoadingDialog", e.getMessage());
             }
             this.a = null;
         }
     }
 
-    public void b(String str) {
-        com.baidu.tieba.c.ai.a((Context) this, str);
+    @Override // com.baidu.adp.a.a
+    public void a(String str) {
+        com.baidu.tieba.d.ag.a((Context) this, str);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -118,7 +129,7 @@ public class e extends Activity {
         try {
             inputMethodManager.hideSoftInputFromWindow(view.getWindowToken(), 2);
         } catch (Exception e) {
-            com.baidu.tieba.c.ag.b(getClass().getName(), "HidenSoftKeyPad", "error = " + e.getMessage());
+            com.baidu.tieba.d.ae.b(getClass().getName(), "HidenSoftKeyPad", "error = " + e.getMessage());
         }
     }
 
@@ -147,17 +158,12 @@ public class e extends Activity {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public AlertDialog b(String[] strArr, DialogInterface.OnClickListener onClickListener) {
-        return this.d != null ? this.d : a(strArr, onClickListener);
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    public AlertDialog e() {
+    public AlertDialog i() {
         return this.d;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void f() {
+    public void j() {
         if (this.d != null && !this.d.isShowing()) {
             this.d.show();
         }
@@ -167,12 +173,12 @@ public class e extends Activity {
     @Override // android.app.Activity
     public void onPause() {
         super.onPause();
-        TiebaApplication.b().av();
-        if (TiebaApplication.b().l()) {
+        TiebaApplication.d().av();
+        if (TiebaApplication.d().n()) {
             try {
                 StatService.onPause(this);
             } catch (Exception e) {
-                com.baidu.tieba.c.ag.b(getClass().getName(), "onPause", e.getMessage());
+                com.baidu.tieba.d.ae.b(getClass().getName(), "onPause", e.getMessage());
             }
         }
     }
@@ -186,30 +192,30 @@ public class e extends Activity {
     @Override // android.app.Activity
     public void onResume() {
         super.onResume();
-        if (TiebaApplication.b().ah() != this.b) {
-            this.b = TiebaApplication.b().ah();
+        if (TiebaApplication.d().ai() != this.b) {
+            this.b = TiebaApplication.d().ai();
             b(this.b);
         }
-        if (TiebaApplication.b().l()) {
+        if (TiebaApplication.d().n()) {
             try {
                 StatService.onResume(this);
             } catch (Exception e) {
-                com.baidu.tieba.c.ag.b(getClass().getName(), "onResume", e.getMessage());
+                com.baidu.tieba.d.ae.b(getClass().getName(), "onResume", e.getMessage());
             }
         }
-        TiebaApplication.b().au();
-        TiebaApplication.b().a(getClass().getName());
+        TiebaApplication.d().au();
+        TiebaApplication.d().a(getClass().getName());
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.app.Activity
     public void onStop() {
         super.onStop();
-        g();
+        k();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void g() {
+    public void k() {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -217,7 +223,7 @@ public class e extends Activity {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void h() {
-        com.baidu.tieba.c.ai.a((Activity) this);
+    public void l() {
+        com.baidu.tieba.d.ag.a((Activity) this);
     }
 }

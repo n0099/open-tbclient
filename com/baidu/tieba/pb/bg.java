@@ -1,33 +1,21 @@
 package com.baidu.tieba.pb;
-
-import android.widget.CompoundButton;
-import com.baidu.tieba.R;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class bg implements CompoundButton.OnCheckedChangeListener {
-    final /* synthetic */ PbActivity a;
+public class bg extends Thread {
+    private com.baidu.tieba.a.af a;
+    private com.baidu.tieba.d.t b = null;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public bg(PbActivity pbActivity) {
-        this.a = pbActivity;
+    public bg(com.baidu.tieba.a.af afVar) {
+        this.a = null;
+        this.a = afVar;
     }
 
-    @Override // android.widget.CompoundButton.OnCheckedChangeListener
-    public void onCheckedChanged(CompoundButton compoundButton, boolean z) {
-        if (z) {
-            switch (compoundButton.getId()) {
-                case R.id.radio_button_1day /* 2131230968 */:
-                    this.a.L = 1;
-                    return;
-                case R.id.radio_button_3day /* 2131230969 */:
-                    this.a.L = 3;
-                    return;
-                case R.id.radio_button_10day /* 2131230970 */:
-                    this.a.L = 10;
-                    return;
-                default:
-                    return;
-            }
-        }
+    @Override // java.lang.Thread, java.lang.Runnable
+    public void run() {
+        this.b = new com.baidu.tieba.d.t(String.valueOf(com.baidu.tieba.a.i.e) + "c/c/post/addstore");
+        com.baidu.tieba.c.c cVar = new com.baidu.tieba.c.c();
+        cVar.a(this.a);
+        this.b.a("data", cVar.a(0, 1));
+        this.b.i();
     }
 }

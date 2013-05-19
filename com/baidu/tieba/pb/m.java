@@ -1,88 +1,54 @@
 package com.baidu.tieba.pb;
 
-import android.os.AsyncTask;
-import android.widget.Button;
-import android.widget.ProgressBar;
-import com.baidu.tieba.R;
+import android.graphics.Bitmap;
+import android.text.Editable;
+import android.text.SpannableStringBuilder;
+import android.text.style.ImageSpan;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.EditText;
+import com.slidingmenu.lib.R;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class m extends AsyncTask {
-    String a;
-    byte[] b;
-    final /* synthetic */ ImageActivity c;
+public class m implements AdapterView.OnItemClickListener {
+    final /* synthetic */ ImagePbActivity a;
+    private final /* synthetic */ com.baidu.tieba.write.m b;
 
-    public m(ImageActivity imageActivity, String str, byte[] bArr) {
-        this.c = imageActivity;
-        this.a = null;
-        this.b = null;
-        this.a = str;
-        this.b = bArr;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public m(ImagePbActivity imagePbActivity, com.baidu.tieba.write.m mVar) {
+        this.a = imagePbActivity;
+        this.b = mVar;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // android.os.AsyncTask
-    /* renamed from: a */
-    public String doInBackground(String... strArr) {
-        String str;
-        String h;
-        try {
-            if (this.a != null && this.a.length() > 0 && this.b != null) {
-                if (!com.baidu.tieba.c.ai.a(this.b)) {
-                    str = ".jpg";
-                } else {
-                    str = ".gif";
-                }
-                if (com.baidu.tieba.c.af.h(this.a) == null) {
-                    return this.c.getString(R.string.save_error);
-                }
-                String str2 = String.valueOf(h) + str;
-                for (int i = 0; com.baidu.tieba.c.o.b(str2) && i < 10000; i++) {
-                    str2 = String.valueOf(h) + String.valueOf(Math.round(Math.random() * 9.9999999E7d)) + str;
-                }
-                String a = com.baidu.tieba.c.o.a(str2, this.b);
-                if (a != null) {
-                    new com.baidu.tieba.c.s(this.c).a(a);
-                    return this.c.getString(R.string.save_image_to_album);
-                }
-                return com.baidu.tieba.c.o.b();
-            }
-            return this.c.getString(R.string.save_error);
-        } catch (Exception e) {
-            com.baidu.tieba.c.ag.b("SaveImageAsyncTask", "doInBackground", "error" + e.getMessage());
-            return this.c.getString(R.string.save_error);
+    @Override // android.widget.AdapterView.OnItemClickListener
+    public void onItemClick(AdapterView adapterView, View view, int i, long j) {
+        EditText editText;
+        EditText editText2;
+        boolean p;
+        String a;
+        EditText editText3;
+        EditText editText4;
+        editText = this.a.m;
+        Editable text = editText.getText();
+        editText2 = this.a.m;
+        if (((ImageSpan[]) text.getSpans(0, editText2.getText().length(), ImageSpan.class)).length >= 10) {
+            this.a.a(this.a.getString(R.string.too_many_face));
+            return;
         }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // android.os.AsyncTask
-    /* renamed from: a */
-    public void onPostExecute(String str) {
-        Button button;
-        ProgressBar progressBar;
-        super.onPostExecute(str);
-        this.c.b(str);
-        this.c.j = null;
-        button = this.c.k;
-        button.setVisibility(0);
-        progressBar = this.c.c;
-        progressBar.setVisibility(8);
-    }
-
-    @Override // android.os.AsyncTask
-    protected void onCancelled() {
-        super.onCancelled();
-    }
-
-    public void a() {
-        Button button;
-        ProgressBar progressBar;
-        this.c.j = null;
-        button = this.c.k;
-        button.setVisibility(0);
-        progressBar = this.c.c;
-        progressBar.setVisibility(8);
-        super.cancel(true);
+        p = this.a.p();
+        if (!p && (a = this.b.a(i)) != null) {
+            editText3 = this.a.m;
+            int selectionStart = editText3.getSelectionStart();
+            SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(a);
+            Bitmap bitmap = (Bitmap) this.b.getItem(i);
+            if (bitmap != null) {
+                com.baidu.tieba.view.ak akVar = new com.baidu.tieba.view.ak(bitmap);
+                akVar.setBounds(0, 0, bitmap.getWidth() + 1, bitmap.getHeight());
+                akVar.setGravity(3);
+                spannableStringBuilder.setSpan(new ImageSpan(akVar, 0), 0, spannableStringBuilder.length(), 33);
+                editText4 = this.a.m;
+                editText4.getText().insert(selectionStart, spannableStringBuilder);
+            }
+        }
     }
 }

@@ -13,7 +13,7 @@ class k extends Thread {
     @Override // java.lang.Thread, java.lang.Runnable
     public void run() {
         super.run();
-        com.baidu.tieba.c.t tVar = new com.baidu.tieba.c.t("http://c.tieba.baidu.com/c/s/logout");
+        com.baidu.tieba.d.t tVar = new com.baidu.tieba.d.t(String.valueOf(com.baidu.tieba.a.i.e) + "c/s/logout");
         tVar.b(false);
         tVar.a("bduss", this.b);
         tVar.i();

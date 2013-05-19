@@ -1,9 +1,10 @@
 package com.baidu.tieba.frs;
 
+import android.graphics.Bitmap;
 import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class i implements View.OnClickListener {
+public class i implements com.baidu.tieba.d.d {
     final /* synthetic */ FrsActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -11,8 +12,15 @@ public class i implements View.OnClickListener {
         this.a = frsActivity;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        this.a.r();
+    @Override // com.baidu.tieba.d.d
+    public void a(Bitmap bitmap, String str, boolean z) {
+        ba baVar;
+        if (bitmap != null) {
+            baVar = this.a.l;
+            View d = baVar.d(str);
+            if (d != null) {
+                d.invalidate();
+            }
+        }
     }
 }

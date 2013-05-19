@@ -1,28 +1,11 @@
 package com.baidu.tieba;
-
-import com.baidu.tieba.compatible.CompatibleUtile;
-import com.baidu.tieba.view.BaseViewPager;
 /* loaded from: classes.dex */
-class h implements com.baidu.tieba.view.a {
-    final /* synthetic */ GuideActivity a;
+public abstract class h {
+    final /* synthetic */ e a;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public h(GuideActivity guideActivity) {
-        this.a = guideActivity;
-    }
+    public abstract void a(Object... objArr);
 
-    @Override // com.baidu.tieba.view.a
-    public void a(int i) {
-        BaseViewPager baseViewPager;
-        BaseViewPager baseViewPager2;
-        if (i == 0) {
-            baseViewPager = this.a.f;
-            if (baseViewPager != null) {
-                baseViewPager2 = this.a.f;
-                baseViewPager2.setOnScrollOutListener(null);
-            }
-            this.a.a();
-            CompatibleUtile.setAnim(this.a, 0, R.anim.left);
-        }
+    public h(e eVar) {
+        this.a = eVar;
     }
 }

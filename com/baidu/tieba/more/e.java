@@ -14,11 +14,14 @@ public class e implements View.OnClickListener {
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         i iVar;
+        i iVar2;
         com.baidu.tieba.a.a aVar = (com.baidu.tieba.a.a) view.getTag();
         if (aVar != null) {
             this.a.l = new i(this.a, aVar);
             iVar = this.a.l;
-            iVar.execute(new Object[0]);
+            iVar.setPriority(3);
+            iVar2 = this.a.l;
+            iVar2.execute(new Object[0]);
         }
     }
 }

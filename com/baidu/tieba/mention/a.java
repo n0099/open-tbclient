@@ -10,16 +10,16 @@ class a implements n {
 
     @Override // com.baidu.tieba.mention.n
     public void a(String str) {
-        com.baidu.tieba.c.k.j(str);
+        com.baidu.tieba.d.k.j(str);
     }
 
     @Override // com.baidu.tieba.mention.n
     public String a() {
-        return com.baidu.tieba.c.k.i();
+        return com.baidu.tieba.d.k.i();
     }
 
     @Override // com.baidu.tieba.mention.n
     public void b() {
-        com.baidu.tieba.c.k.h();
+        com.baidu.tieba.d.k.h();
     }
 }

@@ -1,102 +1,63 @@
 package com.baidu.tieba.account;
 
-import android.view.View;
-import android.widget.Button;
-import android.widget.EditText;
+import android.graphics.Bitmap;
 import android.widget.ImageView;
-import android.widget.RelativeLayout;
+import android.widget.ProgressBar;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class aw implements View.OnClickListener {
+public class aw extends com.baidu.adp.lib.a.a {
     final /* synthetic */ Register2Activity a;
+    private com.baidu.tieba.d.t b = null;
+    private String c;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public aw(Register2Activity register2Activity) {
+    public aw(Register2Activity register2Activity, String str) {
         this.a = register2Activity;
+        this.c = null;
+        this.c = str;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        Button button;
-        Button button2;
-        Button button3;
-        ImageView imageView;
-        ImageView imageView2;
-        RelativeLayout relativeLayout;
-        ImageView imageView3;
-        bb bbVar;
-        com.baidu.tieba.b.h hVar;
-        com.baidu.tieba.b.h hVar2;
-        bb bbVar2;
-        Button button4;
-        bc bcVar;
-        bb bbVar3;
-        bc bcVar2;
-        bb bbVar4;
-        EditText editText;
-        EditText editText2;
-        button = this.a.l;
-        if (view != button) {
-            button2 = this.a.m;
-            if (view != button2) {
-                button3 = this.a.n;
-                if (view != button3) {
-                    imageView = this.a.o;
-                    if (view != imageView) {
-                        imageView2 = this.a.p;
-                        if (view == imageView2) {
-                            editText = this.a.z;
-                            editText.setText((CharSequence) null);
-                            return;
-                        }
-                        relativeLayout = this.a.B;
-                        if (view != relativeLayout) {
-                            imageView3 = this.a.J;
-                            if (view != imageView3) {
-                                button4 = this.a.q;
-                                if (view != button4) {
-                                    return;
-                                }
-                            }
-                            bbVar = this.a.Q;
-                            if (bbVar == null) {
-                                hVar = this.a.S;
-                                if (hVar != null) {
-                                    Register2Activity register2Activity = this.a;
-                                    Register2Activity register2Activity2 = this.a;
-                                    hVar2 = this.a.S;
-                                    register2Activity.Q = new bb(register2Activity2, hVar2.b().d());
-                                    bbVar2 = this.a.Q;
-                                    bbVar2.execute(new String[0]);
-                                    return;
-                                }
-                                return;
-                            }
-                            return;
-                        }
-                        bcVar = this.a.R;
-                        if (bcVar == null) {
-                            bbVar3 = this.a.Q;
-                            if (bbVar3 != null) {
-                                bbVar4 = this.a.Q;
-                                bbVar4.a();
-                            }
-                            this.a.R = new bc(this.a, null);
-                            bcVar2 = this.a.R;
-                            bcVar2.execute(new String[0]);
-                            return;
-                        }
-                        return;
-                    }
-                    editText2 = this.a.x;
-                    editText2.setText((CharSequence) null);
-                    return;
-                }
-                this.a.o();
-                return;
-            }
+    @Override // com.baidu.adp.lib.a.a
+    public void cancel() {
+        ProgressBar progressBar;
+        this.a.Q = null;
+        progressBar = this.a.I;
+        progressBar.setVisibility(8);
+        if (this.b != null) {
+            this.b.g();
         }
-        this.a.setResult(0);
-        this.a.finish();
-        com.baidu.tieba.c.ag.a("Register2Activity", "mButtonBack", "onClick");
+        super.cancel(true);
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.a.a
+    public void b() {
+        ImageView imageView;
+        ProgressBar progressBar;
+        imageView = this.a.J;
+        imageView.setImageBitmap(null);
+        progressBar = this.a.I;
+        progressBar.setVisibility(0);
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.a.a
+    public Bitmap a(String... strArr) {
+        this.b = new com.baidu.tieba.d.t(this.c);
+        return com.baidu.tieba.d.e.a(this.b.h());
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.a.a
+    public void a(Bitmap bitmap) {
+        ProgressBar progressBar;
+        ImageView imageView;
+        super.a((Object) bitmap);
+        this.a.Q = null;
+        progressBar = this.a.I;
+        progressBar.setVisibility(8);
+        imageView = this.a.J;
+        imageView.setImageBitmap(bitmap);
     }
 }

@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.webkit.WebView;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
@@ -14,21 +15,22 @@ import android.widget.TextView;
 import com.baidu.android.common.util.HanziToPinyin;
 import com.baidu.browser.core.util.BdUtil;
 import com.baidu.tieba.MainTabActivity;
-import com.baidu.tieba.R;
 import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.c.ae;
-import com.baidu.tieba.c.ag;
-import com.baidu.tieba.c.ai;
+import com.baidu.tieba.c.ac;
+import com.baidu.tieba.d.ae;
+import com.baidu.tieba.d.ag;
+import com.baidu.tieba.d.k;
 import com.baidu.tieba.frs.FrsActivity;
-import com.baidu.tieba.pb.PbActivity;
+import com.baidu.tieba.pb.NewPbActivity;
 import com.baidu.tieba.view.BaseWebView;
+import com.slidingmenu.lib.R;
 import java.net.URLDecoder;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class NewHomeActivity extends com.baidu.tieba.e implements com.baidu.tieba.view.d {
     private Button d = null;
-    private Button e = null;
-    private Button f = null;
+    private ImageView e = null;
+    private ImageView f = null;
     private RelativeLayout g = null;
     private RelativeLayout h = null;
     private TextView i = null;
@@ -36,7 +38,7 @@ public class NewHomeActivity extends com.baidu.tieba.e implements com.baidu.tieb
     private BaseWebView k = null;
     private ProgressBar l = null;
     private LinearLayout m = null;
-    private s n = null;
+    private e n = null;
     private boolean o = false;
     private boolean p = false;
     private boolean q = true;
@@ -44,64 +46,70 @@ public class NewHomeActivity extends com.baidu.tieba.e implements com.baidu.tieb
     private TextView s = null;
     private boolean t = false;
     private String w = "1";
-    private r x;
+    private d x;
     private static boolean u = false;
     private static long v = 0;
     public static ArrayList c = new ArrayList();
 
+    @Override // com.baidu.tieba.e
+    public boolean e() {
+        return TiebaApplication.d().q();
+    }
+
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.e, android.app.Activity
+    @Override // com.baidu.tieba.e, com.baidu.adp.a.a, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         setContentView(R.layout.new_home_activity);
-        n();
-        String y = TiebaApplication.y();
-        if (y != null && y.length() > 0) {
-            m();
-        }
-    }
-
-    private void m() {
-        String e = com.baidu.tieba.b.f.e();
-        if (e != null && e.length() > 0) {
-            this.x = new r(this, e);
-            this.x.execute(new String[0]);
+        o();
+        String z = TiebaApplication.z();
+        if (z != null && z.length() > 0) {
+            n();
         }
     }
 
     private void n() {
+        String e = ac.e();
+        if (e != null && e.length() > 0) {
+            this.x = new d(this, e);
+            this.x.setPriority(3);
+            this.x.execute(new String[0]);
+        }
+    }
+
+    private void o() {
         this.g = (RelativeLayout) findViewById(R.id.parent);
         this.h = (RelativeLayout) findViewById(R.id.title);
         this.i = (TextView) findViewById(R.id.title_text);
-        this.e = (Button) findViewById(R.id.search);
-        this.f = (Button) findViewById(R.id.refresh);
+        this.e = (ImageView) findViewById(R.id.search);
+        this.f = (ImageView) findViewById(R.id.refresh);
         this.d = (Button) findViewById(R.id.edit_tag_btn);
         this.m = (LinearLayout) findViewById(R.id.home_webview_item);
         this.r = (TextView) this.m.findViewById(R.id.webview_fail);
         this.s = (TextView) this.m.findViewById(R.id.webview_crash_tip);
         this.l = (ProgressBar) findViewById(R.id.recommend_progress);
-        this.j = new q(this);
+        this.j = new c(this);
         this.d.setOnClickListener(this.j);
         this.e.setOnClickListener(this.j);
         this.f.setOnClickListener(this.j);
-        if (TiebaApplication.b().ai() >= 5) {
+        if (TiebaApplication.d().aj() >= 5) {
             this.r.setVisibility(8);
             this.s.setVisibility(0);
-        } else if (r()) {
+        } else if (s()) {
             this.s.setVisibility(8);
-            o();
-            i();
+            p();
+            b();
         } else {
             this.s.setVisibility(0);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void o() {
-        String b = com.baidu.tieba.c.k.b(10);
+    public void p() {
+        String b = k.b(10);
         if (b != null && b.length() > 1) {
             this.o = true;
-            this.k.loadDataWithBaseURL("http://c.tieba.baidu.com/", b, "text/html", BdUtil.UTF8, "");
+            this.k.loadDataWithBaseURL(com.baidu.tieba.a.i.e, b, "text/html", BdUtil.UTF8, "");
         }
     }
 
@@ -109,11 +117,11 @@ public class NewHomeActivity extends com.baidu.tieba.e implements com.baidu.tieb
     protected void onActivityResult(int i, int i2, Intent intent) {
         switch (i2) {
             case -1:
-                String y = TiebaApplication.y();
-                if (y != null && y.length() > 0) {
-                    m();
+                String z = TiebaApplication.z();
+                if (z != null && z.length() > 0) {
+                    n();
                 }
-                i();
+                b();
                 return;
             default:
                 return;
@@ -130,16 +138,16 @@ public class NewHomeActivity extends com.baidu.tieba.e implements com.baidu.tieb
     @Override // com.baidu.tieba.e, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        TiebaApplication.b().aB();
+        TiebaApplication.d().aB();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.e, android.app.Activity
     public void onResume() {
         super.onResume();
-        Long valueOf = Long.valueOf(TiebaApplication.b().w());
+        Long valueOf = Long.valueOf(TiebaApplication.d().y());
         if (!this.t && System.currentTimeMillis() - valueOf.longValue() > com.baidu.tieba.a.i.b.longValue() && this.k != null) {
-            i();
+            b();
         }
     }
 
@@ -147,20 +155,20 @@ public class NewHomeActivity extends com.baidu.tieba.e implements com.baidu.tieb
     @Override // com.baidu.tieba.e
     public void b(int i) {
         super.b(i);
-        ae.a(this.g, i);
-        ae.c(this.h, i);
-        ae.c(this.i, i);
-        ae.e((View) this.f, i);
-        ae.f(this.e, i);
-        ae.d((TextView) this.d, i);
+        com.baidu.tieba.d.ac.a(this.g, i);
+        com.baidu.tieba.d.ac.d(this.h, i);
+        com.baidu.tieba.d.ac.f(this.i, i);
+        com.baidu.tieba.d.ac.b(this.f, i);
+        com.baidu.tieba.d.ac.c(this.e, i);
+        com.baidu.tieba.d.ac.g((TextView) this.d, i);
         if (this.k != null) {
-            ae.a(this.k, i);
-            i();
+            com.baidu.tieba.d.ac.a(this.k, i);
+            b();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public String p() {
+    public String q() {
         Long l;
         SharedPreferences sharedPreferences = getSharedPreferences("post_info", 0);
         SharedPreferences.Editor edit = sharedPreferences.edit();
@@ -289,8 +297,8 @@ public class NewHomeActivity extends com.baidu.tieba.e implements com.baidu.tieb
         }
     }
 
-    public void i() {
-        if (TiebaApplication.b().ai() == 0 && !r()) {
+    public void b() {
+        if (TiebaApplication.d().aj() == 0 && !s()) {
             this.s.setVisibility(0);
             return;
         }
@@ -300,26 +308,27 @@ public class NewHomeActivity extends com.baidu.tieba.e implements com.baidu.tieb
             this.l.setVisibility(0);
             this.p = false;
             this.q = true;
-            s();
-            this.n = new s(this, null);
+            t();
+            this.n = new e(this, null);
+            this.n.setPriority(3);
             this.n.execute(new Object[0]);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void q() {
+    public void r() {
         if (this.p) {
             if (!this.q) {
-                b(getResources().getString(R.string.neterror));
+                a(getResources().getString(R.string.neterror));
             } else {
-                TiebaApplication.b().b(System.currentTimeMillis());
+                TiebaApplication.d().b(System.currentTimeMillis());
             }
             this.t = false;
             this.l.setVisibility(8);
         }
     }
 
-    public void j() {
+    public void c() {
         this.w = "1";
     }
 
@@ -333,7 +342,7 @@ public class NewHomeActivity extends com.baidu.tieba.e implements com.baidu.tieb
             } else if (str.contains("kz=")) {
                 String a = a(str, "kz=");
                 if (a != null && a.length() >= 0) {
-                    PbActivity.a(this, a, "allthread");
+                    NewPbActivity.a(this, a, null, "allthread");
                 }
             } else if (str.contains("kw=")) {
                 String a2 = a(str, "kw=");
@@ -360,9 +369,9 @@ public class NewHomeActivity extends com.baidu.tieba.e implements com.baidu.tieb
             } else {
                 this.w = "1";
             }
-            i();
+            b();
         } else {
-            ai.d(this, str);
+            ag.d(this, str);
         }
         return true;
     }
@@ -388,11 +397,11 @@ public class NewHomeActivity extends com.baidu.tieba.e implements com.baidu.tieb
         v = j;
     }
 
-    private boolean r() {
+    private boolean s() {
         if (this.k == null) {
             try {
                 this.k = new BaseWebView(this);
-                ae.a(this.k, TiebaApplication.b().ah());
+                com.baidu.tieba.d.ac.a(this.k, TiebaApplication.d().ai());
                 this.k.setOnLoadUrlListener(this);
                 this.k.setHorizontalScrollBarEnabled(false);
                 this.k.setHorizontalScrollbarOverlay(false);
@@ -401,16 +410,16 @@ public class NewHomeActivity extends com.baidu.tieba.e implements com.baidu.tieb
                 this.m.addView(this.k);
                 return true;
             } catch (Exception e) {
-                ag.b(getClass().getName(), "", "NewHomeActivity.refreshFrs error = " + e.getMessage());
+                ae.b(getClass().getName(), "", "NewHomeActivity.refreshFrs error = " + e.getMessage());
                 return false;
             }
         }
         return true;
     }
 
-    private void s() {
+    private void t() {
         if (this.n != null) {
-            this.n.a();
+            this.n.cancel();
         }
     }
 }

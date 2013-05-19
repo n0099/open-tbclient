@@ -1,30 +1,18 @@
 package com.baidu.tieba.account;
+
+import android.view.View;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class aj extends Thread {
-    private int a;
-    private int b;
-    private String c = null;
+public class aj implements View.OnClickListener {
+    final /* synthetic */ ReLoginActivity a;
 
-    public aj(int i, int i2) {
-        this.a = 0;
-        this.b = 0;
-        this.a = i;
-        this.b = i2;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public aj(ReLoginActivity reLoginActivity) {
+        this.a = reLoginActivity;
     }
 
-    public void a(String str) {
-        this.c = str;
-    }
-
-    @Override // java.lang.Thread, java.lang.Runnable
-    public void run() {
-        super.run();
-        com.baidu.tieba.c.t tVar = new com.baidu.tieba.c.t("http://c.tieba.baidu.com/c/s/pv");
-        tVar.a("img_num", String.valueOf(this.a));
-        tVar.a("img_total", String.valueOf(this.b));
-        if (this.c != null) {
-            tVar.a("img_type", this.c);
-        }
-        tVar.i();
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        this.a.d();
     }
 }

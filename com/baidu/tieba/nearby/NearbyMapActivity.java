@@ -17,9 +17,9 @@ import com.baidu.mapapi.MapActivity;
 import com.baidu.mapapi.MapController;
 import com.baidu.mapapi.MapView;
 import com.baidu.mobstat.StatService;
-import com.baidu.tieba.R;
 import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.compatible.CompatibleUtile;
+import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public class NearbyMapActivity extends MapActivity {
     private BMapManager a = null;
@@ -28,8 +28,8 @@ public class NearbyMapActivity extends MapActivity {
     private MapController d = null;
     private Address e = null;
     private PostItemizedOverlay f = null;
-    private com.baidu.tieba.c.a g = null;
-    private com.baidu.tieba.b.i h = null;
+    private com.baidu.tieba.d.a g = null;
+    private com.baidu.tieba.c.ag h = null;
     private Handler i = null;
     private Button j = null;
     private Button k = null;
@@ -38,11 +38,11 @@ public class NearbyMapActivity extends MapActivity {
     private Runnable n = new g(this);
     private View.OnClickListener o = new i(this);
 
-    public static void a(Context context, Address address, com.baidu.tieba.b.i iVar) {
-        if (Build.VERSION.SDK_INT >= 5 && iVar != null && address != null) {
+    public static void a(Context context, Address address, com.baidu.tieba.c.ag agVar) {
+        if (Build.VERSION.SDK_INT >= 5 && agVar != null && address != null) {
             Intent intent = new Intent();
             intent.setClass(context, NearbyMapActivity.class);
-            intent.putExtra("model", iVar);
+            intent.putExtra("model", agVar);
             intent.putExtra("address", address);
             context.startActivity(intent);
         }
@@ -53,18 +53,18 @@ public class NearbyMapActivity extends MapActivity {
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         setContentView(R.layout.nearby_map_activity);
-        if (TiebaApplication.b().l()) {
+        if (TiebaApplication.d().n()) {
             try {
                 StatService.setAppChannel(com.baidu.tieba.a.i.a());
             } catch (Exception e) {
-                com.baidu.tieba.c.ag.b(getClass().getName(), "onCreate", e.getMessage());
+                com.baidu.tieba.d.ae.b(getClass().getName(), "onCreate", e.getMessage());
             }
         }
         boolean z = true;
-        if (TiebaApplication.b().aI() == null) {
-            z = TiebaApplication.b().c(getApplicationContext());
+        if (TiebaApplication.d().aI() == null) {
+            z = TiebaApplication.d().c(getApplicationContext());
         }
-        this.a = TiebaApplication.b().aI();
+        this.a = TiebaApplication.d().aI();
         if (!z || this.a == null) {
             finish();
             return;
@@ -93,11 +93,11 @@ public class NearbyMapActivity extends MapActivity {
     public void onResume() {
         this.a.start();
         super.onResume();
-        if (TiebaApplication.b().l()) {
+        if (TiebaApplication.d().n()) {
             try {
                 StatService.onResume(this);
             } catch (Exception e) {
-                com.baidu.tieba.c.ag.b(getClass().getName(), "onResume", e.getMessage());
+                com.baidu.tieba.d.ae.b(getClass().getName(), "onResume", e.getMessage());
             }
         }
     }
@@ -107,11 +107,11 @@ public class NearbyMapActivity extends MapActivity {
     public void onPause() {
         this.a.stop();
         super.onPause();
-        if (TiebaApplication.b().l()) {
+        if (TiebaApplication.d().n()) {
             try {
                 StatService.onPause(this);
             } catch (Exception e) {
-                com.baidu.tieba.c.ag.b(getClass().getName(), "onPause", e.getMessage());
+                com.baidu.tieba.d.ae.b(getClass().getName(), "onPause", e.getMessage());
             }
         }
     }
@@ -134,7 +134,7 @@ public class NearbyMapActivity extends MapActivity {
         this.c = (TextView) findViewById(R.id.location_text);
         this.b.setDrawOverlayWhenZooming(true);
         this.b.setDoubleClickZooming(false);
-        this.l = com.baidu.tieba.c.ai.a((Context) this) >> 1;
+        this.l = com.baidu.tieba.d.ag.a((Context) this) >> 1;
         this.j = (Button) super.getLayoutInflater().inflate(R.layout.nearby_pop, (ViewGroup) null);
         this.b.addView(this.j, new MapView.LayoutParams(-2, -2, null, 80));
         this.j.setVisibility(8);
@@ -143,7 +143,7 @@ public class NearbyMapActivity extends MapActivity {
     }
 
     private void a(Bundle bundle) {
-        this.h = (com.baidu.tieba.b.i) getIntent().getSerializableExtra("model");
+        this.h = (com.baidu.tieba.c.ag) getIntent().getSerializableExtra("model");
         this.e = (Address) getIntent().getParcelableExtra("address");
         if (this.e.getMaxAddressLineIndex() >= 0) {
             this.c.setText(this.e.getAddressLine(0));
@@ -164,14 +164,14 @@ public class NearbyMapActivity extends MapActivity {
         this.i.post(this.n);
     }
 
-    public void a(com.baidu.tieba.a.ad adVar) {
-        if (adVar != null) {
-            if (TiebaApplication.b().l()) {
+    public void a(com.baidu.tieba.a.ae aeVar) {
+        if (aeVar != null) {
+            if (TiebaApplication.d().n()) {
                 StatService.onEvent(this, "lbs_header_pic", "lbsclick", 1);
             }
-            GeoPoint geoPoint = new GeoPoint(adVar.e(), adVar.f());
-            this.j.setTag(adVar.b());
-            this.j.setText(adVar.c());
+            GeoPoint geoPoint = new GeoPoint(aeVar.e(), aeVar.f());
+            this.j.setTag(aeVar.b());
+            this.j.setText(aeVar.c());
             this.b.updateViewLayout(this.j, new MapView.LayoutParams(-2, -2, geoPoint, 0, -this.m, 81));
             this.j.setVisibility(0);
             this.d.animateTo(geoPoint);

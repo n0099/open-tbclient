@@ -1,29 +1,21 @@
 package com.baidu.tieba.account;
-
-import android.text.Editable;
-import android.text.TextWatcher;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class aa implements TextWatcher {
-    final /* synthetic */ LoginActivity a;
+class aa {
+    String a;
+    String b;
+    String c;
+    String d;
+    int e;
+    int f;
+    boolean g;
+    final /* synthetic */ LoginActivity h;
+
+    private aa(LoginActivity loginActivity) {
+        this.h = loginActivity;
+    }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public aa(LoginActivity loginActivity) {
-        this.a = loginActivity;
-    }
-
-    @Override // android.text.TextWatcher
-    public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-        this.a.r = true;
-        this.a.v();
-    }
-
-    @Override // android.text.TextWatcher
-    public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-    }
-
-    @Override // android.text.TextWatcher
-    public void afterTextChanged(Editable editable) {
-        this.a.l();
+    public /* synthetic */ aa(LoginActivity loginActivity, aa aaVar) {
+        this(loginActivity);
     }
 }

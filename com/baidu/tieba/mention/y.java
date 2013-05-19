@@ -15,6 +15,6 @@ public class y implements DialogInterface.OnClickListener {
     public void onClick(DialogInterface dialogInterface, int i) {
         PostActivity postActivity;
         postActivity = this.a.b;
-        postActivity.k();
+        postActivity.d();
     }
 }

@@ -1,9 +1,9 @@
 package com.baidu.tieba.pb;
 
-import android.view.View;
+import android.content.DialogInterface;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ab implements View.OnClickListener {
+public class ab implements DialogInterface.OnClickListener {
     final /* synthetic */ ImagePbActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -11,8 +11,12 @@ public class ab implements View.OnClickListener {
         this.a = imagePbActivity;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        this.a.b(true);
+    @Override // android.content.DialogInterface.OnClickListener
+    public void onClick(DialogInterface dialogInterface, int i) {
+        if (i == 0) {
+            com.baidu.tieba.write.bb.a(this.a);
+        } else {
+            com.baidu.tieba.write.bb.b(this.a);
+        }
     }
 }

@@ -1,58 +1,157 @@
 package com.baidu.tieba.c;
 
-import android.content.Context;
-import android.database.sqlite.SQLiteDatabase;
-import android.database.sqlite.SQLiteOpenHelper;
+import java.util.ArrayList;
+import org.apache.http.message.BasicNameValuePair;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class h extends SQLiteOpenHelper {
-    public h(Context context) {
-        super(context, "baidu_tieba.db", (SQLiteDatabase.CursorFactory) null, 6);
+public class h extends com.baidu.adp.lib.a.a {
+    final /* synthetic */ g a;
+    private com.baidu.tieba.d.t b = null;
+    private boolean c;
+    private boolean d;
+    private boolean e;
+
+    public h(g gVar, Boolean bool, Boolean bool2, Boolean bool3) {
+        this.a = gVar;
+        this.c = false;
+        this.d = false;
+        this.e = true;
+        this.c = bool.booleanValue();
+        this.d = bool2.booleanValue();
+        this.e = bool3.booleanValue();
     }
 
-    private void a(SQLiteDatabase sQLiteDatabase, String str) {
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    /* JADX WARN: Removed duplicated region for block: B:21:0x003a A[ORIG_RETURN, RETURN] */
+    /* JADX WARN: Removed duplicated region for block: B:32:0x0096 A[Catch: Exception -> 0x0071, TRY_ENTER, TryCatch #2 {Exception -> 0x0071, blocks: (B:12:0x001c, B:14:0x0025, B:19:0x0036, B:32:0x0096, B:35:0x00de, B:26:0x004a), top: B:58:0x001c }] */
+    @Override // com.baidu.adp.lib.a.a
+    /* renamed from: d */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public com.baidu.tieba.a.q a(Object... objArr) {
+        com.baidu.tieba.a.q qVar;
+        Exception e;
+        com.baidu.tieba.a.q qVar2;
+        String f;
         try {
-            sQLiteDatabase.execSQL(str);
-        } catch (Exception e) {
-            ag.a(3, getClass().getName(), "ExecSQL", str);
+        } catch (Exception e2) {
+            qVar = null;
+            e = e2;
+        }
+        if (this.c) {
+            if (this.e) {
+                f = com.baidu.tieba.d.k.b();
+            } else {
+                f = com.baidu.tieba.d.k.f("0");
+            }
+            if (f != null && f.length() > 0) {
+                qVar2 = new com.baidu.tieba.a.q();
+                try {
+                    qVar2.a(f);
+                    if (!qVar2.a()) {
+                        com.baidu.tieba.d.ae.a("Like_Recommend_AsyncTask", "doInBackground", "cache data format err");
+                        if (this.e) {
+                            com.baidu.tieba.d.k.a();
+                            qVar2 = null;
+                        } else {
+                            com.baidu.tieba.d.k.e("0");
+                            qVar2 = null;
+                        }
+                    } else {
+                        c(qVar2);
+                        com.baidu.tieba.d.ae.a("Like_Recommend_AsyncTask", "doInBackground", "cache data.size: " + String.valueOf(f.length()));
+                    }
+                } catch (Exception e3) {
+                    e = e3;
+                    qVar = qVar2;
+                    com.baidu.tieba.d.ae.b(getClass().getName(), "", "doInBackground error = " + e.getMessage());
+                    return qVar;
+                }
+                if (this.d) {
+                    return null;
+                }
+                StringBuffer stringBuffer = new StringBuffer(30);
+                stringBuffer.append(com.baidu.tieba.a.i.e);
+                stringBuffer.append("c/f/forum/favocommend");
+                ArrayList arrayList = new ArrayList();
+                arrayList.add(new BasicNameValuePair("ctime", String.valueOf(System.currentTimeMillis())));
+                this.b = new com.baidu.tieba.d.t(stringBuffer.toString());
+                this.b.a(arrayList);
+                String i = this.b.i();
+                if (!this.b.b() || i == null) {
+                    qVar = null;
+                } else {
+                    qVar = new com.baidu.tieba.a.q();
+                    try {
+                        qVar.a(i);
+                        if (qVar.a()) {
+                            this.e = qVar.b() == 1;
+                            if (this.e) {
+                                com.baidu.tieba.d.k.d(i);
+                            } else {
+                                com.baidu.tieba.d.k.a(i, "0");
+                            }
+                        } else {
+                            qVar = null;
+                        }
+                    } catch (Exception e4) {
+                        e = e4;
+                        com.baidu.tieba.d.ae.b(getClass().getName(), "", "doInBackground error = " + e.getMessage());
+                        return qVar;
+                    }
+                }
+                return qVar;
+            }
+        }
+        qVar2 = null;
+        if (this.d) {
         }
     }
 
-    @Override // android.database.sqlite.SQLiteOpenHelper
-    public void onCreate(SQLiteDatabase sQLiteDatabase) {
-        a(sQLiteDatabase);
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.a.a
+    /* renamed from: a */
+    public void b(com.baidu.tieba.a.q... qVarArr) {
+        com.baidu.adp.a.e eVar;
+        this.a.e = qVarArr[0];
+        this.a.a = 2;
+        eVar = this.a.b;
+        eVar.a(true);
     }
 
-    public void a(SQLiteDatabase sQLiteDatabase) {
-        a(sQLiteDatabase, "CREATE TABLE if not exists cash_data(type int,account varchar(30),data TEXT)");
-        a(sQLiteDatabase, "CREATE TABLE if not exists account_data(id,account,password,bduss,isactive int,tbs,time)");
-        a(sQLiteDatabase, "CREATE TABLE if not exists search_data(key, account, time)");
-        a(sQLiteDatabase, "CREATE TABLE if not exists search_post_data(key, account, time)");
-        a(sQLiteDatabase, "CREATE TABLE if not exists mark_data(id,floor,time,title,sequence,hostmode,postid,account,authorname,replynum,subPost int,forumName varchar(30),forumId varchar(30),threadId varchar(30))");
-        a(sQLiteDatabase, "CREATE TABLE if not exists draft_box(account varchar(30),type int,forum_id varchar(20),forum_name TEXT,thread_id varchar(30),floor_id TEXT,title TEXT,content TEXT, time long)");
-        a(sQLiteDatabase, "CREATE TABLE if not exists setting(account varchar(30),frequency,fans_switch,reply_me_switch,at_me_switch,remind_tone)");
-        a(sQLiteDatabase, "CREATE TABLE if not exists chunk_upload_data(account varchar(30),md5,total_length,chunk_no,time)");
-        a(sQLiteDatabase, "CREATE TABLE if not exists frs_image_forums(forum_name)");
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.a.a
+    public void a(com.baidu.tieba.a.q qVar) {
+        com.baidu.adp.a.e eVar;
+        boolean z = true;
+        this.a.a = 1;
+        if (qVar == null) {
+            z = false;
+            if (this.b != null) {
+                this.a.d = this.b.f();
+            }
+        } else {
+            this.a.e = qVar;
+        }
+        this.a.f = null;
+        eVar = this.a.b;
+        eVar.a(Boolean.valueOf(z));
     }
 
-    @Override // android.database.sqlite.SQLiteOpenHelper
-    public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
-        if (i == 1) {
-            a(sQLiteDatabase, "CREATE TABLE if not exists chunk_upload_data(account varchar(30),md5,total_length,chunk_no,time)");
+    @Override // com.baidu.adp.lib.a.a
+    public void cancel() {
+        com.baidu.adp.a.e eVar;
+        if (this.b != null) {
+            this.b.g();
+            this.b = null;
         }
-        if (i < 3) {
-            a(sQLiteDatabase, "ALTER TABLE mark_data ADD subPost int");
-            a(sQLiteDatabase, "ALTER TABLE mark_data ADD forumName varchar(30)");
-            a(sQLiteDatabase, "ALTER TABLE mark_data ADD forumId varchar(30)");
-            a(sQLiteDatabase, "ALTER TABLE mark_data ADD threadId varchar(30)");
-        }
-        if (i < 4) {
-            a(sQLiteDatabase, "ALTER TABLE setting ADD remind_tone");
-        }
-        if (i < 5) {
-            a(sQLiteDatabase, "CREATE TABLE if not exists frs_image_forums(forum_name)");
-        }
-        if (i < 6) {
-            a(sQLiteDatabase, "CREATE TABLE if not exists search_post_data(key, account, time)");
-        }
+        this.a.f = null;
+        super.cancel(true);
+        eVar = this.a.b;
+        eVar.a(false);
     }
 }

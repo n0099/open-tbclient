@@ -1,45 +1,58 @@
 package com.baidu.tieba.account;
 
 import android.view.View;
-import android.widget.EditText;
-import com.baidu.tieba.R;
+import android.widget.Button;
+import com.slidingmenu.lib.R;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class r implements View.OnClickListener {
-    final /* synthetic */ o a;
+public class r implements View.OnFocusChangeListener {
+    final /* synthetic */ LoginActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public r(o oVar) {
-        this.a = oVar;
+    public r(LoginActivity loginActivity) {
+        this.a = loginActivity;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        EditText editText;
-        com.baidu.tieba.e eVar;
-        u uVar;
-        v vVar;
-        v vVar2;
-        u uVar2;
-        editText = this.a.c;
-        String editable = editText.getText().toString();
-        if (editable != null && editable.length() > 0) {
-            uVar = this.a.m;
-            if (uVar != null) {
-                uVar2 = this.a.m;
-                uVar2.a();
+    @Override // android.view.View.OnFocusChangeListener
+    public void onFocusChange(View view, boolean z) {
+        Button button;
+        Button button2;
+        Button button3;
+        Button button4;
+        Button button5;
+        Button button6;
+        Button button7;
+        Button button8;
+        Button button9;
+        if (z) {
+            switch (view.getId()) {
+                case R.id.login_edit_account /* 2131099710 */:
+                    button7 = this.a.I;
+                    button7.setVisibility(8);
+                    button8 = this.a.H;
+                    button8.setVisibility(0);
+                    button9 = this.a.J;
+                    button9.setVisibility(8);
+                    return;
+                case R.id.login_edit_password /* 2131099714 */:
+                    button = this.a.I;
+                    button.setVisibility(0);
+                    button2 = this.a.H;
+                    button2.setVisibility(8);
+                    button3 = this.a.J;
+                    button3.setVisibility(8);
+                    return;
+                case R.id.edit_vcode /* 2131099717 */:
+                    button4 = this.a.I;
+                    button4.setVisibility(8);
+                    button5 = this.a.H;
+                    button5.setVisibility(8);
+                    button6 = this.a.J;
+                    button6.setVisibility(0);
+                    return;
+                default:
+                    return;
             }
-            vVar = this.a.l;
-            if (vVar == null) {
-                this.a.l = new v(this.a, "http://c.tieba.baidu.com/c/s/filluname", editable);
-                vVar2 = this.a.l;
-                vVar2.execute(new String[0]);
-                return;
-            }
-            return;
         }
-        o oVar = this.a;
-        eVar = this.a.j;
-        oVar.b(eVar.getString(R.string.input_name));
     }
 }

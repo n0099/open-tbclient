@@ -1,39 +1,90 @@
 package com.baidu.tieba.a;
 
+import android.content.Context;
 import java.util.ArrayList;
-import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
-public class y extends z {
-    private List a = new ArrayList();
-    private boolean b;
+public class y {
+    private int a;
+    private int b;
+    private b c;
+    private Context d;
+    private ArrayList e;
 
-    public boolean a() {
-        return this.b;
+    public y() {
+        this.a = 0;
+        this.b = 0;
+        this.d = null;
+        this.e = null;
+        this.e = new ArrayList();
+        this.c = new b();
     }
 
-    public List b() {
+    public y(Context context) {
+        this.a = 0;
+        this.b = 0;
+        this.d = null;
+        this.e = null;
+        this.e = new ArrayList();
+        this.c = new b();
+        this.d = context;
+    }
+
+    public ArrayList a() {
+        return this.e;
+    }
+
+    public int b() {
         return this.a;
     }
 
-    @Override // com.baidu.tieba.a.z
-    public void a(JSONObject jSONObject) {
-        if (jSONObject != null) {
-            try {
-                this.b = jSONObject.optInt("is_selected", 0) == 1;
-                super.a(jSONObject);
-                JSONArray optJSONArray = jSONObject.optJSONArray("level2_info");
-                if (optJSONArray != null) {
-                    for (int i = 0; i < optJSONArray.length(); i++) {
-                        z zVar = new z();
-                        zVar.a(optJSONArray.getJSONObject(i));
-                        this.a.add(zVar);
+    public int c() {
+        return this.b;
+    }
+
+    public boolean d() {
+        return this.e.size() >= this.b;
+    }
+
+    public boolean e() {
+        return this.e != null && this.e.size() < this.b && this.e.size() < 200;
+    }
+
+    public void a(String str) {
+        try {
+            a(new JSONObject(str));
+        } catch (Exception e) {
+            com.baidu.tieba.d.ae.b(getClass().getName(), "paserJson", e.toString());
+        }
+    }
+
+    private void a(JSONObject jSONObject) {
+        try {
+            JSONArray jSONArray = jSONObject.getJSONArray("comment_list");
+            if (jSONArray != null) {
+                int size = this.e.size() - (this.e.size() % 10);
+                for (int i = 0; i < jSONArray.length(); i++) {
+                    JSONObject jSONObject2 = jSONArray.getJSONObject(i);
+                    aq aqVar = new aq();
+                    aqVar.a(jSONObject2);
+                    if (this.d != null) {
+                        aqVar.e(this.d);
                     }
+                    if (size < this.e.size()) {
+                        this.e.remove(size);
+                        this.e.add(size, aqVar);
+                    } else {
+                        this.e.add(aqVar);
+                    }
+                    size++;
                 }
-            } catch (Exception e) {
-                com.baidu.tieba.c.ag.b("LabelBigBallData", "parserJson", "error = " + e.getMessage());
+                this.a = this.e.size();
             }
+            this.b = jSONObject.optInt("comment_amount", 0);
+            this.c.a(jSONObject.getJSONObject("tbs").optString("common"));
+        } catch (Exception e) {
+            com.baidu.tieba.d.ae.b(getClass().getName(), "paserJson", e.toString());
         }
     }
 }

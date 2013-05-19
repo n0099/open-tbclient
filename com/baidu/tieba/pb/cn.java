@@ -1,43 +1,22 @@
 package com.baidu.tieba.pb;
 
-import android.app.AlertDialog;
-import android.content.DialogInterface;
 import android.view.View;
-import com.baidu.tieba.R;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-public class cn implements View.OnLongClickListener {
-    final /* synthetic */ SubPbActivity a;
+class cn implements View.OnClickListener {
+    final /* synthetic */ bl a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public cn(SubPbActivity subPbActivity) {
-        this.a = subPbActivity;
+    public cn(bl blVar) {
+        this.a = blVar;
     }
 
-    @Override // android.view.View.OnLongClickListener
-    public boolean onLongClick(View view) {
-        com.baidu.tieba.b.w wVar;
-        AlertDialog e;
-        DialogInterface.OnClickListener onClickListener;
-        com.baidu.tieba.b.w wVar2;
-        com.baidu.tieba.a.an anVar = null;
-        wVar = this.a.g;
-        if (wVar != null) {
-            wVar2 = this.a.g;
-            anVar = wVar2.a().a();
-            if (anVar == null) {
-                return false;
-            }
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        if (!"".equals(view.getTag(R.id.tag_forbid_user_name)) && !"".equals(view.getTag(R.id.tag_del_post_id))) {
+            this.a.a(view);
+        } else {
+            this.a.a(((Integer) view.getTag(R.id.tag_del_post_type)).intValue(), (String) view.getTag(R.id.tag_del_post_id), ((Integer) view.getTag(R.id.tag_manage_user_identity)).intValue());
         }
-        this.a.w = anVar;
-        e = this.a.e();
-        if (e == null) {
-            SubPbActivity subPbActivity = this.a;
-            String[] strArr = {this.a.getString(R.string.copy)};
-            onClickListener = this.a.v;
-            subPbActivity.b(strArr, onClickListener);
-        }
-        this.a.f();
-        return true;
     }
 }

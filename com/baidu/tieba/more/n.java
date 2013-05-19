@@ -8,8 +8,8 @@ import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
-import com.baidu.tieba.R;
 import com.baidu.tieba.TiebaApplication;
+import com.slidingmenu.lib.R;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class n extends BaseAdapter {
@@ -83,8 +83,8 @@ public class n extends BaseAdapter {
                     view4 = view;
                 }
                 if (getItemViewType(i) == 0) {
-                    if (TiebaApplication.b().ah() == 1) {
-                        oVar.a.setTextColor(com.baidu.tieba.c.ae.a(1));
+                    if (TiebaApplication.d().ai() == 1) {
+                        oVar.a.setTextColor(com.baidu.tieba.d.ac.a(1));
                     } else {
                         oVar.a.setTextColor(-12895429);
                     }
@@ -103,8 +103,8 @@ public class n extends BaseAdapter {
                         }
                     }
                     return view4;
-                } else if (TiebaApplication.b().ah() == 1) {
-                    oVar.b.setTextColor(com.baidu.tieba.c.ae.a(1));
+                } else if (TiebaApplication.d().ai() == 1) {
+                    oVar.b.setTextColor(com.baidu.tieba.d.ac.a(1));
                     return view4;
                 } else {
                     oVar.b.setTextColor(-12895429);
@@ -113,13 +113,13 @@ public class n extends BaseAdapter {
             } catch (Exception e) {
                 view2 = view3;
                 exc = e;
-                com.baidu.tieba.c.ag.b(getClass().getName(), "getView", exc.getMessage());
+                com.baidu.tieba.d.ae.b(getClass().getName(), "getView", exc.getMessage());
                 return view2;
             }
         } catch (Exception e2) {
             exc = e2;
             view2 = view;
-            com.baidu.tieba.c.ag.b(getClass().getName(), "getView", exc.getMessage());
+            com.baidu.tieba.d.ae.b(getClass().getName(), "getView", exc.getMessage());
             return view2;
         }
     }

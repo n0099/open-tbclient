@@ -21,7 +21,7 @@ public class FatalErrorService extends Service {
     public void onDestroy() {
         super.onDestroy();
         if (this.a != null) {
-            this.a.a();
+            this.a.cancel();
         }
     }
 

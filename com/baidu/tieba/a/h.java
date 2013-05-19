@@ -14,7 +14,7 @@ public class h {
             try {
                 this.a = jSONObject.optString("client_id");
             } catch (Exception e) {
-                com.baidu.tieba.c.ag.b(getClass().getName(), "parserJson", e.getMessage());
+                com.baidu.tieba.d.ae.b(getClass().getName(), "parserJson", e.getMessage());
             }
         }
     }

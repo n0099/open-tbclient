@@ -1,31 +1,16 @@
 package com.baidu.tieba.c;
-
-import android.content.Context;
-import android.text.style.ClickableSpan;
-import android.view.View;
-import com.baidu.tieba.pb.PbActivity;
 /* loaded from: classes.dex */
-public class r extends ClickableSpan {
-    private Context a;
+public class r {
+    public boolean a = false;
+    public boolean b = false;
+    public int c = -1;
+    public int d = -1;
+    public String e = null;
+    public int f = 0;
+    public int g = 0;
+    final /* synthetic */ p h;
 
-    public r(Context context) {
-        this.a = null;
-        this.a = context;
-    }
-
-    @Override // android.text.style.ClickableSpan
-    public void onClick(View view) {
-    }
-
-    public Context a() {
-        return this.a;
-    }
-
-    public void a(String str) {
-        ai.c(this.a, str);
-    }
-
-    public void b(String str) {
-        PbActivity.a(this.a, str, (String) null);
+    public r(p pVar) {
+        this.h = pVar;
     }
 }

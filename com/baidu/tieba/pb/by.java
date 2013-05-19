@@ -1,21 +1,38 @@
 package com.baidu.tieba.pb;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class by extends Thread {
-    private com.baidu.tieba.a.ae a;
-    private com.baidu.tieba.c.t b = null;
+class by implements Runnable {
+    final /* synthetic */ bx a;
+    private final /* synthetic */ com.baidu.tieba.a.ax b;
+    private final /* synthetic */ boolean c;
+    private final /* synthetic */ String d;
 
-    public by(com.baidu.tieba.a.ae aeVar) {
-        this.a = null;
-        this.a = aeVar;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public by(bx bxVar, com.baidu.tieba.a.ax axVar, boolean z, String str) {
+        this.a = bxVar;
+        this.b = axVar;
+        this.c = z;
+        this.d = str;
     }
 
-    @Override // java.lang.Thread, java.lang.Runnable
+    @Override // java.lang.Runnable
     public void run() {
-        this.b = new com.baidu.tieba.c.t("http://c.tieba.baidu.com/c/c/post/addstore");
-        com.baidu.tieba.b.j jVar = new com.baidu.tieba.b.j();
-        jVar.a(this.a);
-        this.b.a("data", jVar.a(0, 1));
-        this.b.i();
+        bl blVar;
+        cq cqVar;
+        bl blVar2;
+        cr crVar;
+        bl blVar3;
+        cq cqVar2;
+        blVar = this.a.a;
+        cqVar = blVar.ap;
+        if (cqVar != null) {
+            blVar3 = this.a.a;
+            cqVar2 = blVar3.ap;
+            cqVar2.a(this.b);
+        }
+        if (this.c) {
+            blVar2 = this.a.a;
+            crVar = blVar2.A;
+            crVar.b(this.d);
+        }
     }
 }

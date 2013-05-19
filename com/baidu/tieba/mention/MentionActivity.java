@@ -6,22 +6,23 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.FrameLayout;
+import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import com.baidu.tieba.R;
 import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.c.ae;
+import com.baidu.tieba.compatible.CompatibleUtile;
+import com.baidu.tieba.d.ac;
+import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public class MentionActivity extends ActivityGroup {
     private FrameLayout k;
     private RadioButton e = null;
     private RadioButton f = null;
-    private Button g = null;
-    private Button h = null;
+    private ImageView g = null;
+    private ImageView h = null;
     private View.OnClickListener i = null;
     private CompoundButton.OnCheckedChangeListener j = null;
     RelativeLayout a = null;
@@ -37,21 +38,28 @@ public class MentionActivity extends ActivityGroup {
     @Override // android.app.ActivityGroup, android.app.Activity
     protected void onCreate(Bundle bundle) {
         super.onCreate(bundle);
+        if (a()) {
+            CompatibleUtile.getInstance().openGpu(this);
+        }
         setContentView(R.layout.mention_activity);
-        b();
+        c();
         a(bundle);
+    }
+
+    public boolean a() {
+        return false;
     }
 
     @Override // android.app.ActivityGroup, android.app.Activity
     protected void onResume() {
         super.onResume();
-        if (TiebaApplication.b().ah() != this.d) {
-            this.d = TiebaApplication.b().ah();
+        if (TiebaApplication.d().ai() != this.d) {
+            this.d = TiebaApplication.d().ai();
             a(this.d);
         }
-        if (TiebaApplication.b().Y() > 0 && this.f != null) {
+        if (TiebaApplication.d().Z() > 0 && this.f != null) {
             this.f.setChecked(true);
-        } else if (TiebaApplication.b().Z() > 0 && this.e != null) {
+        } else if (TiebaApplication.d().aa() > 0 && this.e != null) {
             this.e.setChecked(true);
         }
     }
@@ -59,7 +67,7 @@ public class MentionActivity extends ActivityGroup {
     @Override // android.app.ActivityGroup, android.app.Activity
     protected void onDestroy() {
         super.onDestroy();
-        c();
+        d();
     }
 
     @Override // android.app.ActivityGroup, android.app.Activity
@@ -75,8 +83,8 @@ public class MentionActivity extends ActivityGroup {
     private void a(Bundle bundle) {
         int intExtra;
         this.i = new b(this);
-        this.h = (Button) findViewById(R.id.back);
-        this.g = (Button) findViewById(R.id.refresh);
+        this.h = (ImageView) findViewById(R.id.back);
+        this.g = (ImageView) findViewById(R.id.refresh);
         this.h.setOnClickListener(this.i);
         this.g.setOnClickListener(this.i);
         this.k = (FrameLayout) findViewById(R.id.content);
@@ -101,18 +109,17 @@ public class MentionActivity extends ActivityGroup {
     }
 
     private void a(int i) {
-        ae.c((TextView) this.h, i);
-        ae.e((TextView) this.h, i);
-        ae.e((View) this.g, i);
-        ae.a(this.a, i);
-        ae.c(this.b, i);
-        ae.c(this.c, i);
-        ae.d((View) this.f, i);
-        ae.d((View) this.e, i);
-        a();
+        ac.a(this.h, i);
+        ac.b(this.g, i);
+        ac.a(this.a, i);
+        ac.d(this.b, i);
+        ac.f(this.c, i);
+        ac.g((View) this.f, i);
+        ac.g((View) this.e, i);
+        b();
     }
 
-    public void a() {
+    public void b() {
         if (this.f.isChecked()) {
             if (this.d == 1) {
                 this.f.setTextColor(getResources().getColor(R.color.skin_1_common_color));
@@ -140,23 +147,23 @@ public class MentionActivity extends ActivityGroup {
     }
 
     public void a(int i, boolean z) {
-        long Y = TiebaApplication.b().Y();
-        long Z = TiebaApplication.b().Z();
+        long Z = TiebaApplication.d().Z();
+        long aa = TiebaApplication.d().aa();
         if (z) {
             switch (i) {
                 case 0:
-                    a(0L, Z);
-                    TiebaApplication.b().e(0L);
+                    a(0L, aa);
+                    TiebaApplication.d().d(0L);
                     return;
                 case 1:
-                    a(Y, 0L);
-                    TiebaApplication.b().f(0L);
+                    a(Z, 0L);
+                    TiebaApplication.d().e(0L);
                     return;
                 default:
                     return;
             }
         }
-        a(Y, Z);
+        a(Z, aa);
     }
 
     public void a(long j, long j2) {
@@ -172,14 +179,14 @@ public class MentionActivity extends ActivityGroup {
         }
     }
 
-    private void b() {
+    private void c() {
         this.l = new d(this, null);
         IntentFilter intentFilter = new IntentFilter();
         intentFilter.addAction("com.baidu.tieba.broadcast.notify");
         registerReceiver(this.l, intentFilter);
     }
 
-    private void c() {
+    private void d() {
         if (this.l != null) {
             unregisterReceiver(this.l);
         }

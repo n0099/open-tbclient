@@ -1,25 +1,45 @@
 package com.baidu.tieba.pb;
 
-import android.content.Context;
-import android.view.View;
-import com.baidu.tieba.person.PersonInfoActivity;
+import android.widget.ImageView;
+import com.baidu.tieba.view.PbImageView;
 /* loaded from: classes.dex */
-class al implements View.OnClickListener {
-    final /* synthetic */ ak a;
-    private final /* synthetic */ String b;
-    private final /* synthetic */ String c;
+class al implements com.baidu.adp.lib.c.c {
+    final /* synthetic */ NewPbActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public al(ak akVar, String str, String str2) {
-        this.a = akVar;
-        this.b = str;
-        this.c = str2;
+    public al(NewPbActivity newPbActivity) {
+        this.a = newPbActivity;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        Context context;
-        context = this.a.c;
-        PersonInfoActivity.a(context, String.valueOf(this.b), this.c);
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.c.c
+    /* renamed from: b */
+    public ImageView a() {
+        return new PbImageView(this.a);
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.c.c
+    public void a(ImageView imageView) {
+        imageView.setBackgroundResource(0);
+        imageView.setImageDrawable(null);
+        imageView.setTag(null);
+        imageView.setOnClickListener(null);
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.c.c
+    public ImageView b(ImageView imageView) {
+        return imageView;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.c.c
+    public ImageView c(ImageView imageView) {
+        imageView.setBackgroundResource(0);
+        imageView.setImageDrawable(null);
+        imageView.setTag(null);
+        imageView.setOnClickListener(null);
+        return imageView;
     }
 }

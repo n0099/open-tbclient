@@ -1,53 +1,44 @@
 package com.baidu.tieba.a;
 
-import com.baidu.android.pushservice.PushConstants;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class ag {
-    private long a = 0;
-    private long b = 0;
-    private long c = 0;
+    private int a = -1;
+    private String b = null;
+    private String c = null;
 
-    public void a(long j) {
-        this.a = j;
-    }
-
-    public long a() {
+    public int a() {
         return this.a;
     }
 
-    public void b(long j) {
-        this.b = j;
-    }
-
-    public long b() {
+    public String b() {
         return this.b;
     }
 
-    public void c(long j) {
-        this.c = j;
-    }
-
-    public long c() {
+    public String c() {
         return this.c;
     }
 
+    public void a(int i) {
+        this.a = i;
+    }
+
     public void a(String str) {
-        try {
-            a(new JSONObject(str).optJSONObject(PushConstants.EXTRA_PUSH_MESSAGE));
-        } catch (Exception e) {
-            com.baidu.tieba.c.ag.b("MessageData", "parserJson", "error = " + e.getMessage());
-        }
+        this.b = str;
     }
 
     public void a(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                this.a = jSONObject.optLong("replyme", 0L);
-                this.b = jSONObject.optLong("atme", 0L);
-                this.c = jSONObject.optLong("fans", 0L);
+                this.a = jSONObject.optInt("type");
+                if (this.a == 3) {
+                    this.b = jSONObject.optString("big_pic");
+                } else if (this.a == 5) {
+                    this.b = jSONObject.optString("vpic");
+                    this.c = jSONObject.optString("vsrc");
+                }
             } catch (Exception e) {
-                com.baidu.tieba.c.ag.b("MessageData", "parserJson", "error = " + e.getMessage());
+                com.baidu.tieba.d.ae.b(getClass().getName(), "parserJson", "error=" + e.toString());
             }
         }
     }

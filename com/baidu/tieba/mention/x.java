@@ -1,19 +1,19 @@
 package com.baidu.tieba.mention;
 
 import android.app.AlertDialog;
-import android.os.AsyncTask;
 import android.widget.ProgressBar;
-import com.baidu.tieba.R;
-import com.baidu.tieba.a.ak;
-import com.baidu.tieba.a.an;
-import com.baidu.tieba.c.ag;
+import com.baidu.tieba.a.al;
+import com.baidu.tieba.a.aq;
+import com.baidu.tieba.c.bd;
+import com.baidu.tieba.d.ae;
+import com.slidingmenu.lib.R;
 import java.util.ArrayList;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class x extends AsyncTask {
+public class x extends com.baidu.adp.lib.a.a {
     ArrayList a;
     final /* synthetic */ PostActivity b;
-    private com.baidu.tieba.c.t c = null;
+    private com.baidu.tieba.d.t c = null;
     private String d;
 
     public x(PostActivity postActivity, String str, ArrayList arrayList) {
@@ -24,8 +24,9 @@ public class x extends AsyncTask {
         this.a = arrayList;
     }
 
-    @Override // android.os.AsyncTask
-    protected void onPreExecute() {
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.a.a
+    public void b() {
         ProgressBar progressBar;
         progressBar = this.b.h;
         progressBar.setVisibility(0);
@@ -33,29 +34,29 @@ public class x extends AsyncTask {
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // android.os.AsyncTask
-    /* renamed from: a */
-    public ak doInBackground(Object... objArr) {
-        ak akVar = null;
+    @Override // com.baidu.adp.lib.a.a
+    /* renamed from: d */
+    public al a(Object... objArr) {
+        al alVar = null;
         try {
-            this.c = new com.baidu.tieba.c.t(this.d);
+            this.c = new com.baidu.tieba.d.t(this.d);
             this.c.a(this.a);
             String i = this.c.i();
             if (this.c.b()) {
-                ak akVar2 = new ak();
+                al alVar2 = new al();
                 try {
-                    akVar2.a(i);
-                    int size = akVar2.d().size();
+                    alVar2.b(i);
+                    int size = alVar2.d().size();
                     for (int i2 = 0; i2 < size; i2++) {
-                        ((an) akVar2.d().get(i2)).c(this.b);
-                        ((an) akVar2.d().get(i2)).a((ArrayList) null);
+                        ((aq) alVar2.d().get(i2)).e(this.b);
+                        ((aq) alVar2.d().get(i2)).a((ArrayList) null);
                     }
-                    return akVar2;
+                    return alVar2;
                 } catch (Exception e) {
-                    akVar = akVar2;
+                    alVar = alVar2;
                     e = e;
-                    ag.b("PostAsyncTask", "doInBackground", "error = " + e.getMessage());
-                    return akVar;
+                    ae.b("PostAsyncTask", "doInBackground", "error = " + e.getMessage());
+                    return alVar;
                 }
             }
             return null;
@@ -66,20 +67,19 @@ public class x extends AsyncTask {
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // android.os.AsyncTask
-    /* renamed from: a */
-    public void onPostExecute(ak akVar) {
+    @Override // com.baidu.adp.lib.a.a
+    public void a(al alVar) {
         ProgressBar progressBar;
-        com.baidu.tieba.b.r rVar;
+        bd bdVar;
         try {
             progressBar = this.b.h;
             progressBar.setVisibility(8);
-            if (akVar != null) {
-                rVar = this.b.n;
-                rVar.a(akVar);
+            if (alVar != null) {
+                bdVar = this.b.n;
+                bdVar.a(alVar);
             } else if (this.c != null) {
                 if (this.c.c()) {
-                    this.b.b(this.c.f());
+                    this.b.a(this.c.f());
                     if (this.c.d() == 4 || this.c.d() == 28 || this.c.d() == 29) {
                         this.b.finish();
                         return;
@@ -93,18 +93,20 @@ public class x extends AsyncTask {
                     builder.create().show();
                 }
             }
-            this.b.l();
+            this.b.m();
         } catch (Exception e) {
         }
         this.b.m = null;
     }
 
-    @Override // android.os.AsyncTask
-    protected void onCancelled() {
-        super.onCancelled();
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.a.a
+    public void c() {
+        super.c();
     }
 
-    public void a() {
+    @Override // com.baidu.adp.lib.a.a
+    public void cancel() {
         ProgressBar progressBar;
         if (this.c != null) {
             this.c.g();

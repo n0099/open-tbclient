@@ -1,28 +1,45 @@
 package com.baidu.tieba.more;
 
-import android.content.DialogInterface;
+import android.widget.CompoundButton;
 import com.baidu.tieba.TiebaApplication;
+import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-class ad implements DialogInterface.OnClickListener {
-    final /* synthetic */ z a;
+class ad implements CompoundButton.OnCheckedChangeListener {
+    final /* synthetic */ MsgRemindActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ad(z zVar) {
-        this.a = zVar;
+    public ad(MsgRemindActivity msgRemindActivity) {
+        this.a = msgRemindActivity;
     }
 
-    @Override // android.content.DialogInterface.OnClickListener
-    public void onClick(DialogInterface dialogInterface, int i) {
-        MoreActivity moreActivity;
-        switch (i) {
-            case 0:
-                TiebaApplication.b().d(true);
-                break;
-            case 1:
-                TiebaApplication.b().d(false);
-                break;
+    @Override // android.widget.CompoundButton.OnCheckedChangeListener
+    public void onCheckedChanged(CompoundButton compoundButton, boolean z) {
+        switch (compoundButton.getId()) {
+            case R.id.check_replyme /* 2131100167 */:
+                if (z) {
+                    TiebaApplication.d().n(true);
+                    break;
+                } else {
+                    TiebaApplication.d().n(false);
+                    break;
+                }
+            case R.id.check_atme /* 2131100168 */:
+                if (z) {
+                    TiebaApplication.d().m(true);
+                    break;
+                } else {
+                    TiebaApplication.d().m(false);
+                    break;
+                }
+            case R.id.check_newfans /* 2131100169 */:
+                if (z) {
+                    TiebaApplication.d().l(true);
+                    break;
+                } else {
+                    TiebaApplication.d().l(false);
+                    break;
+                }
         }
-        moreActivity = this.a.a;
-        moreActivity.t();
+        com.baidu.tieba.d.k.t();
     }
 }

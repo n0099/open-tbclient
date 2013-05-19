@@ -335,7 +335,7 @@ public class HanziToPinyin {
     }
 
     public static boolean isEnglishLetter(int i) {
-        return (i >= VALUE_OF_LOWERCASE_A && i <= VALUE_OF_LOWERCASE_Z) || (i >= 65 && i <= VALUE_OF_UPPERCASE_Z);
+        return (i >= VALUE_OF_LOWERCASE_A && i <= VALUE_OF_LOWERCASE_Z) || (i >= VALUE_OF_UPPERCASE_A && i <= VALUE_OF_UPPERCASE_Z);
     }
 
     public ArrayList get(String str) {

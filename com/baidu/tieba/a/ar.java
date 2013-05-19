@@ -1,66 +1,39 @@
 package com.baidu.tieba.a;
 
-import java.util.ArrayList;
-import org.json.JSONArray;
-import org.json.JSONObject;
+import android.content.Context;
+import android.text.TextPaint;
+import android.text.style.ClickableSpan;
+import android.view.View;
+import com.baidu.tieba.person.PersonInfoActivity;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ar {
-    private ArrayList f;
-    private int a = 0;
-    private int d = 0;
-    private int e = 0;
-    private boolean c = false;
-    private boolean b = false;
+public class ar extends ClickableSpan {
+    final /* synthetic */ aq a;
+    private String b;
+    private String c;
+    private Context d;
 
-    public ar() {
-        this.f = null;
-        this.f = new ArrayList();
+    public ar(aq aqVar, Context context, String str, String str2) {
+        this.a = aqVar;
+        this.b = null;
+        this.c = null;
+        this.d = null;
+        this.b = str;
+        this.c = str2;
+        this.d = context;
     }
 
-    public ArrayList a() {
-        return this.f;
+    @Override // android.text.style.ClickableSpan, android.text.style.CharacterStyle
+    public void updateDrawState(TextPaint textPaint) {
+        textPaint.setColor(-9989158);
+        textPaint.setUnderlineText(false);
+        textPaint.setFakeBoldText(false);
     }
 
-    public boolean b() {
-        return this.b;
-    }
-
-    public boolean c() {
-        return this.c;
-    }
-
-    public int d() {
-        return this.d;
-    }
-
-    public void a(String str) {
-        try {
-            a(new JSONObject(str));
-        } catch (Exception e) {
-            com.baidu.tieba.c.ag.b("SearchPostModel", "parserJson", "error = " + e.getMessage());
-        }
-    }
-
-    public void a(JSONObject jSONObject) {
-        if (jSONObject != null) {
-            try {
-                JSONObject optJSONObject = jSONObject.optJSONObject("page");
-                JSONArray optJSONArray = jSONObject.optJSONArray("post_list");
-                this.f.clear();
-                for (int i = 0; i < optJSONArray.length(); i++) {
-                    JSONObject optJSONObject2 = optJSONArray.optJSONObject(i);
-                    aq aqVar = new aq();
-                    aqVar.a(optJSONObject2);
-                    this.f.add(aqVar);
-                }
-                this.a = optJSONObject.optInt("total_count");
-                this.e = optJSONObject.optInt("total_page");
-                this.b = optJSONObject.optInt("has_more") != 0;
-                this.c = optJSONObject.optInt("has_prev") != 0;
-                this.d = optJSONObject.optInt("current_page");
-            } catch (Exception e) {
-                com.baidu.tieba.c.ag.b("SearchPostModel", "parserJson", "error = " + e.getMessage());
-            }
+    @Override // android.text.style.ClickableSpan
+    public void onClick(View view) {
+        if (this.b != null && this.c != null && this.d != null) {
+            PersonInfoActivity.a(this.d, this.c, this.b);
         }
     }
 }

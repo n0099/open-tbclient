@@ -21,6 +21,7 @@ public class d implements View.OnClickListener {
         h hVar;
         h hVar2;
         h hVar3;
+        h hVar4;
         this.a.j = ((Integer) view.getTag()).intValue();
         i = this.a.j;
         if (i >= 0) {
@@ -29,15 +30,17 @@ public class d implements View.OnClickListener {
             if (i2 < iVar.getCount()) {
                 iVar2 = this.a.g;
                 i3 = this.a.j;
-                com.baidu.tieba.a.q qVar = (com.baidu.tieba.a.q) iVar2.getItem(i3);
+                com.baidu.tieba.a.s sVar = (com.baidu.tieba.a.s) iVar2.getItem(i3);
                 hVar = this.a.k;
                 if (hVar != null) {
-                    hVar3 = this.a.k;
-                    hVar3.a();
+                    hVar4 = this.a.k;
+                    hVar4.cancel();
                 }
                 this.a.k = new h(this.a, null);
                 hVar2 = this.a.k;
-                hVar2.execute(qVar);
+                hVar2.setPriority(2);
+                hVar3 = this.a.k;
+                hVar3.execute(sVar);
             }
         }
     }

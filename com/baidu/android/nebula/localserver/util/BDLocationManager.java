@@ -3,10 +3,7 @@ package com.baidu.android.nebula.localserver.util;
 import android.content.Context;
 import android.util.Log;
 import com.baidu.android.pushservice.util.NoProGuard;
-import com.baidu.location.BDLocation;
-import com.baidu.location.BDLocationListener;
-import com.baidu.location.LocationClient;
-import com.baidu.location.LocationClientOption;
+import com.baidu.location.j;
 import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes.dex */
@@ -16,14 +13,14 @@ public final class BDLocationManager {
     private Context a;
     private b c;
     private String f;
-    private LocationClient d = null;
+    private com.baidu.location.e d = null;
     private boolean h = false;
     private boolean i = true;
     private long j = 0;
     private ArrayList e = new ArrayList();
 
     /* loaded from: classes.dex */
-    public class BaiduLocationListener implements NoProGuard, BDLocationListener {
+    public class BaiduLocationListener implements NoProGuard, com.baidu.location.c {
         private boolean canRelocation = true;
 
         public BaiduLocationListener() {
@@ -36,24 +33,24 @@ public final class BDLocationManager {
             }
         }
 
-        @Override // com.baidu.location.BDLocationListener
-        public void onReceiveLocation(BDLocation bDLocation) {
+        @Override // com.baidu.location.c
+        public void onReceiveLocation(com.baidu.location.a aVar) {
             BDLocationManager.this.h = false;
-            if (bDLocation == null) {
+            if (aVar == null) {
                 Log.d("BDLocationManager", "BaiduLocationListener return null");
                 return;
             }
-            int locType = bDLocation.getLocType();
-            if (locType == 61 || locType == 161 || locType == 65) {
+            int d = aVar.d();
+            if (d == 61 || d == 161 || d == 65) {
                 b bVar = BDLocationManager.this.c;
                 if (bVar == null) {
                     bVar = new b();
                 }
                 bVar.a = System.currentTimeMillis();
-                bVar.b = bDLocation.getLongitude();
-                bVar.c = bDLocation.getLatitude();
+                bVar.b = aVar.b();
+                bVar.c = aVar.a();
                 bVar.d = 1000.0d;
-                bVar.e = bDLocation.getAddrStr();
+                bVar.e = aVar.e();
                 if (bVar.b < 1.0E-4d && bVar.c < 1.0E-4d) {
                     BDLocationManager.this.c = null;
                     reLocationRequest();
@@ -61,12 +58,12 @@ public final class BDLocationManager {
                 }
                 BDLocationManager.this.c = bVar;
                 this.canRelocation = true;
-            } else if (locType == 63) {
+            } else if (d == 63) {
                 reLocationRequest();
-            } else if (locType == 167) {
-                Log.e("BDLocationManager", "server location error. error code:" + locType);
+            } else if (d == 167) {
+                Log.e("BDLocationManager", "server location error. error code:" + d);
             } else {
-                Log.e("BDLocationManager", "location fail. error code: " + locType);
+                Log.e("BDLocationManager", "location fail. error code: " + d);
             }
             synchronized (BDLocationManager.this.e) {
                 Iterator it = BDLocationManager.this.e.iterator();
@@ -76,8 +73,8 @@ public final class BDLocationManager {
             }
         }
 
-        @Override // com.baidu.location.BDLocationListener
-        public void onReceivePoi(BDLocation bDLocation) {
+        @Override // com.baidu.location.c
+        public void onReceivePoi(com.baidu.location.a aVar) {
         }
     }
 
@@ -91,7 +88,7 @@ public final class BDLocationManager {
     public static synchronized void a() {
         synchronized (BDLocationManager.class) {
             if (b != null) {
-                b.d.stop();
+                b.d.e();
                 b = null;
             }
         }
@@ -115,7 +112,7 @@ public final class BDLocationManager {
 
     public static boolean a(Context context) {
         try {
-            return Class.forName("com.baidu.location.LocationClient") != null;
+            return Class.forName("com.baidu.location.e") != null;
         } catch (ClassNotFoundException e) {
             return false;
         }
@@ -133,22 +130,22 @@ public final class BDLocationManager {
     }
 
     private void d() {
-        this.d = new LocationClient(this.a);
-        this.d.registerLocationListener(new BaiduLocationListener());
-        this.d.setLocOption(e());
-        this.d.start();
+        this.d = new com.baidu.location.e(this.a);
+        this.d.b(new BaiduLocationListener());
+        this.d.a(e());
+        this.d.d();
     }
 
-    private LocationClientOption e() {
-        LocationClientOption locationClientOption = new LocationClientOption();
-        locationClientOption.setOpenGps(false);
-        locationClientOption.setAddrType("detail");
-        locationClientOption.setCoorType("bd09");
-        locationClientOption.setProdName("bd_service_android");
+    private j e() {
+        j jVar = new j();
+        jVar.a(false);
+        jVar.b("detail");
+        jVar.a("bd09");
+        jVar.c("bd_service_android");
         if (this.f != null) {
-            locationClientOption.setServiceName(this.f);
+            jVar.d(this.f);
         }
-        return locationClientOption;
+        return jVar;
     }
 
     public void a(c cVar) {
@@ -160,9 +157,9 @@ public final class BDLocationManager {
     }
 
     public void a(boolean z) {
-        LocationClientOption e = e();
-        e.setOpenGps(z);
-        this.d.setLocOption(e);
+        j e = e();
+        e.a(z);
+        this.d.a(e);
     }
 
     public b b() {

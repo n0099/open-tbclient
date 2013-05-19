@@ -45,15 +45,15 @@ public class b implements Serializable {
                 this.b = jSONObject.optInt("ifposta", 0);
                 this.c = jSONObject.optInt("forbid_flag", 0);
                 this.d = jSONObject.optString("tbs");
-                if (TiebaApplication.b() != null && this.d != null && this.d.length() > 0) {
-                    TiebaApplication.b().h(this.d);
+                if (TiebaApplication.d() != null && this.d != null && this.d.length() > 0) {
+                    TiebaApplication.d().h(this.d);
                 }
                 this.e = jSONObject.optInt("need_vcode", 0);
                 this.f = jSONObject.optString("vcode_md5");
                 this.g = jSONObject.optString("vcode_pic_url");
                 this.h = jSONObject.optString("forbid_info");
             } catch (Exception e) {
-                com.baidu.tieba.c.ag.b("AntiData", "parserJson", "error = " + e.getMessage());
+                com.baidu.tieba.d.ae.b("AntiData", "parserJson", "error = " + e.getMessage());
             }
         }
     }

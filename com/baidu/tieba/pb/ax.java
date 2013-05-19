@@ -1,22 +1,27 @@
 package com.baidu.tieba.pb;
 
-import android.view.GestureDetector;
-import android.view.MotionEvent;
+import android.content.DialogInterface;
 import android.view.View;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-public class ax implements View.OnTouchListener {
-    final /* synthetic */ PbActivity a;
-    private final /* synthetic */ GestureDetector b;
+class ax implements View.OnLongClickListener {
+    final /* synthetic */ NewPbActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ax(PbActivity pbActivity, GestureDetector gestureDetector) {
-        this.a = pbActivity;
-        this.b = gestureDetector;
+    public ax(NewPbActivity newPbActivity) {
+        this.a = newPbActivity;
     }
 
-    @Override // android.view.View.OnTouchListener
-    public boolean onTouch(View view, MotionEvent motionEvent) {
-        return this.b.onTouchEvent(motionEvent);
+    @Override // android.view.View.OnLongClickListener
+    public boolean onLongClick(View view) {
+        bl blVar;
+        DialogInterface.OnClickListener onClickListener;
+        this.a.c = (com.baidu.tieba.a.aq) view.getTag(R.id.tag_clip_board);
+        if (this.a.c != null) {
+            blVar = this.a.o;
+            onClickListener = this.a.H;
+            blVar.a(onClickListener);
+        }
+        return true;
     }
 }

@@ -1,21 +1,40 @@
 package com.baidu.tieba.frs;
+
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public enum an {
-    NORMAL,
-    LOADING,
-    NEXT,
-    LAST,
-    GONE,
-    NO_ITEM;
+public class an extends BroadcastReceiver {
+    final /* synthetic */ FrsImageActivity a;
 
-    /* JADX DEBUG: Replace access to removed values field (g) with 'values()' method */
-    /* renamed from: values  reason: to resolve conflict with enum method */
-    public static an[] valuesCustom() {
-        an[] valuesCustom = values();
-        int length = valuesCustom.length;
-        an[] anVarArr = new an[length];
-        System.arraycopy(valuesCustom, 0, anVarArr, 0, length);
-        return anVarArr;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public an(FrsImageActivity frsImageActivity) {
+        this.a = frsImageActivity;
+    }
+
+    @Override // android.content.BroadcastReceiver
+    public void onReceive(Context context, Intent intent) {
+        com.baidu.tieba.c.u uVar;
+        ay ayVar;
+        com.baidu.tieba.c.u uVar2;
+        com.baidu.tieba.c.u uVar3;
+        com.baidu.tieba.c.u uVar4;
+        com.baidu.tieba.c.u uVar5;
+        long longExtra = intent.getLongExtra("fans", 0L);
+        long longExtra2 = intent.getLongExtra("relay", 0L);
+        long longExtra3 = intent.getLongExtra("at_me", 0L);
+        uVar = this.a.p;
+        if (uVar != null) {
+            uVar3 = this.a.p;
+            uVar3.a(longExtra);
+            uVar4 = this.a.p;
+            uVar4.c(longExtra2);
+            uVar5 = this.a.p;
+            uVar5.b(longExtra3);
+        }
+        ayVar = this.a.n;
+        uVar2 = this.a.p;
+        ayVar.a(uVar2);
     }
 }

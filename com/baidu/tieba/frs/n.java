@@ -1,12 +1,7 @@
 package com.baidu.tieba.frs;
-
-import android.app.AlertDialog;
-import android.view.View;
-import com.baidu.mobstat.StatService;
-import com.baidu.tieba.TiebaApplication;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class n implements View.OnClickListener {
+public class n extends com.baidu.adp.a.e {
     final /* synthetic */ FrsActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -14,17 +9,21 @@ public class n implements View.OnClickListener {
         this.a = frsActivity;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        String str;
-        AlertDialog alertDialog;
-        if (TiebaApplication.b().l()) {
-            StatService.onEvent(this.a, "frs_add_main_screen", "frsclick", 1);
+    @Override // com.baidu.adp.a.e
+    public void a(Object obj) {
+        com.baidu.tieba.c.g gVar;
+        ba baVar;
+        com.baidu.tieba.c.g gVar2;
+        gVar = this.a.D;
+        if (gVar.a() == 1) {
+            if (((Boolean) obj).booleanValue()) {
+                this.a.r();
+            }
+            baVar = this.a.l;
+            bd a = baVar.a();
+            boolean booleanValue = ((Boolean) obj).booleanValue();
+            gVar2 = this.a.D;
+            a.a(booleanValue, gVar2.c());
         }
-        FrsActivity frsActivity = this.a;
-        str = this.a.g;
-        frsActivity.c(str);
-        alertDialog = this.a.V;
-        alertDialog.dismiss();
     }
 }

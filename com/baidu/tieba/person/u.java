@@ -18,11 +18,11 @@ class u extends BroadcastReceiver {
 
     @Override // android.content.BroadcastReceiver
     public void onReceive(Context context, Intent intent) {
-        this.a.b();
+        this.a.a_();
         if (intent.getBooleanExtra("result", false)) {
             EditHeadActivity.h(this.a);
         } else {
-            this.a.b(intent.getStringExtra("error"));
+            this.a.a(intent.getStringExtra("error"));
         }
     }
 }

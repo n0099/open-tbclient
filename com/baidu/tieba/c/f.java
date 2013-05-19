@@ -1,91 +1,98 @@
 package com.baidu.tieba.c;
 
-import java.io.RandomAccessFile;
+import java.util.ArrayList;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class f {
-    private String a;
-    private String b;
-    private com.baidu.tieba.a.f c;
-    private t d;
-    private boolean e = false;
+public class f extends com.baidu.adp.lib.a.a {
+    final /* synthetic */ c a;
+    private com.baidu.tieba.d.t b;
+    private com.baidu.tieba.a.az c;
 
-    public f(String str, com.baidu.tieba.a.f fVar, String str2) {
-        this.a = null;
+    private f(c cVar) {
+        this.a = cVar;
         this.b = null;
         this.c = null;
-        this.a = str;
-        this.c = fVar;
-        this.b = str2;
     }
 
-    public void a() {
-        if (this.d != null) {
-            this.d.g();
-        }
-        this.e = true;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public /* synthetic */ f(c cVar, f fVar) {
+        this(cVar);
     }
 
-    public com.baidu.tieba.a.g b() {
-        com.baidu.tieba.a.g gVar = new com.baidu.tieba.a.g();
-        long b = this.c.b();
-        long j = b % 102400 == 0 ? b / 102400 : (b / 102400) + 1;
-        int c = this.c.c();
-        if (c < j) {
-            RandomAccessFile randomAccessFile = new RandomAccessFile(o.c(this.a), "r");
-            ag.e("ChunkUploadHelper", "uploadChunkFile", String.format("start chunk : %d", Integer.valueOf(c)));
-            if (randomAccessFile.skipBytes(102400 * c) < 102400 * c) {
-                gVar.a(false);
-                randomAccessFile.close();
-                return gVar;
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.a.a
+    public void b() {
+        this.c = new com.baidu.tieba.a.az();
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.a.a
+    public Boolean a(c... cVarArr) {
+        c cVar = new c();
+        try {
+            cVar.e();
+            this.b = new com.baidu.tieba.d.t();
+            this.b.a(String.valueOf(com.baidu.tieba.a.i.e) + "c/c/post/addstore");
+            int h = this.a.h();
+            if (cVar.c() - 1 <= h) {
+                h = cVar.c() - 1;
             }
-            while (true) {
-                int i = c;
-                if (i < j) {
-                    int i2 = 102400;
-                    if (i == j - 1) {
-                        i2 = (int) (b - (102400 * (j - 1)));
-                    }
-                    byte[] bArr = new byte[i2];
-                    int read = randomAccessFile.read(bArr, 0, i2);
-                    if (read != -1) {
-                        this.d = new t(this.b);
-                        this.d.a("md5", this.c.a());
-                        this.d.a("total_length", String.valueOf(b));
-                        this.d.a("total_num", String.valueOf(j));
-                        ag.e("ChunkUploadHelper", "uploadChunkFile", String.format("total length : %d, chunk_no : %d", Long.valueOf(b), Integer.valueOf(i)));
-                        this.d.a("pic_chunk", bArr);
-                        this.d.a("offset", String.valueOf(102400 * i));
-                        this.d.a("chunk_no", String.valueOf(i + 1));
-                        this.d.a("length", String.valueOf(read));
-                        boolean z = false;
-                        if (this.e) {
-                            z = true;
-                        } else {
-                            String j2 = this.d.j();
-                            ag.e("ChunkUploadHelper", "uploadChunkFile", "ret " + j2);
-                            if (j2 == null || !this.d.b()) {
-                                this.c.a(i);
-                                k.a(this.c);
-                                randomAccessFile.close();
-                                z = true;
-                            }
-                        }
-                        if (z) {
-                            gVar.a(this.d.d());
-                            gVar.a(this.d.f());
-                            gVar.a(this.c);
-                            gVar.a(false);
-                            return gVar;
-                        }
-                    }
-                    c = i + 1;
-                } else {
-                    randomAccessFile.close();
+            while (h >= 0) {
+                String a = cVar.a(h, 20);
+                this.b.a(new ArrayList());
+                this.b.a("data", a);
+                this.c.a(this.b.i());
+                if (!this.b.b() || this.c.a() != 0) {
                     break;
                 }
+                h -= 20;
             }
+            this.a.b(h);
+            if (h >= 0) {
+                return false;
+            }
+            return true;
+        } catch (Exception e) {
+            com.baidu.tieba.d.ae.b(getClass().getName(), "", "doInBackground error = " + e.getMessage());
+            return false;
         }
-        gVar.a(true);
-        return gVar;
+    }
+
+    @Override // com.baidu.adp.lib.a.a
+    public void cancel() {
+        super.cancel(true);
+        if (this.b != null) {
+            this.b.g();
+        }
+        this.a.c = null;
+        if (this.a.a != null) {
+            this.a.a.a(1, false, null, false);
+        }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.a.a
+    public void a(Boolean bool) {
+        String str;
+        boolean z;
+        ArrayList arrayList;
+        this.a.c = null;
+        if (bool.booleanValue()) {
+            arrayList = this.a.e;
+            arrayList.clear();
+            str = null;
+            z = false;
+        } else if (this.b.b()) {
+            str = this.c.b();
+            z = false;
+        } else {
+            str = null;
+            z = true;
+        }
+        if (this.a.a != null) {
+            this.a.a.a(1, bool, str, Boolean.valueOf(z));
+        }
     }
 }

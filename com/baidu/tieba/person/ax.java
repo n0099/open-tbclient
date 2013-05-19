@@ -1,18 +1,16 @@
 package com.baidu.tieba.person;
-
-import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ax implements View.OnClickListener {
-    final /* synthetic */ PersonChangeActivity a;
+public class ax implements com.baidu.adp.widget.ScrollView.o {
+    final /* synthetic */ PersonInfoActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ax(PersonChangeActivity personChangeActivity) {
-        this.a = personChangeActivity;
+    public ax(PersonInfoActivity personInfoActivity) {
+        this.a = personInfoActivity;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        this.a.j();
+    @Override // com.baidu.adp.widget.ScrollView.o
+    public void a() {
+        this.a.b();
     }
 }

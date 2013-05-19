@@ -1,20 +1,31 @@
 package android.support.v4.app;
 
-import android.os.Parcel;
-import android.os.Parcelable;
+import android.view.animation.Animation;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-final class p implements Parcelable.Creator {
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // android.os.Parcelable.Creator
-    /* renamed from: a */
-    public FragmentState createFromParcel(Parcel parcel) {
-        return new FragmentState(parcel);
+public class p implements Animation.AnimationListener {
+    final /* synthetic */ Fragment a;
+    final /* synthetic */ m b;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public p(m mVar, Fragment fragment) {
+        this.b = mVar;
+        this.a = fragment;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // android.os.Parcelable.Creator
-    /* renamed from: a */
-    public FragmentState[] newArray(int i) {
-        return new FragmentState[i];
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationEnd(Animation animation) {
+        if (this.a.j != null) {
+            this.a.j = null;
+            this.b.a(this.a, this.a.k, 0, 0);
+        }
+    }
+
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationRepeat(Animation animation) {
+    }
+
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationStart(Animation animation) {
     }
 }

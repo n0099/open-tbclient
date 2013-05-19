@@ -1,10 +1,9 @@
 package com.baidu.tieba.account;
 
-import android.text.Editable;
-import android.text.TextWatcher;
+import com.baidu.tieba.TiebaApplication;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class z implements TextWatcher {
+public class z implements o {
     final /* synthetic */ LoginActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -12,19 +11,12 @@ public class z implements TextWatcher {
         this.a = loginActivity;
     }
 
-    @Override // android.text.TextWatcher
-    public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-        this.a.r = true;
-        this.a.v();
-        this.a.w();
-    }
-
-    @Override // android.text.TextWatcher
-    public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-    }
-
-    @Override // android.text.TextWatcher
-    public void afterTextChanged(Editable editable) {
-        this.a.l();
+    @Override // com.baidu.tieba.account.o
+    public void a(com.baidu.tieba.a.a aVar) {
+        com.baidu.tieba.a.a aVar2;
+        com.baidu.tieba.d.k.a(aVar);
+        aVar2 = this.a.T;
+        TiebaApplication.b(aVar2);
+        this.a.b();
     }
 }

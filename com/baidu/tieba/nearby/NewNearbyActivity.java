@@ -22,61 +22,63 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.baidu.mobstat.StatService;
 import com.baidu.tieba.MainTabActivity;
-import com.baidu.tieba.R;
 import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.account.LoginActivity;
+import com.baidu.tieba.compatible.CompatibleUtile;
 import com.baidu.tieba.view.BaseViewPagerAdapter;
 import com.baidu.tieba.write.WriteActivity;
 import com.baidu.tieba.write.WriteImageActivity;
+import com.slidingmenu.lib.R;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class NewNearbyActivity extends com.baidu.tieba.e {
     private RelativeLayout e = null;
-    private AbsoluteLayout f = null;
-    private TextView g = null;
-    private int h = 0;
-    private bg i = null;
-    private ViewPager j = null;
-    private BaseViewPagerAdapter k = null;
+    private RelativeLayout f = null;
+    private AbsoluteLayout g = null;
+    private TextView h = null;
+    private int i = 0;
+    private bf j = null;
+    private ViewPager k = null;
+    private BaseViewPagerAdapter l = null;
     LocalActivityManager c = null;
-    private com.baidu.tieba.an l = null;
-    private Address m = null;
-    private ProgressBar n = null;
-    private TextView o = null;
-    private RadioGroup p = null;
-    private CompoundButton.OnCheckedChangeListener q = null;
-    private RadioButton r = null;
+    private com.baidu.tieba.am m = null;
+    private Address n = null;
+    private ProgressBar o = null;
+    private TextView p = null;
+    private RadioGroup q = null;
+    private CompoundButton.OnCheckedChangeListener r = null;
     private RadioButton s = null;
-    private ImageView t = null;
+    private RadioButton t = null;
     private ImageView u = null;
-    private View.OnTouchListener v = null;
-    private boolean w = false;
+    private ImageView v = null;
+    private View.OnTouchListener w = null;
     private boolean x = false;
     private boolean y = false;
-    private ImageView z = null;
+    private boolean z = false;
     private ImageView A = null;
     private ImageView B = null;
-    private View.OnClickListener C = null;
-    private Animation.AnimationListener D = null;
-    private boolean E = true;
-    private AlertDialog F = null;
-    private com.baidu.tieba.c.a G = null;
-    private com.baidu.tieba.c.d H = new av(this);
-    public GestureDetector.OnGestureListener d = new ay(this);
+    private ImageView C = null;
+    private View.OnClickListener D = null;
+    private Animation.AnimationListener E = null;
+    private boolean F = true;
+    private AlertDialog G = null;
+    private com.baidu.tieba.d.a H = null;
+    private com.baidu.tieba.d.d I = new au(this);
+    public GestureDetector.OnGestureListener d = new ax(this);
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.e, android.app.Activity
+    @Override // com.baidu.tieba.e, com.baidu.adp.a.a, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         setContentView(R.layout.new_nearby_activity);
         this.c = new LocalActivityManager(this, false);
         this.c.dispatchCreate(bundle != null ? bundle.getBundle("android:states") : null);
-        i();
-        o();
+        b();
         p();
-        this.G = new com.baidu.tieba.c.a(this);
-        if (q()) {
-            n();
+        q();
+        this.H = new com.baidu.tieba.d.a(this);
+        if (r()) {
+            o();
         }
     }
 
@@ -114,14 +116,14 @@ public class NewNearbyActivity extends com.baidu.tieba.e {
     @Override // com.baidu.tieba.e, android.app.Activity
     public void onDestroy() {
         this.c.dispatchDestroy(isFinishing());
-        if (this.i != null) {
-            this.i.a();
-            this.i = null;
+        if (this.j != null) {
+            this.j.cancel();
+            this.j = null;
         }
-        if (this.n != null) {
-            this.n.setVisibility(8);
+        if (this.o != null) {
+            this.o.setVisibility(8);
         }
-        TiebaApplication.b().b(this.l);
+        TiebaApplication.d().b(this.m);
         super.onDestroy();
     }
 
@@ -130,74 +132,76 @@ public class NewNearbyActivity extends com.baidu.tieba.e {
     public void b(int i) {
         super.b(i);
         if (i == 1) {
-            this.z.setImageResource(R.drawable.lbs_send_normal_1);
-            this.A.setImageResource(R.drawable.lbs_send_pic_1);
-            this.B.setImageResource(R.drawable.lbs_send_text_1);
-            com.baidu.tieba.c.ae.h(this.r, R.drawable.lbs_title_bg_1);
-            com.baidu.tieba.c.ae.h(this.s, R.drawable.lbs_title_bg_1);
-            this.r.setTextColor(getResources().getColorStateList(R.color.lbs_title_color_1));
+            this.A.setImageResource(R.drawable.lbs_send_normal_1);
+            this.B.setImageResource(R.drawable.lbs_send_pic_1);
+            this.C.setImageResource(R.drawable.lbs_send_text_1);
+            com.baidu.tieba.d.ac.h((View) this.s, (int) R.drawable.lbs_title_bg_1);
+            com.baidu.tieba.d.ac.h((View) this.t, (int) R.drawable.lbs_title_bg_1);
             this.s.setTextColor(getResources().getColorStateList(R.color.lbs_title_color_1));
-            com.baidu.tieba.c.ae.h(this.t, R.drawable.lbs_title_bg_normal_1);
-            com.baidu.tieba.c.ae.h(this.u, R.drawable.lbs_title_bg_normal_1);
-            this.u.setImageDrawable(new ColorDrawable(-13421773));
-            this.j.setBackgroundColor(-13158601);
+            this.t.setTextColor(getResources().getColorStateList(R.color.lbs_title_color_1));
+            com.baidu.tieba.d.ac.h(this.u, (int) R.drawable.lbs_title_bg_normal_1);
+            com.baidu.tieba.d.ac.h(this.v, (int) R.drawable.lbs_title_bg_normal_1);
+            this.v.setImageDrawable(new ColorDrawable(-13421773));
+            this.k.setBackgroundColor(-13618114);
             return;
         }
-        this.z.setImageResource(R.drawable.lbs_send_normal);
-        this.A.setImageResource(R.drawable.lbs_send_pic);
-        this.B.setImageResource(R.drawable.lbs_send_text);
-        com.baidu.tieba.c.ae.h(this.r, R.drawable.lbs_title_bg);
-        com.baidu.tieba.c.ae.h(this.s, R.drawable.lbs_title_bg);
-        this.r.setTextColor(getResources().getColorStateList(R.color.lbs_title_color));
+        this.A.setImageResource(R.drawable.lbs_send_normal);
+        this.B.setImageResource(R.drawable.lbs_send_pic);
+        this.C.setImageResource(R.drawable.lbs_send_text);
+        com.baidu.tieba.d.ac.h((View) this.s, (int) R.drawable.lbs_title_bg);
+        com.baidu.tieba.d.ac.h((View) this.t, (int) R.drawable.lbs_title_bg);
         this.s.setTextColor(getResources().getColorStateList(R.color.lbs_title_color));
-        com.baidu.tieba.c.ae.h(this.t, R.drawable.lbs_title_bg_normal);
-        com.baidu.tieba.c.ae.h(this.u, R.drawable.lbs_title_bg_normal);
-        this.u.setImageDrawable(new ColorDrawable(-2763307));
-        this.j.setBackgroundColor(-1380623);
+        this.t.setTextColor(getResources().getColorStateList(R.color.lbs_title_color));
+        com.baidu.tieba.d.ac.h(this.u, (int) R.drawable.lbs_title_bg_normal);
+        com.baidu.tieba.d.ac.h(this.v, (int) R.drawable.lbs_title_bg_normal);
+        this.v.setImageDrawable(new ColorDrawable(-2763307));
+        this.k.setBackgroundColor(-1380623);
     }
 
-    void i() {
-        this.e = (RelativeLayout) findViewById(R.id.static_map_layout);
-        this.e.setOnTouchListener(new az(this));
-        this.e.setOnClickListener(new ba(this));
-        this.f = (AbsoluteLayout) findViewById(R.id.static_map);
-        this.g = (TextView) findViewById(R.id.static_map_text);
+    void b() {
+        this.e = (RelativeLayout) findViewById(R.id.new_nearby_activity_layout);
+        CompatibleUtile.getInstance().closeViewGpu(this.e);
+        this.f = (RelativeLayout) findViewById(R.id.static_map_layout);
+        this.f.setOnTouchListener(new ay(this));
+        this.f.setOnClickListener(new az(this));
+        this.g = (AbsoluteLayout) findViewById(R.id.static_map);
+        this.h = (TextView) findViewById(R.id.static_map_text);
+        this.E = new ba(this);
         this.D = new bb(this);
-        this.C = new bc(this);
-        this.q = new bd(this);
-        this.v = new be(this);
-        this.z = (ImageView) findViewById(R.id.main_key);
-        this.A = (ImageView) findViewById(R.id.send_pic);
-        this.B = (ImageView) findViewById(R.id.send_text);
-        this.z.setOnClickListener(this.C);
-        this.A.setOnClickListener(this.C);
-        this.B.setOnClickListener(this.C);
-        this.p = (RadioGroup) findViewById(R.id.title_lbs);
-        this.r = (RadioButton) findViewById(R.id.title_lbs_threads);
-        this.s = (RadioButton) findViewById(R.id.title_lbs_bars);
-        this.t = (ImageView) findViewById(R.id.refresh);
-        this.u = (ImageView) findViewById(R.id.divider);
-        this.r.setOnCheckedChangeListener(this.q);
-        this.s.setOnCheckedChangeListener(this.q);
-        this.A.setOnTouchListener(this.v);
-        this.B.setOnTouchListener(this.v);
-        this.z.setOnTouchListener(this.v);
-        this.t.setOnClickListener(this.C);
-        this.o = (TextView) findViewById(R.id.no_location_info_view);
-        this.n = (ProgressBar) findViewById(R.id.location_progress);
+        this.r = new bc(this);
+        this.w = new bd(this);
+        this.A = (ImageView) findViewById(R.id.main_key);
+        this.B = (ImageView) findViewById(R.id.send_pic);
+        this.C = (ImageView) findViewById(R.id.send_text);
+        this.A.setOnClickListener(this.D);
+        this.B.setOnClickListener(this.D);
+        this.C.setOnClickListener(this.D);
+        this.q = (RadioGroup) findViewById(R.id.title_lbs);
+        this.s = (RadioButton) findViewById(R.id.title_lbs_threads);
+        this.t = (RadioButton) findViewById(R.id.title_lbs_bars);
+        this.u = (ImageView) findViewById(R.id.refresh);
+        this.v = (ImageView) findViewById(R.id.divider);
+        this.s.setOnCheckedChangeListener(this.r);
+        this.t.setOnCheckedChangeListener(this.r);
+        this.B.setOnTouchListener(this.w);
+        this.C.setOnTouchListener(this.w);
+        this.A.setOnTouchListener(this.w);
+        this.u.setOnClickListener(this.D);
+        this.p = (TextView) findViewById(R.id.no_location_info_view);
+        this.o = (ProgressBar) findViewById(R.id.location_progress);
         String[] strArr = {getString(R.string.take_photo), getString(R.string.album)};
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle(getString(R.string.operation));
-        builder.setItems(strArr, new bf(this));
-        if (this.F == null) {
-            this.F = builder.create();
-            this.F.setCanceledOnTouchOutside(true);
+        builder.setItems(strArr, new be(this));
+        if (this.G == null) {
+            this.G = builder.create();
+            this.G.setCanceledOnTouchOutside(true);
         }
-        this.h = com.baidu.tieba.c.ai.a(this, 29.0f);
+        this.i = com.baidu.tieba.d.ag.a(this, 29.0f);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void n() {
+    public void o() {
         ArrayList arrayList = new ArrayList();
         Intent intent = new Intent(this, NearbyPostActivity.class);
         Intent intent2 = new Intent(this, NearbyForumActivity.class);
@@ -205,21 +209,21 @@ public class NewNearbyActivity extends com.baidu.tieba.e {
         View decorView2 = this.c.startActivity("nearby_forum", intent2).getDecorView();
         arrayList.add(decorView);
         arrayList.add(decorView2);
-        this.k.a(arrayList);
-        this.k.notifyDataSetChanged();
+        this.l.a(arrayList);
+        this.l.notifyDataSetChanged();
     }
 
-    private void o() {
-        this.j = (ViewPager) findViewById(R.id.view_pager);
-        this.k = new BaseViewPagerAdapter();
-        this.j.setAdapter(this.k);
-        this.j.setOnPageChangeListener(new aw(this));
+    private void p() {
+        this.k = (ViewPager) findViewById(R.id.view_pager);
+        this.l = new BaseViewPagerAdapter();
+        this.k.setAdapter(this.l);
+        this.k.setOnPageChangeListener(new av(this));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void c(int i) {
-        String y = TiebaApplication.y();
-        if (y == null || y.length() <= 0) {
+        String z = TiebaApplication.z();
+        if (z == null || z.length() <= 0) {
             if (i == 0) {
                 LoginActivity.a((Activity) this, getString(R.string.login_to_use), true, 1100001);
             } else {
@@ -228,7 +232,7 @@ public class NewNearbyActivity extends com.baidu.tieba.e {
         } else if (i == 0) {
             WriteActivity.a(this);
         } else {
-            this.F.show();
+            this.G.show();
         }
     }
 
@@ -241,21 +245,21 @@ public class NewNearbyActivity extends com.baidu.tieba.e {
                     c(0);
                     break;
                 case 1100016:
-                    this.F.show();
+                    this.G.show();
                     break;
                 case 1200001:
-                    WriteImageActivity.a(this, 1200001, 12000010, null);
+                    WriteImageActivity.b(this, 1200001, 12000010, null);
                     break;
                 case 1200002:
                     if (intent != null && intent.getData() != null) {
-                        WriteImageActivity.a(this, 1200002, 1200008, intent.getData());
+                        WriteImageActivity.b(this, 1200002, 1200009, intent.getData());
                         break;
                     } else {
                         com.baidu.tieba.write.bb.b(this);
                         break;
                     }
                     break;
-                case 1200008:
+                case 1200009:
                 case 12000010:
                     if (intent == null || intent.getStringExtra("filename") == null) {
                         WriteActivity.a((Activity) this, true, (String) null);
@@ -265,12 +269,12 @@ public class NewNearbyActivity extends com.baidu.tieba.e {
                         break;
                     }
                 case 1300005:
-                    s();
+                    t();
                     break;
             }
         } else if (i2 == 0) {
             switch (i) {
-                case 1200008:
+                case 1200009:
                     com.baidu.tieba.write.bb.b(this);
                     break;
                 case 12000010:
@@ -286,95 +290,98 @@ public class NewNearbyActivity extends com.baidu.tieba.e {
         }
     }
 
-    private void p() {
-        this.l = new ax(this);
+    private void q() {
+        this.m = new aw(this);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean q() {
-        this.n.setVisibility(0);
-        this.m = TiebaApplication.b().a(this.l);
-        if (this.m != null) {
-            this.n.setVisibility(8);
+    public boolean r() {
+        this.o.setVisibility(0);
+        this.n = TiebaApplication.d().a(this.m);
+        if (this.n != null) {
             this.o.setVisibility(8);
+            this.p.setVisibility(8);
             return true;
         }
         return false;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void r() {
-        int currentItem = this.j.getCurrentItem();
+    public void s() {
+        int currentItem = this.k.getCurrentItem();
         if (this.c.getActivity("nearby_post") instanceof NearbyPostActivity) {
-            ((NearbyPostActivity) this.c.getActivity("nearby_post")).a(0, this.m, currentItem == 0);
+            ((NearbyPostActivity) this.c.getActivity("nearby_post")).a(0, this.n, currentItem == 0);
         }
         if (this.c.getActivity("nearby_forum") instanceof NearbyForumActivity) {
-            ((NearbyForumActivity) this.c.getActivity("nearby_forum")).a(this.m, currentItem == 1);
+            ((NearbyForumActivity) this.c.getActivity("nearby_forum")).a(this.n, currentItem == 1);
         }
     }
 
-    private void s() {
-        if (this.j.getCurrentItem() != 0) {
-            this.j.a(0, true);
+    private void t() {
+        if (this.k.getCurrentItem() != 0) {
+            this.k.a(0, true);
         }
         if (this.c.getActivity("nearby_post") instanceof NearbyPostActivity) {
-            ((NearbyPostActivity) this.c.getActivity("nearby_post")).a(0, this.m, true);
+            ((NearbyPostActivity) this.c.getActivity("nearby_post")).a(0, this.n, true);
         }
     }
 
-    public void j() {
-        if (this.m != null) {
+    public void c() {
+        if (this.n != null) {
             String str = null;
-            if (this.m.getMaxAddressLineIndex() >= 0) {
-                str = this.m.getAddressLine(0);
+            if (this.n.getMaxAddressLineIndex() >= 0) {
+                str = this.n.getAddressLine(0);
             }
-            this.g.setText(str);
-            if (this.i != null) {
-                this.i.a();
+            if (str != null) {
+                this.h.setText(str);
             }
-            if (this.j.getChildCount() >= 2 && (this.c.getActivity("nearby_post") instanceof NearbyPostActivity) && ((NearbyPostActivity) this.c.getActivity("nearby_post")).m() != null) {
-                this.i = new bg(this, this.m, ((NearbyPostActivity) this.c.getActivity("nearby_post")).m());
-                this.i.execute(new String[0]);
+            if (this.j != null) {
+                this.j.cancel();
+            }
+            if (this.k.getChildCount() >= 2 && (this.c.getActivity("nearby_post") instanceof NearbyPostActivity) && ((NearbyPostActivity) this.c.getActivity("nearby_post")).n() != null) {
+                this.j = new bf(this, this.n, ((NearbyPostActivity) this.c.getActivity("nearby_post")).n());
+                this.j.setPriority(3);
+                this.j.execute(new String[0]);
             }
         }
     }
 
-    public Address k() {
-        return this.m;
+    public Address d() {
+        return this.n;
     }
 
-    public int l() {
-        return this.j.getCurrentItem();
+    public int m() {
+        return this.k.getCurrentItem();
     }
 
     @Override // android.app.Activity, android.view.Window.Callback
     public boolean dispatchTouchEvent(MotionEvent motionEvent) {
-        this.w = false;
+        this.x = false;
         boolean dispatchTouchEvent = super.dispatchTouchEvent(motionEvent);
-        if (motionEvent.getAction() == 0 && !this.w) {
-            m();
+        if (motionEvent.getAction() == 0 && !this.x) {
+            n();
         }
         return dispatchTouchEvent;
     }
 
-    public void m() {
-        if (!this.E) {
-            this.C.onClick(this.z);
+    public void n() {
+        if (!this.F) {
+            this.D.onClick(this.A);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void t() {
-        if (this.j.getChildCount() >= 2 && (this.c.getActivity("nearby_post") instanceof NearbyPostActivity) && ((NearbyPostActivity) this.c.getActivity("nearby_post")).m() != null) {
-            com.baidu.tieba.b.p m = ((NearbyPostActivity) this.c.getActivity("nearby_post")).m();
-            if (m.d().size() >= 1) {
-                if (TiebaApplication.b().l()) {
+    public void u() {
+        if (this.k.getChildCount() >= 2 && (this.c.getActivity("nearby_post") instanceof NearbyPostActivity) && ((NearbyPostActivity) this.c.getActivity("nearby_post")).n() != null) {
+            com.baidu.tieba.c.as n = ((NearbyPostActivity) this.c.getActivity("nearby_post")).n();
+            if (n.d().size() >= 1) {
+                if (TiebaApplication.d().n()) {
                     StatService.onEvent(this, "lbs_open_map", "lbsclick", 1);
                 }
-                com.baidu.tieba.b.i iVar = new com.baidu.tieba.b.i();
-                iVar.a(m.b());
-                iVar.a(m.d());
-                NearbyMapActivity.a(this, this.m, iVar);
+                com.baidu.tieba.c.ag agVar = new com.baidu.tieba.c.ag();
+                agVar.a(n.b());
+                agVar.a(n.d());
+                NearbyMapActivity.a(this, this.n, agVar);
                 MainTabActivity.a();
             }
         }

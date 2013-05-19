@@ -1,7 +1,6 @@
 package com.baidu.zeus.bouncycastle;
 
 import cn.jingling.lib.file.Shared;
-import com.baidu.browser.explorer.BdWebErrorView;
 import com.baidu.mapapi.MKSearch;
 import com.baidu.mapapi.MapView;
 import java.io.ByteArrayInputStream;
@@ -143,7 +142,7 @@ public class ASN1InputStream extends FilterInputStream implements DERTags {
             case 8:
             case 9:
             case 11:
-            case BdWebErrorView.HTTP_NOT_MODIFIED /* 13 */:
+            case 13:
             case 14:
             case 15:
             case 16:

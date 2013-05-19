@@ -1,37 +1,32 @@
 package com.baidu.tieba.nearby;
 
 import android.content.Context;
-import android.text.TextPaint;
-import android.text.style.ClickableSpan;
 import android.view.View;
 import com.baidu.tieba.person.PersonInfoActivity;
 /* loaded from: classes.dex */
-class ah extends ClickableSpan {
-    final /* synthetic */ af a;
+class ah implements View.OnClickListener {
+    final /* synthetic */ ae a;
     private String b;
     private String c;
 
-    public ah(af afVar, String str, String str2) {
-        this.a = afVar;
-        this.b = null;
-        this.c = null;
-        this.b = str;
-        this.c = str2;
+    public ah(ae aeVar) {
+        this.a = aeVar;
+        b(null);
+        a(null);
     }
 
-    @Override // android.text.style.ClickableSpan, android.text.style.CharacterStyle
-    public void updateDrawState(TextPaint textPaint) {
-        textPaint.setColor(-9989158);
-        textPaint.setUnderlineText(false);
-        textPaint.setFakeBoldText(false);
-    }
-
-    @Override // android.text.style.ClickableSpan
+    @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         Context context;
-        if (this.b != null && this.c != null) {
-            context = this.a.a;
-            PersonInfoActivity.a(context, this.c, this.b);
-        }
+        context = this.a.a;
+        PersonInfoActivity.a(context, this.b, this.c);
+    }
+
+    public void a(String str) {
+        this.c = str;
+    }
+
+    public void b(String str) {
+        this.b = str;
     }
 }

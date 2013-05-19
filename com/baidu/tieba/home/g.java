@@ -1,33 +1,36 @@
 package com.baidu.tieba.home;
 
-import android.content.Context;
-import android.view.View;
-import com.baidu.loginshare.Token;
 import com.baidu.tieba.TiebaApplication;
 /* loaded from: classes.dex */
-class g implements View.OnClickListener {
-    final /* synthetic */ f a;
+class g extends com.baidu.adp.a.e {
+    final /* synthetic */ EnterForumActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public g(f fVar) {
-        this.a = fVar;
+    public g(EnterForumActivity enterForumActivity) {
+        this.a = enterForumActivity;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        Context context;
-        Context context2;
-        if (TiebaApplication.b().aF() != null) {
-            Token b = com.baidu.tieba.account.a.b(TiebaApplication.z());
-            String b2 = TiebaApplication.b().aF().b();
-            String c = TiebaApplication.b().aF().c();
-            if (b != null) {
-                context2 = this.a.a;
-                LotteryActivity.a(context2, b2, c, b.mBduss, b.mPtoken, TiebaApplication.A());
+    @Override // com.baidu.adp.a.e
+    public void a(Object obj) {
+        com.baidu.tieba.c.g gVar;
+        com.baidu.tieba.c.g gVar2;
+        com.baidu.tieba.c.g gVar3;
+        gVar = this.a.d;
+        if (gVar.a() != 1) {
+            gVar2 = this.a.d;
+            if (gVar2.a() != 2 || !((Boolean) obj).booleanValue()) {
                 return;
             }
-            context = this.a.a;
-            LotteryActivity.a(context, b2, c, null, null, TiebaApplication.A());
+            this.a.o();
+            return;
         }
+        if (((Boolean) obj).booleanValue()) {
+            TiebaApplication.d().h(false);
+            this.a.o();
+        }
+        t tVar = this.a.c;
+        boolean booleanValue = ((Boolean) obj).booleanValue();
+        gVar3 = this.a.d;
+        tVar.a(booleanValue, gVar3.c());
     }
 }

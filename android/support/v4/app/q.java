@@ -1,9 +1,20 @@
 package android.support.v4.app;
+
+import android.os.Parcel;
+import android.os.Parcelable;
 /* loaded from: classes.dex */
-public abstract class q {
-    public abstract int a();
+final class q implements Parcelable.Creator {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // android.os.Parcelable.Creator
+    /* renamed from: a */
+    public FragmentManagerState createFromParcel(Parcel parcel) {
+        return new FragmentManagerState(parcel);
+    }
 
-    public abstract q a(Fragment fragment);
-
-    public abstract int b();
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // android.os.Parcelable.Creator
+    /* renamed from: a */
+    public FragmentManagerState[] newArray(int i) {
+        return new FragmentManagerState[i];
+    }
 }

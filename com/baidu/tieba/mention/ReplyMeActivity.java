@@ -6,10 +6,10 @@ import android.widget.FrameLayout;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
-import com.baidu.tieba.R;
 import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.c.ae;
-import com.baidu.tieba.c.ag;
+import com.baidu.tieba.d.ac;
+import com.baidu.tieba.d.ae;
+import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public class ReplyMeActivity extends com.baidu.tieba.e {
     private h c = null;
@@ -17,7 +17,7 @@ public class ReplyMeActivity extends com.baidu.tieba.e {
     private TextView e = null;
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.e, android.app.Activity
+    @Override // com.baidu.tieba.e, com.baidu.adp.a.a, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         setContentView(R.layout.reply_me_activity);
@@ -37,9 +37,9 @@ public class ReplyMeActivity extends com.baidu.tieba.e {
     @Override // com.baidu.tieba.e
     public void b(int i) {
         super.b(i);
-        ae.b(this.d, i);
+        ac.b(this.d, i);
         if (i == 1) {
-            this.e.setTextColor(ae.a(i));
+            this.e.setTextColor(ac.a(i));
             this.e.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, (Drawable) null, getResources().getDrawable(R.drawable.list_divider_1));
             return;
         }
@@ -51,7 +51,7 @@ public class ReplyMeActivity extends com.baidu.tieba.e {
     @Override // com.baidu.tieba.e, android.app.Activity
     public void onResume() {
         super.onResume();
-        if (TiebaApplication.b().Y() > 0) {
+        if (TiebaApplication.d().Z() > 0) {
             this.c.b(2);
         } else {
             this.c.b(1);
@@ -71,11 +71,11 @@ public class ReplyMeActivity extends com.baidu.tieba.e {
             }
             System.gc();
         } catch (Exception e) {
-            ag.b(getClass().getName(), "onDestroy", e.toString());
+            ae.b(getClass().getName(), "onDestroy", e.toString());
         }
     }
 
-    public void i() {
+    public void b() {
         this.c.b();
     }
 }

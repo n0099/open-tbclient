@@ -6,23 +6,24 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import com.baidu.tieba.R;
+import com.slidingmenu.lib.R;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class AtListActivity extends com.baidu.tieba.e {
     private EditText c = null;
     private Button d = null;
-    private Button e = null;
+    private ImageView e = null;
     private ListView f = null;
     private Handler g = new Handler();
     private i h = null;
     private j i = null;
-    private com.baidu.tieba.b.a j = null;
+    private com.baidu.tieba.c.a j = null;
     private k k = null;
     private String l = null;
     private ProgressBar m = null;
@@ -44,12 +45,12 @@ public class AtListActivity extends com.baidu.tieba.e {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.e, android.app.Activity
+    @Override // com.baidu.tieba.e, com.baidu.adp.a.a, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         setContentView(R.layout.at_list_activity);
         a(bundle);
-        i();
+        b();
         c((String) null);
     }
 
@@ -57,10 +58,10 @@ public class AtListActivity extends com.baidu.tieba.e {
     @Override // com.baidu.tieba.e
     public void b(int i) {
         super.b(i);
-        com.baidu.tieba.c.ae.a(this.n, i);
-        com.baidu.tieba.c.ae.c(this.o, i);
-        com.baidu.tieba.c.ae.c(this.p, i);
-        com.baidu.tieba.c.ae.e((TextView) this.e, i);
+        com.baidu.tieba.d.ac.a(this.n, i);
+        com.baidu.tieba.d.ac.d(this.o, i);
+        com.baidu.tieba.d.ac.f(this.p, i);
+        com.baidu.tieba.d.ac.a(this.e, i);
         this.k.notifyDataSetChanged();
         if (i == 1) {
             this.f.setDivider(getResources().getDrawable(R.drawable.list_divider_1));
@@ -75,10 +76,10 @@ public class AtListActivity extends com.baidu.tieba.e {
     @Override // com.baidu.tieba.e, android.app.Activity
     public void onDestroy() {
         if (this.h != null) {
-            this.h.a();
+            this.h.cancel();
         }
         if (this.i != null) {
-            this.i.a();
+            this.i.cancel();
         }
         this.g.removeCallbacks(this.q);
         this.g.removeCallbacks(this.r);
@@ -94,14 +95,14 @@ public class AtListActivity extends com.baidu.tieba.e {
         super.onDestroy();
     }
 
-    private void i() {
+    private void b() {
         this.n = (RelativeLayout) findViewById(R.id.parent);
         this.o = (RelativeLayout) findViewById(R.id.title);
         this.p = (TextView) findViewById(R.id.title_text);
         this.m = (ProgressBar) findViewById(R.id.progress);
         this.c = (EditText) findViewById(R.id.at_search_edit);
         this.c.addTextChangedListener(new d(this));
-        this.e = (Button) findViewById(R.id.back);
+        this.e = (ImageView) findViewById(R.id.back);
         this.e.setOnClickListener(new e(this));
         this.d = (Button) findViewById(R.id.at_search_del);
         this.d.setOnClickListener(new f(this));
@@ -117,7 +118,7 @@ public class AtListActivity extends com.baidu.tieba.e {
         if (!isFinishing()) {
             this.k.a((ArrayList) null);
             if (this.h != null) {
-                this.h.a();
+                this.h.cancel();
             }
             if (str == null || str.length() == 0) {
                 if (this.j.a() != null) {
@@ -126,14 +127,17 @@ public class AtListActivity extends com.baidu.tieba.e {
                     this.k.a((ArrayList) null);
                     if (this.i == null) {
                         this.i = new j(this, null);
+                        this.i.setPriority(3);
                         this.i.execute("");
                     }
                 }
             } else {
                 this.h = new i(this, null);
+                this.h.setPriority(2);
                 this.h.execute(str);
                 if (this.i == null && this.j.a() == null) {
                     this.i = new j(this, null);
+                    this.i.setPriority(3);
                     this.i.execute("");
                 }
             }
@@ -143,6 +147,6 @@ public class AtListActivity extends com.baidu.tieba.e {
     }
 
     private void a(Bundle bundle) {
-        this.j = new com.baidu.tieba.b.a();
+        this.j = new com.baidu.tieba.c.a();
     }
 }

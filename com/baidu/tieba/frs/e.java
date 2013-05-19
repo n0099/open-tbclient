@@ -1,28 +1,22 @@
 package com.baidu.tieba.frs;
 
-import android.graphics.Bitmap;
-import android.view.View;
-import android.widget.ListView;
+import com.slidingmenu.lib.SlidingMenu;
 /* loaded from: classes.dex */
-class e implements com.baidu.tieba.c.d {
-    final /* synthetic */ c a;
+class e implements SlidingMenu.OnClosedListener {
+    final /* synthetic */ FrsActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public e(c cVar) {
-        this.a = cVar;
+    public e(FrsActivity frsActivity) {
+        this.a = frsActivity;
     }
 
-    @Override // com.baidu.tieba.c.d
-    public void a(Bitmap bitmap, String str, boolean z) {
-        FrsActivity frsActivity;
-        ListView listView;
-        if (bitmap != null) {
-            frsActivity = this.a.a;
-            listView = frsActivity.x;
-            View findViewWithTag = listView.findViewWithTag(str);
-            if (findViewWithTag != null) {
-                findViewWithTag.invalidate();
-            }
+    @Override // com.slidingmenu.lib.SlidingMenu.OnClosedListener
+    public void onClosed() {
+        boolean z;
+        z = this.a.E;
+        if (z) {
+            this.a.E = false;
+            this.a.y();
         }
     }
 }

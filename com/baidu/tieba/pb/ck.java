@@ -1,31 +1,41 @@
 package com.baidu.tieba.pb;
 
-import android.view.View;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.widget.Button;
-import android.widget.LinearLayout;
-import android.widget.TextView;
+import android.widget.ImageButton;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class ck {
-    int a;
-    TextView b;
-    LinearLayout c;
-    LinearLayout d;
-    Button e;
-    Button f;
-    Button g;
-    Button h;
-    Button i;
-    View j;
-    View k;
-    View l;
-    final /* synthetic */ cd m;
-
-    private ck(cd cdVar) {
-        this.m = cdVar;
-    }
+public class ck implements TextWatcher {
+    final /* synthetic */ bl a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ ck(cd cdVar, ck ckVar) {
-        this(cdVar);
+    public ck(bl blVar) {
+        this.a = blVar;
+    }
+
+    @Override // android.text.TextWatcher
+    public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
+    }
+
+    @Override // android.text.TextWatcher
+    public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
+    }
+
+    @Override // android.text.TextWatcher
+    public void afterTextChanged(Editable editable) {
+        ImageButton imageButton;
+        Button button;
+        Button button2;
+        if (editable == null || editable.length() <= 0) {
+            imageButton = this.a.o;
+            if (imageButton.getTag() == null) {
+                button = this.a.j;
+                button.setEnabled(false);
+                return;
+            }
+        }
+        button2 = this.a.j;
+        button2.setEnabled(true);
     }
 }

@@ -1,17 +1,15 @@
 package com.baidu.tieba.service;
 
-import android.os.AsyncTask;
-import com.baidu.tieba.c.ag;
-import com.baidu.tieba.c.t;
+import com.baidu.tieba.d.ae;
 import com.baidu.zeus.NotificationProxy;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileWriter;
 /* loaded from: classes.dex */
-class d extends AsyncTask {
+class d extends com.baidu.adp.lib.a.a {
     final /* synthetic */ FatalErrorService a;
-    private t b;
+    private com.baidu.tieba.d.t b;
 
     private d(FatalErrorService fatalErrorService) {
         this.a = fatalErrorService;
@@ -25,11 +23,11 @@ class d extends AsyncTask {
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [129=4, 130=4, 133=4, 134=4, 111=4, 112=4, 115=4, 116=4, 120=4, 121=4, 124=4, 125=4] */
     /* JADX WARN: Removed duplicated region for block: B:118:0x006c A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:126:0x0067 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:130:0x0062 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:132:0x0090 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:136:0x008b A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:142:0x0095 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:120:0x0067 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:126:0x0095 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:130:0x0090 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:138:0x0062 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:144:0x008b A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /* JADX WARN: Removed duplicated region for block: B:157:? A[RETURN, SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -43,7 +41,7 @@ class d extends AsyncTask {
         FileWriter fileWriter2 = null;
         try {
             try {
-                File c = com.baidu.tieba.c.o.c(str);
+                File c = com.baidu.tieba.d.o.c(str);
                 if (c == null || c.length() <= 50) {
                     fileInputStream2 = null;
                     byteArrayOutputStream2 = null;
@@ -54,7 +52,7 @@ class d extends AsyncTask {
                         byteArrayOutputStream = new ByteArrayOutputStream(NotificationProxy.MAX_URL_LENGTH);
                         try {
                             if (z) {
-                                com.baidu.tieba.c.q.b(fileInputStream, byteArrayOutputStream);
+                                com.baidu.tieba.d.q.b(fileInputStream, byteArrayOutputStream);
                             } else {
                                 byte[] bArr2 = new byte[NotificationProxy.MAX_URL_LENGTH];
                                 while (true) {
@@ -72,14 +70,14 @@ class d extends AsyncTask {
                                     try {
                                         byteArrayOutputStream.close();
                                     } catch (Exception e) {
-                                        ag.b(getClass().getName(), "sendLogFile", e.getMessage());
+                                        ae.b(getClass().getName(), "sendLogFile", e.getMessage());
                                     }
                                 }
                                 if (fileInputStream != null) {
                                     try {
                                         fileInputStream.close();
                                     } catch (Exception e2) {
-                                        ag.b(getClass().getName(), "sendLogFile", e2.getMessage());
+                                        ae.b(getClass().getName(), "sendLogFile", e2.getMessage());
                                     }
                                 }
                                 if (0 != 0) {
@@ -87,13 +85,13 @@ class d extends AsyncTask {
                                         fileWriter2.close();
                                         return;
                                     } catch (Exception e3) {
-                                        ag.b(getClass().getName(), "sendLogFile", e3.getMessage());
+                                        ae.b(getClass().getName(), "sendLogFile", e3.getMessage());
                                         return;
                                     }
                                 }
                                 return;
                             }
-                            this.b = new t("http://c.tieba.baidu.com/" + str2);
+                            this.b = new com.baidu.tieba.d.t(String.valueOf(com.baidu.tieba.a.i.e) + str2);
                             this.b.a("logfile", byteArray);
                             this.b.j();
                             if (byteArrayOutputStream != null) {
@@ -109,7 +107,7 @@ class d extends AsyncTask {
                                 } catch (Exception e4) {
                                     e = e4;
                                     byteArrayOutputStream = byteArrayOutputStream2;
-                                    ag.b(getClass().getName(), "sendLogFile", e.getMessage());
+                                    ae.b(getClass().getName(), "sendLogFile", e.getMessage());
                                     if (byteArrayOutputStream != null) {
                                     }
                                     if (fileInputStream != null) {
@@ -142,26 +140,26 @@ class d extends AsyncTask {
                                             fileWriter = fileWriter3;
                                         }
                                         if (!c.delete()) {
-                                            ag.b(getClass().getName(), "sendLogFile", "file.delete error");
+                                            ae.b(getClass().getName(), "sendLogFile", "file.delete error");
                                         }
                                     } catch (Exception e5) {
                                         e = e5;
                                         fileWriter = fileWriter3;
                                         fileInputStream = fileInputStream2;
                                         byteArrayOutputStream = byteArrayOutputStream2;
-                                        ag.b(getClass().getName(), "sendLogFile", e.getMessage());
+                                        ae.b(getClass().getName(), "sendLogFile", e.getMessage());
                                         if (byteArrayOutputStream != null) {
                                             try {
                                                 byteArrayOutputStream.close();
                                             } catch (Exception e6) {
-                                                ag.b(getClass().getName(), "sendLogFile", e6.getMessage());
+                                                ae.b(getClass().getName(), "sendLogFile", e6.getMessage());
                                             }
                                         }
                                         if (fileInputStream != null) {
                                             try {
                                                 fileInputStream.close();
                                             } catch (Exception e7) {
-                                                ag.b(getClass().getName(), "sendLogFile", e7.getMessage());
+                                                ae.b(getClass().getName(), "sendLogFile", e7.getMessage());
                                             }
                                         }
                                         if (fileWriter == null) {
@@ -169,7 +167,7 @@ class d extends AsyncTask {
                                                 fileWriter.close();
                                                 return;
                                             } catch (Exception e8) {
-                                                ag.b(getClass().getName(), "sendLogFile", e8.getMessage());
+                                                ae.b(getClass().getName(), "sendLogFile", e8.getMessage());
                                                 return;
                                             }
                                         }
@@ -183,21 +181,21 @@ class d extends AsyncTask {
                                             try {
                                                 byteArrayOutputStream.close();
                                             } catch (Exception e9) {
-                                                ag.b(getClass().getName(), "sendLogFile", e9.getMessage());
+                                                ae.b(getClass().getName(), "sendLogFile", e9.getMessage());
                                             }
                                         }
                                         if (fileInputStream != null) {
                                             try {
                                                 fileInputStream.close();
                                             } catch (Exception e10) {
-                                                ag.b(getClass().getName(), "sendLogFile", e10.getMessage());
+                                                ae.b(getClass().getName(), "sendLogFile", e10.getMessage());
                                             }
                                         }
                                         if (fileWriter != null) {
                                             try {
                                                 fileWriter.close();
                                             } catch (Exception e11) {
-                                                ag.b(getClass().getName(), "sendLogFile", e11.getMessage());
+                                                ae.b(getClass().getName(), "sendLogFile", e11.getMessage());
                                             }
                                         }
                                         throw th;
@@ -227,21 +225,21 @@ class d extends AsyncTask {
                     try {
                         byteArrayOutputStream2.close();
                     } catch (Exception e15) {
-                        ag.b(getClass().getName(), "sendLogFile", e15.getMessage());
+                        ae.b(getClass().getName(), "sendLogFile", e15.getMessage());
                     }
                 }
                 if (fileInputStream2 != null) {
                     try {
                         fileInputStream2.close();
                     } catch (Exception e16) {
-                        ag.b(getClass().getName(), "sendLogFile", e16.getMessage());
+                        ae.b(getClass().getName(), "sendLogFile", e16.getMessage());
                     }
                 }
                 if (fileWriter != null) {
                     try {
                         fileWriter.close();
                     } catch (Exception e17) {
-                        ag.b(getClass().getName(), "sendLogFile", e17.getMessage());
+                        ae.b(getClass().getName(), "sendLogFile", e17.getMessage());
                     }
                 }
             } catch (Throwable th5) {
@@ -260,15 +258,15 @@ class d extends AsyncTask {
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // android.os.AsyncTask
-    /* renamed from: a */
-    public String doInBackground(String... strArr) {
+    @Override // com.baidu.adp.lib.a.a
+    public String a(String... strArr) {
         a("fatal_error.log", "c/s/logupload", true);
         a("log_error.log", "c/s/clientlog", false);
         return null;
     }
 
-    public void a() {
+    @Override // com.baidu.adp.lib.a.a
+    public void cancel() {
         if (this.b != null) {
             this.b.g();
         }
@@ -279,10 +277,9 @@ class d extends AsyncTask {
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // android.os.AsyncTask
-    /* renamed from: a */
-    public void onPostExecute(String str) {
-        super.onPostExecute(str);
+    @Override // com.baidu.adp.lib.a.a
+    public void a(String str) {
+        super.a((Object) str);
         this.a.a = null;
         this.a.stopSelf();
     }

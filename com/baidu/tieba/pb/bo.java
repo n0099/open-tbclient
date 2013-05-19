@@ -1,29 +1,21 @@
 package com.baidu.tieba.pb;
 
-import android.app.AlertDialog;
+import android.app.Dialog;
 import android.view.View;
-import android.widget.AdapterView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class bo implements AdapterView.OnItemLongClickListener {
-    final /* synthetic */ PbActivity a;
+public class bo implements View.OnClickListener {
+    final /* synthetic */ bl a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bo(PbActivity pbActivity) {
-        this.a = pbActivity;
+    public bo(bl blVar) {
+        this.a = blVar;
     }
 
-    @Override // android.widget.AdapterView.OnItemLongClickListener
-    public boolean onItemLongClick(AdapterView adapterView, View view, int i, long j) {
-        AlertDialog v;
-        this.a.aj = i;
-        this.a.v = j;
-        if (j != -1 && j != -2 && j != -3) {
-            v = this.a.v();
-            if (v != null) {
-                this.a.f();
-            }
-        }
-        return true;
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        Dialog dialog;
+        dialog = this.a.S;
+        dialog.dismiss();
     }
 }

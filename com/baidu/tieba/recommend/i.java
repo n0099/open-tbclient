@@ -1,61 +1,133 @@
 package com.baidu.tieba.recommend;
 
-import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ListView;
+import android.location.Address;
+import android.widget.Button;
 import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.a.ax;
-import com.baidu.tieba.c.ab;
-import com.baidu.tieba.pb.PbActivity;
+import com.baidu.tieba.a.ba;
+import com.baidu.tieba.account.af;
+import com.baidu.tieba.c.ac;
+import com.baidu.tieba.d.ae;
+import com.baidu.tieba.d.k;
+import com.baidu.tieba.d.t;
+import com.slidingmenu.lib.R;
+import java.util.ArrayList;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class i implements AdapterView.OnItemClickListener {
-    final /* synthetic */ GuessActivity a;
+public class i extends com.baidu.adp.lib.a.a {
+    final /* synthetic */ TagContentActivity a;
+    private t b = null;
+    private String c = null;
+    private boolean d;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public i(GuessActivity guessActivity) {
-        this.a = guessActivity;
+    public i(TagContentActivity tagContentActivity, boolean z) {
+        this.a = tagContentActivity;
+        this.d = false;
+        this.d = z;
     }
 
-    @Override // android.widget.AdapterView.OnItemClickListener
-    public void onItemClick(AdapterView adapterView, View view, int i, long j) {
-        int i2;
-        int i3;
-        int i4;
-        boolean z = true;
-        n nVar = (n) ((ListView) adapterView).getAdapter();
-        long itemId = nVar.getItemId(i);
-        if (itemId == -1) {
-            i3 = this.a.e;
-            if (i3 > 1) {
-                GuessActivity guessActivity = this.a;
-                i4 = guessActivity.e;
-                guessActivity.e = i4 - 1;
-                this.a.d = 2;
-                this.a.q();
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.a.a
+    /* renamed from: d */
+    public String a(Object... objArr) {
+        String str;
+        String str2;
+        String str3;
+        new af("tagthread").start();
+        if (this.d) {
+            this.b = new t(String.valueOf(com.baidu.tieba.a.i.e) + "c/s/tag/add_tag");
+            this.b.d(true);
+            this.b.a("_version_more", "1");
+            this.b.a("platform", "android");
+            t tVar = this.b;
+            str3 = this.a.d;
+            tVar.a("tag_info", str3);
+            Address aC = TiebaApplication.d().aC();
+            if (aC != null && TiebaApplication.d().o()) {
+                this.b.a("lbs", String.valueOf(String.valueOf(aC.getLatitude())) + "," + String.valueOf(aC.getLongitude()));
             }
-        } else if (itemId == -2) {
-            GuessActivity guessActivity2 = this.a;
-            i2 = guessActivity2.e;
-            guessActivity2.e = i2 + 1;
-            this.a.d = 1;
-            this.a.q();
-        } else {
-            ax axVar = (ax) nVar.getItem(i);
-            if (axVar != null) {
-                String k = axVar.k();
-                if (k == null || k.equals("")) {
-                    z = false;
-                } else {
-                    new Thread(new j(this, k)).start();
+            try {
+                this.c = this.b.i();
+                if (this.b.c()) {
+                    return this.c;
                 }
-                ab ap = TiebaApplication.b().ap();
-                if (ap != null && !ap.b(axVar.b())) {
-                    ap.a(axVar.b());
-                }
-                nVar.notifyDataSetChanged();
-                PbActivity.a(this.a, axVar.b(), axVar.m(), z);
+            } catch (Exception e) {
+                ae.b("AttentionAsyncTask", "doInBackground", "error = " + e.getMessage());
             }
+            return null;
         }
+        String b = k.b(12);
+        ac acVar = new ac();
+        acVar.a(b);
+        ba baVar = new ba();
+        str = this.a.d;
+        baVar.a(str);
+        str2 = this.a.c;
+        baVar.b(str2);
+        acVar.a(baVar);
+        k.a(acVar.f(), 12);
+        return "";
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.a.a
+    public void a(String str) {
+        Button button;
+        Button button2;
+        Button button3;
+        String str2;
+        String str3;
+        Button button4;
+        this.a.q = null;
+        if (str == null) {
+            button4 = this.a.g;
+            button4.setVisibility(0);
+        } else if (this.d) {
+            try {
+                JSONObject optJSONObject = new JSONObject(str).optJSONObject("error");
+                if (optJSONObject.optInt("errno") == 0) {
+                    button3 = this.a.g;
+                    button3.setVisibility(8);
+                    this.a.a(this.a.getString(R.string.attention_success));
+                    ArrayList arrayList = NewHomeActivity.c;
+                    str2 = this.a.d;
+                    if (!arrayList.contains(str2)) {
+                        ArrayList arrayList2 = NewHomeActivity.c;
+                        str3 = this.a.d;
+                        arrayList2.add(str3);
+                        return;
+                    }
+                    return;
+                }
+                if (optJSONObject.has("usermsg")) {
+                    String optString = optJSONObject.optString("usermsg");
+                    if (optString != null && optString.length() > 0) {
+                        this.a.a(optString);
+                    } else {
+                        this.a.a(this.a.getString(R.string.attention_fail));
+                    }
+                }
+                button2 = this.a.g;
+                button2.setVisibility(0);
+            } catch (JSONException e) {
+                e.printStackTrace();
+                button = this.a.g;
+                button.setVisibility(0);
+                this.a.a(this.a.getString(R.string.attention_fail));
+            }
+        } else {
+            this.a.a(this.a.getString(R.string.attention_success));
+        }
+    }
+
+    @Override // com.baidu.adp.lib.a.a
+    public void cancel() {
+        if (this.b != null) {
+            this.b.g();
+        }
+        super.cancel(true);
     }
 }

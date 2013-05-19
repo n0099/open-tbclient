@@ -1,7 +1,7 @@
 package com.baidu.tieba.service;
 
 import android.os.Handler;
-import com.baidu.tieba.c.ag;
+import com.baidu.tieba.d.ae;
 import java.io.File;
 import java.util.Date;
 /* loaded from: classes.dex */
@@ -20,7 +20,7 @@ class b extends Thread {
         boolean z;
         super.run();
         try {
-            File[] listFiles = new File(com.baidu.tieba.c.o.a + "/tieba/image/").listFiles();
+            File[] listFiles = new File(com.baidu.tieba.d.o.a + "/tieba/image/").listFiles();
             long time = new Date().getTime();
             if (listFiles != null) {
                 for (int i = 0; i < listFiles.length; i++) {
@@ -29,13 +29,13 @@ class b extends Thread {
                         break;
                     }
                     if (time - listFiles[i].lastModified() > 86400000 && !listFiles[i].delete()) {
-                        ag.b(getClass().getName(), "run", "list[i].delete error");
+                        ae.b(getClass().getName(), "run", "list[i].delete error");
                     }
                 }
             }
             File[] fileArr = null;
         } catch (Exception e) {
-            ag.b(getClass().getName(), "run", e.getMessage());
+            ae.b(getClass().getName(), "run", e.getMessage());
         }
         handler = this.a.c;
         handler2 = this.a.c;

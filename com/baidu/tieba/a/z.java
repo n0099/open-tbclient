@@ -1,80 +1,33 @@
 package com.baidu.tieba.a;
 
+import java.io.Serializable;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
-public class z {
-    private int a = 0;
+public class z implements Serializable {
+    private String a = null;
     private int b = 0;
     private int c = 0;
-    private int d = 0;
-    private int e = 0;
-    private int f = 0;
-    private String g = null;
-    private String h = null;
 
-    public void a(int i) {
-        this.f = i;
-    }
-
-    public int c() {
-        return this.f;
-    }
-
-    public void b(int i) {
-        this.a = i;
-    }
-
-    public int d() {
+    public String a() {
         return this.a;
     }
 
-    public void c(int i) {
-        this.b = i;
-    }
-
-    public int e() {
+    public int b() {
         return this.b;
     }
 
-    public void d(int i) {
-        this.c = i;
-    }
-
-    public int f() {
+    public int c() {
         return this.c;
-    }
-
-    public void e(int i) {
-        this.d = i;
-    }
-
-    public int g() {
-        return this.d;
-    }
-
-    public void f(int i) {
-        this.e = i;
-    }
-
-    public int h() {
-        return this.e;
-    }
-
-    public String i() {
-        return this.g;
-    }
-
-    public String j() {
-        return this.h;
     }
 
     public void a(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                this.g = jSONObject.optString("tag_name");
-                this.h = jSONObject.optString("tag_id");
+                this.a = jSONObject.optString("pic_id");
+                this.b = jSONObject.optInt("width", 0);
+                this.c = jSONObject.optInt("height", 0);
             } catch (Exception e) {
-                com.baidu.tieba.c.ag.b("LabelSmallBallData", "parserJson", "error = " + e.getMessage());
+                com.baidu.tieba.d.ae.b("InfoData", "parserJson", "error = " + e.getMessage());
             }
         }
     }

@@ -16,11 +16,11 @@ public class l implements AdapterView.OnItemLongClickListener {
     @Override // android.widget.AdapterView.OnItemLongClickListener
     public boolean onItemLongClick(AdapterView adapterView, View view, int i, long j) {
         o oVar;
-        com.baidu.tieba.a.p pVar = (com.baidu.tieba.a.p) ((ListView) adapterView).getAdapter().getItem(i);
-        if (pVar != null) {
+        com.baidu.tieba.a.r rVar = (com.baidu.tieba.a.r) ((ListView) adapterView).getAdapter().getItem(i);
+        if (rVar != null) {
             oVar = this.a.q;
-            oVar.a(pVar);
-            this.a.a(pVar);
+            oVar.a(rVar);
+            this.a.a(rVar);
             return true;
         }
         return true;

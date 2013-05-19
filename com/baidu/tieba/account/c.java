@@ -24,18 +24,18 @@ public class c implements ILoginShareListener {
             String str = token.mUsername;
             String str2 = token.mBduss;
             String str3 = token.mPtoken;
-            com.baidu.tieba.c.ag.e(getClass().getName(), "onLoginShareEvent", "bduss = " + str2);
-            com.baidu.tieba.c.ag.e(getClass().getName(), "onLoginShareEvent", "username = " + str);
-            com.baidu.tieba.c.ag.e(getClass().getName(), "onLoginShareEvent", "ptoken = " + str3);
+            com.baidu.tieba.d.ae.e(getClass().getName(), "onLoginShareEvent", "bduss = " + str2);
+            com.baidu.tieba.d.ae.e(getClass().getName(), "onLoginShareEvent", "username = " + str);
+            com.baidu.tieba.d.ae.e(getClass().getName(), "onLoginShareEvent", "ptoken = " + str3);
             if (loginShareEvent == LoginShareEvent.VALID) {
                 if (str2 != null && str3 != null) {
-                    com.baidu.tieba.c.ag.e(getClass().getName(), "onLoginShareEvent", "login");
+                    com.baidu.tieba.d.ae.e(getClass().getName(), "onLoginShareEvent", "login");
                     this.a.a(true, str2, str3, str);
                     return;
                 }
                 return;
             }
-            com.baidu.tieba.c.ag.e(getClass().getName(), "onLoginShareEvent", "logout");
+            com.baidu.tieba.d.ae.e(getClass().getName(), "onLoginShareEvent", "logout");
             this.a.a(false, null, null, null);
         }
     }

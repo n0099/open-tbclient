@@ -1,64 +1,31 @@
 package com.baidu.tieba.recommend;
 
-import android.app.Activity;
-import android.graphics.Bitmap;
-import com.baidu.tieba.MainTabActivity;
+import android.view.View;
+import com.slidingmenu.lib.R;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class h implements com.baidu.tieba.c.d {
-    final /* synthetic */ g a;
+public class h implements View.OnClickListener {
+    final /* synthetic */ TagContentActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public h(g gVar) {
-        this.a = gVar;
+    public h(TagContentActivity tagContentActivity) {
+        this.a = tagContentActivity;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:10:0x0033  */
-    /* JADX WARN: Removed duplicated region for block: B:16:0x0052  */
-    @Override // com.baidu.tieba.c.d
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public void a(Bitmap bitmap, String str, boolean z) {
-        GuessActivity guessActivity;
-        MainTabActivity mainTabActivity;
-        GuessActivity guessActivity2;
-        com.baidu.tieba.c.a aVar;
-        GuessActivity guessActivity3;
-        com.baidu.tieba.c.a aVar2;
-        GuessActivity guessActivity4;
-        GuessActivity guessActivity5;
-        guessActivity = this.a.a;
-        if (guessActivity.getParent() != null) {
-            guessActivity4 = this.a.a;
-            if (guessActivity4.getParent().getParent() != null) {
-                guessActivity5 = this.a.a;
-                Activity parent = guessActivity5.getParent().getParent();
-                if (parent instanceof MainTabActivity) {
-                    mainTabActivity = (MainTabActivity) parent;
-                    if (bitmap != null) {
-                        guessActivity2 = this.a.a;
-                        aVar = guessActivity2.r;
-                        if (aVar != null) {
-                            guessActivity3 = this.a.a;
-                            aVar2 = guessActivity3.r;
-                            aVar2.b();
-                        }
-                        if (mainTabActivity != null) {
-                            mainTabActivity.b();
-                            return;
-                        }
-                        return;
-                    } else if (mainTabActivity != null) {
-                        mainTabActivity.a(bitmap, false);
-                        return;
-                    } else {
-                        return;
-                    }
-                }
-            }
-        }
-        mainTabActivity = null;
-        if (bitmap != null) {
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        switch (view.getId()) {
+            case R.id.back /* 2131099726 */:
+                this.a.finish();
+                return;
+            case R.id.tag_webview_item /* 2131099893 */:
+                this.a.c();
+                return;
+            case R.id.attention /* 2131100319 */:
+                this.a.b();
+                return;
+            default:
+                return;
         }
     }
 }

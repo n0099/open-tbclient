@@ -1,19 +1,17 @@
 package com.baidu.tieba.service;
 
 import android.app.ActivityManager;
-import android.content.Context;
 import android.content.Intent;
-import android.os.AsyncTask;
 import com.baidu.browser.explorer.BdWebErrorView;
 import com.baidu.tieba.LogoActivity;
 import com.baidu.tieba.MainTabActivity;
 import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.c.ai;
+import com.baidu.tieba.d.ag;
 import com.baidu.tieba.frs.FrsActivity;
-import com.baidu.tieba.pb.PbActivity;
+import com.baidu.tieba.pb.NewPbActivity;
 import java.util.Iterator;
 /* loaded from: classes.dex */
-class c extends AsyncTask {
+class c extends com.baidu.adp.lib.a.a {
     final /* synthetic */ DealIntentService a;
     private Intent b;
 
@@ -25,23 +23,22 @@ class c extends AsyncTask {
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // android.os.AsyncTask
-    /* renamed from: a */
-    public String doInBackground(String... strArr) {
-        Iterator<ActivityManager.RunningTaskInfo> it = ((ActivityManager) TiebaApplication.b().getSystemService("activity")).getRunningTasks(BdWebErrorView.ERROR_CODE_500).iterator();
+    @Override // com.baidu.adp.lib.a.a
+    public String a(String... strArr) {
+        Iterator<ActivityManager.RunningTaskInfo> it = ((ActivityManager) TiebaApplication.d().getSystemService("activity")).getRunningTasks(BdWebErrorView.ERROR_CODE_500).iterator();
         while (true) {
             if (it.hasNext()) {
                 if (it.next().baseActivity.getClassName().startsWith(this.a.getPackageName())) {
                     switch (this.b.getExtras().getInt("class", -1)) {
                         case 0:
-                            ai.c(this.a, this.b.getExtras().getString("url"));
+                            ag.c(this.a, this.b.getExtras().getString("url"));
                             break;
                         case 1:
                             if (this.b.getBooleanExtra("is_message_pv", false)) {
-                                PbActivity.a((Context) this.a, this.b.getStringExtra("id"), true, this.b.getLongExtra("message_id", 0L));
+                                NewPbActivity.a(this.a, this.b.getStringExtra("id"), null, this.b.getStringExtra("from"), this.b.getLongExtra("message_id", 0L));
                                 break;
                             } else {
-                                PbActivity.a(this.a, this.b.getStringExtra("id"), this.b.getStringExtra("from"));
+                                NewPbActivity.a(this.a, this.b.getStringExtra("id"), null, this.b.getStringExtra("from"));
                                 break;
                             }
                         case 2:
@@ -62,15 +59,15 @@ class c extends AsyncTask {
         return null;
     }
 
-    public void a() {
+    @Override // com.baidu.adp.lib.a.a
+    public void cancel() {
         super.cancel(true);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // android.os.AsyncTask
-    /* renamed from: a */
-    public void onPostExecute(String str) {
+    @Override // com.baidu.adp.lib.a.a
+    public void a(String str) {
         this.a.stopSelf();
     }
 }

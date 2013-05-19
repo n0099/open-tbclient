@@ -1,25 +1,33 @@
 package com.baidu.tieba.home;
 
+import android.content.Context;
 import android.view.View;
-import android.widget.ImageView;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
+import com.baidu.loginshare.Token;
+import com.baidu.tieba.TiebaApplication;
 /* loaded from: classes.dex */
-class m {
-    RelativeLayout a;
-    TextView b;
-    TextView c;
-    TextView d;
-    ImageView e;
-    View f;
-    final /* synthetic */ f g;
-
-    private m(f fVar) {
-        this.g = fVar;
-    }
+class m implements View.OnClickListener {
+    final /* synthetic */ l a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ m(f fVar, m mVar) {
-        this(fVar);
+    public m(l lVar) {
+        this.a = lVar;
+    }
+
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        Context context;
+        Context context2;
+        if (TiebaApplication.d().aF() != null) {
+            Token b = com.baidu.tieba.account.a.b(TiebaApplication.A());
+            String b2 = TiebaApplication.d().aF().b();
+            String c = TiebaApplication.d().aF().c();
+            if (b != null) {
+                context2 = this.a.a;
+                LotteryActivity.a(context2, b2, c, b.mBduss, b.mPtoken, TiebaApplication.B());
+                return;
+            }
+            context = this.a.a;
+            LotteryActivity.a(context, b2, c, null, null, TiebaApplication.B());
+        }
     }
 }

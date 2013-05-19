@@ -1,14 +1,13 @@
 package com.baidu.tieba.write;
 
 import android.graphics.Bitmap;
-import android.os.AsyncTask;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import cn.jingling.lib.filters.FilterFactory;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ay extends AsyncTask {
+public class ay extends com.baidu.adp.lib.a.a {
     final /* synthetic */ WriteImageActivity a;
     private String b;
     private Bitmap c;
@@ -26,8 +25,9 @@ public class ay extends AsyncTask {
         this(writeImageActivity);
     }
 
-    @Override // android.os.AsyncTask
-    protected void onPreExecute() {
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.a.a
+    public void b() {
         ProgressBar progressBar;
         Button button;
         progressBar = this.a.j;
@@ -38,9 +38,8 @@ public class ay extends AsyncTask {
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // android.os.AsyncTask
-    /* renamed from: a */
-    public Bitmap doInBackground(String... strArr) {
+    @Override // com.baidu.adp.lib.a.a
+    public Bitmap a(String... strArr) {
         Bitmap bitmap;
         Bitmap bitmap2;
         Bitmap bitmap3;
@@ -91,19 +90,20 @@ public class ay extends AsyncTask {
             }
         }
         if (this.c.getWidth() > 600 || this.c.getHeight() > 600) {
-            this.c = com.baidu.tieba.c.e.a(this.c, 600);
+            this.c = com.baidu.tieba.d.e.a(this.c, 600);
         }
         if (this.d.booleanValue()) {
-            this.c = com.baidu.tieba.c.e.d(this.c, Integer.parseInt(this.b));
+            this.c = com.baidu.tieba.d.e.d(this.c, Integer.parseInt(this.b));
         } else if (this.e.booleanValue()) {
-            this.c = com.baidu.tieba.c.e.e(this.c, Integer.parseInt(this.b));
+            this.c = com.baidu.tieba.d.e.e(this.c, Integer.parseInt(this.b));
         } else {
             this.c = FilterFactory.createOneKeyFilter(this.a, this.b).apply(this.a, this.c);
         }
         return this.c;
     }
 
-    public void a() {
+    @Override // com.baidu.adp.lib.a.a
+    public void cancel() {
         ProgressBar progressBar;
         Button button;
         Bitmap bitmap;
@@ -126,12 +126,11 @@ public class ay extends AsyncTask {
     /* JADX WARN: Code restructure failed: missing block: B:15:0x005b, code lost:
         if (r0.getHeight() > 600) goto L21;
      */
-    @Override // android.os.AsyncTask
-    /* renamed from: a */
+    @Override // com.baidu.adp.lib.a.a
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public void onPostExecute(Bitmap bitmap) {
+    public void a(Bitmap bitmap) {
         ProgressBar progressBar;
         Button button;
         ImageView imageView;
@@ -160,15 +159,15 @@ public class ay extends AsyncTask {
                 }
                 WriteImageActivity writeImageActivity = this.a;
                 bitmap7 = this.a.e;
-                writeImageActivity.e = com.baidu.tieba.c.e.a(bitmap7, 600);
+                writeImageActivity.e = com.baidu.tieba.d.e.a(bitmap7, 600);
                 if (this.d.booleanValue()) {
                     WriteImageActivity writeImageActivity2 = this.a;
                     bitmap9 = this.a.e;
-                    writeImageActivity2.e = com.baidu.tieba.c.e.d(bitmap9, Integer.parseInt(this.b));
+                    writeImageActivity2.e = com.baidu.tieba.d.e.d(bitmap9, Integer.parseInt(this.b));
                 } else if (this.e.booleanValue()) {
                     WriteImageActivity writeImageActivity3 = this.a;
                     bitmap8 = this.a.e;
-                    writeImageActivity3.e = com.baidu.tieba.c.e.e(bitmap8, Integer.parseInt(this.b));
+                    writeImageActivity3.e = com.baidu.tieba.d.e.e(bitmap8, Integer.parseInt(this.b));
                 }
             }
             bitmap3 = this.a.r;

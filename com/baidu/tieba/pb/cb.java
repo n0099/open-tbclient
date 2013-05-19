@@ -1,17 +1,18 @@
 package com.baidu.tieba.pb;
 
-import android.content.DialogInterface;
+import android.view.MotionEvent;
+import android.view.View;
 /* loaded from: classes.dex */
-class cb implements DialogInterface.OnClickListener {
-    final /* synthetic */ bz a;
+class cb implements View.OnTouchListener {
+    final /* synthetic */ bl a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public cb(bz bzVar) {
-        this.a = bzVar;
+    public cb(bl blVar) {
+        this.a = blVar;
     }
 
-    @Override // android.content.DialogInterface.OnClickListener
-    public void onClick(DialogInterface dialogInterface, int i) {
-        dialogInterface.dismiss();
+    @Override // android.view.View.OnTouchListener
+    public boolean onTouch(View view, MotionEvent motionEvent) {
+        return true;
     }
 }

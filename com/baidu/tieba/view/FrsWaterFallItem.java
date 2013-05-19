@@ -7,9 +7,8 @@ import android.graphics.Paint;
 import android.text.TextPaint;
 import android.util.AttributeSet;
 import android.widget.LinearLayout;
-import com.baidu.tieba.R;
-import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.a.ay;
+import com.baidu.tieba.a.bc;
+import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public class FrsWaterFallItem extends LinearLayout {
     private TextPaint a;
@@ -22,6 +21,9 @@ public class FrsWaterFallItem extends LinearLayout {
     private int h;
     private int i;
     private int j;
+    private int k;
+    private Paint l;
+    private int m;
 
     public FrsWaterFallItem(Context context) {
         super(context);
@@ -35,6 +37,9 @@ public class FrsWaterFallItem extends LinearLayout {
         this.h = 0;
         this.i = 0;
         this.j = 0;
+        this.k = 0;
+        this.l = null;
+        this.m = 0;
         a();
     }
 
@@ -50,6 +55,9 @@ public class FrsWaterFallItem extends LinearLayout {
         this.h = 0;
         this.i = 0;
         this.j = 0;
+        this.k = 0;
+        this.l = null;
+        this.m = 0;
         a();
     }
 
@@ -61,64 +69,85 @@ public class FrsWaterFallItem extends LinearLayout {
 
     private void a() {
         this.a = new TextPaint(1);
+        this.l = new Paint();
+        this.l.setAntiAlias(true);
+        this.j = com.baidu.tieba.d.ag.a(getContext(), 5.0f);
+        this.k = com.baidu.tieba.d.ag.a(getContext(), 2.0f);
     }
 
     @Override // android.widget.LinearLayout, android.view.View
     protected void onDraw(Canvas canvas) {
+        Bitmap a;
+        Bitmap a2;
         super.onDraw(canvas);
         try {
-            if (this.j == 1) {
-                canvas.drawColor(TiebaApplication.b().getResources().getColor(R.color.skin_1_second_common_bg));
-            } else {
-                canvas.drawColor(TiebaApplication.b().getResources().getColor(R.color.white));
-            }
-            ay ayVar = (ay) getTag();
-            int height = (getHeight() - getPaddingBottom()) - this.h;
-            int width = getWidth() - getPaddingRight();
+            canvas.drawColor(16777215);
+            bc bcVar = (bc) getTag();
+            int height = ((getHeight() - getPaddingBottom()) - this.h) - this.j;
+            int width = (getWidth() - getPaddingRight()) - this.j;
             this.a.setTextSize(this.h);
-            this.a.setColor(-6908266);
+            if (this.m == 1) {
+                this.a.setColor(-11446171);
+            } else {
+                this.a.setColor(-5065030);
+            }
             int ceil = (int) Math.ceil(this.a.getFontMetrics().ascent);
-            if (ayVar.e() > 0) {
+            if (bcVar.e() > 0) {
                 if (this.d == null) {
-                    if (ayVar.e() > 999) {
+                    if (bcVar.e() > 999) {
                         this.d = "999+";
                     } else {
-                        this.d = String.valueOf(ayVar.e());
+                        this.d = String.valueOf(bcVar.e());
                     }
                 }
                 if (this.e == -1) {
-                    this.e = width - ((int) Math.ceil(com.baidu.tieba.c.ai.a((Paint) this.a, this.d)));
+                    this.e = (width - ((int) Math.ceil(com.baidu.tieba.d.ag.a((Paint) this.a, this.d)))) - this.j;
                 }
                 canvas.drawText(this.d, this.e, height - ceil, this.a);
-                width = this.e - com.baidu.tieba.c.ai.a(getContext(), 2.0f);
+                width = this.e;
             }
             if (this.e != -1) {
-                Bitmap a = com.baidu.tieba.c.e.a((int) R.drawable.icon_reply);
-                this.f = this.e - a.getWidth();
+                if (this.m == 1) {
+                    a2 = com.baidu.tieba.d.e.a((int) R.drawable.icon_little_comment_1);
+                } else {
+                    a2 = com.baidu.tieba.d.e.a((int) R.drawable.icon_little_comment);
+                }
+                this.f = this.e - a2.getWidth();
                 width = this.f - this.i;
-                canvas.drawBitmap(a, this.f, ((this.h - a.getHeight()) / 2) + height, (Paint) null);
+                canvas.drawBitmap(a2, width, ((this.h - a2.getHeight()) / 2) + height, this.l);
             }
-            if (this.c == null) {
-                this.c = com.baidu.tieba.c.ai.a(this.a, ayVar.a(), width - getPaddingLeft());
-            }
-            canvas.drawText(ayVar.a(), getPaddingLeft(), height - ceil, this.a);
-            this.a.setTextSize(this.g);
-            if (this.j == 1) {
-                this.a.setColor(TiebaApplication.b().getResources().getColor(R.color.skin_1_common_color));
+            int i = width;
+            if (this.m == 1) {
+                a = com.baidu.tieba.d.e.a((int) R.drawable.icon_little_people_1);
             } else {
-                this.a.setColor(-13421773);
+                a = com.baidu.tieba.d.e.a((int) R.drawable.icon_little_people);
+            }
+            this.c = com.baidu.tieba.d.ag.a(this.a, bcVar.a(), (i - a.getWidth()) - (this.j * 2));
+            int paddingLeft = getPaddingLeft() + this.j;
+            canvas.drawBitmap(a, paddingLeft, ((this.h - a.getHeight()) / 2) + height, this.l);
+            canvas.drawText(this.c, a.getWidth() + paddingLeft + this.j, height - ceil, this.a);
+            this.a.setTextSize(this.g);
+            if (this.m == 1) {
+                this.a.setColor(-8682086);
+            } else {
+                this.a.setColor(-14277082);
             }
             int ceil2 = (int) Math.ceil(this.a.getFontMetrics().ascent);
             if (this.b == null) {
-                this.b = com.baidu.tieba.c.ai.a(this.a, ayVar.c(), (getWidth() - getPaddingLeft()) - getPaddingRight());
+                this.b = com.baidu.tieba.d.ag.a(this.a, bcVar.c(), ((getWidth() - getPaddingLeft()) - getPaddingRight()) - this.j);
             }
-            canvas.drawText(this.b, getPaddingLeft(), (height - (this.i + this.g)) - ceil2, this.a);
+            canvas.drawText(this.b, this.k + this.j, (height - ((this.i + this.g) + com.baidu.tieba.d.ag.a(getContext(), 3.0f))) - ceil2, this.a);
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
     public void a(int i) {
-        this.j = i;
+        this.m = i;
+        if (i == 1) {
+            setBackgroundResource(R.drawable.bg_list_bottom_1);
+        } else {
+            setBackgroundResource(R.drawable.waterfall_bg);
+        }
     }
 }

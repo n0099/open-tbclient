@@ -19,18 +19,17 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import com.baidu.location.LocationClientOption;
-import com.baidu.tieba.R;
 import com.baidu.zeus.WebChromeClient;
+import com.slidingmenu.lib.R;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class Register2Activity extends com.baidu.tieba.e {
-    private static int g = LocationClientOption.MIN_SCAN_SPAN;
+    private static int g = 1000;
     private static int h = 27;
     private static int i = 29;
     private static int j = 28;
     private static int k = 6;
-    private Button l = null;
+    private ImageView l = null;
     private Button m = null;
     private Button n = null;
     private ImageView o = null;
@@ -65,29 +64,29 @@ public class Register2Activity extends com.baidu.tieba.e {
     LinearLayout d = null;
     TextView e = null;
     TextView f = null;
-    private bb Q = null;
-    private bc R = null;
-    private com.baidu.tieba.b.h S = null;
-    private View.OnClickListener T = new aw(this);
-    private TextWatcher U = new ax(this);
-    private View.OnFocusChangeListener V = new ay(this);
-    private RadioGroup.OnCheckedChangeListener W = new az(this);
+    private aw Q = null;
+    private ax R = null;
+    private com.baidu.tieba.c.af S = null;
+    private View.OnClickListener T = new ar(this);
+    private TextWatcher U = new as(this);
+    private View.OnFocusChangeListener V = new at(this);
+    private RadioGroup.OnCheckedChangeListener W = new au(this);
 
     public static void a(Activity activity, int i2) {
         activity.startActivityForResult(new Intent(activity, Register2Activity.class), i2);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.e, android.app.Activity
+    @Override // com.baidu.tieba.e, com.baidu.adp.a.a, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         setContentView(R.layout.account_register2_activity);
-        p();
-        new ak("reg").start();
+        q();
+        new af("reg").start();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void o() {
+    public void p() {
         int selectionStart = this.y.getSelectionStart();
         if (!this.N) {
             this.n.setText(getString(R.string.hide));
@@ -107,15 +106,15 @@ public class Register2Activity extends com.baidu.tieba.e {
     public void onDestroy() {
         super.onDestroy();
         if (this.R != null) {
-            this.R.a();
+            this.R.cancel();
         }
         if (this.Q != null) {
-            this.Q.a();
+            this.Q.cancel();
         }
-        com.baidu.tieba.c.ag.a("Register2Activity", "onDestroy", "onDestroy");
+        com.baidu.tieba.d.ae.a("Register2Activity", "onDestroy", "onDestroy");
     }
 
-    private void p() {
+    private void q() {
         this.c = (RelativeLayout) findViewById(R.id.container);
         this.d = (LinearLayout) findViewById(R.id.title);
         this.e = (TextView) findViewById(R.id.title_text);
@@ -123,7 +122,7 @@ public class Register2Activity extends com.baidu.tieba.e {
         this.v = (TextView) findViewById(R.id.reg_info);
         this.B = (RelativeLayout) findViewById(R.id.register);
         this.B.setEnabled(false);
-        this.l = (Button) findViewById(R.id.back);
+        this.l = (ImageView) findViewById(R.id.back);
         this.m = (Button) findViewById(R.id.login);
         this.n = (Button) findViewById(R.id.show);
         this.y = (EditText) findViewById(R.id.edit_psw);
@@ -163,7 +162,7 @@ public class Register2Activity extends com.baidu.tieba.e {
         this.q.setOnClickListener(this.T);
         this.A = (EditText) findViewById(R.id.edit_vcode);
         this.A.addTextChangedListener(this.U);
-        o();
+        p();
         a(this.x, WebChromeClient.STRING_DLG_BTN_SET);
     }
 
@@ -171,24 +170,23 @@ public class Register2Activity extends com.baidu.tieba.e {
     @Override // com.baidu.tieba.e
     public void b(int i2) {
         super.b(i2);
-        com.baidu.tieba.c.ae.c(this.e, i2);
-        com.baidu.tieba.c.ae.c((TextView) this.m, i2);
-        com.baidu.tieba.c.ae.c((TextView) this.l, i2);
-        com.baidu.tieba.c.ae.a(this.f, i2);
-        com.baidu.tieba.c.ae.b(this.c, i2);
-        com.baidu.tieba.c.ae.c(this.d, i2);
-        com.baidu.tieba.c.ae.d((TextView) this.m, i2);
-        com.baidu.tieba.c.ae.e((TextView) this.l, i2);
-        v();
-        s();
+        com.baidu.tieba.d.ac.f(this.e, i2);
+        com.baidu.tieba.d.ac.f((TextView) this.m, i2);
+        com.baidu.tieba.d.ac.a(this.f, i2);
+        com.baidu.tieba.d.ac.c(this.c, i2);
+        com.baidu.tieba.d.ac.d(this.d, i2);
+        com.baidu.tieba.d.ac.g((TextView) this.m, i2);
+        com.baidu.tieba.d.ac.a(this.l, i2);
+        w();
+        t();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void q() {
+    public void r() {
         b(false);
     }
 
-    private void r() {
+    private void s() {
         this.C.setPadding(this.K, 0, this.L, 0);
         this.D.setPadding(this.K, 0, this.L, 0);
         this.E.setPadding(this.K, 0, this.L, 0);
@@ -197,7 +195,7 @@ public class Register2Activity extends com.baidu.tieba.e {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void s() {
+    public void t() {
         this.w.setText(this.P);
         if (this.P != null) {
             this.w.setVisibility(0);
@@ -249,7 +247,7 @@ public class Register2Activity extends com.baidu.tieba.e {
             }
             this.G.setBackgroundResource(R.drawable.login_input_under);
         }
-        r();
+        s();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -264,10 +262,11 @@ public class Register2Activity extends com.baidu.tieba.e {
                 this.F.setBackgroundResource(R.drawable.login_input_middle);
             }
             if (this.Q != null) {
-                this.Q.a();
+                this.Q.cancel();
             }
             if (this.S != null) {
-                this.Q = new bb(this, this.S.b().d());
+                this.Q = new aw(this, this.S.b().d());
+                this.Q.setPriority(3);
                 this.Q.execute(new String[0]);
             }
         } else {
@@ -277,7 +276,7 @@ public class Register2Activity extends com.baidu.tieba.e {
                 this.F.setBackgroundResource(R.drawable.login_input_under);
             }
         }
-        s();
+        t();
     }
 
     private void b(boolean z) {
@@ -321,33 +320,33 @@ public class Register2Activity extends com.baidu.tieba.e {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void t() {
+    public void u() {
         b(true);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public com.baidu.tieba.a.ap u() {
-        com.baidu.tieba.a.ap apVar = new com.baidu.tieba.a.ap();
-        apVar.a(this.x.getText().toString());
-        apVar.b(this.y.getText().toString());
-        apVar.c(this.z.getText().toString());
+    public com.baidu.tieba.a.at v() {
+        com.baidu.tieba.a.at atVar = new com.baidu.tieba.a.at();
+        atVar.a(this.x.getText().toString());
+        atVar.b(this.y.getText().toString());
+        atVar.c(this.z.getText().toString());
         if (this.M) {
-            apVar.d(this.A.getText().toString());
+            atVar.d(this.A.getText().toString());
         }
         if (this.S != null) {
-            apVar.e(this.S.b().c());
-            apVar.a(this.S.d());
+            atVar.e(this.S.b().c());
+            atVar.a(this.S.d());
         }
-        return apVar;
+        return atVar;
     }
 
-    private void v() {
+    private void w() {
         String string;
         int length = getString(R.string.reg_info).length();
         String str = String.valueOf(string) + getString(R.string.user_server_agreement);
         int length2 = str.length();
         SpannableString spannableString = new SpannableString(str);
-        spannableString.setSpan(new ba(this, this), length, length2, 33);
+        spannableString.setSpan(new av(this, this), length, length2, 33);
         if (this.b == 1) {
             spannableString.setSpan(new ForegroundColorSpan(getResources().getColor(R.color.skin_1_common_color)), 0, length, 33);
         }
@@ -359,13 +358,13 @@ public class Register2Activity extends com.baidu.tieba.e {
     protected void onActivityResult(int i2, int i3, Intent intent) {
         super.onActivityResult(i2, i3, intent);
         if (i2 == g && i3 == -1) {
-            com.baidu.tieba.c.ag.a("Register2Activity", "onActivityResult", "onActivityResult");
+            com.baidu.tieba.d.ae.a("Register2Activity", "onActivityResult", "onActivityResult");
             setResult(-1);
             finish();
         }
     }
 
-    public void i() {
+    public void b() {
         this.D.setVisibility(8);
         this.r.clearCheck();
         this.s.setVisibility(8);
@@ -376,7 +375,7 @@ public class Register2Activity extends com.baidu.tieba.e {
     /* JADX INFO: Access modifiers changed from: private */
     public void a(ArrayList arrayList) {
         int size;
-        i();
+        b();
         if (arrayList != null && (size = arrayList.size()) > 0) {
             this.D.setVisibility(0);
             if (size > 0 && arrayList.get(0) != null) {

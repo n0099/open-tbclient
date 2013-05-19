@@ -1,63 +1,119 @@
 package com.baidu.tieba.home;
 
-import android.text.Editable;
-import android.text.TextWatcher;
-import android.widget.Button;
-import com.baidu.tieba.R;
+import android.widget.EditText;
+import android.widget.ListView;
+import android.widget.ProgressBar;
+import android.widget.TextView;
+import com.baidu.tieba.a.av;
+import com.slidingmenu.lib.R;
+import java.util.ArrayList;
+import java.util.Iterator;
+import org.apache.http.message.BasicNameValuePair;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class an implements TextWatcher {
-    final /* synthetic */ SearchActivity a;
+public class an extends com.baidu.adp.lib.a.a {
+    ArrayList a;
+    final /* synthetic */ SearchActivity b;
+    private com.baidu.tieba.d.t c = null;
+    private String d;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public an(SearchActivity searchActivity) {
-        this.a = searchActivity;
+    public an(SearchActivity searchActivity, String str, ArrayList arrayList) {
+        this.b = searchActivity;
+        this.d = null;
+        this.a = null;
+        this.d = str;
+        this.a = arrayList;
     }
 
-    @Override // android.text.TextWatcher
-    public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.a.a
+    public void b() {
+        TextView textView;
+        EditText editText;
+        ListView listView;
+        ProgressBar progressBar;
+        textView = this.b.v;
+        textView.setVisibility(8);
+        SearchActivity searchActivity = this.b;
+        editText = this.b.c;
+        com.baidu.tieba.d.ag.a(searchActivity, editText);
+        listView = this.b.p;
+        if (listView.getVisibility() != 0) {
+            progressBar = this.b.s;
+            progressBar.setVisibility(0);
+        }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.a.a
+    /* renamed from: d */
+    public av a(Object... objArr) {
+        av avVar;
+        Exception e;
         String str;
-        int i4;
-        int i5;
-        this.a.x = charSequence.toString();
-        str = this.a.x;
-        if (str.trim().length() > 0) {
-            i5 = this.a.D;
-            if (i5 != 0) {
-                return;
+        try {
+            this.c = new com.baidu.tieba.d.t(this.d);
+            Iterator it = this.a.iterator();
+            while (it.hasNext()) {
+                this.c.a((BasicNameValuePair) it.next());
             }
-            this.a.o();
-            return;
+            String i = this.c.i();
+            if (!this.c.b() || i == null) {
+                return null;
+            }
+            avVar = new av();
+            try {
+                avVar.a(i);
+                str = this.b.A;
+                com.baidu.tieba.d.k.l(str);
+                return avVar;
+            } catch (Exception e2) {
+                e = e2;
+                com.baidu.tieba.d.ae.b(getClass().getName(), "", "doInBackground error = " + e.getMessage());
+                return avVar;
+            }
+        } catch (Exception e3) {
+            avVar = null;
+            e = e3;
         }
-        this.a.i();
-        i4 = this.a.D;
-        if (i4 == 0) {
-            this.a.n();
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.a.a
+    public void a(av avVar) {
+        ProgressBar progressBar;
+        ar arVar;
+        ar arVar2;
+        ar arVar3;
+        progressBar = this.b.s;
+        progressBar.setVisibility(8);
+        arVar = this.b.r;
+        arVar.a(0);
+        arVar2 = this.b.r;
+        arVar2.notifyDataSetChanged();
+        if (avVar != null && this.c != null && this.c.b()) {
+            this.b.x = avVar;
+            arVar3 = this.b.r;
+            arVar3.notifyDataSetChanged();
+            this.b.r();
         } else {
-            this.a.p();
+            this.b.a(this.b.getString(R.string.neterror));
         }
+        this.b.z = null;
     }
 
-    @Override // android.text.TextWatcher
-    public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-    }
-
-    @Override // android.text.TextWatcher
-    public void afterTextChanged(Editable editable) {
-        Button button;
-        Button button2;
-        Button button3;
-        Button button4;
-        if (editable.toString().trim().length() == 0) {
-            button3 = this.a.e;
-            button3.setText(this.a.getString(R.string.cancel));
-            button4 = this.a.d;
-            button4.setVisibility(8);
-            return;
+    @Override // com.baidu.adp.lib.a.a
+    public void cancel() {
+        ProgressBar progressBar;
+        if (this.c != null) {
+            this.c.g();
+            this.c = null;
         }
-        button = this.a.e;
-        button.setText(this.a.getString(R.string.search));
-        button2 = this.a.d;
-        button2.setVisibility(0);
+        progressBar = this.b.s;
+        progressBar.setVisibility(8);
+        this.b.z = null;
+        super.cancel(true);
     }
 }

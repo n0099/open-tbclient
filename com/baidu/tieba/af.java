@@ -16,12 +16,12 @@ public class af implements DialogInterface.OnClickListener {
     public void onClick(DialogInterface dialogInterface, int i) {
         AlertDialog alertDialog;
         if (i != -2) {
-            alertDialog = this.a.y;
+            alertDialog = this.a.x;
             alertDialog.dismiss();
-            TiebaApplication.b().a(false, true);
+            TiebaApplication.d().a(false, false);
             return;
         }
-        this.a.a(true);
-        TiebaApplication.b().a(true, true);
+        this.a.a(false);
+        TiebaApplication.d().a(true, false);
     }
 }

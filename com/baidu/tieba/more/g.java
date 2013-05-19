@@ -2,7 +2,7 @@ package com.baidu.tieba.more;
 
 import android.view.View;
 import android.widget.Button;
-import com.baidu.tieba.R;
+import com.slidingmenu.lib.R;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class g implements View.OnClickListener {

@@ -1,70 +1,20 @@
 package com.baidu.tieba.pb;
 
-import android.os.Handler;
-import android.view.animation.TranslateAnimation;
-import android.widget.AbsListView;
-import android.widget.LinearLayout;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.content.DialogInterface;
 /* loaded from: classes.dex */
-public class av implements AbsListView.OnScrollListener {
-    final /* synthetic */ PbActivity a;
+class av implements DialogInterface.OnClickListener {
+    final /* synthetic */ NewPbActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public av(PbActivity pbActivity) {
-        this.a = pbActivity;
+    public av(NewPbActivity newPbActivity) {
+        this.a = newPbActivity;
     }
 
-    @Override // android.widget.AbsListView.OnScrollListener
-    public void onScroll(AbsListView absListView, int i, int i2, int i3) {
-        Handler handler;
-        Runnable runnable;
-        Handler handler2;
-        Runnable runnable2;
-        handler = this.a.s;
-        runnable = this.a.aC;
-        handler.removeCallbacks(runnable);
-        handler2 = this.a.s;
-        runnable2 = this.a.aC;
-        handler2.postDelayed(runnable2, 300L);
-    }
-
-    @Override // android.widget.AbsListView.OnScrollListener
-    public void onScrollStateChanged(AbsListView absListView, int i) {
-        boolean z;
-        boolean z2;
-        LinearLayout linearLayout;
-        TranslateAnimation translateAnimation;
-        boolean z3;
-        boolean z4;
-        LinearLayout linearLayout2;
-        TranslateAnimation translateAnimation2;
-        LinearLayout linearLayout3;
-        if (i == 0) {
-            if (absListView.getLastVisiblePosition() == absListView.getCount() - 1) {
-                z3 = this.a.ax;
-                if (!z3) {
-                    z4 = this.a.aw;
-                    if (z4) {
-                        linearLayout3 = this.a.B;
-                        linearLayout3.clearAnimation();
-                    }
-                    linearLayout2 = this.a.B;
-                    translateAnimation2 = this.a.au;
-                    linearLayout2.startAnimation(translateAnimation2);
-                    return;
-                }
-            }
-            if (absListView.getFirstVisiblePosition() == 0) {
-                z = this.a.ax;
-                if (!z) {
-                    z2 = this.a.aw;
-                    if (!z2) {
-                        linearLayout = this.a.B;
-                        translateAnimation = this.a.au;
-                        linearLayout.startAnimation(translateAnimation);
-                    }
-                }
-            }
+    @Override // android.content.DialogInterface.OnClickListener
+    public void onClick(DialogInterface dialogInterface, int i) {
+        if (this.a.c != null) {
+            this.a.c.f(this.a);
+            this.a.c = null;
         }
     }
 }

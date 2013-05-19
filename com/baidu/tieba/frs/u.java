@@ -1,11 +1,6 @@
 package com.baidu.tieba.frs;
-
-import android.view.View;
-import com.baidu.mobstat.StatService;
-import com.baidu.tieba.TiebaApplication;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class u implements View.OnClickListener {
+class u implements com.baidu.adp.widget.ListView.r {
     final /* synthetic */ FrsActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -13,11 +8,7 @@ public class u implements View.OnClickListener {
         this.a = frsActivity;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        if (TiebaApplication.b().l()) {
-            StatService.onEvent(this.a, "frs_post_pic", "frsclick", 1);
-        }
-        this.a.d(1);
+    @Override // com.baidu.adp.widget.ListView.r
+    public void a() {
     }
 }

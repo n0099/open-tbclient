@@ -1,66 +1,37 @@
 package com.baidu.tieba.account;
-
-import android.graphics.Bitmap;
-import android.os.AsyncTask;
-import com.baidu.tieba.R;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ag extends AsyncTask {
-    com.baidu.tieba.c.t a;
-    final /* synthetic */ LoginActivity b;
-    private volatile boolean c;
-
-    private ag(LoginActivity loginActivity) {
-        this.b = loginActivity;
-        this.a = null;
-        this.c = false;
-    }
+class ag implements Runnable {
+    final /* synthetic */ ReLoginActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ ag(LoginActivity loginActivity, ag agVar) {
-        this(loginActivity);
+    public ag(ReLoginActivity reLoginActivity) {
+        this.a = reLoginActivity;
     }
 
-    public void a() {
-        LoginActivity.a(this.b, (ag) null);
-        if (this.a != null) {
-            this.a.g();
-            this.a = null;
+    @Override // java.lang.Runnable
+    public void run() {
+        com.baidu.tieba.a.a aVar;
+        String str;
+        com.baidu.tieba.a.a aVar2;
+        com.baidu.tieba.a.a aVar3;
+        com.baidu.tieba.a.a aVar4;
+        aVar = this.a.m;
+        if (aVar != null) {
+            aVar2 = this.a.m;
+            if (aVar2.b() != null) {
+                aVar3 = this.a.m;
+                if (!aVar3.b().equals("BaiduUser")) {
+                    ReLoginActivity reLoginActivity = this.a;
+                    aVar4 = this.a.m;
+                    reLoginActivity.a(aVar4);
+                    return;
+                }
+            }
+            this.a.n();
+            return;
         }
-        this.c = true;
-        super.cancel(true);
-    }
-
-    @Override // android.os.AsyncTask
-    protected void onPreExecute() {
-        LoginActivity.l(this.b).setImageBitmap(null);
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // android.os.AsyncTask
-    /* renamed from: a */
-    public Bitmap doInBackground(String... strArr) {
-        String str = strArr[0];
-        if (str == null || str.length() <= 0 || this.c) {
-            return null;
-        }
-        this.a = new com.baidu.tieba.c.t(str);
-        return com.baidu.tieba.c.e.a(this.a.h());
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // android.os.AsyncTask
-    /* renamed from: a */
-    public void onPostExecute(Bitmap bitmap) {
-        LoginActivity.a(this.b, (ag) null);
-        if (bitmap != null) {
-            LoginActivity.l(this.b).setImageBitmap(bitmap);
-        } else {
-            LoginActivity.l(this.b).setImageResource(R.drawable.background);
-        }
-        LoginActivity.m(this.b).setVisibility(8);
-        super.onPostExecute(bitmap);
+        ReLoginActivity reLoginActivity2 = this.a;
+        str = this.a.p;
+        reLoginActivity2.a(1, str);
     }
 }

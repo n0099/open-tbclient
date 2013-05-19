@@ -1,62 +1,61 @@
 package com.baidu.tieba.c;
 
-import java.util.HashMap;
-import java.util.Map;
+import android.graphics.Bitmap;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ab {
-    private volatile int b;
-    private volatile HashMap c = new HashMap();
-    private volatile int a = 0;
+public class ab extends com.baidu.adp.lib.a.a {
+    final /* synthetic */ aa a;
+    private String b;
 
-    public ab(int i) {
-        this.b = i;
+    public ab(aa aaVar, String str) {
+        this.a = aaVar;
+        this.b = null;
+        this.b = str;
     }
 
-    public void a(String str) {
-        try {
-            Long valueOf = Long.valueOf(Long.parseLong(str));
-            synchronized (this) {
-                if (this.c.size() >= this.b) {
-                    a();
-                }
-                this.a++;
-                this.c.put(valueOf, Integer.valueOf(this.a));
-            }
-        } catch (Exception e) {
-            ag.b(getClass().getName(), "addThread", e.getMessage());
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.a.a
+    /* renamed from: d */
+    public Bitmap a(Object... objArr) {
+        if (this.b != null && !this.b.equals("tieba_resized_image")) {
+            com.baidu.tieba.d.o.e("photos/" + this.b, "tieba_resized_image");
         }
+        return com.baidu.tieba.d.e.a(com.baidu.tieba.d.e.a(com.baidu.tieba.d.o.c(null, "tieba_resized_image_display")), 5.0f);
     }
 
-    public void a() {
-        synchronized (this) {
-            int i = 134217727;
-            Long l = null;
-            for (Map.Entry entry : this.c.entrySet()) {
-                if (((Integer) entry.getValue()).intValue() < i) {
-                    i = ((Integer) entry.getValue()).intValue();
-                    l = (Long) entry.getKey();
-                }
-            }
-            if (l != null) {
-                this.c.remove(l);
-            } else {
-                this.c.clear();
-            }
+    @Override // com.baidu.adp.lib.a.a
+    public void cancel() {
+        com.baidu.adp.a.e eVar;
+        com.baidu.adp.a.e eVar2;
+        this.a.e = null;
+        eVar = this.a.b;
+        if (eVar != null) {
+            eVar2 = this.a.b;
+            eVar2.a(null);
         }
+        super.cancel(true);
     }
 
-    public boolean b(String str) {
-        boolean z = false;
-        try {
-            Long valueOf = Long.valueOf(Long.parseLong(str));
-            synchronized (this) {
-                if (this.c.get(valueOf) != null) {
-                    z = true;
-                }
-            }
-        } catch (Exception e) {
-            ag.b(getClass().getName(), "getThread", e.getMessage());
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.a.a
+    public void c() {
+        super.c();
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.a.a
+    public void a(Bitmap bitmap) {
+        com.baidu.adp.a.e eVar;
+        com.baidu.adp.a.e eVar2;
+        super.a((Object) bitmap);
+        this.a.e = null;
+        com.baidu.tieba.d.ae.a(getClass().getName(), "onPostExecute", "is Null?" + String.valueOf(bitmap == null));
+        eVar = this.a.b;
+        if (eVar != null) {
+            eVar2 = this.a.b;
+            eVar2.a(bitmap);
         }
-        return z;
     }
 }

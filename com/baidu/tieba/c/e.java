@@ -1,251 +1,79 @@
 package com.baidu.tieba.c;
 
-import android.content.Context;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.graphics.Canvas;
-import android.graphics.Matrix;
-import android.graphics.Paint;
-import android.graphics.PorterDuff;
-import android.graphics.PorterDuffXfermode;
-import android.graphics.Rect;
-import android.graphics.RectF;
-import android.net.Uri;
-import android.os.Build;
-import android.os.ParcelFileDescriptor;
+import com.baidu.android.pushservice.PushConstants;
 import com.baidu.tieba.TiebaApplication;
-import java.io.ByteArrayOutputStream;
-import java.io.InputStream;
-import java.util.Hashtable;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class e {
-    private static volatile Hashtable a = new Hashtable();
+public class e extends com.baidu.adp.lib.a.a {
+    final /* synthetic */ c a;
+    private com.baidu.tieba.d.t b = null;
+    private String c = null;
+    private int d;
+    private com.baidu.tieba.a.az e;
 
-    public static Bitmap a(int i) {
-        Bitmap bitmap = (Bitmap) a.get(Integer.valueOf(i));
-        if (bitmap == null && (bitmap = a(TiebaApplication.b(), i)) != null) {
-            a.put(Integer.valueOf(i), bitmap);
+    public e(c cVar, int i) {
+        this.a = cVar;
+        this.d = 0;
+        this.e = null;
+        this.d = i;
+        this.e = new com.baidu.tieba.a.az();
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.a.a
+    public void b() {
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.a.a
+    public c a(Boolean... boolArr) {
+        this.b = new com.baidu.tieba.d.t(String.valueOf(com.baidu.tieba.a.i.e) + "c/f/post/threadstore");
+        this.b.a(PushConstants.EXTRA_USER_ID, TiebaApplication.z());
+        this.b.a("offset", String.valueOf(this.d));
+        this.b.a("rn", String.valueOf(20));
+        this.c = this.b.i();
+        this.e.a(this.c);
+        c cVar = new c();
+        if (this.b.b() || this.e.a() == 0) {
+            cVar.a(this.c);
+            if (this.d == 0) {
+                com.baidu.tieba.d.k.h(this.c);
+            }
+        } else {
+            this.c = com.baidu.tieba.d.k.c();
+            cVar.a(this.c);
         }
-        return bitmap;
+        return cVar;
     }
 
-    public static void a() {
-        a.clear();
+    @Override // com.baidu.adp.lib.a.a
+    public void cancel() {
+        super.cancel(true);
+        if (this.b != null) {
+            this.b.g();
+        }
+        this.a.b = null;
+        if (this.a.a != null) {
+            this.a.a.a(0, null);
+        }
     }
 
-    public static Bitmap a(Context context, int i) {
-        Bitmap bitmap = null;
-        try {
-            BitmapFactory.Options options = new BitmapFactory.Options();
-            if (Build.VERSION.SDK_INT >= 16) {
-                options.inPreferredConfig = Bitmap.Config.ARGB_4444;
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.a.a
+    public void a(c cVar) {
+        String f;
+        this.a.b = null;
+        this.a.f = cVar.c();
+        this.a.b(cVar.b());
+        if (this.a.a != null) {
+            if (this.b.b()) {
+                f = this.e.b();
             } else {
-                options.inPreferredConfig = com.baidu.tieba.a.i.g;
+                f = this.b.f();
             }
-            bitmap = BitmapFactory.decodeResource(context.getResources(), i, options);
-            return bitmap;
-        } catch (Exception e) {
-            ag.b("BitmapHelper", "getResBitmap", "error = " + e.getMessage());
-            return bitmap;
+            this.a.a.a(0, f);
         }
-    }
-
-    public static Bitmap a(Bitmap bitmap, int i, int i2) {
-        float f;
-        if (i <= 0 || i2 < 0 || bitmap == null || bitmap.isRecycled()) {
-            return null;
-        }
-        if (bitmap.getWidth() > i || bitmap.getHeight() > i2) {
-            int width = bitmap.getWidth();
-            int height = bitmap.getHeight();
-            if (i2 / height > i / width) {
-                f = i / width;
-            } else {
-                f = i2 / height;
-            }
-            Matrix matrix = new Matrix();
-            matrix.postScale(f, f);
-            Bitmap createBitmap = Bitmap.createBitmap(bitmap, 0, 0, width, height, matrix, true);
-            if (createBitmap != bitmap) {
-                bitmap.recycle();
-            }
-            return createBitmap;
-        }
-        return bitmap;
-    }
-
-    public static Bitmap b(Bitmap bitmap, int i, int i2) {
-        float f;
-        if (i <= 0 || i2 < 0 || bitmap == null || bitmap.isRecycled()) {
-            return null;
-        }
-        if (bitmap.getWidth() > i || bitmap.getHeight() > i2) {
-            int width = bitmap.getWidth();
-            int height = bitmap.getHeight();
-            if (i2 / height < i / width) {
-                f = i / width;
-            } else {
-                f = i2 / height;
-            }
-            Matrix matrix = new Matrix();
-            matrix.postScale(f, f);
-            matrix.postTranslate((i - (width * f)) / 2.0f, (i2 - (height * f)) / 2.0f);
-            Bitmap createBitmap = Bitmap.createBitmap(i, i2, bitmap.getConfig());
-            new Canvas(createBitmap).drawBitmap(bitmap, matrix, null);
-            return createBitmap;
-        }
-        return bitmap;
-    }
-
-    public static Bitmap a(Bitmap bitmap, int i) {
-        return a(bitmap, i, i);
-    }
-
-    public static Bitmap b(Bitmap bitmap, int i) {
-        return b(bitmap, i, i);
-    }
-
-    public static Bitmap a(String str, int i) {
-        int i2 = 1;
-        if (str == null || str.length() <= 0 || i <= 0) {
-            return null;
-        }
-        try {
-            BitmapFactory.Options options = new BitmapFactory.Options();
-            options.inJustDecodeBounds = true;
-            InputStream g = o.g(str);
-            BitmapFactory.decodeStream(g, null, options);
-            options.inPreferredConfig = com.baidu.tieba.a.i.g;
-            try {
-                g.close();
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-            while (true) {
-                if (options.outWidth / (i2 * 2) > i || options.outHeight / (i2 * 2) > i) {
-                    i2 *= 2;
-                } else {
-                    options.inJustDecodeBounds = false;
-                    options.inSampleSize = i2;
-                    InputStream g2 = o.g(str);
-                    Bitmap decodeStream = BitmapFactory.decodeStream(g2, null, options);
-                    try {
-                        g2.close();
-                        return decodeStream;
-                    } catch (Exception e2) {
-                        e2.printStackTrace();
-                        return decodeStream;
-                    }
-                }
-            }
-        } catch (Exception e3) {
-            return null;
-        }
-    }
-
-    public static Bitmap a(Context context, Uri uri, int i) {
-        ParcelFileDescriptor parcelFileDescriptor;
-        int i2 = 1;
-        try {
-            parcelFileDescriptor = context.getContentResolver().openFileDescriptor(uri, "r");
-            try {
-                BitmapFactory.Options options = new BitmapFactory.Options();
-                options.inPreferredConfig = com.baidu.tieba.a.i.g;
-                options.inDither = false;
-                options.inJustDecodeBounds = true;
-                BitmapFactory.decodeFileDescriptor(parcelFileDescriptor.getFileDescriptor(), null, options);
-                while (true) {
-                    if (options.outWidth / (i2 + 1) > i || options.outHeight / (i2 + 1) > i) {
-                        i2++;
-                    } else {
-                        options.inJustDecodeBounds = false;
-                        options.inSampleSize = i2;
-                        return BitmapFactory.decodeFileDescriptor(parcelFileDescriptor.getFileDescriptor(), null, options);
-                    }
-                }
-            } catch (Exception e) {
-                if (parcelFileDescriptor != null) {
-                    try {
-                        parcelFileDescriptor.close();
-                        return null;
-                    } catch (Exception e2) {
-                        return null;
-                    }
-                }
-                return null;
-            }
-        } catch (Exception e3) {
-            parcelFileDescriptor = null;
-        }
-    }
-
-    public static Bitmap a(Bitmap bitmap, float f) {
-        if (bitmap == null) {
-            return null;
-        }
-        Bitmap createBitmap = Bitmap.createBitmap(bitmap.getWidth(), bitmap.getHeight(), Bitmap.Config.ARGB_4444);
-        Canvas canvas = new Canvas(createBitmap);
-        Paint paint = new Paint();
-        Rect rect = new Rect(0, 0, bitmap.getWidth(), bitmap.getHeight());
-        RectF rectF = new RectF(rect);
-        paint.setAntiAlias(true);
-        canvas.drawARGB(0, 0, 0, 0);
-        paint.setColor(-12434878);
-        canvas.drawRoundRect(rectF, f, f, paint);
-        paint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.SRC_IN));
-        canvas.drawBitmap(bitmap, rect, rect, paint);
-        return createBitmap;
-    }
-
-    public static byte[] c(Bitmap bitmap, int i) {
-        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-        bitmap.compress(Bitmap.CompressFormat.JPEG, i, byteArrayOutputStream);
-        return byteArrayOutputStream.toByteArray();
-    }
-
-    public static Bitmap a(byte[] bArr) {
-        if (bArr == null || bArr.length == 0) {
-            return null;
-        }
-        BitmapFactory.Options options = new BitmapFactory.Options();
-        options.inPreferredConfig = com.baidu.tieba.a.i.g;
-        return BitmapFactory.decodeByteArray(bArr, 0, bArr.length, options);
-    }
-
-    public static Bitmap d(Bitmap bitmap, int i) {
-        int width = bitmap.getWidth();
-        int height = bitmap.getHeight();
-        Matrix matrix = new Matrix();
-        if (i == 0) {
-            matrix.postRotate(-90.0f);
-        } else if (i == 1) {
-            matrix.postRotate(90.0f);
-        }
-        Bitmap createBitmap = Bitmap.createBitmap(bitmap, 0, 0, width, height, matrix, true);
-        if (bitmap != createBitmap) {
-            bitmap.recycle();
-        }
-        return createBitmap;
-    }
-
-    public static Bitmap e(Bitmap bitmap, int i) {
-        Matrix matrix = new Matrix();
-        int width = bitmap.getWidth();
-        int height = bitmap.getHeight();
-        if (i == 2) {
-            matrix.setScale(1.0f, -1.0f);
-        } else if (i == 3) {
-            matrix.setScale(-1.0f, 1.0f);
-        }
-        Bitmap createBitmap = Bitmap.createBitmap(bitmap, 0, 0, width, height, matrix, true);
-        matrix.setRotate(180.0f);
-        Bitmap createBitmap2 = Bitmap.createBitmap(createBitmap, 0, 0, createBitmap.getWidth(), createBitmap.getHeight(), matrix, true);
-        if (createBitmap != createBitmap2) {
-            createBitmap.recycle();
-        }
-        if (bitmap != createBitmap2) {
-            bitmap.recycle();
-        }
-        return createBitmap2;
     }
 }

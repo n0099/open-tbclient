@@ -1,116 +1,132 @@
 package com.baidu.tieba.frs;
 
-import android.os.AsyncTask;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.view.View;
+import com.baidu.mobstat.StatService;
+import com.baidu.tieba.TiebaApplication;
+import com.baidu.tieba.mention.MentionActivity;
+import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-public class ap extends AsyncTask {
+class ap implements View.OnClickListener {
     final /* synthetic */ FrsImageActivity a;
-    private int b;
-    private com.baidu.tieba.c.t c = null;
 
-    public ap(FrsImageActivity frsImageActivity, int i) {
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public ap(FrsImageActivity frsImageActivity) {
         this.a = frsImageActivity;
-        this.b = 0;
-        this.b = i;
-        if (this.b < 0) {
-            this.b = 0;
-        }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // android.os.AsyncTask
-    /* renamed from: a */
-    public com.baidu.tieba.b.d doInBackground(Object... objArr) {
-        com.baidu.tieba.b.d dVar;
-        Exception e;
-        com.baidu.tieba.b.d dVar2;
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        ay ayVar;
+        ay ayVar2;
+        boolean z;
         String str;
-        com.baidu.tieba.b.d dVar3;
-        try {
-            this.c = new com.baidu.tieba.c.t("http://c.tieba.baidu.com/c/f/frs/photo");
-            StringBuilder sb = new StringBuilder();
-            dVar2 = this.a.q;
-            int size = dVar2.c().size();
-            for (int i = this.b; i < size && i < this.b + 30; i++) {
-                dVar3 = this.a.q;
-                sb.append((String) dVar3.c().get(i));
-                sb.append(",");
-            }
-            int length = sb.length();
-            if (length > 1 && sb.charAt(length - 1) == ',') {
-                sb.deleteCharAt(length - 1);
-            }
-            this.c.a("alb_ids", sb.toString());
-            com.baidu.tieba.c.t tVar = this.c;
-            str = this.a.e;
-            tVar.a("kw", str);
-            String i2 = this.c.i();
-            if (!this.c.b()) {
-                return null;
-            }
-            dVar = new com.baidu.tieba.b.d();
-            try {
-                dVar.a(i2);
-                return dVar;
-            } catch (Exception e2) {
-                e = e2;
-                com.baidu.tieba.c.ag.b(getClass().getName(), "doInBackground", e.getMessage());
-                return dVar;
-            }
-        } catch (Exception e3) {
-            dVar = null;
-            e = e3;
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // android.os.AsyncTask
-    /* renamed from: a */
-    public void onPostExecute(com.baidu.tieba.b.d dVar) {
-        int i;
-        int i2;
-        com.baidu.tieba.b.d dVar2;
-        com.baidu.tieba.b.d dVar3;
-        super.onPostExecute(dVar);
-        this.a.g = null;
-        this.a.a(an.NORMAL);
-        if (dVar == null) {
-            if (this.c != null) {
-                this.a.b(this.c.f());
+        String str2;
+        String str3;
+        String str4;
+        String str5;
+        String str6;
+        ay ayVar3;
+        ay ayVar4;
+        ay ayVar5;
+        ay ayVar6;
+        switch (view.getId()) {
+            case R.id.refresh_btn /* 2131099851 */:
+                this.a.e(1);
                 return;
-            }
-            return;
+            case R.id.frs_bt_back /* 2131099938 */:
+                this.a.finish();
+                return;
+            case R.id.frs_top_title /* 2131099939 */:
+                ayVar6 = this.a.n;
+                ayVar6.a().scrollTo(0, 0);
+                return;
+            case R.id.frs_top_edit /* 2131099940 */:
+                this.a.c(0);
+                return;
+            case R.id.frs_top_more /* 2131099942 */:
+                if (TiebaApplication.d().n()) {
+                    StatService.onEvent(this.a, "frs_more", "frsclick", 1);
+                }
+                ayVar5 = this.a.n;
+                ayVar5.b(true);
+                return;
+            case R.id.show_all /* 2131099992 */:
+                this.a.r = false;
+                TiebaApplication d = TiebaApplication.d();
+                str3 = this.a.d;
+                d.d(str3);
+                FrsImageActivity frsImageActivity = this.a;
+                str4 = this.a.d;
+                FrsActivity.a(frsImageActivity, str4, null, 0);
+                this.a.b();
+                return;
+            case R.id.show_good /* 2131099994 */:
+                this.a.r = false;
+                if (TiebaApplication.d().n()) {
+                    StatService.onEvent(this.a, "frs_good", "frsclick", 1);
+                }
+                TiebaApplication d2 = TiebaApplication.d();
+                str = this.a.d;
+                d2.d(str);
+                FrsImageActivity frsImageActivity2 = this.a;
+                str2 = this.a.d;
+                FrsActivity.b(frsImageActivity2, str2, null);
+                this.a.b();
+                return;
+            case R.id.show_image /* 2131099996 */:
+                this.a.r = false;
+                if (TiebaApplication.d().n()) {
+                    StatService.onEvent(this.a, "frs_image", "frsclick", 1);
+                }
+                ayVar = this.a.n;
+                if (ayVar.c().isMenuShowing()) {
+                    ayVar2 = this.a.n;
+                    ayVar2.c().toggle(true);
+                    z = this.a.r;
+                    if (z) {
+                        this.a.r = false;
+                        this.a.e(1);
+                        return;
+                    }
+                    return;
+                }
+                return;
+            case R.id.add_to_window_layout /* 2131100004 */:
+                FrsImageActivity frsImageActivity3 = this.a;
+                str5 = this.a.d;
+                frsImageActivity3.d(str5);
+                return;
+            case R.id.message_layout /* 2131100007 */:
+                String z2 = TiebaApplication.z();
+                if (z2 != null && z2.length() > 0) {
+                    if (TiebaApplication.d().n()) {
+                        StatService.onEvent(this.a, "frs_message", "frsclick", 1);
+                    }
+                    MentionActivity.a(this.a, 1800002);
+                    return;
+                }
+                return;
+            case R.id.like_forum_name /* 2131100013 */:
+                if (TiebaApplication.d().n()) {
+                    StatService.onEvent(this.a, "frs_likeforum", "frsclick", 1);
+                }
+                String str7 = (String) view.getTag();
+                str6 = this.a.d;
+                if (str7.equals(str6)) {
+                    this.a.r = false;
+                    ayVar3 = this.a.n;
+                    if (ayVar3.c().isMenuShowing()) {
+                        ayVar4 = this.a.n;
+                        ayVar4.c().toggle(true);
+                        return;
+                    }
+                    return;
+                }
+                FrsActivity.a(this.a, str7, (String) null);
+                this.a.b();
+                return;
+            default:
+                return;
         }
-        FrsImageActivity frsImageActivity = this.a;
-        i = frsImageActivity.u;
-        frsImageActivity.u = i + 30;
-        this.a.a(dVar.b());
-        i2 = this.a.u;
-        dVar2 = this.a.q;
-        if (i2 >= dVar2.c().size()) {
-            dVar3 = this.a.q;
-            if (dVar3.d() == 0) {
-                this.a.a(an.LAST);
-            } else {
-                this.a.a(an.NEXT);
-            }
-        }
-    }
-
-    @Override // android.os.AsyncTask
-    protected void onPreExecute() {
-        super.onPreExecute();
-        this.a.a(an.LOADING);
-    }
-
-    public void a() {
-        this.a.g = null;
-        if (this.c != null) {
-            this.c.g();
-        }
-        this.a.a(an.NORMAL);
-        super.cancel(true);
     }
 }

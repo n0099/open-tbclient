@@ -1,73 +1,73 @@
 package com.baidu.tieba.c;
-
-import android.database.sqlite.SQLiteDatabase;
 /* loaded from: classes.dex */
-public class i {
-    private int a;
-    private boolean b = false;
+public class i extends com.baidu.adp.a.c {
     private j e = null;
-    private String c = "tieba_database.db";
-    private String d = o.a + "/tieba/" + this.c;
+    private l f = null;
+    private n g = null;
 
-    public i() {
-        this.a = 1;
-        this.a = 6;
+    public boolean d() {
+        e();
+        return false;
     }
 
-    private void a(SQLiteDatabase sQLiteDatabase, String str) {
-        try {
-            sQLiteDatabase.execSQL(str);
-        } catch (Exception e) {
-            ag.a(3, getClass().getName(), "ExecSQL", str);
-        }
-    }
-
-    public SQLiteDatabase a() {
-        SQLiteDatabase sQLiteDatabase = null;
-        if (o.c()) {
-            this.b = o.b(this.c);
-            sQLiteDatabase = SQLiteDatabase.openOrCreateDatabase(this.d, (SQLiteDatabase.CursorFactory) null);
-            if (sQLiteDatabase != null) {
-                if (!this.b) {
-                    a(sQLiteDatabase);
-                    sQLiteDatabase.setVersion(this.a);
-                } else {
-                    int version = sQLiteDatabase.getVersion();
-                    if (version != this.a) {
-                        a(sQLiteDatabase, version, this.a);
-                        sQLiteDatabase.setVersion(this.a);
-                    }
-                }
-            }
-        }
-        return sQLiteDatabase;
-    }
-
-    private void a(SQLiteDatabase sQLiteDatabase) {
-        if (sQLiteDatabase != null) {
-            a(sQLiteDatabase, "CREATE TABLE if not exists pb_photo(key varchar(50) Primary Key,image blob,date Integer)");
-            a(sQLiteDatabase, "CREATE INDEX if not exists pb_photo_index ON pb_photo(date)");
-            a(sQLiteDatabase, "CREATE TABLE if not exists friend_photo(key varchar(50) Primary Key,image blob,date Integer)");
-            a(sQLiteDatabase, "CREATE INDEX if not exists friend_photo_index ON friend_photo(date)");
-        }
-        b();
-    }
-
-    private void a(SQLiteDatabase sQLiteDatabase, int i, int i2) {
-        b();
-    }
-
-    private void b() {
+    public void e() {
         if (this.e != null) {
-            try {
-                this.e.a();
-            } catch (Exception e) {
-                ag.b(getClass().getName(), "onCreateDatabase", e.getMessage());
-            }
+            this.e.cancel();
+            this.e = null;
+        }
+        if (this.f != null) {
+            this.f.cancel();
+            this.f = null;
+        }
+        if (this.g != null) {
+            this.g.cancel();
+            this.g = null;
         }
     }
 
-    public void a(j jVar) {
-        this.e = jVar;
+    public void a(String str, String str2, String str3, String str4, int i, int i2) {
+        if (this.e != null) {
+            this.e.cancel();
+            this.e = null;
+        }
+        this.a = 0;
+        this.e = new j(this, str, str2, str3, str4, i, i2);
+        this.e.setPriority(2);
+        this.e.execute(new String[0]);
+    }
+
+    public boolean f() {
+        return (this.e == null && this.f == null && this.g == null) ? false : true;
+    }
+
+    public void a(String str, String str2, String str3, String str4, int i) {
+        if (this.f != null) {
+            this.f.cancel();
+            this.f = null;
+        }
+        this.a = 1;
+        this.f = new l(this, str, str2, str3, str4, String.valueOf(i));
+        this.f.setPriority(2);
+        this.f.execute(String.valueOf(com.baidu.tieba.a.i.e) + "c/c/bawu/commitprison");
+    }
+
+    public void a(String str, String str2, String str3, int i, String str4) {
+        String str5;
+        if (this.g != null) {
+            this.g.cancel();
+            this.g = null;
+        }
+        this.a = i;
+        this.g = new n(this, str, str2, str3, i, str4);
+        this.g.setPriority(2);
+        String str6 = com.baidu.tieba.a.i.e;
+        if (i == 6) {
+            str5 = String.valueOf(str6) + "c/c/bawu/goodlist";
+        } else if (i == 2 || i == 3) {
+            str5 = String.valueOf(str6) + "c/c/bawu/commitgood";
+        } else {
+            str5 = String.valueOf(str6) + "c/c/bawu/committop";
+        }
+        this.g.execute(str5);
     }
 }

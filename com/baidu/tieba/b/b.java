@@ -1,55 +1,60 @@
 package com.baidu.tieba.b;
 
-import com.baidu.tieba.a.aj;
-import com.baidu.tieba.c.ag;
-import java.util.ArrayList;
-import java.util.Date;
-import org.json.JSONArray;
-import org.json.JSONObject;
+import com.baidu.tieba.a.i;
+import com.baidu.tieba.d.t;
 /* loaded from: classes.dex */
 public class b {
-    private ArrayList a = new ArrayList();
-    private aj b = new aj();
-    private Date c = null;
-    private boolean d = true;
+    private static final String a = String.valueOf(i.e) + "c/f/pb/floor";
+    private t b = null;
 
-    public ArrayList a() {
-        return this.a;
-    }
-
-    public void a(ArrayList arrayList) {
-        this.a = arrayList;
-    }
-
-    public void a(String str) {
-        try {
-            a(new JSONObject(str));
-        } catch (Exception e) {
-            this.d = false;
-            ag.b("BarlistModel", "parserJson", "error = " + e.getMessage());
+    public String a(String str, String str2, int i, String str3, int i2) {
+        if (str == null || str3 == null) {
+            return null;
         }
+        this.b = new t(a);
+        this.b.d(true);
+        this.b.a("kz", str);
+        if (str2 != null) {
+            this.b.a("st_type", str2);
+        }
+        switch (i) {
+            case 0:
+            case 2:
+                this.b.a("pid", str3);
+                this.b.a("pn", String.valueOf(i2));
+                break;
+            case 1:
+                this.b.a("spid", str3);
+                break;
+        }
+        return this.b.i();
     }
 
-    public void a(JSONObject jSONObject) {
-        try {
-            JSONArray optJSONArray = jSONObject.optJSONArray("forum_list");
-            if (optJSONArray != null) {
-                for (int i = 0; i < optJSONArray.length(); i++) {
-                    com.baidu.tieba.a.q qVar = new com.baidu.tieba.a.q();
-                    qVar.a(optJSONArray.getJSONObject(i));
-                    this.a.add(qVar);
-                }
-            }
-            this.b.a(jSONObject.optJSONObject("page"));
-            long optLong = jSONObject.optLong("ctime", 0L);
-            if (optLong > 0) {
-                this.c = new Date(optLong);
-            } else {
-                this.c = new Date();
-            }
-        } catch (Exception e) {
-            this.d = false;
-            ag.b("BarlistModel", "parserJson", "error = " + e.getMessage());
+    public boolean a() {
+        if (this.b == null) {
+            return false;
         }
+        return this.b.b();
+    }
+
+    public String b() {
+        if (this.b == null) {
+            return null;
+        }
+        return this.b.f();
+    }
+
+    public int c() {
+        if (this.b == null) {
+            return 0;
+        }
+        return this.b.d();
+    }
+
+    public void d() {
+        if (this.b != null) {
+            this.b.g();
+        }
+        this.b = null;
     }
 }

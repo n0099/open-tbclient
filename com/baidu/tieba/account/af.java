@@ -1,21 +1,30 @@
 package com.baidu.tieba.account;
 /* loaded from: classes.dex */
-class af {
-    String a;
-    String b;
-    String c;
-    String d;
-    int e;
-    int f;
-    boolean g;
-    final /* synthetic */ LoginActivity h;
+public class af extends Thread {
+    private String a;
+    private String b;
 
-    private af(LoginActivity loginActivity) {
-        this.h = loginActivity;
+    public af(String str) {
+        this.a = null;
+        this.b = null;
+        this.a = str;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ af(LoginActivity loginActivity, af afVar) {
-        this(loginActivity);
+    public af(String str, String str2) {
+        this.a = null;
+        this.b = null;
+        this.a = str;
+        this.b = str2;
+    }
+
+    @Override // java.lang.Thread, java.lang.Runnable
+    public void run() {
+        super.run();
+        com.baidu.tieba.d.t tVar = new com.baidu.tieba.d.t(String.valueOf(com.baidu.tieba.a.i.e) + "c/s/pv");
+        tVar.a("st_type", this.a);
+        if (this.b != null) {
+            tVar.a("st_param", this.b);
+        }
+        tVar.i();
     }
 }

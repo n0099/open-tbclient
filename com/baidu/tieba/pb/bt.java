@@ -1,18 +1,29 @@
 package com.baidu.tieba.pb;
 
-import android.view.View;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.os.Handler;
+import android.view.animation.Animation;
+import android.widget.ImageView;
 /* loaded from: classes.dex */
-public class bt implements View.OnClickListener {
-    final /* synthetic */ PbActivity a;
+class bt implements Animation.AnimationListener {
+    final /* synthetic */ bl a;
+    private final /* synthetic */ ImageView b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bt(PbActivity pbActivity) {
-        this.a = pbActivity;
+    public bt(bl blVar, ImageView imageView) {
+        this.a = blVar;
+        this.b = imageView;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        this.a.a();
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationStart(Animation animation) {
+    }
+
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationRepeat(Animation animation) {
+    }
+
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationEnd(Animation animation) {
+        new Handler().post(new bu(this, this.b));
     }
 }

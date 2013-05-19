@@ -1,20 +1,19 @@
 package android.support.v4.app;
-
-import android.os.Parcel;
-import android.os.Parcelable;
 /* loaded from: classes.dex */
-final class o implements Parcelable.Creator {
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // android.os.Parcelable.Creator
-    /* renamed from: a */
-    public FragmentManagerState createFromParcel(Parcel parcel) {
-        return new FragmentManagerState(parcel);
+class o implements Runnable {
+    final /* synthetic */ int a;
+    final /* synthetic */ int b;
+    final /* synthetic */ m c;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public o(m mVar, int i, int i2) {
+        this.c = mVar;
+        this.a = i;
+        this.b = i2;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // android.os.Parcelable.Creator
-    /* renamed from: a */
-    public FragmentManagerState[] newArray(int i) {
-        return new FragmentManagerState[i];
+    @Override // java.lang.Runnable
+    public void run() {
+        this.c.a(this.c.o.mHandler, (String) null, this.a, this.b);
     }
 }

@@ -8,16 +8,16 @@ import android.content.Intent;
 import android.os.Handler;
 import android.os.IBinder;
 import android.widget.RemoteViews;
-import com.baidu.tieba.R;
 import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.a.bb;
-import com.baidu.tieba.c.ag;
+import com.baidu.tieba.a.bf;
+import com.baidu.tieba.d.ae;
+import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public class TiebaUpdateService extends Service {
     private NotificationManager a = null;
     private Notification b = null;
-    private q c = null;
-    private Handler d = new p(this);
+    private t c = null;
+    private Handler d = new s(this);
 
     @Override // android.app.Service
     public IBinder onBind(Intent intent) {
@@ -35,9 +35,9 @@ public class TiebaUpdateService extends Service {
     }
 
     public Notification a() {
-        PendingIntent activity = PendingIntent.getActivity(TiebaApplication.b(), 0, new Intent(), 0);
+        PendingIntent activity = PendingIntent.getActivity(TiebaApplication.d(), 0, new Intent(), 0);
         Notification notification = new Notification(17301633, null, System.currentTimeMillis());
-        notification.contentView = new RemoteViews(TiebaApplication.b().getPackageName(), (int) R.layout.notify_item);
+        notification.contentView = new RemoteViews(TiebaApplication.d().getPackageName(), (int) R.layout.notify_item);
         notification.contentView.setProgressBar(R.id.progress, 100, 0, false);
         notification.contentIntent = activity;
         notification.flags = 32;
@@ -49,7 +49,7 @@ public class TiebaUpdateService extends Service {
         super.onDestroy();
         this.d.removeMessages(900002);
         if (this.c != null) {
-            this.c.a();
+            this.c.cancel();
         }
         if (this.a != null) {
             this.a.cancel(10);
@@ -58,15 +58,15 @@ public class TiebaUpdateService extends Service {
 
     @Override // android.app.Service
     public void onStart(Intent intent, int i) {
-        bb bbVar;
-        ag.a(getClass().getName(), "onStart", "onStart");
-        if (intent != null && intent.getBooleanExtra("update", false) && (bbVar = (bb) intent.getSerializableExtra("version")) != null) {
-            this.b.contentView.setTextViewText(R.id.info, String.format(getString(R.string.downloading), bbVar.c()));
+        bf bfVar;
+        ae.a(getClass().getName(), "onStart", "onStart");
+        if (intent != null && intent.getBooleanExtra("update", false) && (bfVar = (bf) intent.getSerializableExtra("version")) != null) {
+            this.b.contentView.setTextViewText(R.id.info, String.format(getString(R.string.downloading), bfVar.c()));
             this.b.contentView.setTextViewText(R.id.schedule, "0/0");
-            if (com.baidu.tieba.c.o.c(bbVar.f()) != null) {
-                this.d.sendMessageDelayed(this.d.obtainMessage(1, bbVar), 100L);
-            } else if (bbVar != null && this.c == null) {
-                this.c = new q(this, bbVar);
+            if (com.baidu.tieba.d.o.c(bfVar.f()) != null) {
+                this.d.sendMessageDelayed(this.d.obtainMessage(1, bfVar), 100L);
+            } else if (bfVar != null && this.c == null) {
+                this.c = new t(this, bfVar);
                 this.c.execute(new String[0]);
                 this.b.contentView.setProgressBar(R.id.progress, 100, 0, false);
                 this.a.notify(10, this.b);

@@ -6,7 +6,7 @@ import com.baidu.android.common.util.HanziToPinyin;
 import com.baidu.tieba.person.PersonInfoActivity;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class n extends com.baidu.tieba.c.r {
+public class n extends com.baidu.tieba.d.r {
     final /* synthetic */ k a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -16,7 +16,7 @@ public class n extends com.baidu.tieba.c.r {
         this.a = kVar;
     }
 
-    @Override // com.baidu.tieba.c.r, android.text.style.ClickableSpan
+    @Override // com.baidu.tieba.d.r, android.text.style.ClickableSpan
     public void onClick(View view) {
         String str;
         String str2;

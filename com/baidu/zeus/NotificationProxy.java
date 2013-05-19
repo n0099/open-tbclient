@@ -12,7 +12,6 @@ import android.net.Uri;
 import android.os.Build;
 import android.util.Log;
 import android.widget.RemoteViews;
-import com.baidu.browser.explorer.BdWebErrorView;
 /* loaded from: classes.dex */
 public class NotificationProxy extends Notification {
     public static final int EVENT_TYPE_CLEAN = 20;
@@ -174,7 +173,7 @@ public class NotificationProxy extends Notification {
                 break;
             case 11:
             case 12:
-            case BdWebErrorView.HTTP_NOT_MODIFIED /* 13 */:
+            case 13:
             default:
                 return false;
             case 14:

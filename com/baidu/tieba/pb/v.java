@@ -1,11 +1,10 @@
 package com.baidu.tieba.pb;
 
-import android.text.Editable;
-import android.text.TextWatcher;
 import android.widget.Button;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.widget.LinearLayout;
+import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-public class v implements TextWatcher {
+class v implements com.baidu.tieba.view.ae {
     final /* synthetic */ ImagePbActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -13,24 +12,16 @@ public class v implements TextWatcher {
         this.a = imagePbActivity;
     }
 
-    @Override // android.text.TextWatcher
-    public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-    }
-
-    @Override // android.text.TextWatcher
-    public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-    }
-
-    @Override // android.text.TextWatcher
-    public void afterTextChanged(Editable editable) {
+    @Override // com.baidu.tieba.view.ae
+    public void a(int i) {
+        LinearLayout linearLayout;
         Button button;
-        Button button2;
-        if (editable == null || editable.length() <= 0) {
-            button = this.a.n;
-            button.setEnabled(false);
-            return;
+        if (i == -2) {
+            linearLayout = this.a.r;
+            linearLayout.setVisibility(8);
+            this.a.s.setVisibility(0);
+            button = this.a.o;
+            button.setBackgroundResource(R.drawable.sub_pb_face);
         }
-        button2 = this.a.n;
-        button2.setEnabled(true);
     }
 }

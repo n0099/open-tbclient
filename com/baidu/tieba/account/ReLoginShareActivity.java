@@ -9,28 +9,29 @@ import android.text.style.ForegroundColorSpan;
 import android.text.style.RelativeSizeSpan;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import com.baidu.tieba.MainTabActivity;
-import com.baidu.tieba.R;
 import com.baidu.tieba.TiebaApplication;
+import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public class ReLoginShareActivity extends com.baidu.tieba.e {
-    private at e = null;
+    private ao e = null;
     private Button f = null;
     private Button g = null;
-    private Button h = null;
+    private ImageView h = null;
     private TextView i = null;
     private ProgressBar j = null;
     private String k = null;
     private String l = null;
     private String m = null;
     private com.baidu.tieba.a.a n = null;
-    private o o = null;
+    private j o = null;
     LinearLayout c = null;
     LinearLayout d = null;
-    private View.OnClickListener p = new as(this);
+    private View.OnClickListener p = new an(this);
 
     public static void a(Activity activity, String str, String str2, String str3, String str4) {
         Intent intent = new Intent(activity, ReLoginShareActivity.class);
@@ -42,16 +43,16 @@ public class ReLoginShareActivity extends com.baidu.tieba.e {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.e, android.app.Activity
+    @Override // com.baidu.tieba.e, com.baidu.adp.a.a, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         setContentView(R.layout.relogin_activity);
-        i();
-        j();
-        l();
+        b();
+        c();
+        m();
     }
 
-    private void i() {
+    private void b() {
         Intent intent = getIntent();
         this.k = intent.getStringExtra("user_name");
         this.l = intent.getStringExtra("bduss");
@@ -74,12 +75,12 @@ public class ReLoginShareActivity extends com.baidu.tieba.e {
         bundle.putString("ptoken", this.m);
     }
 
-    private void j() {
+    private void c() {
         this.f = (Button) findViewById(R.id.relogin_retry_button);
         this.f.setOnClickListener(this.p);
         this.g = (Button) findViewById(R.id.relogin_cacel_button);
         this.g.setOnClickListener(this.p);
-        this.h = (Button) findViewById(R.id.relogin_bt_back);
+        this.h = (ImageView) findViewById(R.id.relogin_bt_back);
         this.h.setOnClickListener(this.p);
         this.j = (ProgressBar) findViewById(R.id.relogin_progressbar);
         this.i = (TextView) findViewById(R.id.relogin_textview);
@@ -92,12 +93,11 @@ public class ReLoginShareActivity extends com.baidu.tieba.e {
     public void b(int i) {
         super.b(i);
         a(0, this.k);
-        com.baidu.tieba.c.ae.c((TextView) this.h, i);
-        com.baidu.tieba.c.ae.a((TextView) this.g, i);
-        com.baidu.tieba.c.ae.e((TextView) this.h, i);
-        com.baidu.tieba.c.ae.a(this.c, i);
-        com.baidu.tieba.c.ae.c(this.d, i);
-        com.baidu.tieba.c.ae.b(this.i, i);
+        com.baidu.tieba.d.ac.a((TextView) this.g, i);
+        com.baidu.tieba.d.ac.a(this.h, i);
+        com.baidu.tieba.d.ac.a(this.c, i);
+        com.baidu.tieba.d.ac.d(this.d, i);
+        com.baidu.tieba.d.ac.b(this.i, i);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -146,13 +146,13 @@ public class ReLoginShareActivity extends com.baidu.tieba.e {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void k() {
-        String y = TiebaApplication.y();
-        if (y == null || y.length() <= 0) {
+    public void d() {
+        String z = TiebaApplication.z();
+        if (z == null || z.length() <= 0) {
             MainTabActivity.a(this, "goto_recommend");
             return;
         }
-        com.baidu.tieba.c.k.j();
+        com.baidu.tieba.d.k.j();
         TiebaApplication.b((com.baidu.tieba.a.a) null);
         MainTabActivity.b(this, "goto_recommend");
     }
@@ -161,23 +161,24 @@ public class ReLoginShareActivity extends com.baidu.tieba.e {
     @Override // com.baidu.tieba.e, android.app.Activity
     public void onDestroy() {
         if (this.e != null) {
-            this.e.a();
+            this.e.cancel();
         }
         super.onDestroy();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void l() {
+    public void m() {
         if (this.e == null && this.l != null && this.m != null) {
-            this.e = new at(this, null);
+            this.e = new ao(this, null);
+            this.e.setPriority(3);
             this.e.execute(new String[0]);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void m() {
+    public void n() {
         String stringExtra = getIntent().getStringExtra("goto_type");
-        com.baidu.tieba.c.k.a(this.n);
+        com.baidu.tieba.d.k.a(this.n);
         TiebaApplication.b(this.n);
         MainTabActivity.b(this, stringExtra);
         a.a().e();

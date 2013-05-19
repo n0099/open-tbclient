@@ -1,11 +1,19 @@
 package android.support.v4.app;
 
-import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ListView;
 /* loaded from: classes.dex */
-public interface v {
-    android.support.v4.content.b a(int i, Bundle bundle);
+class v implements AdapterView.OnItemClickListener {
+    final /* synthetic */ ListFragment a;
 
-    void a(android.support.v4.content.b bVar);
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public v(ListFragment listFragment) {
+        this.a = listFragment;
+    }
 
-    void a(android.support.v4.content.b bVar, Object obj);
+    @Override // android.widget.AdapterView.OnItemClickListener
+    public void onItemClick(AdapterView adapterView, View view, int i, long j) {
+        this.a.a((ListView) adapterView, view, i, j);
+    }
 }

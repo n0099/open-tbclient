@@ -8,7 +8,7 @@ import android.graphics.Paint;
 import android.graphics.Rect;
 import android.util.AttributeSet;
 import android.widget.ImageButton;
-import com.baidu.tieba.R;
+import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public class HeartButton extends ImageButton {
     private Bitmap a;

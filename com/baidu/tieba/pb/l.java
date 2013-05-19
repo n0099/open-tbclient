@@ -1,34 +1,29 @@
 package com.baidu.tieba.pb;
 
-import android.content.BroadcastReceiver;
-import android.content.Context;
-import android.content.Intent;
+import android.graphics.Bitmap;
+import com.baidu.tieba.view.BaseViewPager;
+import com.baidu.tieba.view.ImagePbImageView;
 /* loaded from: classes.dex */
-class l extends BroadcastReceiver {
-    final /* synthetic */ ImageActivity a;
-
-    private l(ImageActivity imageActivity) {
-        this.a = imageActivity;
-    }
+class l implements com.baidu.tieba.d.d {
+    final /* synthetic */ k a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ l(ImageActivity imageActivity, l lVar) {
-        this(imageActivity);
+    public l(k kVar) {
+        this.a = kVar;
     }
 
-    @Override // android.content.BroadcastReceiver
-    public void onReceive(Context context, Intent intent) {
-        ImageActivity.a(this.a, intent.getBooleanExtra("hasnext", false));
-        ImageActivity.a(this.a, intent.getStringExtra("nexttitle"));
-        ImageActivity.a(this.a, intent.getStringArrayListExtra("url"));
-        ImageActivity.a(this.a, intent.getIntExtra("count", -1));
-        int intExtra = intent.getIntExtra("index", -1);
-        ImageActivity.c(this.a).setUrlData(ImageActivity.d(this.a));
-        ImageActivity.c(this.a).setNextTitle(ImageActivity.e(this.a));
-        ImageActivity.c(this.a).setHasNext(ImageActivity.f(this.a));
-        if (intExtra >= 0) {
-            ImageActivity.b(this.a, intExtra);
-            ImageActivity.c(this.a).a(ImageActivity.g(this.a), false);
+    @Override // com.baidu.tieba.d.d
+    public void a(Bitmap bitmap, String str, boolean z) {
+        ImagePbActivity imagePbActivity;
+        BaseViewPager baseViewPager;
+        if (bitmap != null) {
+            imagePbActivity = this.a.a;
+            baseViewPager = imagePbActivity.z;
+            ImagePbImageView imagePbImageView = (ImagePbImageView) baseViewPager.findViewWithTag(str);
+            if (imagePbImageView != null) {
+                imagePbImageView.invalidate();
+                imagePbImageView.a();
+            }
         }
     }
 }

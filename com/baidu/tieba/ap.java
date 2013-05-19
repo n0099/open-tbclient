@@ -3,13 +3,12 @@ package com.baidu.tieba;
 import android.location.Address;
 import android.location.Geocoder;
 import android.location.Location;
-import android.os.AsyncTask;
 import java.io.IOException;
 import java.util.List;
 import java.util.Locale;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ap extends AsyncTask {
+public class ap extends com.baidu.adp.lib.a.a {
     final /* synthetic */ TiebaApplication a;
 
     private ap(TiebaApplication tiebaApplication) {
@@ -23,11 +22,10 @@ public class ap extends AsyncTask {
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // android.os.AsyncTask
-    /* renamed from: a */
-    public Address doInBackground(Location... locationArr) {
+    @Override // com.baidu.adp.lib.a.a
+    public Address a(Location... locationArr) {
         List<Address> list;
-        Geocoder geocoder = new Geocoder(TiebaApplication.b(), Locale.getDefault());
+        Geocoder geocoder = new Geocoder(TiebaApplication.d(), Locale.getDefault());
         if (locationArr == null || locationArr.length < 1) {
             return null;
         }
@@ -35,10 +33,10 @@ public class ap extends AsyncTask {
         try {
             list = geocoder.getFromLocation(location.getLatitude(), location.getLongitude(), 1);
         } catch (IOException e) {
-            com.baidu.tieba.c.ag.b(getClass().getName(), "ReverseGeocodingTask_doInBackground", e.toString());
+            com.baidu.tieba.d.ae.b(getClass().getName(), "ReverseGeocodingTask_doInBackground", e.toString());
             list = null;
         } catch (IllegalArgumentException e2) {
-            com.baidu.tieba.c.ag.b(getClass().getName(), "ReverseGeocodingTask_doInBackground", e2.toString());
+            com.baidu.tieba.d.ae.b(getClass().getName(), "ReverseGeocodingTask_doInBackground", e2.toString());
             list = null;
         }
         if (list == null || list.size() <= 0) {
@@ -55,22 +53,22 @@ public class ap extends AsyncTask {
         return address;
     }
 
-    public void a() {
+    @Override // com.baidu.adp.lib.a.a
+    public void cancel() {
         cancel(true);
-        this.a.H = null;
+        this.a.G = null;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // android.os.AsyncTask
-    /* renamed from: a */
-    public void onPostExecute(Address address) {
-        super.onPostExecute(address);
+    @Override // com.baidu.adp.lib.a.a
+    public void a(Address address) {
+        super.a((Object) address);
         if (address != null) {
             this.a.aB();
             this.a.a(0, "", address);
-            this.a.G = address;
+            this.a.F = address;
         }
-        this.a.H = null;
+        this.a.G = null;
     }
 }
