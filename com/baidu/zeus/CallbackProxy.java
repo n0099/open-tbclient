@@ -1284,9 +1284,8 @@ public class CallbackProxy extends Handler {
         return this.mWebChromeClient.getStringById(i);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
-    public class UploadFile implements ValueCallback {
+    class UploadFile implements ValueCallback {
         private Uri mValue;
 
         private UploadFile() {
