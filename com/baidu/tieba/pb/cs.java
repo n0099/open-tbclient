@@ -19,8 +19,6 @@ public class cs implements Runnable {
         LinearLayout linearLayout;
         LinearLayout linearLayout2;
         EditText editText;
-        EditText editText2;
-        EditText editText3;
         gridView = this.a.A;
         gridView.setVisibility(0);
         linearLayout = this.a.s;
@@ -28,9 +26,6 @@ public class cs implements Runnable {
         linearLayout2 = this.a.p;
         linearLayout2.setEnabled(false);
         editText = this.a.F;
-        editText2 = this.a.F;
-        editText.setSelection(editText2.getText().length());
-        editText3 = this.a.F;
-        editText3.requestFocus();
+        editText.requestFocus();
     }
 }

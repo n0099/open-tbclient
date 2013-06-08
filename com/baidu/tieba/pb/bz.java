@@ -1,28 +1,33 @@
 package com.baidu.tieba.pb;
 
-import android.view.View;
-import com.slidingmenu.lib.R;
+import android.os.Handler;
+import android.view.animation.Animation;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class bz implements View.OnClickListener {
-    final /* synthetic */ bl a;
+public class bz implements Animation.AnimationListener {
+    final /* synthetic */ bk a;
+    private final /* synthetic */ com.baidu.tieba.a.ay b;
+    private final /* synthetic */ boolean c;
+    private final /* synthetic */ String d;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bz(bl blVar) {
-        this.a = blVar;
+    public bz(bk bkVar, com.baidu.tieba.a.ay ayVar, boolean z, String str) {
+        this.a = bkVar;
+        this.b = ayVar;
+        this.c = z;
+        this.d = str;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        View view2;
-        view2 = this.a.q;
-        View findViewById = view2.findViewById(R.id.manage_bottom_bar);
-        if (findViewById != null) {
-            if (findViewById.getVisibility() == 0) {
-                findViewById.setVisibility(8);
-            } else {
-                findViewById.setVisibility(0);
-            }
-        }
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationStart(Animation animation) {
+    }
+
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationRepeat(Animation animation) {
+    }
+
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationEnd(Animation animation) {
+        new Handler().post(new ca(this, this.b, this.c, this.d));
     }
 }

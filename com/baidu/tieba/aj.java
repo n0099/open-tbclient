@@ -40,22 +40,22 @@ class aj implements Handler.Callback {
                     break;
                 }
             case 2:
-                this.a.X();
+                this.a.Z();
                 break;
             case 3:
-                this.a.Y();
+                this.a.aa();
                 break;
             case 4:
                 long nanoTime = System.nanoTime();
-                j = this.a.s;
+                j = this.a.r;
                 long j2 = (((nanoTime - j) / 1000000) - 60000) / 1000;
                 if (j2 > 0) {
                     new com.baidu.tieba.account.af("use", String.valueOf(j2)).start();
                 }
-                this.a.s = 0L;
+                this.a.r = 0L;
                 break;
             case 5:
-                this.a.aB();
+                this.a.aK();
                 String str = "";
                 i = this.a.D;
                 switch (i) {

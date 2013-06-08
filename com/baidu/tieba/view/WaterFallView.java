@@ -17,9 +17,9 @@ public class WaterFallView extends BdPullRefreshScrollView {
     private int b;
     private LinearLayout c;
     private LinearLayout d;
-    private au e;
+    private aw e;
     private LinearLayout f;
-    private au g;
+    private aw g;
     private View h;
     private View i;
     private int j;
@@ -27,7 +27,7 @@ public class WaterFallView extends BdPullRefreshScrollView {
     private int l;
     private int m;
     private int n;
-    private av o;
+    private ax o;
 
     public WaterFallView(Context context) {
         super(context);
@@ -67,15 +67,15 @@ public class WaterFallView extends BdPullRefreshScrollView {
         j();
     }
 
-    public void setOnScrollListener(av avVar) {
-        this.o = avVar;
+    public void setOnScrollListener(ax axVar) {
+        this.o = axVar;
     }
 
     public void a(View view) {
         if (this.h != null) {
             this.c.removeView(this.h);
         }
-        this.c.addView(view, 1, new LinearLayout.LayoutParams(-1, -2));
+        this.c.addView(view, 0, new LinearLayout.LayoutParams(-1, -2));
         this.h = view;
     }
 
@@ -103,8 +103,8 @@ public class WaterFallView extends BdPullRefreshScrollView {
     }
 
     private void j() {
-        this.e = new au(this);
-        this.g = new au(this);
+        this.e = new aw(this);
+        this.g = new aw(this);
         this.n = com.baidu.tieba.d.ag.a(getContext(), 20.0f);
         this.b = com.baidu.tieba.d.ag.a(getContext(), 3.0f);
         this.c = (LinearLayout) LayoutInflater.from(getContext()).inflate(R.layout.water_fall_view, (ViewGroup) null);
@@ -121,7 +121,7 @@ public class WaterFallView extends BdPullRefreshScrollView {
     }
 
     private void k() {
-        this.k = new at(this);
+        this.k = new av(this);
     }
 
     @Override // android.view.View

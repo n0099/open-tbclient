@@ -82,7 +82,7 @@ public class BdFrameView extends FrameLayout implements View.OnTouchListener, Bd
         String[] strArr5 = {context.getString(context.getResources().getIdentifier("browser_menu_load_image", "string", context.getPackageName()))};
         int[] iArr = {context.getResources().getIdentifier("browser_menu_open_normal", "drawable", context.getPackageName())};
         int[] iArr2 = {context.getResources().getIdentifier("browser_menu_copy_normal", "drawable", context.getPackageName()), context.getResources().getIdentifier("browser_menu_share_normal", "drawable", context.getPackageName())};
-        int[] iArr3 = {context.getResources().getIdentifier("browser_menu_open_normal ", "drawable", context.getPackageName())};
+        int[] iArr3 = {context.getResources().getIdentifier("browser_menu_open_normal", "drawable", context.getPackageName())};
         int[] iArr4 = {context.getResources().getIdentifier("browser_menu_image_open", "drawable", context.getPackageName())};
         int[] iArr5 = {context.getResources().getIdentifier("browser_menu_image_open", "drawable", context.getPackageName())};
         this.mWindowPopMenu = this.mPopMenuGroup.createMenu(this);

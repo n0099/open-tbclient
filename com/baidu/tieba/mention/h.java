@@ -9,7 +9,7 @@ import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.c.ak;
+import com.baidu.tieba.c.an;
 import com.baidu.tieba.d.ae;
 import com.baidu.tieba.pb.NewPbActivity;
 import com.slidingmenu.lib.R;
@@ -24,7 +24,7 @@ public class h {
     private FrameLayout c = null;
     private ListView d = null;
     private e e = null;
-    private ak f = null;
+    private an f = null;
     private int g = 1;
     private int i = 0;
     private p k = null;
@@ -89,7 +89,7 @@ public class h {
         this.g = 1;
         this.e = new e(this.b, null);
         this.e.a(this.h);
-        this.e.b(TiebaApplication.d().ag());
+        this.e.b(TiebaApplication.d().ao());
         this.d.setAdapter((ListAdapter) this.e);
         this.d.setOnItemClickListener(new k(this));
         this.q = new o(this);
@@ -139,14 +139,14 @@ public class h {
             }
             String a = this.j.a();
             if (a != null && a.length() > 0) {
-                ak akVar = new ak();
-                akVar.a(a);
-                if (!akVar.a()) {
+                an anVar = new an();
+                anVar.a(a);
+                if (!anVar.a()) {
                     ae.a("HomeLikeAsyncTask", "doInBackground", "cache data format err");
                     this.j.b();
                 } else {
                     ae.a("HomeLikeAsyncTask", "doInBackground", "cache data.size: " + String.valueOf(a.length()));
-                    a(akVar);
+                    a(anVar);
                     return;
                 }
             }
@@ -158,7 +158,7 @@ public class h {
         stringBuffer.append(com.baidu.tieba.a.i.e);
         stringBuffer.append(this.p);
         ArrayList arrayList = new ArrayList();
-        arrayList.add(new BasicNameValuePair("uid", TiebaApplication.z()));
+        arrayList.add(new BasicNameValuePair("uid", TiebaApplication.B()));
         arrayList.add(new BasicNameValuePair("pn", String.valueOf(this.g)));
         if (this.o == 4 && this.f != null && (b = this.f.b()) != null && b.size() > 0) {
             com.baidu.tieba.a.r rVar = (com.baidu.tieba.a.r) b.get(b.size() - 1);
@@ -175,19 +175,19 @@ public class h {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void a(ak akVar) {
-        if (akVar != null && akVar.b() != null) {
+    public void a(an anVar) {
+        if (anVar != null && anVar.b() != null) {
             if (this.o == 4 && this.f != null) {
                 ArrayList b = this.f.b();
-                b.addAll(akVar.b());
-                akVar.a(b);
+                b.addAll(anVar.b());
+                anVar.a(b);
                 this.f = null;
-                this.f = akVar;
+                this.f = anVar;
             } else {
-                this.f = akVar;
+                this.f = anVar;
             }
             if (this.f != null) {
-                if (this.f.c().e() == 1) {
+                if (this.f.c().f() == 1) {
                     this.e.a(true);
                 } else {
                     this.e.a(false);
@@ -227,8 +227,8 @@ public class h {
     }
 
     public void e() {
-        if (this.e != null && this.e.d() != TiebaApplication.d().ag()) {
-            this.e.b(TiebaApplication.d().ag());
+        if (this.e != null && this.e.d() != TiebaApplication.d().ao()) {
+            this.e.b(TiebaApplication.d().ao());
             this.e.notifyDataSetChanged();
         }
     }

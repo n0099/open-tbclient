@@ -32,7 +32,7 @@ public class i extends com.baidu.adp.lib.a.a {
         try {
             Thread.sleep(1000L);
             com.baidu.tieba.d.k.o(this.b.a());
-            if (this.b.a().equals(TiebaApplication.z())) {
+            if (this.b.a().equals(TiebaApplication.B())) {
                 TiebaApplication.b((com.baidu.tieba.a.a) null);
                 arrayList = this.a.c;
                 if (arrayList.size() >= 2) {

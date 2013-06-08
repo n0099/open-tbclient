@@ -37,23 +37,23 @@ public class w implements AdapterView.OnItemClickListener {
                 }
             } else if (itemId != -2) {
                 baVar2 = this.a.l;
-                com.baidu.tieba.a.bb bbVar = (com.baidu.tieba.a.bb) baVar2.g().getItem(i);
-                if (bbVar != null) {
-                    com.baidu.tieba.d.ab ap = TiebaApplication.d().ap();
-                    if (ap != null && !ap.b(bbVar.a())) {
-                        ap.a(bbVar.a());
+                com.baidu.tieba.a.bc bcVar = (com.baidu.tieba.a.bc) baVar2.g().getItem(i);
+                if (bcVar != null) {
+                    com.baidu.tieba.d.ab ay = TiebaApplication.d().ay();
+                    if (ay != null && !ay.b(bcVar.a())) {
+                        ay.a(bcVar.a());
                     }
-                    String i5 = bbVar.i();
+                    String i5 = bcVar.i();
                     if (i5 == null || i5.equals("")) {
                         z = false;
                     } else {
                         new Thread(new x(this, i5)).start();
                         z = true;
                     }
-                    NewPbActivity.a(this.a, bbVar, null, 1800003, true, false, z);
+                    NewPbActivity.a(this.a, bcVar, null, 1800003, true, false, z);
                 }
             } else {
-                if (TiebaApplication.d().n()) {
+                if (TiebaApplication.d().o()) {
                     StatService.onEvent(this.a, "frs_nextpage", "frsclick", 1);
                 }
                 FrsActivity frsActivity2 = this.a;

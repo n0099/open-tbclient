@@ -50,40 +50,40 @@ public class ImageActivity extends com.baidu.tieba.e {
     private String C = null;
     private boolean D = false;
 
-    public static void a(Context context, ArrayList arrayList, int i, com.baidu.tieba.c.bd bdVar) {
+    public static void a(Context context, ArrayList arrayList, int i, com.baidu.tieba.c.bg bgVar) {
         Intent intent = new Intent(context, ImageActivity.class);
         if (arrayList != null && arrayList.size() > 0) {
             intent.putStringArrayListExtra("url", arrayList);
             intent.putExtra("index", i);
             intent.putExtra("is_pv", true);
             intent.putExtra("pv_type", "pb");
-            if (bdVar != null) {
-                if (bdVar.a() != null && bdVar.a().a() != null) {
-                    intent.putExtra("fname", bdVar.a().a().b());
-                    intent.putExtra("fid", bdVar.a().a().a());
+            if (bgVar != null) {
+                if (bgVar.a() != null && bgVar.a().a() != null) {
+                    intent.putExtra("fname", bgVar.a().a().b());
+                    intent.putExtra("fid", bgVar.a().a().a());
                 }
-                if (bdVar.a() != null && bdVar.a().b() != null) {
-                    intent.putExtra("tid", bdVar.a().b().a());
+                if (bgVar.a() != null && bgVar.a().b() != null) {
+                    intent.putExtra("tid", bgVar.a().b().a());
                 }
             }
             context.startActivity(intent);
         }
     }
 
-    public static void a(Context context, ArrayList arrayList, int i, com.baidu.tieba.a.al alVar) {
+    public static void a(Context context, ArrayList arrayList, int i, com.baidu.tieba.a.am amVar) {
         Intent intent = new Intent(context, ImageActivity.class);
         if (arrayList != null && arrayList.size() > 0) {
             intent.putStringArrayListExtra("url", arrayList);
             intent.putExtra("index", i);
             intent.putExtra("is_pv", true);
             intent.putExtra("pv_type", "pb");
-            if (alVar != null) {
-                if (alVar.a() != null) {
-                    intent.putExtra("fname", alVar.a().b());
-                    intent.putExtra("fid", alVar.a().a());
+            if (amVar != null) {
+                if (amVar.a() != null) {
+                    intent.putExtra("fname", amVar.a().b());
+                    intent.putExtra("fid", amVar.a().a());
                 }
-                if (alVar.b() != null) {
-                    intent.putExtra("tid", alVar.b().a());
+                if (amVar.b() != null) {
+                    intent.putExtra("tid", amVar.b().a());
                 }
             }
             context.startActivity(intent);
@@ -179,7 +179,7 @@ public class ImageActivity extends com.baidu.tieba.e {
     @Override // com.baidu.tieba.e, android.app.Activity
     public void onDestroy() {
         TiebaApplication.d().b((com.baidu.tieba.e) this);
-        a(this.f, this.f);
+        b(this.f, this.f);
         q();
         this.o.c();
         if (this.j != null) {
@@ -220,7 +220,7 @@ public class ImageActivity extends com.baidu.tieba.e {
         this.m = (TextView) findViewById(R.id.titel_text);
         this.o = (MultiImageView) findViewById(R.id.viewpager);
         this.o.setPageMargin(com.baidu.tieba.d.ag.a(this, 8.0f));
-        this.o.a(2, com.baidu.tieba.a.i.g() * com.baidu.tieba.a.i.g());
+        this.o.a(2, com.baidu.tieba.a.i.h() * com.baidu.tieba.a.i.h());
         this.o.setOnPageChangeListener(this.r);
         this.o.setUrlData(this.e);
         this.o.setItemOnclickListener(this.p);
@@ -228,7 +228,7 @@ public class ImageActivity extends com.baidu.tieba.e {
         this.o.setOnScrollOutListener(this.q);
         this.o.setHasNext(this.h);
         this.o.setNextTitle(this.i);
-        a(this.f, this.f);
+        b(this.f, this.f);
         o();
     }
 
@@ -317,7 +317,7 @@ public class ImageActivity extends com.baidu.tieba.e {
         this.o.a(this.f, true);
     }
 
-    public void a(int i, int i2) {
+    public void b(int i, int i2) {
         synchronized (this.y) {
             if (System.nanoTime() - this.x > 300000000 && this.e != null && i < this.e.size()) {
                 this.y.put((String) this.e.get(i), true);

@@ -6,9 +6,4 @@ public class aa {
     public int c;
     public int d;
     public int e;
-    final /* synthetic */ w f;
-
-    public aa(w wVar) {
-        this.f = wVar;
-    }
 }

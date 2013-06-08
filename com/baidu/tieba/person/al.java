@@ -14,13 +14,13 @@ public class al implements DialogInterface.OnClickListener {
 
     @Override // android.content.DialogInterface.OnClickListener
     public void onClick(DialogInterface dialogInterface, int i) {
-        com.baidu.tieba.c.be beVar;
-        com.baidu.tieba.c.be beVar2;
-        beVar = this.a.z;
-        if (beVar.d().d()) {
+        com.baidu.tieba.c.bh bhVar;
+        com.baidu.tieba.c.bh bhVar2;
+        bhVar = this.a.z;
+        if (bhVar.d().d()) {
             Intent intent = new Intent();
-            beVar2 = this.a.z;
-            intent.putExtra("data", beVar2.d());
+            bhVar2 = this.a.z;
+            intent.putExtra("data", bhVar2.d());
             this.a.setResult(-1, intent);
         }
         this.a.finish();

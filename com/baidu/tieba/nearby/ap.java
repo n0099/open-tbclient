@@ -27,9 +27,9 @@ public class ap extends com.baidu.adp.lib.a.a {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.a.a
-    public com.baidu.tieba.c.as a(String... strArr) {
-        com.baidu.tieba.c.as asVar;
-        int c;
+    public com.baidu.tieba.c.av a(String... strArr) {
+        com.baidu.tieba.c.av avVar;
+        int d;
         try {
             this.a = new com.baidu.tieba.d.t(strArr[0]);
             this.a.a("lng", String.valueOf(this.b.getLongitude()));
@@ -43,17 +43,17 @@ public class ap extends com.baidu.adp.lib.a.a {
                 this.a.a("ispv", "0");
             }
             if (this.c != 0) {
-                asVar = this.f.d;
-                c = asVar.c().c() + 1;
+                avVar = this.f.d;
+                d = avVar.c().d() + 1;
             } else {
-                c = 1;
+                d = 1;
             }
-            this.a.a("pn", String.valueOf(c));
+            this.a.a("pn", String.valueOf(d));
             String i = this.a.i();
             if (this.a.b()) {
-                com.baidu.tieba.c.as asVar2 = new com.baidu.tieba.c.as();
-                asVar2.a(i);
-                return asVar2;
+                com.baidu.tieba.c.av avVar2 = new com.baidu.tieba.c.av();
+                avVar2.a(i);
+                return avVar2;
             }
             return null;
         } catch (Exception e) {
@@ -65,13 +65,13 @@ public class ap extends com.baidu.adp.lib.a.a {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.a.a
-    public void a(com.baidu.tieba.c.as asVar) {
+    public void a(com.baidu.tieba.c.av avVar) {
         ProgressBar progressBar;
-        com.baidu.tieba.c.as asVar2;
-        com.baidu.tieba.c.as asVar3;
+        com.baidu.tieba.c.av avVar2;
+        com.baidu.tieba.c.av avVar3;
         aq aqVar;
-        com.baidu.tieba.c.as asVar4;
-        com.baidu.tieba.c.as asVar5;
+        com.baidu.tieba.c.av avVar4;
+        com.baidu.tieba.c.av avVar5;
         aq aqVar2;
         ListView listView;
         this.f.h = null;
@@ -79,14 +79,14 @@ public class ap extends com.baidu.adp.lib.a.a {
         progressBar = this.f.k;
         progressBar.setVisibility(8);
         if (this.a != null) {
-            if (asVar != null) {
-                asVar2 = this.f.d;
-                asVar2.a(asVar.c());
+            if (avVar != null) {
+                avVar2 = this.f.d;
+                avVar2.a(avVar.c());
                 if (this.c == 0) {
-                    asVar4 = this.f.d;
-                    asVar4.a(asVar.a());
-                    asVar5 = this.f.d;
-                    asVar5.a(asVar.b());
+                    avVar4 = this.f.d;
+                    avVar4.a(avVar.a());
+                    avVar5 = this.f.d;
+                    avVar5.a(avVar.b());
                     aqVar2 = this.f.f;
                     aqVar2.notifyDataSetChanged();
                     listView = this.f.e;
@@ -95,12 +95,12 @@ public class ap extends com.baidu.adp.lib.a.a {
                         ((NewNearbyActivity) this.f.getParent()).c();
                     }
                 } else {
-                    asVar3 = this.f.d;
-                    asVar3.b(asVar.a());
+                    avVar3 = this.f.d;
+                    avVar3.b(avVar.a());
                     aqVar = this.f.f;
                     aqVar.notifyDataSetChanged();
                 }
-                if (this.d == 1 && TiebaApplication.d().x() == 0) {
+                if (this.d == 1 && TiebaApplication.d().y() == 0) {
                     TiebaApplication.d().a(System.currentTimeMillis());
                 }
             } else if (this.a.f() != null) {

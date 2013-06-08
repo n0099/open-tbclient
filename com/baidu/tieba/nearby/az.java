@@ -13,6 +13,6 @@ public class az implements View.OnClickListener {
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        this.a.u();
+        this.a.v();
     }
 }

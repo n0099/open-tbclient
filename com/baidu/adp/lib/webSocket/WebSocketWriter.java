@@ -2,14 +2,13 @@ package com.baidu.adp.lib.webSocket;
 
 import android.os.Handler;
 import android.os.Message;
-import android.util.Log;
 import java.net.SocketException;
 import java.nio.channels.SocketChannel;
 import java.util.Random;
 import org.apache.http.NameValuePair;
 /* loaded from: classes.dex */
 public class WebSocketWriter extends Handler {
-    private static final String a = WebSocketWriter.class.getName();
+    private static final boolean a = com.baidu.adp.a.b.a().b();
     private final Random b;
     private final Handler c;
     private final SocketChannel d;
@@ -202,10 +201,14 @@ public class WebSocketWriter extends Handler {
                 c(new k());
             }
         } catch (SocketException e) {
-            Log.d(a, "run() : SocketException (" + e.toString() + ")");
+            if (a) {
+                com.baidu.adp.lib.e.b.c("run() : SocketException (" + e.toString() + ")");
+            }
             c(new i());
         } catch (Exception e2) {
-            e2.printStackTrace();
+            if (a) {
+                e2.printStackTrace();
+            }
             c(new j(e2));
         }
     }

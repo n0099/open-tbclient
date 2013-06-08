@@ -71,8 +71,8 @@ public class a {
     /* JADX INFO: Access modifiers changed from: private */
     public String a(com.baidu.tieba.a.w wVar) {
         StringBuilder sb = new StringBuilder((int) WebChromeClient.STRING_DLG_BTN_SET);
-        if (wVar.g() * wVar.f() > com.baidu.tieba.a.i.g() * com.baidu.tieba.a.i.g()) {
-            double sqrt = Math.sqrt((com.baidu.tieba.a.i.g() * com.baidu.tieba.a.i.g()) / (wVar.g() * wVar.f()));
+        if (wVar.g() * wVar.f() > com.baidu.tieba.a.i.h() * com.baidu.tieba.a.i.h()) {
+            double sqrt = Math.sqrt((com.baidu.tieba.a.i.h() * com.baidu.tieba.a.i.h()) / (wVar.g() * wVar.f()));
             sb.append("width=");
             sb.append(String.valueOf((int) (wVar.f() * sqrt)));
             sb.append("&height=");

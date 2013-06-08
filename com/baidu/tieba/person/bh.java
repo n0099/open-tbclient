@@ -30,18 +30,18 @@ public class bh extends com.baidu.adp.lib.a.a {
     @Override // com.baidu.adp.lib.a.a
     public void b() {
         bi biVar;
-        com.baidu.tieba.c.bi biVar2;
+        com.baidu.tieba.c.bl blVar;
         int i;
-        com.baidu.tieba.c.bi biVar3;
-        com.baidu.tieba.c.bi biVar4;
-        com.baidu.tieba.c.bi biVar5;
-        bi biVar6;
-        bi biVar7;
-        com.baidu.tieba.c.bi biVar8;
-        com.baidu.tieba.c.bi biVar9;
-        com.baidu.tieba.c.bi biVar10;
+        com.baidu.tieba.c.bl blVar2;
+        com.baidu.tieba.c.bl blVar3;
+        com.baidu.tieba.c.bl blVar4;
+        bi biVar2;
+        bi biVar3;
+        com.baidu.tieba.c.bl blVar5;
+        com.baidu.tieba.c.bl blVar6;
+        com.baidu.tieba.c.bl blVar7;
         int i2;
-        com.baidu.tieba.c.bi biVar11;
+        com.baidu.tieba.c.bl blVar8;
         TextView textView;
         ProgressBar progressBar;
         super.b();
@@ -53,19 +53,19 @@ public class bh extends com.baidu.adp.lib.a.a {
             return;
         }
         if (this.c == 2) {
-            biVar7 = this.a.n;
-            biVar7.a(true);
-            biVar8 = this.a.p;
-            if (biVar8 != null) {
-                biVar9 = this.a.p;
-                int size = biVar9.a().size();
+            biVar3 = this.a.n;
+            biVar3.a(true);
+            blVar5 = this.a.p;
+            if (blVar5 != null) {
+                blVar6 = this.a.p;
+                int size = blVar6.a().size();
                 if (size > 200) {
                     for (int i3 = 0; i3 < 20 && i3 < size; i3++) {
-                        biVar11 = this.a.p;
-                        biVar11.a().remove(0);
+                        blVar8 = this.a.p;
+                        blVar8.a().remove(0);
                     }
-                    biVar10 = this.a.p;
-                    biVar10.b().f(1);
+                    blVar7 = this.a.p;
+                    blVar7.b().f(1);
                     PersonLbsActivity personLbsActivity = this.a;
                     i2 = personLbsActivity.r;
                     personLbsActivity.r = i2 + 1;
@@ -74,49 +74,49 @@ public class bh extends com.baidu.adp.lib.a.a {
         } else {
             biVar = this.a.n;
             biVar.b(true);
-            biVar2 = this.a.p;
-            if (biVar2 != null) {
-                biVar3 = this.a.p;
-                int size2 = biVar3.a().size();
+            blVar = this.a.p;
+            if (blVar != null) {
+                blVar2 = this.a.p;
+                int size2 = blVar2.a().size();
                 if (size2 > 200) {
                     for (int i4 = 0; i4 < 20 && i4 < size2; i4++) {
-                        biVar5 = this.a.p;
-                        biVar5.a().remove((size2 - i4) - 1);
+                        blVar4 = this.a.p;
+                        blVar4.a().remove((size2 - i4) - 1);
                     }
                 }
-                biVar4 = this.a.p;
-                biVar4.b().e(1);
+                blVar3 = this.a.p;
+                blVar3.b().e(1);
             }
             PersonLbsActivity personLbsActivity2 = this.a;
             i = personLbsActivity2.s;
             personLbsActivity2.s = i - 1;
         }
-        biVar6 = this.a.n;
-        biVar6.notifyDataSetChanged();
+        biVar2 = this.a.n;
+        biVar2.notifyDataSetChanged();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.a.a
-    public void a(com.baidu.tieba.c.bi biVar) {
+    public void a(com.baidu.tieba.c.bl blVar) {
+        bi biVar;
+        com.baidu.tieba.c.bl blVar2;
         bi biVar2;
-        com.baidu.tieba.c.bi biVar3;
-        bi biVar4;
-        com.baidu.tieba.c.bi biVar5;
+        com.baidu.tieba.c.bl blVar3;
         TextView textView;
-        com.baidu.tieba.c.bi biVar6;
-        com.baidu.tieba.c.bi biVar7;
-        com.baidu.tieba.c.bi biVar8;
-        com.baidu.tieba.c.bi biVar9;
-        bi biVar10;
-        com.baidu.tieba.c.bi biVar11;
-        bi biVar12;
-        com.baidu.tieba.c.bi biVar13;
-        com.baidu.tieba.c.bi biVar14;
-        super.a((Object) biVar);
+        com.baidu.tieba.c.bl blVar4;
+        com.baidu.tieba.c.bl blVar5;
+        com.baidu.tieba.c.bl blVar6;
+        com.baidu.tieba.c.bl blVar7;
+        bi biVar3;
+        com.baidu.tieba.c.bl blVar8;
+        bi biVar4;
+        com.baidu.tieba.c.bl blVar9;
+        com.baidu.tieba.c.bl blVar10;
+        super.a((Object) blVar);
         this.a.o = null;
         f();
-        if (biVar == null) {
+        if (blVar == null) {
             if (this.d != null) {
                 this.a.a(this.d.f());
                 return;
@@ -124,46 +124,46 @@ public class bh extends com.baidu.adp.lib.a.a {
             return;
         }
         if (this.c != 0) {
-            biVar7 = this.a.p;
-            if (biVar7 != null) {
+            blVar5 = this.a.p;
+            if (blVar5 != null) {
                 if (this.c == 1) {
-                    ArrayList a = biVar.a();
-                    biVar13 = this.a.p;
-                    biVar13.a().addAll(0, a);
-                    biVar14 = this.a.p;
-                    biVar14.b().f(biVar.b().f());
+                    ArrayList a = blVar.a();
+                    blVar9 = this.a.p;
+                    blVar9.a().addAll(0, a);
+                    blVar10 = this.a.p;
+                    blVar10.b().f(blVar.b().g());
                     this.a.r = this.b;
                 } else {
-                    ArrayList a2 = biVar.a();
-                    biVar8 = this.a.p;
-                    biVar8.a().addAll(a2);
-                    biVar9 = this.a.p;
-                    biVar9.b().e(biVar.b().e());
+                    ArrayList a2 = blVar.a();
+                    blVar6 = this.a.p;
+                    blVar6.a().addAll(a2);
+                    blVar7 = this.a.p;
+                    blVar7.b().e(blVar.b().f());
                     this.a.s = this.b;
                 }
-                biVar10 = this.a.n;
-                biVar11 = this.a.p;
-                biVar10.a(biVar11);
-                biVar12 = this.a.n;
-                biVar12.notifyDataSetChanged();
+                biVar3 = this.a.n;
+                blVar8 = this.a.p;
+                biVar3.a(blVar8);
+                biVar4 = this.a.n;
+                biVar4.notifyDataSetChanged();
                 return;
             }
         }
-        this.a.p = biVar;
+        this.a.p = blVar;
+        biVar = this.a.n;
+        blVar2 = this.a.p;
+        biVar.a(blVar2);
         biVar2 = this.a.n;
-        biVar3 = this.a.p;
-        biVar2.a(biVar3);
-        biVar4 = this.a.n;
-        biVar4.notifyDataSetInvalidated();
+        biVar2.notifyDataSetInvalidated();
         PersonLbsActivity personLbsActivity = this.a;
         PersonLbsActivity personLbsActivity2 = this.a;
         int i = this.b;
         personLbsActivity2.s = i;
         personLbsActivity.r = i;
-        biVar5 = this.a.p;
-        if (biVar5 != null) {
-            biVar6 = this.a.p;
-            if (biVar6.a().size() != 0) {
+        blVar3 = this.a.p;
+        if (blVar3 != null) {
+            blVar4 = this.a.p;
+            if (blVar4.a().size() != 0) {
                 return;
             }
         }
@@ -174,7 +174,7 @@ public class bh extends com.baidu.adp.lib.a.a {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.a.a
-    public com.baidu.tieba.c.bi a(String... strArr) {
+    public com.baidu.tieba.c.bl a(String... strArr) {
         String str;
         this.d = new com.baidu.tieba.d.t(String.valueOf(com.baidu.tieba.a.i.e) + "c/u/feed/ssf");
         com.baidu.tieba.d.t tVar = this.d;
@@ -184,14 +184,14 @@ public class bh extends com.baidu.adp.lib.a.a {
         this.d.a("pn", String.valueOf(this.b));
         String i = this.d.i();
         if (this.d.b()) {
-            com.baidu.tieba.c.bi biVar = new com.baidu.tieba.c.bi();
-            biVar.a(i);
-            int size = biVar.a().size();
+            com.baidu.tieba.c.bl blVar = new com.baidu.tieba.c.bl();
+            blVar.a(i);
+            int size = blVar.a().size();
             for (int i2 = 0; i2 < size; i2++) {
-                ((com.baidu.tieba.a.ao) biVar.a().get(i2)).e().c(this.a);
-                ((com.baidu.tieba.a.ao) biVar.a().get(i2)).e().a((ArrayList) null);
+                ((com.baidu.tieba.a.ap) blVar.a().get(i2)).e().b(this.a);
+                ((com.baidu.tieba.a.ap) blVar.a().get(i2)).e().a((ArrayList) null);
             }
-            return biVar;
+            return blVar;
         }
         return null;
     }

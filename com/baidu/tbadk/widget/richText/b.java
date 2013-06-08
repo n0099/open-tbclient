@@ -26,6 +26,10 @@ public class b {
         this.a = str;
     }
 
+    public void b(String str) {
+        this.b = str;
+    }
+
     public String a() {
         return this.a;
     }

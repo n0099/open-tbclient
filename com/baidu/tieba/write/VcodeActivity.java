@@ -12,11 +12,11 @@ import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import com.baidu.tieba.c.bp;
+import com.baidu.tieba.c.bs;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public class VcodeActivity extends com.baidu.tieba.e {
-    private bp c = null;
+    private bs c = null;
     private ImageView d = null;
     private Button e = null;
     private ImageView f = null;
@@ -30,18 +30,18 @@ public class VcodeActivity extends com.baidu.tieba.e {
     private LinearLayout n = null;
     private TextView o = null;
 
-    public static void a(Activity activity, bp bpVar, int i) {
-        if (bpVar != null) {
+    public static void a(Activity activity, bs bsVar, int i) {
+        if (bsVar != null) {
             Intent intent = new Intent(activity, VcodeActivity.class);
-            intent.putExtra("model", bpVar);
+            intent.putExtra("model", bsVar);
             activity.startActivityForResult(intent, i);
         }
     }
 
-    public static void a(Activity activity, bp bpVar, boolean z, int i) {
-        if (bpVar != null) {
+    public static void a(Activity activity, bs bsVar, boolean z, int i) {
+        if (bsVar != null) {
             Intent intent = new Intent(activity, VcodeActivity.class);
-            intent.putExtra("model", bpVar);
+            intent.putExtra("model", bsVar);
             intent.putExtra("is_ad", z);
             activity.startActivityForResult(intent, i);
         }
@@ -60,9 +60,9 @@ public class VcodeActivity extends com.baidu.tieba.e {
     private void a(Bundle bundle) {
         this.l = new n(this);
         if (bundle != null) {
-            this.c = (bp) bundle.getSerializable("model");
+            this.c = (bs) bundle.getSerializable("model");
         } else {
-            this.c = (bp) getIntent().getSerializableExtra("model");
+            this.c = (bs) getIntent().getSerializableExtra("model");
         }
         this.k = (InputMethodManager) getSystemService("input_method");
     }

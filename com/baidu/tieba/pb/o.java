@@ -16,7 +16,7 @@ public class o implements Runnable {
     public void run() {
         GridView gridView;
         KeyboardLayout keyboardLayout;
-        com.baidu.tieba.view.ae aeVar;
+        com.baidu.tieba.view.ag agVar;
         GridView gridView2;
         gridView = this.a.p;
         if (gridView.getVisibility() != 0) {
@@ -24,7 +24,7 @@ public class o implements Runnable {
             gridView2.setVisibility(0);
         }
         keyboardLayout = this.a.t;
-        aeVar = this.a.T;
-        keyboardLayout.setOnkbdStateListener(aeVar);
+        agVar = this.a.T;
+        keyboardLayout.setOnkbdStateListener(agVar);
     }
 }

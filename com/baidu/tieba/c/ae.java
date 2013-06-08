@@ -1,72 +1,61 @@
 package com.baidu.tieba.c;
+
+import android.graphics.Bitmap;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ae extends com.baidu.adp.lib.a.a {
     final /* synthetic */ ad a;
-    private volatile com.baidu.tieba.d.t b;
+    private String b;
 
-    private ae(ad adVar) {
+    public ae(ad adVar, String str) {
         this.a = adVar;
         this.b = null;
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ ae(ad adVar, ae aeVar) {
-        this(adVar);
+        this.b = str;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.a.a
     /* renamed from: d */
-    public com.baidu.tieba.a.ac a(Object... objArr) {
-        String str;
-        String str2;
-        try {
-            this.b = new com.baidu.tieba.d.t(String.valueOf(com.baidu.tieba.a.i.e) + "c/c/forum/like");
-            com.baidu.tieba.d.t tVar = this.b;
-            str = this.a.e;
-            tVar.a("kw", str);
-            com.baidu.tieba.d.t tVar2 = this.b;
-            str2 = this.a.f;
-            tVar2.a("fid", str2);
-            this.b.d(true);
-            String i = this.b.i();
-            if (this.b.b() && i != null) {
-                com.baidu.tieba.a.ac acVar = new com.baidu.tieba.a.ac();
-                acVar.a(i);
-                return acVar;
-            }
-        } catch (Exception e) {
-            com.baidu.tieba.d.ae.b(getClass().getName(), "doInBackground", e.getMessage());
+    public Bitmap a(Object... objArr) {
+        if (this.b != null && !this.b.equals("tieba_resized_image")) {
+            com.baidu.tieba.d.o.e("photos/" + this.b, "tieba_resized_image");
         }
-        return null;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.a.a
-    public void a(com.baidu.tieba.a.ac acVar) {
-        com.baidu.adp.a.e eVar;
-        this.a.g = null;
-        if (acVar == null) {
-            this.a.c = this.b.d();
-            this.a.d = this.b.f();
-        }
-        eVar = this.a.b;
-        eVar.a(acVar);
+        return com.baidu.tieba.d.d.a(com.baidu.tieba.d.d.b(com.baidu.tieba.d.o.c(null, "tieba_resized_image_display")), 5.0f);
     }
 
     @Override // com.baidu.adp.lib.a.a
     public void cancel() {
         com.baidu.adp.a.e eVar;
-        if (this.b != null) {
-            this.b.g();
-            this.b = null;
-        }
-        this.a.g = null;
-        super.cancel(true);
+        com.baidu.adp.a.e eVar2;
+        this.a.e = null;
         eVar = this.a.b;
-        eVar.a(null);
+        if (eVar != null) {
+            eVar2 = this.a.b;
+            eVar2.a(null);
+        }
+        super.cancel(true);
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.a.a
+    public void c() {
+        super.c();
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.a.a
+    public void a(Bitmap bitmap) {
+        com.baidu.adp.a.e eVar;
+        com.baidu.adp.a.e eVar2;
+        super.a((Object) bitmap);
+        this.a.e = null;
+        com.baidu.tieba.d.ae.a(getClass().getName(), "onPostExecute", "is Null?" + String.valueOf(bitmap == null));
+        eVar = this.a.b;
+        if (eVar != null) {
+            eVar2 = this.a.b;
+            eVar2.a(bitmap);
+        }
     }
 }

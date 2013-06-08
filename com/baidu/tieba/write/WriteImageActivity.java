@@ -114,9 +114,9 @@ public class WriteImageActivity extends com.baidu.tieba.e {
         if (this.A == 1200002 || this.A == 1200001) {
             m();
             if (intent.getData() != null) {
-                TiebaPrepareImageService.a(this.A, intent.getData(), TiebaApplication.d().aq());
+                TiebaPrepareImageService.a(this.A, intent.getData(), TiebaApplication.d().az());
             } else {
-                TiebaPrepareImageService.a(this.A, null, TiebaApplication.d().aq());
+                TiebaPrepareImageService.a(this.A, null, TiebaApplication.d().az());
             }
             n();
         } else {
@@ -124,7 +124,7 @@ public class WriteImageActivity extends com.baidu.tieba.e {
             d();
         }
         c = getResources().getStringArray(R.array.fiter_name);
-        this.v = TiebaApplication.d().p();
+        this.v = TiebaApplication.d().q();
     }
 
     @Override // com.baidu.tieba.e, android.app.Activity
@@ -265,7 +265,7 @@ public class WriteImageActivity extends com.baidu.tieba.e {
         try {
             com.baidu.tieba.d.o.a("photos", str, this.r, 90);
             this.d.setImageBitmap(null);
-            Bitmap a = com.baidu.tieba.d.e.a(this.r, 100);
+            Bitmap a = com.baidu.tieba.d.d.a(this.r, 100);
             if (a != null && com.baidu.tieba.d.o.a(null, "tieba_resized_image_display", a, 80) != null) {
                 new com.baidu.tieba.account.af("motu_pic", String.valueOf(this.u)).start();
                 return true;

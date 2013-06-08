@@ -219,16 +219,15 @@ public final class BdBBMUtils {
             deflater.setStrategy(0);
             deflater.setInput(bArr);
             deflater.finish();
-            byte[] bArr2 = null;
             System.gc();
-            byte[] bArr3 = new byte[NotificationProxy.MAX_URL_LENGTH];
+            byte[] bArr2 = new byte[NotificationProxy.MAX_URL_LENGTH];
             ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
             byteArrayOutputStream.write(length & 255);
             byteArrayOutputStream.write((length >> 8) & 255);
             byteArrayOutputStream.write((length >> 16) & 255);
             byteArrayOutputStream.write((length >> 24) & 255);
             while (!deflater.finished()) {
-                byteArrayOutputStream.write(bArr3, 0, deflater.deflate(bArr3));
+                byteArrayOutputStream.write(bArr2, 0, deflater.deflate(bArr2));
             }
             deflater.end();
             byte[] byteArray = byteArrayOutputStream.toByteArray();

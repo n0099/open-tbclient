@@ -14,15 +14,15 @@ import android.widget.BaseAdapter;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
-import com.baidu.tieba.a.ba;
+import com.baidu.tieba.a.bb;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public class ah extends BaseAdapter {
     private Context a;
-    private com.baidu.tieba.c.ac b;
+    private com.baidu.tieba.c.af b;
     private LayoutInflater c;
     private ColorMatrix f;
-    private ba d = null;
+    private bb d = null;
     private View.OnClickListener e = null;
     private Canvas g = null;
     private Paint h = null;
@@ -30,12 +30,12 @@ public class ah extends BaseAdapter {
     private Bitmap[] j = null;
     private float[] k = {1.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 1.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 1.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 1.0f, 0.0f};
 
-    public ah(Context context, com.baidu.tieba.c.ac acVar) {
+    public ah(Context context, com.baidu.tieba.c.af afVar) {
         this.a = null;
         this.b = null;
         this.f = null;
         this.a = context;
-        this.b = acVar;
+        this.b = afVar;
         this.c = LayoutInflater.from(this.a);
         this.f = new ColorMatrix();
         b();
@@ -94,7 +94,7 @@ public class ah extends BaseAdapter {
         } else {
             aiVar = (ai) view.getTag();
         }
-        this.d = (ba) getItem(i);
+        this.d = (bb) getItem(i);
         if (this.d.c() == -1) {
             c = (int) (Math.random() * this.i.length);
             this.d.a(c);

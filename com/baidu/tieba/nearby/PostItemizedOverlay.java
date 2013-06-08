@@ -1,9 +1,7 @@
 package com.baidu.tieba.nearby;
 
 import android.content.Context;
-import android.graphics.Bitmap;
 import android.graphics.Canvas;
-import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.LayerDrawable;
 import com.baidu.mapapi.GeoPoint;
@@ -72,9 +70,9 @@ public class PostItemizedOverlay extends ItemizedOverlay {
         }
     }
 
-    public void a(String str, Bitmap bitmap) {
+    public void a(String str, com.baidu.adp.widget.a.b bVar) {
         MapOverlayItem mapOverlayItem;
-        LayerDrawable layerDrawable = new LayerDrawable(new Drawable[]{this.c.getResources().getDrawable(R.drawable.nearby_head_bg), new BitmapDrawable(bitmap)});
+        LayerDrawable layerDrawable = new LayerDrawable(new Drawable[]{this.c.getResources().getDrawable(R.drawable.nearby_head_bg), bVar.h()});
         layerDrawable.setLayerInset(1, this.d, this.d, this.d, this.d * 2);
         for (int i = 0; i < this.a.size(); i++) {
             if (this.a.get(i) != null && (mapOverlayItem = (MapOverlayItem) this.a.get(i)) != null && mapOverlayItem.a() != null && mapOverlayItem.a().a().e().equals(str)) {

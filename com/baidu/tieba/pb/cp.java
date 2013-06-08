@@ -1,27 +1,23 @@
 package com.baidu.tieba.pb;
 
-import android.app.Dialog;
 import android.view.View;
 import com.slidingmenu.lib.R;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class cp implements View.OnClickListener {
-    final /* synthetic */ bl a;
+    final /* synthetic */ bk a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public cp(bl blVar) {
-        this.a = blVar;
+    public cp(bk bkVar) {
+        this.a = bkVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        Dialog dialog;
-        Dialog dialog2;
-        dialog = this.a.Q;
-        if (dialog != null) {
-            dialog2 = this.a.Q;
-            dialog2.dismiss();
+        if (!"".equals(view.getTag(R.id.tag_forbid_user_name)) && !"".equals(view.getTag(R.id.tag_del_post_id))) {
+            this.a.a(view);
+        } else {
+            this.a.a(((Integer) view.getTag(R.id.tag_del_post_type)).intValue(), (String) view.getTag(R.id.tag_del_post_id), ((Integer) view.getTag(R.id.tag_manage_user_identity)).intValue(), ((Boolean) view.getTag(R.id.tag_del_post_is_self)).booleanValue());
         }
-        this.a.a(((Integer) view.getTag(R.id.tag_del_post_type)).intValue(), (String) view.getTag(R.id.tag_del_post_id), ((Integer) view.getTag(R.id.tag_manage_user_identity)).intValue());
     }
 }

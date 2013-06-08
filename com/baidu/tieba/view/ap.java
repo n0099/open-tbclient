@@ -1,133 +1,138 @@
 package com.baidu.tieba.view;
 
 import android.content.Context;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
+import android.view.animation.LinearInterpolator;
+import android.view.animation.RotateAnimation;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
-import android.widget.RelativeLayout;
+import android.widget.TextView;
 import com.slidingmenu.lib.R;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 /* loaded from: classes.dex */
-public class ap extends RelativeLayout {
-    protected ProgressBar a;
-    protected g b;
-    protected Context c;
-    private ar d;
-    private aq e;
-
-    public void setCallback(aq aqVar) {
-        this.e = aqVar;
-    }
+public class ap extends com.baidu.adp.widget.ListView.d {
+    private static SimpleDateFormat i = new SimpleDateFormat("MM-dd HH:mm");
+    private View a;
+    private ImageView b;
+    private ProgressBar c;
+    private TextView d;
+    private TextView e;
+    private RotateAnimation f;
+    private RotateAnimation g;
+    private com.baidu.adp.widget.ListView.b h;
 
     public ap(Context context) {
         super(context);
         this.a = null;
         this.b = null;
-        this.d = null;
         this.c = null;
+        this.d = null;
         this.e = null;
-        this.c = context;
-        a();
+        this.f = null;
+        this.g = null;
+        this.h = null;
     }
 
-    public g getImageView() {
-        return this.b;
+    @Override // com.baidu.adp.widget.ListView.d
+    public View a() {
+        this.a = LayoutInflater.from(e()).inflate(R.layout.pull_view, (ViewGroup) null);
+        this.b = (ImageView) this.a.findViewById(R.id.pull_arrow);
+        this.c = (ProgressBar) this.a.findViewById(R.id.pull_progress);
+        this.d = (TextView) this.a.findViewById(R.id.pull_text);
+        this.e = (TextView) this.a.findViewById(R.id.pull_time);
+        a(d());
+        this.f = new RotateAnimation(0.0f, -180.0f, 1, 0.5f, 1, 0.5f);
+        this.f.setInterpolator(new LinearInterpolator());
+        this.f.setDuration(250L);
+        this.f.setFillAfter(true);
+        this.g = new RotateAnimation(-180.0f, 0.0f, 1, 0.5f, 1, 0.5f);
+        this.g.setInterpolator(new LinearInterpolator());
+        this.g.setDuration(200L);
+        this.g.setFillAfter(true);
+        return this.a;
     }
 
-    public void setGifSetListener(k kVar) {
-        this.b.setGifSetListener(kVar);
-    }
-
-    public void setImageOnClickListener(View.OnClickListener onClickListener) {
-        this.b.setImageOnClickListener(onClickListener);
-    }
-
-    public void setOnSizeChangedListener(l lVar) {
-        this.b.setOnSizeChangedListener(lVar);
-    }
-
-    protected void a() {
-        this.b = new g(this.c);
-        this.b.setLayoutParams(new RelativeLayout.LayoutParams(-1, -1));
-        addView(this.b);
-        this.a = new ProgressBar(this.c, null, 16843399);
-        this.a.setIndeterminateDrawable(this.c.getResources().getDrawable(R.drawable.progressbar));
-        RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
-        layoutParams.addRule(13);
-        this.a.setLayoutParams(layoutParams);
-        this.a.setIndeterminate(true);
-        addView(this.a);
-    }
-
-    public void setUrl(String str) {
-        this.b.setTag(str);
-        com.baidu.tieba.d.z c = com.baidu.tieba.d.w.c(getContext());
-        if (c == com.baidu.tieba.d.z.WIFI || c == com.baidu.tieba.d.z.ThreeG) {
-            if (this.d != null) {
-                this.d.cancel();
-            }
-            if (str != null) {
-                this.d = new ar(this, str);
-                this.d.execute(new String[0]);
-            }
-        }
-    }
-
-    public void setGifMaxUseableMem(int i) {
-        this.b.setGifMaxUseableMem(i);
-    }
-
+    @Override // com.baidu.adp.widget.ListView.d
     public void b() {
-        if (this.d != null) {
-            this.d.cancel();
-            this.d = null;
-        }
+        this.b.setVisibility(0);
+        this.c.setVisibility(4);
+        this.d.setVisibility(0);
+        this.e.setVisibility(0);
+        this.b.clearAnimation();
+        this.b.startAnimation(this.f);
+        this.d.setText("释放加载更多");
     }
 
+    @Override // com.baidu.adp.widget.ListView.d
+    public void a(boolean z) {
+        this.c.setVisibility(4);
+        this.d.setVisibility(0);
+        this.e.setVisibility(0);
+        this.b.clearAnimation();
+        this.b.setVisibility(0);
+        if (z) {
+            this.b.clearAnimation();
+            this.b.startAnimation(this.g);
+            this.d.setText("下拉加载更多");
+            return;
+        }
+        this.d.setText("下拉加载更多");
+    }
+
+    @Override // com.baidu.adp.widget.ListView.d
     public void c() {
-        b();
-        if (this.b != null) {
-            this.b.j();
-        }
-        this.a.setVisibility(8);
+        this.c.setVisibility(0);
+        this.b.clearAnimation();
+        this.b.setVisibility(4);
+        this.d.setText("正在加载");
+        this.e.setVisibility(0);
     }
 
-    public void d() {
-        b();
-        if (this.b != null) {
-            this.b.k();
-        }
-        this.a.setVisibility(8);
-    }
-
-    public void e() {
-        if (this.b != null && this.b.getImageType() == 1) {
-            this.b.g();
-        }
-    }
-
-    public void f() {
-        String str;
-        if (this.b != null && (str = (String) this.b.getTag()) != null && this.b != null && this.d == null) {
-            if (this.b.getImageType() == 1) {
-                if (this.b.getGifCache() == null) {
-                    this.d = new ar(this, str);
-                    this.d.execute(new String[0]);
-                }
-            } else if (this.b.getImageType() == 2) {
-                if (com.baidu.tieba.d.w.a(getContext()) != com.baidu.tieba.d.y.UNAVAIL) {
-                    this.d = new ar(this, str);
-                    this.d.execute(new String[0]);
-                }
-            } else if (this.b.getImageBitmap() == null) {
-                this.d = new ar(this, str);
-                this.d.execute(new String[0]);
-            }
+    @Override // com.baidu.adp.widget.ListView.d
+    public void b(boolean z) {
+        this.c.setVisibility(4);
+        this.b.clearAnimation();
+        this.b.setImageResource(R.drawable.pull_icon);
+        this.d.setText("下拉加载更多");
+        this.e.setVisibility(0);
+        if (z) {
+            a(d());
         }
     }
 
-    public int getImageType() {
-        if (this.b != null) {
-            return this.b.getImageType();
+    public static String d() {
+        String format;
+        synchronized (i) {
+            format = i.format(new Date());
         }
-        return 0;
+        return format;
+    }
+
+    public void a(String str) {
+        this.e.setText("最后更新：" + str);
+    }
+
+    @Override // com.baidu.adp.widget.ListView.d
+    public void c(boolean z) {
+        if (this.h != null) {
+            this.h.a(z);
+        }
+    }
+
+    public void a(com.baidu.adp.widget.ListView.b bVar) {
+        this.h = bVar;
+    }
+
+    public void a(int i2) {
+        if (i2 == 1) {
+            this.d.setTextColor(-8682095);
+            this.e.setTextColor(-8682095);
+            return;
+        }
+        this.d.setTextColor(-14277082);
+        this.e.setTextColor(-14277082);
     }
 }

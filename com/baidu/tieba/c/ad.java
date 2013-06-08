@@ -1,32 +1,28 @@
 package com.baidu.tieba.c;
 /* loaded from: classes.dex */
 public class ad extends com.baidu.adp.a.c {
-    private String e = null;
+    private ae e = null;
     private String f = null;
-    private ae g = null;
 
-    public String d() {
-        return this.f;
+    public boolean b(String str) {
+        this.f = str;
+        return d();
     }
 
-    public void e() {
-        if (this.g != null) {
-            this.g.cancel();
-            this.g = null;
+    protected boolean d() {
+        if (this.e != null) {
+            this.e.cancel();
         }
+        this.e = new ae(this, this.f);
+        this.e.execute(new Object[0]);
+        return true;
     }
 
-    public void a(String str, String str2) {
-        if (str != null && str.length() > 0 && str2 != null && str2.length() > 0 && this.g == null) {
-            this.e = str;
-            this.f = str2;
-            this.g = new ae(this, null);
-            this.g.setPriority(2);
-            this.g.execute(new Object[0]);
+    public boolean e() {
+        if (this.e != null) {
+            this.e.cancel();
+            return true;
         }
-    }
-
-    public boolean f() {
-        return this.g != null;
+        return true;
     }
 }

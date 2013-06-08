@@ -13,21 +13,21 @@ class aw implements Handler.Callback {
 
     @Override // android.os.Handler.Callback
     public boolean handleMessage(Message message) {
-        com.baidu.tieba.c.au auVar;
-        bl blVar;
-        bl blVar2;
+        com.baidu.tieba.c.ax axVar;
+        bk bkVar;
+        bk bkVar2;
         switch (message.what) {
             case 0:
-                blVar2 = this.a.o;
-                blVar2.Q();
+                bkVar2 = this.a.o;
+                bkVar2.R();
                 return false;
             case 1:
-                blVar = this.a.o;
-                blVar.P();
+                bkVar = this.a.o;
+                bkVar.Q();
                 return false;
             case 2:
-                auVar = this.a.i;
-                if (!auVar.v()) {
+                axVar = this.a.i;
+                if (!axVar.w()) {
                     return false;
                 }
                 this.a.q();

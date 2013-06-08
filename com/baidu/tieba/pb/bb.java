@@ -2,7 +2,7 @@ package com.baidu.tieba.pb;
 
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-class bb implements com.baidu.tieba.c.aj {
+class bb implements com.baidu.tieba.c.am {
     final /* synthetic */ NewPbActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -10,26 +10,26 @@ class bb implements com.baidu.tieba.c.aj {
         this.a = newPbActivity;
     }
 
-    @Override // com.baidu.tieba.c.aj
+    @Override // com.baidu.tieba.c.am
     public void a(boolean z, boolean z2, String str) {
-        bl blVar;
-        com.baidu.tieba.c.ah ahVar;
-        com.baidu.tieba.c.au auVar;
-        com.baidu.tieba.c.au auVar2;
-        bl blVar2;
-        com.baidu.tieba.c.au auVar3;
-        blVar = this.a.o;
-        blVar.q();
+        bk bkVar;
+        com.baidu.tieba.c.ak akVar;
+        com.baidu.tieba.c.ax axVar;
+        com.baidu.tieba.c.ax axVar2;
+        bk bkVar2;
+        com.baidu.tieba.c.ax axVar3;
+        bkVar = this.a.o;
+        bkVar.q();
         if (z) {
-            ahVar = this.a.j;
-            ahVar.a(z2);
-            auVar = this.a.i;
-            auVar.c(z2);
-            auVar2 = this.a.i;
-            if (!auVar2.v()) {
-                blVar2 = this.a.o;
-                auVar3 = this.a.i;
-                blVar2.a(auVar3.l());
+            akVar = this.a.j;
+            akVar.a(z2);
+            axVar = this.a.i;
+            axVar.c(z2);
+            axVar2 = this.a.i;
+            if (!axVar2.w()) {
+                bkVar2 = this.a.o;
+                axVar3 = this.a.i;
+                bkVar2.a(axVar3.m());
             } else {
                 this.a.q();
             }

@@ -109,16 +109,15 @@ public abstract class a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void c(Object obj) {
-        if (!this.k.get()) {
-            d(obj);
+    public Object c(Object obj) {
+        synchronized (this) {
+            if (this.k.get()) {
+                return null;
+            }
+            this.k.set(true);
+            b.obtainMessage(1, new d(this, obj)).sendToTarget();
+            return obj;
         }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public Object d(Object obj) {
-        b.obtainMessage(1, new d(this, obj)).sendToTarget();
-        return obj;
     }
 
     public final e getStatus() {
@@ -157,9 +156,12 @@ public abstract class a {
     }
 
     public final boolean cancel(boolean z) {
+        if (!this.j) {
+            a.a(this);
+        }
+        boolean cancel = this.d.cancel(z);
         a();
-        a.a(this);
-        return this.d.cancel(z);
+        return cancel;
     }
 
     public final Object get() {
@@ -198,7 +200,7 @@ public abstract class a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void e(Object obj) {
+    public void d(Object obj) {
         if (isCancelled()) {
             b(obj);
         } else {

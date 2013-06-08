@@ -31,36 +31,36 @@ public class w extends com.baidu.adp.lib.a.a {
     @Override // com.baidu.adp.lib.a.a
     /* renamed from: d */
     public Boolean a(Object... objArr) {
-        com.baidu.tieba.c.ac acVar;
-        com.baidu.tieba.c.ac acVar2;
-        com.baidu.tieba.c.ac acVar3;
-        com.baidu.tieba.c.ac acVar4;
-        com.baidu.tieba.c.ac acVar5;
-        com.baidu.tieba.c.ac acVar6;
+        com.baidu.tieba.c.af afVar;
+        com.baidu.tieba.c.af afVar2;
+        com.baidu.tieba.c.af afVar3;
+        com.baidu.tieba.c.af afVar4;
+        com.baidu.tieba.c.af afVar5;
+        com.baidu.tieba.c.af afVar6;
         try {
             this.c = new com.baidu.tieba.d.t(this.d);
             this.c.a(this.a);
-            acVar = this.b.q;
-            if (acVar != null) {
-                acVar5 = this.b.q;
-                if (acVar5.h().size() != 0) {
-                    acVar6 = this.b.q;
-                    this.c.a("tag_info", acVar6.g());
+            afVar = this.b.q;
+            if (afVar != null) {
+                afVar5 = this.b.q;
+                if (afVar5.h().size() != 0) {
+                    afVar6 = this.b.q;
+                    this.c.a("tag_info", afVar6.g());
                 }
             }
             com.baidu.tieba.d.ae.b("begin to get label data...url is " + this.d);
             String i = this.c.i();
             com.baidu.tieba.d.ae.b("end to get label data...");
             if (this.c.b()) {
-                acVar2 = this.b.q;
-                if (acVar2 == null) {
-                    this.b.q = new com.baidu.tieba.c.ac();
+                afVar2 = this.b.q;
+                if (afVar2 == null) {
+                    this.b.q = new com.baidu.tieba.c.af();
                 }
-                acVar3 = this.b.q;
-                acVar3.a(i);
+                afVar3 = this.b.q;
+                afVar3.a(i);
                 if (this.f) {
-                    acVar4 = this.b.q;
-                    acVar4.b(com.baidu.tieba.d.k.b(12));
+                    afVar4 = this.b.q;
+                    afVar4.b(com.baidu.tieba.d.k.b(12));
                 }
                 com.baidu.tieba.d.ae.a(getClass().getName(), "doInBackground", i);
                 System.gc();

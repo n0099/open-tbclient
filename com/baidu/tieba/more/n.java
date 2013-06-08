@@ -83,7 +83,7 @@ public class n extends BaseAdapter {
                     view4 = view;
                 }
                 if (getItemViewType(i) == 0) {
-                    if (TiebaApplication.d().ai() == 1) {
+                    if (TiebaApplication.d().ar() == 1) {
                         oVar.a.setTextColor(com.baidu.tieba.d.ac.a(1));
                     } else {
                         oVar.a.setTextColor(-12895429);
@@ -103,7 +103,7 @@ public class n extends BaseAdapter {
                         }
                     }
                     return view4;
-                } else if (TiebaApplication.d().ai() == 1) {
+                } else if (TiebaApplication.d().ar() == 1) {
                     oVar.b.setTextColor(com.baidu.tieba.d.ac.a(1));
                     return view4;
                 } else {

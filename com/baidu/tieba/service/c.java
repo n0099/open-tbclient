@@ -9,7 +9,6 @@ import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.d.ag;
 import com.baidu.tieba.frs.FrsActivity;
 import com.baidu.tieba.pb.NewPbActivity;
-import java.util.Iterator;
 /* loaded from: classes.dex */
 class c extends com.baidu.adp.lib.a.a {
     final /* synthetic */ DealIntentService a;
@@ -25,11 +24,11 @@ class c extends com.baidu.adp.lib.a.a {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.a.a
     public String a(String... strArr) {
-        Iterator<ActivityManager.RunningTaskInfo> it = ((ActivityManager) TiebaApplication.d().getSystemService("activity")).getRunningTasks(BdWebErrorView.ERROR_CODE_500).iterator();
-        while (true) {
-            if (it.hasNext()) {
-                if (it.next().baseActivity.getClassName().startsWith(this.a.getPackageName())) {
-                    switch (this.b.getExtras().getInt("class", -1)) {
+        int i = this.b.getExtras().getInt("class", -1);
+        if (i != 5) {
+            for (ActivityManager.RunningTaskInfo runningTaskInfo : ((ActivityManager) TiebaApplication.d().getSystemService("activity")).getRunningTasks(BdWebErrorView.ERROR_CODE_500)) {
+                if (runningTaskInfo.baseActivity.getClassName().startsWith(this.a.getPackageName())) {
+                    switch (i) {
                         case 0:
                             ag.c(this.a, this.b.getExtras().getString("url"));
                             break;
@@ -50,12 +49,11 @@ class c extends com.baidu.adp.lib.a.a {
                             this.a.startActivity(this.b);
                             break;
                     }
+                    return null;
                 }
-            } else {
-                LogoActivity.a(this.a, this.b);
-                break;
             }
         }
+        LogoActivity.a(this.a, this.b);
         return null;
     }
 

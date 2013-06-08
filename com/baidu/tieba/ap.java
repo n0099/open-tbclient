@@ -65,7 +65,7 @@ public class ap extends com.baidu.adp.lib.a.a {
     public void a(Address address) {
         super.a((Object) address);
         if (address != null) {
-            this.a.aB();
+            this.a.aK();
             this.a.a(0, "", address);
             this.a.F = address;
         }

@@ -1,7 +1,9 @@
 package com.baidu.adp.lib.e;
 
 import android.content.Context;
+import android.content.pm.PackageInfo;
 import android.widget.Toast;
+import java.util.List;
 /* loaded from: classes.dex */
 public class c {
     public static int a(Context context, float f) {
@@ -38,5 +40,18 @@ public class c {
         iArr[0] = i3;
         iArr[1] = i5;
         return iArr;
+    }
+
+    public static boolean b(Context context, String str) {
+        List<PackageInfo> installedPackages;
+        if (str == null || str.length() == 0 || (installedPackages = context.getPackageManager().getInstalledPackages(0)) == null) {
+            return false;
+        }
+        for (int i = 0; i < installedPackages.size(); i++) {
+            if (installedPackages.get(i).packageName.equals(str)) {
+                return true;
+            }
+        }
+        return false;
     }
 }

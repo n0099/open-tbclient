@@ -47,36 +47,42 @@ public class d extends BitmapDrawable {
 
     @Override // android.graphics.drawable.BitmapDrawable, android.graphics.drawable.Drawable
     public void draw(Canvas canvas) {
+        com.baidu.adp.widget.a.b bVar;
         if (this.a > 0 && this.b != null) {
-            com.baidu.tbadk.a.d a = com.baidu.tbadk.a.d.a();
-            Bitmap c = (a == null || this.d == null) ? null : a.c(this.d);
+            com.baidu.tbadk.a.e a = com.baidu.tbadk.a.e.a();
+            com.baidu.adp.widget.a.b c = (a == null || this.d == null) ? null : a.c(this.d);
             if (c == null) {
-                c = BitmapFactory.decodeResource(this.b.getResources(), this.a);
+                Bitmap decodeResource = BitmapFactory.decodeResource(this.b.getResources(), this.a);
+                if (decodeResource != null) {
+                    c = new com.baidu.adp.widget.a.b(decodeResource, false, null);
+                }
                 if (a != null && c != null && this.d != null) {
                     a.b(this.d, c);
                 }
+                bVar = c;
+            } else {
+                bVar = c;
             }
-            Bitmap bitmap = c;
-            if (bitmap != null) {
-                int width = bitmap.getWidth();
-                int height = bitmap.getHeight();
-                if (width > 0 && height > 0 && this.c != null) {
+            if (bVar != null) {
+                int a2 = bVar.a();
+                int b = bVar.b();
+                if (a2 > 0 && b > 0 && this.c != null) {
                     canvas.save();
                     canvas.clipRect(super.getBounds());
-                    if (height > this.c.bottom - this.c.top || width > this.c.right - this.c.left) {
+                    if (b > this.c.bottom - this.c.top || a2 > this.c.right - this.c.left) {
                         if (this.e == null) {
                             this.e = new Matrix();
                             this.e.postTranslate(0.0f, 0.0f);
-                            float f = (this.c.right - this.c.left) / width;
-                            float f2 = (this.c.bottom - this.c.top) / height;
+                            float f = (this.c.right - this.c.left) / a2;
+                            float f2 = (this.c.bottom - this.c.top) / b;
                             if (f >= f2) {
                                 f = f2;
                             }
                             this.e.postScale(f, f);
                         }
-                        canvas.drawBitmap(bitmap, this.e, null);
+                        bVar.a(canvas, this.e, null);
                     } else {
-                        canvas.drawBitmap(bitmap, 0.0f, 0.0f, (Paint) null);
+                        bVar.a(canvas, 0.0f, 0.0f, (Paint) null);
                     }
                     canvas.restore();
                 }

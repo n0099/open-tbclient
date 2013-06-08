@@ -1,7 +1,7 @@
 package com.baidu.tieba.mention;
 
 import android.view.View;
-import com.baidu.tieba.c.bd;
+import com.baidu.tieba.c.bg;
 import com.baidu.tieba.d.ad;
 import com.baidu.tieba.d.ae;
 import com.baidu.tieba.pb.ImageActivity;
@@ -21,7 +21,7 @@ public class w implements View.OnClickListener {
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        bd bdVar;
+        bg bgVar;
         try {
             ArrayList arrayList = new ArrayList();
             int i = 0;
@@ -31,7 +31,7 @@ public class w implements View.OnClickListener {
                     if (((com.baidu.tieba.a.k) this.b.get(i2)).a() == 3) {
                         StringBuffer stringBuffer = new StringBuffer(100);
                         stringBuffer.append("size=");
-                        stringBuffer.append(com.baidu.tieba.a.i.g());
+                        stringBuffer.append(com.baidu.tieba.a.i.h());
                         stringBuffer.append("&src=");
                         stringBuffer.append(ad.d(((com.baidu.tieba.a.k) this.b.get(i2)).f()));
                         arrayList.add(stringBuffer.toString());
@@ -40,8 +40,8 @@ public class w implements View.OnClickListener {
                 } else {
                     PostActivity postActivity = this.a;
                     int i3 = this.c;
-                    bdVar = this.a.n;
-                    ImageActivity.a(postActivity, arrayList, i3, bdVar);
+                    bgVar = this.a.n;
+                    ImageActivity.a(postActivity, arrayList, i3, bgVar);
                     return;
                 }
             }

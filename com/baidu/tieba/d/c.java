@@ -10,17 +10,19 @@ import org.apache.http.message.BasicNameValuePair;
 /* loaded from: classes.dex */
 public class c extends com.baidu.adp.lib.a.a {
     final /* synthetic */ a a;
-    private d c;
+    private com.baidu.tbadk.a.d c;
     private String d;
     private volatile int e;
     private volatile Bitmap f;
     private boolean h;
     private String i;
+    private volatile com.baidu.adp.widget.a.b k;
     private volatile t b = null;
     private boolean g = true;
     private volatile boolean j = false;
+    private boolean l = false;
 
-    public c(a aVar, String str, int i, d dVar, boolean z) {
+    public c(a aVar, String str, int i, com.baidu.tbadk.a.d dVar, boolean z) {
         String str2;
         String str3;
         this.a = aVar;
@@ -47,194 +49,245 @@ public class c extends com.baidu.adp.lib.a.a {
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
-    /* JADX WARN: Incorrect condition in loop: B:38:0x011c */
     @Override // com.baidu.adp.lib.a.a
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
     public Bitmap a(String... strArr) {
+        try {
+            f();
+        } catch (Exception e) {
+            ae.b("ImageAsyncTask", "doInBackground", "error = " + e.getMessage());
+        }
+        return this.f;
+    }
+
+    private com.baidu.adp.widget.a.b f() {
         String str;
-        String str2;
         int i;
         int i2;
         int i3;
         int i4;
-        int i5;
         boolean z;
         boolean z2;
-        int i6;
-        int i7;
-        int i8;
+        int i5;
         Context context;
         Context context2;
         Context context3;
         ArrayList arrayList;
         ArrayList arrayList2;
         ArrayList arrayList3;
-        String str3;
-        int i9 = 0;
-        try {
-            byte[] bArr = null;
-            String f = ad.f(this.d);
-            str = this.a.h;
-            if (str != null) {
-                StringBuilder sb = new StringBuilder(String.valueOf(f));
-                str3 = this.a.h;
-                str2 = sb.append(str3).toString();
-            } else {
-                str2 = f;
-            }
-            if (this.h) {
+        int a;
+        String str2;
+        boolean z3 = false;
+        byte[] bArr = null;
+        int i6 = 0;
+        int i7 = 0;
+        String f = ad.f(this.d);
+        str = this.a.h;
+        if (str != null) {
+            StringBuilder sb = new StringBuilder(String.valueOf(f));
+            str2 = this.a.h;
+            f = sb.append(str2).toString();
+        }
+        if (this.h) {
+            synchronized (d.a) {
                 if (this.e == 1) {
                     this.f = k.c(this.i);
                 } else if (this.e == 2) {
                     this.f = k.b(this.i);
                 } else if (this.e == 3) {
-                    if (str2 != null) {
-                        this.f = o.c("hotspot", str2);
+                    if (f != null) {
+                        this.f = o.c("hotspot", f);
                     }
-                } else if ((this.e == 0 || this.e == 4) && str2 != null) {
-                    if (o.a("image", str2)) {
-                        com.baidu.tbadk.a.d.a().c(com.baidu.tieba.a.i.d() - com.baidu.tieba.a.i.i());
-                    }
-                    this.f = o.c("image", str2);
+                } else if ((this.e == 0 || this.e == 4) && f != null && (a = (int) o.a("image", f)) > 0) {
+                    com.baidu.tbadk.a.e.a().c(a);
+                    this.f = o.c("image", f);
                     if (this.f != null) {
-                        this.j = o.b("image", str2);
+                        this.j = o.b("image", f);
                     }
                 }
+                if (this.l) {
+                    return null;
+                }
+                this.k = null;
+                if (this.f != null) {
+                    if (this.e == 0 || this.e == 4) {
+                        this.k = new com.baidu.adp.widget.a.b(this.f, this.j, this.d);
+                        com.baidu.tbadk.a.e.a().b(this.i, this.k);
+                    } else if (this.e == 1 || this.e == 2) {
+                        this.k = new com.baidu.adp.widget.a.b(this.f, false, this.d);
+                        com.baidu.tbadk.a.e.a().a(this.i, this.k);
+                    }
+                }
+                if (this.f != null) {
+                    c((Object[]) new Integer[0]);
+                    return this.k;
+                }
             }
-            if (this.f == null) {
-                this.g = false;
-                String str4 = null;
-                if (this.e == 0 || this.e == 4) {
-                    StringBuilder sb2 = new StringBuilder(100);
-                    sb2.append(com.baidu.tieba.a.i.j);
-                    sb2.append("src=");
-                    sb2.append(ad.d(this.d));
-                    sb2.append("&width=");
-                    i = this.a.b;
-                    if (i == 0) {
-                        context2 = this.a.a;
-                        i2 = ag.a(context2, 105.0f);
-                    } else {
-                        i2 = this.a.b;
-                    }
-                    sb2.append(String.valueOf(i2));
-                    sb2.append("&height=");
-                    i3 = this.a.c;
-                    if (i3 == 0) {
-                        context = this.a.a;
-                        i4 = ag.a(context, 105.0f);
-                    } else {
-                        i4 = this.a.c;
-                    }
-                    sb2.append(String.valueOf(i4));
-                    sb2.append("&imgtype=0");
+        }
+        if (this.f == null) {
+            this.g = false;
+            String str3 = null;
+            if (this.e == 0 || this.e == 4) {
+                StringBuilder sb2 = new StringBuilder(100);
+                sb2.append(com.baidu.tieba.a.i.j);
+                sb2.append("src=");
+                sb2.append(ad.d(this.d));
+                sb2.append("&width=");
+                i = this.a.b;
+                if (i == 0) {
+                    context2 = this.a.a;
+                    i2 = ag.a(context2, 105.0f);
+                } else {
+                    i2 = this.a.b;
+                }
+                sb2.append(String.valueOf(i2));
+                sb2.append("&height=");
+                i3 = this.a.c;
+                if (i3 == 0) {
+                    context = this.a.a;
+                    i7 = ag.a(context, 105.0f);
+                } else {
+                    i7 = this.a.c;
+                }
+                sb2.append(String.valueOf(i7));
+                sb2.append("&imgtype=0");
+                i4 = this.a.k;
+                if (i4 != 0) {
                     i5 = this.a.k;
-                    if (i5 != 0) {
-                        i8 = this.a.k;
-                        if (i8 == 1) {
-                            sb2.append("&qulity=" + String.valueOf(80));
-                        } else {
-                            sb2.append("&qulity=" + String.valueOf(45));
-                        }
-                    } else if (TiebaApplication.d().ae() == 1) {
+                    if (i5 == 1) {
                         sb2.append("&qulity=" + String.valueOf(80));
                     } else {
                         sb2.append("&qulity=" + String.valueOf(45));
                     }
-                    sb2.append("&first_gif=1");
-                    z = this.a.g;
-                    if (z) {
-                        sb2.append("&ispv=1");
-                    }
-                    z2 = this.a.i;
-                    if (z2) {
-                        sb2.append("&no_prefix=1");
-                    }
-                    int i10 = i4;
-                    str4 = sb2.toString();
-                    i6 = i2;
-                    i7 = i10;
-                } else if (this.e == 3) {
-                    str4 = this.d;
-                    i7 = 0;
-                    i6 = 0;
-                } else if (this.e == 2) {
-                    str4 = String.valueOf(com.baidu.tieba.a.i.c()) + this.d;
-                    i7 = 0;
-                    i6 = 0;
-                } else if (this.e == 1) {
-                    str4 = String.valueOf(com.baidu.tieba.a.i.j()) + this.d;
-                    i7 = 0;
-                    i6 = 0;
+                } else if (TiebaApplication.d().am() == 1) {
+                    sb2.append("&qulity=" + String.valueOf(80));
                 } else {
-                    i7 = 0;
-                    i6 = 0;
+                    sb2.append("&qulity=" + String.valueOf(45));
                 }
-                context3 = this.a.a;
-                this.b = new t(context3, str4);
-                arrayList = this.a.j;
-                if (arrayList != null) {
-                    while (i9 < arrayList2.size()) {
-                        t tVar = this.b;
-                        arrayList3 = this.a.j;
-                        tVar.a((BasicNameValuePair) arrayList3.get(i9));
-                        i9++;
+                sb2.append("&first_gif=1");
+                z = this.a.g;
+                if (z) {
+                    sb2.append("&ispv=1");
+                }
+                z2 = this.a.i;
+                if (z2) {
+                    sb2.append("&no_prefix=1");
+                }
+                String sb3 = sb2.toString();
+                i6 = i2;
+                str3 = sb3;
+            } else if (this.e == 3) {
+                str3 = this.d;
+            } else if (this.e == 2) {
+                str3 = String.valueOf(com.baidu.tieba.a.i.c()) + this.d;
+            } else if (this.e == 1) {
+                str3 = String.valueOf(com.baidu.tieba.a.i.k()) + this.d;
+            }
+            context3 = this.a.a;
+            this.b = new t(context3, str3);
+            arrayList = this.a.j;
+            if (arrayList != null) {
+                int i8 = 0;
+                while (true) {
+                    int i9 = i8;
+                    arrayList2 = this.a.j;
+                    if (i9 >= arrayList2.size()) {
+                        break;
                     }
+                    t tVar = this.b;
+                    arrayList3 = this.a.j;
+                    tVar.a((BasicNameValuePair) arrayList3.get(i9));
+                    i8 = i9 + 1;
                 }
+            }
+            if (this.e == 0 || this.e == 4) {
+                this.b.c(true);
+            }
+            bArr = this.b.h();
+            if (this.b.b()) {
+                z3 = true;
+            } else {
+                bArr = null;
+                z3 = true;
+            }
+        }
+        synchronized (d.a) {
+            if (this.l) {
+                return null;
+            }
+            if (bArr != null) {
                 if (this.e == 0 || this.e == 4) {
-                    this.b.c(true);
+                    com.baidu.tbadk.a.e.a().c(com.baidu.tieba.a.i.j() + bArr.length);
                 }
-                bArr = this.b.h();
-                if (this.b.b()) {
+                this.f = d.a(bArr);
+                this.j = ag.a(bArr);
+                if (this.f != null) {
                     if (this.e == 0 || this.e == 4) {
-                        com.baidu.tbadk.a.d.a().c(com.baidu.tieba.a.i.d() - com.baidu.tieba.a.i.i());
-                    }
-                    this.f = e.a(bArr);
-                    this.j = ag.a(bArr);
-                    if (this.f != null) {
-                        if (this.e == 0 || this.e == 4) {
-                            if (this.f.getWidth() > i6 || this.f.getHeight() > i7) {
-                                ae.a(1, getClass().getName(), "doInBackground", "Pb_image_too_big:" + String.valueOf(String.valueOf(this.f.getWidth()) + "*" + String.valueOf(this.f.getHeight())));
-                                this.f = e.a(this.f, i6, i7);
-                            }
-                        } else if (this.e != 3) {
-                            int k = this.e == 1 ? com.baidu.tieba.a.i.k() : 80;
-                            if (this.f.getWidth() > k || this.f.getHeight() > k) {
-                                ae.a(1, getClass().getName(), "doInBackground", "photo_too_big:" + String.valueOf(String.valueOf(this.f.getWidth()) + "*" + String.valueOf(this.f.getHeight())));
-                                this.f = e.a(this.f, k);
-                            }
+                        if (this.f.getWidth() > i6 || this.f.getHeight() > i7) {
+                            ae.a(1, getClass().getName(), "doInBackground", "Pb_image_too_big:" + String.valueOf(String.valueOf(this.f.getWidth()) + "*" + String.valueOf(this.f.getHeight())));
+                            com.baidu.tbadk.a.e.a().c(d.a(this.f) * 2);
+                            this.f = d.a(this.f, i6, i7);
+                        }
+                    } else if (this.e != 3) {
+                        int i10 = 80;
+                        if (this.e == 1) {
+                            i10 = com.baidu.tieba.a.i.l();
+                        }
+                        if (this.f.getWidth() > i10 || this.f.getHeight() > i10) {
+                            ae.a(1, getClass().getName(), "doInBackground", "photo_too_big:" + String.valueOf(String.valueOf(this.f.getWidth()) + "*" + String.valueOf(this.f.getHeight())));
+                            com.baidu.tbadk.a.e.a().c(d.a(this.f) * 2);
+                            this.f = d.a(this.f, i10);
                         }
                     }
                 }
-                if (this.e != 0) {
-                    this.f = e.a(this.f, 7.0f);
+                if (this.l) {
+                    return null;
                 }
-                i9 = 1;
-            }
-            c((Object[]) new Integer[0]);
-            if (i9 != 0 && this.f != null) {
-                if (this.e == 1) {
-                    k.b(this.i, this.f);
-                } else if (this.e == 2) {
-                    k.a(this.i, this.f);
-                } else if (this.e == 3) {
-                    if (this.f != null && this.d != null && str2 != null) {
-                        o.a("hotspot", str2, this.f, 100);
-                    }
-                } else if (this.e == 4) {
-                    if (str2 != null && this.f != null && bArr != null) {
-                        o.a("image", str2, e.c(this.f, 80));
-                    }
-                } else if (str2 != null && this.f != null && bArr != null) {
-                    o.a("image", str2, bArr);
+                if (this.e != 0 && this.f != null) {
+                    com.baidu.tbadk.a.e.a().c(d.a(this.f) * 2);
+                    this.f = d.a(this.f, 7.0f);
                 }
             }
-        } catch (Exception e) {
-            ae.b("ImageAsyncTask", "doInBackground", "error = " + e.getMessage());
+            if (this.l) {
+                return null;
+            }
+            this.k = null;
+            if (this.f != null) {
+                if (this.e == 0 || this.e == 4) {
+                    this.k = new com.baidu.adp.widget.a.b(this.f, this.j, this.d);
+                    com.baidu.tbadk.a.e.a().b(this.i, this.k);
+                } else if (this.e == 1 || this.e == 2) {
+                    this.k = new com.baidu.adp.widget.a.b(this.f, false, this.d);
+                    com.baidu.tbadk.a.e.a().a(this.i, this.k);
+                }
+            }
+            if (this.f != null) {
+                c((Object[]) new Integer[0]);
+            }
+            if (this.l) {
+                return null;
+            }
+            if (z3 && this.f != null) {
+                try {
+                    if (this.e == 1) {
+                        k.b(this.i, this.f);
+                    } else if (this.e == 2) {
+                        k.a(this.i, this.f);
+                    } else if (this.e == 3) {
+                        if (this.f != null && this.d != null && f != null) {
+                            o.a("hotspot", f, this.f, 100);
+                        }
+                    } else if (this.e == 4) {
+                        if (f != null && this.f != null && bArr != null) {
+                            o.a("image", f, d.c(this.f, 80));
+                        }
+                    } else if (f != null && this.f != null && bArr != null) {
+                        o.a("image", f, bArr);
+                    }
+                } catch (Throwable th) {
+                }
+            }
+            return this.k;
         }
-        return this.f;
     }
 
     public String e() {
@@ -246,15 +299,8 @@ public class c extends com.baidu.adp.lib.a.a {
     @Override // com.baidu.adp.lib.a.a
     /* renamed from: a */
     public void b(Integer... numArr) {
-        if (this.f != null) {
-            if (this.e == 0 || this.e == 4) {
-                com.baidu.tbadk.a.d.a().a(this.i, this.f, this.j);
-            } else if (this.e == 1 || this.e == 2) {
-                com.baidu.tbadk.a.d.a().a(this.i, this.f);
-            }
-        }
-        if (this.c != null) {
-            this.c.a(this.f, this.d, this.g);
+        if (this.k != null && this.c != null) {
+            this.c.a(this.k, this.d, this.g);
         }
         super.b((Object[]) numArr);
     }
@@ -291,6 +337,7 @@ public class c extends com.baidu.adp.lib.a.a {
         boolean z;
         LinkedList linkedList;
         LinkedList linkedList2;
+        this.l = true;
         if (this.b != null) {
             this.b.g();
         }

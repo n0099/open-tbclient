@@ -21,37 +21,37 @@ public class ImageViewDrawer extends ImageView {
 
     public ImageViewDrawer(Context context) {
         super(context);
-        this.a = com.baidu.tieba.d.e.a((int) R.drawable.icon_gif);
+        this.a = com.baidu.tieba.d.d.a((int) R.drawable.icon_gif);
         this.b = -1;
         this.c = null;
         this.d = R.drawable.pic_image_h_not;
         this.e = R.drawable.pic_image_h_not_1;
         this.f = new Paint();
-        this.g = new ac(this);
+        this.g = new ae(this);
         c();
     }
 
     public ImageViewDrawer(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.a = com.baidu.tieba.d.e.a((int) R.drawable.icon_gif);
+        this.a = com.baidu.tieba.d.d.a((int) R.drawable.icon_gif);
         this.b = -1;
         this.c = null;
         this.d = R.drawable.pic_image_h_not;
         this.e = R.drawable.pic_image_h_not_1;
         this.f = new Paint();
-        this.g = new ac(this);
+        this.g = new ae(this);
         c();
     }
 
     public ImageViewDrawer(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.a = com.baidu.tieba.d.e.a((int) R.drawable.icon_gif);
+        this.a = com.baidu.tieba.d.d.a((int) R.drawable.icon_gif);
         this.b = -1;
         this.c = null;
         this.d = R.drawable.pic_image_h_not;
         this.e = R.drawable.pic_image_h_not_1;
         this.f = new Paint();
-        this.g = new ac(this);
+        this.g = new ae(this);
         c();
     }
 
@@ -94,7 +94,6 @@ public class ImageViewDrawer extends ImageView {
     @Override // android.widget.ImageView, android.view.View
     protected void onDraw(Canvas canvas) {
         String str;
-        Bitmap bitmap;
         boolean z;
         boolean z2 = false;
         super.onDraw(canvas);
@@ -103,53 +102,47 @@ public class ImageViewDrawer extends ImageView {
         } else {
             str = (String) getTag();
         }
-        com.baidu.tbadk.a.f d = com.baidu.tbadk.a.d.a().d(str);
-        if (d != null) {
-            bitmap = d.a();
-            if (bitmap != null) {
-                z = d.b();
-                z2 = true;
-            } else {
-                z = false;
-            }
-        } else {
-            bitmap = null;
+        com.baidu.adp.widget.a.b d = com.baidu.tbadk.a.e.a().d(str);
+        if (d == null || !d.g()) {
             z = false;
+        } else {
+            z2 = d.c();
+            z = true;
         }
         if (this.b <= 0) {
-            if (bitmap == null) {
-                bitmap = getDefalutBitmap();
+            if (d == null) {
+                d = getDefalutBitmap();
             }
-            if (bitmap != null) {
-                canvas.drawBitmap(bitmap, (getWidth() - bitmap.getWidth()) >> 1, (getHeight() - bitmap.getHeight()) >> 1, (Paint) null);
-                if (z) {
+            if (d != null) {
+                d.a(canvas, (getWidth() - d.a()) >> 1, (getHeight() - d.b()) >> 1, (Paint) null);
+                if (z2) {
                     canvas.drawBitmap(this.a, 0.0f, 0.0f, (Paint) null);
                 }
             }
-        } else if (bitmap != null) {
+        } else if (d != null) {
             int i = (this.b * 255) / 10;
-            Bitmap defalutBitmap = getDefalutBitmap();
+            com.baidu.adp.widget.a.b defalutBitmap = getDefalutBitmap();
             if (defalutBitmap != null) {
                 this.f.setAlpha(i);
-                canvas.drawBitmap(defalutBitmap, (getWidth() - defalutBitmap.getWidth()) >> 1, (getHeight() - defalutBitmap.getHeight()) >> 1, this.f);
+                defalutBitmap.a(canvas, (getWidth() - defalutBitmap.a()) >> 1, (getHeight() - defalutBitmap.b()) >> 1, this.f);
             }
             this.f.setAlpha(255 - i);
-            canvas.drawBitmap(bitmap, (getWidth() - bitmap.getWidth()) >> 1, (getHeight() - bitmap.getHeight()) >> 1, this.f);
-            if (z) {
+            d.a(canvas, (getWidth() - d.a()) >> 1, (getHeight() - d.b()) >> 1, this.f);
+            if (z2) {
                 canvas.drawBitmap(this.a, 0.0f, 0.0f, (Paint) null);
             }
         } else {
-            Bitmap defalutBitmap2 = getDefalutBitmap();
+            com.baidu.adp.widget.a.b defalutBitmap2 = getDefalutBitmap();
             if (defalutBitmap2 != null) {
-                canvas.drawBitmap(defalutBitmap2, (getWidth() - defalutBitmap2.getWidth()) >> 1, (getHeight() - defalutBitmap2.getHeight()) >> 1, (Paint) null);
+                defalutBitmap2.a(canvas, (getWidth() - defalutBitmap2.a()) >> 1, (getHeight() - defalutBitmap2.b()) >> 1, (Paint) null);
             }
         }
-        if (TiebaApplication.d().ai() == 1 && z2) {
+        if (TiebaApplication.d().ar() == 1 && z) {
             canvas.drawColor(1275068416);
         }
     }
 
-    private Bitmap getDefalutBitmap() {
-        return TiebaApplication.d().ai() == 1 ? com.baidu.tieba.d.e.a(this.e) : com.baidu.tieba.d.e.a(this.d);
+    private com.baidu.adp.widget.a.b getDefalutBitmap() {
+        return TiebaApplication.d().ar() == 1 ? new com.baidu.adp.widget.a.b(com.baidu.tieba.d.d.a(this.e), false, null) : new com.baidu.adp.widget.a.b(com.baidu.tieba.d.d.a(this.d), false, null);
     }
 }

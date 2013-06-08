@@ -35,8 +35,8 @@ public class TbRichTextView extends LinearLayout {
     private boolean s;
     private View.OnClickListener t;
 
-    public static a a(Context context, JSONArray jSONArray) {
-        return new a(context, jSONArray);
+    public static a a(Context context, String str) {
+        return new a(context, str);
     }
 
     public static a a(Context context, JSONArray jSONArray, boolean z) {
@@ -69,7 +69,7 @@ public class TbRichTextView extends LinearLayout {
         this.r = null;
         this.s = true;
         this.t = new i(this);
-        a();
+        b();
     }
 
     public TbRichTextView(Context context, AttributeSet attributeSet) {
@@ -94,7 +94,7 @@ public class TbRichTextView extends LinearLayout {
         this.r = null;
         this.s = true;
         this.t = new i(this);
-        a();
+        b();
         TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, com.baidu.tbadk.b.TbRichTextView);
         this.f = obtainStyledAttributes.getDimensionPixelSize(0, 0);
         this.e = obtainStyledAttributes.getDimensionPixelSize(1, 0);
@@ -110,7 +110,7 @@ public class TbRichTextView extends LinearLayout {
         obtainStyledAttributes.recycle();
     }
 
-    private void a() {
+    private void b() {
         if (getContext() instanceof h) {
             h hVar = (h) getContext();
             this.a = hVar.c();
@@ -187,7 +187,7 @@ public class TbRichTextView extends LinearLayout {
     }
 
     private LinearLayout a(c cVar) {
-        if (this.p <= 0) {
+        if (this.p <= 0 || cVar == null) {
             return null;
         }
         LinearLayout linearLayout = new LinearLayout(getContext());
@@ -234,7 +234,7 @@ public class TbRichTextView extends LinearLayout {
         } else {
             imageView.setScaleType(this.n);
         }
-        imageView.setTag(c.c());
+        imageView.setTag(c.d());
         imageView.setClickable(true);
         imageView.setFocusable(false);
         imageView.setOnClickListener(this.t);
@@ -391,6 +391,16 @@ public class TbRichTextView extends LinearLayout {
             setText(this.c);
             if (!this.s && this.a != null) {
                 this.a.b();
+            }
+        }
+    }
+
+    public void a() {
+        int childCount = getChildCount();
+        for (int i = 0; i < childCount; i++) {
+            View childAt = getChildAt(i);
+            if (childAt != null && (childAt instanceof ImageView)) {
+                ((ImageView) childAt).invalidate();
             }
         }
     }

@@ -51,7 +51,7 @@ public class ReplyMeActivity extends com.baidu.tieba.e {
     @Override // com.baidu.tieba.e, android.app.Activity
     public void onResume() {
         super.onResume();
-        if (TiebaApplication.d().Z() > 0) {
+        if (TiebaApplication.d().ab() > 0) {
             this.c.b(2);
         } else {
             this.c.b(1);

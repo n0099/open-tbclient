@@ -1344,6 +1344,9 @@ public class BdWebPoolView extends FrameLayout implements View.OnLongClickListen
     public boolean setWebViewToTarget(Message message, BdWebView.BdWebViewTransport bdWebViewTransport) {
         BdWebPoolCustomView availableWebView = getAvailableWebView((byte) 1, (byte) 3);
         if (availableWebView != null) {
+            if (this.mCurWebView != null && this.mCurWebView.equals(availableWebView)) {
+                availableWebView = genNewWebView();
+            }
             switchWebView(this.mCurWebView, availableWebView);
             bdWebViewTransport.setWebView(availableWebView);
             message.sendToTarget();

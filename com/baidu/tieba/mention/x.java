@@ -2,9 +2,9 @@ package com.baidu.tieba.mention;
 
 import android.app.AlertDialog;
 import android.widget.ProgressBar;
-import com.baidu.tieba.a.al;
-import com.baidu.tieba.a.aq;
-import com.baidu.tieba.c.bd;
+import com.baidu.tieba.a.am;
+import com.baidu.tieba.a.ar;
+import com.baidu.tieba.c.bg;
 import com.baidu.tieba.d.ae;
 import com.slidingmenu.lib.R;
 import java.util.ArrayList;
@@ -36,27 +36,27 @@ public class x extends com.baidu.adp.lib.a.a {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.a.a
     /* renamed from: d */
-    public al a(Object... objArr) {
-        al alVar = null;
+    public am a(Object... objArr) {
+        am amVar = null;
         try {
             this.c = new com.baidu.tieba.d.t(this.d);
             this.c.a(this.a);
             String i = this.c.i();
             if (this.c.b()) {
-                al alVar2 = new al();
+                am amVar2 = new am();
                 try {
-                    alVar2.b(i);
-                    int size = alVar2.d().size();
+                    amVar2.b(i);
+                    int size = amVar2.d().size();
                     for (int i2 = 0; i2 < size; i2++) {
-                        ((aq) alVar2.d().get(i2)).e(this.b);
-                        ((aq) alVar2.d().get(i2)).a((ArrayList) null);
+                        ((ar) amVar2.d().get(i2)).d(this.b);
+                        ((ar) amVar2.d().get(i2)).a((ArrayList) null);
                     }
-                    return alVar2;
+                    return amVar2;
                 } catch (Exception e) {
-                    alVar = alVar2;
+                    amVar = amVar2;
                     e = e;
                     ae.b("PostAsyncTask", "doInBackground", "error = " + e.getMessage());
-                    return alVar;
+                    return amVar;
                 }
             }
             return null;
@@ -68,15 +68,15 @@ public class x extends com.baidu.adp.lib.a.a {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.a.a
-    public void a(al alVar) {
+    public void a(am amVar) {
         ProgressBar progressBar;
-        bd bdVar;
+        bg bgVar;
         try {
             progressBar = this.b.h;
             progressBar.setVisibility(8);
-            if (alVar != null) {
-                bdVar = this.b.n;
-                bdVar.a(alVar);
+            if (amVar != null) {
+                bgVar = this.b.n;
+                bgVar.a(amVar);
             } else if (this.c != null) {
                 if (this.c.c()) {
                     this.b.a(this.c.f());

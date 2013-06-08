@@ -30,7 +30,7 @@ public class PersonLbsActivity extends com.baidu.tieba.e {
     private View.OnClickListener m = null;
     private bi n = null;
     private bh o = null;
-    private com.baidu.tieba.c.bi p = null;
+    private com.baidu.tieba.c.bl p = null;
     private AbsListView.OnScrollListener q = null;
     private int r = 1;
     private int s = 1;
@@ -41,7 +41,7 @@ public class PersonLbsActivity extends com.baidu.tieba.e {
     public static void a(Context context, String str) {
         Intent intent = new Intent(context, PersonLbsActivity.class);
         intent.putExtra("un", str);
-        if (TiebaApplication.z() != null && TiebaApplication.z().equals(str)) {
+        if (TiebaApplication.B() != null && TiebaApplication.B().equals(str)) {
             intent.putExtra("self", true);
         } else {
             intent.putExtra("self", false);
@@ -89,7 +89,7 @@ public class PersonLbsActivity extends com.baidu.tieba.e {
             this.f.setText(R.string.his_lbs_no_data);
         }
         this.l = intent.getStringExtra("un");
-        a(0, 1);
+        b(0, 1);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -113,7 +113,7 @@ public class PersonLbsActivity extends com.baidu.tieba.e {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void a(int i, int i2) {
+    public void b(int i, int i2) {
         if (this.o != null) {
             if (this.o.e() != i) {
                 this.o.cancel();

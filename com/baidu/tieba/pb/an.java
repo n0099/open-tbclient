@@ -10,36 +10,36 @@ class an extends com.baidu.adp.a.e {
 
     @Override // com.baidu.adp.a.e
     public void a(Object obj) {
-        bl blVar;
-        com.baidu.tieba.c.i iVar;
-        com.baidu.tieba.c.i iVar2;
-        com.baidu.tieba.c.i iVar3;
+        bk bkVar;
+        com.baidu.tieba.c.l lVar;
+        com.baidu.tieba.c.l lVar2;
+        com.baidu.tieba.c.l lVar3;
         if (obj != null) {
-            iVar2 = this.a.n;
-            switch (iVar2.a()) {
+            lVar2 = this.a.n;
+            switch (lVar2.a()) {
                 case 0:
-                    this.a.a((com.baidu.tieba.c.k) obj);
+                    this.a.a((com.baidu.tieba.c.n) obj);
                     return;
                 case 1:
-                    this.a.a((com.baidu.tieba.c.m) obj);
+                    this.a.a((com.baidu.tieba.c.p) obj);
                     return;
                 case 2:
                 case 3:
                 case 4:
                 case 5:
                     NewPbActivity newPbActivity = this.a;
-                    iVar3 = this.a.n;
-                    newPbActivity.a(iVar3.a(), (com.baidu.tieba.c.o) obj);
+                    lVar3 = this.a.n;
+                    newPbActivity.a(lVar3.a(), (com.baidu.tieba.c.r) obj);
                     return;
                 case 6:
-                    this.a.a((com.baidu.tieba.c.o) obj);
+                    this.a.a((com.baidu.tieba.c.r) obj);
                     return;
                 default:
                     return;
             }
         }
-        blVar = this.a.o;
-        iVar = this.a.n;
-        blVar.a(iVar.a(), false, (String) null, false);
+        bkVar = this.a.o;
+        lVar = this.a.n;
+        bkVar.a(lVar.a(), false, (String) null, false);
     }
 }

@@ -5,12 +5,12 @@ import com.baidu.tieba.frs.FrsActivity;
 /* loaded from: classes.dex */
 class ae implements View.OnClickListener {
     final /* synthetic */ ad a;
-    private final /* synthetic */ com.baidu.tieba.c.ap b;
+    private final /* synthetic */ com.baidu.tieba.c.as b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ae(ad adVar, com.baidu.tieba.c.ap apVar) {
+    public ae(ad adVar, com.baidu.tieba.c.as asVar) {
         this.a = adVar;
-        this.b = apVar;
+        this.b = asVar;
     }
 
     @Override // android.view.View.OnClickListener

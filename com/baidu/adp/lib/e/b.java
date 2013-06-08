@@ -3,6 +3,10 @@ package com.baidu.adp.lib.e;
 import android.util.Log;
 /* loaded from: classes.dex */
 public class b {
+    public static boolean a() {
+        return com.baidu.adp.a.b.a().b();
+    }
+
     public static void a(String str, String str2, String str3) {
         String f = f(str, str2, str3);
         if (f != null) {

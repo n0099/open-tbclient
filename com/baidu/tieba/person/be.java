@@ -22,7 +22,7 @@ public class be implements View.OnClickListener {
             if (view != imageView2) {
                 return;
             }
-            this.a.a(0, 1);
+            this.a.b(0, 1);
             return;
         }
         this.a.finish();

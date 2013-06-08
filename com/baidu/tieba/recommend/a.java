@@ -14,10 +14,10 @@ class a implements View.OnClickListener {
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         switch (view.getId()) {
-            case R.id.back /* 2131099726 */:
+            case R.id.back /* 2131099728 */:
                 this.a.finish();
                 return;
-            case R.id.tag_webview_item /* 2131099893 */:
+            case R.id.tag_webview_item /* 2131099922 */:
                 this.a.b();
                 return;
             default:

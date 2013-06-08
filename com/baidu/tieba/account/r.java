@@ -26,7 +26,7 @@ public class r implements View.OnFocusChangeListener {
         Button button9;
         if (z) {
             switch (view.getId()) {
-                case R.id.login_edit_account /* 2131099710 */:
+                case R.id.login_edit_account /* 2131099712 */:
                     button7 = this.a.I;
                     button7.setVisibility(8);
                     button8 = this.a.H;
@@ -34,7 +34,7 @@ public class r implements View.OnFocusChangeListener {
                     button9 = this.a.J;
                     button9.setVisibility(8);
                     return;
-                case R.id.login_edit_password /* 2131099714 */:
+                case R.id.login_edit_password /* 2131099716 */:
                     button = this.a.I;
                     button.setVisibility(0);
                     button2 = this.a.H;
@@ -42,7 +42,7 @@ public class r implements View.OnFocusChangeListener {
                     button3 = this.a.J;
                     button3.setVisibility(8);
                     return;
-                case R.id.edit_vcode /* 2131099717 */:
+                case R.id.edit_vcode /* 2131099719 */:
                     button4 = this.a.I;
                     button4.setVisibility(8);
                     button5 = this.a.H;

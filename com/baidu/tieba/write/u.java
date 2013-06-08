@@ -39,10 +39,10 @@ public class u implements AdapterView.OnItemClickListener {
                 mVar2 = this.a.t;
                 Bitmap bitmap = (Bitmap) mVar2.getItem(i);
                 if (bitmap != null) {
-                    com.baidu.tieba.view.ak akVar = new com.baidu.tieba.view.ak(bitmap);
-                    akVar.setBounds(0, 0, bitmap.getWidth() + 1, bitmap.getHeight());
-                    akVar.setGravity(3);
-                    spannableStringBuilder.setSpan(new ImageSpan(akVar, 0), 0, spannableStringBuilder.length(), 33);
+                    com.baidu.tieba.view.am amVar = new com.baidu.tieba.view.am(bitmap);
+                    amVar.setBounds(0, 0, bitmap.getWidth() + 1, bitmap.getHeight());
+                    amVar.setGravity(3);
+                    spannableStringBuilder.setSpan(new ImageSpan(amVar, 0), 0, spannableStringBuilder.length(), 33);
                     editText4 = this.a.h;
                     editText4.getText().insert(selectionStart, spannableStringBuilder);
                     return;

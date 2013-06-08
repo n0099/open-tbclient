@@ -19,11 +19,11 @@ public class bg implements AdapterView.OnItemClickListener {
         if (j == -1) {
             PersonLbsActivity personLbsActivity = this.a;
             i3 = this.a.r;
-            personLbsActivity.a(1, i3 - 1);
+            personLbsActivity.b(1, i3 - 1);
         } else if (j == -2) {
             PersonLbsActivity personLbsActivity2 = this.a;
             i2 = this.a.s;
-            personLbsActivity2.a(2, i2 + 1);
+            personLbsActivity2.b(2, i2 + 1);
         }
     }
 }

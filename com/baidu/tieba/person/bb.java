@@ -1,10 +1,9 @@
 package com.baidu.tieba.person;
 
-import android.graphics.Bitmap;
 import android.widget.ImageView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class bb implements com.baidu.tieba.d.d {
+public class bb implements com.baidu.tbadk.a.d {
     final /* synthetic */ ba a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -12,12 +11,12 @@ public class bb implements com.baidu.tieba.d.d {
         this.a = baVar;
     }
 
-    @Override // com.baidu.tieba.d.d
-    public void a(Bitmap bitmap, String str, boolean z) {
+    @Override // com.baidu.tbadk.a.d
+    public void a(com.baidu.adp.widget.a.b bVar, String str, boolean z) {
         ImageView imageView;
-        if (bitmap != null) {
+        if (bVar != null) {
             imageView = this.a.d;
-            imageView.setImageBitmap(bitmap);
+            bVar.b(imageView);
         }
     }
 }

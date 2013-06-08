@@ -12,13 +12,10 @@ import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import com.baidu.tieba.MainTabActivity;
 import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.d.ac;
 import com.baidu.tieba.d.ae;
 import com.baidu.tieba.d.ag;
-import com.baidu.tieba.frs.FrsActivity;
-import com.baidu.tieba.pb.NewPbActivity;
 import com.baidu.tieba.view.BaseWebView;
 import com.slidingmenu.lib.R;
 import java.net.URLDecoder;
@@ -39,8 +36,8 @@ public class TagContentActivity extends com.baidu.tieba.e implements com.baidu.t
     private BaseWebView m = null;
     private ProgressBar n = null;
     private LinearLayout o = null;
-    private j p = null;
-    private i q = null;
+    private h p = null;
+    private g q = null;
     private boolean r = false;
     private boolean s = true;
     private TextView t = null;
@@ -50,7 +47,7 @@ public class TagContentActivity extends com.baidu.tieba.e implements com.baidu.t
 
     @Override // com.baidu.tieba.e
     public boolean e() {
-        return TiebaApplication.d().q();
+        return TiebaApplication.d().r();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -86,7 +83,7 @@ public class TagContentActivity extends com.baidu.tieba.e implements com.baidu.t
         this.t = (TextView) this.o.findViewById(R.id.webview_fail);
         this.u = (TextView) this.o.findViewById(R.id.webview_crash_tip);
         this.n = (ProgressBar) findViewById(R.id.tag_progress);
-        this.l = new h(this);
+        this.l = new f(this);
         this.g.setOnClickListener(this.l);
         this.h.setOnClickListener(this.l);
         if (this.f.booleanValue()) {
@@ -104,8 +101,8 @@ public class TagContentActivity extends com.baidu.tieba.e implements com.baidu.t
     /* JADX INFO: Access modifiers changed from: protected */
     public void b() {
         this.g.setVisibility(8);
-        String z = TiebaApplication.z();
-        this.q = new i(this, z != null && z.length() > 0);
+        String B = TiebaApplication.B();
+        this.q = new g(this, B != null && B.length() > 0);
         this.q.setPriority(3);
         this.q.execute(new Object[0]);
     }
@@ -138,14 +135,14 @@ public class TagContentActivity extends com.baidu.tieba.e implements com.baidu.t
     @Override // com.baidu.tieba.e, android.app.Activity
     public void onResume() {
         super.onResume();
-        Long valueOf = Long.valueOf(TiebaApplication.d().y());
+        Long valueOf = Long.valueOf(TiebaApplication.d().z());
         if (!this.v && System.currentTimeMillis() - valueOf.longValue() > com.baidu.tieba.a.i.b.longValue() && this.m != null) {
             c();
         }
     }
 
     public void c() {
-        if (TiebaApplication.d().aj() == 0 && !q()) {
+        if (TiebaApplication.d().as() == 0 && !q()) {
             this.u.setVisibility(0);
             return;
         }
@@ -156,7 +153,7 @@ public class TagContentActivity extends com.baidu.tieba.e implements com.baidu.t
             this.r = false;
             this.s = true;
             r();
-            this.p = new j(this, null);
+            this.p = new h(this, null);
             this.p.setPriority(3);
             this.p.execute(new Object[0]);
         }
@@ -175,34 +172,20 @@ public class TagContentActivity extends com.baidu.tieba.e implements com.baidu.t
 
     @Override // com.baidu.tieba.view.d
     public boolean a(WebView webView, String str) {
-        if (str != null && str.contains("jump_tieba_native=1")) {
-            if (str.contains("nearby=1")) {
-                MainTabActivity.a(this, "goto_nearby");
-            } else if (str.contains("kz=")) {
-                String a = a(str, "kz=");
-                if (a != null && a.length() >= 0) {
-                    NewPbActivity.a(this, a, null, "tagthread");
+        if (!i.a(this, str)) {
+            if (str.contains("c/s/tag/tagthread")) {
+                if (str.contains("pn=")) {
+                    String a = a(str, "pn=");
+                    if (a != null && a.length() >= 0) {
+                        this.y = a;
+                    }
+                } else {
+                    this.y = "1";
                 }
-            } else if (str.contains("kw=")) {
-                String a2 = a(str, "kw=");
-                if (a2 != null && a2.length() >= 0) {
-                    FrsActivity.a(this, a2, "tagthread");
-                }
-            }
-            return true;
-        }
-        if (str.contains("c/s/tag/tagthread")) {
-            if (str.contains("pn=")) {
-                String a3 = a(str, "pn=");
-                if (a3 != null && a3.length() >= 0) {
-                    this.y = a3;
-                }
+                c();
             } else {
-                this.y = "1";
+                ag.d(this, str);
             }
-            c();
-        } else {
-            ag.d(this, str);
         }
         return true;
     }
@@ -224,7 +207,7 @@ public class TagContentActivity extends com.baidu.tieba.e implements com.baidu.t
         if (this.m == null) {
             try {
                 this.m = new BaseWebView(this);
-                ac.a(this.m, TiebaApplication.d().ai());
+                ac.a(this.m, TiebaApplication.d().ar());
                 this.m.setOnLoadUrlListener(this);
                 this.m.setHorizontalScrollBarEnabled(false);
                 this.m.setHorizontalScrollbarOverlay(false);

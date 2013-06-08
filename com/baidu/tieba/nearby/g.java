@@ -12,16 +12,16 @@ class g implements Runnable {
 
     @Override // java.lang.Runnable
     public void run() {
-        com.baidu.tieba.c.ag agVar;
-        com.baidu.tieba.c.ag agVar2;
-        com.baidu.tieba.c.ag agVar3;
+        com.baidu.tieba.c.aj ajVar;
+        com.baidu.tieba.c.aj ajVar2;
+        com.baidu.tieba.c.aj ajVar3;
         com.baidu.tieba.d.a aVar;
-        agVar = this.a.h;
-        if (agVar != null) {
-            agVar2 = this.a.h;
-            if (agVar2.a() != null) {
-                agVar3 = this.a.h;
-                ArrayList a = agVar3.a();
+        ajVar = this.a.h;
+        if (ajVar != null) {
+            ajVar2 = this.a.h;
+            if (ajVar2.a() != null) {
+                ajVar3 = this.a.h;
+                ArrayList a = ajVar3.a();
                 int i = 0;
                 while (true) {
                     int i2 = i;

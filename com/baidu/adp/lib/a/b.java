@@ -1,6 +1,4 @@
 package com.baidu.adp.lib.a;
-
-import java.util.concurrent.atomic.AtomicBoolean;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class b extends g {
@@ -15,11 +13,8 @@ public class b extends g {
 
     @Override // java.util.concurrent.Callable
     public Object call() {
-        AtomicBoolean atomicBoolean;
-        Object d;
-        atomicBoolean = this.a.k;
-        atomicBoolean.set(true);
-        d = this.a.d(this.a.a(this.b));
-        return d;
+        Object c;
+        c = this.a.c(this.a.a(this.b));
+        return c;
     }
 }

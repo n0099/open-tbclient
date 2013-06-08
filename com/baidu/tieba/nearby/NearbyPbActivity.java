@@ -21,7 +21,7 @@ import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.account.LoginActivity;
-import com.baidu.tieba.c.bp;
+import com.baidu.tieba.c.bs;
 import com.baidu.zeus.WebChromeClient;
 import com.slidingmenu.lib.R;
 import java.util.ArrayList;
@@ -42,7 +42,7 @@ public class NearbyPbActivity extends com.baidu.tieba.e {
     private ad k = null;
     private ae l = null;
     private aa m = null;
-    private com.baidu.tieba.c.bd n = null;
+    private com.baidu.tieba.c.bg n = null;
     private String o = null;
     private ProgressBar p = null;
     private Handler q = new Handler();
@@ -55,7 +55,7 @@ public class NearbyPbActivity extends com.baidu.tieba.e {
     private boolean x = false;
     private String y = null;
     private String z = null;
-    private bp A = null;
+    private bs A = null;
     private Runnable E = new k(this);
 
     public static void a(Context context, String str, String str2) {
@@ -91,7 +91,7 @@ public class NearbyPbActivity extends com.baidu.tieba.e {
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         setContentView(R.layout.nearby_pb_activity);
-        this.w = TiebaApplication.z();
+        this.w = TiebaApplication.B();
         n();
         a(bundle);
     }
@@ -111,7 +111,7 @@ public class NearbyPbActivity extends com.baidu.tieba.e {
         this.d = (ListView) findViewById(R.id.pb_list);
         this.d.setFastScrollEnabled(true);
         this.l = new ae(this, null, com.baidu.tieba.d.ag.a((Context) this) - com.baidu.tieba.d.ag.a(this, 34.0f), this.r);
-        this.l.c(TiebaApplication.d().ag());
+        this.l.c(TiebaApplication.d().ao());
         this.l.c(true);
         this.l.b(0);
         this.l.a(0);
@@ -134,7 +134,7 @@ public class NearbyPbActivity extends com.baidu.tieba.e {
 
     private void a(Bundle bundle) {
         this.x = false;
-        this.n = new com.baidu.tieba.c.bd();
+        this.n = new com.baidu.tieba.c.bg();
         if (bundle != null) {
             this.o = bundle.getString("id");
             this.u = bundle.getString("st_type");
@@ -192,7 +192,7 @@ public class NearbyPbActivity extends com.baidu.tieba.e {
                 this.l.b().b();
             }
             if (this.n != null && this.n.a() != null) {
-                this.n.a((com.baidu.tieba.a.al) null);
+                this.n.a((com.baidu.tieba.a.am) null);
             }
             b();
             this.p.setVisibility(8);
@@ -217,14 +217,14 @@ public class NearbyPbActivity extends com.baidu.tieba.e {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.e, android.app.Activity
     public void onResume() {
-        if (this.l != null && this.l.h() != TiebaApplication.d().ag()) {
-            this.l.c(TiebaApplication.d().ag());
+        if (this.l != null && this.l.h() != TiebaApplication.d().ao()) {
+            this.l.c(TiebaApplication.d().ao());
             this.l.notifyDataSetChanged();
         }
         if (this.n != null) {
-            String z = TiebaApplication.z();
-            if (this.w == null && z != null && z.length() > 0) {
-                this.w = z;
+            String B2 = TiebaApplication.B();
+            if (this.w == null && B2 != null && B2.length() > 0) {
+                this.w = B2;
                 if (this.n.a() != null && this.n.a().f() != null) {
                     this.n.a().f().a(1);
                 }
@@ -321,7 +321,7 @@ public class NearbyPbActivity extends com.baidu.tieba.e {
                     ArrayList d = this.n.a().d();
                     if (d != null && d.size() > 0) {
                         int size = d.size();
-                        String d2 = ((com.baidu.tieba.a.aq) d.get(0)).d();
+                        String d2 = ((com.baidu.tieba.a.ar) d.get(0)).d();
                         if (d2 != null && d2.length() > 0) {
                             arrayList.add(new BasicNameValuePair("pid", d2));
                         }
@@ -338,7 +338,7 @@ public class NearbyPbActivity extends com.baidu.tieba.e {
                     ArrayList d3 = this.n.a().d();
                     if (d3 != null && d3.size() > 0) {
                         int size2 = d3.size();
-                        String d4 = ((com.baidu.tieba.a.aq) d3.get(size2 - 1)).d();
+                        String d4 = ((com.baidu.tieba.a.ar) d3.get(size2 - 1)).d();
                         if (d4 != null && d4.length() > 0) {
                             arrayList.add(new BasicNameValuePair("pid", d4));
                         }
@@ -382,8 +382,8 @@ public class NearbyPbActivity extends com.baidu.tieba.e {
     /* JADX INFO: Access modifiers changed from: private */
     public void r() {
         try {
-            String z = TiebaApplication.z();
-            if (z == null || z.length() <= 0) {
+            String B2 = TiebaApplication.B();
+            if (B2 == null || B2.length() <= 0) {
                 LoginActivity.a((Activity) this, getString(R.string.login_to_post), true, 1100024);
                 return;
             }
@@ -394,16 +394,16 @@ public class NearbyPbActivity extends com.baidu.tieba.e {
                 }
                 if (this.n != null && this.n.a() != null) {
                     a(getString(R.string.sending), this.j);
-                    bp bpVar = new bp();
-                    bpVar.e(this.n.a().a().a());
-                    bpVar.f(this.n.a().a().b());
-                    bpVar.b(editable);
-                    bpVar.g(null);
-                    bpVar.d(null);
-                    bpVar.c(this.o);
-                    bpVar.b(0);
-                    bpVar.a(1);
-                    this.k = new ad(this, bpVar);
+                    bs bsVar = new bs();
+                    bsVar.e(this.n.a().a().a());
+                    bsVar.f(this.n.a().a().b());
+                    bsVar.b(editable);
+                    bsVar.g(null);
+                    bsVar.d(null);
+                    bsVar.c(this.o);
+                    bsVar.b(0);
+                    bsVar.a(1);
+                    this.k = new ad(this, bsVar);
                     this.k.setPriority(3);
                     this.k.execute(new Integer[0]);
                 }

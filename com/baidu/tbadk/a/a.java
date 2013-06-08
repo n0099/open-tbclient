@@ -32,14 +32,17 @@ public class a {
         this.c = bVar;
     }
 
-    public Bitmap a(String str) {
+    public com.baidu.adp.widget.a.b a(String str) {
         return a(b(str), str);
     }
 
-    private Bitmap a(int i, String str) {
-        Bitmap c = d.a().c(str);
-        if (c == null && (c = com.baidu.adp.lib.e.a.a().a(this.b, i)) != null) {
-            d.a().b(str, c);
+    private com.baidu.adp.widget.a.b a(int i, String str) {
+        Bitmap a2;
+        com.baidu.adp.widget.a.b c = e.a().c(str);
+        if (c == null && (a2 = com.baidu.adp.lib.e.a.a().a(this.b, i)) != null) {
+            com.baidu.adp.widget.a.b bVar = new com.baidu.adp.widget.a.b(a2, false, str);
+            e.a().b(str, bVar);
+            return bVar;
         }
         return c;
     }
@@ -49,10 +52,10 @@ public class a {
     }
 
     public c c(String str) {
-        Bitmap a2;
+        com.baidu.adp.widget.a.b a2;
         c a3 = this.c.a(this.b, str);
         if (a3 == null && (a2 = a(str)) != null) {
-            return new c(a2.getWidth(), a2.getHeight());
+            return new c(a2.a(), a2.b());
         }
         return a3;
     }
@@ -69,7 +72,7 @@ public class a {
         return this.c.a(i);
     }
 
-    public Bitmap b(int i) {
+    public com.baidu.adp.widget.a.b b(int i) {
         int a2 = a(i);
         return a(a2, String.valueOf(a2));
     }
@@ -79,7 +82,7 @@ public class a {
     }
 
     public SpannableString a(Context context, String str) {
-        Bitmap a2;
+        com.baidu.adp.widget.a.b a2;
         if (str == null) {
             return null;
         }
@@ -91,9 +94,9 @@ public class a {
             if (b > 0 && (a2 = a(b, String.valueOf(b))) != null) {
                 int length = group.length();
                 int start = matcher.start();
-                BitmapDrawable bitmapDrawable = new BitmapDrawable(a2);
-                bitmapDrawable.setBounds(0, 0, a2.getWidth(), a2.getHeight());
-                spannableString.setSpan(new ImageSpan(bitmapDrawable, 0), start, length + start, 33);
+                BitmapDrawable h = a2.h();
+                h.setBounds(0, 0, a2.a(), a2.b());
+                spannableString.setSpan(new ImageSpan(h, 0), start, length + start, 33);
             }
         }
         return spannableString;

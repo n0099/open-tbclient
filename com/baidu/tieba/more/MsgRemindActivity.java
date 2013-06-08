@@ -142,12 +142,12 @@ public class MsgRemindActivity extends com.baidu.tieba.e {
     }
 
     private void c() {
-        int N = TiebaApplication.d().N();
-        if (N == 30) {
+        int P = TiebaApplication.d().P();
+        if (P == 30) {
             this.c.check(R.id.radio_30sec);
-        } else if (N == 120) {
+        } else if (P == 120) {
             this.c.check(R.id.radio_2min);
-        } else if (N == 300) {
+        } else if (P == 300) {
             this.c.check(R.id.radio_5min);
         } else {
             this.c.check(R.id.radio_no);
@@ -156,7 +156,7 @@ public class MsgRemindActivity extends com.baidu.tieba.e {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void d() {
-        if (TiebaApplication.d().N() <= 0) {
+        if (TiebaApplication.d().P() <= 0) {
             this.d.setVisibility(8);
             this.f.setVisibility(8);
             this.e.setVisibility(8);
@@ -174,19 +174,19 @@ public class MsgRemindActivity extends com.baidu.tieba.e {
     }
 
     private void m() {
-        if (TiebaApplication.d().V()) {
+        if (TiebaApplication.d().X()) {
             this.e.setChecked(true);
         }
-        if (TiebaApplication.d().U()) {
+        if (TiebaApplication.d().W()) {
             this.f.setChecked(true);
         }
-        if (TiebaApplication.d().T()) {
+        if (TiebaApplication.d().V()) {
             this.g.setChecked(true);
         }
     }
 
     private void n() {
-        if (TiebaApplication.d().Q()) {
+        if (TiebaApplication.d().S()) {
             this.i.a();
         } else {
             this.i.b();
@@ -194,7 +194,7 @@ public class MsgRemindActivity extends com.baidu.tieba.e {
     }
 
     private void o() {
-        if (TiebaApplication.d().R()) {
+        if (TiebaApplication.d().T()) {
             this.k.a();
         } else {
             this.k.b();

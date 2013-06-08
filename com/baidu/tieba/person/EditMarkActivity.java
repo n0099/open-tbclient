@@ -8,7 +8,7 @@ import android.widget.AdapterView;
 import com.baidu.tieba.pb.NewPbActivity;
 /* loaded from: classes.dex */
 public class EditMarkActivity extends com.baidu.tieba.e {
-    private com.baidu.tieba.c.c c = null;
+    private com.baidu.tieba.c.f c = null;
     private y d = null;
     private int e = -1;
 
@@ -20,7 +20,7 @@ public class EditMarkActivity extends com.baidu.tieba.e {
     @Override // com.baidu.tieba.e, com.baidu.adp.a.a, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.c = new com.baidu.tieba.c.c();
+        this.c = new com.baidu.tieba.c.f();
         this.c.a(new w(this, this));
         this.d = new y(this);
         this.d.a(new x(this));
@@ -93,7 +93,7 @@ public class EditMarkActivity extends com.baidu.tieba.e {
     }
 
     private void c() {
-        this.c.a(com.baidu.tieba.d.k.r());
+        this.c.a(com.baidu.tieba.d.k.s());
         this.d.a(this.c.b());
     }
 
@@ -105,9 +105,9 @@ public class EditMarkActivity extends com.baidu.tieba.e {
                 case 1700001:
                     com.baidu.tieba.a.af afVar = (com.baidu.tieba.a.af) intent.getSerializableExtra("mark");
                     if (afVar != null && this.c.b().size() > this.e && this.e >= 0) {
-                        ((com.baidu.tieba.a.af) this.c.b().get(this.e)).d(afVar.h());
-                        ((com.baidu.tieba.a.af) this.c.b().get(this.e)).a(afVar.g());
+                        ((com.baidu.tieba.a.af) this.c.b().get(this.e)).d(afVar.g());
                         ((com.baidu.tieba.a.af) this.c.b().get(this.e)).a(afVar.f());
+                        ((com.baidu.tieba.a.af) this.c.b().get(this.e)).a(afVar.e());
                         this.d.g();
                         return;
                     }

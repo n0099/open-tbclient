@@ -1,73 +1,98 @@
 package com.baidu.tieba.c;
+
+import java.util.ArrayList;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class i extends com.baidu.adp.a.c {
-    private j e = null;
-    private l f = null;
-    private n g = null;
+public class i extends com.baidu.adp.lib.a.a {
+    final /* synthetic */ f a;
+    private com.baidu.tieba.d.t b;
+    private com.baidu.tieba.a.ba c;
 
-    public boolean d() {
-        e();
-        return false;
+    private i(f fVar) {
+        this.a = fVar;
+        this.b = null;
+        this.c = null;
     }
 
-    public void e() {
-        if (this.e != null) {
-            this.e.cancel();
-            this.e = null;
-        }
-        if (this.f != null) {
-            this.f.cancel();
-            this.f = null;
-        }
-        if (this.g != null) {
-            this.g.cancel();
-            this.g = null;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public /* synthetic */ i(f fVar, i iVar) {
+        this(fVar);
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.a.a
+    public void b() {
+        this.c = new com.baidu.tieba.a.ba();
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.a.a
+    public Boolean a(f... fVarArr) {
+        f fVar = new f();
+        try {
+            fVar.e();
+            this.b = new com.baidu.tieba.d.t();
+            this.b.a(String.valueOf(com.baidu.tieba.a.i.e) + "c/c/post/addstore");
+            int h = this.a.h();
+            if (fVar.c() - 1 <= h) {
+                h = fVar.c() - 1;
+            }
+            while (h >= 0) {
+                String a = fVar.a(h, 20);
+                this.b.a(new ArrayList());
+                this.b.a("data", a);
+                this.c.a(this.b.i());
+                if (!this.b.b() || this.c.a() != 0) {
+                    break;
+                }
+                h -= 20;
+            }
+            this.a.b(h);
+            if (h >= 0) {
+                return false;
+            }
+            return true;
+        } catch (Exception e) {
+            com.baidu.tieba.d.ae.b(getClass().getName(), "", "doInBackground error = " + e.getMessage());
+            return false;
         }
     }
 
-    public void a(String str, String str2, String str3, String str4, int i, int i2) {
-        if (this.e != null) {
-            this.e.cancel();
-            this.e = null;
+    @Override // com.baidu.adp.lib.a.a
+    public void cancel() {
+        super.cancel(true);
+        if (this.b != null) {
+            this.b.g();
         }
-        this.a = 0;
-        this.e = new j(this, str, str2, str3, str4, i, i2);
-        this.e.setPriority(2);
-        this.e.execute(new String[0]);
+        this.a.c = null;
+        if (this.a.a != null) {
+            this.a.a.a(1, false, null, false);
+        }
     }
 
-    public boolean f() {
-        return (this.e == null && this.f == null && this.g == null) ? false : true;
-    }
-
-    public void a(String str, String str2, String str3, String str4, int i) {
-        if (this.f != null) {
-            this.f.cancel();
-            this.f = null;
-        }
-        this.a = 1;
-        this.f = new l(this, str, str2, str3, str4, String.valueOf(i));
-        this.f.setPriority(2);
-        this.f.execute(String.valueOf(com.baidu.tieba.a.i.e) + "c/c/bawu/commitprison");
-    }
-
-    public void a(String str, String str2, String str3, int i, String str4) {
-        String str5;
-        if (this.g != null) {
-            this.g.cancel();
-            this.g = null;
-        }
-        this.a = i;
-        this.g = new n(this, str, str2, str3, i, str4);
-        this.g.setPriority(2);
-        String str6 = com.baidu.tieba.a.i.e;
-        if (i == 6) {
-            str5 = String.valueOf(str6) + "c/c/bawu/goodlist";
-        } else if (i == 2 || i == 3) {
-            str5 = String.valueOf(str6) + "c/c/bawu/commitgood";
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.a.a
+    public void a(Boolean bool) {
+        String str;
+        boolean z;
+        ArrayList arrayList;
+        this.a.c = null;
+        if (bool.booleanValue()) {
+            arrayList = this.a.e;
+            arrayList.clear();
+            str = null;
+            z = false;
+        } else if (this.b.b()) {
+            str = this.c.b();
+            z = false;
         } else {
-            str5 = String.valueOf(str6) + "c/c/bawu/committop";
+            str = null;
+            z = true;
         }
-        this.g.execute(str5);
+        if (this.a.a != null) {
+            this.a.a.a(1, bool, str, Boolean.valueOf(z));
+        }
     }
 }

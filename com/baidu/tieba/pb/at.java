@@ -9,16 +9,16 @@ class at implements cq {
     }
 
     @Override // com.baidu.tieba.pb.cq
-    public void a(com.baidu.tieba.a.ax axVar) {
-        com.baidu.tieba.c.ax axVar2;
-        com.baidu.tieba.c.ax axVar3;
-        bl blVar;
-        axVar2 = this.a.m;
-        if (axVar2 != null) {
-            axVar3 = this.a.m;
-            if (axVar3.i()) {
-                blVar = this.a.o;
-                blVar.s();
+    public void a(com.baidu.tieba.a.ay ayVar) {
+        com.baidu.tieba.c.ba baVar;
+        com.baidu.tieba.c.ba baVar2;
+        bk bkVar;
+        baVar = this.a.m;
+        if (baVar != null) {
+            baVar2 = this.a.m;
+            if (baVar2.i()) {
+                bkVar = this.a.o;
+                bkVar.s();
             }
         }
     }

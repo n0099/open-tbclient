@@ -8,12 +8,12 @@ import com.slidingmenu.lib.R;
 public class aw extends com.baidu.adp.lib.a.a {
     final /* synthetic */ PersonChangeActivity a;
     private com.baidu.tieba.d.t b = null;
-    private com.baidu.tieba.c.be c;
+    private com.baidu.tieba.c.bh c;
 
-    public aw(PersonChangeActivity personChangeActivity, com.baidu.tieba.c.be beVar) {
+    public aw(PersonChangeActivity personChangeActivity, com.baidu.tieba.c.bh bhVar) {
         this.a = personChangeActivity;
         this.c = null;
-        this.c = beVar;
+        this.c = bhVar;
     }
 
     @Override // com.baidu.adp.lib.a.a
@@ -66,7 +66,7 @@ public class aw extends com.baidu.adp.lib.a.a {
             this.b.a("intro", this.c.d().a());
             this.b.j();
             if (this.b.b()) {
-                com.baidu.tieba.d.k.e();
+                com.baidu.tieba.d.k.f();
             }
         }
         return null;

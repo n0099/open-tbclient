@@ -32,8 +32,8 @@ class k extends l {
             a();
         } finally {
             if (!h()) {
-                handler = this.a.h;
-                handler2 = this.a.h;
+                handler = this.a.i;
+                handler2 = this.a.i;
                 handler.sendMessageDelayed(handler2.obtainMessage(2, this), 1L);
             }
         }

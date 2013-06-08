@@ -4,7 +4,7 @@ import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
-import com.baidu.tieba.a.av;
+import com.baidu.tieba.a.aw;
 import com.slidingmenu.lib.R;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -48,8 +48,8 @@ public class an extends com.baidu.adp.lib.a.a {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.a.a
     /* renamed from: d */
-    public av a(Object... objArr) {
-        av avVar;
+    public aw a(Object... objArr) {
+        aw awVar;
         Exception e;
         String str;
         try {
@@ -62,19 +62,19 @@ public class an extends com.baidu.adp.lib.a.a {
             if (!this.c.b() || i == null) {
                 return null;
             }
-            avVar = new av();
+            awVar = new aw();
             try {
-                avVar.a(i);
+                awVar.a(i);
                 str = this.b.A;
                 com.baidu.tieba.d.k.l(str);
-                return avVar;
+                return awVar;
             } catch (Exception e2) {
                 e = e2;
                 com.baidu.tieba.d.ae.b(getClass().getName(), "", "doInBackground error = " + e.getMessage());
-                return avVar;
+                return awVar;
             }
         } catch (Exception e3) {
-            avVar = null;
+            awVar = null;
             e = e3;
         }
     }
@@ -82,7 +82,7 @@ public class an extends com.baidu.adp.lib.a.a {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.a.a
-    public void a(av avVar) {
+    public void a(aw awVar) {
         ProgressBar progressBar;
         ar arVar;
         ar arVar2;
@@ -93,8 +93,8 @@ public class an extends com.baidu.adp.lib.a.a {
         arVar.a(0);
         arVar2 = this.b.r;
         arVar2.notifyDataSetChanged();
-        if (avVar != null && this.c != null && this.c.b()) {
-            this.b.x = avVar;
+        if (awVar != null && this.c != null && this.c.b()) {
+            this.b.x = awVar;
             arVar3 = this.b.r;
             arVar3.notifyDataSetChanged();
             this.b.r();

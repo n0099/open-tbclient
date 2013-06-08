@@ -44,13 +44,13 @@ public class k extends com.baidu.adp.lib.a.a {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.a.a
     public void a(String str) {
-        com.baidu.tieba.c.g gVar;
+        com.baidu.tieba.c.j jVar;
         super.a((Object) str);
         this.a.f = null;
         if (this.b != null) {
             if (this.b.b()) {
-                gVar = this.a.d;
-                ArrayList c = gVar.d().c();
+                jVar = this.a.d;
+                ArrayList c = jVar.d().c();
                 if (c != null) {
                     c.remove(this.c);
                     this.a.o();

@@ -1,133 +1,21 @@
 package com.baidu.tieba.view;
 
-import android.content.Context;
 import android.view.View;
-import com.slidingmenu.lib.R;
-import java.util.ArrayList;
-import java.util.HashMap;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class z extends com.baidu.adp.lib.a.a {
+public class z implements View.OnClickListener {
     final /* synthetic */ ImagePbPagerAdapter a;
-    private com.baidu.tieba.d.t b = null;
-    private int c;
-    private int d;
-    private String e;
-    private String f;
-    private com.baidu.tieba.pb.ah g;
-    private String h;
 
-    public z(ImagePbPagerAdapter imagePbPagerAdapter, com.baidu.tieba.pb.ah ahVar, int i, int i2, String str, String str2) {
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public z(ImagePbPagerAdapter imagePbPagerAdapter) {
         this.a = imagePbPagerAdapter;
-        this.c = 0;
-        this.d = 10;
-        this.e = null;
-        this.f = null;
-        this.g = null;
-        this.h = null;
-        this.c = i;
-        this.d = i2;
-        this.e = str;
-        this.f = str2;
-        this.g = ahVar;
-        this.h = ahVar.e().d();
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.a.a
-    public void b() {
-        if (this.g != null) {
-            this.g.a(true);
-            this.g.notifyDataSetChanged();
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.a.a
-    public String a(String... strArr) {
-        String str;
-        this.b = new com.baidu.tieba.d.t(String.valueOf(com.baidu.tieba.a.i.e) + "c/f/pb/piccomment");
-        com.baidu.tieba.d.t tVar = this.b;
-        str = this.a.e;
-        tVar.a("kw", str);
-        this.b.a("pic_id", this.f);
-        this.b.a("tid", this.e);
-        this.b.a("pn", String.valueOf(this.c));
-        this.b.a("rn", String.valueOf(this.d));
-        this.b.a("alt", "json");
-        this.b.d(true);
-        return this.b.i();
-    }
-
-    @Override // com.baidu.adp.lib.a.a
-    public void cancel() {
-        if (this.b != null) {
-            this.b.g();
-        }
-        if (this.g != null) {
-            this.g.a(false);
-            this.g.notifyDataSetChanged();
-        }
-        super.cancel(true);
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    /* JADX WARN: Incorrect condition in loop: B:22:0x0078 */
-    @Override // com.baidu.adp.lib.a.a
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public void a(String str) {
-        Context context;
-        Context context2;
-        HashMap hashMap;
-        ArrayList arrayList;
-        ArrayList arrayList2;
-        ArrayList arrayList3;
-        HashMap hashMap2;
-        com.baidu.tieba.a.y yVar = null;
-        super.a((Object) str);
-        try {
-            if (this.g != null) {
-                this.g.a(false);
-            }
-            if (this.b != null) {
-                if (!this.b.b() || this.g == null) {
-                    context = this.a.b;
-                    context2 = this.a.b;
-                    ((com.baidu.tieba.e) context).a(context2.getString(R.string.image_pb_comment_fail));
-                    return;
-                }
-                if (this.g != null) {
-                    this.g.a((com.baidu.tieba.a.y) null);
-                    this.g.notifyDataSetChanged();
-                }
-                hashMap = this.a.h;
-                if (hashMap.get(this.g.e().d()) != null) {
-                    hashMap2 = this.a.h;
-                    yVar = (com.baidu.tieba.a.y) hashMap2.get(this.g.e().d());
-                    yVar.a(str);
-                }
-                if (this.g != null) {
-                    this.g.a(yVar);
-                    this.g.notifyDataSetChanged();
-                    this.g = null;
-                }
-                for (int i = 0; i < arrayList.size(); i++) {
-                    arrayList2 = this.a.s;
-                    if (((View) arrayList2.get(i)).getTag() instanceof com.baidu.tieba.pb.ah) {
-                        arrayList3 = this.a.s;
-                        com.baidu.tieba.pb.ah ahVar = (com.baidu.tieba.pb.ah) ((View) arrayList3.get(i)).getTag();
-                        if (ahVar.e() != null && this.h.equals(ahVar.e().d())) {
-                            ahVar.notifyDataSetChanged();
-                        }
-                    }
-                }
-            }
-        } catch (Exception e) {
-            com.baidu.tieba.d.ae.b(getClass().getName(), "onPostExecute", e.getMessage());
-        }
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        int i;
+        ImagePbPagerAdapter imagePbPagerAdapter = this.a;
+        i = this.a.q;
+        imagePbPagerAdapter.a(i);
     }
 }

@@ -1,6 +1,7 @@
 package com.baidu.mobstat;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class n implements Runnable {
+public class n implements Runnable {
     final /* synthetic */ m a;
 
     /* JADX INFO: Access modifiers changed from: package-private */

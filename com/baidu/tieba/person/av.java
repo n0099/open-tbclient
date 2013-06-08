@@ -1,6 +1,9 @@
 package com.baidu.tieba.person;
 
 import android.graphics.Bitmap;
+import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.ProgressBar;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class av extends com.baidu.adp.lib.a.a {
@@ -18,10 +21,16 @@ public class av extends com.baidu.adp.lib.a.a {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.a.a
     public void b() {
-        PersonChangeActivity.f(this.a).setVisibility(0);
-        PersonChangeActivity.g(this.a).setEnabled(false);
-        PersonChangeActivity.h(this.a).setImageBitmap(null);
-        PersonChangeActivity.a(this.a, (Bitmap) null);
+        ProgressBar progressBar;
+        Button button;
+        ImageView imageView;
+        progressBar = this.a.D;
+        progressBar.setVisibility(0);
+        button = this.a.f;
+        button.setEnabled(false);
+        imageView = this.a.d;
+        imageView.setImageBitmap(null);
+        this.a.A = null;
         super.b();
     }
 
@@ -35,9 +44,13 @@ public class av extends com.baidu.adp.lib.a.a {
 
     @Override // com.baidu.adp.lib.a.a
     public void cancel() {
-        PersonChangeActivity.a(this.a, (av) null);
-        PersonChangeActivity.f(this.a).setVisibility(8);
-        PersonChangeActivity.g(this.a).setEnabled(true);
+        ProgressBar progressBar;
+        Button button;
+        this.a.B = null;
+        progressBar = this.a.D;
+        progressBar.setVisibility(8);
+        button = this.a.f;
+        button.setEnabled(true);
         super.cancel(true);
     }
 
@@ -51,13 +64,21 @@ public class av extends com.baidu.adp.lib.a.a {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.a.a
     public void a(Bitmap bitmap) {
+        Button button;
+        ProgressBar progressBar;
+        com.baidu.adp.widget.a.b bVar;
+        ImageView imageView;
         super.a((Object) bitmap);
-        PersonChangeActivity.a(this.a, (av) null);
-        PersonChangeActivity.g(this.a).setEnabled(true);
-        PersonChangeActivity.f(this.a).setVisibility(8);
+        this.a.B = null;
+        button = this.a.f;
+        button.setEnabled(true);
+        progressBar = this.a.D;
+        progressBar.setVisibility(8);
         if (bitmap != null) {
-            PersonChangeActivity.a(this.a, bitmap);
-            PersonChangeActivity.h(this.a).setImageBitmap(PersonChangeActivity.i(this.a));
+            this.a.A = new com.baidu.adp.widget.a.b(bitmap, false, null);
+            bVar = this.a.A;
+            imageView = this.a.d;
+            bVar.b(imageView);
         }
     }
 }

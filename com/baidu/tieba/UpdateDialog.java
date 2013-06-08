@@ -5,21 +5,21 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
-import com.baidu.tieba.a.bf;
+import com.baidu.tieba.a.bg;
 import com.baidu.tieba.service.TiebaUpdateService;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public class UpdateDialog extends e {
-    private bf c = null;
+    private bg c = null;
     private AlertDialog d = null;
     private DialogInterface.OnClickListener e = null;
     private DialogInterface.OnClickListener f = null;
 
-    public static void a(Context context, bf bfVar) {
-        if (bfVar != null) {
+    public static void a(Context context, bg bgVar) {
+        if (bgVar != null) {
             Intent intent = new Intent(context, UpdateDialog.class);
             intent.setFlags(268435456);
-            intent.putExtra("data", bfVar);
+            intent.putExtra("data", bgVar);
             context.startActivity(intent);
         }
     }
@@ -34,11 +34,11 @@ public class UpdateDialog extends e {
     private void a(Bundle bundle) {
         String format;
         if (bundle != null) {
-            this.c = (bf) bundle.getSerializable("data");
+            this.c = (bg) bundle.getSerializable("data");
         } else {
             Intent intent = getIntent();
             if (intent != null) {
-                this.c = (bf) intent.getSerializableExtra("data");
+                this.c = (bg) intent.getSerializableExtra("data");
             }
         }
         if (this.c == null || this.c.e() == 0) {

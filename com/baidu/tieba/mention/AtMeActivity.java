@@ -51,7 +51,7 @@ public class AtMeActivity extends com.baidu.tieba.e {
     @Override // com.baidu.tieba.e, android.app.Activity
     public void onResume() {
         super.onResume();
-        if (TiebaApplication.d().aa() > 0) {
+        if (TiebaApplication.d().ac() > 0) {
             this.c.b(2);
         } else {
             this.c.b(1);

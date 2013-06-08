@@ -64,7 +64,7 @@ public class AccountActivity extends com.baidu.tieba.e {
     }
 
     private void b() {
-        this.c = com.baidu.tieba.d.k.k();
+        this.c = com.baidu.tieba.d.k.l();
     }
 
     private void c() {

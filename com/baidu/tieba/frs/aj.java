@@ -14,7 +14,7 @@ class aj implements SlidingMenu.OnOpenedListener {
 
     @Override // com.slidingmenu.lib.SlidingMenu.OnOpenedListener
     public void onOpened() {
-        if (TiebaApplication.d().n()) {
+        if (TiebaApplication.d().o()) {
             StatService.onEvent(this.a, "frs_total_more", "frsclick", 1);
         }
     }

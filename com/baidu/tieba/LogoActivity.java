@@ -73,7 +73,7 @@ public class LogoActivity extends e {
     @Override // com.baidu.tieba.e, com.baidu.adp.a.a, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        TiebaApplication.d().ar();
+        TiebaApplication.d().aA();
         a(getIntent());
         com.baidu.tieba.d.ae.a(getClass().getName(), "onCreate", null);
         getWindow().setFlags(NotificationProxy.MAX_URL_LENGTH, NotificationProxy.MAX_URL_LENGTH);
@@ -90,7 +90,7 @@ public class LogoActivity extends e {
         this.k.post(this.l);
         new ad(this).start();
         c();
-        if (com.baidu.tieba.a.i.r()) {
+        if (com.baidu.tieba.a.i.s()) {
             b();
         }
     }
@@ -122,7 +122,7 @@ public class LogoActivity extends e {
     public void onPause() {
         super.onPause();
         if (!this.j) {
-            TiebaApplication.d().as();
+            TiebaApplication.d().aB();
         }
         this.k.removeCallbacks(this.m);
     }
@@ -184,33 +184,42 @@ public class LogoActivity extends e {
     public void d() {
         this.k.removeCallbacks(this.m);
         com.baidu.tieba.account.a.a().d();
-        if (TiebaApplication.d().o()) {
-            TiebaApplication.d().aA();
+        if (TiebaApplication.d().p()) {
+            TiebaApplication.d().aJ();
         }
-        this.i = TiebaApplication.d().aw();
+        this.i = TiebaApplication.d().aF();
         if (this.i) {
-            TiebaApplication.d().as();
-            PushConstants.restartPushService(getApplicationContext());
+            TiebaApplication.d().aB();
             GuideActivity.a(this, 1600001);
-            return;
+            try {
+                PushConstants.restartPushService(getApplicationContext());
+                return;
+            } catch (Exception e) {
+                com.baidu.tieba.d.ae.b(getClass().getName(), "startApp", e.toString());
+                return;
+            }
         }
-        PushConstants.startPushService(getApplicationContext());
         c("goto_home");
+        try {
+            PushConstants.startPushService(getApplicationContext());
+        } catch (Exception e2) {
+            com.baidu.tieba.d.ae.b(getClass().getName(), "startApp", e2.toString());
+        }
     }
 
     private void c(String str) {
         c = false;
-        String z = TiebaApplication.z();
-        this.i = TiebaApplication.d().aw();
+        String B = TiebaApplication.B();
+        this.i = TiebaApplication.d().aF();
         this.j = true;
-        if ((z != null && z.length() > 0 && !this.i) || TiebaApplication.d().aj() >= 3) {
+        if ((B != null && B.length() > 0 && !this.i) || TiebaApplication.d().as() >= 3) {
             MainTabActivity.a(this, str);
             return;
         }
         MainTabActivity.a(str);
         MainTabActivity.a(this, "goto_recommend");
-        if ((z == null || z.length() <= 0) && TiebaApplication.i() && a.a((Activity) this)) {
-            TiebaApplication.d().as();
+        if ((B == null || B.length() <= 0) && TiebaApplication.i() && a.a((Activity) this)) {
+            TiebaApplication.d().aB();
             a.a(this, 0, str, false);
         }
     }
@@ -224,7 +233,7 @@ public class LogoActivity extends e {
                     LabelActivity.a(this, 1600002, "guide");
                     return;
                 case 1600002:
-                    TiebaApplication.d().ax();
+                    TiebaApplication.d().aG();
                     c("goto_recommend");
                     return;
                 default:

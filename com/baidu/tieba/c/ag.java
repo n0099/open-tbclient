@@ -1,25 +1,32 @@
 package com.baidu.tieba.c;
-
-import java.io.Serializable;
-import java.util.ArrayList;
 /* loaded from: classes.dex */
-public class ag implements Serializable {
-    private ArrayList a = null;
-    private int b;
+public class ag extends com.baidu.adp.a.c {
+    private String e = null;
+    private String f = null;
+    private ah g = null;
 
-    public ArrayList a() {
-        return this.a;
+    public String d() {
+        return this.f;
     }
 
-    public void a(ArrayList arrayList) {
-        this.a = arrayList;
+    public void e() {
+        if (this.g != null) {
+            this.g.cancel();
+            this.g = null;
+        }
     }
 
-    public void a(int i) {
-        this.b = i;
+    public void a(String str, String str2) {
+        if (str != null && str.length() > 0 && str2 != null && str2.length() > 0 && this.g == null) {
+            this.e = str;
+            this.f = str2;
+            this.g = new ah(this, null);
+            this.g.setPriority(2);
+            this.g.execute(new Object[0]);
+        }
     }
 
-    public int b() {
-        return this.b;
+    public boolean f() {
+        return this.g != null;
     }
 }

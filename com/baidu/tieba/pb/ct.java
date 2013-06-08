@@ -1,5 +1,6 @@
 package com.baidu.tieba.pb;
 
+import android.util.SparseArray;
 import android.view.View;
 import android.widget.AdapterView;
 import com.slidingmenu.lib.R;
@@ -14,7 +15,7 @@ class ct implements AdapterView.OnItemClickListener {
 
     @Override // android.widget.AdapterView.OnItemClickListener
     public void onItemClick(AdapterView adapterView, View view, int i, long j) {
-        String str = (String) view.getTag(R.id.tag_photo_username);
+        String str = (String) ((SparseArray) view.getTag()).get(R.id.tag_photo_username);
         if (str != null) {
             this.a.b(str);
         }

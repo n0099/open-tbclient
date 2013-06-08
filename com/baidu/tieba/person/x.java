@@ -13,12 +13,12 @@ class x implements DialogInterface.OnClickListener {
     @Override // android.content.DialogInterface.OnClickListener
     public void onClick(DialogInterface dialogInterface, int i) {
         y yVar;
-        com.baidu.tieba.c.c cVar;
-        com.baidu.tieba.c.c cVar2;
+        com.baidu.tieba.c.f fVar;
+        com.baidu.tieba.c.f fVar2;
         yVar = this.a.d;
-        cVar = this.a.c;
-        yVar.a(cVar.a());
-        cVar2 = this.a.c;
-        cVar2.f();
+        fVar = this.a.c;
+        yVar.a(fVar.a());
+        fVar2 = this.a.c;
+        fVar2.f();
     }
 }

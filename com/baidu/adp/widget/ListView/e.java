@@ -190,7 +190,11 @@ public class e extends BaseAdapter {
         if (this.b != null && i2 < (i3 = this.b.getCount())) {
             return this.b.getItem(i2);
         }
-        return ((g) this.d.get(i2 - i3)).b;
+        int i4 = i2 - i3;
+        if (i4 >= 0 && i4 < this.d.size()) {
+            return ((g) this.d.get(i4)).b;
+        }
+        return null;
     }
 
     @Override // android.widget.Adapter
@@ -218,16 +222,25 @@ public class e extends BaseAdapter {
 
     @Override // android.widget.BaseAdapter, android.widget.ListAdapter
     public boolean isEnabled(int i) {
+        int i2;
         int c = c();
         if (i < c) {
             return ((g) this.c.get(i)).c;
         }
-        int i2 = i - c;
-        int i3 = 0;
-        if (this.b != null && i2 < (i3 = this.b.getCount())) {
-            return this.b.isEnabled(i2);
+        int i3 = i - c;
+        if (this.b != null) {
+            i2 = this.b.getCount();
+            if (i3 < i2) {
+                return this.b.isEnabled(i3);
+            }
+        } else {
+            i2 = 0;
         }
-        return ((g) this.d.get(i2 - i3)).c;
+        int i4 = i3 - i2;
+        if (i4 < 0 || i4 >= this.d.size()) {
+            return false;
+        }
+        return ((g) this.d.get(i4)).c;
     }
 
     @Override // android.widget.BaseAdapter, android.widget.Adapter
@@ -256,26 +269,46 @@ public class e extends BaseAdapter {
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
         View view2;
+        View view3;
         int c = c();
         if (i < c) {
-            return ((g) this.c.get(i)).a;
+            View view4 = ((g) this.c.get(i)).a;
+            if (view4 == null) {
+                return e();
+            }
+            return view4;
         }
         int i2 = i - c;
         int i3 = 0;
         if (this.b != null && i2 < (i3 = this.b.getCount())) {
             try {
-                view2 = this.b.getView(i2, view, viewGroup);
+                view3 = this.b.getView(i2, view, viewGroup);
             } catch (Exception e) {
                 com.baidu.adp.lib.e.b.a(e.getMessage());
-                view2 = null;
+                view3 = null;
             }
-            if (view2 == null) {
-                TextView textView = new TextView(this.a);
-                textView.setText("资源加载失败！");
-                return textView;
+            if (view3 == null) {
+                return e();
             }
-            return view2;
+            return view3;
         }
-        return ((g) this.d.get(i2 - i3)).a;
+        try {
+            view2 = ((g) this.d.get(i2 - i3)).a;
+        } catch (Exception e2) {
+            com.baidu.adp.lib.e.b.a(e2.getMessage());
+            view2 = null;
+        }
+        if (view2 == null) {
+            return e();
+        }
+        return view2;
+    }
+
+    private View e() {
+        TextView textView = new TextView(this.a);
+        textView.setText("资源加载失败！");
+        int a = com.baidu.adp.lib.e.c.a(this.a, 15.0f);
+        textView.setPadding(a, a, a, a);
+        return textView;
     }
 }

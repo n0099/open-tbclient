@@ -9,9 +9,9 @@ import com.baidu.tieba.a.ah;
 import com.baidu.tieba.d.ae;
 /* loaded from: classes.dex */
 public class TiebaMessageService extends Service {
-    private n a = null;
+    private o a = null;
     private ah b = null;
-    private Handler c = new m(this);
+    private Handler c = new n(this);
 
     @Override // android.app.Service
     public IBinder onBind(Intent intent) {
@@ -30,7 +30,7 @@ public class TiebaMessageService extends Service {
     @Override // android.app.Service
     public void onStart(Intent intent, int i) {
         super.onStart(intent, i);
-        if (!TiebaApplication.ao() || !TiebaApplication.d().W()) {
+        if (!TiebaApplication.ax() || !TiebaApplication.d().Y()) {
             stopSelf();
             return;
         }
@@ -46,11 +46,11 @@ public class TiebaMessageService extends Service {
     /* JADX INFO: Access modifiers changed from: private */
     public void a() {
         try {
-            if (TiebaApplication.z() != null && TiebaApplication.D() != null) {
+            if (TiebaApplication.B() != null && TiebaApplication.F() != null) {
                 if (this.a != null) {
                     this.a.cancel();
                 }
-                this.a = new n(this);
+                this.a = new o(this);
                 this.a.execute(new String[0]);
             }
         } catch (Exception e) {
@@ -60,20 +60,21 @@ public class TiebaMessageService extends Service {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b() {
-        if (this.b != null && this.b.a() >= 0 && this.b.b() >= 0 && this.b.c() >= 0) {
-            if (!TiebaApplication.d().V()) {
+        if (this.b != null && this.b.a() >= 0 && this.b.b() >= 0 && this.b.c() >= 0 && this.b.d() >= 0) {
+            if (!TiebaApplication.d().X()) {
                 this.b.a(0L);
             }
-            if (!TiebaApplication.d().U()) {
+            if (!TiebaApplication.d().W()) {
                 this.b.b(0L);
             }
-            if (!TiebaApplication.d().T()) {
+            if (!TiebaApplication.d().V()) {
                 this.b.c(0L);
             }
             Intent intent = new Intent("com.baidu.tieba.broadcast.service");
             intent.putExtra("relay", this.b.a());
             intent.putExtra("at_me", this.b.b());
             intent.putExtra("fans", this.b.c());
+            intent.putExtra("pletter", this.b.d());
             sendBroadcast(intent);
             ae.a(getClass().getName(), "broadcastMsg", "sendBroadcast: " + String.format("%d %d %d", Long.valueOf(this.b.a()), Long.valueOf(this.b.b()), Long.valueOf(this.b.c())));
         }

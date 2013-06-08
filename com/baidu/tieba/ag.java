@@ -23,6 +23,7 @@ class ag extends BroadcastReceiver {
             MainTabActivity.a(this.a, intent.getLongExtra("relay", 0L));
             MainTabActivity.b(this.a, intent.getLongExtra("at_me", 0L));
             MainTabActivity.c(this.a, intent.getLongExtra("fans", 0L));
+            MainTabActivity.d(this.a, intent.getLongExtra("pletter", 0L));
             MainTabActivity.a(this.a);
         } else if (action.equals("com.baidu.tieba.broadcast.newversion")) {
             MainTabActivity.b(this.a);

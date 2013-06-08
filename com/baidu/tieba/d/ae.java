@@ -13,7 +13,7 @@ public class ae {
     private static int d = 0;
 
     public static int a(String str, String str2, String str3) {
-        if (com.baidu.tieba.a.i.r()) {
+        if (com.baidu.tieba.a.i.s()) {
             StringBuilder sb = new StringBuilder(100);
             sb.append(str);
             sb.append(":");
@@ -26,7 +26,7 @@ public class ae {
     }
 
     public static int b(String str, String str2, String str3) {
-        if (com.baidu.tieba.a.i.r()) {
+        if (com.baidu.tieba.a.i.s()) {
             StringBuilder sb = new StringBuilder(100);
             sb.append(str);
             sb.append(":");
@@ -39,7 +39,7 @@ public class ae {
     }
 
     public static int c(String str, String str2, String str3) {
-        if (com.baidu.tieba.a.i.r()) {
+        if (com.baidu.tieba.a.i.s()) {
             StringBuilder sb = new StringBuilder(100);
             sb.append(str);
             sb.append(":");
@@ -52,7 +52,7 @@ public class ae {
     }
 
     public static int d(String str, String str2, String str3) {
-        if (com.baidu.tieba.a.i.r()) {
+        if (com.baidu.tieba.a.i.s()) {
             StringBuilder sb = new StringBuilder(100);
             sb.append(str);
             sb.append(":");
@@ -65,7 +65,7 @@ public class ae {
     }
 
     public static int e(String str, String str2, String str3) {
-        if (com.baidu.tieba.a.i.r()) {
+        if (com.baidu.tieba.a.i.s()) {
             StringBuilder sb = new StringBuilder(100);
             sb.append(str);
             sb.append(":");
@@ -78,7 +78,7 @@ public class ae {
     }
 
     public static int a(int i, String str) {
-        if (com.baidu.tieba.a.i.r()) {
+        if (com.baidu.tieba.a.i.s()) {
             StackTraceElement[] stackTrace = Thread.currentThread().getStackTrace();
             if (stackTrace.length < 5) {
                 return -1;
@@ -154,7 +154,7 @@ public class ae {
                 break;
         }
         try {
-            if (com.baidu.tieba.a.i.r() || z) {
+            if (com.baidu.tieba.a.i.s() || z) {
                 StringBuilder sb = new StringBuilder(100);
                 sb.append(new Date().getTime() / 1000);
                 sb.append("\t");
@@ -171,7 +171,7 @@ public class ae {
                 sb.append(0);
                 sb.append("\n");
                 String sb2 = sb.toString();
-                if (com.baidu.tieba.a.i.r()) {
+                if (com.baidu.tieba.a.i.s()) {
                     Log.e("TiebaLog", sb2);
                 }
                 if (z) {

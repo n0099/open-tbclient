@@ -12,7 +12,8 @@ public class PerformMonitorService extends Service {
     private com.baidu.adp.lib.debug.a.e d = null;
     private com.baidu.adp.lib.debug.a.j e = null;
     private boolean f = false;
-    private j g = null;
+    private k g = null;
+    private Handler h = null;
     public Runnable a = new h(this);
 
     @Override // android.app.Service
@@ -22,6 +23,7 @@ public class PerformMonitorService extends Service {
         this.c = new com.baidu.adp.lib.debug.a.h();
         this.d = new com.baidu.adp.lib.debug.a.e(getApplicationContext());
         this.e = new com.baidu.adp.lib.debug.a.j();
+        this.h = new Handler();
     }
 
     @Override // android.app.Service
@@ -74,7 +76,7 @@ public class PerformMonitorService extends Service {
         }
         this.f = true;
         new Thread(this.a).start();
-        new Handler().postDelayed(new i(this), 10000L);
+        new Handler().postDelayed(new j(this), 10000L);
     }
 
     public void b() {
@@ -112,7 +114,7 @@ public class PerformMonitorService extends Service {
     /* JADX INFO: Access modifiers changed from: private */
     public void c() {
         if (this.g == null) {
-            this.g = new j(this, null);
+            this.g = new k(this, null);
             this.g.execute(new String[0]);
         }
     }

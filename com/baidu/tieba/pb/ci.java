@@ -12,14 +12,14 @@ class ci implements Runnable {
 
     @Override // java.lang.Runnable
     public void run() {
-        bl blVar;
+        bk bkVar;
         GridView gridView;
-        bl blVar2;
-        blVar = this.a.a;
-        gridView = blVar.I;
+        bk bkVar2;
+        bkVar = this.a.a;
+        gridView = bkVar.H;
         if (gridView.getVisibility() == 8) {
-            blVar2 = this.a.a;
-            blVar2.T();
+            bkVar2 = this.a.a;
+            bkVar2.U();
         }
     }
 }

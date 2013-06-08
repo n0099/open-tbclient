@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -13,7 +14,6 @@ import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.slidingmenu.lib.R;
-import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class AtListActivity extends com.baidu.tieba.e {
     private EditText c = null;
@@ -34,14 +34,18 @@ public class AtListActivity extends com.baidu.tieba.e {
     private Runnable r = new b(this);
 
     public static void a(Activity activity, int i) {
-        activity.startActivityForResult(new Intent(activity, AtListActivity.class), i);
+        Intent intent = new Intent(activity, AtListActivity.class);
+        if (i == 1200011) {
+            intent.putExtra("keyboard", false);
+        }
+        activity.startActivityForResult(intent, i);
     }
 
     public static String a(Intent intent) {
         if (intent == null) {
             return null;
         }
-        return intent.getStringExtra("name");
+        return intent.getStringExtra("name_show");
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -85,8 +89,8 @@ public class AtListActivity extends com.baidu.tieba.e {
         this.g.removeCallbacks(this.r);
         if (this.k != null) {
             this.k.a();
-            if (this.k.c() != null) {
-                this.k.c().b();
+            if (this.k.b() != null) {
+                this.k.b().b();
             }
         }
         if (this.m != null) {
@@ -111,12 +115,16 @@ public class AtListActivity extends com.baidu.tieba.e {
         this.f.setAdapter((ListAdapter) this.k);
         this.f.setOnItemClickListener(new g(this));
         this.f.setOnScrollListener(new h(this));
+        if (!getIntent().getBooleanExtra("keyboard", true) && this.c.getParent() != null) {
+            ((View) this.c.getParent()).setFocusable(true);
+            ((View) this.c.getParent()).setFocusableInTouchMode(true);
+        }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void c(String str) {
         if (!isFinishing()) {
-            this.k.a((ArrayList) null);
+            this.k.a(null);
             if (this.h != null) {
                 this.h.cancel();
             }
@@ -124,7 +132,7 @@ public class AtListActivity extends com.baidu.tieba.e {
                 if (this.j.a() != null) {
                     this.k.a(this.j.a().a());
                 } else {
-                    this.k.a((ArrayList) null);
+                    this.k.a(null);
                     if (this.i == null) {
                         this.i = new j(this, null);
                         this.i.setPriority(3);

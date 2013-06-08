@@ -13,13 +13,13 @@ class ap implements com.baidu.adp.widget.ListView.r {
 
     @Override // com.baidu.adp.widget.ListView.r
     public void a() {
-        com.baidu.tieba.c.au auVar;
-        bl blVar;
-        auVar = this.a.i;
-        if (auVar.a(false)) {
-            blVar = this.a.o;
-            blVar.p();
-            if (TiebaApplication.d().n()) {
+        com.baidu.tieba.c.ax axVar;
+        bk bkVar;
+        axVar = this.a.i;
+        if (axVar.a(false)) {
+            bkVar = this.a.o;
+            bkVar.p();
+            if (TiebaApplication.d().o()) {
                 StatService.onEvent(this.a, "pb_more", "pbclick", 1);
             }
         }

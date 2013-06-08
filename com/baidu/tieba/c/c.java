@@ -1,175 +1,118 @@
 package com.baidu.tieba.c;
 
-import android.content.SharedPreferences;
-import com.baidu.tieba.TiebaApplication;
+import com.baidu.android.pushservice.PushConstants;
 import java.util.ArrayList;
+import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
-public class c {
-    private e b = null;
-    private f c = null;
-    private d d = null;
-    private int f = 0;
-    protected com.baidu.tieba.h a = null;
-    private ArrayList e = new ArrayList();
+public class c extends com.baidu.adp.a.c {
+    private String k;
+    private List e = null;
+    private String f = null;
+    private String g = null;
+    private String h = "1";
+    private String i = "20";
+    private int j = -1;
+    private boolean l = false;
+    private e m = null;
+    private d n = null;
 
-    public int a() {
-        return this.e.size();
+    public void a(String str, String str2) {
+        if (str != null && str.length() > 0 && str2 != null && str2.length() > 0) {
+            this.f = str;
+            this.h = str2;
+            if (this.m == null) {
+                this.m = new e(this, null);
+                this.m.setPriority(2);
+                this.m.execute(new Object[0]);
+            }
+        }
     }
 
-    public ArrayList b() {
+    public void b(String str) {
+        if (str != null && str.length() > 0) {
+            this.g = str;
+            if (this.n == null) {
+                this.n = new d(this, null);
+                this.n.setPriority(2);
+                this.n.execute(new Object[0]);
+            }
+        }
+    }
+
+    public List d() {
         return this.e;
     }
 
-    public void a(ArrayList arrayList) {
-        this.e = arrayList;
-    }
-
-    public void b(ArrayList arrayList) {
-        this.e.addAll(arrayList);
-    }
-
-    public void a(com.baidu.tieba.a.af afVar) {
-        this.e.add(afVar);
-    }
-
-    public int c() {
-        if (this.e == null) {
-            return 0;
-        }
-        return this.e.size();
-    }
-
-    public int d() {
-        return this.f;
-    }
-
-    public void e() {
-        ArrayList r = com.baidu.tieba.d.k.r();
-        if (r != null) {
-            a(r);
-        }
-    }
-
-    public String a(int i, int i2) {
-        JSONArray jSONArray;
-        int i3;
-        if (this.e == null) {
-            return null;
-        }
-        if (i >= this.e.size()) {
-            i2 -= (i - this.e.size()) - 1;
-            i = this.e.size() - 1;
-        }
-        JSONArray jSONArray2 = new JSONArray();
-        int i4 = 0;
-        int i5 = i;
-        while (true) {
-            if (i5 < 0) {
-                jSONArray = jSONArray2;
-                break;
-            } else if (i5 <= i - i2) {
-                jSONArray = jSONArray2;
-                break;
-            } else {
-                try {
-                    JSONObject k = ((com.baidu.tieba.a.af) this.e.get(i5)).k();
-                    if (k == null || i4 < 0) {
-                        i3 = i4;
-                    } else {
-                        i3 = i4 + 1;
-                        jSONArray2.put(i4, k);
-                    }
-                    i5--;
-                    i4 = i3;
-                } catch (Exception e) {
-                    com.baidu.tieba.d.ae.b(getClass().getName(), "toJson", e.toString());
-                    jSONArray = null;
-                }
-            }
-        }
-        if (jSONArray == null) {
-            return null;
-        }
-        return jSONArray.toString();
-    }
-
-    public void a(String str) {
+    public void c(String str) {
         try {
             a(new JSONObject(str));
         } catch (Exception e) {
-            com.baidu.tieba.d.ae.b(getClass().getName(), "parserJson", e.toString());
         }
     }
 
     public void a(JSONObject jSONObject) {
-        try {
-            if (jSONObject.optJSONObject("error").optString("errno").equals("0")) {
-                JSONArray optJSONArray = jSONObject.optJSONArray("store_thread");
-                for (int i = 0; i < optJSONArray.length(); i++) {
-                    com.baidu.tieba.a.af afVar = new com.baidu.tieba.a.af();
-                    afVar.a(optJSONArray.getJSONObject(i));
-                    this.e.add(afVar);
+        if (jSONObject != null) {
+            try {
+                JSONObject optJSONObject = jSONObject.optJSONObject("error");
+                if (optJSONObject != null) {
+                    b(optJSONObject.optInt("errno"));
+                    e(optJSONObject.optString("errmsg"));
                 }
+                this.l = jSONObject.optInt("has_more") != 0;
+                JSONArray optJSONArray = jSONObject.optJSONArray("record");
+                long currentTimeMillis = System.currentTimeMillis();
+                this.e = new ArrayList();
+                if (optJSONArray != null) {
+                    for (int i = 0; i < optJSONArray.length(); i++) {
+                        JSONObject optJSONObject2 = optJSONArray.optJSONObject(i);
+                        com.baidu.tieba.a.a.g gVar = new com.baidu.tieba.a.a.g();
+                        gVar.a(this.f);
+                        gVar.b(optJSONObject2.optString(PushConstants.EXTRA_USER_ID));
+                        gVar.e(optJSONObject2.optString("user_name"));
+                        gVar.a(1);
+                        gVar.b(optJSONObject2.optLong("time") * 1000);
+                        gVar.b(optJSONObject2.optInt("unread_count"));
+                        gVar.c(optJSONObject2.optString("portrait"));
+                        gVar.a(currentTimeMillis);
+                        String optString = optJSONObject2.optString("abstract");
+                        if (optString != null && optString.length() >= 1) {
+                            gVar.d(optString);
+                        }
+                        this.e.add(gVar);
+                    }
+                }
+            } catch (Exception e) {
             }
-        } catch (Exception e) {
-            com.baidu.tieba.d.ae.b(getClass().getName(), "parserJson", e.toString());
         }
     }
 
-    public void f() {
-        if (this.b != null) {
-            this.b.cancel();
+    public List d(String str) {
+        this.e = com.baidu.tieba.a.a.f.a().a(str);
+        for (com.baidu.tieba.a.a.g gVar : this.e) {
+            gVar.b(0);
         }
-        this.b = new e(this, a());
-        this.b.setPriority(3);
-        this.b.execute(new Boolean[0]);
+        return this.e;
     }
 
-    public void g() {
-        if (this.c != null) {
-            this.c.cancel();
-        }
-        this.c = new f(this, null);
-        this.c.setPriority(2);
-        this.c.execute(new c[0]);
-    }
-
-    public void a(int i) {
-        if (this.d != null) {
-            this.d.cancel();
-        }
-        if (this.e.get(i) != null && ((com.baidu.tieba.a.af) this.e.get(i)).c() != null) {
-            this.d = new d(this, ((com.baidu.tieba.a.af) this.e.get(i)).c(), i);
-            this.d.setPriority(2);
-            this.d.execute(new Boolean[0]);
-        }
-    }
-
-    public int h() {
-        return TiebaApplication.d().getSharedPreferences("settings", 0).getInt("uploac_mark_offset", 399);
+    public boolean e() {
+        return this.l;
     }
 
     public void b(int i) {
-        SharedPreferences.Editor edit = TiebaApplication.d().getSharedPreferences("settings", 0).edit();
-        edit.putInt("uploac_mark_offset", i);
-        edit.commit();
+        this.j = i;
     }
 
-    public void i() {
-        if (this.b != null) {
-            this.b.cancel();
-        }
-        if (this.c != null) {
-            this.c.cancel();
-        }
-        if (this.d != null) {
-            this.d.cancel();
-        }
+    public int f() {
+        return this.j;
     }
 
-    public void a(com.baidu.tieba.h hVar) {
-        this.a = hVar;
+    public void e(String str) {
+        this.k = str;
+    }
+
+    public String g() {
+        return this.k;
     }
 }

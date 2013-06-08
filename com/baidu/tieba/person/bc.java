@@ -38,9 +38,9 @@ class bc implements Runnable {
             while (i2 < biVar2.getCount()) {
                 if (z || i2 <= lastVisiblePosition) {
                     biVar3 = this.a.n;
-                    com.baidu.tieba.a.ao aoVar = (com.baidu.tieba.a.ao) biVar3.getItem(i2);
-                    if (aoVar != null) {
-                        ArrayList j = aoVar.e().j();
+                    com.baidu.tieba.a.ap apVar = (com.baidu.tieba.a.ap) biVar3.getItem(i2);
+                    if (apVar != null) {
+                        ArrayList j = apVar.e().j();
                         int size = j.size();
                         if (i3 < 13) {
                             for (int i4 = 0; i4 < size; i4++) {

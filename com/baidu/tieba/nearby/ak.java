@@ -16,7 +16,7 @@ public class ak implements AdapterView.OnItemClickListener {
     @Override // android.widget.AdapterView.OnItemClickListener
     public void onItemClick(AdapterView adapterView, View view, int i, long j) {
         aq aqVar;
-        com.baidu.tieba.c.as asVar;
+        com.baidu.tieba.c.av avVar;
         aqVar = this.a.f;
         switch (aqVar.getItemViewType(i)) {
             case 0:
@@ -24,8 +24,8 @@ public class ak implements AdapterView.OnItemClickListener {
             default:
                 return;
             case 2:
-                asVar = this.a.d;
-                if (asVar.c().e() != 0) {
+                avVar = this.a.d;
+                if (avVar.c().f() != 0) {
                     this.a.a(1, null, true);
                     return;
                 } else {

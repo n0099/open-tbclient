@@ -1,128 +1,133 @@
 package com.baidu.tieba.view;
 
-import android.graphics.Bitmap;
-import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.pb.ImageActivity;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.content.Context;
+import android.view.View;
+import android.widget.ProgressBar;
+import android.widget.RelativeLayout;
+import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-public class ar extends com.baidu.adp.lib.a.a {
-    final /* synthetic */ ap a;
-    private com.baidu.tieba.d.t b = null;
-    private String c;
-    private String d;
+public class ar extends RelativeLayout {
+    protected ProgressBar a;
+    protected h b;
+    protected Context c;
+    private at d;
+    private as e;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public ar(ap apVar, String str) {
-        this.a = apVar;
-        this.c = null;
+    public void setCallback(as asVar) {
+        this.e = asVar;
+    }
+
+    public ar(Context context) {
+        super(context);
+        this.a = null;
+        this.b = null;
         this.d = null;
-        this.c = str;
-        this.d = com.baidu.tieba.d.ad.f(str);
+        this.c = null;
+        this.e = null;
+        this.c = context;
+        a();
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.a.a
-    public as a(String... strArr) {
-        String str;
-        as asVar;
-        Exception e;
-        byte[] imageData;
-        Bitmap a;
-        if (this.c == null || this.d == null) {
-            return null;
-        }
-        String str2 = String.valueOf(this.c) + "&imgtype=0";
-        if (TiebaApplication.d().ae() == 1) {
-            str = String.valueOf(str2) + "&qulity=" + String.valueOf(80);
-        } else {
-            str = String.valueOf(str2) + "&qulity=" + String.valueOf(45);
-        }
-        try {
-            imageData = this.a.b.getImageData();
-            a = imageData != null ? com.baidu.tieba.d.e.a(imageData) : null;
-            if (a == null && (imageData = com.baidu.tieba.d.o.d("image", this.d)) != null) {
-                a = com.baidu.tieba.d.e.a(imageData);
-            }
-            if (a == null) {
-                this.b = new com.baidu.tieba.d.t(String.valueOf(com.baidu.tieba.a.i.j) + str);
-                if (this.a.c != null && (this.a.c instanceof ImageActivity)) {
-                    if (((ImageActivity) this.a.c).b() != null) {
-                        this.b.a("fid", ((ImageActivity) this.a.c).b());
-                    }
-                    if (((ImageActivity) this.a.c).c() != null) {
-                        this.b.a("tid", ((ImageActivity) this.a.c).c());
-                    }
-                    if (((ImageActivity) this.a.c).d() != null) {
-                        this.b.a("fname", ((ImageActivity) this.a.c).d());
-                    }
-                }
-                this.b.c(true);
-                byte[] h = this.b.h();
-                Bitmap a2 = this.b.b() ? com.baidu.tieba.d.e.a(h) : a;
-                com.baidu.tieba.d.o.a("image", this.d, h);
-                a = a2;
-                imageData = h;
-            }
-            asVar = new as(this.a, null);
-        } catch (Exception e2) {
-            asVar = null;
-            e = e2;
-        }
-        try {
-            asVar.a = this.c;
-            asVar.b = imageData;
-            asVar.c = a;
-            return asVar;
-        } catch (Exception e3) {
-            e = e3;
-            com.baidu.tieba.d.ae.b(getClass().getName(), "doInBackground", e.getMessage());
-            return asVar;
-        }
+    public h getImageView() {
+        return this.b;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.a.a
-    public void a(as asVar) {
-        aq aqVar;
-        aq aqVar2;
-        this.a.a.setVisibility(8);
-        this.a.d = null;
-        if (asVar != null) {
-            aqVar = this.a.e;
-            if (aqVar != null) {
-                aqVar2 = this.a.e;
-                aqVar2.a(asVar.a, asVar.b);
+    public void setGifSetListener(l lVar) {
+        this.b.setGifSetListener(lVar);
+    }
+
+    public void setImageOnClickListener(View.OnClickListener onClickListener) {
+        this.b.setImageOnClickListener(onClickListener);
+    }
+
+    public void setOnSizeChangedListener(m mVar) {
+        this.b.setOnSizeChangedListener(mVar);
+    }
+
+    protected void a() {
+        this.b = new h(this.c);
+        this.b.setLayoutParams(new RelativeLayout.LayoutParams(-1, -1));
+        addView(this.b);
+        this.a = new ProgressBar(this.c, null, 16843399);
+        this.a.setIndeterminateDrawable(this.c.getResources().getDrawable(R.drawable.progressbar));
+        RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
+        layoutParams.addRule(13);
+        this.a.setLayoutParams(layoutParams);
+        this.a.setIndeterminate(true);
+        addView(this.a);
+    }
+
+    public void setUrl(String str) {
+        this.b.setTag(str);
+        com.baidu.tieba.d.z c = com.baidu.tieba.d.w.c(getContext());
+        if (c == com.baidu.tieba.d.z.WIFI || c == com.baidu.tieba.d.z.ThreeG) {
+            if (this.d != null) {
+                this.d.cancel();
             }
-            Bitmap bitmap = asVar.c;
-            if (bitmap == null) {
-                this.a.b.l();
-            } else if (com.baidu.tieba.d.ag.a(asVar.b)) {
-                this.a.b.a(asVar.b, bitmap);
-            } else {
-                this.a.b.setImageBitmap(bitmap);
-                this.a.b.setImageData(asVar.b);
+            if (str != null) {
+                this.d = new at(this, str);
+                this.d.execute(new String[0]);
             }
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.a.a
+    public void setGifMaxUseableMem(int i) {
+        this.b.setGifMaxUseableMem(i);
+    }
+
     public void b() {
-        this.a.b.setImageBitmap(null);
-        this.a.a.setVisibility(0);
-        super.b();
+        if (this.d != null) {
+            this.d.cancel();
+            this.d = null;
+        }
     }
 
-    @Override // com.baidu.adp.lib.a.a
-    public void cancel() {
+    public void c() {
+        b();
         if (this.b != null) {
+            this.b.j();
+        }
+        this.a.setVisibility(8);
+    }
+
+    public void d() {
+        b();
+        if (this.b != null) {
+            this.b.k();
+        }
+        this.a.setVisibility(8);
+    }
+
+    public void e() {
+        if (this.b != null && this.b.getImageType() == 1) {
             this.b.g();
         }
-        this.a.b.setVisibility(0);
-        this.a.a.setVisibility(8);
-        this.a.d = null;
-        super.cancel(true);
+    }
+
+    public void f() {
+        String str;
+        if (this.b != null && (str = (String) this.b.getTag()) != null && this.b != null && this.d == null) {
+            if (this.b.getImageType() == 1) {
+                if (this.b.getGifCache() == null) {
+                    this.d = new at(this, str);
+                    this.d.execute(new String[0]);
+                }
+            } else if (this.b.getImageType() == 2) {
+                if (com.baidu.tieba.d.w.a(getContext()) != com.baidu.tieba.d.y.UNAVAIL) {
+                    this.d = new at(this, str);
+                    this.d.execute(new String[0]);
+                }
+            } else if (this.b.getImageBitmap() == null) {
+                this.d = new at(this, str);
+                this.d.execute(new String[0]);
+            }
+        }
+    }
+
+    public int getImageType() {
+        if (this.b != null) {
+            return this.b.getImageType();
+        }
+        return 0;
     }
 }

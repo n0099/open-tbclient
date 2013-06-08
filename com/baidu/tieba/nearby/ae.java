@@ -2,7 +2,6 @@ package com.baidu.tieba.nearby;
 
 import android.content.Context;
 import android.content.res.Resources;
-import android.graphics.Bitmap;
 import android.text.SpannableStringBuilder;
 import android.text.method.LinkMovementMethod;
 import android.view.LayoutInflater;
@@ -27,7 +26,7 @@ public class ae extends BaseAdapter {
     private com.baidu.tieba.d.a c;
     private int d;
     private int e;
-    private com.baidu.tieba.c.bd f;
+    private com.baidu.tieba.c.bg f;
     private boolean g;
     private boolean h;
     private ArrayList i;
@@ -38,8 +37,8 @@ public class ae extends BaseAdapter {
     private int n;
     private int o;
 
-    public ae(Context context, com.baidu.tieba.c.bd bdVar, int i, View.OnClickListener onClickListener) {
-        this.f = bdVar;
+    public ae(Context context, com.baidu.tieba.c.bg bgVar, int i, View.OnClickListener onClickListener) {
+        this.f = bgVar;
         this.a = context;
         if (this.f != null && this.f.a() != null) {
             this.b = this.f.a().d();
@@ -66,8 +65,8 @@ public class ae extends BaseAdapter {
         this.m = (int) textView.getTextSize();
     }
 
-    public void a(com.baidu.tieba.c.bd bdVar) {
-        this.f = bdVar;
+    public void a(com.baidu.tieba.c.bg bgVar) {
+        this.f = bgVar;
         if (this.f != null && this.f.a() != null) {
             this.b = this.f.a().d();
         } else {
@@ -179,7 +178,7 @@ public class ae extends BaseAdapter {
         ai aiVar;
         View view4;
         long itemId;
-        com.baidu.tieba.a.aq aqVar;
+        com.baidu.tieba.a.ar arVar;
         String str;
         SpannableStringBuilder spannableStringBuilder;
         String str2;
@@ -315,43 +314,43 @@ public class ae extends BaseAdapter {
             aiVar.l.setText((CharSequence) null);
         }
         if (itemViewType == 2) {
-            aqVar = this.f.a().j();
+            arVar = this.f.a().j();
         } else {
-            aqVar = (com.baidu.tieba.a.aq) getItem(i);
+            arVar = (com.baidu.tieba.a.ar) getItem(i);
         }
-        if (aqVar != null) {
-            String e3 = aqVar.h().e();
+        if (arVar != null) {
+            String e3 = arVar.h().e();
             aiVar.e.setVisibility(0);
             if (this.f.b()) {
-                Bitmap bitmap = null;
+                com.baidu.adp.widget.a.b bVar = null;
                 if (e3 != null && e3.length() > 0) {
-                    bitmap = this.c.b(e3);
-                    if (bitmap != null) {
-                        aiVar.e.setImageBitmap(bitmap);
+                    bVar = this.c.b(e3);
+                    if (bVar != null) {
+                        bVar.b(aiVar.e);
                     } else {
                         aiVar.e.setTag(e3);
                     }
                 }
-                if (bitmap == null) {
-                    aiVar.e.setImageBitmap(com.baidu.tieba.d.e.a((int) R.drawable.photo));
+                if (bVar == null) {
+                    aiVar.e.setImageBitmap(com.baidu.tieba.d.d.a((int) R.drawable.photo));
                 }
                 aiVar.e.setVisibility(0);
             } else {
                 aiVar.e.setVisibility(8);
             }
-            aiVar.d.b(aqVar.h().a());
-            aiVar.d.a(aqVar.h().c());
+            aiVar.d.b(arVar.h().a());
+            aiVar.d.a(arVar.h().c());
             aiVar.e.setOnClickListener(aiVar.d);
             if (itemViewType == 2) {
                 aiVar.o.setTextColor(-9989158);
-                if (aqVar.h() != null) {
-                    aiVar.o.setText(aqVar.h().d());
+                if (arVar.h() != null) {
+                    aiVar.o.setText(arVar.h().d());
                 } else {
                     aiVar.o.setText((CharSequence) null);
                 }
             }
-            new Date().setTime(aqVar.g());
-            aiVar.f.setText(aqVar.e());
+            new Date().setTime(arVar.g());
+            aiVar.f.setText(arVar.e());
             if (itemViewType == 2) {
                 String a = this.f.a().c().a();
                 if (a == null || a.equalsIgnoreCase("")) {
@@ -361,7 +360,7 @@ public class ae extends BaseAdapter {
                     aiVar.l.setText(a);
                 }
             }
-            ArrayList j = aqVar.j();
+            ArrayList j = arVar.j();
             if (itemViewType == 2) {
                 if (j != null && j.size() > 0) {
                     int i3 = -1;
@@ -409,15 +408,15 @@ public class ae extends BaseAdapter {
                     aiVar.g.setText((CharSequence) null);
                 }
             } else if (itemViewType == 0) {
-                if (aqVar.h() == null) {
+                if (arVar.h() == null) {
                     str = null;
                     spannableStringBuilder = new SpannableStringBuilder("：");
                     str2 = null;
                 } else {
-                    SpannableStringBuilder spannableStringBuilder2 = new SpannableStringBuilder(String.valueOf(aqVar.h().d()) + "：");
-                    str = aqVar.h().c();
+                    SpannableStringBuilder spannableStringBuilder2 = new SpannableStringBuilder(String.valueOf(arVar.h().d()) + "：");
+                    str = arVar.h().c();
                     spannableStringBuilder = spannableStringBuilder2;
-                    str2 = aqVar.h().a();
+                    str2 = arVar.h().a();
                 }
                 int length = spannableStringBuilder.length();
                 if (j != null && j.size() > 0) {
@@ -444,7 +443,7 @@ public class ae extends BaseAdapter {
 
     private void a(ai aiVar, boolean z) {
         try {
-            aiVar.a = TiebaApplication.d().ai();
+            aiVar.a = TiebaApplication.d().ar();
             if (aiVar.a == 1) {
                 if (z) {
                     aiVar.b.setTextColor(com.baidu.tieba.d.ac.a(1));
@@ -467,8 +466,8 @@ public class ae extends BaseAdapter {
 
     private void a(ai aiVar, int i) {
         try {
-            if (aiVar.a != TiebaApplication.d().ai()) {
-                aiVar.a = TiebaApplication.d().ai();
+            if (aiVar.a != TiebaApplication.d().ar()) {
+                aiVar.a = TiebaApplication.d().ar();
                 if (aiVar.a == 1) {
                     aiVar.g.setTextColor(-6710887);
                     aiVar.g.setLinkTextColor(-9989158);

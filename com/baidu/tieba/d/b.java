@@ -3,7 +3,7 @@ package com.baidu.tieba.d;
 class b {
     String a;
     int b;
-    d c;
+    com.baidu.tbadk.a.d c;
     boolean d;
     final /* synthetic */ a e;
 

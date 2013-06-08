@@ -7,7 +7,7 @@ import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class b {
     private ArrayList a = new ArrayList();
-    private com.baidu.tieba.a.ak b = new com.baidu.tieba.a.ak();
+    private com.baidu.tieba.a.al b = new com.baidu.tieba.a.al();
     private Date c = null;
     private boolean d = true;
 

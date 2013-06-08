@@ -7,8 +7,6 @@ import android.graphics.ColorFilter;
 import android.graphics.Matrix;
 import android.graphics.Paint;
 import android.widget.ImageView;
-import com.baidu.adp.lib.d.b;
-import com.baidu.adp.lib.d.c;
 /* loaded from: classes.dex */
 public class a extends ImageView {
     private static /* synthetic */ int[] h;
@@ -17,7 +15,7 @@ public class a extends ImageView {
     private Matrix c;
     private Matrix d;
     private String e;
-    private b f;
+    private com.baidu.adp.lib.d.b f;
     private int g;
 
     static /* synthetic */ int[] a() {
@@ -185,7 +183,7 @@ public class a extends ImageView {
 
     private Bitmap getImage() {
         if (this.e != null) {
-            return (Bitmap) c.a(this.e, this.g);
+            return (Bitmap) com.baidu.adp.lib.d.c.a(this.e, this.g);
         }
         return null;
     }

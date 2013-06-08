@@ -5,7 +5,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.GridView;
 import android.widget.ImageView;
-import com.baidu.tieba.c.bp;
+import com.baidu.tieba.c.bs;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 class aj implements View.OnFocusChangeListener {
@@ -31,16 +31,16 @@ class aj implements View.OnFocusChangeListener {
         ImageView imageView3;
         ImageView imageView4;
         EditText editText2;
-        bp bpVar;
-        bp bpVar2;
+        bs bsVar;
+        bs bsVar2;
         EditText editText3;
         EditText editText4;
         ImageView imageView5;
         ImageView imageView6;
         ImageView imageView7;
-        bp bpVar3;
+        bs bsVar3;
         EditText editText5;
-        bp bpVar4;
+        bs bsVar4;
         ImageView imageView8;
         Button button;
         editText = this.a.g;
@@ -65,10 +65,10 @@ class aj implements View.OnFocusChangeListener {
         editText2 = this.a.h;
         if (view == editText2) {
             if (!z) {
-                bpVar = this.a.c;
-                if (bpVar.b() != 0) {
-                    bpVar2 = this.a.c;
-                    if (bpVar2.b() == 3) {
+                bsVar = this.a.c;
+                if (bsVar.b() != 0) {
+                    bsVar2 = this.a.c;
+                    if (bsVar2.b() == 3) {
                         editText3 = this.a.h;
                         editText3.setHint(R.string.lbs_post_content_hint);
                         return;
@@ -85,10 +85,10 @@ class aj implements View.OnFocusChangeListener {
             imageView6.setClickable(true);
             imageView7 = this.a.m;
             imageView7.setClickable(true);
-            bpVar3 = this.a.c;
-            if (bpVar3.b() != 0) {
-                bpVar4 = this.a.c;
-                if (bpVar4.b() != 3) {
+            bsVar3 = this.a.c;
+            if (bsVar3.b() != 0) {
+                bsVar4 = this.a.c;
+                if (bsVar4.b() != 3) {
                     return;
                 }
             }

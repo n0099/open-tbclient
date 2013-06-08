@@ -1,10 +1,9 @@
 package com.baidu.tieba.pb;
 
-import android.graphics.Bitmap;
 import com.baidu.tieba.view.BaseViewPager;
 import com.baidu.tieba.view.ImagePbImageView;
 /* loaded from: classes.dex */
-class l implements com.baidu.tieba.d.d {
+class l implements com.baidu.tbadk.a.d {
     final /* synthetic */ k a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -12,11 +11,11 @@ class l implements com.baidu.tieba.d.d {
         this.a = kVar;
     }
 
-    @Override // com.baidu.tieba.d.d
-    public void a(Bitmap bitmap, String str, boolean z) {
+    @Override // com.baidu.tbadk.a.d
+    public void a(com.baidu.adp.widget.a.b bVar, String str, boolean z) {
         ImagePbActivity imagePbActivity;
         BaseViewPager baseViewPager;
-        if (bitmap != null) {
+        if (bVar != null) {
             imagePbActivity = this.a.a;
             baseViewPager = imagePbActivity.z;
             ImagePbImageView imagePbImageView = (ImagePbImageView) baseViewPager.findViewWithTag(str);

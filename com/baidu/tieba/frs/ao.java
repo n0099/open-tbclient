@@ -16,17 +16,17 @@ class ao implements ax {
     }
 
     @Override // com.baidu.tieba.frs.ax
-    public void a(int i, JSONObject jSONObject, com.baidu.tieba.c.y yVar) {
+    public void a(int i, JSONObject jSONObject, com.baidu.tieba.c.ab abVar) {
         int i2;
-        com.baidu.tieba.c.v vVar;
-        com.baidu.tieba.c.v vVar2;
+        com.baidu.tieba.c.y yVar;
+        com.baidu.tieba.c.y yVar2;
         int i3;
-        com.baidu.tieba.c.w wVar;
-        com.baidu.tieba.c.w wVar2;
+        com.baidu.tieba.c.z zVar;
+        com.baidu.tieba.c.z zVar2;
         this.a.a(aw.NORMAL);
         if (jSONObject == null) {
-            if (yVar != null && yVar.a) {
-                this.a.a(yVar.d);
+            if (abVar != null && abVar.a) {
+                this.a.a(abVar.d);
                 return;
             }
             return;
@@ -34,17 +34,17 @@ class ao implements ax {
         FrsImageActivity frsImageActivity = this.a;
         i2 = frsImageActivity.i;
         frsImageActivity.i = i2 + 30;
-        this.a.u = new com.baidu.tieba.c.v();
-        vVar = this.a.u;
-        vVar.a(jSONObject);
+        this.a.u = new com.baidu.tieba.c.y();
+        yVar = this.a.u;
+        yVar.a(jSONObject);
         FrsImageActivity frsImageActivity2 = this.a;
-        vVar2 = this.a.u;
-        frsImageActivity2.a(vVar2.a());
+        yVar2 = this.a.u;
+        frsImageActivity2.a(yVar2.a());
         i3 = this.a.i;
-        wVar = this.a.t;
-        if (i3 >= wVar.c().size()) {
-            wVar2 = this.a.t;
-            if (wVar2.d() == 0) {
+        zVar = this.a.t;
+        if (i3 >= zVar.c().size()) {
+            zVar2 = this.a.t;
+            if (zVar2.d() == 0) {
                 this.a.a(aw.LAST);
             } else {
                 this.a.a(aw.NEXT);

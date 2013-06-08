@@ -1,164 +1,80 @@
 package com.baidu.tieba.c;
 
-import com.baidu.tieba.TiebaApplication;
-import com.slidingmenu.lib.R;
 import java.util.ArrayList;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class at {
-    String b;
-    String c;
-    String d;
-    String f;
-    String g;
-    String h;
-    String i;
-    String k;
-    int m;
-    String n;
-    final /* synthetic */ as p;
-    int a = 0;
-    ArrayList e = new ArrayList();
-    ArrayList l = new ArrayList();
-    com.baidu.tieba.a.ai j = new com.baidu.tieba.a.ai();
-    com.baidu.tieba.a.ai o = new com.baidu.tieba.a.ai();
+    private ArrayList a = new ArrayList();
 
-    public at(as asVar) {
-        this.p = asVar;
-    }
-
-    public int a() {
+    public ArrayList a() {
         return this.a;
     }
 
-    public String b() {
-        return this.b;
-    }
-
-    public ArrayList c() {
-        return this.e;
-    }
-
-    public int d() {
-        return this.m;
-    }
-
-    public void a(int i) {
-        this.m = i;
-    }
-
-    public String e() {
-        return this.n;
+    public void a(ArrayList arrayList) {
+        this.a = arrayList;
     }
 
     public void a(String str) {
-        if (str != null) {
-            this.n = str;
-        }
-    }
-
-    public String f() {
-        return this.f;
-    }
-
-    public String g() {
-        if (this.e == null) {
-            return null;
-        }
         int i = 0;
         while (true) {
             int i2 = i;
-            if (i2 >= this.e.size()) {
-                return null;
-            }
-            if (((com.baidu.tieba.a.k) this.e.get(i2)).a() != 3) {
+            if (i2 < this.a.size()) {
+                if (((au) this.a.get(i2)).a() == 1 && ((au) this.a.get(i2)).d().equals(str)) {
+                    ((au) this.a.get(i2)).a(true);
+                }
                 i = i2 + 1;
             } else {
-                return ((com.baidu.tieba.a.k) this.e.get(i2)).f();
+                return;
             }
         }
     }
 
-    public String h() {
-        return this.g;
-    }
-
-    public String i() {
-        return this.h;
-    }
-
-    public String j() {
-        return this.i;
-    }
-
-    public ArrayList k() {
-        return this.l;
-    }
-
-    public void a(ArrayList arrayList) {
-        if (arrayList != null && arrayList.size() != 0) {
-            this.l.clear();
-            this.l = arrayList;
-        }
-    }
-
-    public com.baidu.tieba.a.ai l() {
-        return this.j;
-    }
-
-    public com.baidu.tieba.a.ai m() {
-        return this.o;
-    }
-
-    public void a(com.baidu.tieba.a.ai aiVar) {
-        if (aiVar != null) {
-            this.o = aiVar;
-        }
-    }
-
-    public String n() {
-        return this.c;
-    }
-
-    public String o() {
-        return this.d;
-    }
-
-    public com.baidu.tieba.a.ae p() {
-        if (this.a != 0) {
-            return null;
-        }
+    public void b(String str) {
         try {
-            com.baidu.tieba.a.ae aeVar = new com.baidu.tieba.a.ae((int) (Double.valueOf(this.d).doubleValue() * 1000000.0d), (int) (Double.valueOf(this.c).doubleValue() * 1000000.0d));
-            aeVar.a(this.j);
-            aeVar.a(this.g);
-            StringBuffer stringBuffer = new StringBuffer();
-            for (int i = 0; i < this.e.size(); i++) {
-                if (((com.baidu.tieba.a.k) this.e.get(i)).a() == 0) {
-                    stringBuffer.append(((com.baidu.tieba.a.k) this.e.get(i)).d());
-                }
-                if (((com.baidu.tieba.a.k) this.e.get(i)).a() == 2) {
-                    String d = com.baidu.tbadk.a.a.a().d(((com.baidu.tieba.a.k) this.e.get(i)).d());
-                    if (d == null) {
-                        stringBuffer.append(TiebaApplication.d().getResources().getString(R.string.face_string));
-                    } else {
-                        stringBuffer.append("[");
-                        stringBuffer.append(d);
-                        stringBuffer.append("]");
-                    }
-                }
-                if (((com.baidu.tieba.a.k) this.e.get(i)).a() == 3) {
-                    stringBuffer.append(TiebaApplication.d().getResources().getString(R.string.pic));
-                }
-            }
-            aeVar.b(stringBuffer.toString());
-            return aeVar;
+            a(new JSONObject(str));
         } catch (Exception e) {
-            com.baidu.tieba.d.ae.b(getClass().getName(), "getMapItem", e.toString());
-            return null;
+            com.baidu.tieba.d.ae.b("NearbyForumListModel", "parserJson", "error = " + e.getMessage());
         }
     }
 
-    public String q() {
-        return this.k;
+    public void a(JSONObject jSONObject) {
+        au auVar = null;
+        try {
+            int size = this.a.size();
+            if (size > 0) {
+                auVar = (au) this.a.get(size - 1);
+            }
+            JSONArray optJSONArray = jSONObject.optJSONArray("forum_list");
+            if (optJSONArray != null && optJSONArray.length() > 0) {
+                int i = 0;
+                au auVar2 = auVar;
+                while (i < optJSONArray.length()) {
+                    JSONObject optJSONObject = optJSONArray.optJSONObject(i);
+                    au auVar3 = new au(this);
+                    auVar3.c = optJSONObject.optString("fname");
+                    auVar3.b = optJSONObject.optString("distance");
+                    auVar3.d = optJSONObject.optString("fid");
+                    auVar3.e = optJSONObject.optInt("heat", 0);
+                    auVar3.g = optJSONObject.optInt("member_count", 0);
+                    auVar3.h = optJSONObject.optInt("post_num", 0);
+                    auVar3.f = optJSONObject.optInt("is_like", 0) == 1;
+                    auVar3.a = 1;
+                    if (auVar2 != null && auVar3.b.equals(auVar2.b)) {
+                        this.a.add(auVar3);
+                    } else {
+                        au auVar4 = new au(this);
+                        auVar4.b = auVar3.b;
+                        auVar4.a = 0;
+                        this.a.add(auVar4);
+                        this.a.add(auVar3);
+                    }
+                    i++;
+                    auVar2 = auVar3;
+                }
+            }
+        } catch (Exception e) {
+            com.baidu.tieba.d.ae.b("NearbyForumListModel", "parserJson", "error = " + e.getMessage());
+        }
     }
 }

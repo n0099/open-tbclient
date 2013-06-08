@@ -36,7 +36,7 @@ public class ImagePbPagerAdapter extends android.support.v4.view.k {
     private ArrayList r = null;
     private ArrayList s = null;
     LayoutInflater a = null;
-    private View.OnClickListener t = new x(this);
+    private View.OnClickListener t = new z(this);
 
     public ImagePbPagerAdapter(Context context) {
         this.b = null;
@@ -71,7 +71,7 @@ public class ImagePbPagerAdapter extends android.support.v4.view.k {
         if (this.j != null) {
             Iterator it = this.j.iterator();
             if (it.hasNext()) {
-                ((z) it.next()).cancel();
+                ((ab) it.next()).cancel();
             }
             this.j.clear();
         }
@@ -132,7 +132,7 @@ public class ImagePbPagerAdapter extends android.support.v4.view.k {
             ImageView imageView = (ImageView) inflate2.findViewById(R.id.image);
             TextView textView = (TextView) inflate2.findViewById(R.id.next);
             TextView textView2 = (TextView) inflate2.findViewById(R.id.thread_name);
-            if (TiebaApplication.d().ai() == 1) {
+            if (TiebaApplication.d().ar() == 1) {
                 textView.setTextColor(com.baidu.tieba.d.ac.c(1));
                 textView2.setTextColor(com.baidu.tieba.d.ac.a(1));
                 imageView.setBackgroundResource(R.drawable.image_pb_next_default_1);
@@ -156,7 +156,7 @@ public class ImagePbPagerAdapter extends android.support.v4.view.k {
         this.s.add(inflate);
         com.baidu.tieba.d.ae.a(getClass().getName(), "instantiateItem", String.valueOf(this.s.size()));
         ListView listView = (ListView) inflate.findViewById(R.id.image_pb_listview);
-        com.baidu.tieba.d.ac.b(listView, TiebaApplication.d().ai());
+        com.baidu.tieba.d.ac.b(listView, TiebaApplication.d().ar());
         if (wVar == null) {
             if (this.i != null) {
                 this.i.a(i, 0, 0);
@@ -172,7 +172,7 @@ public class ImagePbPagerAdapter extends android.support.v4.view.k {
         ahVar.a(this.t);
         listView.setAdapter((ListAdapter) ahVar);
         listView.setVerticalScrollBarEnabled(false);
-        listView.setOnItemClickListener(new y(this, ahVar));
+        listView.setOnItemClickListener(new aa(this, ahVar));
         if (this.h.get(wVar.d()) != null) {
             ahVar.a((com.baidu.tieba.a.y) this.h.get(wVar.d()));
         } else {
@@ -198,8 +198,8 @@ public class ImagePbPagerAdapter extends android.support.v4.view.k {
             for (int i2 = 0; i2 < this.g.size(); i2++) {
                 com.baidu.tieba.a.w wVar = (com.baidu.tieba.a.w) this.g.get(i2);
                 StringBuffer stringBuffer = new StringBuffer(100);
-                if (wVar.g() * wVar.f() > com.baidu.tieba.a.i.g() * com.baidu.tieba.a.i.g()) {
-                    double sqrt = Math.sqrt((com.baidu.tieba.a.i.g() * com.baidu.tieba.a.i.g()) / (wVar.g() * wVar.f()));
+                if (wVar.g() * wVar.f() > com.baidu.tieba.a.i.h() * com.baidu.tieba.a.i.h()) {
+                    double sqrt = Math.sqrt((com.baidu.tieba.a.i.h() * com.baidu.tieba.a.i.h()) / (wVar.g() * wVar.f()));
                     stringBuffer.append("width=");
                     stringBuffer.append(String.valueOf((int) (wVar.f() * sqrt)));
                     stringBuffer.append("&height=");
@@ -263,9 +263,9 @@ public class ImagePbPagerAdapter extends android.support.v4.view.k {
         this.m = com.baidu.tieba.d.ag.a(this.b);
         this.n = (com.baidu.tieba.d.ag.b(this.b) * 3) / 5;
         this.o = this.n >> 1;
-        int g = com.baidu.tieba.a.i.g() < this.m ? com.baidu.tieba.a.i.g() : this.m;
-        this.n = com.baidu.tieba.a.i.g() < this.n ? com.baidu.tieba.a.i.g() : this.n;
-        this.c.a(g - com.baidu.tieba.d.ag.a(this.b, 8.0f), this.n);
+        int h = com.baidu.tieba.a.i.h() < this.m ? com.baidu.tieba.a.i.h() : this.m;
+        this.n = com.baidu.tieba.a.i.h() < this.n ? com.baidu.tieba.a.i.h() : this.n;
+        this.c.a(h - com.baidu.tieba.d.ag.a(this.b, 8.0f), this.n);
         this.a = LayoutInflater.from(this.b);
         this.j = new ArrayList();
         this.h = new HashMap();
@@ -276,13 +276,13 @@ public class ImagePbPagerAdapter extends android.support.v4.view.k {
     /* JADX INFO: Access modifiers changed from: private */
     public void a(int i, String str, int i2, com.baidu.tieba.pb.ah ahVar) {
         if (this.j.size() > 3) {
-            z zVar = (z) this.j.get(0);
-            this.j.remove(zVar);
-            zVar.cancel();
+            ab abVar = (ab) this.j.get(0);
+            this.j.remove(abVar);
+            abVar.cancel();
         }
-        z zVar2 = new z(this, ahVar, i, i2, this.d, str);
-        zVar2.setPriority(3);
-        zVar2.execute(new String[0]);
-        this.j.add(zVar2);
+        ab abVar2 = new ab(this, ahVar, i, i2, this.d, str);
+        abVar2.setPriority(3);
+        abVar2.execute(new String[0]);
+        this.j.add(abVar2);
     }
 }

@@ -1,11 +1,10 @@
 package com.baidu.tieba.frs;
 
-import android.graphics.Bitmap;
 import android.graphics.Rect;
 import android.view.View;
 import com.baidu.tieba.view.ImageViewDrawer;
 /* loaded from: classes.dex */
-class at implements com.baidu.tieba.d.d {
+class at implements com.baidu.tbadk.a.d {
     final /* synthetic */ FrsImageActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -13,8 +12,8 @@ class at implements com.baidu.tieba.d.d {
         this.a = frsImageActivity;
     }
 
-    @Override // com.baidu.tieba.d.d
-    public void a(Bitmap bitmap, String str, boolean z) {
+    @Override // com.baidu.tbadk.a.d
+    public void a(com.baidu.adp.widget.a.b bVar, String str, boolean z) {
         ay ayVar;
         Rect rect;
         Rect rect2;

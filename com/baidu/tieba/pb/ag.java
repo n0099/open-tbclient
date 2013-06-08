@@ -1,6 +1,5 @@
 package com.baidu.tieba.pb;
 
-import android.graphics.Bitmap;
 import com.slidingmenu.lib.R;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
@@ -34,9 +33,9 @@ public class ag extends com.baidu.adp.lib.a.a {
                         i++;
                         str2 = String.valueOf(f) + String.valueOf(Math.round(Math.random() * 9.9999999E7d)) + ".jpg";
                     }
-                    Bitmap c = com.baidu.tbadk.a.d.a().c(str);
+                    com.baidu.adp.widget.a.b c = com.baidu.tbadk.a.e.a().c(str);
                     if (c != null) {
-                        str2 = com.baidu.tieba.d.o.a(null, str2, c, 80);
+                        str2 = com.baidu.tieba.d.o.a(null, str2, c.f(), 80);
                     }
                     if (str2 != null) {
                         new com.baidu.tieba.d.s(this.a).a(str2);

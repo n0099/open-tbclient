@@ -1,13 +1,10 @@
 package com.baidu.tieba.nearby;
 
-import android.location.Address;
-import android.support.v4.view.ViewPager;
-import android.widget.ProgressBar;
-import android.widget.TextView;
+import android.widget.RadioGroup;
 import com.slidingmenu.lib.R;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class aw implements com.baidu.tieba.am {
+public class aw implements android.support.v4.view.aj {
     final /* synthetic */ NewNearbyActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -15,39 +12,39 @@ public class aw implements com.baidu.tieba.am {
         this.a = newNearbyActivity;
     }
 
-    @Override // com.baidu.tieba.am
-    public void a(int i, String str, Address address) {
-        ProgressBar progressBar;
-        ViewPager viewPager;
-        TextView textView;
-        TextView textView2;
-        TextView textView3;
-        ViewPager viewPager2;
-        progressBar = this.a.o;
-        progressBar.setVisibility(8);
-        if (i != 0 || address == null) {
-            viewPager = this.a.k;
-            if (viewPager.getChildCount() == 0) {
-                if (str == null || str.length() <= 0) {
-                    str = this.a.getString(R.string.lbs_error);
+    @Override // android.support.v4.view.aj
+    public void a(int i) {
+        boolean z;
+        RadioGroup radioGroup;
+        RadioGroup radioGroup2;
+        RadioGroup radioGroup3;
+        RadioGroup radioGroup4;
+        com.baidu.tieba.d.ae.c("onPageSelected positon = " + String.valueOf(i));
+        z = this.a.B;
+        if (!z) {
+            this.a.C = true;
+            if (i == 0) {
+                radioGroup3 = this.a.t;
+                if (radioGroup3.getCheckedRadioButtonId() != R.id.title_lbs_threads) {
+                    radioGroup4 = this.a.t;
+                    radioGroup4.check(R.id.title_lbs_threads);
                 }
-                textView = this.a.p;
-                textView.setText(str + "\n" + this.a.getString(R.string.retry_location));
-                textView2 = this.a.p;
-                textView2.setVisibility(0);
-                return;
+            } else {
+                radioGroup = this.a.t;
+                if (radioGroup.getCheckedRadioButtonId() != R.id.title_lbs_bars) {
+                    radioGroup2 = this.a.t;
+                    radioGroup2.check(R.id.title_lbs_bars);
+                }
             }
-            this.a.a(this.a.getString(R.string.lbs_error));
-            return;
+            this.a.C = false;
         }
-        this.a.n = address;
-        textView3 = this.a.p;
-        textView3.setVisibility(8);
-        viewPager2 = this.a.k;
-        if (viewPager2.getChildCount() == 0) {
-            this.a.o();
-        } else {
-            this.a.s();
-        }
+    }
+
+    @Override // android.support.v4.view.aj
+    public void a(int i, float f, int i2) {
+    }
+
+    @Override // android.support.v4.view.aj
+    public void b(int i) {
     }
 }

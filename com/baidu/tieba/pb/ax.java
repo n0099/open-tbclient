@@ -1,6 +1,7 @@
 package com.baidu.tieba.pb;
 
 import android.content.DialogInterface;
+import android.util.SparseArray;
 import android.view.View;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
@@ -14,13 +15,27 @@ class ax implements View.OnLongClickListener {
 
     @Override // android.view.View.OnLongClickListener
     public boolean onLongClick(View view) {
-        bl blVar;
+        com.baidu.tieba.c.ak akVar;
+        bk bkVar;
         DialogInterface.OnClickListener onClickListener;
-        this.a.c = (com.baidu.tieba.a.aq) view.getTag(R.id.tag_clip_board);
-        if (this.a.c != null) {
-            blVar = this.a.o;
-            onClickListener = this.a.H;
-            blVar.a(onClickListener);
+        com.baidu.tieba.c.ax axVar;
+        SparseArray sparseArray = (SparseArray) view.getTag();
+        if (sparseArray != null) {
+            this.a.c = (com.baidu.tieba.a.ar) sparseArray.get(R.id.tag_clip_board);
+            if (this.a.c != null) {
+                boolean z = false;
+                akVar = this.a.j;
+                if (akVar.d() && this.a.c.d() != null) {
+                    String d = this.a.c.d();
+                    axVar = this.a.i;
+                    if (d.equals(axVar.l())) {
+                        z = true;
+                    }
+                }
+                bkVar = this.a.o;
+                onClickListener = this.a.I;
+                bkVar.a(onClickListener, z);
+            }
         }
         return true;
     }

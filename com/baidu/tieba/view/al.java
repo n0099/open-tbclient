@@ -1,30 +1,37 @@
 package com.baidu.tieba.view;
 
-import android.app.Dialog;
-import android.content.Context;
-import android.view.MotionEvent;
 import android.view.View;
-import com.slidingmenu.lib.R;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class al extends Dialog {
-    boolean a;
+public class al implements l {
+    final /* synthetic */ MultiImageView a;
 
-    public al(Context context) {
-        super(context, R.style.common_alert_dialog);
-        this.a = false;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public al(MultiImageView multiImageView) {
+        this.a = multiImageView;
     }
 
-    @Override // android.app.Dialog
-    public void setContentView(View view) {
-        super.setContentView(view);
-    }
-
-    @Override // android.app.Dialog, android.view.Window.Callback
-    public boolean dispatchTouchEvent(MotionEvent motionEvent) {
-        boolean dispatchTouchEvent = super.dispatchTouchEvent(motionEvent);
-        if (!dispatchTouchEvent) {
-            dismiss();
+    @Override // com.baidu.tieba.view.l
+    public void a(h hVar) {
+        GalleryViewPager galleryViewPager;
+        boolean z;
+        GalleryViewPager galleryViewPager2;
+        GalleryViewPager galleryViewPager3;
+        galleryViewPager = this.a.e;
+        if (hVar == galleryViewPager.getCurrentView()) {
+            z = this.a.l;
+            if (z) {
+                galleryViewPager2 = this.a.e;
+                int childCount = galleryViewPager2.getChildCount();
+                for (int i = 0; i < childCount; i++) {
+                    galleryViewPager3 = this.a.e;
+                    View childAt = galleryViewPager3.getChildAt(i);
+                    if (childAt != null && (childAt instanceof ar) && ((ar) childAt).getImageView() != hVar) {
+                        ((ar) childAt).d();
+                    }
+                }
+            }
+            hVar.e();
         }
-        return dispatchTouchEvent;
     }
 }

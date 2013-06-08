@@ -9,15 +9,15 @@ import android.os.Handler;
 import android.os.IBinder;
 import android.widget.RemoteViews;
 import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.a.bf;
+import com.baidu.tieba.a.bg;
 import com.baidu.tieba.d.ae;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public class TiebaUpdateService extends Service {
     private NotificationManager a = null;
     private Notification b = null;
-    private t c = null;
-    private Handler d = new s(this);
+    private u c = null;
+    private Handler d = new t(this);
 
     @Override // android.app.Service
     public IBinder onBind(Intent intent) {
@@ -58,15 +58,15 @@ public class TiebaUpdateService extends Service {
 
     @Override // android.app.Service
     public void onStart(Intent intent, int i) {
-        bf bfVar;
+        bg bgVar;
         ae.a(getClass().getName(), "onStart", "onStart");
-        if (intent != null && intent.getBooleanExtra("update", false) && (bfVar = (bf) intent.getSerializableExtra("version")) != null) {
-            this.b.contentView.setTextViewText(R.id.info, String.format(getString(R.string.downloading), bfVar.c()));
+        if (intent != null && intent.getBooleanExtra("update", false) && (bgVar = (bg) intent.getSerializableExtra("version")) != null) {
+            this.b.contentView.setTextViewText(R.id.info, String.format(getString(R.string.downloading), bgVar.c()));
             this.b.contentView.setTextViewText(R.id.schedule, "0/0");
-            if (com.baidu.tieba.d.o.c(bfVar.f()) != null) {
-                this.d.sendMessageDelayed(this.d.obtainMessage(1, bfVar), 100L);
-            } else if (bfVar != null && this.c == null) {
-                this.c = new t(this, bfVar);
+            if (com.baidu.tieba.d.o.c(bgVar.f()) != null) {
+                this.d.sendMessageDelayed(this.d.obtainMessage(1, bgVar), 100L);
+            } else if (bgVar != null && this.c == null) {
+                this.c = new u(this, bgVar);
                 this.c.execute(new String[0]);
                 this.b.contentView.setProgressBar(R.id.progress, 100, 0, false);
                 this.a.notify(10, this.b);

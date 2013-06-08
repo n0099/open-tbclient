@@ -1,6 +1,7 @@
 package com.baidu.adp.lib.a;
 
 import android.os.Handler;
+import android.os.Looper;
 import android.os.Message;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
@@ -8,7 +9,9 @@ public class j extends Handler {
     final /* synthetic */ h a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public j(h hVar) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public j(h hVar, Looper looper) {
+        super(looper);
         this.a = hVar;
     }
 

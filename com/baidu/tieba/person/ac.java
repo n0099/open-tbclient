@@ -15,11 +15,11 @@ public class ac implements RadioGroup.OnCheckedChangeListener {
     @Override // android.widget.RadioGroup.OnCheckedChangeListener
     public void onCheckedChanged(RadioGroup radioGroup, int i) {
         switch (i) {
-            case R.id.all_tab /* 2131100178 */:
+            case R.id.all_tab /* 2131100220 */:
                 this.a.a("all", AllPostActivity.class);
                 return;
-            case R.id.thread_tab /* 2131100179 */:
-            case R.id.reply_tab /* 2131100180 */:
+            case R.id.thread_tab /* 2131100221 */:
+            case R.id.reply_tab /* 2131100222 */:
             default:
                 return;
         }

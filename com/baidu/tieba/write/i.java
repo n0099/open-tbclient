@@ -45,25 +45,25 @@ public class i extends com.baidu.adp.lib.a.a {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.a.a
-    public com.baidu.tieba.a.ay a(String... strArr) {
+    public com.baidu.tieba.a.az a(String... strArr) {
         com.baidu.tieba.c.a aVar;
         this.c = strArr[0];
         this.b = new com.baidu.tieba.d.t();
         if (this.c != null && this.c.length() > 0) {
             this.b.a(String.valueOf(com.baidu.tieba.a.i.e) + "c/u/follow/sug");
-            this.b.a("uid", TiebaApplication.z());
+            this.b.a("uid", TiebaApplication.B());
             this.b.a("q", this.c);
             String i = this.b.i();
             if (this.b.b()) {
-                com.baidu.tieba.a.ay ayVar = new com.baidu.tieba.a.ay();
+                com.baidu.tieba.a.az azVar = new com.baidu.tieba.a.az();
                 aVar = this.a.j;
                 com.baidu.tieba.a.t a = aVar.a();
                 if (a != null) {
-                    ayVar.a(i, a.b());
-                    return ayVar;
+                    azVar.a(i, a.b());
+                    return azVar;
                 }
-                ayVar.a(i, (HashMap) null);
-                return ayVar;
+                azVar.a(i, (HashMap) null);
+                return azVar;
             }
         }
         return null;
@@ -72,7 +72,7 @@ public class i extends com.baidu.adp.lib.a.a {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.a.a
-    public void a(com.baidu.tieba.a.ay ayVar) {
+    public void a(com.baidu.tieba.a.az azVar) {
         ProgressBar progressBar;
         EditText editText;
         com.baidu.tieba.c.a aVar;
@@ -85,15 +85,15 @@ public class i extends com.baidu.adp.lib.a.a {
             editText = this.a.c;
             if (editText.getText().toString().equals(this.c)) {
                 aVar = this.a.j;
-                aVar.a(ayVar);
+                aVar.a(azVar);
                 kVar = this.a.k;
-                kVar.a(ayVar.a());
+                kVar.a(azVar.a());
                 kVar2 = this.a.k;
                 kVar2.notifyDataSetInvalidated();
                 listView = this.a.f;
                 listView.setSelection(0);
             }
         }
-        super.a((Object) ayVar);
+        super.a((Object) azVar);
     }
 }

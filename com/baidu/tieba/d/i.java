@@ -11,7 +11,7 @@ public class i {
 
     public i() {
         this.a = 1;
-        this.a = 6;
+        this.a = 7;
     }
 
     private void a(SQLiteDatabase sQLiteDatabase, String str) {

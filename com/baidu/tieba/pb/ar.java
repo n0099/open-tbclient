@@ -12,10 +12,13 @@ class ar implements DialogInterface.OnClickListener {
 
     @Override // android.content.DialogInterface.OnClickListener
     public void onClick(DialogInterface dialogInterface, int i) {
-        bl blVar;
+        bk bkVar;
+        bk bkVar2;
         NewPbActivity newPbActivity = this.a;
-        blVar = this.a.o;
-        newPbActivity.p = blVar.S();
+        bkVar = this.a.o;
+        newPbActivity.p = bkVar.T();
+        bkVar2 = this.a.o;
+        bkVar2.a();
         if (i == 0) {
             com.baidu.tieba.write.bb.a(this.a);
         } else if (i == 1) {

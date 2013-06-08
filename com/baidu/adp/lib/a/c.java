@@ -32,6 +32,6 @@ public class c extends n {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.a.n
     public void a() {
-        this.a.cancel(true);
+        this.a.cancel();
     }
 }

@@ -1,8 +1,8 @@
 package com.baidu.tieba.mention;
 
 import android.view.View;
-import com.baidu.tieba.a.aq;
-import com.baidu.tieba.c.bd;
+import com.baidu.tieba.a.ar;
+import com.baidu.tieba.c.bg;
 import com.baidu.tieba.person.PersonInfoActivity;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
@@ -16,17 +16,17 @@ public class t implements View.OnClickListener {
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        bd bdVar;
-        bd bdVar2;
-        bd bdVar3;
-        bdVar = this.a.n;
-        if (bdVar != null) {
-            bdVar2 = this.a.n;
-            if (bdVar2.a() != null) {
-                bdVar3 = this.a.n;
-                aq aqVar = (aq) bdVar3.a().d().get(0);
-                if (aqVar != null) {
-                    PersonInfoActivity.a(this.a, aqVar.h().a(), aqVar.h().c());
+        bg bgVar;
+        bg bgVar2;
+        bg bgVar3;
+        bgVar = this.a.n;
+        if (bgVar != null) {
+            bgVar2 = this.a.n;
+            if (bgVar2.a() != null) {
+                bgVar3 = this.a.n;
+                ar arVar = (ar) bgVar3.a().d().get(0);
+                if (arVar != null) {
+                    PersonInfoActivity.a(this.a, arVar.h().a(), arVar.h().c());
                 }
             }
         }

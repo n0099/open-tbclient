@@ -64,14 +64,14 @@ class o implements Handler.Callback {
                         boolean z2 = false;
                         while (i < list9.size()) {
                             list10 = this.a.k;
-                            com.baidu.tieba.view.af afVar = (com.baidu.tieba.view.af) list10.get(i);
-                            if (afVar.getTag(R.id.label_ball_state) == null) {
+                            com.baidu.tieba.view.ah ahVar = (com.baidu.tieba.view.ah) list10.get(i);
+                            if (ahVar.getTag(R.id.label_ball_state) == null) {
                                 z = z2;
-                            } else if (((Integer) afVar.getTag(R.id.label_ball_state)).intValue() != 1) {
+                            } else if (((Integer) ahVar.getTag(R.id.label_ball_state)).intValue() != 1) {
                                 z = z2;
                             } else {
-                                afVar.setAnimation(null);
-                                a2 = this.a.a(afVar, j3);
+                                ahVar.setAnimation(null);
+                                a2 = this.a.a(ahVar, j3);
                                 if (a2) {
                                     list11 = this.a.k;
                                     list11.remove(i);
@@ -113,7 +113,7 @@ class o implements Handler.Callback {
                         while (i2 < list3.size()) {
                             LabelActivity labelActivity = this.a;
                             list5 = this.a.n;
-                            a = labelActivity.a((com.baidu.tieba.view.af) list5.get(i2), j4);
+                            a = labelActivity.a((com.baidu.tieba.view.ah) list5.get(i2), j4);
                             if (a) {
                                 list6 = this.a.n;
                                 list6.remove(i2);

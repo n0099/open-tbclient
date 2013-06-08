@@ -1,6 +1,6 @@
 package com.baidu.tieba.frs;
 
-import com.baidu.tieba.c.bk;
+import com.baidu.tieba.c.bn;
 import com.slidingmenu.lib.R;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
@@ -15,9 +15,9 @@ public class l extends com.baidu.adp.a.e {
     @Override // com.baidu.adp.a.e
     public void a(Object obj) {
         boolean z;
-        bk bkVar;
+        bn bnVar;
         ba baVar;
-        bk bkVar2;
+        bn bnVar2;
         String str;
         String str2;
         ba baVar2;
@@ -25,25 +25,25 @@ public class l extends com.baidu.adp.a.e {
         String str3;
         String str4;
         ba baVar4;
-        com.baidu.tieba.c.p pVar;
-        com.baidu.tieba.c.p pVar2;
+        com.baidu.tieba.c.s sVar;
+        com.baidu.tieba.c.s sVar2;
         ba baVar5;
         ba baVar6;
         ba baVar7;
         ba baVar8;
-        com.baidu.tieba.c.p pVar3;
-        com.baidu.tieba.c.p pVar4;
-        com.baidu.tieba.c.p pVar5;
-        if (obj == null || !(obj instanceof com.baidu.tieba.a.aw)) {
+        com.baidu.tieba.c.s sVar3;
+        com.baidu.tieba.c.s sVar4;
+        com.baidu.tieba.c.s sVar5;
+        if (obj == null || !(obj instanceof com.baidu.tieba.a.ax)) {
             z = false;
         } else {
-            pVar5 = this.a.v;
-            pVar5.a((com.baidu.tieba.a.aw) obj);
+            sVar5 = this.a.v;
+            sVar5.a((com.baidu.tieba.a.ax) obj);
             z = true;
         }
         if (!z) {
-            bkVar = this.a.x;
-            if (bkVar.b() == 160002) {
+            bnVar = this.a.x;
+            if (bnVar.b() == 160002) {
                 str = this.a.A;
                 if (str == "normal_page") {
                     baVar3 = this.a.l;
@@ -57,25 +57,25 @@ public class l extends com.baidu.adp.a.e {
                 }
             }
             baVar = this.a.l;
-            bkVar2 = this.a.x;
-            baVar.a(bkVar2.c());
+            bnVar2 = this.a.x;
+            baVar.a(bnVar2.c());
             return;
         }
         str3 = this.a.A;
         if (str3 == "normal_page") {
             baVar8 = this.a.l;
-            pVar3 = this.a.v;
-            int b = pVar3.a().g().b();
-            pVar4 = this.a.v;
-            baVar8.b(b, pVar4.a().g().d());
+            sVar3 = this.a.v;
+            int b = sVar3.a().g().b();
+            sVar4 = this.a.v;
+            baVar8.b(b, sVar4.a().g().d());
         } else {
             str4 = this.a.A;
             if (str4 == "frs_page") {
                 baVar4 = this.a.l;
-                pVar = this.a.v;
-                int b2 = pVar.a().g().b();
-                pVar2 = this.a.v;
-                baVar4.a(b2, pVar2.a().g().d());
+                sVar = this.a.v;
+                int b2 = sVar.a().g().b();
+                sVar2 = this.a.v;
+                baVar4.a(b2, sVar2.a().g().d());
             }
         }
         StringBuilder sb = new StringBuilder(100);
@@ -83,16 +83,16 @@ public class l extends com.baidu.adp.a.e {
         if (!baVar5.p()) {
             sb.append(this.a.getString(R.string.sign_success));
             sb.append("!\n");
-            sb.append(String.format(this.a.getString(R.string.sign_user), Integer.valueOf(((com.baidu.tieba.a.aw) obj).c())));
+            sb.append(String.format(this.a.getString(R.string.sign_user), Integer.valueOf(((com.baidu.tieba.a.ax) obj).c())));
             baVar7 = this.a.l;
             baVar7.a(sb.toString());
             return;
         }
         sb.append(this.a.getString(R.string.sign_success));
         sb.append(",");
-        sb.append(String.format(this.a.getString(R.string.sign_point), Integer.valueOf(((com.baidu.tieba.a.aw) obj).d())));
+        sb.append(String.format(this.a.getString(R.string.sign_point), Integer.valueOf(((com.baidu.tieba.a.ax) obj).d())));
         sb.append("!\n");
-        sb.append(String.format(this.a.getString(R.string.sign_user), Integer.valueOf(((com.baidu.tieba.a.aw) obj).c())));
+        sb.append(String.format(this.a.getString(R.string.sign_user), Integer.valueOf(((com.baidu.tieba.a.ax) obj).c())));
         baVar6 = this.a.l;
         baVar6.a(sb.toString());
     }

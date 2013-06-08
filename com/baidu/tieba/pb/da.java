@@ -5,12 +5,6 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
-import com.baidu.browser.core.util.BdUtil;
-import com.baidu.tieba.MainTabActivity;
-import com.baidu.tieba.frs.FrsActivity;
-import java.net.URI;
-import org.apache.http.NameValuePair;
-import org.apache.http.client.utils.URLEncodedUtils;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class da extends WebViewClient {
@@ -79,34 +73,10 @@ public class da extends WebViewClient {
         imageView3.setVisibility(4);
     }
 
-    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:26:0x0084 -> B:14:0x0032). Please submit an issue!!! */
     @Override // android.webkit.WebViewClient
     public boolean shouldOverrideUrlLoading(WebView webView, String str) {
-        boolean shouldOverrideUrlLoading;
-        if (this.a.h == null || !this.a.h.a(str)) {
-            if (str != null && str.contains("jump_tieba_native=1")) {
-                try {
-                    for (NameValuePair nameValuePair : URLEncodedUtils.parse(new URI(str), BdUtil.UTF8)) {
-                        if (nameValuePair.getName().equalsIgnoreCase("nearby")) {
-                            MainTabActivity.a(this.a, "goto_nearby");
-                            shouldOverrideUrlLoading = true;
-                            break;
-                        } else if (nameValuePair.getName().equalsIgnoreCase("kz")) {
-                            NewPbActivity.a(this.a, nameValuePair.getValue(), null, null);
-                            shouldOverrideUrlLoading = true;
-                            break;
-                        } else if (nameValuePair.getName().equalsIgnoreCase("kw")) {
-                            FrsActivity.a(this.a, nameValuePair.getValue(), (String) null);
-                            shouldOverrideUrlLoading = true;
-                            break;
-                        }
-                    }
-                } catch (Exception e) {
-                    com.baidu.tieba.d.ae.b(getClass().getName(), "shouldOverrideUrlLoading", e.getMessage());
-                }
-            }
-            shouldOverrideUrlLoading = super.shouldOverrideUrlLoading(webView, str);
-            return shouldOverrideUrlLoading;
+        if ((this.a.h == null || !this.a.h.a(str)) && !com.baidu.tieba.recommend.i.a(this.a, str)) {
+            return super.shouldOverrideUrlLoading(webView, str);
         }
         return true;
     }

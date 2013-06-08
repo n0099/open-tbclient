@@ -30,12 +30,12 @@ import com.baidu.android.common.util.HanziToPinyin;
 import com.baidu.browser.explorer.BdWebErrorView;
 import com.baidu.mapapi.MKEvent;
 import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.c.bp;
+import com.baidu.tieba.c.bs;
 import com.baidu.tieba.service.TiebaPrepareImageService;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public class WriteActivity extends com.baidu.tieba.e {
-    private bp c = null;
+    private bs c = null;
     private boolean d = false;
     private boolean e = false;
     private InputMethodManager f = null;
@@ -147,8 +147,8 @@ public class WriteActivity extends com.baidu.tieba.e {
         this.f = (InputMethodManager) getSystemService("input_method");
         a(bundle);
         n();
-        if (TiebaApplication.d().o()) {
-            if ((getIntent().getExtras().getInt("type") == 0 || getIntent().getExtras().getInt("type") == 3) && !com.baidu.tieba.a.i.f().equals(getIntent().getStringExtra("forum_id"))) {
+        if (TiebaApplication.d().p()) {
+            if ((getIntent().getExtras().getInt("type") == 0 || getIntent().getExtras().getInt("type") == 3) && !com.baidu.tieba.a.i.g().equals(getIntent().getStringExtra("forum_id"))) {
                 c();
             }
         }
@@ -191,7 +191,7 @@ public class WriteActivity extends com.baidu.tieba.e {
             this.y = null;
         }
         this.z.removeCallbacks(this.L);
-        TiebaApplication.d().aB();
+        TiebaApplication.d().aK();
         super.onDestroy();
     }
 
@@ -349,7 +349,7 @@ public class WriteActivity extends com.baidu.tieba.e {
         } else if (this.c.b() == 0 && this.d) {
             StringBuffer stringBuffer = new StringBuffer(30);
             stringBuffer.append(getResources().getString(R.string.tieba_client));
-            stringBuffer.append(com.baidu.tieba.a.i.h());
+            stringBuffer.append(com.baidu.tieba.a.i.i());
             stringBuffer.append(", ");
             stringBuffer.append(Build.VERSION.RELEASE);
             stringBuffer.append(", ");
@@ -448,7 +448,7 @@ public class WriteActivity extends com.baidu.tieba.e {
     private void a(Bundle bundle) {
         int intExtra;
         this.w = new ag(this);
-        this.c = new bp();
+        this.c = new bs();
         if (bundle != null) {
             this.c.a(bundle.getInt("type", 0));
             this.c.e(bundle.getString("forum_id"));
@@ -473,7 +473,7 @@ public class WriteActivity extends com.baidu.tieba.e {
             this.B = intent.getBooleanExtra("reply_sub_pb", false);
             this.C = intent.getStringExtra("sub_user_name");
         }
-        bp a = com.baidu.tieba.d.k.a(this.c.b(), this.c.g(), this.c.e(), this.c.f());
+        bs a = com.baidu.tieba.d.k.a(this.c.b(), this.c.g(), this.c.e(), this.c.f());
         if (a != null) {
             this.c = a;
             this.c.b(intExtra);
@@ -568,7 +568,7 @@ public class WriteActivity extends com.baidu.tieba.e {
                     this.z.postDelayed(this.L, 10000L);
                 }
                 p();
-            } else if (i == 12000010 || i == 1200009) {
+            } else if (i == 1200010 || i == 1200009) {
                 r();
                 if (this.u != null) {
                     this.u.cancel();
@@ -612,7 +612,7 @@ public class WriteActivity extends com.baidu.tieba.e {
                         bb.b(this);
                     }
                 } else if (i == 1200001) {
-                    WriteImageActivity.a(this, 1200001, 12000010, null, null, null, null);
+                    WriteImageActivity.a(this, 1200001, 1200010, null, null, null, null);
                 }
             }
         } else if (i2 == 0) {
@@ -624,7 +624,7 @@ public class WriteActivity extends com.baidu.tieba.e {
                 case 1200009:
                     bb.b(this);
                     return;
-                case 12000010:
+                case 1200010:
                     bb.a(this);
                     return;
                 default:

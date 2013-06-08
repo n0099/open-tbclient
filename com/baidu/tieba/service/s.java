@@ -1,52 +1,162 @@
 package com.baidu.tieba.service;
 
-import android.app.Notification;
-import android.app.NotificationManager;
+import android.content.Intent;
+import android.os.Build;
 import android.os.Handler;
-import android.os.Message;
 import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.a.bf;
+import com.baidu.tieba.UpdateDialog;
+import com.baidu.tieba.c.br;
+import com.baidu.tieba.d.ad;
+import com.baidu.tieba.d.ae;
 import com.baidu.tieba.d.ag;
-import com.slidingmenu.lib.R;
+import java.util.Random;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class s extends Handler {
-    final /* synthetic */ TiebaUpdateService a;
+public class s extends com.baidu.adp.lib.a.a {
+    com.baidu.tieba.d.t a;
+    final /* synthetic */ TiebaSyncService b;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public s(TiebaUpdateService tiebaUpdateService) {
-        this.a = tiebaUpdateService;
+    private s(TiebaSyncService tiebaSyncService) {
+        this.b = tiebaSyncService;
+        this.a = null;
     }
 
-    @Override // android.os.Handler
-    public void handleMessage(Message message) {
-        Notification notification;
-        Notification notification2;
-        Notification notification3;
-        NotificationManager notificationManager;
-        Notification notification4;
-        super.handleMessage(message);
-        if (message.what == 900002) {
-            notification = this.a.b;
-            if (notification != null && message.arg2 > 0) {
-                notification2 = this.a.b;
-                notification2.contentView.setProgressBar(R.id.progress, 100, (int) ((message.arg1 * 100) / message.arg2), false);
-                StringBuffer stringBuffer = new StringBuffer(20);
-                stringBuffer.append(String.valueOf(message.arg1 / 1000));
-                stringBuffer.append("K/");
-                stringBuffer.append(String.valueOf(message.arg2 / 1000));
-                stringBuffer.append("K");
-                notification3 = this.a.b;
-                notification3.contentView.setTextViewText(R.id.schedule, stringBuffer);
-                notificationManager = this.a.a;
-                notification4 = this.a.b;
-                notificationManager.notify(10, notification4);
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public /* synthetic */ s(TiebaSyncService tiebaSyncService, s sVar) {
+        this(tiebaSyncService);
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.a.a
+    public br a(String... strArr) {
+        br brVar;
+        Exception e;
+        try {
+            this.a = new com.baidu.tieba.d.t(String.valueOf(com.baidu.tieba.a.i.e) + "c/s/sync");
+            this.a.a("_os_version", Build.VERSION.RELEASE);
+            StringBuffer stringBuffer = new StringBuffer(15);
+            stringBuffer.append(String.valueOf(ag.a(TiebaApplication.d())));
+            stringBuffer.append(",");
+            stringBuffer.append(String.valueOf(ag.b(TiebaApplication.d())));
+            this.a.a("_phone_screen", stringBuffer.toString());
+            if (TiebaApplication.d().P() > 0) {
+                this.a.a("_msg_status", "0");
+            } else {
+                this.a.a("_msg_status", "1");
             }
-        } else if (message.what == 1) {
-            bf bfVar = (bf) message.obj;
-            if (bfVar != null) {
-                ag.b(TiebaApplication.d(), bfVar.f());
+            this.a.a("_pic_quality", String.valueOf(TiebaApplication.d().am()));
+            String i = this.a.i();
+            if (!this.a.b()) {
+                return null;
             }
-            this.a.stopSelf();
+            brVar = new br();
+            try {
+                brVar.a(i);
+                if (TiebaApplication.N() == null && brVar.c().a() != null && brVar.c().a().length() > 0) {
+                    TiebaApplication.a(this.b, brVar.c().a());
+                    TiebaApplication.i(brVar.c().a());
+                    return brVar;
+                }
+                return brVar;
+            } catch (Exception e2) {
+                e = e2;
+                ae.b(getClass().getName(), "doInBackground", e.getMessage());
+                return brVar;
+            }
+        } catch (Exception e3) {
+            brVar = null;
+            e = e3;
         }
+    }
+
+    @Override // com.baidu.adp.lib.a.a
+    public void cancel() {
+        this.b.a = null;
+        if (this.a != null) {
+            this.a.g();
+        }
+        super.cancel(true);
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.a.a
+    public void a(br brVar) {
+        int i;
+        int i2;
+        Handler handler;
+        Runnable runnable;
+        Handler handler2;
+        Runnable runnable2;
+        br brVar2;
+        br brVar3;
+        int at;
+        br brVar4;
+        br brVar5;
+        br brVar6;
+        br brVar7;
+        br brVar8;
+        br brVar9;
+        br brVar10;
+        super.a((Object) brVar);
+        this.b.a = null;
+        if (brVar != null) {
+            this.b.c = brVar;
+            brVar2 = this.b.c;
+            if (brVar2.a() != null) {
+                brVar9 = this.b.c;
+                if (brVar9.a().b() != null) {
+                    Intent intent = new Intent("com.baidu.tieba.broadcast.lottery");
+                    brVar10 = this.b.c;
+                    intent.putExtra("lottery", brVar10.a().b());
+                    TiebaApplication.d().sendBroadcast(intent);
+                }
+            }
+            brVar3 = this.b.c;
+            if (brVar3.b().e() == 1) {
+                TiebaApplication d = TiebaApplication.d();
+                brVar4 = this.b.c;
+                d.a(brVar4.b());
+                this.b.b();
+                brVar5 = this.b.c;
+                if (brVar5.b().b() != 1) {
+                    brVar6 = this.b.c;
+                    String c = brVar6.b().c();
+                    if (ad.a(c, TiebaApplication.d().J()) > 0) {
+                        TiebaApplication.d().g(c);
+                        TiebaApplication d2 = TiebaApplication.d();
+                        brVar7 = this.b.c;
+                        UpdateDialog.a(d2, brVar7.b());
+                    }
+                } else {
+                    TiebaApplication d3 = TiebaApplication.d();
+                    brVar8 = this.b.c;
+                    UpdateDialog.a(d3, brVar8.b());
+                }
+            }
+            int nextInt = new Random().nextInt(10000) + 1;
+            int a = brVar.a().a();
+            if (a > 0 && nextInt % a == 0 && (at = TiebaApplication.d().at()) < 10) {
+                TiebaApplication.d().m(at + 1);
+                ag.e(this.b);
+            }
+            this.b.stopSelf();
+            return;
+        }
+        TiebaSyncService tiebaSyncService = this.b;
+        i = tiebaSyncService.b;
+        tiebaSyncService.b = i + 1;
+        i2 = this.b.b;
+        if (i2 < 10) {
+            handler = this.b.d;
+            runnable = this.b.e;
+            handler.removeCallbacks(runnable);
+            handler2 = this.b.d;
+            runnable2 = this.b.e;
+            handler2.postDelayed(runnable2, 60000L);
+            return;
+        }
+        this.b.stopSelf();
     }
 }

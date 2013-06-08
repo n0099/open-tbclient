@@ -8,7 +8,6 @@ import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.pb.bh;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public class ao extends com.baidu.adp.widget.ListView.c {
@@ -18,7 +17,7 @@ public class ao extends com.baidu.adp.widget.ListView.c {
     private ImageView d = null;
     private View.OnClickListener e = null;
     private View f = null;
-    private int g = 0;
+    private String g = null;
 
     public ao(Context context) {
         this.a = null;
@@ -27,10 +26,10 @@ public class ao extends com.baidu.adp.widget.ListView.c {
 
     @Override // com.baidu.adp.widget.ListView.c
     public View a() {
-        this.f = LayoutInflater.from(this.a).inflate(R.layout.new_sub_pb_list_more, (ViewGroup) null);
-        this.b = (TextView) this.f.findViewById(R.id.sub_pb_more_text);
+        this.f = LayoutInflater.from(this.a).inflate(R.layout.new_pb_list_more, (ViewGroup) null);
+        this.b = (TextView) this.f.findViewById(R.id.pb_more_text);
         this.d = (ImageView) this.f.findViewById(R.id.image);
-        if (TiebaApplication.d().ai() == 1) {
+        if (TiebaApplication.d().ar() == 1) {
             this.d.setBackgroundResource(R.drawable.icon_little_down_1);
         } else {
             this.d.setBackgroundResource(R.drawable.icon_little_down);
@@ -45,29 +44,19 @@ public class ao extends com.baidu.adp.widget.ListView.c {
         this.b.setText(this.a.getText(R.string.loading));
     }
 
-    public void a(int i) {
-        this.g = i;
-        this.c.setVisibility(8);
-        this.d.setVisibility(0);
-        if (i > 0) {
-            bh.a(this.b, i);
-        } else {
-            this.b.setText(this.a.getText(R.string.load_more));
-        }
-    }
-
     public void d() {
         this.c.setVisibility(8);
         this.d.setVisibility(0);
-        if (this.g > 0) {
-            bh.a(this.b, this.g);
+        if (this.g != null) {
+            this.b.setText(this.g);
         } else {
             this.b.setText(this.a.getText(R.string.load_more));
         }
     }
 
-    public void a(View.OnClickListener onClickListener) {
-        this.e = onClickListener;
+    public void a(String str) {
+        this.g = str;
+        this.b.setText(str);
     }
 
     @Override // com.baidu.adp.widget.ListView.c

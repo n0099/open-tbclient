@@ -17,9 +17,9 @@ public class q implements DialogInterface.OnClickListener {
         int i2;
         aeVar = this.a.l;
         i2 = this.a.v;
-        com.baidu.tieba.a.aq aqVar = (com.baidu.tieba.a.aq) aeVar.getItem(i2);
-        if (aqVar != null && i == 0) {
-            aqVar.f(this.a);
+        com.baidu.tieba.a.ar arVar = (com.baidu.tieba.a.ar) aeVar.getItem(i2);
+        if (arVar != null && i == 0) {
+            arVar.e(this.a);
         }
     }
 }

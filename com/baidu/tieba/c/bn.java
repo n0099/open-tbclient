@@ -1,34 +1,24 @@
 package com.baidu.tieba.c;
-
-import java.util.ArrayList;
-import org.json.JSONArray;
-import org.json.JSONObject;
 /* loaded from: classes.dex */
-public class bn {
-    private ArrayList a = new ArrayList();
+public class bn extends com.baidu.adp.a.c {
+    private String e = null;
+    private String f = null;
+    private bo g = null;
 
-    public ArrayList a() {
-        return this.a;
-    }
-
-    public void a(String str) {
-        try {
-            a(new JSONObject(str));
-        } catch (Exception e) {
-            com.baidu.tieba.d.ae.b("BarlistModel", "parserJson", "error = " + e.getMessage());
+    public void d() {
+        if (this.g != null) {
+            this.g.cancel();
+            this.g = null;
         }
     }
 
-    public void a(JSONObject jSONObject) {
-        try {
-            JSONArray optJSONArray = jSONObject.optJSONArray("fname");
-            if (optJSONArray != null) {
-                for (int i = 0; i < optJSONArray.length(); i++) {
-                    this.a.add(optJSONArray.getString(i));
-                }
-            }
-        } catch (Exception e) {
-            com.baidu.tieba.d.ae.b("BarlistModel", "parserJson", "error = " + e.getMessage());
+    public void a(String str, String str2) {
+        if (str != null && str.length() > 0 && str2 != null && str2.length() > 0 && this.g == null) {
+            this.e = str;
+            this.f = str2;
+            this.g = new bo(this, null);
+            this.g.setPriority(2);
+            this.g.execute(new Object[0]);
         }
     }
 }

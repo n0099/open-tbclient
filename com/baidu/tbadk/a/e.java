@@ -1,35 +1,79 @@
 package com.baidu.tbadk.a;
-
-import android.graphics.Bitmap;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class e extends com.baidu.adp.lib.c.a {
-    final /* synthetic */ d a;
+public class e {
+    private static e a = new e();
+    private com.baidu.adp.lib.c.a b;
+    private com.baidu.adp.lib.c.a c;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public e(d dVar, int i) {
-        super(i);
-        this.a = dVar;
+    public static e a() {
+        return a;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.c.a
-    /* renamed from: a */
-    public int b(String str, f fVar) {
-        Bitmap bitmap;
-        Bitmap bitmap2;
-        Bitmap bitmap3;
-        if (fVar != null) {
-            bitmap = fVar.b;
-            if (bitmap != null) {
-                bitmap2 = fVar.b;
-                int height = bitmap2.getHeight();
-                bitmap3 = fVar.b;
-                return height * bitmap3.getWidth() * 2;
-            }
+    private e() {
+        this.b = null;
+        this.c = null;
+        this.b = new f(this, 0);
+        this.c = new g(this, 0);
+    }
+
+    public void a(int i, int i2) {
+        a(i);
+        b(i2);
+    }
+
+    public void a(int i) {
+        this.b.c(i);
+    }
+
+    public void b(int i) {
+        this.c.c(i);
+    }
+
+    public void a(String str, com.baidu.adp.widget.a.b bVar) {
+        if (bVar != null && this.b != null) {
+            this.b.a(str, bVar);
         }
-        return 0;
+    }
+
+    public boolean c(int i) {
+        return this.c.a(i);
+    }
+
+    public void a(String str, com.baidu.adp.widget.a.b bVar, boolean z) {
+        if (bVar != null && this.c != null) {
+            if (com.baidu.adp.lib.e.b.a()) {
+                com.baidu.adp.lib.e.b.c("image joined cache:" + bVar.i() + ", size:" + bVar.d());
+            }
+            this.c.a(str, bVar);
+        }
+    }
+
+    public void b(String str, com.baidu.adp.widget.a.b bVar) {
+        a(str, bVar, false);
+    }
+
+    public void a(String str) {
+        this.b.b(str);
+    }
+
+    public com.baidu.adp.widget.a.b b(String str) {
+        return (com.baidu.adp.widget.a.b) this.b.a(str);
+    }
+
+    public com.baidu.adp.widget.a.b c(String str) {
+        return (com.baidu.adp.widget.a.b) this.c.a(str);
+    }
+
+    public com.baidu.adp.widget.a.b d(String str) {
+        return (com.baidu.adp.widget.a.b) this.c.a(str);
+    }
+
+    public void b() {
+        this.b.b();
+        this.c.b();
+    }
+
+    public String toString() {
+        return "pic:" + this.c.toString() + "  photo:" + this.b.toString();
     }
 }

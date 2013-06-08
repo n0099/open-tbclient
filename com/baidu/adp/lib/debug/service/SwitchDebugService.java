@@ -86,7 +86,7 @@ public class SwitchDebugService extends Service implements SensorEventListener {
 
     @Override // android.hardware.SensorEventListener
     public void onSensorChanged(SensorEvent sensorEvent) {
-        if (sensorEvent.sensor.getType() == 1 && sensorEvent.values != null && sensorEvent.values.length >= 3 && a()) {
+        if (sensorEvent.sensor.getType() == 1 && sensorEvent.values != null && sensorEvent.values.length >= 3) {
             float f2 = sensorEvent.values[0];
             float f3 = sensorEvent.values[1];
             float f4 = sensorEvent.values[2];
@@ -110,7 +110,7 @@ public class SwitchDebugService extends Service implements SensorEventListener {
                         this.m = e;
                     }
                     this.n = currentTimeMillis;
-                    if (this.m >= e && currentTimeMillis - this.i > d) {
+                    if (this.m >= e && currentTimeMillis - this.i > d && a()) {
                         this.i = currentTimeMillis;
                         this.h.vibrate(100L);
                         if (b.c) {

@@ -63,7 +63,7 @@ public class LoginActivity extends com.baidu.tieba.e {
     LinearLayout d = null;
     TextView e = null;
     private ac Q = null;
-    private com.baidu.tieba.c.af R = null;
+    private com.baidu.tieba.c.ai R = null;
     private ab S = null;
     InputMethodManager f = null;
     j g = null;
@@ -207,9 +207,9 @@ public class LoginActivity extends com.baidu.tieba.e {
     public void b() {
         a.a().b();
         if (this.p) {
-            TiebaApplication.d().v();
+            TiebaApplication.d().w();
             Intent intent = new Intent();
-            intent.putExtra("BDUSS", TiebaApplication.A());
+            intent.putExtra("BDUSS", TiebaApplication.C());
             setResult(-1, intent);
         } else {
             MainTabActivity.b(this, getIntent().getStringExtra("goto_view"));
@@ -335,7 +335,7 @@ public class LoginActivity extends com.baidu.tieba.e {
 
     private void c(int i) {
         switch (i) {
-            case R.id.normal_login /* 2131099703 */:
+            case R.id.normal_login /* 2131099705 */:
                 this.x = this.y;
                 this.y.setVisibility(0);
                 this.z.setVisibility(8);
@@ -348,7 +348,7 @@ public class LoginActivity extends com.baidu.tieba.e {
                 this.s.setInputType(1);
                 d();
                 return;
-            case R.id.mobile_login /* 2131099704 */:
+            case R.id.mobile_login /* 2131099706 */:
                 this.x = this.z;
                 this.y.setVisibility(8);
                 this.z.setVisibility(0);
@@ -369,22 +369,22 @@ public class LoginActivity extends com.baidu.tieba.e {
     @Override // com.baidu.adp.a.a, android.view.View.OnClickListener
     public void onClick(View view) {
         switch (view.getId()) {
-            case R.id.normal_login /* 2131099703 */:
-            case R.id.mobile_login /* 2131099704 */:
+            case R.id.normal_login /* 2131099705 */:
+            case R.id.mobile_login /* 2131099706 */:
                 c(view.getId());
                 return;
-            case R.id.button_account_del /* 2131099711 */:
+            case R.id.button_account_del /* 2131099713 */:
                 this.s.setText((CharSequence) null);
                 return;
-            case R.id.button_pass_del /* 2131099715 */:
+            case R.id.button_pass_del /* 2131099717 */:
                 this.t.setText((CharSequence) null);
                 return;
-            case R.id.button_vcode_del /* 2131099718 */:
+            case R.id.button_vcode_del /* 2131099720 */:
                 this.u.setText((CharSequence) null);
                 return;
-            case R.id.image_vcode1 /* 2131099719 */:
-            case R.id.image_vcode2 /* 2131099720 */:
-            case R.id.button_vcode_refresh /* 2131099722 */:
+            case R.id.image_vcode1 /* 2131099721 */:
+            case R.id.image_vcode2 /* 2131099722 */:
+            case R.id.button_vcode_refresh /* 2131099724 */:
                 c(this.m);
                 return;
             default:
@@ -502,7 +502,7 @@ public class LoginActivity extends com.baidu.tieba.e {
             aVar.c(this.k);
         }
         aVar.a(this.R.a().a());
-        aVar.d(this.R.a().j());
+        aVar.d(this.R.a().l());
         aVar.a(1);
         if (this.R.b() != null) {
             aVar.e(this.R.b().b());

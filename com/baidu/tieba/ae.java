@@ -16,7 +16,7 @@ public class ae implements DialogInterface.OnClickListener {
     public void onClick(DialogInterface dialogInterface, int i) {
         AlertDialog alertDialog;
         if (i != -2) {
-            alertDialog = this.a.w;
+            alertDialog = this.a.x;
             alertDialog.dismiss();
             TiebaApplication.d().a(false, true);
             return;

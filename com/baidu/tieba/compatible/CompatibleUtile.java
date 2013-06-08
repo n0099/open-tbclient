@@ -311,7 +311,7 @@ public class CompatibleUtile {
 
         public void closeViewGpu(View view) {
             if (view != null) {
-                view.setLayerType(1, null);
+                view.setLayerType(0, null);
             }
         }
     }

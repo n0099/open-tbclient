@@ -8,7 +8,7 @@ public class v extends com.baidu.adp.lib.a.a {
     final /* synthetic */ EditHeadActivity a;
     private com.baidu.tieba.d.t b;
     private com.baidu.tieba.a.g c;
-    private com.baidu.tieba.d.f d;
+    private com.baidu.tieba.d.e d;
 
     private v(EditHeadActivity editHeadActivity) {
         this.a = editHeadActivity;
@@ -51,7 +51,7 @@ public class v extends com.baidu.adp.lib.a.a {
             e = e2;
         }
         try {
-            if (str <= 0 || (com.baidu.tieba.a.i.l() == 0 && this.b.e() != null && !this.b.e().equals("2"))) {
+            if (str <= 0 || (com.baidu.tieba.a.i.m() == 0 && this.b.e() != null && !this.b.e().equals("2"))) {
                 com.baidu.tieba.d.ae.e("PostThreadTask", "doInBackground", "image size is less than 100K");
                 String b = this.b.b("tieba_head_image");
                 if (this.b.b()) {
@@ -72,7 +72,7 @@ public class v extends com.baidu.adp.lib.a.a {
             } else {
                 fVar = n;
             }
-            this.d = new com.baidu.tieba.d.f("tieba_head_image", fVar, String.valueOf(com.baidu.tieba.a.i.e) + "c/c/img/chunkupload");
+            this.d = new com.baidu.tieba.d.e("tieba_head_image", fVar, String.valueOf(com.baidu.tieba.a.i.e) + "c/c/img/chunkupload");
             this.c = this.d.b();
             if (this.c.a()) {
                 this.b = new com.baidu.tieba.d.t(String.valueOf(com.baidu.tieba.a.i.e) + "c/c/img/finupload");

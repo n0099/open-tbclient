@@ -124,13 +124,11 @@ public class ah extends BaseAdapter {
 
     @Override // android.widget.BaseAdapter, android.widget.Adapter
     public int getItemViewType(int i) {
+        int b = this.a != null ? this.a.b() : 0;
         if (i == 0) {
             return 2;
         }
-        if (i == this.a.b() + 1 || !this.d) {
-            return 1;
-        }
-        return 0;
+        return (i == b + 1 || !this.d) ? 1 : 0;
     }
 
     @Override // android.widget.BaseAdapter, android.widget.Adapter
@@ -188,15 +186,15 @@ public class ah extends BaseAdapter {
             akVar.a.setGravity(3);
             akVar.a.setMovementMethod(LinkMovementMethod.getInstance());
             akVar.a.setTextColor(this.c.getResources().getColor(R.color.reg_font_color));
-            com.baidu.tieba.a.aq aqVar = (com.baidu.tieba.a.aq) this.a.a().get(i - 1);
+            com.baidu.tieba.a.ar arVar = (com.baidu.tieba.a.ar) this.a.a().get(i - 1);
             akVar.c.setVisibility(0);
             akVar.b.setVisibility(0);
-            akVar.b.setText(aqVar.h().c());
-            akVar.b.setOnClickListener(new ai(this, aqVar.h().a(), aqVar.h().c()));
-            akVar.c.setText(com.baidu.tieba.d.ad.a(aqVar.g()));
+            akVar.b.setText(arVar.h().c());
+            akVar.b.setOnClickListener(new ai(this, arVar.h().a(), arVar.h().c()));
+            akVar.c.setText(com.baidu.tieba.d.ad.a(arVar.g()));
             akVar.d.setVisibility(8);
             akVar.d.removeAllViews();
-            ArrayList j = aqVar.j();
+            ArrayList j = arVar.j();
             com.baidu.tieba.d.g gVar = new com.baidu.tieba.d.g(this.c);
             gVar.a(-13421773);
             gVar.a(akVar.a, akVar.d, j, false);
@@ -268,7 +266,7 @@ public class ah extends BaseAdapter {
 
     private void a(ak akVar) {
         try {
-            if (TiebaApplication.d().ai() == 1) {
+            if (TiebaApplication.d().ar() == 1) {
                 akVar.i.setTextColor(com.baidu.tieba.d.ac.a(1));
                 akVar.k.setTextColor(com.baidu.tieba.d.ac.b(1));
                 akVar.g.setBackgroundColor(com.baidu.tieba.d.ac.d(1));
@@ -284,7 +282,7 @@ public class ah extends BaseAdapter {
 
     private void b(ak akVar) {
         try {
-            if (TiebaApplication.d().ai() == 1) {
+            if (TiebaApplication.d().ar() == 1) {
                 akVar.a.setTextColor(com.baidu.tieba.d.ac.a(1));
                 akVar.c.setTextColor(com.baidu.tieba.d.ac.b(1));
             } else {
@@ -298,7 +296,7 @@ public class ah extends BaseAdapter {
 
     private void a(ak akVar, boolean z) {
         try {
-            if (TiebaApplication.d().ai() == 1) {
+            if (TiebaApplication.d().ar() == 1) {
                 if (z) {
                     akVar.e.setTextColor(com.baidu.tieba.d.ac.a(1));
                 } else {

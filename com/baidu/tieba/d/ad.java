@@ -26,13 +26,21 @@ public class ad {
 
     public static String a(Date date) {
         String format;
+        synchronized (e) {
+            format = e.format(date);
+        }
+        return format;
+    }
+
+    public static String b(Date date) {
+        String format;
         synchronized (c) {
             format = c.format(date);
         }
         return format;
     }
 
-    public static String b(Date date) {
+    public static String c(Date date) {
         String format;
         synchronized (f) {
             format = f.format(date);
@@ -58,18 +66,18 @@ public class ad {
         return format;
     }
 
-    public static String c(Date date) {
+    public static String d(Date date) {
         if (date == null) {
             return "";
         }
         Date date2 = new Date();
         if (date2.getMonth() == date.getMonth() && date2.getDate() == date.getDate()) {
-            return a(date);
+            return b(date);
         }
-        return b(date);
+        return c(date);
     }
 
-    public static String d(Date date) {
+    public static String e(Date date) {
         if (date == null) {
             return "";
         }
@@ -80,7 +88,7 @@ public class ad {
             if (time > -120000) {
                 return "刚刚";
             }
-            return b(date);
+            return c(date);
         } else if (time >= 30000) {
             long j = 30000 * 2;
             if (time < j) {
@@ -93,7 +101,7 @@ public class ad {
             long j3 = j2 * 24;
             if (time < j3) {
                 if (day == 0) {
-                    return a(date);
+                    return b(date);
                 }
                 return "1天前";
             }
@@ -104,7 +112,7 @@ public class ad {
             if (time < j4 + 86400000) {
                 return "1个月前";
             }
-            return b(date);
+            return c(date);
         } else {
             return "刚刚";
         }
@@ -124,26 +132,25 @@ public class ad {
 
     public static String a(InputStream inputStream) {
         String str = null;
-        if (inputStream == null) {
-            return null;
-        }
-        try {
-            byte[] bArr = new byte[NotificationProxy.MAX_URL_LENGTH];
-            MessageDigest messageDigest = MessageDigest.getInstance("MD5");
-            while (true) {
-                int read = inputStream.read(bArr);
-                if (read > 0) {
+        if (inputStream != null) {
+            try {
+                byte[] bArr = new byte[NotificationProxy.MAX_URL_LENGTH];
+                MessageDigest messageDigest = MessageDigest.getInstance("MD5");
+                while (true) {
+                    int read = inputStream.read(bArr);
+                    if (read <= 0) {
+                        break;
+                    }
                     messageDigest.update(bArr, 0, read);
-                } else {
-                    inputStream.close();
-                    str = a(messageDigest.digest());
-                    return str;
                 }
+                str = a(messageDigest.digest());
+            } catch (Exception e2) {
+                ae.a("StringHelper", "ToMd5", e2.toString());
+            } finally {
+                f.a(inputStream);
             }
-        } catch (Exception e2) {
-            ae.a("StringHelper", "ToMd5", e2.toString());
-            return str;
         }
+        return str;
     }
 
     public static String a(String str) {
@@ -173,7 +180,7 @@ public class ad {
         }
         try {
             return URLEncoder.encode(str, BdUtil.UTF8);
-        } catch (UnsupportedEncodingException e2) {
+        } catch (Exception e2) {
             e2.printStackTrace();
             return "";
         }

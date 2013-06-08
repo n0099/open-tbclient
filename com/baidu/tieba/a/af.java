@@ -47,10 +47,6 @@ public class af implements Serializable {
         this.b = str;
     }
 
-    public int d() {
-        return this.c;
-    }
-
     public void c(int i) {
         this.c = i;
     }
@@ -63,7 +59,7 @@ public class af implements Serializable {
         this.h = str;
     }
 
-    public String e() {
+    public String d() {
         return this.h;
     }
 
@@ -71,7 +67,7 @@ public class af implements Serializable {
         this.f = bool.booleanValue();
     }
 
-    public Boolean f() {
+    public Boolean e() {
         return Boolean.valueOf(this.f);
     }
 
@@ -79,7 +75,7 @@ public class af implements Serializable {
         this.g = z;
     }
 
-    public boolean g() {
+    public boolean f() {
         return this.g;
     }
 
@@ -87,7 +83,7 @@ public class af implements Serializable {
         this.d = str;
     }
 
-    public String h() {
+    public String g() {
         return this.d;
     }
 
@@ -95,7 +91,7 @@ public class af implements Serializable {
         this.a = str;
     }
 
-    public String i() {
+    public String h() {
         return this.a;
     }
 
@@ -107,7 +103,7 @@ public class af implements Serializable {
         this.m = str;
     }
 
-    public String j() {
+    public String i() {
         return this.n;
     }
 
@@ -115,7 +111,7 @@ public class af implements Serializable {
         this.n = str;
     }
 
-    public JSONObject k() {
+    public JSONObject j() {
         try {
             JSONObject jSONObject = new JSONObject();
             jSONObject.put("tid", this.n);

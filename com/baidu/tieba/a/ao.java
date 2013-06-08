@@ -1,48 +1,51 @@
 package com.baidu.tieba.a;
 
-import org.json.JSONObject;
+import java.io.Serializable;
 /* loaded from: classes.dex */
-public class ao extends d {
-    private int a = 0;
-    private int b = 0;
+public class ao implements Serializable {
+    private String a = null;
+    private int b = 1;
     private String c = null;
     private String d = null;
-    private String e = null;
-    private String f = null;
-    private String g = null;
-    private aq h = new aq();
+    private boolean e = false;
 
     public String a() {
-        return this.f;
+        return this.a;
+    }
+
+    public void a(String str) {
+        this.a = str;
     }
 
     public int b() {
         return this.b;
     }
 
-    public String c() {
-        return this.g;
+    public void a(int i) {
+        this.b = i;
     }
 
-    public String d() {
+    public void b(String str) {
+        this.c = str;
+    }
+
+    public String c() {
         return this.c;
     }
 
-    public aq e() {
-        return this.h;
+    public void a(boolean z) {
+        this.e = z;
     }
 
-    @Override // com.baidu.tieba.a.d
-    public void a(JSONObject jSONObject) {
-        if (jSONObject != null) {
-            this.a = jSONObject.optInt("type");
-            this.c = jSONObject.optString("tid", null);
-            this.d = jSONObject.optString("fid", null);
-            this.e = jSONObject.optString("fname", null);
-            this.f = jSONObject.optString("time", null);
-            this.g = jSONObject.optString("position", "");
-            this.b = jSONObject.optInt("replyer_count", 0);
-            this.h.a(jSONObject);
-        }
+    public boolean d() {
+        return this.e;
+    }
+
+    public void c(String str) {
+        this.d = str;
+    }
+
+    public String e() {
+        return this.d;
     }
 }

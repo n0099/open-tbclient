@@ -22,7 +22,7 @@ public class NearbyImageView extends ImageView {
 
     public NearbyImageView(Context context) {
         super(context);
-        this.a = com.baidu.tieba.d.e.a((int) R.drawable.icon_gif);
+        this.a = com.baidu.tieba.d.d.a((int) R.drawable.icon_gif);
         this.b = null;
         this.c = new Matrix();
         this.d = new Matrix();
@@ -33,7 +33,7 @@ public class NearbyImageView extends ImageView {
 
     public NearbyImageView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.a = com.baidu.tieba.d.e.a((int) R.drawable.icon_gif);
+        this.a = com.baidu.tieba.d.d.a((int) R.drawable.icon_gif);
         this.b = null;
         this.c = new Matrix();
         this.d = new Matrix();
@@ -44,7 +44,7 @@ public class NearbyImageView extends ImageView {
 
     public NearbyImageView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.a = com.baidu.tieba.d.e.a((int) R.drawable.icon_gif);
+        this.a = com.baidu.tieba.d.d.a((int) R.drawable.icon_gif);
         this.b = null;
         this.c = new Matrix();
         this.d = new Matrix();
@@ -66,53 +66,45 @@ public class NearbyImageView extends ImageView {
 
     private void a() {
         this.e.setColor(1275068416);
-        if (TiebaApplication.d().ai() == 1) {
-            this.b = com.baidu.tieba.d.e.a((int) R.drawable.image_default_1);
+        if (TiebaApplication.d().ar() == 1) {
+            this.b = com.baidu.tieba.d.d.a((int) R.drawable.image_default_1);
         } else {
-            this.b = com.baidu.tieba.d.e.a((int) R.drawable.image_default);
+            this.b = com.baidu.tieba.d.d.a((int) R.drawable.image_default);
         }
     }
 
     @Override // android.widget.ImageView, android.view.View
     protected void onDraw(Canvas canvas) {
-        Bitmap bitmap;
-        boolean z;
-        boolean z2 = false;
+        boolean z = false;
         super.onDraw(canvas);
-        com.baidu.tbadk.a.f d = com.baidu.tbadk.a.d.a().d((String) getTag());
+        com.baidu.adp.widget.a.b d = com.baidu.tbadk.a.e.a().d((String) getTag());
+        boolean c = (d == null || !d.g()) ? false : d.c();
         if (d != null) {
-            bitmap = d.a();
-            z = bitmap != null ? d.b() : false;
+            z = true;
+        } else if (TiebaApplication.d().ar() == 1) {
+            d = new com.baidu.adp.widget.a.b(com.baidu.tieba.d.d.a((int) R.drawable.image_default_1), false, null);
         } else {
-            bitmap = null;
-            z = false;
+            d = new com.baidu.adp.widget.a.b(com.baidu.tieba.d.d.a((int) R.drawable.image_default), false, null);
         }
-        if (bitmap != null) {
-            z2 = true;
-        } else if (TiebaApplication.d().ai() == 1) {
-            bitmap = com.baidu.tieba.d.e.a((int) R.drawable.image_default_1);
-        } else {
-            bitmap = com.baidu.tieba.d.e.a((int) R.drawable.image_default);
-        }
-        if (bitmap != null) {
-            if (z2) {
-                float width = getWidth() / bitmap.getWidth();
+        if (d != null) {
+            if (z) {
+                float width = getWidth() / d.a();
                 this.c.reset();
                 this.c.setScale(width, width);
-                canvas.drawBitmap(bitmap, this.c, null);
+                d.a(canvas, this.c, null);
                 this.c.reset();
                 this.c.setTranslate(0.0f, 0.0f);
-                if (z && bitmap.getHeight() > this.a.getHeight() && bitmap.getWidth() > this.a.getWidth()) {
+                if (c && d.b() > this.a.getHeight() && d.a() > this.a.getWidth()) {
                     canvas.drawBitmap(this.a, this.c, null);
                 }
-                if (TiebaApplication.d().ai() == 1) {
-                    this.f.set(0.0f, 0.0f, (bitmap.getWidth() * width) + 0.0f, (bitmap.getHeight() * width) + 0.0f);
+                if (TiebaApplication.d().ar() == 1) {
+                    this.f.set(0.0f, 0.0f, (d.a() * width) + 0.0f, (d.b() * width) + 0.0f);
                     canvas.drawRect(this.f, this.e);
                     return;
                 }
                 return;
             }
-            canvas.drawBitmap(bitmap, this.d, null);
+            d.a(canvas, this.d, null);
         }
     }
 }

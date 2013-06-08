@@ -1,21 +1,22 @@
 package com.baidu.tbadk.a;
-
-import android.graphics.Bitmap;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class f {
-    final /* synthetic */ d a;
-    private Bitmap b = null;
-    private boolean c = false;
+public class f extends com.baidu.adp.lib.c.a {
+    final /* synthetic */ e a;
 
-    public f(d dVar) {
-        this.a = dVar;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public f(e eVar, int i) {
+        super(i);
+        this.a = eVar;
     }
 
-    public Bitmap a() {
-        return this.b;
-    }
-
-    public boolean b() {
-        return this.c;
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.c.a
+    public void a(boolean z, String str, com.baidu.adp.widget.a.b bVar, com.baidu.adp.widget.a.b bVar2) {
+        if (bVar != null) {
+            bVar.e();
+        }
     }
 }

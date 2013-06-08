@@ -7,22 +7,22 @@ import com.baidu.tieba.BaiduAccount.BaiduAccount;
 /* loaded from: classes.dex */
 public class a {
     public static void a(Context context) {
-        com.baidu.tieba.a.a C = TiebaApplication.C();
-        if (C == null) {
-            C = new com.baidu.tieba.a.a();
-            C.a(1);
-            TiebaApplication.a(C);
+        com.baidu.tieba.a.a E = TiebaApplication.E();
+        if (E == null) {
+            E = new com.baidu.tieba.a.a();
+            E.a(1);
+            TiebaApplication.a(E);
         }
         BaiduAccount baiduAccount = BaiduAccount.get(context);
         String currentAccount = baiduAccount.getCurrentAccount();
-        if (currentAccount != null && !currentAccount.equals(C.b())) {
-            b(C.a());
-            C.b(currentAccount);
-            C.d(null);
-            C.a((String) null);
-            C.a(1);
-            TiebaApplication.d().O();
-            TiebaApplication.d().a(0L, 0L, 0L);
+        if (currentAccount != null && !currentAccount.equals(E.b())) {
+            b(E.a());
+            E.b(currentAccount);
+            E.d(null);
+            E.a((String) null);
+            E.a(1);
+            TiebaApplication.d().Q();
+            TiebaApplication.d().a(0L, 0L, 0L, 0L);
         }
         baiduAccount.addOnAccountsUpdatedListener(new b());
     }
@@ -54,16 +54,16 @@ public class a {
             tVar.a("bdusstoken", str2);
             String i = tVar.i();
             if (tVar.b() && i != null) {
-                com.baidu.tieba.c.af afVar = new com.baidu.tieba.c.af();
-                afVar.a(i);
+                com.baidu.tieba.c.ai aiVar = new com.baidu.tieba.c.ai();
+                aiVar.a(i);
                 aVar = new com.baidu.tieba.a.a();
-                aVar.b(afVar.a().c());
-                aVar.d(afVar.a().j());
+                aVar.b(aiVar.a().c());
+                aVar.d(aiVar.a().l());
                 aVar.a(1);
-                if (afVar.b() != null) {
-                    aVar.e(afVar.b().b());
+                if (aiVar.b() != null) {
+                    aVar.e(aiVar.b().b());
                 }
-                aVar.a(afVar.a().a());
+                aVar.a(aiVar.a().a());
             }
         }
         return aVar;

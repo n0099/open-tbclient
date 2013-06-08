@@ -1,47 +1,48 @@
 package com.baidu.tieba.c;
 
 import com.baidu.android.pushservice.PushConstants;
-import com.baidu.tieba.TiebaApplication;
-import java.util.ArrayList;
+import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class d extends com.baidu.adp.lib.a.a {
     final /* synthetic */ c a;
-    private com.baidu.tieba.d.t b = null;
-    private String c;
-    private int d;
-    private com.baidu.tieba.a.az e;
+    private volatile com.baidu.tieba.d.t b;
 
-    public d(c cVar, String str, int i) {
+    private d(c cVar) {
         this.a = cVar;
-        this.c = null;
-        this.d = 0;
-        this.e = null;
-        this.c = str;
-        this.d = i;
-        this.e = new com.baidu.tieba.a.az();
+        this.b = null;
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public /* synthetic */ d(c cVar, d dVar) {
+        this(cVar);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.a.a
-    public Boolean a(Boolean... boolArr) {
-        this.b = new com.baidu.tieba.d.t(String.valueOf(com.baidu.tieba.a.i.e) + "c/c/post/rmstore");
-        this.b.a(PushConstants.EXTRA_USER_ID, TiebaApplication.z());
-        this.b.a("tid", this.c);
-        this.e.a(this.b.i());
-        return this.b.b() && this.e.a() == 0;
-    }
-
-    @Override // com.baidu.adp.lib.a.a
-    public void cancel() {
-        super.cancel(true);
-        if (this.b != null) {
-            this.b.g();
-        }
-        this.a.d = null;
-        if (this.a.a != null) {
-            this.a.a.a(2, false, null);
+    /* renamed from: d */
+    public Boolean a(Object... objArr) {
+        String str;
+        String str2;
+        JSONObject jSONObject;
+        try {
+            this.b = new com.baidu.tieba.d.t(String.valueOf(com.baidu.tieba.a.i.e) + "c/s/delcom");
+            this.b.d(true);
+            com.baidu.tieba.d.t tVar = this.b;
+            str = this.a.f;
+            tVar.a(PushConstants.EXTRA_USER_ID, str);
+            com.baidu.tieba.d.t tVar2 = this.b;
+            str2 = this.a.g;
+            tVar2.a("com_id", str2);
+            String i = this.b.i();
+            if (this.b.b() && i != null && (jSONObject = new JSONObject(i)) != null && jSONObject.optJSONObject("error").optInt("errno") == 0) {
+                return true;
+            }
+            return false;
+        } catch (Exception e) {
+            com.baidu.tieba.d.ae.b(getClass().getName(), "doInBackground", e.getMessage());
+            return false;
         }
     }
 
@@ -49,24 +50,29 @@ public class d extends com.baidu.adp.lib.a.a {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.a.a
     public void a(Boolean bool) {
-        ArrayList arrayList;
-        ArrayList arrayList2;
-        String str = null;
-        this.a.d = null;
+        com.baidu.adp.a.e eVar;
+        com.baidu.adp.a.e eVar2;
+        this.a.n = null;
         if (bool.booleanValue()) {
-            int i = this.d;
-            arrayList = this.a.e;
-            if (i < arrayList.size()) {
-                arrayList2 = this.a.e;
-                arrayList2.remove(this.d);
-            }
-        } else if (this.b.b()) {
-            str = this.e.b();
-        } else {
-            str = this.b.f();
+            eVar = this.a.b;
+            eVar.a(true);
+            return;
         }
-        if (this.a.a != null) {
-            this.a.a.a(2, bool, str);
+        this.a.c = this.b.d();
+        this.a.d = this.b.f();
+        eVar2 = this.a.b;
+        eVar2.a(false);
+    }
+
+    @Override // com.baidu.adp.lib.a.a
+    public void cancel() {
+        com.baidu.adp.a.e eVar;
+        super.cancel(true);
+        if (this.b != null) {
+            this.b.g();
+            this.b = null;
         }
+        eVar = this.a.b;
+        eVar.a(false);
     }
 }

@@ -1,69 +1,66 @@
 package com.baidu.tieba.a;
 
-import org.json.JSONException;
+import java.util.ArrayList;
+import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class aw {
+    private ArrayList f;
     private int a = 0;
-    private int c = 0;
     private int d = 0;
     private int e = 0;
-    private int b = 0;
-    private int f = 3;
-    private int g = 0;
+    private boolean c = false;
+    private boolean b = false;
 
-    public void a(int i) {
-        this.b = i;
+    public aw() {
+        this.f = null;
+        this.f = new ArrayList();
     }
 
-    public int a() {
-        return this.b;
-    }
-
-    public int b() {
-        return this.a;
-    }
-
-    public int c() {
-        return this.c;
-    }
-
-    public void b(int i) {
-        this.a = i;
-    }
-
-    public void c(int i) {
-        this.c = i;
-    }
-
-    public int d() {
+    public ArrayList a() {
         return this.f;
     }
 
-    public void d(int i) {
-        this.g = i;
+    public boolean b() {
+        return this.b;
+    }
+
+    public boolean c() {
+        return this.c;
+    }
+
+    public int d() {
+        return this.d;
     }
 
     public void a(String str) {
         try {
             a(new JSONObject(str));
-        } catch (JSONException e) {
-            e.printStackTrace();
+        } catch (Exception e) {
+            com.baidu.tieba.d.ae.b("SearchPostModel", "parserJson", "error = " + e.getMessage());
         }
     }
 
     public void a(JSONObject jSONObject) {
-        try {
-            JSONObject optJSONObject = jSONObject.optJSONObject("user_info");
-            if (optJSONObject != null) {
-                this.a = optJSONObject.getInt("is_sign_in");
-                this.c = optJSONObject.getInt("user_sign_rank");
-                this.d = optJSONObject.getInt("cont_sign_num");
-                this.e = optJSONObject.getInt("cout_total_sing_num");
-                this.f = optJSONObject.getInt("sign_bonus_point");
+        if (jSONObject != null) {
+            try {
+                JSONObject optJSONObject = jSONObject.optJSONObject("page");
+                JSONArray optJSONArray = jSONObject.optJSONArray("post_list");
+                this.f.clear();
+                for (int i = 0; i < optJSONArray.length(); i++) {
+                    JSONObject optJSONObject2 = optJSONArray.optJSONObject(i);
+                    av avVar = new av();
+                    avVar.a(optJSONObject2);
+                    this.f.add(avVar);
+                }
+                this.a = optJSONObject.optInt("total_count");
+                this.e = optJSONObject.optInt("total_page");
+                this.b = optJSONObject.optInt("has_more") != 0;
+                this.c = optJSONObject.optInt("has_prev") != 0;
+                this.d = optJSONObject.optInt("current_page");
+            } catch (Exception e) {
+                com.baidu.tieba.d.ae.b("SearchPostModel", "parserJson", "error = " + e.getMessage());
             }
-        } catch (JSONException e) {
-            e.printStackTrace();
         }
     }
 }

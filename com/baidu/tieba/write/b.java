@@ -29,7 +29,7 @@ class b implements Runnable {
                     com.baidu.tieba.a.ai aiVar = (com.baidu.tieba.a.ai) kVar2.getItem(i);
                     if (aiVar != null && aiVar.e() != null) {
                         kVar3 = this.a.k;
-                        kVar3.c().b(aiVar.e(), new c(this));
+                        kVar3.b().b(aiVar.e(), new c(this));
                     }
                 } else {
                     return;

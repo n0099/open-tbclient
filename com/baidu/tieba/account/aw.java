@@ -44,7 +44,7 @@ public class aw extends com.baidu.adp.lib.a.a {
     @Override // com.baidu.adp.lib.a.a
     public Bitmap a(String... strArr) {
         this.b = new com.baidu.tieba.d.t(this.c);
-        return com.baidu.tieba.d.e.a(this.b.h());
+        return com.baidu.tieba.d.d.a(this.b.h());
     }
 
     /* JADX DEBUG: Method merged with bridge method */

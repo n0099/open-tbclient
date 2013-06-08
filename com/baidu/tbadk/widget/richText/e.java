@@ -42,7 +42,11 @@ public class e {
         return this.b;
     }
 
-    public String c() {
+    public boolean c() {
+        return this.d;
+    }
+
+    public String d() {
         return this.a;
     }
 }

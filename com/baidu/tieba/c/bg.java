@@ -1,84 +1,86 @@
 package com.baidu.tieba.c;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class bg extends com.baidu.adp.lib.a.a {
-    final /* synthetic */ bf a;
-    private com.baidu.tieba.d.t b;
+public class bg {
+    private int q;
+    private int r;
+    private com.baidu.tieba.a.am a = null;
+    private boolean d = true;
+    private boolean c = true;
+    private boolean e = false;
+    private boolean g = false;
+    private boolean h = false;
+    private boolean i = false;
+    private boolean j = false;
+    private String b = null;
+    private boolean f = false;
+    private String k = null;
+    private String l = null;
+    private String m = null;
+    private int n = 1;
+    private int o = 1;
+    private boolean p = false;
 
-    private bg(bf bfVar) {
-        this.a = bfVar;
-        this.b = null;
+    public void a(com.baidu.tieba.a.am amVar) {
+        this.a = amVar;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ bg(bf bfVar, bg bgVar) {
-        this(bfVar);
+    public com.baidu.tieba.a.am a() {
+        return this.a;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.a.a
-    public String a(Integer... numArr) {
-        try {
-            int intValue = numArr[0].intValue();
-            if (this.a.f() != null) {
-                this.b = new com.baidu.tieba.d.t();
-                if (intValue == 0) {
-                    this.b.a(String.valueOf(com.baidu.tieba.a.i.e) + "c/c/user/follow");
-                } else {
-                    this.b.a(String.valueOf(com.baidu.tieba.a.i.e) + "c/c/user/unfollow");
-                }
-                this.b.a("portrait", this.a.f().e());
-                this.b.d(true);
-                this.b.i();
-                return null;
-            }
-            return null;
-        } catch (Exception e) {
-            com.baidu.tieba.d.ae.b(getClass().getName(), "doInBackground", e.getMessage());
-            return null;
-        }
+    public void a(boolean z) {
+        this.d = z;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.a.a
-    public void a(String str) {
-        com.baidu.adp.a.e eVar;
-        com.baidu.adp.a.e eVar2;
-        super.a((Object) str);
-        this.a.p = null;
-        if (this.b != null) {
-            if (!this.b.b()) {
-                this.a.a = 3;
-                this.a.a(this.b.f());
-                eVar = this.a.b;
-                eVar.a(false);
-                return;
-            }
-            if (this.a.f() != null) {
-                if (this.a.f().l() == 1) {
-                    this.a.f().c(0);
-                } else {
-                    this.a.f().c(1);
-                }
-            }
-            this.a.a = 3;
-            eVar2 = this.a.b;
-            eVar2.a(true);
-        }
+    public boolean b() {
+        return this.d;
     }
 
-    @Override // com.baidu.adp.lib.a.a
-    public void cancel() {
-        com.baidu.adp.a.e eVar;
-        if (this.b != null) {
-            this.b.g();
-            this.b = null;
-        }
-        this.a.p = null;
-        super.cancel(true);
-        eVar = this.a.b;
-        eVar.a(false);
+    public void b(boolean z) {
+        this.c = z;
+    }
+
+    public void c(boolean z) {
+        this.e = z;
+    }
+
+    public void d(boolean z) {
+        this.g = z;
+    }
+
+    public void a(int i) {
+        this.n = i;
+    }
+
+    public int c() {
+        return this.n;
+    }
+
+    public void b(int i) {
+        this.o = i;
+    }
+
+    public int d() {
+        return this.o;
+    }
+
+    public void e(boolean z) {
+        this.p = z;
+    }
+
+    public boolean e() {
+        return this.p;
+    }
+
+    public void c(int i) {
+        this.q = i;
+    }
+
+    public void d(int i) {
+        this.r = i;
+    }
+
+    public int f() {
+        return com.baidu.tieba.a.i.b() / 30;
     }
 }

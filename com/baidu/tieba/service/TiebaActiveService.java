@@ -12,10 +12,10 @@ import java.io.FileReader;
 import java.io.FileWriter;
 /* loaded from: classes.dex */
 public class TiebaActiveService extends Service {
-    private l a = null;
+    private m a = null;
     private int b = 0;
     private Handler c = new Handler();
-    private Runnable d = new k(this);
+    private Runnable d = new l(this);
 
     private String a() {
         return getSharedPreferences("settings", 0).getString("channel_id", null);
@@ -116,7 +116,7 @@ public class TiebaActiveService extends Service {
         if (this.a != null) {
             this.a.cancel();
         }
-        this.a = new l(this, null);
+        this.a = new m(this, null);
         this.a.execute(new String[0]);
     }
 }

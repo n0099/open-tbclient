@@ -1,7 +1,6 @@
 package com.baidu.tieba.view;
 
 import android.content.Context;
-import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Matrix;
@@ -15,7 +14,7 @@ public class FrsStarImageView extends ImageView {
     private Matrix a;
     private Paint b;
     private int c;
-    private Bitmap d;
+    private com.baidu.adp.widget.a.b d;
     private int e;
 
     public void setImageType(int i) {
@@ -52,53 +51,53 @@ public class FrsStarImageView extends ImageView {
     private void a(int i) {
         this.e = i;
         if (i == 1) {
-            this.d = BitmapFactory.decodeResource(getContext().getResources(), R.drawable.pic_avatar_ba_140_1, null);
+            this.d = new com.baidu.adp.widget.a.b(BitmapFactory.decodeResource(getContext().getResources(), R.drawable.pic_avatar_ba_140_1, null), false, null);
         } else {
-            this.d = BitmapFactory.decodeResource(getContext().getResources(), R.drawable.pic_avatar_ba_140, null);
+            this.d = new com.baidu.adp.widget.a.b(BitmapFactory.decodeResource(getContext().getResources(), R.drawable.pic_avatar_ba_140, null), false, null);
         }
     }
 
     @Override // android.widget.ImageView, android.view.View
     protected void onDraw(Canvas canvas) {
-        Bitmap bitmap;
+        com.baidu.adp.widget.a.b bVar;
         super.onDraw(canvas);
-        Bitmap c = com.baidu.tbadk.a.d.a().c((String) getTag());
-        int ai = TiebaApplication.d().ai();
+        com.baidu.adp.widget.a.b c = com.baidu.tbadk.a.e.a().c((String) getTag());
+        int ar = TiebaApplication.d().ar();
         if (c == null) {
             switch (this.c) {
                 case 0:
                     if (this.d == null) {
-                        this.d = BitmapFactory.decodeResource(getContext().getResources(), R.drawable.def_star_top_pic, null);
+                        this.d = new com.baidu.adp.widget.a.b(BitmapFactory.decodeResource(getContext().getResources(), R.drawable.def_star_top_pic, null), false, null);
                     }
-                    bitmap = this.d;
+                    bVar = this.d;
                     break;
                 case 1:
                     if (this.d == null) {
-                        a(ai);
-                    } else if (this.e != ai) {
-                        a(ai);
+                        a(ar);
+                    } else if (this.e != ar) {
+                        a(ar);
                     }
-                    bitmap = this.d;
+                    bVar = this.d;
                     break;
                 default:
-                    bitmap = c;
+                    bVar = c;
                     break;
             }
         } else {
             this.d = null;
-            bitmap = c;
+            bVar = c;
         }
-        if (bitmap != null) {
-            int width = bitmap.getWidth();
-            int height = bitmap.getHeight();
-            int width2 = getWidth();
-            int height2 = getHeight();
-            if (width != 0 && height != 0 && width2 != 0 && height2 != 0) {
-                int a = this.c == 1 ? com.baidu.tieba.d.ag.a(getContext(), 3.0f) : 0;
-                this.a.setScale((width2 - (a * 2)) / width, (height2 - (a * 2)) / height);
-                this.a.postTranslate(a, a);
+        if (bVar != null) {
+            int a = bVar.a();
+            int b = bVar.b();
+            int width = getWidth();
+            int height = getHeight();
+            if (a != 0 && b != 0 && width != 0 && height != 0) {
+                int a2 = this.c == 1 ? com.baidu.tieba.d.ag.a(getContext(), 3.0f) : 0;
+                this.a.setScale((width - (a2 * 2)) / a, (height - (a2 * 2)) / b);
+                this.a.postTranslate(a2, a2);
                 canvas.drawColor(0);
-                canvas.drawBitmap(bitmap, this.a, this.b);
+                bVar.a(canvas, this.a, this.b);
                 this.a.reset();
             }
         }

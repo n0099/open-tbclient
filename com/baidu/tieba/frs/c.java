@@ -1,6 +1,5 @@
 package com.baidu.tieba.frs;
 
-import android.graphics.Bitmap;
 import android.view.View;
 /* loaded from: classes.dex */
 class c implements View.OnClickListener {
@@ -16,15 +15,15 @@ class c implements View.OnClickListener {
         com.baidu.tieba.d.a aVar;
         com.baidu.tieba.d.a aVar2;
         ba baVar;
-        if (((com.baidu.tieba.view.p) view).a()) {
+        if (((com.baidu.tieba.view.q) view).a()) {
             aVar = this.a.J;
             aVar.b();
             if (view.getTag() != null && (view.getTag() instanceof String)) {
                 aVar2 = this.a.J;
-                Bitmap a = aVar2.a((String) view.getTag(), new d(this));
+                com.baidu.adp.widget.a.b a = aVar2.a((String) view.getTag(), new d(this));
                 if (a == null) {
                     baVar = this.a.l;
-                    Bitmap c = baVar.g().a().c(String.valueOf((String) view.getTag()) + "_small");
+                    com.baidu.adp.widget.a.b c = baVar.g().a().c(String.valueOf((String) view.getTag()) + "_small");
                     if (c != null) {
                         this.a.a(c, true);
                         return;

@@ -14,12 +14,12 @@ class ar implements View.OnClickListener {
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         String str;
-        if (view.getTag() != null && (view.getTag() instanceof com.baidu.tieba.a.bc)) {
-            com.baidu.tieba.a.bc bcVar = (com.baidu.tieba.a.bc) view.getTag();
+        if (view.getTag() != null && (view.getTag() instanceof com.baidu.tieba.a.bd)) {
+            com.baidu.tieba.a.bd bdVar = (com.baidu.tieba.a.bd) view.getTag();
             FrsImageActivity frsImageActivity = this.a;
-            String d = bcVar.d();
+            String d = bdVar.d();
             str = this.a.d;
-            ImagePbActivity.a(frsImageActivity, d, str, bcVar.c());
+            ImagePbActivity.a(frsImageActivity, d, str, bdVar.c());
         }
     }
 }

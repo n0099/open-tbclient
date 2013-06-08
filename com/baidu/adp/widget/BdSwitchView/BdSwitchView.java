@@ -50,20 +50,20 @@ public class BdSwitchView extends FrameLayout {
         LayoutInflater.from(context).inflate(f.bd_switch_view, (ViewGroup) this, true);
         this.a = (FrameLayout) findViewById(com.baidu.adp.e.layout);
         this.b = (ImageView) findViewById(com.baidu.adp.e.switch_image);
-        c();
         d();
+        e();
         this.i = new a(this);
         setOnClickListener(new b(this));
-        e();
+        f();
     }
 
-    private void c() {
+    private void d() {
         FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.a.getLayoutParams();
         layoutParams.width = this.a.getForeground().getIntrinsicWidth();
         this.a.setLayoutParams(layoutParams);
     }
 
-    private void d() {
+    private void e() {
         FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.b.getLayoutParams();
         layoutParams.width = this.b.getBackground().getIntrinsicWidth();
         this.b.setLayoutParams(layoutParams);
@@ -77,7 +77,7 @@ public class BdSwitchView extends FrameLayout {
         }
     }
 
-    private void e() {
+    private void f() {
         float translateDis = getTranslateDis();
         this.g = new TranslateAnimation(-translateDis, 0.0f, 0.0f, 0.0f);
         this.g.setDuration(200L);
@@ -125,12 +125,12 @@ public class BdSwitchView extends FrameLayout {
 
     public void setSwitchFrame(int i) {
         this.a.setForeground(getResources().getDrawable(i));
-        c();
+        d();
     }
 
     public void setSwitchImage(int i) {
         this.b.setBackgroundResource(i);
-        d();
+        e();
     }
 
     public void setSwitchStyle(e eVar) {
@@ -156,6 +156,10 @@ public class BdSwitchView extends FrameLayout {
         if (this.d != d.OFF) {
             a(false);
         }
+    }
+
+    public boolean c() {
+        return this.d == d.ON;
     }
 
     public void setOnSwitchStateChangeListener(c cVar) {

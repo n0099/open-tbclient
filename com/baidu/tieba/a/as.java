@@ -1,51 +1,39 @@
 package com.baidu.tieba.a;
 
-import com.baidu.android.pushservice.PushConstants;
-import org.json.JSONArray;
-import org.json.JSONObject;
+import android.content.Context;
+import android.text.TextPaint;
+import android.text.style.ClickableSpan;
+import android.view.View;
+import com.baidu.tieba.person.PersonInfoActivity;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class as {
-    private long a = 0;
-    private String b = null;
-    private String c = null;
+public class as extends ClickableSpan {
+    final /* synthetic */ ar a;
+    private String b;
+    private String c;
+    private Context d;
 
-    public void a(String str) {
-        try {
-            a(new JSONObject(str));
-        } catch (Exception e) {
-            com.baidu.tieba.d.ae.b("MssageData", "parserJson", "error = " + e.getMessage());
+    public as(ar arVar, Context context, String str, String str2) {
+        this.a = arVar;
+        this.b = null;
+        this.c = null;
+        this.d = null;
+        this.b = str;
+        this.c = str2;
+        this.d = context;
+    }
+
+    @Override // android.text.style.ClickableSpan, android.text.style.CharacterStyle
+    public void updateDrawState(TextPaint textPaint) {
+        textPaint.setColor(-9989158);
+        textPaint.setUnderlineText(false);
+        textPaint.setFakeBoldText(false);
+    }
+
+    @Override // android.text.style.ClickableSpan
+    public void onClick(View view) {
+        if (this.b != null && this.c != null && this.d != null) {
+            PersonInfoActivity.a(this.d, this.c, this.b);
         }
-    }
-
-    public void a(JSONObject jSONObject) {
-        if (jSONObject != null) {
-            try {
-                JSONArray jSONArray = jSONObject.getJSONArray("data");
-                for (int i = 0; i < jSONArray.length(); i++) {
-                    if (jSONArray.getJSONObject(i) != null) {
-                        JSONObject jSONObject2 = jSONArray.getJSONObject(i);
-                        if (this.a < jSONObject2.getLong("message_id")) {
-                            this.a = jSONObject2.getLong("message_id");
-                            this.b = jSONObject2.getString("link");
-                            this.c = jSONObject2.getString(PushConstants.EXTRA_CONTENT);
-                        }
-                    }
-                }
-            } catch (Exception e) {
-                com.baidu.tieba.d.ae.b("MssageData", "parserJson", "error = " + e.getMessage());
-            }
-        }
-    }
-
-    public long a() {
-        return this.a;
-    }
-
-    public String b() {
-        return this.b;
-    }
-
-    public String c() {
-        return this.c;
     }
 }

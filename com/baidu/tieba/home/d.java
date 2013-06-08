@@ -3,7 +3,7 @@ package com.baidu.tieba.home;
 import android.graphics.Bitmap;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
-import com.baidu.tieba.a.be;
+import com.baidu.tieba.a.bf;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class d extends com.baidu.adp.lib.a.a {
@@ -47,17 +47,17 @@ public class d extends com.baidu.adp.lib.a.a {
             this.b.a("tid", "0");
             String i = this.b.i();
             if (this.b.b()) {
-                be beVar = new be();
-                beVar.a(i);
-                if (beVar.b() == null || beVar.b().length() <= 0) {
+                bf bfVar = new bf();
+                bfVar.a(i);
+                if (bfVar.b() == null || bfVar.b().length() <= 0) {
                     return null;
                 }
-                this.a.u = beVar.a();
+                this.a.u = bfVar.a();
                 if (this.c) {
                     return null;
                 }
-                this.b = new com.baidu.tieba.d.t(beVar.b());
-                return com.baidu.tieba.d.e.a(this.b.h());
+                this.b = new com.baidu.tieba.d.t(bfVar.b());
+                return com.baidu.tieba.d.d.a(this.b.h());
             }
             return null;
         } catch (Exception e) {

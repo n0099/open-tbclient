@@ -1,98 +1,175 @@
 package com.baidu.tieba.c;
 
+import android.content.SharedPreferences;
+import com.baidu.tieba.TiebaApplication;
 import java.util.ArrayList;
-/* JADX INFO: Access modifiers changed from: package-private */
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes.dex */
-public class f extends com.baidu.adp.lib.a.a {
-    final /* synthetic */ c a;
-    private com.baidu.tieba.d.t b;
-    private com.baidu.tieba.a.az c;
+public class f {
+    private h b = null;
+    private i c = null;
+    private g d = null;
+    private int f = 0;
+    protected com.baidu.tieba.h a = null;
+    private ArrayList e = new ArrayList();
 
-    private f(c cVar) {
-        this.a = cVar;
-        this.b = null;
-        this.c = null;
+    public int a() {
+        return this.e.size();
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ f(c cVar, f fVar) {
-        this(cVar);
+    public ArrayList b() {
+        return this.e;
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.a.a
-    public void b() {
-        this.c = new com.baidu.tieba.a.az();
+    public void a(ArrayList arrayList) {
+        this.e = arrayList;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.a.a
-    public Boolean a(c... cVarArr) {
-        c cVar = new c();
-        try {
-            cVar.e();
-            this.b = new com.baidu.tieba.d.t();
-            this.b.a(String.valueOf(com.baidu.tieba.a.i.e) + "c/c/post/addstore");
-            int h = this.a.h();
-            if (cVar.c() - 1 <= h) {
-                h = cVar.c() - 1;
-            }
-            while (h >= 0) {
-                String a = cVar.a(h, 20);
-                this.b.a(new ArrayList());
-                this.b.a("data", a);
-                this.c.a(this.b.i());
-                if (!this.b.b() || this.c.a() != 0) {
-                    break;
+    public void b(ArrayList arrayList) {
+        this.e.addAll(arrayList);
+    }
+
+    public void a(com.baidu.tieba.a.af afVar) {
+        this.e.add(afVar);
+    }
+
+    public int c() {
+        if (this.e == null) {
+            return 0;
+        }
+        return this.e.size();
+    }
+
+    public int d() {
+        return this.f;
+    }
+
+    public void e() {
+        ArrayList s = com.baidu.tieba.d.k.s();
+        if (s != null) {
+            a(s);
+        }
+    }
+
+    public String a(int i, int i2) {
+        JSONArray jSONArray;
+        int i3;
+        if (this.e == null) {
+            return null;
+        }
+        if (i >= this.e.size()) {
+            i2 -= (i - this.e.size()) - 1;
+            i = this.e.size() - 1;
+        }
+        JSONArray jSONArray2 = new JSONArray();
+        int i4 = 0;
+        int i5 = i;
+        while (true) {
+            if (i5 < 0) {
+                jSONArray = jSONArray2;
+                break;
+            } else if (i5 <= i - i2) {
+                jSONArray = jSONArray2;
+                break;
+            } else {
+                try {
+                    JSONObject j = ((com.baidu.tieba.a.af) this.e.get(i5)).j();
+                    if (j == null || i4 < 0) {
+                        i3 = i4;
+                    } else {
+                        i3 = i4 + 1;
+                        jSONArray2.put(i4, j);
+                    }
+                    i5--;
+                    i4 = i3;
+                } catch (Exception e) {
+                    com.baidu.tieba.d.ae.b(getClass().getName(), "toJson", e.toString());
+                    jSONArray = null;
                 }
-                h -= 20;
             }
-            this.a.b(h);
-            if (h >= 0) {
-                return false;
-            }
-            return true;
+        }
+        if (jSONArray == null) {
+            return null;
+        }
+        return jSONArray.toString();
+    }
+
+    public void a(String str) {
+        try {
+            a(new JSONObject(str));
         } catch (Exception e) {
-            com.baidu.tieba.d.ae.b(getClass().getName(), "", "doInBackground error = " + e.getMessage());
-            return false;
+            com.baidu.tieba.d.ae.b(getClass().getName(), "parserJson", e.toString());
         }
     }
 
-    @Override // com.baidu.adp.lib.a.a
-    public void cancel() {
-        super.cancel(true);
+    public void a(JSONObject jSONObject) {
+        try {
+            if (jSONObject.optJSONObject("error").optString("errno").equals("0")) {
+                JSONArray optJSONArray = jSONObject.optJSONArray("store_thread");
+                for (int i = 0; i < optJSONArray.length(); i++) {
+                    com.baidu.tieba.a.af afVar = new com.baidu.tieba.a.af();
+                    afVar.a(optJSONArray.getJSONObject(i));
+                    this.e.add(afVar);
+                }
+            }
+        } catch (Exception e) {
+            com.baidu.tieba.d.ae.b(getClass().getName(), "parserJson", e.toString());
+        }
+    }
+
+    public void f() {
         if (this.b != null) {
-            this.b.g();
+            this.b.cancel();
         }
-        this.a.c = null;
-        if (this.a.a != null) {
-            this.a.a.a(1, false, null, false);
+        this.b = new h(this, a());
+        this.b.setPriority(3);
+        this.b.execute(new Boolean[0]);
+    }
+
+    public void g() {
+        if (this.c != null) {
+            this.c.cancel();
+        }
+        this.c = new i(this, null);
+        this.c.setPriority(2);
+        this.c.execute(new f[0]);
+    }
+
+    public void a(int i) {
+        if (this.d != null) {
+            this.d.cancel();
+        }
+        if (this.e.get(i) != null && ((com.baidu.tieba.a.af) this.e.get(i)).c() != null) {
+            this.d = new g(this, ((com.baidu.tieba.a.af) this.e.get(i)).c(), i);
+            this.d.setPriority(2);
+            this.d.execute(new Boolean[0]);
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.a.a
-    public void a(Boolean bool) {
-        String str;
-        boolean z;
-        ArrayList arrayList;
-        this.a.c = null;
-        if (bool.booleanValue()) {
-            arrayList = this.a.e;
-            arrayList.clear();
-            str = null;
-            z = false;
-        } else if (this.b.b()) {
-            str = this.c.b();
-            z = false;
-        } else {
-            str = null;
-            z = true;
+    public int h() {
+        return TiebaApplication.d().getSharedPreferences("settings", 0).getInt("uploac_mark_offset", 399);
+    }
+
+    public void b(int i) {
+        SharedPreferences.Editor edit = TiebaApplication.d().getSharedPreferences("settings", 0).edit();
+        edit.putInt("uploac_mark_offset", i);
+        edit.commit();
+    }
+
+    public void i() {
+        if (this.b != null) {
+            this.b.cancel();
         }
-        if (this.a.a != null) {
-            this.a.a.a(1, bool, str, Boolean.valueOf(z));
+        if (this.c != null) {
+            this.c.cancel();
         }
+        if (this.d != null) {
+            this.d.cancel();
+        }
+    }
+
+    public void a(com.baidu.tieba.h hVar) {
+        this.a = hVar;
     }
 }

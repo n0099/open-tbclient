@@ -1,132 +1,65 @@
 package com.baidu.tieba.c;
 
-import java.io.Serializable;
+import android.content.Context;
+import java.util.ArrayList;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes.dex */
-public class bp implements Serializable {
-    private int a = 0;
-    private String b = null;
-    private String c = null;
-    private String d = null;
-    private String e = null;
-    private int f = 0;
-    private String g = null;
-    private String h = null;
-    private String i = null;
-    private String j = null;
-    private String k = null;
-    private com.baidu.tieba.a.z m = null;
-    private boolean l = false;
-    private int n = 0;
+public class bp {
+    private Context a;
+    private com.baidu.tieba.a.ay b = new com.baidu.tieba.a.ay();
 
-    public int b() {
-        return this.a;
+    public bp(Context context, String str) {
+        this.a = context;
+        a(str);
     }
 
-    public void a(int i) {
-        this.a = i;
+    private void a(String str) {
+        try {
+            JSONObject jSONObject = new JSONObject(str);
+            JSONObject optJSONObject = jSONObject.optJSONObject("post");
+            JSONArray optJSONArray = jSONObject.optJSONArray("subpost_list");
+            JSONObject optJSONObject2 = jSONObject.optJSONObject("forum");
+            JSONObject optJSONObject3 = jSONObject.optJSONObject("thread");
+            JSONObject optJSONObject4 = jSONObject.optJSONObject("anti");
+            com.baidu.tieba.a.b bVar = new com.baidu.tieba.a.b();
+            bVar.a(optJSONObject4);
+            this.b.a(bVar);
+            com.baidu.tieba.a.bc bcVar = new com.baidu.tieba.a.bc();
+            bcVar.a(optJSONObject3);
+            this.b.a(bcVar);
+            com.baidu.tieba.a.s sVar = new com.baidu.tieba.a.s();
+            sVar.a(optJSONObject2);
+            this.b.a(sVar);
+            com.baidu.tieba.a.ar arVar = new com.baidu.tieba.a.ar();
+            arVar.a(optJSONObject);
+            arVar.b(this.a);
+            this.b.a(arVar);
+            int length = optJSONArray.length();
+            ArrayList arrayList = new ArrayList();
+            for (int i = 0; i < length; i++) {
+                JSONObject jSONObject2 = optJSONArray.getJSONObject(i);
+                com.baidu.tieba.a.ar arVar2 = new com.baidu.tieba.a.ar();
+                arVar2.a(jSONObject2);
+                arVar2.b(this.a);
+                arrayList.add(arVar2);
+            }
+            this.b.a(arrayList);
+            JSONObject optJSONObject5 = jSONObject.optJSONObject("page");
+            int optInt = optJSONObject5.optInt("total_page");
+            int optInt2 = optJSONObject5.optInt("page_size");
+            int optInt3 = optJSONObject5.optInt("current_page");
+            int optInt4 = optJSONObject5.optInt("total_count");
+            this.b.d(optInt3);
+            this.b.c(optInt2);
+            this.b.b(optInt4);
+            this.b.a(optInt);
+        } catch (Exception e) {
+            com.baidu.tieba.d.ae.b("SubPbModel", "parseJson", "error = " + e.getMessage());
+        }
     }
 
-    public String c() {
-        return this.g;
-    }
-
-    public void a(String str) {
-        this.g = str;
-    }
-
-    public String d() {
-        return this.h;
-    }
-
-    public void b(String str) {
-        this.h = str;
-    }
-
-    public void c(String str) {
-        this.d = str;
-    }
-
-    public String e() {
-        return this.d;
-    }
-
-    public void d(String str) {
-        this.e = str;
-    }
-
-    public String f() {
-        return this.e;
-    }
-
-    public void e(String str) {
-        this.b = str;
-    }
-
-    public String g() {
+    public com.baidu.tieba.a.ay a() {
         return this.b;
-    }
-
-    public void f(String str) {
-        this.c = str;
-    }
-
-    public String h() {
-        return this.c;
-    }
-
-    public void b(int i) {
-        this.f = i;
-    }
-
-    public int i() {
-        return this.f;
-    }
-
-    public void g(String str) {
-        this.i = str;
-    }
-
-    public String j() {
-        return this.i;
-    }
-
-    public void a(com.baidu.tieba.a.z zVar) {
-        this.m = zVar;
-    }
-
-    public com.baidu.tieba.a.z k() {
-        return this.m;
-    }
-
-    public void h(String str) {
-        this.j = str;
-    }
-
-    public String l() {
-        return this.j;
-    }
-
-    public String m() {
-        return this.k;
-    }
-
-    public void i(String str) {
-        this.k = str;
-    }
-
-    public void b(boolean z) {
-        this.l = z;
-    }
-
-    public boolean n() {
-        return this.l;
-    }
-
-    public void c(int i) {
-        this.n = i;
-    }
-
-    public int o() {
-        return this.n;
     }
 }

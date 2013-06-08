@@ -8,6 +8,6 @@ import com.baidu.tieba.TiebaApplication;
 public class ChangeSkinReceiver extends BroadcastReceiver {
     @Override // android.content.BroadcastReceiver
     public void onReceive(Context context, Intent intent) {
-        TiebaApplication.d().i(intent.getIntExtra("skin_type", 0));
+        TiebaApplication.d().k(intent.getIntExtra("skin_type", 0));
     }
 }

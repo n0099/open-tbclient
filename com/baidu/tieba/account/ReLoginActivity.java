@@ -121,8 +121,8 @@ public class ReLoginActivity extends com.baidu.tieba.e {
     /* JADX INFO: Access modifiers changed from: private */
     public void d() {
         if (TiebaApplication.i()) {
-            String z = TiebaApplication.z();
-            if (z == null || z.length() <= 0) {
+            String B = TiebaApplication.B();
+            if (B == null || B.length() <= 0) {
                 a(getIntent().getStringExtra("uname"), getIntent().getStringExtra("bduss"));
             }
         }
@@ -139,18 +139,18 @@ public class ReLoginActivity extends com.baidu.tieba.e {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(com.baidu.tieba.a.a aVar) {
-        com.baidu.tieba.a.a C = TiebaApplication.C();
-        if (C == null) {
+        com.baidu.tieba.a.a E = TiebaApplication.E();
+        if (E == null) {
             TiebaApplication.a(aVar);
-            TiebaApplication.d().O();
+            TiebaApplication.d().Q();
         } else {
-            C.a(aVar.a());
-            C.e(aVar.f());
-            C.d(aVar.d());
+            E.a(aVar.a());
+            E.e(aVar.f());
+            E.d(aVar.d());
         }
-        com.baidu.tieba.d.k.a(TiebaApplication.C());
+        com.baidu.tieba.d.k.a(TiebaApplication.E());
         Handler handler = TiebaApplication.d().c;
-        if (TiebaApplication.d().N() > 0) {
+        if (TiebaApplication.d().P() > 0) {
             handler.sendMessage(handler.obtainMessage(2));
         } else {
             handler.sendMessage(handler.obtainMessage(3));
@@ -202,7 +202,7 @@ public class ReLoginActivity extends com.baidu.tieba.e {
 
     private void m() {
         if (this.k) {
-            TiebaApplication.d().v();
+            TiebaApplication.d().w();
             setResult(-1);
         } else {
             MainTabActivity.b(this, getIntent().getStringExtra("goto_type"));

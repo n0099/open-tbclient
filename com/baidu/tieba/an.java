@@ -19,7 +19,7 @@ public class an implements com.baidu.location.c {
         Address address4;
         if (aVar != null && aVar.d() != 62 && aVar.d() != 63 && aVar.d() != 68 && aVar.d() <= 161) {
             this.a.D = 0;
-            this.a.aB();
+            this.a.aK();
             this.a.F = new Address(Locale.getDefault());
             address = this.a.F;
             address.setLatitude(aVar.a());

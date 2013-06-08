@@ -26,14 +26,14 @@ public class p extends Thread {
 
     @Override // java.lang.Thread, java.lang.Runnable
     public void run() {
-        ArrayList x;
+        ArrayList y;
         super.run();
         try {
             if (this.a == 3) {
-                if (this.c != null && (x = k.x()) != null) {
-                    int size = x.size();
+                if (this.c != null && (y = k.y()) != null) {
+                    int size = y.size();
                     for (int i = 0; i < size; i++) {
-                        this.c.put((String) x.get(i), 1);
+                        this.c.put((String) y.get(i), 1);
                     }
                 }
             } else if (this.a == 2) {

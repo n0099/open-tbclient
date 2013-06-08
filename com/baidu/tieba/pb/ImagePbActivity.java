@@ -82,11 +82,11 @@ public class ImagePbActivity extends com.baidu.tieba.e implements com.baidu.tieb
     private Handler Q = null;
     private Runnable R = new k(this);
     private ad S = new u(this);
-    private com.baidu.tieba.view.ae T = new v(this);
+    private com.baidu.tieba.view.ag T = new v(this);
 
     @Override // com.baidu.tieba.e
     public boolean e() {
-        return TiebaApplication.d().q();
+        return TiebaApplication.d().r();
     }
 
     public static void a(Context context, String str, String str2, String str3) {
@@ -141,7 +141,7 @@ public class ImagePbActivity extends com.baidu.tieba.e implements com.baidu.tieb
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.e, android.app.Activity
     public void onDestroy() {
-        a(this.K, this.K);
+        b(this.K, this.K);
         s();
         if (this.y != null) {
             this.y.cancel();
@@ -335,7 +335,7 @@ public class ImagePbActivity extends com.baidu.tieba.e implements com.baidu.tieb
             a((String) null, 0, 9, true);
         }
         this.O = new HashMap();
-        a(this.K, this.K);
+        b(this.K, this.K);
     }
 
     private void c(boolean z) {
@@ -369,7 +369,7 @@ public class ImagePbActivity extends com.baidu.tieba.e implements com.baidu.tieb
         if (this.k != null && this.k.isShowing()) {
             this.k.dismiss();
         }
-        a(this.K, this.K);
+        b(this.K, this.K);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -408,7 +408,7 @@ public class ImagePbActivity extends com.baidu.tieba.e implements com.baidu.tieb
                     return;
                 case 1200001:
                     if (this.H != null && this.H.i() != null && this.D != null) {
-                        WriteImageActivity.a(this, 1200001, 12000010, null, this.H.j(), this.D, null);
+                        WriteImageActivity.a(this, 1200001, 1200010, null, this.H.j(), this.D, null);
                         return;
                     }
                     return;
@@ -430,7 +430,7 @@ public class ImagePbActivity extends com.baidu.tieba.e implements com.baidu.tieb
                     }
                     return;
                 case 1200009:
-                case 12000010:
+                case 1200010:
                     if (this.H != null) {
                         if (intent == null || intent.getStringExtra("filename") == null) {
                             WriteActivity.a(this, this.H.j(), this.D, this.E, (com.baidu.tieba.a.b) null, (String) null);
@@ -465,8 +465,8 @@ public class ImagePbActivity extends com.baidu.tieba.e implements com.baidu.tieb
 
     /* JADX INFO: Access modifiers changed from: private */
     public void o() {
-        String z = TiebaApplication.z();
-        if (z == null || z.length() <= 0) {
+        String B = TiebaApplication.B();
+        if (B == null || B.length() <= 0) {
             if (this.H != null && this.H.e() != null) {
                 this.H.e().a(1);
             }
@@ -513,8 +513,8 @@ public class ImagePbActivity extends com.baidu.tieba.e implements com.baidu.tieb
         for (int i2 = 0; i2 < h.size(); i2++) {
             com.baidu.tieba.a.w wVar = (com.baidu.tieba.a.w) h.get(i2);
             StringBuilder sb = new StringBuilder(100);
-            if (wVar.g() * wVar.f() > com.baidu.tieba.a.i.g() * com.baidu.tieba.a.i.g()) {
-                double sqrt = Math.sqrt((com.baidu.tieba.a.i.g() * com.baidu.tieba.a.i.g()) / (wVar.g() * wVar.f()));
+            if (wVar.g() * wVar.f() > com.baidu.tieba.a.i.h() * com.baidu.tieba.a.i.h()) {
+                double sqrt = Math.sqrt((com.baidu.tieba.a.i.h() * com.baidu.tieba.a.i.h()) / (wVar.g() * wVar.f()));
                 sb.append("width=");
                 sb.append(String.valueOf((int) (wVar.f() * sqrt)));
                 sb.append("&height=");
@@ -562,7 +562,7 @@ public class ImagePbActivity extends com.baidu.tieba.e implements com.baidu.tieb
 
         @Override // android.support.v4.view.aj
         public void a(int i) {
-            ImagePbActivity.this.a(ImagePbActivity.this.K, i);
+            ImagePbActivity.this.b(ImagePbActivity.this.K, i);
             ImagePbActivity.this.K = i;
             ImagePbActivity.this.e.setVisibility(4);
             ImagePbActivity.this.e.setClickable(false);
@@ -581,7 +581,7 @@ public class ImagePbActivity extends com.baidu.tieba.e implements com.baidu.tieb
                 LinkedList h = ImagePbActivity.this.H.h();
                 if (h != null && ImagePbActivity.this.K < h.size() && h.get(ImagePbActivity.this.K) != null) {
                     ImagePbActivity.this.M = ((com.baidu.tieba.a.w) h.get(ImagePbActivity.this.K)).d();
-                    if (((com.baidu.tieba.a.w) h.get(ImagePbActivity.this.K)).i().equals(TiebaApplication.z())) {
+                    if (((com.baidu.tieba.a.w) h.get(ImagePbActivity.this.K)).i().equals(TiebaApplication.B())) {
                         ImagePbActivity.this.e.setVisibility(0);
                         ImagePbActivity.this.e.setClickable(true);
                     }
@@ -608,8 +608,8 @@ public class ImagePbActivity extends com.baidu.tieba.e implements com.baidu.tieb
 
     /* JADX INFO: Access modifiers changed from: private */
     public void d(int i) {
-        String z = TiebaApplication.z();
-        if (z == null || z.length() <= 0) {
+        String B = TiebaApplication.B();
+        if (B == null || B.length() <= 0) {
             if (this.w != null) {
                 this.w.a(1);
             }
@@ -623,16 +623,16 @@ public class ImagePbActivity extends com.baidu.tieba.e implements com.baidu.tieb
                     editable = editable.substring(0, 140);
                 }
                 a(getString(R.string.sending), this.u);
-                com.baidu.tieba.c.bp bpVar = new com.baidu.tieba.c.bp();
-                bpVar.e(this.H.j());
-                bpVar.f(this.H.i());
-                bpVar.b(editable);
-                bpVar.g(null);
-                bpVar.d(this.M);
-                bpVar.c(this.E);
-                bpVar.b(0);
-                bpVar.a(2);
-                this.v = new af(this, bpVar);
+                com.baidu.tieba.c.bs bsVar = new com.baidu.tieba.c.bs();
+                bsVar.e(this.H.j());
+                bsVar.f(this.H.i());
+                bsVar.b(editable);
+                bsVar.g(null);
+                bsVar.d(this.M);
+                bsVar.c(this.E);
+                bsVar.b(0);
+                bsVar.a(2);
+                this.v = new af(this, bsVar);
                 this.v.setPriority(3);
                 this.v.execute(new Integer[0]);
             }
@@ -726,7 +726,7 @@ public class ImagePbActivity extends com.baidu.tieba.e implements com.baidu.tieb
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void a(int i, int i2) {
+    public void b(int i, int i2) {
         synchronized (this.O) {
             if (System.nanoTime() - this.N > 300000000 && this.H != null && this.H.h() != null && this.K < this.H.h().size()) {
                 this.O.put(((com.baidu.tieba.a.w) this.H.h().get(i)).b(), true);

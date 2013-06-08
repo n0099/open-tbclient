@@ -15,7 +15,7 @@ public class AllPostActivity extends com.baidu.tieba.e {
     ListView e = null;
     ImageView f = null;
     ad g = null;
-    com.baidu.tieba.c.ao h = null;
+    com.baidu.tieba.c.ar h = null;
     b i = null;
     private ProgressBar j = null;
     private boolean k = false;
@@ -45,7 +45,7 @@ public class AllPostActivity extends com.baidu.tieba.e {
     }
 
     void c() {
-        this.h = new com.baidu.tieba.c.ao();
+        this.h = new com.baidu.tieba.c.ar();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */

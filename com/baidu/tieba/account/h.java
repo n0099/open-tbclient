@@ -25,46 +25,46 @@ public class h extends com.baidu.adp.lib.a.a {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.a.a
-    public com.baidu.tieba.c.af a(String... strArr) {
-        com.baidu.tieba.a.at atVar;
-        com.baidu.tieba.a.at atVar2;
-        com.baidu.tieba.a.at atVar3;
-        com.baidu.tieba.a.at atVar4;
-        com.baidu.tieba.a.at atVar5;
+    public com.baidu.tieba.c.ai a(String... strArr) {
+        com.baidu.tieba.a.au auVar;
+        com.baidu.tieba.a.au auVar2;
+        com.baidu.tieba.a.au auVar3;
+        com.baidu.tieba.a.au auVar4;
+        com.baidu.tieba.a.au auVar5;
         EditText editText;
-        com.baidu.tieba.a.at atVar6;
-        com.baidu.tieba.a.at atVar7;
+        com.baidu.tieba.a.au auVar6;
+        com.baidu.tieba.a.au auVar7;
         try {
             this.b = new com.baidu.tieba.d.t(String.valueOf(com.baidu.tieba.a.i.e) + "c/s/regreal");
             com.baidu.tieba.d.t tVar = this.b;
-            atVar = this.a.r;
-            tVar.a("un", atVar.a());
+            auVar = this.a.r;
+            tVar.a("un", auVar.a());
             com.baidu.tieba.d.t tVar2 = this.b;
-            atVar2 = this.a.r;
-            tVar2.a("phonenum", atVar2.c());
+            auVar2 = this.a.r;
+            tVar2.a("phonenum", auVar2.c());
             com.baidu.tieba.d.t tVar3 = this.b;
-            atVar3 = this.a.r;
-            tVar3.a("passwd", atVar3.b());
-            atVar4 = this.a.r;
-            if (atVar4.d() != null) {
+            auVar3 = this.a.r;
+            tVar3.a("passwd", auVar3.b());
+            auVar4 = this.a.r;
+            if (auVar4.d() != null) {
                 com.baidu.tieba.d.t tVar4 = this.b;
-                atVar7 = this.a.r;
-                tVar4.a("vcode", atVar7.d());
+                auVar7 = this.a.r;
+                tVar4.a("vcode", auVar7.d());
             }
-            atVar5 = this.a.r;
-            if (atVar5.e() != null) {
+            auVar5 = this.a.r;
+            if (auVar5.e() != null) {
                 com.baidu.tieba.d.t tVar5 = this.b;
-                atVar6 = this.a.r;
-                tVar5.a("vcode_md5", atVar6.e());
+                auVar6 = this.a.r;
+                tVar5.a("vcode_md5", auVar6.e());
             }
             com.baidu.tieba.d.t tVar6 = this.b;
             editText = this.a.k;
             tVar6.a("smscode", editText.getText().toString());
             String i = this.b.i();
             if (this.b.b()) {
-                com.baidu.tieba.c.af afVar = new com.baidu.tieba.c.af();
-                afVar.a(i);
-                return afVar;
+                com.baidu.tieba.c.ai aiVar = new com.baidu.tieba.c.ai();
+                aiVar.a(i);
+                return aiVar;
             }
             return null;
         } catch (Exception e) {
@@ -76,7 +76,7 @@ public class h extends com.baidu.adp.lib.a.a {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.a.a
-    public void a(com.baidu.tieba.c.af afVar) {
+    public void a(com.baidu.tieba.c.ai aiVar) {
         ProgressBar progressBar;
         boolean z;
         LinearLayout linearLayout;
@@ -86,7 +86,7 @@ public class h extends com.baidu.adp.lib.a.a {
         TextView textView;
         TextView textView2;
         RelativeLayout relativeLayout;
-        super.a((Object) afVar);
+        super.a((Object) aiVar);
         progressBar = this.a.h;
         progressBar.setVisibility(8);
         this.a.o = null;
@@ -96,8 +96,8 @@ public class h extends com.baidu.adp.lib.a.a {
             relativeLayout = this.a.m;
             relativeLayout.setEnabled(true);
         }
-        if (afVar != null) {
-            this.a.a(afVar);
+        if (aiVar != null) {
+            this.a.a(aiVar);
             return;
         }
         String f = this.b.f();

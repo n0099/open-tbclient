@@ -1,10 +1,9 @@
 package com.baidu.tieba.nearby;
 
-import android.view.MotionEvent;
 import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class bd implements View.OnTouchListener {
+public class bd implements View.OnClickListener {
     final /* synthetic */ NewNearbyActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -12,12 +11,8 @@ public class bd implements View.OnTouchListener {
         this.a = newNearbyActivity;
     }
 
-    @Override // android.view.View.OnTouchListener
-    public boolean onTouch(View view, MotionEvent motionEvent) {
-        if (motionEvent.getAction() == 0) {
-            this.a.x = true;
-            return false;
-        }
-        return false;
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        this.a.u();
     }
 }

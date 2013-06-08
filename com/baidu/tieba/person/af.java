@@ -5,12 +5,12 @@ import com.baidu.tieba.pb.NewPbActivity;
 /* loaded from: classes.dex */
 class af implements View.OnClickListener {
     final /* synthetic */ ad a;
-    private final /* synthetic */ com.baidu.tieba.c.ap b;
+    private final /* synthetic */ com.baidu.tieba.c.as b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public af(ad adVar, com.baidu.tieba.c.ap apVar) {
+    public af(ad adVar, com.baidu.tieba.c.as asVar) {
         this.a = adVar;
-        this.b = apVar;
+        this.b = asVar;
     }
 
     @Override // android.view.View.OnClickListener

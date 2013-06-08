@@ -6,7 +6,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.browser.core.util.BdUtil;
 import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.c.ac;
+import com.baidu.tieba.c.af;
 import com.baidu.tieba.d.ae;
 import com.baidu.tieba.d.k;
 import com.baidu.tieba.d.t;
@@ -42,33 +42,33 @@ public class e extends com.baidu.adp.lib.a.a {
         this.b = new t(String.valueOf(com.baidu.tieba.a.i.e) + "c/s/tag/allthread");
         this.b.d(true);
         this.b.a(false);
-        if (TiebaApplication.d().ai() == 1) {
+        if (TiebaApplication.d().ar() == 1) {
             this.b.a("night_type", "1");
         }
         this.b.a("_version_more", "1");
         this.b.a("platform", "android");
         t tVar = this.b;
-        str = this.a.w;
+        str = this.a.x;
         tVar.a("pn", str);
-        z = NewHomeActivity.u;
+        z = NewHomeActivity.v;
         if (z) {
-            NewHomeActivity.u = false;
+            NewHomeActivity.v = false;
             this.b.a("msg_click", "1");
             t tVar2 = this.b;
-            j = NewHomeActivity.v;
+            j = NewHomeActivity.w;
             tVar2.a("message_id", String.valueOf(j));
         }
         q = this.a.q();
         if (q != null && q.length() > 0) {
             this.b.a("tid_list", q);
         }
-        String z2 = TiebaApplication.z();
-        if ((z2 == null || z2.length() == 0) && (e = ac.e()) != null && e.length() > 0) {
+        String B = TiebaApplication.B();
+        if ((B == null || B.length() == 0) && (e = af.e()) != null && e.length() > 0) {
             this.b.a("tag_info", e);
         }
-        Address aC = TiebaApplication.d().aC();
-        if (aC != null && TiebaApplication.d().o()) {
-            this.b.a("lbs", String.valueOf(String.valueOf(aC.getLatitude())) + "," + String.valueOf(aC.getLongitude()));
+        Address aL = TiebaApplication.d().aL();
+        if (aL != null && TiebaApplication.d().p()) {
+            this.b.a("lbs", String.valueOf(String.valueOf(aL.getLatitude())) + "," + String.valueOf(aL.getLongitude()));
         }
         try {
             this.c = this.b.i();
@@ -86,7 +86,7 @@ public class e extends com.baidu.adp.lib.a.a {
         if (this.b != null) {
             this.b.g();
         }
-        this.a.t = false;
+        this.a.u = false;
         super.cancel(true);
     }
 
@@ -103,29 +103,29 @@ public class e extends com.baidu.adp.lib.a.a {
         BaseWebView baseWebView2;
         TextView textView2;
         BaseWebView baseWebView3;
-        linearLayout = this.a.m;
+        linearLayout = this.a.n;
         linearLayout.setOnClickListener(null);
         if (this.b == null || !this.b.c() || str == null || str.length() <= 0) {
-            this.a.q = false;
+            this.a.r = false;
             this.a.p();
-            z = this.a.o;
+            z = this.a.p;
             if (!z) {
-                textView = this.a.r;
+                textView = this.a.s;
                 textView.setVisibility(0);
-                baseWebView = this.a.k;
+                baseWebView = this.a.l;
                 baseWebView.setVisibility(8);
-                linearLayout2 = this.a.m;
-                onClickListener = this.a.j;
+                linearLayout2 = this.a.n;
+                onClickListener = this.a.k;
                 linearLayout2.setOnClickListener(onClickListener);
             }
         } else {
             k.a(str, 10);
-            baseWebView2 = this.a.k;
+            baseWebView2 = this.a.l;
             baseWebView2.loadDataWithBaseURL(com.baidu.tieba.a.i.e, str, "text/html", BdUtil.UTF8, "");
-            this.a.o = true;
-            textView2 = this.a.r;
+            this.a.p = true;
+            textView2 = this.a.s;
             textView2.setVisibility(8);
-            baseWebView3 = this.a.k;
+            baseWebView3 = this.a.l;
             baseWebView3.setVisibility(0);
             int indexOf = str.indexOf("dataType=\"idSet\">");
             if (indexOf != -1) {
@@ -137,7 +137,7 @@ public class e extends com.baidu.adp.lib.a.a {
                 this.a.c(URLDecoder.decode(str.substring(length, i)));
             }
         }
-        this.a.p = true;
+        this.a.q = true;
         this.a.r();
     }
 }

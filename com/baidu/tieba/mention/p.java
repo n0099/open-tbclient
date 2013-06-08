@@ -3,7 +3,7 @@ package com.baidu.tieba.mention;
 import android.app.Activity;
 import android.content.Context;
 import android.widget.ProgressBar;
-import com.baidu.tieba.c.ak;
+import com.baidu.tieba.c.an;
 import com.baidu.tieba.d.ae;
 import com.baidu.tieba.d.ag;
 import java.util.ArrayList;
@@ -36,8 +36,8 @@ public class p extends com.baidu.adp.lib.a.a {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.a.a
     /* renamed from: d */
-    public ak a(Object... objArr) {
-        ak akVar;
+    public an a(Object... objArr) {
+        an anVar;
         Exception e;
         com.baidu.tieba.e eVar;
         int i;
@@ -52,26 +52,26 @@ public class p extends com.baidu.adp.lib.a.a {
             if (!this.b.b() || i2 == null) {
                 return null;
             }
-            akVar = new ak();
+            anVar = new an();
             try {
-                akVar.a(i2);
-                if (akVar.a()) {
+                anVar.a(i2);
+                if (anVar.a()) {
                     i = this.a.o;
                     if (i != 4) {
                         nVar = this.a.j;
                         nVar.a(i2);
-                        return akVar;
+                        return anVar;
                     }
-                    return akVar;
+                    return anVar;
                 }
                 return null;
             } catch (Exception e2) {
                 e = e2;
                 ae.b(getClass().getName(), "", "doInBackground error = " + e.getMessage());
-                return akVar;
+                return anVar;
             }
         } catch (Exception e3) {
-            akVar = null;
+            anVar = null;
             e = e3;
         }
     }
@@ -118,18 +118,18 @@ public class p extends com.baidu.adp.lib.a.a {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.a.a
-    public void a(ak akVar) {
+    public void a(an anVar) {
         com.baidu.tieba.e eVar;
         a(false);
         if (this.b != null) {
-            if (!this.b.c() || akVar == null) {
+            if (!this.b.c() || anVar == null) {
                 eVar = this.a.b;
                 Activity parent = eVar.getParent();
                 if (parent != null && (parent instanceof MentionActivity)) {
                     ag.a((Context) ((MentionActivity) parent), this.b.f());
                 }
             } else {
-                this.a.a(akVar);
+                this.a.a(anVar);
             }
         }
         this.a.k = null;

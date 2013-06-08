@@ -194,11 +194,15 @@ public class BdWindow extends FrameLayout implements BdExploreViewListener {
     }
 
     public void reload() {
-        this.mExploreView.reload();
+        if (this.mExploreView != null) {
+            this.mExploreView.reload();
+        }
     }
 
     public void stopLoading() {
-        this.mExploreView.stopLoading();
+        if (this.mExploreView != null) {
+            this.mExploreView.stopLoading();
+        }
     }
 
     public void clearHistory() {
@@ -370,7 +374,9 @@ public class BdWindow extends FrameLayout implements BdExploreViewListener {
 
     @Override // com.baidu.browser.explorer.BdExploreViewListener
     public void onWebViewTouch(MotionEvent motionEvent) {
-        this.mExploreView.requestFocus();
+        if (this.mExploreView != null) {
+            this.mExploreView.requestFocus();
+        }
     }
 
     public void requestFocusNodeHref(Message message) {
@@ -388,7 +394,9 @@ public class BdWindow extends FrameLayout implements BdExploreViewListener {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void onResume() {
-        this.mExploreView.onResume();
+        if (this.mExploreView != null) {
+            this.mExploreView.onResume();
+        }
     }
 
     public Bundle getSearchboxBundle() {

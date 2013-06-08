@@ -1,68 +1,19 @@
 package com.baidu.tieba.view;
 
-import android.content.Context;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.ProgressBar;
-import android.widget.TextView;
-import com.baidu.tieba.TiebaApplication;
-import com.slidingmenu.lib.R;
+import android.graphics.Bitmap;
+import android.graphics.Canvas;
+import android.graphics.drawable.BitmapDrawable;
 /* loaded from: classes.dex */
-public class am extends com.baidu.adp.widget.ListView.c {
-    private Context a;
-    private TextView b = null;
-    private ProgressBar c = null;
-    private ImageView d = null;
-    private View.OnClickListener e = null;
-    private View f = null;
-    private String g = null;
-
-    public am(Context context) {
-        this.a = null;
-        this.a = context;
+public class am extends BitmapDrawable {
+    public am(Bitmap bitmap) {
+        super(bitmap);
     }
 
-    @Override // com.baidu.adp.widget.ListView.c
-    public View a() {
-        this.f = LayoutInflater.from(this.a).inflate(R.layout.new_pb_list_more, (ViewGroup) null);
-        this.b = (TextView) this.f.findViewById(R.id.pb_more_text);
-        this.d = (ImageView) this.f.findViewById(R.id.image);
-        if (TiebaApplication.d().ai() == 1) {
-            this.d.setBackgroundResource(R.drawable.icon_little_down_1);
-        } else {
-            this.d.setBackgroundResource(R.drawable.icon_little_down);
-        }
-        this.c = (ProgressBar) this.f.findViewById(R.id.progress);
-        return this.f;
-    }
-
-    public void c() {
-        this.c.setVisibility(0);
-        this.d.setVisibility(8);
-        this.b.setText(this.a.getText(R.string.loading));
-    }
-
-    public void d() {
-        this.c.setVisibility(8);
-        this.d.setVisibility(0);
-        if (this.g != null) {
-            this.b.setText(this.g);
-        } else {
-            this.b.setText(this.a.getText(R.string.load_more));
-        }
-    }
-
-    public void a(String str) {
-        this.g = str;
-        this.b.setText(str);
-    }
-
-    @Override // com.baidu.adp.widget.ListView.c
-    public void onClick() {
-        if (this.e != null) {
-            this.e.onClick(this.f);
+    @Override // android.graphics.drawable.BitmapDrawable, android.graphics.drawable.Drawable
+    public void draw(Canvas canvas) {
+        Bitmap bitmap = getBitmap();
+        if (bitmap != null) {
+            canvas.drawBitmap(bitmap, 0.0f, 0.0f, getPaint());
         }
     }
 }

@@ -185,21 +185,21 @@ public class ag {
     }
 
     public static String b(String str) {
-        return String.valueOf(str) + "&_client_version=" + com.baidu.tieba.a.i.h();
+        return String.valueOf(str) + "&_client_version=" + com.baidu.tieba.a.i.i();
     }
 
     public static void c(Context context, String str) {
         try {
-            Token b2 = com.baidu.tieba.account.a.b(TiebaApplication.A());
+            Token b2 = com.baidu.tieba.account.a.b(TiebaApplication.C());
             int i = Build.VERSION.SDK_INT;
             String b3 = b(a(str));
-            if (TiebaApplication.d().l() == 1) {
+            if (TiebaApplication.d().m() == 1) {
                 if (b2 != null) {
                     WebActivity.a(context, b3, b2.mBduss, b2.mPtoken);
                 } else {
                     WebActivity.a(context, b3, null, null);
                 }
-            } else if (i >= 7 && TiebaApplication.d().l() == 2) {
+            } else if (i >= 7 && TiebaApplication.d().m() == 2) {
                 if (b2 != null) {
                     WebBdActivity.a(context, b3, b2.mBduss, b2.mPtoken);
                 } else {
@@ -217,8 +217,8 @@ public class ag {
         String b2 = b(a(str));
         try {
             int i = Build.VERSION.SDK_INT;
-            Token b3 = com.baidu.tieba.account.a.b(TiebaApplication.A());
-            if (i > 7 && TiebaApplication.d().l() == 2) {
+            Token b3 = com.baidu.tieba.account.a.b(TiebaApplication.C());
+            if (i > 7 && TiebaApplication.d().m() == 2) {
                 if (b3 != null) {
                     WebBdActivity.a(context, b2, b3.mBduss, b3.mPtoken);
                 } else {

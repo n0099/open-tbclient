@@ -1,51 +1,50 @@
 package com.baidu.tieba.a;
-
-import java.io.Serializable;
 /* loaded from: classes.dex */
-public class an implements Serializable {
-    private String a = null;
-    private int b = 1;
-    private String c = null;
-    private String d = null;
-    private boolean e = false;
-
-    public String a() {
-        return this.a;
-    }
-
-    public void a(String str) {
-        this.a = str;
-    }
-
-    public int b() {
-        return this.b;
-    }
+public class an {
+    private volatile long a = 0;
+    private volatile long b = 0;
+    private volatile int c = 0;
+    private volatile boolean d = false;
 
     public void a(int i) {
-        this.b = i;
+        if (i > 0) {
+            this.d = true;
+            this.a = i;
+        }
     }
 
-    public void b(String str) {
-        this.c = str;
+    public void b(int i) {
+        if (i > 0) {
+            this.d = true;
+            this.b = i;
+        }
     }
 
-    public String c() {
-        return this.c;
+    public void c(int i) {
+        if (i != 0) {
+            this.d = true;
+            this.c = i;
+        }
     }
 
-    public void a(boolean z) {
-        this.e = z;
+    public void a() {
+        this.d = false;
+        this.a = 0L;
+        this.b = 0L;
+        this.c = 0;
     }
 
-    public boolean d() {
-        return this.e;
-    }
-
-    public void c(String str) {
-        this.d = str;
-    }
-
-    public String e() {
-        return this.d;
+    public void a(com.baidu.tieba.d.t tVar) {
+        if (tVar != null) {
+            if (this.a != 0) {
+                tVar.a("ctime", String.valueOf(this.a));
+            }
+            if (this.b != 0) {
+                tVar.a("data_size", String.valueOf(this.b));
+            }
+            if (this.c != 0) {
+                tVar.a("net_error", String.valueOf(this.c));
+            }
+        }
     }
 }

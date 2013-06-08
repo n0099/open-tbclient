@@ -75,13 +75,13 @@ public class y {
         if (!this.d.c()) {
             this.d.d(true);
             this.f.setText(R.string.done);
-            com.baidu.tieba.d.ac.h((TextView) this.f, TiebaApplication.d().ai());
+            com.baidu.tieba.d.ac.h((TextView) this.f, TiebaApplication.d().ar());
             this.d.notifyDataSetChanged();
             return;
         }
         this.d.d(false);
         this.f.setText(R.string.edit);
-        com.baidu.tieba.d.ac.g((TextView) this.f, TiebaApplication.d().ai());
+        com.baidu.tieba.d.ac.g((TextView) this.f, TiebaApplication.d().ar());
         this.d.notifyDataSetChanged();
     }
 
@@ -97,20 +97,20 @@ public class y {
         this.d.notifyDataSetChanged();
     }
 
-    public void a(String str, com.baidu.tieba.c.c cVar) {
+    public void a(String str, com.baidu.tieba.c.f fVar) {
         if (str != null) {
             ((com.baidu.tieba.e) this.a).a(str);
         }
-        if (cVar.d() == 0) {
+        if (fVar.d() == 0) {
             ((com.baidu.tieba.e) this.a).a(this.a.getString(R.string.no_more_mark));
         }
-        if (cVar.c() < 20) {
+        if (fVar.c() < 20) {
             this.d.a(false);
         }
-        this.d.a(cVar.b());
+        this.d.a(fVar.b());
         this.d.c(true);
         this.d.b();
-        if (cVar.c() > 0) {
+        if (fVar.c() > 0) {
             this.f.setVisibility(0);
         } else {
             this.f.setVisibility(4);
@@ -164,7 +164,7 @@ public class y {
         if (arrayList != null) {
             this.d.a(arrayList);
             this.d.b();
-            this.d.notifyDataSetInvalidated();
+            this.d.notifyDataSetChanged();
             this.f.setVisibility(4);
         }
     }
@@ -205,8 +205,8 @@ public class y {
     }
 
     public void g() {
-        this.d.notifyDataSetChanged();
         this.d.b();
+        this.d.notifyDataSetChanged();
     }
 
     public void h() {

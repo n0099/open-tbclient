@@ -147,12 +147,12 @@ public class ReLoginShareActivity extends com.baidu.tieba.e {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void d() {
-        String z = TiebaApplication.z();
-        if (z == null || z.length() <= 0) {
+        String B = TiebaApplication.B();
+        if (B == null || B.length() <= 0) {
             MainTabActivity.a(this, "goto_recommend");
             return;
         }
-        com.baidu.tieba.d.k.j();
+        com.baidu.tieba.d.k.k();
         TiebaApplication.b((com.baidu.tieba.a.a) null);
         MainTabActivity.b(this, "goto_recommend");
     }

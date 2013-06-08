@@ -32,11 +32,11 @@ public class j implements AdapterView.OnItemClickListener {
         eVar = this.a.a;
         int c = eVar.c();
         if (i < c) {
-            cVar4 = this.a.l;
+            cVar4 = this.a.m;
             if (cVar4 != null) {
-                cVar5 = this.a.l;
+                cVar5 = this.a.m;
                 if (view == cVar5.b()) {
-                    cVar6 = this.a.l;
+                    cVar6 = this.a.m;
                     cVar6.onClick();
                     return;
                 }
@@ -61,11 +61,11 @@ public class j implements AdapterView.OnItemClickListener {
             }
             return;
         }
-        cVar = this.a.m;
+        cVar = this.a.n;
         if (cVar != null) {
-            cVar2 = this.a.m;
+            cVar2 = this.a.n;
             if (view == cVar2.b()) {
-                cVar3 = this.a.m;
+                cVar3 = this.a.n;
                 cVar3.onClick();
                 return;
             }

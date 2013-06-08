@@ -10,7 +10,7 @@ public class StartMessageReceiver extends BroadcastReceiver {
     @Override // android.content.BroadcastReceiver
     public void onReceive(Context context, Intent intent) {
         ae.a(getClass().getName(), "onReceive", intent.getAction());
-        if (TiebaApplication.d().P()) {
+        if (TiebaApplication.d().R()) {
             context.startService(new Intent(context, MessagePullService.class));
         }
     }

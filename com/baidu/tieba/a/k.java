@@ -1,7 +1,7 @@
 package com.baidu.tieba.a;
 
 import android.content.Context;
-import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
 import android.text.SpannableString;
 import android.text.SpannableStringBuilder;
 import android.text.style.ImageSpan;
@@ -92,11 +92,11 @@ public class k {
                 return spannableString;
             case 2:
                 SpannableString spannableString2 = new SpannableString(String.valueOf(this.b) + HanziToPinyin.Token.SEPARATOR);
-                Bitmap e = TiebaApplication.d().e(this.b);
+                com.baidu.adp.widget.a.b e = TiebaApplication.d().e(this.b);
                 if (e != null) {
-                    com.baidu.tieba.view.ak akVar = new com.baidu.tieba.view.ak(e);
-                    akVar.setBounds(0, 0, e.getWidth(), e.getHeight());
-                    spannableString2.setSpan(new ImageSpan(akVar, 1), 0, this.b.length(), 33);
+                    BitmapDrawable h2 = e.h();
+                    h2.setBounds(0, 0, e.a(), e.b());
+                    spannableString2.setSpan(new ImageSpan(h2, 1), 0, this.b.length(), 33);
                     return spannableString2;
                 }
                 return spannableString2;
@@ -122,21 +122,21 @@ public class k {
     }
 
     public SpannableString a(Context context, int i2, int i3) {
-        int height;
+        int b;
         if (this.a != 2) {
             return null;
         }
         SpannableString spannableString = new SpannableString(String.valueOf(this.b) + HanziToPinyin.Token.SEPARATOR);
-        Bitmap e = TiebaApplication.d().e(this.b);
+        com.baidu.adp.widget.a.b e = TiebaApplication.d().e(this.b);
         if (e != null) {
-            com.baidu.tieba.view.ak akVar = new com.baidu.tieba.view.ak(e);
+            BitmapDrawable h2 = e.h();
             if (i2 - i3 > 0) {
-                height = e.getHeight() + ((i2 - i3) >> 1);
+                b = e.b() + ((i2 - i3) >> 1);
             } else {
-                height = e.getHeight();
+                b = e.b();
             }
-            akVar.setBounds(0, 0, e.getWidth(), height);
-            spannableString.setSpan(new ImageSpan(akVar, 1), 0, this.b.length(), 33);
+            h2.setBounds(0, 0, e.a(), b);
+            spannableString.setSpan(new ImageSpan(h2, 1), 0, this.b.length(), 33);
         }
         return spannableString;
     }
@@ -187,9 +187,5 @@ public class k {
                 com.baidu.tieba.d.ae.b("ContentData", "parserJson", "error = " + e2.getMessage());
             }
         }
-    }
-
-    public boolean g() {
-        return this.e;
     }
 }

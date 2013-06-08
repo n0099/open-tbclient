@@ -48,7 +48,9 @@ public class BdBBM {
         if (mInstance.mImeiString == null) {
             WifiInfo connectionInfo = ((WifiManager) mInstance.mContext.getSystemService("wifi")).getConnectionInfo();
             mInstance.mImeiString = connectionInfo.getMacAddress();
-            mInstance.mImeiString = mInstance.mImeiString.replaceAll(":", "").replaceAll("-", "");
+            if (mInstance.mImeiString != null) {
+                mInstance.mImeiString = mInstance.mImeiString.replaceAll(":", "").replaceAll("-", "");
+            }
         }
         if (mInstance.mImeiString == null) {
             mInstance.mImeiString = mInstance.readImeiFromSDCard();

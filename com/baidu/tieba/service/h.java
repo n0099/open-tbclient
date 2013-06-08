@@ -12,16 +12,18 @@ class h implements Runnable {
         this.a = performMonitorService;
     }
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:50:0x0002 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:48:0x0002 */
     /* JADX WARN: Incorrect condition in loop: B:13:0x0037 */
     /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Type inference failed for: r1v15, types: [java.lang.String] */
+    /* JADX WARN: Type inference failed for: r0v18, types: [android.os.Handler] */
+    /* JADX WARN: Type inference failed for: r1v16, types: [com.baidu.tieba.service.i, java.lang.Runnable] */
     @Override // java.lang.Runnable
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public void run() {
         boolean z;
+        ?? r0;
         int i = 0;
         FileWriter fileWriter = null;
         fileWriter = null;
@@ -70,8 +72,10 @@ class h implements Runnable {
                     fileWriter2.append((CharSequence) ("gc:time=" + String.valueOf(currentTimeMillis2) + "\ngc=" + d + "\n"));
                     fileWriter2.flush();
                     fileWriter2.close();
-                    this.a.c();
-                    fileWriter = "\n";
+                    r0 = this.a.h;
+                    ?? iVar = new i(this);
+                    r0.post(iVar);
+                    fileWriter = iVar;
                 } catch (Exception e) {
                     e = e;
                     fileWriter = fileWriter2;

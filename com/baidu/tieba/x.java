@@ -27,30 +27,33 @@ public class x extends com.baidu.adp.lib.a.a {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.a.a
     public String a(String... strArr) {
-        com.baidu.tieba.c.ac acVar;
+        com.baidu.tieba.c.af afVar;
         try {
+            if (this.d == null) {
+                return null;
+            }
             new com.baidu.tieba.account.af(LabelActivity.c, String.valueOf(this.d.length)).start();
             if (!this.c) {
-                acVar = this.a.q;
-                com.baidu.tieba.d.k.a(acVar.f(), 12);
+                afVar = this.a.q;
+                com.baidu.tieba.d.k.a(afVar.f(), 12);
                 this.a.O = false;
-            } else {
-                this.b = new com.baidu.tieba.d.t(String.valueOf(com.baidu.tieba.a.i.e) + "c/s/tag/edit_tag");
-                if (this.d == null || this.d.length != 2) {
-                    this.a.O = false;
-                    return null;
-                }
-                if (this.d[0].length() > 0) {
-                    this.b.a("add_tag_id_list", this.d[0]);
-                }
-                if (this.d[1].length() > 0) {
-                    this.b.a("del_tag_id_list", this.d[1]);
-                }
-                this.b.d(true);
-                String i = this.b.i();
-                if (this.b.c() && this.b.b()) {
-                    return i;
-                }
+                return null;
+            }
+            this.b = new com.baidu.tieba.d.t(String.valueOf(com.baidu.tieba.a.i.e) + "c/s/tag/edit_tag");
+            if (this.d.length != 2) {
+                this.a.O = false;
+                return null;
+            }
+            if (this.d[0].length() > 0) {
+                this.b.a("add_tag_id_list", this.d[0]);
+            }
+            if (this.d[1].length() > 0) {
+                this.b.a("del_tag_id_list", this.d[1]);
+            }
+            this.b.d(true);
+            String i = this.b.i();
+            if (this.b.c() && this.b.b()) {
+                return i;
             }
             return null;
         } catch (Exception e) {

@@ -11,7 +11,7 @@ import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.c.bo;
+import com.baidu.tieba.c.br;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public class AboutActivity extends com.baidu.tieba.e {
@@ -21,7 +21,7 @@ public class AboutActivity extends com.baidu.tieba.e {
     private ImageView e = null;
     private Button f = null;
     private c g = null;
-    private bo h = null;
+    private br h = null;
     private LinearLayout i = null;
     private ProgressBar j = null;
     private View k = null;
@@ -47,7 +47,7 @@ public class AboutActivity extends com.baidu.tieba.e {
         this.m = (TextView) findViewById(R.id.info);
         this.n = (ImageView) findViewById(R.id.divider);
         this.c = (TextView) findViewById(R.id.version);
-        this.c.setText(String.valueOf(getString(R.string.app_name)) + " Android " + com.baidu.tieba.a.i.h());
+        this.c.setText(String.valueOf(getString(R.string.app_name)) + " Android " + com.baidu.tieba.a.i.i());
         this.e = (ImageView) findViewById(R.id.title_back);
         this.e.setOnClickListener(new a(this));
         this.f = (Button) findViewById(R.id.check_update_button);
@@ -101,7 +101,7 @@ public class AboutActivity extends com.baidu.tieba.e {
     }
 
     public void c() {
-        if (TiebaApplication.aH()) {
+        if (TiebaApplication.aQ()) {
             this.o.setVisibility(0);
         } else {
             this.o.setVisibility(8);

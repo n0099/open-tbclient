@@ -1,10 +1,10 @@
 package com.baidu.tieba.mention;
 
 import android.widget.ProgressBar;
-import com.baidu.tieba.a.al;
-import com.baidu.tieba.a.aq;
-import com.baidu.tieba.a.ax;
-import com.baidu.tieba.c.bm;
+import com.baidu.tieba.a.am;
+import com.baidu.tieba.a.ar;
+import com.baidu.tieba.a.ay;
+import com.baidu.tieba.c.bp;
 import com.baidu.tieba.d.ae;
 import com.baidu.tieba.write.WriteActivity;
 import java.util.ArrayList;
@@ -67,19 +67,19 @@ public class q extends com.baidu.adp.lib.a.a {
             progressBar.setVisibility(8);
             if (this.c != null && this.c.b()) {
                 if (this.f == 1) {
-                    al alVar = new al();
-                    alVar.b(str);
-                    aq aqVar = (aq) alVar.d().get(0);
-                    if (aqVar != null) {
+                    am amVar = new am();
+                    amVar.b(str);
+                    ar arVar = (ar) amVar.d().get(0);
+                    if (arVar != null) {
                         eVar4 = this.b.b;
-                        WriteActivity.a(eVar4, alVar.a().a(), alVar.a().b(), alVar.b().a(), aqVar.d(), aqVar.f(), this.e, alVar.f(), alVar.k());
+                        WriteActivity.a(eVar4, amVar.a().a(), amVar.a().b(), amVar.b().a(), arVar.d(), arVar.f(), this.e, amVar.f(), amVar.k());
                     } else {
                         return;
                     }
                 }
                 if (this.f == 2) {
                     eVar2 = this.b.b;
-                    ax a = new bm(eVar2, str).a();
+                    ay a = new bp(eVar2, str).a();
                     String a2 = a.g().a();
                     String b = a.g().b();
                     String a3 = a.l().a();

@@ -16,7 +16,7 @@ import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public class NearbyPostActivity extends com.baidu.tieba.e {
     private Address c = null;
-    private com.baidu.tieba.c.as d = null;
+    private com.baidu.tieba.c.av d = null;
     private ListView e = null;
     private aq f = null;
     private ImageView g = null;
@@ -27,8 +27,8 @@ public class NearbyPostActivity extends com.baidu.tieba.e {
     private View.OnClickListener l = null;
     private Handler m = null;
     private Runnable n = null;
-    private com.baidu.tieba.d.d o = null;
-    private com.baidu.tieba.d.d p = null;
+    private com.baidu.tbadk.a.d o = null;
+    private com.baidu.tbadk.a.d p = null;
     private String q = null;
     private String r = null;
     private String s = null;
@@ -102,9 +102,9 @@ public class NearbyPostActivity extends com.baidu.tieba.e {
                         kVar.a(0);
                         kVar.a(stringExtra2);
                         com.baidu.tieba.a.ai aiVar = new com.baidu.tieba.a.ai();
-                        aiVar.a(TiebaApplication.z());
-                        aiVar.b(TiebaApplication.D());
-                        aiVar.c(TiebaApplication.D());
+                        aiVar.a(TiebaApplication.B());
+                        aiVar.b(TiebaApplication.F());
+                        aiVar.c(TiebaApplication.F());
                         aiVar.a(1);
                         aiVar.d("");
                         this.d.a(stringExtra, kVar, getString(R.string.right_now), aiVar);
@@ -130,7 +130,7 @@ public class NearbyPostActivity extends com.baidu.tieba.e {
     }
 
     void b() {
-        this.d = new com.baidu.tieba.c.as();
+        this.d = new com.baidu.tieba.c.av();
     }
 
     void c() {
@@ -166,9 +166,9 @@ public class NearbyPostActivity extends com.baidu.tieba.e {
                 this.h = null;
             }
             if (i == 0) {
-                long x = TiebaApplication.d().x();
+                long y = TiebaApplication.d().y();
                 long currentTimeMillis = System.currentTimeMillis();
-                int i3 = (x == 0 || (x < currentTimeMillis && currentTimeMillis - x < com.baidu.tieba.a.i.d.longValue())) ? 1 : 0;
+                int i3 = (y == 0 || (y < currentTimeMillis && currentTimeMillis - y < com.baidu.tieba.a.i.d.longValue())) ? 1 : 0;
                 this.k.setVisibility(0);
                 i2 = i3;
             } else {
@@ -186,7 +186,7 @@ public class NearbyPostActivity extends com.baidu.tieba.e {
         return this.i && this.j == 1;
     }
 
-    public com.baidu.tieba.c.as n() {
+    public com.baidu.tieba.c.av n() {
         return this.d;
     }
 

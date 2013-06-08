@@ -1,30 +1,29 @@
 package com.baidu.tieba.recommend;
 
 import android.location.Address;
-import android.view.View;
-import android.widget.LinearLayout;
-import android.widget.TextView;
-import com.baidu.browser.core.util.BdUtil;
+import android.widget.Button;
 import com.baidu.tieba.TiebaApplication;
+import com.baidu.tieba.a.bb;
+import com.baidu.tieba.account.af;
 import com.baidu.tieba.d.ae;
 import com.baidu.tieba.d.k;
 import com.baidu.tieba.d.t;
-import com.baidu.tieba.view.BaseWebView;
+import com.slidingmenu.lib.R;
+import java.util.ArrayList;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class g extends com.baidu.adp.lib.a.a {
-    final /* synthetic */ RecommendActivity a;
-    private t b;
-    private String c;
+    final /* synthetic */ TagContentActivity a;
+    private t b = null;
+    private String c = null;
+    private boolean d;
 
-    private g(RecommendActivity recommendActivity) {
-        this.a = recommendActivity;
-        this.b = null;
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ g(RecommendActivity recommendActivity, g gVar) {
-        this(recommendActivity);
+    public g(TagContentActivity tagContentActivity, boolean z) {
+        this.a = tagContentActivity;
+        this.d = false;
+        this.d = z;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -33,39 +32,94 @@ public class g extends com.baidu.adp.lib.a.a {
     /* renamed from: d */
     public String a(Object... objArr) {
         String str;
-        boolean z;
-        long j;
-        this.b = new t(com.baidu.tieba.a.i.h);
-        this.b.a(false);
-        if (TiebaApplication.d().ai() == 1) {
-            this.b.a("night_type", "1");
-        }
-        this.b.a("_version_more", "1");
-        this.b.a("platform", "android");
-        t tVar = this.b;
-        str = this.a.p;
-        tVar.a("page", str);
-        z = RecommendActivity.m;
-        if (z) {
-            RecommendActivity.m = false;
-            this.b.a("msg_click", "1");
-            t tVar2 = this.b;
-            j = RecommendActivity.n;
-            tVar2.a("message_id", String.valueOf(j));
-        }
-        Address aC = TiebaApplication.d().aC();
-        if (aC != null && TiebaApplication.d().o()) {
-            this.b.a("lbs", String.valueOf(String.valueOf(aC.getLatitude())) + "," + String.valueOf(aC.getLongitude()));
-        }
-        try {
-            this.c = this.b.i();
-            if (this.b.c()) {
-                return this.c;
+        String str2;
+        String str3;
+        new af("tagthread").start();
+        if (this.d) {
+            this.b = new t(String.valueOf(com.baidu.tieba.a.i.e) + "c/s/tag/add_tag");
+            this.b.d(true);
+            this.b.a("_version_more", "1");
+            this.b.a("platform", "android");
+            t tVar = this.b;
+            str3 = this.a.d;
+            tVar.a("tag_info", str3);
+            Address aL = TiebaApplication.d().aL();
+            if (aL != null && TiebaApplication.d().p()) {
+                this.b.a("lbs", String.valueOf(String.valueOf(aL.getLatitude())) + "," + String.valueOf(aL.getLongitude()));
             }
-        } catch (Exception e) {
-            ae.b("RecommendAsyncTask", "doInBackground", "error = " + e.getMessage());
+            try {
+                this.c = this.b.i();
+                if (this.b.c()) {
+                    return this.c;
+                }
+            } catch (Exception e) {
+                ae.b("AttentionAsyncTask", "doInBackground", "error = " + e.getMessage());
+            }
+            return null;
         }
-        return null;
+        String b = k.b(12);
+        com.baidu.tieba.c.af afVar = new com.baidu.tieba.c.af();
+        afVar.a(b);
+        bb bbVar = new bb();
+        str = this.a.d;
+        bbVar.a(str);
+        str2 = this.a.c;
+        bbVar.b(str2);
+        afVar.a(bbVar);
+        k.a(afVar.f(), 12);
+        return "";
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.a.a
+    public void a(String str) {
+        Button button;
+        Button button2;
+        Button button3;
+        String str2;
+        String str3;
+        Button button4;
+        this.a.q = null;
+        if (str == null) {
+            button4 = this.a.g;
+            button4.setVisibility(0);
+        } else if (this.d) {
+            try {
+                JSONObject optJSONObject = new JSONObject(str).optJSONObject("error");
+                if (optJSONObject.optInt("errno") == 0) {
+                    button3 = this.a.g;
+                    button3.setVisibility(8);
+                    this.a.a(this.a.getString(R.string.attention_success));
+                    ArrayList arrayList = NewHomeActivity.c;
+                    str2 = this.a.d;
+                    if (!arrayList.contains(str2)) {
+                        ArrayList arrayList2 = NewHomeActivity.c;
+                        str3 = this.a.d;
+                        arrayList2.add(str3);
+                        return;
+                    }
+                    return;
+                }
+                if (optJSONObject.has("usermsg")) {
+                    String optString = optJSONObject.optString("usermsg");
+                    if (optString != null && optString.length() > 0) {
+                        this.a.a(optString);
+                    } else {
+                        this.a.a(this.a.getString(R.string.attention_fail));
+                    }
+                }
+                button2 = this.a.g;
+                button2.setVisibility(0);
+            } catch (JSONException e) {
+                e.printStackTrace();
+                button = this.a.g;
+                button.setVisibility(0);
+                this.a.a(this.a.getString(R.string.attention_fail));
+            }
+        } else {
+            this.a.a(this.a.getString(R.string.attention_success));
+        }
     }
 
     @Override // com.baidu.adp.lib.a.a
@@ -73,55 +127,6 @@ public class g extends com.baidu.adp.lib.a.a {
         if (this.b != null) {
             this.b.g();
         }
-        this.a.l = false;
         super.cancel(true);
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.a.a
-    public void a(String str) {
-        LinearLayout linearLayout;
-        boolean z;
-        TextView textView;
-        BaseWebView baseWebView;
-        LinearLayout linearLayout2;
-        View.OnClickListener onClickListener;
-        BaseWebView baseWebView2;
-        BaseWebView baseWebView3;
-        TextView textView2;
-        BaseWebView baseWebView4;
-        linearLayout = this.a.e;
-        linearLayout.setOnClickListener(null);
-        if (this.b == null || !this.b.c() || str == null || str.length() <= 0) {
-            this.a.i = false;
-            String b = k.b(6);
-            if (b != null && b.length() > 1) {
-                this.a.g = true;
-                baseWebView2 = this.a.c;
-                baseWebView2.loadDataWithBaseURL(com.baidu.tieba.a.i.e, b, "text/html", BdUtil.UTF8, "");
-            }
-            z = this.a.g;
-            if (!z) {
-                textView = this.a.j;
-                textView.setVisibility(0);
-                baseWebView = this.a.c;
-                baseWebView.setVisibility(8);
-                linearLayout2 = this.a.e;
-                onClickListener = this.a.q;
-                linearLayout2.setOnClickListener(onClickListener);
-            }
-        } else {
-            k.a(str, 6);
-            baseWebView3 = this.a.c;
-            baseWebView3.loadDataWithBaseURL(com.baidu.tieba.a.i.e, str, "text/html", BdUtil.UTF8, "");
-            this.a.g = true;
-            textView2 = this.a.j;
-            textView2.setVisibility(8);
-            baseWebView4 = this.a.c;
-            baseWebView4.setVisibility(0);
-        }
-        this.a.h = true;
-        this.a.p();
     }
 }

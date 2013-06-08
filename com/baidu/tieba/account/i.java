@@ -43,13 +43,13 @@ public class i extends com.baidu.adp.lib.a.a {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.a.a
     public Boolean a(String... strArr) {
-        com.baidu.tieba.a.at atVar;
+        com.baidu.tieba.a.au auVar;
         boolean z = false;
         try {
             this.b = new com.baidu.tieba.d.t(String.valueOf(com.baidu.tieba.a.i.e) + "c/s/getsmscode");
             com.baidu.tieba.d.t tVar = this.b;
-            atVar = this.a.r;
-            tVar.a("phonenum", atVar.c());
+            auVar = this.a.r;
+            tVar.a("phonenum", auVar.c());
             this.b.i();
             if (this.b.b()) {
                 z = true;

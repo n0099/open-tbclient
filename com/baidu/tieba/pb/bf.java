@@ -1,6 +1,6 @@
 package com.baidu.tieba.pb;
 /* loaded from: classes.dex */
-class bf implements com.baidu.tieba.c.az {
+class bf implements com.baidu.tieba.c.bc {
     final /* synthetic */ NewPbActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -8,28 +8,28 @@ class bf implements com.baidu.tieba.c.az {
         this.a = newPbActivity;
     }
 
-    @Override // com.baidu.tieba.c.az
-    public void a(boolean z, int i, String str, com.baidu.tieba.a.ax axVar) {
-        bl blVar;
-        bl blVar2;
-        bl blVar3;
-        com.baidu.tieba.c.au auVar;
-        com.baidu.tieba.c.au auVar2;
-        blVar = this.a.o;
-        blVar.d(str);
-        blVar2 = this.a.o;
-        blVar2.v();
+    @Override // com.baidu.tieba.c.bc
+    public void a(boolean z, int i, String str, com.baidu.tieba.a.ay ayVar) {
+        bk bkVar;
+        bk bkVar2;
+        bk bkVar3;
+        com.baidu.tieba.c.ax axVar;
+        com.baidu.tieba.c.ax axVar2;
+        bkVar = this.a.o;
+        bkVar.d(str);
+        bkVar2 = this.a.o;
+        bkVar2.v();
         if (!z) {
             if (i == 4 || i == 28) {
-                auVar2 = this.a.i;
-                if (auVar2.k()) {
+                axVar2 = this.a.i;
+                if (axVar2.k()) {
                     this.a.f();
                 }
             }
-        } else if (axVar != null) {
-            blVar3 = this.a.o;
-            auVar = this.a.i;
-            blVar3.a(axVar, auVar.l().l());
+        } else if (ayVar != null) {
+            bkVar3 = this.a.o;
+            axVar = this.a.i;
+            bkVar3.a(ayVar, axVar.m().l());
         }
     }
 }

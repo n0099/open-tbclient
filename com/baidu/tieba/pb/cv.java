@@ -15,8 +15,13 @@ public class cv implements AdapterView.OnItemLongClickListener {
     @Override // android.widget.AdapterView.OnItemLongClickListener
     public boolean onItemLongClick(AdapterView adapterView, View view, int i, long j) {
         View.OnLongClickListener onLongClickListener;
-        onLongClickListener = this.a.K;
-        onLongClickListener.onLongClick(view);
+        View.OnLongClickListener onLongClickListener2;
+        onLongClickListener = this.a.J;
+        if (onLongClickListener != null) {
+            onLongClickListener2 = this.a.J;
+            onLongClickListener2.onLongClick(view);
+            return false;
+        }
         return false;
     }
 }

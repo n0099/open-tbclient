@@ -2,7 +2,7 @@ package com.baidu.tieba.write;
 
 import android.content.DialogInterface;
 import android.widget.EditText;
-import com.baidu.tieba.c.bp;
+import com.baidu.tieba.c.bs;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ac implements DialogInterface.OnClickListener {
@@ -15,19 +15,19 @@ public class ac implements DialogInterface.OnClickListener {
 
     @Override // android.content.DialogInterface.OnClickListener
     public void onClick(DialogInterface dialogInterface, int i) {
-        bp bpVar;
+        bs bsVar;
         EditText editText;
-        bp bpVar2;
+        bs bsVar2;
         EditText editText2;
-        bp bpVar3;
-        bpVar = this.a.c;
+        bs bsVar3;
+        bsVar = this.a.c;
         editText = this.a.g;
-        bpVar.a(editText.getText().toString());
-        bpVar2 = this.a.c;
+        bsVar.a(editText.getText().toString());
+        bsVar2 = this.a.c;
         editText2 = this.a.h;
-        bpVar2.b(editText2.getText().toString());
-        bpVar3 = this.a.c;
-        com.baidu.tieba.d.k.b(bpVar3);
+        bsVar2.b(editText2.getText().toString());
+        bsVar3 = this.a.c;
+        com.baidu.tieba.d.k.b(bsVar3);
         this.a.finish();
     }
 }

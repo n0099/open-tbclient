@@ -15,11 +15,11 @@ class aa implements n {
 
     @Override // com.baidu.tieba.mention.n
     public String a() {
-        return com.baidu.tieba.d.k.g();
+        return com.baidu.tieba.d.k.h();
     }
 
     @Override // com.baidu.tieba.mention.n
     public void b() {
-        com.baidu.tieba.d.k.f();
+        com.baidu.tieba.d.k.g();
     }
 }

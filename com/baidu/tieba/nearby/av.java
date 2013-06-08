@@ -1,10 +1,9 @@
 package com.baidu.tieba.nearby;
 
-import android.widget.RadioGroup;
-import com.slidingmenu.lib.R;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.widget.AbsoluteLayout;
+import android.widget.ImageView;
 /* loaded from: classes.dex */
-public class av implements android.support.v4.view.aj {
+class av implements com.baidu.tbadk.a.d {
     final /* synthetic */ NewNearbyActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -12,39 +11,19 @@ public class av implements android.support.v4.view.aj {
         this.a = newNearbyActivity;
     }
 
-    @Override // android.support.v4.view.aj
-    public void a(int i) {
-        boolean z;
-        RadioGroup radioGroup;
-        RadioGroup radioGroup2;
-        RadioGroup radioGroup3;
-        RadioGroup radioGroup4;
-        com.baidu.tieba.d.ae.c("onPageSelected positon = " + String.valueOf(i));
-        z = this.a.y;
-        if (!z) {
-            this.a.z = true;
-            if (i == 0) {
-                radioGroup3 = this.a.q;
-                if (radioGroup3.getCheckedRadioButtonId() != R.id.title_lbs_threads) {
-                    radioGroup4 = this.a.q;
-                    radioGroup4.check(R.id.title_lbs_threads);
-                }
-            } else {
-                radioGroup = this.a.q;
-                if (radioGroup.getCheckedRadioButtonId() != R.id.title_lbs_bars) {
-                    radioGroup2 = this.a.q;
-                    radioGroup2.check(R.id.title_lbs_bars);
-                }
+    @Override // com.baidu.tbadk.a.d
+    public void a(com.baidu.adp.widget.a.b bVar, String str, boolean z) {
+        AbsoluteLayout absoluteLayout;
+        AbsoluteLayout absoluteLayout2;
+        if (bVar != null) {
+            absoluteLayout = this.a.g;
+            ImageView imageView = (ImageView) absoluteLayout.findViewWithTag(str);
+            while (imageView != null) {
+                imageView.setTag(null);
+                bVar.b(imageView);
+                absoluteLayout2 = this.a.g;
+                imageView = (ImageView) absoluteLayout2.findViewWithTag(str);
             }
-            this.a.z = false;
         }
-    }
-
-    @Override // android.support.v4.view.aj
-    public void a(int i, float f, int i2) {
-    }
-
-    @Override // android.support.v4.view.aj
-    public void b(int i) {
     }
 }

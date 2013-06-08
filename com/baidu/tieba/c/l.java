@@ -1,76 +1,73 @@
 package com.baidu.tieba.c;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class l extends com.baidu.adp.lib.a.a {
-    final /* synthetic */ i a;
-    private com.baidu.tieba.d.t b = null;
-    private String c;
-    private String d;
-    private String e;
-    private String f;
-    private String g;
+public class l extends com.baidu.adp.a.c {
+    private m e = null;
+    private o f = null;
+    private q g = null;
 
-    public l(i iVar, String str, String str2, String str3, String str4, String str5) {
-        this.a = iVar;
-        this.c = str;
-        this.d = str2;
-        this.e = str3;
-        this.f = str4;
-        this.g = str5;
+    public boolean d() {
+        e();
+        return false;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.a.a
-    public String a(String... strArr) {
-        this.b = new com.baidu.tieba.d.t(strArr[0]);
-        this.b.a("day", this.g);
-        this.b.a("un", this.f);
-        this.b.a("fid", this.c);
-        this.b.a("word", this.d);
-        this.b.a("z", this.e);
-        this.b.a("ntn", "banid");
-        this.b.d(true);
-        this.b.i();
-        if (this.b.b()) {
-            return null;
+    public void e() {
+        if (this.e != null) {
+            this.e.cancel();
+            this.e = null;
         }
-        return this.b.f();
+        if (this.f != null) {
+            this.f.cancel();
+            this.f = null;
+        }
+        if (this.g != null) {
+            this.g.cancel();
+            this.g = null;
+        }
     }
 
-    @Override // com.baidu.adp.lib.a.a
-    public void cancel() {
-        com.baidu.adp.a.e eVar;
-        if (this.b != null) {
-            this.b.g();
+    public void a(String str, String str2, String str3, String str4, int i, int i2, boolean z) {
+        if (this.e != null) {
+            this.e.cancel();
+            this.e = null;
         }
-        this.a.f = null;
-        super.cancel(true);
-        eVar = this.a.b;
-        eVar.a(null);
+        this.a = 0;
+        this.e = new m(this, str, str2, str3, str4, i, i2, z);
+        this.e.setPriority(2);
+        this.e.execute(new String[0]);
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.a.a
-    public void a(String str) {
-        com.baidu.adp.a.e eVar;
-        com.baidu.adp.a.e eVar2;
-        super.a((Object) str);
-        this.a.f = null;
-        if (this.b == null) {
-            eVar2 = this.a.b;
-            eVar2.a(null);
-            return;
+    public boolean f() {
+        return (this.e == null && this.f == null && this.g == null) ? false : true;
+    }
+
+    public void a(String str, String str2, String str3, String str4, int i) {
+        if (this.f != null) {
+            this.f.cancel();
+            this.f = null;
         }
-        m mVar = new m(this.a);
-        if (str == null) {
-            mVar.a = true;
+        this.a = 1;
+        this.f = new o(this, str, str2, str3, str4, String.valueOf(i));
+        this.f.setPriority(2);
+        this.f.execute(String.valueOf(com.baidu.tieba.a.i.e) + "c/c/bawu/commitprison");
+    }
+
+    public void a(String str, String str2, String str3, int i, String str4) {
+        String str5;
+        if (this.g != null) {
+            this.g.cancel();
+            this.g = null;
+        }
+        this.a = i;
+        this.g = new q(this, str, str2, str3, i, str4);
+        this.g.setPriority(2);
+        String str6 = com.baidu.tieba.a.i.e;
+        if (i == 6) {
+            str5 = String.valueOf(str6) + "c/c/bawu/goodlist";
+        } else if (i == 2 || i == 3) {
+            str5 = String.valueOf(str6) + "c/c/bawu/commitgood";
         } else {
-            mVar.a = false;
-            mVar.b = str;
+            str5 = String.valueOf(str6) + "c/c/bawu/committop";
         }
-        eVar = this.a.b;
-        eVar.a(mVar);
+        this.g.execute(str5);
     }
 }

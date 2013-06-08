@@ -41,11 +41,16 @@ public class BdPath {
     private static BdPath sInstance;
     private String mDirCache;
     private String mDirFiles;
-    private String mDirSd = Environment.getExternalStorageDirectory().getAbsolutePath();
+    private String mDirSd;
 
     private BdPath(Context context) {
-        this.mDirFiles = context.getFilesDir().getAbsolutePath();
-        this.mDirCache = context.getCacheDir().getAbsolutePath();
+        if (context.getFilesDir() != null) {
+            this.mDirFiles = context.getFilesDir().getAbsolutePath();
+        }
+        if (context.getCacheDir() != null) {
+            this.mDirCache = context.getCacheDir().getAbsolutePath();
+        }
+        this.mDirSd = Environment.getExternalStorageDirectory().getAbsolutePath();
         new File(String.valueOf(this.mDirFiles) + DIR_IMAGES).mkdir();
         new File(String.valueOf(this.mDirFiles) + DIR_DATA).mkdir();
         new File(String.valueOf(this.mDirFiles) + DIR_MISC).mkdir();

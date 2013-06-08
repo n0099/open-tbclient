@@ -49,7 +49,7 @@ public class g {
         if (this.a != 2 || this.b == null) {
             return null;
         }
-        return a(context, this.a, null, this.b.a(), this.b.a());
+        return a(context, this.a, null, this.b.a(), this.b.b());
     }
 
     public SpannableString c(Context context) {
@@ -61,12 +61,13 @@ public class g {
 
     public SpannableString a(Context context, ArrayList arrayList) {
         SpannableString spannableString = null;
-        if (this.a == 4 && this.b != null && this.b.a() != null) {
+        if (this.a == 4 && this.b != null && this.b.a() != null && this.b.b() != null) {
             String a = this.b.a();
-            spannableString = new SpannableString(String.valueOf(a) + HanziToPinyin.Token.SEPARATOR);
-            int b = com.baidu.tbadk.a.a.a().b(a);
-            if (b != 0) {
-                d dVar = new d(context, b);
+            String b = this.b.b();
+            spannableString = new SpannableString(String.valueOf(b) + HanziToPinyin.Token.SEPARATOR);
+            int b2 = com.baidu.tbadk.a.a.a().b(a);
+            if (b2 != 0) {
+                d dVar = new d(context, b2);
                 if (arrayList != null) {
                     arrayList.add(dVar);
                 }
@@ -76,7 +77,7 @@ public class g {
                 } else {
                     dVar.setBounds(new Rect(0, 0, 0, 0));
                 }
-                spannableString.setSpan(new ImageSpan(dVar, 0), 0, a.length(), 33);
+                spannableString.setSpan(new ImageSpan(dVar, 0), 0, b.length(), 33);
             }
         }
         return spannableString;
@@ -126,9 +127,14 @@ public class g {
                 this.b = new b(jSONObject.optString("text"), jSONObject.optString("uid"));
             } else {
                 this.b = new b(jSONObject);
-                if (this.a == 4 && com.baidu.tbadk.a.a.a().b(this.b.a()) <= 0) {
-                    this.a = 1;
-                    this.b.a("[" + jSONObject.optString("c") + "]");
+                if (this.a == 4) {
+                    String str = "[" + jSONObject.optString("c") + "]";
+                    if (com.baidu.tbadk.a.a.a().b(this.b.a()) <= 0) {
+                        this.a = 1;
+                        this.b.a(str);
+                    } else {
+                        this.b.b(str);
+                    }
                 }
             }
             if (this.a != 1 && this.b != null) {

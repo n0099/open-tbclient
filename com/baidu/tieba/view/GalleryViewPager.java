@@ -7,18 +7,18 @@ import com.baidu.tieba.compatible.CompatibleUtile;
 /* loaded from: classes.dex */
 public class GalleryViewPager extends BaseViewPager {
     private PointF a;
-    private g b;
-    private g c;
+    private h b;
+    private h c;
 
     public GalleryViewPager(Context context) {
         super(context);
     }
 
-    public void setCurrentView(g gVar) {
-        this.b = gVar;
+    public void setCurrentView(h hVar) {
+        this.b = hVar;
     }
 
-    public g getCurrentView() {
+    public h getCurrentView() {
         return this.b;
     }
 
@@ -93,11 +93,11 @@ public class GalleryViewPager extends BaseViewPager {
         return false;
     }
 
-    public void setSelectedView(g gVar) {
-        this.c = gVar;
+    public void setSelectedView(h hVar) {
+        this.c = hVar;
     }
 
-    public g getSelectedView() {
+    public h getSelectedView() {
         return this.c;
     }
 }

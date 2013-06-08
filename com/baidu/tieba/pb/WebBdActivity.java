@@ -9,7 +9,6 @@ import android.view.KeyEvent;
 import android.view.MotionEvent;
 import android.webkit.URLUtil;
 import com.baidu.browser.Browser;
-import com.baidu.browser.core.util.BdUtil;
 import com.baidu.browser.explorer.BdExploreViewListener;
 import com.baidu.browser.explorer.share.BdSharer;
 import com.baidu.browser.framework.BdUploadHandler;
@@ -21,13 +20,9 @@ import com.baidu.browser.webkit.BdValueCallback;
 import com.baidu.browser.webkit.BdWebView;
 import com.baidu.browser.webkit.BdWebViewManager;
 import com.baidu.browser.webpool.BdWebPoolView;
-import com.baidu.tieba.MainTabActivity;
-import com.baidu.tieba.frs.FrsActivity;
-import java.net.URI;
+import com.slidingmenu.lib.R;
 import java.util.Observable;
 import java.util.Observer;
-import org.apache.http.NameValuePair;
-import org.apache.http.client.utils.URLEncodedUtils;
 /* loaded from: classes.dex */
 public class WebBdActivity extends com.baidu.tieba.e implements Browser.BrowserListener, BdExploreViewListener, Observer {
     private String c = null;
@@ -136,7 +131,7 @@ public class WebBdActivity extends com.baidu.tieba.e implements Browser.BrowserL
             Intent intent = new Intent("android.intent.action.GET_CONTENT");
             intent.addCategory("android.intent.category.OPENABLE");
             intent.setType("*/*");
-            startActivityForResult(Intent.createChooser(intent, getString(getResources().getIdentifier("choose_upload", "string", getPackageName()))), 1);
+            startActivityForResult(Intent.createChooser(intent, getString(R.string.browser_choose_upload)), 1);
         }
     }
 
@@ -247,27 +242,8 @@ public class WebBdActivity extends com.baidu.tieba.e implements Browser.BrowserL
         return super.onKeyDown(i, keyEvent);
     }
 
-    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:22:0x0069 -> B:9:0x0020). Please submit an issue!!! */
     @Override // com.baidu.browser.Browser.BrowserListener
     public boolean shouldOverrideUrlLoading(BdWebPoolView bdWebPoolView, String str) {
-        if (str != null && str.contains("jump_tieba_native=1")) {
-            try {
-                for (NameValuePair nameValuePair : URLEncodedUtils.parse(new URI(str), BdUtil.UTF8)) {
-                    if (nameValuePair.getName().equalsIgnoreCase("kz")) {
-                        NewPbActivity.a(this, nameValuePair.getValue(), null, null);
-                        return true;
-                    } else if (nameValuePair.getName().equalsIgnoreCase("kw")) {
-                        FrsActivity.a(this, nameValuePair.getValue(), (String) null);
-                        return true;
-                    } else if (nameValuePair.getName().equalsIgnoreCase("nearby")) {
-                        MainTabActivity.a(this, "goto_nearby");
-                        return true;
-                    }
-                }
-            } catch (Exception e) {
-                com.baidu.tieba.d.ae.b(getClass().getName(), "shouldOverrideUrlLoading", e.getMessage());
-            }
-        }
-        return false;
+        return com.baidu.tieba.recommend.i.a(this, str);
     }
 }

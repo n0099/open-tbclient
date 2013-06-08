@@ -25,25 +25,25 @@ class ai implements ax {
     }
 
     @Override // com.baidu.tieba.frs.ax
-    public void a(int i, JSONObject jSONObject, com.baidu.tieba.c.y yVar) {
+    public void a(int i, JSONObject jSONObject, com.baidu.tieba.c.ab abVar) {
         ay ayVar;
         ay ayVar2;
-        com.baidu.tieba.c.w wVar;
-        com.baidu.tieba.c.w wVar2;
+        com.baidu.tieba.c.z zVar;
+        com.baidu.tieba.c.z zVar2;
         ay ayVar3;
         int i2;
         int i3;
-        com.baidu.tieba.c.w wVar3;
+        com.baidu.tieba.c.z zVar3;
         int i4;
-        com.baidu.tieba.c.w wVar4;
+        com.baidu.tieba.c.z zVar4;
         String str;
         ayVar = this.a.n;
         ayVar.a(false);
         this.a.c("done");
         if (jSONObject == null) {
-            if (yVar.a) {
-                this.a.a(yVar.d);
-                if (yVar.b && yVar.c == 2000) {
+            if (abVar.a) {
+                this.a.a(abVar.d);
+                if (abVar.b && abVar.c == 2000) {
                     TiebaApplication d = TiebaApplication.d();
                     str = this.a.d;
                     d.d(str);
@@ -53,24 +53,24 @@ class ai implements ax {
             }
             return;
         }
-        if (yVar != null && yVar.b) {
+        if (abVar != null && abVar.b) {
             i4 = this.a.l;
             if (i4 == 1) {
-                wVar4 = this.a.t;
-                com.baidu.tieba.d.k.k(wVar4.a().b());
+                zVar4 = this.a.t;
+                com.baidu.tieba.d.k.k(zVar4.a().b());
             }
         }
         ayVar2 = this.a.n;
         ayVar2.a().i();
         FrsImageActivity frsImageActivity = this.a;
-        wVar = this.a.t;
-        frsImageActivity.a(wVar.b());
+        zVar = this.a.t;
+        frsImageActivity.a(zVar.b());
         this.a.i = 30;
-        wVar2 = this.a.t;
-        if (wVar2.c().size() <= 30) {
+        zVar2 = this.a.t;
+        if (zVar2.c().size() <= 30) {
             if (i == 1) {
-                wVar3 = this.a.t;
-                if (wVar3.c().size() == 0) {
+                zVar3 = this.a.t;
+                if (zVar3.c().size() == 0) {
                     this.a.a(aw.NO_ITEM);
                 }
             }

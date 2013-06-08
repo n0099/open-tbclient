@@ -6,9 +6,8 @@ import android.content.IntentFilter;
 import android.os.Bundle;
 import android.view.View;
 import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.a.an;
 import com.baidu.tieba.account.LoginActivity;
-import com.baidu.tieba.c.al;
+import com.baidu.tieba.c.ao;
 import com.baidu.tieba.person.PersonChangeActivity;
 import com.baidu.tieba.write.WriteActivity;
 import com.baidu.zeus.WebChromeClient;
@@ -16,12 +15,12 @@ import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public class MoreActivity extends com.baidu.tieba.e implements com.baidu.adp.widget.BdSwitchView.c {
     private z c = null;
-    private al d = null;
+    private ao d = null;
     private y e = null;
 
-    public static void a(com.baidu.tieba.e eVar, int i, an anVar) {
+    public static void a(com.baidu.tieba.e eVar, int i, com.baidu.tieba.a.ao aoVar) {
         Intent intent = new Intent(eVar, MoreActivity.class);
-        intent.putExtra("person_change_data", anVar);
+        intent.putExtra("person_change_data", aoVar);
         eVar.startActivityForResult(intent, i);
     }
 
@@ -36,17 +35,17 @@ public class MoreActivity extends com.baidu.tieba.e implements com.baidu.adp.wid
 
     public void b() {
         this.c = new z(this);
-        this.c.n();
+        this.c.o();
     }
 
     public void a(Bundle bundle) {
-        an anVar;
+        com.baidu.tieba.a.ao aoVar;
         if (bundle != null) {
-            anVar = (an) bundle.getSerializable("person_change_data");
+            aoVar = (com.baidu.tieba.a.ao) bundle.getSerializable("person_change_data");
         } else {
-            anVar = (an) getIntent().getSerializableExtra("person_change_data");
+            aoVar = (com.baidu.tieba.a.ao) getIntent().getSerializableExtra("person_change_data");
         }
-        this.d = new al(anVar);
+        this.d = new ao(aoVar);
         this.d.a(new x(this));
     }
 
@@ -54,7 +53,7 @@ public class MoreActivity extends com.baidu.tieba.e implements com.baidu.adp.wid
     @Override // com.baidu.tieba.e, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        this.c.z();
+        this.c.B();
         m();
     }
 
@@ -62,14 +61,15 @@ public class MoreActivity extends com.baidu.tieba.e implements com.baidu.adp.wid
     @Override // com.baidu.tieba.e, android.app.Activity
     public void onResume() {
         super.onResume();
-        this.c.u();
+        this.c.v();
+        this.c.w();
         if (TiebaApplication.i()) {
-            if (TiebaApplication.z() == null || TiebaApplication.D() == null || TiebaApplication.D().equals("BaiduUser")) {
-                this.c.r();
+            if (TiebaApplication.B() == null || TiebaApplication.F() == null || TiebaApplication.F().equals("BaiduUser")) {
+                this.c.s();
             } else {
-                this.c.q();
+                this.c.r();
             }
-            this.c.s();
+            this.c.t();
         }
     }
 
@@ -84,7 +84,7 @@ public class MoreActivity extends com.baidu.tieba.e implements com.baidu.adp.wid
     @Override // com.baidu.tieba.e
     public void k() {
         a_(-1);
-        this.c.y();
+        this.c.A();
     }
 
     @Override // android.app.Activity
@@ -101,44 +101,46 @@ public class MoreActivity extends com.baidu.tieba.e implements com.baidu.adp.wid
                 com.baidu.tieba.a.a(this, 0, "goto_person", false);
                 return;
             }
-            String z = TiebaApplication.z();
-            if ((z == null || z.length() <= 0) && com.baidu.tieba.d.k.l() <= 0) {
+            String B = TiebaApplication.B();
+            if ((B == null || B.length() <= 0) && com.baidu.tieba.d.k.m() <= 0) {
                 LoginActivity.a(this, "goto_person", getString(R.string.login_manage_account), 1100003);
             } else {
                 AccountActivity.a(this);
             }
         } else if (view == this.c.d()) {
-            String z2 = TiebaApplication.z();
-            if (z2 == null || z2.length() <= 0) {
+            String B2 = TiebaApplication.B();
+            if (B2 == null || B2.length() <= 0) {
                 LoginActivity.a(this, "goto_person", getString(R.string.login_to_use), 1100003);
             } else {
                 MsgRemindActivity.a(this);
             }
         } else if (view == this.c.e()) {
-            BrowseSettingActivity.a(this);
+            SignRemindActivity.a(this);
         } else if (view == this.c.f()) {
-            this.c.o();
-            this.d.e();
+            BrowseSettingActivity.a(this);
         } else if (view == this.c.g()) {
-            AboutActivity.a(this);
+            this.c.p();
+            this.d.e();
         } else if (view == this.c.h()) {
-            c();
+            AboutActivity.a(this);
         } else if (view == this.c.i()) {
+            c();
+        } else if (view == this.c.j()) {
             String str2 = com.baidu.tieba.a.i.f;
             if (str2.indexOf("?") < 0) {
                 str2 = String.valueOf(str2) + "?";
             } else if (!str2.endsWith("?") && !str2.endsWith("&")) {
                 str2 = String.valueOf(str2) + "&";
             }
-            if (TiebaApplication.d().ai() == 1) {
+            if (TiebaApplication.d().ar() == 1) {
                 str = String.valueOf(str2) + "night_type=1";
             } else {
                 str = String.valueOf(str2) + "night_type=0";
             }
             AppsActivity.a(this, str);
         } else if (view == this.c.c()) {
-            String z3 = TiebaApplication.z();
-            if (z3 != null && z3.length() > 0) {
+            String B3 = TiebaApplication.B();
+            if (B3 != null && B3.length() > 0) {
                 PersonChangeActivity.a(this, WebChromeClient.STRING_DLG_TITLE_DATETIME, this.d.f());
             }
         } else if (view == this.c.a()) {
@@ -154,14 +156,14 @@ public class MoreActivity extends com.baidu.tieba.e implements com.baidu.adp.wid
     }
 
     private void c() {
-        String z = TiebaApplication.z();
-        if (z == null || z.length() <= 0) {
+        String B = TiebaApplication.B();
+        if (B == null || B.length() <= 0) {
             LoginActivity.a((Activity) this, getString(R.string.login_feedback), true, 1200008);
             return;
         }
         com.baidu.tieba.a.b bVar = new com.baidu.tieba.a.b();
         bVar.a(1);
-        WriteActivity.a(this, com.baidu.tieba.a.i.f(), com.baidu.tieba.a.i.e(), bVar);
+        WriteActivity.a(this, com.baidu.tieba.a.i.g(), com.baidu.tieba.a.i.f(), bVar);
     }
 
     @Override // android.app.Activity
@@ -170,7 +172,7 @@ public class MoreActivity extends com.baidu.tieba.e implements com.baidu.adp.wid
         if (i2 == -1) {
             switch (i) {
                 case WebChromeClient.STRING_DLG_TITLE_DATETIME /* 101 */:
-                    this.d.a((an) intent.getSerializableExtra("data"));
+                    this.d.a((com.baidu.tieba.a.ao) intent.getSerializableExtra("data"));
                     this.d.a(true);
                     return;
                 case 1200008:
@@ -197,41 +199,41 @@ public class MoreActivity extends com.baidu.tieba.e implements com.baidu.adp.wid
 
     @Override // com.baidu.adp.widget.BdSwitchView.c
     public void a(View view, com.baidu.adp.widget.BdSwitchView.d dVar) {
-        if (view == this.c.j()) {
+        if (view == this.c.k()) {
             if (dVar == com.baidu.adp.widget.BdSwitchView.d.ON) {
-                TiebaApplication.d().p(true);
+                TiebaApplication.d().r(true);
             } else {
-                TiebaApplication.d().p(false);
+                TiebaApplication.d().r(false);
             }
-        } else if (view == this.c.k()) {
+        } else if (view == this.c.l()) {
             if (dVar == com.baidu.adp.widget.BdSwitchView.d.ON) {
-                if (TiebaApplication.d().ai() != 1) {
-                    TiebaApplication.d().h(1);
+                if (TiebaApplication.d().ar() != 1) {
+                    TiebaApplication.d().j(1);
                     this.b = 1;
                     b(this.b);
                     new com.baidu.tieba.account.af("eyeshield").start();
                 } else {
                     return;
                 }
-            } else if (TiebaApplication.d().ai() != 0) {
-                TiebaApplication.d().h(0);
+            } else if (TiebaApplication.d().ar() != 0) {
+                TiebaApplication.d().j(0);
                 this.b = 0;
                 b(this.b);
             } else {
                 return;
             }
-            com.baidu.tieba.d.e.a();
-        } else if (view == this.c.l()) {
+            com.baidu.tieba.d.d.a();
+        } else if (view == this.c.m()) {
             if (dVar == com.baidu.adp.widget.BdSwitchView.d.ON) {
                 TiebaApplication.d().d(true);
             } else {
                 TiebaApplication.d().d(false);
             }
-        } else if (view == this.c.m()) {
+        } else if (view == this.c.n()) {
             if (dVar == com.baidu.adp.widget.BdSwitchView.d.ON) {
-                TiebaApplication.d().i(true);
+                TiebaApplication.d().j(true);
             } else {
-                TiebaApplication.d().i(false);
+                TiebaApplication.d().j(false);
             }
         }
     }

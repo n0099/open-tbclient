@@ -13,7 +13,7 @@ class z implements com.baidu.adp.widget.ListView.b {
 
     @Override // com.baidu.adp.widget.ListView.b
     public void a(boolean z) {
-        if (TiebaApplication.d().n()) {
+        if (TiebaApplication.d().o()) {
             StatService.onEvent(this.a, "frs_pulldown", "frsclick", 1);
         }
         this.a.y();

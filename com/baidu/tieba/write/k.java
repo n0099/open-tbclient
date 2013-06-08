@@ -1,7 +1,6 @@
 package com.baidu.tieba.write;
 
 import android.content.Context;
-import android.graphics.Bitmap;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -44,21 +43,6 @@ public class k extends BaseAdapter {
         }
     }
 
-    public void b() {
-        this.a = false;
-        if (this.d != null && this.d.size() == 0) {
-            this.a = true;
-        }
-    }
-
-    public void a(boolean z) {
-        this.g = z;
-    }
-
-    public void b(boolean z) {
-        this.h = z;
-    }
-
     public k(Context context, boolean z, boolean z2) {
         this.e = null;
         this.f = null;
@@ -70,7 +54,7 @@ public class k extends BaseAdapter {
         this.c = z2;
     }
 
-    public com.baidu.tieba.d.a c() {
+    public com.baidu.tieba.d.a b() {
         return this.f;
     }
 
@@ -136,55 +120,59 @@ public class k extends BaseAdapter {
             } else {
                 lVar = (l) view.getTag();
             }
-            if (getItemViewType(i) == 0) {
-                if (this.a) {
-                    lVar.a.setVisibility(8);
-                    lVar.b.setVisibility(8);
-                    lVar.d.setVisibility(0);
-                    if (this.b) {
-                        if (this.c) {
-                            lVar.d.setText(R.string.not_have_attention);
+            try {
+                if (getItemViewType(i) == 0) {
+                    if (this.a) {
+                        lVar.a.setVisibility(8);
+                        lVar.b.setVisibility(8);
+                        lVar.d.setVisibility(0);
+                        if (this.b) {
+                            if (this.c) {
+                                lVar.d.setText(R.string.not_have_attention);
+                            } else {
+                                lVar.d.setText(R.string.no_attention_other);
+                            }
+                        } else if (this.c) {
+                            lVar.d.setText(R.string.not_have_fans);
                         } else {
-                            lVar.d.setText(R.string.no_attention_other);
+                            lVar.d.setText(R.string.no_fan_other);
                         }
-                    } else if (this.c) {
-                        lVar.d.setText(R.string.not_have_fans);
                     } else {
-                        lVar.d.setText(R.string.no_fan_other);
+                        lVar.a.setVisibility(0);
+                        lVar.b.setVisibility(0);
+                        lVar.d.setVisibility(8);
+                        String e = ((com.baidu.tieba.a.ai) this.d.get(i)).e();
+                        com.baidu.adp.widget.a.b b = this.f.b(e);
+                        if (b != null) {
+                            lVar.a.setTag(null);
+                            b.b(lVar.a);
+                        } else {
+                            lVar.a.setTag(e);
+                            lVar.a.setImageBitmap(com.baidu.tieba.d.d.a((int) R.drawable.photo));
+                        }
+                        lVar.b.setText(((com.baidu.tieba.a.ai) this.d.get(i)).d());
+                    }
+                } else if (this.h) {
+                    lVar.b.setText(this.e.getString(R.string.loading));
+                    lVar.c.setVisibility(0);
+                } else {
+                    lVar.b.setText(this.e.getString(R.string.load_more));
+                    lVar.c.setVisibility(8);
+                }
+                if (TiebaApplication.d().ar() == 1) {
+                    int a = com.baidu.tieba.d.ac.a(1);
+                    lVar.b.setTextColor(a);
+                    if (lVar.d != null) {
+                        lVar.d.setTextColor(a);
                     }
                 } else {
-                    lVar.a.setVisibility(0);
-                    lVar.b.setVisibility(0);
-                    lVar.d.setVisibility(8);
-                    String e = ((com.baidu.tieba.a.ai) this.d.get(i)).e();
-                    Bitmap b = this.f.b(e);
-                    if (b != null) {
-                        lVar.a.setTag(null);
-                        lVar.a.setImageBitmap(b);
-                    } else {
-                        lVar.a.setTag(e);
-                        lVar.a.setImageBitmap(com.baidu.tieba.d.e.a((int) R.drawable.photo));
+                    lVar.b.setTextColor(-16777216);
+                    if (lVar.d != null) {
+                        lVar.d.setTextColor(-4276546);
                     }
-                    lVar.b.setText(((com.baidu.tieba.a.ai) this.d.get(i)).d());
                 }
-            } else if (this.h) {
-                lVar.b.setText(this.e.getString(R.string.loading));
-                lVar.c.setVisibility(0);
-            } else {
-                lVar.b.setText(this.e.getString(R.string.load_more));
-                lVar.c.setVisibility(8);
-            }
-            if (TiebaApplication.d().ai() == 1) {
-                int a = com.baidu.tieba.d.ac.a(1);
-                lVar.b.setTextColor(a);
-                if (lVar.d != null) {
-                    lVar.d.setTextColor(a);
-                }
-            } else {
-                lVar.b.setTextColor(-16777216);
-                if (lVar.d != null) {
-                    lVar.d.setTextColor(-4276546);
-                }
+            } catch (Exception e2) {
+                com.baidu.adp.lib.e.b.a(e2.getMessage());
             }
         }
         return view;

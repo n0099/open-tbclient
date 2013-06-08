@@ -12,8 +12,8 @@ public class a {
     private ArrayList c = null;
     private Context d = null;
 
-    public a(Context context, JSONArray jSONArray) {
-        a(context, jSONArray, -1, false);
+    public a(Context context, String str) {
+        a(context, a(str), -1, false);
     }
 
     public a(Context context, JSONArray jSONArray, boolean z) {
@@ -23,6 +23,15 @@ public class a {
     private void a(Context context, JSONArray jSONArray, int i, boolean z) {
         this.d = context;
         a(jSONArray, i, z);
+    }
+
+    private JSONArray a(String str) {
+        try {
+            return new JSONArray(str);
+        } catch (Exception e) {
+            com.baidu.adp.lib.e.b.a(e.getMessage());
+            return null;
+        }
     }
 
     private void a(JSONArray jSONArray, int i, boolean z) {
@@ -89,5 +98,17 @@ public class a {
 
     public ArrayList a() {
         return this.c;
+    }
+
+    public String toString() {
+        if (this.c == null) {
+            return null;
+        }
+        StringBuilder sb = new StringBuilder(100);
+        Iterator it = this.c.iterator();
+        while (it.hasNext()) {
+            sb.append(((c) it.next()).toString());
+        }
+        return sb.toString();
     }
 }

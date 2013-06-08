@@ -1,86 +1,39 @@
 package com.baidu.tieba.c;
 /* loaded from: classes.dex */
-public class bd {
-    private int q;
-    private int r;
-    private com.baidu.tieba.a.al a = null;
-    private boolean d = true;
-    private boolean c = true;
-    private boolean e = false;
-    private boolean g = false;
+public class bd extends com.baidu.adp.a.c {
+    private bf e = null;
+    private com.baidu.tieba.a.bi f = null;
+    private be g = null;
     private boolean h = false;
-    private boolean i = false;
-    private boolean j = false;
-    private String b = null;
-    private boolean f = false;
-    private String k = null;
-    private String l = null;
-    private String m = null;
-    private int n = 1;
-    private int o = 1;
-    private boolean p = false;
-
-    public void a(com.baidu.tieba.a.al alVar) {
-        this.a = alVar;
-    }
-
-    public com.baidu.tieba.a.al a() {
-        return this.a;
-    }
 
     public void a(boolean z) {
-        this.d = z;
+        this.h = z;
     }
 
-    public boolean b() {
-        return this.d;
+    public void a(be beVar) {
+        this.g = beVar;
     }
 
-    public void b(boolean z) {
-        this.c = z;
+    public void a(com.baidu.tieba.a.bi biVar) {
+        this.f = biVar;
     }
 
-    public void c(boolean z) {
-        this.e = z;
-    }
-
-    public void d(boolean z) {
-        this.g = z;
-    }
-
-    public void a(int i) {
-        this.n = i;
-    }
-
-    public int c() {
-        return this.n;
-    }
-
-    public void b(int i) {
-        this.o = i;
-    }
-
-    public int d() {
-        return this.o;
-    }
-
-    public void e(boolean z) {
-        this.p = z;
+    public com.baidu.tieba.a.bi d() {
+        return this.f;
     }
 
     public boolean e() {
-        return this.p;
+        if (this.f == null) {
+            return false;
+        }
+        if (this.e == null) {
+            this.e = new bf(this);
+            this.e.execute(new Integer[0]);
+        }
+        return true;
     }
 
-    public void c(int i) {
-        this.q = i;
-    }
-
-    public void d(int i) {
-        this.r = i;
-    }
-
-    public int f() {
-        return com.baidu.tieba.a.i.b() / 30;
+    public boolean f() {
+        return false;
     }
 }

@@ -1,10 +1,9 @@
 package com.baidu.tieba.person;
 
 import android.view.View;
-import android.widget.AdapterView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class bo implements AdapterView.OnItemClickListener {
+public class bo implements View.OnClickListener {
     final /* synthetic */ PersonListActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -12,18 +11,22 @@ public class bo implements AdapterView.OnItemClickListener {
         this.a = personListActivity;
     }
 
-    @Override // android.widget.AdapterView.OnItemClickListener
-    public void onItemClick(AdapterView adapterView, View view, int i, long j) {
-        com.baidu.tieba.write.k kVar;
-        if (j != -1) {
-            kVar = this.a.f;
-            com.baidu.tieba.a.ai aiVar = (com.baidu.tieba.a.ai) kVar.getItem(i);
-            if (aiVar != null && aiVar.a() != null) {
-                PersonInfoActivity.a(this.a, aiVar.a(), aiVar.d());
-                return;
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        bt btVar;
+        bt btVar2;
+        bt btVar3;
+        int intValue = ((Integer) view.getTag()).intValue();
+        btVar = this.a.h;
+        if (btVar != null) {
+            btVar2 = this.a.h;
+            if (btVar2.getItemViewType(intValue) == 0) {
+                btVar3 = this.a.h;
+                com.baidu.tieba.a.be beVar = (com.baidu.tieba.a.be) btVar3.getItem(intValue);
+                if (beVar != null && beVar.a() != null) {
+                    PersonInfoActivity.a(this.a, beVar.a(), beVar.d());
+                }
             }
-            return;
         }
-        this.a.a(true);
     }
 }

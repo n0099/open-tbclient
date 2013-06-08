@@ -17,6 +17,7 @@ public class k implements AbsListView.OnScrollListener {
         AbsListView.OnScrollListener onScrollListener;
         r rVar;
         s sVar;
+        int i2;
         s sVar2;
         r rVar2;
         AbsListView.OnScrollListener onScrollListener2;
@@ -26,15 +27,19 @@ public class k implements AbsListView.OnScrollListener {
             onScrollListener2.onScrollStateChanged(absListView, i);
         }
         if (i == 0) {
-            rVar = this.a.k;
+            rVar = this.a.l;
             if (rVar != null && absListView.getLastVisiblePosition() == absListView.getCount() - 1 && absListView.getFirstVisiblePosition() != 0) {
-                rVar2 = this.a.k;
+                rVar2 = this.a.l;
                 rVar2.a();
             }
             sVar = this.a.j;
-            if (sVar != null && absListView.getFirstVisiblePosition() == 0) {
-                sVar2 = this.a.j;
-                sVar2.a();
+            if (sVar != null) {
+                int firstVisiblePosition = absListView.getFirstVisiblePosition();
+                i2 = this.a.k;
+                if (firstVisiblePosition <= i2) {
+                    sVar2 = this.a.j;
+                    sVar2.a();
+                }
             }
         }
     }
@@ -48,7 +53,7 @@ public class k implements AbsListView.OnScrollListener {
         Runnable runnable2;
         long j2;
         AbsListView.OnScrollListener onScrollListener2;
-        this.a.o = i;
+        this.a.p = i;
         onScrollListener = this.a.g;
         if (onScrollListener != null) {
             onScrollListener2 = this.a.g;
@@ -59,10 +64,10 @@ public class k implements AbsListView.OnScrollListener {
             j = this.a.i;
             if (j > 0) {
                 Handler handler = this.a.getHandler();
-                runnable = this.a.p;
+                runnable = this.a.q;
                 handler.removeCallbacks(runnable);
                 Handler handler2 = this.a.getHandler();
-                runnable2 = this.a.p;
+                runnable2 = this.a.q;
                 j2 = this.a.i;
                 handler2.postDelayed(runnable2, j2);
             }

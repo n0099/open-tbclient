@@ -1,107 +1,137 @@
 package com.baidu.tieba.c;
 
+import java.util.ArrayList;
+import org.json.JSONArray;
 import org.json.JSONObject;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class z extends com.baidu.adp.lib.a.a {
-    final /* synthetic */ w a;
-    private int b;
-    private com.baidu.tieba.d.t c = null;
+public class z {
+    private com.baidu.tieba.a.s a;
+    private ArrayList b;
+    private ArrayList c;
+    private int d;
+    private int e;
+    private int f;
+    private com.baidu.tieba.a.b g;
+    private com.baidu.tieba.a.ak h;
+    private String i = null;
+    private String j = null;
+    private aa k = null;
+    private ac l = null;
+    private com.baidu.tieba.frs.ax m = null;
+    private com.baidu.tieba.frs.ax n = null;
 
-    public z(w wVar, int i) {
-        this.a = wVar;
-        this.b = 0;
-        this.b = i;
-        if (this.b < 0) {
-            this.b = 0;
-        }
+    public z() {
+        g();
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.a.a
-    /* renamed from: d */
-    public JSONObject a(Object... objArr) {
-        JSONObject jSONObject;
-        Exception e;
-        String str;
-        try {
-            this.c = new com.baidu.tieba.d.t(String.valueOf(com.baidu.tieba.a.i.e) + "c/f/frs/photo");
-            StringBuilder sb = new StringBuilder();
-            int size = this.a.c().size();
-            for (int i = this.b; i < size && i < this.b + 30; i++) {
-                sb.append((String) this.a.c().get(i));
-                sb.append(",");
-            }
-            int length = sb.length();
-            if (length > 1 && sb.charAt(length - 1) == ',') {
-                sb.deleteCharAt(length - 1);
-            }
-            this.c.a("alb_ids", sb.toString());
-            com.baidu.tieba.d.t tVar = this.c;
-            str = this.a.j;
-            tVar.a("kw", str);
-            String i2 = this.c.i();
-            jSONObject = new JSONObject(i2);
-            try {
-                if (this.c.b()) {
-                    this.a.a(i2);
-                }
-            } catch (Exception e2) {
-                e = e2;
-                com.baidu.tieba.d.ae.b(getClass().getName(), "doInBackground", e.getMessage());
-                return jSONObject;
-            }
-        } catch (Exception e3) {
-            jSONObject = null;
-            e = e3;
-        }
-        return jSONObject;
+    private void g() {
+        this.a = new com.baidu.tieba.a.s();
+        this.b = new ArrayList();
+        this.c = new ArrayList();
+        this.d = 0;
+        this.e = 0;
+        this.f = 0;
+        this.g = new com.baidu.tieba.a.b();
+        this.h = new com.baidu.tieba.a.ak();
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.a.a
+    public com.baidu.tieba.a.s a() {
+        return this.a;
+    }
+
+    public ArrayList b() {
+        return this.b;
+    }
+
+    public ArrayList c() {
+        return this.c;
+    }
+
+    public int d() {
+        return this.d;
+    }
+
+    public com.baidu.tieba.a.b e() {
+        return this.g;
+    }
+
     public void a(JSONObject jSONObject) {
-        com.baidu.tieba.frs.ax axVar;
-        com.baidu.tieba.frs.ax axVar2;
-        super.a((Object) jSONObject);
-        this.a.l = null;
-        axVar = this.a.n;
-        if (axVar != null) {
-            y yVar = new y(this.a);
-            if (this.c != null) {
-                yVar.a = true;
-                yVar.b = this.c.c();
-                yVar.c = this.c.d();
-                yVar.d = this.c.f();
-                yVar.e = this.c.a();
+        if (jSONObject != null) {
+            try {
+                g();
+                this.a.a(jSONObject.optJSONObject("forum"));
+                this.h.a(jSONObject.optJSONObject("user"));
+                this.g.a(jSONObject.optJSONObject("anti"));
+                JSONObject optJSONObject = jSONObject.optJSONObject("photo_data");
+                if (optJSONObject != null) {
+                    JSONArray optJSONArray = optJSONObject.optJSONArray("thread_list");
+                    if (optJSONArray != null) {
+                        for (int i = 0; i < optJSONArray.length(); i++) {
+                            com.baidu.tieba.a.bd bdVar = new com.baidu.tieba.a.bd();
+                            bdVar.a(optJSONArray.optJSONObject(i));
+                            this.b.add(bdVar);
+                        }
+                    }
+                    JSONArray optJSONArray2 = optJSONObject.optJSONArray("alb_id_list");
+                    if (optJSONArray2 != null) {
+                        for (int i2 = 0; i2 < optJSONArray2.length(); i2++) {
+                            this.c.add(optJSONArray2.optString(i2));
+                        }
+                    }
+                    this.d = optJSONObject.optInt("has_more", 0);
+                    this.e = optJSONObject.optInt("amount", 0);
+                    this.f = optJSONObject.optInt("current_count", 0);
+                }
+            } catch (Exception e) {
             }
-            axVar2 = this.a.n;
-            axVar2.a(this.b, jSONObject, yVar);
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.a.a
-    public void b() {
-        com.baidu.tieba.frs.ax axVar;
-        com.baidu.tieba.frs.ax axVar2;
-        super.b();
-        axVar = this.a.n;
-        if (axVar != null) {
-            axVar2 = this.a.n;
-            axVar2.a(0);
+    public void a(String str) {
+        try {
+            a(new JSONObject(str));
+        } catch (Exception e) {
         }
     }
 
-    @Override // com.baidu.adp.lib.a.a
-    public void cancel() {
-        super.cancel(true);
-        if (this.c != null) {
-            this.c.g();
-            this.c = null;
+    public void a(int i) {
+        if (this.k != null) {
+            this.k.cancel();
         }
-        this.a.l = null;
+        this.k = new aa(this, i);
+        this.k.setPriority(3);
+        this.k.execute(new Object[0]);
+    }
+
+    public void b(int i) {
+        if (this.k == null && this.l == null) {
+            this.l = new ac(this, i);
+            this.l.setPriority(3);
+            this.l.execute(new Object[0]);
+        }
+    }
+
+    public void f() {
+        if (this.k != null) {
+            this.k.cancel();
+            this.k = null;
+        }
+        if (this.l != null) {
+            this.l.cancel();
+            this.l = null;
+        }
+    }
+
+    public void a(String str, String str2) {
+        this.i = str;
+        this.j = str2;
+    }
+
+    public void a(com.baidu.tieba.frs.ax axVar) {
+        this.m = axVar;
+    }
+
+    public void b(com.baidu.tieba.frs.ax axVar) {
+        this.n = axVar;
     }
 }

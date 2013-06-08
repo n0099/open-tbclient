@@ -1,11 +1,10 @@
 package com.baidu.tieba.nearby;
 
-import android.graphics.Bitmap;
 import android.view.View;
 import android.widget.ListView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class an implements com.baidu.tieba.d.d {
+public class an implements com.baidu.tbadk.a.d {
     final /* synthetic */ NearbyPostActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -13,11 +12,11 @@ public class an implements com.baidu.tieba.d.d {
         this.a = nearbyPostActivity;
     }
 
-    @Override // com.baidu.tieba.d.d
-    public void a(Bitmap bitmap, String str, boolean z) {
+    @Override // com.baidu.tbadk.a.d
+    public void a(com.baidu.adp.widget.a.b bVar, String str, boolean z) {
         ListView listView;
         ListView listView2;
-        if (bitmap != null) {
+        if (bVar != null) {
             listView = this.a.e;
             if (listView != null) {
                 listView2 = this.a.e;

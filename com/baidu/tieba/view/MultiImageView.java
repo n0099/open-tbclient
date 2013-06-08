@@ -18,9 +18,9 @@ public class MultiImageView extends RelativeLayout {
     private GalleryViewPager e;
     private android.support.v4.view.aj f;
     private android.support.v4.view.aj g;
-    private l h;
+    private m h;
     private ImagePagerAdapter i;
-    private k j;
+    private l j;
     private int k;
     private boolean l;
     private boolean m;
@@ -92,10 +92,10 @@ public class MultiImageView extends RelativeLayout {
     }
 
     private void g() {
-        this.d = new ag(this);
-        this.f = new ah(this);
-        this.h = new ai(this);
-        this.j = new aj(this);
+        this.d = new ai(this);
+        this.f = new aj(this);
+        this.h = new ak(this);
+        this.j = new al(this);
     }
 
     public void a() {
@@ -104,14 +104,14 @@ public class MultiImageView extends RelativeLayout {
                 int childCount = this.e.getChildCount();
                 for (int i = 0; i < childCount; i++) {
                     View childAt = this.e.getChildAt(i);
-                    if (childAt != null && (childAt instanceof ap) && ((ap) childAt).getImageView() != this.e.getCurrentView()) {
-                        ((ap) childAt).d();
+                    if (childAt != null && (childAt instanceof ar) && ((ar) childAt).getImageView() != this.e.getCurrentView()) {
+                        ((ar) childAt).d();
                     }
                 }
             }
             View findViewWithTag = this.e.findViewWithTag(String.valueOf(this.e.getCurrentItem()));
-            if (findViewWithTag != null && (findViewWithTag instanceof ap)) {
-                ((ap) findViewWithTag).f();
+            if (findViewWithTag != null && (findViewWithTag instanceof ar)) {
+                ((ar) findViewWithTag).f();
             }
             this.e.getCurrentView().e();
         }
@@ -128,8 +128,8 @@ public class MultiImageView extends RelativeLayout {
             int childCount = this.e.getChildCount();
             for (int i = 0; i < childCount; i++) {
                 View childAt = this.e.getChildAt(i);
-                if (childAt != null && (childAt instanceof ap)) {
-                    ((ap) childAt).c();
+                if (childAt != null && (childAt instanceof ar)) {
+                    ((ar) childAt).c();
                 }
             }
         }
@@ -180,14 +180,14 @@ public class MultiImageView extends RelativeLayout {
         return this.e.getCurrentItem();
     }
 
-    public void setZoomButton(g gVar) {
-        if (gVar != null) {
-            if (gVar.p()) {
+    public void setZoomButton(h hVar) {
+        if (hVar != null) {
+            if (hVar.p()) {
                 this.a.setEnabled(true);
             } else {
                 this.a.setEnabled(false);
             }
-            if (gVar.q()) {
+            if (hVar.q()) {
                 this.b.setEnabled(true);
                 return;
             } else {
@@ -212,7 +212,7 @@ public class MultiImageView extends RelativeLayout {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public g getCurrentImageView() {
+    public h getCurrentImageView() {
         return this.e.getCurrentView();
     }
 
@@ -277,7 +277,7 @@ public class MultiImageView extends RelativeLayout {
 
     public byte[] getCurrentImageData() {
         byte[] bArr = null;
-        g selectedView = this.e.getSelectedView();
+        h selectedView = this.e.getSelectedView();
         if (selectedView != null) {
             return selectedView.getImageData();
         }
@@ -285,7 +285,7 @@ public class MultiImageView extends RelativeLayout {
     }
 
     public String getCurrentImageUrl() {
-        g selectedView = this.e.getSelectedView();
+        h selectedView = this.e.getSelectedView();
         if (!(selectedView.getTag() instanceof String)) {
             return null;
         }

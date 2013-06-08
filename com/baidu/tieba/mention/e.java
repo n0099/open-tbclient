@@ -1,7 +1,6 @@
 package com.baidu.tieba.mention;
 
 import android.content.Context;
-import android.graphics.Bitmap;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -152,7 +151,7 @@ public class e extends BaseAdapter {
         if (this.b == null) {
             return view;
         }
-        int ai = TiebaApplication.d().ai();
+        int ar = TiebaApplication.d().ar();
         try {
             if (view == null) {
                 LayoutInflater from = LayoutInflater.from(this.a);
@@ -216,7 +215,7 @@ public class e extends BaseAdapter {
                     gVar.a.setText(R.string.more);
                 }
             }
-            if (ai == 1) {
+            if (ar == 1) {
                 if (gVar.a != null) {
                     gVar.a.setTextColor(this.a.getResources().getColor(R.color.skin_1_common_color));
                     return view4;
@@ -231,8 +230,8 @@ public class e extends BaseAdapter {
             gVar.f.setText(rVar.i().d());
             gVar.g.setText(ad.a(rVar.b()));
             gVar.h.setText(rVar.e());
-            gVar.f.setTextSize(com.baidu.tieba.a.i.p());
-            gVar.h.setTextSize(com.baidu.tieba.a.i.m());
+            gVar.f.setTextSize(com.baidu.tieba.a.i.q());
+            gVar.h.setTextSize(com.baidu.tieba.a.i.n());
             if (this.h == 0) {
                 if (rVar.a() == 1) {
                     gVar.k.setText(this.a.getString(R.string.mention_replyme_post));
@@ -252,9 +251,9 @@ public class e extends BaseAdapter {
             String e3 = rVar.i().e();
             gVar.e.setTag(null);
             if (e3 != null && e3.length() > 0) {
-                Bitmap b = this.c.b(e3);
+                com.baidu.adp.widget.a.b b = this.c.b(e3);
                 if (b != null) {
-                    gVar.e.setImageBitmap(b);
+                    b.b(gVar.e);
                 } else {
                     gVar.e.setTag(e3);
                     gVar.e.setImageResource(R.drawable.photo);
@@ -266,10 +265,10 @@ public class e extends BaseAdapter {
             gVar.c.a(rVar.i().c());
             gVar.e.setOnClickListener(gVar.c);
             if (gVar.k != null) {
-                ac.b(gVar.k, ai);
+                ac.b(gVar.k, ar);
             }
-            ac.b(gVar.f, ai);
-            if (ai == 1) {
+            ac.b(gVar.f, ar);
+            if (ar == 1) {
                 if (gVar.d != null) {
                     ac.h(gVar.d, (int) R.drawable.message_replyme_1);
                 }

@@ -26,7 +26,7 @@ import android.widget.LinearLayout;
 import android.widget.ListAdapter;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
-import com.baidu.tieba.a.ba;
+import com.baidu.tieba.a.bb;
 import com.baidu.tieba.view.HeartButton;
 import com.slidingmenu.lib.R;
 import java.lang.ref.SoftReference;
@@ -48,7 +48,7 @@ public class LabelActivity extends e {
     private List m;
     private List n;
     private LabelAdapter p;
-    private com.baidu.tieba.c.ac q;
+    private com.baidu.tieba.c.af q;
     private SparseArray r;
     private Bitmap s;
     private ImageView h = null;
@@ -86,45 +86,46 @@ public class LabelActivity extends e {
                 a(getString(R.string.too_much_tags));
                 return;
             }
-            com.baidu.tieba.view.af afVar = (com.baidu.tieba.view.af) view;
-            if (afVar.getTag(R.id.label_smallball_checked) == null || ((Integer) afVar.getTag(R.id.label_smallball_checked)).intValue() != 1) {
-                afVar.setTag(R.id.label_smallball_checked, 1);
-                com.baidu.tieba.a.ab abVar = (com.baidu.tieba.a.ab) afVar.getTag(R.id.label_ball_data);
+            com.baidu.tieba.view.ah ahVar = (com.baidu.tieba.view.ah) view;
+            if (ahVar.getTag(R.id.label_smallball_checked) == null || ((Integer) ahVar.getTag(R.id.label_smallball_checked)).intValue() != 1) {
+                ahVar.setTag(R.id.label_smallball_checked, 1);
+                com.baidu.tieba.a.ab abVar = (com.baidu.tieba.a.ab) ahVar.getTag(R.id.label_ball_data);
                 AbsoluteLayout.LayoutParams layoutParams = new AbsoluteLayout.LayoutParams(abVar.f(), abVar.g(), abVar.d(), abVar.e());
-                com.baidu.tieba.view.af afVar2 = new com.baidu.tieba.view.af(this);
-                afVar2.setType(1);
-                ((ViewGroup) this.j.get(this.d.getCurrentItem())).addView(afVar2, layoutParams);
-                this.n.add(afVar2);
-                if (this.m != null && this.m.size() > 0 && this.m.contains(afVar)) {
-                    this.m.remove(afVar);
-                    afVar.setTag(null);
+                com.baidu.tieba.view.ah ahVar2 = new com.baidu.tieba.view.ah(this);
+                ahVar2.setType(1);
+                ((ViewGroup) this.j.get(this.d.getCurrentItem())).addView(ahVar2, layoutParams);
+                this.n.add(ahVar2);
+                if (this.m != null && this.m.size() > 0 && this.m.contains(ahVar)) {
+                    this.m.remove(ahVar);
+                    ahVar.setTag(null);
                 }
-                afVar2.setTag(R.id.label_parabola_computer, new y(this, abVar.d(), abVar.e(), com.baidu.tieba.d.ag.a(this, 35.0f), this.d.getHeight() - com.baidu.tieba.d.ag.a(this, 50.0f), 700L));
+                ahVar2.setTag(R.id.label_parabola_computer, new y(this, abVar.d(), abVar.e(), com.baidu.tieba.d.ag.a(this, 35.0f), this.d.getHeight() - com.baidu.tieba.d.ag.a(this, 50.0f), 700L));
                 String i = abVar.i();
                 if (i != null && i.length() > 0) {
-                    ba baVar = new ba();
-                    baVar.a(abVar.j());
-                    baVar.b(i);
+                    bb bbVar = new bb();
+                    bbVar.a(abVar.j());
+                    bbVar.b(i);
                     if (this.q != null && this.q.h() != null) {
-                        this.q.a(baVar);
+                        this.q.a(bbVar);
                     }
                     if (i.length() > 4) {
                         i = i.substring(0, 4);
                     }
-                    afVar2.setText(i);
-                    afVar2.setTextSize(com.baidu.tieba.d.ag.a(this, 14.0f));
+                    ahVar2.setText(i);
+                    ahVar2.setTextSize(com.baidu.tieba.d.ag.a(this, 14.0f));
                 }
-                afVar2.a(c(abVar.h()), this.s);
-                afVar2.invalidate();
+                ahVar2.a(c(abVar.h()), this.s);
+                ahVar2.invalidate();
                 this.F = System.currentTimeMillis();
                 this.P.sendMessage(this.P.obtainMessage(1));
-                afVar.setText("");
-                afVar.setOnTouchListener(null);
-                afVar.a();
-                afVar.invalidate();
+                ahVar.setText("");
+                ahVar.setOnTouchListener(null);
+                ahVar.a();
+                ahVar.invalidate();
                 d();
             }
         } catch (Exception e) {
+            com.baidu.tieba.d.ae.b(LabelActivity.class.getName(), "startDropSmallBall", e.getMessage());
         }
     }
 
@@ -134,22 +135,22 @@ public class LabelActivity extends e {
             a(getString(R.string.too_much_tags));
             return;
         }
-        com.baidu.tieba.view.af afVar = (com.baidu.tieba.view.af) view;
-        afVar.setTag(R.id.label_ball_state, 1);
-        AbsoluteLayout.LayoutParams layoutParams = (AbsoluteLayout.LayoutParams) afVar.getLayoutParams();
-        afVar.setTag(R.id.label_parabola_computer, new y(this, layoutParams.x, layoutParams.y, com.baidu.tieba.d.ag.a(this, 35.0f), this.d.getHeight() - com.baidu.tieba.d.ag.a(this, 60.0f), 700L));
-        com.baidu.tieba.a.aa aaVar = (com.baidu.tieba.a.aa) afVar.getTag(R.id.label_ball_data);
+        com.baidu.tieba.view.ah ahVar = (com.baidu.tieba.view.ah) view;
+        ahVar.setTag(R.id.label_ball_state, 1);
+        AbsoluteLayout.LayoutParams layoutParams = (AbsoluteLayout.LayoutParams) ahVar.getLayoutParams();
+        ahVar.setTag(R.id.label_parabola_computer, new y(this, layoutParams.x, layoutParams.y, com.baidu.tieba.d.ag.a(this, 35.0f), this.d.getHeight() - com.baidu.tieba.d.ag.a(this, 60.0f), 700L));
+        com.baidu.tieba.a.aa aaVar = (com.baidu.tieba.a.aa) ahVar.getTag(R.id.label_ball_data);
         if (aaVar != null) {
             List b = aaVar.b();
             if (b != null && b.size() > 0) {
                 a(b, (ViewGroup) this.j.get(aaVar.c()));
                 p();
             }
-            ba baVar = new ba();
-            baVar.a(aaVar.j());
-            baVar.b(aaVar.i());
+            bb bbVar = new bb();
+            bbVar.a(aaVar.j());
+            bbVar.b(aaVar.i());
             if (this.q != null && this.q.h() != null) {
-                this.q.a(baVar);
+                this.q.a(bbVar);
             }
         }
         this.E = System.currentTimeMillis();
@@ -221,23 +222,23 @@ public class LabelActivity extends e {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean a(com.baidu.tieba.view.af afVar, long j) {
-        if (afVar != null) {
+    public boolean a(com.baidu.tieba.view.ah ahVar, long j) {
+        if (ahVar != null) {
             try {
-                if (afVar.getTag(R.id.label_parabola_computer) != null && (afVar.getTag(R.id.label_parabola_computer) instanceof y)) {
-                    y yVar = (y) afVar.getTag(R.id.label_parabola_computer);
-                    afVar.setGradual(1.0f - yVar.a());
-                    AbsoluteLayout.LayoutParams layoutParams = (AbsoluteLayout.LayoutParams) afVar.getLayoutParams();
+                if (ahVar.getTag(R.id.label_parabola_computer) != null && (ahVar.getTag(R.id.label_parabola_computer) instanceof y)) {
+                    y yVar = (y) ahVar.getTag(R.id.label_parabola_computer);
+                    ahVar.setGradual(1.0f - yVar.a());
+                    AbsoluteLayout.LayoutParams layoutParams = (AbsoluteLayout.LayoutParams) ahVar.getLayoutParams();
                     yVar.a(j);
                     layoutParams.x = yVar.b();
                     layoutParams.y = yVar.c();
                     if (layoutParams.y >= yVar.d()) {
-                        a(afVar);
+                        a(ahVar);
                         c(true);
                         return true;
                     }
-                    afVar.setLayoutParams(layoutParams);
-                    afVar.invalidate();
+                    ahVar.setLayoutParams(layoutParams);
+                    ahVar.invalidate();
                 }
             } catch (Exception e) {
                 return false;
@@ -291,11 +292,11 @@ public class LabelActivity extends e {
         this.h = null;
     }
 
-    private void a(com.baidu.tieba.view.af afVar) {
+    private void a(com.baidu.tieba.view.ah ahVar) {
         try {
-            afVar.setAnimation(null);
-            if (afVar.getParent() != null && (afVar.getParent() instanceof ViewGroup)) {
-                ((ViewGroup) afVar.getParent()).removeView(afVar);
+            ahVar.setAnimation(null);
+            if (ahVar.getParent() != null && (ahVar.getParent() instanceof ViewGroup)) {
+                ((ViewGroup) ahVar.getParent()).removeView(ahVar);
             }
         } catch (Exception e) {
             com.baidu.tieba.d.ae.b(getClass().getName(), "removeBallView", e.toString());
@@ -306,20 +307,20 @@ public class LabelActivity extends e {
         this.P.removeMessages(0);
         this.P.removeMessages(1);
         if (this.l != null && this.l.size() > 0) {
-            for (com.baidu.tieba.view.af afVar : this.l) {
-                a(afVar);
+            for (com.baidu.tieba.view.ah ahVar : this.l) {
+                a(ahVar);
             }
             this.l.clear();
         }
         if (this.n != null && this.n.size() > 0) {
-            for (com.baidu.tieba.view.af afVar2 : this.n) {
-                a(afVar2);
+            for (com.baidu.tieba.view.ah ahVar2 : this.n) {
+                a(ahVar2);
             }
             this.n.clear();
         }
         if (this.k != null && this.k.size() > 0) {
-            for (com.baidu.tieba.view.af afVar3 : this.k) {
-                a(afVar3);
+            for (com.baidu.tieba.view.ah ahVar3 : this.k) {
+                a(ahVar3);
             }
             this.k.clear();
         }
@@ -339,26 +340,26 @@ public class LabelActivity extends e {
                         z2 = true;
                     } else {
                         AbsoluteLayout.LayoutParams layoutParams = new AbsoluteLayout.LayoutParams(aaVar.f(), aaVar.g(), aaVar.d(), aaVar.e());
-                        com.baidu.tieba.view.af afVar = new com.baidu.tieba.view.af(this);
-                        afVar.setType(0);
+                        com.baidu.tieba.view.ah ahVar = new com.baidu.tieba.view.ah(this);
+                        ahVar.setType(0);
                         int c2 = aaVar.c();
                         if (c2 < this.j.size() && c2 >= 0) {
-                            ((ViewGroup) this.j.get(aaVar.c())).addView(afVar, layoutParams);
-                            this.k.add(afVar);
+                            ((ViewGroup) this.j.get(aaVar.c())).addView(ahVar, layoutParams);
+                            this.k.add(ahVar);
                             String i = aaVar.i();
                             if (i != null && i.length() > 0) {
                                 if (i.length() > 4) {
                                     i = i.substring(0, 4);
                                 }
-                                afVar.setText(i);
-                                afVar.setTextSize(com.baidu.tieba.d.ag.a(this, 18.0f));
+                                ahVar.setText(i);
+                                ahVar.setTextSize(com.baidu.tieba.d.ag.a(this, 18.0f));
                             }
-                            afVar.setTag(R.id.label_ball_data, aaVar);
-                            afVar.setTag(R.id.label_ball_state, 0);
-                            afVar.a(c(aaVar.h()), this.s);
-                            afVar.setOnTouchListener(this.S);
-                            afVar.invalidate();
-                            afVar.setAnimation(this.w);
+                            ahVar.setTag(R.id.label_ball_data, aaVar);
+                            ahVar.setTag(R.id.label_ball_state, 0);
+                            ahVar.a(c(aaVar.h()), this.s);
+                            ahVar.setOnTouchListener(this.S);
+                            ahVar.invalidate();
+                            ahVar.setAnimation(this.w);
                         }
                     }
                 }
@@ -386,7 +387,7 @@ public class LabelActivity extends e {
             while (true) {
                 int i2 = i;
                 if (i2 < this.m.size()) {
-                    ((com.baidu.tieba.view.af) this.m.get(i2)).startAnimation(this.v);
+                    ((com.baidu.tieba.view.ah) this.m.get(i2)).startAnimation(this.v);
                     i = i2 + 1;
                 } else {
                     this.m.clear();
@@ -405,30 +406,30 @@ public class LabelActivity extends e {
                 int i2 = i + 1;
                 if (i2 <= 3) {
                     ViewGroup.LayoutParams layoutParams = new AbsoluteLayout.LayoutParams(abVar.f(), abVar.g(), abVar.d(), abVar.e());
-                    com.baidu.tieba.view.af afVar = new com.baidu.tieba.view.af(this);
-                    afVar.setType(1);
+                    com.baidu.tieba.view.ah ahVar = new com.baidu.tieba.view.ah(this);
+                    ahVar.setType(1);
                     if (this.d.getCurrentItem() == abVar.c()) {
-                        afVar.a(0);
+                        ahVar.a(0);
                     }
                     if (viewGroup == null) {
-                        ((ViewGroup) this.j.get(abVar.c())).addView(afVar, layoutParams);
+                        ((ViewGroup) this.j.get(abVar.c())).addView(ahVar, layoutParams);
                     } else {
-                        viewGroup.addView(afVar, layoutParams);
+                        viewGroup.addView(ahVar, layoutParams);
                     }
-                    this.l.add(afVar);
-                    this.m.add(afVar);
+                    this.l.add(ahVar);
+                    this.m.add(ahVar);
                     String i3 = abVar.i();
                     if (i3 != null && i3.length() > 0) {
                         if (i3.length() > 4) {
                             i3 = i3.substring(0, 4);
                         }
-                        afVar.setText(i3);
-                        afVar.setTextSize(com.baidu.tieba.d.ag.a(this, 14.0f));
+                        ahVar.setText(i3);
+                        ahVar.setTextSize(com.baidu.tieba.d.ag.a(this, 14.0f));
                     }
-                    afVar.setTag(R.id.label_ball_data, abVar);
-                    afVar.a(c(abVar.h()), this.s);
-                    afVar.setOnTouchListener(this.S);
-                    afVar.invalidate();
+                    ahVar.setTag(R.id.label_ball_data, abVar);
+                    ahVar.a(c(abVar.h()), this.s);
+                    ahVar.setOnTouchListener(this.S);
+                    ahVar.invalidate();
                     i = i2;
                 } else {
                     return;
@@ -454,6 +455,7 @@ public class LabelActivity extends e {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.e, android.app.Activity
     public void onDestroy() {
+        Bitmap bitmap;
         int i = 0;
         super.onDestroy();
         try {
@@ -471,8 +473,8 @@ public class LabelActivity extends e {
                         break;
                     }
                     SoftReference softReference = (SoftReference) this.r.get(i2);
-                    if (softReference != null) {
-                        ((Bitmap) softReference.get()).recycle();
+                    if (softReference != null && (bitmap = (Bitmap) softReference.get()) != null && !bitmap.isRecycled()) {
+                        bitmap.recycle();
                     }
                     i = i2 + 1;
                 }
@@ -513,8 +515,8 @@ public class LabelActivity extends e {
                     this.N = null;
                 }
                 b(false);
-                String z2 = TiebaApplication.z();
-                if (z2 == null || z2.length() <= 0) {
+                String B = TiebaApplication.B();
+                if (B == null || B.length() <= 0) {
                     z = false;
                 }
                 this.N = new x(this, z, d);
@@ -534,8 +536,8 @@ public class LabelActivity extends e {
     public void a(boolean z) {
         StringBuffer stringBuffer = new StringBuffer(30);
         stringBuffer.append(com.baidu.tieba.a.i.e);
-        String z2 = TiebaApplication.z();
-        if (z && z2 != null && z2.length() > 0) {
+        String B = TiebaApplication.B();
+        if (z && B != null && B.length() > 0) {
             stringBuffer.append("c/s/tag/rand_and_user_tag");
         } else {
             stringBuffer.append("c/s/tag/rand_tag");
@@ -637,9 +639,9 @@ public class LabelActivity extends e {
 
     private void u() {
         if (this.k != null) {
-            for (com.baidu.tieba.view.af afVar : this.k) {
-                if (afVar != null) {
-                    afVar.setAnimation(null);
+            for (com.baidu.tieba.view.ah ahVar : this.k) {
+                if (ahVar != null) {
+                    ahVar.setAnimation(null);
                 }
             }
         }
@@ -648,9 +650,9 @@ public class LabelActivity extends e {
 
     private void v() {
         if (this.k != null) {
-            for (com.baidu.tieba.view.af afVar : this.k) {
-                if (afVar != null) {
-                    afVar.setAnimation(this.w);
+            for (com.baidu.tieba.view.ah ahVar : this.k) {
+                if (ahVar != null) {
+                    ahVar.setAnimation(this.w);
                 }
             }
         }

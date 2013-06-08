@@ -1,41 +1,21 @@
 package com.baidu.tieba.pb;
 
-import android.text.Editable;
-import android.text.TextWatcher;
-import android.widget.Button;
-import android.widget.ImageButton;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.widget.GridView;
 /* loaded from: classes.dex */
-public class ck implements TextWatcher {
-    final /* synthetic */ bl a;
+class ck implements Runnable {
+    final /* synthetic */ ch a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ck(bl blVar) {
-        this.a = blVar;
+    public ck(ch chVar) {
+        this.a = chVar;
     }
 
-    @Override // android.text.TextWatcher
-    public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-    }
-
-    @Override // android.text.TextWatcher
-    public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-    }
-
-    @Override // android.text.TextWatcher
-    public void afterTextChanged(Editable editable) {
-        ImageButton imageButton;
-        Button button;
-        Button button2;
-        if (editable == null || editable.length() <= 0) {
-            imageButton = this.a.o;
-            if (imageButton.getTag() == null) {
-                button = this.a.j;
-                button.setEnabled(false);
-                return;
-            }
-        }
-        button2 = this.a.j;
-        button2.setEnabled(true);
+    @Override // java.lang.Runnable
+    public void run() {
+        bk bkVar;
+        GridView gridView;
+        bkVar = this.a.a;
+        gridView = bkVar.H;
+        gridView.setVisibility(8);
     }
 }

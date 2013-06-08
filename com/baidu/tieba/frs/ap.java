@@ -3,6 +3,7 @@ package com.baidu.tieba.frs;
 import android.view.View;
 import com.baidu.mobstat.StatService;
 import com.baidu.tieba.TiebaApplication;
+import com.baidu.tieba.chat.ChatListActivity;
 import com.baidu.tieba.mention.MentionActivity;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
@@ -30,27 +31,27 @@ class ap implements View.OnClickListener {
         ay ayVar5;
         ay ayVar6;
         switch (view.getId()) {
-            case R.id.refresh_btn /* 2131099851 */:
+            case R.id.refresh_btn /* 2131099853 */:
                 this.a.e(1);
                 return;
-            case R.id.frs_bt_back /* 2131099938 */:
+            case R.id.frs_bt_back /* 2131099969 */:
                 this.a.finish();
                 return;
-            case R.id.frs_top_title /* 2131099939 */:
+            case R.id.frs_top_title /* 2131099970 */:
                 ayVar6 = this.a.n;
                 ayVar6.a().scrollTo(0, 0);
                 return;
-            case R.id.frs_top_edit /* 2131099940 */:
+            case R.id.frs_top_edit /* 2131099971 */:
                 this.a.c(0);
                 return;
-            case R.id.frs_top_more /* 2131099942 */:
-                if (TiebaApplication.d().n()) {
+            case R.id.frs_top_more /* 2131099973 */:
+                if (TiebaApplication.d().o()) {
                     StatService.onEvent(this.a, "frs_more", "frsclick", 1);
                 }
                 ayVar5 = this.a.n;
                 ayVar5.b(true);
                 return;
-            case R.id.show_all /* 2131099992 */:
+            case R.id.show_all /* 2131100023 */:
                 this.a.r = false;
                 TiebaApplication d = TiebaApplication.d();
                 str3 = this.a.d;
@@ -60,9 +61,9 @@ class ap implements View.OnClickListener {
                 FrsActivity.a(frsImageActivity, str4, null, 0);
                 this.a.b();
                 return;
-            case R.id.show_good /* 2131099994 */:
+            case R.id.show_good /* 2131100025 */:
                 this.a.r = false;
-                if (TiebaApplication.d().n()) {
+                if (TiebaApplication.d().o()) {
                     StatService.onEvent(this.a, "frs_good", "frsclick", 1);
                 }
                 TiebaApplication d2 = TiebaApplication.d();
@@ -73,9 +74,9 @@ class ap implements View.OnClickListener {
                 FrsActivity.b(frsImageActivity2, str2, null);
                 this.a.b();
                 return;
-            case R.id.show_image /* 2131099996 */:
+            case R.id.show_image /* 2131100027 */:
                 this.a.r = false;
-                if (TiebaApplication.d().n()) {
+                if (TiebaApplication.d().o()) {
                     StatService.onEvent(this.a, "frs_image", "frsclick", 1);
                 }
                 ayVar = this.a.n;
@@ -91,23 +92,29 @@ class ap implements View.OnClickListener {
                     return;
                 }
                 return;
-            case R.id.add_to_window_layout /* 2131100004 */:
+            case R.id.add_to_window_layout /* 2131100035 */:
                 FrsImageActivity frsImageActivity3 = this.a;
                 str5 = this.a.d;
                 frsImageActivity3.d(str5);
                 return;
-            case R.id.message_layout /* 2131100007 */:
-                String z2 = TiebaApplication.z();
-                if (z2 != null && z2.length() > 0) {
-                    if (TiebaApplication.d().n()) {
+            case R.id.message_layout /* 2131100039 */:
+                String B = TiebaApplication.B();
+                if (B != null && B.length() > 0) {
+                    if (TiebaApplication.d().o()) {
                         StatService.onEvent(this.a, "frs_message", "frsclick", 1);
                     }
                     MentionActivity.a(this.a, 1800002);
                     return;
                 }
                 return;
-            case R.id.like_forum_name /* 2131100013 */:
-                if (TiebaApplication.d().n()) {
+            case R.id.chat_layout /* 2131100043 */:
+                if (TiebaApplication.d().o()) {
+                    StatService.onEvent(this.a, "enter_chatlist", "frsclick", 1);
+                }
+                ChatListActivity.a(this.a);
+                return;
+            case R.id.like_forum_name /* 2131100048 */:
+                if (TiebaApplication.d().o()) {
                     StatService.onEvent(this.a, "frs_likeforum", "frsclick", 1);
                 }
                 String str7 = (String) view.getTag();

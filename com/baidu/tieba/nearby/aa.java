@@ -30,8 +30,8 @@ public class aa extends com.baidu.adp.lib.a.a {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.a.a
     /* renamed from: d */
-    public com.baidu.tieba.a.al a(Object... objArr) {
-        com.baidu.tieba.a.al alVar;
+    public com.baidu.tieba.a.am a(Object... objArr) {
+        com.baidu.tieba.a.am amVar;
         Exception e;
         long j;
         long j2;
@@ -62,23 +62,23 @@ public class aa extends com.baidu.adp.lib.a.a {
             }
             String i3 = this.c.i();
             if (this.c.b()) {
-                com.baidu.tieba.a.al alVar2 = new com.baidu.tieba.a.al();
+                com.baidu.tieba.a.am amVar2 = new com.baidu.tieba.a.am();
                 try {
-                    alVar2.b(i3);
-                    int size = alVar2.d().size();
+                    amVar2.b(i3);
+                    int size = amVar2.d().size();
                     for (int i4 = 0; i4 < size; i4++) {
-                        ((com.baidu.tieba.a.aq) alVar2.d().get(i4)).d(this.b);
-                        ((com.baidu.tieba.a.aq) alVar2.d().get(i4)).a((ArrayList) null);
+                        ((com.baidu.tieba.a.ar) amVar2.d().get(i4)).c(this.b);
+                        ((com.baidu.tieba.a.ar) amVar2.d().get(i4)).a((ArrayList) null);
                     }
-                    alVar = alVar2;
+                    amVar = amVar2;
                 } catch (Exception e2) {
                     e = e2;
-                    alVar = alVar2;
+                    amVar = amVar2;
                     com.baidu.tieba.d.ae.b("PbAsyncTask", "doInBackground", "error = " + e.getMessage());
-                    return alVar;
+                    return amVar;
                 }
             } else {
-                alVar = null;
+                amVar = null;
             }
             try {
                 if (this.c.c()) {
@@ -91,115 +91,115 @@ public class aa extends com.baidu.adp.lib.a.a {
             } catch (Exception e3) {
                 e = e3;
                 com.baidu.tieba.d.ae.b("PbAsyncTask", "doInBackground", "error = " + e.getMessage());
-                return alVar;
+                return amVar;
             }
         } catch (Exception e4) {
-            alVar = null;
+            amVar = null;
             e = e4;
         }
-        return alVar;
+        return amVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.a.a
-    public void a(com.baidu.tieba.a.al alVar) {
+    public void a(com.baidu.tieba.a.am amVar) {
         LinearLayout linearLayout;
-        com.baidu.tieba.c.bd bdVar;
-        com.baidu.tieba.c.bd bdVar2;
-        com.baidu.tieba.c.bd bdVar3;
-        com.baidu.tieba.c.bd bdVar4;
-        com.baidu.tieba.c.bd bdVar5;
-        com.baidu.tieba.c.bd bdVar6;
-        com.baidu.tieba.c.bd bdVar7;
-        com.baidu.tieba.c.bd bdVar8;
+        com.baidu.tieba.c.bg bgVar;
+        com.baidu.tieba.c.bg bgVar2;
+        com.baidu.tieba.c.bg bgVar3;
+        com.baidu.tieba.c.bg bgVar4;
+        com.baidu.tieba.c.bg bgVar5;
+        com.baidu.tieba.c.bg bgVar6;
+        com.baidu.tieba.c.bg bgVar7;
+        com.baidu.tieba.c.bg bgVar8;
         ae aeVar;
         ae aeVar2;
-        com.baidu.tieba.c.bd bdVar9;
-        com.baidu.tieba.c.bd bdVar10;
-        com.baidu.tieba.c.bd bdVar11;
-        com.baidu.tieba.c.bd bdVar12;
-        com.baidu.tieba.c.bd bdVar13;
-        com.baidu.tieba.c.bd bdVar14;
+        com.baidu.tieba.c.bg bgVar9;
+        com.baidu.tieba.c.bg bgVar10;
+        com.baidu.tieba.c.bg bgVar11;
+        com.baidu.tieba.c.bg bgVar12;
+        com.baidu.tieba.c.bg bgVar13;
+        com.baidu.tieba.c.bg bgVar14;
         ListView listView;
-        com.baidu.tieba.c.bd bdVar15;
-        com.baidu.tieba.c.bd bdVar16;
-        com.baidu.tieba.c.bd bdVar17;
-        com.baidu.tieba.c.bd bdVar18;
+        com.baidu.tieba.c.bg bgVar15;
+        com.baidu.tieba.c.bg bgVar16;
+        com.baidu.tieba.c.bg bgVar17;
+        com.baidu.tieba.c.bg bgVar18;
         ae aeVar3;
         ListView listView2;
         ae aeVar4;
-        com.baidu.tieba.c.bd bdVar19;
-        com.baidu.tieba.c.bd bdVar20;
-        com.baidu.tieba.c.bd bdVar21;
-        com.baidu.tieba.c.bd bdVar22;
-        com.baidu.tieba.c.bd bdVar23;
-        com.baidu.tieba.c.bd bdVar24;
-        com.baidu.tieba.c.bd bdVar25;
-        com.baidu.tieba.c.bd bdVar26;
+        com.baidu.tieba.c.bg bgVar19;
+        com.baidu.tieba.c.bg bgVar20;
+        com.baidu.tieba.c.bg bgVar21;
+        com.baidu.tieba.c.bg bgVar22;
+        com.baidu.tieba.c.bg bgVar23;
+        com.baidu.tieba.c.bg bgVar24;
+        com.baidu.tieba.c.bg bgVar25;
+        com.baidu.tieba.c.bg bgVar26;
         ae aeVar5;
         ae aeVar6;
         ae aeVar7;
         ae aeVar8;
         try {
-            if (alVar != null) {
-                bdVar = this.b.n;
-                com.baidu.tieba.a.al a = bdVar.a();
+            if (amVar != null) {
+                bgVar = this.b.n;
+                com.baidu.tieba.a.am a = bgVar.a();
                 this.b.u = null;
-                bdVar2 = this.b.n;
-                bdVar2.c(alVar.e().e());
-                bdVar3 = this.b.n;
-                bdVar3.d(alVar.e().f());
+                bgVar2 = this.b.n;
+                bgVar2.c(amVar.e().f());
+                bgVar3 = this.b.n;
+                bgVar3.d(amVar.e().g());
                 if (this.d == 3) {
-                    bdVar22 = this.b.n;
-                    bdVar22.a(alVar);
-                    bdVar23 = this.b.n;
-                    bdVar24 = this.b.n;
-                    bdVar23.a(bdVar24.a().e().c());
-                    bdVar25 = this.b.n;
-                    bdVar26 = this.b.n;
-                    bdVar25.b(bdVar26.a().e().c());
-                    if (alVar.e().e() == 1) {
+                    bgVar22 = this.b.n;
+                    bgVar22.a(amVar);
+                    bgVar23 = this.b.n;
+                    bgVar24 = this.b.n;
+                    bgVar23.a(bgVar24.a().e().d());
+                    bgVar25 = this.b.n;
+                    bgVar26 = this.b.n;
+                    bgVar25.b(bgVar26.a().e().d());
+                    if (amVar.e().f() == 1) {
                         aeVar8 = this.b.l;
                         aeVar8.b(2);
                     } else {
                         aeVar5 = this.b.l;
                         aeVar5.b(1);
                     }
-                    if (alVar.e().f() == 1) {
+                    if (amVar.e().g() == 1) {
                         aeVar7 = this.b.l;
                         aeVar7.a(2);
                     } else {
                         aeVar6 = this.b.l;
                         aeVar6.a(0);
                     }
-                    alVar.i();
+                    amVar.i();
                 } else if (a != null && this.d == 2) {
                     listView = this.b.d;
                     int firstVisiblePosition = listView.getFirstVisiblePosition();
                     ArrayList d = a.d();
-                    ArrayList d2 = alVar.d();
+                    ArrayList d2 = amVar.d();
                     int size = firstVisiblePosition + d2.size();
                     d.addAll(0, d2);
-                    a.a(alVar.e(), 0);
-                    a.a(alVar.a());
-                    a.a(alVar.b());
-                    a.a(alVar.f());
-                    bdVar15 = this.b.n;
-                    bdVar15.b(alVar.e().c());
-                    bdVar16 = this.b.n;
-                    int c = bdVar16.c();
-                    bdVar17 = this.b.n;
-                    int d3 = c - bdVar17.d();
-                    bdVar18 = this.b.n;
-                    if (d3 >= bdVar18.f()) {
-                        bdVar19 = this.b.n;
-                        bdVar20 = this.b.n;
-                        int d4 = bdVar20.d();
-                        bdVar21 = this.b.n;
-                        bdVar19.a((d4 + bdVar21.f()) - 1);
+                    a.a(amVar.e(), 0);
+                    a.a(amVar.a());
+                    a.a(amVar.b());
+                    a.a(amVar.f());
+                    bgVar15 = this.b.n;
+                    bgVar15.b(amVar.e().d());
+                    bgVar16 = this.b.n;
+                    int c = bgVar16.c();
+                    bgVar17 = this.b.n;
+                    int d3 = c - bgVar17.d();
+                    bgVar18 = this.b.n;
+                    if (d3 >= bgVar18.f()) {
+                        bgVar19 = this.b.n;
+                        bgVar20 = this.b.n;
+                        int d4 = bgVar20.d();
+                        bgVar21 = this.b.n;
+                        bgVar19.a((d4 + bgVar21.f()) - 1);
                     }
-                    if (a.e().f() == 1) {
+                    if (a.e().g() == 1) {
                         aeVar4 = this.b.l;
                         aeVar4.a(2);
                     } else {
@@ -209,36 +209,36 @@ public class aa extends com.baidu.adp.lib.a.a {
                     listView2 = this.b.d;
                     listView2.setSelection(size);
                 } else if (a != null && this.d == 1) {
-                    a.d().addAll(alVar.d());
-                    a.a(alVar.e(), 0);
-                    a.a(alVar.a());
-                    a.a(alVar.b());
-                    a.a(alVar.f());
-                    bdVar4 = this.b.n;
-                    if (!bdVar4.e()) {
-                        bdVar5 = this.b.n;
-                        bdVar5.a(alVar.e().c());
-                    } else if (a.e().e() == 1) {
-                        bdVar13 = this.b.n;
-                        bdVar14 = this.b.n;
-                        bdVar13.a(bdVar14.c() + 1);
+                    a.d().addAll(amVar.d());
+                    a.a(amVar.e(), 0);
+                    a.a(amVar.a());
+                    a.a(amVar.b());
+                    a.a(amVar.f());
+                    bgVar4 = this.b.n;
+                    if (!bgVar4.e()) {
+                        bgVar5 = this.b.n;
+                        bgVar5.a(amVar.e().d());
+                    } else if (a.e().f() == 1) {
+                        bgVar13 = this.b.n;
+                        bgVar14 = this.b.n;
+                        bgVar13.a(bgVar14.c() + 1);
                     } else {
-                        bdVar12 = this.b.n;
-                        bdVar12.a(alVar.e().a());
+                        bgVar12 = this.b.n;
+                        bgVar12.a(amVar.e().a());
                     }
-                    bdVar6 = this.b.n;
-                    int c2 = bdVar6.c();
-                    bdVar7 = this.b.n;
-                    int d5 = c2 - bdVar7.d();
-                    bdVar8 = this.b.n;
-                    if (d5 >= bdVar8.f()) {
-                        bdVar9 = this.b.n;
-                        bdVar10 = this.b.n;
-                        int c3 = bdVar10.c();
-                        bdVar11 = this.b.n;
-                        bdVar9.b((c3 - bdVar11.f()) + 1);
+                    bgVar6 = this.b.n;
+                    int c2 = bgVar6.c();
+                    bgVar7 = this.b.n;
+                    int d5 = c2 - bgVar7.d();
+                    bgVar8 = this.b.n;
+                    if (d5 >= bgVar8.f()) {
+                        bgVar9 = this.b.n;
+                        bgVar10 = this.b.n;
+                        int c3 = bgVar10.c();
+                        bgVar11 = this.b.n;
+                        bgVar9.b((c3 - bgVar11.f()) + 1);
                     }
-                    if (a.e().e() == 1) {
+                    if (a.e().f() == 1) {
                         aeVar2 = this.b.l;
                         aeVar2.b(2);
                     } else {

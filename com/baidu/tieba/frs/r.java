@@ -7,12 +7,12 @@ import com.baidu.tieba.pb.NewPbActivity;
 /* loaded from: classes.dex */
 public class r implements DialogInterface.OnClickListener {
     final /* synthetic */ FrsActivity a;
-    private final /* synthetic */ com.baidu.tieba.a.bb b;
+    private final /* synthetic */ com.baidu.tieba.a.bc b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public r(FrsActivity frsActivity, com.baidu.tieba.a.bb bbVar) {
+    public r(FrsActivity frsActivity, com.baidu.tieba.a.bc bcVar) {
         this.a = frsActivity;
-        this.b = bbVar;
+        this.b = bcVar;
     }
 
     @Override // android.content.DialogInterface.OnClickListener
@@ -25,9 +25,9 @@ public class r implements DialogInterface.OnClickListener {
                 str = this.a.j;
                 if (str != null) {
                     FrsActivity frsActivity = this.a;
-                    com.baidu.tieba.a.bb bbVar = this.b;
+                    com.baidu.tieba.a.bc bcVar = this.b;
                     z = this.a.k;
-                    NewPbActivity.a(frsActivity, bbVar, null, 1800003, true, false, z);
+                    NewPbActivity.a(frsActivity, bcVar, null, 1800003, true, false, z);
                     break;
                 }
                 break;
@@ -38,9 +38,9 @@ public class r implements DialogInterface.OnClickListener {
                 this.a.d(this.b);
                 break;
         }
-        com.baidu.tieba.d.ab ap = TiebaApplication.d().ap();
-        if (ap != null && !ap.b(this.b.a())) {
-            ap.a(this.b.a());
+        com.baidu.tieba.d.ab ay = TiebaApplication.d().ay();
+        if (ay != null && !ay.b(this.b.a())) {
+            ay.a(this.b.a());
         }
         baVar = this.a.l;
         baVar.k();

@@ -7,7 +7,7 @@ import android.graphics.Paint;
 import android.text.TextPaint;
 import android.util.AttributeSet;
 import android.widget.LinearLayout;
-import com.baidu.tieba.a.bc;
+import com.baidu.tieba.a.bd;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public class FrsWaterFallItem extends LinearLayout {
@@ -82,7 +82,7 @@ public class FrsWaterFallItem extends LinearLayout {
         super.onDraw(canvas);
         try {
             canvas.drawColor(16777215);
-            bc bcVar = (bc) getTag();
+            bd bdVar = (bd) getTag();
             int height = ((getHeight() - getPaddingBottom()) - this.h) - this.j;
             int width = (getWidth() - getPaddingRight()) - this.j;
             this.a.setTextSize(this.h);
@@ -92,12 +92,12 @@ public class FrsWaterFallItem extends LinearLayout {
                 this.a.setColor(-5065030);
             }
             int ceil = (int) Math.ceil(this.a.getFontMetrics().ascent);
-            if (bcVar.e() > 0) {
+            if (bdVar.e() > 0) {
                 if (this.d == null) {
-                    if (bcVar.e() > 999) {
+                    if (bdVar.e() > 999) {
                         this.d = "999+";
                     } else {
-                        this.d = String.valueOf(bcVar.e());
+                        this.d = String.valueOf(bdVar.e());
                     }
                 }
                 if (this.e == -1) {
@@ -108,9 +108,9 @@ public class FrsWaterFallItem extends LinearLayout {
             }
             if (this.e != -1) {
                 if (this.m == 1) {
-                    a2 = com.baidu.tieba.d.e.a((int) R.drawable.icon_little_comment_1);
+                    a2 = com.baidu.tieba.d.d.a((int) R.drawable.icon_little_comment_1);
                 } else {
-                    a2 = com.baidu.tieba.d.e.a((int) R.drawable.icon_little_comment);
+                    a2 = com.baidu.tieba.d.d.a((int) R.drawable.icon_little_comment);
                 }
                 this.f = this.e - a2.getWidth();
                 width = this.f - this.i;
@@ -118,11 +118,11 @@ public class FrsWaterFallItem extends LinearLayout {
             }
             int i = width;
             if (this.m == 1) {
-                a = com.baidu.tieba.d.e.a((int) R.drawable.icon_little_people_1);
+                a = com.baidu.tieba.d.d.a((int) R.drawable.icon_little_people_1);
             } else {
-                a = com.baidu.tieba.d.e.a((int) R.drawable.icon_little_people);
+                a = com.baidu.tieba.d.d.a((int) R.drawable.icon_little_people);
             }
-            this.c = com.baidu.tieba.d.ag.a(this.a, bcVar.a(), (i - a.getWidth()) - (this.j * 2));
+            this.c = com.baidu.tieba.d.ag.a(this.a, bdVar.a(), (i - a.getWidth()) - (this.j * 2));
             int paddingLeft = getPaddingLeft() + this.j;
             canvas.drawBitmap(a, paddingLeft, ((this.h - a.getHeight()) / 2) + height, this.l);
             canvas.drawText(this.c, a.getWidth() + paddingLeft + this.j, height - ceil, this.a);
@@ -134,7 +134,7 @@ public class FrsWaterFallItem extends LinearLayout {
             }
             int ceil2 = (int) Math.ceil(this.a.getFontMetrics().ascent);
             if (this.b == null) {
-                this.b = com.baidu.tieba.d.ag.a(this.a, bcVar.c(), ((getWidth() - getPaddingLeft()) - getPaddingRight()) - this.j);
+                this.b = com.baidu.tieba.d.ag.a(this.a, bdVar.c(), ((getWidth() - getPaddingLeft()) - getPaddingRight()) - this.j);
             }
             canvas.drawText(this.b, this.k + this.j, (height - ((this.i + this.g) + com.baidu.tieba.d.ag.a(getContext(), 3.0f))) - ceil2, this.a);
         } catch (Exception e) {

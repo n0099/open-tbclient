@@ -132,12 +132,12 @@ public class q extends com.baidu.adp.lib.a.a {
                     com.baidu.tieba.a.e eVar = new com.baidu.tieba.a.e();
                     eVar.a(i);
                     String c = eVar.a().c();
-                    String j = eVar.a().j();
+                    String l = eVar.a().l();
                     str = eVar;
                     str = eVar;
                     str2 = c;
                     str2 = c;
-                    if (c != null && j != null) {
+                    if (c != null && l != null) {
                         aVar2 = this.a.t;
                         str = eVar;
                         str2 = c;
@@ -145,7 +145,7 @@ public class q extends com.baidu.adp.lib.a.a {
                             aVar3 = this.a.t;
                             aVar3.b(c);
                             aVar4 = this.a.t;
-                            aVar4.d(j);
+                            aVar4.d(l);
                             r1 = this.a.t;
                             com.baidu.tieba.d.k.a((com.baidu.tieba.a.a) r1);
                             str = eVar;

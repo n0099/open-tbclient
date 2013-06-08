@@ -25,7 +25,7 @@ class k implements Runnable {
         ae aeVar4;
         int i;
         ae aeVar5;
-        com.baidu.tieba.c.bd bdVar;
+        com.baidu.tieba.c.bg bgVar;
         ae aeVar6;
         ae aeVar7;
         try {
@@ -45,9 +45,9 @@ class k implements Runnable {
             while (i2 < aeVar3.getCount()) {
                 if (z || i2 <= lastVisiblePosition) {
                     aeVar4 = this.a.l;
-                    com.baidu.tieba.a.aq aqVar = (com.baidu.tieba.a.aq) aeVar4.getItem(i2);
-                    if (aqVar != null) {
-                        ArrayList j = aqVar.j();
+                    com.baidu.tieba.a.ar arVar = (com.baidu.tieba.a.ar) aeVar4.getItem(i2);
+                    if (arVar != null) {
+                        ArrayList j = arVar.j();
                         int size = j.size();
                         aeVar5 = this.a.l;
                         if (aeVar5.g() && i4 < 13) {
@@ -71,9 +71,9 @@ class k implements Runnable {
                                 i6 = i6;
                             }
                         }
-                        String e = aqVar.h().e();
-                        bdVar = this.a.n;
-                        if (bdVar.b() && e != null && e.length() > 0 && i3 < 30) {
+                        String e = arVar.h().e();
+                        bgVar = this.a.n;
+                        if (bgVar.b() && e != null && e.length() > 0 && i3 < 30) {
                             i3++;
                             aeVar6 = this.a.l;
                             aeVar6.b().d(e, new m(this));

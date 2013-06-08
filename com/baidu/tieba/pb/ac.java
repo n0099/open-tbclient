@@ -23,6 +23,7 @@ public class ac extends com.baidu.adp.lib.a.a {
         this.d = str;
         this.c = arrayList;
         this.f = z;
+        setSelfExecute(true);
     }
 
     /* JADX DEBUG: Method merged with bridge method */

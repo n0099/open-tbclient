@@ -20,14 +20,13 @@ public class ay {
     private bd e = null;
     private SlidingMenu f = null;
     private WaterFallView g = null;
-    private com.baidu.tieba.view.v h = null;
+    private com.baidu.tieba.view.x h = null;
     private ProgressBar i = null;
     private ImageView j = null;
     private ImageButton k = null;
     private ImageButton l = null;
     private TextView m = null;
     private TextView n = null;
-    private AlertDialog o = null;
 
     public ay(FrsImageActivity frsImageActivity, View.OnClickListener onClickListener) {
         this.a = null;
@@ -52,7 +51,7 @@ public class ay {
         this.f.attachToActivity(this.a, 1);
         this.f.setMenu(this.e.a());
         this.g = (WaterFallView) this.a.findViewById(R.id.water_fall);
-        this.h = new com.baidu.tieba.view.v(this.a);
+        this.h = new com.baidu.tieba.view.x(this.a);
         this.g.setCustomHeaderView(this.h);
         this.i = (ProgressBar) this.a.findViewById(R.id.progress);
         this.j = (ImageView) this.a.findViewById(R.id.frs_bt_back);
@@ -81,8 +80,8 @@ public class ay {
         }
     }
 
-    public void a(com.baidu.tieba.view.av avVar) {
-        this.g.setOnScrollListener(avVar);
+    public void a(com.baidu.tieba.view.ax axVar) {
+        this.g.setOnScrollListener(axVar);
     }
 
     public void a(SlidingMenu.OnClosedListener onClosedListener) {
@@ -110,9 +109,6 @@ public class ay {
     }
 
     public AlertDialog d() {
-        if (this.o != null) {
-            return this.o;
-        }
         String[] strArr = {this.a.getString(R.string.take_photo), this.a.getString(R.string.album)};
         AlertDialog.Builder builder = new AlertDialog.Builder(this.a);
         builder.setTitle(this.a.getString(R.string.operation));
@@ -122,9 +118,9 @@ public class ay {
         return create;
     }
 
-    public void a(com.baidu.tieba.c.u uVar) {
-        this.e.a(uVar);
-        long a = uVar.a();
+    public void a(com.baidu.tieba.c.x xVar) {
+        this.e.a(xVar);
+        long a = xVar.a() + xVar.b();
         if (a > 0) {
             this.m.setVisibility(0);
             this.m.setText(String.valueOf(a <= 99 ? a : 99L));
@@ -145,7 +141,6 @@ public class ay {
             this.m.setTextColor(-2960686);
             this.m.setBackgroundResource(R.drawable.icon_point_1);
             this.n.setTextColor(-5524539);
-            this.n.setShadowLayer(2.0f, 0.0f, 2.0f, -16777216);
             this.k.setImageResource(R.drawable.icon_edit_n_1);
             this.k.setBackgroundResource(R.drawable.title_icon_bg_1);
             this.l.setImageResource(R.drawable.btn_more_n_1);
@@ -155,7 +150,6 @@ public class ay {
         this.m.setTextColor(-1);
         this.m.setBackgroundResource(R.drawable.icon_point);
         this.n.setTextColor(-1);
-        this.n.setShadowLayer(0.0f, 0.0f, 0.0f, -1);
         this.k.setImageResource(R.drawable.icon_edit_n);
         this.k.setBackgroundResource(R.drawable.title_icon_bg);
         this.l.setImageResource(R.drawable.btn_more_n);

@@ -4,15 +4,15 @@ import android.app.Service;
 import android.content.Intent;
 import android.os.Handler;
 import android.os.IBinder;
-import com.baidu.tieba.c.bo;
+import com.baidu.tieba.c.br;
 import com.baidu.tieba.d.ae;
 /* loaded from: classes.dex */
 public class TiebaSyncService extends Service {
-    private r a = null;
+    private s a = null;
     private int b = 0;
-    private bo c = null;
+    private br c = null;
     private Handler d = new Handler();
-    private Runnable e = new q(this);
+    private Runnable e = new r(this);
 
     @Override // android.app.Service
     public IBinder onBind(Intent intent) {
@@ -29,7 +29,7 @@ public class TiebaSyncService extends Service {
         if (this.a != null) {
             this.a.cancel();
         }
-        this.a = new r(this, null);
+        this.a = new s(this, null);
         this.a.execute(new String[0]);
     }
 

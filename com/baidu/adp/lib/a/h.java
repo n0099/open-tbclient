@@ -1,6 +1,7 @@
 package com.baidu.adp.lib.a;
 
 import android.os.Handler;
+import android.os.Looper;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.concurrent.BlockingQueue;
@@ -11,27 +12,28 @@ import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 /* loaded from: classes.dex */
 public class h implements Executor {
-    private final LinkedList e = new LinkedList();
     private final LinkedList f = new LinkedList();
     private final LinkedList g = new LinkedList();
-    private Handler h = new j(this);
-    private static h b = null;
-    private static final ThreadFactory c = new i();
-    private static final BlockingQueue d = new SynchronousQueue();
-    public static final Executor a = new ThreadPoolExecutor(5, 256, 30, TimeUnit.SECONDS, d, c, new ThreadPoolExecutor.DiscardPolicy());
+    private final LinkedList h = new LinkedList();
+    private Handler i = new j(this, Looper.getMainLooper());
+    private static final boolean b = com.baidu.adp.a.b.a().b();
+    private static h c = null;
+    private static final ThreadFactory d = new i();
+    private static final BlockingQueue e = new SynchronousQueue();
+    public static final Executor a = new ThreadPoolExecutor(5, 256, 30, TimeUnit.SECONDS, e, d, new ThreadPoolExecutor.DiscardPolicy());
 
     private h() {
     }
 
     public String toString() {
-        return "mTasks = " + this.e.size() + " mActives = " + this.f.size() + " mTimeOutActives = " + this.g.size();
+        return "mTasks = " + this.f.size() + " mActives = " + this.g.size() + " mTimeOutActives = " + this.h.size();
     }
 
     public static h a() {
-        if (b == null) {
-            b = new h();
+        if (c == null) {
+            c = new h();
         }
-        return b;
+        return c;
     }
 
     @Override // java.util.concurrent.Executor
@@ -41,12 +43,12 @@ public class h implements Executor {
             if (kVar.h()) {
                 new Thread(kVar).start();
             } else {
-                int size = this.e.size();
+                int size = this.f.size();
                 int i = 0;
-                while (i < size && ((l) this.e.get(i)).d() >= kVar.d()) {
+                while (i < size && ((l) this.f.get(i)).d() >= kVar.d()) {
                     i++;
                 }
-                this.e.add(i, kVar);
+                this.f.add(i, kVar);
                 a((l) null);
             }
         }
@@ -55,65 +57,84 @@ public class h implements Executor {
     /* JADX INFO: Access modifiers changed from: private */
     public synchronized void b(l lVar) {
         l lVar2;
-        this.f.remove(lVar);
-        this.g.add(lVar);
-        if (this.g.size() > 246 && (lVar2 = (l) this.g.poll()) != null) {
+        this.g.remove(lVar);
+        this.h.add(lVar);
+        if (this.h.size() > 246 && (lVar2 = (l) this.h.poll()) != null) {
             lVar2.b();
         }
         a((l) null);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    /* JADX WARN: Code restructure failed: missing block: B:22:0x0051, code lost:
-        r4.f.add(r0);
-        r4.e.remove(r0);
-        com.baidu.adp.lib.a.h.a.execute(r0);
-        r4.h.sendMessageDelayed(r4.h.obtainMessage(1, r0), 120000);
-     */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
     public synchronized void a(l lVar) {
-        l lVar2;
         if (lVar != null) {
-            this.f.remove(lVar);
             this.g.remove(lVar);
-            this.h.removeMessages(1, lVar);
+            this.h.remove(lVar);
+            this.i.removeMessages(1, lVar);
         }
-        int size = this.f.size();
-        if (size < 5 && (lVar2 = (l) this.e.peek()) != null && (size < 4 || lVar2.d() != 1)) {
-            m mVar = new m(this, this.f);
-            int i = 0;
-            while (true) {
-                int i2 = i;
-                if (i2 >= this.e.size()) {
-                    break;
+        int size = this.g.size();
+        if (size >= 5) {
+            if (b) {
+                com.baidu.adp.lib.e.b.c(a().toString());
+            }
+        } else {
+            l lVar2 = (l) this.f.peek();
+            if (lVar2 == null) {
+                if (b) {
+                    com.baidu.adp.lib.e.b.c(a().toString());
                 }
-                l lVar3 = (l) this.e.get(i2);
-                if (mVar.a(lVar3)) {
-                    break;
+            } else if (size >= 4 && lVar2.d() == 1) {
+                if (b) {
+                    com.baidu.adp.lib.e.b.c(a().toString());
                 }
-                i = i2 + 1;
+            } else {
+                m mVar = new m(this, this.g);
+                int i = 0;
+                while (true) {
+                    int i2 = i;
+                    if (i2 >= this.f.size()) {
+                        break;
+                    }
+                    l lVar3 = (l) this.f.get(i2);
+                    if (!mVar.a(lVar3)) {
+                        i = i2 + 1;
+                    } else {
+                        this.g.add(lVar3);
+                        this.f.remove(lVar3);
+                        a.execute(lVar3);
+                        this.i.sendMessageDelayed(this.i.obtainMessage(1, lVar3), 120000L);
+                        break;
+                    }
+                }
+                if (b) {
+                    com.baidu.adp.lib.e.b.c(a().toString());
+                }
             }
         }
     }
 
     public synchronized void a(String str) {
         b(str);
-        a(this.f, false, str);
         a(this.g, false, str);
+        a(this.h, false, str);
+        if (b) {
+            com.baidu.adp.lib.e.b.c(a().toString());
+        }
     }
 
     public synchronized void b(String str) {
-        a(this.e, true, str);
+        a(this.f, true, str);
+        if (b) {
+            com.baidu.adp.lib.e.b.c(a().toString());
+        }
     }
 
     private void a(LinkedList linkedList, boolean z, String str) {
         Iterator it = linkedList.iterator();
         while (it.hasNext()) {
             l lVar = (l) it.next();
-            String e = lVar.e();
-            if (e != null && e.equals(str)) {
+            String e2 = lVar.e();
+            if (e2 != null && e2.equals(str)) {
                 if (z) {
                     it.remove();
                 }
@@ -122,30 +143,28 @@ public class h implements Executor {
         }
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:12:0x001d, code lost:
-        r1.remove();
-     */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
     public synchronized void a(a aVar) {
-        Iterator it = this.e.iterator();
+        Iterator it = this.f.iterator();
         while (true) {
             if (!it.hasNext()) {
                 break;
             }
             l lVar = (l) it.next();
             if (lVar != null && lVar.c() == aVar) {
+                it.remove();
                 break;
             }
+        }
+        if (b) {
+            com.baidu.adp.lib.e.b.c(a().toString());
         }
     }
 
     public synchronized a c(String str) {
         a a2;
-        a2 = a(this.e, str);
+        a2 = a(this.f, str);
         if (a2 == null) {
-            a2 = a(this.f, str);
+            a2 = a(this.g, str);
         }
         return a2;
     }

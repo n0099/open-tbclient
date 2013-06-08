@@ -1,23 +1,32 @@
 package com.baidu.tieba.view;
 
-import android.view.View;
-import android.widget.AdapterView;
+import android.os.Handler;
+import android.os.Message;
 /* loaded from: classes.dex */
-class y implements AdapterView.OnItemClickListener {
-    final /* synthetic */ ImagePbPagerAdapter a;
-    private final /* synthetic */ com.baidu.tieba.pb.ah b;
+class y extends Handler {
+    final /* synthetic */ ImagePbImageView a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public y(ImagePbPagerAdapter imagePbPagerAdapter, com.baidu.tieba.pb.ah ahVar) {
-        this.a = imagePbPagerAdapter;
-        this.b = ahVar;
+    public y(ImagePbImageView imagePbImageView) {
+        this.a = imagePbImageView;
     }
 
-    @Override // android.widget.AdapterView.OnItemClickListener
-    public void onItemClick(AdapterView adapterView, View view, int i, long j) {
-        if (this.b == null || !this.b.b() || j != this.b.getCount() - 1) {
-            return;
+    @Override // android.os.Handler
+    public void handleMessage(Message message) {
+        int i;
+        int i2;
+        Handler handler;
+        Handler handler2;
+        super.handleMessage(message);
+        ImagePbImageView imagePbImageView = this.a;
+        i = imagePbImageView.j;
+        imagePbImageView.j = i - 1;
+        i2 = this.a.j;
+        if (i2 >= 0) {
+            handler = this.a.k;
+            handler2 = this.a.k;
+            handler.sendMessageDelayed(handler2.obtainMessage(1), 20L);
+            this.a.invalidate();
         }
-        this.a.a(this.b.d(), this.b.e().c(), 10, this.b);
     }
 }

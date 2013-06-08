@@ -15,7 +15,15 @@ class ad implements CompoundButton.OnCheckedChangeListener {
     @Override // android.widget.CompoundButton.OnCheckedChangeListener
     public void onCheckedChanged(CompoundButton compoundButton, boolean z) {
         switch (compoundButton.getId()) {
-            case R.id.check_replyme /* 2131100167 */:
+            case R.id.check_replyme /* 2131100209 */:
+                if (z) {
+                    TiebaApplication.d().o(true);
+                    break;
+                } else {
+                    TiebaApplication.d().o(false);
+                    break;
+                }
+            case R.id.check_atme /* 2131100210 */:
                 if (z) {
                     TiebaApplication.d().n(true);
                     break;
@@ -23,7 +31,7 @@ class ad implements CompoundButton.OnCheckedChangeListener {
                     TiebaApplication.d().n(false);
                     break;
                 }
-            case R.id.check_atme /* 2131100168 */:
+            case R.id.check_newfans /* 2131100211 */:
                 if (z) {
                     TiebaApplication.d().m(true);
                     break;
@@ -31,15 +39,7 @@ class ad implements CompoundButton.OnCheckedChangeListener {
                     TiebaApplication.d().m(false);
                     break;
                 }
-            case R.id.check_newfans /* 2131100169 */:
-                if (z) {
-                    TiebaApplication.d().l(true);
-                    break;
-                } else {
-                    TiebaApplication.d().l(false);
-                    break;
-                }
         }
-        com.baidu.tieba.d.k.t();
+        com.baidu.tieba.d.k.u();
     }
 }

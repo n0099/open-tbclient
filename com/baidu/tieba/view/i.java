@@ -1,142 +1,82 @@
 package com.baidu.tieba.view;
 
-import android.view.GestureDetector;
-import android.view.MotionEvent;
-import android.view.View;
+import java.io.ByteArrayInputStream;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class i extends GestureDetector.SimpleOnGestureListener {
-    final /* synthetic */ g a;
+public class i extends Thread {
+    final /* synthetic */ h a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public i(g gVar) {
-        this.a = gVar;
+    public i(h hVar) {
+        this.a = hVar;
     }
 
-    @Override // android.view.GestureDetector.SimpleOnGestureListener, android.view.GestureDetector.OnGestureListener
-    public boolean onFling(MotionEvent motionEvent, MotionEvent motionEvent2, float f, float f2) {
-        j jVar;
-        j jVar2;
-        if (Math.abs(f) > 200.0f || Math.abs(f2) > 200.0f) {
-            jVar = this.a.t;
-            jVar.a(f, f2);
-            g gVar = this.a;
-            jVar2 = this.a.t;
-            gVar.startAnimation(jVar2);
-        }
-        return super.onFling(motionEvent, motionEvent2, f, f2);
-    }
-
-    @Override // android.view.GestureDetector.SimpleOnGestureListener, android.view.GestureDetector.OnGestureListener
-    public boolean onSingleTapUp(MotionEvent motionEvent) {
-        View.OnClickListener onClickListener;
-        boolean z;
-        View.OnClickListener onClickListener2;
-        onClickListener = this.a.r;
-        if (onClickListener != null) {
-            z = this.a.y;
-            if (!z) {
-                onClickListener2 = this.a.r;
-                onClickListener2.onClick(this.a);
-            }
-        }
-        return super.onSingleTapUp(motionEvent);
-    }
-
-    /* JADX WARN: Removed duplicated region for block: B:17:0x0084  */
-    @Override // android.view.GestureDetector.SimpleOnGestureListener, android.view.GestureDetector.OnGestureListener
+    /* JADX WARN: Removed duplicated region for block: B:21:0x0063 A[Catch: Exception -> 0x0030, TryCatch #0 {Exception -> 0x0030, blocks: (B:3:0x0001, B:14:0x003d, B:16:0x0047, B:27:0x0090, B:19:0x0057, B:21:0x0063, B:22:0x0068, B:24:0x007e, B:26:0x008a, B:18:0x0051, B:8:0x002a, B:13:0x0037, B:4:0x0011), top: B:29:0x0001, inners: #1, #2 }] */
+    /* JADX WARN: Removed duplicated region for block: B:24:0x007e A[Catch: Exception -> 0x0030, TryCatch #0 {Exception -> 0x0030, blocks: (B:3:0x0001, B:14:0x003d, B:16:0x0047, B:27:0x0090, B:19:0x0057, B:21:0x0063, B:22:0x0068, B:24:0x007e, B:26:0x008a, B:18:0x0051, B:8:0x002a, B:13:0x0037, B:4:0x0011), top: B:29:0x0001, inners: #1, #2 }] */
+    /* JADX WARN: Removed duplicated region for block: B:34:? A[RETURN, SYNTHETIC] */
+    @Override // java.lang.Thread, java.lang.Runnable
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public boolean onScroll(MotionEvent motionEvent, MotionEvent motionEvent2, float f, float f2) {
+    public void run() {
         int i;
-        float f3;
-        int i2;
-        int scrollY;
-        float f4;
-        int i3;
-        float f5;
-        int i4;
-        int i5;
-        int i6;
-        float f6;
-        int i7;
-        int i8;
-        float f7;
-        int i9;
-        int i10;
-        int i11;
-        int i12;
-        float f8;
-        float f9;
+        u uVar;
+        byte[] bArr;
+        u uVar2;
+        u uVar3;
         boolean z;
-        this.a.y = true;
-        i = this.a.p;
-        if (i == 0) {
-            z = this.a.z;
-            if (z) {
-                return false;
-            }
-        }
-        int scrollX = this.a.getScrollX();
-        f3 = this.a.e;
-        if (f3 >= this.a.getWidth()) {
-            scrollX = (int) (scrollX + f);
-            i12 = this.a.p;
-            if (i12 == 0) {
-                i2 = scrollX >= 0 ? scrollX : 0;
-                f8 = this.a.e;
-                if (this.a.getWidth() + i2 > f8) {
-                    f9 = this.a.e;
-                    i2 = (int) (f9 - this.a.getWidth());
-                }
-                scrollY = this.a.getScrollY();
-                f4 = this.a.f;
-                i3 = this.a.H;
-                f5 = f4 + i3;
-                i4 = this.a.I;
-                if (f5 + i4 >= this.a.getHeight()) {
-                    scrollY = (int) (scrollY + f2);
-                    i5 = this.a.p;
-                    if (i5 == 0) {
-                        i6 = this.a.J;
-                        if (scrollY < (-i6)) {
-                            i11 = this.a.J;
-                            scrollY = -i11;
+        u uVar4;
+        u uVar5;
+        try {
+            h hVar = this.a;
+            i = this.a.n;
+            hVar.B = new u(i);
+            try {
+                try {
+                    uVar = this.a.B;
+                    bArr = this.a.m;
+                    if (uVar.a(new ByteArrayInputStream(bArr)) == 0) {
+                        uVar2 = this.a.B;
+                        if (uVar2.c != 0) {
+                            uVar5 = this.a.B;
+                            if (uVar5.d != 0) {
+                                this.a.A = 1;
+                                uVar3 = this.a.B;
+                                if (!uVar3.e()) {
+                                    this.a.postInvalidate();
+                                }
+                                this.a.E = System.currentTimeMillis();
+                                this.a.a = 2;
+                                z = this.a.G;
+                                if (!z) {
+                                    uVar4 = this.a.B;
+                                    if (!uVar4.a()) {
+                                        this.a.postInvalidate();
+                                        return;
+                                    }
+                                    return;
+                                }
+                                return;
+                            }
                         }
-                        f6 = this.a.f;
-                        i7 = this.a.I;
-                        float f10 = f6 + i7;
-                        i8 = this.a.K;
-                        if (this.a.getHeight() + scrollY > f10 + i8) {
-                            f7 = this.a.f;
-                            float height = f7 - this.a.getHeight();
-                            i9 = this.a.I;
-                            float f11 = height + i9;
-                            i10 = this.a.K;
-                            scrollY = (int) (f11 + i10);
+                        this.a.A = 0;
+                        uVar3 = this.a.B;
+                        if (!uVar3.e()) {
+                        }
+                        this.a.E = System.currentTimeMillis();
+                        this.a.a = 2;
+                        z = this.a.G;
+                        if (!z) {
                         }
                     }
+                } catch (OutOfMemoryError e) {
+                    this.a.c();
                 }
-                if (i2 == this.a.getScrollX() || scrollY != this.a.getScrollY()) {
-                    this.a.scrollTo(i2, scrollY);
-                    this.a.invalidate();
-                }
-                return true;
+            } catch (Exception e2) {
+                this.a.c();
             }
+        } catch (Exception e3) {
+            this.a.a = 0;
         }
-        i2 = scrollX;
-        scrollY = this.a.getScrollY();
-        f4 = this.a.f;
-        i3 = this.a.H;
-        f5 = f4 + i3;
-        i4 = this.a.I;
-        if (f5 + i4 >= this.a.getHeight()) {
-        }
-        if (i2 == this.a.getScrollX()) {
-        }
-        this.a.scrollTo(i2, scrollY);
-        this.a.invalidate();
-        return true;
     }
 }

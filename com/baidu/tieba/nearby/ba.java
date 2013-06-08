@@ -1,10 +1,9 @@
 package com.baidu.tieba.nearby;
 
-import android.view.animation.Animation;
-import android.widget.ImageView;
+import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ba implements Animation.AnimationListener {
+public class ba implements View.OnClickListener {
     final /* synthetic */ NewNearbyActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -12,21 +11,8 @@ public class ba implements Animation.AnimationListener {
         this.a = newNearbyActivity;
     }
 
-    @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationStart(Animation animation) {
-    }
-
-    @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationRepeat(Animation animation) {
-    }
-
-    @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationEnd(Animation animation) {
-        ImageView imageView;
-        ImageView imageView2;
-        imageView = this.a.B;
-        imageView.setVisibility(4);
-        imageView2 = this.a.C;
-        imageView2.setVisibility(4);
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        this.a.v();
     }
 }

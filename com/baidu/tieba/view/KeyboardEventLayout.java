@@ -6,10 +6,10 @@ import android.widget.RelativeLayout;
 /* loaded from: classes.dex */
 public class KeyboardEventLayout extends RelativeLayout {
     public int a;
-    private ad b;
+    private af b;
 
-    public void setOnKeyStateChangedListener(ad adVar) {
-        this.b = adVar;
+    public void setOnKeyStateChangedListener(af afVar) {
+        this.b = afVar;
     }
 
     public KeyboardEventLayout(Context context) {

@@ -35,9 +35,9 @@ public class ax extends com.baidu.adp.lib.a.a {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.a.a
-    public com.baidu.tieba.c.af a(String... strArr) {
-        com.baidu.tieba.a.at v;
-        com.baidu.tieba.c.af afVar = new com.baidu.tieba.c.af();
+    public com.baidu.tieba.c.ai a(String... strArr) {
+        com.baidu.tieba.a.au v;
+        com.baidu.tieba.c.ai aiVar = new com.baidu.tieba.c.ai();
         try {
             v = this.a.v();
             this.b = new com.baidu.tieba.d.t(String.valueOf(com.baidu.tieba.a.i.e) + "c/s/regreal");
@@ -52,11 +52,11 @@ public class ax extends com.baidu.adp.lib.a.a {
             }
             String i = this.b.i();
             if ((this.b.c() && (this.b.d() == 0 || this.b.d() == 36)) || this.b.d() == 5) {
-                com.baidu.tieba.c.af afVar2 = new com.baidu.tieba.c.af();
-                afVar2.a(i);
-                return afVar2;
+                com.baidu.tieba.c.ai aiVar2 = new com.baidu.tieba.c.ai();
+                aiVar2.a(i);
+                return aiVar2;
             }
-            return afVar;
+            return aiVar;
         } catch (Exception e) {
             com.baidu.tieba.d.ae.b(getClass().getName(), "doInBackground", e.getMessage());
             return null;
@@ -66,24 +66,24 @@ public class ax extends com.baidu.adp.lib.a.a {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.a.a
-    public void a(com.baidu.tieba.c.af afVar) {
+    public void a(com.baidu.tieba.c.ai aiVar) {
         ProgressBar progressBar;
-        com.baidu.tieba.a.at v;
+        com.baidu.tieba.a.au v;
         int i;
         int i2;
         int i3;
-        super.a((Object) afVar);
+        super.a((Object) aiVar);
         this.a.R = null;
         progressBar = this.a.H;
         progressBar.setVisibility(8);
         this.a.u();
-        this.a.S = afVar;
+        this.a.S = aiVar;
         if (!this.b.c()) {
             this.a.O = -1;
             this.a.P = this.b.f();
             this.a.t();
         } else if (this.b.d() == 36) {
-            this.a.a(afVar.c());
+            this.a.a(aiVar.c());
             Register2Activity register2Activity = this.a;
             i3 = Register2Activity.h;
             register2Activity.O = i3;

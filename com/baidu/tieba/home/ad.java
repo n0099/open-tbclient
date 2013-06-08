@@ -3,8 +3,8 @@ package com.baidu.tieba.home;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
-import com.baidu.tieba.a.au;
 import com.baidu.tieba.a.av;
+import com.baidu.tieba.a.aw;
 import com.baidu.tieba.frs.FrsActivity;
 import com.baidu.tieba.pb.NewPbActivity;
 /* JADX INFO: Access modifiers changed from: package-private */
@@ -23,14 +23,14 @@ public class ad implements AdapterView.OnItemClickListener {
         ar arVar;
         ar arVar2;
         ar arVar3;
-        av avVar;
-        av avVar2;
+        aw awVar;
+        aw awVar2;
         String str;
         ar arVar4;
         ar arVar5;
-        av avVar3;
-        av avVar4;
-        av avVar5;
+        aw awVar3;
+        aw awVar4;
+        aw awVar5;
         String str2;
         ar arVar6;
         ar arVar7;
@@ -41,24 +41,24 @@ public class ad implements AdapterView.OnItemClickListener {
                 arVar2 = this.a.r;
                 if (arVar2.getItemId(i) != -2) {
                     arVar3 = this.a.r;
-                    au auVar = (au) arVar3.getItem(i);
-                    if (auVar != null) {
-                        if (auVar.a()) {
-                            NewPbActivity.a(this.a, auVar.c(), null, "search_post");
+                    av avVar = (av) arVar3.getItem(i);
+                    if (avVar != null) {
+                        if (avVar.a()) {
+                            NewPbActivity.a(this.a, avVar.c(), null, "search_post");
                             return;
                         } else {
-                            NewPbActivity.a(this.a, auVar.c(), auVar.b(), "search_post");
+                            NewPbActivity.a(this.a, avVar.c(), avVar.b(), "search_post");
                             return;
                         }
                     }
                     return;
                 }
-                avVar = this.a.x;
-                if (avVar != null) {
+                awVar = this.a.x;
+                if (awVar != null) {
                     SearchActivity searchActivity = this.a;
-                    avVar2 = this.a.x;
+                    awVar2 = this.a.x;
                     str = this.a.A;
-                    searchActivity.a(avVar2.d() + 1, str);
+                    searchActivity.a(awVar2.d() + 1, str);
                     arVar4 = this.a.r;
                     arVar4.a(2);
                     arVar5 = this.a.r;
@@ -67,14 +67,14 @@ public class ad implements AdapterView.OnItemClickListener {
                 }
                 return;
             }
-            avVar3 = this.a.x;
-            if (avVar3 != null) {
-                avVar4 = this.a.x;
-                if (avVar4.d() > 1) {
+            awVar3 = this.a.x;
+            if (awVar3 != null) {
+                awVar4 = this.a.x;
+                if (awVar4.d() > 1) {
                     SearchActivity searchActivity2 = this.a;
-                    avVar5 = this.a.x;
+                    awVar5 = this.a.x;
                     str2 = this.a.A;
-                    searchActivity2.a(avVar5.d() - 1, str2);
+                    searchActivity2.a(awVar5.d() - 1, str2);
                     arVar6 = this.a.r;
                     arVar6.a(1);
                     arVar7 = this.a.r;

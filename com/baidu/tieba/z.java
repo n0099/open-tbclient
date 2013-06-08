@@ -18,7 +18,7 @@ class z extends Handler {
         z = this.a.d;
         if (z) {
             if (!this.a.getDatabasePath("baidu_tieba.db").exists()) {
-                TiebaApplication.a(com.baidu.tieba.d.k.m());
+                TiebaApplication.a(com.baidu.tieba.d.k.n());
             }
             this.a.d();
         }

@@ -33,10 +33,10 @@ class r implements View.OnTouchListener {
                 break;
             case 1:
                 if (this.a) {
-                    if (view instanceof com.baidu.tieba.view.af) {
+                    if (view instanceof com.baidu.tieba.view.ah) {
                         vibrator = this.b.u;
                         vibrator.vibrate(100L);
-                        if (((com.baidu.tieba.view.af) view).getType() == 0) {
+                        if (((com.baidu.tieba.view.ah) view).getType() == 0) {
                             this.b.a(view);
                         } else {
                             this.b.startDropSmallBall(view);
@@ -55,7 +55,7 @@ class r implements View.OnTouchListener {
                 handler = this.b.P;
                 handler.removeMessages(2);
                 view.setAnimation(null);
-                if ((view instanceof com.baidu.tieba.view.af) && ((com.baidu.tieba.view.af) view).getType() == 0) {
+                if ((view instanceof com.baidu.tieba.view.ah) && ((com.baidu.tieba.view.ah) view).getType() == 0) {
                     animation = this.b.w;
                     view.setAnimation(animation);
                 }

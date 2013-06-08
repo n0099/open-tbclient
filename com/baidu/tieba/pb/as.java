@@ -12,15 +12,15 @@ class as extends com.baidu.adp.a.e {
 
     @Override // com.baidu.adp.a.e
     public void a(Object obj) {
-        bl blVar;
-        com.baidu.tieba.c.ba baVar;
+        bk bkVar;
+        com.baidu.tieba.c.bd bdVar;
         if (obj instanceof Bitmap) {
             Bitmap bitmap = (Bitmap) obj;
             if (obj != null) {
-                blVar = this.a.o;
-                blVar.a(bitmap);
-                baVar = this.a.k;
-                baVar.a(true);
+                bkVar = this.a.o;
+                bkVar.a(bitmap);
+                bdVar = this.a.k;
+                bdVar.a(true);
             }
         }
     }

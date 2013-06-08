@@ -1,6 +1,6 @@
 package com.baidu.tieba.more;
 
-import com.baidu.tieba.c.an;
+import com.baidu.tieba.c.aq;
 import com.slidingmenu.lib.R;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
@@ -15,10 +15,10 @@ public class x extends com.baidu.adp.a.e {
     @Override // com.baidu.adp.a.e
     public void a(Object obj) {
         z zVar;
-        if (obj != null && (obj instanceof an) && obj == an.DO_CLEAR) {
+        if (obj != null && (obj instanceof aq) && obj == aq.DO_CLEAR) {
             this.a.a(this.a.getString(R.string.image_cash_del_suc));
             zVar = this.a.c;
-            zVar.p();
+            zVar.q();
         }
     }
 }

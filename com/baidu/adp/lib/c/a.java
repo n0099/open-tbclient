@@ -1,5 +1,6 @@
 package com.baidu.adp.lib.c;
 
+import android.util.Log;
 import java.util.LinkedHashMap;
 import java.util.Map;
 /* loaded from: classes.dex */
@@ -11,9 +12,11 @@ public class a {
     private int e;
     private int f;
     private int g;
+    private int h;
 
     public a(int i) {
-        this.c = i;
+        this.d = i;
+        this.b = this.d / 5;
     }
 
     public final Object a(Object obj) {
@@ -22,10 +25,10 @@ public class a {
             synchronized (this) {
                 Object obj3 = this.a.get(obj);
                 if (obj3 != null) {
-                    this.f++;
+                    this.g++;
                     obj2 = obj3;
                 } else {
-                    this.g++;
+                    this.h++;
                 }
             }
         }
@@ -33,23 +36,43 @@ public class a {
     }
 
     public final Object a(Object obj, Object obj2) {
-        Object put;
-        if (obj == null || obj2 == null) {
-            return null;
-        }
-        synchronized (this) {
-            this.d++;
-            this.b += c(obj, obj2);
-            put = this.a.put(obj, obj2);
-            if (put != null) {
-                this.b -= c(obj, put);
+        Object obj3 = null;
+        if (obj != null && obj2 != null) {
+            if (b(obj, obj2) > this.b) {
+                if (com.baidu.adp.lib.e.b.a()) {
+                    Log.w("adp", "image too big:" + obj2 + ", size:" + b(obj, obj2), new Exception());
+                }
+                a(false, obj, obj2, null);
+            } else {
+                synchronized (this) {
+                    this.e++;
+                    this.c += c(obj, obj2);
+                    obj3 = this.a.put(obj, obj2);
+                    if (obj3 != null) {
+                        this.c -= c(obj, obj3);
+                    }
+                }
+                if (obj3 != null) {
+                    a(false, obj, obj3, obj2);
+                }
+                b(this.d);
             }
         }
-        if (put != null) {
-            a(false, obj, put, obj2);
+        return obj3;
+    }
+
+    public synchronized boolean a(int i) {
+        boolean z;
+        if (i > this.b) {
+            z = false;
+        } else {
+            int i2 = this.c - i;
+            if (i2 > this.d * 0.6d) {
+                b(i2);
+            }
+            z = true;
         }
-        a(this.c);
-        return put;
+        return z;
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:10:0x0031, code lost:
@@ -58,22 +81,22 @@ public class a {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public void a(int i) {
+    public void b(int i) {
         Object key;
         Object value;
         while (true) {
             synchronized (this) {
-                if (this.b < 0 || (this.a.isEmpty() && this.b != 0)) {
+                if (this.c < 0 || (this.a.isEmpty() && this.c != 0)) {
                     break;
-                } else if (this.b <= i || this.a.isEmpty()) {
+                } else if (this.c <= i || this.a.isEmpty()) {
                     break;
                 } else {
                     Map.Entry entry = (Map.Entry) this.a.entrySet().iterator().next();
                     key = entry.getKey();
                     value = entry.getValue();
                     this.a.remove(key);
-                    this.b -= c(key, value);
-                    this.e++;
+                    this.c -= c(key, value);
+                    this.f++;
                 }
             }
             a(true, key, value, null);
@@ -88,7 +111,7 @@ public class a {
         synchronized (this) {
             remove = this.a.remove(obj);
             if (remove != null) {
-                this.b -= c(obj, remove);
+                this.c -= c(obj, remove);
             }
         }
         if (remove != null) {
@@ -113,21 +136,26 @@ public class a {
     }
 
     public final void a() {
-        a(-1);
+        b(-1);
     }
 
     public final void b() {
         a();
-        this.d = 0;
         this.e = 0;
         this.f = 0;
         this.g = 0;
+        this.h = 0;
     }
 
-    public final void b(int i) {
+    public final synchronized int c() {
+        return this.c;
+    }
+
+    public final void c(int i) {
         synchronized (this) {
-            this.c = i;
-            a(i);
+            this.d = i;
+            this.b = this.d / 5;
+            b(i);
         }
     }
 }

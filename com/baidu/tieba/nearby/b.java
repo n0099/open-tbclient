@@ -56,19 +56,19 @@ public class b extends com.baidu.adp.lib.a.a {
     @Override // com.baidu.adp.lib.a.a
     public void a(Boolean bool) {
         ProgressBar progressBar;
-        com.baidu.tieba.c.aq aqVar;
+        com.baidu.tieba.c.at atVar;
         d dVar;
         progressBar = this.a.m;
         progressBar.setVisibility(8);
         this.a.n = null;
         this.a.l = false;
         if (bool.booleanValue()) {
-            aqVar = this.a.d;
-            aqVar.a(this.d);
+            atVar = this.a.d;
+            atVar.a(this.d);
             dVar = this.a.f;
             dVar.notifyDataSetChanged();
             this.a.a(this.a.getString(R.string.like_success));
-            TiebaApplication.d().h(true);
+            TiebaApplication.d().i(true);
             return;
         }
         this.a.a(this.b.f());

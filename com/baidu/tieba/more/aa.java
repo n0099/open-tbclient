@@ -38,10 +38,10 @@ public class aa implements View.OnClickListener {
         CharSequence[] charSequenceArr = {spannableString, context5.getString(R.string.image_quality_mid_menu), spannableString2};
         z zVar = this.a;
         context6 = this.a.a;
-        zVar.H = new AlertDialog.Builder(context6).setTitle(R.string.upload_image_quality).setItems(charSequenceArr, new ab(this)).create();
-        alertDialog = this.a.H;
+        zVar.K = new AlertDialog.Builder(context6).setTitle(R.string.upload_image_quality).setItems(charSequenceArr, new ab(this)).create();
+        alertDialog = this.a.K;
         alertDialog.setCanceledOnTouchOutside(true);
-        alertDialog2 = this.a.H;
+        alertDialog2 = this.a.K;
         alertDialog2.show();
     }
 }

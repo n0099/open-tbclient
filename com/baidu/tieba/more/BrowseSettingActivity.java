@@ -126,9 +126,9 @@ public class BrowseSettingActivity extends com.baidu.tieba.e {
     }
 
     private void c() {
-        if (!TiebaApplication.d().af()) {
+        if (!TiebaApplication.d().an()) {
             this.c.check(R.id.image_quality_close);
-        } else if (TiebaApplication.d().ae() == 1) {
+        } else if (TiebaApplication.d().am() == 1) {
             this.c.check(R.id.image_quality_high);
         } else {
             this.c.check(R.id.image_quality_low);
@@ -136,9 +136,9 @@ public class BrowseSettingActivity extends com.baidu.tieba.e {
     }
 
     private void d() {
-        if (TiebaApplication.d().ag() == 1) {
+        if (TiebaApplication.d().ao() == 1) {
             this.d.check(R.id.font_size_big);
-        } else if (TiebaApplication.d().ag() == 2) {
+        } else if (TiebaApplication.d().ao() == 2) {
             this.d.check(R.id.font_size_mid);
         } else {
             this.d.check(R.id.font_size_small);
@@ -146,7 +146,7 @@ public class BrowseSettingActivity extends com.baidu.tieba.e {
     }
 
     private void m() {
-        if (TiebaApplication.d().w()) {
+        if (TiebaApplication.d().x()) {
             this.f.a();
         } else {
             this.f.b();

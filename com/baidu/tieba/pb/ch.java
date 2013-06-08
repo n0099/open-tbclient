@@ -3,36 +3,32 @@ package com.baidu.tieba.pb;
 import android.os.Handler;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ch implements com.baidu.tieba.view.ad {
-    final /* synthetic */ bl a;
+public class ch implements com.baidu.tieba.view.af {
+    final /* synthetic */ bk a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ch(bl blVar) {
-        this.a = blVar;
+    public ch(bk bkVar) {
+        this.a = bkVar;
     }
 
-    @Override // com.baidu.tieba.view.ad
+    @Override // com.baidu.tieba.view.af
     public void a(int i) {
-        cr crVar;
-        cr crVar2;
         switch (i) {
             case 0:
-                if (this.a.t()) {
-                    crVar = this.a.A;
-                    crVar.c();
+                if (!this.a.t()) {
+                    new Handler().postDelayed(new ck(this), 0L);
+                } else {
+                    new Handler().postDelayed(new cl(this), 0L);
+                }
+                this.a.an = true;
+                return;
+            case 1:
+                if (!this.a.t()) {
+                    new Handler().postDelayed(new ci(this), 0L);
                 } else {
                     new Handler().postDelayed(new cj(this), 0L);
                 }
-                this.a.ao = true;
-                return;
-            case 1:
-                if (this.a.t()) {
-                    crVar2 = this.a.A;
-                    crVar2.h();
-                } else {
-                    new Handler().postDelayed(new ci(this), 0L);
-                }
-                this.a.ao = false;
+                this.a.an = false;
                 return;
             default:
                 return;

@@ -6,7 +6,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 /* loaded from: classes.dex */
 public class h extends SQLiteOpenHelper {
     public h(Context context) {
-        super(context, "baidu_tieba.db", (SQLiteDatabase.CursorFactory) null, 6);
+        super(context, "baidu_tieba.db", (SQLiteDatabase.CursorFactory) null, 7);
     }
 
     private void a(SQLiteDatabase sQLiteDatabase, String str) {
@@ -32,12 +32,45 @@ public class h extends SQLiteOpenHelper {
         a(sQLiteDatabase, "CREATE TABLE if not exists setting(account varchar(30),frequency,fans_switch,reply_me_switch,at_me_switch,remind_tone)");
         a(sQLiteDatabase, "CREATE TABLE if not exists chunk_upload_data(account varchar(30),md5,total_length,chunk_no,time)");
         a(sQLiteDatabase, "CREATE TABLE if not exists frs_image_forums(forum_name)");
+        c(sQLiteDatabase);
+    }
+
+    public void b(SQLiteDatabase sQLiteDatabase) {
+        a(sQLiteDatabase, "DROP TABLE IF EXISTS cash_data;");
+        a(sQLiteDatabase, "update sqlite_sequence SET seq=0 where name='cash_data';");
+        a(sQLiteDatabase, "DROP TABLE IF EXISTS account_data;");
+        a(sQLiteDatabase, "update sqlite_sequence SET seq=0 where name='account_data';");
+        a(sQLiteDatabase, "DROP TABLE IF EXISTS search_data;");
+        a(sQLiteDatabase, "update sqlite_sequence SET seq=0 where name='search_data';");
+        a(sQLiteDatabase, "DROP TABLE IF EXISTS search_post_data;");
+        a(sQLiteDatabase, "update sqlite_sequence SET seq=0 where name='search_post_data';");
+        a(sQLiteDatabase, "DROP TABLE IF EXISTS mark_data;");
+        a(sQLiteDatabase, "update sqlite_sequence SET seq=0 where name='mark_data';");
+        a(sQLiteDatabase, "DROP TABLE IF EXISTS draft_box;");
+        a(sQLiteDatabase, "update sqlite_sequence SET seq=0 where name='draft_box';");
+        a(sQLiteDatabase, "DROP TABLE IF EXISTS setting;");
+        a(sQLiteDatabase, "update sqlite_sequence SET seq=0 where name='setting';");
+        a(sQLiteDatabase, "DROP TABLE IF EXISTS chunk_upload_data;");
+        a(sQLiteDatabase, "update sqlite_sequence SET seq=0 where name='chunk_upload_data';");
+        a(sQLiteDatabase, "DROP TABLE IF EXISTS frs_image_forums;");
+        a(sQLiteDatabase, "DROP INDEX IF EXISTS idx_c_msgs_of;");
+        a(sQLiteDatabase, "update sqlite_sequence SET seq=0 where name='frs_image_forums';");
+        a(sQLiteDatabase, "DROP TABLE IF EXISTS chat_msgs;");
+        a(sQLiteDatabase, "DROP INDEX IF EXISTS idx_c_rfs_ost;");
+        a(sQLiteDatabase, "update sqlite_sequence SET seq=0 where name='chat_msgs';");
     }
 
     @Override // android.database.sqlite.SQLiteOpenHelper
     public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
         if (i == 1) {
-            a(sQLiteDatabase, "CREATE TABLE if not exists chunk_upload_data(account varchar(30),md5,total_length,chunk_no,time)");
+            try {
+                a(sQLiteDatabase, "CREATE TABLE if not exists chunk_upload_data(account varchar(30),md5,total_length,chunk_no,time)");
+            } catch (Exception e) {
+                ae.b(h.class.getName(), "onUpgrade", e.getMessage());
+                b(sQLiteDatabase);
+                a(sQLiteDatabase);
+                return;
+            }
         }
         if (i < 3) {
             a(sQLiteDatabase, "ALTER TABLE mark_data ADD subPost int");
@@ -54,5 +87,15 @@ public class h extends SQLiteOpenHelper {
         if (i < 6) {
             a(sQLiteDatabase, "CREATE TABLE if not exists search_post_data(key, account, time)");
         }
+        if (i < 7) {
+            c(sQLiteDatabase);
+        }
+    }
+
+    protected void c(SQLiteDatabase sQLiteDatabase) {
+        a(sQLiteDatabase, "CREATE TABLE if not exists chat_msgs(pk INTEGER primary key autoincrement, msgId bigint,ownerId varchar(32), friendId varchar(32), msgType int(11) default 0, status int(11) default 0, localTime bigint(21) default 0, serverTime bigint(21) default 0, msgContent text)");
+        a(sQLiteDatabase, "CREATE INDEX if not exists idx_c_msgs_of ON chat_msgs(ownerId, friendId, msgId)");
+        a(sQLiteDatabase, "CREATE TABLE if not exists chat_recent_friends(pk varchar(64) primary key, unReadCount int(11) default 0 ,ownerId varchar(32), friendId varchar(32), ownerName varchar(64), friendName varchar(64), friendPortrait varchar(64), status int(11) default 0, localTime bigint(21) default 0, serverTime bigint(21) default 0, msgContent text)");
+        a(sQLiteDatabase, "CREATE INDEX if not exists idx_c_rfs_ost ON chat_recent_friends(ownerId, serverTime)");
     }
 }

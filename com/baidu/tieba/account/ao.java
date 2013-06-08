@@ -31,14 +31,14 @@ public class ao extends com.baidu.adp.lib.a.a {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.a.a
-    public com.baidu.tieba.c.af a(String... strArr) {
+    public com.baidu.tieba.c.ai a(String... strArr) {
         String str;
         String str2;
         String str3;
         String str4;
         String str5;
         String str6;
-        com.baidu.tieba.c.af afVar = null;
+        com.baidu.tieba.c.ai aiVar = null;
         long nanoTime = System.nanoTime();
         this.b = new com.baidu.tieba.d.t(String.valueOf(com.baidu.tieba.a.i.e) + "c/s/login");
         com.baidu.tieba.d.t tVar = this.b;
@@ -53,8 +53,8 @@ public class ao extends com.baidu.adp.lib.a.a {
         com.baidu.tieba.d.ae.e("", "mPtoken = ", str4);
         String i = this.b.i();
         if (this.b.b()) {
-            afVar = new com.baidu.tieba.c.af();
-            afVar.a(i);
+            aiVar = new com.baidu.tieba.c.ai();
+            aiVar.a(i);
         } else {
             com.baidu.tieba.d.ae.e(getClass().getName(), "doInBackground", "relogin fail");
         }
@@ -74,13 +74,13 @@ public class ao extends com.baidu.adp.lib.a.a {
             } catch (InterruptedException e) {
             }
         }
-        return afVar;
+        return aiVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.a.a
-    public void a(com.baidu.tieba.c.af afVar) {
+    public void a(com.baidu.tieba.c.ai aiVar) {
         com.baidu.tieba.a.a aVar;
         com.baidu.tieba.a.a aVar2;
         com.baidu.tieba.a.a aVar3;
@@ -98,18 +98,18 @@ public class ao extends com.baidu.adp.lib.a.a {
         j jVar7;
         com.baidu.tieba.a.a aVar8;
         String str;
-        super.a((Object) afVar);
+        super.a((Object) aiVar);
         this.a.e = null;
-        if (afVar != null) {
+        if (aiVar != null) {
             this.a.n = new com.baidu.tieba.a.a();
             aVar = this.a.n;
-            aVar.b(afVar.a().c());
+            aVar.b(aiVar.a().c());
             aVar2 = this.a.n;
             aVar2.c("");
             aVar3 = this.a.n;
-            aVar3.a(afVar.a().a());
-            if (afVar.a().j() != null) {
-                StringBuilder append = new StringBuilder(String.valueOf(afVar.a().j())).append("|");
+            aVar3.a(aiVar.a().a());
+            if (aiVar.a().l() != null) {
+                StringBuilder append = new StringBuilder(String.valueOf(aiVar.a().l())).append("|");
                 str = this.a.m;
                 r0 = append.append(str).toString();
             }
@@ -117,9 +117,9 @@ public class ao extends com.baidu.adp.lib.a.a {
             aVar4.d(r0);
             aVar5 = this.a.n;
             aVar5.a(1);
-            if (afVar.b() != null) {
+            if (aiVar.b() != null) {
                 aVar8 = this.a.n;
-                aVar8.e(afVar.b().b());
+                aVar8.e(aiVar.b().b());
             }
             aVar6 = this.a.n;
             if (aVar6.b() == null) {

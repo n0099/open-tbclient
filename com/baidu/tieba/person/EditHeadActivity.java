@@ -76,9 +76,9 @@ public class EditHeadActivity extends com.baidu.tieba.e {
         if (this.D == 1200002 || this.D == 1200001) {
             n();
             if (intent.getData() != null) {
-                TiebaPrepareImageService.a(this.D, intent.getData(), TiebaApplication.d().aq());
+                TiebaPrepareImageService.a(this.D, intent.getData(), TiebaApplication.d().az());
             } else {
-                TiebaPrepareImageService.a(this.D, null, TiebaApplication.d().aq());
+                TiebaPrepareImageService.a(this.D, null, TiebaApplication.d().az());
             }
             o();
         } else {
@@ -86,7 +86,7 @@ public class EditHeadActivity extends com.baidu.tieba.e {
             d();
         }
         f = getResources().getStringArray(R.array.fiter_name);
-        this.z = TiebaApplication.d().p();
+        this.z = TiebaApplication.d().q();
     }
 
     @Override // com.baidu.tieba.e, android.app.Activity

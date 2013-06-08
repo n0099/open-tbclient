@@ -44,7 +44,7 @@ public class d extends com.baidu.adp.lib.a.a {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.a.a
     public void a(Boolean bool) {
-        this.a.x = null;
+        this.a.y = null;
         if (this.b != null && bool.booleanValue()) {
             k.a("", 12);
         }

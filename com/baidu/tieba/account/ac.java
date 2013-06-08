@@ -4,7 +4,7 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.TextView;
-import com.baidu.tieba.a.be;
+import com.baidu.tieba.a.bf;
 import com.slidingmenu.lib.R;
 import java.util.ArrayList;
 /* JADX INFO: Access modifiers changed from: package-private */
@@ -52,8 +52,8 @@ public class ac extends com.baidu.adp.lib.a.a {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.a.a
     /* renamed from: d */
-    public com.baidu.tieba.c.af a(Object... objArr) {
-        com.baidu.tieba.c.af afVar;
+    public com.baidu.tieba.c.ai a(Object... objArr) {
+        com.baidu.tieba.c.ai aiVar;
         Exception e;
         try {
             this.c = new com.baidu.tieba.d.t(this.d);
@@ -65,17 +65,17 @@ public class ac extends com.baidu.adp.lib.a.a {
             if (!this.c.b() || this.e == null) {
                 return null;
             }
-            afVar = new com.baidu.tieba.c.af();
+            aiVar = new com.baidu.tieba.c.ai();
             try {
-                afVar.a(this.e);
-                return afVar;
+                aiVar.a(this.e);
+                return aiVar;
             } catch (Exception e2) {
                 e = e2;
                 com.baidu.tieba.d.ae.b(getClass().getName(), "", "doInBackground error = " + e.getMessage());
-                return afVar;
+                return aiVar;
             }
         } catch (Exception e3) {
-            afVar = null;
+            aiVar = null;
             e = e3;
         }
     }
@@ -83,7 +83,7 @@ public class ac extends com.baidu.adp.lib.a.a {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.a.a
-    public void a(com.baidu.tieba.c.af afVar) {
+    public void a(com.baidu.tieba.c.ai aiVar) {
         ProgressBar progressBar;
         TextView textView;
         TextView textView2;
@@ -99,8 +99,8 @@ public class ac extends com.baidu.adp.lib.a.a {
         textView = this.b.N;
         textView.setText(R.string.account_login);
         this.b.v();
-        if (afVar != null) {
-            this.b.R = afVar;
+        if (aiVar != null) {
+            this.b.R = aiVar;
             this.b.q();
         } else if (this.c != null) {
             if ((!this.c.c() || this.c.d() != 5) && this.c.d() != 6) {
@@ -112,9 +112,9 @@ public class ac extends com.baidu.adp.lib.a.a {
                 textView4.setVisibility(8);
                 this.b.r();
             } else {
-                be beVar = new be();
-                beVar.a(this.e);
-                if (beVar.b() == null) {
+                bf bfVar = new bf();
+                bfVar.a(this.e);
+                if (bfVar.b() == null) {
                     textView5 = this.b.L;
                     textView5.setVisibility(0);
                     textView6 = this.b.L;
@@ -123,8 +123,8 @@ public class ac extends com.baidu.adp.lib.a.a {
                     textView7.setVisibility(8);
                     this.b.r();
                 } else {
-                    this.b.l = beVar.a();
-                    this.b.m = beVar.b();
+                    this.b.l = bfVar.a();
+                    this.b.m = bfVar.b();
                     LoginActivity loginActivity = this.b;
                     str = this.b.m;
                     loginActivity.c(str);

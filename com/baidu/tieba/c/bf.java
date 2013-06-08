@@ -1,143 +1,131 @@
 package com.baidu.tieba.c;
 
-import android.content.Context;
+import com.baidu.tieba.TiebaApplication;
+import com.slidingmenu.lib.R;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class bf extends com.baidu.adp.a.c {
-    private long g;
-    private long h;
-    private long i;
-    private String j;
-    private com.baidu.tieba.d.a n;
-    private bh o = null;
-    private bg p = null;
-    private boolean e = true;
-    private String f = null;
-    private com.baidu.tieba.a.bd m = null;
-    private boolean k = false;
-    private boolean l = false;
+public class bf extends com.baidu.adp.lib.a.a {
+    final /* synthetic */ bd a;
+    private com.baidu.tieba.b.f b = null;
+    private String c = null;
+    private boolean d = false;
 
-    public bf(Context context) {
-        a(0L);
-        b(0L);
-        c(0L);
-        this.n = new com.baidu.tieba.d.a(context);
+    public bf(bd bdVar) {
+        this.a = bdVar;
+        setPriority(3);
     }
 
-    public String d() {
-        return this.f;
-    }
-
-    public void b(String str) {
-        this.f = str;
-    }
-
-    public void a(boolean z) {
-        this.e = z;
-    }
-
-    public boolean e() {
-        return this.e;
-    }
-
-    public void a(com.baidu.tieba.a.bd bdVar) {
-        this.m = bdVar;
-    }
-
-    public com.baidu.tieba.a.bd f() {
-        return this.m;
-    }
-
-    public void a(com.baidu.tieba.a.an anVar) {
-        f().b(anVar.b());
-        f().b(anVar.c());
-        f().f(anVar.a());
-    }
-
-    public void a(boolean z, boolean z2) {
-        if (this.o == null) {
-            this.o = new bh(this, null);
-            this.o.setPriority(3);
-            this.o.execute(Boolean.valueOf(z), Boolean.valueOf(z2));
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.a.a
+    public String a(Integer... numArr) {
+        com.baidu.tieba.a.bi biVar;
+        boolean z;
+        if (this.d) {
+            return null;
         }
+        this.b = new com.baidu.tieba.b.f();
+        com.baidu.tieba.b.f fVar = this.b;
+        biVar = this.a.f;
+        z = this.a.h;
+        this.c = fVar.a(biVar, z);
+        return this.c;
     }
 
-    public void g() {
-        if (f() != null && this.p == null) {
-            this.p = new bg(this, null);
-            this.p.setPriority(2);
-            if (f().l() == 1) {
-                this.p.execute(1);
-            } else {
-                this.p.execute(0);
+    @Override // com.baidu.adp.lib.a.a
+    public void cancel() {
+        be beVar;
+        be beVar2;
+        this.d = true;
+        if (this.b != null) {
+            this.b.d();
+        }
+        beVar = this.a.g;
+        if (beVar != null) {
+            beVar2 = this.a.g;
+            beVar2.a(false, null, null, null);
+        }
+        super.cancel(true);
+        this.a.e = null;
+    }
+
+    private void a(int i, String str) {
+        be beVar;
+        be beVar2;
+        com.baidu.tieba.a.bi biVar;
+        com.baidu.tieba.a.bi biVar2;
+        com.baidu.tieba.a.bi biVar3;
+        be beVar3;
+        be beVar4;
+        com.baidu.tieba.a.bi biVar4;
+        be beVar5;
+        be beVar6;
+        if (i != 5 && i != 6) {
+            beVar5 = this.a.g;
+            if (beVar5 != null) {
+                beVar6 = this.a.g;
+                beVar6.a(false, str, null, null);
+                return;
+            }
+            return;
+        }
+        com.baidu.tieba.a.bf bfVar = new com.baidu.tieba.a.bf();
+        bfVar.a(this.c);
+        if (bfVar.b() != null) {
+            biVar = this.a.f;
+            if (biVar != null) {
+                biVar2 = this.a.f;
+                biVar2.h(bfVar.a());
+                biVar3 = this.a.f;
+                biVar3.i(bfVar.b());
+                beVar3 = this.a.g;
+                if (beVar3 != null) {
+                    beVar4 = this.a.g;
+                    biVar4 = this.a.f;
+                    beVar4.a(false, str, bfVar, biVar4);
+                    return;
+                }
+                return;
             }
         }
-    }
-
-    public com.baidu.tieba.d.a h() {
-        return this.n;
-    }
-
-    public void c(String str) {
-        this.j = str;
-    }
-
-    public String i() {
-        return this.j;
-    }
-
-    public void a(long j) {
-        this.g = j;
-    }
-
-    public long j() {
-        return this.g;
-    }
-
-    public void b(long j) {
-        this.h = j;
-    }
-
-    public long k() {
-        return this.h;
-    }
-
-    public long l() {
-        return this.h + this.i;
-    }
-
-    public void c(long j) {
-        this.i = j;
-    }
-
-    public long m() {
-        return this.i;
-    }
-
-    public void b(boolean z) {
-        this.k = z;
-    }
-
-    public boolean n() {
-        return this.k;
-    }
-
-    public void c(boolean z) {
-        this.l = z;
-    }
-
-    public boolean o() {
-        return this.l;
-    }
-
-    public void p() {
-        if (this.o != null) {
-            this.o.cancel();
+        beVar = this.a.g;
+        if (beVar != null) {
+            beVar2 = this.a.g;
+            beVar2.a(false, str, null, null);
         }
-        if (this.p != null) {
-            this.p.cancel();
-        }
-        if (this.n != null) {
-            this.n.b();
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.a.a
+    public void a(String str) {
+        be beVar;
+        be beVar2;
+        be beVar3;
+        super.a((Object) str);
+        com.baidu.tieba.d.ae.e(getClass().getName(), "onPostExecute", "result:" + str);
+        this.a.e = null;
+        if (!this.d) {
+            if (str == null) {
+                beVar = this.a.g;
+                beVar.a(false, TiebaApplication.d().getString(R.string.neterror), null, null);
+            } else if (this.b.a()) {
+                com.baidu.tieba.a.o oVar = new com.baidu.tieba.a.o();
+                oVar.b(this.c);
+                if (oVar.b() == null || oVar.b().length() <= 0) {
+                    oVar.a(TiebaApplication.d().getString(R.string.send_success));
+                    beVar2 = this.a.g;
+                    if (beVar2 != null) {
+                        beVar3 = this.a.g;
+                        beVar3.a(true, oVar.b(), null, null);
+                        return;
+                    }
+                    return;
+                }
+                a(oVar.a(), oVar.b());
+            } else {
+                a(this.b.b(), this.b.c());
+            }
         }
     }
 }

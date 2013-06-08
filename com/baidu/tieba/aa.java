@@ -19,7 +19,7 @@ class aa implements Runnable {
         Bitmap bitmap;
         ImageView imageView2;
         AlphaAnimation alphaAnimation;
-        this.a.g = com.baidu.tieba.d.e.a(this.a, (int) R.drawable.logo);
+        this.a.g = com.baidu.tieba.d.d.a(this.a, (int) R.drawable.logo);
         imageView = this.a.f;
         bitmap = this.a.g;
         imageView.setImageBitmap(bitmap);

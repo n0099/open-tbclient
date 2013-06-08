@@ -5,13 +5,18 @@ import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.KeyEvent;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
+import android.widget.FrameLayout;
 import com.baidu.mobstat.StatService;
 import com.baidu.tieba.compatible.CompatibleUtile;
+import com.baidu.tieba.view.GuidPageView;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public class e extends com.baidu.adp.a.a {
@@ -19,6 +24,7 @@ public class e extends com.baidu.adp.a.a {
     private DialogInterface.OnCancelListener c = null;
     private AlertDialog d = null;
     protected int b = -1;
+    private GuidPageView e = null;
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.a.a, android.app.Activity
@@ -28,9 +34,9 @@ public class e extends com.baidu.adp.a.a {
             CompatibleUtile.getInstance().openGpu(this);
         }
         com.baidu.tieba.account.a.a().c();
-        TiebaApplication.q(true);
+        TiebaApplication.t(true);
         TiebaApplication.d().a(getClass().getName());
-        if (TiebaApplication.d().n()) {
+        if (TiebaApplication.d().o()) {
             try {
                 StatService.setAppChannel(com.baidu.tieba.a.i.a());
             } catch (Exception e) {
@@ -76,6 +82,9 @@ public class e extends com.baidu.adp.a.a {
     @Override // android.app.Activity
     public void onDestroy() {
         h();
+        if (this.e != null) {
+            this.e.a();
+        }
         super.onDestroy();
     }
 
@@ -173,8 +182,8 @@ public class e extends com.baidu.adp.a.a {
     @Override // android.app.Activity
     public void onPause() {
         super.onPause();
-        TiebaApplication.d().av();
-        if (TiebaApplication.d().n()) {
+        TiebaApplication.d().aE();
+        if (TiebaApplication.d().o()) {
             try {
                 StatService.onPause(this);
             } catch (Exception e) {
@@ -192,18 +201,18 @@ public class e extends com.baidu.adp.a.a {
     @Override // android.app.Activity
     public void onResume() {
         super.onResume();
-        if (TiebaApplication.d().ai() != this.b) {
-            this.b = TiebaApplication.d().ai();
+        if (TiebaApplication.d().ar() != this.b) {
+            this.b = TiebaApplication.d().ar();
             b(this.b);
         }
-        if (TiebaApplication.d().n()) {
+        if (TiebaApplication.d().o()) {
             try {
                 StatService.onResume(this);
             } catch (Exception e) {
                 com.baidu.tieba.d.ae.b(getClass().getName(), "onResume", e.getMessage());
             }
         }
-        TiebaApplication.d().au();
+        TiebaApplication.d().aD();
         TiebaApplication.d().a(getClass().getName());
     }
 
@@ -225,5 +234,20 @@ public class e extends com.baidu.adp.a.a {
     /* JADX INFO: Access modifiers changed from: protected */
     public void l() {
         com.baidu.tieba.d.ag.a((Activity) this);
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    public void a(int i, int i2) {
+        Bitmap b;
+        if (!TiebaApplication.d().b(i2)) {
+            this.e = (GuidPageView) getLayoutInflater().inflate(R.layout.guid_page, (ViewGroup) null);
+            if (this.e != null && (b = com.baidu.tieba.d.d.b(this, i)) != null) {
+                this.e.setBackgroundDrawable(new BitmapDrawable(b));
+                addContentView(this.e, new FrameLayout.LayoutParams(-1, -1));
+                TiebaApplication.d().c(i2);
+            }
+        } else if (this.e != null) {
+            this.e.setVisibility(8);
+        }
     }
 }

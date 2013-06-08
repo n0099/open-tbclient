@@ -24,7 +24,7 @@ public class s {
     private int j = 0;
     private int k = 0;
     private int q = 0;
-    private aw n = new aw();
+    private ax n = new ax();
     private ArrayList o = new ArrayList();
     private ArrayList p = new ArrayList();
     private String r = null;
@@ -68,12 +68,12 @@ public class s {
         return this.k;
     }
 
-    public aw g() {
+    public ax g() {
         return this.n;
     }
 
-    public void a(aw awVar) {
-        this.n = awVar;
+    public void a(ax axVar) {
+        this.n = axVar;
     }
 
     public ArrayList h() {

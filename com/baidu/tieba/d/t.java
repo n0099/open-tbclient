@@ -79,19 +79,19 @@ public class t {
     }
 
     private void m() {
-        String A = TiebaApplication.A();
-        if (A != null) {
-            this.a.a("BDUSS", A);
+        String C = TiebaApplication.C();
+        if (C != null) {
+            this.a.a("BDUSS", C);
         }
     }
 
     private void n() {
-        String A = TiebaApplication.A();
-        BasicNameValuePair basicNameValuePair = new BasicNameValuePair("BDUSS", A);
-        BasicNameValuePair basicNameValuePair2 = new BasicNameValuePair("tbs", TiebaApplication.d().K());
-        ae.a("NetWork", "modSessionData", "== BDUSS:" + A);
-        ae.a("NetWork", "modSessionData", "== TBS:" + TiebaApplication.d().K());
-        if (A != null) {
+        String C = TiebaApplication.C();
+        BasicNameValuePair basicNameValuePair = new BasicNameValuePair("BDUSS", C);
+        BasicNameValuePair basicNameValuePair2 = new BasicNameValuePair("tbs", TiebaApplication.d().M());
+        ae.a("NetWork", "modSessionData", "== BDUSS:" + C);
+        ae.a("NetWork", "modSessionData", "== TBS:" + TiebaApplication.d().M());
+        if (C != null) {
             ArrayList s = this.a.s();
             int size = s.size();
             for (int i = 0; i < size; i++) {
@@ -111,28 +111,24 @@ public class t {
 
     private void o() {
         this.a.a("_client_type", "2");
-        this.a.a("_client_version", com.baidu.tieba.a.i.h());
+        this.a.a("_client_version", com.baidu.tieba.a.i.i());
         if (TiebaApplication.d().k() != null) {
             this.a.a("_phone_imei", TiebaApplication.d().k());
         }
-        String L = TiebaApplication.L();
-        if (L != null) {
-            this.a.a("_client_id", L);
+        String N = TiebaApplication.N();
+        if (N != null) {
+            this.a.a("_client_id", N);
         }
-        String u = TiebaApplication.u();
-        if (u != null && u.length() > 0) {
-            this.a.a("from", u);
+        String v = TiebaApplication.v();
+        if (v != null && v.length() > 0) {
+            this.a.a("from", v);
         }
         String b = this.a.b();
         if (b != null) {
             this.a.a("net_type", b);
         }
         if (this.c) {
-            if (TiebaApplication.i()) {
-                this.a.a("tbs", "ignore");
-            } else {
-                this.a.a("tbs", TiebaApplication.d().K());
-            }
+            this.a.a("tbs", TiebaApplication.d().M());
         }
         String j = TiebaApplication.d().j();
         if (j != null) {
@@ -185,7 +181,7 @@ public class t {
         }
     }
 
-    public com.baidu.tieba.c.af a(String str, String str2, boolean z) {
+    public com.baidu.tieba.c.ai a(String str, String str2, boolean z) {
         String n;
         try {
             ae.a(getClass().toString(), "login", "=== need auto login");
@@ -210,30 +206,30 @@ public class t {
             ae.b(getClass().toString(), "login", e.getMessage());
         }
         if (this.b.f() && n != null) {
-            com.baidu.tieba.c.af afVar = new com.baidu.tieba.c.af();
-            afVar.a(n);
-            String a = afVar.a().a();
+            com.baidu.tieba.c.ai aiVar = new com.baidu.tieba.c.ai();
+            aiVar.a(n);
+            String a = aiVar.a().a();
             if (a == null || a.length() <= 0) {
                 this.b.b(this.b.r().getString(R.string.neterror));
                 return null;
             }
             com.baidu.tieba.a.a aVar = new com.baidu.tieba.a.a();
-            aVar.b(afVar.a().c());
-            if (afVar.a().g() != null) {
-                aVar.c(afVar.a().g());
+            aVar.b(aiVar.a().c());
+            if (aiVar.a().g() != null) {
+                aVar.c(aiVar.a().g());
             } else {
                 aVar.c(str2);
             }
-            aVar.a(afVar.a().a());
-            aVar.d(afVar.a().j());
+            aVar.a(aiVar.a().a());
+            aVar.d(aiVar.a().l());
             aVar.a(1);
-            if (afVar.b() != null) {
-                aVar.e(afVar.b().b());
+            if (aiVar.b() != null) {
+                aVar.e(aiVar.b().b());
             }
             k.a(aVar);
             TiebaApplication.b(aVar);
             com.baidu.tieba.account.a.a().b();
-            return afVar;
+            return aiVar;
         }
         if (this.b.g()) {
             switch (this.b.h()) {
@@ -298,23 +294,23 @@ public class t {
             if (this.a.h() == 1 && this.d) {
                 this.a.j();
                 if (TiebaApplication.i()) {
-                    String backgroundReLogin = BaiduAccount.get(TiebaApplication.d()).backgroundReLogin(TiebaApplication.D(), TiebaApplication.A(), new u(this), new v(this));
+                    String backgroundReLogin = BaiduAccount.get(TiebaApplication.d()).backgroundReLogin(TiebaApplication.F(), TiebaApplication.C(), new u(this), new v(this));
                     if (backgroundReLogin != null) {
-                        k.b(TiebaApplication.D(), backgroundReLogin);
+                        k.b(TiebaApplication.F(), backgroundReLogin);
                         TiebaApplication.f(backgroundReLogin);
                         p = b(i);
                     } else {
                         p = null;
                     }
                 } else {
-                    com.baidu.tieba.a.a C = TiebaApplication.C();
-                    if (C == null) {
-                        C = k.m();
+                    com.baidu.tieba.a.a E = TiebaApplication.E();
+                    if (E == null) {
+                        E = k.n();
                     }
-                    if (C == null) {
+                    if (E == null) {
                         TiebaApplication.d().c.sendMessage(TiebaApplication.d().c.obtainMessage(1));
                         return null;
-                    } else if (a(C.b(), C.c(), true) == null) {
+                    } else if (a(E.b(), E.c(), true) == null) {
                         if (this.b != null) {
                             this.a.b(this.b.i());
                             return null;

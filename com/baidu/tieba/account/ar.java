@@ -24,8 +24,8 @@ class ar implements View.OnClickListener {
         RelativeLayout relativeLayout;
         ImageView imageView4;
         aw awVar;
-        com.baidu.tieba.c.af afVar;
-        com.baidu.tieba.c.af afVar2;
+        com.baidu.tieba.c.ai aiVar;
+        com.baidu.tieba.c.ai aiVar2;
         aw awVar2;
         Button button3;
         ax axVar;
@@ -60,12 +60,12 @@ class ar implements View.OnClickListener {
                             }
                             awVar = this.a.Q;
                             if (awVar == null) {
-                                afVar = this.a.S;
-                                if (afVar != null) {
+                                aiVar = this.a.S;
+                                if (aiVar != null) {
                                     Register2Activity register2Activity = this.a;
                                     Register2Activity register2Activity2 = this.a;
-                                    afVar2 = this.a.S;
-                                    register2Activity.Q = new aw(register2Activity2, afVar2.b().d());
+                                    aiVar2 = this.a.S;
+                                    register2Activity.Q = new aw(register2Activity2, aiVar2.b().d());
                                     awVar2 = this.a.Q;
                                     awVar2.execute(new String[0]);
                                     return;

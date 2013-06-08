@@ -41,7 +41,7 @@ public class bb {
 
     private static Bitmap a(int i) {
         try {
-            return com.baidu.tieba.d.e.a("camera.jpg", i);
+            return com.baidu.tieba.d.d.a("camera.jpg", i);
         } catch (Exception e) {
             com.baidu.tieba.d.ae.b("WriteUtil", "photoResult", "error = " + e.getMessage());
             return null;
@@ -50,7 +50,7 @@ public class bb {
 
     private static Bitmap a(Context context, Uri uri, int i) {
         try {
-            return com.baidu.tieba.d.e.a(context, uri, i);
+            return com.baidu.tieba.d.d.a(context, uri, i);
         } catch (Exception e) {
             com.baidu.tieba.d.ae.b("WriteUtil", "AlbumImageResult", "error = " + e.getMessage());
             return null;

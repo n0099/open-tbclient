@@ -24,7 +24,7 @@ public class o implements DialogInterface.OnClickListener {
                 case 0:
                     if (!this.b.j()) {
                         eVar2 = this.a.b;
-                        PostActivity.a(eVar2, this.b.g(), this.b.h(), "mention");
+                        NewPbActivity.a(eVar2, this.b.g(), this.b.h(), "mention");
                         return;
                     }
                     this.a.b(this.b);

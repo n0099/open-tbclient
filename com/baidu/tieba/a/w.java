@@ -7,7 +7,7 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class w {
-    private aq c;
+    private ar c;
     private ArrayList d;
     private Context l;
     private String a = null;
@@ -25,11 +25,11 @@ public class w {
         this.d = null;
         this.l = null;
         this.l = context;
-        this.c = new aq();
+        this.c = new ar();
         this.d = new ArrayList();
     }
 
-    public aq a() {
+    public ar a() {
         return this.c;
     }
 
@@ -90,7 +90,7 @@ public class w {
             }
             this.c.a(this.d);
             if (this.l != null) {
-                this.c.e(this.l);
+                this.c.d(this.l);
             }
         } catch (Exception e) {
             com.baidu.tieba.d.ae.b(getClass().getName(), "paserJson", e.toString());

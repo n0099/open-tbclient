@@ -3,7 +3,6 @@ package com.baidu.tieba.home;
 import android.app.Activity;
 import android.content.DialogInterface;
 import android.content.IntentFilter;
-import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.Menu;
@@ -20,10 +19,10 @@ import com.baidu.tieba.more.AccountActivity;
 import com.baidu.tieba.write.WriteActivity;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-public class EnterForumActivity extends com.baidu.tieba.e implements AbsListView.OnScrollListener, com.baidu.tieba.d.d {
+public class EnterForumActivity extends com.baidu.tieba.e implements AbsListView.OnScrollListener, com.baidu.tbadk.a.d {
     t c = null;
-    private com.baidu.tieba.c.g d = null;
-    private com.baidu.tieba.c.ad e = null;
+    private com.baidu.tieba.c.j d = null;
+    private com.baidu.tieba.c.ag e = null;
     private k f = null;
     private com.baidu.tieba.a.p g = null;
     private Boolean h = false;
@@ -70,9 +69,9 @@ public class EnterForumActivity extends com.baidu.tieba.e implements AbsListView
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         m();
-        this.d = new com.baidu.tieba.c.g();
+        this.d = new com.baidu.tieba.c.j();
         this.d.a(new g(this));
-        this.e = new com.baidu.tieba.c.ad();
+        this.e = new com.baidu.tieba.c.ag();
         this.e.a(new h(this));
         b();
         this.c = new t(this, this.l);
@@ -149,7 +148,7 @@ public class EnterForumActivity extends com.baidu.tieba.e implements AbsListView
             case 3:
                 com.baidu.tieba.a.b bVar = new com.baidu.tieba.a.b();
                 bVar.a(1);
-                WriteActivity.a(this, com.baidu.tieba.a.i.f(), com.baidu.tieba.a.i.e(), bVar);
+                WriteActivity.a(this, com.baidu.tieba.a.i.g(), com.baidu.tieba.a.i.f(), bVar);
                 break;
             case 4:
                 AboutActivity.a(this);
@@ -204,10 +203,10 @@ public class EnterForumActivity extends com.baidu.tieba.e implements AbsListView
         } else if (view.getId() == this.c.k()) {
             LoginActivity.a(this, "goto_home", getString(R.string.login_home_tab), 1100003);
         } else if (view.getId() == this.c.l()) {
-            String z = TiebaApplication.z();
-            if (z == null || z.length() <= 0) {
+            String B = TiebaApplication.B();
+            if (B == null || B.length() <= 0) {
                 LoginActivity.a((Activity) this, getString(R.string.login_to_use), true, 1100002);
-            } else if (view != null && view.getTag() != null && (view.getTag() instanceof com.baidu.tieba.a.p) && !this.e.f()) {
+            } else if ((view.getTag() instanceof com.baidu.tieba.a.p) && !this.e.f()) {
                 this.c.b();
                 com.baidu.tieba.a.p pVar2 = (com.baidu.tieba.a.p) view.getTag();
                 this.e.a(pVar2.b(), pVar2.a());
@@ -251,7 +250,7 @@ public class EnterForumActivity extends com.baidu.tieba.e implements AbsListView
                 }
             } else if (this.c.b(i).equals(6)) {
                 this.c.d();
-                TiebaApplication.d().s();
+                TiebaApplication.d().t();
             } else if (this.c.b(i).equals(0)) {
                 SearchActivity.a(this, getString(R.string.home));
             }
@@ -279,17 +278,16 @@ public class EnterForumActivity extends com.baidu.tieba.e implements AbsListView
         boolean z2;
         boolean z3 = false;
         boolean booleanValue = this.h.booleanValue();
-        this.h = Boolean.valueOf((TiebaApplication.z() == null || TiebaApplication.D() == null) ? false : true);
-        if (this.d.d().c().size() > 0 || this.d.d().d().size() > 0) {
-            z2 = false;
-        } else {
-            z3 = true;
+        this.h = Boolean.valueOf((TiebaApplication.B() == null || TiebaApplication.F() == null) ? false : true);
+        if (this.d.d().c().size() <= 0 && this.d.d().d().size() <= 0) {
             z2 = true;
-        }
-        if (booleanValue != this.h.booleanValue()) {
+        } else if (booleanValue != this.h.booleanValue()) {
+            z2 = false;
             z3 = true;
+        } else {
+            z2 = false;
         }
-        if (TiebaApplication.d().M()) {
+        if (TiebaApplication.d().O()) {
             z3 = true;
         }
         boolean z4 = z ? true : z3;
@@ -318,9 +316,9 @@ public class EnterForumActivity extends com.baidu.tieba.e implements AbsListView
         this.c.a(this.d, this.h.booleanValue(), this.b);
     }
 
-    @Override // com.baidu.tieba.d.d
-    public void a(Bitmap bitmap, String str, boolean z) {
-        if (bitmap != null) {
+    @Override // com.baidu.tbadk.a.d
+    public void a(com.baidu.adp.widget.a.b bVar, String str, boolean z) {
+        if (bVar != null) {
             this.c.a(str);
         }
     }

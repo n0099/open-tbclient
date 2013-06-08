@@ -1,67 +1,46 @@
 package com.baidu.tieba.a;
 
-import android.webkit.URLUtil;
-import java.io.Serializable;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
-public class bf implements Serializable {
-    private String c;
-    private int e;
-    private String f;
-    private String h;
-    private int a = 0;
-    private int d = 0;
+public class bf {
+    private String a = null;
     private String b = null;
-    private String g = null;
-
-    public bf() {
-        a((String) null);
-        this.c = null;
-    }
+    private String c = null;
 
     public String a() {
-        return this.f;
-    }
-
-    public int b() {
         return this.a;
     }
 
-    public String c() {
+    public String b() {
         return this.b;
     }
 
-    public String d() {
-        return this.g;
+    public String c() {
+        return this.c;
     }
 
-    public int e() {
-        return this.d;
+    public void a(String str) {
+        try {
+            JSONObject jSONObject = new JSONObject(str);
+            JSONObject optJSONObject = jSONObject.optJSONObject("info");
+            if (optJSONObject == null) {
+                optJSONObject = jSONObject.optJSONObject("anti");
+            }
+            a(optJSONObject);
+        } catch (Exception e) {
+            com.baidu.tieba.d.ae.b("VcodeInfoData", "parserJson", "error = " + e.getMessage());
+        }
     }
 
     public void a(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                this.a = jSONObject.optInt("force_update", 0);
-                this.b = jSONObject.optString("new_version", null);
-                this.g = jSONObject.optString("new_version_url");
-                this.e = jSONObject.optInt("new_version_remind", 0);
-                this.f = jSONObject.optString("new_version_desc", null);
-                if (this.e == 1 && this.g != null && URLUtil.isHttpUrl(this.g) && this.b != null && !i.h().equalsIgnoreCase(this.b)) {
-                    this.d = 1;
-                    this.c = "tieba_" + this.b + ".apk";
-                }
+                this.a = jSONObject.optString("vcode_md5");
+                this.b = jSONObject.optString("vcode_pic_url");
+                this.c = jSONObject.optString("vcode_type");
             } catch (Exception e) {
-                com.baidu.tieba.d.ae.b(getClass().getName(), "parserJson", e.getMessage());
+                com.baidu.tieba.d.ae.b("VcodeInfoData", "parserJson", "error = " + e.getMessage());
             }
         }
-    }
-
-    public void a(String str) {
-        this.h = str;
-    }
-
-    public String f() {
-        return this.c;
     }
 }

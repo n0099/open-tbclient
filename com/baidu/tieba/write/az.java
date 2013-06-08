@@ -45,7 +45,7 @@ public class az extends com.baidu.adp.lib.a.a {
             if (Build.VERSION.SDK_INT >= 7) {
                 z = this.a.v;
                 if (z) {
-                    Bitmap a2 = com.baidu.tieba.d.e.a(com.baidu.tieba.d.e.b(c, a), com.baidu.tieba.d.ag.a(this.a, 5.0f));
+                    Bitmap a2 = com.baidu.tieba.d.d.a(com.baidu.tieba.d.d.b(c, a), com.baidu.tieba.d.ag.a(this.a, 5.0f));
                     this.a.B = new HashMap();
                     this.a.C = new HashMap();
                     hashMap = this.a.B;

@@ -49,7 +49,7 @@ public class CustomTextView extends TextView {
     }
 
     private void a(SpannableStringBuilder spannableStringBuilder, int i, int i2) {
-        f b = b(spannableStringBuilder, i, i2);
+        g b = b(spannableStringBuilder, i, i2);
         if (b.a) {
             a(i, i2, spannableStringBuilder, b);
         } else {
@@ -57,7 +57,7 @@ public class CustomTextView extends TextView {
         }
     }
 
-    private f b(SpannableStringBuilder spannableStringBuilder, int i, int i2) {
+    private g b(SpannableStringBuilder spannableStringBuilder, int i, int i2) {
         Object[] spans = spannableStringBuilder.getSpans(0, spannableStringBuilder.length(), Object.class);
         ArrayList arrayList = new ArrayList(spans.length);
         ArrayList arrayList2 = new ArrayList(spans.length);
@@ -74,13 +74,13 @@ public class CustomTextView extends TextView {
             }
             try {
                 a((CharSequence) spannableStringBuilder, i, i2);
-                return f.a(arrayList, arrayList2);
+                return g.a(arrayList, arrayList2);
             } catch (IndexOutOfBoundsException e) {
                 com.baidu.tieba.d.ae.b(getClass().getName(), "addSpacesAroundSpansUntilFixed", e.getMessage());
             }
         }
         com.baidu.tieba.d.ae.e(getClass().getName(), "addSpacesAroundSpansUntilFixed", "Could not fix the Spanned by adding spaces around spans");
-        return f.a();
+        return g.a();
     }
 
     private boolean a(CharSequence charSequence, int i) {
@@ -92,8 +92,8 @@ public class CustomTextView extends TextView {
         super.onMeasure(i, i2);
     }
 
-    private void a(int i, int i2, SpannableStringBuilder spannableStringBuilder, f fVar) {
-        for (Object obj : fVar.c) {
+    private void a(int i, int i2, SpannableStringBuilder spannableStringBuilder, g gVar) {
+        for (Object obj : gVar.c) {
             int spanEnd = spannableStringBuilder.getSpanEnd(obj);
             spannableStringBuilder.delete(spanEnd, spanEnd + 1);
             try {
@@ -103,7 +103,7 @@ public class CustomTextView extends TextView {
             }
         }
         boolean z = true;
-        for (Object obj2 : fVar.b) {
+        for (Object obj2 : gVar.b) {
             int spanStart = spannableStringBuilder.getSpanStart(obj2);
             spannableStringBuilder.delete(spanStart - 1, spanStart);
             try {

@@ -1,7 +1,6 @@
 package com.baidu.tieba.d;
 
 import android.content.Context;
-import android.graphics.Bitmap;
 import android.text.SpannableStringBuilder;
 import android.text.method.LinkMovementMethod;
 import android.view.View;
@@ -27,7 +26,7 @@ public class g {
         this.a = context;
         TextView textView = new TextView(this.a);
         textView.setLineSpacing(0.0f, 1.2f);
-        textView.setTextSize(com.baidu.tieba.a.i.m());
+        textView.setTextSize(com.baidu.tieba.a.i.n());
         this.b = textView.getLineHeight();
         this.c = (int) textView.getTextSize();
     }
@@ -49,7 +48,7 @@ public class g {
                     textView2 = null;
                     i = 0;
                 } else {
-                    textView.setTextSize(com.baidu.tieba.a.i.m());
+                    textView.setTextSize(com.baidu.tieba.a.i.n());
                     textView.setVisibility(0);
                     a(textView, kVar);
                     i = 1;
@@ -169,8 +168,8 @@ public class g {
         layoutParams.topMargin = a;
         layoutParams.bottomMargin = 0;
         customTextView.setLineSpacing(0.0f, 1.2f);
-        customTextView.setTextSize(com.baidu.tieba.a.i.m());
-        if (TiebaApplication.d().ai() == 1) {
+        customTextView.setTextSize(com.baidu.tieba.a.i.n());
+        if (TiebaApplication.d().ar() == 1) {
             customTextView.setTextColor(ac.a(1));
         } else {
             customTextView.setTextColor(this.g);
@@ -189,15 +188,15 @@ public class g {
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, a);
         layoutParams.topMargin = ag.a(this.a, 15.0f);
         layoutParams.bottomMargin = 0;
-        Bitmap c = this.d.c(kVar.f());
+        com.baidu.adp.widget.a.b c = this.d.c(kVar.f());
         imageView.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
         imageView.setMaxWidth(a2);
         if (c != null) {
             imageView.setTag(null);
-            imageView.setImageBitmap(c);
+            c.b(imageView);
         } else {
             imageView.setTag(kVar.f());
-            imageView.setImageBitmap(e.a((int) R.drawable.image_default));
+            imageView.setImageBitmap(d.a((int) R.drawable.image_default));
         }
         imageView.setClickable(true);
         imageView.setFocusable(false);

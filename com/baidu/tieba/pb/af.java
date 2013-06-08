@@ -8,14 +8,14 @@ import com.baidu.tieba.write.VcodeActivity;
 /* loaded from: classes.dex */
 public class af extends com.baidu.adp.lib.a.a {
     final /* synthetic */ ImagePbActivity a;
-    private com.baidu.tieba.c.bp b;
+    private com.baidu.tieba.c.bs b;
     private com.baidu.tieba.d.t c = null;
     private boolean d = false;
 
-    public af(ImagePbActivity imagePbActivity, com.baidu.tieba.c.bp bpVar) {
+    public af(ImagePbActivity imagePbActivity, com.baidu.tieba.c.bs bsVar) {
         this.a = imagePbActivity;
         this.b = null;
-        this.b = bpVar;
+        this.b = bsVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -34,7 +34,7 @@ public class af extends com.baidu.adp.lib.a.a {
         if (this.b.j() != null && this.b.j().length() > 0) {
             this.c.a("vcode", this.b.j());
         }
-        if (TiebaApplication.d().al() < 3) {
+        if (TiebaApplication.d().au() < 3) {
             this.c.a("vcode_tag", "11");
         }
         this.c.a("quote_id", this.b.f());
@@ -45,12 +45,12 @@ public class af extends com.baidu.adp.lib.a.a {
 
     private void a(int i, String str, String str2) {
         if (i == 5 || i == 6) {
-            com.baidu.tieba.a.be beVar = new com.baidu.tieba.a.be();
-            beVar.a(str2);
-            if (beVar.b() != null) {
-                this.b.h(beVar.a());
-                this.b.i(beVar.b());
-                if (beVar.c().equals("4")) {
+            com.baidu.tieba.a.bf bfVar = new com.baidu.tieba.a.bf();
+            bfVar.a(str2);
+            if (bfVar.b() != null) {
+                this.b.h(bfVar.a());
+                this.b.i(bfVar.b());
+                if (bfVar.c().equals("4")) {
                     NewVcodeActivity.a(this.a, this.b, 1200006);
                     return;
                 } else {

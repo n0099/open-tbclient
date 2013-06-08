@@ -1,38 +1,39 @@
 package com.baidu.tieba.pb;
+
+import android.view.MotionEvent;
+import android.view.View;
+import com.baidu.mobstat.StatService;
+import com.baidu.tieba.TiebaApplication;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class by implements Runnable {
-    final /* synthetic */ bx a;
-    private final /* synthetic */ com.baidu.tieba.a.ax b;
-    private final /* synthetic */ boolean c;
-    private final /* synthetic */ String d;
+public class by implements View.OnTouchListener {
+    final /* synthetic */ bk a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public by(bx bxVar, com.baidu.tieba.a.ax axVar, boolean z, String str) {
-        this.a = bxVar;
-        this.b = axVar;
-        this.c = z;
-        this.d = str;
+    public by(bk bkVar) {
+        this.a = bkVar;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        bl blVar;
-        cq cqVar;
-        bl blVar2;
-        cr crVar;
-        bl blVar3;
-        cq cqVar2;
-        blVar = this.a.a;
-        cqVar = blVar.ap;
-        if (cqVar != null) {
-            blVar3 = this.a.a;
-            cqVar2 = blVar3.ap;
-            cqVar2.a(this.b);
+    @Override // android.view.View.OnTouchListener
+    public boolean onTouch(View view, MotionEvent motionEvent) {
+        boolean z;
+        com.baidu.tieba.e eVar;
+        com.baidu.tieba.e eVar2;
+        if (motionEvent.getAction() == 1) {
+            z = this.a.an;
+            if (!z && !this.a.y()) {
+                this.a.z();
+                this.a.V();
+                this.a.a.setSelection(this.a.a.getText().length());
+                this.a.a.requestFocus();
+                eVar = this.a.b;
+                eVar.a(this.a.a, 100);
+                if (TiebaApplication.d().o()) {
+                    eVar2 = this.a.b;
+                    StatService.onEvent(eVar2, "pb_reply", "pbclick", 1);
+                }
+            }
         }
-        if (this.c) {
-            blVar2 = this.a.a;
-            crVar = blVar2.A;
-            crVar.b(this.d);
-        }
+        return false;
     }
 }

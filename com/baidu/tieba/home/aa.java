@@ -19,12 +19,12 @@ class aa implements DialogInterface.OnClickListener {
         searchActivity = this.a.a;
         i2 = searchActivity.B;
         if (i2 == 0) {
-            com.baidu.tieba.d.k.p();
+            com.baidu.tieba.d.k.q();
             searchActivity3 = this.a.a;
             searchActivity3.o();
             return;
         }
-        com.baidu.tieba.d.k.q();
+        com.baidu.tieba.d.k.r();
         searchActivity2 = this.a.a;
         searchActivity2.q();
     }

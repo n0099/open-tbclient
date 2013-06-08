@@ -3,7 +3,7 @@ package com.baidu.tieba.home;
 import android.widget.FrameLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
-import com.baidu.tieba.c.bn;
+import com.baidu.tieba.c.bq;
 import org.apache.http.message.BasicNameValuePair;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
@@ -39,8 +39,8 @@ public class ao extends com.baidu.adp.lib.a.a {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.a.a
     /* renamed from: d */
-    public bn a(Object... objArr) {
-        bn bnVar;
+    public bq a(Object... objArr) {
+        bq bqVar;
         Exception e;
         try {
             this.c = new com.baidu.tieba.d.t(this.d);
@@ -49,17 +49,17 @@ public class ao extends com.baidu.adp.lib.a.a {
             if (!this.c.b() || i == null) {
                 return null;
             }
-            bnVar = new bn();
+            bqVar = new bq();
             try {
-                bnVar.a(i);
-                return bnVar;
+                bqVar.a(i);
+                return bqVar;
             } catch (Exception e2) {
                 e = e2;
                 com.baidu.tieba.d.ae.b(getClass().getName(), "", "doInBackground error = " + e.getMessage());
-                return bnVar;
+                return bqVar;
             }
         } catch (Exception e3) {
-            bnVar = null;
+            bqVar = null;
             e = e3;
         }
     }
@@ -67,12 +67,12 @@ public class ao extends com.baidu.adp.lib.a.a {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.a.a
-    public void a(bn bnVar) {
+    public void a(bq bqVar) {
         ProgressBar progressBar;
         progressBar = this.b.s;
         progressBar.setVisibility(8);
-        if (bnVar != null) {
-            this.b.w = bnVar;
+        if (bqVar != null) {
+            this.b.w = bqVar;
             this.b.r();
         }
         this.b.y = null;

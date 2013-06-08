@@ -11,13 +11,13 @@ public class i implements Runnable {
 
     @Override // java.lang.Runnable
     public void run() {
-        com.baidu.tieba.c.g gVar;
-        com.baidu.tieba.c.g gVar2;
+        com.baidu.tieba.c.j jVar;
+        com.baidu.tieba.c.j jVar2;
         try {
-            gVar = this.a.d;
-            if (gVar != null) {
-                gVar2 = this.a.d;
-                if (gVar2.d().d().size() > 0) {
+            jVar = this.a.d;
+            if (jVar != null) {
+                jVar2 = this.a.d;
+                if (jVar2.d().d().size() > 0) {
                     this.a.c.v();
                 }
             }

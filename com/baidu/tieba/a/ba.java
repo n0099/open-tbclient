@@ -3,44 +3,31 @@ package com.baidu.tieba.a;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class ba {
-    private String a = null;
+    private int a = 0;
     private String b = null;
-    private String c = null;
-    private int d = -1;
-    private boolean e = false;
 
-    public void a(String str) {
-        this.a = str;
-    }
-
-    public String a() {
+    public int a() {
         return this.a;
-    }
-
-    public void b(String str) {
-        this.b = str;
     }
 
     public String b() {
         return this.b;
     }
 
-    public void a(JSONObject jSONObject) {
-        if (jSONObject != null) {
-            try {
-                this.b = jSONObject.optString("tag_name");
-                this.a = jSONObject.optString("tag_id");
-            } catch (Exception e) {
-                com.baidu.tieba.d.ae.b("TagData", "parserJson", "error = " + e.getMessage());
-            }
+    public void a(String str) {
+        try {
+            a(new JSONObject(str).optJSONObject("error"));
+        } catch (Exception e) {
+            com.baidu.tieba.d.ae.b(getClass().getName(), "parserJson", e.toString());
         }
     }
 
-    public void a(int i) {
-        this.d = i;
-    }
-
-    public int c() {
-        return this.d;
+    public void a(JSONObject jSONObject) {
+        try {
+            this.a = jSONObject.optInt("errno");
+            this.b = jSONObject.optString("usermsg");
+        } catch (Exception e) {
+            com.baidu.tieba.d.ae.b(getClass().getName(), "parserJson", e.toString());
+        }
     }
 }

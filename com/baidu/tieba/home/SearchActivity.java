@@ -16,8 +16,8 @@ import android.widget.ProgressBar;
 import android.widget.RadioButton;
 import android.widget.TextView;
 import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.a.av;
-import com.baidu.tieba.c.bn;
+import com.baidu.tieba.a.aw;
+import com.baidu.tieba.c.bq;
 import com.baidu.tieba.frs.FrsActivity;
 import com.baidu.zeus.WebChromeClient;
 import com.slidingmenu.lib.R;
@@ -45,8 +45,8 @@ public class SearchActivity extends com.baidu.tieba.e {
     private Button t = null;
     private View u = null;
     private TextView v = null;
-    private bn w = null;
-    private av x = null;
+    private bq w = null;
+    private aw x = null;
     private ao y = null;
     private an z = null;
     private String A = null;
@@ -133,7 +133,7 @@ public class SearchActivity extends com.baidu.tieba.e {
         this.c.requestFocus();
         o();
         a(this.c, WebChromeClient.STRING_DLG_BTN_SET);
-        if (TiebaApplication.d().m()) {
+        if (TiebaApplication.d().n()) {
             this.j.setChecked(true);
             c(0);
             return;
@@ -201,13 +201,13 @@ public class SearchActivity extends com.baidu.tieba.e {
     /* JADX INFO: Access modifiers changed from: private */
     public void o() {
         this.p.setVisibility(8);
-        ArrayList n = com.baidu.tieba.d.k.n();
-        if (n != null && n.size() > 0) {
+        ArrayList o = com.baidu.tieba.d.k.o();
+        if (o != null && o.size() > 0) {
             this.m.setVisibility(0);
             this.n.setVisibility(0);
             this.p.setVisibility(8);
             this.v.setVisibility(8);
-            this.o.a(n);
+            this.o.a(o);
             this.o.a(true);
             this.o.notifyDataSetInvalidated();
             return;
@@ -252,13 +252,13 @@ public class SearchActivity extends com.baidu.tieba.e {
     /* JADX INFO: Access modifiers changed from: private */
     public void q() {
         this.p.setVisibility(8);
-        ArrayList o = com.baidu.tieba.d.k.o();
-        if (o != null && o.size() > 0) {
+        ArrayList p = com.baidu.tieba.d.k.p();
+        if (p != null && p.size() > 0) {
             this.m.setVisibility(0);
             this.n.setVisibility(0);
             this.p.setVisibility(8);
             this.v.setVisibility(8);
-            this.o.a(o);
+            this.o.a(p);
             this.o.a(false);
             this.o.notifyDataSetInvalidated();
             return;

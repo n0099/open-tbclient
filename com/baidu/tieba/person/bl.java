@@ -1,6 +1,6 @@
 package com.baidu.tieba.person;
 
-import android.widget.ListView;
+import com.baidu.adp.widget.ListView.BdListView;
 /* loaded from: classes.dex */
 class bl implements Runnable {
     final /* synthetic */ PersonListActivity a;
@@ -12,24 +12,24 @@ class bl implements Runnable {
 
     @Override // java.lang.Runnable
     public void run() {
-        ListView listView;
-        ListView listView2;
-        com.baidu.tieba.write.k kVar;
-        com.baidu.tieba.write.k kVar2;
-        com.baidu.tieba.write.k kVar3;
+        BdListView bdListView;
+        BdListView bdListView2;
+        bt btVar;
+        bt btVar2;
+        bt btVar3;
         try {
-            listView = this.a.d;
-            int firstVisiblePosition = listView.getFirstVisiblePosition();
-            listView2 = this.a.d;
-            int lastVisiblePosition = listView2.getLastVisiblePosition();
+            bdListView = this.a.e;
+            int firstVisiblePosition = bdListView.getFirstVisiblePosition();
+            bdListView2 = this.a.e;
+            int lastVisiblePosition = bdListView2.getLastVisiblePosition();
             for (int i = firstVisiblePosition; i <= lastVisiblePosition; i++) {
-                kVar = this.a.f;
-                if (i < kVar.getCount()) {
-                    kVar2 = this.a.f;
-                    com.baidu.tieba.a.ai aiVar = (com.baidu.tieba.a.ai) kVar2.getItem(i);
-                    if (aiVar != null && aiVar.e() != null) {
-                        kVar3 = this.a.f;
-                        kVar3.c().b(aiVar.e(), new bm(this));
+                btVar = this.a.h;
+                if (i < btVar.getCount()) {
+                    btVar2 = this.a.h;
+                    com.baidu.tieba.a.be beVar = (com.baidu.tieba.a.be) btVar2.getItem(i);
+                    if (beVar != null && beVar.e() != null) {
+                        btVar3 = this.a.h;
+                        btVar3.c().b(beVar.e(), new bm(this));
                     }
                 } else {
                     return;

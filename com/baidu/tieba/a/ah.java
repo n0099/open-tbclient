@@ -7,6 +7,7 @@ public class ah {
     private long a = 0;
     private long b = 0;
     private long c = 0;
+    private long d = 0;
 
     public void a(long j) {
         this.a = j;
@@ -32,6 +33,10 @@ public class ah {
         return this.c;
     }
 
+    public long d() {
+        return this.d;
+    }
+
     public void a(String str) {
         try {
             a(new JSONObject(str).optJSONObject(PushConstants.EXTRA_PUSH_MESSAGE));
@@ -46,6 +51,7 @@ public class ah {
                 this.a = jSONObject.optLong("replyme", 0L);
                 this.b = jSONObject.optLong("atme", 0L);
                 this.c = jSONObject.optLong("fans", 0L);
+                this.d = jSONObject.optLong("pletter", 0L);
             } catch (Exception e) {
                 com.baidu.tieba.d.ae.b("MessageData", "parserJson", "error = " + e.getMessage());
             }

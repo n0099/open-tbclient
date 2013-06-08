@@ -17,7 +17,7 @@ import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class bi extends BaseAdapter {
     private Context a;
-    private com.baidu.tieba.c.bi b;
+    private com.baidu.tieba.c.bl b;
     private ArrayList c;
     private boolean d;
     private boolean e;
@@ -80,10 +80,10 @@ public class bi extends BaseAdapter {
             return 0;
         }
         int size = this.b.a().size();
-        if (this.b.b().e() == 1) {
+        if (this.b.b().f() == 1) {
             size++;
         }
-        if (this.b.b().f() == 1) {
+        if (this.b.b().g() == 1) {
             return size + 1;
         }
         return size;
@@ -115,8 +115,8 @@ public class bi extends BaseAdapter {
     public long getItemId(int i) {
         int i2;
         if (this.b != null) {
-            i2 = this.b.b().f() == 1 ? i - 1 : i;
-            if (this.b.b().e() == 1 && i == getCount() - 1) {
+            i2 = this.b.b().g() == 1 ? i - 1 : i;
+            if (this.b.b().f() == 1 && i == getCount() - 1) {
                 i2 = -2;
             }
         } else {
@@ -125,8 +125,8 @@ public class bi extends BaseAdapter {
         return i2;
     }
 
-    public void a(com.baidu.tieba.c.bi biVar) {
-        this.b = biVar;
+    public void a(com.baidu.tieba.c.bl blVar) {
+        this.b = blVar;
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:12:0x00c5, code lost:
@@ -207,33 +207,33 @@ public class bi extends BaseAdapter {
             bkVar.g.setText((CharSequence) null);
             bkVar.f.setVisibility(8);
             bkVar.f.setTag(null);
-            if (item != null && (item instanceof com.baidu.tieba.a.ao)) {
-                com.baidu.tieba.a.ao aoVar = (com.baidu.tieba.a.ao) item;
-                bkVar.j.setText(aoVar.a());
-                bkVar.e.setTag(aoVar.d());
-                com.baidu.tieba.a.ao aoVar2 = (com.baidu.tieba.a.ao) getItem(i - 1);
-                if (aoVar2 != null && aoVar2.a() != null && aoVar2.a().equals(aoVar.a())) {
+            if (item != null && (item instanceof com.baidu.tieba.a.ap)) {
+                com.baidu.tieba.a.ap apVar = (com.baidu.tieba.a.ap) item;
+                bkVar.j.setText(apVar.a());
+                bkVar.e.setTag(apVar.d());
+                com.baidu.tieba.a.ap apVar2 = (com.baidu.tieba.a.ap) getItem(i - 1);
+                if (apVar2 != null && apVar2.a() != null && apVar2.a().equals(apVar.a())) {
                     bkVar.j.setVisibility(8);
                     a((View) bkVar.d, false);
                 } else {
                     bkVar.j.setVisibility(0);
                     a((View) bkVar.d, true);
                 }
-                if ("".equals(aoVar.c())) {
+                if ("".equals(apVar.c())) {
                     bkVar.i.setVisibility(4);
                     bkVar.h.setVisibility(4);
                 } else {
                     bkVar.i.setVisibility(0);
                     bkVar.h.setVisibility(0);
-                    bkVar.i.setText(aoVar.c());
+                    bkVar.i.setText(apVar.c());
                 }
-                if (aoVar.b() > 0) {
-                    bkVar.k.setText(String.valueOf(aoVar.b()));
+                if (apVar.b() > 0) {
+                    bkVar.k.setText(String.valueOf(apVar.b()));
                     bkVar.k.setVisibility(0);
                 } else {
                     bkVar.k.setVisibility(8);
                 }
-                ArrayList j = aoVar.e().j();
+                ArrayList j = apVar.e().j();
                 if (j != null && j.size() > 0) {
                     int size = j.size();
                     int i2 = 0;
@@ -285,12 +285,12 @@ public class bi extends BaseAdapter {
 
     private void a(View view, boolean z) {
         if (!z) {
-            if (TiebaApplication.d().ai() == 1) {
+            if (TiebaApplication.d().ar() == 1) {
                 view.setBackgroundResource(R.drawable.timeline_below_1);
             } else {
                 view.setBackgroundResource(R.drawable.timeline_below);
             }
-        } else if (TiebaApplication.d().ai() == 1) {
+        } else if (TiebaApplication.d().ar() == 1) {
             view.setBackgroundResource(R.drawable.timeline_above_1);
         } else {
             view.setBackgroundResource(R.drawable.timeline_above);
@@ -299,8 +299,8 @@ public class bi extends BaseAdapter {
 
     private void a(bk bkVar) {
         try {
-            if (bkVar.a != TiebaApplication.d().ai()) {
-                bkVar.a = TiebaApplication.d().ai();
+            if (bkVar.a != TiebaApplication.d().ar()) {
+                bkVar.a = TiebaApplication.d().ar();
                 if (bkVar.a == 1) {
                     bkVar.b.setTextColor(com.baidu.tieba.d.ac.a(1));
                 } else {
@@ -314,8 +314,8 @@ public class bi extends BaseAdapter {
 
     private void b(bk bkVar) {
         try {
-            if (bkVar.a != TiebaApplication.d().ai()) {
-                bkVar.a = TiebaApplication.d().ai();
+            if (bkVar.a != TiebaApplication.d().ar()) {
+                bkVar.a = TiebaApplication.d().ar();
                 if (bkVar.a == 1) {
                     bkVar.g.setTextColor(com.baidu.tieba.d.ac.a(bkVar.a));
                     bkVar.g.setLinkTextColor(-9989158);

@@ -15,11 +15,12 @@ public class TiebaReceiver extends BroadcastReceiver {
             long longExtra = intent.getLongExtra("relay", 0L);
             long longExtra2 = intent.getLongExtra("at_me", 0L);
             long longExtra3 = intent.getLongExtra("fans", 0L);
-            ae.a(getClass().getName(), "broadcastNotify ", "receiveData: " + String.format("%d %d %d", Long.valueOf(longExtra), Long.valueOf(longExtra2), Long.valueOf(longExtra3)));
-            TiebaApplication.d().a(longExtra, longExtra2, longExtra3);
+            long longExtra4 = intent.getLongExtra("pletter", 0L);
+            ae.a(getClass().getName(), "broadcastNotify ", "receiveData: " + String.format("%d %d %d %d", Long.valueOf(longExtra), Long.valueOf(longExtra2), Long.valueOf(longExtra3), Long.valueOf(longExtra4)));
+            TiebaApplication.d().a(longExtra, longExtra2, longExtra3, longExtra4);
         } else if (action.equals("com.baidu.tieba.broadcast.sync")) {
             ae.a(getClass().getName(), "broadcastNewVersion ", "receiveData");
-            TiebaApplication.d().s(true);
+            TiebaApplication.d().v(true);
         } else if (action.equals("com.baidu.tieba.broadcast.lottery")) {
             ae.b("lottery");
             Serializable serializableExtra = intent.getSerializableExtra("lottery");

@@ -4,29 +4,29 @@ import android.location.Address;
 import android.widget.EditText;
 import com.baidu.android.pushservice.PushConstants;
 import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.a.be;
-import com.baidu.tieba.c.bp;
+import com.baidu.tieba.a.bf;
+import com.baidu.tieba.c.bs;
 import com.slidingmenu.lib.R;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class s extends com.baidu.adp.lib.a.a {
     final /* synthetic */ VcodeActivity a;
-    private bp b;
+    private bs b;
     private com.baidu.tieba.d.t c = null;
     private String d = null;
 
-    public s(VcodeActivity vcodeActivity, bp bpVar) {
+    public s(VcodeActivity vcodeActivity, bs bsVar) {
         this.a = vcodeActivity;
         this.b = null;
-        this.b = bpVar;
+        this.b = bsVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.a.a
-    public be a(Integer... numArr) {
+    public bf a(Integer... numArr) {
         EditText editText;
-        Address aC;
+        Address aL;
         this.c = new com.baidu.tieba.d.t();
         this.c.a("anonymous", "0");
         this.c.a("fid", this.b.g());
@@ -51,8 +51,8 @@ public class s extends com.baidu.adp.lib.a.a {
                 this.c.a("thread_type", "7");
                 this.c.a("st_type", "tb_suishoufa");
             }
-            if (!com.baidu.tieba.a.i.f().equals(this.a.getIntent().getStringExtra("forum_id")) && TiebaApplication.d().o() && (aC = TiebaApplication.d().aC()) != null) {
-                this.c.a("lbs", String.valueOf(String.valueOf(aC.getLatitude())) + "," + String.valueOf(aC.getLongitude()));
+            if (!com.baidu.tieba.a.i.g().equals(this.a.getIntent().getStringExtra("forum_id")) && TiebaApplication.d().p() && (aL = TiebaApplication.d().aL()) != null) {
+                this.c.a("lbs", String.valueOf(String.valueOf(aL.getLatitude())) + "," + String.valueOf(aL.getLongitude()));
             }
         } else {
             this.c.a(String.valueOf(com.baidu.tieba.a.i.e) + "c/c/post/add");
@@ -80,11 +80,11 @@ public class s extends com.baidu.adp.lib.a.a {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.a.a
-    public void a(be beVar) {
+    public void a(bf bfVar) {
         EditText editText;
-        bp bpVar;
-        bp bpVar2;
-        bp bpVar3;
+        bs bsVar;
+        bs bsVar2;
+        bs bsVar3;
         this.a.h();
         this.a.i = null;
         if (this.c != null) {
@@ -100,16 +100,16 @@ public class s extends com.baidu.adp.lib.a.a {
                 this.a.finish();
             } else {
                 if (this.c.d() == 5 || this.c.d() == 6) {
-                    be beVar2 = new be();
-                    beVar2.a(this.d);
-                    if (beVar2.b() != null) {
-                        bpVar = this.a.c;
-                        bpVar.h(beVar2.a());
-                        bpVar2 = this.a.c;
-                        bpVar2.i(beVar2.b());
+                    bf bfVar2 = new bf();
+                    bfVar2.a(this.d);
+                    if (bfVar2.b() != null) {
+                        bsVar = this.a.c;
+                        bsVar.h(bfVar2.a());
+                        bsVar2 = this.a.c;
+                        bsVar2.i(bfVar2.b());
                         VcodeActivity vcodeActivity = this.a;
-                        bpVar3 = this.a.c;
-                        vcodeActivity.c(bpVar3.m());
+                        bsVar3 = this.a.c;
+                        vcodeActivity.c(bsVar3.m());
                     }
                     editText = this.a.g;
                     editText.setText((CharSequence) null);
@@ -117,6 +117,6 @@ public class s extends com.baidu.adp.lib.a.a {
                 this.a.a(this.c.f());
             }
         }
-        super.a((Object) beVar);
+        super.a((Object) bfVar);
     }
 }

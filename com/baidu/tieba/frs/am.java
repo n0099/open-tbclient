@@ -11,19 +11,19 @@ public class am extends com.baidu.adp.a.e {
 
     @Override // com.baidu.adp.a.e
     public void a(Object obj) {
-        com.baidu.tieba.c.g gVar;
+        com.baidu.tieba.c.j jVar;
         ay ayVar;
-        com.baidu.tieba.c.g gVar2;
-        gVar = this.a.q;
-        if (gVar.a() == 1) {
+        com.baidu.tieba.c.j jVar2;
+        jVar = this.a.q;
+        if (jVar.a() == 1) {
             if (((Boolean) obj).booleanValue()) {
                 this.a.q();
             }
             ayVar = this.a.n;
             bd b = ayVar.b();
             boolean booleanValue = ((Boolean) obj).booleanValue();
-            gVar2 = this.a.q;
-            b.a(booleanValue, gVar2.c());
+            jVar2 = this.a.q;
+            b.a(booleanValue, jVar2.c());
         }
     }
 }

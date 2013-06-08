@@ -1,31 +1,16 @@
 package com.baidu.tieba.c;
-
-import android.content.Context;
 /* loaded from: classes.dex */
 public class u {
-    private long a;
-    private long b;
-    private long c;
+    public boolean a = false;
+    public boolean b = false;
+    public int c = -1;
+    public int d = -1;
+    public String e = null;
+    public int f = 0;
+    public int g = 0;
+    final /* synthetic */ s h;
 
-    public u(Context context) {
-        a(0L);
-        b(0L);
-        c(0L);
-    }
-
-    public void a(long j) {
-        this.a = j;
-    }
-
-    public void b(long j) {
-        this.b = j;
-    }
-
-    public long a() {
-        return this.b + this.c;
-    }
-
-    public void c(long j) {
-        this.c = j;
+    public u(s sVar) {
+        this.h = sVar;
     }
 }

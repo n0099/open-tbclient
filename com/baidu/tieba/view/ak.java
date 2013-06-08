@@ -1,19 +1,20 @@
 package com.baidu.tieba.view;
-
-import android.graphics.Bitmap;
-import android.graphics.Canvas;
-import android.graphics.drawable.BitmapDrawable;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ak extends BitmapDrawable {
-    public ak(Bitmap bitmap) {
-        super(bitmap);
+public class ak implements m {
+    final /* synthetic */ MultiImageView a;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public ak(MultiImageView multiImageView) {
+        this.a = multiImageView;
     }
 
-    @Override // android.graphics.drawable.BitmapDrawable, android.graphics.drawable.Drawable
-    public void draw(Canvas canvas) {
-        Bitmap bitmap = getBitmap();
-        if (bitmap != null) {
-            canvas.drawBitmap(bitmap, 0.0f, 0.0f, getPaint());
+    @Override // com.baidu.tieba.view.m
+    public void a(h hVar, boolean z, boolean z2) {
+        GalleryViewPager galleryViewPager;
+        galleryViewPager = this.a.e;
+        if (galleryViewPager.getSelectedView() == hVar) {
+            this.a.setZoomButton(hVar);
         }
     }
 }

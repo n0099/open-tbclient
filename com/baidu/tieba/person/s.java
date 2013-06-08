@@ -79,9 +79,9 @@ public class s extends com.baidu.adp.lib.a.a {
             }
         }
         if (this.d.booleanValue()) {
-            this.c = com.baidu.tieba.d.e.d(this.c, Integer.parseInt(this.b));
+            this.c = com.baidu.tieba.d.d.d(this.c, Integer.parseInt(this.b));
         } else if (this.e.booleanValue()) {
-            this.c = com.baidu.tieba.d.e.e(this.c, Integer.parseInt(this.b));
+            this.c = com.baidu.tieba.d.d.e(this.c, Integer.parseInt(this.b));
         } else {
             this.c = FilterFactory.createOneKeyFilter(this.a, this.b).apply(this.a, this.c);
         }
@@ -144,15 +144,15 @@ public class s extends com.baidu.adp.lib.a.a {
                 }
                 EditHeadActivity editHeadActivity = this.a;
                 bitmap3 = this.a.h;
-                editHeadActivity.h = com.baidu.tieba.d.e.a(bitmap3, 600);
+                editHeadActivity.h = com.baidu.tieba.d.d.a(bitmap3, 600);
                 if (this.d.booleanValue()) {
                     EditHeadActivity editHeadActivity2 = this.a;
                     bitmap5 = this.a.h;
-                    editHeadActivity2.h = com.baidu.tieba.d.e.d(bitmap5, Integer.parseInt(this.b));
+                    editHeadActivity2.h = com.baidu.tieba.d.d.d(bitmap5, Integer.parseInt(this.b));
                 } else if (this.e.booleanValue()) {
                     EditHeadActivity editHeadActivity3 = this.a;
                     bitmap4 = this.a.h;
-                    editHeadActivity3.h = com.baidu.tieba.d.e.e(bitmap4, Integer.parseInt(this.b));
+                    editHeadActivity3.h = com.baidu.tieba.d.d.e(bitmap4, Integer.parseInt(this.b));
                 }
             } else {
                 editHeadImageView2 = this.a.g;

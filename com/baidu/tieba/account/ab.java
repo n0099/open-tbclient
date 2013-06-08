@@ -50,7 +50,7 @@ public class ab extends com.baidu.adp.lib.a.a {
             return null;
         }
         this.a = new com.baidu.tieba.d.t(str);
-        return com.baidu.tieba.d.e.a(this.a.h());
+        return com.baidu.tieba.d.d.a(this.a.h());
     }
 
     /* JADX DEBUG: Method merged with bridge method */

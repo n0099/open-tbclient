@@ -86,7 +86,7 @@ public class v extends BaseAdapter {
 
     @Override // android.widget.BaseAdapter, android.widget.Adapter
     public int getItemViewType(int i) {
-        return ((getItemId(i) > 0L ? 1 : (getItemId(i) == 0L ? 0 : -1)) >= 0) | this.d ? 0 : 1;
+        return (getItemId(i) >= 0 || this.d) ? 0 : 1;
     }
 
     @Override // android.widget.Adapter
@@ -154,7 +154,7 @@ public class v extends BaseAdapter {
                         wVar = null;
                         view4 = view;
                     }
-                    int ai = TiebaApplication.d().ai();
+                    int ar = TiebaApplication.d().ar();
                     if (getItemViewType(i) != 1) {
                         if (this.i) {
                             wVar.b.setVisibility(0);
@@ -166,7 +166,7 @@ public class v extends BaseAdapter {
                             wVar.b.setVisibility(8);
                             wVar.a.setText(this.a.getString(R.string.load_more));
                         }
-                        com.baidu.tieba.d.ac.b(wVar.a, ai);
+                        com.baidu.tieba.d.ac.b(wVar.a, ar);
                         return view4;
                     }
                     if (this.d) {
@@ -184,7 +184,7 @@ public class v extends BaseAdapter {
                             xVar.h.setVisibility(8);
                         }
                     }
-                    if (TiebaApplication.d().ai() == 1) {
+                    if (TiebaApplication.d().ar() == 1) {
                         xVar.b.setTextColor(-11446171);
                         xVar.d.setTextColor(com.baidu.tieba.d.ac.a(1));
                         xVar.f.setTextColor(-11446171);
@@ -217,7 +217,7 @@ public class v extends BaseAdapter {
                             xVar.b.setText("999+");
                         }
                     }
-                    xVar.d.setText(afVar.e());
+                    xVar.d.setText(afVar.d());
                     xVar.f.setText(afVar.a());
                     xVar.h.setOnClickListener(this.h);
                     xVar.h.setFocusable(false);
@@ -236,7 +236,7 @@ public class v extends BaseAdapter {
                     wVar = null;
                     view4 = view;
                 }
-                int ai2 = TiebaApplication.d().ai();
+                int ar2 = TiebaApplication.d().ar();
                 if (getItemViewType(i) != 1) {
                 }
             } catch (Exception e) {

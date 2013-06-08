@@ -6,6 +6,7 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.Proxy;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Handler;
 import android.telephony.TelephonyManager;
 import com.baidu.browser.core.util.BdUtil;
@@ -195,6 +196,11 @@ public class w {
     }
 
     public static void e() {
+        if (Integer.parseInt(Build.VERSION.SDK) < 8) {
+            System.setProperty("http.keepAlive", "false");
+        } else {
+            System.setProperty("http.keepAlive", "true");
+        }
         e = new x();
     }
 
@@ -339,15 +345,21 @@ public class w {
         return false;
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [589=8, 590=8, 594=8, 595=8, 597=8] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [632=9, 633=9, 637=9, 638=9, 640=8] */
+    /* JADX WARN: Code restructure failed: missing block: B:102:0x0249, code lost:
+        if (r2 == null) goto L103;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:103:0x024b, code lost:
+        r2.close();
+     */
     /* JADX WARN: Code restructure failed: missing block: B:59:0x015e, code lost:
         if (0 == 0) goto L66;
      */
     /* JADX WARN: Code restructure failed: missing block: B:60:0x0160, code lost:
         r4.close();
      */
-    /* JADX WARN: Removed duplicated region for block: B:159:0x03c7 A[Catch: Exception -> 0x03e5, TRY_LEAVE, TryCatch #13 {Exception -> 0x03e5, blocks: (B:157:0x03c1, B:159:0x03c7), top: B:205:0x03c1 }] */
-    /* JADX WARN: Removed duplicated region for block: B:207:0x03be A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:181:0x0451 A[Catch: Exception -> 0x0472, TRY_LEAVE, TryCatch #4 {Exception -> 0x0472, blocks: (B:179:0x044b, B:181:0x0451), top: B:223:0x044b }] */
+    /* JADX WARN: Removed duplicated region for block: B:217:0x0448 A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -357,6 +369,7 @@ public class w {
         InputStream inputStream2;
         Exception e2;
         int read;
+        String headerField;
         byte[] bArr = null;
         try {
             if (this.o == null || this.o.size() <= 0) {
@@ -380,7 +393,7 @@ public class w {
                 str = sb.toString();
             }
             URL url = new URL(str);
-            if (com.baidu.tieba.a.i.r()) {
+            if (com.baidu.tieba.a.i.s()) {
                 ae.e(getClass().getName(), "getNetData", str);
             }
             boolean z2 = true;
@@ -423,20 +436,39 @@ public class w {
                     String contentEncoding = this.i.getContentEncoding();
                     inputStream = this.i.getInputStream();
                     try {
+                        if (TiebaApplication.d().l() && (headerField = this.i.getHeaderField("Content-Length")) != null) {
+                            try {
+                                int parseInt = Integer.parseInt(headerField);
+                                if (parseInt > d) {
+                                    break;
+                                }
+                                int i3 = parseInt * 10;
+                                if (i3 > 0) {
+                                    if (com.baidu.adp.lib.e.b.a()) {
+                                        com.baidu.adp.lib.e.b.c("pre-free memory for downloaded image:[" + this.j + "], size:" + i3);
+                                    }
+                                    if (!com.baidu.tbadk.a.e.a().c(i3)) {
+                                        com.baidu.adp.lib.e.b.c("Image download cacelled. out of memory. url:[" + this.j + "], size:" + i3);
+                                        break;
+                                    }
+                                }
+                            } catch (Throwable th2) {
+                            }
+                        }
                         byte[] bArr3 = new byte[NotificationProxy.MAX_URL_LENGTH];
                         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream(NotificationProxy.MAX_URL_LENGTH);
-                        int i3 = 0;
+                        int i4 = 0;
                         if (this.s) {
                             byte[] bArr4 = new byte[23];
                             int read2 = inputStream.read(bArr4, 0, 23);
                             if (!new String(bArr4, 0, bArr4.length).equalsIgnoreCase("app:tiebaclient;type:0;")) {
                                 byteArrayOutputStream.write(bArr4, 0, read2);
-                                i3 = 0 + read2;
+                                i4 = 0 + read2;
                             }
                         }
-                        while (!this.u && i3 < d && (read = inputStream.read(bArr3)) != -1) {
+                        while (!this.u && i4 < d && (read = inputStream.read(bArr3)) != -1) {
                             byteArrayOutputStream.write(bArr3, 0, read);
-                            i3 += read;
+                            i4 += read;
                         }
                         if (this.u) {
                             if (inputStream != null) {
@@ -452,13 +484,13 @@ public class w {
                             } catch (Exception e7) {
                             }
                         } else {
-                            this.x = i3;
+                            this.x = i4;
                             long time2 = new Date().getTime() - time;
                             ae.a(getClass().getName(), "getNetData", "time = " + String.valueOf(time2) + "ms");
-                            if (i3 < d) {
+                            if (i4 < d) {
                                 bArr2 = byteArrayOutputStream.toByteArray();
                                 byteArrayOutputStream.close();
-                                ae.a(getClass().getName(), "getNetData", "data.zise = " + String.valueOf(i3));
+                                ae.a(getClass().getName(), "getNetData", "data.zise = " + String.valueOf(i4));
                                 if (contentEncoding != null && contentEncoding.contains("gzip")) {
                                     ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(bArr2);
                                     ByteArrayOutputStream byteArrayOutputStream2 = new ByteArrayOutputStream(NotificationProxy.MAX_URL_LENGTH);
@@ -469,12 +501,13 @@ public class w {
                                 this.k = -1;
                                 this.m = this.r.getResources().getString(R.string.data_too_big);
                             }
-                            aa aaVar = new aa(this);
+                            aa aaVar = new aa();
                             aaVar.e = a(c(this.r));
                             aaVar.c = this.x;
                             aaVar.b = time2;
                             aaVar.d = i2 + 1;
                             aaVar.a = 2;
+                            a(aaVar);
                             if (inputStream != null) {
                                 try {
                                     inputStream.close();
@@ -508,8 +541,8 @@ public class w {
                             } catch (Exception e12) {
                             }
                             i2++;
-                        } catch (Throwable th2) {
-                            th = th2;
+                        } catch (Throwable th3) {
+                            th = th3;
                             inputStream = inputStream3;
                             if (inputStream != null) {
                                 try {
@@ -565,8 +598,8 @@ public class w {
                             } catch (Exception e20) {
                             }
                             i2++;
-                        } catch (Throwable th3) {
-                            th = th3;
+                        } catch (Throwable th4) {
+                            th = th4;
                             inputStream = inputStream2;
                             if (inputStream != null) {
                             }
@@ -574,8 +607,8 @@ public class w {
                             }
                             throw th;
                         }
-                    } catch (Throwable th4) {
-                        th = th4;
+                    } catch (Throwable th5) {
+                        th = th5;
                         if (inputStream != null) {
                         }
                         if (this.i != null) {
@@ -604,6 +637,8 @@ public class w {
                     i2++;
                 }
             }
+            this.n = 0;
+            return bArr2;
             try {
                 if (this.i != null) {
                     this.i.disconnect();
@@ -612,10 +647,16 @@ public class w {
             }
             this.n = 0;
             return bArr2;
-            this.n = 0;
-            return bArr2;
-        } catch (Exception e24) {
-            ae.b(getClass().getName(), "getNetData", e24.getMessage());
+            try {
+                if (this.i != null) {
+                    this.i.disconnect();
+                }
+            } catch (Exception e24) {
+            }
+            return null;
+            return null;
+        } catch (Exception e25) {
+            ae.b(getClass().getName(), "getNetData", e25.getMessage());
             return bArr;
         }
     }
@@ -678,7 +719,7 @@ public class w {
         }
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [830=9, 831=9, 835=9, 836=9, 838=9] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [873=9, 874=9, 878=9, 879=9, 881=9] */
     /* JADX WARN: Code restructure failed: missing block: B:35:0x00ed, code lost:
         if (0 == 0) goto L222;
      */
@@ -731,7 +772,7 @@ public class w {
             sb.append(a2);
         }
         String sb3 = sb.toString();
-        if (com.baidu.tieba.a.i.r()) {
+        if (com.baidu.tieba.a.i.s()) {
             ae.e(getClass().getName(), "postNetData", String.valueOf(this.j) + "?" + sb3);
         }
         int i3 = 0;
@@ -843,7 +884,7 @@ public class w {
                                 if (this.v && this.w) {
                                     c(str2);
                                 }
-                                aa aaVar = new aa(this);
+                                aa aaVar = new aa();
                                 aaVar.e = a(c(this.r));
                                 aaVar.c = this.x;
                                 aaVar.b = time2;
@@ -1006,7 +1047,7 @@ public class w {
         return this.x;
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [995=9, 996=9, 998=9, 1000=9, 1001=9, 1003=5, 1005=9, 1006=9, 1008=9, 1009=9, 1010=9] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [1038=9, 1039=9, 1041=9, 1043=9, 1044=9, 1046=5, 1048=9, 1049=9, 1051=9, 1052=9, 1053=9] */
     /* JADX WARN: Code restructure failed: missing block: B:14:0x0037, code lost:
         if (0 == 0) goto L15;
      */
@@ -1532,7 +1573,7 @@ public class w {
         return this.k == 200 || this.k == 206;
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [1152=7, 1156=7, 1157=7, 1159=7, 1144=7, 1146=7, 1147=7, 1151=7] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [1187=7, 1189=7, 1190=7, 1194=7, 1195=7, 1199=7, 1200=7, 1202=7] */
     /* JADX WARN: Removed duplicated region for block: B:166:0x035c A[Catch: Exception -> 0x0385, TRY_LEAVE, TryCatch #28 {Exception -> 0x0385, blocks: (B:164:0x0356, B:166:0x035c), top: B:254:0x0356 }] */
     /* JADX WARN: Removed duplicated region for block: B:250:0x0365 A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /* JADX WARN: Removed duplicated region for block: B:252:0x0353 A[EXC_TOP_SPLITTER, SYNTHETIC] */

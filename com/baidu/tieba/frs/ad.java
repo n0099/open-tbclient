@@ -24,6 +24,9 @@ public class ad extends BaseAdapter {
     private boolean f;
     private com.baidu.tieba.d.a i;
     private int j;
+    private int k = 200;
+    private boolean l = false;
+    private float m = 0.4f;
     private ArrayList h = new ArrayList();
     private boolean g = false;
 
@@ -33,31 +36,39 @@ public class ad extends BaseAdapter {
         if (agVar.c() != null && (agVar.c().length() < 1 || agVar.c().endsWith("swf"))) {
             return null;
         }
-        com.baidu.tieba.view.p pVar = new com.baidu.tieba.view.p(this.a, agVar.a());
+        com.baidu.tieba.view.q qVar = new com.baidu.tieba.view.q(this.a, agVar.a());
         LinearLayout linearLayout = new LinearLayout(this.a);
-        pVar.setPicNum(i);
+        qVar.setPicNum(i);
         int a = this.j - com.baidu.tieba.d.ag.a(this.a, 14.0f);
         int i5 = 100;
         if (i == 1) {
-            i5 = (int) (a * 0.618d);
-            i4 = 0;
-            i3 = 0;
+            if (this.l) {
+                i5 = (int) (a * 0.5d);
+                i3 = 0;
+                i4 = 0;
+            } else {
+                int i6 = (int) (a * this.m);
+                i5 = (int) (i6 * 0.5d);
+                i4 = com.baidu.tieba.d.ag.a(this.a, 6.0f);
+                i3 = com.baidu.tieba.d.ag.a(this.a, 7.0f);
+                a = (i6 - i4) - i3;
+            }
         } else if (i == 2) {
             a /= 2;
             i5 = (a * 2) / 3;
             if (i2 == 0) {
                 int a2 = com.baidu.tieba.d.ag.a(this.a, 6.0f);
                 a -= a2;
-                i3 = a2;
-                i4 = 0;
+                i4 = a2;
+                i3 = 0;
             } else {
                 if (i2 == 1) {
-                    i3 = com.baidu.tieba.d.ag.a(this.a, 6.0f);
-                    i4 = com.baidu.tieba.d.ag.a(this.a, 7.0f);
-                    a = (a - i3) - i4;
+                    i4 = com.baidu.tieba.d.ag.a(this.a, 6.0f);
+                    i3 = com.baidu.tieba.d.ag.a(this.a, 7.0f);
+                    a = (a - i4) - i3;
                 }
-                i4 = 0;
                 i3 = 0;
+                i4 = 0;
             }
         } else if (i != 3) {
             a = 100;
@@ -69,39 +80,40 @@ public class ad extends BaseAdapter {
             if (i2 == 0) {
                 int a3 = com.baidu.tieba.d.ag.a(this.a, 6.0f);
                 a -= a3;
-                i3 = a3;
-                i4 = 0;
+                i4 = a3;
+                i3 = 0;
             } else if (i2 == 1) {
                 int a4 = com.baidu.tieba.d.ag.a(this.a, 6.0f);
                 a -= a4;
-                i3 = a4;
-                i4 = 0;
+                i4 = a4;
+                i3 = 0;
             } else {
                 if (i2 == 2) {
-                    i3 = com.baidu.tieba.d.ag.a(this.a, 6.0f);
-                    i4 = com.baidu.tieba.d.ag.a(this.a, 7.0f);
-                    a = (a - i3) - i4;
+                    i4 = com.baidu.tieba.d.ag.a(this.a, 6.0f);
+                    i3 = com.baidu.tieba.d.ag.a(this.a, 7.0f);
+                    a = (a - i4) - i3;
                 }
-                i4 = 0;
                 i3 = 0;
+                i4 = 0;
             }
         }
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(a, i5);
         LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(a, -2);
-        layoutParams2.leftMargin = i3;
-        layoutParams2.rightMargin = i4;
+        layoutParams2.leftMargin = i4;
+        layoutParams2.rightMargin = i3;
         layoutParams2.topMargin = 0;
         layoutParams2.bottomMargin = 0;
-        pVar.setTag(agVar.b());
-        pVar.setClickable(true);
-        pVar.setFocusable(false);
-        pVar.setLayoutParams(layoutParams);
+        qVar.setTag(agVar.b());
+        qVar.setClickable(true);
+        qVar.setFocusable(false);
+        qVar.setLayoutParams(layoutParams);
+        qVar.setIsWifi(this.l);
         linearLayout.setLayoutParams(layoutParams2);
-        linearLayout.addView(pVar);
+        linearLayout.addView(qVar);
         if (agVar.a() == 5) {
-            pVar.setOnClickListener(new ae(this, agVar));
+            qVar.setOnClickListener(new ae(this, agVar));
         } else if (agVar.a() == 3) {
-            pVar.setClickable(false);
+            qVar.setClickable(false);
         }
         return linearLayout;
     }
@@ -113,26 +125,45 @@ public class ad extends BaseAdapter {
         this.g = z;
     }
 
-    public ad(Context context, ArrayList arrayList, int i) {
+    public ad(Context context, ArrayList arrayList, int i, boolean z) {
+        this.j = 200;
         this.a = context;
         this.b = arrayList;
         this.i = new com.baidu.tieba.d.a(this.a);
-        this.i.a("_small");
-        if (com.baidu.tieba.d.w.c(this.a) == com.baidu.tieba.d.z.WIFI) {
-            this.i.a(1);
-        } else {
-            this.i.a(2);
-        }
         this.j = i;
-        i = i > com.baidu.tieba.a.i.g() ? com.baidu.tieba.a.i.g() : i;
-        this.i.a(i, i / 2);
+        b(z);
+    }
+
+    public void b(boolean z) {
+        this.l = z;
+        this.k = this.j;
+        if (this.l) {
+            if (this.k > 480) {
+                this.k = 480;
+            }
+            if (this.k > com.baidu.tieba.d.ag.a(this.a, 320.0f)) {
+                this.k = com.baidu.tieba.d.ag.a(this.a, 320.0f);
+            }
+            this.i.a(1);
+            this.i.a("_small");
+        } else {
+            if (this.k > this.m * 480.0f) {
+                this.k = (int) (this.m * 480.0f);
+            }
+            if (this.k > com.baidu.tieba.d.ag.a(this.a, 320.0f) * this.m) {
+                this.k = (int) (com.baidu.tieba.d.ag.a(this.a, 320.0f) * this.m);
+            }
+            this.i.a(2);
+            this.i.a("_mobile");
+        }
+        this.i.a(this.k, this.k);
     }
 
     public com.baidu.tieba.d.a a() {
         return this.i;
     }
 
-    public void b(boolean z) {
+    public void c(boolean z) {
         this.e = z;
     }
 
@@ -140,7 +171,7 @@ public class ad extends BaseAdapter {
         return this.e;
     }
 
-    public void c(boolean z) {
+    public void d(boolean z) {
         this.f = z;
     }
 
@@ -148,11 +179,11 @@ public class ad extends BaseAdapter {
         return this.f;
     }
 
-    public void d(boolean z) {
+    public void e(boolean z) {
         this.c = z;
     }
 
-    public void e(boolean z) {
+    public void f(boolean z) {
         this.d = z;
     }
 
@@ -259,7 +290,7 @@ public class ad extends BaseAdapter {
                 afVar = (af) view.getTag();
                 view3 = view;
             }
-            int ai = TiebaApplication.d().ai();
+            int ar = TiebaApplication.d().ar();
             long itemId = getItemId(i);
             if (itemId == -1) {
                 afVar.i.setVisibility(8);
@@ -271,12 +302,12 @@ public class ad extends BaseAdapter {
                     afVar.g.setText(R.string.frs_pre);
                     afVar.h.setVisibility(8);
                 }
-                if (ai == 1) {
+                if (ar == 1) {
                     afVar.f.setBackgroundResource(R.drawable.bg_list_all_1);
                 } else {
-                    afVar.f.setBackgroundResource(R.drawable.btn_register);
+                    afVar.f.setBackgroundResource(R.drawable.bg_list_all);
                 }
-                com.baidu.tieba.d.ac.b(afVar.g, ai);
+                com.baidu.tieba.d.ac.b(afVar.g, ar);
                 return view3;
             } else if (itemId == -2) {
                 afVar.i.setVisibility(8);
@@ -288,19 +319,19 @@ public class ad extends BaseAdapter {
                     afVar.g.setText(R.string.frs_next);
                     afVar.h.setVisibility(8);
                 }
-                if (ai == 1) {
+                if (ar == 1) {
                     afVar.f.setBackgroundResource(R.drawable.bg_list_all_1);
                 } else {
-                    afVar.f.setBackgroundResource(R.drawable.btn_register);
+                    afVar.f.setBackgroundResource(R.drawable.bg_list_all);
                 }
-                com.baidu.tieba.d.ac.b(afVar.g, ai);
+                com.baidu.tieba.d.ac.b(afVar.g, ar);
                 return view3;
             } else {
                 afVar.i.setVisibility(0);
                 afVar.f.setVisibility(8);
                 afVar.h.setVisibility(8);
-                com.baidu.tieba.a.bb bbVar = (com.baidu.tieba.a.bb) getItem(i);
-                int c = bbVar.c();
+                com.baidu.tieba.a.bc bcVar = (com.baidu.tieba.a.bc) getItem(i);
+                int c = bcVar.c();
                 afVar.n.setVisibility(0);
                 if (c <= 999999) {
                     if (c > 0) {
@@ -313,28 +344,28 @@ public class ad extends BaseAdapter {
                     afVar.j.setText("999999+");
                 }
                 Date date = new Date();
-                date.setTime(bbVar.d() * 1000);
-                afVar.k.setText(com.baidu.tieba.d.ad.d(date));
-                afVar.l.setText(bbVar.n());
-                com.baidu.tieba.d.ab ap = TiebaApplication.d().ap();
-                if (ap != null && ap.b(bbVar.a())) {
+                date.setTime(bcVar.d() * 1000);
+                afVar.k.setText(com.baidu.tieba.d.ad.e(date));
+                afVar.l.setText(bcVar.n());
+                com.baidu.tieba.d.ab ay = TiebaApplication.d().ay();
+                if (ay != null && ay.b(bcVar.a())) {
                     afVar.l.setTextColor(this.a.getResources().getColor(R.color.read_thread_color));
-                } else if (ai == 1) {
+                } else if (ar == 1) {
                     afVar.l.setTextColor(-8682095);
                 } else {
                     afVar.l.setTextColor(-16777216);
                 }
-                afVar.m.setText(bbVar.g().c());
-                if (this.g && bbVar.e() != 1) {
+                afVar.m.setText(bcVar.g().c());
+                if (this.g && bcVar.e() != 1) {
                     afVar.a.setVisibility(0);
                     afVar.e.setVisibility(0);
                     afVar.e.removeAllViews();
                     afVar.d.setVisibility(0);
-                    ArrayList m = bbVar.m();
-                    if (bbVar.j() == null) {
+                    ArrayList m = bcVar.m();
+                    if (bcVar.j() == null) {
                         str = "";
                     } else {
-                        str = String.valueOf("") + bbVar.j();
+                        str = String.valueOf("") + bcVar.j();
                     }
                     if (m != null) {
                         StringBuffer stringBuffer = new StringBuffer();
@@ -384,7 +415,7 @@ public class ad extends BaseAdapter {
                 } else {
                     afVar.a.setVisibility(8);
                 }
-                if (ai == 1) {
+                if (ar == 1) {
                     afVar.b.setBackgroundResource(R.drawable.bg_list_top_1);
                     afVar.c.setBackgroundResource(R.drawable.bg_list_bottom_1);
                     afVar.d.setTextColor(-10523526);

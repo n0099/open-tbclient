@@ -17,13 +17,13 @@ class ad extends Thread {
         super.run();
         try {
             TiebaApplication tiebaApplication = (TiebaApplication) this.a.getApplication();
-            tiebaApplication.b(tiebaApplication.E() + 1);
-            if (tiebaApplication.J()) {
-                com.baidu.tieba.d.k.w();
-                tiebaApplication.b(0);
+            tiebaApplication.d(tiebaApplication.G() + 1);
+            if (tiebaApplication.L()) {
+                com.baidu.tieba.d.k.x();
+                tiebaApplication.d(0);
             }
-            com.baidu.tieba.d.k.s();
-            com.baidu.tieba.d.k.v();
+            com.baidu.tieba.d.k.t();
+            com.baidu.tieba.d.k.w();
             this.a.a(this.a.getCacheDir());
         } catch (Exception e) {
         }

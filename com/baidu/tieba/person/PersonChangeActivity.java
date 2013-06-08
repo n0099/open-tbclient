@@ -5,7 +5,6 @@ import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.MotionEvent;
@@ -47,8 +46,8 @@ public class PersonChangeActivity extends com.baidu.tieba.e {
     private RadioButton w = null;
     private InputMethodManager x = null;
     private boolean y = false;
-    private com.baidu.tieba.c.be z = null;
-    private Bitmap A = null;
+    private com.baidu.tieba.c.bh z = null;
+    private com.baidu.adp.widget.a.b A = null;
     private av B = null;
     private aw C = null;
     private ProgressBar D = null;
@@ -58,12 +57,13 @@ public class PersonChangeActivity extends com.baidu.tieba.e {
     private boolean H = false;
     private View.OnClickListener I = new aj(this);
 
-    public static void a(Activity activity, int i, com.baidu.tieba.a.an anVar) {
+    public static void a(Activity activity, int i, com.baidu.tieba.a.ao aoVar) {
         Intent intent = new Intent(activity, PersonChangeActivity.class);
-        intent.putExtra("data", anVar);
+        intent.putExtra("data", aoVar);
         activity.startActivityForResult(intent, i);
     }
 
+    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.e, com.baidu.adp.a.a, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
@@ -73,6 +73,7 @@ public class PersonChangeActivity extends com.baidu.tieba.e {
         d();
     }
 
+    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.e, android.app.Activity
     public void onDestroy() {
         if (this.B != null) {
@@ -97,6 +98,7 @@ public class PersonChangeActivity extends com.baidu.tieba.e {
         return dispatchTouchEvent;
     }
 
+    /* JADX INFO: Access modifiers changed from: private */
     public void b() {
         if (this.t.getVisibility() == 0) {
             this.t.setVisibility(8);
@@ -116,6 +118,7 @@ public class PersonChangeActivity extends com.baidu.tieba.e {
         }
     }
 
+    /* JADX INFO: Access modifiers changed from: private */
     public void c() {
         if (this.t.getVisibility() != 0) {
             this.r.setVisibility(8);
@@ -127,20 +130,21 @@ public class PersonChangeActivity extends com.baidu.tieba.e {
     }
 
     private void a(Bundle bundle) {
-        com.baidu.tieba.a.an anVar;
+        com.baidu.tieba.a.ao aoVar;
         this.E = new an(this);
         if (bundle != null) {
-            anVar = (com.baidu.tieba.a.an) bundle.getSerializable("data");
+            aoVar = (com.baidu.tieba.a.ao) bundle.getSerializable("data");
         } else {
-            anVar = (com.baidu.tieba.a.an) getIntent().getSerializableExtra("data");
+            aoVar = (com.baidu.tieba.a.ao) getIntent().getSerializableExtra("data");
         }
-        if (anVar == null) {
-            anVar = new com.baidu.tieba.a.an();
+        if (aoVar == null) {
+            aoVar = new com.baidu.tieba.a.ao();
         }
-        this.z = new com.baidu.tieba.c.be(anVar);
+        this.z = new com.baidu.tieba.c.bh(aoVar);
         this.F = new com.baidu.tieba.d.a(this);
     }
 
+    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.e
     public void b(int i) {
         super.b(i);
@@ -193,7 +197,7 @@ public class PersonChangeActivity extends com.baidu.tieba.e {
         this.d = (ImageView) findViewById(R.id.photo);
         this.A = this.F.b(this.z.d().e());
         if (this.A != null) {
-            this.d.setImageBitmap(this.A);
+            this.A.b(this.d);
         } else {
             this.F.c(this.z.d().e(), new aq(this));
         }
@@ -256,16 +260,16 @@ public class PersonChangeActivity extends com.baidu.tieba.e {
         if (i2 == -1) {
             switch (i) {
                 case 1200001:
-                    EditHeadActivity.a(this, 1200001, 12000010, null, TiebaApplication.C());
+                    EditHeadActivity.a(this, 1200001, 1200010, null, TiebaApplication.E());
                     return;
                 case 1200002:
                     if (intent != null) {
-                        EditHeadActivity.a(this, 1200002, 1200009, intent.getData(), TiebaApplication.C());
+                        EditHeadActivity.a(this, 1200002, 1200009, intent.getData(), TiebaApplication.E());
                         return;
                     }
                     return;
                 case 1200009:
-                case 12000010:
+                case 1200010:
                     this.z.d().a(true);
                     m();
                     return;
@@ -277,7 +281,7 @@ public class PersonChangeActivity extends com.baidu.tieba.e {
                 case 1200009:
                     com.baidu.tieba.write.bb.b(this);
                     return;
-                case 12000010:
+                case 1200010:
                     com.baidu.tieba.write.bb.a(this);
                     return;
                 default:

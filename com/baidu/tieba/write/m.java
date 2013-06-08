@@ -23,7 +23,7 @@ public class m extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public Object getItem(int i) {
-        return com.baidu.tbadk.a.a.a().b(i);
+        return com.baidu.tbadk.a.a.a().b(i).f();
     }
 
     @Override // android.widget.Adapter

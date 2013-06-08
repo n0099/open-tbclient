@@ -2,45 +2,103 @@ package com.baidu.tieba.a;
 
 import org.json.JSONObject;
 /* loaded from: classes.dex */
-public class be {
+public class be extends ai {
+    private int i;
+    private String j = null;
+    private int k = 0;
     private String a = null;
-    private String b = null;
     private String c = null;
+    private int b = 0;
+    private int d = 0;
+    private int e = 0;
+    private int f = 0;
+    private int g = 1;
+    private String h = null;
 
-    public String a() {
-        return this.a;
+    public be() {
+        c(0);
     }
 
-    public String b() {
-        return this.b;
+    public int f() {
+        return this.k;
     }
 
-    public String c() {
+    public String g() {
+        return this.j;
+    }
+
+    @Override // com.baidu.tieba.a.ai
+    public void e(String str) {
+        try {
+            a(new JSONObject(str));
+        } catch (Exception e) {
+            com.baidu.tieba.d.ae.b("PostData", "parserJson", "error = " + e.getMessage());
+        }
+    }
+
+    @Override // com.baidu.tieba.a.ai
+    public void a(JSONObject jSONObject) {
+        try {
+            super.a(jSONObject);
+            if (jSONObject != null) {
+                this.a = jSONObject.optString("ip");
+                this.c = jSONObject.optString("BDUSS");
+                this.b = jSONObject.optInt("level_id", 0);
+                this.d = jSONObject.optInt("fans_num");
+                this.e = jSONObject.optInt("concern_num");
+                this.g = jSONObject.optInt("sex", 1);
+                this.f = jSONObject.optInt("my_like_num");
+                this.h = jSONObject.optString("intro");
+                this.i = jSONObject.optInt("has_concerned");
+                this.j = jSONObject.optString("passwd");
+                this.k = jSONObject.optInt("is_like", 0);
+            }
+        } catch (Exception e) {
+            com.baidu.tieba.d.ae.b("PostData", "parserJson", "error = " + e.getMessage());
+        }
+    }
+
+    public int h() {
+        return this.d;
+    }
+
+    public int i() {
+        return this.e;
+    }
+
+    public void f(String str) {
+        this.h = str;
+    }
+
+    public String j() {
+        return this.h;
+    }
+
+    public void b(int i) {
+        this.g = i;
+    }
+
+    public int k() {
+        return this.g;
+    }
+
+    public String l() {
         return this.c;
     }
 
-    public void a(String str) {
-        try {
-            JSONObject jSONObject = new JSONObject(str);
-            JSONObject optJSONObject = jSONObject.optJSONObject("info");
-            if (optJSONObject == null) {
-                optJSONObject = jSONObject.optJSONObject("anti");
-            }
-            a(optJSONObject);
-        } catch (Exception e) {
-            com.baidu.tieba.d.ae.b("VcodeInfoData", "parserJson", "error = " + e.getMessage());
-        }
+    public int m() {
+        return this.b;
     }
 
-    public void a(JSONObject jSONObject) {
-        if (jSONObject != null) {
-            try {
-                this.a = jSONObject.optString("vcode_md5");
-                this.b = jSONObject.optString("vcode_pic_url");
-                this.c = jSONObject.optString("vcode_type");
-            } catch (Exception e) {
-                com.baidu.tieba.d.ae.b("VcodeInfoData", "parserJson", "error = " + e.getMessage());
-            }
-        }
+    public int n() {
+        return this.f;
+    }
+
+    public void c(int i) {
+        this.i = i;
+    }
+
+    public int o() {
+        return this.i;
     }
 }

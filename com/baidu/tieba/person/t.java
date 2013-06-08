@@ -34,7 +34,7 @@ public class t extends com.baidu.adp.lib.a.a {
             Bitmap c = com.baidu.tieba.d.o.c(null, "tieba_resized_image");
             try {
                 if (c.getWidth() > 600 || c.getHeight() > 600) {
-                    Bitmap a = com.baidu.tieba.d.e.a(c, 600);
+                    Bitmap a = com.baidu.tieba.d.d.a(c, 600);
                     try {
                         c.recycle();
                         c = a;
@@ -53,7 +53,7 @@ public class t extends com.baidu.adp.lib.a.a {
                 if (Build.VERSION.SDK_INT >= 7) {
                     z = this.a.z;
                     if (z) {
-                        Bitmap a3 = com.baidu.tieba.d.e.a(com.baidu.tieba.d.e.b(c, a2), com.baidu.tieba.d.ag.a(this.a, 5.0f));
+                        Bitmap a3 = com.baidu.tieba.d.d.a(com.baidu.tieba.d.d.b(c, a2), com.baidu.tieba.d.ag.a(this.a, 5.0f));
                         this.a.E = new HashMap();
                         this.a.F = new HashMap();
                         hashMap = this.a.E;

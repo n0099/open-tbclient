@@ -1,9 +1,10 @@
 package com.baidu.tieba.nearby;
 
-import android.content.DialogInterface;
+import android.view.animation.Animation;
+import android.widget.ImageView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class be implements DialogInterface.OnClickListener {
+public class be implements Animation.AnimationListener {
     final /* synthetic */ NewNearbyActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -11,12 +12,21 @@ public class be implements DialogInterface.OnClickListener {
         this.a = newNearbyActivity;
     }
 
-    @Override // android.content.DialogInterface.OnClickListener
-    public void onClick(DialogInterface dialogInterface, int i) {
-        if (i == 0) {
-            com.baidu.tieba.write.bb.a(this.a);
-        } else if (i == 1) {
-            com.baidu.tieba.write.bb.b(this.a);
-        }
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationStart(Animation animation) {
+    }
+
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationRepeat(Animation animation) {
+    }
+
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationEnd(Animation animation) {
+        ImageView imageView;
+        ImageView imageView2;
+        imageView = this.a.E;
+        imageView.setVisibility(4);
+        imageView2 = this.a.F;
+        imageView2.setVisibility(4);
     }
 }

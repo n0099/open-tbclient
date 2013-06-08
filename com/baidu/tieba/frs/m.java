@@ -12,38 +12,38 @@ class m implements ab {
     }
 
     @Override // com.baidu.tieba.frs.ab
-    public void a(com.baidu.tieba.c.r rVar, com.baidu.tieba.c.s sVar) {
+    public void a(com.baidu.tieba.c.u uVar, com.baidu.tieba.c.v vVar) {
         ba baVar;
         ba baVar2;
         ba baVar3;
-        com.baidu.tieba.c.p pVar;
-        com.baidu.tieba.c.p pVar2;
+        com.baidu.tieba.c.s sVar;
+        com.baidu.tieba.c.s sVar2;
         ba baVar4;
-        com.baidu.tieba.c.p pVar3;
-        com.baidu.tieba.c.p pVar4;
-        if (rVar.a) {
+        com.baidu.tieba.c.s sVar3;
+        com.baidu.tieba.c.s sVar4;
+        if (uVar.a) {
             baVar3 = this.a.l;
             baVar3.a(this.a.getString(R.string.add_fan_sucess));
-            pVar = this.a.v;
-            pVar.e().b(1);
-            pVar2 = this.a.v;
-            pVar2.e().c(rVar.c);
+            sVar = this.a.v;
+            sVar.e().b(1);
+            sVar2 = this.a.v;
+            sVar2.e().c(uVar.c);
             baVar4 = this.a.l;
-            pVar3 = this.a.v;
-            com.baidu.tieba.a.s a = pVar3.a();
-            pVar4 = this.a.v;
-            baVar4.a(1, a, pVar4.e());
-            TiebaApplication.d().h(true);
+            sVar3 = this.a.v;
+            com.baidu.tieba.a.s a = sVar3.a();
+            sVar4 = this.a.v;
+            baVar4.a(1, a, sVar4.e());
+            TiebaApplication.d().i(true);
             return;
         }
-        if (sVar.d == null || sVar.d.length() <= 0) {
+        if (vVar.d == null || vVar.d.length() <= 0) {
             baVar = this.a.l;
             baVar.a(this.a.getString(R.string.add_fan_error));
         } else {
             baVar2 = this.a.l;
-            baVar2.a(sVar.d);
+            baVar2.a(vVar.d);
         }
-        if (sVar.c != 120002) {
+        if (vVar.c != 120002) {
             return;
         }
         this.a.y();

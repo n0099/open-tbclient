@@ -6,9 +6,10 @@ import android.graphics.Canvas;
 import android.graphics.Matrix;
 import android.graphics.Paint;
 import android.util.AttributeSet;
+import com.baidu.tieba.compatible.CompatibleUtile;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-public class EditHeadImageView extends g {
+public class EditHeadImageView extends h {
     private Paint b;
     private Paint c;
     private int d;
@@ -61,15 +62,16 @@ public class EditHeadImageView extends g {
         setDrawingCacheEnabled(true);
         setImageMode(1);
         this.h = new Matrix();
+        CompatibleUtile.getInstance().closeViewGpu(this);
     }
 
-    @Override // com.baidu.tieba.view.g, android.widget.ImageView
+    @Override // com.baidu.tieba.view.h, android.widget.ImageView
     public void setImageBitmap(Bitmap bitmap) {
         super.setImageBitmap(bitmap);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.view.g, android.view.View
+    @Override // com.baidu.tieba.view.h, android.view.View
     public void onLayout(boolean z, int i, int i2, int i3, int i4) {
         super.onLayout(z, i, i2, i3, i4);
         this.d = (int) (((i4 - i2) - (i3 - i)) * this.f);
@@ -78,7 +80,7 @@ public class EditHeadImageView extends g {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.view.g, android.widget.ImageView, android.view.View
+    @Override // com.baidu.tieba.view.h, android.widget.ImageView, android.view.View
     public void onDraw(Canvas canvas) {
         canvas.drawColor(this.g);
         super.onDraw(canvas);

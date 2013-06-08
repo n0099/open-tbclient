@@ -1,106 +1,99 @@
 package com.baidu.tieba.c;
 
-import java.util.ArrayList;
 import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class t extends com.baidu.adp.lib.a.a {
-    ArrayList a;
-    final /* synthetic */ p b;
-    private com.baidu.tieba.d.t c = null;
+    final /* synthetic */ s a;
+    private com.baidu.tieba.d.t b = null;
+    private String c;
     private String d;
-    private int e;
+    private String e;
+    private u f;
 
-    public t(p pVar, String str, ArrayList arrayList, int i) {
-        this.b = pVar;
-        this.d = null;
-        this.e = 3;
-        this.a = null;
-        this.d = str;
-        this.a = arrayList;
-        this.e = i;
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.a.a
-    public void b() {
-        com.baidu.tieba.frs.ac acVar;
-        com.baidu.tieba.frs.ac acVar2;
-        acVar = this.b.f;
-        if (acVar != null) {
-            acVar2 = this.b.f;
-            acVar2.a(this.e);
-        }
+    public t(s sVar, String str, String str2, String str3) {
+        this.a = sVar;
+        this.f = new u(sVar);
+        this.c = str;
+        this.d = str2;
+        this.e = str3;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.a.a
-    /* renamed from: d */
-    public JSONObject a(Object... objArr) {
-        JSONObject jSONObject;
-        Exception e;
+    public Boolean a(String... strArr) {
         try {
-            this.c = new com.baidu.tieba.d.t(this.d);
-            this.c.a(this.a);
-            String i = this.c.i();
-            jSONObject = new JSONObject(i);
-            try {
-                if (this.c.b()) {
-                    this.b.a(i);
+            this.b = new com.baidu.tieba.d.t(strArr[0]);
+            this.b.a("fid", this.c);
+            this.b.a("kw", this.d);
+            this.b.a("is_like", this.e);
+            this.b.d(true);
+            String i = this.b.i();
+            if (this.b.c()) {
+                if (this.e.equals("0")) {
+                    try {
+                        JSONObject jSONObject = new JSONObject(i);
+                        JSONObject optJSONObject = jSONObject.optJSONObject("like_data");
+                        if (optJSONObject.optInt("is_success", 0) == 1) {
+                            this.f.d = optJSONObject.optInt("level_id", 0);
+                            this.f.e = optJSONObject.optString("level_name", "");
+                            JSONObject optJSONObject2 = jSONObject.optJSONObject("user_perm");
+                            if (optJSONObject2 != null) {
+                                this.f.f = optJSONObject2.optInt("cur_score", 0);
+                                this.f.g = optJSONObject2.optInt("levelup_score", 0);
+                            }
+                            this.f.b = true;
+                        }
+                        this.a.a(this.f);
+                    } catch (Exception e) {
+                        com.baidu.tieba.d.ae.b(getClass().getName(), "doInBackground", e.getMessage());
+                    }
                 }
-            } catch (Exception e2) {
-                e = e2;
-                com.baidu.tieba.d.ae.b(getClass().getName(), "", "FrsAsyncTask.doInBackground error = " + e.getMessage());
-                return jSONObject;
+                if (this.b.b()) {
+                    try {
+                        JSONObject jSONObject2 = new JSONObject(i);
+                        this.f.c = jSONObject2.optInt("num");
+                        this.f.a = true;
+                    } catch (Exception e2) {
+                        com.baidu.tieba.d.ae.b(getClass().getName(), "doInBackground", e2.getMessage());
+                    }
+                }
             }
+            return false;
         } catch (Exception e3) {
-            jSONObject = null;
-            e = e3;
+            com.baidu.tieba.d.ae.b(getClass().getName(), "", "AddFanAsyncTask.doInBackground error = " + e3.getMessage());
+            return false;
         }
-        return jSONObject;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.a.a
-    public void a(JSONObject jSONObject) {
-        com.baidu.tieba.frs.ac acVar;
-        com.baidu.tieba.frs.ac acVar2;
-        s sVar = new s(this.b);
-        if (this.c != null) {
-            sVar.a = true;
-            sVar.b = this.c.c();
-            sVar.c = this.c.d();
-            sVar.d = this.c.f();
-            sVar.e = this.c.a();
-        }
-        acVar = this.b.f;
-        if (acVar != null) {
-            acVar2 = this.b.f;
-            acVar2.a(this.e, jSONObject, sVar);
-        }
-        this.b.i = null;
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.a.a
-    public void c() {
-        super.c();
     }
 
     @Override // com.baidu.adp.lib.a.a
     public void cancel() {
-        com.baidu.tieba.frs.ac acVar;
-        com.baidu.tieba.frs.ac acVar2;
-        if (this.c != null) {
-            this.c.g();
-        }
-        acVar = this.b.f;
-        if (acVar != null) {
-            acVar2 = this.b.f;
-            acVar2.a(this.e, null, null);
-        }
         super.cancel(true);
+        if (this.b != null) {
+            this.b.g();
+        }
+        this.a.j = null;
+        this.a.a(false);
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.a.a
+    public void a(Boolean bool) {
+        com.baidu.tieba.frs.ab abVar;
+        com.baidu.tieba.frs.ab abVar2;
+        this.a.j = null;
+        this.a.a(false);
+        if (this.b != null) {
+            v vVar = new v(this.a);
+            vVar.d = this.b.f();
+            vVar.c = this.b.d();
+            abVar = this.a.g;
+            if (abVar != null) {
+                abVar2 = this.a.g;
+                abVar2.a(this.f, vVar);
+            }
+        }
     }
 }

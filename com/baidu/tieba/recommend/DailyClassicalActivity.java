@@ -11,13 +11,10 @@ import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import com.baidu.tieba.MainTabActivity;
 import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.d.ac;
 import com.baidu.tieba.d.ae;
 import com.baidu.tieba.d.ag;
-import com.baidu.tieba.frs.FrsActivity;
-import com.baidu.tieba.pb.NewPbActivity;
 import com.baidu.tieba.view.BaseWebView;
 import com.slidingmenu.lib.R;
 import java.net.URLDecoder;
@@ -43,7 +40,7 @@ public class DailyClassicalActivity extends com.baidu.tieba.e implements com.bai
 
     @Override // com.baidu.tieba.e
     public boolean e() {
-        return TiebaApplication.d().q();
+        return TiebaApplication.d().r();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -95,14 +92,14 @@ public class DailyClassicalActivity extends com.baidu.tieba.e implements com.bai
     @Override // com.baidu.tieba.e, android.app.Activity
     public void onResume() {
         super.onResume();
-        Long valueOf = Long.valueOf(TiebaApplication.d().y());
+        Long valueOf = Long.valueOf(TiebaApplication.d().z());
         if (!this.p && System.currentTimeMillis() - valueOf.longValue() > com.baidu.tieba.a.i.b.longValue() && this.h != null) {
             b();
         }
     }
 
     public void b() {
-        if (TiebaApplication.d().aj() == 0 && !o()) {
+        if (TiebaApplication.d().as() == 0 && !o()) {
             this.o.setVisibility(0);
             return;
         }
@@ -132,42 +129,20 @@ public class DailyClassicalActivity extends com.baidu.tieba.e implements com.bai
 
     @Override // com.baidu.tieba.view.d
     public boolean a(WebView webView, String str) {
-        if (str != null && str.contains("jump_tieba_native=1")) {
-            if (str.contains("nearby=1")) {
-                MainTabActivity.a(this, "goto_nearby");
-            } else if (str.contains("kz=")) {
-                String a = a(str, "kz=");
-                if (a != null && a.length() >= 0) {
-                    NewPbActivity.a(this, a, null, "gettogether");
+        if (!i.a(this, str)) {
+            if (str.contains("jumptoapp_browser=classic_everyday")) {
+                if (str.contains("pn=")) {
+                    String a = a(str, "pn=");
+                    if (a != null && a.length() >= 0) {
+                        this.s = a;
+                    }
+                } else {
+                    this.s = "1";
                 }
-            } else if (str.contains("kw=")) {
-                String a2 = a(str, "kw=");
-                if (a2 != null && a2.length() >= 0) {
-                    FrsActivity.a(this, a2, "gettogether");
-                }
-            } else if (str.contains("tag_name=") && str.contains("tag_id=")) {
-                String a3 = a(str, "tag_id=");
-                String a4 = a(str, "tag_name=");
-                String a5 = a(str, "tag_type=");
-                String a6 = a(str, "tag_is_selected=");
-                if (a3 != null && a3.length() >= 0) {
-                    TagContentActivity.a(this, a3, a4, a5, a6);
-                }
-            }
-            return true;
-        }
-        if (str.contains("jumptoapp_browser=classic_everyday")) {
-            if (str.contains("pn=")) {
-                String a7 = a(str, "pn=");
-                if (a7 != null && a7.length() >= 0) {
-                    this.s = a7;
-                }
+                b();
             } else {
-                this.s = "1";
+                ag.d(this, String.valueOf(str) + "&_client_version=" + com.baidu.tieba.a.i.i());
             }
-            b();
-        } else {
-            ag.d(this, String.valueOf(str) + "&_client_version=" + com.baidu.tieba.a.i.h());
         }
         return true;
     }
@@ -189,7 +164,7 @@ public class DailyClassicalActivity extends com.baidu.tieba.e implements com.bai
         if (this.h == null) {
             try {
                 this.h = new BaseWebView(this);
-                ac.a(this.h, TiebaApplication.d().ai());
+                ac.a(this.h, TiebaApplication.d().ar());
                 this.h.setOnLoadUrlListener(this);
                 this.h.setHorizontalScrollBarEnabled(false);
                 this.h.setHorizontalScrollbarOverlay(false);

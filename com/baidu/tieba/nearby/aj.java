@@ -30,8 +30,8 @@ public class aj implements View.OnClickListener {
         String str8;
         String str9;
         switch (view.getId()) {
-            case R.id.nearby_post_layout /* 2131100200 */:
-            case R.id.nearby_reply_layout /* 2131100218 */:
+            case R.id.nearby_post_layout /* 2131100242 */:
+            case R.id.nearby_reply_layout /* 2131100260 */:
                 String str10 = (String) view.getTag(R.id.tag_nearby_thread_id);
                 String str11 = (String) view.getTag(R.id.tag_nearby_url);
                 Boolean bool = (Boolean) view.getTag(R.id.tag_nearby_guid_post);
@@ -40,10 +40,10 @@ public class aj implements View.OnClickListener {
                     return;
                 } else if (str11 != null && !str11.equals("")) {
                     if (bool.booleanValue()) {
-                        if (TiebaApplication.d().n()) {
+                        if (TiebaApplication.d().o()) {
                             StatService.onEvent(this.a, "lbs_new_guid_post", "lbsclick", 1);
                         }
-                    } else if (TiebaApplication.d().n()) {
+                    } else if (TiebaApplication.d().o()) {
                         StatService.onEvent(this.a, "lbs_operation_post", "lbsclick", 1);
                     }
                     this.a.c(str11);
@@ -51,8 +51,8 @@ public class aj implements View.OnClickListener {
                 } else {
                     return;
                 }
-            case R.id.author_photo /* 2131100215 */:
-            case R.id.author_name /* 2131100216 */:
+            case R.id.author_photo /* 2131100257 */:
+            case R.id.author_name /* 2131100258 */:
                 String str12 = (String) view.getTag(R.id.tag_nearby_person_id);
                 String str13 = (String) view.getTag(R.id.tag_nearby_person_name);
                 if (str13 != null && str12 != null && !str13.equals("") && !str12.equals("")) {
@@ -60,7 +60,7 @@ public class aj implements View.OnClickListener {
                     return;
                 }
                 return;
-            case R.id.comment_btn /* 2131100217 */:
+            case R.id.comment_btn /* 2131100259 */:
                 this.a.q = (String) view.getTag(R.id.tag_nearby_thread_id);
                 this.a.r = (String) view.getTag(R.id.tag_nearby_forum_name);
                 this.a.s = (String) view.getTag(R.id.tag_nearby_forum_id);
@@ -76,8 +76,8 @@ public class aj implements View.OnClickListener {
                                 if (str5 != null) {
                                     str6 = this.a.s;
                                     if (!str6.equals("")) {
-                                        String z = TiebaApplication.z();
-                                        if (z == null || z.length() <= 0) {
+                                        String B = TiebaApplication.B();
+                                        if (B == null || B.length() <= 0) {
                                             LoginActivity.a(this.a.getParent(), this.a.getString(R.string.login_to_post), true, 1100024);
                                             return;
                                         }

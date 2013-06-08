@@ -1,55 +1,22 @@
 package com.baidu.tieba.nearby;
 
-import android.support.v4.view.ViewPager;
-import android.widget.CompoundButton;
-import android.widget.RadioButton;
+import android.view.GestureDetector;
+import android.view.MotionEvent;
+import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class bc implements CompoundButton.OnCheckedChangeListener {
-    final /* synthetic */ NewNearbyActivity a;
+public class bc implements View.OnTouchListener {
+    GestureDetector a;
+    final /* synthetic */ NewNearbyActivity b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bc(NewNearbyActivity newNearbyActivity) {
-        this.a = newNearbyActivity;
+        this.b = newNearbyActivity;
+        this.a = new GestureDetector(newNearbyActivity.d);
     }
 
-    @Override // android.widget.CompoundButton.OnCheckedChangeListener
-    public void onCheckedChanged(CompoundButton compoundButton, boolean z) {
-        boolean z2;
-        ViewPager viewPager;
-        ViewPager viewPager2;
-        RadioButton radioButton;
-        ViewPager viewPager3;
-        ViewPager viewPager4;
-        ViewPager viewPager5;
-        ViewPager viewPager6;
-        if (z) {
-            com.baidu.tieba.d.ae.c("onCheckedChanged id = " + String.valueOf(compoundButton.getId()));
-            z2 = this.a.z;
-            if (!z2) {
-                viewPager = this.a.k;
-                if (viewPager != null) {
-                    viewPager2 = this.a.k;
-                    if (viewPager2.getChildCount() >= 2) {
-                        this.a.y = true;
-                        radioButton = this.a.s;
-                        if (compoundButton == radioButton) {
-                            viewPager5 = this.a.k;
-                            if (viewPager5.getCurrentItem() != 0) {
-                                viewPager6 = this.a.k;
-                                viewPager6.a(0, true);
-                            }
-                        } else {
-                            viewPager3 = this.a.k;
-                            if (viewPager3.getCurrentItem() != 1) {
-                                viewPager4 = this.a.k;
-                                viewPager4.a(1, true);
-                            }
-                        }
-                        this.a.y = false;
-                    }
-                }
-            }
-        }
+    @Override // android.view.View.OnTouchListener
+    public boolean onTouch(View view, MotionEvent motionEvent) {
+        return this.a.onTouchEvent(motionEvent);
     }
 }

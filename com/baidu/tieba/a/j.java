@@ -56,7 +56,7 @@ public class j {
                     TiebaApplication.d().e(this.h);
                 }
                 if (!this.i) {
-                    TiebaApplication.d().p(this.i);
+                    TiebaApplication.d().r(this.i);
                 }
                 if (optInt2 == 1) {
                     TiebaApplication.d().g(true);
@@ -67,6 +67,7 @@ public class j {
                 this.m = jSONObject.optInt("perform_sample_param", 100000);
                 TiebaApplication.d().a(this.k);
                 TiebaApplication.d().c(optInt3 == 1);
+                TiebaApplication.d().s(jSONObject.optInt("open_local_popularize", 0) == 1);
                 i.a(this.a);
                 i.d(this.d);
                 i.c(this.e);

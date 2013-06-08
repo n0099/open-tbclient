@@ -1,133 +1,79 @@
 package com.baidu.tieba.recommend;
 
-import android.location.Address;
-import android.widget.Button;
-import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.a.ba;
-import com.baidu.tieba.account.af;
-import com.baidu.tieba.c.ac;
+import android.content.Context;
+import com.baidu.tieba.MainTabActivity;
+import com.baidu.tieba.chat.ChatActivity;
+import com.baidu.tieba.chat.ChatListActivity;
 import com.baidu.tieba.d.ae;
-import com.baidu.tieba.d.k;
-import com.baidu.tieba.d.t;
-import com.slidingmenu.lib.R;
-import java.util.ArrayList;
-import org.json.JSONException;
-import org.json.JSONObject;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.tieba.frs.FrsActivity;
+import com.baidu.tieba.pb.NewPbActivity;
+import com.baidu.tieba.person.PersonInfoActivity;
+import java.net.URLDecoder;
 /* loaded from: classes.dex */
-public class i extends com.baidu.adp.lib.a.a {
-    final /* synthetic */ TagContentActivity a;
-    private t b = null;
-    private String c = null;
-    private boolean d;
-
-    public i(TagContentActivity tagContentActivity, boolean z) {
-        this.a = tagContentActivity;
-        this.d = false;
-        this.d = z;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.a.a
-    /* renamed from: d */
-    public String a(Object... objArr) {
-        String str;
-        String str2;
-        String str3;
-        new af("tagthread").start();
-        if (this.d) {
-            this.b = new t(String.valueOf(com.baidu.tieba.a.i.e) + "c/s/tag/add_tag");
-            this.b.d(true);
-            this.b.a("_version_more", "1");
-            this.b.a("platform", "android");
-            t tVar = this.b;
-            str3 = this.a.d;
-            tVar.a("tag_info", str3);
-            Address aC = TiebaApplication.d().aC();
-            if (aC != null && TiebaApplication.d().o()) {
-                this.b.a("lbs", String.valueOf(String.valueOf(aC.getLatitude())) + "," + String.valueOf(aC.getLongitude()));
-            }
+public class i {
+    public static boolean a(Context context, String str) {
+        if (str != null) {
             try {
-                this.c = this.b.i();
-                if (this.b.c()) {
-                    return this.c;
+                if (str.contains("jump_tieba_native=1")) {
+                    if (str.contains("jumptoapp_browser=classic_everyday")) {
+                        DailyClassicalActivity.a(context);
+                        return true;
+                    } else if (str.contains("nearby=1")) {
+                        MainTabActivity.a(context, "goto_nearby");
+                        return true;
+                    } else if (str.contains("kz=")) {
+                        String a = a(str, "kz=");
+                        if (a != null && a.length() >= 0) {
+                            NewPbActivity.a(context, a, null, "allthread");
+                        }
+                        return true;
+                    } else if (str.contains("kw=")) {
+                        String a2 = a(str, "kw=");
+                        if (a2 != null && a2.length() >= 0) {
+                            FrsActivity.a(context, a2, "allthread");
+                        }
+                        return true;
+                    } else if (str.contains("tag_name=") && str.contains("tag_id=")) {
+                        String a3 = a(str, "tag_id=");
+                        String a4 = a(str, "tag_name=");
+                        String a5 = a(str, "tag_type=");
+                        String a6 = a(str, "tag_is_selected=");
+                        if (a3 != null && a3.length() >= 0) {
+                            TagContentActivity.a(context, a3, a4, a5, a6);
+                        }
+                        return true;
+                    } else if (str.contains("jump_chat=1")) {
+                        String a7 = a(str, "userid=");
+                        String a8 = a(str, "username=");
+                        String a9 = a(str, "portrait=");
+                        if (a7 != null && a7.length() > 0) {
+                            ChatActivity.a(context, a7, a8, a9, null, "web_bd");
+                        } else {
+                            ChatListActivity.a(context);
+                        }
+                        return true;
+                    } else if (str.contains("jump_personalCenter=1") && str.contains("userid=") && str.contains("un=")) {
+                        PersonInfoActivity.a(context, a(str, "userid="), a(str, "un="));
+                        return true;
+                    }
                 }
             } catch (Exception e) {
-                ae.b("AttentionAsyncTask", "doInBackground", "error = " + e.getMessage());
+                ae.b(i.class.getName(), "jumpTiebaNative", e.getMessage());
             }
-            return null;
         }
-        String b = k.b(12);
-        ac acVar = new ac();
-        acVar.a(b);
-        ba baVar = new ba();
-        str = this.a.d;
-        baVar.a(str);
-        str2 = this.a.c;
-        baVar.b(str2);
-        acVar.a(baVar);
-        k.a(acVar.f(), 12);
+        return false;
+    }
+
+    public static String a(String str, String str2) {
+        int indexOf = str.indexOf(str2);
+        if (indexOf != -1) {
+            int length = str2.length() + indexOf;
+            int i = length;
+            while (i < str.length() && str.charAt(i) != '&') {
+                i++;
+            }
+            return URLDecoder.decode(str.substring(length, i));
+        }
         return "";
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.a.a
-    public void a(String str) {
-        Button button;
-        Button button2;
-        Button button3;
-        String str2;
-        String str3;
-        Button button4;
-        this.a.q = null;
-        if (str == null) {
-            button4 = this.a.g;
-            button4.setVisibility(0);
-        } else if (this.d) {
-            try {
-                JSONObject optJSONObject = new JSONObject(str).optJSONObject("error");
-                if (optJSONObject.optInt("errno") == 0) {
-                    button3 = this.a.g;
-                    button3.setVisibility(8);
-                    this.a.a(this.a.getString(R.string.attention_success));
-                    ArrayList arrayList = NewHomeActivity.c;
-                    str2 = this.a.d;
-                    if (!arrayList.contains(str2)) {
-                        ArrayList arrayList2 = NewHomeActivity.c;
-                        str3 = this.a.d;
-                        arrayList2.add(str3);
-                        return;
-                    }
-                    return;
-                }
-                if (optJSONObject.has("usermsg")) {
-                    String optString = optJSONObject.optString("usermsg");
-                    if (optString != null && optString.length() > 0) {
-                        this.a.a(optString);
-                    } else {
-                        this.a.a(this.a.getString(R.string.attention_fail));
-                    }
-                }
-                button2 = this.a.g;
-                button2.setVisibility(0);
-            } catch (JSONException e) {
-                e.printStackTrace();
-                button = this.a.g;
-                button.setVisibility(0);
-                this.a.a(this.a.getString(R.string.attention_fail));
-            }
-        } else {
-            this.a.a(this.a.getString(R.string.attention_success));
-        }
-    }
-
-    @Override // com.baidu.adp.lib.a.a
-    public void cancel() {
-        if (this.b != null) {
-            this.b.g();
-        }
-        super.cancel(true);
     }
 }

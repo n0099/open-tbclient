@@ -13,7 +13,7 @@ class av implements com.baidu.adp.widget.ScrollView.o {
 
     @Override // com.baidu.adp.widget.ScrollView.o
     public void a() {
-        if (TiebaApplication.d().n()) {
+        if (TiebaApplication.d().o()) {
             StatService.onEvent(this.a, "frs_pulldown", "frsclick", 1);
         }
         this.a.t = null;

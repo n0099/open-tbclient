@@ -1,100 +1,25 @@
 package com.baidu.tieba.b;
 
-import com.baidu.tieba.a.am;
+import com.baidu.android.pushservice.PushConstants;
+import com.baidu.tieba.a.aj;
 import com.baidu.tieba.a.i;
 import com.baidu.tieba.d.t;
 /* loaded from: classes.dex */
 public class a {
-    private static final String a = String.valueOf(i.e) + "c/f/pb/page";
+    private static final String a = String.valueOf(i.e) + "c/s/addmsg";
     private t b = null;
+    private aj c = null;
 
-    /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
-    public String a(String str, String str2, String str3, int i, int i2, boolean z, boolean z2, int i3, int i4, int i5, boolean z3, long j, boolean z4, am amVar) {
-        if (str == null || str.length() == 0) {
-            return null;
-        }
+    public String a(com.baidu.tieba.a.a.e eVar) {
         this.b = new t(a);
-        this.b.a("kz", str);
-        this.b.a("rn", String.valueOf(30));
-        this.b.a("with_floor", "1");
-        if (!z) {
-            this.b.a("r", "1");
-        }
-        if (z2) {
-            this.b.a("lz", "1");
-        }
-        if (str2 != null) {
-            this.b.a("st_type", str2);
-        }
-        if (z3) {
-            this.b.a("msg_click", "1");
-            this.b.a("message_id", String.valueOf(j));
-        }
-        if (amVar != null) {
-            amVar.a(this.b);
-        }
-        switch (i3) {
-            case 1:
-                this.b.a("back", "0");
-                if (!z4) {
-                    if (!z) {
-                        if (i > 0) {
-                            this.b.a("pn", String.valueOf(i - 1));
-                        }
-                    } else if (i2 < i5) {
-                        this.b.a("pn", String.valueOf(i2 + 1));
-                    }
-                }
-                if (str3 != null) {
-                    this.b.a("pid", str3);
-                    break;
-                } else if (!z) {
-                    this.b.a("last", "1");
-                    break;
-                }
-                break;
-            case 2:
-                this.b.a("back", "1");
-                if (!z4) {
-                    if (z) {
-                        if (i > 0) {
-                            this.b.a("pn", String.valueOf(i - 1));
-                        }
-                    } else if (i2 < i5) {
-                        this.b.a("pn", String.valueOf(i2 + 1));
-                    }
-                }
-                if (str3 != null) {
-                    this.b.a("pid", str3);
-                    break;
-                }
-                break;
-            case 3:
-                this.b.a("back", "0");
-                if (z) {
-                    this.b.a("pn", "1");
-                    break;
-                } else {
-                    this.b.a("last", "1");
-                    break;
-                }
-            case 4:
-                this.b.a("st_type", "store_thread");
-                this.b.a("mark", "1");
-                this.b.a("pid", str3);
-                this.b.a("back", "0");
-                break;
-            case 5:
-                this.b.a("back", "0");
-                this.b.a("pn", String.valueOf(i4));
-                break;
-            case 6:
-                this.b.a("mark", "1");
-                this.b.a("pid", str3);
-                this.b.a("back", "0");
-                break;
-        }
-        return this.b.i();
+        this.b.a(PushConstants.EXTRA_USER_ID, eVar.c());
+        this.b.a("com_id", eVar.b());
+        this.b.a(PushConstants.EXTRA_CONTENT, eVar.a());
+        this.b.a("last_msg_id", String.valueOf(eVar.d()));
+        String i = this.b.i();
+        this.c = new aj();
+        this.c.a(i);
+        return i;
     }
 
     public void a() {
@@ -104,37 +29,30 @@ public class a {
     }
 
     public boolean b() {
-        if (this.b == null) {
-            return false;
+        if (this.b != null) {
+            return this.b.b();
         }
-        return this.b.b();
+        return false;
     }
 
-    public boolean c() {
-        if (this.b == null) {
-            return false;
+    public String c() {
+        if (this.b != null) {
+            return this.b.f();
         }
-        return this.b.c();
+        return null;
     }
 
     public int d() {
-        if (this.b == null) {
-            return 0;
+        if (this.c != null) {
+            return this.c.a();
         }
-        return this.b.a();
+        return -1;
     }
 
     public String e() {
-        if (this.b == null) {
-            return null;
+        if (this.c != null) {
+            return this.c.b();
         }
-        return this.b.f();
-    }
-
-    public int f() {
-        if (this.b == null) {
-            return 0;
-        }
-        return this.b.d();
+        return null;
     }
 }

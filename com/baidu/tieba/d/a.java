@@ -1,7 +1,6 @@
 package com.baidu.tieba.d;
 
 import android.content.Context;
-import android.graphics.Bitmap;
 import java.util.ArrayList;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
@@ -55,49 +54,49 @@ public class a {
         this.e.clear();
     }
 
-    public Bitmap b(String str) {
-        return com.baidu.tbadk.a.d.a().b(str);
+    public com.baidu.adp.widget.a.b b(String str) {
+        return com.baidu.tbadk.a.e.a().b(str);
     }
 
-    public Bitmap c(String str) {
-        return com.baidu.tbadk.a.d.a().c(str);
+    public com.baidu.adp.widget.a.b c(String str) {
+        return com.baidu.tbadk.a.e.a().c(str);
     }
 
     public void d(String str) {
-        com.baidu.tbadk.a.d.a().a(str);
+        com.baidu.tbadk.a.e.a().a(str);
     }
 
-    public Bitmap a(String str, d dVar) {
+    public com.baidu.adp.widget.a.b a(String str, com.baidu.tbadk.a.d dVar) {
         return a(str, dVar, 0, true);
     }
 
-    public Bitmap b(String str, d dVar) {
+    public com.baidu.adp.widget.a.b b(String str, com.baidu.tbadk.a.d dVar) {
         return a(str, dVar, 1, true);
     }
 
-    public Bitmap c(String str, d dVar) {
+    public com.baidu.adp.widget.a.b c(String str, com.baidu.tbadk.a.d dVar) {
         return a(str, dVar, 1, false);
     }
 
-    public Bitmap d(String str, d dVar) {
+    public com.baidu.adp.widget.a.b d(String str, com.baidu.tbadk.a.d dVar) {
         return a(str, dVar, 2, true);
     }
 
-    public Bitmap e(String str, d dVar) {
+    public com.baidu.adp.widget.a.b e(String str, com.baidu.tbadk.a.d dVar) {
         return a(str, dVar, 4, true);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public Bitmap a(String str, d dVar, Integer num, boolean z) {
-        Bitmap c;
+    public com.baidu.adp.widget.a.b a(String str, com.baidu.tbadk.a.d dVar, Integer num, boolean z) {
+        com.baidu.adp.widget.a.b c;
         if (str == null) {
             return null;
         }
         String str2 = this.h != null ? String.valueOf(str) + this.h : str;
         if (num.intValue() == 0 || num.intValue() == 4) {
-            c = com.baidu.tbadk.a.d.a().c(str2);
+            c = com.baidu.tbadk.a.e.a().c(str2);
         } else {
-            c = num.intValue() != 3 ? com.baidu.tbadk.a.d.a().b(str2) : null;
+            c = num.intValue() != 3 ? com.baidu.tbadk.a.e.a().b(str2) : null;
         }
         if (c == null) {
             try {

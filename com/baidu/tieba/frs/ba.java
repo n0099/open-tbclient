@@ -3,7 +3,6 @@ package com.baidu.tieba.frs;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
-import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.text.SpannableString;
 import android.text.style.ForegroundColorSpan;
@@ -37,8 +36,8 @@ public class ba {
     private com.baidu.tieba.e d;
     private boolean c = false;
     private RelativeLayout e = null;
-    private LinearLayout f = null;
-    private FrameLayout g = null;
+    private FrameLayout f = null;
+    private LinearLayout g = null;
     private ImageView h = null;
     private TextView i = null;
     private ImageButton j = null;
@@ -52,16 +51,16 @@ public class ba {
     private LinearLayout r = null;
     private TextView s = null;
     private AlertDialog t = null;
-    private com.baidu.tieba.view.n u = null;
-    private com.baidu.tieba.view.r v = null;
-    private com.baidu.tieba.view.m w = null;
+    private com.baidu.tieba.view.o u = null;
+    private com.baidu.tieba.view.s v = null;
+    private com.baidu.tieba.view.n w = null;
     private ag x = null;
     private TextView y = null;
     private ImageButton z = null;
     private int A = 0;
-    private com.baidu.tieba.view.q B = null;
+    private com.baidu.tieba.view.r B = null;
     private bd C = null;
-    private com.baidu.tieba.view.aa D = null;
+    private com.baidu.tieba.view.ac D = null;
     private SlidingMenu E = null;
     private String F = null;
     AlertDialog a = null;
@@ -81,8 +80,8 @@ public class ba {
         this.C = new bd(this.d);
         this.C.a(R.id.show_all);
         this.e = (RelativeLayout) this.d.findViewById(R.id.frs);
-        this.f = (LinearLayout) this.d.findViewById(R.id.frs_title);
-        this.g = (FrameLayout) this.d.findViewById(R.id.frs_list_content);
+        this.g = (LinearLayout) this.d.findViewById(R.id.frs_title);
+        this.f = (FrameLayout) this.d.findViewById(R.id.frs_list_content);
         this.E = new SlidingMenu(this.d);
         this.E.setMode(1);
         this.E.setTouchModeAbove(1);
@@ -108,14 +107,14 @@ public class ba {
             this.t.setCanceledOnTouchOutside(true);
         }
         this.o = (BdListView) this.d.findViewById(R.id.frs_lv_thread);
-        this.B = new com.baidu.tieba.view.q(this.d);
+        this.B = new com.baidu.tieba.view.r(this.d);
         this.o.setPullRefresh(this.B);
         this.o.setDivider(null);
         this.o.setDividerHeight(0);
-        this.u = new com.baidu.tieba.view.n(this.d, com.baidu.tieba.view.o.FRS_LIST, null, null);
-        this.v = new com.baidu.tieba.view.r(this.d, null, null);
-        this.w = new com.baidu.tieba.view.m(this.d);
-        this.p = new ad(this.d, null, com.baidu.tieba.d.ag.a((Context) this.d));
+        this.u = new com.baidu.tieba.view.o(this.d, com.baidu.tieba.view.p.FRS_LIST, null, null);
+        this.v = new com.baidu.tieba.view.s(this.d, null, null);
+        this.w = new com.baidu.tieba.view.n(this.d);
+        this.p = new ad(this.d, null, com.baidu.tieba.d.ag.a((Context) this.d), false);
         this.b = AnimationUtils.loadAnimation(this.d, R.anim.refresh_rotate);
         this.b.setInterpolator(new LinearInterpolator());
         this.b.setFillAfter(true);
@@ -159,7 +158,7 @@ public class ba {
         this.E.showMenu(z);
     }
 
-    public void a(com.baidu.tieba.a.bb bbVar, boolean z) {
+    public void a(com.baidu.tieba.a.bc bcVar, boolean z) {
         String string = this.d.getString(R.string.view);
         String string2 = this.d.getString(R.string.view_host);
         String string3 = this.d.getString(R.string.view_reverse);
@@ -264,11 +263,11 @@ public class ba {
         return this.p;
     }
 
-    public com.baidu.tieba.view.n h() {
+    public com.baidu.tieba.view.o h() {
         return this.u;
     }
 
-    public com.baidu.tieba.view.r i() {
+    public com.baidu.tieba.view.s i() {
         return this.v;
     }
 
@@ -287,7 +286,7 @@ public class ba {
 
     public void j() {
         this.o.setVisibility(0);
-        this.p.a(TiebaApplication.d().ah());
+        this.p.a(TiebaApplication.d().ap());
     }
 
     public void c(String str) {
@@ -355,11 +354,11 @@ public class ba {
     }
 
     public void c(boolean z) {
-        this.p.b(z);
+        this.p.c(z);
     }
 
     public void d(boolean z) {
-        this.p.c(z);
+        this.p.d(z);
     }
 
     public void r() {
@@ -386,23 +385,23 @@ public class ba {
 
     public void b(int i) {
         if (i > 1) {
-            this.p.d(true);
-        } else {
-            this.p.d(false);
-        }
-    }
-
-    public void c(int i) {
-        if (i == 1) {
             this.p.e(true);
         } else {
             this.p.e(false);
         }
     }
 
+    public void c(int i) {
+        if (i == 1) {
+            this.p.f(true);
+        } else {
+            this.p.f(false);
+        }
+    }
+
     public void s() {
-        this.p.b(false);
         this.p.c(false);
+        this.p.d(false);
         this.p.notifyDataSetInvalidated();
     }
 
@@ -554,18 +553,18 @@ public class ba {
         }
     }
 
-    public void a(Bitmap bitmap, boolean z) {
+    public void a(com.baidu.adp.widget.a.b bVar, boolean z) {
         if (this.D == null) {
-            this.D = new com.baidu.tieba.view.aa(this.d, this.e.getWidth(), this.e.getHeight());
+            this.D = new com.baidu.tieba.view.ac(this.d, this.e.getWidth(), this.e.getHeight());
         }
         if (this.D.isShowing()) {
-            this.D.a(bitmap);
+            this.D.a(bVar);
         } else {
-            this.D.a(bitmap, z);
+            this.D.a(bVar, z);
         }
     }
 
-    public com.baidu.tieba.view.aa w() {
+    public com.baidu.tieba.view.ac w() {
         return this.D;
     }
 
@@ -581,9 +580,9 @@ public class ba {
         }
     }
 
-    public void a(com.baidu.tieba.c.u uVar) {
-        this.C.a(uVar);
-        long a = uVar.a();
+    public void a(com.baidu.tieba.c.x xVar) {
+        this.C.a(xVar);
+        long a = xVar.a() + xVar.b();
         if (a > 0) {
             this.y.setVisibility(0);
             this.y.setText(String.valueOf(a <= 99 ? a : 99L));
@@ -594,10 +593,9 @@ public class ba {
 
     public void j(int i) {
         this.A = i;
-        com.baidu.tieba.d.ac.b(this.e, i);
-        com.baidu.tieba.d.ac.b(this.g, i);
+        com.baidu.tieba.d.ac.b(this.f, i);
         com.baidu.tieba.d.ac.b((View) this.o, i);
-        com.baidu.tieba.d.ac.d(this.f, i);
+        com.baidu.tieba.d.ac.d(this.g, i);
         com.baidu.tieba.d.ac.a(this.h, i);
         this.u.a(i);
         this.v.a(i);
@@ -627,7 +625,6 @@ public class ba {
         this.y.setTextColor(-1);
         this.y.setBackgroundResource(R.drawable.icon_point);
         this.i.setTextColor(-1);
-        this.i.setShadowLayer(0.0f, 0.0f, 0.0f, -1);
         this.j.setImageResource(R.drawable.icon_edit_n);
         this.j.setBackgroundResource(R.drawable.title_icon_bg);
         this.z.setImageResource(R.drawable.btn_more_n);

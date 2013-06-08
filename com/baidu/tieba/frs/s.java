@@ -24,7 +24,7 @@ class s implements Runnable {
         ba baVar5;
         String str;
         String str2;
-        com.baidu.tieba.c.p pVar;
+        com.baidu.tieba.c.s sVar;
         ba baVar6;
         ba baVar7;
         int i;
@@ -51,8 +51,8 @@ class s implements Runnable {
             if (str != "frs_page") {
                 str2 = this.a.A;
                 if (str2 == "normal_page") {
-                    pVar = this.a.v;
-                    String l = pVar.a().l();
+                    sVar = this.a.v;
+                    String l = sVar.a().l();
                     if (l != null && l.length() > 0) {
                         this.a.b();
                     }
@@ -65,11 +65,11 @@ class s implements Runnable {
             while (i4 < baVar6.g().getCount()) {
                 if (z || i4 <= i3) {
                     baVar7 = this.a.l;
-                    com.baidu.tieba.a.bb bbVar = (com.baidu.tieba.a.bb) baVar7.g().getItem(i4);
-                    if (bbVar != null) {
-                        ArrayList m = bbVar.m();
+                    com.baidu.tieba.a.bc bcVar = (com.baidu.tieba.a.bc) baVar7.g().getItem(i4);
+                    if (bcVar != null) {
+                        ArrayList m = bcVar.m();
                         int size = m.size();
-                        if (i5 < 13 && TiebaApplication.d().ah()) {
+                        if (i5 < 13 && TiebaApplication.d().ap()) {
                             int i6 = 0;
                             while (i6 < size) {
                                 if (((com.baidu.tieba.a.ag) m.get(i6)).a() == 3) {

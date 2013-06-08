@@ -90,12 +90,12 @@ public class ay extends com.baidu.adp.lib.a.a {
             }
         }
         if (this.c.getWidth() > 600 || this.c.getHeight() > 600) {
-            this.c = com.baidu.tieba.d.e.a(this.c, 600);
+            this.c = com.baidu.tieba.d.d.a(this.c, 600);
         }
         if (this.d.booleanValue()) {
-            this.c = com.baidu.tieba.d.e.d(this.c, Integer.parseInt(this.b));
+            this.c = com.baidu.tieba.d.d.d(this.c, Integer.parseInt(this.b));
         } else if (this.e.booleanValue()) {
-            this.c = com.baidu.tieba.d.e.e(this.c, Integer.parseInt(this.b));
+            this.c = com.baidu.tieba.d.d.e(this.c, Integer.parseInt(this.b));
         } else {
             this.c = FilterFactory.createOneKeyFilter(this.a, this.b).apply(this.a, this.c);
         }
@@ -159,15 +159,15 @@ public class ay extends com.baidu.adp.lib.a.a {
                 }
                 WriteImageActivity writeImageActivity = this.a;
                 bitmap7 = this.a.e;
-                writeImageActivity.e = com.baidu.tieba.d.e.a(bitmap7, 600);
+                writeImageActivity.e = com.baidu.tieba.d.d.a(bitmap7, 600);
                 if (this.d.booleanValue()) {
                     WriteImageActivity writeImageActivity2 = this.a;
                     bitmap9 = this.a.e;
-                    writeImageActivity2.e = com.baidu.tieba.d.e.d(bitmap9, Integer.parseInt(this.b));
+                    writeImageActivity2.e = com.baidu.tieba.d.d.d(bitmap9, Integer.parseInt(this.b));
                 } else if (this.e.booleanValue()) {
                     WriteImageActivity writeImageActivity3 = this.a;
                     bitmap8 = this.a.e;
-                    writeImageActivity3.e = com.baidu.tieba.d.e.e(bitmap8, Integer.parseInt(this.b));
+                    writeImageActivity3.e = com.baidu.tieba.d.d.e(bitmap8, Integer.parseInt(this.b));
                 }
             }
             bitmap3 = this.a.r;

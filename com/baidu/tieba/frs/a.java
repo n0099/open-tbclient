@@ -45,38 +45,42 @@ class a implements ac {
     }
 
     @Override // com.baidu.tieba.frs.ac
-    public void a(int i, JSONObject jSONObject, com.baidu.tieba.c.s sVar) {
+    public void a(int i, JSONObject jSONObject, com.baidu.tieba.c.v vVar) {
         ba baVar;
         ba baVar2;
         ba baVar3;
         ba baVar4;
         ba baVar5;
-        com.baidu.tieba.c.p pVar;
+        com.baidu.tieba.c.s sVar;
         boolean z;
         String str;
         String str2;
         String str3;
         ba baVar6;
-        com.baidu.tieba.c.p pVar2;
+        com.baidu.tieba.c.s sVar2;
         AdapterView.OnItemClickListener onItemClickListener;
         ba baVar7;
-        com.baidu.tieba.c.p pVar3;
-        com.baidu.tieba.c.p pVar4;
-        com.baidu.tieba.c.p pVar5;
+        com.baidu.tieba.c.s sVar3;
+        com.baidu.tieba.c.s sVar4;
+        com.baidu.tieba.c.s sVar5;
         int i2;
         int i3;
         int i4;
         ba baVar8;
         ba baVar9;
-        com.baidu.tieba.c.p pVar6;
-        com.baidu.tieba.c.p pVar7;
+        com.baidu.tieba.c.s sVar6;
+        com.baidu.tieba.c.s sVar7;
         boolean z2;
-        if (sVar != null && sVar.b) {
+        ba baVar10;
+        if (vVar == null || !vVar.b) {
+            FrsActivity.r = 1;
+        } else {
+            boolean z3 = com.baidu.tieba.d.w.c(this.a) == com.baidu.tieba.d.z.WIFI;
+            baVar10 = this.a.l;
+            baVar10.g().b(z3);
             FrsActivity.p = 0L;
             FrsActivity.q = 0L;
             FrsActivity.r = 0;
-        } else {
-            FrsActivity.r = 1;
         }
         baVar = this.a.l;
         baVar.b(false);
@@ -94,18 +98,18 @@ class a implements ac {
                 baVar3.k();
                 break;
         }
-        if (jSONObject != null && (sVar == null || sVar.c == 0)) {
-            pVar = this.a.v;
-            if (pVar != null) {
-                pVar6 = this.a.v;
-                if (pVar6.e().a() == 1) {
+        if (jSONObject != null && (vVar == null || vVar.c == 0)) {
+            sVar = this.a.v;
+            if (sVar != null) {
+                sVar6 = this.a.v;
+                if (sVar6.e().a() == 1) {
                     this.a.A = "frs_page";
                 } else {
                     this.a.A = "normal_page";
                 }
                 FrsActivity frsActivity = this.a;
-                pVar7 = this.a.v;
-                frsActivity.e = pVar7.a().b();
+                sVar7 = this.a.v;
+                frsActivity.e = sVar7.a().b();
                 z2 = this.a.t;
                 if (z2) {
                     this.a.A = "good_page";
@@ -130,23 +134,23 @@ class a implements ac {
                     str3 = this.a.A;
                     if (str3 == "good_page") {
                         baVar6 = this.a.l;
-                        pVar2 = this.a.v;
-                        ArrayList h = pVar2.a().h();
+                        sVar2 = this.a.v;
+                        ArrayList h = sVar2.a().h();
                         onItemClickListener = this.a.V;
                         baVar6.a(h, onItemClickListener);
                     }
                 }
             }
             FrsActivity.p = (System.nanoTime() - this.b) / 1000000;
-            if (sVar != null) {
-                FrsActivity.q = sVar.e;
+            if (vVar != null) {
+                FrsActivity.q = vVar.e;
             }
-            pVar3 = this.a.v;
-            if (pVar3 != null) {
-                pVar4 = this.a.v;
-                if (pVar4.b() != null) {
-                    pVar5 = this.a.v;
-                    if (pVar5.b().size() == 0) {
+            sVar3 = this.a.v;
+            if (sVar3 != null) {
+                sVar4 = this.a.v;
+                if (sVar4.b() != null) {
+                    sVar5 = this.a.v;
+                    if (sVar5.b().size() == 0) {
                         i2 = this.a.d;
                         if (i2 == 1) {
                             this.a.a(this.a.getString(R.string.no_more_to_load));
@@ -164,7 +168,7 @@ class a implements ac {
             }
             this.a.B();
         } else {
-            this.a.a(sVar);
+            this.a.a(vVar);
         }
         this.a.m = null;
         System.gc();

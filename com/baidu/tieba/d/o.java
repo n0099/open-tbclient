@@ -66,16 +66,19 @@ public class o {
         return false;
     }
 
-    public static boolean a(String str, String str2) {
+    public static long a(String str, String str2) {
         if (a()) {
             try {
-                return new File(new StringBuilder().append(a).append("/").append("tieba").append("/").append(str).append("/").append(str2).toString()).exists();
+                if (new File(a + "/tieba/" + str + "/" + str2).exists()) {
+                    return com.baidu.tieba.a.i.e();
+                }
+                return -1L;
             } catch (Exception e) {
                 ae.b("FileHelper", "CheckFile", "error = " + e.getMessage());
-                return false;
+                return -1L;
             }
         }
-        return false;
+        return -1L;
     }
 
     public static File c(String str) {
@@ -139,7 +142,7 @@ public class o {
         return null;
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [323=4, 324=4, 326=4, 327=4] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [338=4, 339=4, 341=4, 342=4] */
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:42:0x00bd */
     /* JADX WARN: Multi-variable type inference failed */
     /* JADX WARN: Removed duplicated region for block: B:60:0x00af A[EXC_TOP_SPLITTER, SYNTHETIC] */
@@ -236,6 +239,9 @@ public class o {
 
     public static String a(String str, String str2, Bitmap bitmap, int i) {
         String str3;
+        if (bitmap == null) {
+            return null;
+        }
         if (str != null) {
             str3 = a + "/tieba/" + str + "/";
         } else {
@@ -269,8 +275,13 @@ public class o {
         }
         try {
             return BitmapFactory.decodeFile(String.valueOf(str3) + str2);
-        } catch (Exception e) {
-            return null;
+        } catch (OutOfMemoryError e) {
+            System.gc();
+            try {
+                return BitmapFactory.decodeFile(String.valueOf(str3) + str2);
+            } catch (OutOfMemoryError e2) {
+                return null;
+            }
         }
     }
 
@@ -278,8 +289,8 @@ public class o {
         return a(null, str, bArr);
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [424=4, 425=4, 427=4, 428=4] */
-    /* JADX WARN: Removed duplicated region for block: B:56:0x0125 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [450=4, 451=4, 453=4, 454=4] */
+    /* JADX WARN: Removed duplicated region for block: B:62:0x0125 A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -296,8 +307,8 @@ public class o {
                 if (0 != 0) {
                     try {
                         fileOutputStream2.close();
-                    } catch (Exception e) {
-                        ae.b("FileHelper", "SaveFile", "error = " + e.getMessage());
+                    } catch (Throwable th) {
+                        ae.b("FileHelper", "SaveFile", "error = " + th.getMessage());
                     }
                 }
                 return null;
@@ -314,40 +325,40 @@ public class o {
                         try {
                             fileOutputStream3.close();
                             return path;
-                        } catch (Exception e2) {
-                            ae.b("FileHelper", "SaveFile", "error = " + e2.getMessage());
+                        } catch (Throwable th2) {
+                            ae.b("FileHelper", "SaveFile", "error = " + th2.getMessage());
                             return path;
                         }
                     }
                     return path;
-                } catch (IOException e3) {
-                    e = e3;
+                } catch (IOException e) {
+                    e = e;
                     ae.b("FileHelper", "SaveFile", "error = " + e.getMessage());
                     if (fileOutputStream != null) {
                         try {
                             fileOutputStream.close();
-                        } catch (Exception e4) {
-                            ae.b("FileHelper", "SaveFile", "error = " + e4.getMessage());
+                        } catch (Throwable th3) {
+                            ae.b("FileHelper", "SaveFile", "error = " + th3.getMessage());
                         }
                     }
                     return null;
                 }
-            } catch (Throwable th) {
-                th = th;
+            } catch (Throwable th4) {
+                th = th4;
                 if (fileOutputStream != null) {
                     try {
                         fileOutputStream.close();
-                    } catch (Exception e5) {
-                        ae.b("FileHelper", "SaveFile", "error = " + e5.getMessage());
+                    } catch (Throwable th5) {
+                        ae.b("FileHelper", "SaveFile", "error = " + th5.getMessage());
                     }
                 }
                 throw th;
             }
-        } catch (IOException e6) {
-            e = e6;
+        } catch (IOException e2) {
+            e = e2;
             fileOutputStream = null;
-        } catch (Throwable th2) {
-            th = th2;
+        } catch (Throwable th6) {
+            th = th6;
             fileOutputStream = null;
             if (fileOutputStream != null) {
             }
@@ -390,167 +401,189 @@ public class o {
         }
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [491=4, 492=4, 494=4, 495=4, 498=4, 499=4, 501=4, 502=4] */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:39:0x00ce */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:63:0x0129 */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:69:0x0132 */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:76:0x004e */
-    /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Type inference failed for: r1v0, types: [java.io.OutputStream] */
-    /* JADX WARN: Type inference failed for: r1v1 */
-    /* JADX WARN: Type inference failed for: r1v10 */
-    /* JADX WARN: Type inference failed for: r1v11 */
-    /* JADX WARN: Type inference failed for: r1v12, types: [java.io.OutputStream, java.io.FileOutputStream] */
-    /* JADX WARN: Type inference failed for: r1v13, types: [java.io.OutputStream] */
-    /* JADX WARN: Type inference failed for: r1v14, types: [java.lang.String] */
-    /* JADX WARN: Type inference failed for: r1v15 */
-    /* JADX WARN: Type inference failed for: r1v2 */
-    /* JADX WARN: Type inference failed for: r1v3 */
-    /* JADX WARN: Type inference failed for: r1v4, types: [java.io.OutputStream] */
-    /* JADX WARN: Type inference failed for: r1v7, types: [java.io.OutputStream] */
-    /* JADX WARN: Type inference failed for: r1v8, types: [java.lang.String] */
-    /* JADX WARN: Type inference failed for: r1v9 */
-    /* JADX WARN: Type inference failed for: r2v10 */
-    /* JADX WARN: Type inference failed for: r2v15, types: [java.lang.String] */
-    /* JADX WARN: Type inference failed for: r2v19 */
-    /* JADX WARN: Type inference failed for: r2v20 */
-    /* JADX WARN: Type inference failed for: r2v21 */
-    /* JADX WARN: Type inference failed for: r2v23 */
-    /* JADX WARN: Type inference failed for: r2v8 */
-    /* JADX WARN: Type inference failed for: r2v9, types: [java.lang.String] */
-    public static boolean e(String str, String str2) {
-        File file;
-        File file2;
-        FileInputStream fileInputStream = null;
-        fileInputStream = 0;
-        fileInputStream = 0;
-        r2 = null;
-        FileInputStream fileInputStream2 = null;
-        fileInputStream = null;
-        InputStream inputStream = null;
-        ?? r1 = 0;
-        String str3 = a + "/tieba/" + str2;
-        try {
-            try {
-                file = new File(a + "/tieba/" + str);
-                file2 = new File(str3);
-            } catch (Throwable th) {
-                th = th;
-            }
-        } catch (Exception e) {
-            e = e;
-            r1 = 0;
-        } catch (Throwable th2) {
-            th = th2;
-            r1 = 0;
-        }
-        if (!file.exists()) {
-            if (0 != 0) {
-                try {
-                    inputStream.close();
-                } catch (Exception e2) {
-                    ae.b("FileHelper", "CopyFile", e2.toString());
-                }
-            }
-            if (0 != 0) {
-                try {
-                    r1.close();
-                } catch (Exception e3) {
-                    ae.b("FileHelper", "CopyFile", e3.toString());
-                }
-            }
-            return false;
-        }
-        FileInputStream fileInputStream3 = new FileInputStream(file);
-        try {
-            r1 = new FileOutputStream(file2);
-        } catch (Exception e4) {
-            e = e4;
-            r1 = 0;
-            fileInputStream2 = fileInputStream3;
-        } catch (Throwable th3) {
-            th = th3;
-            r1 = 0;
-            fileInputStream = fileInputStream3;
-        }
-        try {
-            byte[] bArr = new byte[NotificationProxy.MAX_URL_LENGTH];
-            while (true) {
-                int read = fileInputStream3.read(bArr);
-                if (read <= 0) {
-                    break;
-                }
-                r1.write(bArr, 0, read);
-            }
-            fileInputStream3.close();
-            InputStream inputStream2 = null;
-            try {
-                r1.close();
-                r1 = 0;
-                r1 = 0;
-                if (0 != 0) {
-                    try {
-                        inputStream2.close();
-                    } catch (Exception e5) {
-                        ae.b("FileHelper", "CopyFile", e5.toString());
-                    }
-                }
-                if (0 != 0) {
-                    try {
-                        r1.close();
-                    } catch (Exception e6) {
-                        r1 = "FileHelper";
-                        fileInputStream = "CopyFile";
-                        ae.b("FileHelper", "CopyFile", e6.toString());
-                    }
-                }
-            } catch (Exception e7) {
-                e = e7;
-                ae.b("FileHelper", "CopyFile", e.toString());
-                fileInputStream = fileInputStream2;
-                if (fileInputStream2 != null) {
-                    try {
-                        fileInputStream2.close();
-                        fileInputStream = fileInputStream2;
-                    } catch (Exception e8) {
-                        ae.b("FileHelper", "CopyFile", e8.toString());
-                        fileInputStream = "FileHelper";
-                    }
-                }
-                if (r1 != 0) {
-                    try {
-                        r1.close();
-                    } catch (Exception e9) {
-                        r1 = "FileHelper";
-                        fileInputStream = "CopyFile";
-                        ae.b("FileHelper", "CopyFile", e9.toString());
-                    }
-                }
-                return false;
-            }
-        } catch (Exception e10) {
-            e = e10;
-            fileInputStream2 = fileInputStream3;
-        } catch (Throwable th4) {
-            th = th4;
-            fileInputStream = fileInputStream3;
-            if (fileInputStream != null) {
-                try {
-                    fileInputStream.close();
-                } catch (Exception e11) {
-                    ae.b("FileHelper", "CopyFile", e11.toString());
-                }
-            }
-            if (r1 != 0) {
-                try {
-                    r1.close();
-                } catch (Exception e12) {
-                    ae.b("FileHelper", "CopyFile", e12.toString());
-                }
-            }
-            throw th;
-        }
-        return false;
+    /*  JADX ERROR: JadxRuntimeException in pass: BlockProcessor
+        jadx.core.utils.exceptions.JadxRuntimeException: Found unreachable blocks
+        	at jadx.core.dex.visitors.blocks.DominatorTree.sortBlocks(DominatorTree.java:35)
+        	at jadx.core.dex.visitors.blocks.DominatorTree.compute(DominatorTree.java:25)
+        	at jadx.core.dex.visitors.blocks.BlockProcessor.computeDominators(BlockProcessor.java:202)
+        	at jadx.core.dex.visitors.blocks.BlockProcessor.processBlocksTree(BlockProcessor.java:45)
+        	at jadx.core.dex.visitors.blocks.BlockProcessor.visit(BlockProcessor.java:39)
+        */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [517=4, 518=4, 520=4, 521=4, 524=4, 525=4, 527=4, 528=4] */
+    public static boolean e(java.lang.String r8, java.lang.String r9) {
+        /*
+            r7 = 0
+            r2 = 0
+            r0 = 0
+            r1 = 0
+            java.lang.StringBuilder r3 = new java.lang.StringBuilder
+            r3.<init>()
+            java.io.File r4 = com.baidu.tieba.d.o.a
+            java.lang.StringBuilder r3 = r3.append(r4)
+            java.lang.String r4 = "/"
+            java.lang.StringBuilder r3 = r3.append(r4)
+            java.lang.String r4 = "tieba"
+            java.lang.StringBuilder r3 = r3.append(r4)
+            java.lang.String r4 = "/"
+            java.lang.StringBuilder r3 = r3.append(r4)
+            java.lang.StringBuilder r3 = r3.append(r8)
+            java.lang.String r3 = r3.toString()
+            java.lang.StringBuilder r4 = new java.lang.StringBuilder
+            r4.<init>()
+            java.io.File r5 = com.baidu.tieba.d.o.a
+            java.lang.StringBuilder r4 = r4.append(r5)
+            java.lang.String r5 = "/"
+            java.lang.StringBuilder r4 = r4.append(r5)
+            java.lang.String r5 = "tieba"
+            java.lang.StringBuilder r4 = r4.append(r5)
+            java.lang.String r5 = "/"
+            java.lang.StringBuilder r4 = r4.append(r5)
+            java.lang.StringBuilder r4 = r4.append(r9)
+            java.lang.String r4 = r4.toString()
+            java.io.File r5 = new java.io.File     // Catch: java.lang.Throwable -> L12b
+            r5.<init>(r3)     // Catch: java.lang.Throwable -> L12b
+            java.io.File r6 = new java.io.File     // Catch: java.lang.Throwable -> L12b
+            r6.<init>(r4)     // Catch: java.lang.Throwable -> L12b
+            boolean r3 = r5.exists()     // Catch: java.lang.Throwable -> L12b
+            if (r3 != 0) goto L83
+            if (r2 == 0) goto L63
+            r0.close()     // Catch: java.lang.Throwable -> L69
+        L63:
+            if (r2 == 0) goto L68
+            r1.close()     // Catch: java.lang.Throwable -> L76
+        L68:
+            return r7
+        L69:
+            r0 = move-exception
+            java.lang.String r3 = "FileHelper"
+            java.lang.String r4 = "CopyFile"
+            java.lang.String r0 = r0.toString()
+            com.baidu.tieba.d.ae.b(r3, r4, r0)
+            goto L63
+        L76:
+            r0 = move-exception
+            java.lang.String r1 = "FileHelper"
+            java.lang.String r2 = "CopyFile"
+            java.lang.String r0 = r0.toString()
+            com.baidu.tieba.d.ae.b(r1, r2, r0)
+            goto L68
+        L83:
+            java.io.FileInputStream r3 = new java.io.FileInputStream     // Catch: java.lang.Throwable -> L12b
+            r3.<init>(r5)     // Catch: java.lang.Throwable -> L12b
+            java.io.FileOutputStream r1 = new java.io.FileOutputStream     // Catch: java.lang.Throwable -> L12e
+            r1.<init>(r6)     // Catch: java.lang.Throwable -> L12e
+            r0 = 1024(0x400, float:1.435E-42)
+            byte[] r0 = new byte[r0]     // Catch: java.lang.Throwable -> Lbc
+        L91:
+            int r4 = r3.read(r0)     // Catch: java.lang.Throwable -> Lbc
+            if (r4 > 0) goto Lb7
+            r3.close()     // Catch: java.lang.Throwable -> Lbc
+            r0 = 0
+            r1.close()     // Catch: java.lang.Throwable -> L132
+            r1 = 0
+            if (r2 == 0) goto La4
+            r0.close()     // Catch: java.lang.Throwable -> L115
+        La4:
+            if (r2 == 0) goto L68
+            r1.close()     // Catch: java.lang.Throwable -> Laa
+            goto L68
+        Laa:
+            r0 = move-exception
+            java.lang.String r1 = "FileHelper"
+            java.lang.String r2 = "CopyFile"
+            java.lang.String r0 = r0.toString()
+            com.baidu.tieba.d.ae.b(r1, r2, r0)
+            goto L68
+        Lb7:
+            r5 = 0
+            r1.write(r0, r5, r4)     // Catch: java.lang.Throwable -> Lbc
+            goto L91
+        Lbc:
+            r0 = move-exception
+            r2 = r3
+        Lbe:
+            java.lang.String r3 = "FileHelper"
+            java.lang.String r4 = "CopyFile"
+            java.lang.String r0 = r0.toString()     // Catch: java.lang.Throwable -> L129
+            com.baidu.tieba.d.ae.b(r3, r4, r0)     // Catch: java.lang.Throwable -> L129
+            if (r2 == 0) goto Lce
+            r2.close()     // Catch: java.lang.Throwable -> Le1
+        Lce:
+            if (r1 == 0) goto L68
+            r1.close()     // Catch: java.lang.Throwable -> Ld4
+            goto L68
+        Ld4:
+            r0 = move-exception
+            java.lang.String r1 = "FileHelper"
+            java.lang.String r2 = "CopyFile"
+            java.lang.String r0 = r0.toString()
+            com.baidu.tieba.d.ae.b(r1, r2, r0)
+            goto L68
+        Le1:
+            r0 = move-exception
+            java.lang.String r2 = "FileHelper"
+            java.lang.String r3 = "CopyFile"
+            java.lang.String r0 = r0.toString()
+            com.baidu.tieba.d.ae.b(r2, r3, r0)
+            goto Lce
+        Lee:
+            r0 = move-exception
+            r1 = r2
+        Lf0:
+            if (r2 == 0) goto Lf5
+            r2.close()     // Catch: java.lang.Throwable -> Lfb
+        Lf5:
+            if (r1 == 0) goto Lfa
+            r1.close()     // Catch: java.lang.Throwable -> L108
+        Lfa:
+            throw r0
+        Lfb:
+            r2 = move-exception
+            java.lang.String r3 = "FileHelper"
+            java.lang.String r4 = "CopyFile"
+            java.lang.String r2 = r2.toString()
+            com.baidu.tieba.d.ae.b(r3, r4, r2)
+            goto Lf5
+        L108:
+            r1 = move-exception
+            java.lang.String r2 = "FileHelper"
+            java.lang.String r3 = "CopyFile"
+            java.lang.String r1 = r1.toString()
+            com.baidu.tieba.d.ae.b(r2, r3, r1)
+            goto Lfa
+        L115:
+            r0 = move-exception
+            java.lang.String r3 = "FileHelper"
+            java.lang.String r4 = "CopyFile"
+            java.lang.String r0 = r0.toString()
+            com.baidu.tieba.d.ae.b(r3, r4, r0)
+            goto La4
+        L122:
+            r0 = move-exception
+            r1 = r2
+            r2 = r3
+            goto Lf0
+        L126:
+            r0 = move-exception
+            r2 = r3
+            goto Lf0
+        L129:
+            r0 = move-exception
+            goto Lf0
+        L12b:
+            r0 = move-exception
+            r1 = r2
+            goto Lbe
+        L12e:
+            r0 = move-exception
+            r1 = r2
+            r2 = r3
+            goto Lbe
+        L132:
+            r0 = move-exception
+            goto Lbe
+        */
+        throw new UnsupportedOperationException("Method not decompiled: com.baidu.tieba.d.o.e(java.lang.String, java.lang.String):boolean");
     }
 
     public static InputStream g(String str) {
@@ -561,8 +594,8 @@ public class o {
         if (file != null) {
             try {
                 return new FileInputStream(file);
-            } catch (Exception e) {
-                ae.b("FileHelper", "GetStreamFromFile", "error = " + e.getMessage());
+            } catch (Throwable th) {
+                ae.b("FileHelper", "GetStreamFromFile", "error = " + th.getMessage());
                 return null;
             }
         }
@@ -577,8 +610,8 @@ public class o {
                     return file.delete();
                 }
                 return false;
-            } catch (Exception e) {
-                ae.b("FileHelper", "DelFile", "error = " + e.getMessage());
+            } catch (Throwable th) {
+                ae.b("FileHelper", "DelFile", "error = " + th.getMessage());
                 return false;
             }
         }

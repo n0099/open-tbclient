@@ -21,7 +21,7 @@ public class c extends com.baidu.adp.lib.a.a {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.a.a
-    public com.baidu.tieba.c.aq a(String... strArr) {
+    public com.baidu.tieba.c.at a(String... strArr) {
         try {
             this.a = new com.baidu.tieba.d.t(strArr[0]);
             this.a.a("lng", String.valueOf(this.b.getLongitude()));
@@ -33,9 +33,9 @@ public class c extends com.baidu.adp.lib.a.a {
             }
             String i = this.a.i();
             if (this.a.b()) {
-                com.baidu.tieba.c.aq aqVar = new com.baidu.tieba.c.aq();
-                aqVar.b(i);
-                return aqVar;
+                com.baidu.tieba.c.at atVar = new com.baidu.tieba.c.at();
+                atVar.b(i);
+                return atVar;
             }
             return null;
         } catch (Exception e) {
@@ -47,9 +47,9 @@ public class c extends com.baidu.adp.lib.a.a {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.a.a
-    public void a(com.baidu.tieba.c.aq aqVar) {
+    public void a(com.baidu.tieba.c.at atVar) {
         ProgressBar progressBar;
-        com.baidu.tieba.c.aq aqVar2;
+        com.baidu.tieba.c.at atVar2;
         d dVar;
         ListView listView;
         this.d.i = null;
@@ -57,9 +57,9 @@ public class c extends com.baidu.adp.lib.a.a {
         progressBar = this.d.k;
         progressBar.setVisibility(8);
         if (this.a != null) {
-            if (aqVar != null) {
-                aqVar2 = this.d.d;
-                aqVar2.a(aqVar.a());
+            if (atVar != null) {
+                atVar2 = this.d.d;
+                atVar2.a(atVar.a());
                 dVar = this.d.f;
                 dVar.notifyDataSetChanged();
                 listView = this.d.e;

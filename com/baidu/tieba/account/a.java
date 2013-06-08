@@ -25,15 +25,15 @@ public class a {
         try {
             if (!TiebaApplication.i()) {
                 Token token = new Token();
-                String A = TiebaApplication.A();
-                if (A != null) {
+                String C = TiebaApplication.C();
+                if (C != null) {
                     e();
-                    String[] split = A.split("[|]");
+                    String[] split = C.split("[|]");
                     if (split != null && split.length == 2) {
                         token.mBduss = split[0];
                         token.mPtoken = split[1];
                         if (token.mPtoken != null && token.mPtoken.length() > 0) {
-                            token.mUsername = TiebaApplication.D();
+                            token.mUsername = TiebaApplication.F();
                             LoginShareAssistant.getInstance().valid(token);
                         }
                     }
@@ -85,11 +85,11 @@ public class a {
     }
 
     public void d() {
-        String az;
+        String aI;
         try {
-            if (!TiebaApplication.i() && (az = TiebaApplication.d().az()) != null) {
+            if (!TiebaApplication.i() && (aI = TiebaApplication.d().aI()) != null) {
                 this.a = new b(this);
-                String[] split = az.split(":");
+                String[] split = aI.split(":");
                 int length = split.length;
                 if (length >= 1) {
                     if ("1".equals(split[0])) {
@@ -112,7 +112,7 @@ public class a {
                     }
                 }
                 if (this.a != null && !this.a.a) {
-                    com.baidu.tieba.d.k.j();
+                    com.baidu.tieba.d.k.k();
                     TiebaApplication.a((com.baidu.tieba.a.a) null);
                     e();
                 }
@@ -151,7 +151,7 @@ public class a {
 
     public void e() {
         this.a = null;
-        TiebaApplication.d().ay();
+        TiebaApplication.d().aH();
     }
 
     public void f() {
@@ -159,8 +159,8 @@ public class a {
     }
 
     public void a(Activity activity, String str) {
-        String D;
-        if (this.a != null && this.a.a && TiebaApplication.z() == null && ((D = TiebaApplication.D()) == null || !D.equals(this.a.d))) {
+        String F;
+        if (this.a != null && this.a.a && TiebaApplication.B() == null && ((F = TiebaApplication.F()) == null || !F.equals(this.a.d))) {
             ReLoginShareActivity.a(activity, this.a.d, this.a.b, this.a.c, str);
         }
         f();

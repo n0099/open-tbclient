@@ -55,19 +55,23 @@ public class i {
         return r;
     }
 
-    public static String e() {
-        return u;
+    public static int e() {
+        return s;
     }
 
     public static String f() {
+        return u;
+    }
+
+    public static String g() {
         return v;
     }
 
-    public static int g() {
+    public static int h() {
         return w;
     }
 
-    public static String h() {
+    public static String i() {
         return x;
     }
 
@@ -88,10 +92,11 @@ public class i {
             i2 = a2;
         }
         s = (int) (i2 * i2 * 1.62f * 2.0f);
+        com.baidu.adp.lib.e.b.c("BIG_IMAGE_SIZE = " + s);
         return s;
     }
 
-    public static int i() {
+    public static int j() {
         return s;
     }
 
@@ -100,6 +105,7 @@ public class i {
         if (r < com.baidu.tieba.d.ag.c(context) * 0.28d) {
             r = (int) (com.baidu.tieba.d.ag.c(context) * 0.28d);
         }
+        com.baidu.adp.lib.e.b.c("BIG_IMAGE_MAX_USED_MEMORY = " + r);
     }
 
     public static void c(Context context) {
@@ -112,11 +118,11 @@ public class i {
         q = 110;
     }
 
-    public static String j() {
+    public static String k() {
         return p;
     }
 
-    public static int k() {
+    public static int l() {
         return q;
     }
 
@@ -153,12 +159,12 @@ public class i {
         t = i2;
     }
 
-    public static int l() {
+    public static int m() {
         return t;
     }
 
-    public static int m() {
-        switch (TiebaApplication.d().ag()) {
+    public static int n() {
+        switch (TiebaApplication.d().ao()) {
             case 1:
                 return 18;
             case 2:
@@ -168,16 +174,16 @@ public class i {
         }
     }
 
-    public static int n() {
-        return m() + 1;
-    }
-
     public static int o() {
-        return 14;
+        return n() + 1;
     }
 
     public static int p() {
-        switch (TiebaApplication.d().ag()) {
+        return 14;
+    }
+
+    public static int q() {
+        switch (TiebaApplication.d().ao()) {
             case 1:
                 return 13;
             case 2:
@@ -187,7 +193,7 @@ public class i {
         }
     }
 
-    public static void q() {
+    public static void r() {
         if ((TiebaApplication.d().getApplicationInfo().flags & 2) == 0) {
             y = false;
         } else {
@@ -195,7 +201,7 @@ public class i {
         }
     }
 
-    public static boolean r() {
+    public static boolean s() {
         return y;
     }
 }

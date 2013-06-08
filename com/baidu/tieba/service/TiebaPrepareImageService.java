@@ -12,9 +12,9 @@ public class TiebaPrepareImageService extends Service {
     private int f;
     private int b = 0;
     private Uri c = null;
-    private p d = null;
+    private q d = null;
     private Handler e = new Handler();
-    private Runnable g = new o(this);
+    private Runnable g = new p(this);
 
     public static void a(int i, Uri uri, int i2) {
         Intent intent = new Intent(TiebaApplication.d(), TiebaPrepareImageService.class);
@@ -65,7 +65,7 @@ public class TiebaPrepareImageService extends Service {
         this.f = intent.getIntExtra("max_size", 600);
         TiebaApplication.d().a((com.baidu.tieba.e) null);
         if (!a) {
-            this.d = new p(this, this.b, this.c);
+            this.d = new q(this, this.b, this.c);
             this.d.execute(new Object[0]);
             return;
         }

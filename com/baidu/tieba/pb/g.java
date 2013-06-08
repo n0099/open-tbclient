@@ -38,7 +38,7 @@ public class g implements android.support.v4.view.aj {
         }
         ImageActivity imageActivity = this.a;
         i2 = this.a.f;
-        imageActivity.a(i2, i);
+        imageActivity.b(i2, i);
         this.a.f = i;
         this.a.o();
     }

@@ -21,6 +21,6 @@ public class y extends BroadcastReceiver {
     public void onReceive(Context context, Intent intent) {
         z zVar;
         zVar = this.a.c;
-        zVar.x();
+        zVar.z();
     }
 }

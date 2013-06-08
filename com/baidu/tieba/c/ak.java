@@ -1,57 +1,62 @@
 package com.baidu.tieba.c;
-
-import com.baidu.android.pushservice.PushConstants;
-import java.util.ArrayList;
-import org.json.JSONArray;
-import org.json.JSONObject;
 /* loaded from: classes.dex */
-public class ak {
-    private com.baidu.tieba.a.ah c = new com.baidu.tieba.a.ah();
-    private ArrayList a = new ArrayList();
-    private com.baidu.tieba.a.ak b = new com.baidu.tieba.a.ak();
-    private boolean d = true;
+public class ak extends com.baidu.adp.a.c {
+    private com.baidu.tieba.a.af f;
+    private boolean e = false;
+    private al g = null;
+    private am h = null;
 
-    public boolean a() {
-        return this.d;
+    public ak() {
+        this.f = null;
+        this.f = new com.baidu.tieba.a.af();
     }
 
-    public void a(ArrayList arrayList) {
-        this.a = arrayList;
+    public boolean d() {
+        return this.e;
     }
 
-    public ArrayList b() {
-        return this.a;
+    public void a(am amVar) {
+        this.h = amVar;
     }
 
-    public com.baidu.tieba.a.ak c() {
-        return this.b;
+    public void a(com.baidu.tieba.a.af afVar) {
+        this.f = afVar;
     }
 
-    public void a(String str) {
-        try {
-            a(new JSONObject(str));
-        } catch (Exception e) {
-            this.d = false;
-            com.baidu.tieba.d.ae.b("MentionModel", "parserJson", "error = " + e.getMessage());
+    public void a(boolean z) {
+        this.e = z;
+    }
+
+    public String e() {
+        if (this.f != null) {
+            return this.f.g();
         }
+        return null;
     }
 
-    public void a(JSONObject jSONObject) {
-        try {
-            JSONArray optJSONArray = jSONObject.optJSONArray("reply_list");
-            JSONArray optJSONArray2 = optJSONArray == null ? jSONObject.optJSONArray("at_list") : optJSONArray;
-            if (optJSONArray2 != null) {
-                for (int i = 0; i < optJSONArray2.length(); i++) {
-                    com.baidu.tieba.a.r rVar = new com.baidu.tieba.a.r();
-                    rVar.a(optJSONArray2.optJSONObject(i));
-                    this.a.add(rVar);
-                }
-            }
-            this.c.a(jSONObject.optJSONObject(PushConstants.EXTRA_PUSH_MESSAGE));
-            this.b.a(jSONObject.optJSONObject("page"));
-        } catch (Exception e) {
-            this.d = false;
-            com.baidu.tieba.d.ae.b("MentionModel", "parserJson", "error = " + e.getMessage());
+    public void f() {
+        if (this.g != null) {
+            this.g.cancel();
         }
+        this.g = new al(this, true);
+        this.g.setPriority(3);
+        this.g.execute(new Boolean[0]);
+    }
+
+    public void g() {
+        if (this.g != null) {
+            this.g.cancel();
+        }
+        this.g = new al(this, false);
+        this.g.setPriority(3);
+        this.g.execute(new Boolean[0]);
+    }
+
+    public boolean h() {
+        if (this.g != null) {
+            this.g.cancel();
+            return false;
+        }
+        return false;
     }
 }

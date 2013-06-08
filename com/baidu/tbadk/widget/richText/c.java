@@ -8,10 +8,9 @@ import java.util.Iterator;
 /* loaded from: classes.dex */
 public class c {
     private int a;
-    private String b = null;
-    private SpannableStringBuilder c = null;
-    private e d = null;
-    private ArrayList e = null;
+    private SpannableStringBuilder b = null;
+    private e c = null;
+    private ArrayList d = null;
 
     public c(int i) {
         this.a = 0;
@@ -23,15 +22,15 @@ public class c {
     }
 
     public ArrayList b() {
-        if (this.e == null) {
-            this.e = new ArrayList();
+        if (this.d == null) {
+            this.d = new ArrayList();
         }
-        return this.e;
+        return this.d;
     }
 
     public void a(int i, int i2) {
-        if (this.e != null) {
-            Iterator it = this.e.iterator();
+        if (this.d != null) {
+            Iterator it = this.d.iterator();
             while (it.hasNext()) {
                 d dVar = (d) it.next();
                 Rect bounds = dVar.getBounds();
@@ -43,8 +42,8 @@ public class c {
     }
 
     public void b(int i, int i2) {
-        if (this.e != null) {
-            Iterator it = this.e.iterator();
+        if (this.d != null) {
+            Iterator it = this.d.iterator();
             while (it.hasNext()) {
                 ((d) it.next()).setBounds(0, 0, i, i2);
             }
@@ -53,10 +52,16 @@ public class c {
 
     public void a(SpannableString spannableString) {
         if (this.a == 1 && spannableString != null) {
-            if (this.c == null) {
-                this.c = new SpannableStringBuilder("");
+            if (this.b == null) {
+                this.b = new SpannableStringBuilder("");
             }
-            this.c.append((CharSequence) spannableString);
+            this.b.append((CharSequence) spannableString);
+        }
+    }
+
+    public void a(String str) {
+        if (this.a == 32 && str != null) {
+            this.b = new SpannableStringBuilder(str);
         }
     }
 
@@ -64,24 +69,27 @@ public class c {
         if (this.a != 8) {
             return null;
         }
-        return this.d;
+        return this.c;
     }
 
     public void a(e eVar) {
         if (this.a == 8) {
-            this.d = eVar;
+            this.c = eVar;
         }
     }
 
     public SpannableStringBuilder d() {
-        return this.c;
-    }
-
-    public String e() {
         return this.b;
     }
 
-    public void a(String str) {
-        this.b = str;
+    public String toString() {
+        if (this.a == 1) {
+            if (this.b != null) {
+                return this.b.toString();
+            }
+        } else if (this.a == 8 && this.c != null) {
+            return this.c.d();
+        }
+        return "";
     }
 }

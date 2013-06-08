@@ -18,18 +18,18 @@ public class c implements View.OnClickListener {
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         switch (view.getId()) {
-            case R.id.refresh /* 2131099793 */:
-                TiebaApplication.d().j(0);
+            case R.id.refresh /* 2131099795 */:
+                TiebaApplication.d().l(0);
                 this.a.c();
                 this.a.b();
                 return;
-            case R.id.search /* 2131099797 */:
+            case R.id.search /* 2131099799 */:
                 SearchActivity.a(this.a, this.a.getString(R.string.recommend_title));
                 return;
-            case R.id.edit_tag_btn /* 2131100225 */:
+            case R.id.edit_tag_btn /* 2131100267 */:
                 LabelActivity.a(this.a, 1600002, "allthread");
                 return;
-            case R.id.home_webview_item /* 2131100226 */:
+            case R.id.home_webview_item /* 2131100268 */:
                 this.a.b();
                 return;
             default:

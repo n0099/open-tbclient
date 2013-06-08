@@ -1,48 +1,48 @@
 package com.baidu.tieba.a;
 
-import java.util.ArrayList;
-import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
-public class ap {
-    private ArrayList a = new ArrayList();
-    private ak b = new ak();
+public class ap extends d {
+    private int a = 0;
+    private int b = 0;
+    private String c = null;
+    private String d = null;
+    private String e = null;
+    private String f = null;
+    private String g = null;
+    private ar h = new ar();
 
-    public void a(ak akVar) {
-        this.b = akVar;
+    public String a() {
+        return this.f;
     }
 
-    public ak a() {
+    public int b() {
         return this.b;
     }
 
-    public ArrayList b() {
-        return this.a;
+    public String c() {
+        return this.g;
     }
 
-    public void a(String str) {
-        try {
-            a(new JSONObject(str));
-        } catch (Exception e) {
-            com.baidu.tieba.d.ae.b(getClass().getName(), "parserJson", e.getMessage());
-        }
+    public String d() {
+        return this.c;
     }
 
+    public ar e() {
+        return this.h;
+    }
+
+    @Override // com.baidu.tieba.a.d
     public void a(JSONObject jSONObject) {
         if (jSONObject != null) {
-            try {
-                JSONArray optJSONArray = jSONObject.optJSONArray("user_list");
-                if (optJSONArray != null) {
-                    for (int i = 0; i < optJSONArray.length(); i++) {
-                        ai aiVar = new ai();
-                        aiVar.a(optJSONArray.getJSONObject(i));
-                        this.a.add(aiVar);
-                    }
-                }
-                this.b.a(jSONObject.optJSONObject("page"));
-            } catch (Exception e) {
-                com.baidu.tieba.d.ae.b(getClass().getName(), "parserJson", e.getMessage());
-            }
+            this.a = jSONObject.optInt("type");
+            this.c = jSONObject.optString("tid", null);
+            this.d = jSONObject.optString("fid", null);
+            this.e = jSONObject.optString("fname", null);
+            this.f = jSONObject.optString("time", null);
+            this.g = jSONObject.optString("position", "");
+            this.b = jSONObject.optInt("replyer_count", 0);
+            this.h.a(jSONObject);
         }
     }
 }
