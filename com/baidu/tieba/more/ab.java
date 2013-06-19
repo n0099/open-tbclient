@@ -16,13 +16,13 @@ class ab implements DialogInterface.OnClickListener {
         z zVar;
         switch (i) {
             case 0:
-                TiebaApplication.d().g(1);
+                TiebaApplication.e().g(1);
                 break;
             case 1:
-                TiebaApplication.d().g(2);
+                TiebaApplication.e().g(2);
                 break;
             case 2:
-                TiebaApplication.d().g(3);
+                TiebaApplication.e().g(3);
                 break;
         }
         zVar = this.a.a;

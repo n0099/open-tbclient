@@ -12,66 +12,66 @@ public class ac {
 
     public static void a(TextView textView, int i) {
         if (textView != null) {
-            TiebaApplication d = TiebaApplication.d();
+            TiebaApplication e = TiebaApplication.e();
             if (i == 1) {
-                textView.setTextColor(d.getResources().getColor(R.color.skin_1_common_button_color));
+                textView.setTextColor(e.getResources().getColor(R.color.skin_1_common_button_color));
             } else {
-                textView.setTextColor(d.getResources().getColor(R.color.white));
+                textView.setTextColor(e.getResources().getColor(R.color.white));
             }
         }
     }
 
     public static void b(TextView textView, int i) {
         if (textView != null) {
-            TiebaApplication d = TiebaApplication.d();
+            TiebaApplication e = TiebaApplication.e();
             if (i == 1) {
-                textView.setTextColor(d.getResources().getColor(R.color.skin_1_common_color));
+                textView.setTextColor(e.getResources().getColor(R.color.skin_1_common_color));
             } else {
-                textView.setTextColor(d.getResources().getColor(R.color.black));
+                textView.setTextColor(e.getResources().getColor(R.color.black));
             }
         }
     }
 
     public static void c(TextView textView, int i) {
         if (textView != null) {
-            TiebaApplication d = TiebaApplication.d();
+            TiebaApplication e = TiebaApplication.e();
             if (i == 1) {
-                textView.setTextColor(d.getResources().getColor(R.color.gray_night_1));
+                textView.setTextColor(e.getResources().getColor(R.color.gray_night_1));
             } else {
-                textView.setTextColor(d.getResources().getColor(R.color.search_text_content));
+                textView.setTextColor(e.getResources().getColor(R.color.search_text_content));
             }
         }
     }
 
     public static void d(TextView textView, int i) {
         if (textView != null) {
-            TiebaApplication d = TiebaApplication.d();
+            TiebaApplication e = TiebaApplication.e();
             if (i == 1) {
-                textView.setTextColor(d.getResources().getColor(R.color.gray_night_2));
+                textView.setTextColor(e.getResources().getColor(R.color.gray_night_2));
             } else {
-                textView.setTextColor(d.getResources().getColor(R.color.gray_day_2));
+                textView.setTextColor(e.getResources().getColor(R.color.gray_day_2));
             }
         }
     }
 
     public static void e(TextView textView, int i) {
         if (textView != null) {
-            TiebaApplication d = TiebaApplication.d();
+            TiebaApplication e = TiebaApplication.e();
             if (i == 1) {
-                textView.setTextColor(d.getResources().getColor(R.color.gray_night_3));
+                textView.setTextColor(e.getResources().getColor(R.color.gray_night_3));
             } else {
-                textView.setTextColor(d.getResources().getColor(R.color.gray_day_3));
+                textView.setTextColor(e.getResources().getColor(R.color.gray_day_3));
             }
         }
     }
 
     public static void a(View view, int i) {
         if (view != null) {
-            TiebaApplication d = TiebaApplication.d();
+            TiebaApplication e = TiebaApplication.e();
             if (i == 1) {
-                view.setBackgroundColor(d.getResources().getColor(R.color.skin_1_common_bg));
+                view.setBackgroundColor(e.getResources().getColor(R.color.skin_1_common_bg));
             } else {
-                view.setBackgroundColor(d.getResources().getColor(R.color.backgroundcolor));
+                view.setBackgroundColor(e.getResources().getColor(R.color.backgroundcolor));
             }
         }
     }
@@ -88,22 +88,22 @@ public class ac {
 
     public static void c(View view, int i) {
         if (view != null) {
-            TiebaApplication d = TiebaApplication.d();
+            TiebaApplication e = TiebaApplication.e();
             if (i == 1) {
-                view.setBackgroundColor(d.getResources().getColor(R.color.skin_1_common_bg));
+                view.setBackgroundColor(e.getResources().getColor(R.color.skin_1_common_bg));
             } else {
-                view.setBackgroundColor(d.getResources().getColor(R.color.login_bg_color));
+                view.setBackgroundColor(e.getResources().getColor(R.color.login_bg_color));
             }
         }
     }
 
     public static void f(TextView textView, int i) {
         if (textView != null) {
-            TiebaApplication d = TiebaApplication.d();
+            TiebaApplication e = TiebaApplication.e();
             if (i == 1) {
-                textView.setTextColor(d.getResources().getColor(R.color.skin_1_common_color));
+                textView.setTextColor(e.getResources().getColor(R.color.skin_1_common_color));
             } else {
-                textView.setTextColor(d.getResources().getColor(R.color.white));
+                textView.setTextColor(e.getResources().getColor(R.color.white));
             }
         }
     }
@@ -229,28 +229,28 @@ public class ac {
 
     public static int a(int i) {
         if (i == 1) {
-            return TiebaApplication.d().getResources().getColor(R.color.skin_1_common_color);
+            return TiebaApplication.e().getResources().getColor(R.color.skin_1_common_color);
         }
         throw new IllegalArgumentException(a);
     }
 
     public static int b(int i) {
         if (i == 1) {
-            return TiebaApplication.d().getResources().getColor(R.color.skin_1_second_common_color);
+            return TiebaApplication.e().getResources().getColor(R.color.skin_1_second_common_color);
         }
         throw new IllegalArgumentException(a);
     }
 
     public static int c(int i) {
         if (i == 1) {
-            return TiebaApplication.d().getResources().getColor(R.color.skin_1_third_common_color);
+            return TiebaApplication.e().getResources().getColor(R.color.skin_1_third_common_color);
         }
         throw new IllegalArgumentException(a);
     }
 
     public static int d(int i) {
-        TiebaApplication d = TiebaApplication.d();
-        return i == 1 ? d.getResources().getColor(R.color.skin_1_common_bg) : d.getResources().getColor(R.color.backgroundcolor);
+        TiebaApplication e = TiebaApplication.e();
+        return i == 1 ? e.getResources().getColor(R.color.skin_1_common_bg) : e.getResources().getColor(R.color.backgroundcolor);
     }
 
     public static void h(View view, int i) {
@@ -278,32 +278,32 @@ public class ac {
 
     public static void b(ListView listView, int i) {
         if (listView != null) {
-            TiebaApplication d = TiebaApplication.d();
+            TiebaApplication e = TiebaApplication.e();
             if (i == 1) {
-                listView.setBackgroundColor(d.getResources().getColor(R.color.skin_1_common_bg));
-                listView.setCacheColorHint(d.getResources().getColor(17170445));
-                listView.setDivider(d.getResources().getDrawable(R.drawable.list_divider_1));
+                listView.setBackgroundColor(e.getResources().getColor(R.color.skin_1_common_bg));
+                listView.setCacheColorHint(e.getResources().getColor(17170445));
+                listView.setDivider(e.getResources().getDrawable(R.drawable.list_divider_1));
                 listView.setSelector(R.drawable.list_selector_1);
                 return;
             }
-            listView.setBackgroundColor(d.getResources().getColor(R.color.backgroundcolor));
-            listView.setCacheColorHint(d.getResources().getColor(17170445));
-            listView.setDivider(d.getResources().getDrawable(R.drawable.list_divider));
+            listView.setBackgroundColor(e.getResources().getColor(R.color.backgroundcolor));
+            listView.setCacheColorHint(e.getResources().getColor(17170445));
+            listView.setDivider(e.getResources().getDrawable(R.drawable.list_divider));
             listView.setSelector(R.drawable.list_selector);
         }
     }
 
     public static void c(ListView listView, int i) {
         if (listView != null) {
-            TiebaApplication d = TiebaApplication.d();
+            TiebaApplication e = TiebaApplication.e();
             if (i == 1) {
-                listView.setBackgroundColor(d.getResources().getColor(R.color.skin_1_common_bg));
-                listView.setCacheColorHint(d.getResources().getColor(17170445));
+                listView.setBackgroundColor(e.getResources().getColor(R.color.skin_1_common_bg));
+                listView.setCacheColorHint(e.getResources().getColor(17170445));
                 listView.setSelector(R.drawable.list_selector_1);
                 return;
             }
-            listView.setBackgroundColor(d.getResources().getColor(R.color.backgroundcolor));
-            listView.setCacheColorHint(d.getResources().getColor(17170445));
+            listView.setBackgroundColor(e.getResources().getColor(R.color.backgroundcolor));
+            listView.setCacheColorHint(e.getResources().getColor(17170445));
             listView.setSelector(R.drawable.list_selector);
         }
     }

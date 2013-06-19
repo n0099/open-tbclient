@@ -84,7 +84,7 @@ public class WebBackForwardList implements Serializable, Cloneable {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     /* renamed from: clone */
-    public synchronized WebBackForwardList m1clone() {
+    public synchronized WebBackForwardList m17clone() {
         WebBackForwardList webBackForwardList;
         WebBackForwardList webBackForwardList2 = new WebBackForwardList(null);
         if (this.mClearPending) {
@@ -95,7 +95,7 @@ public class WebBackForwardList implements Serializable, Cloneable {
             int size = getSize();
             webBackForwardList2.mArray = new ArrayList(size);
             for (int i = 0; i < size; i++) {
-                webBackForwardList2.mArray.add(((WebHistoryItem) this.mArray.get(i)).m2clone());
+                webBackForwardList2.mArray.add(((WebHistoryItem) this.mArray.get(i)).m18clone());
             }
             webBackForwardList = webBackForwardList2;
         }

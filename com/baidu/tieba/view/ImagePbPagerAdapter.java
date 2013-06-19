@@ -132,7 +132,7 @@ public class ImagePbPagerAdapter extends android.support.v4.view.k {
             ImageView imageView = (ImageView) inflate2.findViewById(R.id.image);
             TextView textView = (TextView) inflate2.findViewById(R.id.next);
             TextView textView2 = (TextView) inflate2.findViewById(R.id.thread_name);
-            if (TiebaApplication.d().ar() == 1) {
+            if (TiebaApplication.e().as() == 1) {
                 textView.setTextColor(com.baidu.tieba.d.ac.c(1));
                 textView2.setTextColor(com.baidu.tieba.d.ac.a(1));
                 imageView.setBackgroundResource(R.drawable.image_pb_next_default_1);
@@ -156,7 +156,7 @@ public class ImagePbPagerAdapter extends android.support.v4.view.k {
         this.s.add(inflate);
         com.baidu.tieba.d.ae.a(getClass().getName(), "instantiateItem", String.valueOf(this.s.size()));
         ListView listView = (ListView) inflate.findViewById(R.id.image_pb_listview);
-        com.baidu.tieba.d.ac.b(listView, TiebaApplication.d().ar());
+        com.baidu.tieba.d.ac.b(listView, TiebaApplication.e().as());
         if (wVar == null) {
             if (this.i != null) {
                 this.i.a(i, 0, 0);

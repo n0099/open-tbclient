@@ -49,10 +49,10 @@ public class w extends com.baidu.adp.a.c {
         this.f = null;
         this.l = null;
         this.p = null;
-        com.baidu.tieba.a.a E = TiebaApplication.E();
-        if (E != null) {
-            this.f = E.a();
-            this.e = E.b();
+        com.baidu.tieba.a.a F = TiebaApplication.F();
+        if (F != null) {
+            this.f = F.a();
+            this.e = F.b();
         }
         this.l = new com.baidu.tieba.a.a.c();
         this.p = com.baidu.tieba.a.a.f.a();

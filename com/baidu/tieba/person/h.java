@@ -80,7 +80,7 @@ public class h extends com.baidu.adp.lib.a.a {
                         }
                     }
                 }
-                TiebaApplication.d().i(true);
+                TiebaApplication.e().i(true);
                 this.a.a(this.a.getString(R.string.success));
                 return;
             }

@@ -148,11 +148,11 @@ public class f {
     }
 
     public int h() {
-        return TiebaApplication.d().getSharedPreferences("settings", 0).getInt("uploac_mark_offset", 399);
+        return TiebaApplication.e().getSharedPreferences("settings", 0).getInt("uploac_mark_offset", 399);
     }
 
     public void b(int i) {
-        SharedPreferences.Editor edit = TiebaApplication.d().getSharedPreferences("settings", 0).edit();
+        SharedPreferences.Editor edit = TiebaApplication.e().getSharedPreferences("settings", 0).edit();
         edit.putInt("uploac_mark_offset", i);
         edit.commit();
     }

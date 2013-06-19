@@ -14,8 +14,8 @@ class ao implements com.baidu.adp.widget.ListView.b {
     @Override // com.baidu.adp.widget.ListView.b
     public void a(boolean z) {
         com.baidu.tieba.c.ax axVar;
-        axVar = this.a.i;
-        if (axVar.b(true) && TiebaApplication.d().o()) {
+        axVar = this.a.j;
+        if (axVar.b(true) && TiebaApplication.e().p()) {
             StatService.onEvent(this.a, "pb_pulldown", "pbclick", 1);
         }
     }

@@ -31,7 +31,7 @@ public class ChatListActivity extends com.baidu.tieba.e implements com.baidu.tba
         super.onCreate(bundle);
         c();
         a(bundle);
-        if (TiebaApplication.d().o()) {
+        if (TiebaApplication.e().p()) {
             StatService.onEvent(this, "enter_chatlist", "chatlistclick", 1);
         }
     }
@@ -51,7 +51,7 @@ public class ChatListActivity extends com.baidu.tieba.e implements com.baidu.tba
                 this.c.d().b(true);
             }
             this.c.d().notifyDataSetChanged();
-            this.d.a(TiebaApplication.B(), String.valueOf(this.e));
+            this.d.a(TiebaApplication.C(), String.valueOf(this.e));
         }
     }
 
@@ -85,7 +85,7 @@ public class ChatListActivity extends com.baidu.tieba.e implements com.baidu.tba
     private void a(Bundle bundle) {
         this.d = new com.baidu.tieba.c.c();
         this.d.a(new q(this));
-        this.c.a(this.d.d(TiebaApplication.B()));
+        this.c.a(this.d.d(TiebaApplication.C()));
         b();
     }
 

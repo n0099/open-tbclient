@@ -1284,14 +1284,14 @@ public final class WebViewCore {
                                 WebViewCore.this.destroyPluginView();
                             }
                             return;
-                        case EventHub.GET_TOUCH_HIGHLIGHT_RECTS /* 301 */:
+                        case 301:
                             TouchHighlightData touchHighlightData = (TouchHighlightData) message.obj;
                             if (touchHighlightData.mNativeLayer != 0) {
                                 WebViewCore.this.nativeScrollLayer(touchHighlightData.mNativeLayer, touchHighlightData.mNativeLayerRect);
                                 return;
                             }
                             return;
-                        case EventHub.EXIT_FULLSCREEN_MODE /* 302 */:
+                        case 302:
                             WebViewCore.this.mBrowserFrame.exitFullScreenMode();
                             return;
                         case 400:
@@ -1569,9 +1569,9 @@ public final class WebViewCore {
                 i6 = i;
             } else if (this.mViewportWidth == -1) {
                 if (this.mSettings.getLayoutAlgorithm() == WebSettings.LayoutAlgorithm.NORMAL) {
-                    i6 = DEFAULT_VIEWPORT_WIDTH;
+                    i6 = 800;
                 } else {
-                    i6 = Math.min(WebView.sMaxViewportWidth, Math.max(i, Math.max((int) DEFAULT_VIEWPORT_WIDTH, nativeGetContentMinPrefWidth())));
+                    i6 = Math.min(WebView.sMaxViewportWidth, Math.max(i, Math.max(800, nativeGetContentMinPrefWidth())));
                 }
             } else {
                 i6 = this.mViewportWidth > 0 ? Math.max(i, this.mViewportWidth) : i3;
@@ -1694,7 +1694,7 @@ public final class WebViewCore {
                 drawData.mViewPoint = new Point(this.mCurrentViewWidth, this.mCurrentViewHeight);
                 if (this.mSettings.getUseWideViewPort()) {
                     if (this.mViewportWidth == -1) {
-                        i = DEFAULT_VIEWPORT_WIDTH;
+                        i = 800;
                     } else {
                         i = this.mViewportWidth == 0 ? this.mCurrentViewWidth : this.mViewportWidth;
                     }

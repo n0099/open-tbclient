@@ -7,21 +7,21 @@ public class b implements BaiduAccount.BaiduOnAccountsUpdateListener {
     @Override // com.baidu.tieba.BaiduAccount.BaiduAccount.BaiduOnAccountsUpdateListener
     public void onAccountsUpdated(String str) {
         com.baidu.tieba.d.ae.e(getClass().getName(), "onAccountsUpdated", "account =" + str);
-        if ((str != null && str.equals(TiebaApplication.F())) || TiebaApplication.E() == null) {
+        if ((str != null && str.equals(TiebaApplication.G())) || TiebaApplication.F() == null) {
             return;
         }
-        a.b(TiebaApplication.B());
-        com.baidu.tieba.a.a E = TiebaApplication.E();
-        if (E != null) {
-            E.d(null);
-            E.b(str);
-            E.a((String) null);
-            E.a(1);
+        a.b(TiebaApplication.C());
+        com.baidu.tieba.a.a F = TiebaApplication.F();
+        if (F != null) {
+            F.d(null);
+            F.b(str);
+            F.a((String) null);
+            F.a(1);
         }
-        TiebaApplication.d().a(0L, 0L, 0L, 0L);
-        TiebaApplication.d().Q();
+        TiebaApplication.e().a(0L, 0L, 0L, 0L);
+        TiebaApplication.e().R();
         if (str == null || str.equals("BaiduUser")) {
-            TiebaApplication.d().f(0);
+            TiebaApplication.e().f(0);
         }
     }
 }

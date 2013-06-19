@@ -137,7 +137,7 @@ public class bt extends BaseAdapter {
                     buVar2.d = (TextView) inflate.findViewById(R.id.intro);
                     buVar2.e = (Button) inflate.findViewById(R.id.chat);
                     buVar2.e.setOnClickListener(this.k);
-                    if (TiebaApplication.d().ar() == 1) {
+                    if (TiebaApplication.e().as() == 1) {
                         buVar2.c.setTextColor(-8682095);
                         buVar2.d.setTextColor(-11446171);
                         com.baidu.tieba.d.ac.h(buVar2.b, (int) R.drawable.person_list_item_info_selector_1);
@@ -207,7 +207,7 @@ public class bt extends BaseAdapter {
                 buVar.c.setText(this.e.getString(R.string.load_more));
                 buVar.f.setVisibility(8);
             }
-            if (TiebaApplication.d().ar() == 1) {
+            if (TiebaApplication.e().as() == 1) {
                 int a = com.baidu.tieba.d.ac.a(1);
                 buVar.c.setTextColor(a);
                 if (buVar.g != null) {

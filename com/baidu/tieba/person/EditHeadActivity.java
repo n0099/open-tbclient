@@ -69,16 +69,16 @@ public class EditHeadActivity extends com.baidu.tieba.e {
     @Override // com.baidu.tieba.e, com.baidu.adp.a.a, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        TiebaApplication.d().a((com.baidu.tieba.e) this);
+        TiebaApplication.e().a((com.baidu.tieba.e) this);
         setContentView(R.layout.edit_head_activity);
         Intent intent = getIntent();
         this.D = intent.getIntExtra("request", 0);
         if (this.D == 1200002 || this.D == 1200001) {
             n();
             if (intent.getData() != null) {
-                TiebaPrepareImageService.a(this.D, intent.getData(), TiebaApplication.d().az());
+                TiebaPrepareImageService.a(this.D, intent.getData(), TiebaApplication.e().aA());
             } else {
-                TiebaPrepareImageService.a(this.D, null, TiebaApplication.d().az());
+                TiebaPrepareImageService.a(this.D, null, TiebaApplication.e().aA());
             }
             o();
         } else {
@@ -86,7 +86,7 @@ public class EditHeadActivity extends com.baidu.tieba.e {
             d();
         }
         f = getResources().getStringArray(R.array.fiter_name);
-        this.z = TiebaApplication.d().q();
+        this.z = TiebaApplication.e().r();
     }
 
     @Override // com.baidu.tieba.e, android.app.Activity
@@ -167,7 +167,7 @@ public class EditHeadActivity extends com.baidu.tieba.e {
         if (this.D == 1200002 || this.D == 1200001) {
             unregisterReceiver(this.w);
         }
-        TiebaApplication.d().b((com.baidu.tieba.e) this);
+        TiebaApplication.e().b((com.baidu.tieba.e) this);
     }
 
     public void m() {

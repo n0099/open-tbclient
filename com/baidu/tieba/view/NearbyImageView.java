@@ -66,7 +66,7 @@ public class NearbyImageView extends ImageView {
 
     private void a() {
         this.e.setColor(1275068416);
-        if (TiebaApplication.d().ar() == 1) {
+        if (TiebaApplication.e().as() == 1) {
             this.b = com.baidu.tieba.d.d.a((int) R.drawable.image_default_1);
         } else {
             this.b = com.baidu.tieba.d.d.a((int) R.drawable.image_default);
@@ -81,7 +81,7 @@ public class NearbyImageView extends ImageView {
         boolean c = (d == null || !d.g()) ? false : d.c();
         if (d != null) {
             z = true;
-        } else if (TiebaApplication.d().ar() == 1) {
+        } else if (TiebaApplication.e().as() == 1) {
             d = new com.baidu.adp.widget.a.b(com.baidu.tieba.d.d.a((int) R.drawable.image_default_1), false, null);
         } else {
             d = new com.baidu.adp.widget.a.b(com.baidu.tieba.d.d.a((int) R.drawable.image_default), false, null);
@@ -97,7 +97,7 @@ public class NearbyImageView extends ImageView {
                 if (c && d.b() > this.a.getHeight() && d.a() > this.a.getWidth()) {
                     canvas.drawBitmap(this.a, this.c, null);
                 }
-                if (TiebaApplication.d().ar() == 1) {
+                if (TiebaApplication.e().as() == 1) {
                     this.f.set(0.0f, 0.0f, (d.a() * width) + 0.0f, (d.b() * width) + 0.0f);
                     canvas.drawRect(this.f, this.e);
                     return;

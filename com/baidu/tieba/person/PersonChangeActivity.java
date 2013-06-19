@@ -260,11 +260,11 @@ public class PersonChangeActivity extends com.baidu.tieba.e {
         if (i2 == -1) {
             switch (i) {
                 case 1200001:
-                    EditHeadActivity.a(this, 1200001, 1200010, null, TiebaApplication.E());
+                    EditHeadActivity.a(this, 1200001, 1200010, null, TiebaApplication.F());
                     return;
                 case 1200002:
                     if (intent != null) {
-                        EditHeadActivity.a(this, 1200002, 1200009, intent.getData(), TiebaApplication.E());
+                        EditHeadActivity.a(this, 1200002, 1200009, intent.getData(), TiebaApplication.F());
                         return;
                     }
                     return;

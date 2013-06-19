@@ -147,7 +147,7 @@ public class WriteActivity extends com.baidu.tieba.e {
         this.f = (InputMethodManager) getSystemService("input_method");
         a(bundle);
         n();
-        if (TiebaApplication.d().p()) {
+        if (TiebaApplication.e().q()) {
             if ((getIntent().getExtras().getInt("type") == 0 || getIntent().getExtras().getInt("type") == 3) && !com.baidu.tieba.a.i.g().equals(getIntent().getStringExtra("forum_id"))) {
                 c();
             }
@@ -156,7 +156,7 @@ public class WriteActivity extends com.baidu.tieba.e {
 
     private void c() {
         this.G = new ak(this);
-        this.H = TiebaApplication.d().a(this.G);
+        this.H = TiebaApplication.e().a(this.G);
         if (this.H != null) {
             d();
         }
@@ -191,7 +191,7 @@ public class WriteActivity extends com.baidu.tieba.e {
             this.y = null;
         }
         this.z.removeCallbacks(this.L);
-        TiebaApplication.d().aK();
+        TiebaApplication.e().aL();
         super.onDestroy();
     }
 

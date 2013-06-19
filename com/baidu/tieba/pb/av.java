@@ -33,24 +33,24 @@ class av implements DialogInterface.OnClickListener {
             } else if (i == 1) {
                 if (this.a.c.d() != null) {
                     String d = this.a.c.d();
-                    axVar2 = this.a.i;
+                    axVar2 = this.a.j;
                 }
                 z = false;
-                axVar = this.a.i;
+                axVar = this.a.j;
                 com.baidu.tieba.a.af b = axVar.b(this.a.c);
                 if (b != null) {
                     c = this.a.c(1100009);
                     if (c) {
-                        akVar = this.a.j;
+                        akVar = this.a.k;
                         akVar.a(b);
-                        bkVar = this.a.o;
+                        bkVar = this.a.p;
                         bkVar.m();
                         if (!z) {
-                            akVar3 = this.a.j;
+                            akVar3 = this.a.k;
                             akVar3.f();
                             return;
                         }
-                        akVar2 = this.a.j;
+                        akVar2 = this.a.k;
                         akVar2.g();
                     }
                 }

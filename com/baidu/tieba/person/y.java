@@ -75,13 +75,13 @@ public class y {
         if (!this.d.c()) {
             this.d.d(true);
             this.f.setText(R.string.done);
-            com.baidu.tieba.d.ac.h((TextView) this.f, TiebaApplication.d().ar());
+            com.baidu.tieba.d.ac.h((TextView) this.f, TiebaApplication.e().as());
             this.d.notifyDataSetChanged();
             return;
         }
         this.d.d(false);
         this.f.setText(R.string.edit);
-        com.baidu.tieba.d.ac.g((TextView) this.f, TiebaApplication.d().ar());
+        com.baidu.tieba.d.ac.g((TextView) this.f, TiebaApplication.e().as());
         this.d.notifyDataSetChanged();
     }
 

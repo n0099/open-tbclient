@@ -23,7 +23,7 @@ public class d {
     public static d a() {
         d dVar = new d();
         dVar.d = 0;
-        dVar.a(TiebaApplication.B());
+        dVar.a(TiebaApplication.C());
         return dVar;
     }
 

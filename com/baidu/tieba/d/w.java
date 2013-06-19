@@ -10,6 +10,7 @@ import android.os.Build;
 import android.os.Handler;
 import android.telephony.TelephonyManager;
 import com.baidu.browser.core.util.BdUtil;
+import com.baidu.cyberplayer.sdk.internal.HttpUtils;
 import com.baidu.tieba.TiebaApplication;
 import com.baidu.zeus.NotificationProxy;
 import com.slidingmenu.lib.R;
@@ -183,7 +184,7 @@ public class w {
     public static synchronized void d() {
         synchronized (w.class) {
             try {
-                Cursor query = TiebaApplication.d().getContentResolver().query(Uri.parse("content://telephony/carriers/preferapn"), null, null, null, null);
+                Cursor query = TiebaApplication.e().getContentResolver().query(Uri.parse("content://telephony/carriers/preferapn"), null, null, null, null);
                 if (query != null && query.moveToNext()) {
                     String string = query.getString(query.getColumnIndex("user"));
                     String string2 = query.getString(query.getColumnIndex("password"));
@@ -206,12 +207,12 @@ public class w {
 
     public w() {
         u();
-        this.r = TiebaApplication.d();
+        this.r = TiebaApplication.e();
     }
 
     public w(String str) {
         u();
-        this.r = TiebaApplication.d();
+        this.r = TiebaApplication.e();
         this.j = str;
     }
 
@@ -306,7 +307,7 @@ public class w {
                         }
                         sb.append(file);
                         HttpURLConnection httpURLConnection2 = (HttpURLConnection) new URL(sb.toString()).openConnection();
-                        httpURLConnection2.setRequestProperty("X-Online-Host", url.getHost());
+                        httpURLConnection2.setRequestProperty(HttpUtils.HEADER_NAME_CMWAP_ONLINE_HOST, url.getHost());
                         httpURLConnection = httpURLConnection2;
                     } else {
                         HttpURLConnection httpURLConnection3 = (HttpURLConnection) url.openConnection(new java.net.Proxy(Proxy.Type.HTTP, new InetSocketAddress(android.net.Proxy.getDefaultHost(), android.net.Proxy.getDefaultPort())));
@@ -436,7 +437,7 @@ public class w {
                     String contentEncoding = this.i.getContentEncoding();
                     inputStream = this.i.getInputStream();
                     try {
-                        if (TiebaApplication.d().l() && (headerField = this.i.getHeaderField("Content-Length")) != null) {
+                        if (TiebaApplication.e().m() && (headerField = this.i.getHeaderField(HttpUtils.HEADER_NAME_CONTENT_LENGTH)) != null) {
                             try {
                                 int parseInt = Integer.parseInt(headerField);
                                 if (parseInt > d) {
@@ -1656,7 +1657,7 @@ public class w {
                     if (headerField2 != null && (indexOf = headerField2.indexOf("/")) != -1) {
                         i = Integer.valueOf(headerField2.substring(indexOf + 1)).intValue();
                     }
-                    int intValue = (i == 0 && this.k == 200 && (headerField = this.i.getHeaderField("Content-Length")) != null) ? Integer.valueOf(headerField).intValue() : i;
+                    int intValue = (i == 0 && this.k == 200 && (headerField = this.i.getHeaderField(HttpUtils.HEADER_NAME_CONTENT_LENGTH)) != null) ? Integer.valueOf(headerField).intValue() : i;
                     if (length >= intValue) {
                         r1 = true;
                         this.n = 0;

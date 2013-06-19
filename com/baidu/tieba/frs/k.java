@@ -73,6 +73,6 @@ public class k extends com.baidu.adp.a.e {
         }
         baVar5 = this.a.l;
         baVar5.a(this.a.getString(R.string.like_success));
-        TiebaApplication.d().i(true);
+        TiebaApplication.e().i(true);
     }
 }

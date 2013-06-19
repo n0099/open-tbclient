@@ -92,7 +92,7 @@ public class k {
                 return spannableString;
             case 2:
                 SpannableString spannableString2 = new SpannableString(String.valueOf(this.b) + HanziToPinyin.Token.SEPARATOR);
-                com.baidu.adp.widget.a.b e = TiebaApplication.d().e(this.b);
+                com.baidu.adp.widget.a.b e = TiebaApplication.e().e(this.b);
                 if (e != null) {
                     BitmapDrawable h2 = e.h();
                     h2.setBounds(0, 0, e.a(), e.b());
@@ -127,7 +127,7 @@ public class k {
             return null;
         }
         SpannableString spannableString = new SpannableString(String.valueOf(this.b) + HanziToPinyin.Token.SEPARATOR);
-        com.baidu.adp.widget.a.b e = TiebaApplication.d().e(this.b);
+        com.baidu.adp.widget.a.b e = TiebaApplication.e().e(this.b);
         if (e != null) {
             BitmapDrawable h2 = e.h();
             if (i2 - i3 > 0) {

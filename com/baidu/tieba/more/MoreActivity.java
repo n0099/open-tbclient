@@ -63,8 +63,8 @@ public class MoreActivity extends com.baidu.tieba.e implements com.baidu.adp.wid
         super.onResume();
         this.c.v();
         this.c.w();
-        if (TiebaApplication.i()) {
-            if (TiebaApplication.B() == null || TiebaApplication.F() == null || TiebaApplication.F().equals("BaiduUser")) {
+        if (TiebaApplication.j()) {
+            if (TiebaApplication.C() == null || TiebaApplication.G() == null || TiebaApplication.G().equals("BaiduUser")) {
                 this.c.s();
             } else {
                 this.c.r();
@@ -97,19 +97,19 @@ public class MoreActivity extends com.baidu.tieba.e implements com.baidu.adp.wid
     public void onClick(View view) {
         String str;
         if (view == this.c.b()) {
-            if (TiebaApplication.i()) {
+            if (TiebaApplication.j()) {
                 com.baidu.tieba.a.a(this, 0, "goto_person", false);
                 return;
             }
-            String B = TiebaApplication.B();
-            if ((B == null || B.length() <= 0) && com.baidu.tieba.d.k.m() <= 0) {
+            String C = TiebaApplication.C();
+            if ((C == null || C.length() <= 0) && com.baidu.tieba.d.k.m() <= 0) {
                 LoginActivity.a(this, "goto_person", getString(R.string.login_manage_account), 1100003);
             } else {
                 AccountActivity.a(this);
             }
         } else if (view == this.c.d()) {
-            String B2 = TiebaApplication.B();
-            if (B2 == null || B2.length() <= 0) {
+            String C2 = TiebaApplication.C();
+            if (C2 == null || C2.length() <= 0) {
                 LoginActivity.a(this, "goto_person", getString(R.string.login_to_use), 1100003);
             } else {
                 MsgRemindActivity.a(this);
@@ -132,15 +132,15 @@ public class MoreActivity extends com.baidu.tieba.e implements com.baidu.adp.wid
             } else if (!str2.endsWith("?") && !str2.endsWith("&")) {
                 str2 = String.valueOf(str2) + "&";
             }
-            if (TiebaApplication.d().ar() == 1) {
+            if (TiebaApplication.e().as() == 1) {
                 str = String.valueOf(str2) + "night_type=1";
             } else {
                 str = String.valueOf(str2) + "night_type=0";
             }
             AppsActivity.a(this, str);
         } else if (view == this.c.c()) {
-            String B3 = TiebaApplication.B();
-            if (B3 != null && B3.length() > 0) {
+            String C3 = TiebaApplication.C();
+            if (C3 != null && C3.length() > 0) {
                 PersonChangeActivity.a(this, WebChromeClient.STRING_DLG_TITLE_DATETIME, this.d.f());
             }
         } else if (view == this.c.a()) {
@@ -156,8 +156,8 @@ public class MoreActivity extends com.baidu.tieba.e implements com.baidu.adp.wid
     }
 
     private void c() {
-        String B = TiebaApplication.B();
-        if (B == null || B.length() <= 0) {
+        String C = TiebaApplication.C();
+        if (C == null || C.length() <= 0) {
             LoginActivity.a((Activity) this, getString(R.string.login_feedback), true, 1200008);
             return;
         }
@@ -201,22 +201,22 @@ public class MoreActivity extends com.baidu.tieba.e implements com.baidu.adp.wid
     public void a(View view, com.baidu.adp.widget.BdSwitchView.d dVar) {
         if (view == this.c.k()) {
             if (dVar == com.baidu.adp.widget.BdSwitchView.d.ON) {
-                TiebaApplication.d().r(true);
+                TiebaApplication.e().r(true);
             } else {
-                TiebaApplication.d().r(false);
+                TiebaApplication.e().r(false);
             }
         } else if (view == this.c.l()) {
             if (dVar == com.baidu.adp.widget.BdSwitchView.d.ON) {
-                if (TiebaApplication.d().ar() != 1) {
-                    TiebaApplication.d().j(1);
+                if (TiebaApplication.e().as() != 1) {
+                    TiebaApplication.e().j(1);
                     this.b = 1;
                     b(this.b);
                     new com.baidu.tieba.account.af("eyeshield").start();
                 } else {
                     return;
                 }
-            } else if (TiebaApplication.d().ar() != 0) {
-                TiebaApplication.d().j(0);
+            } else if (TiebaApplication.e().as() != 0) {
+                TiebaApplication.e().j(0);
                 this.b = 0;
                 b(this.b);
             } else {
@@ -225,15 +225,15 @@ public class MoreActivity extends com.baidu.tieba.e implements com.baidu.adp.wid
             com.baidu.tieba.d.d.a();
         } else if (view == this.c.m()) {
             if (dVar == com.baidu.adp.widget.BdSwitchView.d.ON) {
-                TiebaApplication.d().d(true);
+                TiebaApplication.e().d(true);
             } else {
-                TiebaApplication.d().d(false);
+                TiebaApplication.e().d(false);
             }
         } else if (view == this.c.n()) {
             if (dVar == com.baidu.adp.widget.BdSwitchView.d.ON) {
-                TiebaApplication.d().j(true);
+                TiebaApplication.e().j(true);
             } else {
-                TiebaApplication.d().j(false);
+                TiebaApplication.e().j(false);
             }
         }
     }

@@ -43,9 +43,9 @@ public class g extends com.baidu.adp.lib.a.a {
             t tVar = this.b;
             str3 = this.a.d;
             tVar.a("tag_info", str3);
-            Address aL = TiebaApplication.d().aL();
-            if (aL != null && TiebaApplication.d().p()) {
-                this.b.a("lbs", String.valueOf(String.valueOf(aL.getLatitude())) + "," + String.valueOf(aL.getLongitude()));
+            Address aM = TiebaApplication.e().aM();
+            if (aM != null && TiebaApplication.e().q()) {
+                this.b.a("lbs", String.valueOf(String.valueOf(aM.getLatitude())) + "," + String.valueOf(aM.getLongitude()));
             }
             try {
                 this.c = this.b.i();

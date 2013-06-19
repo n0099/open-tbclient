@@ -29,7 +29,7 @@ public class ao extends com.baidu.adp.widget.ListView.c {
         this.f = LayoutInflater.from(this.a).inflate(R.layout.new_pb_list_more, (ViewGroup) null);
         this.b = (TextView) this.f.findViewById(R.id.pb_more_text);
         this.d = (ImageView) this.f.findViewById(R.id.image);
-        if (TiebaApplication.d().ar() == 1) {
+        if (TiebaApplication.e().as() == 1) {
             this.d.setBackgroundResource(R.drawable.icon_little_down_1);
         } else {
             this.d.setBackgroundResource(R.drawable.icon_little_down);

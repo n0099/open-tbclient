@@ -45,8 +45,8 @@ public class b implements Serializable {
                 this.b = jSONObject.optInt("ifposta", 0);
                 this.c = jSONObject.optInt("forbid_flag", 0);
                 this.d = jSONObject.optString("tbs");
-                if (TiebaApplication.d() != null && this.d != null && this.d.length() > 0) {
-                    TiebaApplication.d().h(this.d);
+                if (TiebaApplication.e() != null && this.d != null && this.d.length() > 0) {
+                    TiebaApplication.e().h(this.d);
                 }
                 this.e = jSONObject.optInt("need_vcode", 0);
                 this.f = jSONObject.optString("vcode_md5");

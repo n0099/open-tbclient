@@ -86,7 +86,7 @@ public class ImagePbActivity extends com.baidu.tieba.e implements com.baidu.tieb
 
     @Override // com.baidu.tieba.e
     public boolean e() {
-        return TiebaApplication.d().r();
+        return TiebaApplication.e().s();
     }
 
     public static void a(Context context, String str, String str2, String str3) {
@@ -465,8 +465,8 @@ public class ImagePbActivity extends com.baidu.tieba.e implements com.baidu.tieb
 
     /* JADX INFO: Access modifiers changed from: private */
     public void o() {
-        String B = TiebaApplication.B();
-        if (B == null || B.length() <= 0) {
+        String C = TiebaApplication.C();
+        if (C == null || C.length() <= 0) {
             if (this.H != null && this.H.e() != null) {
                 this.H.e().a(1);
             }
@@ -581,7 +581,7 @@ public class ImagePbActivity extends com.baidu.tieba.e implements com.baidu.tieb
                 LinkedList h = ImagePbActivity.this.H.h();
                 if (h != null && ImagePbActivity.this.K < h.size() && h.get(ImagePbActivity.this.K) != null) {
                     ImagePbActivity.this.M = ((com.baidu.tieba.a.w) h.get(ImagePbActivity.this.K)).d();
-                    if (((com.baidu.tieba.a.w) h.get(ImagePbActivity.this.K)).i().equals(TiebaApplication.B())) {
+                    if (((com.baidu.tieba.a.w) h.get(ImagePbActivity.this.K)).i().equals(TiebaApplication.C())) {
                         ImagePbActivity.this.e.setVisibility(0);
                         ImagePbActivity.this.e.setClickable(true);
                     }
@@ -608,8 +608,8 @@ public class ImagePbActivity extends com.baidu.tieba.e implements com.baidu.tieb
 
     /* JADX INFO: Access modifiers changed from: private */
     public void d(int i) {
-        String B = TiebaApplication.B();
-        if (B == null || B.length() <= 0) {
+        String C = TiebaApplication.C();
+        if (C == null || C.length() <= 0) {
             if (this.w != null) {
                 this.w.a(1);
             }
@@ -641,7 +641,7 @@ public class ImagePbActivity extends com.baidu.tieba.e implements com.baidu.tieb
 
     /* JADX INFO: Access modifiers changed from: private */
     public void q() {
-        a(TiebaApplication.d().getString(R.string.send_success));
+        a(TiebaApplication.e().getString(R.string.send_success));
         this.m.setText((CharSequence) null);
         GridView gridView = (GridView) findViewById(R.id.face_view);
         if (gridView.getVisibility() == 0) {
@@ -751,7 +751,7 @@ public class ImagePbActivity extends com.baidu.tieba.e implements com.baidu.tieb
                             i++;
                         }
                     }
-                    TiebaApplication.d().a(i, this.O.size(), "photo");
+                    TiebaApplication.e().a(i, this.O.size(), "photo");
                     this.O.clear();
                 }
             }

@@ -169,7 +169,7 @@ public class g {
         layoutParams.bottomMargin = 0;
         customTextView.setLineSpacing(0.0f, 1.2f);
         customTextView.setTextSize(com.baidu.tieba.a.i.n());
-        if (TiebaApplication.d().ar() == 1) {
+        if (TiebaApplication.e().as() == 1) {
             customTextView.setTextColor(ac.a(1));
         } else {
             customTextView.setTextColor(this.g);

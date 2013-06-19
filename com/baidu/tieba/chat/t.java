@@ -145,7 +145,7 @@ public class t extends BaseAdapter {
         } else {
             uVar = (u) view.getTag();
         }
-        int ar = TiebaApplication.d().ar();
+        int as = TiebaApplication.e().as();
         long itemId = getItemId(i);
         if (itemId == -1) {
             uVar.b.setVisibility(8);
@@ -157,12 +157,12 @@ public class t extends BaseAdapter {
                 uVar.j.setText(R.string.frs_pre);
                 uVar.k.setVisibility(8);
             }
-            if (ar == 1) {
+            if (as == 1) {
                 uVar.i.setBackgroundResource(R.drawable.bg_list_all_1);
             } else {
                 uVar.i.setBackgroundResource(R.drawable.bg_list_all);
             }
-            com.baidu.tieba.d.ac.b(uVar.j, ar);
+            com.baidu.tieba.d.ac.b(uVar.j, as);
         } else if (itemId == -2) {
             uVar.b.setVisibility(8);
             uVar.i.setVisibility(0);
@@ -173,12 +173,12 @@ public class t extends BaseAdapter {
                 uVar.j.setText(R.string.frs_next);
                 uVar.k.setVisibility(8);
             }
-            if (ar == 1) {
+            if (as == 1) {
                 uVar.i.setBackgroundResource(R.drawable.bg_list_all_1);
             } else {
                 uVar.i.setBackgroundResource(R.drawable.bg_list_all);
             }
-            com.baidu.tieba.d.ac.b(uVar.j, ar);
+            com.baidu.tieba.d.ac.b(uVar.j, as);
         } else {
             uVar.b.setVisibility(0);
             uVar.i.setVisibility(8);
@@ -216,7 +216,7 @@ public class t extends BaseAdapter {
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
-                if (ar == 1) {
+                if (as == 1) {
                     uVar.a.setBackgroundColor(-13618114);
                     uVar.d.setTextColor(-8682086);
                     uVar.e.setTextColor(-11446171);

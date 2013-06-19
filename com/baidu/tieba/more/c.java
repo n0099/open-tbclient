@@ -42,11 +42,11 @@ public class c extends com.baidu.adp.lib.a.a {
             this.a = new com.baidu.tieba.d.t(String.valueOf(com.baidu.tieba.a.i.e) + "c/s/sync");
             this.a.a("_os_version", Build.VERSION.RELEASE);
             StringBuffer stringBuffer = new StringBuffer(15);
-            stringBuffer.append(String.valueOf(com.baidu.tieba.d.ag.a(TiebaApplication.d())));
+            stringBuffer.append(String.valueOf(com.baidu.tieba.d.ag.a(TiebaApplication.e())));
             stringBuffer.append(",");
-            stringBuffer.append(String.valueOf(com.baidu.tieba.d.ag.b(TiebaApplication.d())));
+            stringBuffer.append(String.valueOf(com.baidu.tieba.d.ag.b(TiebaApplication.e())));
             this.a.a("_phone_screen", stringBuffer.toString());
-            if (TiebaApplication.d().P() > 0) {
+            if (TiebaApplication.e().Q() > 0) {
                 this.a.a("_msg_status", "0");
             } else {
                 this.a.a("_msg_status", "1");
@@ -58,7 +58,7 @@ public class c extends com.baidu.adp.lib.a.a {
             brVar = new br();
             try {
                 brVar.a(i);
-                if (TiebaApplication.N() == null && brVar.c().a() != null && brVar.c().a().length() > 0) {
+                if (TiebaApplication.O() == null && brVar.c().a() != null && brVar.c().a().length() > 0) {
                     TiebaApplication.a(this.b, brVar.c().a());
                     TiebaApplication.i(brVar.c().a());
                     return brVar;
@@ -103,23 +103,23 @@ public class c extends com.baidu.adp.lib.a.a {
         this.b.g = null;
         if (brVar != null) {
             this.b.h = brVar;
-            TiebaApplication d = TiebaApplication.d();
+            TiebaApplication e = TiebaApplication.e();
             brVar2 = this.b.h;
-            d.a(brVar2.b());
-            TiebaApplication.d().v(false);
+            e.a(brVar2.b());
+            TiebaApplication.e().v(false);
             brVar3 = this.b.h;
             if (brVar3.b().e() == 1) {
                 brVar4 = this.b.h;
                 if (brVar4.b().b() == 1) {
-                    TiebaApplication d2 = TiebaApplication.d();
+                    TiebaApplication e2 = TiebaApplication.e();
                     brVar6 = this.b.h;
-                    UpdateDialog.a(d2, brVar6.b());
+                    UpdateDialog.a(e2, brVar6.b());
                     return;
                 }
-                TiebaApplication.d().c(Long.valueOf(new Date().getTime()).longValue());
-                TiebaApplication d3 = TiebaApplication.d();
+                TiebaApplication.e().c(Long.valueOf(new Date().getTime()).longValue());
+                TiebaApplication e3 = TiebaApplication.e();
                 brVar5 = this.b.h;
-                UpdateDialog.a(d3, brVar5.b());
+                UpdateDialog.a(e3, brVar5.b());
                 return;
             }
             this.b.a(this.b.getResources().getString(R.string.neednot_update));

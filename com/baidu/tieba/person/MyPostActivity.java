@@ -55,8 +55,8 @@ public class MyPostActivity extends ActivityGroup {
     @Override // android.app.ActivityGroup, android.app.Activity
     protected void onResume() {
         super.onResume();
-        if (TiebaApplication.d().ar() != this.a) {
-            this.a = TiebaApplication.d().ar();
+        if (TiebaApplication.e().as() != this.a) {
+            this.a = TiebaApplication.e().as();
             a(this.a);
         }
     }

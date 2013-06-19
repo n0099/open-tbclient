@@ -515,8 +515,8 @@ public class LabelActivity extends e {
                     this.N = null;
                 }
                 b(false);
-                String B = TiebaApplication.B();
-                if (B == null || B.length() <= 0) {
+                String C = TiebaApplication.C();
+                if (C == null || C.length() <= 0) {
                     z = false;
                 }
                 this.N = new x(this, z, d);
@@ -536,8 +536,8 @@ public class LabelActivity extends e {
     public void a(boolean z) {
         StringBuffer stringBuffer = new StringBuffer(30);
         stringBuffer.append(com.baidu.tieba.a.i.e);
-        String B = TiebaApplication.B();
-        if (z && B != null && B.length() > 0) {
+        String C = TiebaApplication.C();
+        if (z && C != null && C.length() > 0) {
             stringBuffer.append("c/s/tag/rand_and_user_tag");
         } else {
             stringBuffer.append("c/s/tag/rand_tag");

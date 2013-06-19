@@ -23,12 +23,12 @@ class aj implements Handler.Callback {
         switch (message.what) {
             case 1:
                 com.baidu.tieba.d.ae.b("TiebaApplication", "handleMessage", "Do Aoto Login" + String.valueOf(message.what));
-                if (TiebaApplication.i()) {
+                if (TiebaApplication.j()) {
                     TiebaApplication.a((com.baidu.tieba.a.a) null);
                     MainTabActivity.b(this.a, null, true);
                     break;
                 } else {
-                    Intent intent = new Intent(TiebaApplication.d(), LoginActivity.class);
+                    Intent intent = new Intent(TiebaApplication.e(), LoginActivity.class);
                     String string = message.getData().getString("account");
                     if (string == null) {
                         string = "";
@@ -36,14 +36,14 @@ class aj implements Handler.Callback {
                     intent.putExtra("account", string);
                     intent.putExtra("has_exit_dialog", false);
                     intent.setFlags(268435456);
-                    TiebaApplication.d().startActivity(intent);
+                    TiebaApplication.e().startActivity(intent);
                     break;
                 }
             case 2:
-                this.a.Z();
+                this.a.aa();
                 break;
             case 3:
-                this.a.aa();
+                this.a.ab();
                 break;
             case 4:
                 long nanoTime = System.nanoTime();
@@ -55,7 +55,7 @@ class aj implements Handler.Callback {
                 this.a.r = 0L;
                 break;
             case 5:
-                this.a.aK();
+                this.a.aL();
                 String str = "";
                 i = this.a.D;
                 switch (i) {

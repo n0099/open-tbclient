@@ -113,7 +113,7 @@ public class ImagePbImageView extends ImageView {
         com.baidu.adp.widget.a.b c = com.baidu.tbadk.a.e.a().c(String.valueOf((String) getTag()) + "_big");
         if (c == null) {
             this.g = false;
-            if (TiebaApplication.d().ar() == 1) {
+            if (TiebaApplication.e().as() == 1) {
                 bVar = new com.baidu.adp.widget.a.b(com.baidu.tieba.d.d.a((int) R.drawable.image_default_1), false, null);
             } else {
                 bVar = new com.baidu.adp.widget.a.b(com.baidu.tieba.d.d.a((int) R.drawable.image_default), false, null);
@@ -146,7 +146,7 @@ public class ImagePbImageView extends ImageView {
             }
             this.c.postTranslate(f, f2);
             bVar.a(canvas, this.c, this.d);
-            if (this.g && TiebaApplication.d().ar() == 1) {
+            if (this.g && TiebaApplication.e().as() == 1) {
                 this.f.set(f, f2, a2 + f, b + f2);
                 canvas.drawRect(this.f, this.e);
             }

@@ -101,17 +101,17 @@ public class f {
             if (biVar.j() != null && biVar.j().length() > 0) {
                 this.d.a("vcode", biVar.j());
             }
-            if (TiebaApplication.d().au() < 3) {
+            if (TiebaApplication.e().av() < 3) {
                 this.d.a("vcode_tag", "11");
             }
-            Address aL = TiebaApplication.d().aL();
+            Address aM = TiebaApplication.e().aM();
             switch (biVar.b()) {
                 case 0:
                     this.d.a(a);
                     this.d.a("kw", biVar.h());
                     this.d.a("title", biVar.c());
-                    if (aL != null && TiebaApplication.d().p() && !i.g().equals(biVar.g())) {
-                        this.d.a("lbs", String.valueOf(String.valueOf(aL.getLatitude())) + "," + String.valueOf(aL.getLongitude()));
+                    if (aM != null && TiebaApplication.e().q() && !i.g().equals(biVar.g())) {
+                        this.d.a("lbs", String.valueOf(String.valueOf(aM.getLatitude())) + "," + String.valueOf(aM.getLongitude()));
                         break;
                     }
                     break;
@@ -133,8 +133,8 @@ public class f {
                     this.d.a(a);
                     this.d.a("thread_type", "7");
                     this.d.a("st_type", "tb_suishoufa");
-                    if (aL != null && TiebaApplication.d().p() && !i.g().equals(biVar.g())) {
-                        this.d.a("lbs", String.valueOf(String.valueOf(aL.getLatitude())) + "," + String.valueOf(aL.getLongitude()));
+                    if (aM != null && TiebaApplication.e().q() && !i.g().equals(biVar.g())) {
+                        this.d.a("lbs", String.valueOf(String.valueOf(aM.getLatitude())) + "," + String.valueOf(aM.getLongitude()));
                         break;
                     }
                     break;

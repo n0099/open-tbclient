@@ -2,9 +2,8 @@ package com.baidu.tieba.pb;
 
 import android.os.Handler;
 import android.view.animation.Animation;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class bz implements Animation.AnimationListener {
+class bz implements Animation.AnimationListener {
     final /* synthetic */ bk a;
     private final /* synthetic */ com.baidu.tieba.a.ay b;
     private final /* synthetic */ boolean c;

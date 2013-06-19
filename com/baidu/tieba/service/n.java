@@ -19,10 +19,10 @@ class n extends Handler {
             return;
         }
         this.a.a();
-        long P = TiebaApplication.d().P();
-        if (P > 0) {
+        long Q = TiebaApplication.e().Q();
+        if (Q > 0) {
             handler = this.a.c;
-            handler.sendEmptyMessageDelayed(1, P * 1000);
+            handler.sendEmptyMessageDelayed(1, Q * 1000);
             return;
         }
         this.a.stopSelf();

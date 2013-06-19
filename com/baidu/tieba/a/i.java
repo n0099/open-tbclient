@@ -164,7 +164,7 @@ public class i {
     }
 
     public static int n() {
-        switch (TiebaApplication.d().ao()) {
+        switch (TiebaApplication.e().ap()) {
             case 1:
                 return 18;
             case 2:
@@ -183,7 +183,7 @@ public class i {
     }
 
     public static int q() {
-        switch (TiebaApplication.d().ao()) {
+        switch (TiebaApplication.e().ap()) {
             case 1:
                 return 13;
             case 2:
@@ -194,7 +194,7 @@ public class i {
     }
 
     public static void r() {
-        if ((TiebaApplication.d().getApplicationInfo().flags & 2) == 0) {
+        if ((TiebaApplication.e().getApplicationInfo().flags & 2) == 0) {
             y = false;
         } else {
             y = true;

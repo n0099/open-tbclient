@@ -28,11 +28,11 @@ public class ay implements View.OnClickListener {
                 intent.setComponent(new ComponentName("com.baidu.tieba.local", "com.baidu.tieba.local.activity.logo.LogoActivity"));
                 this.a.startActivityForResult(intent, -1);
             } else {
-                this.a.startActivity(new Intent("android.intent.action.VIEW", Uri.parse("http://static.tieba.baidu.com/client/android/youliao_PC.apk")));
+                this.a.startActivity(new Intent("android.intent.action.VIEW", Uri.parse("http://static.tieba.baidu.com/client/android/youliao_kehuduan.apk")));
             }
         } catch (Exception e) {
         }
-        if (TiebaApplication.d().o()) {
+        if (TiebaApplication.e().p()) {
             StatService.onEvent(this.a, "nearby_goto_local", "lbsclick", 1);
         }
     }

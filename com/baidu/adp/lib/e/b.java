@@ -91,4 +91,8 @@ public class b {
     public static int c(String str) {
         return a(3, str);
     }
+
+    public static int d(String str) {
+        return a(4, str);
+    }
 }

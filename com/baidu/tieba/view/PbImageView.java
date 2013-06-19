@@ -74,7 +74,7 @@ public class PbImageView extends ImageView {
 
     private void a() {
         this.e.setColor(1275068416);
-        if (TiebaApplication.d().ar() == 1) {
+        if (TiebaApplication.e().as() == 1) {
             this.b = com.baidu.tieba.d.d.a((int) R.drawable.pic_image_h_not_1);
         } else {
             this.b = com.baidu.tieba.d.d.a((int) R.drawable.pic_image_h_not);
@@ -92,7 +92,7 @@ public class PbImageView extends ImageView {
         if (d != null) {
             bVar = d;
             z = true;
-        } else if (TiebaApplication.d().ar() == 1) {
+        } else if (TiebaApplication.e().as() == 1) {
             bVar = new com.baidu.adp.widget.a.b(com.baidu.tieba.d.d.a((int) R.drawable.pic_image_h_not_1), false, null);
             z = false;
         } else {
@@ -116,7 +116,7 @@ public class PbImageView extends ImageView {
                 if (c && bVar.b() > this.a.getHeight() && bVar.a() > this.a.getWidth()) {
                     canvas.drawBitmap(this.a, this.c, null);
                 }
-                if (TiebaApplication.d().ar() == 1) {
+                if (TiebaApplication.e().as() == 1) {
                     this.f.set(0.0f, 0.0f, bVar.a() * min, min * bVar.b());
                     canvas.drawRect(this.f, this.e);
                     return;

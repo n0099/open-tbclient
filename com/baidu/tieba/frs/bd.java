@@ -150,7 +150,7 @@ public class bd extends com.baidu.adp.a.d {
     }
 
     public void e() {
-        if (TiebaApplication.d().ap()) {
+        if (TiebaApplication.e().aq()) {
             this.b.a();
         } else {
             this.b.b();
@@ -158,7 +158,7 @@ public class bd extends com.baidu.adp.a.d {
     }
 
     public void f() {
-        if (TiebaApplication.d().ar() == 1) {
+        if (TiebaApplication.e().as() == 1) {
             this.c.a();
         } else {
             this.c.b();
@@ -205,11 +205,11 @@ public class bd extends com.baidu.adp.a.d {
             ArrayList c = qVar.c();
             int size = c.size();
             int i = size > 10 ? 10 : size;
-            int ar = TiebaApplication.d().ar();
+            int as = TiebaApplication.e().as();
             for (int i2 = 0; i2 < i; i2++) {
                 LinearLayout linearLayout = (LinearLayout) from.inflate(R.layout.frs_sidebar_item, (ViewGroup) null);
                 TextView textView = (TextView) linearLayout.findViewById(R.id.like_forum_name);
-                if (ar == 1) {
+                if (as == 1) {
                     textView.setTextAppearance(this.a, R.style.sidebar_content_1);
                 } else {
                     textView.setTextAppearance(this.a, R.style.sidebar_content);

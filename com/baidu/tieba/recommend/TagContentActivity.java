@@ -47,7 +47,7 @@ public class TagContentActivity extends com.baidu.tieba.e implements com.baidu.t
 
     @Override // com.baidu.tieba.e
     public boolean e() {
-        return TiebaApplication.d().r();
+        return TiebaApplication.e().s();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -101,8 +101,8 @@ public class TagContentActivity extends com.baidu.tieba.e implements com.baidu.t
     /* JADX INFO: Access modifiers changed from: protected */
     public void b() {
         this.g.setVisibility(8);
-        String B = TiebaApplication.B();
-        this.q = new g(this, B != null && B.length() > 0);
+        String C = TiebaApplication.C();
+        this.q = new g(this, C != null && C.length() > 0);
         this.q.setPriority(3);
         this.q.execute(new Object[0]);
     }
@@ -135,14 +135,14 @@ public class TagContentActivity extends com.baidu.tieba.e implements com.baidu.t
     @Override // com.baidu.tieba.e, android.app.Activity
     public void onResume() {
         super.onResume();
-        Long valueOf = Long.valueOf(TiebaApplication.d().z());
+        Long valueOf = Long.valueOf(TiebaApplication.e().A());
         if (!this.v && System.currentTimeMillis() - valueOf.longValue() > com.baidu.tieba.a.i.b.longValue() && this.m != null) {
             c();
         }
     }
 
     public void c() {
-        if (TiebaApplication.d().as() == 0 && !q()) {
+        if (TiebaApplication.e().at() == 0 && !q()) {
             this.u.setVisibility(0);
             return;
         }
@@ -207,7 +207,7 @@ public class TagContentActivity extends com.baidu.tieba.e implements com.baidu.t
         if (this.m == null) {
             try {
                 this.m = new BaseWebView(this);
-                ac.a(this.m, TiebaApplication.d().ar());
+                ac.a(this.m, TiebaApplication.e().as());
                 this.m.setOnLoadUrlListener(this);
                 this.m.setHorizontalScrollBarEnabled(false);
                 this.m.setHorizontalScrollbarOverlay(false);

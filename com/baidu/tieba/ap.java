@@ -25,7 +25,7 @@ public class ap extends com.baidu.adp.lib.a.a {
     @Override // com.baidu.adp.lib.a.a
     public Address a(Location... locationArr) {
         List<Address> list;
-        Geocoder geocoder = new Geocoder(TiebaApplication.d(), Locale.getDefault());
+        Geocoder geocoder = new Geocoder(TiebaApplication.e(), Locale.getDefault());
         if (locationArr == null || locationArr.length < 1) {
             return null;
         }
@@ -65,7 +65,7 @@ public class ap extends com.baidu.adp.lib.a.a {
     public void a(Address address) {
         super.a((Object) address);
         if (address != null) {
-            this.a.aK();
+            this.a.aL();
             this.a.a(0, "", address);
             this.a.F = address;
         }

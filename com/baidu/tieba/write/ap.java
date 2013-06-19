@@ -38,7 +38,7 @@ public class ap extends com.baidu.adp.lib.a.a {
     */
     public String a(Integer... numArr) {
         Bitmap bitmap;
-        Address aL;
+        Address aM;
         File c;
         bs bsVar;
         String b;
@@ -112,7 +112,7 @@ public class ap extends com.baidu.adp.lib.a.a {
             if (this.b.j() != null && this.b.j().length() > 0) {
                 this.c.a("vcode", this.b.j());
             }
-            if (TiebaApplication.d().au() < 3) {
+            if (TiebaApplication.e().av() < 3) {
                 this.c.a("vcode_tag", "11");
             }
             this.c.d(true);
@@ -124,8 +124,8 @@ public class ap extends com.baidu.adp.lib.a.a {
                     this.c.a("thread_type", "7");
                     this.c.a("st_type", "tb_suishoufa");
                 }
-                if (!com.baidu.tieba.a.i.g().equals(this.a.getIntent().getStringExtra("forum_id")) && TiebaApplication.d().p() && (aL = TiebaApplication.d().aL()) != null) {
-                    this.c.a("lbs", String.valueOf(String.valueOf(aL.getLatitude())) + "," + String.valueOf(aL.getLongitude()));
+                if (!com.baidu.tieba.a.i.g().equals(this.a.getIntent().getStringExtra("forum_id")) && TiebaApplication.e().q() && (aM = TiebaApplication.e().aM()) != null) {
+                    this.c.a("lbs", String.valueOf(String.valueOf(aM.getLatitude())) + "," + String.valueOf(aM.getLongitude()));
                 }
             } else {
                 this.c.a(String.valueOf(com.baidu.tieba.a.i.e) + "c/c/post/add");
@@ -201,7 +201,7 @@ public class ap extends com.baidu.adp.lib.a.a {
                 com.baidu.tieba.a.o oVar = new com.baidu.tieba.a.o();
                 oVar.b(this.d);
                 if (oVar.b() == null || oVar.b().length() <= 0) {
-                    this.a.a(TiebaApplication.d().getString(R.string.send_success));
+                    this.a.a(TiebaApplication.e().getString(R.string.send_success));
                 } else {
                     this.a.a(oVar.b());
                 }

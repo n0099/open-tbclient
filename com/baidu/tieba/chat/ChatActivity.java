@@ -66,7 +66,7 @@ public class ChatActivity extends com.baidu.tieba.e implements com.baidu.tbadk.w
         this.j.removeCallbacks(this.m);
         this.g = true;
         if (this.h) {
-            TiebaApplication.d().Z();
+            TiebaApplication.e().aa();
             this.h = false;
         }
     }
@@ -123,8 +123,8 @@ public class ChatActivity extends com.baidu.tieba.e implements com.baidu.tbadk.w
         } else if (view == this.c.b()) {
             this.c.m();
         } else if (view == this.c.c()) {
-            String B = TiebaApplication.B();
-            if (B == null || B.length() <= 0) {
+            String C = TiebaApplication.C();
+            if (C == null || C.length() <= 0) {
                 LoginActivity.a((Activity) this, getString(R.string.login_to_use), true, 1100031);
             } else {
                 m();
@@ -135,8 +135,8 @@ public class ChatActivity extends com.baidu.tieba.e implements com.baidu.tbadk.w
                 PersonInfoActivity.a(this, userId, null);
             }
         } else if (view == this.c.e()) {
-            String B2 = TiebaApplication.B();
-            if (B2 == null || B2.length() <= 0) {
+            String C2 = TiebaApplication.C();
+            if (C2 == null || C2.length() <= 0) {
                 LoginActivity.a((Activity) this, getString(R.string.login_to_use), true, 1100032);
             } else {
                 n();
@@ -224,8 +224,8 @@ public class ChatActivity extends com.baidu.tieba.e implements com.baidu.tbadk.w
         this.d.a(this.q);
         this.e = new aa();
         this.e.a(this.p);
-        String B = TiebaApplication.B();
-        if (B == null || B.length() <= 0) {
+        String C = TiebaApplication.C();
+        if (C == null || C.length() <= 0) {
             LoginActivity.a((Activity) this, getString(R.string.login_to_use), true, 11000230);
         } else {
             p();
@@ -255,6 +255,10 @@ public class ChatActivity extends com.baidu.tieba.e implements com.baidu.tbadk.w
     @Override // com.baidu.tbadk.widget.richText.h
     public void c(Context context, String str) {
         com.baidu.tieba.d.ag.c(this, str);
+    }
+
+    @Override // com.baidu.tbadk.widget.richText.h
+    public void e(Context context, String str) {
     }
 
     @Override // com.baidu.tbadk.widget.richText.h

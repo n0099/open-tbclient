@@ -25,7 +25,7 @@ public class d {
 
     public static Bitmap a(int i) {
         Bitmap bitmap = (Bitmap) b.get(Integer.valueOf(i));
-        if (bitmap == null && (bitmap = b(TiebaApplication.d(), i)) != null) {
+        if (bitmap == null && (bitmap = b(TiebaApplication.e(), i)) != null) {
             b.put(Integer.valueOf(i), bitmap);
         }
         return bitmap;
@@ -421,24 +421,24 @@ public class d {
     }
 
     public static int b(int i) {
-        int ar = TiebaApplication.d().ar();
+        int as = TiebaApplication.e().as();
         if (i > 15) {
-            if (ar == 1) {
+            if (as == 1) {
                 return R.drawable.icon_grade_yellow_1;
             }
             return R.drawable.icon_grade_yellow;
         } else if (i > 9) {
-            if (ar == 1) {
+            if (as == 1) {
                 return R.drawable.icon_grade_blue_1;
             }
             return R.drawable.icon_grade_blue;
         } else if (i > 3) {
-            if (ar == 1) {
+            if (as == 1) {
                 return R.drawable.icon_grade_green_1;
             }
             return R.drawable.icon_grade_green;
         } else if (i > 0) {
-            if (ar == 1) {
+            if (as == 1) {
                 return R.drawable.icon_grade_red_1;
             }
             return R.drawable.icon_grade_red;

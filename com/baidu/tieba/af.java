@@ -18,10 +18,10 @@ public class af implements DialogInterface.OnClickListener {
         if (i != -2) {
             alertDialog = this.a.y;
             alertDialog.dismiss();
-            TiebaApplication.d().a(false, false);
+            TiebaApplication.e().a(false, false);
             return;
         }
         this.a.a(false);
-        TiebaApplication.d().a(true, false);
+        TiebaApplication.e().a(true, false);
     }
 }

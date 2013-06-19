@@ -38,9 +38,9 @@ public class r implements DialogInterface.OnClickListener {
                 this.a.d(this.b);
                 break;
         }
-        com.baidu.tieba.d.ab ay = TiebaApplication.d().ay();
-        if (ay != null && !ay.b(this.b.a())) {
-            ay.a(this.b.a());
+        com.baidu.tieba.d.ab az = TiebaApplication.e().az();
+        if (az != null && !az.b(this.b.a())) {
+            az.a(this.b.a());
         }
         baVar = this.a.l;
         baVar.k();

@@ -45,12 +45,12 @@ public class aq extends BaseAdapter {
         if (this.b == null || this.b.a().size() == 0) {
             return 0;
         }
-        return (TiebaApplication.d().aq() ? 2 : 1) + this.b.a().size();
+        return (TiebaApplication.e().ar() ? 2 : 1) + this.b.a().size();
     }
 
     @Override // android.widget.Adapter
     public Object getItem(int i) {
-        if (TiebaApplication.d().aq()) {
+        if (TiebaApplication.e().ar()) {
             if (this.b != null && i - 1 >= 0 && i - 1 < this.b.a().size()) {
                 return this.b.a().get(i - 1);
             }
@@ -70,12 +70,12 @@ public class aq extends BaseAdapter {
         if (this.b == null) {
             return 0;
         }
-        return TiebaApplication.d().aq() ? 4 : 3;
+        return TiebaApplication.e().ar() ? 4 : 3;
     }
 
     @Override // android.widget.BaseAdapter, android.widget.Adapter
     public int getItemViewType(int i) {
-        if (i == 0 && TiebaApplication.d().aq()) {
+        if (i == 0 && TiebaApplication.e().ar()) {
             return 3;
         }
         if (getItem(i) != null) {
@@ -102,7 +102,7 @@ public class aq extends BaseAdapter {
         at atVar = null;
         try {
             int itemViewType = getItemViewType(i);
-            int ar = TiebaApplication.d().ar();
+            int as = TiebaApplication.e().as();
             try {
                 if (view == null) {
                     LayoutInflater from = LayoutInflater.from(this.a);
@@ -204,7 +204,7 @@ public class aq extends BaseAdapter {
                 com.baidu.tieba.c.aw awVar = (com.baidu.tieba.c.aw) getItem(i);
                 if (itemViewType == 0) {
                     asVar.b.setText(awVar.b());
-                    if (ar == 1) {
+                    if (as == 1) {
                         asVar.a.setBackgroundResource(R.drawable.icon_distance_node_1);
                         return view4;
                     }
@@ -349,7 +349,7 @@ public class aq extends BaseAdapter {
                                     }
                                 }
                             }
-                            if (ar == 1) {
+                            if (as == 1) {
                                 i2 = -12687203;
                             } else {
                                 i2 = -16610584;
@@ -374,7 +374,7 @@ public class aq extends BaseAdapter {
                             }
                         }
                     }
-                    if (ar == 1) {
+                    if (as == 1) {
                         com.baidu.tieba.d.ac.h(auVar.a, (int) R.drawable.nearby_post_content_bg_selector_1);
                         com.baidu.tieba.d.ac.h(auVar.i, (int) R.drawable.nearby_post_reply_bg_selector_1);
                         auVar.b.setTextColor(-8682095);
@@ -415,7 +415,7 @@ public class aq extends BaseAdapter {
                     } else {
                         atVar.b.setVisibility(8);
                     }
-                    if (ar == 1) {
+                    if (as == 1) {
                         atVar.a.setTextColor(-3618616);
                         return view4;
                     }

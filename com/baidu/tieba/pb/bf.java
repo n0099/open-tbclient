@@ -15,20 +15,20 @@ class bf implements com.baidu.tieba.c.bc {
         bk bkVar3;
         com.baidu.tieba.c.ax axVar;
         com.baidu.tieba.c.ax axVar2;
-        bkVar = this.a.o;
+        bkVar = this.a.p;
         bkVar.d(str);
-        bkVar2 = this.a.o;
+        bkVar2 = this.a.p;
         bkVar2.v();
         if (!z) {
             if (i == 4 || i == 28) {
-                axVar2 = this.a.i;
+                axVar2 = this.a.j;
                 if (axVar2.k()) {
                     this.a.f();
                 }
             }
         } else if (ayVar != null) {
-            bkVar3 = this.a.o;
-            axVar = this.a.i;
+            bkVar3 = this.a.p;
+            axVar = this.a.j;
             bkVar3.a(ayVar, axVar.m().l());
         }
     }

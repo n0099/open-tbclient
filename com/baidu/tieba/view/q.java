@@ -77,7 +77,7 @@ public class q extends ImageView {
         if (c == null) {
             this.g = false;
             if (this.e == 5) {
-                if (TiebaApplication.d().ar() == 1) {
+                if (TiebaApplication.e().as() == 1) {
                     a = com.baidu.tieba.d.d.a((int) R.drawable.pic_video_1);
                 } else {
                     a = com.baidu.tieba.d.d.a((int) R.drawable.pic_video);
@@ -86,7 +86,7 @@ public class q extends ImageView {
                 this.a.setScale(min, min);
                 this.g = true;
             } else {
-                if (TiebaApplication.d().ar() == 1) {
+                if (TiebaApplication.e().as() == 1) {
                     a = com.baidu.tieba.d.d.a((int) R.drawable.pic_image_h_not_1);
                 } else {
                     a = com.baidu.tieba.d.d.a((int) R.drawable.pic_image_h_not);
@@ -94,7 +94,7 @@ public class q extends ImageView {
                 this.b = (getWidth() - a.getWidth()) >> 1;
                 this.c = (getHeight() - a.getHeight()) >> 1;
                 this.a.postTranslate(this.b, this.c);
-                if (TiebaApplication.d().ar() == 1) {
+                if (TiebaApplication.e().as() == 1) {
                     canvas.drawColor(-13815750);
                 }
             }

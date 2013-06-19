@@ -7,7 +7,7 @@ import android.os.Environment;
 import android.util.Log;
 import com.baidu.android.common.util.HanziToPinyin;
 import com.baidu.browser.core.util.BdUtil;
-import com.baidu.loginshare.e;
+import com.baidu.cyberplayer.sdk.internal.HttpUtils;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -19,8 +19,8 @@ import java.net.Proxy;
 import java.net.URL;
 /* loaded from: classes.dex */
 public final class a {
-    private static final Proxy a = new Proxy(Proxy.Type.HTTP, new InetSocketAddress(e.h, 80));
-    private static final Proxy b = new Proxy(Proxy.Type.HTTP, new InetSocketAddress("10.0.0.200", 80));
+    private static final Proxy a = new Proxy(Proxy.Type.HTTP, new InetSocketAddress("10.0.0.172", 80));
+    private static final Proxy b = new Proxy(Proxy.Type.HTTP, new InetSocketAddress(HttpUtils.IP_CTWAP, 80));
 
     public static String a(Context context, String str) {
         b.a("AdUtil.read", str);

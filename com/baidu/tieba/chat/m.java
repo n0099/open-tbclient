@@ -39,10 +39,10 @@ class m implements AdapterView.OnItemClickListener {
                 vVar2 = this.a.c;
                 com.baidu.tieba.a.a.g gVar = (com.baidu.tieba.a.a.g) vVar2.d().getItem(i);
                 if (gVar != null && gVar.f() > 0) {
-                    TiebaApplication.d().Z();
+                    TiebaApplication.e().aa();
                     gVar.b(0);
                 }
-                if (TiebaApplication.d().o()) {
+                if (TiebaApplication.e().p()) {
                     StatService.onEvent(this.a, "list_to_chat", "chatlistclick", 1);
                 }
                 ChatActivity.a(this.a, gVar.b(), gVar.g(), gVar.c(), null, "chat_list");

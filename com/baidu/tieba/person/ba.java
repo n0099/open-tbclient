@@ -267,7 +267,7 @@ public class ba extends com.baidu.adp.a.d {
         if (biVar.d() != null && biVar.d().length() > 0) {
             this.k.setVisibility(0);
             if (biVar.e()) {
-                if (TiebaApplication.d().ar() == 1) {
+                if (TiebaApplication.e().as() == 1) {
                     this.l.setImageDrawable(this.b.getResources().getDrawable(R.drawable.icon_cent_lately_1));
                 } else {
                     this.l.setImageDrawable(this.b.getResources().getDrawable(R.drawable.icon_cent_lately));
@@ -282,7 +282,7 @@ public class ba extends com.baidu.adp.a.d {
                 this.n.setVisibility(8);
                 return;
             }
-            if (TiebaApplication.d().ar() == 1) {
+            if (TiebaApplication.e().as() == 1) {
                 this.l.setImageDrawable(this.b.getResources().getDrawable(R.drawable.icon_cent_chat_1));
             } else {
                 this.l.setImageDrawable(this.b.getResources().getDrawable(R.drawable.icon_cent_chat));

@@ -44,9 +44,9 @@ class ai implements ax {
             if (abVar.a) {
                 this.a.a(abVar.d);
                 if (abVar.b && abVar.c == 2000) {
-                    TiebaApplication d = TiebaApplication.d();
+                    TiebaApplication e = TiebaApplication.e();
                     str = this.a.d;
-                    d.d(str);
+                    e.d(str);
                     return;
                 }
                 return;

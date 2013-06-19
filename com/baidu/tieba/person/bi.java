@@ -285,12 +285,12 @@ public class bi extends BaseAdapter {
 
     private void a(View view, boolean z) {
         if (!z) {
-            if (TiebaApplication.d().ar() == 1) {
+            if (TiebaApplication.e().as() == 1) {
                 view.setBackgroundResource(R.drawable.timeline_below_1);
             } else {
                 view.setBackgroundResource(R.drawable.timeline_below);
             }
-        } else if (TiebaApplication.d().ar() == 1) {
+        } else if (TiebaApplication.e().as() == 1) {
             view.setBackgroundResource(R.drawable.timeline_above_1);
         } else {
             view.setBackgroundResource(R.drawable.timeline_above);
@@ -299,8 +299,8 @@ public class bi extends BaseAdapter {
 
     private void a(bk bkVar) {
         try {
-            if (bkVar.a != TiebaApplication.d().ar()) {
-                bkVar.a = TiebaApplication.d().ar();
+            if (bkVar.a != TiebaApplication.e().as()) {
+                bkVar.a = TiebaApplication.e().as();
                 if (bkVar.a == 1) {
                     bkVar.b.setTextColor(com.baidu.tieba.d.ac.a(1));
                 } else {
@@ -314,8 +314,8 @@ public class bi extends BaseAdapter {
 
     private void b(bk bkVar) {
         try {
-            if (bkVar.a != TiebaApplication.d().ar()) {
-                bkVar.a = TiebaApplication.d().ar();
+            if (bkVar.a != TiebaApplication.e().as()) {
+                bkVar.a = TiebaApplication.e().as();
                 if (bkVar.a == 1) {
                     bkVar.g.setTextColor(com.baidu.tieba.d.ac.a(bkVar.a));
                     bkVar.g.setLinkTextColor(-9989158);

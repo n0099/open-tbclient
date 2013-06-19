@@ -16,15 +16,15 @@ class t implements RadioGroup.OnCheckedChangeListener {
     public void onCheckedChanged(RadioGroup radioGroup, int i) {
         switch (i) {
             case R.id.image_quality_high /* 2131099830 */:
-                TiebaApplication.d().q(true);
-                TiebaApplication.d().h(1);
+                TiebaApplication.e().q(true);
+                TiebaApplication.e().h(1);
                 return;
             case R.id.image_quality_low /* 2131099831 */:
-                TiebaApplication.d().q(true);
-                TiebaApplication.d().h(2);
+                TiebaApplication.e().q(true);
+                TiebaApplication.e().h(2);
                 return;
             case R.id.image_quality_close /* 2131099832 */:
-                TiebaApplication.d().q(false);
+                TiebaApplication.e().q(false);
                 return;
             default:
                 return;

@@ -1,6 +1,7 @@
 package com.baidu.zeus;
 
 import android.util.Log;
+import com.baidu.cyberplayer.sdk.internal.HttpUtils;
 import com.baidu.zeus.CacheManager;
 import java.util.HashMap;
 import java.util.Map;
@@ -226,8 +227,8 @@ class FrameLoader {
         if (acceptLanguage.length() > 0) {
             this.mHeaders.put("Accept-Language", acceptLanguage);
         }
-        if (!((String) this.mHeaders.get("User-Agent")).equals(IPHONE_UA)) {
-            this.mHeaders.put("User-Agent", this.mSettings.getUserAgentString());
+        if (!((String) this.mHeaders.get(HttpUtils.HEADER_NAME_USER_AGENT)).equals(IPHONE_UA)) {
+            this.mHeaders.put(HttpUtils.HEADER_NAME_USER_AGENT, this.mSettings.getUserAgentString());
         }
     }
 
@@ -235,7 +236,7 @@ class FrameLoader {
         String proxyUsername;
         String proxyPassword;
         if (this.mReferrer != null) {
-            this.mHeaders.put("Referer", this.mReferrer);
+            this.mHeaders.put(HttpUtils.HEADER_NAME_REFERER, this.mReferrer);
         }
         if (this.mContentType != null) {
             this.mHeaders.put("content-type", this.mContentType);
@@ -251,7 +252,7 @@ class FrameLoader {
         }
         String cookie = CookieManager.getInstance().getCookie(this.mListener.getWebAddress());
         if (cookie != null && cookie.length() > 0) {
-            this.mHeaders.put("Cookie", cookie);
+            this.mHeaders.put(HttpUtils.HEADER_NAME_COOKIE, cookie);
         }
     }
 }

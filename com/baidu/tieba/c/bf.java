@@ -108,12 +108,12 @@ public class bf extends com.baidu.adp.lib.a.a {
         if (!this.d) {
             if (str == null) {
                 beVar = this.a.g;
-                beVar.a(false, TiebaApplication.d().getString(R.string.neterror), null, null);
+                beVar.a(false, TiebaApplication.e().getString(R.string.neterror), null, null);
             } else if (this.b.a()) {
                 com.baidu.tieba.a.o oVar = new com.baidu.tieba.a.o();
                 oVar.b(this.c);
                 if (oVar.b() == null || oVar.b().length() <= 0) {
-                    oVar.a(TiebaApplication.d().getString(R.string.send_success));
+                    oVar.a(TiebaApplication.e().getString(R.string.send_success));
                     beVar2 = this.a.g;
                     if (beVar2 != null) {
                         beVar3 = this.a.g;

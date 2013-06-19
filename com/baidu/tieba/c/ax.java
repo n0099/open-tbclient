@@ -294,7 +294,7 @@ public class ax extends com.baidu.adp.a.c {
 
     public void v() {
         if (this.x != null && this.x.a() != null && this.x.b() != null) {
-            if (TiebaApplication.d().o()) {
+            if (TiebaApplication.e().p()) {
                 StatService.onEvent(this.A, "pb_share", "pbclick", 1);
             }
             String b = this.x.a().b();
@@ -365,7 +365,7 @@ public class ax extends com.baidu.adp.a.c {
     public com.baidu.tieba.a.af b(com.baidu.tieba.a.ar arVar) {
         com.baidu.tieba.a.af afVar = new com.baidu.tieba.a.af();
         Date date = new Date();
-        afVar.e(TiebaApplication.B());
+        afVar.e(TiebaApplication.C());
         afVar.h(this.g);
         afVar.d(arVar.d());
         afVar.a(date.getTime());

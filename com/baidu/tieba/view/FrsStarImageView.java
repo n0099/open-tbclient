@@ -62,7 +62,7 @@ public class FrsStarImageView extends ImageView {
         com.baidu.adp.widget.a.b bVar;
         super.onDraw(canvas);
         com.baidu.adp.widget.a.b c = com.baidu.tbadk.a.e.a().c((String) getTag());
-        int ar = TiebaApplication.d().ar();
+        int as = TiebaApplication.e().as();
         if (c == null) {
             switch (this.c) {
                 case 0:
@@ -73,9 +73,9 @@ public class FrsStarImageView extends ImageView {
                     break;
                 case 1:
                     if (this.d == null) {
-                        a(ar);
-                    } else if (this.e != ar) {
-                        a(ar);
+                        a(as);
+                    } else if (this.e != as) {
+                        a(as);
                     }
                     bVar = this.d;
                     break;

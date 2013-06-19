@@ -23,17 +23,17 @@ public class a {
 
     public void b() {
         try {
-            if (!TiebaApplication.i()) {
+            if (!TiebaApplication.j()) {
                 Token token = new Token();
-                String C = TiebaApplication.C();
-                if (C != null) {
+                String D = TiebaApplication.D();
+                if (D != null) {
                     e();
-                    String[] split = C.split("[|]");
+                    String[] split = D.split("[|]");
                     if (split != null && split.length == 2) {
                         token.mBduss = split[0];
                         token.mPtoken = split[1];
                         if (token.mPtoken != null && token.mPtoken.length() > 0) {
-                            token.mUsername = TiebaApplication.F();
+                            token.mUsername = TiebaApplication.G();
                             LoginShareAssistant.getInstance().valid(token);
                         }
                     }
@@ -47,7 +47,7 @@ public class a {
     public void a(String str) {
         String[] split;
         try {
-            if (!TiebaApplication.i()) {
+            if (!TiebaApplication.j()) {
                 Token token = new Token();
                 if (str != null && (split = str.split("[|]")) != null && split.length == 2) {
                     token.mBduss = split[0];
@@ -65,7 +65,7 @@ public class a {
     public void a(Token token) {
         if (token != null) {
             try {
-                if (!TiebaApplication.i()) {
+                if (!TiebaApplication.j()) {
                     LoginShareAssistant.getInstance().invalid(token);
                 }
             } catch (Exception e) {
@@ -76,7 +76,7 @@ public class a {
 
     public void c() {
         try {
-            if (!TiebaApplication.i()) {
+            if (!TiebaApplication.j()) {
                 LoginShareAssistant.getInstance().onActivityCreate();
             }
         } catch (Exception e) {
@@ -85,11 +85,11 @@ public class a {
     }
 
     public void d() {
-        String aI;
+        String aJ;
         try {
-            if (!TiebaApplication.i() && (aI = TiebaApplication.d().aI()) != null) {
+            if (!TiebaApplication.j() && (aJ = TiebaApplication.e().aJ()) != null) {
                 this.a = new b(this);
-                String[] split = aI.split(":");
+                String[] split = aJ.split(":");
                 int length = split.length;
                 if (length >= 1) {
                     if ("1".equals(split[0])) {
@@ -127,7 +127,7 @@ public class a {
         Exception e;
         String[] split;
         try {
-            if (TiebaApplication.i() || str == null || (split = str.split("[|]")) == null || split.length < 1) {
+            if (TiebaApplication.j() || str == null || (split = str.split("[|]")) == null || split.length < 1) {
                 return null;
             }
             token = new Token();
@@ -151,7 +151,7 @@ public class a {
 
     public void e() {
         this.a = null;
-        TiebaApplication.d().aH();
+        TiebaApplication.e().aI();
     }
 
     public void f() {
@@ -159,8 +159,8 @@ public class a {
     }
 
     public void a(Activity activity, String str) {
-        String F;
-        if (this.a != null && this.a.a && TiebaApplication.B() == null && ((F = TiebaApplication.F()) == null || !F.equals(this.a.d))) {
+        String G;
+        if (this.a != null && this.a.a && TiebaApplication.C() == null && ((G = TiebaApplication.G()) == null || !G.equals(this.a.d))) {
             ReLoginShareActivity.a(activity, this.a.d, this.a.b, this.a.c, str);
         }
         f();
@@ -182,6 +182,6 @@ public class a {
         if (!z) {
             str4 = "2:";
         }
-        TiebaApplication.d().j(String.valueOf(str4) + str + ":" + str2 + ":" + str3);
+        TiebaApplication.e().j(String.valueOf(str4) + str + ":" + str2 + ":" + str3);
     }
 }

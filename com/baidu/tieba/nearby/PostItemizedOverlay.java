@@ -30,7 +30,7 @@ public class PostItemizedOverlay extends ItemizedOverlay {
         this.b = new com.baidu.tieba.d.a(context);
         this.c = (NearbyMapActivity) context;
         populate();
-        this.d = com.baidu.tieba.d.ag.a(TiebaApplication.d(), 6.0f);
+        this.d = com.baidu.tieba.d.ag.a(TiebaApplication.e(), 6.0f);
     }
 
     public com.baidu.tieba.d.a a() {

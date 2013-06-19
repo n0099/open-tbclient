@@ -53,7 +53,7 @@ public class NearbyMapActivity extends MapActivity {
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         setContentView(R.layout.nearby_map_activity);
-        if (TiebaApplication.d().o()) {
+        if (TiebaApplication.e().p()) {
             try {
                 StatService.setAppChannel(com.baidu.tieba.a.i.a());
             } catch (Exception e) {
@@ -61,10 +61,10 @@ public class NearbyMapActivity extends MapActivity {
             }
         }
         boolean z = true;
-        if (TiebaApplication.d().aR() == null) {
-            z = TiebaApplication.d().c(getApplicationContext());
+        if (TiebaApplication.e().aS() == null) {
+            z = TiebaApplication.e().c(getApplicationContext());
         }
-        this.a = TiebaApplication.d().aR();
+        this.a = TiebaApplication.e().aS();
         if (!z || this.a == null) {
             finish();
             return;
@@ -93,7 +93,7 @@ public class NearbyMapActivity extends MapActivity {
     public void onResume() {
         this.a.start();
         super.onResume();
-        if (TiebaApplication.d().o()) {
+        if (TiebaApplication.e().p()) {
             try {
                 StatService.onResume(this);
             } catch (Exception e) {
@@ -107,7 +107,7 @@ public class NearbyMapActivity extends MapActivity {
     public void onPause() {
         this.a.stop();
         super.onPause();
-        if (TiebaApplication.d().o()) {
+        if (TiebaApplication.e().p()) {
             try {
                 StatService.onPause(this);
             } catch (Exception e) {
@@ -166,7 +166,7 @@ public class NearbyMapActivity extends MapActivity {
 
     public void a(com.baidu.tieba.a.ae aeVar) {
         if (aeVar != null) {
-            if (TiebaApplication.d().o()) {
+            if (TiebaApplication.e().p()) {
                 StatService.onEvent(this, "lbs_header_pic", "lbsclick", 1);
             }
             GeoPoint geoPoint = new GeoPoint(aeVar.e(), aeVar.f());

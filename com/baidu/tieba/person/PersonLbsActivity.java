@@ -41,7 +41,7 @@ public class PersonLbsActivity extends com.baidu.tieba.e {
     public static void a(Context context, String str) {
         Intent intent = new Intent(context, PersonLbsActivity.class);
         intent.putExtra("un", str);
-        if (TiebaApplication.B() != null && TiebaApplication.B().equals(str)) {
+        if (TiebaApplication.C() != null && TiebaApplication.C().equals(str)) {
             intent.putExtra("self", true);
         } else {
             intent.putExtra("self", false);

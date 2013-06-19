@@ -89,7 +89,7 @@ public class h {
         this.g = 1;
         this.e = new e(this.b, null);
         this.e.a(this.h);
-        this.e.b(TiebaApplication.d().ao());
+        this.e.b(TiebaApplication.e().ap());
         this.d.setAdapter((ListAdapter) this.e);
         this.d.setOnItemClickListener(new k(this));
         this.q = new o(this);
@@ -158,7 +158,7 @@ public class h {
         stringBuffer.append(com.baidu.tieba.a.i.e);
         stringBuffer.append(this.p);
         ArrayList arrayList = new ArrayList();
-        arrayList.add(new BasicNameValuePair("uid", TiebaApplication.B()));
+        arrayList.add(new BasicNameValuePair("uid", TiebaApplication.C()));
         arrayList.add(new BasicNameValuePair("pn", String.valueOf(this.g)));
         if (this.o == 4 && this.f != null && (b = this.f.b()) != null && b.size() > 0) {
             com.baidu.tieba.a.r rVar = (com.baidu.tieba.a.r) b.get(b.size() - 1);
@@ -227,8 +227,8 @@ public class h {
     }
 
     public void e() {
-        if (this.e != null && this.e.d() != TiebaApplication.d().ao()) {
-            this.e.b(TiebaApplication.d().ao());
+        if (this.e != null && this.e.d() != TiebaApplication.e().ap()) {
+            this.e.b(TiebaApplication.e().ap());
             this.e.notifyDataSetChanged();
         }
     }

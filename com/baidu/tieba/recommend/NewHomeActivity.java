@@ -52,7 +52,7 @@ public class NewHomeActivity extends com.baidu.tieba.e implements com.baidu.tieb
 
     @Override // com.baidu.tieba.e
     public boolean e() {
-        return TiebaApplication.d().r();
+        return TiebaApplication.e().s();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -61,8 +61,8 @@ public class NewHomeActivity extends com.baidu.tieba.e implements com.baidu.tieb
         super.onCreate(bundle);
         setContentView(R.layout.new_home_activity);
         o();
-        String B = TiebaApplication.B();
-        if (B != null && B.length() > 0) {
+        String C = TiebaApplication.C();
+        if (C != null && C.length() > 0) {
             n();
         }
     }
@@ -91,7 +91,7 @@ public class NewHomeActivity extends com.baidu.tieba.e implements com.baidu.tieb
         this.e.setOnClickListener(this.k);
         this.f.setOnClickListener(this.k);
         this.g.setOnClickListener(this.k);
-        if (TiebaApplication.d().as() >= 5) {
+        if (TiebaApplication.e().at() >= 5) {
             this.s.setVisibility(8);
             this.t.setVisibility(0);
         } else if (s()) {
@@ -116,8 +116,8 @@ public class NewHomeActivity extends com.baidu.tieba.e implements com.baidu.tieb
     protected void onActivityResult(int i, int i2, Intent intent) {
         switch (i2) {
             case -1:
-                String B = TiebaApplication.B();
-                if (B != null && B.length() > 0) {
+                String C = TiebaApplication.C();
+                if (C != null && C.length() > 0) {
                     n();
                 }
                 b();
@@ -137,7 +137,7 @@ public class NewHomeActivity extends com.baidu.tieba.e implements com.baidu.tieb
     @Override // com.baidu.tieba.e, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        TiebaApplication.d().aK();
+        TiebaApplication.e().aL();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -147,7 +147,7 @@ public class NewHomeActivity extends com.baidu.tieba.e implements com.baidu.tieb
         String str2;
         super.onResume();
         String str3 = "";
-        Token b = com.baidu.tieba.account.a.b(TiebaApplication.C());
+        Token b = com.baidu.tieba.account.a.b(TiebaApplication.D());
         if (b != null) {
             if (b.mBduss != null) {
                 str3 = b.mBduss;
@@ -162,7 +162,7 @@ public class NewHomeActivity extends com.baidu.tieba.e implements com.baidu.tieb
                     b();
                     return;
                 } else if (this.l == null && !this.u) {
-                    if (System.currentTimeMillis() - Long.valueOf(TiebaApplication.d().z()).longValue() > com.baidu.tieba.a.i.b.longValue()) {
+                    if (System.currentTimeMillis() - Long.valueOf(TiebaApplication.e().A()).longValue() > com.baidu.tieba.a.i.b.longValue()) {
                         b();
                         return;
                     }
@@ -329,7 +329,7 @@ public class NewHomeActivity extends com.baidu.tieba.e implements com.baidu.tieb
     }
 
     public void b() {
-        if (TiebaApplication.d().as() == 0 && !s()) {
+        if (TiebaApplication.e().at() == 0 && !s()) {
             this.t.setVisibility(0);
             return;
         }
@@ -352,7 +352,7 @@ public class NewHomeActivity extends com.baidu.tieba.e implements com.baidu.tieb
             if (!this.r) {
                 a(getResources().getString(R.string.neterror));
             } else {
-                TiebaApplication.d().b(System.currentTimeMillis());
+                TiebaApplication.e().b(System.currentTimeMillis());
             }
             this.u = false;
             this.m.setVisibility(8);
@@ -395,7 +395,7 @@ public class NewHomeActivity extends com.baidu.tieba.e implements com.baidu.tieb
         if (this.l == null) {
             try {
                 this.l = new BaseWebView(this);
-                ac.a(this.l, TiebaApplication.d().ar());
+                ac.a(this.l, TiebaApplication.e().as());
                 this.l.setOnLoadUrlListener(this);
                 this.l.setHorizontalScrollBarEnabled(false);
                 this.l.setHorizontalScrollbarOverlay(false);

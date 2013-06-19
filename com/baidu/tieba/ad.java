@@ -17,8 +17,8 @@ class ad extends Thread {
         super.run();
         try {
             TiebaApplication tiebaApplication = (TiebaApplication) this.a.getApplication();
-            tiebaApplication.d(tiebaApplication.G() + 1);
-            if (tiebaApplication.L()) {
+            tiebaApplication.d(tiebaApplication.H() + 1);
+            if (tiebaApplication.M()) {
                 com.baidu.tieba.d.k.x();
                 tiebaApplication.d(0);
             }

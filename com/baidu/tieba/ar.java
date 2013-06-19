@@ -25,5 +25,6 @@ public class ar implements DialogInterface.OnClickListener {
             alertDialog.dismiss();
             this.a.c();
         }
+        MainTabActivity.a(this.a, "close");
     }
 }

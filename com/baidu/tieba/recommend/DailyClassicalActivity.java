@@ -40,7 +40,7 @@ public class DailyClassicalActivity extends com.baidu.tieba.e implements com.bai
 
     @Override // com.baidu.tieba.e
     public boolean e() {
-        return TiebaApplication.d().r();
+        return TiebaApplication.e().s();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -92,14 +92,14 @@ public class DailyClassicalActivity extends com.baidu.tieba.e implements com.bai
     @Override // com.baidu.tieba.e, android.app.Activity
     public void onResume() {
         super.onResume();
-        Long valueOf = Long.valueOf(TiebaApplication.d().z());
+        Long valueOf = Long.valueOf(TiebaApplication.e().A());
         if (!this.p && System.currentTimeMillis() - valueOf.longValue() > com.baidu.tieba.a.i.b.longValue() && this.h != null) {
             b();
         }
     }
 
     public void b() {
-        if (TiebaApplication.d().as() == 0 && !o()) {
+        if (TiebaApplication.e().at() == 0 && !o()) {
             this.o.setVisibility(0);
             return;
         }
@@ -164,7 +164,7 @@ public class DailyClassicalActivity extends com.baidu.tieba.e implements com.bai
         if (this.h == null) {
             try {
                 this.h = new BaseWebView(this);
-                ac.a(this.h, TiebaApplication.d().ar());
+                ac.a(this.h, TiebaApplication.e().as());
                 this.h.setOnLoadUrlListener(this);
                 this.h.setHorizontalScrollBarEnabled(false);
                 this.h.setHorizontalScrollbarOverlay(false);

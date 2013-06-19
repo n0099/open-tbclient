@@ -31,8 +31,8 @@ public class m extends com.baidu.adp.lib.a.a {
             this.a = new w("http://114.113.149.3:8086/partnersService");
             this.a.a("http://114.113.149.3:8086/partnersService");
             this.a.b(this.b.getApplicationContext());
-            this.a.a("apk", TiebaApplication.d().getPackageName());
-            this.a.a("imei", TiebaApplication.d().k());
+            this.a.a("apk", TiebaApplication.e().getPackageName());
+            this.a.a("imei", TiebaApplication.e().l());
             this.a.a("model", Build.MODEL);
             this.a.a("edition", com.baidu.tieba.a.i.i());
             this.a.a("system", Build.VERSION.SDK);

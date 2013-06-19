@@ -73,21 +73,21 @@ public class bf implements View.OnClickListener {
                     }
                     return;
                 }
-                if (TiebaApplication.d().o()) {
+                if (TiebaApplication.e().p()) {
                     StatService.onEvent(this.a, "lbs_post_text", "lbsclick", 1);
                 }
                 this.a.n();
                 this.a.c(0);
                 return;
             }
-            if (TiebaApplication.d().o()) {
+            if (TiebaApplication.e().p()) {
                 StatService.onEvent(this.a, "lbs_post_pic", "lbsclick", 1);
             }
             this.a.n();
             this.a.c(1);
             return;
         }
-        if (TiebaApplication.d().o()) {
+        if (TiebaApplication.e().p()) {
             StatService.onEvent(this.a, "lbs_expend_post", "lbsclick", 1);
         }
         imageView5 = this.a.D;

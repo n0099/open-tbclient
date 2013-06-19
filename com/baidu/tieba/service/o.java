@@ -30,7 +30,7 @@ public class o extends com.baidu.adp.lib.a.a {
             ahVar = null;
             e = e2;
         }
-        if (TiebaApplication.d().Y()) {
+        if (TiebaApplication.e().Z()) {
             this.a = new com.baidu.tieba.d.t(String.valueOf(com.baidu.tieba.a.i.e) + "c/s/msg");
             String i = this.a.i();
             if (this.a.b()) {

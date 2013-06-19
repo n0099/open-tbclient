@@ -17,9 +17,9 @@ class as extends com.baidu.adp.a.e {
         if (obj instanceof Bitmap) {
             Bitmap bitmap = (Bitmap) obj;
             if (obj != null) {
-                bkVar = this.a.o;
+                bkVar = this.a.p;
                 bkVar.a(bitmap);
-                bdVar = this.a.k;
+                bdVar = this.a.l;
                 bdVar.a(true);
             }
         }

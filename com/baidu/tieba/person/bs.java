@@ -53,7 +53,7 @@ public class bs extends com.baidu.adp.lib.a.a {
         } else {
             this.e.a(String.valueOf(com.baidu.tieba.a.i.e) + "c/u/fans/page");
         }
-        if (this.b != null && !this.b.equals(TiebaApplication.B())) {
+        if (this.b != null && !this.b.equals(TiebaApplication.C())) {
             this.e.a("uid", this.b);
         }
         if (this.d != 0) {
@@ -122,7 +122,7 @@ public class bs extends com.baidu.adp.lib.a.a {
                         btVar5.notifyDataSetChanged();
                     }
                     if (!this.c) {
-                        TiebaApplication.d().f(0L);
+                        TiebaApplication.e().f(0L);
                     }
                     if (this.d == 0) {
                         if (aqVar.a().c() > 0) {
@@ -134,7 +134,7 @@ public class bs extends com.baidu.adp.lib.a.a {
                                 bmVar6 = this.a.k;
                                 if (bmVar6.a() != null) {
                                     bmVar7 = this.a.k;
-                                    if (bmVar7.a().equals(TiebaApplication.B())) {
+                                    if (bmVar7.a().equals(TiebaApplication.C())) {
                                         string = this.a.getString(R.string.my_attention_prefix);
                                         string2 = this.a.getString(R.string.person);
                                     }
@@ -145,7 +145,7 @@ public class bs extends com.baidu.adp.lib.a.a {
                                 bmVar4 = this.a.k;
                                 if (bmVar4.a() != null) {
                                     bmVar5 = this.a.k;
-                                    if (bmVar5.a().equals(TiebaApplication.B())) {
+                                    if (bmVar5.a().equals(TiebaApplication.C())) {
                                         string = this.a.getString(R.string.my_fans_prefix);
                                         string2 = this.a.getString(R.string.fans);
                                     }

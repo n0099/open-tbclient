@@ -3,9 +3,8 @@ package com.baidu.tieba.pb;
 import android.os.Handler;
 import android.view.animation.Animation;
 import android.widget.ImageView;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class bw implements Animation.AnimationListener {
+class bw implements Animation.AnimationListener {
     final /* synthetic */ bk a;
     private final /* synthetic */ ImageView b;
 

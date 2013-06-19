@@ -36,7 +36,7 @@ public class b extends com.baidu.adp.lib.a.a {
         long j;
         this.b = new t(String.valueOf(com.baidu.tieba.a.i.e) + "c/s/tag/gettogether");
         this.b.a(false);
-        if (TiebaApplication.d().ar() == 1) {
+        if (TiebaApplication.e().as() == 1) {
             this.b.a("night_type", "1");
         }
         t tVar = this.b;
@@ -52,9 +52,9 @@ public class b extends com.baidu.adp.lib.a.a {
             j = DailyClassicalActivity.r;
             tVar2.a("message_id", String.valueOf(j));
         }
-        Address aL = TiebaApplication.d().aL();
-        if (aL != null && TiebaApplication.d().p()) {
-            this.b.a("lbs", String.valueOf(String.valueOf(aL.getLatitude())) + "," + String.valueOf(aL.getLongitude()));
+        Address aM = TiebaApplication.e().aM();
+        if (aM != null && TiebaApplication.e().q()) {
+            this.b.a("lbs", String.valueOf(String.valueOf(aM.getLatitude())) + "," + String.valueOf(aM.getLongitude()));
         }
         try {
             this.c = this.b.i();

@@ -112,7 +112,7 @@ public class EnterForumActivity extends com.baidu.tieba.e implements AbsListView
     public boolean onPrepareOptionsMenu(Menu menu) {
         try {
             menu.findItem(1).setVisible(true);
-            if (!TiebaApplication.i()) {
+            if (!TiebaApplication.j()) {
                 menu.findItem(2).setVisible(true);
             }
             menu.findItem(3).setVisible(true);
@@ -127,7 +127,7 @@ public class EnterForumActivity extends com.baidu.tieba.e implements AbsListView
     @Override // android.app.Activity
     public boolean onCreateOptionsMenu(Menu menu) {
         menu.add(0, 1, 1, getString(R.string.setup)).setIcon(R.drawable.menu_setup);
-        if (!TiebaApplication.i()) {
+        if (!TiebaApplication.j()) {
             menu.add(0, 2, 2, getString(R.string.account)).setIcon(R.drawable.menu_account);
         }
         menu.add(0, 3, 3, getString(R.string.feedback)).setIcon(R.drawable.menu_feedback);
@@ -203,8 +203,8 @@ public class EnterForumActivity extends com.baidu.tieba.e implements AbsListView
         } else if (view.getId() == this.c.k()) {
             LoginActivity.a(this, "goto_home", getString(R.string.login_home_tab), 1100003);
         } else if (view.getId() == this.c.l()) {
-            String B = TiebaApplication.B();
-            if (B == null || B.length() <= 0) {
+            String C = TiebaApplication.C();
+            if (C == null || C.length() <= 0) {
                 LoginActivity.a((Activity) this, getString(R.string.login_to_use), true, 1100002);
             } else if ((view.getTag() instanceof com.baidu.tieba.a.p) && !this.e.f()) {
                 this.c.b();
@@ -250,7 +250,7 @@ public class EnterForumActivity extends com.baidu.tieba.e implements AbsListView
                 }
             } else if (this.c.b(i).equals(6)) {
                 this.c.d();
-                TiebaApplication.d().t();
+                TiebaApplication.e().u();
             } else if (this.c.b(i).equals(0)) {
                 SearchActivity.a(this, getString(R.string.home));
             }
@@ -278,7 +278,7 @@ public class EnterForumActivity extends com.baidu.tieba.e implements AbsListView
         boolean z2;
         boolean z3 = false;
         boolean booleanValue = this.h.booleanValue();
-        this.h = Boolean.valueOf((TiebaApplication.B() == null || TiebaApplication.F() == null) ? false : true);
+        this.h = Boolean.valueOf((TiebaApplication.C() == null || TiebaApplication.G() == null) ? false : true);
         if (this.d.d().c().size() <= 0 && this.d.d().d().size() <= 0) {
             z2 = true;
         } else if (booleanValue != this.h.booleanValue()) {
@@ -287,7 +287,7 @@ public class EnterForumActivity extends com.baidu.tieba.e implements AbsListView
         } else {
             z2 = false;
         }
-        if (TiebaApplication.d().O()) {
+        if (TiebaApplication.e().P()) {
             z3 = true;
         }
         boolean z4 = z ? true : z3;

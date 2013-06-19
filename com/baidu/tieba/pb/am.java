@@ -26,34 +26,34 @@ class am implements com.baidu.tieba.c.be {
         com.baidu.tieba.c.ba baVar;
         com.baidu.tieba.c.ax axVar2;
         bk bkVar6;
-        bkVar = this.a.o;
+        bkVar = this.a.p;
         bkVar.o();
         if (z) {
-            bkVar3 = this.a.o;
+            bkVar3 = this.a.p;
             bkVar3.O();
-            bdVar = this.a.k;
+            bdVar = this.a.l;
             com.baidu.tieba.a.bi d = bdVar.d();
-            bdVar2 = this.a.k;
+            bdVar2 = this.a.l;
             bdVar2.a((com.baidu.tieba.a.bi) null);
-            bdVar3 = this.a.k;
+            bdVar3 = this.a.l;
             bdVar3.a(false);
-            bkVar4 = this.a.o;
+            bkVar4 = this.a.p;
             bkVar4.d(str);
             if (d != null) {
                 String f = d.f();
                 if (d == null || d.b() != 2) {
-                    axVar = this.a.i;
+                    axVar = this.a.j;
                     if (axVar.o()) {
-                        bkVar5 = this.a.o;
+                        bkVar5 = this.a.p;
                         bkVar5.m();
                         return;
                     }
                     return;
                 }
-                baVar = this.a.m;
+                baVar = this.a.n;
                 baVar.j();
                 if (f != null) {
-                    axVar2 = this.a.i;
+                    axVar2 = this.a.j;
                     com.baidu.tieba.a.am m = axVar2.m();
                     Iterator it = m.d().iterator();
                     while (true) {
@@ -66,12 +66,12 @@ class am implements com.baidu.tieba.c.be {
                             break;
                         }
                     }
-                    bkVar6 = this.a.o;
+                    bkVar6 = this.a.p;
                     bkVar6.a(m);
                 }
             }
         } else if (bfVar == null || biVar == null || bfVar.b() == null) {
-            bkVar2 = this.a.o;
+            bkVar2 = this.a.p;
             bkVar2.d(str);
         } else {
             biVar.h(bfVar.a());

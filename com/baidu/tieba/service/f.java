@@ -27,7 +27,7 @@ public class f extends com.baidu.adp.lib.a.a {
         ae.a(getClass().getName(), "doBackGround", "pull message...");
         try {
             this.a = new com.baidu.tieba.d.t(String.valueOf(com.baidu.tieba.a.i.e) + "c/m/getmsg");
-            this.a.a("message_id", String.valueOf(TiebaApplication.d().aN()));
+            this.a.a("message_id", String.valueOf(TiebaApplication.e().aO()));
             return this.a.i();
         } catch (Exception e) {
             ae.b(getClass().getName(), "doBackground", e.toString());
@@ -62,10 +62,10 @@ public class f extends com.baidu.adp.lib.a.a {
                     atVar = this.b.b;
                     atVar.a(str);
                     atVar2 = this.b.b;
-                    if (atVar2.a() > TiebaApplication.d().aN()) {
-                        TiebaApplication d = TiebaApplication.d();
+                    if (atVar2.a() > TiebaApplication.e().aO()) {
+                        TiebaApplication e = TiebaApplication.e();
                         atVar3 = this.b.b;
-                        d.g(atVar3.a());
+                        e.g(atVar3.a());
                         MessagePullService messagePullService = this.b;
                         atVar4 = this.b.b;
                         MessagePullService.a(messagePullService, atVar4);

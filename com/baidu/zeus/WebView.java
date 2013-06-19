@@ -68,6 +68,7 @@ import android.widget.ZoomButtonsController;
 import android.widget.ZoomControls;
 import com.baidu.browser.core.util.BdUtil;
 import com.baidu.browser.explorer.BdWebErrorView;
+import com.baidu.cyberplayer.sdk.BVideoView;
 import com.baidu.mapapi.MKEvent;
 import com.baidu.mapapi.MKSearch;
 import com.baidu.mapapi.MapView;
@@ -100,6 +101,7 @@ public class WebView extends AbsoluteLayout implements ViewGroup.OnHierarchyChan
     private static float DEFAULT_MAX_ZOOM_SCALE = 0.0f;
     private static float DEFAULT_MIN_ZOOM_SCALE = 0.0f;
     static int DEFAULT_SCALE_PERCENT = 0;
+    static final int DEFAULT_VIEWPORT_WIDTH = 800;
     static final int DOM_FOCUS_CHANGED = 122;
     private static final boolean DOUBLE_DELAY_DEBUG = false;
     static final int DO_MOTION_UP = 119;
@@ -536,8 +538,7 @@ public class WebView extends AbsoluteLayout implements ViewGroup.OnHierarchyChan
     private static float PREVIEW_SCALE_INCREMENT = 0.01f;
     static final String[] HandlerPrivateDebugString = {"REMEMBER_PASSWORD", "NEVER_REMEMBER_PASSWORD", "SWITCH_TO_SHORTPRESS", "SWITCH_TO_LONGPRESS", "RELEASE_SINGLE_TAP", "REQUEST_FORM_DATA", "RESUME_WEBCORE_PRIORITY", "DRAG_HELD_MOTIONLESS", "AWAKEN_SCROLL_BARS", "PREVENT_DEFAULT_TIMEOUT", "DO_REAL_SETENDSCALE", "DO_REAL_SHOWSOFTKB", "DO_REAL_SPLITCONTENT", "EDIT_TEXT_DELAY_SEND_TO_WEBCORE", "SCROLL_SELECT_TEXT", "PRECESS_SINGLE_TAP"};
     static final String[] HandlerPackageDebugString = {"SCROLL_TO_MSG_ID", "SCROLL_BY_MSG_ID", "SPAWN_SCROLL_TO_MSG_ID", "SYNC_SCROLL_TO_MSG_ID", "NEW_PICTURE_MSG_ID", "UPDATE_TEXT_ENTRY_MSG_ID", "WEBCORE_INITIALIZED_MSG_ID", "UPDATE_TEXTFIELD_TEXT_MSG_ID", "UPDATE_ZOOM_RANGE", "MOVE_OUT_OF_PLUGIN", "CLEAR_TEXT_ENTRY", "UPDATE_TEXT_SELECTION_MSG_ID", "SHOW_RECT_MSG_ID", "LONG_PRESS_CENTER", "PREVENT_TOUCH_ID", "WEBCORE_NEED_TOUCH_EVENTS", "INVAL_RECT_MSG_ID", "REQUEST_KEYBOARD", "DO_MOTION_UP", "SHOW_FULLSCREEN", "HIDE_FULLSCREEN", "DOM_FOCUS_CHANGED", "IMMEDIATE_REPAINT_MSG_ID", "SET_ROOT_LAYER_MSG_ID", "RETURN_LABEL", "FIND_AGAIN", "CENTER_FIT_RECT", "REQUEST_KEYBOARD_WITH_SELECTION_MSG_ID", "SET_SCROLLBAR_MODES", "FIRST_LAYOUT_MSG_ID", "FOCUSED_INPUT_BOUNDS_CHANGED", "SEND_CAPTURE_SCALE_PIC", "REQUEST_KEYBOARD_WITH_SELECTION_EXT", "SET_TOUCH_HIGHLIGHT_RECTS"};
-    static final int DEFAULT_VIEWPORT_WIDTH = 800;
-    static int sMaxViewportWidth = DEFAULT_VIEWPORT_WIDTH;
+    static int sMaxViewportWidth = 800;
     private static float fakeMaxZoomScale = 3.0f;
     private static float MINIMUM_SCALE_INCREMENT = 0.04f;
     static boolean mLogEvent = true;
@@ -1174,7 +1175,7 @@ public class WebView extends AbsoluteLayout implements ViewGroup.OnHierarchyChan
         this.mMinZoomScaleFixed = true;
         this.mInitialScaleInPercent = 0;
         this.mInZoomOverview = false;
-        this.mZoomOverviewWidth = DEFAULT_VIEWPORT_WIDTH;
+        this.mZoomOverviewWidth = 800;
         this.mZoomState = ZoomState.ZoomDefault;
         this.mPreviewZoomOnly = false;
         this.mFirstAnimateOut = false;
@@ -1338,7 +1339,7 @@ public class WebView extends AbsoluteLayout implements ViewGroup.OnHierarchyChan
                         str = "10.0.0.172";
                         i2 = 80;
                     } else if (lowerCase.startsWith("ctwap")) {
-                        str = PROXY_HOST_CTWAP;
+                        str = "10.0.0.200";
                         i2 = 80;
                     } else if (lowerCase.startsWith("cmnet") || lowerCase.startsWith("uninet") || lowerCase.startsWith("ctnet") || lowerCase.startsWith("3gnet")) {
                         str = null;
@@ -1358,9 +1359,9 @@ public class WebView extends AbsoluteLayout implements ViewGroup.OnHierarchyChan
                                 if ("10.0.0.172".equals(string2.trim())) {
                                     i = 80;
                                     str2 = "10.0.0.172";
-                                } else if (PROXY_HOST_CTWAP.equals(string2.trim())) {
+                                } else if ("10.0.0.200".equals(string2.trim())) {
                                     i = 80;
-                                    str2 = PROXY_HOST_CTWAP;
+                                    str2 = "10.0.0.200";
                                 }
                                 query.close();
                             } else if (string != null && string.length() > 0) {
@@ -1370,7 +1371,7 @@ public class WebView extends AbsoluteLayout implements ViewGroup.OnHierarchyChan
                                     str2 = "10.0.0.172";
                                 } else if (upperCase.equals("CTWAP")) {
                                     i = 80;
-                                    str2 = PROXY_HOST_CTWAP;
+                                    str2 = "10.0.0.200";
                                 } else if (string3 != null && string3.toUpperCase().startsWith("CMWAP")) {
                                     i = 80;
                                     str2 = "10.0.0.172";
@@ -2289,7 +2290,7 @@ public class WebView extends AbsoluteLayout implements ViewGroup.OnHierarchyChan
                 this.m_ExitFullScreen = true;
                 onPause();
             }
-            this.mWebViewCore.sendMessage(302);
+            this.mWebViewCore.sendMessage(BVideoView.MEDIA_ERROR_INVALID_INPUTFILE);
         }
     }
 
@@ -2904,7 +2905,7 @@ public class WebView extends AbsoluteLayout implements ViewGroup.OnHierarchyChan
     }
 
     public WebBackForwardList copyBackForwardList() {
-        return this.mCallbackProxy.getBackForwardList().m1clone();
+        return this.mCallbackProxy.getBackForwardList().m17clone();
     }
 
     public void findNext(boolean z) {
@@ -3714,7 +3715,7 @@ public class WebView extends AbsoluteLayout implements ViewGroup.OnHierarchyChan
     }
 
     private void removeTouchHighlight() {
-        this.mWebViewCore.removeMessages(301);
+        this.mWebViewCore.removeMessages(BVideoView.MEDIA_ERROR_NO_INPUTFILE);
         this.mPrivateHandler.removeMessages(SET_TOUCH_HIGHLIGHT_RECTS);
         setTouchHighlightRects(null);
     }

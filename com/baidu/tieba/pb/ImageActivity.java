@@ -112,7 +112,7 @@ public class ImageActivity extends com.baidu.tieba.e {
     @Override // com.baidu.tieba.e, com.baidu.adp.a.a, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        TiebaApplication.d().a((com.baidu.tieba.e) this);
+        TiebaApplication.e().a((com.baidu.tieba.e) this);
         setContentView(R.layout.image_activity);
         a(bundle);
         n();
@@ -178,7 +178,7 @@ public class ImageActivity extends com.baidu.tieba.e {
 
     @Override // com.baidu.tieba.e, android.app.Activity
     public void onDestroy() {
-        TiebaApplication.d().b((com.baidu.tieba.e) this);
+        TiebaApplication.e().b((com.baidu.tieba.e) this);
         b(this.f, this.f);
         q();
         this.o.c();
@@ -342,7 +342,7 @@ public class ImageActivity extends com.baidu.tieba.e {
                             i++;
                         }
                     }
-                    TiebaApplication.d().a(i, this.y.size(), this.C);
+                    TiebaApplication.e().a(i, this.y.size(), this.C);
                     this.y.clear();
                 }
             }

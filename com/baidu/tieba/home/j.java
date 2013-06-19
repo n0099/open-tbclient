@@ -23,9 +23,9 @@ class j extends BroadcastReceiver {
         com.baidu.tieba.d.ae.b("lottery onReceive");
         Serializable serializableExtra = intent.getSerializableExtra("lottery");
         if (serializableExtra != null && (serializableExtra instanceof com.baidu.tieba.a.c)) {
-            TiebaApplication.d().a((com.baidu.tieba.a.c) serializableExtra);
+            TiebaApplication.e().a((com.baidu.tieba.a.c) serializableExtra);
         } else {
-            TiebaApplication.d().a((com.baidu.tieba.a.c) null);
+            TiebaApplication.e().a((com.baidu.tieba.a.c) null);
         }
         this.a.c.c();
     }

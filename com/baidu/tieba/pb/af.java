@@ -34,7 +34,7 @@ public class af extends com.baidu.adp.lib.a.a {
         if (this.b.j() != null && this.b.j().length() > 0) {
             this.c.a("vcode", this.b.j());
         }
-        if (TiebaApplication.d().au() < 3) {
+        if (TiebaApplication.e().av() < 3) {
             this.c.a("vcode_tag", "11");
         }
         this.c.a("quote_id", this.b.f());

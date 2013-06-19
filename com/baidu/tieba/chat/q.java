@@ -84,8 +84,8 @@ public class q extends com.baidu.adp.a.e {
                 for (com.baidu.tieba.a.a.g gVar : cVar4.d()) {
                     i7 = gVar.f() + i7;
                 }
-                if (i7 > TiebaApplication.d().ae()) {
-                    TiebaApplication.d().Z();
+                if (i7 > TiebaApplication.e().af()) {
+                    TiebaApplication.e().aa();
                 }
                 vVar5 = this.a.c;
                 vVar5.d().c(false);

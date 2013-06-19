@@ -92,9 +92,9 @@ public class SignRemindActivity extends com.baidu.tieba.e {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void d() {
-        TiebaApplication d = TiebaApplication.d();
-        if (d.ag()) {
-            this.g.setText(getString(R.string.sign_remind_time, new Object[]{d.ah() > 9 ? String.valueOf(d.ah()) : "0" + d.ah(), d.ai() > 9 ? String.valueOf(d.ai()) : "0" + d.ai()}));
+        TiebaApplication e = TiebaApplication.e();
+        if (e.ah()) {
+            this.g.setText(getString(R.string.sign_remind_time, new Object[]{e.ai() > 9 ? String.valueOf(e.ai()) : "0" + e.ai(), e.aj() > 9 ? String.valueOf(e.aj()) : "0" + e.aj()}));
             this.c.setVisibility(0);
             if (!this.h.c()) {
                 this.h.a();
@@ -112,8 +112,8 @@ public class SignRemindActivity extends com.baidu.tieba.e {
     @Override // android.app.Activity
     protected void onPrepareDialog(int i, Dialog dialog) {
         if (dialog instanceof TimePickerDialog) {
-            TiebaApplication d = TiebaApplication.d();
-            ((TimePickerDialog) dialog).updateTime(d.ah(), d.ai());
+            TiebaApplication e = TiebaApplication.e();
+            ((TimePickerDialog) dialog).updateTime(e.ai(), e.aj());
             return;
         }
         super.onPrepareDialog(i, dialog);
@@ -121,7 +121,7 @@ public class SignRemindActivity extends com.baidu.tieba.e {
 
     @Override // android.app.Activity
     protected Dialog onCreateDialog(int i) {
-        TimePickerDialog timePickerDialog = new TimePickerDialog(this, new ak(this, TiebaApplication.d()), 0, 0, true);
+        TimePickerDialog timePickerDialog = new TimePickerDialog(this, new ak(this, TiebaApplication.e()), 0, 0, true);
         timePickerDialog.setTitle(R.string.sign_remind);
         return timePickerDialog;
     }

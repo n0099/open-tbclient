@@ -42,7 +42,7 @@ public class l extends BaseAdapter {
         this.j = null;
         this.l = com.baidu.tieba.d.ag.a(this.a, 4.0f);
         this.k = new ArrayList();
-        this.f = Boolean.valueOf(TiebaApplication.d().u() != null);
+        this.f = Boolean.valueOf(TiebaApplication.e().v() != null);
     }
 
     public void a() {
@@ -144,7 +144,7 @@ public class l extends BaseAdapter {
     public View getView(int i, View view, ViewGroup viewGroup) {
         Exception exc;
         View view2;
-        int ar;
+        int as;
         int itemViewType;
         Resources resources;
         View view3;
@@ -152,7 +152,7 @@ public class l extends BaseAdapter {
         View view4;
         s sVar;
         try {
-            ar = TiebaApplication.d().ar();
+            as = TiebaApplication.e().as();
             itemViewType = getItemViewType(i);
             resources = this.a.getResources();
         } catch (Exception e) {
@@ -184,7 +184,7 @@ public class l extends BaseAdapter {
                 view = inflate;
             }
             n nVar2 = (n) view.getTag();
-            if (ar == 1) {
+            if (as == 1) {
                 com.baidu.tieba.d.ac.h(nVar2.a, (int) R.drawable.inputbox_topbg_1);
                 com.baidu.tieba.d.ac.h(nVar2.b, (int) R.drawable.inputbox_top_1);
                 nVar2.c.setBackgroundColor(resources.getColor(R.color.skin_1_lv_divider_bg));
@@ -195,7 +195,7 @@ public class l extends BaseAdapter {
                 nVar2.c.setBackgroundColor(-2960686);
                 nVar2.e.setHintTextColor(-5921112);
             }
-            if (TiebaApplication.d().aO() != null && TiebaApplication.d().aO().a() == 1) {
+            if (TiebaApplication.e().aP() != null && TiebaApplication.e().aP().a() == 1) {
                 if (nVar2.d.getVisibility() != 0) {
                     nVar2.d.setVisibility(0);
                     nVar2.d.setImageResource(R.drawable.banner_image);
@@ -221,7 +221,7 @@ public class l extends BaseAdapter {
                 view = inflate2;
             }
             q qVar2 = (q) view.getTag();
-            if (ar == 1) {
+            if (as == 1) {
                 qVar2.a.setBackgroundColor(resources.getColor(R.color.skin_1_common_bg));
                 qVar2.b.setTextColor(-8682095);
                 qVar2.c.setTextColor(-5454368);
@@ -248,7 +248,7 @@ public class l extends BaseAdapter {
                 view = inflate3;
             }
             r rVar2 = (r) view.getTag();
-            if (ar == 1) {
+            if (as == 1) {
                 com.baidu.tieba.d.ac.h(rVar2.a, (int) R.drawable.bg_title_tj_1);
                 rVar2.b.setTextColor(-11446171);
                 return view;
@@ -271,7 +271,7 @@ public class l extends BaseAdapter {
                 view = inflate4;
             }
             o oVar2 = (o) view.getTag();
-            if (ar == 1) {
+            if (as == 1) {
                 oVar2.a.setBackgroundColor(resources.getColor(R.color.skin_1_common_bg));
                 oVar2.b.setBackgroundResource(R.drawable.button_like_more_1);
                 return view;
@@ -296,7 +296,7 @@ public class l extends BaseAdapter {
                     view4 = view;
                 }
                 s sVar3 = (s) view4.getTag();
-                if (ar == 1) {
+                if (as == 1) {
                     sVar3.c.setTextColor(-8682095);
                     sVar3.d.setTextColor(-11446171);
                     sVar3.f.setBackgroundColor(resources.getColor(R.color.skin_1_lv_divider_bg));
@@ -336,7 +336,7 @@ public class l extends BaseAdapter {
                 }
                 p pVar3 = (p) view.getTag();
                 LinearLayout linearLayout = (LinearLayout) view.findViewById(R.id.container);
-                if (ar == 1) {
+                if (as == 1) {
                     linearLayout.setBackgroundColor(resources.getColor(R.color.skin_1_common_bg));
                     com.baidu.tieba.d.ac.h(pVar3.b, (int) R.drawable.home_like_item_bg_1);
                     pVar3.c.setTextColor(-8682095);

@@ -100,8 +100,8 @@ public class ap extends com.baidu.adp.lib.a.a {
                     aqVar = this.f.f;
                     aqVar.notifyDataSetChanged();
                 }
-                if (this.d == 1 && TiebaApplication.d().y() == 0) {
-                    TiebaApplication.d().a(System.currentTimeMillis());
+                if (this.d == 1 && TiebaApplication.e().z() == 0) {
+                    TiebaApplication.e().a(System.currentTimeMillis());
                 }
             } else if (this.a.f() != null) {
                 this.f.a(this.a.f());

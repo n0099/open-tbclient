@@ -25,7 +25,7 @@ class g extends com.baidu.adp.a.e {
             return;
         }
         if (((Boolean) obj).booleanValue()) {
-            TiebaApplication.d().i(false);
+            TiebaApplication.e().i(false);
             this.a.o();
         }
         t tVar = this.a.c;

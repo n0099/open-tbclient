@@ -53,12 +53,12 @@ public class UpdateDialog extends e {
         }
         if (this.c.e() == 1) {
             if (this.c.b() == 1) {
-                this.f = new aq(this);
+                this.f = new ar(this);
                 builder.setMessage(format);
                 builder.setPositiveButton(R.string.update_new_ver, this.f);
                 builder.setNegativeButton(R.string.close, this.f);
             } else {
-                this.e = new ar(this);
+                this.e = new as(this);
                 builder.setMessage(format);
                 builder.setPositiveButton(R.string.update_new_ver, this.e);
                 builder.setNegativeButton(R.string.remind_later, this.e);
@@ -66,8 +66,8 @@ public class UpdateDialog extends e {
         }
         this.d = builder.create();
         this.d.setCancelable(false);
-        this.d.setOnCancelListener(new as(this));
-        this.d.setOnDismissListener(new at(this));
+        this.d.setOnCancelListener(new at(this));
+        this.d.setOnDismissListener(new au(this));
         this.d.show();
     }
 

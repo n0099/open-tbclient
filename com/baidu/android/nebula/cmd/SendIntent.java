@@ -7,6 +7,7 @@ import android.content.pm.ResolveInfo;
 import android.text.TextUtils;
 import com.baidu.android.pushservice.util.NoProGuard;
 import com.baidu.browser.core.util.BdUtil;
+import com.baidu.cyberplayer.sdk.internal.HttpUtils;
 import java.io.UnsupportedEncodingException;
 import java.net.URISyntaxException;
 import java.net.URLDecoder;
@@ -40,7 +41,7 @@ public class SendIntent implements e, NoProGuard {
         }
         this.mContext = com.baidu.android.nebula.localserver.c.a().b();
         if (this.mContext != null) {
-            if (!com.baidu.android.nebula.localserver.a.a(this.mContext).a(aVar.a("Referer"))) {
+            if (!com.baidu.android.nebula.localserver.a.a(this.mContext).a(aVar.a(HttpUtils.HEADER_NAME_REFERER))) {
                 this.mErrcode = 4;
             }
             if (this.mErrcode != 4) {

@@ -32,8 +32,8 @@ public class af {
 
     public void c() {
         int[][] iArr;
-        int a = com.baidu.tieba.d.ag.a(TiebaApplication.d().getApplicationContext());
-        int b = com.baidu.tieba.d.ag.b(TiebaApplication.d().getApplicationContext());
+        int a = com.baidu.tieba.d.ag.a(TiebaApplication.e().getApplicationContext());
+        int b = com.baidu.tieba.d.ag.b(TiebaApplication.e().getApplicationContext());
         if (a > 0 && b > 0) {
             int min = Math.min((int) (((a * 145) * 1.0d) / 320.0d), (int) (((b * 145) * 1.0d) / 480.0d));
             int min2 = Math.min((int) (((a * WebChromeClient.STRING_DLG_TITLE_COLOR) * 1.0d) / 320.0d), (int) (((b * WebChromeClient.STRING_DLG_TITLE_COLOR) * 1.0d) / 480.0d));

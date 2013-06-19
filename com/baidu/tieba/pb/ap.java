@@ -15,11 +15,11 @@ class ap implements com.baidu.adp.widget.ListView.r {
     public void a() {
         com.baidu.tieba.c.ax axVar;
         bk bkVar;
-        axVar = this.a.i;
+        axVar = this.a.j;
         if (axVar.a(false)) {
-            bkVar = this.a.o;
+            bkVar = this.a.p;
             bkVar.p();
-            if (TiebaApplication.d().o()) {
+            if (TiebaApplication.e().p()) {
                 StatService.onEvent(this.a, "pb_more", "pbclick", 1);
             }
         }

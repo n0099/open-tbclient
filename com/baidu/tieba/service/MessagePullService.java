@@ -31,7 +31,7 @@ public class MessagePullService extends Service {
         this.d = new Handler();
         Random random = new Random(System.currentTimeMillis());
         ae.a(getClass().getName(), "onCreate", "Create message service");
-        if (TiebaApplication.d().R()) {
+        if (TiebaApplication.e().S()) {
             this.d.removeCallbacks(this.c);
             this.d.postDelayed(this.c, random.nextLong() % com.baidu.tieba.a.i.a.longValue());
             return;
@@ -69,7 +69,7 @@ public class MessagePullService extends Service {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public boolean a(Context context, ah ahVar) {
-        if (TiebaApplication.B() == null || TiebaApplication.F() == null || TiebaApplication.d().P() <= 0) {
+        if (TiebaApplication.C() == null || TiebaApplication.G() == null || TiebaApplication.e().Q() <= 0) {
             return false;
         }
         int hours = new Date(System.currentTimeMillis()).getHours();
@@ -80,11 +80,11 @@ public class MessagePullService extends Service {
         long c = ahVar.c();
         long a = ahVar.a();
         long d = ahVar.d();
-        if (b <= TiebaApplication.d().ac() && c <= TiebaApplication.d().ad() && a <= TiebaApplication.d().ab() && d <= TiebaApplication.d().ae()) {
+        if (b <= TiebaApplication.e().ad() && c <= TiebaApplication.e().ae() && a <= TiebaApplication.e().ac() && d <= TiebaApplication.e().af()) {
             return false;
         }
         boolean z = false;
-        for (ActivityManager.RunningTaskInfo runningTaskInfo : ((ActivityManager) TiebaApplication.d().getSystemService("activity")).getRunningTasks(BdWebErrorView.ERROR_CODE_500)) {
+        for (ActivityManager.RunningTaskInfo runningTaskInfo : ((ActivityManager) TiebaApplication.e().getSystemService("activity")).getRunningTasks(BdWebErrorView.ERROR_CODE_500)) {
             if (runningTaskInfo.baseActivity.getClassName().startsWith(getPackageName())) {
                 z = true;
             }
@@ -131,7 +131,7 @@ public class MessagePullService extends Service {
             NotificationManager notificationManager = (NotificationManager) context.getSystemService("notification");
             String c = atVar.c();
             String b = atVar.b();
-            if (TiebaApplication.d().R()) {
+            if (TiebaApplication.e().S()) {
                 Notification notification = new Notification(R.drawable.icon, c, System.currentTimeMillis());
                 if (b != null && b.length() > 0) {
                     if (b.startsWith("http:")) {
@@ -150,8 +150,8 @@ public class MessagePullService extends Service {
                         intent.putExtra("goto_type", "goto_recommend");
                         intent.setFlags(603979776);
                         intent.putExtra("message_id", atVar.a());
-                        TiebaApplication.d().l(0);
-                        TiebaApplication.d().b(0L);
+                        TiebaApplication.e().l(0);
+                        TiebaApplication.e().b(0L);
                     } else if (b.startsWith("opfeature:")) {
                         try {
                             intent = new Intent(context, DealIntentService.class);

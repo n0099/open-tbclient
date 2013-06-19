@@ -82,7 +82,7 @@ public class FrsActivity extends com.baidu.tieba.e implements com.baidu.adp.widg
 
     @Override // com.baidu.tieba.e
     public boolean e() {
-        return TiebaApplication.d().r();
+        return TiebaApplication.e().s();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -111,7 +111,7 @@ public class FrsActivity extends com.baidu.tieba.e implements com.baidu.adp.widg
     }
 
     public static void a(Context context, String str, String str2) {
-        if (TiebaApplication.d().b(str)) {
+        if (TiebaApplication.e().b(str)) {
             FrsImageActivity.a(context, str, str2, 0);
         } else {
             a(context, str, str2, false, false);
@@ -119,7 +119,7 @@ public class FrsActivity extends com.baidu.tieba.e implements com.baidu.adp.widg
     }
 
     public static void b(Context context, String str, String str2) {
-        if (TiebaApplication.d().b(str)) {
+        if (TiebaApplication.e().b(str)) {
             FrsImageActivity.a(context, str, str2, 0);
         } else {
             a(context, str, str2, false, true);
@@ -169,7 +169,7 @@ public class FrsActivity extends com.baidu.tieba.e implements com.baidu.adp.widg
     }
 
     public static void a(Context context, String str, String str2, int i) {
-        if (TiebaApplication.d().b(str)) {
+        if (TiebaApplication.e().b(str)) {
             FrsImageActivity.a(context, str, str2, i);
             return;
         }
@@ -225,7 +225,7 @@ public class FrsActivity extends com.baidu.tieba.e implements com.baidu.adp.widg
     private void a(Bundle bundle) {
         this.I = new Handler();
         p();
-        this.n = TiebaApplication.B();
+        this.n = TiebaApplication.C();
         if (bundle != null) {
             this.e = bundle.getString("name");
             this.f = bundle.getString("from");
@@ -251,8 +251,8 @@ public class FrsActivity extends com.baidu.tieba.e implements com.baidu.adp.widg
             this.C = new com.baidu.tieba.c.x(this);
             this.D = new com.baidu.tieba.c.j();
             this.D.a(new n(this));
-            String B = TiebaApplication.B();
-            if (B != null && B.length() > 0) {
+            String C = TiebaApplication.C();
+            if (C != null && C.length() > 0) {
                 q();
                 s();
                 this.D.a(false, true, true);
@@ -261,10 +261,10 @@ public class FrsActivity extends com.baidu.tieba.e implements com.baidu.adp.widg
     }
 
     private void q() {
-        this.C.a(TiebaApplication.d().ad());
-        this.C.c(TiebaApplication.d().ab());
-        this.C.b(TiebaApplication.d().ac());
-        this.C.d(TiebaApplication.d().ae());
+        this.C.a(TiebaApplication.e().ae());
+        this.C.c(TiebaApplication.e().ac());
+        this.C.b(TiebaApplication.e().ad());
+        this.C.d(TiebaApplication.e().af());
         this.l.a(this.C);
     }
 
@@ -455,14 +455,14 @@ public class FrsActivity extends com.baidu.tieba.e implements com.baidu.adp.widg
     @Override // com.baidu.tieba.e, android.app.Activity
     public void onResume() {
         super.onResume();
-        String B = TiebaApplication.B();
-        if (this.n == null && B != null && B.length() > 0) {
-            this.n = B;
+        String C = TiebaApplication.C();
+        if (this.n == null && C != null && C.length() > 0) {
+            this.n = C;
             if (this.v != null && this.v.c() != null) {
                 this.v.c().a(1);
             }
         }
-        if (B != null && B.length() > 0) {
+        if (C != null && C.length() > 0) {
             this.l.a().a(true);
         } else {
             this.l.a().a(false);
@@ -480,8 +480,8 @@ public class FrsActivity extends com.baidu.tieba.e implements com.baidu.adp.widg
             finish();
             return;
         }
-        String B = TiebaApplication.B();
-        if ((B != null && B.length() > 0) || TiebaApplication.d().as() >= 3) {
+        String C = TiebaApplication.C();
+        if ((C != null && C.length() > 0) || TiebaApplication.e().at() >= 3) {
             MainTabActivity.a(this, "goto_home");
         } else {
             MainTabActivity.a(this, "goto_recommend");
@@ -556,8 +556,8 @@ public class FrsActivity extends com.baidu.tieba.e implements com.baidu.adp.widg
 
     /* JADX INFO: Access modifiers changed from: private */
     public void x() {
-        String B = TiebaApplication.B();
-        if (B == null || B.length() <= 0) {
+        String C = TiebaApplication.C();
+        if (C == null || C.length() <= 0) {
             LoginActivity.a((Activity) this, getString(R.string.login_to_use), true, 1100013);
             return;
         }
@@ -581,8 +581,8 @@ public class FrsActivity extends com.baidu.tieba.e implements com.baidu.adp.widg
 
     /* JADX INFO: Access modifiers changed from: private */
     public void d(int i) {
-        String B = TiebaApplication.B();
-        if (B == null || B.length() <= 0) {
+        String C = TiebaApplication.C();
+        if (C == null || C.length() <= 0) {
             if (this.v != null && this.v.c() != null) {
                 this.v.c().a(1);
             }
@@ -664,7 +664,7 @@ public class FrsActivity extends com.baidu.tieba.e implements com.baidu.adp.widg
         ArrayList arrayList = new ArrayList();
         arrayList.add(new BasicNameValuePair("kw", this.e));
         arrayList.add(new BasicNameValuePair("pn", String.valueOf(this.h)));
-        if (TiebaApplication.d().ap()) {
+        if (TiebaApplication.e().aq()) {
             basicNameValuePair = new BasicNameValuePair("rn", String.valueOf(35));
         } else {
             basicNameValuePair = new BasicNameValuePair("rn", String.valueOf(50));
@@ -785,8 +785,8 @@ public class FrsActivity extends com.baidu.tieba.e implements com.baidu.adp.widg
     }
 
     public void m() {
-        String B = TiebaApplication.B();
-        if (B == null || B.length() <= 0) {
+        String C = TiebaApplication.C();
+        if (C == null || C.length() <= 0) {
             LoginActivity.a((Activity) this, getString(R.string.login_to_use), true, 1100021);
         } else if (!this.v.f()) {
             this.v.a(true);
@@ -797,8 +797,8 @@ public class FrsActivity extends com.baidu.tieba.e implements com.baidu.adp.widg
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void n() {
-        String B = TiebaApplication.B();
-        if (B == null || B.length() <= 0) {
+        String C = TiebaApplication.C();
+        if (C == null || C.length() <= 0) {
             LoginActivity.a((Activity) this, getString(R.string.login_to_use), true, 1100002);
         } else {
             this.w.a(this.v.a().b(), this.v.a().a());
@@ -807,8 +807,8 @@ public class FrsActivity extends com.baidu.tieba.e implements com.baidu.adp.widg
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void o() {
-        String B = TiebaApplication.B();
-        if (B == null || B.length() <= 0) {
+        String C = TiebaApplication.C();
+        if (C == null || C.length() <= 0) {
             LoginActivity.a((Activity) this, getString(R.string.login_to_use), true, 1100014);
         } else {
             this.x.a(this.v.a().b(), this.v.a().a());
@@ -820,30 +820,30 @@ public class FrsActivity extends com.baidu.tieba.e implements com.baidu.adp.widg
         if (view == this.l.a().c()) {
             this.E = true;
             if (dVar == com.baidu.adp.widget.BdSwitchView.d.ON) {
-                if (!TiebaApplication.d().ap() && TiebaApplication.d().o()) {
+                if (!TiebaApplication.e().aq() && TiebaApplication.e().p()) {
                     StatService.onEvent(this, "frs_abstract", "frsclick", 1);
                 }
-                TiebaApplication.d().r(true);
+                TiebaApplication.e().r(true);
                 return;
             }
-            if (TiebaApplication.d().ap() && TiebaApplication.d().o()) {
+            if (TiebaApplication.e().aq() && TiebaApplication.e().p()) {
                 StatService.onEvent(this, "frs_abstract", "frsclick", 1);
             }
-            TiebaApplication.d().r(false);
+            TiebaApplication.e().r(false);
         } else if (view == this.l.a().d()) {
             if (dVar == com.baidu.adp.widget.BdSwitchView.d.ON) {
-                if (TiebaApplication.d().ar() != 1) {
-                    if (TiebaApplication.d().o()) {
+                if (TiebaApplication.e().as() != 1) {
+                    if (TiebaApplication.e().p()) {
                         StatService.onEvent(this, "frs_night_mode", "frsclick", 1);
                     }
-                    TiebaApplication.d().j(1);
+                    TiebaApplication.e().j(1);
                     this.b = 1;
                     new com.baidu.tieba.account.af("eyeshield").start();
                 } else {
                     return;
                 }
-            } else if (TiebaApplication.d().ar() != 0) {
-                TiebaApplication.d().j(0);
+            } else if (TiebaApplication.e().as() != 0) {
+                TiebaApplication.e().j(0);
                 this.b = 0;
             } else {
                 return;
@@ -857,7 +857,7 @@ public class FrsActivity extends com.baidu.tieba.e implements com.baidu.adp.widg
     public void d(String str) {
         this.E = false;
         if (str != null) {
-            if (TiebaApplication.d().b(str)) {
+            if (TiebaApplication.e().b(str)) {
                 FrsImageActivity.a(this, str, null, 0);
                 d();
                 return;

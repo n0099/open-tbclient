@@ -286,7 +286,7 @@ public class ba {
 
     public void j() {
         this.o.setVisibility(0);
-        this.p.a(TiebaApplication.d().ap());
+        this.p.a(TiebaApplication.e().aq());
     }
 
     public void c(String str) {

@@ -3,6 +3,7 @@ package com.baidu.android.nebula.b;
 import com.baidu.android.common.util.HanziToPinyin;
 import com.baidu.browser.core.util.BdUtil;
 import com.baidu.browser.explorer.BdWebErrorView;
+import com.baidu.cyberplayer.sdk.internal.HttpUtils;
 import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes.dex */
@@ -21,7 +22,7 @@ public class b {
 
     public b() {
         this.b.put("Content-Type", "text/html");
-        this.b.put("Content-Encoding", BdUtil.UTF8);
+        this.b.put(HttpUtils.HEADER_NAME_CONTENT_ENCODING, BdUtil.UTF8);
     }
 
     public Map a() {
@@ -47,7 +48,7 @@ public class b {
             str = "Unknown";
         }
         sb.append(this.e + HanziToPinyin.Token.SEPARATOR + this.d + HanziToPinyin.Token.SEPARATOR + str + "\r\n");
-        this.b.put("Content-Length", String.valueOf(this.c.toString().getBytes().length));
+        this.b.put(HttpUtils.HEADER_NAME_CONTENT_LENGTH, String.valueOf(this.c.toString().getBytes().length));
         for (String str2 : this.b.keySet()) {
             sb.append(str2 + ": " + ((String) this.b.get(str2)) + "\r\n");
         }

@@ -443,7 +443,7 @@ public class ae extends BaseAdapter {
 
     private void a(ai aiVar, boolean z) {
         try {
-            aiVar.a = TiebaApplication.d().ar();
+            aiVar.a = TiebaApplication.e().as();
             if (aiVar.a == 1) {
                 if (z) {
                     aiVar.b.setTextColor(com.baidu.tieba.d.ac.a(1));
@@ -466,8 +466,8 @@ public class ae extends BaseAdapter {
 
     private void a(ai aiVar, int i) {
         try {
-            if (aiVar.a != TiebaApplication.d().ar()) {
-                aiVar.a = TiebaApplication.d().ar();
+            if (aiVar.a != TiebaApplication.e().as()) {
+                aiVar.a = TiebaApplication.e().as();
                 if (aiVar.a == 1) {
                     aiVar.g.setTextColor(-6710887);
                     aiVar.g.setLinkTextColor(-9989158);

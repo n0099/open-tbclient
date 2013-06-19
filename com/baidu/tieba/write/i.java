@@ -51,7 +51,7 @@ public class i extends com.baidu.adp.lib.a.a {
         this.b = new com.baidu.tieba.d.t();
         if (this.c != null && this.c.length() > 0) {
             this.b.a(String.valueOf(com.baidu.tieba.a.i.e) + "c/u/follow/sug");
-            this.b.a("uid", TiebaApplication.B());
+            this.b.a("uid", TiebaApplication.C());
             this.b.a("q", this.c);
             String i = this.b.i();
             if (this.b.b()) {

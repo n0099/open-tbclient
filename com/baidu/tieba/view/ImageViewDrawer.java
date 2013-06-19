@@ -137,12 +137,12 @@ public class ImageViewDrawer extends ImageView {
                 defalutBitmap2.a(canvas, (getWidth() - defalutBitmap2.a()) >> 1, (getHeight() - defalutBitmap2.b()) >> 1, (Paint) null);
             }
         }
-        if (TiebaApplication.d().ar() == 1 && z) {
+        if (TiebaApplication.e().as() == 1 && z) {
             canvas.drawColor(1275068416);
         }
     }
 
     private com.baidu.adp.widget.a.b getDefalutBitmap() {
-        return TiebaApplication.d().ar() == 1 ? new com.baidu.adp.widget.a.b(com.baidu.tieba.d.d.a(this.e), false, null) : new com.baidu.adp.widget.a.b(com.baidu.tieba.d.d.a(this.d), false, null);
+        return TiebaApplication.e().as() == 1 ? new com.baidu.adp.widget.a.b(com.baidu.tieba.d.d.a(this.e), false, null) : new com.baidu.adp.widget.a.b(com.baidu.tieba.d.d.a(this.d), false, null);
     }
 }

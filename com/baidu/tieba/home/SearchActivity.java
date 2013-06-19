@@ -69,9 +69,9 @@ public class SearchActivity extends com.baidu.tieba.e {
     protected void onDestroy() {
         super.onDestroy();
         if (this.B == 0) {
-            TiebaApplication.d().b(true);
+            TiebaApplication.e().b(true);
         } else {
-            TiebaApplication.d().b(false);
+            TiebaApplication.e().b(false);
         }
         d();
         b();
@@ -133,7 +133,7 @@ public class SearchActivity extends com.baidu.tieba.e {
         this.c.requestFocus();
         o();
         a(this.c, WebChromeClient.STRING_DLG_BTN_SET);
-        if (TiebaApplication.d().n()) {
+        if (TiebaApplication.e().o()) {
             this.j.setChecked(true);
             c(0);
             return;

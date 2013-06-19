@@ -39,9 +39,9 @@ public class w implements AdapterView.OnItemClickListener {
                 baVar2 = this.a.l;
                 com.baidu.tieba.a.bc bcVar = (com.baidu.tieba.a.bc) baVar2.g().getItem(i);
                 if (bcVar != null) {
-                    com.baidu.tieba.d.ab ay = TiebaApplication.d().ay();
-                    if (ay != null && !ay.b(bcVar.a())) {
-                        ay.a(bcVar.a());
+                    com.baidu.tieba.d.ab az = TiebaApplication.e().az();
+                    if (az != null && !az.b(bcVar.a())) {
+                        az.a(bcVar.a());
                     }
                     String i5 = bcVar.i();
                     if (i5 == null || i5.equals("")) {
@@ -53,7 +53,7 @@ public class w implements AdapterView.OnItemClickListener {
                     NewPbActivity.a(this.a, bcVar, null, 1800003, true, false, z);
                 }
             } else {
-                if (TiebaApplication.d().o()) {
+                if (TiebaApplication.e().p()) {
                     StatService.onEvent(this.a, "frs_nextpage", "frsclick", 1);
                 }
                 FrsActivity frsActivity2 = this.a;

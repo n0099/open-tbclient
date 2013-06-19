@@ -16,10 +16,10 @@ class be implements AbsListView.OnScrollListener {
         Handler handler;
         Handler handler2;
         Handler handler3;
-        handler = this.a.h;
+        handler = this.a.i;
         handler.removeMessages(1);
-        handler2 = this.a.h;
-        handler3 = this.a.h;
+        handler2 = this.a.i;
+        handler3 = this.a.i;
         handler2.sendMessageDelayed(handler3.obtainMessage(1), 300L);
     }
 

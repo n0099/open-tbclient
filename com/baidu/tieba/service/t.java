@@ -44,7 +44,7 @@ class t extends Handler {
         } else if (message.what == 1) {
             bg bgVar = (bg) message.obj;
             if (bgVar != null) {
-                ag.b(TiebaApplication.d(), bgVar.f());
+                ag.b(TiebaApplication.e(), bgVar.f());
             }
             this.a.stopSelf();
         }

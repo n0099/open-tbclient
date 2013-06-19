@@ -26,7 +26,7 @@ public class s extends com.baidu.adp.lib.a.a {
     @Override // com.baidu.adp.lib.a.a
     public bf a(Integer... numArr) {
         EditText editText;
-        Address aL;
+        Address aM;
         this.c = new com.baidu.tieba.d.t();
         this.c.a("anonymous", "0");
         this.c.a("fid", this.b.g());
@@ -51,8 +51,8 @@ public class s extends com.baidu.adp.lib.a.a {
                 this.c.a("thread_type", "7");
                 this.c.a("st_type", "tb_suishoufa");
             }
-            if (!com.baidu.tieba.a.i.g().equals(this.a.getIntent().getStringExtra("forum_id")) && TiebaApplication.d().p() && (aL = TiebaApplication.d().aL()) != null) {
-                this.c.a("lbs", String.valueOf(String.valueOf(aL.getLatitude())) + "," + String.valueOf(aL.getLongitude()));
+            if (!com.baidu.tieba.a.i.g().equals(this.a.getIntent().getStringExtra("forum_id")) && TiebaApplication.e().q() && (aM = TiebaApplication.e().aM()) != null) {
+                this.c.a("lbs", String.valueOf(String.valueOf(aM.getLatitude())) + "," + String.valueOf(aM.getLongitude()));
             }
         } else {
             this.c.a(String.valueOf(com.baidu.tieba.a.i.e) + "c/c/post/add");
@@ -92,7 +92,7 @@ public class s extends com.baidu.adp.lib.a.a {
                 com.baidu.tieba.a.o oVar = new com.baidu.tieba.a.o();
                 oVar.b(this.d);
                 if (oVar.b() == null || oVar.b().length() <= 0) {
-                    this.a.a(TiebaApplication.d().getString(R.string.send_success));
+                    this.a.a(TiebaApplication.e().getString(R.string.send_success));
                 } else {
                     this.a.a(oVar.b());
                 }

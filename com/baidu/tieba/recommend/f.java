@@ -20,7 +20,7 @@ class f implements View.OnClickListener {
             case R.id.tag_webview_item /* 2131099922 */:
                 this.a.c();
                 return;
-            case R.id.attention /* 2131100361 */:
+            case R.id.attention /* 2131100370 */:
                 this.a.b();
                 return;
             default:

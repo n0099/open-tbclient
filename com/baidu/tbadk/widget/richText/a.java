@@ -35,8 +35,8 @@ public class a {
     }
 
     private void a(JSONArray jSONArray, int i, boolean z) {
-        SpannableString d;
-        SpannableString d2;
+        SpannableString e;
+        SpannableString e2;
         if (jSONArray != null) {
             this.a = new ArrayList();
             int length = jSONArray.length();
@@ -71,21 +71,21 @@ public class a {
                     this.c.add(cVar3);
                     cVar = new c(1);
                     if (gVar2.a() == 4) {
-                        d2 = gVar2.a(this.d, cVar.b());
+                        e2 = gVar2.a(this.d, cVar.b());
                     } else {
-                        d2 = gVar2.d(this.d);
+                        e2 = gVar2.e(this.d);
                     }
-                    cVar.a(d2);
+                    cVar.a(e2);
                 } else {
                     if (cVar == null) {
                         cVar = new c(1);
                     }
                     if (gVar2.a() == 4) {
-                        d = gVar2.a(this.d, cVar.b());
+                        e = gVar2.a(this.d, cVar.b());
                     } else {
-                        d = gVar2.d(this.d);
+                        e = gVar2.e(this.d);
                     }
-                    cVar.a(d);
+                    cVar.a(e);
                 }
             }
             if (cVar != null) {

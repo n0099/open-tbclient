@@ -38,7 +38,7 @@ public class SignAlertReceiver extends BroadcastReceiver {
                         com.baidu.adp.lib.e.b.a(th.getMessage());
                     }
                 } finally {
-                    TiebaApplication.d().aj();
+                    TiebaApplication.e().ak();
                 }
             }
         }

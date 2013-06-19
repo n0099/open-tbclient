@@ -14,13 +14,13 @@ public class ay implements Runnable {
         bk bkVar;
         bk bkVar2;
         bk bkVar3;
-        bkVar = this.a.o;
+        bkVar = this.a.p;
         if (!bkVar.t()) {
-            bkVar3 = this.a.o;
+            bkVar3 = this.a.p;
             bkVar3.a(false);
             return;
         }
-        bkVar2 = this.a.o;
+        bkVar2 = this.a.p;
         bkVar2.a(true);
     }
 }

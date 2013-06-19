@@ -46,28 +46,28 @@ public class j {
                     this.h = true;
                 }
                 this.j = jSONObject.optInt("gpu_open", 1) == 1;
-                TiebaApplication.d().f(this.j);
+                TiebaApplication.e().f(this.j);
                 if (jSONObject.optInt("open_abstract", 1) == 2) {
                     this.i = false;
                 } else {
                     this.i = true;
                 }
                 if (!this.h) {
-                    TiebaApplication.d().e(this.h);
+                    TiebaApplication.e().e(this.h);
                 }
                 if (!this.i) {
-                    TiebaApplication.d().r(this.i);
+                    TiebaApplication.e().r(this.i);
                 }
                 if (optInt2 == 1) {
-                    TiebaApplication.d().g(true);
+                    TiebaApplication.e().g(true);
                 } else if (optInt2 == 0) {
-                    TiebaApplication.d().g(false);
+                    TiebaApplication.e().g(false);
                 }
                 this.k = jSONObject.optInt("browser_type", 2);
                 this.m = jSONObject.optInt("perform_sample_param", 100000);
-                TiebaApplication.d().a(this.k);
-                TiebaApplication.d().c(optInt3 == 1);
-                TiebaApplication.d().s(jSONObject.optInt("open_local_popularize", 0) == 1);
+                TiebaApplication.e().a(this.k);
+                TiebaApplication.e().c(optInt3 == 1);
+                TiebaApplication.e().s(jSONObject.optInt("open_local_popularize", 0) == 1);
                 i.a(this.a);
                 i.d(this.d);
                 i.c(this.e);

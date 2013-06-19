@@ -22,13 +22,13 @@ class au implements com.baidu.tbadk.widget.richText.m {
         String a2;
         String a3;
         try {
-            bkVar = this.a.o;
+            bkVar = this.a.p;
             if (bkVar.e(str) != null) {
-                axVar = this.a.i;
+                axVar = this.a.j;
                 com.baidu.tieba.a.am m = axVar.m();
                 a = this.a.a(str, i);
                 ArrayList a4 = a.a();
-                i2 = this.a.G;
+                i2 = this.a.H;
                 com.baidu.tbadk.widget.richText.c cVar = (com.baidu.tbadk.widget.richText.c) a4.get(i2);
                 if (cVar != null) {
                     ArrayList arrayList = new ArrayList();

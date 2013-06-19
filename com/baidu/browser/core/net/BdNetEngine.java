@@ -6,7 +6,8 @@ import android.os.Message;
 import com.baidu.browser.core.net.BdNet;
 import com.baidu.browser.core.util.BdLog;
 import com.baidu.browser.explorer.BdWebErrorView;
-import com.baidu.loginshare.e;
+import com.baidu.cyberplayer.sdk.BVideoView;
+import com.baidu.cyberplayer.sdk.internal.HttpUtils;
 import com.baidu.mapapi.MKEvent;
 import com.baidu.zeus.Headers;
 import java.io.DataOutputStream;
@@ -214,9 +215,9 @@ public class BdNetEngine extends HandlerThread {
                         URL url = new URL(bdNetTask.isRedirect() ? bdNetTask.getRedirectUrl() : bdNetTask.getUrl());
                         if (!this.mIsCmwap) {
                             this.mConnection = (HttpURLConnection) url.openConnection();
-                        } else if (this.mWapApnUrl == null || !this.mWapApnUrl.startsWith("10.0.0.200")) {
-                            this.mConnection = (HttpURLConnection) url.openConnection(new Proxy(Proxy.Type.HTTP, new InetSocketAddress(e.h, 80)));
-                            this.mConnection.setRequestProperty("X-Online-Host", url.getHost());
+                        } else if (this.mWapApnUrl == null || !this.mWapApnUrl.startsWith(HttpUtils.IP_CTWAP)) {
+                            this.mConnection = (HttpURLConnection) url.openConnection(new Proxy(Proxy.Type.HTTP, new InetSocketAddress("10.0.0.172", 80)));
+                            this.mConnection.setRequestProperty(HttpUtils.HEADER_NAME_CMWAP_ONLINE_HOST, url.getHost());
                         } else {
                             this.mConnection = (HttpURLConnection) url.openConnection();
                         }
@@ -276,9 +277,9 @@ public class BdNetEngine extends HandlerThread {
                                         }
                                         break;
                                     case MKEvent.ERROR_PERMISSION_DENIED /* 300 */:
-                                    case 301:
-                                    case 302:
-                                    case 303:
+                                    case BVideoView.MEDIA_ERROR_NO_INPUTFILE /* 301 */:
+                                    case BVideoView.MEDIA_ERROR_INVALID_INPUTFILE /* 302 */:
+                                    case BVideoView.MEDIA_ERROR_NO_SUPPORTED_CODEC /* 303 */:
                                     case 307:
                                         if (this.mListener != null && this.mListener.onNetRedirect(this, bdNetTask, responseCode)) {
                                             if (redirect(bdNetTask)) {
@@ -300,7 +301,7 @@ public class BdNetEngine extends HandlerThread {
                                             return 3;
                                         }
                                         break;
-                                    case 304:
+                                    case BVideoView.MEDIA_ERROR_DISPLAY /* 304 */:
                                         if (this.mListener != null) {
                                             this.mListener.onNetReceiveHeaders(this, bdNetTask);
                                             break;
@@ -407,15 +408,15 @@ public class BdNetEngine extends HandlerThread {
         }
         if (stringBuffer.length() > 0) {
             stringBuffer.setLength(stringBuffer.length() - 1);
-            this.mConnection.addRequestProperty("Cookie", stringBuffer.toString());
+            this.mConnection.addRequestProperty(HttpUtils.HEADER_NAME_COOKIE, stringBuffer.toString());
         }
         String refer = bdNetTask.getRefer();
         if (refer != null) {
-            this.mConnection.addRequestProperty("Referer", refer);
+            this.mConnection.addRequestProperty(HttpUtils.HEADER_NAME_REFERER, refer);
         }
         String userAgent = bdNetTask.getUserAgent();
         if (userAgent != null) {
-            this.mConnection.addRequestProperty("User-Agent", userAgent);
+            this.mConnection.addRequestProperty(HttpUtils.HEADER_NAME_USER_AGENT, userAgent);
         }
     }
 
@@ -500,7 +501,7 @@ public class BdNetEngine extends HandlerThread {
                 try {
                     if (this.mIsRunning && !bdNetTask.isStop()) {
                         byte[] bArr = new byte[4096];
-                        String headerField = this.mConnection.getHeaderField("Content-Encoding");
+                        String headerField = this.mConnection.getHeaderField(HttpUtils.HEADER_NAME_CONTENT_ENCODING);
                         if (!(headerField != null && headerField.indexOf("gzip") >= 0)) {
                             while (true) {
                                 int read = inputStream.read(bArr);

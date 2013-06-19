@@ -73,7 +73,7 @@ public class LogoActivity extends e {
     @Override // com.baidu.tieba.e, com.baidu.adp.a.a, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        TiebaApplication.d().aA();
+        TiebaApplication.e().aB();
         a(getIntent());
         com.baidu.tieba.d.ae.a(getClass().getName(), "onCreate", null);
         getWindow().setFlags(NotificationProxy.MAX_URL_LENGTH, NotificationProxy.MAX_URL_LENGTH);
@@ -122,7 +122,7 @@ public class LogoActivity extends e {
     public void onPause() {
         super.onPause();
         if (!this.j) {
-            TiebaApplication.d().aB();
+            TiebaApplication.e().aC();
         }
         this.k.removeCallbacks(this.m);
     }
@@ -184,12 +184,12 @@ public class LogoActivity extends e {
     public void d() {
         this.k.removeCallbacks(this.m);
         com.baidu.tieba.account.a.a().d();
-        if (TiebaApplication.d().p()) {
-            TiebaApplication.d().aJ();
+        if (TiebaApplication.e().q()) {
+            TiebaApplication.e().aK();
         }
-        this.i = TiebaApplication.d().aF();
+        this.i = TiebaApplication.e().aG();
         if (this.i) {
-            TiebaApplication.d().aB();
+            TiebaApplication.e().aC();
             GuideActivity.a(this, 1600001);
             try {
                 PushConstants.restartPushService(getApplicationContext());
@@ -209,17 +209,17 @@ public class LogoActivity extends e {
 
     private void c(String str) {
         c = false;
-        String B = TiebaApplication.B();
-        this.i = TiebaApplication.d().aF();
+        String C = TiebaApplication.C();
+        this.i = TiebaApplication.e().aG();
         this.j = true;
-        if ((B != null && B.length() > 0 && !this.i) || TiebaApplication.d().as() >= 3) {
+        if ((C != null && C.length() > 0 && !this.i) || TiebaApplication.e().at() >= 3) {
             MainTabActivity.a(this, str);
             return;
         }
         MainTabActivity.a(str);
         MainTabActivity.a(this, "goto_recommend");
-        if ((B == null || B.length() <= 0) && TiebaApplication.i() && a.a((Activity) this)) {
-            TiebaApplication.d().aB();
+        if ((C == null || C.length() <= 0) && TiebaApplication.j() && a.a((Activity) this)) {
+            TiebaApplication.e().aC();
             a.a(this, 0, str, false);
         }
     }
@@ -233,7 +233,7 @@ public class LogoActivity extends e {
                     LabelActivity.a(this, 1600002, "guide");
                     return;
                 case 1600002:
-                    TiebaApplication.d().aG();
+                    TiebaApplication.e().aH();
                     c("goto_recommend");
                     return;
                 default:

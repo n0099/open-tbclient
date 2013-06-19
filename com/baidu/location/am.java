@@ -6,6 +6,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.location.Location;
+import com.baidu.cyberplayer.sdk.internal.VersionUtils;
 import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes.dex */
@@ -115,7 +116,7 @@ public class am {
     */
     private void c() {
         boolean z;
-        int i = 10000;
+        int i = VersionUtils.CUR_DEVELOPMENT;
         if (!b()) {
             return;
         }

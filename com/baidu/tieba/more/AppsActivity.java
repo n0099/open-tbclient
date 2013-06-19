@@ -34,7 +34,7 @@ public class AppsActivity extends com.baidu.tieba.e {
 
     public static void b() {
         com.baidu.tieba.d.k.a("", 7);
-        SharedPreferences.Editor edit = TiebaApplication.d().getSharedPreferences("settings", 0).edit();
+        SharedPreferences.Editor edit = TiebaApplication.e().getSharedPreferences("settings", 0).edit();
         edit.putLong("app_inverval", System.currentTimeMillis());
         edit.commit();
     }

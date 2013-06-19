@@ -506,7 +506,7 @@ public class bk {
         int i2;
         int i3;
         if (ayVar != null && view != null) {
-            if (TiebaApplication.d().o()) {
+            if (TiebaApplication.e().p()) {
                 StatService.onEvent(this.b, "pb_tosubpb", "pbclick", 1);
             }
             if (this.z == null) {
@@ -819,7 +819,7 @@ public class bk {
 
     public void b(boolean z) {
         this.aq = z;
-        if (TiebaApplication.d().ar() == 1) {
+        if (TiebaApplication.e().as() == 1) {
             if (z) {
                 this.h.setImageResource(R.drawable.icon_floor_host_s_1);
             } else {

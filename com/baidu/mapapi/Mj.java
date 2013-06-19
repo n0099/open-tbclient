@@ -214,7 +214,7 @@ public class Mj {
                 String defaultHost = Proxy.getDefaultHost();
                 int defaultPort = Proxy.getDefaultPort();
                 if (defaultHost == null) {
-                    defaultHost = com.baidu.loginshare.e.h;
+                    defaultHost = "10.0.0.172";
                 }
                 SetProxyInfo(defaultHost, defaultPort != -1 ? defaultPort : 80);
             }
@@ -229,7 +229,7 @@ public class Mj {
             String defaultHost2 = Proxy.getDefaultHost();
             int defaultPort2 = Proxy.getDefaultPort();
             if (defaultHost2 == null) {
-                defaultHost2 = com.baidu.loginshare.e.h;
+                defaultHost2 = "10.0.0.172";
             }
             if (defaultPort2 == -1) {
                 defaultPort2 = 80;
@@ -304,7 +304,7 @@ public class Mj {
             String defaultHost = Proxy.getDefaultHost();
             int defaultPort = Proxy.getDefaultPort();
             if (defaultHost == null) {
-                defaultHost = com.baidu.loginshare.e.h;
+                defaultHost = "10.0.0.172";
             }
             if (defaultPort == -1) {
                 defaultPort = 80;

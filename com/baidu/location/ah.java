@@ -7,6 +7,7 @@ import android.net.NetworkInfo;
 import android.net.Proxy;
 import android.net.Uri;
 import android.os.Handler;
+import com.baidu.cyberplayer.sdk.internal.HttpUtils;
 import java.io.File;
 import java.io.RandomAccessFile;
 import java.util.ArrayList;
@@ -31,7 +32,7 @@ public class ah {
     private static int o = 12000;
     private static Uri p = null;
     private static int q = 4;
-    private static String r = com.baidu.loginshare.e.h;
+    private static String r = "10.0.0.172";
     private static int s = 80;
     private static int t = 0;
     private static Handler u = null;
@@ -42,14 +43,14 @@ public class ah {
         if (networkInfo != null && networkInfo.getExtraInfo() != null && (lowerCase = networkInfo.getExtraInfo().toLowerCase()) != null) {
             if (lowerCase.startsWith("cmwap") || lowerCase.startsWith("uniwap") || lowerCase.startsWith("3gwap")) {
                 String defaultHost = Proxy.getDefaultHost();
-                if (defaultHost == null || defaultHost.equals("") || defaultHost.equals("null")) {
-                    defaultHost = com.baidu.loginshare.e.h;
-                }
-                r = defaultHost;
+                r = (defaultHost == null || defaultHost.equals("") || defaultHost.equals("null")) ? "10.0.0.172" : "10.0.0.172";
                 return 1;
             } else if (lowerCase.startsWith("ctwap")) {
                 String defaultHost2 = Proxy.getDefaultHost();
-                r = (defaultHost2 == null || defaultHost2.equals("") || defaultHost2.equals("null")) ? "10.0.0.200" : "10.0.0.200";
+                if (defaultHost2 == null || defaultHost2.equals("") || defaultHost2.equals("null")) {
+                    defaultHost2 = HttpUtils.IP_CTWAP;
+                }
+                r = defaultHost2;
                 return 1;
             } else if (lowerCase.startsWith("cmnet") || lowerCase.startsWith("uninet") || lowerCase.startsWith("ctnet") || lowerCase.startsWith("3gnet")) {
                 return 2;
@@ -59,11 +60,11 @@ public class ah {
         if (defaultHost3 == null || defaultHost3.length() <= 0) {
             return 2;
         }
-        if (com.baidu.loginshare.e.h.equals(defaultHost3.trim())) {
-            r = com.baidu.loginshare.e.h;
+        if ("10.0.0.172".equals(defaultHost3.trim())) {
+            r = "10.0.0.172";
             return 1;
-        } else if ("10.0.0.200".equals(defaultHost3.trim())) {
-            r = "10.0.0.200";
+        } else if (HttpUtils.IP_CTWAP.equals(defaultHost3.trim())) {
+            r = HttpUtils.IP_CTWAP;
             return 1;
         } else {
             return 2;
@@ -377,7 +378,10 @@ public class ah {
                                 String string = query.getString(query.getColumnIndex("apn"));
                                 if (string != null && string.toLowerCase().contains("ctwap")) {
                                     String defaultHost = Proxy.getDefaultHost();
-                                    r = (defaultHost == null || defaultHost.equals("") || defaultHost.equals("null")) ? "10.0.0.200" : "10.0.0.200";
+                                    if (defaultHost == null || defaultHost.equals("") || defaultHost.equals("null")) {
+                                        defaultHost = HttpUtils.IP_CTWAP;
+                                    }
+                                    r = defaultHost;
                                     s = 80;
                                     if (query != null) {
                                         query.close();
@@ -385,10 +389,7 @@ public class ah {
                                     return 1;
                                 } else if (string != null && string.toLowerCase().contains(com.baidu.loginshare.e.d)) {
                                     String defaultHost2 = Proxy.getDefaultHost();
-                                    if (defaultHost2 == null || defaultHost2.equals("") || defaultHost2.equals("null")) {
-                                        defaultHost2 = com.baidu.loginshare.e.h;
-                                    }
-                                    r = defaultHost2;
+                                    r = (defaultHost2 == null || defaultHost2.equals("") || defaultHost2.equals("null")) ? "10.0.0.172" : "10.0.0.172";
                                     s = 80;
                                     if (query != null) {
                                         query.close();

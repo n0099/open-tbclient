@@ -70,14 +70,14 @@ public class d extends BaseAdapter {
         Exception exc;
         View view2;
         int itemViewType;
-        int ar;
+        int as;
         View view3;
         e eVar;
         View view4;
         f fVar = null;
         try {
             itemViewType = getItemViewType(i);
-            ar = TiebaApplication.d().ar();
+            as = TiebaApplication.e().as();
         } catch (Exception e) {
             exc = e;
             view2 = view;
@@ -125,7 +125,7 @@ public class d extends BaseAdapter {
             com.baidu.tieba.c.au auVar = (com.baidu.tieba.c.au) getItem(i);
             if (itemViewType == 0) {
                 eVar.b.setText(auVar.b());
-                if (ar == 1) {
+                if (as == 1) {
                     eVar.a.setBackgroundResource(R.drawable.icon_distance_node_1);
                     return view4;
                 }
@@ -147,7 +147,7 @@ public class d extends BaseAdapter {
                     fVar.c.setBackgroundResource(R.drawable.icon_not_like);
                     fVar.c.setClickable(true);
                 }
-                if (ar == 1) {
+                if (as == 1) {
                     fVar.a.setTextColor(-8682095);
                     fVar.e.setTextColor(-11446171);
                     fVar.f.setTextColor(-11446171);

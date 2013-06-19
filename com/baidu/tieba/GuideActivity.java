@@ -68,7 +68,7 @@ public class GuideActivity extends Activity {
             this.h.add(decodeResource);
             this.d.add(i, imageView);
         }
-        if (TiebaApplication.d().o()) {
+        if (TiebaApplication.e().p()) {
             try {
                 StatService.setAppChannel(com.baidu.tieba.a.i.a());
             } catch (Exception e) {
@@ -108,7 +108,7 @@ public class GuideActivity extends Activity {
     @Override // android.app.Activity
     public void onResume() {
         super.onResume();
-        if (TiebaApplication.d().o()) {
+        if (TiebaApplication.e().p()) {
             try {
                 StatService.onResume(this);
             } catch (Exception e) {
@@ -120,7 +120,7 @@ public class GuideActivity extends Activity {
     @Override // android.app.Activity
     public void onPause() {
         super.onPause();
-        if (TiebaApplication.d().o()) {
+        if (TiebaApplication.e().p()) {
             try {
                 StatService.onPause(this);
             } catch (Exception e) {

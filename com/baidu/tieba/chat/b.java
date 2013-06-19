@@ -18,8 +18,8 @@ class b implements Runnable {
         boolean z;
         z = this.a.g;
         if (!z) {
-            String B = TiebaApplication.B();
-            if (B == null || B.length() <= 0) {
+            String C = TiebaApplication.C();
+            if (C == null || C.length() <= 0) {
                 LoginActivity.a((Activity) this.a, this.a.getString(R.string.login_to_use), true, 1100029);
             } else {
                 this.a.o();

@@ -7,22 +7,22 @@ import com.baidu.tieba.BaiduAccount.BaiduAccount;
 /* loaded from: classes.dex */
 public class a {
     public static void a(Context context) {
-        com.baidu.tieba.a.a E = TiebaApplication.E();
-        if (E == null) {
-            E = new com.baidu.tieba.a.a();
-            E.a(1);
-            TiebaApplication.a(E);
+        com.baidu.tieba.a.a F = TiebaApplication.F();
+        if (F == null) {
+            F = new com.baidu.tieba.a.a();
+            F.a(1);
+            TiebaApplication.a(F);
         }
         BaiduAccount baiduAccount = BaiduAccount.get(context);
         String currentAccount = baiduAccount.getCurrentAccount();
-        if (currentAccount != null && !currentAccount.equals(E.b())) {
-            b(E.a());
-            E.b(currentAccount);
-            E.d(null);
-            E.a((String) null);
-            E.a(1);
-            TiebaApplication.d().Q();
-            TiebaApplication.d().a(0L, 0L, 0L, 0L);
+        if (currentAccount != null && !currentAccount.equals(F.b())) {
+            b(F.a());
+            F.b(currentAccount);
+            F.d(null);
+            F.a((String) null);
+            F.a(1);
+            TiebaApplication.e().R();
+            TiebaApplication.e().a(0L, 0L, 0L, 0L);
         }
         baiduAccount.addOnAccountsUpdatedListener(new b());
     }

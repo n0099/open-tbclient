@@ -45,7 +45,7 @@ class ap implements View.OnClickListener {
                 this.a.c(0);
                 return;
             case R.id.frs_top_more /* 2131099973 */:
-                if (TiebaApplication.d().o()) {
+                if (TiebaApplication.e().p()) {
                     StatService.onEvent(this.a, "frs_more", "frsclick", 1);
                 }
                 ayVar5 = this.a.n;
@@ -53,9 +53,9 @@ class ap implements View.OnClickListener {
                 return;
             case R.id.show_all /* 2131100023 */:
                 this.a.r = false;
-                TiebaApplication d = TiebaApplication.d();
+                TiebaApplication e = TiebaApplication.e();
                 str3 = this.a.d;
-                d.d(str3);
+                e.d(str3);
                 FrsImageActivity frsImageActivity = this.a;
                 str4 = this.a.d;
                 FrsActivity.a(frsImageActivity, str4, null, 0);
@@ -63,12 +63,12 @@ class ap implements View.OnClickListener {
                 return;
             case R.id.show_good /* 2131100025 */:
                 this.a.r = false;
-                if (TiebaApplication.d().o()) {
+                if (TiebaApplication.e().p()) {
                     StatService.onEvent(this.a, "frs_good", "frsclick", 1);
                 }
-                TiebaApplication d2 = TiebaApplication.d();
+                TiebaApplication e2 = TiebaApplication.e();
                 str = this.a.d;
-                d2.d(str);
+                e2.d(str);
                 FrsImageActivity frsImageActivity2 = this.a;
                 str2 = this.a.d;
                 FrsActivity.b(frsImageActivity2, str2, null);
@@ -76,7 +76,7 @@ class ap implements View.OnClickListener {
                 return;
             case R.id.show_image /* 2131100027 */:
                 this.a.r = false;
-                if (TiebaApplication.d().o()) {
+                if (TiebaApplication.e().p()) {
                     StatService.onEvent(this.a, "frs_image", "frsclick", 1);
                 }
                 ayVar = this.a.n;
@@ -98,9 +98,9 @@ class ap implements View.OnClickListener {
                 frsImageActivity3.d(str5);
                 return;
             case R.id.message_layout /* 2131100039 */:
-                String B = TiebaApplication.B();
-                if (B != null && B.length() > 0) {
-                    if (TiebaApplication.d().o()) {
+                String C = TiebaApplication.C();
+                if (C != null && C.length() > 0) {
+                    if (TiebaApplication.e().p()) {
                         StatService.onEvent(this.a, "frs_message", "frsclick", 1);
                     }
                     MentionActivity.a(this.a, 1800002);
@@ -108,13 +108,13 @@ class ap implements View.OnClickListener {
                 }
                 return;
             case R.id.chat_layout /* 2131100043 */:
-                if (TiebaApplication.d().o()) {
+                if (TiebaApplication.e().p()) {
                     StatService.onEvent(this.a, "enter_chatlist", "frsclick", 1);
                 }
                 ChatListActivity.a(this.a);
                 return;
             case R.id.like_forum_name /* 2131100048 */:
-                if (TiebaApplication.d().o()) {
+                if (TiebaApplication.e().p()) {
                     StatService.onEvent(this.a, "frs_likeforum", "frsclick", 1);
                 }
                 String str7 = (String) view.getTag();

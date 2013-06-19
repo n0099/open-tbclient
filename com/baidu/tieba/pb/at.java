@@ -13,11 +13,11 @@ class at implements cq {
         com.baidu.tieba.c.ba baVar;
         com.baidu.tieba.c.ba baVar2;
         bk bkVar;
-        baVar = this.a.m;
+        baVar = this.a.n;
         if (baVar != null) {
-            baVar2 = this.a.m;
+            baVar2 = this.a.n;
             if (baVar2.i()) {
-                bkVar = this.a.o;
+                bkVar = this.a.p;
                 bkVar.s();
             }
         }

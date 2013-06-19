@@ -1,5 +1,6 @@
 package com.baidu.zeus;
 
+import com.baidu.cyberplayer.sdk.internal.HttpUtils;
 import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes.dex */
@@ -59,7 +60,7 @@ class PreLoader {
         if (acceptLanguage.length() > 0) {
             this.mHeaders.put("Accept-Language", acceptLanguage);
         }
-        this.mHeaders.put("User-Agent", this.mSettings.getUserAgentString());
+        this.mHeaders.put(HttpUtils.HEADER_NAME_USER_AGENT, this.mSettings.getUserAgentString());
     }
 
     private void populateHeaders() {
@@ -76,7 +77,7 @@ class PreLoader {
         }
         String cookie = CookieManager.getInstance().getCookie(this.mListener.getWebAddress());
         if (cookie != null && cookie.length() > 0) {
-            this.mHeaders.put("Cookie", cookie);
+            this.mHeaders.put(HttpUtils.HEADER_NAME_COOKIE, cookie);
         }
     }
 }

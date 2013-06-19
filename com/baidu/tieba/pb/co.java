@@ -1,7 +1,6 @@
 package com.baidu.tieba.pb;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class co implements com.baidu.tieba.view.f {
+class co implements com.baidu.tieba.view.f {
     final /* synthetic */ bk a;
 
     /* JADX INFO: Access modifiers changed from: package-private */

@@ -71,7 +71,7 @@ public class ad extends BaseAdapter {
         Exception exc;
         View view2;
         int itemViewType;
-        int ar;
+        int as;
         View view3;
         ah ahVar;
         ai aiVar;
@@ -80,7 +80,7 @@ public class ad extends BaseAdapter {
         ag agVar = null;
         try {
             itemViewType = getItemViewType(i);
-            ar = TiebaApplication.d().ar();
+            as = TiebaApplication.e().as();
         } catch (Exception e) {
             exc = e;
             view2 = view;
@@ -93,7 +93,7 @@ public class ad extends BaseAdapter {
                     aiVar = new ai(this);
                     aiVar.b = (TextView) view4.findViewById(R.id.time_text);
                     aiVar.a = (ImageView) view4.findViewById(R.id.time_icon);
-                    if (ar == 1) {
+                    if (as == 1) {
                         aiVar.a.setBackgroundResource(R.drawable.icon_time_node_1);
                         aiVar.b.setTextColor(-11446171);
                     }
@@ -107,7 +107,7 @@ public class ad extends BaseAdapter {
                     ahVar2.d = (TextView) view4.findViewById(R.id.post_time);
                     ahVar2.e = (TextView) view4.findViewById(R.id.forum);
                     ahVar2.b = (ImageView) view4.findViewById(R.id.post_icon);
-                    if (ar == 1) {
+                    if (as == 1) {
                         ahVar2.a.setBackgroundResource(R.drawable.time_line_node_content_bg_skin_1);
                     }
                     view4.setTag(ahVar2);
@@ -119,7 +119,7 @@ public class ad extends BaseAdapter {
                         ag agVar2 = new ag(this);
                         agVar2.a = (TextView) view4.findViewById(R.id.page_text);
                         agVar2.b = (ProgressBar) view4.findViewById(R.id.progress);
-                        if (ar == 1) {
+                        if (as == 1) {
                             agVar2.a.setTextColor(-3618616);
                         }
                         view4.setTag(agVar2);
@@ -160,14 +160,14 @@ public class ad extends BaseAdapter {
                 ahVar.e.setText(String.valueOf(asVar.f()) + this.a.getString(R.string.forum));
                 ahVar.e.setOnClickListener(new ae(this, asVar));
                 if (asVar.a() == 2) {
-                    if (ar == 1) {
+                    if (as == 1) {
                         ahVar.b.setBackgroundResource(R.drawable.icon_thread_node_1);
                     } else {
                         ahVar.b.setBackgroundResource(R.drawable.icon_thread_node);
                     }
                     string = this.a.getString(R.string.add_thread);
                 } else {
-                    if (ar == 1) {
+                    if (as == 1) {
                         ahVar.b.setBackgroundResource(R.drawable.icon_reply_node_1);
                     } else {
                         ahVar.b.setBackgroundResource(R.drawable.icon_reply_node);
@@ -178,7 +178,7 @@ public class ad extends BaseAdapter {
                 if (parseInt <= 0) {
                     ahVar.c.setText(String.valueOf(string) + asVar.c());
                     ahVar.c.setTextSize(2, 15.0f);
-                    if (ar == 1) {
+                    if (as == 1) {
                         ahVar.c.setTextColor(-8682095);
                     } else {
                         ahVar.c.setTextColor(-14277082);
@@ -200,7 +200,7 @@ public class ad extends BaseAdapter {
                     SpannableString spannableString = new SpannableString(sb.toString());
                     spannableString.setSpan(new AbsoluteSizeSpan(com.baidu.tieba.d.ag.a(this.a, 15.0f)), 0, length, 18);
                     spannableString.setSpan(new AbsoluteSizeSpan(com.baidu.tieba.d.ag.a(this.a, 12.0f)), length + 1, length2, 18);
-                    if (ar == 1) {
+                    if (as == 1) {
                         spannableString.setSpan(new ForegroundColorSpan(-8682095), 0, length, 18);
                         spannableString.setSpan(new ForegroundColorSpan(-11446171), length + 1, length2, 18);
                     } else {

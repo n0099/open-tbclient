@@ -34,7 +34,7 @@ public final class d {
     public static final int btn_switch_masking = 2130838024;
     public static final int btn_switch_masking_1 = 2130838025;
     public static final int btn_switch_masking_sidebar = 2130838026;
-    public static final int pull_icon = 2130838869;
-    public static final int pull_loading = 2130838870;
-    public static final int pull_progressbar = 2130838871;
+    public static final int pull_icon = 2130838879;
+    public static final int pull_loading = 2130838880;
+    public static final int pull_progressbar = 2130838881;
 }

@@ -18,10 +18,10 @@ public class ae implements DialogInterface.OnClickListener {
         if (i != -2) {
             alertDialog = this.a.x;
             alertDialog.dismiss();
-            TiebaApplication.d().a(false, true);
+            TiebaApplication.e().a(false, true);
             return;
         }
         this.a.a(true);
-        TiebaApplication.d().a(true, true);
+        TiebaApplication.e().a(true, true);
     }
 }

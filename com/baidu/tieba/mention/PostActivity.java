@@ -71,14 +71,14 @@ public class PostActivity extends com.baidu.tieba.e {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.e, android.app.Activity
     public void onResume() {
-        if (this.w != TiebaApplication.d().ao()) {
-            this.w = TiebaApplication.d().ao();
+        if (this.w != TiebaApplication.e().ap()) {
+            this.w = TiebaApplication.e().ap();
             this.q.setTextSize(com.baidu.tieba.a.i.q());
             this.u.setTextSize(com.baidu.tieba.a.i.n());
             m();
         }
-        if (this.x != TiebaApplication.d().an()) {
-            this.x = TiebaApplication.d().an();
+        if (this.x != TiebaApplication.e().ao()) {
+            this.x = TiebaApplication.e().ao();
             m();
         }
         super.onResume();
@@ -136,8 +136,8 @@ public class PostActivity extends com.baidu.tieba.e {
         this.v = (LinearLayout) findViewById(R.id.seg);
         this.q.setTextSize(com.baidu.tieba.a.i.q());
         this.u.setTextSize(com.baidu.tieba.a.i.n());
-        this.w = TiebaApplication.d().ao();
-        this.x = TiebaApplication.d().an();
+        this.w = TiebaApplication.e().ap();
+        this.x = TiebaApplication.e().ao();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */

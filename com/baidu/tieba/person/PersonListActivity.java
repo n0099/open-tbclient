@@ -141,7 +141,7 @@ public class PersonListActivity extends com.baidu.tieba.e {
         }
         this.d = (ImageView) findViewById(R.id.back);
         this.d.setOnClickListener(new bn(this));
-        this.h = new bt(this, getIntent().getBooleanExtra("follow", false), this.k.a().equals(TiebaApplication.B()), new bo(this), new bp(this), new bq(this));
+        this.h = new bt(this, getIntent().getBooleanExtra("follow", false), this.k.a().equals(TiebaApplication.C()), new bo(this), new bp(this), new bq(this));
         this.h.a(this.k.c().b());
         this.e = (BdListView) findViewById(R.id.list);
         this.e.setAdapter((ListAdapter) this.h);
@@ -175,8 +175,8 @@ public class PersonListActivity extends com.baidu.tieba.e {
     /* JADX INFO: Access modifiers changed from: private */
     public void c() {
         com.baidu.tieba.a.be beVar;
-        if (this.h != null && this.h.getItemViewType(this.c) == 0 && (beVar = (com.baidu.tieba.a.be) this.h.getItem(this.c)) != null && beVar.a() != null && beVar.c() != null && !beVar.a().equals(TiebaApplication.B())) {
-            if (TiebaApplication.d().o()) {
+        if (this.h != null && this.h.getItemViewType(this.c) == 0 && (beVar = (com.baidu.tieba.a.be) this.h.getItem(this.c)) != null && beVar.a() != null && beVar.c() != null && !beVar.a().equals(TiebaApplication.C())) {
+            if (TiebaApplication.e().p()) {
                 StatService.onEvent(this, "enter_chat", "personlistclick", 1);
             }
             ChatActivity.a(this, beVar.a(), beVar.c(), beVar.e(), null, null);

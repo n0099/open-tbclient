@@ -24,16 +24,16 @@ class ax implements View.OnLongClickListener {
             this.a.c = (com.baidu.tieba.a.ar) sparseArray.get(R.id.tag_clip_board);
             if (this.a.c != null) {
                 boolean z = false;
-                akVar = this.a.j;
+                akVar = this.a.k;
                 if (akVar.d() && this.a.c.d() != null) {
                     String d = this.a.c.d();
-                    axVar = this.a.i;
+                    axVar = this.a.j;
                     if (d.equals(axVar.l())) {
                         z = true;
                     }
                 }
-                bkVar = this.a.o;
-                onClickListener = this.a.I;
+                bkVar = this.a.p;
+                onClickListener = this.a.J;
                 bkVar.a(onClickListener, z);
             }
         }

@@ -95,7 +95,7 @@ class u extends com.baidu.adp.lib.a.a {
             if (bool.booleanValue()) {
                 notificationManager2 = this.a.a;
                 notificationManager2.cancel(10);
-                ag.b(TiebaApplication.d(), this.b.f());
+                ag.b(TiebaApplication.e(), this.b.f());
             } else {
                 notification = this.a.b;
                 if (notification != null) {

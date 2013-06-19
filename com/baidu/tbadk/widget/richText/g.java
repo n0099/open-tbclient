@@ -5,6 +5,7 @@ import android.graphics.Rect;
 import android.text.SpannableString;
 import android.text.style.ImageSpan;
 import com.baidu.android.common.util.HanziToPinyin;
+import com.baidu.zeus.bouncycastle.DERTags;
 import java.util.ArrayList;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
@@ -38,6 +39,13 @@ public class g {
         return a(context, this.a, "视频：", this.b.a(), this.b.a());
     }
 
+    public SpannableString b(Context context) {
+        if (this.a != 128 || this.b == null) {
+            return null;
+        }
+        return a(context, this.a, null, this.b.b(), this.b.b());
+    }
+
     public String d() {
         if (this.a != 32 || this.b == null) {
             return null;
@@ -45,14 +53,14 @@ public class g {
         return this.b.a();
     }
 
-    public SpannableString b(Context context) {
+    public SpannableString c(Context context) {
         if (this.a != 2 || this.b == null) {
             return null;
         }
         return a(context, this.a, null, this.b.a(), this.b.b());
     }
 
-    public SpannableString c(Context context) {
+    public SpannableString d(Context context) {
         if (this.a != 16 || this.b == null) {
             return null;
         }
@@ -100,21 +108,23 @@ public class g {
         return spannableString;
     }
 
-    public SpannableString d(Context context) {
+    public SpannableString e(Context context) {
         switch (this.a) {
             case 1:
                 return c();
             case 2:
-                return b(context);
+                return c(context);
             case 4:
                 return a(context, null);
             case 8:
             default:
                 return null;
             case 16:
-                return c(context);
+                return d(context);
             case 32:
                 return a(context);
+            case DERTags.TAGGED /* 128 */:
+                return b(context);
         }
     }
 
@@ -161,8 +171,11 @@ public class g {
                 return 32;
             case 6:
                 return 64;
+            case 7:
             default:
                 return 0;
+            case 8:
+                return DERTags.TAGGED;
         }
     }
 }

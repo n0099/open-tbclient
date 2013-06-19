@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.pm.PackageInfo;
 import android.text.TextUtils;
 import com.baidu.android.pushservice.util.NoProGuard;
+import com.baidu.cyberplayer.sdk.internal.HttpUtils;
 import java.util.ArrayList;
 import java.util.Map;
 import org.json.JSONArray;
@@ -31,7 +32,7 @@ public class GetPackageInfo implements e, NoProGuard {
         }
         this.mContext = com.baidu.android.nebula.localserver.c.a().b();
         if (this.mContext != null) {
-            if (!com.baidu.android.nebula.localserver.a.a(this.mContext).a(aVar.a("Referer"))) {
+            if (!com.baidu.android.nebula.localserver.a.a(this.mContext).a(aVar.a(HttpUtils.HEADER_NAME_REFERER))) {
                 this.mErrcode = 4;
             }
             if (this.mErrcode != 4) {

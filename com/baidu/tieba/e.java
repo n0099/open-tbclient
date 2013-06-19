@@ -35,8 +35,8 @@ public class e extends com.baidu.adp.a.a {
         }
         com.baidu.tieba.account.a.a().c();
         TiebaApplication.t(true);
-        TiebaApplication.d().a(getClass().getName());
-        if (TiebaApplication.d().o()) {
+        TiebaApplication.e().a(getClass().getName());
+        if (TiebaApplication.e().p()) {
             try {
                 StatService.setAppChannel(com.baidu.tieba.a.i.a());
             } catch (Exception e) {
@@ -182,8 +182,8 @@ public class e extends com.baidu.adp.a.a {
     @Override // android.app.Activity
     public void onPause() {
         super.onPause();
-        TiebaApplication.d().aE();
-        if (TiebaApplication.d().o()) {
+        TiebaApplication.e().aF();
+        if (TiebaApplication.e().p()) {
             try {
                 StatService.onPause(this);
             } catch (Exception e) {
@@ -201,19 +201,19 @@ public class e extends com.baidu.adp.a.a {
     @Override // android.app.Activity
     public void onResume() {
         super.onResume();
-        if (TiebaApplication.d().ar() != this.b) {
-            this.b = TiebaApplication.d().ar();
+        if (TiebaApplication.e().as() != this.b) {
+            this.b = TiebaApplication.e().as();
             b(this.b);
         }
-        if (TiebaApplication.d().o()) {
+        if (TiebaApplication.e().p()) {
             try {
                 StatService.onResume(this);
             } catch (Exception e) {
                 com.baidu.tieba.d.ae.b(getClass().getName(), "onResume", e.getMessage());
             }
         }
-        TiebaApplication.d().aD();
-        TiebaApplication.d().a(getClass().getName());
+        TiebaApplication.e().aE();
+        TiebaApplication.e().a(getClass().getName());
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -239,12 +239,12 @@ public class e extends com.baidu.adp.a.a {
     /* JADX INFO: Access modifiers changed from: protected */
     public void a(int i, int i2) {
         Bitmap b;
-        if (!TiebaApplication.d().b(i2)) {
+        if (!TiebaApplication.e().b(i2)) {
             this.e = (GuidPageView) getLayoutInflater().inflate(R.layout.guid_page, (ViewGroup) null);
             if (this.e != null && (b = com.baidu.tieba.d.d.b(this, i)) != null) {
                 this.e.setBackgroundDrawable(new BitmapDrawable(b));
                 addContentView(this.e, new FrameLayout.LayoutParams(-1, -1));
-                TiebaApplication.d().c(i2);
+                TiebaApplication.e().c(i2);
             }
         } else if (this.e != null) {
             this.e.setVisibility(8);

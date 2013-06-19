@@ -19,4 +19,6 @@ public interface h {
     com.baidu.adp.lib.c.b d();
 
     void d(Context context, String str);
+
+    void e(Context context, String str);
 }

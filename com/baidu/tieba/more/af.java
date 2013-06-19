@@ -14,9 +14,9 @@ class af implements com.baidu.adp.widget.BdSwitchView.c {
     @Override // com.baidu.adp.widget.BdSwitchView.c
     public void a(View view, com.baidu.adp.widget.BdSwitchView.d dVar) {
         if (dVar == com.baidu.adp.widget.BdSwitchView.d.ON) {
-            TiebaApplication.d().l(true);
+            TiebaApplication.e().l(true);
         } else {
-            TiebaApplication.d().l(false);
+            TiebaApplication.e().l(false);
         }
         com.baidu.tieba.d.k.u();
     }

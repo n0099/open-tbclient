@@ -39,6 +39,9 @@ public class f extends ClickableSpan {
                 case DERTags.APPLICATION /* 64 */:
                     hVar.d(this.a, this.c);
                     return;
+                case DERTags.TAGGED /* 128 */:
+                    hVar.e(this.a, this.c);
+                    return;
                 default:
                     return;
             }

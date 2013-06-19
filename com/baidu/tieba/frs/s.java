@@ -69,7 +69,7 @@ class s implements Runnable {
                     if (bcVar != null) {
                         ArrayList m = bcVar.m();
                         int size = m.size();
-                        if (i5 < 13 && TiebaApplication.d().ap()) {
+                        if (i5 < 13 && TiebaApplication.e().aq()) {
                             int i6 = 0;
                             while (i6 < size) {
                                 if (((com.baidu.tieba.a.ag) m.get(i6)).a() == 3) {

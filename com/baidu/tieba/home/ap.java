@@ -84,7 +84,7 @@ public class ap extends BaseAdapter {
             if (item == null) {
                 return view3;
             }
-            com.baidu.tieba.d.ac.b(aqVar.a, TiebaApplication.d().ar());
+            com.baidu.tieba.d.ac.b(aqVar.a, TiebaApplication.e().as());
             String str = (String) item;
             if (this.d) {
                 aqVar.a.setText(str.concat(this.c));

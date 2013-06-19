@@ -158,7 +158,7 @@ public class c extends com.baidu.adp.lib.a.a {
                     } else {
                         sb2.append("&qulity=" + String.valueOf(45));
                     }
-                } else if (TiebaApplication.d().am() == 1) {
+                } else if (TiebaApplication.e().an() == 1) {
                     sb2.append("&qulity=" + String.valueOf(80));
                 } else {
                     sb2.append("&qulity=" + String.valueOf(45));

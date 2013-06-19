@@ -290,7 +290,7 @@ public class ad extends BaseAdapter {
                 afVar = (af) view.getTag();
                 view3 = view;
             }
-            int ar = TiebaApplication.d().ar();
+            int as = TiebaApplication.e().as();
             long itemId = getItemId(i);
             if (itemId == -1) {
                 afVar.i.setVisibility(8);
@@ -302,12 +302,12 @@ public class ad extends BaseAdapter {
                     afVar.g.setText(R.string.frs_pre);
                     afVar.h.setVisibility(8);
                 }
-                if (ar == 1) {
+                if (as == 1) {
                     afVar.f.setBackgroundResource(R.drawable.bg_list_all_1);
                 } else {
                     afVar.f.setBackgroundResource(R.drawable.bg_list_all);
                 }
-                com.baidu.tieba.d.ac.b(afVar.g, ar);
+                com.baidu.tieba.d.ac.b(afVar.g, as);
                 return view3;
             } else if (itemId == -2) {
                 afVar.i.setVisibility(8);
@@ -319,12 +319,12 @@ public class ad extends BaseAdapter {
                     afVar.g.setText(R.string.frs_next);
                     afVar.h.setVisibility(8);
                 }
-                if (ar == 1) {
+                if (as == 1) {
                     afVar.f.setBackgroundResource(R.drawable.bg_list_all_1);
                 } else {
                     afVar.f.setBackgroundResource(R.drawable.bg_list_all);
                 }
-                com.baidu.tieba.d.ac.b(afVar.g, ar);
+                com.baidu.tieba.d.ac.b(afVar.g, as);
                 return view3;
             } else {
                 afVar.i.setVisibility(0);
@@ -347,10 +347,10 @@ public class ad extends BaseAdapter {
                 date.setTime(bcVar.d() * 1000);
                 afVar.k.setText(com.baidu.tieba.d.ad.e(date));
                 afVar.l.setText(bcVar.n());
-                com.baidu.tieba.d.ab ay = TiebaApplication.d().ay();
-                if (ay != null && ay.b(bcVar.a())) {
+                com.baidu.tieba.d.ab az = TiebaApplication.e().az();
+                if (az != null && az.b(bcVar.a())) {
                     afVar.l.setTextColor(this.a.getResources().getColor(R.color.read_thread_color));
-                } else if (ar == 1) {
+                } else if (as == 1) {
                     afVar.l.setTextColor(-8682095);
                 } else {
                     afVar.l.setTextColor(-16777216);
@@ -415,7 +415,7 @@ public class ad extends BaseAdapter {
                 } else {
                     afVar.a.setVisibility(8);
                 }
-                if (ar == 1) {
+                if (as == 1) {
                     afVar.b.setBackgroundResource(R.drawable.bg_list_top_1);
                     afVar.c.setBackgroundResource(R.drawable.bg_list_bottom_1);
                     afVar.d.setTextColor(-10523526);

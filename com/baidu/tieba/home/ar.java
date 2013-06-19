@@ -148,7 +148,7 @@ public class ar extends BaseAdapter {
                 asVar = (as) view.getTag();
                 atVar = null;
             }
-            int ar = TiebaApplication.d().ar();
+            int as = TiebaApplication.e().as();
             if (getItemViewType(i) == 0) {
                 av avVar = (av) getItem(i);
                 if (avVar != null) {
@@ -161,18 +161,18 @@ public class ar extends BaseAdapter {
                         atVar.b.setText(Html.fromHtml(com.baidu.tieba.d.ad.a(avVar.f(), (Color) null)));
                     }
                     atVar.c.setText(Html.fromHtml(com.baidu.tieba.d.ad.a(avVar.e(), (Color) null)));
-                    com.baidu.tieba.d.ac.b(atVar.b, ar);
-                    if (ar == 0) {
+                    com.baidu.tieba.d.ac.b(atVar.b, as);
+                    if (as == 0) {
                         com.baidu.tieba.d.ac.h(atVar.e, (int) R.drawable.search_replay_back);
                         atVar.d.setTextColor(this.b.getResources().getColor(R.color.search_text_forum));
                         atVar.a.setTextColor(this.b.getResources().getColor(R.color.search_text_forum));
                         atVar.b.setTextColor(this.b.getResources().getColor(R.color.search_text_content));
                     } else {
                         com.baidu.tieba.d.ac.h(atVar.e, (int) R.drawable.search_replay_back_1);
-                        atVar.d.setTextColor(com.baidu.tieba.d.ac.c(ar));
-                        atVar.a.setTextColor(com.baidu.tieba.d.ac.c(ar));
-                        atVar.b.setTextColor(com.baidu.tieba.d.ac.a(ar));
-                        atVar.c.setTextColor(com.baidu.tieba.d.ac.b(ar));
+                        atVar.d.setTextColor(com.baidu.tieba.d.ac.c(as));
+                        atVar.a.setTextColor(com.baidu.tieba.d.ac.c(as));
+                        atVar.b.setTextColor(com.baidu.tieba.d.ac.a(as));
+                        atVar.c.setTextColor(com.baidu.tieba.d.ac.b(as));
                     }
                 }
             } else if (getItemId(i) == -1) {
@@ -183,7 +183,7 @@ public class ar extends BaseAdapter {
                     asVar.b.setVisibility(8);
                     asVar.a.setText(this.b.getString(R.string.pre_page));
                 }
-                com.baidu.tieba.d.ac.b(asVar.a, ar);
+                com.baidu.tieba.d.ac.b(asVar.a, as);
             } else {
                 if (this.c == 2) {
                     asVar.b.setVisibility(0);
@@ -192,7 +192,7 @@ public class ar extends BaseAdapter {
                     asVar.b.setVisibility(8);
                     asVar.a.setText(this.b.getString(R.string.next_page));
                 }
-                com.baidu.tieba.d.ac.b(asVar.a, ar);
+                com.baidu.tieba.d.ac.b(asVar.a, as);
             }
         }
         return view;

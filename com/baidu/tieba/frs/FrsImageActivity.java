@@ -60,7 +60,7 @@ public class FrsImageActivity extends com.baidu.tieba.e implements com.baidu.adp
 
     @Override // com.baidu.tieba.e
     public boolean e() {
-        return TiebaApplication.d().r();
+        return TiebaApplication.e().s();
     }
 
     public static void a(Context context, String str, String str2, int i) {
@@ -111,8 +111,8 @@ public class FrsImageActivity extends com.baidu.tieba.e implements com.baidu.adp
     @Override // com.baidu.tieba.e, android.app.Activity
     public void onResume() {
         super.onResume();
-        String B = TiebaApplication.B();
-        if (B != null && B.length() > 0) {
+        String C = TiebaApplication.C();
+        if (C != null && C.length() > 0) {
             this.n.b().a(true);
         } else {
             this.n.b().a(false);
@@ -131,8 +131,8 @@ public class FrsImageActivity extends com.baidu.tieba.e implements com.baidu.adp
 
     /* JADX INFO: Access modifiers changed from: private */
     public void c(int i) {
-        String B = TiebaApplication.B();
-        if (B == null || B.length() <= 0) {
+        String C = TiebaApplication.C();
+        if (C == null || C.length() <= 0) {
             if (this.t != null && this.t.e() != null) {
                 this.t.e().a(1);
             }
@@ -297,7 +297,7 @@ public class FrsImageActivity extends com.baidu.tieba.e implements com.baidu.adp
         if (footer == null) {
             View inflate = LayoutInflater.from(this).inflate(R.layout.water_page, (ViewGroup) null);
             this.n.a().b(inflate);
-            com.baidu.tieba.d.ac.b((TextView) inflate.findViewById(R.id.page_text), TiebaApplication.d().ar());
+            com.baidu.tieba.d.ac.b((TextView) inflate.findViewById(R.id.page_text), TiebaApplication.e().as());
             inflate.setOnClickListener(new ak(this));
             return inflate;
         }
@@ -313,7 +313,7 @@ public class FrsImageActivity extends com.baidu.tieba.e implements com.baidu.adp
             TextView textView = (TextView) inflate.findViewById(R.id.page_text);
             textView.setText(R.string.pre_page);
             textView.setVisibility(0);
-            com.baidu.tieba.d.ac.b(textView, TiebaApplication.d().ar());
+            com.baidu.tieba.d.ac.b(textView, TiebaApplication.e().as());
             ((ProgressBar) inflate.findViewById(R.id.progress)).setVisibility(8);
             this.n.a().a(inflate);
             inflate.setOnClickListener(new al(this));
@@ -377,8 +377,8 @@ public class FrsImageActivity extends com.baidu.tieba.e implements com.baidu.adp
         this.p = new com.baidu.tieba.c.x(this);
         this.q = new com.baidu.tieba.c.j();
         this.q.a(new am(this));
-        String B = TiebaApplication.B();
-        if (B != null && B.length() > 0) {
+        String C = TiebaApplication.C();
+        if (C != null && C.length() > 0) {
             p();
             r();
             this.q.a(false, true, true);
@@ -387,10 +387,10 @@ public class FrsImageActivity extends com.baidu.tieba.e implements com.baidu.adp
     }
 
     private void p() {
-        this.p.a(TiebaApplication.d().ad());
-        this.p.c(TiebaApplication.d().ab());
-        this.p.b(TiebaApplication.d().ac());
-        this.p.d(TiebaApplication.d().ae());
+        this.p.a(TiebaApplication.e().ae());
+        this.p.c(TiebaApplication.e().ac());
+        this.p.b(TiebaApplication.e().ad());
+        this.p.d(TiebaApplication.e().af());
         this.n.a(this.p);
     }
 
@@ -523,31 +523,31 @@ public class FrsImageActivity extends com.baidu.tieba.e implements com.baidu.adp
     public void a(View view, com.baidu.adp.widget.BdSwitchView.d dVar) {
         if (view == this.n.b().c()) {
             if (dVar == com.baidu.adp.widget.BdSwitchView.d.ON) {
-                if (!TiebaApplication.d().ap() && TiebaApplication.d().o()) {
+                if (!TiebaApplication.e().aq() && TiebaApplication.e().p()) {
                     StatService.onEvent(this, "frs_abstract", "frsclick", 1);
                 }
-                TiebaApplication.d().r(true);
+                TiebaApplication.e().r(true);
                 return;
             }
-            if (TiebaApplication.d().ap() && TiebaApplication.d().o()) {
+            if (TiebaApplication.e().aq() && TiebaApplication.e().p()) {
                 StatService.onEvent(this, "frs_abstract", "frsclick", 1);
             }
-            TiebaApplication.d().r(false);
+            TiebaApplication.e().r(false);
         } else if (view == this.n.b().d()) {
             if (dVar == com.baidu.adp.widget.BdSwitchView.d.ON) {
-                if (TiebaApplication.d().ar() != 1) {
-                    if (TiebaApplication.d().o()) {
+                if (TiebaApplication.e().as() != 1) {
+                    if (TiebaApplication.e().p()) {
                         StatService.onEvent(this, "frs_night_mode", "frsclick", 1);
                     }
-                    TiebaApplication.d().j(1);
+                    TiebaApplication.e().j(1);
                     this.b = 1;
                     b(this.b);
                     new com.baidu.tieba.account.af("eyeshield").start();
                 } else {
                     return;
                 }
-            } else if (TiebaApplication.d().ar() != 0) {
-                TiebaApplication.d().j(0);
+            } else if (TiebaApplication.e().as() != 0) {
+                TiebaApplication.e().j(0);
                 this.b = 0;
                 b(this.b);
             } else {

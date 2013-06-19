@@ -13,9 +13,12 @@ import java.lang.Thread;
 import java.util.List;
 /* loaded from: classes.dex */
 public class af implements Thread.UncaughtExceptionHandler {
-    /* JADX WARN: Removed duplicated region for block: B:64:0x01a7 A[Catch: Exception -> 0x01ce, TryCatch #0 {Exception -> 0x01ce, blocks: (B:62:0x01a2, B:64:0x01a7, B:66:0x01ac), top: B:95:0x01a2 }] */
-    /* JADX WARN: Removed duplicated region for block: B:66:0x01ac A[Catch: Exception -> 0x01ce, TRY_LEAVE, TryCatch #0 {Exception -> 0x01ce, blocks: (B:62:0x01a2, B:64:0x01a7, B:66:0x01ac), top: B:95:0x01a2 }] */
-    /* JADX WARN: Removed duplicated region for block: B:95:0x01a2 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    private Thread.UncaughtExceptionHandler a = Thread.getDefaultUncaughtExceptionHandler();
+
+    /* JADX WARN: Removed duplicated region for block: B:110:0x01b2 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:72:0x01b7 A[Catch: Exception -> 0x01ef, TryCatch #0 {Exception -> 0x01ef, blocks: (B:70:0x01b2, B:72:0x01b7, B:74:0x01bc), top: B:110:0x01b2 }] */
+    /* JADX WARN: Removed duplicated region for block: B:74:0x01bc A[Catch: Exception -> 0x01ef, TRY_LEAVE, TryCatch #0 {Exception -> 0x01ef, blocks: (B:70:0x01b2, B:72:0x01b7, B:74:0x01bc), top: B:110:0x01b2 }] */
+    /* JADX WARN: Removed duplicated region for block: B:77:0x01c5  */
     @Override // java.lang.Thread.UncaughtExceptionHandler
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -53,13 +56,13 @@ public class af implements Thread.UncaughtExceptionHandler {
                                 a(fileWriter, "android_version", Build.VERSION.RELEASE);
                                 a(fileWriter, "android_sdk", String.valueOf(Build.VERSION.SDK_INT));
                                 a(fileWriter, "from", com.baidu.tieba.a.i.a());
-                                a(fileWriter, "uid", TiebaApplication.B());
-                                a(fileWriter, "client_id", TiebaApplication.N());
-                                a(fileWriter, "imei", TiebaApplication.d().k());
-                                a(fileWriter, "uname", TiebaApplication.F());
-                                a(fileWriter, "activity", TiebaApplication.d().e());
+                                a(fileWriter, "uid", TiebaApplication.C());
+                                a(fileWriter, "client_id", TiebaApplication.O());
+                                a(fileWriter, "imei", TiebaApplication.e().l());
+                                a(fileWriter, "uname", TiebaApplication.G());
+                                a(fileWriter, "activity", TiebaApplication.e().f());
                                 a(fileWriter, "maxMemory", String.valueOf(Runtime.getRuntime().maxMemory()));
-                                List<ActivityManager.RunningAppProcessInfo> runningAppProcesses = ((ActivityManager) TiebaApplication.d().getSystemService("activity")).getRunningAppProcesses();
+                                List<ActivityManager.RunningAppProcessInfo> runningAppProcesses = ((ActivityManager) TiebaApplication.e().getSystemService("activity")).getRunningAppProcesses();
                                 int myPid = Process.myPid();
                                 if (runningAppProcesses != null) {
                                     int i = 0;
@@ -79,14 +82,14 @@ public class af implements Thread.UncaughtExceptionHandler {
                                 fileWriter.append("\n");
                                 fileWriter.flush();
                                 if (str.contains("java.lang.SecurityException: No permission to modify given thread")) {
-                                    TiebaApplication.d().l(TiebaApplication.d().as() + 1);
+                                    TiebaApplication.e().l(TiebaApplication.e().at() + 1);
                                 } else if (str.contains("com.baidu.location")) {
-                                    TiebaApplication.d().av();
+                                    TiebaApplication.e().aw();
                                 } else if (str.contains("Couldn't load mtprocessor-jni")) {
-                                    TiebaApplication.d().e(false);
+                                    TiebaApplication.e().e(false);
                                 }
-                                if (TiebaApplication.d().e() != null && TiebaApplication.d().e().indexOf("NewVcodeActivity") != -1) {
-                                    TiebaApplication.d().n(TiebaApplication.d().au() + 1);
+                                if (TiebaApplication.e().f() != null && TiebaApplication.e().f().indexOf("NewVcodeActivity") != -1) {
+                                    TiebaApplication.e().n(TiebaApplication.e().av() + 1);
                                 }
                                 fileWriter2 = fileWriter;
                             } catch (Exception e) {
@@ -101,8 +104,13 @@ public class af implements Thread.UncaughtExceptionHandler {
                                             printStream2.close();
                                         } catch (Exception e2) {
                                             e2.printStackTrace();
-                                            Process.killProcess(Process.myPid());
-                                            return;
+                                            if (!com.baidu.tieba.a.i.s() && this.a != null) {
+                                                this.a.uncaughtException(thread, th);
+                                                return;
+                                            } else {
+                                                Process.killProcess(Process.myPid());
+                                                return;
+                                            }
                                         }
                                     }
                                     if (byteArrayOutputStream2 != null) {
@@ -110,6 +118,8 @@ public class af implements Thread.UncaughtExceptionHandler {
                                     }
                                     if (fileWriter2 != null) {
                                         fileWriter2.close();
+                                    }
+                                    if (!com.baidu.tieba.a.i.s()) {
                                     }
                                     Process.killProcess(Process.myPid());
                                     return;
@@ -124,6 +134,8 @@ public class af implements Thread.UncaughtExceptionHandler {
                                     }
                                     if (fileWriter != null) {
                                     }
+                                    if (!com.baidu.tieba.a.i.s()) {
+                                    }
                                     Process.killProcess(Process.myPid());
                                     throw th;
                                 }
@@ -135,57 +147,69 @@ public class af implements Thread.UncaughtExceptionHandler {
                                 }
                                 if (fileWriter != null) {
                                 }
+                                if (!com.baidu.tieba.a.i.s()) {
+                                }
                                 Process.killProcess(Process.myPid());
                                 throw th;
                             }
                         }
-                    } catch (Throwable th4) {
-                        th = th4;
-                        fileWriter = null;
+                    } catch (Exception e3) {
+                        e = e3;
+                        printStream2 = printStream;
+                        byteArrayOutputStream2 = byteArrayOutputStream;
                     }
-                    try {
-                        if (!TextUtils.isEmpty(str)) {
-                            ae.a(str);
+                } catch (Throwable th4) {
+                    th = th4;
+                    fileWriter = null;
+                }
+                try {
+                    if (!TextUtils.isEmpty(str)) {
+                        ae.a(str);
+                    }
+                    if (printStream != null) {
+                        try {
+                            printStream.close();
+                        } catch (Exception e4) {
+                            e4.printStackTrace();
                         }
-                        if (printStream != null) {
-                            try {
-                                printStream.close();
-                            } catch (Exception e3) {
-                                e3.printStackTrace();
-                            }
-                        }
-                        if (byteArrayOutputStream != null) {
-                            byteArrayOutputStream.close();
-                        }
-                        if (fileWriter2 != null) {
-                            fileWriter2.close();
-                        }
+                    }
+                    if (byteArrayOutputStream != null) {
+                        byteArrayOutputStream.close();
+                    }
+                    if (fileWriter2 != null) {
+                        fileWriter2.close();
+                    }
+                    if (com.baidu.tieba.a.i.s() && this.a != null) {
+                        this.a.uncaughtException(thread, th);
+                    } else {
                         Process.killProcess(Process.myPid());
-                    } catch (Throwable th5) {
-                        th = th5;
-                        fileWriter = fileWriter2;
-                        if (printStream != null) {
-                            try {
-                                printStream.close();
-                            } catch (Exception e4) {
-                                e4.printStackTrace();
+                    }
+                } catch (Throwable th5) {
+                    th = th5;
+                    fileWriter = fileWriter2;
+                    if (printStream != null) {
+                        try {
+                            printStream.close();
+                        } catch (Exception e5) {
+                            e5.printStackTrace();
+                            if (!com.baidu.tieba.a.i.s() && this.a != null) {
+                                this.a.uncaughtException(thread, th);
+                            } else {
                                 Process.killProcess(Process.myPid());
-                                throw th;
                             }
+                            throw th;
                         }
-                        if (byteArrayOutputStream != null) {
-                            byteArrayOutputStream.close();
-                        }
-                        if (fileWriter != null) {
-                            fileWriter.close();
-                        }
-                        Process.killProcess(Process.myPid());
-                        throw th;
                     }
-                } catch (Exception e5) {
-                    e = e5;
-                    printStream2 = printStream;
-                    byteArrayOutputStream2 = byteArrayOutputStream;
+                    if (byteArrayOutputStream != null) {
+                        byteArrayOutputStream.close();
+                    }
+                    if (fileWriter != null) {
+                        fileWriter.close();
+                    }
+                    if (!com.baidu.tieba.a.i.s()) {
+                    }
+                    Process.killProcess(Process.myPid());
+                    throw th;
                 }
             } catch (Exception e6) {
                 e = e6;

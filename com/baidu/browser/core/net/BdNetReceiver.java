@@ -7,7 +7,7 @@ import android.database.Cursor;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.Uri;
-import com.baidu.loginshare.e;
+import com.baidu.cyberplayer.sdk.internal.HttpUtils;
 /* loaded from: classes.dex */
 public class BdNetReceiver extends BroadcastReceiver {
     private static final Uri URI_PREFER_APN = Uri.parse("content://telephony/carriers/preferapn");
@@ -60,10 +60,10 @@ public class BdNetReceiver extends BroadcastReceiver {
                     String string2 = query.getString(2);
                     String string3 = query.getString(3);
                     if (string2 != null && string2.length() > 0) {
-                        if (e.h.equals(string2.trim())) {
+                        if ("10.0.0.172".equals(string2.trim())) {
                             this.mIsCmwap = true;
                             this.mWapApnUrl = "10.0.0.172:80";
-                        } else if ("10.0.0.200".equals(string2.trim())) {
+                        } else if (HttpUtils.IP_CTWAP.equals(string2.trim())) {
                             this.mIsCmwap = true;
                             this.mWapApnUrl = "10.0.0.200:80";
                         } else {

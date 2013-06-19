@@ -26,7 +26,7 @@ class c extends com.baidu.adp.lib.a.a {
     public String a(String... strArr) {
         int i = this.b.getExtras().getInt("class", -1);
         if (i != 5) {
-            for (ActivityManager.RunningTaskInfo runningTaskInfo : ((ActivityManager) TiebaApplication.d().getSystemService("activity")).getRunningTasks(BdWebErrorView.ERROR_CODE_500)) {
+            for (ActivityManager.RunningTaskInfo runningTaskInfo : ((ActivityManager) TiebaApplication.e().getSystemService("activity")).getRunningTasks(BdWebErrorView.ERROR_CODE_500)) {
                 if (runningTaskInfo.baseActivity.getClassName().startsWith(this.a.getPackageName())) {
                     switch (i) {
                         case 0:

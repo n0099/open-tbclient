@@ -48,7 +48,7 @@ public class bg extends BaseAdapter {
     private void f() {
         this.e = Math.min(com.baidu.tieba.d.ag.a(this.b, 267.0f), (int) BdWebErrorView.ERROR_CODE_400);
         g();
-        this.o = TiebaApplication.d().ar();
+        this.o = TiebaApplication.e().as();
     }
 
     private void g() {
@@ -174,7 +174,7 @@ public class bg extends BaseAdapter {
         bhVar.h.setOnImageClickListener(this.j);
         com.baidu.tieba.d.ac.e(bhVar.b, this.o);
         com.baidu.tieba.d.ac.d(bhVar.e, this.o);
-        if (TiebaApplication.d().ar() == 1) {
+        if (TiebaApplication.e().as() == 1) {
             bhVar.h.setTextColor(this.b.getResources().getColor(R.color.gray_night_1));
             com.baidu.tieba.d.ac.h((View) bhVar.f, (int) R.drawable.common_image_btn_selector_1);
             bhVar.f.setTextColor(this.b.getResources().getColorStateList(R.color.common_image_btn_color_1));
@@ -204,7 +204,7 @@ public class bg extends BaseAdapter {
             bhVar.d.setText((CharSequence) null);
             bhVar.f.setVisibility(0);
             bhVar.d.setCompoundDrawablesWithIntrinsicBounds(0, 0, 0, 0);
-            if (TiebaApplication.d().ar() == 1) {
+            if (TiebaApplication.e().as() == 1) {
                 bhVar.i.setBackgroundResource(R.drawable.bg_list_top_1);
                 bhVar.j.setBackgroundResource(R.drawable.bg_list_bottom_1);
                 bhVar.h.setVideoImageId(R.drawable.pic_video_1);
@@ -268,7 +268,7 @@ public class bg extends BaseAdapter {
                     this.k = new bi(this.b, this.h);
                     this.k.a(this.m);
                     String a = this.a.b().g().a();
-                    this.k.a(this.a.l(), a != null && a.equals(TiebaApplication.B()));
+                    this.k.a(this.a.l(), a != null && a.equals(TiebaApplication.C()));
                     this.k.a(this.d);
                 }
                 bhVar.j.removeAllViews();
@@ -302,7 +302,7 @@ public class bg extends BaseAdapter {
                     bhVar.j.addView(inflate);
                     a((TextView) inflate.findViewById(R.id.sub_pb_more_text), arVar.k() - a2.size());
                     ImageView imageView = (ImageView) inflate.findViewById(R.id.image);
-                    if (TiebaApplication.d().ar() == 1) {
+                    if (TiebaApplication.e().as() == 1) {
                         imageView.setBackgroundResource(R.drawable.icon_little_down_1);
                     } else {
                         imageView.setBackgroundResource(R.drawable.icon_little_down);
@@ -318,7 +318,7 @@ public class bg extends BaseAdapter {
                 }
             } else {
                 bhVar.j.setVisibility(8);
-                if (TiebaApplication.d().ar() == 1) {
+                if (TiebaApplication.e().as() == 1) {
                     bhVar.i.setBackgroundResource(R.drawable.bg_list_all_1);
                 } else {
                     bhVar.i.setBackgroundResource(R.drawable.bg_list_all);
@@ -347,7 +347,7 @@ public class bg extends BaseAdapter {
             bhVar.h.a();
             if (this.a.l() != 0) {
                 String a3 = arVar.h().a();
-                boolean z5 = a3 == null || !a3.equals(TiebaApplication.B());
+                boolean z5 = a3 == null || !a3.equals(TiebaApplication.C());
                 if (a3 == null || a3.equals("0") || a3.length() == 0) {
                     z = false;
                     z2 = true;
@@ -359,9 +359,9 @@ public class bg extends BaseAdapter {
                 }
             } else {
                 String a4 = this.a.b().g().a();
-                if (a4 == null || !a4.equals(TiebaApplication.B())) {
+                if (a4 == null || !a4.equals(TiebaApplication.C())) {
                     String a5 = arVar.h().a();
-                    if (a5 == null || !a5.equals(TiebaApplication.B())) {
+                    if (a5 == null || !a5.equals(TiebaApplication.C())) {
                         z = false;
                         z2 = false;
                         z3 = false;
@@ -376,7 +376,7 @@ public class bg extends BaseAdapter {
                     z3 = false;
                 }
             }
-            if (TiebaApplication.d().ar() == 1) {
+            if (TiebaApplication.e().as() == 1) {
                 com.baidu.tieba.d.ac.h((View) bhVar.g, (int) R.drawable.common_image_btn_selector_1);
                 bhVar.g.setTextColor(this.b.getResources().getColorStateList(R.color.common_image_btn_color_1));
             } else {
@@ -386,7 +386,7 @@ public class bg extends BaseAdapter {
             if (z2 && z3) {
                 bhVar.g.setVisibility(0);
                 bhVar.g.setText(R.string.manage);
-                if (TiebaApplication.d().ar() == 1) {
+                if (TiebaApplication.e().as() == 1) {
                     bhVar.g.setCompoundDrawablesWithIntrinsicBounds(R.drawable.btn_manage_dl_selector_1, 0, 0, 0);
                 } else {
                     bhVar.g.setCompoundDrawablesWithIntrinsicBounds(R.drawable.btn_manage_dl_selector, 0, 0, 0);
@@ -394,7 +394,7 @@ public class bg extends BaseAdapter {
             } else if (z2) {
                 bhVar.g.setVisibility(0);
                 bhVar.g.setText(R.string.delete);
-                if (TiebaApplication.d().ar() == 1) {
+                if (TiebaApplication.e().as() == 1) {
                     bhVar.g.setCompoundDrawablesWithIntrinsicBounds(R.drawable.btn_delete_dl_selector_1, 0, 0, 0);
                 } else {
                     bhVar.g.setCompoundDrawablesWithIntrinsicBounds(R.drawable.btn_delete_dl_selector, 0, 0, 0);
@@ -428,11 +428,11 @@ public class bg extends BaseAdapter {
     }
 
     public static void a(TextView textView, int i) {
-        String string = TiebaApplication.d().getString(R.string.sub_pb_load_more);
+        String string = TiebaApplication.e().getString(R.string.sub_pb_load_more);
         String valueOf = String.valueOf(i);
         int indexOf = string.indexOf("%d");
         SpannableString spannableString = new SpannableString(string.replace("%d", valueOf));
-        if (TiebaApplication.d().ar() == 1) {
+        if (TiebaApplication.e().as() == 1) {
             spannableString.setSpan(new ForegroundColorSpan(-12687203), indexOf, valueOf.length() + indexOf, 33);
         } else {
             spannableString.setSpan(new ForegroundColorSpan(-12810784), indexOf, valueOf.length() + indexOf, 33);

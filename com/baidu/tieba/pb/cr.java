@@ -158,7 +158,7 @@ public class cr {
     private void r() {
         this.x = Math.min(com.baidu.tieba.d.ag.a(this.e, 267.0f), (int) BdWebErrorView.ERROR_CODE_400);
         s();
-        c(TiebaApplication.d().ar());
+        c(TiebaApplication.e().as());
     }
 
     private void s() {
@@ -253,7 +253,7 @@ public class cr {
         }
         this.F.requestFocus();
         this.e.a(this.F, 200);
-        if (TiebaApplication.d().o()) {
+        if (TiebaApplication.e().p()) {
             StatService.onEvent(this.e, "subpb_write", "subpbclick", 1);
         }
     }
@@ -295,7 +295,7 @@ public class cr {
             this.o.a(ayVar.d() - ayVar.b().size());
             this.d.a(ayVar.b());
             boolean z = false;
-            if (ayVar.l() != null && ayVar.l().g() != null && (a = ayVar.l().g().a()) != null && a.equals(TiebaApplication.B())) {
+            if (ayVar.l() != null && ayVar.l().g() != null && (a = ayVar.l().g().a()) != null && a.equals(TiebaApplication.C())) {
                 z = true;
             }
             this.d.a(i, z);
@@ -339,13 +339,13 @@ public class cr {
             this.j.setText((CharSequence) null);
             this.m.setOnClickListener(this.t);
             this.j.setCompoundDrawablesWithIntrinsicBounds(0, 0, 0, 0);
-            int ar = TiebaApplication.d().ar();
+            int as = TiebaApplication.e().as();
             Resources resources = this.e.getResources();
-            com.baidu.tieba.d.ac.d(this.k, ar);
-            com.baidu.tieba.d.ac.e(this.h, ar);
+            com.baidu.tieba.d.ac.d(this.k, as);
+            com.baidu.tieba.d.ac.e(this.h, as);
             this.k.setText(com.baidu.tieba.d.ad.e(new Date(arVar.g())));
             if (z) {
-                if (ar == 1) {
+                if (as == 1) {
                     if (z2) {
                         this.j.setBackgroundResource(R.drawable.icon_floorhost_collect_1);
                     } else {
@@ -357,7 +357,7 @@ public class cr {
                     this.j.setBackgroundResource(R.drawable.icon_floorhost);
                 }
             } else {
-                if (ar == 1) {
+                if (as == 1) {
                     com.baidu.tieba.d.ac.h((View) this.j, (int) R.drawable.pb_list_floor_number_1);
                     if (z2) {
                         this.j.setCompoundDrawablesWithIntrinsicBounds(R.drawable.icon_collect_1, 0, 0, 0);

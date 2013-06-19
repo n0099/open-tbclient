@@ -208,7 +208,7 @@ public class RequestQueue implements RequestFeeder {
                         str = "10.0.0.172";
                         i2 = 80;
                     } else if (lowerCase.startsWith("ctwap")) {
-                        str = PROXY_HOST_CTWAP;
+                        str = "10.0.0.200";
                         i2 = 80;
                     } else if (lowerCase.startsWith("cmnet") || lowerCase.startsWith("uninet") || lowerCase.startsWith("ctnet") || lowerCase.startsWith("3gnet")) {
                         str = null;
@@ -228,9 +228,9 @@ public class RequestQueue implements RequestFeeder {
                                 if ("10.0.0.172".equals(string2.trim())) {
                                     i = 80;
                                     str2 = "10.0.0.172";
-                                } else if (PROXY_HOST_CTWAP.equals(string2.trim())) {
+                                } else if ("10.0.0.200".equals(string2.trim())) {
                                     i = 80;
-                                    str2 = PROXY_HOST_CTWAP;
+                                    str2 = "10.0.0.200";
                                 }
                                 query.close();
                             } else if (string != null && string.length() > 0) {
@@ -240,7 +240,7 @@ public class RequestQueue implements RequestFeeder {
                                     str2 = "10.0.0.172";
                                 } else if (upperCase.equals("CTWAP")) {
                                     i = 80;
-                                    str2 = PROXY_HOST_CTWAP;
+                                    str2 = "10.0.0.200";
                                 } else if (string3 != null && string3.toUpperCase().startsWith("CMWAP")) {
                                     i = 80;
                                     str2 = "10.0.0.172";

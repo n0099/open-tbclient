@@ -98,10 +98,10 @@ public class bi extends BaseAdapter {
         bjVar.e = (TbRichTextView) inflate.findViewById(R.id.richText);
         bjVar.f = inflate.findViewById(R.id.line_divider);
         bjVar.b.setOnClickListener(this.e);
-        int ar = TiebaApplication.d().ar();
+        int as = TiebaApplication.e().as();
         bjVar.e.setTextSize(com.baidu.tieba.a.i.p());
-        com.baidu.tieba.d.ac.d(bjVar.c, ar);
-        if (TiebaApplication.d().ar() == 1) {
+        com.baidu.tieba.d.ac.d(bjVar.c, as);
+        if (TiebaApplication.e().as() == 1) {
             bjVar.e.setTextColor(this.b.getResources().getColor(R.color.gray_night_3));
             bjVar.f.setBackgroundResource(R.drawable.line_comment_1);
         } else {
@@ -153,7 +153,7 @@ public class bi extends BaseAdapter {
             bjVar.c.setText(com.baidu.tieba.d.ad.e(new Date(arVar.g())));
             String a2 = arVar.h().a();
             if (this.f != 0) {
-                boolean z5 = a2 == null || !a2.equals(TiebaApplication.B());
+                boolean z5 = a2 == null || !a2.equals(TiebaApplication.C());
                 if (a2 == null || a2.equals("0") || a2.length() == 0) {
                     z2 = false;
                     z3 = true;
@@ -167,7 +167,7 @@ public class bi extends BaseAdapter {
                 z2 = false;
                 z3 = true;
                 z4 = false;
-            } else if (a2 == null || !a2.equals(TiebaApplication.B())) {
+            } else if (a2 == null || !a2.equals(TiebaApplication.C())) {
                 z2 = false;
                 z3 = false;
                 z4 = false;
@@ -176,17 +176,17 @@ public class bi extends BaseAdapter {
                 z3 = true;
                 z4 = false;
             }
-            int ar = TiebaApplication.d().ar();
+            int as = TiebaApplication.e().as();
             if (z3 && z4) {
                 bjVar.d.setVisibility(0);
-                if (ar == 1) {
+                if (as == 1) {
                     bjVar.d.setCompoundDrawablesWithIntrinsicBounds(R.drawable.icon_little_manage_selector_1, 0, 0, 0);
                 } else {
                     bjVar.d.setCompoundDrawablesWithIntrinsicBounds(R.drawable.icon_little_manage_selector, 0, 0, 0);
                 }
             } else if (z3) {
                 bjVar.d.setVisibility(0);
-                if (ar == 1) {
+                if (as == 1) {
                     bjVar.d.setCompoundDrawablesWithIntrinsicBounds(R.drawable.icon_little_delete_selector_1, 0, 0, 0);
                 } else {
                     bjVar.d.setCompoundDrawablesWithIntrinsicBounds(R.drawable.icon_little_delete_selector, 0, 0, 0);

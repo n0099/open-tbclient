@@ -102,9 +102,9 @@ public class NearbyPostActivity extends com.baidu.tieba.e {
                         kVar.a(0);
                         kVar.a(stringExtra2);
                         com.baidu.tieba.a.ai aiVar = new com.baidu.tieba.a.ai();
-                        aiVar.a(TiebaApplication.B());
-                        aiVar.b(TiebaApplication.F());
-                        aiVar.c(TiebaApplication.F());
+                        aiVar.a(TiebaApplication.C());
+                        aiVar.b(TiebaApplication.G());
+                        aiVar.c(TiebaApplication.G());
                         aiVar.a(1);
                         aiVar.d("");
                         this.d.a(stringExtra, kVar, getString(R.string.right_now), aiVar);
@@ -166,9 +166,9 @@ public class NearbyPostActivity extends com.baidu.tieba.e {
                 this.h = null;
             }
             if (i == 0) {
-                long y = TiebaApplication.d().y();
+                long z2 = TiebaApplication.e().z();
                 long currentTimeMillis = System.currentTimeMillis();
-                int i3 = (y == 0 || (y < currentTimeMillis && currentTimeMillis - y < com.baidu.tieba.a.i.d.longValue())) ? 1 : 0;
+                int i3 = (z2 == 0 || (z2 < currentTimeMillis && currentTimeMillis - z2 < com.baidu.tieba.a.i.d.longValue())) ? 1 : 0;
                 this.k.setVisibility(0);
                 i2 = i3;
             } else {

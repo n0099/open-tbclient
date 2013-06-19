@@ -14,9 +14,9 @@ class v implements com.baidu.adp.widget.BdSwitchView.c {
     @Override // com.baidu.adp.widget.BdSwitchView.c
     public void a(View view, com.baidu.adp.widget.BdSwitchView.d dVar) {
         if (dVar == com.baidu.adp.widget.BdSwitchView.d.ON) {
-            TiebaApplication.d().a((Boolean) true);
+            TiebaApplication.e().a((Boolean) true);
         } else {
-            TiebaApplication.d().a((Boolean) false);
+            TiebaApplication.e().a((Boolean) false);
         }
     }
 }

@@ -266,7 +266,7 @@ public class ah extends BaseAdapter {
 
     private void a(ak akVar) {
         try {
-            if (TiebaApplication.d().ar() == 1) {
+            if (TiebaApplication.e().as() == 1) {
                 akVar.i.setTextColor(com.baidu.tieba.d.ac.a(1));
                 akVar.k.setTextColor(com.baidu.tieba.d.ac.b(1));
                 akVar.g.setBackgroundColor(com.baidu.tieba.d.ac.d(1));
@@ -282,7 +282,7 @@ public class ah extends BaseAdapter {
 
     private void b(ak akVar) {
         try {
-            if (TiebaApplication.d().ar() == 1) {
+            if (TiebaApplication.e().as() == 1) {
                 akVar.a.setTextColor(com.baidu.tieba.d.ac.a(1));
                 akVar.c.setTextColor(com.baidu.tieba.d.ac.b(1));
             } else {
@@ -296,7 +296,7 @@ public class ah extends BaseAdapter {
 
     private void a(ak akVar, boolean z) {
         try {
-            if (TiebaApplication.d().ar() == 1) {
+            if (TiebaApplication.e().as() == 1) {
                 if (z) {
                     akVar.e.setTextColor(com.baidu.tieba.d.ac.a(1));
                 } else {

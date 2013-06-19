@@ -15,6 +15,7 @@ import android.os.Messenger;
 import android.os.Process;
 import android.util.Log;
 import com.baidu.android.pushservice.PushConstants;
+import com.baidu.cyberplayer.sdk.BVideoView;
 import com.baidu.mapapi.MKSearch;
 import com.baidu.mapapi.MapView;
 import com.baidu.zeus.WebChromeClient;
@@ -334,9 +335,9 @@ public final class f extends Service {
                 int readInt2 = randomAccessFile.readInt();
                 ap.a("baidu_location_service", "read trace log.." + readInt2);
                 if (readInt > 0) {
-                    randomAccessFile.seek((readInt2 * 800) + 24);
+                    randomAccessFile.seek((readInt2 * BVideoView.MEDIA_INFO_BAD_INTERLEAVING) + 24);
                     int readInt3 = randomAccessFile.readInt();
-                    byte[] bArr = new byte[800];
+                    byte[] bArr = new byte[BVideoView.MEDIA_INFO_BAD_INTERLEAVING];
                     randomAccessFile.read(bArr, 0, readInt3);
                     int readInt4 = randomAccessFile.readInt();
                     randomAccessFile.seek(0L);

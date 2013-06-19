@@ -1,5 +1,6 @@
 package com.baidu.tieba.nearby;
 
+import com.baidu.mapapi.MapView;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 class g implements Runnable {
@@ -16,6 +17,8 @@ class g implements Runnable {
         com.baidu.tieba.c.aj ajVar2;
         com.baidu.tieba.c.aj ajVar3;
         com.baidu.tieba.d.a aVar;
+        PostItemizedOverlay postItemizedOverlay;
+        MapView mapView;
         ajVar = this.a.h;
         if (ajVar != null) {
             ajVar2 = this.a.h;
@@ -26,8 +29,15 @@ class g implements Runnable {
                 while (true) {
                     int i2 = i;
                     if (i2 < a.size()) {
+                        String e = ((com.baidu.tieba.a.ae) a.get(i2)).a().e();
                         aVar = this.a.g;
-                        aVar.d(((com.baidu.tieba.a.ae) a.get(i2)).a().e(), new h(this));
+                        com.baidu.adp.widget.a.b d = aVar.d(e, new h(this));
+                        if (d != null) {
+                            postItemizedOverlay = this.a.f;
+                            postItemizedOverlay.a(e, d);
+                            mapView = this.a.b;
+                            mapView.invalidate();
+                        }
                         i = i2 + 1;
                     } else {
                         return;

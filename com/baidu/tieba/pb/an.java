@@ -15,7 +15,7 @@ class an extends com.baidu.adp.a.e {
         com.baidu.tieba.c.l lVar2;
         com.baidu.tieba.c.l lVar3;
         if (obj != null) {
-            lVar2 = this.a.n;
+            lVar2 = this.a.o;
             switch (lVar2.a()) {
                 case 0:
                     this.a.a((com.baidu.tieba.c.n) obj);
@@ -28,7 +28,7 @@ class an extends com.baidu.adp.a.e {
                 case 4:
                 case 5:
                     NewPbActivity newPbActivity = this.a;
-                    lVar3 = this.a.n;
+                    lVar3 = this.a.o;
                     newPbActivity.a(lVar3.a(), (com.baidu.tieba.c.r) obj);
                     return;
                 case 6:
@@ -38,8 +38,8 @@ class an extends com.baidu.adp.a.e {
                     return;
             }
         }
-        bkVar = this.a.o;
-        lVar = this.a.n;
+        bkVar = this.a.p;
+        lVar = this.a.o;
         bkVar.a(lVar.a(), false, (String) null, false);
     }
 }

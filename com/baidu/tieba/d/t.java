@@ -1,6 +1,7 @@
 package com.baidu.tieba.d;
 
 import android.content.Context;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -79,26 +80,26 @@ public class t {
     }
 
     private void m() {
-        String C = TiebaApplication.C();
-        if (C != null) {
-            this.a.a("BDUSS", C);
+        String D = TiebaApplication.D();
+        if (D != null) {
+            this.a.a("BDUSS", D);
         }
     }
 
     private void n() {
-        String C = TiebaApplication.C();
-        BasicNameValuePair basicNameValuePair = new BasicNameValuePair("BDUSS", C);
-        BasicNameValuePair basicNameValuePair2 = new BasicNameValuePair("tbs", TiebaApplication.d().M());
-        ae.a("NetWork", "modSessionData", "== BDUSS:" + C);
-        ae.a("NetWork", "modSessionData", "== TBS:" + TiebaApplication.d().M());
-        if (C != null) {
+        String D = TiebaApplication.D();
+        BasicNameValuePair basicNameValuePair = new BasicNameValuePair("BDUSS", D);
+        BasicNameValuePair basicNameValuePair2 = new BasicNameValuePair("tbs", TiebaApplication.e().N());
+        ae.a("NetWork", "modSessionData", "== BDUSS:" + D);
+        ae.a("NetWork", "modSessionData", "== TBS:" + TiebaApplication.e().N());
+        if (D != null) {
             ArrayList s = this.a.s();
             int size = s.size();
             for (int i = 0; i < size; i++) {
                 BasicNameValuePair basicNameValuePair3 = (BasicNameValuePair) s.get(i);
                 if (basicNameValuePair3.getName().equals("BDUSS")) {
                     s.set(i, basicNameValuePair);
-                } else if (basicNameValuePair3.getName().equals("tbs") && !TiebaApplication.i()) {
+                } else if (basicNameValuePair3.getName().equals("tbs") && !TiebaApplication.j()) {
                     s.set(i, basicNameValuePair2);
                 }
             }
@@ -112,29 +113,30 @@ public class t {
     private void o() {
         this.a.a("_client_type", "2");
         this.a.a("_client_version", com.baidu.tieba.a.i.i());
-        if (TiebaApplication.d().k() != null) {
-            this.a.a("_phone_imei", TiebaApplication.d().k());
+        if (TiebaApplication.e().l() != null) {
+            this.a.a("_phone_imei", TiebaApplication.e().l());
         }
-        String N = TiebaApplication.N();
-        if (N != null) {
-            this.a.a("_client_id", N);
+        String O = TiebaApplication.O();
+        if (O != null) {
+            this.a.a("_client_id", O);
         }
-        String v = TiebaApplication.v();
-        if (v != null && v.length() > 0) {
-            this.a.a("from", v);
+        String w = TiebaApplication.w();
+        if (w != null && w.length() > 0) {
+            this.a.a("from", w);
         }
         String b = this.a.b();
         if (b != null) {
             this.a.a("net_type", b);
         }
         if (this.c) {
-            this.a.a("tbs", TiebaApplication.d().M());
+            this.a.a("tbs", TiebaApplication.e().N());
         }
-        String j = TiebaApplication.d().j();
-        if (j != null) {
-            this.a.a("cuid", j);
+        String k = TiebaApplication.e().k();
+        if (k != null) {
+            this.a.a("cuid", k);
         }
         this.a.a("timestamp", Long.toString(System.currentTimeMillis()));
+        this.a.a("model", Build.MODEL);
     }
 
     private void p() {
@@ -237,11 +239,11 @@ public class t {
                 case 2:
                 case 5:
                     if (z) {
-                        Message obtainMessage = TiebaApplication.d().c.obtainMessage(1);
+                        Message obtainMessage = TiebaApplication.e().c.obtainMessage(1);
                         Bundle bundle = new Bundle();
                         bundle.putString("account", str);
                         obtainMessage.setData(bundle);
-                        TiebaApplication.d().c.sendMessage(obtainMessage);
+                        TiebaApplication.e().c.sendMessage(obtainMessage);
                     }
                     this.b.j();
                     break;
@@ -259,7 +261,7 @@ public class t {
     /* JADX INFO: Access modifiers changed from: private */
     public void q() {
         TiebaApplication.a((com.baidu.tieba.a.a) null);
-        TiebaApplication.d().c.sendMessage(TiebaApplication.d().c.obtainMessage(1));
+        TiebaApplication.e().c.sendMessage(TiebaApplication.e().c.obtainMessage(1));
     }
 
     private String a(int i) {
@@ -293,24 +295,24 @@ public class t {
         } else {
             if (this.a.h() == 1 && this.d) {
                 this.a.j();
-                if (TiebaApplication.i()) {
-                    String backgroundReLogin = BaiduAccount.get(TiebaApplication.d()).backgroundReLogin(TiebaApplication.F(), TiebaApplication.C(), new u(this), new v(this));
+                if (TiebaApplication.j()) {
+                    String backgroundReLogin = BaiduAccount.get(TiebaApplication.e()).backgroundReLogin(TiebaApplication.G(), TiebaApplication.D(), new u(this), new v(this));
                     if (backgroundReLogin != null) {
-                        k.b(TiebaApplication.F(), backgroundReLogin);
+                        k.b(TiebaApplication.G(), backgroundReLogin);
                         TiebaApplication.f(backgroundReLogin);
                         p = b(i);
                     } else {
                         p = null;
                     }
                 } else {
-                    com.baidu.tieba.a.a E = TiebaApplication.E();
-                    if (E == null) {
-                        E = k.n();
+                    com.baidu.tieba.a.a F = TiebaApplication.F();
+                    if (F == null) {
+                        F = k.n();
                     }
-                    if (E == null) {
-                        TiebaApplication.d().c.sendMessage(TiebaApplication.d().c.obtainMessage(1));
+                    if (F == null) {
+                        TiebaApplication.e().c.sendMessage(TiebaApplication.e().c.obtainMessage(1));
                         return null;
-                    } else if (a(E.b(), E.c(), true) == null) {
+                    } else if (a(F.b(), F.c(), true) == null) {
                         if (this.b != null) {
                             this.a.b(this.b.i());
                             return null;

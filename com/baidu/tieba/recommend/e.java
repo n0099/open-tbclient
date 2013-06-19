@@ -42,7 +42,7 @@ public class e extends com.baidu.adp.lib.a.a {
         this.b = new t(String.valueOf(com.baidu.tieba.a.i.e) + "c/s/tag/allthread");
         this.b.d(true);
         this.b.a(false);
-        if (TiebaApplication.d().ar() == 1) {
+        if (TiebaApplication.e().as() == 1) {
             this.b.a("night_type", "1");
         }
         this.b.a("_version_more", "1");
@@ -62,13 +62,13 @@ public class e extends com.baidu.adp.lib.a.a {
         if (q != null && q.length() > 0) {
             this.b.a("tid_list", q);
         }
-        String B = TiebaApplication.B();
-        if ((B == null || B.length() == 0) && (e = af.e()) != null && e.length() > 0) {
+        String C = TiebaApplication.C();
+        if ((C == null || C.length() == 0) && (e = af.e()) != null && e.length() > 0) {
             this.b.a("tag_info", e);
         }
-        Address aL = TiebaApplication.d().aL();
-        if (aL != null && TiebaApplication.d().p()) {
-            this.b.a("lbs", String.valueOf(String.valueOf(aL.getLatitude())) + "," + String.valueOf(aL.getLongitude()));
+        Address aM = TiebaApplication.e().aM();
+        if (aM != null && TiebaApplication.e().q()) {
+            this.b.a("lbs", String.valueOf(String.valueOf(aM.getLatitude())) + "," + String.valueOf(aM.getLongitude()));
         }
         try {
             this.c = this.b.i();

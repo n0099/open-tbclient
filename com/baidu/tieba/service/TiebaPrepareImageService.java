@@ -17,15 +17,15 @@ public class TiebaPrepareImageService extends Service {
     private Runnable g = new p(this);
 
     public static void a(int i, Uri uri, int i2) {
-        Intent intent = new Intent(TiebaApplication.d(), TiebaPrepareImageService.class);
+        Intent intent = new Intent(TiebaApplication.e(), TiebaPrepareImageService.class);
         intent.putExtra("request_code", i);
         intent.putExtra("max_size", i2);
         intent.setData(uri);
-        TiebaApplication.d().startService(intent);
+        TiebaApplication.e().startService(intent);
     }
 
     public static void a() {
-        TiebaApplication.d().stopService(new Intent(TiebaApplication.d(), TiebaPrepareImageService.class));
+        TiebaApplication.e().stopService(new Intent(TiebaApplication.e(), TiebaPrepareImageService.class));
     }
 
     @Override // android.app.Service
@@ -63,7 +63,7 @@ public class TiebaPrepareImageService extends Service {
         this.c = intent.getData();
         this.b = intent.getIntExtra("request_code", 0);
         this.f = intent.getIntExtra("max_size", 600);
-        TiebaApplication.d().a((com.baidu.tieba.e) null);
+        TiebaApplication.e().a((com.baidu.tieba.e) null);
         if (!a) {
             this.d = new q(this, this.b, this.c);
             this.d.execute(new Object[0]);

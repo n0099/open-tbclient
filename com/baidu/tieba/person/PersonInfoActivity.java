@@ -34,7 +34,7 @@ public class PersonInfoActivity extends com.baidu.tieba.e {
             Intent intent = new Intent(context, PersonInfoActivity.class);
             intent.putExtra("un", str);
             intent.putExtra("name", str2);
-            if (TiebaApplication.B() != null && TiebaApplication.B().equals(str)) {
+            if (TiebaApplication.C() != null && TiebaApplication.C().equals(str)) {
                 intent.putExtra("self", true);
             } else {
                 intent.putExtra("self", false);
@@ -128,10 +128,10 @@ public class PersonInfoActivity extends com.baidu.tieba.e {
         boolean z = false;
         super.onResume();
         if (this.d.d() == null || this.d.d().length() <= 0) {
-            if (TiebaApplication.B() != null) {
+            if (TiebaApplication.C() != null) {
                 this.d.a(true);
-                this.d.b(TiebaApplication.B());
-                this.d.c(TiebaApplication.F());
+                this.d.b(TiebaApplication.C());
+                this.d.c(TiebaApplication.G());
                 d();
                 b();
                 this.c.a(true);
@@ -139,27 +139,27 @@ public class PersonInfoActivity extends com.baidu.tieba.e {
             }
             this.c.a(false);
         } else if (this.d.e()) {
-            if (TiebaApplication.d().Y()) {
+            if (TiebaApplication.e().Z()) {
                 long currentTimeMillis = System.currentTimeMillis();
                 if (currentTimeMillis - this.f > 30000) {
-                    TiebaApplication.d().Z();
+                    TiebaApplication.e().aa();
                     this.f = currentTimeMillis;
                 }
             }
-            if (TiebaApplication.d().ad() != this.d.j()) {
-                this.d.a(TiebaApplication.d().ad());
+            if (TiebaApplication.e().ae() != this.d.j()) {
+                this.d.a(TiebaApplication.e().ae());
                 z = true;
             }
-            if (TiebaApplication.d().ab() != this.d.n()) {
-                this.d.d(TiebaApplication.d().ab());
+            if (TiebaApplication.e().ac() != this.d.n()) {
+                this.d.d(TiebaApplication.e().ac());
                 z = true;
             }
-            if (TiebaApplication.d().ac() != this.d.l()) {
-                this.d.c(TiebaApplication.d().ac());
+            if (TiebaApplication.e().ad() != this.d.l()) {
+                this.d.c(TiebaApplication.e().ad());
                 z = true;
             }
-            if (TiebaApplication.d().ae() != this.d.k()) {
-                this.d.b(TiebaApplication.d().ae());
+            if (TiebaApplication.e().af() != this.d.k()) {
+                this.d.b(TiebaApplication.e().af());
                 z = true;
             }
             if (z) {
@@ -191,8 +191,8 @@ public class PersonInfoActivity extends com.baidu.tieba.e {
         if (view == this.c.d()) {
             finish();
         } else if (view == this.c.e()) {
-            String B = TiebaApplication.B();
-            if ((B != null && B.length() > 0) || TiebaApplication.d().as() >= 3) {
+            String C = TiebaApplication.C();
+            if ((C != null && C.length() > 0) || TiebaApplication.e().at() >= 3) {
                 MainTabActivity.a(this, "goto_home");
             } else {
                 MainTabActivity.a(this, "goto_recommend");
@@ -216,7 +216,7 @@ public class PersonInfoActivity extends com.baidu.tieba.e {
             }
         } else if (view == this.c.i()) {
             if (this.d.e()) {
-                if (TiebaApplication.d().o()) {
+                if (TiebaApplication.e().p()) {
                     StatService.onEvent(this, "personal_my_collect", "personclick", 1);
                 }
                 EditMarkActivity.a(this, (int) WebChromeClient.STRING_DLG_TITLE_WEEK);
@@ -230,13 +230,13 @@ public class PersonInfoActivity extends com.baidu.tieba.e {
             }
         } else if (view == this.c.k()) {
             if (this.d.e()) {
-                PersonListActivity.a(this, true, TiebaApplication.B());
+                PersonListActivity.a(this, true, TiebaApplication.C());
             } else if (this.d.f() != null) {
                 PersonListActivity.a(this, true, this.d.f().a());
             }
         } else if (view == this.c.l()) {
             if (this.d.e()) {
-                PersonListActivity.a(this, false, TiebaApplication.B());
+                PersonListActivity.a(this, false, TiebaApplication.C());
             } else if (this.d.f() != null) {
                 PersonListActivity.a(this, false, this.d.f().a());
             }
@@ -245,7 +245,7 @@ public class PersonInfoActivity extends com.baidu.tieba.e {
                 startActivity(new Intent(this, MyPostActivity.class));
             }
         } else if (view == this.c.n()) {
-            if (TiebaApplication.d().o()) {
+            if (TiebaApplication.e().p()) {
                 StatService.onEvent(this, "personal_lbs_post", "personclick", 1);
             }
             PersonLbsActivity.a(this, this.d.d());
@@ -255,7 +255,7 @@ public class PersonInfoActivity extends com.baidu.tieba.e {
             Register2Activity.a(this, 1200007);
         } else if (view == this.c.q()) {
             if (this.d.e()) {
-                if (TiebaApplication.d().o()) {
+                if (TiebaApplication.e().p()) {
                     StatService.onEvent(this, "enter_chatlist", "personclick", 1);
                 }
                 ChatListActivity.a(this);
@@ -270,7 +270,7 @@ public class PersonInfoActivity extends com.baidu.tieba.e {
     }
 
     private void m() {
-        if (TiebaApplication.d().o()) {
+        if (TiebaApplication.e().p()) {
             StatService.onEvent(this, "enter_chat", "personclick", 1);
         }
         ChatActivity.a(this, this.d.f().a(), this.d.f().c(), this.d.f().e(), null, null);
@@ -295,10 +295,10 @@ public class PersonInfoActivity extends com.baidu.tieba.e {
             if (i == 101) {
                 a(intent);
             } else if (i == 1100003 || i == 1200007) {
-                if (TiebaApplication.B() != null) {
+                if (TiebaApplication.C() != null) {
                     this.d.a(true);
-                    this.d.b(TiebaApplication.B());
-                    this.d.c(TiebaApplication.F());
+                    this.d.b(TiebaApplication.C());
+                    this.d.c(TiebaApplication.G());
                     d();
                     b();
                 }

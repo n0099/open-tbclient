@@ -3,6 +3,7 @@ package com.baidu.mapapi;
 import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import com.baidu.cyberplayer.sdk.internal.HttpUtils;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -20,7 +21,7 @@ public class d {
     public static int d = 4;
     public static boolean e = false;
     public static byte f = 0;
-    public static String g = "10.0.0.200";
+    public static String g = HttpUtils.IP_CTWAP;
     public static int h = 80;
 
     /* loaded from: classes.dex */
@@ -52,7 +53,7 @@ public class d {
                 return (HttpURLConnection) new URL(str).openConnection(new Proxy(Proxy.Type.HTTP, new InetSocketAddress(g, 80)));
             }
             HttpURLConnection httpURLConnection = (HttpURLConnection) new URL(com.baidu.loginshare.e.f + g + substring2).openConnection();
-            httpURLConnection.setRequestProperty("X-Online-Host", substring);
+            httpURLConnection.setRequestProperty(HttpUtils.HEADER_NAME_CMWAP_ONLINE_HOST, substring);
             return httpURLConnection;
         }
         return (HttpURLConnection) new URL(str).openConnection();
@@ -197,7 +198,7 @@ public class d {
                     } else {
                         d = 2;
                         e = true;
-                        if ("10.0.0.200".equals(g)) {
+                        if (HttpUtils.IP_CTWAP.equals(g)) {
                             f = (byte) 1;
                         } else {
                             f = (byte) 0;
@@ -209,12 +210,12 @@ public class d {
                         d = 2;
                         e = true;
                         f = (byte) 0;
-                        g = com.baidu.loginshare.e.h;
+                        g = "10.0.0.172";
                     } else if (trim.startsWith("ctwap")) {
                         d = 2;
                         e = true;
                         f = (byte) 1;
-                        g = "10.0.0.200";
+                        g = HttpUtils.IP_CTWAP;
                     } else if (trim.startsWith("cmnet") || trim.startsWith("uninet") || trim.startsWith("ctnet") || trim.startsWith("3gnet")) {
                         d = 1;
                         e = false;

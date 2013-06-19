@@ -139,7 +139,7 @@ public class aw {
                 if (((com.baidu.tieba.a.k) this.e.get(i)).a() == 2) {
                     String d = com.baidu.tbadk.a.a.a().d(((com.baidu.tieba.a.k) this.e.get(i)).d());
                     if (d == null) {
-                        stringBuffer.append(TiebaApplication.d().getResources().getString(R.string.face_string));
+                        stringBuffer.append(TiebaApplication.e().getResources().getString(R.string.face_string));
                     } else {
                         stringBuffer.append("[");
                         stringBuffer.append(d);
@@ -147,7 +147,7 @@ public class aw {
                     }
                 }
                 if (((com.baidu.tieba.a.k) this.e.get(i)).a() == 3) {
-                    stringBuffer.append(TiebaApplication.d().getResources().getString(R.string.pic));
+                    stringBuffer.append(TiebaApplication.e().getResources().getString(R.string.pic));
                 }
             }
             aeVar.b(stringBuffer.toString());

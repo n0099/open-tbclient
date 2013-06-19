@@ -159,7 +159,7 @@ public class k extends BaseAdapter {
                     lVar.b.setText(this.e.getString(R.string.load_more));
                     lVar.c.setVisibility(8);
                 }
-                if (TiebaApplication.d().ar() == 1) {
+                if (TiebaApplication.e().as() == 1) {
                     int a = com.baidu.tieba.d.ac.a(1);
                     lVar.b.setTextColor(a);
                     if (lVar.d != null) {

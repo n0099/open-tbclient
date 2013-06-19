@@ -44,6 +44,7 @@ import com.baidu.browser.webkit.BdWebView;
 import com.baidu.browser.webkit.BdWebViewClient;
 import com.baidu.browser.webpool.BdWebPoolBackForwardListItem;
 import com.baidu.browser.webpool.BdWebPoolCustomView;
+import com.baidu.cyberplayer.sdk.internal.HttpUtils;
 import com.baidu.loginshare.e;
 import com.baidu.zeus.NotificationProxy;
 import com.baidu.zeus.WebView;
@@ -1192,7 +1193,7 @@ public class BdWebPoolView extends FrameLayout implements View.OnLongClickListen
                 initLoadContext(str);
                 if (string != null) {
                     HashMap hashMap = new HashMap();
-                    hashMap.put("Referer", string);
+                    hashMap.put(HttpUtils.HEADER_NAME_REFERER, string);
                     this.mCurWebView.loadUrl(str, hashMap);
                 } else {
                     this.mCurWebView.loadUrl(str);

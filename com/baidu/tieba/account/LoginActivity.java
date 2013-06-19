@@ -71,7 +71,7 @@ public class LoginActivity extends com.baidu.tieba.e {
     private String U = null;
 
     public static void a(Context context) {
-        if (TiebaApplication.i()) {
+        if (TiebaApplication.j()) {
             if (context instanceof NewHomeActivity) {
                 com.baidu.tieba.a.a((Activity) context, 0, "goto_recommend", false);
                 return;
@@ -84,7 +84,7 @@ public class LoginActivity extends com.baidu.tieba.e {
     }
 
     public static void a(Activity activity, String str, String str2, int i) {
-        if (TiebaApplication.i()) {
+        if (TiebaApplication.j()) {
             com.baidu.tieba.a.a(activity, i, str, false);
             return;
         }
@@ -96,7 +96,7 @@ public class LoginActivity extends com.baidu.tieba.e {
     }
 
     public static void a(Activity activity, String str, boolean z, int i) {
-        if (TiebaApplication.i()) {
+        if (TiebaApplication.j()) {
             com.baidu.tieba.a.a(activity, i, null, z);
             return;
         }
@@ -207,9 +207,9 @@ public class LoginActivity extends com.baidu.tieba.e {
     public void b() {
         a.a().b();
         if (this.p) {
-            TiebaApplication.d().w();
+            TiebaApplication.e().x();
             Intent intent = new Intent();
-            intent.putExtra("BDUSS", TiebaApplication.C());
+            intent.putExtra("BDUSS", TiebaApplication.D());
             setResult(-1, intent);
         } else {
             MainTabActivity.b(this, getIntent().getStringExtra("goto_view"));

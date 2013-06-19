@@ -96,9 +96,9 @@ public class NewNearbyActivity extends com.baidu.tieba.e {
     public void onResume() {
         super.onResume();
         this.c.dispatchResume();
-        if (TiebaApplication.d().aq() && !TiebaApplication.d().A()) {
+        if (TiebaApplication.e().ar() && !TiebaApplication.e().B()) {
             w();
-            TiebaApplication.d().h(true);
+            TiebaApplication.e().h(true);
         }
     }
 
@@ -138,7 +138,7 @@ public class NewNearbyActivity extends com.baidu.tieba.e {
             this.r.setVisibility(8);
         }
         v();
-        TiebaApplication.d().b(this.p);
+        TiebaApplication.e().b(this.p);
         super.onDestroy();
     }
 
@@ -237,8 +237,8 @@ public class NewNearbyActivity extends com.baidu.tieba.e {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void c(int i) {
-        String B = TiebaApplication.B();
-        if (B == null || B.length() <= 0) {
+        String C = TiebaApplication.C();
+        if (C == null || C.length() <= 0) {
             if (i == 0) {
                 LoginActivity.a((Activity) this, getString(R.string.login_to_use), true, 1100001);
             } else {
@@ -312,7 +312,7 @@ public class NewNearbyActivity extends com.baidu.tieba.e {
     /* JADX INFO: Access modifiers changed from: private */
     public boolean r() {
         this.r.setVisibility(0);
-        this.q = TiebaApplication.d().a(this.p);
+        this.q = TiebaApplication.e().a(this.p);
         if (this.q != null) {
             this.r.setVisibility(8);
             this.s.setVisibility(8);
@@ -390,7 +390,7 @@ public class NewNearbyActivity extends com.baidu.tieba.e {
         if (this.k.getChildCount() >= 2 && (this.c.getActivity("nearby_post") instanceof NearbyPostActivity) && ((NearbyPostActivity) this.c.getActivity("nearby_post")).n() != null) {
             com.baidu.tieba.c.av n = ((NearbyPostActivity) this.c.getActivity("nearby_post")).n();
             if (n.d().size() >= 1) {
-                if (TiebaApplication.d().o()) {
+                if (TiebaApplication.e().p()) {
                     StatService.onEvent(this, "lbs_open_map", "lbsclick", 1);
                 }
                 com.baidu.tieba.c.aj ajVar = new com.baidu.tieba.c.aj();

@@ -6,6 +6,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.net.wifi.ScanResult;
+import com.baidu.cyberplayer.sdk.BVideoView;
 import java.io.File;
 import java.io.RandomAccessFile;
 import java.util.Calendar;
@@ -367,9 +368,9 @@ public class af {
                     randomAccessFile.writeInt(readInt3);
                 }
                 ap.a("baidu_location_service", "trace new info:" + readInt + ":" + readInt2 + ":" + readInt3);
-                i = (i2 * 800) + 24;
+                i = (i2 * BVideoView.MEDIA_INFO_BAD_INTERLEAVING) + 24;
             } else {
-                i = (readInt2 * 800) + 24;
+                i = (readInt2 * BVideoView.MEDIA_INFO_BAD_INTERLEAVING) + 24;
             }
             randomAccessFile.seek(i + 4);
             byte[] bytes = this.l.getBytes();
@@ -411,7 +412,7 @@ public class af {
                 randomAccessFile.close();
                 return;
             }
-            randomAccessFile.seek((readInt2 * 800) + 24);
+            randomAccessFile.seek((readInt2 * BVideoView.MEDIA_INFO_BAD_INTERLEAVING) + 24);
             int readInt4 = randomAccessFile.readInt();
             if (readInt4 > 680) {
                 this.n = true;
@@ -419,7 +420,7 @@ public class af {
                 randomAccessFile.close();
                 return;
             }
-            byte[] bArr = new byte[800];
+            byte[] bArr = new byte[BVideoView.MEDIA_INFO_BAD_INTERLEAVING];
             randomAccessFile.read(bArr, 0, readInt4);
             if (readInt4 != randomAccessFile.readInt()) {
                 ap.a("baidu_location_service", "trace true check fail");

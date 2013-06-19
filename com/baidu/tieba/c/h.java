@@ -29,7 +29,7 @@ public class h extends com.baidu.adp.lib.a.a {
     @Override // com.baidu.adp.lib.a.a
     public f a(Boolean... boolArr) {
         this.b = new com.baidu.tieba.d.t(String.valueOf(com.baidu.tieba.a.i.e) + "c/f/post/threadstore");
-        this.b.a(PushConstants.EXTRA_USER_ID, TiebaApplication.B());
+        this.b.a(PushConstants.EXTRA_USER_ID, TiebaApplication.C());
         this.b.a("offset", String.valueOf(this.d));
         this.b.a("rn", String.valueOf(20));
         this.c = this.b.i();

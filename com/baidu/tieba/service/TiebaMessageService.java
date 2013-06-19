@@ -30,7 +30,7 @@ public class TiebaMessageService extends Service {
     @Override // android.app.Service
     public void onStart(Intent intent, int i) {
         super.onStart(intent, i);
-        if (!TiebaApplication.ax() || !TiebaApplication.d().Y()) {
+        if (!TiebaApplication.ay() || !TiebaApplication.e().Z()) {
             stopSelf();
             return;
         }
@@ -46,7 +46,7 @@ public class TiebaMessageService extends Service {
     /* JADX INFO: Access modifiers changed from: private */
     public void a() {
         try {
-            if (TiebaApplication.B() != null && TiebaApplication.F() != null) {
+            if (TiebaApplication.C() != null && TiebaApplication.G() != null) {
                 if (this.a != null) {
                     this.a.cancel();
                 }
@@ -61,13 +61,13 @@ public class TiebaMessageService extends Service {
     /* JADX INFO: Access modifiers changed from: private */
     public void b() {
         if (this.b != null && this.b.a() >= 0 && this.b.b() >= 0 && this.b.c() >= 0 && this.b.d() >= 0) {
-            if (!TiebaApplication.d().X()) {
+            if (!TiebaApplication.e().Y()) {
                 this.b.a(0L);
             }
-            if (!TiebaApplication.d().W()) {
+            if (!TiebaApplication.e().X()) {
                 this.b.b(0L);
             }
-            if (!TiebaApplication.d().V()) {
+            if (!TiebaApplication.e().W()) {
                 this.b.c(0L);
             }
             Intent intent = new Intent("com.baidu.tieba.broadcast.service");

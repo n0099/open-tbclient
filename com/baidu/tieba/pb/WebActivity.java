@@ -49,7 +49,7 @@ public class WebActivity extends com.baidu.tieba.e {
     @Override // com.baidu.tieba.e, com.baidu.adp.a.a, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        TiebaApplication.d().a((com.baidu.tieba.e) this);
+        TiebaApplication.e().a((com.baidu.tieba.e) this);
         com.baidu.tieba.d.ag.b((Activity) this);
         d();
         if (bundle == null) {
@@ -141,7 +141,7 @@ public class WebActivity extends com.baidu.tieba.e {
     public void onDestroy() {
         super.onDestroy();
         this.o.removeCallbacks(this.p);
-        TiebaApplication.d().b((com.baidu.tieba.e) this);
+        TiebaApplication.e().b((com.baidu.tieba.e) this);
         if (this.l != null) {
             this.l.setVisibility(8);
         }

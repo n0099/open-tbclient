@@ -23,7 +23,9 @@ import com.baidu.tieba.compatible.CompatibleUtile;
 import com.baidu.tieba.pb.WebActivity;
 import com.baidu.tieba.pb.WebBdActivity;
 import com.baidu.tieba.service.PerformMonitorService;
+import com.baidu.zeus.NotificationProxy;
 import com.slidingmenu.lib.R;
+import java.io.RandomAccessFile;
 import java.lang.reflect.Field;
 import java.text.MessageFormat;
 /* loaded from: classes.dex */
@@ -63,7 +65,7 @@ public class ag {
 
     public static void a(Context context, String str) {
         if (str != null && str.length() > 0) {
-            Toast makeText = Toast.makeText(TiebaApplication.d(), str, 0);
+            Toast makeText = Toast.makeText(TiebaApplication.e(), str, 0);
             makeText.setGravity(17, 0, a(context, 100.0f));
             makeText.show();
         }
@@ -178,7 +180,7 @@ public class ag {
             sb.append("?");
         }
         sb.append("cuid=");
-        sb.append(TiebaApplication.d().j());
+        sb.append(TiebaApplication.e().k());
         sb.append("&timestamp=");
         sb.append(Long.toString(System.currentTimeMillis()));
         return sb.toString();
@@ -190,16 +192,16 @@ public class ag {
 
     public static void c(Context context, String str) {
         try {
-            Token b2 = com.baidu.tieba.account.a.b(TiebaApplication.C());
+            Token b2 = com.baidu.tieba.account.a.b(TiebaApplication.D());
             int i = Build.VERSION.SDK_INT;
             String b3 = b(a(str));
-            if (TiebaApplication.d().m() == 1) {
+            if (TiebaApplication.e().n() == 1) {
                 if (b2 != null) {
                     WebActivity.a(context, b3, b2.mBduss, b2.mPtoken);
                 } else {
                     WebActivity.a(context, b3, null, null);
                 }
-            } else if (i >= 7 && TiebaApplication.d().m() == 2) {
+            } else if (i >= 7 && TiebaApplication.e().n() == 2) {
                 if (b2 != null) {
                     WebBdActivity.a(context, b3, b2.mBduss, b2.mPtoken);
                 } else {
@@ -217,8 +219,8 @@ public class ag {
         String b2 = b(a(str));
         try {
             int i = Build.VERSION.SDK_INT;
-            Token b3 = com.baidu.tieba.account.a.b(TiebaApplication.C());
-            if (i > 7 && TiebaApplication.d().m() == 2) {
+            Token b3 = com.baidu.tieba.account.a.b(TiebaApplication.D());
+            if (i > 7 && TiebaApplication.e().n() == 2) {
                 if (b3 != null) {
                     WebBdActivity.a(context, b2, b3.mBduss, b3.mPtoken);
                 } else {
@@ -322,5 +324,26 @@ public class ag {
 
     public static void e(Context context) {
         context.startService(new Intent(context, PerformMonitorService.class));
+    }
+
+    public static boolean a() {
+        if (Build.CPU_ABI == null || !Build.CPU_ABI.toLowerCase().contains("arm")) {
+            try {
+                byte[] bArr = new byte[NotificationProxy.MAX_URL_LENGTH];
+                new RandomAccessFile("/proc/cpuinfo", "r").read(bArr);
+                String str = new String(bArr);
+                int indexOf = str.indexOf(0);
+                if (indexOf != -1) {
+                    str = str.substring(0, indexOf);
+                }
+                if (str.toLowerCase().contains("arm")) {
+                    return true;
+                }
+            } catch (Exception e) {
+                com.baidu.adp.lib.e.b.a(e.getMessage());
+            }
+            return false;
+        }
+        return true;
     }
 }

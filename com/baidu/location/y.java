@@ -3,8 +3,9 @@ package com.baidu.location;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class y extends BroadcastReceiver {
+public class y extends BroadcastReceiver {
     final /* synthetic */ w a;
 
     private y(w wVar) {

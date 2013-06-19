@@ -3,6 +3,7 @@ package com.baidu.zeus;
 import android.content.ContentResolver;
 import android.os.Looper;
 import android.util.Log;
+import com.baidu.cyberplayer.sdk.internal.HttpUtils;
 import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
 import java.net.URI;
@@ -253,7 +254,7 @@ public final class AndroidHttpClient implements HttpClient {
         StringBuilder sb = new StringBuilder();
         sb.append("curl ");
         for (Header header : httpUriRequest.getAllHeaders()) {
-            if (z || (!header.getName().equals("Authorization") && !header.getName().equals("Cookie"))) {
+            if (z || (!header.getName().equals("Authorization") && !header.getName().equals(HttpUtils.HEADER_NAME_COOKIE))) {
                 sb.append("--header \"");
                 sb.append(header.toString().trim());
                 sb.append("\" ");

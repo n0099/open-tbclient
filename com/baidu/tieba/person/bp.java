@@ -18,8 +18,8 @@ public class bp implements View.OnClickListener {
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         this.a.c = ((Integer) view.getTag()).intValue();
-        String B = TiebaApplication.B();
-        if (B == null || B.length() <= 0) {
+        String C = TiebaApplication.C();
+        if (C == null || C.length() <= 0) {
             LoginActivity.a((Activity) this.a, this.a.getString(R.string.login_to_chat), true, 1100028);
         } else {
             this.a.c();

@@ -27,7 +27,7 @@ public class g extends com.baidu.adp.lib.a.a {
     @Override // com.baidu.adp.lib.a.a
     public Boolean a(Boolean... boolArr) {
         this.b = new com.baidu.tieba.d.t(String.valueOf(com.baidu.tieba.a.i.e) + "c/c/post/rmstore");
-        this.b.a(PushConstants.EXTRA_USER_ID, TiebaApplication.B());
+        this.b.a(PushConstants.EXTRA_USER_ID, TiebaApplication.C());
         this.b.a("tid", this.c);
         this.e.a(this.b.i());
         return this.b.b() && this.e.a() == 0;

@@ -101,7 +101,7 @@ public class AboutActivity extends com.baidu.tieba.e {
     }
 
     public void c() {
-        if (TiebaApplication.aQ()) {
+        if (TiebaApplication.aR()) {
             this.o.setVisibility(0);
         } else {
             this.o.setVisibility(8);

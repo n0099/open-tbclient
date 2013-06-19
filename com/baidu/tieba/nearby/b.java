@@ -68,7 +68,7 @@ public class b extends com.baidu.adp.lib.a.a {
             dVar = this.a.f;
             dVar.notifyDataSetChanged();
             this.a.a(this.a.getString(R.string.like_success));
-            TiebaApplication.d().i(true);
+            TiebaApplication.e().i(true);
             return;
         }
         this.a.a(this.b.f());

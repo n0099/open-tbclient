@@ -1,6 +1,7 @@
 package com.baidu.android.nebula.b;
 
 import com.baidu.android.common.logging.Log;
+import com.baidu.cyberplayer.sdk.internal.HttpUtils;
 import java.nio.ByteBuffer;
 /* loaded from: classes.dex */
 public class c extends com.baidu.android.nebula.c.c {
@@ -97,7 +98,7 @@ public class c extends com.baidu.android.nebula.c.c {
             }
             if (this.c != null) {
                 try {
-                    if (this.b.length() >= Integer.parseInt(this.c.a("Content-Length"))) {
+                    if (this.b.length() >= Integer.parseInt(this.c.a(HttpUtils.HEADER_NAME_CONTENT_LENGTH))) {
                         this.c.a(this.b.toString().getBytes());
                         this.b = new StringBuilder();
                         return true;

@@ -120,9 +120,9 @@ public class ReLoginActivity extends com.baidu.tieba.e {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void d() {
-        if (TiebaApplication.i()) {
-            String B = TiebaApplication.B();
-            if (B == null || B.length() <= 0) {
+        if (TiebaApplication.j()) {
+            String C = TiebaApplication.C();
+            if (C == null || C.length() <= 0) {
                 a(getIntent().getStringExtra("uname"), getIntent().getStringExtra("bduss"));
             }
         }
@@ -139,18 +139,18 @@ public class ReLoginActivity extends com.baidu.tieba.e {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(com.baidu.tieba.a.a aVar) {
-        com.baidu.tieba.a.a E = TiebaApplication.E();
-        if (E == null) {
+        com.baidu.tieba.a.a F = TiebaApplication.F();
+        if (F == null) {
             TiebaApplication.a(aVar);
-            TiebaApplication.d().Q();
+            TiebaApplication.e().R();
         } else {
-            E.a(aVar.a());
-            E.e(aVar.f());
-            E.d(aVar.d());
+            F.a(aVar.a());
+            F.e(aVar.f());
+            F.d(aVar.d());
         }
-        com.baidu.tieba.d.k.a(TiebaApplication.E());
-        Handler handler = TiebaApplication.d().c;
-        if (TiebaApplication.d().P() > 0) {
+        com.baidu.tieba.d.k.a(TiebaApplication.F());
+        Handler handler = TiebaApplication.e().c;
+        if (TiebaApplication.e().Q() > 0) {
             handler.sendMessage(handler.obtainMessage(2));
         } else {
             handler.sendMessage(handler.obtainMessage(3));
@@ -166,7 +166,7 @@ public class ReLoginActivity extends com.baidu.tieba.e {
             case 0:
                 this.f.setVisibility(8);
                 this.j.setVisibility(0);
-                if (TiebaApplication.i()) {
+                if (TiebaApplication.j()) {
                     string = getString(R.string.relogin_yi_statement);
                 } else {
                     string = getString(R.string.relogin_statement);
@@ -202,7 +202,7 @@ public class ReLoginActivity extends com.baidu.tieba.e {
 
     private void m() {
         if (this.k) {
-            TiebaApplication.d().w();
+            TiebaApplication.e().x();
             setResult(-1);
         } else {
             MainTabActivity.b(this, getIntent().getStringExtra("goto_type"));

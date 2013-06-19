@@ -18,15 +18,15 @@ class aw implements Handler.Callback {
         bk bkVar2;
         switch (message.what) {
             case 0:
-                bkVar2 = this.a.o;
+                bkVar2 = this.a.p;
                 bkVar2.R();
                 return false;
             case 1:
-                bkVar = this.a.o;
+                bkVar = this.a.p;
                 bkVar.Q();
                 return false;
             case 2:
-                axVar = this.a.i;
+                axVar = this.a.j;
                 if (!axVar.w()) {
                     return false;
                 }

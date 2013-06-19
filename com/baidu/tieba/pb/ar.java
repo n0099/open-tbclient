@@ -15,9 +15,9 @@ class ar implements DialogInterface.OnClickListener {
         bk bkVar;
         bk bkVar2;
         NewPbActivity newPbActivity = this.a;
-        bkVar = this.a.o;
-        newPbActivity.p = bkVar.T();
-        bkVar2 = this.a.o;
+        bkVar = this.a.p;
+        newPbActivity.q = bkVar.T();
+        bkVar2 = this.a.p;
         bkVar2.a();
         if (i == 0) {
             com.baidu.tieba.write.bb.a(this.a);

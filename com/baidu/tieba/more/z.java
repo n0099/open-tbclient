@@ -127,7 +127,7 @@ public class z extends com.baidu.adp.a.d {
         this.u = (LinearLayout) moreActivity.findViewById(R.id.recommend_app);
         this.u.setOnClickListener(moreActivity);
         this.B = (TextView) moreActivity.findViewById(R.id.recommend_app_text);
-        if (!TiebaApplication.d().s()) {
+        if (!TiebaApplication.e().t()) {
             this.u.setVisibility(8);
         } else {
             this.u.setVisibility(0);
@@ -241,7 +241,7 @@ public class z extends com.baidu.adp.a.d {
     public void r() {
         this.c.setFocusable(false);
         this.c.setClickable(false);
-        this.b.setText(TiebaApplication.F());
+        this.b.setText(TiebaApplication.G());
     }
 
     public void s() {
@@ -254,8 +254,8 @@ public class z extends com.baidu.adp.a.d {
     }
 
     public void u() {
-        String B = TiebaApplication.B();
-        if (B == null || B.length() <= 0) {
+        String C = TiebaApplication.C();
+        if (C == null || C.length() <= 0) {
             this.d.setVisibility(8);
         } else {
             this.d.setVisibility(0);
@@ -263,11 +263,11 @@ public class z extends com.baidu.adp.a.d {
     }
 
     public void v() {
-        if (TiebaApplication.d().P() <= 0) {
+        if (TiebaApplication.e().Q() <= 0) {
             this.H.setText(R.string.close);
-        } else if (TiebaApplication.d().P() == 30) {
+        } else if (TiebaApplication.e().Q() == 30) {
             this.H.setText(R.string._30_second);
-        } else if (TiebaApplication.d().P() == 120) {
+        } else if (TiebaApplication.e().Q() == 120) {
             this.H.setText(R.string.tow_minute);
         } else {
             this.H.setText(R.string.five_minute);
@@ -275,9 +275,9 @@ public class z extends com.baidu.adp.a.d {
     }
 
     public void w() {
-        TiebaApplication d = TiebaApplication.d();
-        if (d.ag()) {
-            this.I.setText(this.a.getString(R.string.sign_remind_time, d.ah() > 9 ? String.valueOf(d.ah()) : "0" + d.ah(), d.ai() > 9 ? String.valueOf(d.ai()) : "0" + d.ai()));
+        TiebaApplication e = TiebaApplication.e();
+        if (e.ah()) {
+            this.I.setText(this.a.getString(R.string.sign_remind_time, e.ai() > 9 ? String.valueOf(e.ai()) : "0" + e.ai(), e.aj() > 9 ? String.valueOf(e.aj()) : "0" + e.aj()));
         } else {
             this.I.setText(R.string.close);
         }
@@ -285,7 +285,7 @@ public class z extends com.baidu.adp.a.d {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void C() {
-        switch (TiebaApplication.d().al()) {
+        switch (TiebaApplication.e().am()) {
             case 1:
                 this.J.setText(this.a.getString(R.string.image_quality_high));
                 return;
@@ -301,7 +301,7 @@ public class z extends com.baidu.adp.a.d {
     }
 
     private void D() {
-        if (TiebaApplication.d().R()) {
+        if (TiebaApplication.e().S()) {
             this.P.a();
         } else {
             this.P.b();
@@ -309,7 +309,7 @@ public class z extends com.baidu.adp.a.d {
     }
 
     public void x() {
-        if (TiebaApplication.d().ap()) {
+        if (TiebaApplication.e().aq()) {
             this.M.a();
         } else {
             this.M.b();
@@ -317,7 +317,7 @@ public class z extends com.baidu.adp.a.d {
     }
 
     public void y() {
-        if (TiebaApplication.d().ar() == 1) {
+        if (TiebaApplication.e().as() == 1) {
             this.N.a();
         } else {
             this.N.b();
@@ -325,7 +325,7 @@ public class z extends com.baidu.adp.a.d {
     }
 
     private void E() {
-        if (TiebaApplication.d().p()) {
+        if (TiebaApplication.e().q()) {
             this.O.a();
         } else {
             this.O.b();
@@ -333,7 +333,7 @@ public class z extends com.baidu.adp.a.d {
     }
 
     public void z() {
-        if (TiebaApplication.aQ()) {
+        if (TiebaApplication.aR()) {
             this.L.setVisibility(0);
         } else {
             this.L.setVisibility(8);

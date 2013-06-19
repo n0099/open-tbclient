@@ -18,17 +18,17 @@ class bb implements com.baidu.tieba.c.am {
         com.baidu.tieba.c.ax axVar2;
         bk bkVar2;
         com.baidu.tieba.c.ax axVar3;
-        bkVar = this.a.o;
+        bkVar = this.a.p;
         bkVar.q();
         if (z) {
-            akVar = this.a.j;
+            akVar = this.a.k;
             akVar.a(z2);
-            axVar = this.a.i;
+            axVar = this.a.j;
             axVar.c(z2);
-            axVar2 = this.a.i;
+            axVar2 = this.a.j;
             if (!axVar2.w()) {
-                bkVar2 = this.a.o;
-                axVar3 = this.a.i;
+                bkVar2 = this.a.p;
+                axVar3 = this.a.j;
                 bkVar2.a(axVar3.m());
             } else {
                 this.a.q();

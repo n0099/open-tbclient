@@ -14,9 +14,9 @@ class ai implements com.baidu.adp.widget.BdSwitchView.c {
     @Override // com.baidu.adp.widget.BdSwitchView.c
     public void a(View view, com.baidu.adp.widget.BdSwitchView.d dVar) {
         if (dVar == com.baidu.adp.widget.BdSwitchView.d.ON) {
-            TiebaApplication.d().p(true);
+            TiebaApplication.e().p(true);
         } else {
-            TiebaApplication.d().p(false);
+            TiebaApplication.e().p(false);
         }
         this.a.d();
     }

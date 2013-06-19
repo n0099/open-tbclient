@@ -1,30 +1,26 @@
 package com.baidu.tieba;
-
-import android.app.AlertDialog;
-import android.content.DialogInterface;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class aq implements DialogInterface.OnClickListener {
-    final /* synthetic */ UpdateDialog a;
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public aq(UpdateDialog updateDialog) {
-        this.a = updateDialog;
+class aq extends com.baidu.adp.lib.a.a {
+    private aq() {
     }
 
-    @Override // android.content.DialogInterface.OnClickListener
-    public void onClick(DialogInterface dialogInterface, int i) {
-        AlertDialog alertDialog;
-        AlertDialog alertDialog2;
-        if (i == -1) {
-            alertDialog2 = this.a.d;
-            alertDialog2.dismiss();
-            this.a.b();
-        } else if (i == -2) {
-            alertDialog = this.a.d;
-            alertDialog.dismiss();
-            this.a.c();
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public /* synthetic */ aq(aq aqVar) {
+        this();
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.a.a
+    public String a(String... strArr) {
+        byte[] bArr;
+        byte[] bArr2;
+        bArr = TiebaApplication.aA;
+        synchronized (bArr) {
+            TiebaApplication.aB = Boolean.valueOf(com.baidu.tieba.d.ag.a());
+            bArr2 = TiebaApplication.aA;
+            bArr2.notifyAll();
         }
-        MainTabActivity.a(this.a, "close");
+        return null;
     }
 }

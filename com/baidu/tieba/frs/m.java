@@ -33,7 +33,7 @@ class m implements ab {
             com.baidu.tieba.a.s a = sVar3.a();
             sVar4 = this.a.v;
             baVar4.a(1, a, sVar4.e());
-            TiebaApplication.d().i(true);
+            TiebaApplication.e().i(true);
             return;
         }
         if (vVar.d == null || vVar.d.length() <= 0) {

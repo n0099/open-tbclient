@@ -24,15 +24,15 @@ public class o {
     public static String b() {
         String externalStorageState = Environment.getExternalStorageState();
         if (externalStorageState.equals(Environment.MEDIA_REMOVED)) {
-            return TiebaApplication.d().getString(R.string.error_no_sdcard);
+            return TiebaApplication.e().getString(R.string.error_no_sdcard);
         }
         if (externalStorageState.equals(Environment.MEDIA_UNMOUNTED) || externalStorageState.equals(Environment.MEDIA_UNMOUNTABLE)) {
-            return TiebaApplication.d().getString(R.string.error_sd_unmount);
+            return TiebaApplication.e().getString(R.string.error_sd_unmount);
         }
         if (externalStorageState.equals(Environment.MEDIA_SHARED)) {
-            return TiebaApplication.d().getString(R.string.error_sd_shared);
+            return TiebaApplication.e().getString(R.string.error_sd_shared);
         }
-        return TiebaApplication.d().getString(R.string.error_sd_error);
+        return TiebaApplication.e().getString(R.string.error_sd_error);
     }
 
     public static boolean a(String str) {

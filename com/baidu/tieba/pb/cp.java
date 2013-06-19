@@ -2,9 +2,8 @@ package com.baidu.tieba.pb;
 
 import android.view.View;
 import com.slidingmenu.lib.R;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class cp implements View.OnClickListener {
+class cp implements View.OnClickListener {
     final /* synthetic */ bk a;
 
     /* JADX INFO: Access modifiers changed from: package-private */

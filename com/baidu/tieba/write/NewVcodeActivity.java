@@ -106,7 +106,7 @@ public class NewVcodeActivity extends com.baidu.tieba.e {
         if (this.m == null) {
             try {
                 this.m = (BaseWebView) findViewById(R.id.new_vcode_webview);
-                com.baidu.tieba.d.ac.a(this.m, TiebaApplication.d().ar());
+                com.baidu.tieba.d.ac.a(this.m, TiebaApplication.e().as());
                 this.m.setHorizontalScrollBarEnabled(false);
                 this.m.setHorizontalScrollbarOverlay(false);
                 this.m.setScrollBarStyle(33554432);
@@ -132,7 +132,7 @@ public class NewVcodeActivity extends com.baidu.tieba.e {
                 return true;
             } catch (Exception e) {
                 com.baidu.tieba.d.ae.b(getClass().getName(), "", "NewVcodeActivity.initWebView error = " + e.getMessage());
-                TiebaApplication.d().n(TiebaApplication.d().au() + 1);
+                TiebaApplication.e().n(TiebaApplication.e().av() + 1);
                 return false;
             }
         }
@@ -205,7 +205,7 @@ public class NewVcodeActivity extends com.baidu.tieba.e {
         com.baidu.tieba.d.ac.d(this.d, i);
         com.baidu.tieba.d.ac.a((View) this.g, i);
         if (this.m != null) {
-            com.baidu.tieba.d.ac.a(this.m, TiebaApplication.d().ar());
+            com.baidu.tieba.d.ac.a(this.m, TiebaApplication.e().as());
         }
     }
 
@@ -289,7 +289,7 @@ public class NewVcodeActivity extends com.baidu.tieba.e {
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.a.a
         public bf a(Integer... numArr) {
-            Address aL;
+            Address aM;
             this.c = new com.baidu.tieba.d.t();
             this.c.a("anonymous", "0");
             this.c.a("fid", this.b.g());
@@ -311,8 +311,8 @@ public class NewVcodeActivity extends com.baidu.tieba.e {
                     this.c.a("thread_type", "7");
                     this.c.a("st_type", "tb_suishoufa");
                 }
-                if (!com.baidu.tieba.a.i.g().equals(NewVcodeActivity.this.getIntent().getStringExtra("forum_id")) && TiebaApplication.d().p() && (aL = TiebaApplication.d().aL()) != null) {
-                    this.c.a("lbs", String.valueOf(String.valueOf(aL.getLatitude())) + "," + String.valueOf(aL.getLongitude()));
+                if (!com.baidu.tieba.a.i.g().equals(NewVcodeActivity.this.getIntent().getStringExtra("forum_id")) && TiebaApplication.e().q() && (aM = TiebaApplication.e().aM()) != null) {
+                    this.c.a("lbs", String.valueOf(String.valueOf(aM.getLatitude())) + "," + String.valueOf(aM.getLongitude()));
                 }
             } else {
                 this.c.a(String.valueOf(com.baidu.tieba.a.i.e) + "c/c/post/add");
@@ -348,7 +348,7 @@ public class NewVcodeActivity extends com.baidu.tieba.e {
                     com.baidu.tieba.a.o oVar = new com.baidu.tieba.a.o();
                     oVar.b(this.d);
                     if (oVar.b() == null || oVar.b().length() <= 0) {
-                        NewVcodeActivity.this.a(TiebaApplication.d().getString(R.string.send_success));
+                        NewVcodeActivity.this.a(TiebaApplication.e().getString(R.string.send_success));
                     } else {
                         NewVcodeActivity.this.a(oVar.b());
                     }
@@ -492,7 +492,7 @@ public class NewVcodeActivity extends com.baidu.tieba.e {
         }
 
         public String jsGetSkinType() {
-            return String.valueOf(TiebaApplication.d().ar());
+            return String.valueOf(TiebaApplication.e().as());
         }
     }
 }

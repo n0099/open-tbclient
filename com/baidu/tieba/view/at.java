@@ -33,7 +33,7 @@ public class at extends com.baidu.adp.lib.a.a {
             return null;
         }
         String str2 = String.valueOf(this.c) + "&imgtype=0";
-        if (TiebaApplication.d().am() == 1) {
+        if (TiebaApplication.e().an() == 1) {
             str = String.valueOf(str2) + "&qulity=" + String.valueOf(80);
         } else {
             str = String.valueOf(str2) + "&qulity=" + String.valueOf(45);

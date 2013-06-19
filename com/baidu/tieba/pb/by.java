@@ -28,7 +28,7 @@ public class by implements View.OnTouchListener {
                 this.a.a.requestFocus();
                 eVar = this.a.b;
                 eVar.a(this.a.a, 100);
-                if (TiebaApplication.d().o()) {
+                if (TiebaApplication.e().p()) {
                     eVar2 = this.a.b;
                     StatService.onEvent(eVar2, "pb_reply", "pbclick", 1);
                 }

@@ -91,7 +91,7 @@ public class NearbyPbActivity extends com.baidu.tieba.e {
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         setContentView(R.layout.nearby_pb_activity);
-        this.w = TiebaApplication.B();
+        this.w = TiebaApplication.C();
         n();
         a(bundle);
     }
@@ -111,7 +111,7 @@ public class NearbyPbActivity extends com.baidu.tieba.e {
         this.d = (ListView) findViewById(R.id.pb_list);
         this.d.setFastScrollEnabled(true);
         this.l = new ae(this, null, com.baidu.tieba.d.ag.a((Context) this) - com.baidu.tieba.d.ag.a(this, 34.0f), this.r);
-        this.l.c(TiebaApplication.d().ao());
+        this.l.c(TiebaApplication.e().ap());
         this.l.c(true);
         this.l.b(0);
         this.l.a(0);
@@ -217,14 +217,14 @@ public class NearbyPbActivity extends com.baidu.tieba.e {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.e, android.app.Activity
     public void onResume() {
-        if (this.l != null && this.l.h() != TiebaApplication.d().ao()) {
-            this.l.c(TiebaApplication.d().ao());
+        if (this.l != null && this.l.h() != TiebaApplication.e().ap()) {
+            this.l.c(TiebaApplication.e().ap());
             this.l.notifyDataSetChanged();
         }
         if (this.n != null) {
-            String B2 = TiebaApplication.B();
-            if (this.w == null && B2 != null && B2.length() > 0) {
-                this.w = B2;
+            String C2 = TiebaApplication.C();
+            if (this.w == null && C2 != null && C2.length() > 0) {
+                this.w = C2;
                 if (this.n.a() != null && this.n.a().f() != null) {
                     this.n.a().f().a(1);
                 }
@@ -382,8 +382,8 @@ public class NearbyPbActivity extends com.baidu.tieba.e {
     /* JADX INFO: Access modifiers changed from: private */
     public void r() {
         try {
-            String B2 = TiebaApplication.B();
-            if (B2 == null || B2.length() <= 0) {
+            String C2 = TiebaApplication.C();
+            if (C2 == null || C2.length() <= 0) {
                 LoginActivity.a((Activity) this, getString(R.string.login_to_post), true, 1100024);
                 return;
             }
@@ -432,7 +432,7 @@ public class NearbyPbActivity extends com.baidu.tieba.e {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void u() {
-        a(TiebaApplication.d().getString(R.string.send_success));
+        a(TiebaApplication.e().getString(R.string.send_success));
         this.h.setText((CharSequence) null);
         if (this.i.getVisibility() == 0) {
             this.i.setVisibility(8);
