@@ -6,11 +6,13 @@ import android.widget.ProgressBar;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class av implements View.OnClickListener {
-    final /* synthetic */ WriteImageActivity a;
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ WriteImageActivity f1574a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public av(WriteImageActivity writeImageActivity) {
-        this.a = writeImageActivity;
+        this.f1574a = writeImageActivity;
     }
 
     @Override // android.view.View.OnClickListener
@@ -18,18 +20,18 @@ public class av implements View.OnClickListener {
         ProgressBar progressBar;
         Bitmap bitmap;
         Bitmap bitmap2;
-        progressBar = this.a.j;
+        progressBar = this.f1574a.j;
         if (progressBar.getVisibility() != 0) {
-            bitmap = this.a.e;
+            bitmap = this.f1574a.c;
             if (bitmap == null) {
-                bitmap2 = this.a.r;
+                bitmap2 = this.f1574a.r;
                 if (bitmap2 == null) {
                     return;
                 }
             }
             if (view.getTag() != null) {
-                this.a.y = false;
-                this.a.c(view.getTag().toString());
+                this.f1574a.y = false;
+                this.f1574a.c(view.getTag().toString());
             }
         }
     }

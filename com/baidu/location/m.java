@@ -5,7 +5,6 @@ import android.location.GpsStatus;
 import android.location.Location;
 import android.location.LocationManager;
 import android.os.Handler;
-import com.baidu.android.common.util.HanziToPinyin;
 import com.baidu.browser.explorer.BdWebErrorView;
 import com.baidu.zeus.Headers;
 import com.baidu.zeus.NotificationProxy;
@@ -24,7 +23,7 @@ public class m {
     private static int h = 0;
     private static String x = null;
     private static String z = "Temp_in.dat";
-    private static File A = new File(f.a, z);
+    private static File A = new File(f.f470a, z);
     private static StringBuffer B = null;
     private static boolean C = true;
     private static int D = 0;
@@ -35,7 +34,9 @@ public class m {
     private static int I = 0;
     private static int J = 0;
     private static int K = 0;
-    private final long a = 1000;
+
+    /* renamed from: a */
+    private final long f478a = 1000;
     private LocationManager c = null;
     private p e = null;
     private o g = null;
@@ -306,13 +307,13 @@ public class m {
         String str = "{\"result\":{\"time\":\"" + ap.a() + "\",\"error\":\"61\"},\"content\":{\"point\":{\"x\":\"%f\",\"y\":\"%f\"},\"radius\":\"%d\",\"d\":\"%f\",\"s\":\"%f\",\"n\":\"%d\"}}";
         int accuracy = (int) (this.d.hasAccuracy() ? this.d.getAccuracy() : 10.0f);
         float speed = (float) (this.d.getSpeed() * 3.6d);
-        double[] a = Jni.a(this.d.getLongitude(), this.d.getLatitude(), "gps2gcj");
-        if (a[0] <= 0.0d && a[1] <= 0.0d) {
-            a[0] = this.d.getLongitude();
-            a[1] = this.d.getLatitude();
+        double[] a2 = Jni.a(this.d.getLongitude(), this.d.getLatitude(), "gps2gcj");
+        if (a2[0] <= 0.0d && a2[1] <= 0.0d) {
+            a2[0] = this.d.getLongitude();
+            a2[1] = this.d.getLatitude();
         }
-        String format = String.format(str, Double.valueOf(a[0]), Double.valueOf(a[1]), Integer.valueOf(accuracy), Float.valueOf(this.d.getBearing()), Float.valueOf(speed), Integer.valueOf(h));
-        ap.a("baidu_location_service", "wgs84: " + this.d.getLongitude() + HanziToPinyin.Token.SEPARATOR + this.d.getLatitude() + " gcj02: " + a[0] + HanziToPinyin.Token.SEPARATOR + a[1]);
+        String format = String.format(str, Double.valueOf(a2[0]), Double.valueOf(a2[1]), Integer.valueOf(accuracy), Float.valueOf(this.d.getBearing()), Float.valueOf(speed), Integer.valueOf(h));
+        ap.a("baidu_location_service", "wgs84: " + this.d.getLongitude() + " " + this.d.getLatitude() + " gcj02: " + a2[0] + " " + a2[1]);
         return format;
     }
 

@@ -26,22 +26,25 @@ import android.widget.ListAdapter;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import com.baidu.android.common.util.HanziToPinyin;
 import com.baidu.browser.explorer.BdWebErrorView;
 import com.baidu.mapapi.MKEvent;
 import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.c.bs;
+import com.baidu.tieba.data.AntiData;
+import com.baidu.tieba.model.WriteModel;
 import com.baidu.tieba.service.TiebaPrepareImageService;
+import com.baidu.tieba.util.DatabaseService;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-public class WriteActivity extends com.baidu.tieba.e {
-    private bs c = null;
-    private boolean d = false;
-    private boolean e = false;
-    private InputMethodManager f = null;
-    private EditText g = null;
-    private EditText h = null;
-    private ImageView i = null;
+public class WriteActivity extends com.baidu.tieba.g {
+
+    /* renamed from: a  reason: collision with root package name */
+    private WriteModel f1550a = null;
+    private boolean b = false;
+    private boolean c = false;
+    private InputMethodManager d = null;
+    private EditText e = null;
+    private EditText f = null;
+    private ImageView g = null;
     private Button j = null;
     private ImageView k = null;
     private ImageView l = null;
@@ -65,7 +68,7 @@ public class WriteActivity extends com.baidu.tieba.e {
     private RelativeLayout D = null;
     private LinearLayout E = null;
     private TextView F = null;
-    private com.baidu.tieba.am G = null;
+    private com.baidu.tieba.at G = null;
     private Address H = null;
     private LinearLayout I = null;
     private RelativeLayout J = null;
@@ -75,20 +78,20 @@ public class WriteActivity extends com.baidu.tieba.e {
     private View.OnClickListener N = new ai(this);
     private View.OnFocusChangeListener O = new aj(this);
 
-    public static void a(Activity activity, String str, String str2, com.baidu.tieba.a.b bVar, boolean z, String str3) {
-        a(activity, 0, str, str2, null, null, 0, bVar, 1300003, false, false, null, false, z, str3);
+    public static void a(Activity activity, String str, String str2, AntiData antiData, boolean z, String str3) {
+        a(activity, 0, str, str2, null, null, 0, antiData, 1300003, false, false, null, false, z, str3);
     }
 
     public static void a(Activity activity, String str, String str2, String str3) {
         a(activity, 4, str, str2, str3, null, 0, null, 1300006, false, false, null, false, false, null);
     }
 
-    public static void a(Activity activity, String str, String str2, com.baidu.tieba.a.b bVar) {
-        a(activity, 0, str, str2, null, null, 0, bVar, 1300003, true, false, null, false, false, null);
+    public static void a(Activity activity, String str, String str2, AntiData antiData) {
+        a(activity, 0, str, str2, null, null, 0, antiData, 1300003, true, false, null, false, false, null);
     }
 
-    public static void a(Activity activity, String str, String str2, String str3, com.baidu.tieba.a.b bVar, String str4) {
-        a(activity, 1, str, str2, str3, null, 0, bVar, 1300002, false, false, null, false, true, str4);
+    public static void a(Activity activity, String str, String str2, String str3, AntiData antiData, String str4) {
+        a(activity, 1, str, str2, str3, null, 0, antiData, 1300002, false, false, null, false, true, str4);
     }
 
     public static void a(Activity activity) {
@@ -99,17 +102,17 @@ public class WriteActivity extends com.baidu.tieba.e {
         a(activity, 3, "", "", null, null, 0, null, 1300005, false, false, null, false, z, str);
     }
 
-    public static void a(Activity activity, String str, String str2, String str3, String str4, int i, String str5, com.baidu.tieba.a.b bVar, boolean z) {
+    public static void a(Activity activity, String str, String str2, String str3, String str4, int i, String str5, AntiData antiData, boolean z) {
         if (str4 != null) {
-            a(activity, 2, str, str2, str3, str4, i, bVar, 1300001, false, z, str5, false, false, null);
+            a(activity, 2, str, str2, str3, str4, i, antiData, 1300001, false, z, str5, false, false, null);
         } else {
-            a(activity, 1, str, str2, str3, null, i, bVar, 1300002, false, z, str5, false, false, null);
+            a(activity, 1, str, str2, str3, null, i, antiData, 1300002, false, z, str5, false, false, null);
         }
     }
 
-    private static void a(Activity activity, int i, String str, String str2, String str3, String str4, int i2, com.baidu.tieba.a.b bVar, int i3, boolean z, boolean z2, String str5, boolean z3, boolean z4, String str6) {
-        if (bVar != null && bVar.a() == 0) {
-            com.baidu.tieba.d.ag.a((Context) activity, bVar.e());
+    private static void a(Activity activity, int i, String str, String str2, String str3, String str4, int i2, AntiData antiData, int i3, boolean z, boolean z2, String str5, boolean z3, boolean z4, String str6) {
+        if (antiData != null && antiData.getIfpost() == 0) {
+            com.baidu.tieba.util.ab.a((Context) activity, antiData.getForbid_info());
             return;
         }
         Intent intent = new Intent(activity, WriteActivity.class);
@@ -141,14 +144,14 @@ public class WriteActivity extends com.baidu.tieba.e {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.e, com.baidu.adp.a.a, android.app.Activity
+    @Override // com.baidu.tieba.g, com.baidu.adp.a.a, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.f = (InputMethodManager) getSystemService("input_method");
+        this.d = (InputMethodManager) getSystemService("input_method");
         a(bundle);
         n();
-        if (TiebaApplication.e().q()) {
-            if ((getIntent().getExtras().getInt("type") == 0 || getIntent().getExtras().getInt("type") == 3) && !com.baidu.tieba.a.i.g().equals(getIntent().getStringExtra("forum_id"))) {
+        if (TiebaApplication.f().u()) {
+            if ((getIntent().getExtras().getInt("type") == 0 || getIntent().getExtras().getInt("type") == 3) && !com.baidu.tieba.data.g.g().equals(getIntent().getStringExtra("forum_id"))) {
                 c();
             }
         }
@@ -156,7 +159,7 @@ public class WriteActivity extends com.baidu.tieba.e {
 
     private void c() {
         this.G = new ak(this);
-        this.H = TiebaApplication.e().a(this.G);
+        this.H = TiebaApplication.f().a(this.G);
         if (this.H != null) {
             d();
         }
@@ -170,7 +173,7 @@ public class WriteActivity extends com.baidu.tieba.e {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.e, android.app.Activity
+    @Override // com.baidu.tieba.g, android.app.Activity
     public void onDestroy() {
         TiebaPrepareImageService.a();
         if (this.u != null) {
@@ -191,16 +194,16 @@ public class WriteActivity extends com.baidu.tieba.e {
             this.y = null;
         }
         this.z.removeCallbacks(this.L);
-        TiebaApplication.e().aL();
+        TiebaApplication.f().aO();
         super.onDestroy();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void m() {
-        if (this.c != null && this.c.b() == 2 && this.B) {
+        if (this.f1550a != null && this.f1550a.getType() == 2 && this.B) {
             finish();
-        } else if (this.x != null && (this.g.getText().toString().length() > 0 || this.h.getText().toString().length() > 0)) {
-            if (this.e) {
+        } else if (this.x != null && (this.e.getText().toString().length() > 0 || this.f.getText().toString().length() > 0)) {
+            if (this.c) {
                 this.x.show();
                 Button button = this.x.getButton(-3);
                 if (button != null) {
@@ -225,14 +228,14 @@ public class WriteActivity extends com.baidu.tieba.e {
             }
             finish();
         } else {
-            if (this.c.n()) {
-                com.baidu.tieba.d.k.a(this.c);
+            if (this.f1550a.getHaveDraft()) {
+                DatabaseService.a(this.f1550a);
             }
             finish();
         }
     }
 
-    @Override // com.baidu.tieba.e, android.app.Activity, android.view.KeyEvent.Callback
+    @Override // com.baidu.tieba.g, android.app.Activity, android.view.KeyEvent.Callback
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
         if (i == 4) {
             m();
@@ -242,49 +245,49 @@ public class WriteActivity extends com.baidu.tieba.e {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.e
-    public void b(int i) {
+    @Override // com.baidu.tieba.g
+    public void a(int i) {
         int color;
         int color2;
-        super.b(i);
-        com.baidu.tieba.d.ac.d(this.I, i);
-        com.baidu.tieba.d.ac.f(this.q, i);
-        com.baidu.tieba.d.ac.a(this.i, i);
-        com.baidu.tieba.d.ac.h((TextView) this.j, i);
+        super.a(i);
+        com.baidu.tieba.util.x.d(this.I, i);
+        com.baidu.tieba.util.x.f(this.q, i);
+        com.baidu.tieba.util.x.a(this.g, i);
+        com.baidu.tieba.util.x.h((TextView) this.j, i);
         if (i == 1) {
             this.D.setBackgroundColor(getResources().getColor(R.color.skin_1_common_bg));
-            this.g.setBackgroundResource(R.drawable.write_title_bg_1);
-            this.h.setBackgroundColor(com.baidu.tieba.d.ac.d(i));
-            this.J.setBackgroundColor(com.baidu.tieba.d.ac.d(i));
-            color = com.baidu.tieba.d.ac.a(i);
-            color2 = com.baidu.tieba.d.ac.c(i);
+            this.e.setBackgroundResource(R.drawable.write_title_bg_1);
+            this.f.setBackgroundColor(com.baidu.tieba.util.x.d(i));
+            this.J.setBackgroundColor(com.baidu.tieba.util.x.d(i));
+            color = com.baidu.tieba.util.x.a(i);
+            color2 = com.baidu.tieba.util.x.c(i);
             this.r.setBackgroundColor(getResources().getColor(R.color.skin_1_face_bg_color));
         } else {
             this.D.setBackgroundColor(getResources().getColor(R.color.white));
-            this.g.setBackgroundResource(R.drawable.write_title_bg);
-            this.h.setBackgroundColor(-526345);
+            this.e.setBackgroundResource(R.drawable.write_title_bg);
+            this.f.setBackgroundColor(-526345);
             this.J.setBackgroundColor(-526345);
             color = getResources().getColor(R.color.write_color);
             color2 = getResources().getColor(R.color.write_hint_color);
             this.r.setBackgroundColor(-1644826);
         }
-        this.g.setTextColor(color);
-        this.h.setTextColor(color);
+        this.e.setTextColor(color);
+        this.f.setTextColor(color);
         this.F.setTextColor(color);
-        Editable text = this.g.getText();
-        int selectionStart = this.g.getSelectionStart();
-        int selectionEnd = this.g.getSelectionEnd();
-        this.g.setText((CharSequence) null);
-        this.g.setHintTextColor(color2);
-        this.g.setText(text);
-        this.g.setSelection(selectionStart, selectionEnd);
-        Editable text2 = this.h.getText();
-        int selectionStart2 = this.h.getSelectionStart();
-        int selectionEnd2 = this.h.getSelectionEnd();
-        this.h.setText((CharSequence) null);
-        this.h.setHintTextColor(color2);
-        this.h.setText(text2);
-        this.h.setSelection(selectionStart2, selectionEnd2);
+        Editable text = this.e.getText();
+        int selectionStart = this.e.getSelectionStart();
+        int selectionEnd = this.e.getSelectionEnd();
+        this.e.setText((CharSequence) null);
+        this.e.setHintTextColor(color2);
+        this.e.setText(text);
+        this.e.setSelection(selectionStart, selectionEnd);
+        Editable text2 = this.f.getText();
+        int selectionStart2 = this.f.getSelectionStart();
+        int selectionEnd2 = this.f.getSelectionEnd();
+        this.f.setText((CharSequence) null);
+        this.f.setHintTextColor(color2);
+        this.f.setText(text2);
+        this.f.setSelection(selectionStart2, selectionEnd2);
         p();
     }
 
@@ -309,93 +312,93 @@ public class WriteActivity extends com.baidu.tieba.e {
         this.n = (ProgressBar) findViewById(R.id.image_progress);
         this.p = (ImageView) findViewById(R.id.image);
         this.p.setOnClickListener(new am(this));
-        this.g = (EditText) findViewById(R.id.post_title);
-        this.g.setOnClickListener(this.N);
-        this.g.setOnFocusChangeListener(this.O);
-        if (this.c.b() == 0) {
-            if (this.c.c() != null) {
-                this.g.setText(this.c.c());
-            } else if (this.d) {
-                this.g.setText(getResources().getString(R.string.android_feedback));
-                this.g.setSelection(getResources().getString(R.string.android_feedback).length());
+        this.e = (EditText) findViewById(R.id.post_title);
+        this.e.setOnClickListener(this.N);
+        this.e.setOnFocusChangeListener(this.O);
+        if (this.f1550a.getType() == 0) {
+            if (this.f1550a.getTitle() != null) {
+                this.e.setText(this.f1550a.getTitle());
+            } else if (this.b) {
+                this.e.setText(getResources().getString(R.string.android_feedback));
+                this.e.setSelection(getResources().getString(R.string.android_feedback).length());
             }
-        } else if (this.c.b() != 1) {
-            this.c.b();
+        } else if (this.f1550a.getType() != 1) {
+            this.f1550a.getType();
         }
-        this.g.addTextChangedListener(new an(this));
+        this.e.addTextChangedListener(new an(this));
         this.z.postDelayed(this.K, 200L);
         this.t = new m(this);
         this.r = (GridView) findViewById(R.id.face_view);
         this.r.setAdapter((ListAdapter) this.t);
         this.r.setOnItemClickListener(new u(this));
-        this.h = (EditText) findViewById(R.id.post_content);
-        this.h.setOnClickListener(this.N);
+        this.f = (EditText) findViewById(R.id.post_content);
+        this.f.setOnClickListener(this.N);
         this.m = (ImageView) findViewById(R.id.select_image);
         this.m.setOnClickListener(new v(this));
-        if (this.c.d() != null && this.c.d().length() > 0) {
-            this.h.setText(com.baidu.tbadk.a.a.a().a(this, this.c.d()));
-        } else if (this.c.b() == 2) {
+        if (this.f1550a.getContent() != null && this.f1550a.getContent().length() > 0) {
+            this.f.setText(com.baidu.tbadk.a.a.a().a(this, this.f1550a.getContent()));
+        } else if (this.f1550a.getType() == 2) {
             if (this.B) {
                 this.m.setVisibility(8);
                 if (this.C != null && this.C.length() > 0) {
-                    this.h.setText(getString(R.string.reply_sub_floor, new Object[]{this.C}));
-                    this.h.setSelection(this.h.getText().length());
+                    this.f.setText(getString(R.string.reply_sub_floor, new Object[]{this.C}));
+                    this.f.setSelection(this.f.getText().length());
                 }
-            } else if (this.c.i() > 0) {
-                String format = String.format(getString(R.string.reply_x_floor), Integer.valueOf(this.c.i()));
-                this.h.setText(format);
-                this.h.setSelection(format.length());
+            } else if (this.f1550a.getFloorNum() > 0) {
+                String format = String.format(getString(R.string.reply_x_floor), Integer.valueOf(this.f1550a.getFloorNum()));
+                this.f.setText(format);
+                this.f.setSelection(format.length());
             }
-        } else if (this.c.b() == 0 && this.d) {
+        } else if (this.f1550a.getType() == 0 && this.b) {
             StringBuffer stringBuffer = new StringBuffer(30);
             stringBuffer.append(getResources().getString(R.string.tieba_client));
-            stringBuffer.append(com.baidu.tieba.a.i.i());
+            stringBuffer.append(com.baidu.tieba.data.g.i());
             stringBuffer.append(", ");
             stringBuffer.append(Build.VERSION.RELEASE);
             stringBuffer.append(", ");
             stringBuffer.append(Build.MODEL);
             stringBuffer.append(":");
-            this.h.setText(stringBuffer);
+            this.f.setText(stringBuffer);
         }
-        this.h.setOnFocusChangeListener(this.O);
-        this.h.setOnTouchListener(new w(this));
-        this.h.addTextChangedListener(new x(this));
-        this.i = (ImageView) findViewById(R.id.back);
-        this.i.setOnFocusChangeListener(this.O);
+        this.f.setOnFocusChangeListener(this.O);
+        this.f.setOnTouchListener(new w(this));
+        this.f.addTextChangedListener(new x(this));
+        this.g = (ImageView) findViewById(R.id.back);
+        this.g.setOnFocusChangeListener(this.O);
         this.q = (TextView) findViewById(R.id.name);
-        this.i.setOnClickListener(new y(this));
+        this.g.setOnClickListener(new y(this));
         this.l = (ImageView) findViewById(R.id.select_at);
         this.l.setOnClickListener(new z(this));
         this.j.setOnClickListener(new aa(this));
         this.k = (ImageView) findViewById(R.id.select_face);
         this.k.setOnClickListener(new ab(this));
-        if (this.c.b() == 0) {
-            if (this.d) {
+        if (this.f1550a.getType() == 0) {
+            if (this.b) {
                 this.q.setText(R.string.feedback);
             } else {
                 this.q.setText(R.string.post_new_thread);
             }
-            this.g.setVisibility(0);
+            this.e.setVisibility(0);
             this.E.setVisibility(8);
         } else {
-            if (this.c.b() == 3) {
+            if (this.f1550a.getType() == 3) {
                 this.l.setVisibility(8);
                 this.q.setText(R.string.lbs_post);
                 this.E.setVisibility(0);
-                this.h.setFilters(new InputFilter[]{new InputFilter.LengthFilter(BdWebErrorView.ERROR_CODE_500)});
-            } else if (this.c.b() == 4) {
+                this.f.setFilters(new InputFilter[]{new InputFilter.LengthFilter(BdWebErrorView.ERROR_CODE_500)});
+            } else if (this.f1550a.getType() == 4) {
                 this.l.setVisibility(8);
                 this.m.setVisibility(8);
                 this.q.setText(R.string.lbs_reply);
                 this.E.setVisibility(8);
-                this.h.setFilters(new InputFilter[]{new InputFilter.LengthFilter(BdWebErrorView.ERROR_CODE_500)});
+                this.f.setFilters(new InputFilter[]{new InputFilter.LengthFilter(BdWebErrorView.ERROR_CODE_500)});
             } else {
                 this.l.setVisibility(0);
                 this.q.setText(R.string.send_reply);
                 this.E.setVisibility(8);
-                this.h.setFilters(new InputFilter[]{new InputFilter.LengthFilter(5000)});
+                this.f.setFilters(new InputFilter[]{new InputFilter.LengthFilter(5000)});
             }
-            this.g.setVisibility(8);
+            this.e.setVisibility(8);
         }
         AlertDialog.Builder builder2 = new AlertDialog.Builder(this);
         builder2.setMessage(getString(R.string.is_save_draft)).setCancelable(false).setPositiveButton(getString(R.string.save), new ac(this)).setNeutralButton(getString(R.string.not_save), new ad(this)).setNegativeButton(getString(R.string.cancel), new af(this));
@@ -413,24 +416,24 @@ public class WriteActivity extends com.baidu.tieba.e {
                 this.s.dismiss();
             }
         } catch (Exception e) {
-            com.baidu.tieba.d.ae.b(getClass().getName(), "closeDialog", e.getMessage());
+            com.baidu.tieba.util.z.b(getClass().getName(), "closeDialog", e.getMessage());
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void p() {
         String trim;
-        if (this.c.b() == 0) {
-            trim = this.g.getText().toString().trim();
+        if (this.f1550a.getType() == 0) {
+            trim = this.e.getText().toString().trim();
         } else if (this.y != null) {
             trim = "1";
         } else {
-            trim = this.h.getText().toString().trim();
+            trim = this.f.getText().toString().trim();
         }
         if (this.A || trim == null || trim.length() <= 0 || this.u != null) {
             this.j.setEnabled(false);
-            if (this.b == 1) {
-                this.j.setTextColor(com.baidu.tieba.d.ac.c(this.b));
+            if (this.i == 1) {
+                this.j.setTextColor(com.baidu.tieba.util.x.c(this.i));
                 return;
             } else {
                 this.j.setTextColor(-11313038);
@@ -438,8 +441,8 @@ public class WriteActivity extends com.baidu.tieba.e {
             }
         }
         this.j.setEnabled(true);
-        if (this.b == 1) {
-            this.j.setTextColor(com.baidu.tieba.d.ac.a(this.b));
+        if (this.i == 1) {
+            this.j.setTextColor(com.baidu.tieba.util.x.a(this.i));
         } else {
             this.j.setTextColor(-1);
         }
@@ -448,36 +451,36 @@ public class WriteActivity extends com.baidu.tieba.e {
     private void a(Bundle bundle) {
         int intExtra;
         this.w = new ag(this);
-        this.c = new bs();
+        this.f1550a = new WriteModel();
         if (bundle != null) {
-            this.c.a(bundle.getInt("type", 0));
-            this.c.e(bundle.getString("forum_id"));
-            this.c.f(bundle.getString("forum_name"));
-            this.c.c(bundle.getString("thread_id"));
-            this.c.d(bundle.getString("floor_id"));
+            this.f1550a.setType(bundle.getInt("type", 0));
+            this.f1550a.setForumId(bundle.getString("forum_id"));
+            this.f1550a.setForumName(bundle.getString("forum_name"));
+            this.f1550a.setThreadId(bundle.getString("thread_id"));
+            this.f1550a.setFloor(bundle.getString("floor_id"));
             intExtra = bundle.getInt("floor_num", 0);
-            this.c.b(intExtra);
-            this.d = bundle.getBoolean("feed_back", false);
+            this.f1550a.setFloorNum(intExtra);
+            this.b = bundle.getBoolean("feed_back", false);
             this.B = bundle.getBoolean("reply_sub_pb", false);
             this.C = bundle.getString("sub_user_name");
         } else {
             Intent intent = getIntent();
-            this.c.a(intent.getIntExtra("type", 0));
-            this.c.e(intent.getStringExtra("forum_id"));
-            this.c.f(intent.getStringExtra("forum_name"));
-            this.c.c(intent.getStringExtra("thread_id"));
-            this.c.d(intent.getStringExtra("floor_id"));
+            this.f1550a.setType(intent.getIntExtra("type", 0));
+            this.f1550a.setForumId(intent.getStringExtra("forum_id"));
+            this.f1550a.setForumName(intent.getStringExtra("forum_name"));
+            this.f1550a.setThreadId(intent.getStringExtra("thread_id"));
+            this.f1550a.setFloor(intent.getStringExtra("floor_id"));
             intExtra = intent.getIntExtra("floor_num", 0);
-            this.c.b(intExtra);
-            this.d = intent.getBooleanExtra("feed_back", false);
+            this.f1550a.setFloorNum(intExtra);
+            this.b = intent.getBooleanExtra("feed_back", false);
             this.B = intent.getBooleanExtra("reply_sub_pb", false);
             this.C = intent.getStringExtra("sub_user_name");
         }
-        bs a = com.baidu.tieba.d.k.a(this.c.b(), this.c.g(), this.c.e(), this.c.f());
-        if (a != null) {
-            this.c = a;
-            this.c.b(intExtra);
-            this.c.b(true);
+        WriteModel a2 = DatabaseService.a(this.f1550a.getType(), this.f1550a.getForumId(), this.f1550a.getThreadId(), this.f1550a.getFloor());
+        if (a2 != null) {
+            this.f1550a = a2;
+            this.f1550a.setFloorNum(intExtra);
+            this.f1550a.setHaveDraft(true);
         }
     }
 
@@ -502,14 +505,14 @@ public class WriteActivity extends com.baidu.tieba.e {
 
     @Override // android.app.Activity
     protected void onSaveInstanceState(Bundle bundle) {
-        bundle.putInt("type", this.c.b());
-        bundle.putString("forum_id", this.c.g());
-        bundle.putString("forum_name", this.c.h());
-        bundle.putString("thread_id", this.c.e());
-        bundle.putString("floor_id", this.c.f());
-        bundle.putInt("floor_num", this.c.i());
+        bundle.putInt("type", this.f1550a.getType());
+        bundle.putString("forum_id", this.f1550a.getForumId());
+        bundle.putString("forum_name", this.f1550a.getForumName());
+        bundle.putString("thread_id", this.f1550a.getThreadId());
+        bundle.putString("floor_id", this.f1550a.getFloor());
+        bundle.putInt("floor_num", this.f1550a.getFloorNum());
         bundle.putBoolean("reply_sub_pb", this.B);
-        if (this.d) {
+        if (this.b) {
             bundle.putBoolean("feed_back", true);
         }
         super.onSaveInstanceState(bundle);
@@ -518,21 +521,21 @@ public class WriteActivity extends com.baidu.tieba.e {
     @Override // android.app.Activity
     protected void onRestoreInstanceState(Bundle bundle) {
         super.onRestoreInstanceState(bundle);
-        String editable = this.h.getEditableText().toString();
+        String editable = this.f.getEditableText().toString();
         if (editable != null) {
-            this.h.setText(com.baidu.tbadk.a.a.a().a(this, editable));
+            this.f.setText(com.baidu.tbadk.a.a.a().a(this, editable));
         }
     }
 
     public void b() {
-        this.c.a(this.g.getText().toString());
-        this.c.b(this.h.getText().toString());
+        this.f1550a.setTitle(this.e.getText().toString());
+        this.f1550a.setContent(this.f.getText().toString());
         a(getString(R.string.sending), this.w);
         if (this.v != null) {
             this.v.cancel();
         }
-        this.c.g(null);
-        this.v = new ap(this, this.c);
+        this.f1550a.setVcode(null);
+        this.v = new ap(this, this.f1550a);
         this.v.setPriority(3);
         this.v.execute(0);
     }
@@ -583,18 +586,18 @@ public class WriteActivity extends com.baidu.tieba.e {
                 this.z.removeCallbacks(this.L);
                 this.z.postDelayed(this.L, 10000L);
                 p();
-                a(this.h, MKEvent.ERROR_PERMISSION_DENIED);
+                a(this.f, MKEvent.ERROR_PERMISSION_DENIED);
             } else if (i == 1200004) {
-                String a = AtListActivity.a(intent);
-                if (a != null) {
-                    this.h.getText().insert(this.h.getSelectionStart(), "@" + a + HanziToPinyin.Token.SEPARATOR);
+                String a2 = AtListActivity.a(intent);
+                if (a2 != null) {
+                    this.f.getText().insert(this.f.getSelectionStart(), "@" + a2 + " ");
                 }
             } else if (i == 1200006) {
-                com.baidu.tieba.d.k.a(this.c);
-                if (this.c.b() == 4) {
+                DatabaseService.a(this.f1550a);
+                if (this.f1550a.getType() == 4) {
                     Intent intent2 = new Intent();
-                    intent2.putExtra("reply_content", this.c.d());
-                    intent2.putExtra("reply_tid", this.c.e());
+                    intent2.putExtra("reply_content", this.f1550a.getContent());
+                    intent2.putExtra("reply_tid", this.f1550a.getThreadId());
                     setResult(-1, intent2);
                 } else {
                     setResult(-1);
@@ -642,7 +645,7 @@ public class WriteActivity extends com.baidu.tieba.e {
             this.y.recycle();
         }
         this.y = null;
-        this.c.a((com.baidu.tieba.a.z) null);
+        this.f1550a.setBitmapId(null);
         this.n.setVisibility(0);
         p();
     }
@@ -654,7 +657,7 @@ public class WriteActivity extends com.baidu.tieba.e {
         this.n.setVisibility(8);
         if (bitmap != null) {
             this.y = bitmap;
-            this.c.a((com.baidu.tieba.a.z) null);
+            this.f1550a.setBitmapId(null);
             this.p.setImageBitmap(this.y);
             this.p.setVisibility(0);
             this.o.setVisibility(0);
@@ -667,10 +670,10 @@ public class WriteActivity extends com.baidu.tieba.e {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.e, android.app.Activity
+    @Override // com.baidu.tieba.g, android.app.Activity
     public void onPause() {
-        a(this.f, this.g);
-        a(this.f, this.h);
+        a(this.d, this.e);
+        a(this.d, this.f);
         if (this.r.getVisibility() == 0) {
             this.r.setVisibility(8);
         }

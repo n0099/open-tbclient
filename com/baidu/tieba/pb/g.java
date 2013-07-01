@@ -6,48 +6,50 @@ import java.util.ArrayList;
 import java.util.HashMap;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class g implements android.support.v4.view.aj {
-    final /* synthetic */ ImageActivity a;
+public class g implements android.support.v4.view.bq {
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ ImageActivity f1278a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public g(ImageActivity imageActivity) {
-        this.a = imageActivity;
+        this.f1278a = imageActivity;
     }
 
-    @Override // android.support.v4.view.aj
-    public void a(int i) {
+    @Override // android.support.v4.view.bq
+    public void a_(int i) {
         boolean z;
         a aVar;
         MultiImageView multiImageView;
         a aVar2;
         int i2;
-        z = this.a.D;
+        z = this.f1278a.D;
         if (!z) {
-            aVar = this.a.w;
+            aVar = this.f1278a.w;
             if (aVar != null) {
-                multiImageView = this.a.o;
+                multiImageView = this.f1278a.o;
                 if (i > multiImageView.getItemNum() - 5) {
-                    aVar2 = this.a.w;
+                    aVar2 = this.f1278a.w;
                     aVar2.a();
                 }
             }
         } else {
             Intent intent = new Intent("com.baidu.tieba.broadcast.imagepb.pagechanged");
             intent.putExtra("index", i);
-            this.a.sendBroadcast(intent);
+            this.f1278a.sendBroadcast(intent);
         }
-        ImageActivity imageActivity = this.a;
-        i2 = this.a.f;
+        ImageActivity imageActivity = this.f1278a;
+        i2 = this.f1278a.d;
         imageActivity.b(i2, i);
-        this.a.f = i;
-        this.a.o();
+        this.f1278a.d = i;
+        this.f1278a.o();
     }
 
-    @Override // android.support.v4.view.aj
+    @Override // android.support.v4.view.bq
     public void a(int i, float f, int i2) {
     }
 
-    @Override // android.support.v4.view.aj
+    @Override // android.support.v4.view.bq
     public void b(int i) {
         long j;
         ArrayList arrayList;
@@ -58,16 +60,16 @@ public class g implements android.support.v4.view.aj {
         int i3;
         if (i == 1) {
             long nanoTime = System.nanoTime();
-            j = this.a.x;
+            j = this.f1278a.x;
             if (nanoTime - j > 300000000) {
-                arrayList = this.a.e;
+                arrayList = this.f1278a.c;
                 if (arrayList != null) {
-                    i2 = this.a.f;
-                    arrayList2 = this.a.e;
+                    i2 = this.f1278a.d;
+                    arrayList2 = this.f1278a.c;
                     if (i2 < arrayList2.size()) {
-                        hashMap = this.a.y;
-                        arrayList3 = this.a.e;
-                        i3 = this.a.f;
+                        hashMap = this.f1278a.y;
+                        arrayList3 = this.f1278a.c;
+                        i3 = this.f1278a.d;
                         hashMap.put((String) arrayList3.get(i3), true);
                     }
                 }

@@ -1,20 +1,17 @@
 package android.support.v4.view;
 
-import android.os.Build;
-import android.view.ViewConfiguration;
+import android.view.KeyEvent;
 /* loaded from: classes.dex */
-public class y {
-    static final ab a;
-
-    static {
-        if (Build.VERSION.SDK_INT >= 11) {
-            a = new aa();
-        } else {
-            a = new z();
-        }
+class y {
+    public static int a(int i) {
+        return KeyEvent.normalizeMetaState(i);
     }
 
-    public static int a(ViewConfiguration viewConfiguration) {
-        return a.a(viewConfiguration);
+    public static boolean a(int i, int i2) {
+        return KeyEvent.metaStateHasModifiers(i, i2);
+    }
+
+    public static boolean b(int i) {
+        return KeyEvent.metaStateHasNoModifiers(i);
     }
 }

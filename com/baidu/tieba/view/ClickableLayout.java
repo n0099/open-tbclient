@@ -6,27 +6,29 @@ import android.view.MotionEvent;
 import android.widget.LinearLayout;
 /* loaded from: classes.dex */
 public class ClickableLayout extends LinearLayout {
-    private e a;
+
+    /* renamed from: a  reason: collision with root package name */
+    private e f1481a;
 
     public ClickableLayout(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.a = null;
+        this.f1481a = null;
     }
 
     public ClickableLayout(Context context) {
         super(context);
-        this.a = null;
+        this.f1481a = null;
     }
 
     public void setOnkeyUpListener(e eVar) {
-        this.a = eVar;
+        this.f1481a = eVar;
     }
 
     @Override // android.view.ViewGroup, android.view.View
     public boolean dispatchTouchEvent(MotionEvent motionEvent) {
         boolean dispatchTouchEvent = super.dispatchTouchEvent(motionEvent);
-        if (motionEvent.getAction() == 1 && this.a != null) {
-            this.a.a();
+        if (motionEvent.getAction() == 1 && this.f1481a != null) {
+            this.f1481a.a();
         }
         return dispatchTouchEvent;
     }

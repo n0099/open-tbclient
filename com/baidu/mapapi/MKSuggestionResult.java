@@ -3,7 +3,9 @@ package com.baidu.mapapi;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class MKSuggestionResult {
-    private int a = 0;
+
+    /* renamed from: a  reason: collision with root package name */
+    private int f518a = 0;
     private ArrayList b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -16,7 +18,7 @@ public class MKSuggestionResult {
     }
 
     public MKSuggestionInfo getSuggestion(int i) {
-        if (this.b == null || this.a <= i) {
+        if (this.b == null || this.f518a <= i) {
             return null;
         }
         return (MKSuggestionInfo) this.b.get(i);
@@ -24,10 +26,10 @@ public class MKSuggestionResult {
 
     public int getSuggestionNum() {
         if (this.b != null) {
-            this.a = this.b.size();
+            this.f518a = this.b.size();
         } else {
-            this.a = 0;
+            this.f518a = 0;
         }
-        return this.a;
+        return this.f518a;
     }
 }

@@ -16,7 +16,9 @@ public class am {
     private AlarmManager m;
     private ao n;
     private boolean p;
-    private String a = "baidu_location_service";
+
+    /* renamed from: a  reason: collision with root package name */
+    private String f461a = "baidu_location_service";
     private ArrayList b = null;
     private float c = Float.MAX_VALUE;
     private a d = null;
@@ -48,13 +50,13 @@ public class am {
         }
         this.l = PendingIntent.getBroadcast(this.g, 0, new Intent("android.com.baidu.location.TIMER.NOTIFY"), 134217728);
         this.m.set(0, System.currentTimeMillis() + j, this.l);
-        ap.a(this.a, "timer start:" + j);
+        ap.a(this.f461a, "timer start:" + j);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(a aVar) {
         float f;
-        ap.a(this.a, "notify new loation");
+        ap.a(this.f461a, "notify new loation");
         this.j = false;
         if (aVar.d() != 61 && aVar.d() != 161 && aVar.d() != 65) {
             a(120000L);
@@ -73,7 +75,7 @@ public class am {
                 d dVar = (d) it.next();
                 Location.distanceBetween(aVar.a(), aVar.b(), dVar.f, dVar.g, fArr);
                 f2 = (fArr[0] - dVar.c) - aVar.c();
-                ap.a(this.a, "distance:" + f2);
+                ap.a(this.f461a, "distance:" + f2);
                 if (f2 > 0.0f) {
                     if (f2 < f) {
                     }
@@ -156,11 +158,11 @@ public class am {
         }
         if (dVar.e != null) {
             if (!dVar.e.equals("gcj02")) {
-                double[] a = Jni.a(dVar.b, dVar.a, dVar.e + "2gcj");
-                dVar.g = a[0];
-                dVar.f = a[1];
-                ap.a(this.a, dVar.e + "2gcj");
-                ap.a(this.a, "coor:" + dVar.b + "," + dVar.a + ":" + dVar.g + "," + dVar.f);
+                double[] a2 = Jni.a(dVar.b, dVar.f468a, dVar.e + "2gcj");
+                dVar.g = a2[0];
+                dVar.f = a2[1];
+                ap.a(this.f461a, dVar.e + "2gcj");
+                ap.a(this.f461a, "coor:" + dVar.b + "," + dVar.f468a + ":" + dVar.g + "," + dVar.f);
             }
             if (this.d == null || System.currentTimeMillis() - this.e > 30000) {
                 this.f.a();
@@ -192,7 +194,7 @@ public class am {
         this.d = null;
         this.e = 0L;
         if (this.p) {
-            ap.a(this.a, "unregister...");
+            ap.a(this.f461a, "unregister...");
             this.g.unregisterReceiver(this.n);
         }
         this.p = false;

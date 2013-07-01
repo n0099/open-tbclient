@@ -21,7 +21,7 @@ import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class h extends ImageView {
     private int A;
-    private volatile u B;
+    private volatile s B;
     private Bitmap C;
     private int D;
     private volatile long E;
@@ -32,7 +32,9 @@ public class h extends ImageView {
     private int J;
     private int K;
     private Interpolator L;
-    public volatile int a;
+
+    /* renamed from: a  reason: collision with root package name */
+    public volatile int f1521a;
     private Matrix b;
     private int c;
     private int d;
@@ -77,7 +79,7 @@ public class h extends ImageView {
         this.x = 0;
         this.y = false;
         this.z = false;
-        this.a = 0;
+        this.f1521a = 0;
         this.A = 0;
         this.B = null;
         this.C = null;
@@ -111,7 +113,7 @@ public class h extends ImageView {
         this.x = 0;
         this.y = false;
         this.z = false;
-        this.a = 0;
+        this.f1521a = 0;
         this.A = 0;
         this.B = null;
         this.C = null;
@@ -145,7 +147,7 @@ public class h extends ImageView {
         this.x = 0;
         this.y = false;
         this.z = false;
-        this.a = 0;
+        this.f1521a = 0;
         this.A = 0;
         this.B = null;
         this.C = null;
@@ -229,14 +231,14 @@ public class h extends ImageView {
                         this.y = true;
                         this.z = true;
                         if (this.w != 1 && this.w != 2) {
-                            float a = a(motionEvent);
-                            if (a >= 0.0f && Math.abs(this.v - a) >= 10.0f) {
-                                if (Math.abs(this.v - a) > 100.0f) {
-                                    this.v = a;
+                            float a2 = a(motionEvent);
+                            if (a2 >= 0.0f && Math.abs(this.v - a2) >= 10.0f) {
+                                if (Math.abs(this.v - a2) > 100.0f) {
+                                    this.v = a2;
                                     break;
                                 } else {
-                                    float f = a / this.v;
-                                    this.v = a;
+                                    float f = a2 / this.v;
+                                    this.v = a2;
                                     this.k = this.j;
                                     this.j *= f;
                                     if (this.j > this.i) {
@@ -350,7 +352,7 @@ public class h extends ImageView {
         c();
         this.D = 0;
         if (this.m != null) {
-            this.a = 1;
+            this.f1521a = 1;
             invalidate();
             new i(this).start();
         }
@@ -397,7 +399,7 @@ public class h extends ImageView {
             }
             canvas.clipRect(i, i2, width + i, height + i2);
             canvas.drawColor(-1);
-            if (this.a == 2 && this.A == 1 && this.G && this.B != null) {
+            if (this.f1521a == 2 && this.A == 1 && this.G && this.B != null) {
                 if (this.E + this.B.a(this.D) < System.currentTimeMillis()) {
                     this.E += this.B.a(this.D);
                     t();
@@ -430,7 +432,7 @@ public class h extends ImageView {
 
     public void e() {
         if (this.w == 1) {
-            if (this.a == 0) {
+            if (this.f1521a == 0) {
                 d();
             } else {
                 this.E = System.currentTimeMillis();
@@ -442,7 +444,7 @@ public class h extends ImageView {
 
     public void f() {
         if (this.w == 1) {
-            com.baidu.tieba.d.ae.e(getClass().getName(), "pause", null);
+            com.baidu.tieba.util.z.e(getClass().getName(), "pause", null);
             this.G = false;
             invalidate();
         }
@@ -453,14 +455,14 @@ public class h extends ImageView {
             super.setImageBitmap(null);
             this.G = false;
             c();
-            this.a = 0;
+            this.f1521a = 0;
             this.D = 0;
             invalidate();
         }
     }
 
     private void u() {
-        this.o = com.baidu.tieba.d.ag.b(getContext()) * com.baidu.tieba.d.ag.a(getContext()) * 2;
+        this.o = com.baidu.tieba.util.ab.b(getContext()) * com.baidu.tieba.util.ab.a(getContext()) * 2;
         if (this.o < 1690000) {
             this.o = 1690000;
         }
@@ -568,7 +570,7 @@ public class h extends ImageView {
         c();
         r();
         this.w = 1;
-        this.a = 0;
+        this.f1521a = 0;
         this.C = bitmap;
         this.m = bArr;
         if (this.s != null) {
@@ -583,7 +585,7 @@ public class h extends ImageView {
         super.setImageBitmap(null);
         c();
         this.m = null;
-        this.a = 0;
+        this.f1521a = 0;
         this.C = null;
         this.G = false;
     }
@@ -594,7 +596,7 @@ public class h extends ImageView {
         }
         super.setImageBitmap(null);
         c();
-        this.a = 0;
+        this.f1521a = 0;
         this.C = null;
         this.G = false;
     }
@@ -603,7 +605,7 @@ public class h extends ImageView {
         if (this.t.a()) {
             this.t.b();
         }
-        super.setImageBitmap(com.baidu.tieba.d.d.a((int) R.drawable.drgimage_fail));
+        super.setImageBitmap(com.baidu.tieba.util.d.a((int) R.drawable.drgimage_fail));
         this.w = 2;
         r();
     }
@@ -731,7 +733,7 @@ public class h extends ImageView {
                 scrollTo(scrollX, scrollY);
                 setImageMatrix(this.b);
             } catch (Exception e) {
-                com.baidu.tieba.d.ae.b("DragImageView", "resizeBitmap", "error = " + e.getMessage());
+                com.baidu.tieba.util.z.b("DragImageView", "resizeBitmap", "error = " + e.getMessage());
             }
         }
     }

@@ -1,13 +1,14 @@
 package android.support.v4.view;
 
-import android.view.MotionEvent;
+import android.view.View;
 /* loaded from: classes.dex */
-interface i {
-    int a(MotionEvent motionEvent, int i);
+final class i extends View.AccessibilityDelegate {
 
-    int b(MotionEvent motionEvent, int i);
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ j f97a;
 
-    float c(MotionEvent motionEvent, int i);
-
-    float d(MotionEvent motionEvent, int i);
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public i(j jVar) {
+        this.f97a = jVar;
+    }
 }

@@ -7,12 +7,14 @@ import android.view.View;
 import com.baidu.tieba.person.PersonInfoActivity;
 /* loaded from: classes.dex */
 class ag extends ClickableSpan {
-    final /* synthetic */ ae a;
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ ae f1129a;
     private String b;
     private String c;
 
     public ag(ae aeVar, String str, String str2) {
-        this.a = aeVar;
+        this.f1129a = aeVar;
         this.b = null;
         this.c = null;
         this.b = str;
@@ -30,7 +32,7 @@ class ag extends ClickableSpan {
     public void onClick(View view) {
         Context context;
         if (this.b != null && this.c != null) {
-            context = this.a.a;
+            context = this.f1129a.f1127a;
             PersonInfoActivity.a(context, this.c, this.b);
         }
     }

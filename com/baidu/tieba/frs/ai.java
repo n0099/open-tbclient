@@ -1,96 +1,100 @@
 package com.baidu.tieba.frs;
 
 import com.baidu.tieba.TiebaApplication;
+import com.baidu.tieba.frs.FrsImageActivity;
+import com.baidu.tieba.util.DatabaseService;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
-class ai implements ax {
-    final /* synthetic */ FrsImageActivity a;
+class ai implements aw {
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ FrsImageActivity f835a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ai(FrsImageActivity frsImageActivity) {
-        this.a = frsImageActivity;
+        this.f835a = frsImageActivity;
     }
 
-    @Override // com.baidu.tieba.frs.ax
+    @Override // com.baidu.tieba.frs.aw
     public void a(int i) {
         boolean z;
-        ay ayVar;
-        z = this.a.s;
+        ax axVar;
+        z = this.f835a.s;
         if (!z) {
-            ayVar = this.a.n;
-            ayVar.a(true);
+            axVar = this.f835a.n;
+            axVar.a(true);
             return;
         }
-        this.a.s = false;
+        this.f835a.s = false;
     }
 
-    @Override // com.baidu.tieba.frs.ax
-    public void a(int i, JSONObject jSONObject, com.baidu.tieba.c.ab abVar) {
-        ay ayVar;
-        ay ayVar2;
-        com.baidu.tieba.c.z zVar;
-        com.baidu.tieba.c.z zVar2;
-        ay ayVar3;
+    @Override // com.baidu.tieba.frs.aw
+    public void a(int i, JSONObject jSONObject, com.baidu.tieba.model.ae aeVar) {
+        ax axVar;
+        ax axVar2;
+        com.baidu.tieba.model.ac acVar;
+        com.baidu.tieba.model.ac acVar2;
+        ax axVar3;
         int i2;
         int i3;
-        com.baidu.tieba.c.z zVar3;
+        com.baidu.tieba.model.ac acVar3;
         int i4;
-        com.baidu.tieba.c.z zVar4;
+        com.baidu.tieba.model.ac acVar4;
         String str;
-        ayVar = this.a.n;
-        ayVar.a(false);
-        this.a.c("done");
+        axVar = this.f835a.n;
+        axVar.a(false);
+        this.f835a.c("done");
         if (jSONObject == null) {
-            if (abVar.a) {
-                this.a.a(abVar.d);
-                if (abVar.b && abVar.c == 2000) {
-                    TiebaApplication e = TiebaApplication.e();
-                    str = this.a.d;
-                    e.d(str);
+            if (aeVar.f1011a) {
+                this.f835a.a(aeVar.d);
+                if (aeVar.b && aeVar.c == 2000) {
+                    TiebaApplication f = TiebaApplication.f();
+                    str = this.f835a.b;
+                    f.f(str);
                     return;
                 }
                 return;
             }
             return;
         }
-        if (abVar != null && abVar.b) {
-            i4 = this.a.l;
+        if (aeVar != null && aeVar.b) {
+            i4 = this.f835a.l;
             if (i4 == 1) {
-                zVar4 = this.a.t;
-                com.baidu.tieba.d.k.k(zVar4.a().b());
+                acVar4 = this.f835a.t;
+                DatabaseService.n(acVar4.a().b());
             }
         }
-        ayVar2 = this.a.n;
-        ayVar2.a().i();
-        FrsImageActivity frsImageActivity = this.a;
-        zVar = this.a.t;
-        frsImageActivity.a(zVar.b());
-        this.a.i = 30;
-        zVar2 = this.a.t;
-        if (zVar2.c().size() <= 30) {
+        axVar2 = this.f835a.n;
+        axVar2.a().i();
+        FrsImageActivity frsImageActivity = this.f835a;
+        acVar = this.f835a.t;
+        frsImageActivity.a(acVar.b());
+        this.f835a.g = 30;
+        acVar2 = this.f835a.t;
+        if (acVar2.c().size() <= 30) {
             if (i == 1) {
-                zVar3 = this.a.t;
-                if (zVar3.c().size() == 0) {
-                    this.a.a(aw.NO_ITEM);
+                acVar3 = this.f835a.t;
+                if (acVar3.c().size() == 0) {
+                    this.f835a.a(FrsImageActivity.FooterType.NO_ITEM);
                 }
             }
-            this.a.a(aw.LAST);
+            this.f835a.a(FrsImageActivity.FooterType.LAST);
         } else {
-            this.a.a(aw.NORMAL);
+            this.f835a.a(FrsImageActivity.FooterType.NORMAL);
         }
-        ayVar3 = this.a.n;
-        ayVar3.a().scrollTo(0, 0);
-        this.a.j = i;
-        i2 = this.a.j;
+        axVar3 = this.f835a.n;
+        axVar3.a().scrollTo(0, 0);
+        this.f835a.j = i;
+        i2 = this.f835a.j;
         if (i2 > 1) {
-            this.a.n();
+            this.f835a.n();
         } else {
-            this.a.o();
+            this.f835a.o();
         }
-        i3 = this.a.l;
+        i3 = this.f835a.l;
         if (i3 == 1) {
-            this.a.l = 0;
-            this.a.getIntent().putExtra("add_search", 0);
+            this.f835a.l = 0;
+            this.f835a.getIntent().putExtra("add_search", 0);
         }
     }
 }

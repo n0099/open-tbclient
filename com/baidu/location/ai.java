@@ -73,7 +73,7 @@ public final class ai extends Thread {
                 i3 = ah.o;
                 params2.setParameter("http.socket.timeout", Integer.valueOf(i3));
                 HttpProtocolParams.setUseExpectContinue(defaultHttpClient.getParams(), false);
-                str4 = ah.a;
+                str4 = ah.f460a;
                 StringBuilder append = new StringBuilder().append("apn type : ");
                 i4 = ah.q;
                 ap.a(str4, append.append(i4).toString());
@@ -83,7 +83,7 @@ public final class ai extends Thread {
                 }
                 i6 = ah.c;
                 if ((i6 - i10) % 2 == 0) {
-                    str5 = ah.a;
+                    str5 = ah.f460a;
                     StringBuilder append2 = new StringBuilder().append("apn type : ADD PROXY");
                     str6 = ah.r;
                     StringBuilder append3 = append2.append(str6);
@@ -95,7 +95,7 @@ public final class ai extends Thread {
                 }
                 execute = defaultHttpClient.execute(httpPost);
                 statusCode = execute.getStatusLine().getStatusCode();
-                str8 = ah.a;
+                str8 = ah.f460a;
                 ap.a(str8, "===status error : " + statusCode);
             } catch (Exception e) {
                 e.printStackTrace();
@@ -103,7 +103,7 @@ public final class ai extends Thread {
             if (statusCode == 200) {
                 String entityUtils = EntityUtils.toString(execute.getEntity(), BdUtil.UTF8);
                 Header contentType = execute.getEntity().getContentType();
-                str9 = ah.a;
+                str9 = ah.f460a;
                 ap.a(str9, "status error : " + contentType);
                 handler4 = ah.u;
                 Message obtainMessage = handler4.obtainMessage(21);
@@ -122,7 +122,7 @@ public final class ai extends Thread {
         if (i10 <= 0) {
             handler = ah.u;
             if (handler != null) {
-                str = ah.a;
+                str = ah.f460a;
                 ap.a(str, "have tried 3 times...");
                 handler2 = ah.u;
                 handler2.obtainMessage(62).sendToTarget();

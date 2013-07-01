@@ -1,11 +1,13 @@
 package com.baidu.tieba.pb;
 /* loaded from: classes.dex */
 class aq implements com.baidu.adp.widget.ListView.s {
-    final /* synthetic */ NewPbActivity a;
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ NewPbActivity f1208a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public aq(NewPbActivity newPbActivity) {
-        this.a = newPbActivity;
+        this.f1208a = newPbActivity;
     }
 
     @Override // com.baidu.adp.widget.ListView.s

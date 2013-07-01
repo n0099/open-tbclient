@@ -6,43 +6,45 @@ import com.baidu.tieba.pb.NewPbActivity;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class r implements DialogInterface.OnClickListener {
-    final /* synthetic */ FrsActivity a;
-    private final /* synthetic */ com.baidu.tieba.a.bc b;
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ FrsActivity f870a;
+    private final /* synthetic */ com.baidu.tieba.data.ba b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public r(FrsActivity frsActivity, com.baidu.tieba.a.bc bcVar) {
-        this.a = frsActivity;
-        this.b = bcVar;
+    public r(FrsActivity frsActivity, com.baidu.tieba.data.ba baVar) {
+        this.f870a = frsActivity;
+        this.b = baVar;
     }
 
     @Override // android.content.DialogInterface.OnClickListener
     public void onClick(DialogInterface dialogInterface, int i) {
         String str;
         boolean z;
-        ba baVar;
+        az azVar;
         switch (i) {
             case 0:
-                str = this.a.j;
+                str = this.f870a.j;
                 if (str != null) {
-                    FrsActivity frsActivity = this.a;
-                    com.baidu.tieba.a.bc bcVar = this.b;
-                    z = this.a.k;
-                    NewPbActivity.a(frsActivity, bcVar, null, 1800003, true, false, z);
+                    FrsActivity frsActivity = this.f870a;
+                    com.baidu.tieba.data.ba baVar = this.b;
+                    z = this.f870a.k;
+                    NewPbActivity.a(frsActivity, baVar, null, 1800003, true, false, z);
                     break;
                 }
                 break;
             case 1:
-                this.a.c(this.b);
+                this.f870a.c(this.b);
                 break;
             case 2:
-                this.a.d(this.b);
+                this.f870a.d(this.b);
                 break;
         }
-        com.baidu.tieba.d.ab az = TiebaApplication.e().az();
-        if (az != null && !az.b(this.b.a())) {
-            az.a(this.b.a());
+        com.baidu.tieba.util.w aA = TiebaApplication.f().aA();
+        if (aA != null && !aA.b(this.b.a())) {
+            aA.a(this.b.a());
         }
-        baVar = this.a.l;
-        baVar.k();
+        azVar = this.f870a.l;
+        azVar.k();
     }
 }

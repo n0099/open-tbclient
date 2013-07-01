@@ -11,6 +11,7 @@ import android.graphics.drawable.BitmapDrawable;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+import android.support.v4.view.bq;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -26,17 +27,19 @@ import java.util.List;
 /* loaded from: classes.dex */
 public class GuideActivity extends Activity {
     private ArrayList d;
-    private n e;
+    private q e;
     private BaseViewPager f;
     private Button g;
     private List h;
-    private int[] c = {R.drawable.image_bootpage01, R.drawable.image_bootpage02, R.drawable.image_bootpage03};
-    private m i = null;
+    private int[] c = {R.drawable.image_bootpage01, R.drawable.image_bootpage02};
+    private p i = null;
     private LinearLayout j = null;
-    private com.baidu.tieba.view.a k = new i(this);
-    public View.OnClickListener a = new j(this);
-    public View.OnClickListener b = new k(this);
-    private final android.support.v4.view.aj l = new l(this);
+    private com.baidu.tieba.view.a k = new l(this);
+
+    /* renamed from: a */
+    public View.OnClickListener f613a = new m(this);
+    public View.OnClickListener b = new n(this);
+    private final bq l = new o(this);
 
     public static void a(Activity activity, int i) {
         activity.startActivityForResult(new Intent(activity, GuideActivity.class), i);
@@ -47,7 +50,7 @@ public class GuideActivity extends Activity {
         View imageView;
         super.onCreate(bundle);
         setContentView(R.layout.guide_activity);
-        this.e = new n(this, null);
+        this.e = new q(this, null);
         this.f = (BaseViewPager) findViewById(R.id.guide_pager);
         this.f.setAdapter(this.e);
         this.f.setOnScrollOutListener(this.k);
@@ -68,14 +71,14 @@ public class GuideActivity extends Activity {
             this.h.add(decodeResource);
             this.d.add(i, imageView);
         }
-        if (TiebaApplication.e().p()) {
+        if (TiebaApplication.f().t()) {
             try {
-                StatService.setAppChannel(com.baidu.tieba.a.i.a());
+                StatService.setAppChannel(com.baidu.tieba.data.g.a());
             } catch (Exception e) {
-                com.baidu.tieba.d.ae.b(getClass().getName(), "onCreate", e.getMessage());
+                com.baidu.tieba.util.z.b(getClass().getName(), "onCreate", e.getMessage());
             }
         }
-        this.i = new m(this, null);
+        this.i = new p(this, null);
         this.i.setSelfExecute(true);
         this.i.execute(new String[0]);
     }
@@ -108,11 +111,11 @@ public class GuideActivity extends Activity {
     @Override // android.app.Activity
     public void onResume() {
         super.onResume();
-        if (TiebaApplication.e().p()) {
+        if (TiebaApplication.f().t()) {
             try {
                 StatService.onResume(this);
             } catch (Exception e) {
-                com.baidu.tieba.d.ae.b(getClass().getName(), "onResume", e.getMessage());
+                com.baidu.tieba.util.z.b(getClass().getName(), "onResume", e.getMessage());
             }
         }
     }
@@ -120,11 +123,11 @@ public class GuideActivity extends Activity {
     @Override // android.app.Activity
     public void onPause() {
         super.onPause();
-        if (TiebaApplication.e().p()) {
+        if (TiebaApplication.f().t()) {
             try {
                 StatService.onPause(this);
             } catch (Exception e) {
-                com.baidu.tieba.d.ae.b(getClass().getName(), "onPause", e.getMessage());
+                com.baidu.tieba.util.z.b(getClass().getName(), "onPause", e.getMessage());
             }
         }
     }
@@ -174,7 +177,7 @@ public class GuideActivity extends Activity {
                 }
             }
         } catch (Exception e) {
-            com.baidu.tieba.d.ae.a(getClass().getName(), "checkShortCut", e.toString());
+            com.baidu.tieba.util.z.a(getClass().getName(), "checkShortCut", e.toString());
         }
         return false;
     }

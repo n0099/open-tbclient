@@ -8,10 +8,12 @@ import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class o implements GpsStatus.Listener, GpsStatus.NmeaListener {
-    final /* synthetic */ m a;
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ m f479a;
 
     private o(m mVar) {
-        this.a = mVar;
+        this.f479a = mVar;
     }
 
     @Override // android.location.GpsStatus.Listener
@@ -24,14 +26,14 @@ public class o implements GpsStatus.Listener, GpsStatus.NmeaListener {
         int i2;
         int i3;
         LocationManager locationManager3;
-        locationManager = this.a.c;
+        locationManager = this.f479a.c;
         if (locationManager == null) {
             return;
         }
         switch (i) {
             case 2:
-                this.a.b((Location) null);
-                this.a.b(false);
+                this.f479a.b((Location) null);
+                this.f479a.b(false);
                 int unused = m.h = 0;
                 return;
             case 3:
@@ -39,17 +41,17 @@ public class o implements GpsStatus.Listener, GpsStatus.NmeaListener {
                 return;
             case 4:
                 ap.a("baidu_location_service", "gps status change");
-                gpsStatus = this.a.f;
+                gpsStatus = this.f479a.f;
                 if (gpsStatus == null) {
-                    m mVar = this.a;
-                    locationManager3 = this.a.c;
+                    m mVar = this.f479a;
+                    locationManager3 = this.f479a.c;
                     mVar.f = locationManager3.getGpsStatus(null);
                 } else {
-                    locationManager2 = this.a.c;
-                    gpsStatus2 = this.a.f;
+                    locationManager2 = this.f479a.c;
+                    gpsStatus2 = this.f479a.f;
                     locationManager2.getGpsStatus(gpsStatus2);
                 }
-                gpsStatus3 = this.a.f;
+                gpsStatus3 = this.f479a.f;
                 int i4 = 0;
                 for (GpsSatellite gpsSatellite : gpsStatus3.getSatellites()) {
                     i4 = gpsSatellite.usedInFix() ? i4 + 1 : i4;
@@ -57,14 +59,14 @@ public class o implements GpsStatus.Listener, GpsStatus.NmeaListener {
                 ap.a("baidu_location_service", "gps nunmber in count:" + i4);
                 i2 = m.h;
                 if (i2 >= 3 && i4 < 3) {
-                    this.a.i = System.currentTimeMillis();
+                    this.f479a.i = System.currentTimeMillis();
                 }
                 if (i4 < 3) {
-                    this.a.b(false);
+                    this.f479a.b(false);
                 }
                 i3 = m.h;
                 if (i3 <= 3 && i4 > 3) {
-                    this.a.b(true);
+                    this.f479a.b(true);
                 }
                 int unused2 = m.h = i4;
                 return;
@@ -86,18 +88,18 @@ public class o implements GpsStatus.Listener, GpsStatus.NmeaListener {
             return;
         }
         long currentTimeMillis = System.currentTimeMillis();
-        j2 = this.a.p;
+        j2 = this.f479a.p;
         if (currentTimeMillis - j2 > 400) {
-            z = this.a.s;
+            z = this.f479a.s;
             if (z) {
-                list2 = this.a.t;
+                list2 = this.f479a.t;
                 if (list2.size() > 0) {
                     try {
-                        m mVar = this.a;
-                        list4 = this.a.t;
-                        str2 = this.a.u;
-                        str3 = this.a.v;
-                        str4 = this.a.w;
+                        m mVar = this.f479a;
+                        list4 = this.f479a.t;
+                        str2 = this.f479a.u;
+                        str3 = this.f479a.v;
+                        str4 = this.f479a.w;
                         q qVar = new q(mVar, list4, str2, str3, str4);
                         if (qVar.c()) {
                             ap.f = qVar.b();
@@ -111,24 +113,24 @@ public class o implements GpsStatus.Listener, GpsStatus.NmeaListener {
                     } catch (Exception e) {
                         ap.f = 0;
                     }
-                    list3 = this.a.t;
+                    list3 = this.f479a.t;
                     list3.clear();
-                    this.a.u = this.a.v = this.a.w = null;
-                    this.a.s = false;
+                    this.f479a.u = this.f479a.v = this.f479a.w = null;
+                    this.f479a.s = false;
                 }
             }
         }
         if (str.startsWith("$GPGGA")) {
-            this.a.s = true;
-            this.a.u = str.trim();
+            this.f479a.s = true;
+            this.f479a.u = str.trim();
         } else if (str.startsWith("$GPGSV")) {
-            list = this.a.t;
+            list = this.f479a.t;
             list.add(str.trim());
         } else if (str.startsWith("$GPRMC")) {
-            this.a.v = str.trim();
+            this.f479a.v = str.trim();
         } else if (str.startsWith("$GPGSA")) {
-            this.a.w = str.trim();
+            this.f479a.w = str.trim();
         }
-        this.a.p = System.currentTimeMillis();
+        this.f479a.p = System.currentTimeMillis();
     }
 }

@@ -7,75 +7,75 @@ import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.d.ac;
-import com.baidu.tieba.d.ae;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-public class ReplyMeActivity extends com.baidu.tieba.e {
-    private h c = null;
-    private ListView d = null;
-    private TextView e = null;
+public class ReplyMeActivity extends com.baidu.tieba.g {
+
+    /* renamed from: a  reason: collision with root package name */
+    private h f977a = null;
+    private ListView b = null;
+    private TextView c = null;
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.e, com.baidu.adp.a.a, android.app.Activity
+    @Override // com.baidu.tieba.g, com.baidu.adp.a.a, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         setContentView(R.layout.reply_me_activity);
-        this.c = new h(this, 0, new aa(this));
-        this.d = (ListView) findViewById(R.id.replyme_lv);
-        this.c.a(this.d);
-        this.c.a((ProgressBar) findViewById(R.id.mention_progress_replyme));
-        this.c.a((FrameLayout) findViewById(R.id.mention_layout_replyme));
-        this.c.a(R.string.mention_replyme_nodata);
-        this.e = (TextView) findViewById(R.id.reply_nodata);
-        this.c.a(this.e);
-        this.c.a("c/u/feed/replyme");
-        this.c.c();
+        this.f977a = new h(this, 0, new aa(this));
+        this.b = (ListView) findViewById(R.id.replyme_lv);
+        this.f977a.a(this.b);
+        this.f977a.a((ProgressBar) findViewById(R.id.mention_progress_replyme));
+        this.f977a.a((FrameLayout) findViewById(R.id.mention_layout_replyme));
+        this.f977a.a(R.string.mention_replyme_nodata);
+        this.c = (TextView) findViewById(R.id.reply_nodata);
+        this.f977a.a(this.c);
+        this.f977a.a("c/u/feed/replyme");
+        this.f977a.c();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.e
-    public void b(int i) {
-        super.b(i);
-        ac.b(this.d, i);
+    @Override // com.baidu.tieba.g
+    public void a(int i) {
+        super.a(i);
+        com.baidu.tieba.util.x.a(this.b, i);
         if (i == 1) {
-            this.e.setTextColor(ac.a(i));
-            this.e.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, (Drawable) null, getResources().getDrawable(R.drawable.list_divider_1));
+            this.c.setTextColor(com.baidu.tieba.util.x.a(i));
+            this.c.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, (Drawable) null, getResources().getDrawable(R.drawable.list_divider_1));
             return;
         }
-        this.e.setTextColor(-4276546);
-        this.e.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, (Drawable) null, getResources().getDrawable(R.drawable.list_divider));
+        this.c.setTextColor(-4276546);
+        this.c.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, (Drawable) null, getResources().getDrawable(R.drawable.list_divider));
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.e, android.app.Activity
+    @Override // com.baidu.tieba.g, android.app.Activity
     public void onResume() {
         super.onResume();
-        if (TiebaApplication.e().ac() > 0) {
-            this.c.b(2);
+        if (TiebaApplication.f().ad() > 0) {
+            this.f977a.b(2);
         } else {
-            this.c.b(1);
+            this.f977a.b(1);
         }
-        this.c.d();
-        this.c.e();
+        this.f977a.d();
+        this.f977a.e();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.e, android.app.Activity
+    @Override // com.baidu.tieba.g, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
         try {
-            if (this.c != null) {
-                this.c.f();
-                this.c.a();
+            if (this.f977a != null) {
+                this.f977a.f();
+                this.f977a.a();
             }
             System.gc();
         } catch (Exception e) {
-            ae.b(getClass().getName(), "onDestroy", e.toString());
+            com.baidu.tieba.util.z.b(getClass().getName(), "onDestroy", e.toString());
         }
     }
 
     public void b() {
-        this.c.b();
+        this.f977a.b();
     }
 }

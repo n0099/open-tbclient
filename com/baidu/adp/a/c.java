@@ -1,32 +1,37 @@
 package com.baidu.adp.a;
 /* loaded from: classes.dex */
 public abstract class c {
-    protected int a = 0;
-    protected e b = null;
-    protected int c = 0;
-    protected String d = null;
+    public static final int MODE_INVALID = 0;
+    protected int mLoadDataMode = 0;
+    protected e mLoadDataCallBack = null;
+    protected int mErrorCode = 0;
+    protected String mErrorString = null;
 
-    public int a() {
-        return this.a;
+    protected abstract boolean LoadData();
+
+    public abstract boolean cancelLoadData();
+
+    public int getLoadDataMode() {
+        return this.mLoadDataMode;
     }
 
-    public void a(e eVar) {
-        this.b = eVar;
+    public void setLoadDataCallBack(e eVar) {
+        this.mLoadDataCallBack = eVar;
     }
 
-    public int b() {
-        return this.c;
+    public int getErrorCode() {
+        return this.mErrorCode;
     }
 
-    public void a(int i) {
-        this.c = i;
+    public void setErrorCode(int i) {
+        this.mErrorCode = i;
     }
 
-    public String c() {
-        return this.d;
+    public String getErrorString() {
+        return this.mErrorString;
     }
 
-    public void a(String str) {
-        this.d = str;
+    public void setErrorString(String str) {
+        this.mErrorString = str;
     }
 }

@@ -2,27 +2,23 @@ package com.baidu.tieba.home;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class i implements Runnable {
-    final /* synthetic */ EnterForumActivity a;
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ EnterForumActivity f930a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public i(EnterForumActivity enterForumActivity) {
-        this.a = enterForumActivity;
+        this.f930a = enterForumActivity;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        com.baidu.tieba.c.j jVar;
-        com.baidu.tieba.c.j jVar2;
+        n nVar;
         try {
-            jVar = this.a.d;
-            if (jVar != null) {
-                jVar2 = this.a.d;
-                if (jVar2.d().d().size() > 0) {
-                    this.a.c.v();
-                }
-            }
+            nVar = this.f930a.f883a;
+            nVar.r();
         } catch (Exception e) {
-            com.baidu.tieba.d.ae.b("HomeActivity", "mLoadImageRunnable.run", "error = " + e.getMessage());
+            com.baidu.tieba.util.z.b("HomeActivity", "mLoadImageRunnable.run", "error = " + e.getMessage());
         }
     }
 }

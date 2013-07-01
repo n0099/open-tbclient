@@ -6,25 +6,27 @@ import android.widget.TextView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class s implements TextView.OnEditorActionListener {
-    final /* synthetic */ LoginActivity a;
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ LoginActivity f678a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public s(LoginActivity loginActivity) {
-        this.a = loginActivity;
+        this.f678a = loginActivity;
     }
 
     @Override // android.widget.TextView.OnEditorActionListener
     public boolean onEditorAction(TextView textView, int i, KeyEvent keyEvent) {
         View view;
         View view2;
-        view = this.a.G;
+        view = this.f678a.G;
         if (view.getVisibility() != 8 || i != 4) {
-            view2 = this.a.G;
+            view2 = this.f678a.G;
             if (view2.getVisibility() != 0 || i != 6) {
                 return false;
             }
         }
-        this.a.p();
+        this.f678a.p();
         return true;
     }
 }

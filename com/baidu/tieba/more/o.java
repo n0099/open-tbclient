@@ -5,7 +5,9 @@ import android.widget.ImageView;
 import android.widget.TextView;
 /* loaded from: classes.dex */
 class o {
-    TextView a;
+
+    /* renamed from: a  reason: collision with root package name */
+    TextView f1103a;
     TextView b;
     ImageView c;
     Button d;

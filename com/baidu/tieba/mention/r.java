@@ -4,15 +4,17 @@ import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class r implements View.OnClickListener {
-    final /* synthetic */ PostActivity a;
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ PostActivity f995a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public r(PostActivity postActivity) {
-        this.a = postActivity;
+        this.f995a = postActivity;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        this.a.finish();
+        this.f995a.finish();
     }
 }

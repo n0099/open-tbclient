@@ -6,11 +6,13 @@ import android.widget.LinearLayout;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class cs implements Runnable {
-    final /* synthetic */ cr a;
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ cr f1262a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public cs(cr crVar) {
-        this.a = crVar;
+        this.f1262a = crVar;
     }
 
     @Override // java.lang.Runnable
@@ -19,13 +21,13 @@ public class cs implements Runnable {
         LinearLayout linearLayout;
         LinearLayout linearLayout2;
         EditText editText;
-        gridView = this.a.A;
+        gridView = this.f1262a.A;
         gridView.setVisibility(0);
-        linearLayout = this.a.s;
+        linearLayout = this.f1262a.s;
         linearLayout.setVisibility(0);
-        linearLayout2 = this.a.p;
+        linearLayout2 = this.f1262a.p;
         linearLayout2.setEnabled(false);
-        editText = this.a.F;
+        editText = this.f1262a.F;
         editText.requestFocus();
     }
 }

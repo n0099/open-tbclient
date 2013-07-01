@@ -1,28 +1,31 @@
 package com.baidu.tieba.home;
 
 import android.widget.ProgressBar;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class c extends com.baidu.adp.lib.a.a {
-    final /* synthetic */ CreateBarActivity a;
+public class c extends BdAsyncTask {
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ CreateBarActivity f924a;
     private String b;
     private String c;
-    private com.baidu.tieba.d.t d = null;
+    private com.baidu.tieba.util.r d = null;
 
-    @Override // com.baidu.adp.lib.a.a
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void cancel() {
         ProgressBar progressBar;
         super.cancel(true);
         if (this.d != null) {
-            this.d.g();
+            this.d.h();
         }
-        progressBar = this.a.o;
+        progressBar = this.f924a.o;
         progressBar.setVisibility(8);
-        this.a.q = null;
+        this.f924a.q = null;
     }
 
     public c(CreateBarActivity createBarActivity, String str, String str2) {
-        this.a = createBarActivity;
+        this.f924a = createBarActivity;
         this.b = null;
         this.c = null;
         this.b = str;
@@ -31,51 +34,51 @@ public class c extends com.baidu.adp.lib.a.a {
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.a.a
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public String a(String... strArr) {
         String str;
         try {
-            this.d = new com.baidu.tieba.d.t(String.valueOf(com.baidu.tieba.a.i.e) + "c/c/forum/create");
+            this.d = new com.baidu.tieba.util.r(String.valueOf(com.baidu.tieba.data.g.f787a) + "c/c/forum/create");
             this.d.d(true);
             this.d.a("kw", this.b);
             this.d.a("vcode", this.c);
-            com.baidu.tieba.d.t tVar = this.d;
-            str = this.a.u;
-            tVar.a("vcode_md5", str);
-            this.d.i();
+            com.baidu.tieba.util.r rVar = this.d;
+            str = this.f924a.u;
+            rVar.a("vcode_md5", str);
+            this.d.j();
             return null;
         } catch (Exception e) {
-            com.baidu.tieba.d.ae.b(getClass().getName(), "doInBackground", e.getMessage());
+            com.baidu.tieba.util.z.b(getClass().getName(), "doInBackground", e.getMessage());
             return null;
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.a.a
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void a(String str) {
         ProgressBar progressBar;
         super.a((Object) str);
-        progressBar = this.a.o;
+        progressBar = this.f924a.o;
         progressBar.setVisibility(8);
-        this.a.q = null;
-        if (this.d.b()) {
-            CreateBarSuccessActivity.a(this.a, this.b);
-            this.a.finish();
+        this.f924a.q = null;
+        if (this.d.c()) {
+            CreateBarSuccessActivity.a(this.f924a, this.b);
+            this.f924a.finish();
             return;
         }
-        this.a.a(this.d.f());
-        if (this.d.c()) {
-            this.a.d();
+        this.f924a.a(this.d.g());
+        if (this.d.d()) {
+            this.f924a.d();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.a.a
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void b() {
         ProgressBar progressBar;
         super.b();
-        progressBar = this.a.o;
+        progressBar = this.f924a.o;
         progressBar.setVisibility(0);
     }
 }

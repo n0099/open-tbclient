@@ -113,8 +113,8 @@ public class z extends com.baidu.adp.a.d {
         this.I = (TextView) moreActivity.findViewById(R.id.sign_remind_time);
         this.l = (LinearLayout) moreActivity.findViewById(R.id.browse_setting);
         this.l.setOnClickListener(moreActivity);
-        SpannableString spannableString = new SpannableString(this.a.getString(R.string.browse_setting_spannable));
-        spannableString.setSpan(new AbsoluteSizeSpan(com.baidu.tieba.d.ag.a(this.a, 12.0f)), 6, spannableString.length(), 18);
+        SpannableString spannableString = new SpannableString(this.f118a.getString(R.string.browse_setting_spannable));
+        spannableString.setSpan(new AbsoluteSizeSpan(com.baidu.tieba.util.ab.a(this.f118a, 12.0f)), 6, spannableString.length(), 18);
         this.x = (TextView) moreActivity.findViewById(R.id.browse_setting_text);
         this.x.setText(spannableString);
         this.n = (LinearLayout) moreActivity.findViewById(R.id.clear_cash);
@@ -127,7 +127,7 @@ public class z extends com.baidu.adp.a.d {
         this.u = (LinearLayout) moreActivity.findViewById(R.id.recommend_app);
         this.u.setOnClickListener(moreActivity);
         this.B = (TextView) moreActivity.findViewById(R.id.recommend_app_text);
-        if (!TiebaApplication.e().t()) {
+        if (!TiebaApplication.f().x()) {
             this.u.setVisibility(8);
         } else {
             this.u.setVisibility(0);
@@ -231,31 +231,31 @@ public class z extends com.baidu.adp.a.d {
     }
 
     public void p() {
-        ((com.baidu.tieba.e) this.a).b(this.a.getString(R.string.deleting));
+        ((com.baidu.tieba.g) this.f118a).b(this.f118a.getString(R.string.deleting));
     }
 
     public void q() {
-        ((com.baidu.tieba.e) this.a).h();
+        ((com.baidu.tieba.g) this.f118a).h();
     }
 
     public void r() {
         this.c.setFocusable(false);
         this.c.setClickable(false);
-        this.b.setText(TiebaApplication.G());
+        this.b.setText(TiebaApplication.H());
     }
 
     public void s() {
         this.b.setText(R.string.putin_account);
-        this.c.setOnClickListener((com.baidu.tieba.e) this.a);
+        this.c.setOnClickListener((com.baidu.tieba.g) this.f118a);
     }
 
     public void t() {
-        ((ImageView) ((com.baidu.tieba.e) this.a).findViewById(R.id.arrow)).setVisibility(8);
+        ((ImageView) ((com.baidu.tieba.g) this.f118a).findViewById(R.id.arrow)).setVisibility(8);
     }
 
     public void u() {
-        String C = TiebaApplication.C();
-        if (C == null || C.length() <= 0) {
+        String E = TiebaApplication.E();
+        if (E == null || E.length() <= 0) {
             this.d.setVisibility(8);
         } else {
             this.d.setVisibility(0);
@@ -263,11 +263,11 @@ public class z extends com.baidu.adp.a.d {
     }
 
     public void v() {
-        if (TiebaApplication.e().Q() <= 0) {
+        if (TiebaApplication.f().R() <= 0) {
             this.H.setText(R.string.close);
-        } else if (TiebaApplication.e().Q() == 30) {
+        } else if (TiebaApplication.f().R() == 30) {
             this.H.setText(R.string._30_second);
-        } else if (TiebaApplication.e().Q() == 120) {
+        } else if (TiebaApplication.f().R() == 120) {
             this.H.setText(R.string.tow_minute);
         } else {
             this.H.setText(R.string.five_minute);
@@ -275,9 +275,9 @@ public class z extends com.baidu.adp.a.d {
     }
 
     public void w() {
-        TiebaApplication e = TiebaApplication.e();
-        if (e.ah()) {
-            this.I.setText(this.a.getString(R.string.sign_remind_time, e.ai() > 9 ? String.valueOf(e.ai()) : "0" + e.ai(), e.aj() > 9 ? String.valueOf(e.aj()) : "0" + e.aj()));
+        TiebaApplication f = TiebaApplication.f();
+        if (f.ai()) {
+            this.I.setText(this.f118a.getString(R.string.sign_remind_time, f.aj() > 9 ? String.valueOf(f.aj()) : "0" + f.aj(), f.ak() > 9 ? String.valueOf(f.ak()) : "0" + f.ak()));
         } else {
             this.I.setText(R.string.close);
         }
@@ -285,15 +285,15 @@ public class z extends com.baidu.adp.a.d {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void C() {
-        switch (TiebaApplication.e().am()) {
+        switch (TiebaApplication.f().an()) {
             case 1:
-                this.J.setText(this.a.getString(R.string.image_quality_high));
+                this.J.setText(this.f118a.getString(R.string.image_quality_high));
                 return;
             case 2:
-                this.J.setText(this.a.getString(R.string.image_quality_mid));
+                this.J.setText(this.f118a.getString(R.string.image_quality_mid));
                 return;
             case 3:
-                this.J.setText(this.a.getString(R.string.image_quality_low));
+                this.J.setText(this.f118a.getString(R.string.image_quality_low));
                 return;
             default:
                 return;
@@ -301,7 +301,7 @@ public class z extends com.baidu.adp.a.d {
     }
 
     private void D() {
-        if (TiebaApplication.e().S()) {
+        if (TiebaApplication.f().T()) {
             this.P.a();
         } else {
             this.P.b();
@@ -309,7 +309,7 @@ public class z extends com.baidu.adp.a.d {
     }
 
     public void x() {
-        if (TiebaApplication.e().aq()) {
+        if (TiebaApplication.f().ar()) {
             this.M.a();
         } else {
             this.M.b();
@@ -317,7 +317,7 @@ public class z extends com.baidu.adp.a.d {
     }
 
     public void y() {
-        if (TiebaApplication.e().as() == 1) {
+        if (TiebaApplication.f().at() == 1) {
             this.N.a();
         } else {
             this.N.b();
@@ -325,7 +325,7 @@ public class z extends com.baidu.adp.a.d {
     }
 
     private void E() {
-        if (TiebaApplication.e().q()) {
+        if (TiebaApplication.f().u()) {
             this.O.a();
         } else {
             this.O.b();
@@ -333,7 +333,7 @@ public class z extends com.baidu.adp.a.d {
     }
 
     public void z() {
-        if (TiebaApplication.aR()) {
+        if (TiebaApplication.aT()) {
             this.L.setVisibility(0);
         } else {
             this.L.setVisibility(8);
@@ -349,33 +349,33 @@ public class z extends com.baidu.adp.a.d {
         ImageView imageView6 = (ImageView) this.q.findViewById(R.id.arrow5);
         ImageView imageView7 = (ImageView) this.p.findViewById(R.id.arrow6);
         ImageView imageView8 = (ImageView) this.k.findViewById(R.id.arrow7);
-        com.baidu.tieba.d.ac.a(this.h, i);
-        com.baidu.tieba.d.ac.d(this.g, i);
-        com.baidu.tieba.d.ac.f(this.i, i);
-        com.baidu.tieba.d.ac.b(this.f, i);
+        com.baidu.tieba.util.x.a(this.h, i);
+        com.baidu.tieba.util.x.d(this.g, i);
+        com.baidu.tieba.util.x.f(this.i, i);
+        com.baidu.tieba.util.x.b(this.f, i);
         if (i == 1) {
             if (this.d.getVisibility() == 0) {
-                com.baidu.tieba.d.ac.h(this.c, (int) R.drawable.more_up_1);
+                com.baidu.tieba.util.x.h(this.c, (int) R.drawable.more_up_1);
             } else {
-                com.baidu.tieba.d.ac.h(this.c, (int) R.drawable.more_all_1);
+                com.baidu.tieba.util.x.h(this.c, (int) R.drawable.more_all_1);
             }
-            com.baidu.tieba.d.ac.h(this.d, (int) R.drawable.more_down_1);
-            com.baidu.tieba.d.ac.h(this.j, (int) R.drawable.more_up_1);
-            com.baidu.tieba.d.ac.h(this.k, (int) R.drawable.more_down_1);
-            com.baidu.tieba.d.ac.h(this.l, (int) R.drawable.more_up_1);
-            com.baidu.tieba.d.ac.h(this.s, (int) R.drawable.more_middle_1);
-            com.baidu.tieba.d.ac.h(this.r, (int) R.drawable.more_middle_1);
-            com.baidu.tieba.d.ac.h(this.o, (int) R.drawable.more_down_1);
-            com.baidu.tieba.d.ac.h(this.u, (int) R.drawable.more_all_1);
-            com.baidu.tieba.d.ac.h(this.t, (int) R.drawable.more_up_1);
-            com.baidu.tieba.d.ac.h(this.m, (int) R.drawable.more_down_1);
-            com.baidu.tieba.d.ac.h(this.q, (int) R.drawable.more_up_1);
-            com.baidu.tieba.d.ac.h(this.n, (int) R.drawable.more_middle_1);
-            com.baidu.tieba.d.ac.h(this.p, (int) R.drawable.more_down_1);
-            this.M.setSwitchStyle(com.baidu.adp.widget.BdSwitchView.e.NIGHT);
-            this.N.setSwitchStyle(com.baidu.adp.widget.BdSwitchView.e.NIGHT);
-            this.O.setSwitchStyle(com.baidu.adp.widget.BdSwitchView.e.NIGHT);
-            this.P.setSwitchStyle(com.baidu.adp.widget.BdSwitchView.e.NIGHT);
+            com.baidu.tieba.util.x.h(this.d, (int) R.drawable.more_down_1);
+            com.baidu.tieba.util.x.h(this.j, (int) R.drawable.more_up_1);
+            com.baidu.tieba.util.x.h(this.k, (int) R.drawable.more_down_1);
+            com.baidu.tieba.util.x.h(this.l, (int) R.drawable.more_up_1);
+            com.baidu.tieba.util.x.h(this.s, (int) R.drawable.more_middle_1);
+            com.baidu.tieba.util.x.h(this.r, (int) R.drawable.more_middle_1);
+            com.baidu.tieba.util.x.h(this.o, (int) R.drawable.more_down_1);
+            com.baidu.tieba.util.x.h(this.u, (int) R.drawable.more_all_1);
+            com.baidu.tieba.util.x.h(this.t, (int) R.drawable.more_up_1);
+            com.baidu.tieba.util.x.h(this.m, (int) R.drawable.more_down_1);
+            com.baidu.tieba.util.x.h(this.q, (int) R.drawable.more_up_1);
+            com.baidu.tieba.util.x.h(this.n, (int) R.drawable.more_middle_1);
+            com.baidu.tieba.util.x.h(this.p, (int) R.drawable.more_down_1);
+            this.M.setSwitchStyle(BdSwitchView.SwitchStyle.NIGHT);
+            this.N.setSwitchStyle(BdSwitchView.SwitchStyle.NIGHT);
+            this.O.setSwitchStyle(BdSwitchView.SwitchStyle.NIGHT);
+            this.P.setSwitchStyle(BdSwitchView.SwitchStyle.NIGHT);
             imageView.setImageResource(R.drawable.icon_arrow_right_1);
             imageView2.setImageResource(R.drawable.icon_arrow_right_1);
             imageView3.setImageResource(R.drawable.icon_arrow_right_1);
@@ -389,27 +389,27 @@ public class z extends com.baidu.adp.a.d {
             this.J.setTextColor(-11446171);
         } else {
             if (this.d.getVisibility() == 0) {
-                com.baidu.tieba.d.ac.h(this.c, (int) R.drawable.more_up);
+                com.baidu.tieba.util.x.h(this.c, (int) R.drawable.more_up);
             } else {
-                com.baidu.tieba.d.ac.h(this.c, (int) R.drawable.more_all);
+                com.baidu.tieba.util.x.h(this.c, (int) R.drawable.more_all);
             }
-            com.baidu.tieba.d.ac.h(this.d, (int) R.drawable.more_down);
-            com.baidu.tieba.d.ac.h(this.j, (int) R.drawable.more_up);
-            com.baidu.tieba.d.ac.h(this.k, (int) R.drawable.more_down);
-            com.baidu.tieba.d.ac.h(this.l, (int) R.drawable.more_up);
-            com.baidu.tieba.d.ac.h(this.s, (int) R.drawable.more_middle);
-            com.baidu.tieba.d.ac.h(this.r, (int) R.drawable.more_middle);
-            com.baidu.tieba.d.ac.h(this.o, (int) R.drawable.more_down);
-            com.baidu.tieba.d.ac.h(this.u, (int) R.drawable.more_all);
-            com.baidu.tieba.d.ac.h(this.t, (int) R.drawable.more_up);
-            com.baidu.tieba.d.ac.h(this.m, (int) R.drawable.more_down);
-            com.baidu.tieba.d.ac.h(this.q, (int) R.drawable.more_up);
-            com.baidu.tieba.d.ac.h(this.n, (int) R.drawable.more_middle);
-            com.baidu.tieba.d.ac.h(this.p, (int) R.drawable.more_down);
-            this.M.setSwitchStyle(com.baidu.adp.widget.BdSwitchView.e.DAY);
-            this.N.setSwitchStyle(com.baidu.adp.widget.BdSwitchView.e.DAY);
-            this.O.setSwitchStyle(com.baidu.adp.widget.BdSwitchView.e.DAY);
-            this.P.setSwitchStyle(com.baidu.adp.widget.BdSwitchView.e.DAY);
+            com.baidu.tieba.util.x.h(this.d, (int) R.drawable.more_down);
+            com.baidu.tieba.util.x.h(this.j, (int) R.drawable.more_up);
+            com.baidu.tieba.util.x.h(this.k, (int) R.drawable.more_down);
+            com.baidu.tieba.util.x.h(this.l, (int) R.drawable.more_up);
+            com.baidu.tieba.util.x.h(this.s, (int) R.drawable.more_middle);
+            com.baidu.tieba.util.x.h(this.r, (int) R.drawable.more_middle);
+            com.baidu.tieba.util.x.h(this.o, (int) R.drawable.more_down);
+            com.baidu.tieba.util.x.h(this.u, (int) R.drawable.more_all);
+            com.baidu.tieba.util.x.h(this.t, (int) R.drawable.more_up);
+            com.baidu.tieba.util.x.h(this.m, (int) R.drawable.more_down);
+            com.baidu.tieba.util.x.h(this.q, (int) R.drawable.more_up);
+            com.baidu.tieba.util.x.h(this.n, (int) R.drawable.more_middle);
+            com.baidu.tieba.util.x.h(this.p, (int) R.drawable.more_down);
+            this.M.setSwitchStyle(BdSwitchView.SwitchStyle.DAY);
+            this.N.setSwitchStyle(BdSwitchView.SwitchStyle.DAY);
+            this.O.setSwitchStyle(BdSwitchView.SwitchStyle.DAY);
+            this.P.setSwitchStyle(BdSwitchView.SwitchStyle.DAY);
             imageView.setImageResource(R.drawable.icon_arrow_right);
             imageView2.setImageResource(R.drawable.icon_arrow_right);
             imageView3.setImageResource(R.drawable.icon_arrow_right);
@@ -441,9 +441,9 @@ public class z extends com.baidu.adp.a.d {
     public void a(TextView textView, int i) {
         if (textView != null) {
             if (i == 1) {
-                textView.setTextColor(this.a.getResources().getColor(R.color.skin_1_common_color));
+                textView.setTextColor(this.f118a.getResources().getColor(R.color.skin_1_common_color));
             } else {
-                textView.setTextColor(this.a.getResources().getColor(R.color.more_color));
+                textView.setTextColor(this.f118a.getResources().getColor(R.color.more_color));
             }
         }
     }

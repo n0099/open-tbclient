@@ -1,17 +1,21 @@
 package com.baidu.tieba.person;
 
+import android.graphics.Bitmap;
 import android.view.View;
 import android.widget.ProgressBar;
+import com.baidu.tieba.view.EditHeadImageView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class r implements View.OnClickListener {
-    final /* synthetic */ EditHeadActivity a;
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ EditHeadActivity f1371a;
     private final /* synthetic */ String b;
     private final /* synthetic */ int c;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public r(EditHeadActivity editHeadActivity, String str, int i) {
-        this.a = editHeadActivity;
+        this.f1371a = editHeadActivity;
         this.b = str;
         this.c = i;
     }
@@ -19,16 +23,16 @@ public class r implements View.OnClickListener {
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         ProgressBar progressBar;
-        String str;
-        progressBar = this.a.n;
+        EditHeadImageView editHeadImageView;
+        Bitmap bitmap;
+        progressBar = this.f1371a.n;
         if (progressBar.getVisibility() != 0) {
-            String str2 = this.b;
-            str = this.a.A;
-            if (!str2.equals(str)) {
-                this.a.c(this.b);
-                this.a.d(this.b);
-                this.a.y = this.c;
-            }
+            editHeadImageView = this.f1371a.e;
+            bitmap = this.f1371a.f;
+            editHeadImageView.a(bitmap);
+            this.f1371a.C = false;
+            this.f1371a.d(this.b);
+            this.f1371a.y = this.c;
         }
     }
 }

@@ -13,7 +13,9 @@ import android.widget.ListView;
 import android.widget.TextView;
 /* loaded from: classes.dex */
 public class BdListView extends ListView {
-    private e a;
+
+    /* renamed from: a  reason: collision with root package name */
+    private e f199a;
     private AdapterView.OnItemClickListener b;
     private AdapterView.OnItemLongClickListener c;
     private AdapterView.OnItemSelectedListener d;
@@ -41,7 +43,7 @@ public class BdListView extends ListView {
 
     public BdListView(Context context) {
         super(context);
-        this.a = null;
+        this.f199a = null;
         this.b = null;
         this.c = null;
         this.d = null;
@@ -71,7 +73,7 @@ public class BdListView extends ListView {
 
     public BdListView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.a = null;
+        this.f199a = null;
         this.b = null;
         this.c = null;
         this.d = null;
@@ -101,7 +103,7 @@ public class BdListView extends ListView {
 
     public BdListView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.a = null;
+        this.f199a = null;
         this.b = null;
         this.c = null;
         this.d = null;
@@ -134,7 +136,7 @@ public class BdListView extends ListView {
         try {
             super.dispatchDraw(canvas);
         } catch (NullPointerException e) {
-            com.baidu.adp.lib.e.b.a(e.getMessage());
+            com.baidu.adp.lib.c.b.a(e.getMessage());
             if (getContext() instanceof Activity) {
                 ((Activity) getContext()).finish();
             }
@@ -142,7 +144,7 @@ public class BdListView extends ListView {
     }
 
     private void b() {
-        this.a = new e(getContext());
+        this.f199a = new e(getContext());
         super.setOnItemClickListener(new j(this));
         super.setOnScrollListener(new k(this));
     }
@@ -187,13 +189,13 @@ public class BdListView extends ListView {
 
     @Override // android.widget.ListView, android.widget.AdapterView
     public ListAdapter getAdapter() {
-        return this.a;
+        return this.f199a;
     }
 
     @Override // android.widget.ListView, android.widget.AbsListView
     public void setAdapter(ListAdapter listAdapter) {
-        this.a.a(listAdapter);
-        super.setAdapter((ListAdapter) this.a);
+        this.f199a.a(listAdapter);
+        super.setAdapter((ListAdapter) this.f199a);
     }
 
     public void setOnHeaderClickListener(o oVar) {
@@ -206,36 +208,36 @@ public class BdListView extends ListView {
 
     @Override // android.widget.ListView
     public void addHeaderView(View view, Object obj, boolean z) {
-        this.a.a(view, obj, z, getHeaderIndex());
+        this.f199a.a(view, obj, z, getHeaderIndex());
     }
 
     @Override // android.widget.ListView
     public void addHeaderView(View view) {
-        this.a.a(view, getHeaderIndex());
+        this.f199a.a(view, getHeaderIndex());
     }
 
     public void a(View view) {
-        this.a.a(view, null, false, 0);
+        this.f199a.a(view, null, false, 0);
     }
 
     @Override // android.widget.ListView
     public void addFooterView(View view, Object obj, boolean z) {
-        this.a.b(view, obj, z, -1);
+        this.f199a.b(view, obj, z, -1);
     }
 
     @Override // android.widget.ListView
     public void addFooterView(View view) {
-        this.a.c(view);
+        this.f199a.c(view);
     }
 
     @Override // android.widget.ListView
     public boolean removeHeaderView(View view) {
-        return this.a.a(view);
+        return this.f199a.a(view);
     }
 
     @Override // android.widget.ListView
     public boolean removeFooterView(View view) {
-        return this.a.b(view);
+        return this.f199a.b(view);
     }
 
     public void setNoData(String str) {
@@ -278,14 +280,14 @@ public class BdListView extends ListView {
             this.n = null;
         }
         if (cVar != null) {
-            this.a.b(cVar.b(), null, true, 0);
+            this.f199a.b(cVar.b(), null, true, 0);
             this.n = cVar;
         }
     }
 
     private int getHeaderIndex() {
         if (this.m != null) {
-            return this.a.c() - 1;
+            return this.f199a.c() - 1;
         }
         return -1;
     }
@@ -297,7 +299,7 @@ public class BdListView extends ListView {
             getHandler().removeCallbacks(this.q);
             getHandler().removeCallbacks(this.x);
         } catch (NullPointerException e) {
-            com.baidu.adp.lib.e.b.b(BdListView.class.getSimpleName(), "onDetachedFromWindow", e.getMessage());
+            com.baidu.adp.lib.c.b.b(BdListView.class.getSimpleName(), "onDetachedFromWindow", e.getMessage());
         }
     }
 
@@ -340,7 +342,7 @@ public class BdListView extends ListView {
             }
             this.v = i4;
         } catch (Throwable th) {
-            com.baidu.adp.lib.e.b.a(th.getMessage());
+            com.baidu.adp.lib.c.b.a(th.getMessage());
             if (getContext() instanceof Activity) {
                 ((Activity) getContext()).finish();
             }
@@ -363,15 +365,23 @@ public class BdListView extends ListView {
         }
     }
 
+    @Override // android.widget.AbsListView, android.view.ViewGroup
+    public boolean onInterceptTouchEvent(MotionEvent motionEvent) {
+        if (this.y != null) {
+            this.y.a(motionEvent, this.p);
+        }
+        return super.onInterceptTouchEvent(motionEvent);
+    }
+
     @Override // android.widget.AbsListView, android.view.View
     public boolean onTouchEvent(MotionEvent motionEvent) {
         if (this.y != null) {
-            this.y.a(motionEvent, this.p);
+            this.y.b(motionEvent, this.p);
         }
         try {
             return super.onTouchEvent(motionEvent);
         } catch (Exception e) {
-            com.baidu.adp.lib.e.b.a(e.getMessage());
+            com.baidu.adp.lib.c.b.a(e.getMessage());
             return false;
         }
     }

@@ -3,164 +3,173 @@ package com.baidu.tieba.chat;
 import android.content.Intent;
 import android.os.Bundle;
 import com.baidu.tieba.TiebaApplication;
+import com.baidu.tieba.data.AccountData;
 /* loaded from: classes.dex */
 public class w extends com.baidu.adp.a.c {
-    private String e;
-    private String f;
-    private com.baidu.tieba.a.a.c l;
-    private com.baidu.tieba.a.a.f p;
+
+    /* renamed from: a  reason: collision with root package name */
+    private String f740a;
+    private String b;
+    private com.baidu.tieba.data.a.c h;
+    private com.baidu.tieba.data.a.f l;
+    private String c = null;
+    private String d = null;
+    private String e = null;
+    private String f = null;
     private String g = null;
-    private String h = null;
-    private String i = null;
-    private String j = null;
-    private String k = null;
-    private x m = null;
-    private z n = null;
-    private y o = null;
+    private x i = null;
+    private z j = null;
+    private y k = null;
 
     public void a(Intent intent) {
-        this.i = intent.getStringExtra("chat_com_name");
-        this.h = intent.getStringExtra("chat_com_id");
-        this.k = intent.getStringExtra("chat_st_type");
-        this.g = intent.getStringExtra("chat_my_portrait");
-        this.j = intent.getStringExtra("chat_com_portrait");
-        p();
+        this.e = intent.getStringExtra("chat_com_name");
+        this.d = intent.getStringExtra("chat_com_id");
+        this.g = intent.getStringExtra("chat_st_type");
+        this.c = intent.getStringExtra("chat_my_portrait");
+        this.f = intent.getStringExtra("chat_com_portrait");
+        l();
     }
 
     public void a(Bundle bundle) {
-        this.i = bundle.getString("chat_com_name");
-        this.h = bundle.getString("chat_com_id");
-        this.k = bundle.getString("chat_st_type");
-        this.g = bundle.getString("chat_my_portrait");
-        this.j = bundle.getString("chat_com_portrait");
-        p();
+        this.e = bundle.getString("chat_com_name");
+        this.d = bundle.getString("chat_com_id");
+        this.g = bundle.getString("chat_st_type");
+        this.c = bundle.getString("chat_my_portrait");
+        this.f = bundle.getString("chat_com_portrait");
+        l();
     }
 
     public void b(Bundle bundle) {
-        bundle.putString("chat_com_name", this.i);
-        bundle.putString("chat_com_id", this.h);
-        bundle.putString("chat_st_type", this.k);
-        bundle.putString("chat_my_portrait", this.g);
-        bundle.putString("chat_com_portrait", this.j);
+        bundle.putString("chat_com_name", this.e);
+        bundle.putString("chat_com_id", this.d);
+        bundle.putString("chat_st_type", this.g);
+        bundle.putString("chat_my_portrait", this.c);
+        bundle.putString("chat_com_portrait", this.f);
     }
 
     public w() {
-        this.e = null;
-        this.f = null;
+        this.f740a = null;
+        this.b = null;
+        this.h = null;
         this.l = null;
-        this.p = null;
-        com.baidu.tieba.a.a F = TiebaApplication.F();
-        if (F != null) {
-            this.f = F.a();
-            this.e = F.b();
+        AccountData G = TiebaApplication.G();
+        if (G != null) {
+            this.b = G.getID();
+            this.f740a = G.getAccount();
         }
-        this.l = new com.baidu.tieba.a.a.c();
-        this.p = com.baidu.tieba.a.a.f.a();
+        this.h = new com.baidu.tieba.data.a.c();
+        this.l = com.baidu.tieba.data.a.f.a();
     }
 
-    private void p() {
-        this.l.a(this.h);
-        this.l.b(this.f);
-        this.l.f(this.i);
-        this.l.c(this.j);
-        this.l.d(this.g);
+    private void l() {
+        this.h.a(this.d);
+        this.h.b(this.b);
+        this.h.f(this.e);
+        this.h.c(this.f);
+        this.h.d(this.c);
     }
 
     public void a(y yVar) {
-        this.o = yVar;
+        this.k = yVar;
     }
 
-    public com.baidu.tieba.a.a.c d() {
-        return this.l;
-    }
-
-    public String e() {
+    public com.baidu.tieba.data.a.c a() {
         return this.h;
     }
 
-    public String f() {
-        return this.f;
+    public String b() {
+        return this.d;
     }
 
-    public long g() {
-        if (this.l.f() == null) {
+    public String c() {
+        return this.b;
+    }
+
+    public long d() {
+        if (this.h.f() == null) {
             return 0L;
         }
-        return this.l.f().b();
+        return this.h.f().b();
     }
 
-    public String h() {
-        if (this.l != null) {
-            return this.l.b();
+    public String e() {
+        if (this.h != null) {
+            return this.h.b();
         }
         return null;
     }
 
-    public String i() {
-        if (this.l != null) {
-            return this.l.a();
+    public String f() {
+        if (this.h != null) {
+            return this.h.a();
         }
         return null;
+    }
+
+    @Override // com.baidu.adp.a.c
+    protected boolean LoadData() {
+        return true;
+    }
+
+    public boolean g() {
+        if (this.b == null || this.d == null) {
+            return false;
+        }
+        if (this.j != null) {
+            this.j.cancel();
+        }
+        if (this.i != null) {
+            this.i.cancel();
+        }
+        this.j = new z(this);
+        this.j.execute(new Object[0]);
+        return true;
+    }
+
+    public void h() {
+        this.l.b(this.b, this.d);
+    }
+
+    public boolean i() {
+        if (this.b == null || this.d == null || this.j != null) {
+            return false;
+        }
+        this.i = new x(this, 2);
+        this.i.execute(new Object[0]);
+        return true;
     }
 
     public boolean j() {
-        if (this.f == null || this.h == null) {
+        if (this.b == null || this.d == null || this.j != null) {
             return false;
         }
-        if (this.n != null) {
-            this.n.cancel();
+        if (this.i != null) {
+            this.i.cancel();
         }
-        if (this.m != null) {
-            this.m.cancel();
-        }
-        this.n = new z(this);
-        this.n.execute(new Object[0]);
+        this.i = new x(this, 0);
+        this.i.execute(new Object[0]);
         return true;
     }
 
-    public void k() {
-        this.p.b(this.f, this.h);
-    }
-
-    public boolean l() {
-        if (this.f == null || this.h == null || this.n != null) {
+    public boolean k() {
+        if (this.b == null || this.d == null || this.j != null) {
             return false;
         }
-        this.m = new x(this, 2);
-        this.m.execute(new Object[0]);
+        if (this.i != null) {
+            this.i.cancel();
+        }
+        this.i = new x(this, 1);
+        this.i.execute(new Object[0]);
         return true;
     }
 
-    public boolean m() {
-        if (this.f == null || this.h == null || this.n != null) {
-            return false;
+    @Override // com.baidu.adp.a.c
+    public boolean cancelLoadData() {
+        if (this.j != null) {
+            this.j.cancel();
         }
-        if (this.m != null) {
-            this.m.cancel();
-        }
-        this.m = new x(this, 0);
-        this.m.execute(new Object[0]);
-        return true;
-    }
-
-    public boolean n() {
-        if (this.f == null || this.h == null || this.n != null) {
-            return false;
-        }
-        if (this.m != null) {
-            this.m.cancel();
-        }
-        this.m = new x(this, 1);
-        this.m.execute(new Object[0]);
-        return true;
-    }
-
-    public boolean o() {
-        if (this.n != null) {
-            this.n.cancel();
-        }
-        if (this.m != null) {
-            this.m.cancel();
+        if (this.i != null) {
+            this.i.cancel();
             return false;
         }
         return false;

@@ -3,21 +3,23 @@ package com.baidu.tieba.mention;
 import android.app.Activity;
 import android.content.Context;
 import android.widget.ProgressBar;
-import com.baidu.tieba.c.an;
-import com.baidu.tieba.d.ae;
-import com.baidu.tieba.d.ag;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.tieba.model.ap;
+import com.baidu.tieba.util.ab;
 import java.util.ArrayList;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class p extends com.baidu.adp.lib.a.a {
-    final /* synthetic */ h a;
-    private com.baidu.tieba.d.t b = null;
+public class p extends BdAsyncTask {
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ h f993a;
+    private com.baidu.tieba.util.r b = null;
     private String c;
     private ArrayList d;
     private e e;
 
     public p(h hVar, String str, ArrayList arrayList, e eVar) {
-        this.a = hVar;
+        this.f993a = hVar;
         this.c = null;
         this.d = null;
         this.e = null;
@@ -27,51 +29,51 @@ public class p extends com.baidu.adp.lib.a.a {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.a.a
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void b() {
         a(true);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.a.a
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     /* renamed from: d */
-    public an a(Object... objArr) {
-        an anVar;
+    public ap a(Object... objArr) {
+        ap apVar;
         Exception e;
-        com.baidu.tieba.e eVar;
+        com.baidu.tieba.g gVar;
         int i;
         n nVar;
         try {
-            this.b = new com.baidu.tieba.d.t(this.c);
+            this.b = new com.baidu.tieba.util.r(this.c);
             this.b.a(this.d);
-            com.baidu.tieba.d.t tVar = this.b;
-            eVar = this.a.b;
-            tVar.a(eVar);
-            String i2 = this.b.i();
-            if (!this.b.b() || i2 == null) {
+            com.baidu.tieba.util.r rVar = this.b;
+            gVar = this.f993a.b;
+            rVar.a(gVar);
+            String j = this.b.j();
+            if (!this.b.c() || j == null) {
                 return null;
             }
-            anVar = new an();
+            apVar = new ap();
             try {
-                anVar.a(i2);
-                if (anVar.a()) {
-                    i = this.a.o;
+                apVar.a(j);
+                if (apVar.a()) {
+                    i = this.f993a.o;
                     if (i != 4) {
-                        nVar = this.a.j;
-                        nVar.a(i2);
-                        return anVar;
+                        nVar = this.f993a.j;
+                        nVar.a(j);
+                        return apVar;
                     }
-                    return anVar;
+                    return apVar;
                 }
                 return null;
             } catch (Exception e2) {
                 e = e2;
-                ae.b(getClass().getName(), "", "doInBackground error = " + e.getMessage());
-                return anVar;
+                com.baidu.tieba.util.z.b(getClass().getName(), "", "doInBackground error = " + e.getMessage());
+                return apVar;
             }
         } catch (Exception e3) {
-            anVar = null;
+            apVar = null;
             e = e3;
         }
     }
@@ -82,12 +84,12 @@ public class p extends com.baidu.adp.lib.a.a {
         int i2;
         ProgressBar progressBar2;
         if (z) {
-            i2 = this.a.o;
+            i2 = this.f993a.o;
             switch (i2) {
                 case 1:
                 case 2:
                 case 3:
-                    progressBar2 = this.a.l;
+                    progressBar2 = this.f993a.l;
                     progressBar2.setVisibility(0);
                     return;
                 case 4:
@@ -98,12 +100,12 @@ public class p extends com.baidu.adp.lib.a.a {
                     return;
             }
         }
-        i = this.a.o;
+        i = this.f993a.o;
         switch (i) {
             case 1:
             case 2:
             case 3:
-                progressBar = this.a.l;
+                progressBar = this.f993a.l;
                 progressBar.setVisibility(8);
                 return;
             case 4:
@@ -117,31 +119,31 @@ public class p extends com.baidu.adp.lib.a.a {
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.a.a
-    public void a(an anVar) {
-        com.baidu.tieba.e eVar;
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public void a(ap apVar) {
+        com.baidu.tieba.g gVar;
         a(false);
         if (this.b != null) {
-            if (!this.b.c() || anVar == null) {
-                eVar = this.a.b;
-                Activity parent = eVar.getParent();
+            if (!this.b.d() || apVar == null) {
+                gVar = this.f993a.b;
+                Activity parent = gVar.getParent();
                 if (parent != null && (parent instanceof MentionActivity)) {
-                    ag.a((Context) ((MentionActivity) parent), this.b.f());
+                    ab.a((Context) ((MentionActivity) parent), this.b.g());
                 }
             } else {
-                this.a.a(anVar);
+                this.f993a.a(apVar);
             }
         }
-        this.a.k = null;
+        this.f993a.k = null;
     }
 
-    @Override // com.baidu.adp.lib.a.a
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void cancel() {
         if (this.b != null) {
-            this.b.g();
+            this.b.h();
         }
         a(false);
-        this.a.k = null;
+        this.f993a.k = null;
         super.cancel(true);
     }
 }

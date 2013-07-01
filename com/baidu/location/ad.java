@@ -16,12 +16,14 @@ import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.message.BasicNameValuePair;
 /* loaded from: classes.dex */
 public class ad implements Thread.UncaughtExceptionHandler {
-    final /* synthetic */ f a;
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ f f456a;
     private Context b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ad(f fVar, Context context) {
-        this.a = fVar;
+        this.f456a = fVar;
         this.b = context;
         a();
     }
@@ -138,15 +140,15 @@ public class ad implements Thread.UncaughtExceptionHandler {
             str2 = a(th);
             try {
                 ap.a("baidu_location_service", str2);
-                unused = this.a.h;
-                String a = t.a(false);
-                kVar = this.a.k;
+                unused = this.f456a.h;
+                String a2 = t.a(false);
+                kVar = this.f456a.k;
                 if (kVar != null) {
-                    StringBuilder append = new StringBuilder().append(a);
-                    kVar2 = this.a.k;
-                    a = append.append(kVar2.b()).toString();
+                    StringBuilder append = new StringBuilder().append(a2);
+                    kVar2 = this.f456a.k;
+                    a2 = append.append(kVar2.b()).toString();
                 }
-                str3 = a != null ? Jni.a(a) : null;
+                str3 = a2 != null ? Jni.a(a2) : null;
             } catch (Exception e) {
                 str = str2;
                 str2 = str;

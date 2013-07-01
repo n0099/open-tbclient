@@ -1,13 +1,14 @@
 package android.support.v4.view;
 /* loaded from: classes.dex */
-class c implements d {
-    @Override // android.support.v4.view.d
-    public boolean a(int i, int i2) {
-        return e.a(i, i2);
-    }
+class c implements j {
 
-    @Override // android.support.v4.view.d
-    public boolean b(int i) {
-        return e.a(i);
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ a f95a;
+    final /* synthetic */ b b;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public c(b bVar, a aVar) {
+        this.b = bVar;
+        this.f95a = aVar;
     }
 }

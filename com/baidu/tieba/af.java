@@ -1,27 +1,33 @@
 package com.baidu.tieba;
 
-import android.app.AlertDialog;
-import android.content.DialogInterface;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.view.animation.Animation;
 /* loaded from: classes.dex */
-public class af implements DialogInterface.OnClickListener {
-    final /* synthetic */ MainTabActivity a;
+class af implements Animation.AnimationListener {
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ LogoActivity f688a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public af(MainTabActivity mainTabActivity) {
-        this.a = mainTabActivity;
+    public af(LogoActivity logoActivity) {
+        this.f688a = logoActivity;
     }
 
-    @Override // android.content.DialogInterface.OnClickListener
-    public void onClick(DialogInterface dialogInterface, int i) {
-        AlertDialog alertDialog;
-        if (i != -2) {
-            alertDialog = this.a.y;
-            alertDialog.dismiss();
-            TiebaApplication.e().a(false, false);
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationEnd(Animation animation) {
+        boolean z;
+        this.f688a.b = true;
+        z = this.f688a.c;
+        if (!z) {
             return;
         }
-        this.a.a(false);
-        TiebaApplication.e().a(true, false);
+        this.f688a.d();
+    }
+
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationRepeat(Animation animation) {
+    }
+
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationStart(Animation animation) {
     }
 }

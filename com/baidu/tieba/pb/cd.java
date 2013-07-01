@@ -7,23 +7,25 @@ import android.widget.EditText;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class cd implements DialogInterface.OnKeyListener {
-    final /* synthetic */ bk a;
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ bk f1248a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public cd(bk bkVar) {
-        this.a = bkVar;
+        this.f1248a = bkVar;
     }
 
     @Override // android.content.DialogInterface.OnKeyListener
     public boolean onKey(DialogInterface dialogInterface, int i, KeyEvent keyEvent) {
-        com.baidu.tieba.e eVar;
+        com.baidu.tieba.g gVar;
         EditText editText;
         Dialog dialog;
         if (i == 4) {
-            eVar = this.a.b;
-            editText = this.a.B;
-            com.baidu.tieba.d.ag.a(eVar, editText);
-            dialog = this.a.x;
+            gVar = this.f1248a.b;
+            editText = this.f1248a.B;
+            com.baidu.tieba.util.ab.a(gVar, editText);
+            dialog = this.f1248a.x;
             dialog.dismiss();
             return true;
         }

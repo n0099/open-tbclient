@@ -1,112 +1,19 @@
 package com.baidu.tieba;
 
-import java.util.ArrayList;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.view.View;
 /* loaded from: classes.dex */
-public class w extends com.baidu.adp.lib.a.a {
-    ArrayList a;
-    final /* synthetic */ LabelActivity b;
-    private String d;
-    private boolean f;
-    private com.baidu.tieba.d.t c = null;
-    private int e = 1;
+class w implements View.OnClickListener {
 
-    public w(LabelActivity labelActivity, String str, boolean z, ArrayList arrayList) {
-        this.b = labelActivity;
-        this.d = null;
-        this.a = null;
-        this.d = str;
-        this.a = arrayList;
-        this.f = z;
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ LabelActivity f1537a;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public w(LabelActivity labelActivity) {
+        this.f1537a = labelActivity;
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.a.a
-    public void b() {
-        this.b.b(true);
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.a.a
-    /* renamed from: d */
-    public Boolean a(Object... objArr) {
-        com.baidu.tieba.c.af afVar;
-        com.baidu.tieba.c.af afVar2;
-        com.baidu.tieba.c.af afVar3;
-        com.baidu.tieba.c.af afVar4;
-        com.baidu.tieba.c.af afVar5;
-        com.baidu.tieba.c.af afVar6;
-        try {
-            this.c = new com.baidu.tieba.d.t(this.d);
-            this.c.a(this.a);
-            afVar = this.b.q;
-            if (afVar != null) {
-                afVar5 = this.b.q;
-                if (afVar5.h().size() != 0) {
-                    afVar6 = this.b.q;
-                    this.c.a("tag_info", afVar6.g());
-                }
-            }
-            com.baidu.tieba.d.ae.b("begin to get label data...url is " + this.d);
-            String i = this.c.i();
-            com.baidu.tieba.d.ae.b("end to get label data...");
-            if (this.c.b()) {
-                afVar2 = this.b.q;
-                if (afVar2 == null) {
-                    this.b.q = new com.baidu.tieba.c.af();
-                }
-                afVar3 = this.b.q;
-                afVar3.a(i);
-                if (this.f) {
-                    afVar4 = this.b.q;
-                    afVar4.b(com.baidu.tieba.d.k.b(12));
-                }
-                com.baidu.tieba.d.ae.a(getClass().getName(), "doInBackground", i);
-                System.gc();
-            }
-            if (this.c.c()) {
-                this.e = 0;
-            } else {
-                this.e = 1;
-            }
-            return true;
-        } catch (Exception e) {
-            com.baidu.tieba.d.ae.b(getClass().getName(), "", "LabelAsyncTask.doInBackground error = " + e.getMessage());
-            return false;
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.a.a
-    public void a(Boolean bool) {
-        this.b.b(false);
-        if (bool.booleanValue() && this.e != 1) {
-            this.b.o();
-            this.b.c(false);
-        } else {
-            e();
-        }
-        this.b.M = null;
-        System.gc();
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.a.a
-    public void c() {
-        super.c();
-    }
-
-    @Override // com.baidu.adp.lib.a.a
-    public void cancel() {
-        if (this.c != null) {
-            this.c.g();
-        }
-        super.cancel(true);
-    }
-
-    private void e() {
-        this.b.a(this.c.f());
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        this.f1537a.c();
     }
 }

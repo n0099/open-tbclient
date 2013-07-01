@@ -1,14 +1,18 @@
 package com.baidu.tieba.nearby;
 
 import android.widget.ListView;
+import com.baidu.tieba.data.MetaData;
+import com.baidu.tieba.util.NetWorkCore;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class am implements Runnable {
-    final /* synthetic */ NearbyPostActivity a;
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ NearbyPostActivity f1135a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public am(NearbyPostActivity nearbyPostActivity) {
-        this.a = nearbyPostActivity;
+        this.f1135a = nearbyPostActivity;
     }
 
     /* JADX WARN: Incorrect condition in loop: B:15:0x0068 */
@@ -17,8 +21,8 @@ public class am implements Runnable {
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public void run() {
-        com.baidu.tieba.c.av avVar;
-        com.baidu.tieba.c.av avVar2;
+        com.baidu.tieba.model.av avVar;
+        com.baidu.tieba.model.av avVar2;
         aq aqVar;
         aq aqVar2;
         ListView listView;
@@ -28,12 +32,12 @@ public class am implements Runnable {
         int i;
         int i2;
         aq aqVar5;
-        com.baidu.tieba.a.ai m;
-        String e;
+        MetaData m;
+        String portrait;
         aq aqVar6;
         com.baidu.tbadk.a.d dVar;
-        com.baidu.tieba.a.ai l;
-        String e2;
+        MetaData l;
+        String portrait2;
         aq aqVar7;
         com.baidu.tbadk.a.d dVar2;
         String g;
@@ -41,49 +45,49 @@ public class am implements Runnable {
         com.baidu.tbadk.a.d dVar3;
         int i3 = 0;
         try {
-            avVar = this.a.d;
+            avVar = this.f1135a.b;
             if (avVar != null) {
-                avVar2 = this.a.d;
+                avVar2 = this.f1135a.b;
                 if (avVar2.a().size() != 0) {
-                    com.baidu.tieba.d.z c = com.baidu.tieba.d.w.c(this.a);
-                    aqVar = this.a.f;
+                    NetWorkCore.NetworkStateInfo c = NetWorkCore.c(this.f1135a);
+                    aqVar = this.f1135a.d;
                     aqVar.a().a();
-                    boolean z = c == com.baidu.tieba.d.z.WIFI || c == com.baidu.tieba.d.z.ThreeG;
-                    aqVar2 = this.a.f;
+                    boolean z = c == NetWorkCore.NetworkStateInfo.WIFI || c == NetWorkCore.NetworkStateInfo.ThreeG;
+                    aqVar2 = this.f1135a.d;
                     aqVar2.a().a(z);
-                    listView = this.a.e;
+                    listView = this.f1135a.c;
                     int firstVisiblePosition = listView.getFirstVisiblePosition();
-                    listView2 = this.a.e;
+                    listView2 = this.f1135a.c;
                     int lastVisiblePosition = listView2.getLastVisiblePosition();
                     int i4 = firstVisiblePosition;
                     int i5 = 0;
                     while (i4 < aqVar3.getCount()) {
                         if (z || i4 <= lastVisiblePosition) {
-                            aqVar4 = this.a.f;
-                            if (aqVar4.getItem(i4) instanceof com.baidu.tieba.c.aw) {
-                                aqVar5 = this.a.f;
-                                com.baidu.tieba.c.aw awVar = (com.baidu.tieba.c.aw) aqVar5.getItem(i4);
+                            aqVar4 = this.f1135a.d;
+                            if (aqVar4.getItem(i4) instanceof com.baidu.tieba.model.aw) {
+                                aqVar5 = this.f1135a.d;
+                                com.baidu.tieba.model.aw awVar = (com.baidu.tieba.model.aw) aqVar5.getItem(i4);
                                 if (awVar.a() == 0 || awVar.a() == 1 || awVar.a() == 2) {
                                     if (i5 < 13 && (g = awVar.g()) != null && !g.equals("")) {
                                         i5++;
-                                        aqVar8 = this.a.f;
-                                        com.baidu.tieba.d.a a = aqVar8.a();
-                                        dVar3 = this.a.o;
-                                        a.a(g, dVar3);
+                                        aqVar8 = this.f1135a.d;
+                                        com.baidu.tieba.util.a a2 = aqVar8.a();
+                                        dVar3 = this.f1135a.o;
+                                        a2.a(g, dVar3);
                                     }
-                                    if (i3 < 30 && (l = awVar.l()) != null && (e2 = l.e()) != null && !e2.equals("")) {
+                                    if (i3 < 30 && (l = awVar.l()) != null && (portrait2 = l.getPortrait()) != null && !portrait2.equals("")) {
                                         i3++;
-                                        aqVar7 = this.a.f;
-                                        com.baidu.tieba.d.a a2 = aqVar7.a();
-                                        dVar2 = this.a.p;
-                                        a2.d(e2, dVar2);
+                                        aqVar7 = this.f1135a.d;
+                                        com.baidu.tieba.util.a a3 = aqVar7.a();
+                                        dVar2 = this.f1135a.p;
+                                        a3.d(portrait2, dVar2);
                                     }
-                                    if (i3 < 30 && (m = awVar.m()) != null && (e = m.e()) != null && !e.equals("")) {
+                                    if (i3 < 30 && (m = awVar.m()) != null && (portrait = m.getPortrait()) != null && !portrait.equals("")) {
                                         i = i3 + 1;
-                                        aqVar6 = this.a.f;
-                                        com.baidu.tieba.d.a a3 = aqVar6.a();
-                                        dVar = this.a.p;
-                                        a3.d(e, dVar);
+                                        aqVar6 = this.f1135a.d;
+                                        com.baidu.tieba.util.a a4 = aqVar6.a();
+                                        dVar = this.f1135a.p;
+                                        a4.d(portrait, dVar);
                                         i2 = i5;
                                         if (i2 >= 13 || i < 30) {
                                             i4++;
@@ -108,8 +112,8 @@ public class am implements Runnable {
                     }
                 }
             }
-        } catch (Exception e3) {
-            com.baidu.tieba.d.ae.b("NearbyPostListActivity", "mLoadImageRunnable.run", "error = " + e3.getMessage());
+        } catch (Exception e) {
+            com.baidu.tieba.util.z.b("NearbyPostListActivity", "mLoadImageRunnable.run", "error = " + e.getMessage());
         }
     }
 }

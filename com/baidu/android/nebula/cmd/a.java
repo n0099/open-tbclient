@@ -1,45 +1,60 @@
 package com.baidu.android.nebula.cmd;
 
-import java.util.HashMap;
-import java.util.Map;
+import android.os.Handler;
+import android.os.Looper;
+import android.os.Message;
+import com.baidu.android.nebula.util.BDLocationManager;
+import java.util.Timer;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class a {
-    private static final Map a = new HashMap();
-    private static final String b = GeoLocation.class.getPackage().getName() + ".";
+public final class a extends Handler {
 
-    static {
-        a.put("geolocation", b + "GeoLocation");
-        a.put("getsearchboxinfo", b + "GetSearchboxInfo");
-        a.put("getapn", b + "GetApn");
-        a.put("getserviceinfo", b + "GetServiceInfo");
-        a.put("getpackageinfo", b + "GetPackageInfo");
-        a.put("sendintent", b + "SendIntent");
-        a.put("getcuid", b + "GetCuid");
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ GeoLocation f279a;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public a(GeoLocation geoLocation, Looper looper) {
+        super(looper);
+        this.f279a = geoLocation;
     }
 
-    public String a(String str) {
-        return (String) a.get(str);
-    }
-
-    public void a(String str, com.baidu.android.nebula.b.a aVar, com.baidu.android.nebula.b.b bVar) {
-        e eVar;
-        String a2 = a(str);
-        if (a2 == null) {
-            return;
-        }
-        try {
-            eVar = (e) Class.forName(a2).newInstance();
-        } catch (ClassCastException e) {
-            eVar = null;
-        } catch (ClassNotFoundException e2) {
-            eVar = null;
-        } catch (IllegalAccessException e3) {
-            eVar = null;
-        } catch (InstantiationException e4) {
-            eVar = null;
-        }
-        if (eVar != null) {
-            eVar.execute(aVar, bVar);
+    @Override // android.os.Handler
+    public void handleMessage(Message message) {
+        BDLocationManager bDLocationManager;
+        com.baidu.android.nebula.util.c cVar;
+        BDLocationManager bDLocationManager2;
+        boolean z;
+        BDLocationManager bDLocationManager3;
+        com.baidu.android.nebula.util.e eVar;
+        BDLocationManager bDLocationManager4;
+        Timer timer;
+        Timer timer2;
+        this.f279a.mLocMgr = BDLocationManager.b(this.f279a.mContext);
+        synchronized (this.f279a) {
+            GeoLocation geoLocation = this.f279a;
+            bDLocationManager = this.f279a.mLocMgr;
+            geoLocation.mLocInfo = bDLocationManager.b();
+            cVar = this.f279a.mLocInfo;
+            if (cVar != null) {
+                this.f279a.mErrcode = 0;
+                timer = this.f279a.mTimeoutTm;
+                if (timer != null) {
+                    timer2 = this.f279a.mTimeoutTm;
+                    timer2.cancel();
+                }
+                this.f279a.notifyAll();
+                return;
+            }
+            this.f279a.mLocListener = new d(this);
+            bDLocationManager2 = this.f279a.mLocMgr;
+            z = this.f279a.mGpsEnabled;
+            bDLocationManager2.a(z);
+            bDLocationManager3 = this.f279a.mLocMgr;
+            eVar = this.f279a.mLocListener;
+            bDLocationManager3.a(eVar);
+            bDLocationManager4 = this.f279a.mLocMgr;
+            bDLocationManager4.c();
         }
     }
 }

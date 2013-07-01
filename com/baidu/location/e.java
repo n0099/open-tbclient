@@ -15,7 +15,9 @@ public final class e {
     private j e;
     private Context g;
     private am t;
-    private String a = "3.1";
+
+    /* renamed from: a  reason: collision with root package name */
+    private String f469a = "3.1";
     private long b = 0;
     private long c = 0;
     private String d = null;
@@ -65,7 +67,7 @@ public final class e {
             while (it2.hasNext()) {
                 ((c) it2.next()).onReceiveLocation(this.l);
             }
-            if (this.r && ap.a && this.l.d() == 65) {
+            if (this.r && ap.f464a && this.l.d() == 65) {
                 this.r = false;
             } else if (this.l.d() == 66 || this.l.d() == 67) {
             } else {
@@ -232,7 +234,7 @@ public final class e {
         Bundle bundle = new Bundle();
         bundle.putString("packName", this.d);
         bundle.putString("prodName", this.e.f);
-        bundle.putString("coorType", this.e.a);
+        bundle.putString("coorType", this.e.f475a);
         bundle.putString("addrType", this.e.b);
         bundle.putString("Url", this.x);
         bundle.putBoolean("openGPS", this.e.c);
@@ -377,6 +379,12 @@ public final class e {
             return;
         }
         this.v = (c) message.obj;
+    }
+
+    public void c(c cVar) {
+        Message obtainMessage = this.i.obtainMessage(6);
+        obtainMessage.obj = cVar;
+        obtainMessage.sendToTarget();
     }
 
     public boolean c() {

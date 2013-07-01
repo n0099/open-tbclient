@@ -4,15 +4,17 @@ import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class y implements View.OnClickListener {
-    final /* synthetic */ LoginActivity a;
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ LoginActivity f684a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public y(LoginActivity loginActivity) {
-        this.a = loginActivity;
+        this.f684a = loginActivity;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        this.a.finish();
+        this.f684a.finish();
     }
 }

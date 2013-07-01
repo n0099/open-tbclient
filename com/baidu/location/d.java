@@ -1,7 +1,9 @@
 package com.baidu.location;
 /* loaded from: classes.dex */
 public abstract class d {
-    public double a = Double.MIN_VALUE;
+
+    /* renamed from: a  reason: collision with root package name */
+    public double f468a = Double.MIN_VALUE;
     public double b = Double.MIN_VALUE;
     public float c = 0.0f;
     public float d = 0.0f;

@@ -1,26 +1,20 @@
 package com.baidu.tieba.person;
 
-import android.widget.RadioGroup;
-import com.slidingmenu.lib.R;
+import android.view.View;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class ac implements RadioGroup.OnCheckedChangeListener {
-    final /* synthetic */ MyPostActivity a;
+public class ac implements View.OnClickListener {
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ MyPostActivity f1310a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ac(MyPostActivity myPostActivity) {
-        this.a = myPostActivity;
+        this.f1310a = myPostActivity;
     }
 
-    @Override // android.widget.RadioGroup.OnCheckedChangeListener
-    public void onCheckedChanged(RadioGroup radioGroup, int i) {
-        switch (i) {
-            case R.id.all_tab /* 2131100229 */:
-                this.a.a("all", AllPostActivity.class);
-                return;
-            case R.id.thread_tab /* 2131100230 */:
-            case R.id.reply_tab /* 2131100231 */:
-            default:
-                return;
-        }
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        this.f1310a.c();
     }
 }

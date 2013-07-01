@@ -7,11 +7,13 @@ import android.widget.ImageButton;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class cm implements TextWatcher {
-    final /* synthetic */ bk a;
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ bk f1257a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public cm(bk bkVar) {
-        this.a = bkVar;
+        this.f1257a = bkVar;
     }
 
     @Override // android.text.TextWatcher
@@ -28,14 +30,14 @@ public class cm implements TextWatcher {
         Button button;
         Button button2;
         if (editable == null || editable.length() <= 0) {
-            imageButton = this.a.o;
+            imageButton = this.f1257a.o;
             if (imageButton.getTag() == null) {
-                button = this.a.j;
+                button = this.f1257a.j;
                 button.setEnabled(false);
                 return;
             }
         }
-        button2 = this.a.j;
+        button2 = this.f1257a.j;
         button2.setEnabled(true);
     }
 }

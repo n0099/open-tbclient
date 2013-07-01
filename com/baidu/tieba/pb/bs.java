@@ -4,17 +4,19 @@ import android.widget.CompoundButton;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class bs implements CompoundButton.OnCheckedChangeListener {
-    final /* synthetic */ bk a;
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ bk f1237a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bs(bk bkVar) {
-        this.a = bkVar;
+        this.f1237a = bkVar;
     }
 
     @Override // android.widget.CompoundButton.OnCheckedChangeListener
     public void onCheckedChanged(CompoundButton compoundButton, boolean z) {
         if (z) {
-            this.a.am = (String) compoundButton.getTag();
+            this.f1237a.am = (String) compoundButton.getTag();
         }
     }
 }

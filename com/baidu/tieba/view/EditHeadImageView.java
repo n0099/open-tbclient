@@ -99,7 +99,7 @@ public class EditHeadImageView extends h {
                 createBitmap.recycle();
             }
         } catch (Exception e) {
-            com.baidu.tieba.d.ae.b(getClass().getName(), "getVisableBitmap", e.toString());
+            com.baidu.tieba.util.z.b(getClass().getName(), "getVisableBitmap", e.toString());
         }
         return bitmap;
     }

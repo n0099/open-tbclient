@@ -2,37 +2,47 @@ package android.support.v4.widget;
 
 import android.content.Context;
 import android.graphics.Canvas;
-import android.widget.EdgeEffect;
+import android.os.Build;
 /* loaded from: classes.dex */
-class h {
-    public static Object a(Context context) {
-        return new EdgeEffect(context);
+public class h {
+    private static final k b;
+
+    /* renamed from: a  reason: collision with root package name */
+    private Object f113a;
+
+    static {
+        if (Build.VERSION.SDK_INT >= 14) {
+            b = new j();
+        } else {
+            b = new i();
+        }
     }
 
-    public static void a(Object obj, int i, int i2) {
-        ((EdgeEffect) obj).setSize(i, i2);
+    public h(Context context) {
+        this.f113a = b.a(context);
     }
 
-    public static boolean a(Object obj) {
-        return ((EdgeEffect) obj).isFinished();
+    public void a(int i, int i2) {
+        b.a(this.f113a, i, i2);
     }
 
-    public static void b(Object obj) {
-        ((EdgeEffect) obj).finish();
+    public boolean a() {
+        return b.a(this.f113a);
     }
 
-    public static boolean a(Object obj, float f) {
-        ((EdgeEffect) obj).onPull(f);
-        return true;
+    public void b() {
+        b.b(this.f113a);
     }
 
-    public static boolean c(Object obj) {
-        EdgeEffect edgeEffect = (EdgeEffect) obj;
-        edgeEffect.onRelease();
-        return edgeEffect.isFinished();
+    public boolean a(float f) {
+        return b.a(this.f113a, f);
     }
 
-    public static boolean a(Object obj, Canvas canvas) {
-        return ((EdgeEffect) obj).draw(canvas);
+    public boolean c() {
+        return b.c(this.f113a);
+    }
+
+    public boolean a(Canvas canvas) {
+        return b.a(this.f113a, canvas);
     }
 }

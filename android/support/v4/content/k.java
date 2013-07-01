@@ -18,10 +18,10 @@ public class k extends Handler {
         j jVar = (j) message.obj;
         switch (message.what) {
             case 1:
-                jVar.a.e(jVar.b[0]);
+                jVar.f81a.e(jVar.b[0]);
                 return;
             case 2:
-                jVar.a.b(jVar.b);
+                jVar.f81a.b(jVar.b);
                 return;
             default:
                 return;

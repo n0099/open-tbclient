@@ -19,7 +19,9 @@ public class ah {
     private static String e;
     private static String f;
     private static String g;
-    private static String a = "baidu_location_service";
+
+    /* renamed from: a  reason: collision with root package name */
+    private static String f460a = "baidu_location_service";
     private static int b = 2048;
     private static int c = 3;
     private static String h = null;
@@ -104,17 +106,17 @@ public class ah {
                 }
                 n.add(a2);
                 i2 += a2.length();
-                ap.a(a, "upload data size:" + i2);
+                ap.a(f460a, "upload data size:" + i2);
             } while (i2 < b);
         }
         if (n != null && n.size() >= 1) {
-            ap.a(a, "Beging upload data...");
+            ap.a(f460a, "Beging upload data...");
             new ak().start();
             return;
         }
         n = null;
         k = false;
-        ap.a(a, "No upload data...");
+        ap.a(f460a, "No upload data...");
     }
 
     public static void a(String str, boolean z) {
@@ -143,7 +145,7 @@ public class ah {
                 if (parseInt > ap.t) {
                     ap.t = parseInt;
                     if (jSONObject.has("gps")) {
-                        ap.a(a, "has gps...");
+                        ap.a(f460a, "has gps...");
                         String[] split = jSONObject.getString("gps").split("\\|");
                         if (split.length > 10) {
                             if (split[0] != null && !split[0].equals("")) {
@@ -182,7 +184,7 @@ public class ah {
                         }
                     }
                     if (jSONObject.has("up")) {
-                        ap.a(a, "has up...");
+                        ap.a(f460a, "has up...");
                         String[] split2 = jSONObject.getString("up").split("\\|");
                         if (split2.length > 3) {
                             if (split2[0] != null && !split2[0].equals("")) {
@@ -200,7 +202,7 @@ public class ah {
                         }
                     }
                     if (jSONObject.has("wf")) {
-                        ap.a(a, "has wf...");
+                        ap.a(f460a, "has wf...");
                         String[] split3 = jSONObject.getString("wf").split("\\|");
                         if (split3.length > 3) {
                             if (split3[0] != null && !split3[0].equals("")) {
@@ -218,7 +220,7 @@ public class ah {
                         }
                     }
                     if (jSONObject.has("ab")) {
-                        ap.a(a, "has ab...");
+                        ap.a(f460a, "has ab...");
                         String[] split4 = jSONObject.getString("ab").split("\\|");
                         if (split4.length > 3) {
                             if (split4[0] != null && !split4[0].equals("")) {
@@ -236,7 +238,7 @@ public class ah {
                         }
                     }
                     if (jSONObject.has("gpc")) {
-                        ap.a(a, "has gpc...");
+                        ap.a(f460a, "has gpc...");
                         String[] split5 = jSONObject.getString("gpc").split("\\|");
                         if (split5.length > 5) {
                             if (split5[0] != null && !split5[0].equals("")) {
@@ -275,7 +277,7 @@ public class ah {
                         }
                     }
                     try {
-                        ap.a(a, "config change true...");
+                        ap.a(f460a, "config change true...");
                         return true;
                     } catch (Exception e2) {
                         return true;
@@ -293,9 +295,9 @@ public class ah {
             return false;
         }
         i = true;
-        ap.a(a, "bloc : " + d);
+        ap.a(f460a, "bloc : " + d);
         d = Jni.a(str);
-        ap.a(a, "NUMBER_e : " + d.length());
+        ap.a(f460a, "NUMBER_e : " + d.length());
         u = handler;
         if (f == null) {
             f = as.a();
@@ -310,21 +312,21 @@ public class ah {
     }
 
     public static void b() {
-        String str = f.a + "/config.dat";
+        String str = f.f470a + "/config.dat";
         String format = String.format("{\"ver\":\"%d\",\"gps\":\"%.1f|%.1f|%.1f|%.1f|%d|%d|%d|%d|%d|%d|%d\",\"up\":\"%.1f|%.1f|%.1f|%.1f\",\"wf\":\"%d|%.1f|%d|%.1f\",\"ab\":\"%.2f|%.2f|%d|%d\",\"gpc\":\"%d|%d|%d|%d|%d|%d\"}", Integer.valueOf(ap.t), Float.valueOf(ap.u), Float.valueOf(ap.v), Float.valueOf(ap.w), Float.valueOf(ap.x), Integer.valueOf(ap.y), Integer.valueOf(ap.z), Integer.valueOf(ap.A), Integer.valueOf(ap.B), Integer.valueOf(ap.C), Integer.valueOf(ap.D), Integer.valueOf(ap.E), Float.valueOf(ap.F), Float.valueOf(ap.G), Float.valueOf(ap.H), Float.valueOf(ap.I), Integer.valueOf(ap.J), Float.valueOf(ap.K), Integer.valueOf(ap.L), Float.valueOf(ap.M), Float.valueOf(ap.N), Float.valueOf(ap.O), Integer.valueOf(ap.P), Integer.valueOf(ap.Q), Integer.valueOf(ap.R ? 1 : 0), Integer.valueOf(ap.S ? 1 : 0), Integer.valueOf(ap.T), Integer.valueOf(ap.V), Long.valueOf(ap.X), Integer.valueOf(ap.Z));
-        ap.a(a, "save2Config : " + format);
+        ap.a(f460a, "save2Config : " + format);
         byte[] bytes = format.getBytes();
         try {
             File file = new File(str);
             if (!file.exists()) {
-                File file2 = new File(f.a);
+                File file2 = new File(f.f470a);
                 if (!file2.exists()) {
                     file2.mkdirs();
                 }
                 if (!file.createNewFile()) {
                     return;
                 }
-                ap.a(a, "upload manager create file success");
+                ap.a(f460a, "upload manager create file success");
                 RandomAccessFile randomAccessFile = new RandomAccessFile(file, "rw");
                 randomAccessFile.seek(0L);
                 randomAccessFile.writeBoolean(false);
@@ -348,7 +350,7 @@ public class ah {
         }
         j = true;
         e = Jni.a(str);
-        ap.a(a, "bloc : " + e);
+        ap.a(f460a, "bloc : " + e);
         v = handler;
         if (g == null) {
             g = as.a();
@@ -405,7 +407,7 @@ public class ah {
                     } catch (SecurityException e2) {
                         networkInfo = activeNetworkInfo;
                         try {
-                            ap.a(a, "APN security...");
+                            ap.a(f460a, "APN security...");
                             return a(context, networkInfo);
                         } catch (Exception e3) {
                             return 4;
@@ -424,16 +426,16 @@ public class ah {
 
     public static void c() {
         try {
-            File file = new File(f.a + "/config.dat");
+            File file = new File(f.f470a + "/config.dat");
             if (!file.exists()) {
-                File file2 = new File(f.a);
+                File file2 = new File(f.f470a);
                 if (!file2.exists()) {
                     file2.mkdirs();
                 }
                 if (!file.createNewFile()) {
                     return;
                 }
-                ap.a(a, "upload manager create file success");
+                ap.a(f460a, "upload manager create file success");
                 RandomAccessFile randomAccessFile = new RandomAccessFile(file, "rw");
                 randomAccessFile.seek(0L);
                 randomAccessFile.writeBoolean(false);
@@ -457,7 +459,7 @@ public class ah {
 
     public static void d() {
         try {
-            File file = new File(f.a + "/config.dat");
+            File file = new File(f.f470a + "/config.dat");
             if (file.exists()) {
                 RandomAccessFile randomAccessFile = new RandomAccessFile(file, "rw");
                 if (randomAccessFile.readBoolean()) {
@@ -481,7 +483,7 @@ public class ah {
                 randomAccessFile.close();
             }
             String str = "&ver=" + ap.t + "&usr=" + ap.h;
-            ap.a(a, str);
+            ap.a(f460a, str);
             a(str, false);
         } catch (Exception e2) {
         }

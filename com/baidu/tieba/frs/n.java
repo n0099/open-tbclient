@@ -2,28 +2,30 @@ package com.baidu.tieba.frs;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class n extends com.baidu.adp.a.e {
-    final /* synthetic */ FrsActivity a;
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ FrsActivity f866a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public n(FrsActivity frsActivity) {
-        this.a = frsActivity;
+        this.f866a = frsActivity;
     }
 
     @Override // com.baidu.adp.a.e
     public void a(Object obj) {
-        com.baidu.tieba.c.j jVar;
-        ba baVar;
-        com.baidu.tieba.c.j jVar2;
-        jVar = this.a.D;
-        if (jVar.a() == 1) {
+        com.baidu.tieba.model.m mVar;
+        az azVar;
+        com.baidu.tieba.model.m mVar2;
+        mVar = this.f866a.D;
+        if (mVar.getLoadDataMode() == 1) {
             if (((Boolean) obj).booleanValue()) {
-                this.a.r();
+                this.f866a.r();
             }
-            baVar = this.a.l;
-            bd a = baVar.a();
+            azVar = this.f866a.l;
+            bc a2 = azVar.a();
             boolean booleanValue = ((Boolean) obj).booleanValue();
-            jVar2 = this.a.D;
-            a.a(booleanValue, jVar2.c());
+            mVar2 = this.f866a.D;
+            a2.a(booleanValue, mVar2.getErrorString());
         }
     }
 }

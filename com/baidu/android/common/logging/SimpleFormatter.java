@@ -1,6 +1,5 @@
 package com.baidu.android.common.logging;
 
-import com.baidu.android.common.util.HanziToPinyin;
 import java.io.PrintWriter;
 import java.io.StringWriter;
 import java.text.FieldPosition;
@@ -55,19 +54,19 @@ class SimpleFormatter extends Formatter {
             this.formatter.format(this.args, stringBuffer3, (FieldPosition) null);
             stringBuffer2.append(stringBuffer3);
             stringBuffer2.append("." + (logRecord.getMillis() % 1000));
-            stringBuffer2.append(HanziToPinyin.Token.SEPARATOR);
+            stringBuffer2.append(" ");
             if (logRecord.getSourceClassName() != null) {
                 stringBuffer2.append(logRecord.getSourceClassName());
             } else {
                 stringBuffer2.append(logRecord.getLoggerName());
             }
             if (logRecord.getSourceMethodName() != null) {
-                stringBuffer2.append(HanziToPinyin.Token.SEPARATOR);
+                stringBuffer2.append(" ");
                 stringBuffer2.append(logRecord.getSourceMethodName());
             }
-            stringBuffer2.append(HanziToPinyin.Token.SEPARATOR);
+            stringBuffer2.append(" ");
             stringBuffer2.append(i);
-            stringBuffer2.append(HanziToPinyin.Token.SEPARATOR);
+            stringBuffer2.append(" ");
             String formatMessage = formatMessage(logRecord);
             stringBuffer2.append(logRecord.getLevel().getLocalizedName());
             stringBuffer2.append(": ");

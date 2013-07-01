@@ -1,12 +1,18 @@
 package android.support.v4.app;
 
 import java.util.ArrayList;
-import java.util.HashMap;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-final class j {
-    Object a;
-    Object b;
-    HashMap c;
-    ArrayList d;
-    t e;
+public final class j {
+
+    /* renamed from: a  reason: collision with root package name */
+    j f59a;
+    j b;
+    int c;
+    Fragment d;
+    int e;
+    int f;
+    int g;
+    int h;
+    ArrayList i;
 }

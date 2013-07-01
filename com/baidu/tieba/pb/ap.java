@@ -4,23 +4,25 @@ import com.baidu.mobstat.StatService;
 import com.baidu.tieba.TiebaApplication;
 /* loaded from: classes.dex */
 class ap implements com.baidu.adp.widget.ListView.r {
-    final /* synthetic */ NewPbActivity a;
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ NewPbActivity f1207a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ap(NewPbActivity newPbActivity) {
-        this.a = newPbActivity;
+        this.f1207a = newPbActivity;
     }
 
     @Override // com.baidu.adp.widget.ListView.r
     public void a() {
-        com.baidu.tieba.c.ax axVar;
+        com.baidu.tieba.model.ax axVar;
         bk bkVar;
-        axVar = this.a.j;
+        axVar = this.f1207a.j;
         if (axVar.a(false)) {
-            bkVar = this.a.p;
-            bkVar.p();
-            if (TiebaApplication.e().p()) {
-                StatService.onEvent(this.a, "pb_more", "pbclick", 1);
+            bkVar = this.f1207a.p;
+            bkVar.o();
+            if (TiebaApplication.f().t()) {
+                StatService.onEvent(this.f1207a, "pb_more", "pbclick", 1);
             }
         }
     }

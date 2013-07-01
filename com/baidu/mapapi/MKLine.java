@@ -5,7 +5,9 @@ import java.util.ArrayList;
 public class MKLine {
     public static final int LINE_TYPE_BUS = 0;
     public static final int LINE_TYPE_SUBWAY = 1;
-    ArrayList a;
+
+    /* renamed from: a  reason: collision with root package name */
+    ArrayList f509a;
     private int b;
     private int c;
     private int d;

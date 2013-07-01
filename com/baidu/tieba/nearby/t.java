@@ -4,15 +4,17 @@ import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class t implements View.OnClickListener {
-    final /* synthetic */ NearbyPbActivity a;
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ NearbyPbActivity f1177a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public t(NearbyPbActivity nearbyPbActivity) {
-        this.a = nearbyPbActivity;
+        this.f1177a = nearbyPbActivity;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        this.a.r();
+        this.f1177a.r();
     }
 }

@@ -26,7 +26,9 @@ import java.util.List;
 public class PlaceCaterActivity extends Activity implements d.a {
     static ImageView c;
     static DisplayMetrics n;
-    TextView a;
+
+    /* renamed from: a  reason: collision with root package name */
+    TextView f533a;
     TextView b;
     LinearLayout d;
     TextView e;
@@ -79,7 +81,7 @@ public class PlaceCaterActivity extends Activity implements d.a {
             ImageView imageView = new ImageView(this);
             imageView.setLayoutParams(new ViewGroup.LayoutParams((int) (22.0f * n.density), (int) (22.0f * n.density)));
             imageView.setTag(Integer.valueOf(i2 * 2));
-            d.a(linearLayout.hashCode(), (i2 * 2) + 1, h.a.replaceAll("#replace#", ((h) list.get(i2 * 2)).d), this);
+            d.a(linearLayout.hashCode(), (i2 * 2) + 1, h.f556a.replaceAll("#replace#", ((h) list.get(i2 * 2)).d), this);
             o.put(Integer.valueOf((i2 * 2) + 1), imageView);
             linearLayout3.addView(imageView);
             ((LinearLayout.LayoutParams) imageView.getLayoutParams()).gravity = 17;
@@ -111,7 +113,7 @@ public class PlaceCaterActivity extends Activity implements d.a {
                 ImageView imageView2 = new ImageView(this);
                 imageView2.setLayoutParams(new ViewGroup.LayoutParams((int) (22.0f * n.density), (int) (22.0f * n.density)));
                 list.get((i2 * 2) + 1);
-                d.a(linearLayout.hashCode(), (i2 * 2) + 1 + 1, h.a.replaceAll("#replace#", ((h) list.get((i2 * 2) + 1)).d), this);
+                d.a(linearLayout.hashCode(), (i2 * 2) + 1 + 1, h.f556a.replaceAll("#replace#", ((h) list.get((i2 * 2) + 1)).d), this);
                 o.put(Integer.valueOf((i2 * 2) + 1 + 1), imageView2);
                 linearLayout4.addView(imageView2);
                 ((LinearLayout.LayoutParams) imageView2.getLayoutParams()).gravity = 16;
@@ -181,15 +183,15 @@ public class PlaceCaterActivity extends Activity implements d.a {
         layoutParams.bottomMargin = u;
         layoutParams.topMargin = u;
         layoutParams.leftMargin = u;
-        this.a = new TextView(this);
-        this.a.setLayoutParams(new ViewGroup.LayoutParams(r, q));
-        this.a.setTextSize(18.0f);
-        this.a.setText("");
-        this.a.setPadding(t, t, t, t);
-        this.a.setTextColor(-16777216);
-        this.a.setTypeface(Typeface.DEFAULT, 1);
-        linearLayout2.addView(this.a);
-        ((LinearLayout.LayoutParams) this.a.getLayoutParams()).leftMargin = 1;
+        this.f533a = new TextView(this);
+        this.f533a.setLayoutParams(new ViewGroup.LayoutParams(r, q));
+        this.f533a.setTextSize(18.0f);
+        this.f533a.setText("");
+        this.f533a.setPadding(t, t, t, t);
+        this.f533a.setTextColor(-16777216);
+        this.f533a.setTypeface(Typeface.DEFAULT, 1);
+        linearLayout2.addView(this.f533a);
+        ((LinearLayout.LayoutParams) this.f533a.getLayoutParams()).leftMargin = 1;
         this.b = new TextView(this);
         this.b.setLayoutParams(new ViewGroup.LayoutParams(r, q));
         this.b.setTextSize(16.0f);
@@ -384,7 +386,7 @@ public class PlaceCaterActivity extends Activity implements d.a {
     }
 
     void a(l lVar) {
-        this.a.setText(lVar.a);
+        this.f533a.setText(lVar.f559a);
         this.b.setText("地址：" + lVar.b);
         this.e.setText("￥" + lVar.g);
         this.f.setText("口味:" + lVar.h);
@@ -427,7 +429,7 @@ public class PlaceCaterActivity extends Activity implements d.a {
         super.onCreate(bundle);
         Bundle extras = getIntent().getExtras();
         l lVar = new l();
-        lVar.a = extras.getString("name");
+        lVar.f559a = extras.getString("name");
         lVar.b = extras.getString("addr");
         lVar.c = extras.getString("tel");
         lVar.d = extras.getString("uid");

@@ -3,14 +3,16 @@ package com.baidu.mapapi;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class MKTransitRouteResult {
-    private MKPlanNode a;
+
+    /* renamed from: a  reason: collision with root package name */
+    private MKPlanNode f520a;
     private MKPlanNode b;
     private ArrayList c;
     private MKRouteAddrResult d;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a(MKPlanNode mKPlanNode) {
-        this.a = mKPlanNode;
+        this.f520a = mKPlanNode;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -51,6 +53,6 @@ public class MKTransitRouteResult {
     }
 
     public MKPlanNode getStart() {
-        return this.a;
+        return this.f520a;
     }
 }

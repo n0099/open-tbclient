@@ -1,7 +1,9 @@
 package com.baidu.mapapi;
 /* loaded from: classes.dex */
 public class c {
-    private static char[] a = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=".toCharArray();
+
+    /* renamed from: a  reason: collision with root package name */
+    private static char[] f545a = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=".toCharArray();
     private static byte[] b = new byte[256];
 
     static {
@@ -42,12 +44,12 @@ public class c {
             } else {
                 z2 = false;
             }
-            cArr2[i + 3] = a[z2 ? i4 & 63 : 64];
+            cArr2[i + 3] = f545a[z2 ? i4 & 63 : 64];
             int i5 = i4 >> 6;
-            cArr2[i + 2] = a[z ? i5 & 63 : 64];
+            cArr2[i + 2] = f545a[z ? i5 & 63 : 64];
             int i6 = i5 >> 6;
-            cArr2[i + 1] = a[i6 & 63];
-            cArr2[i + 0] = a[(i6 >> 6) & 63];
+            cArr2[i + 1] = f545a[i6 & 63];
+            cArr2[i + 0] = f545a[(i6 >> 6) & 63];
             i2 += 3;
             i += 4;
         }

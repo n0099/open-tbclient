@@ -2,7 +2,6 @@ package com.baidu.zeus;
 
 import android.os.Build;
 import android.util.Log;
-import com.baidu.android.common.util.HanziToPinyin;
 /* loaded from: classes.dex */
 public final class WebKitInit {
     private static String mStrPath;
@@ -344,7 +343,7 @@ public final class WebKitInit {
         mIsVersion41 = osId == 9 || osId == 10;
         mIsVersion21 = osId == 1 || osId == 2;
         mIsVersionUseGL = osId > 6;
-        Log.e(LOGTAG, "setOSId:" + osId + " mIsVersion40:" + mIsVersion40 + " mIsVersion41:" + mIsVersion41 + HanziToPinyin.Token.SEPARATOR + mIsVersionUseGL);
+        Log.e(LOGTAG, "setOSId:" + osId + " mIsVersion40:" + mIsVersion40 + " mIsVersion41:" + mIsVersion41 + " " + mIsVersionUseGL);
     }
 
     public static int getOSId() {

@@ -1,16 +1,13 @@
 package android.support.v4.app;
 
-import java.util.ArrayList;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.app.Activity;
 /* loaded from: classes.dex */
-public final class c {
-    c a;
-    c b;
-    int c;
-    Fragment d;
-    int e;
-    int f;
-    int g;
-    int h;
-    ArrayList i;
+class c implements b {
+    private c() {
+    }
+
+    @Override // android.support.v4.app.b
+    public Object a(Object obj, Activity activity, int i) {
+        return obj;
+    }
 }

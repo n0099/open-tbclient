@@ -5,18 +5,20 @@ import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class am implements View.OnClickListener {
-    final /* synthetic */ WriteActivity a;
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ WriteActivity f1565a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public am(WriteActivity writeActivity) {
-        this.a = writeActivity;
+        this.f1565a = writeActivity;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         Bitmap bitmap;
-        WriteActivity writeActivity = this.a;
-        bitmap = this.a.y;
+        WriteActivity writeActivity = this.f1565a;
+        bitmap = this.f1565a.y;
         WriteImageActivity.a(writeActivity, bitmap, 1200003);
     }
 }

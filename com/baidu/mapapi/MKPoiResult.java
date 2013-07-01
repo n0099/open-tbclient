@@ -3,7 +3,9 @@ package com.baidu.mapapi;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class MKPoiResult {
-    private int a = 0;
+
+    /* renamed from: a  reason: collision with root package name */
+    private int f513a = 0;
     private int b = 0;
     private int c = 0;
     private int d = 0;
@@ -23,7 +25,7 @@ public class MKPoiResult {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void b(int i) {
-        this.a = i;
+        this.f513a = i;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -77,7 +79,7 @@ public class MKPoiResult {
     }
 
     public int getNumPois() {
-        return this.a;
+        return this.f513a;
     }
 
     public int getPageIndex() {

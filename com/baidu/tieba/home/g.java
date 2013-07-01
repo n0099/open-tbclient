@@ -1,36 +1,39 @@
 package com.baidu.tieba.home;
 
-import com.baidu.tieba.TiebaApplication;
+import android.view.KeyEvent;
+import android.view.View;
+import android.widget.ListView;
 /* loaded from: classes.dex */
-class g extends com.baidu.adp.a.e {
-    final /* synthetic */ EnterForumActivity a;
+class g implements View.OnKeyListener {
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ EnterForumActivity f928a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public g(EnterForumActivity enterForumActivity) {
-        this.a = enterForumActivity;
+        this.f928a = enterForumActivity;
     }
 
-    @Override // com.baidu.adp.a.e
-    public void a(Object obj) {
-        com.baidu.tieba.c.j jVar;
-        com.baidu.tieba.c.j jVar2;
-        com.baidu.tieba.c.j jVar3;
-        jVar = this.a.d;
-        if (jVar.a() != 1) {
-            jVar2 = this.a.d;
-            if (jVar2.a() != 2 || !((Boolean) obj).booleanValue()) {
-                return;
+    @Override // android.view.View.OnKeyListener
+    public boolean onKey(View view, int i, KeyEvent keyEvent) {
+        if (view instanceof ListView) {
+            ListView listView = (ListView) view;
+            if (keyEvent.getAction() == 0) {
+                if (i == 21) {
+                    if (listView.getSelectedView() == null) {
+                        listView.dispatchKeyEvent(new KeyEvent(0, 19));
+                        return true;
+                    }
+                    return false;
+                } else if (i == 22 && listView.getSelectedView() == null) {
+                    listView.dispatchKeyEvent(new KeyEvent(0, 20));
+                    return true;
+                } else {
+                    return false;
+                }
             }
-            this.a.o();
-            return;
+            return false;
         }
-        if (((Boolean) obj).booleanValue()) {
-            TiebaApplication.e().i(false);
-            this.a.o();
-        }
-        t tVar = this.a.c;
-        boolean booleanValue = ((Boolean) obj).booleanValue();
-        jVar3 = this.a.d;
-        tVar.a(booleanValue, jVar3.c());
+        return false;
     }
 }

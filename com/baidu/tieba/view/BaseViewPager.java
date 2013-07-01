@@ -7,13 +7,15 @@ import android.view.GestureDetector;
 import android.view.MotionEvent;
 /* loaded from: classes.dex */
 public class BaseViewPager extends ViewPager implements GestureDetector.OnGestureListener {
-    private GestureDetector a;
+
+    /* renamed from: a  reason: collision with root package name */
+    private GestureDetector f1477a;
     private a b;
     private a c;
 
     public BaseViewPager(Context context) {
         super(context);
-        this.a = null;
+        this.f1477a = null;
         this.b = null;
         this.c = null;
         g();
@@ -21,7 +23,7 @@ public class BaseViewPager extends ViewPager implements GestureDetector.OnGestur
 
     public BaseViewPager(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.a = null;
+        this.f1477a = null;
         this.b = null;
         this.c = null;
         g();
@@ -37,15 +39,15 @@ public class BaseViewPager extends ViewPager implements GestureDetector.OnGestur
 
     @Override // android.support.v4.view.ViewPager, android.view.View
     public boolean onTouchEvent(MotionEvent motionEvent) {
-        if (this.a == null || getAdapter() == null || getAdapter().getCount() == 0 || (getCurrentItem() != 0 && getAdapter().getCount() != getCurrentItem() + 1)) {
+        if (this.f1477a == null || getAdapter() == null || getAdapter().getCount() == 0 || (getCurrentItem() != 0 && getAdapter().getCount() != getCurrentItem() + 1)) {
             return super.onTouchEvent(motionEvent);
         }
-        this.a.onTouchEvent(motionEvent);
+        this.f1477a.onTouchEvent(motionEvent);
         return super.onTouchEvent(motionEvent);
     }
 
     private void g() {
-        this.a = new GestureDetector(this);
+        this.f1477a = new GestureDetector(this);
     }
 
     @Override // android.view.GestureDetector.OnGestureListener
@@ -57,10 +59,10 @@ public class BaseViewPager extends ViewPager implements GestureDetector.OnGestur
     public boolean onFling(MotionEvent motionEvent, MotionEvent motionEvent2, float f, float f2) {
         if (this.b != null) {
             if (f < 0.0f && getAdapter().getCount() == getCurrentItem() + 1) {
-                this.b.a(0);
+                this.b.b_(0);
                 return true;
             } else if (f > 0.0f && getCurrentItem() == 0) {
-                this.b.a(1);
+                this.b.b_(1);
                 return true;
             }
         }
@@ -75,10 +77,10 @@ public class BaseViewPager extends ViewPager implements GestureDetector.OnGestur
     public boolean onScroll(MotionEvent motionEvent, MotionEvent motionEvent2, float f, float f2) {
         if (this.c != null) {
             if (f > 0.0f && getAdapter().getCount() == getCurrentItem() + 1) {
-                this.c.a(0);
+                this.c.b_(0);
                 return true;
             } else if (f < 0.0f && getCurrentItem() == 0) {
-                this.c.a(1);
+                this.c.b_(1);
                 return true;
             }
         }

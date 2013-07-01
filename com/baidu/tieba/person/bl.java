@@ -1,42 +1,32 @@
 package com.baidu.tieba.person;
 
-import com.baidu.adp.widget.ListView.BdListView;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.ProgressBar;
+import android.widget.TextView;
 /* loaded from: classes.dex */
-class bl implements Runnable {
-    final /* synthetic */ PersonListActivity a;
+class bl {
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public bl(PersonListActivity personListActivity) {
-        this.a = personListActivity;
+    /* renamed from: a  reason: collision with root package name */
+    int f1345a;
+    TextView b;
+    ProgressBar c;
+    LinearLayout d;
+    LinearLayout e;
+    ImageView f;
+    TextView g;
+    ImageView h;
+    TextView i;
+    TextView j;
+    TextView k;
+    final /* synthetic */ bj l;
+
+    private bl(bj bjVar) {
+        this.l = bjVar;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        BdListView bdListView;
-        BdListView bdListView2;
-        bt btVar;
-        bt btVar2;
-        bt btVar3;
-        try {
-            bdListView = this.a.e;
-            int firstVisiblePosition = bdListView.getFirstVisiblePosition();
-            bdListView2 = this.a.e;
-            int lastVisiblePosition = bdListView2.getLastVisiblePosition();
-            for (int i = firstVisiblePosition; i <= lastVisiblePosition; i++) {
-                btVar = this.a.h;
-                if (i < btVar.getCount()) {
-                    btVar2 = this.a.h;
-                    com.baidu.tieba.a.be beVar = (com.baidu.tieba.a.be) btVar2.getItem(i);
-                    if (beVar != null && beVar.e() != null) {
-                        btVar3 = this.a.h;
-                        btVar3.c().b(beVar.e(), new bm(this));
-                    }
-                } else {
-                    return;
-                }
-            }
-        } catch (Exception e) {
-            com.baidu.tieba.d.ae.b(getClass().getName(), "mGetImageRunnble.run", e.getMessage());
-        }
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public /* synthetic */ bl(bj bjVar, bl blVar) {
+        this(bjVar);
     }
 }

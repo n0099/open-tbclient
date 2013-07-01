@@ -1,12 +1,11 @@
 package com.baidu.adp.lib.webSocket;
-
-import java.util.List;
 /* loaded from: classes.dex */
-public class g extends l {
-    public String a;
-    public String b;
-    public String c;
-    public String d;
-    public String[] e;
-    public List f;
+public class g extends k {
+
+    /* renamed from: a  reason: collision with root package name */
+    public int f187a = -1;
+    public String b = null;
+
+    g() {
+    }
 }

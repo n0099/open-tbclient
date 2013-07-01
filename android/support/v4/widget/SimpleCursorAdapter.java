@@ -12,19 +12,19 @@ public class SimpleCursorAdapter extends ResourceCursorAdapter {
     protected int[] k;
     String[] l;
     private int m;
-    private i n;
-    private j o;
+    private s n;
+    private t o;
 
     @Override // android.support.v4.widget.CursorAdapter
     public void a(View view, Context context, Cursor cursor) {
-        j jVar = this.o;
+        t tVar = this.o;
         int length = this.k.length;
         int[] iArr = this.j;
         int[] iArr2 = this.k;
         for (int i = 0; i < length; i++) {
             View findViewById = view.findViewById(iArr2[i]);
             if (findViewById != null) {
-                if (jVar != null ? jVar.a(findViewById, cursor, iArr[i]) : false) {
+                if (tVar != null ? tVar.a(findViewById, cursor, iArr[i]) : false) {
                     continue;
                 } else {
                     String string = cursor.getString(iArr[i]);

@@ -4,28 +4,34 @@ import android.content.Context;
 import android.text.TextUtils;
 /* loaded from: classes.dex */
 public final class y {
-    private static y a;
-    private String b = null;
-    private String c = null;
+
+    /* renamed from: a  reason: collision with root package name */
+    private static y f369a;
+    private String b;
+    private String c;
     private Thread d = null;
 
     private y() {
+        this.b = null;
+        this.c = null;
+        this.c = PushSettings.b();
+        this.b = PushSettings.a();
     }
 
     public static y a() {
-        if (a == null) {
-            a = new y();
+        if (f369a == null) {
+            f369a = new y();
         }
-        return a;
+        return f369a;
     }
 
     public void a(Context context, boolean z) {
         if (this.d == null || !this.d.isAlive()) {
-            com.baidu.android.pushservice.a.p pVar = new com.baidu.android.pushservice.a.p(context);
+            com.baidu.android.pushservice.a.x xVar = new com.baidu.android.pushservice.a.x(context);
             if (!z) {
-                pVar.a(0);
+                xVar.a(0);
             }
-            this.d = new Thread(pVar);
+            this.d = new Thread(xVar);
             this.d.start();
         }
     }
@@ -33,6 +39,8 @@ public final class y {
     public synchronized void a(String str, String str2) {
         this.b = str;
         this.c = str2;
+        PushSettings.a(str);
+        PushSettings.b(str2);
     }
 
     public String b() {

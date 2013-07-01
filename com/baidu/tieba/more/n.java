@@ -9,17 +9,20 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import com.baidu.tieba.TiebaApplication;
+import com.baidu.tieba.data.AccountData;
 import com.slidingmenu.lib.R;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class n extends BaseAdapter {
-    private Context a;
+
+    /* renamed from: a  reason: collision with root package name */
+    private Context f1102a;
     private View.OnClickListener d;
     private ArrayList c = null;
     private boolean b = false;
 
     public n(Context context, View.OnClickListener onClickListener) {
-        this.a = context;
+        this.f1102a = context;
         this.d = onClickListener;
     }
 
@@ -63,11 +66,11 @@ public class n extends BaseAdapter {
         try {
             try {
                 if (view == null) {
-                    LayoutInflater from = LayoutInflater.from(this.a);
+                    LayoutInflater from = LayoutInflater.from(this.f1102a);
                     if (getItemViewType(i) == 0) {
                         view4 = from.inflate(R.layout.account_item, (ViewGroup) null);
                         oVar = new o(this, null);
-                        oVar.a = (TextView) view4.findViewById(R.id.account);
+                        oVar.f1103a = (TextView) view4.findViewById(R.id.account);
                         oVar.c = (ImageView) view4.findViewById(R.id.active);
                         oVar.d = (Button) view4.findViewById(R.id.delete);
                         oVar.d.setOnClickListener(this.d);
@@ -83,18 +86,18 @@ public class n extends BaseAdapter {
                     view4 = view;
                 }
                 if (getItemViewType(i) == 0) {
-                    if (TiebaApplication.e().as() == 1) {
-                        oVar.a.setTextColor(com.baidu.tieba.d.ac.a(1));
+                    if (TiebaApplication.f().at() == 1) {
+                        oVar.f1103a.setTextColor(com.baidu.tieba.util.x.a(1));
                     } else {
-                        oVar.a.setTextColor(-12895429);
+                        oVar.f1103a.setTextColor(-12895429);
                     }
-                    com.baidu.tieba.a.a aVar = (com.baidu.tieba.a.a) getItem(i);
+                    AccountData accountData = (AccountData) getItem(i);
                     oVar.c.setVisibility(8);
                     oVar.d.setVisibility(8);
-                    oVar.d.setTag(aVar);
-                    if (aVar != null) {
-                        oVar.a.setText(aVar.b());
-                        if (aVar.e() == 1) {
+                    oVar.d.setTag(accountData);
+                    if (accountData != null) {
+                        oVar.f1103a.setText(accountData.getAccount());
+                        if (accountData.getIsActive() == 1) {
                             oVar.c.setVisibility(0);
                         }
                         if (this.b) {
@@ -103,8 +106,8 @@ public class n extends BaseAdapter {
                         }
                     }
                     return view4;
-                } else if (TiebaApplication.e().as() == 1) {
-                    oVar.b.setTextColor(com.baidu.tieba.d.ac.a(1));
+                } else if (TiebaApplication.f().at() == 1) {
+                    oVar.b.setTextColor(com.baidu.tieba.util.x.a(1));
                     return view4;
                 } else {
                     oVar.b.setTextColor(-12895429);
@@ -113,13 +116,13 @@ public class n extends BaseAdapter {
             } catch (Exception e) {
                 view2 = view3;
                 exc = e;
-                com.baidu.tieba.d.ae.b(getClass().getName(), "getView", exc.getMessage());
+                com.baidu.tieba.util.z.b(getClass().getName(), "getView", exc.getMessage());
                 return view2;
             }
         } catch (Exception e2) {
             exc = e2;
             view2 = view;
-            com.baidu.tieba.d.ae.b(getClass().getName(), "getView", exc.getMessage());
+            com.baidu.tieba.util.z.b(getClass().getName(), "getView", exc.getMessage());
             return view2;
         }
     }

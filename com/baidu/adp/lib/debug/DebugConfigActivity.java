@@ -5,7 +5,9 @@ import android.os.Bundle;
 import com.baidu.adp.lib.debug.b.c;
 /* loaded from: classes.dex */
 public class DebugConfigActivity extends Activity {
-    private c a;
+
+    /* renamed from: a  reason: collision with root package name */
+    private c f136a;
 
     @Override // android.app.Activity
     public void onCreate(Bundle bundle) {
@@ -21,6 +23,6 @@ public class DebugConfigActivity extends Activity {
     }
 
     public void a(c cVar) {
-        this.a = cVar;
+        this.f136a = cVar;
     }
 }

@@ -8,17 +8,19 @@ import com.baidu.tieba.mention.MentionActivity;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 class ap implements View.OnClickListener {
-    final /* synthetic */ FrsImageActivity a;
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ FrsImageActivity f842a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ap(FrsImageActivity frsImageActivity) {
-        this.a = frsImageActivity;
+        this.f842a = frsImageActivity;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        ay ayVar;
-        ay ayVar2;
+        ax axVar;
+        ax axVar2;
         boolean z;
         String str;
         String str2;
@@ -26,111 +28,111 @@ class ap implements View.OnClickListener {
         String str4;
         String str5;
         String str6;
-        ay ayVar3;
-        ay ayVar4;
-        ay ayVar5;
-        ay ayVar6;
+        ax axVar3;
+        ax axVar4;
+        ax axVar5;
+        ax axVar6;
         switch (view.getId()) {
-            case R.id.refresh_btn /* 2131099853 */:
-                this.a.e(1);
+            case R.id.refresh_btn /* 2131099859 */:
+                this.f842a.e(1);
                 return;
-            case R.id.frs_bt_back /* 2131099969 */:
-                this.a.finish();
+            case R.id.frs_bt_back /* 2131100004 */:
+                this.f842a.finish();
                 return;
-            case R.id.frs_top_title /* 2131099970 */:
-                ayVar6 = this.a.n;
-                ayVar6.a().scrollTo(0, 0);
+            case R.id.frs_top_title /* 2131100005 */:
+                axVar6 = this.f842a.n;
+                axVar6.a().scrollTo(0, 0);
                 return;
-            case R.id.frs_top_edit /* 2131099971 */:
-                this.a.c(0);
+            case R.id.frs_top_edit /* 2131100006 */:
+                this.f842a.b(0);
                 return;
-            case R.id.frs_top_more /* 2131099973 */:
-                if (TiebaApplication.e().p()) {
-                    StatService.onEvent(this.a, "frs_more", "frsclick", 1);
+            case R.id.frs_top_more /* 2131100008 */:
+                if (TiebaApplication.f().t()) {
+                    StatService.onEvent(this.f842a, "frs_more", "frsclick", 1);
                 }
-                ayVar5 = this.a.n;
-                ayVar5.b(true);
+                axVar5 = this.f842a.n;
+                axVar5.b(true);
                 return;
-            case R.id.show_all /* 2131100023 */:
-                this.a.r = false;
-                TiebaApplication e = TiebaApplication.e();
-                str3 = this.a.d;
-                e.d(str3);
-                FrsImageActivity frsImageActivity = this.a;
-                str4 = this.a.d;
+            case R.id.show_all /* 2131100060 */:
+                this.f842a.r = false;
+                TiebaApplication f = TiebaApplication.f();
+                str3 = this.f842a.b;
+                f.f(str3);
+                FrsImageActivity frsImageActivity = this.f842a;
+                str4 = this.f842a.b;
                 FrsActivity.a(frsImageActivity, str4, null, 0);
-                this.a.b();
+                this.f842a.b();
                 return;
-            case R.id.show_good /* 2131100025 */:
-                this.a.r = false;
-                if (TiebaApplication.e().p()) {
-                    StatService.onEvent(this.a, "frs_good", "frsclick", 1);
+            case R.id.show_good /* 2131100062 */:
+                this.f842a.r = false;
+                if (TiebaApplication.f().t()) {
+                    StatService.onEvent(this.f842a, "frs_good", "frsclick", 1);
                 }
-                TiebaApplication e2 = TiebaApplication.e();
-                str = this.a.d;
-                e2.d(str);
-                FrsImageActivity frsImageActivity2 = this.a;
-                str2 = this.a.d;
+                TiebaApplication f2 = TiebaApplication.f();
+                str = this.f842a.b;
+                f2.f(str);
+                FrsImageActivity frsImageActivity2 = this.f842a;
+                str2 = this.f842a.b;
                 FrsActivity.b(frsImageActivity2, str2, null);
-                this.a.b();
+                this.f842a.b();
                 return;
-            case R.id.show_image /* 2131100027 */:
-                this.a.r = false;
-                if (TiebaApplication.e().p()) {
-                    StatService.onEvent(this.a, "frs_image", "frsclick", 1);
+            case R.id.show_image /* 2131100064 */:
+                this.f842a.r = false;
+                if (TiebaApplication.f().t()) {
+                    StatService.onEvent(this.f842a, "frs_image", "frsclick", 1);
                 }
-                ayVar = this.a.n;
-                if (ayVar.c().isMenuShowing()) {
-                    ayVar2 = this.a.n;
-                    ayVar2.c().toggle(true);
-                    z = this.a.r;
+                axVar = this.f842a.n;
+                if (axVar.c().isMenuShowing()) {
+                    axVar2 = this.f842a.n;
+                    axVar2.c().toggle(true);
+                    z = this.f842a.r;
                     if (z) {
-                        this.a.r = false;
-                        this.a.e(1);
+                        this.f842a.r = false;
+                        this.f842a.e(1);
                         return;
                     }
                     return;
                 }
                 return;
-            case R.id.add_to_window_layout /* 2131100035 */:
-                FrsImageActivity frsImageActivity3 = this.a;
-                str5 = this.a.d;
+            case R.id.add_to_window_layout /* 2131100072 */:
+                FrsImageActivity frsImageActivity3 = this.f842a;
+                str5 = this.f842a.b;
                 frsImageActivity3.d(str5);
                 return;
-            case R.id.message_layout /* 2131100039 */:
-                String C = TiebaApplication.C();
-                if (C != null && C.length() > 0) {
-                    if (TiebaApplication.e().p()) {
-                        StatService.onEvent(this.a, "frs_message", "frsclick", 1);
+            case R.id.message_layout /* 2131100076 */:
+                String E = TiebaApplication.E();
+                if (E != null && E.length() > 0) {
+                    if (TiebaApplication.f().t()) {
+                        StatService.onEvent(this.f842a, "frs_message", "frsclick", 1);
                     }
-                    MentionActivity.a(this.a, 1800002);
+                    MentionActivity.a(this.f842a, 1800002);
                     return;
                 }
                 return;
-            case R.id.chat_layout /* 2131100043 */:
-                if (TiebaApplication.e().p()) {
-                    StatService.onEvent(this.a, "enter_chatlist", "frsclick", 1);
+            case R.id.chat_layout /* 2131100080 */:
+                if (TiebaApplication.f().t()) {
+                    StatService.onEvent(this.f842a, "enter_chatlist", "frsclick", 1);
                 }
-                ChatListActivity.a(this.a);
+                ChatListActivity.a(this.f842a);
                 return;
-            case R.id.like_forum_name /* 2131100048 */:
-                if (TiebaApplication.e().p()) {
-                    StatService.onEvent(this.a, "frs_likeforum", "frsclick", 1);
+            case R.id.like_forum_name /* 2131100085 */:
+                if (TiebaApplication.f().t()) {
+                    StatService.onEvent(this.f842a, "frs_likeforum", "frsclick", 1);
                 }
                 String str7 = (String) view.getTag();
-                str6 = this.a.d;
+                str6 = this.f842a.b;
                 if (str7.equals(str6)) {
-                    this.a.r = false;
-                    ayVar3 = this.a.n;
-                    if (ayVar3.c().isMenuShowing()) {
-                        ayVar4 = this.a.n;
-                        ayVar4.c().toggle(true);
+                    this.f842a.r = false;
+                    axVar3 = this.f842a.n;
+                    if (axVar3.c().isMenuShowing()) {
+                        axVar4 = this.f842a.n;
+                        axVar4.c().toggle(true);
                         return;
                     }
                     return;
                 }
-                FrsActivity.a(this.a, str7, (String) null);
-                this.a.b();
+                FrsActivity.a(this.f842a, str7, (String) null);
+                this.f842a.b();
                 return;
             default:
                 return;

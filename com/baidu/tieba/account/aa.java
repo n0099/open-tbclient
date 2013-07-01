@@ -1,7 +1,9 @@
 package com.baidu.tieba.account;
 /* loaded from: classes.dex */
 class aa {
-    String a;
+
+    /* renamed from: a  reason: collision with root package name */
+    String f638a;
     String b;
     String c;
     String d;

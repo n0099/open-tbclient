@@ -1,7 +1,20 @@
 package android.support.v4.app;
-/* loaded from: classes.dex */
-public abstract class k {
-    public abstract s a();
 
-    public abstract void a(int i, int i2);
+import android.os.Parcel;
+import android.os.Parcelable;
+/* loaded from: classes.dex */
+final class k implements Parcelable.Creator {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // android.os.Parcelable.Creator
+    /* renamed from: a */
+    public BackStackState createFromParcel(Parcel parcel) {
+        return new BackStackState(parcel);
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // android.os.Parcelable.Creator
+    /* renamed from: a */
+    public BackStackState[] newArray(int i) {
+        return new BackStackState[i];
+    }
 }

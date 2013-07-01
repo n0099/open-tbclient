@@ -12,6 +12,7 @@ import android.net.Uri;
 import android.os.Build;
 import android.util.Log;
 import android.widget.RemoteViews;
+import com.baidu.android.pushservice.PushConstants;
 /* loaded from: classes.dex */
 public class NotificationProxy extends Notification {
     public static final int EVENT_TYPE_CLEAN = 20;
@@ -151,7 +152,7 @@ public class NotificationProxy extends Notification {
         int i = 25;
         int sDKVersion = getSDKVersion();
         int identifier = this.mContext.getResources().getIdentifier("notification_icon", "id", this.mPkgName);
-        int identifier2 = this.mContext.getResources().getIdentifier("notification_title", "id", this.mPkgName);
+        int identifier2 = this.mContext.getResources().getIdentifier(PushConstants.EXTRA_NOTIFICATION_TITLE, "id", this.mPkgName);
         int identifier3 = this.mContext.getResources().getIdentifier("notification_text", "id", this.mPkgName);
         Log.i(TAG, "enter creatRemoteViews imageId=" + identifier + " titleId=" + identifier2 + " textId=" + identifier3);
         switch (sDKVersion) {

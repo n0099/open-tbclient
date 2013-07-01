@@ -1,9 +1,7 @@
 package android.support.v4.app;
+
+import android.view.View;
 /* loaded from: classes.dex */
-public abstract class s {
-    public abstract int a();
-
-    public abstract s a(Fragment fragment);
-
-    public abstract int b();
+interface s {
+    View a(int i);
 }

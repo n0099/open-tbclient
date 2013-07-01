@@ -24,7 +24,9 @@ public class t {
     private static boolean q = false;
     private Context b;
     private Handler h;
-    private final String a = "baidu_location_service";
+
+    /* renamed from: a  reason: collision with root package name */
+    private final String f484a = "baidu_location_service";
     private TelephonyManager c = null;
     private u d = new u(this);
     private List e = null;
@@ -42,7 +44,7 @@ public class t {
         StringBuffer stringBuffer = new StringBuffer(256);
         stringBuffer.append("&sdk=");
         stringBuffer.append(3.1f);
-        if (!ap.a && !ap.b && z && ap.i.equals("all")) {
+        if (!ap.f464a && !ap.b && z && ap.i.equals("all")) {
             stringBuffer.append("&addr=all");
         }
         if (z) {
@@ -62,7 +64,7 @@ public class t {
         stringBuffer.append("&mb=");
         stringBuffer.append(Build.MODEL);
         stringBuffer.append("&resid=");
-        if (ap.a) {
+        if (ap.f464a) {
             stringBuffer.append("13");
         } else if (ap.b) {
             stringBuffer.append("11");
@@ -125,7 +127,7 @@ public class t {
             }
         }
         if (cellLocation instanceof GsmCellLocation) {
-            uVar.a = ((GsmCellLocation) cellLocation).getLac();
+            uVar.f485a = ((GsmCellLocation) cellLocation).getLac();
             uVar.b = ((GsmCellLocation) cellLocation).getCid();
             uVar.g = 'g';
         } else if (cellLocation instanceof CdmaCellLocation) {
@@ -153,7 +155,7 @@ public class t {
                     }
                     uVar.d = intValue3;
                     uVar.b = ((Integer) k.invoke(cellLocation, new Object[0])).intValue();
-                    uVar.a = ((Integer) l.invoke(cellLocation, new Object[0])).intValue();
+                    uVar.f485a = ((Integer) l.invoke(cellLocation, new Object[0])).intValue();
                 } catch (Exception e3) {
                     e3.printStackTrace();
                     return;
@@ -176,7 +178,7 @@ public class t {
                 }
                 int size = this.e.size();
                 u uVar2 = size == 0 ? null : (u) this.e.get(size - 1);
-                if (uVar2 != null && uVar2.b == this.d.b && uVar2.a == this.d.a) {
+                if (uVar2 != null && uVar2.b == this.d.b && uVar2.f485a == this.d.f485a) {
                     return;
                 }
                 if (uVar2 != null) {

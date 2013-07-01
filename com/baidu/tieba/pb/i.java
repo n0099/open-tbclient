@@ -5,10 +5,12 @@ import android.content.Context;
 import android.content.Intent;
 /* loaded from: classes.dex */
 class i extends BroadcastReceiver {
-    final /* synthetic */ ImageActivity a;
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ ImageActivity f1280a;
 
     private i(ImageActivity imageActivity) {
-        this.a = imageActivity;
+        this.f1280a = imageActivity;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -18,17 +20,17 @@ class i extends BroadcastReceiver {
 
     @Override // android.content.BroadcastReceiver
     public void onReceive(Context context, Intent intent) {
-        ImageActivity.a(this.a, intent.getBooleanExtra("hasnext", false));
-        ImageActivity.a(this.a, intent.getStringExtra("nexttitle"));
-        ImageActivity.a(this.a, intent.getStringArrayListExtra("url"));
-        ImageActivity.a(this.a, intent.getIntExtra("count", -1));
+        ImageActivity.a(this.f1280a, intent.getBooleanExtra("hasnext", false));
+        ImageActivity.a(this.f1280a, intent.getStringExtra("nexttitle"));
+        ImageActivity.a(this.f1280a, intent.getStringArrayListExtra("url"));
+        ImageActivity.a(this.f1280a, intent.getIntExtra("count", -1));
         int intExtra = intent.getIntExtra("index", -1);
-        ImageActivity.c(this.a).setUrlData(ImageActivity.d(this.a));
-        ImageActivity.c(this.a).setNextTitle(ImageActivity.e(this.a));
-        ImageActivity.c(this.a).setHasNext(ImageActivity.f(this.a));
+        ImageActivity.c(this.f1280a).setUrlData(ImageActivity.d(this.f1280a));
+        ImageActivity.c(this.f1280a).setNextTitle(ImageActivity.e(this.f1280a));
+        ImageActivity.c(this.f1280a).setHasNext(ImageActivity.f(this.f1280a));
         if (intExtra >= 0) {
-            ImageActivity.b(this.a, intExtra);
-            ImageActivity.c(this.a).a(ImageActivity.g(this.a), false);
+            ImageActivity.b(this.f1280a, intExtra);
+            ImageActivity.c(this.f1280a).a(ImageActivity.g(this.f1280a), false);
         }
     }
 }

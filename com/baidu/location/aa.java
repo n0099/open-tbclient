@@ -4,7 +4,9 @@ import android.net.wifi.ScanResult;
 import java.util.List;
 /* loaded from: classes.dex */
 public class aa {
-    public List a;
+
+    /* renamed from: a  reason: collision with root package name */
+    public List f454a;
     final /* synthetic */ w b;
     private long c;
     private long d;
@@ -12,14 +14,14 @@ public class aa {
     public aa(w wVar, List list, long j) {
         String str;
         this.b = wVar;
-        this.a = null;
+        this.f454a = null;
         this.c = 0L;
         this.d = 0L;
         this.c = j;
-        this.a = list;
+        this.f454a = list;
         this.d = System.currentTimeMillis();
         i();
-        str = w.a;
+        str = w.f487a;
         ap.b(str, a());
     }
 
@@ -29,13 +31,13 @@ public class aa {
             return;
         }
         boolean z2 = true;
-        for (int size = this.a.size() - 1; size >= 1 && z2; size--) {
+        for (int size = this.f454a.size() - 1; size >= 1 && z2; size--) {
             int i = 0;
             z2 = false;
             while (i < size) {
-                if (((ScanResult) this.a.get(i)).level < ((ScanResult) this.a.get(i + 1)).level) {
-                    this.a.set(i + 1, this.a.get(i));
-                    this.a.set(i, (ScanResult) this.a.get(i + 1));
+                if (((ScanResult) this.f454a.get(i)).level < ((ScanResult) this.f454a.get(i + 1)).level) {
+                    this.f454a.set(i + 1, this.f454a.get(i));
+                    this.f454a.set(i, (ScanResult) this.f454a.get(i + 1));
                     z = true;
                 } else {
                     z = z2;
@@ -49,12 +51,12 @@ public class aa {
     public String a() {
         StringBuilder sb = new StringBuilder();
         sb.append("wifi=");
-        if (this.a == null) {
+        if (this.f454a == null) {
             return sb.toString();
         }
-        for (int i = 0; i < this.a.size(); i++) {
-            int i2 = ((ScanResult) this.a.get(i)).level;
-            sb.append(((ScanResult) this.a.get(i)).BSSID.replace(":", ""));
+        for (int i = 0; i < this.f454a.size(); i++) {
+            int i2 = ((ScanResult) this.f454a.get(i)).level;
+            sb.append(((ScanResult) this.f454a.get(i)).BSSID.replace(":", ""));
             sb.append(String.format(",%d;", Integer.valueOf(i2)));
         }
         return sb.toString();
@@ -69,7 +71,7 @@ public class aa {
         }
         StringBuffer stringBuffer = new StringBuffer(512);
         String f = this.b.f();
-        int size = this.a.size();
+        int size = this.f454a.size();
         if (size <= i) {
             i = size;
         }
@@ -78,14 +80,14 @@ public class aa {
         int i4 = 0;
         int i5 = 0;
         while (i3 < i) {
-            if (((ScanResult) this.a.get(i3)).level == 0) {
+            if (((ScanResult) this.f454a.get(i3)).level == 0) {
                 z = z2;
                 i2 = i5;
             } else if (z2) {
                 stringBuffer.append("&wf=");
-                String replace = ((ScanResult) this.a.get(i3)).BSSID.replace(":", "");
+                String replace = ((ScanResult) this.f454a.get(i3)).BSSID.replace(":", "");
                 stringBuffer.append(replace);
-                int i6 = ((ScanResult) this.a.get(i3)).level;
+                int i6 = ((ScanResult) this.f454a.get(i3)).level;
                 if (i6 < 0) {
                     i6 = -i6;
                 }
@@ -95,9 +97,9 @@ public class aa {
                 z = false;
             } else {
                 stringBuffer.append("|");
-                String replace2 = ((ScanResult) this.a.get(i3)).BSSID.replace(":", "");
+                String replace2 = ((ScanResult) this.f454a.get(i3)).BSSID.replace(":", "");
                 stringBuffer.append(replace2);
-                int i7 = ((ScanResult) this.a.get(i3)).level;
+                int i7 = ((ScanResult) this.f454a.get(i3)).level;
                 if (i7 < 0) {
                     i7 = -i7;
                 }
@@ -121,7 +123,7 @@ public class aa {
         if (z2) {
             return null;
         }
-        str = w.a;
+        str = w.f487a;
         ap.a(str, f + i4);
         stringBuffer.append("&wf_n=" + i4);
         stringBuffer.append("&wf_st=");
@@ -132,12 +134,12 @@ public class aa {
     }
 
     public boolean a(aa aaVar) {
-        if (this.a == null || aaVar == null || aaVar.a == null) {
+        if (this.f454a == null || aaVar == null || aaVar.f454a == null) {
             return false;
         }
-        int size = this.a.size() < aaVar.a.size() ? this.a.size() : aaVar.a.size();
+        int size = this.f454a.size() < aaVar.f454a.size() ? this.f454a.size() : aaVar.f454a.size();
         for (int i = 0; i < size; i++) {
-            if (!((ScanResult) this.a.get(i)).BSSID.equals(((ScanResult) aaVar.a.get(i)).BSSID)) {
+            if (!((ScanResult) this.f454a.get(i)).BSSID.equals(((ScanResult) aaVar.f454a.get(i)).BSSID)) {
                 return false;
             }
         }
@@ -150,8 +152,8 @@ public class aa {
         if (aaVar == null || aaVar2 == null) {
             return false;
         }
-        List list = aaVar.a;
-        List list2 = aaVar2.a;
+        List list = aaVar.f454a;
+        List list2 = aaVar2.f454a;
         if (list == list2) {
             return true;
         }
@@ -190,16 +192,16 @@ public class aa {
             i2++;
             i3 = i;
         }
-        str = w.a;
+        str = w.f487a;
         ap.a(str, String.format("same %d,total %f,rate %f...", Integer.valueOf(i3), Float.valueOf(f2), Float.valueOf(f)));
         return ((float) (i3 * 2)) >= f2 * f;
     }
 
     public int b() {
-        if (this.a == null) {
+        if (this.f454a == null) {
             return 0;
         }
-        return this.a.size();
+        return this.f454a.size();
     }
 
     public String b(int i) {
@@ -221,9 +223,9 @@ public class aa {
                 } else {
                     stringBuffer.append("|");
                 }
-                stringBuffer.append(((ScanResult) this.a.get(i5)).BSSID);
+                stringBuffer.append(((ScanResult) this.f454a.get(i5)).BSSID);
                 stringBuffer.append(";");
-                stringBuffer.append(((ScanResult) this.a.get(i5)).SSID);
+                stringBuffer.append(((ScanResult) this.f454a.get(i5)).SSID);
                 i3++;
             }
             i4 <<= 1;
@@ -232,15 +234,15 @@ public class aa {
     }
 
     public boolean b(aa aaVar) {
-        if (this.a == null || aaVar == null || aaVar.a == null) {
+        if (this.f454a == null || aaVar == null || aaVar.f454a == null) {
             return false;
         }
-        int size = this.a.size() < aaVar.a.size() ? this.a.size() : aaVar.a.size();
+        int size = this.f454a.size() < aaVar.f454a.size() ? this.f454a.size() : aaVar.f454a.size();
         for (int i = 0; i < size; i++) {
-            String str = ((ScanResult) this.a.get(i)).BSSID;
-            int i2 = ((ScanResult) this.a.get(i)).level;
-            String str2 = ((ScanResult) aaVar.a.get(i)).BSSID;
-            int i3 = ((ScanResult) aaVar.a.get(i)).level;
+            String str = ((ScanResult) this.f454a.get(i)).BSSID;
+            int i2 = ((ScanResult) this.f454a.get(i)).level;
+            String str2 = ((ScanResult) aaVar.f454a.get(i)).BSSID;
+            int i3 = ((ScanResult) aaVar.f454a.get(i)).level;
             if (!str.equals(str2) || i2 != i3) {
                 return false;
             }
@@ -275,24 +277,24 @@ public class aa {
         if (b() < 1) {
             return stringBuffer.toString();
         }
-        int size = this.a.size();
+        int size = this.f454a.size();
         if (size > 10) {
             size = 10;
         }
         int i = 0;
         boolean z2 = true;
         while (i < size) {
-            if (((ScanResult) this.a.get(i)).level == 0) {
+            if (((ScanResult) this.f454a.get(i)).level == 0) {
                 z = z2;
             } else if (z2) {
                 stringBuffer.append("wifi=");
-                stringBuffer.append(((ScanResult) this.a.get(i)).BSSID.replace(":", ""));
-                stringBuffer.append(String.format(";%d;", Integer.valueOf(((ScanResult) this.a.get(i)).level)));
+                stringBuffer.append(((ScanResult) this.f454a.get(i)).BSSID.replace(":", ""));
+                stringBuffer.append(String.format(";%d;", Integer.valueOf(((ScanResult) this.f454a.get(i)).level)));
                 z = false;
             } else {
                 stringBuffer.append(";");
-                stringBuffer.append(((ScanResult) this.a.get(i)).BSSID.replace(":", ""));
-                stringBuffer.append(String.format(",%d;", Integer.valueOf(((ScanResult) this.a.get(i)).level)));
+                stringBuffer.append(((ScanResult) this.f454a.get(i)).BSSID.replace(":", ""));
+                stringBuffer.append(String.format(",%d;", Integer.valueOf(((ScanResult) this.f454a.get(i)).level)));
                 z = z2;
             }
             i++;

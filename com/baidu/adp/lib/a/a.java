@@ -1,222 +1,167 @@
 package com.baidu.adp.lib.a;
 
-import java.util.concurrent.Executor;
-import java.util.concurrent.TimeUnit;
-import java.util.concurrent.atomic.AtomicBoolean;
+import android.util.Log;
+import java.util.LinkedHashMap;
+import java.util.Map;
 /* loaded from: classes.dex */
-public abstract class a {
-    private static final h a = h.a();
-    private static f b = new f(null);
-    private static /* synthetic */ int[] l;
-    private volatile e e = e.PENDING;
-    private int f = 1;
-    private String g = null;
-    private String h = null;
-    private o i = o.MAX_PARALLEL;
-    private boolean j = false;
-    private final AtomicBoolean k = new AtomicBoolean();
-    private final g c = new b(this);
-    private final n d = new c(this, this.c, this);
+public class a {
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public abstract Object a(Object... objArr);
+    /* renamed from: a  reason: collision with root package name */
+    private final LinkedHashMap f119a = new LinkedHashMap(0, 0.75f, true);
+    private int b;
+    private int c;
+    private int d;
+    private int e;
+    private int f;
+    private int g;
+    private int h;
 
-    static /* synthetic */ int[] d() {
-        int[] iArr = l;
-        if (iArr == null) {
-            iArr = new int[e.valuesCustom().length];
-            try {
-                iArr[e.FINISHED.ordinal()] = 3;
-            } catch (NoSuchFieldError e) {
-            }
-            try {
-                iArr[e.PENDING.ordinal()] = 1;
-            } catch (NoSuchFieldError e2) {
-            }
-            try {
-                iArr[e.RUNNING.ordinal()] = 2;
-            } catch (NoSuchFieldError e3) {
-            }
-            l = iArr;
-        }
-        return iArr;
+    public a(int i) {
+        this.d = i;
+        this.b = this.d / 5;
     }
 
-    public static void updateInternalHandler() {
-        b = new f(null);
-    }
-
-    public static void removeAllTask(String str) {
-        a.a(str);
-    }
-
-    public static void removeAllQueueTask(String str) {
-        a.b(str);
-    }
-
-    public static a searchTask(String str) {
-        return a.c(str);
-    }
-
-    public int setPriority(int i) {
-        if (this.e != e.PENDING) {
-            throw new IllegalStateException("the task is already running");
-        }
-        int i2 = this.f;
-        this.f = i;
-        return i2;
-    }
-
-    public int getPriority() {
-        return this.f;
-    }
-
-    public String getTag() {
-        return this.g;
-    }
-
-    public String setTag(String str) {
-        if (this.e != e.PENDING) {
-            throw new IllegalStateException("the task is already running");
-        }
-        String str2 = this.g;
-        this.g = str;
-        return str2;
-    }
-
-    public String getKey() {
-        return this.h;
-    }
-
-    public String setKey(String str) {
-        if (this.e != e.PENDING) {
-            throw new IllegalStateException("the task is already running");
-        }
-        String str2 = this.h;
-        this.h = str;
-        return str2;
-    }
-
-    public o getType() {
-        return this.i;
-    }
-
-    public void setType(o oVar) {
-        if (this.e != e.PENDING) {
-            throw new IllegalStateException("the task is already running");
-        }
-        this.i = oVar;
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public Object c(Object obj) {
-        synchronized (this) {
-            if (this.k.get()) {
-                return null;
-            }
-            this.k.set(true);
-            b.obtainMessage(1, new d(this, obj)).sendToTarget();
-            return obj;
-        }
-    }
-
-    public final e getStatus() {
-        return this.e;
-    }
-
-    public void cancel() {
-        cancel(true);
-    }
-
-    protected void a() {
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    public void b() {
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    public void a(Object obj) {
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    public void b(Object... objArr) {
-    }
-
-    protected void b(Object obj) {
-        c();
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    public void c() {
-    }
-
-    public final boolean isCancelled() {
-        return this.d.isCancelled();
-    }
-
-    public final boolean cancel(boolean z) {
-        if (!this.j) {
-            a.a(this);
-        }
-        boolean cancel = this.d.cancel(z);
-        a();
-        return cancel;
-    }
-
-    public final Object get() {
-        return this.d.get();
-    }
-
-    public final Object get(long j, TimeUnit timeUnit) {
-        return this.d.get(j, timeUnit);
-    }
-
-    public final a execute(Object... objArr) {
-        return executeOnExecutor(a, objArr);
-    }
-
-    public final a executeOnExecutor(Executor executor, Object... objArr) {
-        if (this.e != e.PENDING) {
-            switch (d()[this.e.ordinal()]) {
-                case 2:
-                    throw new IllegalStateException("Cannot execute task: the task is already running.");
-                case 3:
-                    throw new IllegalStateException("Cannot execute task: the task has already been executed (a task can be executed only once)");
+    public final Object a(Object obj) {
+        Object obj2 = null;
+        if (obj != null) {
+            synchronized (this) {
+                Object obj3 = this.f119a.get(obj);
+                if (obj3 != null) {
+                    this.g++;
+                    obj2 = obj3;
+                } else {
+                    this.h++;
+                }
             }
         }
-        this.e = e.RUNNING;
-        b();
-        this.c.b = objArr;
-        executor.execute(this.d);
-        return this;
+        return obj2;
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public final void c(Object... objArr) {
-        if (!isCancelled()) {
-            b.obtainMessage(2, new d(this, objArr)).sendToTarget();
+    public final Object a(Object obj, Object obj2) {
+        Object obj3 = null;
+        if (obj != null && obj2 != null) {
+            if (b(obj, obj2) > this.b) {
+                if (com.baidu.adp.lib.c.b.a()) {
+                    Log.w("adp", "image too big:" + obj2 + ", size:" + b(obj, obj2), new Exception());
+                }
+                a(false, obj, obj2, null);
+            } else {
+                synchronized (this) {
+                    this.e++;
+                    this.c += c(obj, obj2);
+                    obj3 = this.f119a.put(obj, obj2);
+                    if (obj3 != null) {
+                        this.c -= c(obj, obj3);
+                    }
+                }
+                if (obj3 != null) {
+                    a(false, obj, obj3, obj2);
+                }
+                b(this.d);
+            }
         }
+        return obj3;
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void d(Object obj) {
-        if (isCancelled()) {
-            b(obj);
+    public synchronized boolean a(int i) {
+        boolean z;
+        if (i > this.b) {
+            z = false;
         } else {
-            a(obj);
+            int i2 = this.c - i;
+            if (i2 > this.d * 0.6d) {
+                b(i2);
+            }
+            z = true;
         }
-        this.e = e.FINISHED;
+        return z;
     }
 
-    public boolean isSelfExecute() {
-        return this.j;
+    /* JADX WARN: Code restructure failed: missing block: B:10:0x0031, code lost:
+        throw new java.lang.IllegalStateException(java.lang.String.valueOf(getClass().getName()) + ".sizeOf() is reporting inconsistent results!");
+     */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public void b(int i) {
+        Object key;
+        Object value;
+        while (true) {
+            synchronized (this) {
+                if (this.c < 0 || (this.f119a.isEmpty() && this.c != 0)) {
+                    break;
+                } else if (this.c <= i || this.f119a.isEmpty()) {
+                    break;
+                } else {
+                    Map.Entry entry = (Map.Entry) this.f119a.entrySet().iterator().next();
+                    key = entry.getKey();
+                    value = entry.getValue();
+                    this.f119a.remove(key);
+                    this.c -= c(key, value);
+                    this.f++;
+                }
+            }
+            a(true, key, value, null);
+        }
     }
 
-    public void setSelfExecute(boolean z) {
-        if (this.e != e.PENDING) {
-            throw new IllegalStateException("the task is already running");
+    public final Object b(Object obj) {
+        Object remove;
+        if (obj == null) {
+            return null;
         }
-        this.j = z;
+        synchronized (this) {
+            remove = this.f119a.remove(obj);
+            if (remove != null) {
+                this.c -= c(obj, remove);
+            }
+        }
+        if (remove != null) {
+            a(false, obj, remove, null);
+        }
+        return remove;
+    }
+
+    protected void a(boolean z, Object obj, Object obj2, Object obj3) {
+    }
+
+    private int c(Object obj, Object obj2) {
+        int b = b(obj, obj2);
+        if (b < 0) {
+            throw new IllegalStateException("Negative size: " + obj + "=" + obj2);
+        }
+        return b;
+    }
+
+    protected int b(Object obj, Object obj2) {
+        return 1;
+    }
+
+    public final void a() {
+        b(-1);
+    }
+
+    public final void b() {
+        a();
+        this.e = 0;
+        this.f = 0;
+        this.g = 0;
+        this.h = 0;
+    }
+
+    public final synchronized int c() {
+        return this.c;
+    }
+
+    public final synchronized int d() {
+        return this.d;
+    }
+
+    public final void c(int i) {
+        synchronized (this) {
+            this.d = i;
+            this.b = this.d / 5;
+            b(i);
+        }
     }
 }

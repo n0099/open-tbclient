@@ -5,16 +5,18 @@ import android.text.TextWatcher;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class an implements TextWatcher {
-    final /* synthetic */ WriteActivity a;
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ WriteActivity f1566a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public an(WriteActivity writeActivity) {
-        this.a = writeActivity;
+        this.f1566a = writeActivity;
     }
 
     @Override // android.text.TextWatcher
     public void afterTextChanged(Editable editable) {
-        this.a.p();
+        this.f1566a.p();
     }
 
     @Override // android.text.TextWatcher
@@ -23,6 +25,6 @@ public class an implements TextWatcher {
 
     @Override // android.text.TextWatcher
     public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-        this.a.e = true;
+        this.f1566a.c = true;
     }
 }

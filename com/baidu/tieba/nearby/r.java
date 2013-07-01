@@ -6,11 +6,13 @@ import android.widget.Button;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class r implements TextWatcher {
-    final /* synthetic */ NearbyPbActivity a;
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ NearbyPbActivity f1175a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public r(NearbyPbActivity nearbyPbActivity) {
-        this.a = nearbyPbActivity;
+        this.f1175a = nearbyPbActivity;
     }
 
     @Override // android.text.TextWatcher
@@ -26,11 +28,11 @@ public class r implements TextWatcher {
         Button button;
         Button button2;
         if (editable == null || editable.length() <= 0) {
-            button = this.a.e;
+            button = this.f1175a.c;
             button.setEnabled(false);
             return;
         }
-        button2 = this.a.e;
+        button2 = this.f1175a.c;
         button2.setEnabled(true);
     }
 }

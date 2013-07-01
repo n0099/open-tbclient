@@ -34,11 +34,11 @@ public class SignAlertReceiver extends BroadcastReceiver {
                 ((NotificationManager) context.getSystemService("notification")).notify(12, notification);
             } catch (Throwable th) {
                 try {
-                    if (com.baidu.adp.lib.e.b.a()) {
-                        com.baidu.adp.lib.e.b.a(th.getMessage());
+                    if (com.baidu.adp.lib.c.b.a()) {
+                        com.baidu.adp.lib.c.b.a(th.getMessage());
                     }
                 } finally {
-                    TiebaApplication.e().ak();
+                    TiebaApplication.f().al();
                 }
             }
         }

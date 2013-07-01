@@ -1,13 +1,14 @@
 package com.baidu.tbadk.widget.richText;
 
 import android.content.Context;
-import android.text.SpannableString;
 import java.util.ArrayList;
 import java.util.Iterator;
 import org.json.JSONArray;
 /* loaded from: classes.dex */
 public class a {
-    private ArrayList a = null;
+
+    /* renamed from: a  reason: collision with root package name */
+    private ArrayList f601a = null;
     private int b = 0;
     private ArrayList c = null;
     private Context d = null;
@@ -29,27 +30,25 @@ public class a {
         try {
             return new JSONArray(str);
         } catch (Exception e) {
-            com.baidu.adp.lib.e.b.a(e.getMessage());
+            com.baidu.adp.lib.c.b.a(e.getMessage());
             return null;
         }
     }
 
     private void a(JSONArray jSONArray, int i, boolean z) {
-        SpannableString e;
-        SpannableString e2;
         if (jSONArray != null) {
-            this.a = new ArrayList();
+            this.f601a = new ArrayList();
             int length = jSONArray.length();
             for (int i2 = 0; i2 < length; i2++) {
                 g gVar = new g();
                 gVar.a(jSONArray.optJSONObject(i2));
                 if ((gVar.a() & i) != 0) {
-                    this.a.add(gVar);
+                    this.f601a.add(gVar);
                 }
             }
             this.c = new ArrayList();
             this.b = 0;
-            Iterator it = this.a.iterator();
+            Iterator it = this.f601a.iterator();
             c cVar = null;
             while (it.hasNext()) {
                 g gVar2 = (g) it.next();
@@ -70,29 +69,25 @@ public class a {
                     cVar3.a(gVar2.d());
                     this.c.add(cVar3);
                     cVar = new c(1);
-                    if (gVar2.a() == 4) {
-                        e2 = gVar2.a(this.d, cVar.b());
-                    } else {
-                        e2 = gVar2.e(this.d);
+                    CharSequence c = gVar2.c(this.d, cVar.b());
+                    if (c != null) {
+                        cVar.a(c);
                     }
-                    cVar.a(e2);
                 } else {
                     if (cVar == null) {
                         cVar = new c(1);
                     }
-                    if (gVar2.a() == 4) {
-                        e = gVar2.a(this.d, cVar.b());
-                    } else {
-                        e = gVar2.e(this.d);
+                    CharSequence c2 = gVar2.c(this.d, cVar.b());
+                    if (c2 != null) {
+                        cVar.a(c2);
                     }
-                    cVar.a(e);
                 }
             }
             if (cVar != null) {
                 this.c.add(cVar);
             }
-            this.a.clear();
-            this.a = null;
+            this.f601a.clear();
+            this.f601a = null;
         }
     }
 

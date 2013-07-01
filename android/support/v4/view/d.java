@@ -1,7 +1,8 @@
 package android.support.v4.view;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-interface d {
-    boolean a(int i, int i2);
+public interface d {
+    Object a();
 
-    boolean b(int i);
+    Object a(a aVar);
 }

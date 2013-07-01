@@ -13,7 +13,9 @@ import com.baidu.tieba.TiebaApplication;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public class ImagePbImageView extends ImageView {
-    private boolean a;
+
+    /* renamed from: a  reason: collision with root package name */
+    private boolean f1492a;
     private int b;
     private Matrix c;
     private Paint d;
@@ -30,7 +32,7 @@ public class ImagePbImageView extends ImageView {
     }
 
     public void setIsScale(boolean z) {
-        this.a = z;
+        this.f1492a = z;
     }
 
     @Override // android.widget.ImageView, android.view.View
@@ -56,7 +58,7 @@ public class ImagePbImageView extends ImageView {
 
     public ImagePbImageView(Context context) {
         super(context);
-        this.a = false;
+        this.f1492a = false;
         this.b = 0;
         this.c = new Matrix();
         this.d = new Paint();
@@ -64,15 +66,15 @@ public class ImagePbImageView extends ImageView {
         this.f = new RectF();
         this.g = false;
         this.h = false;
-        this.i = com.baidu.tieba.d.d.a((int) R.drawable.image_pb_next);
+        this.i = com.baidu.tieba.util.d.a((int) R.drawable.image_pb_next);
         this.j = -1;
-        this.k = new y(this);
+        this.k = new x(this);
         c();
     }
 
     public ImagePbImageView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.a = false;
+        this.f1492a = false;
         this.b = 0;
         this.c = new Matrix();
         this.d = new Paint();
@@ -80,15 +82,15 @@ public class ImagePbImageView extends ImageView {
         this.f = new RectF();
         this.g = false;
         this.h = false;
-        this.i = com.baidu.tieba.d.d.a((int) R.drawable.image_pb_next);
+        this.i = com.baidu.tieba.util.d.a((int) R.drawable.image_pb_next);
         this.j = -1;
-        this.k = new y(this);
+        this.k = new x(this);
         c();
     }
 
     public ImagePbImageView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.a = false;
+        this.f1492a = false;
         this.b = 0;
         this.c = new Matrix();
         this.d = new Paint();
@@ -96,9 +98,9 @@ public class ImagePbImageView extends ImageView {
         this.f = new RectF();
         this.g = false;
         this.h = false;
-        this.i = com.baidu.tieba.d.d.a((int) R.drawable.image_pb_next);
+        this.i = com.baidu.tieba.util.d.a((int) R.drawable.image_pb_next);
         this.j = -1;
-        this.k = new y(this);
+        this.k = new x(this);
         c();
     }
 
@@ -113,10 +115,10 @@ public class ImagePbImageView extends ImageView {
         com.baidu.adp.widget.a.b c = com.baidu.tbadk.a.e.a().c(String.valueOf((String) getTag()) + "_big");
         if (c == null) {
             this.g = false;
-            if (TiebaApplication.e().as() == 1) {
-                bVar = new com.baidu.adp.widget.a.b(com.baidu.tieba.d.d.a((int) R.drawable.image_default_1), false, null);
+            if (TiebaApplication.f().at() == 1) {
+                bVar = new com.baidu.adp.widget.a.b(com.baidu.tieba.util.d.a((int) R.drawable.image_default_1), false, null);
             } else {
-                bVar = new com.baidu.adp.widget.a.b(com.baidu.tieba.d.d.a((int) R.drawable.image_default), false, null);
+                bVar = new com.baidu.adp.widget.a.b(com.baidu.tieba.util.d.a((int) R.drawable.image_default), false, null);
             }
         } else {
             this.g = true;
@@ -127,32 +129,32 @@ public class ImagePbImageView extends ImageView {
             if (this.j >= 0) {
                 this.d.setAlpha(255 - ((this.j * 255) / 10));
             }
-            int a = com.baidu.tieba.d.ag.a(getContext(), 8.0f);
-            int a2 = bVar.a();
+            int a2 = com.baidu.tieba.util.ab.a(getContext(), 8.0f);
+            int a3 = bVar.a();
             int b = bVar.b();
-            int width = getWidth() - a;
+            int width = getWidth() - a2;
             int height = getHeight();
             this.c.reset();
-            if (this.g && this.a) {
-                float min = Math.min(width / a2, height / b);
-                a2 = (int) (a2 * min);
+            if (this.g && this.f1492a) {
+                float min = Math.min(width / a3, height / b);
+                a3 = (int) (a3 * min);
                 b = (int) (b * min);
                 this.c.setScale(min, min);
             }
-            float f = ((width + a) - a2) >> 1;
+            float f = ((width + a2) - a3) >> 1;
             float f2 = 0.0f;
             if (!this.g || this.b == 0) {
                 f2 = (height - b) >> 1;
             }
             this.c.postTranslate(f, f2);
             bVar.a(canvas, this.c, this.d);
-            if (this.g && TiebaApplication.e().as() == 1) {
-                this.f.set(f, f2, a2 + f, b + f2);
+            if (this.g && TiebaApplication.f().at() == 1) {
+                this.f.set(f, f2, a3 + f, b + f2);
                 canvas.drawRect(this.f, this.e);
             }
             if (this.h && this.i != null && this.g) {
                 this.c.reset();
-                this.c.postTranslate((width + a) - this.i.getWidth(), (height - this.i.getHeight()) >> 1);
+                this.c.postTranslate((width + a2) - this.i.getWidth(), (height - this.i.getHeight()) >> 1);
                 canvas.drawBitmap(this.i, this.c, this.d);
             }
         }

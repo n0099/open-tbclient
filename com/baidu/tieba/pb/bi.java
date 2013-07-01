@@ -17,9 +17,11 @@ import java.util.Date;
 /* loaded from: classes.dex */
 public class bi extends BaseAdapter {
     private Context b;
-    private com.baidu.tieba.d.a c;
+    private com.baidu.tieba.util.a c;
     private View.OnClickListener e;
-    private ArrayList a = null;
+
+    /* renamed from: a  reason: collision with root package name */
+    private ArrayList f1227a = null;
     private View.OnClickListener d = null;
     private int f = 0;
     private boolean g = false;
@@ -30,16 +32,16 @@ public class bi extends BaseAdapter {
         this.c = null;
         this.e = null;
         this.b = context;
-        this.c = new com.baidu.tieba.d.a(this.b);
+        this.c = new com.baidu.tieba.util.a(this.b);
         this.e = onClickListener;
     }
 
-    public com.baidu.tieba.d.a a() {
+    public com.baidu.tieba.util.a a() {
         return this.c;
     }
 
     public void a(ArrayList arrayList) {
-        this.a = arrayList;
+        this.f1227a = arrayList;
     }
 
     public void a(View.OnClickListener onClickListener) {
@@ -57,18 +59,18 @@ public class bi extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.a == null) {
+        if (this.f1227a == null) {
             return 0;
         }
-        return this.a.size();
+        return this.f1227a.size();
     }
 
     @Override // android.widget.Adapter
     public Object getItem(int i) {
-        if (this.a == null || i < 0 || i >= this.a.size()) {
+        if (this.f1227a == null || i < 0 || i >= this.f1227a.size()) {
             return null;
         }
-        return this.a.get(i);
+        return this.f1227a.get(i);
     }
 
     @Override // android.widget.Adapter
@@ -83,7 +85,7 @@ public class bi extends BaseAdapter {
         }
         bj bjVar = (bj) ((SparseArray) view.getTag()).get(R.id.tag_holder);
         if (getItem(i) != null) {
-            a(bjVar, (com.baidu.tieba.a.ar) getItem(i), getCount() - i > 1);
+            a(bjVar, (com.baidu.tieba.data.an) getItem(i), getCount() - i > 1);
         }
         return view;
     }
@@ -91,17 +93,17 @@ public class bi extends BaseAdapter {
     public View b() {
         bj bjVar = new bj(this);
         View inflate = LayoutInflater.from(this.b).inflate(R.layout.new_sub_pb_list_item, (ViewGroup) null);
-        bjVar.a = inflate;
+        bjVar.f1228a = inflate;
         bjVar.b = (HeadImageView) inflate.findViewById(R.id.photo);
         bjVar.c = (TextView) inflate.findViewById(R.id.time);
         bjVar.d = (Button) inflate.findViewById(R.id.manage_btn);
         bjVar.e = (TbRichTextView) inflate.findViewById(R.id.richText);
         bjVar.f = inflate.findViewById(R.id.line_divider);
         bjVar.b.setOnClickListener(this.e);
-        int as = TiebaApplication.e().as();
-        bjVar.e.setTextSize(com.baidu.tieba.a.i.p());
-        com.baidu.tieba.d.ac.d(bjVar.c, as);
-        if (TiebaApplication.e().as() == 1) {
+        int at = TiebaApplication.f().at();
+        bjVar.e.setTextSize(com.baidu.tieba.data.g.p());
+        com.baidu.tieba.util.x.d(bjVar.c, at);
+        if (TiebaApplication.f().at() == 1) {
             bjVar.e.setTextColor(this.b.getResources().getColor(R.color.gray_night_3));
             bjVar.f.setBackgroundResource(R.drawable.line_comment_1);
         } else {
@@ -118,30 +120,30 @@ public class bi extends BaseAdapter {
         return inflate;
     }
 
-    public void a(bj bjVar, com.baidu.tieba.a.ar arVar, boolean z) {
+    public void a(bj bjVar, com.baidu.tieba.data.an anVar, boolean z) {
         boolean z2;
         boolean z3;
         boolean z4;
-        if (bjVar != null && arVar != null) {
+        if (bjVar != null && anVar != null) {
             bjVar.b.setTag(null);
-            if (arVar.h() != null) {
-                String c = arVar.h().c();
-                String a = arVar.h().a();
-                SparseArray sparseArray = (SparseArray) bjVar.a.getTag();
+            if (anVar.h() != null) {
+                String name = anVar.h().getName();
+                String id = anVar.h().getId();
+                SparseArray sparseArray = (SparseArray) bjVar.f1228a.getTag();
                 if (sparseArray == null) {
                     sparseArray = new SparseArray();
-                    bjVar.a.setTag(sparseArray);
+                    bjVar.f1228a.setTag(sparseArray);
                 }
-                sparseArray.put(R.id.tag_photo_username, c);
-                sparseArray.put(R.id.tag_clip_board, arVar);
-                bjVar.b.setUserId(a);
-                String e = arVar.h().e();
-                com.baidu.adp.widget.a.b b = this.c.b(e);
+                sparseArray.put(R.id.tag_photo_username, name);
+                sparseArray.put(R.id.tag_clip_board, anVar);
+                bjVar.b.setUserId(id);
+                String portrait = anVar.h().getPortrait();
+                com.baidu.adp.widget.a.b b = this.c.b(portrait);
                 if (b != null) {
                     b.b(bjVar.b);
                 } else {
-                    bjVar.b.setTag(e);
-                    bjVar.b.setImageBitmap(com.baidu.tieba.d.d.a((int) R.drawable.photo));
+                    bjVar.b.setTag(portrait);
+                    bjVar.b.setImageBitmap(com.baidu.tieba.util.d.a((int) R.drawable.photo));
                 }
             }
             if (z) {
@@ -149,25 +151,25 @@ public class bi extends BaseAdapter {
             } else {
                 bjVar.f.setVisibility(8);
             }
-            bjVar.e.setText(arVar.i());
-            bjVar.c.setText(com.baidu.tieba.d.ad.e(new Date(arVar.g())));
-            String a2 = arVar.h().a();
+            bjVar.e.setText(anVar.i());
+            bjVar.c.setText(com.baidu.tieba.util.y.e(new Date(anVar.g())));
+            String id2 = anVar.h().getId();
             if (this.f != 0) {
-                boolean z5 = a2 == null || !a2.equals(TiebaApplication.C());
-                if (a2 == null || a2.equals("0") || a2.length() == 0) {
+                boolean z5 = id2 == null || !id2.equals(TiebaApplication.E());
+                if (id2 == null || id2.equals("0") || id2.length() == 0) {
                     z2 = false;
                     z3 = true;
                     z4 = false;
                 } else {
+                    z2 = false;
                     z3 = true;
                     z4 = z5;
-                    z2 = false;
                 }
             } else if (this.g) {
                 z2 = false;
                 z3 = true;
                 z4 = false;
-            } else if (a2 == null || !a2.equals(TiebaApplication.C())) {
+            } else if (id2 == null || !id2.equals(TiebaApplication.E())) {
                 z2 = false;
                 z3 = false;
                 z4 = false;
@@ -176,17 +178,17 @@ public class bi extends BaseAdapter {
                 z3 = true;
                 z4 = false;
             }
-            int as = TiebaApplication.e().as();
+            int at = TiebaApplication.f().at();
             if (z3 && z4) {
                 bjVar.d.setVisibility(0);
-                if (as == 1) {
+                if (at == 1) {
                     bjVar.d.setCompoundDrawablesWithIntrinsicBounds(R.drawable.icon_little_manage_selector_1, 0, 0, 0);
                 } else {
                     bjVar.d.setCompoundDrawablesWithIntrinsicBounds(R.drawable.icon_little_manage_selector, 0, 0, 0);
                 }
             } else if (z3) {
                 bjVar.d.setVisibility(0);
-                if (as == 1) {
+                if (at == 1) {
                     bjVar.d.setCompoundDrawablesWithIntrinsicBounds(R.drawable.icon_little_delete_selector_1, 0, 0, 0);
                 } else {
                     bjVar.d.setCompoundDrawablesWithIntrinsicBounds(R.drawable.icon_little_delete_selector, 0, 0, 0);
@@ -194,22 +196,27 @@ public class bi extends BaseAdapter {
             } else {
                 bjVar.d.setVisibility(8);
             }
+            SparseArray sparseArray2 = (SparseArray) bjVar.d.getTag();
+            if (sparseArray2 == null) {
+                sparseArray2 = new SparseArray();
+                bjVar.d.setTag(sparseArray2);
+            }
             if (bjVar.d.getVisibility() == 0) {
-                bjVar.d.setTag(R.id.tag_manage_user_identity, Integer.valueOf(this.f));
+                sparseArray2.put(R.id.tag_manage_user_identity, Integer.valueOf(this.f));
             }
             if (z3) {
-                bjVar.d.setTag(R.id.tag_del_post_is_self, Boolean.valueOf(z2));
-                bjVar.d.setTag(R.id.tag_del_post_type, 2);
-                bjVar.d.setTag(R.id.tag_del_post_id, arVar.d());
+                sparseArray2.put(R.id.tag_del_post_is_self, Boolean.valueOf(z2));
+                sparseArray2.put(R.id.tag_del_post_type, 2);
+                sparseArray2.put(R.id.tag_del_post_id, anVar.d());
             } else {
-                bjVar.d.setTag(R.id.tag_del_post_is_self, Boolean.valueOf(z2));
-                bjVar.d.setTag(R.id.tag_del_post_type, 0);
-                bjVar.d.setTag(R.id.tag_del_post_id, "");
+                sparseArray2.put(R.id.tag_del_post_is_self, Boolean.valueOf(z2));
+                sparseArray2.put(R.id.tag_del_post_type, 0);
+                sparseArray2.put(R.id.tag_del_post_id, "");
             }
             if (z4) {
-                bjVar.d.setTag(R.id.tag_forbid_user_name, arVar.h().c());
+                sparseArray2.put(R.id.tag_forbid_user_name, anVar.h().getName());
             } else {
-                bjVar.d.setTag(R.id.tag_forbid_user_name, "");
+                sparseArray2.put(R.id.tag_forbid_user_name, "");
             }
         }
     }

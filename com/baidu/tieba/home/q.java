@@ -1,21 +1,25 @@
 package com.baidu.tieba.home;
 
-import android.widget.Button;
-import android.widget.LinearLayout;
-import android.widget.TextView;
+import android.webkit.WebChromeClient;
+import android.webkit.WebView;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class q {
-    LinearLayout a;
-    TextView b;
-    Button c;
-    final /* synthetic */ l d;
+public class q extends WebChromeClient {
 
-    private q(l lVar) {
-        this.d = lVar;
-    }
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ ForumTopicActivity f936a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ q(l lVar, q qVar) {
-        this(lVar);
+    public q(ForumTopicActivity forumTopicActivity) {
+        this.f936a = forumTopicActivity;
+    }
+
+    @Override // android.webkit.WebChromeClient
+    public void onProgressChanged(WebView webView, int i) {
+        super.onProgressChanged(webView, i);
+        if (i != 100) {
+            return;
+        }
+        this.f936a.o();
     }
 }

@@ -1,17 +1,19 @@
 package com.baidu.adp.lib.debug.a;
 /* loaded from: classes.dex */
 public class a {
-    private boolean a = false;
+
+    /* renamed from: a  reason: collision with root package name */
+    private boolean f137a = false;
 
     public boolean a() {
-        return this.a;
+        return this.f137a;
     }
 
     public void b() {
-        this.a = true;
+        this.f137a = true;
     }
 
     public void c() {
-        this.a = false;
+        this.f137a = false;
     }
 }

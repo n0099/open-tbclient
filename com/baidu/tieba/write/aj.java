@@ -5,15 +5,17 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.GridView;
 import android.widget.ImageView;
-import com.baidu.tieba.c.bs;
+import com.baidu.tieba.model.WriteModel;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 class aj implements View.OnFocusChangeListener {
-    final /* synthetic */ WriteActivity a;
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ WriteActivity f1562a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public aj(WriteActivity writeActivity) {
-        this.a = writeActivity;
+        this.f1562a = writeActivity;
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:7:0x0019, code lost:
@@ -31,68 +33,68 @@ class aj implements View.OnFocusChangeListener {
         ImageView imageView3;
         ImageView imageView4;
         EditText editText2;
-        bs bsVar;
-        bs bsVar2;
+        WriteModel writeModel;
+        WriteModel writeModel2;
         EditText editText3;
         EditText editText4;
         ImageView imageView5;
         ImageView imageView6;
         ImageView imageView7;
-        bs bsVar3;
+        WriteModel writeModel3;
         EditText editText5;
-        bs bsVar4;
+        WriteModel writeModel4;
         ImageView imageView8;
         Button button;
-        editText = this.a.g;
+        editText = this.f1562a.e;
         if (view != editText) {
-            imageView8 = this.a.i;
+            imageView8 = this.f1562a.g;
             if (view != imageView8) {
-                button = this.a.j;
+                button = this.f1562a.j;
             }
         }
         if (z) {
-            gridView = this.a.r;
+            gridView = this.f1562a.r;
             gridView.setVisibility(8);
-            imageView = this.a.k;
+            imageView = this.f1562a.k;
             imageView.setClickable(false);
-            imageView2 = this.a.l;
+            imageView2 = this.f1562a.l;
             imageView2.setClickable(false);
-            imageView3 = this.a.m;
+            imageView3 = this.f1562a.m;
             imageView3.setClickable(false);
-            imageView4 = this.a.k;
-            imageView4.setImageDrawable(this.a.getResources().getDrawable(R.drawable.write_face));
+            imageView4 = this.f1562a.k;
+            imageView4.setImageDrawable(this.f1562a.getResources().getDrawable(R.drawable.write_face));
         }
-        editText2 = this.a.h;
+        editText2 = this.f1562a.f;
         if (view == editText2) {
             if (!z) {
-                bsVar = this.a.c;
-                if (bsVar.b() != 0) {
-                    bsVar2 = this.a.c;
-                    if (bsVar2.b() == 3) {
-                        editText3 = this.a.h;
+                writeModel = this.f1562a.f1550a;
+                if (writeModel.getType() != 0) {
+                    writeModel2 = this.f1562a.f1550a;
+                    if (writeModel2.getType() == 3) {
+                        editText3 = this.f1562a.f;
                         editText3.setHint(R.string.lbs_post_content_hint);
                         return;
                     }
                     return;
                 }
-                editText4 = this.a.h;
+                editText4 = this.f1562a.f;
                 editText4.setHint(R.string.content);
                 return;
             }
-            imageView5 = this.a.k;
+            imageView5 = this.f1562a.k;
             imageView5.setClickable(true);
-            imageView6 = this.a.l;
+            imageView6 = this.f1562a.l;
             imageView6.setClickable(true);
-            imageView7 = this.a.m;
+            imageView7 = this.f1562a.m;
             imageView7.setClickable(true);
-            bsVar3 = this.a.c;
-            if (bsVar3.b() != 0) {
-                bsVar4 = this.a.c;
-                if (bsVar4.b() != 3) {
+            writeModel3 = this.f1562a.f1550a;
+            if (writeModel3.getType() != 0) {
+                writeModel4 = this.f1562a.f1550a;
+                if (writeModel4.getType() != 3) {
                     return;
                 }
             }
-            editText5 = this.a.h;
+            editText5 = this.f1562a.f;
             editText5.setHint((CharSequence) null);
         }
     }

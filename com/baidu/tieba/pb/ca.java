@@ -1,15 +1,17 @@
 package com.baidu.tieba.pb;
 /* loaded from: classes.dex */
 class ca implements Runnable {
-    final /* synthetic */ bz a;
-    private final /* synthetic */ com.baidu.tieba.a.ay b;
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ bz f1245a;
+    private final /* synthetic */ com.baidu.tieba.data.aw b;
     private final /* synthetic */ boolean c;
     private final /* synthetic */ String d;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ca(bz bzVar, com.baidu.tieba.a.ay ayVar, boolean z, String str) {
-        this.a = bzVar;
-        this.b = ayVar;
+    public ca(bz bzVar, com.baidu.tieba.data.aw awVar, boolean z, String str) {
+        this.f1245a = bzVar;
+        this.b = awVar;
         this.c = z;
         this.d = str;
     }
@@ -22,15 +24,15 @@ class ca implements Runnable {
         cr crVar;
         bk bkVar3;
         cq cqVar2;
-        bkVar = this.a.a;
+        bkVar = this.f1245a.f1244a;
         cqVar = bkVar.ao;
         if (cqVar != null) {
-            bkVar3 = this.a.a;
+            bkVar3 = this.f1245a.f1244a;
             cqVar2 = bkVar3.ao;
             cqVar2.a(this.b);
         }
         if (this.c) {
-            bkVar2 = this.a.a;
+            bkVar2 = this.f1245a.f1244a;
             crVar = bkVar2.z;
             crVar.b(this.d);
         }

@@ -1,5 +1,10 @@
 package android.support.v4.view;
+
+import android.widget.TextView;
 /* loaded from: classes.dex */
-interface ai {
-    void a(k kVar, k kVar2);
+class ai implements ag {
+    @Override // android.support.v4.view.ag
+    public void a(TextView textView) {
+        aj.a(textView);
+    }
 }

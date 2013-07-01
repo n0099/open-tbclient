@@ -11,29 +11,31 @@ import android.os.Handler;
 import android.os.IBinder;
 import com.baidu.browser.explorer.BdWebErrorView;
 import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.a.ah;
-import com.baidu.tieba.a.at;
-import com.baidu.tieba.d.ae;
+import com.baidu.tieba.data.af;
+import com.baidu.tieba.data.ap;
+import com.baidu.tieba.util.z;
 import com.slidingmenu.lib.R;
 import java.util.Date;
 import java.util.Random;
 /* loaded from: classes.dex */
 public class MessagePullService extends Service {
-    private f a = null;
-    private at b = null;
+
+    /* renamed from: a  reason: collision with root package name */
+    private f f1397a = null;
+    private ap b = null;
     private Runnable c = new e(this);
     private Handler d;
 
     @Override // android.app.Service
     public void onCreate() {
         super.onCreate();
-        this.b = new at();
+        this.b = new ap();
         this.d = new Handler();
         Random random = new Random(System.currentTimeMillis());
-        ae.a(getClass().getName(), "onCreate", "Create message service");
-        if (TiebaApplication.e().S()) {
+        z.a(getClass().getName(), "onCreate", "Create message service");
+        if (TiebaApplication.f().T()) {
             this.d.removeCallbacks(this.c);
-            this.d.postDelayed(this.c, random.nextLong() % com.baidu.tieba.a.i.a.longValue());
+            this.d.postDelayed(this.c, random.nextLong() % com.baidu.tieba.data.g.b.longValue());
             return;
         }
         stopSelf();
@@ -53,38 +55,38 @@ public class MessagePullService extends Service {
     public void onDestroy() {
         super.onDestroy();
         this.d.removeCallbacks(this.c);
-        if (this.a != null) {
-            this.a.cancel(true);
+        if (this.f1397a != null) {
+            this.f1397a.cancel(true);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a() {
-        if (this.a != null) {
-            this.a.cancel();
+        if (this.f1397a != null) {
+            this.f1397a.cancel();
         }
-        this.a = new f(this, null);
-        this.a.execute(new String[0]);
+        this.f1397a = new f(this, null);
+        this.f1397a.execute(new String[0]);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public boolean a(Context context, ah ahVar) {
-        if (TiebaApplication.C() == null || TiebaApplication.G() == null || TiebaApplication.e().Q() <= 0) {
+    public boolean a(Context context, af afVar) {
+        if (TiebaApplication.E() == null || TiebaApplication.H() == null || TiebaApplication.f().R() <= 0) {
             return false;
         }
         int hours = new Date(System.currentTimeMillis()).getHours();
         if ((hours >= 0 && hours <= 7) || hours >= 23) {
             return false;
         }
-        long b = ahVar.b();
-        long c = ahVar.c();
-        long a = ahVar.a();
-        long d = ahVar.d();
-        if (b <= TiebaApplication.e().ad() && c <= TiebaApplication.e().ae() && a <= TiebaApplication.e().ac() && d <= TiebaApplication.e().af()) {
+        long b = afVar.b();
+        long c = afVar.c();
+        long a2 = afVar.a();
+        long d = afVar.d();
+        if (b <= TiebaApplication.f().ae() && c <= TiebaApplication.f().af() && a2 <= TiebaApplication.f().ad() && d <= TiebaApplication.f().ag()) {
             return false;
         }
         boolean z = false;
-        for (ActivityManager.RunningTaskInfo runningTaskInfo : ((ActivityManager) TiebaApplication.e().getSystemService("activity")).getRunningTasks(BdWebErrorView.ERROR_CODE_500)) {
+        for (ActivityManager.RunningTaskInfo runningTaskInfo : ((ActivityManager) TiebaApplication.f().getSystemService("activity")).getRunningTasks(BdWebErrorView.ERROR_CODE_500)) {
             if (runningTaskInfo.baseActivity.getClassName().startsWith(getPackageName())) {
                 z = true;
             }
@@ -95,14 +97,14 @@ public class MessagePullService extends Service {
         Notification notification = new Notification(R.drawable.icon, getString(R.string.notify_text), System.currentTimeMillis());
         Intent intent = new Intent(context, DealIntentService.class);
         intent.putExtra("class", 5);
-        intent.putExtra("reply_me", a);
+        intent.putExtra("reply_me", a2);
         intent.putExtra("at_me", b);
         intent.putExtra("fans", c);
         intent.putExtra("chat", d);
         PendingIntent service = PendingIntent.getService(context, 0, intent, 134217728);
         StringBuffer stringBuffer = new StringBuffer();
-        if (a > 0 || b > 0) {
-            stringBuffer.append(String.valueOf(b + a));
+        if (a2 > 0 || b > 0) {
+            stringBuffer.append(String.valueOf(b + a2));
             stringBuffer.append(getString(R.string.notify_msg));
         }
         if (c > 0) {
@@ -124,14 +126,14 @@ public class MessagePullService extends Service {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static void a(Context context, at atVar) {
+    public static void a(Context context, ap apVar) {
         Intent intent;
         int hours = new Date(System.currentTimeMillis()).getHours();
         if ((hours < 0 || hours > 7) && hours < 23) {
             NotificationManager notificationManager = (NotificationManager) context.getSystemService("notification");
-            String c = atVar.c();
-            String b = atVar.b();
-            if (TiebaApplication.e().S()) {
+            String c = apVar.c();
+            String b = apVar.b();
+            if (TiebaApplication.f().T()) {
                 Notification notification = new Notification(R.drawable.icon, c, System.currentTimeMillis());
                 if (b != null && b.length() > 0) {
                     if (b.startsWith("http:")) {
@@ -140,7 +142,7 @@ public class MessagePullService extends Service {
                         intent.putExtra("class", 1);
                         intent.putExtra("id", substring);
                         intent.putExtra("is_message_pv", true);
-                        intent.putExtra("message_id", atVar.a());
+                        intent.putExtra("message_id", apVar.a());
                     } else if (b.equals("tab://1")) {
                         intent = new Intent(context, DealIntentService.class);
                         intent.putExtra("class", 3);
@@ -149,18 +151,18 @@ public class MessagePullService extends Service {
                         intent.putExtra("close_dialog", true);
                         intent.putExtra("goto_type", "goto_recommend");
                         intent.setFlags(603979776);
-                        intent.putExtra("message_id", atVar.a());
-                        TiebaApplication.e().l(0);
-                        TiebaApplication.e().b(0L);
+                        intent.putExtra("message_id", apVar.a());
+                        TiebaApplication.f().l(0);
+                        TiebaApplication.f().b(0L);
                     } else if (b.startsWith("opfeature:")) {
                         try {
                             intent = new Intent(context, DealIntentService.class);
                             intent.putExtra("class", 0);
                             intent.putExtra("url", b.replaceFirst("opfeature:", com.baidu.loginshare.e.f));
-                            intent.putExtra("message_id", atVar.a());
+                            intent.putExtra("message_id", apVar.a());
                             intent.putExtra("is_message_pv", true);
                         } catch (Exception e) {
-                            ae.a("MessagePullService", "showNotification", e.toString());
+                            z.a("MessagePullService", "showNotification", e.toString());
                             return;
                         }
                     } else {

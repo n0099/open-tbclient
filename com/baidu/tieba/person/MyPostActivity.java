@@ -21,7 +21,16 @@ public class MyPostActivity extends ActivityGroup {
     private ImageView e = null;
     private TextView f = null;
     private RadioGroup g = null;
-    protected int a = -1;
+
+    /* renamed from: a  reason: collision with root package name */
+    protected int f1302a = -1;
+    private String i = null;
+
+    public static void a(Activity activity, String str) {
+        Intent intent = new Intent(activity, MyPostActivity.class);
+        intent.putExtra("user", str);
+        activity.startActivity(intent);
+    }
 
     @Override // android.app.ActivityGroup, android.app.Activity
     protected void onCreate(Bundle bundle) {
@@ -30,6 +39,7 @@ public class MyPostActivity extends ActivityGroup {
             CompatibleUtile.getInstance().openGpu(this);
         }
         setContentView(R.layout.my_post_activity);
+        this.i = getIntent().getStringExtra("user");
         b();
     }
 
@@ -43,11 +53,11 @@ public class MyPostActivity extends ActivityGroup {
         this.f = (TextView) findViewById(R.id.title_text);
         this.h = (FrameLayout) findViewById(R.id.content);
         this.d = (ImageView) findViewById(R.id.back);
-        this.d.setOnClickListener(new aa(this));
+        this.d.setOnClickListener(new ab(this));
         this.e = (ImageView) findViewById(R.id.refresh);
-        this.e.setOnClickListener(new ab(this));
+        this.e.setOnClickListener(new ac(this));
         this.g = (RadioGroup) findViewById(R.id.posttype_tabs);
-        this.g.setOnCheckedChangeListener(new ac(this));
+        this.g.setOnCheckedChangeListener(new ad(this));
         this.g.check(R.id.all_tab);
         this.g.setVisibility(8);
     }
@@ -55,22 +65,22 @@ public class MyPostActivity extends ActivityGroup {
     @Override // android.app.ActivityGroup, android.app.Activity
     protected void onResume() {
         super.onResume();
-        if (TiebaApplication.e().as() != this.a) {
-            this.a = TiebaApplication.e().as();
-            a(this.a);
+        if (TiebaApplication.f().at() != this.f1302a) {
+            this.f1302a = TiebaApplication.f().at();
+            a(this.f1302a);
         }
     }
 
     public void a(int i) {
-        com.baidu.tieba.d.ac.a(this.b, i);
-        com.baidu.tieba.d.ac.d(this.c, i);
-        com.baidu.tieba.d.ac.f(this.f, i);
-        com.baidu.tieba.d.ac.a(this.d, i);
-        com.baidu.tieba.d.ac.b(this.e, i);
+        com.baidu.tieba.util.x.a(this.b, i);
+        com.baidu.tieba.util.x.d(this.c, i);
+        com.baidu.tieba.util.x.f(this.f, i);
+        com.baidu.tieba.util.x.a(this.d, i);
+        com.baidu.tieba.util.x.b(this.e, i);
     }
 
-    public void a(String str, Class cls) {
-        Intent intent = new Intent(this, cls);
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public void a(String str, Intent intent) {
         this.h.removeAllViews();
         this.h.addView(getLocalActivityManager().startActivity(str, intent).getDecorView());
     }
@@ -79,7 +89,7 @@ public class MyPostActivity extends ActivityGroup {
         String currentId = getLocalActivityManager().getCurrentId();
         Activity currentActivity = getLocalActivityManager().getCurrentActivity();
         if (currentId.equals("all")) {
-            ((AllPostActivity) currentActivity).c(0);
+            ((AllPostActivity) currentActivity).b(0);
         } else if (!currentId.equals("my_thread")) {
             currentId.equals("my_reply");
         }

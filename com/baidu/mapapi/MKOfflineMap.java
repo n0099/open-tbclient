@@ -9,7 +9,9 @@ public class MKOfflineMap {
     public static final int TYPE_DOWNLOAD_UPDATE = 0;
     public static final int TYPE_NEW_OFFLINE = 6;
     public static final int TYPE_VER_UPDATE = 4;
-    private Bundle a = null;
+
+    /* renamed from: a  reason: collision with root package name */
+    private Bundle f512a = null;
 
     private boolean a() {
         if (Mj.f != null) {
@@ -25,23 +27,23 @@ public class MKOfflineMap {
     }
 
     public ArrayList getAllUpdateInfo() {
-        if (this.a == null) {
-            this.a = new Bundle();
+        if (this.f512a == null) {
+            this.f512a = new Bundle();
         } else {
-            this.a.clear();
+            this.f512a.clear();
         }
-        this.a.putInt("act", 16010400);
-        if (Mj.sendBundle(this.a) == 0) {
+        this.f512a.putInt("act", 16010400);
+        if (Mj.sendBundle(this.f512a) == 0) {
             return null;
         }
-        String[] stringArray = this.a.getStringArray("name");
-        int[] intArray = this.a.getIntArray("id");
-        int[] intArray2 = this.a.getIntArray("size");
-        int[] intArray3 = this.a.getIntArray("ratio");
-        int[] intArray4 = this.a.getIntArray("cityptx");
-        int[] intArray5 = this.a.getIntArray("citypty");
-        int[] intArray6 = this.a.getIntArray("serversize");
-        int[] intArray7 = this.a.getIntArray("download");
+        String[] stringArray = this.f512a.getStringArray("name");
+        int[] intArray = this.f512a.getIntArray("id");
+        int[] intArray2 = this.f512a.getIntArray("size");
+        int[] intArray3 = this.f512a.getIntArray("ratio");
+        int[] intArray4 = this.f512a.getIntArray("cityptx");
+        int[] intArray5 = this.f512a.getIntArray("citypty");
+        int[] intArray6 = this.f512a.getIntArray("serversize");
+        int[] intArray7 = this.f512a.getIntArray("download");
         ArrayList arrayList = new ArrayList();
         for (int i = 0; i < stringArray.length; i++) {
             MKOLUpdateElement mKOLUpdateElement = new MKOLUpdateElement();
@@ -61,18 +63,18 @@ public class MKOfflineMap {
     }
 
     public ArrayList getHotCityList() {
-        if (this.a == null) {
-            this.a = new Bundle();
+        if (this.f512a == null) {
+            this.f512a = new Bundle();
         } else {
-            this.a.clear();
+            this.f512a.clear();
         }
-        this.a.putInt("act", 16011000);
-        if (Mj.sendBundle(this.a) == 0) {
+        this.f512a.putInt("act", 16011000);
+        if (Mj.sendBundle(this.f512a) == 0) {
             return null;
         }
-        String[] stringArray = this.a.getStringArray("name");
-        int[] intArray = this.a.getIntArray("id");
-        int[] intArray2 = this.a.getIntArray("size");
+        String[] stringArray = this.f512a.getStringArray("name");
+        int[] intArray = this.f512a.getIntArray("id");
+        int[] intArray2 = this.f512a.getIntArray("size");
         ArrayList arrayList = new ArrayList();
         for (int i = 0; i < stringArray.length; i++) {
             MKOLSearchRecord mKOLSearchRecord = new MKOLSearchRecord();
@@ -85,18 +87,18 @@ public class MKOfflineMap {
     }
 
     public ArrayList getOfflineCityList() {
-        if (this.a == null) {
-            this.a = new Bundle();
+        if (this.f512a == null) {
+            this.f512a = new Bundle();
         } else {
-            this.a.clear();
+            this.f512a.clear();
         }
-        this.a.putInt("act", 16011100);
-        if (Mj.sendBundle(this.a) == 0) {
+        this.f512a.putInt("act", 16011100);
+        if (Mj.sendBundle(this.f512a) == 0) {
             return null;
         }
-        String[] stringArray = this.a.getStringArray("name");
-        int[] intArray = this.a.getIntArray("id");
-        int[] intArray2 = this.a.getIntArray("size");
+        String[] stringArray = this.f512a.getStringArray("name");
+        int[] intArray = this.f512a.getIntArray("id");
+        int[] intArray2 = this.f512a.getIntArray("size");
         ArrayList arrayList = new ArrayList();
         for (int i = 0; i < stringArray.length; i++) {
             MKOLSearchRecord mKOLSearchRecord = new MKOLSearchRecord();
@@ -109,34 +111,34 @@ public class MKOfflineMap {
     }
 
     public MKOLUpdateElement getUpdateInfo(int i) {
-        if (this.a == null) {
-            this.a = new Bundle();
+        if (this.f512a == null) {
+            this.f512a = new Bundle();
         } else {
-            this.a.clear();
+            this.f512a.clear();
         }
-        this.a.putInt("act", 16010500);
-        this.a.putInt("opt", i);
-        if (Mj.sendBundle(this.a) == 0) {
+        this.f512a.putInt("act", 16010500);
+        this.f512a.putInt("opt", i);
+        if (Mj.sendBundle(this.f512a) == 0) {
             return null;
         }
         MKOLUpdateElement mKOLUpdateElement = new MKOLUpdateElement();
-        mKOLUpdateElement.cityName = this.a.getString("name");
-        mKOLUpdateElement.cityID = this.a.getInt("id");
-        mKOLUpdateElement.size = this.a.getInt("size");
-        mKOLUpdateElement.ratio = this.a.getInt("ratio");
+        mKOLUpdateElement.cityName = this.f512a.getString("name");
+        mKOLUpdateElement.cityID = this.f512a.getInt("id");
+        mKOLUpdateElement.size = this.f512a.getInt("size");
+        mKOLUpdateElement.ratio = this.f512a.getInt("ratio");
         if (mKOLUpdateElement.ratio == 10000) {
             mKOLUpdateElement.ratio = 100;
         }
-        mKOLUpdateElement.geoPt = new GeoPoint(this.a.getInt("citypty"), this.a.getInt("cityptx"));
-        mKOLUpdateElement.serversize = this.a.getInt("serversize");
-        mKOLUpdateElement.status = this.a.getInt("state");
+        mKOLUpdateElement.geoPt = new GeoPoint(this.f512a.getInt("citypty"), this.f512a.getInt("cityptx"));
+        mKOLUpdateElement.serversize = this.f512a.getInt("serversize");
+        mKOLUpdateElement.status = this.f512a.getInt("state");
         return mKOLUpdateElement;
     }
 
     public boolean init(BMapManager bMapManager, MKOfflineMapListener mKOfflineMapListener) {
         if (bMapManager != null && a()) {
             if (mKOfflineMapListener != null) {
-                bMapManager.a.a(mKOfflineMapListener);
+                bMapManager.f501a.a(mKOfflineMapListener);
             }
             return Mj.initOfflineCC() == 1;
         }
@@ -144,54 +146,54 @@ public class MKOfflineMap {
     }
 
     public boolean pause(int i) {
-        if (this.a == null) {
-            this.a = new Bundle();
+        if (this.f512a == null) {
+            this.f512a = new Bundle();
         } else {
-            this.a.clear();
+            this.f512a.clear();
         }
-        this.a.putInt("act", 16010200);
-        this.a.putInt("opt", i);
-        return Mj.sendBundle(this.a) != 0;
+        this.f512a.putInt("act", 16010200);
+        this.f512a.putInt("opt", i);
+        return Mj.sendBundle(this.f512a) != 0;
     }
 
     public boolean remove(int i) {
-        if (this.a == null) {
-            this.a = new Bundle();
+        if (this.f512a == null) {
+            this.f512a = new Bundle();
         } else {
-            this.a.clear();
+            this.f512a.clear();
         }
-        this.a.putInt("act", 16010300);
-        this.a.putInt("opt", i);
-        return Mj.sendBundle(this.a) != 0;
+        this.f512a.putInt("act", 16010300);
+        this.f512a.putInt("opt", i);
+        return Mj.sendBundle(this.f512a) != 0;
     }
 
     public int scan() {
-        if (this.a == null) {
-            this.a = new Bundle();
+        if (this.f512a == null) {
+            this.f512a = new Bundle();
         } else {
-            this.a.clear();
+            this.f512a.clear();
         }
-        this.a.putInt("act", 16011500);
-        if (Mj.sendBundle(this.a) == 0) {
+        this.f512a.putInt("act", 16011500);
+        if (Mj.sendBundle(this.f512a) == 0) {
             return 0;
         }
-        return this.a.getInt("num");
+        return this.f512a.getInt("num");
     }
 
     public ArrayList searchCity(String str) {
-        if (this.a == null) {
-            this.a = new Bundle();
+        if (this.f512a == null) {
+            this.f512a = new Bundle();
         } else {
-            this.a.clear();
+            this.f512a.clear();
         }
-        this.a.putInt("act", 16011100);
-        this.a.putString("key", str);
-        if (Mj.sendBundle(this.a) == 0) {
+        this.f512a.putInt("act", 16011100);
+        this.f512a.putString("key", str);
+        if (Mj.sendBundle(this.f512a) == 0) {
             return null;
         }
-        String[] stringArray = this.a.getStringArray("name");
-        int[] intArray = this.a.getIntArray("id");
-        int[] intArray2 = this.a.getIntArray("size");
+        String[] stringArray = this.f512a.getStringArray("name");
+        int[] intArray = this.f512a.getIntArray("id");
+        int[] intArray2 = this.f512a.getIntArray("size");
         if (stringArray == null || intArray == null || intArray2 == null) {
             return null;
         }
@@ -208,20 +210,20 @@ public class MKOfflineMap {
 
     public boolean start(int i) {
         int sendBundle;
-        if (this.a == null) {
-            this.a = new Bundle();
+        if (this.f512a == null) {
+            this.f512a = new Bundle();
         } else {
-            this.a.clear();
+            this.f512a.clear();
         }
-        this.a.putInt("act", 16010500);
-        this.a.putInt("opt", i);
-        if (Mj.sendBundle(this.a) != 0) {
-            switch (this.a.getInt("state")) {
+        this.f512a.putInt("act", 16010500);
+        this.f512a.putInt("opt", i);
+        if (Mj.sendBundle(this.f512a) != 0) {
+            switch (this.f512a.getInt("state")) {
                 case 1:
                 case 2:
-                    this.a.clear();
-                    this.a.putInt("act", 16011400);
-                    Mj.sendBundle(this.a);
+                    this.f512a.clear();
+                    this.f512a.putInt("act", 16011400);
+                    Mj.sendBundle(this.f512a);
                     return true;
                 case 3:
                     sendBundle = 2;
@@ -231,22 +233,22 @@ public class MKOfflineMap {
                     break;
             }
         } else {
-            this.a.clear();
-            this.a.putInt("act", 16011300);
-            this.a.putInt("opt", i);
-            sendBundle = Mj.sendBundle(this.a);
+            this.f512a.clear();
+            this.f512a.putInt("act", 16011300);
+            this.f512a.putInt("opt", i);
+            sendBundle = Mj.sendBundle(this.f512a);
         }
         if (sendBundle != 0) {
-            this.a.clear();
+            this.f512a.clear();
             if (sendBundle == 1) {
-                this.a.putInt("opt", 11010108);
-                this.a.putInt("act", 11010203);
-                this.a.putInt("cityid", i);
+                this.f512a.putInt("opt", 11010108);
+                this.f512a.putInt("act", 11010203);
+                this.f512a.putInt("cityid", i);
             } else {
-                this.a.putInt("act", 16010100);
-                this.a.putInt("opt", i);
+                this.f512a.putInt("act", 16010100);
+                this.f512a.putInt("opt", i);
             }
-            return Mj.sendBundle(this.a) != 0;
+            return Mj.sendBundle(this.f512a) != 0;
         }
         return false;
     }

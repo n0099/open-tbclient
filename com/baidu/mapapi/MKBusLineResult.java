@@ -1,7 +1,9 @@
 package com.baidu.mapapi;
 /* loaded from: classes.dex */
 public class MKBusLineResult {
-    private String a;
+
+    /* renamed from: a  reason: collision with root package name */
+    private String f506a;
     private String b;
     private int c;
     private String d;
@@ -15,7 +17,7 @@ public class MKBusLineResult {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a(String str, String str2, int i) {
-        this.a = str;
+        this.f506a = str;
         this.b = str2;
         this.c = i;
     }
@@ -26,7 +28,7 @@ public class MKBusLineResult {
     }
 
     public String getBusCompany() {
-        return this.a;
+        return this.f506a;
     }
 
     public String getBusName() {

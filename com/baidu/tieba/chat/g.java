@@ -3,12 +3,14 @@ package com.baidu.tieba.chat;
 import android.os.Handler;
 /* loaded from: classes.dex */
 class g implements y {
-    final /* synthetic */ ChatActivity a;
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ ChatActivity f724a;
     private boolean b = false;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public g(ChatActivity chatActivity) {
-        this.a = chatActivity;
+        this.f724a = chatActivity;
     }
 
     @Override // com.baidu.tieba.chat.y
@@ -19,12 +21,12 @@ class g implements y {
     @Override // com.baidu.tieba.chat.y
     public void b() {
         ad adVar;
-        adVar = this.a.c;
+        adVar = this.f724a.f711a;
         this.b = adVar.i();
     }
 
     @Override // com.baidu.tieba.chat.y
-    public void a(boolean z, String str, boolean z2, int i, com.baidu.tieba.a.a.c cVar, boolean z3) {
+    public void a(boolean z, String str, boolean z2, int i, com.baidu.tieba.data.a.c cVar, boolean z3) {
         Handler handler;
         Runnable runnable;
         Handler handler2;
@@ -37,39 +39,39 @@ class g implements y {
         ad adVar2;
         ad adVar3;
         ad adVar4;
-        this.a.i = true;
+        this.f724a.g = true;
         if (z) {
-            adVar = this.a.c;
-            wVar = this.a.d;
-            String i2 = wVar.i();
-            wVar2 = this.a.d;
-            adVar.a(i2, wVar2.h());
+            adVar = this.f724a.f711a;
+            wVar = this.f724a.b;
+            String f = wVar.f();
+            wVar2 = this.f724a.b;
+            adVar.a(f, wVar2.e());
             if (i > 0) {
-                this.a.h = true;
+                this.f724a.f = true;
             }
-            adVar2 = this.a.c;
+            adVar2 = this.f724a.f711a;
             adVar2.a(cVar);
             if (!z2) {
                 if (i > 0) {
-                    adVar4 = this.a.c;
+                    adVar4 = this.f724a.f711a;
                     adVar4.b(i);
                 }
             } else if (this.b && i > 0) {
-                adVar3 = this.a.c;
+                adVar3 = this.f724a.f711a;
                 adVar3.g();
             }
         }
-        handler = this.a.j;
-        runnable = this.a.m;
+        handler = this.f724a.j;
+        runnable = this.f724a.m;
         handler.removeCallbacks(runnable);
         if (z3) {
-            handler3 = this.a.j;
-            runnable3 = this.a.m;
+            handler3 = this.f724a.j;
+            runnable3 = this.f724a.m;
             handler3.postDelayed(runnable3, 0L);
             return;
         }
-        handler2 = this.a.j;
-        runnable2 = this.a.m;
+        handler2 = this.f724a.j;
+        runnable2 = this.f724a.m;
         handler2.postDelayed(runnable2, 30000L);
     }
 }

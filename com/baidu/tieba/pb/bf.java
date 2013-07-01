@@ -1,35 +1,37 @@
 package com.baidu.tieba.pb;
 /* loaded from: classes.dex */
-class bf implements com.baidu.tieba.c.bc {
-    final /* synthetic */ NewPbActivity a;
+class bf implements com.baidu.tieba.model.bc {
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ NewPbActivity f1224a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bf(NewPbActivity newPbActivity) {
-        this.a = newPbActivity;
+        this.f1224a = newPbActivity;
     }
 
-    @Override // com.baidu.tieba.c.bc
-    public void a(boolean z, int i, String str, com.baidu.tieba.a.ay ayVar) {
+    @Override // com.baidu.tieba.model.bc
+    public void a(boolean z, int i, String str, com.baidu.tieba.data.aw awVar) {
         bk bkVar;
         bk bkVar2;
         bk bkVar3;
-        com.baidu.tieba.c.ax axVar;
-        com.baidu.tieba.c.ax axVar2;
-        bkVar = this.a.p;
+        com.baidu.tieba.model.ax axVar;
+        com.baidu.tieba.model.ax axVar2;
+        bkVar = this.f1224a.p;
         bkVar.d(str);
-        bkVar2 = this.a.p;
+        bkVar2 = this.f1224a.p;
         bkVar2.v();
         if (!z) {
             if (i == 4 || i == 28) {
-                axVar2 = this.a.j;
-                if (axVar2.k()) {
-                    this.a.f();
+                axVar2 = this.f1224a.j;
+                if (axVar2.h()) {
+                    this.f1224a.f();
                 }
             }
-        } else if (ayVar != null) {
-            bkVar3 = this.a.p;
-            axVar = this.a.j;
-            bkVar3.a(ayVar, axVar.m().l());
+        } else if (awVar != null) {
+            bkVar3 = this.f1224a.p;
+            axVar = this.f1224a.j;
+            bkVar3.a(awVar, axVar.j().l());
         }
     }
 }

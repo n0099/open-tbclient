@@ -2,7 +2,6 @@ package com.baidu.tieba.home;
 
 import android.app.Activity;
 import android.content.DialogInterface;
-import android.content.IntentFilter;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.Menu;
@@ -10,35 +9,42 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AbsListView;
 import android.widget.AdapterView;
+import com.baidu.mobstat.StatService;
 import com.baidu.tieba.MainTabActivity;
 import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.account.LoginActivity;
+import com.baidu.tieba.data.AntiData;
 import com.baidu.tieba.frs.FrsActivity;
 import com.baidu.tieba.more.AboutActivity;
 import com.baidu.tieba.more.AccountActivity;
+import com.baidu.tieba.square.BarFolderFirstDirActivity;
+import com.baidu.tieba.util.DatabaseService;
 import com.baidu.tieba.write.WriteActivity;
 import com.slidingmenu.lib.R;
+import java.util.Iterator;
 /* loaded from: classes.dex */
-public class EnterForumActivity extends com.baidu.tieba.e implements AbsListView.OnScrollListener, com.baidu.tbadk.a.d {
-    t c = null;
-    private com.baidu.tieba.c.j d = null;
-    private com.baidu.tieba.c.ag e = null;
-    private k f = null;
-    private com.baidu.tieba.a.p g = null;
-    private Boolean h = false;
-    private j i = null;
-    private Handler j = null;
-    private Runnable k = null;
-    private View.OnKeyListener l = new f(this);
+public class EnterForumActivity extends com.baidu.tieba.g implements AbsListView.OnScrollListener, com.baidu.tbadk.a.d {
+
+    /* renamed from: a  reason: collision with root package name */
+    private n f883a = null;
+    private j b = null;
+    private com.baidu.tieba.model.j c = null;
+    private Boolean d = false;
+    private com.baidu.tieba.data.aa e = null;
+    private Handler f = null;
+    private Runnable g = null;
+    private com.baidu.tieba.model.l j = new f(this);
+    private View.OnKeyListener k = new g(this);
+    private com.baidu.adp.widget.ListView.b l = new h(this);
 
     @Override // com.baidu.adp.a.a, android.content.DialogInterface.OnClickListener
     public void onClick(DialogInterface dialogInterface, int i) {
-        if (dialogInterface == this.c.r() || dialogInterface == this.c.s()) {
+        if (dialogInterface == this.f883a.o() || dialogInterface == this.f883a.p()) {
             switch (i) {
                 case 0:
-                    if (this.g != null) {
-                        String b = this.g.b();
-                        if (com.baidu.tieba.d.ad.b(b)) {
+                    if (this.e != null) {
+                        String b = this.e.b();
+                        if (com.baidu.tieba.util.y.b(b)) {
                             FrsActivity.a(this, b, "tb_forumlist");
                             return;
                         }
@@ -46,65 +52,64 @@ public class EnterForumActivity extends com.baidu.tieba.e implements AbsListView
                     }
                     return;
                 case 1:
-                    n();
+                    m();
                     return;
                 default:
                     return;
             }
-        } else if (dialogInterface == this.c.t()) {
-            if (i == -1) {
-                if (this.f == null) {
-                    this.f = new k(this, this.g);
-                    this.f.setPriority(3);
-                    this.f.execute(new com.baidu.tieba.a.p[0]);
-                    return;
-                }
-                return;
-            }
-            this.c.q();
         }
-    }
-
-    @Override // com.baidu.tieba.e, com.baidu.adp.a.a, android.app.Activity
-    public void onCreate(Bundle bundle) {
-        super.onCreate(bundle);
-        m();
-        this.d = new com.baidu.tieba.c.j();
-        this.d.a(new g(this));
-        this.e = new com.baidu.tieba.c.ag();
-        this.e.a(new h(this));
-        b();
-        this.c = new t(this, this.l);
-    }
-
-    public void b() {
-        this.j = new Handler();
-        this.k = new i(this);
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.e, android.app.Activity
-    public void onStop() {
-        this.c.e();
-        super.onStop();
     }
 
     private void m() {
-        this.i = new j(this, null);
-        IntentFilter intentFilter = new IntentFilter();
-        intentFilter.addAction("com.baidu.tieba.broadcast.lottery");
-        registerReceiver(this.i, intentFilter);
+        if (this.e != null) {
+            if (this.e.f() == 1) {
+                this.f883a.n();
+            } else if (this.b == null) {
+                this.b = new j(this, this.e);
+                this.b.execute(new com.baidu.tieba.data.aa[0]);
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.g, com.baidu.adp.a.a, android.app.Activity
+    public void onCreate(Bundle bundle) {
+        super.onCreate(bundle);
+        b();
+        n();
+        o();
+    }
+
+    private void n() {
+        this.f883a = new n(this, this.k);
+        this.f883a.a(this.l);
+    }
+
+    private void o() {
+        this.c = new com.baidu.tieba.model.j();
+        this.c.a(this.j);
+    }
+
+    public void b() {
+        this.f = new Handler();
+        this.g = new i(this);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.e, android.app.Activity
+    @Override // com.baidu.tieba.g, android.app.Activity
+    public void onStop() {
+        this.f883a.d();
+        super.onStop();
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.tieba.g, android.app.Activity
     public void onResume() {
         super.onResume();
-        if (this.j != null) {
-            this.j.removeCallbacks(this.k);
-            this.j.postDelayed(this.k, 300L);
+        if (this.f != null) {
+            this.f.removeCallbacks(this.g);
+            this.f.postDelayed(this.g, 300L);
         }
-        this.c.f();
+        this.f883a.e();
         a(false);
     }
 
@@ -112,14 +117,14 @@ public class EnterForumActivity extends com.baidu.tieba.e implements AbsListView
     public boolean onPrepareOptionsMenu(Menu menu) {
         try {
             menu.findItem(1).setVisible(true);
-            if (!TiebaApplication.j()) {
+            if (!TiebaApplication.n()) {
                 menu.findItem(2).setVisible(true);
             }
             menu.findItem(3).setVisible(true);
             menu.findItem(4).setVisible(true);
             menu.findItem(5).setVisible(true);
         } catch (Exception e) {
-            com.baidu.tieba.d.ae.b("HomeActivity", "onPrepareOptionsMenu", "exp: " + e.toString());
+            com.baidu.tieba.util.z.b("HomeActivity", "onPrepareOptionsMenu", "exp: " + e.toString());
         }
         return super.onPrepareOptionsMenu(menu);
     }
@@ -127,7 +132,7 @@ public class EnterForumActivity extends com.baidu.tieba.e implements AbsListView
     @Override // android.app.Activity
     public boolean onCreateOptionsMenu(Menu menu) {
         menu.add(0, 1, 1, getString(R.string.setup)).setIcon(R.drawable.menu_setup);
-        if (!TiebaApplication.j()) {
+        if (!TiebaApplication.n()) {
             menu.add(0, 2, 2, getString(R.string.account)).setIcon(R.drawable.menu_account);
         }
         menu.add(0, 3, 3, getString(R.string.feedback)).setIcon(R.drawable.menu_feedback);
@@ -146,90 +151,93 @@ public class EnterForumActivity extends com.baidu.tieba.e implements AbsListView
                 AccountActivity.a(this);
                 break;
             case 3:
-                com.baidu.tieba.a.b bVar = new com.baidu.tieba.a.b();
-                bVar.a(1);
-                WriteActivity.a(this, com.baidu.tieba.a.i.g(), com.baidu.tieba.a.i.f(), bVar);
+                AntiData antiData = new AntiData();
+                antiData.setIfpost(1);
+                WriteActivity.a(this, com.baidu.tieba.data.g.g(), com.baidu.tieba.data.g.f(), antiData);
                 break;
             case 4:
                 AboutActivity.a(this);
                 break;
             case 5:
-                com.baidu.tieba.d.ag.a((Activity) this);
+                com.baidu.tieba.util.ab.a((Activity) this);
                 break;
         }
         return super.onOptionsItemSelected(menuItem);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.e, android.app.Activity
+    @Override // com.baidu.tieba.g, android.app.Activity
     public void onPause() {
-        if (this.j != null) {
-            this.j.removeCallbacks(this.k);
+        if (this.f != null) {
+            this.f.removeCallbacks(this.g);
         }
         super.onPause();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.e, android.app.Activity
+    @Override // com.baidu.tieba.g, android.app.Activity
     public void onDestroy() {
-        if (this.j != null) {
-            this.j.removeCallbacks(this.k);
+        if (this.f != null) {
+            this.f.removeCallbacks(this.g);
         }
-        this.c.g();
-        if (this.i != null) {
-            unregisterReceiver(this.i);
-        }
+        this.f883a.f();
         d();
         super.onDestroy();
     }
 
     public void c() {
-        this.c.h();
+        this.f883a.g();
     }
 
     @Override // com.baidu.adp.a.a, android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view.getId() == this.c.i() || view.getId() == this.c.j()) {
-            com.baidu.tieba.a.p pVar = null;
-            if (view.getTag() instanceof com.baidu.tieba.a.p) {
-                pVar = (com.baidu.tieba.a.p) view.getTag();
+        if (view.getId() == R.id.search_bg_layout) {
+            if (TiebaApplication.f().t()) {
+                StatService.onEvent(this, "ef_tb_search", "click", 1);
             }
-            if (pVar != null) {
-                String b = pVar.b();
-                if (com.baidu.tieba.d.ad.b(b)) {
+            SearchActivity.a(this, getString(R.string.home));
+        } else if (view.getId() == this.f883a.h() || view.getId() == this.f883a.i()) {
+            com.baidu.tieba.data.aa aaVar = null;
+            if (view.getTag() instanceof com.baidu.tieba.data.aa) {
+                aaVar = (com.baidu.tieba.data.aa) view.getTag();
+            }
+            if (aaVar != null) {
+                String b = aaVar.b();
+                if (com.baidu.tieba.util.y.b(b)) {
+                    if (TiebaApplication.f().t()) {
+                        StatService.onEvent(this, "ef_recent", "click", 1);
+                    }
                     FrsActivity.a(this, b, "tb_forumlist");
                 }
             }
-        } else if (view.getId() == this.c.k()) {
+        } else if (view.getId() == this.f883a.k()) {
             LoginActivity.a(this, "goto_home", getString(R.string.login_home_tab), 1100003);
-        } else if (view.getId() == this.c.l()) {
-            String C = TiebaApplication.C();
-            if (C == null || C.length() <= 0) {
-                LoginActivity.a((Activity) this, getString(R.string.login_to_use), true, 1100002);
-            } else if ((view.getTag() instanceof com.baidu.tieba.a.p) && !this.e.f()) {
-                this.c.b();
-                com.baidu.tieba.a.p pVar2 = (com.baidu.tieba.a.p) view.getTag();
-                this.e.a(pVar2.b(), pVar2.a());
+        } else if (view.getId() == this.f883a.j()) {
+            this.f883a.q();
+            this.f.removeCallbacks(this.g);
+            this.f.postDelayed(this.g, 0L);
+        } else if (view == this.f883a.b()) {
+            if (TiebaApplication.f().t()) {
+                StatService.onEvent(this, "ef_category", "click", 1);
             }
-        } else if (view == this.c.m()) {
-            a(true);
+            BarFolderFirstDirActivity.a(this);
         }
     }
 
     @Override // com.baidu.adp.a.a, android.view.View.OnLongClickListener
     public boolean onLongClick(View view) {
-        if (view.getId() == this.c.i() || view.getId() == this.c.j()) {
-            this.g = null;
-            com.baidu.tieba.a.p pVar = view.getTag() instanceof com.baidu.tieba.a.p ? (com.baidu.tieba.a.p) view.getTag() : null;
-            if (pVar != null) {
-                this.g = pVar;
-                String b = pVar.b();
-                int c = pVar.c();
-                if (com.baidu.tieba.d.ad.b(b)) {
-                    if (c == 1) {
-                        this.c.n();
+        if (view.getId() == this.f883a.h() || view.getId() == this.f883a.i()) {
+            this.e = null;
+            com.baidu.tieba.data.aa aaVar = view.getTag() instanceof com.baidu.tieba.data.aa ? (com.baidu.tieba.data.aa) view.getTag() : null;
+            if (aaVar != null) {
+                this.e = aaVar;
+                String b = aaVar.b();
+                int f = aaVar.f();
+                if (com.baidu.tieba.util.y.b(b)) {
+                    if (f == 1) {
+                        this.f883a.l();
                     } else {
-                        this.c.o();
+                        this.f883a.m();
                     }
                 }
             }
@@ -239,97 +247,89 @@ public class EnterForumActivity extends com.baidu.tieba.e implements AbsListView
 
     @Override // com.baidu.adp.a.a, android.widget.AdapterView.OnItemClickListener
     public void onItemClick(AdapterView adapterView, View view, int i, long j) {
-        if (adapterView == this.c.u() && this.c.b(i) != null) {
-            if (this.c.b(i) instanceof com.baidu.tieba.a.p) {
-                com.baidu.tieba.a.p pVar = (com.baidu.tieba.a.p) this.c.b(i);
-                if (pVar != null) {
-                    String b = pVar.b();
-                    if (com.baidu.tieba.d.ad.b(b)) {
-                        FrsActivity.a(this, b, "dimension_door");
-                    }
-                }
-            } else if (this.c.b(i).equals(6)) {
-                this.c.d();
-                TiebaApplication.e().u();
-            } else if (this.c.b(i).equals(0)) {
-                SearchActivity.a(this, getString(R.string.home));
-            }
-        }
         super.onItemClick(adapterView, view, i, j);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.e
-    public void b(int i) {
-        super.b(i);
-        this.c.a(i);
+    @Override // com.baidu.tieba.g
+    public void a(int i) {
+        super.a(i);
+        this.f883a.a(i);
     }
 
     public void d() {
-        this.d.e();
-        if (this.f != null) {
-            this.f.cancel();
-            this.f = null;
+        if (this.b != null) {
+            this.b.cancel();
+            this.b = null;
         }
-        this.e.e();
+        this.c.cancelLoadData();
     }
 
     public void a(boolean z) {
         boolean z2;
-        boolean z3 = false;
-        boolean booleanValue = this.h.booleanValue();
-        this.h = Boolean.valueOf((TiebaApplication.C() == null || TiebaApplication.G() == null) ? false : true);
-        if (this.d.d().c().size() <= 0 && this.d.d().d().size() <= 0) {
+        boolean z3;
+        boolean booleanValue = this.d.booleanValue();
+        this.d = Boolean.valueOf((TiebaApplication.E() == null || TiebaApplication.H() == null) ? false : true);
+        if (this.c.a() == null || this.c.a().g()) {
             z2 = true;
-        } else if (booleanValue != this.h.booleanValue()) {
+            z3 = false;
+        } else if (booleanValue != this.d.booleanValue()) {
             z2 = false;
             z3 = true;
         } else {
             z2 = false;
+            z3 = false;
         }
-        if (TiebaApplication.e().P()) {
+        if (TiebaApplication.f().Q()) {
+            TiebaApplication.f().i(false);
             z3 = true;
         }
         boolean z4 = z ? true : z3;
-        if ((z2 || z4) && !this.d.f() && !this.e.f() && this.f == null) {
+        if (TiebaApplication.f().i() > 0) {
+            if (this.c != null && this.c.a() != null && this.c.a().a() != null) {
+                Iterator it = this.c.a().a().a().iterator();
+                while (it.hasNext()) {
+                    com.baidu.tieba.data.aa aaVar = (com.baidu.tieba.data.aa) it.next();
+                    if (TiebaApplication.f().b(aaVar.b())) {
+                        aaVar.a(1);
+                    }
+                }
+            }
+            TiebaApplication.f().h();
+            String E = TiebaApplication.E();
+            if (E != null && E.length() > 0) {
+                DatabaseService.g(E);
+            } else {
+                DatabaseService.c();
+            }
+            this.f883a.c();
+        }
+        if (z2 || z4) {
             d();
             if (z4) {
-                this.c.a();
-            }
-            this.d.a(z2, z4, this.h.booleanValue());
-        }
-    }
-
-    private void n() {
-        if (this.g != null) {
-            if (this.g.c() == 1) {
-                this.c.p();
-            } else if (this.f == null) {
-                this.f = new k(this, this.g);
-                this.f.execute(new com.baidu.tieba.a.p[0]);
+                if (this.c.a(this.d.booleanValue()) && !z) {
+                    this.f883a.a();
+                }
+            } else if (this.c.b(this.d.booleanValue())) {
+                this.f883a.a();
             }
         }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void o() {
-        this.c.a(this.d, this.h.booleanValue(), this.b);
     }
 
     @Override // com.baidu.tbadk.a.d
     public void a(com.baidu.adp.widget.a.b bVar, String str, boolean z) {
         if (bVar != null) {
-            this.c.a(str);
+            this.f883a.a(str);
         }
     }
 
     @Override // android.widget.AbsListView.OnScrollListener
     public void onScrollStateChanged(AbsListView absListView, int i) {
+        this.f.removeCallbacks(this.g);
+        this.f.postDelayed(this.g, 300L);
     }
 
     @Override // android.widget.AbsListView.OnScrollListener
     public void onScroll(AbsListView absListView, int i, int i2, int i3) {
-        this.j.removeCallbacks(this.k);
-        this.j.postDelayed(this.k, 300L);
     }
 }

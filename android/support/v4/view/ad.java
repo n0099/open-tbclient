@@ -1,12 +1,25 @@
 package android.support.v4.view;
 
-import java.util.Comparator;
+import android.view.MotionEvent;
 /* loaded from: classes.dex */
-final class ad implements Comparator {
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // java.util.Comparator
-    /* renamed from: a */
-    public int compare(ag agVar, ag agVar2) {
-        return agVar.b - agVar2.b;
+class ad {
+    public static int a(MotionEvent motionEvent, int i) {
+        return motionEvent.findPointerIndex(i);
+    }
+
+    public static int b(MotionEvent motionEvent, int i) {
+        return motionEvent.getPointerId(i);
+    }
+
+    public static float c(MotionEvent motionEvent, int i) {
+        return motionEvent.getX(i);
+    }
+
+    public static float d(MotionEvent motionEvent, int i) {
+        return motionEvent.getY(i);
+    }
+
+    public static int a(MotionEvent motionEvent) {
+        return motionEvent.getPointerCount();
     }
 }

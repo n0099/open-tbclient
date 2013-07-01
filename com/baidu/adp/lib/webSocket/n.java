@@ -1,8 +1,7 @@
 package com.baidu.adp.lib.webSocket;
 /* loaded from: classes.dex */
-public class n extends l {
-    public byte[] a = null;
+public class n extends k {
 
-    n() {
-    }
+    /* renamed from: a  reason: collision with root package name */
+    public byte[] f191a;
 }

@@ -9,7 +9,9 @@ public class b {
     private static int h = 0;
     private static int i = 0;
     private static String j = null;
-    public static Handler a = null;
+
+    /* renamed from: a  reason: collision with root package name */
+    public static Handler f152a = null;
     public static int b = 0;
     public static boolean c = false;
     public static boolean d = false;
@@ -17,8 +19,8 @@ public class b {
     public static void a(int i2) {
         e = i2;
         try {
-            if (a != null) {
-                a.sendEmptyMessage(0);
+            if (f152a != null) {
+                f152a.sendEmptyMessage(0);
             }
         } catch (Exception e2) {
             e2.printStackTrace();
@@ -32,8 +34,8 @@ public class b {
     public static void a(String str) {
         f = str;
         try {
-            if (a != null) {
-                a.sendEmptyMessage(1);
+            if (f152a != null) {
+                f152a.sendEmptyMessage(1);
             }
         } catch (Exception e2) {
             e2.printStackTrace();
@@ -47,8 +49,8 @@ public class b {
     public static void b(String str) {
         g = str;
         try {
-            if (a != null) {
-                a.sendEmptyMessage(2);
+            if (f152a != null) {
+                f152a.sendEmptyMessage(2);
             }
         } catch (Exception e2) {
             e2.printStackTrace();
@@ -62,8 +64,8 @@ public class b {
     public static void b(int i2) {
         h = i2;
         try {
-            if (a != null) {
-                a.sendEmptyMessage(3);
+            if (f152a != null) {
+                f152a.sendEmptyMessage(3);
             }
         } catch (Exception e2) {
             e2.printStackTrace();
@@ -77,8 +79,8 @@ public class b {
     public static void c(int i2) {
         i = i2;
         try {
-            if (a != null) {
-                a.sendEmptyMessage(4);
+            if (f152a != null) {
+                f152a.sendEmptyMessage(4);
             }
         } catch (Exception e2) {
             e2.printStackTrace();
@@ -92,8 +94,8 @@ public class b {
     public static void c(String str) {
         j = str;
         try {
-            if (a != null) {
-                a.sendEmptyMessage(5);
+            if (f152a != null) {
+                f152a.sendEmptyMessage(5);
             }
         } catch (Exception e2) {
             e2.printStackTrace();

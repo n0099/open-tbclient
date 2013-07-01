@@ -14,15 +14,17 @@ import com.baidu.tieba.TiebaApplication;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public class d extends BaseAdapter {
-    private Context a;
-    private com.baidu.tieba.c.at b;
+
+    /* renamed from: a  reason: collision with root package name */
+    private Context f1161a;
+    private com.baidu.tieba.model.at b;
     private View.OnClickListener c;
 
-    public d(Context context, com.baidu.tieba.c.at atVar, View.OnClickListener onClickListener) {
-        this.a = null;
+    public d(Context context, com.baidu.tieba.model.at atVar, View.OnClickListener onClickListener) {
+        this.f1161a = null;
         this.b = null;
         this.c = null;
-        this.a = context;
+        this.f1161a = context;
         this.b = atVar;
         this.c = onClickListener;
     }
@@ -56,7 +58,7 @@ public class d extends BaseAdapter {
     @Override // android.widget.BaseAdapter, android.widget.Adapter
     public int getItemViewType(int i) {
         if (getItem(i) != null) {
-            if (((com.baidu.tieba.c.au) getItem(i)).a() == 0) {
+            if (((com.baidu.tieba.model.au) getItem(i)).a() == 0) {
                 return 0;
             }
             return 1;
@@ -70,26 +72,26 @@ public class d extends BaseAdapter {
         Exception exc;
         View view2;
         int itemViewType;
-        int as;
+        int at;
         View view3;
         e eVar;
         View view4;
         f fVar = null;
         try {
             itemViewType = getItemViewType(i);
-            as = TiebaApplication.e().as();
+            at = TiebaApplication.f().at();
         } catch (Exception e) {
             exc = e;
             view2 = view;
         }
         try {
             if (view == null) {
-                LayoutInflater from = LayoutInflater.from(this.a);
+                LayoutInflater from = LayoutInflater.from(this.f1161a);
                 if (itemViewType == 0) {
                     view4 = from.inflate(R.layout.distance_node, (ViewGroup) null);
                     eVar = new e(this);
                     eVar.b = (TextView) view4.findViewById(R.id.distance_text);
-                    eVar.a = (ImageView) view4.findViewById(R.id.distance_icon);
+                    eVar.f1162a = (ImageView) view4.findViewById(R.id.distance_icon);
                     view4.setTag(eVar);
                 } else {
                     if (itemViewType == 1) {
@@ -97,7 +99,7 @@ public class d extends BaseAdapter {
                         f fVar2 = new f(this);
                         fVar2.b = (LinearLayout) view4.findViewById(R.id.nearby_forum_node_layout);
                         fVar2.b.setOnClickListener(this.c);
-                        fVar2.a = (TextView) view4.findViewById(R.id.forum_name);
+                        fVar2.f1163a = (TextView) view4.findViewById(R.id.forum_name);
                         fVar2.c = (Button) view4.findViewById(R.id.like);
                         fVar2.d = (RatingBar) view4.findViewById(R.id.forum_ratingbar);
                         fVar2.e = (TextView) view4.findViewById(R.id.member_count);
@@ -122,17 +124,17 @@ public class d extends BaseAdapter {
                 eVar = null;
                 view4 = view;
             }
-            com.baidu.tieba.c.au auVar = (com.baidu.tieba.c.au) getItem(i);
+            com.baidu.tieba.model.au auVar = (com.baidu.tieba.model.au) getItem(i);
             if (itemViewType == 0) {
                 eVar.b.setText(auVar.b());
-                if (as == 1) {
-                    eVar.a.setBackgroundResource(R.drawable.icon_distance_node_1);
+                if (at == 1) {
+                    eVar.f1162a.setBackgroundResource(R.drawable.icon_distance_node_1);
                     return view4;
                 }
-                eVar.a.setBackgroundResource(R.drawable.icon_distance_node);
+                eVar.f1162a.setBackgroundResource(R.drawable.icon_distance_node);
                 return view4;
             } else if (itemViewType == 1) {
-                fVar.a.setText(auVar.c());
+                fVar.f1163a.setText(auVar.c());
                 fVar.d.setRating(auVar.e());
                 fVar.e.setText(String.valueOf(auVar.g()));
                 fVar.f.setText(String.valueOf(auVar.h()));
@@ -147,15 +149,15 @@ public class d extends BaseAdapter {
                     fVar.c.setBackgroundResource(R.drawable.icon_not_like);
                     fVar.c.setClickable(true);
                 }
-                if (as == 1) {
-                    fVar.a.setTextColor(-8682095);
+                if (at == 1) {
+                    fVar.f1163a.setTextColor(-8682095);
                     fVar.e.setTextColor(-11446171);
                     fVar.f.setTextColor(-11446171);
                     fVar.b.setBackgroundResource(R.drawable.nearby_forum_node_selector_1);
                     fVar.g.setBackgroundColor(-13421773);
                     return view4;
                 }
-                fVar.a.setTextColor(-14277082);
+                fVar.f1163a.setTextColor(-14277082);
                 fVar.e.setTextColor(-7829368);
                 fVar.f.setTextColor(-7829368);
                 fVar.b.setBackgroundResource(R.drawable.nearby_forum_node_selector);
@@ -167,7 +169,7 @@ public class d extends BaseAdapter {
         } catch (Exception e2) {
             view2 = view3;
             exc = e2;
-            com.baidu.tieba.d.ae.b(getClass().getName(), "", "MyPostListAdapter.getView error = " + exc.getMessage());
+            com.baidu.tieba.util.z.b(getClass().getName(), "", "MyPostListAdapter.getView error = " + exc.getMessage());
             return view2;
         }
     }

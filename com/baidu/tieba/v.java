@@ -4,15 +4,17 @@ import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class v implements View.OnClickListener {
-    final /* synthetic */ LabelActivity a;
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ LabelActivity f1475a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public v(LabelActivity labelActivity) {
-        this.a = labelActivity;
+        this.f1475a = labelActivity;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        this.a.b();
+        this.f1475a.a(false);
     }
 }

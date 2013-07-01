@@ -8,7 +8,7 @@ import java.io.PrintWriter;
 import java.util.Arrays;
 /* loaded from: classes.dex */
 public class CursorLoader extends AsyncTaskLoader {
-    final c f;
+    final d f;
     Uri g;
     String[] h;
     String i;
@@ -33,7 +33,7 @@ public class CursorLoader extends AsyncTaskLoader {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // android.support.v4.content.b
+    @Override // android.support.v4.content.c
     /* renamed from: a */
     public void b(Cursor cursor) {
         if (m()) {
@@ -53,7 +53,7 @@ public class CursorLoader extends AsyncTaskLoader {
         }
     }
 
-    @Override // android.support.v4.content.b
+    @Override // android.support.v4.content.c
     protected void g() {
         if (this.l != null) {
             b(this.l);
@@ -63,7 +63,7 @@ public class CursorLoader extends AsyncTaskLoader {
         }
     }
 
-    @Override // android.support.v4.content.b
+    @Override // android.support.v4.content.c
     protected void h() {
         b();
     }
@@ -78,7 +78,7 @@ public class CursorLoader extends AsyncTaskLoader {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // android.support.v4.content.b
+    @Override // android.support.v4.content.c
     public void i() {
         super.i();
         h();
@@ -88,7 +88,7 @@ public class CursorLoader extends AsyncTaskLoader {
         this.l = null;
     }
 
-    @Override // android.support.v4.content.AsyncTaskLoader, android.support.v4.content.b
+    @Override // android.support.v4.content.AsyncTaskLoader, android.support.v4.content.c
     public void a(String str, FileDescriptor fileDescriptor, PrintWriter printWriter, String[] strArr) {
         super.a(str, fileDescriptor, printWriter, strArr);
         printWriter.print(str);

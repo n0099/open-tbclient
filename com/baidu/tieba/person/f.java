@@ -1,42 +1,36 @@
 package com.baidu.tieba.person;
 
 import android.view.View;
-import android.widget.Button;
-import com.slidingmenu.lib.R;
+import android.widget.AdapterView;
+import com.baidu.tieba.frs.FrsActivity;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class f implements View.OnClickListener {
-    final /* synthetic */ EditBarActivity a;
+public class f implements AdapterView.OnItemClickListener {
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ EditBarActivity f1359a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(EditBarActivity editBarActivity) {
-        this.a = editBarActivity;
+        this.f1359a = editBarActivity;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
+    @Override // android.widget.AdapterView.OnItemClickListener
+    public void onItemClick(AdapterView adapterView, View view, int i, long j) {
+        j jVar;
         i iVar;
-        i iVar2;
-        Button button;
-        i iVar3;
-        i iVar4;
-        Button button2;
-        i iVar5;
-        iVar = this.a.g;
-        if (!iVar.a()) {
-            iVar4 = this.a.g;
-            iVar4.a(true);
-            button2 = this.a.f;
-            button2.setText(R.string.done);
-            iVar5 = this.a.g;
-            iVar5.notifyDataSetChanged();
-            return;
+        j jVar2;
+        jVar = this.f1359a.e;
+        if (jVar.getItem(i) != null) {
+            iVar = this.f1359a.k;
+            if (iVar == null) {
+                this.f1359a.j = i;
+                jVar2 = this.f1359a.e;
+                com.baidu.tieba.data.r rVar = (com.baidu.tieba.data.r) jVar2.getItem(i);
+                if (rVar != null) {
+                    FrsActivity.a(this.f1359a, rVar.b(), "tb_mytieba");
+                }
+            }
         }
-        iVar2 = this.a.g;
-        iVar2.a(false);
-        button = this.a.f;
-        button.setText(R.string.edit);
-        iVar3 = this.a.g;
-        iVar3.notifyDataSetChanged();
     }
 }

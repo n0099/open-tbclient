@@ -1,6 +1,7 @@
 package com.baidu.tieba.person;
 
 import android.os.Bundle;
+import android.os.Handler;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.ListAdapter;
@@ -9,110 +10,123 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-public class AllPostActivity extends com.baidu.tieba.e {
-    FrameLayout c = null;
-    TextView d = null;
-    ListView e = null;
-    ImageView f = null;
-    ad g = null;
-    com.baidu.tieba.c.ar h = null;
-    b i = null;
+public class AllPostActivity extends com.baidu.tieba.g {
+
+    /* renamed from: a  reason: collision with root package name */
+    FrameLayout f1298a = null;
+    TextView b = null;
+    ListView c = null;
+    ImageView d = null;
+    ae e = null;
+    com.baidu.tieba.model.ar f = null;
+    c g = null;
     private ProgressBar j = null;
     private boolean k = false;
     private int l = 0;
+    private Handler m = new Handler(new a(this));
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.e, com.baidu.adp.a.a, android.app.Activity
+    @Override // com.baidu.tieba.g, com.baidu.adp.a.a, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         setContentView(R.layout.all_post_activity);
-        c();
+        a(bundle);
         b();
-        c(0);
+        b(0);
     }
 
     void b() {
-        this.c = (FrameLayout) findViewById(R.id.all_post_activity_layout);
-        this.d = (TextView) findViewById(R.id.no_post_view);
+        this.f1298a = (FrameLayout) findViewById(R.id.all_post_activity_layout);
+        this.b = (TextView) findViewById(R.id.no_post_view);
+        this.b.setVisibility(8);
+        this.d = (ImageView) findViewById(R.id.time_line);
         this.d.setVisibility(8);
-        this.f = (ImageView) findViewById(R.id.time_line);
-        this.f.setVisibility(8);
-        this.e = (ListView) findViewById(R.id.all_post_list);
-        this.g = new ad(this, this.h);
-        this.e.setAdapter((ListAdapter) this.g);
-        this.e.setOnItemClickListener(new a(this));
+        this.c = (ListView) findViewById(R.id.all_post_list);
+        this.e = new ae(this, this.f);
+        this.c.setAdapter((ListAdapter) this.e);
+        this.c.setOnItemClickListener(new b(this));
         this.j = (ProgressBar) findViewById(R.id.loading_progress);
     }
 
-    void c() {
-        this.h = new com.baidu.tieba.c.ar();
+    void a(Bundle bundle) {
+        this.f = new com.baidu.tieba.model.ar();
+        if (bundle != null) {
+            this.f.a(bundle.getString("user"));
+            return;
+        }
+        this.f.a(getIntent().getStringExtra("user"));
+    }
+
+    @Override // android.app.Activity
+    protected void onSaveInstanceState(Bundle bundle) {
+        super.onSaveInstanceState(bundle);
+        bundle.putString("user", this.f.a());
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void c(int i) {
-        int c;
+    public void b(int i) {
+        int i2 = 1;
         if (!this.k) {
             this.k = true;
             this.l = i;
-            this.g.notifyDataSetChanged();
-            if (this.i != null) {
-                this.i.cancel();
-                this.i = null;
+            this.e.notifyDataSetChanged();
+            if (this.g != null) {
+                this.g.cancel();
+                this.g = null;
             }
             if (i == 0) {
                 this.j.setVisibility(0);
-                c = 1;
             } else {
-                c = this.h.c() + 1;
+                i2 = this.f.e() + 1;
             }
-            this.i = new b(this, 0, c, i);
-            this.i.setPriority(3);
-            this.i.execute(String.valueOf(com.baidu.tieba.a.i.e) + "c/u/feed/mypost");
+            this.g = new c(this, 0, i2, i, this.f.a());
+            this.g.setPriority(3);
+            this.g.execute(new String[0]);
         }
     }
 
-    public boolean d() {
+    public boolean c() {
         return this.k && this.l == 1;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.e
-    public void b(int i) {
-        super.b(i);
-        com.baidu.tieba.d.ac.a(this.c, i);
+    @Override // com.baidu.tieba.g
+    public void a(int i) {
+        super.a(i);
+        com.baidu.tieba.util.x.a(this.f1298a, i);
         if (i == 1) {
-            this.d.setTextColor(com.baidu.tieba.d.ac.a(i));
-            this.f.setBackgroundResource(R.drawable.time_line_skin_1);
+            this.b.setTextColor(com.baidu.tieba.util.x.a(i));
+            this.d.setBackgroundResource(R.drawable.time_line_skin_1);
             return;
         }
-        this.d.setTextColor(-4276546);
-        this.f.setBackgroundResource(R.drawable.time_line);
+        this.b.setTextColor(-4276546);
+        this.d.setBackgroundResource(R.drawable.time_line);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.e, android.app.Activity
+    @Override // com.baidu.tieba.g, android.app.Activity
     public void onResume() {
         super.onResume();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.e, android.app.Activity
+    @Override // com.baidu.tieba.g, android.app.Activity
     public void onPause() {
         super.onPause();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.e, android.app.Activity
+    @Override // com.baidu.tieba.g, android.app.Activity
     public void onDestroy() {
-        if (this.i != null) {
-            this.i.cancel();
-            this.i = null;
+        if (this.g != null) {
+            this.g.cancel();
+            this.g = null;
         }
         if (this.j != null) {
             this.j.setVisibility(8);
         }
-        if (this.g != null) {
-            this.g.a();
+        if (this.e != null) {
+            this.e.a();
         }
         super.onDestroy();
     }

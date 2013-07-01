@@ -7,23 +7,25 @@ import java.io.IOException;
 import java.io.RandomAccessFile;
 /* loaded from: classes.dex */
 public class s {
-    private String a;
+
+    /* renamed from: a  reason: collision with root package name */
+    private String f483a;
 
     public s(String str) {
-        this.a = null;
+        this.f483a = null;
         if (str == null) {
             str = "";
         } else if (str.length() > 100) {
             str = str.substring(0, 100);
         }
-        this.a = str;
+        this.f483a = str;
     }
 
     private boolean a(String str) {
         File file;
         File file2;
         boolean b;
-        String a;
+        String a2;
         int length;
         boolean x;
         if (str == null || !str.startsWith("&nr")) {
@@ -61,11 +63,11 @@ public class s {
                 }
             }
             randomAccessFile.seek(((readInt3 - 1) * NotificationProxy.MAX_URL_LENGTH) + 12 + 0);
-            if (str.length() > 750 || (length = (a = Jni.a(str)).length()) > 1020) {
+            if (str.length() > 750 || (length = (a2 = Jni.a(str)).length()) > 1020) {
                 return false;
             }
             randomAccessFile.writeInt(length);
-            randomAccessFile.writeBytes(a);
+            randomAccessFile.writeBytes(a2);
             if (readInt == 0) {
                 randomAccessFile.seek(0L);
                 randomAccessFile.writeInt(1);
@@ -207,7 +209,7 @@ public class s {
             int unused = m.D = 1;
             StringBuffer unused2 = m.B = new StringBuffer("");
             stringBuffer7 = m.B;
-            stringBuffer7.append(String.format("&nr=%s&traj=%d,%.5f,%.5f|", this.a, Long.valueOf(time), Double.valueOf(longitude), Double.valueOf(latitude)));
+            stringBuffer7.append(String.format("&nr=%s&traj=%d,%.5f,%.5f|", this.f483a, Long.valueOf(time), Double.valueOf(longitude), Double.valueOf(latitude)));
             stringBuffer8 = m.B;
             int unused3 = m.E = stringBuffer8.length();
             long unused4 = m.F = time;
@@ -229,7 +231,7 @@ public class s {
                 int unused8 = m.E = 0;
                 StringBuffer unused9 = m.B = new StringBuffer("");
                 stringBuffer5 = m.B;
-                stringBuffer5.append(String.format("&nr=%s&traj=%d,%.5f,%.5f|", this.a, Long.valueOf(time), Double.valueOf(longitude), Double.valueOf(latitude)));
+                stringBuffer5.append(String.format("&nr=%s&traj=%d,%.5f,%.5f|", this.f483a, Long.valueOf(time), Double.valueOf(longitude), Double.valueOf(latitude)));
                 stringBuffer6 = m.B;
                 int unused10 = m.E = stringBuffer6.length();
                 long unused11 = m.F = time;

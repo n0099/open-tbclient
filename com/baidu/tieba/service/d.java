@@ -1,18 +1,21 @@
 package com.baidu.tieba.service;
 
-import com.baidu.tieba.d.ae;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.tieba.util.z;
 import com.baidu.zeus.NotificationProxy;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileWriter;
 /* loaded from: classes.dex */
-class d extends com.baidu.adp.lib.a.a {
-    final /* synthetic */ FatalErrorService a;
-    private com.baidu.tieba.d.t b;
+class d extends BdAsyncTask {
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ FatalErrorService f1407a;
+    private com.baidu.tieba.util.r b;
 
     private d(FatalErrorService fatalErrorService) {
-        this.a = fatalErrorService;
+        this.f1407a = fatalErrorService;
         this.b = null;
     }
 
@@ -41,7 +44,7 @@ class d extends com.baidu.adp.lib.a.a {
         FileWriter fileWriter2 = null;
         try {
             try {
-                File c = com.baidu.tieba.d.o.c(str);
+                File c = com.baidu.tieba.util.m.c(str);
                 if (c == null || c.length() <= 50) {
                     fileInputStream2 = null;
                     byteArrayOutputStream2 = null;
@@ -52,7 +55,7 @@ class d extends com.baidu.adp.lib.a.a {
                         byteArrayOutputStream = new ByteArrayOutputStream(NotificationProxy.MAX_URL_LENGTH);
                         try {
                             if (z) {
-                                com.baidu.tieba.d.q.b(fileInputStream, byteArrayOutputStream);
+                                com.baidu.tieba.util.o.b(fileInputStream, byteArrayOutputStream);
                             } else {
                                 byte[] bArr2 = new byte[NotificationProxy.MAX_URL_LENGTH];
                                 while (true) {
@@ -70,14 +73,14 @@ class d extends com.baidu.adp.lib.a.a {
                                     try {
                                         byteArrayOutputStream.close();
                                     } catch (Exception e) {
-                                        ae.b(getClass().getName(), "sendLogFile", e.getMessage());
+                                        z.b(getClass().getName(), "sendLogFile", e.getMessage());
                                     }
                                 }
                                 if (fileInputStream != null) {
                                     try {
                                         fileInputStream.close();
                                     } catch (Exception e2) {
-                                        ae.b(getClass().getName(), "sendLogFile", e2.getMessage());
+                                        z.b(getClass().getName(), "sendLogFile", e2.getMessage());
                                     }
                                 }
                                 if (0 != 0) {
@@ -85,15 +88,15 @@ class d extends com.baidu.adp.lib.a.a {
                                         fileWriter2.close();
                                         return;
                                     } catch (Exception e3) {
-                                        ae.b(getClass().getName(), "sendLogFile", e3.getMessage());
+                                        z.b(getClass().getName(), "sendLogFile", e3.getMessage());
                                         return;
                                     }
                                 }
                                 return;
                             }
-                            this.b = new com.baidu.tieba.d.t(String.valueOf(com.baidu.tieba.a.i.e) + str2);
+                            this.b = new com.baidu.tieba.util.r(String.valueOf(com.baidu.tieba.data.g.f787a) + str2);
                             this.b.a("logfile", byteArray);
-                            this.b.j();
+                            this.b.k();
                             if (byteArrayOutputStream != null) {
                                 byteArrayOutputStream.close();
                                 byteArrayOutputStream2 = null;
@@ -107,7 +110,7 @@ class d extends com.baidu.adp.lib.a.a {
                                 } catch (Exception e4) {
                                     e = e4;
                                     byteArrayOutputStream = byteArrayOutputStream2;
-                                    ae.b(getClass().getName(), "sendLogFile", e.getMessage());
+                                    z.b(getClass().getName(), "sendLogFile", e.getMessage());
                                     if (byteArrayOutputStream != null) {
                                     }
                                     if (fileInputStream != null) {
@@ -129,7 +132,7 @@ class d extends com.baidu.adp.lib.a.a {
                                 fileInputStream2 = fileInputStream;
                             }
                             try {
-                                if (this.b.b()) {
+                                if (this.b.c()) {
                                     FileWriter fileWriter3 = new FileWriter(c, false);
                                     try {
                                         fileWriter3.append((CharSequence) "");
@@ -140,26 +143,26 @@ class d extends com.baidu.adp.lib.a.a {
                                             fileWriter = fileWriter3;
                                         }
                                         if (!c.delete()) {
-                                            ae.b(getClass().getName(), "sendLogFile", "file.delete error");
+                                            z.b(getClass().getName(), "sendLogFile", "file.delete error");
                                         }
                                     } catch (Exception e5) {
                                         e = e5;
                                         fileWriter = fileWriter3;
                                         fileInputStream = fileInputStream2;
                                         byteArrayOutputStream = byteArrayOutputStream2;
-                                        ae.b(getClass().getName(), "sendLogFile", e.getMessage());
+                                        z.b(getClass().getName(), "sendLogFile", e.getMessage());
                                         if (byteArrayOutputStream != null) {
                                             try {
                                                 byteArrayOutputStream.close();
                                             } catch (Exception e6) {
-                                                ae.b(getClass().getName(), "sendLogFile", e6.getMessage());
+                                                z.b(getClass().getName(), "sendLogFile", e6.getMessage());
                                             }
                                         }
                                         if (fileInputStream != null) {
                                             try {
                                                 fileInputStream.close();
                                             } catch (Exception e7) {
-                                                ae.b(getClass().getName(), "sendLogFile", e7.getMessage());
+                                                z.b(getClass().getName(), "sendLogFile", e7.getMessage());
                                             }
                                         }
                                         if (fileWriter == null) {
@@ -167,7 +170,7 @@ class d extends com.baidu.adp.lib.a.a {
                                                 fileWriter.close();
                                                 return;
                                             } catch (Exception e8) {
-                                                ae.b(getClass().getName(), "sendLogFile", e8.getMessage());
+                                                z.b(getClass().getName(), "sendLogFile", e8.getMessage());
                                                 return;
                                             }
                                         }
@@ -181,21 +184,21 @@ class d extends com.baidu.adp.lib.a.a {
                                             try {
                                                 byteArrayOutputStream.close();
                                             } catch (Exception e9) {
-                                                ae.b(getClass().getName(), "sendLogFile", e9.getMessage());
+                                                z.b(getClass().getName(), "sendLogFile", e9.getMessage());
                                             }
                                         }
                                         if (fileInputStream != null) {
                                             try {
                                                 fileInputStream.close();
                                             } catch (Exception e10) {
-                                                ae.b(getClass().getName(), "sendLogFile", e10.getMessage());
+                                                z.b(getClass().getName(), "sendLogFile", e10.getMessage());
                                             }
                                         }
                                         if (fileWriter != null) {
                                             try {
                                                 fileWriter.close();
                                             } catch (Exception e11) {
-                                                ae.b(getClass().getName(), "sendLogFile", e11.getMessage());
+                                                z.b(getClass().getName(), "sendLogFile", e11.getMessage());
                                             }
                                         }
                                         throw th;
@@ -225,21 +228,21 @@ class d extends com.baidu.adp.lib.a.a {
                     try {
                         byteArrayOutputStream2.close();
                     } catch (Exception e15) {
-                        ae.b(getClass().getName(), "sendLogFile", e15.getMessage());
+                        z.b(getClass().getName(), "sendLogFile", e15.getMessage());
                     }
                 }
                 if (fileInputStream2 != null) {
                     try {
                         fileInputStream2.close();
                     } catch (Exception e16) {
-                        ae.b(getClass().getName(), "sendLogFile", e16.getMessage());
+                        z.b(getClass().getName(), "sendLogFile", e16.getMessage());
                     }
                 }
                 if (fileWriter != null) {
                     try {
                         fileWriter.close();
                     } catch (Exception e17) {
-                        ae.b(getClass().getName(), "sendLogFile", e17.getMessage());
+                        z.b(getClass().getName(), "sendLogFile", e17.getMessage());
                     }
                 }
             } catch (Throwable th5) {
@@ -258,29 +261,29 @@ class d extends com.baidu.adp.lib.a.a {
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.a.a
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public String a(String... strArr) {
         a("fatal_error.log", "c/s/logupload", true);
         a("log_error.log", "c/s/clientlog", false);
         return null;
     }
 
-    @Override // com.baidu.adp.lib.a.a
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void cancel() {
         if (this.b != null) {
-            this.b.g();
+            this.b.h();
         }
-        this.a.a = null;
+        this.f1407a.f1396a = null;
         super.cancel(true);
-        this.a.stopSelf();
+        this.f1407a.stopSelf();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.a.a
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void a(String str) {
         super.a((Object) str);
-        this.a.a = null;
-        this.a.stopSelf();
+        this.f1407a.f1396a = null;
+        this.f1407a.stopSelf();
     }
 }

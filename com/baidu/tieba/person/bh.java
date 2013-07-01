@@ -1,223 +1,31 @@
 package com.baidu.tieba.person;
 
-import android.widget.ProgressBar;
-import android.widget.TextView;
-import java.util.ArrayList;
+import android.view.View;
+import android.widget.AdapterView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class bh extends com.baidu.adp.lib.a.a {
-    final /* synthetic */ PersonLbsActivity a;
-    private int b;
-    private int c;
-    private com.baidu.tieba.d.t d = null;
+public class bh implements AdapterView.OnItemClickListener {
 
-    public bh(PersonLbsActivity personLbsActivity, int i, int i2) {
-        this.a = personLbsActivity;
-        this.b = 0;
-        this.c = 0;
-        this.b = i < 1 ? 1 : i;
-        this.c = i2;
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ PersonLbsActivity f1341a;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public bh(PersonLbsActivity personLbsActivity) {
+        this.f1341a = personLbsActivity;
     }
 
-    @Override // com.baidu.adp.lib.a.a
-    public void cancel() {
-        super.cancel(true);
-        this.a.o = null;
-        f();
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.a.a
-    public void b() {
-        bi biVar;
-        com.baidu.tieba.c.bl blVar;
-        int i;
-        com.baidu.tieba.c.bl blVar2;
-        com.baidu.tieba.c.bl blVar3;
-        com.baidu.tieba.c.bl blVar4;
-        bi biVar2;
-        bi biVar3;
-        com.baidu.tieba.c.bl blVar5;
-        com.baidu.tieba.c.bl blVar6;
-        com.baidu.tieba.c.bl blVar7;
+    @Override // android.widget.AdapterView.OnItemClickListener
+    public void onItemClick(AdapterView adapterView, View view, int i, long j) {
         int i2;
-        com.baidu.tieba.c.bl blVar8;
-        TextView textView;
-        ProgressBar progressBar;
-        super.b();
-        if (this.c == 0) {
-            textView = this.a.f;
-            textView.setVisibility(8);
-            progressBar = this.a.i;
-            progressBar.setVisibility(0);
-            return;
+        int i3;
+        if (j == -1) {
+            PersonLbsActivity personLbsActivity = this.f1341a;
+            i3 = this.f1341a.r;
+            personLbsActivity.b(1, i3 - 1);
+        } else if (j == -2) {
+            PersonLbsActivity personLbsActivity2 = this.f1341a;
+            i2 = this.f1341a.s;
+            personLbsActivity2.b(2, i2 + 1);
         }
-        if (this.c == 2) {
-            biVar3 = this.a.n;
-            biVar3.a(true);
-            blVar5 = this.a.p;
-            if (blVar5 != null) {
-                blVar6 = this.a.p;
-                int size = blVar6.a().size();
-                if (size > 200) {
-                    for (int i3 = 0; i3 < 20 && i3 < size; i3++) {
-                        blVar8 = this.a.p;
-                        blVar8.a().remove(0);
-                    }
-                    blVar7 = this.a.p;
-                    blVar7.b().f(1);
-                    PersonLbsActivity personLbsActivity = this.a;
-                    i2 = personLbsActivity.r;
-                    personLbsActivity.r = i2 + 1;
-                }
-            }
-        } else {
-            biVar = this.a.n;
-            biVar.b(true);
-            blVar = this.a.p;
-            if (blVar != null) {
-                blVar2 = this.a.p;
-                int size2 = blVar2.a().size();
-                if (size2 > 200) {
-                    for (int i4 = 0; i4 < 20 && i4 < size2; i4++) {
-                        blVar4 = this.a.p;
-                        blVar4.a().remove((size2 - i4) - 1);
-                    }
-                }
-                blVar3 = this.a.p;
-                blVar3.b().e(1);
-            }
-            PersonLbsActivity personLbsActivity2 = this.a;
-            i = personLbsActivity2.s;
-            personLbsActivity2.s = i - 1;
-        }
-        biVar2 = this.a.n;
-        biVar2.notifyDataSetChanged();
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.a.a
-    public void a(com.baidu.tieba.c.bl blVar) {
-        bi biVar;
-        com.baidu.tieba.c.bl blVar2;
-        bi biVar2;
-        com.baidu.tieba.c.bl blVar3;
-        TextView textView;
-        com.baidu.tieba.c.bl blVar4;
-        com.baidu.tieba.c.bl blVar5;
-        com.baidu.tieba.c.bl blVar6;
-        com.baidu.tieba.c.bl blVar7;
-        bi biVar3;
-        com.baidu.tieba.c.bl blVar8;
-        bi biVar4;
-        com.baidu.tieba.c.bl blVar9;
-        com.baidu.tieba.c.bl blVar10;
-        super.a((Object) blVar);
-        this.a.o = null;
-        f();
-        if (blVar == null) {
-            if (this.d != null) {
-                this.a.a(this.d.f());
-                return;
-            }
-            return;
-        }
-        if (this.c != 0) {
-            blVar5 = this.a.p;
-            if (blVar5 != null) {
-                if (this.c == 1) {
-                    ArrayList a = blVar.a();
-                    blVar9 = this.a.p;
-                    blVar9.a().addAll(0, a);
-                    blVar10 = this.a.p;
-                    blVar10.b().f(blVar.b().g());
-                    this.a.r = this.b;
-                } else {
-                    ArrayList a2 = blVar.a();
-                    blVar6 = this.a.p;
-                    blVar6.a().addAll(a2);
-                    blVar7 = this.a.p;
-                    blVar7.b().e(blVar.b().f());
-                    this.a.s = this.b;
-                }
-                biVar3 = this.a.n;
-                blVar8 = this.a.p;
-                biVar3.a(blVar8);
-                biVar4 = this.a.n;
-                biVar4.notifyDataSetChanged();
-                return;
-            }
-        }
-        this.a.p = blVar;
-        biVar = this.a.n;
-        blVar2 = this.a.p;
-        biVar.a(blVar2);
-        biVar2 = this.a.n;
-        biVar2.notifyDataSetInvalidated();
-        PersonLbsActivity personLbsActivity = this.a;
-        PersonLbsActivity personLbsActivity2 = this.a;
-        int i = this.b;
-        personLbsActivity2.s = i;
-        personLbsActivity.r = i;
-        blVar3 = this.a.p;
-        if (blVar3 != null) {
-            blVar4 = this.a.p;
-            if (blVar4.a().size() != 0) {
-                return;
-            }
-        }
-        textView = this.a.f;
-        textView.setVisibility(0);
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.a.a
-    public com.baidu.tieba.c.bl a(String... strArr) {
-        String str;
-        this.d = new com.baidu.tieba.d.t(String.valueOf(com.baidu.tieba.a.i.e) + "c/u/feed/ssf");
-        com.baidu.tieba.d.t tVar = this.d;
-        str = this.a.l;
-        tVar.a("uid", str);
-        this.d.a("rn", String.valueOf(20));
-        this.d.a("pn", String.valueOf(this.b));
-        String i = this.d.i();
-        if (this.d.b()) {
-            com.baidu.tieba.c.bl blVar = new com.baidu.tieba.c.bl();
-            blVar.a(i);
-            int size = blVar.a().size();
-            for (int i2 = 0; i2 < size; i2++) {
-                ((com.baidu.tieba.a.ap) blVar.a().get(i2)).e().b(this.a);
-                ((com.baidu.tieba.a.ap) blVar.a().get(i2)).e().a((ArrayList) null);
-            }
-            return blVar;
-        }
-        return null;
-    }
-
-    private void f() {
-        bi biVar;
-        bi biVar2;
-        bi biVar3;
-        ProgressBar progressBar;
-        if (this.c == 0) {
-            progressBar = this.a.i;
-            progressBar.setVisibility(8);
-            return;
-        }
-        if (this.c == 2) {
-            biVar3 = this.a.n;
-            biVar3.a(false);
-        } else {
-            biVar = this.a.n;
-            biVar.b(false);
-        }
-        biVar2 = this.a.n;
-        biVar2.notifyDataSetChanged();
-    }
-
-    public int e() {
-        return this.c;
     }
 }

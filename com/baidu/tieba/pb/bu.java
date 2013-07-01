@@ -3,14 +3,17 @@ package com.baidu.tieba.pb;
 import android.os.Handler;
 import android.view.animation.Animation;
 import android.widget.ImageView;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class bu implements Animation.AnimationListener {
-    final /* synthetic */ bk a;
+public class bu implements Animation.AnimationListener {
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ bk f1239a;
     private final /* synthetic */ ImageView b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bu(bk bkVar, ImageView imageView) {
-        this.a = bkVar;
+        this.f1239a = bkVar;
         this.b = imageView;
     }
 

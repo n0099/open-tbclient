@@ -1,50 +1,64 @@
 package com.baidu.tieba.media;
 
-import com.baidu.cyberplayer.sdk.BEngineManager;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.tieba.TiebaApplication;
+import com.baidu.video.download.JNIP2P;
+import com.baidu.video.download.JNITaskCreateParam;
 /* loaded from: classes.dex */
-public class l implements BEngineManager.OnEngineListener {
-    final /* synthetic */ e a;
+public class l {
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public l(e eVar) {
-        this.a = eVar;
-    }
+    /* renamed from: a  reason: collision with root package name */
+    private static int f966a = 0;
+    private static boolean b = false;
+    private long c = -1;
 
-    @Override // com.baidu.cyberplayer.sdk.BEngineManager.OnEngineListener
-    public boolean onPrepare() {
-        m mVar;
-        mVar = this.a.g;
-        return mVar == m.DOWNLOADING;
-    }
-
-    @Override // com.baidu.cyberplayer.sdk.BEngineManager.OnEngineListener
-    public int onDownload(int i, int i2) {
-        m mVar;
-        if (i != 0) {
-            this.a.a(i, i2);
+    public void a() {
+        f966a++;
+        if (!b) {
+            b = true;
+            JNIP2P jnip2p = JNIP2P.getInstance();
+            TiebaApplication f = TiebaApplication.f();
+            jnip2p.init(f.getFilesDir().getAbsolutePath(), f);
         }
-        mVar = this.a.g;
-        return mVar == m.DOWNLOADING ? 0 : 1;
     }
 
-    @Override // com.baidu.cyberplayer.sdk.BEngineManager.OnEngineListener
-    public int onPreInstall() {
-        a aVar;
-        m mVar;
-        aVar = this.a.a;
-        aVar.h();
-        mVar = this.a.g;
-        this.a.g = m.STOP;
-        return mVar == m.DOWNLOADING ? 0 : 1;
+    public void a(String str) {
+        JNIP2P jnip2p = JNIP2P.getInstance();
+        b();
+        JNITaskCreateParam jNITaskCreateParam = new JNITaskCreateParam();
+        jNITaskCreateParam.setUrl(str);
+        jNITaskCreateParam.setFlag(4);
+        jNITaskCreateParam.setFileName("p2p");
+        jnip2p.create(jNITaskCreateParam);
+        this.c = jNITaskCreateParam.getHandle();
+        jnip2p.start(this.c);
     }
 
-    @Override // com.baidu.cyberplayer.sdk.BEngineManager.OnEngineListener
-    public void onInstalled(int i) {
-        String[] strArr;
-        this.a.g = m.STOP;
-        this.a.a(i);
-        strArr = e.l;
-        com.baidu.adp.lib.e.b.a(strArr[i]);
+    public void b() {
+        JNIP2P jnip2p = JNIP2P.getInstance();
+        if (this.c != -1) {
+            jnip2p.stop(this.c);
+            jnip2p.delete(this.c);
+            this.c = -1L;
+        }
+    }
+
+    public void c() {
+        b();
+        f966a--;
+        if (b && f966a == 0) {
+            b = false;
+            JNIP2P.getInstance().uninit();
+        }
+    }
+
+    public long d() {
+        return this.c;
+    }
+
+    public boolean b(String str) {
+        if (str == null) {
+            return false;
+        }
+        return str.startsWith("bdhd://") || str.startsWith("ed2k://");
     }
 }

@@ -6,13 +6,15 @@ import android.os.Looper;
 import android.view.WindowManager;
 /* loaded from: classes.dex */
 public class e extends a {
-    private g a;
+
+    /* renamed from: a  reason: collision with root package name */
+    private g f141a;
     private WindowManager b;
 
     public e(Context context) {
-        this.a = null;
+        this.f141a = null;
         this.b = null;
-        this.a = new g(this, context);
+        this.f141a = new g(this, context);
         this.b = (WindowManager) context.getSystemService("window");
     }
 
@@ -20,7 +22,7 @@ public class e extends a {
     public void c() {
         super.c();
         try {
-            this.b.removeView(this.a);
+            this.b.removeView(this.f141a);
         } catch (Exception e) {
         }
     }
@@ -33,10 +35,10 @@ public class e extends a {
         layoutParams.height = 1;
         layoutParams.width = 1;
         try {
-            this.b.removeView(this.a);
+            this.b.removeView(this.f141a);
         } catch (Exception e) {
         }
-        this.b.addView(this.a, layoutParams);
+        this.b.addView(this.f141a, layoutParams);
         new Handler(Looper.getMainLooper()).post(new f(this));
     }
 }

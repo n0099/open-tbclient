@@ -7,14 +7,16 @@ import java.io.IOException;
 public class BMapManager {
     static Context b = null;
     static boolean c = false;
-    Mj a = null;
+
+    /* renamed from: a  reason: collision with root package name */
+    Mj f501a = null;
 
     public BMapManager(Context context) {
         b = context;
     }
 
     private Mj getMj() {
-        return this.a;
+        return this.f501a;
     }
 
     public void destroy() {
@@ -22,7 +24,7 @@ public class BMapManager {
             stop();
         }
         c = false;
-        if (this.a != null) {
+        if (this.f501a != null) {
             if (Mj.f != null) {
                 try {
                     Mj.f.close();
@@ -32,8 +34,8 @@ public class BMapManager {
                     Mj.f = null;
                 }
             }
-            this.a.UnInitMapApiEngine();
-            this.a = null;
+            this.f501a.UnInitMapApiEngine();
+            this.f501a = null;
         }
     }
 
@@ -47,9 +49,9 @@ public class BMapManager {
         }
         c = false;
         if (getMj() == null) {
-            this.a = new Mj(this, b);
-            if (!this.a.a(str, mKGeneralListener)) {
-                this.a = null;
+            this.f501a = new Mj(this, b);
+            if (!this.f501a.a(str, mKGeneralListener)) {
+                this.f501a = null;
                 return false;
             }
             if (Mj.b.a(this)) {
@@ -66,7 +68,7 @@ public class BMapManager {
         if (c) {
             return true;
         }
-        if (this.a != null && this.a.a()) {
+        if (this.f501a != null && this.f501a.a()) {
             c = true;
             return true;
         }
@@ -75,7 +77,7 @@ public class BMapManager {
 
     public boolean stop() {
         if (c) {
-            if (this.a != null && this.a.b()) {
+            if (this.f501a != null && this.f501a.b()) {
                 c = false;
                 return true;
             }

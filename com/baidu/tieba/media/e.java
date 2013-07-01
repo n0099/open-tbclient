@@ -1,132 +1,93 @@
 package com.baidu.tieba.media;
 
-import android.app.Activity;
-import android.content.DialogInterface;
 import android.os.Handler;
 import android.os.Message;
 import android.view.View;
-import com.baidu.cyberplayer.sdk.BCyberPlayerFactory;
-import com.baidu.cyberplayer.sdk.BEngineManager;
-import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.d.w;
-import com.baidu.tieba.d.z;
-import java.security.InvalidParameterException;
+import com.baidu.tieba.media.MediaDownloadHelper;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class e {
-    private static final String[] l = {"RET_NEW_PACKAGE_INSTALLED", "RET_NO_NEW_PACKAGE", "RET_STOPPED", "RET_CANCELED", "RET_FAILED_STORAGE_IO", "RET_FAILED_NETWORK", "RET_FAILED_ALREADY_RUNNING", "RET_FAILED_OTHERS", "RET_FAILED_ALREADY_INSTALLED", "RET_FAILED_INVALID_APK"};
-    private a a;
-    private Activity b;
-    private BEngineManager.OnEngineListener c = null;
-    private DialogInterface.OnClickListener d = null;
-    private DialogInterface.OnClickListener e = null;
-    private Handler f = new f(this);
-    private m g = m.STOP;
-    private View.OnClickListener h = null;
-    private View.OnClickListener i = null;
-    private View.OnClickListener j = null;
-    private String k = null;
+public class e extends Handler {
 
-    public e(Activity activity) {
-        this.a = null;
-        this.b = null;
-        if (activity == null) {
-            throw new InvalidParameterException("MediaPlayerHelper activity is null");
-        }
-        this.b = activity;
-        this.a = new a(this.b);
-        BCyberPlayerFactory.init(this.b);
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ MediaDownloadHelper f959a;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public e(MediaDownloadHelper mediaDownloadHelper) {
+        this.f959a = mediaDownloadHelper;
     }
 
-    private DialogInterface.OnClickListener b() {
-        if (this.d == null) {
-            this.d = new g(this);
-        }
-        return this.d;
-    }
-
-    private DialogInterface.OnClickListener c() {
-        if (this.e == null) {
-            this.e = new h(this);
-        }
-        return this.e;
-    }
-
-    public void a(String str) {
-        if (str != null && str.length() > 0) {
-            if (!TiebaApplication.aT()) {
-                this.a.b();
+    @Override // android.os.Handler
+    public void handleMessage(Message message) {
+        a aVar;
+        a aVar2;
+        View.OnClickListener onClickListener;
+        a aVar3;
+        a aVar4;
+        View.OnClickListener onClickListener2;
+        a aVar5;
+        a aVar6;
+        a aVar7;
+        a aVar8;
+        a aVar9;
+        a aVar10;
+        a aVar11;
+        a aVar12;
+        a aVar13;
+        switch (message.what) {
+            case 0:
+                aVar13 = this.f959a.f951a;
+                aVar13.a(message.arg1, message.arg2);
                 return;
-            }
-            this.k = str;
-            z c = w.c(this.b);
-            if (e()) {
-                if (c == z.WIFI) {
-                    d();
-                } else if (c == z.TwoG) {
-                    this.a.a(b());
-                } else if (c == z.ThreeG) {
-                    this.a.b(b());
-                } else {
-                    this.a.a();
+            case 1:
+                switch (message.arg1) {
+                    case 1:
+                    case 9:
+                        aVar11 = this.f959a.f951a;
+                        aVar11.h();
+                        aVar12 = this.f959a.f951a;
+                        aVar12.e();
+                        return;
+                    case 2:
+                    case 3:
+                    default:
+                        return;
+                    case 4:
+                        aVar5 = this.f959a.f951a;
+                        aVar5.h();
+                        aVar6 = this.f959a.f951a;
+                        aVar6.f();
+                        return;
+                    case 5:
+                        this.f959a.g = MediaDownloadHelper.DOWNLOAD_STAT.PAUSE;
+                        aVar3 = this.f959a.f951a;
+                        aVar3.a();
+                        aVar4 = this.f959a.f951a;
+                        onClickListener2 = this.f959a.i;
+                        aVar4.a(onClickListener2);
+                        return;
+                    case 6:
+                        aVar9 = this.f959a.f951a;
+                        aVar9.h();
+                        aVar10 = this.f959a.f951a;
+                        aVar10.c();
+                        return;
+                    case 7:
+                        this.f959a.g = MediaDownloadHelper.DOWNLOAD_STAT.PAUSE;
+                        aVar = this.f959a.f951a;
+                        aVar.g();
+                        aVar2 = this.f959a.f951a;
+                        onClickListener = this.f959a.i;
+                        aVar2.a(onClickListener);
+                        return;
+                    case 8:
+                        aVar7 = this.f959a.f951a;
+                        aVar7.h();
+                        aVar8 = this.f959a.f951a;
+                        aVar8.d();
+                        return;
                 }
-            } else if (c == z.WIFI) {
-                this.a.c(c());
-            } else if (c == z.TwoG) {
-                this.a.d(c());
-            } else if (c == z.ThreeG) {
-                this.a.e(c());
-            } else {
-                this.a.a();
-            }
+            default:
+                return;
         }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void d() {
-        if (this.k != null && this.k.length() > 0) {
-            MediaPlayerActivity.a(this.b, this.k);
-        }
-    }
-
-    private boolean e() {
-        return BCyberPlayerFactory.createEngineManager().EngineInstalled();
-    }
-
-    private void f() {
-        this.h = new i(this);
-        this.i = new j(this);
-        this.j = new k(this);
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void a(int i, int i2) {
-        Message message = new Message();
-        message.what = 0;
-        message.arg1 = i;
-        message.arg2 = i2;
-        if (this.f.hasMessages(0)) {
-            this.f.removeMessages(0);
-        }
-        this.f.sendMessageAtFrontOfQueue(message);
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void a(int i) {
-        Message message = new Message();
-        message.what = 1;
-        message.arg1 = i;
-        this.f.sendMessage(message);
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void g() {
-        f();
-        this.a.a(this.h, this.j);
-        BEngineManager createEngineManager = BCyberPlayerFactory.createEngineManager();
-        if (this.c == null) {
-            this.c = new l(this);
-        }
-        this.g = m.DOWNLOADING;
-        createEngineManager.installAsync(this.c);
     }
 }

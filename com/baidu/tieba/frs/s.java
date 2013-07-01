@@ -1,14 +1,17 @@
 package com.baidu.tieba.frs;
 
 import com.baidu.tieba.TiebaApplication;
+import com.baidu.tieba.util.NetWorkCore;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 class s implements Runnable {
-    final /* synthetic */ FrsActivity a;
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ FrsActivity f871a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public s(FrsActivity frsActivity) {
-        this.a = frsActivity;
+        this.f871a = frsActivity;
     }
 
     /* JADX WARN: Incorrect condition in loop: B:18:0x0083 */
@@ -17,69 +20,69 @@ class s implements Runnable {
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public void run() {
-        ba baVar;
-        ba baVar2;
-        ba baVar3;
-        ba baVar4;
-        ba baVar5;
+        az azVar;
+        az azVar2;
+        az azVar3;
+        az azVar4;
+        az azVar5;
         String str;
         String str2;
-        com.baidu.tieba.c.s sVar;
-        ba baVar6;
-        ba baVar7;
+        com.baidu.tieba.model.v vVar;
+        az azVar6;
+        az azVar7;
         int i;
-        ba baVar8;
+        az azVar8;
         try {
-            baVar = this.a.l;
-            int c = baVar.c();
-            baVar2 = this.a.l;
+            azVar = this.f871a.l;
+            int c = azVar.c();
+            azVar2 = this.f871a.l;
             int i2 = c - 2;
-            int d = baVar2.d() - 2;
+            int d = azVar2.d() - 2;
             if (i2 < 0) {
                 i2 = 0;
             }
             int i3 = d < 0 ? 0 : d;
-            com.baidu.tieba.d.z c2 = com.baidu.tieba.d.w.c(this.a);
-            baVar3 = this.a.l;
-            baVar3.g().a().a();
-            baVar4 = this.a.l;
-            baVar4.i().a().a();
-            baVar5 = this.a.l;
-            baVar5.h().a().a();
-            boolean z = c2 == com.baidu.tieba.d.z.WIFI || c2 == com.baidu.tieba.d.z.ThreeG;
-            str = this.a.A;
+            NetWorkCore.NetworkStateInfo c2 = NetWorkCore.c(this.f871a);
+            azVar3 = this.f871a.l;
+            azVar3.g().a().a();
+            azVar4 = this.f871a.l;
+            azVar4.i().a().a();
+            azVar5 = this.f871a.l;
+            azVar5.h().a().a();
+            boolean z = c2 == NetWorkCore.NetworkStateInfo.WIFI || c2 == NetWorkCore.NetworkStateInfo.ThreeG;
+            str = this.f871a.A;
             if (str != "frs_page") {
-                str2 = this.a.A;
+                str2 = this.f871a.A;
                 if (str2 == "normal_page") {
-                    sVar = this.a.v;
-                    String l = sVar.a().l();
+                    vVar = this.f871a.v;
+                    String l = vVar.a().l();
                     if (l != null && l.length() > 0) {
-                        this.a.b();
+                        this.f871a.b();
                     }
                 }
             } else {
-                this.a.c();
+                this.f871a.c();
             }
             int i4 = i2;
             int i5 = 0;
-            while (i4 < baVar6.g().getCount()) {
+            while (i4 < azVar6.g().getCount()) {
                 if (z || i4 <= i3) {
-                    baVar7 = this.a.l;
-                    com.baidu.tieba.a.bc bcVar = (com.baidu.tieba.a.bc) baVar7.g().getItem(i4);
-                    if (bcVar != null) {
-                        ArrayList m = bcVar.m();
+                    azVar7 = this.f871a.l;
+                    com.baidu.tieba.data.ba baVar = (com.baidu.tieba.data.ba) azVar7.g().getItem(i4);
+                    if (baVar != null) {
+                        ArrayList m = baVar.m();
                         int size = m.size();
-                        if (i5 < 13 && TiebaApplication.e().aq()) {
+                        if (i5 < 13 && TiebaApplication.f().ar()) {
                             int i6 = 0;
                             while (i6 < size) {
-                                if (((com.baidu.tieba.a.ag) m.get(i6)).a() == 3) {
+                                if (((com.baidu.tieba.data.ae) m.get(i6)).a() == 3) {
                                     if (i5 >= 13) {
                                         i = i5;
                                         break;
                                     }
                                     i5++;
-                                    baVar8 = this.a.l;
-                                    baVar8.g().a().a(((com.baidu.tieba.a.ag) m.get(i6)).b(), new t(this));
+                                    azVar8 = this.f871a.l;
+                                    azVar8.g().a().a(((com.baidu.tieba.data.ae) m.get(i6)).b(), new t(this));
                                 }
                                 i6++;
                                 i5 = i5;
@@ -99,7 +102,7 @@ class s implements Runnable {
                 }
             }
         } catch (Exception e) {
-            com.baidu.tieba.d.ae.b("PbActivity", "mGetImageRunnble.run", "error = " + e.getMessage());
+            com.baidu.tieba.util.z.b("PbActivity", "mGetImageRunnble.run", "error = " + e.getMessage());
         }
     }
 }

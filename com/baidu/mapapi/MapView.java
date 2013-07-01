@@ -24,7 +24,9 @@ public class MapView extends ViewGroup {
     public static final int DRAG_MODE_NONE = 1;
     public static final int DRAG_MODE_SCALE = 0;
     private static int g = 0;
-    e a;
+
+    /* renamed from: a  reason: collision with root package name */
+    e f524a;
     com.baidu.mapapi.a b;
     private GeoPoint c;
     private int d;
@@ -132,7 +134,7 @@ public class MapView extends ViewGroup {
         this.l = null;
         this.m = null;
         this.n = null;
-        this.a = new e(this);
+        this.f524a = new e(this);
         this.p = new ZoomControls(getContext());
         this.q = new ImageView(getContext());
         this.b = null;
@@ -153,7 +155,7 @@ public class MapView extends ViewGroup {
         this.l = null;
         this.m = null;
         this.n = null;
-        this.a = new e(this);
+        this.f524a = new e(this);
         this.p = new ZoomControls(getContext());
         this.q = new ImageView(getContext());
         this.b = null;
@@ -174,7 +176,7 @@ public class MapView extends ViewGroup {
         this.l = null;
         this.m = null;
         this.n = null;
-        this.a = new e(this);
+        this.f524a = new e(this);
         this.p = new ZoomControls(getContext());
         this.q = new ImageView(getContext());
         this.b = null;
@@ -368,7 +370,7 @@ public class MapView extends ViewGroup {
         switch (i) {
             case 9:
                 if (this.b != null) {
-                    this.b.a = true;
+                    this.b.f543a = true;
                     this.b.invalidate();
                     return true;
                 }
@@ -566,7 +568,7 @@ public class MapView extends ViewGroup {
     }
 
     public Projection getProjection() {
-        return this.a;
+        return this.f524a;
     }
 
     @Deprecated
@@ -749,10 +751,10 @@ public class MapView extends ViewGroup {
     }
 
     public void regMapViewListener(BMapManager bMapManager, MKMapViewListener mKMapViewListener) {
-        if (bMapManager == null || bMapManager.a == null) {
+        if (bMapManager == null || bMapManager.f501a == null) {
             return;
         }
-        bMapManager.a.a(mKMapViewListener);
+        bMapManager.f501a.a(mKMapViewListener);
     }
 
     public void setBuiltInZoomControls(boolean z) {

@@ -1,5 +1,5 @@
 package com.baidu.tieba.pb;
 /* loaded from: classes.dex */
 public interface cq {
-    void a(com.baidu.tieba.a.ay ayVar);
+    void a(com.baidu.tieba.data.aw awVar);
 }

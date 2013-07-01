@@ -3,83 +3,114 @@ package com.baidu.tbadk.widget.richText;
 import android.content.Context;
 import android.graphics.Rect;
 import android.text.SpannableString;
+import android.text.SpannableStringBuilder;
 import android.text.style.ImageSpan;
-import com.baidu.android.common.util.HanziToPinyin;
 import com.baidu.zeus.bouncycastle.DERTags;
 import java.util.ArrayList;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class g {
-    private int a = 0;
+
+    /* renamed from: a  reason: collision with root package name */
+    private int f607a = 0;
     private b b = null;
     private e c = null;
 
     public int a() {
-        return this.a;
+        return this.f607a;
+    }
+
+    public void a(int i, b bVar, e eVar) {
+        this.f607a = i;
+        this.b = bVar;
+        this.c = eVar;
     }
 
     public e b() {
-        if (this.a == 8) {
+        if (this.f607a == 8) {
             return this.c;
         }
         return null;
     }
 
     public SpannableString c() {
-        if (this.a != 1 || this.b == null) {
+        if (this.f607a != 1 || this.b == null) {
             return null;
         }
         return new SpannableString(this.b.a());
     }
 
-    public SpannableString a(Context context) {
-        if (this.a != 32 || this.b == null) {
-            return null;
+    public CharSequence a(Context context, ArrayList arrayList) {
+        SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
+        if (this.f607a == 32 && this.b != null) {
+            spannableStringBuilder.append((CharSequence) "视频：");
+            CharSequence d = d(context, arrayList);
+            if (d != null) {
+                spannableStringBuilder.append(d);
+            }
+            SpannableString a2 = a(context, this.f607a, this.b.a(), this.b.a());
+            if (a2 != null) {
+                spannableStringBuilder.append((CharSequence) a2);
+            }
         }
-        return a(context, this.a, "视频：", this.b.a(), this.b.a());
+        return spannableStringBuilder;
     }
 
-    public SpannableString b(Context context) {
-        if (this.a != 128 || this.b == null) {
-            return null;
+    public CharSequence b(Context context, ArrayList arrayList) {
+        SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
+        if (this.f607a == 128 && this.b != null) {
+            CharSequence d = d(context, arrayList);
+            if (d != null) {
+                spannableStringBuilder.append(d);
+            }
+            SpannableString a2 = a(context, this.f607a, this.b.b(), this.b.b());
+            if (a2 != null) {
+                spannableStringBuilder.append((CharSequence) a2);
+            }
         }
-        return a(context, this.a, null, this.b.b(), this.b.b());
+        return spannableStringBuilder;
+    }
+
+    private CharSequence d(Context context, ArrayList arrayList) {
+        g gVar = new g();
+        gVar.a(4, new b("video_icon", " "), null);
+        return gVar.c(context, arrayList);
     }
 
     public String d() {
-        if (this.a != 32 || this.b == null) {
+        if (this.f607a != 32 || this.b == null) {
             return null;
         }
         return this.b.a();
     }
 
-    public SpannableString c(Context context) {
-        if (this.a != 2 || this.b == null) {
+    public SpannableString a(Context context) {
+        if (this.f607a != 2 || this.b == null) {
             return null;
         }
-        return a(context, this.a, null, this.b.a(), this.b.b());
+        return a(context, this.f607a, this.b.a(), this.b.b());
     }
 
-    public SpannableString d(Context context) {
-        if (this.a != 16 || this.b == null) {
+    public SpannableString b(Context context) {
+        if (this.f607a != 16 || this.b == null) {
             return null;
         }
-        return a(context, this.a, null, this.b.a(), this.b.b());
+        return a(context, this.f607a, this.b.a(), this.b.b());
     }
 
-    public SpannableString a(Context context, ArrayList arrayList) {
+    private SpannableString e(Context context, ArrayList arrayList) {
         SpannableString spannableString = null;
-        if (this.a == 4 && this.b != null && this.b.a() != null && this.b.b() != null) {
-            String a = this.b.a();
+        if (this.f607a == 4 && this.b != null && this.b.a() != null && this.b.b() != null) {
+            String a2 = this.b.a();
             String b = this.b.b();
-            spannableString = new SpannableString(String.valueOf(b) + HanziToPinyin.Token.SEPARATOR);
-            int b2 = com.baidu.tbadk.a.a.a().b(a);
+            int b2 = com.baidu.tbadk.a.a.a().b(a2);
             if (b2 != 0) {
+                spannableString = new SpannableString(String.valueOf(b) + " ");
                 d dVar = new d(context, b2);
                 if (arrayList != null) {
                     arrayList.add(dVar);
                 }
-                com.baidu.tbadk.a.c c = com.baidu.tbadk.a.a.a().c(a);
+                com.baidu.tbadk.a.c c = com.baidu.tbadk.a.a.a().c(a2);
                 if (c != null) {
                     dVar.setBounds(new Rect(0, 0, c.a(), c.b()));
                 } else {
@@ -91,67 +122,62 @@ public class g {
         return spannableString;
     }
 
-    private SpannableString a(Context context, int i, String str, String str2, String str3) {
-        int i2;
-        if (str2 == null) {
+    private SpannableString a(Context context, int i, String str, String str2) {
+        if (str == null) {
             return null;
         }
-        String str4 = !str2.endsWith(HanziToPinyin.Token.SEPARATOR) ? String.valueOf(str2) + HanziToPinyin.Token.SEPARATOR : str2;
-        if (str != null) {
-            str4 = String.valueOf(str) + str4;
-            i2 = str.length();
-        } else {
-            i2 = 0;
+        if (!str.endsWith(" ")) {
+            str = String.valueOf(str) + " ";
         }
-        SpannableString spannableString = new SpannableString(str4);
-        spannableString.setSpan(new f(context, i, str3), i2, str4.length() - 1, 33);
+        SpannableString spannableString = new SpannableString(str);
+        spannableString.setSpan(new f(context, i, str2), 0, str.length() - 1, 33);
         return spannableString;
     }
 
-    public SpannableString e(Context context) {
-        switch (this.a) {
+    public CharSequence c(Context context, ArrayList arrayList) {
+        switch (this.f607a) {
             case 1:
                 return c();
             case 2:
-                return c(context);
+                return a(context);
             case 4:
-                return a(context, null);
+                return e(context, arrayList);
             case 8:
             default:
                 return null;
             case 16:
-                return d(context);
-            case 32:
-                return a(context);
-            case DERTags.TAGGED /* 128 */:
                 return b(context);
+            case 32:
+                return a(context, arrayList);
+            case DERTags.TAGGED /* 128 */:
+                return b(context, arrayList);
         }
     }
 
     public void a(JSONObject jSONObject) {
         try {
-            this.a = a(jSONObject.optInt("type", 0));
-            if (this.a == 8) {
+            this.f607a = a(jSONObject.optInt("type", 0));
+            if (this.f607a == 8) {
                 this.c = new e(jSONObject);
-            } else if (this.a == 16) {
+            } else if (this.f607a == 16) {
                 this.b = new b(jSONObject.optString("text"), jSONObject.optString("uid"));
             } else {
                 this.b = new b(jSONObject);
-                if (this.a == 4) {
+                if (this.f607a == 4) {
                     String str = "[" + jSONObject.optString("c") + "]";
                     if (com.baidu.tbadk.a.a.a().b(this.b.a()) <= 0) {
-                        this.a = 1;
+                        this.f607a = 1;
                         this.b.a(str);
                     } else {
                         this.b.b(str);
                     }
                 }
             }
-            if (this.a != 1 && this.b != null) {
+            if (this.f607a != 1 && this.b != null) {
                 this.b.c();
             }
         } catch (Exception e) {
-            com.baidu.adp.lib.e.b.a(e.getMessage());
+            com.baidu.adp.lib.c.b.a(e.getMessage());
         }
     }
 

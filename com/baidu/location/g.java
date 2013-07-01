@@ -12,11 +12,13 @@ import android.util.Log;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class g implements ServiceConnection {
-    final /* synthetic */ e a;
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ e f472a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public g(e eVar) {
-        this.a = eVar;
+        this.f472a = eVar;
     }
 
     @Override // android.content.ServiceConnection
@@ -27,28 +29,28 @@ public class g implements ServiceConnection {
         Messenger messenger3;
         j jVar;
         h hVar;
-        this.a.h = new Messenger(iBinder);
-        messenger = this.a.h;
+        this.f472a.h = new Messenger(iBinder);
+        messenger = this.f472a.h;
         if (messenger == null) {
             ap.a("baidu_location_Client", "server not connected");
             return;
         }
-        this.a.f = true;
+        this.f472a.f = true;
         Log.d("baidu_location_client", "baidu location connected ...");
         try {
             Message obtain = Message.obtain((Handler) null, 11);
-            messenger2 = this.a.j;
+            messenger2 = this.f472a.j;
             obtain.replyTo = messenger2;
-            i = this.a.i();
+            i = this.f472a.i();
             obtain.setData(i);
-            messenger3 = this.a.h;
+            messenger3 = this.f472a.h;
             messenger3.send(obtain);
-            this.a.f = true;
-            this.a.r = true;
+            this.f472a.f = true;
+            this.f472a.r = true;
             ap.a("baidu_location_Client", "bindService ...");
-            jVar = this.a.e;
+            jVar = this.f472a.e;
             if (jVar != null) {
-                hVar = this.a.i;
+                hVar = this.f472a.i;
                 hVar.obtainMessage(4).sendToTarget();
             }
         } catch (RemoteException e) {
@@ -57,8 +59,8 @@ public class g implements ServiceConnection {
 
     @Override // android.content.ServiceConnection
     public void onServiceDisconnected(ComponentName componentName) {
-        this.a.h = null;
-        this.a.f = false;
+        this.f472a.h = null;
+        this.f472a.f = false;
         ap.a("baidu_location_Client", "unbindservice...");
     }
 }

@@ -9,14 +9,16 @@ import android.widget.ListView;
 import android.widget.ProgressBar;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-public class NearbyForumActivity extends com.baidu.tieba.e {
-    private Address c = null;
-    private com.baidu.tieba.c.at d = null;
-    private ListView e = null;
-    private d f = null;
-    private View.OnClickListener g = null;
-    private ImageView h = null;
-    private c i = null;
+public class NearbyForumActivity extends com.baidu.tieba.g {
+
+    /* renamed from: a  reason: collision with root package name */
+    private Address f1116a = null;
+    private com.baidu.tieba.model.at b = null;
+    private ListView c = null;
+    private d d = null;
+    private View.OnClickListener e = null;
+    private ImageView f = null;
+    private c g = null;
     private boolean j = false;
     private ProgressBar k = null;
     private boolean l = false;
@@ -24,7 +26,7 @@ public class NearbyForumActivity extends com.baidu.tieba.e {
     private b n = null;
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.e, com.baidu.adp.a.a, android.app.Activity
+    @Override // com.baidu.tieba.g, com.baidu.adp.a.a, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         setContentView(R.layout.nearby_forum_activity);
@@ -36,25 +38,25 @@ public class NearbyForumActivity extends com.baidu.tieba.e {
     }
 
     void b() {
-        this.d = new com.baidu.tieba.c.at();
+        this.b = new com.baidu.tieba.model.at();
     }
 
     void c() {
-        this.e = (ListView) findViewById(R.id.forum_list);
-        this.g = new a(this);
-        this.f = new d(this, this.d, this.g);
-        this.e.setAdapter((ListAdapter) this.f);
+        this.c = (ListView) findViewById(R.id.forum_list);
+        this.e = new a(this);
+        this.d = new d(this, this.b, this.e);
+        this.c.setAdapter((ListAdapter) this.d);
         this.k = (ProgressBar) findViewById(R.id.forum_progress);
         this.m = (ProgressBar) findViewById(R.id.like_progress);
-        this.h = (ImageView) findViewById(R.id.distance_line);
+        this.f = (ImageView) findViewById(R.id.distance_line);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.e, android.app.Activity
+    @Override // com.baidu.tieba.g, android.app.Activity
     public void onDestroy() {
-        if (this.i != null) {
-            this.i.cancel();
-            this.i = null;
+        if (this.g != null) {
+            this.g.cancel();
+            this.g = null;
         }
         if (this.n != null) {
             this.n.cancel();
@@ -70,35 +72,35 @@ public class NearbyForumActivity extends com.baidu.tieba.e {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.e
-    public void b(int i) {
-        super.b(i);
-        this.f.notifyDataSetChanged();
+    @Override // com.baidu.tieba.g
+    public void a(int i) {
+        super.a(i);
+        this.d.notifyDataSetChanged();
         if (i == 1) {
-            this.h.setBackgroundResource(R.drawable.timeline_below_1);
+            this.f.setBackgroundResource(R.drawable.timeline_below_1);
         } else {
-            this.h.setBackgroundResource(R.drawable.timeline_below);
+            this.f.setBackgroundResource(R.drawable.timeline_below);
         }
     }
 
     public void a(Address address, boolean z) {
         if (address != null) {
-            this.c = address;
+            this.f1116a = address;
             if (!this.j) {
-                if (this.i != null) {
-                    this.i.cancel();
-                    this.i = null;
+                if (this.g != null) {
+                    this.g.cancel();
+                    this.g = null;
                 }
                 this.j = true;
                 this.k.setVisibility(0);
-                this.i = new c(this, this.c, z);
-                this.i.setPriority(3);
-                this.i.execute(String.valueOf(com.baidu.tieba.a.i.e) + "c/f/lbs/forum");
+                this.g = new c(this, this.f1116a, z);
+                this.g.setPriority(3);
+                this.g.execute(String.valueOf(com.baidu.tieba.data.g.f787a) + "c/f/lbs/forum");
             }
         }
     }
 
-    @Override // com.baidu.tieba.e, com.baidu.adp.a.a
+    @Override // com.baidu.tieba.g, com.baidu.adp.a.a
     public void a(String str) {
         if ((getParent() instanceof NewNearbyActivity) && ((NewNearbyActivity) getParent()).m() == 1) {
             super.a(str);

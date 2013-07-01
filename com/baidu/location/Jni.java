@@ -4,7 +4,9 @@ import com.baidu.zeus.NotificationProxy;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class Jni {
-    private static int a = 0;
+
+    /* renamed from: a  reason: collision with root package name */
+    private static int f452a = 0;
     private static int b = 1;
     private static int c = 2;
     private static int d = 11;
@@ -54,7 +56,7 @@ public class Jni {
         }
         int i2 = -1;
         if (str.equals("bd09")) {
-            i2 = a;
+            i2 = f452a;
         } else if (str.equals("bd09ll")) {
             i2 = b;
         } else if (str.equals("gcj02")) {

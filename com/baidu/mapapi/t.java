@@ -5,21 +5,23 @@ import android.os.Message;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class t extends Handler {
-    final /* synthetic */ s a;
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ s f568a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public t(s sVar) {
-        this.a = sVar;
+        this.f568a = sVar;
     }
 
     @Override // android.os.Handler
     public void handleMessage(Message message) {
         switch (message.what) {
             case 1:
-                this.a.b();
+                this.f568a.b();
                 return;
             case 2:
-                this.a.c();
+                this.f568a.c();
                 return;
             default:
                 return;

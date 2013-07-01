@@ -23,7 +23,9 @@ public class MyLocationOverlay extends Overlay implements SensorEventListener, L
     private Bitmap g;
     private Bitmap h;
     private Paint l;
-    private Location a = null;
+
+    /* renamed from: a  reason: collision with root package name */
+    private Location f532a = null;
     private GeoPoint b = null;
     private GeoPoint c = null;
     private Runnable d = null;
@@ -83,7 +85,7 @@ public class MyLocationOverlay extends Overlay implements SensorEventListener, L
 
     public void disableMyLocation() {
         this.i = false;
-        this.a = null;
+        this.f532a = null;
         this.b = null;
         this.c = null;
         Mj.b.removeUpdates(this);
@@ -99,8 +101,8 @@ public class MyLocationOverlay extends Overlay implements SensorEventListener, L
         if (z) {
             return false;
         }
-        if (this.a != null && this.b != null && this.c != null) {
-            drawMyLocation(canvas, mapView, this.a, this.c, j);
+        if (this.f532a != null && this.b != null && this.c != null) {
+            drawMyLocation(canvas, mapView, this.f532a, this.c, j);
         }
         if (this.j) {
             drawCompass(canvas, this.k);
@@ -139,9 +141,9 @@ public class MyLocationOverlay extends Overlay implements SensorEventListener, L
 
     public boolean enableMyLocation() {
         Mj.b.requestLocationUpdates(this);
-        this.a = Mj.b.getLocationInfo();
-        if (this.a != null) {
-            this.b = new GeoPoint(this.a.getLatitude(), this.a.getLongitude());
+        this.f532a = Mj.b.getLocationInfo();
+        if (this.f532a != null) {
+            this.b = new GeoPoint(this.f532a.getLatitude(), this.f532a.getLongitude());
             this.c = GetBaidu09Point(this.b, Mj.c);
         }
         this.i = true;
@@ -150,7 +152,7 @@ public class MyLocationOverlay extends Overlay implements SensorEventListener, L
     }
 
     public Location getLastFix() {
-        return this.a;
+        return this.f532a;
     }
 
     public GeoPoint getMyLocation() {
@@ -175,8 +177,8 @@ public class MyLocationOverlay extends Overlay implements SensorEventListener, L
 
     @Override // com.baidu.mapapi.LocationListener
     public void onLocationChanged(Location location) {
-        this.a = location;
-        if (this.a == null) {
+        this.f532a = location;
+        if (this.f532a == null) {
             this.b = null;
             this.c = null;
             this.e.invalidate();
@@ -243,7 +245,7 @@ public class MyLocationOverlay extends Overlay implements SensorEventListener, L
     }
 
     public boolean runOnFirstFix(Runnable runnable) {
-        if (this.a != null) {
+        if (this.f532a != null) {
             runnable.run();
             return true;
         }

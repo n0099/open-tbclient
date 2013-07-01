@@ -7,7 +7,9 @@ public class MKRoute {
     public static final int ROUTE_TYPE_DRIVING = 1;
     public static final int ROUTE_TYPE_UNKNOW = 0;
     public static final int ROUTE_TYPE_WALKING = 2;
-    ArrayList a;
+
+    /* renamed from: a  reason: collision with root package name */
+    ArrayList f514a;
     private int b;
     private int c;
     private int d;

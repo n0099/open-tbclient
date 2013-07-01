@@ -37,9 +37,9 @@ public abstract class Overlay {
             return;
         }
         a(canvas, drawable, i, i2);
-        Drawable a = new r().a(drawable);
-        r.a(a, drawable);
-        a(canvas, a, i, i2);
+        Drawable a2 = new r().a(drawable);
+        r.a(a2, drawable);
+        a(canvas, a2, i, i2);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */

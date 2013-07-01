@@ -5,11 +5,13 @@ import android.widget.ImageView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class be implements Animation.AnimationListener {
-    final /* synthetic */ NewNearbyActivity a;
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ NewNearbyActivity f1154a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public be(NewNearbyActivity newNearbyActivity) {
-        this.a = newNearbyActivity;
+        this.f1154a = newNearbyActivity;
     }
 
     @Override // android.view.animation.Animation.AnimationListener
@@ -24,9 +26,9 @@ public class be implements Animation.AnimationListener {
     public void onAnimationEnd(Animation animation) {
         ImageView imageView;
         ImageView imageView2;
-        imageView = this.a.E;
+        imageView = this.f1154a.E;
         imageView.setVisibility(4);
-        imageView2 = this.a.F;
+        imageView2 = this.f1154a.F;
         imageView2.setVisibility(4);
     }
 }

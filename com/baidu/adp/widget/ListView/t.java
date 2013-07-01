@@ -5,7 +5,9 @@ import android.view.View;
 import java.security.InvalidParameterException;
 /* loaded from: classes.dex */
 class t {
-    private static float a = 3.0f;
+
+    /* renamed from: a  reason: collision with root package name */
+    private static float f212a = 3.0f;
     private d b;
     private BdListView f;
     private boolean c = false;
@@ -48,17 +50,19 @@ class t {
     }
 
     public void a(MotionEvent motionEvent, int i) {
+        if (motionEvent.getAction() == 0 && a().g()) {
+            this.c = false;
+            this.g = false;
+            if (i == 0 && !this.c) {
+                this.c = true;
+                this.d = (int) motionEvent.getY();
+            }
+        }
+    }
+
+    public void b(MotionEvent motionEvent, int i) {
         if (a().g()) {
             switch (motionEvent.getAction()) {
-                case 0:
-                    this.c = false;
-                    this.g = false;
-                    if (i == 0 && !this.c) {
-                        this.c = true;
-                        this.d = (int) motionEvent.getY();
-                        return;
-                    }
-                    return;
                 case 1:
                     if (this.e != 2) {
                         if (this.e == 1) {
@@ -83,7 +87,7 @@ class t {
                     if (this.e != 2 && this.c) {
                         if (this.e == 0) {
                             this.f.setSelection(0);
-                            if (((int) ((y - this.d) / a)) < this.b.h() && y - this.d > 0) {
+                            if (((int) ((y - this.d) / f212a)) < this.b.h() && y - this.d > 0) {
                                 this.e = 1;
                                 this.b.a(this.g.booleanValue());
                                 this.g = false;
@@ -94,7 +98,7 @@ class t {
                             }
                         } else if (this.e == 1) {
                             this.f.setSelection(0);
-                            if (((int) ((y - this.d) / a)) >= this.b.h()) {
+                            if (((int) ((y - this.d) / f212a)) >= this.b.h()) {
                                 this.e = 0;
                                 this.g = true;
                                 this.b.b();
@@ -109,7 +113,7 @@ class t {
                             this.g = false;
                         }
                         if (this.e == 1 || this.e == 0) {
-                            this.b.a(0, ((int) ((y - this.d) / a)) - this.b.h(), 0, 0);
+                            this.b.a(0, ((int) ((y - this.d) / f212a)) - this.b.h(), 0, 0);
                             return;
                         }
                         return;

@@ -5,11 +5,13 @@ import android.widget.AdapterView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class v implements AdapterView.OnItemClickListener {
-    final /* synthetic */ NearbyPbActivity a;
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ NearbyPbActivity f1179a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public v(NearbyPbActivity nearbyPbActivity) {
-        this.a = nearbyPbActivity;
+        this.f1179a = nearbyPbActivity;
     }
 
     @Override // android.widget.AdapterView.OnItemClickListener
@@ -18,17 +20,17 @@ public class v implements AdapterView.OnItemClickListener {
         ae aeVar2;
         if (j != 0) {
             if (j == -1) {
-                aeVar2 = this.a.l;
+                aeVar2 = this.f1179a.l;
                 if (aeVar2.f()) {
                     return;
                 }
-                this.a.q();
+                this.f1179a.q();
             } else if (j == -2) {
-                aeVar = this.a.l;
+                aeVar = this.f1179a.l;
                 if (aeVar.e()) {
                     return;
                 }
-                this.a.p();
+                this.f1179a.p();
             }
         }
     }

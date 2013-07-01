@@ -4,11 +4,13 @@ import com.baidu.tieba.view.MultiImageView;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 class d implements c {
-    final /* synthetic */ ImageActivity a;
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ ImageActivity f1270a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(ImageActivity imageActivity) {
-        this.a = imageActivity;
+        this.f1270a = imageActivity;
     }
 
     @Override // com.baidu.tieba.pb.c
@@ -29,60 +31,60 @@ class d implements c {
         MultiImageView multiImageView13;
         MultiImageView multiImageView14;
         if (z2) {
-            multiImageView10 = this.a.o;
+            multiImageView10 = this.f1270a.o;
             if (multiImageView10.getCurrentItem() <= 3) {
-                multiImageView11 = this.a.o;
+                multiImageView11 = this.f1270a.o;
                 int itemNum = multiImageView11.getItemNum();
-                multiImageView12 = this.a.o;
+                multiImageView12 = this.f1270a.o;
                 multiImageView12.setTempSize(itemNum + 100);
-                multiImageView13 = this.a.o;
+                multiImageView13 = this.f1270a.o;
                 multiImageView13.a(itemNum + 90, false);
-                multiImageView14 = this.a.o;
+                multiImageView14 = this.f1270a.o;
                 multiImageView14.setTempSize(0);
             }
         }
-        multiImageView = this.a.o;
+        multiImageView = this.f1270a.o;
         multiImageView.setUrlData(arrayList);
-        multiImageView2 = this.a.o;
+        multiImageView2 = this.f1270a.o;
         multiImageView2.setHasNext(z);
-        multiImageView3 = this.a.o;
+        multiImageView3 = this.f1270a.o;
         multiImageView3.setNextTitle(str);
         if (i >= 0) {
-            multiImageView8 = this.a.o;
+            multiImageView8 = this.f1270a.o;
             if (i < multiImageView8.getItemNum()) {
-                multiImageView9 = this.a.o;
+                multiImageView9 = this.f1270a.o;
                 multiImageView9.a(i, false);
             }
         }
-        this.a.g = i2;
+        this.f1270a.e = i2;
         if (arrayList.size() >= 400) {
-            multiImageView4 = this.a.o;
+            multiImageView4 = this.f1270a.o;
             if (multiImageView4.getCurrentItem() > 200) {
                 for (int i4 = 0; i4 < 200; i4++) {
                     arrayList.remove(0);
                 }
-                multiImageView5 = this.a.o;
+                multiImageView5 = this.f1270a.o;
                 multiImageView5.setUrlData(arrayList);
-                ImageActivity imageActivity = this.a;
-                i3 = imageActivity.d;
-                imageActivity.d = i3 + 200;
-                multiImageView6 = this.a.o;
-                multiImageView7 = this.a.o;
+                ImageActivity imageActivity = this.f1270a;
+                i3 = imageActivity.b;
+                imageActivity.b = i3 + 200;
+                multiImageView6 = this.f1270a.o;
+                multiImageView7 = this.f1270a.o;
                 multiImageView6.a(multiImageView7.getCurrentItem() - 200, false);
             }
         }
-        this.a.o();
+        this.f1270a.o();
     }
 
     @Override // com.baidu.tieba.pb.c
     public void a(int i, String str) {
         ArrayList arrayList;
-        this.a.a(str);
+        this.f1270a.a(str);
         if (i == 40) {
-            ImageActivity imageActivity = this.a;
-            arrayList = this.a.e;
-            imageActivity.g = arrayList.size();
-            this.a.o();
+            ImageActivity imageActivity = this.f1270a;
+            arrayList = this.f1270a.c;
+            imageActivity.e = arrayList.size();
+            this.f1270a.o();
         }
     }
 }

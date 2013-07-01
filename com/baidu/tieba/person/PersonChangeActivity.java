@@ -20,16 +20,19 @@ import android.widget.RadioGroup;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.baidu.tieba.TiebaApplication;
+import com.baidu.tieba.data.PersonChangeData;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-public class PersonChangeActivity extends com.baidu.tieba.e {
-    private AlertDialog c = null;
-    private ImageView d = null;
-    private ImageView e = null;
-    private Button f = null;
-    private LinearLayout g = null;
-    private LinearLayout h = null;
-    private TextView i = null;
+public class PersonChangeActivity extends com.baidu.tieba.g {
+
+    /* renamed from: a */
+    private AlertDialog f1303a = null;
+    private ImageView b = null;
+    private ImageView c = null;
+    private Button d = null;
+    private LinearLayout e = null;
+    private LinearLayout f = null;
+    private TextView g = null;
     private TextView j = null;
     private TextView k = null;
     private TextView l = null;
@@ -46,25 +49,24 @@ public class PersonChangeActivity extends com.baidu.tieba.e {
     private RadioButton w = null;
     private InputMethodManager x = null;
     private boolean y = false;
-    private com.baidu.tieba.c.bh z = null;
+    private com.baidu.tieba.model.bh z = null;
     private com.baidu.adp.widget.a.b A = null;
-    private av B = null;
-    private aw C = null;
+    private aw B = null;
+    private ax C = null;
     private ProgressBar D = null;
     private DialogInterface.OnCancelListener E = null;
-    private com.baidu.tieba.d.a F = null;
+    private com.baidu.tieba.util.a F = null;
     private Dialog G = null;
     private boolean H = false;
-    private View.OnClickListener I = new aj(this);
+    private View.OnClickListener I = new ak(this);
 
-    public static void a(Activity activity, int i, com.baidu.tieba.a.ao aoVar) {
+    public static void a(Activity activity, int i, PersonChangeData personChangeData) {
         Intent intent = new Intent(activity, PersonChangeActivity.class);
-        intent.putExtra("data", aoVar);
+        intent.putExtra("data", personChangeData);
         activity.startActivityForResult(intent, i);
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.e, com.baidu.adp.a.a, android.app.Activity
+    @Override // com.baidu.tieba.g, com.baidu.adp.a.a, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         setContentView(R.layout.person_change_activity);
@@ -73,8 +75,7 @@ public class PersonChangeActivity extends com.baidu.tieba.e {
         d();
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.e, android.app.Activity
+    @Override // com.baidu.tieba.g, android.app.Activity
     public void onDestroy() {
         if (this.B != null) {
             this.B.cancel();
@@ -98,31 +99,29 @@ public class PersonChangeActivity extends com.baidu.tieba.e {
         return dispatchTouchEvent;
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     public void b() {
         if (this.t.getVisibility() == 0) {
             this.t.setVisibility(8);
             if (this.t.getText().length() > 0) {
                 this.r.setText(this.t.getText());
-            } else if (this.z.d().a() != null && this.z.d().a().length() > 0) {
-                this.r.setText(this.z.d().a());
+            } else if (this.z.a().getIntro() != null && this.z.a().getIntro().length() > 0) {
+                this.r.setText(this.z.a().getIntro());
             } else {
                 this.r.setText(getString(R.string.add_intro));
             }
-            if (this.z.d().a() == null || !this.z.d().a().equals(this.t.getText().toString())) {
+            if (this.z.a().getIntro() == null || !this.z.a().getIntro().equals(this.t.getText().toString())) {
                 this.H = true;
             }
-            this.z.d().a(this.t.getText().toString());
+            this.z.a().setIntro(this.t.getText().toString());
             this.r.setVisibility(0);
             a(this.x, this.t);
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     public void c() {
         if (this.t.getVisibility() != 0) {
             this.r.setVisibility(8);
-            this.t.setText(this.z.d().a());
+            this.t.setText(this.z.a().getIntro());
             this.t.setVisibility(0);
             this.t.requestFocus();
             b(this.x, this.t);
@@ -130,37 +129,36 @@ public class PersonChangeActivity extends com.baidu.tieba.e {
     }
 
     private void a(Bundle bundle) {
-        com.baidu.tieba.a.ao aoVar;
-        this.E = new an(this);
+        PersonChangeData personChangeData;
+        this.E = new ao(this);
         if (bundle != null) {
-            aoVar = (com.baidu.tieba.a.ao) bundle.getSerializable("data");
+            personChangeData = (PersonChangeData) bundle.getSerializable("data");
         } else {
-            aoVar = (com.baidu.tieba.a.ao) getIntent().getSerializableExtra("data");
+            personChangeData = (PersonChangeData) getIntent().getSerializableExtra("data");
         }
-        if (aoVar == null) {
-            aoVar = new com.baidu.tieba.a.ao();
+        if (personChangeData == null) {
+            personChangeData = new PersonChangeData();
         }
-        this.z = new com.baidu.tieba.c.bh(aoVar);
-        this.F = new com.baidu.tieba.d.a(this);
+        this.z = new com.baidu.tieba.model.bh(personChangeData);
+        this.F = new com.baidu.tieba.util.a(this);
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.e
-    public void b(int i) {
-        super.b(i);
-        com.baidu.tieba.d.ac.a(this.g, i);
-        com.baidu.tieba.d.ac.f(this.i, i);
-        com.baidu.tieba.d.ac.d(this.h, i);
-        com.baidu.tieba.d.ac.g((TextView) this.f, i);
-        com.baidu.tieba.d.ac.a(this.e, i);
+    @Override // com.baidu.tieba.g
+    public void a(int i) {
+        super.a(i);
+        com.baidu.tieba.util.x.a(this.e, i);
+        com.baidu.tieba.util.x.f(this.g, i);
+        com.baidu.tieba.util.x.d(this.f, i);
+        com.baidu.tieba.util.x.g((TextView) this.d, i);
+        com.baidu.tieba.util.x.a(this.c, i);
         if (i == 1) {
-            this.j.setTextColor(com.baidu.tieba.d.ac.a(i));
-            this.k.setTextColor(com.baidu.tieba.d.ac.a(i));
-            this.l.setTextColor(com.baidu.tieba.d.ac.a(i));
-            this.v.setTextColor(com.baidu.tieba.d.ac.a(i));
-            this.w.setTextColor(com.baidu.tieba.d.ac.a(i));
-            this.s.setTextColor(com.baidu.tieba.d.ac.a(i));
-            this.r.setTextColor(com.baidu.tieba.d.ac.a(i));
+            this.j.setTextColor(com.baidu.tieba.util.x.a(i));
+            this.k.setTextColor(com.baidu.tieba.util.x.a(i));
+            this.l.setTextColor(com.baidu.tieba.util.x.a(i));
+            this.v.setTextColor(com.baidu.tieba.util.x.a(i));
+            this.w.setTextColor(com.baidu.tieba.util.x.a(i));
+            this.s.setTextColor(com.baidu.tieba.util.x.a(i));
+            this.r.setTextColor(com.baidu.tieba.util.x.a(i));
             this.m.setImageResource(R.drawable.list_divider_1);
             this.n.setImageResource(R.drawable.list_divider_1);
             this.o.setImageResource(R.drawable.list_divider_1);
@@ -181,71 +179,71 @@ public class PersonChangeActivity extends com.baidu.tieba.e {
     @Override // android.app.Activity
     protected void onSaveInstanceState(Bundle bundle) {
         super.onSaveInstanceState(bundle);
-        bundle.putSerializable("data", this.z.d());
+        bundle.putSerializable("data", this.z.a());
     }
 
     private void d() {
         String[] strArr = {getString(R.string.take_photo), getString(R.string.album)};
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle(getString(R.string.operation));
-        builder.setItems(strArr, new ao(this));
-        if (this.c == null) {
-            this.c = builder.create();
+        builder.setItems(strArr, new ap(this));
+        if (this.f1303a == null) {
+            this.f1303a = builder.create();
         }
         this.q = (RelativeLayout) findViewById(R.id.info);
-        this.q.setOnClickListener(new ap(this));
-        this.d = (ImageView) findViewById(R.id.photo);
-        this.A = this.F.b(this.z.d().e());
+        this.q.setOnClickListener(new aq(this));
+        this.b = (ImageView) findViewById(R.id.photo);
+        this.A = this.F.b(this.z.a().getPortrait());
         if (this.A != null) {
-            this.A.b(this.d);
+            this.A.b(this.b);
         } else {
-            this.F.c(this.z.d().e(), new aq(this));
+            this.F.c(this.z.a().getPortrait(), new ar(this));
         }
-        this.g = (LinearLayout) findViewById(R.id.parent);
+        this.e = (LinearLayout) findViewById(R.id.parent);
         this.m = (ImageView) findViewById(R.id.divider1);
         this.n = (ImageView) findViewById(R.id.divider2);
         this.o = (ImageView) findViewById(R.id.divider3);
-        this.h = (LinearLayout) findViewById(R.id.title);
-        this.i = (TextView) findViewById(R.id.title_text);
+        this.f = (LinearLayout) findViewById(R.id.title);
+        this.g = (TextView) findViewById(R.id.title_text);
         this.k = (TextView) findViewById(R.id.change_text);
         this.l = (TextView) findViewById(R.id.sex_text);
-        this.e = (ImageView) findViewById(R.id.back);
-        this.e.setOnClickListener(this.I);
-        this.f = (Button) findViewById(R.id.save);
-        this.f.setOnClickListener(new ar(this));
+        this.c = (ImageView) findViewById(R.id.back);
+        this.c.setOnClickListener(this.I);
+        this.d = (Button) findViewById(R.id.save);
+        this.d.setOnClickListener(new as(this));
         this.p = (LinearLayout) findViewById(R.id.intro_click);
-        this.p.setOnClickListener(new as(this));
-        this.p.setOnTouchListener(new at(this));
+        this.p.setOnClickListener(new at(this));
+        this.p.setOnTouchListener(new au(this));
         this.s = (TextView) findViewById(R.id.intro_text);
         this.r = (TextView) findViewById(R.id.intro);
-        if (this.z.d().a() != null && this.z.d().a().length() > 0) {
-            this.r.setText(this.z.d().a());
+        if (this.z.a().getIntro() != null && this.z.a().getIntro().length() > 0) {
+            this.r.setText(this.z.a().getIntro());
         } else {
             this.r.setText(getString(R.string.add_intro));
         }
         this.t = (EditText) findViewById(R.id.edit);
-        this.t.setText(this.z.d().a());
-        this.t.setOnFocusChangeListener(new au(this));
-        this.t.setOnTouchListener(new ak(this));
+        this.t.setText(this.z.a().getIntro());
+        this.t.setOnFocusChangeListener(new av(this));
+        this.t.setOnTouchListener(new al(this));
         this.u = (RadioGroup) findViewById(R.id.sexgroup);
         this.v = (RadioButton) findViewById(R.id.man);
         this.w = (RadioButton) findViewById(R.id.woman);
-        if (this.z.d().b() == 1) {
+        if (this.z.a().getSex() == 1) {
             this.v.setChecked(true);
-        } else if (this.z.d().b() == 2) {
+        } else if (this.z.a().getSex() == 2) {
             this.w.setChecked(true);
         }
         this.j = (TextView) findViewById(R.id.name);
-        this.j.setText(this.z.d().c());
+        this.j.setText(this.z.a().getName());
         this.D = (ProgressBar) findViewById(R.id.image_progress);
         AlertDialog.Builder builder2 = new AlertDialog.Builder(this);
         builder2.setMessage(getString(R.string.confirm_giveup));
-        builder2.setPositiveButton(getString(R.string.alert_yes_button), new al(this));
-        builder2.setNeutralButton(getString(R.string.cancel), new am(this));
+        builder2.setPositiveButton(getString(R.string.alert_yes_button), new am(this));
+        builder2.setNeutralButton(getString(R.string.cancel), new an(this));
         this.G = builder2.create();
     }
 
-    @Override // com.baidu.tieba.e, android.app.Activity, android.view.KeyEvent.Callback
+    @Override // com.baidu.tieba.g, android.app.Activity, android.view.KeyEvent.Callback
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
         if (i == 4) {
             this.I.onClick(null);
@@ -260,17 +258,17 @@ public class PersonChangeActivity extends com.baidu.tieba.e {
         if (i2 == -1) {
             switch (i) {
                 case 1200001:
-                    EditHeadActivity.a(this, 1200001, 1200010, null, TiebaApplication.F());
+                    EditHeadActivity.a(this, 1200001, 1200010, null, TiebaApplication.G());
                     return;
                 case 1200002:
                     if (intent != null) {
-                        EditHeadActivity.a(this, 1200002, 1200009, intent.getData(), TiebaApplication.F());
+                        EditHeadActivity.a(this, 1200002, 1200009, intent.getData(), TiebaApplication.G());
                         return;
                     }
                     return;
                 case 1200009:
                 case 1200010:
-                    this.z.d().a(true);
+                    this.z.a().setPhotoChanged(true);
                     m();
                     return;
                 default:
@@ -295,7 +293,7 @@ public class PersonChangeActivity extends com.baidu.tieba.e {
             this.B.cancel();
         }
         this.A = null;
-        this.B = new av(this, null);
+        this.B = new aw(this, null);
         this.B.execute(new Object[0]);
     }
 }

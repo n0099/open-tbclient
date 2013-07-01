@@ -5,7 +5,9 @@ import java.io.IOException;
 import java.io.OutputStream;
 /* loaded from: classes.dex */
 public class b extends FilterOutputStream {
-    private boolean a;
+
+    /* renamed from: a  reason: collision with root package name */
+    private boolean f183a;
     private int b;
     private byte[] c;
     private int d;
@@ -20,8 +22,8 @@ public class b extends FilterOutputStream {
         super(outputStream);
         byte[] c;
         this.f = (i & 8) != 0;
-        this.a = (i & 1) != 0;
-        this.d = this.a ? 3 : 4;
+        this.f183a = (i & 1) != 0;
+        this.d = this.f183a ? 3 : 4;
         this.c = new byte[this.d];
         this.b = 0;
         this.e = 0;
@@ -38,7 +40,7 @@ public class b extends FilterOutputStream {
         byte[] b2;
         if (this.h) {
             this.out.write(i);
-        } else if (this.a) {
+        } else if (this.f183a) {
             byte[] bArr = this.c;
             int i2 = this.b;
             this.b = i2 + 1;
@@ -83,7 +85,7 @@ public class b extends FilterOutputStream {
     public void a() {
         byte[] b;
         if (this.b > 0) {
-            if (this.a) {
+            if (this.f183a) {
                 OutputStream outputStream = this.out;
                 b = a.b(this.g, this.c, this.b, this.i);
                 outputStream.write(b);

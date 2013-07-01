@@ -11,7 +11,9 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class l {
-    public String a;
+
+    /* renamed from: a */
+    public String f477a;
     public Messenger b;
     public j c = new j();
     public int d = 0;
@@ -19,12 +21,12 @@ public class l {
 
     public l(k kVar, Message message) {
         this.e = kVar;
-        this.a = null;
+        this.f477a = null;
         this.b = null;
         this.b = message.replyTo;
-        this.a = message.getData().getString("packName");
+        this.f477a = message.getData().getString("packName");
         this.c.f = message.getData().getString("prodName");
-        this.c.a = message.getData().getString("coorType");
+        this.c.f475a = message.getData().getString("coorType");
         this.c.b = message.getData().getString("addrType");
         ap.i = this.c.b;
         this.c.c = message.getData().getBoolean("openGPS");
@@ -84,13 +86,13 @@ public class l {
             return;
         }
         a(27, "locStr", str);
-        if (this.c.a != null && !this.c.a.equals("gcj02")) {
+        if (this.c.f475a != null && !this.c.f475a.equals("gcj02")) {
             double c = ap.c(str, "x\":\"", "\"");
             double c2 = ap.c(str, "y\":\"", "\"");
             if (c != Double.MIN_VALUE && c2 != Double.MIN_VALUE) {
-                double[] a = Jni.a(c, c2, this.c.a);
-                if (a[0] > 0.0d || a[1] > 0.0d) {
-                    str = ap.a(ap.a(str, "x\":\"", "\"", a[0]), "y\":\"", "\"", a[1]);
+                double[] a2 = Jni.a(c, c2, this.c.f475a);
+                if (a2[0] > 0.0d || a2[1] > 0.0d) {
+                    str = ap.a(ap.a(str, "x\":\"", "\"", a2[0]), "y\":\"", "\"", a2[1]);
                 }
             }
         }
@@ -103,7 +105,7 @@ public class l {
         String str4;
         String str5;
         int i2 = 0;
-        str2 = k.a;
+        str2 = k.f476a;
         ap.a(str2, "decode...");
         if (str == null) {
             return;
@@ -115,17 +117,17 @@ public class l {
         if (i == 21) {
             a(27, "locStr", str);
         }
-        if (this.c.a != null && !this.c.a.equals("gcj02")) {
+        if (this.c.f475a != null && !this.c.f475a.equals("gcj02")) {
             double c = ap.c(str, "x\":\"", "\"");
             double c2 = ap.c(str, "y\":\"", "\"");
-            str3 = k.a;
+            str3 = k.f476a;
             ap.a(str3, "decode..." + c + ":" + c2);
             if (c != Double.MIN_VALUE && c2 != Double.MIN_VALUE) {
-                double[] a = Jni.a(c, c2, this.c.a);
-                str = ap.a(ap.a(str, "x\":\"", "\"", a[0]), "y\":\"", "\"", a[1]);
-                str4 = k.a;
-                ap.a(str4, "decode2 ..." + a[0] + ":" + a[1]);
-                str5 = k.a;
+                double[] a2 = Jni.a(c, c2, this.c.f475a);
+                str = ap.a(ap.a(str, "x\":\"", "\"", a2[0]), "y\":\"", "\"", a2[1]);
+                str4 = k.f476a;
+                ap.a(str4, "decode2 ..." + a2[0] + ":" + a2[1]);
+                str5 = k.f476a;
                 ap.a(str5, "decode3 ..." + str);
             }
             if (this.c.j) {
@@ -141,9 +143,9 @@ public class l {
                             double parseDouble = Double.parseDouble(jSONObject5.getString("x"));
                             double parseDouble2 = Double.parseDouble(jSONObject5.getString("y"));
                             if (parseDouble != Double.MIN_VALUE && parseDouble2 != Double.MIN_VALUE) {
-                                double[] a2 = Jni.a(parseDouble, parseDouble2, this.c.a);
-                                jSONObject5.put("x", String.valueOf(a2[0]));
-                                jSONObject5.put("y", String.valueOf(a2[1]));
+                                double[] a3 = Jni.a(parseDouble, parseDouble2, this.c.f475a);
+                                jSONObject5.put("x", String.valueOf(a3[0]));
+                                jSONObject5.put("y", String.valueOf(a3[1]));
                                 jSONArray.put(i2, jSONObject5);
                                 i2++;
                             }

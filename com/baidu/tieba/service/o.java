@@ -1,12 +1,15 @@
 package com.baidu.tieba.service;
 
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.a.ah;
-import com.baidu.tieba.d.ae;
+import com.baidu.tieba.data.af;
+import com.baidu.tieba.util.z;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class o extends com.baidu.adp.lib.a.a {
-    com.baidu.tieba.d.t a = null;
+public class o extends BdAsyncTask {
+
+    /* renamed from: a  reason: collision with root package name */
+    com.baidu.tieba.util.r f1417a = null;
     final /* synthetic */ TiebaMessageService b;
 
     public o(TiebaMessageService tiebaMessageService) {
@@ -14,64 +17,64 @@ public class o extends com.baidu.adp.lib.a.a {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.a.a
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void b() {
         super.b();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.a.a
-    public ah a(String... strArr) {
-        ah ahVar;
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public af a(String... strArr) {
+        af afVar;
         Exception e;
         try {
         } catch (Exception e2) {
-            ahVar = null;
+            afVar = null;
             e = e2;
         }
-        if (TiebaApplication.e().Z()) {
-            this.a = new com.baidu.tieba.d.t(String.valueOf(com.baidu.tieba.a.i.e) + "c/s/msg");
-            String i = this.a.i();
-            if (this.a.b()) {
-                ahVar = new ah();
+        if (TiebaApplication.f().aa()) {
+            this.f1417a = new com.baidu.tieba.util.r(String.valueOf(com.baidu.tieba.data.g.f787a) + "c/s/msg");
+            String j = this.f1417a.j();
+            if (this.f1417a.c()) {
+                afVar = new af();
                 try {
-                    ahVar.a(i);
+                    afVar.a(j);
                 } catch (Exception e3) {
                     e = e3;
-                    ae.b(getClass().getName(), "doInBackground", e.getMessage());
-                    return ahVar;
+                    z.b(getClass().getName(), "doInBackground", e.getMessage());
+                    return afVar;
                 }
             } else {
-                ahVar = null;
+                afVar = null;
             }
-            return ahVar;
+            return afVar;
         }
         return null;
     }
 
-    @Override // com.baidu.adp.lib.a.a
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void cancel() {
-        this.b.a = null;
-        if (this.a != null) {
-            this.a.g();
+        this.b.f1400a = null;
+        if (this.f1417a != null) {
+            this.f1417a.h();
         }
         super.cancel(true);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.a.a
-    public void a(ah ahVar) {
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public void a(af afVar) {
         try {
-            super.a((Object) ahVar);
-            this.b.a = null;
-            if (ahVar != null) {
-                this.b.b = ahVar;
+            super.a((Object) afVar);
+            this.b.f1400a = null;
+            if (afVar != null) {
+                this.b.b = afVar;
                 this.b.b();
             }
         } catch (Exception e) {
-            ae.b(getClass().getName(), "onPostExecute", e.getMessage());
+            z.b(getClass().getName(), "onPostExecute", e.getMessage());
         }
     }
 }

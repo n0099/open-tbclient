@@ -6,34 +6,36 @@ import android.view.View;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 class ax implements View.OnLongClickListener {
-    final /* synthetic */ NewPbActivity a;
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ NewPbActivity f1215a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ax(NewPbActivity newPbActivity) {
-        this.a = newPbActivity;
+        this.f1215a = newPbActivity;
     }
 
     @Override // android.view.View.OnLongClickListener
     public boolean onLongClick(View view) {
-        com.baidu.tieba.c.ak akVar;
+        com.baidu.tieba.model.am amVar;
         bk bkVar;
         DialogInterface.OnClickListener onClickListener;
-        com.baidu.tieba.c.ax axVar;
+        com.baidu.tieba.model.ax axVar;
         SparseArray sparseArray = (SparseArray) view.getTag();
         if (sparseArray != null) {
-            this.a.c = (com.baidu.tieba.a.ar) sparseArray.get(R.id.tag_clip_board);
-            if (this.a.c != null) {
+            this.f1215a.f1189a = (com.baidu.tieba.data.an) sparseArray.get(R.id.tag_clip_board);
+            if (this.f1215a.f1189a != null) {
                 boolean z = false;
-                akVar = this.a.k;
-                if (akVar.d() && this.a.c.d() != null) {
-                    String d = this.a.c.d();
-                    axVar = this.a.j;
-                    if (d.equals(axVar.l())) {
+                amVar = this.f1215a.k;
+                if (amVar.a() && this.f1215a.f1189a.d() != null) {
+                    String d = this.f1215a.f1189a.d();
+                    axVar = this.f1215a.j;
+                    if (d.equals(axVar.i())) {
                         z = true;
                     }
                 }
-                bkVar = this.a.p;
-                onClickListener = this.a.J;
+                bkVar = this.f1215a.p;
+                onClickListener = this.f1215a.J;
                 bkVar.a(onClickListener, z);
             }
         }

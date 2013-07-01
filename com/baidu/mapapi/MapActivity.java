@@ -7,14 +7,16 @@ import android.view.Display;
 import java.util.List;
 /* loaded from: classes.dex */
 public abstract class MapActivity extends Activity {
-    private MapView a = null;
+
+    /* renamed from: a  reason: collision with root package name */
+    private MapView f522a = null;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public boolean a(MapView mapView) {
-        if (this.a != null) {
+        if (this.f522a != null) {
             throw new RuntimeException("A mapview has been created!!");
         }
-        this.a = mapView;
+        this.f522a = mapView;
         Mj.d = mapView;
         return true;
     }
@@ -23,19 +25,19 @@ public abstract class MapActivity extends Activity {
         if (bMapManager == null) {
             return false;
         }
-        if (this.a == null) {
+        if (this.f522a == null) {
             throw new RuntimeException("A mapview has not been created!!");
         }
         if (Mj.InitMapControlCC(20, 40) == 1) {
-            this.a.a();
+            this.f522a.a();
             return true;
         }
         return false;
     }
 
     protected boolean isLocationDisplayed() {
-        if (this.a != null) {
-            return this.a.b.d();
+        if (this.f522a != null) {
+            return this.f522a.b.d();
         }
         return false;
     }
@@ -53,8 +55,8 @@ public abstract class MapActivity extends Activity {
 
     @Override // android.app.Activity
     protected void onDestroy() {
-        if (this.a != null) {
-            List overlays = this.a.getOverlays();
+        if (this.f522a != null) {
+            List overlays = this.f522a.getOverlays();
             if (overlays != null) {
                 for (int size = overlays.size() - 1; size >= 0; size--) {
                     Overlay overlay = (Overlay) overlays.get(size);
@@ -66,9 +68,9 @@ public abstract class MapActivity extends Activity {
                 }
                 overlays.clear();
             }
-            this.a.b();
+            this.f522a.b();
         }
-        this.a = null;
+        this.f522a = null;
         super.onDestroy();
     }
 
@@ -86,10 +88,10 @@ public abstract class MapActivity extends Activity {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.app.Activity
     public void onResume() {
-        if (Mj.d != this.a) {
-            Mj.d = this.a;
-            if (this.a != null) {
-                this.a.b.a(this.a.getLeft(), this.a.getTop(), this.a.getRight(), this.a.getBottom());
+        if (Mj.d != this.f522a) {
+            Mj.d = this.f522a;
+            if (this.f522a != null) {
+                this.f522a.b.a(this.f522a.getLeft(), this.f522a.getTop(), this.f522a.getRight(), this.f522a.getBottom());
             }
         }
         super.onResume();

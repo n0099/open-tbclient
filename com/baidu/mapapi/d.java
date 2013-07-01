@@ -15,7 +15,9 @@ import java.net.URL;
 import java.util.HashMap;
 /* loaded from: classes.dex */
 public class d {
-    static Context a;
+
+    /* renamed from: a  reason: collision with root package name */
+    static Context f549a;
     static HashMap b = new HashMap();
     public static boolean c = false;
     public static int d = 4;
@@ -60,7 +62,7 @@ public class d {
     }
 
     public static void a() {
-        ConnectivityManager connectivityManager = a != null ? (ConnectivityManager) a.getSystemService("connectivity") : null;
+        ConnectivityManager connectivityManager = f549a != null ? (ConnectivityManager) f549a.getSystemService("connectivity") : null;
         if (connectivityManager == null) {
             c = false;
             return;
@@ -177,7 +179,7 @@ public class d {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static void a(Context context) {
-        a = context;
+        f549a = context;
     }
 
     public static void a(NetworkInfo networkInfo, boolean z) {

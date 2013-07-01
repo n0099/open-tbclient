@@ -1,15 +1,14 @@
 package com.baidu.tieba.a;
 
-import org.json.JSONObject;
+import com.baidu.tieba.k;
 /* loaded from: classes.dex */
-public abstract class d {
-    public abstract void a(JSONObject jSONObject);
+public class d extends k {
 
-    public void a(String str) {
-        try {
-            a(new JSONObject(str));
-        } catch (Exception e) {
-            com.baidu.tieba.d.ae.b(getClass().getName(), "parserJson", e.getMessage());
-        }
+    /* renamed from: a  reason: collision with root package name */
+    private static final String f624a = String.valueOf(com.baidu.tieba.data.g.f787a) + "c/f/forum/forumrecommend";
+
+    public String d() {
+        a(f624a);
+        return a();
     }
 }

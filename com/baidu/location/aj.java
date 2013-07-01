@@ -65,7 +65,7 @@ public final class aj extends Thread {
                 }
                 execute = defaultHttpClient.execute(httpPost);
                 statusCode = execute.getStatusLine().getStatusCode();
-                str4 = ah.a;
+                str4 = ah.f460a;
                 ap.a(str4, "===status error : " + statusCode);
             } catch (Exception e) {
             }
@@ -88,7 +88,7 @@ public final class aj extends Thread {
         if (i <= 0) {
             handler = ah.v;
             if (handler != null) {
-                str = ah.a;
+                str = ah.f460a;
                 ap.a(str, "have tried 3 times...");
                 handler2 = ah.v;
                 handler2.obtainMessage(64).sendToTarget();

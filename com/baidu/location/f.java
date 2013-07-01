@@ -25,11 +25,13 @@ import java.io.RandomAccessFile;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public final class f extends Service {
-    static String a = Environment.getExternalStorageDirectory().getPath() + "/baidu/tempdata";
-    private static String e = a + "/glb.dat";
+
+    /* renamed from: a */
+    static String f470a = Environment.getExternalStorageDirectory().getPath() + "/baidu/tempdata";
+    private static String e = f470a + "/glb.dat";
     private static File f = null;
     private static File g = null;
-    private String d = a + "/vm.dat";
+    private String d = f470a + "/vm.dat";
     final Handler b = new d();
     final Messenger c = new Messenger(this.b);
     private t h = null;
@@ -138,7 +140,7 @@ public final class f extends Service {
                         f.this.n();
                         break;
                     case WebChromeClient.STRING_DLG_TITLE_DATETIME /* 101 */:
-                        if (ap.a && f.this.B != null) {
+                        if (ap.f464a && f.this.B != null) {
                             f.this.B.b();
                             break;
                         }
@@ -199,7 +201,7 @@ public final class f extends Service {
             if (g.exists()) {
                 return;
             }
-            File file = new File(a);
+            File file = new File(f470a);
             if (!file.exists()) {
                 file.mkdirs();
             }
@@ -620,8 +622,8 @@ public final class f extends Service {
     }
 
     private void l() {
-        File file = new File(a);
-        File file2 = new File(a + "/ls.db");
+        File file = new File(f470a);
+        File file2 = new File(f470a + "/ls.db");
         if (!file.exists()) {
             file.mkdirs();
         }
@@ -724,7 +726,7 @@ public final class f extends Service {
         } catch (Exception e2) {
         }
         try {
-            if (ap.a && ap.l) {
+            if (ap.f464a && ap.l) {
                 this.B = new af(this, this);
             }
         } catch (Exception e3) {
@@ -756,7 +758,7 @@ public final class f extends Service {
         }
         ap.a("baidu_location_service", "onDestroy");
         Log.d("baidu_location_service", "baidu location service stop ...");
-        if (ap.a) {
+        if (ap.f464a) {
             Process.killProcess(Process.myPid());
         }
     }

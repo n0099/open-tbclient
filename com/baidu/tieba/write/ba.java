@@ -5,10 +5,12 @@ import android.content.Context;
 import android.content.Intent;
 /* loaded from: classes.dex */
 class ba extends BroadcastReceiver {
-    final /* synthetic */ WriteImageActivity a;
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ WriteImageActivity f1580a;
 
     private ba(WriteImageActivity writeImageActivity) {
-        this.a = writeImageActivity;
+        this.f1580a = writeImageActivity;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -18,11 +20,11 @@ class ba extends BroadcastReceiver {
 
     @Override // android.content.BroadcastReceiver
     public void onReceive(Context context, Intent intent) {
-        this.a.a_();
+        this.f1580a.a_();
         if (intent.getBooleanExtra("result", false)) {
-            WriteImageActivity.k(this.a);
+            WriteImageActivity.k(this.f1580a);
         } else {
-            this.a.a(intent.getStringExtra("error"));
+            this.f1580a.a(intent.getStringExtra("error"));
         }
     }
 }

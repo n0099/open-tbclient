@@ -14,7 +14,6 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.compatible.CompatibleUtile;
-import com.baidu.tieba.d.ac;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public class MentionActivity extends ActivityGroup {
@@ -25,7 +24,9 @@ public class MentionActivity extends ActivityGroup {
     private ImageView h = null;
     private View.OnClickListener i = null;
     private CompoundButton.OnCheckedChangeListener j = null;
-    RelativeLayout a = null;
+
+    /* renamed from: a */
+    RelativeLayout f975a = null;
     RelativeLayout b = null;
     TextView c = null;
     protected int d = -1;
@@ -53,13 +54,13 @@ public class MentionActivity extends ActivityGroup {
     @Override // android.app.ActivityGroup, android.app.Activity
     protected void onResume() {
         super.onResume();
-        if (TiebaApplication.e().as() != this.d) {
-            this.d = TiebaApplication.e().as();
+        if (TiebaApplication.f().at() != this.d) {
+            this.d = TiebaApplication.f().at();
             a(this.d);
         }
-        if (TiebaApplication.e().ac() > 0 && this.f != null) {
+        if (TiebaApplication.f().ad() > 0 && this.f != null) {
             this.f.setChecked(true);
-        } else if (TiebaApplication.e().ad() > 0 && this.e != null) {
+        } else if (TiebaApplication.f().ae() > 0 && this.e != null) {
             this.e.setChecked(true);
         }
     }
@@ -88,7 +89,7 @@ public class MentionActivity extends ActivityGroup {
         this.h.setOnClickListener(this.i);
         this.g.setOnClickListener(this.i);
         this.k = (FrameLayout) findViewById(R.id.content);
-        this.a = (RelativeLayout) findViewById(R.id.container);
+        this.f975a = (RelativeLayout) findViewById(R.id.container);
         this.b = (RelativeLayout) findViewById(R.id.title);
         this.c = (TextView) findViewById(R.id.title_text);
         this.f = (RadioButton) findViewById(R.id.replyme_tab);
@@ -109,13 +110,13 @@ public class MentionActivity extends ActivityGroup {
     }
 
     private void a(int i) {
-        ac.a(this.h, i);
-        ac.b(this.g, i);
-        ac.a(this.a, i);
-        ac.d(this.b, i);
-        ac.f(this.c, i);
-        ac.g((View) this.f, i);
-        ac.g((View) this.e, i);
+        com.baidu.tieba.util.x.a(this.h, i);
+        com.baidu.tieba.util.x.b(this.g, i);
+        com.baidu.tieba.util.x.a(this.f975a, i);
+        com.baidu.tieba.util.x.d(this.b, i);
+        com.baidu.tieba.util.x.f(this.c, i);
+        com.baidu.tieba.util.x.g((View) this.f, i);
+        com.baidu.tieba.util.x.g((View) this.e, i);
         b();
     }
 
@@ -147,23 +148,23 @@ public class MentionActivity extends ActivityGroup {
     }
 
     public void a(int i, boolean z) {
-        long ac = TiebaApplication.e().ac();
-        long ad = TiebaApplication.e().ad();
+        long ad = TiebaApplication.f().ad();
+        long ae = TiebaApplication.f().ae();
         if (z) {
             switch (i) {
                 case 0:
-                    a(0L, ad);
-                    TiebaApplication.e().d(0L);
+                    a(0L, ae);
+                    TiebaApplication.f().d(0L);
                     return;
                 case 1:
-                    a(ac, 0L);
-                    TiebaApplication.e().e(0L);
+                    a(ad, 0L);
+                    TiebaApplication.f().e(0L);
                     return;
                 default:
                     return;
             }
         }
-        a(ac, ad);
+        a(ad, ae);
     }
 
     public void a(long j, long j2) {

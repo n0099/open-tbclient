@@ -1,24 +1,19 @@
 package com.baidu.tieba.home;
 
-import android.widget.CompoundButton;
-import android.widget.RadioButton;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.content.DialogInterface;
 /* loaded from: classes.dex */
-public class al implements CompoundButton.OnCheckedChangeListener {
-    final /* synthetic */ SearchActivity a;
+class al implements DialogInterface.OnClickListener {
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ aj f900a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public al(SearchActivity searchActivity) {
-        this.a = searchActivity;
+    public al(aj ajVar) {
+        this.f900a = ajVar;
     }
 
-    @Override // android.widget.CompoundButton.OnCheckedChangeListener
-    public void onCheckedChanged(CompoundButton compoundButton, boolean z) {
-        RadioButton radioButton;
-        if (z) {
-            this.a.c(1);
-            radioButton = this.a.j;
-            radioButton.setChecked(false);
-        }
+    @Override // android.content.DialogInterface.OnClickListener
+    public void onClick(DialogInterface dialogInterface, int i) {
+        dialogInterface.cancel();
     }
 }

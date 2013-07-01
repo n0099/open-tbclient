@@ -9,22 +9,21 @@ import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.c.an;
-import com.baidu.tieba.d.ae;
+import com.baidu.tieba.model.ap;
 import com.baidu.tieba.pb.NewPbActivity;
 import com.slidingmenu.lib.R;
 import java.util.ArrayList;
 import org.apache.http.message.BasicNameValuePair;
 /* loaded from: classes.dex */
 public class h {
-    private com.baidu.tieba.e b;
+    private com.baidu.tieba.g b;
     private int h;
     private n j;
     private int o;
     private FrameLayout c = null;
     private ListView d = null;
     private e e = null;
-    private an f = null;
+    private ap f = null;
     private int g = 1;
     private int i = 0;
     private p k = null;
@@ -32,16 +31,18 @@ public class h {
     private q m = null;
     private TextView n = null;
     private String p = null;
-    AlertDialog a = null;
+
+    /* renamed from: a  reason: collision with root package name */
+    AlertDialog f986a = null;
     private o q = null;
     private Handler r = new Handler();
     private Runnable s = new i(this);
 
-    public h(com.baidu.tieba.e eVar, int i, n nVar) {
+    public h(com.baidu.tieba.g gVar, int i, n nVar) {
         this.b = null;
         this.h = 0;
         this.j = null;
-        this.b = eVar;
+        this.b = gVar;
         this.h = i;
         this.j = nVar;
     }
@@ -89,7 +90,7 @@ public class h {
         this.g = 1;
         this.e = new e(this.b, null);
         this.e.a(this.h);
-        this.e.b(TiebaApplication.e().ap());
+        this.e.b(TiebaApplication.f().aq());
         this.d.setAdapter((ListAdapter) this.e);
         this.d.setOnItemClickListener(new k(this));
         this.q = new o(this);
@@ -99,16 +100,16 @@ public class h {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void a(com.baidu.tieba.a.r rVar) {
+    public void a(com.baidu.tieba.data.q qVar) {
         CharSequence[] charSequenceArr = {this.b.getString(R.string.view_post), this.b.getString(R.string.reply), this.b.getString(R.string.view_pb)};
         MentionActivity g = g();
         if (g != null) {
             AlertDialog.Builder builder = new AlertDialog.Builder(g);
             builder.setTitle(this.b.getString(R.string.operation));
             builder.setItems(charSequenceArr, this.q);
-            this.a = builder.create();
-            this.a.setCanceledOnTouchOutside(true);
-            this.a.show();
+            this.f986a = builder.create();
+            this.f986a.setCanceledOnTouchOutside(true);
+            this.f986a.show();
         }
     }
 
@@ -137,16 +138,16 @@ public class h {
                 a(this.f);
                 return;
             }
-            String a = this.j.a();
-            if (a != null && a.length() > 0) {
-                an anVar = new an();
-                anVar.a(a);
-                if (!anVar.a()) {
-                    ae.a("HomeLikeAsyncTask", "doInBackground", "cache data format err");
+            String a2 = this.j.a();
+            if (a2 != null && a2.length() > 0) {
+                ap apVar = new ap();
+                apVar.a(a2);
+                if (!apVar.a()) {
+                    com.baidu.tieba.util.z.a("HomeLikeAsyncTask", "doInBackground", "cache data format err");
                     this.j.b();
                 } else {
-                    ae.a("HomeLikeAsyncTask", "doInBackground", "cache data.size: " + String.valueOf(a.length()));
-                    a(anVar);
+                    com.baidu.tieba.util.z.a("HomeLikeAsyncTask", "doInBackground", "cache data.size: " + String.valueOf(a2.length()));
+                    a(apVar);
                     return;
                 }
             }
@@ -155,14 +156,14 @@ public class h {
             this.g = 1;
         }
         StringBuffer stringBuffer = new StringBuffer(30);
-        stringBuffer.append(com.baidu.tieba.a.i.e);
+        stringBuffer.append(com.baidu.tieba.data.g.f787a);
         stringBuffer.append(this.p);
         ArrayList arrayList = new ArrayList();
-        arrayList.add(new BasicNameValuePair("uid", TiebaApplication.C()));
+        arrayList.add(new BasicNameValuePair("uid", TiebaApplication.E()));
         arrayList.add(new BasicNameValuePair("pn", String.valueOf(this.g)));
         if (this.o == 4 && this.f != null && (b = this.f.b()) != null && b.size() > 0) {
-            com.baidu.tieba.a.r rVar = (com.baidu.tieba.a.r) b.get(b.size() - 1);
-            arrayList.add(new BasicNameValuePair("ids", String.format("%s,%s", rVar.g(), rVar.h())));
+            com.baidu.tieba.data.q qVar = (com.baidu.tieba.data.q) b.get(b.size() - 1);
+            arrayList.add(new BasicNameValuePair("ids", String.format("%s,%s", qVar.g(), qVar.h())));
         }
         h();
         if (this.k != null) {
@@ -175,16 +176,16 @@ public class h {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void a(an anVar) {
-        if (anVar != null && anVar.b() != null) {
+    public void a(ap apVar) {
+        if (apVar != null && apVar.b() != null) {
             if (this.o == 4 && this.f != null) {
                 ArrayList b = this.f.b();
-                b.addAll(anVar.b());
-                anVar.a(b);
+                b.addAll(apVar.b());
+                apVar.a(b);
                 this.f = null;
-                this.f = anVar;
+                this.f = apVar;
             } else {
-                this.f = anVar;
+                this.f = apVar;
             }
             if (this.f != null) {
                 if (this.f.c().f() == 1) {
@@ -227,8 +228,8 @@ public class h {
     }
 
     public void e() {
-        if (this.e != null && this.e.d() != TiebaApplication.e().ap()) {
-            this.e.b(TiebaApplication.e().ap());
+        if (this.e != null && this.e.d() != TiebaApplication.f().aq()) {
+            this.e.b(TiebaApplication.f().aq());
             this.e.notifyDataSetChanged();
         }
     }
@@ -260,7 +261,7 @@ public class h {
     /* JADX INFO: Access modifiers changed from: private */
     public void a(String str, String str2, String str3, int i) {
         StringBuffer stringBuffer = new StringBuffer(30);
-        stringBuffer.append(com.baidu.tieba.a.i.e);
+        stringBuffer.append(com.baidu.tieba.data.g.f787a);
         ArrayList arrayList = new ArrayList();
         if (i == 1) {
             stringBuffer.append("c/f/pb/page");
@@ -282,7 +283,7 @@ public class h {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void b(com.baidu.tieba.a.r rVar) {
-        NewPbActivity.b(this.b, rVar.g(), rVar.h(), "mention");
+    public void b(com.baidu.tieba.data.q qVar) {
+        NewPbActivity.b(this.b, qVar.g(), qVar.h(), "mention");
     }
 }

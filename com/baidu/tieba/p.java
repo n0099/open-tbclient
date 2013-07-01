@@ -1,48 +1,34 @@
 package com.baidu.tieba;
 
-import android.view.animation.Animation;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import com.slidingmenu.lib.R;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 /* loaded from: classes.dex */
-class p implements android.support.v4.view.aj {
-    final /* synthetic */ LabelActivity a;
+class p extends BdAsyncTask {
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ GuideActivity f1185a;
+
+    private p(GuideActivity guideActivity) {
+        this.f1185a = guideActivity;
+    }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public p(LabelActivity labelActivity) {
-        this.a = labelActivity;
+    public /* synthetic */ p(GuideActivity guideActivity, p pVar) {
+        this(guideActivity);
     }
 
-    @Override // android.support.v4.view.aj
-    public void a(int i) {
-        LinearLayout linearLayout;
-        Animation animation;
-        Animation animation2;
-        LinearLayout linearLayout2;
-        linearLayout = this.a.t;
-        int childCount = linearLayout.getChildCount();
-        if (i < childCount) {
-            for (int i2 = 0; i2 < childCount; i2++) {
-                linearLayout2 = this.a.t;
-                ImageView imageView = (ImageView) linearLayout2.getChildAt(i2);
-                if (i2 != i) {
-                    imageView.setBackgroundResource(R.drawable.tag_page_rb_click);
-                } else {
-                    imageView.setBackgroundResource(R.drawable.tag_page_rb_normal);
-                }
-            }
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public Boolean a(String... strArr) {
+        return Boolean.valueOf(GuideActivity.g(this.f1185a));
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public void a(Boolean bool) {
+        if (!bool.booleanValue()) {
+            GuideActivity.h(this.f1185a);
         }
-        animation = this.a.w;
-        animation.reset();
-        animation2 = this.a.w;
-        animation2.start();
-    }
-
-    @Override // android.support.v4.view.aj
-    public void b(int i) {
-    }
-
-    @Override // android.support.v4.view.aj
-    public void a(int i, float f, int i2) {
     }
 }

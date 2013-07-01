@@ -47,13 +47,13 @@ public final class ak extends Thread {
             i2 = ah.o;
             params2.setParameter("http.socket.timeout", Integer.valueOf(i2));
             if (defaultHttpClient.execute(httpPost).getStatusLine().getStatusCode() == 200) {
-                str2 = ah.a;
+                str2 = ah.f460a;
                 ap.a(str2, "Status ok1...");
                 arrayList2 = ah.n;
                 arrayList2.clear();
                 ArrayList unused = ah.n = null;
             } else {
-                str = ah.a;
+                str = ah.f460a;
                 ap.a(str, "Status err1...");
             }
         } catch (Exception e) {

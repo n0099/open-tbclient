@@ -1,24 +1,25 @@
 package com.baidu.tbadk.widget.richText;
 
 import android.graphics.Rect;
-import android.text.SpannableString;
 import android.text.SpannableStringBuilder;
 import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes.dex */
 public class c {
-    private int a;
+
+    /* renamed from: a  reason: collision with root package name */
+    private int f603a;
     private SpannableStringBuilder b = null;
     private e c = null;
     private ArrayList d = null;
 
     public c(int i) {
-        this.a = 0;
-        this.a = i;
+        this.f603a = 0;
+        this.f603a = i;
     }
 
     public int a() {
-        return this.a;
+        return this.f603a;
     }
 
     public ArrayList b() {
@@ -50,30 +51,30 @@ public class c {
         }
     }
 
-    public void a(SpannableString spannableString) {
-        if (this.a == 1 && spannableString != null) {
+    public void a(CharSequence charSequence) {
+        if (this.f603a == 1 && charSequence != null) {
             if (this.b == null) {
                 this.b = new SpannableStringBuilder("");
             }
-            this.b.append((CharSequence) spannableString);
+            this.b.append(charSequence);
         }
     }
 
     public void a(String str) {
-        if (this.a == 32 && str != null) {
+        if (this.f603a == 32 && str != null) {
             this.b = new SpannableStringBuilder(str);
         }
     }
 
     public e c() {
-        if (this.a != 8) {
+        if (this.f603a != 8) {
             return null;
         }
         return this.c;
     }
 
     public void a(e eVar) {
-        if (this.a == 8) {
+        if (this.f603a == 8) {
             this.c = eVar;
         }
     }
@@ -83,11 +84,11 @@ public class c {
     }
 
     public String toString() {
-        if (this.a == 1) {
+        if (this.f603a == 1) {
             if (this.b != null) {
                 return this.b.toString();
             }
-        } else if (this.a == 8 && this.c != null) {
+        } else if (this.f603a == 8 && this.c != null) {
             return this.c.d();
         }
         return "";

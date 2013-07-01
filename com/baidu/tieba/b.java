@@ -1,27 +1,19 @@
 package com.baidu.tieba;
 
-import com.baidu.tieba.BaiduAccount.BaiduAccount;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.view.View;
 /* loaded from: classes.dex */
-public class b implements BaiduAccount.BaiduOnAccountsUpdateListener {
-    @Override // com.baidu.tieba.BaiduAccount.BaiduAccount.BaiduOnAccountsUpdateListener
-    public void onAccountsUpdated(String str) {
-        com.baidu.tieba.d.ae.e(getClass().getName(), "onAccountsUpdated", "account =" + str);
-        if ((str != null && str.equals(TiebaApplication.G())) || TiebaApplication.F() == null) {
-            return;
-        }
-        a.b(TiebaApplication.C());
-        com.baidu.tieba.a.a F = TiebaApplication.F();
-        if (F != null) {
-            F.d(null);
-            F.b(str);
-            F.a((String) null);
-            F.a(1);
-        }
-        TiebaApplication.e().a(0L, 0L, 0L, 0L);
-        TiebaApplication.e().R();
-        if (str == null || str.equals("BaiduUser")) {
-            TiebaApplication.e().f(0);
-        }
+class b implements View.OnClickListener {
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ a f705a;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public b(a aVar) {
+        this.f705a = aVar;
+    }
+
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        this.f705a.c();
     }
 }

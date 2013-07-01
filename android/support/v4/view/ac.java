@@ -1,9 +1,15 @@
 package android.support.v4.view;
 
-import android.view.ViewConfiguration;
+import android.view.MotionEvent;
 /* loaded from: classes.dex */
-class ac {
-    public static int a(ViewConfiguration viewConfiguration) {
-        return viewConfiguration.getScaledPagingTouchSlop();
-    }
+interface ac {
+    int a(MotionEvent motionEvent);
+
+    int a(MotionEvent motionEvent, int i);
+
+    int b(MotionEvent motionEvent, int i);
+
+    float c(MotionEvent motionEvent, int i);
+
+    float d(MotionEvent motionEvent, int i);
 }

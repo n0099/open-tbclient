@@ -25,12 +25,12 @@ public class ar {
             edit2.putString("a", string2);
             edit2.commit();
         }
-        String a = ap.a((AccountProxy.BAIDUACCOUNT_TYPE + string + string2).getBytes(), true);
-        String string3 = Settings.System.getString(context.getContentResolver(), a);
+        String a2 = ap.a((AccountProxy.BAIDUACCOUNT_TYPE + string + string2).getBytes(), true);
+        String string3 = Settings.System.getString(context.getContentResolver(), a2);
         if (TextUtils.isEmpty(string3)) {
-            String a2 = ap.a((string + string2 + UUID.randomUUID().toString()).getBytes(), true);
-            Settings.System.putString(context.getContentResolver(), a, a2);
-            return !a2.equals(Settings.System.getString(context.getContentResolver(), a)) ? a : a2;
+            String a3 = ap.a((string + string2 + UUID.randomUUID().toString()).getBytes(), true);
+            Settings.System.putString(context.getContentResolver(), a2, a3);
+            return !a3.equals(Settings.System.getString(context.getContentResolver(), a2)) ? a2 : a3;
         }
         return string3;
     }

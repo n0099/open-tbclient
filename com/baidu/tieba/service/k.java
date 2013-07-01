@@ -1,6 +1,7 @@
 package com.baidu.tieba.service;
 
-import com.baidu.tieba.d.ae;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.tieba.util.z;
 import com.baidu.zeus.NotificationProxy;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -8,12 +9,14 @@ import java.io.FileInputStream;
 import java.io.FileWriter;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class k extends com.baidu.adp.lib.a.a {
-    final /* synthetic */ PerformMonitorService a;
-    private com.baidu.tieba.d.t b;
+public class k extends BdAsyncTask {
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ PerformMonitorService f1413a;
+    private com.baidu.tieba.util.r b;
 
     private k(PerformMonitorService performMonitorService) {
-        this.a = performMonitorService;
+        this.f1413a = performMonitorService;
         this.b = null;
     }
 
@@ -42,7 +45,7 @@ public class k extends com.baidu.adp.lib.a.a {
         FileWriter fileWriter2 = null;
         try {
             try {
-                File c = com.baidu.tieba.d.o.c(str);
+                File c = com.baidu.tieba.util.m.c(str);
                 if (c != null) {
                     fileInputStream = new FileInputStream(c);
                     try {
@@ -50,7 +53,7 @@ public class k extends com.baidu.adp.lib.a.a {
                         byteArrayOutputStream = new ByteArrayOutputStream(NotificationProxy.MAX_URL_LENGTH);
                         try {
                             if (z) {
-                                com.baidu.tieba.d.q.b(fileInputStream, byteArrayOutputStream);
+                                com.baidu.tieba.util.o.b(fileInputStream, byteArrayOutputStream);
                             } else {
                                 byte[] bArr2 = new byte[NotificationProxy.MAX_URL_LENGTH];
                                 while (true) {
@@ -68,14 +71,14 @@ public class k extends com.baidu.adp.lib.a.a {
                                     try {
                                         byteArrayOutputStream.close();
                                     } catch (Exception e) {
-                                        ae.b(getClass().getName(), "sendPerformFile", e.getMessage());
+                                        z.b(getClass().getName(), "sendPerformFile", e.getMessage());
                                     }
                                 }
                                 if (fileInputStream != null) {
                                     try {
                                         fileInputStream.close();
                                     } catch (Exception e2) {
-                                        ae.b(getClass().getName(), "sendPerformFile", e2.getMessage());
+                                        z.b(getClass().getName(), "sendPerformFile", e2.getMessage());
                                     }
                                 }
                                 if (0 != 0) {
@@ -83,16 +86,16 @@ public class k extends com.baidu.adp.lib.a.a {
                                         fileWriter2.close();
                                         return;
                                     } catch (Exception e3) {
-                                        ae.b(getClass().getName(), "sendPerformFile", e3.getMessage());
+                                        z.b(getClass().getName(), "sendPerformFile", e3.getMessage());
                                         return;
                                     }
                                 }
                                 return;
                             }
-                            this.b = new com.baidu.tieba.d.t(String.valueOf(com.baidu.tieba.a.i.e) + str2);
+                            this.b = new com.baidu.tieba.util.r(String.valueOf(com.baidu.tieba.data.g.f787a) + str2);
                             this.b.a("logfile", byteArray);
                             this.b.a("errortype", "3");
-                            this.b.j();
+                            this.b.k();
                             if (byteArrayOutputStream != null) {
                                 byteArrayOutputStream.close();
                                 byteArrayOutputStream2 = null;
@@ -106,7 +109,7 @@ public class k extends com.baidu.adp.lib.a.a {
                                 } catch (Exception e4) {
                                     e = e4;
                                     byteArrayOutputStream = byteArrayOutputStream2;
-                                    ae.b(getClass().getName(), "sendPerformFile", e.getMessage());
+                                    z.b(getClass().getName(), "sendPerformFile", e.getMessage());
                                     if (byteArrayOutputStream != null) {
                                     }
                                     if (fileInputStream != null) {
@@ -128,7 +131,7 @@ public class k extends com.baidu.adp.lib.a.a {
                                 fileInputStream2 = fileInputStream;
                             }
                             try {
-                                if (this.b.b()) {
+                                if (this.b.c()) {
                                     FileWriter fileWriter3 = new FileWriter(c, false);
                                     try {
                                         fileWriter3.append((CharSequence) "");
@@ -139,26 +142,26 @@ public class k extends com.baidu.adp.lib.a.a {
                                             fileWriter = fileWriter3;
                                         }
                                         if (!c.delete()) {
-                                            ae.b(getClass().getName(), "sendPerformFile", "file.delete error");
+                                            z.b(getClass().getName(), "sendPerformFile", "file.delete error");
                                         }
                                     } catch (Exception e5) {
                                         e = e5;
                                         fileWriter = fileWriter3;
                                         fileInputStream = fileInputStream2;
                                         byteArrayOutputStream = byteArrayOutputStream2;
-                                        ae.b(getClass().getName(), "sendPerformFile", e.getMessage());
+                                        z.b(getClass().getName(), "sendPerformFile", e.getMessage());
                                         if (byteArrayOutputStream != null) {
                                             try {
                                                 byteArrayOutputStream.close();
                                             } catch (Exception e6) {
-                                                ae.b(getClass().getName(), "sendPerformFile", e6.getMessage());
+                                                z.b(getClass().getName(), "sendPerformFile", e6.getMessage());
                                             }
                                         }
                                         if (fileInputStream != null) {
                                             try {
                                                 fileInputStream.close();
                                             } catch (Exception e7) {
-                                                ae.b(getClass().getName(), "sendPerformFile", e7.getMessage());
+                                                z.b(getClass().getName(), "sendPerformFile", e7.getMessage());
                                             }
                                         }
                                         if (fileWriter == null) {
@@ -166,7 +169,7 @@ public class k extends com.baidu.adp.lib.a.a {
                                                 fileWriter.close();
                                                 return;
                                             } catch (Exception e8) {
-                                                ae.b(getClass().getName(), "sendPerformFile", e8.getMessage());
+                                                z.b(getClass().getName(), "sendPerformFile", e8.getMessage());
                                                 return;
                                             }
                                         }
@@ -180,21 +183,21 @@ public class k extends com.baidu.adp.lib.a.a {
                                             try {
                                                 byteArrayOutputStream.close();
                                             } catch (Exception e9) {
-                                                ae.b(getClass().getName(), "sendPerformFile", e9.getMessage());
+                                                z.b(getClass().getName(), "sendPerformFile", e9.getMessage());
                                             }
                                         }
                                         if (fileInputStream != null) {
                                             try {
                                                 fileInputStream.close();
                                             } catch (Exception e10) {
-                                                ae.b(getClass().getName(), "sendPerformFile", e10.getMessage());
+                                                z.b(getClass().getName(), "sendPerformFile", e10.getMessage());
                                             }
                                         }
                                         if (fileWriter != null) {
                                             try {
                                                 fileWriter.close();
                                             } catch (Exception e11) {
-                                                ae.b(getClass().getName(), "sendPerformFile", e11.getMessage());
+                                                z.b(getClass().getName(), "sendPerformFile", e11.getMessage());
                                             }
                                         }
                                         throw th;
@@ -227,21 +230,21 @@ public class k extends com.baidu.adp.lib.a.a {
                     try {
                         byteArrayOutputStream2.close();
                     } catch (Exception e15) {
-                        ae.b(getClass().getName(), "sendPerformFile", e15.getMessage());
+                        z.b(getClass().getName(), "sendPerformFile", e15.getMessage());
                     }
                 }
                 if (fileInputStream2 != null) {
                     try {
                         fileInputStream2.close();
                     } catch (Exception e16) {
-                        ae.b(getClass().getName(), "sendPerformFile", e16.getMessage());
+                        z.b(getClass().getName(), "sendPerformFile", e16.getMessage());
                     }
                 }
                 if (fileWriter != null) {
                     try {
                         fileWriter.close();
                     } catch (Exception e17) {
-                        ae.b(getClass().getName(), "sendPerformFile", e17.getMessage());
+                        z.b(getClass().getName(), "sendPerformFile", e17.getMessage());
                     }
                 }
             } catch (Throwable th5) {
@@ -260,28 +263,28 @@ public class k extends com.baidu.adp.lib.a.a {
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.a.a
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public String a(String... strArr) {
         a("performance_sample.log", "c/s/logupload", false);
         return null;
     }
 
-    @Override // com.baidu.adp.lib.a.a
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void cancel() {
         if (this.b != null) {
-            this.b.g();
+            this.b.h();
         }
-        this.a.g = null;
+        this.f1413a.g = null;
         super.cancel(true);
-        this.a.stopSelf();
+        this.f1413a.stopSelf();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.a.a
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void a(String str) {
         super.a((Object) str);
-        this.a.g = null;
-        this.a.stopSelf();
+        this.f1413a.g = null;
+        this.f1413a.stopSelf();
     }
 }

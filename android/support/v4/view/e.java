@@ -1,13 +1,8 @@
 package android.support.v4.view;
-
-import android.view.KeyEvent;
 /* loaded from: classes.dex */
-class e {
-    public static boolean a(int i, int i2) {
-        return KeyEvent.metaStateHasModifiers(i, i2);
-    }
-
-    public static boolean a(int i) {
-        return KeyEvent.metaStateHasNoModifiers(i);
+class e extends b {
+    @Override // android.support.v4.view.b, android.support.v4.view.g, android.support.v4.view.d
+    public Object a(a aVar) {
+        return k.a(new f(this, aVar));
     }
 }

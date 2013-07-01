@@ -4,7 +4,6 @@ import android.content.Context;
 import android.os.Build;
 import android.os.Environment;
 import android.os.Message;
-import com.baidu.android.common.util.HanziToPinyin;
 import com.baidu.browser.core.util.BdLog;
 import com.baidu.browser.core.util.BdMemUtil;
 import com.baidu.browser.core.util.BdZipInputStream;
@@ -595,7 +594,7 @@ public final class BdWebViewManager extends Observable {
     public boolean isHighSpeedPhone() {
         long fetchCpuMaxFreq = (fetchCpuMaxFreq() * getCpuCoresNum()) / 1000;
         boolean HasGPU = getInstance().isZeusLoaded() ? WebView.HasGPU() : true;
-        BdLog.d("GFS info: " + String.valueOf(fetchCpuMaxFreq) + HanziToPinyin.Token.SEPARATOR + String.valueOf(HasGPU));
+        BdLog.d("GFS info: " + String.valueOf(fetchCpuMaxFreq) + " " + String.valueOf(HasGPU));
         return fetchCpuMaxFreq >= 1433 && ((Long) BdMemUtil.getSysMemoryInfo().get("MemTotal:")).longValue() / 1000 >= 512 && HasGPU;
     }
 }

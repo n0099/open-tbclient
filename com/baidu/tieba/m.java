@@ -1,30 +1,19 @@
 package com.baidu.tieba;
-/* loaded from: classes.dex */
-class m extends com.baidu.adp.lib.a.a {
-    final /* synthetic */ GuideActivity a;
 
-    private m(GuideActivity guideActivity) {
-        this.a = guideActivity;
-    }
+import android.view.View;
+/* loaded from: classes.dex */
+class m implements View.OnClickListener {
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ GuideActivity f950a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ m(GuideActivity guideActivity, m mVar) {
-        this(guideActivity);
+    public m(GuideActivity guideActivity) {
+        this.f950a = guideActivity;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.a.a
-    public Boolean a(String... strArr) {
-        return Boolean.valueOf(GuideActivity.g(this.a));
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.a.a
-    public void a(Boolean bool) {
-        if (!bool.booleanValue()) {
-            GuideActivity.h(this.a);
-        }
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        this.f950a.a();
     }
 }

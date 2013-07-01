@@ -4,19 +4,21 @@ import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ce implements View.OnFocusChangeListener {
-    final /* synthetic */ bk a;
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ bk f1249a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ce(bk bkVar) {
-        this.a = bkVar;
+        this.f1249a = bkVar;
     }
 
     @Override // android.view.View.OnFocusChangeListener
     public void onFocusChange(View view, boolean z) {
-        com.baidu.tieba.e eVar;
+        com.baidu.tieba.g gVar;
         if (!z) {
-            eVar = this.a.b;
-            com.baidu.tieba.d.ag.a(eVar, view);
+            gVar = this.f1249a.b;
+            com.baidu.tieba.util.ab.a(gVar, view);
         }
     }
 }

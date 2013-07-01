@@ -6,7 +6,9 @@ import android.os.Handler;
 import android.os.IBinder;
 /* loaded from: classes.dex */
 public class ClearTempService extends Service {
-    private volatile boolean a = false;
+
+    /* renamed from: a  reason: collision with root package name */
+    private volatile boolean f1394a = false;
     private Thread b = null;
     private Handler c = new a(this);
 
@@ -23,13 +25,13 @@ public class ClearTempService extends Service {
     @Override // android.app.Service
     public void onDestroy() {
         super.onDestroy();
-        this.a = true;
+        this.f1394a = true;
     }
 
     @Override // android.app.Service
     public void onStart(Intent intent, int i) {
         super.onStart(intent, i);
-        this.a = false;
+        this.f1394a = false;
         if (this.b == null) {
             this.b = new b(this);
             this.b.start();

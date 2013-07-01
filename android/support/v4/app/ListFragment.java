@@ -15,10 +15,9 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 /* loaded from: classes.dex */
 public class ListFragment extends Fragment {
-    private final Handler V = new Handler();
-    private final Runnable W = new u(this);
-    private final AdapterView.OnItemClickListener X = new v(this);
-    ListAdapter a;
+
+    /* renamed from: a  reason: collision with root package name */
+    ListAdapter f47a;
     ListView b;
     View c;
     TextView d;
@@ -26,10 +25,13 @@ public class ListFragment extends Fragment {
     View f;
     CharSequence g;
     boolean h;
+    private final Handler i = new Handler();
+    private final Runnable Y = new af(this);
+    private final AdapterView.OnItemClickListener Z = new ag(this);
 
     @Override // android.support.v4.app.Fragment
     public View a(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
-        g g = g();
+        n g = g();
         FrameLayout frameLayout = new FrameLayout(g);
         LinearLayout linearLayout = new LinearLayout(g);
         linearLayout.setId(16711682);
@@ -60,27 +62,27 @@ public class ListFragment extends Fragment {
     }
 
     @Override // android.support.v4.app.Fragment
-    public void d() {
-        this.V.removeCallbacks(this.W);
+    public void e() {
+        this.i.removeCallbacks(this.Y);
         this.b = null;
         this.h = false;
         this.f = null;
         this.e = null;
         this.c = null;
         this.d = null;
-        super.d();
+        super.e();
     }
 
     public void a(ListView listView, View view, int i, long j) {
     }
 
     public void a(ListAdapter listAdapter) {
-        boolean z = this.a != null;
-        this.a = listAdapter;
+        boolean z = this.f47a != null;
+        this.f47a = listAdapter;
         if (this.b != null) {
             this.b.setAdapter(listAdapter);
             if (!this.h && !z) {
-                a(true, i().getWindowToken() != null);
+                a(true, k().getWindowToken() != null);
             }
         }
     }
@@ -118,22 +120,22 @@ public class ListFragment extends Fragment {
 
     private void a() {
         if (this.b == null) {
-            View i = i();
-            if (i == null) {
+            View k = k();
+            if (k == null) {
                 throw new IllegalStateException("Content view not yet created");
             }
-            if (i instanceof ListView) {
-                this.b = (ListView) i;
+            if (k instanceof ListView) {
+                this.b = (ListView) k;
             } else {
-                this.d = (TextView) i.findViewById(16711681);
+                this.d = (TextView) k.findViewById(16711681);
                 if (this.d == null) {
-                    this.c = i.findViewById(16908292);
+                    this.c = k.findViewById(16908292);
                 } else {
                     this.d.setVisibility(8);
                 }
-                this.e = i.findViewById(16711682);
-                this.f = i.findViewById(16711683);
-                View findViewById = i.findViewById(16908298);
+                this.e = k.findViewById(16711682);
+                this.f = k.findViewById(16711683);
+                View findViewById = k.findViewById(16908298);
                 if (!(findViewById instanceof ListView)) {
                     if (findViewById == null) {
                         throw new RuntimeException("Your content must have a ListView whose id attribute is 'android.R.id.list'");
@@ -149,15 +151,15 @@ public class ListFragment extends Fragment {
                 }
             }
             this.h = true;
-            this.b.setOnItemClickListener(this.X);
-            if (this.a != null) {
-                ListAdapter listAdapter = this.a;
-                this.a = null;
+            this.b.setOnItemClickListener(this.Z);
+            if (this.f47a != null) {
+                ListAdapter listAdapter = this.f47a;
+                this.f47a = null;
                 a(listAdapter);
             } else if (this.e != null) {
                 a(false, false);
             }
-            this.V.post(this.W);
+            this.i.post(this.Y);
         }
     }
 }

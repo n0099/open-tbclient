@@ -1,37 +1,19 @@
 package com.baidu.tieba.view;
 
-import android.view.View;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.graphics.Bitmap;
+import android.graphics.Canvas;
+import android.graphics.drawable.BitmapDrawable;
 /* loaded from: classes.dex */
-public class al implements l {
-    final /* synthetic */ MultiImageView a;
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public al(MultiImageView multiImageView) {
-        this.a = multiImageView;
+public class al extends BitmapDrawable {
+    public al(Bitmap bitmap) {
+        super(bitmap);
     }
 
-    @Override // com.baidu.tieba.view.l
-    public void a(h hVar) {
-        GalleryViewPager galleryViewPager;
-        boolean z;
-        GalleryViewPager galleryViewPager2;
-        GalleryViewPager galleryViewPager3;
-        galleryViewPager = this.a.e;
-        if (hVar == galleryViewPager.getCurrentView()) {
-            z = this.a.l;
-            if (z) {
-                galleryViewPager2 = this.a.e;
-                int childCount = galleryViewPager2.getChildCount();
-                for (int i = 0; i < childCount; i++) {
-                    galleryViewPager3 = this.a.e;
-                    View childAt = galleryViewPager3.getChildAt(i);
-                    if (childAt != null && (childAt instanceof ar) && ((ar) childAt).getImageView() != hVar) {
-                        ((ar) childAt).d();
-                    }
-                }
-            }
-            hVar.e();
+    @Override // android.graphics.drawable.BitmapDrawable, android.graphics.drawable.Drawable
+    public void draw(Canvas canvas) {
+        Bitmap bitmap = getBitmap();
+        if (bitmap != null) {
+            canvas.drawBitmap(bitmap, 0.0f, 0.0f, getPaint());
         }
     }
 }

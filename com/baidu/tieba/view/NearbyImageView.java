@@ -13,7 +13,9 @@ import com.baidu.tieba.TiebaApplication;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public class NearbyImageView extends ImageView {
-    private Bitmap a;
+
+    /* renamed from: a  reason: collision with root package name */
+    private Bitmap f1499a;
     private Bitmap b;
     private Matrix c;
     private Matrix d;
@@ -22,7 +24,7 @@ public class NearbyImageView extends ImageView {
 
     public NearbyImageView(Context context) {
         super(context);
-        this.a = com.baidu.tieba.d.d.a((int) R.drawable.icon_gif);
+        this.f1499a = com.baidu.tieba.util.d.a((int) R.drawable.icon_gif);
         this.b = null;
         this.c = new Matrix();
         this.d = new Matrix();
@@ -33,7 +35,7 @@ public class NearbyImageView extends ImageView {
 
     public NearbyImageView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.a = com.baidu.tieba.d.d.a((int) R.drawable.icon_gif);
+        this.f1499a = com.baidu.tieba.util.d.a((int) R.drawable.icon_gif);
         this.b = null;
         this.c = new Matrix();
         this.d = new Matrix();
@@ -44,7 +46,7 @@ public class NearbyImageView extends ImageView {
 
     public NearbyImageView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.a = com.baidu.tieba.d.d.a((int) R.drawable.icon_gif);
+        this.f1499a = com.baidu.tieba.util.d.a((int) R.drawable.icon_gif);
         this.b = null;
         this.c = new Matrix();
         this.d = new Matrix();
@@ -66,10 +68,10 @@ public class NearbyImageView extends ImageView {
 
     private void a() {
         this.e.setColor(1275068416);
-        if (TiebaApplication.e().as() == 1) {
-            this.b = com.baidu.tieba.d.d.a((int) R.drawable.image_default_1);
+        if (TiebaApplication.f().at() == 1) {
+            this.b = com.baidu.tieba.util.d.a((int) R.drawable.image_default_1);
         } else {
-            this.b = com.baidu.tieba.d.d.a((int) R.drawable.image_default);
+            this.b = com.baidu.tieba.util.d.a((int) R.drawable.image_default);
         }
     }
 
@@ -81,10 +83,10 @@ public class NearbyImageView extends ImageView {
         boolean c = (d == null || !d.g()) ? false : d.c();
         if (d != null) {
             z = true;
-        } else if (TiebaApplication.e().as() == 1) {
-            d = new com.baidu.adp.widget.a.b(com.baidu.tieba.d.d.a((int) R.drawable.image_default_1), false, null);
+        } else if (TiebaApplication.f().at() == 1) {
+            d = new com.baidu.adp.widget.a.b(com.baidu.tieba.util.d.a((int) R.drawable.image_default_1), false, null);
         } else {
-            d = new com.baidu.adp.widget.a.b(com.baidu.tieba.d.d.a((int) R.drawable.image_default), false, null);
+            d = new com.baidu.adp.widget.a.b(com.baidu.tieba.util.d.a((int) R.drawable.image_default), false, null);
         }
         if (d != null) {
             if (z) {
@@ -94,10 +96,10 @@ public class NearbyImageView extends ImageView {
                 d.a(canvas, this.c, null);
                 this.c.reset();
                 this.c.setTranslate(0.0f, 0.0f);
-                if (c && d.b() > this.a.getHeight() && d.a() > this.a.getWidth()) {
-                    canvas.drawBitmap(this.a, this.c, null);
+                if (c && d.b() > this.f1499a.getHeight() && d.a() > this.f1499a.getWidth()) {
+                    canvas.drawBitmap(this.f1499a, this.c, null);
                 }
-                if (TiebaApplication.e().as() == 1) {
+                if (TiebaApplication.f().at() == 1) {
                     this.f.set(0.0f, 0.0f, (d.a() * width) + 0.0f, (d.b() * width) + 0.0f);
                     canvas.drawRect(this.f, this.e);
                     return;

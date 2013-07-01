@@ -3,11 +3,13 @@ package com.baidu.tieba.view;
 import android.view.View;
 /* loaded from: classes.dex */
 class b implements View.OnLongClickListener {
-    final /* synthetic */ BaseWebView a;
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ BaseWebView f1518a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(BaseWebView baseWebView) {
-        this.a = baseWebView;
+        this.f1518a = baseWebView;
     }
 
     @Override // android.view.View.OnLongClickListener

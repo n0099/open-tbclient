@@ -5,11 +5,13 @@ import android.os.Bundle;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class e implements Projection {
-    private MapView a;
+
+    /* renamed from: a  reason: collision with root package name */
+    private MapView f551a;
 
     public e(MapView mapView) {
-        this.a = null;
-        this.a = mapView;
+        this.f551a = null;
+        this.f551a = mapView;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -29,12 +31,12 @@ public class e implements Projection {
 
     @Override // com.baidu.mapapi.Projection
     public GeoPoint fromPixels(int i, int i2) {
-        int i3 = i - this.a.b.c;
-        int i4 = i2 - this.a.b.d;
-        if (this.a.b.e != 1.0d) {
-            int i5 = (int) ((i4 - this.a.b.g) / this.a.b.e);
-            i3 = ((int) ((i3 - this.a.b.f) / this.a.b.e)) + this.a.b.f;
-            i4 = i5 + this.a.b.g;
+        int i3 = i - this.f551a.b.c;
+        int i4 = i2 - this.f551a.b.d;
+        if (this.f551a.b.e != 1.0d) {
+            int i5 = (int) ((i4 - this.f551a.b.g) / this.f551a.b.e);
+            i3 = ((int) ((i3 - this.f551a.b.f) / this.f551a.b.e)) + this.f551a.b.f;
+            i4 = i5 + this.f551a.b.g;
         }
         Bundle bundle = new Bundle();
         bundle.putInt("act", 15010100);
@@ -46,7 +48,7 @@ public class e implements Projection {
 
     @Override // com.baidu.mapapi.Projection
     public float metersToEquatorPixels(float f) {
-        return (float) (f / this.a.h());
+        return (float) (f / this.f551a.h());
     }
 
     @Override // com.baidu.mapapi.Projection
@@ -61,12 +63,12 @@ public class e implements Projection {
         }
         point.x = bundle.getInt("x");
         point.y = bundle.getInt("y");
-        if (this.a.b.e != 1.0d) {
-            point.x = ((int) (((point.x - this.a.b.f) * this.a.b.e) + 0.5d)) + this.a.b.f;
-            point.y = this.a.b.g + ((int) (((point.y - this.a.b.g) * this.a.b.e) + 0.5d));
+        if (this.f551a.b.e != 1.0d) {
+            point.x = ((int) (((point.x - this.f551a.b.f) * this.f551a.b.e) + 0.5d)) + this.f551a.b.f;
+            point.y = this.f551a.b.g + ((int) (((point.y - this.f551a.b.g) * this.f551a.b.e) + 0.5d));
         }
-        point.x += this.a.b.c;
-        point.y += this.a.b.d;
+        point.x += this.f551a.b.c;
+        point.y += this.f551a.b.d;
         return point;
     }
 }

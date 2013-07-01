@@ -3,27 +3,29 @@ package com.baidu.adp.a;
 import android.app.Application;
 /* loaded from: classes.dex */
 public class b extends Application {
-    private static b a = null;
+
+    /* renamed from: a  reason: collision with root package name */
+    private static b f117a = null;
     private boolean b = false;
 
     @Override // android.app.Application
     public void onCreate() {
-        a = this;
+        f117a = this;
         super.onCreate();
-        d();
         e();
-        c();
-    }
-
-    private void c() {
-        com.baidu.adp.lib.b.b.a().a(this, false);
-    }
-
-    public static b a() {
-        return a;
+        f();
+        d();
     }
 
     private void d() {
+        com.baidu.adp.lib.network.b.a().a(this, false);
+    }
+
+    public static b a() {
+        return f117a;
+    }
+
+    private void e() {
         if ((getApplicationInfo().flags & 2) == 0) {
             this.b = false;
         } else {
@@ -35,7 +37,10 @@ public class b extends Application {
         return this.b;
     }
 
-    private void e() {
-        com.baidu.adp.lib.e.a.a().a(this);
+    private void f() {
+        com.baidu.adp.lib.c.a.a().a(this);
+    }
+
+    public void c() {
     }
 }

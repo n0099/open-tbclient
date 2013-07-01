@@ -12,7 +12,9 @@ import java.io.RandomAccessFile;
 import java.util.Calendar;
 /* loaded from: classes.dex */
 public class af {
-    final /* synthetic */ f a;
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ f f458a;
     private AlarmManager d;
     private ag e;
     private PendingIntent f;
@@ -31,7 +33,7 @@ public class af {
     private String q = null;
 
     public af(f fVar, Context context) {
-        this.a = fVar;
+        this.f458a = fVar;
         this.d = null;
         this.e = null;
         this.f = null;
@@ -72,17 +74,17 @@ public class af {
             h();
             this.j = 0;
             this.k = null;
-            wVar = this.a.j;
+            wVar = this.f458a.j;
             if (wVar != null) {
-                wVar4 = this.a.j;
+                wVar4 = this.f458a.j;
                 wVar4.e();
             }
-            wVar2 = this.a.j;
+            wVar2 = this.f458a.j;
             if (wVar2 != null) {
-                wVar3 = this.a.j;
+                wVar3 = this.f458a.j;
                 aa h = wVar3.h();
-                if (h != null && h.a != null) {
-                    int size = h.a.size();
+                if (h != null && h.f454a != null) {
+                    int size = h.f454a.size();
                     if (size > 20) {
                         size = 20;
                     }
@@ -91,7 +93,7 @@ public class af {
                         try {
                             i = i2 + 1;
                             try {
-                                this.i[i2] = Long.parseLong(((ScanResult) h.a.get(i3)).BSSID.replace(":", ""), 16);
+                                this.i[i2] = Long.parseLong(((ScanResult) h.f454a.get(i3)).BSSID.replace(":", ""), 16);
                             } catch (Exception e) {
                             }
                         } catch (Exception e2) {
@@ -103,9 +105,9 @@ public class af {
                     this.j = i2;
                 }
             }
-            tVar = this.a.h;
+            tVar = this.f458a.h;
             if (tVar != null) {
-                tVar2 = this.a.h;
+                tVar2 = this.f458a.h;
                 this.k = tVar2.d();
             }
             if (this.k != null) {
@@ -130,7 +132,7 @@ public class af {
         e();
         ap.a("baidu_location_service", "trace1:" + this.l);
         try {
-            str = this.a.c() ? "y2" : "y1";
+            str = this.f458a.c() ? "y2" : "y1";
         } catch (Exception e) {
             str = "y";
         }
@@ -155,7 +157,7 @@ public class af {
                     int i3 = (bArr[7] & 255) | ((bArr[6] << 8) & 65280) | ((bArr[5] << 16) & 16711680) | ((bArr[4] << 24) & (-16777216));
                     int i4 = (bArr[11] & 255) | ((bArr[10] << 8) & 65280) | ((bArr[9] << 16) & 16711680) | ((bArr[8] << 24) & (-16777216));
                     int i5 = (bArr[15] & 255) | ((bArr[14] << 8) & 65280) | ((bArr[13] << 16) & 16711680) | ((bArr[12] << 24) & (-16777216));
-                    if (this.k.c == i2 && this.k.d == i3 && this.k.a == i4 && this.k.b == i5) {
+                    if (this.k.c == i2 && this.k.d == i3 && this.k.f485a == i4 && this.k.b == i5) {
                         long[] jArr = new long[readInt4];
                         for (int i6 = 0; i6 < readInt4; i6++) {
                             jArr[i6] = ((bArr[(i6 * 8) + 16] & 255) << 56) | ((bArr[((i6 * 8) + 16) + 1] & 255) << 48) | ((bArr[((i6 * 8) + 16) + 2] & 255) << 40) | ((bArr[((i6 * 8) + 16) + 3] & 255) << 32) | ((bArr[((i6 * 8) + 16) + 4] & 255) << 24) | ((bArr[((i6 * 8) + 16) + 5] & 255) << 16) | ((bArr[((i6 * 8) + 16) + 6] & 255) << 8) | (bArr[(i6 * 8) + 16 + 7] & 255);
@@ -184,11 +186,11 @@ public class af {
                             }
                             ap.a("baidu_location_service", "daily info:is same");
                             if (!z) {
-                                String str3 = (this.k.c == 460 ? "|x," : "|x460,") + this.k.d + "," + this.k.a + "," + this.k.b;
+                                String str3 = (this.k.c == 460 ? "|x," : "|x460,") + this.k.d + "," + this.k.f485a + "," + this.k.b;
                                 long j = 0;
-                                wVar = this.a.j;
+                                wVar = this.f458a.j;
                                 if (wVar != null) {
-                                    wVar2 = this.a.j;
+                                    wVar2 = this.f458a.j;
                                     String f = wVar2.f();
                                     if (f != null) {
                                         try {
@@ -276,7 +278,7 @@ public class af {
             randomAccessFile.writeInt(this.j);
             randomAccessFile.writeInt(this.k.c);
             randomAccessFile.writeInt(this.k.d);
-            randomAccessFile.writeInt(this.k.a);
+            randomAccessFile.writeInt(this.k.f485a);
             randomAccessFile.writeInt(this.k.b);
             byte[] bArr = new byte[160];
             for (int i = 0; i < this.j; i++) {
@@ -306,18 +308,18 @@ public class af {
         File file2;
         File file3;
         try {
-            str = this.a.d;
+            str = this.f458a.d;
             if (str == null) {
                 File unused = f.f = null;
                 return;
             }
-            str2 = this.a.d;
+            str2 = this.f458a.d;
             File unused2 = f.f = new File(str2);
             file = f.f;
             if (file.exists()) {
                 return;
             }
-            File file4 = new File(f.a);
+            File file4 = new File(f.f470a);
             if (!file4.exists()) {
                 file4.mkdirs();
             }

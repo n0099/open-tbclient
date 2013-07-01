@@ -1,29 +1,31 @@
 package com.baidu.tieba.write;
 
 import android.content.DialogInterface;
-import com.baidu.tieba.c.bs;
+import com.baidu.tieba.model.WriteModel;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class al implements DialogInterface.OnClickListener {
-    final /* synthetic */ WriteActivity a;
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ WriteActivity f1564a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public al(WriteActivity writeActivity) {
-        this.a = writeActivity;
+        this.f1564a = writeActivity;
     }
 
     @Override // android.content.DialogInterface.OnClickListener
     public void onClick(DialogInterface dialogInterface, int i) {
-        bs bsVar;
-        bs bsVar2;
+        WriteModel writeModel;
+        WriteModel writeModel2;
         if (i == 0) {
-            bb.a(this.a);
-            bsVar2 = this.a.c;
-            bsVar2.c(2);
+            bb.a(this.f1564a);
+            writeModel2 = this.f1564a.f1550a;
+            writeModel2.setPicType(2);
         } else if (i == 1) {
-            bb.b(this.a);
-            bsVar = this.a.c;
-            bsVar.c(1);
+            bb.b(this.f1564a);
+            writeModel = this.f1564a.f1550a;
+            writeModel.setPicType(1);
         }
     }
 }

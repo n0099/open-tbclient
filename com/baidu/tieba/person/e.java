@@ -1,33 +1,48 @@
 package com.baidu.tieba.person;
 
 import android.view.View;
-import android.widget.AdapterView;
-import com.baidu.tieba.frs.FrsActivity;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class e implements AdapterView.OnItemClickListener {
-    final /* synthetic */ EditBarActivity a;
+public class e implements View.OnClickListener {
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ EditBarActivity f1358a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(EditBarActivity editBarActivity) {
-        this.a = editBarActivity;
+        this.f1358a = editBarActivity;
     }
 
-    @Override // android.widget.AdapterView.OnItemClickListener
-    public void onItemClick(AdapterView adapterView, View view, int i, long j) {
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        int i;
+        int i2;
+        j jVar;
+        j jVar2;
+        int i3;
         i iVar;
-        h hVar;
         i iVar2;
-        iVar = this.a.g;
-        if (iVar.getItem(i) != null) {
-            hVar = this.a.k;
-            if (hVar == null) {
-                this.a.j = i;
-                iVar2 = this.a.g;
-                com.baidu.tieba.a.s sVar = (com.baidu.tieba.a.s) iVar2.getItem(i);
-                if (sVar != null) {
-                    FrsActivity.a(this.a, sVar.b(), "tb_mytieba");
+        i iVar3;
+        i iVar4;
+        this.f1358a.j = ((Integer) view.getTag()).intValue();
+        i = this.f1358a.j;
+        if (i >= 0) {
+            i2 = this.f1358a.j;
+            jVar = this.f1358a.e;
+            if (i2 < jVar.getCount()) {
+                jVar2 = this.f1358a.e;
+                i3 = this.f1358a.j;
+                com.baidu.tieba.data.r rVar = (com.baidu.tieba.data.r) jVar2.getItem(i3);
+                iVar = this.f1358a.k;
+                if (iVar != null) {
+                    iVar4 = this.f1358a.k;
+                    iVar4.cancel();
                 }
+                this.f1358a.k = new i(this.f1358a, null);
+                iVar2 = this.f1358a.k;
+                iVar2.setPriority(2);
+                iVar3 = this.f1358a.k;
+                iVar3.execute(rVar);
             }
         }
     }

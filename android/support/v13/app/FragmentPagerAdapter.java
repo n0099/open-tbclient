@@ -4,11 +4,11 @@ import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.os.Parcelable;
-import android.support.v4.view.k;
+import android.support.v4.view.ae;
 import android.view.View;
 import android.view.ViewGroup;
 /* loaded from: classes.dex */
-public abstract class FragmentPagerAdapter extends k {
+public abstract class FragmentPagerAdapter extends ae {
     private static final boolean DEBUG = false;
     private static final String TAG = "FragmentPagerAdapter";
     private FragmentTransaction mCurTransaction = null;
@@ -21,21 +21,22 @@ public abstract class FragmentPagerAdapter extends k {
         this.mFragmentManager = fragmentManager;
     }
 
-    @Override // android.support.v4.view.k
+    @Override // android.support.v4.view.ae
     public void startUpdate(ViewGroup viewGroup) {
     }
 
-    @Override // android.support.v4.view.k
+    @Override // android.support.v4.view.ae
     public Object instantiateItem(ViewGroup viewGroup, int i) {
         if (this.mCurTransaction == null) {
             this.mCurTransaction = this.mFragmentManager.beginTransaction();
         }
-        Fragment findFragmentByTag = this.mFragmentManager.findFragmentByTag(makeFragmentName(viewGroup.getId(), i));
+        long itemId = getItemId(i);
+        Fragment findFragmentByTag = this.mFragmentManager.findFragmentByTag(makeFragmentName(viewGroup.getId(), itemId));
         if (findFragmentByTag != null) {
             this.mCurTransaction.attach(findFragmentByTag);
         } else {
             findFragmentByTag = getItem(i);
-            this.mCurTransaction.add(viewGroup.getId(), findFragmentByTag, makeFragmentName(viewGroup.getId(), i));
+            this.mCurTransaction.add(viewGroup.getId(), findFragmentByTag, makeFragmentName(viewGroup.getId(), itemId));
         }
         if (findFragmentByTag != this.mCurrentPrimaryItem) {
             FragmentCompat.setMenuVisibility(findFragmentByTag, false);
@@ -44,7 +45,7 @@ public abstract class FragmentPagerAdapter extends k {
         return findFragmentByTag;
     }
 
-    @Override // android.support.v4.view.k
+    @Override // android.support.v4.view.ae
     public void destroyItem(ViewGroup viewGroup, int i, Object obj) {
         if (this.mCurTransaction == null) {
             this.mCurTransaction = this.mFragmentManager.beginTransaction();
@@ -52,7 +53,7 @@ public abstract class FragmentPagerAdapter extends k {
         this.mCurTransaction.detach((Fragment) obj);
     }
 
-    @Override // android.support.v4.view.k
+    @Override // android.support.v4.view.ae
     public void setPrimaryItem(ViewGroup viewGroup, int i, Object obj) {
         Fragment fragment = (Fragment) obj;
         if (fragment != this.mCurrentPrimaryItem) {
@@ -68,7 +69,7 @@ public abstract class FragmentPagerAdapter extends k {
         }
     }
 
-    @Override // android.support.v4.view.k
+    @Override // android.support.v4.view.ae
     public void finishUpdate(ViewGroup viewGroup) {
         if (this.mCurTransaction != null) {
             this.mCurTransaction.commitAllowingStateLoss();
@@ -77,21 +78,25 @@ public abstract class FragmentPagerAdapter extends k {
         }
     }
 
-    @Override // android.support.v4.view.k
+    @Override // android.support.v4.view.ae
     public boolean isViewFromObject(View view, Object obj) {
         return ((Fragment) obj).getView() == view;
     }
 
-    @Override // android.support.v4.view.k
+    @Override // android.support.v4.view.ae
     public Parcelable saveState() {
         return null;
     }
 
-    @Override // android.support.v4.view.k
+    @Override // android.support.v4.view.ae
     public void restoreState(Parcelable parcelable, ClassLoader classLoader) {
     }
 
-    private static String makeFragmentName(int i, int i2) {
-        return "android:switcher:" + i + ":" + i2;
+    public long getItemId(int i) {
+        return i;
+    }
+
+    private static String makeFragmentName(int i, long j) {
+        return "android:switcher:" + i + ":" + j;
     }
 }

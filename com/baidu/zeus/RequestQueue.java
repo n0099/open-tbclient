@@ -9,7 +9,6 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.Uri;
 import android.util.Log;
-import com.baidu.android.common.util.HanziToPinyin;
 import java.io.InputStream;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
@@ -346,10 +345,10 @@ public class RequestQueue implements RequestFeeder {
             while (it.hasNext()) {
                 Map.Entry entry = (Map.Entry) it.next();
                 int i2 = i + 1;
-                StringBuilder sb2 = new StringBuilder("p" + i + HanziToPinyin.Token.SEPARATOR + ((HttpHost) entry.getKey()).getHostName() + HanziToPinyin.Token.SEPARATOR);
+                StringBuilder sb2 = new StringBuilder("p" + i + " " + ((HttpHost) entry.getKey()).getHostName() + " ");
                 ((LinkedList) entry.getValue()).listIterator(0);
                 while (it.hasNext()) {
-                    sb2.append(((Request) it.next()) + HanziToPinyin.Token.SEPARATOR);
+                    sb2.append(((Request) it.next()) + " ");
                 }
                 sb.append((CharSequence) sb2);
                 sb.append("\n");

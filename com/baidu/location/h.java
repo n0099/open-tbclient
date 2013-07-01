@@ -6,10 +6,12 @@ import com.baidu.zeus.bouncycastle.DERTags;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class h extends Handler {
-    final /* synthetic */ e a;
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ e f473a;
 
     private h(e eVar) {
-        this.a = eVar;
+        this.f473a = eVar;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -23,61 +25,61 @@ public class h extends Handler {
         j jVar2;
         switch (message.what) {
             case 1:
-                this.a.g();
+                this.f473a.g();
                 return;
             case 2:
-                this.a.h();
+                this.f473a.h();
                 return;
             case 3:
-                this.a.d(message);
+                this.f473a.d(message);
                 return;
             case 4:
-                this.a.l();
+                this.f473a.l();
                 return;
             case 5:
-                this.a.e(message);
+                this.f473a.e(message);
                 return;
             case 6:
-                this.a.f(message);
+                this.f473a.f(message);
                 return;
             case 7:
-                this.a.m();
+                this.f473a.m();
                 return;
             case 8:
-                this.a.c(message);
+                this.f473a.c(message);
                 return;
             case 9:
-                this.a.a(message);
+                this.f473a.a(message);
                 return;
             case 10:
-                this.a.b(message);
+                this.f473a.b(message);
                 return;
             case 11:
-                this.a.k();
+                this.f473a.k();
                 return;
             case 12:
-                this.a.f();
+                this.f473a.f();
                 return;
             case 21:
-                this.a.a(message, 21);
+                this.f473a.a(message, 21);
                 return;
             case DERTags.VISIBLE_STRING /* 26 */:
-                this.a.a(message, 26);
+                this.f473a.a(message, 26);
                 return;
             case DERTags.GENERAL_STRING /* 27 */:
-                this.a.g(message);
+                this.f473a.g(message);
                 return;
             case 54:
-                jVar2 = this.a.e;
+                jVar2 = this.f473a.e;
                 if (jVar2.h) {
-                    this.a.q = true;
+                    this.f473a.q = true;
                     return;
                 }
                 return;
             case 55:
-                jVar = this.a.e;
+                jVar = this.f473a.e;
                 if (jVar.h) {
-                    this.a.q = false;
+                    this.f473a.q = false;
                     return;
                 }
                 return;

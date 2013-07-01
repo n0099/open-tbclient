@@ -1,11 +1,21 @@
 package android.support.v4.app;
-
-import android.os.Bundle;
 /* loaded from: classes.dex */
-public interface x {
-    android.support.v4.content.b a(int i, Bundle bundle);
+class x implements Runnable {
 
-    void a(android.support.v4.content.b bVar);
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ int f67a;
+    final /* synthetic */ int b;
+    final /* synthetic */ v c;
 
-    void a(android.support.v4.content.b bVar, Object obj);
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public x(v vVar, int i, int i2) {
+        this.c = vVar;
+        this.f67a = i;
+        this.b = i2;
+    }
+
+    @Override // java.lang.Runnable
+    public void run() {
+        this.c.a(this.c.o.mHandler, (String) null, this.f67a, this.b);
+    }
 }

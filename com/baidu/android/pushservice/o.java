@@ -1,19 +1,102 @@
 package com.baidu.android.pushservice;
 
-import android.content.BroadcastReceiver;
+import android.app.Notification;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
+import android.content.res.Resources;
+import android.net.Uri;
+import android.widget.RemoteViews;
+import android.widget.Toast;
+import com.baidu.android.pushservice.richmedia.MediaViewActivity;
+import java.io.File;
 /* loaded from: classes.dex */
-class o extends BroadcastReceiver {
-    final /* synthetic */ PushService a;
+class o implements com.baidu.android.pushservice.richmedia.s {
+
+    /* renamed from: a  reason: collision with root package name */
+    public Context f328a;
+    public RemoteViews b = null;
+    public int c = 0;
+    public int d = 0;
+    public int e = 0;
+    public int f = 0;
+    NotificationManager g;
+    final /* synthetic */ PushServiceReceiver h;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public o(PushService pushService) {
-        this.a = pushService;
+    public o(PushServiceReceiver pushServiceReceiver, Context context) {
+        this.h = pushServiceReceiver;
+        this.f328a = null;
+        this.f328a = context;
+        this.g = (NotificationManager) context.getSystemService("notification");
     }
 
-    @Override // android.content.BroadcastReceiver
-    public void onReceive(Context context, Intent intent) {
-        this.a.d();
+    @Override // com.baidu.android.pushservice.richmedia.s
+    public void a(com.baidu.android.pushservice.richmedia.b bVar) {
+        Resources resources = this.f328a.getResources();
+        String packageName = this.f328a.getPackageName();
+        if (resources == null) {
+            return;
+        }
+        int identifier = resources.getIdentifier("bpush_download_progress", "layout", packageName);
+        this.b = new RemoteViews(this.f328a.getPackageName(), identifier);
+        if (identifier != 0) {
+            this.c = resources.getIdentifier("bpush_download_progress", "id", packageName);
+            this.d = resources.getIdentifier("bpush_progress_percent", "id", packageName);
+            this.e = resources.getIdentifier("bpush_progress_text", "id", packageName);
+            this.f = resources.getIdentifier("bpush_download_icon", "id", packageName);
+            this.b.setImageViewResource(this.f, this.f328a.getApplicationInfo().icon);
+        }
+    }
+
+    @Override // com.baidu.android.pushservice.richmedia.s
+    public void a(com.baidu.android.pushservice.richmedia.b bVar, com.baidu.android.pushservice.richmedia.m mVar) {
+        String d = bVar.d.d();
+        if (mVar.f346a == mVar.b || this.b == null) {
+            return;
+        }
+        int i = (int) ((mVar.f346a * 100.0d) / mVar.b);
+        this.b.setTextViewText(this.d, i + "%");
+        this.b.setTextViewText(this.e, "正在下载富媒体:" + d);
+        this.b.setProgressBar(this.c, 100, i, false);
+        Notification notification = new Notification(17301633, null, System.currentTimeMillis());
+        notification.contentView = this.b;
+        notification.contentIntent = PendingIntent.getActivity(this.f328a, 0, new Intent(), 0);
+        notification.flags |= 32;
+        notification.flags |= 2;
+        this.g.notify(d, 0, notification);
+    }
+
+    @Override // com.baidu.android.pushservice.richmedia.s
+    public void a(com.baidu.android.pushservice.richmedia.b bVar, com.baidu.android.pushservice.richmedia.r rVar) {
+        String d = bVar.d.d();
+        this.g.cancel(d, 0);
+        com.baidu.android.pushservice.util.i a2 = com.baidu.android.pushservice.util.e.a(com.baidu.android.pushservice.util.e.a(this.f328a), d);
+        if (a2 == null || a2.i != com.baidu.android.pushservice.richmedia.b.f) {
+            return;
+        }
+        String str = a2.e;
+        String str2 = a2.f;
+        String str3 = str + "/" + str2.substring(0, str2.lastIndexOf(".")) + "/index.html";
+        Intent intent = new Intent();
+        intent.setClass(this.f328a, MediaViewActivity.class);
+        intent.setData(Uri.fromFile(new File(str3)));
+        intent.addFlags(268435456);
+        this.f328a.startActivity(intent);
+    }
+
+    @Override // com.baidu.android.pushservice.richmedia.s
+    public void a(com.baidu.android.pushservice.richmedia.b bVar, Throwable th) {
+        String d = bVar.d.d();
+        this.g.cancel(d, 0);
+        Toast makeText = Toast.makeText(this.f328a, "下载富媒体" + Uri.parse(d).getAuthority() + "失败", 1);
+        makeText.setGravity(17, 0, 0);
+        makeText.show();
+    }
+
+    @Override // com.baidu.android.pushservice.richmedia.s
+    public void b(com.baidu.android.pushservice.richmedia.b bVar) {
+        this.g.cancel(bVar.d.d(), 0);
     }
 }

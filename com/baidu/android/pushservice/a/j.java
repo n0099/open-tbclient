@@ -1,31 +1,32 @@
 package com.baidu.android.pushservice.a;
 
 import android.content.Context;
+import com.baidu.android.common.logging.Log;
 import com.baidu.android.pushservice.PushConstants;
+import java.util.Iterator;
 import java.util.List;
+import org.apache.http.NameValuePair;
 import org.apache.http.message.BasicNameValuePair;
 /* loaded from: classes.dex */
-public class j extends b {
-    int e;
-    int f;
-    String g;
+public class j extends c {
+    protected String e;
 
-    public j(h hVar, Context context, String str, int i, int i2) {
-        super(hVar, context);
-        this.e = 1;
-        this.f = 1;
-        this.g = str;
-        this.e = i;
-        this.f = i2;
+    public j(l lVar, Context context, String str) {
+        super(lVar, context);
+        this.e = str;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.android.pushservice.a.b
+    @Override // com.baidu.android.pushservice.a.a
     public void a(List list) {
         super.a(list);
-        list.add(new BasicNameValuePair(PushConstants.EXTRA_METHOD, "fetchgmsg"));
-        list.add(new BasicNameValuePair(PushConstants.EXTRA_GID, this.g));
-        list.add(new BasicNameValuePair(PushConstants.EXTRA_FETCH_TYPE, this.e + ""));
-        list.add(new BasicNameValuePair(PushConstants.EXTRA_FETCH_NUM, this.f + ""));
+        list.add(new BasicNameValuePair(PushConstants.EXTRA_METHOD, "deltags"));
+        list.add(new BasicNameValuePair(PushConstants.EXTRA_TAGS, this.e));
+        if (com.baidu.android.pushservice.b.a()) {
+            Iterator it = list.iterator();
+            while (it.hasNext()) {
+                Log.d("DelTags", "DelTags param -- " + ((NameValuePair) it.next()).toString());
+            }
+        }
     }
 }

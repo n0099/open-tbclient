@@ -12,11 +12,13 @@ import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class as {
-    private static String a = "baidu_location_service";
+
+    /* renamed from: a  reason: collision with root package name */
+    private static String f466a = "baidu_location_service";
     private static ArrayList b = new ArrayList();
     private static ArrayList c = new ArrayList();
     private static ArrayList d = new ArrayList();
-    private static String e = f.a + "/yo.dat";
+    private static String e = f.f470a + "/yo.dat";
     private static File f = null;
     private static int g = NotificationProxy.MAX_URL_LENGTH;
     private static int h = 512;
@@ -40,21 +42,21 @@ public class as {
         if (i2 < 0 || i2 > 256 || i3 > 2048 || i4 > 1024 || j2 > ImageFile.MIN_SD_CARD_SPACE) {
             return -1;
         }
-        ap.a(a, "upload manager start to init cache ...");
+        ap.a(f466a, "upload manager start to init cache ...");
         try {
             if (f == null) {
                 f = new File(e);
                 if (!f.exists()) {
-                    File file = new File(f.a);
+                    File file = new File(f.f470a);
                     if (!file.exists()) {
                         file.mkdirs();
                     }
                     if (!f.createNewFile()) {
-                        ap.a(a, "upload manager create file error...");
+                        ap.a(f466a, "upload manager create file error...");
                         f = null;
                         return -2;
                     }
-                    ap.a(a, "upload manager create file success");
+                    ap.a(f466a, "upload manager create file success");
                 }
             }
             RandomAccessFile randomAccessFile = new RandomAccessFile(f, "rw");
@@ -65,7 +67,7 @@ public class as {
             randomAccessFile.writeInt(i3);
             randomAccessFile.writeLong(j2);
             randomAccessFile.close();
-            ap.a(a, "cache inited ...");
+            ap.a(f466a, "cache inited ...");
             return 0;
         } catch (Exception e2) {
             return -3;
@@ -83,7 +85,7 @@ public class as {
             if (f == null) {
                 f = new File(e);
                 if (!f.exists()) {
-                    ap.a(a, "upload man write file does not exist...");
+                    ap.a(f466a, "upload man write file does not exist...");
                     f = null;
                     return -2;
                 }
@@ -140,7 +142,7 @@ public class as {
         if (b != null && b.size() >= 1) {
             str = (String) b.get(0);
             b.remove(0);
-            ap.a(a, "upload manager get upload data from q1 ...");
+            ap.a(f466a, "upload manager get upload data from q1 ...");
         }
         if (str == null) {
             if (c == null || c.size() < 1) {
@@ -149,7 +151,7 @@ public class as {
             if (c != null && c.size() >= 1) {
                 str = (String) c.get(0);
                 c.remove(0);
-                ap.a(a, "upload manager get upload data from q2 ...");
+                ap.a(f466a, "upload manager get upload data from q2 ...");
             }
         }
         if (str == null) {
@@ -159,10 +161,10 @@ public class as {
             if (d != null && d.size() >= 1) {
                 str = (String) d.get(0);
                 d.remove(0);
-                ap.a(a, "upload manager get upload data from q3 ...");
+                ap.a(f466a, "upload manager get upload data from q3 ...");
             }
         }
-        ap.a(a, "upload manager get upload data : " + str);
+        ap.a(f466a, "upload manager get upload data : " + str);
         return str;
     }
 
@@ -181,7 +183,7 @@ public class as {
 
     public static void a(u uVar, aa aaVar, Location location, String str) {
         String a2;
-        ap.a(a, "upload manager insert2UploadQueue...");
+        ap.a(f466a, "upload manager insert2UploadQueue...");
         if (ap.q != 3 || a(location, aaVar) || a(location, false)) {
             if (uVar != null && uVar.a()) {
                 if (!a(location, aaVar)) {
@@ -200,7 +202,7 @@ public class as {
                 String a4 = ap.a(a(location) ? uVar : null, aaVar, location, str, 2);
                 if (a4 != null) {
                     String a5 = Jni.a(a4);
-                    ap.a(a, "upload size:" + a5.length());
+                    ap.a(f466a, "upload size:" + a5.length());
                     b(a5);
                     v = location;
                     t = location;
@@ -236,7 +238,7 @@ public class as {
         if (b == null) {
             return;
         }
-        ap.a(a, "insert2CellQueue...");
+        ap.a(f466a, "insert2CellQueue...");
         if (b.size() <= i) {
             b.add(str);
         }
@@ -264,7 +266,7 @@ public class as {
     }
 
     private static boolean a(Location location, aa aaVar) {
-        if (location == null || aaVar == null || aaVar.a == null || aaVar.a.isEmpty() || aaVar.b(w)) {
+        if (location == null || aaVar == null || aaVar.f454a == null || aaVar.f454a.isEmpty() || aaVar.b(w)) {
             return false;
         }
         if (v == null) {
@@ -286,7 +288,7 @@ public class as {
             if (f == null) {
                 f = new File(e);
                 if (!f.exists()) {
-                    ap.a(a, "upload man readfile does not exist...");
+                    ap.a(f466a, "upload man readfile does not exist...");
                     f = null;
                     return -2;
                 }
@@ -335,7 +337,7 @@ public class as {
     }
 
     public static void b() {
-        ap.a(a, "upload manager flush...");
+        ap.a(f466a, "upload manager flush...");
         j = 0;
         if (a(b, q) < -1) {
             a(q, k, h, l);
@@ -356,7 +358,7 @@ public class as {
         if (c == null) {
             return;
         }
-        ap.a(a, "insert2WifiQueue...");
+        ap.a(f466a, "insert2WifiQueue...");
         if (c.size() <= i) {
             c.add(str);
         }
@@ -371,7 +373,7 @@ public class as {
         if (d == null) {
             return;
         }
-        ap.a(a, "insert2GpsQueue...");
+        ap.a(f466a, "insert2GpsQueue...");
         if (d.size() <= i) {
             d.add(str);
         }

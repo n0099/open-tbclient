@@ -6,18 +6,21 @@ import android.widget.AdapterView;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 class ct implements AdapterView.OnItemClickListener {
-    final /* synthetic */ cr a;
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ cr f1263a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ct(cr crVar) {
-        this.a = crVar;
+        this.f1263a = crVar;
     }
 
     @Override // android.widget.AdapterView.OnItemClickListener
     public void onItemClick(AdapterView adapterView, View view, int i, long j) {
-        String str = (String) ((SparseArray) view.getTag()).get(R.id.tag_photo_username);
-        if (str != null) {
-            this.a.b(str);
+        String str;
+        SparseArray sparseArray = (SparseArray) view.getTag();
+        if (sparseArray != null && (str = (String) sparseArray.get(R.id.tag_photo_username)) != null) {
+            this.f1263a.b(str);
         }
     }
 }

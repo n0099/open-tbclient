@@ -1,20 +1,25 @@
 package com.baidu.tieba.person;
 
+import android.view.MotionEvent;
 import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class au implements View.OnFocusChangeListener {
-    final /* synthetic */ PersonChangeActivity a;
+public class au implements View.OnTouchListener {
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ PersonChangeActivity f1328a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public au(PersonChangeActivity personChangeActivity) {
-        this.a = personChangeActivity;
+        this.f1328a = personChangeActivity;
     }
 
-    @Override // android.view.View.OnFocusChangeListener
-    public void onFocusChange(View view, boolean z) {
-        if (!z) {
-            this.a.b();
+    @Override // android.view.View.OnTouchListener
+    public boolean onTouch(View view, MotionEvent motionEvent) {
+        if (motionEvent.getAction() == 1) {
+            this.f1328a.y = true;
+            return false;
         }
+        return false;
     }
 }

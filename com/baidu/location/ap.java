@@ -10,7 +10,9 @@ import java.util.Calendar;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ap {
-    public static boolean a = false;
+
+    /* renamed from: a  reason: collision with root package name */
+    public static boolean f464a = false;
     public static boolean b = false;
     public static boolean c = false;
     public static boolean d = false;
@@ -207,7 +209,7 @@ public class ap {
                     ag.destroy();
                     ag = null;
                 }
-                File file = new File(f.a);
+                File file = new File(f.f470a);
                 if (file.exists()) {
                     a("sdkdemo_applocation", "directory already exists...");
                 } else {

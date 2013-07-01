@@ -4,11 +4,13 @@ import android.view.GestureDetector;
 import android.view.MotionEvent;
 /* loaded from: classes.dex */
 class bb implements GestureDetector.OnGestureListener {
-    final /* synthetic */ NewNearbyActivity a;
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ NewNearbyActivity f1151a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bb(NewNearbyActivity newNearbyActivity) {
-        this.a = newNearbyActivity;
+        this.f1151a = newNearbyActivity;
     }
 
     @Override // android.view.GestureDetector.OnGestureListener
@@ -32,7 +34,7 @@ class bb implements GestureDetector.OnGestureListener {
     @Override // android.view.GestureDetector.OnGestureListener
     public boolean onFling(MotionEvent motionEvent, MotionEvent motionEvent2, float f, float f2) {
         if (motionEvent2.getY() - motionEvent.getY() > 0.0f) {
-            this.a.u();
+            this.f1151a.u();
             return true;
         }
         return false;

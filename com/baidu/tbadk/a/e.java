@@ -1,12 +1,14 @@
 package com.baidu.tbadk.a;
 /* loaded from: classes.dex */
 public class e {
-    private static e a = new e();
-    private com.baidu.adp.lib.c.a b;
-    private com.baidu.adp.lib.c.a c;
+
+    /* renamed from: a  reason: collision with root package name */
+    private static e f596a = new e();
+    private com.baidu.adp.lib.a.a b;
+    private com.baidu.adp.lib.a.a c;
 
     public static e a() {
-        return a;
+        return f596a;
     }
 
     private e() {
@@ -29,6 +31,10 @@ public class e {
         this.c.c(i);
     }
 
+    public int b() {
+        return this.c.d();
+    }
+
     public void a(String str, com.baidu.adp.widget.a.b bVar) {
         if (bVar != null && this.b != null) {
             this.b.a(str, bVar);
@@ -41,8 +47,8 @@ public class e {
 
     public void a(String str, com.baidu.adp.widget.a.b bVar, boolean z) {
         if (bVar != null && this.c != null) {
-            if (com.baidu.adp.lib.e.b.a()) {
-                com.baidu.adp.lib.e.b.c("image joined cache:" + bVar.i() + ", size:" + bVar.d());
+            if (com.baidu.adp.lib.c.b.a()) {
+                com.baidu.adp.lib.c.b.c("image joined cache:" + bVar.i() + ", size:" + bVar.d());
             }
             this.c.a(str, bVar);
         }
@@ -68,7 +74,7 @@ public class e {
         return (com.baidu.adp.widget.a.b) this.c.a(str);
     }
 
-    public void b() {
+    public void c() {
         this.b.b();
         this.c.b();
     }

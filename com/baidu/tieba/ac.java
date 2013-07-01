@@ -1,31 +1,30 @@
 package com.baidu.tieba;
 
-import android.view.animation.Animation;
+import android.os.Handler;
+import android.os.Message;
+import com.baidu.tieba.util.DatabaseService;
 /* loaded from: classes.dex */
-class ac implements Animation.AnimationListener {
-    final /* synthetic */ LogoActivity a;
+class ac extends Handler {
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ LogoActivity f630a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ac(LogoActivity logoActivity) {
-        this.a = logoActivity;
+        this.f630a = logoActivity;
     }
 
-    @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationEnd(Animation animation) {
+    @Override // android.os.Handler
+    public void handleMessage(Message message) {
         boolean z;
-        this.a.d = true;
-        z = this.a.e;
-        if (!z) {
-            return;
+        this.f630a.c = true;
+        z = this.f630a.b;
+        if (z) {
+            if (!this.f630a.getDatabasePath("baidu_tieba.db").exists()) {
+                TiebaApplication.a(DatabaseService.p());
+            }
+            this.f630a.d();
         }
-        this.a.d();
-    }
-
-    @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationRepeat(Animation animation) {
-    }
-
-    @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationStart(Animation animation) {
+        super.handleMessage(message);
     }
 }

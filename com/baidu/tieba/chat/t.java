@@ -21,8 +21,10 @@ import org.json.JSONArray;
 import org.json.JSONException;
 /* loaded from: classes.dex */
 public class t extends BaseAdapter {
-    private Context a;
-    private com.baidu.tieba.d.a g;
+
+    /* renamed from: a  reason: collision with root package name */
+    private Context f737a;
+    private com.baidu.tieba.util.a g;
     private boolean b = false;
     private boolean c = false;
     private boolean d = false;
@@ -35,7 +37,7 @@ public class t extends BaseAdapter {
         this.h = onClickListener;
     }
 
-    public com.baidu.tieba.d.a a() {
+    public com.baidu.tieba.util.a a() {
         return this.g;
     }
 
@@ -56,12 +58,12 @@ public class t extends BaseAdapter {
     }
 
     public t(Context context) {
-        this.a = null;
+        this.f737a = null;
         this.g = null;
-        this.a = context;
-        this.g = new com.baidu.tieba.d.a(this.a);
-        int a = com.baidu.tieba.d.ag.a(this.a, 40.0f);
-        this.g.a(a, a);
+        this.f737a = context;
+        this.g = new com.baidu.tieba.util.a(this.f737a);
+        int a2 = com.baidu.tieba.util.ab.a(this.f737a, 40.0f);
+        this.g.a(a2, a2);
         this.g.a("_small");
     }
 
@@ -74,7 +76,7 @@ public class t extends BaseAdapter {
                     try {
                         ((ProgressBar) this.f.get(i2)).setVisibility(8);
                     } catch (Exception e) {
-                        com.baidu.tieba.d.ae.b(getClass().getName(), "releaseProgressBar", e.getMessage());
+                        com.baidu.tieba.util.z.b(getClass().getName(), "releaseProgressBar", e.getMessage());
                     }
                     i = i2 + 1;
                 } else {
@@ -127,9 +129,9 @@ public class t extends BaseAdapter {
     public View getView(int i, View view, ViewGroup viewGroup) {
         u uVar;
         if (view == null) {
-            view = LayoutInflater.from(this.a).inflate(R.layout.chat_list_item, (ViewGroup) null);
+            view = LayoutInflater.from(this.f737a).inflate(R.layout.chat_list_item, (ViewGroup) null);
             uVar = new u(this, null);
-            uVar.a = (FrameLayout) view.findViewById(R.id.chat_item);
+            uVar.f738a = (FrameLayout) view.findViewById(R.id.chat_item);
             uVar.b = (LinearLayout) view.findViewById(R.id.list_content);
             uVar.c = (HeadImageView) view.findViewById(R.id.chat_head);
             uVar.d = (TextView) view.findViewById(R.id.chat_name);
@@ -145,7 +147,7 @@ public class t extends BaseAdapter {
         } else {
             uVar = (u) view.getTag();
         }
-        int as = TiebaApplication.e().as();
+        int at = TiebaApplication.f().at();
         long itemId = getItemId(i);
         if (itemId == -1) {
             uVar.b.setVisibility(8);
@@ -157,12 +159,12 @@ public class t extends BaseAdapter {
                 uVar.j.setText(R.string.frs_pre);
                 uVar.k.setVisibility(8);
             }
-            if (as == 1) {
+            if (at == 1) {
                 uVar.i.setBackgroundResource(R.drawable.bg_list_all_1);
             } else {
                 uVar.i.setBackgroundResource(R.drawable.bg_list_all);
             }
-            com.baidu.tieba.d.ac.b(uVar.j, as);
+            com.baidu.tieba.util.x.b(uVar.j, at);
         } else if (itemId == -2) {
             uVar.b.setVisibility(8);
             uVar.i.setVisibility(0);
@@ -173,16 +175,16 @@ public class t extends BaseAdapter {
                 uVar.j.setText(R.string.frs_next);
                 uVar.k.setVisibility(8);
             }
-            if (as == 1) {
+            if (at == 1) {
                 uVar.i.setBackgroundResource(R.drawable.bg_list_all_1);
             } else {
                 uVar.i.setBackgroundResource(R.drawable.bg_list_all);
             }
-            com.baidu.tieba.d.ac.b(uVar.j, as);
+            com.baidu.tieba.util.x.b(uVar.j, at);
         } else {
             uVar.b.setVisibility(0);
             uVar.i.setVisibility(8);
-            com.baidu.tieba.a.a.g gVar = (com.baidu.tieba.a.a.g) getItem(i);
+            com.baidu.tieba.data.a.g gVar = (com.baidu.tieba.data.a.g) getItem(i);
             if (gVar != null) {
                 try {
                     uVar.d.setText(gVar.g());
@@ -201,12 +203,12 @@ public class t extends BaseAdapter {
                     }
                     Date date = new Date();
                     date.setTime(gVar.d());
-                    uVar.f.setText(com.baidu.tieba.d.ad.e(date));
+                    uVar.f.setText(com.baidu.tieba.util.y.e(date));
                     com.baidu.adp.widget.a.b b = this.g.b(String.valueOf(gVar.c()) + "_small");
                     if (b != null) {
                         b.b(uVar.c);
                     } else {
-                        uVar.c.setImageBitmap(com.baidu.tieba.d.d.a((int) R.drawable.person_photo));
+                        uVar.c.setImageBitmap(com.baidu.tieba.util.d.a((int) R.drawable.person_photo));
                     }
                     uVar.c.setTag(gVar.c());
                     uVar.c.setUserId(gVar.b());
@@ -216,8 +218,8 @@ public class t extends BaseAdapter {
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
-                if (as == 1) {
-                    uVar.a.setBackgroundColor(-13618114);
+                if (at == 1) {
+                    uVar.f738a.setBackgroundColor(-13618114);
                     uVar.d.setTextColor(-8682086);
                     uVar.e.setTextColor(-11446171);
                     uVar.f.setTextColor(-8682086);
@@ -225,7 +227,7 @@ public class t extends BaseAdapter {
                     uVar.g.setTextColor(-478825);
                     uVar.h.setBackgroundColor(-14210253);
                 } else {
-                    uVar.a.setBackgroundColor(-197380);
+                    uVar.f738a.setBackgroundColor(-197380);
                     uVar.d.setTextColor(-14277082);
                     uVar.e.setTextColor(-10066330);
                     uVar.f.setTextColor(-8682086);

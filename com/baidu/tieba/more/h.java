@@ -3,14 +3,17 @@ package com.baidu.tieba.more;
 import android.view.View;
 import android.widget.AdapterView;
 import com.baidu.tieba.account.LoginActivity;
+import com.baidu.tieba.data.AccountData;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class h implements AdapterView.OnItemClickListener {
-    final /* synthetic */ AccountActivity a;
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ AccountActivity f1096a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public h(AccountActivity accountActivity) {
-        this.a = accountActivity;
+        this.f1096a = accountActivity;
     }
 
     @Override // android.widget.AdapterView.OnItemClickListener
@@ -20,17 +23,17 @@ public class h implements AdapterView.OnItemClickListener {
         n nVar3;
         l lVar;
         l lVar2;
-        nVar = this.a.d;
+        nVar = this.f1096a.b;
         if (nVar.getItemId(i) >= 0) {
-            nVar2 = this.a.d;
+            nVar2 = this.f1096a.b;
             if (!nVar2.a()) {
-                nVar3 = this.a.d;
-                com.baidu.tieba.a.a aVar = (com.baidu.tieba.a.a) nVar3.getItem(i);
-                if (aVar != null && aVar.e() != 1) {
-                    this.a.k = new l(this.a, aVar);
-                    lVar = this.a.k;
+                nVar3 = this.f1096a.b;
+                AccountData accountData = (AccountData) nVar3.getItem(i);
+                if (accountData != null && accountData.getIsActive() != 1) {
+                    this.f1096a.k = new l(this.f1096a, accountData);
+                    lVar = this.f1096a.k;
                     lVar.setPriority(3);
-                    lVar2 = this.a.k;
+                    lVar2 = this.f1096a.k;
                     lVar2.execute(new Object[0]);
                     return;
                 }
@@ -38,6 +41,6 @@ public class h implements AdapterView.OnItemClickListener {
             }
             return;
         }
-        LoginActivity.a(this.a);
+        LoginActivity.a(this.f1096a);
     }
 }

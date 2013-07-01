@@ -8,7 +8,9 @@ import java.util.Iterator;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class k {
-    private static String a = "baidu_location_service";
+
+    /* renamed from: a  reason: collision with root package name */
+    private static String f476a = "baidu_location_service";
     private ArrayList b;
     private Handler c;
     private boolean d = false;
@@ -44,7 +46,7 @@ public class k {
             return;
         }
         this.b.add(lVar);
-        ap.a(a, lVar.a + " registered ");
+        ap.a(f476a, lVar.f477a + " registered ");
         l.a(lVar, 13);
     }
 
@@ -91,7 +93,7 @@ public class k {
 
     public void a(Message message) {
         if (message == null || message.replyTo == null) {
-            ap.a(a, "invalid regist client");
+            ap.a(f476a, "invalid regist client");
             return;
         }
         a(new l(this, message));
@@ -113,7 +115,7 @@ public class k {
         }
         Iterator it2 = arrayList.iterator();
         while (it2.hasNext()) {
-            ap.a(a, "remove dead object...");
+            ap.a(f476a, "remove dead object...");
             this.b.remove((l) it2.next());
         }
     }
@@ -133,7 +135,7 @@ public class k {
         }
         Iterator it2 = arrayList.iterator();
         while (it2.hasNext()) {
-            ap.a(a, "remove dead object...");
+            ap.a(f476a, "remove dead object...");
             this.b.remove((l) it2.next());
         }
     }
@@ -144,7 +146,7 @@ public class k {
         }
         l a2 = a(message.replyTo);
         if (a2 == null) {
-            ap.a(a, "not found the client messener...");
+            ap.a(f476a, "not found the client messener...");
             return;
         }
         a2.a(str);
@@ -163,9 +165,9 @@ public class k {
         if (lVar.c.f != null) {
             stringBuffer.append(lVar.c.f);
         }
-        if (lVar.a != null) {
+        if (lVar.f477a != null) {
             stringBuffer.append(":");
-            stringBuffer.append(lVar.a);
+            stringBuffer.append(lVar.f477a);
             stringBuffer.append("|");
         }
         String stringBuffer2 = stringBuffer.toString();
@@ -178,7 +180,7 @@ public class k {
     public void b(Message message) {
         l a2 = a(message.replyTo);
         if (a2 != null) {
-            ap.a(a, a2.a + " unregistered");
+            ap.a(f476a, a2.f477a + " unregistered");
             this.b.remove(a2);
         }
         e();
@@ -218,9 +220,9 @@ public class k {
         String string = message.getData().getString("coorType");
         j jVar = a2.c;
         if (string == null || string.equals("")) {
-            string = a2.c.a;
+            string = a2.c.f475a;
         }
-        jVar.a = string;
+        jVar.f475a = string;
         String string2 = message.getData().getString("addrType");
         j jVar2 = a2.c;
         if (string2 == null || string2.equals("")) {
@@ -237,7 +239,7 @@ public class k {
 
     public String d(Message message) {
         if (message == null || message.replyTo == null) {
-            ap.a(a, "invalid Poirequest");
+            ap.a(f476a, "invalid Poirequest");
             return null;
         }
         l a2 = a(message.replyTo);

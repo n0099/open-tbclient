@@ -1,15 +1,30 @@
 package android.support.v4.view;
 
-import android.view.View;
+import android.os.Build;
+import android.view.KeyEvent;
 /* loaded from: classes.dex */
-class s implements v {
-    @Override // android.support.v4.view.v
-    public boolean a(View view, int i) {
-        return false;
+public class s {
+
+    /* renamed from: a  reason: collision with root package name */
+    static final w f100a;
+
+    static {
+        if (Build.VERSION.SDK_INT >= 11) {
+            f100a = new v();
+        } else {
+            f100a = new t();
+        }
     }
 
-    @Override // android.support.v4.view.v
-    public int a(View view) {
-        return 2;
+    public static boolean a(KeyEvent keyEvent, int i) {
+        return f100a.a(keyEvent.getMetaState(), i);
+    }
+
+    public static boolean a(KeyEvent keyEvent) {
+        return f100a.b(keyEvent.getMetaState());
+    }
+
+    public static void b(KeyEvent keyEvent) {
+        f100a.a(keyEvent);
     }
 }

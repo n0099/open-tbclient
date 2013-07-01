@@ -8,7 +8,9 @@ import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 /* loaded from: classes.dex */
 final class r implements p {
-    private o a = new o(Bitmap.Config.ARGB_4444);
+
+    /* renamed from: a  reason: collision with root package name */
+    private o f565a = new o(Bitmap.Config.ARGB_4444);
     private Drawable b = null;
 
     public static void a(Drawable drawable, Drawable drawable2) {
@@ -20,10 +22,10 @@ final class r implements p {
 
     public final Drawable a(Drawable drawable) {
         this.b = drawable;
-        this.a.a(this.b.getIntrinsicWidth(), this.b.getIntrinsicHeight());
-        this.a.a(this);
+        this.f565a.a(this.b.getIntrinsicWidth(), this.b.getIntrinsicHeight());
+        this.f565a.a(this);
         this.b = null;
-        return new BitmapDrawable(this.a.b());
+        return new BitmapDrawable(this.f565a.b());
     }
 
     @Override // com.baidu.mapapi.p

@@ -5,13 +5,13 @@ import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.os.Bundle;
 import android.os.Parcelable;
-import android.support.v4.view.k;
+import android.support.v4.view.ae;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
-public abstract class FragmentStatePagerAdapter extends k {
+public abstract class FragmentStatePagerAdapter extends ae {
     private static final boolean DEBUG = false;
     private static final String TAG = "FragmentStatePagerAdapter";
     private final FragmentManager mFragmentManager;
@@ -26,11 +26,11 @@ public abstract class FragmentStatePagerAdapter extends k {
         this.mFragmentManager = fragmentManager;
     }
 
-    @Override // android.support.v4.view.k
+    @Override // android.support.v4.view.ae
     public void startUpdate(ViewGroup viewGroup) {
     }
 
-    @Override // android.support.v4.view.k
+    @Override // android.support.v4.view.ae
     public Object instantiateItem(ViewGroup viewGroup, int i) {
         Fragment.SavedState savedState;
         Fragment fragment;
@@ -46,6 +46,7 @@ public abstract class FragmentStatePagerAdapter extends k {
                 this.mFragments.add(null);
             }
             FragmentCompat.setMenuVisibility(item, false);
+            FragmentCompat.setUserVisibleHint(item, false);
             this.mFragments.set(i, item);
             this.mCurTransaction.add(viewGroup.getId(), item);
             return item;
@@ -53,7 +54,7 @@ public abstract class FragmentStatePagerAdapter extends k {
         return fragment;
     }
 
-    @Override // android.support.v4.view.k
+    @Override // android.support.v4.view.ae
     public void destroyItem(ViewGroup viewGroup, int i, Object obj) {
         Fragment fragment = (Fragment) obj;
         if (this.mCurTransaction == null) {
@@ -67,21 +68,23 @@ public abstract class FragmentStatePagerAdapter extends k {
         this.mCurTransaction.remove(fragment);
     }
 
-    @Override // android.support.v4.view.k
+    @Override // android.support.v4.view.ae
     public void setPrimaryItem(ViewGroup viewGroup, int i, Object obj) {
         Fragment fragment = (Fragment) obj;
         if (fragment != this.mCurrentPrimaryItem) {
             if (this.mCurrentPrimaryItem != null) {
                 FragmentCompat.setMenuVisibility(this.mCurrentPrimaryItem, false);
+                FragmentCompat.setUserVisibleHint(this.mCurrentPrimaryItem, false);
             }
             if (fragment != null) {
                 FragmentCompat.setMenuVisibility(fragment, true);
+                FragmentCompat.setUserVisibleHint(fragment, true);
             }
             this.mCurrentPrimaryItem = fragment;
         }
     }
 
-    @Override // android.support.v4.view.k
+    @Override // android.support.v4.view.ae
     public void finishUpdate(ViewGroup viewGroup) {
         if (this.mCurTransaction != null) {
             this.mCurTransaction.commitAllowingStateLoss();
@@ -90,12 +93,12 @@ public abstract class FragmentStatePagerAdapter extends k {
         }
     }
 
-    @Override // android.support.v4.view.k
+    @Override // android.support.v4.view.ae
     public boolean isViewFromObject(View view, Object obj) {
         return ((Fragment) obj).getView() == view;
     }
 
-    @Override // android.support.v4.view.k
+    @Override // android.support.v4.view.ae
     public Parcelable saveState() {
         Bundle bundle = null;
         if (this.mSavedState.size() > 0) {
@@ -117,7 +120,7 @@ public abstract class FragmentStatePagerAdapter extends k {
         return bundle2;
     }
 
-    @Override // android.support.v4.view.k
+    @Override // android.support.v4.view.ae
     public void restoreState(Parcelable parcelable, ClassLoader classLoader) {
         if (parcelable != null) {
             Bundle bundle = (Bundle) parcelable;

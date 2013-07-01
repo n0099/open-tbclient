@@ -12,16 +12,18 @@ import com.slidingmenu.lib.R;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class ag extends BaseAdapter {
-    private Context a;
+
+    /* renamed from: a  reason: collision with root package name */
+    private Context f833a;
     private ArrayList b;
     private String c;
     private int d = 0;
     private int e = 0;
 
     public ag(Context context, ArrayList arrayList) {
-        this.a = context;
+        this.f833a = context;
         this.b = arrayList;
-        this.c = this.a.getText(R.string.frs_good).toString();
+        this.c = this.f833a.getText(R.string.frs_good).toString();
         a();
     }
 
@@ -41,19 +43,19 @@ public class ag extends BaseAdapter {
         int i = 0;
         if (this.b != null) {
             ArrayList arrayList = new ArrayList();
-            com.baidu.tieba.a.v vVar = new com.baidu.tieba.a.v();
-            vVar.a(0);
-            vVar.a(this.c);
-            arrayList.add(vVar);
+            com.baidu.tieba.data.u uVar = new com.baidu.tieba.data.u();
+            uVar.a(0);
+            uVar.a(this.c);
+            arrayList.add(uVar);
             if (this.b != null && this.b.size() > 0) {
                 while (true) {
                     int i2 = i;
                     if (i2 >= this.b.size()) {
                         break;
                     }
-                    com.baidu.tieba.a.v vVar2 = (com.baidu.tieba.a.v) this.b.get(i2);
-                    if (vVar2.b() != 0) {
-                        arrayList.add(vVar2);
+                    com.baidu.tieba.data.u uVar2 = (com.baidu.tieba.data.u) this.b.get(i2);
+                    if (uVar2.b() != 0) {
+                        arrayList.add(uVar2);
                     }
                     i = i2 + 1;
                 }
@@ -92,16 +94,16 @@ public class ag extends BaseAdapter {
         View view3;
         try {
             if (view == null) {
-                view3 = LayoutInflater.from(this.a).inflate(R.layout.dialog_good_item, (ViewGroup) null);
+                view3 = LayoutInflater.from(this.f833a).inflate(R.layout.dialog_good_item, (ViewGroup) null);
                 try {
                     ahVar = new ah(this, null);
-                    ahVar.a = (TextView) view3.findViewById(R.id.frs_dia_good_text);
+                    ahVar.f834a = (TextView) view3.findViewById(R.id.frs_dia_good_text);
                     ahVar.b = (ImageView) view3.findViewById(R.id.frs_dia_divider);
                     view3.setTag(ahVar);
                 } catch (Exception e) {
                     view2 = view3;
                     exc = e;
-                    com.baidu.tieba.d.ae.b(getClass().getName(), "", "DialogGoodAdapter.getView error = " + exc.getMessage());
+                    com.baidu.tieba.util.z.b(getClass().getName(), "", "DialogGoodAdapter.getView error = " + exc.getMessage());
                     return view2;
                 }
             } else {
@@ -111,22 +113,22 @@ public class ag extends BaseAdapter {
             if (this.d == 1) {
                 ahVar.b.setBackgroundColor(-14078410);
                 if (this.e == i) {
-                    ahVar.a.setTextColor(-11433787);
+                    ahVar.f834a.setTextColor(-11433787);
                 } else {
-                    ahVar.a.setTextColor(-10523526);
+                    ahVar.f834a.setTextColor(-10523526);
                 }
             } else {
                 ahVar.b.setBackgroundColor(-8947849);
                 if (this.e == i) {
-                    ahVar.a.setTextColor(-12809526);
+                    ahVar.f834a.setTextColor(-12809526);
                 } else {
-                    ahVar.a.setTextColor(-8947849);
+                    ahVar.f834a.setTextColor(-8947849);
                 }
             }
             if (this.e == i) {
-                ahVar.a.setTextColor(-12809526);
+                ahVar.f834a.setTextColor(-12809526);
             } else {
-                ahVar.a.setTextColor(-8947849);
+                ahVar.f834a.setTextColor(-8947849);
             }
             if (i % 4 == 3 || i == getCount() - 1) {
                 ahVar.b.setVisibility(4);
@@ -137,7 +139,7 @@ public class ag extends BaseAdapter {
             if (item == null) {
                 return view3;
             }
-            ahVar.a.setText(((com.baidu.tieba.a.v) item).a());
+            ahVar.f834a.setText(((com.baidu.tieba.data.u) item).a());
             return view3;
         } catch (Exception e2) {
             exc = e2;

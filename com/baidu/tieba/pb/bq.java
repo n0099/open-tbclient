@@ -5,25 +5,27 @@ import com.slidingmenu.lib.R;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class bq implements CompoundButton.OnCheckedChangeListener {
-    final /* synthetic */ bk a;
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ bk f1235a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bq(bk bkVar) {
-        this.a = bkVar;
+        this.f1235a = bkVar;
     }
 
     @Override // android.widget.CompoundButton.OnCheckedChangeListener
     public void onCheckedChanged(CompoundButton compoundButton, boolean z) {
         if (z) {
             switch (compoundButton.getId()) {
-                case R.id.radio_button_1day /* 2131099962 */:
-                    this.a.Y = 1;
+                case R.id.radio_button_1day /* 2131099971 */:
+                    this.f1235a.Y = 1;
                     return;
-                case R.id.radio_button_3day /* 2131099963 */:
-                    this.a.Y = 3;
+                case R.id.radio_button_3day /* 2131099972 */:
+                    this.f1235a.Y = 3;
                     return;
-                case R.id.radio_button_10day /* 2131099964 */:
-                    this.a.Y = 10;
+                case R.id.radio_button_10day /* 2131099973 */:
+                    this.f1235a.Y = 10;
                     return;
                 default:
                     return;

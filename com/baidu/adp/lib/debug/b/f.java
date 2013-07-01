@@ -8,11 +8,13 @@ import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class f implements View.OnClickListener {
-    final /* synthetic */ c a;
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ c f158a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(c cVar) {
-        this.a = cVar;
+        this.f158a = cVar;
     }
 
     @Override // android.view.View.OnClickListener
@@ -26,26 +28,26 @@ public class f implements View.OnClickListener {
         Context context3;
         Context context4;
         Context context5;
-        dialog = this.a.l;
+        dialog = this.f158a.l;
         if (dialog == null) {
-            context = this.a.k;
+            context = this.f158a.k;
             AlertDialog.Builder builder = new AlertDialog.Builder(context);
-            context2 = this.a.k;
+            context2 = this.f158a.k;
             builder.setTitle(((Activity) context2).getText(com.baidu.adp.g.prompt));
-            context3 = this.a.k;
+            context3 = this.f158a.k;
             builder.setMessage(((Activity) context3).getText(com.baidu.adp.g.prompt_close_debug));
             g gVar = new g(this);
-            context4 = this.a.k;
+            context4 = this.f158a.k;
             builder.setPositiveButton(((Activity) context4).getText(com.baidu.adp.g.dialog_ok), gVar);
-            context5 = this.a.k;
+            context5 = this.f158a.k;
             builder.setNegativeButton(((Activity) context5).getText(com.baidu.adp.g.dialog_cancel), gVar);
-            this.a.l = builder.create();
+            this.f158a.l = builder.create();
         }
-        dialog2 = this.a.l;
+        dialog2 = this.f158a.l;
         dialog2.setCancelable(false);
-        dialog3 = this.a.l;
+        dialog3 = this.f158a.l;
         dialog3.setCanceledOnTouchOutside(false);
-        dialog4 = this.a.l;
+        dialog4 = this.f158a.l;
         dialog4.show();
     }
 }

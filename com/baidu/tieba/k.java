@@ -1,27 +1,40 @@
 package com.baidu.tieba;
-
-import android.view.View;
-import com.baidu.tieba.view.BaseViewPager;
 /* loaded from: classes.dex */
-class k implements View.OnClickListener {
-    final /* synthetic */ GuideActivity a;
+public class k {
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public k(GuideActivity guideActivity) {
-        this.a = guideActivity;
+    /* renamed from: a  reason: collision with root package name */
+    private com.baidu.tieba.util.r f948a;
+    private com.baidu.tieba.data.ag b = null;
+
+    public k() {
+        this.f948a = null;
+        this.f948a = new com.baidu.tieba.util.r();
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        BaseViewPager baseViewPager;
-        int[] iArr;
-        BaseViewPager baseViewPager2;
-        baseViewPager = this.a.f;
-        int currentItem = baseViewPager.getCurrentItem();
-        iArr = this.a.c;
-        if (currentItem != iArr.length - 1) {
-            baseViewPager2 = this.a.f;
-            baseViewPager2.a(currentItem + 1, true);
+    /* JADX INFO: Access modifiers changed from: protected */
+    public void a(String str) {
+        this.f948a.a(str);
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    public String a() {
+        String j = this.f948a.j();
+        this.b = new com.baidu.tieba.data.ag();
+        this.b.a(j);
+        return j;
+    }
+
+    public boolean b() {
+        if (this.f948a != null) {
+            return this.f948a.c();
         }
+        return false;
+    }
+
+    public String c() {
+        if (this.f948a != null) {
+            return this.f948a.g();
+        }
+        return null;
     }
 }

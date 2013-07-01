@@ -5,11 +5,13 @@ import android.widget.RadioButton;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class c implements CompoundButton.OnCheckedChangeListener {
-    final /* synthetic */ MentionActivity a;
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ MentionActivity f981a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(MentionActivity mentionActivity) {
-        this.a = mentionActivity;
+        this.f981a = mentionActivity;
     }
 
     @Override // android.widget.CompoundButton.OnCheckedChangeListener
@@ -17,16 +19,16 @@ public class c implements CompoundButton.OnCheckedChangeListener {
         RadioButton radioButton;
         RadioButton radioButton2;
         if (z) {
-            radioButton = this.a.f;
+            radioButton = this.f981a.f;
             if (compoundButton != radioButton) {
-                radioButton2 = this.a.e;
+                radioButton2 = this.f981a.e;
                 if (compoundButton == radioButton2) {
-                    this.a.a("atme", AtMeActivity.class);
+                    this.f981a.a("atme", AtMeActivity.class);
                 }
             } else {
-                this.a.a("replyme", ReplyMeActivity.class);
+                this.f981a.a("replyme", ReplyMeActivity.class);
             }
         }
-        this.a.b();
+        this.f981a.b();
     }
 }

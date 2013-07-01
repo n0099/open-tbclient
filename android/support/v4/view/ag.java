@@ -1,7 +1,7 @@
 package android.support.v4.view;
+
+import android.widget.TextView;
 /* loaded from: classes.dex */
-class ag {
-    Object a;
-    int b;
-    boolean c;
+interface ag {
+    void a(TextView textView);
 }

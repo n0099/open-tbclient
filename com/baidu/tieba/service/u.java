@@ -3,114 +3,66 @@ package com.baidu.tieba.service;
 import android.app.Notification;
 import android.app.NotificationManager;
 import android.os.Handler;
-import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.a.bg;
-import com.baidu.tieba.d.ae;
-import com.baidu.tieba.d.ag;
+import android.os.Message;
+import com.baidu.tieba.data.VersionData;
 import com.slidingmenu.lib.R;
-import java.io.File;
 /* loaded from: classes.dex */
-class u extends com.baidu.adp.lib.a.a {
-    final /* synthetic */ TiebaUpdateService a;
-    private bg b;
-    private com.baidu.tieba.d.t c = null;
-    private volatile boolean d = false;
+class u extends Handler {
 
-    public u(TiebaUpdateService tiebaUpdateService, bg bgVar) {
-        this.a = tiebaUpdateService;
-        this.b = null;
-        this.b = bgVar;
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ TiebaUpdateService f1423a;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public u(TiebaUpdateService tiebaUpdateService) {
+        this.f1423a = tiebaUpdateService;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.a.a
-    public Boolean a(String... strArr) {
-        Boolean bool;
-        Exception e;
-        File d;
+    @Override // android.os.Handler
+    public void handleMessage(Message message) {
+        String str;
+        String str2;
+        boolean z;
         Handler handler;
-        Boolean bool2 = false;
-        while (!this.d) {
-            try {
-                this.c = new com.baidu.tieba.d.t(this.b.d());
-                handler = this.a.d;
-                bool2 = this.c.a(String.valueOf(this.b.f()) + ".tmp", handler);
-                if (bool2.booleanValue()) {
-                    break;
-                } else if (this.c.d() == -2) {
-                    bool = bool2;
-                    break;
-                } else if (!this.c.k()) {
-                    try {
-                        Thread.sleep(10000L);
-                    } catch (Exception e2) {
-                    }
-                }
-            } catch (Exception e3) {
-                bool = bool2;
-                e = e3;
-            }
-        }
-        bool = bool2;
-        try {
-            if (bool.booleanValue()) {
-                com.baidu.tieba.d.o.h(this.b.f());
-                File c = com.baidu.tieba.d.o.c(String.valueOf(this.b.f()) + ".tmp");
-                if (c != null && (d = com.baidu.tieba.d.o.d(this.b.f())) != null && !c.renameTo(d)) {
-                    ae.b(getClass().getName(), "doInBackground", "renameTo error");
-                }
-            }
-        } catch (Exception e4) {
-            e = e4;
-            ae.b(getClass().getName(), "doInBackground", e.getMessage());
-            return bool;
-        }
-        return bool;
-    }
-
-    @Override // com.baidu.adp.lib.a.a
-    public void cancel() {
-        this.a.c = null;
-        this.d = true;
-        if (this.c != null) {
-            this.c.g();
-        }
-        super.cancel(true);
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.a.a
-    public void a(Boolean bool) {
+        Handler handler2;
+        VersionData versionData;
         Notification notification;
         Notification notification2;
         Notification notification3;
         NotificationManager notificationManager;
         Notification notification4;
-        NotificationManager notificationManager2;
-        super.a((Object) bool);
-        this.a.c = null;
-        try {
-            if (bool.booleanValue()) {
-                notificationManager2 = this.a.a;
-                notificationManager2.cancel(10);
-                ag.b(TiebaApplication.e(), this.b.f());
-            } else {
-                notification = this.a.b;
-                if (notification != null) {
-                    notification2 = this.a.b;
-                    notification2.contentView.setTextViewText(R.id.info, this.a.getString(R.string.error_sd_error));
-                    notification3 = this.a.b;
-                    notification3.flags = 16;
-                    notificationManager = this.a.a;
-                    notification4 = this.a.b;
-                    notificationManager.notify(10, notification4);
+        super.handleMessage(message);
+        if (message.what == 900003) {
+            notification = this.f1423a.d;
+            if (notification != null && message.arg2 > 0) {
+                notification2 = this.f1423a.d;
+                notification2.contentView.setProgressBar(R.id.progress, 100, (int) ((message.arg1 * 100) / message.arg2), false);
+                StringBuffer stringBuffer = new StringBuffer(20);
+                stringBuffer.append(String.valueOf(message.arg1 / 1000));
+                stringBuffer.append("K/");
+                stringBuffer.append(String.valueOf(message.arg2 / 1000));
+                stringBuffer.append("K");
+                notification3 = this.f1423a.d;
+                notification3.contentView.setTextViewText(R.id.schedule, stringBuffer);
+                notificationManager = this.f1423a.b;
+                notification4 = this.f1423a.d;
+                notificationManager.notify(14, notification4);
+            }
+        } else if (message.what == 2) {
+            str = this.f1423a.h;
+            if (str != null) {
+                str2 = this.f1423a.h;
+                if (str2.length() > 0) {
+                    z = this.f1423a.i;
+                    if (!z) {
+                        this.f1423a.i = true;
+                        return;
+                    }
+                    handler = this.f1423a.j;
+                    handler2 = this.f1423a.j;
+                    versionData = this.f1423a.f;
+                    handler.sendMessageDelayed(handler2.obtainMessage(1, versionData), 100L);
                 }
             }
-        } catch (Exception e) {
-            ae.b(getClass().getName(), "onPostExecute", e.getMessage());
         }
-        this.a.stopSelf();
     }
 }

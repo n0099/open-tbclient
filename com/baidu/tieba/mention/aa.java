@@ -1,25 +1,29 @@
 package com.baidu.tieba.mention;
+
+import com.baidu.tieba.util.DatabaseService;
 /* loaded from: classes.dex */
 class aa implements n {
-    final /* synthetic */ ReplyMeActivity a;
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ ReplyMeActivity f979a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public aa(ReplyMeActivity replyMeActivity) {
-        this.a = replyMeActivity;
+        this.f979a = replyMeActivity;
     }
 
     @Override // com.baidu.tieba.mention.n
     public void a(String str) {
-        com.baidu.tieba.d.k.i(str);
+        DatabaseService.l(str);
     }
 
     @Override // com.baidu.tieba.mention.n
     public String a() {
-        return com.baidu.tieba.d.k.h();
+        return DatabaseService.j();
     }
 
     @Override // com.baidu.tieba.mention.n
     public void b() {
-        com.baidu.tieba.d.k.g();
+        DatabaseService.i();
     }
 }

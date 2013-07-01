@@ -11,7 +11,9 @@ import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 /* loaded from: classes.dex */
 public class w {
-    private static String a = "baidu_location_service";
+
+    /* renamed from: a */
+    private static String f487a = "baidu_location_service";
     private Context e;
     private Handler f;
     private final long b = 3000;
@@ -78,7 +80,7 @@ public class w {
         try {
             this.e.registerReceiver(this.h, new IntentFilter("android.net.wifi.SCAN_RESULTS"));
             this.i = new y(this);
-            if (ap.a) {
+            if (ap.f464a) {
                 IntentFilter intentFilter = new IntentFilter();
                 intentFilter.addAction("android.net.conn.CONNECTIVITY_CHANGE");
                 this.e.registerReceiver(this.i, intentFilter);
@@ -88,19 +90,19 @@ public class w {
         } catch (Exception e) {
         }
         this.m = true;
-        ap.a(a, "wifimanager start ...");
+        ap.a(f487a, "wifimanager start ...");
         try {
             Field declaredField = Class.forName("android.net.wifi.WifiManager").getDeclaredField("mService");
             if (declaredField == null) {
-                ap.a(a, "android.net.wifi.WifiManager.mService  NOT  found ...");
+                ap.a(f487a, "android.net.wifi.WifiManager.mService  NOT  found ...");
             } else {
                 declaredField.setAccessible(true);
                 this.n = declaredField.get(this.g);
                 Class<?> cls = this.n.getClass();
-                ap.a(a, "mserviceClass : " + cls.getName());
+                ap.a(f487a, "mserviceClass : " + cls.getName());
                 this.o = cls.getDeclaredMethod("startScan", Boolean.TYPE);
                 if (this.o == null) {
-                    ap.a(a, "mService.startScan NOT  found ...");
+                    ap.a(f487a, "mService.startScan NOT  found ...");
                 } else {
                     this.o.setAccessible(true);
                 }
@@ -115,7 +117,7 @@ public class w {
             this.i = new y(this);
         }
         try {
-            if (!ap.a || this.r) {
+            if (!ap.f464a || this.r) {
                 return;
             }
             IntentFilter intentFilter = new IntentFilter();
@@ -131,7 +133,7 @@ public class w {
         if (this.m) {
             try {
                 this.e.unregisterReceiver(this.h);
-                if (ap.a) {
+                if (ap.f464a) {
                     this.e.unregisterReceiver(this.i);
                 }
             } catch (Exception e) {
@@ -140,7 +142,7 @@ public class w {
             this.g = null;
             this.i = null;
             this.m = false;
-            ap.a(a, "wifimanager stop ...");
+            ap.a(f487a, "wifimanager stop ...");
         }
     }
 
@@ -175,7 +177,7 @@ public class w {
                     }
                 }
                 this.k = currentTimeMillis;
-                ap.a(a, "wifimanager start scan ...");
+                ap.a(f487a, "wifimanager start scan ...");
                 return true;
             } catch (Exception e2) {
                 return false;
@@ -223,7 +225,7 @@ public class w {
     }
 
     public void i() {
-        if (!this.s && ap.a && ap.k) {
+        if (!this.s && ap.f464a && ap.k) {
             this.f.postDelayed(new ab(this), ap.L);
             this.s = true;
         }

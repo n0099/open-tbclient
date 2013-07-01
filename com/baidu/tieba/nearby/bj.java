@@ -14,17 +14,20 @@ import android.view.ViewGroup;
 import android.widget.AbsoluteLayout;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.slidingmenu.lib.R;
 import java.util.Iterator;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class bj extends com.baidu.adp.lib.a.a {
-    com.baidu.tieba.d.t a = null;
+public class bj extends BdAsyncTask {
+
+    /* renamed from: a  reason: collision with root package name */
+    com.baidu.tieba.util.r f1159a = null;
     Address b;
-    com.baidu.tieba.c.av c;
+    com.baidu.tieba.model.av c;
     final /* synthetic */ NewNearbyActivity d;
 
-    public bj(NewNearbyActivity newNearbyActivity, Address address, com.baidu.tieba.c.av avVar) {
+    public bj(NewNearbyActivity newNearbyActivity, Address address, com.baidu.tieba.model.av avVar) {
         this.d = newNearbyActivity;
         this.b = null;
         this.c = null;
@@ -34,7 +37,7 @@ public class bj extends com.baidu.adp.lib.a.a {
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.a.a
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public Bitmap a(String... strArr) {
         Bitmap bitmap;
         Bitmap b;
@@ -42,24 +45,24 @@ public class bj extends com.baidu.adp.lib.a.a {
             return null;
         }
         try {
-            int a = com.baidu.tieba.d.ag.a(this.d, 110.0f);
-            int a2 = com.baidu.tieba.d.ag.a((Context) this.d);
+            int a2 = com.baidu.tieba.util.ab.a(this.d, 110.0f);
+            int a3 = com.baidu.tieba.util.ab.a((Context) this.d);
             StringBuffer stringBuffer = new StringBuffer(100);
             stringBuffer.append("http://api.map.baidu.com/staticimage?");
-            stringBuffer.append("width=" + String.valueOf(a2));
+            stringBuffer.append("width=" + String.valueOf(a3));
             stringBuffer.append("&");
-            stringBuffer.append("height=" + String.valueOf(a + 100));
+            stringBuffer.append("height=" + String.valueOf(a2 + 100));
             stringBuffer.append("&");
             stringBuffer.append("center=" + String.valueOf(this.b.getLongitude()) + "," + String.valueOf(this.b.getLatitude()));
             stringBuffer.append("&");
             stringBuffer.append("zoom=" + String.valueOf(this.c.b()));
-            this.a = new com.baidu.tieba.d.t(this.d, stringBuffer.toString());
-            this.a.c(false);
-            byte[] h = this.a.h();
-            if (this.a.b()) {
-                bitmap = com.baidu.tieba.d.d.a(h);
+            this.f1159a = new com.baidu.tieba.util.r(this.d, stringBuffer.toString());
+            this.f1159a.c(false);
+            byte[] i = this.f1159a.i();
+            if (this.f1159a.c()) {
+                bitmap = com.baidu.tieba.util.d.a(i);
                 Bitmap createBitmap = Bitmap.createBitmap(bitmap, 0, 50, bitmap.getWidth(), bitmap.getHeight() - 100, (Matrix) null, false);
-                new Canvas(createBitmap).drawBitmap(com.baidu.tieba.d.d.b(this.d, (int) R.drawable.nearby_my_pos), (createBitmap.getWidth() - b.getWidth()) >> 1, (createBitmap.getHeight() >> 1) - b.getHeight(), (Paint) null);
+                new Canvas(createBitmap).drawBitmap(com.baidu.tieba.util.d.b(this.d, (int) R.drawable.nearby_my_pos), (createBitmap.getWidth() - b.getWidth()) >> 1, (createBitmap.getHeight() >> 1) - b.getHeight(), (Paint) null);
                 if (bitmap != createBitmap) {
                     bitmap.recycle();
                     bitmap = createBitmap;
@@ -68,16 +71,16 @@ public class bj extends com.baidu.adp.lib.a.a {
                 bitmap = null;
             }
         } catch (Exception e) {
-            com.baidu.tieba.d.ae.b(getClass().getName(), "doInBackground", e.toString());
+            com.baidu.tieba.util.z.b(getClass().getName(), "doInBackground", e.toString());
             bitmap = null;
         }
         return bitmap;
     }
 
-    @Override // com.baidu.adp.lib.a.a
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void cancel() {
-        if (this.a != null) {
-            this.a.g();
+        if (this.f1159a != null) {
+            this.f1159a.h();
         }
         cancel(true);
         this.d.j = null;
@@ -85,7 +88,7 @@ public class bj extends com.baidu.adp.lib.a.a {
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.a.a
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void a(Bitmap bitmap) {
         AbsoluteLayout absoluteLayout;
         AbsoluteLayout absoluteLayout2;
@@ -93,15 +96,15 @@ public class bj extends com.baidu.adp.lib.a.a {
         int i;
         int i2;
         AbsoluteLayout absoluteLayout4;
-        com.baidu.tieba.d.a aVar;
+        com.baidu.tieba.util.a aVar;
         com.baidu.tbadk.a.d dVar;
         super.a((Object) bitmap);
         if (bitmap != null) {
-            absoluteLayout = this.d.g;
+            absoluteLayout = this.d.e;
             absoluteLayout.setBackgroundDrawable(new BitmapDrawable(bitmap));
-            absoluteLayout2 = this.d.g;
+            absoluteLayout2 = this.d.e;
             int width = absoluteLayout2.getWidth() >> 1;
-            absoluteLayout3 = this.d.g;
+            absoluteLayout3 = this.d.e;
             int height = absoluteLayout3.getHeight() >> 1;
             LayoutInflater from = LayoutInflater.from(this.d);
             Location location = new Location("");
@@ -111,7 +114,7 @@ public class bj extends com.baidu.adp.lib.a.a {
             location.setLongitude(this.b.getLongitude());
             Iterator it = this.c.a().iterator();
             while (it.hasNext()) {
-                com.baidu.tieba.c.aw awVar = (com.baidu.tieba.c.aw) it.next();
+                com.baidu.tieba.model.aw awVar = (com.baidu.tieba.model.aw) it.next();
                 if (awVar.n() != null && awVar.o() != null) {
                     try {
                         double doubleValue = Double.valueOf(awVar.n()).doubleValue();
@@ -119,7 +122,7 @@ public class bj extends com.baidu.adp.lib.a.a {
                         View inflate = from.inflate(R.layout.nearby_map_head, (ViewGroup) null);
                         ((RelativeLayout) inflate.findViewById(R.id.nearby_head_background)).setBackgroundResource(R.drawable.nearby_head_bg);
                         ImageView imageView = (ImageView) inflate.findViewById(R.id.image);
-                        imageView.setTag(awVar.l().e());
+                        imageView.setTag(awVar.l().getPortrait());
                         location2.setLatitude(location.getLatitude());
                         location2.setLongitude(doubleValue);
                         location2.setLatitude(doubleValue2);
@@ -132,21 +135,21 @@ public class bj extends com.baidu.adp.lib.a.a {
                         if (doubleValue2 >= location.getLatitude()) {
                             distanceTo2 = -distanceTo2;
                         }
-                        i = this.d.i;
+                        i = this.d.g;
                         int i3 = (distanceTo + width) - i;
-                        i2 = this.d.i;
+                        i2 = this.d.g;
                         inflate.setLayoutParams(new AbsoluteLayout.LayoutParams(-2, -2, i3, (distanceTo2 + height) - (i2 * 2)));
-                        absoluteLayout4 = this.d.g;
+                        absoluteLayout4 = this.d.e;
                         absoluteLayout4.addView(inflate);
                         aVar = this.d.K;
-                        String e = awVar.l().e();
+                        String portrait = awVar.l().getPortrait();
                         dVar = this.d.L;
-                        com.baidu.adp.widget.a.b d = aVar.d(e, dVar);
+                        com.baidu.adp.widget.a.b d = aVar.d(portrait, dVar);
                         if (d != null) {
                             d.b(imageView);
                         }
-                    } catch (Exception e2) {
-                        com.baidu.tieba.d.ae.b(getClass().getName(), "onPostExecute", e2.toString());
+                    } catch (Exception e) {
+                        com.baidu.tieba.util.z.b(getClass().getName(), "onPostExecute", e.toString());
                     }
                 }
             }

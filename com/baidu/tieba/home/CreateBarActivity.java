@@ -16,10 +16,10 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-public class CreateBarActivity extends com.baidu.tieba.e {
-    private TextView g = null;
-    private TextView h = null;
-    private EditText i = null;
+public class CreateBarActivity extends com.baidu.tieba.g {
+    private TextView e = null;
+    private TextView f = null;
+    private EditText g = null;
     private EditText j = null;
     private RelativeLayout k = null;
     private ImageView l = null;
@@ -33,10 +33,12 @@ public class CreateBarActivity extends com.baidu.tieba.e {
     private TextWatcher t = null;
     private String u = null;
     private TextView v = null;
-    RelativeLayout c = null;
-    View d = null;
-    TextView e = null;
-    TextView f = null;
+
+    /* renamed from: a  reason: collision with root package name */
+    RelativeLayout f881a = null;
+    View b = null;
+    TextView c = null;
+    TextView d = null;
     private String w = null;
     private boolean x = false;
 
@@ -50,7 +52,7 @@ public class CreateBarActivity extends com.baidu.tieba.e {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.e, com.baidu.adp.a.a, android.app.Activity
+    @Override // com.baidu.tieba.g, com.baidu.adp.a.a, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         setContentView(R.layout.create_bar_activity);
@@ -67,7 +69,7 @@ public class CreateBarActivity extends com.baidu.tieba.e {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.e, android.app.Activity
+    @Override // com.baidu.tieba.g, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
         if (this.q != null) {
@@ -99,7 +101,7 @@ public class CreateBarActivity extends com.baidu.tieba.e {
     /* JADX INFO: Access modifiers changed from: private */
     public void m() {
         if (this.q == null) {
-            this.q = new c(this, this.i.getText().toString().trim(), this.j.getText().toString().trim());
+            this.q = new c(this, this.g.getText().toString().trim(), this.j.getText().toString().trim());
             this.q.setPriority(3);
             this.q.execute(new String[0]);
         }
@@ -108,24 +110,24 @@ public class CreateBarActivity extends com.baidu.tieba.e {
     private void n() {
         this.s = new a(this);
         this.t = new b(this);
-        this.c = (RelativeLayout) findViewById(R.id.container);
-        this.d = findViewById(R.id.title);
-        this.e = (TextView) findViewById(R.id.title_text);
-        this.f = (TextView) findViewById(R.id.text);
+        this.f881a = (RelativeLayout) findViewById(R.id.container);
+        this.b = findViewById(R.id.title);
+        this.c = (TextView) findViewById(R.id.title_text);
+        this.d = (TextView) findViewById(R.id.text);
         this.v = (TextView) findViewById(R.id.error);
-        this.g = (TextView) findViewById(R.id.info);
+        this.e = (TextView) findViewById(R.id.info);
         this.k = (RelativeLayout) findViewById(R.id.create);
         this.k.setOnClickListener(this.s);
-        this.h = (TextView) findViewById(R.id.info2);
-        this.i = (EditText) findViewById(R.id.edit_name);
-        this.i.addTextChangedListener(this.t);
+        this.f = (TextView) findViewById(R.id.info2);
+        this.g = (EditText) findViewById(R.id.edit_name);
+        this.g.addTextChangedListener(this.t);
         this.j = (EditText) findViewById(R.id.edit_vcode);
         this.j.addTextChangedListener(this.t);
         if (this.x) {
-            this.h.setText(getString(R.string.bar_name_valid));
-            this.i.setText(this.w);
+            this.f.setText(getString(R.string.bar_name_valid));
+            this.g.setText(this.w);
         } else {
-            this.h.setText(getString(R.string.bar_name_invalid));
+            this.f.setText(getString(R.string.bar_name_invalid));
         }
         this.l = (ImageView) findViewById(R.id.back);
         this.l.setOnClickListener(this.s);
@@ -141,21 +143,21 @@ public class CreateBarActivity extends com.baidu.tieba.e {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.e
-    public void b(int i) {
-        super.b(i);
-        com.baidu.tieba.d.ac.f(this.e, i);
-        com.baidu.tieba.d.ac.a(this.l, i);
-        com.baidu.tieba.d.ac.a(this.c, i);
-        com.baidu.tieba.d.ac.d(this.d, i);
-        com.baidu.tieba.d.ac.a(this.f, i);
-        com.baidu.tieba.d.ac.b(this.h, i);
+    @Override // com.baidu.tieba.g
+    public void a(int i) {
+        super.a(i);
+        com.baidu.tieba.util.x.f(this.c, i);
+        com.baidu.tieba.util.x.a(this.l, i);
+        com.baidu.tieba.util.x.a(this.f881a, i);
+        com.baidu.tieba.util.x.d(this.b, i);
+        com.baidu.tieba.util.x.a(this.d, i);
+        com.baidu.tieba.util.x.b(this.f, i);
         String str = String.valueOf(this.w) + getString(R.string.bar_not_create);
         SpannableString spannableString = new SpannableString(str);
         spannableString.setSpan(new ForegroundColorSpan(Color.rgb(229, 4, 0)), 0, this.w.length(), 33);
         if (i == 1) {
             spannableString.setSpan(new ForegroundColorSpan(getResources().getColor(R.color.skin_1_common_color)), this.w.length(), str.length(), 33);
         }
-        this.g.setText(spannableString);
+        this.e.setText(spannableString);
     }
 }

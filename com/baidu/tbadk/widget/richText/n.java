@@ -5,16 +5,18 @@ import android.widget.AbsListView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class n implements AbsListView.RecyclerListener {
-    private int a;
+
+    /* renamed from: a  reason: collision with root package name */
+    private int f612a;
 
     public n(int i) {
-        this.a = 0;
-        this.a = i;
+        this.f612a = 0;
+        this.f612a = i;
     }
 
     @Override // android.widget.AbsListView.RecyclerListener
     public void onMovedToScrapHeap(View view) {
-        View findViewById = view.findViewById(this.a);
+        View findViewById = view.findViewById(this.f612a);
         if (findViewById != null && (findViewById instanceof TbRichTextView)) {
             ((TbRichTextView) findViewById).setText(null);
         }

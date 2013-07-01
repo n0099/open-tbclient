@@ -10,12 +10,14 @@ import android.widget.ImageView;
 /* loaded from: classes.dex */
 public class a extends ImageView {
     private static /* synthetic */ int[] h;
-    private int a;
+
+    /* renamed from: a  reason: collision with root package name */
+    private int f227a;
     private Paint b;
     private Matrix c;
     private Matrix d;
     private String e;
-    private com.baidu.adp.lib.d.b f;
+    private com.baidu.adp.lib.b.b f;
     private int g;
 
     static /* synthetic */ int[] a() {
@@ -61,7 +63,7 @@ public class a extends ImageView {
 
     public a(Context context) {
         super(context);
-        this.a = 0;
+        this.f227a = 0;
         this.b = null;
         this.c = null;
         this.d = null;
@@ -100,7 +102,7 @@ public class a extends ImageView {
 
     public void setDefaultResource(int i) {
         this.c = null;
-        this.a = i;
+        this.f227a = i;
     }
 
     private Matrix a(Bitmap bitmap) {
@@ -183,7 +185,7 @@ public class a extends ImageView {
 
     private Bitmap getImage() {
         if (this.e != null) {
-            return (Bitmap) com.baidu.adp.lib.d.c.a(this.e, this.g);
+            return (Bitmap) com.baidu.adp.lib.b.c.a(this.e, this.g);
         }
         return null;
     }
@@ -199,7 +201,7 @@ public class a extends ImageView {
             }
             matrix = this.d;
         } else {
-            image = com.baidu.adp.lib.e.a.a().a(this.a);
+            image = com.baidu.adp.lib.c.a.a().a(this.f227a);
             if (this.c == null) {
                 this.c = a(image);
             }

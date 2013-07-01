@@ -6,14 +6,16 @@ import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class e {
-    private static e a = new e();
+
+    /* renamed from: a  reason: collision with root package name */
+    private static e f578a = new e();
     private boolean b = false;
 
     private e() {
     }
 
     public static e a() {
-        return a;
+        return f578a;
     }
 
     public void a(Context context) {

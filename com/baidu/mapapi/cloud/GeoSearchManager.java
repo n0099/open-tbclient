@@ -11,7 +11,9 @@ public class GeoSearchManager {
     public static final int GEO_SEARCH = 50;
     public static final int GEO_SEARCH_DETAILS = 51;
     private static GeoSearchManager b;
-    private Bundle a = null;
+
+    /* renamed from: a  reason: collision with root package name */
+    private Bundle f546a = null;
 
     public static GeoSearchManager getInstance() {
         if (b == null) {
@@ -52,64 +54,64 @@ public class GeoSearchManager {
         if (boundsSearchInfo.ak == null) {
             return false;
         }
-        if (this.a == null) {
-            this.a = new Bundle();
+        if (this.f546a == null) {
+            this.f546a = new Bundle();
         } else {
-            this.a.clear();
+            this.f546a.clear();
         }
-        this.a.putInt("act", 11010206);
-        this.a.putInt("opt", 11010123);
-        this.a.putByteArray("postdata", null);
-        this.a.putString("url", "http://api.map.baidu.com/geosearch/poi" + boundsSearchInfo.a());
-        return Mj.sendBundle(this.a) != 0;
+        this.f546a.putInt("act", 11010206);
+        this.f546a.putInt("opt", 11010123);
+        this.f546a.putByteArray("postdata", null);
+        this.f546a.putString("url", "http://api.map.baidu.com/geosearch/poi" + boundsSearchInfo.a());
+        return Mj.sendBundle(this.f546a) != 0;
     }
 
     public boolean searchDetail(DetailSearchInfo detailSearchInfo) {
         if (detailSearchInfo.ak == null) {
             return false;
         }
-        if (this.a == null) {
-            this.a = new Bundle();
+        if (this.f546a == null) {
+            this.f546a = new Bundle();
         } else {
-            this.a.clear();
+            this.f546a.clear();
         }
-        this.a.putInt("act", 11010206);
-        this.a.putInt("opt", 11010124);
-        this.a.putByteArray("postdata", null);
-        this.a.putString("url", "http://api.map.baidu.com/geosearch/detail" + detailSearchInfo.a());
+        this.f546a.putInt("act", 11010206);
+        this.f546a.putInt("opt", 11010124);
+        this.f546a.putByteArray("postdata", null);
+        this.f546a.putString("url", "http://api.map.baidu.com/geosearch/detail" + detailSearchInfo.a());
         Log.d("kal", detailSearchInfo.a());
-        return Mj.sendBundle(this.a) != 0;
+        return Mj.sendBundle(this.f546a) != 0;
     }
 
     public boolean searchNearby(NearbySearchInfo nearbySearchInfo) {
         if (nearbySearchInfo.ak == null) {
             return false;
         }
-        if (this.a == null) {
-            this.a = new Bundle();
+        if (this.f546a == null) {
+            this.f546a = new Bundle();
         } else {
-            this.a.clear();
+            this.f546a.clear();
         }
-        this.a.putInt("act", 11010206);
-        this.a.putInt("opt", 11010123);
-        this.a.putByteArray("postdata", null);
-        this.a.putString("url", "http://api.map.baidu.com/geosearch/poi" + nearbySearchInfo.a());
-        return Mj.sendBundle(this.a) != 0;
+        this.f546a.putInt("act", 11010206);
+        this.f546a.putInt("opt", 11010123);
+        this.f546a.putByteArray("postdata", null);
+        this.f546a.putString("url", "http://api.map.baidu.com/geosearch/poi" + nearbySearchInfo.a());
+        return Mj.sendBundle(this.f546a) != 0;
     }
 
     public boolean searchRegion(RegionSearchInfo regionSearchInfo) {
         if (regionSearchInfo.ak == null) {
             return false;
         }
-        if (this.a == null) {
-            this.a = new Bundle();
+        if (this.f546a == null) {
+            this.f546a = new Bundle();
         } else {
-            this.a.clear();
+            this.f546a.clear();
         }
-        this.a.putInt("act", 11010206);
-        this.a.putInt("opt", 11010123);
-        this.a.putByteArray("postdata", null);
-        this.a.putString("url", "http://api.map.baidu.com/geosearch/poi" + regionSearchInfo.a());
-        return Mj.sendBundle(this.a) != 0;
+        this.f546a.putInt("act", 11010206);
+        this.f546a.putInt("opt", 11010123);
+        this.f546a.putByteArray("postdata", null);
+        this.f546a.putString("url", "http://api.map.baidu.com/geosearch/poi" + regionSearchInfo.a());
+        return Mj.sendBundle(this.f546a) != 0;
     }
 }

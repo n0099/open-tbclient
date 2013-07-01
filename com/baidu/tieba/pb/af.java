@@ -1,92 +1,96 @@
 package com.baidu.tieba.pb;
 
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.android.pushservice.PushConstants;
 import com.baidu.tieba.TiebaApplication;
+import com.baidu.tieba.model.WriteModel;
 import com.baidu.tieba.write.NewVcodeActivity;
 import com.baidu.tieba.write.VcodeActivity;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class af extends com.baidu.adp.lib.a.a {
-    final /* synthetic */ ImagePbActivity a;
-    private com.baidu.tieba.c.bs b;
-    private com.baidu.tieba.d.t c = null;
+public class af extends BdAsyncTask {
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ ImagePbActivity f1197a;
+    private WriteModel b;
+    private com.baidu.tieba.util.r c = null;
     private boolean d = false;
 
-    public af(ImagePbActivity imagePbActivity, com.baidu.tieba.c.bs bsVar) {
-        this.a = imagePbActivity;
+    public af(ImagePbActivity imagePbActivity, WriteModel writeModel) {
+        this.f1197a = imagePbActivity;
         this.b = null;
-        this.b = bsVar;
+        this.b = writeModel;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.a.a
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public String a(Integer... numArr) {
         if (this.d) {
             return null;
         }
-        this.c = new com.baidu.tieba.d.t(String.valueOf(com.baidu.tieba.a.i.e) + "c/c/post/add");
+        this.c = new com.baidu.tieba.util.r(String.valueOf(com.baidu.tieba.data.g.f787a) + "c/c/post/add");
         this.c.a("anonymous", "0");
-        this.c.a("fid", this.b.g());
-        this.c.a("kw", this.b.h());
-        this.c.a(PushConstants.EXTRA_CONTENT, this.b.d());
-        this.c.a("tid", this.b.e());
-        if (this.b.j() != null && this.b.j().length() > 0) {
-            this.c.a("vcode", this.b.j());
+        this.c.a("fid", this.b.getForumId());
+        this.c.a("kw", this.b.getForumName());
+        this.c.a(PushConstants.EXTRA_CONTENT, this.b.getContent());
+        this.c.a("tid", this.b.getThreadId());
+        if (this.b.getVcode() != null && this.b.getVcode().length() > 0) {
+            this.c.a("vcode", this.b.getVcode());
         }
-        if (TiebaApplication.e().av() < 3) {
+        if (TiebaApplication.f().aw() < 3) {
             this.c.a("vcode_tag", "11");
         }
-        this.c.a("quote_id", this.b.f());
-        this.c.a("floor_num", String.valueOf(this.b.i()));
+        this.c.a("quote_id", this.b.getFloor());
+        this.c.a("floor_num", String.valueOf(this.b.getFloorNum()));
         this.c.d(true);
-        return this.c.i();
+        return this.c.j();
     }
 
     private void a(int i, String str, String str2) {
         if (i == 5 || i == 6) {
-            com.baidu.tieba.a.bf bfVar = new com.baidu.tieba.a.bf();
-            bfVar.a(str2);
-            if (bfVar.b() != null) {
-                this.b.h(bfVar.a());
-                this.b.i(bfVar.b());
-                if (bfVar.c().equals("4")) {
-                    NewVcodeActivity.a(this.a, this.b, 1200006);
+            com.baidu.tieba.data.be beVar = new com.baidu.tieba.data.be();
+            beVar.a(str2);
+            if (beVar.b() != null) {
+                this.b.setVcodeMD5(beVar.a());
+                this.b.setVcodeUrl(beVar.b());
+                if (beVar.c().equals("4")) {
+                    NewVcodeActivity.a(this.f1197a, this.b, 1200006);
                     return;
                 } else {
-                    VcodeActivity.a(this.a, this.b, 1200006);
+                    VcodeActivity.a(this.f1197a, this.b, 1200006);
                     return;
                 }
             }
-            this.a.a(str);
+            this.f1197a.a(str);
             return;
         }
-        this.a.a(str);
+        this.f1197a.a(str);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.a.a
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void a(String str) {
         super.a((Object) str);
-        this.a.h();
-        this.a.v = null;
+        this.f1197a.h();
+        this.f1197a.v = null;
         if (this.c != null) {
-            if (!this.c.b()) {
-                a(this.c.d(), this.c.f(), str);
+            if (!this.c.c()) {
+                a(this.c.e(), this.c.g(), str);
             } else {
-                this.a.q();
+                this.f1197a.q();
             }
         }
     }
 
-    @Override // com.baidu.adp.lib.a.a
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void cancel() {
-        this.a.v = null;
-        this.a.h();
+        this.f1197a.v = null;
+        this.f1197a.h();
         this.d = true;
         if (this.c != null) {
-            this.c.g();
+            this.c.h();
         }
         super.cancel(true);
     }

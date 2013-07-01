@@ -8,7 +8,9 @@ import java.util.List;
 public class u {
     public long e;
     final /* synthetic */ t h;
-    public int a = -1;
+
+    /* renamed from: a  reason: collision with root package name */
+    public int f485a = -1;
     public int b = -1;
     public int c = -1;
     public int d = -1;
@@ -29,18 +31,18 @@ public class u {
     }
 
     public boolean a(u uVar) {
-        return this.a == uVar.a && this.b == uVar.b && this.d == uVar.d;
+        return this.f485a == uVar.f485a && this.b == uVar.b && this.d == uVar.d;
     }
 
     public boolean b() {
-        return this.a > -1 && this.b > 0;
+        return this.f485a > -1 && this.b > 0;
     }
 
     public String c() {
         StringBuffer stringBuffer = new StringBuffer((int) DERTags.TAGGED);
         stringBuffer.append(this.b + 23);
         stringBuffer.append("H");
-        stringBuffer.append(this.a + 45);
+        stringBuffer.append(this.f485a + 45);
         stringBuffer.append("K");
         stringBuffer.append(this.d + 54);
         stringBuffer.append("Q");
@@ -50,7 +52,7 @@ public class u {
 
     public String d() {
         StringBuffer stringBuffer = new StringBuffer(64);
-        stringBuffer.append(String.format("cell=%d|%d|%d|%d:%d", Integer.valueOf(this.c), Integer.valueOf(this.d), Integer.valueOf(this.a), Integer.valueOf(this.b), Integer.valueOf(this.f)));
+        stringBuffer.append(String.format("cell=%d|%d|%d|%d:%d", Integer.valueOf(this.c), Integer.valueOf(this.d), Integer.valueOf(this.f485a), Integer.valueOf(this.b), Integer.valueOf(this.f)));
         return stringBuffer.toString();
     }
 
@@ -71,9 +73,9 @@ public class u {
                         if (i >= 8) {
                             break;
                         }
-                        str2 = neighboringCellInfo2.getLac() != this.a ? str3 + ";" + neighboringCellInfo2.getLac() + "|" + neighboringCellInfo2.getCid() + "|" + neighboringCellInfo2.getRssi() : str3 + ";|" + neighboringCellInfo2.getCid() + "|" + neighboringCellInfo2.getRssi();
+                        str2 = neighboringCellInfo2.getLac() != this.f485a ? str3 + ";" + neighboringCellInfo2.getLac() + "|" + neighboringCellInfo2.getCid() + "|" + neighboringCellInfo2.getRssi() : str3 + ";|" + neighboringCellInfo2.getCid() + "|" + neighboringCellInfo2.getRssi();
                     } else {
-                        str2 = neighboringCellInfo2.getLac() != this.a ? str3 + neighboringCellInfo2.getLac() + "|" + neighboringCellInfo2.getCid() + "|" + neighboringCellInfo2.getRssi() : str3 + "|" + neighboringCellInfo2.getCid() + "|" + neighboringCellInfo2.getRssi();
+                        str2 = neighboringCellInfo2.getLac() != this.f485a ? str3 + neighboringCellInfo2.getLac() + "|" + neighboringCellInfo2.getCid() + "|" + neighboringCellInfo2.getRssi() : str3 + "|" + neighboringCellInfo2.getCid() + "|" + neighboringCellInfo2.getRssi();
                     }
                     i++;
                     str3 = str2;
@@ -97,7 +99,7 @@ public class u {
         stringBuffer.append("&nw=");
         uVar = this.h.d;
         stringBuffer.append(uVar.g);
-        stringBuffer.append(String.format("&cl=%d|%d|%d|%d&cl_s=%d", Integer.valueOf(this.c), Integer.valueOf(this.d), Integer.valueOf(this.a), Integer.valueOf(this.b), Integer.valueOf(this.f)));
+        stringBuffer.append(String.format("&cl=%d|%d|%d|%d&cl_s=%d", Integer.valueOf(this.c), Integer.valueOf(this.d), Integer.valueOf(this.f485a), Integer.valueOf(this.b), Integer.valueOf(this.f)));
         stringBuffer.append("&cl_t=");
         stringBuffer.append(this.e);
         list = this.h.e;
@@ -118,8 +120,8 @@ public class u {
                         stringBuffer.append(uVar2.d);
                     }
                     stringBuffer.append("|");
-                    if (uVar2.a != this.a) {
-                        stringBuffer.append(uVar2.a);
+                    if (uVar2.f485a != this.f485a) {
+                        stringBuffer.append(uVar2.f485a);
                     }
                     stringBuffer.append("|");
                     if (uVar2.b != this.b) {

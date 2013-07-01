@@ -16,32 +16,34 @@ import android.widget.TextView;
 import com.baidu.tieba.TiebaApplication;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-public class PersonLbsActivity extends com.baidu.tieba.e {
-    private ListView c = null;
-    private LinearLayout d = null;
-    private TextView e = null;
-    private TextView f = null;
-    private ImageView g = null;
-    private ImageView h = null;
-    private ProgressBar i = null;
+public class PersonLbsActivity extends com.baidu.tieba.g {
+
+    /* renamed from: a  reason: collision with root package name */
+    private ListView f1305a = null;
+    private LinearLayout b = null;
+    private TextView c = null;
+    private TextView d = null;
+    private ImageView e = null;
+    private ImageView f = null;
+    private ProgressBar g = null;
     private LinearLayout j = null;
     private boolean k = false;
     private String l = null;
     private View.OnClickListener m = null;
-    private bi n = null;
-    private bh o = null;
-    private com.baidu.tieba.c.bl p = null;
+    private bj n = null;
+    private bi o = null;
+    private com.baidu.tieba.model.bl p = null;
     private AbsListView.OnScrollListener q = null;
     private int r = 1;
     private int s = 1;
     private AdapterView.OnItemClickListener t = null;
     private Handler u = new Handler();
-    private Runnable v = new bc(this);
+    private Runnable v = new bd(this);
 
     public static void a(Context context, String str) {
         Intent intent = new Intent(context, PersonLbsActivity.class);
         intent.putExtra("un", str);
-        if (TiebaApplication.C() != null && TiebaApplication.C().equals(str)) {
+        if (TiebaApplication.E() != null && TiebaApplication.E().equals(str)) {
             intent.putExtra("self", true);
         } else {
             intent.putExtra("self", false);
@@ -50,7 +52,7 @@ public class PersonLbsActivity extends com.baidu.tieba.e {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.e, com.baidu.adp.a.a, android.app.Activity
+    @Override // com.baidu.tieba.g, com.baidu.adp.a.a, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         setContentView(R.layout.person_lbs_activity);
@@ -59,57 +61,57 @@ public class PersonLbsActivity extends com.baidu.tieba.e {
     }
 
     private void b() {
-        this.m = new be(this);
-        this.q = new bf(this);
-        this.t = new bg(this);
+        this.m = new bf(this);
+        this.q = new bg(this);
+        this.t = new bh(this);
         this.j = (LinearLayout) findViewById(R.id.parent);
-        this.c = (ListView) findViewById(R.id.list);
-        this.d = (LinearLayout) findViewById(R.id.title);
-        this.f = (TextView) findViewById(R.id.no_data);
-        this.e = (TextView) findViewById(R.id.title_text);
-        this.g = (ImageView) findViewById(R.id.back);
-        this.h = (ImageView) findViewById(R.id.refresh);
-        this.i = (ProgressBar) findViewById(R.id.progress);
-        this.g.setOnClickListener(this.m);
-        this.h.setOnClickListener(this.m);
-        this.n = new bi(this);
-        this.c.setAdapter((ListAdapter) this.n);
-        this.c.setOnScrollListener(this.q);
-        this.c.setOnItemClickListener(this.t);
+        this.f1305a = (ListView) findViewById(R.id.list);
+        this.b = (LinearLayout) findViewById(R.id.title);
+        this.d = (TextView) findViewById(R.id.no_data);
+        this.c = (TextView) findViewById(R.id.title_text);
+        this.e = (ImageView) findViewById(R.id.back);
+        this.f = (ImageView) findViewById(R.id.refresh);
+        this.g = (ProgressBar) findViewById(R.id.progress);
+        this.e.setOnClickListener(this.m);
+        this.f.setOnClickListener(this.m);
+        this.n = new bj(this);
+        this.f1305a.setAdapter((ListAdapter) this.n);
+        this.f1305a.setOnScrollListener(this.q);
+        this.f1305a.setOnItemClickListener(this.t);
     }
 
     private void c() {
         Intent intent = getIntent();
         this.k = intent.getBooleanExtra("self", false);
         if (this.k) {
-            this.e.setText(R.string.my_lbs_text);
-            this.f.setText(R.string.my_lbs_no_data);
+            this.c.setText(R.string.my_lbs_text);
+            this.d.setText(R.string.my_lbs_no_data);
         } else {
-            this.e.setText(R.string.his_lbs_text);
-            this.f.setText(R.string.his_lbs_no_data);
+            this.c.setText(R.string.his_lbs_text);
+            this.d.setText(R.string.his_lbs_no_data);
         }
         this.l = intent.getStringExtra("un");
         b(0, 1);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.e
-    public void b(int i) {
-        super.b(i);
-        com.baidu.tieba.d.ac.a(this.j, i);
-        com.baidu.tieba.d.ac.d(this.d, i);
-        com.baidu.tieba.d.ac.f(this.e, i);
-        com.baidu.tieba.d.ac.a(this.g, i);
-        com.baidu.tieba.d.ac.b(this.h, i);
+    @Override // com.baidu.tieba.g
+    public void a(int i) {
+        super.a(i);
+        com.baidu.tieba.util.x.a(this.j, i);
+        com.baidu.tieba.util.x.d(this.b, i);
+        com.baidu.tieba.util.x.f(this.c, i);
+        com.baidu.tieba.util.x.a(this.e, i);
+        com.baidu.tieba.util.x.b(this.f, i);
         if (i == 1) {
-            this.c.setBackgroundColor(getResources().getColor(R.color.skin_1_common_bg));
-            this.c.setSelector(R.drawable.list_selector_1);
-            this.f.setTextColor(-4276546);
+            this.f1305a.setBackgroundColor(getResources().getColor(R.color.skin_1_common_bg));
+            this.f1305a.setSelector(R.drawable.list_selector_1);
+            this.d.setTextColor(-4276546);
             return;
         }
-        this.c.setBackgroundColor(getResources().getColor(R.color.backgroundcolor));
-        this.c.setSelector(R.drawable.list_selector);
-        this.f.setTextColor(-7237231);
+        this.f1305a.setBackgroundColor(getResources().getColor(R.color.backgroundcolor));
+        this.f1305a.setSelector(R.drawable.list_selector);
+        this.d.setTextColor(-7237231);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -121,13 +123,13 @@ public class PersonLbsActivity extends com.baidu.tieba.e {
                 return;
             }
         }
-        this.o = new bh(this, i2, i);
+        this.o = new bi(this, i2, i);
         this.o.setPriority(3);
         this.o.execute(new String[0]);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.e, android.app.Activity
+    @Override // com.baidu.tieba.g, android.app.Activity
     public void onPause() {
         super.onPause();
         if (this.n != null) {
@@ -136,14 +138,14 @@ public class PersonLbsActivity extends com.baidu.tieba.e {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.e, android.app.Activity
+    @Override // com.baidu.tieba.g, android.app.Activity
     public void onResume() {
         super.onResume();
         this.v.run();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.e, android.app.Activity
+    @Override // com.baidu.tieba.g, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
         this.u.removeCallbacks(this.v);
@@ -153,6 +155,6 @@ public class PersonLbsActivity extends com.baidu.tieba.e {
         if (this.n != null) {
             this.n.b();
         }
-        this.i.setVisibility(8);
+        this.g.setVisibility(8);
     }
 }

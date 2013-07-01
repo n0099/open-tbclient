@@ -1,39 +1,14 @@
 package android.support.v4.view;
 
-import android.database.DataSetObserver;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.view.View;
 /* loaded from: classes.dex */
-public class l extends DataSetObserver implements ai, aj {
-    final /* synthetic */ PagerTitleStrip a;
-    private int b;
+final class l extends View.AccessibilityDelegate {
 
-    @Override // android.support.v4.view.aj
-    public void a(int i, float f, int i2) {
-        if (f > 0.5f) {
-            i++;
-        }
-        this.a.a(i, f);
-    }
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ m f98a;
 
-    @Override // android.support.v4.view.aj
-    public void a(int i) {
-        if (this.b == 0) {
-            this.a.a(this.a.a.getCurrentItem(), this.a.a.getAdapter());
-        }
-    }
-
-    @Override // android.support.v4.view.aj
-    public void b(int i) {
-        this.b = i;
-    }
-
-    @Override // android.support.v4.view.ai
-    public void a(k kVar, k kVar2) {
-        this.a.a(kVar, kVar2);
-    }
-
-    @Override // android.database.DataSetObserver
-    public void onChanged() {
-        this.a.a(this.a.a.getCurrentItem(), this.a.a.getAdapter());
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public l(m mVar) {
+        this.f98a = mVar;
     }
 }

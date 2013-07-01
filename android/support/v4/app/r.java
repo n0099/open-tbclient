@@ -1,20 +1,14 @@
 package android.support.v4.app;
 
-import android.os.Parcel;
-import android.os.Parcelable;
+import java.util.ArrayList;
+import java.util.HashMap;
 /* loaded from: classes.dex */
-final class r implements Parcelable.Creator {
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // android.os.Parcelable.Creator
-    /* renamed from: a */
-    public FragmentState createFromParcel(Parcel parcel) {
-        return new FragmentState(parcel);
-    }
+final class r {
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // android.os.Parcelable.Creator
-    /* renamed from: a */
-    public FragmentState[] newArray(int i) {
-        return new FragmentState[i];
-    }
+    /* renamed from: a  reason: collision with root package name */
+    Object f64a;
+    Object b;
+    HashMap c;
+    ArrayList d;
+    HashMap e;
 }

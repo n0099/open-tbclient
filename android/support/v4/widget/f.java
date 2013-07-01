@@ -1,41 +1,21 @@
 package android.support.v4.widget;
 
-import android.content.Context;
-import android.graphics.Canvas;
+import android.os.Parcel;
+import android.os.Parcelable;
+import android.support.v4.widget.DrawerLayout;
 /* loaded from: classes.dex */
-class f implements g {
-    @Override // android.support.v4.widget.g
-    public Object a(Context context) {
-        return h.a(context);
+final class f implements Parcelable.Creator {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // android.os.Parcelable.Creator
+    /* renamed from: a */
+    public DrawerLayout.SavedState createFromParcel(Parcel parcel) {
+        return new DrawerLayout.SavedState(parcel);
     }
 
-    @Override // android.support.v4.widget.g
-    public void a(Object obj, int i, int i2) {
-        h.a(obj, i, i2);
-    }
-
-    @Override // android.support.v4.widget.g
-    public boolean a(Object obj) {
-        return h.a(obj);
-    }
-
-    @Override // android.support.v4.widget.g
-    public void b(Object obj) {
-        h.b(obj);
-    }
-
-    @Override // android.support.v4.widget.g
-    public boolean a(Object obj, float f) {
-        return h.a(obj, f);
-    }
-
-    @Override // android.support.v4.widget.g
-    public boolean c(Object obj) {
-        return h.c(obj);
-    }
-
-    @Override // android.support.v4.widget.g
-    public boolean a(Object obj, Canvas canvas) {
-        return h.a(obj, canvas);
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // android.os.Parcelable.Creator
+    /* renamed from: a */
+    public DrawerLayout.SavedState[] newArray(int i) {
+        return new DrawerLayout.SavedState[i];
     }
 }

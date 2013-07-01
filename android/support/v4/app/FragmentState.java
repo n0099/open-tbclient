@@ -3,10 +3,13 @@ package android.support.v4.app;
 import android.os.Bundle;
 import android.os.Parcel;
 import android.os.Parcelable;
+import android.util.Log;
 /* loaded from: classes.dex */
 final class FragmentState implements Parcelable {
-    public static final Parcelable.Creator CREATOR = new r();
-    final String a;
+    public static final Parcelable.Creator CREATOR = new aa();
+
+    /* renamed from: a  reason: collision with root package name */
+    final String f44a;
     final int b;
     final boolean c;
     final int d;
@@ -19,19 +22,19 @@ final class FragmentState implements Parcelable {
     Fragment k;
 
     public FragmentState(Fragment fragment) {
-        this.a = fragment.getClass().getName();
-        this.b = fragment.n;
-        this.c = fragment.w;
-        this.d = fragment.C;
-        this.e = fragment.D;
-        this.f = fragment.E;
-        this.g = fragment.H;
-        this.h = fragment.G;
-        this.i = fragment.p;
+        this.f44a = fragment.getClass().getName();
+        this.b = fragment.o;
+        this.c = fragment.x;
+        this.d = fragment.F;
+        this.e = fragment.G;
+        this.f = fragment.H;
+        this.g = fragment.K;
+        this.h = fragment.J;
+        this.i = fragment.q;
     }
 
     public FragmentState(Parcel parcel) {
-        this.a = parcel.readString();
+        this.f44a = parcel.readString();
         this.b = parcel.readInt();
         this.c = parcel.readInt() != 0;
         this.d = parcel.readInt();
@@ -43,27 +46,30 @@ final class FragmentState implements Parcelable {
         this.j = parcel.readBundle();
     }
 
-    public Fragment a(g gVar) {
+    public Fragment a(n nVar, Fragment fragment) {
         if (this.k != null) {
             return this.k;
         }
         if (this.i != null) {
-            this.i.setClassLoader(gVar.getClassLoader());
+            this.i.setClassLoader(nVar.getClassLoader());
         }
-        this.k = Fragment.a(gVar, this.a, this.i);
+        this.k = Fragment.a(nVar, this.f44a, this.i);
         if (this.j != null) {
-            this.j.setClassLoader(gVar.getClassLoader());
-            this.k.l = this.j;
+            this.j.setClassLoader(nVar.getClassLoader());
+            this.k.m = this.j;
         }
-        this.k.a(this.b);
-        this.k.w = this.c;
-        this.k.y = true;
-        this.k.C = this.d;
-        this.k.D = this.e;
-        this.k.E = this.f;
-        this.k.H = this.g;
-        this.k.G = this.h;
-        this.k.A = gVar.mFragments;
+        this.k.a(this.b, fragment);
+        this.k.x = this.c;
+        this.k.z = true;
+        this.k.F = this.d;
+        this.k.G = this.e;
+        this.k.H = this.f;
+        this.k.K = this.g;
+        this.k.J = this.h;
+        this.k.B = nVar.mFragments;
+        if (v.f65a) {
+            Log.v("FragmentManager", "Instantiated fragment " + this.k);
+        }
         return this.k;
     }
 
@@ -74,7 +80,7 @@ final class FragmentState implements Parcelable {
 
     @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeString(this.a);
+        parcel.writeString(this.f44a);
         parcel.writeInt(this.b);
         parcel.writeInt(this.c ? 1 : 0);
         parcel.writeInt(this.d);

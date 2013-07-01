@@ -1,115 +1,118 @@
 package com.baidu.tieba.nearby;
 
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.android.pushservice.PushConstants;
-import com.baidu.tieba.c.bs;
+import com.baidu.tieba.model.WriteModel;
 import com.baidu.tieba.write.VcodeActivity;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ad extends com.baidu.adp.lib.a.a {
-    final /* synthetic */ NearbyPbActivity a;
-    private com.baidu.tieba.d.t b = null;
+public class ad extends BdAsyncTask {
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ NearbyPbActivity f1126a;
+    private com.baidu.tieba.util.r b = null;
     private boolean c = false;
 
-    public ad(NearbyPbActivity nearbyPbActivity, bs bsVar) {
-        this.a = nearbyPbActivity;
-        nearbyPbActivity.A = bsVar;
+    public ad(NearbyPbActivity nearbyPbActivity, WriteModel writeModel) {
+        this.f1126a = nearbyPbActivity;
+        nearbyPbActivity.A = writeModel;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.a.a
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public String a(Integer... numArr) {
-        bs bsVar;
-        bs bsVar2;
-        bs bsVar3;
-        bs bsVar4;
-        bs bsVar5;
-        bs bsVar6;
-        bs bsVar7;
-        bs bsVar8;
-        bs bsVar9;
+        WriteModel writeModel;
+        WriteModel writeModel2;
+        WriteModel writeModel3;
+        WriteModel writeModel4;
+        WriteModel writeModel5;
+        WriteModel writeModel6;
+        WriteModel writeModel7;
+        WriteModel writeModel8;
+        WriteModel writeModel9;
         if (this.c) {
             return null;
         }
-        this.b = new com.baidu.tieba.d.t(String.valueOf(com.baidu.tieba.a.i.e) + "c/c/post/add");
+        this.b = new com.baidu.tieba.util.r(String.valueOf(com.baidu.tieba.data.g.f787a) + "c/c/post/add");
         this.b.a("anonymous", "0");
-        com.baidu.tieba.d.t tVar = this.b;
-        bsVar = this.a.A;
-        tVar.a("fid", bsVar.g());
-        com.baidu.tieba.d.t tVar2 = this.b;
-        bsVar2 = this.a.A;
-        tVar2.a("kw", bsVar2.h());
-        com.baidu.tieba.d.t tVar3 = this.b;
-        bsVar3 = this.a.A;
-        tVar3.a(PushConstants.EXTRA_CONTENT, bsVar3.d());
-        com.baidu.tieba.d.t tVar4 = this.b;
-        bsVar4 = this.a.A;
-        tVar4.a("tid", bsVar4.e());
-        bsVar5 = this.a.A;
-        if (bsVar5.j() != null) {
-            bsVar8 = this.a.A;
-            if (bsVar8.j().length() > 0) {
-                com.baidu.tieba.d.t tVar5 = this.b;
-                bsVar9 = this.a.A;
-                tVar5.a("vcode", bsVar9.j());
+        com.baidu.tieba.util.r rVar = this.b;
+        writeModel = this.f1126a.A;
+        rVar.a("fid", writeModel.getForumId());
+        com.baidu.tieba.util.r rVar2 = this.b;
+        writeModel2 = this.f1126a.A;
+        rVar2.a("kw", writeModel2.getForumName());
+        com.baidu.tieba.util.r rVar3 = this.b;
+        writeModel3 = this.f1126a.A;
+        rVar3.a(PushConstants.EXTRA_CONTENT, writeModel3.getContent());
+        com.baidu.tieba.util.r rVar4 = this.b;
+        writeModel4 = this.f1126a.A;
+        rVar4.a("tid", writeModel4.getThreadId());
+        writeModel5 = this.f1126a.A;
+        if (writeModel5.getVcode() != null) {
+            writeModel8 = this.f1126a.A;
+            if (writeModel8.getVcode().length() > 0) {
+                com.baidu.tieba.util.r rVar5 = this.b;
+                writeModel9 = this.f1126a.A;
+                rVar5.a("vcode", writeModel9.getVcode());
             }
         }
-        com.baidu.tieba.d.t tVar6 = this.b;
-        bsVar6 = this.a.A;
-        tVar6.a("quote_id", bsVar6.f());
-        com.baidu.tieba.d.t tVar7 = this.b;
-        bsVar7 = this.a.A;
-        tVar7.a("floor_num", String.valueOf(bsVar7.i()));
+        com.baidu.tieba.util.r rVar6 = this.b;
+        writeModel6 = this.f1126a.A;
+        rVar6.a("quote_id", writeModel6.getFloor());
+        com.baidu.tieba.util.r rVar7 = this.b;
+        writeModel7 = this.f1126a.A;
+        rVar7.a("floor_num", String.valueOf(writeModel7.getFloorNum()));
         this.b.d(true);
-        return this.b.i();
+        return this.b.j();
     }
 
     private void a(int i, String str, String str2) {
-        bs bsVar;
-        bs bsVar2;
-        bs bsVar3;
+        WriteModel writeModel;
+        WriteModel writeModel2;
+        WriteModel writeModel3;
         if (i == 5 || i == 6) {
-            com.baidu.tieba.a.bf bfVar = new com.baidu.tieba.a.bf();
-            bfVar.a(str2);
-            if (bfVar.b() != null) {
-                bsVar = this.a.A;
-                bsVar.h(bfVar.a());
-                bsVar2 = this.a.A;
-                bsVar2.i(bfVar.b());
-                NearbyPbActivity nearbyPbActivity = this.a;
-                bsVar3 = this.a.A;
-                VcodeActivity.a(nearbyPbActivity, bsVar3, 1200006);
+            com.baidu.tieba.data.be beVar = new com.baidu.tieba.data.be();
+            beVar.a(str2);
+            if (beVar.b() != null) {
+                writeModel = this.f1126a.A;
+                writeModel.setVcodeMD5(beVar.a());
+                writeModel2 = this.f1126a.A;
+                writeModel2.setVcodeUrl(beVar.b());
+                NearbyPbActivity nearbyPbActivity = this.f1126a;
+                writeModel3 = this.f1126a.A;
+                VcodeActivity.a(nearbyPbActivity, writeModel3, 1200006);
                 return;
             }
-            this.a.a(str);
+            this.f1126a.a(str);
             return;
         }
-        this.a.a(str);
+        this.f1126a.a(str);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.a.a
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void a(String str) {
         super.a((Object) str);
-        this.a.h();
-        this.a.k = null;
+        this.f1126a.h();
+        this.f1126a.k = null;
         if (this.b != null) {
-            if (this.b.b()) {
-                this.a.u();
+            if (this.b.c()) {
+                this.f1126a.u();
             } else {
-                a(this.b.d(), this.b.f(), str);
+                a(this.b.e(), this.b.g(), str);
             }
         }
     }
 
-    @Override // com.baidu.adp.lib.a.a
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void cancel() {
-        this.a.k = null;
-        this.a.h();
+        this.f1126a.k = null;
+        this.f1126a.h();
         this.c = true;
         if (this.b != null) {
-            this.b.g();
+            this.b.h();
         }
         super.cancel(true);
     }

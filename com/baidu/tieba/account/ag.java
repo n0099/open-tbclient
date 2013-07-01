@@ -1,37 +1,41 @@
 package com.baidu.tieba.account;
+
+import com.baidu.tieba.data.AccountData;
 /* loaded from: classes.dex */
 class ag implements Runnable {
-    final /* synthetic */ ReLoginActivity a;
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ ReLoginActivity f644a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ag(ReLoginActivity reLoginActivity) {
-        this.a = reLoginActivity;
+        this.f644a = reLoginActivity;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        com.baidu.tieba.a.a aVar;
+        AccountData accountData;
         String str;
-        com.baidu.tieba.a.a aVar2;
-        com.baidu.tieba.a.a aVar3;
-        com.baidu.tieba.a.a aVar4;
-        aVar = this.a.m;
-        if (aVar != null) {
-            aVar2 = this.a.m;
-            if (aVar2.b() != null) {
-                aVar3 = this.a.m;
-                if (!aVar3.b().equals("BaiduUser")) {
-                    ReLoginActivity reLoginActivity = this.a;
-                    aVar4 = this.a.m;
-                    reLoginActivity.a(aVar4);
+        AccountData accountData2;
+        AccountData accountData3;
+        AccountData accountData4;
+        accountData = this.f644a.m;
+        if (accountData != null) {
+            accountData2 = this.f644a.m;
+            if (accountData2.getAccount() != null) {
+                accountData3 = this.f644a.m;
+                if (!accountData3.getAccount().equals("BaiduUser")) {
+                    ReLoginActivity reLoginActivity = this.f644a;
+                    accountData4 = this.f644a.m;
+                    reLoginActivity.a(accountData4);
                     return;
                 }
             }
-            this.a.n();
+            this.f644a.n();
             return;
         }
-        ReLoginActivity reLoginActivity2 = this.a;
-        str = this.a.p;
+        ReLoginActivity reLoginActivity2 = this.f644a;
+        str = this.f644a.p;
         reLoginActivity2.a(1, str);
     }
 }

@@ -1,141 +1,158 @@
 package android.support.v4.b;
-
-import java.io.PrintWriter;
 /* loaded from: classes.dex */
 public class c {
-    private static final Object a = new Object();
-    private static char[] b = new char[24];
 
-    private static int a(int i, int i2, boolean z, int i3) {
-        if (i > 99 || (z && i3 >= 3)) {
-            return i2 + 3;
-        }
-        if (i > 9 || (z && i3 >= 2)) {
-            return i2 + 2;
-        }
-        if (z || i > 0) {
-            return i2 + 1;
-        }
-        return 0;
+    /* renamed from: a  reason: collision with root package name */
+    private static final Object f70a = new Object();
+    private boolean b;
+    private int[] c;
+    private Object[] d;
+    private int e;
+
+    public c() {
+        this(10);
     }
 
-    private static int a(char[] cArr, int i, char c, int i2, boolean z, int i3) {
-        int i4;
-        int i5;
-        if (z || i > 0) {
-            if ((!z || i3 < 3) && i <= 99) {
-                i4 = i2;
-                i5 = i;
+    public c(int i) {
+        this.b = false;
+        int g = g(i);
+        this.c = new int[g];
+        this.d = new Object[g];
+        this.e = 0;
+    }
+
+    public Object a(int i) {
+        return a(i, null);
+    }
+
+    public Object a(int i, Object obj) {
+        int a2 = a(this.c, 0, this.e, i);
+        return (a2 < 0 || this.d[a2] == f70a) ? obj : this.d[a2];
+    }
+
+    public void b(int i) {
+        int a2 = a(this.c, 0, this.e, i);
+        if (a2 >= 0 && this.d[a2] != f70a) {
+            this.d[a2] = f70a;
+            this.b = true;
+        }
+    }
+
+    public void c(int i) {
+        b(i);
+    }
+
+    private void c() {
+        int i = this.e;
+        int[] iArr = this.c;
+        Object[] objArr = this.d;
+        int i2 = 0;
+        for (int i3 = 0; i3 < i; i3++) {
+            Object obj = objArr[i3];
+            if (obj != f70a) {
+                if (i3 != i2) {
+                    iArr[i2] = iArr[i3];
+                    objArr[i2] = obj;
+                }
+                i2++;
+            }
+        }
+        this.b = false;
+        this.e = i2;
+    }
+
+    public void b(int i, Object obj) {
+        int a2 = a(this.c, 0, this.e, i);
+        if (a2 >= 0) {
+            this.d[a2] = obj;
+            return;
+        }
+        int i2 = a2 ^ (-1);
+        if (i2 < this.e && this.d[i2] == f70a) {
+            this.c[i2] = i;
+            this.d[i2] = obj;
+            return;
+        }
+        if (this.b && this.e >= this.c.length) {
+            c();
+            i2 = a(this.c, 0, this.e, i) ^ (-1);
+        }
+        if (this.e >= this.c.length) {
+            int g = g(this.e + 1);
+            int[] iArr = new int[g];
+            Object[] objArr = new Object[g];
+            System.arraycopy(this.c, 0, iArr, 0, this.c.length);
+            System.arraycopy(this.d, 0, objArr, 0, this.d.length);
+            this.c = iArr;
+            this.d = objArr;
+        }
+        if (this.e - i2 != 0) {
+            System.arraycopy(this.c, i2, this.c, i2 + 1, this.e - i2);
+            System.arraycopy(this.d, i2, this.d, i2 + 1, this.e - i2);
+        }
+        this.c[i2] = i;
+        this.d[i2] = obj;
+        this.e++;
+    }
+
+    public int a() {
+        if (this.b) {
+            c();
+        }
+        return this.e;
+    }
+
+    public int d(int i) {
+        if (this.b) {
+            c();
+        }
+        return this.c[i];
+    }
+
+    public Object e(int i) {
+        if (this.b) {
+            c();
+        }
+        return this.d[i];
+    }
+
+    public void b() {
+        int i = this.e;
+        Object[] objArr = this.d;
+        for (int i2 = 0; i2 < i; i2++) {
+            objArr[i2] = null;
+        }
+        this.e = 0;
+        this.b = false;
+    }
+
+    private static int a(int[] iArr, int i, int i2, int i3) {
+        int i4 = i - 1;
+        int i5 = i + i2;
+        while (i5 - i4 > 1) {
+            int i6 = (i5 + i4) / 2;
+            if (iArr[i6] < i3) {
+                i4 = i6;
             } else {
-                int i6 = i / 100;
-                cArr[i2] = (char) (i6 + 48);
-                i4 = i2 + 1;
-                i5 = i - (i6 * 100);
-            }
-            if ((z && i3 >= 2) || i5 > 9 || i2 != i4) {
-                int i7 = i5 / 10;
-                cArr[i4] = (char) (i7 + 48);
-                i4++;
-                i5 -= i7 * 10;
-            }
-            cArr[i4] = (char) (i5 + 48);
-            int i8 = i4 + 1;
-            cArr[i8] = c;
-            return i8 + 1;
-        }
-        return i2;
-    }
-
-    private static int a(long j, int i) {
-        char c;
-        int i2;
-        int i3;
-        int i4;
-        int i5;
-        int i6;
-        if (b.length < i) {
-            b = new char[i];
-        }
-        char[] cArr = b;
-        if (j == 0) {
-            int i7 = i - 1;
-            while (0 < i7) {
-                cArr[0] = ' ';
-            }
-            cArr[0] = '0';
-            return 1;
-        }
-        if (j > 0) {
-            c = '+';
-        } else {
-            j = -j;
-            c = '-';
-        }
-        int i8 = (int) (j % 1000);
-        int floor = (int) Math.floor(j / 1000);
-        int i9 = 0;
-        if (floor > 86400) {
-            i9 = floor / 86400;
-            floor -= 86400 * i9;
-        }
-        if (floor > 3600) {
-            int i10 = floor / 3600;
-            i2 = i10;
-            i3 = floor - (i10 * 3600);
-        } else {
-            i2 = 0;
-            i3 = floor;
-        }
-        if (i3 > 60) {
-            int i11 = i3 / 60;
-            i4 = i11;
-            i5 = i3 - (i11 * 60);
-        } else {
-            i4 = 0;
-            i5 = i3;
-        }
-        if (i == 0) {
-            i6 = 0;
-        } else {
-            int a2 = a(i9, 1, false, 0);
-            int a3 = a2 + a(i2, 1, a2 > 0, 2);
-            int a4 = a3 + a(i4, 1, a3 > 0, 2);
-            int a5 = a4 + a(i5, 1, a4 > 0, 2);
-            i6 = 0;
-            int a6 = a(i8, 2, true, a5 > 0 ? 3 : 0) + 1 + a5;
-            while (a6 < i) {
-                cArr[i6] = ' ';
-                a6++;
-                i6++;
+                i5 = i6;
             }
         }
-        cArr[i6] = c;
-        int i12 = i6 + 1;
-        boolean z = i != 0;
-        int a7 = a(cArr, i9, 'd', i12, false, 0);
-        int a8 = a(cArr, i2, 'h', a7, a7 != i12, z ? 2 : 0);
-        int a9 = a(cArr, i4, 'm', a8, a8 != i12, z ? 2 : 0);
-        int a10 = a(cArr, i5, 's', a9, a9 != i12, z ? 2 : 0);
-        int a11 = a(cArr, i8, 'm', a10, true, (!z || a10 == i12) ? 0 : 3);
-        cArr[a11] = 's';
-        return a11 + 1;
-    }
-
-    public static void a(long j, PrintWriter printWriter, int i) {
-        synchronized (a) {
-            printWriter.print(new String(b, 0, a(j, i)));
+        if (i5 == i + i2) {
+            return (i + i2) ^ (-1);
         }
+        return iArr[i5] != i3 ? i5 ^ (-1) : i5;
     }
 
-    public static void a(long j, PrintWriter printWriter) {
-        a(j, printWriter, 0);
-    }
-
-    public static void a(long j, long j2, PrintWriter printWriter) {
-        if (j == 0) {
-            printWriter.print("--");
-        } else {
-            a(j - j2, printWriter, 0);
+    static int f(int i) {
+        for (int i2 = 4; i2 < 32; i2++) {
+            if (i <= (1 << i2) - 12) {
+                return (1 << i2) - 12;
+            }
         }
+        return i;
+    }
+
+    static int g(int i) {
+        return f(i * 4) / 4;
     }
 }

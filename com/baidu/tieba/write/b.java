@@ -1,13 +1,16 @@
 package com.baidu.tieba.write;
 
 import android.widget.ListView;
+import com.baidu.tieba.data.MetaData;
 /* loaded from: classes.dex */
 class b implements Runnable {
-    final /* synthetic */ AtListActivity a;
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ AtListActivity f1579a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(AtListActivity atListActivity) {
-        this.a = atListActivity;
+        this.f1579a = atListActivity;
     }
 
     @Override // java.lang.Runnable
@@ -18,25 +21,25 @@ class b implements Runnable {
         k kVar2;
         k kVar3;
         try {
-            listView = this.a.f;
+            listView = this.f1579a.d;
             int firstVisiblePosition = listView.getFirstVisiblePosition();
-            listView2 = this.a.f;
+            listView2 = this.f1579a.d;
             int lastVisiblePosition = listView2.getLastVisiblePosition();
             for (int i = firstVisiblePosition; i <= lastVisiblePosition; i++) {
-                kVar = this.a.k;
+                kVar = this.f1579a.k;
                 if (i < kVar.getCount()) {
-                    kVar2 = this.a.k;
-                    com.baidu.tieba.a.ai aiVar = (com.baidu.tieba.a.ai) kVar2.getItem(i);
-                    if (aiVar != null && aiVar.e() != null) {
-                        kVar3 = this.a.k;
-                        kVar3.b().b(aiVar.e(), new c(this));
+                    kVar2 = this.f1579a.k;
+                    MetaData metaData = (MetaData) kVar2.getItem(i);
+                    if (metaData != null && metaData.getPortrait() != null) {
+                        kVar3 = this.f1579a.k;
+                        kVar3.b().b(metaData.getPortrait(), new c(this));
                     }
                 } else {
                     return;
                 }
             }
         } catch (Exception e) {
-            com.baidu.tieba.d.ae.b(getClass().getName(), "mGetImageRunnble.run", e.getMessage());
+            com.baidu.tieba.util.z.b(getClass().getName(), "mGetImageRunnble.run", e.getMessage());
         }
     }
 }

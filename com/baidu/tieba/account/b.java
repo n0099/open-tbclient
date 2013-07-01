@@ -1,7 +1,9 @@
 package com.baidu.tieba.account;
 /* loaded from: classes.dex */
 public class b {
-    public boolean a = false;
+
+    /* renamed from: a  reason: collision with root package name */
+    public boolean f662a = false;
     public String b = null;
     public String c = null;
     public String d = null;

@@ -4,7 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 class l {
-    String a;
+
+    /* renamed from: a  reason: collision with root package name */
+    String f559a;
     String b;
     String c;
     String d;

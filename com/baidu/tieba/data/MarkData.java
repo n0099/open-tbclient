@@ -1,0 +1,186 @@
+package com.baidu.tieba.data;
+
+import java.io.Serializable;
+import org.json.JSONObject;
+/* loaded from: classes.dex */
+public class MarkData implements Serializable {
+    private static final long serialVersionUID = 2647743141824773827L;
+    private String mAccount;
+    private String mForumId;
+    private String mForumName;
+    private String mPostId;
+    private String mThreadId;
+    private String mId = null;
+    private int mFloor = 0;
+    private long mTime = 0;
+    private String mTitle = null;
+    private boolean mSequence = true;
+    private boolean mHostMode = false;
+    private String mAuthorName = null;
+    private int mReplyNum = 0;
+    private int mSubPost = 0;
+
+    public String getAuthorName() {
+        return this.mAuthorName;
+    }
+
+    public void setAuthorName(String str) {
+        this.mAuthorName = str;
+    }
+
+    public int getReplyNum() {
+        return this.mReplyNum;
+    }
+
+    public void setReplyNum(int i) {
+        this.mReplyNum = i;
+    }
+
+    public void setSubPost(int i) {
+        this.mSubPost = i;
+    }
+
+    public int getSubPost() {
+        return this.mSubPost;
+    }
+
+    public String getId() {
+        return this.mId;
+    }
+
+    public void setId(String str) {
+        this.mId = str;
+    }
+
+    public int getFloor() {
+        return this.mFloor;
+    }
+
+    public void setFloor(int i) {
+        this.mFloor = i;
+    }
+
+    public long getTime() {
+        return this.mTime;
+    }
+
+    public void setTime(long j) {
+        this.mTime = j;
+    }
+
+    public void setTitle(String str) {
+        this.mTitle = str;
+    }
+
+    public String getTitle() {
+        return this.mTitle;
+    }
+
+    public void setSequence(Boolean bool) {
+        this.mSequence = bool.booleanValue();
+    }
+
+    public Boolean getSequence() {
+        return Boolean.valueOf(this.mSequence);
+    }
+
+    public void setHostMode(boolean z) {
+        this.mHostMode = z;
+    }
+
+    public boolean getHostMode() {
+        return this.mHostMode;
+    }
+
+    public void setPostId(String str) {
+        this.mPostId = str;
+    }
+
+    public String getPostId() {
+        return this.mPostId;
+    }
+
+    public void logPrint() {
+        com.baidu.tieba.util.z.d("MarkData", "logPrint", "mId = " + this.mId);
+        com.baidu.tieba.util.z.d("MarkData", "logPrint", "mAccount = " + this.mAccount);
+        com.baidu.tieba.util.z.d("MarkData", "logPrint", "mFloor = " + String.valueOf(this.mFloor));
+        com.baidu.tieba.util.z.d("MarkData", "logPrint", "mTime = " + String.valueOf(this.mTime));
+        com.baidu.tieba.util.z.d("MarkData", "logPrint", "mSequence = " + String.valueOf(this.mSequence));
+        com.baidu.tieba.util.z.d("MarkData", "logPrint", "mHostMode = " + String.valueOf(this.mHostMode));
+        com.baidu.tieba.util.z.d("MarkData", "logPrint", "mTitle = " + this.mTitle);
+        com.baidu.tieba.util.z.d("MarkData", "logPrint", "mPostId = " + this.mPostId);
+        com.baidu.tieba.util.z.d("MarkData", "logPrint", "mAuthorName = " + this.mAuthorName);
+        com.baidu.tieba.util.z.d("MarkData", "logPrint", "mFloorNum = " + String.valueOf(this.mReplyNum));
+    }
+
+    public void setAccount(String str) {
+        this.mAccount = str;
+    }
+
+    public String getAccount() {
+        return this.mAccount;
+    }
+
+    public String getForumId() {
+        return this.mForumId;
+    }
+
+    public void setForumId(String str) {
+        this.mForumId = str;
+    }
+
+    public String getForumName() {
+        return this.mForumName;
+    }
+
+    public void setForumName(String str) {
+        this.mForumName = str;
+    }
+
+    public String getThreadId() {
+        return this.mThreadId;
+    }
+
+    public void setThreadId(String str) {
+        this.mThreadId = str;
+    }
+
+    public JSONObject toJson() {
+        try {
+            JSONObject jSONObject = new JSONObject();
+            jSONObject.put("tid", this.mThreadId);
+            jSONObject.put("pid", this.mPostId);
+            if (this.mHostMode) {
+                jSONObject.put("status", "1");
+            } else if (!this.mSequence) {
+                jSONObject.put("status", "2");
+            } else {
+                jSONObject.put("status", "0");
+            }
+            return jSONObject;
+        } catch (Exception e) {
+            com.baidu.tieba.util.z.b(getClass().getName(), "toJson", e.toString());
+            return null;
+        }
+    }
+
+    public void paserJson(JSONObject jSONObject) {
+        try {
+            this.mThreadId = jSONObject.optString("thread_id");
+            this.mPostId = jSONObject.optString("mark_pid");
+            this.mForumName = jSONObject.optString("forum_name");
+            this.mTitle = jSONObject.optString("title");
+            this.mAuthorName = jSONObject.optJSONObject("author").optString("name_show");
+            this.mId = this.mThreadId;
+            this.mReplyNum = jSONObject.optInt("reply_num");
+            int optInt = jSONObject.optInt("mark_status");
+            if (optInt == 1) {
+                this.mHostMode = true;
+            } else if (optInt == 2) {
+                this.mSequence = false;
+            }
+        } catch (Exception e) {
+            com.baidu.tieba.util.z.b(getClass().getName(), "fromJson", e.toString());
+        }
+    }
+}

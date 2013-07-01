@@ -3,17 +3,20 @@ package com.baidu.tieba.write;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.ProgressBar;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.tieba.TiebaApplication;
 import java.util.HashMap;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class i extends com.baidu.adp.lib.a.a {
-    final /* synthetic */ AtListActivity a;
-    private com.baidu.tieba.d.t b;
+public class i extends BdAsyncTask {
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ AtListActivity f1587a;
+    private com.baidu.tieba.util.r b;
     private String c;
 
     private i(AtListActivity atListActivity) {
-        this.a = atListActivity;
+        this.f1587a = atListActivity;
         this.b = null;
         this.c = null;
     }
@@ -24,46 +27,46 @@ public class i extends com.baidu.adp.lib.a.a {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.a.a
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void b() {
         ProgressBar progressBar;
-        progressBar = this.a.m;
+        progressBar = this.f1587a.m;
         progressBar.setVisibility(0);
         super.b();
     }
 
-    @Override // com.baidu.adp.lib.a.a
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void cancel() {
         ProgressBar progressBar;
-        this.a.h = null;
+        this.f1587a.f = null;
         this.c = null;
-        progressBar = this.a.m;
+        progressBar = this.f1587a.m;
         progressBar.setVisibility(8);
         super.cancel(true);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.a.a
-    public com.baidu.tieba.a.az a(String... strArr) {
-        com.baidu.tieba.c.a aVar;
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public com.baidu.tieba.data.ax a(String... strArr) {
+        com.baidu.tieba.model.a aVar;
         this.c = strArr[0];
-        this.b = new com.baidu.tieba.d.t();
+        this.b = new com.baidu.tieba.util.r();
         if (this.c != null && this.c.length() > 0) {
-            this.b.a(String.valueOf(com.baidu.tieba.a.i.e) + "c/u/follow/sug");
-            this.b.a("uid", TiebaApplication.C());
+            this.b.a(String.valueOf(com.baidu.tieba.data.g.f787a) + "c/u/follow/sug");
+            this.b.a("uid", TiebaApplication.E());
             this.b.a("q", this.c);
-            String i = this.b.i();
-            if (this.b.b()) {
-                com.baidu.tieba.a.az azVar = new com.baidu.tieba.a.az();
-                aVar = this.a.j;
-                com.baidu.tieba.a.t a = aVar.a();
-                if (a != null) {
-                    azVar.a(i, a.b());
-                    return azVar;
+            String j = this.b.j();
+            if (this.b.c()) {
+                com.baidu.tieba.data.ax axVar = new com.baidu.tieba.data.ax();
+                aVar = this.f1587a.j;
+                com.baidu.tieba.data.s a2 = aVar.a();
+                if (a2 != null) {
+                    axVar.a(j, a2.b());
+                    return axVar;
                 }
-                azVar.a(i, (HashMap) null);
-                return azVar;
+                axVar.a(j, (HashMap) null);
+                return axVar;
             }
         }
         return null;
@@ -71,29 +74,29 @@ public class i extends com.baidu.adp.lib.a.a {
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.a.a
-    public void a(com.baidu.tieba.a.az azVar) {
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public void a(com.baidu.tieba.data.ax axVar) {
         ProgressBar progressBar;
         EditText editText;
-        com.baidu.tieba.c.a aVar;
+        com.baidu.tieba.model.a aVar;
         k kVar;
         k kVar2;
         ListView listView;
-        progressBar = this.a.m;
+        progressBar = this.f1587a.m;
         progressBar.setVisibility(8);
-        if (this.b.b() && this.c != null) {
-            editText = this.a.c;
+        if (this.b.c() && this.c != null) {
+            editText = this.f1587a.f1538a;
             if (editText.getText().toString().equals(this.c)) {
-                aVar = this.a.j;
-                aVar.a(azVar);
-                kVar = this.a.k;
-                kVar.a(azVar.a());
-                kVar2 = this.a.k;
+                aVar = this.f1587a.j;
+                aVar.a(axVar);
+                kVar = this.f1587a.k;
+                kVar.a(axVar.a());
+                kVar2 = this.f1587a.k;
                 kVar2.notifyDataSetInvalidated();
-                listView = this.a.f;
+                listView = this.f1587a.d;
                 listView.setSelection(0);
             }
         }
-        super.a((Object) azVar);
+        super.a((Object) axVar);
     }
 }

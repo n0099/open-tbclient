@@ -4,7 +4,9 @@ import com.baidu.android.pushservice.PushConstants;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public final class a {
-    public String a;
+
+    /* renamed from: a  reason: collision with root package name */
+    public String f453a;
     public b b;
     private int c;
     private String d;
@@ -45,7 +47,7 @@ public final class a {
         this.r = false;
         this.s = false;
         this.t = null;
-        this.a = null;
+        this.f453a = null;
         this.u = false;
         this.b = new b(this);
     }
@@ -70,7 +72,7 @@ public final class a {
         this.r = false;
         this.s = false;
         this.t = null;
-        this.a = null;
+        this.f453a = null;
         this.u = false;
         this.b = new b(this);
         if (str == null || str.equals("")) {
@@ -111,17 +113,17 @@ public final class a {
                     this.b.g = string;
                     ap.a("baidu_location_service", string);
                     String[] split = string.split(",");
-                    this.b.a = split[0];
+                    this.b.f467a = split[0];
                     this.b.b = split[1];
                     this.b.c = split[2];
                     this.b.d = split[3];
                     this.b.e = split[4];
                     this.b.f = split[5];
-                    if ((this.b.a.contains("北京") && this.b.b.contains("北京")) || ((this.b.a.contains("上海") && this.b.b.contains("上海")) || ((this.b.a.contains("天津") && this.b.b.contains("天津")) || (this.b.a.contains("重庆") && this.b.b.contains("重庆"))))) {
+                    if ((this.b.f467a.contains("北京") && this.b.b.contains("北京")) || ((this.b.f467a.contains("上海") && this.b.b.contains("上海")) || ((this.b.f467a.contains("天津") && this.b.b.contains("天津")) || (this.b.f467a.contains("重庆") && this.b.b.contains("重庆"))))) {
                         ap.a("baidu_location_service", "true,beijing");
-                        str2 = this.b.a;
+                        str2 = this.b.f467a;
                     } else {
-                        str2 = this.b.a + this.b.b;
+                        str2 = this.b.f467a + this.b.b;
                     }
                     this.b.g = str2 + this.b.c + this.b.d + this.b.e;
                     this.r = true;

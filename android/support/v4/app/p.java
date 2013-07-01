@@ -1,31 +1,20 @@
 package android.support.v4.app;
 
-import android.view.animation.Animation;
+import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class p implements Animation.AnimationListener {
-    final /* synthetic */ Fragment a;
-    final /* synthetic */ m b;
+public class p implements s {
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ n f62a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public p(m mVar, Fragment fragment) {
-        this.b = mVar;
-        this.a = fragment;
+    public p(n nVar) {
+        this.f62a = nVar;
     }
 
-    @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationEnd(Animation animation) {
-        if (this.a.j != null) {
-            this.a.j = null;
-            this.b.a(this.a, this.a.k, 0, 0);
-        }
-    }
-
-    @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationRepeat(Animation animation) {
-    }
-
-    @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationStart(Animation animation) {
+    @Override // android.support.v4.app.s
+    public View a(int i) {
+        return this.f62a.findViewById(i);
     }
 }

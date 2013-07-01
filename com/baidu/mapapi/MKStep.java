@@ -1,7 +1,9 @@
 package com.baidu.mapapi;
 /* loaded from: classes.dex */
 public class MKStep {
-    private GeoPoint a;
+
+    /* renamed from: a  reason: collision with root package name */
+    private GeoPoint f517a;
     private String b;
     private int c;
 
@@ -17,7 +19,7 @@ public class MKStep {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a(GeoPoint geoPoint) {
-        this.a = geoPoint;
+        this.f517a = geoPoint;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -30,6 +32,6 @@ public class MKStep {
     }
 
     public GeoPoint getPoint() {
-        return this.a;
+        return this.f517a;
     }
 }

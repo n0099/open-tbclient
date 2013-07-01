@@ -6,7 +6,9 @@ import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
 /* loaded from: classes.dex */
 public class Crypto {
-    private static boolean a = false;
+
+    /* renamed from: a  reason: collision with root package name */
+    private static boolean f590a = false;
     private static final String b = f();
     private static final String c = e();
     private static final String d = d();
@@ -59,14 +61,14 @@ public class Crypto {
     }
 
     private static void b() {
-        if (a) {
+        if (f590a) {
             return;
         }
         try {
             System.loadLibrary("share_v2");
-            a = true;
+            f590a = true;
         } catch (Throwable th) {
-            a = false;
+            f590a = false;
         }
     }
 

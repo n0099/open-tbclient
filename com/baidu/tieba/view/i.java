@@ -4,11 +4,13 @@ import java.io.ByteArrayInputStream;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class i extends Thread {
-    final /* synthetic */ h a;
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ h f1522a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public i(h hVar) {
-        this.a = hVar;
+        this.f1522a = hVar;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:21:0x0063 A[Catch: Exception -> 0x0030, TryCatch #0 {Exception -> 0x0030, blocks: (B:3:0x0001, B:14:0x003d, B:16:0x0047, B:27:0x0090, B:19:0x0057, B:21:0x0063, B:22:0x0068, B:24:0x007e, B:26:0x008a, B:18:0x0051, B:8:0x002a, B:13:0x0037, B:4:0x0011), top: B:29:0x0001, inners: #1, #2 }] */
@@ -20,38 +22,38 @@ public class i extends Thread {
     */
     public void run() {
         int i;
-        u uVar;
+        s sVar;
         byte[] bArr;
-        u uVar2;
-        u uVar3;
+        s sVar2;
+        s sVar3;
         boolean z;
-        u uVar4;
-        u uVar5;
+        s sVar4;
+        s sVar5;
         try {
-            h hVar = this.a;
-            i = this.a.n;
-            hVar.B = new u(i);
+            h hVar = this.f1522a;
+            i = this.f1522a.n;
+            hVar.B = new s(i);
             try {
                 try {
-                    uVar = this.a.B;
-                    bArr = this.a.m;
-                    if (uVar.a(new ByteArrayInputStream(bArr)) == 0) {
-                        uVar2 = this.a.B;
-                        if (uVar2.c != 0) {
-                            uVar5 = this.a.B;
-                            if (uVar5.d != 0) {
-                                this.a.A = 1;
-                                uVar3 = this.a.B;
-                                if (!uVar3.e()) {
-                                    this.a.postInvalidate();
+                    sVar = this.f1522a.B;
+                    bArr = this.f1522a.m;
+                    if (sVar.a(new ByteArrayInputStream(bArr)) == 0) {
+                        sVar2 = this.f1522a.B;
+                        if (sVar2.c != 0) {
+                            sVar5 = this.f1522a.B;
+                            if (sVar5.d != 0) {
+                                this.f1522a.A = 1;
+                                sVar3 = this.f1522a.B;
+                                if (!sVar3.e()) {
+                                    this.f1522a.postInvalidate();
                                 }
-                                this.a.E = System.currentTimeMillis();
-                                this.a.a = 2;
-                                z = this.a.G;
+                                this.f1522a.E = System.currentTimeMillis();
+                                this.f1522a.f1521a = 2;
+                                z = this.f1522a.G;
                                 if (!z) {
-                                    uVar4 = this.a.B;
-                                    if (!uVar4.a()) {
-                                        this.a.postInvalidate();
+                                    sVar4 = this.f1522a.B;
+                                    if (!sVar4.a()) {
+                                        this.f1522a.postInvalidate();
                                         return;
                                     }
                                     return;
@@ -59,24 +61,24 @@ public class i extends Thread {
                                 return;
                             }
                         }
-                        this.a.A = 0;
-                        uVar3 = this.a.B;
-                        if (!uVar3.e()) {
+                        this.f1522a.A = 0;
+                        sVar3 = this.f1522a.B;
+                        if (!sVar3.e()) {
                         }
-                        this.a.E = System.currentTimeMillis();
-                        this.a.a = 2;
-                        z = this.a.G;
+                        this.f1522a.E = System.currentTimeMillis();
+                        this.f1522a.f1521a = 2;
+                        z = this.f1522a.G;
                         if (!z) {
                         }
                     }
                 } catch (OutOfMemoryError e) {
-                    this.a.c();
+                    this.f1522a.c();
                 }
             } catch (Exception e2) {
-                this.a.c();
+                this.f1522a.c();
             }
         } catch (Exception e3) {
-            this.a.a = 0;
+            this.f1522a.f1521a = 0;
         }
     }
 }

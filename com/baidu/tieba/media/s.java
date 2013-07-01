@@ -1,18 +1,20 @@
 package com.baidu.tieba.media;
+
+import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public enum s {
-    PLAYER_IDLE,
-    PLAYER_PREPARING,
-    PLAYER_PREPARED;
+public class s implements View.OnClickListener {
 
-    /* JADX DEBUG: Replace access to removed values field (d) with 'values()' method */
-    /* renamed from: values  reason: to resolve conflict with enum method */
-    public static s[] valuesCustom() {
-        s[] valuesCustom = values();
-        int length = valuesCustom.length;
-        s[] sVarArr = new s[length];
-        System.arraycopy(valuesCustom, 0, sVarArr, 0, length);
-        return sVarArr;
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ q f973a;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public s(q qVar) {
+        this.f973a = qVar;
+    }
+
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        com.baidu.adp.lib.c.b.d("next btn clicked");
     }
 }

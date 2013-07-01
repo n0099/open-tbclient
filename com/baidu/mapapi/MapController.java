@@ -7,30 +7,32 @@ import android.view.View;
 import com.baidu.zeus.bouncycastle.DERTags;
 /* loaded from: classes.dex */
 public class MapController implements View.OnKeyListener {
-    private MapView a;
+
+    /* renamed from: a  reason: collision with root package name */
+    private MapView f523a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public MapController(MapView mapView) {
-        this.a = null;
-        this.a = mapView;
+        this.f523a = null;
+        this.f523a = mapView;
         mapView.b.setOnKeyListener(this);
     }
 
     public void animateTo(GeoPoint geoPoint) {
-        this.a.a(geoPoint, (Message) null, (Runnable) null);
+        this.f523a.a(geoPoint, (Message) null, (Runnable) null);
     }
 
     public void animateTo(GeoPoint geoPoint, Message message) {
-        this.a.a(geoPoint, message, (Runnable) null);
+        this.f523a.a(geoPoint, message, (Runnable) null);
     }
 
     public void animateTo(GeoPoint geoPoint, Runnable runnable) {
-        this.a.a(geoPoint, (Message) null, runnable);
+        this.f523a.a(geoPoint, (Message) null, runnable);
     }
 
     @Override // android.view.View.OnKeyListener
     public boolean onKey(View view, int i, KeyEvent keyEvent) {
-        if (this.a.b == view && keyEvent.getAction() == 0) {
+        if (this.f523a.b == view && keyEvent.getAction() == 0) {
             switch (i) {
                 case 19:
                     scrollBy(0, -50);
@@ -56,65 +58,65 @@ public class MapController implements View.OnKeyListener {
         if (i == 0 && i2 == 0) {
             return;
         }
-        this.a.b(i, i2);
+        this.f523a.b(i, i2);
     }
 
     public void setCenter(GeoPoint geoPoint) {
-        this.a.a(geoPoint);
+        this.f523a.a(geoPoint);
     }
 
     public void setMaxZoomLevel(int i) {
-        this.a.a(i);
+        this.f523a.a(i);
     }
 
     public void setMinZoomLevel(int i) {
-        this.a.b(i);
+        this.f523a.b(i);
     }
 
     public int setZoom(int i) {
-        this.a.c(i);
-        return this.a.getZoomLevel();
+        this.f523a.c(i);
+        return this.f523a.getZoomLevel();
     }
 
     public void stopAnimation(boolean z) {
-        this.a.a(z);
+        this.f523a.a(z);
     }
 
     public void stopPanning() {
-        setCenter(this.a.getMapCenter());
+        setCenter(this.f523a.getMapCenter());
     }
 
     public boolean zoomIn() {
-        return this.a.f();
+        return this.f523a.f();
     }
 
     public boolean zoomInFixing(int i, int i2) {
-        GeoPoint fromPixels = this.a.getProjection().fromPixels(i, i2);
+        GeoPoint fromPixels = this.f523a.getProjection().fromPixels(i, i2);
         boolean zoomIn = zoomIn();
         if (zoomIn) {
             Point point = new Point();
-            this.a.getProjection().toPixels(fromPixels, point);
+            this.f523a.getProjection().toPixels(fromPixels, point);
             scrollBy(point.x - i, point.y - i2);
         }
         return zoomIn;
     }
 
     public boolean zoomOut() {
-        return this.a.g();
+        return this.f523a.g();
     }
 
     public boolean zoomOutFixing(int i, int i2) {
-        GeoPoint fromPixels = this.a.getProjection().fromPixels(i, i2);
+        GeoPoint fromPixels = this.f523a.getProjection().fromPixels(i, i2);
         boolean zoomOut = zoomOut();
         if (zoomOut) {
             Point point = new Point();
-            this.a.getProjection().toPixels(fromPixels, point);
+            this.f523a.getProjection().toPixels(fromPixels, point);
             scrollBy(point.x - i, point.y - i2);
         }
         return zoomOut;
     }
 
     public void zoomToSpan(int i, int i2) {
-        this.a.a(i, i2);
+        this.f523a.a(i, i2);
     }
 }

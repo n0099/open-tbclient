@@ -3,7 +3,9 @@ package com.baidu.mapapi;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class MKTransitRoutePlan {
-    private int a;
+
+    /* renamed from: a  reason: collision with root package name */
+    private int f519a;
     private String b;
     private ArrayList c;
     private ArrayList d;
@@ -12,7 +14,7 @@ public class MKTransitRoutePlan {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a(int i) {
-        this.a = i;
+        this.f519a = i;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -35,7 +37,7 @@ public class MKTransitRoutePlan {
     }
 
     public int getDistance() {
-        return this.a;
+        return this.f519a;
     }
 
     public GeoPoint getEnd() {

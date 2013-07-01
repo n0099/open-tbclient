@@ -1,14 +1,16 @@
 package com.baidu.location;
 /* loaded from: classes.dex */
 public class r {
-    final /* synthetic */ q a;
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ q f482a;
     private int b;
     private int c;
     private int d;
     private int e;
 
     public r(q qVar, int i, int i2, int i3, int i4) {
-        this.a = qVar;
+        this.f482a = qVar;
         this.b = 0;
         this.c = 0;
         this.d = 0;

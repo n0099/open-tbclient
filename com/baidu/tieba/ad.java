@@ -1,34 +1,32 @@
 package com.baidu.tieba;
 
-import android.os.Handler;
+import android.graphics.Bitmap;
+import android.view.animation.AlphaAnimation;
+import android.widget.ImageView;
+import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-class ad extends Thread {
-    final /* synthetic */ LogoActivity a;
+class ad implements Runnable {
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ LogoActivity f686a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ad(LogoActivity logoActivity) {
-        this.a = logoActivity;
+        this.f686a = logoActivity;
     }
 
-    @Override // java.lang.Thread, java.lang.Runnable
+    @Override // java.lang.Runnable
     public void run() {
-        Handler handler;
-        Handler handler2;
-        super.run();
-        try {
-            TiebaApplication tiebaApplication = (TiebaApplication) this.a.getApplication();
-            tiebaApplication.d(tiebaApplication.H() + 1);
-            if (tiebaApplication.M()) {
-                com.baidu.tieba.d.k.x();
-                tiebaApplication.d(0);
-            }
-            com.baidu.tieba.d.k.t();
-            com.baidu.tieba.d.k.w();
-            this.a.a(this.a.getCacheDir());
-        } catch (Exception e) {
-        }
-        handler = this.a.k;
-        handler2 = this.a.k;
-        handler.sendMessage(handler2.obtainMessage());
+        ImageView imageView;
+        Bitmap bitmap;
+        ImageView imageView2;
+        AlphaAnimation alphaAnimation;
+        this.f686a.e = com.baidu.tieba.util.d.a(this.f686a, (int) R.drawable.logo);
+        imageView = this.f686a.d;
+        bitmap = this.f686a.e;
+        imageView.setImageBitmap(bitmap);
+        imageView2 = this.f686a.d;
+        alphaAnimation = this.f686a.f;
+        imageView2.startAnimation(alphaAnimation);
     }
 }

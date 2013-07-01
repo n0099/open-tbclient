@@ -11,13 +11,16 @@ import android.widget.ProgressBar;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
+import com.baidu.tieba.data.AccountData;
 import com.baidu.zeus.WebChromeClient;
 import com.slidingmenu.lib.R;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class j {
-    private com.baidu.tieba.e j;
-    private View a = null;
+    private com.baidu.tieba.g j;
+
+    /* renamed from: a  reason: collision with root package name */
+    private View f670a = null;
     private Dialog b = null;
     private EditText c = null;
     private RadioGroup d = null;
@@ -35,21 +38,21 @@ public class j {
     private ProgressBar q = null;
     private TextView r = null;
     private String s = null;
-    private com.baidu.tieba.a.a t = null;
+    private AccountData t = null;
     private o u = null;
     private o v = null;
 
-    public j(com.baidu.tieba.e eVar) {
+    public j(com.baidu.tieba.g gVar) {
         this.j = null;
-        this.j = eVar;
+        this.j = gVar;
     }
 
     public void a(String str) {
         this.s = str;
     }
 
-    public void a(com.baidu.tieba.a.a aVar) {
-        this.t = aVar;
+    public void a(AccountData accountData) {
+        this.t = accountData;
     }
 
     public void a(o oVar) {
@@ -62,27 +65,27 @@ public class j {
 
     public void a() {
         if (this.b == null) {
-            this.a = this.j.getLayoutInflater().inflate(R.layout.main_input_username, (ViewGroup) null);
-            this.c = (EditText) this.a.findViewById(R.id.account);
+            this.f670a = this.j.getLayoutInflater().inflate(R.layout.main_input_username, (ViewGroup) null);
+            this.c = (EditText) this.f670a.findViewById(R.id.account);
             this.c.setHint(String.valueOf(this.j.getString(R.string.input_name)) + ":");
-            this.i = (Button) this.a.findViewById(R.id.back);
+            this.i = (Button) this.f670a.findViewById(R.id.back);
             this.i.setOnClickListener(new k(this));
-            this.k = (Button) this.a.findViewById(R.id.check_username);
+            this.k = (Button) this.f670a.findViewById(R.id.check_username);
             this.k.setOnClickListener(new l(this));
-            this.p = (ProgressBar) this.a.findViewById(R.id.check_progress);
-            this.o = (Button) this.a.findViewById(R.id.confirm);
+            this.p = (ProgressBar) this.f670a.findViewById(R.id.check_progress);
+            this.o = (Button) this.f670a.findViewById(R.id.confirm);
             this.o.setOnClickListener(new m(this));
-            this.q = (ProgressBar) this.a.findViewById(R.id.confirm_progress);
-            this.n = (TextView) this.a.findViewById(R.id.error_info);
-            this.d = (RadioGroup) this.a.findViewById(R.id.names_group);
-            this.f = (RadioButton) this.a.findViewById(R.id.name1);
-            this.g = (RadioButton) this.a.findViewById(R.id.name2);
-            this.h = (RadioButton) this.a.findViewById(R.id.name3);
+            this.q = (ProgressBar) this.f670a.findViewById(R.id.confirm_progress);
+            this.n = (TextView) this.f670a.findViewById(R.id.error_info);
+            this.d = (RadioGroup) this.f670a.findViewById(R.id.names_group);
+            this.f = (RadioButton) this.f670a.findViewById(R.id.name1);
+            this.g = (RadioButton) this.f670a.findViewById(R.id.name2);
+            this.h = (RadioButton) this.f670a.findViewById(R.id.name3);
             this.e = new n(this);
             this.f.setOnCheckedChangeListener(this.e);
             this.g.setOnCheckedChangeListener(this.e);
             this.h.setOnCheckedChangeListener(this.e);
-            this.r = (TextView) this.a.findViewById(R.id.phone_info);
+            this.r = (TextView) this.f670a.findViewById(R.id.phone_info);
             d();
             this.b = new Dialog(this.j, R.style.input_username_dialog);
             this.b.setCanceledOnTouchOutside(false);
@@ -100,7 +103,7 @@ public class j {
                 this.r.setText("Hi," + this.s);
             }
             this.b.show();
-            this.b.setContentView(this.a);
+            this.b.setContentView(this.f670a);
             WindowManager.LayoutParams attributes = this.b.getWindow().getAttributes();
             attributes.gravity = 51;
             attributes.x = 0;

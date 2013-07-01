@@ -50,19 +50,19 @@ public final class al extends Thread {
             HttpParams params2 = defaultHttpClient.getParams();
             i2 = ah.o;
             params2.setParameter("http.socket.timeout", Integer.valueOf(i2));
-            str3 = ah.a;
+            str3 = ah.f460a;
             ap.a(str3, "req config...");
             HttpResponse execute = defaultHttpClient.execute(httpPost);
             if (execute.getStatusLine().getStatusCode() == 200) {
                 z2 = ah.m;
                 if (z2) {
-                    str6 = ah.a;
+                    str6 = ah.f460a;
                     ap.a(str6, "req config response...");
                     byte[] byteArray = EntityUtils.toByteArray(execute.getEntity());
                     if (byteArray == null) {
                         z3 = false;
                     } else if (byteArray.length < 640) {
-                        str11 = ah.a;
+                        str11 = ah.f460a;
                         ap.a(str11, "req config response.<640.");
                         ap.s = false;
                         ap.p = ap.n + 0.025d;
@@ -70,18 +70,18 @@ public final class al extends Thread {
                     } else {
                         ap.s = true;
                         Long valueOf2 = Long.valueOf(((byteArray[7] & 255) << 56) | ((byteArray[6] & 255) << 48) | ((byteArray[5] & 255) << 40) | ((byteArray[4] & 255) << 32) | ((byteArray[3] & 255) << 24) | ((byteArray[2] & 255) << 16) | ((byteArray[1] & 255) << 8) | (byteArray[0] & 255));
-                        str7 = ah.a;
+                        str7 = ah.f460a;
                         ap.a(str7, "req config 1...");
                         ap.o = Double.longBitsToDouble(valueOf2.longValue());
-                        str8 = ah.a;
+                        str8 = ah.f460a;
                         ap.a(str8, "req config response:" + Double.longBitsToDouble(valueOf2.longValue()));
                         ap.p = Double.longBitsToDouble(Long.valueOf(((byteArray[15] & 255) << 56) | ((byteArray[14] & 255) << 48) | ((byteArray[13] & 255) << 40) | ((byteArray[12] & 255) << 32) | ((byteArray[11] & 255) << 24) | ((byteArray[10] & 255) << 16) | ((byteArray[9] & 255) << 8) | (byteArray[8] & 255)).longValue());
                         ap.r = new byte[625];
-                        str9 = ah.a;
+                        str9 = ah.f460a;
                         ap.a(str9, "req config response:" + Double.longBitsToDouble(valueOf.longValue()));
                         for (int i3 = 0; i3 < 625; i3++) {
                             ap.r[i3] = byteArray[i3 + 16];
-                            str10 = ah.a;
+                            str10 = ah.f460a;
                             ap.a(str10, "req config value:" + ((int) ap.r[i3]));
                         }
                     }
@@ -90,17 +90,17 @@ public final class al extends Thread {
                     }
                 } else {
                     String entityUtils = EntityUtils.toString(execute.getEntity(), BdUtil.UTF8);
-                    str4 = ah.a;
+                    str4 = ah.f460a;
                     ap.a(str4, "req config value:" + entityUtils);
                     if (ah.a(entityUtils)) {
-                        str5 = ah.a;
+                        str5 = ah.f460a;
                         ap.a(str5, "Save to config");
                         ah.b();
                     }
                 }
             }
         } catch (Exception e) {
-            str = ah.a;
+            str = ah.f460a;
             ap.a(str, "Exception!!!");
         } finally {
             String unused = ah.h = null;

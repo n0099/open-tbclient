@@ -1,246 +1,172 @@
 package com.baidu.tieba.person;
 
-import android.content.Context;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.BaseAdapter;
-import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.tieba.TiebaApplication;
 import com.slidingmenu.lib.R;
-import java.util.ArrayList;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class bt extends BaseAdapter {
-    boolean b;
-    boolean c;
-    private Context e;
-    private com.baidu.tieba.d.a f;
-    private View.OnClickListener j;
-    private View.OnClickListener k;
-    private View.OnClickListener l;
-    private ArrayList d = null;
-    private boolean g = false;
-    private boolean h = false;
-    boolean a = false;
-    private ArrayList i = new ArrayList();
+public class bt extends BdAsyncTask {
 
-    public void a() {
-        if (this.i != null) {
-            int i = 0;
-            while (true) {
-                int i2 = i;
-                if (i2 < this.i.size()) {
-                    try {
-                        ((ProgressBar) this.i.get(i2)).setVisibility(8);
-                    } catch (Exception e) {
-                        com.baidu.tieba.d.ae.b(getClass().getName(), "releaseProgressBar", e.getMessage());
-                    }
-                    i = i2 + 1;
-                } else {
-                    this.i.clear();
-                    return;
-                }
-            }
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ PersonListActivity f1353a;
+    private String b;
+    private boolean c;
+    private int d;
+    private com.baidu.tieba.util.r e = null;
+
+    public bt(PersonListActivity personListActivity, String str, boolean z, int i) {
+        this.f1353a = personListActivity;
+        this.b = str;
+        this.c = z;
+        this.d = i;
+    }
+
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public void cancel() {
+        bu buVar;
+        ProgressBar progressBar;
+        bu buVar2;
+        bu buVar3;
+        if (this.e != null) {
+            this.e.h();
         }
-    }
-
-    public void b() {
-        this.a = false;
-        if (this.d != null && this.d.size() == 0) {
-            this.a = true;
+        buVar = this.f1353a.f;
+        if (buVar != null) {
+            buVar2 = this.f1353a.f;
+            buVar2.b(false);
+            buVar3 = this.f1353a.f;
+            buVar3.notifyDataSetChanged();
         }
+        progressBar = this.f1353a.e;
+        progressBar.setVisibility(8);
+        this.f1353a.j = null;
+        super.cancel(true);
     }
 
-    public void a(boolean z) {
-        this.g = z;
-    }
-
-    public void b(boolean z) {
-        this.h = z;
-    }
-
-    public bt(Context context, boolean z, boolean z2, View.OnClickListener onClickListener, View.OnClickListener onClickListener2, View.OnClickListener onClickListener3) {
-        this.e = null;
-        this.f = null;
-        this.b = false;
-        this.c = true;
-        this.j = null;
-        this.k = null;
-        this.l = null;
-        this.e = context;
-        this.f = new com.baidu.tieba.d.a(this.e);
-        this.b = z;
-        this.c = z2;
-        this.j = onClickListener;
-        this.k = onClickListener2;
-        this.l = onClickListener3;
-    }
-
-    public com.baidu.tieba.d.a c() {
-        return this.f;
-    }
-
-    public void a(ArrayList arrayList) {
-        this.d = arrayList;
-    }
-
-    @Override // android.widget.Adapter
-    public int getCount() {
-        if (this.a) {
-            return 1;
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public com.baidu.tieba.data.am a(String... strArr) {
+        this.e = new com.baidu.tieba.util.r();
+        if (this.c) {
+            this.e.a(String.valueOf(com.baidu.tieba.data.g.f787a) + "c/u/follow/page");
+        } else {
+            this.e.a(String.valueOf(com.baidu.tieba.data.g.f787a) + "c/u/fans/page");
         }
-        int i = 0;
-        if (this.d != null) {
-            i = this.d.size();
+        if (this.b != null && !this.b.equals(TiebaApplication.E())) {
+            this.e.a("uid", this.b);
         }
-        if (this.g) {
-            return i + 1;
+        if (this.d != 0) {
+            this.e.a("pn", String.valueOf(this.d));
         }
-        return i;
-    }
-
-    @Override // android.widget.Adapter
-    public Object getItem(int i) {
-        if (this.d == null || i >= this.d.size()) {
+        String j = this.e.j();
+        if (!this.e.c()) {
             return null;
         }
-        return this.d.get(i);
+        com.baidu.tieba.data.am amVar = new com.baidu.tieba.data.am();
+        amVar.a(j);
+        return amVar;
     }
 
-    @Override // android.widget.Adapter
-    public long getItemId(int i) {
-        if (this.d == null || i >= this.d.size()) {
-            return -1L;
-        }
-        return i;
-    }
-
-    @Override // android.widget.Adapter
-    public View getView(int i, View view, ViewGroup viewGroup) {
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public void a(com.baidu.tieba.data.am amVar) {
+        ProgressBar progressBar;
+        com.baidu.tieba.model.bm bmVar;
+        com.baidu.tieba.model.bm bmVar2;
+        com.baidu.tieba.model.bm bmVar3;
         bu buVar;
-        View view2;
-        if (this.d != null) {
-            if (view == null) {
-                LayoutInflater from = LayoutInflater.from(this.e);
-                bu buVar2 = new bu(this, null);
-                if (getItemViewType(i) == 0) {
-                    View inflate = from.inflate(R.layout.person_list_item, (ViewGroup) null);
-                    buVar2.a = (ImageView) inflate.findViewById(R.id.photo);
-                    buVar2.c = (TextView) inflate.findViewById(R.id.name);
-                    buVar2.b = (LinearLayout) inflate.findViewById(R.id.info);
-                    buVar2.b.setOnClickListener(this.j);
-                    buVar2.g = (TextView) inflate.findViewById(R.id.at_list_nodata);
-                    buVar2.d = (TextView) inflate.findViewById(R.id.intro);
-                    buVar2.e = (Button) inflate.findViewById(R.id.chat);
-                    buVar2.e.setOnClickListener(this.k);
-                    if (TiebaApplication.e().as() == 1) {
-                        buVar2.c.setTextColor(-8682095);
-                        buVar2.d.setTextColor(-11446171);
-                        com.baidu.tieba.d.ac.h(buVar2.b, (int) R.drawable.person_list_item_info_selector_1);
-                        com.baidu.tieba.d.ac.h((View) buVar2.e, (int) R.drawable.person_list_item_chat_selector_1);
-                        buVar2.e.setCompoundDrawablesWithIntrinsicBounds(R.drawable.icon_att_chat_1, 0, 0, 0);
-                        view2 = inflate;
-                    } else {
-                        buVar2.c.setTextColor(-14277082);
-                        buVar2.d.setTextColor(-6842215);
-                        com.baidu.tieba.d.ac.h(buVar2.b, (int) R.drawable.person_list_item_info_selector);
-                        com.baidu.tieba.d.ac.h((View) buVar2.e, (int) R.drawable.person_list_item_chat_selector);
-                        buVar2.e.setCompoundDrawablesWithIntrinsicBounds(R.drawable.icon_att_chat, 0, 0, 0);
-                        view2 = inflate;
-                    }
-                } else {
-                    View inflate2 = from.inflate(R.layout.page_item, (ViewGroup) null);
-                    buVar2.c = (TextView) inflate2.findViewById(R.id.page_text);
-                    inflate2.setOnClickListener(this.l);
-                    buVar2.f = (ProgressBar) inflate2.findViewById(R.id.progress);
-                    this.i.add(buVar2.f);
-                    view2 = inflate2;
-                }
-                view2.setTag(buVar2);
-                buVar = buVar2;
-                view = view2;
-            } else {
-                buVar = (bu) view.getTag();
-            }
-            if (getItemViewType(i) == 0) {
-                if (this.a) {
-                    buVar.b.setVisibility(8);
-                    buVar.e.setVisibility(8);
-                    buVar.g.setVisibility(0);
-                    if (this.b) {
-                        if (this.c) {
-                            buVar.g.setText(R.string.not_have_attention);
+        LinearLayout linearLayout;
+        LinearLayout linearLayout2;
+        LinearLayout linearLayout3;
+        com.baidu.tieba.model.bm bmVar4;
+        String string;
+        String string2;
+        com.baidu.tieba.model.bm bmVar5;
+        com.baidu.tieba.model.bm bmVar6;
+        com.baidu.tieba.model.bm bmVar7;
+        com.baidu.tieba.model.bm bmVar8;
+        bu buVar2;
+        bu buVar3;
+        bu buVar4;
+        bu buVar5;
+        bu buVar6;
+        progressBar = this.f1353a.e;
+        progressBar.setVisibility(8);
+        this.f1353a.j = null;
+        if (this.e != null) {
+            if (this.e.c()) {
+                bmVar = this.f1353a.k;
+                if (bmVar != null && amVar != null) {
+                    bmVar2 = this.f1353a.k;
+                    bmVar2.c().b().addAll(amVar.b());
+                    bmVar3 = this.f1353a.k;
+                    bmVar3.c().a(amVar.a());
+                    buVar = this.f1353a.f;
+                    if (buVar != null) {
+                        bmVar8 = this.f1353a.k;
+                        com.baidu.tieba.data.ai a2 = bmVar8.c().a();
+                        if (a2 == null || a2.f() != 1) {
+                            buVar2 = this.f1353a.f;
+                            buVar2.a(false);
                         } else {
-                            buVar.g.setText(R.string.no_attention_other);
+                            buVar6 = this.f1353a.f;
+                            buVar6.a(true);
                         }
-                    } else if (this.c) {
-                        buVar.g.setText(R.string.not_have_fans);
-                    } else {
-                        buVar.g.setText(R.string.no_fan_other);
+                        buVar3 = this.f1353a.f;
+                        buVar3.b(false);
+                        buVar4 = this.f1353a.f;
+                        buVar4.b();
+                        buVar5 = this.f1353a.f;
+                        buVar5.notifyDataSetChanged();
                     }
-                } else {
-                    buVar.b.setVisibility(0);
-                    buVar.e.setVisibility(0);
-                    buVar.b.setTag(Integer.valueOf(i));
-                    buVar.g.setVisibility(8);
-                    String e = ((com.baidu.tieba.a.be) this.d.get(i)).e();
-                    com.baidu.adp.widget.a.b b = this.f.b(e);
-                    if (b != null) {
-                        buVar.a.setTag(null);
-                        b.b(buVar.a);
-                    } else {
-                        buVar.a.setTag(e);
-                        buVar.a.setImageBitmap(com.baidu.tieba.d.d.a((int) R.drawable.photo));
+                    if (!this.c) {
+                        TiebaApplication.f().f(0L);
                     }
-                    buVar.c.setText(((com.baidu.tieba.a.be) this.d.get(i)).d());
-                    buVar.d.setText(((com.baidu.tieba.a.be) this.d.get(i)).j());
-                    buVar.e.setTag(Integer.valueOf(i));
+                    if (this.d == 0) {
+                        if (amVar.a().c() > 0) {
+                            linearLayout2 = this.f1353a.d;
+                            linearLayout2.setVisibility(0);
+                            linearLayout3 = this.f1353a.d;
+                            TextView textView = (TextView) linearLayout3.findViewById(R.id.person_num);
+                            if (this.c) {
+                                bmVar6 = this.f1353a.k;
+                                if (bmVar6.a() != null) {
+                                    bmVar7 = this.f1353a.k;
+                                    if (bmVar7.a().equals(TiebaApplication.E())) {
+                                        string = this.f1353a.getString(R.string.my_attention_prefix);
+                                        string2 = this.f1353a.getString(R.string.person);
+                                    }
+                                }
+                                string = this.f1353a.getString(R.string.its_attention_prefix);
+                                string2 = this.f1353a.getString(R.string.person);
+                            } else {
+                                bmVar4 = this.f1353a.k;
+                                if (bmVar4.a() != null) {
+                                    bmVar5 = this.f1353a.k;
+                                    if (bmVar5.a().equals(TiebaApplication.E())) {
+                                        string = this.f1353a.getString(R.string.my_fans_prefix);
+                                        string2 = this.f1353a.getString(R.string.fans);
+                                    }
+                                }
+                                string = this.f1353a.getString(R.string.its_fans_prefix);
+                                string2 = this.f1353a.getString(R.string.fans);
+                            }
+                            textView.setText(String.valueOf(string) + String.valueOf(amVar.a().c()) + string2);
+                        } else {
+                            linearLayout = this.f1353a.d;
+                            linearLayout.setVisibility(8);
+                        }
+                    }
                 }
-            } else if (this.h) {
-                buVar.c.setText(this.e.getString(R.string.loading));
-                buVar.f.setVisibility(0);
             } else {
-                buVar.c.setText(this.e.getString(R.string.load_more));
-                buVar.f.setVisibility(8);
+                this.f1353a.a(this.e.g());
             }
-            if (TiebaApplication.e().as() == 1) {
-                int a = com.baidu.tieba.d.ac.a(1);
-                buVar.c.setTextColor(a);
-                if (buVar.g != null) {
-                    buVar.g.setTextColor(a);
-                }
-            } else {
-                buVar.c.setTextColor(-16777216);
-                if (buVar.g != null) {
-                    buVar.g.setTextColor(-4276546);
-                }
-            }
+            super.a((Object) amVar);
         }
-        return view;
-    }
-
-    @Override // android.widget.BaseAdapter, android.widget.Adapter
-    public int getItemViewType(int i) {
-        if (this.a) {
-            return 0;
-        }
-        return (this.d == null || i >= this.d.size()) ? 1 : 0;
-    }
-
-    @Override // android.widget.BaseAdapter, android.widget.Adapter
-    public int getViewTypeCount() {
-        return 2;
-    }
-
-    @Override // android.widget.BaseAdapter, android.widget.ListAdapter
-    public boolean isEnabled(int i) {
-        if (this.a) {
-            return false;
-        }
-        return super.isEnabled(i);
     }
 }

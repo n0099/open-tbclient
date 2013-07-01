@@ -1,20 +1,13 @@
 package android.support.v4.app;
 
-import android.os.Parcel;
-import android.os.Parcelable;
+import android.app.Activity;
 /* loaded from: classes.dex */
-final class d implements Parcelable.Creator {
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // android.os.Parcelable.Creator
-    /* renamed from: a */
-    public BackStackState createFromParcel(Parcel parcel) {
-        return new BackStackState(parcel);
+class d implements b {
+    private d() {
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // android.os.Parcelable.Creator
-    /* renamed from: a */
-    public BackStackState[] newArray(int i) {
-        return new BackStackState[i];
+    @Override // android.support.v4.app.b
+    public Object a(Object obj, Activity activity, int i) {
+        return f.a(obj, activity, i);
     }
 }

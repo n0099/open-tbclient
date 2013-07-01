@@ -1,18 +1,21 @@
 package com.baidu.tieba.service;
 
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.a.ah;
-import com.baidu.tieba.a.at;
-import com.baidu.tieba.d.ae;
+import com.baidu.tieba.data.af;
+import com.baidu.tieba.data.ap;
+import com.baidu.tieba.util.z;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class f extends com.baidu.adp.lib.a.a {
-    com.baidu.tieba.d.t a;
+public class f extends BdAsyncTask {
+
+    /* renamed from: a  reason: collision with root package name */
+    com.baidu.tieba.util.r f1409a;
     final /* synthetic */ MessagePullService b;
 
     private f(MessagePullService messagePullService) {
         this.b = messagePullService;
-        this.a = null;
+        this.f1409a = null;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -22,57 +25,57 @@ public class f extends com.baidu.adp.lib.a.a {
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.a.a
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public String a(String... strArr) {
-        ae.a(getClass().getName(), "doBackGround", "pull message...");
+        z.a(getClass().getName(), "doBackGround", "pull message...");
         try {
-            this.a = new com.baidu.tieba.d.t(String.valueOf(com.baidu.tieba.a.i.e) + "c/m/getmsg");
-            this.a.a("message_id", String.valueOf(TiebaApplication.e().aO()));
-            return this.a.i();
+            this.f1409a = new com.baidu.tieba.util.r(String.valueOf(com.baidu.tieba.data.g.f787a) + "c/m/getmsg");
+            this.f1409a.a("message_id", String.valueOf(TiebaApplication.f().aR()));
+            return this.f1409a.j();
         } catch (Exception e) {
-            ae.b(getClass().getName(), "doBackground", e.toString());
+            z.b(getClass().getName(), "doBackground", e.toString());
             return null;
         }
     }
 
-    @Override // com.baidu.adp.lib.a.a
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void cancel() {
-        this.b.a = null;
-        if (this.a != null) {
-            this.a.g();
+        this.b.f1397a = null;
+        if (this.f1409a != null) {
+            this.f1409a.h();
         }
         super.cancel(true);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.a.a
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void a(String str) {
-        at atVar;
-        at atVar2;
-        at atVar3;
-        at atVar4;
+        ap apVar;
+        ap apVar2;
+        ap apVar3;
+        ap apVar4;
         super.a((Object) str);
-        if (this.a.c()) {
-            ae.a(getClass().getName(), "onPostExecute", "result=" + str);
-            if (this.a.b()) {
-                ah ahVar = new ah();
-                ahVar.a(str);
-                if (!this.b.a(this.b, ahVar)) {
-                    atVar = this.b.b;
-                    atVar.a(str);
-                    atVar2 = this.b.b;
-                    if (atVar2.a() > TiebaApplication.e().aO()) {
-                        TiebaApplication e = TiebaApplication.e();
-                        atVar3 = this.b.b;
-                        e.g(atVar3.a());
+        if (this.f1409a.d()) {
+            z.a(getClass().getName(), "onPostExecute", "result=" + str);
+            if (this.f1409a.c()) {
+                af afVar = new af();
+                afVar.a(str);
+                if (!this.b.a(this.b, afVar)) {
+                    apVar = this.b.b;
+                    apVar.a(str);
+                    apVar2 = this.b.b;
+                    if (apVar2.a() > TiebaApplication.f().aR()) {
+                        TiebaApplication f = TiebaApplication.f();
+                        apVar3 = this.b.b;
+                        f.g(apVar3.a());
                         MessagePullService messagePullService = this.b;
-                        atVar4 = this.b.b;
-                        MessagePullService.a(messagePullService, atVar4);
+                        apVar4 = this.b.b;
+                        MessagePullService.a(messagePullService, apVar4);
                     }
                 }
             }
         }
-        this.b.a = null;
+        this.b.f1397a = null;
     }
 }

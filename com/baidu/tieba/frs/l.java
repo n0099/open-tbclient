@@ -1,99 +1,106 @@
 package com.baidu.tieba.frs;
 
-import com.baidu.tieba.c.bn;
+import com.baidu.tieba.TiebaApplication;
+import com.baidu.tieba.model.bn;
 import com.slidingmenu.lib.R;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class l extends com.baidu.adp.a.e {
-    final /* synthetic */ FrsActivity a;
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ FrsActivity f864a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public l(FrsActivity frsActivity) {
-        this.a = frsActivity;
+        this.f864a = frsActivity;
     }
 
     @Override // com.baidu.adp.a.e
     public void a(Object obj) {
         boolean z;
         bn bnVar;
-        ba baVar;
+        az azVar;
         bn bnVar2;
         String str;
         String str2;
-        ba baVar2;
-        ba baVar3;
+        az azVar2;
+        az azVar3;
         String str3;
         String str4;
-        ba baVar4;
-        com.baidu.tieba.c.s sVar;
-        com.baidu.tieba.c.s sVar2;
-        ba baVar5;
-        ba baVar6;
-        ba baVar7;
-        ba baVar8;
-        com.baidu.tieba.c.s sVar3;
-        com.baidu.tieba.c.s sVar4;
-        com.baidu.tieba.c.s sVar5;
-        if (obj == null || !(obj instanceof com.baidu.tieba.a.ax)) {
+        az azVar4;
+        com.baidu.tieba.model.v vVar;
+        com.baidu.tieba.model.v vVar2;
+        az azVar5;
+        az azVar6;
+        az azVar7;
+        az azVar8;
+        com.baidu.tieba.model.v vVar3;
+        com.baidu.tieba.model.v vVar4;
+        com.baidu.tieba.model.v vVar5;
+        com.baidu.tieba.model.v vVar6;
+        if (obj == null || !(obj instanceof com.baidu.tieba.data.av)) {
             z = false;
         } else {
-            sVar5 = this.a.v;
-            sVar5.a((com.baidu.tieba.a.ax) obj);
+            vVar5 = this.f864a.v;
+            vVar5.a((com.baidu.tieba.data.av) obj);
+            TiebaApplication f = TiebaApplication.f();
+            vVar6 = this.f864a.v;
+            f.c(vVar6.a().b());
             z = true;
         }
         if (!z) {
-            bnVar = this.a.x;
-            if (bnVar.b() == 160002) {
-                str = this.a.A;
+            bnVar = this.f864a.x;
+            if (bnVar.getErrorCode() == 160002) {
+                str = this.f864a.A;
                 if (str == "normal_page") {
-                    baVar3 = this.a.l;
-                    baVar3.f(1);
+                    azVar3 = this.f864a.l;
+                    azVar3.f(1);
                 } else {
-                    str2 = this.a.A;
+                    str2 = this.f864a.A;
                     if (str2 == "frs_page") {
-                        baVar2 = this.a.l;
-                        baVar2.e(1);
+                        azVar2 = this.f864a.l;
+                        azVar2.e(1);
                     }
                 }
             }
-            baVar = this.a.l;
-            bnVar2 = this.a.x;
-            baVar.a(bnVar2.c());
+            azVar = this.f864a.l;
+            bnVar2 = this.f864a.x;
+            azVar.a(bnVar2.getErrorString());
             return;
         }
-        str3 = this.a.A;
+        str3 = this.f864a.A;
         if (str3 == "normal_page") {
-            baVar8 = this.a.l;
-            sVar3 = this.a.v;
-            int b = sVar3.a().g().b();
-            sVar4 = this.a.v;
-            baVar8.b(b, sVar4.a().g().d());
+            azVar8 = this.f864a.l;
+            vVar3 = this.f864a.v;
+            int b = vVar3.a().g().b();
+            vVar4 = this.f864a.v;
+            azVar8.b(b, vVar4.a().g().d());
         } else {
-            str4 = this.a.A;
+            str4 = this.f864a.A;
             if (str4 == "frs_page") {
-                baVar4 = this.a.l;
-                sVar = this.a.v;
-                int b2 = sVar.a().g().b();
-                sVar2 = this.a.v;
-                baVar4.a(b2, sVar2.a().g().d());
+                azVar4 = this.f864a.l;
+                vVar = this.f864a.v;
+                int b2 = vVar.a().g().b();
+                vVar2 = this.f864a.v;
+                azVar4.a(b2, vVar2.a().g().d());
             }
         }
         StringBuilder sb = new StringBuilder(100);
-        baVar5 = this.a.l;
-        if (!baVar5.p()) {
-            sb.append(this.a.getString(R.string.sign_success));
+        azVar5 = this.f864a.l;
+        if (!azVar5.p()) {
+            sb.append(this.f864a.getString(R.string.sign_success));
             sb.append("!\n");
-            sb.append(String.format(this.a.getString(R.string.sign_user), Integer.valueOf(((com.baidu.tieba.a.ax) obj).c())));
-            baVar7 = this.a.l;
-            baVar7.a(sb.toString());
+            sb.append(String.format(this.f864a.getString(R.string.sign_user), Integer.valueOf(((com.baidu.tieba.data.av) obj).c())));
+            azVar7 = this.f864a.l;
+            azVar7.a(sb.toString());
             return;
         }
-        sb.append(this.a.getString(R.string.sign_success));
+        sb.append(this.f864a.getString(R.string.sign_success));
         sb.append(",");
-        sb.append(String.format(this.a.getString(R.string.sign_point), Integer.valueOf(((com.baidu.tieba.a.ax) obj).d())));
+        sb.append(String.format(this.f864a.getString(R.string.sign_point), Integer.valueOf(((com.baidu.tieba.data.av) obj).d())));
         sb.append("!\n");
-        sb.append(String.format(this.a.getString(R.string.sign_user), Integer.valueOf(((com.baidu.tieba.a.ax) obj).c())));
-        baVar6 = this.a.l;
-        baVar6.a(sb.toString());
+        sb.append(String.format(this.f864a.getString(R.string.sign_user), Integer.valueOf(((com.baidu.tieba.data.av) obj).c())));
+        azVar6 = this.f864a.l;
+        azVar6.a(sb.toString());
     }
 }

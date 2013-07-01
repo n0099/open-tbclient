@@ -1,37 +1,23 @@
 package com.baidu.tieba.home;
 
-import android.view.View;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.tieba.view.ImageViewDrawer;
 /* loaded from: classes.dex */
-public class ah implements View.OnClickListener {
-    final /* synthetic */ SearchActivity a;
+class ah implements com.baidu.tbadk.a.d {
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ RecommendPagerAdapter f896a;
+    private final /* synthetic */ ImageViewDrawer b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ah(SearchActivity searchActivity) {
-        this.a = searchActivity;
+    public ah(RecommendPagerAdapter recommendPagerAdapter, ImageViewDrawer imageViewDrawer) {
+        this.f896a = recommendPagerAdapter;
+        this.b = imageViewDrawer;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        String str;
-        String str2;
-        int i;
-        String str3;
-        str = this.a.A;
-        if (str != null) {
-            str2 = this.a.A;
-            if (str2.trim().length() >= 1) {
-                i = this.a.B;
-                if (i == 0) {
-                    this.a.m();
-                    return;
-                }
-                SearchActivity searchActivity = this.a;
-                str3 = this.a.A;
-                searchActivity.a(1, str3);
-                return;
-            }
+    @Override // com.baidu.tbadk.a.d
+    public void a(com.baidu.adp.widget.a.b bVar, String str, boolean z) {
+        if (bVar != null) {
+            this.b.invalidate();
         }
-        this.a.finish();
     }
 }

@@ -4,7 +4,9 @@ import android.widget.ImageView;
 import android.widget.TextView;
 /* loaded from: classes.dex */
 class ah {
-    TextView a;
+
+    /* renamed from: a  reason: collision with root package name */
+    TextView f834a;
     ImageView b;
     final /* synthetic */ ag c;
 

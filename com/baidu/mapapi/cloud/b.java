@@ -11,19 +11,21 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class b implements c {
-    GeoSearchListener a;
+
+    /* renamed from: a  reason: collision with root package name */
+    GeoSearchListener f548a;
 
     public b(GeoSearchListener geoSearchListener) {
-        this.a = geoSearchListener;
+        this.f548a = geoSearchListener;
     }
 
     @Override // com.baidu.mapapi.cloud.c
     public void a(a aVar) {
-        switch (aVar.a) {
+        switch (aVar.f547a) {
             case BdWebErrorView.ERROR_CODE_504 /* 504 */:
                 Bundle newBundle = Mj.getNewBundle(11010207, aVar.c, 0);
                 if (newBundle == null) {
-                    this.a.onGetGeoResult(null, aVar.c, 100);
+                    this.f548a.onGetGeoResult(null, aVar.c, 100);
                     return;
                 }
                 GeoSearchResult geoSearchResult = new GeoSearchResult();
@@ -85,16 +87,16 @@ public class b implements c {
                     }
                 }
                 if (geoSearchResult.poiList == null) {
-                    this.a.onGetGeoResult(geoSearchResult, aVar.c, 100);
+                    this.f548a.onGetGeoResult(geoSearchResult, aVar.c, 100);
                     return;
                 } else {
-                    this.a.onGetGeoResult(geoSearchResult, aVar.c, aVar.b);
+                    this.f548a.onGetGeoResult(geoSearchResult, aVar.c, aVar.b);
                     return;
                 }
             case BdWebErrorView.ERROR_CODE_505 /* 505 */:
                 Bundle newBundle2 = Mj.getNewBundle(11010207, aVar.c, 0);
                 if (newBundle2 == null) {
-                    this.a.onGetGeoDetailsResult(null, aVar.c, 100);
+                    this.f548a.onGetGeoDetailsResult(null, aVar.c, 100);
                     return;
                 }
                 DetailResult detailResult = new DetailResult();
@@ -152,10 +154,10 @@ public class b implements c {
                     }
                 }
                 if (detailResult.content == null) {
-                    this.a.onGetGeoDetailsResult(detailResult, aVar.c, 100);
+                    this.f548a.onGetGeoDetailsResult(detailResult, aVar.c, 100);
                     return;
                 } else {
-                    this.a.onGetGeoDetailsResult(detailResult, aVar.c, aVar.b);
+                    this.f548a.onGetGeoDetailsResult(detailResult, aVar.c, aVar.b);
                     return;
                 }
             default:

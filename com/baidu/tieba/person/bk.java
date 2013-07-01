@@ -1,30 +1,26 @@
 package com.baidu.tieba.person;
 
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.ProgressBar;
-import android.widget.TextView;
+import android.content.Context;
+import android.view.View;
+import com.baidu.tieba.nearby.NearbyPbActivity;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class bk {
-    int a;
-    TextView b;
-    ProgressBar c;
-    LinearLayout d;
-    LinearLayout e;
-    ImageView f;
-    TextView g;
-    ImageView h;
-    TextView i;
-    TextView j;
-    TextView k;
-    final /* synthetic */ bi l;
+public class bk implements View.OnClickListener {
 
-    private bk(bi biVar) {
-        this.l = biVar;
-    }
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ bj f1344a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ bk(bi biVar, bk bkVar) {
-        this(biVar);
+    public bk(bj bjVar) {
+        this.f1344a = bjVar;
+    }
+
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        Context context;
+        if (view != null && view.getTag() != null && (view.getTag() instanceof String)) {
+            context = this.f1344a.f1343a;
+            NearbyPbActivity.a(context, (String) view.getTag(), null);
+        }
     }
 }

@@ -6,23 +6,25 @@ import com.baidu.tieba.account.LoginActivity;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 class b implements Runnable {
-    final /* synthetic */ ChatActivity a;
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ ChatActivity f719a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(ChatActivity chatActivity) {
-        this.a = chatActivity;
+        this.f719a = chatActivity;
     }
 
     @Override // java.lang.Runnable
     public void run() {
         boolean z;
-        z = this.a.g;
+        z = this.f719a.e;
         if (!z) {
-            String C = TiebaApplication.C();
-            if (C == null || C.length() <= 0) {
-                LoginActivity.a((Activity) this.a, this.a.getString(R.string.login_to_use), true, 1100029);
+            String E = TiebaApplication.E();
+            if (E == null || E.length() <= 0) {
+                LoginActivity.a((Activity) this.f719a, this.f719a.getString(R.string.login_to_use), true, 1100029);
             } else {
-                this.a.o();
+                this.f719a.o();
             }
         }
     }

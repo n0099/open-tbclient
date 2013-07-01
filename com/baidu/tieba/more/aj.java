@@ -4,15 +4,17 @@ import android.view.View;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 class aj implements View.OnClickListener {
-    final /* synthetic */ SignRemindActivity a;
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ SignRemindActivity f1088a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public aj(SignRemindActivity signRemindActivity) {
-        this.a = signRemindActivity;
+        this.f1088a = signRemindActivity;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        this.a.showDialog(R.id.sign_remind);
+        this.f1088a.showDialog(R.id.sign_remind);
     }
 }

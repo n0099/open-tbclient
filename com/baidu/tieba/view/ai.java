@@ -1,41 +1,85 @@
 package com.baidu.tieba.view;
 
+import android.support.v4.view.bq;
 import android.view.View;
-import android.widget.Button;
+import com.baidu.tieba.util.NetWorkCore;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ai implements View.OnClickListener {
-    final /* synthetic */ MultiImageView a;
+public class ai implements bq {
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ MultiImageView f1507a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ai(MultiImageView multiImageView) {
-        this.a = multiImageView;
+        this.f1507a = multiImageView;
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:10:0x001c, code lost:
-        r0 = r1.a.getCurrentImageView();
-     */
-    @Override // android.view.View.OnClickListener
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public void onClick(View view) {
-        Button button;
-        Button button2;
-        h currentImageView;
-        h currentImageView2;
-        button = this.a.a;
-        if (view != button) {
-            button2 = this.a.b;
-            if (view == button2 && currentImageView != null) {
-                currentImageView.n();
-                return;
-            }
-            return;
+    @Override // android.support.v4.view.bq
+    public void b(int i) {
+        bq bqVar;
+        bq bqVar2;
+        bqVar = this.f1507a.g;
+        if (bqVar != null) {
+            bqVar2 = this.f1507a.g;
+            bqVar2.b(i);
         }
-        currentImageView2 = this.a.getCurrentImageView();
-        if (currentImageView2 != null) {
-            currentImageView2.m();
+    }
+
+    @Override // android.support.v4.view.bq
+    public void a(int i, float f, int i2) {
+        bq bqVar;
+        bq bqVar2;
+        bqVar = this.f1507a.g;
+        if (bqVar != null) {
+            bqVar2 = this.f1507a.g;
+            bqVar2.a(i, f, i2);
+        }
+    }
+
+    @Override // android.support.v4.view.bq
+    public void a_(int i) {
+        GalleryViewPager galleryViewPager;
+        GalleryViewPager galleryViewPager2;
+        boolean z;
+        bq bqVar;
+        bq bqVar2;
+        GalleryViewPager galleryViewPager3;
+        GalleryViewPager galleryViewPager4;
+        h imageView;
+        GalleryViewPager galleryViewPager5;
+        com.baidu.tieba.util.z.e(getClass().getName(), "onPageSelected", "postion = " + String.valueOf(i));
+        galleryViewPager = this.f1507a.e;
+        View findViewWithTag = galleryViewPager.findViewWithTag(String.valueOf(i));
+        if (findViewWithTag != null && (findViewWithTag instanceof aq) && (imageView = ((aq) findViewWithTag).getImageView()) != null) {
+            galleryViewPager5 = this.f1507a.e;
+            galleryViewPager5.setSelectedView(imageView);
+            imageView.o();
+        }
+        galleryViewPager2 = this.f1507a.e;
+        int childCount = galleryViewPager2.getChildCount();
+        for (int i2 = 0; i2 < childCount; i2++) {
+            galleryViewPager4 = this.f1507a.e;
+            View childAt = galleryViewPager4.getChildAt(i2);
+            if (childAt != null && (childAt instanceof aq)) {
+                ((aq) childAt).e();
+            }
+        }
+        NetWorkCore.NetworkStateInfo c = NetWorkCore.c(this.f1507a.getContext());
+        z = this.f1507a.l;
+        if (z && (c == NetWorkCore.NetworkStateInfo.WIFI || c == NetWorkCore.NetworkStateInfo.ThreeG)) {
+            for (int i3 = 0; i3 < childCount; i3++) {
+                galleryViewPager3 = this.f1507a.e;
+                View childAt2 = galleryViewPager3.getChildAt(i3);
+                if (childAt2 != null && (childAt2 instanceof aq)) {
+                    ((aq) childAt2).f();
+                }
+            }
+        }
+        bqVar = this.f1507a.g;
+        if (bqVar != null) {
+            bqVar2 = this.f1507a.g;
+            bqVar2.a_(i);
         }
     }
 }

@@ -2,11 +2,13 @@ package com.baidu.tieba.pb;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ay implements Runnable {
-    final /* synthetic */ NewPbActivity a;
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ NewPbActivity f1216a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ay(NewPbActivity newPbActivity) {
-        this.a = newPbActivity;
+        this.f1216a = newPbActivity;
     }
 
     @Override // java.lang.Runnable
@@ -14,13 +16,13 @@ public class ay implements Runnable {
         bk bkVar;
         bk bkVar2;
         bk bkVar3;
-        bkVar = this.a.p;
+        bkVar = this.f1216a.p;
         if (!bkVar.t()) {
-            bkVar3 = this.a.p;
-            bkVar3.a(false);
+            bkVar3 = this.f1216a.p;
+            bkVar3.b(false);
             return;
         }
-        bkVar2 = this.a.p;
-        bkVar2.a(true);
+        bkVar2 = this.f1216a.p;
+        bkVar2.b(true);
     }
 }

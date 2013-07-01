@@ -28,7 +28,9 @@ public class a extends View {
     private int H;
     private Paint I;
     private MapView.a M;
-    boolean a;
+
+    /* renamed from: a  reason: collision with root package name */
+    boolean f543a;
     int b;
     int c;
     int d;
@@ -60,7 +62,7 @@ public class a extends View {
 
     public a(Context context, MapView mapView) {
         super(context);
-        this.a = false;
+        this.f543a = false;
         this.n = 0;
         this.o = 0;
         this.p = 0;
@@ -461,14 +463,14 @@ public class a extends View {
         this.r.e();
         switch (this.E) {
             case 0:
-                if (j != null && this.a) {
+                if (j != null && this.f543a) {
                     this.c = 0;
                     this.d = 0;
                     i.rewind();
                     i.put(j);
                     i.rewind();
                     h.copyPixelsFromBuffer(i);
-                    this.a = false;
+                    this.f543a = false;
                     this.e = 1.0d;
                 }
                 if (this.e > 1.0d && this.r.getZoomLevel() == this.r.getMaxZoomLevel()) {
@@ -480,14 +482,14 @@ public class a extends View {
                 b(canvas);
                 return;
             case 1:
-                if (this.H == 1 && j != null && this.a) {
+                if (this.H == 1 && j != null && this.f543a) {
                     this.c = 0;
                     this.d = 0;
                     i.rewind();
                     i.put(j);
                     i.rewind();
                     h.copyPixelsFromBuffer(i);
-                    this.a = false;
+                    this.f543a = false;
                     this.e = 1.0d;
                 }
                 if (this.e > 1.0d && this.r.getZoomLevel() == this.r.getMaxZoomLevel()) {

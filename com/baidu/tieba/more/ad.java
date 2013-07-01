@@ -2,44 +2,47 @@ package com.baidu.tieba.more;
 
 import android.widget.CompoundButton;
 import com.baidu.tieba.TiebaApplication;
+import com.baidu.tieba.util.DatabaseService;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 class ad implements CompoundButton.OnCheckedChangeListener {
-    final /* synthetic */ MsgRemindActivity a;
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ MsgRemindActivity f1082a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ad(MsgRemindActivity msgRemindActivity) {
-        this.a = msgRemindActivity;
+        this.f1082a = msgRemindActivity;
     }
 
     @Override // android.widget.CompoundButton.OnCheckedChangeListener
     public void onCheckedChanged(CompoundButton compoundButton, boolean z) {
         switch (compoundButton.getId()) {
-            case R.id.check_replyme /* 2131100218 */:
+            case R.id.check_replyme /* 2131100259 */:
                 if (z) {
-                    TiebaApplication.e().o(true);
+                    TiebaApplication.f().o(true);
                     break;
                 } else {
-                    TiebaApplication.e().o(false);
+                    TiebaApplication.f().o(false);
                     break;
                 }
-            case R.id.check_atme /* 2131100219 */:
+            case R.id.check_atme /* 2131100260 */:
                 if (z) {
-                    TiebaApplication.e().n(true);
+                    TiebaApplication.f().n(true);
                     break;
                 } else {
-                    TiebaApplication.e().n(false);
+                    TiebaApplication.f().n(false);
                     break;
                 }
-            case R.id.check_newfans /* 2131100220 */:
+            case R.id.check_newfans /* 2131100261 */:
                 if (z) {
-                    TiebaApplication.e().m(true);
+                    TiebaApplication.f().m(true);
                     break;
                 } else {
-                    TiebaApplication.e().m(false);
+                    TiebaApplication.f().m(false);
                     break;
                 }
         }
-        com.baidu.tieba.d.k.u();
+        DatabaseService.w();
     }
 }

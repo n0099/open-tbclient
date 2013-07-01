@@ -31,7 +31,9 @@ public class q {
     private double w = 0.0d;
     private boolean y = false;
     private int A = 0;
-    public int a = 0;
+
+    /* renamed from: a  reason: collision with root package name */
+    public int f481a = 0;
 
     public q(m mVar, List list, String str, String str2, String str3) {
         this.b = mVar;
@@ -67,15 +69,15 @@ public class q {
         if (list == null || list.size() <= 0) {
             return null;
         }
-        double[] a = a(90 - ((r) list.get(0)).b(), ((r) list.get(0)).a());
+        double[] a2 = a(90 - ((r) list.get(0)).b(), ((r) list.get(0)).a());
         if (list.size() > 1) {
             for (int i = 1; i < list.size(); i++) {
-                double[] a2 = a(90 - ((r) list.get(i)).b(), ((r) list.get(i)).a());
-                a[0] = (a[0] + a2[0]) / 2.0d;
-                a[1] = (a[1] + a2[1]) / 2.0d;
+                double[] a3 = a(90 - ((r) list.get(i)).b(), ((r) list.get(i)).a());
+                a2[0] = (a2[0] + a3[0]) / 2.0d;
+                a2[1] = (a2[1] + a3[1]) / 2.0d;
             }
         }
-        return a;
+        return a2;
     }
 
     private double[] b(double d, double d2) {
@@ -92,11 +94,11 @@ public class q {
 
     public int a(boolean z, boolean z2, boolean z3, boolean z4, boolean z5) {
         int i;
-        double[] a;
+        double[] a2;
         int i2;
         if (this.c) {
             if (z && this.e) {
-                this.a = 1;
+                this.f481a = 1;
                 if (this.k >= ap.z) {
                     return 1;
                 }
@@ -105,7 +107,7 @@ public class q {
                 }
             }
             if (z2 && this.s) {
-                this.a = 2;
+                this.f481a = 2;
                 if (this.v <= ap.u) {
                     return 1;
                 }
@@ -114,7 +116,7 @@ public class q {
                 }
             }
             if (z3 && this.s) {
-                this.a = 3;
+                this.f481a = 3;
                 if (this.u <= ap.w) {
                     return 1;
                 }
@@ -123,7 +125,7 @@ public class q {
                 }
             }
             if (z4 && this.y) {
-                this.a = 4;
+                this.f481a = 4;
                 int i3 = 0;
                 Iterator it = this.z.iterator();
                 while (true) {
@@ -141,7 +143,7 @@ public class q {
                 }
             }
             if (z5 && this.y) {
-                this.a = 5;
+                this.f481a = 5;
                 ArrayList arrayList = new ArrayList();
                 ArrayList arrayList2 = new ArrayList();
                 ArrayList arrayList3 = new ArrayList();
@@ -171,8 +173,8 @@ public class q {
                     if (i7 >= arrayList.size()) {
                         break;
                     }
-                    if (((List) arrayList.get(i7)).size() != 0 && (a = a((List) arrayList.get(i7))) != null) {
-                        arrayList2.add(a);
+                    if (((List) arrayList.get(i7)).size() != 0 && (a2 = a((List) arrayList.get(i7))) != null) {
+                        arrayList2.add(a2);
                         arrayList3.add(Integer.valueOf(i7));
                     }
                     i6 = i7 + 1;
@@ -206,7 +208,7 @@ public class q {
                     return 4;
                 }
             }
-            this.a = 0;
+            this.f481a = 0;
             return 3;
         }
         return 0;

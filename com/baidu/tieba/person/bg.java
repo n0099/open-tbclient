@@ -1,29 +1,34 @@
 package com.baidu.tieba.person;
 
-import android.view.View;
-import android.widget.AdapterView;
+import android.os.Handler;
+import android.widget.AbsListView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class bg implements AdapterView.OnItemClickListener {
-    final /* synthetic */ PersonLbsActivity a;
+public class bg implements AbsListView.OnScrollListener {
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ PersonLbsActivity f1340a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bg(PersonLbsActivity personLbsActivity) {
-        this.a = personLbsActivity;
+        this.f1340a = personLbsActivity;
     }
 
-    @Override // android.widget.AdapterView.OnItemClickListener
-    public void onItemClick(AdapterView adapterView, View view, int i, long j) {
-        int i2;
-        int i3;
-        if (j == -1) {
-            PersonLbsActivity personLbsActivity = this.a;
-            i3 = this.a.r;
-            personLbsActivity.b(1, i3 - 1);
-        } else if (j == -2) {
-            PersonLbsActivity personLbsActivity2 = this.a;
-            i2 = this.a.s;
-            personLbsActivity2.b(2, i2 + 1);
-        }
+    @Override // android.widget.AbsListView.OnScrollListener
+    public void onScrollStateChanged(AbsListView absListView, int i) {
+        Handler handler;
+        Runnable runnable;
+        Handler handler2;
+        Runnable runnable2;
+        handler = this.f1340a.u;
+        runnable = this.f1340a.v;
+        handler.removeCallbacks(runnable);
+        handler2 = this.f1340a.u;
+        runnable2 = this.f1340a.v;
+        handler2.postDelayed(runnable2, 300L);
+    }
+
+    @Override // android.widget.AbsListView.OnScrollListener
+    public void onScroll(AbsListView absListView, int i, int i2, int i3) {
     }
 }

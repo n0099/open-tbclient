@@ -1,71 +1,72 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.Context;
-import com.baidu.account.AccountProxy;
-import com.baidu.tieba.BaiduAccount.BaiduAccount;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.ListView;
+import android.widget.TextView;
+import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-public class a {
-    public static void a(Context context) {
-        com.baidu.tieba.a.a F = TiebaApplication.F();
-        if (F == null) {
-            F = new com.baidu.tieba.a.a();
-            F.a(1);
-            TiebaApplication.a(F);
-        }
-        BaiduAccount baiduAccount = BaiduAccount.get(context);
-        String currentAccount = baiduAccount.getCurrentAccount();
-        if (currentAccount != null && !currentAccount.equals(F.b())) {
-            b(F.a());
-            F.b(currentAccount);
-            F.d(null);
-            F.a((String) null);
-            F.a(1);
-            TiebaApplication.e().R();
-            TiebaApplication.e().a(0L, 0L, 0L, 0L);
-        }
-        baiduAccount.addOnAccountsUpdatedListener(new b());
+public class a extends g {
+
+    /* renamed from: a  reason: collision with root package name */
+    protected ViewGroup f620a = null;
+    protected View b = null;
+    protected ImageView c = null;
+    protected TextView d = null;
+    protected ListView e = null;
+    protected Button f = null;
+    protected ViewGroup g;
+
+    @Override // android.app.Activity
+    public void setContentView(int i) {
+        super.setContentView(i);
+        b();
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public static void b(String str) {
-        if (str != null) {
-            new c(str).start();
-        }
-    }
-
-    public static boolean a(Activity activity) {
-        AccountProxy accountProxy = new AccountProxy(activity);
-        return accountProxy.hasBaiduAccount() && accountProxy.getNumOfAccounts(AccountProxy.BAIDUACCOUNT_TYPE) > 0;
-    }
-
-    public static void a(Activity activity, int i, String str, boolean z) {
-        new AccountProxy(activity).getTokenAsync(AccountProxy.BAIDUACCOUNT_TYPE, new d(activity, str, i, z));
-    }
-
-    public static com.baidu.tieba.a.a a(com.baidu.tieba.d.t tVar, String str, String str2) {
-        com.baidu.tieba.a.a aVar = null;
-        if (tVar != null) {
-            StringBuffer stringBuffer = new StringBuffer(60);
-            stringBuffer.append(com.baidu.tieba.a.i.e);
-            stringBuffer.append("c/s/login");
-            tVar.a(stringBuffer.toString());
-            tVar.a("un", str);
-            tVar.a("bdusstoken", str2);
-            String i = tVar.i();
-            if (tVar.b() && i != null) {
-                com.baidu.tieba.c.ai aiVar = new com.baidu.tieba.c.ai();
-                aiVar.a(i);
-                aVar = new com.baidu.tieba.a.a();
-                aVar.b(aiVar.a().c());
-                aVar.d(aiVar.a().l());
-                aVar.a(1);
-                if (aiVar.b() != null) {
-                    aVar.e(aiVar.b().b());
-                }
-                aVar.a(aiVar.a().a());
+    protected void b() {
+        if (this.f620a == null) {
+            this.f620a = (ViewGroup) findViewById(R.id.container);
+            if (this.f620a == null) {
+                this.f620a = (ViewGroup) findViewById(R.id.parent);
+            }
+            this.b = findViewById(R.id.title);
+            this.c = (ImageView) findViewById(R.id.back);
+            if (this.c != null) {
+                this.c.setOnClickListener(new b(this));
+            }
+            this.d = (TextView) findViewById(R.id.title_text);
+            if (this.f620a != null) {
+                this.f = (Button) this.f620a.findViewWithTag("skin_top_more_button");
             }
         }
-        return aVar;
+        if (this.e == null) {
+            this.e = (ListView) findViewById(R.id.list);
+        }
+        this.g = (ViewGroup) findViewById(R.id.body_container);
+        com.baidu.tieba.util.ae.b(this.g);
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.tieba.g
+    public void a(int i) {
+        super.a(i);
+        com.baidu.tieba.util.x.a(this.c, i);
+        com.baidu.tieba.util.x.d(this.b, i);
+        com.baidu.tieba.util.x.f(this.d, i);
+        com.baidu.tieba.util.x.b(this.f620a, i);
+        com.baidu.tieba.util.x.g((TextView) this.f, i);
+        if (this.e != null) {
+            this.e.invalidateViews();
+        }
+        if (this.g != null) {
+            com.baidu.tieba.util.ae.a(this.g, i);
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    public void c() {
+        finish();
     }
 }

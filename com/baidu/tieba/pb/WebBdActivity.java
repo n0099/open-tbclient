@@ -24,14 +24,20 @@ import com.slidingmenu.lib.R;
 import java.util.Observable;
 import java.util.Observer;
 /* loaded from: classes.dex */
-public class WebBdActivity extends com.baidu.tieba.e implements Browser.BrowserListener, BdExploreViewListener, Observer {
+public class WebBdActivity extends com.baidu.tieba.g implements Browser.BrowserListener, BdExploreViewListener, Observer {
+
+    /* renamed from: a  reason: collision with root package name */
+    private String f1191a = null;
+    private String b = null;
     private String c = null;
-    private String d = null;
-    private String e = null;
-    private BdUploadHandler f;
-    private BdValueCallback g;
+    private BdUploadHandler d;
+    private BdValueCallback e;
 
     public static void a(Context context, String str, String str2, String str3) {
+        if (com.baidu.tieba.util.ab.f(context)) {
+            com.baidu.tieba.util.ab.a(context, context.getString(R.string.web_view_corrupted));
+            return;
+        }
         Intent intent = new Intent(context, WebBdActivity.class);
         if (!(context instanceof Activity)) {
             intent.setFlags(268435456);
@@ -44,32 +50,32 @@ public class WebBdActivity extends com.baidu.tieba.e implements Browser.BrowserL
 
     private void a(Bundle bundle) {
         Intent intent = getIntent();
-        this.c = intent.getStringExtra("url");
-        this.d = intent.getStringExtra("bduss");
-        this.e = intent.getStringExtra("ptoken");
+        this.f1191a = intent.getStringExtra("url");
+        this.b = intent.getStringExtra("bduss");
+        this.c = intent.getStringExtra("ptoken");
     }
 
     public void b() {
-        if (this.d != null) {
+        if (this.b != null) {
             BdCookieSyncManager.createInstance(this);
-            BdCookieManager.getInstance().setCookie("wappass.baidu.com", "BDUSS=" + this.d + "; domain=.baidu.com;");
-            if (this.e != null) {
-                BdCookieManager.getInstance().setCookie("wappass.baidu.com", "PTOKEN=" + this.e + "; domain=.baidu.com;");
+            BdCookieManager.getInstance().setCookie("wappass.baidu.com", "BDUSS=" + this.b + "; domain=.baidu.com;");
+            if (this.c != null) {
+                BdCookieManager.getInstance().setCookie("wappass.baidu.com", "PTOKEN=" + this.c + "; domain=.baidu.com;");
             }
             BdCookieSyncManager.getInstance().sync();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.e, com.baidu.adp.a.a, android.app.Activity
+    @Override // com.baidu.tieba.g, com.baidu.adp.a.a, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         a(bundle);
-        if (this.c == null) {
+        if (this.f1191a == null) {
             finish();
             return;
         }
-        String guessUrl = URLUtil.guessUrl(this.c);
+        String guessUrl = URLUtil.guessUrl(this.f1191a);
         if (!URLUtil.isNetworkUrl(guessUrl)) {
             finish();
             return;
@@ -90,28 +96,28 @@ public class WebBdActivity extends com.baidu.tieba.e implements Browser.BrowserL
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.e, android.app.Activity
+    @Override // com.baidu.tieba.g, android.app.Activity
     public void onPause() {
         super.onPause();
         Browser.getInstance(this).onPause();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.e, android.app.Activity
+    @Override // com.baidu.tieba.g, android.app.Activity
     public void onResume() {
         super.onResume();
         Browser.getInstance(this).onResume();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.e, android.app.Activity
+    @Override // com.baidu.tieba.g, android.app.Activity
     public void onStop() {
         super.onStop();
         Browser.getInstance(this).onStop();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.e, android.app.Activity
+    @Override // com.baidu.tieba.g, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
         Browser.getInstance(this).finish();
@@ -120,14 +126,14 @@ public class WebBdActivity extends com.baidu.tieba.e implements Browser.BrowserL
 
     @Override // com.baidu.browser.Browser.BrowserListener
     public void openFileChooser(BdValueCallback bdValueCallback, String str) {
-        this.f = new BdUploadHandler(this);
-        this.f.openFileChooser(bdValueCallback, str);
+        this.d = new BdUploadHandler(this);
+        this.d.openFileChooser(bdValueCallback, str);
     }
 
     @Override // com.baidu.browser.Browser.BrowserListener
     public void openFileChooser(BdValueCallback bdValueCallback) {
-        if (this.g == null) {
-            this.g = bdValueCallback;
+        if (this.e == null) {
+            this.e = bdValueCallback;
             Intent intent = new Intent("android.intent.action.GET_CONTENT");
             intent.addCategory("android.intent.category.OPENABLE");
             intent.setType("*/*");
@@ -135,7 +141,7 @@ public class WebBdActivity extends com.baidu.tieba.e implements Browser.BrowserL
         }
     }
 
-    @Override // com.baidu.tieba.e, android.app.Activity, android.view.KeyEvent.Callback
+    @Override // com.baidu.tieba.g, android.app.Activity, android.view.KeyEvent.Callback
     public boolean onKeyUp(int i, KeyEvent keyEvent) {
         return super.onKeyUp(i, keyEvent);
     }
@@ -182,12 +188,12 @@ public class WebBdActivity extends com.baidu.tieba.e implements Browser.BrowserL
     protected void onActivityResult(int i, int i2, Intent intent) {
         super.onActivityResult(i, i2, intent);
         if (i == 1) {
-            if (this.g != null) {
-                this.g.onReceiveValue((intent == null || i2 != -1) ? null : intent.getData());
-                this.g = null;
+            if (this.e != null) {
+                this.e.onReceiveValue((intent == null || i2 != -1) ? null : intent.getData());
+                this.e = null;
             }
-        } else if (i == 2 && this.f != null) {
-            this.f.onResult(i2, intent);
+        } else if (i == 2 && this.d != null) {
+            this.d.onResult(i2, intent);
         }
     }
 
@@ -234,7 +240,7 @@ public class WebBdActivity extends com.baidu.tieba.e implements Browser.BrowserL
     public void onWebViewTouch(MotionEvent motionEvent) {
     }
 
-    @Override // com.baidu.tieba.e, android.app.Activity, android.view.KeyEvent.Callback
+    @Override // com.baidu.tieba.g, android.app.Activity, android.view.KeyEvent.Callback
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
         if (Browser.getInstance(this).onKeyDown(i, keyEvent)) {
             return true;

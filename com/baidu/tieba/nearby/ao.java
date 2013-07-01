@@ -5,11 +5,13 @@ import android.widget.ListView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ao implements com.baidu.tbadk.a.d {
-    final /* synthetic */ NearbyPostActivity a;
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ NearbyPostActivity f1137a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ao(NearbyPostActivity nearbyPostActivity) {
-        this.a = nearbyPostActivity;
+        this.f1137a = nearbyPostActivity;
     }
 
     @Override // com.baidu.tbadk.a.d
@@ -18,14 +20,14 @@ public class ao implements com.baidu.tbadk.a.d {
         ListView listView2;
         ListView listView3;
         if (bVar != null) {
-            listView = this.a.e;
+            listView = this.f1137a.c;
             if (listView != null) {
-                listView2 = this.a.e;
+                listView2 = this.f1137a.c;
                 ImageView imageView = (ImageView) listView2.findViewWithTag(str);
                 while (imageView != null) {
                     imageView.setTag(null);
                     bVar.b(imageView);
-                    listView3 = this.a.e;
+                    listView3 = this.f1137a.c;
                     imageView = (ImageView) listView3.findViewWithTag(str);
                 }
             }

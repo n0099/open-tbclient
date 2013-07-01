@@ -1,22 +1,26 @@
 package com.baidu.tieba.home;
 
-import android.widget.LinearLayout;
-import android.widget.TextView;
+import android.view.View;
+import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-class p {
-    LinearLayout a;
-    LinearLayout b;
-    TextView c;
-    TextView d;
-    p e;
-    final /* synthetic */ l f;
+class p implements View.OnClickListener {
 
-    private p(l lVar) {
-        this.f = lVar;
-    }
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ ForumTopicActivity f935a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ p(l lVar, p pVar) {
-        this(lVar);
+    public p(ForumTopicActivity forumTopicActivity) {
+        this.f935a = forumTopicActivity;
+    }
+
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        switch (view.getId()) {
+            case R.id.forum_topic_title_back /* 2131099998 */:
+                this.f935a.finish();
+                return;
+            default:
+                return;
+        }
     }
 }

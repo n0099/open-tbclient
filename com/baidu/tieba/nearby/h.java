@@ -3,11 +3,13 @@ package com.baidu.tieba.nearby;
 import com.baidu.mapapi.MapView;
 /* loaded from: classes.dex */
 class h implements com.baidu.tbadk.a.d {
-    final /* synthetic */ g a;
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ g f1165a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public h(g gVar) {
-        this.a = gVar;
+        this.f1165a = gVar;
     }
 
     @Override // com.baidu.tbadk.a.d
@@ -17,10 +19,10 @@ class h implements com.baidu.tbadk.a.d {
         NearbyMapActivity nearbyMapActivity2;
         MapView mapView;
         if (bVar != null) {
-            nearbyMapActivity = this.a.a;
+            nearbyMapActivity = this.f1165a.f1164a;
             postItemizedOverlay = nearbyMapActivity.f;
             postItemizedOverlay.a(str, bVar);
-            nearbyMapActivity2 = this.a.a;
+            nearbyMapActivity2 = this.f1165a.f1164a;
             mapView = nearbyMapActivity2.b;
             mapView.invalidate();
         }

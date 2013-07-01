@@ -10,30 +10,49 @@ import android.os.Bundle;
 import android.os.HandlerThread;
 import android.os.PowerManager;
 import com.baidu.cyberplayer.sdk.BVideoView;
-import com.baidu.tieba.d.w;
-import com.baidu.tieba.d.z;
+import com.baidu.tieba.util.NetWorkCore;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class MediaPlayerActivity extends Activity implements BVideoView.OnCompletionListener, BVideoView.OnErrorListener, BVideoView.OnInfoListener, BVideoView.OnPlayingBufferCacheListener, BVideoView.OnPreparedListener {
-    private q j;
+    private o j;
     private HandlerThread k;
-    private a a = null;
-    private t b = null;
-    private n c = null;
+
+    /* renamed from: a  reason: collision with root package name */
+    private a f953a = null;
+    private q b = null;
+    private l c = null;
     private String d = null;
     private AlertDialog e = null;
     private final int f = 0;
     private final Object g = new Object();
     private int h = 0;
     private PowerManager.WakeLock i = null;
-    private r l = null;
+    private p l = null;
     private ArrayList m = new ArrayList();
-    private s n = s.PLAYER_IDLE;
+    private PLAYER_STATUS n = PLAYER_STATUS.PLAYER_IDLE;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    /* loaded from: classes.dex */
+    public enum PLAYER_STATUS {
+        PLAYER_IDLE,
+        PLAYER_PREPARING,
+        PLAYER_PREPARED;
+
+        /* JADX DEBUG: Replace access to removed values field (a) with 'values()' method */
+        /* renamed from: values  reason: to resolve conflict with enum method */
+        public static PLAYER_STATUS[] valuesCustom() {
+            PLAYER_STATUS[] valuesCustom = values();
+            int length = valuesCustom.length;
+            PLAYER_STATUS[] player_statusArr = new PLAYER_STATUS[length];
+            System.arraycopy(valuesCustom, 0, player_statusArr, 0, length);
+            return player_statusArr;
+        }
+    }
 
     public static void a(Activity activity, String str) {
         Intent intent = new Intent(activity, MediaPlayerActivity.class);
         intent.setData(Uri.parse(str));
-        intent.putExtra("init_network_info", w.c(activity));
+        intent.putExtra("init_network_info", NetWorkCore.c(activity));
         activity.startActivity(intent);
     }
 
@@ -51,24 +70,24 @@ public class MediaPlayerActivity extends Activity implements BVideoView.OnComple
     private void c() {
         this.k = new HandlerThread("event handler thread", 10);
         this.k.start();
-        this.j = new q(this, this.k.getLooper());
+        this.j = new o(this, this.k.getLooper());
     }
 
     private void d() {
-        this.b = new t(this);
-        this.a = new a(this);
+        this.b = new q(this);
+        this.f953a = new a(this);
         this.b.a();
     }
 
     private void e() {
-        this.c = new n();
+        this.c = new l();
         this.c.a();
     }
 
     private void f() {
-        z zVar = (z) getIntent().getSerializableExtra("init_network_info");
-        if (zVar != null) {
-            this.m.add(zVar);
+        NetWorkCore.NetworkStateInfo networkStateInfo = (NetWorkCore.NetworkStateInfo) getIntent().getSerializableExtra("init_network_info");
+        if (networkStateInfo != null) {
+            this.m.add(networkStateInfo);
         }
     }
 
@@ -76,7 +95,7 @@ public class MediaPlayerActivity extends Activity implements BVideoView.OnComple
         Uri data = getIntent().getData();
         if (data != null) {
             String scheme = data.getScheme();
-            if (scheme != null && (scheme.equals("http") || scheme.equals("https") || scheme.equals("rtsp") || scheme.equals("bdhd"))) {
+            if (scheme != null && (scheme.equals("http") || scheme.equals("https") || scheme.equals("rtsp") || scheme.equals("bdhd") || scheme.equals("ed2k"))) {
                 this.d = data.toString();
             } else {
                 this.d = data.getPath();
@@ -107,9 +126,9 @@ public class MediaPlayerActivity extends Activity implements BVideoView.OnComple
     }
 
     public void a() {
-        if (this.n == s.PLAYER_PREPARED) {
+        if (this.n == PLAYER_STATUS.PLAYER_PREPARED) {
             this.h = this.b.c();
-            com.baidu.adp.lib.e.b.d("onPause:stopPlayback, mLastPos=" + this.h);
+            com.baidu.adp.lib.c.b.d("onPause:stopPlayback, mLastPos=" + this.h);
         }
         this.b.d();
         this.c.b();
@@ -130,13 +149,13 @@ public class MediaPlayerActivity extends Activity implements BVideoView.OnComple
     @Override // android.app.Activity
     protected void onStop() {
         super.onStop();
-        com.baidu.adp.lib.e.b.d("onStop");
+        com.baidu.adp.lib.c.b.d("onStop");
     }
 
     @Override // android.app.Activity
     protected void onDestroy() {
         super.onDestroy();
-        com.baidu.adp.lib.e.b.d("onDestroy");
+        com.baidu.adp.lib.c.b.d("onDestroy");
         this.c.c();
         if (this.k != null && this.k.isAlive()) {
             this.k.quit();
@@ -151,11 +170,11 @@ public class MediaPlayerActivity extends Activity implements BVideoView.OnComple
 
     @Override // com.baidu.cyberplayer.sdk.BVideoView.OnErrorListener
     public boolean onError(int i, int i2) {
-        com.baidu.adp.lib.e.b.d("onError");
+        com.baidu.adp.lib.c.b.d("onError");
         if (this.c.b(this.d)) {
             this.c.b();
         }
-        this.n = s.PLAYER_IDLE;
+        this.n = PLAYER_STATUS.PLAYER_IDLE;
         synchronized (this.g) {
             this.g.notify();
         }
@@ -169,27 +188,27 @@ public class MediaPlayerActivity extends Activity implements BVideoView.OnComple
         if (this.c.b(this.d)) {
             this.c.b();
         }
-        com.baidu.adp.lib.e.b.d("onCompletion" + b + c);
-        this.n = s.PLAYER_IDLE;
+        com.baidu.adp.lib.c.b.d("onCompletion" + b + c);
+        this.n = PLAYER_STATUS.PLAYER_IDLE;
         synchronized (this.g) {
             this.g.notify();
-            com.baidu.adp.lib.e.b.d("notify status to idle");
+            com.baidu.adp.lib.c.b.d("notify status to idle");
         }
     }
 
     @Override // com.baidu.cyberplayer.sdk.BVideoView.OnPreparedListener
     public void onPrepared() {
-        com.baidu.adp.lib.e.b.d("onPrepared");
-        this.n = s.PLAYER_PREPARED;
+        com.baidu.adp.lib.c.b.d("onPrepared");
+        this.n = PLAYER_STATUS.PLAYER_PREPARED;
     }
 
     @Override // com.baidu.cyberplayer.sdk.BVideoView.OnPlayingBufferCacheListener
     public void onPlayingBufferCache(int i) {
-        com.baidu.adp.lib.e.b.d("cache percent:" + i);
+        com.baidu.adp.lib.c.b.d("cache percent:" + i);
     }
 
     private void j() {
-        this.l = new r(this, null);
+        this.l = new p(this, null);
         IntentFilter intentFilter = new IntentFilter();
         intentFilter.addAction("android.net.conn.CONNECTIVITY_CHANGE");
         registerReceiver(this.l, intentFilter);
@@ -203,11 +222,11 @@ public class MediaPlayerActivity extends Activity implements BVideoView.OnComple
 
     /* JADX INFO: Access modifiers changed from: private */
     public DialogInterface.OnClickListener l() {
-        return new o(this);
+        return new m(this);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public DialogInterface.OnClickListener m() {
-        return new p(this);
+        return new n(this);
     }
 }

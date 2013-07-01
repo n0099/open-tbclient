@@ -5,96 +5,100 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
+import com.baidu.tieba.data.MarkData;
 import com.baidu.tieba.pb.NewPbActivity;
+import com.baidu.tieba.util.DatabaseService;
 /* loaded from: classes.dex */
-public class EditMarkActivity extends com.baidu.tieba.e {
-    private com.baidu.tieba.c.f c = null;
-    private y d = null;
-    private int e = -1;
+public class EditMarkActivity extends com.baidu.tieba.g {
+
+    /* renamed from: a  reason: collision with root package name */
+    private com.baidu.tieba.model.f f1301a = null;
+    private z b = null;
+    private int c = -1;
 
     public static void a(Activity activity, int i) {
         activity.startActivityForResult(new Intent(activity, EditMarkActivity.class), i);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.e, com.baidu.adp.a.a, android.app.Activity
+    @Override // com.baidu.tieba.g, com.baidu.adp.a.a, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.c = new com.baidu.tieba.c.f();
-        this.c.a(new w(this, this));
-        this.d = new y(this);
-        this.d.a(new x(this));
+        this.f1301a = new com.baidu.tieba.model.f();
+        this.f1301a.a(new x(this, this));
+        this.b = new z(this);
+        this.b.a(new y(this));
         b();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.e
-    public void b(int i) {
-        super.b(i);
-        this.d.b(i);
+    @Override // com.baidu.tieba.g
+    public void a(int i) {
+        super.a(i);
+        this.b.b(i);
     }
 
     private void b() {
-        this.d.a(this.c.a());
-        if (this.c.h() < 0) {
-            this.c.f();
+        this.b.a(this.f1301a.a());
+        if (this.f1301a.h() < 0) {
+            this.f1301a.f();
             return;
         }
         c();
-        if (this.c.c() == 0 || this.c.h() < 0) {
-            this.c.f();
+        if (this.f1301a.c() == 0 || this.f1301a.h() < 0) {
+            this.f1301a.f();
             return;
         }
-        this.d.e();
-        this.c.g();
+        this.b.e();
+        this.f1301a.g();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.e, android.app.Activity
+    @Override // com.baidu.tieba.g, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        this.d.h();
-        this.c.i();
+        this.b.h();
+        this.f1301a.i();
     }
 
     @Override // com.baidu.adp.a.a, android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.d.a()) {
+        if (view == this.b.a()) {
             finish();
-        } else if (view == this.d.b()) {
-            this.d.c();
-        } else if (view.getId() == this.d.d()) {
+        } else if (view == this.b.b()) {
+            this.b.c();
+        } else if (view.getId() == this.b.d()) {
             int intValue = ((Integer) view.getTag()).intValue();
-            this.d.f();
-            this.c.a(intValue);
+            this.b.f();
+            this.f1301a.a(intValue);
         }
         super.onClick(view);
     }
 
     @Override // com.baidu.adp.a.a, android.widget.AdapterView.OnItemClickListener
     public void onItemClick(AdapterView adapterView, View view, int i, long j) {
-        if (i < 0 || i >= this.c.b().size()) {
-            this.d.a(this.c.a());
-            this.c.f();
+        if (i < 0 || i >= this.f1301a.b().size()) {
+            this.b.a(this.f1301a.a());
+            this.f1301a.f();
         } else {
-            this.e = i;
-            com.baidu.tieba.a.af afVar = (com.baidu.tieba.a.af) this.c.b().get(i);
-            if (afVar != null) {
-                NewPbActivity.a(this, afVar, (String) null);
+            this.c = i;
+            MarkData markData = (MarkData) this.f1301a.b().get(i);
+            if (markData != null) {
+                NewPbActivity.a(this, markData, (String) null);
             }
         }
         super.onItemClick(adapterView, view, i, j);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.e, android.app.Activity
+    @Override // com.baidu.tieba.g, android.app.Activity
     public void onResume() {
         super.onResume();
     }
 
     private void c() {
-        this.c.a(com.baidu.tieba.d.k.s());
-        this.d.a(this.c.b());
+        this.f1301a.a(DatabaseService.u());
+        this.b.a(this.f1301a.b());
     }
 
     @Override // android.app.Activity
@@ -103,12 +107,12 @@ public class EditMarkActivity extends com.baidu.tieba.e {
         if (i2 == -1) {
             switch (i) {
                 case 1700001:
-                    com.baidu.tieba.a.af afVar = (com.baidu.tieba.a.af) intent.getSerializableExtra("mark");
-                    if (afVar != null && this.c.b().size() > this.e && this.e >= 0) {
-                        ((com.baidu.tieba.a.af) this.c.b().get(this.e)).d(afVar.g());
-                        ((com.baidu.tieba.a.af) this.c.b().get(this.e)).a(afVar.f());
-                        ((com.baidu.tieba.a.af) this.c.b().get(this.e)).a(afVar.e());
-                        this.d.g();
+                    MarkData markData = (MarkData) intent.getSerializableExtra("mark");
+                    if (markData != null && this.f1301a.b().size() > this.c && this.c >= 0) {
+                        ((MarkData) this.f1301a.b().get(this.c)).setPostId(markData.getPostId());
+                        ((MarkData) this.f1301a.b().get(this.c)).setHostMode(markData.getHostMode());
+                        ((MarkData) this.f1301a.b().get(this.c)).setSequence(markData.getSequence());
+                        this.b.g();
                         return;
                     }
                     return;
@@ -118,9 +122,9 @@ public class EditMarkActivity extends com.baidu.tieba.e {
         } else if (i2 == 1) {
             switch (i) {
                 case 1700001:
-                    if (this.c.b().size() > this.e && this.e >= 0) {
-                        this.c.b().remove(this.e);
-                        this.d.g();
+                    if (this.f1301a.b().size() > this.c && this.c >= 0) {
+                        this.f1301a.b().remove(this.c);
+                        this.b.g();
                         return;
                     }
                     return;

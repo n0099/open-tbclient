@@ -3,7 +3,9 @@ package android.support.v4.widget;
 import android.database.ContentObserver;
 /* loaded from: classes.dex */
 class a extends ContentObserver {
-    final /* synthetic */ CursorAdapter a;
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ CursorAdapter f107a;
 
     @Override // android.database.ContentObserver
     public boolean deliverSelfNotifications() {
@@ -12,6 +14,6 @@ class a extends ContentObserver {
 
     @Override // android.database.ContentObserver
     public void onChange(boolean z) {
-        this.a.b();
+        this.f107a.b();
     }
 }

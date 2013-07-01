@@ -4,20 +4,22 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 /* loaded from: classes.dex */
 public class u {
-    private Bitmap a;
+
+    /* renamed from: a  reason: collision with root package name */
+    private Bitmap f569a;
 
     public u() {
     }
 
     public u(byte[] bArr) {
         try {
-            this.a = BitmapFactory.decodeByteArray(bArr, 0, bArr.length);
+            this.f569a = BitmapFactory.decodeByteArray(bArr, 0, bArr.length);
         } catch (OutOfMemoryError e) {
             e.printStackTrace();
         }
     }
 
     public Bitmap a() {
-        return this.a;
+        return this.f569a;
     }
 }

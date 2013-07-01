@@ -1,46 +1,13 @@
 package android.support.v4.widget;
 
-import android.content.Context;
-import android.graphics.Canvas;
-import android.os.Build;
+import android.view.View;
 /* loaded from: classes.dex */
-public class d {
-    private static final g b;
-    private Object a;
+public interface d {
+    void a(int i);
 
-    static {
-        if (Build.VERSION.SDK_INT >= 14) {
-            b = new f();
-        } else {
-            b = new e();
-        }
-    }
+    void a(View view);
 
-    public d(Context context) {
-        this.a = b.a(context);
-    }
+    void a(View view, float f);
 
-    public void a(int i, int i2) {
-        b.a(this.a, i, i2);
-    }
-
-    public boolean a() {
-        return b.a(this.a);
-    }
-
-    public void b() {
-        b.b(this.a);
-    }
-
-    public boolean a(float f) {
-        return b.a(this.a, f);
-    }
-
-    public boolean c() {
-        return b.c(this.a);
-    }
-
-    public boolean a(Canvas canvas) {
-        return b.a(this.a, canvas);
-    }
+    void b(View view);
 }

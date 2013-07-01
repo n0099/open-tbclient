@@ -8,7 +8,9 @@ import android.widget.TextView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ai {
-    int a;
+
+    /* renamed from: a  reason: collision with root package name */
+    int f1131a;
     TextView b;
     ProgressBar c;
     ah d;

@@ -1,17 +1,7 @@
 package com.baidu.tieba;
 
-import android.content.DialogInterface;
+import android.location.Address;
 /* loaded from: classes.dex */
-class at implements DialogInterface.OnCancelListener {
-    final /* synthetic */ UpdateDialog a;
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public at(UpdateDialog updateDialog) {
-        this.a = updateDialog;
-    }
-
-    @Override // android.content.DialogInterface.OnCancelListener
-    public void onCancel(DialogInterface dialogInterface) {
-        this.a.finish();
-    }
+public interface at {
+    void a(int i, String str, Address address);
 }

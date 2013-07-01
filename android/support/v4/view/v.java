@@ -1,9 +1,18 @@
 package android.support.v4.view;
-
-import android.view.View;
 /* loaded from: classes.dex */
-interface v {
-    int a(View view);
+class v extends u {
+    @Override // android.support.v4.view.t
+    public int a(int i) {
+        return y.a(i);
+    }
 
-    boolean a(View view, int i);
+    @Override // android.support.v4.view.t, android.support.v4.view.w
+    public boolean a(int i, int i2) {
+        return y.a(i, i2);
+    }
+
+    @Override // android.support.v4.view.t, android.support.v4.view.w
+    public boolean b(int i) {
+        return y.b(i);
+    }
 }

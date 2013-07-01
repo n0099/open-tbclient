@@ -9,7 +9,9 @@ import android.widget.TextView;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public class CustomTimerView extends LinearLayout {
-    private static long a = 359999;
+
+    /* renamed from: a  reason: collision with root package name */
+    private static long f1483a = 359999;
     private TextView b;
     private TextView c;
     private TextView d;
@@ -78,8 +80,8 @@ public class CustomTimerView extends LinearLayout {
     }
 
     public void setTime(long j) {
-        if (j < 0 || j > a) {
-            j = a;
+        if (j < 0 || j > f1483a) {
+            j = f1483a;
         }
         this.b.setText(String.format("%1$02d", Long.valueOf(j / 3600)));
         this.d.setText(String.format("%1$02d", Long.valueOf((j % 3600) / 60)));

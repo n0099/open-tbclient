@@ -1,24 +1,27 @@
 package android.support.v4.view;
 
 import android.os.Build;
-import android.view.KeyEvent;
 /* loaded from: classes.dex */
 public class a {
-    static final d a;
+    private static final d b;
+    private static final Object c;
+
+    /* renamed from: a  reason: collision with root package name */
+    final Object f85a = b.a(this);
 
     static {
-        if (Build.VERSION.SDK_INT >= 11) {
-            a = new c();
+        if (Build.VERSION.SDK_INT >= 16) {
+            b = new e();
+        } else if (Build.VERSION.SDK_INT >= 14) {
+            b = new b();
         } else {
-            a = new b();
+            b = new g();
         }
+        c = b.a();
     }
 
-    public static boolean a(KeyEvent keyEvent, int i) {
-        return a.a(keyEvent.getMetaState(), i);
-    }
-
-    public static boolean a(KeyEvent keyEvent) {
-        return a.b(keyEvent.getMetaState());
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public Object a() {
+        return this.f85a;
     }
 }

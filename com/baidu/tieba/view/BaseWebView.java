@@ -7,7 +7,9 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 /* loaded from: classes.dex */
 public class BaseWebView extends WebView {
-    private WebViewClient a;
+
+    /* renamed from: a  reason: collision with root package name */
+    private WebViewClient f1479a;
     private d b;
     private Context c;
     private d d;
@@ -44,9 +46,9 @@ public class BaseWebView extends WebView {
     public void a() {
         getSettings().setJavaScriptEnabled(true);
         getSettings().setCacheMode(2);
-        com.baidu.tieba.d.ag.a(getSettings());
-        this.a = new MyWebViewClient();
-        setWebViewClient(this.a);
+        com.baidu.tieba.util.ab.a(getSettings());
+        this.f1479a = new MyWebViewClient();
+        setWebViewClient(this.f1479a);
         setOnLongClickListener(new b(this));
     }
 

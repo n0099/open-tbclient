@@ -1,17 +1,18 @@
 package com.baidu.android.pushservice;
 
-import android.os.Handler;
-import java.io.IOException;
-import java.io.OutputStream;
+import com.baidu.android.common.logging.Log;
+import com.baidu.android.pushservice.jni.PushSocket;
 import java.util.LinkedList;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class i extends Thread {
-    final /* synthetic */ d a;
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ e f314a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public i(d dVar, OutputStream outputStream) {
-        this.a = dVar;
+    public i(e eVar) {
+        this.f314a = eVar;
         setName("PushService-PushConnection-SendThread");
     }
 
@@ -26,52 +27,36 @@ public class i extends Thread {
         LinkedList linkedList2;
         LinkedList linkedList3;
         LinkedList linkedList4;
+        com.baidu.android.pushservice.message.b bVar;
         boolean z2;
-        OutputStream outputStream;
-        OutputStream outputStream2;
-        Runnable runnable;
-        Runnable runnable2;
         LinkedList linkedList5;
         while (!z) {
-            com.baidu.android.pushservice.message.b bVar = null;
-            linkedList = this.a.l;
+            linkedList = this.f314a.g;
             synchronized (linkedList) {
-                linkedList2 = this.a.l;
+                linkedList2 = this.f314a.g;
                 if (linkedList2.size() == 0) {
                     try {
-                        linkedList3 = this.a.l;
+                        linkedList3 = this.f314a.g;
                         linkedList3.wait();
                     } catch (InterruptedException e) {
+                        Log.e("PushConnection", "SendThread wait exception: " + e);
                     }
                 }
-                linkedList4 = this.a.l;
+                linkedList4 = this.f314a.g;
                 if (linkedList4.size() > 0) {
-                    linkedList5 = this.a.l;
+                    linkedList5 = this.f314a.g;
                     bVar = (com.baidu.android.pushservice.message.b) linkedList5.removeFirst();
+                } else {
+                    bVar = null;
                 }
             }
-            z2 = this.a.g;
+            z2 = this.f314a.f;
             if (z2) {
                 return;
             }
-            if (bVar != null && bVar.c != null) {
-                try {
-                    if (bVar.d) {
-                        Handler handler = this.a.a;
-                        runnable = this.a.s;
-                        handler.removeCallbacks(runnable);
-                        Handler handler2 = this.a.a;
-                        runnable2 = this.a.s;
-                        handler2.postDelayed(runnable2, 20000L);
-                    }
-                    outputStream = this.a.k;
-                    outputStream.write(bVar.c);
-                    outputStream2 = this.a.k;
-                    outputStream2.flush();
-                } catch (IOException e2) {
-                    this.a.g = true;
-                    this.a.f();
-                }
+            if (bVar != null && bVar.c != null && PushSocket.sendMsg(e.f310a, bVar.c, bVar.c.length) == -1) {
+                Log.e("PushConnection", "sendMsg err, errno:" + PushSocket.getLastSocketError());
+                this.f314a.e();
             }
         }
     }

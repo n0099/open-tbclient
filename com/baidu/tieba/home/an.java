@@ -1,119 +1,91 @@
 package com.baidu.tieba.home;
 
-import android.widget.EditText;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
-import android.widget.ProgressBar;
-import android.widget.TextView;
-import com.baidu.tieba.a.aw;
-import com.slidingmenu.lib.R;
-import java.util.ArrayList;
-import java.util.Iterator;
-import org.apache.http.message.BasicNameValuePair;
+import com.baidu.tieba.frs.FrsActivity;
+import com.baidu.tieba.pb.NewPbActivity;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class an extends com.baidu.adp.lib.a.a {
-    ArrayList a;
-    final /* synthetic */ SearchActivity b;
-    private com.baidu.tieba.d.t c = null;
-    private String d;
+public class an implements AdapterView.OnItemClickListener {
 
-    public an(SearchActivity searchActivity, String str, ArrayList arrayList) {
-        this.b = searchActivity;
-        this.d = null;
-        this.a = null;
-        this.d = str;
-        this.a = arrayList;
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ SearchActivity f902a;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public an(SearchActivity searchActivity) {
+        this.f902a = searchActivity;
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.a.a
-    public void b() {
-        TextView textView;
-        EditText editText;
-        ListView listView;
-        ProgressBar progressBar;
-        textView = this.b.v;
-        textView.setVisibility(8);
-        SearchActivity searchActivity = this.b;
-        editText = this.b.c;
-        com.baidu.tieba.d.ag.a(searchActivity, editText);
-        listView = this.b.p;
-        if (listView.getVisibility() != 0) {
-            progressBar = this.b.s;
-            progressBar.setVisibility(0);
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.a.a
-    /* renamed from: d */
-    public aw a(Object... objArr) {
-        aw awVar;
-        Exception e;
+    @Override // android.widget.AdapterView.OnItemClickListener
+    public void onItemClick(AdapterView adapterView, View view, int i, long j) {
+        int i2;
+        bb bbVar;
+        bb bbVar2;
+        bb bbVar3;
+        com.baidu.tieba.data.au auVar;
+        com.baidu.tieba.data.au auVar2;
         String str;
-        try {
-            this.c = new com.baidu.tieba.d.t(this.d);
-            Iterator it = this.a.iterator();
-            while (it.hasNext()) {
-                this.c.a((BasicNameValuePair) it.next());
+        bb bbVar4;
+        bb bbVar5;
+        com.baidu.tieba.data.au auVar3;
+        com.baidu.tieba.data.au auVar4;
+        com.baidu.tieba.data.au auVar5;
+        String str2;
+        bb bbVar6;
+        bb bbVar7;
+        i2 = this.f902a.B;
+        if (i2 != 0) {
+            bbVar = this.f902a.r;
+            if (bbVar.getItemId(i) != -1) {
+                bbVar2 = this.f902a.r;
+                if (bbVar2.getItemId(i) != -2) {
+                    bbVar3 = this.f902a.r;
+                    com.baidu.tieba.data.at atVar = (com.baidu.tieba.data.at) bbVar3.getItem(i);
+                    if (atVar != null) {
+                        if (atVar.a()) {
+                            NewPbActivity.a(this.f902a, atVar.c(), null, "search_post");
+                            return;
+                        } else {
+                            NewPbActivity.a(this.f902a, atVar.c(), atVar.b(), "search_post");
+                            return;
+                        }
+                    }
+                    return;
+                }
+                auVar = this.f902a.x;
+                if (auVar != null) {
+                    SearchActivity searchActivity = this.f902a;
+                    auVar2 = this.f902a.x;
+                    str = this.f902a.A;
+                    searchActivity.a(auVar2.d() + 1, str);
+                    bbVar4 = this.f902a.r;
+                    bbVar4.a(2);
+                    bbVar5 = this.f902a.r;
+                    bbVar5.notifyDataSetChanged();
+                    return;
+                }
+                return;
             }
-            String i = this.c.i();
-            if (!this.c.b() || i == null) {
-                return null;
+            auVar3 = this.f902a.x;
+            if (auVar3 != null) {
+                auVar4 = this.f902a.x;
+                if (auVar4.d() > 1) {
+                    SearchActivity searchActivity2 = this.f902a;
+                    auVar5 = this.f902a.x;
+                    str2 = this.f902a.A;
+                    searchActivity2.a(auVar5.d() - 1, str2);
+                    bbVar6 = this.f902a.r;
+                    bbVar6.a(1);
+                    bbVar7 = this.f902a.r;
+                    bbVar7.notifyDataSetChanged();
+                    return;
+                }
+                return;
             }
-            awVar = new aw();
-            try {
-                awVar.a(i);
-                str = this.b.A;
-                com.baidu.tieba.d.k.l(str);
-                return awVar;
-            } catch (Exception e2) {
-                e = e2;
-                com.baidu.tieba.d.ae.b(getClass().getName(), "", "doInBackground error = " + e.getMessage());
-                return awVar;
-            }
-        } catch (Exception e3) {
-            awVar = null;
-            e = e3;
+            return;
         }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.a.a
-    public void a(aw awVar) {
-        ProgressBar progressBar;
-        ar arVar;
-        ar arVar2;
-        ar arVar3;
-        progressBar = this.b.s;
-        progressBar.setVisibility(8);
-        arVar = this.b.r;
-        arVar.a(0);
-        arVar2 = this.b.r;
-        arVar2.notifyDataSetChanged();
-        if (awVar != null && this.c != null && this.c.b()) {
-            this.b.x = awVar;
-            arVar3 = this.b.r;
-            arVar3.notifyDataSetChanged();
-            this.b.r();
-        } else {
-            this.b.a(this.b.getString(R.string.neterror));
-        }
-        this.b.z = null;
-    }
-
-    @Override // com.baidu.adp.lib.a.a
-    public void cancel() {
-        ProgressBar progressBar;
-        if (this.c != null) {
-            this.c.g();
-            this.c = null;
-        }
-        progressBar = this.b.s;
-        progressBar.setVisibility(8);
-        this.b.z = null;
-        super.cancel(true);
+        FrsActivity.a(this.f902a, (String) ((ListView) adapterView).getAdapter().getItem(i), "tb_searchlist", 1);
+        this.f902a.finish();
     }
 }

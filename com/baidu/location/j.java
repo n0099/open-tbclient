@@ -1,7 +1,9 @@
 package com.baidu.location;
 /* loaded from: classes.dex */
 public final class j {
-    protected String a;
+
+    /* renamed from: a  reason: collision with root package name */
+    protected String f475a;
     protected String b;
     protected boolean c;
     protected int d;
@@ -17,7 +19,7 @@ public final class j {
     protected String n;
 
     public j() {
-        this.a = "gcj02";
+        this.f475a = "gcj02";
         this.b = "detail";
         this.c = false;
         this.d = 0;
@@ -34,7 +36,7 @@ public final class j {
     }
 
     public j(j jVar) {
-        this.a = "gcj02";
+        this.f475a = "gcj02";
         this.b = "detail";
         this.c = false;
         this.d = 0;
@@ -48,7 +50,7 @@ public final class j {
         this.l = 500.0f;
         this.m = 3;
         this.n = "com.baidu.location.service_v2.9";
-        this.a = jVar.a;
+        this.f475a = jVar.f475a;
         this.b = jVar.b;
         this.c = jVar.c;
         this.d = jVar.d;
@@ -70,7 +72,7 @@ public final class j {
     public void a(String str) {
         String lowerCase = str.toLowerCase();
         if (lowerCase.equals("gcj02") || lowerCase.equals("bd09") || lowerCase.equals("bd09ll")) {
-            this.a = lowerCase;
+            this.f475a = lowerCase;
         }
     }
 
@@ -83,7 +85,7 @@ public final class j {
     }
 
     public boolean a(j jVar) {
-        return this.a.equals(jVar.a) && this.b.equals(jVar.b) && this.c == jVar.c && this.d == jVar.d && this.e == jVar.e && this.f.equals(jVar.f) && this.h == jVar.h && this.g == jVar.g && this.m == jVar.m && this.k == jVar.k && this.l == jVar.l && this.i == jVar.i;
+        return this.f475a.equals(jVar.f475a) && this.b.equals(jVar.b) && this.c == jVar.c && this.d == jVar.d && this.e == jVar.e && this.f.equals(jVar.f) && this.h == jVar.h && this.g == jVar.g && this.m == jVar.m && this.k == jVar.k && this.l == jVar.l && this.i == jVar.i;
     }
 
     public void b(String str) {

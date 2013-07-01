@@ -1,29 +1,25 @@
 package com.baidu.tieba;
 
-import com.baidu.tieba.compatible.CompatibleUtile;
-import com.baidu.tieba.view.BaseViewPager;
-import com.slidingmenu.lib.R;
+import android.view.View;
+import android.view.inputmethod.InputMethodManager;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class i implements com.baidu.tieba.view.a {
-    final /* synthetic */ GuideActivity a;
+public class i implements Runnable {
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public i(GuideActivity guideActivity) {
-        this.a = guideActivity;
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ g f946a;
+    private View b;
+
+    public i(g gVar, View view) {
+        this.f946a = gVar;
+        this.b = null;
+        this.b = view;
     }
 
-    @Override // com.baidu.tieba.view.a
-    public void a(int i) {
-        BaseViewPager baseViewPager;
-        BaseViewPager baseViewPager2;
-        if (i == 0) {
-            baseViewPager = this.a.f;
-            if (baseViewPager != null) {
-                baseViewPager2 = this.a.f;
-                baseViewPager2.setOnScrollOutListener(null);
-            }
-            this.a.a();
-            CompatibleUtile.setAnim(this.a, 0, R.anim.left);
+    @Override // java.lang.Runnable
+    public void run() {
+        if (!this.f946a.isFinishing()) {
+            this.f946a.b((InputMethodManager) this.f946a.getSystemService("input_method"), this.b);
         }
     }
 }

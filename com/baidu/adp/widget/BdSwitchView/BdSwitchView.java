@@ -9,27 +9,64 @@ import android.view.animation.Animation;
 import android.view.animation.TranslateAnimation;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
+import com.baidu.adp.d;
+import com.baidu.adp.e;
 import com.baidu.adp.f;
 /* loaded from: classes.dex */
 public class BdSwitchView extends FrameLayout {
-    FrameLayout a;
+
+    /* renamed from: a  reason: collision with root package name */
+    FrameLayout f194a;
     ImageView b;
     private c c;
-    private d d;
+    private SwitchState d;
     private boolean e;
     private boolean f;
     private TranslateAnimation g;
     private TranslateAnimation h;
     private Animation.AnimationListener i;
 
+    /* loaded from: classes.dex */
+    public enum SwitchState {
+        ON,
+        OFF;
+
+        /* JADX DEBUG: Replace access to removed values field (a) with 'values()' method */
+        /* renamed from: values  reason: to resolve conflict with enum method */
+        public static SwitchState[] valuesCustom() {
+            SwitchState[] valuesCustom = values();
+            int length = valuesCustom.length;
+            SwitchState[] switchStateArr = new SwitchState[length];
+            System.arraycopy(valuesCustom, 0, switchStateArr, 0, length);
+            return switchStateArr;
+        }
+    }
+
+    /* loaded from: classes.dex */
+    public enum SwitchStyle {
+        DAY,
+        NIGHT,
+        SIDE_BAR;
+
+        /* JADX DEBUG: Replace access to removed values field (a) with 'values()' method */
+        /* renamed from: values  reason: to resolve conflict with enum method */
+        public static SwitchStyle[] valuesCustom() {
+            SwitchStyle[] valuesCustom = values();
+            int length = valuesCustom.length;
+            SwitchStyle[] switchStyleArr = new SwitchStyle[length];
+            System.arraycopy(valuesCustom, 0, switchStyleArr, 0, length);
+            return switchStyleArr;
+        }
+    }
+
     public BdSwitchView(Context context) {
         super(context);
         this.c = null;
-        this.d = d.ON;
+        this.d = SwitchState.ON;
         this.e = false;
         this.f = false;
         this.i = null;
-        this.a = null;
+        this.f194a = null;
         this.b = null;
         a(context);
     }
@@ -37,19 +74,19 @@ public class BdSwitchView extends FrameLayout {
     public BdSwitchView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         this.c = null;
-        this.d = d.ON;
+        this.d = SwitchState.ON;
         this.e = false;
         this.f = false;
         this.i = null;
-        this.a = null;
+        this.f194a = null;
         this.b = null;
         a(context);
     }
 
     private void a(Context context) {
         LayoutInflater.from(context).inflate(f.bd_switch_view, (ViewGroup) this, true);
-        this.a = (FrameLayout) findViewById(com.baidu.adp.e.layout);
-        this.b = (ImageView) findViewById(com.baidu.adp.e.switch_image);
+        this.f194a = (FrameLayout) findViewById(e.layout);
+        this.b = (ImageView) findViewById(e.switch_image);
         d();
         e();
         this.i = new a(this);
@@ -58,9 +95,9 @@ public class BdSwitchView extends FrameLayout {
     }
 
     private void d() {
-        FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.a.getLayoutParams();
-        layoutParams.width = this.a.getForeground().getIntrinsicWidth();
-        this.a.setLayoutParams(layoutParams);
+        FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.f194a.getLayoutParams();
+        layoutParams.width = this.f194a.getForeground().getIntrinsicWidth();
+        this.f194a.setLayoutParams(layoutParams);
     }
 
     private void e() {
@@ -90,14 +127,36 @@ public class BdSwitchView extends FrameLayout {
     }
 
     private float getTranslateDis() {
-        return this.a.getForeground().getIntrinsicWidth() * 0.6666667f;
+        return this.f194a.getForeground().getIntrinsicWidth() * 0.6666667f;
+    }
+
+    /* JADX DEBUG: Marked for inline */
+    /* JADX INFO: Access modifiers changed from: package-private */
+    /* JADX WARN: Failed to check method usage
+    java.util.ConcurrentModificationException
+    	at java.base/java.util.ArrayList$ArrayListSpliterator.forEachRemaining(ArrayList.java:1631)
+    	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:509)
+    	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499)
+    	at java.base/java.util.stream.ReduceOps$ReduceOp.evaluateSequential(ReduceOps.java:921)
+    	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+    	at java.base/java.util.stream.ReferencePipeline.collect(ReferencePipeline.java:682)
+    	at jadx.core.codegen.ClassGen.skipMethod(ClassGen.java:332)
+    	at jadx.core.codegen.ClassGen.addMethod(ClassGen.java:298)
+    	at jadx.core.codegen.ClassGen.lambda$addInnerClsAndMethods$2(ClassGen.java:272)
+    	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:183)
+    	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+    	at java.base/java.util.stream.SortedOps$RefSortingSink.end(SortedOps.java:395)
+    	at java.base/java.util.stream.Sink$ChainedReference.end(Sink.java:258)
+     */
+    public static /* synthetic */ void b(BdSwitchView bdSwitchView, boolean z) {
+        bdSwitchView.a(z);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(boolean z) {
         if (!this.f) {
-            if (this.d == d.ON) {
-                this.d = d.OFF;
+            if (this.d == SwitchState.ON) {
+                this.d = SwitchState.OFF;
                 if (this.h != null) {
                     if (z) {
                         this.h.setDuration(200L);
@@ -107,7 +166,7 @@ public class BdSwitchView extends FrameLayout {
                     this.b.startAnimation(this.h);
                 }
             } else {
-                this.d = d.ON;
+                this.d = SwitchState.ON;
                 if (this.g != null) {
                     if (z) {
                         this.g.setDuration(200L);
@@ -124,7 +183,7 @@ public class BdSwitchView extends FrameLayout {
     }
 
     public void setSwitchFrame(int i) {
-        this.a.setForeground(getResources().getDrawable(i));
+        this.f194a.setForeground(getResources().getDrawable(i));
         d();
     }
 
@@ -133,33 +192,33 @@ public class BdSwitchView extends FrameLayout {
         e();
     }
 
-    public void setSwitchStyle(e eVar) {
-        if (eVar == e.DAY) {
-            setSwitchFrame(com.baidu.adp.d.btn_switch_masking);
-            setSwitchImage(com.baidu.adp.d.btn_switch);
-        } else if (eVar == e.NIGHT) {
-            setSwitchFrame(com.baidu.adp.d.btn_switch_masking_1);
-            setSwitchImage(com.baidu.adp.d.btn_switch_1);
-        } else if (eVar == e.SIDE_BAR) {
-            setSwitchFrame(com.baidu.adp.d.btn_switch_masking_sidebar);
-            setSwitchImage(com.baidu.adp.d.btn_switch_1);
+    public void setSwitchStyle(SwitchStyle switchStyle) {
+        if (switchStyle == SwitchStyle.DAY) {
+            setSwitchFrame(d.btn_switch_masking);
+            setSwitchImage(d.btn_switch);
+        } else if (switchStyle == SwitchStyle.NIGHT) {
+            setSwitchFrame(d.btn_switch_masking_1);
+            setSwitchImage(d.btn_switch_1);
+        } else if (switchStyle == SwitchStyle.SIDE_BAR) {
+            setSwitchFrame(d.btn_switch_masking_sidebar);
+            setSwitchImage(d.btn_switch_1);
         }
     }
 
     public void a() {
-        if (this.d != d.ON) {
+        if (this.d != SwitchState.ON) {
             a(false);
         }
     }
 
     public void b() {
-        if (this.d != d.OFF) {
+        if (this.d != SwitchState.OFF) {
             a(false);
         }
     }
 
     public boolean c() {
-        return this.d == d.ON;
+        return this.d == SwitchState.ON;
     }
 
     public void setOnSwitchStateChangeListener(c cVar) {

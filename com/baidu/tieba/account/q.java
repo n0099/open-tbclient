@@ -2,80 +2,85 @@ package com.baidu.tieba.account;
 
 import android.widget.Button;
 import android.widget.ProgressBar;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.tieba.TiebaApplication;
+import com.baidu.tieba.data.AccountData;
+import com.baidu.tieba.util.DatabaseService;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class q extends com.baidu.adp.lib.a.a {
-    final /* synthetic */ j a;
-    private com.baidu.tieba.d.t b = null;
+public class q extends BdAsyncTask {
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ j f676a;
+    private com.baidu.tieba.util.r b = null;
     private String c;
     private String d;
 
     public q(j jVar, String str, String str2) {
-        this.a = jVar;
+        this.f676a = jVar;
         this.c = null;
         this.d = null;
         this.c = str;
         this.d = str2;
     }
 
-    @Override // com.baidu.adp.lib.a.a
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void cancel() {
         ProgressBar progressBar;
         Button button;
-        this.a.l = null;
-        progressBar = this.a.q;
+        this.f676a.l = null;
+        progressBar = this.f676a.q;
         progressBar.setVisibility(8);
-        button = this.a.o;
+        button = this.f676a.o;
         button.setEnabled(true);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.a.a
-    public void a(com.baidu.tieba.a.e eVar) {
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public void a(com.baidu.tieba.data.c cVar) {
         ProgressBar progressBar;
         Button button;
-        com.baidu.tieba.a.a aVar;
+        AccountData accountData;
         o oVar;
         o oVar2;
-        com.baidu.tieba.a.a aVar2;
-        super.a((Object) eVar);
-        this.a.l = null;
-        progressBar = this.a.q;
+        AccountData accountData2;
+        super.a((Object) cVar);
+        this.f676a.l = null;
+        progressBar = this.f676a.q;
         progressBar.setVisibility(8);
-        button = this.a.o;
+        button = this.f676a.o;
         button.setEnabled(true);
-        if (eVar == null) {
-            this.a.b(this.b.f());
-        } else if (eVar.a().c() == null) {
-            this.a.b(this.b.f());
-            this.a.a(eVar.b());
+        if (cVar == null) {
+            this.f676a.b(this.b.g());
+        } else if (cVar.a().getName() == null) {
+            this.f676a.b(this.b.g());
+            this.f676a.a(cVar.b());
         } else {
-            this.a.e();
-            aVar = this.a.t;
-            TiebaApplication.b(aVar);
+            this.f676a.e();
+            accountData = this.f676a.t;
+            TiebaApplication.b(accountData);
             a.a().b();
-            oVar = this.a.u;
+            oVar = this.f676a.u;
             if (oVar != null) {
-                oVar2 = this.a.u;
-                aVar2 = this.a.t;
-                oVar2.a(aVar2);
+                oVar2 = this.f676a.u;
+                accountData2 = this.f676a.t;
+                oVar2.a(accountData2);
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.a.a
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void b() {
         ProgressBar progressBar;
         Button button;
-        progressBar = this.a.q;
+        progressBar = this.f676a.q;
         progressBar.setVisibility(0);
-        button = this.a.o;
+        button = this.f676a.o;
         button.setEnabled(false);
-        this.a.b((String) null);
-        this.a.d();
+        this.f676a.b((String) null);
+        this.f676a.d();
         super.b();
     }
 
@@ -97,72 +102,72 @@ public class q extends com.baidu.adp.lib.a.a {
     /* JADX WARN: Type inference failed for: r0v26 */
     /* JADX WARN: Type inference failed for: r0v27 */
     /* JADX WARN: Type inference failed for: r0v28 */
-    /* JADX WARN: Type inference failed for: r0v3, types: [com.baidu.tieba.a.e] */
-    /* JADX WARN: Type inference failed for: r1v12, types: [com.baidu.tieba.a.a] */
-    @Override // com.baidu.adp.lib.a.a
-    public com.baidu.tieba.a.e a(String... strArr) {
+    /* JADX WARN: Type inference failed for: r0v3, types: [com.baidu.tieba.data.c] */
+    /* JADX WARN: Type inference failed for: r1v12, types: [com.baidu.tieba.data.AccountData] */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public com.baidu.tieba.data.c a(String... strArr) {
         String str;
         Exception e;
-        com.baidu.tieba.a.a aVar;
-        String i;
-        com.baidu.tieba.a.a aVar2;
-        com.baidu.tieba.a.a aVar3;
-        com.baidu.tieba.a.a aVar4;
+        AccountData accountData;
+        String j;
+        AccountData accountData2;
+        AccountData accountData3;
+        AccountData accountData4;
         ?? r1;
         String str2 = null;
         str2 = null;
         str2 = null;
         str2 = null;
         try {
-            this.b = new com.baidu.tieba.d.t(this.c);
+            this.b = new com.baidu.tieba.util.r(this.c);
             this.b.a("un", this.d);
-            com.baidu.tieba.d.t tVar = this.b;
-            aVar = this.a.t;
-            tVar.a("BDUSS", aVar.d());
+            com.baidu.tieba.util.r rVar = this.b;
+            accountData = this.f676a.t;
+            rVar.a("BDUSS", accountData.getBDUSS());
             this.b.b(false);
-            i = this.b.i();
+            j = this.b.j();
         } catch (Exception e2) {
             str = str2;
             e = e2;
         }
-        if (this.b.c()) {
-            str = this.b.d();
+        if (this.b.d()) {
+            str = this.b.e();
             try {
                 if (str == 0) {
-                    com.baidu.tieba.a.e eVar = new com.baidu.tieba.a.e();
-                    eVar.a(i);
-                    String c = eVar.a().c();
-                    String l = eVar.a().l();
-                    str = eVar;
-                    str = eVar;
-                    str2 = c;
-                    str2 = c;
-                    if (c != null && l != null) {
-                        aVar2 = this.a.t;
-                        str = eVar;
-                        str2 = c;
-                        if (aVar2 != null) {
-                            aVar3 = this.a.t;
-                            aVar3.b(c);
-                            aVar4 = this.a.t;
-                            aVar4.d(l);
-                            r1 = this.a.t;
-                            com.baidu.tieba.d.k.a((com.baidu.tieba.a.a) r1);
-                            str = eVar;
+                    com.baidu.tieba.data.c cVar = new com.baidu.tieba.data.c();
+                    cVar.a(j);
+                    String name = cVar.a().getName();
+                    String bduss = cVar.a().getBDUSS();
+                    str = cVar;
+                    str = cVar;
+                    str2 = name;
+                    str2 = name;
+                    if (name != null && bduss != null) {
+                        accountData2 = this.f676a.t;
+                        str = cVar;
+                        str2 = name;
+                        if (accountData2 != null) {
+                            accountData3 = this.f676a.t;
+                            accountData3.setAccount(name);
+                            accountData4 = this.f676a.t;
+                            accountData4.setBDUSS(bduss);
+                            r1 = this.f676a.t;
+                            DatabaseService.a((AccountData) r1);
+                            str = cVar;
                             str2 = r1;
                         }
                     }
-                } else if (this.b.d() == 36) {
-                    com.baidu.tieba.a.e eVar2 = new com.baidu.tieba.a.e();
-                    eVar2.a(i);
-                    str = eVar2;
-                } else if (this.b.d() == 1) {
-                    this.a.e();
+                } else if (this.b.e() == 36) {
+                    com.baidu.tieba.data.c cVar2 = new com.baidu.tieba.data.c();
+                    cVar2.a(j);
+                    str = cVar2;
+                } else if (this.b.e() == 1) {
+                    this.f676a.e();
                     str = 0;
                 }
             } catch (Exception e3) {
                 e = e3;
-                com.baidu.tieba.d.ae.b(getClass().getName(), "doInBackground", e.getMessage());
+                com.baidu.tieba.util.z.b(getClass().getName(), "doInBackground", e.getMessage());
                 return str;
             }
             return str;

@@ -1,9 +1,11 @@
 package android.support.v4.view;
 
-import android.view.View;
+import android.view.KeyEvent;
 /* loaded from: classes.dex */
-class w {
-    public static int a(View view) {
-        return view.getOverScrollMode();
-    }
+interface w {
+    void a(KeyEvent keyEvent);
+
+    boolean a(int i, int i2);
+
+    boolean b(int i);
 }

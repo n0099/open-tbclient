@@ -1,25 +1,27 @@
 package com.baidu.tieba.person;
 
 import android.view.View;
-import com.baidu.tieba.view.EditHeadImageView;
+import android.widget.Button;
+import android.widget.LinearLayout;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class n implements View.OnClickListener {
-    final /* synthetic */ EditHeadActivity a;
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ EditHeadActivity f1367a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public n(EditHeadActivity editHeadActivity) {
-        this.a = editHeadActivity;
+        this.f1367a = editHeadActivity;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        EditHeadImageView editHeadImageView;
-        boolean a;
-        editHeadImageView = this.a.g;
-        a = this.a.a("tieba_head_image", editHeadImageView.getHeadBitmap());
-        if (a) {
-            this.a.m();
-        }
+        LinearLayout linearLayout;
+        Button button;
+        linearLayout = this.f1367a.t;
+        linearLayout.setVisibility(8);
+        button = this.f1367a.l;
+        button.setVisibility(0);
     }
 }

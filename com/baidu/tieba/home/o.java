@@ -1,19 +1,17 @@
 package com.baidu.tieba.home;
-
-import android.view.View;
-import android.widget.LinearLayout;
 /* loaded from: classes.dex */
-class o {
-    LinearLayout a;
-    View b;
-    final /* synthetic */ l c;
+class o implements Runnable {
 
-    private o(l lVar) {
-        this.c = lVar;
-    }
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ ForumTopicActivity f934a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ o(l lVar, o oVar) {
-        this(lVar);
+    public o(ForumTopicActivity forumTopicActivity) {
+        this.f934a = forumTopicActivity;
+    }
+
+    @Override // java.lang.Runnable
+    public void run() {
+        this.f934a.c();
     }
 }

@@ -1,27 +1,9 @@
 package android.support.v4.view;
 
-import android.os.Build;
-import android.view.View;
+import android.view.Gravity;
 /* loaded from: classes.dex */
-public class r {
-    static final v a;
-
-    static {
-        int i = Build.VERSION.SDK_INT;
-        if (i >= 14) {
-            a = new u();
-        } else if (i >= 9) {
-            a = new t();
-        } else {
-            a = new s();
-        }
-    }
-
-    public static boolean a(View view, int i) {
-        return a.a(view, i);
-    }
-
-    public static int a(View view) {
-        return a.a(view);
+class r {
+    public static int a(int i, int i2) {
+        return Gravity.getAbsoluteGravity(i, i2);
     }
 }

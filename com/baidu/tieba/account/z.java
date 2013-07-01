@@ -1,22 +1,26 @@
 package com.baidu.tieba.account;
 
 import com.baidu.tieba.TiebaApplication;
+import com.baidu.tieba.data.AccountData;
+import com.baidu.tieba.util.DatabaseService;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class z implements o {
-    final /* synthetic */ LoginActivity a;
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ LoginActivity f685a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public z(LoginActivity loginActivity) {
-        this.a = loginActivity;
+        this.f685a = loginActivity;
     }
 
     @Override // com.baidu.tieba.account.o
-    public void a(com.baidu.tieba.a.a aVar) {
-        com.baidu.tieba.a.a aVar2;
-        com.baidu.tieba.d.k.a(aVar);
-        aVar2 = this.a.T;
-        TiebaApplication.b(aVar2);
-        this.a.b();
+    public void a(AccountData accountData) {
+        AccountData accountData2;
+        DatabaseService.a(accountData);
+        accountData2 = this.f685a.T;
+        TiebaApplication.b(accountData2);
+        this.f685a.b();
     }
 }

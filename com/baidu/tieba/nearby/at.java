@@ -4,7 +4,9 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 /* loaded from: classes.dex */
 class at {
-    TextView a;
+
+    /* renamed from: a  reason: collision with root package name */
+    TextView f1142a;
     ProgressBar b;
     final /* synthetic */ aq c;
 

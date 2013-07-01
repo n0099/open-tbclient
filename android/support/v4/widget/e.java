@@ -1,39 +1,46 @@
 package android.support.v4.widget;
 
 import android.content.Context;
-import android.graphics.Canvas;
+import android.content.res.TypedArray;
+import android.util.AttributeSet;
+import android.view.ViewGroup;
 /* loaded from: classes.dex */
-class e implements g {
-    @Override // android.support.v4.widget.g
-    public Object a(Context context) {
-        return null;
+public class e extends ViewGroup.MarginLayoutParams {
+
+    /* renamed from: a  reason: collision with root package name */
+    public int f111a;
+    float b;
+    boolean c;
+    boolean d;
+
+    public e(Context context, AttributeSet attributeSet) {
+        super(context, attributeSet);
+        int[] iArr;
+        this.f111a = 0;
+        iArr = DrawerLayout.f103a;
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, iArr);
+        this.f111a = obtainStyledAttributes.getInt(0, 0);
+        obtainStyledAttributes.recycle();
     }
 
-    @Override // android.support.v4.widget.g
-    public void a(Object obj, int i, int i2) {
+    public e(int i, int i2) {
+        super(i, i2);
+        this.f111a = 0;
     }
 
-    @Override // android.support.v4.widget.g
-    public boolean a(Object obj) {
-        return true;
+    public e(e eVar) {
+        super((ViewGroup.MarginLayoutParams) eVar);
+        this.f111a = 0;
+        this.f111a = eVar.f111a;
     }
 
-    @Override // android.support.v4.widget.g
-    public void b(Object obj) {
+    public e(ViewGroup.LayoutParams layoutParams) {
+        super(layoutParams);
+        this.f111a = 0;
     }
 
-    @Override // android.support.v4.widget.g
-    public boolean a(Object obj, float f) {
-        return false;
-    }
-
-    @Override // android.support.v4.widget.g
-    public boolean c(Object obj) {
-        return false;
-    }
-
-    @Override // android.support.v4.widget.g
-    public boolean a(Object obj, Canvas canvas) {
-        return false;
+    public e(ViewGroup.MarginLayoutParams marginLayoutParams) {
+        super(marginLayoutParams);
+        this.f111a = 0;
     }
 }

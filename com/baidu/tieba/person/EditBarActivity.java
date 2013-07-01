@@ -13,16 +13,18 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-public class EditBarActivity extends com.baidu.tieba.e {
-    private com.baidu.tieba.c.b c = null;
-    private ListView d = null;
-    private ImageView e = null;
-    private Button f = null;
-    private i g = null;
-    private ProgressBar h = null;
-    private g i = null;
+public class EditBarActivity extends com.baidu.tieba.g {
+
+    /* renamed from: a  reason: collision with root package name */
+    private com.baidu.tieba.model.b f1299a = null;
+    private ListView b = null;
+    private ImageView c = null;
+    private Button d = null;
+    private j e = null;
+    private ProgressBar f = null;
+    private h g = null;
     private int j = -1;
-    private h k = null;
+    private i k = null;
     private RelativeLayout l = null;
     private LinearLayout m = null;
     private TextView n = null;
@@ -37,7 +39,7 @@ public class EditBarActivity extends com.baidu.tieba.e {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.e, com.baidu.adp.a.a, android.app.Activity
+    @Override // com.baidu.tieba.g, com.baidu.adp.a.a, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         setContentView(R.layout.edit_bar_activity);
@@ -47,86 +49,86 @@ public class EditBarActivity extends com.baidu.tieba.e {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.e, android.app.Activity
+    @Override // com.baidu.tieba.g, android.app.Activity
     public void onDestroy() {
-        if (this.i != null) {
-            this.i.cancel();
+        if (this.g != null) {
+            this.g.cancel();
         }
         if (this.k != null) {
             this.k.cancel();
         }
-        if (this.h != null) {
-            this.h.setVisibility(8);
+        if (this.f != null) {
+            this.f.setVisibility(8);
         }
         super.onDestroy();
     }
 
     private void b() {
-        if (this.i != null) {
-            this.i.cancel();
+        if (this.g != null) {
+            this.g.cancel();
         }
-        this.i = new g(this, null);
-        this.i.setPriority(3);
-        this.i.execute(new Object[0]);
+        this.g = new h(this, null);
+        this.g.setPriority(3);
+        this.g.execute(new Object[0]);
     }
 
     private void c() {
-        this.c = new com.baidu.tieba.c.b();
+        this.f1299a = new com.baidu.tieba.model.b();
         this.o = getIntent().getStringExtra("view_user_id");
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.e
-    public void b(int i) {
-        super.b(i);
-        com.baidu.tieba.d.ac.a(this.l, i);
-        com.baidu.tieba.d.ac.d(this.m, i);
-        com.baidu.tieba.d.ac.f(this.n, i);
-        com.baidu.tieba.d.ac.a(this.e, i);
-        com.baidu.tieba.d.ac.g((TextView) this.f, i);
-        this.g.notifyDataSetChanged();
+    @Override // com.baidu.tieba.g
+    public void a(int i) {
+        super.a(i);
+        com.baidu.tieba.util.x.a(this.l, i);
+        com.baidu.tieba.util.x.d(this.m, i);
+        com.baidu.tieba.util.x.f(this.n, i);
+        com.baidu.tieba.util.x.a(this.c, i);
+        com.baidu.tieba.util.x.g((TextView) this.d, i);
+        this.e.notifyDataSetChanged();
         if (i == 1) {
-            this.d.setDivider(getResources().getDrawable(R.drawable.list_divider_1));
-            this.d.setSelector(R.drawable.list_selector_1);
+            this.b.setDivider(getResources().getDrawable(R.drawable.list_divider_1));
+            this.b.setSelector(R.drawable.list_selector_1);
             return;
         }
-        this.d.setDivider(getResources().getDrawable(R.drawable.list_divider));
-        this.d.setSelector(R.drawable.list_selector);
+        this.b.setDivider(getResources().getDrawable(R.drawable.list_divider));
+        this.b.setSelector(R.drawable.list_selector);
     }
 
     private void d() {
         this.l = (RelativeLayout) findViewById(R.id.parent);
         this.m = (LinearLayout) findViewById(R.id.title);
         this.n = (TextView) findViewById(R.id.title_text);
-        this.h = (ProgressBar) findViewById(R.id.progress);
-        this.e = (ImageView) findViewById(R.id.back);
-        this.e.setOnClickListener(new c(this));
-        this.g = new i(this, this.c);
-        this.g.a(new d(this));
-        this.d = (ListView) findViewById(R.id.list);
-        this.d.setAdapter((ListAdapter) this.g);
-        this.d.setOnItemClickListener(new e(this));
-        this.f = (Button) findViewById(R.id.edit);
-        this.f.setOnClickListener(new f(this));
+        this.f = (ProgressBar) findViewById(R.id.progress);
+        this.c = (ImageView) findViewById(R.id.back);
+        this.c.setOnClickListener(new d(this));
+        this.e = new j(this, this.f1299a);
+        this.e.a(new e(this));
+        this.b = (ListView) findViewById(R.id.list);
+        this.b.setAdapter((ListAdapter) this.e);
+        this.b.setOnItemClickListener(new f(this));
+        this.d = (Button) findViewById(R.id.edit);
+        this.d.setOnClickListener(new g(this));
         if (this.o != null) {
-            this.f.setVisibility(4);
+            this.d.setVisibility(4);
             this.n.setText(getString(R.string.its_bar));
-            this.g.b(false);
+            this.e.b(false);
             return;
         }
         this.n.setText(getString(R.string.my_bar));
-        this.g.b(true);
+        this.e.b(true);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void m() {
-        if (this.g != null) {
-            this.g.b();
-            if (this.g.c()) {
-                this.f.setVisibility(4);
-                this.g.a(false);
+        if (this.e != null) {
+            this.e.b();
+            if (this.e.c()) {
+                this.d.setVisibility(4);
+                this.e.a(false);
             } else if (this.o == null) {
-                this.f.setVisibility(0);
+                this.d.setVisibility(0);
             }
         }
     }

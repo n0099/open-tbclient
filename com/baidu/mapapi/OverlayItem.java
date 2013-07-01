@@ -43,9 +43,9 @@ public class OverlayItem {
     }
 
     public static void setState(Drawable drawable, int i) {
-        int[] a = a(i);
-        if (a.length != 0) {
-            drawable.setState(a);
+        int[] a2 = a(i);
+        if (a2.length != 0) {
+            drawable.setState(a2);
         }
     }
 

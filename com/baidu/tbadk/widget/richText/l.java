@@ -4,19 +4,21 @@ import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class l implements View.OnClickListener {
-    final /* synthetic */ TbRichTextView a;
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ TbRichTextView f611a;
     private final /* synthetic */ c b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public l(TbRichTextView tbRichTextView, c cVar) {
-        this.a = tbRichTextView;
+        this.f611a = tbRichTextView;
         this.b = cVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if ((this.a.getContext() instanceof h) && this.b.d() != null) {
-            ((h) this.a.getContext()).c(this.a.getContext(), this.b.d().toString());
+        if ((this.f611a.getContext() instanceof h) && this.b.d() != null) {
+            ((h) this.f611a.getContext()).c(this.f611a.getContext(), this.b.d().toString());
         }
     }
 }

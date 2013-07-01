@@ -12,16 +12,18 @@ public class MKEvent {
     public static final int MKEVENT_POIRGCSHAREURL = 17;
     public static final int MKEVENT_POI_DETAIL = 18;
     public static final int MKEVENT_SUGGESTION = 16;
-    int a;
+
+    /* renamed from: a  reason: collision with root package name */
+    int f508a;
     int b;
     int c;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public MKEvent(int i, int i2, int i3) {
-        this.a = 0;
+        this.f508a = 0;
         this.b = 0;
         this.c = 0;
-        this.a = i;
+        this.f508a = i;
         this.b = i2;
         this.c = i3;
     }

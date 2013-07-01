@@ -4,7 +4,9 @@ import android.content.Context;
 import android.text.TextUtils;
 /* loaded from: classes.dex */
 public class aq {
-    private static final String a = aq.class.getSimpleName();
+
+    /* renamed from: a  reason: collision with root package name */
+    private static final String f465a = aq.class.getSimpleName();
 
     public static String a(Context context) {
         String b = b(context);

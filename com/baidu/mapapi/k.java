@@ -2,22 +2,24 @@ package com.baidu.mapapi;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class k implements j {
-    private MKOfflineMapListener a;
+
+    /* renamed from: a  reason: collision with root package name */
+    private MKOfflineMapListener f558a;
 
     public k(MKOfflineMapListener mKOfflineMapListener) {
-        this.a = mKOfflineMapListener;
+        this.f558a = mKOfflineMapListener;
     }
 
     @Override // com.baidu.mapapi.j
     public void a(MKEvent mKEvent) {
-        if (this.a != null) {
-            switch (mKEvent.a) {
+        if (this.f558a != null) {
+            switch (mKEvent.f508a) {
                 case 0:
                 case 6:
-                    this.a.onGetOfflineMapState(mKEvent.a, mKEvent.c);
+                    this.f558a.onGetOfflineMapState(mKEvent.f508a, mKEvent.c);
                     return;
                 case 4:
-                    this.a.onGetOfflineMapState(mKEvent.a, 0);
+                    this.f558a.onGetOfflineMapState(mKEvent.f508a, 0);
                     return;
                 default:
                     return;

@@ -1,5 +1,6 @@
 package com.baidu.android.common.logging;
 
+import android.os.Environment;
 import android.os.Process;
 import android.text.TextUtils;
 import java.io.BufferedReader;
@@ -16,32 +17,15 @@ public final class Log {
     public static final int FILE_LIMETE = 10485760;
     public static final int FILE_NUMBER = 2;
     private static Logger sFilelogger;
-    private static final boolean DEBUG = Configuration.isLogEnabled();
-    private static final boolean LOG_TO_FILE = Configuration.shouldLog2Fie();
-
-    static {
-        if (LOG_TO_FILE && DEBUG) {
-            String logFileName = getLogFileName();
-            try {
-                FileHandler fileHandler = new FileHandler(("/sdcard/" + logFileName) + "_%g.log", FILE_LIMETE, 2, true);
-                fileHandler.setFormatter(new SimpleFormatter());
-                sFilelogger = Logger.getLogger(logFileName);
-                sFilelogger.setLevel(Level.ALL);
-                sFilelogger.addHandler(fileHandler);
-            } catch (IOException e) {
-                e.printStackTrace();
-            } catch (SecurityException e2) {
-                e2.printStackTrace();
-            }
-        }
-    }
+    private static boolean sLogEnabled = true;
+    private static boolean sLog2File = false;
 
     private Log() {
     }
 
     public static void d(String str, String str2) {
-        if (DEBUG) {
-            if (!LOG_TO_FILE || sFilelogger == null) {
+        if (sLogEnabled) {
+            if (!sLog2File || sFilelogger == null) {
                 android.util.Log.d(str, str2);
             } else {
                 sFilelogger.log(Level.INFO, str + ": " + str2);
@@ -54,8 +38,8 @@ public final class Log {
     }
 
     public static void e(String str, String str2) {
-        if (DEBUG) {
-            if (!LOG_TO_FILE || sFilelogger == null) {
+        if (sLogEnabled) {
+            if (!sLog2File || sFilelogger == null) {
                 android.util.Log.e(str, str2);
             } else {
                 sFilelogger.log(Level.SEVERE, str + ": " + str2);
@@ -133,8 +117,8 @@ public final class Log {
     }
 
     public static void i(String str, String str2) {
-        if (DEBUG) {
-            if (!LOG_TO_FILE || sFilelogger == null) {
+        if (sLogEnabled) {
+            if (!sLog2File || sFilelogger == null) {
                 android.util.Log.i(str, str2);
             } else {
                 sFilelogger.log(Level.INFO, str + ": " + str2);
@@ -146,9 +130,31 @@ public final class Log {
         i(str, str2 + '\n' + getStackTraceString(th));
     }
 
+    public static void setLog2File(boolean z) {
+        sLog2File = z;
+        if (sLog2File && sFilelogger == null) {
+            String logFileName = getLogFileName();
+            try {
+                FileHandler fileHandler = new FileHandler(new File(Environment.getExternalStorageDirectory(), logFileName).getAbsolutePath() + "_%g.log", FILE_LIMETE, 2, true);
+                fileHandler.setFormatter(new SimpleFormatter());
+                sFilelogger = Logger.getLogger(logFileName);
+                sFilelogger.setLevel(Level.ALL);
+                sFilelogger.addHandler(fileHandler);
+            } catch (IOException e) {
+                e.printStackTrace();
+            } catch (SecurityException e2) {
+                e2.printStackTrace();
+            }
+        }
+    }
+
+    public static void setLogEnabled(boolean z) {
+        sLogEnabled = z;
+    }
+
     public static void v(String str, String str2) {
-        if (DEBUG) {
-            if (!LOG_TO_FILE || sFilelogger == null) {
+        if (sLogEnabled) {
+            if (!sLog2File || sFilelogger == null) {
                 android.util.Log.v(str, str2);
             } else {
                 sFilelogger.log(Level.INFO, str + ": " + str2);
@@ -161,8 +167,8 @@ public final class Log {
     }
 
     public static void w(String str, String str2) {
-        if (DEBUG) {
-            if (!LOG_TO_FILE || sFilelogger == null) {
+        if (sLogEnabled) {
+            if (!sLog2File || sFilelogger == null) {
                 android.util.Log.w(str, str2);
             } else {
                 sFilelogger.log(Level.WARNING, str + ": " + str2);

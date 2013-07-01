@@ -1,30 +1,32 @@
 package com.baidu.tieba.account;
 /* loaded from: classes.dex */
 public class af extends Thread {
-    private String a;
+
+    /* renamed from: a  reason: collision with root package name */
+    private String f643a;
     private String b;
 
     public af(String str) {
-        this.a = null;
+        this.f643a = null;
         this.b = null;
-        this.a = str;
+        this.f643a = str;
     }
 
     public af(String str, String str2) {
-        this.a = null;
+        this.f643a = null;
         this.b = null;
-        this.a = str;
+        this.f643a = str;
         this.b = str2;
     }
 
     @Override // java.lang.Thread, java.lang.Runnable
     public void run() {
         super.run();
-        com.baidu.tieba.d.t tVar = new com.baidu.tieba.d.t(String.valueOf(com.baidu.tieba.a.i.e) + "c/s/pv");
-        tVar.a("st_type", this.a);
+        com.baidu.tieba.util.r rVar = new com.baidu.tieba.util.r(String.valueOf(com.baidu.tieba.data.g.f787a) + "c/s/pv");
+        rVar.a("st_type", this.f643a);
         if (this.b != null) {
-            tVar.a("st_param", this.b);
+            rVar.a("st_param", this.b);
         }
-        tVar.i();
+        rVar.j();
     }
 }

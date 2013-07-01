@@ -7,12 +7,14 @@ import android.os.HandlerThread;
 /* loaded from: classes.dex */
 public class c {
     private static Handler b;
-    private static HandlerThread a = new HandlerThread("EventHandleThread");
+
+    /* renamed from: a  reason: collision with root package name */
+    private static HandlerThread f576a = new HandlerThread("EventHandleThread");
     private static c c = new c();
 
     private c() {
-        a.start();
-        b = new Handler(a.getLooper());
+        f576a.start();
+        b = new Handler(f576a.getLooper());
     }
 
     public static c a() {

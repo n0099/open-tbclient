@@ -1,17 +1,13 @@
 package com.baidu.tieba;
-
-import android.view.View;
 /* loaded from: classes.dex */
-class j implements View.OnClickListener {
-    final /* synthetic */ GuideActivity a;
+public abstract class j {
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public j(GuideActivity guideActivity) {
-        this.a = guideActivity;
-    }
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ g f947a;
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        this.a.a();
+    public abstract void a(Object... objArr);
+
+    public j(g gVar) {
+        this.f947a = gVar;
     }
 }

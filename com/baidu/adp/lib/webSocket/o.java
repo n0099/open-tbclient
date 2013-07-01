@@ -1,5 +1,4 @@
 package com.baidu.adp.lib.webSocket;
 /* loaded from: classes.dex */
-public class o extends l {
-    public byte[] a;
+public class o extends k {
 }

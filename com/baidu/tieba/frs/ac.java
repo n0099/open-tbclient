@@ -5,5 +5,5 @@ import org.json.JSONObject;
 public interface ac {
     void a(int i);
 
-    void a(int i, JSONObject jSONObject, com.baidu.tieba.c.v vVar);
+    void a(int i, JSONObject jSONObject, com.baidu.tieba.model.y yVar);
 }

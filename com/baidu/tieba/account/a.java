@@ -5,10 +5,14 @@ import android.content.Context;
 import com.baidu.loginshare.LoginShareAssistant;
 import com.baidu.loginshare.Token;
 import com.baidu.tieba.TiebaApplication;
+import com.baidu.tieba.data.AccountData;
+import com.baidu.tieba.util.DatabaseService;
 /* loaded from: classes.dex */
 public class a {
     private static a b = null;
-    private b a = null;
+
+    /* renamed from: a  reason: collision with root package name */
+    private b f637a = null;
     private c c = null;
 
     public static a a() {
@@ -23,31 +27,31 @@ public class a {
 
     public void b() {
         try {
-            if (!TiebaApplication.j()) {
+            if (!TiebaApplication.n()) {
                 Token token = new Token();
-                String D = TiebaApplication.D();
-                if (D != null) {
+                String F = TiebaApplication.F();
+                if (F != null) {
                     e();
-                    String[] split = D.split("[|]");
+                    String[] split = F.split("[|]");
                     if (split != null && split.length == 2) {
                         token.mBduss = split[0];
                         token.mPtoken = split[1];
                         if (token.mPtoken != null && token.mPtoken.length() > 0) {
-                            token.mUsername = TiebaApplication.G();
+                            token.mUsername = TiebaApplication.H();
                             LoginShareAssistant.getInstance().valid(token);
                         }
                     }
                 }
             }
         } catch (Exception e) {
-            com.baidu.tieba.d.ae.b(getClass().getName(), "valid", e.getMessage());
+            com.baidu.tieba.util.z.b(getClass().getName(), "valid", e.getMessage());
         }
     }
 
     public void a(String str) {
         String[] split;
         try {
-            if (!TiebaApplication.j()) {
+            if (!TiebaApplication.n()) {
                 Token token = new Token();
                 if (str != null && (split = str.split("[|]")) != null && split.length == 2) {
                     token.mBduss = split[0];
@@ -58,67 +62,67 @@ public class a {
                 }
             }
         } catch (Exception e) {
-            com.baidu.tieba.d.ae.b(getClass().getName(), "invalid", e.getMessage());
+            com.baidu.tieba.util.z.b(getClass().getName(), "invalid", e.getMessage());
         }
     }
 
     public void a(Token token) {
         if (token != null) {
             try {
-                if (!TiebaApplication.j()) {
+                if (!TiebaApplication.n()) {
                     LoginShareAssistant.getInstance().invalid(token);
                 }
             } catch (Exception e) {
-                com.baidu.tieba.d.ae.b(getClass().getName(), "invalid", e.getMessage());
+                com.baidu.tieba.util.z.b(getClass().getName(), "invalid", e.getMessage());
             }
         }
     }
 
     public void c() {
         try {
-            if (!TiebaApplication.j()) {
+            if (!TiebaApplication.n()) {
                 LoginShareAssistant.getInstance().onActivityCreate();
             }
         } catch (Exception e) {
-            com.baidu.tieba.d.ae.b(getClass().getName(), "onActivityCreate", e.getMessage());
+            com.baidu.tieba.util.z.b(getClass().getName(), "onActivityCreate", e.getMessage());
         }
     }
 
     public void d() {
-        String aJ;
+        String aM;
         try {
-            if (!TiebaApplication.j() && (aJ = TiebaApplication.e().aJ()) != null) {
-                this.a = new b(this);
-                String[] split = aJ.split(":");
+            if (!TiebaApplication.n() && (aM = TiebaApplication.f().aM()) != null) {
+                this.f637a = new b(this);
+                String[] split = aM.split(":");
                 int length = split.length;
                 if (length >= 1) {
                     if ("1".equals(split[0])) {
-                        this.a.a = true;
+                        this.f637a.f662a = true;
                     } else {
-                        this.a.a = false;
+                        this.f637a.f662a = false;
                     }
                 }
                 if (length >= 2) {
-                    this.a.b = split[1];
+                    this.f637a.b = split[1];
                 }
                 if (length >= 3) {
-                    this.a.c = split[2];
+                    this.f637a.c = split[2];
                 }
                 if (length >= 4) {
                     if (split[3] == null || split[3].equalsIgnoreCase("null")) {
-                        this.a.d = null;
+                        this.f637a.d = null;
                     } else {
-                        this.a.d = split[3];
+                        this.f637a.d = split[3];
                     }
                 }
-                if (this.a != null && !this.a.a) {
-                    com.baidu.tieba.d.k.k();
-                    TiebaApplication.a((com.baidu.tieba.a.a) null);
+                if (this.f637a != null && !this.f637a.f662a) {
+                    DatabaseService.m();
+                    TiebaApplication.a((AccountData) null);
                     e();
                 }
             }
         } catch (Exception e) {
-            com.baidu.tieba.d.ae.b(getClass().getName(), "prepare", e.getMessage());
+            com.baidu.tieba.util.z.b(getClass().getName(), "prepare", e.getMessage());
         }
     }
 
@@ -127,7 +131,7 @@ public class a {
         Exception e;
         String[] split;
         try {
-            if (TiebaApplication.j() || str == null || (split = str.split("[|]")) == null || split.length < 1) {
+            if (TiebaApplication.n() || str == null || (split = str.split("[|]")) == null || split.length < 1) {
                 return null;
             }
             token = new Token();
@@ -140,7 +144,7 @@ public class a {
                 return token;
             } catch (Exception e2) {
                 e = e2;
-                com.baidu.tieba.d.ae.b("AccountShareHelper", "parseBDUSS", e.getMessage());
+                com.baidu.tieba.util.z.b("AccountShareHelper", "parseBDUSS", e.getMessage());
                 return token;
             }
         } catch (Exception e3) {
@@ -150,18 +154,18 @@ public class a {
     }
 
     public void e() {
-        this.a = null;
-        TiebaApplication.e().aI();
+        this.f637a = null;
+        TiebaApplication.f().aL();
     }
 
     public void f() {
-        this.a = null;
+        this.f637a = null;
     }
 
     public void a(Activity activity, String str) {
-        String G;
-        if (this.a != null && this.a.a && TiebaApplication.C() == null && ((G = TiebaApplication.G()) == null || !G.equals(this.a.d))) {
-            ReLoginShareActivity.a(activity, this.a.d, this.a.b, this.a.c, str);
+        String H;
+        if (this.f637a != null && this.f637a.f662a && TiebaApplication.E() == null && ((H = TiebaApplication.H()) == null || !H.equals(this.f637a.d))) {
+            ReLoginShareActivity.a(activity, this.f637a.d, this.f637a.b, this.f637a.c, str);
         }
         f();
     }
@@ -173,7 +177,7 @@ public class a {
             this.c = new c(this, null);
             loginShareAssistant.setLoginShareListener(this.c);
         } catch (Exception e) {
-            com.baidu.tieba.d.ae.b(getClass().getName(), "init", e.getMessage());
+            com.baidu.tieba.util.z.b(getClass().getName(), "init", e.getMessage());
         }
     }
 
@@ -182,6 +186,6 @@ public class a {
         if (!z) {
             str4 = "2:";
         }
-        TiebaApplication.e().j(String.valueOf(str4) + str + ":" + str2 + ":" + str3);
+        TiebaApplication.f().m(String.valueOf(str4) + str + ":" + str2 + ":" + str3);
     }
 }

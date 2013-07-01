@@ -1,13 +1,9 @@
 package com.baidu.tieba.view;
 
-import android.graphics.Bitmap;
+import android.view.View;
 /* loaded from: classes.dex */
-class v {
-    public Bitmap a;
-    public int b;
+public interface v {
+    void a(View view, int i, int i2);
 
-    public v(Bitmap bitmap, int i) {
-        this.a = bitmap;
-        this.b = i;
-    }
+    void c();
 }

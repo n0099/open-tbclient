@@ -1,21 +1,23 @@
 package android.support.v4.app;
 
-import android.os.Parcel;
-import android.os.Parcelable;
-import android.support.v4.app.Fragment;
+import android.app.Activity;
+import android.util.Log;
 /* loaded from: classes.dex */
-final class f implements Parcelable.Creator {
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // android.os.Parcelable.Creator
-    /* renamed from: a */
-    public Fragment.SavedState createFromParcel(Parcel parcel) {
-        return new Fragment.SavedState(parcel, null);
-    }
+class f {
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // android.os.Parcelable.Creator
-    /* renamed from: a */
-    public Fragment.SavedState[] newArray(int i) {
-        return new Fragment.SavedState[i];
+    /* renamed from: a  reason: collision with root package name */
+    private static final int[] f56a = {16843531};
+
+    public static Object a(Object obj, Activity activity, int i) {
+        Object gVar = obj == null ? new g(activity) : obj;
+        g gVar2 = (g) gVar;
+        if (gVar2.f57a != null) {
+            try {
+                gVar2.b.invoke(activity.getActionBar(), Integer.valueOf(i));
+            } catch (Exception e) {
+                Log.w("ActionBarDrawerToggleHoneycomb", "Couldn't set content description via JB-MR2 API", e);
+            }
+        }
+        return gVar;
     }
 }

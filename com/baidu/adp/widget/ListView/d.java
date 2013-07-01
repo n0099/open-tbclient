@@ -6,7 +6,9 @@ import android.view.ViewGroup;
 import java.security.InvalidParameterException;
 /* loaded from: classes.dex */
 public abstract class d {
-    private Context a;
+
+    /* renamed from: a  reason: collision with root package name */
+    private Context f202a;
     private View b = null;
     private boolean c = true;
     private int d = 0;
@@ -25,15 +27,15 @@ public abstract class d {
     public abstract void c(boolean z);
 
     public d(Context context) {
-        this.a = null;
+        this.f202a = null;
         if (context == null) {
             throw new InvalidParameterException("BdIListPullView context is null");
         }
-        this.a = context;
+        this.f202a = context;
     }
 
     public Context e() {
-        return this.a;
+        return this.f202a;
     }
 
     public final View f() {

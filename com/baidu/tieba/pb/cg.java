@@ -5,11 +5,13 @@ import com.baidu.adp.widget.ListView.BdListView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class cg implements com.baidu.tbadk.a.d {
-    final /* synthetic */ bk a;
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ bk f1251a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public cg(bk bkVar) {
-        this.a = bkVar;
+        this.f1251a = bkVar;
     }
 
     @Override // com.baidu.tbadk.a.d
@@ -17,12 +19,12 @@ public class cg implements com.baidu.tbadk.a.d {
         BdListView bdListView;
         BdListView bdListView2;
         if (bVar != null) {
-            bdListView = this.a.f;
+            bdListView = this.f1251a.f;
             ImageView imageView = (ImageView) bdListView.findViewWithTag(str);
             while (imageView != null) {
                 imageView.setTag(null);
                 bVar.a(imageView);
-                bdListView2 = this.a.f;
+                bdListView2 = this.f1251a.f;
                 imageView = (ImageView) bdListView2.findViewWithTag(str);
             }
         }

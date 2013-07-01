@@ -1,10 +1,21 @@
 package android.support.v4.view;
 
-import android.view.VelocityTracker;
+import android.os.Build;
 /* loaded from: classes.dex */
-class n implements p {
-    @Override // android.support.v4.view.p
-    public float a(VelocityTracker velocityTracker, int i) {
-        return velocityTracker.getXVelocity();
+public class n {
+
+    /* renamed from: a  reason: collision with root package name */
+    static final o f99a;
+
+    static {
+        if (Build.VERSION.SDK_INT >= 17) {
+            f99a = new q();
+        } else {
+            f99a = new p();
+        }
+    }
+
+    public static int a(int i, int i2) {
+        return f99a.a(i, i2);
     }
 }

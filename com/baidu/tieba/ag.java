@@ -1,32 +1,37 @@
 package com.baidu.tieba;
 
-import android.content.BroadcastReceiver;
-import android.content.Context;
-import android.content.Intent;
+import android.os.Handler;
+import com.baidu.tieba.util.DatabaseService;
 /* loaded from: classes.dex */
-class ag extends BroadcastReceiver {
-    final /* synthetic */ MainTabActivity a;
+class ag extends Thread {
 
-    private ag(MainTabActivity mainTabActivity) {
-        this.a = mainTabActivity;
-    }
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ LogoActivity f689a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ ag(MainTabActivity mainTabActivity, ag agVar) {
-        this(mainTabActivity);
+    public ag(LogoActivity logoActivity) {
+        this.f689a = logoActivity;
     }
 
-    @Override // android.content.BroadcastReceiver
-    public void onReceive(Context context, Intent intent) {
-        String action = intent.getAction();
-        if (action.equals("com.baidu.tieba.broadcast.notify")) {
-            MainTabActivity.a(this.a, intent.getLongExtra("relay", 0L));
-            MainTabActivity.b(this.a, intent.getLongExtra("at_me", 0L));
-            MainTabActivity.c(this.a, intent.getLongExtra("fans", 0L));
-            MainTabActivity.d(this.a, intent.getLongExtra("pletter", 0L));
-            MainTabActivity.a(this.a);
-        } else if (action.equals("com.baidu.tieba.broadcast.newversion")) {
-            MainTabActivity.b(this.a);
+    @Override // java.lang.Thread, java.lang.Runnable
+    public void run() {
+        Handler handler;
+        Handler handler2;
+        super.run();
+        try {
+            TiebaApplication tiebaApplication = (TiebaApplication) this.f689a.getApplication();
+            tiebaApplication.d(tiebaApplication.I() + 1);
+            if (tiebaApplication.N()) {
+                DatabaseService.z();
+                tiebaApplication.d(0);
+            }
+            DatabaseService.v();
+            DatabaseService.y();
+            this.f689a.a(this.f689a.getCacheDir());
+        } catch (Exception e) {
         }
+        handler = this.f689a.k;
+        handler2 = this.f689a.k;
+        handler.sendMessage(handler2.obtainMessage());
     }
 }

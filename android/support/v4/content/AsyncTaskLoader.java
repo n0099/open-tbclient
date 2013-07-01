@@ -5,8 +5,10 @@ import android.os.SystemClock;
 import java.io.FileDescriptor;
 import java.io.PrintWriter;
 /* loaded from: classes.dex */
-public abstract class AsyncTaskLoader extends b {
-    volatile a a;
+public abstract class AsyncTaskLoader extends c {
+
+    /* renamed from: a  reason: collision with root package name */
+    volatile a f72a;
     volatile a b;
     long c;
     long d;
@@ -15,33 +17,33 @@ public abstract class AsyncTaskLoader extends b {
     public abstract Object d();
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // android.support.v4.content.b
+    @Override // android.support.v4.content.c
     public void a() {
         super.a();
         b();
-        this.a = new a(this);
+        this.f72a = new a(this);
         c();
     }
 
     public boolean b() {
         boolean z = false;
-        if (this.a != null) {
+        if (this.f72a != null) {
             if (this.b != null) {
-                if (this.a.b) {
-                    this.a.b = false;
-                    this.e.removeCallbacks(this.a);
+                if (this.f72a.b) {
+                    this.f72a.b = false;
+                    this.e.removeCallbacks(this.f72a);
                 }
-                this.a = null;
-            } else if (this.a.b) {
-                this.a.b = false;
-                this.e.removeCallbacks(this.a);
-                this.a = null;
+                this.f72a = null;
+            } else if (this.f72a.b) {
+                this.f72a.b = false;
+                this.e.removeCallbacks(this.f72a);
+                this.f72a = null;
             } else {
-                z = this.a.a(false);
+                z = this.f72a.a(false);
                 if (z) {
-                    this.b = this.a;
+                    this.b = this.f72a;
                 }
-                this.a = null;
+                this.f72a = null;
             }
         }
         return z;
@@ -52,17 +54,17 @@ public abstract class AsyncTaskLoader extends b {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void c() {
-        if (this.b == null && this.a != null) {
-            if (this.a.b) {
-                this.a.b = false;
-                this.e.removeCallbacks(this.a);
+        if (this.b == null && this.f72a != null) {
+            if (this.f72a.b) {
+                this.f72a.b = false;
+                this.e.removeCallbacks(this.f72a);
             }
             if (this.c > 0 && SystemClock.uptimeMillis() < this.d + this.c) {
-                this.a.b = true;
-                this.e.postAtTime(this.a, this.d + this.c);
+                this.f72a.b = true;
+                this.e.postAtTime(this.f72a, this.d + this.c);
                 return;
             }
-            this.a.a(e.d, (Object[]) null);
+            this.f72a.a(ModernAsyncTask.d, (Object[]) null);
         }
     }
 
@@ -78,13 +80,13 @@ public abstract class AsyncTaskLoader extends b {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void b(a aVar, Object obj) {
-        if (this.a != aVar) {
+        if (this.f72a != aVar) {
             a(aVar, obj);
         } else if (l()) {
             a(obj);
         } else {
             this.d = SystemClock.uptimeMillis();
-            this.a = null;
+            this.f72a = null;
             b(obj);
         }
     }
@@ -94,15 +96,15 @@ public abstract class AsyncTaskLoader extends b {
         return d();
     }
 
-    @Override // android.support.v4.content.b
+    @Override // android.support.v4.content.c
     public void a(String str, FileDescriptor fileDescriptor, PrintWriter printWriter, String[] strArr) {
         super.a(str, fileDescriptor, printWriter, strArr);
-        if (this.a != null) {
+        if (this.f72a != null) {
             printWriter.print(str);
             printWriter.print("mTask=");
-            printWriter.print(this.a);
+            printWriter.print(this.f72a);
             printWriter.print(" waiting=");
-            printWriter.println(this.a.b);
+            printWriter.println(this.f72a.b);
         }
         if (this.b != null) {
             printWriter.print(str);
@@ -114,9 +116,9 @@ public abstract class AsyncTaskLoader extends b {
         if (this.c != 0) {
             printWriter.print(str);
             printWriter.print("mUpdateThrottle=");
-            android.support.v4.b.c.a(this.c, printWriter);
+            android.support.v4.b.d.a(this.c, printWriter);
             printWriter.print(" mLastLoadCompleteTime=");
-            android.support.v4.b.c.a(this.d, SystemClock.uptimeMillis(), printWriter);
+            android.support.v4.b.d.a(this.d, SystemClock.uptimeMillis(), printWriter);
             printWriter.println();
         }
     }

@@ -13,7 +13,9 @@ import java.util.ArrayList;
 import java.util.HashMap;
 /* loaded from: classes.dex */
 public class RouteOverlay extends ItemizedOverlay {
-    private ArrayList a;
+
+    /* renamed from: a  reason: collision with root package name */
+    private ArrayList f538a;
     private MapView b;
     private Context c;
     private DisplayMetrics d;
@@ -23,7 +25,9 @@ public class RouteOverlay extends ItemizedOverlay {
 
     /* loaded from: classes.dex */
     class a {
-        public GeoPoint a = new GeoPoint(0, 0);
+
+        /* renamed from: a  reason: collision with root package name */
+        public GeoPoint f539a = new GeoPoint(0, 0);
         public ArrayList b = new ArrayList();
 
         public a() {
@@ -32,7 +36,9 @@ public class RouteOverlay extends ItemizedOverlay {
 
     /* loaded from: classes.dex */
     class b {
-        public String a;
+
+        /* renamed from: a  reason: collision with root package name */
+        public String f540a;
         public GeoPoint b;
         public int c;
         public int d;
@@ -44,7 +50,7 @@ public class RouteOverlay extends ItemizedOverlay {
     public RouteOverlay(Activity activity, MapView mapView) {
         super(null);
         this.mRoute = null;
-        this.a = null;
+        this.f538a = null;
         this.b = null;
         this.c = null;
         this.e = 1;
@@ -78,8 +84,8 @@ public class RouteOverlay extends ItemizedOverlay {
         Drawable a2;
         char[] cArr = {'l', 'm', 'h'};
         String[] strArr = {"start", "end", "foot", "car", "bus"};
-        b bVar = (b) this.a.get(i);
-        OverlayItem overlayItem = new OverlayItem(bVar.b, bVar.a, null);
+        b bVar = (b) this.f538a.get(i);
+        OverlayItem overlayItem = new OverlayItem(bVar.b, bVar.f540a, null);
         StringBuilder sb = new StringBuilder(32);
         if (bVar.c == 0 || bVar.c == 1 || bVar.c == 4) {
             sb.append("icon_nav_").append(strArr[bVar.c]).append('_').append(cArr[this.e]).append(".png");
@@ -106,7 +112,7 @@ public class RouteOverlay extends ItemizedOverlay {
         int zoomLevel = mapView.getZoomLevel();
         if (this.mRoute != null) {
             ArrayList arrayPoints = this.mRoute.getArrayPoints();
-            ArrayList arrayList = this.mRoute.a;
+            ArrayList arrayList = this.mRoute.f514a;
             if (arrayPoints != null && arrayPoints.size() > 0) {
                 a aVar2 = (a) this.f.get(Integer.valueOf(zoomLevel));
                 if (aVar2 == null) {
@@ -118,12 +124,12 @@ public class RouteOverlay extends ItemizedOverlay {
                         int size2 = arrayList2.size();
                         for (int i3 = 0; i3 < size2; i3++) {
                             Point point = new Point();
-                            mapView.a.a((GeoPoint) arrayList2.get(i3), point);
+                            mapView.f524a.a((GeoPoint) arrayList2.get(i3), point);
                             aVar3.b.add(point);
                         }
                     }
-                    aVar3.a.setLatitudeE6(mapView.getMapCenter().getLatitudeE6());
-                    aVar3.a.setLongitudeE6(mapView.getMapCenter().getLongitudeE6());
+                    aVar3.f539a.setLatitudeE6(mapView.getMapCenter().getLatitudeE6());
+                    aVar3.f539a.setLongitudeE6(mapView.getMapCenter().getLongitudeE6());
                     this.f.put(Integer.valueOf(zoomLevel), aVar3);
                     aVar = aVar3;
                 } else {
@@ -143,7 +149,7 @@ public class RouteOverlay extends ItemizedOverlay {
                     Point point4 = new Point();
                     Point point5 = new Point();
                     projection.toPixels(mapView.getMapCenter(), point4);
-                    projection.toPixels(aVar.a, point5);
+                    projection.toPixels(aVar.f539a, point5);
                     int i5 = point4.y - point5.y;
                     int i6 = (point4.x - point5.x) - mapView.b.c;
                     int i7 = i5 - mapView.b.d;
@@ -217,7 +223,7 @@ public class RouteOverlay extends ItemizedOverlay {
             return;
         }
         this.mRoute = mKRoute;
-        this.a = new ArrayList();
+        this.f538a = new ArrayList();
         if (this.mRoute.getRouteType() == 1) {
             i = 3;
         } else if (this.mRoute.getRouteType() != 2) {
@@ -228,21 +234,21 @@ public class RouteOverlay extends ItemizedOverlay {
             b bVar = new b();
             bVar.b = start;
             bVar.c = 0;
-            this.a.add(bVar);
+            this.f538a.add(bVar);
         }
         int numSteps = mKRoute.getNumSteps();
         if (numSteps != 0) {
-            if (this.a.size() > 0) {
-                ((b) this.a.get(0)).a = mKRoute.getStep(0).getContent();
+            if (this.f538a.size() > 0) {
+                ((b) this.f538a.get(0)).f540a = mKRoute.getStep(0).getContent();
             }
             for (int i2 = 1; i2 < numSteps - 1; i2++) {
                 MKStep step = mKRoute.getStep(i2);
                 b bVar2 = new b();
                 bVar2.b = step.getPoint();
-                bVar2.a = step.getContent();
+                bVar2.f540a = step.getContent();
                 bVar2.c = i;
                 bVar2.d = step.a();
-                this.a.add(bVar2);
+                this.f538a.add(bVar2);
             }
         }
         GeoPoint end = this.mRoute.getEnd();
@@ -250,7 +256,7 @@ public class RouteOverlay extends ItemizedOverlay {
             b bVar3 = new b();
             bVar3.b = end;
             bVar3.c = 1;
-            this.a.add(bVar3);
+            this.f538a.add(bVar3);
         }
         this.f = new HashMap();
         super.populate();
@@ -258,9 +264,9 @@ public class RouteOverlay extends ItemizedOverlay {
 
     @Override // com.baidu.mapapi.ItemizedOverlay
     public int size() {
-        if (this.a == null) {
+        if (this.f538a == null) {
             return 0;
         }
-        return this.a.size();
+        return this.f538a.size();
     }
 }

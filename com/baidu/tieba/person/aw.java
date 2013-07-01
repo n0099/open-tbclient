@@ -1,74 +1,66 @@
 package com.baidu.tieba.person;
 
-import android.content.DialogInterface;
-import android.content.Intent;
-import com.slidingmenu.lib.R;
+import android.graphics.Bitmap;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class aw extends com.baidu.adp.lib.a.a {
-    final /* synthetic */ PersonChangeActivity a;
-    private com.baidu.tieba.d.t b = null;
-    private com.baidu.tieba.c.bh c;
+public class aw extends BdAsyncTask {
 
-    public aw(PersonChangeActivity personChangeActivity, com.baidu.tieba.c.bh bhVar) {
-        this.a = personChangeActivity;
-        this.c = null;
-        this.c = bhVar;
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ PersonChangeActivity f1330a;
+
+    private aw(PersonChangeActivity personChangeActivity) {
+        this.f1330a = personChangeActivity;
     }
 
-    @Override // com.baidu.adp.lib.a.a
-    public void cancel() {
-        this.a.C = null;
-        if (this.b != null) {
-            this.b.g();
-        }
-        super.cancel(true);
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.a.a
-    public void a(String str) {
-        this.a.C = null;
-        this.a.h();
-        if (this.b != null) {
-            if (this.b.b()) {
-                this.a.a(this.a.getString(R.string.success));
-                Intent intent = new Intent();
-                intent.putExtra("data", this.c.d());
-                this.a.setResult(-1, intent);
-                this.a.finish();
-            } else {
-                this.a.a(this.b.f());
-            }
-        }
-        super.a((Object) str);
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public /* synthetic */ aw(PersonChangeActivity personChangeActivity, aw awVar) {
+        this(personChangeActivity);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.a.a
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void b() {
-        DialogInterface.OnCancelListener onCancelListener;
-        PersonChangeActivity personChangeActivity = this.a;
-        String string = this.a.getString(R.string.saving);
-        onCancelListener = this.a.E;
-        personChangeActivity.a(string, onCancelListener);
+        PersonChangeActivity.f(this.f1330a).setVisibility(0);
+        PersonChangeActivity.g(this.f1330a).setEnabled(false);
+        PersonChangeActivity.h(this.f1330a).setImageBitmap(null);
+        PersonChangeActivity.a(this.f1330a, (com.baidu.adp.widget.a.b) null);
         super.b();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.a.a
-    public String a(String... strArr) {
-        if (this.c != null) {
-            this.b = new com.baidu.tieba.d.t(String.valueOf(com.baidu.tieba.a.i.e) + "c/c/profile/modify");
-            this.b.a("sex", String.valueOf(this.c.d().b()));
-            this.b.a("intro", this.c.d().a());
-            this.b.j();
-            if (this.b.b()) {
-                com.baidu.tieba.d.k.f();
-            }
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    /* renamed from: d */
+    public Bitmap a(Object... objArr) {
+        return com.baidu.tieba.util.m.c(null, "tieba_head_image");
+    }
+
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public void cancel() {
+        PersonChangeActivity.a(this.f1330a, (aw) null);
+        PersonChangeActivity.f(this.f1330a).setVisibility(8);
+        PersonChangeActivity.g(this.f1330a).setEnabled(true);
+        super.cancel(true);
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public void c() {
+        super.c();
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public void a(Bitmap bitmap) {
+        super.a((Object) bitmap);
+        PersonChangeActivity.a(this.f1330a, (aw) null);
+        PersonChangeActivity.g(this.f1330a).setEnabled(true);
+        PersonChangeActivity.f(this.f1330a).setVisibility(8);
+        if (bitmap != null) {
+            PersonChangeActivity.a(this.f1330a, new com.baidu.adp.widget.a.b(bitmap, false, null));
+            PersonChangeActivity.i(this.f1330a).b(PersonChangeActivity.h(this.f1330a));
         }
-        return null;
     }
 }

@@ -7,7 +7,9 @@ import com.baidu.tbadk.widget.richText.TbRichTextView;
 import com.baidu.tieba.view.HeadImageView;
 /* loaded from: classes.dex */
 class bh {
-    public HeadImageView a;
+
+    /* renamed from: a  reason: collision with root package name */
+    public HeadImageView f1226a;
     public TextView b;
     public TextView c;
     public TextView d;

@@ -10,15 +10,17 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 /* loaded from: classes.dex */
 public class a {
-    private static a a = null;
+
+    /* renamed from: a  reason: collision with root package name */
+    private static a f594a = null;
     private Context b = null;
     private b c = null;
 
     public static a a() {
-        if (a == null) {
-            a = new a();
+        if (f594a == null) {
+            f594a = new a();
         }
-        return a;
+        return f594a;
     }
 
     private a() {
@@ -39,7 +41,7 @@ public class a {
     private com.baidu.adp.widget.a.b a(int i, String str) {
         Bitmap a2;
         com.baidu.adp.widget.a.b c = e.a().c(str);
-        if (c == null && (a2 = com.baidu.adp.lib.e.a.a().a(this.b, i)) != null) {
+        if (c == null && (a2 = com.baidu.adp.lib.c.a.a().a(this.b, i)) != null) {
             com.baidu.adp.widget.a.b bVar = new com.baidu.adp.widget.a.b(a2, false, str);
             e.a().b(str, bVar);
             return bVar;

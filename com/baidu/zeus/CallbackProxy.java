@@ -17,7 +17,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.TextView;
-import com.baidu.android.common.util.HanziToPinyin;
 import com.baidu.android.pushservice.PushConstants;
 import com.baidu.zeus.ConsoleMessage;
 import com.baidu.zeus.GeolocationPermissions;
@@ -764,7 +763,7 @@ public class CallbackProxy extends Handler {
         }
         try {
             new URL(str);
-            return HanziToPinyin.Token.SEPARATOR;
+            return " ";
         } catch (MalformedURLException e) {
             return str;
         }
@@ -1284,9 +1283,8 @@ public class CallbackProxy extends Handler {
         return this.mWebChromeClient.getStringById(i);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
-    public class UploadFile implements ValueCallback {
+    class UploadFile implements ValueCallback {
         private Uri mValue;
 
         private UploadFile() {

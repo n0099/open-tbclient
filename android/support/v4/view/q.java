@@ -1,9 +1,8 @@
 package android.support.v4.view;
-
-import android.view.VelocityTracker;
 /* loaded from: classes.dex */
-class q {
-    public static float a(VelocityTracker velocityTracker, int i) {
-        return velocityTracker.getXVelocity(i);
+class q implements o {
+    @Override // android.support.v4.view.o
+    public int a(int i, int i2) {
+        return r.a(i, i2);
     }
 }

@@ -9,11 +9,13 @@ import com.slidingmenu.lib.R;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class o implements View.OnTouchListener {
-    final /* synthetic */ NearbyPbActivity a;
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ NearbyPbActivity f1172a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public o(NearbyPbActivity nearbyPbActivity) {
-        this.a = nearbyPbActivity;
+        this.f1172a = nearbyPbActivity;
     }
 
     @Override // android.view.View.OnTouchListener
@@ -23,16 +25,16 @@ public class o implements View.OnTouchListener {
         GridView gridView2;
         EditText editText2;
         Button button;
-        gridView = this.a.i;
+        gridView = this.f1172a.g;
         if (gridView.getVisibility() == 0) {
-            editText = this.a.h;
+            editText = this.f1172a.f;
             editText.requestFocus();
-            gridView2 = this.a.i;
+            gridView2 = this.f1172a.g;
             gridView2.setVisibility(8);
-            NearbyPbActivity nearbyPbActivity = this.a;
-            editText2 = this.a.h;
-            com.baidu.tieba.d.ag.b(nearbyPbActivity, editText2);
-            button = this.a.g;
+            NearbyPbActivity nearbyPbActivity = this.f1172a;
+            editText2 = this.f1172a.f;
+            com.baidu.tieba.util.ab.b(nearbyPbActivity, editText2);
+            button = this.f1172a.e;
             button.setBackgroundResource(R.drawable.sub_pb_face);
             return true;
         }

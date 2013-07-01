@@ -27,8 +27,10 @@ public class v {
     private TextView i = null;
     private BdListView j = null;
     private t k = null;
-    private com.baidu.tieba.view.r l = null;
-    AlertDialog a = null;
+    private com.baidu.tieba.view.p l = null;
+
+    /* renamed from: a  reason: collision with root package name */
+    AlertDialog f739a = null;
 
     public v(Activity activity, View.OnClickListener onClickListener) {
         this.b = null;
@@ -47,7 +49,7 @@ public class v {
         this.i = (TextView) this.c.findViewById(R.id.no_chat_text);
         this.j = (BdListView) this.c.findViewById(R.id.chat_list_content);
         this.j.setDivider(null);
-        this.l = new com.baidu.tieba.view.r(this.c);
+        this.l = new com.baidu.tieba.view.p(this.c);
         this.j.setPullRefresh(this.l);
         this.k = new t(this.c);
         this.j.setAdapter((ListAdapter) this.k);
@@ -57,9 +59,9 @@ public class v {
     }
 
     public void a(int i) {
-        com.baidu.tieba.d.ac.d(this.e, i);
-        com.baidu.tieba.d.ac.a(this.f, i);
-        com.baidu.tieba.d.ac.f(this.g, i);
+        com.baidu.tieba.util.x.d(this.e, i);
+        com.baidu.tieba.util.x.a(this.f, i);
+        com.baidu.tieba.util.x.f(this.g, i);
         if (this.l != null) {
             this.l.a(i);
         }
@@ -93,8 +95,8 @@ public class v {
         AlertDialog.Builder builder = new AlertDialog.Builder(this.c);
         builder.setTitle(R.string.operation);
         builder.setItems(new String[]{string}, this.m);
-        this.a = builder.create();
-        this.a.setCanceledOnTouchOutside(true);
+        this.f739a = builder.create();
+        this.f739a.setCanceledOnTouchOutside(true);
     }
 
     public void a(AdapterView.OnItemClickListener onItemClickListener) {
@@ -121,7 +123,7 @@ public class v {
         return this.k;
     }
 
-    public com.baidu.tieba.d.a e() {
+    public com.baidu.tieba.util.a e() {
         return this.k.a();
     }
 
@@ -142,8 +144,8 @@ public class v {
     }
 
     public void h() {
-        if (this.a != null) {
-            this.a.show();
+        if (this.f739a != null) {
+            this.f739a.show();
         }
     }
 

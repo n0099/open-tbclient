@@ -1,25 +1,13 @@
 package android.support.v4.view;
 
-import android.view.MotionEvent;
+import android.view.View;
 /* loaded from: classes.dex */
-class h implements i {
-    @Override // android.support.v4.view.i
-    public int a(MotionEvent motionEvent, int i) {
-        return j.a(motionEvent, i);
+class h {
+    public static Object a() {
+        return new View.AccessibilityDelegate();
     }
 
-    @Override // android.support.v4.view.i
-    public int b(MotionEvent motionEvent, int i) {
-        return j.b(motionEvent, i);
-    }
-
-    @Override // android.support.v4.view.i
-    public float c(MotionEvent motionEvent, int i) {
-        return j.c(motionEvent, i);
-    }
-
-    @Override // android.support.v4.view.i
-    public float d(MotionEvent motionEvent, int i) {
-        return j.d(motionEvent, i);
+    public static Object a(j jVar) {
+        return new i(jVar);
     }
 }

@@ -3,5 +3,5 @@ package com.baidu.tieba.chat;
 public interface ac {
     void a();
 
-    void a(boolean z, String str, com.baidu.tieba.a.a.c cVar);
+    void a(boolean z, String str, com.baidu.tieba.data.a.c cVar);
 }

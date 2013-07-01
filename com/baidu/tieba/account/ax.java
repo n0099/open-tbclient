@@ -3,14 +3,18 @@ package com.baidu.tieba.account;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.tieba.data.RegistData;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ax extends com.baidu.adp.lib.a.a {
-    final /* synthetic */ Register2Activity a;
-    private com.baidu.tieba.d.t b;
+public class ax extends BdAsyncTask {
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ Register2Activity f661a;
+    private com.baidu.tieba.util.r b;
 
     private ax(Register2Activity register2Activity) {
-        this.a = register2Activity;
+        this.f661a = register2Activity;
         this.b = null;
     }
 
@@ -19,112 +23,112 @@ public class ax extends com.baidu.adp.lib.a.a {
         this(register2Activity);
     }
 
-    @Override // com.baidu.adp.lib.a.a
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void cancel() {
         ProgressBar progressBar;
         if (this.b != null) {
-            this.b.g();
+            this.b.h();
         }
-        this.a.R = null;
-        progressBar = this.a.H;
+        this.f661a.R = null;
+        progressBar = this.f661a.H;
         progressBar.setVisibility(8);
-        this.a.u();
+        this.f661a.u();
         super.cancel(true);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.a.a
-    public com.baidu.tieba.c.ai a(String... strArr) {
-        com.baidu.tieba.a.au v;
-        com.baidu.tieba.c.ai aiVar = new com.baidu.tieba.c.ai();
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public com.baidu.tieba.model.al a(String... strArr) {
+        RegistData v;
+        com.baidu.tieba.model.al alVar = new com.baidu.tieba.model.al();
         try {
-            v = this.a.v();
-            this.b = new com.baidu.tieba.d.t(String.valueOf(com.baidu.tieba.a.i.e) + "c/s/regreal");
-            this.b.a("un", v.a());
-            this.b.a("phonenum", v.c());
-            this.b.a("passwd", v.b());
-            if (v.d() != null) {
-                this.b.a("vcode", v.d());
+            v = this.f661a.v();
+            this.b = new com.baidu.tieba.util.r(String.valueOf(com.baidu.tieba.data.g.f787a) + "c/s/regreal");
+            this.b.a("un", v.getName());
+            this.b.a("phonenum", v.getPhone());
+            this.b.a("passwd", v.getPsw());
+            if (v.getVcode() != null) {
+                this.b.a("vcode", v.getVcode());
             }
-            if (v.e() != null) {
-                this.b.a("vcode_md5", v.e());
+            if (v.getVcodeMd5() != null) {
+                this.b.a("vcode_md5", v.getVcodeMd5());
             }
-            String i = this.b.i();
-            if ((this.b.c() && (this.b.d() == 0 || this.b.d() == 36)) || this.b.d() == 5) {
-                com.baidu.tieba.c.ai aiVar2 = new com.baidu.tieba.c.ai();
-                aiVar2.a(i);
-                return aiVar2;
+            String j = this.b.j();
+            if ((this.b.d() && (this.b.e() == 0 || this.b.e() == 36)) || this.b.e() == 5) {
+                com.baidu.tieba.model.al alVar2 = new com.baidu.tieba.model.al();
+                alVar2.a(j);
+                return alVar2;
             }
-            return aiVar;
+            return alVar;
         } catch (Exception e) {
-            com.baidu.tieba.d.ae.b(getClass().getName(), "doInBackground", e.getMessage());
+            com.baidu.tieba.util.z.b(getClass().getName(), "doInBackground", e.getMessage());
             return null;
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.a.a
-    public void a(com.baidu.tieba.c.ai aiVar) {
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public void a(com.baidu.tieba.model.al alVar) {
         ProgressBar progressBar;
-        com.baidu.tieba.a.au v;
+        RegistData v;
         int i;
         int i2;
         int i3;
-        super.a((Object) aiVar);
-        this.a.R = null;
-        progressBar = this.a.H;
+        super.a((Object) alVar);
+        this.f661a.R = null;
+        progressBar = this.f661a.H;
         progressBar.setVisibility(8);
-        this.a.u();
-        this.a.S = aiVar;
-        if (!this.b.c()) {
-            this.a.O = -1;
-            this.a.P = this.b.f();
-            this.a.t();
-        } else if (this.b.d() == 36) {
-            this.a.a(aiVar.c());
-            Register2Activity register2Activity = this.a;
-            i3 = Register2Activity.h;
+        this.f661a.u();
+        this.f661a.S = alVar;
+        if (!this.b.d()) {
+            this.f661a.O = -1;
+            this.f661a.P = this.b.g();
+            this.f661a.t();
+        } else if (this.b.e() == 36) {
+            this.f661a.a(alVar.c());
+            Register2Activity register2Activity = this.f661a;
+            i3 = Register2Activity.f;
             register2Activity.O = i3;
-            this.a.P = this.b.f();
-            this.a.t();
-        } else if (this.b.d() == 5) {
-            Register2Activity register2Activity2 = this.a;
+            this.f661a.P = this.b.g();
+            this.f661a.t();
+        } else if (this.b.e() == 5) {
+            Register2Activity register2Activity2 = this.f661a;
             i2 = Register2Activity.k;
             register2Activity2.O = i2;
-            this.a.a(true);
-        } else if (this.b.d() == 0) {
-            v = this.a.v();
-            Register2Activity register2Activity3 = this.a;
-            i = Register2Activity.g;
+            this.f661a.a(true);
+        } else if (this.b.e() == 0) {
+            v = this.f661a.v();
+            Register2Activity register2Activity3 = this.f661a;
+            i = Register2Activity.e;
             ActivationActivity.a(register2Activity3, v, i);
-            this.a.a(false);
+            this.f661a.a(false);
         } else {
-            this.a.O = this.b.d();
-            this.a.P = this.b.f();
-            this.a.t();
+            this.f661a.O = this.b.e();
+            this.f661a.P = this.b.g();
+            this.f661a.t();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.a.a
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void b() {
         ProgressBar progressBar;
         LinearLayout linearLayout;
         TextView textView;
         TextView textView2;
-        progressBar = this.a.H;
+        progressBar = this.f661a.H;
         progressBar.setVisibility(0);
-        this.a.r();
-        this.a.O = -1;
-        this.a.P = null;
-        this.a.t();
-        linearLayout = this.a.D;
+        this.f661a.r();
+        this.f661a.O = -1;
+        this.f661a.P = null;
+        this.f661a.t();
+        linearLayout = this.f661a.D;
         linearLayout.setVisibility(8);
-        textView = this.a.w;
+        textView = this.f661a.w;
         textView.setVisibility(4);
-        textView2 = this.a.w;
+        textView2 = this.f661a.w;
         textView2.setText((CharSequence) null);
         super.b();
     }

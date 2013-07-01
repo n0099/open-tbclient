@@ -4,11 +4,13 @@ import android.content.Context;
 import android.view.inputmethod.InputMethodManager;
 /* loaded from: classes.dex */
 public class d {
-    protected Context a;
+
+    /* renamed from: a  reason: collision with root package name */
+    protected Context f118a;
     private InputMethodManager b = null;
 
     public d(Context context) {
-        this.a = null;
-        this.a = context;
+        this.f118a = null;
+        this.f118a = context;
     }
 }

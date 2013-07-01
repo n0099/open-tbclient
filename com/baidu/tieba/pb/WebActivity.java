@@ -18,23 +18,29 @@ import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.compatible.CompatibleUtile;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-public class WebActivity extends com.baidu.tieba.e {
-    protected WebView c = null;
-    private ImageView i = null;
+public class WebActivity extends com.baidu.tieba.g {
+
+    /* renamed from: a  reason: collision with root package name */
+    protected WebView f1190a = null;
+    private ImageView g = null;
     private ImageView j = null;
     private ImageView k = null;
-    protected ImageView d = null;
+    protected ImageView b = null;
     private ProgressBar l = null;
-    protected String e = null;
+    protected String c = null;
     private WebChromeClient m = null;
     private LinearLayout n = null;
-    protected String f = null;
-    protected String g = null;
-    protected df h = null;
+    protected String d = null;
+    protected String e = null;
+    protected df f = null;
     private Handler o = new Handler();
     private Runnable p = new cz(this);
 
     public static void a(Context context, String str, String str2, String str3) {
+        if (com.baidu.tieba.util.ab.f(context)) {
+            com.baidu.tieba.util.ab.a(context, context.getString(R.string.web_view_corrupted));
+            return;
+        }
         Intent intent = new Intent(context, WebActivity.class);
         intent.putExtra("url", str);
         intent.putExtra("bduss", str2);
@@ -46,21 +52,21 @@ public class WebActivity extends com.baidu.tieba.e {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.e, com.baidu.adp.a.a, android.app.Activity
+    @Override // com.baidu.tieba.g, com.baidu.adp.a.a, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        TiebaApplication.e().a((com.baidu.tieba.e) this);
-        com.baidu.tieba.d.ag.b((Activity) this);
-        d();
+        TiebaApplication.f().a((com.baidu.tieba.g) this);
+        com.baidu.tieba.util.ab.b((Activity) this);
+        c();
         if (bundle == null) {
-            this.f = getIntent().getStringExtra("bduss");
+            this.d = getIntent().getStringExtra("bduss");
         } else {
-            this.f = bundle.getString("bduss");
+            this.d = bundle.getString("bduss");
         }
         if (bundle == null) {
-            this.g = getIntent().getStringExtra("ptoken");
+            this.e = getIntent().getStringExtra("ptoken");
         } else {
-            this.g = bundle.getString("ptoken");
+            this.e = bundle.getString("ptoken");
         }
         b();
         a(bundle);
@@ -70,48 +76,43 @@ public class WebActivity extends com.baidu.tieba.e {
         CookieSyncManager.createInstance(this);
         CookieManager cookieManager = CookieManager.getInstance();
         cookieManager.setAcceptCookie(true);
-        cookieManager.setCookie("baidu.com", "BDUSS=" + this.f + "; domain=.baidu.com;");
-        cookieManager.setCookie("baidu.com", "PTOKEN=" + this.g + "; domain=.baidu.com;");
+        cookieManager.setCookie("baidu.com", "BDUSS=" + this.d + "; domain=.baidu.com;");
+        cookieManager.setCookie("baidu.com", "PTOKEN=" + this.e + "; domain=.baidu.com;");
         CookieSyncManager.getInstance().sync();
     }
 
-    @Override // com.baidu.tieba.e, com.baidu.adp.a.a
+    @Override // com.baidu.tieba.g, com.baidu.adp.a.a
     public void a_() {
         super.a_();
         finish();
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public void c() {
-        this.n.setVisibility(8);
-    }
-
-    private void d() {
+    private void c() {
         setContentView(R.layout.web_activity);
         this.n = (LinearLayout) findViewById(R.id.softkey);
         this.l = (ProgressBar) findViewById(R.id.progress);
-        this.c = (WebView) findViewById(R.id.webview);
-        this.c.setWebViewClient(new da(this));
+        this.f1190a = (WebView) findViewById(R.id.webview);
+        this.f1190a.setWebViewClient(new da(this));
         this.m = CompatibleUtile.getInstance().getWebChromeClient(this);
-        this.c.setWebChromeClient(this.m);
-        WebSettings settings = this.c.getSettings();
+        this.f1190a.setWebChromeClient(this.m);
+        WebSettings settings = this.f1190a.getSettings();
         settings.setBuiltInZoomControls(true);
         settings.setJavaScriptEnabled(true);
         settings.setPluginsEnabled(true);
-        com.baidu.tieba.d.ag.a(settings);
-        this.i = (ImageView) findViewById(R.id.webBack);
-        this.i.setEnabled(false);
-        this.i.setOnClickListener(new db(this));
+        com.baidu.tieba.util.ab.a(settings);
+        this.g = (ImageView) findViewById(R.id.webBack);
+        this.g.setEnabled(false);
+        this.g.setOnClickListener(new db(this));
         this.j = (ImageView) findViewById(R.id.webForward);
         this.j.setEnabled(false);
         this.j.setOnClickListener(new dc(this));
         this.k = (ImageView) findViewById(R.id.refresh);
         this.k.setOnClickListener(new dd(this));
-        this.d = (ImageView) findViewById(R.id.back);
-        this.d.setOnClickListener(new de(this));
+        this.b = (ImageView) findViewById(R.id.back);
+        this.b.setOnClickListener(new de(this));
     }
 
-    @Override // com.baidu.tieba.e, android.app.Activity, android.view.KeyEvent.Callback
+    @Override // com.baidu.tieba.g, android.app.Activity, android.view.KeyEvent.Callback
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
         if (i == 4) {
             f();
@@ -121,27 +122,27 @@ public class WebActivity extends com.baidu.tieba.e {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.e, android.app.Activity
+    @Override // com.baidu.tieba.g, android.app.Activity
     public void onPause() {
         super.onPause();
-        this.c.pauseTimers();
+        this.f1190a.pauseTimers();
         c("onPause");
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.e, android.app.Activity
+    @Override // com.baidu.tieba.g, android.app.Activity
     public void onResume() {
         super.onResume();
-        this.c.resumeTimers();
+        this.f1190a.resumeTimers();
         c("onResume");
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.e, android.app.Activity
+    @Override // com.baidu.tieba.g, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
         this.o.removeCallbacks(this.p);
-        TiebaApplication.e().b((com.baidu.tieba.e) this);
+        TiebaApplication.f().b((com.baidu.tieba.g) this);
         if (this.l != null) {
             this.l.setVisibility(8);
         }
@@ -152,11 +153,11 @@ public class WebActivity extends com.baidu.tieba.e {
 
     private void a(Bundle bundle) {
         if (bundle != null) {
-            this.e = bundle.getString("url");
+            this.c = bundle.getString("url");
         } else {
-            this.e = getIntent().getStringExtra("url");
+            this.c = getIntent().getStringExtra("url");
         }
-        if (this.e == null) {
+        if (this.c == null) {
             finish();
         } else {
             this.o.postDelayed(this.p, 150L);
@@ -166,29 +167,25 @@ public class WebActivity extends com.baidu.tieba.e {
     @Override // android.app.Activity
     protected void onSaveInstanceState(Bundle bundle) {
         super.onSaveInstanceState(bundle);
-        bundle.putString("url", this.e);
-        bundle.putString("bduss", this.f);
-        bundle.putString("ptoken", this.g);
+        bundle.putString("url", this.c);
+        bundle.putString("bduss", this.d);
+        bundle.putString("ptoken", this.e);
     }
 
     @Override // android.app.Activity
     protected void onRestoreInstanceState(Bundle bundle) {
         super.onRestoreInstanceState(bundle);
-        this.f = bundle.getString("bduss");
-        this.g = bundle.getString("ptoken");
+        this.d = bundle.getString("bduss");
+        this.e = bundle.getString("ptoken");
     }
 
     private void c(String str) {
-        if (this.c != null) {
+        if (this.f1190a != null) {
             try {
-                WebView.class.getMethod(str, new Class[0]).invoke(this.c, new Object[0]);
+                WebView.class.getMethod(str, new Class[0]).invoke(this.f1190a, new Object[0]);
             } catch (Exception e) {
-                com.baidu.tieba.d.ae.b(getClass().getName(), "callHiddenWebViewMethod", "error = " + e.getMessage());
+                com.baidu.tieba.util.z.b(getClass().getName(), "callHiddenWebViewMethod", "error = " + e.getMessage());
             }
         }
-    }
-
-    public void a(df dfVar) {
-        this.h = dfVar;
     }
 }

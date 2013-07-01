@@ -24,7 +24,6 @@ import android.view.KeyEvent;
 import android.view.MotionEvent;
 import android.view.SurfaceView;
 import android.view.View;
-import com.baidu.android.common.util.HanziToPinyin;
 import com.baidu.browser.explorer.BdWebErrorView;
 import com.baidu.zeus.GeolocationPermissions;
 import com.baidu.zeus.ViewManager;
@@ -1303,7 +1302,7 @@ public final class WebViewCore {
                         case EventHub.LONG_PRESS /* 402 */:
                             int i6 = message.arg1;
                             int i7 = message.arg2;
-                            Log.e(WebViewCore.LOGTAG, "LONG_PRESS " + i6 + HanziToPinyin.Token.SEPARATOR + i7);
+                            Log.e(WebViewCore.LOGTAG, "LONG_PRESS " + i6 + " " + i7);
                             if (WebViewCore.this.mWebView != null) {
                                 boolean nativeHitTextNode = WebViewCore.this.mWebView.nativeHitTextNode(i6, i7);
                                 Log.e(WebViewCore.LOGTAG, "LONG_PRESS hit text: " + nativeHitTextNode);

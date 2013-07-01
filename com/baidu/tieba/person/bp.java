@@ -1,28 +1,35 @@
 package com.baidu.tieba.person;
 
-import android.app.Activity;
 import android.view.View;
-import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.account.LoginActivity;
-import com.slidingmenu.lib.R;
+import com.baidu.tieba.data.UserData;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class bp implements View.OnClickListener {
-    final /* synthetic */ PersonListActivity a;
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ PersonListActivity f1349a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bp(PersonListActivity personListActivity) {
-        this.a = personListActivity;
+        this.f1349a = personListActivity;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        this.a.c = ((Integer) view.getTag()).intValue();
-        String C = TiebaApplication.C();
-        if (C == null || C.length() <= 0) {
-            LoginActivity.a((Activity) this.a, this.a.getString(R.string.login_to_chat), true, 1100028);
-        } else {
-            this.a.c();
+        bu buVar;
+        bu buVar2;
+        bu buVar3;
+        int intValue = ((Integer) view.getTag()).intValue();
+        buVar = this.f1349a.f;
+        if (buVar != null) {
+            buVar2 = this.f1349a.f;
+            if (buVar2.getItemViewType(intValue) == 0) {
+                buVar3 = this.f1349a.f;
+                UserData userData = (UserData) buVar3.getItem(intValue);
+                if (userData != null && userData.getId() != null) {
+                    PersonInfoActivity.a(this.f1349a, userData.getId(), userData.getName_show());
+                }
+            }
         }
     }
 }

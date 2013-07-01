@@ -6,7 +6,6 @@ import android.text.Spanned;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.widget.TextView;
-import com.baidu.android.common.util.HanziToPinyin;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class CustomTextView extends TextView {
@@ -44,13 +43,13 @@ public class CustomTextView extends TextView {
             a(new SpannableStringBuilder(text), i, i2);
             return;
         }
-        com.baidu.tieba.d.ae.e(getClass().getName(), "fixOnMeasure", "The text isn't a Spanned");
+        com.baidu.tieba.util.z.e(getClass().getName(), "fixOnMeasure", "The text isn't a Spanned");
         b(i, i2);
     }
 
     private void a(SpannableStringBuilder spannableStringBuilder, int i, int i2) {
         g b = b(spannableStringBuilder, i, i2);
-        if (b.a) {
+        if (b.f1520a) {
             a(i, i2, spannableStringBuilder, b);
         } else {
             b(i, i2);
@@ -64,22 +63,22 @@ public class CustomTextView extends TextView {
         for (Object obj : spans) {
             int spanStart = spannableStringBuilder.getSpanStart(obj);
             if (a(spannableStringBuilder, spanStart - 1)) {
-                spannableStringBuilder.insert(spanStart, HanziToPinyin.Token.SEPARATOR);
+                spannableStringBuilder.insert(spanStart, " ");
                 arrayList.add(obj);
             }
             int spanEnd = spannableStringBuilder.getSpanEnd(obj);
             if (a(spannableStringBuilder, spanEnd)) {
-                spannableStringBuilder.insert(spanEnd, HanziToPinyin.Token.SEPARATOR);
+                spannableStringBuilder.insert(spanEnd, " ");
                 arrayList2.add(obj);
             }
             try {
                 a((CharSequence) spannableStringBuilder, i, i2);
                 return g.a(arrayList, arrayList2);
             } catch (IndexOutOfBoundsException e) {
-                com.baidu.tieba.d.ae.b(getClass().getName(), "addSpacesAroundSpansUntilFixed", e.getMessage());
+                com.baidu.tieba.util.z.b(getClass().getName(), "addSpacesAroundSpansUntilFixed", e.getMessage());
             }
         }
-        com.baidu.tieba.d.ae.e(getClass().getName(), "addSpacesAroundSpansUntilFixed", "Could not fix the Spanned by adding spaces around spans");
+        com.baidu.tieba.util.z.e(getClass().getName(), "addSpacesAroundSpansUntilFixed", "Could not fix the Spanned by adding spaces around spans");
         return g.a();
     }
 
@@ -99,7 +98,7 @@ public class CustomTextView extends TextView {
             try {
                 a((CharSequence) spannableStringBuilder, i, i2);
             } catch (IndexOutOfBoundsException e) {
-                spannableStringBuilder.insert(spanEnd, HanziToPinyin.Token.SEPARATOR);
+                spannableStringBuilder.insert(spanEnd, " ");
             }
         }
         boolean z = true;
@@ -110,7 +109,7 @@ public class CustomTextView extends TextView {
                 a((CharSequence) spannableStringBuilder, i, i2);
                 z = false;
             } catch (IndexOutOfBoundsException e2) {
-                spannableStringBuilder.insert(spanStart - 1, HanziToPinyin.Token.SEPARATOR);
+                spannableStringBuilder.insert(spanStart - 1, " ");
                 z = true;
             }
         }
@@ -121,7 +120,7 @@ public class CustomTextView extends TextView {
     }
 
     private void b(int i, int i2) {
-        com.baidu.tieba.d.ae.e(getClass().getName(), "fallbackToString", "Fallback to unspanned text");
+        com.baidu.tieba.util.z.e(getClass().getName(), "fallbackToString", "Fallback to unspanned text");
         a(getText().toString(), i, i2);
     }
 }

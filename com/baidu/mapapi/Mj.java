@@ -37,7 +37,9 @@ public class Mj {
     private String G;
     private String H;
     private String I;
-    static f a = null;
+
+    /* renamed from: a  reason: collision with root package name */
+    static f f528a = null;
     static final MKLocationManager b = new MKLocationManager();
     static int c = 2;
     static MapView d = null;
@@ -88,7 +90,9 @@ public class Mj {
 
     /* loaded from: classes.dex */
     class a {
-        int a = 0;
+
+        /* renamed from: a  reason: collision with root package name */
+        int f530a = 0;
         int b;
         int c;
         int d;
@@ -100,7 +104,9 @@ public class Mj {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
     public class b implements Runnable {
-        public int a;
+
+        /* renamed from: a  reason: collision with root package name */
+        public int f531a;
         public int b;
 
         private b() {
@@ -108,7 +114,7 @@ public class Mj {
 
         @Override // java.lang.Runnable
         public void run() {
-            Mj.MsgMapProc(1, 8, this.a, 0);
+            Mj.MsgMapProc(1, 8, this.f531a, 0);
             Mj.this.aa.postDelayed(this, this.b);
         }
     }
@@ -171,7 +177,7 @@ public class Mj {
                 return;
             }
             b bVar = (b) this.ab.get(i4);
-            if (bVar.a == i2) {
+            if (bVar.f531a == i2) {
                 if (BMapManager.c) {
                     this.aa.removeCallbacks(bVar);
                 }
@@ -185,12 +191,12 @@ public class Mj {
     private void a(int i2, int i3) {
         Iterator it = this.ab.iterator();
         while (it.hasNext()) {
-            if (((b) it.next()).a == i2) {
+            if (((b) it.next()).f531a == i2) {
                 return;
             }
         }
         b bVar = new b();
-        bVar.a = i2;
+        bVar.f531a = i2;
         bVar.b = i3;
         if (BMapManager.c) {
             this.aa.postDelayed(bVar, 500L);
@@ -368,7 +374,7 @@ public class Mj {
 
     public void JNI_MapcallBackProc(int i2, int i3, int i4, int i5) {
         a aVar = new a();
-        aVar.a = i2;
+        aVar.f530a = i2;
         aVar.b = i3;
         aVar.c = i4;
         aVar.d = i5;
@@ -397,14 +403,14 @@ public class Mj {
                 a(i3);
                 return;
             case 5000:
-                if (a != null) {
-                    a.a(i2, i3, i4);
+                if (f528a != null) {
+                    f528a.a(i2, i3, i4);
                     return;
                 }
                 return;
             case PushConstants.ERROR_NETWORK_ERROR /* 10001 */:
             case PushConstants.ERROR_SERVICE_NOT_AVAILABLE /* 10002 */:
-            case 10003:
+            case PushConstants.ERROR_SERVICE_NOT_AVAILABLE_TEMP /* 10003 */:
             case 10004:
             case 10006:
             case 10010:
@@ -567,8 +573,8 @@ public class Mj {
             this.B = new g(mKGeneralListener);
         }
         this.G = str;
-        if (a == null) {
-            a = new f(e);
+        if (f528a == null) {
+            f528a = new f(e);
         }
         if (e != null) {
             if (this.z == null) {
@@ -585,7 +591,7 @@ public class Mj {
             @Override // android.os.Handler
             public void handleMessage(Message message) {
                 a aVar = (a) message.obj;
-                Mj.MsgMapProc(aVar.a, aVar.b, aVar.c, aVar.d);
+                Mj.MsgMapProc(aVar.f530a, aVar.b, aVar.c, aVar.d);
                 super.handleMessage(message);
             }
         };
@@ -633,7 +639,7 @@ public class Mj {
         String str2;
         String str3;
         String str4;
-        if (a == null) {
+        if (f528a == null) {
             return false;
         }
         if (this.z == null) {
@@ -725,22 +731,22 @@ public class Mj {
         }
         String str5 = "";
         if (this.R > 0 && this.Q >= 0 && this.O >= 0) {
-            str5 = a.a(this.O, this.P, this.Q, this.R, this.L, "");
+            str5 = f528a.a(this.O, this.P, this.Q, this.R, this.L, "");
             if (str5.length() > 0) {
                 str = str5;
                 if (this.U != null || this.U.size() <= 0) {
                     str2 = "";
                     str3 = "";
                 } else {
-                    a.a(this.U);
-                    String a2 = a.a(this.U, str5);
+                    f528a.a(this.U);
+                    String a2 = f528a.a(this.U, str5);
                     if (a2.length() > 0) {
                         SetUpdateWifi(a2);
                         str4 = a2;
                     } else {
                         str4 = "";
                     }
-                    str2 = a.b(this.U, a2);
+                    str2 = f528a.b(this.U, a2);
                     if (str2.length() > 0) {
                         str3 = str4;
                     } else {
@@ -748,7 +754,7 @@ public class Mj {
                         str3 = str4;
                     }
                 }
-                if (this.T == this.R || this.S != this.Q || !a.a(this.U, this.V)) {
+                if (this.T == this.R || this.S != this.Q || !f528a.a(this.U, this.V)) {
                     this.V = this.U;
                     this.T = this.R;
                     this.S = this.Q;

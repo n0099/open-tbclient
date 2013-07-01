@@ -10,15 +10,17 @@ import com.slidingmenu.lib.R;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 /* loaded from: classes.dex */
-public class ProtocolActivity extends com.baidu.tieba.e {
-    private ImageView c = null;
-    private TextView d = null;
-    private RelativeLayout e = null;
-    private View f = null;
-    private TextView g = null;
+public class ProtocolActivity extends com.baidu.tieba.g {
+
+    /* renamed from: a  reason: collision with root package name */
+    private ImageView f633a = null;
+    private TextView b = null;
+    private RelativeLayout c = null;
+    private View d = null;
+    private TextView e = null;
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.e, com.baidu.adp.a.a, android.app.Activity
+    @Override // com.baidu.tieba.g, com.baidu.adp.a.a, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         setContentView(R.layout.account_protocol_activity);
@@ -31,12 +33,12 @@ public class ProtocolActivity extends com.baidu.tieba.e {
     */
     private void b() {
         BufferedReader bufferedReader;
-        this.e = (RelativeLayout) findViewById(R.id.container);
-        this.f = findViewById(R.id.title);
-        this.g = (TextView) findViewById(R.id.title_text);
-        this.c = (ImageView) findViewById(R.id.back);
-        this.c.setOnClickListener(new ad(this));
-        this.d = (TextView) findViewById(R.id.text);
+        this.c = (RelativeLayout) findViewById(R.id.container);
+        this.d = findViewById(R.id.title);
+        this.e = (TextView) findViewById(R.id.title_text);
+        this.f633a = (ImageView) findViewById(R.id.back);
+        this.f633a.setOnClickListener(new ad(this));
+        this.b = (TextView) findViewById(R.id.text);
         StringBuilder sb = new StringBuilder((int) NotificationProxy.MAX_URL_LENGTH);
         BufferedReader bufferedReader2 = null;
         try {
@@ -60,7 +62,7 @@ public class ProtocolActivity extends com.baidu.tieba.e {
                                 e2.printStackTrace();
                             }
                         }
-                        this.d.setText(sb.toString());
+                        this.b.setText(sb.toString());
                     }
                 } catch (Throwable th) {
                     th = th;
@@ -91,17 +93,17 @@ public class ProtocolActivity extends com.baidu.tieba.e {
             }
             throw th;
         }
-        this.d.setText(sb.toString());
+        this.b.setText(sb.toString());
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.e
-    public void b(int i) {
-        super.b(i);
-        com.baidu.tieba.d.ac.f(this.g, i);
-        com.baidu.tieba.d.ac.c(this.e, i);
-        com.baidu.tieba.d.ac.d(this.f, i);
-        com.baidu.tieba.d.ac.a(this.c, i);
-        com.baidu.tieba.d.ac.b(this.d, i);
+    @Override // com.baidu.tieba.g
+    public void a(int i) {
+        super.a(i);
+        com.baidu.tieba.util.x.f(this.e, i);
+        com.baidu.tieba.util.x.c(this.c, i);
+        com.baidu.tieba.util.x.d(this.d, i);
+        com.baidu.tieba.util.x.a(this.f633a, i);
+        com.baidu.tieba.util.x.b(this.b, i);
     }
 }

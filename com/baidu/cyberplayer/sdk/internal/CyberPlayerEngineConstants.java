@@ -7,15 +7,17 @@ public class CyberPlayerEngineConstants {
     public static final String CYBERPLAYER_LIB_NAME = "libcyberplayer.so";
     public static final String CYBERPLAYER_ZIP_PKG_LOCAL_RELATIVE_PATH = "/cyberplayer/";
     public static final String CYBERPLAYER_CLASS_PKG_NAME = "com.baidu.cyberplayer.engine";
-    private static String a = CYBERPLAYER_CLASS_PKG_NAME;
+
+    /* renamed from: a  reason: collision with root package name */
+    private static String f437a = CYBERPLAYER_CLASS_PKG_NAME;
     private static String b = null;
 
     public static String getEnginePkgName() {
-        return a;
+        return f437a;
     }
 
     public static void setEnginePkgName(String str) {
-        a = str;
+        f437a = str;
     }
 
     public static String getLibPath() {

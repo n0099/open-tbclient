@@ -1,20 +1,23 @@
 package com.baidu.tieba.person;
 
-import android.widget.ImageView;
+import android.app.AlertDialog;
+import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class aq implements com.baidu.tbadk.a.d {
-    final /* synthetic */ PersonChangeActivity a;
+public class aq implements View.OnClickListener {
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ PersonChangeActivity f1324a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public aq(PersonChangeActivity personChangeActivity) {
-        this.a = personChangeActivity;
+        this.f1324a = personChangeActivity;
     }
 
-    @Override // com.baidu.tbadk.a.d
-    public void a(com.baidu.adp.widget.a.b bVar, String str, boolean z) {
-        ImageView imageView;
-        imageView = this.a.d;
-        bVar.b(imageView);
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        AlertDialog alertDialog;
+        alertDialog = this.f1324a.f1303a;
+        alertDialog.show();
     }
 }

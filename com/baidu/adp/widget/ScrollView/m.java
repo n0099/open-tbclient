@@ -1,42 +1,46 @@
 package com.baidu.adp.widget.ScrollView;
+
+import com.baidu.adp.widget.ScrollView.BdPullRefreshScrollView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class m implements j {
-    final /* synthetic */ BdPullRefreshScrollView a;
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ BdPullRefreshScrollView f226a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public m(BdPullRefreshScrollView bdPullRefreshScrollView) {
-        this.a = bdPullRefreshScrollView;
+        this.f226a = bdPullRefreshScrollView;
     }
 
     @Override // com.baidu.adp.widget.ScrollView.j
     public void a() {
-        s sVar;
-        s sVar2;
+        BdPullRefreshScrollView.State state;
+        BdPullRefreshScrollView.State state2;
         c cVar;
         c cVar2;
-        p pVar;
-        p pVar2;
-        sVar = this.a.c;
-        if (sVar != s.RELEASE_TO_REFRESH) {
-            sVar2 = this.a.c;
-            if (sVar2 == s.PULL_TO_REFRESH) {
-                BdPullRefreshScrollView bdPullRefreshScrollView = this.a;
-                s sVar3 = s.RESET;
-                cVar = this.a.o;
-                bdPullRefreshScrollView.a(sVar3, cVar);
+        o oVar;
+        o oVar2;
+        state = this.f226a.c;
+        if (state != BdPullRefreshScrollView.State.RELEASE_TO_REFRESH) {
+            state2 = this.f226a.c;
+            if (state2 == BdPullRefreshScrollView.State.PULL_TO_REFRESH) {
+                BdPullRefreshScrollView bdPullRefreshScrollView = this.f226a;
+                BdPullRefreshScrollView.State state3 = BdPullRefreshScrollView.State.RESET;
+                cVar = this.f226a.o;
+                bdPullRefreshScrollView.a(state3, cVar);
                 return;
             }
             return;
         }
-        BdPullRefreshScrollView bdPullRefreshScrollView2 = this.a;
-        s sVar4 = s.REFRESHING;
-        cVar2 = this.a.o;
-        bdPullRefreshScrollView2.a(sVar4, cVar2);
-        pVar = this.a.s;
-        if (pVar != null) {
-            pVar2 = this.a.s;
-            pVar2.a();
+        BdPullRefreshScrollView bdPullRefreshScrollView2 = this.f226a;
+        BdPullRefreshScrollView.State state4 = BdPullRefreshScrollView.State.REFRESHING;
+        cVar2 = this.f226a.o;
+        bdPullRefreshScrollView2.a(state4, cVar2);
+        oVar = this.f226a.s;
+        if (oVar != null) {
+            oVar2 = this.f226a.s;
+            oVar2.a();
         }
     }
 }

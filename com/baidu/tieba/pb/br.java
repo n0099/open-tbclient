@@ -5,17 +5,19 @@ import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class br implements View.OnClickListener {
-    final /* synthetic */ bk a;
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ bk f1236a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public br(bk bkVar) {
-        this.a = bkVar;
+        this.f1236a = bkVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         Dialog dialog;
-        dialog = this.a.W;
+        dialog = this.f1236a.W;
         dialog.dismiss();
     }
 }

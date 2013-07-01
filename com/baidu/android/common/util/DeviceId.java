@@ -23,8 +23,75 @@ public final class DeviceId {
     private static final boolean DEBUG = false;
     private static final String EXT_FILE = "baidu/.cuid";
     private static final String KEY_DEVICE_ID = "com.baidu.deviceid";
-    private static final String KEY_IMEI = "bd_setting_i";
     private static final String TAG = "DeviceId";
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    /* loaded from: classes.dex */
+    public final class IMEIInfo {
+        private static final String KEY_IMEI = "bd_setting_i";
+        public final boolean CAN_READ_AND_WRITE_SYSTEM_SETTINGS;
+        public final String IMEI;
+
+        private IMEIInfo(String str, boolean z) {
+            this.IMEI = str;
+            this.CAN_READ_AND_WRITE_SYSTEM_SETTINGS = z;
+        }
+
+        /* JADX WARN: Removed duplicated region for block: B:12:0x0020  */
+        /* JADX WARN: Removed duplicated region for block: B:8:0x0015 A[ORIG_RETURN, RETURN] */
+        /*
+            Code decompiled incorrectly, please refer to instructions dump.
+        */
+        private static String getIMEI(Context context, String str) {
+            String str2;
+            TelephonyManager telephonyManager;
+            try {
+                telephonyManager = (TelephonyManager) context.getSystemService("phone");
+            } catch (Exception e) {
+                Log.e(DeviceId.TAG, "Read IMEI failed", e);
+            }
+            if (telephonyManager != null) {
+                str2 = telephonyManager.getDeviceId();
+                return !TextUtils.isEmpty(str2) ? str : str2;
+            }
+            str2 = null;
+            if (!TextUtils.isEmpty(str2)) {
+            }
+        }
+
+        /* JADX WARN: Removed duplicated region for block: B:17:0x0045  */
+        /*
+            Code decompiled incorrectly, please refer to instructions dump.
+        */
+        static IMEIInfo getIMEIInfo(Context context) {
+            String str;
+            Exception e;
+            boolean z;
+            String str2 = "";
+            try {
+                str2 = Settings.System.getString(context.getContentResolver(), KEY_IMEI);
+                str = TextUtils.isEmpty(str2) ? getIMEI(context, "") : str2;
+            } catch (Exception e2) {
+                str = str2;
+                e = e2;
+            }
+            try {
+                Settings.System.putString(context.getContentResolver(), KEY_IMEI, str);
+                z = false;
+            } catch (Exception e3) {
+                e = e3;
+                Log.e(DeviceId.TAG, "Settings.System.getString or putString failed", e);
+                if (TextUtils.isEmpty(str)) {
+                    str = getIMEI(context, "");
+                    z = true;
+                } else {
+                    z = true;
+                }
+                return new IMEIInfo(str, z ? false : true);
+            }
+            return new IMEIInfo(str, z ? false : true);
+        }
+    }
 
     private DeviceId() {
     }
@@ -40,65 +107,42 @@ public final class DeviceId {
         return TextUtils.isEmpty(string) ? "" : string;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:14:0x005c  */
-    /* JADX WARN: Removed duplicated region for block: B:9:0x0034  */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
     public static String getDeviceID(Context context) {
-        Exception e;
-        String str;
         checkPermission(context, "android.permission.WRITE_SETTINGS");
         checkPermission(context, "android.permission.READ_PHONE_STATE");
         checkPermission(context, "android.permission.WRITE_EXTERNAL_STORAGE");
-        boolean z = false;
-        String str2 = "";
-        try {
-            str2 = Settings.System.getString(context.getContentResolver(), KEY_IMEI);
-            str = str2 == null ? getIMEI(context) : str2;
-        } catch (Exception e2) {
-            e = e2;
-            str = str2;
-        }
-        try {
-            Settings.System.putString(context.getContentResolver(), KEY_IMEI, str);
-        } catch (Exception e3) {
-            e = e3;
-            Log.e(TAG, "Settings.System.getString or putString failed", e);
-            z = true;
-            String androidId = getAndroidId(context);
-            if (z) {
-            }
-        }
-        String androidId2 = getAndroidId(context);
+        IMEIInfo iMEIInfo = IMEIInfo.getIMEIInfo(context);
+        String str = iMEIInfo.IMEI;
+        boolean z = !iMEIInfo.CAN_READ_AND_WRITE_SYSTEM_SETTINGS;
+        String androidId = getAndroidId(context);
         if (z) {
-            String str3 = null;
-            String string = Settings.System.getString(context.getContentResolver(), KEY_DEVICE_ID);
-            if (TextUtils.isEmpty(string)) {
-                str3 = Util.toMd5((AccountProxy.BAIDUACCOUNT_TYPE + str + androidId2).getBytes(), true);
-                string = Settings.System.getString(context.getContentResolver(), str3);
-                if (!TextUtils.isEmpty(string)) {
-                    Settings.System.putString(context.getContentResolver(), KEY_DEVICE_ID, string);
-                    setExternalDeviceId(str, string);
-                }
-            }
-            if (TextUtils.isEmpty(string)) {
-                string = getExternalDeviceId(str);
-                if (!TextUtils.isEmpty(string)) {
-                    Settings.System.putString(context.getContentResolver(), str3, string);
-                    Settings.System.putString(context.getContentResolver(), KEY_DEVICE_ID, string);
-                }
-            }
-            if (TextUtils.isEmpty(string)) {
-                String md5 = Util.toMd5((str + androidId2 + UUID.randomUUID().toString()).getBytes(), true);
-                Settings.System.putString(context.getContentResolver(), str3, md5);
-                Settings.System.putString(context.getContentResolver(), KEY_DEVICE_ID, md5);
-                setExternalDeviceId(str, md5);
-                return md5;
-            }
-            return string;
+            return Util.toMd5((AccountProxy.BAIDUACCOUNT_TYPE + androidId).getBytes(), true);
         }
-        return Util.toMd5((AccountProxy.BAIDUACCOUNT_TYPE + androidId2).getBytes(), true);
+        String str2 = null;
+        String string = Settings.System.getString(context.getContentResolver(), KEY_DEVICE_ID);
+        if (TextUtils.isEmpty(string)) {
+            str2 = Util.toMd5((AccountProxy.BAIDUACCOUNT_TYPE + str + androidId).getBytes(), true);
+            string = Settings.System.getString(context.getContentResolver(), str2);
+            if (!TextUtils.isEmpty(string)) {
+                Settings.System.putString(context.getContentResolver(), KEY_DEVICE_ID, string);
+                setExternalDeviceId(str, string);
+            }
+        }
+        if (TextUtils.isEmpty(string)) {
+            string = getExternalDeviceId(str);
+            if (!TextUtils.isEmpty(string)) {
+                Settings.System.putString(context.getContentResolver(), str2, string);
+                Settings.System.putString(context.getContentResolver(), KEY_DEVICE_ID, string);
+            }
+        }
+        if (TextUtils.isEmpty(string)) {
+            String md5 = Util.toMd5((str + androidId + UUID.randomUUID().toString()).getBytes(), true);
+            Settings.System.putString(context.getContentResolver(), str2, md5);
+            Settings.System.putString(context.getContentResolver(), KEY_DEVICE_ID, md5);
+            setExternalDeviceId(str, md5);
+            return md5;
+        }
+        return string;
     }
 
     private static String getExternalDeviceId(String str) {
@@ -129,12 +173,7 @@ public final class DeviceId {
     }
 
     public static String getIMEI(Context context) {
-        TelephonyManager telephonyManager = (TelephonyManager) context.getSystemService("phone");
-        if (telephonyManager != null) {
-            String deviceId = telephonyManager.getDeviceId();
-            return TextUtils.isEmpty(deviceId) ? "" : deviceId;
-        }
-        return "";
+        return IMEIInfo.getIMEIInfo(context).IMEI;
     }
 
     private static void setExternalDeviceId(String str, String str2) {

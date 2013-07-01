@@ -1,6 +1,7 @@
 package com.baidu.tieba.view;
 
 import android.content.Context;
+import android.support.v4.view.bq;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
@@ -11,13 +12,15 @@ import com.slidingmenu.lib.R;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class MultiImageView extends RelativeLayout {
-    private Button a;
+
+    /* renamed from: a  reason: collision with root package name */
+    private Button f1498a;
     private Button b;
     private LinearLayout c;
     private View.OnClickListener d;
     private GalleryViewPager e;
-    private android.support.v4.view.aj f;
-    private android.support.v4.view.aj g;
+    private bq f;
+    private bq g;
     private m h;
     private ImagePagerAdapter i;
     private l j;
@@ -27,7 +30,7 @@ public class MultiImageView extends RelativeLayout {
 
     public MultiImageView(Context context) {
         super(context);
-        this.a = null;
+        this.f1498a = null;
         this.b = null;
         this.c = null;
         this.d = null;
@@ -51,7 +54,7 @@ public class MultiImageView extends RelativeLayout {
 
     public MultiImageView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.a = null;
+        this.f1498a = null;
         this.b = null;
         this.c = null;
         this.d = null;
@@ -69,7 +72,7 @@ public class MultiImageView extends RelativeLayout {
 
     public MultiImageView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.a = null;
+        this.f1498a = null;
         this.b = null;
         this.c = null;
         this.d = null;
@@ -86,16 +89,16 @@ public class MultiImageView extends RelativeLayout {
     }
 
     private void f() {
-        this.m = com.baidu.tieba.d.ag.d(getContext());
+        this.m = com.baidu.tieba.util.ab.d(getContext());
         g();
         h();
     }
 
     private void g() {
-        this.d = new ai(this);
-        this.f = new aj(this);
-        this.h = new ak(this);
-        this.j = new al(this);
+        this.d = new ah(this);
+        this.f = new ai(this);
+        this.h = new aj(this);
+        this.j = new ak(this);
     }
 
     public void a() {
@@ -104,14 +107,14 @@ public class MultiImageView extends RelativeLayout {
                 int childCount = this.e.getChildCount();
                 for (int i = 0; i < childCount; i++) {
                     View childAt = this.e.getChildAt(i);
-                    if (childAt != null && (childAt instanceof ar) && ((ar) childAt).getImageView() != this.e.getCurrentView()) {
-                        ((ar) childAt).d();
+                    if (childAt != null && (childAt instanceof aq) && ((aq) childAt).getImageView() != this.e.getCurrentView()) {
+                        ((aq) childAt).d();
                     }
                 }
             }
             View findViewWithTag = this.e.findViewWithTag(String.valueOf(this.e.getCurrentItem()));
-            if (findViewWithTag != null && (findViewWithTag instanceof ar)) {
-                ((ar) findViewWithTag).f();
+            if (findViewWithTag != null && (findViewWithTag instanceof aq)) {
+                ((aq) findViewWithTag).f();
             }
             this.e.getCurrentView().e();
         }
@@ -128,8 +131,8 @@ public class MultiImageView extends RelativeLayout {
             int childCount = this.e.getChildCount();
             for (int i = 0; i < childCount; i++) {
                 View childAt = this.e.getChildAt(i);
-                if (childAt != null && (childAt instanceof ar)) {
-                    ((ar) childAt).c();
+                if (childAt != null && (childAt instanceof aq)) {
+                    ((aq) childAt).c();
                 }
             }
         }
@@ -142,7 +145,7 @@ public class MultiImageView extends RelativeLayout {
         addView(this.e);
         this.c = new LinearLayout(getContext());
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
-        layoutParams.bottomMargin = com.baidu.tieba.d.ag.a(getContext(), 10.0f);
+        layoutParams.bottomMargin = com.baidu.tieba.util.ab.a(getContext(), 10.0f);
         layoutParams.addRule(12);
         layoutParams.addRule(14);
         this.c.setOrientation(0);
@@ -155,12 +158,12 @@ public class MultiImageView extends RelativeLayout {
         this.b.setOnClickListener(this.d);
         this.b.setEnabled(false);
         this.c.addView(this.b);
-        this.a = new Button(getContext());
-        this.a.setBackgroundDrawable(getContext().getResources().getDrawable(R.drawable.image_zoomin));
-        this.a.setLayoutParams(layoutParams2);
-        this.a.setOnClickListener(this.d);
-        this.a.setEnabled(false);
-        this.c.addView(this.a);
+        this.f1498a = new Button(getContext());
+        this.f1498a.setBackgroundDrawable(getContext().getResources().getDrawable(R.drawable.image_zoomin));
+        this.f1498a.setLayoutParams(layoutParams2);
+        this.f1498a.setOnClickListener(this.d);
+        this.f1498a.setEnabled(false);
+        this.c.addView(this.f1498a);
         if (this.m) {
             this.c.setVisibility(8);
         }
@@ -168,8 +171,8 @@ public class MultiImageView extends RelativeLayout {
         setAdapter(this.i);
     }
 
-    public void setOnPageChangeListener(android.support.v4.view.aj ajVar) {
-        this.g = ajVar;
+    public void setOnPageChangeListener(bq bqVar) {
+        this.g = bqVar;
     }
 
     public int getItemNum() {
@@ -183,9 +186,9 @@ public class MultiImageView extends RelativeLayout {
     public void setZoomButton(h hVar) {
         if (hVar != null) {
             if (hVar.p()) {
-                this.a.setEnabled(true);
+                this.f1498a.setEnabled(true);
             } else {
-                this.a.setEnabled(false);
+                this.f1498a.setEnabled(false);
             }
             if (hVar.q()) {
                 this.b.setEnabled(true);
@@ -196,7 +199,7 @@ public class MultiImageView extends RelativeLayout {
             }
         }
         this.b.setEnabled(false);
-        this.a.setEnabled(false);
+        this.f1498a.setEnabled(false);
     }
 
     public void d() {
@@ -227,15 +230,15 @@ public class MultiImageView extends RelativeLayout {
 
     public void a(int i, int i2) {
         this.e.setOffscreenPageLimit(i);
-        this.k = com.baidu.tieba.d.ag.c(getContext()) - ((((i * 2) + 1) * i2) * 2);
+        this.k = com.baidu.tieba.util.ab.c(getContext()) - ((((i * 2) + 1) * i2) * 2);
         this.k = (int) (this.k * 0.8d);
         if (this.k < 6291456) {
             this.l = true;
-            this.k = (int) (com.baidu.tieba.d.ag.c(getContext()) * 0.7d);
+            this.k = (int) (com.baidu.tieba.util.ab.c(getContext()) * 0.7d);
         } else {
             this.l = false;
         }
-        android.support.v4.view.k adapter = this.e.getAdapter();
+        android.support.v4.view.ae adapter = this.e.getAdapter();
         if (adapter != null && (adapter instanceof ImagePagerAdapter)) {
             ((ImagePagerAdapter) adapter).b(this.k);
         }
@@ -265,6 +268,7 @@ public class MultiImageView extends RelativeLayout {
 
     public void setHasNext(boolean z) {
         this.i.a(z);
+        this.i.notifyDataSetChanged();
     }
 
     public boolean getHasNext() {
