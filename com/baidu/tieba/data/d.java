@@ -1,18 +1,16 @@
 package com.baidu.tieba.data;
 /* loaded from: classes.dex */
 public class d {
-
-    /* renamed from: a  reason: collision with root package name */
-    private String f784a;
+    private String a;
     private long b;
     private int c;
 
     public String a() {
-        return this.f784a;
+        return this.a;
     }
 
     public void a(String str) {
-        this.f784a = str;
+        this.a = str;
     }
 
     public long b() {

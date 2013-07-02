@@ -1,13 +1,11 @@
 package com.baidu.tieba.pb;
 /* loaded from: classes.dex */
 class at implements cq {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ NewPbActivity f1211a;
+    final /* synthetic */ NewPbActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public at(NewPbActivity newPbActivity) {
-        this.f1211a = newPbActivity;
+        this.a = newPbActivity;
     }
 
     @Override // com.baidu.tieba.pb.cq
@@ -15,11 +13,11 @@ class at implements cq {
         com.baidu.tieba.model.ba baVar;
         com.baidu.tieba.model.ba baVar2;
         bk bkVar;
-        baVar = this.f1211a.n;
+        baVar = this.a.n;
         if (baVar != null) {
-            baVar2 = this.f1211a.n;
+            baVar2 = this.a.n;
             if (baVar2.e()) {
-                bkVar = this.f1211a.p;
+                bkVar = this.a.p;
                 bkVar.s();
             }
         }

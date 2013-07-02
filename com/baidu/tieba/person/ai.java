@@ -5,9 +5,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 /* loaded from: classes.dex */
 class ai {
-
-    /* renamed from: a  reason: collision with root package name */
-    LinearLayout f1316a;
+    LinearLayout a;
     ImageView b;
     TextView c;
     TextView d;

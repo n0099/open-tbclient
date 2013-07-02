@@ -1,5 +1,6 @@
 package com.baidu.zeus.bouncycastle;
 
+import com.baidu.location.BDLocation;
 import com.baidu.mapapi.MKSearch;
 /* loaded from: classes.dex */
 public abstract class X509NameEntryConverter {
@@ -42,8 +43,8 @@ public abstract class X509NameEntryConverter {
                     case MKSearch.TYPE_AREA_MULTI_POI_LIST /* 45 */:
                     case '.':
                     case ':':
-                    case '=':
-                    case '?':
+                    case BDLocation.TypeGpsLocation /* 61 */:
+                    case BDLocation.TypeNetWorkException /* 63 */:
                         break;
                     default:
                         return false;

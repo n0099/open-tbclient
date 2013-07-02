@@ -9,9 +9,7 @@ import android.view.MotionEvent;
 import android.view.View;
 /* loaded from: classes.dex */
 public class CoverFlow extends ViewPager {
-
-    /* renamed from: a  reason: collision with root package name */
-    private int f809a;
+    private int a;
     private int b;
     private int c;
     private int d;
@@ -38,15 +36,15 @@ public class CoverFlow extends ViewPager {
     @Override // android.support.v4.view.ViewPager, android.view.View
     public void onMeasure(int i, int i2) {
         super.onMeasure(i, i2);
-        this.f809a = getMeasuredWidth();
+        this.a = getMeasuredWidth();
         this.b = getMeasuredHeight();
-        this.c = (int) ((this.f809a * 0.5f) + 0.5f);
-        this.d = (this.f809a - this.c) >> 1;
+        this.c = (int) ((this.a * 0.5f) + 0.5f);
+        this.d = (this.a - this.c) >> 1;
     }
 
     @Override // android.view.ViewGroup, android.view.View
     public boolean dispatchTouchEvent(MotionEvent motionEvent) {
-        motionEvent.offsetLocation(-((this.f809a * 0.5f) / 2.0f), 0.0f);
+        motionEvent.offsetLocation(-((this.a * 0.5f) / 2.0f), 0.0f);
         return super.dispatchTouchEvent(motionEvent);
     }
 

@@ -26,9 +26,7 @@ public class bu extends BaseAdapter {
     private ArrayList d = null;
     private boolean g = false;
     private boolean h = false;
-
-    /* renamed from: a  reason: collision with root package name */
-    boolean f1354a = false;
+    boolean a = false;
     private ArrayList i = new ArrayList();
 
     public void a() {
@@ -52,9 +50,9 @@ public class bu extends BaseAdapter {
     }
 
     public void b() {
-        this.f1354a = false;
+        this.a = false;
         if (this.d != null && this.d.size() == 0) {
-            this.f1354a = true;
+            this.a = true;
         }
     }
 
@@ -93,7 +91,7 @@ public class bu extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.f1354a) {
+        if (this.a) {
             return 1;
         }
         int i = 0;
@@ -132,7 +130,7 @@ public class bu extends BaseAdapter {
                 bv bvVar2 = new bv(this, null);
                 if (getItemViewType(i) == 0) {
                     View inflate = from.inflate(R.layout.person_list_item, (ViewGroup) null);
-                    bvVar2.f1355a = (ImageView) inflate.findViewById(R.id.photo);
+                    bvVar2.a = (ImageView) inflate.findViewById(R.id.photo);
                     bvVar2.c = (TextView) inflate.findViewById(R.id.name);
                     bvVar2.b = (LinearLayout) inflate.findViewById(R.id.info);
                     bvVar2.b.setOnClickListener(this.j);
@@ -170,7 +168,7 @@ public class bu extends BaseAdapter {
                 bvVar = (bv) view.getTag();
             }
             if (getItemViewType(i) == 0) {
-                if (this.f1354a) {
+                if (this.a) {
                     bvVar.b.setVisibility(8);
                     bvVar.e.setVisibility(8);
                     bvVar.g.setVisibility(0);
@@ -193,11 +191,11 @@ public class bu extends BaseAdapter {
                     String portrait = ((UserData) this.d.get(i)).getPortrait();
                     com.baidu.adp.widget.a.b b = this.f.b(portrait);
                     if (b != null) {
-                        bvVar.f1355a.setTag(null);
-                        b.b(bvVar.f1355a);
+                        bvVar.a.setTag(null);
+                        b.b(bvVar.a);
                     } else {
-                        bvVar.f1355a.setTag(portrait);
-                        bvVar.f1355a.setImageBitmap(com.baidu.tieba.util.d.a((int) R.drawable.photo));
+                        bvVar.a.setTag(portrait);
+                        bvVar.a.setImageBitmap(com.baidu.tieba.util.d.a((int) R.drawable.photo));
                     }
                     bvVar.c.setText(((UserData) this.d.get(i)).getName_show());
                     bvVar.d.setText(((UserData) this.d.get(i)).getIntro());
@@ -211,10 +209,10 @@ public class bu extends BaseAdapter {
                 bvVar.f.setVisibility(8);
             }
             if (TiebaApplication.f().at() == 1) {
-                int a2 = com.baidu.tieba.util.x.a(1);
-                bvVar.c.setTextColor(a2);
+                int a = com.baidu.tieba.util.x.a(1);
+                bvVar.c.setTextColor(a);
                 if (bvVar.g != null) {
-                    bvVar.g.setTextColor(a2);
+                    bvVar.g.setTextColor(a);
                 }
             } else {
                 bvVar.c.setTextColor(-16777216);
@@ -228,7 +226,7 @@ public class bu extends BaseAdapter {
 
     @Override // android.widget.BaseAdapter, android.widget.Adapter
     public int getItemViewType(int i) {
-        if (this.f1354a) {
+        if (this.a) {
             return 0;
         }
         return (this.d == null || i >= this.d.size()) ? 1 : 0;
@@ -241,7 +239,7 @@ public class bu extends BaseAdapter {
 
     @Override // android.widget.BaseAdapter, android.widget.ListAdapter
     public boolean isEnabled(int i) {
-        if (this.f1354a) {
+        if (this.a) {
             return false;
         }
         return super.isEnabled(i);

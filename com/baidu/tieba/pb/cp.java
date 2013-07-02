@@ -6,13 +6,11 @@ import com.slidingmenu.lib.R;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class cp implements View.OnClickListener {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ bk f1260a;
+    final /* synthetic */ bk a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public cp(bk bkVar) {
-        this.f1260a = bkVar;
+        this.a = bkVar;
     }
 
     @Override // android.view.View.OnClickListener
@@ -20,9 +18,9 @@ public class cp implements View.OnClickListener {
         SparseArray sparseArray = (SparseArray) view.getTag();
         if (sparseArray != null) {
             if (!"".equals(sparseArray.get(R.id.tag_forbid_user_name)) && !"".equals(sparseArray.get(R.id.tag_del_post_id))) {
-                this.f1260a.a(view);
+                this.a.a(view);
             } else {
-                this.f1260a.a(((Integer) sparseArray.get(R.id.tag_del_post_type)).intValue(), (String) sparseArray.get(R.id.tag_del_post_id), ((Integer) sparseArray.get(R.id.tag_manage_user_identity)).intValue(), ((Boolean) sparseArray.get(R.id.tag_del_post_is_self)).booleanValue());
+                this.a.a(((Integer) sparseArray.get(R.id.tag_del_post_type)).intValue(), (String) sparseArray.get(R.id.tag_del_post_id), ((Integer) sparseArray.get(R.id.tag_manage_user_identity)).intValue(), ((Boolean) sparseArray.get(R.id.tag_del_post_is_self)).booleanValue());
             }
         }
     }

@@ -18,9 +18,7 @@ public class MKSearch {
     public static final int TYPE_CITY_LIST = 7;
     public static final int TYPE_POI_LIST = 11;
     private static int b = 10;
-
-    /* renamed from: a  reason: collision with root package name */
-    private Bundle f516a = null;
+    private Bundle a = null;
     private int c = 3;
     private int d = 0;
 
@@ -39,26 +37,26 @@ public class MKSearch {
         if (str == null || str.length() <= 0 || str2 == null || str2.length() <= 0 || str.length() > 31) {
             return -1;
         }
-        if (this.f516a == null) {
-            this.f516a = new Bundle();
+        if (this.a == null) {
+            this.a = new Bundle();
         } else {
-            this.f516a.clear();
+            this.a.clear();
         }
-        this.f516a.putInt("act", 11010203);
-        this.f516a.putInt("opt", 11010105);
+        this.a.putInt("act", 11010203);
+        this.a.putInt("opt", 11010105);
         try {
-            this.f516a.putByteArray("city", str.getBytes("gb2312"));
+            this.a.putByteArray("city", str.getBytes("gb2312"));
         } catch (UnsupportedEncodingException e) {
             Log.d("MKSearch busLineSearch:", "busLine city error!!");
             Log.d("MKSearch busLineSearch:", e.getMessage());
         }
         try {
-            this.f516a.putByteArray("busid", str2.getBytes("gb2312"));
+            this.a.putByteArray("busid", str2.getBytes("gb2312"));
         } catch (UnsupportedEncodingException e2) {
             Log.d("MKSearch busLineSearch:", "busLine name error!!");
             Log.d("MKSearch busLineSearch:", e2.getMessage());
         }
-        return Mj.sendBundle(this.f516a) != 0 ? 0 : -1;
+        return Mj.sendBundle(this.a) != 0 ? 0 : -1;
     }
 
     public int drivingSearch(String str, MKPlanNode mKPlanNode, String str2, MKPlanNode mKPlanNode2) {
@@ -67,23 +65,23 @@ public class MKSearch {
         if (mKPlanNode == null || mKPlanNode2 == null) {
             return -1;
         }
-        if (this.f516a == null) {
-            this.f516a = new Bundle();
+        if (this.a == null) {
+            this.a = new Bundle();
         } else {
-            this.f516a.clear();
+            this.a.clear();
         }
-        this.f516a.putInt("act", 11020203);
-        this.f516a.putInt("opt", 11020102);
+        this.a.putInt("act", 11020203);
+        this.a.putInt("opt", 11020102);
         if (mKPlanNode.pt != null) {
-            this.f516a.putInt("start_x", mKPlanNode.pt.getLongitudeE6());
-            this.f516a.putInt("start_y", mKPlanNode.pt.getLatitudeE6());
+            this.a.putInt("start_x", mKPlanNode.pt.getLongitudeE6());
+            this.a.putInt("start_y", mKPlanNode.pt.getLatitudeE6());
             z = true;
         } else {
             z = false;
         }
         if (mKPlanNode.name != null && mKPlanNode.name.length() <= 99) {
             try {
-                this.f516a.putByteArray("start_name", mKPlanNode.name.getBytes("gb2312"));
+                this.a.putByteArray("start_name", mKPlanNode.name.getBytes("gb2312"));
             } catch (UnsupportedEncodingException e) {
                 Log.d("MKSearch drivingSearch:", "translate start name error!!");
                 Log.d("MKSearch drivingSearch:", e.getMessage());
@@ -92,7 +90,7 @@ public class MKSearch {
                 return -1;
             }
             try {
-                this.f516a.putByteArray("start_city", str.getBytes("gb2312"));
+                this.a.putByteArray("start_city", str.getBytes("gb2312"));
             } catch (UnsupportedEncodingException e2) {
                 Log.d("MKSearch drivingSearch:", "translate start city error!!");
                 Log.d("MKSearch drivingSearch:", e2.getMessage());
@@ -101,15 +99,15 @@ public class MKSearch {
         }
         if (z) {
             if (mKPlanNode2.pt != null) {
-                this.f516a.putInt("end_x", mKPlanNode2.pt.getLongitudeE6());
-                this.f516a.putInt("end_y", mKPlanNode2.pt.getLatitudeE6());
+                this.a.putInt("end_x", mKPlanNode2.pt.getLongitudeE6());
+                this.a.putInt("end_y", mKPlanNode2.pt.getLatitudeE6());
                 z2 = true;
             } else {
                 z2 = false;
             }
             if (mKPlanNode2.name != null && mKPlanNode2.name.length() <= 99) {
                 try {
-                    this.f516a.putByteArray("end_name", mKPlanNode2.name.getBytes("gb2312"));
+                    this.a.putByteArray("end_name", mKPlanNode2.name.getBytes("gb2312"));
                 } catch (UnsupportedEncodingException e3) {
                     Log.d("MKSearch drivingSearch:", "translate end name error!!");
                     Log.d("MKSearch drivingSearch:", e3.getMessage());
@@ -118,7 +116,7 @@ public class MKSearch {
                     return -1;
                 }
                 try {
-                    this.f516a.putByteArray("end_city", str2.getBytes("gb2312"));
+                    this.a.putByteArray("end_city", str2.getBytes("gb2312"));
                 } catch (UnsupportedEncodingException e4) {
                     Log.d("MKSearch drivingSearch:", "translate end city error!!");
                     Log.d("MKSearch drivingSearch:", e4.getMessage());
@@ -126,8 +124,8 @@ public class MKSearch {
                 z2 = true;
             }
             if (z2) {
-                this.f516a.putInt("policy", this.d);
-                return Mj.sendBundle(this.f516a) == 0 ? -1 : 0;
+                this.a.putInt("policy", this.d);
+                return Mj.sendBundle(this.a) == 0 ? -1 : 0;
             }
             return -1;
         }
@@ -138,31 +136,31 @@ public class MKSearch {
         if (str == null || str.length() == 0 || str.length() > 99) {
             return -1;
         }
-        if (this.f516a == null) {
-            this.f516a = new Bundle();
+        if (this.a == null) {
+            this.a = new Bundle();
         } else {
-            this.f516a.clear();
+            this.a.clear();
         }
-        this.f516a.putInt("act", 11010203);
-        this.f516a.putInt("opt", 11010112);
-        this.f516a.putString("addr", str);
+        this.a.putInt("act", 11010203);
+        this.a.putInt("opt", 11010112);
+        this.a.putString("addr", str);
         if (str2 != null && str2.length() <= 16) {
             try {
-                this.f516a.putByteArray("city", str2.getBytes("gb2312"));
+                this.a.putByteArray("city", str2.getBytes("gb2312"));
             } catch (UnsupportedEncodingException e) {
                 e.printStackTrace();
             }
         }
-        return Mj.sendBundle(this.f516a) != 0 ? 0 : -1;
+        return Mj.sendBundle(this.a) != 0 ? 0 : -1;
     }
 
     public int goToPoiPage(int i) {
-        if (this.f516a == null || !this.f516a.containsKey("page_num")) {
+        if (this.a == null || !this.a.containsKey("page_num")) {
             return -1;
         }
-        this.f516a.putInt("cnt", b);
-        this.f516a.putInt("page_num", i);
-        return Mj.sendBundle(this.f516a) != 0 ? 0 : -1;
+        this.a.putInt("cnt", b);
+        this.a.putInt("page_num", i);
+        return Mj.sendBundle(this.a) != 0 ? 0 : -1;
     }
 
     public boolean init(BMapManager bMapManager, MKSearchListener mKSearchListener) {
@@ -170,26 +168,26 @@ public class MKSearch {
             return false;
         }
         if (mKSearchListener != null) {
-            bMapManager.f501a.a(mKSearchListener);
+            bMapManager.a.a(mKSearchListener);
         }
         return Mj.initSearchCC() == 1;
     }
 
     public int offlineSearch(int i) {
-        if (this.f516a == null) {
-            this.f516a = new Bundle();
+        if (this.a == null) {
+            this.a = new Bundle();
         } else {
-            this.f516a.clear();
+            this.a.clear();
         }
-        this.f516a.putInt("act", 11010203);
-        this.f516a.putInt("opt", 11010108);
-        this.f516a.putInt("cityid", i);
+        this.a.putInt("act", 11010203);
+        this.a.putInt("opt", 11010108);
+        this.a.putInt("cityid", i);
         if (Mj.i <= 180) {
-            this.f516a.putInt("uid", 0);
+            this.a.putInt("uid", 0);
         } else {
-            this.f516a.putInt("uid", 1);
+            this.a.putInt("uid", 1);
         }
-        return Mj.sendBundle(this.f516a) == 0 ? -1 : 0;
+        return Mj.sendBundle(this.a) == 0 ? -1 : 0;
     }
 
     public int poiDetailSearch(String str) {
@@ -214,10 +212,10 @@ public class MKSearch {
         if (strArr.length < 2 || strArr.length > 10) {
             return -1;
         }
-        if (this.f516a == null) {
-            this.f516a = new Bundle();
+        if (this.a == null) {
+            this.a = new Bundle();
         } else {
-            this.f516a.clear();
+            this.a.clear();
         }
         StringBuilder sb = new StringBuilder();
         for (int i = 0; i < strArr.length; i++) {
@@ -236,17 +234,17 @@ public class MKSearch {
         if (sb.toString().length() > 99) {
             return -1;
         }
-        this.f516a.putInt("act", 11010203);
-        this.f516a.putInt("opt", 11010111);
-        this.f516a.putString("key", sb.toString());
-        this.f516a.putInt("page_num", 0);
-        this.f516a.putInt("cnt", b);
-        this.f516a.putInt("start_x", geoPoint.getLongitudeE6());
-        this.f516a.putInt("start_y", geoPoint.getLatitudeE6());
-        this.f516a.putInt("end_x", geoPoint2.getLongitudeE6());
-        this.f516a.putInt("end_y", geoPoint2.getLatitudeE6());
-        this.f516a.putInt("key_num", strArr.length);
-        return Mj.sendBundle(this.f516a) == 0 ? -1 : 0;
+        this.a.putInt("act", 11010203);
+        this.a.putInt("opt", 11010111);
+        this.a.putString("key", sb.toString());
+        this.a.putInt("page_num", 0);
+        this.a.putInt("cnt", b);
+        this.a.putInt("start_x", geoPoint.getLongitudeE6());
+        this.a.putInt("start_y", geoPoint.getLatitudeE6());
+        this.a.putInt("end_x", geoPoint2.getLongitudeE6());
+        this.a.putInt("end_y", geoPoint2.getLatitudeE6());
+        this.a.putInt("key_num", strArr.length);
+        return Mj.sendBundle(this.a) == 0 ? -1 : 0;
     }
 
     public int poiMultiSearchNearBy(String[] strArr, GeoPoint geoPoint, int i) {
@@ -259,10 +257,10 @@ public class MKSearch {
         if (strArr.length < 2 || strArr.length > 10) {
             return -1;
         }
-        if (this.f516a == null) {
-            this.f516a = new Bundle();
+        if (this.a == null) {
+            this.a = new Bundle();
         } else {
-            this.f516a.clear();
+            this.a.clear();
         }
         StringBuilder sb = new StringBuilder();
         for (int i2 = 0; i2 < strArr.length; i2++) {
@@ -281,16 +279,16 @@ public class MKSearch {
         if (sb.toString().length() > 99) {
             return -1;
         }
-        this.f516a.putInt("act", 11010203);
-        this.f516a.putInt("opt", 11010111);
-        this.f516a.putString("key", sb.toString());
-        this.f516a.putInt("start_x", geoPoint.getLongitudeE6());
-        this.f516a.putInt("start_y", geoPoint.getLatitudeE6());
-        this.f516a.putInt("radius", i);
-        this.f516a.putInt("page_num", 0);
-        this.f516a.putInt("cnt", b);
-        this.f516a.putInt("key_num", strArr.length);
-        return Mj.sendBundle(this.f516a) == 0 ? -1 : 0;
+        this.a.putInt("act", 11010203);
+        this.a.putInt("opt", 11010111);
+        this.a.putString("key", sb.toString());
+        this.a.putInt("start_x", geoPoint.getLongitudeE6());
+        this.a.putInt("start_y", geoPoint.getLatitudeE6());
+        this.a.putInt("radius", i);
+        this.a.putInt("page_num", 0);
+        this.a.putInt("cnt", b);
+        this.a.putInt("key_num", strArr.length);
+        return Mj.sendBundle(this.a) == 0 ? -1 : 0;
     }
 
     public int poiSearchInCity(String str, String str2) {
@@ -305,23 +303,23 @@ public class MKSearch {
         if (trim.length() > 16 || trim2.length() == 0 || trim2.length() > 99) {
             return -1;
         }
-        if (this.f516a == null) {
-            this.f516a = new Bundle();
+        if (this.a == null) {
+            this.a = new Bundle();
         } else {
-            this.f516a.clear();
+            this.a.clear();
         }
-        this.f516a.putInt("act", 11010203);
-        this.f516a.putInt("opt", 11010101);
+        this.a.putInt("act", 11010203);
+        this.a.putInt("opt", 11010101);
         try {
-            this.f516a.putByteArray("city", trim.getBytes("gb2312"));
+            this.a.putByteArray("city", trim.getBytes("gb2312"));
         } catch (UnsupportedEncodingException e) {
             Log.d("MKSearch poiSearchInCity:", "translate city error!!");
             Log.d("MKSearch poiSearchInCity:", e.getMessage());
         }
-        this.f516a.putString("key", trim2);
-        this.f516a.putInt("page_num", 0);
-        this.f516a.putInt("cnt", b);
-        return Mj.sendBundle(this.f516a) != 0 ? 0 : -1;
+        this.a.putString("key", trim2);
+        this.a.putInt("page_num", 0);
+        this.a.putInt("cnt", b);
+        return Mj.sendBundle(this.a) != 0 ? 0 : -1;
     }
 
     public int poiSearchInbounds(String str, GeoPoint geoPoint, GeoPoint geoPoint2) {
@@ -332,21 +330,21 @@ public class MKSearch {
         if (trim.length() == 0 || trim.length() > 99) {
             return -1;
         }
-        if (this.f516a == null) {
-            this.f516a = new Bundle();
+        if (this.a == null) {
+            this.a = new Bundle();
         } else {
-            this.f516a.clear();
+            this.a.clear();
         }
-        this.f516a.putInt("act", 11010203);
-        this.f516a.putInt("opt", 11010104);
-        this.f516a.putString("key", trim);
-        this.f516a.putInt("page_num", 0);
-        this.f516a.putInt("cnt", b);
-        this.f516a.putInt("start_x", geoPoint.getLongitudeE6());
-        this.f516a.putInt("start_y", geoPoint.getLatitudeE6());
-        this.f516a.putInt("end_x", geoPoint2.getLongitudeE6());
-        this.f516a.putInt("end_y", geoPoint2.getLatitudeE6());
-        return Mj.sendBundle(this.f516a) != 0 ? 0 : -1;
+        this.a.putInt("act", 11010203);
+        this.a.putInt("opt", 11010104);
+        this.a.putString("key", trim);
+        this.a.putInt("page_num", 0);
+        this.a.putInt("cnt", b);
+        this.a.putInt("start_x", geoPoint.getLongitudeE6());
+        this.a.putInt("start_y", geoPoint.getLatitudeE6());
+        this.a.putInt("end_x", geoPoint2.getLongitudeE6());
+        this.a.putInt("end_y", geoPoint2.getLatitudeE6());
+        return Mj.sendBundle(this.a) != 0 ? 0 : -1;
     }
 
     public int poiSearchNearBy(String str, GeoPoint geoPoint, int i) {
@@ -357,20 +355,20 @@ public class MKSearch {
         if (trim.length() == 0 || trim.length() > 99) {
             return -1;
         }
-        if (this.f516a == null) {
-            this.f516a = new Bundle();
+        if (this.a == null) {
+            this.a = new Bundle();
         } else {
-            this.f516a.clear();
+            this.a.clear();
         }
-        this.f516a.putInt("act", 11010203);
-        this.f516a.putInt("opt", 11010104);
-        this.f516a.putString("key", trim);
-        this.f516a.putInt("start_x", geoPoint.getLongitudeE6());
-        this.f516a.putInt("start_y", geoPoint.getLatitudeE6());
-        this.f516a.putInt("radius", i);
-        this.f516a.putInt("page_num", 0);
-        this.f516a.putInt("cnt", b);
-        return Mj.sendBundle(this.f516a) != 0 ? 0 : -1;
+        this.a.putInt("act", 11010203);
+        this.a.putInt("opt", 11010104);
+        this.a.putString("key", trim);
+        this.a.putInt("start_x", geoPoint.getLongitudeE6());
+        this.a.putInt("start_y", geoPoint.getLatitudeE6());
+        this.a.putInt("radius", i);
+        this.a.putInt("page_num", 0);
+        this.a.putInt("cnt", b);
+        return Mj.sendBundle(this.a) != 0 ? 0 : -1;
     }
 
     public int rGCShareUrlSearch(GeoPoint geoPoint, String str, String str2) {
@@ -382,37 +380,37 @@ public class MKSearch {
         if (trim.length() > 99 || trim2.length() > 99) {
             return -1;
         }
-        if (this.f516a == null) {
-            this.f516a = new Bundle();
+        if (this.a == null) {
+            this.a = new Bundle();
         } else {
-            this.f516a.clear();
+            this.a.clear();
         }
-        this.f516a.putInt("act", 11010203);
-        this.f516a.putInt("opt", 11010110);
-        this.f516a.putString("key", "");
-        this.f516a.putInt("cnt", b);
-        this.f516a.putInt("page_num", 0);
-        this.f516a.putInt("x", geoPoint.getLongitudeE6());
-        this.f516a.putInt("y", geoPoint.getLatitudeE6());
-        this.f516a.putString("name", trim);
-        this.f516a.putString("addr", trim2);
-        return Mj.sendBundle(this.f516a) != 0 ? 0 : -1;
+        this.a.putInt("act", 11010203);
+        this.a.putInt("opt", 11010110);
+        this.a.putString("key", "");
+        this.a.putInt("cnt", b);
+        this.a.putInt("page_num", 0);
+        this.a.putInt("x", geoPoint.getLongitudeE6());
+        this.a.putInt("y", geoPoint.getLatitudeE6());
+        this.a.putString("name", trim);
+        this.a.putString("addr", trim2);
+        return Mj.sendBundle(this.a) != 0 ? 0 : -1;
     }
 
     public int reverseGeocode(GeoPoint geoPoint) {
         if (geoPoint == null) {
             return -1;
         }
-        if (this.f516a == null) {
-            this.f516a = new Bundle();
+        if (this.a == null) {
+            this.a = new Bundle();
         } else {
-            this.f516a.clear();
+            this.a.clear();
         }
-        this.f516a.putInt("act", 11010203);
-        this.f516a.putInt("opt", 11010109);
-        this.f516a.putInt("x", geoPoint.getLongitudeE6());
-        this.f516a.putInt("y", geoPoint.getLatitudeE6());
-        return Mj.sendBundle(this.f516a) != 0 ? 0 : -1;
+        this.a.putInt("act", 11010203);
+        this.a.putInt("opt", 11010109);
+        this.a.putInt("x", geoPoint.getLongitudeE6());
+        this.a.putInt("y", geoPoint.getLatitudeE6());
+        return Mj.sendBundle(this.a) != 0 ? 0 : -1;
     }
 
     public int setDrivingPolicy(int i) {
@@ -439,15 +437,15 @@ public class MKSearch {
         if (trim.length() == 0 || trim.length() > 99) {
             return -1;
         }
-        if (this.f516a == null) {
-            this.f516a = new Bundle();
+        if (this.a == null) {
+            this.a = new Bundle();
         } else {
-            this.f516a.clear();
+            this.a.clear();
         }
-        this.f516a.putInt("act", 11020301);
-        this.f516a.putInt("opt", 11010107);
-        this.f516a.putString("key", trim);
-        return Mj.sendBundle(this.f516a) != 0 ? 0 : -1;
+        this.a.putInt("act", 11020301);
+        this.a.putInt("opt", 11010107);
+        this.a.putString("key", trim);
+        return Mj.sendBundle(this.a) != 0 ? 0 : -1;
     }
 
     public int transitSearch(String str, MKPlanNode mKPlanNode, MKPlanNode mKPlanNode2) {
@@ -459,29 +457,29 @@ public class MKSearch {
         if (str.length() > 31) {
             return -1;
         }
-        if (this.f516a == null) {
-            this.f516a = new Bundle();
+        if (this.a == null) {
+            this.a = new Bundle();
         } else {
-            this.f516a.clear();
+            this.a.clear();
         }
-        this.f516a.putInt("act", 11020203);
-        this.f516a.putInt("opt", 11020101);
+        this.a.putInt("act", 11020203);
+        this.a.putInt("opt", 11020101);
         try {
-            this.f516a.putByteArray("city", str.getBytes("gb2312"));
+            this.a.putByteArray("city", str.getBytes("gb2312"));
         } catch (UnsupportedEncodingException e) {
             Log.d("MKSearch transitSearch:", "translate city error!!");
             Log.d("MKSearch transitSearch:", e.getMessage());
         }
         if (mKPlanNode.pt != null) {
-            this.f516a.putInt("start_x", mKPlanNode.pt.getLongitudeE6());
-            this.f516a.putInt("start_y", mKPlanNode.pt.getLatitudeE6());
+            this.a.putInt("start_x", mKPlanNode.pt.getLongitudeE6());
+            this.a.putInt("start_y", mKPlanNode.pt.getLatitudeE6());
             z = true;
         } else {
             z = false;
         }
         if (mKPlanNode.name != null && mKPlanNode.name.length() <= 99) {
             try {
-                this.f516a.putByteArray("start_name", mKPlanNode.name.getBytes("gb2312"));
+                this.a.putByteArray("start_name", mKPlanNode.name.getBytes("gb2312"));
             } catch (UnsupportedEncodingException e2) {
                 Log.d("MKSearch transitSearch:", "translate start name error!!");
                 Log.d("MKSearch transitSearch:", e2.getMessage());
@@ -490,15 +488,15 @@ public class MKSearch {
         }
         if (z) {
             if (mKPlanNode2.pt != null) {
-                this.f516a.putInt("end_x", mKPlanNode2.pt.getLongitudeE6());
-                this.f516a.putInt("end_y", mKPlanNode2.pt.getLatitudeE6());
+                this.a.putInt("end_x", mKPlanNode2.pt.getLongitudeE6());
+                this.a.putInt("end_y", mKPlanNode2.pt.getLatitudeE6());
                 z2 = true;
             } else {
                 z2 = false;
             }
             if (mKPlanNode2.name != null && mKPlanNode2.name.length() <= 99) {
                 try {
-                    this.f516a.putByteArray("end_name", mKPlanNode2.name.getBytes("gb2312"));
+                    this.a.putByteArray("end_name", mKPlanNode2.name.getBytes("gb2312"));
                 } catch (UnsupportedEncodingException e3) {
                     Log.d("MKSearch transitSearch:", "translate end name error!!");
                     Log.d("MKSearch transitSearch:", e3.getMessage());
@@ -506,8 +504,8 @@ public class MKSearch {
                 z2 = true;
             }
             if (z2) {
-                this.f516a.putInt("policy", this.c);
-                return Mj.sendBundle(this.f516a) == 0 ? -1 : 0;
+                this.a.putInt("policy", this.c);
+                return Mj.sendBundle(this.a) == 0 ? -1 : 0;
             }
             return -1;
         }
@@ -520,23 +518,23 @@ public class MKSearch {
         if (mKPlanNode == null || mKPlanNode2 == null) {
             return -1;
         }
-        if (this.f516a == null) {
-            this.f516a = new Bundle();
+        if (this.a == null) {
+            this.a = new Bundle();
         } else {
-            this.f516a.clear();
+            this.a.clear();
         }
-        this.f516a.putInt("act", 11020203);
-        this.f516a.putInt("opt", 11020103);
+        this.a.putInt("act", 11020203);
+        this.a.putInt("opt", 11020103);
         if (mKPlanNode.pt != null) {
-            this.f516a.putInt("start_x", mKPlanNode.pt.getLongitudeE6());
-            this.f516a.putInt("start_y", mKPlanNode.pt.getLatitudeE6());
+            this.a.putInt("start_x", mKPlanNode.pt.getLongitudeE6());
+            this.a.putInt("start_y", mKPlanNode.pt.getLatitudeE6());
             z = true;
         } else {
             z = false;
         }
         if (mKPlanNode.name != null && mKPlanNode.name.length() <= 99) {
             try {
-                this.f516a.putByteArray("start_name", mKPlanNode.name.getBytes("gb2312"));
+                this.a.putByteArray("start_name", mKPlanNode.name.getBytes("gb2312"));
             } catch (UnsupportedEncodingException e) {
                 Log.d("MKSearch walkingSearch:", "translate start name error!!");
                 Log.d("MKSearch walkingSearch:", e.getMessage());
@@ -545,7 +543,7 @@ public class MKSearch {
                 return -1;
             }
             try {
-                this.f516a.putByteArray("start_city", str.getBytes("gb2312"));
+                this.a.putByteArray("start_city", str.getBytes("gb2312"));
             } catch (UnsupportedEncodingException e2) {
                 Log.d("MKSearch walkingSearch:", "translate start city error!!");
                 Log.d("MKSearch walkingSearch:", e2.getMessage());
@@ -554,15 +552,15 @@ public class MKSearch {
         }
         if (z) {
             if (mKPlanNode2.pt != null) {
-                this.f516a.putInt("end_x", mKPlanNode2.pt.getLongitudeE6());
-                this.f516a.putInt("end_y", mKPlanNode2.pt.getLatitudeE6());
+                this.a.putInt("end_x", mKPlanNode2.pt.getLongitudeE6());
+                this.a.putInt("end_y", mKPlanNode2.pt.getLatitudeE6());
                 z2 = true;
             } else {
                 z2 = false;
             }
             if (mKPlanNode2.name != null && mKPlanNode2.name.length() <= 99) {
                 try {
-                    this.f516a.putByteArray("end_name", mKPlanNode2.name.getBytes("gb2312"));
+                    this.a.putByteArray("end_name", mKPlanNode2.name.getBytes("gb2312"));
                 } catch (UnsupportedEncodingException e3) {
                     Log.d("MKSearch walkingSearch:", "translate end name error!!");
                     Log.d("MKSearch walkingSearch:", e3.getMessage());
@@ -571,14 +569,14 @@ public class MKSearch {
                     return -1;
                 }
                 try {
-                    this.f516a.putByteArray("end_city", str2.getBytes("gb2312"));
+                    this.a.putByteArray("end_city", str2.getBytes("gb2312"));
                 } catch (UnsupportedEncodingException e4) {
                     Log.d("MKSearch walkingSearch:", "translate end city error!!");
                     Log.d("MKSearch walkingSearch:", e4.getMessage());
                 }
                 z2 = true;
             }
-            return (z2 && Mj.sendBundle(this.f516a) != 0) ? 0 : -1;
+            return (z2 && Mj.sendBundle(this.a) != 0) ? 0 : -1;
         }
         return -1;
     }

@@ -13,9 +13,7 @@ import com.slidingmenu.lib.R;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class TopicPagerAdapter extends android.support.v4.view.ae implements com.baidu.tbadk.a.d, com.baidu.tieba.view.v {
-
-    /* renamed from: a  reason: collision with root package name */
-    int f887a = 0;
+    int a = 0;
     ArrayList b = new ArrayList();
     LayoutInflater c;
     public int d;
@@ -46,13 +44,13 @@ public class TopicPagerAdapter extends android.support.v4.view.ae implements com
             if (arrayList.size() % 2 != 0) {
                 arrayList.remove(arrayList.size() - 1);
             }
-            this.f887a = arrayList.size() / 2;
+            this.a = arrayList.size() / 2;
         }
-        if (this.f887a > 0) {
+        if (this.a > 0) {
             View inflate = this.c.inflate(R.layout.viewpager_topic, (ViewGroup) null);
-            a(inflate, (com.baidu.tieba.data.bd) arrayList.get((this.f887a - 1) * 2), (com.baidu.tieba.data.bd) arrayList.get(((this.f887a - 1) * 2) + 1));
+            a(inflate, (com.baidu.tieba.data.bd) arrayList.get((this.a - 1) * 2), (com.baidu.tieba.data.bd) arrayList.get(((this.a - 1) * 2) + 1));
             this.b.add(inflate);
-            for (int i = 0; i < this.f887a; i++) {
+            for (int i = 0; i < this.a; i++) {
                 View inflate2 = this.c.inflate(R.layout.viewpager_topic, (ViewGroup) null);
                 a(inflate2, (com.baidu.tieba.data.bd) arrayList.get(i * 2), (com.baidu.tieba.data.bd) arrayList.get((i * 2) + 1));
                 this.b.add(inflate2);
@@ -74,12 +72,12 @@ public class TopicPagerAdapter extends android.support.v4.view.ae implements com
         int i = R.drawable.bg_ad_banner_shadow_1;
         boolean z = TiebaApplication.f().at() == 1;
         ADImageViewDrawer aDImageViewDrawer = (ADImageViewDrawer) view.findViewById(R.id.ad1);
-        aDImageViewDrawer.setTag(bdVar.f780a);
+        aDImageViewDrawer.setTag(bdVar.a);
         LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) aDImageViewDrawer.getLayoutParams();
         layoutParams.width = this.d;
         layoutParams.height = this.e;
         aDImageViewDrawer.setLayoutParams(layoutParams);
-        this.f.a(bdVar.f780a, new be(this, aDImageViewDrawer));
+        this.f.a(bdVar.a, new be(this, aDImageViewDrawer));
         LinearLayout linearLayout = (LinearLayout) view.findViewById(R.id.layout1);
         linearLayout.setBackgroundResource(z ? R.drawable.bg_ad_banner_shadow_1 : R.drawable.bg_ad_banner_shadow);
         linearLayout.setOnClickListener(new bf(this, bdVar));
@@ -88,8 +86,8 @@ public class TopicPagerAdapter extends android.support.v4.view.ae implements com
         layoutParams2.width = this.d;
         layoutParams2.height = this.e;
         aDImageViewDrawer2.setLayoutParams(layoutParams2);
-        aDImageViewDrawer2.setTag(bdVar2.f780a);
-        this.f.a(bdVar2.f780a, new bg(this, aDImageViewDrawer2));
+        aDImageViewDrawer2.setTag(bdVar2.a);
+        this.f.a(bdVar2.a, new bg(this, aDImageViewDrawer2));
         LinearLayout linearLayout2 = (LinearLayout) view.findViewById(R.id.layout2);
         if (!z) {
             i = R.drawable.bg_ad_banner_shadow;
@@ -124,7 +122,7 @@ public class TopicPagerAdapter extends android.support.v4.view.ae implements com
 
     private void a() {
         this.b.clear();
-        this.f887a = 0;
+        this.a = 0;
         this.h = null;
         notifyDataSetChanged();
     }
@@ -144,7 +142,7 @@ public class TopicPagerAdapter extends android.support.v4.view.ae implements com
             while (true) {
                 int i4 = i3;
                 if (i4 < this.h.size()) {
-                    this.f.a(((com.baidu.tieba.data.bd) this.h.get(i4)).f780a, this);
+                    this.f.a(((com.baidu.tieba.data.bd) this.h.get(i4)).a, this);
                     i3 = i4 + 1;
                 } else {
                     return;

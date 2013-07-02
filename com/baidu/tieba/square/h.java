@@ -6,13 +6,11 @@ import com.baidu.mobstat.StatService;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class h implements View.OnClickListener {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ g f1433a;
+    final /* synthetic */ g a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public h(g gVar) {
-        this.f1433a = gVar;
+        this.a = gVar;
     }
 
     @Override // android.view.View.OnClickListener
@@ -21,13 +19,13 @@ public class h implements View.OnClickListener {
         Activity activity;
         Object tag = view.getTag();
         if ((tag instanceof j) && (qVar = ((j) tag).d) != null) {
-            if (qVar.f1441a != null) {
-                activity = this.f1433a.b;
+            if (qVar.a != null) {
+                activity = this.a.b;
                 StatService.onEvent(activity, "ef_category", "click");
-                BarFolderSecondDirActivity.a(this.f1433a.a(), qVar.b, qVar.f1441a, qVar.c);
+                BarFolderSecondDirActivity.a(this.a.a(), qVar.b, qVar.a, qVar.c);
                 return;
             }
-            BarFolderFirstDirActivity.a(this.f1433a.a());
+            BarFolderFirstDirActivity.a(this.a.a());
         }
     }
 }

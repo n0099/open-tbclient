@@ -11,9 +11,7 @@ import com.baidu.tieba.TiebaApplication;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public class ImageViewDrawer extends ImageView {
-
-    /* renamed from: a  reason: collision with root package name */
-    private Bitmap f1494a;
+    private Bitmap a;
     private int b;
     private String c;
     private int d;
@@ -23,7 +21,7 @@ public class ImageViewDrawer extends ImageView {
 
     public ImageViewDrawer(Context context) {
         super(context);
-        this.f1494a = com.baidu.tieba.util.d.a((int) R.drawable.icon_gif);
+        this.a = com.baidu.tieba.util.d.a((int) R.drawable.icon_gif);
         this.b = -1;
         this.c = null;
         this.d = R.drawable.pic_image_h_not;
@@ -35,7 +33,7 @@ public class ImageViewDrawer extends ImageView {
 
     public ImageViewDrawer(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f1494a = com.baidu.tieba.util.d.a((int) R.drawable.icon_gif);
+        this.a = com.baidu.tieba.util.d.a((int) R.drawable.icon_gif);
         this.b = -1;
         this.c = null;
         this.d = R.drawable.pic_image_h_not;
@@ -47,7 +45,7 @@ public class ImageViewDrawer extends ImageView {
 
     public ImageViewDrawer(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.f1494a = com.baidu.tieba.util.d.a((int) R.drawable.icon_gif);
+        this.a = com.baidu.tieba.util.d.a((int) R.drawable.icon_gif);
         this.b = -1;
         this.c = null;
         this.d = R.drawable.pic_image_h_not;
@@ -118,7 +116,7 @@ public class ImageViewDrawer extends ImageView {
             if (d != null) {
                 d.a(canvas, (getWidth() - d.a()) >> 1, (getHeight() - d.b()) >> 1, (Paint) null);
                 if (z2) {
-                    canvas.drawBitmap(this.f1494a, 0.0f, 0.0f, (Paint) null);
+                    canvas.drawBitmap(this.a, 0.0f, 0.0f, (Paint) null);
                 }
             }
         } else if (d != null) {
@@ -131,7 +129,7 @@ public class ImageViewDrawer extends ImageView {
             this.f.setAlpha(255 - i);
             d.a(canvas, (getWidth() - d.a()) >> 1, (getHeight() - d.b()) >> 1, this.f);
             if (z2) {
-                canvas.drawBitmap(this.f1494a, 0.0f, 0.0f, (Paint) null);
+                canvas.drawBitmap(this.a, 0.0f, 0.0f, (Paint) null);
             }
         } else {
             com.baidu.adp.widget.a.b defalutBitmap2 = getDefalutBitmap();

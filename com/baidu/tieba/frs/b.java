@@ -5,13 +5,11 @@ import android.widget.AbsListView;
 import android.widget.AdapterView;
 /* loaded from: classes.dex */
 class b implements AbsListView.OnScrollListener {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ FrsActivity f852a;
+    final /* synthetic */ FrsActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(FrsActivity frsActivity) {
-        this.f852a = frsActivity;
+        this.a = frsActivity;
     }
 
     @Override // android.widget.AbsListView.OnScrollListener
@@ -20,11 +18,11 @@ class b implements AbsListView.OnScrollListener {
         Runnable runnable;
         Handler handler2;
         Runnable runnable2;
-        handler = this.f852a.I;
-        runnable = this.f852a.K;
+        handler = this.a.I;
+        runnable = this.a.K;
         handler.removeCallbacks(runnable);
-        handler2 = this.f852a.I;
-        runnable2 = this.f852a.K;
+        handler2 = this.a.I;
+        runnable2 = this.a.K;
         handler2.postDelayed(runnable2, 300L);
     }
 
@@ -36,16 +34,16 @@ class b implements AbsListView.OnScrollListener {
         AdapterView.OnItemLongClickListener onItemLongClickListener;
         az azVar4;
         if (i == 0) {
-            azVar3 = this.f852a.l;
-            onItemLongClickListener = this.f852a.O;
+            azVar3 = this.a.l;
+            onItemLongClickListener = this.a.O;
             azVar3.a(onItemLongClickListener);
-            azVar4 = this.f852a.l;
+            azVar4 = this.a.l;
             azVar4.e(false);
             return;
         }
-        azVar = this.f852a.l;
+        azVar = this.a.l;
         azVar.a((AdapterView.OnItemLongClickListener) null);
-        azVar2 = this.f852a.l;
+        azVar2 = this.a.l;
         azVar2.e(true);
     }
 }

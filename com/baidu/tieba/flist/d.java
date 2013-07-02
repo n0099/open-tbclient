@@ -7,13 +7,11 @@ import com.slidingmenu.lib.R;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class d implements View.OnClickListener {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ ForumListActivity f815a;
+    final /* synthetic */ ForumListActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(ForumListActivity forumListActivity) {
-        this.f815a = forumListActivity;
+        this.a = forumListActivity;
     }
 
     @Override // android.view.View.OnClickListener
@@ -21,21 +19,24 @@ public class d implements View.OnClickListener {
         boolean z;
         f fVar;
         f fVar2;
+        f fVar3;
         int i;
-        z = this.f815a.q;
+        z = this.a.q;
         if (z) {
-            ForumListModel.Forum[] forumArr = new ForumListModel.Forum[10];
-            fVar = this.f815a.s;
-            System.arraycopy(fVar.a(), 0, forumArr, 0, 10);
-            fVar2 = this.f815a.s;
-            fVar2.a(forumArr);
-            this.f815a.q = false;
-            this.f815a.f811a.r.setText(this.f815a.getString(R.string.flist_expand_list));
-            ImageView imageView = this.f815a.f811a.s;
-            i = this.f815a.e;
+            fVar = this.a.s;
+            int min = Math.min(fVar.getCount(), 10);
+            ForumListModel.Forum[] forumArr = new ForumListModel.Forum[min];
+            fVar2 = this.a.s;
+            System.arraycopy(fVar2.a(), 0, forumArr, 0, min);
+            fVar3 = this.a.s;
+            fVar3.a(forumArr);
+            this.a.q = false;
+            this.a.a.r.setText(this.a.getString(R.string.flist_expand_list));
+            ImageView imageView = this.a.a.s;
+            i = this.a.e;
             imageView.setImageResource(i);
             return;
         }
-        new k(this.f815a, null).execute(new Void[0]);
+        new k(this.a, null).execute(new Void[0]);
     }
 }

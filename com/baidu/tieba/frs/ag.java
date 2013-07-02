@@ -12,18 +12,16 @@ import com.slidingmenu.lib.R;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class ag extends BaseAdapter {
-
-    /* renamed from: a  reason: collision with root package name */
-    private Context f833a;
+    private Context a;
     private ArrayList b;
     private String c;
     private int d = 0;
     private int e = 0;
 
     public ag(Context context, ArrayList arrayList) {
-        this.f833a = context;
+        this.a = context;
         this.b = arrayList;
-        this.c = this.f833a.getText(R.string.frs_good).toString();
+        this.c = this.a.getText(R.string.frs_good).toString();
         a();
     }
 
@@ -94,10 +92,10 @@ public class ag extends BaseAdapter {
         View view3;
         try {
             if (view == null) {
-                view3 = LayoutInflater.from(this.f833a).inflate(R.layout.dialog_good_item, (ViewGroup) null);
+                view3 = LayoutInflater.from(this.a).inflate(R.layout.dialog_good_item, (ViewGroup) null);
                 try {
                     ahVar = new ah(this, null);
-                    ahVar.f834a = (TextView) view3.findViewById(R.id.frs_dia_good_text);
+                    ahVar.a = (TextView) view3.findViewById(R.id.frs_dia_good_text);
                     ahVar.b = (ImageView) view3.findViewById(R.id.frs_dia_divider);
                     view3.setTag(ahVar);
                 } catch (Exception e) {
@@ -113,22 +111,22 @@ public class ag extends BaseAdapter {
             if (this.d == 1) {
                 ahVar.b.setBackgroundColor(-14078410);
                 if (this.e == i) {
-                    ahVar.f834a.setTextColor(-11433787);
+                    ahVar.a.setTextColor(-11433787);
                 } else {
-                    ahVar.f834a.setTextColor(-10523526);
+                    ahVar.a.setTextColor(-10523526);
                 }
             } else {
                 ahVar.b.setBackgroundColor(-8947849);
                 if (this.e == i) {
-                    ahVar.f834a.setTextColor(-12809526);
+                    ahVar.a.setTextColor(-12809526);
                 } else {
-                    ahVar.f834a.setTextColor(-8947849);
+                    ahVar.a.setTextColor(-8947849);
                 }
             }
             if (this.e == i) {
-                ahVar.f834a.setTextColor(-12809526);
+                ahVar.a.setTextColor(-12809526);
             } else {
-                ahVar.f834a.setTextColor(-8947849);
+                ahVar.a.setTextColor(-8947849);
             }
             if (i % 4 == 3 || i == getCount() - 1) {
                 ahVar.b.setVisibility(4);
@@ -139,7 +137,7 @@ public class ag extends BaseAdapter {
             if (item == null) {
                 return view3;
             }
-            ahVar.f834a.setText(((com.baidu.tieba.data.u) item).a());
+            ahVar.a.setText(((com.baidu.tieba.data.u) item).a());
             return view3;
         } catch (Exception e2) {
             exc = e2;

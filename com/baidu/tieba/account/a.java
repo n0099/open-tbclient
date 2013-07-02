@@ -10,9 +10,7 @@ import com.baidu.tieba.util.DatabaseService;
 /* loaded from: classes.dex */
 public class a {
     private static a b = null;
-
-    /* renamed from: a  reason: collision with root package name */
-    private b f637a = null;
+    private b a = null;
     private c c = null;
 
     public static a a() {
@@ -92,30 +90,30 @@ public class a {
         String aM;
         try {
             if (!TiebaApplication.n() && (aM = TiebaApplication.f().aM()) != null) {
-                this.f637a = new b(this);
+                this.a = new b(this);
                 String[] split = aM.split(":");
                 int length = split.length;
                 if (length >= 1) {
                     if ("1".equals(split[0])) {
-                        this.f637a.f662a = true;
+                        this.a.a = true;
                     } else {
-                        this.f637a.f662a = false;
+                        this.a.a = false;
                     }
                 }
                 if (length >= 2) {
-                    this.f637a.b = split[1];
+                    this.a.b = split[1];
                 }
                 if (length >= 3) {
-                    this.f637a.c = split[2];
+                    this.a.c = split[2];
                 }
                 if (length >= 4) {
                     if (split[3] == null || split[3].equalsIgnoreCase("null")) {
-                        this.f637a.d = null;
+                        this.a.d = null;
                     } else {
-                        this.f637a.d = split[3];
+                        this.a.d = split[3];
                     }
                 }
-                if (this.f637a != null && !this.f637a.f662a) {
+                if (this.a != null && !this.a.a) {
                     DatabaseService.m();
                     TiebaApplication.a((AccountData) null);
                     e();
@@ -154,18 +152,18 @@ public class a {
     }
 
     public void e() {
-        this.f637a = null;
+        this.a = null;
         TiebaApplication.f().aL();
     }
 
     public void f() {
-        this.f637a = null;
+        this.a = null;
     }
 
     public void a(Activity activity, String str) {
         String H;
-        if (this.f637a != null && this.f637a.f662a && TiebaApplication.E() == null && ((H = TiebaApplication.H()) == null || !H.equals(this.f637a.d))) {
-            ReLoginShareActivity.a(activity, this.f637a.d, this.f637a.b, this.f637a.c, str);
+        if (this.a != null && this.a.a && TiebaApplication.E() == null && ((H = TiebaApplication.H()) == null || !H.equals(this.a.d))) {
+            ReLoginShareActivity.a(activity, this.a.d, this.a.b, this.a.c, str);
         }
         f();
     }
@@ -176,7 +174,7 @@ public class a {
             loginShareAssistant.initial(context, "tb", "1536");
             this.c = new c(this, null);
             loginShareAssistant.setLoginShareListener(this.c);
-        } catch (Exception e) {
+        } catch (Error e) {
             com.baidu.tieba.util.z.b(getClass().getName(), "init", e.getMessage());
         }
     }

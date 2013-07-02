@@ -5,13 +5,11 @@ import java.io.File;
 import java.io.FileWriter;
 /* loaded from: classes.dex */
 class h implements Runnable {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ PerformMonitorService f1410a;
+    final /* synthetic */ PerformMonitorService a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public h(PerformMonitorService performMonitorService) {
-        this.f1410a = performMonitorService;
+        this.a = performMonitorService;
     }
 
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:48:0x0002 */
@@ -32,7 +30,7 @@ class h implements Runnable {
         try {
             File f = com.baidu.tieba.util.m.f("performance_sample.log");
             if (f == null || f.length() > 51200) {
-                this.f1410a.b();
+                this.a.b();
             } else {
                 FileWriter fileWriter2 = new FileWriter(f, true);
                 try {
@@ -43,16 +41,16 @@ class h implements Runnable {
                     while (z && i < 10) {
                         Thread.sleep(1000L);
                         int i5 = i + 1;
-                        int a2 = com.baidu.adp.lib.debug.b.a();
-                        if (a2 > 0) {
-                            i2 += a2;
-                            if (i4 >= a2) {
-                                i4 = a2;
+                        int a = com.baidu.adp.lib.debug.b.a();
+                        if (a > 0) {
+                            i2 += a;
+                            if (i4 >= a) {
+                                i4 = a;
                             }
-                            if (i3 > a2) {
-                                a2 = i4;
+                            if (i3 > a) {
+                                a = i4;
                             }
-                            i3 = a2;
+                            i3 = a;
                             i = i5;
                         } else {
                             i = i5;
@@ -74,7 +72,7 @@ class h implements Runnable {
                     fileWriter2.append((CharSequence) ("gc:time=" + String.valueOf(currentTimeMillis2) + "\ngc=" + d + "\n"));
                     fileWriter2.flush();
                     fileWriter2.close();
-                    r0 = this.f1410a.h;
+                    r0 = this.a.h;
                     ?? iVar = new i(this);
                     r0.post(iVar);
                     fileWriter = iVar;
@@ -89,7 +87,7 @@ class h implements Runnable {
                         }
                     }
                     z.b(getClass().getName(), "sampleRunnable", e.toString());
-                    this.f1410a.stopSelf();
+                    this.a.stopSelf();
                 }
             }
         } catch (Exception e3) {

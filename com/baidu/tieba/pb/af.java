@@ -9,15 +9,13 @@ import com.baidu.tieba.write.VcodeActivity;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class af extends BdAsyncTask {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ ImagePbActivity f1197a;
+    final /* synthetic */ ImagePbActivity a;
     private WriteModel b;
     private com.baidu.tieba.util.r c = null;
     private boolean d = false;
 
     public af(ImagePbActivity imagePbActivity, WriteModel writeModel) {
-        this.f1197a = imagePbActivity;
+        this.a = imagePbActivity;
         this.b = null;
         this.b = writeModel;
     }
@@ -29,7 +27,7 @@ public class af extends BdAsyncTask {
         if (this.d) {
             return null;
         }
-        this.c = new com.baidu.tieba.util.r(String.valueOf(com.baidu.tieba.data.g.f787a) + "c/c/post/add");
+        this.c = new com.baidu.tieba.util.r(String.valueOf(com.baidu.tieba.data.g.a) + "c/c/post/add");
         this.c.a("anonymous", "0");
         this.c.a("fid", this.b.getForumId());
         this.c.a("kw", this.b.getForumName());
@@ -55,17 +53,17 @@ public class af extends BdAsyncTask {
                 this.b.setVcodeMD5(beVar.a());
                 this.b.setVcodeUrl(beVar.b());
                 if (beVar.c().equals("4")) {
-                    NewVcodeActivity.a(this.f1197a, this.b, 1200006);
+                    NewVcodeActivity.a(this.a, this.b, 1200006);
                     return;
                 } else {
-                    VcodeActivity.a(this.f1197a, this.b, 1200006);
+                    VcodeActivity.a(this.a, this.b, 1200006);
                     return;
                 }
             }
-            this.f1197a.a(str);
+            this.a.a(str);
             return;
         }
-        this.f1197a.a(str);
+        this.a.a(str);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -73,21 +71,21 @@ public class af extends BdAsyncTask {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void a(String str) {
         super.a((Object) str);
-        this.f1197a.h();
-        this.f1197a.v = null;
+        this.a.h();
+        this.a.v = null;
         if (this.c != null) {
             if (!this.c.c()) {
                 a(this.c.e(), this.c.g(), str);
             } else {
-                this.f1197a.q();
+                this.a.q();
             }
         }
     }
 
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void cancel() {
-        this.f1197a.v = null;
-        this.f1197a.h();
+        this.a.v = null;
+        this.a.h();
         this.d = true;
         if (this.c != null) {
             this.c.h();

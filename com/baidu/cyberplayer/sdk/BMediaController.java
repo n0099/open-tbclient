@@ -7,9 +7,7 @@ import android.widget.RelativeLayout;
 import com.baidu.cyberplayer.sdk.internal.IVideoViewControllerBridge;
 /* loaded from: classes.dex */
 public class BMediaController extends RelativeLayout {
-
-    /* renamed from: a  reason: collision with root package name */
-    private View f435a;
+    private View a;
 
     /* renamed from: a  reason: collision with other field name */
     private IVideoViewControllerBridge f1a;
@@ -17,7 +15,7 @@ public class BMediaController extends RelativeLayout {
     public BMediaController(Context context) {
         super(context);
         this.f1a = null;
-        this.f435a = null;
+        this.a = null;
         this.f1a = BCyberPlayerFactory.a(context, this);
         a();
     }
@@ -25,7 +23,7 @@ public class BMediaController extends RelativeLayout {
     public BMediaController(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         this.f1a = null;
-        this.f435a = null;
+        this.a = null;
         this.f1a = BCyberPlayerFactory.a(context, attributeSet, this);
         a();
     }
@@ -33,7 +31,7 @@ public class BMediaController extends RelativeLayout {
     public BMediaController(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet);
         this.f1a = null;
-        this.f435a = null;
+        this.a = null;
         this.f1a = BCyberPlayerFactory.a(context, attributeSet, i, this);
         a();
     }
@@ -70,6 +68,6 @@ public class BMediaController extends RelativeLayout {
     }
 
     public void setAnchorView(View view) {
-        this.f435a = view;
+        this.a = view;
     }
 }

@@ -4,9 +4,7 @@ import com.baidu.tieba.data.MarkData;
 /* loaded from: classes.dex */
 public class am extends com.baidu.adp.a.c {
     private MarkData b;
-
-    /* renamed from: a  reason: collision with root package name */
-    private boolean f1019a = false;
+    private boolean a = false;
     private an c = null;
     private ao d = null;
 
@@ -16,7 +14,7 @@ public class am extends com.baidu.adp.a.c {
     }
 
     public boolean a() {
-        return this.f1019a;
+        return this.a;
     }
 
     public void a(ao aoVar) {
@@ -28,7 +26,7 @@ public class am extends com.baidu.adp.a.c {
     }
 
     public void a(boolean z) {
-        this.f1019a = z;
+        this.a = z;
     }
 
     public String b() {

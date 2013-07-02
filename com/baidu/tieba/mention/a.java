@@ -3,13 +3,11 @@ package com.baidu.tieba.mention;
 import com.baidu.tieba.util.DatabaseService;
 /* loaded from: classes.dex */
 class a implements n {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ AtMeActivity f978a;
+    final /* synthetic */ AtMeActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(AtMeActivity atMeActivity) {
-        this.f978a = atMeActivity;
+        this.a = atMeActivity;
     }
 
     @Override // com.baidu.tieba.mention.n

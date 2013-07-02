@@ -14,9 +14,7 @@ import com.baidu.adp.e;
 import com.baidu.adp.f;
 /* loaded from: classes.dex */
 public class BdSwitchView extends FrameLayout {
-
-    /* renamed from: a  reason: collision with root package name */
-    FrameLayout f194a;
+    FrameLayout a;
     ImageView b;
     private c c;
     private SwitchState d;
@@ -66,7 +64,7 @@ public class BdSwitchView extends FrameLayout {
         this.e = false;
         this.f = false;
         this.i = null;
-        this.f194a = null;
+        this.a = null;
         this.b = null;
         a(context);
     }
@@ -78,14 +76,14 @@ public class BdSwitchView extends FrameLayout {
         this.e = false;
         this.f = false;
         this.i = null;
-        this.f194a = null;
+        this.a = null;
         this.b = null;
         a(context);
     }
 
     private void a(Context context) {
         LayoutInflater.from(context).inflate(f.bd_switch_view, (ViewGroup) this, true);
-        this.f194a = (FrameLayout) findViewById(e.layout);
+        this.a = (FrameLayout) findViewById(e.layout);
         this.b = (ImageView) findViewById(e.switch_image);
         d();
         e();
@@ -95,9 +93,9 @@ public class BdSwitchView extends FrameLayout {
     }
 
     private void d() {
-        FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.f194a.getLayoutParams();
-        layoutParams.width = this.f194a.getForeground().getIntrinsicWidth();
-        this.f194a.setLayoutParams(layoutParams);
+        FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.a.getLayoutParams();
+        layoutParams.width = this.a.getForeground().getIntrinsicWidth();
+        this.a.setLayoutParams(layoutParams);
     }
 
     private void e() {
@@ -127,29 +125,7 @@ public class BdSwitchView extends FrameLayout {
     }
 
     private float getTranslateDis() {
-        return this.f194a.getForeground().getIntrinsicWidth() * 0.6666667f;
-    }
-
-    /* JADX DEBUG: Marked for inline */
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: Failed to check method usage
-    java.util.ConcurrentModificationException
-    	at java.base/java.util.ArrayList$ArrayListSpliterator.forEachRemaining(ArrayList.java:1631)
-    	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:509)
-    	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499)
-    	at java.base/java.util.stream.ReduceOps$ReduceOp.evaluateSequential(ReduceOps.java:921)
-    	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
-    	at java.base/java.util.stream.ReferencePipeline.collect(ReferencePipeline.java:682)
-    	at jadx.core.codegen.ClassGen.skipMethod(ClassGen.java:332)
-    	at jadx.core.codegen.ClassGen.addMethod(ClassGen.java:298)
-    	at jadx.core.codegen.ClassGen.lambda$addInnerClsAndMethods$2(ClassGen.java:272)
-    	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:183)
-    	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
-    	at java.base/java.util.stream.SortedOps$RefSortingSink.end(SortedOps.java:395)
-    	at java.base/java.util.stream.Sink$ChainedReference.end(Sink.java:258)
-     */
-    public static /* synthetic */ void b(BdSwitchView bdSwitchView, boolean z) {
-        bdSwitchView.a(z);
+        return this.a.getForeground().getIntrinsicWidth() * 0.6666667f;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -183,7 +159,7 @@ public class BdSwitchView extends FrameLayout {
     }
 
     public void setSwitchFrame(int i) {
-        this.f194a.setForeground(getResources().getDrawable(i));
+        this.a.setForeground(getResources().getDrawable(i));
         d();
     }
 

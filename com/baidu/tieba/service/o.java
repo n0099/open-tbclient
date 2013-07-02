@@ -7,9 +7,7 @@ import com.baidu.tieba.util.z;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class o extends BdAsyncTask {
-
-    /* renamed from: a  reason: collision with root package name */
-    com.baidu.tieba.util.r f1417a = null;
+    com.baidu.tieba.util.r a = null;
     final /* synthetic */ TiebaMessageService b;
 
     public o(TiebaMessageService tiebaMessageService) {
@@ -34,9 +32,9 @@ public class o extends BdAsyncTask {
             e = e2;
         }
         if (TiebaApplication.f().aa()) {
-            this.f1417a = new com.baidu.tieba.util.r(String.valueOf(com.baidu.tieba.data.g.f787a) + "c/s/msg");
-            String j = this.f1417a.j();
-            if (this.f1417a.c()) {
+            this.a = new com.baidu.tieba.util.r(String.valueOf(com.baidu.tieba.data.g.a) + "c/s/msg");
+            String j = this.a.j();
+            if (this.a.c()) {
                 afVar = new af();
                 try {
                     afVar.a(j);
@@ -55,9 +53,9 @@ public class o extends BdAsyncTask {
 
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void cancel() {
-        this.b.f1400a = null;
-        if (this.f1417a != null) {
-            this.f1417a.h();
+        this.b.a = null;
+        if (this.a != null) {
+            this.a.h();
         }
         super.cancel(true);
     }
@@ -68,7 +66,7 @@ public class o extends BdAsyncTask {
     public void a(af afVar) {
         try {
             super.a((Object) afVar);
-            this.b.f1400a = null;
+            this.b.a = null;
             if (afVar != null) {
                 this.b.b = afVar;
                 this.b.b();

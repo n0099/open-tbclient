@@ -9,13 +9,11 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 /* loaded from: classes.dex */
 public class m extends BaseAdapter {
-
-    /* renamed from: a  reason: collision with root package name */
-    private Context f1591a;
+    private Context a;
 
     public m(Context context) {
-        this.f1591a = null;
-        this.f1591a = context;
+        this.a = null;
+        this.a = context;
     }
 
     @Override // android.widget.Adapter
@@ -37,10 +35,10 @@ public class m extends BaseAdapter {
     public View getView(int i, View view, ViewGroup viewGroup) {
         ImageView imageView;
         if (view == null) {
-            ImageView imageView2 = new ImageView(this.f1591a);
+            ImageView imageView2 = new ImageView(this.a);
             imageView2.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
-            int a2 = com.baidu.tieba.util.ab.a(this.f1591a, 50.0f);
-            imageView2.setLayoutParams(new AbsListView.LayoutParams(a2, a2));
+            int a = com.baidu.tieba.util.ab.a(this.a, 50.0f);
+            imageView2.setLayoutParams(new AbsListView.LayoutParams(a, a));
             imageView = imageView2;
             view = imageView2;
         } else {

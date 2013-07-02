@@ -10,9 +10,9 @@ import java.io.RandomAccessFile;
 class d {
     /* renamed from: a  reason: collision with other method in class */
     public static String m15a(Context context) {
-        ApplicationInfo a2 = a(context);
-        if (a2 != null) {
-            return a2.sourceDir;
+        ApplicationInfo a = a(context);
+        if (a != null) {
+            return a.sourceDir;
         }
         return null;
     }

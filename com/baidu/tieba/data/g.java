@@ -9,18 +9,16 @@ import com.baidu.tieba.TiebaApplication;
 import com.baidu.zeus.NotificationProxy;
 /* loaded from: classes.dex */
 public class g {
-
-    /* renamed from: a  reason: collision with root package name */
-    public static String f787a = "http://c.tieba.baidu.com/";
+    public static String a = "http://c.tieba.baidu.com/";
     public static final Long b = 3600000L;
     public static final Long c = 36000000L;
     public static final Long d = 36000000L;
     public static final Long e = 86400000L;
-    public static final String f = String.valueOf(f787a) + "c/s/apprecommend";
-    public static final String g = String.valueOf(f787a) + "c/s/recommend/";
-    public static final String h = String.valueOf(f787a) + "c/s/classic";
+    public static final String f = String.valueOf(a) + "c/s/apprecommend";
+    public static final String g = String.valueOf(a) + "c/s/recommend/";
+    public static final String h = String.valueOf(a) + "c/s/classic";
     public static String i = "http://tb.himg.baidu.com/sys/portrait/item/";
-    public static final String j = String.valueOf(f787a) + "c/p/img?";
+    public static final String j = String.valueOf(a) + "c/p/img?";
     public static int k = 80;
     public static final Bitmap.Config l = Bitmap.Config.RGB_565;
     private static String m = null;

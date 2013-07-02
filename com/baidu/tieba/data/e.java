@@ -1,15 +1,13 @@
 package com.baidu.tieba.data;
 /* loaded from: classes.dex */
 public class e {
-
-    /* renamed from: a  reason: collision with root package name */
-    private d f785a;
+    private d a;
     private boolean b;
     private int c;
     private String d;
 
     public void a(d dVar) {
-        this.f785a = dVar;
+        this.a = dVar;
     }
 
     public boolean a() {

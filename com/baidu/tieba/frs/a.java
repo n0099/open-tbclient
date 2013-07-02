@@ -7,14 +7,12 @@ import java.util.ArrayList;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 class a implements ac {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ FrsActivity f828a;
+    final /* synthetic */ FrsActivity a;
     private long b = 0;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(FrsActivity frsActivity) {
-        this.f828a = frsActivity;
+        this.a = frsActivity;
     }
 
     @Override // com.baidu.tieba.frs.ac
@@ -27,19 +25,19 @@ class a implements ac {
         this.b = System.nanoTime();
         switch (i) {
             case 1:
-                azVar3 = this.f828a.l;
+                azVar3 = this.a.l;
                 azVar3.c(true);
-                azVar4 = this.f828a.l;
+                azVar4 = this.a.l;
                 azVar4.k();
                 return;
             case 2:
-                azVar = this.f828a.l;
+                azVar = this.a.l;
                 azVar.d(true);
-                azVar2 = this.f828a.l;
+                azVar2 = this.a.l;
                 azVar2.k();
                 return;
             case 3:
-                azVar5 = this.f828a.l;
+                azVar5 = this.a.l;
                 azVar5.b(true);
                 return;
             default:
@@ -78,68 +76,68 @@ class a implements ac {
         if (yVar == null || !yVar.b) {
             FrsActivity.r = 1;
         } else {
-            boolean z3 = NetWorkCore.c(this.f828a) == NetWorkCore.NetworkStateInfo.WIFI;
-            azVar10 = this.f828a.l;
+            boolean z3 = NetWorkCore.c(this.a) == NetWorkCore.NetworkStateInfo.WIFI;
+            azVar10 = this.a.l;
             azVar10.g().b(z3);
             FrsActivity.p = 0L;
             FrsActivity.q = 0L;
             FrsActivity.r = 0;
         }
-        azVar = this.f828a.l;
+        azVar = this.a.l;
         azVar.b(false);
         switch (i) {
             case 1:
-                azVar4 = this.f828a.l;
+                azVar4 = this.a.l;
                 azVar4.c(false);
-                azVar5 = this.f828a.l;
+                azVar5 = this.a.l;
                 azVar5.k();
                 break;
             case 2:
-                azVar2 = this.f828a.l;
+                azVar2 = this.a.l;
                 azVar2.d(false);
-                azVar3 = this.f828a.l;
+                azVar3 = this.a.l;
                 azVar3.k();
                 break;
         }
         if (jSONObject != null && (yVar == null || yVar.c == 0)) {
-            vVar = this.f828a.v;
+            vVar = this.a.v;
             if (vVar != null) {
-                vVar6 = this.f828a.v;
+                vVar6 = this.a.v;
                 if (vVar6.e().a() == 1) {
-                    this.f828a.A = "frs_page";
+                    this.a.A = "frs_page";
                 } else {
-                    this.f828a.A = "normal_page";
+                    this.a.A = "normal_page";
                 }
-                FrsActivity frsActivity = this.f828a;
-                vVar7 = this.f828a.v;
+                FrsActivity frsActivity = this.a;
+                vVar7 = this.a.v;
                 frsActivity.c = vVar7.a().b();
-                z2 = this.f828a.t;
+                z2 = this.a.t;
                 if (z2) {
-                    this.f828a.A = "good_page";
+                    this.a.A = "good_page";
                 }
             }
-            z = this.f828a.u;
+            z = this.a.u;
             if (z) {
-                azVar9 = this.f828a.l;
+                azVar9 = this.a.l;
                 azVar9.q();
-                this.f828a.u = false;
+                this.a.u = false;
             }
-            str = this.f828a.A;
+            str = this.a.A;
             if (str == "frs_page") {
-                azVar8 = this.f828a.l;
+                azVar8 = this.a.l;
                 azVar8.m();
             } else {
-                str2 = this.f828a.A;
+                str2 = this.a.A;
                 if (str2 == "normal_page") {
-                    azVar7 = this.f828a.l;
+                    azVar7 = this.a.l;
                     azVar7.l();
                 } else {
-                    str3 = this.f828a.A;
+                    str3 = this.a.A;
                     if (str3 == "good_page") {
-                        azVar6 = this.f828a.l;
-                        vVar2 = this.f828a.v;
+                        azVar6 = this.a.l;
+                        vVar2 = this.a.v;
                         ArrayList h = vVar2.a().h();
-                        onItemClickListener = this.f828a.V;
+                        onItemClickListener = this.a.V;
                         azVar6.a(h, onItemClickListener);
                     }
                 }
@@ -148,18 +146,18 @@ class a implements ac {
             if (yVar != null) {
                 FrsActivity.q = yVar.e;
             }
-            vVar3 = this.f828a.v;
+            vVar3 = this.a.v;
             if (vVar3 != null) {
-                vVar4 = this.f828a.v;
+                vVar4 = this.a.v;
                 if (vVar4.b() != null) {
-                    vVar5 = this.f828a.v;
+                    vVar5 = this.a.v;
                     if (vVar5.b().size() == 0) {
-                        i2 = this.f828a.b;
+                        i2 = this.a.b;
                         if (i2 == 1) {
-                            this.f828a.a(this.f828a.getString(R.string.no_more_to_load));
-                            i3 = this.f828a.f;
+                            this.a.a(this.a.getString(R.string.no_more_to_load));
+                            i3 = this.a.f;
                             if (i3 > 1) {
-                                FrsActivity frsActivity2 = this.f828a;
+                                FrsActivity frsActivity2 = this.a;
                                 i4 = frsActivity2.f;
                                 frsActivity2.f = i4 - 1;
                                 return;
@@ -169,11 +167,11 @@ class a implements ac {
                     }
                 }
             }
-            this.f828a.B();
+            this.a.B();
         } else {
-            this.f828a.a(yVar);
+            this.a.a(yVar);
         }
-        this.f828a.m = null;
+        this.a.m = null;
         System.gc();
     }
 }

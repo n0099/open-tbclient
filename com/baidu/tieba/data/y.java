@@ -6,9 +6,7 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class y extends z {
-
-    /* renamed from: a  reason: collision with root package name */
-    private List f805a = new ArrayList();
+    private List a = new ArrayList();
     private boolean b;
 
     public boolean a() {
@@ -16,7 +14,7 @@ public class y extends z {
     }
 
     public List b() {
-        return this.f805a;
+        return this.a;
     }
 
     @Override // com.baidu.tieba.data.z
@@ -30,7 +28,7 @@ public class y extends z {
                     for (int i = 0; i < optJSONArray.length(); i++) {
                         z zVar = new z();
                         zVar.a(optJSONArray.getJSONObject(i));
-                        this.f805a.add(zVar);
+                        this.a.add(zVar);
                     }
                 }
             } catch (Exception e) {

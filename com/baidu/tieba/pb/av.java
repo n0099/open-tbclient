@@ -4,13 +4,11 @@ import android.content.DialogInterface;
 import com.baidu.tieba.data.MarkData;
 /* loaded from: classes.dex */
 class av implements DialogInterface.OnClickListener {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ NewPbActivity f1213a;
+    final /* synthetic */ NewPbActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public av(NewPbActivity newPbActivity) {
-        this.f1213a = newPbActivity;
+        this.a = newPbActivity;
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:11:0x003b, code lost:
@@ -29,31 +27,31 @@ class av implements DialogInterface.OnClickListener {
         com.baidu.tieba.model.am amVar3;
         com.baidu.tieba.model.ax axVar2;
         boolean z = true;
-        if (this.f1213a.f1189a != null) {
+        if (this.a.a != null) {
             if (i == 0) {
-                this.f1213a.f1189a.e(this.f1213a);
-                this.f1213a.f1189a = null;
+                this.a.a.e(this.a);
+                this.a.a = null;
             } else if (i == 1) {
-                if (this.f1213a.f1189a.d() != null) {
-                    String d = this.f1213a.f1189a.d();
-                    axVar2 = this.f1213a.j;
+                if (this.a.a.d() != null) {
+                    String d = this.a.a.d();
+                    axVar2 = this.a.j;
                 }
                 z = false;
-                axVar = this.f1213a.j;
-                MarkData b2 = axVar.b(this.f1213a.f1189a);
+                axVar = this.a.j;
+                MarkData b2 = axVar.b(this.a.a);
                 if (b2 != null) {
-                    b = this.f1213a.b(1100009);
+                    b = this.a.b(1100009);
                     if (b) {
-                        amVar = this.f1213a.k;
+                        amVar = this.a.k;
                         amVar.a(b2);
-                        bkVar = this.f1213a.p;
+                        bkVar = this.a.p;
                         bkVar.m();
                         if (!z) {
-                            amVar3 = this.f1213a.k;
+                            amVar3 = this.a.k;
                             amVar3.c();
                             return;
                         }
-                        amVar2 = this.f1213a.k;
+                        amVar2 = this.a.k;
                         amVar2.d();
                     }
                 }

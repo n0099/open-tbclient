@@ -8,13 +8,11 @@ import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ao extends BdAsyncTask {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ WriteActivity f1567a;
+    final /* synthetic */ WriteActivity a;
     private String b;
 
     public ao(WriteActivity writeActivity, String str) {
-        this.f1567a = writeActivity;
+        this.a = writeActivity;
         this.b = null;
         this.b = str;
     }
@@ -35,14 +33,14 @@ public class ao extends BdAsyncTask {
         ProgressBar progressBar;
         ImageView imageView;
         FrameLayout frameLayout;
-        this.f1567a.u = null;
-        progressBar = this.f1567a.n;
+        this.a.u = null;
+        progressBar = this.a.n;
         progressBar.setVisibility(8);
-        imageView = this.f1567a.p;
+        imageView = this.a.p;
         imageView.setVisibility(8);
-        frameLayout = this.f1567a.o;
+        frameLayout = this.a.o;
         frameLayout.setVisibility(8);
-        this.f1567a.p();
+        this.a.p();
         super.cancel(true);
     }
 
@@ -57,8 +55,8 @@ public class ao extends BdAsyncTask {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void a(Bitmap bitmap) {
         super.a((Object) bitmap);
-        this.f1567a.u = null;
+        this.a.u = null;
         com.baidu.tieba.util.z.a(getClass().getName(), "onPostExecute", "is Null?" + String.valueOf(bitmap == null));
-        this.f1567a.a(bitmap);
+        this.a.a(bitmap);
     }
 }

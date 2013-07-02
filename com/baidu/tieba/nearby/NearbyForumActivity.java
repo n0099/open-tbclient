@@ -10,9 +10,7 @@ import android.widget.ProgressBar;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public class NearbyForumActivity extends com.baidu.tieba.g {
-
-    /* renamed from: a  reason: collision with root package name */
-    private Address f1116a = null;
+    private Address a = null;
     private com.baidu.tieba.model.at b = null;
     private ListView c = null;
     private d d = null;
@@ -85,7 +83,7 @@ public class NearbyForumActivity extends com.baidu.tieba.g {
 
     public void a(Address address, boolean z) {
         if (address != null) {
-            this.f1116a = address;
+            this.a = address;
             if (!this.j) {
                 if (this.g != null) {
                     this.g.cancel();
@@ -93,9 +91,9 @@ public class NearbyForumActivity extends com.baidu.tieba.g {
                 }
                 this.j = true;
                 this.k.setVisibility(0);
-                this.g = new c(this, this.f1116a, z);
+                this.g = new c(this, this.a, z);
                 this.g.setPriority(3);
-                this.g.execute(String.valueOf(com.baidu.tieba.data.g.f787a) + "c/f/lbs/forum");
+                this.g.execute(String.valueOf(com.baidu.tieba.data.g.a) + "c/f/lbs/forum");
             }
         }
     }

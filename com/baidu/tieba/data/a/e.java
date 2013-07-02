@@ -1,15 +1,13 @@
 package com.baidu.tieba.data.a;
 /* loaded from: classes.dex */
 public class e {
-
-    /* renamed from: a  reason: collision with root package name */
-    private String f748a = null;
+    private String a = null;
     private String b = null;
     private String c = null;
     private long d = 0;
 
     public void a(String str) {
-        this.f748a = str;
+        this.a = str;
     }
 
     public void b(String str) {
@@ -25,7 +23,7 @@ public class e {
     }
 
     public String a() {
-        return this.f748a;
+        return this.a;
     }
 
     public String b() {

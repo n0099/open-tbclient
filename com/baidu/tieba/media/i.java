@@ -5,23 +5,21 @@ import com.baidu.tieba.media.MediaDownloadHelper;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class i implements View.OnClickListener {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ MediaDownloadHelper f963a;
+    final /* synthetic */ MediaDownloadHelper a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public i(MediaDownloadHelper mediaDownloadHelper) {
-        this.f963a = mediaDownloadHelper;
+        this.a = mediaDownloadHelper;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         a aVar;
         View.OnClickListener onClickListener;
-        this.f963a.g = MediaDownloadHelper.DOWNLOAD_STAT.DOWNLOADING;
-        aVar = this.f963a.f951a;
-        onClickListener = this.f963a.h;
+        this.a.g = MediaDownloadHelper.DOWNLOAD_STAT.DOWNLOADING;
+        aVar = this.a.a;
+        onClickListener = this.a.h;
         aVar.b(onClickListener);
-        this.f963a.g();
+        this.a.g();
     }
 }

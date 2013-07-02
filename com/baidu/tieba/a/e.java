@@ -4,9 +4,7 @@ import com.baidu.tieba.data.ak;
 import com.baidu.tieba.util.r;
 /* loaded from: classes.dex */
 public class e {
-
-    /* renamed from: a  reason: collision with root package name */
-    private static final String f625a = String.valueOf(com.baidu.tieba.data.g.f787a) + "c/f/pb/page";
+    private static final String a = String.valueOf(com.baidu.tieba.data.g.a) + "c/f/pb/page";
     private r b = null;
 
     /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
@@ -14,7 +12,7 @@ public class e {
         if (str == null || str.length() == 0) {
             return null;
         }
-        this.b = new r(f625a);
+        this.b = new r(a);
         this.b.a("kz", str);
         this.b.a("rn", String.valueOf(30));
         this.b.a("with_floor", "1");

@@ -6,20 +6,18 @@ import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes.dex */
 public class c {
-
-    /* renamed from: a  reason: collision with root package name */
-    private int f603a;
+    private int a;
     private SpannableStringBuilder b = null;
     private e c = null;
     private ArrayList d = null;
 
     public c(int i) {
-        this.f603a = 0;
-        this.f603a = i;
+        this.a = 0;
+        this.a = i;
     }
 
     public int a() {
-        return this.f603a;
+        return this.a;
     }
 
     public ArrayList b() {
@@ -52,7 +50,7 @@ public class c {
     }
 
     public void a(CharSequence charSequence) {
-        if (this.f603a == 1 && charSequence != null) {
+        if (this.a == 1 && charSequence != null) {
             if (this.b == null) {
                 this.b = new SpannableStringBuilder("");
             }
@@ -61,20 +59,20 @@ public class c {
     }
 
     public void a(String str) {
-        if (this.f603a == 32 && str != null) {
+        if (this.a == 32 && str != null) {
             this.b = new SpannableStringBuilder(str);
         }
     }
 
     public e c() {
-        if (this.f603a != 8) {
+        if (this.a != 8) {
             return null;
         }
         return this.c;
     }
 
     public void a(e eVar) {
-        if (this.f603a == 8) {
+        if (this.a == 8) {
             this.c = eVar;
         }
     }
@@ -84,11 +82,11 @@ public class c {
     }
 
     public String toString() {
-        if (this.f603a == 1) {
+        if (this.a == 1) {
             if (this.b != null) {
                 return this.b.toString();
             }
-        } else if (this.f603a == 8 && this.c != null) {
+        } else if (this.a == 8 && this.c != null) {
             return this.c.d();
         }
         return "";

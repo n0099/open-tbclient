@@ -36,9 +36,7 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class ab {
-
-    /* renamed from: a  reason: collision with root package name */
-    private static boolean f1451a = false;
+    private static boolean a = false;
     private static float b;
     private static int c;
     private static int d;
@@ -47,25 +45,25 @@ public class ab {
         b = context.getResources().getDisplayMetrics().density;
         c = context.getResources().getDisplayMetrics().widthPixels;
         d = context.getResources().getDisplayMetrics().heightPixels;
-        f1451a = true;
+        a = true;
     }
 
     public static int a(Context context, float f) {
-        if (!f1451a) {
+        if (!a) {
             g(context);
         }
         return (int) ((b * f) + 0.5f);
     }
 
     public static int a(Context context) {
-        if (!f1451a) {
+        if (!a) {
             g(context);
         }
         return c;
     }
 
     public static int b(Context context) {
-        if (!f1451a) {
+        if (!a) {
             g(context);
         }
         return d;

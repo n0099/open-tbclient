@@ -5,13 +5,11 @@ import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class h extends BdAsyncTask {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ EditBarActivity f1361a;
+    final /* synthetic */ EditBarActivity a;
     private com.baidu.tieba.util.r b;
 
     private h(EditBarActivity editBarActivity) {
-        this.f1361a = editBarActivity;
+        this.a = editBarActivity;
         this.b = null;
     }
 
@@ -24,7 +22,7 @@ public class h extends BdAsyncTask {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void b() {
         ProgressBar progressBar;
-        progressBar = this.f1361a.f;
+        progressBar = this.a.f;
         progressBar.setVisibility(0);
     }
 
@@ -38,11 +36,11 @@ public class h extends BdAsyncTask {
         String str;
         String str2;
         try {
-            this.b = new com.baidu.tieba.util.r(String.valueOf(com.baidu.tieba.data.g.f787a) + "c/f/forum/like");
-            str = this.f1361a.o;
+            this.b = new com.baidu.tieba.util.r(String.valueOf(com.baidu.tieba.data.g.a) + "c/f/forum/like");
+            str = this.a.o;
             if (str != null) {
                 com.baidu.tieba.util.r rVar = this.b;
-                str2 = this.f1361a.o;
+                str2 = this.a.o;
                 rVar.a("uid", str2);
             }
             String j = this.b.j();
@@ -72,23 +70,23 @@ public class h extends BdAsyncTask {
         com.baidu.tieba.model.b bVar2;
         j jVar;
         j jVar2;
-        progressBar = this.f1361a.f;
+        progressBar = this.a.f;
         progressBar.setVisibility(8);
-        this.f1361a.g = null;
+        this.a.g = null;
         if (this.b != null) {
             if (this.b.c() && bVar != null) {
-                bVar2 = this.f1361a.f1299a;
+                bVar2 = this.a.a;
                 bVar2.a(bVar.a());
-                jVar = this.f1361a.e;
+                jVar = this.a.e;
                 if (jVar == null) {
                     return;
                 }
-                this.f1361a.m();
-                jVar2 = this.f1361a.e;
+                this.a.m();
+                jVar2 = this.a.e;
                 jVar2.notifyDataSetChanged();
                 return;
             }
-            this.f1361a.a(this.b.g());
+            this.a.a(this.b.g());
         }
     }
 
@@ -99,9 +97,9 @@ public class h extends BdAsyncTask {
             this.b.h();
             this.b = null;
         }
-        progressBar = this.f1361a.f;
+        progressBar = this.a.f;
         progressBar.setVisibility(8);
-        this.f1361a.g = null;
+        this.a.g = null;
         super.cancel(true);
     }
 }

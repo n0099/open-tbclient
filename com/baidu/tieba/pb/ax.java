@@ -6,13 +6,11 @@ import android.view.View;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 class ax implements View.OnLongClickListener {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ NewPbActivity f1215a;
+    final /* synthetic */ NewPbActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ax(NewPbActivity newPbActivity) {
-        this.f1215a = newPbActivity;
+        this.a = newPbActivity;
     }
 
     @Override // android.view.View.OnLongClickListener
@@ -23,19 +21,19 @@ class ax implements View.OnLongClickListener {
         com.baidu.tieba.model.ax axVar;
         SparseArray sparseArray = (SparseArray) view.getTag();
         if (sparseArray != null) {
-            this.f1215a.f1189a = (com.baidu.tieba.data.an) sparseArray.get(R.id.tag_clip_board);
-            if (this.f1215a.f1189a != null) {
+            this.a.a = (com.baidu.tieba.data.an) sparseArray.get(R.id.tag_clip_board);
+            if (this.a.a != null) {
                 boolean z = false;
-                amVar = this.f1215a.k;
-                if (amVar.a() && this.f1215a.f1189a.d() != null) {
-                    String d = this.f1215a.f1189a.d();
-                    axVar = this.f1215a.j;
+                amVar = this.a.k;
+                if (amVar.a() && this.a.a.d() != null) {
+                    String d = this.a.a.d();
+                    axVar = this.a.j;
                     if (d.equals(axVar.i())) {
                         z = true;
                     }
                 }
-                bkVar = this.f1215a.p;
-                onClickListener = this.f1215a.J;
+                bkVar = this.a.p;
+                onClickListener = this.a.J;
                 bkVar.a(onClickListener, z);
             }
         }

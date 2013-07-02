@@ -3,9 +3,7 @@ package com.baidu.tieba.data;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class ac {
-
-    /* renamed from: a  reason: collision with root package name */
-    private int f753a;
+    private int a;
     private int b;
     private int c;
     private int d;
@@ -58,11 +56,11 @@ public class ac {
     }
 
     public void b(int i) {
-        this.f753a = i;
+        this.a = i;
     }
 
     public int b() {
-        return this.f753a;
+        return this.a;
     }
 
     public void c(int i) {

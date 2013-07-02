@@ -3,9 +3,7 @@ package com.baidu.tieba.view;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 class av {
-
-    /* renamed from: a  reason: collision with root package name */
-    int f1517a = 0;
+    int a = 0;
     ArrayList b = new ArrayList();
     final /* synthetic */ WaterFallView c;
 
@@ -14,17 +12,17 @@ class av {
     }
 
     public void a(int i) {
-        this.f1517a += i;
-        this.b.add(new int[]{this.f1517a, this.f1517a});
+        this.a += i;
+        this.b.add(new int[]{this.a, this.a});
     }
 
     public void a() {
-        this.f1517a = 0;
+        this.a = 0;
         this.b.clear();
     }
 
     public int b() {
-        return this.f1517a;
+        return this.a;
     }
 
     public int b(int i) {

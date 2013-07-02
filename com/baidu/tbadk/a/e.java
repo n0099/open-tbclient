@@ -1,14 +1,12 @@
 package com.baidu.tbadk.a;
 /* loaded from: classes.dex */
 public class e {
-
-    /* renamed from: a  reason: collision with root package name */
-    private static e f596a = new e();
+    private static e a = new e();
     private com.baidu.adp.lib.a.a b;
     private com.baidu.adp.lib.a.a c;
 
     public static e a() {
-        return f596a;
+        return a;
     }
 
     private e() {

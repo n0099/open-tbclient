@@ -3,9 +3,7 @@ package com.baidu.tieba.model;
 import com.baidu.tieba.data.WriteData;
 /* loaded from: classes.dex */
 public class bd extends com.baidu.adp.a.c {
-
-    /* renamed from: a  reason: collision with root package name */
-    private bf f1034a = null;
+    private bf a = null;
     private WriteData b = null;
     private be c = null;
     private boolean d = false;
@@ -30,9 +28,9 @@ public class bd extends com.baidu.adp.a.c {
         if (this.b == null) {
             return false;
         }
-        if (this.f1034a == null) {
-            this.f1034a = new bf(this);
-            this.f1034a.execute(new Integer[0]);
+        if (this.a == null) {
+            this.a = new bf(this);
+            this.a.execute(new Integer[0]);
         }
         return true;
     }

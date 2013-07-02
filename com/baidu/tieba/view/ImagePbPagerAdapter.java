@@ -35,9 +35,7 @@ public class ImagePbPagerAdapter extends android.support.v4.view.ae {
     private int q = 0;
     private ArrayList r = null;
     private ArrayList s = null;
-
-    /* renamed from: a  reason: collision with root package name */
-    LayoutInflater f1493a = null;
+    LayoutInflater a = null;
     private View.OnClickListener t = new y(this);
 
     public ImagePbPagerAdapter(Context context) {
@@ -128,7 +126,7 @@ public class ImagePbPagerAdapter extends android.support.v4.view.ae {
     public Object instantiateItem(ViewGroup viewGroup, int i) {
         View inflate;
         if (i == this.f.k()) {
-            View inflate2 = this.f1493a.inflate(R.layout.image_pb_next, (ViewGroup) null);
+            View inflate2 = this.a.inflate(R.layout.image_pb_next, (ViewGroup) null);
             ((TextView) inflate2.findViewById(R.id.thread_name)).setText(this.f.g());
             viewGroup.addView(inflate2);
             ImageView imageView = (ImageView) inflate2.findViewById(R.id.image);
@@ -150,7 +148,7 @@ public class ImagePbPagerAdapter extends android.support.v4.view.ae {
             this.r.remove(0);
             inflate = (View) this.r.get(0);
         } else {
-            inflate = this.f1493a.inflate(R.layout.image_pb_list, (ViewGroup) null);
+            inflate = this.a.inflate(R.layout.image_pb_list, (ViewGroup) null);
         }
         if (this.s.size() > 5) {
             this.s.clear();
@@ -268,7 +266,7 @@ public class ImagePbPagerAdapter extends android.support.v4.view.ae {
         int h = com.baidu.tieba.data.g.h() < this.m ? com.baidu.tieba.data.g.h() : this.m;
         this.n = com.baidu.tieba.data.g.h() < this.n ? com.baidu.tieba.data.g.h() : this.n;
         this.c.a(h - com.baidu.tieba.util.ab.a(this.b, 8.0f), this.n);
-        this.f1493a = LayoutInflater.from(this.b);
+        this.a = LayoutInflater.from(this.b);
         this.j = new ArrayList();
         this.h = new HashMap();
         this.r = new ArrayList();

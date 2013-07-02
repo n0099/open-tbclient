@@ -12,9 +12,7 @@ import com.slidingmenu.lib.R;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class MultiImageView extends RelativeLayout {
-
-    /* renamed from: a  reason: collision with root package name */
-    private Button f1498a;
+    private Button a;
     private Button b;
     private LinearLayout c;
     private View.OnClickListener d;
@@ -30,7 +28,7 @@ public class MultiImageView extends RelativeLayout {
 
     public MultiImageView(Context context) {
         super(context);
-        this.f1498a = null;
+        this.a = null;
         this.b = null;
         this.c = null;
         this.d = null;
@@ -54,7 +52,7 @@ public class MultiImageView extends RelativeLayout {
 
     public MultiImageView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f1498a = null;
+        this.a = null;
         this.b = null;
         this.c = null;
         this.d = null;
@@ -72,7 +70,7 @@ public class MultiImageView extends RelativeLayout {
 
     public MultiImageView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.f1498a = null;
+        this.a = null;
         this.b = null;
         this.c = null;
         this.d = null;
@@ -158,12 +156,12 @@ public class MultiImageView extends RelativeLayout {
         this.b.setOnClickListener(this.d);
         this.b.setEnabled(false);
         this.c.addView(this.b);
-        this.f1498a = new Button(getContext());
-        this.f1498a.setBackgroundDrawable(getContext().getResources().getDrawable(R.drawable.image_zoomin));
-        this.f1498a.setLayoutParams(layoutParams2);
-        this.f1498a.setOnClickListener(this.d);
-        this.f1498a.setEnabled(false);
-        this.c.addView(this.f1498a);
+        this.a = new Button(getContext());
+        this.a.setBackgroundDrawable(getContext().getResources().getDrawable(R.drawable.image_zoomin));
+        this.a.setLayoutParams(layoutParams2);
+        this.a.setOnClickListener(this.d);
+        this.a.setEnabled(false);
+        this.c.addView(this.a);
         if (this.m) {
             this.c.setVisibility(8);
         }
@@ -186,9 +184,9 @@ public class MultiImageView extends RelativeLayout {
     public void setZoomButton(h hVar) {
         if (hVar != null) {
             if (hVar.p()) {
-                this.f1498a.setEnabled(true);
+                this.a.setEnabled(true);
             } else {
-                this.f1498a.setEnabled(false);
+                this.a.setEnabled(false);
             }
             if (hVar.q()) {
                 this.b.setEnabled(true);
@@ -199,7 +197,7 @@ public class MultiImageView extends RelativeLayout {
             }
         }
         this.b.setEnabled(false);
-        this.f1498a.setEnabled(false);
+        this.a.setEnabled(false);
     }
 
     public void d() {
@@ -255,6 +253,7 @@ public class MultiImageView extends RelativeLayout {
 
     public void setTempSize(int i) {
         this.i.a(i);
+        this.i.notifyDataSetChanged();
     }
 
     public void setItemOnclickListener(View.OnClickListener onClickListener) {

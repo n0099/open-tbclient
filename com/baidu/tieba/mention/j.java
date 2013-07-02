@@ -4,13 +4,11 @@ import android.widget.ImageView;
 import android.widget.ListView;
 /* loaded from: classes.dex */
 class j implements com.baidu.tbadk.a.d {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ i f988a;
+    final /* synthetic */ i a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public j(i iVar) {
-        this.f988a = iVar;
+        this.a = iVar;
     }
 
     @Override // com.baidu.tbadk.a.d
@@ -19,7 +17,7 @@ class j implements com.baidu.tbadk.a.d {
         ListView listView;
         h hVar2;
         ListView listView2;
-        hVar = this.f988a.f987a;
+        hVar = this.a.a;
         listView = hVar.d;
         ImageView imageView = (ImageView) listView.findViewWithTag(str);
         while (imageView != null) {
@@ -27,7 +25,7 @@ class j implements com.baidu.tbadk.a.d {
             if (imageView != null && bVar != null) {
                 bVar.b(imageView);
             }
-            hVar2 = this.f988a.f987a;
+            hVar2 = this.a.a;
             listView2 = hVar2.d;
             imageView = (ImageView) listView2.findViewWithTag(str);
         }

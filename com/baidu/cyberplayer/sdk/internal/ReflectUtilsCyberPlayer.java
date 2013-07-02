@@ -6,9 +6,7 @@ import dalvik.system.PathClassLoader;
 import java.lang.reflect.Method;
 /* loaded from: classes.dex */
 public class ReflectUtilsCyberPlayer {
-
-    /* renamed from: a  reason: collision with root package name */
-    private static ClassLoader f442a = null;
+    private static ClassLoader a = null;
     private static ClassLoader b = null;
 
     /* loaded from: classes.dex */
@@ -58,10 +56,10 @@ public class ReflectUtilsCyberPlayer {
     private static synchronized ClassLoader a(Context context) {
         ClassLoader classLoader;
         synchronized (ReflectUtilsCyberPlayer.class) {
-            if (f442a == null && context != null && d.m16a(context)) {
-                f442a = new PathClassLoader(d.m15a(context), ReflectUtilsCyberPlayer.class.getClassLoader());
+            if (a == null && context != null && d.m16a(context)) {
+                a = new PathClassLoader(d.m15a(context), ReflectUtilsCyberPlayer.class.getClassLoader());
             }
-            classLoader = f442a;
+            classLoader = a;
         }
         return classLoader;
     }
@@ -69,13 +67,13 @@ public class ReflectUtilsCyberPlayer {
     private static synchronized ClassLoader b(Context context) {
         ClassLoader classLoader;
         synchronized (ReflectUtilsCyberPlayer.class) {
-            if (f442a == null) {
+            if (a == null) {
                 String b2 = d.b(context);
                 if (context != null && FileUtils.dirExists(b2)) {
-                    f442a = new DexClassLoader(d.b(context) + CyberPlayerEngineConstants.CYBERPLAYER_JAR_NAME, b2, null, ReflectUtilsCyberPlayer.class.getClassLoader());
+                    a = new DexClassLoader(d.b(context) + CyberPlayerEngineConstants.CYBERPLAYER_JAR_NAME, b2, null, ReflectUtilsCyberPlayer.class.getClassLoader());
                 }
             }
-            classLoader = f442a;
+            classLoader = a;
         }
         return classLoader;
     }

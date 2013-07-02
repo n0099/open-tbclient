@@ -5,13 +5,11 @@ import android.content.DialogInterface;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class bb implements DialogInterface.OnClickListener {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ UpdateDialog f707a;
+    final /* synthetic */ UpdateDialog a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bb(UpdateDialog updateDialog) {
-        this.f707a = updateDialog;
+        this.a = updateDialog;
     }
 
     @Override // android.content.DialogInterface.OnClickListener
@@ -19,14 +17,13 @@ public class bb implements DialogInterface.OnClickListener {
         Dialog dialog;
         Dialog dialog2;
         if (i == -1) {
-            dialog2 = this.f707a.d;
+            dialog2 = this.a.d;
             dialog2.dismiss();
-            this.f707a.b();
+            this.a.b();
         } else if (i == -2) {
-            dialog = this.f707a.d;
+            dialog = this.a.d;
             dialog.dismiss();
-            this.f707a.c();
+            this.a.c();
         }
-        MainTabActivity.a(this.f707a, "close");
     }
 }

@@ -6,9 +6,7 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 /* loaded from: classes.dex */
 class bl {
-
-    /* renamed from: a  reason: collision with root package name */
-    int f1345a;
+    int a;
     TextView b;
     ProgressBar c;
     LinearLayout d;

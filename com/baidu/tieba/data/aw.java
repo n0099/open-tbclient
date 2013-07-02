@@ -6,9 +6,7 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class aw {
-
-    /* renamed from: a  reason: collision with root package name */
-    private r f773a;
+    private r a;
     private int e;
     private int g;
     private AntiData h;
@@ -89,11 +87,11 @@ public class aw {
     }
 
     public void a(r rVar) {
-        this.f773a = rVar;
+        this.a = rVar;
     }
 
     public r g() {
-        return this.f773a;
+        return this.a;
     }
 
     public void a(AntiData antiData) {

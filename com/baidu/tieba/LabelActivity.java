@@ -37,9 +37,7 @@ import java.util.List;
 import org.apache.http.message.BasicNameValuePair;
 /* loaded from: classes.dex */
 public class LabelActivity extends g {
-
-    /* renamed from: a  reason: collision with root package name */
-    public static String f614a = "allthread";
+    public static String a = "allthread";
     private FrameLayout K;
     private ViewPager b;
     private Button c;
@@ -169,7 +167,7 @@ public class LabelActivity extends g {
     @Override // android.app.Activity
     protected void onSaveInstanceState(Bundle bundle) {
         super.onSaveInstanceState(bundle);
-        bundle.putString("from", f614a);
+        bundle.putString("from", a);
     }
 
     @Override // com.baidu.tieba.g, com.baidu.adp.a.a, android.app.Activity
@@ -179,11 +177,11 @@ public class LabelActivity extends g {
         com.baidu.tieba.util.z.a(getClass().getName(), "onCreate", null);
         setContentView(R.layout.label_activity);
         if (bundle != null) {
-            f614a = bundle.getString("from");
+            a = bundle.getString("from");
         }
         String stringExtra = getIntent().getStringExtra("from");
         if (stringExtra != null && stringExtra.length() > 0) {
-            f614a = stringExtra;
+            a = stringExtra;
         }
         this.k = new ArrayList();
         this.l = new ArrayList();
@@ -274,14 +272,14 @@ public class LabelActivity extends g {
         this.d = (HeartButton) findViewById(R.id.heart);
         this.d.setOnClickListener(new w(this));
         this.e = (Button) findViewById(R.id.next);
-        if (f614a.equals("allthread")) {
+        if (a.equals("allthread")) {
             this.e.setBackgroundDrawable(getResources().getDrawable(R.drawable.tag_finish_button));
         }
         this.e.setOnClickListener(new x(this));
         this.t = (LinearLayout) findViewById(R.id.tagsGroup);
         this.x = AnimationUtils.loadAnimation(this, R.anim.heart_shake);
         this.g = (RelativeLayout) findViewById(R.id.parent);
-        if (f614a.equals("guide")) {
+        if (a.equals("guide")) {
             this.f = new ImageView(this);
             this.f.setBackgroundResource(R.drawable.tag_mask);
             this.g.addView(this.f, new LinearLayout.LayoutParams(-1, -1));
@@ -538,7 +536,7 @@ public class LabelActivity extends g {
     /* JADX INFO: Access modifiers changed from: private */
     public void a(boolean z) {
         StringBuffer stringBuffer = new StringBuffer(30);
-        stringBuffer.append(com.baidu.tieba.data.g.f787a);
+        stringBuffer.append(com.baidu.tieba.data.g.a);
         String E = TiebaApplication.E();
         if (z && E != null && E.length() > 0) {
             stringBuffer.append("c/s/tag/rand_and_user_tag");

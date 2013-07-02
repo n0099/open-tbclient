@@ -5,9 +5,7 @@ import android.os.Build;
 public class a {
     private static final d b;
     private static final Object c;
-
-    /* renamed from: a  reason: collision with root package name */
-    final Object f85a = b.a(this);
+    final Object a = b.a(this);
 
     static {
         if (Build.VERSION.SDK_INT >= 16) {
@@ -22,6 +20,6 @@ public class a {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public Object a() {
-        return this.f85a;
+        return this.a;
     }
 }

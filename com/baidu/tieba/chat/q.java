@@ -5,13 +5,11 @@ import com.slidingmenu.lib.R;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class q extends com.baidu.adp.a.e {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ ChatListActivity f734a;
+    final /* synthetic */ ChatListActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public q(ChatListActivity chatListActivity) {
-        this.f734a = chatListActivity;
+        this.a = chatListActivity;
     }
 
     @Override // com.baidu.adp.a.e
@@ -42,46 +40,46 @@ public class q extends com.baidu.adp.a.e {
         v vVar9;
         v vVar10;
         v vVar11;
-        vVar = this.f734a.f712a;
+        vVar = this.a.a;
         vVar.g();
-        i = this.f734a.g;
+        i = this.a.g;
         switch (i) {
             case 1:
-                vVar3 = this.f734a.f712a;
+                vVar3 = this.a.a;
                 vVar3.d().a(false);
                 break;
             case 2:
-                vVar2 = this.f734a.f712a;
+                vVar2 = this.a.a;
                 vVar2.d().b(false);
                 break;
             case 4:
                 if (Boolean.TRUE.equals(obj)) {
-                    this.f734a.a(this.f734a.getResources().getString(R.string.delete_user_chat_done));
-                    ChatListActivity chatListActivity = this.f734a;
-                    i2 = this.f734a.c;
+                    this.a.a(this.a.getResources().getString(R.string.delete_user_chat_done));
+                    ChatListActivity chatListActivity = this.a;
+                    i2 = this.a.c;
                     chatListActivity.b(i2, 3);
                     return;
                 }
-                ChatListActivity chatListActivity2 = this.f734a;
-                cVar = this.f734a.b;
+                ChatListActivity chatListActivity2 = this.a;
+                cVar = this.a.b;
                 chatListActivity2.a(cVar.getErrorString());
                 return;
         }
         if (Boolean.TRUE.equals(obj)) {
-            cVar3 = this.f734a.b;
+            cVar3 = this.a.b;
             if (cVar3.b()) {
-                vVar11 = this.f734a.f712a;
+                vVar11 = this.a.a;
                 vVar11.d().d(true);
             } else {
-                vVar4 = this.f734a.f712a;
+                vVar4 = this.a.a;
                 vVar4.d().d(false);
             }
-            i3 = this.f734a.c;
+            i3 = this.a.c;
             if (i3 > 1) {
-                vVar10 = this.f734a.f712a;
+                vVar10 = this.a.a;
                 vVar10.d().c(true);
             } else {
-                cVar4 = this.f734a.b;
+                cVar4 = this.a.b;
                 int i7 = 0;
                 for (com.baidu.tieba.data.a.g gVar : cVar4.a()) {
                     i7 = gVar.f() + i7;
@@ -89,44 +87,44 @@ public class q extends com.baidu.adp.a.e {
                 if (i7 > TiebaApplication.f().ag()) {
                     TiebaApplication.f().ab();
                 }
-                vVar5 = this.f734a.f712a;
+                vVar5 = this.a.a;
                 vVar5.d().c(false);
             }
-            cVar5 = this.f734a.b;
+            cVar5 = this.a.b;
             if (cVar5.c() == 0) {
-                vVar6 = this.f734a.f712a;
-                cVar7 = this.f734a.b;
+                vVar6 = this.a.a;
+                cVar7 = this.a.b;
                 vVar6.a(cVar7.a());
-                i5 = this.f734a.g;
+                i5 = this.a.g;
                 if (i5 == 1) {
-                    vVar9 = this.f734a.f712a;
+                    vVar9 = this.a.a;
                     vVar9.b(0);
                 }
-                i6 = this.f734a.c;
+                i6 = this.a.c;
                 if (i6 == 1) {
-                    cVar8 = this.f734a.b;
+                    cVar8 = this.a.b;
                     if (cVar8.a().size() == 0) {
-                        vVar8 = this.f734a.f712a;
+                        vVar8 = this.a.a;
                         vVar8.a(true);
                     }
                 }
-                vVar7 = this.f734a.f712a;
+                vVar7 = this.a.a;
                 vVar7.a(false);
             } else {
-                ChatListActivity chatListActivity3 = this.f734a;
-                cVar6 = this.f734a.b;
+                ChatListActivity chatListActivity3 = this.a;
+                cVar6 = this.a.b;
                 chatListActivity3.a(cVar6.d());
             }
-            i4 = this.f734a.g;
+            i4 = this.a.g;
             if (i4 == 3) {
-                this.f734a.a((int) R.drawable.tips_addchat, 0);
+                this.a.a((int) R.drawable.tips_addchat, 0);
             }
-            runnable = this.f734a.e;
+            runnable = this.a.e;
             runnable.run();
             return;
         }
-        ChatListActivity chatListActivity4 = this.f734a;
-        cVar2 = this.f734a.b;
+        ChatListActivity chatListActivity4 = this.a;
+        cVar2 = this.a.b;
         chatListActivity4.a(cVar2.getErrorString());
     }
 }

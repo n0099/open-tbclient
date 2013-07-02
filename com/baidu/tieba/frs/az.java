@@ -64,9 +64,7 @@ public class az {
     private com.baidu.tieba.view.ab D = null;
     private SlidingMenu E = null;
     private String F = null;
-
-    /* renamed from: a  reason: collision with root package name */
-    AlertDialog f851a = null;
+    AlertDialog a = null;
     Animation b = null;
     private View.OnTouchListener L = new ba(this);
 
@@ -172,8 +170,8 @@ public class az {
         } else {
             builder.setItems(new String[]{string, string2, string3}, this.H);
         }
-        this.f851a = builder.create();
-        this.f851a.setCanceledOnTouchOutside(true);
+        this.a = builder.create();
+        this.a.setCanceledOnTouchOutside(true);
     }
 
     public int c() {
@@ -223,8 +221,8 @@ public class az {
     }
 
     public void e() {
-        if (this.f851a != null) {
-            this.f851a.show();
+        if (this.a != null) {
+            this.a.show();
         }
     }
 
@@ -585,10 +583,10 @@ public class az {
 
     public void a(com.baidu.tieba.model.aa aaVar) {
         this.C.a(aaVar);
-        long a2 = aaVar.a() + aaVar.b();
-        if (a2 > 0) {
+        long a = aaVar.a() + aaVar.b();
+        if (a > 0) {
             this.y.setVisibility(0);
-            this.y.setText(String.valueOf(a2 <= 99 ? a2 : 99L));
+            this.y.setText(String.valueOf(a <= 99 ? a : 99L));
             return;
         }
         this.y.setVisibility(4);

@@ -5,13 +5,11 @@ import com.baidu.tieba.util.z;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class b extends Thread {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ a f745a;
+    final /* synthetic */ a a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(a aVar) {
-        this.f745a = aVar;
+        this.a = aVar;
     }
 
     @Override // java.lang.Thread, java.lang.Runnable

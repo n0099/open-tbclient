@@ -3,15 +3,13 @@ package com.baidu.tieba.flist;
 import android.widget.ImageView;
 /* loaded from: classes.dex */
 class g implements com.baidu.tbadk.a.d {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ f f818a;
+    final /* synthetic */ f a;
     private final /* synthetic */ String b;
     private final /* synthetic */ ImageView c;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public g(f fVar, String str, ImageView imageView) {
-        this.f818a = fVar;
+        this.a = fVar;
         this.b = str;
         this.c = imageView;
     }

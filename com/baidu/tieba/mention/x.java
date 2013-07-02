@@ -11,9 +11,7 @@ import java.util.ArrayList;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class x extends BdAsyncTask {
-
-    /* renamed from: a  reason: collision with root package name */
-    ArrayList f1001a;
+    ArrayList a;
     final /* synthetic */ PostActivity b;
     private com.baidu.tieba.util.r c = null;
     private String d;
@@ -21,9 +19,9 @@ public class x extends BdAsyncTask {
     public x(PostActivity postActivity, String str, ArrayList arrayList) {
         this.b = postActivity;
         this.d = null;
-        this.f1001a = null;
+        this.a = null;
         this.d = str;
-        this.f1001a = arrayList;
+        this.a = arrayList;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -42,7 +40,7 @@ public class x extends BdAsyncTask {
         aj ajVar = null;
         try {
             this.c = new com.baidu.tieba.util.r(this.d);
-            this.c.a(this.f1001a);
+            this.c.a(this.a);
             String j = this.c.j();
             if (this.c.c()) {
                 aj ajVar2 = new aj();

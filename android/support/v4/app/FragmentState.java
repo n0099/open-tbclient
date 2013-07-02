@@ -7,9 +7,7 @@ import android.util.Log;
 /* loaded from: classes.dex */
 final class FragmentState implements Parcelable {
     public static final Parcelable.Creator CREATOR = new aa();
-
-    /* renamed from: a  reason: collision with root package name */
-    final String f44a;
+    final String a;
     final int b;
     final boolean c;
     final int d;
@@ -22,7 +20,7 @@ final class FragmentState implements Parcelable {
     Fragment k;
 
     public FragmentState(Fragment fragment) {
-        this.f44a = fragment.getClass().getName();
+        this.a = fragment.getClass().getName();
         this.b = fragment.o;
         this.c = fragment.x;
         this.d = fragment.F;
@@ -34,7 +32,7 @@ final class FragmentState implements Parcelable {
     }
 
     public FragmentState(Parcel parcel) {
-        this.f44a = parcel.readString();
+        this.a = parcel.readString();
         this.b = parcel.readInt();
         this.c = parcel.readInt() != 0;
         this.d = parcel.readInt();
@@ -53,7 +51,7 @@ final class FragmentState implements Parcelable {
         if (this.i != null) {
             this.i.setClassLoader(nVar.getClassLoader());
         }
-        this.k = Fragment.a(nVar, this.f44a, this.i);
+        this.k = Fragment.a(nVar, this.a, this.i);
         if (this.j != null) {
             this.j.setClassLoader(nVar.getClassLoader());
             this.k.m = this.j;
@@ -67,7 +65,7 @@ final class FragmentState implements Parcelable {
         this.k.K = this.g;
         this.k.J = this.h;
         this.k.B = nVar.mFragments;
-        if (v.f65a) {
+        if (v.a) {
             Log.v("FragmentManager", "Instantiated fragment " + this.k);
         }
         return this.k;
@@ -80,7 +78,7 @@ final class FragmentState implements Parcelable {
 
     @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeString(this.f44a);
+        parcel.writeString(this.a);
         parcel.writeInt(this.b);
         parcel.writeInt(this.c ? 1 : 0);
         parcel.writeInt(this.d);

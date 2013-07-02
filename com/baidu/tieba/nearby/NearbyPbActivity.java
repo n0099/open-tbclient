@@ -31,9 +31,7 @@ public class NearbyPbActivity extends com.baidu.tieba.g {
     private static volatile long B = 0;
     private static volatile long C = 0;
     private static volatile int D = 0;
-
-    /* renamed from: a  reason: collision with root package name */
-    private RelativeLayout f1118a = null;
+    private RelativeLayout a = null;
     private ListView b = null;
     private Button c = null;
     private ImageView d = null;
@@ -99,7 +97,7 @@ public class NearbyPbActivity extends com.baidu.tieba.g {
     }
 
     private void n() {
-        this.f1118a = (RelativeLayout) findViewById(R.id.parent);
+        this.a = (RelativeLayout) findViewById(R.id.parent);
         this.s = (LinearLayout) findViewById(R.id.title);
         this.t = (LinearLayout) findViewById(R.id.layout_reply);
         this.d = (ImageView) findViewById(R.id.back);
@@ -256,12 +254,12 @@ public class NearbyPbActivity extends com.baidu.tieba.g {
         this.l.notifyDataSetChanged();
         if (i == 1) {
             com.baidu.tieba.util.x.h(this.t, (int) R.drawable.sub_pb_reply_bg_1);
-            this.f1118a.setBackgroundColor(-13158601);
+            this.a.setBackgroundColor(-13158601);
             this.c.setTextColor(-2236963);
             return;
         }
         com.baidu.tieba.util.x.h(this.t, (int) R.drawable.sub_pb_reply_bg);
-        this.f1118a.setBackgroundColor(-1380623);
+        this.a.setBackgroundColor(-1380623);
         this.c.setTextColor(-1);
     }
 
@@ -310,7 +308,7 @@ public class NearbyPbActivity extends com.baidu.tieba.g {
         }
         try {
             StringBuffer stringBuffer = new StringBuffer(30);
-            stringBuffer.append(com.baidu.tieba.data.g.f787a);
+            stringBuffer.append(com.baidu.tieba.data.g.a);
             stringBuffer.append("c/f/pb/page");
             ArrayList arrayList = new ArrayList();
             arrayList.add(new BasicNameValuePair("kz", this.o));

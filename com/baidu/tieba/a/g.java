@@ -16,11 +16,9 @@ import java.io.File;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class g {
-
-    /* renamed from: a  reason: collision with root package name */
-    private static final String f627a = String.valueOf(com.baidu.tieba.data.g.f787a) + "c/c/thread/add";
-    private static final String b = String.valueOf(com.baidu.tieba.data.g.f787a) + "c/c/post/add";
-    private static final String c = String.valueOf(com.baidu.tieba.data.g.f787a) + "c/c/img/upload";
+    private static final String a = String.valueOf(com.baidu.tieba.data.g.a) + "c/c/thread/add";
+    private static final String b = String.valueOf(com.baidu.tieba.data.g.a) + "c/c/post/add";
+    private static final String c = String.valueOf(com.baidu.tieba.data.g.a) + "c/c/img/upload";
     private r d = null;
     private n e;
 
@@ -64,8 +62,8 @@ public class g {
                         } else {
                             dVar = q;
                         }
-                        if (new com.baidu.tieba.util.e("tieba_resized_image", dVar, String.valueOf(com.baidu.tieba.data.g.f787a) + "c/c/img/chunkupload").b().a()) {
-                            this.d = new r(String.valueOf(com.baidu.tieba.data.g.f787a) + "c/c/img/finupload");
+                        if (new com.baidu.tieba.util.e("tieba_resized_image", dVar, String.valueOf(com.baidu.tieba.data.g.a) + "c/c/img/chunkupload").b().a()) {
+                            this.d = new r(String.valueOf(com.baidu.tieba.data.g.a) + "c/c/img/finupload");
                             this.d.a("md5", dVar.a());
                             this.d.a("pic_type", String.valueOf(writeData.getPicType()));
                             String j2 = this.d.j();
@@ -110,7 +108,7 @@ public class g {
             Address aP = TiebaApplication.f().aP();
             switch (writeData.getType()) {
                 case 0:
-                    this.d.a(f627a);
+                    this.d.a(a);
                     this.d.a("kw", writeData.getForumName());
                     this.d.a("title", writeData.getTitle());
                     if (aP != null && TiebaApplication.f().u() && !com.baidu.tieba.data.g.g().equals(writeData.getForumId())) {
@@ -133,7 +131,7 @@ public class g {
                     this.d.a("is_ad", writeData.getIsAd() ? "1" : "0");
                     break;
                 case 3:
-                    this.d.a(f627a);
+                    this.d.a(a);
                     this.d.a("thread_type", WriteModel.THREAD_TYPE_LBS);
                     this.d.a("st_type", "tb_suishoufa");
                     if (aP != null && TiebaApplication.f().u() && !com.baidu.tieba.data.g.g().equals(writeData.getForumId())) {

@@ -5,13 +5,11 @@ import com.baidu.tieba.util.NetWorkCore;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 class bd implements Runnable {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ PersonLbsActivity f1337a;
+    final /* synthetic */ PersonLbsActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bd(PersonLbsActivity personLbsActivity) {
-        this.f1337a = personLbsActivity;
+        this.a = personLbsActivity;
     }
 
     /* JADX WARN: Incorrect condition in loop: B:10:0x0040 */
@@ -28,19 +26,19 @@ class bd implements Runnable {
         int i;
         bj bjVar4;
         try {
-            listView = this.f1337a.f1305a;
+            listView = this.a.a;
             int firstVisiblePosition = listView.getFirstVisiblePosition();
-            listView2 = this.f1337a.f1305a;
+            listView2 = this.a.a;
             int lastVisiblePosition = listView2.getLastVisiblePosition();
-            NetWorkCore.NetworkStateInfo c = NetWorkCore.c(this.f1337a);
-            bjVar = this.f1337a.n;
+            NetWorkCore.NetworkStateInfo c = NetWorkCore.c(this.a);
+            bjVar = this.a.n;
             bjVar.a().a();
             boolean z = c == NetWorkCore.NetworkStateInfo.WIFI || c == NetWorkCore.NetworkStateInfo.ThreeG;
             int i2 = firstVisiblePosition;
             int i3 = 0;
             while (i2 < bjVar2.getCount()) {
                 if (z || i2 <= lastVisiblePosition) {
-                    bjVar3 = this.f1337a.n;
+                    bjVar3 = this.a.n;
                     com.baidu.tieba.data.al alVar = (com.baidu.tieba.data.al) bjVar3.getItem(i2);
                     if (alVar != null) {
                         ArrayList j = alVar.e().j();
@@ -49,7 +47,7 @@ class bd implements Runnable {
                             for (int i4 = 0; i4 < size; i4++) {
                                 if (((com.baidu.tieba.data.i) j.get(i4)).a() == 3) {
                                     int i5 = i3 + 1;
-                                    bjVar4 = this.f1337a.n;
+                                    bjVar4 = this.a.n;
                                     bjVar4.a().a(((com.baidu.tieba.data.i) j.get(i4)).f(), new be(this));
                                     i = i5;
                                     break;

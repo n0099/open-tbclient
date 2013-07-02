@@ -12,9 +12,7 @@ import java.io.FileReader;
 import java.io.FileWriter;
 /* loaded from: classes.dex */
 public class TiebaActiveService extends Service {
-
-    /* renamed from: a  reason: collision with root package name */
-    private m f1399a = null;
+    private m a = null;
     private int b = 0;
     private Handler c = new Handler();
     private Runnable d = new l(this);
@@ -66,8 +64,8 @@ public class TiebaActiveService extends Service {
 
     private boolean c() {
         try {
-            String a2 = a();
-            if (a2 == null) {
+            String a = a();
+            if (a == null) {
                 String b = b();
                 if (b != null && b.length() > 0) {
                     a(b);
@@ -79,7 +77,7 @@ public class TiebaActiveService extends Service {
                     return false;
                 }
             } else {
-                b(a2);
+                b(a);
             }
         } catch (Exception e) {
             z.b(getClass().getName(), "getActiveState", e.getMessage());
@@ -105,8 +103,8 @@ public class TiebaActiveService extends Service {
 
     @Override // android.app.Service
     public void onDestroy() {
-        if (this.f1399a != null) {
-            this.f1399a.cancel();
+        if (this.a != null) {
+            this.a.cancel();
         }
         this.b = 11;
         this.c.removeCallbacks(this.d);
@@ -115,10 +113,10 @@ public class TiebaActiveService extends Service {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void d() {
-        if (this.f1399a != null) {
-            this.f1399a.cancel();
+        if (this.a != null) {
+            this.a.cancel();
         }
-        this.f1399a = new m(this, null);
-        this.f1399a.execute(new String[0]);
+        this.a = new m(this, null);
+        this.a.execute(new String[0]);
     }
 }

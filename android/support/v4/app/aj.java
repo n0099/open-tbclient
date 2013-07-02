@@ -7,9 +7,7 @@ import java.io.PrintWriter;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class aj extends ah {
-
-    /* renamed from: a  reason: collision with root package name */
-    static boolean f53a = false;
+    static boolean a = false;
     final android.support.v4.b.c b = new android.support.v4.b.c();
     final android.support.v4.b.c c = new android.support.v4.b.c();
     final String d;
@@ -31,7 +29,7 @@ public class aj extends ah {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a(ak akVar) {
-        this.b.b(akVar.f54a, akVar);
+        this.b.b(akVar.a, akVar);
         if (this.f) {
             akVar.a();
         }
@@ -39,7 +37,7 @@ public class aj extends ah {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void b() {
-        if (f53a) {
+        if (a) {
             Log.v("LoaderManager", "Starting in " + this);
         }
         if (this.f) {
@@ -56,7 +54,7 @@ public class aj extends ah {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void c() {
-        if (f53a) {
+        if (a) {
             Log.v("LoaderManager", "Stopping in " + this);
         }
         if (!this.f) {
@@ -73,7 +71,7 @@ public class aj extends ah {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void d() {
-        if (f53a) {
+        if (a) {
             Log.v("LoaderManager", "Retaining in " + this);
         }
         if (!this.f) {
@@ -92,7 +90,7 @@ public class aj extends ah {
     /* JADX INFO: Access modifiers changed from: package-private */
     public void e() {
         if (this.g) {
-            if (f53a) {
+            if (a) {
                 Log.v("LoaderManager", "Finished Retaining in " + this);
             }
             this.g = false;
@@ -119,14 +117,14 @@ public class aj extends ah {
     /* JADX INFO: Access modifiers changed from: package-private */
     public void h() {
         if (!this.g) {
-            if (f53a) {
+            if (a) {
                 Log.v("LoaderManager", "Destroying Active in " + this);
             }
             for (int a2 = this.b.a() - 1; a2 >= 0; a2--) {
                 ((ak) this.b.e(a2)).f();
             }
         }
-        if (f53a) {
+        if (a) {
             Log.v("LoaderManager", "Destroying Inactive in " + this);
         }
         for (int a3 = this.c.a() - 1; a3 >= 0; a3--) {

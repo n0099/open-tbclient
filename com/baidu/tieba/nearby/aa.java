@@ -10,9 +10,7 @@ import java.util.ArrayList;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class aa extends BdAsyncTask {
-
-    /* renamed from: a  reason: collision with root package name */
-    ArrayList f1123a;
+    ArrayList a;
     final /* synthetic */ NearbyPbActivity b;
     private int d;
     private String e;
@@ -23,9 +21,9 @@ public class aa extends BdAsyncTask {
         this.b = nearbyPbActivity;
         this.d = 3;
         this.e = null;
-        this.f1123a = null;
+        this.a = null;
         this.e = str;
-        this.f1123a = arrayList;
+        this.a = arrayList;
         this.d = i;
     }
 
@@ -44,7 +42,7 @@ public class aa extends BdAsyncTask {
         long j4;
         try {
             this.c = new com.baidu.tieba.util.r(this.e);
-            this.c.a(this.f1123a);
+            this.c.a(this.a);
             j = NearbyPbActivity.B;
             if (j != 0) {
                 com.baidu.tieba.util.r rVar = this.c;
@@ -147,7 +145,7 @@ public class aa extends BdAsyncTask {
         try {
             if (ajVar != null) {
                 bgVar = this.b.n;
-                com.baidu.tieba.data.aj a2 = bgVar.a();
+                com.baidu.tieba.data.aj a = bgVar.a();
                 this.b.u = null;
                 bgVar2 = this.b.n;
                 bgVar2.c(ajVar.e().f());
@@ -177,17 +175,17 @@ public class aa extends BdAsyncTask {
                         aeVar6.a(0);
                     }
                     ajVar.i();
-                } else if (a2 != null && this.d == 2) {
+                } else if (a != null && this.d == 2) {
                     listView = this.b.b;
                     int firstVisiblePosition = listView.getFirstVisiblePosition();
-                    ArrayList d = a2.d();
+                    ArrayList d = a.d();
                     ArrayList d2 = ajVar.d();
                     int size = firstVisiblePosition + d2.size();
                     d.addAll(0, d2);
-                    a2.a(ajVar.e(), 0);
-                    a2.a(ajVar.a());
-                    a2.a(ajVar.b());
-                    a2.a(ajVar.f());
+                    a.a(ajVar.e(), 0);
+                    a.a(ajVar.a());
+                    a.a(ajVar.b());
+                    a.a(ajVar.f());
                     bgVar15 = this.b.n;
                     bgVar15.b(ajVar.e().d());
                     bgVar16 = this.b.n;
@@ -202,7 +200,7 @@ public class aa extends BdAsyncTask {
                         bgVar21 = this.b.n;
                         bgVar19.a((d4 + bgVar21.f()) - 1);
                     }
-                    if (a2.e().g() == 1) {
+                    if (a.e().g() == 1) {
                         aeVar4 = this.b.l;
                         aeVar4.a(2);
                     } else {
@@ -211,17 +209,17 @@ public class aa extends BdAsyncTask {
                     }
                     listView2 = this.b.b;
                     listView2.setSelection(size);
-                } else if (a2 != null && this.d == 1) {
-                    a2.d().addAll(ajVar.d());
-                    a2.a(ajVar.e(), 0);
-                    a2.a(ajVar.a());
-                    a2.a(ajVar.b());
-                    a2.a(ajVar.f());
+                } else if (a != null && this.d == 1) {
+                    a.d().addAll(ajVar.d());
+                    a.a(ajVar.e(), 0);
+                    a.a(ajVar.a());
+                    a.a(ajVar.b());
+                    a.a(ajVar.f());
                     bgVar4 = this.b.n;
                     if (!bgVar4.e()) {
                         bgVar5 = this.b.n;
                         bgVar5.a(ajVar.e().d());
-                    } else if (a2.e().f() == 1) {
+                    } else if (a.e().f() == 1) {
                         bgVar13 = this.b.n;
                         bgVar14 = this.b.n;
                         bgVar13.a(bgVar14.c() + 1);
@@ -241,7 +239,7 @@ public class aa extends BdAsyncTask {
                         bgVar11 = this.b.n;
                         bgVar9.b((c3 - bgVar11.f()) + 1);
                     }
-                    if (a2.e().f() == 1) {
+                    if (a.e().f() == 1) {
                         aeVar2 = this.b.l;
                         aeVar2.b(2);
                     } else {

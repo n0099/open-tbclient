@@ -6,9 +6,7 @@ import android.view.MotionEvent;
 import com.baidu.tieba.compatible.CompatibleUtile;
 /* loaded from: classes.dex */
 public class GalleryViewPager extends BaseViewPager {
-
-    /* renamed from: a  reason: collision with root package name */
-    private PointF f1488a;
+    private PointF a;
     private h b;
     private h c;
 
@@ -29,9 +27,9 @@ public class GalleryViewPager extends BaseViewPager {
             case 1:
             case 2:
                 PointF pointF = new PointF(motionEvent.getX(), motionEvent.getY());
-                return new float[]{pointF.x - this.f1488a.x, pointF.y - this.f1488a.y};
+                return new float[]{pointF.x - this.a.x, pointF.y - this.a.y};
             case 0:
-                this.f1488a = new PointF(motionEvent.getX(), motionEvent.getY());
+                this.a = new PointF(motionEvent.getX(), motionEvent.getY());
                 break;
         }
         return null;
@@ -48,17 +46,17 @@ public class GalleryViewPager extends BaseViewPager {
         if (this.b == null) {
             return onTouchEvent(motionEvent);
         }
-        float[] a2 = a(motionEvent);
+        float[] a = a(motionEvent);
         if (this.b.b()) {
             return super.onTouchEvent(motionEvent);
         }
-        if (a2 != null && this.b.h() && a2[0] < 0.0f) {
+        if (a != null && this.b.h() && a[0] < 0.0f) {
             com.baidu.tieba.util.z.a(getClass().getName(), "onTouchEvent", "right");
             return super.onTouchEvent(motionEvent);
-        } else if (a2 != null && this.b.i() && a2[0] > 0.0f) {
+        } else if (a != null && this.b.i() && a[0] > 0.0f) {
             com.baidu.tieba.util.z.a(getClass().getName(), "onTouchEvent", "left");
             return super.onTouchEvent(motionEvent);
-        } else if (a2 == null) {
+        } else if (a == null) {
             if (this.b.i() || this.b.h()) {
                 return super.onTouchEvent(motionEvent);
             }
@@ -73,20 +71,20 @@ public class GalleryViewPager extends BaseViewPager {
         if ((motionEvent.getAction() & CompatibleUtile.getActionMask()) == 1) {
             super.onInterceptTouchEvent(motionEvent);
         }
-        float[] a2 = a(motionEvent);
+        float[] a = a(motionEvent);
         if (this.b == null) {
             return super.onInterceptTouchEvent(motionEvent);
         }
         if (this.b.b()) {
             return super.onInterceptTouchEvent(motionEvent);
         }
-        if (a2 != null && this.b.h() && a2[0] < 0.0f) {
+        if (a != null && this.b.h() && a[0] < 0.0f) {
             return super.onInterceptTouchEvent(motionEvent);
         }
-        if (a2 != null && this.b.i() && a2[0] > 0.0f) {
+        if (a != null && this.b.i() && a[0] > 0.0f) {
             return super.onInterceptTouchEvent(motionEvent);
         }
-        if (a2 == null) {
+        if (a == null) {
             if (this.b.i() || this.b.h()) {
                 return super.onInterceptTouchEvent(motionEvent);
             }

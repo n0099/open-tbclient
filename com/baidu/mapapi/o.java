@@ -4,9 +4,7 @@ import android.graphics.Bitmap;
 import android.graphics.Canvas;
 /* loaded from: classes.dex */
 final class o {
-
-    /* renamed from: a  reason: collision with root package name */
-    private Bitmap f564a = null;
+    private Bitmap a = null;
     private Canvas b = null;
     private Bitmap.Config c;
 
@@ -15,17 +13,17 @@ final class o {
     }
 
     public final void a() {
-        if (this.f564a != null) {
-            this.f564a.recycle();
+        if (this.a != null) {
+            this.a.recycle();
         }
-        this.f564a = null;
+        this.a = null;
         this.b = null;
     }
 
     public final void a(int i, int i2) {
         a();
-        this.f564a = Bitmap.createBitmap(i, i2, this.c);
-        this.b = new Canvas(this.f564a);
+        this.a = Bitmap.createBitmap(i, i2, this.c);
+        this.b = new Canvas(this.a);
     }
 
     public final void a(p pVar) {
@@ -35,6 +33,6 @@ final class o {
     }
 
     public final Bitmap b() {
-        return this.f564a;
+        return this.a;
     }
 }

@@ -6,9 +6,7 @@ import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class br {
     private int e = 0;
-
-    /* renamed from: a  reason: collision with root package name */
-    private VersionData f1047a = new VersionData();
+    private VersionData a = new VersionData();
     private com.baidu.tieba.data.f b = new com.baidu.tieba.data.f();
     private com.baidu.tieba.data.h c = new com.baidu.tieba.data.h();
     private CombineDownload d = new CombineDownload();
@@ -24,7 +22,7 @@ public class br {
     public void a(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                this.f1047a.parserJson(jSONObject.optJSONObject("version"));
+                this.a.parserJson(jSONObject.optJSONObject("version"));
                 this.b.a(jSONObject.optJSONObject("client"));
                 this.c.a(jSONObject.optJSONObject("config"));
                 this.d.parserJson(jSONObject.optJSONObject("combine_download"));
@@ -44,7 +42,7 @@ public class br {
     }
 
     public VersionData c() {
-        return this.f1047a;
+        return this.a;
     }
 
     public com.baidu.tieba.data.f d() {

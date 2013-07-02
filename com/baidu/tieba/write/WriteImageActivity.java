@@ -31,9 +31,7 @@ import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class WriteImageActivity extends com.baidu.tieba.g {
-
-    /* renamed from: a */
-    private static String[] f1551a = null;
+    private static String[] a = null;
     private int A;
     private HashMap B;
     private HashMap C;
@@ -61,6 +59,11 @@ public class WriteImageActivity extends com.baidu.tieba.g {
     private boolean y = false;
     private boolean z = false;
     private View.OnClickListener D = new aq(this);
+
+    /* JADX DEBUG: Method not inlined, still used in: [com.baidu.tieba.write.aw.onClick(android.view.View):void] */
+    public static /* synthetic */ ProgressBar c(WriteImageActivity writeImageActivity) {
+        return writeImageActivity.j;
+    }
 
     public static void a(Activity activity, Bitmap bitmap, int i) {
         Intent intent = new Intent(activity, WriteImageActivity.class);
@@ -126,7 +129,7 @@ public class WriteImageActivity extends com.baidu.tieba.g {
             m();
             d();
         }
-        f1551a = getResources().getStringArray(R.array.fiter_name);
+        a = getResources().getStringArray(R.array.fiter_name);
         this.v = TiebaApplication.f().v();
     }
 

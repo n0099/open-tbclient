@@ -10,9 +10,7 @@ import com.slidingmenu.lib.R;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ap extends BdAsyncTask {
-
-    /* renamed from: a  reason: collision with root package name */
-    com.baidu.tieba.util.r f1138a;
+    com.baidu.tieba.util.r a;
     Address b;
     int c;
     int d;
@@ -34,16 +32,16 @@ public class ap extends BdAsyncTask {
         com.baidu.tieba.model.av avVar;
         int d;
         try {
-            this.f1138a = new com.baidu.tieba.util.r(strArr[0]);
-            this.f1138a.a("lng", String.valueOf(this.b.getLongitude()));
-            this.f1138a.a("lat", String.valueOf(this.b.getLatitude()));
-            this.f1138a.a("width", String.valueOf(com.baidu.tieba.util.ab.a((Context) this.f)));
-            this.f1138a.a("height", String.valueOf(com.baidu.tieba.util.ab.b((Context) this.f)));
-            this.f1138a.a("guide", String.valueOf(this.d));
+            this.a = new com.baidu.tieba.util.r(strArr[0]);
+            this.a.a("lng", String.valueOf(this.b.getLongitude()));
+            this.a.a("lat", String.valueOf(this.b.getLatitude()));
+            this.a.a("width", String.valueOf(com.baidu.tieba.util.ab.a((Context) this.f)));
+            this.a.a("height", String.valueOf(com.baidu.tieba.util.ab.b((Context) this.f)));
+            this.a.a("guide", String.valueOf(this.d));
             if (this.e) {
-                this.f1138a.a("ispv", "1");
+                this.a.a("ispv", "1");
             } else {
-                this.f1138a.a("ispv", "0");
+                this.a.a("ispv", "0");
             }
             if (this.c != 0) {
                 avVar = this.f.b;
@@ -51,9 +49,9 @@ public class ap extends BdAsyncTask {
             } else {
                 d = 1;
             }
-            this.f1138a.a("pn", String.valueOf(d));
-            String j = this.f1138a.j();
-            if (this.f1138a.c()) {
+            this.a.a("pn", String.valueOf(d));
+            String j = this.a.j();
+            if (this.a.c()) {
                 com.baidu.tieba.model.av avVar2 = new com.baidu.tieba.model.av();
                 avVar2.a(j);
                 return avVar2;
@@ -81,7 +79,7 @@ public class ap extends BdAsyncTask {
         this.f.g = false;
         progressBar = this.f.k;
         progressBar.setVisibility(8);
-        if (this.f1138a != null) {
+        if (this.a != null) {
             if (avVar != null) {
                 avVar2 = this.f.b;
                 avVar2.a(avVar.c());
@@ -106,8 +104,8 @@ public class ap extends BdAsyncTask {
                 if (this.d == 1 && TiebaApplication.f().B() == 0) {
                     TiebaApplication.f().a(System.currentTimeMillis());
                 }
-            } else if (this.f1138a.g() != null) {
-                this.f.a(this.f1138a.g());
+            } else if (this.a.g() != null) {
+                this.f.a(this.a.g());
             } else {
                 this.f.a(this.f.getString(R.string.neterror));
             }
@@ -118,8 +116,8 @@ public class ap extends BdAsyncTask {
     public void cancel() {
         ProgressBar progressBar;
         aq aqVar;
-        if (this.f1138a != null) {
-            this.f1138a.h();
+        if (this.a != null) {
+            this.a.h();
         }
         this.f.f = null;
         this.f.g = false;

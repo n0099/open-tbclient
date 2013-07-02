@@ -14,9 +14,7 @@ import com.slidingmenu.lib.R;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class c extends BaseAdapter {
-
-    /* renamed from: a  reason: collision with root package name */
-    View.OnClickListener f1429a = new d(this);
+    View.OnClickListener a = new d(this);
     private Activity b;
     private final f c;
     private com.baidu.tieba.util.a d;
@@ -27,8 +25,8 @@ public class c extends BaseAdapter {
         this.c = fVar;
         this.e = z;
         this.d = new com.baidu.tieba.util.a(activity);
-        int a2 = ab.a(activity, 54.0f);
-        this.d.a(a2, a2);
+        int a = ab.a(activity, 54.0f);
+        this.d.a(a, a);
     }
 
     public f a() {
@@ -79,9 +77,9 @@ public class c extends BaseAdapter {
             return from.inflate(R.layout.bar_home_list_line, viewGroup, false);
         }
         View inflate = from.inflate(R.layout.bar_folder_first_dir_item, viewGroup, false);
-        inflate.setOnClickListener(this.f1429a);
+        inflate.setOnClickListener(this.a);
         j jVar = new j();
-        jVar.f1435a = (ImageView) inflate.findViewById(R.id.portrait);
+        jVar.a = (ImageView) inflate.findViewById(R.id.portrait);
         jVar.b = (TextView) inflate.findViewById(R.id.name);
         jVar.c = (BestStringsFitTextView) inflate.findViewById(R.id.description);
         inflate.setTag(jVar);
@@ -105,15 +103,15 @@ public class c extends BaseAdapter {
         if (qVar.d != null) {
             com.baidu.adp.widget.a.b c = this.d.c(qVar.d);
             if (c != null) {
-                c.b(jVar.f1435a);
+                c.b(jVar.a);
                 return;
             }
-            jVar.f1435a.setImageResource(R.drawable.icon_all_categories);
-            jVar.f1435a.setTag(qVar.d);
+            jVar.a.setImageResource(R.drawable.icon_all_categories);
+            jVar.a.setTag(qVar.d);
             this.d.a(qVar.d, new e(this, viewGroup));
             return;
         }
-        jVar.f1435a.setImageResource(R.drawable.icon_all_categories);
+        jVar.a.setImageResource(R.drawable.icon_all_categories);
     }
 
     @Override // android.widget.Adapter

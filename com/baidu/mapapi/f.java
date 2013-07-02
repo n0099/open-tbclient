@@ -17,9 +17,7 @@ public class f {
     private GpsStatus g;
     private LocationManager b = null;
     private android.location.LocationListener c = null;
-
-    /* renamed from: a  reason: collision with root package name */
-    Location f552a = null;
+    Location a = null;
     private a e = null;
     private int f = 0;
 
@@ -105,14 +103,14 @@ public class f {
                     if (location != null) {
                         Bundle extras = location.getExtras();
                         Mj.UpdataGPS(location.getLongitude(), location.getLatitude(), (float) (location.getSpeed() * 3.6d), location.getBearing(), location.hasAccuracy() ? location.getAccuracy() : 0.0f, extras != null ? extras.getInt("NumSatellite", 0) : 0);
-                        f.this.f552a = location;
+                        f.this.a = location;
                     }
                 }
 
                 @Override // android.location.LocationListener
                 public void onProviderDisabled(String str) {
                     Mj.UpdataGPS(0.0d, 0.0d, 0.0f, 0.0f, 0.0f, 0);
-                    f.this.f552a = null;
+                    f.this.a = null;
                 }
 
                 @Override // android.location.LocationListener
@@ -125,7 +123,7 @@ public class f {
                         case 0:
                         case 1:
                             Mj.UpdataGPS(0.0d, 0.0d, 0.0f, 0.0f, 0.0f, 0);
-                            f.this.f552a = null;
+                            f.this.a = null;
                             return;
                         default:
                             return;

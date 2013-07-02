@@ -5,35 +5,33 @@ import android.util.AttributeSet;
 import android.widget.ImageView;
 /* loaded from: classes.dex */
 public class HeadImageView extends ImageView {
-
-    /* renamed from: a  reason: collision with root package name */
-    private String f1489a;
+    private String a;
     private String b;
 
     public HeadImageView(Context context) {
         super(context);
-        this.f1489a = null;
+        this.a = null;
         this.b = null;
     }
 
     public HeadImageView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f1489a = null;
+        this.a = null;
         this.b = null;
     }
 
     public HeadImageView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.f1489a = null;
+        this.a = null;
         this.b = null;
     }
 
     public void setUserId(String str) {
-        this.f1489a = str;
+        this.a = str;
     }
 
     public String getUserId() {
-        return this.f1489a;
+        return this.a;
     }
 
     public void setUserName(String str) {

@@ -7,13 +7,11 @@ import android.widget.LinearLayout;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 class s implements bq {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ LabelActivity f1393a;
+    final /* synthetic */ LabelActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public s(LabelActivity labelActivity) {
-        this.f1393a = labelActivity;
+        this.a = labelActivity;
     }
 
     @Override // android.support.v4.view.bq
@@ -22,11 +20,11 @@ class s implements bq {
         Animation animation;
         Animation animation2;
         LinearLayout linearLayout2;
-        linearLayout = this.f1393a.t;
+        linearLayout = this.a.t;
         int childCount = linearLayout.getChildCount();
         if (i < childCount) {
             for (int i2 = 0; i2 < childCount; i2++) {
-                linearLayout2 = this.f1393a.t;
+                linearLayout2 = this.a.t;
                 ImageView imageView = (ImageView) linearLayout2.getChildAt(i2);
                 if (i2 != i) {
                     imageView.setBackgroundResource(R.drawable.tag_page_rb_click);
@@ -35,9 +33,9 @@ class s implements bq {
                 }
             }
         }
-        animation = this.f1393a.w;
+        animation = this.a.w;
         animation.reset();
-        animation2 = this.f1393a.w;
+        animation2 = this.a.w;
         animation2.start();
     }
 

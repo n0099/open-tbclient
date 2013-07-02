@@ -8,15 +8,13 @@ import com.slidingmenu.lib.R;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ab extends BdAsyncTask {
-
-    /* renamed from: a  reason: collision with root package name */
-    com.baidu.tieba.util.r f639a;
+    com.baidu.tieba.util.r a;
     final /* synthetic */ LoginActivity b;
     private volatile boolean c;
 
     private ab(LoginActivity loginActivity) {
         this.b = loginActivity;
-        this.f639a = null;
+        this.a = null;
         this.c = false;
     }
 
@@ -28,9 +26,9 @@ public class ab extends BdAsyncTask {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void cancel() {
         this.b.S = null;
-        if (this.f639a != null) {
-            this.f639a.h();
-            this.f639a = null;
+        if (this.a != null) {
+            this.a.h();
+            this.a = null;
         }
         this.c = true;
         super.cancel(true);
@@ -52,8 +50,8 @@ public class ab extends BdAsyncTask {
         if (str == null || str.length() <= 0 || this.c) {
             return null;
         }
-        this.f639a = new com.baidu.tieba.util.r(str);
-        return com.baidu.tieba.util.d.a(this.f639a.i());
+        this.a = new com.baidu.tieba.util.r(str);
+        return com.baidu.tieba.util.d.a(this.a.i());
     }
 
     /* JADX DEBUG: Method merged with bridge method */

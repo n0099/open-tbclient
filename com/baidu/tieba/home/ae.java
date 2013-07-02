@@ -9,15 +9,13 @@ import com.slidingmenu.lib.R;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ae implements View.OnClickListener {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ RecommendPagerAdapter f893a;
+    final /* synthetic */ RecommendPagerAdapter a;
     private final /* synthetic */ com.baidu.tieba.data.as b;
     private final /* synthetic */ ImageView c;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ae(RecommendPagerAdapter recommendPagerAdapter, com.baidu.tieba.data.as asVar, ImageView imageView) {
-        this.f893a = recommendPagerAdapter;
+        this.a = recommendPagerAdapter;
         this.b = asVar;
         this.c = imageView;
     }
@@ -28,8 +26,8 @@ public class ae implements View.OnClickListener {
         Activity activity2;
         String E = TiebaApplication.E();
         if (E == null || E.length() <= 0) {
-            activity = this.f893a.g;
-            activity2 = this.f893a.g;
+            activity = this.a.g;
+            activity2 = this.a.g;
             LoginActivity.a(activity, activity2.getResources().getString(R.string.login_to_use), true, 1100002);
             return;
         }

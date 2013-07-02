@@ -16,9 +16,7 @@ import com.baidu.tieba.view.BaseWebView;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public class AppsActivity extends com.baidu.tieba.g {
-
-    /* renamed from: a  reason: collision with root package name */
-    private String f1073a = null;
+    private String a = null;
     private BaseWebView b = null;
     private ImageView c = null;
     private s d = null;
@@ -53,9 +51,9 @@ public class AppsActivity extends com.baidu.tieba.g {
 
     private void a(Bundle bundle) {
         if (bundle != null) {
-            this.f1073a = bundle.getString("url");
+            this.a = bundle.getString("url");
         } else {
-            this.f1073a = getIntent().getStringExtra("url");
+            this.a = getIntent().getStringExtra("url");
         }
         if (System.currentTimeMillis() - getSharedPreferences("settings", 0).getLong("app_inverval", 0L) > 86400000) {
             c();
@@ -69,7 +67,7 @@ public class AppsActivity extends com.baidu.tieba.g {
         if (this.d != null) {
             this.d.cancel();
         }
-        this.d = new s(this, this.f1073a);
+        this.d = new s(this, this.a);
         this.d.setPriority(3);
         this.d.execute(new Object[0]);
     }
@@ -108,7 +106,7 @@ public class AppsActivity extends com.baidu.tieba.g {
             return false;
         }
         this.f.setVisibility(8);
-        this.b.loadDataWithBaseURL(com.baidu.tieba.data.g.f787a, b, "text/html", BdUtil.UTF8, "");
+        this.b.loadDataWithBaseURL(com.baidu.tieba.data.g.a, b, "text/html", BdUtil.UTF8, "");
         return true;
     }
 }

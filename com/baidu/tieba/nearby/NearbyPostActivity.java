@@ -16,9 +16,7 @@ import com.baidu.tieba.write.WriteActivity;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public class NearbyPostActivity extends com.baidu.tieba.g {
-
-    /* renamed from: a  reason: collision with root package name */
-    private Address f1119a = null;
+    private Address a = null;
     private com.baidu.tieba.model.av b = null;
     private ListView c = null;
     private aq d = null;
@@ -158,7 +156,7 @@ public class NearbyPostActivity extends com.baidu.tieba.g {
         int i2;
         if (i == 0) {
             if (address != null) {
-                this.f1119a = address;
+                this.a = address;
             } else {
                 return;
             }
@@ -179,9 +177,9 @@ public class NearbyPostActivity extends com.baidu.tieba.g {
             }
             this.g = true;
             this.j = i;
-            this.f = new ap(this, this.f1119a, i, i2, z);
+            this.f = new ap(this, this.a, i, i2, z);
             this.f.setPriority(3);
-            this.f.execute(String.valueOf(com.baidu.tieba.data.g.f787a) + "c/f/lbs/thread");
+            this.f.execute(String.valueOf(com.baidu.tieba.data.g.a) + "c/f/lbs/thread");
         }
     }
 

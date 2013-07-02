@@ -8,13 +8,11 @@ import com.slidingmenu.lib.R;
 import java.util.List;
 /* loaded from: classes.dex */
 class r implements Handler.Callback {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ LabelActivity f1380a;
+    final /* synthetic */ LabelActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public r(LabelActivity labelActivity) {
-        this.f1380a = labelActivity;
+        this.a = labelActivity;
     }
 
     /* JADX WARN: Incorrect condition in loop: B:12:0x004c */
@@ -37,7 +35,7 @@ class r implements Handler.Callback {
         Handler handler2;
         Handler handler3;
         List list5;
-        boolean a2;
+        boolean a;
         List list6;
         List list7;
         Handler handler4;
@@ -49,23 +47,23 @@ class r implements Handler.Callback {
         Handler handler7;
         List list10;
         boolean z;
-        boolean a3;
+        boolean a2;
         List list11;
         switch (message.what) {
             case 0:
                 com.baidu.tieba.util.z.b("Message-----MSG_BIG_MOVING");
-                list7 = this.f1380a.k;
+                list7 = this.a.k;
                 if (list7 != null) {
-                    list8 = this.f1380a.k;
+                    list8 = this.a.k;
                     if (list8.size() != 0) {
                         long currentTimeMillis = System.currentTimeMillis();
-                        j2 = this.f1380a.E;
+                        j2 = this.a.E;
                         long j3 = currentTimeMillis - j2;
-                        this.f1380a.E = currentTimeMillis;
+                        this.a.E = currentTimeMillis;
                         int i = 0;
                         boolean z2 = false;
                         while (i < list9.size()) {
-                            list10 = this.f1380a.k;
+                            list10 = this.a.k;
                             com.baidu.tieba.view.ag agVar = (com.baidu.tieba.view.ag) list10.get(i);
                             if (agVar.getTag(R.id.label_ball_state) == null) {
                                 z = z2;
@@ -73,9 +71,9 @@ class r implements Handler.Callback {
                                 z = z2;
                             } else {
                                 agVar.setAnimation(null);
-                                a3 = this.f1380a.a(agVar, j3);
-                                if (a3) {
-                                    list11 = this.f1380a.k;
+                                a2 = this.a.a(agVar, j3);
+                                if (a2) {
+                                    list11 = this.a.k;
                                     list11.remove(i);
                                     i--;
                                     z = true;
@@ -87,62 +85,62 @@ class r implements Handler.Callback {
                             z2 = z;
                         }
                         if (z2) {
-                            handler6 = this.f1380a.P;
-                            handler7 = this.f1380a.P;
+                            handler6 = this.a.P;
+                            handler7 = this.a.P;
                             handler6.sendMessageDelayed(handler7.obtainMessage(0), 5L);
                             break;
                         } else {
-                            handler5 = this.f1380a.P;
+                            handler5 = this.a.P;
                             handler5.removeMessages(0);
                             break;
                         }
                     }
                 }
-                handler4 = this.f1380a.P;
+                handler4 = this.a.P;
                 handler4.removeMessages(0);
                 break;
             case 1:
                 com.baidu.tieba.util.z.b("Message-----MSG_SMALL_MOVING");
-                list = this.f1380a.n;
+                list = this.a.n;
                 if (list != null) {
-                    list2 = this.f1380a.n;
+                    list2 = this.a.n;
                     if (list2.size() != 0) {
                         long currentTimeMillis2 = System.currentTimeMillis();
-                        j = this.f1380a.F;
+                        j = this.a.F;
                         long j4 = currentTimeMillis2 - j;
-                        this.f1380a.F = currentTimeMillis2;
+                        this.a.F = currentTimeMillis2;
                         int i2 = 0;
                         while (i2 < list3.size()) {
-                            LabelActivity labelActivity = this.f1380a;
-                            list5 = this.f1380a.n;
-                            a2 = labelActivity.a((com.baidu.tieba.view.ag) list5.get(i2), j4);
-                            if (a2) {
-                                list6 = this.f1380a.n;
+                            LabelActivity labelActivity = this.a;
+                            list5 = this.a.n;
+                            a = labelActivity.a((com.baidu.tieba.view.ag) list5.get(i2), j4);
+                            if (a) {
+                                list6 = this.a.n;
                                 list6.remove(i2);
                                 i2--;
                             }
                             i2++;
                         }
-                        list4 = this.f1380a.n;
+                        list4 = this.a.n;
                         if (list4.size() != 0) {
-                            handler2 = this.f1380a.P;
-                            handler3 = this.f1380a.P;
+                            handler2 = this.a.P;
+                            handler3 = this.a.P;
                             handler2.sendMessageDelayed(handler3.obtainMessage(1), 2L);
                             break;
                         }
                         break;
                     }
                 }
-                handler = this.f1380a.P;
+                handler = this.a.P;
                 handler.removeMessages(1);
                 break;
             case 2:
-                view = this.f1380a.o;
+                view = this.a.o;
                 if (view != null) {
-                    view2 = this.f1380a.o;
+                    view2 = this.a.o;
                     view2.setAnimation(null);
-                    view3 = this.f1380a.o;
-                    animation = this.f1380a.y;
+                    view3 = this.a.o;
+                    animation = this.a.y;
                     view3.startAnimation(animation);
                     break;
                 }

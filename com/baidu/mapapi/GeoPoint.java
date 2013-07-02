@@ -1,9 +1,7 @@
 package com.baidu.mapapi;
 /* loaded from: classes.dex */
 public class GeoPoint {
-
-    /* renamed from: a  reason: collision with root package name */
-    private int f502a;
+    private int a;
     private int b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -12,19 +10,19 @@ public class GeoPoint {
     }
 
     public GeoPoint(int i, int i2) {
-        this.f502a = i;
+        this.a = i;
         this.b = i2;
     }
 
     public boolean equals(Object obj) {
         if (obj != null && obj.getClass() == getClass()) {
-            return this.f502a == ((GeoPoint) obj).f502a && this.b == ((GeoPoint) obj).b;
+            return this.a == ((GeoPoint) obj).a && this.b == ((GeoPoint) obj).b;
         }
         return false;
     }
 
     public int getLatitudeE6() {
-        return this.f502a;
+        return this.a;
     }
 
     public int getLongitudeE6() {
@@ -36,7 +34,7 @@ public class GeoPoint {
     }
 
     public void setLatitudeE6(int i) {
-        this.f502a = i;
+        this.a = i;
     }
 
     public void setLongitudeE6(int i) {
@@ -44,6 +42,6 @@ public class GeoPoint {
     }
 
     public String toString() {
-        return "GeoPoint: Latitude: " + this.f502a + ", Longitude: " + this.b;
+        return "GeoPoint: Latitude: " + this.a + ", Longitude: " + this.b;
     }
 }

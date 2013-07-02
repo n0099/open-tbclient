@@ -11,9 +11,7 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 /* loaded from: classes.dex */
 public class ProtocolActivity extends com.baidu.tieba.g {
-
-    /* renamed from: a  reason: collision with root package name */
-    private ImageView f633a = null;
+    private ImageView a = null;
     private TextView b = null;
     private RelativeLayout c = null;
     private View d = null;
@@ -36,8 +34,8 @@ public class ProtocolActivity extends com.baidu.tieba.g {
         this.c = (RelativeLayout) findViewById(R.id.container);
         this.d = findViewById(R.id.title);
         this.e = (TextView) findViewById(R.id.title_text);
-        this.f633a = (ImageView) findViewById(R.id.back);
-        this.f633a.setOnClickListener(new ad(this));
+        this.a = (ImageView) findViewById(R.id.back);
+        this.a.setOnClickListener(new ad(this));
         this.b = (TextView) findViewById(R.id.text);
         StringBuilder sb = new StringBuilder((int) NotificationProxy.MAX_URL_LENGTH);
         BufferedReader bufferedReader2 = null;
@@ -103,7 +101,7 @@ public class ProtocolActivity extends com.baidu.tieba.g {
         com.baidu.tieba.util.x.f(this.e, i);
         com.baidu.tieba.util.x.c(this.c, i);
         com.baidu.tieba.util.x.d(this.d, i);
-        com.baidu.tieba.util.x.a(this.f633a, i);
+        com.baidu.tieba.util.x.a(this.a, i);
         com.baidu.tieba.util.x.b(this.b, i);
     }
 }

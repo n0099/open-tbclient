@@ -4,9 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 /* loaded from: classes.dex */
 final class r {
-
-    /* renamed from: a  reason: collision with root package name */
-    Object f64a;
+    Object a;
     Object b;
     HashMap c;
     ArrayList d;

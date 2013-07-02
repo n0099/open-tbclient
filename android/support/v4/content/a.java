@@ -4,9 +4,7 @@ import java.util.concurrent.CountDownLatch;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public final class a extends ModernAsyncTask implements Runnable {
-
-    /* renamed from: a  reason: collision with root package name */
-    Object f75a;
+    Object a;
     boolean b;
     final /* synthetic */ AsyncTaskLoader c;
     private CountDownLatch e = new CountDownLatch(1);
@@ -20,8 +18,8 @@ public final class a extends ModernAsyncTask implements Runnable {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.support.v4.content.ModernAsyncTask
     public Object a(Void... voidArr) {
-        this.f75a = this.c.e();
-        return this.f75a;
+        this.a = this.c.e();
+        return this.a;
     }
 
     @Override // android.support.v4.content.ModernAsyncTask
@@ -36,7 +34,7 @@ public final class a extends ModernAsyncTask implements Runnable {
     @Override // android.support.v4.content.ModernAsyncTask
     protected void a() {
         try {
-            this.c.a(this, this.f75a);
+            this.c.a(this, this.a);
         } finally {
             this.e.countDown();
         }

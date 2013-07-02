@@ -9,9 +9,7 @@ import com.baidu.tieba.data.af;
 import com.baidu.tieba.util.z;
 /* loaded from: classes.dex */
 public class TiebaMessageService extends Service {
-
-    /* renamed from: a  reason: collision with root package name */
-    private o f1400a = null;
+    private o a = null;
     private af b = null;
     private Handler c = new n(this);
 
@@ -24,8 +22,8 @@ public class TiebaMessageService extends Service {
     public void onDestroy() {
         super.onDestroy();
         this.c.removeMessages(1);
-        if (this.f1400a != null) {
-            this.f1400a.cancel();
+        if (this.a != null) {
+            this.a.cancel();
         }
     }
 
@@ -49,11 +47,11 @@ public class TiebaMessageService extends Service {
     public void a() {
         try {
             if (TiebaApplication.E() != null && TiebaApplication.H() != null) {
-                if (this.f1400a != null) {
-                    this.f1400a.cancel();
+                if (this.a != null) {
+                    this.a.cancel();
                 }
-                this.f1400a = new o(this);
-                this.f1400a.execute(new String[0]);
+                this.a = new o(this);
+                this.a.execute(new String[0]);
             }
         } catch (Exception e) {
             z.b(getClass().getName(), "getMsg", e.getMessage());

@@ -16,9 +16,7 @@ import com.slidingmenu.lib.R;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class bj extends BaseAdapter {
-
-    /* renamed from: a  reason: collision with root package name */
-    private Context f1343a;
+    private Context a;
     private com.baidu.tieba.model.bl b;
     private ArrayList c;
     private boolean d;
@@ -31,16 +29,16 @@ public class bj extends BaseAdapter {
 
     public bj(Context context) {
         int i = BdWebErrorView.ERROR_CODE_400;
-        this.f1343a = null;
+        this.a = null;
         this.b = null;
         this.c = null;
-        this.f1343a = context;
+        this.a = context;
         this.d = false;
         this.e = false;
         this.c = new ArrayList();
-        int a2 = com.baidu.tieba.util.ab.a(context, 267.0f);
-        this.h = a2 <= 400 ? a2 : i;
-        this.i = new com.baidu.tieba.util.a(this.f1343a);
+        int a = com.baidu.tieba.util.ab.a(context, 267.0f);
+        this.h = a <= 400 ? a : i;
+        this.i = new com.baidu.tieba.util.a(this.a);
         this.i.a(this.h, (int) (this.h * 1.62f));
         this.j = new bk(this);
     }
@@ -106,7 +104,7 @@ public class bj extends BaseAdapter {
     private void a(TextView textView, com.baidu.tieba.data.i iVar) {
         if (textView != null && iVar != null) {
             if (iVar.a() == 2) {
-                textView.append(iVar.a(this.f1343a, this.f, this.g));
+                textView.append(iVar.a(this.a, this.f, this.g));
             } else {
                 textView.append(iVar.e());
             }
@@ -164,7 +162,7 @@ public class bj extends BaseAdapter {
         boolean z3 = true;
         int itemViewType = getItemViewType(i);
         if (view == null) {
-            LayoutInflater from = LayoutInflater.from(this.f1343a);
+            LayoutInflater from = LayoutInflater.from(this.a);
             bl blVar2 = new bl(this, null);
             if (itemViewType == 0) {
                 View inflate = from.inflate(R.layout.person_lbs_item, (ViewGroup) null);
@@ -190,7 +188,7 @@ public class bj extends BaseAdapter {
                 this.c.add(blVar2.c);
                 view2 = inflate2;
             }
-            blVar2.f1345a = -1;
+            blVar2.a = -1;
             view2.setTag(blVar2);
             blVar = blVar2;
             view = view2;
@@ -199,9 +197,9 @@ public class bj extends BaseAdapter {
         }
         if (itemViewType == 1) {
             if (getItemId(i) == -1) {
-                blVar.b.setText(this.f1343a.getString(R.string.pre_page));
+                blVar.b.setText(this.a.getString(R.string.pre_page));
             } else {
-                blVar.b.setText(this.f1343a.getString(R.string.next_page));
+                blVar.b.setText(this.a.getString(R.string.next_page));
             }
         } else {
             Object item = getItem(i);
@@ -262,8 +260,8 @@ public class bj extends BaseAdapter {
                                     z = z4;
                                     z2 = true;
                                 } else {
-                                    int[] a2 = com.baidu.tieba.util.ab.a(iVar, this.h);
-                                    LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(a2[0], a2[1]);
+                                    int[] a = com.baidu.tieba.util.ab.a(iVar, this.h);
+                                    LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(a[0], a[1]);
                                     blVar.f.setTag(iVar.f());
                                     blVar.f.setFocusable(false);
                                     blVar.f.setLayoutParams(layoutParams);
@@ -301,9 +299,9 @@ public class bj extends BaseAdapter {
 
     private void a(bl blVar) {
         try {
-            if (blVar.f1345a != TiebaApplication.f().at()) {
-                blVar.f1345a = TiebaApplication.f().at();
-                if (blVar.f1345a == 1) {
+            if (blVar.a != TiebaApplication.f().at()) {
+                blVar.a = TiebaApplication.f().at();
+                if (blVar.a == 1) {
                     blVar.b.setTextColor(com.baidu.tieba.util.x.a(1));
                 } else {
                     blVar.b.setTextColor(-16777216);
@@ -316,10 +314,10 @@ public class bj extends BaseAdapter {
 
     private void b(bl blVar) {
         try {
-            if (blVar.f1345a != TiebaApplication.f().at()) {
-                blVar.f1345a = TiebaApplication.f().at();
-                if (blVar.f1345a == 1) {
-                    blVar.g.setTextColor(com.baidu.tieba.util.x.a(blVar.f1345a));
+            if (blVar.a != TiebaApplication.f().at()) {
+                blVar.a = TiebaApplication.f().at();
+                if (blVar.a == 1) {
+                    blVar.g.setTextColor(com.baidu.tieba.util.x.a(blVar.a));
                     blVar.g.setLinkTextColor(-9989158);
                     com.baidu.tieba.util.x.h(blVar.e, (int) R.drawable.lbs_weitie_bg_1);
                 } else {

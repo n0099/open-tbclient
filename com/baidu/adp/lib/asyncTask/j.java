@@ -2,22 +2,20 @@ package com.baidu.adp.lib.asyncTask;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public abstract class j implements Runnable {
-
-    /* renamed from: a  reason: collision with root package name */
-    private l f131a;
+    private l a;
 
     public j(l lVar) {
-        this.f131a = null;
+        this.a = null;
         if (lVar == null) {
             throw new NullPointerException();
         }
-        this.f131a = lVar;
+        this.a = lVar;
     }
 
     public void a() {
-        if (this.f131a != null) {
+        if (this.a != null) {
             try {
-                this.f131a.run();
+                this.a.run();
             } catch (OutOfMemoryError e) {
                 com.baidu.adp.a.b.a().c();
                 System.gc();
@@ -26,21 +24,21 @@ public abstract class j implements Runnable {
     }
 
     public void b() {
-        if (this.f131a != null) {
-            this.f131a.a();
+        if (this.a != null) {
+            this.a.a();
         }
     }
 
     public BdAsyncTask c() {
-        if (this.f131a != null) {
-            return this.f131a.b();
+        if (this.a != null) {
+            return this.a.b();
         }
         return null;
     }
 
     public int d() {
         try {
-            return this.f131a.b().getPriority();
+            return this.a.b().getPriority();
         } catch (Exception e) {
             return 1;
         }
@@ -48,7 +46,7 @@ public abstract class j implements Runnable {
 
     public String e() {
         try {
-            return this.f131a.b().getTag();
+            return this.a.b().getTag();
         } catch (Exception e) {
             return null;
         }
@@ -56,7 +54,7 @@ public abstract class j implements Runnable {
 
     public String f() {
         try {
-            return this.f131a.b().getKey();
+            return this.a.b().getKey();
         } catch (Exception e) {
             return null;
         }
@@ -64,7 +62,7 @@ public abstract class j implements Runnable {
 
     public BdAsyncTaskType g() {
         try {
-            return this.f131a.b().getType();
+            return this.a.b().getType();
         } catch (Exception e) {
             return BdAsyncTaskType.MAX_PARALLEL;
         }
@@ -72,7 +70,7 @@ public abstract class j implements Runnable {
 
     public boolean h() {
         try {
-            return this.f131a.b().isSelfExecute();
+            return this.a.b().isSelfExecute();
         } catch (Exception e) {
             return false;
         }

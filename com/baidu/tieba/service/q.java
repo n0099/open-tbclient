@@ -9,18 +9,16 @@ import com.slidingmenu.lib.R;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class q extends BdAsyncTask {
-
-    /* renamed from: a  reason: collision with root package name */
-    int f1419a;
+    int a;
     Uri b;
     String c = null;
     final /* synthetic */ TiebaPrepareImageService d;
 
     public q(TiebaPrepareImageService tiebaPrepareImageService, int i, Uri uri) {
         this.d = tiebaPrepareImageService;
-        this.f1419a = 0;
+        this.a = 0;
         this.b = null;
-        this.f1419a = i;
+        this.a = i;
         this.b = uri;
     }
 
@@ -31,17 +29,17 @@ public class q extends BdAsyncTask {
     public Boolean a(Object... objArr) {
         int i;
         boolean z = true;
-        TiebaPrepareImageService.f1401a = true;
+        TiebaPrepareImageService.a = true;
         try {
-            int i2 = this.f1419a;
+            int i2 = this.a;
             TiebaPrepareImageService tiebaPrepareImageService = this.d;
             Uri uri = this.b;
             i = this.d.f;
-            Bitmap a2 = bb.a(i2, tiebaPrepareImageService, uri, i);
-            if (a2 != null) {
-                if (com.baidu.tieba.util.m.a(null, "tieba_resized_image", a2, 80) != null) {
-                    Bitmap a3 = com.baidu.tieba.util.d.a(a2, 100);
-                    if (a3 == null || com.baidu.tieba.util.m.a(null, "tieba_resized_image_display", a3, 80) == null) {
+            Bitmap a = bb.a(i2, tiebaPrepareImageService, uri, i);
+            if (a != null) {
+                if (com.baidu.tieba.util.m.a(null, "tieba_resized_image", a, 80) != null) {
+                    Bitmap a2 = com.baidu.tieba.util.d.a(a, 100);
+                    if (a2 == null || com.baidu.tieba.util.m.a(null, "tieba_resized_image_display", a2, 80) == null) {
                         this.c = this.d.getString(R.string.error_sd_error);
                         z = false;
                     }
@@ -53,12 +51,12 @@ public class q extends BdAsyncTask {
                 this.c = this.d.getString(R.string.pic_parser_error);
                 z = false;
             }
-            TiebaPrepareImageService.f1401a = false;
+            TiebaPrepareImageService.a = false;
         } catch (Exception e) {
-            TiebaPrepareImageService.f1401a = false;
+            TiebaPrepareImageService.a = false;
             z = false;
         } catch (Throwable th) {
-            TiebaPrepareImageService.f1401a = false;
+            TiebaPrepareImageService.a = false;
             throw th;
         }
         return Boolean.valueOf(z);

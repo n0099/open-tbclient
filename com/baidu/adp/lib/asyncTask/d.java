@@ -18,10 +18,10 @@ public class d extends Handler {
         c cVar = (c) message.obj;
         switch (message.what) {
             case 1:
-                cVar.f126a.d(cVar.b[0]);
+                cVar.a.d(cVar.b[0]);
                 return;
             case 2:
-                cVar.f126a.b(cVar.b);
+                cVar.a.b(cVar.b);
                 return;
             default:
                 return;

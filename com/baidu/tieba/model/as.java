@@ -1,9 +1,7 @@
 package com.baidu.tieba.model;
 /* loaded from: classes.dex */
 public class as {
-
-    /* renamed from: a  reason: collision with root package name */
-    int f1024a;
+    int a;
     String b;
     String c;
     String d;
@@ -19,7 +17,7 @@ public class as {
     }
 
     public int a() {
-        return this.f1024a;
+        return this.a;
     }
 
     public String b() {

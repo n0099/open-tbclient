@@ -16,9 +16,7 @@ import com.baidu.tieba.TiebaApplication;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public class MsgRemindActivity extends com.baidu.tieba.g {
-
-    /* renamed from: a  reason: collision with root package name */
-    private RadioGroup f1076a = null;
+    private RadioGroup a = null;
     private TextView b = null;
     private CheckBox c = null;
     private CheckBox d = null;
@@ -105,7 +103,7 @@ public class MsgRemindActivity extends com.baidu.tieba.g {
 
     void b() {
         this.l = (RelativeLayout) findViewById(R.id.parent);
-        this.f1076a = (RadioGroup) findViewById(R.id.frequency_radio);
+        this.a = (RadioGroup) findViewById(R.id.frequency_radio);
         this.m = (RelativeLayout) findViewById(R.id.title);
         this.n = (TextView) findViewById(R.id.title_text);
         this.o = (TextView) findViewById(R.id.frequency_text);
@@ -118,7 +116,7 @@ public class MsgRemindActivity extends com.baidu.tieba.g {
         this.v = (CheckBox) findViewById(R.id.check_newfans);
         this.w = (TextView) findViewById(R.id.tone_text);
         this.x = (TextView) findViewById(R.id.vibrate_text);
-        this.f1076a.setOnCheckedChangeListener(new ac(this));
+        this.a.setOnCheckedChangeListener(new ac(this));
         ad adVar = new ad(this);
         this.b = (TextView) findViewById(R.id.content_text);
         this.c = (CheckBox) findViewById(R.id.check_replyme);
@@ -146,13 +144,13 @@ public class MsgRemindActivity extends com.baidu.tieba.g {
     private void c() {
         int R = TiebaApplication.f().R();
         if (R == 30) {
-            this.f1076a.check(R.id.radio_30sec);
+            this.a.check(R.id.radio_30sec);
         } else if (R == 120) {
-            this.f1076a.check(R.id.radio_2min);
+            this.a.check(R.id.radio_2min);
         } else if (R == 300) {
-            this.f1076a.check(R.id.radio_5min);
+            this.a.check(R.id.radio_5min);
         } else {
-            this.f1076a.check(R.id.radio_no);
+            this.a.check(R.id.radio_no);
         }
     }
 

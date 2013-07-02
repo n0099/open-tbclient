@@ -3,20 +3,18 @@ package com.baidu.tbadk.widget.richText;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class e {
-
-    /* renamed from: a  reason: collision with root package name */
-    private String f605a;
+    private String a;
     private int b;
     private int c;
     private boolean d;
 
     public e(JSONObject jSONObject) {
-        this.f605a = null;
+        this.a = null;
         this.b = 1;
         this.c = 1;
         this.d = false;
         if (jSONObject != null) {
-            this.f605a = jSONObject.optString("src");
+            this.a = jSONObject.optString("src");
             try {
                 String[] split = jSONObject.optString("bsize").split(",");
                 this.b = Integer.valueOf(split[0]).intValue();
@@ -30,7 +28,7 @@ public class e {
             if (this.c <= 0) {
                 this.c = 1;
             }
-            if (this.f605a != null && this.f605a.indexOf(".baidu.com") != -1) {
+            if (this.a != null && this.a.indexOf(".baidu.com") != -1) {
                 this.d = true;
             }
         }
@@ -49,6 +47,6 @@ public class e {
     }
 
     public String d() {
-        return this.f605a;
+        return this.a;
     }
 }

@@ -4,18 +4,16 @@ import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class l implements View.OnClickListener {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ EditHeadActivity f1365a;
+    final /* synthetic */ EditHeadActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public l(EditHeadActivity editHeadActivity) {
-        this.f1365a = editHeadActivity;
+        this.a = editHeadActivity;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        this.f1365a.setResult(0);
-        this.f1365a.finish();
+        this.a.setResult(0);
+        this.a.finish();
     }
 }

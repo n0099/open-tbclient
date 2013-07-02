@@ -6,9 +6,7 @@ import java.util.ArrayList;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class az extends BdAsyncTask {
-
-    /* renamed from: a  reason: collision with root package name */
-    com.baidu.tieba.a.e f1030a = null;
+    com.baidu.tieba.a.e a = null;
     int b;
     final /* synthetic */ ax c;
 
@@ -103,8 +101,8 @@ public class az extends BdAsyncTask {
                     this.c.d = ((com.baidu.tieba.data.an) d.get(0)).d();
                     break;
             }
-            this.f1030a = new com.baidu.tieba.a.e();
-            com.baidu.tieba.a.e eVar = this.f1030a;
+            this.a = new com.baidu.tieba.a.e();
+            com.baidu.tieba.a.e eVar = this.a;
             str = this.c.c;
             str2 = this.c.b;
             str3 = this.c.d;
@@ -119,11 +117,11 @@ public class az extends BdAsyncTask {
             j = this.c.r;
             z4 = this.c.q;
             akVar = ax.v;
-            String a2 = eVar.a(str, str2, str3, i, i2, z, z2, i7, i3, i4, z3, j, z4, akVar);
-            if (this.f1030a.b()) {
+            String a = eVar.a(str, str2, str3, i, i2, z, z2, i7, i3, i4, z3, j, z4, akVar);
+            if (this.a.b()) {
                 com.baidu.tieba.data.aj ajVar3 = new com.baidu.tieba.data.aj();
                 context = this.c.w;
-                ajVar3.a(a2, context);
+                ajVar3.a(a, context);
                 com.baidu.tieba.data.ba b = ajVar3.b();
                 i5 = this.c.g;
                 b.b(i5);
@@ -140,11 +138,11 @@ public class az extends BdAsyncTask {
                 }
                 ajVar2 = ajVar3;
             } else {
-                this.c.setErrorString(this.f1030a.e());
-                this.c.setErrorCode(this.f1030a.f());
+                this.c.setErrorString(this.a.e());
+                this.c.setErrorCode(this.a.f());
                 ajVar2 = null;
             }
-            if (this.f1030a.c()) {
+            if (this.a.c()) {
                 akVar3 = ax.v;
                 akVar3.a();
                 long nanoTime = System.nanoTime();
@@ -152,7 +150,7 @@ public class az extends BdAsyncTask {
                 akVar4 = ax.v;
                 akVar4.a((int) ((nanoTime - j2) / 1000000));
                 akVar5 = ax.v;
-                akVar5.b(this.f1030a.d());
+                akVar5.b(this.a.d());
                 return ajVar2;
             }
             akVar2 = ax.v;
@@ -248,8 +246,8 @@ public class az extends BdAsyncTask {
         ay ayVar2;
         super.cancel(true);
         this.c.setErrorString(null);
-        if (this.f1030a != null) {
-            this.f1030a.a();
+        if (this.a != null) {
+            this.a.a();
         }
         ayVar = this.c.x;
         if (ayVar != null) {

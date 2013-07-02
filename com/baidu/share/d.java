@@ -3,26 +3,24 @@ package com.baidu.share;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class d {
-
-    /* renamed from: a  reason: collision with root package name */
-    private ArrayList f593a = new ArrayList();
+    private ArrayList a = new ArrayList();
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a() {
-        synchronized (this.f593a) {
-            this.f593a.clear();
+        synchronized (this.a) {
+            this.a.clear();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a(ShareModel shareModel) {
-        if (shareModel == null || this.f593a == null) {
+        if (shareModel == null || this.a == null) {
             return;
         }
-        synchronized (this.f593a) {
-            int size = this.f593a.size();
+        synchronized (this.a) {
+            int size = this.a.size();
             for (int i = 0; i < size; i++) {
-                ((IShareListener) this.f593a.get(i)).onShareEvent(shareModel);
+                ((IShareListener) this.a.get(i)).onShareEvent(shareModel);
             }
         }
     }
@@ -31,9 +29,9 @@ public class d {
     public boolean a(IShareListener iShareListener) {
         boolean z = false;
         if (iShareListener != null) {
-            synchronized (this.f593a) {
-                if (!this.f593a.contains(iShareListener)) {
-                    z = this.f593a.add(iShareListener);
+            synchronized (this.a) {
+                if (!this.a.contains(iShareListener)) {
+                    z = this.a.add(iShareListener);
                 }
             }
         }
@@ -46,8 +44,8 @@ public class d {
         if (iShareListener == null) {
             return false;
         }
-        synchronized (this.f593a) {
-            remove = this.f593a.remove(iShareListener);
+        synchronized (this.a) {
+            remove = this.a.remove(iShareListener);
         }
         return remove;
     }

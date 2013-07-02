@@ -8,9 +8,7 @@ import android.widget.Toast;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class PoiOverlay extends ItemizedOverlay {
-
-    /* renamed from: a  reason: collision with root package name */
-    private MapView f537a;
+    private MapView a;
     private Context b;
     private int c;
     private MKSearch d;
@@ -20,12 +18,12 @@ public class PoiOverlay extends ItemizedOverlay {
     public PoiOverlay(Activity activity, MapView mapView) {
         super(null);
         this.mList = null;
-        this.f537a = null;
+        this.a = null;
         this.b = null;
         this.c = 1;
         this.mUseToast = true;
         this.b = activity;
-        this.f537a = mapView;
+        this.a = mapView;
         activity.getWindowManager().getDefaultDisplay().getMetrics(new DisplayMetrics());
         if (Mj.i <= 120) {
             this.c = 0;
@@ -74,7 +72,7 @@ public class PoiOverlay extends ItemizedOverlay {
     @Override // com.baidu.mapapi.ItemizedOverlay
     public boolean onTap(int i) {
         OverlayItem item = getItem(i);
-        this.f537a.getController().animateTo(item.mPoint);
+        this.a.getController().animateTo(item.mPoint);
         if (this.mUseToast && item.mTitle != null) {
             MKPoiInfo poi = getPoi(i);
             if (poi.hasCaterDetails) {

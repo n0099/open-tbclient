@@ -5,13 +5,11 @@ import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ah extends BdAsyncTask {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ ag f1014a;
+    final /* synthetic */ ag a;
     private String b;
 
     public ah(ag agVar, String str) {
-        this.f1014a = agVar;
+        this.a = agVar;
         this.b = null;
         this.b = str;
     }
@@ -31,10 +29,10 @@ public class ah extends BdAsyncTask {
     public void cancel() {
         com.baidu.adp.a.e eVar;
         com.baidu.adp.a.e eVar2;
-        this.f1014a.f1013a = null;
-        eVar = this.f1014a.mLoadDataCallBack;
+        this.a.a = null;
+        eVar = this.a.mLoadDataCallBack;
         if (eVar != null) {
-            eVar2 = this.f1014a.mLoadDataCallBack;
+            eVar2 = this.a.mLoadDataCallBack;
             eVar2.a(null);
         }
         super.cancel(true);
@@ -53,11 +51,11 @@ public class ah extends BdAsyncTask {
         com.baidu.adp.a.e eVar;
         com.baidu.adp.a.e eVar2;
         super.a((Object) bitmap);
-        this.f1014a.f1013a = null;
+        this.a.a = null;
         com.baidu.tieba.util.z.a(getClass().getName(), "onPostExecute", "is Null?" + String.valueOf(bitmap == null));
-        eVar = this.f1014a.mLoadDataCallBack;
+        eVar = this.a.mLoadDataCallBack;
         if (eVar != null) {
-            eVar2 = this.f1014a.mLoadDataCallBack;
+            eVar2 = this.a.mLoadDataCallBack;
             eVar2.a(bitmap);
         }
     }

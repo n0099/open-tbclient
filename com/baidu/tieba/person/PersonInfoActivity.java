@@ -22,9 +22,7 @@ import com.baidu.zeus.WebChromeClient;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public class PersonInfoActivity extends com.baidu.tieba.g {
-
-    /* renamed from: a  reason: collision with root package name */
-    bb f1304a = null;
+    bb a = null;
     private com.baidu.tieba.model.bi b = null;
     private BroadcastReceiver c = null;
     private long d = 0;
@@ -75,8 +73,8 @@ public class PersonInfoActivity extends com.baidu.tieba.g {
     }
 
     private void c() {
-        this.f1304a = new bb(this, this.b);
-        this.f1304a.a(new ay(this));
+        this.a = new bb(this, this.b);
+        this.a.a(new ay(this));
     }
 
     private void d() {
@@ -108,7 +106,7 @@ public class PersonInfoActivity extends com.baidu.tieba.g {
     }
 
     public void b() {
-        this.f1304a.f(this.b);
+        this.a.f(this.b);
         if (this.b.b()) {
             this.b.a(true, true);
         } else {
@@ -138,10 +136,10 @@ public class PersonInfoActivity extends com.baidu.tieba.g {
                 this.b.b(TiebaApplication.H());
                 d();
                 b();
-                this.f1304a.a(true);
+                this.a.a(true);
                 return;
             }
-            this.f1304a.a(false);
+            this.a.a(false);
         } else if (this.b.b()) {
             if (TiebaApplication.f().aa()) {
                 long currentTimeMillis = System.currentTimeMillis();
@@ -167,11 +165,11 @@ public class PersonInfoActivity extends com.baidu.tieba.g {
                 z = true;
             }
             if (z) {
-                this.f1304a.a(this.b);
+                this.a.a(this.b);
             }
-            this.f1304a.a(true);
+            this.a.a(true);
         } else {
-            this.f1304a.a(false);
+            this.a.a(false);
         }
     }
 
@@ -179,7 +177,7 @@ public class PersonInfoActivity extends com.baidu.tieba.g {
     @Override // com.baidu.tieba.g
     public void a(int i) {
         super.a(i);
-        this.f1304a.a(i, this.b);
+        this.a.a(i, this.b);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -187,19 +185,19 @@ public class PersonInfoActivity extends com.baidu.tieba.g {
     public void k() {
         super.k();
         c(-1);
-        this.f1304a.a();
+        this.a.a();
     }
 
     @Override // com.baidu.adp.a.a, android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.f1304a.d()) {
+        if (view == this.a.d()) {
             finish();
-        } else if (view == this.f1304a.e()) {
+        } else if (view == this.a.e()) {
             MainTabActivity.a(this);
-        } else if (view == this.f1304a.f()) {
-            this.f1304a.g(this.b);
+        } else if (view == this.a.f()) {
+            this.a.g(this.b);
             this.b.d();
-        } else if (view == this.f1304a.g()) {
+        } else if (view == this.a.g()) {
             PersonChangeData personChangeData = new PersonChangeData();
             if (this.b.c() != null) {
                 personChangeData.setName(this.b.c().getName_show());
@@ -208,38 +206,38 @@ public class PersonInfoActivity extends com.baidu.tieba.g {
                 personChangeData.setPortrait(this.b.c().getPortrait());
             }
             MoreActivity.a(this, WebChromeClient.STRING_DLG_TITLE_DATETIME, personChangeData);
-        } else if (view == this.f1304a.h()) {
+        } else if (view == this.a.h()) {
             if (this.b.b()) {
                 new com.baidu.tieba.account.af("mention").start();
                 MentionActivity.a(this, (int) WebChromeClient.STRING_DLG_TITLE_TIME);
             }
-        } else if (view == this.f1304a.i()) {
+        } else if (view == this.a.i()) {
             if (this.b.b()) {
                 if (TiebaApplication.f().t()) {
                     StatService.onEvent(this, "personal_my_collect", "personclick", 1);
                 }
                 EditMarkActivity.a(this, (int) WebChromeClient.STRING_DLG_TITLE_WEEK);
             }
-        } else if (view == this.f1304a.j()) {
+        } else if (view == this.a.j()) {
             if (this.b.b()) {
                 new com.baidu.tieba.account.af("tb_mytieba").start();
                 EditBarActivity.a(this, 103, null);
             } else if (this.b.c() != null) {
                 EditBarActivity.a(this, 103, this.b.c().getId());
             }
-        } else if (view == this.f1304a.k()) {
+        } else if (view == this.a.k()) {
             if (this.b.b()) {
                 PersonListActivity.a(this, true, TiebaApplication.E());
             } else if (this.b.c() != null) {
                 PersonListActivity.a(this, true, this.b.c().getId());
             }
-        } else if (view == this.f1304a.l()) {
+        } else if (view == this.a.l()) {
             if (this.b.b()) {
                 PersonListActivity.a(this, false, TiebaApplication.E());
             } else if (this.b.c() != null) {
                 PersonListActivity.a(this, false, this.b.c().getId());
             }
-        } else if (view == this.f1304a.m()) {
+        } else if (view == this.a.m()) {
             if (this.b.b()) {
                 startActivity(new Intent(this, MyPostActivity.class));
             } else if (this.b.c() != null) {
@@ -248,16 +246,16 @@ public class PersonInfoActivity extends com.baidu.tieba.g {
                     StatService.onEvent(this, "personal_his_threads", "click", 1);
                 }
             }
-        } else if (view == this.f1304a.n()) {
+        } else if (view == this.a.n()) {
             if (TiebaApplication.f().t()) {
                 StatService.onEvent(this, "personal_lbs_post", "personclick", 1);
             }
             PersonLbsActivity.a(this, this.b.a());
-        } else if (view == this.f1304a.o()) {
+        } else if (view == this.a.o()) {
             LoginActivity.a((Activity) this, (String) null, true, 1100003);
-        } else if (view == this.f1304a.p()) {
+        } else if (view == this.a.p()) {
             Register2Activity.a(this, 1200007);
-        } else if (view == this.f1304a.q()) {
+        } else if (view == this.a.q()) {
             if (this.b.b()) {
                 if (TiebaApplication.f().t()) {
                     StatService.onEvent(this, "enter_chatlist", "personclick", 1);
@@ -287,7 +285,7 @@ public class PersonInfoActivity extends com.baidu.tieba.g {
             unregisterReceiver(this.c);
         }
         this.b.n();
-        this.f1304a.c();
+        this.a.c();
         DatabaseService.b((Boolean) true);
         super.onDestroy();
     }
@@ -316,9 +314,9 @@ public class PersonInfoActivity extends com.baidu.tieba.g {
         PersonChangeData personChangeData = (PersonChangeData) intent.getSerializableExtra("person_change_data");
         if (personChangeData != null && this.b.c() != null) {
             this.b.a(personChangeData);
-            this.f1304a.a(this.b);
+            this.a.a(this.b);
             if (personChangeData.getPhotoChanged()) {
-                this.f1304a.b();
+                this.a.b();
                 if (this.b.c() != null) {
                     this.b.e().d(this.b.c().getPortrait());
                 }

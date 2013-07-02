@@ -4,14 +4,12 @@ import android.widget.ImageView;
 import com.baidu.tieba.view.KeyboardEventLayout;
 /* loaded from: classes.dex */
 class bv implements Runnable {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ bu f1240a;
+    final /* synthetic */ bu a;
     private final /* synthetic */ ImageView b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bv(bu buVar, ImageView imageView) {
-        this.f1240a = buVar;
+        this.a = buVar;
         this.b = imageView;
     }
 
@@ -19,7 +17,7 @@ class bv implements Runnable {
     public void run() {
         bk bkVar;
         KeyboardEventLayout keyboardEventLayout;
-        bkVar = this.f1240a.f1239a;
+        bkVar = this.a.a;
         keyboardEventLayout = bkVar.c;
         keyboardEventLayout.removeView(this.b);
     }

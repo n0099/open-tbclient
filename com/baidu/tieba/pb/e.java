@@ -11,13 +11,11 @@ import com.slidingmenu.lib.R;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class e implements View.OnClickListener {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ ImageActivity f1276a;
+    final /* synthetic */ ImageActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(ImageActivity imageActivity) {
-        this.f1276a = imageActivity;
+        this.a = imageActivity;
     }
 
     @Override // android.view.View.OnClickListener
@@ -42,27 +40,27 @@ public class e implements View.OnClickListener {
         ProgressBar progressBar;
         LinearLayout linearLayout5;
         int i;
-        button = this.f1276a.l;
+        button = this.a.l;
         if (view != button) {
-            button2 = this.f1276a.k;
+            button2 = this.a.k;
             if (view == button2) {
-                linearLayout4 = this.f1276a.n;
+                linearLayout4 = this.a.n;
                 if (linearLayout4.getVisibility() != 8) {
                     try {
-                        multiImageView3 = this.f1276a.o;
+                        multiImageView3 = this.a.o;
                         byte[] currentImageData = multiImageView3.getCurrentImageData();
                         if (currentImageData != null) {
-                            multiImageView4 = this.f1276a.o;
+                            multiImageView4 = this.a.o;
                             String currentImageUrl = multiImageView4.getCurrentImageUrl();
-                            this.f1276a.j = new j(this.f1276a, currentImageUrl, currentImageData);
-                            jVar = this.f1276a.j;
+                            this.a.j = new j(this.a, currentImageUrl, currentImageData);
+                            jVar = this.a.j;
                             jVar.execute(new String[0]);
-                            button3 = this.f1276a.k;
+                            button3 = this.a.k;
                             button3.setVisibility(4);
-                            progressBar = this.f1276a.f1186a;
+                            progressBar = this.a.a;
                             progressBar.setVisibility(0);
                         } else {
-                            this.f1276a.a(this.f1276a.getString(R.string.no_data));
+                            this.a.a(this.a.getString(R.string.no_data));
                         }
                         return;
                     } catch (Exception e) {
@@ -71,42 +69,42 @@ public class e implements View.OnClickListener {
                 }
                 return;
             }
-            z = this.f1276a.t;
+            z = this.a.t;
             if (z) {
-                linearLayout = this.f1276a.n;
+                linearLayout = this.a.n;
                 if (linearLayout.getVisibility() != 0) {
-                    linearLayout3 = this.f1276a.n;
+                    linearLayout3 = this.a.n;
                     linearLayout3.setVisibility(0);
-                    multiImageView2 = this.f1276a.o;
+                    multiImageView2 = this.a.o;
                     multiImageView2.d();
-                    this.f1276a.s = new AlphaAnimation(0.0f, 1.0f);
+                    this.a.s = new AlphaAnimation(0.0f, 1.0f);
                 } else {
-                    this.f1276a.s = new AlphaAnimation(1.0f, 0.0f);
-                    this.f1276a.u = true;
-                    multiImageView = this.f1276a.o;
+                    this.a.s = new AlphaAnimation(1.0f, 0.0f);
+                    this.a.u = true;
+                    multiImageView = this.a.o;
                     multiImageView.e();
                 }
-                alphaAnimation = this.f1276a.s;
+                alphaAnimation = this.a.s;
                 alphaAnimation.setDuration(300L);
-                alphaAnimation2 = this.f1276a.s;
+                alphaAnimation2 = this.a.s;
                 alphaAnimation2.setFillAfter(true);
-                alphaAnimation3 = this.f1276a.s;
+                alphaAnimation3 = this.a.s;
                 alphaAnimation3.setAnimationListener(new f(this));
-                this.f1276a.t = false;
-                linearLayout2 = this.f1276a.n;
-                alphaAnimation4 = this.f1276a.s;
+                this.a.t = false;
+                linearLayout2 = this.a.n;
+                alphaAnimation4 = this.a.s;
                 linearLayout2.startAnimation(alphaAnimation4);
                 return;
             }
             return;
         }
-        linearLayout5 = this.f1276a.n;
+        linearLayout5 = this.a.n;
         if (linearLayout5.getVisibility() != 8) {
             Intent intent = new Intent();
-            i = this.f1276a.d;
+            i = this.a.d;
             intent.putExtra("index", i);
-            this.f1276a.setResult(-1, intent);
-            this.f1276a.finish();
+            this.a.setResult(-1, intent);
+            this.a.finish();
         }
     }
 }

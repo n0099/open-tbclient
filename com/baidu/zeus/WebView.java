@@ -69,6 +69,8 @@ import android.widget.ZoomControls;
 import com.baidu.browser.core.util.BdUtil;
 import com.baidu.browser.explorer.BdWebErrorView;
 import com.baidu.cyberplayer.sdk.BVideoView;
+import com.baidu.location.BDLocation;
+import com.baidu.location.LocationClientOption;
 import com.baidu.mapapi.MKEvent;
 import com.baidu.mapapi.MKSearch;
 import com.baidu.mapapi.MapView;
@@ -2905,7 +2907,7 @@ public class WebView extends AbsoluteLayout implements ViewGroup.OnHierarchyChan
     }
 
     public WebBackForwardList copyBackForwardList() {
-        return this.mCallbackProxy.getBackForwardList().m17clone();
+        return this.mCallbackProxy.getBackForwardList().m265clone();
     }
 
     public void findNext(boolean z) {
@@ -3002,7 +3004,7 @@ public class WebView extends AbsoluteLayout implements ViewGroup.OnHierarchyChan
     }
 
     private static int computeDuration(int i, int i2) {
-        return Math.min((Math.max(Math.abs(i), Math.abs(i2)) * 1000) / STD_SPEED, (int) MAX_DURATION);
+        return Math.min((Math.max(Math.abs(i), Math.abs(i2)) * LocationClientOption.MIN_SCAN_SPAN) / STD_SPEED, (int) MAX_DURATION);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -3176,7 +3178,7 @@ public class WebView extends AbsoluteLayout implements ViewGroup.OnHierarchyChan
     }
 
     public void documentAsText(Message message) {
-        this.mWebViewCore.sendMessage(161, message);
+        this.mWebViewCore.sendMessage(BDLocation.TypeNetWorkLocation, message);
     }
 
     public void addJavascriptInterface(Object obj, String str) {
@@ -6604,7 +6606,7 @@ public class WebView extends AbsoluteLayout implements ViewGroup.OnHierarchyChan
         if (this.mVelocityTracker != null) {
             int computeMaxScrollX = computeMaxScrollX();
             int computeMaxScrollY = computeMaxScrollY();
-            this.mVelocityTracker.computeCurrentVelocity(1000, this.mMaximumFling);
+            this.mVelocityTracker.computeCurrentVelocity(LocationClientOption.MIN_SCAN_SPAN, this.mMaximumFling);
             int xVelocity = (int) this.mVelocityTracker.getXVelocity();
             int yVelocity = (int) this.mVelocityTracker.getYVelocity();
             int i3 = this.mScrollX;
@@ -7152,7 +7154,7 @@ public class WebView extends AbsoluteLayout implements ViewGroup.OnHierarchyChan
                     case 33:
                         i2 = 19;
                         break;
-                    case 66:
+                    case BDLocation.TypeOffLineLocation /* 66 */:
                         i2 = 22;
                         break;
                     case FIRST_LAYOUT_MSG_ID /* 130 */:
@@ -7884,14 +7886,14 @@ public class WebView extends AbsoluteLayout implements ViewGroup.OnHierarchyChan
                     case 58:
                     case 59:
                     case 60:
-                    case 61:
-                    case 62:
-                    case 63:
+                    case BDLocation.TypeGpsLocation /* 61 */:
+                    case BDLocation.TypeCriteriaException /* 62 */:
+                    case BDLocation.TypeNetWorkException /* 63 */:
                     case DERTags.APPLICATION /* 64 */:
-                    case 65:
-                    case 66:
-                    case 67:
-                    case 68:
+                    case BDLocation.TypeCacheLocation /* 65 */:
+                    case BDLocation.TypeOffLineLocation /* 66 */:
+                    case BDLocation.TypeOffLineLocationFail /* 67 */:
+                    case BDLocation.TypeOffLineLocationNetworkFail /* 68 */:
                     case 69:
                     case 70:
                     case 71:
@@ -8540,7 +8542,7 @@ public class WebView extends AbsoluteLayout implements ViewGroup.OnHierarchyChan
                 textView.setTextSize(0, this.mTextSize);
                 textView.setSingleLine(true);
                 textView.setPadding(4, 0, 4, 0);
-                textView.getLayoutParams().height = (getTextHeight(this.mTextSize) * DEFAULT_ITEM_HEIGHT) / this.mDefaultTextHeight;
+                textView.getLayoutParams().height = (getTextHeight(this.mTextSize) * 62) / this.mDefaultTextHeight;
                 if (item != null && 1 == item.mEnabled) {
                     view2.setOnTouchListener(new View.OnTouchListener() { // from class: com.baidu.zeus.WebView.InvokeListBox.SelectItemsAdapter.1
                         @Override // android.view.View.OnTouchListener

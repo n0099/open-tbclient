@@ -2,9 +2,7 @@ package com.baidu.tieba.model;
 /* loaded from: classes.dex */
 public class j extends com.baidu.adp.a.c {
     private com.baidu.tieba.data.m b;
-
-    /* renamed from: a  reason: collision with root package name */
-    private k f1055a = null;
+    private k a = null;
     private boolean c = true;
     private l d = null;
 
@@ -28,8 +26,8 @@ public class j extends com.baidu.adp.a.c {
 
     @Override // com.baidu.adp.a.c
     public boolean cancelLoadData() {
-        if (this.f1055a != null) {
-            this.f1055a.cancel();
+        if (this.a != null) {
+            this.a.cancel();
             return false;
         }
         return false;
@@ -37,21 +35,21 @@ public class j extends com.baidu.adp.a.c {
 
     public boolean a(boolean z) {
         this.c = z;
-        if (this.f1055a != null) {
+        if (this.a != null) {
             return false;
         }
-        this.f1055a = new k(this, 1);
-        this.f1055a.execute(new Object[0]);
+        this.a = new k(this, 1);
+        this.a.execute(new Object[0]);
         return true;
     }
 
     public boolean b(boolean z) {
         this.c = z;
-        if (this.f1055a != null) {
+        if (this.a != null) {
             return false;
         }
-        this.f1055a = new k(this, 0);
-        this.f1055a.execute(new Object[0]);
+        this.a = new k(this, 0);
+        this.a.execute(new Object[0]);
         return true;
     }
 }

@@ -9,9 +9,7 @@ import java.util.HashMap;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class aa extends BdAsyncTask {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ ImagePbPagerAdapter f1501a;
+    final /* synthetic */ ImagePbPagerAdapter a;
     private com.baidu.tieba.util.r b = null;
     private int c;
     private int d;
@@ -21,7 +19,7 @@ public class aa extends BdAsyncTask {
     private String h;
 
     public aa(ImagePbPagerAdapter imagePbPagerAdapter, com.baidu.tieba.pb.ah ahVar, int i, int i2, String str, String str2) {
-        this.f1501a = imagePbPagerAdapter;
+        this.a = imagePbPagerAdapter;
         this.c = 0;
         this.d = 10;
         this.e = null;
@@ -50,9 +48,9 @@ public class aa extends BdAsyncTask {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public String a(String... strArr) {
         String str;
-        this.b = new com.baidu.tieba.util.r(String.valueOf(com.baidu.tieba.data.g.f787a) + "c/f/pb/piccomment");
+        this.b = new com.baidu.tieba.util.r(String.valueOf(com.baidu.tieba.data.g.a) + "c/f/pb/piccomment");
         com.baidu.tieba.util.r rVar = this.b;
-        str = this.f1501a.e;
+        str = this.a.e;
         rVar.a("kw", str);
         this.b.a("pic_id", this.f);
         this.b.a("tid", this.e);
@@ -98,8 +96,8 @@ public class aa extends BdAsyncTask {
             }
             if (this.b != null) {
                 if (!this.b.c() || this.g == null) {
-                    context = this.f1501a.b;
-                    context2 = this.f1501a.b;
+                    context = this.a.b;
+                    context2 = this.a.b;
                     ((com.baidu.tieba.g) context).a(context2.getString(R.string.image_pb_comment_fail));
                     return;
                 }
@@ -107,9 +105,9 @@ public class aa extends BdAsyncTask {
                     this.g.a((com.baidu.tieba.data.x) null);
                     this.g.notifyDataSetChanged();
                 }
-                hashMap = this.f1501a.h;
+                hashMap = this.a.h;
                 if (hashMap.get(this.g.e().d()) != null) {
-                    hashMap2 = this.f1501a.h;
+                    hashMap2 = this.a.h;
                     xVar = (com.baidu.tieba.data.x) hashMap2.get(this.g.e().d());
                     xVar.a(str);
                 }
@@ -119,9 +117,9 @@ public class aa extends BdAsyncTask {
                     this.g = null;
                 }
                 for (int i = 0; i < arrayList.size(); i++) {
-                    arrayList2 = this.f1501a.s;
+                    arrayList2 = this.a.s;
                     if (((View) arrayList2.get(i)).getTag() instanceof com.baidu.tieba.pb.ah) {
-                        arrayList3 = this.f1501a.s;
+                        arrayList3 = this.a.s;
                         com.baidu.tieba.pb.ah ahVar = (com.baidu.tieba.pb.ah) ((View) arrayList3.get(i)).getTag();
                         if (ahVar.e() != null && this.h.equals(ahVar.e().d())) {
                             ahVar.notifyDataSetChanged();

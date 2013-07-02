@@ -4,9 +4,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class av {
-
-    /* renamed from: a  reason: collision with root package name */
-    private int f772a = 0;
+    private int a = 0;
     private int c = 0;
     private int d = 0;
     private int e = 0;
@@ -23,7 +21,7 @@ public class av {
     }
 
     public int b() {
-        return this.f772a;
+        return this.a;
     }
 
     public int c() {
@@ -31,7 +29,7 @@ public class av {
     }
 
     public void b(int i) {
-        this.f772a = i;
+        this.a = i;
     }
 
     public void c(int i) {
@@ -58,7 +56,7 @@ public class av {
         try {
             JSONObject optJSONObject = jSONObject.optJSONObject("user_info");
             if (optJSONObject != null) {
-                this.f772a = optJSONObject.getInt("is_sign_in");
+                this.a = optJSONObject.getInt("is_sign_in");
                 this.c = optJSONObject.getInt("user_sign_rank");
                 this.d = optJSONObject.getInt("cont_sign_num");
                 this.e = optJSONObject.getInt("cout_total_sing_num");

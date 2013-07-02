@@ -8,13 +8,11 @@ import android.widget.EditText;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class d implements TextWatcher {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ AtListActivity f1582a;
+    final /* synthetic */ AtListActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(AtListActivity atListActivity) {
-        this.f1582a = atListActivity;
+        this.a = atListActivity;
     }
 
     @Override // android.text.TextWatcher
@@ -28,21 +26,21 @@ public class d implements TextWatcher {
         Runnable runnable2;
         String editable2 = editable.toString();
         if (editable2 != null) {
-            str = this.f1582a.l;
+            str = this.a.l;
             if (!editable2.equals(str)) {
-                handler = this.f1582a.e;
-                runnable = this.f1582a.q;
+                handler = this.a.e;
+                runnable = this.a.q;
                 handler.removeCallbacks(runnable);
-                handler2 = this.f1582a.e;
-                runnable2 = this.f1582a.q;
+                handler2 = this.a.e;
+                runnable2 = this.a.q;
                 handler2.postDelayed(runnable2, 300L);
             }
             if (editable2.length() > 0) {
-                button2 = this.f1582a.b;
+                button2 = this.a.b;
                 button2.setVisibility(0);
                 return;
             }
-            button = this.f1582a.b;
+            button = this.a.b;
             button.setVisibility(8);
         }
     }
@@ -50,8 +48,8 @@ public class d implements TextWatcher {
     @Override // android.text.TextWatcher
     public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
         EditText editText;
-        AtListActivity atListActivity = this.f1582a;
-        editText = this.f1582a.f1538a;
+        AtListActivity atListActivity = this.a;
+        editText = this.a.a;
         atListActivity.l = editText.getText().toString();
     }
 

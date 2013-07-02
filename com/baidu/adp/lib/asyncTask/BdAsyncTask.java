@@ -5,9 +5,7 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes.dex */
 public abstract class BdAsyncTask {
-
-    /* renamed from: a  reason: collision with root package name */
-    private static final f f121a = f.a();
+    private static final f a = f.a();
     private static d b = new d(null);
     private static /* synthetic */ int[] l;
     private volatile BdAsyncTaskStatus e = BdAsyncTaskStatus.PENDING;
@@ -66,15 +64,15 @@ public abstract class BdAsyncTask {
     }
 
     public static void removeAllTask(String str) {
-        f121a.a(str);
+        a.a(str);
     }
 
     public static void removeAllQueueTask(String str) {
-        f121a.b(str);
+        a.b(str);
     }
 
     public static BdAsyncTask searchTask(String str) {
-        return f121a.c(str);
+        return a.c(str);
     }
 
     public int setPriority(int i) {
@@ -176,7 +174,7 @@ public abstract class BdAsyncTask {
 
     public final boolean cancel(boolean z) {
         if (!this.j) {
-            f121a.a(this);
+            a.a(this);
         }
         boolean cancel = this.d.cancel(z);
         a();
@@ -192,7 +190,7 @@ public abstract class BdAsyncTask {
     }
 
     public final BdAsyncTask execute(Object... objArr) {
-        return executeOnExecutor(f121a, objArr);
+        return executeOnExecutor(a, objArr);
     }
 
     public final BdAsyncTask executeOnExecutor(Executor executor, Object... objArr) {

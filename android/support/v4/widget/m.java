@@ -4,9 +4,7 @@ import android.os.Build;
 /* loaded from: classes.dex */
 public class m {
     static final n b;
-
-    /* renamed from: a  reason: collision with root package name */
-    Object f114a;
+    Object a;
 
     static {
         int i = Build.VERSION.SDK_INT;
@@ -20,34 +18,34 @@ public class m {
     }
 
     public boolean a() {
-        return b.a(this.f114a);
+        return b.a(this.a);
     }
 
     public int b() {
-        return b.b(this.f114a);
+        return b.b(this.a);
     }
 
     public int c() {
-        return b.c(this.f114a);
+        return b.c(this.a);
     }
 
     public int d() {
-        return b.f(this.f114a);
+        return b.f(this.a);
     }
 
     public int e() {
-        return b.g(this.f114a);
+        return b.g(this.a);
     }
 
     public boolean f() {
-        return b.d(this.f114a);
+        return b.d(this.a);
     }
 
     public void a(int i, int i2, int i3, int i4, int i5) {
-        b.a(this.f114a, i, i2, i3, i4, i5);
+        b.a(this.a, i, i2, i3, i4, i5);
     }
 
     public void g() {
-        b.e(this.f114a);
+        b.e(this.a);
     }
 }

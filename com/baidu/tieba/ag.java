@@ -4,13 +4,11 @@ import android.os.Handler;
 import com.baidu.tieba.util.DatabaseService;
 /* loaded from: classes.dex */
 class ag extends Thread {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ LogoActivity f689a;
+    final /* synthetic */ LogoActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ag(LogoActivity logoActivity) {
-        this.f689a = logoActivity;
+        this.a = logoActivity;
     }
 
     @Override // java.lang.Thread, java.lang.Runnable
@@ -19,7 +17,7 @@ class ag extends Thread {
         Handler handler2;
         super.run();
         try {
-            TiebaApplication tiebaApplication = (TiebaApplication) this.f689a.getApplication();
+            TiebaApplication tiebaApplication = (TiebaApplication) this.a.getApplication();
             tiebaApplication.d(tiebaApplication.I() + 1);
             if (tiebaApplication.N()) {
                 DatabaseService.z();
@@ -27,11 +25,11 @@ class ag extends Thread {
             }
             DatabaseService.v();
             DatabaseService.y();
-            this.f689a.a(this.f689a.getCacheDir());
+            this.a.a(this.a.getCacheDir());
         } catch (Exception e) {
         }
-        handler = this.f689a.k;
-        handler2 = this.f689a.k;
+        handler = this.a.k;
+        handler2 = this.a.k;
         handler.sendMessage(handler2.obtainMessage());
     }
 }

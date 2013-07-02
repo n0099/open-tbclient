@@ -10,9 +10,7 @@ import org.apache.http.message.BasicNameValuePair;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class c extends BdAsyncTask {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ a f1456a;
+    final /* synthetic */ a a;
     private com.baidu.tbadk.a.d c;
     private String d;
     private volatile int e;
@@ -28,7 +26,7 @@ public class c extends BdAsyncTask {
     public c(a aVar, String str, int i, com.baidu.tbadk.a.d dVar, boolean z) {
         String str2;
         String str3;
-        this.f1456a = aVar;
+        this.a = aVar;
         this.c = null;
         this.d = null;
         this.e = 0;
@@ -78,21 +76,21 @@ public class c extends BdAsyncTask {
         ArrayList arrayList;
         ArrayList arrayList2;
         ArrayList arrayList3;
-        int a2;
+        int a;
         String str2;
         boolean z3 = false;
         byte[] bArr = null;
         int i6 = 0;
         int i7 = 0;
         String f = y.f(this.d);
-        str = this.f1456a.h;
+        str = this.a.h;
         if (str != null) {
             StringBuilder sb = new StringBuilder(String.valueOf(f));
-            str2 = this.f1456a.h;
+            str2 = this.a.h;
             f = sb.append(str2).toString();
         }
         if (this.h) {
-            synchronized (d.f1457a) {
+            synchronized (d.a) {
                 if (this.e == 1) {
                     this.f = DatabaseService.c(this.i);
                 } else if (this.e == 2) {
@@ -101,8 +99,8 @@ public class c extends BdAsyncTask {
                     if (f != null) {
                         this.f = m.c("hotspot", f);
                     }
-                } else if ((this.e == 0 || this.e == 4) && f != null && (a2 = (int) m.a("image", f)) > 0) {
-                    com.baidu.tbadk.a.e.a().c(a2);
+                } else if ((this.e == 0 || this.e == 4) && f != null && (a = (int) m.a("image", f)) > 0) {
+                    com.baidu.tbadk.a.e.a().c(a);
                     this.f = m.c("image", f);
                     if (this.f != null) {
                         this.j = m.b("image", f);
@@ -136,27 +134,27 @@ public class c extends BdAsyncTask {
                 sb2.append("src=");
                 sb2.append(y.d(this.d));
                 sb2.append("&width=");
-                i = this.f1456a.b;
+                i = this.a.b;
                 if (i == 0) {
-                    context3 = this.f1456a.f1449a;
+                    context3 = this.a.a;
                     i2 = ab.a(context3, 105.0f);
                 } else {
-                    i2 = this.f1456a.b;
+                    i2 = this.a.b;
                 }
                 sb2.append(String.valueOf(i2));
                 sb2.append("&height=");
-                i3 = this.f1456a.c;
+                i3 = this.a.c;
                 if (i3 == 0) {
-                    context2 = this.f1456a.f1449a;
+                    context2 = this.a.a;
                     i7 = ab.a(context2, 105.0f);
                 } else {
-                    i7 = this.f1456a.c;
+                    i7 = this.a.c;
                 }
                 sb2.append(String.valueOf(i7));
                 sb2.append("&imgtype=0");
-                i4 = this.f1456a.k;
+                i4 = this.a.k;
                 if (i4 != 0) {
-                    i5 = this.f1456a.k;
+                    i5 = this.a.k;
                     if (i5 == 1) {
                         sb2.append("&qulity=" + String.valueOf(80));
                     } else {
@@ -168,11 +166,11 @@ public class c extends BdAsyncTask {
                     sb2.append("&qulity=" + String.valueOf(45));
                 }
                 sb2.append("&first_gif=1");
-                z = this.f1456a.g;
+                z = this.a.g;
                 if (z) {
                     sb2.append("&ispv=1");
                 }
-                z2 = this.f1456a.i;
+                z2 = this.a.i;
                 if (z2) {
                     sb2.append("&no_prefix=1");
                 }
@@ -186,19 +184,19 @@ public class c extends BdAsyncTask {
             } else if (this.e == 1) {
                 str3 = String.valueOf(com.baidu.tieba.data.g.k()) + this.d;
             }
-            context4 = this.f1456a.f1449a;
+            context4 = this.a.a;
             this.b = new r(context4, str3);
-            arrayList = this.f1456a.j;
+            arrayList = this.a.j;
             if (arrayList != null) {
                 int i8 = 0;
                 while (true) {
                     int i9 = i8;
-                    arrayList2 = this.f1456a.j;
+                    arrayList2 = this.a.j;
                     if (i9 >= arrayList2.size()) {
                         break;
                     }
                     r rVar = this.b;
-                    arrayList3 = this.f1456a.j;
+                    arrayList3 = this.a.j;
                     rVar.a((BasicNameValuePair) arrayList3.get(i9));
                     i8 = i9 + 1;
                 }
@@ -214,7 +212,7 @@ public class c extends BdAsyncTask {
                 z3 = true;
             }
         }
-        synchronized (d.f1457a) {
+        synchronized (d.a) {
             if (this.l) {
                 return null;
             }
@@ -249,7 +247,7 @@ public class c extends BdAsyncTask {
                 if (this.e != 0 && this.f != null) {
                     com.baidu.tbadk.a.e.a().c(d.a(this.f) * 2);
                     Bitmap bitmap = this.f;
-                    context = this.f1456a.f1449a;
+                    context = this.a.a;
                     this.f = d.a(bitmap, ab.a(context, 5.0f));
                 }
             }
@@ -319,15 +317,15 @@ public class c extends BdAsyncTask {
         boolean z;
         LinkedList linkedList2;
         LinkedList linkedList3;
-        linkedList = this.f1456a.d;
+        linkedList = this.a.d;
         linkedList.remove(this);
-        z = this.f1456a.f;
+        z = this.a.f;
         if (z) {
-            linkedList2 = this.f1456a.e;
+            linkedList2 = this.a.e;
             if (linkedList2.size() > 0) {
-                linkedList3 = this.f1456a.e;
+                linkedList3 = this.a.e;
                 b bVar = (b) linkedList3.remove(0);
-                this.f1456a.a(bVar.f1455a, bVar.c, Integer.valueOf(bVar.b), bVar.d);
+                this.a.a(bVar.a, bVar.c, Integer.valueOf(bVar.b), bVar.d);
             }
         }
     }
@@ -347,14 +345,14 @@ public class c extends BdAsyncTask {
         if (this.b != null) {
             this.b.h();
         }
-        z = this.f1456a.f;
+        z = this.a.f;
         if (z) {
-            linkedList = this.f1456a.e;
+            linkedList = this.a.e;
             if (linkedList.size() > 0) {
-                linkedList2 = this.f1456a.e;
+                linkedList2 = this.a.e;
                 b bVar = (b) linkedList2.remove(0);
                 if (bVar != null) {
-                    this.f1456a.a(bVar.f1455a, bVar.c, Integer.valueOf(bVar.b), bVar.d);
+                    this.a.a(bVar.a, bVar.c, Integer.valueOf(bVar.b), bVar.d);
                 }
             }
         }

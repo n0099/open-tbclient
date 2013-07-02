@@ -5,12 +5,10 @@ import android.content.Context;
 import android.content.Intent;
 /* loaded from: classes.dex */
 class v extends BroadcastReceiver {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ EditHeadActivity f1375a;
+    final /* synthetic */ EditHeadActivity a;
 
     private v(EditHeadActivity editHeadActivity) {
-        this.f1375a = editHeadActivity;
+        this.a = editHeadActivity;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -20,11 +18,11 @@ class v extends BroadcastReceiver {
 
     @Override // android.content.BroadcastReceiver
     public void onReceive(Context context, Intent intent) {
-        this.f1375a.a_();
+        this.a.a_();
         if (intent.getBooleanExtra("result", false)) {
-            EditHeadActivity.h(this.f1375a);
+            EditHeadActivity.h(this.a);
         } else {
-            this.f1375a.a(intent.getStringExtra("error"));
+            this.a.a(intent.getStringExtra("error"));
         }
     }
 }

@@ -19,13 +19,14 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import com.baidu.location.LocationClientOption;
 import com.baidu.tieba.data.RegistData;
 import com.baidu.zeus.WebChromeClient;
 import com.slidingmenu.lib.R;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class Register2Activity extends com.baidu.tieba.g {
-    private static int e = 1000;
+    private static int e = LocationClientOption.MIN_SCAN_SPAN;
     private static int f = 27;
     private static int g = 29;
     private static int j = 28;
@@ -61,9 +62,7 @@ public class Register2Activity extends com.baidu.tieba.g {
     private boolean N = true;
     private int O = -1;
     private String P = null;
-
-    /* renamed from: a  reason: collision with root package name */
-    RelativeLayout f636a = null;
+    RelativeLayout a = null;
     LinearLayout b = null;
     TextView c = null;
     TextView d = null;
@@ -118,7 +117,7 @@ public class Register2Activity extends com.baidu.tieba.g {
     }
 
     private void q() {
-        this.f636a = (RelativeLayout) findViewById(R.id.container);
+        this.a = (RelativeLayout) findViewById(R.id.container);
         this.b = (LinearLayout) findViewById(R.id.title);
         this.c = (TextView) findViewById(R.id.title_text);
         this.d = (TextView) findViewById(R.id.reg_text);
@@ -176,7 +175,7 @@ public class Register2Activity extends com.baidu.tieba.g {
         com.baidu.tieba.util.x.f(this.c, i);
         com.baidu.tieba.util.x.f((TextView) this.m, i);
         com.baidu.tieba.util.x.a(this.d, i);
-        com.baidu.tieba.util.x.c(this.f636a, i);
+        com.baidu.tieba.util.x.c(this.a, i);
         com.baidu.tieba.util.x.d(this.b, i);
         com.baidu.tieba.util.x.g((TextView) this.m, i);
         com.baidu.tieba.util.x.a(this.l, i);

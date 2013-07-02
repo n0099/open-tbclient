@@ -113,8 +113,8 @@ public class z extends com.baidu.adp.a.d {
         this.I = (TextView) moreActivity.findViewById(R.id.sign_remind_time);
         this.l = (LinearLayout) moreActivity.findViewById(R.id.browse_setting);
         this.l.setOnClickListener(moreActivity);
-        SpannableString spannableString = new SpannableString(this.f118a.getString(R.string.browse_setting_spannable));
-        spannableString.setSpan(new AbsoluteSizeSpan(com.baidu.tieba.util.ab.a(this.f118a, 12.0f)), 6, spannableString.length(), 18);
+        SpannableString spannableString = new SpannableString(this.a.getString(R.string.browse_setting_spannable));
+        spannableString.setSpan(new AbsoluteSizeSpan(com.baidu.tieba.util.ab.a(this.a, 12.0f)), 6, spannableString.length(), 18);
         this.x = (TextView) moreActivity.findViewById(R.id.browse_setting_text);
         this.x.setText(spannableString);
         this.n = (LinearLayout) moreActivity.findViewById(R.id.clear_cash);
@@ -231,11 +231,11 @@ public class z extends com.baidu.adp.a.d {
     }
 
     public void p() {
-        ((com.baidu.tieba.g) this.f118a).b(this.f118a.getString(R.string.deleting));
+        ((com.baidu.tieba.g) this.a).b(this.a.getString(R.string.deleting));
     }
 
     public void q() {
-        ((com.baidu.tieba.g) this.f118a).h();
+        ((com.baidu.tieba.g) this.a).h();
     }
 
     public void r() {
@@ -246,11 +246,11 @@ public class z extends com.baidu.adp.a.d {
 
     public void s() {
         this.b.setText(R.string.putin_account);
-        this.c.setOnClickListener((com.baidu.tieba.g) this.f118a);
+        this.c.setOnClickListener((com.baidu.tieba.g) this.a);
     }
 
     public void t() {
-        ((ImageView) ((com.baidu.tieba.g) this.f118a).findViewById(R.id.arrow)).setVisibility(8);
+        ((ImageView) ((com.baidu.tieba.g) this.a).findViewById(R.id.arrow)).setVisibility(8);
     }
 
     public void u() {
@@ -277,7 +277,7 @@ public class z extends com.baidu.adp.a.d {
     public void w() {
         TiebaApplication f = TiebaApplication.f();
         if (f.ai()) {
-            this.I.setText(this.f118a.getString(R.string.sign_remind_time, f.aj() > 9 ? String.valueOf(f.aj()) : "0" + f.aj(), f.ak() > 9 ? String.valueOf(f.ak()) : "0" + f.ak()));
+            this.I.setText(this.a.getString(R.string.sign_remind_time, f.aj() > 9 ? String.valueOf(f.aj()) : "0" + f.aj(), f.ak() > 9 ? String.valueOf(f.ak()) : "0" + f.ak()));
         } else {
             this.I.setText(R.string.close);
         }
@@ -287,13 +287,13 @@ public class z extends com.baidu.adp.a.d {
     public void C() {
         switch (TiebaApplication.f().an()) {
             case 1:
-                this.J.setText(this.f118a.getString(R.string.image_quality_high));
+                this.J.setText(this.a.getString(R.string.image_quality_high));
                 return;
             case 2:
-                this.J.setText(this.f118a.getString(R.string.image_quality_mid));
+                this.J.setText(this.a.getString(R.string.image_quality_mid));
                 return;
             case 3:
-                this.J.setText(this.f118a.getString(R.string.image_quality_low));
+                this.J.setText(this.a.getString(R.string.image_quality_low));
                 return;
             default:
                 return;
@@ -441,9 +441,9 @@ public class z extends com.baidu.adp.a.d {
     public void a(TextView textView, int i) {
         if (textView != null) {
             if (i == 1) {
-                textView.setTextColor(this.f118a.getResources().getColor(R.color.skin_1_common_color));
+                textView.setTextColor(this.a.getResources().getColor(R.color.skin_1_common_color));
             } else {
-                textView.setTextColor(this.f118a.getResources().getColor(R.color.more_color));
+                textView.setTextColor(this.a.getResources().getColor(R.color.more_color));
             }
         }
     }

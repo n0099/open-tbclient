@@ -8,13 +8,11 @@ import com.slidingmenu.lib.R;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class w implements AbsListView.OnScrollListener {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ NearbyPbActivity f1180a;
+    final /* synthetic */ NearbyPbActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public w(NearbyPbActivity nearbyPbActivity) {
-        this.f1180a = nearbyPbActivity;
+        this.a = nearbyPbActivity;
     }
 
     @Override // android.widget.AbsListView.OnScrollListener
@@ -23,11 +21,11 @@ public class w implements AbsListView.OnScrollListener {
         Runnable runnable;
         Handler handler2;
         Runnable runnable2;
-        handler = this.f1180a.q;
-        runnable = this.f1180a.E;
+        handler = this.a.q;
+        runnable = this.a.E;
         handler.removeCallbacks(runnable);
-        handler2 = this.f1180a.q;
-        runnable2 = this.f1180a.E;
+        handler2 = this.a.q;
+        runnable2 = this.a.E;
         handler2.postDelayed(runnable2, 300L);
     }
 
@@ -36,10 +34,10 @@ public class w implements AbsListView.OnScrollListener {
         Button button;
         GridView gridView;
         if (i == 2 || i == 1) {
-            com.baidu.tieba.util.ab.a(this.f1180a, absListView);
-            button = this.f1180a.e;
+            com.baidu.tieba.util.ab.a(this.a, absListView);
+            button = this.a.e;
             button.setBackgroundResource(R.drawable.sub_pb_face);
-            gridView = this.f1180a.g;
+            gridView = this.a.g;
             gridView.setVisibility(8);
         }
     }

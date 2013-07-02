@@ -3,9 +3,7 @@ package com.baidu.tieba.data;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class ai {
-
-    /* renamed from: a  reason: collision with root package name */
-    private int f759a = 0;
+    private int a = 0;
     private int b = 0;
     private int d = 0;
     private int e = 0;
@@ -14,11 +12,11 @@ public class ai {
     private int c = 0;
 
     public int a() {
-        return this.f759a;
+        return this.a;
     }
 
     public void a(int i) {
-        this.f759a = i;
+        this.a = i;
     }
 
     public int b() {
@@ -68,7 +66,7 @@ public class ai {
     public void a(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                this.f759a = jSONObject.optInt("total_page", 0);
+                this.a = jSONObject.optInt("total_page", 0);
                 this.b = jSONObject.optInt("total_num", 0);
                 this.c = jSONObject.optInt("total_count", 0);
                 this.d = jSONObject.optInt("current_page", 0);

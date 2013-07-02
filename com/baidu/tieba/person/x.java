@@ -27,7 +27,7 @@ class x extends com.baidu.tieba.j {
                     r1 = (String) objArr[1];
                 }
                 zVar4 = this.b.b;
-                fVar4 = this.b.f1301a;
+                fVar4 = this.b.a;
                 zVar4.a(r1, fVar4);
             } else if (((Integer) objArr[0]).intValue() == 1) {
                 boolean booleanValue2 = objArr[1] != null ? ((Boolean) objArr[1]).booleanValue() : false;
@@ -37,16 +37,16 @@ class x extends com.baidu.tieba.j {
                 zVar2.a(booleanValue2, r1, booleanValue);
                 if (booleanValue2) {
                     zVar3 = this.b.b;
-                    fVar2 = this.b.f1301a;
+                    fVar2 = this.b.a;
                     zVar3.a(fVar2.a());
-                    fVar3 = this.b.f1301a;
+                    fVar3 = this.b.a;
                     fVar3.f();
                 }
             } else if (((Integer) objArr[0]).intValue() == 2) {
                 booleanValue = objArr[1] != null ? ((Boolean) objArr[1]).booleanValue() : false;
                 String str = objArr[2] != null ? (String) objArr[2] : null;
                 zVar = this.b.b;
-                fVar = this.b.f1301a;
+                fVar = this.b.a;
                 zVar.a(booleanValue, str, fVar.b());
             }
         } catch (Exception e) {

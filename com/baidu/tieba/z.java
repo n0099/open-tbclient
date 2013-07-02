@@ -6,9 +6,7 @@ import java.util.ArrayList;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class z extends BdAsyncTask {
-
-    /* renamed from: a  reason: collision with root package name */
-    ArrayList f1607a;
+    ArrayList a;
     final /* synthetic */ LabelActivity b;
     private String d;
     private boolean f;
@@ -18,9 +16,9 @@ public class z extends BdAsyncTask {
     public z(LabelActivity labelActivity, String str, boolean z, ArrayList arrayList) {
         this.b = labelActivity;
         this.d = null;
-        this.f1607a = null;
+        this.a = null;
         this.d = str;
-        this.f1607a = arrayList;
+        this.a = arrayList;
         this.f = z;
     }
 
@@ -43,7 +41,7 @@ public class z extends BdAsyncTask {
         com.baidu.tieba.model.ai aiVar6;
         try {
             this.c = new com.baidu.tieba.util.r(this.d);
-            this.c.a(this.f1607a);
+            this.c.a(this.a);
             aiVar = this.b.q;
             if (aiVar != null) {
                 aiVar5 = this.b.q;

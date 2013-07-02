@@ -3,19 +3,17 @@ package com.baidu.tieba.util;
 import java.io.RandomAccessFile;
 /* loaded from: classes.dex */
 public class e {
-
-    /* renamed from: a  reason: collision with root package name */
-    private String f1458a;
+    private String a;
     private String b;
     private com.baidu.tieba.data.d c;
     private r d;
     private boolean e = false;
 
     public e(String str, com.baidu.tieba.data.d dVar, String str2) {
-        this.f1458a = null;
+        this.a = null;
         this.b = null;
         this.c = null;
-        this.f1458a = str;
+        this.a = str;
         this.c = dVar;
         this.b = str2;
     }
@@ -33,7 +31,7 @@ public class e {
         long j = b % 102400 == 0 ? b / 102400 : (b / 102400) + 1;
         int c = this.c.c();
         if (c < j) {
-            RandomAccessFile randomAccessFile = new RandomAccessFile(m.c(this.f1458a), "r");
+            RandomAccessFile randomAccessFile = new RandomAccessFile(m.c(this.a), "r");
             z.e("ChunkUploadHelper", "uploadChunkFile", String.format("start chunk : %d", Integer.valueOf(c)));
             if (randomAccessFile.skipBytes(102400 * c) < 102400 * c) {
                 eVar.a(false);

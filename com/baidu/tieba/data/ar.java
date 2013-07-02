@@ -1,9 +1,7 @@
 package com.baidu.tieba.data;
 /* loaded from: classes.dex */
 public class ar {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ aq f768a;
+    final /* synthetic */ aq a;
     private String b;
     private String c;
     private int d;
@@ -13,7 +11,7 @@ public class ar {
     private String h;
 
     public ar(aq aqVar) {
-        this.f768a = aqVar;
+        this.a = aqVar;
     }
 
     public String a() {

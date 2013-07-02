@@ -4,13 +4,11 @@ import android.widget.ImageView;
 import android.widget.ListView;
 /* loaded from: classes.dex */
 class be implements com.baidu.tbadk.a.d {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ bd f1338a;
+    final /* synthetic */ bd a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public be(bd bdVar) {
-        this.f1338a = bdVar;
+        this.a = bdVar;
     }
 
     @Override // com.baidu.tbadk.a.d
@@ -18,8 +16,8 @@ class be implements com.baidu.tbadk.a.d {
         PersonLbsActivity personLbsActivity;
         ListView listView;
         if (bVar != null) {
-            personLbsActivity = this.f1338a.f1337a;
-            listView = personLbsActivity.f1305a;
+            personLbsActivity = this.a.a;
+            listView = personLbsActivity.a;
             ImageView imageView = (ImageView) listView.findViewWithTag(str);
             if (imageView != null) {
                 imageView.invalidate();

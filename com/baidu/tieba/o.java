@@ -6,24 +6,22 @@ import android.widget.LinearLayout;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 class o implements bq {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ GuideActivity f1184a;
+    final /* synthetic */ GuideActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public o(GuideActivity guideActivity) {
-        this.f1184a = guideActivity;
+        this.a = guideActivity;
     }
 
     @Override // android.support.v4.view.bq
     public void a_(int i) {
         LinearLayout linearLayout;
         LinearLayout linearLayout2;
-        linearLayout = this.f1184a.j;
+        linearLayout = this.a.j;
         int childCount = linearLayout.getChildCount();
         if (i < childCount) {
             for (int i2 = 0; i2 < childCount; i2++) {
-                linearLayout2 = this.f1184a.j;
+                linearLayout2 = this.a.j;
                 ImageView imageView = (ImageView) linearLayout2.getChildAt(i2);
                 if (i2 != i) {
                     imageView.setBackgroundResource(R.drawable.tag_page_rb_click);

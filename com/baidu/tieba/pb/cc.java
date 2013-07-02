@@ -5,13 +5,11 @@ import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class cc implements View.OnTouchListener {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ bk f1247a;
+    final /* synthetic */ bk a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public cc(bk bkVar) {
-        this.f1247a = bkVar;
+        this.a = bkVar;
     }
 
     @Override // android.view.View.OnTouchListener

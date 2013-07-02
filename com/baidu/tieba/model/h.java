@@ -7,16 +7,14 @@ import com.baidu.tieba.util.DatabaseService;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class h extends BdAsyncTask {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ f f1053a;
+    final /* synthetic */ f a;
     private com.baidu.tieba.util.r b = null;
     private String c = null;
     private int d;
     private com.baidu.tieba.data.ay e;
 
     public h(f fVar, int i) {
-        this.f1053a = fVar;
+        this.a = fVar;
         this.d = 0;
         this.e = null;
         this.d = i;
@@ -32,7 +30,7 @@ public class h extends BdAsyncTask {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public f a(Boolean... boolArr) {
-        this.b = new com.baidu.tieba.util.r(String.valueOf(com.baidu.tieba.data.g.f787a) + "c/f/post/threadstore");
+        this.b = new com.baidu.tieba.util.r(String.valueOf(com.baidu.tieba.data.g.a) + "c/f/post/threadstore");
         this.b.a(PushConstants.EXTRA_USER_ID, TiebaApplication.E());
         this.b.a("offset", String.valueOf(this.d));
         this.b.a("rn", String.valueOf(20));
@@ -57,9 +55,9 @@ public class h extends BdAsyncTask {
         if (this.b != null) {
             this.b.h();
         }
-        this.f1053a.b = null;
-        if (this.f1053a.f1051a != null) {
-            this.f1053a.f1051a.a(0, null);
+        this.a.b = null;
+        if (this.a.a != null) {
+            this.a.a.a(0, null);
         }
     }
 
@@ -68,16 +66,16 @@ public class h extends BdAsyncTask {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void a(f fVar) {
         String g;
-        this.f1053a.b = null;
-        this.f1053a.f = fVar.c();
-        this.f1053a.b(fVar.b());
-        if (this.f1053a.f1051a != null) {
+        this.a.b = null;
+        this.a.f = fVar.c();
+        this.a.b(fVar.b());
+        if (this.a.a != null) {
             if (this.b.c()) {
                 g = this.e.b();
             } else {
                 g = this.b.g();
             }
-            this.f1053a.f1051a.a(0, g);
+            this.a.a.a(0, g);
         }
     }
 }

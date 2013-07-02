@@ -24,9 +24,7 @@ public class ba {
     private int k = 0;
     private MetaData l = new MetaData();
     private String m = null;
-
-    /* renamed from: a  reason: collision with root package name */
-    ArrayList f777a = new ArrayList();
+    ArrayList a = new ArrayList();
     private int n = 0;
     private int o = 0;
     private String p = null;
@@ -103,7 +101,7 @@ public class ba {
     }
 
     public ArrayList m() {
-        return this.f777a;
+        return this.a;
     }
 
     public void a(JSONObject jSONObject) {
@@ -144,7 +142,7 @@ public class ba {
                     for (int i2 = 0; i2 < optJSONArray2.length(); i2++) {
                         ae aeVar = new ae();
                         aeVar.a(optJSONArray2.getJSONObject(i2));
-                        this.f777a.add(aeVar);
+                        this.a.add(aeVar);
                     }
                 }
             } catch (Exception e) {
@@ -178,9 +176,9 @@ public class ba {
                 SpannableString spannableString2 = new SpannableString(String.valueOf(sb.toString()) + this.d);
                 int i2 = 0;
                 for (int i3 = 0; i3 < arrayList.size(); i3++) {
-                    Bitmap a2 = com.baidu.tieba.util.d.a(((Integer) arrayList.get(i3)).intValue());
-                    BitmapDrawable bitmapDrawable = new BitmapDrawable(a2);
-                    bitmapDrawable.setBounds(0, 0, a2.getWidth(), a2.getHeight());
+                    Bitmap a = com.baidu.tieba.util.d.a(((Integer) arrayList.get(i3)).intValue());
+                    BitmapDrawable bitmapDrawable = new BitmapDrawable(a);
+                    bitmapDrawable.setBounds(0, 0, a.getWidth(), a.getHeight());
                     spannableString2.setSpan(new ImageSpan(bitmapDrawable, 1), i2, i2 + 1, 33);
                     i2 += 2;
                 }

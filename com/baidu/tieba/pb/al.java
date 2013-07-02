@@ -4,20 +4,18 @@ import android.widget.ImageView;
 import com.baidu.tieba.view.PbImageView;
 /* loaded from: classes.dex */
 class al implements com.baidu.adp.lib.a.c {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ NewPbActivity f1203a;
+    final /* synthetic */ NewPbActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public al(NewPbActivity newPbActivity) {
-        this.f1203a = newPbActivity;
+        this.a = newPbActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.lib.a.c
     /* renamed from: b */
     public ImageView a() {
-        return new PbImageView(this.f1203a);
+        return new PbImageView(this.a);
     }
 
     /* JADX DEBUG: Method merged with bridge method */

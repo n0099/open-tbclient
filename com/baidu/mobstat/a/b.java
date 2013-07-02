@@ -7,9 +7,7 @@ import java.io.StringWriter;
 import java.text.SimpleDateFormat;
 /* loaded from: classes.dex */
 public final class b {
-
-    /* renamed from: a  reason: collision with root package name */
-    private static final SimpleDateFormat f574a = new SimpleDateFormat("MM-dd HH:mm:ss.SSS");
+    private static final SimpleDateFormat a = new SimpleDateFormat("MM-dd HH:mm:ss.SSS");
 
     static {
         a();

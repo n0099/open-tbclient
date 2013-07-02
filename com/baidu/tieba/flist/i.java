@@ -5,9 +5,7 @@ import android.widget.TextView;
 import com.baidu.tieba.view.ImageViewDrawer;
 /* loaded from: classes.dex */
 class i {
-
-    /* renamed from: a  reason: collision with root package name */
-    ImageViewDrawer f820a;
+    ImageViewDrawer a;
     TextView b;
     TextView c;
     TextView d;

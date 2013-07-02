@@ -7,13 +7,11 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class bp {
-
-    /* renamed from: a  reason: collision with root package name */
-    private Context f1045a;
+    private Context a;
     private com.baidu.tieba.data.aw b = new com.baidu.tieba.data.aw();
 
     public bp(Context context, String str) {
-        this.f1045a = context;
+        this.a = context;
         a(str);
     }
 
@@ -36,7 +34,7 @@ public class bp {
             this.b.a(rVar);
             com.baidu.tieba.data.an anVar = new com.baidu.tieba.data.an();
             anVar.a(optJSONObject);
-            anVar.b(this.f1045a);
+            anVar.b(this.a);
             this.b.a(anVar);
             int length = optJSONArray.length();
             ArrayList arrayList = new ArrayList();
@@ -44,7 +42,7 @@ public class bp {
                 JSONObject jSONObject2 = optJSONArray.getJSONObject(i);
                 com.baidu.tieba.data.an anVar2 = new com.baidu.tieba.data.an();
                 anVar2.a(jSONObject2);
-                anVar2.b(this.f1045a);
+                anVar2.b(this.a);
                 arrayList.add(anVar2);
             }
             this.b.a(arrayList);

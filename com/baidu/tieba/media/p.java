@@ -10,12 +10,10 @@ import java.util.ArrayList;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class p extends BroadcastReceiver {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ MediaPlayerActivity f970a;
+    final /* synthetic */ MediaPlayerActivity a;
 
     private p(MediaPlayerActivity mediaPlayerActivity) {
-        this.f970a = mediaPlayerActivity;
+        this.a = mediaPlayerActivity;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -36,30 +34,30 @@ public class p extends BroadcastReceiver {
         AlertDialog alertDialog2;
         AlertDialog alertDialog3;
         NetWorkCore.NetworkStateInfo c = NetWorkCore.c(context);
-        arrayList = this.f970a.m;
+        arrayList = this.a.m;
         if (!arrayList.contains(c)) {
-            alertDialog = this.f970a.e;
+            alertDialog = this.a.e;
             if (alertDialog != null) {
-                alertDialog2 = this.f970a.e;
+                alertDialog2 = this.a.e;
                 if (alertDialog2.isShowing()) {
-                    alertDialog3 = this.f970a.e;
+                    alertDialog3 = this.a.e;
                     alertDialog3.dismiss();
                 }
-                this.f970a.e = null;
+                this.a.e = null;
             }
             if (c == NetWorkCore.NetworkStateInfo.TwoG) {
-                this.f970a.a();
-                MediaPlayerActivity mediaPlayerActivity = this.f970a;
-                aVar2 = this.f970a.f953a;
-                l2 = this.f970a.l();
-                m2 = this.f970a.m();
+                this.a.a();
+                MediaPlayerActivity mediaPlayerActivity = this.a;
+                aVar2 = this.a.a;
+                l2 = this.a.l();
+                m2 = this.a.m();
                 mediaPlayerActivity.e = aVar2.a(l2, m2);
             } else if (c == NetWorkCore.NetworkStateInfo.ThreeG) {
-                this.f970a.a();
-                MediaPlayerActivity mediaPlayerActivity2 = this.f970a;
-                aVar = this.f970a.f953a;
-                l = this.f970a.l();
-                m = this.f970a.m();
+                this.a.a();
+                MediaPlayerActivity mediaPlayerActivity2 = this.a;
+                aVar = this.a.a;
+                l = this.a.l();
+                m = this.a.m();
                 mediaPlayerActivity2.e = aVar.b(l, m);
             }
         }

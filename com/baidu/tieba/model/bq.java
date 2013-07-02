@@ -5,12 +5,10 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class bq {
-
-    /* renamed from: a  reason: collision with root package name */
-    private ArrayList f1046a = new ArrayList();
+    private ArrayList a = new ArrayList();
 
     public ArrayList a() {
-        return this.f1046a;
+        return this.a;
     }
 
     public void a(String str) {
@@ -26,7 +24,7 @@ public class bq {
             JSONArray optJSONArray = jSONObject.optJSONArray("fname");
             if (optJSONArray != null) {
                 for (int i = 0; i < optJSONArray.length(); i++) {
-                    this.f1046a.add(optJSONArray.getString(i));
+                    this.a.add(optJSONArray.getString(i));
                 }
             }
         } catch (Exception e) {

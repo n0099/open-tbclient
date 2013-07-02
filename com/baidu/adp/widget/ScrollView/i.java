@@ -5,15 +5,13 @@ import android.widget.LinearLayout;
 import java.util.Timer;
 /* loaded from: classes.dex */
 class i implements Runnable {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ h f223a;
+    final /* synthetic */ h a;
     private final /* synthetic */ View b;
     private final /* synthetic */ Timer c;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public i(h hVar, View view, Timer timer) {
-        this.f223a = hVar;
+        this.a = hVar;
         this.b = view;
         this.c = timer;
     }
@@ -35,28 +33,28 @@ class i implements Runnable {
         g gVar7;
         LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.b.getLayoutParams();
         int i4 = layoutParams.topMargin;
-        gVar = this.f223a.f222a;
-        i = gVar.f221a;
+        gVar = this.a.a;
+        i = gVar.a;
         layoutParams.topMargin = i4 - i;
         int i5 = layoutParams.topMargin;
-        gVar2 = this.f223a.f222a;
+        gVar2 = this.a.a;
         i2 = gVar2.c;
         if (i5 <= i2) {
-            gVar6 = this.f223a.f222a;
+            gVar6 = this.a.a;
             i3 = gVar6.c;
             layoutParams.topMargin = i3;
             this.c.cancel();
-            gVar7 = this.f223a.f222a;
+            gVar7 = this.a.a;
             gVar7.d = true;
         }
         this.b.setLayoutParams(layoutParams);
-        gVar3 = this.f223a.f222a;
+        gVar3 = this.a.a;
         z = gVar3.d;
         if (z) {
-            gVar4 = this.f223a.f222a;
+            gVar4 = this.a.a;
             jVar = gVar4.e;
             if (jVar != null) {
-                gVar5 = this.f223a.f222a;
+                gVar5 = this.a.a;
                 jVar2 = gVar5.e;
                 jVar2.a();
             }

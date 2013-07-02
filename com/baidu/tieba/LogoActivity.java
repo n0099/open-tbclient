@@ -10,16 +10,14 @@ import android.view.KeyEvent;
 import android.view.animation.AlphaAnimation;
 import android.widget.ImageView;
 import com.baidu.adp.lib.debug.service.SwitchDebugService;
-import com.baidu.android.moplus.MoPlusConstants;
+import com.baidu.android.pushservice.PushConstants;
 import com.baidu.tieba.service.FatalErrorService;
 import com.baidu.zeus.NotificationProxy;
 import com.slidingmenu.lib.R;
 import java.io.File;
 /* loaded from: classes.dex */
 public class LogoActivity extends g {
-
-    /* renamed from: a  reason: collision with root package name */
-    private static boolean f616a = true;
+    private static boolean a = true;
     private boolean b = false;
     private boolean c = false;
     private ImageView d = null;
@@ -32,11 +30,11 @@ public class LogoActivity extends g {
     private Runnable m = new ae(this);
 
     public static void a(boolean z) {
-        f616a = z;
+        a = z;
     }
 
     public static void a(Context context, Intent intent) {
-        f616a = true;
+        a = true;
         Intent intent2 = new Intent(context, LogoActivity.class);
         if (!(context instanceof Activity)) {
             intent2.setFlags(268435456);
@@ -69,7 +67,7 @@ public class LogoActivity extends g {
         super.onNewIntent(intent);
         a(intent);
         d();
-        f616a = true;
+        a = true;
     }
 
     @Override // com.baidu.tieba.g, com.baidu.adp.a.a, android.app.Activity
@@ -82,9 +80,9 @@ public class LogoActivity extends g {
         setContentView(R.layout.logo_activity);
         this.d = (ImageView) findViewById(R.id.logo);
         if (bundle != null) {
-            f616a = bundle.getBoolean("is_first", true);
+            a = bundle.getBoolean("is_first", true);
         } else {
-            f616a = true;
+            a = true;
         }
         this.f = new AlphaAnimation(1.0f, 1.0f);
         this.f.setDuration(500L);
@@ -95,11 +93,6 @@ public class LogoActivity extends g {
         if (com.baidu.tieba.data.g.s()) {
             b();
         }
-        try {
-            MoPlusConstants.startService(getApplicationContext());
-        } catch (Exception e) {
-            com.baidu.tieba.util.z.b(getClass().getName(), "onCreate_init_moplus", e.toString());
-        }
     }
 
     private void b() {
@@ -109,7 +102,7 @@ public class LogoActivity extends g {
     @Override // android.app.Activity
     protected void onSaveInstanceState(Bundle bundle) {
         super.onSaveInstanceState(bundle);
-        bundle.putBoolean("is_first", f616a);
+        bundle.putBoolean("is_first", a);
     }
 
     private void c() {
@@ -122,7 +115,7 @@ public class LogoActivity extends g {
 
     @Override // com.baidu.tieba.g, android.app.Activity, android.view.KeyEvent.Callback
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
-        if (i == 4 && f616a) {
+        if (i == 4 && a) {
             return true;
         }
         return super.onKeyDown(i, keyEvent);
@@ -142,8 +135,8 @@ public class LogoActivity extends g {
     @Override // com.baidu.tieba.g, android.app.Activity
     public void onResume() {
         super.onResume();
-        if (!f616a) {
-            f616a = true;
+        if (!a) {
+            a = true;
             finish();
             return;
         }
@@ -180,7 +173,7 @@ public class LogoActivity extends g {
     public void onDestroy() {
         super.onDestroy();
         m();
-        f616a = true;
+        a = true;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -202,13 +195,24 @@ public class LogoActivity extends g {
         if (this.g) {
             TiebaApplication.f().aD();
             GuideActivity.a(this, 1600001);
-            return;
+            try {
+                PushConstants.restartPushService(getApplicationContext());
+                return;
+            } catch (Exception e) {
+                com.baidu.tieba.util.z.b(getClass().getName(), "startApp", e.toString());
+                return;
+            }
         }
         c("goto_home");
+        try {
+            PushConstants.startPushService(getApplicationContext());
+        } catch (Exception e2) {
+            com.baidu.tieba.util.z.b(getClass().getName(), "startApp", e2.toString());
+        }
     }
 
     private void c(String str) {
-        f616a = false;
+        a = false;
         String E = TiebaApplication.E();
         this.g = TiebaApplication.f().aH();
         this.j = true;

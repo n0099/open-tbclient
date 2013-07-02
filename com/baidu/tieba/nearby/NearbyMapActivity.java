@@ -24,9 +24,7 @@ import com.baidu.tieba.model.MapOverlayModel;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public class NearbyMapActivity extends MapActivity {
-
-    /* renamed from: a  reason: collision with root package name */
-    private BMapManager f1117a = null;
+    private BMapManager a = null;
     private MapView b = null;
     private TextView c = null;
     private MapController d = null;
@@ -68,13 +66,13 @@ public class NearbyMapActivity extends MapActivity {
         if (TiebaApplication.f().aU() == null) {
             z = TiebaApplication.f().c(getApplicationContext());
         }
-        this.f1117a = TiebaApplication.f().aU();
-        if (!z || this.f1117a == null) {
+        this.a = TiebaApplication.f().aU();
+        if (!z || this.a == null) {
             finish();
             return;
         }
-        this.f1117a.start();
-        super.initMapActivity(this.f1117a);
+        this.a.start();
+        super.initMapActivity(this.a);
         this.i = new Handler();
         c();
         a(bundle);
@@ -95,7 +93,7 @@ public class NearbyMapActivity extends MapActivity {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.mapapi.MapActivity, android.app.Activity
     public void onResume() {
-        this.f1117a.start();
+        this.a.start();
         super.onResume();
         if (TiebaApplication.f().t()) {
             try {
@@ -109,7 +107,7 @@ public class NearbyMapActivity extends MapActivity {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.mapapi.MapActivity, android.app.Activity
     public void onPause() {
-        this.f1117a.stop();
+        this.a.stop();
         super.onPause();
         if (TiebaApplication.f().t()) {
             try {

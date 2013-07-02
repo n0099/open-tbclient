@@ -7,15 +7,13 @@ import com.slidingmenu.lib.R;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class b extends BdAsyncTask {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ NearbyForumActivity f1149a;
+    final /* synthetic */ NearbyForumActivity a;
     private volatile com.baidu.tieba.util.r b = null;
     private volatile String c;
     private volatile String d;
 
     public b(NearbyForumActivity nearbyForumActivity, String str, String str2) {
-        this.f1149a = nearbyForumActivity;
+        this.a = nearbyForumActivity;
         this.c = null;
         this.d = null;
         this.c = str;
@@ -26,7 +24,7 @@ public class b extends BdAsyncTask {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void b() {
         ProgressBar progressBar;
-        progressBar = this.f1149a.m;
+        progressBar = this.a.m;
         progressBar.setVisibility(0);
     }
 
@@ -37,7 +35,7 @@ public class b extends BdAsyncTask {
     public Boolean a(Object... objArr) {
         boolean z;
         try {
-            this.b = new com.baidu.tieba.util.r(String.valueOf(com.baidu.tieba.data.g.f787a) + "c/c/forum/like");
+            this.b = new com.baidu.tieba.util.r(String.valueOf(com.baidu.tieba.data.g.a) + "c/c/forum/like");
             this.b.a("kw", this.c);
             this.b.a("fid", this.d);
             this.b.d(true);
@@ -61,20 +59,20 @@ public class b extends BdAsyncTask {
         ProgressBar progressBar;
         com.baidu.tieba.model.at atVar;
         d dVar;
-        progressBar = this.f1149a.m;
+        progressBar = this.a.m;
         progressBar.setVisibility(8);
-        this.f1149a.n = null;
-        this.f1149a.l = false;
+        this.a.n = null;
+        this.a.l = false;
         if (bool.booleanValue()) {
-            atVar = this.f1149a.b;
+            atVar = this.a.b;
             atVar.a(this.d);
-            dVar = this.f1149a.d;
+            dVar = this.a.d;
             dVar.notifyDataSetChanged();
-            this.f1149a.a(this.f1149a.getString(R.string.like_success));
+            this.a.a(this.a.getString(R.string.like_success));
             TiebaApplication.f().i(true);
             return;
         }
-        this.f1149a.a(this.b.g());
+        this.a.a(this.b.g());
     }
 
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
@@ -83,10 +81,10 @@ public class b extends BdAsyncTask {
         if (this.b != null) {
             this.b.h();
         }
-        progressBar = this.f1149a.m;
+        progressBar = this.a.m;
         progressBar.setVisibility(8);
-        this.f1149a.n = null;
-        this.f1149a.l = false;
+        this.a.n = null;
+        this.a.l = false;
         super.cancel(true);
     }
 }

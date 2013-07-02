@@ -4,19 +4,17 @@ import com.baidu.android.pushservice.PushConstants;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class af {
-
-    /* renamed from: a  reason: collision with root package name */
-    private long f756a = 0;
+    private long a = 0;
     private long b = 0;
     private long c = 0;
     private long d = 0;
 
     public void a(long j) {
-        this.f756a = j;
+        this.a = j;
     }
 
     public long a() {
-        return this.f756a;
+        return this.a;
     }
 
     public void b(long j) {
@@ -50,7 +48,7 @@ public class af {
     public void a(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                this.f756a = jSONObject.optLong("replyme", 0L);
+                this.a = jSONObject.optLong("replyme", 0L);
                 this.b = jSONObject.optLong("atme", 0L);
                 this.c = jSONObject.optLong("fans", 0L);
                 this.d = jSONObject.optLong("pletter", 0L);

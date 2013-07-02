@@ -230,9 +230,9 @@ public class ad extends com.baidu.adp.a.d {
     }
 
     public void a(String str, String str2) {
-        com.baidu.tieba.util.a a2 = this.m.a();
-        a(a2, str);
-        a(a2, str2);
+        com.baidu.tieba.util.a a = this.m.a();
+        a(a, str);
+        a(a, str2);
     }
 
     private void a(com.baidu.tieba.util.a aVar, String str) {

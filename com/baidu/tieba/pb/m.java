@@ -11,14 +11,12 @@ import com.slidingmenu.lib.R;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class m implements AdapterView.OnItemClickListener {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ ImagePbActivity f1284a;
+    final /* synthetic */ ImagePbActivity a;
     private final /* synthetic */ com.baidu.tieba.write.m b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public m(ImagePbActivity imagePbActivity, com.baidu.tieba.write.m mVar) {
-        this.f1284a = imagePbActivity;
+        this.a = imagePbActivity;
         this.b = mVar;
     }
 
@@ -27,28 +25,28 @@ public class m implements AdapterView.OnItemClickListener {
         EditText editText;
         EditText editText2;
         boolean p;
-        String a2;
+        String a;
         EditText editText3;
         EditText editText4;
-        editText = this.f1284a.m;
+        editText = this.a.m;
         Editable text = editText.getText();
-        editText2 = this.f1284a.m;
+        editText2 = this.a.m;
         if (((ImageSpan[]) text.getSpans(0, editText2.getText().length(), ImageSpan.class)).length >= 10) {
-            this.f1284a.a(this.f1284a.getString(R.string.too_many_face));
+            this.a.a(this.a.getString(R.string.too_many_face));
             return;
         }
-        p = this.f1284a.p();
-        if (!p && (a2 = this.b.a(i)) != null) {
-            editText3 = this.f1284a.m;
+        p = this.a.p();
+        if (!p && (a = this.b.a(i)) != null) {
+            editText3 = this.a.m;
             int selectionStart = editText3.getSelectionStart();
-            SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(a2);
+            SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(a);
             Bitmap bitmap = (Bitmap) this.b.getItem(i);
             if (bitmap != null) {
                 com.baidu.tieba.view.al alVar = new com.baidu.tieba.view.al(bitmap);
                 alVar.setBounds(0, 0, bitmap.getWidth() + 1, bitmap.getHeight());
                 alVar.setGravity(3);
                 spannableStringBuilder.setSpan(new ImageSpan(alVar, 0), 0, spannableStringBuilder.length(), 33);
-                editText4 = this.f1284a.m;
+                editText4 = this.a.m;
                 editText4.getText().insert(selectionStart, spannableStringBuilder);
             }
         }

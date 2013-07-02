@@ -24,9 +24,7 @@ public class MentionActivity extends ActivityGroup {
     private ImageView h = null;
     private View.OnClickListener i = null;
     private CompoundButton.OnCheckedChangeListener j = null;
-
-    /* renamed from: a */
-    RelativeLayout f975a = null;
+    RelativeLayout a = null;
     RelativeLayout b = null;
     TextView c = null;
     protected int d = -1;
@@ -89,7 +87,7 @@ public class MentionActivity extends ActivityGroup {
         this.h.setOnClickListener(this.i);
         this.g.setOnClickListener(this.i);
         this.k = (FrameLayout) findViewById(R.id.content);
-        this.f975a = (RelativeLayout) findViewById(R.id.container);
+        this.a = (RelativeLayout) findViewById(R.id.container);
         this.b = (RelativeLayout) findViewById(R.id.title);
         this.c = (TextView) findViewById(R.id.title_text);
         this.f = (RadioButton) findViewById(R.id.replyme_tab);
@@ -112,7 +110,7 @@ public class MentionActivity extends ActivityGroup {
     private void a(int i) {
         com.baidu.tieba.util.x.a(this.h, i);
         com.baidu.tieba.util.x.b(this.g, i);
-        com.baidu.tieba.util.x.a(this.f975a, i);
+        com.baidu.tieba.util.x.a(this.a, i);
         com.baidu.tieba.util.x.d(this.b, i);
         com.baidu.tieba.util.x.f(this.c, i);
         com.baidu.tieba.util.x.g((View) this.f, i);

@@ -4,22 +4,20 @@ import android.content.Context;
 import com.baidu.cyberplayer.sdk.BEngineManager;
 /* loaded from: classes.dex */
 class b extends a {
-
-    /* renamed from: a  reason: collision with root package name */
-    private String f449a;
+    private String a;
     private String b;
 
     public b(Context context, String str, CyberPlayerEngineManager cyberPlayerEngineManager, BEngineManager.OnEngineListener onEngineListener, boolean z) {
         super(context, cyberPlayerEngineManager, onEngineListener, z);
-        this.f449a = null;
+        this.a = null;
         this.b = null;
-        this.f449a = str;
+        this.a = str;
     }
 
     @Override // com.baidu.cyberplayer.sdk.internal.a
     protected boolean a() {
-        if (this.f449a != null) {
-            this.b = this.f449a.substring("file://".length());
+        if (this.a != null) {
+            this.b = this.a.substring("file://".length());
             return true;
         }
         return false;

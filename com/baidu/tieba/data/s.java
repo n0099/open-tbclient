@@ -6,9 +6,7 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class s {
-
-    /* renamed from: a  reason: collision with root package name */
-    private ArrayList f799a = new ArrayList();
+    private ArrayList a = new ArrayList();
     private HashMap b = null;
 
     public void a(JSONObject jSONObject, boolean z) {
@@ -29,7 +27,7 @@ public class s {
                     MetaData metaData = new MetaData();
                     metaData.parserJson(optJSONArray.getJSONObject(i));
                     if (metaData.getName_show() != null) {
-                        this.f799a.add(metaData);
+                        this.a.add(metaData);
                         if (z) {
                             this.b.put(metaData.getName_show(), metaData.getPortrait());
                         }
@@ -48,7 +46,7 @@ public class s {
     }
 
     public ArrayList a() {
-        return this.f799a;
+        return this.a;
     }
 
     public HashMap b() {

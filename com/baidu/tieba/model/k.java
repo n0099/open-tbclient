@@ -5,14 +5,12 @@ import com.baidu.tieba.util.DatabaseService;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class k extends BdAsyncTask {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ j f1056a;
+    final /* synthetic */ j a;
     private com.baidu.tieba.a.d b = null;
     private int c;
 
     public k(j jVar, int i) {
-        this.f1056a = jVar;
+        this.a = jVar;
         this.c = 1;
         this.c = i;
         setPriority(3);
@@ -30,7 +28,7 @@ public class k extends BdAsyncTask {
         com.baidu.tieba.data.m mVar = null;
         this.b = new com.baidu.tieba.a.d();
         if (this.c == 0) {
-            z2 = this.f1056a.c;
+            z2 = this.a.c;
             if (z2) {
                 i = DatabaseService.e();
             } else {
@@ -54,7 +52,7 @@ public class k extends BdAsyncTask {
         if (this.b.b()) {
             mVar = new com.baidu.tieba.data.m();
             mVar.a(str);
-            z = this.f1056a.c;
+            z = this.a.c;
             if (z) {
                 DatabaseService.e(str);
             } else {
@@ -67,7 +65,7 @@ public class k extends BdAsyncTask {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void cancel() {
         super.cancel();
-        this.f1056a.f1055a = null;
+        this.a.a = null;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -77,17 +75,17 @@ public class k extends BdAsyncTask {
         l lVar;
         l lVar2;
         l lVar3;
-        this.f1056a.f1055a = null;
-        this.f1056a.b = mVar;
-        lVar = this.f1056a.d;
+        this.a.a = null;
+        this.a.b = mVar;
+        lVar = this.a.d;
         if (lVar != null) {
             if (this.c == 0 || this.b.b()) {
-                lVar2 = this.f1056a.d;
+                lVar2 = this.a.d;
                 lVar2.a(true, null, mVar);
                 return;
             }
             String c = this.b != null ? this.b.c() : null;
-            lVar3 = this.f1056a.d;
+            lVar3 = this.a.d;
             lVar3.a(false, c, mVar);
         }
     }

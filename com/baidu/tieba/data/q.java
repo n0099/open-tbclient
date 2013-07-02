@@ -4,9 +4,7 @@ import com.baidu.android.pushservice.PushConstants;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class q {
-
-    /* renamed from: a  reason: collision with root package name */
-    private int f797a = 0;
+    private int a = 0;
     private long b = 0;
     private String c = null;
     private String d = null;
@@ -20,7 +18,7 @@ public class q {
     private String l;
 
     public int a() {
-        return this.f797a;
+        return this.a;
     }
 
     public long b() {
@@ -62,7 +60,7 @@ public class q {
     public void a(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                this.f797a = jSONObject.optInt("type", 0);
+                this.a = jSONObject.optInt("type", 0);
                 this.c = jSONObject.optString("title");
                 this.b = jSONObject.optLong("time", 0L) * 1000;
                 this.d = jSONObject.optString("fname");

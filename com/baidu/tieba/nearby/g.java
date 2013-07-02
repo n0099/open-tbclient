@@ -6,13 +6,11 @@ import com.baidu.tieba.model.MapOverlayModel;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 class g implements Runnable {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ NearbyMapActivity f1164a;
+    final /* synthetic */ NearbyMapActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public g(NearbyMapActivity nearbyMapActivity) {
-        this.f1164a = nearbyMapActivity;
+        this.a = nearbyMapActivity;
     }
 
     @Override // java.lang.Runnable
@@ -23,23 +21,23 @@ class g implements Runnable {
         com.baidu.tieba.util.a aVar;
         PostItemizedOverlay postItemizedOverlay;
         MapView mapView;
-        mapOverlayModel = this.f1164a.h;
+        mapOverlayModel = this.a.h;
         if (mapOverlayModel != null) {
-            mapOverlayModel2 = this.f1164a.h;
+            mapOverlayModel2 = this.a.h;
             if (mapOverlayModel2.getPosts() != null) {
-                mapOverlayModel3 = this.f1164a.h;
+                mapOverlayModel3 = this.a.h;
                 ArrayList posts = mapOverlayModel3.getPosts();
                 int i = 0;
                 while (true) {
                     int i2 = i;
                     if (i2 < posts.size()) {
                         String portrait = ((MapPostItem) posts.get(i2)).getAutor().getPortrait();
-                        aVar = this.f1164a.g;
+                        aVar = this.a.g;
                         com.baidu.adp.widget.a.b d = aVar.d(portrait, new h(this));
                         if (d != null) {
-                            postItemizedOverlay = this.f1164a.f;
+                            postItemizedOverlay = this.a.f;
                             postItemizedOverlay.a(portrait, d);
-                            mapView = this.f1164a.b;
+                            mapView = this.a.b;
                             mapView.invalidate();
                         }
                         i = i2 + 1;

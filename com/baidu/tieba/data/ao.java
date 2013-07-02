@@ -8,15 +8,13 @@ import com.baidu.tieba.person.PersonInfoActivity;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ao extends ClickableSpan {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ an f765a;
+    final /* synthetic */ an a;
     private String b;
     private String c;
     private Context d;
 
     public ao(an anVar, Context context, String str, String str2) {
-        this.f765a = anVar;
+        this.a = anVar;
         this.b = null;
         this.c = null;
         this.d = null;

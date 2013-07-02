@@ -17,9 +17,7 @@ import com.baidu.tieba.TiebaApplication;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public class PersonLbsActivity extends com.baidu.tieba.g {
-
-    /* renamed from: a  reason: collision with root package name */
-    private ListView f1305a = null;
+    private ListView a = null;
     private LinearLayout b = null;
     private TextView c = null;
     private TextView d = null;
@@ -65,7 +63,7 @@ public class PersonLbsActivity extends com.baidu.tieba.g {
         this.q = new bg(this);
         this.t = new bh(this);
         this.j = (LinearLayout) findViewById(R.id.parent);
-        this.f1305a = (ListView) findViewById(R.id.list);
+        this.a = (ListView) findViewById(R.id.list);
         this.b = (LinearLayout) findViewById(R.id.title);
         this.d = (TextView) findViewById(R.id.no_data);
         this.c = (TextView) findViewById(R.id.title_text);
@@ -75,9 +73,9 @@ public class PersonLbsActivity extends com.baidu.tieba.g {
         this.e.setOnClickListener(this.m);
         this.f.setOnClickListener(this.m);
         this.n = new bj(this);
-        this.f1305a.setAdapter((ListAdapter) this.n);
-        this.f1305a.setOnScrollListener(this.q);
-        this.f1305a.setOnItemClickListener(this.t);
+        this.a.setAdapter((ListAdapter) this.n);
+        this.a.setOnScrollListener(this.q);
+        this.a.setOnItemClickListener(this.t);
     }
 
     private void c() {
@@ -104,13 +102,13 @@ public class PersonLbsActivity extends com.baidu.tieba.g {
         com.baidu.tieba.util.x.a(this.e, i);
         com.baidu.tieba.util.x.b(this.f, i);
         if (i == 1) {
-            this.f1305a.setBackgroundColor(getResources().getColor(R.color.skin_1_common_bg));
-            this.f1305a.setSelector(R.drawable.list_selector_1);
+            this.a.setBackgroundColor(getResources().getColor(R.color.skin_1_common_bg));
+            this.a.setSelector(R.drawable.list_selector_1);
             this.d.setTextColor(-4276546);
             return;
         }
-        this.f1305a.setBackgroundColor(getResources().getColor(R.color.backgroundcolor));
-        this.f1305a.setSelector(R.drawable.list_selector);
+        this.a.setBackgroundColor(getResources().getColor(R.color.backgroundcolor));
+        this.a.setSelector(R.drawable.list_selector);
         this.d.setTextColor(-7237231);
     }
 

@@ -15,6 +15,7 @@ import com.baidu.adp.g;
 import com.baidu.adp.lib.debug.DebugConfigActivity;
 import com.baidu.adp.lib.debug.b;
 import com.baidu.browser.explorer.BdWebErrorView;
+import com.baidu.location.LocationClientOption;
 import java.io.IOException;
 import java.util.List;
 import java.util.Properties;
@@ -23,12 +24,10 @@ public class SwitchDebugService extends Service implements SensorEventListener {
     private String q;
     private static int b = 80;
     private static int c = 15;
-    private static int d = 1000;
+    private static int d = LocationClientOption.MIN_SCAN_SPAN;
     private static int e = 4;
     private static int f = BdWebErrorView.ERROR_CODE_500;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static Properties f168a = null;
+    public static Properties a = null;
     private SensorManager g = null;
     private Vibrator h = null;
     private long i = 0;
@@ -57,14 +56,14 @@ public class SwitchDebugService extends Service implements SensorEventListener {
     }
 
     private static void a(AssetManager assetManager) {
-        if (f168a == null) {
+        if (a == null) {
             synchronized (SwitchDebugService.class) {
-                if (f168a == null) {
-                    f168a = new Properties();
+                if (a == null) {
+                    a = new Properties();
                     try {
-                        f168a.load(assetManager.open("debug/debug_ascii.conf"));
+                        a.load(assetManager.open("debug/debug_ascii.conf"));
                     } catch (IOException e2) {
-                        f168a = null;
+                        a = null;
                         e2.printStackTrace();
                     }
                 }

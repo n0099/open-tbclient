@@ -37,9 +37,7 @@ import org.apache.http.message.BasicNameValuePair;
 /* loaded from: classes.dex */
 public class NetWorkCore {
     private static /* synthetic */ int[] A;
-
-    /* renamed from: a  reason: collision with root package name */
-    private static String f1446a = "\r\n";
+    private static String a = "\r\n";
     private static String b = "--";
     private static String c = "--------7da3d81520810*";
     private static int d = 2097152;
@@ -548,7 +546,7 @@ public class NetWorkCore {
                             vVar.c = this.x;
                             vVar.b = time2;
                             vVar.d = i2 + 1;
-                            vVar.f1470a = 2;
+                            vVar.a = 2;
                             a(vVar);
                             if (inputStream != null) {
                                 try {
@@ -931,7 +929,7 @@ public class NetWorkCore {
                                 vVar.c = this.x;
                                 vVar.b = time2;
                                 vVar.d = i3 + 1;
-                                vVar.f1470a = 1;
+                                vVar.a = 1;
                                 a(vVar);
                                 if (inputStream5 != null) {
                                     try {
@@ -1188,12 +1186,12 @@ public class NetWorkCore {
                         if (basicNameValuePair != null) {
                             String name = basicNameValuePair.getName();
                             String value = basicNameValuePair.getValue();
-                            dataOutputStream2.writeBytes(String.valueOf(b) + c + f1446a);
+                            dataOutputStream2.writeBytes(String.valueOf(b) + c + a);
                             byte[] bytes = value.getBytes("UTF-8");
-                            dataOutputStream2.writeBytes("Content-Disposition: form-data; name=\"" + name + "\"" + f1446a);
-                            dataOutputStream2.writeBytes(f1446a);
+                            dataOutputStream2.writeBytes("Content-Disposition: form-data; name=\"" + name + "\"" + a);
+                            dataOutputStream2.writeBytes(a);
                             dataOutputStream2.write(bytes);
-                            dataOutputStream2.writeBytes(f1446a);
+                            dataOutputStream2.writeBytes(a);
                         }
                     } catch (Throwable th3) {
                         th = th3;
@@ -1219,15 +1217,15 @@ public class NetWorkCore {
                     if (this.u) {
                         break;
                     } else if (bArr2 != null) {
-                        dataOutputStream2.writeBytes(String.valueOf(b) + c + f1446a);
-                        dataOutputStream2.writeBytes("Content-Disposition: form-data; name=\"" + str3 + "\"; filename=\"file\"" + f1446a);
-                        dataOutputStream2.writeBytes(f1446a);
+                        dataOutputStream2.writeBytes(String.valueOf(b) + c + a);
+                        dataOutputStream2.writeBytes("Content-Disposition: form-data; name=\"" + str3 + "\"; filename=\"file\"" + a);
+                        dataOutputStream2.writeBytes(a);
                         dataOutputStream2.write(bArr2);
-                        dataOutputStream2.writeBytes(f1446a);
+                        dataOutputStream2.writeBytes(a);
                     }
                 }
             }
-            dataOutputStream2.writeBytes(String.valueOf(b) + c + b + f1446a);
+            dataOutputStream2.writeBytes(String.valueOf(b) + c + b + a);
             dataOutputStream2.flush();
             z.a("NetWork", "postMultiNetData", "Post data.zise = " + String.valueOf(dataOutputStream2.size()));
             dataOutputStream2.close();

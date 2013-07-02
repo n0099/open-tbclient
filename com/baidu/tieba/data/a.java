@@ -5,9 +5,7 @@ import java.util.Date;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public abstract class a {
-
-    /* renamed from: a  reason: collision with root package name */
-    public static String f743a;
+    public static String a;
     private Date b;
     private String c;
 
@@ -29,7 +27,7 @@ public abstract class a {
         try {
             b(new JSONObject(str));
         } catch (Exception e) {
-            a(f743a);
+            a(a);
             com.baidu.tieba.util.z.a("error = " + e.getMessage());
         }
     }
@@ -37,7 +35,7 @@ public abstract class a {
     public void b(JSONObject jSONObject) {
         try {
             if (jSONObject.optInt("error_code", 0) != 0) {
-                a(jSONObject.optString(PushConstants.EXTRA_ERROR_CODE, f743a));
+                a(jSONObject.optString(PushConstants.EXTRA_ERROR_CODE, a));
                 return;
             }
             long optLong = jSONObject.optLong("ctime", 0L);
@@ -46,7 +44,7 @@ public abstract class a {
             }
             a(jSONObject);
         } catch (Exception e) {
-            a(f743a);
+            a(a);
             com.baidu.tieba.util.z.a("error = " + e.getMessage());
         }
     }

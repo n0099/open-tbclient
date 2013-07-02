@@ -4,9 +4,7 @@ import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class p extends BdAsyncTask {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ o f1060a;
+    final /* synthetic */ o a;
     private com.baidu.tieba.util.r b = null;
     private String c;
     private String d;
@@ -17,7 +15,7 @@ public class p extends BdAsyncTask {
     private boolean i;
 
     public p(o oVar, String str, String str2, String str3, String str4, int i, int i2, boolean z) {
-        this.f1060a = oVar;
+        this.a = oVar;
         this.c = str;
         this.d = str2;
         this.e = str3;
@@ -32,7 +30,7 @@ public class p extends BdAsyncTask {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public String a(String... strArr) {
         String str;
-        String str2 = com.baidu.tieba.data.g.f787a;
+        String str2 = com.baidu.tieba.data.g.a;
         if (this.g == 0) {
             str = String.valueOf(str2) + "c/c/bawu/delthread";
         } else {
@@ -80,9 +78,9 @@ public class p extends BdAsyncTask {
         if (this.b != null) {
             this.b.h();
         }
-        this.f1060a.f1059a = null;
+        this.a.a = null;
         super.cancel(true);
-        eVar = this.f1060a.mLoadDataCallBack;
+        eVar = this.a.mLoadDataCallBack;
         eVar.a(null);
     }
 
@@ -93,22 +91,22 @@ public class p extends BdAsyncTask {
         com.baidu.adp.a.e eVar;
         com.baidu.adp.a.e eVar2;
         super.a((Object) str);
-        this.f1060a.f1059a = null;
+        this.a.a = null;
         if (this.b == null) {
-            eVar2 = this.f1060a.mLoadDataCallBack;
+            eVar2 = this.a.mLoadDataCallBack;
             eVar2.a(null);
             return;
         }
-        q qVar = new q(this.f1060a);
+        q qVar = new q(this.a);
         qVar.c = this.g;
         qVar.d = this.f;
         qVar.b = str;
         if (str == null) {
-            qVar.f1061a = true;
+            qVar.a = true;
         } else {
-            qVar.f1061a = false;
+            qVar.a = false;
         }
-        eVar = this.f1060a.mLoadDataCallBack;
+        eVar = this.a.mLoadDataCallBack;
         eVar.a(qVar);
     }
 }

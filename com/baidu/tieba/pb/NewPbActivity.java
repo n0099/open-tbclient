@@ -59,9 +59,7 @@ public class NewPbActivity extends com.baidu.tieba.g implements com.baidu.tbadk.
     private cq G = new at(this);
     private int H = 0;
     private com.baidu.tbadk.widget.richText.m I = new au(this);
-
-    /* renamed from: a  reason: collision with root package name */
-    com.baidu.tieba.data.an f1189a = null;
+    com.baidu.tieba.data.an a = null;
     private DialogInterface.OnClickListener J = new av(this);
     private View.OnLongClickListener K = new ax(this);
 
@@ -253,8 +251,8 @@ public class NewPbActivity extends com.baidu.tieba.g implements com.baidu.tbadk.
     public void a(com.baidu.tieba.model.q qVar) {
         boolean z;
         int i = 0;
-        this.p.a(0, qVar.f1061a, qVar.b, true);
-        if (qVar.f1061a) {
+        this.p.a(0, qVar.a, qVar.b, true);
+        if (qVar.a) {
             if (qVar.c == 1) {
                 ArrayList d2 = this.j.j().d();
                 int size = d2.size();
@@ -313,9 +311,9 @@ public class NewPbActivity extends com.baidu.tieba.g implements com.baidu.tbadk.
                     }
                     this.p.a(this.n.c(), this.j.j().l());
                     if (!z2) {
-                        String a2 = this.n.a();
+                        String a = this.n.a();
                         while (i < size2) {
-                            if (!a2.equals(((com.baidu.tieba.data.an) d3.get(i)).d())) {
+                            if (!a.equals(((com.baidu.tieba.data.an) d3.get(i)).d())) {
                                 i++;
                             } else {
                                 ((com.baidu.tieba.data.an) d3.get(i)).c();
@@ -331,19 +329,19 @@ public class NewPbActivity extends com.baidu.tieba.g implements com.baidu.tbadk.
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(com.baidu.tieba.model.s sVar) {
-        this.p.a(1, sVar.f1063a, sVar.b, true);
+        this.p.a(1, sVar.a, sVar.b, true);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(com.baidu.tieba.model.u uVar) {
-        this.p.a(this.o.getLoadDataMode(), uVar.f1065a, uVar.b, false);
+        this.p.a(this.o.getLoadDataMode(), uVar.a, uVar.b, false);
         this.p.a(uVar.c);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(int i, com.baidu.tieba.model.u uVar) {
-        this.p.a(this.o.getLoadDataMode(), uVar.f1065a, uVar.b, true);
-        if (uVar.f1065a) {
+        this.p.a(this.o.getLoadDataMode(), uVar.a, uVar.b, true);
+        if (uVar.a) {
             this.r = true;
             if (i == 2) {
                 this.j.j().b().b(1);
@@ -460,17 +458,17 @@ public class NewPbActivity extends com.baidu.tieba.g implements com.baidu.tbadk.
                     return;
                 case 1200004:
                     o();
-                    String a2 = AtListActivity.a(intent);
-                    if (a2 != null) {
-                        this.p.b(a2);
+                    String a = AtListActivity.a(intent);
+                    if (a != null) {
+                        this.p.b(a);
                         return;
                     }
                     return;
                 case 1200005:
                     o();
-                    String a3 = AtListActivity.a(intent);
-                    if (a3 != null) {
-                        this.p.c(a3);
+                    String a2 = AtListActivity.a(intent);
+                    if (a2 != null) {
+                        this.p.c(a2);
                         return;
                     }
                     return;
@@ -666,17 +664,17 @@ public class NewPbActivity extends com.baidu.tieba.g implements com.baidu.tbadk.
         com.baidu.tieba.data.aj j = this.j.j();
         for (int i2 = 0; i2 < j.d().size(); i2++) {
             com.baidu.tbadk.widget.richText.a i3 = ((com.baidu.tieba.data.an) j.d().get(i2)).i();
-            ArrayList a2 = i3.a();
-            int size = a2.size();
+            ArrayList a = i3.a();
+            int size = a.size();
             int i4 = -1;
             int i5 = 0;
             while (i5 < size) {
-                if (a2.get(i5) != null && ((com.baidu.tbadk.widget.richText.c) a2.get(i5)).a() == 8) {
+                if (a.get(i5) != null && ((com.baidu.tbadk.widget.richText.c) a.get(i5)).a() == 8) {
                     i4++;
-                    if (((com.baidu.tbadk.widget.richText.c) a2.get(i5)).c().d().equals(str)) {
-                        int b = ((com.baidu.tbadk.widget.richText.c) a2.get(i5)).c().b();
-                        int a3 = ((com.baidu.tbadk.widget.richText.c) a2.get(i5)).c().a();
-                        if (b < 80 || a3 < 80 || a3 * b < 10000) {
+                    if (((com.baidu.tbadk.widget.richText.c) a.get(i5)).c().d().equals(str)) {
+                        int b = ((com.baidu.tbadk.widget.richText.c) a.get(i5)).c().b();
+                        int a2 = ((com.baidu.tbadk.widget.richText.c) a.get(i5)).c().a();
+                        if (b < 80 || a2 < 80 || a2 * b < 10000) {
                             return null;
                         }
                         this.H = i5;

@@ -3,9 +3,7 @@ package com.baidu.tieba.model;
 public class bg {
     private int q;
     private int r;
-
-    /* renamed from: a  reason: collision with root package name */
-    private com.baidu.tieba.data.aj f1036a = null;
+    private com.baidu.tieba.data.aj a = null;
     private boolean d = true;
     private boolean c = true;
     private boolean e = false;
@@ -23,11 +21,11 @@ public class bg {
     private boolean p = false;
 
     public void a(com.baidu.tieba.data.aj ajVar) {
-        this.f1036a = ajVar;
+        this.a = ajVar;
     }
 
     public com.baidu.tieba.data.aj a() {
-        return this.f1036a;
+        return this.a;
     }
 
     public void a(boolean z) {

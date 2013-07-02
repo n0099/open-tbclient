@@ -10,17 +10,15 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 /* loaded from: classes.dex */
 public class a {
-
-    /* renamed from: a  reason: collision with root package name */
-    private static a f594a = null;
+    private static a a = null;
     private Context b = null;
     private b c = null;
 
     public static a a() {
-        if (f594a == null) {
-            f594a = new a();
+        if (a == null) {
+            a = new a();
         }
-        return f594a;
+        return a;
     }
 
     private a() {

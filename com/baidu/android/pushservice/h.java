@@ -1,17 +1,15 @@
 package com.baidu.android.pushservice;
 
+import android.os.Handler;
 import com.baidu.android.common.logging.Log;
-import com.baidu.android.pushservice.jni.PushSocket;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class h extends Thread {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ e f313a;
+    final /* synthetic */ d a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public h(e eVar) {
-        this.f313a = eVar;
+    public h(d dVar) {
+        this.a = dVar;
         setName("PushService-PushConnection-readThread");
     }
 
@@ -22,30 +20,27 @@ public class h extends Thread {
     */
     public void run() {
         boolean z;
-        byte[] bArr;
+        Runnable runnable;
         while (!z) {
             try {
-                bArr = PushSocket.a(e.f310a, this.f313a.c);
-            } catch (Exception e) {
-                bArr = null;
-                Log.e("PushConnection", "Get message exception");
-            }
-            if (bArr == null || bArr.length == 0) {
-                Log.e("PushConnection", "Receive err,errno:" + PushSocket.getLastSocketError());
-                this.f313a.e();
-            } else {
-                try {
+                com.baidu.android.pushservice.message.b a = this.a.b.a();
+                Handler handler = this.a.a;
+                runnable = this.a.s;
+                handler.removeCallbacks(runnable);
+                if (a != null) {
                     try {
-                        this.f313a.c.b(this.f313a.c.a(bArr, bArr.length));
-                        this.f313a.k = 0;
-                    } catch (Exception e2) {
-                        Log.e("PushConnection", "Handle message exception " + com.baidu.android.pushservice.util.n.a(e2));
-                        this.f313a.e();
+                        this.a.b.b(a);
+                        this.a.o = 0;
+                    } catch (com.baidu.android.pushservice.message.d e) {
+                        Log.e("PushConnection", "handleMessage exception.");
+                        Log.e("PushConnection", e);
+                        this.a.c();
                     }
-                } catch (Exception e3) {
-                    Log.e("PushConnection", "Read message exception " + com.baidu.android.pushservice.util.n.a(e3));
-                    this.f313a.e();
                 }
+            } catch (Exception e2) {
+                Log.e("PushConnection", e2);
+                this.a.g = true;
+                this.a.f();
             }
         }
     }

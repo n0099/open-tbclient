@@ -6,13 +6,11 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 /* loaded from: classes.dex */
 class e implements View.OnClickListener {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ ActivationActivity f665a;
+    final /* synthetic */ ActivationActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(ActivationActivity activationActivity) {
-        this.f665a = activationActivity;
+        this.a = activationActivity;
     }
 
     @Override // android.view.View.OnClickListener
@@ -31,30 +29,30 @@ class e implements View.OnClickListener {
         i iVar4;
         h hVar3;
         h hVar4;
-        imageView = this.f665a.b;
+        imageView = this.a.b;
         if (view != imageView) {
-            relativeLayout = this.f665a.l;
+            relativeLayout = this.a.l;
             if (view != relativeLayout) {
-                relativeLayout2 = this.f665a.m;
+                relativeLayout2 = this.a.m;
                 if (view != relativeLayout2) {
-                    imageView2 = this.f665a.d;
+                    imageView2 = this.a.d;
                     if (view == imageView2) {
-                        editText = this.f665a.k;
+                        editText = this.a.k;
                         editText.setText((CharSequence) null);
                         return;
                     }
                     return;
                 }
-                z = this.f665a.p;
+                z = this.a.p;
                 if (z) {
-                    iVar = this.f665a.n;
+                    iVar = this.a.n;
                     if (iVar == null) {
-                        hVar = this.f665a.o;
+                        hVar = this.a.o;
                         if (hVar == null) {
-                            this.f665a.n = new i(this.f665a, null);
-                            iVar2 = this.f665a.n;
+                            this.a.n = new i(this.a, null);
+                            iVar2 = this.a.n;
                             iVar2.setPriority(3);
-                            iVar3 = this.f665a.n;
+                            iVar3 = this.a.n;
                             iVar3.execute(new String[0]);
                             return;
                         }
@@ -64,14 +62,14 @@ class e implements View.OnClickListener {
                 }
                 return;
             }
-            hVar2 = this.f665a.o;
+            hVar2 = this.a.o;
             if (hVar2 == null) {
-                iVar4 = this.f665a.n;
+                iVar4 = this.a.n;
                 if (iVar4 == null) {
-                    this.f665a.o = new h(this.f665a, null);
-                    hVar3 = this.f665a.o;
+                    this.a.o = new h(this.a, null);
+                    hVar3 = this.a.o;
                     hVar3.setPriority(3);
-                    hVar4 = this.f665a.o;
+                    hVar4 = this.a.o;
                     hVar4.execute(new String[0]);
                     return;
                 }
@@ -79,8 +77,8 @@ class e implements View.OnClickListener {
             }
             return;
         }
-        this.f665a.setResult(0);
-        this.f665a.finish();
+        this.a.setResult(0);
+        this.a.finish();
         com.baidu.tieba.util.z.a("ActivationActivity", "mBack", "onClick");
     }
 }

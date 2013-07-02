@@ -10,14 +10,12 @@ import com.slidingmenu.lib.R;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
 public class ae {
-
-    /* renamed from: a  reason: collision with root package name */
-    private static int f1453a = -1;
+    private static int a = -1;
     private static int b = -1;
     private static com.baidu.adp.lib.a.a c = new com.baidu.adp.lib.a.a(BdWebErrorView.ERROR_CODE_500);
 
     public static void a(TiebaApplication tiebaApplication) {
-        f1453a = tiebaApplication.getResources().getColor(R.color.skin_1_common_color);
+        a = tiebaApplication.getResources().getColor(R.color.skin_1_common_color);
         b = tiebaApplication.getResources().getColor(R.color.more_color);
     }
 
@@ -113,7 +111,7 @@ public class ae {
     public static void b(TextView textView, int i) {
         if (textView != null) {
             if (i == 1) {
-                textView.setTextColor(f1453a);
+                textView.setTextColor(a);
             } else {
                 textView.setTextColor(b);
             }
@@ -123,7 +121,7 @@ public class ae {
     public static void a(CheckBox checkBox, int i) {
         if (checkBox != null) {
             if (i == 1) {
-                checkBox.setTextColor(f1453a);
+                checkBox.setTextColor(a);
             } else {
                 checkBox.setTextColor(b);
             }

@@ -3,14 +3,12 @@ package com.baidu.tieba.chat;
 import android.os.Handler;
 /* loaded from: classes.dex */
 class g implements y {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ ChatActivity f724a;
+    final /* synthetic */ ChatActivity a;
     private boolean b = false;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public g(ChatActivity chatActivity) {
-        this.f724a = chatActivity;
+        this.a = chatActivity;
     }
 
     @Override // com.baidu.tieba.chat.y
@@ -21,7 +19,7 @@ class g implements y {
     @Override // com.baidu.tieba.chat.y
     public void b() {
         ad adVar;
-        adVar = this.f724a.f711a;
+        adVar = this.a.a;
         this.b = adVar.i();
     }
 
@@ -39,39 +37,39 @@ class g implements y {
         ad adVar2;
         ad adVar3;
         ad adVar4;
-        this.f724a.g = true;
+        this.a.g = true;
         if (z) {
-            adVar = this.f724a.f711a;
-            wVar = this.f724a.b;
+            adVar = this.a.a;
+            wVar = this.a.b;
             String f = wVar.f();
-            wVar2 = this.f724a.b;
+            wVar2 = this.a.b;
             adVar.a(f, wVar2.e());
             if (i > 0) {
-                this.f724a.f = true;
+                this.a.f = true;
             }
-            adVar2 = this.f724a.f711a;
+            adVar2 = this.a.a;
             adVar2.a(cVar);
             if (!z2) {
                 if (i > 0) {
-                    adVar4 = this.f724a.f711a;
+                    adVar4 = this.a.a;
                     adVar4.b(i);
                 }
             } else if (this.b && i > 0) {
-                adVar3 = this.f724a.f711a;
+                adVar3 = this.a.a;
                 adVar3.g();
             }
         }
-        handler = this.f724a.j;
-        runnable = this.f724a.m;
+        handler = this.a.j;
+        runnable = this.a.m;
         handler.removeCallbacks(runnable);
         if (z3) {
-            handler3 = this.f724a.j;
-            runnable3 = this.f724a.m;
+            handler3 = this.a.j;
+            runnable3 = this.a.m;
             handler3.postDelayed(runnable3, 0L);
             return;
         }
-        handler2 = this.f724a.j;
-        runnable2 = this.f724a.m;
+        handler2 = this.a.j;
+        runnable2 = this.a.m;
         handler2.postDelayed(runnable2, 30000L);
     }
 }

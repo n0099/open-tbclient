@@ -9,13 +9,11 @@ import com.slidingmenu.lib.R;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class l extends BdAsyncTask {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ AccountActivity f1100a;
+    final /* synthetic */ AccountActivity a;
     private AccountData b;
 
     public l(AccountActivity accountActivity, AccountData accountData) {
-        this.f1100a = accountActivity;
+        this.a = accountActivity;
         this.b = null;
         this.b = accountData;
     }
@@ -23,7 +21,7 @@ public class l extends BdAsyncTask {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void b() {
-        this.f1100a.a(this.f1100a.getString(R.string.account_logining), new m(this));
+        this.a.a(this.a.getString(R.string.account_logining), new m(this));
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -46,9 +44,9 @@ public class l extends BdAsyncTask {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void a(Boolean bool) {
-        this.f1100a.h();
-        MainTabActivity.b(this.f1100a, "goto_home");
+        this.a.h();
+        MainTabActivity.b(this.a, "goto_home");
         com.baidu.tieba.account.a.a().b();
-        this.f1100a.k = null;
+        this.a.k = null;
     }
 }

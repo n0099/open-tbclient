@@ -3,13 +3,11 @@ package com.baidu.tieba.data;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class ag {
-
-    /* renamed from: a  reason: collision with root package name */
-    private int f757a = -1;
+    private int a = -1;
     private String b = null;
 
     public int a() {
-        return this.f757a;
+        return this.a;
     }
 
     public String b() {
@@ -29,7 +27,7 @@ public class ag {
     public void a(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                this.f757a = jSONObject.optInt("errno");
+                this.a = jSONObject.optInt("errno");
                 this.b = jSONObject.optString("usermsg");
             } catch (Exception e) {
                 com.baidu.tieba.util.z.b(getClass().getName(), "parserJson", e.getMessage());

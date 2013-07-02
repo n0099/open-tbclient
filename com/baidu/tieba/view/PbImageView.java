@@ -14,9 +14,7 @@ import com.baidu.tieba.TiebaApplication;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public class PbImageView extends ImageView {
-
-    /* renamed from: a  reason: collision with root package name */
-    private Bitmap f1500a;
+    private Bitmap a;
     private Bitmap b;
     private Matrix c;
     private Matrix d;
@@ -27,7 +25,7 @@ public class PbImageView extends ImageView {
 
     public PbImageView(Context context) {
         super(context);
-        this.f1500a = com.baidu.tieba.util.d.a((int) R.drawable.icon_gif);
+        this.a = com.baidu.tieba.util.d.a((int) R.drawable.icon_gif);
         this.b = null;
         this.c = new Matrix();
         this.d = new Matrix();
@@ -40,7 +38,7 @@ public class PbImageView extends ImageView {
 
     public PbImageView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f1500a = com.baidu.tieba.util.d.a((int) R.drawable.icon_gif);
+        this.a = com.baidu.tieba.util.d.a((int) R.drawable.icon_gif);
         this.b = null;
         this.c = new Matrix();
         this.d = new Matrix();
@@ -53,7 +51,7 @@ public class PbImageView extends ImageView {
 
     public PbImageView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.f1500a = com.baidu.tieba.util.d.a((int) R.drawable.icon_gif);
+        this.a = com.baidu.tieba.util.d.a((int) R.drawable.icon_gif);
         this.b = null;
         this.c = new Matrix();
         this.d = new Matrix();
@@ -115,8 +113,8 @@ public class PbImageView extends ImageView {
                     bVar.a(canvas, this.c, null);
                 }
                 this.c.reset();
-                if (c && bVar.b() > this.f1500a.getHeight() && bVar.a() > this.f1500a.getWidth()) {
-                    canvas.drawBitmap(this.f1500a, this.c, null);
+                if (c && bVar.b() > this.a.getHeight() && bVar.a() > this.a.getWidth()) {
+                    canvas.drawBitmap(this.a, this.c, null);
                 }
                 if (TiebaApplication.f().at() == 1) {
                     this.f.set(0.0f, 0.0f, bVar.a() * min, min * bVar.b());

@@ -24,9 +24,7 @@ import java.util.Date;
 /* loaded from: classes.dex */
 public class bg extends BaseAdapter {
     private Context b;
-
-    /* renamed from: a  reason: collision with root package name */
-    private com.baidu.tieba.data.aj f1225a = null;
+    private com.baidu.tieba.data.aj a = null;
     private boolean c = true;
     private boolean d = true;
     private int e = 0;
@@ -59,7 +57,7 @@ public class bg extends BaseAdapter {
     }
 
     public void a(com.baidu.tieba.data.aj ajVar) {
-        this.f1225a = ajVar;
+        this.a = ajVar;
         if (ajVar.b() != null && ajVar.b().g() != null) {
             this.f = ajVar.b().g().getId();
         }
@@ -91,18 +89,18 @@ public class bg extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.f1225a == null || this.f1225a.d() == null) {
+        if (this.a == null || this.a.d() == null) {
             return 0;
         }
-        return this.f1225a.d().size();
+        return this.a.d().size();
     }
 
     @Override // android.widget.Adapter
     public Object getItem(int i) {
-        if (this.f1225a == null || this.f1225a.d() == null || i < 0 || i >= this.f1225a.d().size()) {
+        if (this.a == null || this.a.d() == null || i < 0 || i >= this.a.d().size()) {
             return null;
         }
-        return this.f1225a.d().get(i);
+        return this.a.d().get(i);
     }
 
     @Override // android.widget.Adapter
@@ -146,7 +144,7 @@ public class bg extends BaseAdapter {
     private View h() {
         bh bhVar = new bh(this, null);
         View inflate = LayoutInflater.from(this.b).inflate(R.layout.new_pb_list_item, (ViewGroup) null);
-        bhVar.f1226a = (HeadImageView) inflate.findViewById(R.id.photo);
+        bhVar.a = (HeadImageView) inflate.findViewById(R.id.photo);
         bhVar.b = (TextView) inflate.findViewById(R.id.user_name);
         bhVar.c = (TextView) inflate.findViewById(R.id.user_rank);
         bhVar.f = (Button) inflate.findViewById(R.id.reply);
@@ -159,8 +157,8 @@ public class bg extends BaseAdapter {
         bhVar.j = (LinearLayout) inflate.findViewById(R.id.pb_post_footer_layout);
         bhVar.b.setOnClickListener(this.h);
         bhVar.f.setOnClickListener(this.i);
-        bhVar.f1226a.setOnClickListener(this.h);
-        bhVar.f1226a.setBackgroundDrawable(new BitmapDrawable(com.baidu.tieba.util.d.a((int) R.drawable.photo_bg)));
+        bhVar.a.setOnClickListener(this.h);
+        bhVar.a.setBackgroundDrawable(new BitmapDrawable(com.baidu.tieba.util.d.a((int) R.drawable.photo_bg)));
         bhVar.i.setOnLongClickListener(this.l);
         if (this.n < 0) {
             this.n = (((com.baidu.tieba.util.ab.a(this.b) - inflate.getPaddingLeft()) - inflate.getPaddingRight()) - bhVar.h.getPaddingLeft()) - bhVar.h.getPaddingRight();
@@ -170,7 +168,7 @@ public class bg extends BaseAdapter {
         bhVar.h.setMaxImageHeight((int) (this.n * 1.618f));
         bhVar.h.setTextSize(com.baidu.tieba.data.g.n());
         if (!this.d) {
-            bhVar.f1226a.setVisibility(8);
+            bhVar.a.setVisibility(8);
         }
         bhVar.h.setDisplayImage(this.c);
         bhVar.h.setOnImageClickListener(this.j);
@@ -197,8 +195,8 @@ public class bg extends BaseAdapter {
         boolean z3;
         SparseArray sparseArray;
         if (bhVar != null && anVar != null) {
-            bhVar.f1226a.setTag(null);
-            bhVar.f1226a.setUserId(null);
+            bhVar.a.setTag(null);
+            bhVar.a.setUserId(null);
             bhVar.b.setText((CharSequence) null);
             bhVar.c.setText((CharSequence) null);
             bhVar.c.setBackgroundResource(0);
@@ -221,8 +219,8 @@ public class bg extends BaseAdapter {
                 bhVar.i.setTag(sparseArray2);
             }
             sparseArray2.put(R.id.tag_clip_board, anVar);
-            String h = this.f1225a.h();
-            boolean z4 = this.f1225a.g() && h != null && h.equals(anVar.d());
+            String h = this.a.h();
+            boolean z4 = this.a.g() && h != null && h.equals(anVar.d());
             Resources resources = this.b.getResources();
             bhVar.e.setText(com.baidu.tieba.util.y.e(new Date(anVar.g())));
             if (anVar.f() == 1) {
@@ -269,14 +267,14 @@ public class bg extends BaseAdapter {
                 if (this.k == null) {
                     this.k = new bi(this.b, this.h);
                     this.k.a(this.m);
-                    String id = this.f1225a.b().g().getId();
-                    this.k.a(this.f1225a.l(), id != null && id.equals(TiebaApplication.E()));
+                    String id = this.a.b().g().getId();
+                    this.k.a(this.a.l(), id != null && id.equals(TiebaApplication.E()));
                     this.k.a(this.d);
                 }
                 bhVar.j.removeAllViews();
-                ArrayList a2 = anVar.a();
-                if (a2 != null) {
-                    for (int i = 0; i < a2.size(); i++) {
+                ArrayList a = anVar.a();
+                if (a != null) {
+                    for (int i = 0; i < a.size(); i++) {
                         View b = this.k.b();
                         b.setOnClickListener(this.i);
                         b.setOnLongClickListener(this.l);
@@ -291,18 +289,18 @@ public class bg extends BaseAdapter {
                         }
                         sparseArray.put(R.id.tag_load_sub_data, anVar);
                         sparseArray.put(R.id.tag_load_sub_view, view);
-                        if (a2.get(i) != null && ((com.baidu.tieba.data.an) a2.get(i)).h() != null) {
-                            sparseArray.put(R.id.tag_photo_username, ((com.baidu.tieba.data.an) a2.get(i)).h().getName());
-                            sparseArray.put(R.id.tag_clip_board, a2.get(i));
+                        if (a.get(i) != null && ((com.baidu.tieba.data.an) a.get(i)).h() != null) {
+                            sparseArray.put(R.id.tag_photo_username, ((com.baidu.tieba.data.an) a.get(i)).h().getName());
+                            sparseArray.put(R.id.tag_clip_board, a.get(i));
                         }
-                        this.k.a((bj) sparseArray.get(R.id.tag_holder), (com.baidu.tieba.data.an) a2.get(i), a2.size() - i > 1);
+                        this.k.a((bj) sparseArray.get(R.id.tag_holder), (com.baidu.tieba.data.an) a.get(i), a.size() - i > 1);
                         bhVar.j.addView(b);
                     }
                 }
-                if (a2 != null && anVar.k() > a2.size()) {
+                if (a != null && anVar.k() > a.size()) {
                     View inflate = LayoutInflater.from(this.b).inflate(R.layout.new_sub_pb_list_more, (ViewGroup) null);
                     bhVar.j.addView(inflate);
-                    a((TextView) inflate.findViewById(R.id.sub_pb_more_text), anVar.k() - a2.size());
+                    a((TextView) inflate.findViewById(R.id.sub_pb_more_text), anVar.k() - a.size());
                     ImageView imageView = (ImageView) inflate.findViewById(R.id.image);
                     if (TiebaApplication.f().at() == 1) {
                         imageView.setBackgroundResource(R.drawable.icon_little_down_1);
@@ -337,17 +335,17 @@ public class bg extends BaseAdapter {
                     bhVar.c.setBackgroundResource(com.baidu.tieba.util.d.b(level_id));
                 }
             }
-            bhVar.f1226a.setUserId(anVar.h().getId());
+            bhVar.a.setUserId(anVar.h().getId());
             bhVar.b.setTag(anVar.h().getId());
             if (b2 != null) {
-                b2.a(bhVar.f1226a);
+                b2.a(bhVar.a);
             } else {
-                bhVar.f1226a.setTag(portrait);
-                bhVar.f1226a.setBackgroundDrawable(new BitmapDrawable(com.baidu.tieba.util.d.a((int) R.drawable.photo)));
+                bhVar.a.setTag(portrait);
+                bhVar.a.setBackgroundDrawable(new BitmapDrawable(com.baidu.tieba.util.d.a((int) R.drawable.photo)));
             }
             bhVar.h.setText(anVar.i());
             bhVar.h.a();
-            if (this.f1225a.l() != 0) {
+            if (this.a.l() != 0) {
                 String id2 = anVar.h().getId();
                 boolean z5 = id2 == null || !id2.equals(TiebaApplication.E());
                 if (id2 == null || id2.equals("0") || id2.length() == 0) {
@@ -360,7 +358,7 @@ public class bg extends BaseAdapter {
                     z3 = z5;
                 }
             } else {
-                String id3 = this.f1225a.b().g().getId();
+                String id3 = this.a.b().g().getId();
                 if (id3 == null || !id3.equals(TiebaApplication.E())) {
                     String id4 = anVar.h().getId();
                     if (id4 == null || !id4.equals(TiebaApplication.E())) {
@@ -411,7 +409,7 @@ public class bg extends BaseAdapter {
                 bhVar.g.setTag(sparseArray7);
             }
             if (bhVar.g.getVisibility() == 0) {
-                sparseArray7.put(R.id.tag_manage_user_identity, Integer.valueOf(this.f1225a.l()));
+                sparseArray7.put(R.id.tag_manage_user_identity, Integer.valueOf(this.a.l()));
             }
             if (z2) {
                 sparseArray7.put(R.id.tag_del_post_is_self, Boolean.valueOf(z));

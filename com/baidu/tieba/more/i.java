@@ -10,21 +10,19 @@ import java.util.ArrayList;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class i extends BdAsyncTask {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ AccountActivity f1097a;
+    final /* synthetic */ AccountActivity a;
     private AccountData b;
     private int c = 0;
 
     public i(AccountActivity accountActivity, AccountData accountData) {
-        this.f1097a = accountActivity;
+        this.a = accountActivity;
         this.b = accountData;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void b() {
-        this.f1097a.a(this.f1097a.getString(R.string.deleting), new j(this));
+        this.a.a(this.a.getString(R.string.deleting), new j(this));
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -39,10 +37,10 @@ public class i extends BdAsyncTask {
             DatabaseService.r(this.b.getID());
             if (this.b.getID().equals(TiebaApplication.E())) {
                 TiebaApplication.b((AccountData) null);
-                arrayList = this.f1097a.f1072a;
+                arrayList = this.a.a;
                 if (arrayList.size() >= 2) {
                     this.c = 1;
-                    arrayList2 = this.f1097a.f1072a;
+                    arrayList2 = this.a.a;
                     AccountData accountData = (AccountData) arrayList2.get(1);
                     accountData.setIsActive(1);
                     DatabaseService.a(accountData);
@@ -66,27 +64,27 @@ public class i extends BdAsyncTask {
         ArrayList arrayList;
         n nVar;
         if (this.b != null) {
-            new k(this.f1097a, this.b.getBDUSS()).start();
+            new k(this.a, this.b.getBDUSS()).start();
         }
-        this.f1097a.h();
+        this.a.h();
         switch (this.c) {
             case 0:
-                this.f1097a.a(this.f1097a.getString(R.string.success));
-                arrayList = this.f1097a.f1072a;
+                this.a.a(this.a.getString(R.string.success));
+                arrayList = this.a.a;
                 arrayList.remove(this.b);
                 this.b = null;
-                nVar = this.f1097a.b;
+                nVar = this.a.b;
                 nVar.notifyDataSetChanged();
                 break;
             case 1:
                 TiebaApplication.b(accountData);
                 com.baidu.tieba.account.a.a().b();
-                MainTabActivity.b(this.f1097a, "goto_home");
+                MainTabActivity.b(this.a, "goto_home");
                 break;
             case 2:
-                MainTabActivity.b(this.f1097a, "goto_person");
+                MainTabActivity.b(this.a, "goto_person");
                 break;
         }
-        this.f1097a.l = null;
+        this.a.l = null;
     }
 }

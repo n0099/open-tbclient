@@ -174,14 +174,14 @@ public class bb extends com.baidu.adp.a.d {
         this.L = (TextView) personInfoActivity.findViewById(R.id.likes_num);
         this.P = (TextView) personInfoActivity.findViewById(R.id.attention_num);
         this.S = (TextView) personInfoActivity.findViewById(R.id.fans_num);
-        int a2 = com.baidu.tieba.util.ab.a((Context) personInfoActivity);
+        int a = com.baidu.tieba.util.ab.a((Context) personInfoActivity);
         RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.Y.getLayoutParams();
         layoutParams.topMargin = com.baidu.tieba.util.ab.a(personInfoActivity, 8.0f);
-        layoutParams.rightMargin = (a2 / 6) - com.baidu.tieba.util.ab.a(personInfoActivity, 30.0f);
+        layoutParams.rightMargin = (a / 6) - com.baidu.tieba.util.ab.a(personInfoActivity, 30.0f);
         this.Y.setLayoutParams(layoutParams);
         RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) this.X.getLayoutParams();
         layoutParams2.topMargin = com.baidu.tieba.util.ab.a(personInfoActivity, 8.0f);
-        layoutParams2.rightMargin = (a2 / 6) - com.baidu.tieba.util.ab.a(personInfoActivity, 30.0f);
+        layoutParams2.rightMargin = (a / 6) - com.baidu.tieba.util.ab.a(personInfoActivity, 30.0f);
         this.X.setLayoutParams(layoutParams2);
         this.Z = (TextView) personInfoActivity.findViewById(R.id.lbs_text);
         this.aa = (ImageView) personInfoActivity.findViewById(R.id.lbs_image);

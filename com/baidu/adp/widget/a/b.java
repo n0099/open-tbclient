@@ -10,9 +10,7 @@ import android.widget.ImageView;
 import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes.dex */
 public class b {
-
-    /* renamed from: a  reason: collision with root package name */
-    private String f228a;
+    private String a;
     private Bitmap b;
     private boolean c;
     private boolean d = true;
@@ -30,7 +28,7 @@ public class b {
         this.c = false;
         this.b = bitmap;
         this.c = z;
-        this.f228a = str;
+        this.a = str;
     }
 
     public int a() {
@@ -138,6 +136,6 @@ public class b {
     }
 
     public String i() {
-        return this.f228a;
+        return this.a;
     }
 }

@@ -15,14 +15,12 @@ import java.util.Random;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class s extends BdAsyncTask {
-
-    /* renamed from: a  reason: collision with root package name */
-    com.baidu.tieba.util.r f1421a;
+    com.baidu.tieba.util.r a;
     final /* synthetic */ TiebaSyncService b;
 
     private s(TiebaSyncService tiebaSyncService) {
         this.b = tiebaSyncService;
-        this.f1421a = null;
+        this.a = null;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -37,31 +35,31 @@ public class s extends BdAsyncTask {
         br brVar;
         Exception e;
         try {
-            this.f1421a = new com.baidu.tieba.util.r(String.valueOf(com.baidu.tieba.data.g.f787a) + "c/s/sync");
-            this.f1421a.a("_os_version", Build.VERSION.RELEASE);
+            this.a = new com.baidu.tieba.util.r(String.valueOf(com.baidu.tieba.data.g.a) + "c/s/sync");
+            this.a.a("_os_version", Build.VERSION.RELEASE);
             StringBuffer stringBuffer = new StringBuffer(15);
             stringBuffer.append(String.valueOf(ab.a(TiebaApplication.f())));
             stringBuffer.append(",");
             stringBuffer.append(String.valueOf(ab.b(TiebaApplication.f())));
-            this.f1421a.a("_phone_screen", stringBuffer.toString());
+            this.a.a("_phone_screen", stringBuffer.toString());
             if (TiebaApplication.f().R() > 0) {
-                this.f1421a.a("_msg_status", "0");
+                this.a.a("_msg_status", "0");
             } else {
-                this.f1421a.a("_msg_status", "1");
+                this.a.a("_msg_status", "1");
             }
             String aJ = TiebaApplication.f().aJ();
             if (aJ != null) {
                 if (aJ.length() < 1) {
                     aJ = "0";
                 }
-                this.f1421a.a("_active", aJ);
+                this.a.a("_active", aJ);
             }
-            this.f1421a.a("_pic_quality", String.valueOf(TiebaApplication.f().ao()));
-            String j = this.f1421a.j();
-            if (this.f1421a.d()) {
+            this.a.a("_pic_quality", String.valueOf(TiebaApplication.f().ao()));
+            String j = this.a.j();
+            if (this.a.d()) {
                 TiebaApplication.f().aK();
             }
-            if (!this.f1421a.c()) {
+            if (!this.a.c()) {
                 return null;
             }
             brVar = new br();
@@ -86,9 +84,9 @@ public class s extends BdAsyncTask {
 
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void cancel() {
-        this.b.f1402a = null;
-        if (this.f1421a != null) {
-            this.f1421a.h();
+        this.b.a = null;
+        if (this.a != null) {
+            this.a.h();
         }
         super.cancel(true);
     }
@@ -112,7 +110,7 @@ public class s extends BdAsyncTask {
         br brVar7;
         br brVar8;
         super.a((Object) brVar);
-        this.b.f1402a = null;
+        this.b.a = null;
         if (brVar != null) {
             this.b.c = brVar;
             brVar2 = this.b.c;
@@ -142,8 +140,8 @@ public class s extends BdAsyncTask {
                 }
             }
             int nextInt = new Random().nextInt(VersionUtils.CUR_DEVELOPMENT) + 1;
-            int a2 = brVar.a().a();
-            if (a2 > 0 && nextInt % a2 == 0 && (av = TiebaApplication.f().av()) < 10) {
+            int a = brVar.a().a();
+            if (a > 0 && nextInt % a == 0 && (av = TiebaApplication.f().av()) < 10) {
                 TiebaApplication.f().m(av + 1);
                 ab.e(this.b);
             }

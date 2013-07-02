@@ -5,24 +5,22 @@ import android.location.LocationListener;
 import android.os.Bundle;
 /* loaded from: classes.dex */
 class ar implements LocationListener {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ TiebaApplication f699a;
+    final /* synthetic */ TiebaApplication a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ar(TiebaApplication tiebaApplication) {
-        this.f699a = tiebaApplication;
+        this.a = tiebaApplication;
     }
 
     @Override // android.location.LocationListener
     public void onLocationChanged(Location location) {
-        aw awVar;
+        av avVar;
         if (location != null) {
-            this.f699a.D = 0;
-            this.f699a.f618a = System.currentTimeMillis();
-            this.f699a.G = new aw(this.f699a, null);
-            awVar = this.f699a.G;
-            awVar.execute(location);
+            this.a.D = 0;
+            this.a.a = System.currentTimeMillis();
+            this.a.G = new av(this.a, null);
+            avVar = this.a.G;
+            avVar.execute(location);
         }
     }
 

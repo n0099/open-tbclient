@@ -13,9 +13,7 @@ import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.util.NetWorkCore;
 /* loaded from: classes.dex */
 public class ChatListActivity extends com.baidu.tieba.g implements com.baidu.tbadk.a.d {
-
-    /* renamed from: a  reason: collision with root package name */
-    private v f712a = null;
+    private v a = null;
     private com.baidu.tieba.model.c b = null;
     private int c = 1;
     private Handler d = null;
@@ -49,11 +47,11 @@ public class ChatListActivity extends com.baidu.tieba.g implements com.baidu.tba
             this.c = i;
             this.g = i2;
             if (this.g == 1) {
-                this.f712a.d().a(true);
+                this.a.d().a(true);
             } else if (this.g == 2) {
-                this.f712a.d().b(true);
+                this.a.d().b(true);
             }
-            this.f712a.d().notifyDataSetChanged();
+            this.a.d().notifyDataSetChanged();
             this.b.a(TiebaApplication.E(), String.valueOf(this.c));
         }
     }
@@ -75,9 +73,9 @@ public class ChatListActivity extends com.baidu.tieba.g implements com.baidu.tba
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.g, android.app.Activity
     public void onDestroy() {
-        if (this.f712a.d().a() != null) {
-            this.f712a.d().a().b();
-            this.f712a.d().b();
+        if (this.a.d().a() != null) {
+            this.a.d().a().b();
+            this.a.d().b();
         }
         if (this.d != null) {
             this.d.removeCallbacks(this.e);
@@ -88,33 +86,33 @@ public class ChatListActivity extends com.baidu.tieba.g implements com.baidu.tba
     private void a(Bundle bundle) {
         this.b = new com.baidu.tieba.model.c();
         this.b.setLoadDataCallBack(new q(this));
-        this.f712a.a(this.b.c(TiebaApplication.E()));
+        this.a.a(this.b.c(TiebaApplication.E()));
         b();
     }
 
     private void c() {
-        this.f712a = new v(this, this.j);
-        this.f712a.a(this.k);
-        this.f712a.a(this.n);
-        this.f712a.a(this.l);
-        this.f712a.a(this.m);
+        this.a = new v(this, this.j);
+        this.a.a(this.k);
+        this.a.a(this.n);
+        this.a.a(this.l);
+        this.a.a(this.m);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void d() {
         String c;
         NetWorkCore.NetworkStateInfo c2 = NetWorkCore.c(this);
-        this.f712a.e().a();
+        this.a.e().a();
         boolean z = c2 == NetWorkCore.NetworkStateInfo.WIFI || c2 == NetWorkCore.NetworkStateInfo.ThreeG;
-        this.f712a.e().a(z);
-        int c3 = this.f712a.c();
-        this.f712a.e().a();
+        this.a.e().a(z);
+        int c3 = this.a.c();
+        this.a.e().a();
         int i = 0;
-        for (int b = this.f712a.b(); b < this.f712a.d().getCount(); b++) {
+        for (int b = this.a.b(); b < this.a.d().getCount(); b++) {
             if (z || b <= c3) {
-                if ((this.f712a.d().getItem(b) instanceof com.baidu.tieba.data.a.g) && i < 13 && (c = ((com.baidu.tieba.data.a.g) this.f712a.d().getItem(b)).c()) != null && !c.equals("")) {
+                if ((this.a.d().getItem(b) instanceof com.baidu.tieba.data.a.g) && i < 13 && (c = ((com.baidu.tieba.data.a.g) this.a.d().getItem(b)).c()) != null && !c.equals("")) {
                     i++;
-                    this.f712a.e().b(c, this);
+                    this.a.e().b(c, this);
                 }
                 if (i >= 30) {
                     return;
@@ -129,7 +127,7 @@ public class ChatListActivity extends com.baidu.tieba.g implements com.baidu.tba
     @Override // com.baidu.tieba.g
     public void a(int i) {
         super.a(i);
-        this.f712a.a(i);
+        this.a.a(i);
     }
 
     @Override // android.app.Activity
@@ -154,14 +152,14 @@ public class ChatListActivity extends com.baidu.tieba.g implements com.baidu.tba
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(com.baidu.tieba.data.a.g gVar) {
-        this.f712a.a(new r(this));
-        this.f712a.a();
+        this.a.a(new r(this));
+        this.a.a();
     }
 
     @Override // com.baidu.tbadk.a.d
     public void a(com.baidu.adp.widget.a.b bVar, String str, boolean z) {
         ImageView imageView;
-        if (bVar != null && this.f712a.f() != null && (imageView = (ImageView) this.f712a.f().findViewWithTag(str)) != null) {
+        if (bVar != null && this.a.f() != null && (imageView = (ImageView) this.a.f().findViewWithTag(str)) != null) {
             bVar.b(imageView);
             imageView.invalidate();
         }

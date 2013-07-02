@@ -3,17 +3,15 @@ package com.baidu.tieba.util;
 import android.database.sqlite.SQLiteDatabase;
 /* loaded from: classes.dex */
 public class i {
-
-    /* renamed from: a  reason: collision with root package name */
-    private int f1460a;
+    private int a;
     private boolean b = false;
     private j e = null;
     private String c = "tieba_database.db";
-    private String d = m.f1463a + "/tieba/" + this.c;
+    private String d = m.a + "/tieba/" + this.c;
 
     public i() {
-        this.f1460a = 1;
-        this.f1460a = 7;
+        this.a = 1;
+        this.a = 7;
     }
 
     private void a(SQLiteDatabase sQLiteDatabase, String str) {
@@ -32,12 +30,12 @@ public class i {
             if (sQLiteDatabase != null) {
                 if (!this.b) {
                     a(sQLiteDatabase);
-                    sQLiteDatabase.setVersion(this.f1460a);
+                    sQLiteDatabase.setVersion(this.a);
                 } else {
                     int version = sQLiteDatabase.getVersion();
-                    if (version != this.f1460a) {
-                        a(sQLiteDatabase, version, this.f1460a);
-                        sQLiteDatabase.setVersion(this.f1460a);
+                    if (version != this.a) {
+                        a(sQLiteDatabase, version, this.a);
+                        sQLiteDatabase.setVersion(this.a);
                     }
                 }
             }

@@ -69,9 +69,7 @@ public class MainTabActivity extends TabActivity implements CompoundButton.OnChe
     private AlertDialog y = null;
     private com.baidu.tieba.view.ab z = null;
     private GuidPageView A = null;
-
-    /* renamed from: a */
-    protected int f617a = -1;
+    protected int a = -1;
     private aj B = null;
 
     public static void a() {
@@ -243,9 +241,9 @@ public class MainTabActivity extends TabActivity implements CompoundButton.OnChe
     public void j() {
         long j = this.j + this.k + this.l + this.m;
         if (j > 0) {
-            int a2 = (com.baidu.tieba.util.ab.a((Context) this) * 7) / 8;
+            int a = (com.baidu.tieba.util.ab.a((Context) this) * 7) / 8;
             FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.n.getLayoutParams();
-            layoutParams.leftMargin = a2;
+            layoutParams.leftMargin = a;
             this.n.setLayoutParams(layoutParams);
             if (j > 99) {
                 this.n.setText("99+");
@@ -353,9 +351,9 @@ public class MainTabActivity extends TabActivity implements CompoundButton.OnChe
                 c = null;
             }
         }
-        if (TiebaApplication.f().at() != this.f617a) {
-            this.f617a = TiebaApplication.f().at();
-            a(this.f617a);
+        if (TiebaApplication.f().at() != this.a) {
+            this.a = TiebaApplication.f().at();
+            a(this.a);
         }
     }
 
@@ -545,9 +543,9 @@ public class MainTabActivity extends TabActivity implements CompoundButton.OnChe
     }
 
     private void o() {
-        NetWorkCore.NetworkState a2 = NetWorkCore.a(this);
-        if (a2 != NetWorkCore.NetworkState.UNAVAIL) {
-            if (a2 == NetWorkCore.NetworkState.WIFI) {
+        NetWorkCore.NetworkState a = NetWorkCore.a(this);
+        if (a != NetWorkCore.NetworkState.UNAVAIL) {
+            if (a == NetWorkCore.NetworkState.WIFI) {
                 int u = TiebaApplication.f().u(true);
                 if (u != 0) {
                     if (u == 1) {

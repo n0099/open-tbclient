@@ -5,14 +5,12 @@ import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class bb extends BdAsyncTask {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ ba f1033a;
+    final /* synthetic */ ba a;
     private com.baidu.tieba.a.f b = null;
     private int c;
 
     public bb(ba baVar, int i) {
-        this.f1033a = baVar;
+        this.a = baVar;
         this.c = 0;
         this.c = i;
     }
@@ -32,39 +30,39 @@ public class bb extends BdAsyncTask {
         Context context2;
         this.b = new com.baidu.tieba.a.f();
         try {
-            awVar = this.f1033a.e;
+            awVar = this.a.e;
             int f = awVar.f();
             if (f == 0) {
                 f++;
             } else if (this.c == 0) {
                 f++;
             } else if (this.c == 2) {
-                awVar2 = this.f1033a.e;
+                awVar2 = this.a.e;
                 int size = awVar2.b().size();
-                awVar3 = this.f1033a.e;
+                awVar3 = this.a.e;
                 if (size % awVar3.e() == 0) {
                     f++;
                 }
             }
             com.baidu.tieba.a.f fVar = this.b;
-            str = this.f1033a.f1032a;
-            str2 = this.f1033a.c;
+            str = this.a.a;
+            str2 = this.a.c;
             int i = this.c;
-            str3 = this.f1033a.b;
-            String a2 = fVar.a(str, str2, i, str3, f);
+            str3 = this.a.b;
+            String a = fVar.a(str, str2, i, str3, f);
             if (!this.b.a()) {
                 return null;
             }
             com.baidu.tieba.data.aw awVar4 = new com.baidu.tieba.data.aw();
-            context = this.f1033a.d;
-            awVar4.a(a2, context);
+            context = this.a.d;
+            awVar4.a(a, context);
             int i2 = 0;
             while (true) {
                 int i3 = i2;
                 if (i3 >= awVar4.b().size()) {
                     return awVar4;
                 }
-                context2 = this.f1033a.d;
+                context2 = this.a.d;
                 ((com.baidu.tieba.data.an) awVar4.b().get(i3)).a(context2);
                 i2 = i3 + 1;
             }
@@ -77,7 +75,7 @@ public class bb extends BdAsyncTask {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void cancel() {
         super.cancel(true);
-        this.f1033a.f = null;
+        this.a.f = null;
         if (this.b != null) {
             this.b.d();
         }
@@ -94,37 +92,37 @@ public class bb extends BdAsyncTask {
         com.baidu.tieba.data.aw awVar4;
         bc bcVar3;
         bc bcVar4;
-        this.f1033a.f = null;
+        this.a.f = null;
         if (awVar == null) {
-            bcVar3 = this.f1033a.g;
+            bcVar3 = this.a.g;
             if (bcVar3 != null) {
-                bcVar4 = this.f1033a.g;
+                bcVar4 = this.a.g;
                 bcVar4.a(false, this.b.c(), this.b.b(), null);
                 return;
             }
             return;
         }
         if (awVar.a() != null) {
-            this.f1033a.b = awVar.a().d();
+            this.a.b = awVar.a().d();
         }
         if (awVar.l() != null) {
-            this.f1033a.f1032a = awVar.l().a();
+            this.a.a = awVar.l().a();
         }
         if (this.c == 1) {
-            this.f1033a.e = awVar;
+            this.a.e = awVar;
         } else if (this.c == 2) {
-            awVar3 = this.f1033a.e;
+            awVar3 = this.a.e;
             awVar3.a(awVar, true);
         } else {
-            awVar2 = this.f1033a.e;
+            awVar2 = this.a.e;
             awVar2.a(awVar, false);
         }
-        bcVar = this.f1033a.g;
+        bcVar = this.a.g;
         if (bcVar != null) {
-            bcVar2 = this.f1033a.g;
+            bcVar2 = this.a.g;
             int c = this.b.c();
             String b = this.b.b();
-            awVar4 = this.f1033a.e;
+            awVar4 = this.a.e;
             bcVar2.a(true, c, b, awVar4);
         }
         this.b = null;

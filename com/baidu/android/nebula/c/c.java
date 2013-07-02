@@ -1,26 +1,38 @@
 package com.baidu.android.nebula.c;
 
-import com.baidu.android.common.logging.Log;
-import java.io.IOException;
-/* JADX INFO: Access modifiers changed from: package-private */
+import java.nio.ByteBuffer;
 /* loaded from: classes.dex */
-public final class c implements Runnable {
+public abstract class c {
+    private boolean a = false;
+    private long b = 60000;
+    private long c = System.currentTimeMillis();
 
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ b f277a;
+    public abstract int a(ByteBuffer byteBuffer);
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public c(b bVar) {
-        this.f277a = bVar;
+    public void a(long j) {
+        this.b = j;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        try {
-            this.f277a.c();
-        } catch (IOException e) {
-            Log.e("HttpServer", "Serer Loop Excepiton :" + e);
-        }
-        this.f277a.d();
+    public abstract int b(ByteBuffer byteBuffer);
+
+    public abstract boolean b();
+
+    public abstract boolean c();
+
+    public void d() {
+        this.a = true;
+    }
+
+    public boolean e() {
+        return this.a;
+    }
+
+    public boolean f() {
+        return this.b != 0 && System.currentTimeMillis() - this.c > this.b;
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public void g() {
+        this.c = System.currentTimeMillis();
     }
 }

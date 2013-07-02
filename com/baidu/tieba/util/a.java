@@ -5,9 +5,7 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
 public class a {
-
-    /* renamed from: a  reason: collision with root package name */
-    private Context f1449a;
+    private Context a;
     private boolean f;
     private boolean g;
     private String h;
@@ -25,7 +23,7 @@ public class a {
         this.h = null;
         this.i = false;
         this.k = 0;
-        this.f1449a = context;
+        this.a = context;
         this.f = true;
         this.h = null;
         this.g = false;
@@ -111,7 +109,7 @@ public class a {
                 if (this.f && this.e != null) {
                     int size2 = this.e.size();
                     for (int i2 = 0; i2 < size2; i2++) {
-                        if (((b) this.e.get(i2)).f1455a != null && ((b) this.e.get(i2)).f1455a.equals(str)) {
+                        if (((b) this.e.get(i2)).a != null && ((b) this.e.get(i2)).a.equals(str)) {
                             return null;
                         }
                     }
@@ -126,7 +124,7 @@ public class a {
                     } else if (this.e != null) {
                         b bVar = new b(this, null);
                         bVar.c = dVar;
-                        bVar.f1455a = str;
+                        bVar.a = str;
                         bVar.b = num.intValue();
                         bVar.d = z;
                         this.e.add(bVar);

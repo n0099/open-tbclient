@@ -15,9 +15,7 @@ public class s {
     protected Vector M;
     protected int N;
     private int Q;
-
-    /* renamed from: a  reason: collision with root package name */
-    protected InputStream f1530a;
+    protected InputStream a;
     protected int b;
     protected int c;
     protected int d;
@@ -155,7 +153,7 @@ public class s {
         if (this.N <= 0) {
             return null;
         }
-        return ((t) this.M.elementAt(i % this.N)).f1531a;
+        return ((t) this.M.elementAt(i % this.N)).a;
     }
 
     public int a(InputStream inputStream) {
@@ -164,7 +162,7 @@ public class s {
         }
         f();
         if (inputStream != null) {
-            this.f1530a = inputStream;
+            this.a = inputStream;
             k();
             if (!e()) {
                 i();
@@ -345,7 +343,7 @@ public class s {
 
     protected int g() {
         try {
-            return this.f1530a.read();
+            return this.a.read();
         } catch (Exception e) {
             this.b = 1;
             return 0;
@@ -358,7 +356,7 @@ public class s {
         if (this.C > 0) {
             while (i < this.C) {
                 try {
-                    int read = this.f1530a.read(this.B, i, this.C - i);
+                    int read = this.a.read(this.B, i, this.C - i);
                     if (read == -1) {
                         break;
                     }
@@ -380,7 +378,7 @@ public class s {
         int[] iArr = null;
         byte[] bArr = new byte[i3];
         try {
-            i2 = this.f1530a.read(bArr);
+            i2 = this.a.read(bArr);
         } catch (Exception e) {
             e.printStackTrace();
             i2 = 0;
@@ -581,7 +579,7 @@ public class s {
             while (true) {
                 int i2 = i;
                 if (i2 < this.M.size()) {
-                    ((t) this.M.get(i2)).f1531a = null;
+                    ((t) this.M.get(i2)).a = null;
                     i = i2 + 1;
                 } else {
                     return;

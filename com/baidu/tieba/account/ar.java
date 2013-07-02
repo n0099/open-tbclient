@@ -7,13 +7,11 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 /* loaded from: classes.dex */
 class ar implements View.OnClickListener {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ Register2Activity f655a;
+    final /* synthetic */ Register2Activity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ar(Register2Activity register2Activity) {
-        this.f655a = register2Activity;
+        this.a = register2Activity;
     }
 
     @Override // android.view.View.OnClickListener
@@ -37,38 +35,38 @@ class ar implements View.OnClickListener {
         aw awVar4;
         EditText editText;
         EditText editText2;
-        imageView = this.f655a.l;
+        imageView = this.a.l;
         if (view != imageView) {
-            button = this.f655a.m;
+            button = this.a.m;
             if (view != button) {
-                button2 = this.f655a.n;
+                button2 = this.a.n;
                 if (view != button2) {
-                    imageView2 = this.f655a.o;
+                    imageView2 = this.a.o;
                     if (view != imageView2) {
-                        imageView3 = this.f655a.p;
+                        imageView3 = this.a.p;
                         if (view == imageView3) {
-                            editText = this.f655a.z;
+                            editText = this.a.z;
                             editText.setText((CharSequence) null);
                             return;
                         }
-                        relativeLayout = this.f655a.B;
+                        relativeLayout = this.a.B;
                         if (view != relativeLayout) {
-                            imageView4 = this.f655a.J;
+                            imageView4 = this.a.J;
                             if (view != imageView4) {
-                                button3 = this.f655a.q;
+                                button3 = this.a.q;
                                 if (view != button3) {
                                     return;
                                 }
                             }
-                            awVar = this.f655a.Q;
+                            awVar = this.a.Q;
                             if (awVar == null) {
-                                alVar = this.f655a.S;
+                                alVar = this.a.S;
                                 if (alVar != null) {
-                                    Register2Activity register2Activity = this.f655a;
-                                    Register2Activity register2Activity2 = this.f655a;
-                                    alVar2 = this.f655a.S;
+                                    Register2Activity register2Activity = this.a;
+                                    Register2Activity register2Activity2 = this.a;
+                                    alVar2 = this.a.S;
                                     register2Activity.Q = new aw(register2Activity2, alVar2.b().getVcode_pic_url());
-                                    awVar2 = this.f655a.Q;
+                                    awVar2 = this.a.Q;
                                     awVar2.execute(new String[0]);
                                     return;
                                 }
@@ -76,32 +74,32 @@ class ar implements View.OnClickListener {
                             }
                             return;
                         }
-                        axVar = this.f655a.R;
+                        axVar = this.a.R;
                         if (axVar == null) {
-                            awVar3 = this.f655a.Q;
+                            awVar3 = this.a.Q;
                             if (awVar3 != null) {
-                                awVar4 = this.f655a.Q;
+                                awVar4 = this.a.Q;
                                 awVar4.cancel();
                             }
-                            this.f655a.R = new ax(this.f655a, null);
-                            axVar2 = this.f655a.R;
+                            this.a.R = new ax(this.a, null);
+                            axVar2 = this.a.R;
                             axVar2.setPriority(3);
-                            axVar3 = this.f655a.R;
+                            axVar3 = this.a.R;
                             axVar3.execute(new String[0]);
                             return;
                         }
                         return;
                     }
-                    editText2 = this.f655a.x;
+                    editText2 = this.a.x;
                     editText2.setText((CharSequence) null);
                     return;
                 }
-                this.f655a.p();
+                this.a.p();
                 return;
             }
         }
-        this.f655a.setResult(0);
-        this.f655a.finish();
+        this.a.setResult(0);
+        this.a.finish();
         com.baidu.tieba.util.z.a("Register2Activity", "mButtonBack", "onClick");
     }
 }

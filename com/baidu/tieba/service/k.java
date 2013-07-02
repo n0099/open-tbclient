@@ -10,13 +10,11 @@ import java.io.FileWriter;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class k extends BdAsyncTask {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ PerformMonitorService f1413a;
+    final /* synthetic */ PerformMonitorService a;
     private com.baidu.tieba.util.r b;
 
     private k(PerformMonitorService performMonitorService) {
-        this.f1413a = performMonitorService;
+        this.a = performMonitorService;
         this.b = null;
     }
 
@@ -92,7 +90,7 @@ public class k extends BdAsyncTask {
                                 }
                                 return;
                             }
-                            this.b = new com.baidu.tieba.util.r(String.valueOf(com.baidu.tieba.data.g.f787a) + str2);
+                            this.b = new com.baidu.tieba.util.r(String.valueOf(com.baidu.tieba.data.g.a) + str2);
                             this.b.a("logfile", byteArray);
                             this.b.a("errortype", "3");
                             this.b.k();
@@ -274,9 +272,9 @@ public class k extends BdAsyncTask {
         if (this.b != null) {
             this.b.h();
         }
-        this.f1413a.g = null;
+        this.a.g = null;
         super.cancel(true);
-        this.f1413a.stopSelf();
+        this.a.stopSelf();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -284,7 +282,7 @@ public class k extends BdAsyncTask {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void a(String str) {
         super.a((Object) str);
-        this.f1413a.g = null;
-        this.f1413a.stopSelf();
+        this.a.g = null;
+        this.a.stopSelf();
     }
 }

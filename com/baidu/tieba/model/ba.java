@@ -8,28 +8,26 @@ import com.baidu.tieba.data.WriteData;
 public class ba extends com.baidu.adp.a.c {
     private Context d;
     private com.baidu.tieba.data.aw e;
-
-    /* renamed from: a  reason: collision with root package name */
-    private String f1032a = null;
+    private String a = null;
     private String b = null;
     private String c = null;
     private bb f = null;
     private bc g = null;
 
     public void a(Intent intent) {
-        this.f1032a = intent.getStringExtra("thread_id");
+        this.a = intent.getStringExtra("thread_id");
         this.b = intent.getStringExtra("post_id");
         this.c = intent.getStringExtra("st_type");
     }
 
     public void a(Bundle bundle) {
-        this.f1032a = bundle.getString("thread_id");
+        this.a = bundle.getString("thread_id");
         this.b = bundle.getString("post_id");
         this.c = bundle.getString("st_type");
     }
 
     public void b(Bundle bundle) {
-        bundle.putString("thread_id", this.f1032a);
+        bundle.putString("thread_id", this.a);
         bundle.putString("post_id", this.b);
         bundle.putString("st_type", this.c);
     }
@@ -42,7 +40,7 @@ public class ba extends com.baidu.adp.a.c {
     }
 
     public void a(String str) {
-        this.f1032a = str;
+        this.a = str;
     }
 
     public void b(String str) {
@@ -95,7 +93,7 @@ public class ba extends com.baidu.adp.a.c {
 
     public boolean e() {
         cancelLoadData();
-        if (this.f1032a == null || this.b == null || this.f != null) {
+        if (this.a == null || this.b == null || this.f != null) {
             return false;
         }
         this.f = new bb(this, 0);
@@ -106,7 +104,7 @@ public class ba extends com.baidu.adp.a.c {
 
     public boolean f() {
         cancelLoadData();
-        if (this.f1032a == null || this.b == null || this.e.k() || this.f != null) {
+        if (this.a == null || this.b == null || this.e.k() || this.f != null) {
             return false;
         }
         this.f = new bb(this, 2);

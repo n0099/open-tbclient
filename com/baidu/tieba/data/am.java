@@ -5,9 +5,7 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class am {
-
-    /* renamed from: a  reason: collision with root package name */
-    private ArrayList f763a = new ArrayList();
+    private ArrayList a = new ArrayList();
     private ai b = new ai();
 
     public void a(ai aiVar) {
@@ -19,7 +17,7 @@ public class am {
     }
 
     public ArrayList b() {
-        return this.f763a;
+        return this.a;
     }
 
     public void a(String str) {
@@ -38,7 +36,7 @@ public class am {
                     for (int i = 0; i < optJSONArray.length(); i++) {
                         UserData userData = new UserData();
                         userData.parserJson(optJSONArray.getJSONObject(i));
-                        this.f763a.add(userData);
+                        this.a.add(userData);
                     }
                 }
                 this.b.a(jSONObject.optJSONObject("page"));

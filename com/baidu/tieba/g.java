@@ -21,9 +21,7 @@ import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public class g extends com.baidu.adp.a.a {
     protected ProgressDialog h = null;
-
-    /* renamed from: a  reason: collision with root package name */
-    private DialogInterface.OnCancelListener f879a = null;
+    private DialogInterface.OnCancelListener a = null;
     private AlertDialog b = null;
     protected int i = -1;
     private GuidPageView c = null;
@@ -95,13 +93,13 @@ public class g extends com.baidu.adp.a.a {
     }
 
     public void b(String str) {
-        if (this.f879a == null) {
-            this.f879a = new h(this);
+        if (this.a == null) {
+            this.a = new h(this);
         }
         if (str != null) {
-            this.h = ProgressDialog.show(this, "", str, true, false, this.f879a);
+            this.h = ProgressDialog.show(this, "", str, true, false, this.a);
         } else {
-            this.h = ProgressDialog.show(this, "", getResources().getString(R.string.Waiting), true, false, this.f879a);
+            this.h = ProgressDialog.show(this, "", getResources().getString(R.string.Waiting), true, false, this.a);
         }
     }
 

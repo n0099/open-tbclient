@@ -12,9 +12,7 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 class a implements Thread.UncaughtExceptionHandler {
-
-    /* renamed from: a  reason: collision with root package name */
-    private static a f572a = new a();
+    private static a a = new a();
     private Thread.UncaughtExceptionHandler b = null;
     private Context c = null;
 
@@ -22,7 +20,7 @@ class a implements Thread.UncaughtExceptionHandler {
     }
 
     public static a a() {
-        return f572a;
+        return a;
     }
 
     private void a(long j, String str) {

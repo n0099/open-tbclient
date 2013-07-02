@@ -4,14 +4,12 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 /* loaded from: classes.dex */
 class e implements com.baidu.tbadk.a.d {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ c f1431a;
+    final /* synthetic */ c a;
     private final /* synthetic */ ViewGroup b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(c cVar, ViewGroup viewGroup) {
-        this.f1431a = cVar;
+        this.a = cVar;
         this.b = viewGroup;
     }
 

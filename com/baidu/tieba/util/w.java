@@ -6,9 +6,7 @@ import java.util.Map;
 public class w {
     private volatile int b;
     private volatile HashMap c = new HashMap();
-
-    /* renamed from: a  reason: collision with root package name */
-    private volatile int f1471a = 0;
+    private volatile int a = 0;
 
     public w(int i) {
         this.b = i;
@@ -21,8 +19,8 @@ public class w {
                 if (this.c.size() >= this.b) {
                     a();
                 }
-                this.f1471a++;
-                this.c.put(valueOf, Integer.valueOf(this.f1471a));
+                this.a++;
+                this.c.put(valueOf, Integer.valueOf(this.a));
             }
         } catch (Exception e) {
             z.b(getClass().getName(), "addThread", e.getMessage());

@@ -13,9 +13,7 @@ public class bi extends com.baidu.adp.a.c {
     private com.baidu.tieba.util.a k;
     private bk l = null;
     private bj m = null;
-
-    /* renamed from: a  reason: collision with root package name */
-    private boolean f1038a = true;
+    private boolean a = true;
     private String b = null;
     private UserData j = null;
     private boolean h = false;
@@ -38,11 +36,11 @@ public class bi extends com.baidu.adp.a.c {
     }
 
     public void a(boolean z) {
-        this.f1038a = z;
+        this.a = z;
     }
 
     public boolean b() {
-        return this.f1038a;
+        return this.a;
     }
 
     public void a(UserData userData) {

@@ -1,91 +1,208 @@
 package com.baidu.location;
 
-import android.os.Handler;
-import android.os.Message;
-import com.baidu.zeus.bouncycastle.DERTags;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.location.c;
+import java.io.File;
+import java.io.RandomAccessFile;
+import java.util.ArrayList;
 /* loaded from: classes.dex */
-public class h extends Handler {
+class h {
 
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ e f473a;
+    /* renamed from: if  reason: not valid java name */
+    private static String f207if = f.v;
+    private static int a = 100;
 
-    private h(e eVar) {
-        this.f473a = eVar;
-    }
+    /* renamed from: try  reason: not valid java name */
+    private static long f210try = 64;
+
+    /* renamed from: new  reason: not valid java name */
+    private static int f209new = 64;
+
+    /* renamed from: for  reason: not valid java name */
+    private static float f206for = 299.0f;
+
+    /* renamed from: do  reason: not valid java name */
+    private static String f205do = f.aa + "/juz.dat";
+
+    /* renamed from: int  reason: not valid java name */
+    private static ArrayList f208int = null;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ h(e eVar, g gVar) {
-        this(eVar);
+    /* loaded from: classes.dex */
+    public class a {
+        private int a;
+
+        /* renamed from: do  reason: not valid java name */
+        private int f211do;
+
+        /* renamed from: for  reason: not valid java name */
+        private float f212for;
+
+        /* renamed from: if  reason: not valid java name */
+        private int f213if;
+
+        /* renamed from: int  reason: not valid java name */
+        private double f214int;
+
+        /* renamed from: new  reason: not valid java name */
+        private double f215new;
+
+        /* renamed from: try  reason: not valid java name */
+        private int f216try;
+
+        public a(int i, int i2, int i3, int i4, double d, double d2, float f) {
+            this.f211do = 0;
+            this.f216try = 0;
+            this.f213if = 0;
+            this.a = 0;
+            this.f215new = 0.0d;
+            this.f214int = 0.0d;
+            this.f212for = 0.0f;
+            this.f211do = i;
+            this.f216try = i2;
+            this.f213if = i3;
+            this.a = i4;
+            this.f215new = d;
+            this.f214int = d2;
+            this.f212for = f;
+        }
+
+        public boolean a(int i, int i2, int i3) {
+            return this.a == i && this.f211do == i2 && this.f216try == i3;
+        }
     }
 
-    @Override // android.os.Handler
-    public void handleMessage(Message message) {
-        j jVar;
-        j jVar2;
-        switch (message.what) {
-            case 1:
-                this.f473a.g();
-                return;
-            case 2:
-                this.f473a.h();
-                return;
-            case 3:
-                this.f473a.d(message);
-                return;
-            case 4:
-                this.f473a.l();
-                return;
-            case 5:
-                this.f473a.e(message);
-                return;
-            case 6:
-                this.f473a.f(message);
-                return;
-            case 7:
-                this.f473a.m();
-                return;
-            case 8:
-                this.f473a.c(message);
-                return;
-            case 9:
-                this.f473a.a(message);
-                return;
-            case 10:
-                this.f473a.b(message);
-                return;
-            case 11:
-                this.f473a.k();
-                return;
-            case 12:
-                this.f473a.f();
-                return;
-            case 21:
-                this.f473a.a(message, 21);
-                return;
-            case DERTags.VISIBLE_STRING /* 26 */:
-                this.f473a.a(message, 26);
-                return;
-            case DERTags.GENERAL_STRING /* 27 */:
-                this.f473a.g(message);
-                return;
-            case 54:
-                jVar2 = this.f473a.e;
-                if (jVar2.h) {
-                    this.f473a.q = true;
-                    return;
-                }
-                return;
-            case 55:
-                jVar = this.f473a.e;
-                if (jVar.h) {
-                    this.f473a.q = false;
-                    return;
-                }
-                return;
-            default:
-                super.handleMessage(message);
-                return;
+    h() {
+    }
+
+    public static String a(int i, int i2, int i3) {
+        a m234if = m234if(i, i2, i3);
+        if (m234if != null) {
+            return String.format("{\"result\":{\"time\":\"" + j.a() + "\",\"error\":\"65\"},\"content\":{\"point\":{\"x\":\"%f\",\"y\":\"%f\"},\"radius\":\"%d\"}}", Double.valueOf(m234if.f215new), Double.valueOf(m234if.f214int), Integer.valueOf((int) m234if.f212for));
         }
+        return null;
+    }
+
+    private static void a() {
+        File file = new File(f205do);
+        try {
+            if (!file.exists()) {
+                j.a(f207if, "locCache file does not exists...");
+                return;
+            }
+            if (f208int != null) {
+                f208int.clear();
+                f208int = null;
+            }
+            f208int = new ArrayList();
+            RandomAccessFile randomAccessFile = new RandomAccessFile(file, "rw");
+            randomAccessFile.seek(0L);
+            int readInt = randomAccessFile.readInt();
+            j.a(f207if, "size of loc cache is " + readInt);
+            for (int i = 0; i < readInt; i++) {
+                randomAccessFile.seek(f210try + (f209new * i));
+                float readFloat = randomAccessFile.readFloat();
+                f208int.add(new a(randomAccessFile.readInt(), randomAccessFile.readInt(), randomAccessFile.readInt(), randomAccessFile.readInt(), randomAccessFile.readDouble(), randomAccessFile.readDouble(), readFloat));
+            }
+            randomAccessFile.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void a(c.a aVar, double d, double d2, float f) {
+        if (aVar == null) {
+            return;
+        }
+        float f2 = f < f206for ? f206for : f;
+        a m234if = m234if(aVar.f144if, aVar.f143for, aVar.f147try);
+        if (m234if != null) {
+            m234if.f215new = d;
+            m234if.f214int = d2;
+            m234if.f212for = f2;
+            j.a(f207if, "locCache update loc cache ...");
+            return;
+        }
+        if (f208int == null) {
+            f208int = new ArrayList();
+        }
+        f208int.add(new a(aVar.f143for, aVar.f147try, aVar.f142do, aVar.f144if, d, d2, f2));
+        if (f208int.size() > a) {
+            f208int.remove(0);
+        }
+        j.a(f207if, "locCache add new cell info into loc cache ...");
+    }
+
+    /* renamed from: do  reason: not valid java name */
+    private static void m233do() {
+        File file;
+        if (f208int == null) {
+            return;
+        }
+        File file2 = new File(f205do);
+        try {
+            if (!file2.exists()) {
+                if (!new File(f.aa).exists()) {
+                    j.a(f207if, "locCache make dirs " + file.mkdirs());
+                }
+                if (!file2.createNewFile()) {
+                    j.a(f207if, "locCache create loc cache file failure ...");
+                    return;
+                }
+                j.a(f207if, "locCache create loc cache file success ...");
+            }
+            RandomAccessFile randomAccessFile = new RandomAccessFile(file2, "rw");
+            if (randomAccessFile.length() < 1) {
+                randomAccessFile.writeInt(0);
+            }
+            int size = f208int.size() - 1;
+            int i = 0;
+            while (size >= 0) {
+                a aVar = (a) f208int.get(size);
+                if (aVar != null) {
+                    randomAccessFile.seek(f210try + (f209new * (size % a)));
+                    randomAccessFile.writeFloat(aVar.f212for);
+                    randomAccessFile.writeInt(aVar.f213if);
+                    randomAccessFile.writeDouble(aVar.f215new);
+                    randomAccessFile.writeInt(aVar.a);
+                    randomAccessFile.writeDouble(aVar.f214int);
+                    randomAccessFile.writeInt(aVar.f211do);
+                    randomAccessFile.writeInt(aVar.f216try);
+                    j.a(f207if, "add a new cell loc into file ...");
+                }
+                size--;
+                i++;
+            }
+            randomAccessFile.seek(0L);
+            randomAccessFile.writeInt(i);
+            randomAccessFile.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    /* renamed from: if  reason: not valid java name */
+    private static a m234if(int i, int i2, int i3) {
+        try {
+            if (f208int == null || f208int.size() < 1) {
+                a();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        if (f208int == null || f208int.size() < 1) {
+            return null;
+        }
+        for (int size = f208int.size() - 1; size >= 0; size--) {
+            a aVar = (a) f208int.get(size);
+            if (aVar != null && aVar.a(i, i2, i3)) {
+                return aVar;
+            }
+        }
+        return null;
+    }
+
+    /* renamed from: if  reason: not valid java name */
+    public static void m235if() {
+        m233do();
     }
 }

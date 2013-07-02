@@ -9,9 +9,7 @@ import android.widget.TabHost;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class FragmentTabHost extends TabHost implements TabHost.OnTabChangeListener {
-
-    /* renamed from: a  reason: collision with root package name */
-    private final ArrayList f45a;
+    private final ArrayList a;
     private Context b;
     private t c;
     private int d;
@@ -22,9 +20,7 @@ public class FragmentTabHost extends TabHost implements TabHost.OnTabChangeListe
     /* loaded from: classes.dex */
     class SavedState extends View.BaseSavedState {
         public static final Parcelable.Creator CREATOR = new ac();
-
-        /* renamed from: a  reason: collision with root package name */
-        String f46a;
+        String a;
 
         SavedState(Parcelable parcelable) {
             super(parcelable);
@@ -32,17 +28,17 @@ public class FragmentTabHost extends TabHost implements TabHost.OnTabChangeListe
 
         private SavedState(Parcel parcel) {
             super(parcel);
-            this.f46a = parcel.readString();
+            this.a = parcel.readString();
         }
 
         @Override // android.view.View.BaseSavedState, android.view.AbsSavedState, android.os.Parcelable
         public void writeToParcel(Parcel parcel, int i) {
             super.writeToParcel(parcel, i);
-            parcel.writeString(this.f46a);
+            parcel.writeString(this.a);
         }
 
         public String toString() {
-            return "FragmentTabHost.SavedState{" + Integer.toHexString(System.identityHashCode(this)) + " curTab=" + this.f46a + "}";
+            return "FragmentTabHost.SavedState{" + Integer.toHexString(System.identityHashCode(this)) + " curTab=" + this.a + "}";
         }
     }
 
@@ -70,18 +66,18 @@ public class FragmentTabHost extends TabHost implements TabHost.OnTabChangeListe
         int i = 0;
         while (true) {
             int i2 = i;
-            if (i2 >= this.f45a.size()) {
+            if (i2 >= this.a.size()) {
                 break;
             }
-            ad adVar = (ad) this.f45a.get(i2);
+            ad adVar = (ad) this.a.get(i2);
             t tVar = this.c;
-            str = adVar.f50a;
+            str = adVar.a;
             adVar.d = tVar.a(str);
             fragment = adVar.d;
             if (fragment != null) {
                 fragment2 = adVar.d;
                 if (!fragment2.j()) {
-                    str2 = adVar.f50a;
+                    str2 = adVar.a;
                     if (str2.equals(currentTabTag)) {
                         this.f = adVar;
                     } else {
@@ -96,9 +92,9 @@ public class FragmentTabHost extends TabHost implements TabHost.OnTabChangeListe
             i = i2 + 1;
         }
         this.g = true;
-        ae a2 = a(currentTabTag, aeVar);
-        if (a2 != null) {
-            a2.a();
+        ae a = a(currentTabTag, aeVar);
+        if (a != null) {
+            a.a();
             this.c.b();
         }
     }
@@ -112,7 +108,7 @@ public class FragmentTabHost extends TabHost implements TabHost.OnTabChangeListe
     @Override // android.view.View
     protected Parcelable onSaveInstanceState() {
         SavedState savedState = new SavedState(super.onSaveInstanceState());
-        savedState.f46a = getCurrentTabTag();
+        savedState.a = getCurrentTabTag();
         return savedState;
     }
 
@@ -120,14 +116,14 @@ public class FragmentTabHost extends TabHost implements TabHost.OnTabChangeListe
     protected void onRestoreInstanceState(Parcelable parcelable) {
         SavedState savedState = (SavedState) parcelable;
         super.onRestoreInstanceState(savedState.getSuperState());
-        setCurrentTabByTag(savedState.f46a);
+        setCurrentTabByTag(savedState.a);
     }
 
     @Override // android.widget.TabHost.OnTabChangeListener
     public void onTabChanged(String str) {
-        ae a2;
-        if (this.g && (a2 = a(str, null)) != null) {
-            a2.a();
+        ae a;
+        if (this.g && (a = a(str, null)) != null) {
+            a.a();
         }
         if (this.e != null) {
             this.e.onTabChanged(str);
@@ -146,9 +142,9 @@ public class FragmentTabHost extends TabHost implements TabHost.OnTabChangeListe
         String str3;
         ad adVar = null;
         int i = 0;
-        while (i < this.f45a.size()) {
-            ad adVar2 = (ad) this.f45a.get(i);
-            str3 = adVar2.f50a;
+        while (i < this.a.size()) {
+            ad adVar2 = (ad) this.a.get(i);
+            str3 = adVar2.a;
             if (!str3.equals(str)) {
                 adVar2 = adVar;
             }
@@ -182,7 +178,7 @@ public class FragmentTabHost extends TabHost implements TabHost.OnTabChangeListe
                     adVar.d = Fragment.a(context, name, bundle);
                     int i2 = this.d;
                     fragment3 = adVar.d;
-                    str2 = adVar.f50a;
+                    str2 = adVar.a;
                     aeVar.a(i2, fragment3, str2);
                 }
             }

@@ -61,9 +61,7 @@ public class LoginActivity extends com.baidu.tieba.g {
     private TextView N = null;
     private Button O = null;
     private Button P = null;
-
-    /* renamed from: a  reason: collision with root package name */
-    RelativeLayout f632a = null;
+    RelativeLayout a = null;
     LinearLayout b = null;
     TextView c = null;
     private ac Q = null;
@@ -223,7 +221,7 @@ public class LoginActivity extends com.baidu.tieba.g {
 
     private void c() {
         this.d = (InputMethodManager) getSystemService("input_method");
-        this.f632a = (RelativeLayout) findViewById(R.id.container);
+        this.a = (RelativeLayout) findViewById(R.id.container);
         this.b = (LinearLayout) findViewById(R.id.title);
         this.c = (TextView) findViewById(R.id.title_text);
         this.s = (EditText) findViewById(R.id.login_edit_account);
@@ -278,7 +276,7 @@ public class LoginActivity extends com.baidu.tieba.g {
         com.baidu.tieba.util.x.f(this.c, i);
         com.baidu.tieba.util.x.f((TextView) this.w, i);
         com.baidu.tieba.util.x.a(this.N, i);
-        com.baidu.tieba.util.x.c(this.f632a, i);
+        com.baidu.tieba.util.x.c(this.a, i);
         com.baidu.tieba.util.x.d(this.b, i);
         com.baidu.tieba.util.x.g((TextView) this.w, i);
         com.baidu.tieba.util.x.a(this.D, i);
@@ -408,8 +406,8 @@ public class LoginActivity extends com.baidu.tieba.g {
                 this.r = true;
                 this.q = false;
             } else {
-                this.j = this.f.f638a;
-                this.s.setText(this.f.f638a);
+                this.j = this.f.a;
+                this.s.setText(this.f.a);
                 this.t.setText(this.f.b);
                 this.u.setText(this.f.c);
                 this.L.setText(this.f.d);
@@ -430,8 +428,8 @@ public class LoginActivity extends com.baidu.tieba.g {
                 this.r = true;
                 this.q = false;
             } else {
-                this.j = this.g.f638a;
-                this.s.setText(this.g.f638a);
+                this.j = this.g.a;
+                this.s.setText(this.g.a);
                 this.t.setText(this.g.b);
                 this.u.setText(this.g.c);
                 this.L.setText(this.g.d);
@@ -448,7 +446,7 @@ public class LoginActivity extends com.baidu.tieba.g {
     private void o() {
         if (this.n == 0) {
             this.f = new aa(this, null);
-            this.f.f638a = this.s.getText().toString();
+            this.f.a = this.s.getText().toString();
             this.f.b = this.t.getText().toString();
             this.f.c = this.u.getText().toString();
             this.f.d = this.L.getText().toString();
@@ -458,7 +456,7 @@ public class LoginActivity extends com.baidu.tieba.g {
         }
         if (this.n == 1) {
             this.g = new aa(this, null);
-            this.g.f638a = this.s.getText().toString();
+            this.g.a = this.s.getText().toString();
             this.g.b = this.t.getText().toString();
             this.g.c = this.u.getText().toString();
             this.g.d = this.L.getText().toString();
@@ -477,7 +475,7 @@ public class LoginActivity extends com.baidu.tieba.g {
                 if (!this.q || !com.baidu.tieba.util.y.c(this.u.getText().toString())) {
                     u();
                     StringBuffer stringBuffer = new StringBuffer(30);
-                    stringBuffer.append(com.baidu.tieba.data.g.f787a);
+                    stringBuffer.append(com.baidu.tieba.data.g.a);
                     stringBuffer.append("c/s/login");
                     ArrayList arrayList = new ArrayList();
                     arrayList.add(new BasicNameValuePair("un", editable));

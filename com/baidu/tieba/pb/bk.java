@@ -30,6 +30,7 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 import com.baidu.adp.widget.ListView.BdListView;
+import com.baidu.location.LocationClientOption;
 import com.baidu.mobstat.StatService;
 import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.compatible.CompatibleUtile;
@@ -51,9 +52,7 @@ public class bk {
     private View.OnClickListener K;
     private Handler O;
     private View.OnClickListener Q;
-
-    /* renamed from: a  reason: collision with root package name */
-    public EditText f1229a;
+    public EditText a;
     private com.baidu.tieba.g b;
     private KeyboardEventLayout c;
     private ClickableLayout d;
@@ -136,7 +135,7 @@ public class bk {
         this.m = null;
         this.n = null;
         this.o = null;
-        this.f1229a = null;
+        this.a = null;
         this.p = null;
         this.q = null;
         this.r = null;
@@ -177,7 +176,7 @@ public class bk {
         this.j = (Button) this.s.findViewById(R.id.pb_reply_post);
         this.k = (Button) this.s.findViewById(R.id.pb_button_face);
         this.l = (ImageButton) this.s.findViewById(R.id.pb_button_camera);
-        this.f1229a = (EditText) this.s.findViewById(R.id.reply_content);
+        this.a = (EditText) this.s.findViewById(R.id.reply_content);
         this.m = (Button) this.t.findViewById(R.id.pb_button_face1);
         this.o = (ImageButton) this.t.findViewById(R.id.pb_button_camera1);
         this.n = (Button) this.t.findViewById(R.id.pb_button_at1);
@@ -210,10 +209,10 @@ public class bk {
         this.o.setOnClickListener(this.K);
         this.m.setOnClickListener(this.K);
         this.n.setOnClickListener(this.K);
-        this.f1229a.addTextChangedListener(this.aw);
-        this.f1229a.setOnTouchListener(this.as);
+        this.a.addTextChangedListener(this.aw);
+        this.a.setOnTouchListener(this.as);
         this.c.setOnKeyStateChangedListener(this.av);
-        this.f1229a.setFilters(new InputFilter[]{new InputFilter.LengthFilter(1000)});
+        this.a.setFilters(new InputFilter[]{new InputFilter.LengthFilter(LocationClientOption.MIN_SCAN_SPAN)});
     }
 
     public void a() {
@@ -460,7 +459,7 @@ public class bk {
 
     public void m() {
         this.v.setVisibility(0);
-        com.baidu.tieba.util.ab.a(this.b, this.f1229a);
+        com.baidu.tieba.util.ab.a(this.b, this.a);
     }
 
     public void n() {
@@ -471,7 +470,7 @@ public class bk {
         this.v.setVisibility(8);
         O();
         if (z) {
-            this.f1229a.setText("");
+            this.a.setText("");
             this.j.setEnabled(false);
             w();
             if (this.z != null) {
@@ -502,8 +501,8 @@ public class bk {
         if (!z) {
             z();
             V();
-            this.f1229a.requestFocus();
-            this.b.a(this.f1229a, 200);
+            this.a.requestFocus();
+            this.b.a(this.a, 200);
         } else if (this.z != null) {
             this.z.b((String) null);
         }
@@ -658,7 +657,7 @@ public class bk {
     }
 
     public void b(String str) {
-        this.f1229a.getText().insert(this.f1229a.getSelectionStart(), "@" + str + " ");
+        this.a.getText().insert(this.a.getSelectionStart(), "@" + str + " ");
     }
 
     public void c(String str) {
@@ -700,19 +699,19 @@ public class bk {
 
     public void x() {
         V();
-        this.f1229a.requestFocus();
+        this.a.requestFocus();
         if (this.H.getVisibility() == 8) {
             this.k.setBackgroundResource(R.drawable.new_pb_keyboard_btn);
             this.m.setBackgroundResource(R.drawable.new_pb_keyboard_btn);
-            com.baidu.tieba.util.ab.a(this.b, this.f1229a);
+            com.baidu.tieba.util.ab.a(this.b, this.a);
             this.O.postDelayed(this.ar, 200L);
             return;
         }
-        this.f1229a.setSelection(this.f1229a.getText().length());
+        this.a.setSelection(this.a.getText().length());
         this.k.setBackgroundResource(R.drawable.new_pb_face_btn);
         this.m.setBackgroundResource(R.drawable.new_pb_face_btn);
         this.H.setVisibility(8);
-        this.b.a(this.f1229a, 200);
+        this.b.a(this.a, 200);
     }
 
     public void a(DialogInterface.OnClickListener onClickListener, boolean z) {
@@ -773,7 +772,7 @@ public class bk {
     }
 
     public String D() {
-        return this.f1229a.getText().toString();
+        return this.a.getText().toString();
     }
 
     public String E() {
@@ -1128,7 +1127,7 @@ public class bk {
     public void a(com.baidu.tieba.data.ai aiVar) {
         if (aiVar != null) {
             int d = aiVar.d();
-            int a2 = aiVar.a();
+            int a = aiVar.a();
             if (this.x == null) {
                 this.x = new Dialog(this.b, R.style.common_alert_dialog);
                 this.x.setCanceledOnTouchOutside(true);
@@ -1152,7 +1151,7 @@ public class bk {
             if (d <= 0) {
                 d = 1;
             }
-            textView.setText(MessageFormat.format(this.b.getApplicationContext().getResources().getString(R.string.current_page), Integer.valueOf(d), Integer.valueOf(a2 <= 0 ? 1 : a2)));
+            textView.setText(MessageFormat.format(this.b.getApplicationContext().getResources().getString(R.string.current_page), Integer.valueOf(d), Integer.valueOf(a <= 0 ? 1 : a)));
             this.b.a(this.B, WebChromeClient.STRING_DLG_BTN_SET);
         }
     }
@@ -1204,7 +1203,7 @@ public class bk {
         z();
         U();
         com.baidu.tieba.util.ab.a(this.b, this.B);
-        com.baidu.tieba.util.ab.a(this.b, this.f1229a);
+        com.baidu.tieba.util.ab.a(this.b, this.a);
         if (this.w != null) {
             this.w.dismiss();
         }
@@ -1282,8 +1281,8 @@ public class bk {
                 if (z || i5 <= lastVisiblePosition) {
                     com.baidu.tieba.data.an anVar = (com.baidu.tieba.data.an) this.u.getItem(i5);
                     if (anVar != null) {
-                        ArrayList a2 = anVar.i().a();
-                        int size = a2.size();
+                        ArrayList a = anVar.i().a();
+                        int size = a.size();
                         if (!this.u.c() || i7 >= 13) {
                             i3 = i7;
                         } else {
@@ -1294,13 +1293,13 @@ public class bk {
                                     i3 = i9;
                                     break;
                                 }
-                                if (((com.baidu.tbadk.widget.richText.c) a2.get(i8)).a() == 8) {
+                                if (((com.baidu.tbadk.widget.richText.c) a.get(i8)).a() == 8) {
                                     if (i9 >= 13) {
                                         i3 = i9;
                                         break;
                                     } else {
                                         i9++;
-                                        this.u.a().a(((com.baidu.tbadk.widget.richText.c) a2.get(i8)).c().d(), this.at);
+                                        this.u.a().a(((com.baidu.tbadk.widget.richText.c) a.get(i8)).c().d(), this.at);
                                     }
                                 }
                                 i8++;

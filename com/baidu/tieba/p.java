@@ -3,12 +3,10 @@ package com.baidu.tieba;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 /* loaded from: classes.dex */
 class p extends BdAsyncTask {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ GuideActivity f1185a;
+    final /* synthetic */ GuideActivity a;
 
     private p(GuideActivity guideActivity) {
-        this.f1185a = guideActivity;
+        this.a = guideActivity;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -20,7 +18,7 @@ class p extends BdAsyncTask {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public Boolean a(String... strArr) {
-        return Boolean.valueOf(GuideActivity.g(this.f1185a));
+        return Boolean.valueOf(GuideActivity.g(this.a));
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -28,7 +26,7 @@ class p extends BdAsyncTask {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void a(Boolean bool) {
         if (!bool.booleanValue()) {
-            GuideActivity.h(this.f1185a);
+            GuideActivity.h(this.a);
         }
     }
 }

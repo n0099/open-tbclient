@@ -15,9 +15,7 @@ public class MKLocationManager {
     public static final int MK_COORDINATE_WGS84 = 0;
     public static final int MK_GPS_PROVIDER = 0;
     public static final int MK_NETWORK_PROVIDER = 1;
-
-    /* renamed from: a  reason: collision with root package name */
-    private Location f510a = null;
+    private Location a = null;
     private Location b = null;
     private long c = 864000;
     private long d = 0;
@@ -174,16 +172,16 @@ public class MKLocationManager {
             return null;
         }
         if (GetGPSStatus.getInt("t") == 1) {
-            this.f510a = new Location("network");
-            this.f510a.setLatitude(GetGPSStatus.getFloat("y"));
-            this.f510a.setLongitude(GetGPSStatus.getFloat("x"));
-            this.f510a.setAccuracy(GetGPSStatus.getInt("r"));
+            this.a = new Location("network");
+            this.a.setLatitude(GetGPSStatus.getFloat("y"));
+            this.a.setLongitude(GetGPSStatus.getFloat("x"));
+            this.a.setAccuracy(GetGPSStatus.getInt("r"));
         } else {
-            this.f510a = Mj.f528a.f552a;
-            this.f510a.setLatitude(GetGPSStatus.getFloat("y"));
-            this.f510a.setLongitude(GetGPSStatus.getFloat("x"));
+            this.a = Mj.a.a;
+            this.a.setLatitude(GetGPSStatus.getFloat("y"));
+            this.a.setLongitude(GetGPSStatus.getFloat("x"));
         }
-        return this.f510a;
+        return this.a;
     }
 
     public Bundle getNotifyInternal() {

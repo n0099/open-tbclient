@@ -51,8 +51,8 @@ public class n extends com.baidu.adp.a.d {
         this.e = (TextView) enterForumActivity.findViewById(R.id.search_bar_text);
         this.d.setOnClickListener(enterForumActivity);
         this.o = new com.baidu.tieba.util.a(this.h);
-        int a2 = com.baidu.tieba.util.ab.a(this.h, 41.0f);
-        this.o.a(a2, a2);
+        int a = com.baidu.tieba.util.ab.a(this.h, 41.0f);
+        this.o.a(a, a);
         this.o.a("forum_icon_mini");
         this.i = (BdListView) enterForumActivity.findViewById(R.id.enter_forum_lv_forum);
         this.k = new k(enterForumActivity);

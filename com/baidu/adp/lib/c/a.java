@@ -7,9 +7,7 @@ import android.os.Build;
 import java.util.Hashtable;
 /* loaded from: classes.dex */
 public class a {
-
-    /* renamed from: a  reason: collision with root package name */
-    private static a f135a = null;
+    private static a a = null;
     private volatile Hashtable b = new Hashtable();
     private Context c = null;
     private Bitmap.Config d = Bitmap.Config.RGB_565;
@@ -17,10 +15,10 @@ public class a {
     public static synchronized a a() {
         a aVar;
         synchronized (a.class) {
-            if (f135a == null) {
-                f135a = new a();
+            if (a == null) {
+                a = new a();
             }
-            aVar = f135a;
+            aVar = a;
         }
         return aVar;
     }

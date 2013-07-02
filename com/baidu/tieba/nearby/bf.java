@@ -13,13 +13,11 @@ import com.baidu.tieba.TiebaApplication;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class bf implements View.OnClickListener {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ NewNearbyActivity f1155a;
+    final /* synthetic */ NewNearbyActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bf(NewNearbyActivity newNearbyActivity) {
-        this.f1155a = newNearbyActivity;
+        this.a = newNearbyActivity;
     }
 
     @Override // android.view.View.OnClickListener
@@ -52,100 +50,100 @@ public class bf implements View.OnClickListener {
         ImageView imageView19;
         ImageView imageView20;
         ImageView imageView21;
-        imageView = this.f1155a.D;
+        imageView = this.a.D;
         if (view != imageView) {
-            imageView2 = this.f1155a.E;
+            imageView2 = this.a.E;
             if (view != imageView2) {
-                imageView3 = this.f1155a.F;
+                imageView3 = this.a.F;
                 if (view != imageView3) {
-                    imageView4 = this.f1155a.x;
+                    imageView4 = this.a.x;
                     if (view != imageView4) {
                         return;
                     }
-                    r = this.f1155a.r();
+                    r = this.a.r();
                     if (r) {
-                        viewPager = this.f1155a.k;
+                        viewPager = this.a.k;
                         if (viewPager.getChildCount() == 0) {
-                            this.f1155a.o();
+                            this.a.o();
                             return;
                         } else {
-                            this.f1155a.s();
+                            this.a.s();
                             return;
                         }
                     }
                     return;
                 }
                 if (TiebaApplication.f().t()) {
-                    StatService.onEvent(this.f1155a, "lbs_post_text", "lbsclick", 1);
+                    StatService.onEvent(this.a, "lbs_post_text", "lbsclick", 1);
                 }
-                this.f1155a.n();
-                this.f1155a.b(0);
+                this.a.n();
+                this.a.b(0);
                 return;
             }
             if (TiebaApplication.f().t()) {
-                StatService.onEvent(this.f1155a, "lbs_post_pic", "lbsclick", 1);
+                StatService.onEvent(this.a, "lbs_post_pic", "lbsclick", 1);
             }
-            this.f1155a.n();
-            this.f1155a.b(1);
+            this.a.n();
+            this.a.b(1);
             return;
         }
         if (TiebaApplication.f().t()) {
-            StatService.onEvent(this.f1155a, "lbs_expend_post", "lbsclick", 1);
+            StatService.onEvent(this.a, "lbs_expend_post", "lbsclick", 1);
         }
-        imageView5 = this.f1155a.D;
+        imageView5 = this.a.D;
         if (imageView5.getAnimation() != null) {
-            imageView21 = this.f1155a.D;
+            imageView21 = this.a.D;
             if (!imageView21.getAnimation().hasEnded()) {
                 return;
             }
         }
-        z = this.f1155a.I;
+        z = this.a.I;
         if (z) {
-            imageView13 = this.f1155a.F;
+            imageView13 = this.a.F;
             imageView13.setVisibility(0);
-            imageView14 = this.f1155a.E;
+            imageView14 = this.a.E;
             imageView14.setVisibility(0);
             RotateAnimation rotateAnimation2 = new RotateAnimation(0.0f, 315.0f, 1, 0.5f, 1, 0.5f);
-            imageView15 = this.f1155a.F;
-            imageView16 = this.f1155a.D;
+            imageView15 = this.a.F;
+            imageView16 = this.a.D;
             TranslateAnimation translateAnimation3 = new TranslateAnimation((-imageView15.getLeft()) + imageView16.getLeft(), 0.0f, 0.0f, 0.0f);
             translateAnimation3.setInterpolator(new OvershootInterpolator(4.0f));
-            imageView17 = this.f1155a.F;
+            imageView17 = this.a.F;
             imageView17.setVisibility(0);
-            imageView18 = this.f1155a.E;
-            imageView19 = this.f1155a.D;
+            imageView18 = this.a.E;
+            imageView19 = this.a.D;
             TranslateAnimation translateAnimation4 = new TranslateAnimation((-imageView18.getLeft()) + imageView19.getLeft(), 0.0f, 0.0f, 0.0f);
             translateAnimation4.setInterpolator(new OvershootInterpolator(3.0f));
-            imageView20 = this.f1155a.E;
+            imageView20 = this.a.E;
             imageView20.setVisibility(0);
-            this.f1155a.I = false;
+            this.a.I = false;
             translateAnimation2 = translateAnimation4;
             rotateAnimation = rotateAnimation2;
             translateAnimation = translateAnimation3;
         } else {
             rotateAnimation = new RotateAnimation(315.0f, 0.0f, 1, 0.5f, 1, 0.5f);
-            imageView6 = this.f1155a.F;
-            imageView7 = this.f1155a.D;
+            imageView6 = this.a.F;
+            imageView7 = this.a.D;
             translateAnimation = new TranslateAnimation(0.0f, (-imageView6.getLeft()) + imageView7.getLeft(), 0.0f, 0.0f);
             translateAnimation.setInterpolator(new AnticipateInterpolator(4.0f));
-            animationListener = this.f1155a.H;
+            animationListener = this.a.H;
             translateAnimation.setAnimationListener(animationListener);
-            imageView8 = this.f1155a.E;
-            imageView9 = this.f1155a.D;
+            imageView8 = this.a.E;
+            imageView9 = this.a.D;
             TranslateAnimation translateAnimation5 = new TranslateAnimation(0.0f, (-imageView8.getLeft()) + imageView9.getLeft(), 0.0f, 0.0f);
             translateAnimation5.setInterpolator(new AnticipateInterpolator(3.0f));
-            this.f1155a.I = true;
+            this.a.I = true;
             translateAnimation2 = translateAnimation5;
         }
         rotateAnimation.setFillAfter(true);
         rotateAnimation.setDuration(400L);
-        imageView10 = this.f1155a.D;
+        imageView10 = this.a.D;
         imageView10.startAnimation(rotateAnimation);
         translateAnimation.setDuration(400L);
-        imageView11 = this.f1155a.F;
+        imageView11 = this.a.F;
         imageView11.startAnimation(translateAnimation);
         translateAnimation2.setDuration(400L);
-        imageView12 = this.f1155a.E;
+        imageView12 = this.a.E;
         imageView12.startAnimation(translateAnimation2);
     }
 }

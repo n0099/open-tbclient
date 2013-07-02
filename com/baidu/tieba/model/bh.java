@@ -3,20 +3,18 @@ package com.baidu.tieba.model;
 import com.baidu.tieba.data.PersonChangeData;
 /* loaded from: classes.dex */
 public class bh extends com.baidu.adp.a.c {
-
-    /* renamed from: a  reason: collision with root package name */
-    PersonChangeData f1037a;
+    PersonChangeData a;
 
     public bh(PersonChangeData personChangeData) {
-        this.f1037a = null;
-        this.f1037a = personChangeData;
-        if (this.f1037a == null) {
-            this.f1037a = new PersonChangeData();
+        this.a = null;
+        this.a = personChangeData;
+        if (this.a == null) {
+            this.a = new PersonChangeData();
         }
     }
 
     public PersonChangeData a() {
-        return this.f1037a;
+        return this.a;
     }
 
     @Override // com.baidu.adp.a.c

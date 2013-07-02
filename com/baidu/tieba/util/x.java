@@ -8,9 +8,7 @@ import com.baidu.tieba.TiebaApplication;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public class x {
-
-    /* renamed from: a  reason: collision with root package name */
-    private static String f1472a = "skinType not support";
+    private static String a = "skinType not support";
 
     public static void a(TextView textView, int i) {
         if (textView != null) {
@@ -233,21 +231,21 @@ public class x {
         if (i == 1) {
             return TiebaApplication.f().getResources().getColor(R.color.skin_1_common_color);
         }
-        throw new IllegalArgumentException(f1472a);
+        throw new IllegalArgumentException(a);
     }
 
     public static int b(int i) {
         if (i == 1) {
             return TiebaApplication.f().getResources().getColor(R.color.skin_1_second_common_color);
         }
-        throw new IllegalArgumentException(f1472a);
+        throw new IllegalArgumentException(a);
     }
 
     public static int c(int i) {
         if (i == 1) {
             return TiebaApplication.f().getResources().getColor(R.color.skin_1_third_common_color);
         }
-        throw new IllegalArgumentException(f1472a);
+        throw new IllegalArgumentException(a);
     }
 
     public static int d(int i) {

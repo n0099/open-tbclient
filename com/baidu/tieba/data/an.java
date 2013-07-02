@@ -4,6 +4,7 @@ import android.content.Context;
 import android.text.ClipboardManager;
 import android.text.SpannableString;
 import com.baidu.android.pushservice.PushConstants;
+import com.baidu.location.LocationClientOption;
 import com.baidu.tbadk.widget.richText.TbRichTextView;
 import com.slidingmenu.lib.R;
 import java.util.ArrayList;
@@ -15,9 +16,7 @@ public class an {
     private String e;
     private ArrayList j;
     private com.baidu.tbadk.widget.richText.a k = null;
-
-    /* renamed from: a  reason: collision with root package name */
-    private String f764a = null;
+    private String a = null;
     private String b = null;
     private int c = 0;
     private long d = 0;
@@ -44,7 +43,7 @@ public class an {
     }
 
     public String d() {
-        return this.f764a;
+        return this.a;
     }
 
     public String e() {
@@ -81,9 +80,9 @@ public class an {
                 str = null;
             }
             spannableString.setSpan(new ao(this, context, str, str2), 0, spannableString.length(), 18);
-            ArrayList a2 = this.k.a();
-            if (a2 != null && a2.size() > 0) {
-                com.baidu.tbadk.widget.richText.c cVar = (com.baidu.tbadk.widget.richText.c) a2.get(0);
+            ArrayList a = this.k.a();
+            if (a != null && a.size() > 0) {
+                com.baidu.tbadk.widget.richText.c cVar = (com.baidu.tbadk.widget.richText.c) a.get(0);
                 if (cVar.d() != null) {
                     cVar.d().insert(0, (CharSequence) spannableString);
                 }
@@ -104,7 +103,7 @@ public class an {
     }
 
     public void b(Context context) {
-        int a2;
+        int a;
         int i;
         int i2;
         if (this.g != null) {
@@ -129,15 +128,15 @@ public class an {
                 } else {
                     if (iVar.a() == 3 || iVar.a() == 2) {
                         this.h.add(iVar);
-                        a2 = iVar.a();
+                        a = iVar.a();
                     } else {
                         i iVar2 = new i();
                         iVar2.a(0);
                         iVar2.a(iVar.a(context));
                         this.h.add(iVar2);
-                        a2 = 0;
+                        a = 0;
                     }
-                    i = a2;
+                    i = a;
                     i2 = size + 1;
                 }
                 i4++;
@@ -148,7 +147,7 @@ public class an {
     }
 
     public void c(Context context) {
-        int a2;
+        int a;
         int i;
         if (this.g != null) {
             int i2 = -1;
@@ -167,15 +166,15 @@ public class an {
                 i iVar = (i) this.g.get(i3);
                 if (i.c(i4, iVar.a())) {
                     ((i) this.h.get(size - 1)).a(iVar.a(context));
-                    a2 = i4;
+                    a = i4;
                 } else {
                     if (iVar.a() == 3 || iVar.a() == 2) {
                         this.h.add(iVar);
-                        a2 = iVar.a();
+                        a = iVar.a();
                         i = size;
                     } else if (iVar.a() == 5) {
                         i iVar2 = new i();
-                        iVar2.a(1000);
+                        iVar2.a(LocationClientOption.MIN_SCAN_SPAN);
                         iVar2.b(iVar.d());
                         this.h.add(iVar2);
                         i = size + 1;
@@ -183,19 +182,19 @@ public class an {
                         iVar3.a(0);
                         iVar3.a(iVar.a(context));
                         this.h.add(iVar3);
-                        a2 = 0;
+                        a = 0;
                     } else {
                         i iVar4 = new i();
                         iVar4.a(0);
                         iVar4.a(iVar.a(context));
                         this.h.add(iVar4);
                         i = size;
-                        a2 = 0;
+                        a = 0;
                     }
                     size = i + 1;
                 }
                 i3++;
-                i4 = a2;
+                i4 = a;
             }
         }
     }
@@ -297,7 +296,7 @@ public class an {
     public void a(JSONObject jSONObject, Context context) {
         if (jSONObject != null) {
             try {
-                this.f764a = jSONObject.optString("id");
+                this.a = jSONObject.optString("id");
                 this.b = jSONObject.optString("title");
                 this.c = jSONObject.optInt("floor", 0);
                 this.d = jSONObject.optLong("time", 0L) * 1000;

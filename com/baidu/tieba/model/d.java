@@ -6,13 +6,11 @@ import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class d extends BdAsyncTask {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ c f1049a;
+    final /* synthetic */ c a;
     private volatile com.baidu.tieba.util.r b;
 
     private d(c cVar) {
-        this.f1049a = cVar;
+        this.a = cVar;
         this.b = null;
     }
 
@@ -30,13 +28,13 @@ public class d extends BdAsyncTask {
         String str2;
         JSONObject jSONObject;
         try {
-            this.b = new com.baidu.tieba.util.r(String.valueOf(com.baidu.tieba.data.g.f787a) + "c/s/delcom");
+            this.b = new com.baidu.tieba.util.r(String.valueOf(com.baidu.tieba.data.g.a) + "c/s/delcom");
             this.b.d(true);
             com.baidu.tieba.util.r rVar = this.b;
-            str = this.f1049a.b;
+            str = this.a.b;
             rVar.a(PushConstants.EXTRA_USER_ID, str);
             com.baidu.tieba.util.r rVar2 = this.b;
-            str2 = this.f1049a.c;
+            str2 = this.a.c;
             rVar2.a("com_id", str2);
             String j = this.b.j();
             if (this.b.c() && j != null && (jSONObject = new JSONObject(j)) != null && jSONObject.optJSONObject("error").optInt("errno") == 0) {
@@ -55,15 +53,15 @@ public class d extends BdAsyncTask {
     public void a(Boolean bool) {
         com.baidu.adp.a.e eVar;
         com.baidu.adp.a.e eVar2;
-        this.f1049a.j = null;
+        this.a.j = null;
         if (bool.booleanValue()) {
-            eVar = this.f1049a.mLoadDataCallBack;
+            eVar = this.a.mLoadDataCallBack;
             eVar.a(true);
             return;
         }
-        this.f1049a.mErrorCode = this.b.e();
-        this.f1049a.mErrorString = this.b.g();
-        eVar2 = this.f1049a.mLoadDataCallBack;
+        this.a.mErrorCode = this.b.e();
+        this.a.mErrorString = this.b.g();
+        eVar2 = this.a.mLoadDataCallBack;
         eVar2.a(false);
     }
 
@@ -75,7 +73,7 @@ public class d extends BdAsyncTask {
             this.b.h();
             this.b = null;
         }
-        eVar = this.f1049a.mLoadDataCallBack;
+        eVar = this.a.mLoadDataCallBack;
         eVar.a(false);
     }
 }

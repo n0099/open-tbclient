@@ -5,9 +5,7 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class aq {
-
-    /* renamed from: a  reason: collision with root package name */
-    private ar f767a;
+    private ar a;
     private ArrayList b;
 
     public aq(JSONObject jSONObject) {
@@ -15,7 +13,7 @@ public class aq {
     }
 
     public ar a() {
-        return this.f767a;
+        return this.a;
     }
 
     public ArrayList b() {
@@ -26,14 +24,14 @@ public class aq {
         if (jSONObject != null) {
             JSONObject jSONObject2 = jSONObject.getJSONObject("daily_forum");
             if (jSONObject2 != null) {
-                this.f767a = new ar(this);
-                this.f767a.c = jSONObject2.optString("forum_name");
-                this.f767a.d = jSONObject2.optInt("star_level");
-                this.f767a.e = jSONObject2.optString("recommend_reason");
-                this.f767a.f = jSONObject2.optString("avatar");
-                this.f767a.g = jSONObject2.optString("member_count");
-                this.f767a.b = jSONObject2.optString("forum_id");
-                this.f767a.h = jSONObject2.optString("thread_count");
+                this.a = new ar(this);
+                this.a.c = jSONObject2.optString("forum_name");
+                this.a.d = jSONObject2.optInt("star_level");
+                this.a.e = jSONObject2.optString("recommend_reason");
+                this.a.f = jSONObject2.optString("avatar");
+                this.a.g = jSONObject2.optString("member_count");
+                this.a.b = jSONObject2.optString("forum_id");
+                this.a.h = jSONObject2.optString("thread_count");
             }
             String optString = jSONObject.optString("tag_name");
             JSONArray optJSONArray = jSONObject.optJSONArray("recommed_forum");

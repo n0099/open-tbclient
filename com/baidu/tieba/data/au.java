@@ -6,9 +6,7 @@ import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class au {
     private ArrayList f;
-
-    /* renamed from: a  reason: collision with root package name */
-    private int f771a = 0;
+    private int a = 0;
     private int d = 0;
     private int e = 0;
     private boolean c = false;
@@ -55,7 +53,7 @@ public class au {
                     atVar.a(optJSONObject2);
                     this.f.add(atVar);
                 }
-                this.f771a = optJSONObject.optInt("total_count");
+                this.a = optJSONObject.optInt("total_count");
                 this.e = optJSONObject.optInt("total_page");
                 this.b = optJSONObject.optInt("has_more") != 0;
                 this.c = optJSONObject.optInt("has_prev") != 0;

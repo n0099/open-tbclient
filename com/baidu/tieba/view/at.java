@@ -3,9 +3,7 @@ package com.baidu.tieba.view;
 import android.graphics.Bitmap;
 /* loaded from: classes.dex */
 class at {
-
-    /* renamed from: a  reason: collision with root package name */
-    public String f1515a;
+    public String a;
     public byte[] b;
     public Bitmap c;
     final /* synthetic */ aq d;

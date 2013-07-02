@@ -7,9 +7,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 import java.util.regex.Pattern;
 /* loaded from: classes.dex */
 public class BdNetWorkCore {
-
-    /* renamed from: a  reason: collision with root package name */
-    private static String f175a = "\r\n";
+    private static String a = "\r\n";
     private static String b = "--";
     private static String c = "--------7da3d81520810*";
     private static int d = 2097152;

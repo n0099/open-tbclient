@@ -16,9 +16,7 @@ import java.util.ArrayList;
 import org.apache.http.message.BasicNameValuePair;
 /* loaded from: classes.dex */
 public class r {
-
-    /* renamed from: a  reason: collision with root package name */
-    private NetWorkCore f1467a = null;
+    private NetWorkCore a = null;
     private NetWorkCore b = null;
     private boolean c = false;
     private boolean d = true;
@@ -26,7 +24,7 @@ public class r {
     private int f = 0;
 
     private void m() {
-        this.f1467a = new NetWorkCore();
+        this.a = new NetWorkCore();
         this.b = null;
         this.c = false;
         this.d = true;
@@ -37,7 +35,7 @@ public class r {
     }
 
     public void a(boolean z) {
-        this.f1467a.a(z);
+        this.a.a(z);
     }
 
     public void b(boolean z) {
@@ -46,51 +44,51 @@ public class r {
 
     public r(String str) {
         m();
-        this.f1467a.a(str);
+        this.a.a(str);
     }
 
     public r(Context context, String str) {
         m();
-        this.f1467a.b(context);
-        this.f1467a.a(str);
+        this.a.b(context);
+        this.a.a(str);
     }
 
     public void a(String str) {
-        this.f1467a.a(str);
+        this.a.a(str);
     }
 
     public String a() {
-        return this.f1467a.f();
+        return this.a.f();
     }
 
     public void a(Context context) {
-        this.f1467a.b(context);
+        this.a.b(context);
     }
 
     public void a(ArrayList arrayList) {
-        this.f1467a.a(arrayList);
+        this.a.a(arrayList);
     }
 
     public void a(String str, String str2) {
-        this.f1467a.a(str, str2);
+        this.a.a(str, str2);
     }
 
     public void a(BasicNameValuePair basicNameValuePair) {
-        this.f1467a.a(basicNameValuePair);
+        this.a.a(basicNameValuePair);
     }
 
     public void a(String str, byte[] bArr) {
-        this.f1467a.a(str, bArr);
+        this.a.a(str, bArr);
     }
 
     public void c(boolean z) {
-        this.f1467a.b(z);
+        this.a.b(z);
     }
 
     private void n() {
         String F = TiebaApplication.F();
         if (F != null) {
-            this.f1467a.a("BDUSS", F);
+            this.a.a("BDUSS", F);
         }
     }
 
@@ -101,7 +99,7 @@ public class r {
         z.a("NetWork", "modSessionData", "== BDUSS:" + F);
         z.a("NetWork", "modSessionData", "== TBS:" + TiebaApplication.f().O());
         if (F != null) {
-            ArrayList t = this.f1467a.t();
+            ArrayList t = this.a.t();
             int size = t.size();
             for (int i = 0; i < size; i++) {
                 BasicNameValuePair basicNameValuePair3 = (BasicNameValuePair) t.get(i);
@@ -115,36 +113,36 @@ public class r {
     }
 
     public int b() {
-        return this.f1467a.p();
+        return this.a.p();
     }
 
     private void p() {
-        this.f1467a.a("_client_type", "2");
-        this.f1467a.a("_client_version", com.baidu.tieba.data.g.i());
+        this.a.a("_client_type", "2");
+        this.a.a("_client_version", com.baidu.tieba.data.g.i());
         if (TiebaApplication.f().p() != null) {
-            this.f1467a.a("_phone_imei", TiebaApplication.f().p());
+            this.a.a("_phone_imei", TiebaApplication.f().p());
         }
         String P = TiebaApplication.P();
         if (P != null) {
-            this.f1467a.a("_client_id", P);
+            this.a.a("_client_id", P);
         }
         String y = TiebaApplication.y();
         if (y != null && y.length() > 0) {
-            this.f1467a.a("from", y);
+            this.a.a("from", y);
         }
-        String b = this.f1467a.b();
+        String b = this.a.b();
         if (b != null) {
-            this.f1467a.a("net_type", b);
+            this.a.a("net_type", b);
         }
         if (this.c) {
-            this.f1467a.a("tbs", TiebaApplication.f().O());
+            this.a.a("tbs", TiebaApplication.f().O());
         }
         String o = TiebaApplication.f().o();
         if (o != null) {
-            this.f1467a.a("cuid", o);
+            this.a.a("cuid", o);
         }
-        this.f1467a.a("timestamp", Long.toString(System.currentTimeMillis()));
-        this.f1467a.a("model", Build.MODEL);
+        this.a.a("timestamp", Long.toString(System.currentTimeMillis()));
+        this.a.a("model", Build.MODEL);
     }
 
     private void q() {
@@ -152,39 +150,39 @@ public class r {
             this.e = NetWorkCore.a();
         }
         if (this.e != null) {
-            this.f1467a.a("stTime", String.valueOf(this.e.b));
-            this.f1467a.a("stSize", String.valueOf(this.e.c));
-            this.f1467a.a("stTimesNum", String.valueOf(this.e.d));
-            this.f1467a.a("stMode", String.valueOf(this.e.e));
-            this.f1467a.a("stMethod", String.valueOf(this.e.f1470a));
+            this.a.a("stTime", String.valueOf(this.e.b));
+            this.a.a("stSize", String.valueOf(this.e.c));
+            this.a.a("stTimesNum", String.valueOf(this.e.d));
+            this.a.a("stMode", String.valueOf(this.e.e));
+            this.a.a("stMethod", String.valueOf(this.e.a));
         }
         this.f = NetWorkCore.a(0);
-        this.f1467a.a("stErrorNums", String.valueOf(this.f));
+        this.a.a("stErrorNums", String.valueOf(this.f));
     }
 
     public boolean c() {
-        return this.f1467a.g();
+        return this.a.g();
     }
 
     public boolean d() {
-        return this.f1467a.h();
+        return this.a.h();
     }
 
     public int e() {
-        return this.f1467a.i();
+        return this.a.i();
     }
 
     public String f() {
-        return this.f1467a.b();
+        return this.a.b();
     }
 
     public String g() {
-        return this.f1467a.j();
+        return this.a.j();
     }
 
     public void h() {
-        if (this.f1467a != null) {
-            this.f1467a.l();
+        if (this.a != null) {
+            this.a.l();
         }
         if (this.b != null) {
             this.b.l();
@@ -196,7 +194,7 @@ public class r {
         try {
             z.a(getClass().toString(), "login", "=== need auto login");
             StringBuilder sb = new StringBuilder(32);
-            sb.append(com.baidu.tieba.data.g.f787a);
+            sb.append(com.baidu.tieba.data.g.a);
             sb.append("c/s/login");
             ArrayList arrayList = new ArrayList();
             arrayList.add(new BasicNameValuePair("un", str));
@@ -210,7 +208,7 @@ public class r {
             this.b.a(sb.toString());
             this.b.a(arrayList);
             this.b.a((Boolean) true);
-            this.b.b(this.f1467a.s());
+            this.b.b(this.a.s());
             o = this.b.o();
         } catch (Exception e) {
             z.b(getClass().toString(), "login", e.getMessage());
@@ -263,7 +261,7 @@ public class r {
 
     public byte[] i() {
         p();
-        return this.f1467a.m();
+        return this.a.m();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -278,31 +276,31 @@ public class r {
             case 1:
                 p();
                 q();
-                q = this.f1467a.n();
+                q = this.a.n();
                 break;
             case 2:
                 n();
                 p();
                 q();
-                q = this.f1467a.o();
+                q = this.a.o();
                 break;
             case 3:
                 n();
                 p();
-                q = this.f1467a.q();
+                q = this.a.q();
                 break;
             default:
                 return null;
         }
-        if (!this.f1467a.h()) {
+        if (!this.a.h()) {
             NetWorkCore.a(this.e);
             NetWorkCore.b(this.f);
             return q;
-        } else if (this.f1467a.g()) {
+        } else if (this.a.g()) {
             return q;
         } else {
-            if (this.f1467a.i() == 1 && this.d) {
-                this.f1467a.k();
+            if (this.a.i() == 1 && this.d) {
+                this.a.k();
                 if (TiebaApplication.n()) {
                     String backgroundReLogin = BaiduAccount.get(TiebaApplication.f()).backgroundReLogin(TiebaApplication.H(), TiebaApplication.F(), new s(this), new t(this));
                     if (backgroundReLogin != null) {
@@ -322,7 +320,7 @@ public class r {
                         return null;
                     } else if (a(G.getAccount(), G.getPassword(), true) == null) {
                         if (this.b != null) {
-                            this.f1467a.b(this.b.j());
+                            this.a.b(this.b.j());
                             return null;
                         }
                         return null;
@@ -339,11 +337,11 @@ public class r {
         o();
         switch (i) {
             case 1:
-                return this.f1467a.n();
+                return this.a.n();
             case 2:
-                return this.f1467a.o();
+                return this.a.o();
             case 3:
-                return this.f1467a.q();
+                return this.a.q();
             default:
                 return null;
         }
@@ -382,12 +380,12 @@ public class r {
     }
 
     public boolean l() {
-        return this.f1467a.r();
+        return this.a.r();
     }
 
     public Boolean a(String str, Handler handler, int i) {
         n();
-        return this.f1467a.a(str, handler, i);
+        return this.a.a(str, handler, i);
     }
 
     public void d(boolean z) {

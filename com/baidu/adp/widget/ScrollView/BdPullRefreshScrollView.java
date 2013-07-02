@@ -16,9 +16,7 @@ import com.baidu.mapapi.MKEvent;
 public class BdPullRefreshScrollView extends ScrollView {
     private static /* synthetic */ int[] y;
     private static /* synthetic */ int[] z;
-
-    /* renamed from: a  reason: collision with root package name */
-    protected FrameLayout f213a;
+    protected FrameLayout a;
     private int b;
     private State c;
     private Mode d;
@@ -172,7 +170,7 @@ public class BdPullRefreshScrollView extends ScrollView {
         this.f = obtainStyledAttributes.getInteger(4, 200);
         this.g = obtainStyledAttributes.getInteger(5, 200);
         LayoutInflater.from(context).inflate(com.baidu.adp.f.adp_pull_refresh_scroll_view, (ViewGroup) this, true);
-        this.f213a = (FrameLayout) findViewById(com.baidu.adp.e.content_ly);
+        this.a = (FrameLayout) findViewById(com.baidu.adp.e.content_ly);
         this.j = (FrameLayout) findViewById(com.baidu.adp.e.head_ly);
         this.k = (FrameLayout) findViewById(com.baidu.adp.e.foot_ly);
         setCustomHeaderView(cVar);
@@ -287,7 +285,7 @@ public class BdPullRefreshScrollView extends ScrollView {
     }
 
     public void setContentView(View view) {
-        this.f213a.addView(view);
+        this.a.addView(view);
     }
 
     public final void setMode(Mode mode) {
@@ -397,9 +395,9 @@ public class BdPullRefreshScrollView extends ScrollView {
             default:
                 return false;
             case 3:
-                return getScrollY() + getHeight() >= this.f213a.getHeight() + this.k.getHeight();
+                return getScrollY() + getHeight() >= this.a.getHeight() + this.k.getHeight();
             case 4:
-                return getScrollY() + getHeight() >= this.f213a.getHeight() + this.k.getHeight() && ((float) getHeadViewTopMargin()) == this.p;
+                return getScrollY() + getHeight() >= this.a.getHeight() + this.k.getHeight() && ((float) getHeadViewTopMargin()) == this.p;
         }
     }
 

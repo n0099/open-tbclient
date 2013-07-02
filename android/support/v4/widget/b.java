@@ -4,27 +4,25 @@ import android.database.Cursor;
 import android.widget.Filter;
 /* loaded from: classes.dex */
 class b extends Filter {
-
-    /* renamed from: a  reason: collision with root package name */
-    c f110a;
+    c a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(c cVar) {
-        this.f110a = cVar;
+        this.a = cVar;
     }
 
     @Override // android.widget.Filter
     public CharSequence convertResultToString(Object obj) {
-        return this.f110a.c((Cursor) obj);
+        return this.a.c((Cursor) obj);
     }
 
     @Override // android.widget.Filter
     protected Filter.FilterResults performFiltering(CharSequence charSequence) {
-        Cursor a2 = this.f110a.a(charSequence);
+        Cursor a = this.a.a(charSequence);
         Filter.FilterResults filterResults = new Filter.FilterResults();
-        if (a2 != null) {
-            filterResults.count = a2.getCount();
-            filterResults.values = a2;
+        if (a != null) {
+            filterResults.count = a.getCount();
+            filterResults.values = a;
         } else {
             filterResults.count = 0;
             filterResults.values = null;
@@ -34,9 +32,9 @@ class b extends Filter {
 
     @Override // android.widget.Filter
     protected void publishResults(CharSequence charSequence, Filter.FilterResults filterResults) {
-        Cursor a2 = this.f110a.a();
-        if (filterResults.values != null && filterResults.values != a2) {
-            this.f110a.a((Cursor) filterResults.values);
+        Cursor a = this.a.a();
+        if (filterResults.values != null && filterResults.values != a) {
+            this.a.a((Cursor) filterResults.values);
         }
     }
 }

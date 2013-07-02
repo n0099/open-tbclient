@@ -9,16 +9,14 @@ import com.baidu.tieba.model.WriteModel;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class r extends BdAsyncTask {
-
-    /* renamed from: a  reason: collision with root package name */
-    volatile com.baidu.tieba.util.r f1596a;
+    volatile com.baidu.tieba.util.r a;
     be b;
     final /* synthetic */ VcodeActivity c;
     private volatile boolean d;
 
     private r(VcodeActivity vcodeActivity) {
         this.c = vcodeActivity;
-        this.f1596a = null;
+        this.a = null;
         this.b = null;
         this.d = false;
     }
@@ -32,8 +30,8 @@ public class r extends BdAsyncTask {
     public void cancel() {
         ProgressBar progressBar;
         this.c.j = null;
-        if (this.f1596a != null) {
-            this.f1596a.h();
+        if (this.a != null) {
+            this.a.h();
         }
         this.d = true;
         progressBar = this.c.f;
@@ -51,24 +49,24 @@ public class r extends BdAsyncTask {
         WriteModel writeModel4;
         String str = strArr[0];
         if (str == null || str.length() <= 0) {
-            this.f1596a = new com.baidu.tieba.util.r(String.valueOf(com.baidu.tieba.data.g.f787a) + "c/f/anti/vcode");
-            com.baidu.tieba.util.r rVar = this.f1596a;
-            writeModel = this.c.f1549a;
+            this.a = new com.baidu.tieba.util.r(String.valueOf(com.baidu.tieba.data.g.a) + "c/f/anti/vcode");
+            com.baidu.tieba.util.r rVar = this.a;
+            writeModel = this.c.a;
             rVar.a("fid", writeModel.getForumId());
-            com.baidu.tieba.util.r rVar2 = this.f1596a;
-            writeModel2 = this.c.f1549a;
+            com.baidu.tieba.util.r rVar2 = this.a;
+            writeModel2 = this.c.a;
             rVar2.a("kw", writeModel2.getForumName());
-            writeModel3 = this.c.f1549a;
+            writeModel3 = this.c.a;
             if (writeModel3.getType() == 0) {
-                this.f1596a.a("pub_type", "1");
+                this.a.a("pub_type", "1");
             } else {
-                this.f1596a.a("pub_type", "2");
-                com.baidu.tieba.util.r rVar3 = this.f1596a;
-                writeModel4 = this.c.f1549a;
+                this.a.a("pub_type", "2");
+                com.baidu.tieba.util.r rVar3 = this.a;
+                writeModel4 = this.c.a;
                 rVar3.a("tid", writeModel4.getThreadId());
             }
-            String j = this.f1596a.j();
-            if (!this.f1596a.c()) {
+            String j = this.a.j();
+            if (!this.a.c()) {
                 return null;
             }
             this.b = new be();
@@ -78,8 +76,8 @@ public class r extends BdAsyncTask {
         if (this.d) {
             return null;
         }
-        this.f1596a = new com.baidu.tieba.util.r(str);
-        return com.baidu.tieba.util.d.a(this.f1596a.i());
+        this.a = new com.baidu.tieba.util.r(str);
+        return com.baidu.tieba.util.d.a(this.a.i());
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -98,9 +96,9 @@ public class r extends BdAsyncTask {
         progressBar = this.c.f;
         progressBar.setVisibility(8);
         if (this.b != null) {
-            writeModel = this.c.f1549a;
+            writeModel = this.c.a;
             writeModel.setVcodeMD5(this.b.a());
-            writeModel2 = this.c.f1549a;
+            writeModel2 = this.c.a;
             writeModel2.setVcodeUrl(this.b.b());
         }
         super.a((Object) bitmap);

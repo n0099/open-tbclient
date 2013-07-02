@@ -8,12 +8,10 @@ import com.slidingmenu.lib.R;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 class q extends android.support.v4.view.ae {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ GuideActivity f1379a;
+    final /* synthetic */ GuideActivity a;
 
     private q(GuideActivity guideActivity) {
-        this.f1379a = guideActivity;
+        this.a = guideActivity;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -24,7 +22,7 @@ class q extends android.support.v4.view.ae {
     @Override // android.support.v4.view.ae
     public int getCount() {
         int[] iArr;
-        iArr = this.f1379a.c;
+        iArr = this.a.c;
         return iArr.length;
     }
 
@@ -35,20 +33,20 @@ class q extends android.support.v4.view.ae {
         Button button;
         ArrayList arrayList3;
         Button button2;
-        arrayList = this.f1379a.d;
+        arrayList = this.a.d;
         if (i < arrayList.size()) {
-            arrayList2 = this.f1379a.d;
+            arrayList2 = this.a.d;
             ((ViewPager) view).addView((View) arrayList2.get(i), 0);
-            this.f1379a.g = (Button) this.f1379a.findViewById(R.id.st_button);
-            button = this.f1379a.g;
+            this.a.g = (Button) this.a.findViewById(R.id.st_button);
+            button = this.a.g;
             if (button != null) {
-                button2 = this.f1379a.g;
-                button2.setOnClickListener(this.f1379a.f613a);
+                button2 = this.a.g;
+                button2.setOnClickListener(this.a.a);
             }
-            arrayList3 = this.f1379a.d;
+            arrayList3 = this.a.d;
             return arrayList3.get(i);
         }
-        View view2 = new View(this.f1379a);
+        View view2 = new View(this.a);
         view2.setBackgroundColor(-1);
         ((ViewPager) view).addView(view2, 0);
         return view2;

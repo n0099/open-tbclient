@@ -6,13 +6,11 @@ import com.baidu.tieba.util.z;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class l extends BdAsyncTask {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ BarFolderSecondDirActivity f1437a;
+    final /* synthetic */ BarFolderSecondDirActivity a;
     private r b;
 
     private l(BarFolderSecondDirActivity barFolderSecondDirActivity) {
-        this.f1437a = barFolderSecondDirActivity;
+        this.a = barFolderSecondDirActivity;
         this.b = null;
     }
 
@@ -30,37 +28,37 @@ public class l extends BdAsyncTask {
         String str;
         String str2;
         String str3;
-        mVar = this.f1437a.k;
-        p a2 = mVar.a();
+        mVar = this.a.k;
+        p a = mVar.a();
         try {
-            this.b = new r(String.valueOf(com.baidu.tieba.data.g.f787a) + "c/f/forum/seconddir");
+            this.b = new r(String.valueOf(com.baidu.tieba.data.g.a) + "c/f/forum/seconddir");
             r rVar = this.b;
-            str = this.f1437a.n;
+            str = this.a.n;
             rVar.a("menu_name", str);
             r rVar2 = this.b;
-            str2 = this.f1437a.o;
+            str2 = this.a.o;
             rVar2.a("menu_type", str2);
             r rVar3 = this.b;
-            str3 = this.f1437a.p;
+            str3 = this.a.p;
             rVar3.a("menu_id", str3);
             String j = this.b.j();
             if (this.b.c()) {
-                a2.b(j);
+                a.b(j);
             } else {
-                a2.a(this.b.g());
+                a.a(this.b.g());
             }
         } catch (Exception e) {
-            a2.a(e.getMessage());
+            a.a(e.getMessage());
             z.b(getClass().getName(), "doInBackground", e.getMessage());
         }
-        return a2;
+        return a;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void a(p pVar) {
-        this.f1437a.a(pVar, false);
+        this.a.a(pVar, false);
     }
 
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
@@ -70,6 +68,6 @@ public class l extends BdAsyncTask {
             this.b.h();
             this.b = null;
         }
-        this.f1437a.a((p) null, true);
+        this.a.a((p) null, true);
     }
 }

@@ -9,19 +9,17 @@ import android.widget.ListAdapter;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public class n {
-
-    /* renamed from: a  reason: collision with root package name */
-    private View f1525a;
+    private View a;
     private GoodGridView b;
     private Activity c;
 
     public n(Activity activity) {
-        this.f1525a = null;
+        this.a = null;
         this.b = null;
         this.c = null;
         this.c = activity;
-        this.f1525a = LayoutInflater.from(activity).inflate(R.layout.dialog_good, (ViewGroup) null);
-        this.b = (GoodGridView) this.f1525a.findViewById(R.id.good_gridview);
+        this.a = LayoutInflater.from(activity).inflate(R.layout.dialog_good, (ViewGroup) null);
+        this.b = (GoodGridView) this.a.findViewById(R.id.good_gridview);
     }
 
     public void a(com.baidu.tieba.frs.ag agVar) {
@@ -33,19 +31,19 @@ public class n {
     }
 
     public View a() {
-        return this.f1525a;
+        return this.a;
     }
 
     public void a(int i) {
-        int a2 = com.baidu.tieba.util.ab.a(this.c, 10.0f);
+        int a = com.baidu.tieba.util.ab.a(this.c, 10.0f);
         if (i == 1) {
             this.b.setBackgroundResource(R.drawable.bg_topbar_1);
-            this.b.setPadding(0, a2, 0, a2);
+            this.b.setPadding(0, a, 0, a);
             return;
         }
         this.b.setBackgroundDrawable(null);
         this.b.setBackgroundColor(-1);
-        this.b.setPadding(0, a2, 0, a2);
+        this.b.setPadding(0, a, 0, a);
     }
 
     public void b() {

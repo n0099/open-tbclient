@@ -4,9 +4,7 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class m {
-
-    /* renamed from: a  reason: collision with root package name */
-    public aq f793a;
+    public aq a;
     public bc b;
     private ab c;
     private com.baidu.tieba.square.f d;
@@ -36,7 +34,7 @@ public class m {
             JSONArray optJSONArray = jSONObject.optJSONArray("like_forum");
             JSONObject optJSONObject = jSONObject.optJSONObject("recommend");
             JSONArray optJSONArray2 = jSONObject.optJSONArray("topic");
-            this.f793a = new aq(optJSONObject);
+            this.a = new aq(optJSONObject);
             this.b = new bc(optJSONArray2);
             this.c = new ab();
             this.c.a(optJSONArray);
@@ -58,7 +56,7 @@ public class m {
     }
 
     public aq c() {
-        return this.f793a;
+        return this.a;
     }
 
     public bc d() {
@@ -76,7 +74,7 @@ public class m {
     public boolean g() {
         boolean z = false;
         if (this.e) {
-            if (this.f793a == null || this.b == null || this.c == null || this.d == null) {
+            if (this.a == null || this.b == null || this.c == null || this.d == null) {
                 z = true;
             }
             return z;

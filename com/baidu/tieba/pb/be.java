@@ -4,13 +4,11 @@ import android.os.Handler;
 import android.widget.AbsListView;
 /* loaded from: classes.dex */
 class be implements AbsListView.OnScrollListener {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ NewPbActivity f1223a;
+    final /* synthetic */ NewPbActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public be(NewPbActivity newPbActivity) {
-        this.f1223a = newPbActivity;
+        this.a = newPbActivity;
     }
 
     @Override // android.widget.AbsListView.OnScrollListener
@@ -18,10 +16,10 @@ class be implements AbsListView.OnScrollListener {
         Handler handler;
         Handler handler2;
         Handler handler3;
-        handler = this.f1223a.g;
+        handler = this.a.g;
         handler.removeMessages(1);
-        handler2 = this.f1223a.g;
-        handler3 = this.f1223a.g;
+        handler2 = this.a.g;
+        handler3 = this.a.g;
         handler2.sendMessageDelayed(handler3.obtainMessage(1), 300L);
     }
 

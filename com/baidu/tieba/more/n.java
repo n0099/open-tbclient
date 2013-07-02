@@ -14,15 +14,13 @@ import com.slidingmenu.lib.R;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class n extends BaseAdapter {
-
-    /* renamed from: a  reason: collision with root package name */
-    private Context f1102a;
+    private Context a;
     private View.OnClickListener d;
     private ArrayList c = null;
     private boolean b = false;
 
     public n(Context context, View.OnClickListener onClickListener) {
-        this.f1102a = context;
+        this.a = context;
         this.d = onClickListener;
     }
 
@@ -66,11 +64,11 @@ public class n extends BaseAdapter {
         try {
             try {
                 if (view == null) {
-                    LayoutInflater from = LayoutInflater.from(this.f1102a);
+                    LayoutInflater from = LayoutInflater.from(this.a);
                     if (getItemViewType(i) == 0) {
                         view4 = from.inflate(R.layout.account_item, (ViewGroup) null);
                         oVar = new o(this, null);
-                        oVar.f1103a = (TextView) view4.findViewById(R.id.account);
+                        oVar.a = (TextView) view4.findViewById(R.id.account);
                         oVar.c = (ImageView) view4.findViewById(R.id.active);
                         oVar.d = (Button) view4.findViewById(R.id.delete);
                         oVar.d.setOnClickListener(this.d);
@@ -87,16 +85,16 @@ public class n extends BaseAdapter {
                 }
                 if (getItemViewType(i) == 0) {
                     if (TiebaApplication.f().at() == 1) {
-                        oVar.f1103a.setTextColor(com.baidu.tieba.util.x.a(1));
+                        oVar.a.setTextColor(com.baidu.tieba.util.x.a(1));
                     } else {
-                        oVar.f1103a.setTextColor(-12895429);
+                        oVar.a.setTextColor(-12895429);
                     }
                     AccountData accountData = (AccountData) getItem(i);
                     oVar.c.setVisibility(8);
                     oVar.d.setVisibility(8);
                     oVar.d.setTag(accountData);
                     if (accountData != null) {
-                        oVar.f1103a.setText(accountData.getAccount());
+                        oVar.a.setText(accountData.getAccount());
                         if (accountData.getIsActive() == 1) {
                             oVar.c.setVisibility(0);
                         }

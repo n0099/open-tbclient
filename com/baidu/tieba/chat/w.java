@@ -6,9 +6,7 @@ import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.data.AccountData;
 /* loaded from: classes.dex */
 public class w extends com.baidu.adp.a.c {
-
-    /* renamed from: a  reason: collision with root package name */
-    private String f740a;
+    private String a;
     private String b;
     private com.baidu.tieba.data.a.c h;
     private com.baidu.tieba.data.a.f l;
@@ -48,14 +46,14 @@ public class w extends com.baidu.adp.a.c {
     }
 
     public w() {
-        this.f740a = null;
+        this.a = null;
         this.b = null;
         this.h = null;
         this.l = null;
         AccountData G = TiebaApplication.G();
         if (G != null) {
             this.b = G.getID();
-            this.f740a = G.getAccount();
+            this.a = G.getAccount();
         }
         this.h = new com.baidu.tieba.data.a.c();
         this.l = com.baidu.tieba.data.a.f.a();

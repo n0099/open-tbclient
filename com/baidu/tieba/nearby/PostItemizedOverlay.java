@@ -15,9 +15,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes.dex */
 public class PostItemizedOverlay extends ItemizedOverlay {
-
-    /* renamed from: a  reason: collision with root package name */
-    private ArrayList f1121a;
+    private ArrayList a;
     private com.baidu.tieba.util.a b;
     private NearbyMapActivity c;
     private int d;
@@ -25,7 +23,7 @@ public class PostItemizedOverlay extends ItemizedOverlay {
 
     public PostItemizedOverlay(Context context, Drawable drawable) {
         super(drawable);
-        this.f1121a = null;
+        this.a = null;
         this.b = null;
         this.c = null;
         this.d = 0;
@@ -50,14 +48,14 @@ public class PostItemizedOverlay extends ItemizedOverlay {
 
     public void a(ArrayList arrayList) {
         if (arrayList != null) {
-            if (this.f1121a == null) {
-                this.f1121a = new ArrayList();
+            if (this.a == null) {
+                this.a = new ArrayList();
             } else {
-                this.f1121a.clear();
+                this.a.clear();
             }
             Iterator it = arrayList.iterator();
             while (it.hasNext()) {
-                this.f1121a.add(((MapPostItem) it.next()).getOverlayItem());
+                this.a.add(((MapPostItem) it.next()).getOverlayItem());
             }
             populate();
         }
@@ -65,10 +63,10 @@ public class PostItemizedOverlay extends ItemizedOverlay {
 
     public void a(MapOverlayItem mapOverlayItem) {
         if (mapOverlayItem != null) {
-            if (this.f1121a == null) {
-                this.f1121a = new ArrayList();
+            if (this.a == null) {
+                this.a = new ArrayList();
             }
-            this.f1121a.add(mapOverlayItem);
+            this.a.add(mapOverlayItem);
             populate();
         }
     }
@@ -77,8 +75,8 @@ public class PostItemizedOverlay extends ItemizedOverlay {
         MapOverlayItem mapOverlayItem;
         LayerDrawable layerDrawable = new LayerDrawable(new Drawable[]{this.c.getResources().getDrawable(R.drawable.nearby_head_bg), bVar.h()});
         layerDrawable.setLayerInset(1, this.d, this.d, this.d, this.d * 2);
-        for (int i = 0; i < this.f1121a.size(); i++) {
-            if (this.f1121a.get(i) != null && (mapOverlayItem = (MapOverlayItem) this.f1121a.get(i)) != null && mapOverlayItem.a() != null && mapOverlayItem.a().getAutor().getPortrait().equals(str)) {
+        for (int i = 0; i < this.a.size(); i++) {
+            if (this.a.get(i) != null && (mapOverlayItem = (MapOverlayItem) this.a.get(i)) != null && mapOverlayItem.a() != null && mapOverlayItem.a().getAutor().getPortrait().equals(str)) {
                 mapOverlayItem.setMarker(layerDrawable);
             }
         }
@@ -87,10 +85,10 @@ public class PostItemizedOverlay extends ItemizedOverlay {
 
     @Override // com.baidu.mapapi.ItemizedOverlay
     protected OverlayItem createItem(int i) {
-        if (this.f1121a == null || this.f1121a.size() <= i) {
+        if (this.a == null || this.a.size() <= i) {
             return null;
         }
-        return (OverlayItem) this.f1121a.get(i);
+        return (OverlayItem) this.a.get(i);
     }
 
     /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(r4v0 int)] */
@@ -98,11 +96,11 @@ public class PostItemizedOverlay extends ItemizedOverlay {
     @Override // com.baidu.mapapi.ItemizedOverlay
     public boolean onTap(int i) {
         com.baidu.tieba.util.z.a(getClass().getName(), "onTap", new StringBuilder().append(i).toString());
-        setFocus((OverlayItem) this.f1121a.get(i));
+        setFocus((OverlayItem) this.a.get(i));
         if (i == this.e && this.c.b() == 0) {
             this.c.a();
         } else {
-            this.c.a(((MapOverlayItem) this.f1121a.get(i)).a());
+            this.c.a(((MapOverlayItem) this.a.get(i)).a());
         }
         this.e = i;
         return true;
@@ -117,9 +115,9 @@ public class PostItemizedOverlay extends ItemizedOverlay {
 
     @Override // com.baidu.mapapi.ItemizedOverlay
     public int size() {
-        if (this.f1121a == null) {
+        if (this.a == null) {
             return 0;
         }
-        return this.f1121a.size();
+        return this.a.size();
     }
 }

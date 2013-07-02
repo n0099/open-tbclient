@@ -3,14 +3,12 @@ package com.baidu.tieba.home;
 import com.baidu.tieba.view.ADImageViewDrawer;
 /* loaded from: classes.dex */
 class bg implements com.baidu.tbadk.a.d {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ TopicPagerAdapter f922a;
+    final /* synthetic */ TopicPagerAdapter a;
     private final /* synthetic */ ADImageViewDrawer b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bg(TopicPagerAdapter topicPagerAdapter, ADImageViewDrawer aDImageViewDrawer) {
-        this.f922a = topicPagerAdapter;
+        this.a = topicPagerAdapter;
         this.b = aDImageViewDrawer;
     }
 

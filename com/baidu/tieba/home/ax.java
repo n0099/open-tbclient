@@ -13,9 +13,7 @@ import org.apache.http.message.BasicNameValuePair;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ax extends BdAsyncTask {
-
-    /* renamed from: a  reason: collision with root package name */
-    ArrayList f912a;
+    ArrayList a;
     final /* synthetic */ SearchActivity b;
     private com.baidu.tieba.util.r c = null;
     private String d;
@@ -23,9 +21,9 @@ public class ax extends BdAsyncTask {
     public ax(SearchActivity searchActivity, String str, ArrayList arrayList) {
         this.b = searchActivity;
         this.d = null;
-        this.f912a = null;
+        this.a = null;
         this.d = str;
-        this.f912a = arrayList;
+        this.a = arrayList;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -38,7 +36,7 @@ public class ax extends BdAsyncTask {
         textView = this.b.v;
         textView.setVisibility(8);
         SearchActivity searchActivity = this.b;
-        editText = this.b.f886a;
+        editText = this.b.a;
         com.baidu.tieba.util.ab.a(searchActivity, editText);
         listView = this.b.p;
         if (listView.getVisibility() != 0) {
@@ -57,7 +55,7 @@ public class ax extends BdAsyncTask {
         String str;
         try {
             this.c = new com.baidu.tieba.util.r(this.d);
-            Iterator it = this.f912a.iterator();
+            Iterator it = this.a.iterator();
             while (it.hasNext()) {
                 this.c.a((BasicNameValuePair) it.next());
             }

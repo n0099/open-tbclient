@@ -10,12 +10,10 @@ import java.util.HashMap;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class u extends BdAsyncTask {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ EditHeadActivity f1374a;
+    final /* synthetic */ EditHeadActivity a;
 
     private u(EditHeadActivity editHeadActivity) {
-        this.f1374a = editHeadActivity;
+        this.a = editHeadActivity;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -37,13 +35,13 @@ public class u extends BdAsyncTask {
             Bitmap c = com.baidu.tieba.util.m.c(null, "tieba_resized_image");
             try {
                 if (c.getWidth() > 600 || c.getHeight() > 600) {
-                    Bitmap a2 = com.baidu.tieba.util.d.a(c, 600);
+                    Bitmap a = com.baidu.tieba.util.d.a(c, 600);
                     try {
                         c.recycle();
-                        c = a2;
+                        c = a;
                     } catch (Exception e) {
                         e = e;
-                        bitmap = a2;
+                        bitmap = a;
                         com.baidu.tieba.util.z.b(getClass().getName(), "GetImageTask", e.toString());
                         return bitmap;
                     }
@@ -52,21 +50,21 @@ public class u extends BdAsyncTask {
                     c.recycle();
                     return null;
                 }
-                int a3 = com.baidu.tieba.util.ab.a(this.f1374a, 63.5f);
+                int a2 = com.baidu.tieba.util.ab.a(this.a, 63.5f);
                 if (Build.VERSION.SDK_INT >= 7) {
-                    z = this.f1374a.z;
+                    z = this.a.z;
                     if (z) {
-                        Bitmap a4 = com.baidu.tieba.util.d.a(com.baidu.tieba.util.d.b(c, a3), com.baidu.tieba.util.ab.a(this.f1374a, 5.0f));
-                        this.f1374a.E = new HashMap();
-                        this.f1374a.F = new HashMap();
-                        hashMap = this.f1374a.E;
-                        hashMap.put("normal", a4);
+                        Bitmap a3 = com.baidu.tieba.util.d.a(com.baidu.tieba.util.d.b(c, a2), com.baidu.tieba.util.ab.a(this.a, 5.0f));
+                        this.a.E = new HashMap();
+                        this.a.F = new HashMap();
+                        hashMap = this.a.E;
+                        hashMap.put("normal", a3);
                         strArr = EditHeadActivity.d;
                         for (String str : strArr) {
                             String substring = str.substring(0, str.indexOf("|"));
                             if (!substring.equals("normal")) {
-                                Bitmap apply = FilterFactory.createOneKeyFilter(this.f1374a, substring).apply(this.f1374a, a4.copy(a4.getConfig(), true));
-                                hashMap2 = this.f1374a.E;
+                                Bitmap apply = FilterFactory.createOneKeyFilter(this.a, substring).apply(this.a, a3.copy(a3.getConfig(), true));
+                                hashMap2 = this.a.E;
                                 hashMap2.put(substring, apply);
                             }
                         }
@@ -87,7 +85,7 @@ public class u extends BdAsyncTask {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void b() {
         ProgressBar progressBar;
-        progressBar = this.f1374a.n;
+        progressBar = this.a.n;
         progressBar.setVisibility(0);
         super.b();
     }
@@ -95,8 +93,8 @@ public class u extends BdAsyncTask {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void cancel() {
         ProgressBar progressBar;
-        this.f1374a.o = null;
-        progressBar = this.f1374a.n;
+        this.a.o = null;
+        progressBar = this.a.n;
         progressBar.setVisibility(8);
         super.cancel(true);
     }
@@ -110,17 +108,17 @@ public class u extends BdAsyncTask {
         boolean z;
         String[] strArr;
         super.a((Object) bitmap);
-        this.f1374a.o = null;
-        this.f1374a.f = bitmap;
-        progressBar = this.f1374a.n;
+        this.a.o = null;
+        this.a.f = bitmap;
+        progressBar = this.a.n;
         progressBar.setVisibility(8);
         if (bitmap != null && !bitmap.isRecycled() && bitmap != null) {
-            editHeadImageView = this.f1374a.e;
+            editHeadImageView = this.a.e;
             editHeadImageView.setImageBitmap(bitmap);
             if (Build.VERSION.SDK_INT >= 7) {
-                z = this.f1374a.z;
+                z = this.a.z;
                 if (z) {
-                    EditHeadActivity editHeadActivity = this.f1374a;
+                    EditHeadActivity editHeadActivity = this.a;
                     strArr = EditHeadActivity.d;
                     editHeadActivity.a(strArr);
                 }

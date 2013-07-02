@@ -3,9 +3,7 @@ package com.baidu.adp.lib.gif;
 import android.graphics.Bitmap;
 /* loaded from: classes.dex */
 public class c {
-
-    /* renamed from: a  reason: collision with root package name */
-    public Bitmap f172a;
+    public Bitmap a;
     public int b;
     public String c;
     public c d;
@@ -13,7 +11,7 @@ public class c {
     public c(Bitmap bitmap, int i) {
         this.c = null;
         this.d = null;
-        this.f172a = bitmap;
+        this.a = bitmap;
         this.b = i;
     }
 

@@ -6,13 +6,11 @@ import android.widget.ListView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class l implements AdapterView.OnItemLongClickListener {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ h f990a;
+    final /* synthetic */ h a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public l(h hVar) {
-        this.f990a = hVar;
+        this.a = hVar;
     }
 
     @Override // android.widget.AdapterView.OnItemLongClickListener
@@ -20,9 +18,9 @@ public class l implements AdapterView.OnItemLongClickListener {
         o oVar;
         com.baidu.tieba.data.q qVar = (com.baidu.tieba.data.q) ((ListView) adapterView).getAdapter().getItem(i);
         if (qVar != null) {
-            oVar = this.f990a.q;
+            oVar = this.a.q;
             oVar.a(qVar);
-            this.f990a.a(qVar);
+            this.a.a(qVar);
             return true;
         }
         return true;

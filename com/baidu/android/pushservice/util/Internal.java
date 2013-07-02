@@ -8,22 +8,50 @@ public final class Internal implements NoProGuard {
     }
 
     public static Intent createBdussInent(Context context) {
-        return n.e(context);
+        return d.h(context);
+    }
+
+    public static void disableApplist(Context context) {
+        d.a(context, false);
+    }
+
+    public static void disableBdServer(Context context) {
+        d.b(context, false);
     }
 
     public static void disablePushConnection(Context context) {
-        n.b(context, false);
+        d.d(context, false);
     }
 
     public static void disablePushService(Context context) {
-        n.a(context, false);
+        d.c(context, false);
+    }
+
+    public static void enableApplist(Context context) {
+        d.a(context, true);
+    }
+
+    public static void enableBdServer(Context context) {
+        d.b(context, true);
     }
 
     public static void enablePushConnection(Context context) {
-        n.b(context, true);
+        d.d(context, true);
     }
 
     public static void enablePushService(Context context) {
-        n.a(context, true);
+        d.c(context, true);
+    }
+
+    public static boolean isDisableApps(Context context) {
+        return d.f(context, context.getPackageName());
+    }
+
+    public static boolean isDisableBdServer(Context context) {
+        return d.g(context, context.getPackageName());
+    }
+
+    public static boolean isDisableService(Context context) {
+        return d.c(context);
     }
 }

@@ -11,9 +11,7 @@ import com.baidu.tieba.TiebaApplication;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public class FrsStarImageView extends ImageView {
-
-    /* renamed from: a  reason: collision with root package name */
-    private Matrix f1486a;
+    private Matrix a;
     private Paint b;
     private int c;
     private com.baidu.adp.widget.a.b d;
@@ -25,7 +23,7 @@ public class FrsStarImageView extends ImageView {
 
     public FrsStarImageView(Context context) {
         super(context);
-        this.f1486a = new Matrix();
+        this.a = new Matrix();
         this.b = new Paint();
         this.c = 0;
         this.d = null;
@@ -34,7 +32,7 @@ public class FrsStarImageView extends ImageView {
 
     public FrsStarImageView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f1486a = new Matrix();
+        this.a = new Matrix();
         this.b = new Paint();
         this.c = 0;
         this.d = null;
@@ -43,7 +41,7 @@ public class FrsStarImageView extends ImageView {
 
     public FrsStarImageView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.f1486a = new Matrix();
+        this.a = new Matrix();
         this.b = new Paint();
         this.c = 0;
         this.d = null;
@@ -90,17 +88,17 @@ public class FrsStarImageView extends ImageView {
             bVar = c;
         }
         if (bVar != null) {
-            int a2 = bVar.a();
+            int a = bVar.a();
             int b = bVar.b();
             int width = getWidth();
             int height = getHeight();
-            if (a2 != 0 && b != 0 && width != 0 && height != 0) {
-                int a3 = this.c == 1 ? com.baidu.tieba.util.ab.a(getContext(), 3.0f) : 0;
-                this.f1486a.setScale((width - (a3 * 2)) / a2, (height - (a3 * 2)) / b);
-                this.f1486a.postTranslate(a3, a3);
+            if (a != 0 && b != 0 && width != 0 && height != 0) {
+                int a2 = this.c == 1 ? com.baidu.tieba.util.ab.a(getContext(), 3.0f) : 0;
+                this.a.setScale((width - (a2 * 2)) / a, (height - (a2 * 2)) / b);
+                this.a.postTranslate(a2, a2);
                 canvas.drawColor(0);
-                bVar.a(canvas, this.f1486a, this.b);
-                this.f1486a.reset();
+                bVar.a(canvas, this.a, this.b);
+                this.a.reset();
             }
         }
     }

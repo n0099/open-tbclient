@@ -16,9 +16,7 @@ import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public class AboutActivity extends com.baidu.tieba.g {
     private ImageView o;
-
-    /* renamed from: a */
-    private TextView f1071a = null;
+    private TextView a = null;
     private TextView b = null;
     private ImageView c = null;
     private Button d = null;
@@ -48,8 +46,8 @@ public class AboutActivity extends com.baidu.tieba.g {
         this.b = (TextView) findViewById(R.id.author);
         this.m = (TextView) findViewById(R.id.info);
         this.n = (ImageView) findViewById(R.id.divider);
-        this.f1071a = (TextView) findViewById(R.id.version);
-        this.f1071a.setText(String.valueOf(getString(R.string.app_name)) + " Android " + com.baidu.tieba.data.g.i());
+        this.a = (TextView) findViewById(R.id.version);
+        this.a.setText(String.valueOf(getString(R.string.app_name)) + " Android " + com.baidu.tieba.data.g.i());
         this.c = (ImageView) findViewById(R.id.title_back);
         this.c.setOnClickListener(new a(this));
         this.d = (Button) findViewById(R.id.check_update_button);
@@ -81,13 +79,13 @@ public class AboutActivity extends com.baidu.tieba.g {
         com.baidu.tieba.util.x.a(this.c, i);
         com.baidu.tieba.util.x.f(this.l, i);
         if (i == 1) {
-            this.f1071a.setTextColor(com.baidu.tieba.util.x.a(i));
+            this.a.setTextColor(com.baidu.tieba.util.x.a(i));
             this.b.setTextColor(com.baidu.tieba.util.x.a(i));
             this.m.setTextColor(com.baidu.tieba.util.x.a(i));
             this.n.setImageResource(R.drawable.list_divider_1);
             return;
         }
-        this.f1071a.setTextColor(getResources().getColor(17170444));
+        this.a.setTextColor(getResources().getColor(17170444));
         this.b.setTextColor(getResources().getColor(17170444));
         this.m.setTextColor(getResources().getColor(17170444));
         this.n.setImageResource(R.drawable.list_divider);

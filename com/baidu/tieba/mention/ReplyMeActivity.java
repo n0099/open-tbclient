@@ -10,9 +10,7 @@ import com.baidu.tieba.TiebaApplication;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public class ReplyMeActivity extends com.baidu.tieba.g {
-
-    /* renamed from: a  reason: collision with root package name */
-    private h f977a = null;
+    private h a = null;
     private ListView b = null;
     private TextView c = null;
 
@@ -21,16 +19,16 @@ public class ReplyMeActivity extends com.baidu.tieba.g {
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         setContentView(R.layout.reply_me_activity);
-        this.f977a = new h(this, 0, new aa(this));
+        this.a = new h(this, 0, new aa(this));
         this.b = (ListView) findViewById(R.id.replyme_lv);
-        this.f977a.a(this.b);
-        this.f977a.a((ProgressBar) findViewById(R.id.mention_progress_replyme));
-        this.f977a.a((FrameLayout) findViewById(R.id.mention_layout_replyme));
-        this.f977a.a(R.string.mention_replyme_nodata);
+        this.a.a(this.b);
+        this.a.a((ProgressBar) findViewById(R.id.mention_progress_replyme));
+        this.a.a((FrameLayout) findViewById(R.id.mention_layout_replyme));
+        this.a.a(R.string.mention_replyme_nodata);
         this.c = (TextView) findViewById(R.id.reply_nodata);
-        this.f977a.a(this.c);
-        this.f977a.a("c/u/feed/replyme");
-        this.f977a.c();
+        this.a.a(this.c);
+        this.a.a("c/u/feed/replyme");
+        this.a.c();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -52,12 +50,12 @@ public class ReplyMeActivity extends com.baidu.tieba.g {
     public void onResume() {
         super.onResume();
         if (TiebaApplication.f().ad() > 0) {
-            this.f977a.b(2);
+            this.a.b(2);
         } else {
-            this.f977a.b(1);
+            this.a.b(1);
         }
-        this.f977a.d();
-        this.f977a.e();
+        this.a.d();
+        this.a.e();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -65,9 +63,9 @@ public class ReplyMeActivity extends com.baidu.tieba.g {
     public void onDestroy() {
         super.onDestroy();
         try {
-            if (this.f977a != null) {
-                this.f977a.f();
-                this.f977a.a();
+            if (this.a != null) {
+                this.a.f();
+                this.a.a();
             }
             System.gc();
         } catch (Exception e) {
@@ -76,6 +74,6 @@ public class ReplyMeActivity extends com.baidu.tieba.g {
     }
 
     public void b() {
-        this.f977a.b();
+        this.a.b();
     }
 }

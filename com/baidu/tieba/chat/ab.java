@@ -6,13 +6,11 @@ import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ab extends BdAsyncTask {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ aa f715a;
+    final /* synthetic */ aa a;
     private com.baidu.tieba.a.a b = null;
 
     public ab(aa aaVar) {
-        this.f715a = aaVar;
+        this.a = aaVar;
         setPriority(3);
     }
 
@@ -22,9 +20,9 @@ public class ab extends BdAsyncTask {
         ac acVar;
         ac acVar2;
         super.b();
-        acVar = this.f715a.c;
+        acVar = this.a.c;
         if (acVar != null) {
-            acVar2 = this.f715a.c;
+            acVar2 = this.a.c;
             acVar2.a();
         }
     }
@@ -42,31 +40,31 @@ public class ab extends BdAsyncTask {
         com.baidu.tieba.data.a.f fVar;
         this.b = new com.baidu.tieba.a.a();
         com.baidu.tieba.a.a aVar = this.b;
-        eVar = this.f715a.f714a;
-        String a2 = aVar.a(eVar);
-        com.baidu.tieba.util.z.a(getClass().getName(), "postData", a2);
+        eVar = this.a.a;
+        String a = aVar.a(eVar);
+        com.baidu.tieba.util.z.a(getClass().getName(), "postData", a);
         com.baidu.tieba.data.a.c cVar = new com.baidu.tieba.data.a.c();
-        eVar2 = this.f715a.f714a;
+        eVar2 = this.a.a;
         cVar.a(eVar2.b());
-        eVar3 = this.f715a.f714a;
+        eVar3 = this.a.a;
         cVar.b(eVar3.c());
         try {
-            com.baidu.tieba.data.a.d a3 = com.baidu.tieba.data.a.d.a();
-            eVar4 = this.f715a.f714a;
-            a3.b(eVar4.b());
-            eVar5 = this.f715a.f714a;
-            a3.a(eVar5.c());
-            JSONObject jSONObject = new JSONObject(a2);
-            a3.a(jSONObject.optJSONObject(PushConstants.EXTRA_PUSH_MESSAGE));
+            com.baidu.tieba.data.a.d a2 = com.baidu.tieba.data.a.d.a();
+            eVar4 = this.a.a;
+            a2.b(eVar4.b());
+            eVar5 = this.a.a;
+            a2.a(eVar5.c());
+            JSONObject jSONObject = new JSONObject(a);
+            a2.a(jSONObject.optJSONObject(PushConstants.EXTRA_PUSH_MESSAGE));
             cVar.a(jSONObject.optJSONObject("recent"));
             if (cVar.d().size() > 0) {
-                if (!cVar.c() && ((com.baidu.tieba.data.a.d) cVar.d().getLast()).b() != a3.b()) {
-                    cVar.a(a3);
+                if (!cVar.c() && ((com.baidu.tieba.data.a.d) cVar.d().getLast()).b() != a2.b()) {
+                    cVar.a(a2);
                 }
             } else {
-                cVar.a(a3);
+                cVar.a(a2);
             }
-            fVar = this.f715a.d;
+            fVar = this.a.d;
             fVar.a(cVar.d());
         } catch (Exception e) {
             com.baidu.tieba.util.z.b(getClass().getName(), "doInBackground", e.toString());
@@ -80,7 +78,7 @@ public class ab extends BdAsyncTask {
         if (this.b != null) {
             this.b.a();
         }
-        this.f715a.b = null;
+        this.a.b = null;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -96,25 +94,25 @@ public class ab extends BdAsyncTask {
         super.a((Object) cVar);
         if (this.b != null) {
             if (!this.b.b()) {
-                acVar = this.f715a.c;
+                acVar = this.a.c;
                 if (acVar != null) {
-                    acVar2 = this.f715a.c;
+                    acVar2 = this.a.c;
                     acVar2.a(false, this.b.c(), null);
                 }
             } else if (this.b.d() == 0) {
-                acVar5 = this.f715a.c;
+                acVar5 = this.a.c;
                 if (acVar5 != null) {
-                    acVar6 = this.f715a.c;
+                    acVar6 = this.a.c;
                     acVar6.a(true, null, cVar);
                 }
             } else {
-                acVar3 = this.f715a.c;
+                acVar3 = this.a.c;
                 if (acVar3 != null) {
-                    acVar4 = this.f715a.c;
+                    acVar4 = this.a.c;
                     acVar4.a(false, this.b.e(), null);
                 }
             }
         }
-        this.f715a.b = null;
+        this.a.b = null;
     }
 }

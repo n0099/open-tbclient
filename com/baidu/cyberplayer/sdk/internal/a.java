@@ -10,9 +10,7 @@ import java.io.File;
 import java.io.IOException;
 /* loaded from: classes.dex */
 abstract class a {
-
-    /* renamed from: a  reason: collision with root package name */
-    private int f447a = 7;
+    private int a = 7;
 
     /* renamed from: a  reason: collision with other field name */
     private Context f20a;
@@ -64,15 +62,15 @@ abstract class a {
             @Override // java.lang.Runnable
             public void run() {
                 if (a.this.f21a != null && !a.this.f21a.onPrepare()) {
-                    a.this.f447a = 3;
+                    a.this.a = 3;
                 } else if (a.this.m7a() && a.this.m8b() && a.this.c()) {
-                    a.this.f447a = 0;
+                    a.this.a = 0;
                 }
                 if (a.this.f21a != null) {
-                    if (a.this.f447a == 5 || a.this.f447a == 7 || a.this.f447a == 4 || a.this.f447a == 0 || a.this.f447a == 9) {
+                    if (a.this.a == 5 || a.this.a == 7 || a.this.a == 4 || a.this.a == 0 || a.this.a == 9) {
                         a.this.b();
                     }
-                    a.this.f21a.onInstalled(a.this.f447a);
+                    a.this.f21a.onInstalled(a.this.a);
                 }
                 a.this.f22a.onInstallCompleted();
                 handlerThread.quit();
@@ -82,7 +80,7 @@ abstract class a {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public final void a(int i) {
-        this.f447a = i;
+        this.a = i;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -90,17 +88,17 @@ abstract class a {
         if (this.f21a != null) {
             int onPreInstall = this.f21a.onPreInstall();
             if (onPreInstall == 1) {
-                this.f447a = 2;
+                this.a = 2;
                 return false;
             } else if (onPreInstall == 2) {
-                this.f447a = 3;
+                this.a = 3;
                 b();
                 return false;
             }
         }
-        String a2 = a();
-        if (a2 != null) {
-            return a(this.f20a, a2);
+        String a = a();
+        if (a != null) {
+            return a(this.f20a, a);
         }
         return false;
     }

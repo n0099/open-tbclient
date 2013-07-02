@@ -1,28 +1,31 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.tieba.data.CombineDownload;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class ax extends BdAsyncTask {
-    private ax() {
-    }
+public class ax implements an {
+    final /* synthetic */ UpdateDialog a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ ax(ax axVar) {
-        this();
+    public ax(UpdateDialog updateDialog) {
+        this.a = updateDialog;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public String a(String... strArr) {
-        byte[] bArr;
-        byte[] bArr2;
-        bArr = TiebaApplication.aB;
-        synchronized (bArr) {
-            TiebaApplication.aC = Boolean.valueOf(com.baidu.tieba.util.ab.a());
-            bArr2 = TiebaApplication.aB;
-            bArr2.notifyAll();
+    @Override // com.baidu.tieba.an
+    public void a(boolean z) {
+        CombineDownload combineDownload;
+        if (z) {
+            UpdateDialog updateDialog = this.a;
+            combineDownload = this.a.b;
+            updateDialog.c(combineDownload.getAppUrl());
+        } else {
+            this.a.b();
         }
-        return null;
+        this.a.finish();
+    }
+
+    @Override // com.baidu.tieba.an
+    public void a() {
+        this.a.finish();
     }
 }

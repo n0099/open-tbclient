@@ -22,6 +22,8 @@ import android.view.ViewParent;
 import android.view.accessibility.AccessibilityEvent;
 import android.view.animation.Interpolator;
 import android.widget.Scroller;
+import com.baidu.location.BDLocation;
+import com.baidu.location.LocationClientOption;
 import com.baidu.mapapi.MapView;
 import com.baidu.zeus.bouncycastle.DERTags;
 import java.lang.reflect.Method;
@@ -84,9 +86,7 @@ public class ViewPager extends ViewGroup {
     private boolean x;
     private boolean y;
     private int z;
-
-    /* renamed from: a  reason: collision with root package name */
-    private static final int[] f83a = {16842931};
+    private static final int[] a = {16842931};
     private static final Comparator c = new bi();
     private static final Interpolator d = new bj();
     private static final bu ad = new bu();
@@ -191,7 +191,7 @@ public class ViewPager extends ViewGroup {
             this.h.startUpdate((ViewGroup) this);
             for (int i = 0; i < this.e.size(); i++) {
                 bm bmVar = (bm) this.e.get(i);
-                this.h.destroyItem((ViewGroup) this, bmVar.b, bmVar.f92a);
+                this.h.destroyItem((ViewGroup) this, bmVar.b, bmVar.a);
             }
             this.h.finishUpdate((ViewGroup) this);
             this.e.clear();
@@ -233,7 +233,7 @@ public class ViewPager extends ViewGroup {
         while (true) {
             int i2 = i;
             if (i2 < getChildCount()) {
-                if (!((bn) getChildAt(i2).getLayoutParams()).f93a) {
+                if (!((bn) getChildAt(i2).getLayoutParams()).a) {
                     removeViewAt(i2);
                     i2--;
                 }
@@ -466,7 +466,7 @@ public class ViewPager extends ViewGroup {
     bm a(int i, int i2) {
         bm bmVar = new bm();
         bmVar.b = i;
-        bmVar.f92a = this.h.instantiateItem((ViewGroup) this, i);
+        bmVar.a = this.h.instantiateItem((ViewGroup) this, i);
         bmVar.d = this.h.getPageWidth(i);
         if (i2 < 0 || i2 >= this.e.size()) {
             this.e.add(bmVar);
@@ -491,7 +491,7 @@ public class ViewPager extends ViewGroup {
         int i4 = 0;
         while (i4 < this.e.size()) {
             bm bmVar = (bm) this.e.get(i4);
-            int itemPosition = this.h.getItemPosition(bmVar.f92a);
+            int itemPosition = this.h.getItemPosition(bmVar.a);
             if (itemPosition == -1) {
                 i = i4;
                 z = z4;
@@ -504,7 +504,7 @@ public class ViewPager extends ViewGroup {
                     this.h.startUpdate((ViewGroup) this);
                     z4 = true;
                 }
-                this.h.destroyItem((ViewGroup) this, bmVar.b, bmVar.f92a);
+                this.h.destroyItem((ViewGroup) this, bmVar.b, bmVar.a);
                 if (this.i == bmVar.b) {
                     i = i5;
                     z = z4;
@@ -544,7 +544,7 @@ public class ViewPager extends ViewGroup {
             int childCount = getChildCount();
             for (int i6 = 0; i6 < childCount; i6++) {
                 bn bnVar = (bn) getChildAt(i6).getLayoutParams();
-                if (!bnVar.f93a) {
+                if (!bnVar.a) {
                     bnVar.c = 0.0f;
                 }
             }
@@ -625,7 +625,7 @@ public class ViewPager extends ViewGroup {
                             break;
                         } else if (i10 == bmVar3.b && !bmVar3.c) {
                             this.e.remove(i9);
-                            this.h.destroyItem((ViewGroup) this, i10, bmVar3.f92a);
+                            this.h.destroyItem((ViewGroup) this, i10, bmVar3.a);
                             i9--;
                             i8--;
                             bmVar3 = i9 >= 0 ? (bm) this.e.get(i9) : null;
@@ -654,7 +654,7 @@ public class ViewPager extends ViewGroup {
                                 break;
                             } else if (i13 == bmVar4.b && !bmVar4.c) {
                                 this.e.remove(i12);
-                                this.h.destroyItem((ViewGroup) this, i13, bmVar4.f92a);
+                                this.h.destroyItem((ViewGroup) this, i13, bmVar4.a);
                                 bmVar4 = i12 < this.e.size() ? (bm) this.e.get(i12) : null;
                             }
                         } else if (bmVar4 != null && i13 == bmVar4.b) {
@@ -674,14 +674,14 @@ public class ViewPager extends ViewGroup {
                 }
                 a(a3, i8, bmVar);
             }
-            this.h.setPrimaryItem((ViewGroup) this, this.i, a3 != null ? a3.f92a : null);
+            this.h.setPrimaryItem((ViewGroup) this, this.i, a3 != null ? a3.a : null);
             this.h.finishUpdate((ViewGroup) this);
             int childCount = getChildCount();
             for (int i14 = 0; i14 < childCount; i14++) {
                 View childAt = getChildAt(i14);
                 bn bnVar = (bn) childAt.getLayoutParams();
                 bnVar.f = i14;
-                if (!bnVar.f93a && bnVar.c == 0.0f && (a2 = a(childAt)) != null) {
+                if (!bnVar.a && bnVar.c == 0.0f && (a2 = a(childAt)) != null) {
                     bnVar.c = a2.d;
                     bnVar.e = a2.b;
                 }
@@ -813,9 +813,7 @@ public class ViewPager extends ViewGroup {
     /* loaded from: classes.dex */
     public class SavedState extends View.BaseSavedState {
         public static final Parcelable.Creator CREATOR = android.support.v4.a.a.a(new bt());
-
-        /* renamed from: a  reason: collision with root package name */
-        int f84a;
+        int a;
         Parcelable b;
         ClassLoader c;
 
@@ -826,19 +824,19 @@ public class ViewPager extends ViewGroup {
         @Override // android.view.View.BaseSavedState, android.view.AbsSavedState, android.os.Parcelable
         public void writeToParcel(Parcel parcel, int i) {
             super.writeToParcel(parcel, i);
-            parcel.writeInt(this.f84a);
+            parcel.writeInt(this.a);
             parcel.writeParcelable(this.b, i);
         }
 
         public String toString() {
-            return "FragmentPager.SavedState{" + Integer.toHexString(System.identityHashCode(this)) + " position=" + this.f84a + "}";
+            return "FragmentPager.SavedState{" + Integer.toHexString(System.identityHashCode(this)) + " position=" + this.a + "}";
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
         public SavedState(Parcel parcel, ClassLoader classLoader) {
             super(parcel);
             classLoader = classLoader == null ? getClass().getClassLoader() : classLoader;
-            this.f84a = parcel.readInt();
+            this.a = parcel.readInt();
             this.b = parcel.readParcelable(classLoader);
             this.c = classLoader;
         }
@@ -847,7 +845,7 @@ public class ViewPager extends ViewGroup {
     @Override // android.view.View
     public Parcelable onSaveInstanceState() {
         SavedState savedState = new SavedState(super.onSaveInstanceState());
-        savedState.f84a = this.i;
+        savedState.a = this.i;
         if (this.h != null) {
             savedState.b = this.h.saveState();
         }
@@ -864,10 +862,10 @@ public class ViewPager extends ViewGroup {
         super.onRestoreInstanceState(savedState.getSuperState());
         if (this.h != null) {
             this.h.restoreState(savedState.b, savedState.c);
-            a(savedState.f84a, false, true);
+            a(savedState.a, false, true);
             return;
         }
-        this.j = savedState.f84a;
+        this.j = savedState.a;
         this.k = savedState.b;
         this.l = savedState.c;
     }
@@ -876,9 +874,9 @@ public class ViewPager extends ViewGroup {
     public void addView(View view, int i, ViewGroup.LayoutParams layoutParams) {
         ViewGroup.LayoutParams generateLayoutParams = !checkLayoutParams(layoutParams) ? generateLayoutParams(layoutParams) : layoutParams;
         bn bnVar = (bn) generateLayoutParams;
-        bnVar.f93a |= view instanceof bl;
+        bnVar.a |= view instanceof bl;
         if (this.w) {
-            if (bnVar != null && bnVar.f93a) {
+            if (bnVar != null && bnVar.a) {
                 throw new IllegalStateException("Cannot add pager decor view during layout");
             }
             bnVar.d = true;
@@ -903,7 +901,7 @@ public class ViewPager extends ViewGroup {
             int i2 = i;
             if (i2 < this.e.size()) {
                 bm bmVar = (bm) this.e.get(i2);
-                if (!this.h.isViewFromObject(view, bmVar.f92a)) {
+                if (!this.h.isViewFromObject(view, bmVar.a)) {
                     i = i2 + 1;
                 } else {
                     return bmVar;
@@ -973,7 +971,7 @@ public class ViewPager extends ViewGroup {
         int childCount = getChildCount();
         for (int i6 = 0; i6 < childCount; i6++) {
             View childAt = getChildAt(i6);
-            if (childAt.getVisibility() != 8 && (bnVar2 = (bn) childAt.getLayoutParams()) != null && bnVar2.f93a) {
+            if (childAt.getVisibility() != 8 && (bnVar2 = (bn) childAt.getLayoutParams()) != null && bnVar2.a) {
                 int i7 = bnVar2.b & 7;
                 int i8 = bnVar2.b & 112;
                 int i9 = Integer.MIN_VALUE;
@@ -1018,7 +1016,7 @@ public class ViewPager extends ViewGroup {
         int childCount2 = getChildCount();
         for (int i11 = 0; i11 < childCount2; i11++) {
             View childAt2 = getChildAt(i11);
-            if (childAt2.getVisibility() != 8 && ((bnVar = (bn) childAt2.getLayoutParams()) == null || !bnVar.f93a)) {
+            if (childAt2.getVisibility() != 8 && ((bnVar = (bn) childAt2.getLayoutParams()) == null || !bnVar.a)) {
                 childAt2.measure(View.MeasureSpec.makeMeasureSpec((int) (bnVar.c * paddingLeft), 1073741824), this.v);
             }
         }
@@ -1073,7 +1071,7 @@ public class ViewPager extends ViewGroup {
             View childAt = getChildAt(i13);
             if (childAt.getVisibility() != 8) {
                 bn bnVar = (bn) childAt.getLayoutParams();
-                if (bnVar.f93a) {
+                if (bnVar.a) {
                     int i14 = bnVar.b & 7;
                     int i15 = bnVar.b & 112;
                     switch (i14) {
@@ -1147,7 +1145,7 @@ public class ViewPager extends ViewGroup {
             View childAt2 = getChildAt(i21);
             if (childAt2.getVisibility() != 8) {
                 bn bnVar2 = (bn) childAt2.getLayoutParams();
-                if (!bnVar2.f93a && (a2 = a(childAt2)) != null) {
+                if (!bnVar2.a && (a2 = a(childAt2)) != null) {
                     int i22 = ((int) (a2.e * i20)) + paddingLeft;
                     if (bnVar2.d) {
                         bnVar2.d = false;
@@ -1223,7 +1221,7 @@ public class ViewPager extends ViewGroup {
             while (i5 < childCount) {
                 View childAt = getChildAt(i5);
                 bn bnVar = (bn) childAt.getLayoutParams();
-                if (bnVar.f93a) {
+                if (bnVar.a) {
                     switch (bnVar.b & 7) {
                         case 1:
                             measuredWidth = Math.max((width - childAt.getMeasuredWidth()) / 2, paddingLeft);
@@ -1279,7 +1277,7 @@ public class ViewPager extends ViewGroup {
             int childCount2 = getChildCount();
             for (int i11 = 0; i11 < childCount2; i11++) {
                 View childAt2 = getChildAt(i11);
-                if (!((bn) childAt2.getLayoutParams()).f93a) {
+                if (!((bn) childAt2.getLayoutParams()).a) {
                     this.Z.a(childAt2, (childAt2.getLeft() - scrollX2) / getClientWidth());
                 }
             }
@@ -1448,7 +1446,7 @@ public class ViewPager extends ViewGroup {
                 case 1:
                     if (this.A) {
                         VelocityTracker velocityTracker = this.K;
-                        velocityTracker.computeCurrentVelocity(1000, this.M);
+                        velocityTracker.computeCurrentVelocity(LocationClientOption.MIN_SCAN_SPAN, this.M);
                         int a2 = (int) al.a(velocityTracker, this.J);
                         this.y = true;
                         int clientWidth = getClientWidth();
@@ -1734,7 +1732,7 @@ public class ViewPager extends ViewGroup {
                 return c(17);
             case DERTags.IA5_STRING /* 22 */:
                 return c(66);
-            case 61:
+            case BDLocation.TypeGpsLocation /* 61 */:
                 if (Build.VERSION.SDK_INT < 11) {
                     return false;
                 }

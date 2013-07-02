@@ -35,9 +35,7 @@ public class GuideActivity extends Activity {
     private p i = null;
     private LinearLayout j = null;
     private com.baidu.tieba.view.a k = new l(this);
-
-    /* renamed from: a */
-    public View.OnClickListener f613a = new m(this);
+    public View.OnClickListener a = new m(this);
     public View.OnClickListener b = new n(this);
     private final bq l = new o(this);
 

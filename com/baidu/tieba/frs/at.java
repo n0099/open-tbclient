@@ -5,13 +5,11 @@ import android.view.View;
 import com.baidu.tieba.view.ImageViewDrawer;
 /* loaded from: classes.dex */
 class at implements com.baidu.tbadk.a.d {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ FrsImageActivity f846a;
+    final /* synthetic */ FrsImageActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public at(FrsImageActivity frsImageActivity) {
-        this.f846a = frsImageActivity;
+        this.a = frsImageActivity;
     }
 
     @Override // com.baidu.tbadk.a.d
@@ -22,16 +20,16 @@ class at implements com.baidu.tbadk.a.d {
         Rect rect3;
         Rect rect4;
         try {
-            axVar = this.f846a.n;
+            axVar = this.a.n;
             View findViewWithTag = axVar.a().a(2).findViewWithTag(str);
             if (findViewWithTag != null && (findViewWithTag instanceof ImageViewDrawer)) {
-                rect = this.f846a.m;
+                rect = this.a.m;
                 if (findViewWithTag.getLocalVisibleRect(rect)) {
-                    rect2 = this.f846a.m;
+                    rect2 = this.a.m;
                     int i = rect2.bottom;
-                    rect3 = this.f846a.m;
+                    rect3 = this.a.m;
                     if (i - rect3.top >= findViewWithTag.getHeight()) {
-                        rect4 = this.f846a.m;
+                        rect4 = this.a.m;
                         if (rect4.top != 0) {
                             findViewWithTag.invalidate();
                         }

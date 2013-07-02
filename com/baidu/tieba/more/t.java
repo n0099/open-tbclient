@@ -5,13 +5,11 @@ import com.baidu.tieba.TiebaApplication;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 class t implements RadioGroup.OnCheckedChangeListener {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ BrowseSettingActivity f1108a;
+    final /* synthetic */ BrowseSettingActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public t(BrowseSettingActivity browseSettingActivity) {
-        this.f1108a = browseSettingActivity;
+        this.a = browseSettingActivity;
     }
 
     @Override // android.widget.RadioGroup.OnCheckedChangeListener

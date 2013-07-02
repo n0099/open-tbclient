@@ -28,9 +28,7 @@ import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class EditHeadActivity extends com.baidu.tieba.g {
-
-    /* renamed from: a */
-    public static String f1300a = "delete";
+    public static String a = "delete";
     public static String b = "change";
     public static String c = "file_name";
     private static String[] d = null;

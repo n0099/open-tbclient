@@ -13,9 +13,7 @@ import java.lang.Thread;
 import java.util.List;
 /* loaded from: classes.dex */
 public class aa implements Thread.UncaughtExceptionHandler {
-
-    /* renamed from: a  reason: collision with root package name */
-    private Thread.UncaughtExceptionHandler f1450a = Thread.getDefaultUncaughtExceptionHandler();
+    private Thread.UncaughtExceptionHandler a = Thread.getDefaultUncaughtExceptionHandler();
 
     /* JADX WARN: Removed duplicated region for block: B:110:0x01b2 A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /* JADX WARN: Removed duplicated region for block: B:72:0x01b7 A[Catch: Exception -> 0x01ef, TryCatch #0 {Exception -> 0x01ef, blocks: (B:70:0x01b2, B:72:0x01b7, B:74:0x01bc), top: B:110:0x01b2 }] */
@@ -106,8 +104,8 @@ public class aa implements Thread.UncaughtExceptionHandler {
                                             printStream2.close();
                                         } catch (Exception e2) {
                                             e2.printStackTrace();
-                                            if (!com.baidu.tieba.data.g.s() && this.f1450a != null) {
-                                                this.f1450a.uncaughtException(thread, th);
+                                            if (!com.baidu.tieba.data.g.s() && this.a != null) {
+                                                this.a.uncaughtException(thread, th);
                                                 return;
                                             } else {
                                                 Process.killProcess(Process.myPid());
@@ -181,8 +179,8 @@ public class aa implements Thread.UncaughtExceptionHandler {
                     if (fileWriter2 != null) {
                         fileWriter2.close();
                     }
-                    if (com.baidu.tieba.data.g.s() && this.f1450a != null) {
-                        this.f1450a.uncaughtException(thread, th);
+                    if (com.baidu.tieba.data.g.s() && this.a != null) {
+                        this.a.uncaughtException(thread, th);
                     } else {
                         Process.killProcess(Process.myPid());
                     }
@@ -194,8 +192,8 @@ public class aa implements Thread.UncaughtExceptionHandler {
                             printStream.close();
                         } catch (Exception e5) {
                             e5.printStackTrace();
-                            if (!com.baidu.tieba.data.g.s() && this.f1450a != null) {
-                                this.f1450a.uncaughtException(thread, th);
+                            if (!com.baidu.tieba.data.g.s() && this.a != null) {
+                                this.a.uncaughtException(thread, th);
                             } else {
                                 Process.killProcess(Process.myPid());
                             }

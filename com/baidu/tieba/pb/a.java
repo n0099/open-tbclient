@@ -4,9 +4,7 @@ import com.baidu.zeus.WebChromeClient;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class a {
-
-    /* renamed from: a  reason: collision with root package name */
-    private ArrayList f1192a;
+    private ArrayList a;
     private String d;
     private String e;
     private String f;
@@ -20,14 +18,14 @@ public class a {
     private c l = null;
 
     public a(ArrayList arrayList, String str, String str2, String str3) {
-        this.f1192a = null;
+        this.a = null;
         this.d = null;
         this.e = null;
         this.f = null;
         this.k = false;
-        this.f1192a = arrayList;
-        if (this.f1192a == null) {
-            this.f1192a = new ArrayList();
+        this.a = arrayList;
+        if (this.a == null) {
+            this.a = new ArrayList();
         }
         this.d = str2;
         this.e = str;

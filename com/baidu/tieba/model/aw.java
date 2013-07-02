@@ -18,9 +18,7 @@ public class aw {
     int m;
     String n;
     final /* synthetic */ av p;
-
-    /* renamed from: a  reason: collision with root package name */
-    int f1028a = 0;
+    int a = 0;
     ArrayList e = new ArrayList();
     ArrayList l = new ArrayList();
     MetaData j = new MetaData();
@@ -31,7 +29,7 @@ public class aw {
     }
 
     public int a() {
-        return this.f1028a;
+        return this.a;
     }
 
     public String b() {
@@ -128,7 +126,7 @@ public class aw {
     }
 
     public MapPostItem p() {
-        if (this.f1028a != 0) {
+        if (this.a != 0) {
             return null;
         }
         try {

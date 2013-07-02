@@ -7,14 +7,12 @@ import com.baidu.tieba.frs.FrsActivity;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ac implements View.OnClickListener {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ RecommendPagerAdapter f891a;
+    final /* synthetic */ RecommendPagerAdapter a;
     private final /* synthetic */ com.baidu.tieba.data.as b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ac(RecommendPagerAdapter recommendPagerAdapter, com.baidu.tieba.data.as asVar) {
-        this.f891a = recommendPagerAdapter;
+        this.a = recommendPagerAdapter;
         this.b = asVar;
     }
 
@@ -22,9 +20,9 @@ public class ac implements View.OnClickListener {
     public void onClick(View view) {
         Activity activity;
         Activity activity2;
-        activity = this.f891a.g;
+        activity = this.a.g;
         StatService.onEvent(activity, "ef_guess", "click");
-        activity2 = this.f891a.g;
+        activity2 = this.a.g;
         FrsActivity.a(activity2, this.b.e(), (String) null);
     }
 }

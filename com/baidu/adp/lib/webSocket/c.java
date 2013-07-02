@@ -5,9 +5,7 @@ import java.nio.Buffer;
 import java.nio.ByteBuffer;
 /* loaded from: classes.dex */
 public class c extends OutputStream {
-
-    /* renamed from: a  reason: collision with root package name */
-    private final int f184a;
+    private final int a;
     private ByteBuffer b;
 
     public ByteBuffer a() {
@@ -30,7 +28,7 @@ public class c extends OutputStream {
         if (i > this.b.capacity()) {
             ByteBuffer byteBuffer = this.b;
             int position = this.b.position();
-            this.b = ByteBuffer.allocateDirect(((i / this.f184a) + 1) * this.f184a);
+            this.b = ByteBuffer.allocateDirect(((i / this.a) + 1) * this.a);
             byteBuffer.clear();
             this.b.clear();
             this.b.put(byteBuffer);

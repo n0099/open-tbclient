@@ -5,9 +5,7 @@ import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class c extends BdAsyncTask {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ CreateBarActivity f924a;
+    final /* synthetic */ CreateBarActivity a;
     private String b;
     private String c;
     private com.baidu.tieba.util.r d = null;
@@ -19,13 +17,13 @@ public class c extends BdAsyncTask {
         if (this.d != null) {
             this.d.h();
         }
-        progressBar = this.f924a.o;
+        progressBar = this.a.o;
         progressBar.setVisibility(8);
-        this.f924a.q = null;
+        this.a.q = null;
     }
 
     public c(CreateBarActivity createBarActivity, String str, String str2) {
-        this.f924a = createBarActivity;
+        this.a = createBarActivity;
         this.b = null;
         this.c = null;
         this.b = str;
@@ -38,12 +36,12 @@ public class c extends BdAsyncTask {
     public String a(String... strArr) {
         String str;
         try {
-            this.d = new com.baidu.tieba.util.r(String.valueOf(com.baidu.tieba.data.g.f787a) + "c/c/forum/create");
+            this.d = new com.baidu.tieba.util.r(String.valueOf(com.baidu.tieba.data.g.a) + "c/c/forum/create");
             this.d.d(true);
             this.d.a("kw", this.b);
             this.d.a("vcode", this.c);
             com.baidu.tieba.util.r rVar = this.d;
-            str = this.f924a.u;
+            str = this.a.u;
             rVar.a("vcode_md5", str);
             this.d.j();
             return null;
@@ -59,17 +57,17 @@ public class c extends BdAsyncTask {
     public void a(String str) {
         ProgressBar progressBar;
         super.a((Object) str);
-        progressBar = this.f924a.o;
+        progressBar = this.a.o;
         progressBar.setVisibility(8);
-        this.f924a.q = null;
+        this.a.q = null;
         if (this.d.c()) {
-            CreateBarSuccessActivity.a(this.f924a, this.b);
-            this.f924a.finish();
+            CreateBarSuccessActivity.a(this.a, this.b);
+            this.a.finish();
             return;
         }
-        this.f924a.a(this.d.g());
+        this.a.a(this.d.g());
         if (this.d.d()) {
-            this.f924a.d();
+            this.a.d();
         }
     }
 
@@ -78,7 +76,7 @@ public class c extends BdAsyncTask {
     public void b() {
         ProgressBar progressBar;
         super.b();
-        progressBar = this.f924a.o;
+        progressBar = this.a.o;
         progressBar.setVisibility(0);
     }
 }

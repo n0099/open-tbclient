@@ -8,14 +8,12 @@ import android.view.View;
 import com.baidu.adp.lib.debug.b.j;
 /* loaded from: classes.dex */
 public class DebugService extends Service {
-
-    /* renamed from: a  reason: collision with root package name */
-    j f167a;
+    j a;
 
     @Override // android.app.Service
     public void onCreate() {
         super.onCreate();
-        this.f167a = new j(this);
+        this.a = new j(this);
     }
 
     @Override // android.app.Service
@@ -26,10 +24,10 @@ public class DebugService extends Service {
     @Override // android.app.Service
     public void onDestroy() {
         super.onDestroy();
-        if (this.f167a != null) {
+        if (this.a != null) {
             Log.i("Monitor", "off");
-            this.f167a.c();
-            this.f167a.setVisibility(8);
+            this.a.c();
+            this.a.setVisibility(8);
         }
     }
 

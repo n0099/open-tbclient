@@ -12,13 +12,11 @@ import com.baidu.tieba.pb.NewPbActivity;
 import com.baidu.tieba.util.ab;
 /* loaded from: classes.dex */
 class c extends BdAsyncTask {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ DealIntentService f1406a;
+    final /* synthetic */ DealIntentService a;
     private Intent b;
 
     public c(DealIntentService dealIntentService, Intent intent) {
-        this.f1406a = dealIntentService;
+        this.a = dealIntentService;
         this.b = null;
         this.b = intent;
     }
@@ -30,33 +28,33 @@ class c extends BdAsyncTask {
         int i = this.b.getExtras().getInt("class", -1);
         if (i != 5) {
             for (ActivityManager.RunningTaskInfo runningTaskInfo : ((ActivityManager) TiebaApplication.f().getSystemService("activity")).getRunningTasks(BdWebErrorView.ERROR_CODE_500)) {
-                if (runningTaskInfo.baseActivity.getClassName().startsWith(this.f1406a.getPackageName())) {
+                if (runningTaskInfo.baseActivity.getClassName().startsWith(this.a.getPackageName())) {
                     switch (i) {
                         case 0:
-                            ab.c(this.f1406a, this.b.getExtras().getString("url"));
+                            ab.c(this.a, this.b.getExtras().getString("url"));
                             break;
                         case 1:
                             if (this.b.getBooleanExtra("is_message_pv", false)) {
-                                NewPbActivity.a(this.f1406a, this.b.getStringExtra("id"), null, this.b.getStringExtra("from"), this.b.getLongExtra("message_id", 0L));
+                                NewPbActivity.a(this.a, this.b.getStringExtra("id"), null, this.b.getStringExtra("from"), this.b.getLongExtra("message_id", 0L));
                                 break;
                             } else {
-                                NewPbActivity.a(this.f1406a, this.b.getStringExtra("id"), null, this.b.getStringExtra("from"));
+                                NewPbActivity.a(this.a, this.b.getStringExtra("id"), null, this.b.getStringExtra("from"));
                                 break;
                             }
                         case 2:
-                            FrsActivity.a(this.f1406a, this.b.getStringExtra("fname"), this.b.getStringExtra("from"));
+                            FrsActivity.a(this.a, this.b.getStringExtra("fname"), this.b.getStringExtra("from"));
                             break;
                         case 3:
-                            this.b.setClass(this.f1406a, MainTabActivity.class);
+                            this.b.setClass(this.a, MainTabActivity.class);
                             this.b.addFlags(268435456);
-                            this.f1406a.startActivity(this.b);
+                            this.a.startActivity(this.b);
                             break;
                     }
                     return null;
                 }
             }
         }
-        LogoActivity.a(this.f1406a, this.b);
+        LogoActivity.a(this.a, this.b);
         return null;
     }
 
@@ -69,6 +67,6 @@ class c extends BdAsyncTask {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void a(String str) {
-        this.f1406a.stopSelf();
+        this.a.stopSelf();
     }
 }

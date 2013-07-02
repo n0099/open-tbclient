@@ -21,9 +21,7 @@ import java.util.ArrayList;
 import org.apache.http.message.BasicNameValuePair;
 /* loaded from: classes.dex */
 public class PostActivity extends com.baidu.tieba.g {
-
-    /* renamed from: a  reason: collision with root package name */
-    private LinearLayout f976a = null;
+    private LinearLayout a = null;
     private LinearLayout b = null;
     private TextView c = null;
     private Button d = null;
@@ -113,7 +111,7 @@ public class PostActivity extends com.baidu.tieba.g {
         this.g = (RelativeLayout) findViewById(R.id.container);
         this.b = (LinearLayout) findViewById(R.id.title);
         this.c = (TextView) findViewById(R.id.title_text);
-        this.f976a = (LinearLayout) findViewById(R.id.post);
+        this.a = (LinearLayout) findViewById(R.id.post);
         this.e = (ImageView) findViewById(R.id.back);
         this.e.setOnClickListener(new r(this));
         this.d = (Button) findViewById(R.id.reply);
@@ -172,7 +170,7 @@ public class PostActivity extends com.baidu.tieba.g {
     public void d() {
         try {
             StringBuffer stringBuffer = new StringBuffer(30);
-            stringBuffer.append(com.baidu.tieba.data.g.f787a);
+            stringBuffer.append(com.baidu.tieba.data.g.a);
             stringBuffer.append("c/f/pb/page");
             ArrayList arrayList = new ArrayList();
             arrayList.add(new BasicNameValuePair("kz", this.j));
@@ -245,13 +243,13 @@ public class PostActivity extends com.baidu.tieba.g {
                             if (this.x) {
                                 int i5 = i3 + 1;
                                 ImageView imageView = new ImageView(this);
+                                int a = ab.a(this, 105.0f);
                                 int a2 = ab.a(this, 105.0f);
-                                int a3 = ab.a(this, 105.0f);
-                                LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, a2);
+                                LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, a);
                                 layoutParams.topMargin = ab.a(this, 15.0f);
                                 com.baidu.adp.widget.a.b c = this.o.c(iVar2.f());
                                 imageView.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
-                                imageView.setMaxWidth(a3);
+                                imageView.setMaxWidth(a2);
                                 if (c != null) {
                                     imageView.setTag(null);
                                     c.b(imageView);
@@ -270,10 +268,10 @@ public class PostActivity extends com.baidu.tieba.g {
                         } else {
                             CustomTextView customTextView = new CustomTextView(this);
                             LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(-1, -2);
-                            int a4 = ab.a(this, 15.0f);
+                            int a3 = ab.a(this, 15.0f);
                             layoutParams2.rightMargin = 0;
                             layoutParams2.leftMargin = 0;
-                            layoutParams2.topMargin = a4;
+                            layoutParams2.topMargin = a3;
                             customTextView.setTextSize(com.baidu.tieba.data.g.n());
                             customTextView.setTextColor(-11974584);
                             customTextView.setText(iVar2.e());

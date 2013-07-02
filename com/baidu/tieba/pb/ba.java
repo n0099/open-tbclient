@@ -1,13 +1,11 @@
 package com.baidu.tieba.pb;
 /* loaded from: classes.dex */
 class ba implements com.baidu.tieba.model.ay {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ NewPbActivity f1219a;
+    final /* synthetic */ NewPbActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ba(NewPbActivity newPbActivity) {
-        this.f1219a = newPbActivity;
+        this.a = newPbActivity;
     }
 
     @Override // com.baidu.tieba.model.ay
@@ -22,25 +20,25 @@ class ba implements com.baidu.tieba.model.ay {
         bk bkVar6;
         com.baidu.tieba.model.ax axVar2;
         if (z && ajVar != null) {
-            amVar = this.f1219a.k;
+            amVar = this.a.k;
             amVar.a(ajVar.g());
-            bkVar3 = this.f1219a.p;
-            axVar = this.f1219a.j;
+            bkVar3 = this.a.p;
+            axVar = this.a.j;
             bkVar3.a(ajVar, i2, i3, axVar.c());
-            bkVar4 = this.f1219a.p;
+            bkVar4 = this.a.p;
             bkVar4.a(ajVar, false);
-            bkVar5 = this.f1219a.p;
+            bkVar5 = this.a.p;
             bkVar5.R();
-            bkVar6 = this.f1219a.p;
-            axVar2 = this.f1219a.j;
+            bkVar6 = this.a.p;
+            axVar2 = this.a.j;
             bkVar6.c(axVar2.b());
         } else if (str != null) {
-            bkVar = this.f1219a.p;
+            bkVar = this.a.p;
             bkVar.p();
-            bkVar2 = this.f1219a.p;
+            bkVar2 = this.a.p;
             bkVar2.d(str);
             if (i == 4 || i == 28) {
-                this.f1219a.finish();
+                this.a.finish();
             }
         }
     }
@@ -48,7 +46,7 @@ class ba implements com.baidu.tieba.model.ay {
     @Override // com.baidu.tieba.model.ay
     public void a(com.baidu.tieba.data.aj ajVar) {
         bk bkVar;
-        bkVar = this.f1219a.p;
+        bkVar = this.a.p;
         bkVar.a(ajVar);
     }
 }

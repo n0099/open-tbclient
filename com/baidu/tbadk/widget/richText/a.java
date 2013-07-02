@@ -6,9 +6,7 @@ import java.util.Iterator;
 import org.json.JSONArray;
 /* loaded from: classes.dex */
 public class a {
-
-    /* renamed from: a  reason: collision with root package name */
-    private ArrayList f601a = null;
+    private ArrayList a = null;
     private int b = 0;
     private ArrayList c = null;
     private Context d = null;
@@ -37,18 +35,18 @@ public class a {
 
     private void a(JSONArray jSONArray, int i, boolean z) {
         if (jSONArray != null) {
-            this.f601a = new ArrayList();
+            this.a = new ArrayList();
             int length = jSONArray.length();
             for (int i2 = 0; i2 < length; i2++) {
                 g gVar = new g();
                 gVar.a(jSONArray.optJSONObject(i2));
                 if ((gVar.a() & i) != 0) {
-                    this.f601a.add(gVar);
+                    this.a.add(gVar);
                 }
             }
             this.c = new ArrayList();
             this.b = 0;
-            Iterator it = this.f601a.iterator();
+            Iterator it = this.a.iterator();
             c cVar = null;
             while (it.hasNext()) {
                 g gVar2 = (g) it.next();
@@ -86,8 +84,8 @@ public class a {
             if (cVar != null) {
                 this.c.add(cVar);
             }
-            this.f601a.clear();
-            this.f601a = null;
+            this.a.clear();
+            this.a = null;
         }
     }
 

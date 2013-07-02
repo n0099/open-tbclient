@@ -11,9 +11,7 @@ import com.baidu.tieba.data.bb;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public class FrsWaterFallItem extends LinearLayout {
-
-    /* renamed from: a  reason: collision with root package name */
-    private TextPaint f1487a;
+    private TextPaint a;
     private String b;
     private String c;
     private String d;
@@ -29,7 +27,7 @@ public class FrsWaterFallItem extends LinearLayout {
 
     public FrsWaterFallItem(Context context) {
         super(context);
-        this.f1487a = null;
+        this.a = null;
         this.b = null;
         this.c = null;
         this.d = null;
@@ -47,7 +45,7 @@ public class FrsWaterFallItem extends LinearLayout {
 
     public FrsWaterFallItem(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f1487a = null;
+        this.a = null;
         this.b = null;
         this.c = null;
         this.d = null;
@@ -70,7 +68,7 @@ public class FrsWaterFallItem extends LinearLayout {
     }
 
     private void a() {
-        this.f1487a = new TextPaint(1);
+        this.a = new TextPaint(1);
         this.l = new Paint();
         this.l.setAntiAlias(true);
         this.j = com.baidu.tieba.util.ab.a(getContext(), 5.0f);
@@ -79,21 +77,21 @@ public class FrsWaterFallItem extends LinearLayout {
 
     @Override // android.widget.LinearLayout, android.view.View
     protected void onDraw(Canvas canvas) {
+        Bitmap a;
         Bitmap a2;
-        Bitmap a3;
         super.onDraw(canvas);
         try {
             canvas.drawColor(16777215);
             bb bbVar = (bb) getTag();
             int height = ((getHeight() - getPaddingBottom()) - this.h) - this.j;
             int width = (getWidth() - getPaddingRight()) - this.j;
-            this.f1487a.setTextSize(this.h);
+            this.a.setTextSize(this.h);
             if (this.m == 1) {
-                this.f1487a.setColor(-11446171);
+                this.a.setColor(-11446171);
             } else {
-                this.f1487a.setColor(-5065030);
+                this.a.setColor(-5065030);
             }
-            int ceil = (int) Math.ceil(this.f1487a.getFontMetrics().ascent);
+            int ceil = (int) Math.ceil(this.a.getFontMetrics().ascent);
             if (bbVar.e() > 0) {
                 if (this.d == null) {
                     if (bbVar.e() > 999) {
@@ -103,42 +101,42 @@ public class FrsWaterFallItem extends LinearLayout {
                     }
                 }
                 if (this.e == -1) {
-                    this.e = (width - ((int) Math.ceil(com.baidu.tieba.util.ab.a((Paint) this.f1487a, this.d)))) - this.j;
+                    this.e = (width - ((int) Math.ceil(com.baidu.tieba.util.ab.a((Paint) this.a, this.d)))) - this.j;
                 }
-                canvas.drawText(this.d, this.e, height - ceil, this.f1487a);
+                canvas.drawText(this.d, this.e, height - ceil, this.a);
                 width = this.e;
             }
             if (this.e != -1) {
                 if (this.m == 1) {
-                    a3 = com.baidu.tieba.util.d.a((int) R.drawable.icon_little_comment_1);
+                    a2 = com.baidu.tieba.util.d.a((int) R.drawable.icon_little_comment_1);
                 } else {
-                    a3 = com.baidu.tieba.util.d.a((int) R.drawable.icon_little_comment);
+                    a2 = com.baidu.tieba.util.d.a((int) R.drawable.icon_little_comment);
                 }
-                this.f = this.e - a3.getWidth();
+                this.f = this.e - a2.getWidth();
                 width = this.f - this.i;
-                canvas.drawBitmap(a3, width, ((this.h - a3.getHeight()) / 2) + height, this.l);
+                canvas.drawBitmap(a2, width, ((this.h - a2.getHeight()) / 2) + height, this.l);
             }
             int i = width;
             if (this.m == 1) {
-                a2 = com.baidu.tieba.util.d.a((int) R.drawable.icon_little_people_1);
+                a = com.baidu.tieba.util.d.a((int) R.drawable.icon_little_people_1);
             } else {
-                a2 = com.baidu.tieba.util.d.a((int) R.drawable.icon_little_people);
+                a = com.baidu.tieba.util.d.a((int) R.drawable.icon_little_people);
             }
-            this.c = com.baidu.tieba.util.ab.a(this.f1487a, bbVar.a(), (i - a2.getWidth()) - (this.j * 2));
+            this.c = com.baidu.tieba.util.ab.a(this.a, bbVar.a(), (i - a.getWidth()) - (this.j * 2));
             int paddingLeft = getPaddingLeft() + this.j;
-            canvas.drawBitmap(a2, paddingLeft, ((this.h - a2.getHeight()) / 2) + height, this.l);
-            canvas.drawText(this.c, a2.getWidth() + paddingLeft + this.j, height - ceil, this.f1487a);
-            this.f1487a.setTextSize(this.g);
+            canvas.drawBitmap(a, paddingLeft, ((this.h - a.getHeight()) / 2) + height, this.l);
+            canvas.drawText(this.c, a.getWidth() + paddingLeft + this.j, height - ceil, this.a);
+            this.a.setTextSize(this.g);
             if (this.m == 1) {
-                this.f1487a.setColor(-8682086);
+                this.a.setColor(-8682086);
             } else {
-                this.f1487a.setColor(-14277082);
+                this.a.setColor(-14277082);
             }
-            int ceil2 = (int) Math.ceil(this.f1487a.getFontMetrics().ascent);
+            int ceil2 = (int) Math.ceil(this.a.getFontMetrics().ascent);
             if (this.b == null) {
-                this.b = com.baidu.tieba.util.ab.a(this.f1487a, bbVar.c(), ((getWidth() - getPaddingLeft()) - getPaddingRight()) - this.j);
+                this.b = com.baidu.tieba.util.ab.a(this.a, bbVar.c(), ((getWidth() - getPaddingLeft()) - getPaddingRight()) - this.j);
             }
-            canvas.drawText(this.b, this.k + this.j, (height - ((this.i + this.g) + com.baidu.tieba.util.ab.a(getContext(), 3.0f))) - ceil2, this.f1487a);
+            canvas.drawText(this.b, this.k + this.j, (height - ((this.i + this.g) + com.baidu.tieba.util.ab.a(getContext(), 3.0f))) - ceil2, this.a);
         } catch (Exception e) {
             e.printStackTrace();
         }

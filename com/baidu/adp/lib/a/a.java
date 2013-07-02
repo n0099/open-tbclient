@@ -5,9 +5,7 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class a {
-
-    /* renamed from: a  reason: collision with root package name */
-    private final LinkedHashMap f119a = new LinkedHashMap(0, 0.75f, true);
+    private final LinkedHashMap a = new LinkedHashMap(0, 0.75f, true);
     private int b;
     private int c;
     private int d;
@@ -25,7 +23,7 @@ public class a {
         Object obj2 = null;
         if (obj != null) {
             synchronized (this) {
-                Object obj3 = this.f119a.get(obj);
+                Object obj3 = this.a.get(obj);
                 if (obj3 != null) {
                     this.g++;
                     obj2 = obj3;
@@ -49,7 +47,7 @@ public class a {
                 synchronized (this) {
                     this.e++;
                     this.c += c(obj, obj2);
-                    obj3 = this.f119a.put(obj, obj2);
+                    obj3 = this.a.put(obj, obj2);
                     if (obj3 != null) {
                         this.c -= c(obj, obj3);
                     }
@@ -88,15 +86,15 @@ public class a {
         Object value;
         while (true) {
             synchronized (this) {
-                if (this.c < 0 || (this.f119a.isEmpty() && this.c != 0)) {
+                if (this.c < 0 || (this.a.isEmpty() && this.c != 0)) {
                     break;
-                } else if (this.c <= i || this.f119a.isEmpty()) {
+                } else if (this.c <= i || this.a.isEmpty()) {
                     break;
                 } else {
-                    Map.Entry entry = (Map.Entry) this.f119a.entrySet().iterator().next();
+                    Map.Entry entry = (Map.Entry) this.a.entrySet().iterator().next();
                     key = entry.getKey();
                     value = entry.getValue();
-                    this.f119a.remove(key);
+                    this.a.remove(key);
                     this.c -= c(key, value);
                     this.f++;
                 }
@@ -111,7 +109,7 @@ public class a {
             return null;
         }
         synchronized (this) {
-            remove = this.f119a.remove(obj);
+            remove = this.a.remove(obj);
             if (remove != null) {
                 this.c -= c(obj, remove);
             }

@@ -17,9 +17,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes.dex */
 public class w extends BaseAdapter {
-
-    /* renamed from: a  reason: collision with root package name */
-    private Context f942a;
+    private Context a;
     private ArrayList b;
     private int c;
     private boolean d;
@@ -31,7 +29,7 @@ public class w extends BaseAdapter {
     private boolean j = true;
 
     public w(Context context) {
-        this.f942a = context;
+        this.a = context;
         c(true);
         b();
     }
@@ -126,7 +124,7 @@ public class w extends BaseAdapter {
         try {
             try {
                 if (view == null) {
-                    LayoutInflater from = LayoutInflater.from(this.f942a);
+                    LayoutInflater from = LayoutInflater.from(this.a);
                     if (getItemViewType(i) == 0) {
                         view4 = from.inflate(R.layout.home_mark_item, (ViewGroup) null);
                         y yVar2 = new y(this, null);
@@ -137,7 +135,7 @@ public class w extends BaseAdapter {
                         yVar2.g = (TextView) view4.findViewById(R.id.forum_lv_nodata);
                         yVar2.h = (ImageButton) view4.findViewById(R.id.home_lv_markitem_delete);
                         yVar2.e = (ImageView) view4.findViewById(R.id.mark_author_icon);
-                        yVar2.f944a = (ImageView) view4.findViewById(R.id.mark_comment_icon);
+                        yVar2.a = (ImageView) view4.findViewById(R.id.mark_comment_icon);
                         view4.setTag(yVar2);
                         xVar = null;
                         yVar = yVar2;
@@ -145,7 +143,7 @@ public class w extends BaseAdapter {
                         if (getItemViewType(i) == 1) {
                             x xVar2 = new x(this, null);
                             view4 = from.inflate(R.layout.page_item, (ViewGroup) null);
-                            xVar2.f943a = (TextView) view4.findViewById(R.id.page_text);
+                            xVar2.a = (TextView) view4.findViewById(R.id.page_text);
                             xVar2.b = (ProgressBar) view4.findViewById(R.id.progress);
                             if (this.g == null) {
                                 this.g = new ArrayList();
@@ -161,15 +159,15 @@ public class w extends BaseAdapter {
                     if (getItemViewType(i) != 1) {
                         if (this.i) {
                             xVar.b.setVisibility(0);
-                            xVar.f943a.setText(this.f942a.getString(R.string.loading));
+                            xVar.a.setText(this.a.getString(R.string.loading));
                         } else if (!this.j) {
                             xVar.b.setVisibility(8);
-                            xVar.f943a.setText(this.f942a.getString(R.string.no_more_mark));
+                            xVar.a.setText(this.a.getString(R.string.no_more_mark));
                         } else {
                             xVar.b.setVisibility(8);
-                            xVar.f943a.setText(this.f942a.getString(R.string.load_more));
+                            xVar.a.setText(this.a.getString(R.string.load_more));
                         }
-                        com.baidu.tieba.util.x.b(xVar.f943a, at);
+                        com.baidu.tieba.util.x.b(xVar.a, at);
                         return view4;
                     }
                     if (this.d) {
@@ -192,14 +190,14 @@ public class w extends BaseAdapter {
                         yVar.d.setTextColor(com.baidu.tieba.util.x.a(1));
                         yVar.f.setTextColor(-11446171);
                         yVar.g.setTextColor(com.baidu.tieba.util.x.a(1));
-                        yVar.f944a.setBackgroundResource(R.drawable.icon_little_comment_1);
+                        yVar.a.setBackgroundResource(R.drawable.icon_little_comment_1);
                         yVar.e.setBackgroundResource(R.drawable.icon_little_people_1);
                     } else {
                         yVar.b.setTextColor(-5065030);
                         yVar.d.setTextColor(-14277082);
                         yVar.f.setTextColor(-5065030);
                         yVar.g.setTextColor(-14277082);
-                        yVar.f944a.setBackgroundResource(R.drawable.icon_little_comment_grey);
+                        yVar.a.setBackgroundResource(R.drawable.icon_little_comment_grey);
                         yVar.e.setBackgroundResource(R.drawable.icon_little_people);
                     }
                     Object item = getItem(i);
@@ -210,9 +208,9 @@ public class w extends BaseAdapter {
                     int replyNum = markData.getReplyNum();
                     if (replyNum == 0) {
                         yVar.b.setVisibility(8);
-                        yVar.f944a.setVisibility(8);
+                        yVar.a.setVisibility(8);
                     } else {
-                        yVar.f944a.setVisibility(0);
+                        yVar.a.setVisibility(0);
                         yVar.b.setVisibility(0);
                         if (replyNum <= 999) {
                             yVar.b.setText(String.valueOf(replyNum));

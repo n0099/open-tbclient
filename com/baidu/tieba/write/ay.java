@@ -9,16 +9,14 @@ import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ay extends BdAsyncTask {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ WriteImageActivity f1577a;
+    final /* synthetic */ WriteImageActivity a;
     private String b;
     private Bitmap c;
     private Boolean d;
     private Boolean e;
 
     private ay(WriteImageActivity writeImageActivity) {
-        this.f1577a = writeImageActivity;
+        this.a = writeImageActivity;
         this.d = false;
         this.e = false;
     }
@@ -33,9 +31,9 @@ public class ay extends BdAsyncTask {
     public void b() {
         ProgressBar progressBar;
         Button button;
-        progressBar = this.f1577a.j;
+        progressBar = this.a.j;
         progressBar.setVisibility(0);
-        button = this.f1577a.e;
+        button = this.a.e;
         button.setClickable(false);
     }
 
@@ -56,9 +54,9 @@ public class ay extends BdAsyncTask {
         Bitmap bitmap11;
         Bitmap bitmap12;
         this.b = strArr[0];
-        bitmap = this.f1577a.c;
+        bitmap = this.a.c;
         if (bitmap == null) {
-            bitmap12 = this.f1577a.r;
+            bitmap12 = this.a.r;
             if (bitmap12 == null) {
                 return null;
             }
@@ -69,26 +67,26 @@ public class ay extends BdAsyncTask {
             this.e = true;
         }
         if (!this.d.booleanValue() && !this.e.booleanValue()) {
-            bitmap9 = this.f1577a.c;
+            bitmap9 = this.a.c;
             if (!bitmap9.isRecycled()) {
-                bitmap10 = this.f1577a.c;
-                bitmap11 = this.f1577a.c;
+                bitmap10 = this.a.c;
+                bitmap11 = this.a.c;
                 this.c = bitmap10.copy(bitmap11.getConfig(), true);
             }
         } else {
-            bitmap2 = this.f1577a.r;
+            bitmap2 = this.a.r;
             if (bitmap2 != null) {
-                bitmap6 = this.f1577a.r;
+                bitmap6 = this.a.r;
                 if (!bitmap6.isRecycled()) {
-                    bitmap7 = this.f1577a.r;
-                    bitmap8 = this.f1577a.r;
+                    bitmap7 = this.a.r;
+                    bitmap8 = this.a.r;
                     this.c = bitmap7.copy(bitmap8.getConfig(), true);
                 }
             }
-            bitmap3 = this.f1577a.c;
+            bitmap3 = this.a.c;
             if (!bitmap3.isRecycled()) {
-                bitmap4 = this.f1577a.c;
-                bitmap5 = this.f1577a.c;
+                bitmap4 = this.a.c;
+                bitmap5 = this.a.c;
                 this.c = bitmap4.copy(bitmap5.getConfig(), true);
             }
         }
@@ -100,7 +98,7 @@ public class ay extends BdAsyncTask {
         } else if (this.e.booleanValue()) {
             this.c = com.baidu.tieba.util.d.e(this.c, Integer.parseInt(this.b));
         } else {
-            this.c = FilterFactory.createOneKeyFilter(this.f1577a, this.b).apply(this.f1577a, this.c);
+            this.c = FilterFactory.createOneKeyFilter(this.a, this.b).apply(this.a, this.c);
         }
         return this.c;
     }
@@ -111,15 +109,15 @@ public class ay extends BdAsyncTask {
         Button button;
         Bitmap bitmap;
         if (this.c != null && !this.c.isRecycled()) {
-            bitmap = this.f1577a.r;
+            bitmap = this.a.r;
             if (bitmap != this.c) {
                 this.c.recycle();
             }
         }
         this.c = null;
-        progressBar = this.f1577a.j;
+        progressBar = this.a.j;
         progressBar.setVisibility(8);
-        button = this.f1577a.e;
+        button = this.a.e;
         button.setClickable(true);
         super.cancel(true);
     }
@@ -146,42 +144,42 @@ public class ay extends BdAsyncTask {
         Bitmap bitmap8;
         Bitmap bitmap9;
         Bitmap bitmap10;
-        progressBar = this.f1577a.j;
+        progressBar = this.a.j;
         progressBar.setVisibility(8);
-        button = this.f1577a.e;
+        button = this.a.e;
         button.setClickable(true);
         if (bitmap != null && !bitmap.isRecycled()) {
-            this.f1577a.y = true;
-            imageView = this.f1577a.b;
+            this.a.y = true;
+            imageView = this.a.b;
             imageView.setImageBitmap(bitmap);
-            bitmap2 = this.f1577a.c;
+            bitmap2 = this.a.c;
             if (bitmap2 != null && (this.d.booleanValue() || this.e.booleanValue())) {
-                bitmap6 = this.f1577a.c;
+                bitmap6 = this.a.c;
                 if (bitmap6.getWidth() <= 600) {
-                    bitmap10 = this.f1577a.c;
+                    bitmap10 = this.a.c;
                 }
-                WriteImageActivity writeImageActivity = this.f1577a;
-                bitmap7 = this.f1577a.c;
+                WriteImageActivity writeImageActivity = this.a;
+                bitmap7 = this.a.c;
                 writeImageActivity.c = com.baidu.tieba.util.d.a(bitmap7, 600);
                 if (this.d.booleanValue()) {
-                    WriteImageActivity writeImageActivity2 = this.f1577a;
-                    bitmap9 = this.f1577a.c;
+                    WriteImageActivity writeImageActivity2 = this.a;
+                    bitmap9 = this.a.c;
                     writeImageActivity2.c = com.baidu.tieba.util.d.d(bitmap9, Integer.parseInt(this.b));
                 } else if (this.e.booleanValue()) {
-                    WriteImageActivity writeImageActivity3 = this.f1577a;
-                    bitmap8 = this.f1577a.c;
+                    WriteImageActivity writeImageActivity3 = this.a;
+                    bitmap8 = this.a.c;
                     writeImageActivity3.c = com.baidu.tieba.util.d.e(bitmap8, Integer.parseInt(this.b));
                 }
             }
-            bitmap3 = this.f1577a.r;
+            bitmap3 = this.a.r;
             if (bitmap3 != null) {
-                bitmap4 = this.f1577a.r;
+                bitmap4 = this.a.r;
                 if (!bitmap4.isRecycled()) {
-                    bitmap5 = this.f1577a.r;
+                    bitmap5 = this.a.r;
                     bitmap5.recycle();
                 }
             }
-            this.f1577a.r = bitmap;
+            this.a.r = bitmap;
         }
     }
 }

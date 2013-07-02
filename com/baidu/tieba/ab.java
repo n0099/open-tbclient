@@ -1,9 +1,7 @@
 package com.baidu.tieba;
 /* loaded from: classes.dex */
 class ab {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ LabelActivity f629a;
+    final /* synthetic */ LabelActivity a;
     private float b;
     private float c;
     private float d;
@@ -17,7 +15,7 @@ class ab {
     private long l;
 
     public ab(LabelActivity labelActivity, int i, int i2, int i3, int i4, long j) {
-        this.f629a = labelActivity;
+        this.a = labelActivity;
         this.d = 0.0f;
         this.e = 0.0f;
         this.f = 0.0f;

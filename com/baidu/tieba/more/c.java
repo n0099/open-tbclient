@@ -12,14 +12,12 @@ import java.util.Date;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class c extends BdAsyncTask {
-
-    /* renamed from: a  reason: collision with root package name */
-    com.baidu.tieba.util.r f1091a;
+    com.baidu.tieba.util.r a;
     final /* synthetic */ AboutActivity b;
 
     private c(AboutActivity aboutActivity) {
         this.b = aboutActivity;
-        this.f1091a = null;
+        this.a = null;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -43,20 +41,20 @@ public class c extends BdAsyncTask {
         br brVar;
         Exception e;
         try {
-            this.f1091a = new com.baidu.tieba.util.r(String.valueOf(com.baidu.tieba.data.g.f787a) + "c/s/sync");
-            this.f1091a.a("_os_version", Build.VERSION.RELEASE);
+            this.a = new com.baidu.tieba.util.r(String.valueOf(com.baidu.tieba.data.g.a) + "c/s/sync");
+            this.a.a("_os_version", Build.VERSION.RELEASE);
             StringBuffer stringBuffer = new StringBuffer(15);
             stringBuffer.append(String.valueOf(com.baidu.tieba.util.ab.a(TiebaApplication.f())));
             stringBuffer.append(",");
             stringBuffer.append(String.valueOf(com.baidu.tieba.util.ab.b(TiebaApplication.f())));
-            this.f1091a.a("_phone_screen", stringBuffer.toString());
+            this.a.a("_phone_screen", stringBuffer.toString());
             if (TiebaApplication.f().R() > 0) {
-                this.f1091a.a("_msg_status", "0");
+                this.a.a("_msg_status", "0");
             } else {
-                this.f1091a.a("_msg_status", "1");
+                this.a.a("_msg_status", "1");
             }
-            String j = this.f1091a.j();
-            if (!this.f1091a.c()) {
+            String j = this.a.j();
+            if (!this.a.c()) {
                 return null;
             }
             brVar = new br();
@@ -83,8 +81,8 @@ public class c extends BdAsyncTask {
     public void cancel() {
         ProgressBar progressBar;
         this.b.e = null;
-        if (this.f1091a != null) {
-            this.f1091a.h();
+        if (this.a != null) {
+            this.a.h();
         }
         super.cancel(true);
         progressBar = this.b.j;

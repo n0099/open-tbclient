@@ -20,9 +20,7 @@ import java.util.Iterator;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class bj extends BdAsyncTask {
-
-    /* renamed from: a  reason: collision with root package name */
-    com.baidu.tieba.util.r f1159a = null;
+    com.baidu.tieba.util.r a = null;
     Address b;
     com.baidu.tieba.model.av c;
     final /* synthetic */ NewNearbyActivity d;
@@ -45,21 +43,21 @@ public class bj extends BdAsyncTask {
             return null;
         }
         try {
-            int a2 = com.baidu.tieba.util.ab.a(this.d, 110.0f);
-            int a3 = com.baidu.tieba.util.ab.a((Context) this.d);
+            int a = com.baidu.tieba.util.ab.a(this.d, 110.0f);
+            int a2 = com.baidu.tieba.util.ab.a((Context) this.d);
             StringBuffer stringBuffer = new StringBuffer(100);
             stringBuffer.append("http://api.map.baidu.com/staticimage?");
-            stringBuffer.append("width=" + String.valueOf(a3));
+            stringBuffer.append("width=" + String.valueOf(a2));
             stringBuffer.append("&");
-            stringBuffer.append("height=" + String.valueOf(a2 + 100));
+            stringBuffer.append("height=" + String.valueOf(a + 100));
             stringBuffer.append("&");
             stringBuffer.append("center=" + String.valueOf(this.b.getLongitude()) + "," + String.valueOf(this.b.getLatitude()));
             stringBuffer.append("&");
             stringBuffer.append("zoom=" + String.valueOf(this.c.b()));
-            this.f1159a = new com.baidu.tieba.util.r(this.d, stringBuffer.toString());
-            this.f1159a.c(false);
-            byte[] i = this.f1159a.i();
-            if (this.f1159a.c()) {
+            this.a = new com.baidu.tieba.util.r(this.d, stringBuffer.toString());
+            this.a.c(false);
+            byte[] i = this.a.i();
+            if (this.a.c()) {
                 bitmap = com.baidu.tieba.util.d.a(i);
                 Bitmap createBitmap = Bitmap.createBitmap(bitmap, 0, 50, bitmap.getWidth(), bitmap.getHeight() - 100, (Matrix) null, false);
                 new Canvas(createBitmap).drawBitmap(com.baidu.tieba.util.d.b(this.d, (int) R.drawable.nearby_my_pos), (createBitmap.getWidth() - b.getWidth()) >> 1, (createBitmap.getHeight() >> 1) - b.getHeight(), (Paint) null);
@@ -79,8 +77,8 @@ public class bj extends BdAsyncTask {
 
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void cancel() {
-        if (this.f1159a != null) {
-            this.f1159a.h();
+        if (this.a != null) {
+            this.a.h();
         }
         cancel(true);
         this.d.j = null;

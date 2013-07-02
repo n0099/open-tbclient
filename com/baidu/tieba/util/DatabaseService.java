@@ -13,9 +13,7 @@ import java.util.ArrayList;
 import java.util.Date;
 /* loaded from: classes.dex */
 public class DatabaseService {
-
-    /* renamed from: a  reason: collision with root package name */
-    private static Boolean f1444a = true;
+    private static Boolean a = true;
     private static Boolean b = true;
     private static volatile SQLiteDatabase c = null;
     private static volatile SQLiteDatabase d = null;
@@ -1010,7 +1008,7 @@ public class DatabaseService {
     }
 
     public static void a(Boolean bool) {
-        f1444a = bool;
+        a = bool;
     }
 
     public static void b(Boolean bool) {

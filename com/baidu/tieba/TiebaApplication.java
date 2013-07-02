@@ -21,6 +21,10 @@ import android.telephony.TelephonyManager;
 import com.baidu.account.AccountProxy;
 import com.baidu.android.common.util.CommonParam;
 import com.baidu.browser.explorer.BdWebErrorView;
+import com.baidu.location.BDLocation;
+import com.baidu.location.BDLocationListener;
+import com.baidu.location.LocationClient;
+import com.baidu.location.LocationClientOption;
 import com.baidu.mapapi.BMapManager;
 import com.baidu.mapapi.MKEvent;
 import com.baidu.tieba.chat.ChatListActivity;
@@ -51,6 +55,7 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Hashtable;
 import java.util.List;
+import java.util.Locale;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 /* loaded from: classes.dex */
@@ -83,16 +88,14 @@ public class TiebaApplication extends com.baidu.adp.a.b {
     private String v = null;
     private VersionData w = null;
     private BannerData x = null;
-
-    /* renamed from: a  reason: collision with root package name */
-    public long f618a = 0;
+    public long a = 0;
     private int y = -1;
     private boolean A = true;
-    private com.baidu.location.e B = null;
-    private com.baidu.location.c C = null;
+    private LocationClient B = null;
+    private BDLocationListener C = null;
     private int D = 0;
     private Address F = null;
-    private aw G = null;
+    private av G = null;
     private ArrayList H = null;
     private ExecutorService I = null;
     private int J = 2;
@@ -152,7 +155,7 @@ public class TiebaApplication extends com.baidu.adp.a.b {
         super.onCreate();
         f = this;
         this.ag = getSharedPreferences("settings", 0);
-        new ax(null).execute(new String[0]);
+        new aw(null).execute(new String[0]);
         com.baidu.tieba.data.g.r();
         NetWorkCore.e();
         bb();
@@ -306,7 +309,11 @@ public class TiebaApplication extends com.baidu.adp.a.b {
     }
 
     public void l() {
-        startService(new Intent(this, MessagePullService.class));
+        try {
+            startService(new Intent(this, MessagePullService.class));
+        } catch (Exception e) {
+            com.baidu.tieba.util.z.b(getClass().getName(), "startPullMessageService", e.toString());
+        }
     }
 
     public void m() {
@@ -441,7 +448,7 @@ public class TiebaApplication extends com.baidu.adp.a.b {
         if (Build.VERSION.SDK_INT <= 4) {
             this.A = false;
         }
-        com.baidu.tieba.data.a.f743a = getString(R.string.neterror);
+        com.baidu.tieba.data.a.a = getString(R.string.neterror);
     }
 
     public int r() {
@@ -664,12 +671,12 @@ public class TiebaApplication extends com.baidu.adp.a.b {
         if (softReference != null && softReference.get() != null) {
             return (com.baidu.adp.widget.a.b) softReference.get();
         }
-        com.baidu.adp.widget.a.b a2 = com.baidu.tbadk.a.a.a().a(str);
-        if (a2 != null) {
-            this.g.put(str, new SoftReference(a2));
-            return a2;
+        com.baidu.adp.widget.a.b a = com.baidu.tbadk.a.a.a().a(str);
+        if (a != null) {
+            this.g.put(str, new SoftReference(a));
+            return a;
         }
-        return a2;
+        return a;
     }
 
     public void a(Boolean bool) {
@@ -1042,7 +1049,11 @@ public class TiebaApplication extends com.baidu.adp.a.b {
 
     public void ab() {
         if (f().aa()) {
-            startService(new Intent(this, TiebaMessageService.class));
+            try {
+                startService(new Intent(this, TiebaMessageService.class));
+            } catch (Exception e) {
+                com.baidu.tieba.util.z.b(getClass().getName(), "startMsgReceive", e.toString());
+            }
         }
     }
 
@@ -1538,17 +1549,17 @@ public class TiebaApplication extends com.baidu.adp.a.b {
         try {
             this.E = (LocationManager) getSystemService(Headers.LOCATION);
             if (this.A) {
-                this.C = new au(this);
-                com.baidu.location.j jVar = new com.baidu.location.j();
-                jVar.a(true);
-                jVar.c("tieba");
-                jVar.b("all");
-                jVar.a("bd09ll");
-                jVar.a(BdWebErrorView.ERROR_CODE_500);
-                jVar.b(true);
-                this.B = new com.baidu.location.e(getApplicationContext());
-                this.B.b(this.C);
-                this.B.a(jVar);
+                this.C = new MyBDLocationListenner();
+                LocationClientOption locationClientOption = new LocationClientOption();
+                locationClientOption.setOpenGps(true);
+                locationClientOption.setProdName("tieba");
+                locationClientOption.setAddrType("all");
+                locationClientOption.setCoorType("bd09ll");
+                locationClientOption.setScanSpan(BdWebErrorView.ERROR_CODE_500);
+                locationClientOption.disableCache(true);
+                this.B = new LocationClient(getApplicationContext());
+                this.B.registerLocationListener(this.C);
+                this.B.setLocOption(locationClientOption);
             }
         } catch (Exception e) {
             com.baidu.tieba.util.z.b(getClass().getName(), "initLocationServer", e.toString());
@@ -1557,7 +1568,7 @@ public class TiebaApplication extends com.baidu.adp.a.b {
 
     public void aN() {
         try {
-            if (this.F == null || System.currentTimeMillis() - this.f618a > 300000) {
+            if (this.F == null || System.currentTimeMillis() - this.a > 300000) {
                 this.F = null;
                 if (this.c.hasMessages(5)) {
                     this.c.removeMessages(5);
@@ -1566,10 +1577,10 @@ public class TiebaApplication extends com.baidu.adp.a.b {
                     this.E.removeUpdates(this.aw);
                 }
                 if (this.A) {
-                    if (!this.B.c()) {
-                        this.B.d();
+                    if (!this.B.isStarted()) {
+                        this.B.start();
                     }
-                    this.B.b();
+                    this.B.requestLocation();
                 }
                 this.D = 4;
                 if (this.E != null && !this.E.isProviderEnabled("gps") && !this.E.isProviderEnabled("network")) {
@@ -1602,6 +1613,42 @@ public class TiebaApplication extends com.baidu.adp.a.b {
         }
     }
 
+    /* loaded from: classes.dex */
+    public class MyBDLocationListenner implements BDLocationListener {
+        public MyBDLocationListenner() {
+        }
+
+        @Override // com.baidu.location.BDLocationListener
+        public void onReceiveLocation(BDLocation bDLocation) {
+            if (bDLocation != null && bDLocation.getLocType() != 62 && bDLocation.getLocType() != 63 && bDLocation.getLocType() != 68 && bDLocation.getLocType() <= 161) {
+                TiebaApplication.this.D = 0;
+                TiebaApplication.this.aO();
+                TiebaApplication.this.F = new Address(Locale.getDefault());
+                TiebaApplication.this.F.setLatitude(bDLocation.getLatitude());
+                TiebaApplication.this.F.setLongitude(bDLocation.getLongitude());
+                TiebaApplication.this.a = System.currentTimeMillis();
+                StringBuffer stringBuffer = new StringBuffer();
+                if ((bDLocation.getDistrict() == null || bDLocation.getStreet() == null) && bDLocation.getCity() != null) {
+                    stringBuffer.append(bDLocation.getCity());
+                }
+                if (bDLocation.getDistrict() != null) {
+                    stringBuffer.append(bDLocation.getDistrict());
+                }
+                if (bDLocation.getStreet() != null) {
+                    stringBuffer.append(bDLocation.getStreet());
+                }
+                if (bDLocation.getAddrStr() != null) {
+                    TiebaApplication.this.F.setAddressLine(0, stringBuffer.toString());
+                }
+                TiebaApplication.this.a(TiebaApplication.this.D, "", TiebaApplication.this.F);
+            }
+        }
+
+        @Override // com.baidu.location.BDLocationListener
+        public void onReceivePoi(BDLocation bDLocation) {
+        }
+    }
+
     public void aO() {
         if (this.c.hasMessages(5)) {
             this.c.removeMessages(5);
@@ -1609,8 +1656,8 @@ public class TiebaApplication extends com.baidu.adp.a.b {
         if (this.E != null) {
             this.E.removeUpdates(this.aw);
         }
-        if (this.A && this.B != null && this.B.c()) {
-            this.B.e();
+        if (this.A && this.B != null && this.B.isStarted()) {
+            this.B.stop();
         }
         if (this.G != null) {
             this.G.cancel();
@@ -1623,7 +1670,7 @@ public class TiebaApplication extends com.baidu.adp.a.b {
 
     public Address a(at atVar) {
         boolean z;
-        if (this.F != null && System.currentTimeMillis() - this.f618a <= 300000) {
+        if (this.F != null && System.currentTimeMillis() - this.a <= 300000) {
             return this.F;
         }
         if (atVar != null) {
@@ -1777,7 +1824,7 @@ public class TiebaApplication extends com.baidu.adp.a.b {
                 this.ay = new BMapManager(context);
             }
             if (this.ay != null) {
-                if (this.ay.init(az, new av())) {
+                if (this.ay.init(az, new au())) {
                     z = true;
                 }
             }

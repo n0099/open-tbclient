@@ -8,9 +8,7 @@ import com.baidu.tieba.util.NetWorkCore;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public class aq extends RelativeLayout {
-
-    /* renamed from: a  reason: collision with root package name */
-    protected ProgressBar f1513a;
+    protected ProgressBar a;
     protected h b;
     protected Context c;
     private as d;
@@ -22,7 +20,7 @@ public class aq extends RelativeLayout {
 
     public aq(Context context) {
         super(context);
-        this.f1513a = null;
+        this.a = null;
         this.b = null;
         this.d = null;
         this.c = null;
@@ -51,13 +49,13 @@ public class aq extends RelativeLayout {
         this.b = new h(this.c);
         this.b.setLayoutParams(new RelativeLayout.LayoutParams(-1, -1));
         addView(this.b);
-        this.f1513a = new ProgressBar(this.c, null, 16843399);
-        this.f1513a.setIndeterminateDrawable(this.c.getResources().getDrawable(R.drawable.progressbar));
+        this.a = new ProgressBar(this.c, null, 16843399);
+        this.a.setIndeterminateDrawable(this.c.getResources().getDrawable(R.drawable.progressbar));
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
         layoutParams.addRule(13);
-        this.f1513a.setLayoutParams(layoutParams);
-        this.f1513a.setIndeterminate(true);
-        addView(this.f1513a);
+        this.a.setLayoutParams(layoutParams);
+        this.a.setIndeterminate(true);
+        addView(this.a);
     }
 
     public void setUrl(String str) {
@@ -90,7 +88,7 @@ public class aq extends RelativeLayout {
         if (this.b != null) {
             this.b.j();
         }
-        this.f1513a.setVisibility(8);
+        this.a.setVisibility(8);
     }
 
     public void d() {
@@ -98,7 +96,7 @@ public class aq extends RelativeLayout {
         if (this.b != null) {
             this.b.k();
         }
-        this.f1513a.setVisibility(8);
+        this.a.setVisibility(8);
     }
 
     public void e() {

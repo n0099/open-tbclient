@@ -3,7 +3,7 @@ package com.baidu.android.nebula.cmd;
 import android.content.Context;
 import android.content.pm.PackageInfo;
 import android.text.TextUtils;
-import com.baidu.android.moplus.util.NoProGuard;
+import com.baidu.android.pushservice.util.NoProGuard;
 import com.baidu.cyberplayer.sdk.internal.HttpUtils;
 import java.util.ArrayList;
 import java.util.Map;
@@ -11,7 +11,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
-public class GetPackageInfo implements NoProGuard, e {
+public class GetPackageInfo implements e, NoProGuard {
     private static final boolean DEBUG = false;
     public static final int ERROR_NOT_EXIST = 1;
     private static final String TAG = "GetPackageInfo";
@@ -19,25 +19,25 @@ public class GetPackageInfo implements NoProGuard, e {
     Context mContext = null;
 
     @Override // com.baidu.android.nebula.cmd.e
-    public void execute(com.baidu.android.nebula.a.d dVar, com.baidu.android.nebula.a.a aVar) {
+    public void execute(com.baidu.android.nebula.b.a aVar, com.baidu.android.nebula.b.b bVar) {
         String str;
         ArrayList<PackageInfo> arrayList;
-        Map a2 = dVar.a();
-        if (a2 == null || a2.size() < 1 || (str = (String) a2.get("callback")) == null) {
+        Map a = aVar.a();
+        if (a == null || a.size() < 1 || (str = (String) a.get("callback")) == null) {
             return;
         }
-        String str2 = (String) a2.get("packagename");
+        String str2 = (String) a.get("packagename");
         if (TextUtils.isEmpty(str2)) {
             return;
         }
-        this.mContext = com.baidu.android.nebula.d.c.a().c();
+        this.mContext = com.baidu.android.nebula.localserver.c.a().b();
         if (this.mContext != null) {
-            if (!com.baidu.android.nebula.d.a.a(this.mContext).a(dVar.a(HttpUtils.HEADER_NAME_REFERER))) {
+            if (!com.baidu.android.nebula.localserver.a.a(this.mContext).a(aVar.a(HttpUtils.HEADER_NAME_REFERER))) {
                 this.mErrcode = 4;
             }
             if (this.mErrcode != 4) {
                 this.mErrcode = 1;
-                arrayList = com.baidu.android.nebula.d.a.a.a(this.mContext).b(str2);
+                arrayList = com.baidu.android.nebula.localserver.util.e.a(this.mContext).b(str2);
             } else {
                 arrayList = null;
             }
@@ -60,10 +60,10 @@ public class GetPackageInfo implements NoProGuard, e {
                 }
             }
             jSONObject.put("error", this.mErrcode);
-            aVar.a("text/javascript");
-            aVar.a().put("Cache-Control", "no-cache");
-            aVar.b(str + " && " + str + "(" + jSONObject.toString() + ");");
-            aVar.a(200);
+            bVar.a("text/javascript");
+            bVar.a().put("Cache-Control", "no-cache");
+            bVar.b(str + " && " + str + "(" + jSONObject.toString() + ");");
+            bVar.a(200);
         }
     }
 }

@@ -4,13 +4,11 @@ import android.widget.ImageView;
 import android.widget.ListView;
 /* loaded from: classes.dex */
 class l implements com.baidu.tbadk.a.d {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ k f1169a;
+    final /* synthetic */ k a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public l(k kVar) {
-        this.f1169a = kVar;
+        this.a = kVar;
     }
 
     @Override // com.baidu.tbadk.a.d
@@ -18,7 +16,7 @@ class l implements com.baidu.tbadk.a.d {
         NearbyPbActivity nearbyPbActivity;
         ListView listView;
         if (bVar != null) {
-            nearbyPbActivity = this.f1169a.f1168a;
+            nearbyPbActivity = this.a.a;
             listView = nearbyPbActivity.b;
             ImageView imageView = (ImageView) listView.findViewWithTag(str);
             if (imageView != null) {

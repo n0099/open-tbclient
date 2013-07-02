@@ -6,9 +6,7 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class ac {
-
-    /* renamed from: a  reason: collision with root package name */
-    private com.baidu.tieba.data.r f1009a;
+    private com.baidu.tieba.data.r a;
     private ArrayList b;
     private ArrayList c;
     private int d;
@@ -28,7 +26,7 @@ public class ac {
     }
 
     private void g() {
-        this.f1009a = new com.baidu.tieba.data.r();
+        this.a = new com.baidu.tieba.data.r();
         this.b = new ArrayList();
         this.c = new ArrayList();
         this.d = 0;
@@ -39,7 +37,7 @@ public class ac {
     }
 
     public com.baidu.tieba.data.r a() {
-        return this.f1009a;
+        return this.a;
     }
 
     public ArrayList b() {
@@ -62,7 +60,7 @@ public class ac {
         if (jSONObject != null) {
             try {
                 g();
-                this.f1009a.a(jSONObject.optJSONObject("forum"));
+                this.a.a(jSONObject.optJSONObject("forum"));
                 this.h.a(jSONObject.optJSONObject("user"));
                 this.g.parserJson(jSONObject.optJSONObject("anti"));
                 JSONObject optJSONObject = jSONObject.optJSONObject("photo_data");

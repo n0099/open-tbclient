@@ -40,9 +40,7 @@ public class FrsActivity extends com.baidu.tieba.g implements com.baidu.adp.widg
     private static volatile int r = 0;
     private com.baidu.tieba.model.aa C;
     private com.baidu.tieba.model.m D;
-
-    /* renamed from: a  reason: collision with root package name */
-    private boolean f825a = true;
+    private boolean a = true;
     private int b = 3;
     private String c = null;
     private String d = null;
@@ -91,9 +89,9 @@ public class FrsActivity extends com.baidu.tieba.g implements com.baidu.adp.widg
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(com.baidu.tieba.model.y yVar) {
-        if (this.f825a) {
+        if (this.a) {
             if (yVar != null) {
-                if (yVar.f1069a && yVar.b) {
+                if (yVar.a && yVar.b) {
                     if (yVar.c == 3) {
                         this.g = false;
                         this.c = this.c.replace(" ", "");
@@ -208,9 +206,9 @@ public class FrsActivity extends com.baidu.tieba.g implements com.baidu.adp.widg
         int i = BdWebErrorView.ERROR_CODE_400;
         this.J = new com.baidu.tieba.util.a(this);
         this.J.b(true);
-        int a2 = com.baidu.tieba.util.ab.a(this, 267.0f);
-        if (a2 <= 400) {
-            i = a2;
+        int a = com.baidu.tieba.util.ab.a(this, 267.0f);
+        if (a <= 400) {
+            i = a;
         }
         this.J.a(i, (int) (i * 1.62f));
     }
@@ -500,7 +498,7 @@ public class FrsActivity extends com.baidu.tieba.g implements com.baidu.adp.widg
     }
 
     private void u() {
-        this.f825a = true;
+        this.a = true;
         this.c = "";
         this.d = "";
         this.e = 0;
@@ -571,12 +569,12 @@ public class FrsActivity extends com.baidu.tieba.g implements com.baidu.adp.widg
 
     /* JADX INFO: Access modifiers changed from: private */
     public void c(String str) {
-        Intent a2;
-        if (str != null && (a2 = a((Context) this, str)) != null) {
+        Intent a;
+        if (str != null && (a = a((Context) this, str)) != null) {
             Intent intent = new Intent("com.android.launcher.action.INSTALL_SHORTCUT");
             intent.putExtra("duplicate", false);
             intent.putExtra("android.intent.extra.shortcut.NAME", String.valueOf(str) + getString(R.string.bar));
-            intent.putExtra("android.intent.extra.shortcut.INTENT", a2);
+            intent.putExtra("android.intent.extra.shortcut.INTENT", a);
             intent.putExtra("android.intent.extra.shortcut.ICON_RESOURCE", Intent.ShortcutIconResource.fromContext(this, R.drawable.icon));
             sendBroadcast(intent);
             new com.baidu.tieba.account.af("add_to_launcher").start();
@@ -611,16 +609,16 @@ public class FrsActivity extends com.baidu.tieba.g implements com.baidu.adp.widg
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b(com.baidu.tieba.data.ba baVar) {
-        boolean a2 = a(baVar);
+        boolean a = a(baVar);
         this.l.a(new r(this, baVar));
-        this.l.a(baVar, a2);
+        this.l.a(baVar, a);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void c(com.baidu.tieba.data.ba baVar) {
-        boolean a2 = a(baVar);
+        boolean a = a(baVar);
         if (this.j != null) {
-            if (!a2) {
+            if (!a) {
                 NewPbActivity.a(this, baVar, null, 1800003, true, true, this.k);
             } else {
                 NewPbActivity.a(this, baVar, null, 1800003, false, false, this.k);
@@ -663,7 +661,7 @@ public class FrsActivity extends com.baidu.tieba.g implements com.baidu.adp.widg
                 break;
         }
         StringBuffer stringBuffer = new StringBuffer(30);
-        stringBuffer.append(com.baidu.tieba.data.g.f787a);
+        stringBuffer.append(com.baidu.tieba.data.g.a);
         stringBuffer.append("c/f/frs/page");
         ArrayList arrayList = new ArrayList();
         arrayList.add(new BasicNameValuePair("kw", this.c));
@@ -716,7 +714,7 @@ public class FrsActivity extends com.baidu.tieba.g implements com.baidu.adp.widg
                 this.c = this.v.a().b();
                 this.l.c(this.c);
                 A();
-                this.f825a = false;
+                this.a = false;
                 ArrayList b = this.v.b();
                 if (b != null) {
                     this.l.a(b, this.f);

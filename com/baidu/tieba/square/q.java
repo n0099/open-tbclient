@@ -5,16 +5,14 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class q {
-
-    /* renamed from: a  reason: collision with root package name */
-    public String f1441a;
+    public String a;
     public String b;
     public String c;
     public String d;
     public ArrayList e;
 
     public void a(JSONObject jSONObject) {
-        this.f1441a = jSONObject.optString("menu_type");
+        this.a = jSONObject.optString("menu_type");
         this.b = jSONObject.optString("menu_name");
         this.c = jSONObject.optString("menu_id");
         this.d = jSONObject.optString("default_logo_url", null);

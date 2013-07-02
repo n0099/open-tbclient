@@ -12,9 +12,7 @@ public class r {
     private String u;
     private int v;
     private int w;
-
-    /* renamed from: a  reason: collision with root package name */
-    private String f798a = null;
+    private String a = null;
     private String b = null;
     private String c = null;
     private String d = null;
@@ -39,7 +37,7 @@ public class r {
     }
 
     public String a() {
-        return this.f798a;
+        return this.a;
     }
 
     public String b() {
@@ -93,7 +91,7 @@ public class r {
     public void a(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                this.f798a = jSONObject.optString("id");
+                this.a = jSONObject.optString("id");
                 this.b = jSONObject.optString("name");
                 JSONObject optJSONObject = jSONObject.optJSONObject("tag_info");
                 if (optJSONObject != null) {

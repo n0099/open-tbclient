@@ -28,9 +28,7 @@ public class v {
     private BdListView j = null;
     private t k = null;
     private com.baidu.tieba.view.p l = null;
-
-    /* renamed from: a  reason: collision with root package name */
-    AlertDialog f739a = null;
+    AlertDialog a = null;
 
     public v(Activity activity, View.OnClickListener onClickListener) {
         this.b = null;
@@ -95,8 +93,8 @@ public class v {
         AlertDialog.Builder builder = new AlertDialog.Builder(this.c);
         builder.setTitle(R.string.operation);
         builder.setItems(new String[]{string}, this.m);
-        this.f739a = builder.create();
-        this.f739a.setCanceledOnTouchOutside(true);
+        this.a = builder.create();
+        this.a.setCanceledOnTouchOutside(true);
     }
 
     public void a(AdapterView.OnItemClickListener onItemClickListener) {
@@ -144,8 +142,8 @@ public class v {
     }
 
     public void h() {
-        if (this.f739a != null) {
-            this.f739a.show();
+        if (this.a != null) {
+            this.a.show();
         }
     }
 

@@ -6,9 +6,7 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class p {
-
-    /* renamed from: a  reason: collision with root package name */
-    private ArrayList f796a = new ArrayList();
+    private ArrayList a = new ArrayList();
     private ArrayList b = new ArrayList();
     private ai c = new ai();
     private Date d = null;
@@ -24,7 +22,7 @@ public class p {
     }
 
     public ArrayList c() {
-        return this.f796a;
+        return this.a;
     }
 
     public void a(String str) {
@@ -43,7 +41,7 @@ public class p {
                 for (int i = 0; i < optJSONArray.length(); i++) {
                     o oVar = new o();
                     oVar.a(optJSONArray.getJSONObject(i));
-                    this.f796a.add(oVar);
+                    this.a.add(oVar);
                 }
             }
             JSONArray optJSONArray2 = jSONObject.optJSONArray("commend_forum_list");

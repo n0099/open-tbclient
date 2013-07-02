@@ -3,13 +3,11 @@ package com.baidu.tieba.home;
 import org.apache.http.message.BasicNameValuePair;
 /* loaded from: classes.dex */
 class ai implements Runnable {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ SearchActivity f897a;
+    final /* synthetic */ SearchActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ai(SearchActivity searchActivity) {
-        this.f897a = searchActivity;
+        this.a = searchActivity;
     }
 
     @Override // java.lang.Runnable
@@ -20,20 +18,20 @@ class ai implements Runnable {
         ay ayVar;
         ay ayVar2;
         try {
-            str = this.f897a.A;
+            str = this.a.A;
             if (str != null) {
-                str2 = this.f897a.A;
+                str2 = this.a.A;
                 if (str2.length() > 0) {
                     StringBuffer stringBuffer = new StringBuffer(30);
-                    stringBuffer.append(com.baidu.tieba.data.g.f787a);
+                    stringBuffer.append(com.baidu.tieba.data.g.a);
                     stringBuffer.append("c/f/forum/sug");
-                    str3 = this.f897a.A;
+                    str3 = this.a.A;
                     BasicNameValuePair basicNameValuePair = new BasicNameValuePair("q", str3.trim());
-                    this.f897a.b();
-                    this.f897a.y = new ay(this.f897a, stringBuffer.toString(), basicNameValuePair, true);
-                    ayVar = this.f897a.y;
+                    this.a.b();
+                    this.a.y = new ay(this.a, stringBuffer.toString(), basicNameValuePair, true);
+                    ayVar = this.a.y;
                     ayVar.setPriority(3);
-                    ayVar2 = this.f897a.y;
+                    ayVar2 = this.a.y;
                     ayVar2.execute(stringBuffer.toString(), basicNameValuePair);
                 }
             }

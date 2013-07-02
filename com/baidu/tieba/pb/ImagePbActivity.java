@@ -45,9 +45,7 @@ public class ImagePbActivity extends com.baidu.tieba.g implements com.baidu.tieb
     private Button n;
     private Button o;
     private GridView p;
-
-    /* renamed from: a  reason: collision with root package name */
-    private ac f1187a = null;
+    private ac a = null;
     private ImageView b = null;
     private ImageView c = null;
     private Button d = null;
@@ -156,8 +154,8 @@ public class ImagePbActivity extends com.baidu.tieba.g implements com.baidu.tieb
         if (this.v != null) {
             this.v.cancel();
         }
-        if (this.f1187a != null) {
-            this.f1187a.cancel();
+        if (this.a != null) {
+            this.a.cancel();
         }
         if (this.k != null && this.k.isShowing()) {
             this.k.dismiss();
@@ -485,10 +483,10 @@ public class ImagePbActivity extends com.baidu.tieba.g implements com.baidu.tieb
     public void a(String str, int i, int i2, boolean z) {
         com.baidu.tieba.util.z.a(getClass().getName(), str, new StringBuilder().append(i2).toString());
         if (!this.H.a()) {
-            if (this.f1187a != null) {
-                this.f1187a.cancel();
+            if (this.a != null) {
+                this.a.cancel();
             }
-            String str2 = String.valueOf(com.baidu.tieba.data.g.f787a) + "c/f/pb/picpage";
+            String str2 = String.valueOf(com.baidu.tieba.data.g.a) + "c/f/pb/picpage";
             ArrayList arrayList = new ArrayList();
             arrayList.add(new BasicNameValuePair("kw", this.D));
             arrayList.add(new BasicNameValuePair("tid", this.E));
@@ -503,9 +501,9 @@ public class ImagePbActivity extends com.baidu.tieba.g implements com.baidu.tieb
             }
             a(true);
             com.baidu.tieba.util.z.a(getClass().getName(), "startImagePbAsyncTask", str);
-            this.f1187a = new ac(this, str2.toString(), arrayList, z);
-            this.f1187a.setPriority(3);
-            this.f1187a.execute(new Object[0]);
+            this.a = new ac(this, str2.toString(), arrayList, z);
+            this.a.setPriority(3);
+            this.a.execute(new Object[0]);
         }
     }
 
@@ -691,8 +689,8 @@ public class ImagePbActivity extends com.baidu.tieba.g implements com.baidu.tieb
         switch (i) {
             case 0:
                 if (this.H.f() != null && this.H.g() != null) {
-                    if (this.f1187a != null) {
-                        this.f1187a.cancel();
+                    if (this.a != null) {
+                        this.a.cancel();
                     }
                     this.E = this.H.f();
                     this.D = this.H.i();
@@ -709,8 +707,8 @@ public class ImagePbActivity extends com.baidu.tieba.g implements com.baidu.tieb
                 return;
             case 1:
                 if (this.I != null) {
-                    if (this.f1187a != null) {
-                        this.f1187a.cancel();
+                    if (this.a != null) {
+                        this.a.cancel();
                     }
                     this.H = this.I;
                     this.I = null;

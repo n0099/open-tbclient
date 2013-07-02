@@ -17,15 +17,13 @@ import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class g extends BdAsyncTask {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ TagContentActivity f1390a;
+    final /* synthetic */ TagContentActivity a;
     private r b = null;
     private String c = null;
     private boolean d;
 
     public g(TagContentActivity tagContentActivity, boolean z) {
-        this.f1390a = tagContentActivity;
+        this.a = tagContentActivity;
         this.d = false;
         this.d = z;
     }
@@ -40,12 +38,12 @@ public class g extends BdAsyncTask {
         String str3;
         new af("tagthread").start();
         if (this.d) {
-            this.b = new r(String.valueOf(com.baidu.tieba.data.g.f787a) + "c/s/tag/add_tag");
+            this.b = new r(String.valueOf(com.baidu.tieba.data.g.a) + "c/s/tag/add_tag");
             this.b.d(true);
             this.b.a("_version_more", "1");
             this.b.a("platform", "android");
             r rVar = this.b;
-            str3 = this.f1390a.b;
+            str3 = this.a.b;
             rVar.a("tag_info", str3);
             Address aP = TiebaApplication.f().aP();
             if (aP != null && TiebaApplication.f().u()) {
@@ -65,9 +63,9 @@ public class g extends BdAsyncTask {
         ai aiVar = new ai();
         aiVar.a(b);
         az azVar = new az();
-        str = this.f1390a.b;
+        str = this.a.b;
         azVar.a(str);
-        str2 = this.f1390a.f1383a;
+        str2 = this.a.a;
         azVar.b(str2);
         aiVar.a(azVar);
         DatabaseService.a(aiVar.f(), 12);
@@ -84,22 +82,22 @@ public class g extends BdAsyncTask {
         String str2;
         String str3;
         Button button4;
-        this.f1390a.q = null;
+        this.a.q = null;
         if (str == null) {
-            button4 = this.f1390a.e;
+            button4 = this.a.e;
             button4.setVisibility(0);
         } else if (this.d) {
             try {
                 JSONObject optJSONObject = new JSONObject(str).optJSONObject("error");
                 if (optJSONObject.optInt("errno") == 0) {
-                    button3 = this.f1390a.e;
+                    button3 = this.a.e;
                     button3.setVisibility(8);
-                    this.f1390a.a(this.f1390a.getString(R.string.attention_success));
-                    ArrayList arrayList = NewHomeActivity.f1382a;
-                    str2 = this.f1390a.b;
+                    this.a.a(this.a.getString(R.string.attention_success));
+                    ArrayList arrayList = NewHomeActivity.a;
+                    str2 = this.a.b;
                     if (!arrayList.contains(str2)) {
-                        ArrayList arrayList2 = NewHomeActivity.f1382a;
-                        str3 = this.f1390a.b;
+                        ArrayList arrayList2 = NewHomeActivity.a;
+                        str3 = this.a.b;
                         arrayList2.add(str3);
                         return;
                     }
@@ -108,21 +106,21 @@ public class g extends BdAsyncTask {
                 if (optJSONObject.has("usermsg")) {
                     String optString = optJSONObject.optString("usermsg");
                     if (optString != null && optString.length() > 0) {
-                        this.f1390a.a(optString);
+                        this.a.a(optString);
                     } else {
-                        this.f1390a.a(this.f1390a.getString(R.string.attention_fail));
+                        this.a.a(this.a.getString(R.string.attention_fail));
                     }
                 }
-                button2 = this.f1390a.e;
+                button2 = this.a.e;
                 button2.setVisibility(0);
             } catch (JSONException e) {
                 e.printStackTrace();
-                button = this.f1390a.e;
+                button = this.a.e;
                 button.setVisibility(0);
-                this.f1390a.a(this.f1390a.getString(R.string.attention_fail));
+                this.a.a(this.a.getString(R.string.attention_fail));
             }
         } else {
-            this.f1390a.a(this.f1390a.getString(R.string.attention_success));
+            this.a.a(this.a.getString(R.string.attention_success));
         }
     }
 

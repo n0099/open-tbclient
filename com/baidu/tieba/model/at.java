@@ -5,25 +5,23 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class at {
-
-    /* renamed from: a  reason: collision with root package name */
-    private ArrayList f1025a = new ArrayList();
+    private ArrayList a = new ArrayList();
 
     public ArrayList a() {
-        return this.f1025a;
+        return this.a;
     }
 
     public void a(ArrayList arrayList) {
-        this.f1025a = arrayList;
+        this.a = arrayList;
     }
 
     public void a(String str) {
         int i = 0;
         while (true) {
             int i2 = i;
-            if (i2 < this.f1025a.size()) {
-                if (((au) this.f1025a.get(i2)).a() == 1 && ((au) this.f1025a.get(i2)).d().equals(str)) {
-                    ((au) this.f1025a.get(i2)).a(true);
+            if (i2 < this.a.size()) {
+                if (((au) this.a.get(i2)).a() == 1 && ((au) this.a.get(i2)).d().equals(str)) {
+                    ((au) this.a.get(i2)).a(true);
                 }
                 i = i2 + 1;
             } else {
@@ -43,9 +41,9 @@ public class at {
     public void a(JSONObject jSONObject) {
         au auVar = null;
         try {
-            int size = this.f1025a.size();
+            int size = this.a.size();
             if (size > 0) {
-                auVar = (au) this.f1025a.get(size - 1);
+                auVar = (au) this.a.get(size - 1);
             }
             JSONArray optJSONArray = jSONObject.optJSONArray("forum_list");
             if (optJSONArray != null && optJSONArray.length() > 0) {
@@ -61,15 +59,15 @@ public class at {
                     auVar3.g = optJSONObject.optInt("member_count", 0);
                     auVar3.h = optJSONObject.optInt("post_num", 0);
                     auVar3.f = optJSONObject.optInt("is_like", 0) == 1;
-                    auVar3.f1026a = 1;
+                    auVar3.a = 1;
                     if (auVar2 != null && auVar3.b.equals(auVar2.b)) {
-                        this.f1025a.add(auVar3);
+                        this.a.add(auVar3);
                     } else {
                         au auVar4 = new au(this);
                         auVar4.b = auVar3.b;
-                        auVar4.f1026a = 0;
-                        this.f1025a.add(auVar4);
-                        this.f1025a.add(auVar3);
+                        auVar4.a = 0;
+                        this.a.add(auVar4);
+                        this.a.add(auVar3);
                     }
                     i++;
                     auVar2 = auVar3;

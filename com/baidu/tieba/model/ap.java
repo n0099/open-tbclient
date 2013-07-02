@@ -7,9 +7,7 @@ import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class ap {
     private com.baidu.tieba.data.af c = new com.baidu.tieba.data.af();
-
-    /* renamed from: a  reason: collision with root package name */
-    private ArrayList f1021a = new ArrayList();
+    private ArrayList a = new ArrayList();
     private com.baidu.tieba.data.ai b = new com.baidu.tieba.data.ai();
     private boolean d = true;
 
@@ -18,11 +16,11 @@ public class ap {
     }
 
     public void a(ArrayList arrayList) {
-        this.f1021a = arrayList;
+        this.a = arrayList;
     }
 
     public ArrayList b() {
-        return this.f1021a;
+        return this.a;
     }
 
     public com.baidu.tieba.data.ai c() {
@@ -46,7 +44,7 @@ public class ap {
                 for (int i = 0; i < optJSONArray2.length(); i++) {
                     com.baidu.tieba.data.q qVar = new com.baidu.tieba.data.q();
                     qVar.a(optJSONArray2.optJSONObject(i));
-                    this.f1021a.add(qVar);
+                    this.a.add(qVar);
                 }
             }
             this.c.a(jSONObject.optJSONObject(PushConstants.EXTRA_PUSH_MESSAGE));

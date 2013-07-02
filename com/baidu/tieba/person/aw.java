@@ -5,12 +5,10 @@ import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class aw extends BdAsyncTask {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ PersonChangeActivity f1330a;
+    final /* synthetic */ PersonChangeActivity a;
 
     private aw(PersonChangeActivity personChangeActivity) {
-        this.f1330a = personChangeActivity;
+        this.a = personChangeActivity;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -21,10 +19,10 @@ public class aw extends BdAsyncTask {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void b() {
-        PersonChangeActivity.f(this.f1330a).setVisibility(0);
-        PersonChangeActivity.g(this.f1330a).setEnabled(false);
-        PersonChangeActivity.h(this.f1330a).setImageBitmap(null);
-        PersonChangeActivity.a(this.f1330a, (com.baidu.adp.widget.a.b) null);
+        PersonChangeActivity.f(this.a).setVisibility(0);
+        PersonChangeActivity.g(this.a).setEnabled(false);
+        PersonChangeActivity.h(this.a).setImageBitmap(null);
+        PersonChangeActivity.a(this.a, (com.baidu.adp.widget.a.b) null);
         super.b();
     }
 
@@ -38,9 +36,9 @@ public class aw extends BdAsyncTask {
 
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void cancel() {
-        PersonChangeActivity.a(this.f1330a, (aw) null);
-        PersonChangeActivity.f(this.f1330a).setVisibility(8);
-        PersonChangeActivity.g(this.f1330a).setEnabled(true);
+        PersonChangeActivity.a(this.a, (aw) null);
+        PersonChangeActivity.f(this.a).setVisibility(8);
+        PersonChangeActivity.g(this.a).setEnabled(true);
         super.cancel(true);
     }
 
@@ -55,12 +53,12 @@ public class aw extends BdAsyncTask {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void a(Bitmap bitmap) {
         super.a((Object) bitmap);
-        PersonChangeActivity.a(this.f1330a, (aw) null);
-        PersonChangeActivity.g(this.f1330a).setEnabled(true);
-        PersonChangeActivity.f(this.f1330a).setVisibility(8);
+        PersonChangeActivity.a(this.a, (aw) null);
+        PersonChangeActivity.g(this.a).setEnabled(true);
+        PersonChangeActivity.f(this.a).setVisibility(8);
         if (bitmap != null) {
-            PersonChangeActivity.a(this.f1330a, new com.baidu.adp.widget.a.b(bitmap, false, null));
-            PersonChangeActivity.i(this.f1330a).b(PersonChangeActivity.h(this.f1330a));
+            PersonChangeActivity.a(this.a, new com.baidu.adp.widget.a.b(bitmap, false, null));
+            PersonChangeActivity.i(this.a).b(PersonChangeActivity.h(this.a));
         }
     }
 }

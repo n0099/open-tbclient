@@ -8,13 +8,11 @@ import com.slidingmenu.lib.R;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class p implements CompoundButton.OnCheckedChangeListener {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ EditHeadActivity f1369a;
+    final /* synthetic */ EditHeadActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public p(EditHeadActivity editHeadActivity) {
-        this.f1369a = editHeadActivity;
+        this.a = editHeadActivity;
     }
 
     @Override // android.widget.CompoundButton.OnCheckedChangeListener
@@ -26,25 +24,25 @@ public class p implements CompoundButton.OnCheckedChangeListener {
         HorizontalScrollView horizontalScrollView2;
         LinearLayout linearLayout2;
         if (z) {
-            compoundButton.setTextColor(this.f1369a.getResources().getColor(R.color.white));
-            radioButton = this.f1369a.q;
+            compoundButton.setTextColor(this.a.getResources().getColor(R.color.white));
+            radioButton = this.a.q;
             if (compoundButton == radioButton) {
-                horizontalScrollView2 = this.f1369a.m;
+                horizontalScrollView2 = this.a.m;
                 horizontalScrollView2.setVisibility(0);
-                linearLayout2 = this.f1369a.s;
+                linearLayout2 = this.a.s;
                 linearLayout2.setVisibility(4);
                 return;
             }
-            radioButton2 = this.f1369a.r;
+            radioButton2 = this.a.r;
             if (compoundButton == radioButton2) {
-                horizontalScrollView = this.f1369a.m;
+                horizontalScrollView = this.a.m;
                 horizontalScrollView.setVisibility(4);
-                linearLayout = this.f1369a.s;
+                linearLayout = this.a.s;
                 linearLayout.setVisibility(0);
                 return;
             }
             return;
         }
-        compoundButton.setTextColor(this.f1369a.getResources().getColor(R.color.beautify_rotate_tab_unchecked_color));
+        compoundButton.setTextColor(this.a.getResources().getColor(R.color.beautify_rotate_tab_unchecked_color));
     }
 }

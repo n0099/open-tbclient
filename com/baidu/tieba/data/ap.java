@@ -5,9 +5,7 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class ap {
-
-    /* renamed from: a  reason: collision with root package name */
-    private long f766a = 0;
+    private long a = 0;
     private String b = null;
     private String c = null;
 
@@ -26,8 +24,8 @@ public class ap {
                 for (int i = 0; i < jSONArray.length(); i++) {
                     if (jSONArray.getJSONObject(i) != null) {
                         JSONObject jSONObject2 = jSONArray.getJSONObject(i);
-                        if (this.f766a < jSONObject2.getLong("message_id")) {
-                            this.f766a = jSONObject2.getLong("message_id");
+                        if (this.a < jSONObject2.getLong("message_id")) {
+                            this.a = jSONObject2.getLong("message_id");
                             this.b = jSONObject2.getString("link");
                             this.c = jSONObject2.getString(PushConstants.EXTRA_CONTENT);
                         }
@@ -40,7 +38,7 @@ public class ap {
     }
 
     public long a() {
-        return this.f766a;
+        return this.a;
     }
 
     public String b() {

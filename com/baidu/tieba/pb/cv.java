@@ -5,22 +5,20 @@ import android.widget.AdapterView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class cv implements AdapterView.OnItemLongClickListener {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ cr f1265a;
+    final /* synthetic */ cr a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public cv(cr crVar) {
-        this.f1265a = crVar;
+        this.a = crVar;
     }
 
     @Override // android.widget.AdapterView.OnItemLongClickListener
     public boolean onItemLongClick(AdapterView adapterView, View view, int i, long j) {
         View.OnLongClickListener onLongClickListener;
         View.OnLongClickListener onLongClickListener2;
-        onLongClickListener = this.f1265a.J;
+        onLongClickListener = this.a.J;
         if (onLongClickListener != null) {
-            onLongClickListener2 = this.f1265a.J;
+            onLongClickListener2 = this.a.J;
             onLongClickListener2.onLongClick(view);
             return false;
         }

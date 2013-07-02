@@ -7,9 +7,7 @@ import android.view.View;
 import android.view.animation.Animation;
 /* loaded from: classes.dex */
 class u implements View.OnTouchListener {
-
-    /* renamed from: a  reason: collision with root package name */
-    boolean f1443a = true;
+    boolean a = true;
     final /* synthetic */ LabelActivity b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -27,14 +25,14 @@ class u implements View.OnTouchListener {
         Handler handler4;
         switch (motionEvent.getAction()) {
             case 0:
-                this.f1443a = true;
+                this.a = true;
                 this.b.o = view;
                 handler3 = this.b.P;
                 handler4 = this.b.P;
                 handler3.sendMessageDelayed(handler4.obtainMessage(2), 200L);
                 break;
             case 1:
-                if (this.f1443a) {
+                if (this.a) {
                     if (view instanceof com.baidu.tieba.view.ag) {
                         vibrator = this.b.u;
                         vibrator.vibrate(100L);
@@ -61,7 +59,7 @@ class u implements View.OnTouchListener {
                     animation = this.b.w;
                     view.setAnimation(animation);
                 }
-                this.f1443a = false;
+                this.a = false;
                 break;
         }
         return true;

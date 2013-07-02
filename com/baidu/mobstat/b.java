@@ -10,9 +10,7 @@ import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class b {
-
-    /* renamed from: a  reason: collision with root package name */
-    private static String f575a = "Android";
+    private static String a = "Android";
     private static JSONObject q = new JSONObject();
     private static b w = new b();
     private String b;
@@ -260,7 +258,7 @@ public class b {
     public synchronized void b() {
         if (q.length() <= 0) {
             try {
-                q.put("o", f575a == null ? "" : f575a);
+                q.put("o", a == null ? "" : a);
                 q.put("s", this.b == null ? "" : this.b);
                 q.put("k", this.c == null ? "" : this.c);
                 q.put("v", "2.2");

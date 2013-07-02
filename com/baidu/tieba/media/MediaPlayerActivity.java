@@ -16,9 +16,7 @@ import java.util.ArrayList;
 public class MediaPlayerActivity extends Activity implements BVideoView.OnCompletionListener, BVideoView.OnErrorListener, BVideoView.OnInfoListener, BVideoView.OnPlayingBufferCacheListener, BVideoView.OnPreparedListener {
     private o j;
     private HandlerThread k;
-
-    /* renamed from: a  reason: collision with root package name */
-    private a f953a = null;
+    private a a = null;
     private q b = null;
     private l c = null;
     private String d = null;
@@ -75,7 +73,7 @@ public class MediaPlayerActivity extends Activity implements BVideoView.OnComple
 
     private void d() {
         this.b = new q(this);
-        this.f953a = new a(this);
+        this.a = new a(this);
         this.b.a();
     }
 

@@ -7,13 +7,11 @@ import android.widget.RelativeLayout;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 class f implements TextWatcher {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ ActivationActivity f666a;
+    final /* synthetic */ ActivationActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(ActivationActivity activationActivity) {
-        this.f666a = activationActivity;
+        this.a = activationActivity;
     }
 
     @Override // android.text.TextWatcher
@@ -26,20 +24,20 @@ class f implements TextWatcher {
         int i3;
         RelativeLayout relativeLayout2;
         if (editable.length() == 6) {
-            relativeLayout2 = this.f666a.l;
+            relativeLayout2 = this.a.l;
             relativeLayout2.setEnabled(true);
         } else {
-            relativeLayout = this.f666a.l;
+            relativeLayout = this.a.l;
             relativeLayout.setEnabled(false);
         }
-        i = this.f666a.A;
+        i = this.a.A;
         if (i != 0) {
-            this.f666a.A = 0;
-            linearLayout = this.f666a.c;
+            this.a.A = 0;
+            linearLayout = this.a.c;
             linearLayout.setBackgroundResource(R.drawable.pass_input);
-            linearLayout2 = this.f666a.c;
-            i2 = this.f666a.y;
-            i3 = this.f666a.z;
+            linearLayout2 = this.a.c;
+            i2 = this.a.y;
+            i3 = this.a.z;
             linearLayout2.setPadding(i2, 0, i3, 0);
         }
     }

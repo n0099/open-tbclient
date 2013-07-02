@@ -13,9 +13,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 /* loaded from: classes.dex */
 public class BdListView extends ListView {
-
-    /* renamed from: a  reason: collision with root package name */
-    private e f199a;
+    private e a;
     private AdapterView.OnItemClickListener b;
     private AdapterView.OnItemLongClickListener c;
     private AdapterView.OnItemSelectedListener d;
@@ -43,7 +41,7 @@ public class BdListView extends ListView {
 
     public BdListView(Context context) {
         super(context);
-        this.f199a = null;
+        this.a = null;
         this.b = null;
         this.c = null;
         this.d = null;
@@ -73,7 +71,7 @@ public class BdListView extends ListView {
 
     public BdListView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f199a = null;
+        this.a = null;
         this.b = null;
         this.c = null;
         this.d = null;
@@ -103,7 +101,7 @@ public class BdListView extends ListView {
 
     public BdListView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.f199a = null;
+        this.a = null;
         this.b = null;
         this.c = null;
         this.d = null;
@@ -144,7 +142,7 @@ public class BdListView extends ListView {
     }
 
     private void b() {
-        this.f199a = new e(getContext());
+        this.a = new e(getContext());
         super.setOnItemClickListener(new j(this));
         super.setOnScrollListener(new k(this));
     }
@@ -189,13 +187,13 @@ public class BdListView extends ListView {
 
     @Override // android.widget.ListView, android.widget.AdapterView
     public ListAdapter getAdapter() {
-        return this.f199a;
+        return this.a;
     }
 
     @Override // android.widget.ListView, android.widget.AbsListView
     public void setAdapter(ListAdapter listAdapter) {
-        this.f199a.a(listAdapter);
-        super.setAdapter((ListAdapter) this.f199a);
+        this.a.a(listAdapter);
+        super.setAdapter((ListAdapter) this.a);
     }
 
     public void setOnHeaderClickListener(o oVar) {
@@ -208,36 +206,36 @@ public class BdListView extends ListView {
 
     @Override // android.widget.ListView
     public void addHeaderView(View view, Object obj, boolean z) {
-        this.f199a.a(view, obj, z, getHeaderIndex());
+        this.a.a(view, obj, z, getHeaderIndex());
     }
 
     @Override // android.widget.ListView
     public void addHeaderView(View view) {
-        this.f199a.a(view, getHeaderIndex());
+        this.a.a(view, getHeaderIndex());
     }
 
     public void a(View view) {
-        this.f199a.a(view, null, false, 0);
+        this.a.a(view, null, false, 0);
     }
 
     @Override // android.widget.ListView
     public void addFooterView(View view, Object obj, boolean z) {
-        this.f199a.b(view, obj, z, -1);
+        this.a.b(view, obj, z, -1);
     }
 
     @Override // android.widget.ListView
     public void addFooterView(View view) {
-        this.f199a.c(view);
+        this.a.c(view);
     }
 
     @Override // android.widget.ListView
     public boolean removeHeaderView(View view) {
-        return this.f199a.a(view);
+        return this.a.a(view);
     }
 
     @Override // android.widget.ListView
     public boolean removeFooterView(View view) {
-        return this.f199a.b(view);
+        return this.a.b(view);
     }
 
     public void setNoData(String str) {
@@ -280,14 +278,14 @@ public class BdListView extends ListView {
             this.n = null;
         }
         if (cVar != null) {
-            this.f199a.b(cVar.b(), null, true, 0);
+            this.a.b(cVar.b(), null, true, 0);
             this.n = cVar;
         }
     }
 
     private int getHeaderIndex() {
         if (this.m != null) {
-            return this.f199a.c() - 1;
+            return this.a.c() - 1;
         }
         return -1;
     }

@@ -33,9 +33,7 @@ import java.util.ArrayList;
 public class FrsImageActivity extends com.baidu.tieba.g implements com.baidu.adp.widget.BdSwitchView.c {
     private com.baidu.tieba.model.aa p;
     private com.baidu.tieba.model.m q;
-
-    /* renamed from: a  reason: collision with root package name */
-    private int f826a = 0;
+    private int a = 0;
     private String b = null;
     private com.baidu.tieba.util.a c = null;
     private int d = 0;
@@ -257,8 +255,8 @@ public class FrsImageActivity extends com.baidu.tieba.g implements com.baidu.adp
         while (true) {
             int i2 = i;
             if (i2 <= 2) {
-                LinearLayout a2 = this.n.a().a(i2);
-                int childCount = a2.getChildCount();
+                LinearLayout a = this.n.a().a(i2);
+                int childCount = a.getChildCount();
                 int b2 = this.n.a().b(i2);
                 int c2 = this.n.a().c(i2);
                 if (b2 >= 0 && c2 >= 0) {
@@ -267,7 +265,7 @@ public class FrsImageActivity extends com.baidu.tieba.g implements com.baidu.adp
                     int i5 = 0;
                     while (true) {
                         if ((i4 <= c2 || z) && i4 < childCount) {
-                            FrsWaterFallItem frsWaterFallItem = (FrsWaterFallItem) a2.getChildAt(i4);
+                            FrsWaterFallItem frsWaterFallItem = (FrsWaterFallItem) a.getChildAt(i4);
                             if (frsWaterFallItem != null) {
                                 com.baidu.tieba.data.bb bbVar = (com.baidu.tieba.data.bb) frsWaterFallItem.getTag();
                                 i3 += bbVar.b().d() * bbVar.b().e() * 2;
@@ -299,7 +297,7 @@ public class FrsImageActivity extends com.baidu.tieba.g implements com.baidu.adp
     private void d(int i) {
         LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(this).inflate(R.layout.water_fall_item, (ViewGroup) null);
         linearLayout.measure(View.MeasureSpec.makeMeasureSpec(i, 1073741824), 0);
-        this.f826a = linearLayout.findViewById(R.id.image).getMeasuredWidth();
+        this.a = linearLayout.findViewById(R.id.image).getMeasuredWidth();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -385,7 +383,7 @@ public class FrsImageActivity extends com.baidu.tieba.g implements com.baidu.adp
 
     private void a(Bundle bundle) {
         this.c = new com.baidu.tieba.util.a(this);
-        this.c.a(this.f826a, 600);
+        this.c.a(this.a, 600);
         this.c.a("_water");
         this.c.c(true);
         Intent intent = getIntent();
@@ -480,12 +478,12 @@ public class FrsImageActivity extends com.baidu.tieba.g implements com.baidu.adp
 
     /* JADX INFO: Access modifiers changed from: private */
     public void d(String str) {
-        Intent a2;
-        if (str != null && (a2 = FrsActivity.a(this, str)) != null) {
+        Intent a;
+        if (str != null && (a = FrsActivity.a(this, str)) != null) {
             Intent intent = new Intent("com.android.launcher.action.INSTALL_SHORTCUT");
             intent.putExtra("duplicate", false);
             intent.putExtra("android.intent.extra.shortcut.NAME", String.valueOf(str) + getString(R.string.bar));
-            intent.putExtra("android.intent.extra.shortcut.INTENT", a2);
+            intent.putExtra("android.intent.extra.shortcut.INTENT", a);
             intent.putExtra("android.intent.extra.shortcut.ICON_RESOURCE", Intent.ShortcutIconResource.fromContext(this, R.drawable.icon));
             sendBroadcast(intent);
             a(getString(R.string.add_to_window_succ));
@@ -502,22 +500,22 @@ public class FrsImageActivity extends com.baidu.tieba.g implements com.baidu.adp
                 for (int i2 = 0; i2 < size; i2++) {
                     com.baidu.tieba.data.bb bbVar = (com.baidu.tieba.data.bb) arrayList.get(i2);
                     if (bbVar != null) {
-                        int a2 = bbVar.b().a();
+                        int a = bbVar.b().a();
                         int b = bbVar.b().b();
-                        if (a2 >= 100 && b >= 50) {
-                            if (a2 > this.f826a) {
-                                float f = this.f826a / a2;
-                                a2 = this.f826a;
+                        if (a >= 100 && b >= 50) {
+                            if (a > this.a) {
+                                float f = this.a / a;
+                                a = this.a;
                                 b = (int) (b * f);
                             }
                             if (b > 600) {
-                                i = (int) ((600.0f / b) * a2);
+                                i = (int) ((600.0f / b) * a);
                                 b = 600;
                             } else {
-                                i = a2;
+                                i = a;
                             }
-                            Bitmap a3 = com.baidu.tieba.util.d.a((int) R.drawable.image_default);
-                            int height = b < a3.getHeight() ? a3.getHeight() : b;
+                            Bitmap a2 = com.baidu.tieba.util.d.a((int) R.drawable.image_default);
+                            int height = b < a2.getHeight() ? a2.getHeight() : b;
                             FrsWaterFallItem frsWaterFallItem = (FrsWaterFallItem) LayoutInflater.from(this).inflate(R.layout.water_fall_item, (ViewGroup) null);
                             frsWaterFallItem.a(this.i);
                             ImageViewDrawer imageViewDrawer = (ImageViewDrawer) frsWaterFallItem.findViewById(R.id.image);
@@ -530,9 +528,9 @@ public class FrsImageActivity extends com.baidu.tieba.g implements com.baidu.adp
                             imageViewDrawer.setNightDefaultId(R.drawable.pic_image_h_not_1);
                             imageViewDrawer.setTag(bbVar.b().c());
                             frsWaterFallItem.setOnClickListener(this.z);
-                            int a4 = com.baidu.tieba.util.ab.a(this, 5.0f);
-                            int paddingBottom = height + this.d + this.e + (a4 * 2) + frsWaterFallItem.getPaddingBottom() + com.baidu.tieba.util.ab.a(this, 10.0f);
-                            frsWaterFallItem.a(this.d, this.e, a4);
+                            int a3 = com.baidu.tieba.util.ab.a(this, 5.0f);
+                            int paddingBottom = height + this.d + this.e + (a3 * 2) + frsWaterFallItem.getPaddingBottom() + com.baidu.tieba.util.ab.a(this, 10.0f);
+                            frsWaterFallItem.a(this.d, this.e, a3);
                             this.n.a().a(frsWaterFallItem, paddingBottom);
                             bbVar.b().a(paddingBottom);
                             bbVar.b().b(i);

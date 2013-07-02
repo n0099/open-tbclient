@@ -3,9 +3,7 @@ package com.baidu.tieba.data;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class aa {
-
-    /* renamed from: a  reason: collision with root package name */
-    private String f751a = null;
+    private String a = null;
     private String b = null;
     private int c = 0;
     private int d = 0;
@@ -13,11 +11,11 @@ public class aa {
     private String e = null;
 
     public void a(String str) {
-        this.f751a = str;
+        this.a = str;
     }
 
     public String a() {
-        return this.f751a;
+        return this.a;
     }
 
     public void b(String str) {
@@ -55,7 +53,7 @@ public class aa {
     public void a(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                this.f751a = jSONObject.optString("forum_id");
+                this.a = jSONObject.optString("forum_id");
                 this.b = jSONObject.optString("forum_name");
                 c(jSONObject.optInt("is_like", 0));
                 this.d = jSONObject.optInt("is_sign", 0);

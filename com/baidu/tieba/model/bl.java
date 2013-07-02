@@ -5,13 +5,11 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class bl extends com.baidu.tieba.data.b {
-
-    /* renamed from: a  reason: collision with root package name */
-    private ArrayList f1041a = new ArrayList();
+    private ArrayList a = new ArrayList();
     private com.baidu.tieba.data.ai b = new com.baidu.tieba.data.ai();
 
     public ArrayList a() {
-        return this.f1041a;
+        return this.a;
     }
 
     public com.baidu.tieba.data.ai b() {
@@ -26,7 +24,7 @@ public class bl extends com.baidu.tieba.data.b {
             for (int i = 0; i < length; i++) {
                 com.baidu.tieba.data.al alVar = new com.baidu.tieba.data.al();
                 alVar.parserJson(optJSONArray.optJSONObject(i));
-                this.f1041a.add(alVar);
+                this.a.add(alVar);
             }
         }
         this.b.a(jSONObject.optJSONObject("page"));

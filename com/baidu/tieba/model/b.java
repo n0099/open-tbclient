@@ -6,19 +6,17 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class b {
-
-    /* renamed from: a  reason: collision with root package name */
-    private ArrayList f1031a = new ArrayList();
+    private ArrayList a = new ArrayList();
     private com.baidu.tieba.data.ai b = new com.baidu.tieba.data.ai();
     private Date c = null;
     private boolean d = true;
 
     public ArrayList a() {
-        return this.f1031a;
+        return this.a;
     }
 
     public void a(ArrayList arrayList) {
-        this.f1031a = arrayList;
+        this.a = arrayList;
     }
 
     public void a(String str) {
@@ -37,7 +35,7 @@ public class b {
                 for (int i = 0; i < optJSONArray.length(); i++) {
                     com.baidu.tieba.data.r rVar = new com.baidu.tieba.data.r();
                     rVar.a(optJSONArray.getJSONObject(i));
-                    this.f1031a.add(rVar);
+                    this.a.add(rVar);
                 }
             }
             this.b.a(jSONObject.optJSONObject("page"));

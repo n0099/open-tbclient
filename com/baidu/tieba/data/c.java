@@ -5,20 +5,18 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class c {
-
-    /* renamed from: a  reason: collision with root package name */
-    private UserData f783a;
+    private UserData a;
     private ArrayList b;
 
     public c() {
-        this.f783a = null;
+        this.a = null;
         this.b = null;
-        this.f783a = new UserData();
+        this.a = new UserData();
         this.b = new ArrayList(3);
     }
 
     public UserData a() {
-        return this.f783a;
+        return this.a;
     }
 
     public ArrayList b() {
@@ -35,7 +33,7 @@ public class c {
 
     public void a(JSONObject jSONObject) {
         try {
-            this.f783a.parserJson(jSONObject.optJSONObject("user"));
+            this.a.parserJson(jSONObject.optJSONObject("user"));
             JSONArray optJSONArray = jSONObject.optJSONArray("suggnames");
             if (optJSONArray != null) {
                 for (int i = 0; i < optJSONArray.length(); i++) {

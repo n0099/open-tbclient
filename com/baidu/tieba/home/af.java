@@ -6,15 +6,13 @@ import android.widget.Toast;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 class af extends com.baidu.adp.a.e {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ ae f894a;
+    final /* synthetic */ ae a;
     private final /* synthetic */ com.baidu.tieba.data.as b;
     private final /* synthetic */ ImageView c;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public af(ae aeVar, com.baidu.tieba.data.as asVar, ImageView imageView) {
-        this.f894a = aeVar;
+        this.a = aeVar;
         this.b = asVar;
         this.c = imageView;
     }
@@ -31,7 +29,7 @@ class af extends com.baidu.adp.a.e {
         m mVar2;
         if (obj instanceof com.baidu.tieba.data.ac) {
             com.baidu.tieba.data.ac acVar = (com.baidu.tieba.data.ac) obj;
-            recommendPagerAdapter2 = this.f894a.f893a;
+            recommendPagerAdapter2 = this.a.a;
             mVar = recommendPagerAdapter2.h;
             if (mVar != null) {
                 com.baidu.tieba.data.aa aaVar = new com.baidu.tieba.data.aa();
@@ -41,18 +39,18 @@ class af extends com.baidu.adp.a.e {
                 aaVar.b(acVar.a());
                 aaVar.c(1);
                 aaVar.b(this.b.e());
-                recommendPagerAdapter4 = this.f894a.f893a;
+                recommendPagerAdapter4 = this.a.a;
                 mVar2 = recommendPagerAdapter4.h;
                 mVar2.a(aaVar);
             }
             this.b.a(1);
-            recommendPagerAdapter3 = this.f894a.f893a;
+            recommendPagerAdapter3 = this.a.a;
             activity2 = recommendPagerAdapter3.g;
             Toast.makeText(activity2, "喜欢成功", 0).show();
             return;
         }
         this.c.setImageResource(R.drawable.icon_heart_n_1);
-        recommendPagerAdapter = this.f894a.f893a;
+        recommendPagerAdapter = this.a.a;
         activity = recommendPagerAdapter.g;
         Toast.makeText(activity, "喜欢失败", 0).show();
     }

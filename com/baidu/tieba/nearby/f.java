@@ -7,9 +7,7 @@ import android.widget.RatingBar;
 import android.widget.TextView;
 /* loaded from: classes.dex */
 class f {
-
-    /* renamed from: a  reason: collision with root package name */
-    TextView f1163a;
+    TextView a;
     LinearLayout b;
     Button c;
     RatingBar d;

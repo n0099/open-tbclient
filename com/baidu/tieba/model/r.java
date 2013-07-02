@@ -4,9 +4,7 @@ import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class r extends BdAsyncTask {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ o f1062a;
+    final /* synthetic */ o a;
     private com.baidu.tieba.util.r b = null;
     private String c;
     private String d;
@@ -15,7 +13,7 @@ public class r extends BdAsyncTask {
     private String g;
 
     public r(o oVar, String str, String str2, String str3, String str4, String str5) {
-        this.f1062a = oVar;
+        this.a = oVar;
         this.c = str;
         this.d = str2;
         this.e = str3;
@@ -48,9 +46,9 @@ public class r extends BdAsyncTask {
         if (this.b != null) {
             this.b.h();
         }
-        this.f1062a.b = null;
+        this.a.b = null;
         super.cancel(true);
-        eVar = this.f1062a.mLoadDataCallBack;
+        eVar = this.a.mLoadDataCallBack;
         eVar.a(null);
     }
 
@@ -61,20 +59,20 @@ public class r extends BdAsyncTask {
         com.baidu.adp.a.e eVar;
         com.baidu.adp.a.e eVar2;
         super.a((Object) str);
-        this.f1062a.b = null;
+        this.a.b = null;
         if (this.b == null) {
-            eVar2 = this.f1062a.mLoadDataCallBack;
+            eVar2 = this.a.mLoadDataCallBack;
             eVar2.a(null);
             return;
         }
-        s sVar = new s(this.f1062a);
+        s sVar = new s(this.a);
         if (str == null) {
-            sVar.f1063a = true;
+            sVar.a = true;
         } else {
-            sVar.f1063a = false;
+            sVar.a = false;
             sVar.b = str;
         }
-        eVar = this.f1062a.mLoadDataCallBack;
+        eVar = this.a.mLoadDataCallBack;
         eVar.a(sVar);
     }
 }

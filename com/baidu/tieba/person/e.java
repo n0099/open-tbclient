@@ -4,13 +4,11 @@ import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class e implements View.OnClickListener {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ EditBarActivity f1358a;
+    final /* synthetic */ EditBarActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(EditBarActivity editBarActivity) {
-        this.f1358a = editBarActivity;
+        this.a = editBarActivity;
     }
 
     @Override // android.view.View.OnClickListener
@@ -24,24 +22,24 @@ public class e implements View.OnClickListener {
         i iVar2;
         i iVar3;
         i iVar4;
-        this.f1358a.j = ((Integer) view.getTag()).intValue();
-        i = this.f1358a.j;
+        this.a.j = ((Integer) view.getTag()).intValue();
+        i = this.a.j;
         if (i >= 0) {
-            i2 = this.f1358a.j;
-            jVar = this.f1358a.e;
+            i2 = this.a.j;
+            jVar = this.a.e;
             if (i2 < jVar.getCount()) {
-                jVar2 = this.f1358a.e;
-                i3 = this.f1358a.j;
+                jVar2 = this.a.e;
+                i3 = this.a.j;
                 com.baidu.tieba.data.r rVar = (com.baidu.tieba.data.r) jVar2.getItem(i3);
-                iVar = this.f1358a.k;
+                iVar = this.a.k;
                 if (iVar != null) {
-                    iVar4 = this.f1358a.k;
+                    iVar4 = this.a.k;
                     iVar4.cancel();
                 }
-                this.f1358a.k = new i(this.f1358a, null);
-                iVar2 = this.f1358a.k;
+                this.a.k = new i(this.a, null);
+                iVar2 = this.a.k;
                 iVar2.setPriority(2);
-                iVar3 = this.f1358a.k;
+                iVar3 = this.a.k;
                 iVar3.execute(rVar);
             }
         }

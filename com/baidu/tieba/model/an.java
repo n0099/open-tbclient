@@ -6,15 +6,13 @@ import com.baidu.tieba.data.MarkData;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class an extends BdAsyncTask {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ am f1020a;
+    final /* synthetic */ am a;
     private com.baidu.tieba.util.r b = null;
     private boolean c;
     private com.baidu.tieba.data.ay d;
 
     public an(am amVar, boolean z) {
-        this.f1020a = amVar;
+        this.a = amVar;
         this.c = true;
         this.d = null;
         this.c = z;
@@ -34,18 +32,18 @@ public class an extends BdAsyncTask {
         MarkData markData2;
         MarkData markData3;
         if (this.c) {
-            this.b = new com.baidu.tieba.util.r(String.valueOf(com.baidu.tieba.data.g.f787a) + "c/c/post/addstore");
+            this.b = new com.baidu.tieba.util.r(String.valueOf(com.baidu.tieba.data.g.a) + "c/c/post/addstore");
             f fVar = new f();
-            markData3 = this.f1020a.b;
+            markData3 = this.a.b;
             fVar.a(markData3);
             this.b.a("data", fVar.a(0, 1));
         } else {
-            this.b = new com.baidu.tieba.util.r(String.valueOf(com.baidu.tieba.data.g.f787a) + "c/c/post/rmstore");
+            this.b = new com.baidu.tieba.util.r(String.valueOf(com.baidu.tieba.data.g.a) + "c/c/post/rmstore");
             com.baidu.tieba.util.r rVar = this.b;
-            markData = this.f1020a.b;
+            markData = this.a.b;
             rVar.a(PushConstants.EXTRA_USER_ID, markData.getAccount());
             com.baidu.tieba.util.r rVar2 = this.b;
-            markData2 = this.f1020a.b;
+            markData2 = this.a.b;
             rVar2.a("tid", markData2.getId());
         }
         this.d.a(this.b.j());
@@ -62,7 +60,7 @@ public class an extends BdAsyncTask {
         if (this.b != null) {
             this.b.h();
         }
-        this.f1020a.c = null;
+        this.a.c = null;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -75,23 +73,23 @@ public class an extends BdAsyncTask {
         ao aoVar4;
         ao aoVar5;
         if (bool.booleanValue()) {
-            aoVar4 = this.f1020a.d;
+            aoVar4 = this.a.d;
             if (aoVar4 != null) {
-                aoVar5 = this.f1020a.d;
+                aoVar5 = this.a.d;
                 aoVar5.a(true, this.c, null);
             }
         } else {
-            aoVar = this.f1020a.d;
+            aoVar = this.a.d;
             if (aoVar != null) {
                 if (this.b == null || this.b.c()) {
-                    aoVar2 = this.f1020a.d;
+                    aoVar2 = this.a.d;
                     aoVar2.a(false, this.c, this.d.b());
                 } else {
-                    aoVar3 = this.f1020a.d;
+                    aoVar3 = this.a.d;
                     aoVar3.a(false, this.c, this.b.g());
                 }
             }
         }
-        this.f1020a.c = null;
+        this.a.c = null;
     }
 }

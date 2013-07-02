@@ -32,9 +32,7 @@ public class h extends ImageView {
     private int J;
     private int K;
     private Interpolator L;
-
-    /* renamed from: a  reason: collision with root package name */
-    public volatile int f1521a;
+    public volatile int a;
     private Matrix b;
     private int c;
     private int d;
@@ -79,7 +77,7 @@ public class h extends ImageView {
         this.x = 0;
         this.y = false;
         this.z = false;
-        this.f1521a = 0;
+        this.a = 0;
         this.A = 0;
         this.B = null;
         this.C = null;
@@ -113,7 +111,7 @@ public class h extends ImageView {
         this.x = 0;
         this.y = false;
         this.z = false;
-        this.f1521a = 0;
+        this.a = 0;
         this.A = 0;
         this.B = null;
         this.C = null;
@@ -147,7 +145,7 @@ public class h extends ImageView {
         this.x = 0;
         this.y = false;
         this.z = false;
-        this.f1521a = 0;
+        this.a = 0;
         this.A = 0;
         this.B = null;
         this.C = null;
@@ -231,14 +229,14 @@ public class h extends ImageView {
                         this.y = true;
                         this.z = true;
                         if (this.w != 1 && this.w != 2) {
-                            float a2 = a(motionEvent);
-                            if (a2 >= 0.0f && Math.abs(this.v - a2) >= 10.0f) {
-                                if (Math.abs(this.v - a2) > 100.0f) {
-                                    this.v = a2;
+                            float a = a(motionEvent);
+                            if (a >= 0.0f && Math.abs(this.v - a) >= 10.0f) {
+                                if (Math.abs(this.v - a) > 100.0f) {
+                                    this.v = a;
                                     break;
                                 } else {
-                                    float f = a2 / this.v;
-                                    this.v = a2;
+                                    float f = a / this.v;
+                                    this.v = a;
                                     this.k = this.j;
                                     this.j *= f;
                                     if (this.j > this.i) {
@@ -352,7 +350,7 @@ public class h extends ImageView {
         c();
         this.D = 0;
         if (this.m != null) {
-            this.f1521a = 1;
+            this.a = 1;
             invalidate();
             new i(this).start();
         }
@@ -399,7 +397,7 @@ public class h extends ImageView {
             }
             canvas.clipRect(i, i2, width + i, height + i2);
             canvas.drawColor(-1);
-            if (this.f1521a == 2 && this.A == 1 && this.G && this.B != null) {
+            if (this.a == 2 && this.A == 1 && this.G && this.B != null) {
                 if (this.E + this.B.a(this.D) < System.currentTimeMillis()) {
                     this.E += this.B.a(this.D);
                     t();
@@ -432,7 +430,7 @@ public class h extends ImageView {
 
     public void e() {
         if (this.w == 1) {
-            if (this.f1521a == 0) {
+            if (this.a == 0) {
                 d();
             } else {
                 this.E = System.currentTimeMillis();
@@ -455,7 +453,7 @@ public class h extends ImageView {
             super.setImageBitmap(null);
             this.G = false;
             c();
-            this.f1521a = 0;
+            this.a = 0;
             this.D = 0;
             invalidate();
         }
@@ -570,7 +568,7 @@ public class h extends ImageView {
         c();
         r();
         this.w = 1;
-        this.f1521a = 0;
+        this.a = 0;
         this.C = bitmap;
         this.m = bArr;
         if (this.s != null) {
@@ -585,7 +583,7 @@ public class h extends ImageView {
         super.setImageBitmap(null);
         c();
         this.m = null;
-        this.f1521a = 0;
+        this.a = 0;
         this.C = null;
         this.G = false;
     }
@@ -596,7 +594,7 @@ public class h extends ImageView {
         }
         super.setImageBitmap(null);
         c();
-        this.f1521a = 0;
+        this.a = 0;
         this.C = null;
         this.G = false;
     }

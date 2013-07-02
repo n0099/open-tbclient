@@ -20,27 +20,23 @@ public class s {
     static s b;
     static boolean c = false;
     private String e;
-
-    /* renamed from: a  reason: collision with root package name */
-    ArrayList f566a = new ArrayList();
+    ArrayList a = new ArrayList();
     private boolean d = false;
     private Handler f = new t(this);
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
     public class a extends Thread {
-
-        /* renamed from: a  reason: collision with root package name */
-        File f567a;
+        File a;
 
         public a(File file) {
-            this.f567a = file;
-            Log.d("kal", "upload file:" + this.f567a.getAbsolutePath());
+            this.a = file;
+            Log.d("kal", "upload file:" + this.a.getAbsolutePath());
         }
 
         public void a() {
-            if (!this.f567a.exists()) {
-                s.this.f566a.remove(this.f567a);
+            if (!this.a.exists()) {
+                s.this.a.remove(this.a);
             }
             s.a().c();
         }
@@ -57,18 +53,18 @@ public class s {
                 hashMap.put("im", Mj.k);
                 hashMap.put("os", "android");
                 String uuid = UUID.randomUUID().toString();
-                HttpURLConnection a2 = d.a("http://ulog.imap.baidu.com/up");
+                HttpURLConnection a = d.a("http://ulog.imap.baidu.com/up");
                 if (s.c) {
                     Log.d("kal", "UploadWorker:begin get connection ok.");
                 }
-                a2.setReadTimeout(5000);
-                a2.setDoInput(true);
-                a2.setDoOutput(true);
-                a2.setUseCaches(false);
-                a2.setRequestMethod("POST");
-                a2.setRequestProperty(Headers.CONN_DIRECTIVE, "keep-alive");
-                a2.setRequestProperty("Charsert", "UTF-8");
-                a2.setRequestProperty("Content-Type", "multipart/form-data;boundary=" + uuid);
+                a.setReadTimeout(5000);
+                a.setDoInput(true);
+                a.setDoOutput(true);
+                a.setUseCaches(false);
+                a.setRequestMethod("POST");
+                a.setRequestProperty(Headers.CONN_DIRECTIVE, "keep-alive");
+                a.setRequestProperty("Charsert", "UTF-8");
+                a.setRequestProperty("Content-Type", "multipart/form-data;boundary=" + uuid);
                 StringBuilder sb = new StringBuilder();
                 for (Map.Entry entry : hashMap.entrySet()) {
                     sb.append("--");
@@ -81,21 +77,21 @@ public class s {
                     sb.append((String) entry.getValue());
                     sb.append("\r\n");
                 }
-                DataOutputStream dataOutputStream = new DataOutputStream(a2.getOutputStream());
+                DataOutputStream dataOutputStream = new DataOutputStream(a.getOutputStream());
                 dataOutputStream.write(sb.toString().getBytes());
                 if (s.c) {
                     Log.d("kal", "UploadWorker:write header is ok.");
                 }
-                if (this.f567a != null) {
+                if (this.a != null) {
                     StringBuilder sb2 = new StringBuilder();
                     sb2.append("--");
                     sb2.append(uuid);
                     sb2.append("\r\n");
-                    sb2.append("Content-Disposition: form-data; name=\"datafile\"; filename=\"" + this.f567a.getName() + "\"\r\n");
+                    sb2.append("Content-Disposition: form-data; name=\"datafile\"; filename=\"" + this.a.getName() + "\"\r\n");
                     sb2.append("Content-Type: application/octet-stream; charset=UTF-8\r\n");
                     sb2.append("\r\n");
                     dataOutputStream.write(sb2.toString().getBytes());
-                    FileInputStream fileInputStream = new FileInputStream(this.f567a);
+                    FileInputStream fileInputStream = new FileInputStream(this.a);
                     byte[] bArr = new byte[NotificationProxy.MAX_URL_LENGTH];
                     while (true) {
                         int read = fileInputStream.read(bArr);
@@ -112,13 +108,13 @@ public class s {
                 }
                 dataOutputStream.write(("--" + uuid + "--\r\n").getBytes());
                 dataOutputStream.flush();
-                int responseCode = a2.getResponseCode();
+                int responseCode = a.getResponseCode();
                 dataOutputStream.close();
-                a2.disconnect();
+                a.disconnect();
                 if (responseCode != 200) {
-                    synchronized (s.this.f566a) {
+                    synchronized (s.this.a) {
                         s.this.d = false;
-                        if (s.this.f566a.size() > 0) {
+                        if (s.this.a.size() > 0) {
                             s.this.f.sendMessageDelayed(s.this.f.obtainMessage(1), 2000L);
                         } else {
                             s.this.f.sendEmptyMessage(2);
@@ -126,17 +122,17 @@ public class s {
                     }
                     return;
                 }
-                synchronized (s.this.f566a) {
+                synchronized (s.this.a) {
                     s.this.d = false;
                     if (s.c) {
-                        Log.d("kal", "remove file:" + this.f567a.getAbsolutePath());
+                        Log.d("kal", "remove file:" + this.a.getAbsolutePath());
                     }
-                    s.this.f566a.remove(this.f567a);
+                    s.this.a.remove(this.a);
                     if (s.c) {
-                        Log.d("kal", "updateList size: " + s.this.f566a.size());
+                        Log.d("kal", "updateList size: " + s.this.a.size());
                     }
-                    this.f567a.delete();
-                    if (s.this.f566a.size() > 0) {
+                    this.a.delete();
+                    if (s.this.a.size() > 0) {
                         s.this.f.sendMessageDelayed(s.this.f.obtainMessage(1), 2000L);
                     } else {
                         s.this.f.sendEmptyMessage(2);
@@ -161,12 +157,12 @@ public class s {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b() {
-        if (this.f566a.size() > 0) {
+        if (this.a.size() > 0) {
             if (c) {
                 Log.d("kal", "started.");
             }
             this.d = true;
-            new a((File) this.f566a.get(0)).start();
+            new a((File) this.a.get(0)).start();
         }
     }
 
@@ -175,8 +171,8 @@ public class s {
             File[] listFiles = file.listFiles();
             if (listFiles.length > 0) {
                 for (File file2 : listFiles) {
-                    if (!file2.getName().contains("udclog") && !this.f566a.contains(file2)) {
-                        this.f566a.add(file2);
+                    if (!file2.getName().contains("udclog") && !this.a.contains(file2)) {
+                        this.a.add(file2);
                     }
                 }
                 b();
@@ -209,9 +205,9 @@ public class s {
     }
 
     public void a(File file) {
-        synchronized (this.f566a) {
-            if (!this.f566a.contains(file)) {
-                this.f566a.add(file);
+        synchronized (this.a) {
+            if (!this.a.contains(file)) {
+                this.a.add(file);
                 this.e = file.getParent();
                 if (!this.d) {
                     b();

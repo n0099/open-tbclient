@@ -21,9 +21,7 @@ public class k extends BaseAdapter {
     private ArrayList d = null;
     private boolean g = false;
     private boolean h = false;
-
-    /* renamed from: a  reason: collision with root package name */
-    boolean f1589a = false;
+    boolean a = false;
     private ArrayList i = new ArrayList();
 
     public void a() {
@@ -67,7 +65,7 @@ public class k extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.f1589a) {
+        if (this.a) {
             return 1;
         }
         int i = 0;
@@ -106,7 +104,7 @@ public class k extends BaseAdapter {
                 l lVar2 = new l(this, null);
                 if (getItemViewType(i) == 0) {
                     View inflate = from.inflate(R.layout.at_list_item, (ViewGroup) null);
-                    lVar2.f1590a = (ImageView) inflate.findViewById(R.id.photo);
+                    lVar2.a = (ImageView) inflate.findViewById(R.id.photo);
                     lVar2.b = (TextView) inflate.findViewById(R.id.name);
                     lVar2.d = (TextView) inflate.findViewById(R.id.at_list_nodata);
                     view2 = inflate;
@@ -125,8 +123,8 @@ public class k extends BaseAdapter {
             }
             try {
                 if (getItemViewType(i) == 0) {
-                    if (this.f1589a) {
-                        lVar.f1590a.setVisibility(8);
+                    if (this.a) {
+                        lVar.a.setVisibility(8);
                         lVar.b.setVisibility(8);
                         lVar.d.setVisibility(0);
                         if (this.b) {
@@ -141,17 +139,17 @@ public class k extends BaseAdapter {
                             lVar.d.setText(R.string.no_fan_other);
                         }
                     } else {
-                        lVar.f1590a.setVisibility(0);
+                        lVar.a.setVisibility(0);
                         lVar.b.setVisibility(0);
                         lVar.d.setVisibility(8);
                         String portrait = ((MetaData) this.d.get(i)).getPortrait();
                         com.baidu.adp.widget.a.b b = this.f.b(portrait);
                         if (b != null) {
-                            lVar.f1590a.setTag(null);
-                            b.b(lVar.f1590a);
+                            lVar.a.setTag(null);
+                            b.b(lVar.a);
                         } else {
-                            lVar.f1590a.setTag(portrait);
-                            lVar.f1590a.setImageBitmap(com.baidu.tieba.util.d.a((int) R.drawable.photo));
+                            lVar.a.setTag(portrait);
+                            lVar.a.setImageBitmap(com.baidu.tieba.util.d.a((int) R.drawable.photo));
                         }
                         lVar.b.setText(((MetaData) this.d.get(i)).getName_show());
                     }
@@ -163,10 +161,10 @@ public class k extends BaseAdapter {
                     lVar.c.setVisibility(8);
                 }
                 if (TiebaApplication.f().at() == 1) {
-                    int a2 = com.baidu.tieba.util.x.a(1);
-                    lVar.b.setTextColor(a2);
+                    int a = com.baidu.tieba.util.x.a(1);
+                    lVar.b.setTextColor(a);
                     if (lVar.d != null) {
-                        lVar.d.setTextColor(a2);
+                        lVar.d.setTextColor(a);
                     }
                 } else {
                     lVar.b.setTextColor(-16777216);
@@ -183,7 +181,7 @@ public class k extends BaseAdapter {
 
     @Override // android.widget.BaseAdapter, android.widget.Adapter
     public int getItemViewType(int i) {
-        if (this.f1589a) {
+        if (this.a) {
             return 0;
         }
         return (this.d == null || i >= this.d.size()) ? 1 : 0;
@@ -196,7 +194,7 @@ public class k extends BaseAdapter {
 
     @Override // android.widget.BaseAdapter, android.widget.ListAdapter
     public boolean isEnabled(int i) {
-        if (this.f1589a) {
+        if (this.a) {
             return false;
         }
         return super.isEnabled(i);

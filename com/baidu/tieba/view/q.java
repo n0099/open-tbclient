@@ -51,9 +51,7 @@ public class q {
     private int t = 0;
     private int u = 0;
     private com.baidu.tieba.data.t v = null;
-
-    /* renamed from: a  reason: collision with root package name */
-    ba f1528a = null;
+    ba a = null;
     private float H = 0.0f;
     private float I = 0.0f;
     private boolean J = false;
@@ -135,7 +133,7 @@ public class q {
     }
 
     public ba b() {
-        return this.f1528a;
+        return this.a;
     }
 
     public void a(int i) {
@@ -199,15 +197,15 @@ public class q {
         this.t = rVar.d();
         this.u = rVar.c();
         this.v = tVar;
-        this.f1528a = new ba();
+        this.a = new ba();
         com.baidu.tieba.data.ae aeVar = new com.baidu.tieba.data.ae();
         aeVar.a(3);
         aeVar.a(this.v.b());
-        this.f1528a.m().add(aeVar);
+        this.a.m().add(aeVar);
         com.baidu.tieba.data.ae aeVar2 = new com.baidu.tieba.data.ae();
         aeVar2.a(3);
         aeVar2.a(this.v.c());
-        this.f1528a.m().add(aeVar2);
+        this.a.m().add(aeVar2);
         this.o.setVisibility(0);
         g();
     }
@@ -266,8 +264,8 @@ public class q {
 
     private void b(boolean z) {
         float f = 0.0f;
-        Bitmap a2 = com.baidu.tieba.util.d.a((int) R.drawable.btn_like_n);
-        if (a2 != null) {
+        Bitmap a = com.baidu.tieba.util.d.a((int) R.drawable.btn_like_n);
+        if (a != null) {
             if (z) {
                 this.k.setText(R.string.level_up);
                 this.l.setText("");
@@ -275,7 +273,7 @@ public class q {
                 this.k.setText(this.F);
                 this.l.setText(String.valueOf(this.G) + "级");
             }
-            float width = a2.getWidth() * this.H;
+            float width = a.getWidth() * this.H;
             float f2 = width > 0.001f ? this.I / width : 0.0f;
             this.I = width;
             if (this.J) {
@@ -284,7 +282,7 @@ public class q {
                 f = f2;
             }
             RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.n.getLayoutParams();
-            layoutParams.width = a2.getWidth();
+            layoutParams.width = a.getWidth();
             this.n.setLayoutParams(layoutParams);
             RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) this.m.getLayoutParams();
             layoutParams2.width = (int) this.I;

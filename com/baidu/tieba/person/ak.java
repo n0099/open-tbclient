@@ -6,13 +6,11 @@ import android.view.View;
 import android.widget.RadioButton;
 /* loaded from: classes.dex */
 class ak implements View.OnClickListener {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ PersonChangeActivity f1318a;
+    final /* synthetic */ PersonChangeActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ak(PersonChangeActivity personChangeActivity) {
-        this.f1318a = personChangeActivity;
+        this.a = personChangeActivity;
     }
 
     @Override // android.view.View.OnClickListener
@@ -28,43 +26,43 @@ class ak implements View.OnClickListener {
         Dialog dialog;
         com.baidu.tieba.model.bh bhVar6;
         com.baidu.tieba.model.bh bhVar7;
-        radioButton = this.f1318a.v;
+        radioButton = this.a.v;
         if (!radioButton.isChecked()) {
-            radioButton2 = this.f1318a.w;
+            radioButton2 = this.a.w;
             if (radioButton2.isChecked()) {
-                bhVar = this.f1318a.z;
+                bhVar = this.a.z;
                 if (bhVar != null) {
-                    bhVar2 = this.f1318a.z;
+                    bhVar2 = this.a.z;
                     if (bhVar2.a().getSex() != 2) {
-                        this.f1318a.H = true;
+                        this.a.H = true;
                     }
                 }
             }
         } else {
-            bhVar6 = this.f1318a.z;
+            bhVar6 = this.a.z;
             if (bhVar6 != null) {
-                bhVar7 = this.f1318a.z;
+                bhVar7 = this.a.z;
                 if (bhVar7.a().getSex() != 1) {
-                    this.f1318a.H = true;
+                    this.a.H = true;
                 }
             }
         }
-        z = this.f1318a.H;
+        z = this.a.H;
         if (!z) {
-            bhVar3 = this.f1318a.z;
+            bhVar3 = this.a.z;
             if (bhVar3 != null) {
-                bhVar4 = this.f1318a.z;
+                bhVar4 = this.a.z;
                 if (bhVar4.a().getPhotoChanged()) {
                     Intent intent = new Intent();
-                    bhVar5 = this.f1318a.z;
+                    bhVar5 = this.a.z;
                     intent.putExtra("data", bhVar5.a());
-                    this.f1318a.setResult(-1, intent);
+                    this.a.setResult(-1, intent);
                 }
             }
-            this.f1318a.finish();
+            this.a.finish();
             return;
         }
-        dialog = this.f1318a.G;
+        dialog = this.a.G;
         dialog.show();
     }
 }

@@ -10,16 +10,14 @@ import java.util.ArrayList;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class p extends BdAsyncTask {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ h f993a;
+    final /* synthetic */ h a;
     private com.baidu.tieba.util.r b = null;
     private String c;
     private ArrayList d;
     private e e;
 
     public p(h hVar, String str, ArrayList arrayList, e eVar) {
-        this.f993a = hVar;
+        this.a = hVar;
         this.c = null;
         this.d = null;
         this.e = null;
@@ -48,7 +46,7 @@ public class p extends BdAsyncTask {
             this.b = new com.baidu.tieba.util.r(this.c);
             this.b.a(this.d);
             com.baidu.tieba.util.r rVar = this.b;
-            gVar = this.f993a.b;
+            gVar = this.a.b;
             rVar.a(gVar);
             String j = this.b.j();
             if (!this.b.c() || j == null) {
@@ -58,9 +56,9 @@ public class p extends BdAsyncTask {
             try {
                 apVar.a(j);
                 if (apVar.a()) {
-                    i = this.f993a.o;
+                    i = this.a.o;
                     if (i != 4) {
-                        nVar = this.f993a.j;
+                        nVar = this.a.j;
                         nVar.a(j);
                         return apVar;
                     }
@@ -84,12 +82,12 @@ public class p extends BdAsyncTask {
         int i2;
         ProgressBar progressBar2;
         if (z) {
-            i2 = this.f993a.o;
+            i2 = this.a.o;
             switch (i2) {
                 case 1:
                 case 2:
                 case 3:
-                    progressBar2 = this.f993a.l;
+                    progressBar2 = this.a.l;
                     progressBar2.setVisibility(0);
                     return;
                 case 4:
@@ -100,12 +98,12 @@ public class p extends BdAsyncTask {
                     return;
             }
         }
-        i = this.f993a.o;
+        i = this.a.o;
         switch (i) {
             case 1:
             case 2:
             case 3:
-                progressBar = this.f993a.l;
+                progressBar = this.a.l;
                 progressBar.setVisibility(8);
                 return;
             case 4:
@@ -125,16 +123,16 @@ public class p extends BdAsyncTask {
         a(false);
         if (this.b != null) {
             if (!this.b.d() || apVar == null) {
-                gVar = this.f993a.b;
+                gVar = this.a.b;
                 Activity parent = gVar.getParent();
                 if (parent != null && (parent instanceof MentionActivity)) {
                     ab.a((Context) ((MentionActivity) parent), this.b.g());
                 }
             } else {
-                this.f993a.a(apVar);
+                this.a.a(apVar);
             }
         }
-        this.f993a.k = null;
+        this.a.k = null;
     }
 
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
@@ -143,7 +141,7 @@ public class p extends BdAsyncTask {
             this.b.h();
         }
         a(false);
-        this.f993a.k = null;
+        this.a.k = null;
         super.cancel(true);
     }
 }

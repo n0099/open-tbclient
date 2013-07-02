@@ -26,9 +26,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 /* loaded from: classes.dex */
 public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuListener {
-
-    /* renamed from: a  reason: collision with root package name */
-    private static final HashMap f41a = new HashMap();
+    private static final HashMap a = new HashMap();
     int A;
     v B;
     n C;
@@ -74,15 +72,13 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
     /* loaded from: classes.dex */
     public class SavedState implements Parcelable {
         public static final Parcelable.Creator CREATOR = new m();
-
-        /* renamed from: a  reason: collision with root package name */
-        final Bundle f42a;
+        final Bundle a;
 
         /* JADX INFO: Access modifiers changed from: package-private */
         public SavedState(Parcel parcel, ClassLoader classLoader) {
-            this.f42a = parcel.readBundle();
-            if (classLoader != null && this.f42a != null) {
-                this.f42a.setClassLoader(classLoader);
+            this.a = parcel.readBundle();
+            if (classLoader != null && this.a != null) {
+                this.a.setClassLoader(classLoader);
             }
         }
 
@@ -93,7 +89,7 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
 
         @Override // android.os.Parcelable
         public void writeToParcel(Parcel parcel, int i) {
-            parcel.writeBundle(this.f42a);
+            parcel.writeBundle(this.a);
         }
     }
 
@@ -110,10 +106,10 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
 
     public static Fragment a(Context context, String str, Bundle bundle) {
         try {
-            Class<?> cls = (Class) f41a.get(str);
+            Class<?> cls = (Class) a.get(str);
             if (cls == null) {
                 cls = context.getClassLoader().loadClass(str);
-                f41a.put(str, cls);
+                a.put(str, cls);
             }
             Fragment fragment = (Fragment) cls.newInstance();
             if (bundle != null) {

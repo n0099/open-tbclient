@@ -17,9 +17,7 @@ import android.widget.TextView;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public class ao extends BaseAdapter {
-
-    /* renamed from: a  reason: collision with root package name */
-    private Context f696a;
+    private Context a;
     private com.baidu.tieba.model.ai b;
     private LayoutInflater c;
     private ColorMatrix f;
@@ -32,19 +30,19 @@ public class ao extends BaseAdapter {
     private float[] k = {1.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 1.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 1.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 1.0f, 0.0f};
 
     public ao(Context context, com.baidu.tieba.model.ai aiVar) {
-        this.f696a = null;
+        this.a = null;
         this.b = null;
         this.f = null;
-        this.f696a = context;
+        this.a = context;
         this.b = aiVar;
-        this.c = LayoutInflater.from(this.f696a);
+        this.c = LayoutInflater.from(this.a);
         this.f = new ColorMatrix();
         b();
     }
 
     private void b() {
         this.j = new Bitmap[8];
-        Bitmap decodeResource = BitmapFactory.decodeResource(this.f696a.getResources(), R.drawable.tag_layer_tag);
+        Bitmap decodeResource = BitmapFactory.decodeResource(this.a.getResources(), R.drawable.tag_layer_tag);
         for (int i = 0; i < 8; i++) {
             int i2 = this.i[i];
             this.k[0] = ((i2 >> 16) & 255) / 255.0f;
@@ -88,7 +86,7 @@ public class ao extends BaseAdapter {
         if (view == null) {
             view = this.c.inflate(R.layout.tag_setting_item, (ViewGroup) null);
             apVar = new ap();
-            apVar.f697a = (ImageView) view.findViewById(R.id.tag_setting_item_bg);
+            apVar.a = (ImageView) view.findViewById(R.id.tag_setting_item_bg);
             apVar.b = (TextView) view.findViewById(R.id.tag_setting_item_name);
             apVar.c = (ImageButton) view.findViewById(R.id.tag_setting_item_del);
             view.setTag(apVar);
@@ -102,7 +100,7 @@ public class ao extends BaseAdapter {
         } else {
             c = this.d.c();
         }
-        apVar.f697a.setImageBitmap(this.j[c]);
+        apVar.a.setImageBitmap(this.j[c]);
         apVar.b.setText(this.d.b());
         apVar.c.setOnClickListener(this.e);
         apVar.c.setTag(this.d);

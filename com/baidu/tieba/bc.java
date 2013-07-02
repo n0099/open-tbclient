@@ -1,31 +1,17 @@
 package com.baidu.tieba;
 
-import android.app.Dialog;
 import android.content.DialogInterface;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class bc implements DialogInterface.OnClickListener {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ UpdateDialog f708a;
+class bc implements DialogInterface.OnCancelListener {
+    final /* synthetic */ UpdateDialog a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bc(UpdateDialog updateDialog) {
-        this.f708a = updateDialog;
+        this.a = updateDialog;
     }
 
-    @Override // android.content.DialogInterface.OnClickListener
-    public void onClick(DialogInterface dialogInterface, int i) {
-        Dialog dialog;
-        Dialog dialog2;
-        if (i == -1) {
-            dialog2 = this.f708a.d;
-            dialog2.dismiss();
-            this.f708a.b();
-        } else if (i == -2) {
-            dialog = this.f708a.d;
-            dialog.dismiss();
-            this.f708a.c();
-        }
+    @Override // android.content.DialogInterface.OnCancelListener
+    public void onCancel(DialogInterface dialogInterface) {
+        this.a.finish();
     }
 }

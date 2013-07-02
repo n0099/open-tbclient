@@ -48,7 +48,7 @@ public class c {
         AccountData accountData = null;
         if (rVar != null) {
             StringBuffer stringBuffer = new StringBuffer(60);
-            stringBuffer.append(com.baidu.tieba.data.g.f787a);
+            stringBuffer.append(com.baidu.tieba.data.g.a);
             stringBuffer.append("c/s/login");
             rVar.a(stringBuffer.toString());
             rVar.a("un", str);

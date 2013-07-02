@@ -6,13 +6,11 @@ import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class u implements View.OnClickListener {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ GuidPageView f1532a;
+    final /* synthetic */ GuidPageView a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public u(GuidPageView guidPageView) {
-        this.f1532a = guidPageView;
+        this.a = guidPageView;
     }
 
     @Override // android.view.View.OnClickListener

@@ -9,14 +9,12 @@ import java.util.HashMap;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class i extends BdAsyncTask {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ AtListActivity f1587a;
+    final /* synthetic */ AtListActivity a;
     private com.baidu.tieba.util.r b;
     private String c;
 
     private i(AtListActivity atListActivity) {
-        this.f1587a = atListActivity;
+        this.a = atListActivity;
         this.b = null;
         this.c = null;
     }
@@ -30,7 +28,7 @@ public class i extends BdAsyncTask {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void b() {
         ProgressBar progressBar;
-        progressBar = this.f1587a.m;
+        progressBar = this.a.m;
         progressBar.setVisibility(0);
         super.b();
     }
@@ -38,9 +36,9 @@ public class i extends BdAsyncTask {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void cancel() {
         ProgressBar progressBar;
-        this.f1587a.f = null;
+        this.a.f = null;
         this.c = null;
-        progressBar = this.f1587a.m;
+        progressBar = this.a.m;
         progressBar.setVisibility(8);
         super.cancel(true);
     }
@@ -53,16 +51,16 @@ public class i extends BdAsyncTask {
         this.c = strArr[0];
         this.b = new com.baidu.tieba.util.r();
         if (this.c != null && this.c.length() > 0) {
-            this.b.a(String.valueOf(com.baidu.tieba.data.g.f787a) + "c/u/follow/sug");
+            this.b.a(String.valueOf(com.baidu.tieba.data.g.a) + "c/u/follow/sug");
             this.b.a("uid", TiebaApplication.E());
             this.b.a("q", this.c);
             String j = this.b.j();
             if (this.b.c()) {
                 com.baidu.tieba.data.ax axVar = new com.baidu.tieba.data.ax();
-                aVar = this.f1587a.j;
-                com.baidu.tieba.data.s a2 = aVar.a();
-                if (a2 != null) {
-                    axVar.a(j, a2.b());
+                aVar = this.a.j;
+                com.baidu.tieba.data.s a = aVar.a();
+                if (a != null) {
+                    axVar.a(j, a.b());
                     return axVar;
                 }
                 axVar.a(j, (HashMap) null);
@@ -82,18 +80,18 @@ public class i extends BdAsyncTask {
         k kVar;
         k kVar2;
         ListView listView;
-        progressBar = this.f1587a.m;
+        progressBar = this.a.m;
         progressBar.setVisibility(8);
         if (this.b.c() && this.c != null) {
-            editText = this.f1587a.f1538a;
+            editText = this.a.a;
             if (editText.getText().toString().equals(this.c)) {
-                aVar = this.f1587a.j;
+                aVar = this.a.j;
                 aVar.a(axVar);
-                kVar = this.f1587a.k;
+                kVar = this.a.k;
                 kVar.a(axVar.a());
-                kVar2 = this.f1587a.k;
+                kVar2 = this.a.k;
                 kVar2.notifyDataSetInvalidated();
-                listView = this.f1587a.d;
+                listView = this.a.d;
                 listView.setSelection(0);
             }
         }

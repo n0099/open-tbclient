@@ -8,9 +8,7 @@ import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class aj {
     private an c;
-
-    /* renamed from: a  reason: collision with root package name */
-    private r f760a = new r();
+    private r a = new r();
     private ba b = new ba();
     private ArrayList d = new ArrayList();
     private ai e = new ai();
@@ -20,11 +18,11 @@ public class aj {
     private boolean h = false;
 
     public r a() {
-        return this.f760a;
+        return this.a;
     }
 
     public void a(r rVar) {
-        this.f760a = rVar;
+        this.a = rVar;
     }
 
     public ba b() {
@@ -127,7 +125,7 @@ public class aj {
     public void a(JSONObject jSONObject, Context context) {
         if (jSONObject != null) {
             try {
-                this.f760a.a(jSONObject.optJSONObject("forum"));
+                this.a.a(jSONObject.optJSONObject("forum"));
                 this.b.a(jSONObject.optJSONObject("thread"));
                 JSONArray optJSONArray = jSONObject.optJSONArray("post_list");
                 if (optJSONArray != null) {

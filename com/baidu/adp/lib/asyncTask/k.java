@@ -4,9 +4,7 @@ import java.util.LinkedList;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class k {
-
-    /* renamed from: a  reason: collision with root package name */
-    int f132a;
+    int a;
     int b = 0;
     int c = 0;
     int d = 0;
@@ -16,12 +14,12 @@ public class k {
     public k(f fVar, LinkedList linkedList) {
         int i = 0;
         this.f = fVar;
-        this.f132a = 0;
+        this.a = 0;
         if (linkedList != null) {
-            this.f132a = linkedList.size();
+            this.a = linkedList.size();
             while (true) {
                 int i2 = i;
-                if (i2 < this.f132a) {
+                if (i2 < this.a) {
                     j jVar = (j) linkedList.get(i2);
                     if (jVar.g() == BdAsyncTaskType.SERIAL) {
                         this.b++;

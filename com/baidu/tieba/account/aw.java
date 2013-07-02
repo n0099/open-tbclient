@@ -7,14 +7,12 @@ import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class aw extends BdAsyncTask {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ Register2Activity f660a;
+    final /* synthetic */ Register2Activity a;
     private com.baidu.tieba.util.r b = null;
     private String c;
 
     public aw(Register2Activity register2Activity, String str) {
-        this.f660a = register2Activity;
+        this.a = register2Activity;
         this.c = null;
         this.c = str;
     }
@@ -22,8 +20,8 @@ public class aw extends BdAsyncTask {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void cancel() {
         ProgressBar progressBar;
-        this.f660a.Q = null;
-        progressBar = this.f660a.I;
+        this.a.Q = null;
+        progressBar = this.a.I;
         progressBar.setVisibility(8);
         if (this.b != null) {
             this.b.h();
@@ -36,9 +34,9 @@ public class aw extends BdAsyncTask {
     public void b() {
         ImageView imageView;
         ProgressBar progressBar;
-        imageView = this.f660a.J;
+        imageView = this.a.J;
         imageView.setImageBitmap(null);
-        progressBar = this.f660a.I;
+        progressBar = this.a.I;
         progressBar.setVisibility(0);
     }
 
@@ -57,10 +55,10 @@ public class aw extends BdAsyncTask {
         ProgressBar progressBar;
         ImageView imageView;
         super.a((Object) bitmap);
-        this.f660a.Q = null;
-        progressBar = this.f660a.I;
+        this.a.Q = null;
+        progressBar = this.a.I;
         progressBar.setVisibility(8);
-        imageView = this.f660a.J;
+        imageView = this.a.J;
         imageView.setImageBitmap(bitmap);
     }
 }

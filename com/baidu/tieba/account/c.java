@@ -6,12 +6,10 @@ import com.baidu.loginshare.Token;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class c implements ILoginShareListener {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ a f663a;
+    final /* synthetic */ a a;
 
     private c(a aVar) {
-        this.f663a = aVar;
+        this.a = aVar;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -32,13 +30,13 @@ public class c implements ILoginShareListener {
             if (loginShareEvent == LoginShareEvent.VALID) {
                 if (str2 != null && str3 != null) {
                     com.baidu.tieba.util.z.e(getClass().getName(), "onLoginShareEvent", "login");
-                    this.f663a.a(true, str2, str3, str);
+                    this.a.a(true, str2, str3, str);
                     return;
                 }
                 return;
             }
             com.baidu.tieba.util.z.e(getClass().getName(), "onLoginShareEvent", "logout");
-            this.f663a.a(false, null, null, null);
+            this.a.a(false, null, null, null);
         }
     }
 }

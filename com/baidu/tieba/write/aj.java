@@ -9,13 +9,11 @@ import com.baidu.tieba.model.WriteModel;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 class aj implements View.OnFocusChangeListener {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ WriteActivity f1562a;
+    final /* synthetic */ WriteActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public aj(WriteActivity writeActivity) {
-        this.f1562a = writeActivity;
+        this.a = writeActivity;
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:7:0x0019, code lost:
@@ -45,56 +43,56 @@ class aj implements View.OnFocusChangeListener {
         WriteModel writeModel4;
         ImageView imageView8;
         Button button;
-        editText = this.f1562a.e;
+        editText = this.a.e;
         if (view != editText) {
-            imageView8 = this.f1562a.g;
+            imageView8 = this.a.g;
             if (view != imageView8) {
-                button = this.f1562a.j;
+                button = this.a.j;
             }
         }
         if (z) {
-            gridView = this.f1562a.r;
+            gridView = this.a.r;
             gridView.setVisibility(8);
-            imageView = this.f1562a.k;
+            imageView = this.a.k;
             imageView.setClickable(false);
-            imageView2 = this.f1562a.l;
+            imageView2 = this.a.l;
             imageView2.setClickable(false);
-            imageView3 = this.f1562a.m;
+            imageView3 = this.a.m;
             imageView3.setClickable(false);
-            imageView4 = this.f1562a.k;
-            imageView4.setImageDrawable(this.f1562a.getResources().getDrawable(R.drawable.write_face));
+            imageView4 = this.a.k;
+            imageView4.setImageDrawable(this.a.getResources().getDrawable(R.drawable.write_face));
         }
-        editText2 = this.f1562a.f;
+        editText2 = this.a.f;
         if (view == editText2) {
             if (!z) {
-                writeModel = this.f1562a.f1550a;
+                writeModel = this.a.a;
                 if (writeModel.getType() != 0) {
-                    writeModel2 = this.f1562a.f1550a;
+                    writeModel2 = this.a.a;
                     if (writeModel2.getType() == 3) {
-                        editText3 = this.f1562a.f;
+                        editText3 = this.a.f;
                         editText3.setHint(R.string.lbs_post_content_hint);
                         return;
                     }
                     return;
                 }
-                editText4 = this.f1562a.f;
+                editText4 = this.a.f;
                 editText4.setHint(R.string.content);
                 return;
             }
-            imageView5 = this.f1562a.k;
+            imageView5 = this.a.k;
             imageView5.setClickable(true);
-            imageView6 = this.f1562a.l;
+            imageView6 = this.a.l;
             imageView6.setClickable(true);
-            imageView7 = this.f1562a.m;
+            imageView7 = this.a.m;
             imageView7.setClickable(true);
-            writeModel3 = this.f1562a.f1550a;
+            writeModel3 = this.a.a;
             if (writeModel3.getType() != 0) {
-                writeModel4 = this.f1562a.f1550a;
+                writeModel4 = this.a.a;
                 if (writeModel4.getType() != 3) {
                     return;
                 }
             }
-            editText5 = this.f1562a.f;
+            editText5 = this.a.f;
             editText5.setHint((CharSequence) null);
         }
     }

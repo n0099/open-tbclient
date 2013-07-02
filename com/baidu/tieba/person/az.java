@@ -6,13 +6,11 @@ import android.content.Intent;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class az extends BroadcastReceiver {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ PersonInfoActivity f1333a;
+    final /* synthetic */ PersonInfoActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public az(PersonInfoActivity personInfoActivity) {
-        this.f1333a = personInfoActivity;
+        this.a = personInfoActivity;
     }
 
     @Override // android.content.BroadcastReceiver
@@ -27,20 +25,20 @@ public class az extends BroadcastReceiver {
         long longExtra2 = intent.getLongExtra("relay", 0L);
         long longExtra3 = intent.getLongExtra("at_me", 0L);
         long longExtra4 = intent.getLongExtra("pletter", 0L);
-        biVar = this.f1333a.b;
+        biVar = this.a.b;
         if (biVar != null) {
-            biVar3 = this.f1333a.b;
+            biVar3 = this.a.b;
             biVar3.a(longExtra);
-            biVar4 = this.f1333a.b;
+            biVar4 = this.a.b;
             biVar4.d(longExtra2);
-            biVar5 = this.f1333a.b;
+            biVar5 = this.a.b;
             biVar5.c(longExtra3);
-            biVar6 = this.f1333a.b;
+            biVar6 = this.a.b;
             biVar6.b(longExtra4);
         }
-        if (this.f1333a.f1304a != null) {
-            bb bbVar = this.f1333a.f1304a;
-            biVar2 = this.f1333a.b;
+        if (this.a.a != null) {
+            bb bbVar = this.a.a;
+            biVar2 = this.a.b;
             bbVar.a(biVar2);
         }
     }

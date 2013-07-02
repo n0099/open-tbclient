@@ -14,9 +14,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 /* loaded from: classes.dex */
 public class w extends LinearLayout implements com.baidu.adp.widget.ScrollView.c {
-
-    /* renamed from: a  reason: collision with root package name */
-    private Animation f1533a;
+    private Animation a;
     private Animation b;
     private ProgressBar c;
     private ImageView d;
@@ -26,9 +24,9 @@ public class w extends LinearLayout implements com.baidu.adp.widget.ScrollView.c
 
     public w(Context context) {
         this(context, null);
-        this.f1533a = AnimationUtils.loadAnimation(getContext(), R.anim.arrow_down_to_up);
+        this.a = AnimationUtils.loadAnimation(getContext(), R.anim.arrow_down_to_up);
         this.b = AnimationUtils.loadAnimation(getContext(), R.anim.arrow_up_to_down);
-        this.f1533a.setFillAfter(true);
+        this.a.setFillAfter(true);
         this.b.setFillAfter(true);
         LayoutInflater.from(context).inflate(R.layout.image_frs_pullview, this);
         this.c = (ProgressBar) findViewById(R.id.head_layout_left_progressbar);
@@ -53,7 +51,7 @@ public class w extends LinearLayout implements com.baidu.adp.widget.ScrollView.c
 
     @Override // com.baidu.adp.widget.ScrollView.c
     public void b() {
-        this.d.startAnimation(this.f1533a);
+        this.d.startAnimation(this.a);
         this.g = true;
         this.e.setText(getResources().getString(R.string.pulldown_loosen));
     }

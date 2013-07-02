@@ -9,9 +9,7 @@ import android.widget.TextView;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public class a extends g {
-
-    /* renamed from: a  reason: collision with root package name */
-    protected ViewGroup f620a = null;
+    protected ViewGroup a = null;
     protected View b = null;
     protected ImageView c = null;
     protected TextView d = null;
@@ -26,10 +24,10 @@ public class a extends g {
     }
 
     protected void b() {
-        if (this.f620a == null) {
-            this.f620a = (ViewGroup) findViewById(R.id.container);
-            if (this.f620a == null) {
-                this.f620a = (ViewGroup) findViewById(R.id.parent);
+        if (this.a == null) {
+            this.a = (ViewGroup) findViewById(R.id.container);
+            if (this.a == null) {
+                this.a = (ViewGroup) findViewById(R.id.parent);
             }
             this.b = findViewById(R.id.title);
             this.c = (ImageView) findViewById(R.id.back);
@@ -37,8 +35,8 @@ public class a extends g {
                 this.c.setOnClickListener(new b(this));
             }
             this.d = (TextView) findViewById(R.id.title_text);
-            if (this.f620a != null) {
-                this.f = (Button) this.f620a.findViewWithTag("skin_top_more_button");
+            if (this.a != null) {
+                this.f = (Button) this.a.findViewWithTag("skin_top_more_button");
             }
         }
         if (this.e == null) {
@@ -55,7 +53,7 @@ public class a extends g {
         com.baidu.tieba.util.x.a(this.c, i);
         com.baidu.tieba.util.x.d(this.b, i);
         com.baidu.tieba.util.x.f(this.d, i);
-        com.baidu.tieba.util.x.b(this.f620a, i);
+        com.baidu.tieba.util.x.b(this.a, i);
         com.baidu.tieba.util.x.g((TextView) this.f, i);
         if (this.e != null) {
             this.e.invalidateViews();

@@ -11,9 +11,7 @@ import android.widget.FilterQueryProvider;
 import android.widget.Filterable;
 /* loaded from: classes.dex */
 public abstract class CursorAdapter extends BaseAdapter implements c, Filterable {
-
-    /* renamed from: a  reason: collision with root package name */
-    protected boolean f102a;
+    protected boolean a;
     protected boolean b;
     protected Cursor c;
     protected Context d;
@@ -34,7 +32,7 @@ public abstract class CursorAdapter extends BaseAdapter implements c, Filterable
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (!this.f102a || this.c == null) {
+        if (!this.a || this.c == null) {
             return 0;
         }
         return this.c.getCount();
@@ -42,7 +40,7 @@ public abstract class CursorAdapter extends BaseAdapter implements c, Filterable
 
     @Override // android.widget.Adapter
     public Object getItem(int i) {
-        if (!this.f102a || this.c == null) {
+        if (!this.a || this.c == null) {
             return null;
         }
         this.c.moveToPosition(i);
@@ -51,7 +49,7 @@ public abstract class CursorAdapter extends BaseAdapter implements c, Filterable
 
     @Override // android.widget.Adapter
     public long getItemId(int i) {
-        if (this.f102a && this.c != null && this.c.moveToPosition(i)) {
+        if (this.a && this.c != null && this.c.moveToPosition(i)) {
             return this.c.getLong(this.e);
         }
         return 0L;
@@ -64,7 +62,7 @@ public abstract class CursorAdapter extends BaseAdapter implements c, Filterable
 
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
-        if (!this.f102a) {
+        if (!this.a) {
             throw new IllegalStateException("this should only be called when the cursor is valid");
         }
         if (!this.c.moveToPosition(i)) {
@@ -79,7 +77,7 @@ public abstract class CursorAdapter extends BaseAdapter implements c, Filterable
 
     @Override // android.widget.BaseAdapter, android.widget.SpinnerAdapter
     public View getDropDownView(int i, View view, ViewGroup viewGroup) {
-        if (this.f102a) {
+        if (this.a) {
             this.c.moveToPosition(i);
             if (view == null) {
                 view = b(this.d, this.c, viewGroup);
@@ -124,12 +122,12 @@ public abstract class CursorAdapter extends BaseAdapter implements c, Filterable
                 cursor.registerDataSetObserver(this.g);
             }
             this.e = cursor.getColumnIndexOrThrow("_id");
-            this.f102a = true;
+            this.a = true;
             notifyDataSetChanged();
             return cursor2;
         }
         this.e = -1;
-        this.f102a = false;
+        this.a = false;
         notifyDataSetInvalidated();
         return cursor2;
     }
@@ -155,7 +153,7 @@ public abstract class CursorAdapter extends BaseAdapter implements c, Filterable
     /* JADX INFO: Access modifiers changed from: protected */
     public void b() {
         if (this.b && this.c != null && !this.c.isClosed()) {
-            this.f102a = this.c.requery();
+            this.a = this.c.requery();
         }
     }
 }

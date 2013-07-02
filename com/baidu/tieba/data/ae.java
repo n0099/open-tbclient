@@ -3,14 +3,12 @@ package com.baidu.tieba.data;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class ae {
-
-    /* renamed from: a  reason: collision with root package name */
-    private int f755a = -1;
+    private int a = -1;
     private String b = null;
     private String c = null;
 
     public int a() {
-        return this.f755a;
+        return this.a;
     }
 
     public String b() {
@@ -22,7 +20,7 @@ public class ae {
     }
 
     public void a(int i) {
-        this.f755a = i;
+        this.a = i;
     }
 
     public void a(String str) {
@@ -32,10 +30,10 @@ public class ae {
     public void a(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                this.f755a = jSONObject.optInt("type");
-                if (this.f755a == 3) {
+                this.a = jSONObject.optInt("type");
+                if (this.a == 3) {
                     this.b = jSONObject.optString("big_pic");
-                } else if (this.f755a == 5) {
+                } else if (this.a == 5) {
                     this.b = jSONObject.optString("vpic");
                     this.c = jSONObject.optString("vsrc");
                 }

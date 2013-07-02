@@ -14,9 +14,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 /* loaded from: classes.dex */
 public class y {
-
-    /* renamed from: a  reason: collision with root package name */
-    private static SimpleDateFormat f1473a = new SimpleDateFormat("yyyy-MM-dd HH:mm");
+    private static SimpleDateFormat a = new SimpleDateFormat("yyyy-MM-dd HH:mm");
     private static SimpleDateFormat b = new SimpleDateFormat("yyyy年");
     private static SimpleDateFormat c = new SimpleDateFormat("HH:mm");
     private static SimpleDateFormat d = new SimpleDateFormat("M月d日");
@@ -53,8 +51,8 @@ public class y {
     public static String a(long j) {
         String format;
         Date date = new Date(j);
-        synchronized (f1473a) {
-            format = f1473a.format(date);
+        synchronized (a) {
+            format = a.format(date);
         }
         return format;
     }
@@ -62,8 +60,8 @@ public class y {
     public static String a() {
         String format;
         Date date = new Date();
-        synchronized (f1473a) {
-            format = f1473a.format(date);
+        synchronized (a) {
+            format = a.format(date);
         }
         return format;
     }

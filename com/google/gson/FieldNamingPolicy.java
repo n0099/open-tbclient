@@ -2,40 +2,40 @@ package com.google.gson;
 
 import java.lang.reflect.Field;
 /* loaded from: classes.dex */
-public enum FieldNamingPolicy implements d {
+public enum FieldNamingPolicy implements FieldNamingStrategy {
     IDENTITY { // from class: com.google.gson.FieldNamingPolicy.1
-        @Override // com.google.gson.d
+        @Override // com.google.gson.FieldNamingStrategy
         public String translateName(Field field) {
             return field.getName();
         }
     },
     UPPER_CAMEL_CASE { // from class: com.google.gson.FieldNamingPolicy.2
-        @Override // com.google.gson.d
+        @Override // com.google.gson.FieldNamingStrategy
         public String translateName(Field field) {
-            return FieldNamingPolicy.a(field.getName());
+            return FieldNamingPolicy.upperCaseFirstLetter(field.getName());
         }
     },
     UPPER_CAMEL_CASE_WITH_SPACES { // from class: com.google.gson.FieldNamingPolicy.3
-        @Override // com.google.gson.d
+        @Override // com.google.gson.FieldNamingStrategy
         public String translateName(Field field) {
-            return FieldNamingPolicy.a(FieldNamingPolicy.a(field.getName(), " "));
+            return FieldNamingPolicy.upperCaseFirstLetter(FieldNamingPolicy.separateCamelCase(field.getName(), " "));
         }
     },
     LOWER_CASE_WITH_UNDERSCORES { // from class: com.google.gson.FieldNamingPolicy.4
-        @Override // com.google.gson.d
+        @Override // com.google.gson.FieldNamingStrategy
         public String translateName(Field field) {
-            return FieldNamingPolicy.a(field.getName(), "_").toLowerCase();
+            return FieldNamingPolicy.separateCamelCase(field.getName(), "_").toLowerCase();
         }
     },
     LOWER_CASE_WITH_DASHES { // from class: com.google.gson.FieldNamingPolicy.5
-        @Override // com.google.gson.d
+        @Override // com.google.gson.FieldNamingStrategy
         public String translateName(Field field) {
-            return FieldNamingPolicy.a(field.getName(), "-").toLowerCase();
+            return FieldNamingPolicy.separateCamelCase(field.getName(), "-").toLowerCase();
         }
     };
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static String a(String str, String str2) {
+    public static String separateCamelCase(String str, String str2) {
         StringBuilder sb = new StringBuilder();
         for (int i = 0; i < str.length(); i++) {
             char charAt = str.charAt(i);
@@ -48,7 +48,7 @@ public enum FieldNamingPolicy implements d {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static String a(String str) {
+    public static String upperCaseFirstLetter(String str) {
         StringBuilder sb = new StringBuilder();
         int i = 0;
         char charAt = str.charAt(0);
@@ -61,12 +61,12 @@ public enum FieldNamingPolicy implements d {
             return sb.toString();
         }
         if (!Character.isUpperCase(charAt)) {
-            return sb.append(a(Character.toUpperCase(charAt), str, i + 1)).toString();
+            return sb.append(modifyString(Character.toUpperCase(charAt), str, i + 1)).toString();
         }
         return str;
     }
 
-    private static String a(char c, String str, int i) {
+    private static String modifyString(char c, String str, int i) {
         return i < str.length() ? c + str.substring(i) : String.valueOf(c);
     }
 }

@@ -10,9 +10,7 @@ import java.util.ArrayList;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class d {
-
-    /* renamed from: a  reason: collision with root package name */
-    protected long f747a;
+    protected long a;
     protected String b;
     protected String c;
     protected int d;
@@ -30,7 +28,7 @@ public class d {
     }
 
     public long b() {
-        return this.f747a;
+        return this.a;
     }
 
     public String c() {
@@ -78,7 +76,7 @@ public class d {
             this.h = jSONObject.optJSONArray(PushConstants.EXTRA_CONTENT).toString();
             this.g = jSONObject.getLong("time");
             try {
-                this.f747a = jSONObject.optLong("msg_id");
+                this.a = jSONObject.optLong("msg_id");
             } catch (Exception e) {
             }
         } catch (Exception e2) {
@@ -88,16 +86,16 @@ public class d {
 
     public void b(Context context) {
         ClipboardManager clipboardManager = (ClipboardManager) context.getSystemService("clipboard");
-        ArrayList a2 = this.i.a();
+        ArrayList a = this.i.a();
         StringBuilder sb = new StringBuilder();
         int i = 0;
         while (true) {
             int i2 = i;
-            if (i2 >= a2.size()) {
+            if (i2 >= a.size()) {
                 break;
             }
-            if (((com.baidu.tbadk.widget.richText.c) a2.get(i2)).a() == 1) {
-                sb.append((CharSequence) ((com.baidu.tbadk.widget.richText.c) a2.get(i2)).d());
+            if (((com.baidu.tbadk.widget.richText.c) a.get(i2)).a() == 1) {
+                sb.append((CharSequence) ((com.baidu.tbadk.widget.richText.c) a.get(i2)).d());
             }
             i = i2 + 1;
         }

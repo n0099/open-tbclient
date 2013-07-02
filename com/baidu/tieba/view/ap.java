@@ -12,9 +12,7 @@ import com.baidu.tieba.pb.bg;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public class ap extends com.baidu.adp.widget.ListView.c {
-
-    /* renamed from: a  reason: collision with root package name */
-    private Context f1512a;
+    private Context a;
     private TextView b = null;
     private ProgressBar c = null;
     private ImageView d = null;
@@ -23,13 +21,13 @@ public class ap extends com.baidu.adp.widget.ListView.c {
     private int g = 0;
 
     public ap(Context context) {
-        this.f1512a = null;
-        this.f1512a = context;
+        this.a = null;
+        this.a = context;
     }
 
     @Override // com.baidu.adp.widget.ListView.c
     public View a() {
-        this.f = LayoutInflater.from(this.f1512a).inflate(R.layout.new_sub_pb_list_more, (ViewGroup) null);
+        this.f = LayoutInflater.from(this.a).inflate(R.layout.new_sub_pb_list_more, (ViewGroup) null);
         this.b = (TextView) this.f.findViewById(R.id.sub_pb_more_text);
         this.d = (ImageView) this.f.findViewById(R.id.image);
         if (TiebaApplication.f().at() == 1) {
@@ -44,7 +42,7 @@ public class ap extends com.baidu.adp.widget.ListView.c {
     public void c() {
         this.c.setVisibility(0);
         this.d.setVisibility(8);
-        this.b.setText(this.f1512a.getText(R.string.loading));
+        this.b.setText(this.a.getText(R.string.loading));
     }
 
     public void a(int i) {
@@ -54,7 +52,7 @@ public class ap extends com.baidu.adp.widget.ListView.c {
         if (i > 0) {
             bg.a(this.b, i);
         } else {
-            this.b.setText(this.f1512a.getText(R.string.load_more));
+            this.b.setText(this.a.getText(R.string.load_more));
         }
     }
 
@@ -64,7 +62,7 @@ public class ap extends com.baidu.adp.widget.ListView.c {
         if (this.g > 0) {
             bg.a(this.b, this.g);
         } else {
-            this.b.setText(this.f1512a.getText(R.string.load_more));
+            this.b.setText(this.a.getText(R.string.load_more));
         }
     }
 

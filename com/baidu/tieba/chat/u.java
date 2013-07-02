@@ -9,9 +9,7 @@ import android.widget.TextView;
 import com.baidu.tieba.view.HeadImageView;
 /* loaded from: classes.dex */
 class u {
-
-    /* renamed from: a  reason: collision with root package name */
-    FrameLayout f738a;
+    FrameLayout a;
     LinearLayout b;
     HeadImageView c;
     TextView d;
@@ -26,7 +24,7 @@ class u {
 
     private u(t tVar) {
         this.l = tVar;
-        this.f738a = null;
+        this.a = null;
         this.b = null;
         this.c = null;
         this.d = null;

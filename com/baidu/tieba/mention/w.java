@@ -7,14 +7,12 @@ import java.util.ArrayList;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class w implements View.OnClickListener {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ PostActivity f1000a;
+    final /* synthetic */ PostActivity a;
     private ArrayList b;
     private int c;
 
     public w(PostActivity postActivity, ArrayList arrayList, int i) {
-        this.f1000a = postActivity;
+        this.a = postActivity;
         this.b = arrayList;
         this.c = i;
     }
@@ -38,9 +36,9 @@ public class w implements View.OnClickListener {
                     }
                     i = i2 + 1;
                 } else {
-                    PostActivity postActivity = this.f1000a;
+                    PostActivity postActivity = this.a;
                     int i3 = this.c;
-                    bgVar = this.f1000a.n;
+                    bgVar = this.a.n;
                     ImageActivity.a(postActivity, arrayList, i3, bgVar);
                     return;
                 }

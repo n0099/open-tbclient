@@ -9,15 +9,13 @@ import com.baidu.tieba.util.DatabaseService;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class q extends BdAsyncTask {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ j f676a;
+    final /* synthetic */ j a;
     private com.baidu.tieba.util.r b = null;
     private String c;
     private String d;
 
     public q(j jVar, String str, String str2) {
-        this.f676a = jVar;
+        this.a = jVar;
         this.c = null;
         this.d = null;
         this.c = str;
@@ -28,10 +26,10 @@ public class q extends BdAsyncTask {
     public void cancel() {
         ProgressBar progressBar;
         Button button;
-        this.f676a.l = null;
-        progressBar = this.f676a.q;
+        this.a.l = null;
+        progressBar = this.a.q;
         progressBar.setVisibility(8);
-        button = this.f676a.o;
+        button = this.a.o;
         button.setEnabled(true);
     }
 
@@ -46,25 +44,25 @@ public class q extends BdAsyncTask {
         o oVar2;
         AccountData accountData2;
         super.a((Object) cVar);
-        this.f676a.l = null;
-        progressBar = this.f676a.q;
+        this.a.l = null;
+        progressBar = this.a.q;
         progressBar.setVisibility(8);
-        button = this.f676a.o;
+        button = this.a.o;
         button.setEnabled(true);
         if (cVar == null) {
-            this.f676a.b(this.b.g());
+            this.a.b(this.b.g());
         } else if (cVar.a().getName() == null) {
-            this.f676a.b(this.b.g());
-            this.f676a.a(cVar.b());
+            this.a.b(this.b.g());
+            this.a.a(cVar.b());
         } else {
-            this.f676a.e();
-            accountData = this.f676a.t;
+            this.a.e();
+            accountData = this.a.t;
             TiebaApplication.b(accountData);
             a.a().b();
-            oVar = this.f676a.u;
+            oVar = this.a.u;
             if (oVar != null) {
-                oVar2 = this.f676a.u;
-                accountData2 = this.f676a.t;
+                oVar2 = this.a.u;
+                accountData2 = this.a.t;
                 oVar2.a(accountData2);
             }
         }
@@ -75,12 +73,12 @@ public class q extends BdAsyncTask {
     public void b() {
         ProgressBar progressBar;
         Button button;
-        progressBar = this.f676a.q;
+        progressBar = this.a.q;
         progressBar.setVisibility(0);
-        button = this.f676a.o;
+        button = this.a.o;
         button.setEnabled(false);
-        this.f676a.b((String) null);
-        this.f676a.d();
+        this.a.b((String) null);
+        this.a.d();
         super.b();
     }
 
@@ -122,7 +120,7 @@ public class q extends BdAsyncTask {
             this.b = new com.baidu.tieba.util.r(this.c);
             this.b.a("un", this.d);
             com.baidu.tieba.util.r rVar = this.b;
-            accountData = this.f676a.t;
+            accountData = this.a.t;
             rVar.a("BDUSS", accountData.getBDUSS());
             this.b.b(false);
             j = this.b.j();
@@ -143,15 +141,15 @@ public class q extends BdAsyncTask {
                     str2 = name;
                     str2 = name;
                     if (name != null && bduss != null) {
-                        accountData2 = this.f676a.t;
+                        accountData2 = this.a.t;
                         str = cVar;
                         str2 = name;
                         if (accountData2 != null) {
-                            accountData3 = this.f676a.t;
+                            accountData3 = this.a.t;
                             accountData3.setAccount(name);
-                            accountData4 = this.f676a.t;
+                            accountData4 = this.a.t;
                             accountData4.setBDUSS(bduss);
-                            r1 = this.f676a.t;
+                            r1 = this.a.t;
                             DatabaseService.a((AccountData) r1);
                             str = cVar;
                             str2 = r1;
@@ -162,7 +160,7 @@ public class q extends BdAsyncTask {
                     cVar2.a(j);
                     str = cVar2;
                 } else if (this.b.e() == 1) {
-                    this.f676a.e();
+                    this.a.e();
                     str = 0;
                 }
             } catch (Exception e3) {

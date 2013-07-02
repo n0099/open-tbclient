@@ -5,9 +5,7 @@ import android.os.Parcelable;
 /* loaded from: classes.dex */
 class Configuration implements Parcelable {
     public static Parcelable.Creator j = new a();
-
-    /* renamed from: a  reason: collision with root package name */
-    int f174a = 255;
+    int a = 255;
     int b = -1;
     int c = -1;
     int d = 17170444;
@@ -24,7 +22,7 @@ class Configuration implements Parcelable {
 
     @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeInt(this.f174a);
+        parcel.writeInt(this.a);
         parcel.writeInt(this.b);
         parcel.writeInt(this.c);
         parcel.writeInt(this.d);
@@ -33,6 +31,6 @@ class Configuration implements Parcelable {
     }
 
     public String toString() {
-        return "Configuration{mAlpha=" + this.f174a + ", mFullingViewId=" + this.b + ", mTargetViewId=" + this.c + ", mFullingColorId=" + this.d + ", mAutoDismiss=" + this.e + ", mOverlayTarget=" + this.f + '}';
+        return "Configuration{mAlpha=" + this.a + ", mFullingViewId=" + this.b + ", mTargetViewId=" + this.c + ", mFullingColorId=" + this.d + ", mAutoDismiss=" + this.e + ", mOverlayTarget=" + this.f + '}';
     }
 }

@@ -6,9 +6,7 @@ import java.io.FileWriter;
 import java.util.Date;
 /* loaded from: classes.dex */
 public class z {
-
-    /* renamed from: a  reason: collision with root package name */
-    private static int f1474a = 0;
+    private static int a = 0;
     private static int b = 0;
     private static int c = 0;
     private static int d = 0;
@@ -123,8 +121,8 @@ public class z {
         FileWriter fileWriter2 = null;
         switch (i) {
             case 1:
-                if (f1474a < 10) {
-                    f1474a++;
+                if (a < 10) {
+                    a++;
                     break;
                 }
                 z = false;

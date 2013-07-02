@@ -7,9 +7,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 /* loaded from: classes.dex */
 class af {
-
-    /* renamed from: a  reason: collision with root package name */
-    LinearLayout f832a;
+    LinearLayout a;
     LinearLayout b;
     RelativeLayout c;
     TextView d;

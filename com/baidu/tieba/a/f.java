@@ -3,16 +3,14 @@ package com.baidu.tieba.a;
 import com.baidu.tieba.util.r;
 /* loaded from: classes.dex */
 public class f {
-
-    /* renamed from: a  reason: collision with root package name */
-    private static final String f626a = String.valueOf(com.baidu.tieba.data.g.f787a) + "c/f/pb/floor";
+    private static final String a = String.valueOf(com.baidu.tieba.data.g.a) + "c/f/pb/floor";
     private r b = null;
 
     public String a(String str, String str2, int i, String str3, int i2) {
         if (str == null || str3 == null) {
             return null;
         }
-        this.b = new r(f626a);
+        this.b = new r(a);
         this.b.d(true);
         this.b.a("kz", str);
         if (str2 != null) {

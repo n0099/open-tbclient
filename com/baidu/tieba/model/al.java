@@ -9,9 +9,7 @@ import org.json.JSONObject;
 public class al {
     private ArrayList c;
     private int d = 0;
-
-    /* renamed from: a  reason: collision with root package name */
-    private UserData f1018a = new UserData();
+    private UserData a = new UserData();
     private AntiData b = new AntiData();
 
     public al() {
@@ -21,7 +19,7 @@ public class al {
     }
 
     public UserData a() {
-        return this.f1018a;
+        return this.a;
     }
 
     public AntiData b() {
@@ -38,7 +36,7 @@ public class al {
 
     public void a(JSONObject jSONObject) {
         try {
-            this.f1018a.parserJson(jSONObject.optJSONObject("user"));
+            this.a.parserJson(jSONObject.optJSONObject("user"));
             this.b.parserJson(jSONObject.optJSONObject("anti"));
             JSONArray optJSONArray = jSONObject.optJSONArray("suggnames");
             if (optJSONArray != null) {

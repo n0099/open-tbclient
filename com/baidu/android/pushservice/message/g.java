@@ -1,75 +1,37 @@
 package com.baidu.android.pushservice.message;
 
-import android.content.Context;
-import com.baidu.android.common.logging.Log;
-import com.baidu.android.common.net.ProxyHttpClient;
-import com.baidu.android.pushservice.PushConstants;
-import com.baidu.android.pushservice.w;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Iterator;
-import org.apache.http.HttpResponse;
-import org.apache.http.NameValuePair;
-import org.apache.http.client.entity.UrlEncodedFormEntity;
-import org.apache.http.client.methods.HttpPost;
-import org.apache.http.message.BasicNameValuePair;
-/* JADX INFO: Access modifiers changed from: package-private */
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes.dex */
-public class g implements Runnable {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ Context f325a;
-    final /* synthetic */ String b;
-    final /* synthetic */ String c;
-    final /* synthetic */ String d;
-    final /* synthetic */ PublicMsg e;
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public g(PublicMsg publicMsg, Context context, String str, String str2, String str3) {
-        this.e = publicMsg;
-        this.f325a = context;
-        this.b = str;
-        this.c = str2;
-        this.d = str3;
-    }
-
-    @Override // java.lang.Runnable
-    public void run() {
-        ProxyHttpClient proxyHttpClient = new ProxyHttpClient(this.f325a);
+public final class g {
+    public static PublicMsg a(byte[] bArr) {
+        PublicMsg publicMsg = new PublicMsg();
         try {
-            HttpPost httpPost = new HttpPost(w.f + this.b);
-            httpPost.addHeader("Content-Type", "application/x-www-form-urlencoded");
-            ArrayList arrayList = new ArrayList();
-            com.baidu.android.pushservice.a.b.a(arrayList);
-            arrayList.add(new BasicNameValuePair(PushConstants.EXTRA_METHOD, "linkhit"));
-            arrayList.add(new BasicNameValuePair("channel_token", this.c));
-            arrayList.add(new BasicNameValuePair("data", this.d));
-            if (com.baidu.android.pushservice.b.a()) {
-                Iterator it = arrayList.iterator();
-                while (it.hasNext()) {
-                    Log.d("PublicMsg", "linkhit param -- " + ((NameValuePair) it.next()).toString());
-                }
+            JSONObject jSONObject = new JSONObject(new String(bArr));
+            publicMsg.a = jSONObject.getString("title");
+            publicMsg.b = jSONObject.getString("description");
+            publicMsg.c = jSONObject.getString("url");
+            if (!jSONObject.isNull("net_support")) {
+                publicMsg.g = jSONObject.getInt("net_support");
             }
-            httpPost.setEntity(new UrlEncodedFormEntity(arrayList, "UTF-8"));
-            HttpResponse execute = proxyHttpClient.execute(httpPost);
-            if (execute.getStatusLine().getStatusCode() == 200) {
-                if (com.baidu.android.pushservice.b.a()) {
-                    Log.i("PublicMsg", "<<< public msg send result return OK!");
-                }
-            } else if (com.baidu.android.pushservice.b.a()) {
-                Log.e("PublicMsg", "networkRegister request failed  " + execute.getStatusLine());
+            if (!jSONObject.isNull("app_situation")) {
+                JSONObject jSONObject2 = jSONObject.getJSONObject("app_situation");
+                publicMsg.i = jSONObject2.getInt("as_is_support") == 1;
+                publicMsg.h = jSONObject2.getString("as_pkg_name");
             }
-        } catch (IOException e) {
-            if (com.baidu.android.pushservice.b.a()) {
-                Log.e("PublicMsg", e.getMessage());
-                Log.e("PublicMsg", "io exception do something ? ");
+            if (!jSONObject.isNull("pkg_name")) {
+                publicMsg.d = jSONObject.getString("pkg_name");
             }
-        } catch (Exception e2) {
-            if (com.baidu.android.pushservice.b.a()) {
-                Log.e("PublicMsg", e2.getMessage());
+            if (!jSONObject.isNull("pkg_vercode")) {
+                publicMsg.e = jSONObject.getInt("pkg_vercode");
             }
-        } finally {
-            proxyHttpClient.close();
+            if (jSONObject.isNull("pkg_content")) {
+                return publicMsg;
+            }
+            publicMsg.f = jSONObject.getString("pkg_content");
+            return publicMsg;
+        } catch (JSONException e) {
+            return null;
         }
     }
 }

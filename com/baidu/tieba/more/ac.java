@@ -8,13 +8,11 @@ import com.slidingmenu.lib.R;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ac implements RadioGroup.OnCheckedChangeListener {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ MsgRemindActivity f1081a;
+    final /* synthetic */ MsgRemindActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ac(MsgRemindActivity msgRemindActivity) {
-        this.f1081a = msgRemindActivity;
+        this.a = msgRemindActivity;
     }
 
     @Override // android.widget.RadioGroup.OnCheckedChangeListener
@@ -34,6 +32,6 @@ public class ac implements RadioGroup.OnCheckedChangeListener {
                 break;
         }
         DatabaseService.w();
-        this.f1081a.d();
+        this.a.d();
     }
 }

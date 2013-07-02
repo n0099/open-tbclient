@@ -16,9 +16,7 @@ import com.baidu.tieba.model.WriteModel;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public class VcodeActivity extends com.baidu.tieba.g {
-
-    /* renamed from: a  reason: collision with root package name */
-    private WriteModel f1549a = null;
+    private WriteModel a = null;
     private ImageView b = null;
     private Button c = null;
     private ImageView d = null;
@@ -56,15 +54,15 @@ public class VcodeActivity extends com.baidu.tieba.g {
         setContentView(R.layout.vcode_activity);
         b();
         a(bundle);
-        c(this.f1549a.getVcodeUrl());
+        c(this.a.getVcodeUrl());
     }
 
     private void a(Bundle bundle) {
         this.l = new n(this);
         if (bundle != null) {
-            this.f1549a = (WriteModel) bundle.getSerializable("model");
+            this.a = (WriteModel) bundle.getSerializable("model");
         } else {
-            this.f1549a = (WriteModel) getIntent().getSerializableExtra("model");
+            this.a = (WriteModel) getIntent().getSerializableExtra("model");
         }
         this.k = (InputMethodManager) getSystemService("input_method");
     }
@@ -86,7 +84,7 @@ public class VcodeActivity extends com.baidu.tieba.g {
 
     @Override // android.app.Activity
     protected void onSaveInstanceState(Bundle bundle) {
-        bundle.putSerializable("model", this.f1549a);
+        bundle.putSerializable("model", this.a);
         super.onSaveInstanceState(bundle);
     }
 

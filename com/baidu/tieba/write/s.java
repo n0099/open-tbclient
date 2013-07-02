@@ -11,15 +11,13 @@ import com.slidingmenu.lib.R;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class s extends BdAsyncTask {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ VcodeActivity f1597a;
+    final /* synthetic */ VcodeActivity a;
     private WriteModel b;
     private com.baidu.tieba.util.r c = null;
     private String d = null;
 
     public s(VcodeActivity vcodeActivity, WriteModel writeModel) {
-        this.f1597a = vcodeActivity;
+        this.a = vcodeActivity;
         this.b = null;
         this.b = writeModel;
     }
@@ -40,27 +38,27 @@ public class s extends BdAsyncTask {
         }
         this.c.a(PushConstants.EXTRA_CONTENT, String.valueOf(this.b.getContent()) + str);
         this.c.a("vcode_md5", this.b.getVcodeMD5());
-        editText = this.f1597a.e;
+        editText = this.a.e;
         String editable = editText.getText().toString();
         if (editable.length() > 0) {
             this.c.a("vcode", editable);
         }
         this.c.d(true);
         if (this.b.getType() == 0 || this.b.getType() == 3) {
-            this.c.a(String.valueOf(com.baidu.tieba.data.g.f787a) + "c/c/thread/add");
+            this.c.a(String.valueOf(com.baidu.tieba.data.g.a) + "c/c/thread/add");
             if (this.b.getType() == 0) {
                 this.c.a("title", this.b.getTitle());
             } else {
                 this.c.a("thread_type", WriteModel.THREAD_TYPE_LBS);
                 this.c.a("st_type", "tb_suishoufa");
             }
-            if (!com.baidu.tieba.data.g.g().equals(this.f1597a.getIntent().getStringExtra("forum_id")) && TiebaApplication.f().u() && (aP = TiebaApplication.f().aP()) != null) {
+            if (!com.baidu.tieba.data.g.g().equals(this.a.getIntent().getStringExtra("forum_id")) && TiebaApplication.f().u() && (aP = TiebaApplication.f().aP()) != null) {
                 this.c.a("lbs", String.valueOf(String.valueOf(aP.getLatitude())) + "," + String.valueOf(aP.getLongitude()));
             }
         } else {
-            this.c.a(String.valueOf(com.baidu.tieba.data.g.f787a) + "c/c/post/add");
+            this.c.a(String.valueOf(com.baidu.tieba.data.g.a) + "c/c/post/add");
             this.c.a("tid", this.b.getThreadId());
-            this.c.a("is_ad", this.f1597a.getIntent().getBooleanExtra("is_ad", false) ? "1" : "0");
+            this.c.a("is_ad", this.a.getIntent().getBooleanExtra("is_ad", false) ? "1" : "0");
             if (this.b.getType() == 2) {
                 this.c.a("quote_id", String.valueOf(this.b.getFloor()));
                 this.c.a("floor_num", String.valueOf(this.b.getFloorNum()));
@@ -72,8 +70,8 @@ public class s extends BdAsyncTask {
 
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void cancel() {
-        this.f1597a.g = null;
-        this.f1597a.h();
+        this.a.g = null;
+        this.a.h();
         if (this.c != null) {
             this.c.h();
         }
@@ -88,36 +86,36 @@ public class s extends BdAsyncTask {
         WriteModel writeModel;
         WriteModel writeModel2;
         WriteModel writeModel3;
-        this.f1597a.h();
-        this.f1597a.g = null;
+        this.a.h();
+        this.a.g = null;
         if (this.c != null) {
             if (this.c.c()) {
                 com.baidu.tieba.data.n nVar = new com.baidu.tieba.data.n();
                 nVar.b(this.d);
                 if (nVar.b() == null || nVar.b().length() <= 0) {
-                    this.f1597a.a(TiebaApplication.f().getString(R.string.send_success));
+                    this.a.a(TiebaApplication.f().getString(R.string.send_success));
                 } else {
-                    this.f1597a.a(nVar.b());
+                    this.a.a(nVar.b());
                 }
-                this.f1597a.setResult(-1, this.f1597a.getIntent());
-                this.f1597a.finish();
+                this.a.setResult(-1, this.a.getIntent());
+                this.a.finish();
             } else {
                 if (this.c.e() == 5 || this.c.e() == 6) {
                     be beVar2 = new be();
                     beVar2.a(this.d);
                     if (beVar2.b() != null) {
-                        writeModel = this.f1597a.f1549a;
+                        writeModel = this.a.a;
                         writeModel.setVcodeMD5(beVar2.a());
-                        writeModel2 = this.f1597a.f1549a;
+                        writeModel2 = this.a.a;
                         writeModel2.setVcodeUrl(beVar2.b());
-                        VcodeActivity vcodeActivity = this.f1597a;
-                        writeModel3 = this.f1597a.f1549a;
+                        VcodeActivity vcodeActivity = this.a;
+                        writeModel3 = this.a.a;
                         vcodeActivity.c(writeModel3.getVcodeUrl());
                     }
-                    editText = this.f1597a.e;
+                    editText = this.a.e;
                     editText.setText((CharSequence) null);
                 }
-                this.f1597a.a(this.c.g());
+                this.a.a(this.c.g());
             }
         }
         super.a((Object) beVar);

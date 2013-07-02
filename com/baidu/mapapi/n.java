@@ -14,9 +14,7 @@ import java.lang.reflect.Constructor;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 class n {
-
-    /* renamed from: a  reason: collision with root package name */
-    private static Constructor f561a = null;
+    private static Constructor a = null;
     private static final int b = Integer.parseInt(Build.VERSION.SDK);
 
     /* loaded from: classes.dex */
@@ -140,10 +138,10 @@ class n {
                 return new BitmapDrawable(decodeStream);
             }
             Resources resources = context.getResources();
-            if (f561a == null) {
-                f561a = Class.forName("android.graphics.drawable.BitmapDrawable").getConstructor(Resources.class, Bitmap.class);
+            if (a == null) {
+                a = Class.forName("android.graphics.drawable.BitmapDrawable").getConstructor(Resources.class, Bitmap.class);
             }
-            return (Drawable) f561a.newInstance(resources, decodeStream);
+            return (Drawable) a.newInstance(resources, decodeStream);
         } catch (Exception e) {
             e.printStackTrace();
             return null;
@@ -164,10 +162,10 @@ class n {
                 return new BitmapDrawable(createBitmap);
             }
             Resources resources = context.getResources();
-            if (f561a == null) {
-                f561a = Class.forName("android.graphics.drawable.BitmapDrawable").getConstructor(Resources.class, Bitmap.class);
+            if (a == null) {
+                a = Class.forName("android.graphics.drawable.BitmapDrawable").getConstructor(Resources.class, Bitmap.class);
             }
-            return (Drawable) f561a.newInstance(resources, createBitmap);
+            return (Drawable) a.newInstance(resources, createBitmap);
         } catch (Exception e) {
             e.printStackTrace();
             return null;

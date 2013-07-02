@@ -11,9 +11,7 @@ import java.util.ArrayList;
 import java.util.Date;
 /* loaded from: classes.dex */
 public class ax extends com.baidu.adp.a.c {
-
-    /* renamed from: a  reason: collision with root package name */
-    private static final int f1029a = com.baidu.tieba.data.g.b() / 30;
+    private static final int a = com.baidu.tieba.data.g.b() / 30;
     private static com.baidu.tieba.data.ak v = new com.baidu.tieba.data.ak();
     private com.baidu.tieba.data.aj t;
     private Context w;
@@ -174,14 +172,14 @@ public class ax extends com.baidu.adp.a.c {
     public void e(int i) {
         if (this.k < i) {
             this.k = i;
-            if (this.k - this.l >= f1029a) {
-                this.l = (this.k - f1029a) + 1;
+            if (this.k - this.l >= a) {
+                this.l = (this.k - a) + 1;
             }
         }
         if (this.l > i) {
             this.l = i;
-            if (this.k - this.l >= f1029a) {
-                this.k = (this.l + f1029a) - 1;
+            if (this.k - this.l >= a) {
+                this.k = (this.l + a) - 1;
             }
         }
     }

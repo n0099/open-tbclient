@@ -4,13 +4,11 @@ import android.os.Handler;
 import android.os.Message;
 /* loaded from: classes.dex */
 class ad extends Handler {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ ImageViewDrawer f1504a;
+    final /* synthetic */ ImageViewDrawer a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ad(ImageViewDrawer imageViewDrawer) {
-        this.f1504a = imageViewDrawer;
+        this.a = imageViewDrawer;
     }
 
     @Override // android.os.Handler
@@ -20,15 +18,15 @@ class ad extends Handler {
         Handler handler;
         Handler handler2;
         super.handleMessage(message);
-        ImageViewDrawer imageViewDrawer = this.f1504a;
+        ImageViewDrawer imageViewDrawer = this.a;
         i = imageViewDrawer.b;
         imageViewDrawer.b = i - 1;
-        i2 = this.f1504a.b;
+        i2 = this.a.b;
         if (i2 >= 0) {
-            handler = this.f1504a.g;
-            handler2 = this.f1504a.g;
+            handler = this.a.g;
+            handler2 = this.a.g;
             handler.sendMessageDelayed(handler2.obtainMessage(1), 15L);
-            this.f1504a.invalidate();
+            this.a.invalidate();
         }
     }
 }

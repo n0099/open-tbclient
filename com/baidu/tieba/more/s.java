@@ -11,14 +11,12 @@ import com.slidingmenu.lib.R;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class s extends BdAsyncTask {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ AppsActivity f1107a;
+    final /* synthetic */ AppsActivity a;
     private com.baidu.tieba.util.r b = null;
     private String c;
 
     public s(AppsActivity appsActivity, String str) {
-        this.f1107a = appsActivity;
+        this.a = appsActivity;
         this.c = null;
         this.c = str;
     }
@@ -29,11 +27,11 @@ public class s extends BdAsyncTask {
         ProgressBar progressBar;
         LinearLayout linearLayout;
         BaseWebView baseWebView;
-        progressBar = this.f1107a.f;
+        progressBar = this.a.f;
         progressBar.setVisibility(0);
-        linearLayout = this.f1107a.e;
+        linearLayout = this.a.e;
         linearLayout.setVisibility(8);
-        baseWebView = this.f1107a.b;
+        baseWebView = this.a.b;
         baseWebView.setVisibility(0);
     }
 
@@ -57,9 +55,9 @@ public class s extends BdAsyncTask {
         if (this.b != null) {
             this.b.h();
         }
-        progressBar = this.f1107a.f;
+        progressBar = this.a.f;
         progressBar.setVisibility(8);
-        this.f1107a.d = null;
+        this.a.d = null;
         super.cancel(true);
     }
 
@@ -73,28 +71,28 @@ public class s extends BdAsyncTask {
         BaseWebView baseWebView2;
         LinearLayout linearLayout;
         BaseWebView baseWebView3;
-        progressBar = this.f1107a.f;
+        progressBar = this.a.f;
         progressBar.setVisibility(8);
         if (this.b != null && this.b.d() && str != null && str.length() > 0) {
             DatabaseService.a(str, 7);
-            SharedPreferences.Editor edit = this.f1107a.getSharedPreferences("settings", 0).edit();
+            SharedPreferences.Editor edit = this.a.getSharedPreferences("settings", 0).edit();
             edit.putLong("app_inverval", System.currentTimeMillis());
             edit.commit();
-            baseWebView3 = this.f1107a.b;
-            baseWebView3.loadDataWithBaseURL(com.baidu.tieba.data.g.f787a, str, "text/html", BdUtil.UTF8, "");
+            baseWebView3 = this.a.b;
+            baseWebView3.loadDataWithBaseURL(com.baidu.tieba.data.g.a, str, "text/html", BdUtil.UTF8, "");
             return;
         }
-        m = this.f1107a.m();
+        m = this.a.m();
         if (!m && str == null) {
-            baseWebView2 = this.f1107a.b;
+            baseWebView2 = this.a.b;
             baseWebView2.setVisibility(8);
-            linearLayout = this.f1107a.e;
+            linearLayout = this.a.e;
             linearLayout.setVisibility(0);
-            this.f1107a.a(this.f1107a.getString(R.string.system_no_service));
+            this.a.a(this.a.getString(R.string.system_no_service));
             return;
         }
-        String string = this.f1107a.getString(R.string.server_404);
-        baseWebView = this.f1107a.b;
-        baseWebView.loadDataWithBaseURL(com.baidu.tieba.data.g.f787a, string, "text/html", BdUtil.UTF8, "");
+        String string = this.a.getString(R.string.server_404);
+        baseWebView = this.a.b;
+        baseWebView.loadDataWithBaseURL(com.baidu.tieba.data.g.a, string, "text/html", BdUtil.UTF8, "");
     }
 }

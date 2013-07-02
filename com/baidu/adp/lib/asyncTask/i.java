@@ -4,15 +4,13 @@ import android.os.Handler;
 import android.os.Process;
 /* loaded from: classes.dex */
 class i extends j {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ f f130a;
+    final /* synthetic */ f a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public i(f fVar, l lVar) {
         super(lVar);
-        this.f130a = fVar;
+        this.a = fVar;
     }
 
     @Override // java.lang.Runnable
@@ -34,8 +32,8 @@ class i extends j {
             a();
         } finally {
             if (!h()) {
-                handler = this.f130a.i;
-                handler2 = this.f130a.i;
+                handler = this.a.i;
+                handler2 = this.a.i;
                 handler.sendMessageDelayed(handler2.obtainMessage(2, this), 1L);
             }
         }

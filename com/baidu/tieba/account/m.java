@@ -6,13 +6,11 @@ import com.slidingmenu.lib.R;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class m implements View.OnClickListener {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ j f673a;
+    final /* synthetic */ j a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public m(j jVar) {
-        this.f673a = jVar;
+        this.a = jVar;
     }
 
     @Override // android.view.View.OnClickListener
@@ -24,27 +22,27 @@ public class m implements View.OnClickListener {
         q qVar2;
         q qVar3;
         p pVar2;
-        editText = this.f673a.c;
+        editText = this.a.c;
         String editable = editText.getText().toString();
         if (editable != null && editable.length() > 0) {
-            pVar = this.f673a.m;
+            pVar = this.a.m;
             if (pVar != null) {
-                pVar2 = this.f673a.m;
+                pVar2 = this.a.m;
                 pVar2.cancel();
             }
-            qVar = this.f673a.l;
+            qVar = this.a.l;
             if (qVar == null) {
-                this.f673a.l = new q(this.f673a, String.valueOf(com.baidu.tieba.data.g.f787a) + "c/s/filluname", editable);
-                qVar2 = this.f673a.l;
+                this.a.l = new q(this.a, String.valueOf(com.baidu.tieba.data.g.a) + "c/s/filluname", editable);
+                qVar2 = this.a.l;
                 qVar2.setPriority(3);
-                qVar3 = this.f673a.l;
+                qVar3 = this.a.l;
                 qVar3.execute(new String[0]);
                 return;
             }
             return;
         }
-        j jVar = this.f673a;
-        gVar = this.f673a.j;
+        j jVar = this.a;
+        gVar = this.a.j;
         jVar.b(gVar.getString(R.string.input_name));
     }
 }

@@ -8,9 +8,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class i implements h {
-
-    /* renamed from: a  reason: collision with root package name */
-    private Context f496a;
+    private Context a;
     private JSONObject b = null;
     private File c = null;
     private String d = "loginshare";
@@ -18,13 +16,13 @@ public class i implements h {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public i(Context context) {
-        this.f496a = null;
-        this.f496a = context;
+        this.a = null;
+        this.a = context;
         c();
     }
 
     private void c() {
-        File filesDir = this.f496a.getFilesDir();
+        File filesDir = this.a.getFilesDir();
         if (filesDir != null) {
             this.c = new File(String.valueOf(filesDir.getAbsolutePath()) + "/" + g.e());
         }
@@ -58,9 +56,9 @@ public class i implements h {
         if (this.e) {
             return;
         }
-        String a2 = a(str);
-        if (a2 != null) {
-            this.e = a2.equals(str2);
+        String a = a(str);
+        if (a != null) {
+            this.e = a.equals(str2);
         } else {
             this.e = str2 == null;
         }

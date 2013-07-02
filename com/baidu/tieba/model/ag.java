@@ -1,9 +1,7 @@
 package com.baidu.tieba.model;
 /* loaded from: classes.dex */
 public class ag extends com.baidu.adp.a.c {
-
-    /* renamed from: a  reason: collision with root package name */
-    private ah f1013a = null;
+    private ah a = null;
     private String b = null;
 
     public boolean a(String str) {
@@ -13,18 +11,18 @@ public class ag extends com.baidu.adp.a.c {
 
     @Override // com.baidu.adp.a.c
     protected boolean LoadData() {
-        if (this.f1013a != null) {
-            this.f1013a.cancel();
+        if (this.a != null) {
+            this.a.cancel();
         }
-        this.f1013a = new ah(this, this.b);
-        this.f1013a.execute(new Object[0]);
+        this.a = new ah(this, this.b);
+        this.a.execute(new Object[0]);
         return true;
     }
 
     @Override // com.baidu.adp.a.c
     public boolean cancelLoadData() {
-        if (this.f1013a != null) {
-            this.f1013a.cancel();
+        if (this.a != null) {
+            this.a.cancel();
             return true;
         }
         return true;

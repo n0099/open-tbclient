@@ -6,9 +6,7 @@ import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class z extends BdAsyncTask {
-
-    /* renamed from: a  reason: collision with root package name */
-    ArrayList f1070a;
+    ArrayList a;
     y b;
     final /* synthetic */ v c;
     private com.baidu.tieba.util.r d = null;
@@ -19,10 +17,10 @@ public class z extends BdAsyncTask {
         this.c = vVar;
         this.e = null;
         this.f = 3;
-        this.f1070a = null;
+        this.a = null;
         this.b = new y(vVar);
         this.e = str;
-        this.f1070a = arrayList;
+        this.a = arrayList;
         this.f = i;
         setSelfExecute(true);
     }
@@ -48,7 +46,7 @@ public class z extends BdAsyncTask {
         Exception e;
         try {
             this.d = new com.baidu.tieba.util.r(this.e);
-            this.d.a(this.f1070a);
+            this.d.a(this.a);
             String j = this.d.j();
             jSONObject = new JSONObject(j);
             try {
@@ -74,7 +72,7 @@ public class z extends BdAsyncTask {
         com.baidu.tieba.frs.ac acVar;
         com.baidu.tieba.frs.ac acVar2;
         if (this.d != null) {
-            this.b.f1069a = true;
+            this.b.a = true;
             this.b.b = this.d.d();
             this.b.c = this.d.e();
             this.b.d = this.d.g();

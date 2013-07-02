@@ -3,9 +3,7 @@ package com.baidu.tieba.data;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class bf {
-
-    /* renamed from: a  reason: collision with root package name */
-    private String f782a = null;
+    private String a = null;
     private int b = 0;
     private int d = 0;
     private int e = 0;
@@ -20,7 +18,7 @@ public class bf {
     }
 
     public String c() {
-        return this.f782a;
+        return this.a;
     }
 
     public int d() {
@@ -42,7 +40,7 @@ public class bf {
     public void a(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                this.f782a = jSONObject.optString("id");
+                this.a = jSONObject.optString("id");
                 this.d = jSONObject.optInt("width", 0);
                 this.e = jSONObject.optInt("height", 0);
             } catch (Exception e) {

@@ -10,9 +10,7 @@ public class v {
     private an c;
     private ArrayList d;
     private Context l;
-
-    /* renamed from: a  reason: collision with root package name */
-    private String f802a = null;
+    private String a = null;
     private String b = null;
     private int e = 0;
     private int f = 0;
@@ -40,7 +38,7 @@ public class v {
     }
 
     public String c() {
-        return this.f802a;
+        return this.a;
     }
 
     public String d() {
@@ -77,7 +75,7 @@ public class v {
             JSONObject optJSONObject2 = jSONObject.optJSONObject("img");
             this.k = jSONObject.optInt("index", -1);
             if (optJSONObject2 != null && (optJSONObject = optJSONObject2.optJSONObject("original")) != null) {
-                this.f802a = optJSONObject.optString("id");
+                this.a = optJSONObject.optString("id");
                 this.b = optJSONObject.optString("url");
                 this.e = optJSONObject.optInt("width", 0);
                 this.f = optJSONObject.optInt("height", 0);

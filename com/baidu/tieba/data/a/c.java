@@ -7,9 +7,7 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class c {
-
-    /* renamed from: a  reason: collision with root package name */
-    private String f746a = null;
+    private String a = null;
     private String b = null;
     private String c = null;
     private String d = null;
@@ -23,7 +21,7 @@ public class c {
     }
 
     public void a(String str) {
-        this.f746a = str;
+        this.a = str;
     }
 
     public void b(String str) {
@@ -162,7 +160,7 @@ public class c {
                 for (int i = 0; i < optJSONArray.length(); i++) {
                     d dVar = new d();
                     dVar.a(optJSONArray.getJSONObject(i));
-                    dVar.b(this.f746a);
+                    dVar.b(this.a);
                     dVar.a(this.c);
                     this.g.add(dVar);
                 }

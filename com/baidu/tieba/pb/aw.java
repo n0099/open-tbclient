@@ -4,13 +4,11 @@ import android.os.Handler;
 import android.os.Message;
 /* loaded from: classes.dex */
 class aw implements Handler.Callback {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ NewPbActivity f1214a;
+    final /* synthetic */ NewPbActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public aw(NewPbActivity newPbActivity) {
-        this.f1214a = newPbActivity;
+        this.a = newPbActivity;
     }
 
     @Override // android.os.Handler.Callback
@@ -20,19 +18,19 @@ class aw implements Handler.Callback {
         bk bkVar2;
         switch (message.what) {
             case 0:
-                bkVar2 = this.f1214a.p;
+                bkVar2 = this.a.p;
                 bkVar2.R();
                 return false;
             case 1:
-                bkVar = this.f1214a.p;
+                bkVar = this.a.p;
                 bkVar.Q();
                 return false;
             case 2:
-                axVar = this.f1214a.j;
+                axVar = this.a.j;
                 if (!axVar.r()) {
                     return false;
                 }
-                this.f1214a.q();
+                this.a.q();
                 return false;
             default:
                 return false;

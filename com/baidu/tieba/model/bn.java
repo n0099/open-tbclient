@@ -1,9 +1,7 @@
 package com.baidu.tieba.model;
 /* loaded from: classes.dex */
 public class bn extends com.baidu.adp.a.c {
-
-    /* renamed from: a  reason: collision with root package name */
-    private String f1043a = null;
+    private String a = null;
     private String b = null;
     private bo c = null;
 
@@ -26,7 +24,7 @@ public class bn extends com.baidu.adp.a.c {
 
     public void a(String str, String str2) {
         if (str != null && str.length() > 0 && str2 != null && str2.length() > 0 && this.c == null) {
-            this.f1043a = str;
+            this.a = str;
             this.b = str2;
             this.c = new bo(this, null);
             this.c.setPriority(2);

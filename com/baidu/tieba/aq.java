@@ -9,26 +9,22 @@ import com.baidu.tieba.data.AccountData;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 class aq implements Handler.Callback {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ TiebaApplication f698a;
+    final /* synthetic */ TiebaApplication a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public aq(TiebaApplication tiebaApplication) {
-        this.f698a = tiebaApplication;
+        this.a = tiebaApplication;
     }
 
     @Override // android.os.Handler.Callback
     public boolean handleMessage(Message message) {
         long j;
-        int i;
-        int i2;
         switch (message.what) {
             case 1:
                 com.baidu.tieba.util.z.b("TiebaApplication", "handleMessage", "Do Aoto Login" + String.valueOf(message.what));
                 if (TiebaApplication.n()) {
                     TiebaApplication.a((AccountData) null);
-                    MainTabActivity.b(this.f698a, null, true);
+                    MainTabActivity.b(this.a, null, true);
                     break;
                 } else {
                     Intent intent = new Intent(TiebaApplication.f(), LoginActivity.class);
@@ -43,41 +39,38 @@ class aq implements Handler.Callback {
                     break;
                 }
             case 2:
-                this.f698a.ab();
+                this.a.ab();
                 break;
             case 3:
-                this.f698a.ac();
+                this.a.ac();
                 break;
             case 4:
                 long nanoTime = System.nanoTime();
-                j = this.f698a.r;
+                j = this.a.r;
                 long j2 = (((nanoTime - j) / 1000000) - 60000) / 1000;
                 if (j2 > 0) {
                     new com.baidu.tieba.account.af("use", String.valueOf(j2)).start();
                 }
-                this.f698a.r = 0L;
+                this.a.r = 0L;
                 break;
             case 5:
-                this.f698a.aO();
+                this.a.aO();
                 String str = "";
-                i = this.f698a.D;
-                switch (i) {
+                switch (this.a.D) {
                     case 1:
-                        str = this.f698a.getString(R.string.loc_gps_off);
+                        str = this.a.getString(R.string.loc_gps_off);
                         break;
                     case 2:
-                        str = this.f698a.getString(R.string.loc_net_off);
+                        str = this.a.getString(R.string.loc_net_off);
                         break;
                     case 3:
-                        str = this.f698a.getString(R.string.loc_gps_net_off);
+                        str = this.a.getString(R.string.loc_gps_net_off);
                         break;
                     case 4:
-                        str = this.f698a.getString(R.string.loc_out_of_time);
+                        str = this.a.getString(R.string.loc_out_of_time);
                         break;
                 }
-                TiebaApplication tiebaApplication = this.f698a;
-                i2 = this.f698a.D;
-                tiebaApplication.a(i2, str, (Address) null);
+                this.a.a(this.a.D, str, (Address) null);
                 break;
         }
         return false;

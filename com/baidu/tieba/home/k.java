@@ -7,9 +7,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes.dex */
 public class k extends BaseAdapter implements com.baidu.tieba.view.v {
-
-    /* renamed from: a  reason: collision with root package name */
-    private com.baidu.tieba.g f932a;
+    private com.baidu.tieba.g a;
     private ArrayList b;
     private com.baidu.tieba.util.a c;
     private z d;
@@ -22,19 +20,19 @@ public class k extends BaseAdapter implements com.baidu.tieba.view.v {
     private m k;
 
     public k(com.baidu.tieba.g gVar) {
-        this.f932a = null;
+        this.a = null;
         this.b = null;
         this.c = null;
         this.d = null;
         this.e = null;
         this.k = null;
-        this.f932a = gVar;
+        this.a = gVar;
         this.b = new ArrayList();
         this.c = new com.baidu.tieba.util.a(gVar);
-        this.e = new r(this.f932a);
+        this.e = new r(this.a);
         this.k = new l(this);
-        this.d = new z(this.f932a, this.k);
-        this.f = new com.baidu.tieba.square.g(this.f932a);
+        this.d = new z(this.a, this.k);
+        this.f = new com.baidu.tieba.square.g(this.a);
         this.b.add(this.e);
         this.b.add(this.d);
         this.b.add(this.f);

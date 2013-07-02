@@ -6,9 +6,7 @@ import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class at {
     private String d;
-
-    /* renamed from: a  reason: collision with root package name */
-    private String f770a = null;
+    private String a = null;
     private String b = null;
     private String c = null;
     private boolean h = false;
@@ -26,7 +24,7 @@ public class at {
     }
 
     public String c() {
-        return this.f770a;
+        return this.a;
     }
 
     public String d() {
@@ -48,7 +46,7 @@ public class at {
     public void a(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                this.f770a = jSONObject.optString("tid");
+                this.a = jSONObject.optString("tid");
                 this.c = jSONObject.optString("title");
                 this.b = jSONObject.optString("pid");
                 this.h = jSONObject.optInt("is_floor", 0) != 0;
@@ -57,9 +55,9 @@ public class at {
                 this.g = jSONObject.optString(PushConstants.EXTRA_CONTENT);
                 this.d = jSONObject.optString("fname");
                 this.c = com.baidu.tieba.util.y.a(this.c, (Color) null);
-                String a2 = com.baidu.tieba.util.y.a(this.g, (Color) null);
-                if (!a2.equals(this.g)) {
-                    this.g = a2;
+                String a = com.baidu.tieba.util.y.a(this.g, (Color) null);
+                if (!a.equals(this.g)) {
+                    this.g = a;
                     this.i = false;
                 }
             } catch (Exception e) {

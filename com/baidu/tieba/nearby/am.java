@@ -6,13 +6,11 @@ import com.baidu.tieba.util.NetWorkCore;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class am implements Runnable {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ NearbyPostActivity f1135a;
+    final /* synthetic */ NearbyPostActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public am(NearbyPostActivity nearbyPostActivity) {
-        this.f1135a = nearbyPostActivity;
+        this.a = nearbyPostActivity;
     }
 
     /* JADX WARN: Incorrect condition in loop: B:15:0x0068 */
@@ -45,49 +43,49 @@ public class am implements Runnable {
         com.baidu.tbadk.a.d dVar3;
         int i3 = 0;
         try {
-            avVar = this.f1135a.b;
+            avVar = this.a.b;
             if (avVar != null) {
-                avVar2 = this.f1135a.b;
+                avVar2 = this.a.b;
                 if (avVar2.a().size() != 0) {
-                    NetWorkCore.NetworkStateInfo c = NetWorkCore.c(this.f1135a);
-                    aqVar = this.f1135a.d;
+                    NetWorkCore.NetworkStateInfo c = NetWorkCore.c(this.a);
+                    aqVar = this.a.d;
                     aqVar.a().a();
                     boolean z = c == NetWorkCore.NetworkStateInfo.WIFI || c == NetWorkCore.NetworkStateInfo.ThreeG;
-                    aqVar2 = this.f1135a.d;
+                    aqVar2 = this.a.d;
                     aqVar2.a().a(z);
-                    listView = this.f1135a.c;
+                    listView = this.a.c;
                     int firstVisiblePosition = listView.getFirstVisiblePosition();
-                    listView2 = this.f1135a.c;
+                    listView2 = this.a.c;
                     int lastVisiblePosition = listView2.getLastVisiblePosition();
                     int i4 = firstVisiblePosition;
                     int i5 = 0;
                     while (i4 < aqVar3.getCount()) {
                         if (z || i4 <= lastVisiblePosition) {
-                            aqVar4 = this.f1135a.d;
+                            aqVar4 = this.a.d;
                             if (aqVar4.getItem(i4) instanceof com.baidu.tieba.model.aw) {
-                                aqVar5 = this.f1135a.d;
+                                aqVar5 = this.a.d;
                                 com.baidu.tieba.model.aw awVar = (com.baidu.tieba.model.aw) aqVar5.getItem(i4);
                                 if (awVar.a() == 0 || awVar.a() == 1 || awVar.a() == 2) {
                                     if (i5 < 13 && (g = awVar.g()) != null && !g.equals("")) {
                                         i5++;
-                                        aqVar8 = this.f1135a.d;
-                                        com.baidu.tieba.util.a a2 = aqVar8.a();
-                                        dVar3 = this.f1135a.o;
-                                        a2.a(g, dVar3);
+                                        aqVar8 = this.a.d;
+                                        com.baidu.tieba.util.a a = aqVar8.a();
+                                        dVar3 = this.a.o;
+                                        a.a(g, dVar3);
                                     }
                                     if (i3 < 30 && (l = awVar.l()) != null && (portrait2 = l.getPortrait()) != null && !portrait2.equals("")) {
                                         i3++;
-                                        aqVar7 = this.f1135a.d;
-                                        com.baidu.tieba.util.a a3 = aqVar7.a();
-                                        dVar2 = this.f1135a.p;
-                                        a3.d(portrait2, dVar2);
+                                        aqVar7 = this.a.d;
+                                        com.baidu.tieba.util.a a2 = aqVar7.a();
+                                        dVar2 = this.a.p;
+                                        a2.d(portrait2, dVar2);
                                     }
                                     if (i3 < 30 && (m = awVar.m()) != null && (portrait = m.getPortrait()) != null && !portrait.equals("")) {
                                         i = i3 + 1;
-                                        aqVar6 = this.f1135a.d;
-                                        com.baidu.tieba.util.a a4 = aqVar6.a();
-                                        dVar = this.f1135a.p;
-                                        a4.d(portrait, dVar);
+                                        aqVar6 = this.a.d;
+                                        com.baidu.tieba.util.a a3 = aqVar6.a();
+                                        dVar = this.a.p;
+                                        a3.d(portrait, dVar);
                                         i2 = i5;
                                         if (i2 >= 13 || i < 30) {
                                             i4++;

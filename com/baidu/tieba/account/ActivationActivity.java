@@ -20,9 +20,7 @@ import com.baidu.zeus.WebChromeClient;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public class ActivationActivity extends com.baidu.tieba.g {
-
-    /* renamed from: a  reason: collision with root package name */
-    private static int f631a = 60;
+    private static int a = 60;
     private ImageView b = null;
     private LinearLayout c = null;
     private ImageView d = null;
@@ -36,7 +34,7 @@ public class ActivationActivity extends com.baidu.tieba.g {
     private i n = null;
     private h o = null;
     private boolean p = false;
-    private int q = f631a;
+    private int q = a;
     private RegistData r = null;
     private Handler s = new Handler();
     private RelativeLayout t = null;
@@ -78,7 +76,7 @@ public class ActivationActivity extends com.baidu.tieba.g {
             setResult(0);
             finish();
         } else if (this.r.getSmsCodeTime() > 0) {
-            f631a = this.r.getSmsCodeTime();
+            a = this.r.getSmsCodeTime();
         }
     }
 
@@ -111,7 +109,7 @@ public class ActivationActivity extends com.baidu.tieba.g {
     public void b() {
         this.p = false;
         this.m.setEnabled(false);
-        this.q = f631a;
+        this.q = a;
         this.g.setText(String.format(getString(R.string.resend_code_second), Integer.valueOf(this.q)));
         this.s.postDelayed(this.B, 1000L);
     }

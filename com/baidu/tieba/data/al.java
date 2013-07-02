@@ -3,9 +3,7 @@ package com.baidu.tieba.data;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class al extends b {
-
-    /* renamed from: a  reason: collision with root package name */
-    private int f762a = 0;
+    private int a = 0;
     private int b = 0;
     private String c = null;
     private String d = null;
@@ -37,7 +35,7 @@ public class al extends b {
     @Override // com.baidu.tieba.data.b
     public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null) {
-            this.f762a = jSONObject.optInt("type");
+            this.a = jSONObject.optInt("type");
             this.c = jSONObject.optString("tid", null);
             this.d = jSONObject.optString("fid", null);
             this.e = jSONObject.optString("fname", null);

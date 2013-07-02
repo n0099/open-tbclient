@@ -7,15 +7,13 @@ import java.io.File;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class w extends BdAsyncTask {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ EditHeadActivity f1376a;
+    final /* synthetic */ EditHeadActivity a;
     private com.baidu.tieba.util.r b;
     private com.baidu.tieba.data.e c;
     private com.baidu.tieba.util.e d;
 
     private w(EditHeadActivity editHeadActivity) {
-        this.f1376a = editHeadActivity;
+        this.a = editHeadActivity;
         this.b = null;
         this.c = null;
         this.d = null;
@@ -29,7 +27,7 @@ public class w extends BdAsyncTask {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void b() {
-        this.f1376a.b(this.f1376a.getString(R.string.upload_head));
+        this.a.b(this.a.getString(R.string.upload_head));
     }
 
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:32:0x0128 */
@@ -46,7 +44,7 @@ public class w extends BdAsyncTask {
         File c;
         com.baidu.tieba.data.d dVar;
         long j;
-        this.b = new com.baidu.tieba.util.r(String.valueOf(com.baidu.tieba.data.g.f787a) + "c/c/img/portrait");
+        this.b = new com.baidu.tieba.util.r(String.valueOf(com.baidu.tieba.data.g.a) + "c/c/img/portrait");
         try {
             c = com.baidu.tieba.util.m.c("tieba_head_image");
             str = (c.length() > 102400L ? 1 : (c.length() == 102400L ? 0 : -1));
@@ -64,22 +62,22 @@ public class w extends BdAsyncTask {
                 return null;
             }
             com.baidu.tieba.util.z.e("PostThreadTask", "doInBackground", "image size is more than 100K");
-            String a2 = com.baidu.tieba.util.y.a(com.baidu.tieba.util.m.a(c));
-            com.baidu.tieba.data.d q = DatabaseService.q(a2);
+            String a = com.baidu.tieba.util.y.a(com.baidu.tieba.util.m.a(c));
+            com.baidu.tieba.data.d q = DatabaseService.q(a);
             if (q == null) {
                 com.baidu.tieba.util.z.e("PostThreadTask", "doInBackground", "upload data is null");
                 com.baidu.tieba.data.d dVar2 = new com.baidu.tieba.data.d();
-                dVar2.a(a2);
+                dVar2.a(a);
                 dVar2.a(0);
                 dVar2.a(c.length());
                 dVar = dVar2;
             } else {
                 dVar = q;
             }
-            this.d = new com.baidu.tieba.util.e("tieba_head_image", dVar, String.valueOf(com.baidu.tieba.data.g.f787a) + "c/c/img/chunkupload");
+            this.d = new com.baidu.tieba.util.e("tieba_head_image", dVar, String.valueOf(com.baidu.tieba.data.g.a) + "c/c/img/chunkupload");
             this.c = this.d.b();
             if (this.c.a()) {
-                this.b = new com.baidu.tieba.util.r(String.valueOf(com.baidu.tieba.data.g.f787a) + "c/c/img/finupload");
+                this.b = new com.baidu.tieba.util.r(String.valueOf(com.baidu.tieba.data.g.a) + "c/c/img/finupload");
                 this.b.a("md5", dVar.a());
                 String j2 = this.b.j();
                 if (j2 == null || !this.b.c()) {
@@ -93,7 +91,7 @@ public class w extends BdAsyncTask {
                     DatabaseService.a(dVar);
                     return null;
                 }
-                DatabaseService.p(a2);
+                DatabaseService.p(a);
                 return j2;
             }
             return null;
@@ -106,8 +104,8 @@ public class w extends BdAsyncTask {
 
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void cancel() {
-        this.f1376a.h();
-        this.f1376a.u = null;
+        this.a.h();
+        this.a.u = null;
         if (this.b != null) {
             this.b.h();
         }
@@ -118,15 +116,15 @@ public class w extends BdAsyncTask {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void a(String str) {
-        this.f1376a.h();
+        this.a.h();
         if (this.b != null) {
             if (this.b.c()) {
-                this.f1376a.setResult(-1);
-                this.f1376a.finish();
-                this.f1376a.a(this.f1376a.getString(R.string.upload_head_ok));
+                this.a.setResult(-1);
+                this.a.finish();
+                this.a.a(this.a.getString(R.string.upload_head_ok));
                 return;
             }
-            this.f1376a.a(this.b.g());
+            this.a.a(this.b.g());
         }
     }
 }

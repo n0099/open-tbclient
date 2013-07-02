@@ -9,15 +9,13 @@ import com.slidingmenu.lib.R;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class n implements View.OnClickListener {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ NearbyPbActivity f1171a;
+    final /* synthetic */ NearbyPbActivity a;
     private final /* synthetic */ Handler b;
     private final /* synthetic */ Runnable c;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public n(NearbyPbActivity nearbyPbActivity, Handler handler, Runnable runnable) {
-        this.f1171a = nearbyPbActivity;
+        this.a = nearbyPbActivity;
         this.b = handler;
         this.c = runnable;
     }
@@ -31,24 +29,24 @@ public class n implements View.OnClickListener {
         GridView gridView2;
         EditText editText3;
         Button button2;
-        gridView = this.f1171a.g;
+        gridView = this.a.g;
         if (gridView.getVisibility() == 0) {
-            editText2 = this.f1171a.f;
+            editText2 = this.a.f;
             editText2.requestFocus();
-            gridView2 = this.f1171a.g;
+            gridView2 = this.a.g;
             gridView2.setVisibility(8);
-            NearbyPbActivity nearbyPbActivity = this.f1171a;
-            editText3 = this.f1171a.f;
+            NearbyPbActivity nearbyPbActivity = this.a;
+            editText3 = this.a.f;
             com.baidu.tieba.util.ab.b(nearbyPbActivity, editText3);
-            button2 = this.f1171a.e;
+            button2 = this.a.e;
             button2.setBackgroundResource(R.drawable.sub_pb_face);
             return;
         }
-        NearbyPbActivity nearbyPbActivity2 = this.f1171a;
-        editText = this.f1171a.f;
+        NearbyPbActivity nearbyPbActivity2 = this.a;
+        editText = this.a.f;
         com.baidu.tieba.util.ab.a(nearbyPbActivity2, editText);
         this.b.postDelayed(this.c, 200L);
-        button = this.f1171a.e;
+        button = this.a.e;
         button.setBackgroundResource(R.drawable.sub_pb_keyboard);
     }
 }

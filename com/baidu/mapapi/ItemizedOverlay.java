@@ -17,9 +17,7 @@ public abstract class ItemizedOverlay extends Overlay implements Overlay.Snappab
     private static int d = -1;
     private Drawable b;
     private Drawable c;
-
-    /* renamed from: a  reason: collision with root package name */
-    private boolean f503a = true;
+    private boolean a = true;
     private a e = null;
     private OnFocusChangeListener f = null;
     private int g = -1;
@@ -127,12 +125,12 @@ public abstract class ItemizedOverlay extends Overlay implements Overlay.Snappab
                     break;
                 }
                 OverlayItem overlayItem = (OverlayItem) this.b.get(i2);
-                Point a2 = a(overlayItem, projection, pixels);
+                Point a = a(overlayItem, projection, pixels);
                 Drawable drawable = overlayItem.mMarker;
                 if (drawable == null) {
                     drawable = ItemizedOverlay.a(this.d);
                 }
-                double d = this.d.hitTest(overlayItem, drawable, a2.x, a2.y) ? (a2.x * a2.x) + (a2.y * a2.y) : -1.0d;
+                double d = this.d.hitTest(overlayItem, drawable, a.x, a.y) ? (a.x * a.x) + (a.y * a.y) : -1.0d;
                 if (d >= 0.0d && d < Double.MAX_VALUE) {
                     i = i2;
                     break;
@@ -255,7 +253,7 @@ public abstract class ItemizedOverlay extends Overlay implements Overlay.Snappab
                 }
             }
         }
-        if (!this.f503a || (focus = getFocus()) == null) {
+        if (!this.a || (focus = getFocus()) == null) {
             return;
         }
         a(canvas, mapView, false, focus, 4);
@@ -385,7 +383,7 @@ public abstract class ItemizedOverlay extends Overlay implements Overlay.Snappab
     }
 
     public void setDrawFocusedItem(boolean z) {
-        this.f503a = z;
+        this.a = z;
     }
 
     public void setFocus(OverlayItem overlayItem) {

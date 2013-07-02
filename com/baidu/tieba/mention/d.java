@@ -5,12 +5,10 @@ import android.content.Context;
 import android.content.Intent;
 /* loaded from: classes.dex */
 class d extends BroadcastReceiver {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ MentionActivity f982a;
+    final /* synthetic */ MentionActivity a;
 
     private d(MentionActivity mentionActivity) {
-        this.f982a = mentionActivity;
+        this.a = mentionActivity;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -20,6 +18,6 @@ class d extends BroadcastReceiver {
 
     @Override // android.content.BroadcastReceiver
     public void onReceive(Context context, Intent intent) {
-        MentionActivity.a(this.f982a, intent.getLongExtra("relay", 0L), intent.getLongExtra("at_me", 0L));
+        MentionActivity.a(this.a, intent.getLongExtra("relay", 0L), intent.getLongExtra("at_me", 0L));
     }
 }

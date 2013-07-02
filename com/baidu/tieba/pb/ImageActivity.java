@@ -21,9 +21,7 @@ import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class ImageActivity extends com.baidu.tieba.g {
-
-    /* renamed from: a */
-    private ProgressBar f1186a = null;
+    private ProgressBar a = null;
     private int b = 0;
     private ArrayList c = null;
     private int d = -1;
@@ -188,8 +186,8 @@ public class ImageActivity extends com.baidu.tieba.g {
             this.j.cancel();
             this.j = null;
         }
-        if (this.f1186a != null) {
-            this.f1186a.setVisibility(8);
+        if (this.a != null) {
+            this.a.setVisibility(8);
         }
         if (this.D) {
             unregisterReceiver(this.v);
@@ -214,7 +212,7 @@ public class ImageActivity extends com.baidu.tieba.g {
         this.r = new g(this);
         this.q = new h(this);
         this.n = (LinearLayout) findViewById(R.id.title);
-        this.f1186a = (ProgressBar) findViewById(R.id.progress);
+        this.a = (ProgressBar) findViewById(R.id.progress);
         this.k = (Button) findViewById(R.id.save);
         this.k.setOnClickListener(this.p);
         this.l = (Button) findViewById(R.id.back);

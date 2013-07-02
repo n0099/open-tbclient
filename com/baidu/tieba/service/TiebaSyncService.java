@@ -8,9 +8,7 @@ import com.baidu.tieba.model.br;
 import com.baidu.tieba.util.z;
 /* loaded from: classes.dex */
 public class TiebaSyncService extends Service {
-
-    /* renamed from: a  reason: collision with root package name */
-    private s f1402a = null;
+    private s a = null;
     private int b = 0;
     private br c = null;
     private Handler d = new Handler();
@@ -28,17 +26,17 @@ public class TiebaSyncService extends Service {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a() {
-        if (this.f1402a != null) {
-            this.f1402a.cancel();
+        if (this.a != null) {
+            this.a.cancel();
         }
-        this.f1402a = new s(this, null);
-        this.f1402a.execute(new String[0]);
+        this.a = new s(this, null);
+        this.a.execute(new String[0]);
     }
 
     @Override // android.app.Service
     public void onDestroy() {
-        if (this.f1402a != null) {
-            this.f1402a.cancel();
+        if (this.a != null) {
+            this.a.cancel();
         }
         this.b = 11;
         this.d.removeCallbacks(this.e);

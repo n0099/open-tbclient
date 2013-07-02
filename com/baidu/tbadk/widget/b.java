@@ -3,9 +3,7 @@ package com.baidu.tbadk.widget;
 import java.util.List;
 /* loaded from: classes.dex */
 class b {
-
-    /* renamed from: a  reason: collision with root package name */
-    public final boolean f599a;
+    public final boolean a;
     public final List b;
     public final List c;
 
@@ -18,7 +16,7 @@ class b {
     }
 
     private b(boolean z, List list, List list2) {
-        this.f599a = z;
+        this.a = z;
         this.b = list;
         this.c = list2;
     }

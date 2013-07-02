@@ -12,9 +12,7 @@ public class PagerTitleStrip extends ViewGroup implements bl {
     private static final int[] n = {16842804, 16842901, 16842904, 16842927};
     private static final int[] o = {16843660};
     private static final ag q;
-
-    /* renamed from: a  reason: collision with root package name */
-    ViewPager f82a;
+    ViewPager a;
     TextView b;
     TextView c;
     TextView d;
@@ -81,18 +79,18 @@ public class PagerTitleStrip extends ViewGroup implements bl {
         ae adapter = viewPager.getAdapter();
         viewPager.a(this.l);
         viewPager.setOnAdapterChangeListener(this.l);
-        this.f82a = viewPager;
+        this.a = viewPager;
         a(this.m != null ? (ae) this.m.get() : null, adapter);
     }
 
     @Override // android.view.ViewGroup, android.view.View
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        if (this.f82a != null) {
-            a(this.f82a.getAdapter(), (ae) null);
-            this.f82a.a((bq) null);
-            this.f82a.setOnAdapterChangeListener(null);
-            this.f82a = null;
+        if (this.a != null) {
+            a(this.a.getAdapter(), (ae) null);
+            this.a.a((bq) null);
+            this.a.setOnAdapterChangeListener(null);
+            this.a = null;
         }
     }
 
@@ -136,10 +134,10 @@ public class PagerTitleStrip extends ViewGroup implements bl {
             aeVar2.registerDataSetObserver(this.l);
             this.m = new WeakReference(aeVar2);
         }
-        if (this.f82a != null) {
+        if (this.a != null) {
             this.f = -1;
             this.g = -1.0f;
-            a(this.f82a.getCurrentItem(), aeVar2);
+            a(this.a.getCurrentItem(), aeVar2);
             requestLayout();
         }
     }
@@ -150,7 +148,7 @@ public class PagerTitleStrip extends ViewGroup implements bl {
         int i3;
         int i4;
         if (i != this.f) {
-            a(i, this.f82a.getAdapter());
+            a(i, this.a.getAdapter());
         } else if (!z && f == this.g) {
             return;
         }
@@ -234,7 +232,7 @@ public class PagerTitleStrip extends ViewGroup implements bl {
 
     @Override // android.view.ViewGroup, android.view.View
     protected void onLayout(boolean z, int i, int i2, int i3, int i4) {
-        if (this.f82a != null) {
+        if (this.a != null) {
             a(this.f, this.g >= 0.0f ? this.g : 0.0f, true);
         }
     }

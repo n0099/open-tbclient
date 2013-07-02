@@ -7,9 +7,7 @@ import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class t extends BdAsyncTask {
-
-    /* renamed from: a  reason: collision with root package name */
-    ArrayList f1064a;
+    ArrayList a;
     String b;
     final /* synthetic */ o c;
     private com.baidu.tieba.util.r d = null;
@@ -20,14 +18,14 @@ public class t extends BdAsyncTask {
 
     public t(o oVar, String str, String str2, String str3, int i, String str4) {
         this.c = oVar;
-        this.f1064a = null;
+        this.a = null;
         this.b = null;
         this.e = str;
         this.f = str2;
         this.g = str3;
         this.h = i;
         this.b = str4;
-        this.f1064a = new ArrayList();
+        this.a = new ArrayList();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -59,7 +57,7 @@ public class t extends BdAsyncTask {
                     for (int i = 0; i < optJSONArray.length(); i++) {
                         com.baidu.tieba.data.u uVar = new com.baidu.tieba.data.u();
                         uVar.a(optJSONArray.optJSONObject(i));
-                        this.f1064a.add(uVar);
+                        this.a.add(uVar);
                     }
                 } catch (Exception e) {
                     com.baidu.tieba.util.z.b(getClass().getName(), "doInBackground", e.getMessage());
@@ -85,10 +83,10 @@ public class t extends BdAsyncTask {
             return;
         }
         u uVar = new u(this.c);
-        uVar.f1065a = bool.booleanValue();
+        uVar.a = bool.booleanValue();
         if (bool.booleanValue()) {
             if (this.h == 6) {
-                uVar.c = this.f1064a;
+                uVar.c = this.a;
             }
         } else {
             uVar.b = this.d.g();

@@ -11,9 +11,7 @@ import com.baidu.tieba.TiebaApplication;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public class z extends BaseAdapter implements com.baidu.tieba.view.v {
-
-    /* renamed from: a  reason: collision with root package name */
-    LayoutInflater f945a;
+    LayoutInflater a;
     private Activity b;
     private int c;
     private com.baidu.tieba.data.aq d;
@@ -57,14 +55,14 @@ public class z extends BaseAdapter implements com.baidu.tieba.view.v {
 
     private void a() {
         this.c = TiebaApplication.f().at();
-        this.f945a = LayoutInflater.from(this.b);
-        this.j = (LinearLayout) this.f945a.inflate(R.layout.frs_activity_card, (ViewGroup) null);
+        this.a = LayoutInflater.from(this.b);
+        this.j = (LinearLayout) this.a.inflate(R.layout.frs_activity_card, (ViewGroup) null);
         this.e = (ViewPager) this.j.findViewById(R.id.frs_card);
         this.e.setOnPageChangeListener(new aa(this));
-        int a2 = (int) ((((com.baidu.tieba.util.ab.a(TiebaApplication.f().getApplicationContext()) - com.baidu.tieba.util.ab.a(this.b, 28.0f)) / 2) * this.b.getResources().getDimension(R.dimen.ad_image_height)) / this.b.getResources().getDimension(R.dimen.ad_image_width));
+        int a = (int) ((((com.baidu.tieba.util.ab.a(TiebaApplication.f().getApplicationContext()) - com.baidu.tieba.util.ab.a(this.b, 28.0f)) / 2) * this.b.getResources().getDimension(R.dimen.ad_image_height)) / this.b.getResources().getDimension(R.dimen.ad_image_width));
         this.h = (ViewPager) this.j.findViewById(R.id.frs_ad_button);
         LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.h.getLayoutParams();
-        layoutParams.height = a2;
+        layoutParams.height = a;
         this.h.setLayoutParams(layoutParams);
         this.h.setOnPageChangeListener(new ab(this));
     }
@@ -73,15 +71,15 @@ public class z extends BaseAdapter implements com.baidu.tieba.view.v {
         if (aqVar != null) {
             this.d = aqVar;
             this.f = new RecommendPagerAdapter(this.b, this.k);
-            this.e.setAdapter(this.f);
             this.f.a(aqVar.a(), aqVar.b());
+            this.e.setAdapter(this.f);
             this.e.a(1, false);
         }
         if (bcVar != null) {
             this.g = bcVar;
             this.i = new TopicPagerAdapter(this.b);
-            this.h.setAdapter(this.i);
             this.i.a(bcVar.a());
+            this.h.setAdapter(this.i);
             this.h.a(1, false);
         }
         notifyDataSetChanged();

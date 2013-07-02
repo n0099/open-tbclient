@@ -22,9 +22,7 @@ import java.net.URLDecoder;
 public class DailyClassicalActivity extends com.baidu.tieba.g implements com.baidu.tieba.view.d {
     private static boolean q = false;
     private static long r = 0;
-
-    /* renamed from: a  reason: collision with root package name */
-    private ImageView f1381a = null;
+    private ImageView a = null;
     private RelativeLayout b = null;
     private RelativeLayout c = null;
     private TextView d = null;
@@ -58,12 +56,12 @@ public class DailyClassicalActivity extends com.baidu.tieba.g implements com.bai
         this.c = (RelativeLayout) findViewById(R.id.title);
         this.d = (TextView) findViewById(R.id.title_text);
         this.j = (LinearLayout) findViewById(R.id.tag_webview_item);
-        this.f1381a = (ImageView) findViewById(R.id.back);
+        this.a = (ImageView) findViewById(R.id.back);
         this.n = (TextView) this.j.findViewById(R.id.webview_fail);
         this.o = (TextView) this.j.findViewById(R.id.webview_crash_tip);
         this.g = (ProgressBar) findViewById(R.id.tag_progress);
         this.e = new a(this);
-        this.f1381a.setOnClickListener(this.e);
+        this.a.setOnClickListener(this.e);
         if (o()) {
             this.o.setVisibility(8);
             b();
@@ -83,7 +81,7 @@ public class DailyClassicalActivity extends com.baidu.tieba.g implements com.bai
         x.a(this.b, i);
         x.d(this.c, i);
         x.f(this.d, i);
-        x.a(this.f1381a, i);
+        x.a(this.a, i);
         if (this.f != null) {
             x.a(this.f, i);
             b();
@@ -134,9 +132,9 @@ public class DailyClassicalActivity extends com.baidu.tieba.g implements com.bai
         if (!i.a(this, str)) {
             if (str.contains("jumptoapp_browser=classic_everyday")) {
                 if (str.contains("pn=")) {
-                    String a2 = a(str, "pn=");
-                    if (a2 != null && a2.length() >= 0) {
-                        this.s = a2;
+                    String a = a(str, "pn=");
+                    if (a != null && a.length() >= 0) {
+                        this.s = a;
                     }
                 } else {
                     this.s = "1";

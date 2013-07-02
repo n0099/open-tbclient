@@ -8,13 +8,11 @@ import com.baidu.tieba.pb.NewPbActivity;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class w implements AdapterView.OnItemClickListener {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ FrsActivity f875a;
+    final /* synthetic */ FrsActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public w(FrsActivity frsActivity) {
-        this.f875a = frsActivity;
+        this.a = frsActivity;
     }
 
     @Override // android.widget.AdapterView.OnItemClickListener
@@ -26,19 +24,19 @@ public class w implements AdapterView.OnItemClickListener {
         int i3;
         int i4;
         if (i >= 0) {
-            azVar = this.f875a.l;
+            azVar = this.a.l;
             long itemId = azVar.g().getItemId(i);
             if (itemId == -1) {
-                i3 = this.f875a.f;
+                i3 = this.a.f;
                 if (i3 > 1) {
-                    FrsActivity frsActivity = this.f875a;
+                    FrsActivity frsActivity = this.a;
                     i4 = frsActivity.f;
                     frsActivity.f = i4 - 1;
-                    this.f875a.b = 2;
-                    this.f875a.z();
+                    this.a.b = 2;
+                    this.a.z();
                 }
             } else if (itemId != -2) {
-                azVar2 = this.f875a.l;
+                azVar2 = this.a.l;
                 com.baidu.tieba.data.ba baVar = (com.baidu.tieba.data.ba) azVar2.g().getItem(i);
                 if (baVar != null) {
                     com.baidu.tieba.util.w aA = TiebaApplication.f().aA();
@@ -52,17 +50,17 @@ public class w implements AdapterView.OnItemClickListener {
                         new Thread(new x(this, i5)).start();
                         z = true;
                     }
-                    NewPbActivity.a(this.f875a, baVar, null, 1800003, true, false, z);
+                    NewPbActivity.a(this.a, baVar, null, 1800003, true, false, z);
                 }
             } else {
                 if (TiebaApplication.f().t()) {
-                    StatService.onEvent(this.f875a, "frs_nextpage", "frsclick", 1);
+                    StatService.onEvent(this.a, "frs_nextpage", "frsclick", 1);
                 }
-                FrsActivity frsActivity2 = this.f875a;
+                FrsActivity frsActivity2 = this.a;
                 i2 = frsActivity2.f;
                 frsActivity2.f = i2 + 1;
-                this.f875a.b = 1;
-                this.f875a.z();
+                this.a.b = 1;
+                this.a.z();
             }
         }
     }

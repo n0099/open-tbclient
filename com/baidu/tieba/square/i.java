@@ -4,14 +4,12 @@ import android.view.View;
 import android.widget.ImageView;
 /* loaded from: classes.dex */
 class i implements com.baidu.tbadk.a.d {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ g f1434a;
+    final /* synthetic */ g a;
     private final /* synthetic */ View b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public i(g gVar, View view) {
-        this.f1434a = gVar;
+        this.a = gVar;
         this.b = view;
     }
 

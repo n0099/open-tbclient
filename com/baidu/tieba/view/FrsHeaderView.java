@@ -49,9 +49,7 @@ public class FrsHeaderView {
     private String x = null;
     private String y = null;
     private boolean z = false;
-
-    /* renamed from: a  reason: collision with root package name */
-    ba f1484a = null;
+    ba a = null;
     private float H = 0.0f;
     private float I = 0.0f;
     private boolean J = false;
@@ -138,7 +136,7 @@ public class FrsHeaderView {
     }
 
     public ba b() {
-        return this.f1484a;
+        return this.a;
     }
 
     public void a(int i) {
@@ -201,11 +199,11 @@ public class FrsHeaderView {
         this.F = rVar.i();
         this.G = rVar.f();
         this.p.setVisibility(0);
-        this.f1484a = new ba();
+        this.a = new ba();
         com.baidu.tieba.data.ae aeVar = new com.baidu.tieba.data.ae();
         aeVar.a(3);
         aeVar.a(this.y);
-        this.f1484a.m().add(aeVar);
+        this.a.m().add(aeVar);
         g();
     }
 
@@ -266,8 +264,8 @@ public class FrsHeaderView {
 
     private void b(boolean z) {
         float f = 0.0f;
-        Bitmap a2 = com.baidu.tieba.util.d.a((int) R.drawable.btn_like_n);
-        if (a2 != null) {
+        Bitmap a = com.baidu.tieba.util.d.a((int) R.drawable.btn_like_n);
+        if (a != null) {
             if (z) {
                 this.l.setText(R.string.level_up);
                 this.m.setText("");
@@ -275,7 +273,7 @@ public class FrsHeaderView {
                 this.l.setText(this.F);
                 this.m.setText(String.valueOf(this.G) + "级");
             }
-            float width = a2.getWidth() * this.H;
+            float width = a.getWidth() * this.H;
             float f2 = width > 0.001f ? this.I / width : 0.0f;
             this.I = width;
             if (this.J) {
@@ -284,7 +282,7 @@ public class FrsHeaderView {
                 f = f2;
             }
             RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.o.getLayoutParams();
-            layoutParams.width = a2.getWidth();
+            layoutParams.width = a.getWidth();
             this.o.setLayoutParams(layoutParams);
             RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) this.n.getLayoutParams();
             layoutParams2.width = (int) this.I;

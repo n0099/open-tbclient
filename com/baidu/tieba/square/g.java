@@ -16,9 +16,7 @@ import com.slidingmenu.lib.R;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class g extends BaseAdapter implements v {
-
-    /* renamed from: a  reason: collision with root package name */
-    View.OnClickListener f1432a = new h(this);
+    View.OnClickListener a = new h(this);
     private final Activity b;
     private f c;
     private com.baidu.tieba.util.a d;
@@ -26,8 +24,8 @@ public class g extends BaseAdapter implements v {
     public g(Activity activity) {
         this.b = activity;
         this.d = new com.baidu.tieba.util.a(activity);
-        int a2 = ab.a(activity, 54.0f);
-        this.d.a(a2, a2);
+        int a = ab.a(activity, 54.0f);
+        this.d.a(a, a);
     }
 
     public void a(f fVar) {
@@ -88,17 +86,17 @@ public class g extends BaseAdapter implements v {
         if (i == 3) {
             View inflate = from.inflate(R.layout.bar_home_all_dir_item, (ViewGroup) null);
             q qVar = new q();
-            qVar.f1441a = null;
+            qVar.a = null;
             j jVar = new j();
             jVar.d = qVar;
             inflate.setTag(jVar);
-            inflate.setOnClickListener(this.f1432a);
+            inflate.setOnClickListener(this.a);
             return inflate;
         }
         View inflate2 = from.inflate(R.layout.bar_home_first_dir_item, (ViewGroup) null);
-        inflate2.setOnClickListener(this.f1432a);
+        inflate2.setOnClickListener(this.a);
         j jVar2 = new j();
-        jVar2.f1435a = (ImageView) inflate2.findViewById(R.id.portrait);
+        jVar2.a = (ImageView) inflate2.findViewById(R.id.portrait);
         jVar2.b = (TextView) inflate2.findViewById(R.id.name);
         jVar2.c = (BestStringsFitTextView) inflate2.findViewById(R.id.description);
         inflate2.setTag(jVar2);
@@ -122,14 +120,14 @@ public class g extends BaseAdapter implements v {
         if (qVar.d != null) {
             com.baidu.adp.widget.a.b c = this.d.c(qVar.d);
             if (c != null) {
-                c.b(jVar.f1435a);
+                c.b(jVar.a);
                 return;
             }
-            jVar.f1435a.setImageResource(R.drawable.icon_all_categories);
-            jVar.f1435a.setTag(qVar.d);
+            jVar.a.setImageResource(R.drawable.icon_all_categories);
+            jVar.a.setTag(qVar.d);
             return;
         }
-        jVar.f1435a.setImageResource(R.drawable.icon_all_categories);
+        jVar.a.setImageResource(R.drawable.icon_all_categories);
     }
 
     @Override // android.widget.BaseAdapter, android.widget.Adapter

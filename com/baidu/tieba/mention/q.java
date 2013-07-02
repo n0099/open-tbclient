@@ -12,9 +12,7 @@ import java.util.ArrayList;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class q extends BdAsyncTask {
-
-    /* renamed from: a  reason: collision with root package name */
-    ArrayList f994a;
+    ArrayList a;
     final /* synthetic */ h b;
     private com.baidu.tieba.util.r c = null;
     private String d;
@@ -25,9 +23,9 @@ public class q extends BdAsyncTask {
         this.b = hVar;
         this.d = null;
         this.e = null;
-        this.f994a = null;
+        this.a = null;
         this.d = str;
-        this.f994a = arrayList;
+        this.a = arrayList;
         this.f = i;
         this.e = str2;
     }
@@ -48,7 +46,7 @@ public class q extends BdAsyncTask {
     public String a(Object... objArr) {
         try {
             this.c = new com.baidu.tieba.util.r(this.d);
-            this.c.a(this.f994a);
+            this.c.a(this.a);
             return this.c.j();
         } catch (Exception e) {
             com.baidu.tieba.util.z.b("PostAsyncTask", "doInBackground", "error = " + e.getMessage());
@@ -82,15 +80,15 @@ public class q extends BdAsyncTask {
                 }
                 if (this.f == 2) {
                     gVar2 = this.b.b;
-                    aw a2 = new bp(gVar2, str).a();
-                    String a3 = a2.g().a();
-                    String b = a2.g().b();
-                    String a4 = a2.l().a();
-                    AntiData h = a2.h();
-                    String d = a2.a().d();
-                    int f = a2.a().f();
+                    aw a = new bp(gVar2, str).a();
+                    String a2 = a.g().a();
+                    String b = a.g().b();
+                    String a3 = a.l().a();
+                    AntiData h = a.h();
+                    String d = a.a().d();
+                    int f = a.a().f();
                     gVar3 = this.b.b;
-                    WriteActivity.a(gVar3, a3, b, a4, d, f, this.e, h, true);
+                    WriteActivity.a(gVar3, a2, b, a3, d, f, this.e, h, true);
                 }
             } else if (this.c != null) {
                 gVar = this.b.b;

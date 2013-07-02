@@ -5,9 +5,7 @@ import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class w extends BdAsyncTask {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ v f1067a;
+    final /* synthetic */ v a;
     private com.baidu.tieba.util.r b = null;
     private String c;
     private String d;
@@ -15,7 +13,7 @@ public class w extends BdAsyncTask {
     private x f;
 
     public w(v vVar, String str, String str2, String str3) {
-        this.f1067a = vVar;
+        this.a = vVar;
         this.f = new x(vVar);
         this.c = str;
         this.d = str2;
@@ -48,7 +46,7 @@ public class w extends BdAsyncTask {
                             }
                             this.f.b = true;
                         }
-                        this.f1067a.a(this.f);
+                        this.a.a(this.f);
                     } catch (Exception e) {
                         com.baidu.tieba.util.z.b(getClass().getName(), "doInBackground", e.getMessage());
                     }
@@ -57,7 +55,7 @@ public class w extends BdAsyncTask {
                     try {
                         JSONObject jSONObject2 = new JSONObject(j);
                         this.f.c = jSONObject2.optInt("num");
-                        this.f.f1068a = true;
+                        this.f.a = true;
                     } catch (Exception e2) {
                         com.baidu.tieba.util.z.b(getClass().getName(), "doInBackground", e2.getMessage());
                     }
@@ -76,8 +74,8 @@ public class w extends BdAsyncTask {
         if (this.b != null) {
             this.b.h();
         }
-        this.f1067a.j = null;
-        this.f1067a.a(false);
+        this.a.j = null;
+        this.a.a(false);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -86,15 +84,15 @@ public class w extends BdAsyncTask {
     public void a(Boolean bool) {
         com.baidu.tieba.frs.ab abVar;
         com.baidu.tieba.frs.ab abVar2;
-        this.f1067a.j = null;
-        this.f1067a.a(false);
+        this.a.j = null;
+        this.a.a(false);
         if (this.b != null) {
-            y yVar = new y(this.f1067a);
+            y yVar = new y(this.a);
             yVar.d = this.b.g();
             yVar.c = this.b.e();
-            abVar = this.f1067a.g;
+            abVar = this.a.g;
             if (abVar != null) {
-                abVar2 = this.f1067a.g;
+                abVar2 = this.a.g;
                 abVar2.a(this.f, yVar);
             }
         }

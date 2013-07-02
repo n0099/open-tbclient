@@ -4,13 +4,11 @@ import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class z extends BdAsyncTask {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ w f742a;
+    final /* synthetic */ w a;
     private com.baidu.tieba.a.c b = null;
 
     public z(w wVar) {
-        this.f742a = wVar;
+        this.a = wVar;
         setPriority(3);
     }
 
@@ -20,9 +18,9 @@ public class z extends BdAsyncTask {
         y yVar;
         y yVar2;
         super.b();
-        yVar = this.f742a.k;
+        yVar = this.a.k;
         if (yVar != null) {
-            yVar2 = this.f742a.k;
+            yVar2 = this.a.k;
             yVar2.a();
         }
     }
@@ -36,11 +34,11 @@ public class z extends BdAsyncTask {
         String str2;
         this.b = new com.baidu.tieba.a.c();
         com.baidu.tieba.a.c cVar = this.b;
-        str = this.f742a.b;
-        str2 = this.f742a.d;
+        str = this.a.b;
+        str2 = this.a.d;
         cVar.a(str, str2);
         if (this.b != null && this.b.b() && this.b.d() == 0) {
-            this.f742a.h();
+            this.a.h();
             return true;
         }
         return false;
@@ -52,7 +50,7 @@ public class z extends BdAsyncTask {
         if (this.b != null) {
             this.b.a();
         }
-        this.f742a.j = null;
+        this.a.j = null;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -66,20 +64,20 @@ public class z extends BdAsyncTask {
         com.baidu.tieba.data.a.c cVar2;
         super.a((Object) bool);
         if (bool.booleanValue()) {
-            cVar = this.f742a.h;
+            cVar = this.a.h;
             cVar.e();
-            yVar3 = this.f742a.k;
-            cVar2 = this.f742a.h;
+            yVar3 = this.a.k;
+            cVar2 = this.a.h;
             yVar3.a(true, null, false, 0, cVar2, false);
         } else if (this.b != null) {
             if (this.b.b()) {
-                yVar2 = this.f742a.k;
+                yVar2 = this.a.k;
                 yVar2.a(false, this.b.e(), false, 0, null, false);
             } else {
-                yVar = this.f742a.k;
+                yVar = this.a.k;
                 yVar.a(false, this.b.c(), false, 0, null, false);
             }
         }
-        this.f742a.j = null;
+        this.a.j = null;
     }
 }

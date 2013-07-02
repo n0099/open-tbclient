@@ -7,15 +7,13 @@ import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class bk extends BdAsyncTask {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ bi f1040a;
+    final /* synthetic */ bi a;
     private com.baidu.tieba.util.r b;
     private volatile boolean c;
     private boolean d;
 
     private bk(bi biVar) {
-        this.f1040a = biVar;
+        this.a = biVar;
         this.b = null;
         this.c = false;
         this.d = false;
@@ -36,22 +34,22 @@ public class bk extends BdAsyncTask {
         boolean booleanValue = boolArr[0].booleanValue();
         this.d = boolArr[1].booleanValue();
         try {
-            if (this.f1040a.b() && booleanValue && (g = DatabaseService.g()) != null) {
+            if (this.a.b() && booleanValue && (g = DatabaseService.g()) != null) {
                 UserData userData2 = new UserData();
                 userData2.parserJson(g);
                 c(userData2);
                 this.d = false;
             }
-            if (!this.c && this.f1040a.a() != null) {
-                this.b = new com.baidu.tieba.util.r(String.valueOf(com.baidu.tieba.data.g.f787a) + "c/u/user/profile");
-                this.b.a("uid", this.f1040a.a());
+            if (!this.c && this.a.a() != null) {
+                this.b = new com.baidu.tieba.util.r(String.valueOf(com.baidu.tieba.data.g.a) + "c/u/user/profile");
+                this.b.a("uid", this.a.a());
                 String j = this.b.j();
                 if (this.b.c()) {
                     userData = new UserData();
                     try {
                         JSONObject optJSONObject = new JSONObject(j).optJSONObject("user");
                         userData.parserJson(optJSONObject);
-                        if (this.f1040a.b()) {
+                        if (this.a.b()) {
                             DatabaseService.j(optJSONObject.toString());
                             return userData;
                         }
@@ -80,12 +78,12 @@ public class bk extends BdAsyncTask {
         super.b((Object[]) userDataArr);
         UserData userData = userDataArr[0];
         if (userData != null) {
-            this.f1040a.a(userData);
+            this.a.a(userData);
             z = true;
         }
-        this.f1040a.mLoadDataMode = 2;
-        this.f1040a.setErrorString(null);
-        eVar = this.f1040a.mLoadDataCallBack;
+        this.a.mLoadDataMode = 2;
+        this.a.setErrorString(null);
+        eVar = this.a.mLoadDataCallBack;
         eVar.a(Boolean.valueOf(z));
     }
 
@@ -96,22 +94,22 @@ public class bk extends BdAsyncTask {
         com.baidu.adp.a.e eVar;
         com.baidu.adp.a.e eVar2;
         super.a((Object) userData);
-        this.f1040a.l = null;
+        this.a.l = null;
         if (userData != null) {
-            this.f1040a.a(userData);
-            this.f1040a.e().d(userData.getPortrait());
-            this.f1040a.mLoadDataMode = 1;
-            eVar2 = this.f1040a.mLoadDataCallBack;
+            this.a.a(userData);
+            this.a.e().d(userData.getPortrait());
+            this.a.mLoadDataMode = 1;
+            eVar2 = this.a.mLoadDataCallBack;
             eVar2.a(true);
             return;
         }
         if (this.b != null && this.d) {
-            this.f1040a.setErrorString(this.b.g());
+            this.a.setErrorString(this.b.g());
         } else {
-            this.f1040a.setErrorString(null);
+            this.a.setErrorString(null);
         }
-        this.f1040a.mLoadDataMode = 1;
-        eVar = this.f1040a.mLoadDataCallBack;
+        this.a.mLoadDataMode = 1;
+        eVar = this.a.mLoadDataCallBack;
         eVar.a(false);
     }
 
@@ -123,9 +121,9 @@ public class bk extends BdAsyncTask {
             this.b.h();
             this.b = null;
         }
-        this.f1040a.l = null;
+        this.a.l = null;
         super.cancel(true);
-        eVar = this.f1040a.mLoadDataCallBack;
+        eVar = this.a.mLoadDataCallBack;
         eVar.a(false);
     }
 }

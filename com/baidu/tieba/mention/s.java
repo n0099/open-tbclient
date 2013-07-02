@@ -9,13 +9,11 @@ import com.baidu.tieba.write.WriteActivity;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class s implements View.OnClickListener {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ PostActivity f996a;
+    final /* synthetic */ PostActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public s(PostActivity postActivity) {
-        this.f996a = postActivity;
+        this.a = postActivity;
     }
 
     @Override // android.view.View.OnClickListener
@@ -24,23 +22,23 @@ public class s implements View.OnClickListener {
         bg bgVar2;
         bg bgVar3;
         bg bgVar4;
-        bgVar = this.f996a.n;
+        bgVar = this.a.n;
         if (bgVar != null) {
-            bgVar2 = this.f996a.n;
+            bgVar2 = this.a.n;
             if (bgVar2.a() != null) {
-                bgVar3 = this.f996a.n;
-                aj a2 = bgVar3.a();
-                an anVar = (an) a2.d().get(0);
+                bgVar3 = this.a.n;
+                aj a = bgVar3.a();
+                an anVar = (an) a.d().get(0);
                 if (anVar != null) {
-                    PostActivity postActivity = this.f996a;
-                    String a3 = a2.a().a();
-                    String b = a2.a().b();
-                    String a4 = a2.b().a();
+                    PostActivity postActivity = this.a;
+                    String a2 = a.a().a();
+                    String b = a.a().b();
+                    String a3 = a.b().a();
                     String d = anVar.d();
                     int f = anVar.f();
-                    AntiData f2 = a2.f();
-                    bgVar4 = this.f996a.n;
-                    WriteActivity.a(postActivity, a3, b, a4, d, f, null, f2, bgVar4.a().k());
+                    AntiData f2 = a.f();
+                    bgVar4 = this.a.n;
+                    WriteActivity.a(postActivity, a2, b, a3, d, f, null, f2, bgVar4.a().k());
                 }
             }
         }

@@ -7,15 +7,13 @@ import com.slidingmenu.lib.R;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class p extends BdAsyncTask {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ j f675a;
+    final /* synthetic */ j a;
     private com.baidu.tieba.util.r b = null;
     private String c;
     private String d;
 
     public p(j jVar, String str, String str2) {
-        this.f675a = jVar;
+        this.a = jVar;
         this.c = null;
         this.d = null;
         this.c = str;
@@ -27,11 +25,11 @@ public class p extends BdAsyncTask {
         ProgressBar progressBar;
         Button button;
         super.cancel(true);
-        progressBar = this.f675a.p;
+        progressBar = this.a.p;
         progressBar.setVisibility(8);
-        button = this.f675a.k;
+        button = this.a.k;
         button.setEnabled(true);
-        this.f675a.m = null;
+        this.a.m = null;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -57,24 +55,24 @@ public class p extends BdAsyncTask {
         Button button;
         com.baidu.tieba.g gVar;
         super.a((Object) cVar);
-        this.f675a.m = null;
-        progressBar = this.f675a.p;
+        this.a.m = null;
+        progressBar = this.a.p;
         progressBar.setVisibility(8);
-        button = this.f675a.k;
+        button = this.a.k;
         button.setEnabled(true);
         if (!this.b.d()) {
-            this.f675a.b(this.b.g());
+            this.a.b(this.b.g());
         } else if (this.b.e() == 0) {
-            j jVar = this.f675a;
-            gVar = this.f675a.j;
+            j jVar = this.a;
+            gVar = this.a.j;
             jVar.b(gVar.getString(R.string.name_not_use));
         } else if (this.b.e() == 36) {
-            this.f675a.b(this.b.g());
+            this.a.b(this.b.g());
             if (cVar != null) {
-                this.f675a.a(cVar.b());
+                this.a.a(cVar.b());
             }
         } else {
-            this.f675a.b(this.b.g());
+            this.a.b(this.b.g());
         }
     }
 
@@ -83,12 +81,12 @@ public class p extends BdAsyncTask {
     public void b() {
         ProgressBar progressBar;
         Button button;
-        progressBar = this.f675a.p;
+        progressBar = this.a.p;
         progressBar.setVisibility(0);
-        button = this.f675a.k;
+        button = this.a.k;
         button.setEnabled(false);
-        this.f675a.b((String) null);
-        this.f675a.d();
+        this.a.b((String) null);
+        this.a.d();
         super.b();
     }
 }

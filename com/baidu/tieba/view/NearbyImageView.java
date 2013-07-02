@@ -13,9 +13,7 @@ import com.baidu.tieba.TiebaApplication;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public class NearbyImageView extends ImageView {
-
-    /* renamed from: a  reason: collision with root package name */
-    private Bitmap f1499a;
+    private Bitmap a;
     private Bitmap b;
     private Matrix c;
     private Matrix d;
@@ -24,7 +22,7 @@ public class NearbyImageView extends ImageView {
 
     public NearbyImageView(Context context) {
         super(context);
-        this.f1499a = com.baidu.tieba.util.d.a((int) R.drawable.icon_gif);
+        this.a = com.baidu.tieba.util.d.a((int) R.drawable.icon_gif);
         this.b = null;
         this.c = new Matrix();
         this.d = new Matrix();
@@ -35,7 +33,7 @@ public class NearbyImageView extends ImageView {
 
     public NearbyImageView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f1499a = com.baidu.tieba.util.d.a((int) R.drawable.icon_gif);
+        this.a = com.baidu.tieba.util.d.a((int) R.drawable.icon_gif);
         this.b = null;
         this.c = new Matrix();
         this.d = new Matrix();
@@ -46,7 +44,7 @@ public class NearbyImageView extends ImageView {
 
     public NearbyImageView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.f1499a = com.baidu.tieba.util.d.a((int) R.drawable.icon_gif);
+        this.a = com.baidu.tieba.util.d.a((int) R.drawable.icon_gif);
         this.b = null;
         this.c = new Matrix();
         this.d = new Matrix();
@@ -96,8 +94,8 @@ public class NearbyImageView extends ImageView {
                 d.a(canvas, this.c, null);
                 this.c.reset();
                 this.c.setTranslate(0.0f, 0.0f);
-                if (c && d.b() > this.f1499a.getHeight() && d.a() > this.f1499a.getWidth()) {
-                    canvas.drawBitmap(this.f1499a, this.c, null);
+                if (c && d.b() > this.a.getHeight() && d.a() > this.a.getWidth()) {
+                    canvas.drawBitmap(this.a, this.c, null);
                 }
                 if (TiebaApplication.f().at() == 1) {
                     this.f.set(0.0f, 0.0f, (d.a() * width) + 0.0f, (d.b() * width) + 0.0f);

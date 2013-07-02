@@ -15,9 +15,7 @@ import com.slidingmenu.lib.R;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class AccountActivity extends com.baidu.tieba.g {
-
-    /* renamed from: a  reason: collision with root package name */
-    private ArrayList f1072a = null;
+    private ArrayList a = null;
     private n b = null;
     private LinearLayout c = null;
     private TextView d = null;
@@ -67,7 +65,7 @@ public class AccountActivity extends com.baidu.tieba.g {
     }
 
     private void b() {
-        this.f1072a = DatabaseService.n();
+        this.a = DatabaseService.n();
     }
 
     private void c() {
@@ -79,7 +77,7 @@ public class AccountActivity extends com.baidu.tieba.g {
         this.c = (LinearLayout) findViewById(R.id.title);
         this.d = (TextView) findViewById(R.id.title_text);
         this.b = new n(this, this.j);
-        this.b.a(this.f1072a);
+        this.b.a(this.a);
         this.e = (ListView) findViewById(R.id.list);
         this.e.setAdapter((ListAdapter) this.b);
         this.e.setOnItemClickListener(new h(this));

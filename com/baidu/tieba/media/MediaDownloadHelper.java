@@ -14,9 +14,7 @@ import java.security.InvalidParameterException;
 /* loaded from: classes.dex */
 public class MediaDownloadHelper {
     private static final String[] l = {"RET_NEW_PACKAGE_INSTALLED", "RET_NO_NEW_PACKAGE", "RET_STOPPED", "RET_CANCELED", "RET_FAILED_STORAGE_IO", "RET_FAILED_NETWORK", "RET_FAILED_ALREADY_RUNNING", "RET_FAILED_OTHERS", "RET_FAILED_ALREADY_INSTALLED", "RET_FAILED_INVALID_APK"};
-
-    /* renamed from: a  reason: collision with root package name */
-    private a f951a;
+    private a a;
     private Activity b;
     private BEngineManager.OnEngineListener c = null;
     private DialogInterface.OnClickListener d = null;
@@ -47,13 +45,13 @@ public class MediaDownloadHelper {
     }
 
     public MediaDownloadHelper(Activity activity) {
-        this.f951a = null;
+        this.a = null;
         this.b = null;
         if (activity == null) {
             throw new InvalidParameterException("MediaPlayerHelper activity is null");
         }
         this.b = activity;
-        this.f951a = new a(this.b);
+        this.a = new a(this.b);
         BCyberPlayerFactory.init(this.b);
     }
 
@@ -74,7 +72,7 @@ public class MediaDownloadHelper {
     public void a(String str) {
         if (str != null && str.length() > 0) {
             if (!TiebaApplication.aV()) {
-                this.f951a.b();
+                this.a.b();
                 return;
             }
             this.k = str;
@@ -83,20 +81,20 @@ public class MediaDownloadHelper {
                 if (c == NetWorkCore.NetworkStateInfo.WIFI) {
                     d();
                 } else if (c == NetWorkCore.NetworkStateInfo.TwoG) {
-                    this.f951a.a(b());
+                    this.a.a(b());
                 } else if (c == NetWorkCore.NetworkStateInfo.ThreeG) {
-                    this.f951a.b(b());
+                    this.a.b(b());
                 } else {
-                    this.f951a.a();
+                    this.a.a();
                 }
             } else if (c == NetWorkCore.NetworkStateInfo.WIFI) {
-                this.f951a.c(c());
+                this.a.c(c());
             } else if (c == NetWorkCore.NetworkStateInfo.TwoG) {
-                this.f951a.d(c());
+                this.a.d(c());
             } else if (c == NetWorkCore.NetworkStateInfo.ThreeG) {
-                this.f951a.e(c());
+                this.a.e(c());
             } else {
-                this.f951a.a();
+                this.a.a();
             }
         }
     }
@@ -144,7 +142,7 @@ public class MediaDownloadHelper {
     /* JADX INFO: Access modifiers changed from: private */
     public void g() {
         f();
-        this.f951a.a(this.h, this.j);
+        this.a.a(this.h, this.j);
         BEngineManager createEngineManager = BCyberPlayerFactory.createEngineManager();
         if (this.c == null) {
             this.c = new k(this);

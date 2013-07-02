@@ -6,16 +6,14 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class x {
-
-    /* renamed from: a  reason: collision with root package name */
-    private int f804a;
+    private int a;
     private int b;
     private AntiData c;
     private Context d;
     private ArrayList e;
 
     public x() {
-        this.f804a = 0;
+        this.a = 0;
         this.b = 0;
         this.d = null;
         this.e = null;
@@ -24,7 +22,7 @@ public class x {
     }
 
     public x(Context context) {
-        this.f804a = 0;
+        this.a = 0;
         this.b = 0;
         this.d = null;
         this.e = null;
@@ -38,7 +36,7 @@ public class x {
     }
 
     public int b() {
-        return this.f804a;
+        return this.a;
     }
 
     public int c() {
@@ -81,7 +79,7 @@ public class x {
                     }
                     size++;
                 }
-                this.f804a = this.e.size();
+                this.a = this.e.size();
             }
             this.b = jSONObject.optInt("comment_amount", 0);
             this.c.setTbs(jSONObject.getJSONObject("tbs").optString("common"));

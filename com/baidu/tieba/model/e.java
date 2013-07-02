@@ -6,13 +6,11 @@ import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class e extends BdAsyncTask {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ c f1050a;
+    final /* synthetic */ c a;
     private volatile com.baidu.tieba.util.r b;
 
     private e(c cVar) {
-        this.f1050a = cVar;
+        this.a = cVar;
         this.b = null;
     }
 
@@ -34,29 +32,29 @@ public class e extends BdAsyncTask {
         String str5;
         List list2;
         try {
-            this.b = new com.baidu.tieba.util.r(String.valueOf(com.baidu.tieba.data.g.f787a) + "c/s/comlist");
+            this.b = new com.baidu.tieba.util.r(String.valueOf(com.baidu.tieba.data.g.a) + "c/s/comlist");
             this.b.d(true);
             com.baidu.tieba.util.r rVar = this.b;
-            str = this.f1050a.b;
+            str = this.a.b;
             rVar.a(PushConstants.EXTRA_USER_ID, str);
             com.baidu.tieba.util.r rVar2 = this.b;
-            str2 = this.f1050a.d;
+            str2 = this.a.d;
             rVar2.a("pn", str2);
             com.baidu.tieba.util.r rVar3 = this.b;
-            str3 = this.f1050a.e;
+            str3 = this.a.e;
             rVar3.a("rn", str3);
             String j = this.b.j();
             if (this.b.c() && j != null) {
-                this.f1050a.b(j);
-                if (this.f1050a.c() == 0) {
-                    str4 = this.f1050a.d;
+                this.a.b(j);
+                if (this.a.c() == 0) {
+                    str4 = this.a.d;
                     if (str4.equals("1")) {
-                        list = this.f1050a.f1048a;
+                        list = this.a.a;
                         if (list != null) {
-                            com.baidu.tieba.data.a.f a2 = com.baidu.tieba.data.a.f.a();
-                            str5 = this.f1050a.b;
-                            list2 = this.f1050a.f1048a;
-                            a2.a(str5, list2);
+                            com.baidu.tieba.data.a.f a = com.baidu.tieba.data.a.f.a();
+                            str5 = this.a.b;
+                            list2 = this.a.a;
+                            a.a(str5, list2);
                         }
                     }
                 }
@@ -74,15 +72,15 @@ public class e extends BdAsyncTask {
     public void a(Boolean bool) {
         com.baidu.adp.a.e eVar;
         com.baidu.adp.a.e eVar2;
-        this.f1050a.i = null;
+        this.a.i = null;
         if (bool.booleanValue()) {
-            eVar = this.f1050a.mLoadDataCallBack;
+            eVar = this.a.mLoadDataCallBack;
             eVar.a(true);
             return;
         }
-        this.f1050a.mErrorCode = this.b.e();
-        this.f1050a.mErrorString = this.b.g();
-        eVar2 = this.f1050a.mLoadDataCallBack;
+        this.a.mErrorCode = this.b.e();
+        this.a.mErrorString = this.b.g();
+        eVar2 = this.a.mLoadDataCallBack;
         eVar2.a(false);
     }
 
@@ -94,8 +92,8 @@ public class e extends BdAsyncTask {
             this.b.h();
             this.b = null;
         }
-        this.f1050a.f1048a = null;
-        eVar = this.f1050a.mLoadDataCallBack;
+        this.a.a = null;
+        eVar = this.a.mLoadDataCallBack;
         eVar.a(false);
     }
 }

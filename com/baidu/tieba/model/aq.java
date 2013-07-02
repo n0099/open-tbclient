@@ -7,12 +7,10 @@ import java.io.File;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class aq extends BdAsyncTask {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ MoreModel f1022a;
+    final /* synthetic */ MoreModel a;
 
     private aq(MoreModel moreModel) {
-        this.f1022a = moreModel;
+        this.a = moreModel;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -27,10 +25,10 @@ public class aq extends BdAsyncTask {
         com.baidu.adp.a.e eVar;
         com.baidu.adp.a.e eVar2;
         super.a((Object) str);
-        this.f1022a.f1004a = null;
-        eVar = this.f1022a.mLoadDataCallBack;
+        this.a.a = null;
+        eVar = this.a.mLoadDataCallBack;
         if (eVar != null) {
-            eVar2 = this.f1022a.mLoadDataCallBack;
+            eVar2 = this.a.mLoadDataCallBack;
             eVar2.a(MoreModel.TaskType.DO_CLEAR);
         }
     }
@@ -41,7 +39,7 @@ public class aq extends BdAsyncTask {
     public String a(String... strArr) {
         DatabaseService.z();
         try {
-            File[] listFiles = new File(com.baidu.tieba.util.m.f1463a + "/tieba/image/").listFiles();
+            File[] listFiles = new File(com.baidu.tieba.util.m.a + "/tieba/image/").listFiles();
             if (listFiles != null) {
                 for (File file : listFiles) {
                     if (!file.delete()) {
@@ -49,7 +47,7 @@ public class aq extends BdAsyncTask {
                     }
                 }
             }
-            File[] listFiles2 = new File(com.baidu.tieba.util.m.f1463a + "/tieba/hotspot/").listFiles();
+            File[] listFiles2 = new File(com.baidu.tieba.util.m.a + "/tieba/hotspot/").listFiles();
             if (listFiles2 != null) {
                 for (File file2 : listFiles2) {
                     if (!file2.delete()) {

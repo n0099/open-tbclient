@@ -12,9 +12,7 @@ import android.widget.TextView;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public class m {
-
-    /* renamed from: a  reason: collision with root package name */
-    final View f824a;
+    final View a;
     final View b;
     CoverFlow c;
     FrameLayout d;
@@ -51,7 +49,7 @@ public class m {
         this.m = (TextView) forumListActivity.findViewById(R.id.tab_hot);
         this.m.setOnClickListener(forumListActivity);
         this.n = (LinearLayout) forumListActivity.getLayoutInflater().inflate(R.layout.forum_list_forum_footer, (ViewGroup) null);
-        this.f824a = this.n.findViewById(R.id.footer_background);
+        this.a = this.n.findViewById(R.id.footer_background);
         this.o = (TextView) this.n.findViewById(R.id.footer_text);
         this.p = (ImageView) this.n.findViewById(R.id.footer_icon);
         this.q = (LinearLayout) forumListActivity.getLayoutInflater().inflate(R.layout.forum_list_forum_footer, (ViewGroup) null);

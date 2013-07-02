@@ -8,8 +8,9 @@ import android.provider.Settings;
 import android.util.Log;
 import android.view.SurfaceView;
 import java.io.InputStream;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class JniUtil {
+public class JniUtil {
     private static final String ANDROID_CONTENT = "content:";
     private static final String LOGTAG = "JniUtil";
     public static final String WEB_AUTOFILL_QUERY_URL = "web_autofill_query_url";

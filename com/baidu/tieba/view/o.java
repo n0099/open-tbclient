@@ -11,9 +11,7 @@ import com.baidu.tieba.TiebaApplication;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public class o extends ImageView {
-
-    /* renamed from: a  reason: collision with root package name */
-    private Matrix f1526a;
+    private Matrix a;
     private int b;
     private int c;
     private Paint d;
@@ -46,7 +44,7 @@ public class o extends ImageView {
 
     public o(Context context, int i) {
         super(context);
-        this.f1526a = new Matrix();
+        this.a = new Matrix();
         this.b = 0;
         this.c = 0;
         this.d = new Paint();
@@ -72,48 +70,48 @@ public class o extends ImageView {
     @Override // android.widget.ImageView, android.view.View
     protected void onDraw(Canvas canvas) {
         float f;
-        Bitmap a2;
+        Bitmap a;
         super.onDraw(canvas);
         com.baidu.adp.widget.a.b c = com.baidu.tbadk.a.e.a().c(String.valueOf((String) getTag()) + this.i);
-        this.f1526a.reset();
+        this.a.reset();
         if (c == null) {
             this.g = false;
             if (this.e == 5) {
                 if (TiebaApplication.f().at() == 1) {
-                    a2 = com.baidu.tieba.util.d.a((int) R.drawable.pic_video_1);
+                    a = com.baidu.tieba.util.d.a((int) R.drawable.pic_video_1);
                 } else {
-                    a2 = com.baidu.tieba.util.d.a((int) R.drawable.pic_video);
+                    a = com.baidu.tieba.util.d.a((int) R.drawable.pic_video);
                 }
-                float min = Math.min(getWidth() / a2.getWidth(), getHeight() / a2.getHeight());
-                this.f1526a.setScale(min, min);
+                float min = Math.min(getWidth() / a.getWidth(), getHeight() / a.getHeight());
+                this.a.setScale(min, min);
                 this.g = true;
             } else {
                 if (TiebaApplication.f().at() == 1) {
-                    a2 = com.baidu.tieba.util.d.a((int) R.drawable.pic_image_h_not_1);
+                    a = com.baidu.tieba.util.d.a((int) R.drawable.pic_image_h_not_1);
                 } else {
-                    a2 = com.baidu.tieba.util.d.a((int) R.drawable.pic_image_h_not);
+                    a = com.baidu.tieba.util.d.a((int) R.drawable.pic_image_h_not);
                 }
-                this.b = (getWidth() - a2.getWidth()) >> 1;
-                this.c = (getHeight() - a2.getHeight()) >> 1;
-                this.f1526a.postTranslate(this.b, this.c);
+                this.b = (getWidth() - a.getWidth()) >> 1;
+                this.c = (getHeight() - a.getHeight()) >> 1;
+                this.a.postTranslate(this.b, this.c);
                 if (TiebaApplication.f().at() == 1) {
                     canvas.drawColor(-13815750);
                 }
             }
-            canvas.drawBitmap(a2, this.f1526a, this.d);
+            canvas.drawBitmap(a, this.a, this.d);
         } else if (c != null) {
-            int a3 = c.a();
+            int a2 = c.a();
             int b = c.b();
             int width = getWidth();
             int height = getHeight();
-            if (a3 != 0 && b != 0 && width != 0 && height != 0) {
+            if (a2 != 0 && b != 0 && width != 0 && height != 0) {
                 if (this.f == 1) {
-                    f = (((double) a3) < ((double) (width * 3)) / 10.0d || !this.h) ? 1.0f : width / a3;
+                    f = (((double) a2) < ((double) (width * 3)) / 10.0d || !this.h) ? 1.0f : width / a2;
                 } else {
-                    f = ((float) a3) < ((float) (((double) (width * 3)) / 10.0d)) ? 1.0f : width / a3;
+                    f = ((float) a2) < ((float) (((double) (width * 3)) / 10.0d)) ? 1.0f : width / a2;
                 }
-                this.f1526a.setScale(f, f);
-                int i = ((int) (a3 * f)) - 1;
+                this.a.setScale(f, f);
+                int i = ((int) (a2 * f)) - 1;
                 int i2 = ((int) (f * b)) - 1;
                 if (i2 <= 1.25d * height) {
                     this.b = 0;
@@ -125,14 +123,14 @@ public class o extends ImageView {
                         this.c = 0;
                     }
                 }
-                this.f1526a.postTranslate(this.b, this.c);
+                this.a.postTranslate(this.b, this.c);
                 if (height - i2 > 3) {
                     this.j = getLayoutParams();
                     this.j.width = i;
                     this.j.height = i2;
                     setLayoutParams(this.j);
                 }
-                c.a(canvas, this.f1526a, this.d);
+                c.a(canvas, this.a, this.d);
             }
         }
     }

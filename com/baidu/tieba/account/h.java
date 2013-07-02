@@ -11,13 +11,11 @@ import com.slidingmenu.lib.R;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class h extends BdAsyncTask {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ ActivationActivity f668a;
+    final /* synthetic */ ActivationActivity a;
     private com.baidu.tieba.util.r b;
 
     private h(ActivationActivity activationActivity) {
-        this.f668a = activationActivity;
+        this.a = activationActivity;
         this.b = null;
     }
 
@@ -39,30 +37,30 @@ public class h extends BdAsyncTask {
         RegistData registData6;
         RegistData registData7;
         try {
-            this.b = new com.baidu.tieba.util.r(String.valueOf(com.baidu.tieba.data.g.f787a) + "c/s/regreal");
+            this.b = new com.baidu.tieba.util.r(String.valueOf(com.baidu.tieba.data.g.a) + "c/s/regreal");
             com.baidu.tieba.util.r rVar = this.b;
-            registData = this.f668a.r;
+            registData = this.a.r;
             rVar.a("un", registData.getName());
             com.baidu.tieba.util.r rVar2 = this.b;
-            registData2 = this.f668a.r;
+            registData2 = this.a.r;
             rVar2.a("phonenum", registData2.getPhone());
             com.baidu.tieba.util.r rVar3 = this.b;
-            registData3 = this.f668a.r;
+            registData3 = this.a.r;
             rVar3.a("passwd", registData3.getPsw());
-            registData4 = this.f668a.r;
+            registData4 = this.a.r;
             if (registData4.getVcode() != null) {
                 com.baidu.tieba.util.r rVar4 = this.b;
-                registData7 = this.f668a.r;
+                registData7 = this.a.r;
                 rVar4.a("vcode", registData7.getVcode());
             }
-            registData5 = this.f668a.r;
+            registData5 = this.a.r;
             if (registData5.getVcodeMd5() != null) {
                 com.baidu.tieba.util.r rVar5 = this.b;
-                registData6 = this.f668a.r;
+                registData6 = this.a.r;
                 rVar5.a("vcode_md5", registData6.getVcodeMd5());
             }
             com.baidu.tieba.util.r rVar6 = this.b;
-            editText = this.f668a.k;
+            editText = this.a.k;
             rVar6.a("smscode", editText.getText().toString());
             String j = this.b.j();
             if (this.b.c()) {
@@ -91,33 +89,33 @@ public class h extends BdAsyncTask {
         TextView textView2;
         RelativeLayout relativeLayout;
         super.a((Object) alVar);
-        progressBar = this.f668a.f;
+        progressBar = this.a.f;
         progressBar.setVisibility(8);
-        this.f668a.o = null;
-        this.f668a.a(true);
-        z = this.f668a.p;
+        this.a.o = null;
+        this.a.a(true);
+        z = this.a.p;
         if (z) {
-            relativeLayout = this.f668a.m;
+            relativeLayout = this.a.m;
             relativeLayout.setEnabled(true);
         }
         if (alVar != null) {
-            this.f668a.a(alVar);
+            this.a.a(alVar);
             return;
         }
         String g = this.b.g();
         if (g != null && g.length() > 0) {
-            textView = this.f668a.j;
+            textView = this.a.j;
             textView.setVisibility(0);
-            textView2 = this.f668a.j;
+            textView2 = this.a.j;
             textView2.setText(g);
         }
         if (this.b.e() == 26) {
-            this.f668a.A = 26;
-            linearLayout = this.f668a.c;
+            this.a.A = 26;
+            linearLayout = this.a.c;
             linearLayout.setBackgroundResource(R.drawable.pass_input_wrong);
-            linearLayout2 = this.f668a.c;
-            i = this.f668a.y;
-            i2 = this.f668a.z;
+            linearLayout2 = this.a.c;
+            i = this.a.y;
+            i2 = this.a.z;
             linearLayout2.setPadding(i, 0, i2, 0);
         }
     }
@@ -133,20 +131,20 @@ public class h extends BdAsyncTask {
         LinearLayout linearLayout2;
         int i;
         int i2;
-        progressBar = this.f668a.f;
+        progressBar = this.a.f;
         progressBar.setVisibility(0);
-        relativeLayout = this.f668a.m;
+        relativeLayout = this.a.m;
         relativeLayout.setEnabled(false);
-        this.f668a.a(false);
-        textView = this.f668a.j;
+        this.a.a(false);
+        textView = this.a.j;
         textView.setVisibility(4);
-        textView2 = this.f668a.j;
+        textView2 = this.a.j;
         textView2.setText((CharSequence) null);
-        linearLayout = this.f668a.c;
+        linearLayout = this.a.c;
         linearLayout.setBackgroundResource(R.drawable.pass_input);
-        linearLayout2 = this.f668a.c;
-        i = this.f668a.y;
-        i2 = this.f668a.z;
+        linearLayout2 = this.a.c;
+        i = this.a.y;
+        i2 = this.a.z;
         linearLayout2.setPadding(i, 0, i2, 0);
         super.b();
     }
@@ -156,18 +154,18 @@ public class h extends BdAsyncTask {
         ProgressBar progressBar;
         boolean z;
         RelativeLayout relativeLayout;
-        this.f668a.o = null;
-        progressBar = this.f668a.f;
+        this.a.o = null;
+        progressBar = this.a.f;
         progressBar.setVisibility(8);
-        z = this.f668a.p;
+        z = this.a.p;
         if (z) {
-            relativeLayout = this.f668a.m;
+            relativeLayout = this.a.m;
             relativeLayout.setEnabled(true);
         }
         if (this.b != null) {
             this.b.h();
         }
-        this.f668a.a(true);
+        this.a.a(true);
         super.cancel(true);
     }
 }

@@ -6,26 +6,24 @@ import com.baidu.tieba.util.DatabaseService;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 class ai implements aw {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ FrsImageActivity f835a;
+    final /* synthetic */ FrsImageActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ai(FrsImageActivity frsImageActivity) {
-        this.f835a = frsImageActivity;
+        this.a = frsImageActivity;
     }
 
     @Override // com.baidu.tieba.frs.aw
     public void a(int i) {
         boolean z;
         ax axVar;
-        z = this.f835a.s;
+        z = this.a.s;
         if (!z) {
-            axVar = this.f835a.n;
+            axVar = this.a.n;
             axVar.a(true);
             return;
         }
-        this.f835a.s = false;
+        this.a.s = false;
     }
 
     @Override // com.baidu.tieba.frs.aw
@@ -41,15 +39,15 @@ class ai implements aw {
         int i4;
         com.baidu.tieba.model.ac acVar4;
         String str;
-        axVar = this.f835a.n;
+        axVar = this.a.n;
         axVar.a(false);
-        this.f835a.c("done");
+        this.a.c("done");
         if (jSONObject == null) {
-            if (aeVar.f1011a) {
-                this.f835a.a(aeVar.d);
+            if (aeVar.a) {
+                this.a.a(aeVar.d);
                 if (aeVar.b && aeVar.c == 2000) {
                     TiebaApplication f = TiebaApplication.f();
-                    str = this.f835a.b;
+                    str = this.a.b;
                     f.f(str);
                     return;
                 }
@@ -58,43 +56,43 @@ class ai implements aw {
             return;
         }
         if (aeVar != null && aeVar.b) {
-            i4 = this.f835a.l;
+            i4 = this.a.l;
             if (i4 == 1) {
-                acVar4 = this.f835a.t;
+                acVar4 = this.a.t;
                 DatabaseService.n(acVar4.a().b());
             }
         }
-        axVar2 = this.f835a.n;
+        axVar2 = this.a.n;
         axVar2.a().i();
-        FrsImageActivity frsImageActivity = this.f835a;
-        acVar = this.f835a.t;
+        FrsImageActivity frsImageActivity = this.a;
+        acVar = this.a.t;
         frsImageActivity.a(acVar.b());
-        this.f835a.g = 30;
-        acVar2 = this.f835a.t;
+        this.a.g = 30;
+        acVar2 = this.a.t;
         if (acVar2.c().size() <= 30) {
             if (i == 1) {
-                acVar3 = this.f835a.t;
+                acVar3 = this.a.t;
                 if (acVar3.c().size() == 0) {
-                    this.f835a.a(FrsImageActivity.FooterType.NO_ITEM);
+                    this.a.a(FrsImageActivity.FooterType.NO_ITEM);
                 }
             }
-            this.f835a.a(FrsImageActivity.FooterType.LAST);
+            this.a.a(FrsImageActivity.FooterType.LAST);
         } else {
-            this.f835a.a(FrsImageActivity.FooterType.NORMAL);
+            this.a.a(FrsImageActivity.FooterType.NORMAL);
         }
-        axVar3 = this.f835a.n;
+        axVar3 = this.a.n;
         axVar3.a().scrollTo(0, 0);
-        this.f835a.j = i;
-        i2 = this.f835a.j;
+        this.a.j = i;
+        i2 = this.a.j;
         if (i2 > 1) {
-            this.f835a.n();
+            this.a.n();
         } else {
-            this.f835a.o();
+            this.a.o();
         }
-        i3 = this.f835a.l;
+        i3 = this.a.l;
         if (i3 == 1) {
-            this.f835a.l = 0;
-            this.f835a.getIntent().putExtra("add_search", 0);
+            this.a.l = 0;
+            this.a.getIntent().putExtra("add_search", 0);
         }
     }
 }

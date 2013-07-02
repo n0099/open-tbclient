@@ -6,13 +6,11 @@ import com.slidingmenu.lib.R;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class aw implements bq {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ NewNearbyActivity f1145a;
+    final /* synthetic */ NewNearbyActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public aw(NewNearbyActivity newNearbyActivity) {
-        this.f1145a = newNearbyActivity;
+        this.a = newNearbyActivity;
     }
 
     @Override // android.support.v4.view.bq
@@ -23,23 +21,23 @@ public class aw implements bq {
         RadioGroup radioGroup3;
         RadioGroup radioGroup4;
         com.baidu.tieba.util.z.c("onPageSelected positon = " + String.valueOf(i));
-        z = this.f1145a.B;
+        z = this.a.B;
         if (!z) {
-            this.f1145a.C = true;
+            this.a.C = true;
             if (i == 0) {
-                radioGroup3 = this.f1145a.t;
+                radioGroup3 = this.a.t;
                 if (radioGroup3.getCheckedRadioButtonId() != R.id.title_lbs_threads) {
-                    radioGroup4 = this.f1145a.t;
+                    radioGroup4 = this.a.t;
                     radioGroup4.check(R.id.title_lbs_threads);
                 }
             } else {
-                radioGroup = this.f1145a.t;
+                radioGroup = this.a.t;
                 if (radioGroup.getCheckedRadioButtonId() != R.id.title_lbs_bars) {
-                    radioGroup2 = this.f1145a.t;
+                    radioGroup2 = this.a.t;
                     radioGroup2.check(R.id.title_lbs_bars);
                 }
             }
-            this.f1145a.C = false;
+            this.a.C = false;
         }
     }
 

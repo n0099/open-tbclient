@@ -4,13 +4,11 @@ import android.view.View;
 import com.baidu.tieba.view.BaseViewPager;
 /* loaded from: classes.dex */
 class n implements View.OnClickListener {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ GuideActivity f1114a;
+    final /* synthetic */ GuideActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public n(GuideActivity guideActivity) {
-        this.f1114a = guideActivity;
+        this.a = guideActivity;
     }
 
     @Override // android.view.View.OnClickListener
@@ -18,11 +16,11 @@ class n implements View.OnClickListener {
         BaseViewPager baseViewPager;
         int[] iArr;
         BaseViewPager baseViewPager2;
-        baseViewPager = this.f1114a.f;
+        baseViewPager = this.a.f;
         int currentItem = baseViewPager.getCurrentItem();
-        iArr = this.f1114a.c;
+        iArr = this.a.c;
         if (currentItem != iArr.length - 1) {
-            baseViewPager2 = this.f1114a.f;
+            baseViewPager2 = this.a.f;
             baseViewPager2.a(currentItem + 1, true);
         }
     }

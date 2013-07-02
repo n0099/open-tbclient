@@ -7,13 +7,11 @@ import com.slidingmenu.lib.R;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class j extends Handler {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ FrsActivity f862a;
+    final /* synthetic */ FrsActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public j(FrsActivity frsActivity) {
-        this.f862a = frsActivity;
+        this.a = frsActivity;
     }
 
     @Override // android.os.Handler
@@ -29,14 +27,14 @@ public class j extends Handler {
         switch (message.what) {
             case 1:
                 removeMessages(1);
-                vVar = this.f862a.v;
+                vVar = this.a.v;
                 if (vVar != null) {
-                    vVar2 = this.f862a.v;
+                    vVar2 = this.a.v;
                     long i = vVar2.e().i();
-                    j = this.f862a.z;
+                    j = this.a.z;
                     long nanoTime = i - ((System.nanoTime() / 1000000000) - j);
                     if (nanoTime > 0) {
-                        azVar2 = this.f862a.l;
+                        azVar2 = this.a.l;
                         CustomTimerView customTimerView = (CustomTimerView) azVar2.a(R.id.open_timer);
                         if (customTimerView != null) {
                             customTimerView.setTime(nanoTime);
@@ -44,14 +42,14 @@ public class j extends Handler {
                         sendMessageDelayed(obtainMessage(1), 1000L);
                         return;
                     }
-                    vVar3 = this.f862a.v;
+                    vVar3 = this.a.v;
                     vVar3.e().a(1);
-                    azVar = this.f862a.l;
+                    azVar = this.a.l;
                     com.baidu.tieba.view.q i2 = azVar.i();
-                    vVar4 = this.f862a.v;
-                    com.baidu.tieba.data.r a2 = vVar4.a();
-                    vVar5 = this.f862a.v;
-                    i2.a(a2, vVar5.e());
+                    vVar4 = this.a.v;
+                    com.baidu.tieba.data.r a = vVar4.a();
+                    vVar5 = this.a.v;
+                    i2.a(a, vVar5.e());
                     return;
                 }
                 return;

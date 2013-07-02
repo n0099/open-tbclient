@@ -20,9 +20,7 @@ import java.io.InputStream;
 import java.util.Hashtable;
 /* loaded from: classes.dex */
 public class d {
-
-    /* renamed from: a  reason: collision with root package name */
-    public static final Object f1457a = new Object();
+    public static final Object a = new Object();
     private static volatile Hashtable b = new Hashtable();
 
     public static Bitmap a(int i) {
@@ -57,7 +55,7 @@ public class d {
             bitmap = null;
             th = th2;
         }
-        synchronized (f1457a) {
+        synchronized (a) {
             try {
                 bitmap = BitmapFactory.decodeResource(context.getResources(), i, options);
             } catch (Throwable th3) {
@@ -97,7 +95,7 @@ public class d {
             bitmap = null;
             th = th2;
         }
-        synchronized (f1457a) {
+        synchronized (a) {
             try {
                 bitmap = BitmapFactory.decodeResource(context.getResources(), i, options);
             } catch (Throwable th3) {
@@ -134,7 +132,7 @@ public class d {
             } else {
                 f = i2 / height;
             }
-            synchronized (f1457a) {
+            synchronized (a) {
                 Matrix matrix = new Matrix();
                 matrix.postScale(f, f);
                 createBitmap = Bitmap.createBitmap(bitmap, 0, 0, width, height, matrix, true);
@@ -161,7 +159,7 @@ public class d {
             } else {
                 f = i2 / height;
             }
-            synchronized (f1457a) {
+            synchronized (a) {
                 Matrix matrix = new Matrix();
                 matrix.postScale(f, f);
                 matrix.postTranslate((i - (width * f)) / 2.0f, (i2 - (height * f)) / 2.0f);
@@ -188,7 +186,7 @@ public class d {
             return null;
         }
         try {
-            synchronized (f1457a) {
+            synchronized (a) {
                 BitmapFactory.Options options = new BitmapFactory.Options();
                 options.inJustDecodeBounds = true;
                 InputStream g = m.g(str);
@@ -228,7 +226,7 @@ public class d {
             options.inPreferredConfig = com.baidu.tieba.data.g.l;
             options.inDither = false;
             options.inJustDecodeBounds = true;
-            synchronized (f1457a) {
+            synchronized (a) {
                 BitmapFactory.decodeFileDescriptor(openFileDescriptor.getFileDescriptor(), null, options);
                 while (true) {
                     if (options.outWidth / (i2 + 1) > i || options.outHeight / (i2 + 1) > i) {
@@ -276,7 +274,7 @@ public class d {
     public static Bitmap a(Bitmap bitmap, float f) {
         Bitmap bitmap2 = null;
         try {
-            synchronized (f1457a) {
+            synchronized (a) {
                 try {
                     Bitmap createBitmap = Bitmap.createBitmap(bitmap.getWidth(), bitmap.getHeight(), Bitmap.Config.ARGB_4444);
                     try {
@@ -313,7 +311,7 @@ public class d {
         if (bitmap == null) {
             return null;
         }
-        synchronized (f1457a) {
+        synchronized (a) {
             if (bitmap.getHeight() < bitmap.getWidth()) {
                 createBitmap = Bitmap.createBitmap(bitmap, (bitmap.getWidth() - bitmap.getHeight()) >> 1, 0, bitmap.getHeight(), bitmap.getHeight());
             } else {
@@ -328,7 +326,7 @@ public class d {
 
     public static byte[] c(Bitmap bitmap, int i) {
         byte[] byteArray;
-        synchronized (f1457a) {
+        synchronized (a) {
             ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
             bitmap.compress(Bitmap.CompressFormat.PNG, i, byteArrayOutputStream);
             byteArray = byteArrayOutputStream.toByteArray();
@@ -346,7 +344,7 @@ public class d {
         BitmapFactory.Options options = new BitmapFactory.Options();
         options.inPreferredConfig = com.baidu.tieba.data.g.l;
         try {
-            synchronized (f1457a) {
+            synchronized (a) {
                 try {
                     Bitmap decodeByteArray = BitmapFactory.decodeByteArray(bArr, 0, bArr.length, options);
                     try {
@@ -383,7 +381,7 @@ public class d {
         Bitmap createBitmap;
         int width = bitmap.getWidth();
         int height = bitmap.getHeight();
-        synchronized (f1457a) {
+        synchronized (a) {
             Matrix matrix = new Matrix();
             if (i == 0) {
                 matrix.postRotate(-90.0f);
@@ -408,7 +406,7 @@ public class d {
         } else if (i == 3) {
             matrix.setScale(-1.0f, 1.0f);
         }
-        synchronized (f1457a) {
+        synchronized (a) {
             Bitmap createBitmap2 = Bitmap.createBitmap(bitmap, 0, 0, width, height, matrix, true);
             matrix.setRotate(180.0f);
             createBitmap = Bitmap.createBitmap(createBitmap2, 0, 0, createBitmap2.getWidth(), createBitmap2.getHeight(), matrix, true);

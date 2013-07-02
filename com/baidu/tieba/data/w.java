@@ -6,9 +6,7 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class w {
-
-    /* renamed from: a  reason: collision with root package name */
-    private String f803a;
+    private String a;
     private String b;
     private int c;
     private AntiData d;
@@ -20,7 +18,7 @@ public class w {
     private String j;
 
     public w(Context context) {
-        this.f803a = null;
+        this.a = null;
         this.b = null;
         this.c = 0;
         this.d = null;
@@ -72,7 +70,7 @@ public class w {
     }
 
     public w() {
-        this.f803a = null;
+        this.a = null;
         this.b = null;
         this.c = 0;
         this.d = null;
@@ -99,11 +97,11 @@ public class w {
     }
 
     public void c(String str) {
-        this.f803a = str;
+        this.a = str;
     }
 
     public String i() {
-        return this.f803a;
+        return this.a;
     }
 
     public String j() {
@@ -123,7 +121,7 @@ public class w {
             try {
                 JSONObject optJSONObject = jSONObject.optJSONObject("forum");
                 if (optJSONObject != null) {
-                    this.f803a = optJSONObject.getString("name");
+                    this.a = optJSONObject.getString("name");
                     this.b = optJSONObject.optString("id");
                 }
                 this.c = jSONObject.optInt("pic_amount", 0);

@@ -1,6 +1,7 @@
 package com.baidu.mapapi.cloud;
 
 import android.content.ContentValues;
+import com.baidu.location.LocationClientOption;
 import com.baidu.mapapi.GeoPoint;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
@@ -12,7 +13,7 @@ public class NearbySearchInfo {
     public GeoPoint location;
     public String queryWords;
     public String sn;
-    public int radius = 1000;
+    public int radius = LocationClientOption.MIN_SCAN_SPAN;
     public ContentValues filter = new ContentValues();
     public int scope = 1;
     public int pageIndex = 0;

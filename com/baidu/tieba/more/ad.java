@@ -6,13 +6,11 @@ import com.baidu.tieba.util.DatabaseService;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 class ad implements CompoundButton.OnCheckedChangeListener {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ MsgRemindActivity f1082a;
+    final /* synthetic */ MsgRemindActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ad(MsgRemindActivity msgRemindActivity) {
-        this.f1082a = msgRemindActivity;
+        this.a = msgRemindActivity;
     }
 
     @Override // android.widget.CompoundButton.OnCheckedChangeListener

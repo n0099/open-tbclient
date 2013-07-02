@@ -5,14 +5,12 @@ import android.view.View;
 import com.baidu.tieba.person.PersonInfoActivity;
 /* loaded from: classes.dex */
 class ah implements View.OnClickListener {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ ae f1130a;
+    final /* synthetic */ ae a;
     private String b;
     private String c;
 
     public ah(ae aeVar) {
-        this.f1130a = aeVar;
+        this.a = aeVar;
         b(null);
         a(null);
     }
@@ -20,7 +18,7 @@ class ah implements View.OnClickListener {
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         Context context;
-        context = this.f1130a.f1127a;
+        context = this.a.a;
         PersonInfoActivity.a(context, this.b, this.c);
     }
 

@@ -12,9 +12,7 @@ import android.widget.Toast;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class TransitOverlay extends ItemizedOverlay {
-
-    /* renamed from: a  reason: collision with root package name */
-    private ArrayList f541a;
+    private ArrayList a;
     private MapView b;
     private Context c;
     private int d;
@@ -24,9 +22,7 @@ public class TransitOverlay extends ItemizedOverlay {
 
     /* loaded from: classes.dex */
     class a {
-
-        /* renamed from: a  reason: collision with root package name */
-        public String f542a;
+        public String a;
         public GeoPoint b;
         public int c;
 
@@ -37,7 +33,7 @@ public class TransitOverlay extends ItemizedOverlay {
     public TransitOverlay(Activity activity, MapView mapView) {
         super(null);
         this.mPlan = null;
-        this.f541a = null;
+        this.a = null;
         this.b = null;
         this.c = null;
         this.d = 1;
@@ -65,8 +61,8 @@ public class TransitOverlay extends ItemizedOverlay {
     protected OverlayItem createItem(int i) {
         char[] cArr = {'l', 'm', 'h'};
         String[] strArr = {"start", "end", "bus", "foot", "rail", "car"};
-        a aVar = (a) this.f541a.get(i);
-        OverlayItem overlayItem = new OverlayItem(aVar.b, aVar.f542a, null);
+        a aVar = (a) this.a.get(i);
+        OverlayItem overlayItem = new OverlayItem(aVar.b, aVar.a, null);
         if (aVar.c != 3) {
             StringBuilder sb = new StringBuilder(32);
             sb.append("icon_nav_").append(strArr[aVar.c]).append('_').append(cArr[this.d]).append(".png");
@@ -104,7 +100,7 @@ public class TransitOverlay extends ItemizedOverlay {
                     MKRoute route = this.mPlan.getRoute(i);
                     ArrayList arrayPoints = route.getArrayPoints();
                     if (arrayPoints != null && arrayPoints.size() > 0 && (arrayList2 = (ArrayList) arrayPoints.get(0)) != null && arrayList2.size() > 0) {
-                        n.a(arrayList2, (ArrayList) route.f514a.get(0), zoomLevel, arrayList3);
+                        n.a(arrayList2, (ArrayList) route.a.get(0), zoomLevel, arrayList3);
                         int size = arrayList3.size();
                         if (size > 1) {
                             paint.setColor(Color.rgb(48, 162, 8));
@@ -123,7 +119,7 @@ public class TransitOverlay extends ItemizedOverlay {
                     MKLine line = this.mPlan.getLine(i);
                     ArrayList points = line.getPoints();
                     if (points != null && points.size() > 0) {
-                        n.a(points, line.f509a, zoomLevel, arrayList3);
+                        n.a(points, line.a, zoomLevel, arrayList3);
                         int size2 = arrayList3.size();
                         if (size2 > 1) {
                             paint.setColor(Color.rgb(58, 107, 189));
@@ -143,7 +139,7 @@ public class TransitOverlay extends ItemizedOverlay {
                         MKRoute route2 = this.mPlan.getRoute(i + 1);
                         ArrayList arrayPoints2 = route2.getArrayPoints();
                         if (arrayPoints2 != null && arrayPoints2.size() > 0 && (arrayList = (ArrayList) arrayPoints2.get(0)) != null && arrayList.size() > 0) {
-                            n.a(arrayList, (ArrayList) route2.f514a.get(0), zoomLevel, arrayList3);
+                            n.a(arrayList, (ArrayList) route2.a.get(0), zoomLevel, arrayList3);
                             int size3 = arrayList3.size();
                             if (size3 > 1) {
                                 paint.setColor(Color.rgb(48, 162, 8));
@@ -184,7 +180,7 @@ public class TransitOverlay extends ItemizedOverlay {
         if (mKTransitRoutePlan == null) {
             return;
         }
-        this.f541a = new ArrayList();
+        this.a = new ArrayList();
         this.mPlan = mKTransitRoutePlan;
         int numLines = mKTransitRoutePlan.getNumLines();
         if (numLines + 1 != this.mPlan.getNumRoute() || numLines == 0) {
@@ -195,45 +191,45 @@ public class TransitOverlay extends ItemizedOverlay {
             a aVar = new a();
             aVar.b = start;
             aVar.c = 0;
-            this.f541a.add(aVar);
+            this.a.add(aVar);
         }
         for (int i = 0; i < numLines; i++) {
             MKLine line = mKTransitRoutePlan.getLine(i);
             a aVar2 = new a();
             aVar2.b = line.getGetOnStop().pt;
-            aVar2.f542a = line.a();
+            aVar2.a = line.a();
             if (line.getType() == 0) {
                 aVar2.c = 2;
             } else {
                 aVar2.c = 4;
             }
-            this.f541a.add(aVar2);
+            this.a.add(aVar2);
             MKRoute route = this.mPlan.getRoute(i + 1);
             a aVar3 = new a();
             aVar3.b = line.getGetOffStop().pt;
-            aVar3.f542a = route.a();
+            aVar3.a = route.a();
             if (line.getType() == 0) {
                 aVar3.c = 2;
             } else {
                 aVar3.c = 4;
             }
-            this.f541a.add(aVar3);
+            this.a.add(aVar3);
         }
         GeoPoint end = mKTransitRoutePlan.getEnd();
         if (end != null) {
             a aVar4 = new a();
             aVar4.b = end;
             aVar4.c = 1;
-            this.f541a.add(aVar4);
+            this.a.add(aVar4);
         }
         super.populate();
     }
 
     @Override // com.baidu.mapapi.ItemizedOverlay
     public int size() {
-        if (this.f541a == null) {
+        if (this.a == null) {
             return 0;
         }
-        return this.f541a.size();
+        return this.a.size();
     }
 }

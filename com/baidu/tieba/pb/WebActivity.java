@@ -19,9 +19,7 @@ import com.baidu.tieba.compatible.CompatibleUtile;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public class WebActivity extends com.baidu.tieba.g {
-
-    /* renamed from: a  reason: collision with root package name */
-    protected WebView f1190a = null;
+    protected WebView a = null;
     private ImageView g = null;
     private ImageView j = null;
     private ImageView k = null;
@@ -91,11 +89,11 @@ public class WebActivity extends com.baidu.tieba.g {
         setContentView(R.layout.web_activity);
         this.n = (LinearLayout) findViewById(R.id.softkey);
         this.l = (ProgressBar) findViewById(R.id.progress);
-        this.f1190a = (WebView) findViewById(R.id.webview);
-        this.f1190a.setWebViewClient(new da(this));
+        this.a = (WebView) findViewById(R.id.webview);
+        this.a.setWebViewClient(new da(this));
         this.m = CompatibleUtile.getInstance().getWebChromeClient(this);
-        this.f1190a.setWebChromeClient(this.m);
-        WebSettings settings = this.f1190a.getSettings();
+        this.a.setWebChromeClient(this.m);
+        WebSettings settings = this.a.getSettings();
         settings.setBuiltInZoomControls(true);
         settings.setJavaScriptEnabled(true);
         settings.setPluginsEnabled(true);
@@ -125,7 +123,7 @@ public class WebActivity extends com.baidu.tieba.g {
     @Override // com.baidu.tieba.g, android.app.Activity
     public void onPause() {
         super.onPause();
-        this.f1190a.pauseTimers();
+        this.a.pauseTimers();
         c("onPause");
     }
 
@@ -133,7 +131,7 @@ public class WebActivity extends com.baidu.tieba.g {
     @Override // com.baidu.tieba.g, android.app.Activity
     public void onResume() {
         super.onResume();
-        this.f1190a.resumeTimers();
+        this.a.resumeTimers();
         c("onResume");
     }
 
@@ -180,9 +178,9 @@ public class WebActivity extends com.baidu.tieba.g {
     }
 
     private void c(String str) {
-        if (this.f1190a != null) {
+        if (this.a != null) {
             try {
-                WebView.class.getMethod(str, new Class[0]).invoke(this.f1190a, new Object[0]);
+                WebView.class.getMethod(str, new Class[0]).invoke(this.a, new Object[0]);
             } catch (Exception e) {
                 com.baidu.tieba.util.z.b(getClass().getName(), "callHiddenWebViewMethod", "error = " + e.getMessage());
             }

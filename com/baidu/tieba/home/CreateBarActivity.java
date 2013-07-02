@@ -33,9 +33,7 @@ public class CreateBarActivity extends com.baidu.tieba.g {
     private TextWatcher t = null;
     private String u = null;
     private TextView v = null;
-
-    /* renamed from: a  reason: collision with root package name */
-    RelativeLayout f881a = null;
+    RelativeLayout a = null;
     View b = null;
     TextView c = null;
     TextView d = null;
@@ -110,7 +108,7 @@ public class CreateBarActivity extends com.baidu.tieba.g {
     private void n() {
         this.s = new a(this);
         this.t = new b(this);
-        this.f881a = (RelativeLayout) findViewById(R.id.container);
+        this.a = (RelativeLayout) findViewById(R.id.container);
         this.b = findViewById(R.id.title);
         this.c = (TextView) findViewById(R.id.title_text);
         this.d = (TextView) findViewById(R.id.text);
@@ -148,7 +146,7 @@ public class CreateBarActivity extends com.baidu.tieba.g {
         super.a(i);
         com.baidu.tieba.util.x.f(this.c, i);
         com.baidu.tieba.util.x.a(this.l, i);
-        com.baidu.tieba.util.x.a(this.f881a, i);
+        com.baidu.tieba.util.x.a(this.a, i);
         com.baidu.tieba.util.x.d(this.b, i);
         com.baidu.tieba.util.x.a(this.d, i);
         com.baidu.tieba.util.x.b(this.f, i);

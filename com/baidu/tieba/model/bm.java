@@ -1,9 +1,7 @@
 package com.baidu.tieba.model;
 /* loaded from: classes.dex */
 public class bm {
-
-    /* renamed from: a  reason: collision with root package name */
-    private com.baidu.tieba.data.am f1042a = new com.baidu.tieba.data.am();
+    private com.baidu.tieba.data.am a = new com.baidu.tieba.data.am();
     private boolean b = true;
     private String c = null;
 
@@ -24,6 +22,6 @@ public class bm {
     }
 
     public com.baidu.tieba.data.am c() {
-        return this.f1042a;
+        return this.a;
     }
 }

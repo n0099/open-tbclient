@@ -18,9 +18,7 @@ import java.net.Proxy;
 import java.net.URL;
 /* loaded from: classes.dex */
 public final class a {
-
-    /* renamed from: a  reason: collision with root package name */
-    private static final Proxy f573a = new Proxy(Proxy.Type.HTTP, new InetSocketAddress("10.0.0.172", 80));
+    private static final Proxy a = new Proxy(Proxy.Type.HTTP, new InetSocketAddress("10.0.0.172", 80));
     private static final Proxy b = new Proxy(Proxy.Type.HTTP, new InetSocketAddress(HttpUtils.IP_CTWAP, 80));
 
     public static String a(Context context, String str) {
@@ -56,7 +54,7 @@ public final class a {
             String extraInfo = networkInfo.getExtraInfo();
             String lowerCase = extraInfo != null ? extraInfo.toLowerCase() : "";
             b.a("current APN", lowerCase);
-            httpURLConnection = (lowerCase.startsWith("cmwap") || lowerCase.startsWith("uniwap") || lowerCase.startsWith("3gwap")) ? (HttpURLConnection) url.openConnection(f573a) : lowerCase.startsWith("ctwap") ? (HttpURLConnection) url.openConnection(b) : (HttpURLConnection) url.openConnection();
+            httpURLConnection = (lowerCase.startsWith("cmwap") || lowerCase.startsWith("uniwap") || lowerCase.startsWith("3gwap")) ? (HttpURLConnection) url.openConnection(a) : lowerCase.startsWith("ctwap") ? (HttpURLConnection) url.openConnection(b) : (HttpURLConnection) url.openConnection();
         }
         httpURLConnection.setConnectTimeout(i);
         httpURLConnection.setReadTimeout(i2);

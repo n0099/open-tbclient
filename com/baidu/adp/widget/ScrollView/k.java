@@ -4,22 +4,20 @@ import com.baidu.adp.widget.ScrollView.BdPullRefreshScrollView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class k implements j {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ BdPullRefreshScrollView f224a;
+    final /* synthetic */ BdPullRefreshScrollView a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public k(BdPullRefreshScrollView bdPullRefreshScrollView) {
-        this.f224a = bdPullRefreshScrollView;
+        this.a = bdPullRefreshScrollView;
     }
 
     @Override // com.baidu.adp.widget.ScrollView.j
     public void a() {
         c cVar;
-        this.f224a.u = false;
-        BdPullRefreshScrollView bdPullRefreshScrollView = this.f224a;
+        this.a.u = false;
+        BdPullRefreshScrollView bdPullRefreshScrollView = this.a;
         BdPullRefreshScrollView.State state = BdPullRefreshScrollView.State.RESET;
-        cVar = this.f224a.n;
+        cVar = this.a.n;
         bdPullRefreshScrollView.a(state, cVar);
     }
 }

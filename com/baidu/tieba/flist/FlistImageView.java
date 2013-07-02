@@ -7,9 +7,7 @@ import android.util.AttributeSet;
 import android.widget.ImageView;
 /* loaded from: classes.dex */
 public class FlistImageView extends ImageView {
-
-    /* renamed from: a  reason: collision with root package name */
-    private String f810a;
+    private String a;
     private Paint b;
 
     public FlistImageView(Context context) {
@@ -29,14 +27,14 @@ public class FlistImageView extends ImageView {
     }
 
     public void setUrl(String str) {
-        this.f810a = str;
+        this.a = str;
         invalidate();
     }
 
     @Override // android.widget.ImageView, android.view.View
     protected void onDraw(Canvas canvas) {
         com.baidu.adp.widget.a.b c;
-        if (this.f810a != null && (c = com.baidu.tbadk.a.e.a().c(this.f810a)) != null) {
+        if (this.a != null && (c = com.baidu.tbadk.a.e.a().c(this.a)) != null) {
             c.a(canvas, getMeasuredWidth(), getMeasuredHeight(), (Paint) null);
         }
     }

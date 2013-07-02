@@ -10,15 +10,13 @@ import com.slidingmenu.lib.R;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class p implements View.OnClickListener {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ ImagePbActivity f1287a;
+    final /* synthetic */ ImagePbActivity a;
     private final /* synthetic */ Handler b;
     private final /* synthetic */ Runnable c;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public p(ImagePbActivity imagePbActivity, Handler handler, Runnable runnable) {
-        this.f1287a = imagePbActivity;
+        this.a = imagePbActivity;
         this.b = handler;
         this.c = runnable;
     }
@@ -33,26 +31,26 @@ public class p implements View.OnClickListener {
         GridView gridView2;
         EditText editText3;
         Button button2;
-        gridView = this.f1287a.p;
+        gridView = this.a.p;
         if (gridView.getVisibility() == 0) {
-            editText2 = this.f1287a.m;
+            editText2 = this.a.m;
             editText2.requestFocus();
-            gridView2 = this.f1287a.p;
+            gridView2 = this.a.p;
             gridView2.setVisibility(8);
-            ImagePbActivity imagePbActivity = this.f1287a;
-            editText3 = this.f1287a.m;
+            ImagePbActivity imagePbActivity = this.a;
+            editText3 = this.a.m;
             com.baidu.tieba.util.ab.b(imagePbActivity, editText3);
-            button2 = this.f1287a.o;
+            button2 = this.a.o;
             button2.setBackgroundResource(R.drawable.sub_pb_face);
             return;
         }
-        keyboardLayout = this.f1287a.t;
+        keyboardLayout = this.a.t;
         keyboardLayout.setOnkbdStateListener(null);
-        ImagePbActivity imagePbActivity2 = this.f1287a;
-        editText = this.f1287a.m;
+        ImagePbActivity imagePbActivity2 = this.a;
+        editText = this.a.m;
         com.baidu.tieba.util.ab.a(imagePbActivity2, editText);
         this.b.postDelayed(this.c, 200L);
-        button = this.f1287a.o;
+        button = this.a.o;
         button.setBackgroundResource(R.drawable.sub_pb_keyboard);
     }
 }

@@ -7,13 +7,11 @@ import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class j extends BdAsyncTask {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ AtListActivity f1588a;
+    final /* synthetic */ AtListActivity a;
     private com.baidu.tieba.util.r b;
 
     private j(AtListActivity atListActivity) {
-        this.f1588a = atListActivity;
+        this.a = atListActivity;
         this.b = null;
     }
 
@@ -26,7 +24,7 @@ public class j extends BdAsyncTask {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void b() {
         ProgressBar progressBar;
-        progressBar = this.f1588a.m;
+        progressBar = this.a.m;
         progressBar.setVisibility(0);
         super.b();
     }
@@ -37,8 +35,8 @@ public class j extends BdAsyncTask {
         if (this.b != null) {
             this.b.h();
         }
-        this.f1588a.g = null;
-        progressBar = this.f1588a.m;
+        this.a.g = null;
+        progressBar = this.a.m;
         progressBar.setVisibility(8);
         super.cancel(true);
     }
@@ -48,7 +46,7 @@ public class j extends BdAsyncTask {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public com.baidu.tieba.data.s a(String... strArr) {
         this.b = new com.baidu.tieba.util.r();
-        this.b.a(String.valueOf(com.baidu.tieba.data.g.f787a) + "c/u/follow/list");
+        this.b.a(String.valueOf(com.baidu.tieba.data.g.a) + "c/u/follow/list");
         String j = this.b.j();
         if (!this.b.c()) {
             return null;
@@ -72,29 +70,29 @@ public class j extends BdAsyncTask {
         k kVar3;
         k kVar4;
         ListView listView;
-        this.f1588a.g = null;
-        progressBar = this.f1588a.m;
+        this.a.g = null;
+        progressBar = this.a.m;
         progressBar.setVisibility(8);
         if (this.b.c()) {
-            aVar = this.f1588a.j;
+            aVar = this.a.j;
             aVar.a(sVar);
-            kVar = this.f1588a.k;
+            kVar = this.a.k;
             if (kVar != null) {
-                editText = this.f1588a.f1538a;
+                editText = this.a.a;
                 if (editText.getText().toString().length() != 0) {
-                    aVar2 = this.f1588a.j;
+                    aVar2 = this.a.j;
                     if (aVar2.b() != null) {
-                        aVar3 = this.f1588a.j;
+                        aVar3 = this.a.j;
                         aVar3.b().a(sVar.b());
-                        kVar2 = this.f1588a.k;
+                        kVar2 = this.a.k;
                         kVar2.notifyDataSetInvalidated();
                     }
                 } else {
-                    kVar3 = this.f1588a.k;
+                    kVar3 = this.a.k;
                     kVar3.a(sVar.a());
-                    kVar4 = this.f1588a.k;
+                    kVar4 = this.a.k;
                     kVar4.notifyDataSetInvalidated();
-                    listView = this.f1588a.d;
+                    listView = this.a.d;
                     listView.setSelection(0);
                 }
             } else {

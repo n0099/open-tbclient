@@ -14,9 +14,7 @@ import java.util.ArrayList;
 import org.json.JSONArray;
 /* loaded from: classes.dex */
 public class TbRichTextView extends LinearLayout {
-
-    /* renamed from: a  reason: collision with root package name */
-    private com.baidu.adp.lib.a.b f600a;
+    private com.baidu.adp.lib.a.b a;
     private com.baidu.adp.lib.a.b b;
     private a c;
     private float d;
@@ -51,7 +49,7 @@ public class TbRichTextView extends LinearLayout {
 
     public TbRichTextView(Context context) {
         super(context);
-        this.f600a = null;
+        this.a = null;
         this.b = null;
         this.c = null;
         this.d = 0.0f;
@@ -76,7 +74,7 @@ public class TbRichTextView extends LinearLayout {
 
     public TbRichTextView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f600a = null;
+        this.a = null;
         this.b = null;
         this.c = null;
         this.d = 0.0f;
@@ -115,7 +113,7 @@ public class TbRichTextView extends LinearLayout {
     private void b() {
         if (getContext() instanceof h) {
             h hVar = (h) getContext();
-            this.f600a = hVar.c();
+            this.a = hVar.c();
             this.b = hVar.d();
             if (hVar.a() != null && this.q == null) {
                 this.q = new n(hVar.b());
@@ -133,33 +131,33 @@ public class TbRichTextView extends LinearLayout {
     /* JADX WARN: Multi-variable type inference failed */
     /* JADX WARN: Type inference failed for: r1v0 */
     public void setText(a aVar) {
-        ArrayList a2;
+        ArrayList a;
         LinearLayout linearLayout;
         boolean z;
         LinearLayout linearLayout2;
         LinearLayout linearLayout3 = 0;
         this.c = aVar;
         removeAllViews();
-        if (aVar != null && (a2 = aVar.a()) != null) {
-            int size = a2.size();
+        if (aVar != null && (a = aVar.a()) != null) {
+            int size = a.size();
             int i = 0;
             LinearLayout linearLayout4 = null;
             while (i < size) {
-                c cVar = (c) a2.get(i);
+                c cVar = (c) a.get(i);
                 if (cVar == null) {
                     linearLayout = linearLayout3;
                     linearLayout2 = linearLayout4;
                 } else {
                     if (cVar.a() == 1) {
                         TextView b = b(getContext());
-                        boolean a3 = a(cVar, b);
+                        boolean a2 = a(cVar, b);
                         linearLayout = b;
-                        z = a3;
+                        z = a2;
                     } else if (cVar.a() == 8 && this.s) {
-                        ImageView a4 = a(getContext());
-                        boolean a5 = a(cVar, a4, this.l, this.m);
-                        linearLayout = a4;
-                        z = a5;
+                        ImageView a3 = a(getContext());
+                        boolean a4 = a(cVar, a3, this.l, this.m);
+                        linearLayout = a3;
+                        z = a4;
                     } else if (cVar.a() == 32) {
                         linearLayout = a(cVar);
                         z = true;
@@ -214,8 +212,8 @@ public class TbRichTextView extends LinearLayout {
 
     private ImageView a(Context context) {
         ImageView imageView = null;
-        if (this.f600a != null) {
-            imageView = (ImageView) this.f600a.a();
+        if (this.a != null) {
+            imageView = (ImageView) this.a.a();
         }
         if (imageView == null || imageView.getParent() != null) {
             return new com.baidu.adp.widget.a.a(context);
@@ -225,11 +223,11 @@ public class TbRichTextView extends LinearLayout {
 
     private boolean a(c cVar, ImageView imageView, int i, int i2) {
         e c;
-        int[] a2;
-        if (cVar == null || imageView == null || (c = cVar.c()) == null || (a2 = com.baidu.adp.lib.c.c.a(c.b(), c.a(), i, i2)) == null) {
+        int[] a;
+        if (cVar == null || imageView == null || (c = cVar.c()) == null || (a = com.baidu.adp.lib.c.c.a(c.b(), c.a(), i, i2)) == null) {
             return false;
         }
-        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(a2[0], a2[1]);
+        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(a[0], a[1]);
         layoutParams.topMargin = this.f;
         if (this.n == null) {
             imageView.setScaleType(ImageView.ScaleType.FIT_CENTER);
@@ -391,8 +389,8 @@ public class TbRichTextView extends LinearLayout {
         if (this.s != z) {
             this.s = z;
             setText(this.c);
-            if (!this.s && this.f600a != null) {
-                this.f600a.b();
+            if (!this.s && this.a != null) {
+                this.a.b();
             }
         }
     }

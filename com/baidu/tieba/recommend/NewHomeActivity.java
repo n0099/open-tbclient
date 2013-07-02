@@ -47,9 +47,7 @@ public class NewHomeActivity extends com.baidu.tieba.g implements com.baidu.tieb
     private d y;
     private static boolean v = false;
     private static long w = 0;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static final ArrayList f1382a = new ArrayList();
+    public static final ArrayList a = new ArrayList();
 
     @Override // com.baidu.tieba.g
     public boolean e() {
@@ -109,7 +107,7 @@ public class NewHomeActivity extends com.baidu.tieba.g implements com.baidu.tieb
         String b = DatabaseService.b(10);
         if (b != null && b.length() > 1) {
             this.p = true;
-            this.l.loadDataWithBaseURL(com.baidu.tieba.data.g.f787a, b, "text/html", BdUtil.UTF8, "");
+            this.l.loadDataWithBaseURL(com.baidu.tieba.data.g.a, b, "text/html", BdUtil.UTF8, "");
         }
     }
 

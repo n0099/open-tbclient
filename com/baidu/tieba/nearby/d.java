@@ -14,17 +14,15 @@ import com.baidu.tieba.TiebaApplication;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public class d extends BaseAdapter {
-
-    /* renamed from: a  reason: collision with root package name */
-    private Context f1161a;
+    private Context a;
     private com.baidu.tieba.model.at b;
     private View.OnClickListener c;
 
     public d(Context context, com.baidu.tieba.model.at atVar, View.OnClickListener onClickListener) {
-        this.f1161a = null;
+        this.a = null;
         this.b = null;
         this.c = null;
-        this.f1161a = context;
+        this.a = context;
         this.b = atVar;
         this.c = onClickListener;
     }
@@ -86,12 +84,12 @@ public class d extends BaseAdapter {
         }
         try {
             if (view == null) {
-                LayoutInflater from = LayoutInflater.from(this.f1161a);
+                LayoutInflater from = LayoutInflater.from(this.a);
                 if (itemViewType == 0) {
                     view4 = from.inflate(R.layout.distance_node, (ViewGroup) null);
                     eVar = new e(this);
                     eVar.b = (TextView) view4.findViewById(R.id.distance_text);
-                    eVar.f1162a = (ImageView) view4.findViewById(R.id.distance_icon);
+                    eVar.a = (ImageView) view4.findViewById(R.id.distance_icon);
                     view4.setTag(eVar);
                 } else {
                     if (itemViewType == 1) {
@@ -99,7 +97,7 @@ public class d extends BaseAdapter {
                         f fVar2 = new f(this);
                         fVar2.b = (LinearLayout) view4.findViewById(R.id.nearby_forum_node_layout);
                         fVar2.b.setOnClickListener(this.c);
-                        fVar2.f1163a = (TextView) view4.findViewById(R.id.forum_name);
+                        fVar2.a = (TextView) view4.findViewById(R.id.forum_name);
                         fVar2.c = (Button) view4.findViewById(R.id.like);
                         fVar2.d = (RatingBar) view4.findViewById(R.id.forum_ratingbar);
                         fVar2.e = (TextView) view4.findViewById(R.id.member_count);
@@ -128,13 +126,13 @@ public class d extends BaseAdapter {
             if (itemViewType == 0) {
                 eVar.b.setText(auVar.b());
                 if (at == 1) {
-                    eVar.f1162a.setBackgroundResource(R.drawable.icon_distance_node_1);
+                    eVar.a.setBackgroundResource(R.drawable.icon_distance_node_1);
                     return view4;
                 }
-                eVar.f1162a.setBackgroundResource(R.drawable.icon_distance_node);
+                eVar.a.setBackgroundResource(R.drawable.icon_distance_node);
                 return view4;
             } else if (itemViewType == 1) {
-                fVar.f1163a.setText(auVar.c());
+                fVar.a.setText(auVar.c());
                 fVar.d.setRating(auVar.e());
                 fVar.e.setText(String.valueOf(auVar.g()));
                 fVar.f.setText(String.valueOf(auVar.h()));
@@ -150,14 +148,14 @@ public class d extends BaseAdapter {
                     fVar.c.setClickable(true);
                 }
                 if (at == 1) {
-                    fVar.f1163a.setTextColor(-8682095);
+                    fVar.a.setTextColor(-8682095);
                     fVar.e.setTextColor(-11446171);
                     fVar.f.setTextColor(-11446171);
                     fVar.b.setBackgroundResource(R.drawable.nearby_forum_node_selector_1);
                     fVar.g.setBackgroundColor(-13421773);
                     return view4;
                 }
-                fVar.f1163a.setTextColor(-14277082);
+                fVar.a.setTextColor(-14277082);
                 fVar.e.setTextColor(-7829368);
                 fVar.f.setTextColor(-7829368);
                 fVar.b.setBackgroundResource(R.drawable.nearby_forum_node_selector);

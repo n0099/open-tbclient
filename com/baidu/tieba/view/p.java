@@ -15,9 +15,7 @@ import java.util.Date;
 /* loaded from: classes.dex */
 public class p extends com.baidu.adp.widget.ListView.d {
     private static SimpleDateFormat i = new SimpleDateFormat("MM-dd HH:mm");
-
-    /* renamed from: a  reason: collision with root package name */
-    private View f1527a;
+    private View a;
     private ImageView b;
     private ProgressBar c;
     private TextView d;
@@ -28,7 +26,7 @@ public class p extends com.baidu.adp.widget.ListView.d {
 
     public p(Context context) {
         super(context);
-        this.f1527a = null;
+        this.a = null;
         this.b = null;
         this.c = null;
         this.d = null;
@@ -40,11 +38,11 @@ public class p extends com.baidu.adp.widget.ListView.d {
 
     @Override // com.baidu.adp.widget.ListView.d
     public View a() {
-        this.f1527a = LayoutInflater.from(e()).inflate(R.layout.pull_view, (ViewGroup) null);
-        this.b = (ImageView) this.f1527a.findViewById(R.id.pull_arrow);
-        this.c = (ProgressBar) this.f1527a.findViewById(R.id.pull_progress);
-        this.d = (TextView) this.f1527a.findViewById(R.id.pull_text);
-        this.e = (TextView) this.f1527a.findViewById(R.id.pull_time);
+        this.a = LayoutInflater.from(e()).inflate(R.layout.pull_view, (ViewGroup) null);
+        this.b = (ImageView) this.a.findViewById(R.id.pull_arrow);
+        this.c = (ProgressBar) this.a.findViewById(R.id.pull_progress);
+        this.d = (TextView) this.a.findViewById(R.id.pull_text);
+        this.e = (TextView) this.a.findViewById(R.id.pull_time);
         a(d());
         this.f = new RotateAnimation(0.0f, -180.0f, 1, 0.5f, 1, 0.5f);
         this.f.setInterpolator(new LinearInterpolator());
@@ -54,7 +52,7 @@ public class p extends com.baidu.adp.widget.ListView.d {
         this.g.setInterpolator(new LinearInterpolator());
         this.g.setDuration(200L);
         this.g.setFillAfter(true);
-        return this.f1527a;
+        return this.a;
     }
 
     @Override // com.baidu.adp.widget.ListView.d

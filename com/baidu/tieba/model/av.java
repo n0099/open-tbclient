@@ -8,14 +8,12 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class av {
-
-    /* renamed from: a  reason: collision with root package name */
-    private ArrayList f1027a = new ArrayList();
+    private ArrayList a = new ArrayList();
     private com.baidu.tieba.data.ai b = new com.baidu.tieba.data.ai();
     private int c;
 
     public ArrayList a() {
-        return this.f1027a;
+        return this.a;
     }
 
     public int b() {
@@ -33,7 +31,7 @@ public class av {
     }
 
     public void a(ArrayList arrayList) {
-        this.f1027a = arrayList;
+        this.a = arrayList;
     }
 
     public void a(int i) {
@@ -42,33 +40,33 @@ public class av {
 
     public void b(ArrayList arrayList) {
         if (arrayList != null && arrayList.size() > 0 && ((aw) arrayList.get(0)).a() == 3) {
-            int size = this.f1027a.size();
+            int size = this.a.size();
             if (size > 0) {
-                if (((aw) this.f1027a.get(size - 1)).b().equals(((aw) arrayList.get(0)).b())) {
+                if (((aw) this.a.get(size - 1)).b().equals(((aw) arrayList.get(0)).b())) {
                     arrayList.remove(0);
                 }
-                this.f1027a.addAll(arrayList);
+                this.a.addAll(arrayList);
                 return;
             }
-            this.f1027a = arrayList;
+            this.a = arrayList;
         }
     }
 
     public void a(String str, com.baidu.tieba.data.i iVar, String str2, MetaData metaData) {
-        if (str != null && str.length() != 0 && iVar != null && iVar.a() == 0 && iVar.d() != null && this.f1027a != null) {
+        if (str != null && str.length() != 0 && iVar != null && iVar.a() == 0 && iVar.d() != null && this.a != null) {
             int i = 0;
             while (true) {
                 int i2 = i;
-                if (i2 < this.f1027a.size()) {
-                    if (!str.equals(((aw) this.f1027a.get(i2)).h())) {
+                if (i2 < this.a.size()) {
+                    if (!str.equals(((aw) this.a.get(i2)).h())) {
                         i = i2 + 1;
                     } else {
                         ArrayList arrayList = new ArrayList();
                         arrayList.add(iVar);
-                        ((aw) this.f1027a.get(i2)).a(arrayList);
-                        ((aw) this.f1027a.get(i2)).a(str2);
-                        ((aw) this.f1027a.get(i2)).a(((aw) this.f1027a.get(i2)).d() + 1);
-                        ((aw) this.f1027a.get(i2)).a(metaData);
+                        ((aw) this.a.get(i2)).a(arrayList);
+                        ((aw) this.a.get(i2)).a(str2);
+                        ((aw) this.a.get(i2)).a(((aw) this.a.get(i2)).d() + 1);
+                        ((aw) this.a.get(i2)).a(metaData);
                         return;
                     }
                 } else {
@@ -98,7 +96,7 @@ public class av {
                     awVar2.b = optJSONObject.optString("distance");
                     awVar2.c = optJSONObject.optString("lng");
                     awVar2.d = optJSONObject.optString("lat");
-                    awVar2.f1028a = optJSONObject.optInt("type", 0);
+                    awVar2.a = optJSONObject.optInt("type", 0);
                     JSONArray optJSONArray2 = optJSONObject.optJSONArray(PushConstants.EXTRA_CONTENT);
                     if (optJSONArray2 != null) {
                         for (int i2 = 0; i2 < optJSONArray2.length(); i2++) {
@@ -125,13 +123,13 @@ public class av {
                     awVar2.n = optJSONObject.optString("reply_time");
                     awVar2.o.parserJson(optJSONObject.optJSONObject("replyer"));
                     if (awVar != null && awVar2.b.equals(awVar.b)) {
-                        this.f1027a.add(awVar2);
+                        this.a.add(awVar2);
                     } else {
                         aw awVar3 = new aw(this);
                         awVar3.b = awVar2.b;
-                        awVar3.f1028a = 3;
-                        this.f1027a.add(awVar3);
-                        this.f1027a.add(awVar2);
+                        awVar3.a = 3;
+                        this.a.add(awVar3);
+                        this.a.add(awVar2);
                     }
                     i++;
                     awVar = awVar2;
@@ -152,8 +150,8 @@ public class av {
         int i = 0;
         while (true) {
             int i2 = i;
-            if (i2 < this.f1027a.size()) {
-                if (((aw) this.f1027a.get(i2)).a() == 0 && (p = ((aw) this.f1027a.get(i2)).p()) != null) {
+            if (i2 < this.a.size()) {
+                if (((aw) this.a.get(i2)).a() == 0 && (p = ((aw) this.a.get(i2)).p()) != null) {
                     arrayList.add(p);
                 }
                 i = i2 + 1;

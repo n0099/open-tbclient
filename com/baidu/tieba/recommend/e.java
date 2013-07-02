@@ -16,14 +16,12 @@ import java.net.URLDecoder;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class e extends BdAsyncTask {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ NewHomeActivity f1388a;
+    final /* synthetic */ NewHomeActivity a;
     private r b;
     private String c;
 
     private e(NewHomeActivity newHomeActivity) {
-        this.f1388a = newHomeActivity;
+        this.a = newHomeActivity;
         this.b = null;
     }
 
@@ -42,7 +40,7 @@ public class e extends BdAsyncTask {
         String q;
         String e;
         long j;
-        this.b = new r(String.valueOf(com.baidu.tieba.data.g.f787a) + "c/s/tag/allthread");
+        this.b = new r(String.valueOf(com.baidu.tieba.data.g.a) + "c/s/tag/allthread");
         this.b.d(true);
         this.b.a(false);
         if (TiebaApplication.f().at() == 1) {
@@ -51,7 +49,7 @@ public class e extends BdAsyncTask {
         this.b.a("_version_more", "1");
         this.b.a("platform", "android");
         r rVar = this.b;
-        str = this.f1388a.x;
+        str = this.a.x;
         rVar.a("pn", str);
         z = NewHomeActivity.v;
         if (z) {
@@ -61,7 +59,7 @@ public class e extends BdAsyncTask {
             j = NewHomeActivity.w;
             rVar2.a("message_id", String.valueOf(j));
         }
-        q = this.f1388a.q();
+        q = this.a.q();
         if (q != null && q.length() > 0) {
             this.b.a("tid_list", q);
         }
@@ -89,7 +87,7 @@ public class e extends BdAsyncTask {
         if (this.b != null) {
             this.b.h();
         }
-        this.f1388a.u = false;
+        this.a.u = false;
         super.cancel(true);
     }
 
@@ -106,29 +104,29 @@ public class e extends BdAsyncTask {
         BaseWebView baseWebView2;
         TextView textView2;
         BaseWebView baseWebView3;
-        linearLayout = this.f1388a.n;
+        linearLayout = this.a.n;
         linearLayout.setOnClickListener(null);
         if (this.b == null || !this.b.d() || str == null || str.length() <= 0) {
-            this.f1388a.r = false;
-            this.f1388a.p();
-            z = this.f1388a.p;
+            this.a.r = false;
+            this.a.p();
+            z = this.a.p;
             if (!z) {
-                textView = this.f1388a.s;
+                textView = this.a.s;
                 textView.setVisibility(0);
-                baseWebView = this.f1388a.l;
+                baseWebView = this.a.l;
                 baseWebView.setVisibility(8);
-                linearLayout2 = this.f1388a.n;
-                onClickListener = this.f1388a.k;
+                linearLayout2 = this.a.n;
+                onClickListener = this.a.k;
                 linearLayout2.setOnClickListener(onClickListener);
             }
         } else {
             DatabaseService.a(str, 10);
-            baseWebView2 = this.f1388a.l;
-            baseWebView2.loadDataWithBaseURL(com.baidu.tieba.data.g.f787a, str, "text/html", BdUtil.UTF8, "");
-            this.f1388a.p = true;
-            textView2 = this.f1388a.s;
+            baseWebView2 = this.a.l;
+            baseWebView2.loadDataWithBaseURL(com.baidu.tieba.data.g.a, str, "text/html", BdUtil.UTF8, "");
+            this.a.p = true;
+            textView2 = this.a.s;
             textView2.setVisibility(8);
-            baseWebView3 = this.f1388a.l;
+            baseWebView3 = this.a.l;
             baseWebView3.setVisibility(0);
             int indexOf = str.indexOf("dataType=\"idSet\">");
             if (indexOf != -1) {
@@ -137,10 +135,10 @@ public class e extends BdAsyncTask {
                 while (i < str.length() && str.charAt(i) != '<') {
                     i++;
                 }
-                this.f1388a.c(URLDecoder.decode(str.substring(length, i)));
+                this.a.c(URLDecoder.decode(str.substring(length, i)));
             }
         }
-        this.f1388a.q = true;
-        this.f1388a.r();
+        this.a.q = true;
+        this.a.r();
     }
 }

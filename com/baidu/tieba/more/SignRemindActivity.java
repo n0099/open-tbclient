@@ -15,9 +15,7 @@ import com.baidu.tieba.TiebaApplication;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public class SignRemindActivity extends com.baidu.tieba.g {
-
-    /* renamed from: a  reason: collision with root package name */
-    private LinearLayout f1077a;
+    private LinearLayout a;
     private LinearLayout b;
     private TextView c;
     private TextView d;
@@ -53,16 +51,16 @@ public class SignRemindActivity extends com.baidu.tieba.g {
         com.baidu.tieba.util.x.f(this.l, i);
         ImageView imageView = (ImageView) findViewById(R.id.arrow);
         if (i == 1) {
-            int a2 = com.baidu.tieba.util.x.a(i);
-            com.baidu.tieba.util.x.h(this.f1077a, (int) R.drawable.more_all_1);
+            int a = com.baidu.tieba.util.x.a(i);
+            com.baidu.tieba.util.x.h(this.a, (int) R.drawable.more_all_1);
             com.baidu.tieba.util.x.h(this.b, (int) R.drawable.more_all_1);
             this.e.setTextColor(-11446171);
             this.f.setSwitchStyle(BdSwitchView.SwitchStyle.NIGHT);
             imageView.setImageResource(R.drawable.icon_arrow_right_1);
-            i2 = a2;
+            i2 = a;
         } else {
             int color = getResources().getColor(R.color.more_color);
-            com.baidu.tieba.util.x.h(this.f1077a, (int) R.drawable.more_all);
+            com.baidu.tieba.util.x.h(this.a, (int) R.drawable.more_all);
             com.baidu.tieba.util.x.h(this.b, (int) R.drawable.more_all);
             this.e.setTextColor(-5065030);
             this.f.setSwitchStyle(BdSwitchView.SwitchStyle.DAY);
@@ -78,7 +76,7 @@ public class SignRemindActivity extends com.baidu.tieba.g {
         this.j = findViewById(R.id.title);
         this.k = (ImageView) findViewById(R.id.back);
         this.l = (TextView) findViewById(R.id.title_text);
-        this.f1077a = (LinearLayout) findViewById(R.id.sign_remind);
+        this.a = (LinearLayout) findViewById(R.id.sign_remind);
         this.b = (LinearLayout) findViewById(R.id.sign_remind_on);
         this.c = (TextView) findViewById(R.id.sign_remind_text);
         this.d = (TextView) findViewById(R.id.sign_remind_on_text);
@@ -89,7 +87,7 @@ public class SignRemindActivity extends com.baidu.tieba.g {
     protected void c() {
         this.k.setOnClickListener(new ah(this));
         this.f.setOnSwitchStateChangeListener(new ai(this));
-        this.f1077a.setOnClickListener(new aj(this));
+        this.a.setOnClickListener(new aj(this));
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -97,7 +95,7 @@ public class SignRemindActivity extends com.baidu.tieba.g {
         TiebaApplication f = TiebaApplication.f();
         if (f.ai()) {
             this.e.setText(getString(R.string.sign_remind_time, new Object[]{f.aj() > 9 ? String.valueOf(f.aj()) : "0" + f.aj(), f.ak() > 9 ? String.valueOf(f.ak()) : "0" + f.ak()}));
-            this.f1077a.setVisibility(0);
+            this.a.setVisibility(0);
             if (!this.f.c()) {
                 this.f.a();
                 return;
@@ -105,7 +103,7 @@ public class SignRemindActivity extends com.baidu.tieba.g {
             return;
         }
         this.e.setText(R.string.close);
-        this.f1077a.setVisibility(8);
+        this.a.setVisibility(8);
         if (this.f.c()) {
             this.f.b();
         }

@@ -13,9 +13,7 @@ import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class ai {
     private boolean c = true;
-
-    /* renamed from: a  reason: collision with root package name */
-    private List f1015a = new ArrayList();
+    private List a = new ArrayList();
     private List b = new ArrayList();
     private int[] d = {R.drawable.ball_blue, R.drawable.ball_green, R.drawable.ball_lightblue, R.drawable.ball_orange, R.drawable.ball_violet, R.drawable.ball_yellow, R.drawable.ball_yolk};
     private int[][] e = {new int[]{28, 52}, new int[]{90, 40}, new int[]{25, 97}, new int[]{110, 121}};
@@ -26,7 +24,7 @@ public class ai {
     private List j = new ArrayList();
 
     public List a() {
-        return this.f1015a;
+        return this.a;
     }
 
     public List b() {
@@ -35,24 +33,24 @@ public class ai {
 
     public void c() {
         int[][] iArr;
-        int a2 = com.baidu.tieba.util.ab.a(TiebaApplication.f().getApplicationContext());
+        int a = com.baidu.tieba.util.ab.a(TiebaApplication.f().getApplicationContext());
         int b = com.baidu.tieba.util.ab.b(TiebaApplication.f().getApplicationContext());
-        if (a2 > 0 && b > 0) {
-            int min = Math.min((int) (((a2 * 145) * 1.0d) / 320.0d), (int) (((b * 145) * 1.0d) / 480.0d));
-            int min2 = Math.min((int) (((a2 * WebChromeClient.STRING_DLG_TITLE_COLOR) * 1.0d) / 320.0d), (int) (((b * WebChromeClient.STRING_DLG_TITLE_COLOR) * 1.0d) / 480.0d));
+        if (a > 0 && b > 0) {
+            int min = Math.min((int) (((a * 145) * 1.0d) / 320.0d), (int) (((b * 145) * 1.0d) / 480.0d));
+            int min2 = Math.min((int) (((a * WebChromeClient.STRING_DLG_TITLE_COLOR) * 1.0d) / 320.0d), (int) (((b * WebChromeClient.STRING_DLG_TITLE_COLOR) * 1.0d) / 480.0d));
             int length = this.d.length;
             Random random = new Random(length);
             int nextInt = random.nextInt(length);
             ArrayList arrayList = new ArrayList();
             ArrayList arrayList2 = new ArrayList();
-            if (this.f1015a != null && this.f1015a.size() > 0) {
+            if (this.a != null && this.a.size() > 0) {
                 int i = 0;
                 while (true) {
                     int i2 = i;
-                    if (i2 >= this.f1015a.size()) {
+                    if (i2 >= this.a.size()) {
                         break;
                     }
-                    com.baidu.tieba.data.y yVar = (com.baidu.tieba.data.y) this.f1015a.get(i2);
+                    com.baidu.tieba.data.y yVar = (com.baidu.tieba.data.y) this.a.get(i2);
                     if (yVar.b().size() == 2 && arrayList.size() < 3) {
                         arrayList.add(yVar);
                     } else if (arrayList2.size() < 12) {
@@ -73,7 +71,7 @@ public class ai {
                     yVar2.e(min);
                     int i5 = this.f[0][0];
                     int i6 = this.f[0][1];
-                    yVar2.b((int) ((((i5 - ((random.nextInt() % 3) * 10)) * a2) * 1.0d) / 320.0d));
+                    yVar2.b((int) ((((i5 - ((random.nextInt() % 3) * 10)) * a) * 1.0d) / 320.0d));
                     yVar2.c((int) ((((i6 - ((random.nextInt() % 3) * 10)) * b) * 1.0d) / 480.0d));
                     if (b2 != null && b2.size() > 0) {
                         int nextInt2 = random.nextInt(length);
@@ -85,7 +83,7 @@ public class ai {
                             ((com.baidu.tieba.data.z) b2.get(i7)).e(min2);
                             int i9 = this.f[(i7 + 1) % 4][0];
                             int i10 = this.f[(i7 + 1) % 4][1];
-                            ((com.baidu.tieba.data.z) b2.get(i7)).b((int) (((i9 * a2) * 1.0d) / 320.0d));
+                            ((com.baidu.tieba.data.z) b2.get(i7)).b((int) (((i9 * a) * 1.0d) / 320.0d));
                             ((com.baidu.tieba.data.z) b2.get(i7)).c((int) (((i10 * b) * 1.0d) / 480.0d));
                             i7++;
                             nextInt2 = i8;
@@ -123,7 +121,7 @@ public class ai {
                     }
                     int i15 = iArr[0][0];
                     int i16 = iArr[0][1];
-                    yVar3.b((int) ((((i15 - ((random.nextInt() % 3) * 10)) * a2) * 1.0d) / 320.0d));
+                    yVar3.b((int) ((((i15 - ((random.nextInt() % 3) * 10)) * a) * 1.0d) / 320.0d));
                     yVar3.c((int) ((((i16 - ((random.nextInt() % 3) * 10)) * b) * 1.0d) / 480.0d));
                     if (b3 != null && b3.size() > 0) {
                         int nextInt3 = random.nextInt(length);
@@ -135,7 +133,7 @@ public class ai {
                             ((com.baidu.tieba.data.z) b3.get(i17)).e(min2);
                             int i19 = iArr[(i17 + 1) % 4][0];
                             int i20 = iArr[(i17 + 1) % 4][1];
-                            ((com.baidu.tieba.data.z) b3.get(i17)).b((int) (((i19 * a2) * 1.0d) / 320.0d));
+                            ((com.baidu.tieba.data.z) b3.get(i17)).b((int) (((i19 * a) * 1.0d) / 320.0d));
                             ((com.baidu.tieba.data.z) b3.get(i17)).c((int) (((i20 * b) * 1.0d) / 480.0d));
                             i17++;
                             nextInt3 = i18;
@@ -157,7 +155,7 @@ public class ai {
                     ((com.baidu.tieba.data.z) this.b.get(i22)).a(i22 % 3);
                     int i24 = this.f[3][0];
                     int i25 = this.f[3][1];
-                    ((com.baidu.tieba.data.z) this.b.get(i22)).b((int) ((((i24 - ((random.nextInt() % 3) * 10)) * a2) * 1.0d) / 320.0d));
+                    ((com.baidu.tieba.data.z) this.b.get(i22)).b((int) ((((i24 - ((random.nextInt() % 3) * 10)) * a) * 1.0d) / 320.0d));
                     ((com.baidu.tieba.data.z) this.b.get(i22)).c((int) ((((i25 - ((random.nextInt() % 3) * 0)) * b) * 1.0d) / 480.0d));
                     i22++;
                     i21 = i23;
@@ -182,11 +180,11 @@ public class ai {
             JSONArray optJSONArray2 = optJSONObject.optJSONArray("level2");
             JSONArray optJSONArray3 = optJSONObject.optJSONArray("user_tag");
             if (optJSONArray != null && optJSONArray.length() > 0) {
-                this.f1015a.clear();
+                this.a.clear();
                 for (int i = 0; i < optJSONArray.length(); i++) {
                     com.baidu.tieba.data.y yVar = new com.baidu.tieba.data.y();
                     yVar.a(optJSONArray.getJSONObject(i));
-                    this.f1015a.add(yVar);
+                    this.a.add(yVar);
                 }
             }
             if (optJSONArray2 != null && optJSONArray2.length() > 0) {

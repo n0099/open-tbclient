@@ -8,12 +8,10 @@ import java.util.ArrayList;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class m implements j {
-
-    /* renamed from: a  reason: collision with root package name */
-    private MKSearchListener f560a;
+    private MKSearchListener a;
 
     public m(MKSearchListener mKSearchListener) {
-        this.f560a = mKSearchListener;
+        this.a = mKSearchListener;
     }
 
     private int a(Bundle bundle, MKRouteAddrResult mKRouteAddrResult) {
@@ -143,7 +141,7 @@ public class m implements j {
                             }
                         }
                         mKRoute.b(arrayList3);
-                        mKRoute.f514a = arrayList4;
+                        mKRoute.a = arrayList4;
                     }
                     if (bundle2.containsKey("aryStep")) {
                         ArrayList arrayList7 = new ArrayList();
@@ -382,7 +380,7 @@ public class m implements j {
                                 arrayList4.add(new GeoPoint(intArray4[i7], intArray3[i7]));
                             }
                         }
-                        mKLine.f509a = arrayList4;
+                        mKLine.a = arrayList4;
                     }
                     arrayList2.add(mKLine);
                 }
@@ -426,7 +424,7 @@ public class m implements j {
                     mKRoute.b(arrayList8);
                     ArrayList arrayList9 = new ArrayList();
                     arrayList9.add(arrayList7);
-                    mKRoute.f514a = arrayList9;
+                    mKRoute.a = arrayList9;
                     arrayList5.add(mKRoute);
                 }
                 mKTransitRoutePlan.a(arrayList5);
@@ -496,7 +494,7 @@ public class m implements j {
                             }
                         }
                         mKRoute.b(arrayList3);
-                        mKRoute.f514a = arrayList4;
+                        mKRoute.a = arrayList4;
                     }
                     if (bundle2.containsKey("aryStep")) {
                         ArrayList arrayList7 = new ArrayList();
@@ -586,7 +584,7 @@ public class m implements j {
                 }
             }
             busRoute.b(arrayList);
-            busRoute.f514a = arrayList2;
+            busRoute.a = arrayList2;
             int i5 = bundle.getInt("stopSize");
             if (bundle.containsKey("aryStep")) {
                 ArrayList arrayList5 = new ArrayList();
@@ -630,21 +628,21 @@ public class m implements j {
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public void a(MKEvent mKEvent) {
-        switch (mKEvent.f508a) {
+        switch (mKEvent.a) {
             case 1:
                 if (mKEvent.b != 0) {
-                    this.f560a.onGetPoiResult(null, 0, mKEvent.b);
+                    this.a.onGetPoiResult(null, 0, mKEvent.b);
                     return;
                 }
                 Bundle newBundle = Mj.getNewBundle(11010204, mKEvent.c, 0);
                 if (newBundle == null) {
-                    this.f560a.onGetPoiResult(null, 0, 100);
+                    this.a.onGetPoiResult(null, 0, 100);
                     return;
                 }
                 MKPoiResult mKPoiResult = new MKPoiResult();
                 a(newBundle, mKPoiResult, mKEvent.c);
                 if (mKEvent.c != 45) {
-                    this.f560a.onGetPoiResult(mKPoiResult, mKEvent.c, 0);
+                    this.a.onGetPoiResult(mKPoiResult, mKEvent.c, 0);
                     return;
                 }
                 ArrayList multiPoiResult = mKPoiResult.getMultiPoiResult();
@@ -652,10 +650,10 @@ public class m implements j {
                     for (int i = 0; i < multiPoiResult.size(); i++) {
                         if (((MKPoiResult) multiPoiResult.get(i)).getAllPoi() != null) {
                             if (r4) {
-                                this.f560a.onGetPoiResult(null, mKEvent.c, 100);
+                                this.a.onGetPoiResult(null, mKEvent.c, 100);
                                 return;
                             } else {
-                                this.f560a.onGetPoiResult(mKPoiResult, mKEvent.c, 0);
+                                this.a.onGetPoiResult(mKPoiResult, mKEvent.c, 0);
                                 return;
                             }
                         }
@@ -666,45 +664,45 @@ public class m implements j {
                 }
             case 2:
                 if (mKEvent.b != 0) {
-                    this.f560a.onGetTransitRouteResult(null, mKEvent.b);
+                    this.a.onGetTransitRouteResult(null, mKEvent.b);
                     return;
                 }
                 Bundle newBundle2 = Mj.getNewBundle(11020204, mKEvent.c, 0);
                 if (newBundle2 == null) {
-                    this.f560a.onGetTransitRouteResult(null, 100);
+                    this.a.onGetTransitRouteResult(null, 100);
                     return;
                 }
                 MKTransitRouteResult mKTransitRouteResult = new MKTransitRouteResult();
                 a(newBundle2, mKTransitRouteResult, mKEvent.c);
-                this.f560a.onGetTransitRouteResult(mKTransitRouteResult, 0);
+                this.a.onGetTransitRouteResult(mKTransitRouteResult, 0);
                 return;
             case 3:
                 if (mKEvent.b != 0) {
-                    this.f560a.onGetDrivingRouteResult(null, mKEvent.b);
+                    this.a.onGetDrivingRouteResult(null, mKEvent.b);
                     return;
                 }
                 Bundle newBundle3 = Mj.getNewBundle(11020204, mKEvent.c, 0);
                 if (newBundle3 == null) {
-                    this.f560a.onGetDrivingRouteResult(null, 100);
+                    this.a.onGetDrivingRouteResult(null, 100);
                     return;
                 }
                 MKDrivingRouteResult mKDrivingRouteResult = new MKDrivingRouteResult();
                 a(newBundle3, mKDrivingRouteResult, mKEvent.c);
-                this.f560a.onGetDrivingRouteResult(mKDrivingRouteResult, 0);
+                this.a.onGetDrivingRouteResult(mKDrivingRouteResult, 0);
                 return;
             case 4:
                 if (mKEvent.b != 0) {
-                    this.f560a.onGetWalkingRouteResult(null, mKEvent.b);
+                    this.a.onGetWalkingRouteResult(null, mKEvent.b);
                     return;
                 }
                 Bundle newBundle4 = Mj.getNewBundle(11020204, mKEvent.c, 0);
                 if (newBundle4 == null) {
-                    this.f560a.onGetWalkingRouteResult(null, 100);
+                    this.a.onGetWalkingRouteResult(null, 100);
                     return;
                 }
                 MKWalkingRouteResult mKWalkingRouteResult = new MKWalkingRouteResult();
                 a(newBundle4, mKWalkingRouteResult, mKEvent.c);
-                this.f560a.onGetWalkingRouteResult(mKWalkingRouteResult, 0);
+                this.a.onGetWalkingRouteResult(mKWalkingRouteResult, 0);
                 return;
             case 5:
             case 7:
@@ -717,38 +715,38 @@ public class m implements j {
                 return;
             case 6:
                 if (mKEvent.b != 0) {
-                    this.f560a.onGetAddrResult(null, mKEvent.b);
+                    this.a.onGetAddrResult(null, mKEvent.b);
                     return;
                 }
                 Bundle newBundle5 = Mj.getNewBundle(11010204, mKEvent.c, 0);
                 if (newBundle5 == null) {
-                    this.f560a.onGetAddrResult(null, 100);
+                    this.a.onGetAddrResult(null, 100);
                     return;
                 }
                 MKAddrInfo mKAddrInfo = new MKAddrInfo();
                 mKAddrInfo.type = 1;
                 a(newBundle5, mKAddrInfo, mKEvent.c);
                 if (mKAddrInfo.strAddr == null || mKAddrInfo.strAddr.length() == 0) {
-                    this.f560a.onGetAddrResult(null, 100);
+                    this.a.onGetAddrResult(null, 100);
                     return;
                 } else {
-                    this.f560a.onGetAddrResult(mKAddrInfo, 0);
+                    this.a.onGetAddrResult(mKAddrInfo, 0);
                     return;
                 }
             case 10:
                 if (mKEvent.b != 0) {
-                    this.f560a.onGetAddrResult(null, mKEvent.b);
+                    this.a.onGetAddrResult(null, mKEvent.b);
                     return;
                 }
                 Bundle newBundle6 = Mj.getNewBundle(11010204, mKEvent.c, 0);
                 if (newBundle6 == null) {
-                    this.f560a.onGetAddrResult(null, 100);
+                    this.a.onGetAddrResult(null, 100);
                     return;
                 }
                 MKAddrInfo mKAddrInfo2 = new MKAddrInfo();
                 mKAddrInfo2.type = 0;
                 a(newBundle6, mKAddrInfo2);
-                this.f560a.onGetAddrResult(mKAddrInfo2, 0);
+                this.a.onGetAddrResult(mKAddrInfo2, 0);
                 return;
             case 11:
                 Bundle newBundle7 = Mj.getNewBundle(11020204, mKEvent.c, 0);
@@ -757,98 +755,98 @@ public class m implements j {
                     case 0:
                         MKDrivingRouteResult mKDrivingRouteResult2 = new MKDrivingRouteResult();
                         mKDrivingRouteResult2.a(mKRouteAddrResult);
-                        this.f560a.onGetDrivingRouteResult(mKDrivingRouteResult2, 4);
+                        this.a.onGetDrivingRouteResult(mKDrivingRouteResult2, 4);
                         return;
                     case 1:
                         if (mKRouteAddrResult.mStartPoiList == null || mKRouteAddrResult.mEndPoiList == null) {
-                            this.f560a.onGetTransitRouteResult(null, 100);
+                            this.a.onGetTransitRouteResult(null, 100);
                             return;
                         }
                         MKTransitRouteResult mKTransitRouteResult2 = new MKTransitRouteResult();
                         mKTransitRouteResult2.a(mKRouteAddrResult);
-                        this.f560a.onGetTransitRouteResult(mKTransitRouteResult2, 4);
+                        this.a.onGetTransitRouteResult(mKTransitRouteResult2, 4);
                         return;
                     case 2:
                         MKWalkingRouteResult mKWalkingRouteResult2 = new MKWalkingRouteResult();
                         mKWalkingRouteResult2.a(mKRouteAddrResult);
-                        this.f560a.onGetWalkingRouteResult(mKWalkingRouteResult2, 4);
+                        this.a.onGetWalkingRouteResult(mKWalkingRouteResult2, 4);
                         return;
                     default:
                         return;
                 }
             case 15:
                 if (mKEvent.b != 0) {
-                    this.f560a.onGetBusDetailResult(null, mKEvent.b);
+                    this.a.onGetBusDetailResult(null, mKEvent.b);
                     return;
                 }
                 Bundle newBundle8 = Mj.getNewBundle(11020204, mKEvent.c, 0);
                 if (newBundle8 == null) {
-                    this.f560a.onGetBusDetailResult(null, 100);
+                    this.a.onGetBusDetailResult(null, 100);
                     return;
                 }
                 MKBusLineResult mKBusLineResult = new MKBusLineResult();
-                this.f560a.onGetBusDetailResult(mKBusLineResult, a(newBundle8, mKBusLineResult) ? 0 : 100);
+                this.a.onGetBusDetailResult(mKBusLineResult, a(newBundle8, mKBusLineResult) ? 0 : 100);
                 return;
             case 16:
                 if (mKEvent.b != 0) {
-                    this.f560a.onGetSuggestionResult(null, mKEvent.b);
+                    this.a.onGetSuggestionResult(null, mKEvent.b);
                     return;
                 }
                 Bundle newBundle9 = Mj.getNewBundle(11010107, mKEvent.c, 0);
                 if (newBundle9 == null) {
-                    this.f560a.onGetSuggestionResult(null, 100);
+                    this.a.onGetSuggestionResult(null, 100);
                     return;
                 }
                 MKSuggestionResult mKSuggestionResult = new MKSuggestionResult();
                 a(newBundle9, mKSuggestionResult, mKEvent.c);
                 if (mKEvent.c != 506) {
-                    this.f560a.onGetSuggestionResult(mKSuggestionResult, 0);
+                    this.a.onGetSuggestionResult(mKSuggestionResult, 0);
                     return;
                 }
                 if (mKSuggestionResult.getSuggestionNum() > 0) {
-                    this.f560a.onGetSuggestionResult(mKSuggestionResult, 0);
+                    this.a.onGetSuggestionResult(mKSuggestionResult, 0);
                     return;
                 } else {
-                    this.f560a.onGetSuggestionResult(null, 100);
+                    this.a.onGetSuggestionResult(null, 100);
                     return;
                 }
             case 17:
                 if (mKEvent.b != 0) {
-                    this.f560a.onGetRGCShareUrlResult(null, mKEvent.b);
+                    this.a.onGetRGCShareUrlResult(null, mKEvent.b);
                     return;
                 }
                 Bundle newBundle10 = Mj.getNewBundle(11010110, mKEvent.c, 0);
                 if (newBundle10 == null) {
-                    this.f560a.onGetRGCShareUrlResult(null, 100);
+                    this.a.onGetRGCShareUrlResult(null, 100);
                     return;
                 }
                 String string = newBundle10.getString("shortUrl");
                 if (mKEvent.c != 500) {
-                    this.f560a.onGetRGCShareUrlResult(string, 0);
+                    this.a.onGetRGCShareUrlResult(string, 0);
                     return;
                 }
                 if ((string == null || string == "") ? false : true) {
-                    this.f560a.onGetRGCShareUrlResult(string, 0);
+                    this.a.onGetRGCShareUrlResult(string, 0);
                     return;
                 } else {
-                    this.f560a.onGetRGCShareUrlResult(null, 100);
+                    this.a.onGetRGCShareUrlResult(null, 100);
                     return;
                 }
             case 18:
                 if (mKEvent.b != 0) {
-                    this.f560a.onGetPoiDetailSearchResult(mKEvent.c, mKEvent.b);
+                    this.a.onGetPoiDetailSearchResult(mKEvent.c, mKEvent.b);
                     return;
                 }
                 Bundle newBundle11 = Mj.getNewBundle(11010113, mKEvent.c, 0);
                 if (newBundle11 == null) {
-                    this.f560a.onGetPoiDetailSearchResult(mKEvent.c, mKEvent.b);
+                    this.a.onGetPoiDetailSearchResult(mKEvent.c, mKEvent.b);
                     return;
                 }
                 Intent intent = new Intent(BMapManager.b, PlaceCaterActivity.class);
                 intent.putExtras(newBundle11);
                 intent.addFlags(268435456);
                 BMapManager.b.startActivity(intent);
-                this.f560a.onGetPoiDetailSearchResult(mKEvent.c, mKEvent.b);
+                this.a.onGetPoiDetailSearchResult(mKEvent.c, mKEvent.b);
                 return;
         }
     }

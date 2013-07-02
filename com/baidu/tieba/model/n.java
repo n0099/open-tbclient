@@ -7,16 +7,14 @@ import org.apache.http.message.BasicNameValuePair;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class n extends BdAsyncTask {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ m f1058a;
+    final /* synthetic */ m a;
     private com.baidu.tieba.util.r b = null;
     private boolean c;
     private boolean d;
     private boolean e;
 
     public n(m mVar, Boolean bool, Boolean bool2, Boolean bool3) {
-        this.f1058a = mVar;
+        this.a = mVar;
         this.c = false;
         this.d = false;
         this.e = true;
@@ -84,7 +82,7 @@ public class n extends BdAsyncTask {
         }
         if (this.d) {
             StringBuffer stringBuffer = new StringBuffer(30);
-            stringBuffer.append(com.baidu.tieba.data.g.f787a);
+            stringBuffer.append(com.baidu.tieba.data.g.a);
             stringBuffer.append("c/f/forum/favocommend");
             ArrayList arrayList = new ArrayList();
             arrayList.add(new BasicNameValuePair("ctime", String.valueOf(System.currentTimeMillis())));
@@ -124,9 +122,9 @@ public class n extends BdAsyncTask {
     /* renamed from: a */
     public void b(com.baidu.tieba.data.p... pVarArr) {
         com.baidu.adp.a.e eVar;
-        this.f1058a.f1057a = pVarArr[0];
-        this.f1058a.mLoadDataMode = 2;
-        eVar = this.f1058a.mLoadDataCallBack;
+        this.a.a = pVarArr[0];
+        this.a.mLoadDataMode = 2;
+        eVar = this.a.mLoadDataCallBack;
         eVar.a(true);
     }
 
@@ -136,17 +134,17 @@ public class n extends BdAsyncTask {
     public void a(com.baidu.tieba.data.p pVar) {
         com.baidu.adp.a.e eVar;
         boolean z = true;
-        this.f1058a.mLoadDataMode = 1;
+        this.a.mLoadDataMode = 1;
         if (pVar == null) {
             z = false;
             if (this.b != null) {
-                this.f1058a.mErrorString = this.b.g();
+                this.a.mErrorString = this.b.g();
             }
         } else {
-            this.f1058a.f1057a = pVar;
+            this.a.a = pVar;
         }
-        this.f1058a.b = null;
-        eVar = this.f1058a.mLoadDataCallBack;
+        this.a.b = null;
+        eVar = this.a.mLoadDataCallBack;
         eVar.a(Boolean.valueOf(z));
     }
 
@@ -157,9 +155,9 @@ public class n extends BdAsyncTask {
             this.b.h();
             this.b = null;
         }
-        this.f1058a.b = null;
+        this.a.b = null;
         super.cancel(true);
-        eVar = this.f1058a.mLoadDataCallBack;
+        eVar = this.a.mLoadDataCallBack;
         eVar.a(false);
     }
 }

@@ -5,19 +5,17 @@ import android.widget.EditText;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class as implements View.OnClickListener {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ SearchActivity f907a;
+    final /* synthetic */ SearchActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public as(SearchActivity searchActivity) {
-        this.f907a = searchActivity;
+        this.a = searchActivity;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         EditText editText;
-        editText = this.f907a.f886a;
+        editText = this.a.a;
         editText.setText("");
     }
 }

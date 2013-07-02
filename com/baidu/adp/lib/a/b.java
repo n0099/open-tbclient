@@ -4,15 +4,13 @@ import java.security.InvalidParameterException;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
 public class b {
-
-    /* renamed from: a  reason: collision with root package name */
-    private int f120a;
+    private int a;
     private int b;
     private LinkedList c;
     private c d;
 
     public b(c cVar, int i, int i2) {
-        this.f120a = 10;
+        this.a = 10;
         this.b = 0;
         this.c = null;
         this.d = null;
@@ -20,7 +18,7 @@ public class b {
             throw new InvalidParameterException("invalid params");
         }
         this.d = cVar;
-        this.f120a = i;
+        this.a = i;
         this.b = i2;
         this.c = new LinkedList();
         a(this.b);
@@ -63,7 +61,7 @@ public class b {
     public void a(Object obj) {
         Object obj2;
         synchronized (this) {
-            if (this.c.size() < this.f120a) {
+            if (this.c.size() < this.a) {
                 try {
                     obj2 = this.d.c(obj);
                 } catch (Exception e) {

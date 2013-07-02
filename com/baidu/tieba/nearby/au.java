@@ -7,9 +7,7 @@ import android.widget.TextView;
 import com.baidu.tieba.view.NearbyImageView;
 /* loaded from: classes.dex */
 class au {
-
-    /* renamed from: a  reason: collision with root package name */
-    LinearLayout f1143a;
+    LinearLayout a;
     TextView b;
     NearbyImageView c;
     ImageView d;

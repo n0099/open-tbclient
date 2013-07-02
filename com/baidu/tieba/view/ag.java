@@ -9,9 +9,7 @@ import android.graphics.Rect;
 import android.view.View;
 /* loaded from: classes.dex */
 public class ag extends View {
-
-    /* renamed from: a  reason: collision with root package name */
-    private int f1505a;
+    private int a;
     private int b;
     private String c;
     private float d;
@@ -32,7 +30,7 @@ public class ag extends View {
 
     public ag(Context context) {
         super(context);
-        this.f1505a = 0;
+        this.a = 0;
         this.b = 0;
         this.c = null;
         this.d = 0.0f;
@@ -151,11 +149,11 @@ public class ag extends View {
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
         this.b = getHeight();
-        this.f1505a = getWidth();
+        this.a = getWidth();
         canvas.setDrawFilter(this.r);
         this.b = (int) (this.p * this.b);
-        this.f1505a = (int) (this.p * this.f1505a);
-        this.n.set(0, 0, this.f1505a, this.b);
+        this.a = (int) (this.p * this.a);
+        this.n.set(0, 0, this.a, this.b);
         if (this.j != null && !this.j.isRecycled()) {
             canvas.drawBitmap(this.j, this.m, this.n, this.g);
         }
@@ -168,8 +166,8 @@ public class ag extends View {
             if (this.d < 0.0f) {
                 this.d = 0.0f;
             }
-            canvas.drawText(this.c, this.f1505a / 2.0f, this.d + 1.0f, this.i);
-            canvas.drawText(this.c, this.f1505a / 2.0f, this.d, this.h);
+            canvas.drawText(this.c, this.a / 2.0f, this.d + 1.0f, this.i);
+            canvas.drawText(this.c, this.a / 2.0f, this.d, this.h);
         }
     }
 }

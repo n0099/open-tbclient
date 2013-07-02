@@ -11,9 +11,7 @@ import com.baidu.tieba.util.ae;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public class m extends BaseAdapter {
-
-    /* renamed from: a  reason: collision with root package name */
-    View.OnClickListener f1438a = new n(this);
+    View.OnClickListener a = new n(this);
     private Activity b;
     private final p c;
     private final String d;
@@ -74,9 +72,9 @@ public class m extends BaseAdapter {
             return from.inflate(R.layout.bar_home_list_line, viewGroup, false);
         }
         View inflate = from.inflate(R.layout.bar_folder_second_dir_item, viewGroup, false);
-        inflate.setOnClickListener(this.f1438a);
+        inflate.setOnClickListener(this.a);
         o oVar = new o();
-        oVar.f1440a = (TextView) inflate.findViewById(R.id.name);
+        oVar.a = (TextView) inflate.findViewById(R.id.name);
         inflate.setTag(oVar);
         return inflate;
     }
@@ -84,7 +82,7 @@ public class m extends BaseAdapter {
     private void a(ViewGroup viewGroup, o oVar, int i) {
         q qVar = (q) this.c.c().e.get(i / 2);
         oVar.b = qVar;
-        oVar.f1440a.setText(qVar.b);
+        oVar.a.setText(qVar.b);
     }
 
     @Override // android.widget.Adapter

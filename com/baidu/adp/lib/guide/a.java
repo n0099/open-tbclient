@@ -9,7 +9,7 @@ class a implements Parcelable.Creator {
     /* renamed from: a */
     public Configuration createFromParcel(Parcel parcel) {
         Configuration configuration = new Configuration();
-        configuration.f174a = parcel.readInt();
+        configuration.a = parcel.readInt();
         configuration.b = parcel.readInt();
         configuration.c = parcel.readInt();
         configuration.d = parcel.readInt();

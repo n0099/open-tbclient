@@ -5,19 +5,17 @@ import android.content.DialogInterface;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class aa implements DialogInterface.OnClickListener {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ z f1308a;
+    final /* synthetic */ z a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public aa(z zVar) {
-        this.f1308a = zVar;
+        this.a = zVar;
     }
 
     @Override // android.content.DialogInterface.OnClickListener
     public void onClick(DialogInterface dialogInterface, int i) {
         Dialog dialog;
-        dialog = this.f1308a.k;
+        dialog = this.a.k;
         dialog.dismiss();
     }
 }

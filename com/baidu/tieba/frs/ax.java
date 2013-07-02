@@ -13,9 +13,7 @@ import com.slidingmenu.lib.R;
 import com.slidingmenu.lib.SlidingMenu;
 /* loaded from: classes.dex */
 public class ax {
-
-    /* renamed from: a  reason: collision with root package name */
-    private com.baidu.tieba.g f849a;
+    private com.baidu.tieba.g a;
     private View.OnClickListener b;
     private RelativeLayout c = null;
     private LinearLayout d = null;
@@ -31,35 +29,35 @@ public class ax {
     private TextView n = null;
 
     public ax(FrsImageActivity frsImageActivity, View.OnClickListener onClickListener) {
-        this.f849a = null;
+        this.a = null;
         this.b = null;
-        this.f849a = frsImageActivity;
+        this.a = frsImageActivity;
         this.b = onClickListener;
         f();
     }
 
     private void f() {
-        this.f849a.setContentView(R.layout.frs_image_activity);
-        this.e = new bc(this.f849a);
+        this.a.setContentView(R.layout.frs_image_activity);
+        this.e = new bc(this.a);
         this.e.a(R.id.show_image);
-        this.c = (RelativeLayout) this.f849a.findViewById(R.id.container);
-        this.d = (LinearLayout) this.f849a.findViewById(R.id.frs_title);
-        this.f = new SlidingMenu(this.f849a);
+        this.c = (RelativeLayout) this.a.findViewById(R.id.container);
+        this.d = (LinearLayout) this.a.findViewById(R.id.frs_title);
+        this.f = new SlidingMenu(this.a);
         this.f.setMode(1);
         this.f.setTouchModeAbove(1);
-        this.f.setBehindOffset(com.baidu.tieba.util.ab.a(this.f849a, 48.0f));
+        this.f.setBehindOffset(com.baidu.tieba.util.ab.a(this.a, 48.0f));
         this.f.setBehindScrollScale(0.5f);
         this.f.setFadeDegree(0.35f);
-        this.f.attachToActivity(this.f849a, 1);
+        this.f.attachToActivity(this.a, 1);
         this.f.setMenu(this.e.a());
-        this.g = (WaterFallView) this.f849a.findViewById(R.id.water_fall);
-        this.h = new com.baidu.tieba.view.w(this.f849a);
+        this.g = (WaterFallView) this.a.findViewById(R.id.water_fall);
+        this.h = new com.baidu.tieba.view.w(this.a);
         this.g.setCustomHeaderView(this.h);
-        this.i = (ProgressBar) this.f849a.findViewById(R.id.progress);
-        this.j = (ImageView) this.f849a.findViewById(R.id.frs_bt_back);
-        this.n = (TextView) this.f849a.findViewById(R.id.frs_top_title);
-        this.k = (ImageButton) this.f849a.findViewById(R.id.frs_top_edit);
-        this.l = (ImageButton) this.f849a.findViewById(R.id.frs_top_more);
+        this.i = (ProgressBar) this.a.findViewById(R.id.progress);
+        this.j = (ImageView) this.a.findViewById(R.id.frs_bt_back);
+        this.n = (TextView) this.a.findViewById(R.id.frs_top_title);
+        this.k = (ImageButton) this.a.findViewById(R.id.frs_top_edit);
+        this.l = (ImageButton) this.a.findViewById(R.id.frs_top_more);
         this.k.setScaleType(ImageView.ScaleType.CENTER);
         this.l.setScaleType(ImageView.ScaleType.CENTER);
         this.e.a(this.b);
@@ -67,7 +65,7 @@ public class ax {
         this.k.setOnClickListener(this.b);
         this.l.setOnClickListener(this.b);
         this.n.setOnClickListener(this.b);
-        this.m = (TextView) this.f849a.findViewById(R.id.frs_more_mes_text);
+        this.m = (TextView) this.a.findViewById(R.id.frs_more_mes_text);
     }
 
     public WaterFallView a() {
@@ -107,13 +105,13 @@ public class ax {
     }
 
     public void a(String str) {
-        this.n.setText(String.valueOf(str) + this.f849a.getString(R.string.forum));
+        this.n.setText(String.valueOf(str) + this.a.getString(R.string.forum));
     }
 
     public AlertDialog d() {
-        String[] strArr = {this.f849a.getString(R.string.take_photo), this.f849a.getString(R.string.album)};
-        AlertDialog.Builder builder = new AlertDialog.Builder(this.f849a);
-        builder.setTitle(this.f849a.getString(R.string.operation));
+        String[] strArr = {this.a.getString(R.string.take_photo), this.a.getString(R.string.album)};
+        AlertDialog.Builder builder = new AlertDialog.Builder(this.a);
+        builder.setTitle(this.a.getString(R.string.operation));
         builder.setItems(strArr, new ay(this));
         AlertDialog create = builder.create();
         create.setCanceledOnTouchOutside(true);
@@ -122,10 +120,10 @@ public class ax {
 
     public void a(com.baidu.tieba.model.aa aaVar) {
         this.e.a(aaVar);
-        long a2 = aaVar.a() + aaVar.b();
-        if (a2 > 0) {
+        long a = aaVar.a() + aaVar.b();
+        if (a > 0) {
             this.m.setVisibility(0);
-            this.m.setText(String.valueOf(a2 <= 99 ? a2 : 99L));
+            this.m.setText(String.valueOf(a <= 99 ? a : 99L));
             return;
         }
         this.m.setVisibility(4);

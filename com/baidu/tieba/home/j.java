@@ -6,14 +6,12 @@ import com.slidingmenu.lib.R;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class j extends BdAsyncTask {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ EnterForumActivity f931a;
+    final /* synthetic */ EnterForumActivity a;
     private com.baidu.tieba.util.r b = null;
     private com.baidu.tieba.data.aa c;
 
     public j(EnterForumActivity enterForumActivity, com.baidu.tieba.data.aa aaVar) {
-        this.f931a = enterForumActivity;
+        this.a = enterForumActivity;
         this.c = null;
         this.c = aaVar;
     }
@@ -26,7 +24,7 @@ public class j extends BdAsyncTask {
         if (aaVar != null) {
             try {
                 if (aaVar.a() != null && aaVar.b() != null) {
-                    this.b = new com.baidu.tieba.util.r(String.valueOf(com.baidu.tieba.data.g.f787a) + "c/c/forum/unfavo");
+                    this.b = new com.baidu.tieba.util.r(String.valueOf(com.baidu.tieba.data.g.a) + "c/c/forum/unfavo");
                     this.b.a("fid", aaVar.a());
                     this.b.a("kw", aaVar.b());
                     this.b.d(true);
@@ -47,15 +45,15 @@ public class j extends BdAsyncTask {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void a(String str) {
         super.a((Object) str);
-        this.f931a.b = null;
+        this.a.b = null;
         if (this.b != null) {
             if (this.b.c()) {
-                this.f931a.a(this.f931a.getString(R.string.success));
+                this.a.a(this.a.getString(R.string.success));
                 TiebaApplication.f().i(true);
-                this.f931a.a(false);
+                this.a.a(false);
                 return;
             }
-            this.f931a.a(this.b.g());
+            this.a.a(this.b.g());
         }
     }
 
@@ -70,7 +68,7 @@ public class j extends BdAsyncTask {
             this.b.h();
             this.b = null;
         }
-        this.f931a.b = null;
+        this.a.b = null;
         super.cancel(true);
     }
 }

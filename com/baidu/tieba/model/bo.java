@@ -4,13 +4,11 @@ import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class bo extends BdAsyncTask {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ bn f1044a;
+    final /* synthetic */ bn a;
     private volatile com.baidu.tieba.util.r b;
 
     private bo(bn bnVar) {
-        this.f1044a = bnVar;
+        this.a = bnVar;
         this.b = null;
     }
 
@@ -34,12 +32,12 @@ public class bo extends BdAsyncTask {
         String str;
         String str2;
         try {
-            this.b = new com.baidu.tieba.util.r(String.valueOf(com.baidu.tieba.data.g.f787a) + "c/c/forum/sign");
+            this.b = new com.baidu.tieba.util.r(String.valueOf(com.baidu.tieba.data.g.a) + "c/c/forum/sign");
             com.baidu.tieba.util.r rVar = this.b;
-            str = this.f1044a.f1043a;
+            str = this.a.a;
             rVar.a("kw", str);
             com.baidu.tieba.util.r rVar2 = this.b;
-            str2 = this.f1044a.b;
+            str2 = this.a.b;
             rVar2.a("fid", str2);
             this.b.d(true);
             String j = this.b.j();
@@ -67,9 +65,9 @@ public class bo extends BdAsyncTask {
         if (this.b != null) {
             this.b.h();
         }
-        this.f1044a.c = null;
+        this.a.c = null;
         super.cancel(true);
-        eVar = this.f1044a.mLoadDataCallBack;
+        eVar = this.a.mLoadDataCallBack;
         eVar.a(null);
     }
 
@@ -78,12 +76,12 @@ public class bo extends BdAsyncTask {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void a(com.baidu.tieba.data.av avVar) {
         com.baidu.adp.a.e eVar;
-        this.f1044a.c = null;
+        this.a.c = null;
         if (avVar == null && this.b != null) {
-            this.f1044a.mErrorCode = this.b.e();
-            this.f1044a.mErrorString = this.b.g();
+            this.a.mErrorCode = this.b.e();
+            this.a.mErrorString = this.b.g();
         }
-        eVar = this.f1044a.mLoadDataCallBack;
+        eVar = this.a.mLoadDataCallBack;
         eVar.a(avVar);
     }
 }

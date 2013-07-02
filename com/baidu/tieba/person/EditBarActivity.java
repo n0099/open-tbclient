@@ -14,9 +14,7 @@ import android.widget.TextView;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public class EditBarActivity extends com.baidu.tieba.g {
-
-    /* renamed from: a  reason: collision with root package name */
-    private com.baidu.tieba.model.b f1299a = null;
+    private com.baidu.tieba.model.b a = null;
     private ListView b = null;
     private ImageView c = null;
     private Button d = null;
@@ -73,7 +71,7 @@ public class EditBarActivity extends com.baidu.tieba.g {
     }
 
     private void c() {
-        this.f1299a = new com.baidu.tieba.model.b();
+        this.a = new com.baidu.tieba.model.b();
         this.o = getIntent().getStringExtra("view_user_id");
     }
 
@@ -103,7 +101,7 @@ public class EditBarActivity extends com.baidu.tieba.g {
         this.f = (ProgressBar) findViewById(R.id.progress);
         this.c = (ImageView) findViewById(R.id.back);
         this.c.setOnClickListener(new d(this));
-        this.e = new j(this, this.f1299a);
+        this.e = new j(this, this.a);
         this.e.a(new e(this));
         this.b = (ListView) findViewById(R.id.list);
         this.b.setAdapter((ListAdapter) this.e);

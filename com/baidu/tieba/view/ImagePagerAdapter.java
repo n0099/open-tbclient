@@ -12,9 +12,7 @@ import com.slidingmenu.lib.R;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class ImagePagerAdapter extends android.support.v4.view.ae {
-
-    /* renamed from: a  reason: collision with root package name */
-    private Context f1491a;
+    private Context a;
     private ArrayList b;
     private l e;
     private View.OnClickListener c = null;
@@ -25,10 +23,10 @@ public class ImagePagerAdapter extends android.support.v4.view.ae {
     private int i = 0;
 
     public ImagePagerAdapter(Context context, ArrayList arrayList, l lVar) {
-        this.f1491a = null;
+        this.a = null;
         this.b = null;
         this.e = null;
-        this.f1491a = context;
+        this.a = context;
         this.b = arrayList;
         this.e = lVar;
     }
@@ -44,6 +42,7 @@ public class ImagePagerAdapter extends android.support.v4.view.ae {
 
     public void a(boolean z) {
         this.g = z;
+        notifyDataSetChanged();
     }
 
     public boolean a() {
@@ -64,6 +63,7 @@ public class ImagePagerAdapter extends android.support.v4.view.ae {
 
     public void a(int i) {
         this.i = i;
+        notifyDataSetChanged();
     }
 
     public void a(View.OnClickListener onClickListener) {
@@ -94,13 +94,13 @@ public class ImagePagerAdapter extends android.support.v4.view.ae {
     @Override // android.support.v4.view.ae
     public Object instantiateItem(ViewGroup viewGroup, int i) {
         if (i == this.b.size()) {
-            View inflate = LayoutInflater.from(this.f1491a).inflate(R.layout.big_image_next, (ViewGroup) null);
+            View inflate = LayoutInflater.from(this.a).inflate(R.layout.big_image_next, (ViewGroup) null);
             ((TextView) inflate.findViewById(R.id.thread_name)).setText(this.h);
             viewGroup.addView(inflate);
             inflate.setOnClickListener(this.c);
             return inflate;
         }
-        aq aqVar = new aq(this.f1491a);
+        aq aqVar = new aq(this.a);
         String str = i < this.b.size() ? (String) this.b.get(i) : null;
         aqVar.setLayoutParams(new Gallery.LayoutParams(-1, -1));
         aqVar.setImageOnClickListener(this.c);

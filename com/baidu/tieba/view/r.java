@@ -6,19 +6,17 @@ import com.baidu.tieba.frs.FrsActivity;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class r implements View.OnClickListener {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ q f1529a;
+    final /* synthetic */ q a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public r(q qVar) {
-        this.f1529a = qVar;
+        this.a = qVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         Activity activity;
-        activity = this.f1529a.q;
+        activity = this.a.q;
         ((FrsActivity) activity).m();
     }
 }

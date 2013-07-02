@@ -10,9 +10,7 @@ import com.baidu.tieba.TiebaApplication;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public class AtMeActivity extends com.baidu.tieba.g {
-
-    /* renamed from: a  reason: collision with root package name */
-    private h f974a = null;
+    private h a = null;
     private ListView b = null;
     private TextView c = null;
 
@@ -21,16 +19,16 @@ public class AtMeActivity extends com.baidu.tieba.g {
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         setContentView(R.layout.at_me_activity);
-        this.f974a = new h(this, 1, new a(this));
+        this.a = new h(this, 1, new a(this));
         this.b = (ListView) findViewById(R.id.atme_lv);
-        this.f974a.a(this.b);
-        this.f974a.a((ProgressBar) findViewById(R.id.mention_progress_atme));
-        this.f974a.a((FrameLayout) findViewById(R.id.mention_layout_atme));
-        this.f974a.a(R.string.mention_atme_nodata);
+        this.a.a(this.b);
+        this.a.a((ProgressBar) findViewById(R.id.mention_progress_atme));
+        this.a.a((FrameLayout) findViewById(R.id.mention_layout_atme));
+        this.a.a(R.string.mention_atme_nodata);
         this.c = (TextView) findViewById(R.id.at_nodata);
-        this.f974a.a(this.c);
-        this.f974a.a("c/u/feed/atme");
-        this.f974a.c();
+        this.a.a(this.c);
+        this.a.a("c/u/feed/atme");
+        this.a.c();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -52,12 +50,12 @@ public class AtMeActivity extends com.baidu.tieba.g {
     public void onResume() {
         super.onResume();
         if (TiebaApplication.f().ae() > 0) {
-            this.f974a.b(2);
+            this.a.b(2);
         } else {
-            this.f974a.b(1);
+            this.a.b(1);
         }
-        this.f974a.d();
-        this.f974a.e();
+        this.a.d();
+        this.a.e();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -65,9 +63,9 @@ public class AtMeActivity extends com.baidu.tieba.g {
     public void onDestroy() {
         super.onDestroy();
         try {
-            if (this.f974a != null) {
-                this.f974a.f();
-                this.f974a.a();
+            if (this.a != null) {
+                this.a.f();
+                this.a.a();
             }
             System.gc();
         } catch (Exception e) {
@@ -76,6 +74,6 @@ public class AtMeActivity extends com.baidu.tieba.g {
     }
 
     public void b() {
-        this.f974a.b();
+        this.a.b();
     }
 }

@@ -6,15 +6,13 @@ import java.util.TimerTask;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class h extends TimerTask {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ g f222a;
+    final /* synthetic */ g a;
     private final /* synthetic */ View b;
     private final /* synthetic */ Timer c;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public h(g gVar, View view, Timer timer) {
-        this.f222a = gVar;
+        this.a = gVar;
         this.b = view;
         this.c = timer;
     }

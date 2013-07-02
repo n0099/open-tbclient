@@ -50,9 +50,7 @@ public class NewNearbyActivity extends com.baidu.tieba.g {
     private Dialog m = null;
     private Bitmap n = null;
     private RelativeLayout o = null;
-
-    /* renamed from: a  reason: collision with root package name */
-    LocalActivityManager f1120a = null;
+    LocalActivityManager a = null;
     private com.baidu.tieba.at p = null;
     private Address q = null;
     private ProgressBar r = null;
@@ -83,8 +81,8 @@ public class NewNearbyActivity extends com.baidu.tieba.g {
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         setContentView(R.layout.new_nearby_activity);
-        this.f1120a = new LocalActivityManager(this, false);
-        this.f1120a.dispatchCreate(bundle != null ? bundle.getBundle("android:states") : null);
+        this.a = new LocalActivityManager(this, false);
+        this.a.dispatchCreate(bundle != null ? bundle.getBundle("android:states") : null);
         b();
         p();
         q();
@@ -98,7 +96,7 @@ public class NewNearbyActivity extends com.baidu.tieba.g {
     @Override // com.baidu.tieba.g, android.app.Activity
     public void onResume() {
         super.onResume();
-        this.f1120a.dispatchResume();
+        this.a.dispatchResume();
         if (TiebaApplication.f().as() && !TiebaApplication.f().D()) {
             w();
             TiebaApplication.f().h(true);
@@ -108,7 +106,7 @@ public class NewNearbyActivity extends com.baidu.tieba.g {
     @Override // android.app.Activity
     protected void onSaveInstanceState(Bundle bundle) {
         super.onSaveInstanceState(bundle);
-        Bundle saveInstanceState = this.f1120a.saveInstanceState();
+        Bundle saveInstanceState = this.a.saveInstanceState();
         if (saveInstanceState != null) {
             bundle.putBundle("android:states", saveInstanceState);
         }
@@ -118,7 +116,7 @@ public class NewNearbyActivity extends com.baidu.tieba.g {
     @Override // com.baidu.tieba.g, android.app.Activity
     public void onPause() {
         super.onPause();
-        this.f1120a.dispatchPause(isFinishing());
+        this.a.dispatchPause(isFinishing());
         v();
     }
 
@@ -126,13 +124,13 @@ public class NewNearbyActivity extends com.baidu.tieba.g {
     @Override // com.baidu.tieba.g, android.app.Activity
     public void onStop() {
         super.onStop();
-        this.f1120a.dispatchStop();
+        this.a.dispatchStop();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.g, android.app.Activity
     public void onDestroy() {
-        this.f1120a.dispatchDestroy(isFinishing());
+        this.a.dispatchDestroy(isFinishing());
         if (this.j != null) {
             this.j.cancel();
             this.j = null;
@@ -223,8 +221,8 @@ public class NewNearbyActivity extends com.baidu.tieba.g {
         ArrayList arrayList = new ArrayList();
         Intent intent = new Intent(this, NearbyPostActivity.class);
         Intent intent2 = new Intent(this, NearbyForumActivity.class);
-        View decorView = this.f1120a.startActivity("nearby_post", intent).getDecorView();
-        View decorView2 = this.f1120a.startActivity("nearby_forum", intent2).getDecorView();
+        View decorView = this.a.startActivity("nearby_post", intent).getDecorView();
+        View decorView2 = this.a.startActivity("nearby_forum", intent2).getDecorView();
         arrayList.add(decorView);
         arrayList.add(decorView2);
         this.l.a(arrayList);
@@ -300,7 +298,7 @@ public class NewNearbyActivity extends com.baidu.tieba.g {
                     break;
             }
         }
-        Activity activity = this.f1120a.getActivity("nearby_post");
+        Activity activity = this.a.getActivity("nearby_post");
         if (activity instanceof NearbyPostActivity) {
             if (i == 1300006 || i == 1100024) {
                 ((NearbyPostActivity) activity).onActivityResult(i, i2, intent);
@@ -327,11 +325,11 @@ public class NewNearbyActivity extends com.baidu.tieba.g {
     /* JADX INFO: Access modifiers changed from: private */
     public void s() {
         int currentItem = this.k.getCurrentItem();
-        if (this.f1120a.getActivity("nearby_post") instanceof NearbyPostActivity) {
-            ((NearbyPostActivity) this.f1120a.getActivity("nearby_post")).a(0, this.q, currentItem == 0);
+        if (this.a.getActivity("nearby_post") instanceof NearbyPostActivity) {
+            ((NearbyPostActivity) this.a.getActivity("nearby_post")).a(0, this.q, currentItem == 0);
         }
-        if (this.f1120a.getActivity("nearby_forum") instanceof NearbyForumActivity) {
-            ((NearbyForumActivity) this.f1120a.getActivity("nearby_forum")).a(this.q, currentItem == 1);
+        if (this.a.getActivity("nearby_forum") instanceof NearbyForumActivity) {
+            ((NearbyForumActivity) this.a.getActivity("nearby_forum")).a(this.q, currentItem == 1);
         }
     }
 
@@ -339,8 +337,8 @@ public class NewNearbyActivity extends com.baidu.tieba.g {
         if (this.k.getCurrentItem() != 0) {
             this.k.a(0, true);
         }
-        if (this.f1120a.getActivity("nearby_post") instanceof NearbyPostActivity) {
-            ((NearbyPostActivity) this.f1120a.getActivity("nearby_post")).a(0, this.q, true);
+        if (this.a.getActivity("nearby_post") instanceof NearbyPostActivity) {
+            ((NearbyPostActivity) this.a.getActivity("nearby_post")).a(0, this.q, true);
         }
     }
 
@@ -356,8 +354,8 @@ public class NewNearbyActivity extends com.baidu.tieba.g {
             if (this.j != null) {
                 this.j.cancel();
             }
-            if (this.k.getChildCount() >= 2 && (this.f1120a.getActivity("nearby_post") instanceof NearbyPostActivity) && ((NearbyPostActivity) this.f1120a.getActivity("nearby_post")).n() != null) {
-                this.j = new bj(this, this.q, ((NearbyPostActivity) this.f1120a.getActivity("nearby_post")).n());
+            if (this.k.getChildCount() >= 2 && (this.a.getActivity("nearby_post") instanceof NearbyPostActivity) && ((NearbyPostActivity) this.a.getActivity("nearby_post")).n() != null) {
+                this.j = new bj(this, this.q, ((NearbyPostActivity) this.a.getActivity("nearby_post")).n());
                 this.j.setPriority(3);
                 this.j.execute(new String[0]);
             }
@@ -390,8 +388,8 @@ public class NewNearbyActivity extends com.baidu.tieba.g {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void u() {
-        if (this.k.getChildCount() >= 2 && (this.f1120a.getActivity("nearby_post") instanceof NearbyPostActivity) && ((NearbyPostActivity) this.f1120a.getActivity("nearby_post")).n() != null) {
-            com.baidu.tieba.model.av n = ((NearbyPostActivity) this.f1120a.getActivity("nearby_post")).n();
+        if (this.k.getChildCount() >= 2 && (this.a.getActivity("nearby_post") instanceof NearbyPostActivity) && ((NearbyPostActivity) this.a.getActivity("nearby_post")).n() != null) {
+            com.baidu.tieba.model.av n = ((NearbyPostActivity) this.a.getActivity("nearby_post")).n();
             if (n.d().size() >= 1) {
                 if (TiebaApplication.f().t()) {
                     StatService.onEvent(this, "lbs_open_map", "lbsclick", 1);

@@ -6,13 +6,11 @@ import android.widget.EditText;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class cx implements AdapterView.OnItemClickListener {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ cr f1267a;
+    final /* synthetic */ cr a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public cx(cr crVar) {
-        this.f1267a = crVar;
+        this.a = crVar;
     }
 
     @Override // android.widget.AdapterView.OnItemClickListener
@@ -20,13 +18,13 @@ public class cx implements AdapterView.OnItemClickListener {
         com.baidu.tieba.write.m mVar;
         EditText editText;
         EditText editText2;
-        mVar = this.f1267a.B;
-        String a2 = mVar.a(i);
-        if (a2 != null) {
-            editText = this.f1267a.F;
+        mVar = this.a.B;
+        String a = mVar.a(i);
+        if (a != null) {
+            editText = this.a.F;
             int selectionStart = editText.getSelectionStart();
-            editText2 = this.f1267a.F;
-            editText2.getText().insert(selectionStart, a2);
+            editText2 = this.a.F;
+            editText2.getText().insert(selectionStart, a);
         }
     }
 }

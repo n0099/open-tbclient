@@ -11,9 +11,7 @@ import org.json.JSONObject;
 public class m {
     private static Handler b;
     private WeakReference e;
-
-    /* renamed from: a  reason: collision with root package name */
-    private static HandlerThread f586a = new HandlerThread("SessionAnalysisThread");
+    private static HandlerThread a = new HandlerThread("SessionAnalysisThread");
     private static m g = new m();
     private long c = 0;
     private long d = 0;
@@ -22,8 +20,8 @@ public class m {
     private boolean i = false;
 
     private m() {
-        f586a.start();
-        b = new Handler(f586a.getLooper());
+        a.start();
+        b = new Handler(a.getLooper());
     }
 
     public static m a() {

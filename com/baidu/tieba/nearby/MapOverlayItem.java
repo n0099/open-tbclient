@@ -5,20 +5,18 @@ import com.baidu.mapapi.OverlayItem;
 import com.baidu.tieba.data.MapPostItem;
 /* loaded from: classes.dex */
 public class MapOverlayItem extends OverlayItem {
-
-    /* renamed from: a  reason: collision with root package name */
-    private MapPostItem f1115a;
+    private MapPostItem a;
 
     public MapOverlayItem(GeoPoint geoPoint, String str, String str2) {
         super(geoPoint, str, str2);
-        this.f1115a = null;
+        this.a = null;
     }
 
     public void a(MapPostItem mapPostItem) {
-        this.f1115a = mapPostItem;
+        this.a = mapPostItem;
     }
 
     public MapPostItem a() {
-        return this.f1115a;
+        return this.a;
     }
 }

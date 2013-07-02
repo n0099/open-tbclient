@@ -9,9 +9,7 @@ public class ar {
     private boolean c = false;
     private String d = null;
     private boolean e = false;
-
-    /* renamed from: a  reason: collision with root package name */
-    private ArrayList f1023a = new ArrayList();
+    private ArrayList a = new ArrayList();
 
     public void a(String str) {
         this.d = str;
@@ -26,11 +24,11 @@ public class ar {
     }
 
     public ArrayList c() {
-        return this.f1023a;
+        return this.a;
     }
 
     public void d() {
-        this.f1023a.clear();
+        this.a.clear();
         this.b = 0;
         this.c = false;
     }
@@ -57,9 +55,9 @@ public class ar {
                 this.e = jSONObject.optInt("hide_post", 0) == 0;
             }
             as asVar = null;
-            int size = this.f1023a.size();
+            int size = this.a.size();
             if (size > 0) {
-                asVar = (as) this.f1023a.get(size - 1);
+                asVar = (as) this.a.get(size - 1);
             }
             JSONArray optJSONArray = jSONObject.optJSONArray("post_list");
             if (optJSONArray != null && optJSONArray.length() > 0) {
@@ -69,7 +67,7 @@ public class ar {
                     JSONObject optJSONObject = optJSONArray.optJSONObject(i);
                     as asVar3 = new as(this);
                     asVar3.b = optJSONObject.optString("time_shaft");
-                    asVar3.f1024a = optJSONObject.optInt("type", 0);
+                    asVar3.a = optJSONObject.optInt("type", 0);
                     asVar3.c = optJSONObject.optString("title");
                     asVar3.d = optJSONObject.optString("reply_num");
                     asVar3.e = optJSONObject.optString("reply_time");
@@ -78,13 +76,13 @@ public class ar {
                     asVar3.h = optJSONObject.optString("pid");
                     asVar3.i = optJSONObject.optInt("is_floor", 0) == 1;
                     if (asVar2 != null && asVar3.b.equals(asVar2.b)) {
-                        this.f1023a.add(asVar3);
+                        this.a.add(asVar3);
                     } else {
                         as asVar4 = new as(this);
                         asVar4.b = asVar3.b;
-                        asVar4.f1024a = 0;
-                        this.f1023a.add(asVar4);
-                        this.f1023a.add(asVar3);
+                        asVar4.a = 0;
+                        this.a.add(asVar4);
+                        this.a.add(asVar3);
                     }
                     i++;
                     asVar2 = asVar3;

@@ -5,13 +5,11 @@ import android.widget.TextView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class aq implements TextView.OnEditorActionListener {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ SearchActivity f905a;
+    final /* synthetic */ SearchActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public aq(SearchActivity searchActivity) {
-        this.f905a = searchActivity;
+        this.a = searchActivity;
     }
 
     @Override // android.widget.TextView.OnEditorActionListener
@@ -19,13 +17,13 @@ public class aq implements TextView.OnEditorActionListener {
         int i2;
         String str;
         if (i == 2) {
-            i2 = this.f905a.B;
+            i2 = this.a.B;
             if (i2 == 0) {
-                this.f905a.m();
+                this.a.m();
                 return true;
             }
-            SearchActivity searchActivity = this.f905a;
-            str = this.f905a.A;
+            SearchActivity searchActivity = this.a;
+            str = this.a.A;
             searchActivity.a(1, str);
             return true;
         }

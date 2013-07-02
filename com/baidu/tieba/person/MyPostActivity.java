@@ -21,9 +21,7 @@ public class MyPostActivity extends ActivityGroup {
     private ImageView e = null;
     private TextView f = null;
     private RadioGroup g = null;
-
-    /* renamed from: a  reason: collision with root package name */
-    protected int f1302a = -1;
+    protected int a = -1;
     private String i = null;
 
     public static void a(Activity activity, String str) {
@@ -65,9 +63,9 @@ public class MyPostActivity extends ActivityGroup {
     @Override // android.app.ActivityGroup, android.app.Activity
     protected void onResume() {
         super.onResume();
-        if (TiebaApplication.f().at() != this.f1302a) {
-            this.f1302a = TiebaApplication.f().at();
-            a(this.f1302a);
+        if (TiebaApplication.f().at() != this.a) {
+            this.a = TiebaApplication.f().at();
+            a(this.a);
         }
     }
 

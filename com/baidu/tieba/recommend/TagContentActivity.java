@@ -23,9 +23,7 @@ import java.net.URLDecoder;
 public class TagContentActivity extends com.baidu.tieba.g implements com.baidu.tieba.view.d {
     private static boolean w = false;
     private static long x = 0;
-
-    /* renamed from: a  reason: collision with root package name */
-    private String f1383a = null;
+    private String a = null;
     private String b = null;
     private String c = null;
     private Boolean d = false;
@@ -62,9 +60,9 @@ public class TagContentActivity extends com.baidu.tieba.g implements com.baidu.t
     }
 
     private void n() {
-        this.f1383a = getIntent().getStringExtra("tag_name");
+        this.a = getIntent().getStringExtra("tag_name");
         this.b = getIntent().getStringExtra("tag_id");
-        if (NewHomeActivity.f1382a.contains(this.b)) {
+        if (NewHomeActivity.a.contains(this.b)) {
             this.c = "1";
             this.d = true;
             return;
@@ -91,7 +89,7 @@ public class TagContentActivity extends com.baidu.tieba.g implements com.baidu.t
         if (this.d.booleanValue()) {
             this.e.setVisibility(8);
         }
-        this.k.setText(this.f1383a);
+        this.k.setText(this.a);
         if (q()) {
             this.u.setVisibility(8);
             c();
@@ -177,9 +175,9 @@ public class TagContentActivity extends com.baidu.tieba.g implements com.baidu.t
         if (!i.a(this, str)) {
             if (str.contains("c/s/tag/tagthread")) {
                 if (str.contains("pn=")) {
-                    String a2 = a(str, "pn=");
-                    if (a2 != null && a2.length() >= 0) {
-                        this.y = a2;
+                    String a = a(str, "pn=");
+                    if (a != null && a.length() >= 0) {
+                        this.y = a;
                     }
                 } else {
                     this.y = "1";

@@ -19,9 +19,7 @@ import java.util.Date;
 import java.util.Random;
 /* loaded from: classes.dex */
 public class MessagePullService extends Service {
-
-    /* renamed from: a  reason: collision with root package name */
-    private f f1397a = null;
+    private f a = null;
     private ap b = null;
     private Runnable c = new e(this);
     private Handler d;
@@ -55,18 +53,18 @@ public class MessagePullService extends Service {
     public void onDestroy() {
         super.onDestroy();
         this.d.removeCallbacks(this.c);
-        if (this.f1397a != null) {
-            this.f1397a.cancel(true);
+        if (this.a != null) {
+            this.a.cancel(true);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a() {
-        if (this.f1397a != null) {
-            this.f1397a.cancel();
+        if (this.a != null) {
+            this.a.cancel();
         }
-        this.f1397a = new f(this, null);
-        this.f1397a.execute(new String[0]);
+        this.a = new f(this, null);
+        this.a.execute(new String[0]);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -80,9 +78,9 @@ public class MessagePullService extends Service {
         }
         long b = afVar.b();
         long c = afVar.c();
-        long a2 = afVar.a();
+        long a = afVar.a();
         long d = afVar.d();
-        if (b <= TiebaApplication.f().ae() && c <= TiebaApplication.f().af() && a2 <= TiebaApplication.f().ad() && d <= TiebaApplication.f().ag()) {
+        if (b <= TiebaApplication.f().ae() && c <= TiebaApplication.f().af() && a <= TiebaApplication.f().ad() && d <= TiebaApplication.f().ag()) {
             return false;
         }
         boolean z = false;
@@ -97,14 +95,14 @@ public class MessagePullService extends Service {
         Notification notification = new Notification(R.drawable.icon, getString(R.string.notify_text), System.currentTimeMillis());
         Intent intent = new Intent(context, DealIntentService.class);
         intent.putExtra("class", 5);
-        intent.putExtra("reply_me", a2);
+        intent.putExtra("reply_me", a);
         intent.putExtra("at_me", b);
         intent.putExtra("fans", c);
         intent.putExtra("chat", d);
         PendingIntent service = PendingIntent.getService(context, 0, intent, 134217728);
         StringBuffer stringBuffer = new StringBuffer();
-        if (a2 > 0 || b > 0) {
-            stringBuffer.append(String.valueOf(b + a2));
+        if (a > 0 || b > 0) {
+            stringBuffer.append(String.valueOf(b + a));
             stringBuffer.append(getString(R.string.notify_msg));
         }
         if (c > 0) {
