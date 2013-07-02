@@ -1,135 +1,80 @@
 package com.baidu.tieba.model;
 
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.tbadk.core.data.AntiData;
-import com.baidu.tbadk.core.data.ErrorData;
-import com.baidu.tbadk.coreExtra.data.WriteData;
-/* JADX INFO: Access modifiers changed from: package-private */
+import java.util.ArrayList;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes.dex */
-public class at extends BdAsyncTask<Integer, Integer, com.baidu.tieba.data.am> {
-    final /* synthetic */ ar a;
-    private com.baidu.tieba.a.d b = null;
-    private String c = null;
-    private boolean d = false;
+public class at {
+    private ArrayList a = new ArrayList();
 
-    public at(ar arVar) {
-        this.a = arVar;
-        setPriority(3);
+    public ArrayList a() {
+        return this.a;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: a */
-    public com.baidu.tieba.data.am doInBackground(Integer... numArr) {
-        WriteData writeData;
-        boolean z;
-        WriteData writeData2;
-        WriteData writeData3;
-        WriteData writeData4;
-        if (this.d) {
-            return null;
-        }
-        this.b = new com.baidu.tieba.a.d();
-        com.baidu.tieba.a.d dVar = this.b;
-        writeData = this.a.b;
-        z = this.a.d;
-        this.c = dVar.a(writeData, z);
-        ErrorData d = this.b.d();
-        if (this.b.a() && this.c != null) {
-            AntiData c = this.b.c();
-            String error_msg = d.getError_msg();
-            if (com.baidu.adp.lib.util.j.b(error_msg)) {
-                error_msg = com.baidu.tieba.ai.c().d().getString(com.baidu.tieba.y.send_success);
-            }
-            com.baidu.tieba.data.am amVar = new com.baidu.tieba.data.am(d.getError_code(), error_msg, c);
-            writeData2 = this.a.b;
-            if (writeData2 != null) {
-                writeData3 = this.a.b;
-                if (writeData3.isHasImages() && !amVar.a()) {
-                    writeData4 = this.a.b;
-                    writeData4.deleteUploadedTempImages();
-                }
-            }
-            return amVar;
-        } else if (d != null) {
-            return new com.baidu.tieba.data.am(d.getError_code(), d.getError_msg(), null);
-        } else {
-            return new com.baidu.tieba.data.am(-17, com.baidu.tieba.ai.c().d().getString(com.baidu.tieba.y.neterror), null);
-        }
+    public void a(ArrayList arrayList) {
+        this.a = arrayList;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: a */
-    public void onPostExecute(com.baidu.tieba.data.am amVar) {
-        as asVar;
-        as asVar2;
-        super.onPostExecute(amVar);
-        this.a.a = null;
-        if (!this.d && amVar != null) {
-            if (!amVar.a()) {
-                asVar = this.a.c;
-                if (asVar != null) {
-                    asVar2 = this.a.c;
-                    asVar2.a(true, amVar.c(), null, null, amVar.d());
-                    return;
+    public void a(String str) {
+        int i = 0;
+        while (true) {
+            int i2 = i;
+            if (i2 < this.a.size()) {
+                if (((au) this.a.get(i2)).a() == 1 && ((au) this.a.get(i2)).d().equals(str)) {
+                    ((au) this.a.get(i2)).a(true);
                 }
+                i = i2 + 1;
+            } else {
                 return;
             }
-            b(amVar);
         }
     }
 
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void cancel() {
-        as asVar;
-        as asVar2;
-        this.d = true;
-        if (this.b != null) {
-            this.b.b();
+    public void b(String str) {
+        try {
+            a(new JSONObject(str));
+        } catch (Exception e) {
+            com.baidu.tieba.util.z.b("NearbyForumListModel", "parserJson", "error = " + e.getMessage());
         }
-        asVar = this.a.c;
-        if (asVar != null) {
-            asVar2 = this.a.c;
-            asVar2.a(false, null, null, null, null);
-        }
-        super.cancel(true);
-        this.a.a = null;
     }
 
-    private void b(com.baidu.tieba.data.am amVar) {
-        as asVar;
-        WriteData writeData;
-        WriteData writeData2;
-        WriteData writeData3;
-        as asVar2;
-        as asVar3;
-        WriteData writeData4;
-        AntiData d = amVar.d();
-        if (!amVar.b()) {
-            asVar = this.a.c;
-            asVar.a(false, amVar.c(), null, null, amVar.d());
-            return;
-        }
-        com.baidu.tbadk.coreExtra.data.f fVar = new com.baidu.tbadk.coreExtra.data.f();
-        fVar.a(this.c);
-        if (fVar.b() != null) {
-            writeData = this.a.b;
-            if (writeData != null) {
-                writeData2 = this.a.b;
-                writeData2.setVcodeMD5(fVar.a());
-                writeData3 = this.a.b;
-                writeData3.setVcodeUrl(fVar.b());
-                asVar2 = this.a.c;
-                if (asVar2 != null) {
-                    asVar3 = this.a.c;
-                    String c = amVar.c();
-                    writeData4 = this.a.b;
-                    asVar3.a(false, c, fVar, writeData4, d);
+    public void a(JSONObject jSONObject) {
+        au auVar = null;
+        try {
+            int size = this.a.size();
+            if (size > 0) {
+                auVar = (au) this.a.get(size - 1);
+            }
+            JSONArray optJSONArray = jSONObject.optJSONArray("forum_list");
+            if (optJSONArray != null && optJSONArray.length() > 0) {
+                int i = 0;
+                au auVar2 = auVar;
+                while (i < optJSONArray.length()) {
+                    JSONObject optJSONObject = optJSONArray.optJSONObject(i);
+                    au auVar3 = new au(this);
+                    auVar3.c = optJSONObject.optString("fname");
+                    auVar3.b = optJSONObject.optString("distance");
+                    auVar3.d = optJSONObject.optString("fid");
+                    auVar3.e = optJSONObject.optInt("heat", 0);
+                    auVar3.g = optJSONObject.optInt("member_count", 0);
+                    auVar3.h = optJSONObject.optInt("post_num", 0);
+                    auVar3.f = optJSONObject.optInt("is_like", 0) == 1;
+                    auVar3.a = 1;
+                    if (auVar2 != null && auVar3.b.equals(auVar2.b)) {
+                        this.a.add(auVar3);
+                    } else {
+                        au auVar4 = new au(this);
+                        auVar4.b = auVar3.b;
+                        auVar4.a = 0;
+                        this.a.add(auVar4);
+                        this.a.add(auVar3);
+                    }
+                    i++;
+                    auVar2 = auVar3;
                 }
             }
+        } catch (Exception e) {
+            com.baidu.tieba.util.z.b("NearbyForumListModel", "parserJson", "error = " + e.getMessage());
         }
     }
 }

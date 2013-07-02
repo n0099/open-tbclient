@@ -1,94 +1,90 @@
 package com.baidu.tieba.more;
 
-import android.widget.LinearLayout;
-import android.widget.ProgressBar;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.coreExtra.view.BaseWebView;
+import com.baidu.tieba.MainTabActivity;
+import com.baidu.tieba.R;
+import com.baidu.tieba.TiebaApplication;
+import com.baidu.tieba.data.AccountData;
+import com.baidu.tieba.util.DatabaseService;
+import java.util.ArrayList;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class i extends BdAsyncTask<Object, Integer, String> {
-    final /* synthetic */ AppsActivity a;
-    private com.baidu.tbadk.core.util.an b = null;
-    private String c;
+public class i extends BdAsyncTask {
+    final /* synthetic */ AccountActivity a;
+    private AccountData b;
+    private int c = 0;
 
-    public i(AppsActivity appsActivity, String str) {
-        this.a = appsActivity;
-        this.c = null;
-        this.c = str;
+    public i(AccountActivity accountActivity, AccountData accountData) {
+        this.a = accountActivity;
+        this.b = accountData;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void onPreExecute() {
-        ProgressBar progressBar;
-        LinearLayout linearLayout;
-        BaseWebView baseWebView;
-        progressBar = this.a.f;
-        progressBar.setVisibility(0);
-        linearLayout = this.a.e;
-        linearLayout.setVisibility(8);
-        baseWebView = this.a.b;
-        baseWebView.setVisibility(0);
+    public void b() {
+        this.a.a(this.a.getString(R.string.deleting), new j(this));
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: a */
-    public String doInBackground(Object... objArr) {
-        if (this.c == null) {
-            return null;
+    /* renamed from: d */
+    public AccountData a(Object... objArr) {
+        ArrayList arrayList;
+        ArrayList arrayList2;
+        try {
+            Thread.sleep(1000L);
+            DatabaseService.s(this.b.getID());
+            if (this.b.getID().equals(TiebaApplication.D())) {
+                TiebaApplication.b((AccountData) null);
+                arrayList = this.a.a;
+                if (arrayList.size() >= 2) {
+                    this.c = 1;
+                    arrayList2 = this.a.a;
+                    AccountData accountData = (AccountData) arrayList2.get(1);
+                    accountData.setIsActive(1);
+                    DatabaseService.a(accountData);
+                    return accountData;
+                }
+                com.baidu.tieba.account.a.a().a(this.b.getBDUSS());
+                this.c = 2;
+            } else {
+                this.c = 0;
+            }
+        } catch (Exception e) {
+            com.baidu.tieba.util.z.b(getClass().getName(), "", "doInBackground error = " + e.getMessage());
         }
-        this.b = new com.baidu.tbadk.core.util.an(this.c);
-        this.b.a().a().a().g = false;
-        this.b.a("client", "android");
-        return this.b.i();
+        return null;
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void cancel() {
-        ProgressBar progressBar;
+    public void a(AccountData accountData) {
+        ArrayList arrayList;
+        n nVar;
         if (this.b != null) {
-            this.b.g();
+            new k(this.a, this.b.getBDUSS()).start();
         }
-        progressBar = this.a.f;
-        progressBar.setVisibility(8);
-        this.a.d = null;
-        super.cancel(true);
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: a */
-    public void onPostExecute(String str) {
-        ProgressBar progressBar;
-        boolean d;
-        BaseWebView baseWebView;
-        BaseWebView baseWebView2;
-        LinearLayout linearLayout;
-        BaseWebView baseWebView3;
-        progressBar = this.a.f;
-        progressBar.setVisibility(8);
-        if (this.b != null && this.b.c() && str != null && str.length() > 0) {
-            com.baidu.tieba.util.k.a(str, 7);
-            com.baidu.tbadk.core.sharedPref.b.a().b("app_inverval", System.currentTimeMillis());
-            baseWebView3 = this.a.b;
-            baseWebView3.loadDataWithBaseURL(TbConfig.SERVER_ADDRESS, str, "text/html", "utf-8", "");
-            return;
+        this.a.h();
+        switch (this.c) {
+            case 0:
+                this.a.a(this.a.getString(R.string.success));
+                arrayList = this.a.a;
+                arrayList.remove(this.b);
+                this.b = null;
+                nVar = this.a.b;
+                nVar.notifyDataSetChanged();
+                break;
+            case 1:
+                TiebaApplication.b(accountData);
+                com.baidu.tieba.account.a.a().b();
+                MainTabActivity.b(this.a, "goto_home");
+                break;
+            case 2:
+                MainTabActivity.b(this.a, "goto_person");
+                break;
         }
-        d = this.a.d();
-        if (!d && str == null) {
-            baseWebView2 = this.a.b;
-            baseWebView2.setVisibility(8);
-            linearLayout = this.a.e;
-            linearLayout.setVisibility(0);
-            this.a.showToast(this.a.getString(com.baidu.tieba.y.neterror));
-            return;
-        }
-        String string = this.a.getString(com.baidu.tieba.y.server_404);
-        baseWebView = this.a.b;
-        baseWebView.loadDataWithBaseURL(TbConfig.SERVER_ADDRESS, string, "text/html", "utf-8", "");
+        this.a.l = null;
     }
 }

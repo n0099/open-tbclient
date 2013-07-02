@@ -1,17 +1,30 @@
 package com.baidu.tieba.recommend;
 
-import com.baidu.adp.widget.ListView.x;
+import android.view.View;
+import com.baidu.tieba.R;
 /* loaded from: classes.dex */
-class f implements x {
-    final /* synthetic */ DailyRecommendActivity a;
+class f implements View.OnClickListener {
+    final /* synthetic */ TagContentActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public f(DailyRecommendActivity dailyRecommendActivity) {
-        this.a = dailyRecommendActivity;
+    public f(TagContentActivity tagContentActivity) {
+        this.a = tagContentActivity;
     }
 
-    @Override // com.baidu.adp.widget.ListView.x
-    public void f_() {
-        this.a.a();
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        switch (view.getId()) {
+            case R.id.back /* 2131165277 */:
+                this.a.finish();
+                return;
+            case R.id.tag_webview_item /* 2131165482 */:
+                this.a.c();
+                return;
+            case R.id.attention /* 2131165987 */:
+                this.a.b();
+                return;
+            default:
+                return;
+        }
     }
 }

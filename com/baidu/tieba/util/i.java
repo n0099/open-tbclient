@@ -1,13 +1,73 @@
 package com.baidu.tieba.util;
 
-import android.content.Intent;
-import java.util.ArrayList;
+import android.database.sqlite.SQLiteDatabase;
 /* loaded from: classes.dex */
 public class i {
-    public static ArrayList<String> a(Intent intent) {
-        if (intent == null) {
-            return null;
+    private int a;
+    private boolean b = false;
+    private j e = null;
+    private String c = "tieba_database.db";
+    private String d = m.a + "/tieba/" + this.c;
+
+    public i() {
+        this.a = 1;
+        this.a = 7;
+    }
+
+    private void a(SQLiteDatabase sQLiteDatabase, String str) {
+        try {
+            sQLiteDatabase.execSQL(str);
+        } catch (Exception e) {
+            z.a(3, getClass().getName(), "ExecSQL", str);
         }
-        return intent.getStringArrayListExtra(com.baidu.tbadk.core.frameworkData.a.NAME_SHOW);
+    }
+
+    public SQLiteDatabase a() {
+        SQLiteDatabase sQLiteDatabase = null;
+        if (m.c()) {
+            this.b = m.b(this.c);
+            sQLiteDatabase = SQLiteDatabase.openOrCreateDatabase(this.d, (SQLiteDatabase.CursorFactory) null);
+            if (sQLiteDatabase != null) {
+                if (!this.b) {
+                    a(sQLiteDatabase);
+                    sQLiteDatabase.setVersion(this.a);
+                } else {
+                    int version = sQLiteDatabase.getVersion();
+                    if (version != this.a) {
+                        a(sQLiteDatabase, version, this.a);
+                        sQLiteDatabase.setVersion(this.a);
+                    }
+                }
+            }
+        }
+        return sQLiteDatabase;
+    }
+
+    private void a(SQLiteDatabase sQLiteDatabase) {
+        if (sQLiteDatabase != null) {
+            a(sQLiteDatabase, "CREATE TABLE if not exists pb_photo(key varchar(50) Primary Key,image blob,date Integer)");
+            a(sQLiteDatabase, "CREATE INDEX if not exists pb_photo_index ON pb_photo(date)");
+            a(sQLiteDatabase, "CREATE TABLE if not exists friend_photo(key varchar(50) Primary Key,image blob,date Integer)");
+            a(sQLiteDatabase, "CREATE INDEX if not exists friend_photo_index ON friend_photo(date)");
+        }
+        b();
+    }
+
+    private void a(SQLiteDatabase sQLiteDatabase, int i, int i2) {
+        b();
+    }
+
+    private void b() {
+        if (this.e != null) {
+            try {
+                this.e.a();
+            } catch (Exception e) {
+                z.b(getClass().getName(), "onCreateDatabase", e.getMessage());
+            }
+        }
+    }
+
+    public void a(j jVar) {
+        this.e = jVar;
     }
 }

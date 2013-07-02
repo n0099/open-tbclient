@@ -1,75 +1,79 @@
 package com.baidu.tieba.model;
 /* loaded from: classes.dex */
-public class o extends com.baidu.adp.base.b {
-    private com.baidu.tieba.data.n b;
-    private q a = null;
-    private boolean c = true;
-    private r d = null;
-    private long e = 0;
-    private long f = 0;
-    private long g = 0;
-    private long h = 0;
+public class o extends com.baidu.adp.a.c {
+    private p a = null;
+    private r b = null;
+    private t c = null;
 
-    public o() {
-        this.b = null;
-        this.b = new com.baidu.tieba.data.n();
-    }
-
-    public long a() {
-        return this.h;
-    }
-
-    public long b() {
-        return this.f;
-    }
-
-    public long c() {
-        return this.g;
-    }
-
-    public long d() {
-        return this.e;
-    }
-
-    public com.baidu.tieba.data.n e() {
-        return this.b;
-    }
-
-    public void a(r rVar) {
-        this.d = rVar;
-    }
-
-    @Override // com.baidu.adp.base.b
+    @Override // com.baidu.adp.a.c
     protected boolean LoadData() {
         return false;
     }
 
-    @Override // com.baidu.adp.base.b
+    @Override // com.baidu.adp.a.c
     public boolean cancelLoadData() {
-        if (this.a != null) {
-            this.a.cancel();
-            return false;
-        }
+        a();
         return false;
     }
 
-    public boolean a(boolean z) {
-        this.c = z;
+    public void a() {
         if (this.a != null) {
-            return false;
+            this.a.cancel();
+            this.a = null;
         }
-        this.a = new q(this, 1);
-        this.a.execute(new Object[0]);
-        return true;
+        if (this.b != null) {
+            this.b.cancel();
+            this.b = null;
+        }
+        if (this.c != null) {
+            this.c.cancel();
+            this.c = null;
+        }
     }
 
-    public boolean b(boolean z) {
-        this.c = z;
+    public void a(String str, String str2, String str3, String str4, int i, int i2, boolean z) {
         if (this.a != null) {
-            return false;
+            this.a.cancel();
+            this.a = null;
         }
-        this.a = new q(this, 0);
-        this.a.execute(new Object[0]);
-        return true;
+        this.mLoadDataMode = 0;
+        this.a = new p(this, str, str2, str3, str4, i, i2, z);
+        this.a.setPriority(2);
+        this.a.execute(new String[0]);
+    }
+
+    public boolean b() {
+        return (this.a == null && this.b == null && this.c == null) ? false : true;
+    }
+
+    public void a(String str, String str2, String str3, String str4, int i) {
+        if (this.b != null) {
+            this.b.cancel();
+            this.b = null;
+        }
+        this.mLoadDataMode = 1;
+        this.b = new r(this, str, str2, str3, str4, String.valueOf(i));
+        this.b.setPriority(2);
+        this.b.execute(String.valueOf(com.baidu.tieba.data.g.a) + "c/c/bawu/commitprison");
+    }
+
+    public void a(String str, String str2, String str3, int i, String str4) {
+        String str5;
+        if (this.c != null) {
+            this.c.cancel();
+            this.c = null;
+        }
+        this.mLoadDataMode = i;
+        this.c = new t(this, str, str2, str3, i, str4);
+        this.c.setPriority(2);
+        String str6 = com.baidu.tieba.data.g.a;
+        if (i == 6) {
+            str5 = String.valueOf(str6) + "c/c/bawu/goodlist";
+        } else if (i == 2 || i == 3) {
+            str5 = String.valueOf(str6) + "c/c/bawu/commitgood";
+        } else {
+            str5 = String.valueOf(str6) + "c/c/bawu/committop";
+        }
+        this.c.execute(str5);
     }
 }

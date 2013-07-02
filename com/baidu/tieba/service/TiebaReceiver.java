@@ -3,27 +3,26 @@ package com.baidu.tieba.service;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tieba.TiebaApplication;
+import com.baidu.tieba.util.z;
 /* loaded from: classes.dex */
 public class TiebaReceiver extends BroadcastReceiver {
     @Override // android.content.BroadcastReceiver
     public void onReceive(Context context, Intent intent) {
-        String action = intent.getAction();
-        String currentAccount = TbadkApplication.getCurrentAccount();
-        if (action.equals(com.baidu.tieba.data.d.b())) {
-            int intExtra = intent.getIntExtra("relay", 0);
-            int intExtra2 = intent.getIntExtra("at_me", 0);
-            int intExtra3 = intent.getIntExtra("fans", 0);
-            int intExtra4 = intent.getIntExtra("pletter", 0);
-            int intExtra5 = intent.getIntExtra("new_bookmark", 0);
-            BdLog.i(getClass().getName(), "broadcastNotify ", "receiveData: " + String.format("%d %d %d %d %d", Integer.valueOf(intExtra), Integer.valueOf(intExtra2), Integer.valueOf(intExtra3), Integer.valueOf(intExtra4), Integer.valueOf(intExtra5)));
-            if (currentAccount != null && currentAccount.length() > 0) {
-                com.baidu.tbadk.coreExtra.messageCenter.a.a().f(intExtra5);
+        try {
+            String action = intent.getAction();
+            if (action.equals("com.baidu.tieba.broadcast.service")) {
+                long longExtra = intent.getLongExtra("relay", 0L);
+                long longExtra2 = intent.getLongExtra("at_me", 0L);
+                long longExtra3 = intent.getLongExtra("fans", 0L);
+                long longExtra4 = intent.getLongExtra("pletter", 0L);
+                z.a(getClass().getName(), "broadcastNotify ", "receiveData: " + String.format("%d %d %d %d", Long.valueOf(longExtra), Long.valueOf(longExtra2), Long.valueOf(longExtra3), Long.valueOf(longExtra4)));
+                TiebaApplication.f().a(longExtra, longExtra2, longExtra3, longExtra4);
+            } else if (action.equals("com.baidu.tieba.broadcast.sync")) {
+                z.a(getClass().getName(), "broadcastNewVersion ", "receiveData");
+                TiebaApplication.f().u(true);
             }
-        } else if (action.equals(com.baidu.tieba.data.d.d())) {
-            BdLog.i(getClass().getName(), "broadcastNewVersion ", "receiveData");
-            TbadkApplication.m252getInst().refreshNewVersion(true);
+        } catch (Throwable th) {
         }
     }
 }

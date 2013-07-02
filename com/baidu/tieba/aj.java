@@ -1,30 +1,32 @@
 package com.baidu.tieba;
 
-import android.os.Handler;
-import android.os.Message;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
 /* loaded from: classes.dex */
-public class aj implements Handler.Callback {
-    final /* synthetic */ ai a;
+class aj extends BroadcastReceiver {
+    final /* synthetic */ MainTabActivity a;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public aj(ai aiVar) {
-        this.a = aiVar;
+    private aj(MainTabActivity mainTabActivity) {
+        this.a = mainTabActivity;
     }
 
-    @Override // android.os.Handler.Callback
-    public boolean handleMessage(Message message) {
-        switch (message.what) {
-            case 2:
-                MessageManager.getInstance().sendMessage(new CustomMessage(2008001, com.baidu.tbadk.core.frameworkData.a.START));
-                return false;
-            case 3:
-                MessageManager.getInstance().sendMessage(new CustomMessage(2008001, com.baidu.tbadk.core.frameworkData.a.STOP));
-                return false;
-            default:
-                return false;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public /* synthetic */ aj(MainTabActivity mainTabActivity, aj ajVar) {
+        this(mainTabActivity);
+    }
+
+    @Override // android.content.BroadcastReceiver
+    public void onReceive(Context context, Intent intent) {
+        String action = intent.getAction();
+        if (action.equals(com.baidu.tieba.data.g.k)) {
+            MainTabActivity.a(this.a, intent.getLongExtra("relay", 0L));
+            MainTabActivity.b(this.a, intent.getLongExtra("at_me", 0L));
+            MainTabActivity.c(this.a, intent.getLongExtra("fans", 0L));
+            MainTabActivity.d(this.a, intent.getLongExtra("pletter", 0L));
+            this.a.c();
+        } else if (action.equals(com.baidu.tieba.data.g.l)) {
+            MainTabActivity.a(this.a);
         }
     }
 }

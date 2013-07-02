@@ -1,13 +1,8 @@
 package com.baidu.tieba.write;
 
-import android.app.TimePickerDialog;
-import android.widget.TextView;
-import android.widget.TimePicker;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.coreExtra.data.WriteData;
-import java.util.Date;
+import android.widget.GridView;
 /* loaded from: classes.dex */
-class ah implements TimePickerDialog.OnTimeSetListener {
+class ah implements Runnable {
     final /* synthetic */ WriteActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -15,32 +10,14 @@ class ah implements TimePickerDialog.OnTimeSetListener {
         this.a = writeActivity;
     }
 
-    @Override // android.app.TimePickerDialog.OnTimeSetListener
-    public void onTimeSet(TimePicker timePicker, int i, int i2) {
-        WriteData writeData;
-        WriteData writeData2;
-        WriteData writeData3;
-        WriteData writeData4;
-        TextView textView;
-        WriteData writeData5;
-        WriteData writeData6;
-        writeData = this.a.a;
-        if (writeData.getLiveCardData() != null) {
-            Date date = new Date();
-            Date date2 = new Date(date.getYear(), date.getMonth(), date.getDate(), i, i2);
-            writeData2 = this.a.a;
-            long startTime = writeData2.getLiveCardData().getStartTime();
-            writeData3 = this.a.a;
-            writeData3.getLiveCardData().setStartTime(date2.getTime() / 1000);
-            writeData4 = this.a.a;
-            if (startTime / 60 != writeData4.getLiveCardData().getStartTime() / 60) {
-                BdLog.i("更改了预告时间");
-                writeData6 = this.a.a;
-                writeData6.getLiveCardData().setModifyTime(true);
-            }
-            textView = this.a.R;
-            writeData5 = this.a.a;
-            textView.setText(com.baidu.tbadk.core.util.bg.b(writeData5.getLiveCardData().getStartTime() * 1000));
+    @Override // java.lang.Runnable
+    public void run() {
+        GridView gridView;
+        GridView gridView2;
+        gridView = this.a.r;
+        if (gridView.getVisibility() != 0) {
+            gridView2 = this.a.r;
+            gridView2.setVisibility(0);
         }
     }
 }

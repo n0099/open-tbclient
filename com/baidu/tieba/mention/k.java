@@ -1,45 +1,39 @@
 package com.baidu.tieba.mention;
 
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentPagerAdapter;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomMessage;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ListView;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class k extends FragmentPagerAdapter {
-    private com.baidu.tbadk.core.d[] a;
-    private int[] b;
-    private int c;
-    private CustomMessageListener d;
+public class k implements AdapterView.OnItemClickListener {
+    final /* synthetic */ h a;
 
-    public k(FragmentManager fragmentManager) {
-        super(fragmentManager);
-        this.d = new l(this, 2010002);
-        MessageManager.getInstance().registerListener(this.d);
-        boolean sendMessage = MessageManager.getInstance().sendMessage(new CustomMessage(2010002));
-        MessageManager.getInstance().unRegisterListener(this.d);
-        if (!sendMessage) {
-            this.a = new com.baidu.tbadk.core.d[]{new af(), new a()};
-            this.b = new int[]{1, 2};
-            this.c = this.a.length;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public k(h hVar) {
+        this.a = hVar;
+    }
+
+    @Override // android.widget.AdapterView.OnItemClickListener
+    public void onItemClick(AdapterView adapterView, View view, int i, long j) {
+        o oVar;
+        int i2;
+        e eVar = (e) ((ListView) adapterView).getAdapter();
+        long itemId = eVar.getItemId(i);
+        if (itemId == -1) {
+            this.a.b();
+        } else if (itemId == -2) {
+            h hVar = this.a;
+            i2 = hVar.g;
+            hVar.g = i2 + 1;
+            this.a.o = 4;
+            this.a.d();
+        } else {
+            com.baidu.tieba.data.q qVar = (com.baidu.tieba.data.q) eVar.getItem(i);
+            if (qVar != null) {
+                oVar = this.a.q;
+                oVar.a(qVar);
+                this.a.a(qVar);
+            }
         }
-    }
-
-    @Override // android.support.v4.app.FragmentPagerAdapter
-    public Fragment getItem(int i) {
-        if (i < 0 || i >= this.c) {
-            return null;
-        }
-        return this.a[i];
-    }
-
-    public int a(int i) {
-        return this.b[i];
-    }
-
-    @Override // android.support.v4.view.PagerAdapter
-    public int getCount() {
-        return this.c;
     }
 }

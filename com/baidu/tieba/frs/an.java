@@ -1,19 +1,44 @@
 package com.baidu.tieba.frs;
 
-import android.content.DialogInterface;
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class an implements DialogInterface.OnClickListener {
-    final /* synthetic */ FrsActivity a;
+public class an extends BroadcastReceiver {
+    final /* synthetic */ FrsImageActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public an(FrsActivity frsActivity) {
-        this.a = frsActivity;
+    public an(FrsImageActivity frsImageActivity) {
+        this.a = frsImageActivity;
     }
 
-    @Override // android.content.DialogInterface.OnClickListener
-    public void onClick(DialogInterface dialogInterface, int i) {
-        dialogInterface.dismiss();
-        this.a.V = null;
+    @Override // android.content.BroadcastReceiver
+    public void onReceive(Context context, Intent intent) {
+        com.baidu.tieba.model.aa aaVar;
+        com.baidu.tieba.model.aa aaVar2;
+        com.baidu.tieba.model.aa aaVar3;
+        com.baidu.tieba.model.aa aaVar4;
+        com.baidu.tieba.model.aa aaVar5;
+        ax axVar;
+        com.baidu.tieba.model.aa aaVar6;
+        long longExtra = intent.getLongExtra("fans", 0L);
+        long longExtra2 = intent.getLongExtra("relay", 0L);
+        long longExtra3 = intent.getLongExtra("at_me", 0L);
+        long longExtra4 = intent.getLongExtra("pletter", 0L);
+        aaVar = this.a.p;
+        if (aaVar != null) {
+            aaVar2 = this.a.p;
+            aaVar2.a(longExtra);
+            aaVar3 = this.a.p;
+            aaVar3.c(longExtra2);
+            aaVar4 = this.a.p;
+            aaVar4.b(longExtra3);
+            aaVar5 = this.a.p;
+            aaVar5.d(longExtra4);
+            axVar = this.a.n;
+            aaVar6 = this.a.p;
+            axVar.a(aaVar6);
+        }
     }
 }

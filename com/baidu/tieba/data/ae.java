@@ -1,17 +1,11 @@
 package com.baidu.tieba.data;
 
-import com.baidu.adp.lib.util.BdLog;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
-public class ae extends ai {
-    private int a;
-    private String b;
-    private String c;
-    private String d;
-    private String e;
-    private String f;
-    private String g;
-    private int h;
+public class ae {
+    private int a = -1;
+    private String b = null;
+    private String c = null;
 
     public int a() {
         return this.a;
@@ -25,43 +19,26 @@ public class ae extends ai {
         return this.c;
     }
 
-    public String d() {
-        return this.d;
-    }
-
-    public String e() {
-        return this.e;
-    }
-
-    public String f() {
-        return this.f;
-    }
-
-    public String g() {
-        return this.g;
-    }
-
-    public int h() {
-        return this.h;
-    }
-
     public void a(int i) {
-        this.h = i;
+        this.a = i;
     }
 
-    @Override // com.baidu.tieba.data.ai
+    public void a(String str) {
+        this.b = str;
+    }
+
     public void a(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                this.a = jSONObject.optInt("pos", 1);
-                this.b = jSONObject.optString("app_name", "");
-                this.c = jSONObject.optString("app_desc", "");
-                this.d = jSONObject.optString("p_name", "");
-                this.e = jSONObject.optString("p_url", "");
-                this.f = jSONObject.optString("web_url", "");
-                this.g = jSONObject.optString("img_url", "");
+                this.a = jSONObject.optInt("type");
+                if (this.a == 3) {
+                    this.b = jSONObject.optString("big_pic");
+                } else if (this.a == 5) {
+                    this.b = jSONObject.optString("vpic");
+                    this.c = jSONObject.optString("vsrc");
+                }
             } catch (Exception e) {
-                BdLog.e(getClass().getName(), "parserJson", "error = " + e.getMessage());
+                com.baidu.tieba.util.z.b(getClass().getName(), "parserJson", "error=" + e.toString());
             }
         }
     }

@@ -1,171 +1,116 @@
 package android.support.v4.content;
 
-import android.content.Context;
 import android.database.ContentObserver;
 import android.database.Cursor;
 import android.net.Uri;
-import android.support.v4.content.Loader;
 import java.io.FileDescriptor;
 import java.io.PrintWriter;
 import java.util.Arrays;
 /* loaded from: classes.dex */
-public class CursorLoader extends AsyncTaskLoader<Cursor> {
-    Cursor mCursor;
-    final Loader<Cursor>.ForceLoadContentObserver mObserver;
-    String[] mProjection;
-    String mSelection;
-    String[] mSelectionArgs;
-    String mSortOrder;
-    Uri mUri;
+public class CursorLoader extends AsyncTaskLoader {
+    final d f;
+    Uri g;
+    String[] h;
+    String i;
+    String[] j;
+    String k;
+    Cursor l;
 
     /* JADX DEBUG: Method merged with bridge method */
-    /* JADX WARN: Can't rename method to resolve collision */
     @Override // android.support.v4.content.AsyncTaskLoader
-    public Cursor loadInBackground() {
-        Cursor query = getContext().getContentResolver().query(this.mUri, this.mProjection, this.mSelection, this.mSelectionArgs, this.mSortOrder);
+    /* renamed from: f */
+    public Cursor d() {
+        Cursor query = j().getContentResolver().query(this.g, this.h, this.i, this.j, this.k);
         if (query != null) {
             query.getCount();
-            registerContentObserver(query, this.mObserver);
+            a(query, this.f);
         }
         return query;
     }
 
-    void registerContentObserver(Cursor cursor, ContentObserver contentObserver) {
-        cursor.registerContentObserver(this.mObserver);
+    void a(Cursor cursor, ContentObserver contentObserver) {
+        cursor.registerContentObserver(this.f);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // android.support.v4.content.Loader
-    public void deliverResult(Cursor cursor) {
-        if (isReset()) {
+    @Override // android.support.v4.content.c
+    /* renamed from: a */
+    public void b(Cursor cursor) {
+        if (m()) {
             if (cursor != null) {
                 cursor.close();
                 return;
             }
             return;
         }
-        Cursor cursor2 = this.mCursor;
-        this.mCursor = cursor;
-        if (isStarted()) {
-            super.deliverResult((CursorLoader) cursor);
+        Cursor cursor2 = this.l;
+        this.l = cursor;
+        if (k()) {
+            super.b((Object) cursor);
         }
         if (cursor2 != null && cursor2 != cursor && !cursor2.isClosed()) {
             cursor2.close();
         }
     }
 
-    public CursorLoader(Context context) {
-        super(context);
-        this.mObserver = new Loader.ForceLoadContentObserver();
-    }
-
-    public CursorLoader(Context context, Uri uri, String[] strArr, String str, String[] strArr2, String str2) {
-        super(context);
-        this.mObserver = new Loader.ForceLoadContentObserver();
-        this.mUri = uri;
-        this.mProjection = strArr;
-        this.mSelection = str;
-        this.mSelectionArgs = strArr2;
-        this.mSortOrder = str2;
-    }
-
-    @Override // android.support.v4.content.Loader
-    protected void onStartLoading() {
-        if (this.mCursor != null) {
-            deliverResult(this.mCursor);
+    @Override // android.support.v4.content.c
+    protected void g() {
+        if (this.l != null) {
+            b(this.l);
         }
-        if (takeContentChanged() || this.mCursor == null) {
-            forceLoad();
+        if (r() || this.l == null) {
+            o();
         }
     }
 
-    @Override // android.support.v4.content.Loader
-    protected void onStopLoading() {
-        cancelLoad();
+    @Override // android.support.v4.content.c
+    protected void h() {
+        b();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.support.v4.content.AsyncTaskLoader
-    public void onCanceled(Cursor cursor) {
+    /* renamed from: b */
+    public void a(Cursor cursor) {
         if (cursor != null && !cursor.isClosed()) {
             cursor.close();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // android.support.v4.content.Loader
-    public void onReset() {
-        super.onReset();
-        onStopLoading();
-        if (this.mCursor != null && !this.mCursor.isClosed()) {
-            this.mCursor.close();
+    @Override // android.support.v4.content.c
+    public void i() {
+        super.i();
+        h();
+        if (this.l != null && !this.l.isClosed()) {
+            this.l.close();
         }
-        this.mCursor = null;
+        this.l = null;
     }
 
-    public Uri getUri() {
-        return this.mUri;
-    }
-
-    public void setUri(Uri uri) {
-        this.mUri = uri;
-    }
-
-    public String[] getProjection() {
-        return this.mProjection;
-    }
-
-    public void setProjection(String[] strArr) {
-        this.mProjection = strArr;
-    }
-
-    public String getSelection() {
-        return this.mSelection;
-    }
-
-    public void setSelection(String str) {
-        this.mSelection = str;
-    }
-
-    public String[] getSelectionArgs() {
-        return this.mSelectionArgs;
-    }
-
-    public void setSelectionArgs(String[] strArr) {
-        this.mSelectionArgs = strArr;
-    }
-
-    public String getSortOrder() {
-        return this.mSortOrder;
-    }
-
-    public void setSortOrder(String str) {
-        this.mSortOrder = str;
-    }
-
-    @Override // android.support.v4.content.AsyncTaskLoader, android.support.v4.content.Loader
-    public void dump(String str, FileDescriptor fileDescriptor, PrintWriter printWriter, String[] strArr) {
-        super.dump(str, fileDescriptor, printWriter, strArr);
+    @Override // android.support.v4.content.AsyncTaskLoader, android.support.v4.content.c
+    public void a(String str, FileDescriptor fileDescriptor, PrintWriter printWriter, String[] strArr) {
+        super.a(str, fileDescriptor, printWriter, strArr);
         printWriter.print(str);
         printWriter.print("mUri=");
-        printWriter.println(this.mUri);
+        printWriter.println(this.g);
         printWriter.print(str);
         printWriter.print("mProjection=");
-        printWriter.println(Arrays.toString(this.mProjection));
+        printWriter.println(Arrays.toString(this.h));
         printWriter.print(str);
         printWriter.print("mSelection=");
-        printWriter.println(this.mSelection);
+        printWriter.println(this.i);
         printWriter.print(str);
         printWriter.print("mSelectionArgs=");
-        printWriter.println(Arrays.toString(this.mSelectionArgs));
+        printWriter.println(Arrays.toString(this.j));
         printWriter.print(str);
         printWriter.print("mSortOrder=");
-        printWriter.println(this.mSortOrder);
+        printWriter.println(this.k);
         printWriter.print(str);
         printWriter.print("mCursor=");
-        printWriter.println(this.mCursor);
+        printWriter.println(this.l);
         printWriter.print(str);
         printWriter.print("mContentChanged=");
-        printWriter.println(this.mContentChanged);
+        printWriter.println(this.s);
     }
 }

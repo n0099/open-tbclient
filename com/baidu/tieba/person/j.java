@@ -1,16 +1,166 @@
 package com.baidu.tieba.person;
 
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.framework.task.CustomMessageTask;
+import android.content.Context;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
+import android.widget.ImageButton;
+import android.widget.TextView;
+import com.baidu.tieba.R;
+import com.baidu.tieba.TiebaApplication;
 /* loaded from: classes.dex */
-class j implements CustomMessageTask.CustomRunnable<com.baidu.tbadk.core.frameworkData.a> {
-    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-    public CustomResponsedMessage<?> run(CustomMessage<com.baidu.tbadk.core.frameworkData.a> customMessage) {
-        if (customMessage != null && customMessage.getData() != null) {
-            customMessage.getData().getIntent().setClass(customMessage.getData().getContext(), EditMarkActivity.class);
-            customMessage.getData().startActivity();
+public class j extends BaseAdapter {
+    private Context a;
+    private com.baidu.tieba.model.b b;
+    private boolean c = false;
+    private View.OnClickListener d = null;
+    private boolean e = false;
+    private boolean f = true;
+
+    public j(Context context, com.baidu.tieba.model.b bVar) {
+        this.a = context;
+        this.b = bVar;
+    }
+
+    public void a(boolean z) {
+        this.c = z;
+    }
+
+    public void b(boolean z) {
+        this.f = z;
+    }
+
+    public boolean a() {
+        return this.c;
+    }
+
+    @Override // android.widget.Adapter
+    public int getCount() {
+        if (this.e) {
+            return 1;
         }
-        return null;
+        if (this.b != null && this.b.b() != null) {
+            return this.b.b().size();
+        }
+        return 0;
+    }
+
+    public void b() {
+        this.e = false;
+        if (this.b != null) {
+            if (this.b.b() == null || this.b.b().size() == 0) {
+                this.e = true;
+            }
+        }
+    }
+
+    public boolean c() {
+        return this.e;
+    }
+
+    @Override // android.widget.Adapter
+    public Object getItem(int i) {
+        if (this.b == null || this.b.b() == null || i < 0 || i >= this.b.b().size()) {
+            return null;
+        }
+        return this.b.b().get(i);
+    }
+
+    @Override // android.widget.Adapter
+    public long getItemId(int i) {
+        return i;
+    }
+
+    @Override // android.widget.Adapter
+    public View getView(int i, View view, ViewGroup viewGroup) {
+        Exception exc;
+        View view2;
+        k kVar;
+        View view3;
+        com.baidu.tieba.data.r rVar;
+        try {
+            if (view == null) {
+                view3 = LayoutInflater.from(this.a).inflate(R.layout.edit_bar_item, (ViewGroup) null);
+                try {
+                    kVar = new k(this, null);
+                    kVar.a = (TextView) view3.findViewById(R.id.name);
+                    kVar.b = new StringBuffer(10);
+                    kVar.c = (TextView) view3.findViewById(R.id.degree);
+                    kVar.d = new StringBuffer(10);
+                    kVar.f = (ImageButton) view3.findViewById(R.id.item_delete);
+                    kVar.e = (TextView) view3.findViewById(R.id.edit_bar_nodata);
+                    view3.setTag(kVar);
+                } catch (Exception e) {
+                    view2 = view3;
+                    exc = e;
+                    com.baidu.tieba.util.z.b(getClass().getName(), "getView", exc.getMessage());
+                    return view2;
+                }
+            } else {
+                kVar = (k) view.getTag();
+                view3 = view;
+            }
+            if (this.e) {
+                kVar.c.setVisibility(8);
+                kVar.f.setVisibility(8);
+                kVar.a.setVisibility(8);
+                if (this.f) {
+                    kVar.e.setText(this.a.getString(R.string.not_have_like_bars));
+                } else {
+                    kVar.e.setText(this.a.getString(R.string.no_like_forum_other));
+                }
+                kVar.e.setVisibility(0);
+            } else {
+                kVar.c.setVisibility(0);
+                kVar.f.setVisibility(0);
+                kVar.a.setVisibility(0);
+                kVar.e.setVisibility(8);
+            }
+            if (this.b != null && this.b.b() != null && i >= 0 && i < this.b.b().size() && (rVar = (com.baidu.tieba.data.r) this.b.b().get(i)) != null) {
+                kVar.b.delete(0, kVar.b.length());
+                kVar.b.append(rVar.b());
+                kVar.b.append(this.a.getString(R.string.bar));
+                kVar.a.setText(kVar.b);
+                kVar.d.delete(0, kVar.d.length());
+                kVar.d.append(this.a.getString(R.string.degree));
+                kVar.d.append(rVar.f());
+                kVar.c.setText(kVar.d);
+                kVar.c.setVisibility(0);
+                kVar.f.setOnClickListener(this.d);
+                kVar.f.setTag(Integer.valueOf(i));
+                if (this.c) {
+                    kVar.f.setVisibility(0);
+                } else {
+                    kVar.f.setVisibility(8);
+                }
+            }
+            if (TiebaApplication.f().as() == 1) {
+                int a = com.baidu.tieba.util.x.a(1);
+                kVar.a.setTextColor(a);
+                kVar.c.setTextColor(a);
+                kVar.e.setTextColor(a);
+                return view3;
+            }
+            kVar.a.setTextColor(-12895429);
+            kVar.c.setTextColor(-12895429);
+            kVar.e.setTextColor(-4276546);
+            return view3;
+        } catch (Exception e2) {
+            exc = e2;
+            view2 = view;
+        }
+    }
+
+    public void a(View.OnClickListener onClickListener) {
+        this.d = onClickListener;
+    }
+
+    @Override // android.widget.BaseAdapter, android.widget.ListAdapter
+    public boolean isEnabled(int i) {
+        if (this.e) {
+            return false;
+        }
+        return super.isEnabled(i);
     }
 }

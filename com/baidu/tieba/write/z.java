@@ -1,30 +1,26 @@
 package com.baidu.tieba.write;
 
-import com.baidu.tbadk.widget.TbImageView;
+import android.view.View;
+import android.widget.GridView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class z implements com.baidu.tbadk.imageManager.d {
-    final /* synthetic */ x a;
+public class z implements View.OnClickListener {
+    final /* synthetic */ WriteActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public z(x xVar) {
-        this.a = xVar;
+    public z(WriteActivity writeActivity) {
+        this.a = writeActivity;
     }
 
-    @Override // com.baidu.tbadk.imageManager.d
-    public void a(com.baidu.adp.widget.a.a aVar, String str, boolean z) {
-        TbImageView tbImageView;
-        TbImageView tbImageView2;
-        TbImageView tbImageView3;
-        this.a.a(true);
-        if (aVar != null) {
-            tbImageView3 = this.a.c;
-            aVar.a(tbImageView3);
-            return;
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        GridView gridView;
+        GridView gridView2;
+        gridView = this.a.r;
+        if (gridView.getVisibility() == 0) {
+            gridView2 = this.a.r;
+            gridView2.setVisibility(8);
         }
-        tbImageView = this.a.c;
-        tbImageView.setDefaultResource(com.baidu.tieba.u.image_group_load_f);
-        tbImageView2 = this.a.c;
-        tbImageView2.setNightDefaultResource(com.baidu.tieba.u.image_group_load_f);
+        AtListActivity.a(this.a, 1200004);
     }
 }

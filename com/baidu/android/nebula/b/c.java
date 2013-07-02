@@ -1,133 +1,122 @@
 package com.baidu.android.nebula.b;
 
-import java.io.ByteArrayInputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
-import java.io.PrintWriter;
-import java.io.UnsupportedEncodingException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.Locale;
-import java.util.Map;
-import java.util.TimeZone;
-import org.apache.commons.io.IOUtils;
+import com.baidu.android.common.logging.Log;
+import com.baidu.cyberplayer.sdk.internal.HttpUtils;
+import java.nio.ByteBuffer;
 /* loaded from: classes.dex */
-public class c {
-    private u a;
-    private String b;
-    private InputStream c;
-    private Map d;
-    private k e;
-    private boolean f;
+public class c extends com.baidu.android.nebula.c.c {
+    private ByteBuffer a;
+    private StringBuilder b;
+    private a c;
+    private int d = -1;
+    private boolean e = false;
 
-    public c(u uVar, String str, InputStream inputStream) {
-        this.d = new HashMap();
-        this.a = uVar;
-        this.b = str;
-        this.c = inputStream;
-    }
-
-    public c(u uVar, String str, String str2) {
-        ByteArrayInputStream byteArrayInputStream;
-        this.d = new HashMap();
-        this.a = uVar;
-        this.b = str;
-        if (str2 != null) {
-            try {
-                byteArrayInputStream = new ByteArrayInputStream(str2.getBytes("UTF-8"));
-            } catch (UnsupportedEncodingException e) {
-                e.printStackTrace();
-                return;
-            }
-        } else {
-            byteArrayInputStream = null;
+    public static int a(String str) {
+        if (str.startsWith("GET")) {
+            return 0;
         }
-        this.c = byteArrayInputStream;
+        if (str.startsWith("POST")) {
+            return 1;
+        }
+        return str.startsWith("HEAD") ? 2 : 0;
     }
 
-    public c(String str) {
-        this(u.OK, "text/html", str);
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void a(OutputStream outputStream) {
-        String str = this.b;
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("E, d MMM yyyy HH:mm:ss 'GMT'", Locale.US);
-        simpleDateFormat.setTimeZone(TimeZone.getTimeZone("GMT"));
-        try {
-            if (this.a == null) {
-                throw new Error("sendResponse(): Status can't be null.");
-            }
-            PrintWriter printWriter = new PrintWriter(outputStream);
-            printWriter.print("HTTP/1.1 " + this.a.a() + " \r\n");
-            if (str != null) {
-                printWriter.print("Content-Type: " + str + IOUtils.LINE_SEPARATOR_WINDOWS);
-            }
-            if (this.d == null || this.d.get("Date") == null) {
-                printWriter.print("Date: " + simpleDateFormat.format(new Date()) + IOUtils.LINE_SEPARATOR_WINDOWS);
-            }
-            if (this.d != null) {
-                for (String str2 : this.d.keySet()) {
-                    printWriter.print(str2 + ": " + ((String) this.d.get(str2)) + IOUtils.LINE_SEPARATOR_WINDOWS);
+    public static int a(ByteBuffer byteBuffer, ByteBuffer byteBuffer2) {
+        int i = 0;
+        if (byteBuffer != null && byteBuffer2 != null) {
+            while (true) {
+                if (byteBuffer.remaining() >= 4 && byteBuffer2.remaining() >= 4) {
+                    byteBuffer2.putInt(byteBuffer.getInt());
+                    i += 4;
+                } else if (byteBuffer.remaining() <= 0 || byteBuffer2.remaining() <= 0) {
+                    break;
+                } else {
+                    byteBuffer2.put(byteBuffer.get());
+                    i++;
                 }
             }
-            printWriter.print("Connection: keep-alive\r\n");
-            if (this.e == k.HEAD || !this.f) {
-                b(outputStream, printWriter);
-            } else {
-                a(outputStream, printWriter);
+        }
+        return i;
+    }
+
+    @Override // com.baidu.android.nebula.c.c
+    public int a(ByteBuffer byteBuffer) {
+        int remaining;
+        if (!this.e && (remaining = byteBuffer.remaining()) > 0) {
+            if (this.b == null) {
+                this.b = new StringBuilder();
             }
-            outputStream.flush();
-            h.b(this.c);
-        } catch (IOException e) {
+            this.b.append(new String(byteBuffer.array(), byteBuffer.position(), remaining));
+            return remaining;
         }
+        return 0;
     }
 
-    private void a(OutputStream outputStream, PrintWriter printWriter) {
-        printWriter.print("Transfer-Encoding: chunked\r\n");
-        printWriter.print(IOUtils.LINE_SEPARATOR_WINDOWS);
-        printWriter.flush();
-        byte[] bytes = IOUtils.LINE_SEPARATOR_WINDOWS.getBytes();
-        byte[] bArr = new byte[16384];
-        while (true) {
-            int read = this.c.read(bArr);
-            if (read <= 0) {
-                outputStream.write(String.format("0\r\n\r\n", new Object[0]).getBytes());
-                return;
+    public a a() {
+        return this.c;
+    }
+
+    public void a(b bVar) {
+        this.a = ByteBuffer.wrap(bVar.toString().getBytes());
+        this.a.rewind();
+    }
+
+    @Override // com.baidu.android.nebula.c.c
+    public int b(ByteBuffer byteBuffer) {
+        if (this.e) {
+            return 0;
+        }
+        return a(this.a, byteBuffer);
+    }
+
+    @Override // com.baidu.android.nebula.c.c
+    public boolean b() {
+        int indexOf;
+        if (this.e) {
+            return true;
+        }
+        if (this.b == null) {
+            return false;
+        }
+        String sb = this.b.toString();
+        if (this.d == -1) {
+            this.d = a(sb);
+            if (this.d == -1) {
+                return false;
             }
-            outputStream.write(String.format("%x\r\n", Integer.valueOf(read)).getBytes());
-            outputStream.write(bArr, 0, read);
-            outputStream.write(bytes);
         }
-    }
-
-    private void b(OutputStream outputStream, PrintWriter printWriter) {
-        int available = this.c != null ? this.c.available() : 0;
-        printWriter.print("Content-Length: " + available + IOUtils.LINE_SEPARATOR_WINDOWS);
-        printWriter.print(IOUtils.LINE_SEPARATOR_WINDOWS);
-        printWriter.flush();
-        if (this.e == k.HEAD || this.c == null) {
-            return;
-        }
-        byte[] bArr = new byte[16384];
-        int i = available;
-        while (i > 0) {
-            int read = this.c.read(bArr, 0, i > 16384 ? 16384 : i);
-            if (read <= 0) {
-                return;
+        if (this.d == 0 || this.d == 2) {
+            if (sb.endsWith("\r\n\r\n")) {
+                this.c = new a(this.b.toString());
+                return true;
             }
-            outputStream.write(bArr, 0, read);
-            i -= read;
+        } else if (this.d == 1) {
+            if (this.c == null && (indexOf = sb.indexOf("\r\n\r\n")) != -1) {
+                String substring = sb.substring(0, indexOf + 1);
+                this.c = new a(substring);
+                this.b.delete(0, substring.getBytes().length);
+            }
+            if (this.c != null) {
+                try {
+                    if (this.b.length() >= Integer.parseInt(this.c.a(HttpUtils.HEADER_NAME_CONTENT_LENGTH))) {
+                        this.c.a(this.b.toString().getBytes());
+                        this.b = new StringBuilder();
+                        return true;
+                    }
+                } catch (NumberFormatException e) {
+                    Log.e("HttpSession", "Content-Length Parse Error ：", e);
+                    return true;
+                }
+            }
         }
+        return false;
     }
 
-    public void a(k kVar) {
-        this.e = kVar;
-    }
-
-    public void a(String str, String str2) {
-        this.d.put(str, str2);
+    @Override // com.baidu.android.nebula.c.c
+    public boolean c() {
+        if (this.e) {
+            return true;
+        }
+        return (this.a == null || this.a.hasRemaining()) ? false : true;
     }
 }

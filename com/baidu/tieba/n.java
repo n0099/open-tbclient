@@ -1,44 +1,27 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.SocketResponsedMessage;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.frameworkData.CmdConfig;
-import com.baidu.tbadk.core.frameworkData.MessageTypes;
-import com.baidu.tbadk.task.TbHttpMessageTask;
-import com.baidu.tieba.frs.FRSPageSocketResponsedMessage;
-import com.baidu.tieba.frs.FrsPageHttpResponseMessage;
-import com.baidu.tieba.person.post.UserPostPageHttpResponseMessage;
-import com.baidu.tieba.person.post.UserPostPageSocketResponsedMessage;
+import android.view.View;
+import com.baidu.tieba.view.BaseViewPager;
 /* loaded from: classes.dex */
-public class n {
-    public static void a() {
-        b();
-        c();
+class n implements View.OnClickListener {
+    final /* synthetic */ GuideActivity a;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public n(GuideActivity guideActivity) {
+        this.a = guideActivity;
     }
 
-    public static void b() {
-        a(MessageTypes.CMD_FRS_PAGE, FRSPageSocketResponsedMessage.class, false);
-        a(MessageTypes.CMD_USER_POST_PAGE, UserPostPageSocketResponsedMessage.class, false);
-    }
-
-    private static void c() {
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfig.FRS_HTTP_CMD, String.valueOf(TbConfig.SERVER_ADDRESS) + "c/f/frs/page?cmd=" + MessageTypes.CMD_FRS_PAGE);
-        tbHttpMessageTask.setIsNeedLogin(false);
-        tbHttpMessageTask.setResponsedClass(FrsPageHttpResponseMessage.class);
-        MessageManager.getInstance().registerTask(tbHttpMessageTask);
-        TbHttpMessageTask tbHttpMessageTask2 = new TbHttpMessageTask(CmdConfig.USER_POST_HTTP_CMD, String.valueOf(TbConfig.SERVER_ADDRESS) + "c/u/feed/userpost?cmd=" + MessageTypes.CMD_USER_POST_PAGE);
-        tbHttpMessageTask2.setIsNeedLogin(false);
-        tbHttpMessageTask2.setResponsedClass(UserPostPageHttpResponseMessage.class);
-        MessageManager.getInstance().registerTask(tbHttpMessageTask2);
-    }
-
-    private static com.baidu.tbadk.task.b a(int i, Class<? extends SocketResponsedMessage> cls, boolean z) {
-        com.baidu.tbadk.task.b bVar = new com.baidu.tbadk.task.b(i);
-        bVar.a(cls);
-        bVar.b(z);
-        bVar.setTimeOut(new com.baidu.adp.framework.c.e(ai.c().H(), ai.c().I(), ai.c().J()));
-        MessageManager.getInstance().registerTask(bVar);
-        return bVar;
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        BaseViewPager baseViewPager;
+        int[] iArr;
+        BaseViewPager baseViewPager2;
+        baseViewPager = this.a.f;
+        int currentItem = baseViewPager.getCurrentItem();
+        iArr = this.a.c;
+        if (currentItem != iArr.length - 1) {
+            baseViewPager2 = this.a.f;
+            baseViewPager2.a(currentItem + 1, true);
+        }
     }
 }

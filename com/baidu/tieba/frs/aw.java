@@ -1,14 +1,9 @@
 package com.baidu.tieba.frs;
+
+import org.json.JSONObject;
 /* loaded from: classes.dex */
-class aw implements com.baidu.adp.widget.ListView.x {
-    final /* synthetic */ FrsActivity a;
+public interface aw {
+    void a(int i);
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public aw(FrsActivity frsActivity) {
-        this.a = frsActivity;
-    }
-
-    @Override // com.baidu.adp.widget.ListView.x
-    public void f_() {
-    }
+    void a(int i, JSONObject jSONObject, com.baidu.tieba.model.ae aeVar);
 }

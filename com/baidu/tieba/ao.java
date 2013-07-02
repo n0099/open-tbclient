@@ -1,21 +1,19 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.data.AccountData;
+import android.view.View;
 /* loaded from: classes.dex */
-class ao implements Runnable {
-    final /* synthetic */ an a;
-    private final /* synthetic */ CustomMessage b;
+class ao implements View.OnClickListener {
+    final /* synthetic */ am a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ao(an anVar, CustomMessage customMessage) {
-        this.a = anVar;
-        this.b = customMessage;
+    public ao(am amVar) {
+        this.a = amVar;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        ai.a((AccountData) this.b.getData(), TbadkApplication.m252getInst());
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        ap apVar;
+        apVar = this.a.h;
+        apVar.a();
     }
 }

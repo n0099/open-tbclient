@@ -5,10 +5,11 @@ import android.os.Environment;
 import android.provider.Settings;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
+import com.baidu.account.AccountProxy;
 import com.baidu.android.common.logging.Log;
 import com.baidu.android.common.security.AESUtil;
 import com.baidu.android.common.security.Base64;
-import com.baidu.android.common.security.MD5Util;
+import com.baidu.browser.core.util.BdUtil;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -16,7 +17,6 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.UUID;
-import org.apache.commons.io.IOUtils;
 /* loaded from: classes.dex */
 public final class DeviceId {
     private static final String AES_KEY = "30212102dicudiab";
@@ -27,7 +27,6 @@ public final class DeviceId {
 
     /* loaded from: classes.dex */
     final class IMEIInfo {
-        public static final String DEFAULT_TM_DEVICEID = "";
         private static final String KEY_IMEI = "bd_setting_i";
         public final boolean CAN_READ_AND_WRITE_SYSTEM_SETTINGS;
         public final String IMEI;
@@ -37,8 +36,8 @@ public final class DeviceId {
             this.CAN_READ_AND_WRITE_SYSTEM_SETTINGS = z;
         }
 
-        /* JADX WARN: Removed duplicated region for block: B:12:0x0027  */
-        /* JADX WARN: Removed duplicated region for block: B:8:0x001a A[ORIG_RETURN, RETURN] */
+        /* JADX WARN: Removed duplicated region for block: B:12:0x0020  */
+        /* JADX WARN: Removed duplicated region for block: B:8:0x0015 A[ORIG_RETURN, RETURN] */
         /*
             Code decompiled incorrectly, please refer to instructions dump.
         */
@@ -52,16 +51,14 @@ public final class DeviceId {
             }
             if (telephonyManager != null) {
                 str2 = telephonyManager.getDeviceId();
-                String imeiCheck = imeiCheck(str2);
-                return !TextUtils.isEmpty(imeiCheck) ? str : imeiCheck;
+                return !TextUtils.isEmpty(str2) ? str : str2;
             }
             str2 = null;
-            String imeiCheck2 = imeiCheck(str2);
-            if (!TextUtils.isEmpty(imeiCheck2)) {
+            if (!TextUtils.isEmpty(str2)) {
             }
         }
 
-        /* JADX WARN: Removed duplicated region for block: B:17:0x004c  */
+        /* JADX WARN: Removed duplicated region for block: B:17:0x0045  */
         /*
             Code decompiled incorrectly, please refer to instructions dump.
         */
@@ -93,10 +90,6 @@ public final class DeviceId {
             }
             return new IMEIInfo(str, z ? false : true);
         }
-
-        private static String imeiCheck(String str) {
-            return (str == null || !str.contains(":")) ? str : "";
-        }
     }
 
     private DeviceId() {
@@ -122,12 +115,12 @@ public final class DeviceId {
         boolean z = !iMEIInfo.CAN_READ_AND_WRITE_SYSTEM_SETTINGS;
         String androidId = getAndroidId(context);
         if (z) {
-            return MD5Util.toMd5(("com.baidu" + androidId).getBytes(), true);
+            return Util.toMd5((AccountProxy.BAIDUACCOUNT_TYPE + androidId).getBytes(), true);
         }
         String str2 = null;
         String string = Settings.System.getString(context.getContentResolver(), KEY_DEVICE_ID);
         if (TextUtils.isEmpty(string)) {
-            str2 = MD5Util.toMd5(("com.baidu" + str + androidId).getBytes(), true);
+            str2 = Util.toMd5((AccountProxy.BAIDUACCOUNT_TYPE + str + androidId).getBytes(), true);
             string = Settings.System.getString(context.getContentResolver(), str2);
             if (!TextUtils.isEmpty(string)) {
                 Settings.System.putString(context.getContentResolver(), KEY_DEVICE_ID, string);
@@ -142,7 +135,7 @@ public final class DeviceId {
             }
         }
         if (TextUtils.isEmpty(string)) {
-            String md5 = MD5Util.toMd5((str + androidId + UUID.randomUUID().toString()).getBytes(), true);
+            String md5 = Util.toMd5((str + androidId + UUID.randomUUID().toString()).getBytes(), true);
             Settings.System.putString(context.getContentResolver(), str2, md5);
             Settings.System.putString(context.getContentResolver(), KEY_DEVICE_ID, md5);
             setExternalDeviceId(str, md5);
@@ -164,7 +157,7 @@ public final class DeviceId {
                     break;
                 }
                 sb.append(readLine);
-                sb.append(IOUtils.LINE_SEPARATOR_WINDOWS);
+                sb.append("\r\n");
             }
             bufferedReader.close();
             Object[] split = new String(AESUtil.decrypt(AES_KEY, AES_KEY, Base64.decode(sb.toString().getBytes()))).split("=");
@@ -190,7 +183,7 @@ public final class DeviceId {
         try {
             new File(file.getParent()).mkdirs();
             FileWriter fileWriter = new FileWriter(file, false);
-            fileWriter.write(Base64.encode(AESUtil.encrypt(AES_KEY, AES_KEY, (str + "=" + str2).getBytes()), "utf-8"));
+            fileWriter.write(Base64.encode(AESUtil.encrypt(AES_KEY, AES_KEY, (str + "=" + str2).getBytes()), BdUtil.UTF8));
             fileWriter.flush();
             fileWriter.close();
         } catch (IOException e) {

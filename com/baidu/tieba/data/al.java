@@ -1,47 +1,48 @@
 package com.baidu.tieba.data;
 
-import android.content.Context;
-import android.text.TextPaint;
-import android.text.style.ClickableSpan;
-import android.view.View;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.TbadkApplication;
-/* JADX INFO: Access modifiers changed from: package-private */
+import org.json.JSONObject;
 /* loaded from: classes.dex */
-public class al extends ClickableSpan {
-    final /* synthetic */ ai a;
-    private String b;
-    private String c;
-    private Context d;
+public class al extends b {
+    private int a = 0;
+    private int b = 0;
+    private String c = null;
+    private String d = null;
+    private String e = null;
+    private String f = null;
+    private String g = null;
+    private an h = new an();
 
-    public al(ai aiVar, Context context, String str, String str2) {
-        this.a = aiVar;
-        this.b = null;
-        this.c = null;
-        this.d = null;
-        this.b = str;
-        this.c = str2;
-        this.d = context;
+    public String a() {
+        return this.f;
     }
 
-    @Override // android.text.style.ClickableSpan, android.text.style.CharacterStyle
-    public void updateDrawState(TextPaint textPaint) {
-        if (this.d != null) {
-            if (TbadkApplication.m252getInst().getSkinType() == 1) {
-                textPaint.setColor(this.d.getResources().getColor(com.baidu.tieba.s.common_link_text_1));
-            } else {
-                textPaint.setColor(this.d.getResources().getColor(com.baidu.tieba.s.common_link_text));
-            }
-        }
-        textPaint.setUnderlineText(false);
-        textPaint.setFakeBoldText(false);
+    public int b() {
+        return this.b;
     }
 
-    @Override // android.text.style.ClickableSpan
-    public void onClick(View view) {
-        if (this.b != null && this.c != null && this.d != null) {
-            MessageManager.getInstance().sendMessage(new CustomMessage(2003003, new com.baidu.tbadk.core.atomData.as(this.d, this.c, this.b)));
+    public String c() {
+        return this.g;
+    }
+
+    public String d() {
+        return this.c;
+    }
+
+    public an e() {
+        return this.h;
+    }
+
+    @Override // com.baidu.tieba.data.b
+    public void parserJson(JSONObject jSONObject) {
+        if (jSONObject != null) {
+            this.a = jSONObject.optInt("type");
+            this.c = jSONObject.optString("tid", null);
+            this.d = jSONObject.optString("fid", null);
+            this.e = jSONObject.optString("fname", null);
+            this.f = jSONObject.optString("time", null);
+            this.g = jSONObject.optString("position", "");
+            this.b = jSONObject.optInt("replyer_count", 0);
+            this.h.a(jSONObject);
         }
     }
 }

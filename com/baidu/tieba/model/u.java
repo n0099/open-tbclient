@@ -1,11 +1,14 @@
 package com.baidu.tieba.model;
+
+import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class u {
-    public com.baidu.tieba.data.p a;
-    public int b;
-    final /* synthetic */ s c;
+    public boolean a;
+    public String b;
+    public ArrayList c;
+    final /* synthetic */ o d;
 
-    public u(s sVar) {
-        this.c = sVar;
+    public u(o oVar) {
+        this.d = oVar;
     }
 }

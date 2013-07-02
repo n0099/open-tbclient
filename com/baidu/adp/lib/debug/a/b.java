@@ -23,5 +23,6 @@ public class b extends a {
     @Override // com.baidu.adp.lib.debug.a.a
     public void c() {
         super.c();
+        this.b.unregisterReceiver(this.a);
     }
 }

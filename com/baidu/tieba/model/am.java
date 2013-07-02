@@ -1,32 +1,70 @@
 package com.baidu.tieba.model;
-/* loaded from: classes.dex */
-public class am {
-    private com.baidu.tieba.data.af a = null;
-    private boolean d = true;
-    private boolean c = true;
-    private boolean e = false;
-    private boolean g = false;
-    private boolean h = false;
-    private boolean i = false;
-    private boolean j = false;
-    private String b = null;
-    private boolean f = false;
-    private String k = null;
-    private String l = null;
-    private String m = null;
-    private int n = 1;
-    private int o = 1;
-    private boolean p = false;
 
-    public void a(com.baidu.tieba.data.af afVar) {
-        this.a = afVar;
+import com.baidu.tieba.data.MarkData;
+/* loaded from: classes.dex */
+public class am extends com.baidu.adp.a.c {
+    private MarkData b;
+    private boolean a = false;
+    private an c = null;
+    private ao d = null;
+
+    public am() {
+        this.b = null;
+        this.b = new MarkData();
     }
 
-    public com.baidu.tieba.data.af a() {
+    public boolean a() {
         return this.a;
     }
 
-    public boolean b() {
-        return this.d;
+    public void a(ao aoVar) {
+        this.d = aoVar;
+    }
+
+    public void a(MarkData markData) {
+        this.b = markData;
+    }
+
+    public void a(boolean z) {
+        this.a = z;
+    }
+
+    public String b() {
+        if (this.b != null) {
+            return this.b.getPostId();
+        }
+        return null;
+    }
+
+    public void c() {
+        if (this.c != null) {
+            this.c.cancel();
+        }
+        this.c = new an(this, true);
+        this.c.setPriority(3);
+        this.c.execute(new Boolean[0]);
+    }
+
+    public void d() {
+        if (this.c != null) {
+            this.c.cancel();
+        }
+        this.c = new an(this, false);
+        this.c.setPriority(3);
+        this.c.execute(new Boolean[0]);
+    }
+
+    @Override // com.baidu.adp.a.c
+    protected boolean LoadData() {
+        return false;
+    }
+
+    @Override // com.baidu.adp.a.c
+    public boolean cancelLoadData() {
+        if (this.c != null) {
+            this.c.cancel();
+            return false;
+        }
+        return false;
     }
 }

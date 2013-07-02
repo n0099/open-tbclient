@@ -3,26 +3,23 @@ package com.baidu.tieba.compatible;
 import android.app.Activity;
 import android.app.ActivityManager;
 import android.content.Context;
-import android.hardware.Camera;
 import android.os.Build;
 import android.provider.Settings;
-import android.support.v4.view.MotionEventCompat;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.webkit.WebChromeClient;
 import android.webkit.WebSettings;
-import android.webkit.WebView;
 import android.widget.FrameLayout;
 import android.widget.ListView;
+import com.baidu.zeus.NotificationProxy;
 /* loaded from: classes.dex */
 public class CompatibleUtile {
     private static CompatibleUtile mCompatibleUtile = null;
     private static Object5 mObject5 = null;
     private static Object7 mObject7 = null;
     private static Object8 mObject8 = null;
-    private static Object9 mObject9 = null;
     private static Object11 mObject11 = null;
     private static Object14 mObject14 = null;
 
@@ -52,13 +49,6 @@ public class CompatibleUtile {
             mObject8 = new Object8(this, null);
         }
         return mObject8;
-    }
-
-    private Object9 getObject9() {
-        if (Build.VERSION.SDK_INT >= 9 && mObject9 == null) {
-            mObject9 = new Object9(this, null);
-        }
-        return mObject9;
     }
 
     private Object11 getObject11() {
@@ -94,11 +84,11 @@ public class CompatibleUtile {
         if (memoryClass <= 0) {
             memoryClass = 16;
         }
-        return ((memoryClass * 1024) * 1024) / 2;
+        return ((memoryClass * NotificationProxy.MAX_URL_LENGTH) * NotificationProxy.MAX_URL_LENGTH) / 2;
     }
 
     public static int getActionMask() {
-        return MotionEventCompat.ACTION_MASK;
+        return 255;
     }
 
     public int getActionPointerUp() {
@@ -122,16 +112,6 @@ public class CompatibleUtile {
         return -1.0f;
     }
 
-    public Camera getBackCamera() {
-        return getObject9() != null ? getObject9().getBackCamera() : Camera.open();
-    }
-
-    public void setCameraDisplayOrientation(Camera camera, int i) {
-        if (getObject8() != null) {
-            getObject8().setCameraDisplayOrientation(camera, i);
-        }
-    }
-
     public void WebViewNoDataBase(WebSettings webSettings) {
         if (getObject5() != null) {
             getObject5().WebViewNoDataBase(webSettings);
@@ -145,47 +125,15 @@ public class CompatibleUtile {
         return false;
     }
 
-    public void removeJavascriptInterface(WebView webView) {
-        if (getObject11() != null) {
-            getObject11().removeJavascriptInterface(webView);
-        }
-    }
-
     public void openGpu(Activity activity) {
         if (getObject11() != null) {
             getObject11().openGpu(activity);
         }
     }
 
-    public boolean isUseHw(View view) {
-        if (getObject11() != null) {
-            return getObject11().isUseHw(view);
-        }
-        return false;
-    }
-
-    public int getViewLayer(View view) {
-        if (getObject11() != null) {
-            return getObject11().getViewLayer(view);
-        }
-        return 0;
-    }
-
-    public void noneViewGpu(View view) {
-        if (getObject11() != null) {
-            getObject11().noneViewGpu(view);
-        }
-    }
-
     public void closeViewGpu(View view) {
         if (getObject11() != null) {
             getObject11().closeViewGpu(view);
-        }
-    }
-
-    public void openViewGpu(View view) {
-        if (getObject11() != null) {
-            getObject11().openViewGpu(view);
         }
     }
 
@@ -245,7 +193,7 @@ public class CompatibleUtile {
             Window window = this.mActivity.getWindow();
             WindowManager.LayoutParams attributes = window.getAttributes();
             if (z) {
-                attributes.flags |= 1024;
+                attributes.flags |= NotificationProxy.MAX_URL_LENGTH;
             } else {
                 attributes.flags &= -1025;
                 if (this.mCustomView != null) {
@@ -345,43 +293,6 @@ public class CompatibleUtile {
                 return false;
             }
         }
-
-        public void setCameraDisplayOrientation(Camera camera, int i) {
-            if (camera != null) {
-                camera.setDisplayOrientation(i);
-            }
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes.dex */
-    public class Object9 {
-        private Object9() {
-        }
-
-        /* synthetic */ Object9(CompatibleUtile compatibleUtile, Object9 object9) {
-            this();
-        }
-
-        public Camera getBackCamera() {
-            int numberOfCameras = Camera.getNumberOfCameras();
-            if (numberOfCameras == 0) {
-                return null;
-            }
-            int i = 0;
-            while (i < numberOfCameras) {
-                Camera.CameraInfo cameraInfo = new Camera.CameraInfo();
-                Camera.getCameraInfo(i, cameraInfo);
-                if (cameraInfo.facing == 0) {
-                    break;
-                }
-                i++;
-            }
-            if (i < numberOfCameras) {
-                return Camera.open(i);
-            }
-            return Camera.open(0);
-        }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -398,38 +309,9 @@ public class CompatibleUtile {
             activity.getWindow().setFlags(16777216, 16777216);
         }
 
-        public boolean isUseHw(View view) {
-            return view != null && view.isHardwareAccelerated();
-        }
-
-        public int getViewLayer(View view) {
-            if (view != null) {
-                return view.getLayerType();
-            }
-            return 0;
-        }
-
-        public void noneViewGpu(View view) {
+        public void closeViewGpu(View view) {
             if (view != null) {
                 view.setLayerType(0, null);
-            }
-        }
-
-        public void closeViewGpu(View view) {
-            if (view != null && view.isHardwareAccelerated()) {
-                view.setLayerType(1, null);
-            }
-        }
-
-        public void openViewGpu(View view) {
-            if (view != null) {
-                view.setLayerType(2, null);
-            }
-        }
-
-        public void removeJavascriptInterface(WebView webView) {
-            if (webView != null) {
-                webView.removeJavascriptInterface("searchBoxJavaBridge_");
             }
         }
     }
@@ -466,13 +348,6 @@ public class CompatibleUtile {
             listView.smoothScrollToPosition(i);
         } else {
             listView.setSelection(i);
-        }
-    }
-
-    public static void dealWebView() {
-        if (Build.VERSION.SDK_INT <= 11) {
-            WebView.disablePlatformNotifications();
-            WebView.enablePlatformNotifications();
         }
     }
 }

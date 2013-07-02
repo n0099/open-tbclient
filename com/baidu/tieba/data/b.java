@@ -1,23 +1,15 @@
 package com.baidu.tieba.data;
 
-import tbclient.FrsPage.Group;
+import org.json.JSONObject;
 /* loaded from: classes.dex */
-public class b {
-    private int a = 0;
-    private int b = 0;
+public abstract class b {
+    public abstract void parserJson(JSONObject jSONObject);
 
-    public int a() {
-        return this.a;
-    }
-
-    public int b() {
-        return this.b;
-    }
-
-    public void a(Group group) {
-        if (group != null) {
-            this.a = group.group_count.intValue();
-            this.b = group.hide_recommend_group.intValue();
+    public void parserJson(String str) {
+        try {
+            parserJson(new JSONObject(str));
+        } catch (Exception e) {
+            com.baidu.tieba.util.z.b(getClass().getName(), "parserJson", e.getMessage());
         }
     }
 }

@@ -1,33 +1,59 @@
 package com.baidu.tieba.write;
 
-import android.view.View;
-import android.widget.ImageView;
-import com.baidu.tbadk.core.data.MetaData;
+import android.os.Handler;
+import android.text.Editable;
+import android.text.TextWatcher;
+import android.widget.Button;
+import android.widget.EditText;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class d implements com.baidu.tbadk.core.util.bt {
-    final /* synthetic */ c a;
-    private final /* synthetic */ String b;
-    private final /* synthetic */ com.baidu.adp.widget.a.a c;
+public class d implements TextWatcher {
+    final /* synthetic */ AtListActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public d(c cVar, String str, com.baidu.adp.widget.a.a aVar) {
-        this.a = cVar;
-        this.b = str;
-        this.c = aVar;
+    public d(AtListActivity atListActivity) {
+        this.a = atListActivity;
     }
 
-    @Override // com.baidu.tbadk.core.util.bt
-    public boolean a(View view) {
-        if ((view instanceof ImageView) && view.getTag() != null) {
-            Object tag = view.getTag();
-            if (tag instanceof MetaData) {
-                ImageView imageView = (ImageView) view;
-                MetaData metaData = (MetaData) tag;
-                if (this.b != null && this.b.equals(metaData.getPortrait()) && this.c != null) {
-                    this.c.a(imageView);
-                }
+    @Override // android.text.TextWatcher
+    public void afterTextChanged(Editable editable) {
+        String str;
+        Button button;
+        Button button2;
+        Handler handler;
+        Runnable runnable;
+        Handler handler2;
+        Runnable runnable2;
+        String editable2 = editable.toString();
+        if (editable2 != null) {
+            str = this.a.l;
+            if (!editable2.equals(str)) {
+                handler = this.a.e;
+                runnable = this.a.q;
+                handler.removeCallbacks(runnable);
+                handler2 = this.a.e;
+                runnable2 = this.a.q;
+                handler2.postDelayed(runnable2, 300L);
             }
+            if (editable2.length() > 0) {
+                button2 = this.a.b;
+                button2.setVisibility(0);
+                return;
+            }
+            button = this.a.b;
+            button.setVisibility(8);
         }
-        return false;
+    }
+
+    @Override // android.text.TextWatcher
+    public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
+        EditText editText;
+        AtListActivity atListActivity = this.a;
+        editText = this.a.a;
+        atListActivity.l = editText.getText().toString();
+    }
+
+    @Override // android.text.TextWatcher
+    public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
     }
 }

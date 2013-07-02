@@ -1,6 +1,18 @@
 package com.baidu.tieba;
+
+import android.view.View;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class x {
-    public static final int baidu_protocol = 2131034112;
-    public static final int browser_tnconfig = 2131034113;
+public class x implements View.OnClickListener {
+    final /* synthetic */ LabelActivity a;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public x(LabelActivity labelActivity) {
+        this.a = labelActivity;
+    }
+
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        this.a.q();
+    }
 }

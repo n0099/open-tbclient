@@ -1,49 +1,36 @@
 package com.baidu.tieba.data;
+
+import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class ag {
-    private volatile long a = 0;
-    private volatile long b = 0;
-    private volatile int c = 0;
-    private volatile boolean d = false;
+    private int a = -1;
+    private String b = null;
 
-    public void a(int i) {
-        if (i > 0) {
-            this.d = true;
-            this.a = i;
-        }
+    public int a() {
+        return this.a;
     }
 
-    public void b(int i) {
-        if (i > 0) {
-            this.d = true;
-            this.b = i;
-        }
+    public String b() {
+        return this.b;
     }
 
-    public void c(int i) {
-        if (i != 0) {
-            this.d = true;
-            this.c = i;
-        }
-    }
-
-    public void a() {
-        this.d = false;
-        this.a = 0L;
-        this.b = 0L;
-        this.c = 0;
-    }
-
-    public void a(com.baidu.tbadk.core.util.an anVar) {
-        if (anVar != null) {
-            if (this.a != 0) {
-                anVar.a("ctime", String.valueOf(this.a));
+    public void a(String str) {
+        if (str != null) {
+            try {
+                a(new JSONObject(str).optJSONObject("error"));
+            } catch (Exception e) {
+                com.baidu.tieba.util.z.b(getClass().getName(), "parserJson", e.getMessage());
             }
-            if (this.b != 0) {
-                anVar.a("data_size", String.valueOf(this.b));
-            }
-            if (this.c != 0) {
-                anVar.a("net_error", String.valueOf(this.c));
+        }
+    }
+
+    public void a(JSONObject jSONObject) {
+        if (jSONObject != null) {
+            try {
+                this.a = jSONObject.optInt("errno");
+                this.b = jSONObject.optString("usermsg");
+            } catch (Exception e) {
+                com.baidu.tieba.util.z.b(getClass().getName(), "parserJson", e.getMessage());
             }
         }
     }

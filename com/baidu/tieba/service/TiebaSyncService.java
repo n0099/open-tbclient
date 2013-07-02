@@ -4,26 +4,15 @@ import android.app.Service;
 import android.content.Intent;
 import android.os.Handler;
 import android.os.IBinder;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.atomData.bd;
-import com.baidu.tieba.model.bc;
+import com.baidu.tieba.model.br;
+import com.baidu.tieba.util.z;
 /* loaded from: classes.dex */
 public class TiebaSyncService extends Service {
-    private static String mStatistics = null;
-    private s mSyncTask = null;
-    private int mHaveRetry = 0;
-    private bc mModel = null;
-    private Handler mHandler = new Handler();
-    private Runnable mRunnable = new r(this);
-
-    static {
-        TbadkApplication.m252getInst().RegisterIntent(bd.class, TiebaSyncService.class);
-    }
-
-    public static void setMsgType(String str) {
-        mStatistics = str;
-    }
+    private s a = null;
+    private int b = 0;
+    private br c = null;
+    private Handler d = new Handler();
+    private Runnable e = new r(this);
 
     @Override // android.app.Service
     public IBinder onBind(Intent intent) {
@@ -36,36 +25,36 @@ public class TiebaSyncService extends Service {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void checkUpdata() {
-        if (this.mSyncTask != null) {
-            this.mSyncTask.cancel();
+    public void a() {
+        if (this.a != null) {
+            this.a.cancel();
         }
-        this.mSyncTask = new s(this, null);
-        this.mSyncTask.execute(new String[0]);
+        this.a = new s(this, null);
+        this.a.execute(new String[0]);
     }
 
     @Override // android.app.Service
     public void onDestroy() {
-        if (this.mSyncTask != null) {
-            this.mSyncTask.cancel();
+        if (this.a != null) {
+            this.a.cancel();
         }
-        this.mHaveRetry = 11;
-        this.mHandler.removeCallbacks(this.mRunnable);
+        this.b = 11;
+        this.d.removeCallbacks(this.e);
         super.onDestroy();
     }
 
     @Override // android.app.Service
     public void onStart(Intent intent, int i) {
         super.onStart(intent, i);
-        this.mHaveRetry = 0;
-        checkUpdata();
+        this.b = 0;
+        a();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void broadcastNewVersion() {
-        if (this.mModel != null) {
-            sendBroadcast(new Intent(com.baidu.tieba.data.d.d()));
-            BdLog.i(getClass().getName(), "broadcastNewVersion", "sendBroadcast: " + String.format("%s", this.mModel.c().getNewVersion()));
+    public void b() {
+        if (this.c != null) {
+            sendBroadcast(new Intent("com.baidu.tieba.broadcast.sync"));
+            z.a(getClass().getName(), "broadcastNewVersion", "sendBroadcast: " + String.format("%s", this.c.c().getNew_version()));
         }
     }
 }

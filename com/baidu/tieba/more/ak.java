@@ -1,56 +1,22 @@
 package com.baidu.tieba.more;
 
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.core.util.DatabaseManager;
-import com.baidu.tbadk.core.util.bf;
-import com.baidu.tieba.model.MoreModel;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.app.TimePickerDialog;
+import android.widget.TimePicker;
+import com.baidu.tieba.TiebaApplication;
 /* loaded from: classes.dex */
-public class ak extends BdAsyncTask<String, Integer, String> {
-    final /* synthetic */ aj a;
-
-    private ak(aj ajVar) {
-        this.a = ajVar;
-    }
+class ak implements TimePickerDialog.OnTimeSetListener {
+    final /* synthetic */ SignRemindActivity a;
+    private final /* synthetic */ TiebaApplication b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ ak(aj ajVar, ak akVar) {
-        this(ajVar);
+    public ak(SignRemindActivity signRemindActivity, TiebaApplication tiebaApplication) {
+        this.a = signRemindActivity;
+        this.b = tiebaApplication;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: a */
-    public void onPostExecute(String str) {
-        BaseActivity.LoadDataCallBack loadDataCallBack;
-        BaseActivity.LoadDataCallBack loadDataCallBack2;
-        super.onPostExecute(str);
-        this.a.a = null;
-        loadDataCallBack = this.a.e;
-        if (loadDataCallBack == null) {
-            return;
-        }
-        loadDataCallBack2 = this.a.e;
-        loadDataCallBack2.callback(MoreModel.TaskType.DO_CACHE_CLEAR);
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: a */
-    public String doInBackground(String... strArr) {
-        new DatabaseManager(DatabaseManager.DatabaseLocation.SDCARD).b();
-        com.baidu.tbadk.core.voice.a.e.a();
-        try {
-            bf.a().b();
-            bf.a().c();
-            return null;
-        } catch (Exception e) {
-            BdLog.e(getClass().getName(), "doInBackground", e.getMessage());
-            return null;
-        }
+    @Override // android.app.TimePickerDialog.OnTimeSetListener
+    public void onTimeSet(TimePicker timePicker, int i, int i2) {
+        this.b.a(i, i2);
+        this.a.d();
     }
 }

@@ -1,171 +1,145 @@
 package com.baidu.android.nebula.a;
 
 import android.content.Context;
-import android.content.SharedPreferences;
-import android.preference.PreferenceManager;
 import android.text.TextUtils;
-import com.baidu.locMoplus.BDLocManager;
+import android.util.Log;
+import com.baidu.android.common.security.Base64;
+import com.baidu.browser.core.util.BdUtil;
+import com.baidu.zeus.NotificationProxy;
+import java.io.ByteArrayOutputStream;
+import java.io.InputStream;
+import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
-import java.util.Iterator;
-import org.apache.http.HttpResponse;
-import org.apache.http.client.entity.UrlEncodedFormEntity;
-import org.apache.http.client.methods.HttpPost;
-import org.apache.http.message.BasicNameValuePair;
-import org.apache.http.util.EntityUtils;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.zip.GZIPInputStream;
+import org.apache.http.Header;
+import org.apache.http.HttpEntity;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public final class e {
-    private static e b;
+    private static volatile e b = null;
+    private static String g = "http://m.baidu.com/open/iasdk?";
     private Context a;
-    private BDLocManager c;
+    private ExecutorService c;
+    private String d;
+    private q e = null;
+    private r f;
 
     private e(Context context) {
-        this.a = context.getApplicationContext();
-        this.c = new BDLocManager(this.a);
+        this.a = null;
+        this.c = null;
+        this.f = null;
+        this.a = context;
+        this.f = new r();
+        this.c = Executors.newSingleThreadExecutor();
     }
 
-    public static synchronized e a(Context context) {
-        e eVar;
-        synchronized (e.class) {
-            if (b == null) {
-                b = new e(context.getApplicationContext());
-            }
-            eVar = b;
+    public static e a(Context context) {
+        if (b == null) {
+            b = new e(context);
         }
-        return eVar;
+        return b;
     }
 
-    public static void a() {
-        b = null;
-    }
-
-    private void a(long j) {
-        SharedPreferences.Editor edit = PreferenceManager.getDefaultSharedPreferences(this.a).edit();
-        edit.putLong("light_loc_string_time", j);
-        edit.commit();
-    }
-
-    private void a(String str) {
-        String str2 = null;
-        if (TextUtils.isEmpty(str)) {
-            return;
+    /* JADX INFO: Access modifiers changed from: private */
+    public InputStream a(HttpEntity httpEntity) {
+        Header contentEncoding = httpEntity.getContentEncoding();
+        if (contentEncoding == null || contentEncoding.getValue().toLowerCase().indexOf("gzip") == -1) {
+            return null;
         }
+        return new GZIPInputStream(httpEntity.getContent());
+    }
+
+    private String a(String str) {
+        byte[] a = p.a(str.getBytes());
+        a[0] = 117;
+        a[1] = 123;
         try {
-            str2 = com.baidu.android.systemmonitor.security.a.a(str);
-        } catch (Error e) {
-            e.printStackTrace();
-        } catch (Exception e2) {
+            return Base64.encode(a, BdUtil.UTF8);
+        } catch (UnsupportedEncodingException e) {
+            Log.e("AppListPostRequest", "--- encrypt : Base64 Fail!");
+            return null;
         }
-        SharedPreferences.Editor edit = PreferenceManager.getDefaultSharedPreferences(this.a).edit();
-        edit.putString("light_loc_string_gps", str2);
-        edit.commit();
     }
 
-    private void b(String str) {
-        String str2 = null;
-        if (TextUtils.isEmpty(str)) {
-            return;
-        }
-        try {
-            str2 = com.baidu.android.systemmonitor.security.a.a(str);
-        } catch (Error e) {
-            e.printStackTrace();
-        } catch (Exception e2) {
-        }
-        SharedPreferences.Editor edit = PreferenceManager.getDefaultSharedPreferences(this.a).edit();
-        edit.putString("light_loc_string", str2);
-        edit.commit();
-    }
-
-    private String e() {
+    /* JADX INFO: Access modifiers changed from: private */
+    public void a(InputStream inputStream) {
         JSONObject jSONObject;
-        String str = "";
-        a aVar = new a(this.a);
-        try {
-            HttpPost httpPost = new HttpPost(com.baidu.android.moplus.a.c);
-            httpPost.addHeader("Content-Type", "application/x-www-form-urlencoded");
-            ArrayList arrayList = new ArrayList();
-            String locString = this.c.getLocString();
-            String a = j.a(this.a);
-            String a2 = com.baidu.android.moplus.util.a.a();
-            arrayList.add(new BasicNameValuePair("apinfo", locString));
-            arrayList.add(new BasicNameValuePair("cuid", a));
-            arrayList.add(new BasicNameValuePair("cip", a2));
-            arrayList.add(new BasicNameValuePair("prod", "Moplus"));
-            arrayList.add(new BasicNameValuePair("addr", "city_code|province|city|district|street|street_number"));
-            httpPost.setEntity(new UrlEncodedFormEntity(arrayList, "UTF-8"));
-            HttpResponse execute = aVar.execute(httpPost);
-            if (execute.getStatusLine().getStatusCode() == 200) {
-                JSONObject jSONObject2 = new JSONObject(EntityUtils.toString(execute.getEntity(), "UTF-8"));
-                JSONObject jSONObject3 = jSONObject2.getJSONObject("content");
-                if (jSONObject2.getJSONObject("result").getInt("error") == 161) {
-                    String string = jSONObject3.getJSONObject("point").getString("x");
-                    String string2 = jSONObject3.getJSONObject("point").getString("y");
-                    String string3 = jSONObject3.getString("radius");
-                    String string4 = jSONObject3.getJSONObject("addr").getString("city_code");
-                    b(jSONObject.optString("province") + jSONObject.optString("city") + jSONObject.optString("district") + jSONObject.optString("street") + jSONObject.optString("street_number"));
-                    str = "coords:{accuracy:" + string3 + ",longitude:" + string + ",latitude:" + string2 + "},citycode:" + string4;
-                    a(System.currentTimeMillis());
-                    a(str);
-                } else {
-                    str = "";
-                }
+        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+        byte[] bArr = new byte[NotificationProxy.MAX_URL_LENGTH];
+        while (true) {
+            int read = inputStream.read(bArr, 0, 100);
+            if (read <= 0) {
+                break;
             }
-        } catch (Exception e) {
-            str = "";
-        } finally {
-            aVar.a();
+            byteArrayOutputStream.write(bArr, 0, read);
         }
-        return str;
-    }
-
-    private long f() {
-        return PreferenceManager.getDefaultSharedPreferences(this.a).getLong("light_loc_string_time", 0L);
-    }
-
-    public String b() {
-        String string = PreferenceManager.getDefaultSharedPreferences(this.a).getString("light_loc_string_gps", "");
-        if (!TextUtils.isEmpty(string)) {
+        JSONObject jSONObject2 = new JSONObject(new String(byteArrayOutputStream.toByteArray(), BdUtil.UTF8));
+        this.f.k();
+        if (jSONObject2.has("status")) {
+            this.f.a(jSONObject2.getInt("status"));
+        }
+        if (!jSONObject2.has("result") || (jSONObject = jSONObject2.getJSONObject("result")) == null) {
+            return;
+        }
+        if (jSONObject.has("action")) {
+            this.d = jSONObject.getString("action");
+        }
+        if (jSONObject.has("channelid")) {
+            long j = 0;
             try {
-                string = com.baidu.android.systemmonitor.security.a.b(string);
-            } catch (Error e) {
-                e.printStackTrace();
-            } catch (Exception e2) {
+                j = Long.parseLong(jSONObject.getString("channelid"));
+            } catch (NumberFormatException e) {
+            }
+            this.f.b(j);
+        }
+        if (jSONObject.has("maxnum")) {
+            this.f.b(jSONObject.getInt("maxnum"));
+        }
+        if (jSONObject.has("token")) {
+            this.f.a(jSONObject.getLong("token"));
+        }
+        if (jSONObject.has("retlist")) {
+            String string = jSONObject.getString("retlist");
+            this.f.a().clear();
+            if (!TextUtils.isEmpty(string)) {
+                ArrayList arrayList = new ArrayList();
+                ArrayList arrayList2 = new ArrayList();
+                char[] charArray = string.toCharArray();
+                for (int i = 0; i < charArray.length; i++) {
+                    if (charArray[i] == '0') {
+                        arrayList.add(Integer.valueOf(i));
+                    } else {
+                        arrayList2.add(Integer.valueOf(i));
+                    }
+                }
+                if (arrayList.size() > 0) {
+                    this.f.b();
+                }
+                this.f.a(arrayList);
+                this.f.b(arrayList2);
             }
         }
-        return (TextUtils.isEmpty(string) || System.currentTimeMillis() - f() >= 1800000) ? e() : string.contains("error") ? e() : string;
-    }
-
-    public boolean b(Context context) {
-        ArrayList arrayList = new ArrayList();
-        arrayList.add("android.permission.ACCESS_COARSE_LOCATION");
-        arrayList.add("android.permission.ACCESS_WIFI_STATE");
-        arrayList.add("android.permission.CHANGE_WIFI_STATE");
-        Iterator it = arrayList.iterator();
-        while (it.hasNext()) {
-            if (context.getPackageManager().checkPermission((String) it.next(), context.getPackageName()) != 0) {
-                return false;
-            }
-        }
-        return true;
-    }
-
-    public String c() {
-        String d = d();
-        if (TextUtils.isEmpty(d)) {
-            return d;
-        }
-        try {
-            return com.baidu.android.systemmonitor.security.a.b(d);
-        } catch (Error e) {
-            e.printStackTrace();
-            return d;
-        } catch (Exception e2) {
-            return d;
+        if (jSONObject.has("synctimeinterval")) {
+            c.c(this.a, Long.valueOf(jSONObject.getLong("synctimeinterval")).longValue());
         }
     }
 
-    public String d() {
-        return PreferenceManager.getDefaultSharedPreferences(this.a).getString("light_loc_string", "");
+    /* JADX INFO: Access modifiers changed from: private */
+    public void b() {
+        if (TextUtils.equals(this.d, "needsmeetuser_info") || TextUtils.equals(this.d, "needsmeetsync_info") || TextUtils.equals(this.d, "needsmeetapp_info")) {
+            this.e.a(this.f);
+        }
+    }
+
+    public r a() {
+        return this.f;
+    }
+
+    public void a(String str, q qVar) {
+        this.e = qVar;
+        String a = a(str);
+        this.c.submit(new f(this, com.baidu.android.nebula.localserver.util.d.a(this.a).a(g), a));
     }
 }

@@ -1,66 +1,118 @@
 package com.baidu.tieba.mention;
 
-import android.content.Context;
-import android.view.View;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.core.atomData.bh;
-import com.baidu.tbadk.core.data.AntiData;
-import com.baidu.tieba.data.ai;
-import com.baidu.tieba.model.am;
+import android.app.AlertDialog;
+import android.widget.ProgressBar;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.tieba.R;
+import com.baidu.tieba.data.aj;
+import com.baidu.tieba.data.an;
+import com.baidu.tieba.model.bg;
+import java.util.ArrayList;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class x implements View.OnClickListener {
-    final /* synthetic */ PostActivity a;
+public class x extends BdAsyncTask {
+    ArrayList a;
+    final /* synthetic */ PostActivity b;
+    private com.baidu.tieba.util.r c = null;
+    private String d;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public x(PostActivity postActivity) {
-        this.a = postActivity;
+    public x(PostActivity postActivity, String str, ArrayList arrayList) {
+        this.b = postActivity;
+        this.d = null;
+        this.a = null;
+        this.d = str;
+        this.a = arrayList;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        am amVar;
-        am amVar2;
-        am amVar3;
-        am amVar4;
-        am amVar5;
-        amVar = this.a.l;
-        if (amVar != null) {
-            amVar2 = this.a.l;
-            if (amVar2.a() != null) {
-                amVar3 = this.a.l;
-                com.baidu.tieba.data.af a = amVar3.a();
-                ai aiVar = a.e().get(0);
-                if (aiVar != null) {
-                    if (aiVar.l() != null) {
-                        if (a.g() != null && a.g().getIfpost() == 0) {
-                            com.baidu.adp.lib.util.k.a((Context) this.a, a.g().getForbid_info());
-                            return;
-                        }
-                        PostActivity postActivity = this.a;
-                        String name = a.c().getName();
-                        String p = a.d().p();
-                        String l = aiVar.l();
-                        String l2 = aiVar.l();
-                        int m = aiVar.m();
-                        AntiData g = a.g();
-                        amVar5 = this.a.l;
-                        MessageManager.getInstance().sendMessage(new CustomMessage(2003001, new bh(postActivity, 2, name, p, l, l2, m, g, 13001, false, amVar5.a().k(), null, false, false, null, null, null)));
-                    } else if (a.g() == null || a.g().getIfpost() != 0) {
-                        PostActivity postActivity2 = this.a;
-                        String name2 = a.c().getName();
-                        String p2 = a.d().p();
-                        String l3 = aiVar.l();
-                        int m2 = aiVar.m();
-                        AntiData g2 = a.g();
-                        amVar4 = this.a.l;
-                        MessageManager.getInstance().sendMessage(new CustomMessage(2003001, new bh(postActivity2, 1, name2, p2, l3, null, m2, g2, 13002, false, amVar4.a().k(), null, false, false, null, null, null)));
-                    } else {
-                        com.baidu.adp.lib.util.k.a((Context) this.a, a.g().getForbid_info());
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public void b() {
+        ProgressBar progressBar;
+        progressBar = this.b.f;
+        progressBar.setVisibility(0);
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    /* renamed from: d */
+    public aj a(Object... objArr) {
+        aj ajVar = null;
+        try {
+            this.c = new com.baidu.tieba.util.r(this.d);
+            this.c.a(this.a);
+            String j = this.c.j();
+            if (this.c.c()) {
+                aj ajVar2 = new aj();
+                try {
+                    ajVar2.b(j);
+                    int size = ajVar2.d().size();
+                    for (int i = 0; i < size; i++) {
+                        ((an) ajVar2.d().get(i)).d(this.b);
+                        ((an) ajVar2.d().get(i)).a((ArrayList) null);
                     }
+                    return ajVar2;
+                } catch (Exception e) {
+                    ajVar = ajVar2;
+                    e = e;
+                    com.baidu.tieba.util.z.b("PostAsyncTask", "doInBackground", "error = " + e.getMessage());
+                    return ajVar;
                 }
             }
+            return null;
+        } catch (Exception e2) {
+            e = e2;
         }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public void a(aj ajVar) {
+        ProgressBar progressBar;
+        bg bgVar;
+        try {
+            progressBar = this.b.f;
+            progressBar.setVisibility(8);
+            if (ajVar != null) {
+                bgVar = this.b.n;
+                bgVar.a(ajVar);
+            } else if (this.c != null) {
+                if (this.c.d()) {
+                    this.b.a(this.c.g());
+                    if (this.c.e() == 4 || this.c.e() == 28 || this.c.e() == 29) {
+                        this.b.finish();
+                        return;
+                    }
+                } else {
+                    AlertDialog.Builder builder = new AlertDialog.Builder(this.b);
+                    builder.setTitle(this.b.getString(R.string.error));
+                    builder.setMessage(this.c.g());
+                    builder.setPositiveButton(this.b.getString(R.string.retry), new y(this));
+                    builder.setNegativeButton(this.b.getString(R.string.cancel), new z(this));
+                    builder.create().show();
+                }
+            }
+            this.b.m();
+        } catch (Exception e) {
+        }
+        this.b.m = null;
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public void c() {
+        super.c();
+    }
+
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public void cancel() {
+        ProgressBar progressBar;
+        if (this.c != null) {
+            this.c.h();
+        }
+        progressBar = this.b.f;
+        progressBar.setVisibility(8);
+        super.cancel(true);
     }
 }

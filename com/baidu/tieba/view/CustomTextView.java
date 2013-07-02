@@ -6,7 +6,6 @@ import android.text.Spanned;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.widget.TextView;
-import com.baidu.adp.lib.util.BdLog;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class CustomTextView extends TextView {
@@ -44,12 +43,12 @@ public class CustomTextView extends TextView {
             a(new SpannableStringBuilder(text), i, i2);
             return;
         }
-        BdLog.d(getClass().getName(), "fixOnMeasure", "The text isn't a Spanned");
+        com.baidu.tieba.util.z.e(getClass().getName(), "fixOnMeasure", "The text isn't a Spanned");
         b(i, i2);
     }
 
     private void a(SpannableStringBuilder spannableStringBuilder, int i, int i2) {
-        i b = b(spannableStringBuilder, i, i2);
+        g b = b(spannableStringBuilder, i, i2);
         if (b.a) {
             a(i, i2, spannableStringBuilder, b);
         } else {
@@ -57,7 +56,7 @@ public class CustomTextView extends TextView {
         }
     }
 
-    private i b(SpannableStringBuilder spannableStringBuilder, int i, int i2) {
+    private g b(SpannableStringBuilder spannableStringBuilder, int i, int i2) {
         Object[] spans = spannableStringBuilder.getSpans(0, spannableStringBuilder.length(), Object.class);
         ArrayList arrayList = new ArrayList(spans.length);
         ArrayList arrayList2 = new ArrayList(spans.length);
@@ -74,13 +73,13 @@ public class CustomTextView extends TextView {
             }
             try {
                 a((CharSequence) spannableStringBuilder, i, i2);
-                return i.a(arrayList, arrayList2);
+                return g.a(arrayList, arrayList2);
             } catch (IndexOutOfBoundsException e) {
-                BdLog.e(getClass().getName(), "addSpacesAroundSpansUntilFixed", e.getMessage());
+                com.baidu.tieba.util.z.b(getClass().getName(), "addSpacesAroundSpansUntilFixed", e.getMessage());
             }
         }
-        BdLog.d(getClass().getName(), "addSpacesAroundSpansUntilFixed", "Could not fix the Spanned by adding spaces around spans");
-        return i.a();
+        com.baidu.tieba.util.z.e(getClass().getName(), "addSpacesAroundSpansUntilFixed", "Could not fix the Spanned by adding spaces around spans");
+        return g.a();
     }
 
     private boolean a(CharSequence charSequence, int i) {
@@ -89,11 +88,11 @@ public class CustomTextView extends TextView {
 
     private void a(CharSequence charSequence, int i, int i2) {
         setText(charSequence);
-        measure(i, i2);
+        super.onMeasure(i, i2);
     }
 
-    private void a(int i, int i2, SpannableStringBuilder spannableStringBuilder, i iVar) {
-        for (Object obj : iVar.c) {
+    private void a(int i, int i2, SpannableStringBuilder spannableStringBuilder, g gVar) {
+        for (Object obj : gVar.c) {
             int spanEnd = spannableStringBuilder.getSpanEnd(obj);
             spannableStringBuilder.delete(spanEnd, spanEnd + 1);
             try {
@@ -103,7 +102,7 @@ public class CustomTextView extends TextView {
             }
         }
         boolean z = true;
-        for (Object obj2 : iVar.b) {
+        for (Object obj2 : gVar.b) {
             int spanStart = spannableStringBuilder.getSpanStart(obj2);
             spannableStringBuilder.delete(spanStart - 1, spanStart);
             try {
@@ -116,12 +115,12 @@ public class CustomTextView extends TextView {
         }
         if (z) {
             setText(spannableStringBuilder);
-            measure(i, i2);
+            super.onMeasure(i, i2);
         }
     }
 
     private void b(int i, int i2) {
-        BdLog.d(getClass().getName(), "fallbackToString", "Fallback to unspanned text");
+        com.baidu.tieba.util.z.e(getClass().getName(), "fallbackToString", "Fallback to unspanned text");
         a(getText().toString(), i, i2);
     }
 }

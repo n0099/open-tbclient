@@ -1,119 +1,68 @@
 package com.baidu.tieba.data;
 
-import com.baidu.adp.lib.util.BdLog;
 import java.util.ArrayList;
+import java.util.Date;
 import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class p {
-    private String g;
-    private String h;
-    private int a = 0;
-    private String b = "";
-    private String c = "";
-    private int d = 0;
-    private int e = 0;
-    private boolean f = false;
-    private ArrayList<q> i = new ArrayList<>();
+    private ArrayList a = new ArrayList();
+    private ArrayList b = new ArrayList();
+    private ai c = new ai();
+    private Date d = null;
+    private boolean e = true;
+    private int f = 0;
+
+    public boolean a() {
+        return this.e;
+    }
+
+    public int b() {
+        return this.f;
+    }
+
+    public ArrayList c() {
+        return this.a;
+    }
 
     public void a(String str) {
         try {
             a(new JSONObject(str));
         } catch (Exception e) {
-            BdLog.e("ForumFeedData", "parserJson", "error = " + e.getMessage());
+            this.e = false;
+            com.baidu.tieba.util.z.b("LikeForumModel", "parserJson", "error = " + e.getMessage());
         }
     }
 
     public void a(JSONObject jSONObject) {
-        if (jSONObject != null) {
-            try {
-                a(jSONObject.optInt("is_new_url", 0));
-                JSONObject optJSONObject = jSONObject.optJSONObject("error");
-                if (optJSONObject != null) {
-                    this.a = optJSONObject.optInt("errno", 0);
-                    this.b = optJSONObject.optString("errmsg", "");
-                    this.c = optJSONObject.optString("usermsg", "");
+        try {
+            JSONArray optJSONArray = jSONObject.optJSONArray("forum_list");
+            if (optJSONArray != null) {
+                for (int i = 0; i < optJSONArray.length(); i++) {
+                    o oVar = new o();
+                    oVar.a(optJSONArray.getJSONObject(i));
+                    this.a.add(oVar);
                 }
-                b(jSONObject.optString(com.baidu.tbadk.core.frameworkData.a.TOTAL));
-                b(jSONObject.optInt("has_more"));
-                JSONArray optJSONArray = jSONObject.optJSONArray("feed_thread_list");
-                if (optJSONArray != null) {
-                    for (int i = 0; i < optJSONArray.length(); i++) {
-                        q qVar = new q();
-                        qVar.a(optJSONArray.optJSONObject(i));
-                        this.i.add(qVar);
-                    }
-                    a(optJSONArray.length() == 0);
-                }
-            } catch (Exception e) {
-                BdLog.e("ForumFeedData", "parserJson", "error = " + e.getMessage());
             }
-        }
-    }
-
-    public void a(p pVar, boolean z) {
-        if (pVar != null) {
-            b(pVar.c());
-            b(pVar.e());
-            c(pVar.f());
-            a(pVar.b() == null || pVar.b().size() == 0);
-            if (z) {
-                this.i.addAll(pVar.b());
+            JSONArray optJSONArray2 = jSONObject.optJSONArray("commend_forum_list");
+            if (optJSONArray2 != null) {
+                for (int i2 = 0; i2 < optJSONArray2.length(); i2++) {
+                    o oVar2 = new o();
+                    oVar2.a(optJSONArray2.getJSONObject(i2));
+                    this.b.add(oVar2);
+                }
+            }
+            this.c.a(jSONObject.optJSONObject("page"));
+            long optLong = jSONObject.optLong("ctime", 0L);
+            if (optLong > 0) {
+                this.d = new Date(optLong);
             } else {
-                this.i = pVar.b();
+                this.d = new Date();
             }
+            this.f = jSONObject.optInt("is_login", 0);
+        } catch (Exception e) {
+            this.e = false;
+            com.baidu.tieba.util.z.b("LikeForumModel", "parserJson", "error = " + e.getMessage());
         }
-    }
-
-    public int a() {
-        return this.d;
-    }
-
-    public void a(int i) {
-        this.d = i;
-    }
-
-    public void a(boolean z) {
-        this.f = z;
-    }
-
-    public ArrayList<q> b() {
-        return this.i;
-    }
-
-    public void b(int i) {
-        this.e = i;
-    }
-
-    public int c() {
-        return this.e;
-    }
-
-    public boolean d() {
-        return this.e > 0;
-    }
-
-    public void b(String str) {
-        this.g = str;
-    }
-
-    public String e() {
-        return this.g;
-    }
-
-    public void c(String str) {
-        this.h = str;
-    }
-
-    public String f() {
-        return this.h;
-    }
-
-    public int g() {
-        return this.a;
-    }
-
-    public String h() {
-        return this.c;
     }
 }

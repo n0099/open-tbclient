@@ -93,16 +93,16 @@ public final class Log {
                 str = readLine.substring(0, readLine.indexOf(0));
                 bufferedReader = bufferedReader2;
             }
-        } catch (Exception e2) {
-            str = "";
-            e = e2;
-        }
-        try {
-            bufferedReader.close();
+            try {
+                bufferedReader.close();
+            } catch (Exception e2) {
+                e = e2;
+                e.printStackTrace();
+                return str;
+            }
         } catch (Exception e3) {
+            str = "";
             e = e3;
-            e.printStackTrace();
-            return str;
         }
         return str;
     }

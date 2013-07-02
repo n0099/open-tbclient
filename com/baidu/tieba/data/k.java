@@ -1,55 +1,53 @@
 package com.baidu.tieba.data;
 
-import com.baidu.adp.lib.util.BdLog;
-import java.util.ArrayList;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
+import android.content.Context;
+import android.view.View;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class k {
-    private ArrayList<j> a = new ArrayList<>();
-    private ArrayList<m> b = new ArrayList<>();
+public class k extends com.baidu.tieba.util.p {
+    final /* synthetic */ i a;
 
-    public ArrayList<m> a() {
-        return this.b;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public k(i iVar, Context context) {
+        super(context);
+        this.a = iVar;
     }
 
-    public void a(String str) {
-        try {
-            a(new JSONObject(str));
-        } catch (Exception e) {
-            BdLog.e(getClass().getName(), "parserJson", e.toString());
-        }
-    }
-
-    public void a(JSONObject jSONObject) {
-        try {
-            JSONArray optJSONArray = jSONObject.optJSONArray("banner");
-            if (optJSONArray != null) {
-                int length = optJSONArray.length();
-                for (int i = 0; i < length; i++) {
-                    j jVar = new j();
-                    jVar.a(optJSONArray.getJSONObject(i));
-                    this.a.add(jVar);
-                }
+    @Override // com.baidu.tieba.util.p, android.text.style.ClickableSpan
+    public void onClick(View view) {
+        Pattern pattern;
+        String str;
+        Pattern pattern2;
+        String str2;
+        String str3;
+        pattern = i.h;
+        str = this.a.f;
+        Matcher matcher = pattern.matcher(str);
+        if (matcher.find()) {
+            try {
+                String group = matcher.group();
+                b(group.substring(group.lastIndexOf("/") + 1));
+                return;
+            } catch (Exception e) {
+                com.baidu.tieba.util.z.b(getClass().getName(), "onClick", e.toString());
             }
-            JSONArray optJSONArray2 = jSONObject.optJSONArray("threadRecommend");
-            if (optJSONArray2 != null) {
-                int length2 = optJSONArray2.length();
-                for (int i2 = 0; i2 < length2; i2++) {
-                    m mVar = new m();
-                    mVar.a(optJSONArray2.getJSONObject(i2));
-                    this.b.add(mVar);
-                }
+        }
+        pattern2 = i.i;
+        str2 = this.a.f;
+        Matcher matcher2 = pattern2.matcher(str2);
+        if (matcher2.find()) {
+            try {
+                String group2 = matcher2.group();
+                b(group2.substring(group2.lastIndexOf("=") + 1));
+                return;
+            } catch (Exception e2) {
+                com.baidu.tieba.util.z.b(getClass().getName(), "onClick", e2.toString());
             }
-        } catch (JSONException e) {
-            BdLog.e(getClass().getName(), "parserJson", e.toString());
         }
-    }
-
-    public void a(k kVar) {
-        if (kVar != null) {
-            this.b.addAll(kVar.a());
-        }
+        str3 = this.a.f;
+        a(str3);
     }
 }

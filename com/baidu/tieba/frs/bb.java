@@ -1,31 +1,26 @@
 package com.baidu.tieba.frs;
 
-import android.support.v4.view.ViewPager;
-import com.baidu.adp.widget.IndicatorView;
+import android.content.DialogInterface;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class bb implements ViewPager.OnPageChangeListener {
+public class bb implements DialogInterface.OnClickListener {
     final /* synthetic */ az a;
-    private final /* synthetic */ IndicatorView b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bb(az azVar, IndicatorView indicatorView) {
+    public bb(az azVar) {
         this.a = azVar;
-        this.b = indicatorView;
     }
 
-    @Override // android.support.v4.view.ViewPager.OnPageChangeListener
-    public void onPageSelected(int i) {
-        if (this.b != null) {
-            this.b.setPosition(i);
+    @Override // android.content.DialogInterface.OnClickListener
+    public void onClick(DialogInterface dialogInterface, int i) {
+        com.baidu.tieba.g gVar;
+        com.baidu.tieba.g gVar2;
+        if (i == 0) {
+            gVar2 = this.a.d;
+            com.baidu.tieba.write.bb.a(gVar2);
+        } else if (i == 1) {
+            gVar = this.a.d;
+            com.baidu.tieba.write.bb.b(gVar);
         }
-    }
-
-    @Override // android.support.v4.view.ViewPager.OnPageChangeListener
-    public void onPageScrolled(int i, float f, int i2) {
-    }
-
-    @Override // android.support.v4.view.ViewPager.OnPageChangeListener
-    public void onPageScrollStateChanged(int i) {
     }
 }

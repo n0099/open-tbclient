@@ -1,27 +1,27 @@
 package com.baidu.tieba.view;
 
-import android.app.Dialog;
-import android.os.Bundle;
+import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
 import android.view.View;
-import android.widget.ProgressBar;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class u extends Dialog {
-    private View a;
-    private ProgressBar b;
-    private View.OnTouchListener c;
+public class u implements View.OnClickListener {
+    final /* synthetic */ GuidPageView a;
 
-    @Override // android.app.Dialog
-    protected void onStop() {
-        super.onStop();
-        this.b.setVisibility(8);
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public u(GuidPageView guidPageView) {
+        this.a = guidPageView;
     }
 
-    @Override // android.app.Dialog
-    protected void onCreate(Bundle bundle) {
-        super.onCreate(bundle);
-        setContentView(this.a);
-        setCanceledOnTouchOutside(true);
-        setCancelable(true);
-        getWindow().getDecorView().setOnTouchListener(this.c);
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        if (view != null && view.getBackground() != null) {
+            Bitmap bitmap = ((BitmapDrawable) view.getBackground()).getBitmap();
+            view.setBackgroundDrawable(null);
+            if (bitmap != null && !bitmap.isRecycled()) {
+                bitmap.recycle();
+            }
+            view.setVisibility(8);
+        }
     }
 }

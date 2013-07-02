@@ -1,104 +1,43 @@
 package com.baidu.tieba.data;
 
 import android.webkit.URLUtil;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.util.bg;
 import java.io.Serializable;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class VersionData implements Serializable {
     private static final long serialVersionUID = 5102616316349188013L;
-    private String asDownloadUrl;
-    private String clientId;
-    private String newFile;
-    private int newVersionCode;
-    private String newVersionDesc;
-    private int newVersionRemind;
-    private String patch;
-    private String patchSize;
-    private String size;
-    private String tiebaIconUrl;
-    private int forceUpdate = 0;
-    private int strategy = 0;
-    private int hasNewVer = 0;
-    private String newVer = null;
+    private String client_id;
+    private String new_file;
+    private String new_version_desc;
+    private int new_version_remind;
+    private int force_update = 0;
+    private int has_new_ver = 0;
+    private String new_ver = null;
     private String url = null;
 
     public VersionData() {
-        setClientId(null);
-        this.newFile = null;
-        this.newVersionCode = -1;
-        this.tiebaIconUrl = null;
-        this.asDownloadUrl = null;
+        setClient_id(null);
+        this.new_file = null;
     }
 
-    public void parserJson(String str) {
-        try {
-            parserJson(new JSONObject(str));
-        } catch (Exception e) {
-            BdLog.e(getClass().getName(), "parserJson", e.getMessage());
-        }
+    public String getNew_version_desc() {
+        return this.new_version_desc;
     }
 
-    public void parserJson(JSONObject jSONObject) {
-        if (jSONObject != null) {
-            try {
-                this.forceUpdate = jSONObject.optInt("force_update", 0);
-                this.strategy = jSONObject.optInt("strategy", 0);
-                this.newVer = jSONObject.optString("new_version", null);
-                this.size = jSONObject.optString("size", null);
-                String optString = jSONObject.optString("new_four_version", null);
-                if (!bg.c(optString)) {
-                    this.newVer = optString;
-                }
-                this.url = jSONObject.optString("new_version_url");
-                this.newVersionRemind = jSONObject.optInt("new_version_remind", 0);
-                this.newVersionDesc = jSONObject.optString("new_version_desc", null);
-                this.patch = jSONObject.optString("patch");
-                this.patchSize = jSONObject.optString("patch_size");
-                this.newVersionCode = jSONObject.optInt("new_version_code", -1);
-                this.tiebaIconUrl = jSONObject.optString("tieba_iconurl", null);
-                this.asDownloadUrl = jSONObject.optString("as_downloadurl", null);
-                if (a()) {
-                    this.hasNewVer = 1;
-                    this.newFile = "tieba_" + this.newVer + ".apk";
-                }
-            } catch (Exception e) {
-                BdLog.e(getClass().getName(), "parserJson", e.getMessage());
-            }
-        }
+    public void setNew_version_desc(String str) {
+        this.new_version_desc = str;
     }
 
-    private boolean a() {
-        return (this.newVersionRemind != 1 || this.url == null || !URLUtil.isHttpUrl(this.url) || this.newVer == null || TbConfig.getVersion().equalsIgnoreCase(this.newVer)) ? false : true;
+    public int getForce_update() {
+        return this.force_update;
     }
 
-    public void logPrint() {
-        BdLog.v("VersionData", "logPrint", "force_update = " + String.valueOf(this.forceUpdate));
-        BdLog.v("VersionData", "logPrint", "new_ver = " + this.newVer);
-        BdLog.v("VersionData", "logPrint", "has_new_ver = " + String.valueOf(this.hasNewVer));
-        BdLog.v("VersionData", "logPrint", "url = " + this.url);
+    public void setForce_update(int i) {
+        this.force_update = i;
     }
 
-    public String getNewVersionDesc() {
-        return this.newVersionDesc;
-    }
-
-    public void setNewVersionDesc(String str) {
-        this.newVersionDesc = str;
-    }
-
-    public boolean forceUpdate() {
-        return this.forceUpdate == 1;
-    }
-
-    public void setForceUpdate(int i) {
-        this.forceUpdate = i;
-    }
-
-    public String getNewVersion() {
-        return this.newVer;
+    public String getNew_version() {
+        return this.new_ver;
     }
 
     public void setUrl(String str) {
@@ -109,83 +48,60 @@ public class VersionData implements Serializable {
         return this.url;
     }
 
-    public void setHasNewVer(int i) {
-        this.hasNewVer = i;
+    public void setHas_new_ver(int i) {
+        this.has_new_ver = i;
     }
 
-    public boolean hasNewVer() {
-        return this.hasNewVer == 1;
+    public int getHas_new_ver() {
+        return this.has_new_ver;
     }
 
-    public void setClientId(String str) {
-        this.clientId = str;
+    public void parserJson(String str) {
+        try {
+            parserJson(new JSONObject(str));
+        } catch (Exception e) {
+            com.baidu.tieba.util.z.b(getClass().getName(), "parserJson", e.getMessage());
+        }
     }
 
-    public String getClientId() {
-        return this.clientId;
+    public void parserJson(JSONObject jSONObject) {
+        if (jSONObject != null) {
+            try {
+                this.force_update = jSONObject.optInt("force_update", 0);
+                this.new_ver = jSONObject.optString("new_version", null);
+                this.url = jSONObject.optString("new_version_url");
+                this.new_version_remind = jSONObject.optInt("new_version_remind", 0);
+                this.new_version_desc = jSONObject.optString("new_version_desc", null);
+                if (this.new_version_remind == 1 && this.url != null && URLUtil.isHttpUrl(this.url) && this.new_ver != null && !g.i().equalsIgnoreCase(this.new_ver)) {
+                    this.has_new_ver = 1;
+                    this.new_file = "tieba_" + this.new_ver + ".apk";
+                }
+            } catch (Exception e) {
+                com.baidu.tieba.util.z.b(getClass().getName(), "parserJson", e.getMessage());
+            }
+        }
     }
 
-    public void setNewFile(String str) {
-        this.newFile = str;
+    public void logPrint() {
+        com.baidu.tieba.util.z.d("VersionData", "logPrint", "force_update = " + String.valueOf(this.force_update));
+        com.baidu.tieba.util.z.d("VersionData", "logPrint", "new_ver = " + this.new_ver);
+        com.baidu.tieba.util.z.d("VersionData", "logPrint", "has_new_ver = " + String.valueOf(this.has_new_ver));
+        com.baidu.tieba.util.z.d("VersionData", "logPrint", "url = " + this.url);
     }
 
-    public String getNewFile() {
-        return this.newFile;
+    public void setClient_id(String str) {
+        this.client_id = str;
     }
 
-    public int getStrategy() {
-        return this.strategy;
+    public String getClient_id() {
+        return this.client_id;
     }
 
-    public void setStrategy(int i) {
-        this.strategy = i;
+    public void setNew_file(String str) {
+        this.new_file = str;
     }
 
-    public String getSize() {
-        return this.size;
-    }
-
-    public void setSize(String str) {
-        this.size = str;
-    }
-
-    public String getPatch() {
-        return this.patch;
-    }
-
-    public void setPatch(String str) {
-        this.patch = str;
-    }
-
-    public String getPatchSize() {
-        return this.patchSize;
-    }
-
-    public void setPatchSize(String str) {
-        this.patchSize = str;
-    }
-
-    public void setNewVersionCode(int i) {
-        this.newVersionCode = i;
-    }
-
-    public int getNewVersionCode() {
-        return this.newVersionCode;
-    }
-
-    public void setAsDownloadUrl(String str) {
-        this.asDownloadUrl = str;
-    }
-
-    public String getAsDownloadUrl() {
-        return this.asDownloadUrl;
-    }
-
-    public void setTiebaIconUrl(String str) {
-        this.tiebaIconUrl = str;
-    }
-
-    public String getTiebaIconUrl() {
-        return this.tiebaIconUrl;
+    public String getNew_file() {
+        return this.new_file;
     }
 }

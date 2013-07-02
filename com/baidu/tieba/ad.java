@@ -1,48 +1,29 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.graphics.drawable.Drawable;
-import android.view.View;
-import android.widget.TextView;
-import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import android.graphics.Bitmap;
+import android.view.animation.AlphaAnimation;
+import android.widget.ImageView;
 /* loaded from: classes.dex */
-class ad implements View.OnClickListener {
-    final /* synthetic */ ac a;
+class ad implements Runnable {
+    final /* synthetic */ LogoActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ad(ac acVar) {
-        this.a = acVar;
+    public ad(LogoActivity logoActivity) {
+        this.a = logoActivity;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        boolean z;
-        boolean z2;
-        ah ahVar;
-        boolean z3;
-        Context context;
-        Drawable drawable;
-        TextView textView;
-        Context context2;
-        z = this.a.d;
-        TiebaStatic.eventStat(this.a.getContext(), "upgrade_channel", z ? "withOtherApp" : "withoutOtherApp", 1, new Object[0]);
-        this.a.f = true;
-        z2 = this.a.e;
-        if (z2) {
-            if (TbadkApplication.m252getInst().getSkinType() == 1) {
-                context2 = this.a.a;
-                drawable = context2.getResources().getDrawable(u.btn_dailog_choose_d_1);
-            } else {
-                context = this.a.a;
-                drawable = context.getResources().getDrawable(u.btn_dailog_choose_d);
-            }
-            drawable.setBounds(0, 0, drawable.getMinimumWidth(), drawable.getMinimumHeight());
-            textView = this.a.n;
-            textView.setCompoundDrawables(drawable, null, null, null);
-        }
-        ahVar = this.a.x;
-        z3 = this.a.e;
-        ahVar.a(z3);
+    @Override // java.lang.Runnable
+    public void run() {
+        ImageView imageView;
+        Bitmap bitmap;
+        ImageView imageView2;
+        AlphaAnimation alphaAnimation;
+        this.a.e = com.baidu.tieba.util.d.a(this.a, (int) R.drawable.logo);
+        imageView = this.a.d;
+        bitmap = this.a.e;
+        imageView.setImageBitmap(bitmap);
+        imageView2 = this.a.d;
+        alphaAnimation = this.a.f;
+        imageView2.startAnimation(alphaAnimation);
     }
 }

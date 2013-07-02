@@ -1,51 +1,65 @@
 package com.baidu.tieba.data;
 
-import com.baidu.adp.lib.util.BdLog;
+import java.util.ArrayList;
+import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class au {
-    private String a = null;
-    private int b = 0;
+    private ArrayList f;
+    private int a = 0;
     private int d = 0;
     private int e = 0;
-    private int c = 0;
+    private boolean c = false;
+    private boolean b = false;
 
-    public int a() {
-        return this.d;
+    public au() {
+        this.f = null;
+        this.f = new ArrayList();
     }
 
-    public int b() {
-        return this.e;
+    public ArrayList a() {
+        return this.f;
     }
 
-    public String c() {
-        return this.a;
-    }
-
-    public int d() {
+    public boolean b() {
         return this.b;
     }
 
-    public void a(int i) {
-        this.b = i;
-    }
-
-    public int e() {
+    public boolean c() {
         return this.c;
     }
 
-    public void b(int i) {
-        this.c = i;
+    public int d() {
+        return this.d;
+    }
+
+    public void a(String str) {
+        try {
+            a(new JSONObject(str));
+        } catch (Exception e) {
+            com.baidu.tieba.util.z.b("SearchPostModel", "parserJson", "error = " + e.getMessage());
+        }
     }
 
     public void a(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                this.a = jSONObject.optString("id");
-                this.d = jSONObject.optInt("width", 0);
-                this.e = jSONObject.optInt("height", 0);
+                JSONObject optJSONObject = jSONObject.optJSONObject("page");
+                JSONArray optJSONArray = jSONObject.optJSONArray("post_list");
+                this.f.clear();
+                for (int i = 0; i < optJSONArray.length(); i++) {
+                    JSONObject optJSONObject2 = optJSONArray.optJSONObject(i);
+                    at atVar = new at();
+                    atVar.a(optJSONObject2);
+                    this.f.add(atVar);
+                }
+                this.a = optJSONObject.optInt("total_count");
+                this.e = optJSONObject.optInt("total_page");
+                this.b = optJSONObject.optInt("has_more") != 0;
+                this.c = optJSONObject.optInt("has_prev") != 0;
+                this.d = optJSONObject.optInt("current_page");
             } catch (Exception e) {
-                BdLog.e(getClass().getName(), "parserJson", "error = " + e.getMessage());
+                com.baidu.tieba.util.z.b("SearchPostModel", "parserJson", "error = " + e.getMessage());
             }
         }
     }

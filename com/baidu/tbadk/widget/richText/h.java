@@ -1,65 +1,24 @@
 package com.baidu.tbadk.widget.richText;
 
 import android.content.Context;
-import android.support.v4.view.accessibility.AccessibilityNodeInfoCompat;
-import android.text.TextPaint;
-import android.text.style.ClickableSpan;
-import android.view.View;
+import android.widget.ListView;
 /* loaded from: classes.dex */
-public class h extends ClickableSpan {
-    private Context a;
-    private int b;
-    private String c;
-    private String d;
+public interface h {
+    ListView a();
 
-    public h(Context context, int i, String str) {
-        this.a = null;
-        this.b = 0;
-        this.c = null;
-        this.a = context;
-        this.c = str;
-        this.b = i;
-    }
+    void a(Context context, String str);
 
-    public void a(String str) {
-        this.d = str;
-    }
+    void a(Context context, String str, String str2);
 
-    @Override // android.text.style.ClickableSpan, android.text.style.CharacterStyle
-    public void updateDrawState(TextPaint textPaint) {
-        super.updateDrawState(textPaint);
-        textPaint.setUnderlineText(false);
-    }
+    int b();
 
-    @Override // android.text.style.ClickableSpan
-    public void onClick(View view) {
-        j jVar = null;
-        if (this.a instanceof j) {
-            jVar = (j) this.a;
-        }
-        if (jVar != null) {
-            switch (this.b) {
-                case 2:
-                    jVar.b(this.a, this.c);
-                    return;
-                case 16:
-                    jVar.a(this.a, this.c);
-                    return;
-                case AccessibilityNodeInfoCompat.ACTION_LONG_CLICK /* 32 */:
-                    jVar.c(this.a, this.c);
-                    return;
-                case 64:
-                    jVar.d(this.a, this.c);
-                    return;
-                case 128:
-                    jVar.e(this.a, this.c);
-                    return;
-                case 256:
-                    jVar.a(this.a, this.c, this.d);
-                    return;
-                default:
-                    return;
-            }
-        }
-    }
+    void b(Context context, String str);
+
+    com.baidu.adp.lib.a.b c();
+
+    void c(Context context, String str);
+
+    com.baidu.adp.lib.a.b d();
+
+    void d(Context context, String str);
 }

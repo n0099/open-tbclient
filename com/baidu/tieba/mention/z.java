@@ -1,30 +1,17 @@
 package com.baidu.tieba.mention;
 
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.content.DialogInterface;
 /* loaded from: classes.dex */
-public class z implements com.baidu.tbadk.imageManager.d {
-    final /* synthetic */ PostActivity a;
+class z implements DialogInterface.OnClickListener {
+    final /* synthetic */ x a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public z(PostActivity postActivity) {
-        this.a = postActivity;
+    public z(x xVar) {
+        this.a = xVar;
     }
 
-    @Override // com.baidu.tbadk.imageManager.d
-    public void a(com.baidu.adp.widget.a.a aVar, String str, boolean z) {
-        LinearLayout linearLayout;
-        LinearLayout linearLayout2;
-        linearLayout = this.a.a;
-        ImageView imageView = (ImageView) linearLayout.findViewWithTag(str);
-        while (imageView != null) {
-            imageView.setTag(null);
-            if (imageView != null && aVar != null) {
-                aVar.a(imageView);
-            }
-            linearLayout2 = this.a.a;
-            imageView = (ImageView) linearLayout2.findViewWithTag(str);
-        }
+    @Override // android.content.DialogInterface.OnClickListener
+    public void onClick(DialogInterface dialogInterface, int i) {
+        dialogInterface.dismiss();
     }
 }

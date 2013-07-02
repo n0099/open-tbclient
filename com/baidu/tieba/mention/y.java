@@ -1,36 +1,20 @@
 package com.baidu.tieba.mention;
 
-import android.view.View;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.core.atomData.as;
-import com.baidu.tieba.data.ai;
-import com.baidu.tieba.model.am;
+import android.content.DialogInterface;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class y implements View.OnClickListener {
-    final /* synthetic */ PostActivity a;
+public class y implements DialogInterface.OnClickListener {
+    final /* synthetic */ x a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public y(PostActivity postActivity) {
-        this.a = postActivity;
+    public y(x xVar) {
+        this.a = xVar;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        am amVar;
-        am amVar2;
-        am amVar3;
-        amVar = this.a.l;
-        if (amVar != null) {
-            amVar2 = this.a.l;
-            if (amVar2.a() != null) {
-                amVar3 = this.a.l;
-                ai aiVar = amVar3.a().e().get(0);
-                if (aiVar != null) {
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2003003, new as(this.a, aiVar.o().getUserId(), aiVar.o().getUserName())));
-                }
-            }
-        }
+    @Override // android.content.DialogInterface.OnClickListener
+    public void onClick(DialogInterface dialogInterface, int i) {
+        PostActivity postActivity;
+        postActivity = this.a.b;
+        postActivity.d();
     }
 }

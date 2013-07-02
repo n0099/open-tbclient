@@ -1,7 +1,7 @@
 package com.baidu.adp.lib.debug.a;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class i implements com.baidu.adp.lib.debug.b {
+public class i implements com.baidu.adp.lib.debug.a {
     final /* synthetic */ h a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -10,7 +10,7 @@ public class i implements com.baidu.adp.lib.debug.b {
     }
 
     /* JADX WARN: Incorrect condition in loop: B:4:0x0008 */
-    @Override // com.baidu.adp.lib.debug.b
+    @Override // com.baidu.adp.lib.debug.a
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -20,7 +20,7 @@ public class i implements com.baidu.adp.lib.debug.b {
         for (int i = 0; i < strArr.length; i++) {
             strArr2 = this.a.b;
             if (str.contains(strArr2[i])) {
-                com.baidu.adp.lib.debug.d.b(com.baidu.adp.lib.debug.d.d() + 1);
+                com.baidu.adp.lib.debug.b.b(com.baidu.adp.lib.debug.b.d() + 1);
                 return;
             }
         }

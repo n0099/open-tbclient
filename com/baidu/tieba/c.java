@@ -1,33 +1,72 @@
 package com.baidu.tieba;
 
 import android.app.Activity;
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.tbadk.widget.TbImageView;
+import android.content.Context;
+import com.baidu.account.AccountProxy;
+import com.baidu.tieba.BaiduAccount.BaiduAccount;
+import com.baidu.tieba.data.AccountData;
 /* loaded from: classes.dex */
-class c implements com.baidu.tbadk.widget.l {
-    final /* synthetic */ a a;
-    private final /* synthetic */ View b;
-    private final /* synthetic */ TbImageView c;
-    private final /* synthetic */ Activity d;
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public c(a aVar, View view, TbImageView tbImageView, Activity activity) {
-        this.a = aVar;
-        this.b = view;
-        this.c = tbImageView;
-        this.d = activity;
-    }
-
-    @Override // com.baidu.tbadk.widget.l
-    public void a(boolean z) {
-        if (this.b instanceof ViewGroup) {
-            ((ViewGroup) this.b).addView(this.c);
+public class c {
+    public static void a(Context context) {
+        AccountData F = TiebaApplication.F();
+        if (F == null) {
+            F = new AccountData();
+            F.setIsActive(1);
+            TiebaApplication.a(F);
         }
-        com.baidu.tbadk.core.f.a(this.d, "lpage_tg_pic");
+        BaiduAccount baiduAccount = BaiduAccount.get(context);
+        String currentAccount = baiduAccount.getCurrentAccount();
+        if (currentAccount != null && !currentAccount.equals(F.getAccount())) {
+            b(F.getID());
+            F.setAccount(currentAccount);
+            F.setBDUSS(null);
+            F.setID(null);
+            F.setIsActive(1);
+            TiebaApplication.f().R();
+            TiebaApplication.f().a(0L, 0L, 0L, 0L);
+        }
+        baiduAccount.addOnAccountsUpdatedListener(new d());
     }
 
-    @Override // com.baidu.tbadk.widget.l
-    public void a() {
+    /* JADX INFO: Access modifiers changed from: private */
+    public static void b(String str) {
+        if (str != null) {
+            new e(str).start();
+        }
+    }
+
+    public static boolean a(Activity activity) {
+        AccountProxy accountProxy = new AccountProxy(activity);
+        return accountProxy.hasBaiduAccount() && accountProxy.getNumOfAccounts(AccountProxy.BAIDUACCOUNT_TYPE) > 0;
+    }
+
+    public static void a(Activity activity, int i, String str, boolean z) {
+        new AccountProxy(activity).getTokenAsync(AccountProxy.BAIDUACCOUNT_TYPE, new f(activity, str, i, z));
+    }
+
+    public static AccountData a(com.baidu.tieba.util.r rVar, String str, String str2) {
+        AccountData accountData = null;
+        if (rVar != null) {
+            StringBuffer stringBuffer = new StringBuffer(60);
+            stringBuffer.append(com.baidu.tieba.data.g.a);
+            stringBuffer.append("c/s/login");
+            rVar.a(stringBuffer.toString());
+            rVar.a("un", str);
+            rVar.a("bdusstoken", str2);
+            String j = rVar.j();
+            if (rVar.c() && j != null) {
+                com.baidu.tieba.model.al alVar = new com.baidu.tieba.model.al();
+                alVar.a(j);
+                accountData = new AccountData();
+                accountData.setAccount(alVar.a().getName());
+                accountData.setBDUSS(alVar.a().getBDUSS());
+                accountData.setIsActive(1);
+                if (alVar.b() != null) {
+                    accountData.setTbs(alVar.b().getTbs());
+                }
+                accountData.setID(alVar.a().getId());
+            }
+        }
+        return accountData;
     }
 }

@@ -11,41 +11,38 @@ import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.ScrollView;
-import android.widget.Scroller;
-import com.baidu.lightapp.plugin.videoplayer.coreplayer.Constants;
-import com.baidu.tbadk.TbConfig;
+import com.baidu.mapapi.MKEvent;
 /* loaded from: classes.dex */
 public class BdPullRefreshScrollView extends ScrollView {
-    private static /* synthetic */ int[] A;
+    private static /* synthetic */ int[] y;
     private static /* synthetic */ int[] z;
-    protected View a;
-    private State b;
-    private Mode c;
+    protected FrameLayout a;
+    private int b;
+    private State c;
     private Mode d;
-    private int e;
+    private Mode e;
     private int f;
-    private float g;
+    private int g;
     private float h;
-    private FrameLayout i;
+    private float i;
     private FrameLayout j;
-    private float k;
+    private FrameLayout k;
     private float l;
-    private b m;
-    private b n;
-    private int o;
-    private o p;
-    private n q;
-    private m r;
-    private boolean s;
-    private boolean t;
+    private float m;
+    private c n;
+    private c o;
+    private float p;
+    private p q;
+    private q r;
+    private o s;
+    private n t;
     private boolean u;
     private boolean v;
-    private float w;
-    private int x;
-    private Scroller y;
+    private boolean w;
+    private boolean x;
 
     static /* synthetic */ int[] f() {
-        int[] iArr = z;
+        int[] iArr = y;
         if (iArr == null) {
             iArr = new int[Mode.valuesCustom().length];
             try {
@@ -68,13 +65,13 @@ public class BdPullRefreshScrollView extends ScrollView {
                 iArr[Mode.PULL_FROM_START.ordinal()] = 2;
             } catch (NoSuchFieldError e5) {
             }
-            z = iArr;
+            y = iArr;
         }
         return iArr;
     }
 
     static /* synthetic */ int[] g() {
-        int[] iArr = A;
+        int[] iArr = z;
         if (iArr == null) {
             iArr = new int[State.valuesCustom().length];
             try {
@@ -101,130 +98,126 @@ public class BdPullRefreshScrollView extends ScrollView {
                 iArr[State.RESET.ordinal()] = 1;
             } catch (NoSuchFieldError e6) {
             }
-            A = iArr;
+            z = iArr;
         }
         return iArr;
     }
 
     public BdPullRefreshScrollView(Context context) {
         super(context);
-        this.b = State.RESET;
-        this.d = Mode.getDefault();
-        this.e = Constants.MEDIA_INFO;
-        this.f = Constants.MEDIA_INFO;
-        this.g = -1000.0f;
-        this.s = false;
-        this.t = false;
+        this.c = State.RESET;
+        this.e = Mode.getDefault();
+        this.f = 200;
+        this.g = 200;
+        this.h = -1000.0f;
         this.u = false;
         this.v = false;
-        a(context, null, new p(context), new a(context));
+        this.w = false;
+        this.x = false;
+        a(context, null, new b(context), new a(context));
     }
 
     public BdPullRefreshScrollView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.b = State.RESET;
-        this.d = Mode.getDefault();
-        this.e = Constants.MEDIA_INFO;
-        this.f = Constants.MEDIA_INFO;
-        this.g = -1000.0f;
-        this.s = false;
-        this.t = false;
+        this.c = State.RESET;
+        this.e = Mode.getDefault();
+        this.f = 200;
+        this.g = 200;
+        this.h = -1000.0f;
         this.u = false;
         this.v = false;
-        a(context, attributeSet, new p(context), new a(context));
+        this.w = false;
+        this.x = false;
+        a(context, attributeSet, new b(context), new a(context));
     }
 
     public BdPullRefreshScrollView(Context context, Mode mode) {
         super(context);
-        this.b = State.RESET;
-        this.d = Mode.getDefault();
-        this.e = Constants.MEDIA_INFO;
-        this.f = Constants.MEDIA_INFO;
-        this.g = -1000.0f;
-        this.s = false;
-        this.t = false;
+        this.c = State.RESET;
+        this.e = Mode.getDefault();
+        this.f = 200;
+        this.g = 200;
+        this.h = -1000.0f;
         this.u = false;
         this.v = false;
-        this.d = mode;
-        a(context, null, new p(context), new a(context));
+        this.w = false;
+        this.x = false;
+        this.e = mode;
+        a(context, null, new b(context), new a(context));
     }
 
-    public BdPullRefreshScrollView(Context context, Mode mode, b bVar, b bVar2) {
+    public BdPullRefreshScrollView(Context context, Mode mode, c cVar, c cVar2) {
         super(context);
-        this.b = State.RESET;
-        this.d = Mode.getDefault();
-        this.e = Constants.MEDIA_INFO;
-        this.f = Constants.MEDIA_INFO;
-        this.g = -1000.0f;
-        this.s = false;
-        this.t = false;
+        this.c = State.RESET;
+        this.e = Mode.getDefault();
+        this.f = 200;
+        this.g = 200;
+        this.h = -1000.0f;
         this.u = false;
         this.v = false;
-        this.d = mode;
-        a(context, null, bVar, bVar2);
+        this.w = false;
+        this.x = false;
+        this.e = mode;
+        a(context, null, cVar, cVar2);
     }
 
-    private void a(Context context, AttributeSet attributeSet, b bVar, b bVar2) {
-        this.x = ViewConfiguration.get(context).getScaledTouchSlop();
-        this.y = new Scroller(getContext());
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, com.baidu.adp.g.AdpPullToRefreshScrollView);
+    private void a(Context context, AttributeSet attributeSet, c cVar, c cVar2) {
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, com.baidu.adp.h.AdpPullToRefreshScrollView);
         if (obtainStyledAttributes.hasValue(0)) {
-            this.d = Mode.mapIntToValue(obtainStyledAttributes.getInteger(0, 0));
+            this.e = Mode.mapIntToValue(obtainStyledAttributes.getInteger(0, 0));
         }
-        this.e = obtainStyledAttributes.getInteger(4, Constants.MEDIA_INFO);
-        this.f = obtainStyledAttributes.getInteger(5, Constants.MEDIA_INFO);
-        LayoutInflater.from(context).inflate(com.baidu.adp.e.adp_pull_refresh_scroll_view, (ViewGroup) this, true);
-        this.i = (FrameLayout) findViewById(com.baidu.adp.d.head_ly);
-        this.j = (FrameLayout) findViewById(com.baidu.adp.d.foot_ly);
-        setCustomHeaderView(bVar);
-        setCustomFooterView(bVar2);
+        this.b = ViewConfiguration.get(context).getScaledTouchSlop();
+        this.f = obtainStyledAttributes.getInteger(4, 200);
+        this.g = obtainStyledAttributes.getInteger(5, 200);
+        LayoutInflater.from(context).inflate(com.baidu.adp.f.adp_pull_refresh_scroll_view, (ViewGroup) this, true);
+        this.a = (FrameLayout) findViewById(com.baidu.adp.e.content_ly);
+        this.j = (FrameLayout) findViewById(com.baidu.adp.e.head_ly);
+        this.k = (FrameLayout) findViewById(com.baidu.adp.e.foot_ly);
+        setCustomHeaderView(cVar);
+        setCustomFooterView(cVar2);
         if (obtainStyledAttributes.hasValue(1)) {
-            this.k = obtainStyledAttributes.getDimension(1, 0.0f);
+            this.l = obtainStyledAttributes.getDimension(1, 0.0f);
         } else {
-            this.k = getResources().getDimension(com.baidu.adp.b.adp_head_need_refresh_delta);
+            this.l = getResources().getDimension(com.baidu.adp.c.adp_head_need_refresh_delta);
         }
         if (obtainStyledAttributes.hasValue(2)) {
-            this.l = obtainStyledAttributes.getDimension(2, 0.0f);
+            this.m = obtainStyledAttributes.getDimension(2, 0.0f);
         } else {
-            this.l = getResources().getDimension(com.baidu.adp.b.adp_foot_need_refresh_delta);
+            this.m = getResources().getDimension(com.baidu.adp.c.adp_foot_need_refresh_delta);
         }
         if (obtainStyledAttributes.hasValue(3)) {
-            this.o = -obtainStyledAttributes.getDimensionPixelSize(3, 0);
+            this.p = -obtainStyledAttributes.getDimension(3, 0.0f);
         } else {
-            this.o = -getResources().getDimensionPixelSize(com.baidu.adp.b.adp_head_view_height);
+            this.p = -getResources().getDimension(com.baidu.adp.c.adp_head_view_height);
         }
         setFadingEdgeLength(0);
         a();
     }
 
-    public void setCustomHeaderView(b bVar) {
-        if (bVar != null && bVar.getRealView() != null) {
-            if (this.m != null) {
-                this.i.removeView(this.m.getRealView());
-            }
-            this.m = bVar;
-            this.i.addView(this.m.getRealView());
-            this.m.b_();
+    public void setCustomHeaderView(c cVar) {
+        if (this.n != null) {
+            this.j.removeView((View) this.n);
         }
+        this.n = cVar;
+        this.j.addView((View) this.n);
+        this.n.d();
     }
 
-    public void setCustomFooterView(b bVar) {
-        if (bVar != null && bVar.getRealView() != null) {
-            if (this.n != null) {
-                this.j.removeView(this.n.getRealView());
-            }
-            this.n = bVar;
-            this.j.addView(this.n.getRealView());
-            this.n.b_();
+    public void setCustomFooterView(c cVar) {
+        if (this.o != null) {
+            this.k.removeView((View) this.o);
         }
+        this.o = cVar;
+        this.k.addView((View) this.o);
+        this.o.d();
     }
 
-    public b getHeadLoadingView() {
-        return this.m;
-    }
-
-    public b getmFootLoadingView() {
+    public c getHeadLoadingView() {
         return this.n;
+    }
+
+    public c getmFootLoadingView() {
+        return this.o;
     }
 
     @Override // android.widget.ScrollView, android.view.ViewGroup
@@ -275,103 +268,103 @@ public class BdPullRefreshScrollView extends ScrollView {
         super.addView(view, i, layoutParams);
     }
 
-    public void setOnPullUpListener(n nVar) {
-        this.q = nVar;
+    public void setOnPullUpListener(o oVar) {
+        this.s = oVar;
     }
 
-    public void setOnPullDownListener(m mVar) {
-        this.r = mVar;
+    public void setOnPullDownListener(n nVar) {
+        this.t = nVar;
     }
 
-    public void setOnScrollUpDownListener(o oVar) {
-        this.p = oVar;
+    public void setOnStopListener(q qVar) {
+        this.r = qVar;
+    }
+
+    public void setOnScrollUpDownListener(p pVar) {
+        this.q = pVar;
     }
 
     public void setContentView(View view) {
-        View childAt = getChildAt(0);
-        if (childAt != null) {
-            this.a = view;
-            ((LinearLayout) childAt).addView(view, 1);
-        }
+        this.a.addView(view);
     }
 
     public final void setMode(Mode mode) {
-        if (mode != this.d) {
-            this.d = mode;
+        if (mode != this.e) {
+            this.e = mode;
             a();
         }
     }
 
     protected void a() {
-        if (this.d.showHeaderLoadingLayout()) {
-            this.i.setVisibility(0);
-        } else {
-            this.i.setVisibility(8);
-        }
-        if (this.d.showFooterLoadingLayout()) {
+        if (this.e.showHeaderLoadingLayout()) {
             this.j.setVisibility(0);
         } else {
             this.j.setVisibility(8);
         }
-        this.c = this.d != Mode.BOTH ? this.d : Mode.PULL_FROM_START;
+        if (this.e.showFooterLoadingLayout()) {
+            this.k.setVisibility(0);
+        } else {
+            this.k.setVisibility(8);
+        }
+        this.d = this.e != Mode.BOTH ? this.e : Mode.PULL_FROM_START;
     }
 
     public final boolean b() {
-        return this.b == State.REFRESHING || this.b == State.MANUAL_REFRESHING;
+        return this.c == State.REFRESHING || this.c == State.MANUAL_REFRESHING;
     }
 
     public final void c() {
         if (b()) {
-            if (this.c == Mode.PULL_FROM_START) {
+            if (this.d == Mode.PULL_FROM_START) {
                 d();
-            } else if (this.c == Mode.PULL_FROM_END) {
+            } else if (this.d == Mode.PULL_FROM_END) {
                 e();
             }
         }
     }
 
     protected void d() {
-        f fVar = new f(0, this.o, TbConfig.READ_IMAGE_CACHE_TIMEOUT_WIFI);
-        fVar.a(this.i);
-        fVar.a(new j(this));
+        g gVar = new g(0, (int) this.p, MKEvent.ERROR_PERMISSION_DENIED);
+        gVar.a(this.j);
+        gVar.a(new k(this));
     }
 
     protected void e() {
-        this.s = false;
-        a(State.RESET, this.n);
+        this.u = false;
+        a(State.RESET, this.o);
     }
 
     public void setRefreshing(int i) {
-        if (this.b != State.REFRESHING) {
-            if (this.d.showHeaderLoadingLayout() && i == 1) {
-                this.s = true;
+        if (this.c != State.REFRESHING) {
+            if (this.e.showHeaderLoadingLayout() && i == 1) {
+                this.u = true;
                 fullScroll(33);
-                a(this.o);
-                this.c = Mode.PULL_FROM_START;
-                a(State.REFRESHING, this.m);
-                h();
-            } else if (this.d.showFooterLoadingLayout() && i == 0) {
-                this.s = true;
-                fullScroll(130);
-                this.c = Mode.PULL_FROM_END;
+                a((int) this.p);
+                this.d = Mode.PULL_FROM_START;
                 a(State.REFRESHING, this.n);
+                h();
+            } else if (this.e.showFooterLoadingLayout() && i == 0) {
+                this.u = true;
+                fullScroll(130);
+                this.d = Mode.PULL_FROM_END;
+                a(State.REFRESHING, this.o);
                 h();
             }
         }
     }
 
     private void h() {
-        if (this.c == Mode.PULL_FROM_START) {
-            if (this.r != null) {
-                this.r.a();
+        if (this.d == Mode.PULL_FROM_START) {
+            if (this.t != null) {
+                this.t.a();
             }
-        } else if (this.c == Mode.PULL_FROM_END && this.q != null) {
-            this.q.a();
+        } else if (this.d == Mode.PULL_FROM_END && this.s != null) {
+            this.s.a();
         }
     }
 
     private boolean i() {
-        switch (f()[this.d.ordinal()]) {
+        switch (f()[this.e.ordinal()]) {
             case 2:
                 return j();
             case 3:
@@ -384,7 +377,7 @@ public class BdPullRefreshScrollView extends ScrollView {
     }
 
     private boolean j() {
-        switch (f()[this.d.ordinal()]) {
+        switch (f()[this.e.ordinal()]) {
             case 2:
                 return getScrollY() <= 0;
             case 3:
@@ -397,158 +390,130 @@ public class BdPullRefreshScrollView extends ScrollView {
     }
 
     private boolean k() {
-        switch (f()[this.d.ordinal()]) {
+        switch (f()[this.e.ordinal()]) {
             case 2:
             default:
                 return false;
             case 3:
-                return getScrollY() + getHeight() >= this.a.getHeight() + this.j.getHeight();
+                return getScrollY() + getHeight() >= this.a.getHeight() + this.k.getHeight();
             case 4:
-                return getScrollY() + getHeight() >= this.a.getHeight() + this.j.getHeight() && getHeadViewTopMargin() == this.o;
+                return getScrollY() + getHeight() >= this.a.getHeight() + this.k.getHeight() && ((float) getHeadViewTopMargin()) == this.p;
         }
     }
 
     private void l() {
-        if (getHeadViewTopMargin() >= this.k) {
-            a(State.RELEASE_TO_REFRESH, this.m);
-        } else {
-            a(State.PULL_TO_REFRESH, this.m);
-        }
-    }
-
-    private void m() {
-        if (getHeadViewTopMargin() > this.o && getHeadViewTopMargin() - getScrollY() < this.k) {
-            a(State.PULL_TO_REFRESH, this.m);
-        } else if (getHeadViewTopMargin() - getScrollY() <= this.o) {
-            a(State.RESET, this.m);
-        }
-    }
-
-    private void n() {
-        if (getFootViewBottomMargin() >= this.l) {
+        if (getHeadViewTopMargin() >= this.l) {
             a(State.RELEASE_TO_REFRESH, this.n);
         } else {
             a(State.PULL_TO_REFRESH, this.n);
         }
     }
 
+    private void m() {
+        if (getHeadViewTopMargin() > this.p && getHeadViewTopMargin() - getScrollY() < this.l) {
+            a(State.PULL_TO_REFRESH, this.n);
+        } else if (getHeadViewTopMargin() - getScrollY() <= this.p) {
+            a(State.RESET, this.n);
+        }
+    }
+
+    private void n() {
+        if (getFootViewBottomMargin() >= this.m) {
+            a(State.RELEASE_TO_REFRESH, this.o);
+        } else {
+            a(State.PULL_TO_REFRESH, this.o);
+        }
+    }
+
     private void o() {
-        a(State.PULL_TO_REFRESH, this.n);
+        a(State.PULL_TO_REFRESH, this.o);
     }
 
     private void p() {
-        this.t = true;
-        this.u = false;
+        this.w = true;
+        this.x = false;
     }
 
     private void q() {
-        this.t = false;
-        this.u = true;
+        this.w = false;
+        this.x = true;
     }
 
     private void r() {
-        this.t = false;
-        this.u = false;
-    }
-
-    @Override // android.widget.ScrollView, android.view.ViewGroup
-    public boolean onInterceptTouchEvent(MotionEvent motionEvent) {
-        super.onInterceptTouchEvent(motionEvent);
-        int action = motionEvent.getAction();
-        if (action == 2 && this.v) {
-            return true;
-        }
-        float y = motionEvent.getY();
-        switch (action) {
-            case 0:
-                this.w = y;
-                this.v = this.y.isFinished() ? false : true;
-                break;
-            case 1:
-            case 3:
-                this.v = false;
-                break;
-            case 2:
-                if (((int) Math.abs(y - this.w)) > this.x) {
-                    this.v = true;
-                    break;
-                }
-                break;
-        }
-        return this.v;
+        this.w = false;
+        this.x = false;
     }
 
     @Override // android.widget.ScrollView, android.view.View
     public boolean onTouchEvent(MotionEvent motionEvent) {
-        if (!this.d.permitsPullToRefresh() || this.s) {
+        if (!this.e.permitsPullToRefresh() || this.u) {
             return super.onTouchEvent(motionEvent);
         }
         switch (motionEvent.getAction()) {
             case 0:
-                this.g = motionEvent.getY();
                 this.h = motionEvent.getY();
+                this.i = motionEvent.getY();
                 break;
             case 1:
             case 3:
-                if (this.p != null) {
-                    if (motionEvent.getY() - this.h >= 20.0f) {
-                        this.p.a(true);
-                    } else if (motionEvent.getY() - this.h <= -30.0f) {
-                        this.p.a(false);
+                if (this.q != null) {
+                    if (motionEvent.getY() - this.i >= 20.0f) {
+                        this.q.a(true);
+                    } else if (motionEvent.getY() - this.i <= -30.0f) {
+                        this.q.a(false);
                     }
                 }
                 s();
                 r();
-                this.g = -1000.0f;
-                this.v = false;
+                this.h = -1000.0f;
                 break;
             case 2:
-                if (this.b == State.REFRESHING) {
+                if (this.c == State.REFRESHING) {
                     return super.onTouchEvent(motionEvent);
                 }
-                if (-1000.0f == this.g) {
-                    this.g = motionEvent.getY();
+                if (-1000.0f == this.h) {
                     this.h = motionEvent.getY();
+                    this.i = motionEvent.getY();
                     return super.onTouchEvent(motionEvent);
                 }
-                float f = this.g;
-                float y = motionEvent.getY();
-                int i = (int) (f - y);
-                this.g = y;
+                float f = this.h;
+                float y2 = motionEvent.getY();
+                int i = (int) (f - y2);
+                this.h = y2;
                 if (i()) {
-                    if (j() && i < 0 && this.d.showHeaderLoadingLayout() && !this.u) {
+                    if (j() && i < 0 && this.e.showHeaderLoadingLayout() && !this.x) {
                         p();
-                        if (this.d == Mode.BOTH) {
-                            this.c = Mode.PULL_FROM_START;
+                        if (this.e == Mode.BOTH) {
+                            this.d = Mode.PULL_FROM_START;
                         }
                         a(i / 2);
                         l();
                         return super.onTouchEvent(motionEvent);
                     }
-                    if (j() && i > 0 && this.d.showHeaderLoadingLayout() && !this.u) {
+                    if (j() && i > 0 && this.e.showHeaderLoadingLayout() && !this.x) {
                         m();
                         a(i / 2);
                     }
-                    if (k() && i > 0 && this.d.showFooterLoadingLayout() && !this.t) {
+                    if (k() && i > 0 && this.e.showFooterLoadingLayout() && !this.w) {
                         q();
-                        if (this.d == Mode.BOTH) {
-                            this.c = Mode.PULL_FROM_END;
+                        if (this.e == Mode.BOTH) {
+                            this.d = Mode.PULL_FROM_END;
                         }
                         b(i / 2);
                         n();
                         return super.onTouchEvent(motionEvent);
-                    } else if (k() && i < 0 && this.d.showFooterLoadingLayout() && !this.t) {
+                    } else if (k() && i < 0 && this.e.showFooterLoadingLayout() && !this.w) {
                         if (computeVerticalScrollRange() >= getHeight()) {
                             return super.onTouchEvent(motionEvent);
                         }
                         o();
                         break;
                     }
-                } else if (this.c == Mode.PULL_FROM_START && i > 0) {
+                } else if (this.d == Mode.PULL_FROM_START && i > 0) {
                     m();
                     a(i / 2);
                     return super.onTouchEvent(motionEvent);
-                } else if (this.c == Mode.PULL_FROM_END && i < 0) {
+                } else if (this.d == Mode.PULL_FROM_END && i < 0) {
                     o();
                     return super.onTouchEvent(motionEvent);
                 }
@@ -558,42 +523,42 @@ public class BdPullRefreshScrollView extends ScrollView {
     }
 
     private void a(int i) {
-        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.i.getLayoutParams();
-        layoutParams.topMargin -= i;
-        if (layoutParams.topMargin <= this.o) {
-            layoutParams.topMargin = this.o;
-        }
-        this.i.setLayoutParams(layoutParams);
-    }
-
-    private void b(int i) {
         LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.j.getLayoutParams();
-        layoutParams.bottomMargin += i;
-        if (layoutParams.bottomMargin <= 0) {
-            layoutParams.bottomMargin = 0;
+        layoutParams.topMargin -= i;
+        if (layoutParams.topMargin <= this.p) {
+            layoutParams.topMargin = (int) this.p;
         }
         this.j.setLayoutParams(layoutParams);
     }
 
+    private void b(int i) {
+        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.k.getLayoutParams();
+        layoutParams.bottomMargin += i;
+        if (layoutParams.bottomMargin <= 0) {
+            layoutParams.bottomMargin = 0;
+        }
+        this.k.setLayoutParams(layoutParams);
+    }
+
     /* JADX INFO: Access modifiers changed from: private */
-    public void a(State state, b bVar) {
-        if (this.b != state) {
-            this.b = state;
+    public void a(State state, c cVar) {
+        if (this.c != state) {
+            this.c = state;
             switch (g()[state.ordinal()]) {
                 case 1:
-                    bVar.b_();
+                    cVar.d();
                     return;
                 case 2:
-                    bVar.a_();
+                    cVar.a();
                     return;
                 case 3:
-                    bVar.e();
+                    cVar.b();
                     return;
                 case 4:
-                    bVar.f();
+                    cVar.c();
                     return;
                 case 5:
-                    bVar.f();
+                    cVar.c();
                     return;
                 default:
                     return;
@@ -602,65 +567,65 @@ public class BdPullRefreshScrollView extends ScrollView {
     }
 
     private int getHeadViewTopMargin() {
-        return ((LinearLayout.LayoutParams) this.i.getLayoutParams()).topMargin;
+        return ((LinearLayout.LayoutParams) this.j.getLayoutParams()).topMargin;
     }
 
     private int getFootViewBottomMargin() {
-        return ((LinearLayout.LayoutParams) this.j.getLayoutParams()).bottomMargin;
+        return ((LinearLayout.LayoutParams) this.k.getLayoutParams()).bottomMargin;
     }
 
     private void s() {
-        if (this.c.showHeaderLoadingLayout()) {
+        if (this.d.showHeaderLoadingLayout()) {
             t();
-        } else if (this.c.showFooterLoadingLayout()) {
+        } else if (this.d.showFooterLoadingLayout()) {
             u();
         }
     }
 
     private void t() {
         if (getScrollY() == 0) {
-            if (State.RELEASE_TO_REFRESH == this.b) {
+            if (State.RELEASE_TO_REFRESH == this.c) {
                 a(getHeadViewTopMargin(), 0);
-            } else if (State.PULL_TO_REFRESH == this.b) {
-                a(getHeadViewTopMargin(), this.o);
+            } else if (State.PULL_TO_REFRESH == this.c) {
+                a(getHeadViewTopMargin(), (int) this.p);
             }
         } else if (getScrollY() > 0) {
-            if (State.RELEASE_TO_REFRESH == this.b) {
+            if (State.RELEASE_TO_REFRESH == this.c) {
                 scrollTo(0, 0);
                 a(getHeadViewTopMargin() - getScrollY(), 0);
-            } else if (State.PULL_TO_REFRESH == this.b) {
-                a(getHeadViewTopMargin() - this.o);
+            } else if (State.PULL_TO_REFRESH == this.c) {
+                a(getHeadViewTopMargin() - ((int) this.p));
                 scrollTo(0, 0);
-                a(State.RESET, this.m);
+                a(State.RESET, this.n);
             }
-        } else if (getScrollY() < 0 && State.RESET != this.b) {
+        } else if (getScrollY() < 0 && State.RESET != this.c) {
             scrollTo(0, 0);
-            if (State.RELEASE_TO_REFRESH == this.b) {
+            if (State.RELEASE_TO_REFRESH == this.c) {
                 a(getHeadViewTopMargin(), 0);
-            } else if (State.PULL_TO_REFRESH == this.b) {
-                a(getHeadViewTopMargin(), this.o);
+            } else if (State.PULL_TO_REFRESH == this.c) {
+                a(getHeadViewTopMargin(), (int) this.p);
             }
         }
     }
 
     private void a(int i, int i2) {
-        f fVar = new f(i, i2, this.e);
-        fVar.a(this.i);
-        fVar.a(new k(this));
+        g gVar = new g(i, i2, this.f);
+        gVar.a(this.j);
+        gVar.a(new l(this));
     }
 
     private void u() {
-        if (State.RELEASE_TO_REFRESH == this.b) {
+        if (State.RELEASE_TO_REFRESH == this.c) {
             b(getFootViewBottomMargin(), 0);
-        } else if (State.PULL_TO_REFRESH == this.b) {
+        } else if (State.PULL_TO_REFRESH == this.c) {
             b(0 - getFootViewBottomMargin());
         }
     }
 
     private void b(int i, int i2) {
-        c cVar = new c(i, i2, this.f);
-        cVar.a(this.j);
-        cVar.a(new l(this));
+        d dVar = new d(i, i2, this.g);
+        dVar.a(this.k);
+        dVar.a(new m(this));
     }
 
     /* loaded from: classes.dex */

@@ -1,21 +1,34 @@
 package com.baidu.tieba.mention;
 
+import android.content.Context;
 import android.view.View;
-import com.baidu.tbadk.core.BaseFragmentActivity;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.tieba.person.PersonInfoActivity;
 /* loaded from: classes.dex */
-public class f implements View.OnClickListener {
-    final /* synthetic */ c a;
+class f implements View.OnClickListener {
+    final /* synthetic */ e a;
+    private String b;
+    private String c;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public f(c cVar) {
-        this.a = cVar;
+    public f(e eVar) {
+        this.a = eVar;
+        b(null);
+        a(null);
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        BaseFragmentActivity baseFragmentActivity;
-        baseFragmentActivity = this.a.m;
-        baseFragmentActivity.finish();
+        Context context;
+        if (this.b != null && this.b.length() > 0) {
+            context = this.a.a;
+            PersonInfoActivity.a(context, this.b, this.c);
+        }
+    }
+
+    public void a(String str) {
+        this.c = str;
+    }
+
+    public void b(String str) {
+        this.b = str;
     }
 }

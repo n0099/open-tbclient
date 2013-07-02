@@ -1,235 +1,163 @@
 package com.baidu.tieba.model;
 
-import android.content.Context;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.core.data.AntiData;
-import com.baidu.tbadk.core.data.UserData;
-import com.baidu.tbadk.core.frameworkData.MessageTypes;
-import com.baidu.tieba.data.PersonChangeData;
-import com.baidu.tieba.person.PersonPostListData;
-import com.baidu.tieba.person.by;
-import java.util.List;
+import com.baidu.android.pushservice.PushConstants;
+import com.baidu.tieba.data.MapPostItem;
+import com.baidu.tieba.data.MetaData;
+import java.util.ArrayList;
+import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
-public class av extends com.baidu.adp.base.b {
-    private long c;
-    private long d;
-    private long e;
-    private long f;
-    private long g;
-    private String h;
-    private PersonPostListData l;
-    private AntiData o;
-    private com.baidu.tbadk.editortool.ab p;
-    private com.baidu.tbadk.coreExtra.b.a r;
-    private Context s;
-    private by t;
-    private int m = 1;
-    private boolean n = false;
-    private ax q = null;
-    private final CustomMessageListener u = new aw(this, MessageTypes.CMD_UPDATE_ATTENTION);
-    private boolean a = true;
-    private String b = null;
-    private UserData k = null;
-    private boolean i = false;
-    private boolean j = false;
+public class av {
+    private ArrayList a = new ArrayList();
+    private com.baidu.tieba.data.ai b = new com.baidu.tieba.data.ai();
+    private int c;
 
-    public PersonPostListData a() {
-        return this.l;
-    }
-
-    public boolean b() {
-        return this.n;
-    }
-
-    public void a(boolean z) {
-        this.n = z;
-    }
-
-    public boolean c() {
-        List<PersonPostListData.PostList> list;
-        return (this.l == null || (list = this.l.post_list) == null || list.size() <= 0) ? false : true;
-    }
-
-    private int p() {
-        List<PersonPostListData.PostList> list;
-        if (this.l != null && (list = this.l.post_list) != null) {
-            if (list.size() % 20 > 0) {
-                return (list.size() / 20) + 2;
-            }
-            return (list.size() / 20) + 1;
-        }
-        return 1;
-    }
-
-    public av(Context context) {
-        this.s = null;
-        this.s = context;
-        a(0L);
-        d(0L);
-        e(0L);
-        b(0L);
-        c(0L);
-        this.p = new com.baidu.tbadk.editortool.ab(context);
-    }
-
-    public void d() {
-        registerListener(this.u);
-    }
-
-    public void a(by byVar) {
-        this.t = byVar;
-    }
-
-    public AntiData e() {
-        return this.o;
-    }
-
-    public void a(AntiData antiData) {
-        this.o = antiData;
-    }
-
-    public String f() {
-        return this.b;
-    }
-
-    public void a(String str) {
-        this.b = str;
-    }
-
-    public void b(boolean z) {
-        this.a = z;
-    }
-
-    public boolean g() {
+    public ArrayList a() {
         return this.a;
     }
 
-    public void a(UserData userData) {
-        this.k = userData;
+    public int b() {
+        return this.c;
     }
 
-    public UserData h() {
-        return this.k;
+    public com.baidu.tieba.data.ai c() {
+        return this.b;
     }
 
-    public void a(PersonChangeData personChangeData) {
-        h().setSex(personChangeData.getSex());
-        h().setUserName(personChangeData.getName());
-        h().setIntro(personChangeData.getIntro());
+    public void a(com.baidu.tieba.data.ai aiVar) {
+        if (aiVar != null) {
+            this.b = aiVar;
+        }
     }
 
-    public void a(boolean z, boolean z2, int i) {
-        if (this.q == null) {
-            if (i == 1) {
-                this.m = 1;
-            } else {
-                this.m = p();
+    public void a(ArrayList arrayList) {
+        this.a = arrayList;
+    }
+
+    public void a(int i) {
+        this.c = i;
+    }
+
+    public void b(ArrayList arrayList) {
+        if (arrayList != null && arrayList.size() > 0 && ((aw) arrayList.get(0)).a() == 3) {
+            int size = this.a.size();
+            if (size > 0) {
+                if (((aw) this.a.get(size - 1)).b().equals(((aw) arrayList.get(0)).b())) {
+                    arrayList.remove(0);
+                }
+                this.a.addAll(arrayList);
+                return;
             }
-            this.q = new ax(this);
-            this.q.setPriority(3);
-            this.q.execute(Boolean.valueOf(z), Boolean.valueOf(z2));
+            this.a = arrayList;
         }
     }
 
-    public void i() {
-        if (h() != null && this.r != null) {
-            this.r.a(h().getHave_attention() != 1, h().getPortrait(), h().getUserId());
+    public void a(String str, com.baidu.tieba.data.i iVar, String str2, MetaData metaData) {
+        if (str != null && str.length() != 0 && iVar != null && iVar.a() == 0 && iVar.d() != null && this.a != null) {
+            int i = 0;
+            while (true) {
+                int i2 = i;
+                if (i2 < this.a.size()) {
+                    if (!str.equals(((aw) this.a.get(i2)).h())) {
+                        i = i2 + 1;
+                    } else {
+                        ArrayList arrayList = new ArrayList();
+                        arrayList.add(iVar);
+                        ((aw) this.a.get(i2)).a(arrayList);
+                        ((aw) this.a.get(i2)).a(str2);
+                        ((aw) this.a.get(i2)).b(((aw) this.a.get(i2)).d() + 1);
+                        ((aw) this.a.get(i2)).a(metaData);
+                        return;
+                    }
+                } else {
+                    return;
+                }
+            }
         }
     }
 
-    public void b(String str) {
+    public void a(String str) {
         try {
             a(new JSONObject(str));
         } catch (Exception e) {
-            BdLog.e(getClass().getName(), "parserJson", "error = " + e.getMessage());
+            com.baidu.tieba.util.z.b("MyPostModel", "parserJson", "error = " + e.getMessage());
         }
     }
 
     public void a(JSONObject jSONObject) {
-        if (jSONObject != null) {
-            try {
-                this.k = new UserData();
-                this.k.parserJson(jSONObject.optJSONObject("user"));
-                this.o = new AntiData();
-                this.o.parserJson(jSONObject.optJSONObject("anti_stat"));
-            } catch (Exception e) {
-                BdLog.e(getClass().getName(), "parserJson", "error = " + e.getMessage());
+        try {
+            JSONArray optJSONArray = jSONObject.optJSONArray("thread_list");
+            if (optJSONArray != null && optJSONArray.length() > 0) {
+                int i = 0;
+                aw awVar = null;
+                while (i < optJSONArray.length()) {
+                    JSONObject optJSONObject = optJSONArray.optJSONObject(i);
+                    aw awVar2 = new aw(this);
+                    awVar2.b = optJSONObject.optString("distance");
+                    awVar2.c = optJSONObject.optString("lng");
+                    awVar2.d = optJSONObject.optString("lat");
+                    awVar2.a = optJSONObject.optInt("type", 0);
+                    JSONArray optJSONArray2 = optJSONObject.optJSONArray(PushConstants.EXTRA_CONTENT);
+                    if (optJSONArray2 != null) {
+                        for (int i2 = 0; i2 < optJSONArray2.length(); i2++) {
+                            com.baidu.tieba.data.i iVar = new com.baidu.tieba.data.i();
+                            iVar.a(optJSONArray2.optJSONObject(i2));
+                            awVar2.e.add(iVar);
+                        }
+                    }
+                    awVar2.f = optJSONObject.optString("time");
+                    awVar2.g = optJSONObject.optString("tid");
+                    awVar2.h = optJSONObject.optString("fid");
+                    awVar2.i = optJSONObject.optString("fname");
+                    awVar2.k = optJSONObject.optString("link");
+                    awVar2.j.parserJson(optJSONObject.optJSONObject("author"));
+                    JSONArray optJSONArray3 = optJSONObject.optJSONArray("reply_content");
+                    if (optJSONArray3 != null) {
+                        for (int i3 = 0; i3 < optJSONArray3.length(); i3++) {
+                            com.baidu.tieba.data.i iVar2 = new com.baidu.tieba.data.i();
+                            iVar2.a(optJSONArray3.optJSONObject(i3));
+                            awVar2.l.add(iVar2);
+                        }
+                    }
+                    awVar2.m = optJSONObject.optInt("reply_num");
+                    awVar2.n = optJSONObject.optString("reply_time");
+                    awVar2.o.parserJson(optJSONObject.optJSONObject("replyer"));
+                    if (awVar != null && awVar2.b.equals(awVar.b)) {
+                        this.a.add(awVar2);
+                    } else {
+                        aw awVar3 = new aw(this);
+                        awVar3.b = awVar2.b;
+                        awVar3.a = 3;
+                        this.a.add(awVar3);
+                        this.a.add(awVar2);
+                    }
+                    i++;
+                    awVar = awVar2;
+                }
+                this.b.a(jSONObject.getJSONObject("page"));
+                this.c = jSONObject.optInt("zoom_level");
+                return;
             }
+            this.b.e(0);
+        } catch (Exception e) {
+            com.baidu.tieba.util.z.b("MyPostModel", "parserJson", "error = " + e.getMessage());
         }
     }
 
-    public com.baidu.tbadk.editortool.ab j() {
-        return this.p;
-    }
-
-    public void c(String str) {
-        this.h = str;
-    }
-
-    public String k() {
-        return this.h;
-    }
-
-    public void a(long j) {
-        this.c = j;
-    }
-
-    public long l() {
-        return this.c;
-    }
-
-    public void b(long j) {
-        this.f = j;
-    }
-
-    public void c(long j) {
-        this.g = j;
-    }
-
-    public void d(long j) {
-        this.d = j;
-    }
-
-    public void e(long j) {
-        this.e = j;
-    }
-
-    public void c(boolean z) {
-        this.i = z;
-    }
-
-    public boolean m() {
-        return this.i;
-    }
-
-    public void d(boolean z) {
-        this.j = z;
-    }
-
-    public boolean n() {
-        return this.j;
-    }
-
-    @Override // com.baidu.adp.base.b
-    protected boolean LoadData() {
-        return false;
-    }
-
-    @Override // com.baidu.adp.base.b
-    public boolean cancelLoadData() {
-        return false;
-    }
-
-    public void o() {
-        MessageManager.getInstance().unRegisterListener(this.u);
-        if (this.q != null) {
-            this.q.cancel();
-        }
-        if (this.p != null) {
-            this.p.d();
+    public ArrayList d() {
+        MapPostItem p;
+        ArrayList arrayList = new ArrayList();
+        int i = 0;
+        while (true) {
+            int i2 = i;
+            if (i2 < this.a.size()) {
+                if (((aw) this.a.get(i2)).a() == 0 && (p = ((aw) this.a.get(i2)).p()) != null) {
+                    arrayList.add(p);
+                }
+                i = i2 + 1;
+            } else {
+                return arrayList;
+            }
         }
     }
 }

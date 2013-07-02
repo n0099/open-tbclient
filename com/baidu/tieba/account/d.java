@@ -1,49 +1,52 @@
 package com.baidu.tieba.account;
 
-import android.view.View;
+import android.os.Handler;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
-import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.util.be;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.tieba.R;
 /* loaded from: classes.dex */
-public class d implements View.OnClickListener {
-    final /* synthetic */ AccountActivity a;
+class d implements Runnable {
+    final /* synthetic */ ActivationActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public d(AccountActivity accountActivity) {
-        this.a = accountActivity;
+    public d(ActivationActivity activationActivity) {
+        this.a = activationActivity;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        l lVar;
-        l lVar2;
+    @Override // java.lang.Runnable
+    public void run() {
+        int i;
+        int i2;
+        int i3;
         TextView textView;
+        Handler handler;
+        Runnable runnable;
         TextView textView2;
-        l lVar3;
-        l lVar4;
-        TextView textView3;
-        TextView textView4;
-        l lVar5;
-        lVar = this.a.b;
-        if (!lVar.a()) {
-            lVar4 = this.a.b;
-            lVar4.a(true);
-            textView3 = this.a.f;
-            textView3.setText(com.baidu.tieba.y.done);
-            textView4 = this.a.f;
-            be.g(textView4, TbadkApplication.m252getInst().getSkinType());
-            lVar5 = this.a.b;
-            lVar5.notifyDataSetChanged();
+        h hVar;
+        RelativeLayout relativeLayout;
+        ActivationActivity activationActivity = this.a;
+        i = activationActivity.q;
+        activationActivity.q = i - 1;
+        i2 = this.a.q;
+        if (i2 <= 0) {
+            this.a.p = true;
+            textView2 = this.a.g;
+            textView2.setText(this.a.getString(R.string.resend_code));
+            hVar = this.a.o;
+            if (hVar == null) {
+                relativeLayout = this.a.m;
+                relativeLayout.setEnabled(true);
+                return;
+            }
             return;
         }
-        lVar2 = this.a.b;
-        lVar2.a(false);
-        textView = this.a.f;
-        textView.setText(com.baidu.tieba.y.edit);
-        textView2 = this.a.f;
-        be.i(textView2, TbadkApplication.m252getInst().getSkinType());
-        lVar3 = this.a.b;
-        lVar3.notifyDataSetChanged();
+        String string = this.a.getString(R.string.resend_code_second);
+        i3 = this.a.q;
+        String format = String.format(string, Integer.valueOf(i3));
+        textView = this.a.g;
+        textView.setText(format);
+        handler = this.a.s;
+        runnable = this.a.B;
+        handler.postDelayed(runnable, 1000L);
     }
 }

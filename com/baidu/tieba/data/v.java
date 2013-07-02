@@ -1,92 +1,99 @@
 package com.baidu.tieba.data;
 
 import android.content.Context;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.core.data.AntiData;
+import com.baidu.android.pushservice.PushConstants;
 import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class v {
-    private int a;
-    private int b;
-    private final AntiData c;
-    private Context d;
-    private ArrayList<ai> e;
-
-    public v() {
-        this.a = 0;
-        this.b = 0;
-        this.d = null;
-        this.e = null;
-        this.e = new ArrayList<>();
-        this.c = new AntiData();
-    }
+    private an c;
+    private ArrayList d;
+    private Context l;
+    private String a = null;
+    private String b = null;
+    private int e = 0;
+    private int f = 0;
+    private String g = null;
+    private String h = null;
+    private String i = null;
+    private String j = null;
+    private int k = -1;
 
     public v(Context context) {
-        this.a = 0;
-        this.b = 0;
+        this.c = null;
         this.d = null;
-        this.e = null;
-        this.e = new ArrayList<>();
-        this.c = new AntiData();
-        this.d = context;
+        this.l = null;
+        this.l = context;
+        this.c = new an();
+        this.d = new ArrayList();
     }
 
-    public ArrayList<ai> a() {
-        return this.e;
+    public an a() {
+        return this.c;
     }
 
-    public int b() {
-        return this.a;
-    }
-
-    public int c() {
+    public String b() {
         return this.b;
     }
 
-    public boolean d() {
-        return this.e.size() >= this.b;
+    public String c() {
+        return this.a;
     }
 
-    public boolean e() {
-        return this.e != null && this.e.size() < this.b && this.e.size() < 200;
+    public String d() {
+        return this.g;
     }
 
-    public void a(String str) {
+    public String e() {
+        return this.i;
+    }
+
+    public int f() {
+        return this.e;
+    }
+
+    public int g() {
+        return this.f;
+    }
+
+    public int h() {
+        return this.k;
+    }
+
+    public String i() {
+        return this.j;
+    }
+
+    public void a(JSONObject jSONObject) {
+        JSONObject optJSONObject;
         try {
-            a(new JSONObject(str));
-        } catch (Exception e) {
-            BdLog.e(getClass().getName(), "paserJson", e.toString());
-        }
-    }
-
-    private void a(JSONObject jSONObject) {
-        try {
-            JSONArray jSONArray = jSONObject.getJSONArray("comment_list");
-            if (jSONArray != null) {
-                int size = this.e.size() - (this.e.size() % 10);
-                for (int i = 0; i < jSONArray.length(); i++) {
-                    JSONObject jSONObject2 = jSONArray.getJSONObject(i);
-                    ai aiVar = new ai();
-                    aiVar.a(jSONObject2);
-                    if (this.d != null) {
-                        aiVar.b(this.d);
-                    }
-                    if (size < this.e.size()) {
-                        this.e.remove(size);
-                        this.e.add(size, aiVar);
-                    } else {
-                        this.e.add(aiVar);
-                    }
-                    size++;
-                }
-                this.a = this.e.size();
+            this.g = jSONObject.getString("post_id");
+            this.i = jSONObject.getString("user_name");
+            this.j = jSONObject.getString(PushConstants.EXTRA_USER_ID);
+            this.h = jSONObject.getString("comment_amount");
+            JSONObject optJSONObject2 = jSONObject.optJSONObject("img");
+            this.k = jSONObject.optInt("index", -1);
+            if (optJSONObject2 != null && (optJSONObject = optJSONObject2.optJSONObject("original")) != null) {
+                this.a = optJSONObject.optString("id");
+                this.b = optJSONObject.optString("url");
+                this.e = optJSONObject.optInt("width", 0);
+                this.f = optJSONObject.optInt("height", 0);
             }
-            this.b = jSONObject.optInt("comment_amount", 0);
-            this.c.setTbs(jSONObject.getJSONObject("tbs").optString("common"));
+            JSONArray jSONArray = jSONObject.getJSONArray("descr");
+            if (jSONArray != null) {
+                for (int i = 0; i < jSONArray.length(); i++) {
+                    i iVar = new i();
+                    iVar.a(jSONArray.getJSONObject(i));
+                    this.d.add(iVar);
+                }
+            }
+            this.c.a(this.d);
+            if (this.l != null) {
+                this.c.d(this.l);
+            }
         } catch (Exception e) {
-            BdLog.e(getClass().getName(), "paserJson", e.toString());
+            com.baidu.tieba.util.z.b(getClass().getName(), "paserJson", e.toString());
         }
     }
 }

@@ -1,29 +1,35 @@
 package com.baidu.tieba.recommend;
-
-import android.app.Activity;
-import android.view.View;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.bk;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class j implements View.OnClickListener {
-    final /* synthetic */ i a;
-    private final /* synthetic */ com.baidu.tieba.data.l b;
+public class j {
+    public String a;
+    public String b;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public j(i iVar, com.baidu.tieba.data.l lVar) {
-        this.a = iVar;
-        this.b = lVar;
+    public j(String str, String str2) {
+        this.a = "";
+        this.b = "";
+        this.a = str;
+        this.b = str2;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        Activity activity;
-        Activity activity2;
-        activity = this.a.b;
-        TiebaStatic.eventStat(activity, "recommend_to_pb", "click");
-        bk a = bk.a();
-        activity2 = this.a.b;
-        a.a(activity2, new String[]{this.b.a()});
+    public int hashCode() {
+        return (((this.a == null ? 0 : this.a.hashCode()) + 31) * 31) + (this.b != null ? this.b.hashCode() : 0);
+    }
+
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj != null && getClass() == obj.getClass()) {
+            j jVar = (j) obj;
+            if (this.a == null) {
+                if (jVar.a != null) {
+                    return false;
+                }
+            } else if (!this.a.equals(jVar.a)) {
+                return false;
+            }
+            return this.b == null ? jVar.b == null : this.b.equals(jVar.b);
+        }
+        return false;
     }
 }

@@ -1,65 +1,28 @@
 package com.baidu.mobstat;
 
 import android.content.Context;
-import android.os.Process;
+import java.util.TimerTask;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class j extends Thread {
-    private static j a = new j();
-    private Context b;
-    private boolean c = false;
-    private boolean d = false;
+public class j extends TimerTask {
+    final /* synthetic */ Context a;
+    final /* synthetic */ g b;
 
-    private j() {
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public j(g gVar, Context context) {
+        this.b = gVar;
+        this.a = context;
     }
 
-    public static j a() {
-        return a;
-    }
-
-    private void d() {
-        this.c = true;
-    }
-
-    private synchronized void e() {
-        this.d = true;
-    }
-
-    public void a(Context context) {
-        if (context == null || b()) {
+    @Override // java.util.TimerTask, java.lang.Runnable
+    public void run() {
+        boolean z;
+        if (b.a().c()) {
             return;
         }
-        this.b = context;
-        d();
-        start();
-        com.baidu.mobstat.a.e.a("**************load caceh**start********");
-    }
-
-    public boolean b() {
-        return this.c;
-    }
-
-    public synchronized boolean c() {
-        return this.d;
-    }
-
-    @Override // java.lang.Thread, java.lang.Runnable
-    public void run() {
-        Process.setThreadPriority(19);
-        while (!this.d) {
-            k.a().a(this.b);
-            DataCore.getInstance().loadStatData(this.b);
-            DataCore.getInstance().loadLastSession(this.b);
-            e();
-            synchronized (a) {
-                try {
-                    notifyAll();
-                } catch (IllegalMonitorStateException e) {
-                    com.baidu.mobstat.a.e.a("statsdk", e);
-                }
-            }
-            DataCore.getInstance().installHeader(this.b);
-            k.a().b(this.b);
-            com.baidu.mobstat.a.e.a("**************load caceh**end********");
-        }
+        b a = b.a();
+        Context context = this.a;
+        z = this.b.b;
+        a.a(context, z);
     }
 }

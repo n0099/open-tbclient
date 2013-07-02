@@ -1,94 +1,83 @@
 package com.baidu.tieba.service;
 
+import android.content.Intent;
+import android.graphics.Bitmap;
+import android.net.Uri;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.util.an;
-import com.baidu.tieba.data.ab;
+import com.baidu.tieba.R;
+import com.baidu.tieba.write.bb;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class q extends BdAsyncTask<String, Integer, ab> {
-    int b;
-    final /* synthetic */ TiebaMessageService c;
-    an a = null;
-    private final TbadkApplication d = TbadkApplication.m252getInst();
-    private final String e = TbadkApplication.getCurrentAccount();
+public class q extends BdAsyncTask {
+    int a;
+    Uri b;
+    String c = null;
+    final /* synthetic */ TiebaPrepareImageService d;
 
-    public q(TiebaMessageService tiebaMessageService, int i) {
-        this.c = tiebaMessageService;
-        this.b = 0;
-        this.b = i;
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void onPreExecute() {
-        super.onPreExecute();
+    public q(TiebaPrepareImageService tiebaPrepareImageService, int i, Uri uri) {
+        this.d = tiebaPrepareImageService;
+        this.a = 0;
+        this.b = null;
+        this.a = i;
+        this.b = uri;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: a */
-    public ab doInBackground(String... strArr) {
-        ab abVar;
-        Exception e;
+    /* renamed from: d */
+    public Boolean a(Object... objArr) {
+        int i;
+        boolean z = true;
+        TiebaPrepareImageService.a = true;
         try {
-        } catch (Exception e2) {
-            abVar = null;
-            e = e2;
-        }
-        if (this.d.isMsgRemindOn() && this.e != null && this.e.length() > 0) {
-            this.a = new an(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/s/msg");
-            if (this.b == 2) {
-                this.a.a("bookmark", TbConfig.ST_PARAM_TAB_MSG_PERSONAL_CHAT_CLICK);
-            }
-            String i = this.a.i();
-            if (this.a.a().b().b()) {
-                abVar = new ab();
-                try {
-                    abVar.a(i);
-                } catch (Exception e3) {
-                    e = e3;
-                    BdLog.e(getClass().getName(), "doInBackground", e.getMessage());
-                    return abVar;
+            int i2 = this.a;
+            TiebaPrepareImageService tiebaPrepareImageService = this.d;
+            Uri uri = this.b;
+            i = this.d.f;
+            Bitmap a = bb.a(i2, tiebaPrepareImageService, uri, i);
+            if (a != null) {
+                if (com.baidu.tieba.util.m.a(null, "tieba_resized_image", a, 80) != null) {
+                    Bitmap a2 = com.baidu.tieba.util.d.a(a, 100);
+                    if (a2 == null || com.baidu.tieba.util.m.a(null, "tieba_resized_image_display", a2, 80) == null) {
+                        this.c = this.d.getString(R.string.error_sd_error);
+                        z = false;
+                    }
+                } else {
+                    this.c = this.d.getString(R.string.error_sd_error);
+                    z = false;
                 }
             } else {
-                abVar = null;
+                this.c = this.d.getString(R.string.pic_parser_error);
+                z = false;
             }
-            return abVar;
+            TiebaPrepareImageService.a = false;
+        } catch (Exception e) {
+            TiebaPrepareImageService.a = false;
+            z = false;
+        } catch (Throwable th) {
+            TiebaPrepareImageService.a = false;
+            throw th;
         }
-        return null;
+        return Boolean.valueOf(z);
     }
 
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void cancel() {
-        this.c.mMessageAsyncTask = null;
-        this.c.mBookmarkAsyncTask = null;
-        if (this.a != null) {
-            this.a.g();
-        }
+        this.d.d = null;
         super.cancel(true);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: a */
-    public void onPostExecute(ab abVar) {
-        try {
-            super.onPostExecute(abVar);
-            this.c.mMessageAsyncTask = null;
-            this.c.mBookmarkAsyncTask = null;
-            if (abVar != null) {
-                this.c.mData = abVar;
-                if (this.e != null && this.e.length() > 0) {
-                    this.c.broadcastMsg(this.b);
-                }
-            }
-        } catch (Exception e) {
-            BdLog.e(getClass().getName(), "onPostExecute", e.getMessage());
+    public void a(Boolean bool) {
+        super.a((Object) bool);
+        Intent intent = new Intent("com.baidu.tieba.broadcast.image.resized");
+        intent.putExtra("result", bool);
+        if (this.c != null) {
+            intent.putExtra("error", this.c);
         }
+        this.d.sendBroadcast(intent);
     }
 }

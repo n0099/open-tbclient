@@ -1,10 +1,9 @@
 package com.baidu.tieba.person;
 
-import android.view.MotionEvent;
-import android.view.View;
+import android.widget.ImageView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ar implements View.OnTouchListener {
+public class ar implements com.baidu.tbadk.a.d {
     final /* synthetic */ PersonChangeActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -12,12 +11,10 @@ public class ar implements View.OnTouchListener {
         this.a = personChangeActivity;
     }
 
-    @Override // android.view.View.OnTouchListener
-    public boolean onTouch(View view, MotionEvent motionEvent) {
-        if (motionEvent.getAction() == 1) {
-            this.a.t = true;
-            return false;
-        }
-        return false;
+    @Override // com.baidu.tbadk.a.d
+    public void a(com.baidu.adp.widget.a.b bVar, String str, boolean z) {
+        ImageView imageView;
+        imageView = this.a.b;
+        bVar.b(imageView);
     }
 }

@@ -1,20 +1,29 @@
 package com.baidu.tieba.frs;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class n implements Runnable {
-    final /* synthetic */ m a;
-    private final /* synthetic */ String b;
+public class n extends com.baidu.adp.a.e {
+    final /* synthetic */ FrsActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public n(m mVar, String str) {
-        this.a = mVar;
-        this.b = str;
+    public n(FrsActivity frsActivity) {
+        this.a = frsActivity;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        com.baidu.tbadk.core.util.an anVar = new com.baidu.tbadk.core.util.an(this.b);
-        anVar.a().a().d = false;
-        anVar.a().a().c = false;
-        anVar.h();
+    @Override // com.baidu.adp.a.e
+    public void a(Object obj) {
+        com.baidu.tieba.model.m mVar;
+        az azVar;
+        com.baidu.tieba.model.m mVar2;
+        mVar = this.a.D;
+        if (mVar.getLoadDataMode() == 1) {
+            if (((Boolean) obj).booleanValue()) {
+                this.a.r();
+            }
+            azVar = this.a.m;
+            bc a = azVar.a();
+            boolean booleanValue = ((Boolean) obj).booleanValue();
+            mVar2 = this.a.D;
+            a.a(booleanValue, mVar2.getErrorString());
+        }
     }
 }

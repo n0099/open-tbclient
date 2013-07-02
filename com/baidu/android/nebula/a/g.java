@@ -1,79 +1,98 @@
 package com.baidu.android.nebula.a;
 
 import android.content.Context;
-import android.provider.Settings;
-import android.telephony.TelephonyManager;
-import android.text.TextUtils;
-import android.util.Log;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+import java.util.List;
 /* loaded from: classes.dex */
-final class g {
-    public final String a;
-    public final boolean b;
+public final class g {
+    private static final String a = g.class.getSimpleName();
+    private static final char[] b = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
 
-    private g(String str, boolean z) {
-        this.a = str;
-        this.b = z;
+    private g() {
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: Removed duplicated region for block: B:17:0x004c  */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public static g a(Context context) {
-        String str;
-        Exception e;
-        boolean z;
-        String str2 = "";
-        try {
-            str2 = Settings.System.getString(context.getContentResolver(), "bd_setting_i");
-            str = TextUtils.isEmpty(str2) ? a(context, "") : str2;
-        } catch (Exception e2) {
-            str = str2;
-            e = e2;
+    public static long a(String str) {
+        long j = 0;
+        if (str == null || str.length() < 32) {
+            return -1L;
         }
-        try {
-            Settings.System.putString(context.getContentResolver(), "bd_setting_i", str);
-            z = false;
-        } catch (Exception e3) {
-            e = e3;
-            Log.e("DeviceId", "Settings.System.getString or putString failed", e);
-            if (TextUtils.isEmpty(str)) {
-                str = a(context, "");
-                z = true;
-            } else {
-                z = true;
-            }
-            return new g(str, z ? false : true);
+        String substring = str.substring(8, 24);
+        long j2 = 0;
+        for (int i = 0; i < 8; i++) {
+            j2 = (j2 * 16) + Integer.parseInt(substring.substring(i, i + 1), 16);
         }
-        return new g(str, z ? false : true);
+        for (int i2 = 8; i2 < substring.length(); i2++) {
+            j = (j * 16) + Integer.parseInt(substring.substring(i2, i2 + 1), 16);
+        }
+        return (j + j2) & 4294967295L;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:12:0x0027  */
-    /* JADX WARN: Removed duplicated region for block: B:8:0x001a A[ORIG_RETURN, RETURN] */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    private static String a(Context context, String str) {
-        String str2;
-        TelephonyManager telephonyManager;
+    public static PackageInfo a(Context context, String str) {
         try {
-            telephonyManager = (TelephonyManager) context.getSystemService("phone");
-        } catch (Exception e) {
-            Log.e("DeviceId", "Read IMEI failed", e);
-        }
-        if (telephonyManager != null) {
-            str2 = telephonyManager.getDeviceId();
-            String a = a(str2);
-            return !TextUtils.isEmpty(a) ? str : a;
-        }
-        str2 = null;
-        String a2 = a(str2);
-        if (!TextUtils.isEmpty(a2)) {
+            return context.getPackageManager().getPackageInfo(str, 64);
+        } catch (PackageManager.NameNotFoundException e) {
+            return null;
         }
     }
 
-    private static String a(String str) {
-        return (str == null || !str.contains(":")) ? str : "";
+    public static s a(Context context) {
+        List<PackageInfo> installedPackages = context.getPackageManager().getInstalledPackages(64);
+        s sVar = new s();
+        for (PackageInfo packageInfo : installedPackages) {
+            a aVar = new a();
+            aVar.a(packageInfo.versionCode);
+            aVar.b(packageInfo.packageName);
+            aVar.a(a(packageInfo.packageName, packageInfo.versionCode));
+            aVar.a(a(a(packageInfo.signatures[0].toCharsString().getBytes())));
+            sVar.a(packageInfo.packageName, aVar);
+        }
+        return sVar;
+    }
+
+    public static String a(String str, int i) {
+        StringBuilder sb = new StringBuilder();
+        sb.append(str).append("@").append(i);
+        return sb.toString();
+    }
+
+    public static String a(String str, String str2, long j) {
+        StringBuffer stringBuffer = new StringBuffer();
+        stringBuffer.append(str).append(str2).append(j);
+        return a(stringBuffer.toString().getBytes()).toLowerCase();
+    }
+
+    public static String a(byte[] bArr) {
+        try {
+            MessageDigest messageDigest = MessageDigest.getInstance("MD5");
+            messageDigest.update(bArr);
+            return b(messageDigest.digest());
+        } catch (NoSuchAlgorithmException e) {
+            return null;
+        }
+    }
+
+    public static a b(Context context, String str) {
+        a aVar = new a();
+        aVar.b(str);
+        try {
+            PackageInfo packageInfo = context.getPackageManager().getPackageInfo(str, 64);
+            aVar.a(packageInfo.versionCode);
+            aVar.a(a(a(packageInfo.signatures[0].toCharsString().getBytes())));
+            return aVar;
+        } catch (PackageManager.NameNotFoundException e) {
+            return null;
+        }
+    }
+
+    public static String b(byte[] bArr) {
+        StringBuilder sb = new StringBuilder(bArr.length * 2);
+        for (int i = 0; i < bArr.length; i++) {
+            sb.append(b[(bArr[i] & 240) >>> 4]);
+            sb.append(b[bArr[i] & 15]);
+        }
+        return sb.toString();
     }
 }

@@ -1,32 +1,65 @@
 package com.baidu.tieba.write;
 
-import android.widget.EditText;
-import com.baidu.tieba.editortool.EditorToolComponetContainer;
+import android.content.Intent;
+import android.graphics.Bitmap;
+import android.view.View;
+import android.widget.ProgressBar;
+import java.util.Date;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class as implements Runnable {
-    final /* synthetic */ WriteActivity a;
+public class as implements View.OnClickListener {
+    final /* synthetic */ WriteImageActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public as(WriteActivity writeActivity) {
-        this.a = writeActivity;
+    public as(WriteImageActivity writeImageActivity) {
+        this.a = writeImageActivity;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        EditText editText;
-        EditorToolComponetContainer editorToolComponetContainer;
-        EditText editText2;
-        EditorToolComponetContainer editorToolComponetContainer2;
-        EditText editText3;
-        editText = this.a.e;
-        if (editText.getVisibility() == 0) {
-            editorToolComponetContainer2 = this.a.A;
-            editText3 = this.a.e;
-            editorToolComponetContainer2.c(editText3);
-            return;
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        boolean z;
+        int i;
+        ProgressBar progressBar;
+        boolean z2;
+        Bitmap bitmap;
+        Bitmap bitmap2;
+        boolean d;
+        z = this.a.z;
+        if (!z) {
+            i = this.a.A;
+            if (i == 1200003) {
+                Intent intent = new Intent();
+                progressBar = this.a.j;
+                if (progressBar.getVisibility() != 0) {
+                    z2 = this.a.y;
+                    if (z2) {
+                        bitmap = this.a.r;
+                        if (bitmap != null) {
+                            bitmap2 = this.a.r;
+                            if (!bitmap2.isRecycled()) {
+                                String str = "tieba" + String.valueOf(new Date().getTime()) + ".jpg";
+                                d = this.a.d(str);
+                                if (d) {
+                                    intent.putExtra("change", true);
+                                    intent.putExtra("file_name", str);
+                                } else {
+                                    intent.putExtra("change", false);
+                                }
+                                this.a.setResult(-1, intent);
+                            }
+                        }
+                    }
+                    intent.putExtra("change", false);
+                    this.a.setResult(-1, intent);
+                } else {
+                    return;
+                }
+            } else {
+                this.a.setResult(0, new Intent());
+            }
+        } else {
+            this.a.setResult(0, new Intent());
         }
-        editorToolComponetContainer = this.a.A;
-        editText2 = this.a.h;
-        editorToolComponetContainer.c(editText2);
+        this.a.finish();
     }
 }

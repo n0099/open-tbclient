@@ -1,34 +1,53 @@
 package com.baidu.tieba.data;
-
-import com.baidu.adp.lib.util.BdLog;
-import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class as {
-    private int a = 0;
-    private String b = null;
+    final /* synthetic */ aq a;
+    private String b;
+    private String c;
+    private String d;
+    private String e;
+    private String f;
+    private String g;
+    private String h;
+    private int i;
+
+    public as(aq aqVar) {
+        this.a = aqVar;
+    }
 
     public int a() {
-        return this.a;
+        return this.i;
+    }
+
+    public void a(int i) {
+        this.i = i;
     }
 
     public String b() {
         return this.b;
     }
 
-    public void a(String str) {
-        try {
-            a(new JSONObject(str).optJSONObject("error"));
-        } catch (Exception e) {
-            BdLog.e(getClass().getName(), "parserJson", e.toString());
-        }
+    public String c() {
+        return this.h;
     }
 
-    public void a(JSONObject jSONObject) {
-        try {
-            this.a = jSONObject.optInt("errno");
-            this.b = jSONObject.optString("usermsg");
-        } catch (Exception e) {
-            BdLog.e(getClass().getName(), "parserJson", e.toString());
-        }
+    public String d() {
+        return this.c;
+    }
+
+    public String e() {
+        return this.d;
+    }
+
+    public String f() {
+        return this.e;
+    }
+
+    public String g() {
+        return this.f;
+    }
+
+    public String h() {
+        return this.g;
     }
 }

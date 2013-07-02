@@ -1,20 +1,19 @@
 package com.baidu.tbadk.a;
 
-import com.baidu.adp.framework.a.e;
-import com.baidu.tbadk.core.relogin.ReloginManager;
+import android.content.Context;
 /* loaded from: classes.dex */
-public class b extends e {
-    public b(int i) {
-        super(i);
-    }
+public interface b {
+    int a();
 
-    @Override // com.baidu.adp.framework.a.e
-    public void a(int i, int i2) {
-        ReloginManager.a().a(i, i2);
-    }
+    int a(int i);
 
-    @Override // com.baidu.adp.framework.a.e
-    public void a(int i) {
-        ReloginManager.a().a(i);
-    }
+    int a(String str);
+
+    c a(Context context, String str);
+
+    int b(String str);
+
+    String b(int i);
+
+    String c(String str);
 }

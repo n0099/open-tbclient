@@ -1,11 +1,9 @@
 package com.baidu.tieba.write;
 
-import android.view.ViewGroup;
 import android.widget.ImageView;
-import com.baidu.adp.widget.ListView.BdListView;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.widget.ListView;
 /* loaded from: classes.dex */
-public class c implements com.baidu.tbadk.imageManager.d {
+class c implements com.baidu.tbadk.a.d {
     final /* synthetic */ b a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -13,21 +11,16 @@ public class c implements com.baidu.tbadk.imageManager.d {
         this.a = bVar;
     }
 
-    @Override // com.baidu.tbadk.imageManager.d
-    public void a(com.baidu.adp.widget.a.a aVar, String str, boolean z) {
+    @Override // com.baidu.tbadk.a.d
+    public void a(com.baidu.adp.widget.a.b bVar, String str, boolean z) {
         AtListActivity atListActivity;
-        BdListView bdListView;
-        AtListActivity atListActivity2;
-        AtSelectFriendList atSelectFriendList;
+        ListView listView;
         atListActivity = this.a.a;
-        bdListView = atListActivity.d;
-        ImageView imageView = (ImageView) bdListView.findViewWithTag(str);
-        if (imageView != null && aVar != null) {
-            aVar.a(imageView);
+        listView = atListActivity.d;
+        ImageView imageView = (ImageView) listView.findViewWithTag(str);
+        if (imageView != null && bVar != null) {
+            bVar.b(imageView);
             imageView.setTag(null);
         }
-        atListActivity2 = this.a.a;
-        atSelectFriendList = atListActivity2.e;
-        com.baidu.tbadk.core.util.br.a((ViewGroup) atSelectFriendList, false, (com.baidu.tbadk.core.util.bt) new d(this, str, aVar));
     }
 }

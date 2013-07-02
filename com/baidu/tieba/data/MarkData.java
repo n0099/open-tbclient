@@ -1,7 +1,5 @@
 package com.baidu.tieba.data;
 
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.TbConfig;
 import java.io.Serializable;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
@@ -21,7 +19,6 @@ public class MarkData implements Serializable {
     private String mAuthorName = null;
     private int mReplyNum = 0;
     private int mSubPost = 0;
-    private int mNewCounts = 0;
 
     public String getAuthorName() {
         return this.mAuthorName;
@@ -104,16 +101,16 @@ public class MarkData implements Serializable {
     }
 
     public void logPrint() {
-        BdLog.v("MarkData", "logPrint", "mId = " + this.mId);
-        BdLog.v("MarkData", "logPrint", "mAccount = " + this.mAccount);
-        BdLog.v("MarkData", "logPrint", "mFloor = " + String.valueOf(this.mFloor));
-        BdLog.v("MarkData", "logPrint", "mTime = " + String.valueOf(this.mTime));
-        BdLog.v("MarkData", "logPrint", "mSequence = " + String.valueOf(this.mSequence));
-        BdLog.v("MarkData", "logPrint", "mHostMode = " + String.valueOf(this.mHostMode));
-        BdLog.v("MarkData", "logPrint", "mTitle = " + this.mTitle);
-        BdLog.v("MarkData", "logPrint", "mPostId = " + this.mPostId);
-        BdLog.v("MarkData", "logPrint", "mAuthorName = " + this.mAuthorName);
-        BdLog.v("MarkData", "logPrint", "mFloorNum = " + String.valueOf(this.mReplyNum));
+        com.baidu.tieba.util.z.d("MarkData", "logPrint", "mId = " + this.mId);
+        com.baidu.tieba.util.z.d("MarkData", "logPrint", "mAccount = " + this.mAccount);
+        com.baidu.tieba.util.z.d("MarkData", "logPrint", "mFloor = " + String.valueOf(this.mFloor));
+        com.baidu.tieba.util.z.d("MarkData", "logPrint", "mTime = " + String.valueOf(this.mTime));
+        com.baidu.tieba.util.z.d("MarkData", "logPrint", "mSequence = " + String.valueOf(this.mSequence));
+        com.baidu.tieba.util.z.d("MarkData", "logPrint", "mHostMode = " + String.valueOf(this.mHostMode));
+        com.baidu.tieba.util.z.d("MarkData", "logPrint", "mTitle = " + this.mTitle);
+        com.baidu.tieba.util.z.d("MarkData", "logPrint", "mPostId = " + this.mPostId);
+        com.baidu.tieba.util.z.d("MarkData", "logPrint", "mAuthorName = " + this.mAuthorName);
+        com.baidu.tieba.util.z.d("MarkData", "logPrint", "mFloorNum = " + String.valueOf(this.mReplyNum));
     }
 
     public void setAccount(String str) {
@@ -148,43 +145,34 @@ public class MarkData implements Serializable {
         this.mThreadId = str;
     }
 
-    public int getNewCounts() {
-        return this.mNewCounts;
-    }
-
-    public void setNewCounts(int i) {
-        this.mNewCounts = i;
-    }
-
     public JSONObject toJson() {
         try {
             JSONObject jSONObject = new JSONObject();
             jSONObject.put("tid", this.mThreadId);
             jSONObject.put("pid", this.mPostId);
             if (this.mHostMode) {
-                jSONObject.put("status", TbConfig.ST_PARAM_TAB_MSG_PERSONAL_CHAT_CLICK);
+                jSONObject.put("status", "1");
             } else if (!this.mSequence) {
-                jSONObject.put("status", TbConfig.ST_PARAM_TAB_MSG_CREATE_CHAT);
+                jSONObject.put("status", "2");
             } else {
                 jSONObject.put("status", "0");
             }
             return jSONObject;
         } catch (Exception e) {
-            BdLog.e(getClass().getName(), "toJson", e.toString());
+            com.baidu.tieba.util.z.b(getClass().getName(), "toJson", e.toString());
             return null;
         }
     }
 
     public void paserJson(JSONObject jSONObject) {
         try {
-            this.mThreadId = jSONObject.optString(com.baidu.tbadk.core.frameworkData.a.THREAD_ID);
+            this.mThreadId = jSONObject.optString("thread_id");
             this.mPostId = jSONObject.optString("mark_pid");
-            this.mForumName = jSONObject.optString(com.baidu.tbadk.core.frameworkData.a.FORUM_NAME);
+            this.mForumName = jSONObject.optString("forum_name");
             this.mTitle = jSONObject.optString("title");
-            this.mAuthorName = jSONObject.optJSONObject("author").optString(com.baidu.tbadk.core.frameworkData.a.NAME_SHOW);
+            this.mAuthorName = jSONObject.optJSONObject("author").optString("name_show");
             this.mId = this.mThreadId;
             this.mReplyNum = jSONObject.optInt("reply_num");
-            this.mNewCounts = jSONObject.optInt("count");
             int optInt = jSONObject.optInt("mark_status");
             if (optInt == 1) {
                 this.mHostMode = true;
@@ -192,7 +180,7 @@ public class MarkData implements Serializable {
                 this.mSequence = false;
             }
         } catch (Exception e) {
-            BdLog.e(getClass().getName(), "fromJson", e.toString());
+            com.baidu.tieba.util.z.b(getClass().getName(), "fromJson", e.toString());
         }
     }
 }

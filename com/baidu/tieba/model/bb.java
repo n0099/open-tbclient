@@ -1,40 +1,130 @@
 package com.baidu.tieba.model;
 
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.coreExtra.act.LoginActivity;
-import org.json.JSONArray;
-import org.json.JSONObject;
+import android.content.Context;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class bb {
-    public void a(String str) {
+public class bb extends BdAsyncTask {
+    final /* synthetic */ ba a;
+    private com.baidu.tieba.a.f b = null;
+    private int c;
+
+    public bb(ba baVar, int i) {
+        this.a = baVar;
+        this.c = 0;
+        this.c = i;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    /* renamed from: d */
+    public com.baidu.tieba.data.aw a(Object... objArr) {
+        com.baidu.tieba.data.aw awVar;
+        com.baidu.tieba.data.aw awVar2;
+        com.baidu.tieba.data.aw awVar3;
+        String str;
+        String str2;
+        String str3;
+        Context context;
+        Context context2;
+        this.b = new com.baidu.tieba.a.f();
         try {
-            a(new JSONObject(str));
+            awVar = this.a.e;
+            int f = awVar.f();
+            if (f == 0) {
+                f++;
+            } else if (this.c == 0) {
+                f++;
+            } else if (this.c == 2) {
+                awVar2 = this.a.e;
+                int size = awVar2.b().size();
+                awVar3 = this.a.e;
+                if (size % awVar3.e() == 0) {
+                    f++;
+                }
+            }
+            com.baidu.tieba.a.f fVar = this.b;
+            str = this.a.a;
+            str2 = this.a.c;
+            int i = this.c;
+            str3 = this.a.b;
+            String a = fVar.a(str, str2, i, str3, f);
+            if (!this.b.a()) {
+                return null;
+            }
+            com.baidu.tieba.data.aw awVar4 = new com.baidu.tieba.data.aw();
+            context = this.a.d;
+            awVar4.a(a, context);
+            int i2 = 0;
+            while (true) {
+                int i3 = i2;
+                if (i3 >= awVar4.b().size()) {
+                    return awVar4;
+                }
+                context2 = this.a.d;
+                ((com.baidu.tieba.data.an) awVar4.b().get(i3)).a(context2);
+                i2 = i3 + 1;
+            }
         } catch (Exception e) {
-            BdLog.e(getClass().getName(), "parserJson", e.getMessage());
+            com.baidu.tieba.util.z.b(getClass().getName(), "doInBackground", e.toString());
+            return null;
         }
     }
 
-    public void a(JSONObject jSONObject) {
-        JSONArray optJSONArray;
-        if (jSONObject != null) {
-            try {
-                JSONObject optJSONObject = jSONObject.optJSONObject("config");
-                if (optJSONObject != null && (optJSONArray = optJSONObject.optJSONArray("switch")) != null) {
-                    for (int i = 0; i < optJSONArray.length(); i++) {
-                        JSONObject jSONObject2 = optJSONArray.getJSONObject(i);
-                        if (jSONObject2 != null) {
-                            String optString = jSONObject2.optString("name");
-                            Integer valueOf = Integer.valueOf(jSONObject2.optInt("type", 0));
-                            if ("switch_login_passv6".equals(optString)) {
-                                com.baidu.adp.lib.a.f.a().a(optString, valueOf.intValue());
-                                LoginActivity.a();
-                            }
-                        }
-                    }
-                }
-            } catch (Exception e) {
-                BdLog.e(getClass().getName(), "parserJson", e.getMessage());
-            }
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public void cancel() {
+        super.cancel(true);
+        this.a.f = null;
+        if (this.b != null) {
+            this.b.d();
         }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public void a(com.baidu.tieba.data.aw awVar) {
+        com.baidu.tieba.data.aw awVar2;
+        com.baidu.tieba.data.aw awVar3;
+        bc bcVar;
+        bc bcVar2;
+        com.baidu.tieba.data.aw awVar4;
+        bc bcVar3;
+        bc bcVar4;
+        this.a.f = null;
+        if (awVar == null) {
+            bcVar3 = this.a.g;
+            if (bcVar3 != null) {
+                bcVar4 = this.a.g;
+                bcVar4.a(false, this.b.c(), this.b.b(), null);
+                return;
+            }
+            return;
+        }
+        if (awVar.a() != null) {
+            this.a.b = awVar.a().d();
+        }
+        if (awVar.l() != null) {
+            this.a.a = awVar.l().a();
+        }
+        if (this.c == 1) {
+            this.a.e = awVar;
+        } else if (this.c == 2) {
+            awVar3 = this.a.e;
+            awVar3.a(awVar, true);
+        } else {
+            awVar2 = this.a.e;
+            awVar2.a(awVar, false);
+        }
+        bcVar = this.a.g;
+        if (bcVar != null) {
+            bcVar2 = this.a.g;
+            int c = this.b.c();
+            String b = this.b.b();
+            awVar4 = this.a.e;
+            bcVar2.a(true, c, b, awVar4);
+        }
+        this.b = null;
     }
 }

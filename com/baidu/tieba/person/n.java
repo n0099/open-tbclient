@@ -1,21 +1,25 @@
 package com.baidu.tieba.person;
 
-import android.app.Dialog;
-import android.content.DialogInterface;
+import android.view.View;
+import android.widget.Button;
+import android.widget.LinearLayout;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class n implements DialogInterface.OnClickListener {
-    final /* synthetic */ m a;
+public class n implements View.OnClickListener {
+    final /* synthetic */ EditHeadActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public n(m mVar) {
-        this.a = mVar;
+    public n(EditHeadActivity editHeadActivity) {
+        this.a = editHeadActivity;
     }
 
-    @Override // android.content.DialogInterface.OnClickListener
-    public void onClick(DialogInterface dialogInterface, int i) {
-        Dialog dialog;
-        dialog = this.a.j;
-        dialog.dismiss();
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        LinearLayout linearLayout;
+        Button button;
+        linearLayout = this.a.t;
+        linearLayout.setVisibility(8);
+        button = this.a.l;
+        button.setVisibility(0);
     }
 }

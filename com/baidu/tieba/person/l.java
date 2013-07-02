@@ -1,24 +1,19 @@
 package com.baidu.tieba.person;
 
-import android.content.DialogInterface;
+import android.view.View;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class l implements DialogInterface.OnClickListener {
-    final /* synthetic */ EditMarkActivity a;
+public class l implements View.OnClickListener {
+    final /* synthetic */ EditHeadActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public l(EditMarkActivity editMarkActivity) {
-        this.a = editMarkActivity;
+    public l(EditHeadActivity editHeadActivity) {
+        this.a = editHeadActivity;
     }
 
-    @Override // android.content.DialogInterface.OnClickListener
-    public void onClick(DialogInterface dialogInterface, int i) {
-        m mVar;
-        com.baidu.tieba.model.k kVar;
-        com.baidu.tieba.model.k kVar2;
-        mVar = this.a.b;
-        kVar = this.a.a;
-        mVar.a(kVar.a());
-        kVar2 = this.a.a;
-        kVar2.a((Boolean) true);
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        this.a.setResult(0);
+        this.a.finish();
     }
 }

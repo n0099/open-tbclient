@@ -1,27 +1,17 @@
 package com.baidu.tieba;
 
-import android.os.Handler;
+import android.view.View;
 /* loaded from: classes.dex */
-class m extends Thread {
-    final /* synthetic */ LogoActivity a;
+class m implements View.OnClickListener {
+    final /* synthetic */ GuideActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public m(LogoActivity logoActivity) {
-        this.a = logoActivity;
+    public m(GuideActivity guideActivity) {
+        this.a = guideActivity;
     }
 
-    @Override // java.lang.Thread, java.lang.Runnable
-    public void run() {
-        Handler handler;
-        Handler handler2;
-        super.run();
-        try {
-            com.baidu.tbadk.core.util.l.a();
-            this.a.a(this.a.getCacheDir());
-        } catch (Exception e) {
-        }
-        handler = this.a.i;
-        handler2 = this.a.i;
-        handler.sendMessage(handler2.obtainMessage());
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        this.a.a();
     }
 }

@@ -1,26 +1,26 @@
 package com.baidu.tieba.more;
 
-import android.content.DialogInterface;
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class y implements DialogInterface.OnClickListener {
-    final /* synthetic */ w a;
+public class y extends BroadcastReceiver {
+    final /* synthetic */ MoreActivity a;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public y(w wVar) {
-        this.a = wVar;
+    private y(MoreActivity moreActivity) {
+        this.a = moreActivity;
     }
 
-    @Override // android.content.DialogInterface.OnClickListener
-    public void onClick(DialogInterface dialogInterface, int i) {
-        p pVar;
-        p pVar2;
-        if (i == 0) {
-            pVar2 = this.a.b;
-            pVar2.a(11);
-            return;
-        }
-        pVar = this.a.b;
-        pVar.a(12);
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public /* synthetic */ y(MoreActivity moreActivity, y yVar) {
+        this(moreActivity);
+    }
+
+    @Override // android.content.BroadcastReceiver
+    public void onReceive(Context context, Intent intent) {
+        z zVar;
+        zVar = this.a.a;
+        zVar.z();
     }
 }

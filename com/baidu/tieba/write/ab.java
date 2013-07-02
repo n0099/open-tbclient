@@ -1,54 +1,63 @@
 package com.baidu.tieba.write;
 
-import android.app.ProgressDialog;
-import android.content.DialogInterface;
+import android.os.Handler;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
-import com.baidu.tbadk.coreExtra.data.WriteData;
+import android.widget.GridView;
+import android.widget.ImageView;
+import com.baidu.tieba.R;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class ab implements View.OnClickListener {
-    final /* synthetic */ VcodeActivity a;
+public class ab implements View.OnClickListener {
+    final /* synthetic */ WriteActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ab(VcodeActivity vcodeActivity) {
-        this.a = vcodeActivity;
+    public ab(WriteActivity writeActivity) {
+        this.a = writeActivity;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
+        GridView gridView;
         InputMethodManager inputMethodManager;
         EditText editText;
-        DialogInterface.OnCancelListener onCancelListener;
-        ProgressDialog progressDialog;
-        af afVar;
-        WriteData writeData;
-        af afVar2;
-        af afVar3;
-        af afVar4;
-        VcodeActivity vcodeActivity = this.a;
-        inputMethodManager = this.a.i;
-        editText = this.a.e;
-        vcodeActivity.HidenSoftKeyPad(inputMethodManager, editText);
-        VcodeActivity vcodeActivity2 = this.a;
-        VcodeActivity vcodeActivity3 = this.a;
-        String string = this.a.getString(com.baidu.tieba.y.sending);
-        onCancelListener = this.a.j;
-        vcodeActivity2.mWaitingDialog = ProgressDialog.show(vcodeActivity3, "", string, true, false, onCancelListener);
-        progressDialog = this.a.mWaitingDialog;
-        progressDialog.setCanceledOnTouchOutside(false);
-        afVar = this.a.g;
-        if (afVar != null) {
-            afVar4 = this.a.g;
-            afVar4.cancel();
+        InputMethodManager inputMethodManager2;
+        EditText editText2;
+        Handler handler;
+        Runnable runnable;
+        ImageView imageView;
+        EditText editText3;
+        GridView gridView2;
+        InputMethodManager inputMethodManager3;
+        EditText editText4;
+        ImageView imageView2;
+        gridView = this.a.r;
+        if (gridView.getVisibility() == 0) {
+            editText3 = this.a.f;
+            editText3.requestFocus();
+            gridView2 = this.a.r;
+            gridView2.setVisibility(8);
+            WriteActivity writeActivity = this.a;
+            inputMethodManager3 = this.a.d;
+            editText4 = this.a.f;
+            writeActivity.b(inputMethodManager3, editText4);
+            imageView2 = this.a.k;
+            imageView2.setImageDrawable(this.a.getResources().getDrawable(R.drawable.write_face));
+            return;
         }
-        VcodeActivity vcodeActivity4 = this.a;
-        VcodeActivity vcodeActivity5 = this.a;
-        writeData = this.a.b;
-        vcodeActivity4.g = new af(vcodeActivity5, writeData);
-        afVar2 = this.a.g;
-        afVar2.setPriority(3);
-        afVar3 = this.a.g;
-        afVar3.execute(0);
+        WriteActivity writeActivity2 = this.a;
+        inputMethodManager = this.a.d;
+        editText = this.a.e;
+        writeActivity2.a(inputMethodManager, editText);
+        WriteActivity writeActivity3 = this.a;
+        inputMethodManager2 = this.a.d;
+        editText2 = this.a.f;
+        writeActivity3.a(inputMethodManager2, editText2);
+        handler = this.a.z;
+        runnable = this.a.M;
+        handler.postDelayed(runnable, 200L);
+        imageView = this.a.k;
+        imageView.setImageDrawable(this.a.getResources().getDrawable(R.drawable.write_keyboard));
     }
 }

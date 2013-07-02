@@ -1,70 +1,220 @@
 package com.baidu.tbadk.widget.richText;
 
-import com.baidu.adp.lib.util.BdLog;
+import android.content.Context;
+import android.graphics.Rect;
+import android.text.SpannableString;
+import android.text.SpannableStringBuilder;
+import android.text.style.ForegroundColorSpan;
+import android.text.style.ImageSpan;
+import com.baidu.zeus.bouncycastle.DERTags;
+import com.mofamulu.tieba.ch.av;
+import java.util.ArrayList;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class g {
-    private String a;
-    private String b;
-    private String c;
-    private int d;
-    private int e;
-    private boolean f;
+    private int a = 0;
+    private b b = null;
+    private e c = null;
 
-    public g(JSONObject jSONObject) {
-        this.a = null;
-        this.b = null;
-        this.c = null;
-        this.d = 1;
-        this.e = 1;
-        this.f = false;
-        if (jSONObject != null) {
-            this.a = jSONObject.optString("src");
-            this.b = jSONObject.optString("cdn_src", "");
-            if (this.b == null || this.b.length() == 0) {
-                this.b = this.a;
-            }
-            this.c = jSONObject.optString("big_cdn_src", null);
-            try {
-                String[] split = jSONObject.optString("bsize").split(",");
-                this.d = Integer.valueOf(split[0]).intValue();
-                this.e = Integer.valueOf(split[1]).intValue();
-            } catch (Exception e) {
-                BdLog.e(e.getMessage());
-            }
-            if (this.d <= 0) {
-                this.d = 1;
-            }
-            if (this.e <= 0) {
-                this.e = 1;
-            }
-            if (this.b != null && this.b.indexOf(".baidu.com") != -1) {
-                this.f = true;
-            }
-        }
-    }
-
-    public String a() {
-        return this.c;
-    }
-
-    public int b() {
-        return this.e;
-    }
-
-    public int c() {
-        return this.d;
-    }
-
-    public boolean d() {
-        return this.f;
-    }
-
-    public String e() {
+    public int a() {
         return this.a;
     }
 
-    public String f() {
-        return this.b;
+    public void a(int i, b bVar, e eVar) {
+        this.a = i;
+        this.b = bVar;
+        this.c = eVar;
+    }
+
+    public e b() {
+        if (this.a == 8) {
+            return this.c;
+        }
+        return null;
+    }
+
+    public SpannableString c() {
+        if (this.a != 1 || this.b == null) {
+            return null;
+        }
+        return new SpannableString(this.b.a());
+    }
+
+    public CharSequence a(Context context, ArrayList arrayList) {
+        SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
+        if (this.a == 32 && this.b != null) {
+            spannableStringBuilder.append((CharSequence) "视频：");
+            CharSequence d = d(context, arrayList);
+            if (d != null) {
+                spannableStringBuilder.append(d);
+            }
+            SpannableString a = a(context, this.a, this.b.a(), this.b.a());
+            if (a != null) {
+                spannableStringBuilder.append((CharSequence) a);
+            }
+        }
+        return spannableStringBuilder;
+    }
+
+    public CharSequence b(Context context, ArrayList arrayList) {
+        SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
+        if (this.a == 128 && this.b != null) {
+            CharSequence d = d(context, arrayList);
+            if (d != null) {
+                spannableStringBuilder.append(d);
+            }
+            SpannableString a = a(context, this.a, this.b.b(), this.b.b());
+            if (a != null) {
+                spannableStringBuilder.append((CharSequence) a);
+            }
+        }
+        return spannableStringBuilder;
+    }
+
+    private CharSequence d(Context context, ArrayList arrayList) {
+        g gVar = new g();
+        gVar.a(4, new b("video_icon", " "), null);
+        return gVar.c(context, arrayList);
+    }
+
+    public String d() {
+        if (this.a != 32 || this.b == null) {
+            return null;
+        }
+        return this.b.a();
+    }
+
+    public SpannableString a(Context context) {
+        if (this.a != 2 || this.b == null) {
+            return null;
+        }
+        return a(context, this.a, this.b.a(), this.b.b());
+    }
+
+    public SpannableString b(Context context) {
+        if (this.a != 16 || this.b == null) {
+            return null;
+        }
+        return a(context, this.a, this.b.a(), this.b.b());
+    }
+
+    private SpannableString e(Context context, ArrayList arrayList) {
+        SpannableString spannableString = null;
+        if (this.a == 4 && this.b != null && this.b.a() != null && this.b.b() != null) {
+            String a = this.b.a();
+            String b = this.b.b();
+            int b2 = com.baidu.tbadk.a.a.a().b(a);
+            if (b2 != 0) {
+                spannableString = new SpannableString(String.valueOf(b) + " ");
+                d dVar = new d(context, b2);
+                if (arrayList != null) {
+                    arrayList.add(dVar);
+                }
+                com.baidu.tbadk.a.c c = com.baidu.tbadk.a.a.a().c(a);
+                if (c != null) {
+                    dVar.setBounds(new Rect(0, 0, c.a(), c.b()));
+                } else {
+                    dVar.setBounds(new Rect(0, 0, 0, 0));
+                }
+                spannableString.setSpan(new ImageSpan(dVar, 0), 0, b.length(), 33);
+            }
+        }
+        return spannableString;
+    }
+
+    private SpannableString a(Context context, int i, String str, String str2) {
+        String str3;
+        int i2;
+        String str4 = null;
+        if (str != null) {
+            String str5 = !str.endsWith(" ") ? String.valueOf(str) + " " : str;
+            if (i != 16 || av.a == null) {
+                str3 = str5;
+                i2 = 0;
+            } else {
+                str4 = str5.substring(1, str5.length()).trim();
+                av a = av.a.a(str4);
+                str3 = (a == null || a.b() == null || a.b().length() <= 0) ? str5 : "@" + str4 + "[" + a.b() + "] ";
+                i2 = a != null ? a.c() : 0;
+            }
+            SpannableString spannableString = new SpannableString(str3);
+            spannableString.setSpan(new f(context, i, str2, str4), 0, str3.length() - 1, 33);
+            if (i2 != 0) {
+                spannableString.setSpan(new ForegroundColorSpan(i2), 0, str3.length() - 1, 33);
+            }
+            return spannableString;
+        }
+        return null;
+    }
+
+    public CharSequence c(Context context, ArrayList arrayList) {
+        switch (this.a) {
+            case 1:
+                return c();
+            case 2:
+                return a(context);
+            case 4:
+                return e(context, arrayList);
+            case 8:
+            default:
+                return null;
+            case 16:
+                return b(context);
+            case 32:
+                return a(context, arrayList);
+            case DERTags.TAGGED /* 128 */:
+                return b(context, arrayList);
+        }
+    }
+
+    public void a(JSONObject jSONObject) {
+        try {
+            this.a = a(jSONObject.optInt("type", 0));
+            if (this.a == 8) {
+                this.c = new e(jSONObject);
+            } else if (this.a == 16) {
+                this.b = new b(jSONObject.optString("text"), jSONObject.optString("uid"));
+            } else {
+                this.b = new b(jSONObject);
+                if (this.a == 4) {
+                    String str = "[" + jSONObject.optString("c") + "]";
+                    if (com.baidu.tbadk.a.a.a().b(this.b.a()) <= 0) {
+                        this.a = 1;
+                        this.b.a(str);
+                    } else {
+                        this.b.b(str);
+                    }
+                }
+            }
+            if (this.a != 1 && this.b != null) {
+                this.b.c();
+            }
+        } catch (Exception e) {
+            com.baidu.adp.lib.c.b.a(e.getMessage());
+        }
+    }
+
+    private int a(int i) {
+        switch (i) {
+            case 0:
+                return 1;
+            case 1:
+                return 2;
+            case 2:
+                return 4;
+            case 3:
+                return 8;
+            case 4:
+                return 16;
+            case 5:
+                return 32;
+            case 6:
+                return 64;
+            case 7:
+            default:
+                return 0;
+            case 8:
+                return DERTags.TAGGED;
+        }
     }
 }

@@ -1,21 +1,9 @@
 package com.baidu.adp.lib.webSocket;
-
-import java.nio.ByteBuffer;
 /* loaded from: classes.dex */
-interface g {
-    int a(ByteBuffer byteBuffer);
+public class g extends k {
+    public int a = -1;
+    public String b = null;
 
-    void a();
-
-    int b(ByteBuffer byteBuffer);
-
-    boolean b();
-
-    String c();
-
-    long d();
-
-    String e();
-
-    String f();
+    g() {
+    }
 }

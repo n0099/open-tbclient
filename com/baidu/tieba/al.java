@@ -1,33 +1,63 @@
 package com.baidu.tieba;
-
-import android.location.Address;
-import android.text.TextUtils;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.TbadkApplication;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class al implements com.baidu.adp.lib.c.d {
-    final /* synthetic */ ai a;
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public al(ai aiVar) {
-        this.a = aiVar;
-    }
-
-    @Override // com.baidu.adp.lib.c.d
-    public void a(int i, String str, Address address) {
-        if (i == 0 && address != null) {
-            try {
-                String valueOf = String.valueOf(address.getLatitude());
-                String valueOf2 = String.valueOf(address.getLongitude());
-                if (!TextUtils.isEmpty(valueOf) && !TextUtils.isEmpty(valueOf2)) {
-                    TbadkApplication.m252getInst().setLocationLat(valueOf);
-                    TbadkApplication.m252getInst().setLocationLng(valueOf2);
-                    TbadkApplication.m252getInst().setLocationPos(address.getAddressLine(0));
-                }
-            } catch (IllegalStateException e) {
-                BdLog.e(e.getMessage());
-            }
-        }
-    }
+public final class al {
+    public static final int AccountTextView_colored = 0;
+    public static final int AccountTextView_showBrand = 2;
+    public static final int AccountTextView_showNick = 1;
+    public static final int AccountTextView_showSign = 3;
+    public static final int AdpPullToRefreshScrollView_adpFooterDurationTime = 5;
+    public static final int AdpPullToRefreshScrollView_adpFooterNeedRefreshDelta = 2;
+    public static final int AdpPullToRefreshScrollView_adpHeaderDurationTime = 4;
+    public static final int AdpPullToRefreshScrollView_adpHeaderHeight = 3;
+    public static final int AdpPullToRefreshScrollView_adpHeaderNeedRefreshDelta = 1;
+    public static final int AdpPullToRefreshScrollView_adpMode = 0;
+    public static final int DragSortListView_click_remove_id = 16;
+    public static final int DragSortListView_collapsed_height = 0;
+    public static final int DragSortListView_drag_enabled = 10;
+    public static final int DragSortListView_drag_handle_id = 14;
+    public static final int DragSortListView_drag_scroll_start = 1;
+    public static final int DragSortListView_drag_start_mode = 13;
+    public static final int DragSortListView_drop_animation_duration = 9;
+    public static final int DragSortListView_fling_handle_id = 15;
+    public static final int DragSortListView_float_alpha = 6;
+    public static final int DragSortListView_float_background_color = 3;
+    public static final int DragSortListView_max_drag_scroll_speed = 2;
+    public static final int DragSortListView_remove_animation_duration = 8;
+    public static final int DragSortListView_remove_enabled = 12;
+    public static final int DragSortListView_remove_mode = 4;
+    public static final int DragSortListView_slide_shuffle_speed = 7;
+    public static final int DragSortListView_sort_enabled = 11;
+    public static final int DragSortListView_track_drag_sort = 5;
+    public static final int DragSortListView_use_default_controller = 17;
+    public static final int MapAttrs_cameraBearing = 1;
+    public static final int MapAttrs_cameraTargetLat = 2;
+    public static final int MapAttrs_cameraTargetLng = 3;
+    public static final int MapAttrs_cameraTilt = 4;
+    public static final int MapAttrs_cameraZoom = 5;
+    public static final int MapAttrs_mapType = 0;
+    public static final int MapAttrs_uiCompass = 6;
+    public static final int MapAttrs_uiRotateGestures = 7;
+    public static final int MapAttrs_uiScrollGestures = 8;
+    public static final int MapAttrs_uiTiltGestures = 9;
+    public static final int MapAttrs_uiZoomControls = 10;
+    public static final int MapAttrs_uiZoomGestures = 11;
+    public static final int MapAttrs_useViewLifecycle = 12;
+    public static final int MapAttrs_zOrderOnTop = 13;
+    public static final int TbRichTextView_defaultImage = 8;
+    public static final int TbRichTextView_faceHeight = 10;
+    public static final int TbRichTextView_faceWidth = 9;
+    public static final int TbRichTextView_lineSpacing = 5;
+    public static final int TbRichTextView_linkColor = 4;
+    public static final int TbRichTextView_maxImageHeight = 7;
+    public static final int TbRichTextView_maxImageWidth = 6;
+    public static final int TbRichTextView_segmentMargin = 0;
+    public static final int TbRichTextView_textColor = 3;
+    public static final int TbRichTextView_textPadding = 1;
+    public static final int TbRichTextView_textSize = 2;
+    public static final int TbRichTextView_videoImage = 11;
+    public static final int[] AccountTextView = {R.attr.colored, R.attr.showNick, R.attr.showBrand, R.attr.showSign};
+    public static final int[] AdpPullToRefreshScrollView = {R.attr.adpMode, R.attr.adpHeaderNeedRefreshDelta, R.attr.adpFooterNeedRefreshDelta, R.attr.adpHeaderHeight, R.attr.adpHeaderDurationTime, R.attr.adpFooterDurationTime};
+    public static final int[] DragSortListView = {R.attr.collapsed_height, R.attr.drag_scroll_start, R.attr.max_drag_scroll_speed, R.attr.float_background_color, R.attr.remove_mode, R.attr.track_drag_sort, R.attr.float_alpha, R.attr.slide_shuffle_speed, R.attr.remove_animation_duration, R.attr.drop_animation_duration, R.attr.drag_enabled, R.attr.sort_enabled, R.attr.remove_enabled, R.attr.drag_start_mode, R.attr.drag_handle_id, R.attr.fling_handle_id, R.attr.click_remove_id, R.attr.use_default_controller};
+    public static final int[] MapAttrs = {R.attr.mapType, R.attr.cameraBearing, R.attr.cameraTargetLat, R.attr.cameraTargetLng, R.attr.cameraTilt, R.attr.cameraZoom, R.attr.uiCompass, R.attr.uiRotateGestures, R.attr.uiScrollGestures, R.attr.uiTiltGestures, R.attr.uiZoomControls, R.attr.uiZoomGestures, R.attr.useViewLifecycle, R.attr.zOrderOnTop};
+    public static final int[] TbRichTextView = {R.attr.segmentMargin, R.attr.textPadding, R.attr.textSize, R.attr.textColor, R.attr.linkColor, R.attr.lineSpacing, R.attr.maxImageWidth, R.attr.maxImageHeight, R.attr.defaultImage, R.attr.faceWidth, R.attr.faceHeight, R.attr.videoImage};
 }

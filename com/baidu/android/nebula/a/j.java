@@ -1,21 +1,15 @@
 package com.baidu.android.nebula.a;
-
-import android.content.Context;
-import android.text.TextUtils;
 /* loaded from: classes.dex */
-public class j {
-    private static final String a = j.class.getSimpleName();
+class j implements Runnable {
+    final /* synthetic */ i a;
 
-    public static String a(Context context) {
-        String b = b(context);
-        String b2 = b.b(context);
-        if (TextUtils.isEmpty(b2)) {
-            b2 = "0";
-        }
-        return b + "|" + new StringBuffer(b2).reverse().toString();
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public j(i iVar) {
+        this.a = iVar;
     }
 
-    private static String b(Context context) {
-        return b.a(context);
+    @Override // java.lang.Runnable
+    public void run() {
+        this.a.a.h();
     }
 }

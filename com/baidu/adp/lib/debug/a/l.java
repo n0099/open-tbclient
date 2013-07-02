@@ -16,7 +16,7 @@ public class l extends a implements Runnable {
         this.a = (ActivityManager) context.getSystemService("activity");
     }
 
-    /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(wrap: int : 0x003b: IGET  (r0v5 int A[REMOVE]) = (r0v4 android.app.ActivityManager$RunningAppProcessInfo) android.app.ActivityManager.RunningAppProcessInfo.importance int)] */
+    /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(wrap: int : 0x0039: IGET  (r0v5 int A[REMOVE]) = (r0v4 android.app.ActivityManager$RunningAppProcessInfo) android.app.ActivityManager.RunningAppProcessInfo.importance int)] */
     public String d() {
         List<ActivityManager.RunningAppProcessInfo> runningAppProcesses = this.a.getRunningAppProcesses();
         for (int i = 0; i < runningAppProcesses.size(); i++) {
@@ -37,7 +37,7 @@ public class l extends a implements Runnable {
         super.b();
         while (true) {
             try {
-                com.baidu.adp.lib.debug.d.a(d());
+                com.baidu.adp.lib.debug.b.a(d());
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }

@@ -1,63 +1,30 @@
 package com.baidu.tieba.person;
 
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ProgressBar;
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.widget.TextView;
 /* loaded from: classes.dex */
-public class bl extends BdAsyncTask<String, Integer, String> {
-    String a;
-    byte[] b;
-    final /* synthetic */ PersonImageActivity c;
+class bl {
+    int a;
+    TextView b;
+    ProgressBar c;
+    LinearLayout d;
+    LinearLayout e;
+    ImageView f;
+    TextView g;
+    ImageView h;
+    TextView i;
+    TextView j;
+    TextView k;
+    final /* synthetic */ bj l;
 
-    public bl(PersonImageActivity personImageActivity, String str, byte[] bArr) {
-        this.c = personImageActivity;
-        this.a = null;
-        this.b = null;
-        this.a = str;
-        this.b = bArr;
+    private bl(bj bjVar) {
+        this.l = bjVar;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: a */
-    public String doInBackground(String... strArr) {
-        switch (com.baidu.tbadk.core.util.x.a(this.a, this.b, this.c)) {
-            case -2:
-                return com.baidu.tbadk.core.util.x.b();
-            case -1:
-            default:
-                return this.c.getString(com.baidu.tieba.y.save_error);
-            case 0:
-                return this.c.getString(com.baidu.tieba.y.save_image_to_album);
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: a */
-    public void onPostExecute(String str) {
-        ProgressBar progressBar;
-        super.onPostExecute(str);
-        this.c.showToast(str);
-        this.c.b = null;
-        progressBar = this.c.a;
-        progressBar.setVisibility(8);
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void onCancelled() {
-        super.onCancelled();
-    }
-
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void cancel() {
-        ProgressBar progressBar;
-        this.c.b = null;
-        progressBar = this.c.a;
-        progressBar.setVisibility(8);
-        super.cancel(true);
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public /* synthetic */ bl(bj bjVar, bl blVar) {
+        this(bjVar);
     }
 }

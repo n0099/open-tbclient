@@ -3,162 +3,130 @@ package com.baidu.tieba.person;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.core.view.NavigationBar;
+import com.baidu.tieba.R;
 /* loaded from: classes.dex */
-public class EditBarActivity extends BaseActivity {
-    private NavigationBar f;
-    private LinearLayout p;
-    private TextView q;
-    private com.baidu.tieba.model.d a = null;
+public class EditBarActivity extends com.baidu.tieba.g {
+    private com.baidu.tieba.model.b a = null;
     private ListView b = null;
-    private View c = null;
-    private View d = null;
-    private TextView e = null;
-    private TextView g = null;
-    private TextView h = null;
-    private g i = null;
-    private ProgressBar j = null;
-    private e k = null;
-    private int l = -1;
-    private String m = null;
-    private f n = null;
-    private RelativeLayout o = null;
-    private String r = null;
-    private int s = 0;
+    private ImageView c = null;
+    private Button d = null;
+    private j e = null;
+    private ProgressBar f = null;
+    private h g = null;
+    private int j = -1;
+    private i k = null;
+    private RelativeLayout l = null;
+    private LinearLayout m = null;
+    private TextView n = null;
+    private String o = null;
 
-    public static void a(Activity activity, int i, String str, int i2) {
+    public static void a(Activity activity, int i, String str) {
         Intent intent = new Intent(activity, EditBarActivity.class);
         if (str != null) {
             intent.putExtra("view_user_id", str);
-            intent.putExtra("user_sex", i2);
         }
         activity.startActivityForResult(intent, i);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
+    @Override // com.baidu.tieba.g, com.baidu.adp.a.a, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        setContentView(com.baidu.tieba.w.edit_bar_activity);
-        b();
+        setContentView(R.layout.edit_bar_activity);
         c();
-        a();
+        d();
+        b();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
+    @Override // com.baidu.tieba.g, android.app.Activity
     public void onDestroy() {
+        if (this.g != null) {
+            this.g.cancel();
+        }
         if (this.k != null) {
             this.k.cancel();
         }
-        if (this.n != null) {
-            this.n.cancel();
-        }
-        if (this.j != null) {
-            this.j.setVisibility(8);
+        if (this.f != null) {
+            this.f.setVisibility(8);
         }
         super.onDestroy();
     }
 
-    private void a() {
-        if (this.k != null) {
-            this.k.cancel();
-        }
-        this.k = new e(this, null);
-        this.k.setPriority(3);
-        this.k.execute(new Object[0]);
-    }
-
     private void b() {
-        this.a = new com.baidu.tieba.model.d();
-        this.r = getIntent().getStringExtra("view_user_id");
-        this.s = getIntent().getIntExtra("user_sex", 0);
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.BaseActivity
-    public void onChangeSkinType(int i) {
-        super.onChangeSkinType(i);
-        getLayoutMode().a(i == 1);
-        getLayoutMode().a((View) this.o);
-        this.f.c(i);
-        this.i.notifyDataSetChanged();
-        getLayoutMode().a(i == 1);
-        getLayoutMode().a(this.d);
+        if (this.g != null) {
+            this.g.cancel();
+        }
+        this.g = new h(this, null);
+        this.g.setPriority(3);
+        this.g.execute(new Object[0]);
     }
 
     private void c() {
-        this.o = (RelativeLayout) findViewById(com.baidu.tieba.v.parent);
-        this.f = (NavigationBar) findViewById(com.baidu.tieba.v.view_navigation_bar);
-        this.h = this.f.a("");
-        this.f.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.g = this.f.a(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, getResources().getString(com.baidu.tieba.y.edit));
-        this.p = (LinearLayout) findViewById(com.baidu.tieba.v.no_data_container);
-        this.q = (TextView) findViewById(com.baidu.tieba.v.no_data_image_text);
-        this.j = (ProgressBar) findViewById(com.baidu.tieba.v.progress);
-        this.i = new g(this, this.a, this.r == null);
-        this.i.a(new a(this));
-        this.i.b(new b(this));
-        this.b = (ListView) findViewById(com.baidu.tieba.v.list);
-        this.c = LayoutInflater.from(this).inflate(com.baidu.tieba.w.person_list_newheader, (ViewGroup) null);
-        this.d = this.c.findViewById(com.baidu.tieba.v.newheader_root);
-        this.c.setVisibility(8);
-        this.c.setClickable(false);
-        this.c.setEnabled(false);
-        this.e = (TextView) this.c.findViewById(com.baidu.tieba.v.person_list_title);
-        this.b.addHeaderView(this.c, null, false);
-        this.b.setAdapter((ListAdapter) this.i);
-        this.b.setOnScrollListener(this.i);
-        this.b.setOnItemClickListener(new c(this));
-        this.g.setOnClickListener(new d(this));
-        if (this.r != null) {
-            this.g.setVisibility(4);
-            if (this.s == 2) {
-                this.h.setText(getString(com.baidu.tieba.y.her_attention_forums));
-                this.q.setText(getString(com.baidu.tieba.y.she_no_like_forum_other));
-                return;
-            } else if (this.s == 1) {
-                this.h.setText(getString(com.baidu.tieba.y.his_attention_forums));
-                this.q.setText(getString(com.baidu.tieba.y.he_no_like_forum_other));
-                return;
-            } else {
-                this.h.setText(getString(com.baidu.tieba.y.ta_attention_forums));
-                this.q.setText(getString(com.baidu.tieba.y.no_like_forum_other));
-                return;
-            }
+        this.a = new com.baidu.tieba.model.b();
+        this.o = getIntent().getStringExtra("view_user_id");
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.tieba.g
+    public void a(int i) {
+        super.a(i);
+        com.baidu.tieba.util.x.a(this.l, i);
+        com.baidu.tieba.util.x.d(this.m, i);
+        com.baidu.tieba.util.x.f(this.n, i);
+        com.baidu.tieba.util.x.a(this.c, i);
+        com.baidu.tieba.util.x.g((TextView) this.d, i);
+        this.e.notifyDataSetChanged();
+        if (i == 1) {
+            this.b.setDivider(getResources().getDrawable(R.drawable.list_divider_1));
+            this.b.setSelector(R.drawable.list_selector_1);
+            return;
         }
-        this.q.setText(getString(com.baidu.tieba.y.not_have_like_bars));
-        this.h.setText(getString(com.baidu.tieba.y.my_bar));
+        this.b.setDivider(getResources().getDrawable(R.drawable.list_divider));
+        this.b.setSelector(R.drawable.list_selector);
+    }
+
+    private void d() {
+        this.l = (RelativeLayout) findViewById(R.id.parent);
+        this.m = (LinearLayout) findViewById(R.id.title);
+        this.n = (TextView) findViewById(R.id.title_text);
+        this.f = (ProgressBar) findViewById(R.id.progress);
+        this.c = (ImageView) findViewById(R.id.back);
+        this.c.setOnClickListener(new d(this));
+        this.e = new j(this, this.a);
+        this.e.a(new e(this));
+        this.b = (ListView) findViewById(R.id.list);
+        this.b.setAdapter((ListAdapter) this.e);
+        this.b.setOnItemClickListener(new f(this));
+        this.d = (Button) findViewById(R.id.edit);
+        this.d.setOnClickListener(new g(this));
+        if (this.o != null) {
+            this.d.setVisibility(4);
+            this.n.setText(getString(R.string.its_bar));
+            this.e.b(false);
+            return;
+        }
+        this.n.setText(getString(R.string.my_bar));
+        this.e.b(true);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void a(boolean z) {
-        if (this.i != null) {
-            this.i.b();
-            if (this.i.c()) {
-                if (z) {
-                    this.g.setVisibility(4);
-                    this.i.a(false);
-                    this.p.setVisibility(0);
-                    this.b.setVisibility(8);
-                    return;
-                }
-                return;
-            }
-            this.p.setVisibility(8);
-            this.b.setVisibility(0);
-            if (this.r == null) {
-                this.g.setVisibility(0);
+    public void m() {
+        if (this.e != null) {
+            this.e.b();
+            if (this.e.c()) {
+                this.d.setVisibility(4);
+                this.e.a(false);
+            } else if (this.o == null) {
+                this.d.setVisibility(0);
             }
         }
     }

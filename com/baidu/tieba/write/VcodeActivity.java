@@ -1,68 +1,81 @@
 package com.baidu.tieba.write;
 
+import android.app.Activity;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
 import android.view.inputmethod.InputMethodManager;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.view.NavigationBar;
-import com.baidu.tbadk.coreExtra.data.WriteData;
+import com.baidu.tieba.R;
+import com.baidu.tieba.model.WriteModel;
 /* loaded from: classes.dex */
-public class VcodeActivity extends BaseActivity {
-    private WriteData b = null;
-    private TextView c = null;
+public class VcodeActivity extends com.baidu.tieba.g {
+    private WriteModel a = null;
+    private ImageView b = null;
+    private Button c = null;
     private ImageView d = null;
     private EditText e = null;
     private ProgressBar f = null;
-    private af g = null;
-    private ae h = null;
-    private InputMethodManager i = null;
-    private DialogInterface.OnCancelListener j = null;
-    private RelativeLayout k = null;
-    private TextView l = null;
-    protected NavigationBar a = null;
-    private final View.OnClickListener m = new aa(this);
-    private final View.OnClickListener n = new ab(this);
+    private s g = null;
+    private r j = null;
+    private InputMethodManager k = null;
+    private DialogInterface.OnCancelListener l = null;
+    private RelativeLayout m = null;
+    private LinearLayout n = null;
+    private TextView o = null;
 
-    static {
-        TbadkApplication.m252getInst().RegisterIntent(com.baidu.tbadk.core.atomData.bg.class, VcodeActivity.class);
+    public static void a(Activity activity, WriteModel writeModel, int i) {
+        if (writeModel != null) {
+            Intent intent = new Intent(activity, VcodeActivity.class);
+            intent.putExtra("model", writeModel);
+            activity.startActivityForResult(intent, i);
+        }
+    }
+
+    public static void a(Activity activity, WriteModel writeModel, boolean z, int i) {
+        if (writeModel != null) {
+            Intent intent = new Intent(activity, VcodeActivity.class);
+            intent.putExtra("model", writeModel);
+            intent.putExtra("is_ad", z);
+            activity.startActivityForResult(intent, i);
+        }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
+    @Override // com.baidu.tieba.g, com.baidu.adp.a.a, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        setContentView(com.baidu.tieba.w.vcode_activity);
-        a();
+        setContentView(R.layout.vcode_activity);
+        b();
         a(bundle);
-        a(this.b.getVcodeUrl());
+        c(this.a.getVcodeUrl());
     }
 
     private void a(Bundle bundle) {
-        this.j = new ac(this);
+        this.l = new n(this);
         if (bundle != null) {
-            this.b = (WriteData) bundle.getSerializable("model");
+            this.a = (WriteModel) bundle.getSerializable("model");
         } else {
-            this.b = (WriteData) getIntent().getSerializableExtra("model");
+            this.a = (WriteModel) getIntent().getSerializableExtra("model");
         }
-        this.i = (InputMethodManager) getSystemService("input_method");
+        this.k = (InputMethodManager) getSystemService("input_method");
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
+    @Override // com.baidu.tieba.g, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
         if (this.g != null) {
             this.g.cancel();
         }
-        if (this.h != null) {
-            this.h.cancel();
+        if (this.j != null) {
+            this.j.cancel();
         }
         if (this.f != null) {
             this.f.setVisibility(8);
@@ -71,48 +84,51 @@ public class VcodeActivity extends BaseActivity {
 
     @Override // android.app.Activity
     protected void onSaveInstanceState(Bundle bundle) {
-        bundle.putSerializable("model", this.b);
+        bundle.putSerializable("model", this.a);
         super.onSaveInstanceState(bundle);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.BaseActivity
-    public void onChangeSkinType(int i) {
+    @Override // com.baidu.tieba.g
+    public void a(int i) {
         int i2;
-        super.onChangeSkinType(i);
-        com.baidu.tbadk.core.util.be.a(this.k, i);
-        this.a.c(i);
-        com.baidu.tbadk.core.util.be.g(this.c, i);
+        super.a(i);
+        com.baidu.tieba.util.x.a(this.m, i);
+        com.baidu.tieba.util.x.d(this.n, i);
+        com.baidu.tieba.util.x.a(this.b, i);
+        com.baidu.tieba.util.x.g((TextView) this.c, i);
         if (i == 1) {
-            i2 = com.baidu.tbadk.core.util.be.a(i);
+            i2 = com.baidu.tieba.util.x.a(i);
         } else {
             i2 = -12895429;
         }
-        this.l.setTextColor(i2);
+        this.o.setTextColor(i2);
     }
 
-    private void a() {
-        this.k = (RelativeLayout) findViewById(com.baidu.tieba.v.parent);
-        this.a = (NavigationBar) findViewById(com.baidu.tieba.v.view_navigation_bar);
-        this.l = (TextView) findViewById(com.baidu.tieba.v.info);
-        this.a.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, this.m);
-        this.c = this.a.a(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, getResources().getString(com.baidu.tieba.y.send), this.n);
-        this.e = (EditText) findViewById(com.baidu.tieba.v.input);
-        this.d = (ImageView) findViewById(com.baidu.tieba.v.vcode_image);
+    private void b() {
+        this.m = (RelativeLayout) findViewById(R.id.parent);
+        this.n = (LinearLayout) findViewById(R.id.title);
+        this.o = (TextView) findViewById(R.id.info);
+        this.b = (ImageView) findViewById(R.id.back);
+        this.b.setOnClickListener(new o(this));
+        this.c = (Button) findViewById(R.id.post);
+        this.c.setOnClickListener(new p(this));
+        this.e = (EditText) findViewById(R.id.input);
+        this.d = (ImageView) findViewById(R.id.vcode_image);
         this.d.setImageBitmap(null);
-        this.d.setOnClickListener(new ad(this));
-        this.f = (ProgressBar) findViewById(com.baidu.tieba.v.progress);
+        this.d.setOnClickListener(new q(this));
+        this.f = (ProgressBar) findViewById(R.id.progress);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void a(String str) {
-        if (this.h != null) {
-            this.h.cancel();
+    public void c(String str) {
+        if (this.j != null) {
+            this.j.cancel();
         }
         this.f.setVisibility(0);
         this.d.setImageBitmap(null);
-        this.h = new ae(this, null);
-        this.h.setPriority(3);
-        this.h.execute(str);
+        this.j = new r(this, null);
+        this.j.setPriority(3);
+        this.j.execute(str);
     }
 }

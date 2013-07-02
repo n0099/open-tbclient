@@ -1,13 +1,11 @@
 package com.baidu.tieba.frs;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.core.data.AntiData;
-import com.baidu.tbadk.coreExtra.data.WriteData;
-import com.baidu.tbadk.img.WriteImagesInfo;
-import com.baidu.tieba.util.AntiHelper;
+import com.baidu.tieba.R;
+import com.baidu.tieba.TiebaApplication;
+import com.baidu.tieba.model.bn;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class l implements com.baidu.tieba.model.as {
+public class l extends com.baidu.adp.a.e {
     final /* synthetic */ FrsActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -15,58 +13,77 @@ class l implements com.baidu.tieba.model.as {
         this.a = frsActivity;
     }
 
-    @Override // com.baidu.tieba.model.as
-    public void a(boolean z, String str, com.baidu.tbadk.coreExtra.data.f fVar, WriteData writeData, AntiData antiData) {
-        ct ctVar;
-        ct ctVar2;
-        WriteImagesInfo writeImagesInfo;
-        ct ctVar3;
-        com.baidu.tieba.model.ar arVar;
-        com.baidu.tieba.model.ar arVar2;
-        com.baidu.tieba.model.ar arVar3;
-        com.baidu.tbadk.core.data.n nVar;
-        com.baidu.tbadk.core.data.n nVar2;
-        com.baidu.tbadk.core.data.n nVar3;
-        ct ctVar4;
-        this.a.L();
-        ctVar = this.a.w;
-        ctVar.g(z);
-        ctVar2 = this.a.w;
-        writeImagesInfo = this.a.Y;
-        ctVar2.a(writeImagesInfo, true);
-        if (z) {
-            ctVar3 = this.a.w;
-            ctVar3.U();
-            com.baidu.tieba.pb.main.bn.a().f();
-            arVar = this.a.ab;
-            arVar.a();
-            arVar2 = this.a.ab;
-            arVar2.a((WriteData) null);
-            arVar3 = this.a.ab;
-            arVar3.a(false);
-            this.a.a(antiData, str);
-            nVar = this.a.aa;
-            com.baidu.tieba.util.m.b(nVar.q(), (WriteData) null);
-            nVar2 = this.a.aa;
-            nVar3 = this.a.aa;
-            nVar2.b(nVar3.s() + 1);
-            ctVar4 = this.a.w;
-            ctVar4.z();
-        } else if (fVar != null && writeData != null && fVar.b() != null) {
-            if (!AntiHelper.c(antiData)) {
-                writeData.setVcodeMD5(fVar.a());
-                writeData.setVcodeUrl(fVar.b());
-                if (fVar.c().equals("4")) {
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2003001, new com.baidu.tbadk.core.atomData.ao(this.a, 12006, writeData, false)));
-                    return;
+    @Override // com.baidu.adp.a.e
+    public void a(Object obj) {
+        boolean z;
+        bn bnVar;
+        az azVar;
+        bn bnVar2;
+        String str;
+        String str2;
+        az azVar2;
+        az azVar3;
+        String str3;
+        String str4;
+        az azVar4;
+        az azVar5;
+        az azVar6;
+        az azVar7;
+        az azVar8;
+        if (obj == null || !(obj instanceof com.baidu.tieba.data.av)) {
+            z = false;
+        } else {
+            this.a.a.a((com.baidu.tieba.data.av) obj);
+            TiebaApplication.f().c(this.a.a.a().b());
+            z = true;
+        }
+        if (!z) {
+            bnVar = this.a.x;
+            if (bnVar.getErrorCode() == 160002) {
+                str = this.a.A;
+                if (str == "normal_page") {
+                    azVar3 = this.a.m;
+                    azVar3.f(1);
                 } else {
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2003001, new com.baidu.tbadk.core.atomData.bg(this.a, writeData, 12006)));
-                    return;
+                    str2 = this.a.A;
+                    if (str2 == "frs_page") {
+                        azVar2 = this.a.m;
+                        azVar2.e(1);
+                    }
                 }
             }
-            this.a.a(antiData, str);
-        } else {
-            this.a.a(antiData, str);
+            azVar = this.a.m;
+            bnVar2 = this.a.x;
+            azVar.a(bnVar2.getErrorString());
+            return;
         }
+        str3 = this.a.A;
+        if (str3 == "normal_page") {
+            azVar8 = this.a.m;
+            azVar8.b(this.a.a.a().g().b(), this.a.a.a().g().f());
+        } else {
+            str4 = this.a.A;
+            if (str4 == "frs_page") {
+                azVar4 = this.a.m;
+                azVar4.a(this.a.a.a().g().b(), this.a.a.a().g().f());
+            }
+        }
+        StringBuilder sb = new StringBuilder(100);
+        azVar5 = this.a.m;
+        if (!azVar5.p()) {
+            sb.append(this.a.getString(R.string.sign_success));
+            sb.append("!\n");
+            sb.append(String.format(this.a.getString(R.string.sign_user), Integer.valueOf(((com.baidu.tieba.data.av) obj).c())));
+            azVar7 = this.a.m;
+            azVar7.a(sb.toString());
+            return;
+        }
+        sb.append(this.a.getString(R.string.sign_success));
+        sb.append(",");
+        sb.append(String.format(this.a.getString(R.string.sign_point), Integer.valueOf(((com.baidu.tieba.data.av) obj).f())));
+        sb.append("!\n");
+        sb.append(String.format(this.a.getString(R.string.sign_user), Integer.valueOf(((com.baidu.tieba.data.av) obj).c())));
+        azVar6 = this.a.m;
+        azVar6.a(sb.toString());
     }
 }

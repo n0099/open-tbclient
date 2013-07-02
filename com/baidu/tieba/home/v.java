@@ -1,21 +1,17 @@
 package com.baidu.tieba.home;
+
+import android.widget.TextView;
 /* loaded from: classes.dex */
 class v {
-    private int a = -1;
+    TextView a;
+    final /* synthetic */ r b;
 
-    public void a(int i) {
-        this.a = i;
+    private v(r rVar) {
+        this.b = rVar;
     }
 
-    public int a() {
-        return this.a;
-    }
-
-    public boolean b(int i) {
-        if (i == a()) {
-            return false;
-        }
-        a(i);
-        return true;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public /* synthetic */ v(r rVar, v vVar) {
+        this(rVar);
     }
 }

@@ -4,6 +4,7 @@ import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.Proxy;
+import com.baidu.cyberplayer.sdk.internal.HttpUtils;
 /* loaded from: classes.dex */
 public class ConnectManager {
     private static final boolean DEBUG = false;
@@ -30,7 +31,7 @@ public class ConnectManager {
             } else if (lowerCase.startsWith("ctwap")) {
                 this.mUseWap = true;
                 this.mApn = lowerCase;
-                this.mProxy = "10.0.0.200";
+                this.mProxy = HttpUtils.IP_CTWAP;
                 this.mPort = "80";
                 return;
             } else if (lowerCase.startsWith("cmnet") || lowerCase.startsWith("uninet") || lowerCase.startsWith("ctnet") || lowerCase.startsWith("3gnet")) {
@@ -49,7 +50,7 @@ public class ConnectManager {
         if ("10.0.0.172".equals(this.mProxy.trim())) {
             this.mUseWap = true;
             this.mPort = "80";
-        } else if ("10.0.0.200".equals(this.mProxy.trim())) {
+        } else if (HttpUtils.IP_CTWAP.equals(this.mProxy.trim())) {
             this.mUseWap = true;
             this.mPort = "80";
         } else {

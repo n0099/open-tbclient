@@ -1,31 +1,68 @@
 package com.baidu.tieba.flist;
 
-import android.os.Handler;
-import android.widget.AbsListView;
+import android.widget.ImageView;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.tieba.R;
+import com.baidu.tieba.model.ForumListModel;
+import com.google.gson.JsonParseException;
 /* loaded from: classes.dex */
-class k implements AbsListView.OnScrollListener {
+class k extends BdAsyncTask {
     final /* synthetic */ ForumListActivity a;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public k(ForumListActivity forumListActivity) {
+    private k(ForumListActivity forumListActivity) {
         this.a = forumListActivity;
     }
 
-    @Override // android.widget.AbsListView.OnScrollListener
-    public void onScrollStateChanged(AbsListView absListView, int i) {
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public /* synthetic */ k(ForumListActivity forumListActivity, k kVar) {
+        this(forumListActivity);
     }
 
-    @Override // android.widget.AbsListView.OnScrollListener
-    public void onScroll(AbsListView absListView, int i, int i2, int i3) {
-        Handler handler;
-        Runnable runnable;
-        Handler handler2;
-        Runnable runnable2;
-        handler = this.a.e;
-        runnable = this.a.P;
-        handler.removeCallbacks(runnable);
-        handler2 = this.a.e;
-        runnable2 = this.a.P;
-        handler2.postDelayed(runnable2, 300L);
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public void b() {
+        this.a.a.q.setEnabled(false);
+        this.a.a.r.setText(this.a.getString(R.string.flist_loading));
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public ForumListModel a(Void... voidArr) {
+        ForumListModel.RequestParams requestParams;
+        ForumListModel.RequestParams requestParams2;
+        ForumListModel.RequestParams requestParams3;
+        ForumListModel.RequestParams requestParams4;
+        try {
+            requestParams = this.a.o;
+            requestParams.recommend_type = 2;
+            requestParams2 = this.a.o;
+            requestParams2.offset = 0;
+            requestParams3 = this.a.o;
+            requestParams3.rn = 50;
+            ForumListActivity forumListActivity = this.a;
+            requestParams4 = this.a.o;
+            return ForumListModel.fetch(forumListActivity, requestParams4);
+        } catch (JsonParseException e) {
+            return null;
+        }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public void a(ForumListModel forumListModel) {
+        f fVar;
+        int i;
+        if (forumListModel != null && forumListModel.recommend_list_right != null) {
+            fVar = this.a.s;
+            fVar.a(forumListModel.recommend_list_right.forum_list);
+            this.a.q = true;
+            this.a.a.q.setEnabled(true);
+            this.a.a.r.setText(this.a.getString(R.string.flist_collapse_list));
+            ImageView imageView = this.a.a.s;
+            i = this.a.f;
+            imageView.setImageResource(i);
+        }
     }
 }

@@ -1,13 +1,10 @@
 package com.baidu.tieba.write;
 
-import android.os.Handler;
-import android.text.Editable;
-import android.text.TextWatcher;
-import android.widget.Button;
+import android.view.View;
 import android.widget.EditText;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class f implements TextWatcher {
+public class f implements View.OnClickListener {
     final /* synthetic */ AtListActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -15,45 +12,10 @@ public class f implements TextWatcher {
         this.a = atListActivity;
     }
 
-    @Override // android.text.TextWatcher
-    public void afterTextChanged(Editable editable) {
-        String str;
-        Button button;
-        Button button2;
-        Handler handler;
-        Runnable runnable;
-        Handler handler2;
-        Runnable runnable2;
-        String editable2 = editable.toString();
-        if (editable2 != null) {
-            str = this.a.m;
-            if (!editable2.equals(str)) {
-                handler = this.a.h;
-                runnable = this.a.x;
-                handler.removeCallbacks(runnable);
-                handler2 = this.a.h;
-                runnable2 = this.a.x;
-                handler2.postDelayed(runnable2, 300L);
-            }
-            if (editable2.length() > 0) {
-                button2 = this.a.c;
-                button2.setVisibility(0);
-                return;
-            }
-            button = this.a.c;
-            button.setVisibility(8);
-        }
-    }
-
-    @Override // android.text.TextWatcher
-    public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
         EditText editText;
-        AtListActivity atListActivity = this.a;
-        editText = this.a.b;
-        atListActivity.m = editText.getText().toString();
-    }
-
-    @Override // android.text.TextWatcher
-    public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
+        editText = this.a.a;
+        editText.getText().clear();
     }
 }

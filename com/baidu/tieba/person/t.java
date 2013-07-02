@@ -1,140 +1,173 @@
 package com.baidu.tieba.person;
 
-import android.content.Context;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.core.data.UserData;
-import com.baidu.tieba.data.PersonChangeData;
-import org.json.JSONObject;
+import android.graphics.Bitmap;
+import android.widget.Button;
+import android.widget.ProgressBar;
+import cn.jingling.lib.filters.FilterFactory;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.tieba.view.EditHeadImageView;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class t extends com.baidu.adp.base.b {
-    private u b;
-    private String c;
-    private final Context e;
-    private com.baidu.tbadk.editortool.ab f;
-    private boolean i;
-    private boolean j;
-    private boolean k;
-    private UserData a = null;
-    private String d = null;
-    private long g = 0;
-    private long h = 0;
+public class t extends BdAsyncTask {
+    final /* synthetic */ EditHeadActivity a;
+    private String b;
+    private Bitmap c;
+    private Boolean d;
+    private Boolean e;
 
-    public t(Context context) {
-        this.f = new com.baidu.tbadk.editortool.ab(context);
-        this.e = context;
+    private t(EditHeadActivity editHeadActivity) {
+        this.a = editHeadActivity;
+        this.d = false;
+        this.e = false;
     }
 
-    public UserData a() {
-        return this.a;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public /* synthetic */ t(EditHeadActivity editHeadActivity, t tVar) {
+        this(editHeadActivity);
     }
 
-    public void a(UserData userData) {
-        this.a = userData;
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public void b() {
+        ProgressBar progressBar;
+        Button button;
+        progressBar = this.a.n;
+        progressBar.setVisibility(0);
+        button = this.a.j;
+        button.setClickable(false);
     }
 
-    public void a(String str) {
-        this.c = str;
-    }
-
-    public String b() {
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public Bitmap a(String... strArr) {
+        Bitmap bitmap;
+        Bitmap bitmap2;
+        Bitmap bitmap3;
+        Bitmap bitmap4;
+        Bitmap bitmap5;
+        Bitmap bitmap6;
+        Bitmap bitmap7;
+        Bitmap bitmap8;
+        Bitmap bitmap9;
+        this.b = strArr[0];
+        bitmap = this.a.f;
+        if (bitmap == null) {
+            bitmap9 = this.a.v;
+            if (bitmap9 == null) {
+                return null;
+            }
+        }
+        if (this.b.equals("0") || this.b.equals("1")) {
+            this.d = true;
+        } else if (this.b.equals("2") || this.b.equals("3")) {
+            this.e = true;
+        }
+        if (!this.d.booleanValue() && !this.e.booleanValue()) {
+            bitmap7 = this.a.f;
+            bitmap8 = this.a.f;
+            this.c = bitmap7.copy(bitmap8.getConfig(), true);
+        } else {
+            bitmap2 = this.a.v;
+            if (bitmap2 == null) {
+                bitmap3 = this.a.f;
+                bitmap4 = this.a.f;
+                this.c = bitmap3.copy(bitmap4.getConfig(), true);
+            } else {
+                bitmap5 = this.a.v;
+                bitmap6 = this.a.v;
+                this.c = bitmap5.copy(bitmap6.getConfig(), true);
+            }
+        }
+        if (this.d.booleanValue()) {
+            this.c = com.baidu.tieba.util.d.d(this.c, Integer.parseInt(this.b));
+        } else if (this.e.booleanValue()) {
+            this.c = com.baidu.tieba.util.d.e(this.c, Integer.parseInt(this.b));
+        } else {
+            this.c = FilterFactory.createOneKeyFilter(this.a, this.b).apply(this.a, this.c);
+        }
         return this.c;
     }
 
-    public void b(String str) {
-        this.d = str;
-    }
-
-    public long c() {
-        return this.g;
-    }
-
-    public void a(long j) {
-        this.g = j;
-    }
-
-    public long d() {
-        return this.h;
-    }
-
-    public void b(long j) {
-        this.h = j;
-    }
-
-    public void a(boolean z) {
-        this.i = z;
-    }
-
-    public boolean e() {
-        return this.i;
-    }
-
-    public void b(boolean z) {
-        this.j = z;
-    }
-
-    public boolean f() {
-        return this.j;
-    }
-
-    public void a(PersonChangeData personChangeData) {
-        if (this.a != null) {
-            this.a.setUserName(personChangeData.getName());
-            this.a.setIntro(personChangeData.getIntro());
-        }
-    }
-
-    public void a(boolean z, boolean z2) {
-        if (this.b == null) {
-            this.b = new u(this, null);
-            this.b.setPriority(3);
-            this.b.execute(Boolean.valueOf(z), Boolean.valueOf(z2));
-        }
-    }
-
-    public com.baidu.tbadk.editortool.ab g() {
-        return this.f;
-    }
-
-    public void c(String str) {
-        try {
-            a(new JSONObject(str));
-        } catch (Exception e) {
-            BdLog.e(getClass().getName(), "parserJson", "error = " + e.getMessage());
-        }
-    }
-
-    public void a(JSONObject jSONObject) {
-        if (jSONObject != null) {
-            try {
-                this.a = new UserData();
-                this.a.parserJson(jSONObject.optJSONObject("user"));
-                this.k = true;
-            } catch (Exception e) {
-                BdLog.e(getClass().getName(), "parserJson", "error = " + e.getMessage());
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public void cancel() {
+        ProgressBar progressBar;
+        Button button;
+        Bitmap bitmap;
+        if (this.c != null && !this.c.isRecycled()) {
+            bitmap = this.a.v;
+            if (bitmap != this.c) {
+                this.c.recycle();
             }
         }
+        this.c = null;
+        progressBar = this.a.n;
+        progressBar.setVisibility(8);
+        button = this.a.j;
+        button.setClickable(true);
+        super.cancel(true);
     }
 
-    public boolean h() {
-        return this.k;
-    }
-
-    @Override // com.baidu.adp.base.b
-    protected boolean LoadData() {
-        return false;
-    }
-
-    @Override // com.baidu.adp.base.b
-    public boolean cancelLoadData() {
-        return false;
-    }
-
-    public void i() {
-        if (this.b != null) {
-            this.b.cancel();
-        }
-        if (this.f != null) {
-            this.f.d();
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    /* JADX WARN: Code restructure failed: missing block: B:13:0x0053, code lost:
+        if (r0.getHeight() > 600) goto L28;
+     */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public void a(Bitmap bitmap) {
+        ProgressBar progressBar;
+        Button button;
+        EditHeadImageView editHeadImageView;
+        Bitmap bitmap2;
+        Bitmap bitmap3;
+        Bitmap bitmap4;
+        Bitmap bitmap5;
+        Bitmap bitmap6;
+        Bitmap bitmap7;
+        Bitmap bitmap8;
+        Bitmap bitmap9;
+        EditHeadImageView editHeadImageView2;
+        progressBar = this.a.n;
+        progressBar.setVisibility(8);
+        button = this.a.j;
+        button.setClickable(true);
+        if (bitmap != null && !bitmap.isRecycled()) {
+            this.a.C = true;
+            if (this.d.booleanValue() || this.e.booleanValue()) {
+                editHeadImageView = this.a.e;
+                editHeadImageView.setImageBitmap(bitmap);
+                bitmap2 = this.a.f;
+                if (bitmap2.getWidth() <= 600) {
+                    bitmap6 = this.a.f;
+                }
+                EditHeadActivity editHeadActivity = this.a;
+                bitmap3 = this.a.f;
+                editHeadActivity.f = com.baidu.tieba.util.d.a(bitmap3, 600);
+                if (this.d.booleanValue()) {
+                    EditHeadActivity editHeadActivity2 = this.a;
+                    bitmap5 = this.a.f;
+                    editHeadActivity2.f = com.baidu.tieba.util.d.d(bitmap5, Integer.parseInt(this.b));
+                } else if (this.e.booleanValue()) {
+                    EditHeadActivity editHeadActivity3 = this.a;
+                    bitmap4 = this.a.f;
+                    editHeadActivity3.f = com.baidu.tieba.util.d.e(bitmap4, Integer.parseInt(this.b));
+                }
+            } else {
+                editHeadImageView2 = this.a.e;
+                editHeadImageView2.a(bitmap);
+            }
+            bitmap7 = this.a.v;
+            if (bitmap7 != null) {
+                bitmap8 = this.a.v;
+                if (!bitmap8.isRecycled()) {
+                    bitmap9 = this.a.v;
+                    bitmap9.recycle();
+                }
+            }
+            this.a.v = bitmap;
         }
     }
 }

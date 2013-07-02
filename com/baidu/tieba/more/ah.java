@@ -1,21 +1,17 @@
 package com.baidu.tieba.more;
 
-import android.content.DialogInterface;
+import android.view.View;
 /* loaded from: classes.dex */
-class ah implements DialogInterface.OnClickListener {
-    final /* synthetic */ SystemHelpSettingActivity a;
+class ah implements View.OnClickListener {
+    final /* synthetic */ SignRemindActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ah(SystemHelpSettingActivity systemHelpSettingActivity) {
-        this.a = systemHelpSettingActivity;
+    public ah(SignRemindActivity signRemindActivity) {
+        this.a = signRemindActivity;
     }
 
-    @Override // android.content.DialogInterface.OnClickListener
-    public void onClick(DialogInterface dialogInterface, int i) {
-        aj ajVar;
-        this.a.showLoadingDialog(this.a.getString(com.baidu.tieba.y.deleting));
-        ajVar = this.a.b;
-        ajVar.b();
-        dialogInterface.cancel();
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        this.a.finish();
     }
 }

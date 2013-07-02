@@ -1,60 +1,37 @@
 package com.baidu.tieba.more;
 
-import android.view.View;
-import android.view.animation.DecelerateInterpolator;
-import android.widget.Scroller;
+import android.widget.RadioGroup;
+import com.baidu.mapapi.MKEvent;
+import com.baidu.tieba.R;
+import com.baidu.tieba.TiebaApplication;
+import com.baidu.tieba.util.DatabaseService;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ac {
-    private View a;
-    private Scroller b;
-    private int c;
-    private int d;
-    private int e;
-    private boolean f;
-    private Runnable g = new ad(this);
+public class ac implements RadioGroup.OnCheckedChangeListener {
+    final /* synthetic */ MsgRemindActivity a;
 
-    public ac(View view, int i) {
-        this.a = view;
-        this.b = new Scroller(view.getContext(), new DecelerateInterpolator());
-        this.c = view.getPaddingTop();
-        this.d = -view.getMeasuredHeight();
-        this.e = i;
-        if (view.getVisibility() != 0) {
-            this.f = false;
-        } else {
-            this.f = true;
-        }
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public ac(MsgRemindActivity msgRemindActivity) {
+        this.a = msgRemindActivity;
     }
 
-    public void a() {
-        if (!this.f) {
-            this.f = true;
-            int paddingLeft = this.a.getPaddingLeft();
-            int paddingTop = this.a.getPaddingTop() == this.c ? -this.a.getMeasuredHeight() : this.a.getPaddingTop();
-            int paddingRight = this.a.getPaddingRight();
-            int paddingBottom = this.a.getPaddingBottom();
-            this.a.setVisibility(0);
-            this.a.setPadding(paddingLeft, paddingTop, paddingRight, paddingBottom);
-            if (!this.b.isFinished()) {
-                this.b.forceFinished(true);
-                this.a.removeCallbacks(this.g);
-            }
-            int paddingTop2 = this.a.getPaddingTop();
-            this.b.startScroll(paddingTop2, 0, this.c - paddingTop2, 0, this.e);
-            this.a.post(this.g);
+    @Override // android.widget.RadioGroup.OnCheckedChangeListener
+    public void onCheckedChanged(RadioGroup radioGroup, int i) {
+        switch (i) {
+            case R.id.radio_30sec /* 2131165836 */:
+                TiebaApplication.f().f(30);
+                break;
+            case R.id.radio_2min /* 2131165837 */:
+                TiebaApplication.f().f(120);
+                break;
+            case R.id.radio_5min /* 2131165838 */:
+                TiebaApplication.f().f(MKEvent.ERROR_PERMISSION_DENIED);
+                break;
+            case R.id.radio_no /* 2131165839 */:
+                TiebaApplication.f().f(0);
+                break;
         }
-    }
-
-    public void b() {
-        if (this.f) {
-            this.f = false;
-            if (!this.b.isFinished()) {
-                this.b.forceFinished(true);
-                this.a.removeCallbacks(this.g);
-            }
-            int paddingTop = this.a.getPaddingTop();
-            this.b.startScroll(paddingTop, 0, this.d - paddingTop, 0, this.e);
-            this.a.post(this.g);
-        }
+        DatabaseService.w();
+        this.a.d();
     }
 }

@@ -1,210 +1,392 @@
 package com.baidu.tieba.model;
 
 import android.content.Context;
-import android.text.TextUtils;
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.gson.Gson;
-import com.baidu.gson.GsonBuilder;
-import com.baidu.sapi2.SapiAccountManager;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.data.AccountData;
-import com.baidu.tbadk.core.data.AntiData;
-import com.baidu.tbadk.core.data.UserData;
-import com.baidu.tieba.person.PersonPostListData;
-import com.baidu.tieba.person.by;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.content.Intent;
+import android.os.Bundle;
+import com.baidu.mobstat.StatService;
+import com.baidu.tieba.TiebaApplication;
+import com.baidu.tieba.data.MarkData;
+import com.baidu.tieba.data.WriteData;
+import java.util.ArrayList;
+import java.util.Date;
 /* loaded from: classes.dex */
-public class ax extends BdAsyncTask<Boolean, av, av> {
-    final /* synthetic */ av a;
-    private com.baidu.tbadk.core.util.an b = null;
-    private volatile boolean c = false;
-    private boolean d = false;
-    private av e;
+public class ax extends com.baidu.adp.a.c {
+    private static final int a = com.baidu.tieba.data.g.b() / 30;
+    private static com.baidu.tieba.data.ak v = new com.baidu.tieba.data.ak();
+    private com.baidu.tieba.data.aj t;
+    private Context w;
+    private String b = null;
+    private String c = null;
+    private String d = null;
+    private boolean e = false;
+    private boolean f = true;
+    private int g = 0;
+    private int h = 0;
+    private long i = 0;
+    private int j = 1;
+    private int k = 1;
+    private int l = 1;
+    private int m = 1;
+    private boolean n = false;
+    private boolean o = false;
+    private boolean p = false;
+    private boolean q = false;
+    private long r = 0;
+    private boolean s = false;
+    private az u = null;
+    private ay x = null;
+    private long y = 0;
 
-    public ax(av avVar) {
-        Context context;
-        this.a = avVar;
-        context = avVar.s;
-        this.e = new av(context);
+    public ax(Context context) {
+        this.t = null;
+        this.w = null;
+        this.t = new com.baidu.tieba.data.aj();
+        v.a();
+        this.w = context;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: a */
-    public av doInBackground(Boolean... boolArr) {
-        int i;
-        String b;
-        boolean booleanValue = boolArr[0].booleanValue();
-        this.d = boolArr[1].booleanValue();
-        try {
-            if (this.a.g() && booleanValue && (b = com.baidu.tieba.util.k.b()) != null) {
-                this.e.b(b);
-                a(b);
-                publishProgress(this.e);
-                this.d = false;
-            }
-            if (!this.c && this.a.f() != null) {
-                this.b = new com.baidu.tbadk.core.util.an(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/u/user/profile");
-                this.b.a(SapiAccountManager.SESSION_UID, this.a.f());
-                this.b.a("need_post_count", TbConfig.ST_PARAM_TAB_MSG_PERSONAL_CHAT_CLICK);
-                com.baidu.tbadk.core.util.an anVar = this.b;
-                StringBuilder sb = new StringBuilder();
-                i = this.a.m;
-                anVar.a("pn", sb.append(i).toString());
-                this.b.a("rn", "20");
-                this.b.a("has_plist", TbConfig.ST_PARAM_TAB_MSG_PERSONAL_CHAT_CLICK);
-                if (this.a.g()) {
-                    this.b.a("is_owner", TbConfig.ST_PARAM_TAB_MSG_PERSONAL_CHAT_CLICK);
-                } else {
-                    this.b.a("is_owner", "0");
-                }
-                String i2 = this.b.i();
-                if (!this.b.a().b().b()) {
-                    return null;
-                }
-                this.e.b(i2);
-                a(i2);
-                if (this.a.g() && booleanValue) {
-                    com.baidu.tieba.util.k.c(i2);
-                    AccountData currentAccountObj = TbadkApplication.getCurrentAccountObj();
-                    if (currentAccountObj == null) {
-                        return null;
-                    }
-                    if (this.e.h() != null && !TextUtils.isEmpty(this.e.h().getPortrait())) {
-                        com.baidu.tbadk.core.account.a.a(currentAccountObj.getAccount(), this.e.h().getPortrait());
-                        currentAccountObj.setPortrait(this.e.h().getPortrait());
-                    }
-                }
-            }
-            return this.e;
-        } catch (Exception e) {
-            BdLog.e(getClass().getName(), "doInBackground", e.getMessage());
+    public void a(Intent intent) {
+        this.c = intent.getStringExtra("thread_id");
+        this.d = intent.getStringExtra("post_id");
+        this.e = intent.getBooleanExtra("host_only", false);
+        this.f = intent.getBooleanExtra("squence", true);
+        this.b = intent.getStringExtra("st_type");
+        this.g = intent.getIntExtra("is_good", 0);
+        this.h = intent.getIntExtra("is_top", 0);
+        this.i = intent.getLongExtra("thread_time", 0L);
+        this.p = intent.getBooleanExtra("from_frs", false);
+        this.q = intent.getBooleanExtra("from_mark", false);
+        this.n = intent.getBooleanExtra("is_ad", false);
+        this.o = intent.getBooleanExtra("is_sub_pb", false);
+        this.s = intent.getBooleanExtra("is_pv", false);
+        this.r = intent.getLongExtra("msg_id", 0L);
+    }
+
+    public void a(Bundle bundle) {
+        this.c = bundle.getString("thread_id");
+        this.d = bundle.getString("post_id");
+        this.e = bundle.getBoolean("host_only", false);
+        this.f = bundle.getBoolean("squence", true);
+        this.b = bundle.getString("st_type");
+        this.g = bundle.getInt("is_good", 0);
+        this.h = bundle.getInt("is_top", 0);
+        this.i = bundle.getLong("thread_time");
+        this.p = bundle.getBoolean("from_frs", false);
+        this.q = bundle.getBoolean("from_mark", false);
+        this.n = bundle.getBoolean("is_ad", false);
+        this.o = bundle.getBoolean("is_sub_pb", false);
+        this.s = bundle.getBoolean("is_pv", false);
+        this.r = bundle.getLong("msg_id", 0L);
+    }
+
+    public void b(Bundle bundle) {
+        bundle.putString("thread_id", this.c);
+        bundle.putString("post_id", this.d);
+        bundle.putBoolean("host_only", this.e);
+        bundle.putBoolean("squence", this.f);
+        bundle.putString("st_type", this.b);
+        bundle.putInt("is_good", this.g);
+        bundle.putInt("is_top", this.h);
+        bundle.putLong("thread_time", this.i);
+        bundle.putBoolean("from_frs", this.p);
+        bundle.putBoolean("from_mark", this.q);
+        bundle.putBoolean("is_sub_pb", this.o);
+        bundle.putBoolean("is_ad", this.n);
+        bundle.putBoolean("is_pv", this.s);
+        bundle.putLong("msg_id", this.r);
+    }
+
+    public String a() {
+        return this.c;
+    }
+
+    public boolean b() {
+        return this.e;
+    }
+
+    public boolean c() {
+        return this.f;
+    }
+
+    public boolean d() {
+        return this.p;
+    }
+
+    public boolean e() {
+        return this.q;
+    }
+
+    public int f() {
+        return this.g;
+    }
+
+    public int g() {
+        return this.h;
+    }
+
+    public void a(int i) {
+        this.g = i;
+    }
+
+    public void b(int i) {
+        this.h = i;
+    }
+
+    public boolean h() {
+        return this.o;
+    }
+
+    public String i() {
+        if (this.t == null || !this.t.g()) {
             return null;
         }
+        return this.t.h();
     }
 
-    private void a(String str) {
-        PersonPostListData personPostListData;
-        PersonPostListData personPostListData2;
-        int i;
-        PersonPostListData personPostListData3;
-        PersonPostListData personPostListData4;
-        PersonPostListData personPostListData5;
-        Gson create = new GsonBuilder().create();
-        new PersonPostListData();
-        PersonPostListData personPostListData6 = (PersonPostListData) create.fromJson(str, (Class<Object>) PersonPostListData.class);
-        if (personPostListData6 == null || personPostListData6.post_list.size() <= 0) {
-            personPostListData = this.a.l;
-            if (personPostListData != null) {
-                personPostListData2 = this.a.l;
-                if (personPostListData2.post_list.size() > 0) {
-                    this.a.a(true);
-                    return;
-                }
-            }
-            this.a.a(false);
-            return;
+    public boolean c(int i) {
+        this.j = i;
+        if (this.j > this.t.e().a()) {
+            this.j = this.t.e().a();
         }
-        i = this.a.m;
-        if (i == 1) {
-            personPostListData5 = this.a.l;
-            if (personPostListData5 == null) {
-                this.a.l = new PersonPostListData();
-            }
-            this.a.l = personPostListData6;
-            return;
+        if (this.j < 1) {
+            this.j = 1;
         }
-        personPostListData3 = this.a.l;
-        if (personPostListData3 != null) {
-            personPostListData4 = this.a.l;
-            personPostListData4.post_list.addAll(personPostListData6.post_list);
-            return;
+        if (this.c == null) {
+            return false;
         }
-        this.a.l = new PersonPostListData();
-        this.a.l = personPostListData6;
+        if (this.u != null) {
+            this.u.cancel();
+        }
+        this.u = new az(this, 5);
+        this.u.setPriority(3);
+        this.u.execute(new Object[0]);
+        return true;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: a */
-    public void onProgressUpdate(av... avVarArr) {
-        com.baidu.adp.base.e eVar;
-        boolean z = false;
-        super.onProgressUpdate(avVarArr);
-        av avVar = avVarArr[0];
-        if (avVar != null) {
-            this.a.a(avVar.h());
-            this.a.a(avVar.e());
-            z = true;
-        }
-        this.a.mLoadDataMode = 2;
-        this.a.setErrorString(null);
-        eVar = this.a.mLoadDataCallBack;
-        eVar.a(Boolean.valueOf(z));
+    public void d(int i) {
+        this.j = i;
+        this.k = i;
+        this.l = i;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: a */
-    public void onPostExecute(av avVar) {
-        com.baidu.adp.base.e eVar;
-        Context context;
-        com.baidu.adp.base.e eVar2;
-        by byVar;
-        by byVar2;
-        com.baidu.adp.base.e eVar3;
-        super.onPostExecute(avVar);
-        this.a.q = null;
-        av avVar2 = this.a;
-        eVar = this.a.mLoadDataCallBack;
-        avVar2.r = new com.baidu.tbadk.coreExtra.b.a(eVar);
-        if (avVar != null) {
-            UserData h = avVar.h();
-            if (h != null) {
-                this.a.a(h);
+    public void e(int i) {
+        if (this.k < i) {
+            this.k = i;
+            if (this.k - this.l >= a) {
+                this.l = (this.k - a) + 1;
             }
-            AntiData e = avVar.e();
-            if (e != null) {
-                this.a.a(e);
+        }
+        if (this.l > i) {
+            this.l = i;
+            if (this.k - this.l >= a) {
+                this.k = (this.l + a) - 1;
             }
-            this.a.mLoadDataMode = 1;
-            eVar3 = this.a.mLoadDataCallBack;
-            eVar3.a(true);
+        }
+    }
+
+    public com.baidu.tieba.data.aj j() {
+        return this.t;
+    }
+
+    public com.baidu.tieba.data.ai k() {
+        if (this.t == null) {
+            return null;
+        }
+        return this.t.e();
+    }
+
+    public boolean l() {
+        if (this.f) {
+            if (this.t.e().f() == 0) {
+                a(true);
+                return true;
+            }
+        } else if (this.t.e().g() == 0) {
+            b(true);
+            return true;
+        }
+        return false;
+    }
+
+    @Override // com.baidu.adp.a.c
+    protected boolean LoadData() {
+        if (this.c == null) {
+            return false;
+        }
+        if (this.u != null) {
+            this.u.cancel();
+        }
+        this.u = new az(this, 3);
+        this.u.setPriority(3);
+        this.u.execute(new Object[0]);
+        return true;
+    }
+
+    @Override // com.baidu.adp.a.c
+    public boolean cancelLoadData() {
+        if (this.u != null) {
+            this.u.cancel();
+            return true;
+        }
+        return true;
+    }
+
+    public boolean m() {
+        return (this.d == null || this.d.equals("0")) ? LoadData() : n();
+    }
+
+    public boolean n() {
+        if (this.c == null || this.d == null) {
+            return false;
+        }
+        if (this.u != null) {
+            this.u.cancel();
+        }
+        if (this.q) {
+            this.u = new az(this, 4);
         } else {
-            if (this.b != null && this.d) {
-                this.a.setErrorString(this.b.f());
-            } else {
-                av avVar3 = this.a;
-                context = this.a.s;
-                avVar3.setErrorString(context.getString(com.baidu.tieba.y.neterror));
-            }
-            this.a.mLoadDataMode = 1;
-            eVar2 = this.a.mLoadDataCallBack;
-            eVar2.a(false);
+            this.u = new az(this, 6);
         }
-        byVar = this.a.t;
-        if (byVar != null) {
-            byVar2 = this.a.t;
-            byVar2.a();
+        this.u.setPriority(3);
+        this.u.execute(new Object[0]);
+        return true;
+    }
+
+    public boolean a(boolean z) {
+        if (this.c == null || this.t == null) {
+            return false;
+        }
+        if ((z || this.t.e().f() != 0) && this.u == null) {
+            this.u = new az(this, 1);
+            this.u.setPriority(3);
+            this.u.execute(new Object[0]);
+            return true;
+        }
+        return false;
+    }
+
+    public boolean b(boolean z) {
+        if (this.c == null || this.t == null) {
+            return false;
+        }
+        if ((z || this.t.e().g() != 0) && this.t.d() != null && this.t.d().size() >= 1 && this.u == null) {
+            this.u = new az(this, 2);
+            this.u.setPriority(3);
+            this.u.execute(new Object[0]);
+            return true;
+        }
+        return false;
+    }
+
+    public boolean o() {
+        this.e = !this.e;
+        if (this.e) {
+            this.f = true;
+        }
+        LoadData();
+        return true;
+    }
+
+    public boolean p() {
+        this.f = !this.f;
+        if (!this.f) {
+            this.e = false;
+        }
+        LoadData();
+        return true;
+    }
+
+    public void q() {
+        if (this.t != null && this.t.a() != null && this.t.b() != null) {
+            if (TiebaApplication.f().s()) {
+                StatService.onEvent(this.w, "pb_share", "pbclick", 1);
+            }
+            String b = this.t.a().b();
+            com.baidu.tieba.util.aa.a(this.w, "client_share", this.c, this.t.b().b(), b);
         }
     }
 
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void cancel() {
-        com.baidu.adp.base.e eVar;
-        super.cancel(true);
-        this.c = true;
-        if (this.b != null) {
-            this.b.g();
-            this.b = null;
+    public boolean r() {
+        if (this.t == null) {
+            return false;
         }
-        this.a.q = null;
-        eVar = this.a.mLoadDataCallBack;
-        eVar.a(false);
+        return this.t.g();
+    }
+
+    public WriteData a(String str) {
+        if (this.t == null) {
+            return null;
+        }
+        WriteData writeData = new WriteData();
+        writeData.setForumId(this.t.a().a());
+        writeData.setForumName(this.t.a().b());
+        writeData.setThreadId(this.c);
+        writeData.setIsAd(this.n);
+        if (str == null) {
+            writeData.setType(1);
+            return writeData;
+        }
+        writeData.setType(2);
+        writeData.setFloor(str);
+        writeData.setFloorNum(0);
+        return writeData;
+    }
+
+    public com.baidu.tieba.data.aw a(com.baidu.tieba.data.an anVar) {
+        if (anVar == null) {
+            return null;
+        }
+        com.baidu.tieba.data.aw awVar = new com.baidu.tieba.data.aw();
+        awVar.a(this.t.a());
+        awVar.a(this.t.b());
+        awVar.a(anVar);
+        awVar.a(anVar.a());
+        awVar.b(anVar.k());
+        String h = this.t.h();
+        String d = anVar.d();
+        if (r() && h != null && d != null && h.equals(d)) {
+            awVar.a(true);
+            return awVar;
+        }
+        awVar.a(false);
+        return awVar;
+    }
+
+    public MarkData f(int i) {
+        if (i < 0) {
+            i = 0;
+        }
+        if (this.t == null || this.t.d() == null) {
+            return null;
+        }
+        ArrayList d = this.t.d();
+        if (d.size() <= 0 || i >= d.size()) {
+            return null;
+        }
+        return b((com.baidu.tieba.data.an) d.get(i));
+    }
+
+    public MarkData b(com.baidu.tieba.data.an anVar) {
+        MarkData markData = new MarkData();
+        Date date = new Date();
+        markData.setAccount(TiebaApplication.D());
+        markData.setThreadId(this.c);
+        markData.setPostId(anVar.d());
+        markData.setTime(date.getTime());
+        markData.setHostMode(this.e);
+        markData.setSequence(Boolean.valueOf(this.f));
+        markData.setId(this.c);
+        markData.setFloor(anVar.f());
+        return markData;
+    }
+
+    public void c(boolean z) {
+        if (this.t != null) {
+            this.t.a(z);
+        }
+    }
+
+    public void a(ay ayVar) {
+        this.x = ayVar;
     }
 }

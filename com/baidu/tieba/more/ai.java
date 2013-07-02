@@ -1,17 +1,24 @@
 package com.baidu.tieba.more;
 
-import android.content.DialogInterface;
+import android.view.View;
+import com.baidu.adp.widget.BdSwitchView.BdSwitchView;
+import com.baidu.tieba.TiebaApplication;
 /* loaded from: classes.dex */
-class ai implements DialogInterface.OnClickListener {
-    final /* synthetic */ SystemHelpSettingActivity a;
+class ai implements com.baidu.adp.widget.BdSwitchView.c {
+    final /* synthetic */ SignRemindActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ai(SystemHelpSettingActivity systemHelpSettingActivity) {
-        this.a = systemHelpSettingActivity;
+    public ai(SignRemindActivity signRemindActivity) {
+        this.a = signRemindActivity;
     }
 
-    @Override // android.content.DialogInterface.OnClickListener
-    public void onClick(DialogInterface dialogInterface, int i) {
-        dialogInterface.cancel();
+    @Override // com.baidu.adp.widget.BdSwitchView.c
+    public void a(View view, BdSwitchView.SwitchState switchState) {
+        if (switchState == BdSwitchView.SwitchState.ON) {
+            TiebaApplication.f().o(true);
+        } else {
+            TiebaApplication.f().o(false);
+        }
+        this.a.d();
     }
 }

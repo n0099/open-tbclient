@@ -1,15 +1,100 @@
 package com.baidu.tieba.service;
-/* loaded from: classes.dex */
-class m implements Runnable {
-    final /* synthetic */ TiebaActiveService a;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public m(TiebaActiveService tiebaActiveService) {
-        this.a = tiebaActiveService;
+import android.content.SharedPreferences;
+import android.os.Build;
+import android.os.Handler;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.tieba.TiebaApplication;
+import com.baidu.tieba.util.NetWorkCore;
+import com.baidu.tieba.util.z;
+/* JADX INFO: Access modifiers changed from: package-private */
+/* loaded from: classes.dex */
+public class m extends BdAsyncTask {
+    NetWorkCore a;
+    final /* synthetic */ TiebaActiveService b;
+
+    private m(TiebaActiveService tiebaActiveService) {
+        this.b = tiebaActiveService;
+        this.a = null;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        this.a.sendActive();
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public /* synthetic */ m(TiebaActiveService tiebaActiveService, m mVar) {
+        this(tiebaActiveService);
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public String a(String... strArr) {
+        z.a(getClass().getName(), "doBackGround", "send active...");
+        try {
+            this.a = new NetWorkCore("http://114.113.149.3:8086/partnersService");
+            this.a.a("http://114.113.149.3:8086/partnersService");
+            this.a.b(this.b.getApplicationContext());
+            this.a.a("apk", TiebaApplication.f().getPackageName());
+            this.a.a("imei", TiebaApplication.f().o());
+            this.a.a("model", Build.MODEL);
+            this.a.a("edition", com.baidu.tieba.data.g.i());
+            this.a.a("system", Build.VERSION.SDK);
+            this.a.c(false);
+            String o = this.a.o();
+            if (this.a.h()) {
+                z.a(getClass().getName(), "task", "data=" + o);
+                return o;
+            }
+        } catch (Exception e) {
+            SharedPreferences.Editor edit = this.b.getSharedPreferences("settings", 0).edit();
+            edit.putInt("active", 1);
+            edit.commit();
+            z.b(getClass().getName(), "doInBackground", e.getMessage());
+        }
+        return null;
+    }
+
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public void cancel() {
+        this.b.a = null;
+        if (this.a != null) {
+            this.a.l();
+        }
+        super.cancel(true);
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public void a(String str) {
+        int i;
+        int i2;
+        Handler handler;
+        Runnable runnable;
+        Handler handler2;
+        Runnable runnable2;
+        super.a((Object) str);
+        this.b.a = null;
+        SharedPreferences.Editor edit = this.b.getSharedPreferences("settings", 0).edit();
+        edit.putInt("active", 1);
+        if (str == null) {
+            TiebaActiveService tiebaActiveService = this.b;
+            i = tiebaActiveService.b;
+            tiebaActiveService.b = i + 1;
+            i2 = this.b.b;
+            if (i2 < 10) {
+                handler = this.b.c;
+                runnable = this.b.d;
+                handler.removeCallbacks(runnable);
+                handler2 = this.b.c;
+                runnable2 = this.b.d;
+                handler2.postDelayed(runnable2, 60000L);
+            } else {
+                edit.commit();
+                this.b.stopSelf();
+            }
+        }
+        z.a(getClass().getName(), "onPostExecute", "send active ok");
+        edit.putInt("active", 2);
+        edit.commit();
+        this.b.stopSelf();
     }
 }

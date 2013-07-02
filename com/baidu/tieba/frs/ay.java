@@ -1,36 +1,26 @@
 package com.baidu.tieba.frs;
 
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import android.content.DialogInterface;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ay extends BdAsyncTask<String, Integer, Boolean> {
-    final /* synthetic */ FrsActivity a;
-    private final String b;
+public class ay implements DialogInterface.OnClickListener {
+    final /* synthetic */ ax a;
 
-    public ay(FrsActivity frsActivity, String str) {
-        this.a = frsActivity;
-        this.b = str;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public ay(ax axVar) {
+        this.a = axVar;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: a */
-    public Boolean doInBackground(String... strArr) {
-        boolean b;
-        b = this.a.b(this.b);
-        return Boolean.valueOf(b);
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: a */
-    public void onPostExecute(Boolean bool) {
-        if (bool.booleanValue()) {
-            this.a.showToast(com.baidu.tieba.y.shortcut_has_add);
-        } else {
-            this.a.a(this.b);
+    @Override // android.content.DialogInterface.OnClickListener
+    public void onClick(DialogInterface dialogInterface, int i) {
+        com.baidu.tieba.g gVar;
+        com.baidu.tieba.g gVar2;
+        if (i == 0) {
+            gVar2 = this.a.a;
+            com.baidu.tieba.write.bb.a(gVar2);
+        } else if (i == 1) {
+            gVar = this.a.a;
+            com.baidu.tieba.write.bb.b(gVar);
         }
     }
 }

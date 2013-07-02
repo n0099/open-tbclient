@@ -1,20 +1,22 @@
 package com.baidu.tieba.home;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class i implements com.baidu.adp.widget.ListView.d {
-    final /* synthetic */ e a;
+public class i implements Runnable {
+    final /* synthetic */ EnterForumActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public i(e eVar) {
-        this.a = eVar;
+    public i(EnterForumActivity enterForumActivity) {
+        this.a = enterForumActivity;
     }
 
-    @Override // com.baidu.adp.widget.ListView.d
-    public void a(boolean z) {
-        com.baidu.tieba.model.o oVar;
-        Boolean bool;
-        oVar = this.a.d;
-        bool = this.a.g;
-        oVar.a(bool.booleanValue());
+    @Override // java.lang.Runnable
+    public void run() {
+        n nVar;
+        try {
+            nVar = this.a.a;
+            nVar.r();
+        } catch (Exception e) {
+            com.baidu.tieba.util.z.b("HomeActivity", "mLoadImageRunnable.run", "error = " + e.getMessage());
+        }
     }
 }

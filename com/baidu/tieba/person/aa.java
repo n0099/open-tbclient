@@ -1,30 +1,21 @@
 package com.baidu.tieba.person;
 
-import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
-import com.baidu.tbadk.core.view.UserIconBox;
-import com.baidu.tbadk.coreExtra.view.LiveBroadcastCard;
-import com.baidu.tieba.view.CommonImageLayout;
-import com.baidu.tieba.voice.PlayVoiceBnt;
+import android.app.Dialog;
+import android.content.DialogInterface;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class aa {
-    public LinearLayout a;
-    public RelativeLayout b;
-    public TextView c;
-    public TextView d;
-    public TextView e;
-    public TextView f;
-    public TextView g;
-    public TextView h;
-    public CommonImageLayout i;
-    public PlayVoiceBnt j;
-    public String k;
-    public String l;
-    public int m;
-    public boolean n;
-    public UserIconBox o;
-    public UserIconBox p = null;
-    public LinearLayout q;
-    public LiveBroadcastCard r;
+public class aa implements DialogInterface.OnClickListener {
+    final /* synthetic */ z a;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public aa(z zVar) {
+        this.a = zVar;
+    }
+
+    @Override // android.content.DialogInterface.OnClickListener
+    public void onClick(DialogInterface dialogInterface, int i) {
+        Dialog dialog;
+        dialog = this.a.k;
+        dialog.dismiss();
+    }
 }

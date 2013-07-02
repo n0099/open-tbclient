@@ -1,29 +1,27 @@
 package com.baidu.tieba.frs;
 
 import android.content.Context;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.core.BaseFragmentActivity;
+import android.view.View;
+import com.baidu.mobstat.StatService;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ae implements com.baidu.tbadk.core.util.bm {
-    @Override // com.baidu.tbadk.core.util.bm
-    public boolean a(Context context, String[] strArr) {
-        String str;
-        String lowerCase = strArr[0].toLowerCase();
-        if (strArr.length <= 1) {
-            str = null;
-        } else {
-            str = strArr[1];
-        }
-        if (lowerCase.startsWith("frs:")) {
-            String substring = lowerCase.substring(4);
-            if (context instanceof BaseActivity) {
-                ((BaseActivity) context).sendMessage(new CustomMessage(2005000, new com.baidu.tbadk.core.atomData.m(context).a(substring, str)));
-            } else if (context instanceof BaseFragmentActivity) {
-                ((BaseFragmentActivity) context).a(new CustomMessage(2005000, new com.baidu.tbadk.core.atomData.m(context).a(substring, str)));
-            }
-        }
-        return false;
+public class ae implements View.OnClickListener {
+    final /* synthetic */ ad a;
+    private final /* synthetic */ com.baidu.tieba.data.ae b;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public ae(ad adVar, com.baidu.tieba.data.ae aeVar) {
+        this.a = adVar;
+        this.b = aeVar;
+    }
+
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        Context context;
+        Context context2;
+        context = this.a.a;
+        StatService.onEvent(context, "frs_video", "frsclick", 1);
+        context2 = this.a.a;
+        com.baidu.tieba.util.aa.c(context2, this.b.c());
     }
 }

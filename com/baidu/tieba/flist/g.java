@@ -1,45 +1,24 @@
 package com.baidu.tieba.flist;
 
-import android.os.Handler;
-import com.baidu.adp.lib.util.BdLog;
+import android.widget.ImageView;
 /* loaded from: classes.dex */
-class g implements e {
-    final /* synthetic */ ForumListActivity a;
+class g implements com.baidu.tbadk.a.d {
+    final /* synthetic */ f a;
+    private final /* synthetic */ String b;
+    private final /* synthetic */ ImageView c;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public g(ForumListActivity forumListActivity) {
-        this.a = forumListActivity;
+    public g(f fVar, String str, ImageView imageView) {
+        this.a = fVar;
+        this.b = str;
+        this.c = imageView;
     }
 
-    @Override // com.baidu.tieba.flist.e
-    public void a(boolean z, int i, com.baidu.tieba.square.ab abVar, String str, boolean z2) {
-        Handler handler;
-        Runnable runnable;
-        Handler handler2;
-        Runnable runnable2;
-        BdLog.d("ForumListActivity", "callback", com.baidu.tbadk.core.frameworkData.a.START);
-        if (!z || i != 0) {
-            BdLog.d("ForumListActivity", "callback", "dir menu not ok");
-            if (!z2) {
-                this.a.c.d();
-                return;
-            }
-            return;
+    @Override // com.baidu.tbadk.a.d
+    public void a(com.baidu.adp.widget.a.b bVar, String str, boolean z) {
+        if (str.equals(this.b)) {
+            this.c.setTag(this.b);
+            this.c.invalidate();
         }
-        BdLog.d("ForumListActivity", "callback", "dir menu ok");
-        abVar.e.add(0, abVar);
-        if (this.a.c.y != null) {
-            this.a.c.y.a(abVar);
-            this.a.a(String.valueOf(this.a.c.h.getText()));
-            this.a.c.y.notifyDataSetChanged();
-        }
-        handler = this.a.e;
-        runnable = this.a.P;
-        handler.removeCallbacks(runnable);
-        handler2 = this.a.e;
-        runnable2 = this.a.P;
-        handler2.post(runnable2);
-        this.a.c.z.setClickable(true);
-        this.a.c.z.setOnClickListener(this.a);
     }
 }

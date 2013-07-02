@@ -1,91 +1,51 @@
 package com.baidu.tbadk.widget.richText;
 
 import android.content.Context;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.graphics.Canvas;
-import android.graphics.Matrix;
-import android.graphics.Paint;
-import android.graphics.Rect;
-import android.graphics.drawable.BitmapDrawable;
+import android.text.style.ClickableSpan;
+import android.view.View;
+import com.baidu.zeus.bouncycastle.DERTags;
 /* loaded from: classes.dex */
-public class f extends BitmapDrawable {
-    private int a;
-    private Context b;
+public class f extends ClickableSpan {
+    private Context a;
+    private int b;
+    private String c;
     private String d;
-    private Rect c = null;
-    private Matrix e = null;
 
-    public f(Context context, int i) {
-        this.a = 0;
-        this.b = null;
-        this.d = null;
-        this.b = context;
-        this.a = i;
-        this.d = String.valueOf(this.a);
+    public f(Context context, int i, String str, String str2) {
+        this.a = null;
+        this.b = 0;
+        this.c = null;
+        this.a = context;
+        this.c = str;
+        this.b = i;
+        this.d = str2;
     }
 
-    @Override // android.graphics.drawable.Drawable
-    public void setBounds(int i, int i2, int i3, int i4) {
-        this.c = new Rect(i, i2, i3, i4);
-        this.e = null;
-        super.setBounds(i, i2, i3, i4);
-    }
-
-    @Override // android.graphics.drawable.Drawable
-    public void setBounds(Rect rect) {
-        this.c = new Rect(rect);
-        this.e = null;
-        super.setBounds(rect);
-    }
-
-    public void a(int i, int i2) {
-        if (this.c != null) {
-            super.setBounds(this.c.left, this.c.top, this.c.right + i, this.c.bottom + i2);
+    @Override // android.text.style.ClickableSpan
+    public void onClick(View view) {
+        h hVar = null;
+        if (this.a instanceof h) {
+            hVar = (h) this.a;
         }
-    }
-
-    @Override // android.graphics.drawable.BitmapDrawable, android.graphics.drawable.Drawable
-    public void draw(Canvas canvas) {
-        com.baidu.adp.widget.a.a aVar;
-        if (this.a > 0 && this.b != null) {
-            com.baidu.tbadk.imageManager.e a = com.baidu.tbadk.imageManager.e.a();
-            com.baidu.adp.widget.a.a c = (a == null || this.d == null) ? null : a.c(this.d);
-            if (c == null) {
-                Bitmap decodeResource = BitmapFactory.decodeResource(this.b.getResources(), this.a);
-                if (decodeResource != null) {
-                    c = new com.baidu.adp.widget.a.a(decodeResource, false, null);
-                }
-                if (a != null && c != null && this.d != null) {
-                    a.b(this.d, c);
-                }
-                aVar = c;
-            } else {
-                aVar = c;
-            }
-            if (aVar != null) {
-                int c2 = aVar.c();
-                int d = aVar.d();
-                if (c2 > 0 && d > 0 && this.c != null) {
-                    canvas.save();
-                    canvas.clipRect(super.getBounds());
-                    if (d > this.c.bottom - this.c.top || c2 > this.c.right - this.c.left) {
-                        if (this.e == null) {
-                            this.e = new Matrix();
-                            this.e.postTranslate(0.0f, 0.0f);
-                            float f = (this.c.right - this.c.left) / c2;
-                            float f2 = (this.c.bottom - this.c.top) / d;
-                            if (f >= f2) {
-                                f = f2;
-                            }
-                            this.e.postScale(f, f);
-                        }
-                        aVar.a(canvas, this.e, null);
-                    } else {
-                        aVar.a(canvas, 0.0f, 0.0f, (Paint) null);
-                    }
-                    canvas.restore();
-                }
+        if (hVar != null) {
+            switch (this.b) {
+                case 2:
+                    hVar.a(this.a, this.c);
+                    return;
+                case 16:
+                    hVar.a(this.a, this.c, this.d);
+                    return;
+                case 32:
+                    hVar.b(this.a, this.c);
+                    return;
+                case DERTags.APPLICATION /* 64 */:
+                    hVar.c(this.a, this.c);
+                    return;
+                case DERTags.TAGGED /* 128 */:
+                    hVar.d(this.a, this.c);
+                    return;
+                default:
+                    return;
             }
         }
     }

@@ -1,15 +1,23 @@
 package com.baidu.tieba.view;
 
-import android.content.Context;
 import android.view.View;
+import android.widget.AdapterView;
 /* loaded from: classes.dex */
-public class z extends com.baidu.tbadk.core.view.q {
-    public z(Context context) {
-        super(context);
+class z implements AdapterView.OnItemClickListener {
+    final /* synthetic */ ImagePbPagerAdapter a;
+    private final /* synthetic */ com.baidu.tieba.pb.ah b;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public z(ImagePbPagerAdapter imagePbPagerAdapter, com.baidu.tieba.pb.ah ahVar) {
+        this.a = imagePbPagerAdapter;
+        this.b = ahVar;
     }
 
-    @Override // com.baidu.adp.widget.ListView.c, com.baidu.adp.widget.ListView.f
-    public View a() {
-        return a(h().getString(com.baidu.tieba.y.pull_view_pull_more), h().getString(com.baidu.tieba.y.pull_view_release_more), null);
+    @Override // android.widget.AdapterView.OnItemClickListener
+    public void onItemClick(AdapterView adapterView, View view, int i, long j) {
+        if (this.b == null || !this.b.b() || j != this.b.getCount() - 1) {
+            return;
+        }
+        this.a.a(this.b.d(), this.b.e().c(), 10, this.b);
     }
 }

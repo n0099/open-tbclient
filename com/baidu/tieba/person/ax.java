@@ -1,20 +1,76 @@
 package com.baidu.tieba.person;
 
-import android.widget.ScrollView;
+import android.content.DialogInterface;
+import android.content.Intent;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.tieba.R;
+import com.baidu.tieba.util.DatabaseService;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ax implements Runnable {
+public class ax extends BdAsyncTask {
     final /* synthetic */ PersonChangeActivity a;
+    private com.baidu.tieba.util.r b = null;
+    private com.baidu.tieba.model.bh c;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public ax(PersonChangeActivity personChangeActivity) {
+    public ax(PersonChangeActivity personChangeActivity, com.baidu.tieba.model.bh bhVar) {
         this.a = personChangeActivity;
+        this.c = null;
+        this.c = bhVar;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        ScrollView scrollView;
-        scrollView = this.a.h;
-        scrollView.fullScroll(130);
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public void cancel() {
+        this.a.C = null;
+        if (this.b != null) {
+            this.b.h();
+        }
+        super.cancel(true);
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public void a(String str) {
+        this.a.C = null;
+        this.a.h();
+        if (this.b != null) {
+            if (this.b.c()) {
+                this.a.a(this.a.getString(R.string.success));
+                Intent intent = new Intent();
+                intent.putExtra("data", this.c.a());
+                this.a.setResult(-1, intent);
+                this.a.finish();
+            } else {
+                this.a.a(this.b.g());
+            }
+        }
+        super.a((Object) str);
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public void b() {
+        DialogInterface.OnCancelListener onCancelListener;
+        PersonChangeActivity personChangeActivity = this.a;
+        String string = this.a.getString(R.string.saving);
+        onCancelListener = this.a.E;
+        personChangeActivity.a(string, onCancelListener);
+        super.b();
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public String a(String... strArr) {
+        if (this.c != null) {
+            this.b = new com.baidu.tieba.util.r(String.valueOf(com.baidu.tieba.data.g.a) + "c/c/profile/modify");
+            this.b.a("sex", String.valueOf(this.c.a().getSex()));
+            this.b.a("intro", this.c.a().getIntro());
+            this.b.k();
+            if (this.b.c()) {
+                DatabaseService.h();
+            }
+        }
+        return null;
     }
 }

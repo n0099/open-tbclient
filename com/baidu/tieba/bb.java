@@ -1,45 +1,20 @@
 package com.baidu.tieba;
 
-import android.content.BroadcastReceiver;
-import android.content.Context;
-import android.content.Intent;
+import android.content.DialogInterface;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class bb extends BroadcastReceiver {
-    final /* synthetic */ UpdateDialog this$0;
-
-    private bb(UpdateDialog updateDialog) {
-        this.this$0 = updateDialog;
-    }
+public class bb implements DialogInterface.OnDismissListener {
+    final /* synthetic */ UpdateDialog a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ bb(UpdateDialog updateDialog, bb bbVar) {
-        this(updateDialog);
+    public bb(UpdateDialog updateDialog) {
+        this.a = updateDialog;
     }
 
-    @Override // android.content.BroadcastReceiver
-    public void onReceive(Context context, Intent intent) {
-        ac acVar;
-        ac acVar2;
-        ac acVar3;
-        ac acVar4;
-        if (intent.getBooleanExtra("action_update_complete", false)) {
-            acVar4 = this.this$0.h;
-            acVar4.dismiss();
-            this.this$0.finish();
-        } else if (intent.getBooleanExtra("action_update_progress_interrupted", false)) {
-            acVar3 = this.this$0.h;
-            acVar3.dismiss();
-            this.this$0.showToast(this.this$0.getString(y.update_app_error));
-            this.this$0.finish();
-            this.this$0.b();
-        } else {
-            int intExtra = intent.getIntExtra("action_update_download_progress", 0);
-            acVar = this.this$0.h;
-            if (acVar != null) {
-                acVar2 = this.this$0.h;
-                acVar2.a(intExtra);
-            }
-        }
+    @Override // android.content.DialogInterface.OnDismissListener
+    public void onDismiss(DialogInterface dialogInterface) {
+        am amVar;
+        amVar = this.a.c;
+        amVar.dismiss();
     }
 }

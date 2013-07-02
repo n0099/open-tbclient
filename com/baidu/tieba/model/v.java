@@ -1,70 +1,143 @@
 package com.baidu.tieba.model;
 
-import com.baidu.tbadk.TbConfig;
+import com.baidu.tieba.data.AntiData;
+import java.util.ArrayList;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes.dex */
-public class v extends com.baidu.adp.base.b {
-    private w a = null;
-    private y b = null;
-    private aa c = null;
+public class v {
+    private AntiData c;
+    private com.baidu.tieba.frs.ac f = null;
+    private com.baidu.tieba.frs.ab g = null;
+    private boolean h = false;
+    private z i = null;
+    private w j = null;
+    private com.baidu.tieba.data.r a = new com.baidu.tieba.data.r();
+    private ArrayList b = new ArrayList();
+    private com.baidu.tieba.data.ai d = new com.baidu.tieba.data.ai();
+    private com.baidu.tieba.data.t e = new com.baidu.tieba.data.t();
 
-    @Override // com.baidu.adp.base.b
-    protected boolean LoadData() {
-        return false;
+    public v() {
+        a(new AntiData());
     }
 
-    @Override // com.baidu.adp.base.b
-    public boolean cancelLoadData() {
-        a();
-        return false;
+    public void a(com.baidu.tieba.data.ac acVar) {
+        this.a.d(acVar.d());
+        this.a.e(acVar.e());
+        this.a.a(acVar.b());
+        this.a.b(acVar.a());
+        this.a.a(acVar.c());
     }
 
-    public void a() {
-        if (this.a != null) {
-            this.a.cancel();
-            this.a = null;
-        }
-        if (this.b != null) {
-            this.b.cancel();
-            this.b = null;
-        }
-        if (this.c != null) {
-            this.c.cancel();
-            this.c = null;
+    public void a(com.baidu.tieba.data.av avVar) {
+        this.a.a(avVar);
+    }
+
+    public com.baidu.tieba.data.r a() {
+        return this.a;
+    }
+
+    public ArrayList b() {
+        return this.b;
+    }
+
+    public void a(AntiData antiData) {
+        this.c = antiData;
+    }
+
+    public AntiData c() {
+        return this.c;
+    }
+
+    public com.baidu.tieba.data.ai d() {
+        return this.d;
+    }
+
+    public com.baidu.tieba.data.t e() {
+        return this.e;
+    }
+
+    public void a(boolean z) {
+        this.h = z;
+    }
+
+    public boolean f() {
+        return this.h;
+    }
+
+    public void a(String str) {
+        try {
+            a(new JSONObject(str));
+        } catch (Exception e) {
         }
     }
 
-    public void a(String str, String str2, String str3, String str4, int i, int i2, boolean z) {
-        if (this.a != null) {
-            this.a.cancel();
-            this.a = null;
+    public void a(JSONObject jSONObject) {
+        try {
+            this.a.a(jSONObject.optJSONObject("forum"));
+            JSONArray optJSONArray = jSONObject.optJSONArray("thread_list");
+            if (optJSONArray != null) {
+                for (int i = 0; i < optJSONArray.length(); i++) {
+                    com.baidu.tieba.data.ba baVar = new com.baidu.tieba.data.ba();
+                    baVar.a(optJSONArray.optJSONObject(i));
+                    baVar.o();
+                    this.b.add(baVar);
+                }
+            }
+            this.c.parserJson(jSONObject.optJSONObject("anti"));
+            this.d.a(jSONObject.optJSONObject("page"));
+            this.e.a(jSONObject.optJSONObject("frs_star"));
+        } catch (Exception e) {
         }
-        this.mLoadDataMode = 0;
-        this.a = new w(this, str, str2, str3, str4, i, i2, z);
-        this.a.setPriority(2);
-        this.a.execute(new String[0]);
     }
 
-    public boolean b() {
-        return (this.a == null && this.b == null && this.c == null) ? false : true;
+    public void a(String str, ArrayList arrayList, int i) {
+        if (this.i != null) {
+            this.i.cancel();
+            this.i = null;
+        }
+        this.i = new z(this, str, arrayList, i);
+        this.i.setPriority(3);
+        this.i.execute(str, arrayList);
     }
 
-    public void a(String str, String str2, String str3, int i, String str4) {
-        String str5;
-        if (this.c != null) {
-            this.c.cancel();
-            this.c = null;
+    public void b(String str) {
+        if (this.j != null) {
+            this.j.cancel();
+            this.j = null;
         }
-        this.mLoadDataMode = i;
-        this.c = new aa(this, str, str2, str3, i, str4);
-        this.c.setPriority(2);
-        String str6 = TbConfig.SERVER_ADDRESS;
-        if (i == 6) {
-            str5 = String.valueOf(str6) + "c/c/bawu/goodlist";
-        } else if (i == 2 || i == 3) {
-            str5 = String.valueOf(str6) + "c/c/bawu/commitgood";
-        } else {
-            str5 = String.valueOf(str6) + "c/c/bawu/committop";
+        com.baidu.tieba.data.r a = a();
+        this.j = new w(this, a.a(), a.b(), str);
+        this.j.setPriority(2);
+        this.j.execute(String.valueOf(com.baidu.tieba.data.g.a) + "c/c/user/fansno");
+    }
+
+    public void g() {
+        if (this.i != null) {
+            this.i.cancel();
+            this.i = null;
         }
-        this.c.execute(str5);
+        if (this.j != null) {
+            this.j.cancel();
+            this.j = null;
+        }
+    }
+
+    public void a(x xVar) {
+        com.baidu.tieba.data.ac acVar = new com.baidu.tieba.data.ac();
+        acVar.b(1);
+        acVar.a(xVar.d);
+        acVar.b(xVar.e);
+        acVar.e(xVar.f);
+        acVar.f(xVar.g);
+        a(acVar);
+    }
+
+    public void a(com.baidu.tieba.frs.ac acVar) {
+        this.f = acVar;
+    }
+
+    public void a(com.baidu.tieba.frs.ab abVar) {
+        this.g = abVar;
     }
 }

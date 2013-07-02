@@ -1,28 +1,28 @@
 package com.baidu.tieba.write;
 
-import android.os.Environment;
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.tbadk.TbConfig;
-import java.io.File;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
 /* loaded from: classes.dex */
-public class ba extends BdAsyncTask<Void, Integer, Void> {
-    final /* synthetic */ WriteActivity a;
+class ba extends BroadcastReceiver {
+    final /* synthetic */ WriteImageActivity a;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public ba(WriteActivity writeActivity) {
-        this.a = writeActivity;
+    private ba(WriteImageActivity writeImageActivity) {
+        this.a = writeImageActivity;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: a */
-    public Void doInBackground(Void... voidArr) {
-        String str;
-        StringBuilder append = new StringBuilder().append(Environment.getExternalStorageDirectory()).append("/").append(TbConfig.getTempDirName()).append("/");
-        str = this.a.D;
-        com.baidu.tbadk.core.util.x.c(new File(append.append(str).toString()));
-        return null;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public /* synthetic */ ba(WriteImageActivity writeImageActivity, ba baVar) {
+        this(writeImageActivity);
+    }
+
+    @Override // android.content.BroadcastReceiver
+    public void onReceive(Context context, Intent intent) {
+        this.a.a_();
+        if (intent.getBooleanExtra("result", false)) {
+            WriteImageActivity.k(this.a);
+        } else {
+            this.a.a(intent.getStringExtra("error"));
+        }
     }
 }

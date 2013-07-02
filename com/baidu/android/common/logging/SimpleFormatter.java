@@ -7,7 +7,6 @@ import java.text.MessageFormat;
 import java.util.Date;
 import java.util.logging.Formatter;
 import java.util.logging.LogRecord;
-import org.apache.commons.io.IOUtils;
 /* loaded from: classes.dex */
 class SimpleFormatter extends Formatter {
     private static String format = "{0,date} {0,time}";
@@ -72,7 +71,7 @@ class SimpleFormatter extends Formatter {
             stringBuffer2.append(logRecord.getLevel().getLocalizedName());
             stringBuffer2.append(": ");
             stringBuffer2.append(formatMessage);
-            stringBuffer2.append(IOUtils.LINE_SEPARATOR_UNIX);
+            stringBuffer2.append("\n");
             if (logRecord.getThrown() != null) {
                 try {
                     StringWriter stringWriter = new StringWriter();

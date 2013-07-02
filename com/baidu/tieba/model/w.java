@@ -1,115 +1,100 @@
 package com.baidu.tieba.model;
 
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.tbadk.TbConfig;
+import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class w extends BdAsyncTask<String, Integer, String> {
+public class w extends BdAsyncTask {
     final /* synthetic */ v a;
-    private com.baidu.tbadk.core.util.an b = null;
+    private com.baidu.tieba.util.r b = null;
     private String c;
     private String d;
     private String e;
-    private String f;
-    private int g;
-    private int h;
-    private boolean i;
+    private x f;
 
-    public w(v vVar, String str, String str2, String str3, String str4, int i, int i2, boolean z) {
+    public w(v vVar, String str, String str2, String str3) {
         this.a = vVar;
+        this.f = new x(vVar);
         this.c = str;
         this.d = str2;
         this.e = str3;
-        this.f = str4;
-        this.g = i;
-        this.h = i2;
-        this.i = z;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: a */
-    public String doInBackground(String... strArr) {
-        String str;
-        String str2 = TbConfig.SERVER_ADDRESS;
-        if (this.g == 0) {
-            str = String.valueOf(str2) + "c/c/bawu/delthread";
-        } else {
-            str = String.valueOf(str2) + "c/c/bawu/delpost";
-        }
-        this.b = new com.baidu.tbadk.core.util.an(str);
-        this.b.a("fid", this.c);
-        this.b.a("word", this.d);
-        this.b.a("z", this.e);
-        if (this.g == 0) {
-            if (this.h == 0) {
-                this.b.a("delete_my_thread", TbConfig.ST_PARAM_TAB_MSG_PERSONAL_CHAT_CLICK);
+    public Boolean a(String... strArr) {
+        try {
+            this.b = new com.baidu.tieba.util.r(strArr[0]);
+            this.b.a("fid", this.c);
+            this.b.a("kw", this.d);
+            this.b.a("is_like", this.e);
+            this.b.d(true);
+            String j = this.b.j();
+            if (this.b.d()) {
+                if (this.e.equals("0")) {
+                    try {
+                        JSONObject jSONObject = new JSONObject(j);
+                        JSONObject optJSONObject = jSONObject.optJSONObject("like_data");
+                        if (optJSONObject.optInt("is_success", 0) == 1) {
+                            this.f.d = optJSONObject.optInt("level_id", 0);
+                            this.f.e = optJSONObject.optString("level_name", "");
+                            JSONObject optJSONObject2 = jSONObject.optJSONObject("user_perm");
+                            if (optJSONObject2 != null) {
+                                this.f.f = optJSONObject2.optInt("cur_score", 0);
+                                this.f.g = optJSONObject2.optInt("levelup_score", 0);
+                            }
+                            this.f.b = true;
+                        }
+                        this.a.a(this.f);
+                    } catch (Exception e) {
+                        com.baidu.tieba.util.z.b(getClass().getName(), "doInBackground", e.getMessage());
+                    }
+                }
+                if (this.b.c()) {
+                    try {
+                        JSONObject jSONObject2 = new JSONObject(j);
+                        this.f.c = jSONObject2.optInt("num");
+                        this.f.a = true;
+                    } catch (Exception e2) {
+                        com.baidu.tieba.util.z.b(getClass().getName(), "doInBackground", e2.getMessage());
+                    }
+                }
             }
-        } else if (this.g == 1) {
-            this.b.a("pid", this.f);
-            this.b.a("isfloor", "0");
-            this.b.a("src", TbConfig.ST_PARAM_TAB_MSG_PERSONAL_CHAT_CLICK);
-            if (this.h == 0 && this.i) {
-                this.b.a("delete_my_post", TbConfig.ST_PARAM_TAB_MSG_PERSONAL_CHAT_CLICK);
-            }
-        } else if (this.g == 2) {
-            this.b.a("pid", this.f);
-            this.b.a("isfloor", TbConfig.ST_PARAM_TAB_MSG_PERSONAL_CHAT_CLICK);
-            this.b.a("src", TbConfig.ST_PARAM_PERSON_INFO_SEND_MESSAGE);
-            if (this.h == 0 && this.i) {
-                this.b.a("delete_my_post", TbConfig.ST_PARAM_TAB_MSG_PERSONAL_CHAT_CLICK);
-            }
+            return false;
+        } catch (Exception e3) {
+            com.baidu.tieba.util.z.b(getClass().getName(), "", "AddFanAsyncTask.doInBackground error = " + e3.getMessage());
+            return false;
         }
-        if (this.h == 0 && !this.i) {
-            this.b.a("is_vipdel", TbConfig.ST_PARAM_TAB_MSG_PERSONAL_CHAT_CLICK);
-        } else {
-            this.b.a("is_vipdel", "0");
-        }
-        this.b.a().a().a = true;
-        this.b.i();
-        if (this.b.a().b().b()) {
-            return null;
-        }
-        return this.b.f();
     }
 
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void cancel() {
-        com.baidu.adp.base.e eVar;
-        if (this.b != null) {
-            this.b.g();
-        }
-        this.a.a = null;
         super.cancel(true);
-        eVar = this.a.mLoadDataCallBack;
-        eVar.a(null);
+        if (this.b != null) {
+            this.b.h();
+        }
+        this.a.j = null;
+        this.a.a(false);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: a */
-    public void onPostExecute(String str) {
-        com.baidu.adp.base.e eVar;
-        com.baidu.adp.base.e eVar2;
-        super.onPostExecute(str);
-        this.a.a = null;
-        if (this.b == null) {
-            eVar2 = this.a.mLoadDataCallBack;
-            eVar2.a(null);
-            return;
+    public void a(Boolean bool) {
+        com.baidu.tieba.frs.ab abVar;
+        com.baidu.tieba.frs.ab abVar2;
+        this.a.j = null;
+        this.a.a(false);
+        if (this.b != null) {
+            y yVar = new y(this.a);
+            yVar.d = this.b.g();
+            yVar.c = this.b.e();
+            abVar = this.a.g;
+            if (abVar != null) {
+                abVar2 = this.a.g;
+                abVar2.a(this.f, yVar);
+            }
         }
-        x xVar = new x(this.a);
-        xVar.c = this.g;
-        xVar.d = this.f;
-        xVar.b = str;
-        if (str == null) {
-            xVar.a = true;
-        } else {
-            xVar.a = false;
-        }
-        eVar = this.a.mLoadDataCallBack;
-        eVar.a(xVar);
     }
 }

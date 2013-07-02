@@ -1,29 +1,18 @@
 package com.baidu.tieba;
 
-import android.os.Handler;
-import android.os.Message;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.TbadkApplication;
+import android.content.DialogInterface;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class h extends Handler {
-    final /* synthetic */ LogoActivity a;
+public class h implements DialogInterface.OnCancelListener {
+    final /* synthetic */ g a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public h(LogoActivity logoActivity) {
-        this.a = logoActivity;
+    public h(g gVar) {
+        this.a = gVar;
     }
 
-    @Override // android.os.Handler
-    public void handleMessage(Message message) {
-        boolean z;
-        this.a.b = true;
-        z = this.a.a;
-        if (z) {
-            if (!this.a.getDatabasePath(TbConfig.PHONE_DATEBASE_NAME).exists()) {
-                TbadkApplication.setCurrentAccount(com.baidu.tbadk.core.account.a.c(), this.a.getBaseContext());
-            }
-            this.a.a(this.a.getBaseContext());
-        }
-        super.handleMessage(message);
+    @Override // android.content.DialogInterface.OnCancelListener
+    public void onCancel(DialogInterface dialogInterface) {
+        this.a.h = null;
     }
 }

@@ -1,73 +1,34 @@
 package com.baidu.adp.lib.debug.b;
 
-import android.content.Context;
 import android.view.MotionEvent;
 import android.view.View;
-import android.view.WindowManager;
+import android.widget.ImageButton;
 /* loaded from: classes.dex */
-public class l {
-    private static float c = 0.0f;
-    private static float d = 200.0f;
-    private static float e = 0.0f;
-    private static float f = 0.0f;
-    private static float g = 0.0f;
-    private static WindowManager h = null;
-    private static View i = null;
-    public static WindowManager.LayoutParams a = new WindowManager.LayoutParams();
-    public static int b = 0;
-    private static View j = null;
+class l implements View.OnTouchListener {
+    final /* synthetic */ j a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static void a(Context context, View view) {
-        a(context);
-        i = view;
-        j = view;
-        h = (WindowManager) context.getSystemService("window");
-        a.type = 2007;
-        a.flags = 40;
-        a.width = -2;
-        a.height = -2;
-        a.alpha = 0.5f;
-        a.gravity = 51;
-        a.x = (int) c;
-        a.y = (int) d;
-        h.addView(view, a);
+    public l(j jVar) {
+        this.a = jVar;
     }
 
-    public static boolean a(MotionEvent motionEvent, View view) {
-        c = motionEvent.getRawX();
-        d = motionEvent.getRawY();
-        switch (motionEvent.getAction()) {
-            case 0:
-                a(0.0f);
-                f = motionEvent.getX();
-                g = motionEvent.getY();
-                return false;
-            case 1:
-                a(1.0f);
-                return false;
-            case 2:
-                a(2.0f);
-                a(view);
-                return false;
-            default:
-                return false;
+    @Override // android.view.View.OnTouchListener
+    public boolean onTouch(View view, MotionEvent motionEvent) {
+        if (this.a.s && motionEvent.getAction() == 0) {
+            ((ImageButton) view).setBackgroundDrawable(this.a.getResources().getDrawable(com.baidu.adp.d.adp_debug_switch_bk));
+            this.a.l.setVisibility(8);
+            this.a.l.setClickable(false);
+            this.a.b.setVisibility(8);
+            this.a.s = false;
+            this.a.c.setVisibility(0);
+        } else if (motionEvent.getAction() == 0) {
+            ((ImageButton) view).setBackgroundDrawable(this.a.getResources().getDrawable(com.baidu.adp.d.adp_debug_switch));
+            this.a.l.setVisibility(0);
+            this.a.l.setClickable(true);
+            this.a.b.setVisibility(0);
+            this.a.c.setVisibility(8);
+            this.a.s = true;
         }
-    }
-
-    public static void a(Context context) {
-        if (j != null && j.isShown()) {
-            ((WindowManager) context.getSystemService("window")).removeView(j);
-        }
-    }
-
-    private static void a(View view) {
-        a.x = (int) (c - f);
-        a.y = (int) (d - g);
-        h.updateViewLayout(i, a);
-    }
-
-    public static void a(float f2) {
-        e = f2;
+        return false;
     }
 }

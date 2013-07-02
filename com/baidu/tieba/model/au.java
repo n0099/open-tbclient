@@ -1,29 +1,53 @@
 package com.baidu.tieba.model;
-
-import com.baidu.tieba.data.PersonChangeData;
 /* loaded from: classes.dex */
-public class au extends com.baidu.adp.base.b {
-    PersonChangeData a;
+public class au {
+    int a;
+    String b;
+    String c;
+    String d;
+    int e;
+    boolean f;
+    int g;
+    int h;
+    final /* synthetic */ at i;
 
-    public au(PersonChangeData personChangeData) {
-        this.a = null;
-        this.a = personChangeData;
-        if (this.a == null) {
-            this.a = new PersonChangeData();
-        }
+    public au(at atVar) {
+        this.i = atVar;
     }
 
-    public PersonChangeData a() {
+    public int a() {
         return this.a;
     }
 
-    @Override // com.baidu.adp.base.b
-    protected boolean LoadData() {
-        return false;
+    public String b() {
+        return this.b;
     }
 
-    @Override // com.baidu.adp.base.b
-    public boolean cancelLoadData() {
-        return false;
+    public String c() {
+        return this.c;
+    }
+
+    public String d() {
+        return this.d;
+    }
+
+    public int e() {
+        return this.e;
+    }
+
+    public boolean f() {
+        return this.f;
+    }
+
+    public int g() {
+        return this.g;
+    }
+
+    public int h() {
+        return this.h;
+    }
+
+    public void a(boolean z) {
+        this.f = z;
     }
 }

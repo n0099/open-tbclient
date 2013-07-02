@@ -10,6 +10,6 @@ class r implements Runnable {
 
     @Override // java.lang.Runnable
     public void run() {
-        this.a.checkUpdata();
+        this.a.a();
     }
 }

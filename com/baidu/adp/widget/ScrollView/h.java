@@ -1,10 +1,11 @@
 package com.baidu.adp.widget.ScrollView;
 
 import android.view.View;
-import android.widget.LinearLayout;
 import java.util.Timer;
+import java.util.TimerTask;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class h implements Runnable {
+public class h extends TimerTask {
     final /* synthetic */ g a;
     private final /* synthetic */ View b;
     private final /* synthetic */ Timer c;
@@ -16,48 +17,8 @@ class h implements Runnable {
         this.c = timer;
     }
 
-    @Override // java.lang.Runnable
+    @Override // java.util.TimerTask, java.lang.Runnable
     public void run() {
-        f fVar;
-        int i;
-        f fVar2;
-        int i2;
-        f fVar3;
-        boolean z;
-        f fVar4;
-        i iVar;
-        f fVar5;
-        i iVar2;
-        f fVar6;
-        int i3;
-        f fVar7;
-        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.b.getLayoutParams();
-        int i4 = layoutParams.topMargin;
-        fVar = this.a.a;
-        i = fVar.a;
-        layoutParams.topMargin = i4 - i;
-        int i5 = layoutParams.topMargin;
-        fVar2 = this.a.a;
-        i2 = fVar2.c;
-        if (i5 <= i2) {
-            fVar6 = this.a.a;
-            i3 = fVar6.c;
-            layoutParams.topMargin = i3;
-            this.c.cancel();
-            fVar7 = this.a.a;
-            fVar7.d = true;
-        }
-        this.b.setLayoutParams(layoutParams);
-        fVar3 = this.a.a;
-        z = fVar3.d;
-        if (z) {
-            fVar4 = this.a.a;
-            iVar = fVar4.e;
-            if (iVar != null) {
-                fVar5 = this.a.a;
-                iVar2 = fVar5.e;
-                iVar2.a();
-            }
-        }
+        this.b.post(new i(this, this.b, this.c));
     }
 }

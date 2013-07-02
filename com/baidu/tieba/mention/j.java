@@ -1,33 +1,33 @@
 package com.baidu.tieba.mention;
 
-import android.view.View;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.ProgressBar;
-import android.widget.TextView;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.widget.ListView;
 /* loaded from: classes.dex */
-public class j {
-    TextView a;
-    ProgressBar b;
-    i c;
-    ImageView d;
-    TextView e;
-    TextView f;
-    TextView g;
-    View h;
-    TextView i;
-    TextView j;
-    TextView k;
-    LinearLayout l;
-    final /* synthetic */ g m;
-
-    private j(g gVar) {
-        this.m = gVar;
-    }
+class j implements com.baidu.tbadk.a.d {
+    final /* synthetic */ i a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ j(g gVar, j jVar) {
-        this(gVar);
+    public j(i iVar) {
+        this.a = iVar;
+    }
+
+    @Override // com.baidu.tbadk.a.d
+    public void a(com.baidu.adp.widget.a.b bVar, String str, boolean z) {
+        h hVar;
+        ListView listView;
+        h hVar2;
+        ListView listView2;
+        hVar = this.a.a;
+        listView = hVar.d;
+        ImageView imageView = (ImageView) listView.findViewWithTag(str);
+        while (imageView != null) {
+            imageView.setTag(null);
+            if (imageView != null && bVar != null) {
+                bVar.b(imageView);
+            }
+            hVar2 = this.a.a;
+            listView2 = hVar2.d;
+            imageView = (ImageView) listView2.findViewWithTag(str);
+        }
     }
 }

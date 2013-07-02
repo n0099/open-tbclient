@@ -1,74 +1,78 @@
 package com.baidu.adp.lib.asyncTask;
-
-import com.baidu.adp.base.BdBaseApplication;
-import com.baidu.adp.lib.asyncTask.BdAsyncTaskParallel;
-import java.security.InvalidParameterException;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public abstract class j implements Runnable {
-    private k<?> a;
+    private l a;
 
-    public j(k<?> kVar) {
+    public j(l lVar) {
         this.a = null;
-        if (kVar == null || kVar.b() == null) {
-            throw new InvalidParameterException("parameter is null");
+        if (lVar == null) {
+            throw new NullPointerException();
         }
-        this.a = kVar;
+        this.a = lVar;
     }
 
     public void a() {
-        try {
-            this.a.run();
-        } catch (OutOfMemoryError e) {
-            BdBaseApplication.getInst().onAppMemoryLow();
-            System.gc();
+        if (this.a != null) {
+            try {
+                this.a.run();
+            } catch (OutOfMemoryError e) {
+                com.baidu.adp.a.b.a().c();
+                System.gc();
+            }
         }
     }
 
     public void b() {
-        this.a.a();
-    }
-
-    public boolean c() {
-        return this.a.isCancelled();
-    }
-
-    public BdAsyncTask<?, ?, ?> d() {
-        return this.a.b();
-    }
-
-    public int e() {
-        return this.a.b().getPriority();
-    }
-
-    public void a(boolean z) {
-        this.a.b().setTimeout(z);
-    }
-
-    public boolean f() {
-        return this.a.b().isTimeout();
-    }
-
-    public int g() {
-        return this.a.b().getTag();
-    }
-
-    public int h() {
-        if (this.a.b().getParallel() != null) {
-            return this.a.b().getParallel().a();
+        if (this.a != null) {
+            this.a.a();
         }
-        return 0;
     }
 
-    public String i() {
-        return this.a.b().getKey();
+    public BdAsyncTask c() {
+        if (this.a != null) {
+            return this.a.b();
+        }
+        return null;
     }
 
-    public BdAsyncTaskParallel.BdAsyncTaskParallelType j() {
-        return this.a.b().getParallel() != null ? this.a.b().getParallel().b() : BdAsyncTaskParallel.BdAsyncTaskParallelType.MAX_PARALLEL;
+    public int d() {
+        try {
+            return this.a.b().getPriority();
+        } catch (Exception e) {
+            return 1;
+        }
     }
 
-    public boolean k() {
-        return this.a.b().isSelfExecute();
+    public String e() {
+        try {
+            return this.a.b().getTag();
+        } catch (Exception e) {
+            return null;
+        }
+    }
+
+    public String f() {
+        try {
+            return this.a.b().getKey();
+        } catch (Exception e) {
+            return null;
+        }
+    }
+
+    public BdAsyncTaskType g() {
+        try {
+            return this.a.b().getType();
+        } catch (Exception e) {
+            return BdAsyncTaskType.MAX_PARALLEL;
+        }
+    }
+
+    public boolean h() {
+        try {
+            return this.a.b().isSelfExecute();
+        } catch (Exception e) {
+            return false;
+        }
     }
 }

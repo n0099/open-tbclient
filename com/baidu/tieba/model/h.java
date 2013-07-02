@@ -1,51 +1,81 @@
 package com.baidu.tieba.model;
 
-import com.baidu.adp.framework.listener.HttpMessageListener;
-import com.baidu.adp.framework.message.HttpResponsedMessage;
-import com.baidu.tieba.message.ResponseSetBubbleMessage;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.android.pushservice.PushConstants;
+import com.baidu.tieba.TiebaApplication;
+import com.baidu.tieba.util.DatabaseService;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class h extends HttpMessageListener {
+public class h extends BdAsyncTask {
     final /* synthetic */ f a;
+    private com.baidu.tieba.util.r b = null;
+    private String c = null;
+    private int d;
+    private com.baidu.tieba.data.ay e;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public h(f fVar, int i) {
-        super(i);
         this.a = fVar;
+        this.d = 0;
+        this.e = null;
+        this.d = i;
+        this.e = new com.baidu.tieba.data.ay();
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public void b() {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    /* renamed from: a */
-    public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-        j jVar;
-        j jVar2;
-        j jVar3;
-        j jVar4;
-        j jVar5;
-        if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1007001) {
-            jVar = this.a.b;
-            if (jVar != null) {
-                int statusCode = httpResponsedMessage.getStatusCode();
-                int error = httpResponsedMessage.getError();
-                if (!(httpResponsedMessage instanceof ResponseSetBubbleMessage)) {
-                    jVar5 = this.a.b;
-                    jVar5.b(null);
-                    return;
-                }
-                ResponseSetBubbleMessage responseSetBubbleMessage = (ResponseSetBubbleMessage) httpResponsedMessage;
-                if (statusCode != 200 || error != 0) {
-                    jVar2 = this.a.b;
-                    jVar2.b(responseSetBubbleMessage.getSetBubbleResultData());
-                } else if (responseSetBubbleMessage.getSetBubbleResultData() == null) {
-                    jVar4 = this.a.b;
-                    jVar4.b(responseSetBubbleMessage.getSetBubbleResultData());
-                } else {
-                    jVar3 = this.a.b;
-                    jVar3.a(responseSetBubbleMessage.getSetBubbleResultData());
-                }
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public f a(Boolean... boolArr) {
+        this.b = new com.baidu.tieba.util.r(String.valueOf(com.baidu.tieba.data.g.a) + "c/f/post/threadstore");
+        this.b.a(PushConstants.EXTRA_USER_ID, TiebaApplication.D());
+        this.b.a("offset", String.valueOf(this.d));
+        this.b.a("rn", String.valueOf(20));
+        this.c = this.b.j();
+        this.e.a(this.c);
+        f fVar = new f();
+        if (this.b.c() || this.e.a() == 0) {
+            fVar.a(this.c);
+            if (this.d == 0) {
+                DatabaseService.k(this.c);
             }
+        } else {
+            this.c = DatabaseService.f();
+            fVar.a(this.c);
+        }
+        return fVar;
+    }
+
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public void cancel() {
+        super.cancel(true);
+        if (this.b != null) {
+            this.b.h();
+        }
+        this.a.b = null;
+        if (this.a.a != null) {
+            this.a.a.a(0, null);
+        }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public void a(f fVar) {
+        String g;
+        this.a.b = null;
+        this.a.f = fVar.c();
+        this.a.b(fVar.b());
+        if (this.a.a != null) {
+            if (this.b.c()) {
+                g = this.e.b();
+            } else {
+                g = this.b.g();
+            }
+            this.a.a.a(0, g);
         }
     }
 }

@@ -1,19 +1,17 @@
 package com.baidu.tieba.account;
 
-import com.baidu.tbadk.core.data.AccountData;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.view.View;
 /* loaded from: classes.dex */
-public class ad implements com.baidu.tbadk.coreExtra.view.v {
-    final /* synthetic */ SapiFastRegActivity a;
+class ad implements View.OnClickListener {
+    final /* synthetic */ ProtocolActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ad(SapiFastRegActivity sapiFastRegActivity) {
-        this.a = sapiFastRegActivity;
+    public ad(ProtocolActivity protocolActivity) {
+        this.a = protocolActivity;
     }
 
-    @Override // com.baidu.tbadk.coreExtra.view.v
-    public void a(AccountData accountData) {
-        this.a.b = "regist_user";
-        this.a.b(accountData);
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        this.a.finish();
     }
 }

@@ -1,40 +1,39 @@
 package com.baidu.tieba.util;
 
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.tbadk.coreExtra.data.WriteData;
+import com.baidu.zeus.NotificationProxy;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.util.zip.GZIPInputStream;
+import java.util.zip.GZIPOutputStream;
 /* loaded from: classes.dex */
-class o extends BdAsyncTask<String, String, WriteData> {
-    private final n a;
-    private final String b;
-
-    public o(String str, n nVar) {
-        setPriority(3);
-        this.a = nVar;
-        this.b = str;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: a */
-    public WriteData doInBackground(String... strArr) {
-        String str;
-        try {
-            str = com.baidu.tbadk.core.a.b.a().e().a(this.b);
-        } catch (Exception e) {
-            str = null;
+public class o {
+    public static void a(InputStream inputStream, OutputStream outputStream) {
+        GZIPInputStream gZIPInputStream = new GZIPInputStream(inputStream);
+        byte[] bArr = new byte[NotificationProxy.MAX_URL_LENGTH];
+        while (true) {
+            int read = gZIPInputStream.read(bArr, 0, NotificationProxy.MAX_URL_LENGTH);
+            if (read != -1) {
+                outputStream.write(bArr, 0, read);
+            } else {
+                gZIPInputStream.close();
+                return;
+            }
         }
-        return WriteData.fromDraftString(str);
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: a */
-    public void onPostExecute(WriteData writeData) {
-        super.onPostExecute(writeData);
-        if (this.a != null) {
-            this.a.a(writeData);
+    public static void b(InputStream inputStream, OutputStream outputStream) {
+        GZIPOutputStream gZIPOutputStream = new GZIPOutputStream(outputStream);
+        byte[] bArr = new byte[NotificationProxy.MAX_URL_LENGTH];
+        while (true) {
+            int read = inputStream.read(bArr, 0, NotificationProxy.MAX_URL_LENGTH);
+            if (read != -1) {
+                gZIPOutputStream.write(bArr, 0, read);
+            } else {
+                gZIPOutputStream.flush();
+                gZIPOutputStream.finish();
+                gZIPOutputStream.close();
+                return;
+            }
         }
     }
 }

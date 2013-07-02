@@ -1,50 +1,46 @@
 package com.baidu.tieba.more;
 
-import android.view.View;
-import android.widget.Scroller;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.widget.CompoundButton;
+import com.baidu.tieba.R;
+import com.baidu.tieba.TiebaApplication;
+import com.baidu.tieba.util.DatabaseService;
 /* loaded from: classes.dex */
-public class ad implements Runnable {
-    final /* synthetic */ ac a;
+class ad implements CompoundButton.OnCheckedChangeListener {
+    final /* synthetic */ MsgRemindActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ad(ac acVar) {
-        this.a = acVar;
+    public ad(MsgRemindActivity msgRemindActivity) {
+        this.a = msgRemindActivity;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        Scroller scroller;
-        boolean z;
-        View view;
-        Scroller scroller2;
-        View view2;
-        View view3;
-        View view4;
-        View view5;
-        View view6;
-        View view7;
-        scroller = this.a.b;
-        if (scroller.computeScrollOffset()) {
-            scroller2 = this.a.b;
-            int currX = scroller2.getCurrX();
-            view2 = this.a.a;
-            view3 = this.a.a;
-            int paddingLeft = view3.getPaddingLeft();
-            view4 = this.a.a;
-            int paddingRight = view4.getPaddingRight();
-            view5 = this.a.a;
-            view2.setPadding(paddingLeft, currX, paddingRight, view5.getPaddingBottom());
-            view6 = this.a.a;
-            view6.invalidate();
-            view7 = this.a.a;
-            view7.post(this);
-            return;
+    @Override // android.widget.CompoundButton.OnCheckedChangeListener
+    public void onCheckedChanged(CompoundButton compoundButton, boolean z) {
+        switch (compoundButton.getId()) {
+            case R.id.check_replyme /* 2131165841 */:
+                if (z) {
+                    TiebaApplication.f().n(true);
+                    break;
+                } else {
+                    TiebaApplication.f().n(false);
+                    break;
+                }
+            case R.id.check_atme /* 2131165842 */:
+                if (z) {
+                    TiebaApplication.f().m(true);
+                    break;
+                } else {
+                    TiebaApplication.f().m(false);
+                    break;
+                }
+            case R.id.check_newfans /* 2131165843 */:
+                if (z) {
+                    TiebaApplication.f().l(true);
+                    break;
+                } else {
+                    TiebaApplication.f().l(false);
+                    break;
+                }
         }
-        z = this.a.f;
-        if (!z) {
-            view = this.a.a;
-            view.setVisibility(8);
-        }
+        DatabaseService.w();
     }
 }

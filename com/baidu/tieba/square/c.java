@@ -1,45 +1,45 @@
 package com.baidu.tieba.square;
 
 import android.app.Activity;
-import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
-import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.util.br;
-import com.baidu.tbadk.core.view.HeadImageView;
+import com.baidu.tieba.R;
+import com.baidu.tieba.TiebaApplication;
+import com.baidu.tieba.util.aa;
+import com.baidu.tieba.util.ad;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class c extends BaseAdapter {
     View.OnClickListener a = new d(this);
     private Activity b;
-    private ArrayList<ab> c;
-    private com.baidu.tbadk.editortool.ab d;
+    private final f c;
+    private com.baidu.tieba.util.a d;
+    private final boolean e;
 
-    public c(Activity activity, h hVar, boolean z) {
+    public c(Activity activity, f fVar, boolean z) {
         this.b = activity;
-        this.c = hVar.d();
-        this.d = new com.baidu.tbadk.editortool.ab(activity);
-        int a = com.baidu.adp.lib.util.k.a((Context) activity, 45.0f);
+        this.c = fVar;
+        this.e = z;
+        this.d = new com.baidu.tieba.util.a(activity);
+        int a = aa.a(activity, 54.0f);
         this.d.a(a, a);
     }
 
-    public ArrayList<ab> a() {
+    public f a() {
         return this.c;
-    }
-
-    public void a(ArrayList<ab> arrayList) {
-        this.c = arrayList;
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.c == null) {
+        ArrayList c = this.c.c();
+        if (c == null) {
             return 0;
         }
-        return (this.c.size() * 2) + 1;
+        return (c.size() * 2) - 1;
     }
 
     @Override // android.widget.Adapter
@@ -47,20 +47,26 @@ public class c extends BaseAdapter {
         int itemViewType = getItemViewType(i);
         if (view == null) {
             view = a(viewGroup, itemViewType);
-            br.b(view);
+            ad.b(view);
         }
-        br.a(view);
+        ad.a(view);
         if (itemViewType != 3) {
-            int skinType = TbadkApplication.m252getInst().getSkinType();
-            View findViewById = view.findViewById(com.baidu.tieba.v.container);
-            br.a(findViewById, 1, skinType);
-            if (itemViewType == 2) {
-                if (getCount() > 1) {
-                    findViewById.setVisibility(0);
-                }
-            } else if (itemViewType == 1) {
-                a(viewGroup, (g) view.getTag(), i);
+            int as = TiebaApplication.f().as();
+            View findViewById = view.findViewById(R.id.container);
+            View findViewById2 = view.findViewById(R.id.item_up);
+            View findViewById3 = view.findViewById(R.id.item_down);
+            if (itemViewType == 0) {
+                findViewById2.setVisibility(0);
+                findViewById3.setVisibility(8);
+            } else if (itemViewType == 2) {
+                findViewById2.setVisibility(8);
+                findViewById3.setVisibility(0);
+            } else {
+                findViewById2.setVisibility(8);
+                findViewById3.setVisibility(8);
             }
+            ad.a(findViewById, itemViewType, as);
+            a(viewGroup, (j) view.getTag(), i);
         }
         return view;
     }
@@ -68,46 +74,44 @@ public class c extends BaseAdapter {
     private View a(ViewGroup viewGroup, int i) {
         LayoutInflater from = LayoutInflater.from(this.b);
         if (i == 3) {
-            return from.inflate(com.baidu.tieba.w.bar_home_list_line, viewGroup, false);
+            return from.inflate(R.layout.bar_home_list_line, viewGroup, false);
         }
-        if (i == 2) {
-            return from.inflate(com.baidu.tieba.w.bar_folder_first_dir_bottom_item, viewGroup, false);
-        }
-        View inflate = from.inflate(com.baidu.tieba.w.bar_folder_first_dir_item, viewGroup, false);
+        View inflate = from.inflate(R.layout.bar_folder_first_dir_item, viewGroup, false);
         inflate.setOnClickListener(this.a);
-        g gVar = new g();
-        gVar.a = (HeadImageView) inflate.findViewById(com.baidu.tieba.v.portrait);
-        gVar.b = (TextView) inflate.findViewById(com.baidu.tieba.v.name);
-        gVar.c = (BestStringsFitTextView) inflate.findViewById(com.baidu.tieba.v.description);
-        inflate.setTag(gVar);
+        j jVar = new j();
+        jVar.a = (ImageView) inflate.findViewById(R.id.portrait);
+        jVar.b = (TextView) inflate.findViewById(R.id.name);
+        jVar.c = (BestStringsFitTextView) inflate.findViewById(R.id.description);
+        inflate.setTag(jVar);
         return inflate;
     }
 
-    private void a(ViewGroup viewGroup, g gVar, int i) {
-        int i2 = 0;
-        ab abVar = this.c.get(i / 2);
-        gVar.d = abVar;
-        gVar.b.setText(abVar.b);
-        if (abVar.e != null) {
-            gVar.c.setVisibility(0);
-            String[] strArr = new String[abVar.e.size()];
-            while (true) {
-                int i3 = i2;
-                if (i3 >= abVar.e.size()) {
-                    break;
-                }
-                strArr[i3] = abVar.e.get(i3).b;
-                i2 = i3 + 1;
+    private void a(ViewGroup viewGroup, j jVar, int i) {
+        q qVar = (q) this.c.c().get(i / 2);
+        jVar.d = qVar;
+        jVar.b.setText(qVar.b);
+        if (qVar.e != null) {
+            String[] strArr = new String[qVar.e.size()];
+            for (int i2 = 0; i2 < qVar.e.size(); i2++) {
+                strArr[i2] = ((q) qVar.e.get(i2)).b;
             }
-            gVar.c.setTextArray(strArr);
+            jVar.c.setTextArray(strArr);
+            jVar.c.setVisibility(0);
         } else {
-            gVar.c.setVisibility(8);
+            jVar.c.setVisibility(8);
         }
-        if (abVar.d != null) {
-            gVar.a.setImageBitmap(null);
-            gVar.a.setTag(abVar.d);
-            this.d.b(abVar.d, new e(this, viewGroup));
+        if (qVar.d != null) {
+            com.baidu.adp.widget.a.b c = this.d.c(qVar.d);
+            if (c != null) {
+                c.b(jVar.a);
+                return;
+            }
+            jVar.a.setImageResource(R.drawable.icon_all_categories);
+            jVar.a.setTag(qVar.d);
+            this.d.a(qVar.d, new e(this, viewGroup));
+            return;
         }
+        jVar.a.setImageResource(R.drawable.icon_all_categories);
     }
 
     @Override // android.widget.Adapter
@@ -127,11 +131,11 @@ public class c extends BaseAdapter {
 
     @Override // android.widget.BaseAdapter, android.widget.Adapter
     public int getItemViewType(int i) {
+        if (i == 0) {
+            return 0;
+        }
         if (i == getCount() - 1) {
             return 2;
-        }
-        if (i < 0) {
-            i *= -1;
         }
         return i % 2 == 1 ? 3 : 1;
     }

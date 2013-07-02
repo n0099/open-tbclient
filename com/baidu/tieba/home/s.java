@@ -1,30 +1,21 @@
 package com.baidu.tieba.home;
 
-import com.baidu.adp.lib.util.BdLog;
-import org.json.JSONObject;
+import android.widget.ImageView;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
 /* loaded from: classes.dex */
-public class s {
-    private int a = -1;
-    private String b = null;
-    private String c = null;
+class s {
+    RelativeLayout a;
+    TextView b;
+    ImageView c;
+    final /* synthetic */ r d;
 
-    public int a() {
-        return this.a;
+    private s(r rVar) {
+        this.d = rVar;
     }
 
-    public String b() {
-        return this.c;
-    }
-
-    public void a(JSONObject jSONObject) {
-        if (jSONObject != null) {
-            try {
-                this.a = jSONObject.optInt("errno");
-                this.b = jSONObject.optString("errmsg");
-                this.c = jSONObject.optString("usermsg");
-            } catch (Exception e) {
-                BdLog.e(getClass().getName(), "parserJson", e.getMessage());
-            }
-        }
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public /* synthetic */ s(r rVar, s sVar) {
+        this(rVar);
     }
 }

@@ -1,37 +1,29 @@
 package com.baidu.tieba.account;
 
-import android.view.View;
-import android.widget.EditText;
-import android.widget.ImageView;
+import android.text.Editable;
+import android.text.TextWatcher;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class v implements View.OnFocusChangeListener {
-    final /* synthetic */ Register2Activity a;
+public class v implements TextWatcher {
+    final /* synthetic */ LoginActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public v(Register2Activity register2Activity) {
-        this.a = register2Activity;
+    public v(LoginActivity loginActivity) {
+        this.a = loginActivity;
     }
 
-    @Override // android.view.View.OnFocusChangeListener
-    public void onFocusChange(View view, boolean z) {
-        EditText editText;
-        EditText editText2;
-        ImageView imageView = null;
-        editText = this.a.t;
-        if (view == editText) {
-            imageView = this.a.k;
-        } else {
-            editText2 = this.a.v;
-            if (view == editText2) {
-                imageView = this.a.l;
-            }
-        }
-        if (imageView != null) {
-            if (z) {
-                imageView.setVisibility(0);
-            } else {
-                imageView.setVisibility(8);
-            }
-        }
+    @Override // android.text.TextWatcher
+    public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
+        this.a.r = true;
+        this.a.w();
+    }
+
+    @Override // android.text.TextWatcher
+    public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
+    }
+
+    @Override // android.text.TextWatcher
+    public void afterTextChanged(Editable editable) {
+        this.a.m();
     }
 }

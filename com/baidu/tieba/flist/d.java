@@ -1,142 +1,42 @@
 package com.baidu.tieba.flist;
 
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.util.an;
+import android.view.View;
+import android.widget.ImageView;
+import com.baidu.tieba.R;
+import com.baidu.tieba.model.ForumListModel;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class d extends BdAsyncTask<Object, Integer, com.baidu.tieba.square.t> {
-    com.baidu.tieba.square.t a;
-    final /* synthetic */ c b;
-    private an c;
-
-    private d(c cVar) {
-        this.b = cVar;
-        this.c = null;
-        this.a = new com.baidu.tieba.square.t();
-    }
+public class d implements View.OnClickListener {
+    final /* synthetic */ ForumListActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ d(c cVar, d dVar) {
-        this(cVar);
+    public d(ForumListActivity forumListActivity) {
+        this.a = forumListActivity;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: a */
-    public void onProgressUpdate(Integer... numArr) {
-        e eVar;
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
         boolean z;
-        super.onProgressUpdate(numArr);
-        if (this.a != null) {
-            eVar = this.b.b;
-            int a = this.a.a();
-            com.baidu.tieba.square.ab d = this.a.d();
-            String c = this.a.c();
-            z = this.b.g;
-            eVar.a(true, a, d, c, z);
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: a */
-    public com.baidu.tieba.square.t doInBackground(Object... objArr) {
-        String str;
-        String str2;
-        String str3;
-        String i;
-        String str4;
-        String str5;
-        String str6 = null;
-        com.baidu.adp.lib.cache.s<String> p = com.baidu.tbadk.core.a.b.a().p();
-        if (p != null) {
-            StringBuilder append = new StringBuilder(String.valueOf(TbadkApplication.getCurrentAccount())).append("_");
-            str5 = this.b.c;
-            str6 = p.a(append.append(str5).append("_dir").toString());
-        }
-        if (str6 != null) {
-            this.a.b(str6);
-            this.b.g = true;
-            publishProgress(new Integer[0]);
-        }
-        try {
-            this.c = new an(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/f/forum/seconddir");
-            an anVar = this.c;
-            str = this.b.c;
-            anVar.a("menu_name", str);
-            an anVar2 = this.c;
-            str2 = this.b.d;
-            anVar2.a("menu_type", str2);
-            an anVar3 = this.c;
-            str3 = this.b.e;
-            anVar3.a("menu_id", str3);
-            i = this.c.i();
-        } catch (Exception e) {
-            this.a.a(e.getMessage());
-            BdLog.e(getClass().getName(), "doInBackground", e.getMessage());
-        }
-        if (i == null) {
-            return this.a;
-        }
-        if (this.c.a().b().b()) {
-            this.a.b(i);
-            this.b.f = true;
-            if (p != null) {
-                StringBuilder append2 = new StringBuilder(String.valueOf(TbadkApplication.getCurrentAccount())).append("_");
-                str4 = this.b.c;
-                p.a(append2.append(str4).append("_dir").toString(), i, 86400000L);
-            }
-        } else {
-            this.a.a(this.c.f());
-            this.b.f = false;
-        }
-        return this.a;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: a */
-    public void onPostExecute(com.baidu.tieba.square.t tVar) {
-        boolean z;
-        e eVar;
-        boolean z2;
-        e eVar2;
-        boolean z3;
-        BdLog.d("DirMenuTask", "onPost", com.baidu.tbadk.core.frameworkData.a.START);
-        z = this.b.f;
-        if (!z) {
-            BdLog.d("DirMenuTask", "onPost", " not ok start");
-            eVar2 = this.b.b;
-            String c = tVar.c();
-            z3 = this.b.g;
-            eVar2.a(false, -1, null, c, z3);
-            BdLog.d("DirMenuTask", "onPost", "not ok end");
+        f fVar;
+        f fVar2;
+        f fVar3;
+        int i;
+        z = this.a.q;
+        if (z) {
+            fVar = this.a.s;
+            int min = Math.min(fVar.getCount(), 10);
+            ForumListModel.Forum[] forumArr = new ForumListModel.Forum[min];
+            fVar2 = this.a.s;
+            System.arraycopy(fVar2.a(), 0, forumArr, 0, min);
+            fVar3 = this.a.s;
+            fVar3.a(forumArr);
+            this.a.q = false;
+            this.a.a.r.setText(this.a.getString(R.string.flist_expand_list));
+            ImageView imageView = this.a.a.s;
+            i = this.a.e;
+            imageView.setImageResource(i);
             return;
         }
-        BdLog.d("DirMenuTask", "onPost", "ok");
-        if (tVar.d() != null) {
-            eVar = this.b.b;
-            int a = tVar.a();
-            com.baidu.tieba.square.ab d = tVar.d();
-            String c2 = tVar.c();
-            z2 = this.b.g;
-            eVar.a(true, a, d, c2, z2);
-        }
-        BdLog.d("DirMenuTask", "onPost", "ok end");
-    }
-
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void cancel() {
-        super.cancel(true);
-        if (this.c != null) {
-            this.c.g();
-            this.c = null;
-        }
+        new k(this.a, null).execute(new Void[0]);
     }
 }

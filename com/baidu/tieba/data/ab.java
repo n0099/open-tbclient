@@ -1,69 +1,32 @@
 package com.baidu.tieba.data;
 
-import com.baidu.adp.lib.util.BdLog;
-import org.json.JSONObject;
+import java.util.ArrayList;
+import org.json.JSONArray;
 /* loaded from: classes.dex */
 public class ab {
-    private int a = 0;
-    private int b = 0;
-    private int c = 0;
-    private int d = 0;
-    private int e = 0;
+    private ArrayList a = new ArrayList();
 
-    public void a(int i) {
-        this.a = i;
-    }
-
-    public int a() {
+    public ArrayList a() {
         return this.a;
     }
 
-    public void b(int i) {
-        this.b = i;
-    }
-
-    public int b() {
-        return this.b;
-    }
-
-    public void c(int i) {
-        this.c = i;
-    }
-
-    public int c() {
-        return this.c;
-    }
-
-    public int d() {
-        return this.d;
-    }
-
-    public void d(int i) {
-        this.d = i;
-    }
-
-    public int e() {
-        return this.e;
-    }
-
-    public void a(String str) {
-        try {
-            a(new JSONObject(str).optJSONObject("message"));
-        } catch (Exception e) {
-            BdLog.e("MessageData", "parserJson", "error = " + e.getMessage());
+    public void a(aa aaVar) {
+        if (this.a != null) {
+            this.a.add(aaVar);
         }
     }
 
-    public void a(JSONObject jSONObject) {
-        if (jSONObject != null) {
-            try {
-                this.a = jSONObject.optInt("replyme", 0);
-                this.b = jSONObject.optInt("atme", 0);
-                this.c = jSONObject.optInt("fans", 0);
-                this.d = jSONObject.optInt("pletter", 0);
-                this.e = jSONObject.optInt("bookmark", 0);
-            } catch (Exception e) {
-                BdLog.e("MessageData", "parserJson", "error = " + e.getMessage());
+    public void a(JSONArray jSONArray) {
+        if (jSONArray != null) {
+            for (int i = 0; i < jSONArray.length(); i++) {
+                try {
+                    aa aaVar = new aa();
+                    aaVar.a(jSONArray.getJSONObject(i));
+                    this.a.add(aaVar);
+                } catch (Exception e) {
+                    com.baidu.tieba.util.z.b("LikeForumListData", "parserJson", "error = " + e.getMessage());
+                    return;
+                }
             }
         }
     }

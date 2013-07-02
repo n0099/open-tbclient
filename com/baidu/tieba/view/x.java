@@ -1,22 +1,32 @@
 package com.baidu.tieba.view;
 
-import android.app.Activity;
-import android.view.View;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
+import android.os.Handler;
+import android.os.Message;
 /* loaded from: classes.dex */
-class x implements View.OnClickListener {
-    final /* synthetic */ SearchBoxView a;
+class x extends Handler {
+    final /* synthetic */ ImagePbImageView a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public x(SearchBoxView searchBoxView) {
-        this.a = searchBoxView;
+    public x(ImagePbImageView imagePbImageView) {
+        this.a = imagePbImageView;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        Activity activity;
-        activity = this.a.a;
-        MessageManager.getInstance().sendMessage(new CustomMessage(2003001, new com.baidu.tbadk.core.atomData.f(activity, 16003)));
+    @Override // android.os.Handler
+    public void handleMessage(Message message) {
+        int i;
+        int i2;
+        Handler handler;
+        Handler handler2;
+        super.handleMessage(message);
+        ImagePbImageView imagePbImageView = this.a;
+        i = imagePbImageView.j;
+        imagePbImageView.j = i - 1;
+        i2 = this.a.j;
+        if (i2 >= 0) {
+            handler = this.a.k;
+            handler2 = this.a.k;
+            handler.sendMessageDelayed(handler2.obtainMessage(1), 20L);
+            this.a.invalidate();
+        }
     }
 }

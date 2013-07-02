@@ -1,54 +1,77 @@
 package com.baidu.tieba.data;
 
-import android.content.Context;
-import android.view.View;
-import com.baidu.adp.lib.util.BdLog;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.tieba.TiebaApplication;
+import org.json.JSONObject;
 /* loaded from: classes.dex */
-public class h extends com.baidu.tieba.util.l {
-    final /* synthetic */ f a;
+public class h {
+    private boolean h = true;
+    private boolean i = true;
+    private boolean j = true;
+    private int k = 0;
+    private int m = 100000;
+    private int a = 0;
+    private int b = 0;
+    private int c = 1;
+    private String d = null;
+    private String e = null;
+    private String f = null;
+    private String g = null;
+    private BannerData l = new BannerData();
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public h(f fVar, Context context) {
-        super(context);
-        this.a = fVar;
+    public int a() {
+        return this.m;
     }
 
-    @Override // com.baidu.tieba.util.l, android.text.style.ClickableSpan
-    public void onClick(View view) {
-        Pattern pattern;
-        String str;
-        Pattern pattern2;
-        String str2;
-        String str3;
-        pattern = f.j;
-        str = this.a.g;
-        Matcher matcher = pattern.matcher(str);
-        if (matcher.find()) {
+    public void a(JSONObject jSONObject) {
+        if (jSONObject != null) {
             try {
-                String group = matcher.group();
-                b(group.substring(group.lastIndexOf("/") + 1));
-                return;
+                this.l.parserJson(jSONObject.optJSONObject("banner"));
+                this.a = jSONObject.optInt("pb_max_floor_total_num", 0);
+                this.b = jSONObject.optInt("pb_big_image_width", 0);
+                this.d = jSONObject.optString("big_head_image_host");
+                this.e = jSONObject.optString("small_head_image_host");
+                this.f = jSONObject.optString("yijianfankui_fname");
+                this.g = jSONObject.optString("yijianfankui_fid");
+                this.c = jSONObject.optInt("img_chunk_upload_enable", 1);
+                int optInt = jSONObject.optInt("open_filter", 1);
+                int optInt2 = jSONObject.optInt("app_recommend", -1);
+                int optInt3 = jSONObject.optInt("use_baidu_statis_gbk", 1);
+                if (optInt == 2) {
+                    this.h = false;
+                } else {
+                    this.h = true;
+                }
+                this.j = jSONObject.optInt("gpu_open", 1) == 1;
+                TiebaApplication.f().e(this.j);
+                if (jSONObject.optInt("open_abstract", 1) == 2) {
+                    this.i = false;
+                } else {
+                    this.i = true;
+                }
+                if (!this.h) {
+                    TiebaApplication.f().d(this.h);
+                }
+                if (!this.i) {
+                    TiebaApplication.f().q(this.i);
+                }
+                if (optInt2 == 1) {
+                    TiebaApplication.f().f(true);
+                } else if (optInt2 == 0) {
+                    TiebaApplication.f().f(false);
+                }
+                this.k = jSONObject.optInt("browser_type", 2);
+                this.m = jSONObject.optInt("perform_sample_param", 100000);
+                TiebaApplication.f().a(this.k);
+                TiebaApplication.f().b(optInt3 == 1);
+                TiebaApplication.f().r(jSONObject.optInt("open_local_popularize", 0) == 1);
+                g.a(this.a);
+                g.d(this.d);
+                g.c(this.e);
+                g.a(this.f, this.g);
+                g.b(this.c);
             } catch (Exception e) {
-                BdLog.e(getClass().getName(), "onClick", e.toString());
+                com.baidu.tieba.util.z.b(getClass().getName(), "parserJson", e.getMessage());
             }
         }
-        pattern2 = f.k;
-        str2 = this.a.g;
-        Matcher matcher2 = pattern2.matcher(str2);
-        if (matcher2.find()) {
-            try {
-                String group2 = matcher2.group();
-                b(group2.substring(group2.lastIndexOf("=") + 1));
-                return;
-            } catch (Exception e2) {
-                BdLog.e(getClass().getName(), "onClick", e2.toString());
-            }
-        }
-        str3 = this.a.g;
-        a(str3);
     }
 }

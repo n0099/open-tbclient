@@ -1,21 +1,24 @@
 package com.baidu.tieba.more;
+
+import com.baidu.tieba.R;
+import com.baidu.tieba.model.MoreModel;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class x implements com.baidu.tbadk.imageManager.d {
-    final /* synthetic */ w a;
+public class x extends com.baidu.adp.a.e {
+    final /* synthetic */ MoreActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public x(w wVar) {
-        this.a = wVar;
+    public x(MoreActivity moreActivity) {
+        this.a = moreActivity;
     }
 
-    @Override // com.baidu.tbadk.imageManager.d
-    public void a(com.baidu.adp.widget.a.a aVar, String str, boolean z) {
-        SettingTextImageView settingTextImageView;
-        if (aVar == null) {
-            return;
+    @Override // com.baidu.adp.a.e
+    public void a(Object obj) {
+        z zVar;
+        if (obj != null && (obj instanceof MoreModel.TaskType) && obj == MoreModel.TaskType.DO_CLEAR) {
+            this.a.a(this.a.getString(R.string.image_cash_del_suc));
+            zVar = this.a.a;
+            zVar.q();
         }
-        settingTextImageView = this.a.f;
-        settingTextImageView.setIcon(aVar);
     }
 }

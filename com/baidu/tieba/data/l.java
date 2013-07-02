@@ -1,55 +1,27 @@
 package com.baidu.tieba.data;
 
-import org.json.JSONObject;
+import android.content.Context;
+import android.view.View;
+import com.baidu.tieba.person.PersonInfoActivity;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class l {
-    private String a;
-    private String b;
-    private String c;
-    private String d;
-    private String e;
-    private String f;
-    private String g;
-    private String h;
-    private String i;
+public class l extends com.baidu.tieba.util.p {
+    final /* synthetic */ i a;
+    private final /* synthetic */ String b;
 
-    public String a() {
-        return this.a;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public l(i iVar, Context context, String str) {
+        super(context);
+        this.a = iVar;
+        this.b = str;
     }
 
-    public String b() {
-        return this.b;
-    }
-
-    public String c() {
-        return this.c;
-    }
-
-    public String d() {
-        return this.d;
-    }
-
-    public String e() {
-        return this.g;
-    }
-
-    public String f() {
-        return this.f;
-    }
-
-    public String g() {
-        return this.h;
-    }
-
-    public void a(JSONObject jSONObject) {
-        this.a = jSONObject.optString("link");
-        this.b = jSONObject.optString("title");
-        this.c = jSONObject.optString("abstract");
-        this.d = jSONObject.optString(com.baidu.tbadk.core.frameworkData.a.FORUM_NAME);
-        this.e = jSONObject.optString("img");
-        this.f = jSONObject.optString("post_type");
-        this.g = jSONObject.optString(com.baidu.tbadk.core.frameworkData.a.USER_NAME);
-        this.h = jSONObject.optString("reply_num");
-        this.i = jSONObject.optString("proper");
+    @Override // com.baidu.tieba.util.p, android.text.style.ClickableSpan
+    public void onClick(View view) {
+        String str;
+        Context a = a();
+        str = this.a.f;
+        PersonInfoActivity.a(a, str, this.b);
     }
 }

@@ -1,19 +1,21 @@
 package com.baidu.tieba.more;
-
-import android.view.View;
-import com.baidu.adp.widget.BdSwitchView.BdSwitchView;
 /* loaded from: classes.dex */
-class k implements com.baidu.adp.widget.BdSwitchView.c {
-    final /* synthetic */ j a;
+class k extends Thread {
+    final /* synthetic */ AccountActivity a;
+    private String b;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public k(j jVar) {
-        this.a = jVar;
+    public k(AccountActivity accountActivity, String str) {
+        this.a = accountActivity;
+        this.b = null;
+        this.b = str;
     }
 
-    @Override // com.baidu.adp.widget.BdSwitchView.c
-    public void a(View view, BdSwitchView.SwitchState switchState) {
-        com.baidu.tbadk.core.h.a().b(switchState == BdSwitchView.SwitchState.ON);
-        this.a.l();
+    @Override // java.lang.Thread, java.lang.Runnable
+    public void run() {
+        super.run();
+        com.baidu.tieba.util.r rVar = new com.baidu.tieba.util.r(String.valueOf(com.baidu.tieba.data.g.a) + "c/s/logout");
+        rVar.b(false);
+        rVar.a("bduss", this.b);
+        rVar.j();
     }
 }

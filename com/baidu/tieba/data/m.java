@@ -1,54 +1,84 @@
 package com.baidu.tieba.data;
 
-import com.baidu.adp.lib.util.BdLog;
-import java.util.ArrayList;
 import org.json.JSONArray;
-import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class m {
-    private String a;
-    private String b;
-    private String c;
-    private boolean d;
-    private ArrayList<l> e = new ArrayList<>();
+    public aq a;
+    public bc b;
+    private ab c;
+    private com.baidu.tieba.square.f d;
+    private boolean e;
+    private long f = 0;
 
-    public String a() {
-        return this.a;
+    public m() {
+        this.e = true;
+        this.e = true;
     }
 
-    public String b() {
-        return this.b;
-    }
-
-    public ArrayList<l> c() {
-        return this.e;
-    }
-
-    public boolean d() {
-        return this.d;
-    }
-
-    public void a(boolean z) {
-        this.d = z;
+    public void a(String str) {
+        if (str == null || str.length() < 1) {
+            this.e = false;
+            return;
+        }
+        try {
+            a(new JSONObject(str));
+        } catch (Exception e) {
+            this.e = false;
+            com.baidu.tieba.util.z.b(getClass().getName(), "parserJson", e.toString());
+        }
     }
 
     public void a(JSONObject jSONObject) {
         try {
-            this.b = jSONObject.optString("publish_time");
-            this.a = jSONObject.optString(com.baidu.tbadk.core.frameworkData.a.TOTAL);
-            this.c = jSONObject.optString("update_time");
-            JSONArray optJSONArray = jSONObject.optJSONArray("post_list");
-            if (optJSONArray != null) {
-                int length = optJSONArray.length();
-                for (int i = 0; i < length; i++) {
-                    l lVar = new l();
-                    lVar.a(optJSONArray.getJSONObject(i));
-                    this.e.add(lVar);
-                }
-            }
-        } catch (JSONException e) {
-            BdLog.e(getClass().getName(), "parserJson", e.toString());
+            JSONArray optJSONArray = jSONObject.optJSONArray("like_forum");
+            JSONObject optJSONObject = jSONObject.optJSONObject("recommend");
+            JSONArray optJSONArray2 = jSONObject.optJSONArray("topic");
+            this.a = new aq(optJSONObject);
+            this.b = new bc(optJSONArray2);
+            this.c = new ab();
+            this.c.a(optJSONArray);
+            this.d = new com.baidu.tieba.square.f();
+            this.d.b(jSONObject);
+            this.f = jSONObject.optLong("time");
+        } catch (Exception e) {
+            this.e = false;
+            com.baidu.tieba.util.z.b(getClass().getName(), "parserJson", e.toString());
         }
+    }
+
+    public ab a() {
+        return this.c;
+    }
+
+    public com.baidu.tieba.square.f b() {
+        return this.d;
+    }
+
+    public aq c() {
+        return this.a;
+    }
+
+    public bc d() {
+        return this.b;
+    }
+
+    public boolean e() {
+        return this.e;
+    }
+
+    public boolean f() {
+        return System.currentTimeMillis() / g.e.longValue() == (this.f * 1000) / g.e.longValue();
+    }
+
+    public boolean g() {
+        boolean z = false;
+        if (this.e) {
+            if (this.a == null || this.b == null || this.c == null || this.d == null) {
+                z = true;
+            }
+            return z;
+        }
+        return true;
     }
 }

@@ -1,64 +1,51 @@
 package com.baidu.tieba.data;
 
-import com.baidu.adp.lib.util.BdLog;
+import com.baidu.android.pushservice.PushConstants;
 import java.util.Date;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public abstract class a {
-    private Date a;
-    private String b;
-    private int c;
+    public static String a;
+    private Date b;
+    private String c;
 
     protected abstract void a(JSONObject jSONObject);
 
-    public int a() {
+    public boolean a() {
+        return this.c != null;
+    }
+
+    public String b() {
         return this.c;
     }
 
-    public boolean b() {
-        return this.b != null;
-    }
-
-    public String c() {
-        return this.b;
-    }
-
     public void a(String str) {
-        this.b = str;
+        this.c = str;
     }
 
     public void b(String str) {
         try {
             b(new JSONObject(str));
         } catch (Exception e) {
-            a("你的网络状况不大好，请稍后重试");
-            BdLog.e("error = " + e.getMessage());
+            a(a);
+            com.baidu.tieba.util.z.a("error = " + e.getMessage());
         }
     }
 
     public void b(JSONObject jSONObject) {
         try {
-            this.c = jSONObject.optInt("error_code", 0);
-            if (this.c != 0) {
-                a(jSONObject.optString("error_msg", "你的网络状况不大好，请稍后重试"));
+            if (jSONObject.optInt("error_code", 0) != 0) {
+                a(jSONObject.optString(PushConstants.EXTRA_ERROR_CODE, a));
                 return;
-            }
-            JSONObject optJSONObject = jSONObject.optJSONObject("error");
-            if (optJSONObject != null) {
-                this.c = optJSONObject.optInt("errno", 0);
-                if (this.c != 0) {
-                    a(optJSONObject.optString("usermsg", "你的网络状况不大好，请稍后重试"));
-                    return;
-                }
             }
             long optLong = jSONObject.optLong("ctime", 0L);
             if (optLong > 0) {
-                this.a = new Date(optLong * 1000);
+                this.b = new Date(optLong * 1000);
             }
             a(jSONObject);
         } catch (Exception e) {
-            a("你的网络状况不大好，请稍后重试");
-            BdLog.e("error = " + e.getMessage());
+            a(a);
+            com.baidu.tieba.util.z.a("error = " + e.getMessage());
         }
     }
 }

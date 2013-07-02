@@ -1,75 +1,30 @@
 package com.baidu.tieba.data;
 
-import com.baidu.adp.lib.util.BdLog;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class z {
-    private int a;
-    private int b;
-    private int c;
-    private int d;
-    private String e;
-    private int f;
-    private int g;
-    private String h;
-
-    public z() {
-        b(0);
-        c(0);
-        d(0);
-        this.d = 0;
-        c("");
-        e(0);
-        f(0);
-    }
-
-    public String a() {
-        return this.h;
-    }
-
-    public void a(String str) {
-        this.h = str;
-    }
-
-    public int b() {
-        return this.d;
-    }
+    private int a = 0;
+    private int b = 0;
+    private int c = 0;
+    private int d = 0;
+    private int e = 0;
+    private int f = 0;
+    private String g = null;
+    private String h = null;
 
     public void a(int i) {
-        if (i >= 0) {
-            this.d = i;
-        }
+        this.f = i;
     }
 
-    public void b(String str) {
-        try {
-            a(new JSONObject(str).optJSONObject("info"));
-        } catch (Exception e) {
-            BdLog.e("LikeReturnData", "parserJson", "error = " + e.getMessage());
-        }
-    }
-
-    public void a(JSONObject jSONObject) {
-        if (jSONObject != null) {
-            try {
-                b(jSONObject.optInt("is_like", 0));
-                c(jSONObject.optInt("is_black", 0));
-                d(jSONObject.optInt("like_num", 0));
-                this.d = jSONObject.optInt("level_id", 0);
-                c(jSONObject.optString("level_name", ""));
-                f(jSONObject.optInt("levelup_score", 0));
-                e(jSONObject.optInt("cur_score", 0));
-            } catch (Exception e) {
-                BdLog.e("LikeReturnData", "parserJson", "error = " + e.getMessage());
-            }
-        }
+    public int c() {
+        return this.f;
     }
 
     public void b(int i) {
         this.a = i;
     }
 
-    public int c() {
+    public int d() {
         return this.a;
     }
 
@@ -77,31 +32,50 @@ public class z {
         this.b = i;
     }
 
+    public int e() {
+        return this.b;
+    }
+
     public void d(int i) {
         this.c = i;
     }
 
-    public void c(String str) {
-        this.e = str;
-    }
-
-    public String d() {
-        return this.e;
+    public int f() {
+        return this.c;
     }
 
     public void e(int i) {
-        this.f = i;
+        this.d = i;
     }
 
-    public int e() {
-        return this.f;
+    public int g() {
+        return this.d;
     }
 
     public void f(int i) {
-        this.g = i;
+        this.e = i;
     }
 
-    public int f() {
+    public int h() {
+        return this.e;
+    }
+
+    public String i() {
         return this.g;
+    }
+
+    public String j() {
+        return this.h;
+    }
+
+    public void a(JSONObject jSONObject) {
+        if (jSONObject != null) {
+            try {
+                this.g = jSONObject.optString("tag_name");
+                this.h = jSONObject.optString("tag_id");
+            } catch (Exception e) {
+                com.baidu.tieba.util.z.b("LabelSmallBallData", "parserJson", "error = " + e.getMessage());
+            }
+        }
     }
 }

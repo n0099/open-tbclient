@@ -1,20 +1,74 @@
 package com.baidu.tieba.home;
+
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.tieba.R;
+import com.baidu.tieba.TiebaApplication;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class j implements com.baidu.tbadk.core.view.m {
-    final /* synthetic */ e a;
+public class j extends BdAsyncTask {
+    final /* synthetic */ EnterForumActivity a;
+    private com.baidu.tieba.util.r b = null;
+    private com.baidu.tieba.data.aa c;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public j(e eVar) {
-        this.a = eVar;
+    public j(EnterForumActivity enterForumActivity, com.baidu.tieba.data.aa aaVar) {
+        this.a = enterForumActivity;
+        this.c = null;
+        this.c = aaVar;
     }
 
-    @Override // com.baidu.tbadk.core.view.m
-    public void a(boolean z) {
-        q qVar;
-        if (z) {
-            qVar = this.a.b;
-            qVar.b();
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public String a(com.baidu.tieba.data.aa... aaVarArr) {
+        com.baidu.tieba.data.aa aaVar = this.c;
+        if (aaVar != null) {
+            try {
+                if (aaVar.a() != null && aaVar.b() != null) {
+                    this.b = new com.baidu.tieba.util.r(String.valueOf(com.baidu.tieba.data.g.a) + "c/c/forum/unfavo");
+                    this.b.a("fid", aaVar.a());
+                    this.b.a("kw", aaVar.b());
+                    this.b.d(true);
+                    this.b.j();
+                    return null;
+                }
+                return null;
+            } catch (Exception e) {
+                com.baidu.tieba.util.z.b(getClass().getName(), "doInBackground", e.getMessage());
+                return null;
+            }
         }
+        return null;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public void a(String str) {
+        super.a((Object) str);
+        this.a.b = null;
+        if (this.b != null) {
+            if (this.b.c()) {
+                this.a.a(this.a.getString(R.string.success));
+                TiebaApplication.f().h(true);
+                this.a.a(false);
+                return;
+            }
+            this.a.a(this.b.g());
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public void b() {
+    }
+
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public void cancel() {
+        if (this.b != null) {
+            this.b.h();
+            this.b = null;
+        }
+        this.a.b = null;
+        super.cancel(true);
     }
 }

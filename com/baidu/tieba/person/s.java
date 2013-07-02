@@ -1,25 +1,34 @@
 package com.baidu.tieba.person;
+
+import android.view.View;
+import android.widget.ProgressBar;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class s extends com.baidu.adp.base.e {
-    final /* synthetic */ r a;
+public class s implements View.OnClickListener {
+    final /* synthetic */ EditHeadActivity a;
+    private final /* synthetic */ String b;
+    private final /* synthetic */ int c;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public s(r rVar) {
-        this.a = rVar;
+    public s(EditHeadActivity editHeadActivity, String str, int i) {
+        this.a = editHeadActivity;
+        this.b = str;
+        this.c = i;
     }
 
-    @Override // com.baidu.adp.base.e
-    public void a(Object obj) {
-        v vVar;
-        v vVar2;
-        t tVar;
-        r.f = true;
-        vVar = this.a.c;
-        if (vVar != null) {
-            vVar2 = this.a.c;
-            tVar = this.a.d;
-            vVar2.a(tVar, ((Boolean) obj).booleanValue());
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        ProgressBar progressBar;
+        String str;
+        progressBar = this.a.n;
+        if (progressBar.getVisibility() != 0) {
+            String str2 = this.b;
+            str = this.a.A;
+            if (!str2.equals(str)) {
+                this.a.c(this.b);
+                this.a.d(this.b);
+                this.a.y = this.c;
+            }
         }
     }
 }

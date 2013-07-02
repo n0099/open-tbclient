@@ -1,54 +1,188 @@
 package com.baidu.android.nebula.c;
 
-import android.content.Context;
+import com.baidu.android.common.logging.Log;
+import java.io.IOException;
+import java.net.InetSocketAddress;
+import java.net.ServerSocket;
+import java.nio.ByteBuffer;
+import java.nio.channels.SelectionKey;
+import java.nio.channels.Selector;
+import java.nio.channels.ServerSocketChannel;
+import java.nio.channels.SocketChannel;
 import java.util.Iterator;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 /* loaded from: classes.dex */
-public class d implements r {
-    private Context a;
-    private long b = -1;
+public class d {
+    private int b;
+    private b c;
+    private a d;
+    private ExecutorService e;
+    private Selector f;
+    private ServerSocketChannel g;
+    private boolean a = false;
+    private Thread h = null;
 
-    public d(Context context) {
-        this.a = null;
-        this.a = context;
+    public d(b bVar, a aVar) {
+        this.e = null;
+        this.c = bVar;
+        this.d = aVar;
+        this.e = Executors.newFixedThreadPool(5, new com.baidu.android.pushservice.util.c("HttpThreadPool"));
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void c() {
+        int read;
+        ByteBuffer allocate = ByteBuffer.allocate(200);
+        do {
+            this.f.select();
+            Iterator<SelectionKey> it = this.f.selectedKeys().iterator();
+            while (it.hasNext()) {
+                SelectionKey next = it.next();
+                it.remove();
+                try {
+                    if (next.isAcceptable()) {
+                        SocketChannel accept = ((ServerSocketChannel) next.channel()).accept();
+                        accept.configureBlocking(false);
+                        SelectionKey register = accept.register(this.f, 5);
+                        c a = this.c.a();
+                        register.attach(a);
+                        this.d.a(a);
+                    }
+                } catch (IOException e) {
+                    next.cancel();
+                    try {
+                        next.channel().close();
+                    } catch (Exception e2) {
+                        Log.e("HttpServer", "Http Connection Close Exception : \r\n", e2);
+                    }
+                    Log.e("HttpServer", "Http Server Main Exception : \r\n", e);
+                }
+                if (next.isReadable()) {
+                    SocketChannel socketChannel = (SocketChannel) next.channel();
+                    c cVar = (c) next.attachment();
+                    if (cVar.e() || cVar.f()) {
+                        cVar.d();
+                        socketChannel.close();
+                    } else {
+                        allocate.clear();
+                        int i = 0;
+                        while (true) {
+                            read = socketChannel.read(allocate);
+                            if (read <= 0) {
+                                break;
+                            }
+                            socketChannel.read(allocate);
+                            allocate.flip();
+                            cVar.a(allocate);
+                            i += read;
+                            allocate.clear();
+                        }
+                        if (read == -1) {
+                            cVar.d();
+                            socketChannel.close();
+                        } else if (i != 0) {
+                            cVar.g();
+                            if (i != 0 && cVar.b()) {
+                                a(new f(this.d, cVar));
+                                next.interestOps(4);
+                            }
+                        } else {
+                            continue;
+                        }
+                    }
+                }
+                if (next.isWritable()) {
+                    SocketChannel socketChannel2 = (SocketChannel) next.channel();
+                    c cVar2 = (c) next.attachment();
+                    if (cVar2.e() || cVar2.f()) {
+                        cVar2.d();
+                        socketChannel2.close();
+                    } else {
+                        allocate.clear();
+                        allocate.rewind();
+                        if (cVar2.b(allocate) > 0) {
+                            cVar2.g();
+                            allocate.flip();
+                            socketChannel2.write(allocate);
+                            if (cVar2.c()) {
+                                cVar2.d();
+                                socketChannel2.close();
+                            }
+                        } else {
+                            continue;
+                        }
+                    }
+                }
+                if (!this.a) {
+                    break;
+                }
+            }
+        } while (this.a);
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void d() {
+        try {
+            if (this.f != null) {
+                this.f.close();
+                this.f = null;
+            }
+            if (this.g != null) {
+                this.g.close();
+                this.g = null;
+            }
+            if (this.a) {
+                this.a = false;
+                a(this.b);
+            }
+        } catch (Exception e) {
+            Log.e("HttpServer", "", e);
+        }
     }
 
     public void a() {
-        JSONObject jSONObject = new JSONObject();
-        String a = com.baidu.android.nebula.a.b.a(this.a);
-        this.b = System.currentTimeMillis();
-        p a2 = a.a(this.a).a();
-        try {
-            jSONObject.put("req", l.CHECK_APPSYNC.ordinal());
-            jSONObject.put("deviceid", a);
-            jSONObject.put("time", this.b);
-            jSONObject.put("needstoken", a2.g());
-            jSONObject.put("channelid", a2.h());
-            jSONObject.put("ccode", j.a(a, "MhxzKhl", this.b));
-            JSONArray jSONArray = new JSONArray();
-            Iterator it = i.a(this.a).b(a2.f()).b().iterator();
-            while (it.hasNext()) {
-                u uVar = (u) it.next();
-                JSONObject jSONObject2 = new JSONObject();
-                jSONObject2.put("package", uVar.b());
-                jSONObject2.put("signmd5", uVar.a(this.a));
-                jSONObject2.put("version", uVar.c());
-                jSONArray.put(jSONObject2);
-            }
-            jSONObject.put("checklist", jSONArray);
-            a.a(this.a).a(jSONObject.toString(), this);
-        } catch (JSONException e) {
+        this.a = false;
+        if (this.h != null) {
+            this.h.interrupt();
         }
     }
 
-    @Override // com.baidu.android.nebula.c.r
-    public void a(p pVar) {
-        if (pVar.i() != 200) {
-            i.a(this.a).b();
-            i.a(this.a).d();
-            new g(this.a).a();
+    protected void a(Runnable runnable) {
+        this.e.submit(runnable);
+    }
+
+    public boolean a(int i) {
+        this.b = i;
+        if (this.a) {
+            return true;
         }
+        try {
+            this.g = ServerSocketChannel.open();
+            ServerSocket socket = this.g.socket();
+            InetSocketAddress inetSocketAddress = new InetSocketAddress(this.b);
+            socket.setReuseAddress(true);
+            socket.bind(inetSocketAddress);
+            this.g.configureBlocking(false);
+            System.setProperty("java.net.preferIPv6Addresses", "false");
+            this.f = Selector.open();
+            this.g.register(this.f, 16);
+            if (this.f == null || !this.f.isOpen()) {
+                Log.e("HttpServer", "--- Start LocalServer occurs unknown error!");
+                return false;
+            }
+            this.h = new Thread(new e(this));
+            this.h.setName("BdServer");
+            this.h.start();
+            this.a = true;
+            return true;
+        } catch (IOException e) {
+            Log.e("HttpServer", "--- Start LocalServer Fail! \r\n", e);
+            return false;
+        }
+    }
+
+    public boolean b() {
+        return this.a;
     }
 }

@@ -1,167 +1,49 @@
 package com.baidu.tieba.frs;
 
-import android.app.Notification;
-import android.app.NotificationManager;
-import android.app.PendingIntent;
-import android.content.Intent;
-import android.text.TextUtils;
-import android.widget.RemoteViews;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.tbadk.download.DownloadData;
-import com.baidu.tbadk.download.DownloadMessage;
-import java.io.File;
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.List;
+import android.os.Handler;
+import android.widget.AbsListView;
+import android.widget.AdapterView;
 /* loaded from: classes.dex */
-public class b {
-    private static b a = null;
-    private static e h = null;
-    private static List<e> i = new LinkedList();
-    private NotificationManager f;
-    private Notification g;
-    private final int b = 5;
-    private int c = 0;
-    private c d = null;
-    private d e = null;
-    private int j = 1000;
+class b implements AbsListView.OnScrollListener {
+    final /* synthetic */ FrsActivity a;
 
-    private b() {
-        this.f = null;
-        this.g = null;
-        this.f = (NotificationManager) com.baidu.tieba.ai.c().d().getSystemService("notification");
-        this.g = b();
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public b(FrsActivity frsActivity) {
+        this.a = frsActivity;
     }
 
-    public static b a() {
-        synchronized (b.class) {
-            if (a == null) {
-                a = new b();
-            }
+    @Override // android.widget.AbsListView.OnScrollListener
+    public void onScroll(AbsListView absListView, int i, int i2, int i3) {
+        Handler handler;
+        Runnable runnable;
+        Handler handler2;
+        Runnable runnable2;
+        handler = this.a.I;
+        runnable = this.a.K;
+        handler.removeCallbacks(runnable);
+        handler2 = this.a.I;
+        runnable2 = this.a.K;
+        handler2.postDelayed(runnable2, 300L);
+    }
+
+    @Override // android.widget.AbsListView.OnScrollListener
+    public void onScrollStateChanged(AbsListView absListView, int i) {
+        az azVar;
+        az azVar2;
+        az azVar3;
+        AdapterView.OnItemLongClickListener onItemLongClickListener;
+        az azVar4;
+        if (i == 0) {
+            azVar3 = this.a.m;
+            onItemLongClickListener = this.a.O;
+            azVar3.a(onItemLongClickListener);
+            azVar4 = this.a.m;
+            azVar4.e(false);
+            return;
         }
-        return a;
-    }
-
-    public void a(String str, String str2, String str3, int i2) {
-        DownloadData downloadData = new DownloadData(str);
-        downloadData.setType(12);
-        if (this.c <= 5) {
-            this.c++;
-            downloadData.setStatus(1);
-            downloadData.setStatusMsg(null);
-        } else {
-            downloadData.setStatus(2);
-            downloadData.setStatusMsg(com.baidu.tieba.ai.c().d().getString(com.baidu.tieba.y.download_fail_over_max));
-        }
-        a(downloadData);
-        e eVar = new e(this);
-        eVar.a(str);
-        eVar.b(str2);
-        eVar.c(str3);
-        eVar.a(i2);
-        i.add(eVar);
-        e();
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void e() {
-        if (h == null && !i.isEmpty()) {
-            h = i.get(0);
-            if (h != null) {
-                this.d = new c(this, null);
-                this.d.setPriority(3);
-                this.d.execute(h);
-            }
-        }
-    }
-
-    public String a(String str) {
-        if (str == null || str.length() == 0) {
-            return null;
-        }
-        if (str.contains("?")) {
-            str = str.substring(0, str.indexOf("?"));
-        }
-        String[] split = str.split("/");
-        return split[split.length - 1];
-    }
-
-    public void a(DownloadData downloadData) {
-        LinkedList linkedList = new LinkedList();
-        linkedList.add(downloadData);
-        MessageManager.getInstance().dispatchResponsedMessageToUI(new DownloadMessage(linkedList));
-    }
-
-    public void a(List<DownloadData> list) {
-        MessageManager.getInstance().dispatchResponsedMessageToUI(new DownloadMessage(list));
-    }
-
-    public Notification b() {
-        PendingIntent activity = PendingIntent.getActivity(com.baidu.tieba.ai.c().d(), 0, new Intent(), 0);
-        Notification notification = new Notification(17301633, null, System.currentTimeMillis());
-        notification.contentView = new RemoteViews(com.baidu.tieba.ai.c().d().getPackageName(), com.baidu.tieba.w.notify_item);
-        notification.contentView.setProgressBar(com.baidu.tieba.v.progress, 100, 0, false);
-        notification.contentIntent = activity;
-        notification.flags = 32;
-        return notification;
-    }
-
-    public NotificationManager c() {
-        return this.f;
-    }
-
-    public void a(ArrayList<com.baidu.tbadk.core.data.b> arrayList) {
-        this.e = new d(this, null);
-        this.e.execute(arrayList);
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public String d(String str) {
-        StringBuilder sb = new StringBuilder();
-        sb.append(com.baidu.tbadk.core.util.x.d());
-        File file = new File(sb.toString());
-        if (!file.exists()) {
-            file.mkdirs();
-        }
-        sb.append("/");
-        sb.append(str);
-        return sb.toString();
-    }
-
-    public void b(DownloadData downloadData) {
-        if (this.f != null && this.g != null) {
-            this.g.tickerText = String.valueOf(downloadData.getName()) + com.baidu.tieba.ai.c().d().getResources().getString(com.baidu.tieba.y.download_will_begin);
-            this.g.contentView.setTextViewText(com.baidu.tieba.v.info, downloadData.getName());
-            this.g.contentView.setProgressBar(com.baidu.tieba.v.progress, 100, (int) ((downloadData.getLength() * 100) / downloadData.getSize()), false);
-            StringBuilder sb = new StringBuilder(20);
-            sb.append(String.valueOf(downloadData.getLength() / 1000));
-            sb.append("K/");
-            sb.append(String.valueOf(downloadData.getSize() / 1000));
-            sb.append("K");
-            this.g.contentView.setTextViewText(com.baidu.tieba.v.schedule, sb);
-            this.f.notify(downloadData.getNotifyId(), this.g);
-        }
-    }
-
-    public void c(DownloadData downloadData) {
-        if (this.f != null && this.g != null) {
-            this.g.tickerText = String.valueOf(downloadData.getName()) + com.baidu.tieba.ai.c().d().getResources().getString(com.baidu.tieba.y.download_fail_tip);
-            this.g.contentView.setTextViewText(com.baidu.tieba.v.info, com.baidu.tieba.ai.c().d().getString(com.baidu.tieba.y.error_sd_error));
-            this.g.flags = 16;
-            this.f.notify(downloadData.getNotifyId(), this.g);
-        }
-    }
-
-    public boolean b(String str) {
-        for (DownloadData downloadData : com.baidu.tbadk.download.b.a().b()) {
-            if (downloadData.getId().equals(str)) {
-                return true;
-            }
-        }
-        return false;
-    }
-
-    public boolean c(String str) {
-        return (TextUtils.isEmpty(str) || com.baidu.tbadk.core.util.x.d(new StringBuilder(String.valueOf(str.replace(".", "_"))).append(".apk").toString()) == null) ? false : true;
+        azVar = this.a.m;
+        azVar.a((AdapterView.OnItemLongClickListener) null);
+        azVar2 = this.a.m;
+        azVar2.e(true);
     }
 }

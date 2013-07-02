@@ -1,48 +1,128 @@
 package com.baidu.tieba.recommend;
 
-import com.baidu.tieba.y;
+import android.location.Address;
+import android.view.View;
+import android.widget.LinearLayout;
+import android.widget.TextView;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.browser.core.util.BdUtil;
+import com.baidu.tieba.TiebaApplication;
+import com.baidu.tieba.util.r;
+import com.baidu.tieba.util.z;
+import com.baidu.tieba.view.BaseWebView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class h implements q {
-    final /* synthetic */ DailyRecommendActivity a;
+public class h extends BdAsyncTask {
+    final /* synthetic */ TagContentActivity a;
+    private r b;
+    private String c;
+
+    private h(TagContentActivity tagContentActivity) {
+        this.a = tagContentActivity;
+        this.b = null;
+    }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public h(DailyRecommendActivity dailyRecommendActivity) {
-        this.a = dailyRecommendActivity;
+    public /* synthetic */ h(TagContentActivity tagContentActivity, h hVar) {
+        this(tagContentActivity);
     }
 
-    @Override // com.baidu.tieba.recommend.q
-    public void a() {
-    }
-
-    @Override // com.baidu.tieba.recommend.q
-    public void a(boolean z, String str, com.baidu.tieba.data.k kVar, int i) {
-        r rVar;
-        r rVar2;
-        r rVar3;
-        r rVar4;
-        rVar = this.a.b;
-        rVar.a(true, "");
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    /* renamed from: d */
+    public String a(Object... objArr) {
+        String str;
+        String str2;
+        String str3;
+        String str4;
+        boolean z;
+        long j;
+        this.b = new r(String.valueOf(com.baidu.tieba.data.g.a) + "c/s/tag/tagthread");
+        this.b.a(false);
+        if (TiebaApplication.f().as() == 1) {
+            this.b.a("night_type", "1");
+        }
+        r rVar = this.b;
+        str = this.a.b;
+        rVar.a("tag_id", str);
+        r rVar2 = this.b;
+        str2 = this.a.a;
+        rVar2.a("tag_name", str2);
+        r rVar3 = this.b;
+        str3 = this.a.c;
+        rVar3.a("tag_is_selected", str3);
+        r rVar4 = this.b;
+        str4 = this.a.y;
+        rVar4.a("pn", str4);
+        this.b.a("_version_more", "1");
+        this.b.a("platform", "android");
+        z = TagContentActivity.w;
         if (z) {
-            rVar3 = this.a.b;
-            rVar3.a(kVar);
-            if (i == 0) {
-                rVar4 = this.a.b;
-                rVar4.d();
+            TagContentActivity.w = false;
+            this.b.a("msg_click", "1");
+            r rVar5 = this.b;
+            j = TagContentActivity.x;
+            rVar5.a("message_id", String.valueOf(j));
+        }
+        Address aN = TiebaApplication.f().aN();
+        if (aN != null && TiebaApplication.f().t()) {
+            this.b.a("lbs", String.valueOf(String.valueOf(aN.getLatitude())) + "," + String.valueOf(aN.getLongitude()));
+        }
+        try {
+            this.c = this.b.j();
+            if (this.b.d()) {
+                return this.c;
             }
+        } catch (Exception e) {
+            z.b("TagAsyncTask", "doInBackground", "error = " + e.getMessage());
+        }
+        return null;
+    }
+
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public void cancel() {
+        if (this.b != null) {
+            this.b.h();
+        }
+        this.a.v = false;
+        super.cancel(true);
+        this.a.p = null;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public void a(String str) {
+        LinearLayout linearLayout;
+        TextView textView;
+        BaseWebView baseWebView;
+        LinearLayout linearLayout2;
+        View.OnClickListener onClickListener;
+        BaseWebView baseWebView2;
+        TextView textView2;
+        BaseWebView baseWebView3;
+        linearLayout = this.a.o;
+        linearLayout.setOnClickListener(null);
+        if (this.b != null && this.b.d() && str != null && str.length() > 0) {
+            baseWebView2 = this.a.m;
+            baseWebView2.loadDataWithBaseURL(com.baidu.tieba.data.g.a, str, "text/html", BdUtil.UTF8, "");
+            textView2 = this.a.t;
+            textView2.setVisibility(8);
+            baseWebView3 = this.a.m;
+            baseWebView3.setVisibility(0);
         } else {
-            rVar2 = this.a.b;
-            rVar2.a((com.baidu.tieba.data.k) null);
-            if (i != 1) {
-                if (str.equals("70000")) {
-                    this.a.showToast(y.no_more_data);
-                } else {
-                    this.a.showToast(y.neterror);
-                }
-            }
+            this.a.s = false;
+            textView = this.a.t;
+            textView.setVisibility(0);
+            baseWebView = this.a.m;
+            baseWebView.setVisibility(8);
+            linearLayout2 = this.a.o;
+            onClickListener = this.a.l;
+            linearLayout2.setOnClickListener(onClickListener);
         }
-        if (i == 1) {
-            this.a.a(true, (String) null);
-        }
+        this.a.p = null;
+        this.a.r = true;
+        this.a.p();
     }
 }

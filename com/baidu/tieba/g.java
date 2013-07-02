@@ -1,102 +1,265 @@
 package com.baidu.tieba;
 
-import android.app.Notification;
-import android.app.NotificationManager;
+import android.app.Activity;
+import android.app.AlertDialog;
+import android.app.ProgressDialog;
+import android.content.Context;
+import android.content.DialogInterface;
+import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
+import android.os.Bundle;
 import android.os.Handler;
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.tbadk.TbConfig;
-import java.io.File;
+import android.view.KeyEvent;
+import android.view.View;
+import android.view.ViewGroup;
+import android.view.inputmethod.InputMethodManager;
+import android.widget.FrameLayout;
+import com.baidu.mobstat.StatService;
+import com.baidu.tieba.compatible.CompatibleUtile;
+import com.baidu.tieba.hp.LayoutProxy;
+import com.baidu.tieba.view.GuidPageView;
 /* loaded from: classes.dex */
-class g extends BdAsyncTask<String, Integer, Boolean> {
-    final /* synthetic */ FileDownloader a;
-    private com.baidu.tbadk.core.util.an b = null;
-    private volatile boolean c = false;
-    private final String d;
-    private final String e;
+public class g extends com.baidu.adp.a.a {
+    protected ProgressDialog h = null;
+    private DialogInterface.OnCancelListener a = null;
+    private AlertDialog b = null;
+    protected int i = -1;
+    private GuidPageView c = null;
 
-    public g(FileDownloader fileDownloader, String str, String str2) {
-        this.a = fileDownloader;
-        this.d = str;
-        this.e = str2;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: a */
-    public Boolean doInBackground(String... strArr) {
-        File e;
-        Handler handler;
-        Boolean bool = false;
-        while (!this.c) {
+    @Override // com.baidu.adp.a.a, android.app.Activity
+    public void onCreate(Bundle bundle) {
+        super.onCreate(bundle);
+        LayoutProxy.b(this, bundle);
+        if (e()) {
+            CompatibleUtile.getInstance().openGpu(this);
+        }
+        com.baidu.tieba.account.a.a().c();
+        TiebaApplication.s(true);
+        TiebaApplication.f().a(getClass().getName());
+        if (TiebaApplication.f().s()) {
             try {
-                this.b = new com.baidu.tbadk.core.util.an(this.d);
-                handler = this.a.handler;
-                bool = Boolean.valueOf(this.b.a(String.valueOf(this.e) + ".tmp", handler, TbConfig.NET_MSG_GETLENTH));
-                if (bool.booleanValue() || this.b.d() == -2) {
-                    break;
-                } else if (!this.b.a().b().c()) {
-                    try {
-                        Thread.sleep(10000L);
-                    } catch (Exception e2) {
-                    }
-                }
-            } catch (Exception e3) {
+                StatService.setAppChannel(com.baidu.tieba.data.g.a());
+            } catch (Exception e) {
+                com.baidu.tieba.util.z.b(getClass().getName(), "onCreate", e.getMessage());
             }
         }
-        if (bool.booleanValue()) {
-            com.baidu.tbadk.core.util.x.j(this.e);
-            File d = com.baidu.tbadk.core.util.x.d(String.valueOf(this.e) + ".tmp");
-            if (d != null && (e = com.baidu.tbadk.core.util.x.e(this.e)) != null) {
-                d.renameTo(e);
-            }
-        }
-        return bool;
+        LayoutProxy.a(this, bundle);
     }
 
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void cancel() {
-        super.cancel(true);
-        this.a.mDowndingTask = null;
-        this.c = true;
-        if (this.b != null) {
-            this.b.g();
+    public boolean e() {
+        return false;
+    }
+
+    @Override // android.app.Activity, android.view.KeyEvent.Callback
+    public boolean onKeyDown(int i, KeyEvent keyEvent) {
+        try {
+            return super.onKeyDown(i, keyEvent);
+        } catch (IllegalStateException e) {
+            if (i == 4) {
+                finish();
+            }
+            return true;
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
+    @Override // android.app.Activity, android.view.KeyEvent.Callback
+    public boolean onKeyUp(int i, KeyEvent keyEvent) {
+        try {
+            return super.onKeyUp(i, keyEvent);
+        } catch (IllegalStateException e) {
+            if (i == 4) {
+                finish();
+            }
+            return true;
+        }
+    }
+
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: a */
-    public void onPostExecute(Boolean bool) {
-        Notification notification;
-        Notification notification2;
-        Notification notification3;
-        NotificationManager notificationManager;
-        Notification notification4;
-        NotificationManager notificationManager2;
-        Handler handler;
-        Handler handler2;
-        super.onPostExecute(bool);
-        this.a.mDowndingTask = null;
-        if (bool.booleanValue()) {
-            notificationManager2 = this.a.mNotificationManager;
-            notificationManager2.cancel(10);
-            handler = this.a.handler;
-            handler2 = this.a.handler;
-            handler.sendMessageDelayed(handler2.obtainMessage(1, this.e), 100L);
-            return;
+    public void f() {
+        finish();
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // android.app.Activity
+    public void onDestroy() {
+        h();
+        if (this.c != null) {
+            this.c.a();
         }
-        notification = this.a.mNotify;
-        if (notification != null) {
-            notification2 = this.a.mNotify;
-            notification2.contentView.setTextViewText(v.info, this.a.getString(y.error_sd_error));
-            notification3 = this.a.mNotify;
-            notification3.flags = 16;
-            notificationManager = this.a.mNotificationManager;
-            notification4 = this.a.mNotify;
-            notificationManager.notify(10, notification4);
+        super.onDestroy();
+        LayoutProxy.c(this);
+    }
+
+    @Override // com.baidu.adp.a.a
+    public void a_() {
+    }
+
+    public void b(String str) {
+        if (this.a == null) {
+            this.a = new h(this);
         }
-        this.a.stopSelf();
+        if (str != null) {
+            this.h = ProgressDialog.show(this, "", str, true, false, this.a);
+        } else {
+            this.h = ProgressDialog.show(this, "", getResources().getString(R.string.Waiting), true, false, this.a);
+        }
+    }
+
+    public void g() {
+        this.h = null;
+    }
+
+    public void a(String str, DialogInterface.OnCancelListener onCancelListener) {
+        if (str != null) {
+            this.h = ProgressDialog.show(this, "", str, true, true, onCancelListener);
+        } else {
+            this.h = ProgressDialog.show(this, "", getResources().getString(R.string.Waiting), true, true, onCancelListener);
+        }
+    }
+
+    public void h() {
+        if (this.h != null) {
+            try {
+                if (this.h.isShowing()) {
+                    this.h.dismiss();
+                }
+            } catch (Exception e) {
+                com.baidu.tieba.util.z.b(getClass().getName(), "closeLoadingDialog", e.getMessage());
+            }
+            this.h = null;
+        }
+    }
+
+    @Override // com.baidu.adp.a.a
+    public void a(String str) {
+        com.baidu.tieba.util.aa.a((Context) this, str);
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    public void a(InputMethodManager inputMethodManager, View view) {
+        try {
+            inputMethodManager.hideSoftInputFromWindow(view.getWindowToken(), 2);
+        } catch (Exception e) {
+            com.baidu.tieba.util.z.b(getClass().getName(), "HidenSoftKeyPad", "error = " + e.getMessage());
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    public void b(InputMethodManager inputMethodManager, View view) {
+        if (view != null && inputMethodManager != null) {
+            try {
+                inputMethodManager.showSoftInput(view, 0);
+            } catch (Exception e) {
+            }
+        }
+    }
+
+    public void a(View view, int i) {
+        new Handler().postDelayed(new i(this, view), i);
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    public AlertDialog a(String[] strArr, DialogInterface.OnClickListener onClickListener) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle(R.string.operation);
+        builder.setItems(strArr, onClickListener);
+        this.b = builder.create();
+        this.b.setCanceledOnTouchOutside(true);
+        return this.b;
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    public AlertDialog i() {
+        return this.b;
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    public void j() {
+        if (this.b != null && !this.b.isShowing()) {
+            this.b.show();
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // android.app.Activity
+    public void onPause() {
+        super.onPause();
+        LayoutProxy.b(this);
+        TiebaApplication.f().aE();
+        if (TiebaApplication.f().s()) {
+            try {
+                StatService.onPause(this);
+            } catch (Exception e) {
+                com.baidu.tieba.util.z.b(getClass().getName(), "onPause", e.getMessage());
+            }
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    public void c(int i) {
+        this.i = i;
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // android.app.Activity
+    public void onResume() {
+        super.onResume();
+        LayoutProxy.a(this);
+        if (TiebaApplication.f().as() != this.i) {
+            this.i = TiebaApplication.f().as();
+            a(this.i);
+        }
+        if (TiebaApplication.f().s()) {
+            try {
+                StatService.onResume(this);
+            } catch (Exception e) {
+                com.baidu.tieba.util.z.b(getClass().getName(), "onResume", e.getMessage());
+            }
+        }
+        TiebaApplication.f().aD();
+        TiebaApplication.f().a(getClass().getName());
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // android.app.Activity
+    public void onStop() {
+        super.onStop();
+        k();
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    public void k() {
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    public void a(int i) {
+        LayoutProxy.a(this, i);
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    public void l() {
+        com.baidu.tieba.util.aa.a((Activity) this);
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    public void a(int i, int i2) {
+        Bitmap b;
+        if (!TiebaApplication.f().b(i2)) {
+            this.c = (GuidPageView) getLayoutInflater().inflate(R.layout.guid_page, (ViewGroup) null);
+            if (this.c != null && (b = com.baidu.tieba.util.d.b(this, i)) != null) {
+                this.c.setBackgroundDrawable(new BitmapDrawable(b));
+                addContentView(this.c, new FrameLayout.LayoutParams(-1, -1));
+                TiebaApplication.f().c(i2);
+            }
+        } else if (this.c != null) {
+            this.c.setVisibility(8);
+        }
+    }
+
+    @Override // android.app.Activity
+    public void setContentView(int i) {
+        super.setContentView(i);
+        LayoutProxy.b(this, i);
     }
 }

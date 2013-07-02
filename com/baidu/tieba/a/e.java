@@ -1,59 +1,139 @@
 package com.baidu.tieba.a;
 
-import android.text.TextUtils;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.util.an;
-import com.baidu.tieba.recommend.o;
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.baidu.tieba.data.ak;
+import com.baidu.tieba.util.r;
 /* loaded from: classes.dex */
 public class e {
-    private static final String d = String.valueOf(TbConfig.SERVER_ADDRESS) + "c/f/forum/threadrecommend";
-    private int a = -1;
-    private an b = null;
-    private boolean c;
+    private static final String a = String.valueOf(com.baidu.tieba.data.g.a) + "c/f/pb/page";
+    private r b = null;
 
-    public e(boolean z) {
-        this.c = z;
-    }
-
-    public String a(String str, String str2) {
-        this.b = new an();
-        this.b.a(d);
-        this.b.a().a().b = false;
-        if (this.c) {
-            this.b.a("type", "banner");
+    /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
+    public String a(String str, String str2, String str3, int i, int i2, boolean z, boolean z2, int i3, int i4, int i5, boolean z3, long j, boolean z4, ak akVar) {
+        if (str == null || str.length() == 0) {
+            return null;
         }
-        if (!TextUtils.isEmpty(str)) {
-            this.b.a("date", str);
+        this.b = new r(a);
+        this.b.a("kz", str);
+        this.b.a("rn", String.valueOf(30));
+        this.b.a("with_floor", "1");
+        if (!z) {
+            this.b.a("r", "1");
+        }
+        if (z2) {
+            this.b.a("lz", "1");
         }
         if (str2 != null) {
-            this.b.a(o.a, str2);
+            this.b.a("st_type", str2);
         }
-        String i = this.b.i();
-        if (i != null) {
-            try {
-                this.a = new JSONObject(i).optInt("error_code");
-            } catch (JSONException e) {
-            }
+        if (z3) {
+            this.b.a("msg_click", "1");
+            this.b.a("message_id", String.valueOf(j));
         }
-        return i;
+        if (akVar != null) {
+            akVar.a(this.b);
+        }
+        switch (i3) {
+            case 1:
+                this.b.a("back", "0");
+                if (!z4) {
+                    if (!z) {
+                        if (i > 0) {
+                            this.b.a("pn", String.valueOf(i - 1));
+                        }
+                    } else if (i2 < i5) {
+                        this.b.a("pn", String.valueOf(i2 + 1));
+                    }
+                }
+                if (str3 != null) {
+                    this.b.a("pid", str3);
+                    break;
+                } else if (!z) {
+                    this.b.a("last", "1");
+                    break;
+                }
+                break;
+            case 2:
+                this.b.a("back", "1");
+                if (!z4) {
+                    if (z) {
+                        if (i > 0) {
+                            this.b.a("pn", String.valueOf(i - 1));
+                        }
+                    } else if (i2 < i5) {
+                        this.b.a("pn", String.valueOf(i2 + 1));
+                    }
+                }
+                if (str3 != null) {
+                    this.b.a("pid", str3);
+                    break;
+                }
+                break;
+            case 3:
+                this.b.a("back", "0");
+                if (z) {
+                    this.b.a("pn", "1");
+                    break;
+                } else {
+                    this.b.a("last", "1");
+                    break;
+                }
+            case 4:
+                this.b.a("st_type", "store_thread");
+                this.b.a("mark", "1");
+                this.b.a("pid", str3);
+                this.b.a("back", "0");
+                break;
+            case 5:
+                this.b.a("back", "0");
+                this.b.a("pn", String.valueOf(i4));
+                break;
+            case 6:
+                this.b.a("mark", "1");
+                this.b.a("pid", str3);
+                this.b.a("back", "0");
+                break;
+        }
+        return this.b.j();
     }
 
     public void a() {
         if (this.b != null) {
-            this.b.g();
+            this.b.h();
         }
     }
 
     public boolean b() {
-        if (this.b != null) {
-            return this.b.a().b().b();
+        if (this.b == null) {
+            return false;
         }
-        return false;
+        return this.b.c();
     }
 
-    public int c() {
-        return this.a;
+    public boolean c() {
+        if (this.b == null) {
+            return false;
+        }
+        return this.b.d();
+    }
+
+    public int d() {
+        if (this.b == null) {
+            return 0;
+        }
+        return this.b.b();
+    }
+
+    public String e() {
+        if (this.b == null) {
+            return null;
+        }
+        return this.b.g();
+    }
+
+    public int f() {
+        if (this.b == null) {
+            return 0;
+        }
+        return this.b.e();
     }
 }

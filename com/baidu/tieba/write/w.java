@@ -1,11 +1,26 @@
 package com.baidu.tieba.write;
+
+import android.view.MotionEvent;
+import android.view.View;
+import android.widget.GridView;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public interface w {
-    void a();
+public class w implements View.OnTouchListener {
+    final /* synthetic */ WriteActivity a;
 
-    void a(com.baidu.tbadk.coreExtra.view.k kVar, int i);
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public w(WriteActivity writeActivity) {
+        this.a = writeActivity;
+    }
 
-    void b();
-
-    void c();
+    @Override // android.view.View.OnTouchListener
+    public boolean onTouch(View view, MotionEvent motionEvent) {
+        GridView gridView;
+        if (motionEvent.getAction() == 1) {
+            gridView = this.a.r;
+            gridView.setVisibility(8);
+            return false;
+        }
+        return false;
+    }
 }

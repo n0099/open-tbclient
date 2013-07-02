@@ -1,16 +1,27 @@
 package com.baidu.tieba.recommend;
 
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.framework.task.CustomMessageTask;
+import android.view.View;
+import com.baidu.tieba.R;
 /* loaded from: classes.dex */
-class a implements CustomMessageTask.CustomRunnable<com.baidu.tbadk.core.atomData.g> {
-    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-    public CustomResponsedMessage<?> run(CustomMessage<com.baidu.tbadk.core.atomData.g> customMessage) {
-        if (customMessage != null && customMessage.getData() != null) {
-            customMessage.getData().getIntent().setClass(customMessage.getData().getContext(), DailyClassicalActivity.class);
-            customMessage.getData().startActivity();
+class a implements View.OnClickListener {
+    final /* synthetic */ DailyClassicalActivity a;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public a(DailyClassicalActivity dailyClassicalActivity) {
+        this.a = dailyClassicalActivity;
+    }
+
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        switch (view.getId()) {
+            case R.id.back /* 2131165277 */:
+                this.a.finish();
+                return;
+            case R.id.tag_webview_item /* 2131165482 */:
+                this.a.b();
+                return;
+            default:
+                return;
         }
-        return null;
     }
 }

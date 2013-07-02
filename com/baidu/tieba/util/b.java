@@ -1,10 +1,18 @@
 package com.baidu.tieba.util;
-
-import android.content.DialogInterface;
 /* loaded from: classes.dex */
-class b implements DialogInterface.OnClickListener {
-    @Override // android.content.DialogInterface.OnClickListener
-    public void onClick(DialogInterface dialogInterface, int i) {
-        dialogInterface.dismiss();
+class b {
+    String a;
+    int b;
+    com.baidu.tbadk.a.d c;
+    boolean d;
+    final /* synthetic */ a e;
+
+    private b(a aVar) {
+        this.e = aVar;
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public /* synthetic */ b(a aVar, b bVar) {
+        this(aVar);
     }
 }

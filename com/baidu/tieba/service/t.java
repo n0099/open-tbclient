@@ -1,123 +1,60 @@
 package com.baidu.tieba.service;
 
+import android.app.Notification;
+import android.app.NotificationManager;
 import android.os.Handler;
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.util.an;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.os.Message;
+import com.baidu.location.LocationClientOption;
+import com.baidu.tieba.R;
+import com.baidu.tieba.TiebaApplication;
+import com.baidu.tieba.data.VersionData;
+import com.baidu.tieba.util.aa;
 /* loaded from: classes.dex */
-public class t extends BdAsyncTask<String, Integer, Boolean> {
+class t extends Handler {
     final /* synthetic */ TiebaUpdateService a;
-    private an b;
-    private volatile boolean c;
-
-    private t(TiebaUpdateService tiebaUpdateService) {
-        this.a = tiebaUpdateService;
-        this.c = false;
-    }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ t(TiebaUpdateService tiebaUpdateService, t tVar) {
-        this(tiebaUpdateService);
+    public t(TiebaUpdateService tiebaUpdateService) {
+        this.a = tiebaUpdateService;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: a */
-    public Boolean doInBackground(String... strArr) {
-        Boolean bool;
-        Exception e;
-        String str;
-        String str2;
-        String str3;
-        Handler handler;
+    @Override // android.os.Handler
+    public void handleMessage(Message message) {
+        VersionData versionData;
         boolean z;
-        long j;
-        Boolean bool2 = false;
-        while (!this.c) {
-            try {
-                str2 = this.a.mMainApkUrl;
-                this.b = new an(str2);
-                an anVar = this.b;
-                str3 = this.a.mMainApkFileName;
-                String str4 = String.valueOf(str3) + ".tmp";
-                handler = this.a.mMainApkHandler;
-                bool2 = Boolean.valueOf(anVar.a(str4, handler, 0));
-                if (bool2.booleanValue()) {
-                    break;
-                } else if (this.b.d() == -2) {
-                    bool = bool2;
-                    break;
-                } else {
-                    if (!this.b.a().b().c()) {
-                        try {
-                            Thread.sleep(10000L);
-                        } catch (Exception e2) {
-                        }
-                    }
-                    z = TiebaUpdateService.sHasStart;
-                    if (z && UtilHelper.isNetOk()) {
-                        long currentTimeMillis = System.currentTimeMillis();
-                        j = this.a.mMainTaskWaitingTimestamp;
-                        if (currentTimeMillis - j > 20000) {
-                            this.a.sendBroadcast("action_update_progress_interrupted", true);
-                            bool = bool2;
-                            break;
-                        }
-                    }
-                }
-            } catch (Exception e3) {
-                bool = bool2;
-                e = e3;
+        Notification notification;
+        Notification notification2;
+        Notification notification3;
+        NotificationManager notificationManager;
+        Notification notification4;
+        super.handleMessage(message);
+        if (message.what == 900002) {
+            notification = this.a.c;
+            if (notification != null && message.arg2 > 0) {
+                notification2 = this.a.c;
+                notification2.contentView.setProgressBar(R.id.progress, 100, (int) ((message.arg1 * 100) / message.arg2), false);
+                StringBuffer stringBuffer = new StringBuffer(20);
+                stringBuffer.append(String.valueOf(message.arg1 / LocationClientOption.MIN_SCAN_SPAN));
+                stringBuffer.append("K/");
+                stringBuffer.append(String.valueOf(message.arg2 / LocationClientOption.MIN_SCAN_SPAN));
+                stringBuffer.append("K");
+                notification3 = this.a.c;
+                notification3.contentView.setTextViewText(R.id.schedule, stringBuffer);
+                notificationManager = this.a.b;
+                notification4 = this.a.c;
+                notificationManager.notify(10, notification4);
             }
-        }
-        bool = bool2;
-        try {
-            if (bool.booleanValue()) {
-                TiebaUpdateService tiebaUpdateService = this.a;
-                str = this.a.mMainApkFileName;
-                tiebaUpdateService.renameFile(str);
+        } else if (message.what == 1 && (versionData = (VersionData) message.obj) != null) {
+            z = this.a.i;
+            if (!z) {
+                this.a.i = true;
+                return;
             }
-        } catch (Exception e4) {
-            e = e4;
-            BdLog.e(getClass().getName(), "doInBackground", e.getMessage());
-            return bool;
-        }
-        return bool;
-    }
-
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void cancel() {
-        super.cancel(true);
-        this.a.mDowndMainApkTask = null;
-        this.c = true;
-        if (this.b != null) {
-            this.b.g();
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: a */
-    public void onPostExecute(Boolean bool) {
-        Handler handler;
-        Handler handler2;
-        String str;
-        super.onPostExecute(bool);
-        this.a.mDowndMainApkTask = null;
-        try {
-            if (bool.booleanValue()) {
-                this.a.mIsMainApkDone = true;
-                handler = this.a.mMainApkHandler;
-                handler2 = this.a.mMainApkHandler;
-                str = this.a.mMainApkFileName;
-                handler.sendMessageDelayed(handler2.obtainMessage(1, str), 100L);
+            aa.b(TiebaApplication.f(), versionData.getNew_file());
+            if (TiebaUpdateService.a != null && TiebaUpdateService.a.length() > 4) {
+                TiebaApplication.f().j(TiebaUpdateService.a);
             }
-        } catch (Exception e) {
-            BdLog.e(getClass().getName(), "onPostExecute", e.getMessage());
+            this.a.stopSelf();
         }
     }
 }

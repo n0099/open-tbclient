@@ -1,13 +1,23 @@
 package com.baidu.tieba.data;
 
-import org.json.JSONObject;
+import android.content.Context;
+import android.view.View;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class j {
-    private String a;
-    private String b;
+public class j extends com.baidu.tieba.util.p {
+    final /* synthetic */ i a;
 
-    public void a(JSONObject jSONObject) {
-        this.a = jSONObject.optString("img");
-        this.b = jSONObject.optString("link");
+    /* JADX INFO: Access modifiers changed from: package-private */
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public j(i iVar, Context context) {
+        super(context);
+        this.a = iVar;
+    }
+
+    @Override // com.baidu.tieba.util.p, android.text.style.ClickableSpan
+    public void onClick(View view) {
+        String str;
+        str = this.a.b;
+        a(str);
     }
 }

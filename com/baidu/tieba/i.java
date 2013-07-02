@@ -1,37 +1,23 @@
 package com.baidu.tieba;
 
-import android.graphics.Bitmap;
-import android.view.animation.AlphaAnimation;
-import android.widget.ImageView;
+import android.view.View;
+import android.view.inputmethod.InputMethodManager;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class i implements Runnable {
-    final /* synthetic */ LogoActivity a;
+public class i implements Runnable {
+    final /* synthetic */ g a;
+    private View b;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public i(LogoActivity logoActivity) {
-        this.a = logoActivity;
+    public i(g gVar, View view) {
+        this.a = gVar;
+        this.b = null;
+        this.b = view;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        Bitmap bitmap;
-        ImageView imageView;
-        ImageView imageView2;
-        Bitmap bitmap2;
-        ImageView imageView3;
-        AlphaAnimation alphaAnimation;
-        this.a.d = com.baidu.tbadk.core.util.g.a(this.a, u.logo);
-        bitmap = this.a.d;
-        if (bitmap != null) {
-            imageView = this.a.c;
-            if (imageView != null) {
-                imageView2 = this.a.c;
-                bitmap2 = this.a.d;
-                imageView2.setImageBitmap(bitmap2);
-                imageView3 = this.a.c;
-                alphaAnimation = this.a.e;
-                imageView3.startAnimation(alphaAnimation);
-            }
+        if (!this.a.isFinishing()) {
+            this.a.b((InputMethodManager) this.a.getSystemService("input_method"), this.b);
         }
     }
 }

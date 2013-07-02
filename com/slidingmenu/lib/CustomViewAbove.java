@@ -4,12 +4,11 @@ import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Rect;
 import android.os.Build;
-import android.support.v4.view.KeyEventCompat;
-import android.support.v4.view.MotionEventCompat;
-import android.support.v4.view.VelocityTrackerCompat;
-import android.support.v4.view.ViewCompat;
-import android.support.v4.view.ViewConfigurationCompat;
-import android.support.v4.view.accessibility.AccessibilityEventCompat;
+import android.support.v4.view.al;
+import android.support.v4.view.aq;
+import android.support.v4.view.bd;
+import android.support.v4.view.s;
+import android.support.v4.view.z;
 import android.util.AttributeSet;
 import android.util.FloatMath;
 import android.view.FocusFinder;
@@ -23,7 +22,8 @@ import android.view.ViewGroup;
 import android.view.animation.Interpolator;
 import android.widget.Scroller;
 import com.baidu.location.BDLocation;
-import com.baidu.tbadk.TbConfig;
+import com.baidu.location.LocationClientOption;
+import com.baidu.zeus.bouncycastle.DERTags;
 import com.slidingmenu.lib.SlidingMenu;
 import java.util.ArrayList;
 import java.util.List;
@@ -49,7 +49,7 @@ public class CustomViewAbove extends ViewGroup {
     private long mCurrentTime;
     private boolean mEnabled;
     private int mFlingDistance;
-    private List<View> mIgnoredViews;
+    private List mIgnoredViews;
     private float mInitialMotionX;
     private OnPageChangeListener mInternalPageChangeListener;
     private boolean mIsBeingDragged;
@@ -109,12 +109,12 @@ public class CustomViewAbove extends ViewGroup {
 
     void initCustomViewAbove() {
         setWillNotDraw(false);
-        setDescendantFocusability(AccessibilityEventCompat.TYPE_GESTURE_DETECTION_START);
+        setDescendantFocusability(262144);
         setFocusable(true);
         Context context = getContext();
         this.mScroller = new Scroller(context, sInterpolator);
         ViewConfiguration viewConfiguration = ViewConfiguration.get(context);
-        this.mTouchSlop = ViewConfigurationCompat.getScaledPagingTouchSlop(viewConfiguration);
+        this.mTouchSlop = bd.a(viewConfiguration);
         this.mMinimumVelocity = viewConfiguration.getScaledMinimumFlingVelocity();
         this.mMaximumVelocity = viewConfiguration.getScaledMaximumFlingVelocity();
         setInternalPageChangeListener(new SimpleOnPageChangeListener() { // from class: com.slidingmenu.lib.CustomViewAbove.2
@@ -317,9 +317,9 @@ public class CustomViewAbove extends ViewGroup {
             i4 = Math.round(1000.0f * Math.abs(distanceInfluenceForSnapDuration / abs)) * 4;
         } else {
             int abs2 = (int) (((Math.abs(i5) / behindWidth) + 1.0f) * 100.0f);
-            i4 = 600;
+            i4 = MAX_SETTLE_DURATION;
         }
-        this.mScroller.startScroll(scrollX, scrollY, i5, i6, Math.min(i4, 600));
+        this.mScroller.startScroll(scrollX, scrollY, i5, i6, Math.min(i4, (int) MAX_SETTLE_DURATION));
         invalidate();
     }
 
@@ -451,30 +451,30 @@ public class CustomViewAbove extends ViewGroup {
     }
 
     private int getPointerIndex(MotionEvent motionEvent, int i) {
-        int findPointerIndex = MotionEventCompat.findPointerIndex(motionEvent, i);
-        if (findPointerIndex == -1) {
+        int a = z.a(motionEvent, i);
+        if (a == -1) {
             this.mActivePointerId = -1;
         }
-        return findPointerIndex;
+        return a;
     }
 
     @Override // android.view.ViewGroup
     public boolean onInterceptTouchEvent(MotionEvent motionEvent) {
         if (this.mEnabled) {
-            int action = motionEvent.getAction() & MotionEventCompat.ACTION_MASK;
+            int action = motionEvent.getAction() & 255;
             if (action == 3 || action == 1 || (action != 0 && this.mIsUnableToDrag)) {
                 endDrag();
                 return false;
             }
             switch (action) {
                 case 0:
-                    int actionIndex = MotionEventCompat.getActionIndex(motionEvent);
-                    this.mActivePointerId = MotionEventCompat.getPointerId(motionEvent, actionIndex);
+                    int b = z.b(motionEvent);
+                    this.mActivePointerId = z.b(motionEvent, b);
                     if (this.mActivePointerId != -1) {
-                        float x = MotionEventCompat.getX(motionEvent, actionIndex);
-                        this.mInitialMotionX = x;
-                        this.mLastMotionX = x;
-                        this.mLastMotionY = MotionEventCompat.getY(motionEvent, actionIndex);
+                        float c = z.c(motionEvent, b);
+                        this.mInitialMotionX = c;
+                        this.mLastMotionX = c;
+                        this.mLastMotionY = z.d(motionEvent, b);
                         if (thisTouchAllowed(motionEvent)) {
                             this.mIsBeingDragged = false;
                             this.mIsUnableToDrag = false;
@@ -515,11 +515,11 @@ public class CustomViewAbove extends ViewGroup {
                     this.mVelocityTracker = VelocityTracker.obtain();
                 }
                 this.mVelocityTracker.addMovement(motionEvent);
-                switch (action & MotionEventCompat.ACTION_MASK) {
+                switch (action & 255) {
                     case 0:
                         this.mCurrentTime = System.currentTimeMillis();
                         completeScroll();
-                        this.mActivePointerId = MotionEventCompat.getPointerId(motionEvent, MotionEventCompat.getActionIndex(motionEvent));
+                        this.mActivePointerId = z.b(motionEvent, z.b(motionEvent));
                         float x = motionEvent.getX();
                         this.mInitialMotionX = x;
                         this.mLastMotionX = x;
@@ -536,14 +536,14 @@ public class CustomViewAbove extends ViewGroup {
                             break;
                         } else if (this.mIsBeingDragged) {
                             VelocityTracker velocityTracker = this.mVelocityTracker;
-                            velocityTracker.computeCurrentVelocity(1000, this.mMaximumVelocity);
-                            int xVelocity = (int) VelocityTrackerCompat.getXVelocity(velocityTracker, this.mActivePointerId);
+                            velocityTracker.computeCurrentVelocity(LocationClientOption.MIN_SCAN_SPAN, this.mMaximumVelocity);
+                            int a = (int) al.a(velocityTracker, this.mActivePointerId);
                             float scrollX = (getScrollX() - getDestScrollX(this.mCurItem)) / getBehindWidth();
                             int pointerIndex = getPointerIndex(motionEvent, this.mActivePointerId);
                             if (this.mActivePointerId != -1) {
-                                setCurrentItemInternal(determineTargetPage(scrollX, xVelocity, (int) (MotionEventCompat.getX(motionEvent, pointerIndex) - this.mInitialMotionX)), true, true, xVelocity);
+                                setCurrentItemInternal(determineTargetPage(scrollX, a, (int) (z.c(motionEvent, pointerIndex) - this.mInitialMotionX)), true, true, a);
                             } else {
-                                setCurrentItemInternal(this.mCurItem, true, true, xVelocity);
+                                setCurrentItemInternal(this.mCurItem, true, true, a);
                             }
                             this.mActivePointerId = -1;
                             endDrag();
@@ -564,9 +564,9 @@ public class CustomViewAbove extends ViewGroup {
                         if (this.mIsBeingDragged) {
                             int pointerIndex2 = getPointerIndex(motionEvent, this.mActivePointerId);
                             if (this.mActivePointerId != -1) {
-                                float x2 = MotionEventCompat.getX(motionEvent, pointerIndex2);
-                                float f = this.mLastMotionX - x2;
-                                this.mLastMotionX = x2;
+                                float c = z.c(motionEvent, pointerIndex2);
+                                float f = this.mLastMotionX - c;
+                                this.mLastMotionX = c;
                                 float scrollX2 = getScrollX() + f;
                                 float leftBound = getLeftBound();
                                 float rightBound = getRightBound();
@@ -589,15 +589,15 @@ public class CustomViewAbove extends ViewGroup {
                         }
                         break;
                     case 5:
-                        int actionIndex = MotionEventCompat.getActionIndex(motionEvent);
-                        this.mLastMotionX = MotionEventCompat.getX(motionEvent, actionIndex);
-                        this.mActivePointerId = MotionEventCompat.getPointerId(motionEvent, actionIndex);
+                        int b = z.b(motionEvent);
+                        this.mLastMotionX = z.c(motionEvent, b);
+                        this.mActivePointerId = z.b(motionEvent, b);
                         break;
                     case 6:
                         onSecondaryPointerUp(motionEvent);
                         int pointerIndex3 = getPointerIndex(motionEvent, this.mActivePointerId);
                         if (this.mActivePointerId != -1) {
-                            this.mLastMotionX = MotionEventCompat.getX(motionEvent, pointerIndex3);
+                            this.mLastMotionX = z.c(motionEvent, pointerIndex3);
                             break;
                         }
                         break;
@@ -613,15 +613,15 @@ public class CustomViewAbove extends ViewGroup {
         int i = this.mActivePointerId;
         int pointerIndex = getPointerIndex(motionEvent, i);
         if (i != -1) {
-            float x = MotionEventCompat.getX(motionEvent, pointerIndex);
-            float f = x - this.mLastMotionX;
+            float c = z.c(motionEvent, pointerIndex);
+            float f = c - this.mLastMotionX;
             float abs = Math.abs(f);
-            float y = MotionEventCompat.getY(motionEvent, pointerIndex);
-            float abs2 = Math.abs(y - this.mLastMotionY);
+            float d = z.d(motionEvent, pointerIndex);
+            float abs2 = Math.abs(d - this.mLastMotionY);
             if (abs > (isMenuOpen() ? this.mTouchSlop / 2 : this.mTouchSlop) && abs > abs2 && thisSlideAllowed(f)) {
                 startDrag();
-                this.mLastMotionX = x;
-                this.mLastMotionY = y;
+                this.mLastMotionX = c;
+                this.mLastMotionY = d;
                 setScrollingCacheEnabled(true);
             } else if (abs > this.mTouchSlop) {
                 this.mIsUnableToDrag = true;
@@ -665,11 +665,11 @@ public class CustomViewAbove extends ViewGroup {
     }
 
     private void onSecondaryPointerUp(MotionEvent motionEvent) {
-        int actionIndex = MotionEventCompat.getActionIndex(motionEvent);
-        if (MotionEventCompat.getPointerId(motionEvent, actionIndex) == this.mActivePointerId) {
-            int i = actionIndex == 0 ? 1 : 0;
-            this.mLastMotionX = MotionEventCompat.getX(motionEvent, i);
-            this.mActivePointerId = MotionEventCompat.getPointerId(motionEvent, i);
+        int b = z.b(motionEvent);
+        if (z.b(motionEvent, b) == this.mActivePointerId) {
+            int i = b == 0 ? 1 : 0;
+            this.mLastMotionX = z.c(motionEvent, i);
+            this.mActivePointerId = z.b(motionEvent, i);
             if (this.mVelocityTracker != null) {
                 this.mVelocityTracker.clear();
             }
@@ -710,7 +710,7 @@ public class CustomViewAbove extends ViewGroup {
                 }
             }
         }
-        return z && ViewCompat.canScrollHorizontally(view, -i);
+        return z && aq.a(view, -i);
     }
 
     @Override // android.view.ViewGroup, android.view.View
@@ -723,18 +723,18 @@ public class CustomViewAbove extends ViewGroup {
             return false;
         }
         switch (keyEvent.getKeyCode()) {
-            case TbConfig.NOTIFY_LIVE_NOTIFY /* 21 */:
+            case 21:
                 return arrowScroll(17);
-            case TbConfig.NOTIFY_LIVE_GROUP_END_EVENT /* 22 */:
+            case DERTags.IA5_STRING /* 22 */:
                 return arrowScroll(66);
             case BDLocation.TypeGpsLocation /* 61 */:
                 if (Build.VERSION.SDK_INT < 11) {
                     return false;
                 }
-                if (KeyEventCompat.hasNoModifiers(keyEvent)) {
+                if (s.a(keyEvent)) {
                     return arrowScroll(2);
                 }
-                if (!KeyEventCompat.hasModifiers(keyEvent, 1)) {
+                if (!s.a(keyEvent, 1)) {
                     return false;
                 }
                 return arrowScroll(1);

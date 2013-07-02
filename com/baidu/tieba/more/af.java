@@ -1,21 +1,25 @@
 package com.baidu.tieba.more;
 
-import android.content.DialogInterface;
+import android.view.View;
+import com.baidu.adp.widget.BdSwitchView.BdSwitchView;
+import com.baidu.tieba.TiebaApplication;
+import com.baidu.tieba.util.DatabaseService;
 /* loaded from: classes.dex */
-class af implements DialogInterface.OnClickListener {
-    final /* synthetic */ SystemHelpSettingActivity a;
+class af implements com.baidu.adp.widget.BdSwitchView.c {
+    final /* synthetic */ MsgRemindActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public af(SystemHelpSettingActivity systemHelpSettingActivity) {
-        this.a = systemHelpSettingActivity;
+    public af(MsgRemindActivity msgRemindActivity) {
+        this.a = msgRemindActivity;
     }
 
-    @Override // android.content.DialogInterface.OnClickListener
-    public void onClick(DialogInterface dialogInterface, int i) {
-        aj ajVar;
-        this.a.showLoadingDialog(this.a.getString(com.baidu.tieba.y.deleting));
-        ajVar = this.a.b;
-        ajVar.a();
-        dialogInterface.cancel();
+    @Override // com.baidu.adp.widget.BdSwitchView.c
+    public void a(View view, BdSwitchView.SwitchState switchState) {
+        if (switchState == BdSwitchView.SwitchState.ON) {
+            TiebaApplication.f().k(true);
+        } else {
+            TiebaApplication.f().k(false);
+        }
+        DatabaseService.w();
     }
 }

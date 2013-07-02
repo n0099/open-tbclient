@@ -1,57 +1,34 @@
 package com.baidu.tieba.write;
 
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.tbadk.TbConfig;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.view.inputmethod.InputMethodManager;
+import android.widget.EditText;
 /* loaded from: classes.dex */
-public class t extends BdAsyncTask<Object, s, s> {
-    final /* synthetic */ s a;
-    private com.baidu.tbadk.core.util.an b;
-
-    private t(s sVar) {
-        this.a = sVar;
-    }
+class t implements Runnable {
+    final /* synthetic */ WriteActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ t(s sVar, t tVar) {
-        this(sVar);
+    public t(WriteActivity writeActivity) {
+        this.a = writeActivity;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: a */
-    public s doInBackground(Object... objArr) {
-        String obj = objArr[0].toString();
-        this.b = new com.baidu.tbadk.core.util.an(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/f/frs/toplist");
-        this.b.a("kw", obj);
-        String i = this.b.i();
-        if (!this.b.a().b().b()) {
-            return null;
+    @Override // java.lang.Runnable
+    public void run() {
+        EditText editText;
+        InputMethodManager inputMethodManager;
+        EditText editText2;
+        InputMethodManager inputMethodManager2;
+        EditText editText3;
+        editText = this.a.e;
+        if (editText.getVisibility() == 0) {
+            WriteActivity writeActivity = this.a;
+            inputMethodManager2 = this.a.d;
+            editText3 = this.a.e;
+            writeActivity.b(inputMethodManager2, editText3);
+            return;
         }
-        s sVar = new s();
-        sVar.b(i);
-        return sVar;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: a */
-    public void onPostExecute(s sVar) {
-        com.baidu.adp.base.e eVar;
-        super.onPostExecute(sVar);
-        this.a.a = null;
-        eVar = this.a.mLoadDataCallBack;
-        eVar.a(sVar);
-    }
-
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void cancel() {
-        super.cancel(true);
-        this.a.a = null;
-        if (this.b != null) {
-            this.b.g();
-        }
+        WriteActivity writeActivity2 = this.a;
+        inputMethodManager = this.a.d;
+        editText2 = this.a.f;
+        writeActivity2.b(inputMethodManager, editText2);
     }
 }

@@ -2,91 +2,87 @@ package com.baidu.tieba.service;
 
 import android.app.Service;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Handler;
 import android.os.IBinder;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.x;
+import com.baidu.tieba.util.z;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 /* loaded from: classes.dex */
 public class TiebaActiveService extends Service {
-    private static final int ACTIVE_FAIL = 1;
-    private static final int ACTIVE_SUCC = 2;
-    private n mActiveTask = null;
-    private int mHaveRetry = 0;
-    private Handler mHandler = new Handler();
-    private Runnable mRunnable = new m(this);
+    private m a = null;
+    private int b = 0;
+    private Handler c = new Handler();
+    private Runnable d = new l(this);
 
-    private String getChannelByShare() {
-        return com.baidu.tbadk.core.sharedPref.b.a().a("channel_id", (String) null);
+    private String a() {
+        return getSharedPreferences("settings", 0).getString("channel_id", null);
     }
 
-    private void saveChannelToShare(String str) {
+    private void a(String str) {
         if (str != null && str.length() > 0) {
-            com.baidu.tbadk.core.sharedPref.b.a().b("channel_id", str);
+            SharedPreferences.Editor edit = getSharedPreferences("settings", 0).edit();
+            edit.putString("channel_id", str);
+            edit.commit();
         }
     }
 
-    private String getChannelyFile() {
+    private String b() {
         String str = null;
         try {
-            File d = x.d(TbConfig.CHANNEL_FILE);
-            if (d != null) {
-                BufferedReader bufferedReader = new BufferedReader(new FileReader(d));
+            File c = com.baidu.tieba.util.m.c("channel.dat");
+            if (c != null) {
+                BufferedReader bufferedReader = new BufferedReader(new FileReader(c));
                 str = bufferedReader.readLine();
                 if (bufferedReader != null) {
                     bufferedReader.close();
                 }
             }
         } catch (Exception e) {
-            BdLog.e(getClass().getName(), "getFromByFile", e.getMessage());
-            TiebaStatic.file(e, "TiebaActiveService.getChannelyFile");
+            z.b(getClass().getName(), "getFromByFile", e.getMessage());
         }
         return str;
     }
 
-    private void saveChannelToFile(String str) {
+    private void b(String str) {
         if (str != null && str.length() > 0) {
             try {
-                File f = x.f(TbConfig.CHANNEL_FILE);
-                if (f != null) {
-                    FileWriter fileWriter = new FileWriter(f);
+                File e = com.baidu.tieba.util.m.e("channel.dat");
+                if (e != null) {
+                    FileWriter fileWriter = new FileWriter(e);
                     fileWriter.append((CharSequence) str);
                     fileWriter.flush();
                     fileWriter.close();
                 }
-            } catch (Exception e) {
-                BdLog.e(getClass().getName(), "saveFromToFile", e.getMessage());
-                TiebaStatic.file(e, "TiebaActiveService.saveChannelToFile");
+            } catch (Exception e2) {
+                z.b(getClass().getName(), "saveFromToFile", e2.getMessage());
             }
         }
     }
 
-    private boolean isActived() {
+    private boolean c() {
         try {
-            String channelByShare = getChannelByShare();
-            if (channelByShare == null) {
-                String channelyFile = getChannelyFile();
-                if (channelyFile != null && channelyFile.length() > 0) {
-                    saveChannelToShare(channelyFile);
+            String a = a();
+            if (a == null) {
+                String b = b();
+                if (b != null && b.length() > 0) {
+                    a(b);
                 } else {
                     if ("aishide" != 0 && "aishide".length() > 0) {
-                        saveChannelToShare("aishide");
-                        saveChannelToFile("aishide");
+                        a("aishide");
+                        b("aishide");
                     }
                     return false;
                 }
             } else {
-                saveChannelToFile(channelByShare);
+                b(a);
             }
         } catch (Exception e) {
-            BdLog.e(getClass().getName(), "getActiveState", e.getMessage());
+            z.b(getClass().getName(), "getActiveState", e.getMessage());
         }
-        BdLog.i(getClass().getName(), "getActiveState", "channel = ");
+        z.a(getClass().getName(), "getActiveState", "channel = ");
         return true;
     }
 
@@ -98,29 +94,29 @@ public class TiebaActiveService extends Service {
     @Override // android.app.Service
     public void onStart(Intent intent, int i) {
         super.onStart(intent, i);
-        if (isActived() && com.baidu.tbadk.core.sharedPref.b.a().a("active", 2) != 1) {
+        if (c() && getSharedPreferences("settings", 0).getInt("active", 2) != 1) {
             stopSelf();
         } else {
-            sendActive();
+            d();
         }
     }
 
     @Override // android.app.Service
     public void onDestroy() {
-        if (this.mActiveTask != null) {
-            this.mActiveTask.cancel();
+        if (this.a != null) {
+            this.a.cancel();
         }
-        this.mHaveRetry = 11;
-        this.mHandler.removeCallbacks(this.mRunnable);
+        this.b = 11;
+        this.c.removeCallbacks(this.d);
         super.onDestroy();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void sendActive() {
-        if (this.mActiveTask != null) {
-            this.mActiveTask.cancel();
+    public void d() {
+        if (this.a != null) {
+            this.a.cancel();
         }
-        this.mActiveTask = new n(this, null);
-        this.mActiveTask.execute(new String[0]);
+        this.a = new m(this, null);
+        this.a.execute(new String[0]);
     }
 }

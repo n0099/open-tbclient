@@ -1,116 +1,180 @@
 package com.baidu.tieba.model;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.listener.HttpMessageListener;
-import com.baidu.adp.framework.message.HttpMessage;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.frameworkData.CmdConfig;
-import com.baidu.tbadk.task.TbHttpMessageTask;
-import com.baidu.tieba.data.BubbleListData;
-import com.baidu.tieba.message.ResponseBubbleListMessage;
-import com.baidu.tieba.message.ResponseSetBubbleMessage;
-import java.util.List;
+import android.content.SharedPreferences;
+import com.baidu.tieba.TiebaApplication;
+import com.baidu.tieba.data.MarkData;
+import com.baidu.tieba.util.DatabaseService;
+import java.util.ArrayList;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes.dex */
-public class f extends com.baidu.adp.base.b {
-    private i a;
-    private j b;
-    private int c;
-    private int d;
-    private HttpMessageListener e = new g(this, CmdConfig.REQUEST_BUBBLELIST_CMD);
-    private HttpMessageListener f = new h(this, CmdConfig.SET_BUBBLE_CMD);
-
-    public void a(i iVar) {
-        this.a = iVar;
-    }
-
-    public void a(j jVar) {
-        this.b = jVar;
-    }
+public class f {
+    private h b = null;
+    private i c = null;
+    private g d = null;
+    private int f = 0;
+    protected com.baidu.tieba.j a = null;
+    private ArrayList e = new ArrayList();
 
     public int a() {
-        return this.c;
-    }
-
-    public void a(int i) {
-        this.c = i;
-    }
-
-    public int b() {
-        return this.d;
-    }
-
-    public void b(int i) {
-        this.d = i;
-    }
-
-    @Override // com.baidu.adp.base.b
-    protected boolean LoadData() {
-        return false;
-    }
-
-    @Override // com.baidu.adp.base.b
-    public boolean cancelLoadData() {
-        return false;
-    }
-
-    public static boolean a(List<BubbleListData.BubbleData> list) {
-        if (list != null && list.size() > 0) {
-            for (BubbleListData.BubbleData bubbleData : list) {
-                if (bubbleData.getBcode() != 0 && bubbleData.isDef()) {
-                    return false;
-                }
-            }
+        if (this.e == null) {
+            return 0;
         }
-        return true;
+        return this.e.size();
     }
 
-    public void a(CustomMessageListener customMessageListener) {
-        MessageManager.getInstance().registerListener(customMessageListener);
+    public ArrayList b() {
+        return this.e;
     }
 
-    public void c() {
-        MessageManager messageManager = MessageManager.getInstance();
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfig.REQUEST_BUBBLELIST_CMD, String.valueOf(TbConfig.SERVER_ADDRESS) + "c/e/bu/getbubblelist");
-        tbHttpMessageTask.setResponsedClass(ResponseBubbleListMessage.class);
-        messageManager.registerTask(tbHttpMessageTask);
-        messageManager.registerListener(this.e);
+    public void a(ArrayList arrayList) {
+        this.e = arrayList;
     }
 
-    public void a(int i, int i2, int i3, int i4) {
-        HttpMessage httpMessage = new HttpMessage(CmdConfig.REQUEST_BUBBLELIST_CMD);
-        httpMessage.setTag(CmdConfig.REQUEST_BUBBLELIST_CMD);
-        httpMessage.addParam("pn", String.valueOf(i));
-        httpMessage.addParam("rn", String.valueOf(i2));
-        httpMessage.addParam("scr_w", String.valueOf(i3));
-        httpMessage.addParam("scr_h", String.valueOf(i4));
-        MessageManager.getInstance().sendMessage(httpMessage);
+    public void b(ArrayList arrayList) {
+        this.e.addAll(arrayList);
     }
 
-    public void a(int i, int i2, int i3) {
-        HttpMessage httpMessage = new HttpMessage(CmdConfig.SET_BUBBLE_CMD);
-        httpMessage.setTag(CmdConfig.SET_BUBBLE_CMD);
-        httpMessage.addParam("bcode", String.valueOf(i));
-        httpMessage.addParam("scr_w", String.valueOf(i2));
-        httpMessage.addParam("scr_h", String.valueOf(i3));
-        MessageManager.getInstance().sendMessage(httpMessage);
+    public void a(MarkData markData) {
+        this.e.add(markData);
     }
 
-    public void d() {
-        MessageManager messageManager = MessageManager.getInstance();
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfig.SET_BUBBLE_CMD, String.valueOf(TbConfig.SERVER_ADDRESS) + "c/e/bu/setbubble");
-        tbHttpMessageTask.setResponsedClass(ResponseSetBubbleMessage.class);
-        messageManager.registerTask(tbHttpMessageTask);
-        messageManager.registerListener(this.f);
+    public int c() {
+        if (this.e == null) {
+            return 0;
+        }
+        return this.e.size();
+    }
+
+    public int d() {
+        return this.f;
     }
 
     public void e() {
-        MessageManager messageManager = MessageManager.getInstance();
-        messageManager.unRegisterListener(this.f);
-        messageManager.unRegisterListener(this.e);
+        ArrayList u = DatabaseService.u();
+        if (u != null) {
+            a(u);
+        }
     }
 
-    public void b(CustomMessageListener customMessageListener) {
-        MessageManager.getInstance().unRegisterListener(customMessageListener);
+    public String a(int i, int i2) {
+        JSONArray jSONArray;
+        int i3;
+        if (this.e == null) {
+            return null;
+        }
+        if (i >= this.e.size()) {
+            i2 -= (i - this.e.size()) - 1;
+            i = this.e.size() - 1;
+        }
+        JSONArray jSONArray2 = new JSONArray();
+        int i4 = 0;
+        int i5 = i;
+        while (true) {
+            if (i5 < 0) {
+                jSONArray = jSONArray2;
+                break;
+            } else if (i5 <= i - i2) {
+                jSONArray = jSONArray2;
+                break;
+            } else {
+                try {
+                    JSONObject json = ((MarkData) this.e.get(i5)).toJson();
+                    if (json == null || i4 < 0) {
+                        i3 = i4;
+                    } else {
+                        i3 = i4 + 1;
+                        jSONArray2.put(i4, json);
+                    }
+                    i5--;
+                    i4 = i3;
+                } catch (Exception e) {
+                    com.baidu.tieba.util.z.b(getClass().getName(), "toJson", e.toString());
+                    jSONArray = null;
+                }
+            }
+        }
+        if (jSONArray == null) {
+            return null;
+        }
+        return jSONArray.toString();
+    }
+
+    public void a(String str) {
+        try {
+            a(new JSONObject(str));
+        } catch (Exception e) {
+            com.baidu.tieba.util.z.b(getClass().getName(), "parserJson", e.toString());
+        }
+    }
+
+    public void a(JSONObject jSONObject) {
+        try {
+            if (jSONObject.optJSONObject("error").optString("errno").equals("0")) {
+                JSONArray optJSONArray = jSONObject.optJSONArray("store_thread");
+                for (int i = 0; i < optJSONArray.length(); i++) {
+                    MarkData markData = new MarkData();
+                    markData.paserJson(optJSONArray.getJSONObject(i));
+                    this.e.add(markData);
+                }
+            }
+        } catch (Exception e) {
+            com.baidu.tieba.util.z.b(getClass().getName(), "parserJson", e.toString());
+        }
+    }
+
+    public void f() {
+        if (this.b != null) {
+            this.b.cancel();
+        }
+        this.b = new h(this, a());
+        this.b.setPriority(3);
+        this.b.execute(new Boolean[0]);
+    }
+
+    public void g() {
+        if (this.c != null) {
+            this.c.cancel();
+        }
+        this.c = new i(this, null);
+        this.c.setPriority(2);
+        this.c.execute(new f[0]);
+    }
+
+    public void a(int i) {
+        if (this.d != null) {
+            this.d.cancel();
+        }
+        if (this.e.get(i) != null && ((MarkData) this.e.get(i)).getId() != null) {
+            this.d = new g(this, ((MarkData) this.e.get(i)).getId(), i);
+            this.d.setPriority(2);
+            this.d.execute(new Boolean[0]);
+        }
+    }
+
+    public int h() {
+        return TiebaApplication.f().getSharedPreferences("settings", 0).getInt("uploac_mark_offset", 399);
+    }
+
+    public void b(int i) {
+        SharedPreferences.Editor edit = TiebaApplication.f().getSharedPreferences("settings", 0).edit();
+        edit.putInt("uploac_mark_offset", i);
+        edit.commit();
+    }
+
+    public void i() {
+        if (this.b != null) {
+            this.b.cancel();
+        }
+        if (this.c != null) {
+            this.c.cancel();
+        }
+        if (this.d != null) {
+            this.d.cancel();
+        }
+    }
+
+    public void a(com.baidu.tieba.j jVar) {
+        this.a = jVar;
     }
 }

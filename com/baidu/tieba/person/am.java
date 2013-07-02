@@ -1,34 +1,28 @@
 package com.baidu.tieba.person;
 
-import android.os.Handler;
-import android.widget.AbsListView;
+import android.content.DialogInterface;
+import android.content.Intent;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class am implements AbsListView.OnScrollListener {
-    final /* synthetic */ aj a;
+public class am implements DialogInterface.OnClickListener {
+    final /* synthetic */ PersonChangeActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public am(aj ajVar) {
-        this.a = ajVar;
+    public am(PersonChangeActivity personChangeActivity) {
+        this.a = personChangeActivity;
     }
 
-    @Override // android.widget.AbsListView.OnScrollListener
-    public void onScroll(AbsListView absListView, int i, int i2, int i3) {
-    }
-
-    @Override // android.widget.AbsListView.OnScrollListener
-    public void onScrollStateChanged(AbsListView absListView, int i) {
-        Handler handler;
-        Handler handler2;
-        Runnable runnable;
-        handler = this.a.f;
-        if (handler != null) {
-            handler2 = this.a.f;
-            runnable = this.a.k;
-            handler2.removeCallbacks(runnable);
+    @Override // android.content.DialogInterface.OnClickListener
+    public void onClick(DialogInterface dialogInterface, int i) {
+        com.baidu.tieba.model.bh bhVar;
+        com.baidu.tieba.model.bh bhVar2;
+        bhVar = this.a.z;
+        if (bhVar.a().getPhotoChanged()) {
+            Intent intent = new Intent();
+            bhVar2 = this.a.z;
+            intent.putExtra("data", bhVar2.a());
+            this.a.setResult(-1, intent);
         }
-        if (i == 0) {
-            this.a.g();
-        }
+        this.a.finish();
     }
 }

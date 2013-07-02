@@ -2,22 +2,18 @@ package com.baidu.adp.lib.guide;
 
 import android.os.Parcel;
 import android.os.Parcelable;
-import android.support.v4.view.MotionEventCompat;
-import android.view.View;
 /* loaded from: classes.dex */
 class Configuration implements Parcelable {
-    public static Parcelable.Creator<Configuration> l = new c();
-    boolean b;
-    View a = null;
-    int c = MotionEventCompat.ACTION_MASK;
-    int d = -1;
-    int e = -1;
-    int f = 17170444;
-    boolean g = true;
-    boolean h = false;
-    boolean i = false;
-    int j = -1;
-    int k = -1;
+    public static Parcelable.Creator j = new a();
+    int a = 255;
+    int b = -1;
+    int c = -1;
+    int d = 17170444;
+    boolean e = true;
+    boolean f = false;
+    boolean g = false;
+    int h = -1;
+    int i = -1;
 
     @Override // android.os.Parcelable
     public int describeContents() {
@@ -26,15 +22,15 @@ class Configuration implements Parcelable {
 
     @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i) {
+        parcel.writeInt(this.a);
+        parcel.writeInt(this.b);
         parcel.writeInt(this.c);
         parcel.writeInt(this.d);
-        parcel.writeInt(this.e);
-        parcel.writeInt(this.f);
-        parcel.writeByte((byte) (this.g ? 1 : 0));
-        parcel.writeByte((byte) (this.h ? 1 : 0));
+        parcel.writeByte((byte) (this.e ? 1 : 0));
+        parcel.writeByte((byte) (this.f ? 1 : 0));
     }
 
     public String toString() {
-        return "Configuration{mAlpha=" + this.c + ", mFullingViewId=" + this.d + ", mTargetViewId=" + this.e + ", mFullingColorId=" + this.f + ", mAutoDismiss=" + this.g + ", mOverlayTarget=" + this.h + '}';
+        return "Configuration{mAlpha=" + this.a + ", mFullingViewId=" + this.b + ", mTargetViewId=" + this.c + ", mFullingColorId=" + this.d + ", mAutoDismiss=" + this.e + ", mOverlayTarget=" + this.f + '}';
     }
 }

@@ -1,8 +1,9 @@
 package com.baidu.tieba.frs;
 
-import com.baidu.tbadk.core.util.TiebaStatic;
+import android.content.DialogInterface;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class p implements com.baidu.adp.widget.ListView.d {
+public class p implements DialogInterface.OnDismissListener {
     final /* synthetic */ FrsActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -10,9 +11,8 @@ class p implements com.baidu.adp.widget.ListView.d {
         this.a = frsActivity;
     }
 
-    @Override // com.baidu.adp.widget.ListView.d
-    public void a(boolean z) {
-        TiebaStatic.eventStat(this.a, "frs_pulldown", "frsclick", 1, new Object[0]);
-        this.a.E();
+    @Override // android.content.DialogInterface.OnDismissListener
+    public void onDismiss(DialogInterface dialogInterface) {
+        this.a.w();
     }
 }

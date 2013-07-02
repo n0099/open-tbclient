@@ -1,17 +1,19 @@
 package com.baidu.tieba;
 
-import android.view.View;
+import com.baidu.tieba.util.DatabaseService;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class e implements View.OnClickListener {
-    final /* synthetic */ AutoSkinActivity a;
+public class e extends Thread {
+    private final /* synthetic */ String a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public e(AutoSkinActivity autoSkinActivity) {
-        this.a = autoSkinActivity;
+    public e(String str) {
+        this.a = str;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        this.a.b();
+    @Override // java.lang.Thread, java.lang.Runnable
+    public void run() {
+        super.run();
+        DatabaseService.s(this.a);
     }
 }

@@ -12,44 +12,43 @@ import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.data.AccountData;
-import com.baidu.tbadk.core.util.be;
-import com.baidu.tbadk.core.view.NavigationBar;
+import com.baidu.tieba.R;
+import com.baidu.tieba.TiebaApplication;
+import com.baidu.tieba.data.AccountData;
 import com.baidu.tieba.data.RegistData;
-import com.baidu.tieba.topRec.TopRecActivity;
+import com.baidu.tieba.util.DatabaseService;
+import com.baidu.zeus.WebChromeClient;
 /* loaded from: classes.dex */
-public class ActivationActivity extends BaseActivity {
-    private static int b = 60;
-    public NavigationBar a;
-    private View c = null;
-    private LinearLayout d = null;
-    private ImageView e = null;
+public class ActivationActivity extends com.baidu.tieba.g {
+    private static int a = 60;
+    private ImageView b = null;
+    private LinearLayout c = null;
+    private ImageView d = null;
+    private ProgressBar e = null;
     private ProgressBar f = null;
-    private ProgressBar g = null;
-    private TextView h = null;
-    private TextView i = null;
-    private EditText j = null;
-    private RelativeLayout k = null;
+    private TextView g = null;
+    private TextView j = null;
+    private EditText k = null;
     private RelativeLayout l = null;
-    private s m = null;
-    private r n = null;
-    private boolean o = false;
-    private int p = b;
-    private RegistData q = null;
-    private final Handler r = new Handler();
-    private RelativeLayout s = null;
-    private View t = null;
+    private RelativeLayout m = null;
+    private i n = null;
+    private h o = null;
+    private boolean p = false;
+    private int q = a;
+    private RegistData r = null;
+    private Handler s = new Handler();
+    private RelativeLayout t = null;
     private TextView u = null;
-    private TextView v = null;
-    private int w = 0;
-    private int x = 0;
+    private View v = null;
+    private TextView w = null;
+    private TextView x = null;
     private int y = 0;
-    private final Runnable z = new n(this);
-    private final View.OnClickListener A = new o(this);
-    private final TextWatcher B = new p(this);
-    private final View.OnFocusChangeListener C = new q(this);
+    private int z = 0;
+    private int A = 0;
+    private Runnable B = new d(this);
+    private View.OnClickListener C = new e(this);
+    private TextWatcher D = new f(this);
+    private View.OnFocusChangeListener E = new g(this);
 
     public static void a(Activity activity, RegistData registData, int i) {
         Intent intent = new Intent(activity, ActivationActivity.class);
@@ -58,139 +57,137 @@ public class ActivationActivity extends BaseActivity {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
+    @Override // com.baidu.tieba.g, com.baidu.adp.a.a, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        setContentView(com.baidu.tieba.w.account_register_activation);
+        setContentView(R.layout.account_register_activation);
         a(bundle);
+        c();
         b();
-        a();
     }
 
     private void a(Bundle bundle) {
         if (bundle != null) {
-            this.q = (RegistData) bundle.getSerializable("data");
+            this.r = (RegistData) bundle.getSerializable("data");
         } else {
-            this.q = (RegistData) getIntent().getSerializableExtra("data");
+            this.r = (RegistData) getIntent().getSerializableExtra("data");
         }
-        if (this.q == null) {
+        if (this.r == null) {
             setResult(0);
             finish();
-        } else if (this.q.getSmsCodeTime() > 0) {
-            b = this.q.getSmsCodeTime();
+        } else if (this.r.getSmsCodeTime() > 0) {
+            a = this.r.getSmsCodeTime();
         }
     }
 
     @Override // android.app.Activity
     protected void onRestoreInstanceState(Bundle bundle) {
         super.onRestoreInstanceState(bundle);
-        this.q = (RegistData) bundle.getSerializable("data");
+        this.r = (RegistData) bundle.getSerializable("data");
     }
 
     @Override // android.app.Activity
     protected void onSaveInstanceState(Bundle bundle) {
         super.onSaveInstanceState(bundle);
-        bundle.putSerializable("data", this.q);
+        bundle.putSerializable("data", this.r);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
+    @Override // com.baidu.tieba.g, android.app.Activity
     public void onDestroy() {
-        this.r.removeCallbacks(this.z);
-        if (this.m != null) {
-            this.m.cancel();
-        }
+        this.s.removeCallbacks(this.B);
         if (this.n != null) {
             this.n.cancel();
+        }
+        if (this.o != null) {
+            this.o.cancel();
         }
         super.onDestroy();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void a() {
-        this.o = false;
-        this.l.setEnabled(false);
-        this.p = b;
-        this.h.setText(String.format(getString(com.baidu.tieba.y.resend_code_second), Integer.valueOf(this.p)));
-        this.r.postDelayed(this.z, 1000L);
+    public void b() {
+        this.p = false;
+        this.m.setEnabled(false);
+        this.q = a;
+        this.g.setText(String.format(getString(R.string.resend_code_second), Integer.valueOf(this.q)));
+        this.s.postDelayed(this.B, 1000L);
     }
 
-    private void b() {
-        this.s = (RelativeLayout) findViewById(com.baidu.tieba.v.container);
-        this.t = findViewById(com.baidu.tieba.v.title);
-        this.u = (TextView) findViewById(com.baidu.tieba.v.done_text);
-        this.a = (NavigationBar) findViewById(com.baidu.tieba.v.view_navigation_bar);
-        this.c = this.a.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, (View.OnClickListener) null);
-        this.a.a(getString(com.baidu.tieba.y.create_bar));
-        this.k = (RelativeLayout) findViewById(com.baidu.tieba.v.done);
-        this.k.setEnabled(false);
-        this.l = (RelativeLayout) findViewById(com.baidu.tieba.v.resend);
-        this.c.setOnClickListener(this.A);
-        this.k.setOnClickListener(this.A);
-        this.l.setOnClickListener(this.A);
-        this.h = (TextView) findViewById(com.baidu.tieba.v.resend_text);
-        this.j = (EditText) findViewById(com.baidu.tieba.v.edit_code);
-        this.j.addTextChangedListener(this.B);
-        this.j.setOnFocusChangeListener(this.C);
-        this.f = (ProgressBar) findViewById(com.baidu.tieba.v.progress_resend);
-        this.g = (ProgressBar) findViewById(com.baidu.tieba.v.progress_done);
-        this.e = (ImageView) findViewById(com.baidu.tieba.v.del_code);
-        this.e.setOnClickListener(this.A);
-        this.i = (TextView) findViewById(com.baidu.tieba.v.text_error);
-        this.d = (LinearLayout) findViewById(com.baidu.tieba.v.sms_code_input_bg);
-        this.w = this.d.getPaddingLeft();
-        this.x = this.d.getPaddingRight();
-        this.d.setBackgroundResource(com.baidu.tieba.u.pass_input);
-        this.d.setPadding(this.w, 0, this.x, 0);
-        this.v = (TextView) findViewById(com.baidu.tieba.v.no_receive_code);
-        ShowSoftKeyPadDelay(this.j, 150);
+    private void c() {
+        this.t = (RelativeLayout) findViewById(R.id.container);
+        this.v = findViewById(R.id.title);
+        this.u = (TextView) findViewById(R.id.title_text);
+        this.w = (TextView) findViewById(R.id.done_text);
+        this.b = (ImageView) findViewById(R.id.back);
+        this.l = (RelativeLayout) findViewById(R.id.done);
+        this.l.setEnabled(false);
+        this.m = (RelativeLayout) findViewById(R.id.resend);
+        this.b.setOnClickListener(this.C);
+        this.l.setOnClickListener(this.C);
+        this.m.setOnClickListener(this.C);
+        this.g = (TextView) findViewById(R.id.resend_text);
+        this.k = (EditText) findViewById(R.id.edit_code);
+        this.k.addTextChangedListener(this.D);
+        this.k.setOnFocusChangeListener(this.E);
+        this.e = (ProgressBar) findViewById(R.id.progress_resend);
+        this.f = (ProgressBar) findViewById(R.id.progress_done);
+        this.d = (ImageView) findViewById(R.id.del_code);
+        this.d.setOnClickListener(this.C);
+        this.j = (TextView) findViewById(R.id.text_error);
+        this.c = (LinearLayout) findViewById(R.id.sms_code_input_bg);
+        this.y = this.c.getPaddingLeft();
+        this.z = this.c.getPaddingRight();
+        this.c.setBackgroundResource(R.drawable.pass_input);
+        this.c.setPadding(this.y, 0, this.z, 0);
+        this.x = (TextView) findViewById(R.id.no_receive_code);
+        a(this.k, WebChromeClient.STRING_DLG_BTN_SET);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.BaseActivity
-    public void onChangeSkinType(int i) {
-        super.onChangeSkinType(i);
-        be.a(this.s, i);
-        be.d(this.t, i);
-        be.a(this.u, i);
-        be.a(this.h, i);
-        be.b(this.v, i);
-        this.a.c(i);
+    @Override // com.baidu.tieba.g
+    public void a(int i) {
+        super.a(i);
+        com.baidu.tieba.util.x.a(this.t, i);
+        com.baidu.tieba.util.x.d(this.v, i);
+        com.baidu.tieba.util.x.a(this.b, i);
+        com.baidu.tieba.util.x.f(this.u, i);
+        com.baidu.tieba.util.x.a(this.w, i);
+        com.baidu.tieba.util.x.a(this.g, i);
+        com.baidu.tieba.util.x.b(this.x, i);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(boolean z) {
-        this.j.setEnabled(z);
-        this.j.setFocusable(z);
-        this.j.setFocusableInTouchMode(z);
-        this.e.setEnabled(z);
+        this.k.setEnabled(z);
+        this.k.setFocusable(z);
+        this.k.setFocusableInTouchMode(z);
+        this.d.setEnabled(z);
         if (z) {
-            this.j.setTextColor(getResources().getColor(com.baidu.tieba.s.reg_font_color));
+            this.k.setTextColor(getResources().getColor(R.color.reg_font_color));
         } else {
-            this.j.setTextColor(getResources().getColor(com.baidu.tieba.s.text_hint_color));
+            this.k.setTextColor(getResources().getColor(R.color.text_hint_color));
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void a(com.baidu.tbadk.core.data.i iVar) {
+    public void a(com.baidu.tieba.model.al alVar) {
         AccountData accountData = new AccountData();
-        accountData.setAccount(iVar.a().getUserName());
-        if (iVar.a().getPassword() != null) {
-            accountData.setPassword(iVar.a().getPassword());
+        accountData.setAccount(alVar.a().getName());
+        if (alVar.a().getPassword() != null) {
+            accountData.setPassword(alVar.a().getPassword());
         } else {
-            accountData.setPassword(this.q.getPsw());
+            accountData.setPassword(this.r.getPsw());
         }
-        accountData.setID(iVar.a().getUserId());
-        accountData.setBDUSS(iVar.a().getBDUSS());
-        accountData.setPortrait(iVar.a().getPortrait());
+        accountData.setID(alVar.a().getId());
+        accountData.setBDUSS(alVar.a().getBDUSS());
         accountData.setIsActive(1);
-        if (iVar.b() != null) {
-            accountData.setTbs(iVar.b().getTbs());
+        if (alVar.b() != null) {
+            accountData.setTbs(alVar.b().getTbs());
         }
-        com.baidu.tbadk.core.account.a.a(accountData);
-        TbadkApplication.setCurrentAccount(accountData, getBaseContext());
+        DatabaseService.a(accountData);
+        TiebaApplication.b(accountData);
         setResult(-1);
         finish();
-        TopRecActivity.a(this);
     }
 }

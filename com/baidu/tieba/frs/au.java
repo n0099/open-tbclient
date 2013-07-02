@@ -1,40 +1,23 @@
 package com.baidu.tieba.frs;
 
-import android.view.View;
-import com.baidu.tbadk.core.view.HeadImageView;
-import com.baidu.tbadk.widget.TbImageView;
+import com.slidingmenu.lib.SlidingMenu;
 /* loaded from: classes.dex */
-class au implements com.baidu.tbadk.imageManager.d {
-    final /* synthetic */ FrsActivity a;
+class au implements SlidingMenu.OnClosedListener {
+    final /* synthetic */ FrsImageActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public au(FrsActivity frsActivity) {
-        this.a = frsActivity;
+    public au(FrsImageActivity frsImageActivity) {
+        this.a = frsImageActivity;
     }
 
-    @Override // com.baidu.tbadk.imageManager.d
-    public void a(com.baidu.adp.widget.a.a aVar, String str, boolean z) {
-        ct ctVar;
-        ct ctVar2;
-        ct ctVar3;
-        if (aVar != null) {
-            ctVar = this.a.w;
-            if (ctVar != null) {
-                ctVar2 = this.a.w;
-                if (ctVar2.L() != null) {
-                    ctVar3 = this.a.w;
-                    View findViewWithTag = ctVar3.L().findViewWithTag(str);
-                    if (findViewWithTag != null) {
-                        if (findViewWithTag instanceof HeadImageView) {
-                            ((HeadImageView) findViewWithTag).invalidate();
-                        } else if (findViewWithTag instanceof TbImageView) {
-                            ((TbImageView) findViewWithTag).invalidate();
-                        } else {
-                            findViewWithTag.invalidate();
-                        }
-                    }
-                }
-            }
+    @Override // com.slidingmenu.lib.SlidingMenu.OnClosedListener
+    public void onClosed() {
+        boolean z;
+        z = this.a.r;
+        if (z) {
+            this.a.r = false;
+            this.a.t = null;
+            this.a.e(1);
         }
     }
 }

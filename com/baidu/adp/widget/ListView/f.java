@@ -1,81 +1,37 @@
 package com.baidu.adp.widget.ListView;
 
-import android.content.Context;
-import android.view.View;
-import android.view.ViewGroup;
-import java.security.InvalidParameterException;
+import android.database.DataSetObserver;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public abstract class f {
-    private Context a;
-    private View b = null;
-    private boolean c = true;
-    private int d = 0;
-    private int e = 0;
+public class f extends DataSetObserver {
+    final /* synthetic */ e a;
 
-    public abstract View a();
-
-    public abstract void a(boolean z);
-
-    public abstract void b(boolean z);
-
-    public abstract void c(boolean z);
-
-    public abstract void e();
-
-    public abstract void f();
-
-    public f(Context context) {
-        this.a = null;
-        if (context == null) {
-            throw new InvalidParameterException("BdIListPullView context is null");
-        }
-        this.a = context;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public f(e eVar) {
+        this.a = eVar;
     }
 
-    public Context h() {
-        return this.a;
-    }
-
-    public final View i() {
-        if (this.b == null) {
-            this.b = a();
-            if (this.b == null) {
-                throw new IllegalStateException("BdIListPullView getView is null");
-            }
-            a(this.b);
-            this.d = this.b.getMeasuredHeight();
-            this.e = this.b.getMeasuredWidth();
-        }
-        return this.b;
-    }
-
-    public void a(int i, int i2, int i3, int i4) {
-        if (this.b != null) {
-            this.b.setPadding(i, i2, i3, i4);
+    @Override // android.database.DataSetObserver
+    public void onChanged() {
+        DataSetObserver dataSetObserver;
+        DataSetObserver dataSetObserver2;
+        super.onChanged();
+        dataSetObserver = this.a.g;
+        if (dataSetObserver != null) {
+            dataSetObserver2 = this.a.g;
+            dataSetObserver2.onChanged();
         }
     }
 
-    public boolean j() {
-        return this.c;
-    }
-
-    private void a(View view) {
-        int makeMeasureSpec;
-        ViewGroup.LayoutParams layoutParams = view.getLayoutParams();
-        if (layoutParams == null) {
-            layoutParams = new ViewGroup.LayoutParams(-1, -2);
+    @Override // android.database.DataSetObserver
+    public void onInvalidated() {
+        DataSetObserver dataSetObserver;
+        DataSetObserver dataSetObserver2;
+        super.onInvalidated();
+        dataSetObserver = this.a.g;
+        if (dataSetObserver != null) {
+            dataSetObserver2 = this.a.g;
+            dataSetObserver2.onInvalidated();
         }
-        int childMeasureSpec = ViewGroup.getChildMeasureSpec(0, 0, layoutParams.width);
-        int i = layoutParams.height;
-        if (i > 0) {
-            makeMeasureSpec = View.MeasureSpec.makeMeasureSpec(i, 1073741824);
-        } else {
-            makeMeasureSpec = View.MeasureSpec.makeMeasureSpec(0, 0);
-        }
-        view.measure(childMeasureSpec, makeMeasureSpec);
-    }
-
-    public int k() {
-        return this.d;
     }
 }

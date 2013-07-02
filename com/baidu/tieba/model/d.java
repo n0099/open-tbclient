@@ -1,78 +1,79 @@
 package com.baidu.tieba.model;
 
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.core.data.ForumData;
-import java.util.ArrayList;
-import java.util.Date;
-import org.json.JSONArray;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.android.pushservice.PushConstants;
 import org.json.JSONObject;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class d {
-    private int e = 0;
-    private ArrayList<ForumData> a = new ArrayList<>();
-    private com.baidu.tbadk.core.data.l b = new com.baidu.tbadk.core.data.l();
-    private Date c = null;
-    private boolean d = true;
+public class d extends BdAsyncTask {
+    final /* synthetic */ c a;
+    private volatile com.baidu.tieba.util.r b;
 
-    public int a() {
-        return this.e;
+    private d(c cVar) {
+        this.a = cVar;
+        this.b = null;
     }
 
-    public void a(int i) {
-        this.e = i;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public /* synthetic */ d(c cVar, d dVar) {
+        this(cVar);
     }
 
-    public ArrayList<ForumData> b() {
-        return this.a;
-    }
-
-    public void a(ArrayList<ForumData> arrayList) {
-        this.a = arrayList;
-    }
-
-    public void a(String str) {
-        if (str != null) {
-            try {
-                a(new JSONObject(str));
-            } catch (Exception e) {
-                this.d = false;
-                BdLog.e("BarlistModel", "parserJson", "error = " + e.getMessage());
-            }
-        }
-    }
-
-    public void a(JSONObject jSONObject) {
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    /* renamed from: d */
+    public Boolean a(Object... objArr) {
+        String str;
+        String str2;
+        JSONObject jSONObject;
         try {
-            JSONObject optJSONObject = jSONObject.optJSONObject("forum_list");
-            if (optJSONObject != null) {
-                JSONArray optJSONArray = optJSONObject.optJSONArray("gconforum");
-                if (optJSONArray != null) {
-                    this.e = optJSONArray.length();
-                    for (int i = 0; i < optJSONArray.length(); i++) {
-                        ForumData forumData = new ForumData();
-                        forumData.parserJson(optJSONArray.getJSONObject(i));
-                        this.a.add(forumData);
-                    }
-                }
-                JSONArray optJSONArray2 = optJSONObject.optJSONArray("non-gconforum");
-                if (optJSONArray2 != null) {
-                    for (int i2 = 0; i2 < optJSONArray2.length(); i2++) {
-                        ForumData forumData2 = new ForumData();
-                        forumData2.parserJson(optJSONArray2.getJSONObject(i2));
-                        this.a.add(forumData2);
-                    }
-                }
-                this.b.a(jSONObject.optJSONObject("page"));
-                long optLong = jSONObject.optLong("ctime", 0L);
-                if (optLong > 0) {
-                    this.c = new Date(optLong);
-                } else {
-                    this.c = new Date();
-                }
+            this.b = new com.baidu.tieba.util.r(String.valueOf(com.baidu.tieba.data.g.a) + "c/s/delcom");
+            this.b.d(true);
+            com.baidu.tieba.util.r rVar = this.b;
+            str = this.a.b;
+            rVar.a(PushConstants.EXTRA_USER_ID, str);
+            com.baidu.tieba.util.r rVar2 = this.b;
+            str2 = this.a.c;
+            rVar2.a("com_id", str2);
+            String j = this.b.j();
+            if (this.b.c() && j != null && (jSONObject = new JSONObject(j)) != null && jSONObject.optJSONObject("error").optInt("errno") == 0) {
+                return true;
             }
+            return false;
         } catch (Exception e) {
-            this.d = false;
-            BdLog.e("BarlistModel", "parserJson", "error = " + e.getMessage());
+            com.baidu.tieba.util.z.b(getClass().getName(), "doInBackground", e.getMessage());
+            return false;
         }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public void a(Boolean bool) {
+        com.baidu.adp.a.e eVar;
+        com.baidu.adp.a.e eVar2;
+        this.a.j = null;
+        if (bool.booleanValue()) {
+            eVar = this.a.mLoadDataCallBack;
+            eVar.a(true);
+            return;
+        }
+        this.a.mErrorCode = this.b.e();
+        this.a.mErrorString = this.b.g();
+        eVar2 = this.a.mLoadDataCallBack;
+        eVar2.a(false);
+    }
+
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public void cancel() {
+        com.baidu.adp.a.e eVar;
+        super.cancel(true);
+        if (this.b != null) {
+            this.b.h();
+            this.b = null;
+        }
+        eVar = this.a.mLoadDataCallBack;
+        eVar.a(false);
     }
 }

@@ -1,32 +1,31 @@
 package com.baidu.tieba.square;
 
-import java.util.ArrayList;
-import org.json.JSONArray;
-import org.json.JSONObject;
+import android.app.Activity;
+import android.view.View;
+import com.baidu.mobstat.StatService;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class h extends com.baidu.tieba.data.a {
-    private ArrayList<ab> a = new ArrayList<>();
+public class h implements View.OnClickListener {
+    final /* synthetic */ g a;
 
-    public ArrayList<ab> d() {
-        return this.a;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public h(g gVar) {
+        this.a = gVar;
     }
 
-    public void a(ArrayList<ab> arrayList) {
-        this.a = arrayList;
-        a((String) null);
-    }
-
-    @Override // com.baidu.tieba.data.a
-    protected void a(JSONObject jSONObject) {
-        ArrayList<ab> arrayList = new ArrayList<>();
-        JSONArray optJSONArray = jSONObject.optJSONArray("forum_dir");
-        if (optJSONArray != null) {
-            for (int i = 0; i < optJSONArray.length(); i++) {
-                ab abVar = new ab();
-                abVar.a(optJSONArray.getJSONObject(i));
-                arrayList.add(abVar);
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        q qVar;
+        Activity activity;
+        Object tag = view.getTag();
+        if ((tag instanceof j) && (qVar = ((j) tag).d) != null) {
+            if (qVar.a != null) {
+                activity = this.a.b;
+                StatService.onEvent(activity, "ef_category", "click");
+                BarFolderSecondDirActivity.a(this.a.a(), qVar.b, qVar.a, qVar.c);
+                return;
             }
+            BarFolderFirstDirActivity.a(this.a.a());
         }
-        a(arrayList);
     }
 }

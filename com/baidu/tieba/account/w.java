@@ -1,26 +1,18 @@
 package com.baidu.tieba.account;
 
-import android.widget.EditText;
-import android.widget.RadioButton;
-import android.widget.RadioGroup;
+import android.view.View;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class w implements RadioGroup.OnCheckedChangeListener {
-    final /* synthetic */ Register2Activity a;
+public class w implements View.OnClickListener {
+    final /* synthetic */ LoginActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public w(Register2Activity register2Activity) {
-        this.a = register2Activity;
+    public w(LoginActivity loginActivity) {
+        this.a = loginActivity;
     }
 
-    @Override // android.widget.RadioGroup.OnCheckedChangeListener
-    public void onCheckedChanged(RadioGroup radioGroup, int i) {
-        EditText editText;
-        if (i > 0) {
-            RadioButton radioButton = (RadioButton) this.a.findViewById(i);
-            if (radioButton.isChecked()) {
-                editText = this.a.t;
-                editText.setText(radioButton.getText());
-            }
-        }
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        this.a.p();
     }
 }

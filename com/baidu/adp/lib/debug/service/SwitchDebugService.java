@@ -2,7 +2,6 @@ package com.baidu.adp.lib.debug.service;
 
 import android.app.ActivityManager;
 import android.app.Service;
-import android.content.Context;
 import android.content.Intent;
 import android.content.res.AssetManager;
 import android.hardware.Sensor;
@@ -12,65 +11,60 @@ import android.hardware.SensorManager;
 import android.os.IBinder;
 import android.os.Vibrator;
 import android.widget.Toast;
-import com.baidu.adp.f;
+import com.baidu.adp.g;
 import com.baidu.adp.lib.debug.DebugConfigActivity;
-import com.baidu.adp.lib.debug.d;
-import com.baidu.adp.lib.debug.e;
-import com.baidu.tbadk.core.frameworkData.a;
+import com.baidu.adp.lib.debug.b;
+import com.baidu.browser.explorer.BdWebErrorView;
+import com.baidu.location.LocationClientOption;
 import java.io.IOException;
 import java.util.List;
 import java.util.Properties;
 /* loaded from: classes.dex */
 public class SwitchDebugService extends Service implements SensorEventListener {
-    private String mPackageName;
-    private static int ACCELERATION = 80;
-    private static int ACCELERATION_ONE = 15;
-    private static int TIME_INTERVAL = 1000;
-    private static int ROCK_MIN_NUM = 4;
-    private static int ROCK_MAX_INTERVAL = 500;
-    public static Properties customConfig = null;
-    private SensorManager mSensorManager = null;
-    private Vibrator mVibrator = null;
-    private long mPreLotteryTime = 0;
-    private float mLastX = 0.0f;
-    private float mLastY = 0.0f;
-    private float mLastZ = 0.0f;
-    private int mRockNum = 0;
-    private long mPreRockTime = 0;
-    private boolean mValidRock = false;
-    private boolean mRockPage = true;
-    private ActivityManager mActivityManager = null;
+    private String q;
+    private static int b = 80;
+    private static int c = 15;
+    private static int d = LocationClientOption.MIN_SCAN_SPAN;
+    private static int e = 4;
+    private static int f = BdWebErrorView.ERROR_CODE_500;
+    public static Properties a = null;
+    private SensorManager g = null;
+    private Vibrator h = null;
+    private long i = 0;
+    private float j = 0.0f;
+    private float k = 0.0f;
+    private float l = 0.0f;
+    private int m = 0;
+    private long n = 0;
+    private boolean o = false;
+    private boolean p = true;
+    private ActivityManager r = null;
 
     @Override // android.app.Service
     public void onCreate() {
-        this.mPackageName = getPackageName();
-        this.mActivityManager = (ActivityManager) getSystemService("activity");
-        if (isProcessOnForGroud()) {
+        this.q = getPackageName();
+        this.r = (ActivityManager) getSystemService("activity");
+        if (a()) {
             super.onCreate();
-            Toast.makeText(getBaseContext(), getText(f.switch_debug).toString(), 1).show();
-            this.mSensorManager = (SensorManager) getSystemService("sensor");
-            this.mVibrator = (Vibrator) getSystemService("vibrator");
-            this.mRockPage = true;
-            this.mSensorManager.registerListener(this, this.mSensorManager.getDefaultSensor(1), 3);
+            Toast.makeText(getBaseContext(), getText(g.switch_debug).toString(), 1).show();
+            this.g = (SensorManager) getSystemService("sensor");
+            this.h = (Vibrator) getSystemService("vibrator");
+            this.p = true;
+            this.g.registerListener(this, this.g.getDefaultSensor(1), 3);
         }
-        initCoustomConfig(getApplicationContext().getAssets());
+        a(getApplicationContext().getAssets());
     }
 
-    public static void startSwitchDebugService(Context context, e eVar) {
-        context.startService(new Intent(context, SwitchDebugService.class));
-        d.f = eVar;
-    }
-
-    private static void initCoustomConfig(AssetManager assetManager) {
-        if (customConfig == null) {
+    private static void a(AssetManager assetManager) {
+        if (a == null) {
             synchronized (SwitchDebugService.class) {
-                if (customConfig == null) {
-                    customConfig = new Properties();
+                if (a == null) {
+                    a = new Properties();
                     try {
-                        customConfig.load(assetManager.open("debug/debug_ascii.conf"));
-                    } catch (IOException e) {
-                        customConfig = null;
-                        e.printStackTrace();
+                        a.load(assetManager.open("debug/debug_ascii.conf"));
+                    } catch (IOException e2) {
+                        a = null;
+                        e2.printStackTrace();
                     }
                 }
             }
@@ -82,11 +76,11 @@ public class SwitchDebugService extends Service implements SensorEventListener {
         super.onStart(intent, i);
         if (intent != null) {
             try {
-                if (intent.getBooleanExtra(a.STOP, false)) {
+                if (intent.getBooleanExtra("stop", false)) {
                     stopSelf();
                 }
-            } catch (Exception e) {
-                e.printStackTrace();
+            } catch (Exception e2) {
+                e2.printStackTrace();
             }
         }
     }
@@ -94,34 +88,34 @@ public class SwitchDebugService extends Service implements SensorEventListener {
     @Override // android.hardware.SensorEventListener
     public void onSensorChanged(SensorEvent sensorEvent) {
         if (sensorEvent.sensor.getType() == 1 && sensorEvent.values != null && sensorEvent.values.length >= 3) {
-            float f = sensorEvent.values[0];
-            float f2 = sensorEvent.values[1];
-            float f3 = sensorEvent.values[2];
-            float f4 = f - this.mLastX;
-            float f5 = f2 - this.mLastY;
-            float f6 = f3 - this.mLastZ;
-            this.mLastX = f;
-            this.mLastY = f2;
-            this.mLastZ = f3;
-            if (this.mRockPage) {
-                if (!this.mValidRock) {
-                    this.mValidRock = true;
-                } else if ((f4 * f4) + (f5 * f5) + (f6 * f6) >= ACCELERATION) {
+            float f2 = sensorEvent.values[0];
+            float f3 = sensorEvent.values[1];
+            float f4 = sensorEvent.values[2];
+            float f5 = f2 - this.j;
+            float f6 = f3 - this.k;
+            float f7 = f4 - this.l;
+            this.j = f2;
+            this.k = f3;
+            this.l = f4;
+            if (this.p) {
+                if (!this.o) {
+                    this.o = true;
+                } else if ((f5 * f5) + (f6 * f6) + (f7 * f7) >= b) {
                     long currentTimeMillis = System.currentTimeMillis();
-                    if (currentTimeMillis - this.mPreRockTime <= ROCK_MAX_INTERVAL) {
-                        this.mRockNum++;
+                    if (currentTimeMillis - this.n <= f) {
+                        this.m++;
                     } else {
-                        this.mRockNum = 1;
+                        this.m = 1;
                     }
-                    if (Math.abs(f5) >= ACCELERATION_ONE || Math.abs(f4) >= ACCELERATION_ONE || Math.abs(f6) >= ACCELERATION_ONE) {
-                        this.mRockNum = ROCK_MIN_NUM;
+                    if (Math.abs(f6) >= c || Math.abs(f5) >= c || Math.abs(f7) >= c) {
+                        this.m = e;
                     }
-                    this.mPreRockTime = currentTimeMillis;
-                    if (this.mRockNum >= ROCK_MIN_NUM && currentTimeMillis - this.mPreLotteryTime > TIME_INTERVAL && isProcessOnForGroud()) {
-                        this.mPreLotteryTime = currentTimeMillis;
-                        this.mVibrator.vibrate(100L);
-                        if (d.c) {
-                            Toast.makeText(getBaseContext(), getResources().getString(f.debug_opened), 1).show();
+                    this.n = currentTimeMillis;
+                    if (this.m >= e && currentTimeMillis - this.i > d && a()) {
+                        this.i = currentTimeMillis;
+                        this.h.vibrate(100L);
+                        if (b.c) {
+                            Toast.makeText(getBaseContext(), getResources().getString(g.debug_opened), 1).show();
                             return;
                         }
                         Intent intent = new Intent(getApplicationContext(), DebugConfigActivity.class);
@@ -142,11 +136,11 @@ public class SwitchDebugService extends Service implements SensorEventListener {
         return null;
     }
 
-    private boolean isProcessOnForGroud() {
-        List<ActivityManager.RunningAppProcessInfo> runningAppProcesses = this.mActivityManager.getRunningAppProcesses();
+    private boolean a() {
+        List<ActivityManager.RunningAppProcessInfo> runningAppProcesses = this.r.getRunningAppProcesses();
         for (int i = 0; i < runningAppProcesses.size(); i++) {
             ActivityManager.RunningAppProcessInfo runningAppProcessInfo = runningAppProcesses.get(i);
-            if (this.mPackageName.contains(runningAppProcessInfo.processName) && runningAppProcessInfo.importance == 100) {
+            if (this.q.contains(runningAppProcessInfo.processName) && runningAppProcessInfo.importance == 100) {
                 return true;
             }
         }
@@ -156,6 +150,6 @@ public class SwitchDebugService extends Service implements SensorEventListener {
     @Override // android.app.Service
     public void onDestroy() {
         super.onDestroy();
-        this.mSensorManager.unregisterListener(this);
+        this.g.unregisterListener(this);
     }
 }

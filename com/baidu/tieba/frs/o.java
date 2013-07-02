@@ -1,10 +1,11 @@
 package com.baidu.tieba.frs;
 
-import android.view.View;
-import android.widget.AdapterView;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class o implements AdapterView.OnItemLongClickListener {
+public class o extends BroadcastReceiver {
     final /* synthetic */ FrsActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -12,53 +13,32 @@ class o implements AdapterView.OnItemLongClickListener {
         this.a = frsActivity;
     }
 
-    @Override // android.widget.AdapterView.OnItemLongClickListener
-    public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long j) {
-        ct ctVar;
-        ct ctVar2;
-        com.baidu.tbadk.core.data.n nVar;
-        com.baidu.tbadk.core.data.n nVar2;
-        com.baidu.tbadk.core.data.n nVar3;
-        com.baidu.tbadk.core.data.n nVar4;
-        ct ctVar3;
-        com.baidu.tbadk.core.data.n nVar5;
-        if (i >= 0) {
-            ctVar = this.a.w;
-            long itemId = ctVar.v().getItemId(i);
-            if (itemId != -1 && itemId != -2) {
-                FrsActivity frsActivity = this.a;
-                ctVar2 = this.a.w;
-                frsActivity.Q = (com.baidu.tbadk.core.data.n) ctVar2.v().getItem(i);
-                nVar = this.a.Q;
-                if (nVar instanceof com.baidu.tbadk.core.data.b) {
-                    nVar5 = this.a.Q;
-                    com.baidu.tbadk.core.data.b bVar = (com.baidu.tbadk.core.data.b) nVar5;
-                    int k = bVar.k();
-                    if (k == 0) {
-                        this.a.a(bVar, i);
-                    } else if (k == 2) {
-                        this.a.a(bVar);
-                    }
-                    TiebaStatic.eventStat(this.a, "frs_tb_arc", "");
-                } else {
-                    FrsActivity frsActivity2 = this.a;
-                    nVar2 = this.a.Q;
-                    frsActivity2.u = nVar2.p();
-                    nVar3 = this.a.Q;
-                    String B = nVar3.B();
-                    if (B == null || B.equals("")) {
-                        this.a.v = false;
-                    } else {
-                        this.a.v = true;
-                    }
-                    FrsActivity frsActivity3 = this.a;
-                    nVar4 = this.a.Q;
-                    frsActivity3.b(nVar4);
-                    ctVar3 = this.a.w;
-                    ctVar3.s();
-                }
-            }
+    @Override // android.content.BroadcastReceiver
+    public void onReceive(Context context, Intent intent) {
+        com.baidu.tieba.model.aa aaVar;
+        com.baidu.tieba.model.aa aaVar2;
+        com.baidu.tieba.model.aa aaVar3;
+        com.baidu.tieba.model.aa aaVar4;
+        com.baidu.tieba.model.aa aaVar5;
+        az azVar;
+        com.baidu.tieba.model.aa aaVar6;
+        long longExtra = intent.getLongExtra("fans", 0L);
+        long longExtra2 = intent.getLongExtra("relay", 0L);
+        long longExtra3 = intent.getLongExtra("at_me", 0L);
+        long longExtra4 = intent.getLongExtra("pletter", 0L);
+        aaVar = this.a.C;
+        if (aaVar != null) {
+            aaVar2 = this.a.C;
+            aaVar2.a(longExtra);
+            aaVar3 = this.a.C;
+            aaVar3.c(longExtra2);
+            aaVar4 = this.a.C;
+            aaVar4.b(longExtra3);
+            aaVar5 = this.a.C;
+            aaVar5.d(longExtra4);
+            azVar = this.a.m;
+            aaVar6 = this.a.C;
+            azVar.a(aaVar6);
         }
-        return false;
     }
 }

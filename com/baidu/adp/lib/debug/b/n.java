@@ -1,26 +1,43 @@
 package com.baidu.adp.lib.debug.b;
 
-import android.view.MotionEvent;
-import android.view.View;
+import android.os.Handler;
+import android.os.Message;
+import android.util.Log;
 /* loaded from: classes.dex */
-class n implements View.OnTouchListener {
-    final /* synthetic */ m a;
+class n extends Handler {
+    final /* synthetic */ j a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public n(m mVar) {
-        this.a = mVar;
+    public n(j jVar) {
+        this.a = jVar;
     }
 
-    @Override // android.view.View.OnTouchListener
-    public boolean onTouch(View view, MotionEvent motionEvent) {
-        if (motionEvent.getAction() == 0) {
-            view.setBackgroundResource(com.baidu.adp.c.adp_debug_refresh_press);
-            com.baidu.adp.lib.debug.d.b(0);
-            com.baidu.adp.lib.debug.d.c(0);
-            com.baidu.adp.lib.debug.d.g();
-        } else if (motionEvent.getAction() == 1) {
-            view.setBackgroundResource(com.baidu.adp.c.adp_debug_refresh);
+    @Override // android.os.Handler
+    public void handleMessage(Message message) {
+        try {
+            switch (message.what) {
+                case 0:
+                    this.a.m.setText("fps:" + com.baidu.adp.lib.debug.b.a());
+                    break;
+                case 1:
+                    this.a.n.setText("mem:" + com.baidu.adp.lib.debug.b.b());
+                    break;
+                case 2:
+                    this.a.o.setText("cpu:" + com.baidu.adp.lib.debug.b.c());
+                    break;
+                case 3:
+                    this.a.p.setText("gc:" + com.baidu.adp.lib.debug.b.d());
+                    break;
+                case 4:
+                    this.a.q.setText("strictMode:" + com.baidu.adp.lib.debug.b.e());
+                    break;
+                case 5:
+                    Log.i("Monitor", "battery run");
+                    this.a.r.setText("battery:" + com.baidu.adp.lib.debug.b.f());
+                    break;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
         }
-        return false;
     }
 }

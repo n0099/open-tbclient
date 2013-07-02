@@ -1,32 +1,51 @@
 package com.baidu.tieba.view;
 
+import android.app.Activity;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import com.baidu.tbadk.widget.TbImageView;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.widget.AdapterView;
+import android.widget.ListAdapter;
+import com.baidu.tieba.R;
 /* loaded from: classes.dex */
-public class n implements ViewGroup.OnHierarchyChangeListener {
-    final /* synthetic */ FrsCommonImageLayout a;
+public class n {
+    private View a;
+    private GoodGridView b;
+    private Activity c;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public n(FrsCommonImageLayout frsCommonImageLayout) {
-        this.a = frsCommonImageLayout;
+    public n(Activity activity) {
+        this.a = null;
+        this.b = null;
+        this.c = null;
+        this.c = activity;
+        this.a = LayoutInflater.from(activity).inflate(R.layout.dialog_good, (ViewGroup) null);
+        this.b = (GoodGridView) this.a.findViewById(R.id.good_gridview);
     }
 
-    @Override // android.view.ViewGroup.OnHierarchyChangeListener
-    public void onChildViewRemoved(View view, View view2) {
-        com.baidu.adp.lib.d.b bVar;
-        com.baidu.adp.lib.d.b bVar2;
-        if (view2 instanceof TbImageView) {
-            bVar = this.a.p;
-            if (bVar != null) {
-                bVar2 = this.a.p;
-                bVar2.a((com.baidu.adp.lib.d.b) ((TbImageView) view2));
-            }
+    public void a(com.baidu.tieba.frs.ag agVar) {
+        this.b.setAdapter((ListAdapter) agVar);
+    }
+
+    public void a(AdapterView.OnItemClickListener onItemClickListener) {
+        this.b.setOnItemClickListener(onItemClickListener);
+    }
+
+    public View a() {
+        return this.a;
+    }
+
+    public void a(int i) {
+        int a = com.baidu.tieba.util.aa.a(this.c, 10.0f);
+        if (i == 1) {
+            this.b.setBackgroundResource(R.drawable.bg_topbar_1);
+            this.b.setPadding(0, a, 0, a);
+            return;
         }
+        this.b.setBackgroundDrawable(null);
+        this.b.setBackgroundColor(-1);
+        this.b.setPadding(0, a, 0, a);
     }
 
-    @Override // android.view.ViewGroup.OnHierarchyChangeListener
-    public void onChildViewAdded(View view, View view2) {
+    public void b() {
     }
 }

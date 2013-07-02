@@ -1,66 +1,21 @@
 package com.baidu.tieba.frs;
 
-import android.os.Handler;
-import android.os.Message;
-import com.baidu.tbadk.core.data.ForumData;
-import com.baidu.tieba.view.CustomTimerView;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.mobstat.StatService;
+import com.baidu.tieba.TiebaApplication;
+import com.slidingmenu.lib.SlidingMenu;
 /* loaded from: classes.dex */
-public class aj extends Handler {
-    final /* synthetic */ FrsActivity a;
+class aj implements SlidingMenu.OnOpenedListener {
+    final /* synthetic */ FrsImageActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public aj(FrsActivity frsActivity) {
-        this.a = frsActivity;
+    public aj(FrsImageActivity frsImageActivity) {
+        this.a = frsImageActivity;
     }
 
-    @Override // android.os.Handler
-    public void handleMessage(Message message) {
-        g gVar;
-        g gVar2;
-        long j;
-        g gVar3;
-        boolean z;
-        ct ctVar;
-        g gVar4;
-        g gVar5;
-        ct ctVar2;
-        switch (message.what) {
-            case 1:
-                removeMessages(1);
-                gVar = this.a.I;
-                if (gVar != null) {
-                    gVar2 = this.a.I;
-                    long g = gVar2.l().g();
-                    j = this.a.N;
-                    long nanoTime = g - ((System.nanoTime() / 1000000000) - j);
-                    if (nanoTime > 0) {
-                        ctVar2 = this.a.w;
-                        CustomTimerView customTimerView = (CustomTimerView) ctVar2.a(com.baidu.tieba.v.open_timer);
-                        if (customTimerView != null) {
-                            customTimerView.setTime(nanoTime);
-                        }
-                        sendMessageDelayed(obtainMessage(1), 1000L);
-                        return;
-                    }
-                    gVar3 = this.a.I;
-                    gVar3.l().a(1);
-                    z = this.a.l;
-                    if (!z) {
-                        ctVar = this.a.w;
-                        com.baidu.tieba.frs.view.j x = ctVar.x();
-                        gVar4 = this.a.I;
-                        ForumData g2 = gVar4.g();
-                        gVar5 = this.a.I;
-                        x.a(g2, gVar5);
-                        return;
-                    }
-                    return;
-                }
-                return;
-            default:
-                super.handleMessage(message);
-                return;
+    @Override // com.slidingmenu.lib.SlidingMenu.OnOpenedListener
+    public void onOpened() {
+        if (TiebaApplication.f().s()) {
+            StatService.onEvent(this.a, "frs_total_more", "frsclick", 1);
         }
     }
 }

@@ -1,47 +1,57 @@
 package com.baidu.adp.lib.c;
 
-import android.location.Address;
-import android.os.Handler;
-import android.os.Message;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.content.Context;
+import android.content.pm.PackageInfo;
+import android.widget.Toast;
+import java.util.List;
 /* loaded from: classes.dex */
-public class c implements Handler.Callback {
-    final /* synthetic */ a a;
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public c(a aVar) {
-        this.a = aVar;
+public class c {
+    public static int a(Context context, float f) {
+        return (int) ((context.getResources().getDisplayMetrics().density * f) + 0.5f);
     }
 
-    @Override // android.os.Handler.Callback
-    public boolean handleMessage(Message message) {
-        int i;
-        int i2;
-        switch (message.what) {
-            case 0:
-                this.a.d();
-                String str = "";
-                i = this.a.j;
-                switch (i) {
-                    case 1:
-                        str = "糟糕！检测不到地理位置信息哦亲，请在手机设置中开启GPS功能";
-                        break;
-                    case 2:
-                        str = "糟糕！检测不到地理位置信息哦亲，请在手机设置中开启无线网络定位功能";
-                        break;
-                    case 3:
-                        str = "糟糕！检测不到地理位置信息哦亲，请在手机设置中开启GPS或者无线网络定位功能";
-                        break;
-                    case 4:
-                        str = "糟糕！定位失败，请稍后再试";
-                        break;
-                }
-                a aVar = this.a;
-                i2 = this.a.j;
-                aVar.a(i2, str, (Address) null);
-                return false;
-            default:
-                return false;
+    public static void a(Context context, String str) {
+        if (str != null && str.length() > 0) {
+            Toast makeText = Toast.makeText(context, str, 0);
+            makeText.setGravity(17, 0, a(context, 100.0f));
+            makeText.show();
         }
+    }
+
+    public static int[] a(int i, int i2, int i3, int i4) {
+        int i5;
+        int i6;
+        if (i <= 0 || i2 <= 0 || i3 <= 0 || i4 <= 0) {
+            return null;
+        }
+        int[] iArr = new int[2];
+        if (i2 > i4) {
+            i6 = (i * i4) / i2;
+            i5 = i4;
+        } else {
+            i5 = i2;
+            i6 = i;
+        }
+        if (i6 > i3) {
+            i5 = (i5 * i3) / i6;
+        } else {
+            i3 = i6;
+        }
+        iArr[0] = i3;
+        iArr[1] = i5;
+        return iArr;
+    }
+
+    public static boolean b(Context context, String str) {
+        List<PackageInfo> installedPackages;
+        if (str == null || str.length() == 0 || (installedPackages = context.getPackageManager().getInstalledPackages(0)) == null) {
+            return false;
+        }
+        for (int i = 0; i < installedPackages.size(); i++) {
+            if (installedPackages.get(i).packageName.equals(str)) {
+                return true;
+            }
+        }
+        return false;
     }
 }

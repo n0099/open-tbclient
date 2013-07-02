@@ -1,28 +1,34 @@
 package com.baidu.tieba.write;
 
-import android.text.SpannableStringBuilder;
-import com.baidu.tbadk.coreExtra.data.EmotionGroupType;
+import android.view.View;
+import android.widget.ProgressBar;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ax implements com.baidu.tbadk.imageManager.d {
-    final /* synthetic */ WriteActivity a;
-    private final /* synthetic */ SpannableStringBuilder b;
+public class ax implements View.OnClickListener {
+    final /* synthetic */ WriteImageActivity a;
+    private final /* synthetic */ String b;
     private final /* synthetic */ int c;
-    private final /* synthetic */ EmotionGroupType d;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ax(WriteActivity writeActivity, SpannableStringBuilder spannableStringBuilder, int i, EmotionGroupType emotionGroupType) {
-        this.a = writeActivity;
-        this.b = spannableStringBuilder;
+    public ax(WriteImageActivity writeImageActivity, String str, int i) {
+        this.a = writeImageActivity;
+        this.b = str;
         this.c = i;
-        this.d = emotionGroupType;
     }
 
-    @Override // com.baidu.tbadk.imageManager.d
-    public void a(com.baidu.adp.widget.a.a aVar, String str, boolean z) {
-        if (aVar == null) {
-            return;
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        ProgressBar progressBar;
+        String str;
+        progressBar = this.a.j;
+        if (progressBar.getVisibility() != 0) {
+            String str2 = this.b;
+            str = this.a.w;
+            if (!str2.equals(str)) {
+                this.a.c(this.b);
+                this.a.e(this.b);
+                this.a.u = this.c;
+            }
         }
-        this.a.a(this.b, this.c, aVar, this.d);
     }
 }

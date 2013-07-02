@@ -1,14 +1,27 @@
 package com.baidu.tieba;
+
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public interface ah {
-    void a();
+public class ah implements DialogInterface.OnClickListener {
+    final /* synthetic */ MainTabActivity a;
 
-    void a(boolean z);
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public ah(MainTabActivity mainTabActivity) {
+        this.a = mainTabActivity;
+    }
 
-    void b();
-
-    void b(boolean z);
-
-    void c();
+    @Override // android.content.DialogInterface.OnClickListener
+    public void onClick(DialogInterface dialogInterface, int i) {
+        AlertDialog alertDialog;
+        if (i != -2) {
+            alertDialog = this.a.z;
+            alertDialog.dismiss();
+            TiebaApplication.f().a(false, true);
+            return;
+        }
+        this.a.a(true);
+        TiebaApplication.f().a(true, true);
+    }
 }

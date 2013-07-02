@@ -1,14 +1,26 @@
 package com.baidu.tieba.home;
 
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 /* loaded from: classes.dex */
-final class t extends v {
+class t {
     LinearLayout a;
     RelativeLayout b;
-    TextView c;
+    ImageView c;
     TextView d;
     TextView e;
-    t f;
+    ImageView f;
+    t g;
+    final /* synthetic */ r h;
+
+    private t(r rVar) {
+        this.h = rVar;
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public /* synthetic */ t(r rVar, t tVar) {
+        this(rVar);
+    }
 }

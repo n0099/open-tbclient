@@ -1,25 +1,28 @@
 package com.baidu.tieba.person;
 
-import com.baidu.adp.framework.message.SocketResponsedMessage;
+import android.app.Activity;
+import android.view.View;
+import com.baidu.tieba.R;
+import com.baidu.tieba.TiebaApplication;
+import com.baidu.tieba.account.LoginActivity;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class bq extends com.baidu.adp.framework.listener.b {
-    final /* synthetic */ bm a;
+public class bq implements View.OnClickListener {
+    final /* synthetic */ PersonListActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public bq(bm bmVar, int i) {
-        super(i);
-        this.a = bmVar;
+    public bq(PersonListActivity personListActivity) {
+        this.a = personListActivity;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    /* renamed from: a */
-    public void onMessage(SocketResponsedMessage socketResponsedMessage) {
-        if (socketResponsedMessage == null || socketResponsedMessage.getCmd() != 2003124) {
-            return;
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        this.a.a = ((Integer) view.getTag()).intValue();
+        String D = TiebaApplication.D();
+        if (D == null || D.length() <= 0) {
+            LoginActivity.a((Activity) this.a, this.a.getString(R.string.login_to_chat), true, 1100028);
+        } else {
+            this.a.c();
         }
-        this.a.a(socketResponsedMessage);
     }
 }
