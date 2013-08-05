@@ -1,5 +1,6 @@
 package com.baidu.tieba.data;
 
+import com.tencent.mm.sdk.platformtools.LocaleUtil;
 import java.io.Serializable;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
@@ -55,14 +56,14 @@ public class MetaData implements Serializable {
         try {
             parserJson(new JSONObject(str));
         } catch (Exception e) {
-            com.baidu.tieba.util.z.b("MetaData", "parserJson", "error = " + e.getMessage());
+            com.baidu.tieba.util.aj.b("MetaData", "parserJson", "error = " + e.getMessage());
         }
     }
 
     public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                this.id = jSONObject.optString("id");
+                this.id = jSONObject.optString(LocaleUtil.INDONESIAN);
                 this.type = jSONObject.optInt("type", 0);
                 this.name = jSONObject.optString("name");
                 if (this.name != null && this.name.length() <= 0) {
@@ -71,16 +72,16 @@ public class MetaData implements Serializable {
                 this.name_show = jSONObject.optString("name_show");
                 this.portrait = jSONObject.optString("portrait");
             } catch (Exception e) {
-                com.baidu.tieba.util.z.b("MetaData", "parserJson", "error = " + e.getMessage());
+                com.baidu.tieba.util.aj.b("MetaData", "parserJson", "error = " + e.getMessage());
             }
         }
     }
 
     public void logPrint() {
-        com.baidu.tieba.util.z.d("MetaData", "logPrint", "id = " + this.id);
-        com.baidu.tieba.util.z.d("MetaData", "logPrint", "type = " + String.valueOf(this.type));
-        com.baidu.tieba.util.z.d("MetaData", "logPrint", "name = " + this.name);
-        com.baidu.tieba.util.z.d("MetaData", "logPrint", "name_show = " + this.name_show);
-        com.baidu.tieba.util.z.d("MetaData", "logPrint", "portrait = " + this.portrait);
+        com.baidu.tieba.util.aj.d("MetaData", "logPrint", "id = " + this.id);
+        com.baidu.tieba.util.aj.d("MetaData", "logPrint", "type = " + String.valueOf(this.type));
+        com.baidu.tieba.util.aj.d("MetaData", "logPrint", "name = " + this.name);
+        com.baidu.tieba.util.aj.d("MetaData", "logPrint", "name_show = " + this.name_show);
+        com.baidu.tieba.util.aj.d("MetaData", "logPrint", "portrait = " + this.portrait);
     }
 }

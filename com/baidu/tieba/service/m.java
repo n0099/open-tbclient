@@ -6,16 +6,19 @@ import android.os.Handler;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.util.NetWorkCore;
-import com.baidu.tieba.util.z;
+import com.baidu.tieba.util.aj;
+import com.tencent.mm.sdk.platformtools.Util;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class m extends BdAsyncTask {
-    NetWorkCore a;
+
+    /* renamed from: a  reason: collision with root package name */
+    NetWorkCore f1707a;
     final /* synthetic */ TiebaActiveService b;
 
     private m(TiebaActiveService tiebaActiveService) {
         this.b = tiebaActiveService;
-        this.a = null;
+        this.f1707a = null;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -27,36 +30,36 @@ public class m extends BdAsyncTask {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public String a(String... strArr) {
-        z.a(getClass().getName(), "doBackGround", "send active...");
+        aj.a(getClass().getName(), "doBackGround", "send active...");
         try {
-            this.a = new NetWorkCore("http://114.113.149.3:8086/partnersService");
-            this.a.a("http://114.113.149.3:8086/partnersService");
-            this.a.b(this.b.getApplicationContext());
-            this.a.a("apk", TiebaApplication.f().getPackageName());
-            this.a.a("imei", TiebaApplication.f().p());
-            this.a.a("model", Build.MODEL);
-            this.a.a("edition", com.baidu.tieba.data.g.i());
-            this.a.a("system", Build.VERSION.SDK);
-            this.a.c(false);
-            String o = this.a.o();
-            if (this.a.h()) {
-                z.a(getClass().getName(), "task", "data=" + o);
-                return o;
+            this.f1707a = new NetWorkCore("http://114.113.149.3:8086/partnersService");
+            this.f1707a.a("http://114.113.149.3:8086/partnersService");
+            this.f1707a.b(this.b.getApplicationContext());
+            this.f1707a.a("apk", TiebaApplication.f().getPackageName());
+            this.f1707a.a("imei", TiebaApplication.f().p());
+            this.f1707a.a("model", Build.MODEL);
+            this.f1707a.a("edition", com.baidu.tieba.data.g.i());
+            this.f1707a.a("system", Build.VERSION.SDK);
+            this.f1707a.c(false);
+            String v = this.f1707a.v();
+            if (this.f1707a.o()) {
+                aj.a(getClass().getName(), "task", "data=" + v);
+                return v;
             }
         } catch (Exception e) {
             SharedPreferences.Editor edit = this.b.getSharedPreferences("settings", 0).edit();
             edit.putInt("active", 1);
             edit.commit();
-            z.b(getClass().getName(), "doInBackground", e.getMessage());
+            aj.b(getClass().getName(), "doInBackground", e.getMessage());
         }
         return null;
     }
 
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void cancel() {
-        this.b.a = null;
-        if (this.a != null) {
-            this.a.l();
+        this.b.f1690a = null;
+        if (this.f1707a != null) {
+            this.f1707a.s();
         }
         super.cancel(true);
     }
@@ -72,7 +75,7 @@ public class m extends BdAsyncTask {
         Handler handler2;
         Runnable runnable2;
         super.a((Object) str);
-        this.b.a = null;
+        this.b.f1690a = null;
         SharedPreferences.Editor edit = this.b.getSharedPreferences("settings", 0).edit();
         edit.putInt("active", 1);
         if (str == null) {
@@ -86,13 +89,13 @@ public class m extends BdAsyncTask {
                 handler.removeCallbacks(runnable);
                 handler2 = this.b.c;
                 runnable2 = this.b.d;
-                handler2.postDelayed(runnable2, 60000L);
+                handler2.postDelayed(runnable2, Util.MILLSECONDS_OF_MINUTE);
             } else {
                 edit.commit();
                 this.b.stopSelf();
             }
         }
-        z.a(getClass().getName(), "onPostExecute", "send active ok");
+        aj.a(getClass().getName(), "onPostExecute", "send active ok");
         edit.putInt("active", 2);
         edit.commit();
         this.b.stopSelf();

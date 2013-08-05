@@ -1,14 +1,17 @@
 package com.baidu.tieba.home;
 
 import android.support.v4.view.ViewPager;
+import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class aa extends ViewPager.SimpleOnPageChangeListener {
-    final /* synthetic */ z a;
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ z f1113a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public aa(z zVar) {
-        this.a = zVar;
+        this.f1113a = zVar;
     }
 
     @Override // android.support.v4.view.ViewPager.SimpleOnPageChangeListener, android.support.v4.view.bq
@@ -23,28 +26,35 @@ public class aa extends ViewPager.SimpleOnPageChangeListener {
         RecommendPagerAdapter recommendPagerAdapter2;
         ViewPager viewPager7;
         if (i == 0) {
-            viewPager2 = this.a.e;
+            viewPager2 = this.f1113a.e;
             int currentItem = viewPager2.getCurrentItem();
             if (currentItem < 1) {
-                viewPager6 = this.a.e;
-                recommendPagerAdapter2 = this.a.f;
+                viewPager6 = this.f1113a.e;
+                recommendPagerAdapter2 = this.f1113a.f;
                 viewPager6.a(recommendPagerAdapter2.getCount() - 2, false);
-                viewPager7 = this.a.e;
+                viewPager7 = this.f1113a.e;
                 viewPager7.invalidate();
             } else {
-                recommendPagerAdapter = this.a.f;
+                recommendPagerAdapter = this.f1113a.f;
                 if (currentItem > recommendPagerAdapter.getCount() - 2) {
-                    viewPager3 = this.a.e;
+                    viewPager3 = this.f1113a.e;
                     viewPager3.a(1, false);
-                    viewPager4 = this.a.e;
+                    viewPager4 = this.f1113a.e;
                     viewPager4.invalidate();
                 }
             }
-            viewPager5 = this.a.e;
+            viewPager5 = this.f1113a.e;
             viewPager5.requestDisallowInterceptTouchEvent(false);
         } else if (i == 1) {
-            viewPager = this.a.e;
+            viewPager = this.f1113a.e;
             viewPager.requestDisallowInterceptTouchEvent(true);
         }
+    }
+
+    @Override // android.support.v4.view.ViewPager.SimpleOnPageChangeListener, android.support.v4.view.bq
+    public void a_(int i) {
+        RecommendPagerAdapter recommendPagerAdapter;
+        recommendPagerAdapter = this.f1113a.f;
+        ((View) recommendPagerAdapter.d.get(i)).invalidate();
     }
 }

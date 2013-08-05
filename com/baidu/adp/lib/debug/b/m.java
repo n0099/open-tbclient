@@ -4,16 +4,18 @@ import android.view.MotionEvent;
 import android.view.View;
 /* loaded from: classes.dex */
 class m implements View.OnTouchListener {
-    final /* synthetic */ j a;
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ j f412a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public m(j jVar) {
-        this.a = jVar;
+        this.f412a = jVar;
     }
 
     @Override // android.view.View.OnTouchListener
     public boolean onTouch(View view, MotionEvent motionEvent) {
-        i.a(motionEvent, this.a.a);
+        i.a(motionEvent, this.f412a.f409a);
         return true;
     }
 }

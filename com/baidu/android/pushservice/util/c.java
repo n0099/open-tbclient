@@ -1,32 +1,49 @@
 package com.baidu.android.pushservice.util;
 
-import java.util.concurrent.Executors;
-import java.util.concurrent.ThreadFactory;
-import java.util.concurrent.atomic.AtomicInteger;
+import java.io.DataOutputStream;
+import java.io.OutputStream;
 /* loaded from: classes.dex */
-public class c implements ThreadFactory {
-    private final ThreadFactory a;
-    private final String b;
-    private final AtomicInteger c;
+public class c {
 
-    public c(String str) {
-        this(str, Executors.defaultThreadFactory());
+    /* renamed from: a  reason: collision with root package name */
+    byte[] f626a = new byte[8];
+    private DataOutputStream b;
+
+    public c(OutputStream outputStream) {
+        this.b = new DataOutputStream(outputStream);
     }
 
-    public c(String str, ThreadFactory threadFactory) {
-        this.c = new AtomicInteger(0);
-        this.b = str;
-        this.a = threadFactory;
+    public void a() {
+        this.b.close();
     }
 
-    private String a(int i) {
-        return String.format("%s-%d", this.b, Integer.valueOf(i));
+    public final void a(int i) {
+        this.f626a[1] = (byte) (i >> 8);
+        this.f626a[0] = (byte) i;
+        this.b.write(this.f626a, 0, 2);
     }
 
-    @Override // java.util.concurrent.ThreadFactory
-    public Thread newThread(Runnable runnable) {
-        Thread newThread = this.a.newThread(runnable);
-        newThread.setName(a(this.c.getAndIncrement()));
-        return newThread;
+    public final void a(long j) {
+        this.f626a[7] = (byte) (j >> 56);
+        this.f626a[6] = (byte) (j >> 48);
+        this.f626a[5] = (byte) (j >> 40);
+        this.f626a[4] = (byte) (j >> 32);
+        this.f626a[3] = (byte) (j >> 24);
+        this.f626a[2] = (byte) (j >> 16);
+        this.f626a[1] = (byte) (j >> 8);
+        this.f626a[0] = (byte) j;
+        this.b.write(this.f626a, 0, 8);
+    }
+
+    public void a(byte[] bArr) {
+        this.b.write(bArr);
+    }
+
+    public final void b(int i) {
+        this.f626a[3] = (byte) (i >> 24);
+        this.f626a[2] = (byte) (i >> 16);
+        this.f626a[1] = (byte) (i >> 8);
+        this.f626a[0] = (byte) i;
+        this.b.write(this.f626a, 0, 4);
     }
 }

@@ -24,6 +24,7 @@ import com.baidu.browser.explorer.share.BdSharer;
 import com.baidu.browser.framework.BdFrameView;
 import com.baidu.browser.webkit.BdValueCallback;
 import com.baidu.browser.webpool.BdWebPoolView;
+import com.tencent.mm.sdk.platformtools.LocaleUtil;
 import java.net.URISyntaxException;
 import java.net.URLDecoder;
 import java.net.URLEncoder;
@@ -122,10 +123,10 @@ public final class Browser extends Fragment {
 
     public void initInflate() {
         if (this.mFrameView == null) {
-            this.mFrameView = (BdFrameView) this.mActivity.findViewById(this.mActivity.getResources().getIdentifier("bdframeview_id", "id", this.mActivity.getPackageName()));
+            this.mFrameView = (BdFrameView) this.mActivity.findViewById(this.mActivity.getResources().getIdentifier("bdframeview_id", LocaleUtil.INDONESIAN, this.mActivity.getPackageName()));
             if (this.mFrameView == null) {
                 this.mFrameView = new BdFrameView(this.mActivity);
-                this.mFrameView.setId(this.mActivity.getResources().getIdentifier("bdframeview_id", "id", this.mActivity.getPackageName()));
+                this.mFrameView.setId(this.mActivity.getResources().getIdentifier("bdframeview_id", LocaleUtil.INDONESIAN, this.mActivity.getPackageName()));
                 this.mFrameView.setBrowser(this);
             }
         }

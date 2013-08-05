@@ -6,13 +6,15 @@ import android.widget.BaseAdapter;
 import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes.dex */
-public class k extends BaseAdapter implements com.baidu.tieba.view.v {
-    private com.baidu.tieba.g a;
+public class k extends BaseAdapter implements com.baidu.tieba.view.z {
+
+    /* renamed from: a  reason: collision with root package name */
+    private com.baidu.tieba.g f1156a;
     private ArrayList b;
     private com.baidu.tieba.util.a c;
     private z d;
     private r e;
-    private com.baidu.tieba.square.g f;
+    private com.baidu.tieba.square.h f;
     private Boolean g = false;
     private View.OnClickListener h = null;
     private View.OnLongClickListener i = null;
@@ -20,34 +22,34 @@ public class k extends BaseAdapter implements com.baidu.tieba.view.v {
     private m k;
 
     public k(com.baidu.tieba.g gVar) {
-        this.a = null;
+        this.f1156a = null;
         this.b = null;
         this.c = null;
         this.d = null;
         this.e = null;
         this.k = null;
-        this.a = gVar;
+        this.f1156a = gVar;
         this.b = new ArrayList();
         this.c = new com.baidu.tieba.util.a(gVar);
-        this.e = new r(this.a);
+        this.e = new r(this.f1156a);
         this.k = new l(this);
-        this.d = new z(this.a, this.k);
-        this.f = new com.baidu.tieba.square.g(this.a);
+        this.d = new z(this.f1156a, this.k);
+        this.f = new com.baidu.tieba.square.h(this.f1156a);
         this.b.add(this.e);
         this.b.add(this.d);
         this.b.add(this.f);
     }
 
-    public void a(com.baidu.tieba.data.m mVar) {
+    public void a(com.baidu.tieba.data.q qVar) {
         if (this.e != null) {
             this.e.a(this.g);
-            this.e.a(mVar.a());
+            this.e.a(qVar.a());
         }
         if (this.d != null) {
-            this.d.a(mVar.c(), mVar.d());
+            this.d.a(qVar.c(), qVar.d());
         }
         if (this.f != null) {
-            this.f.a(mVar.b());
+            this.f.a(qVar.b());
         }
     }
 
@@ -177,25 +179,25 @@ public class k extends BaseAdapter implements com.baidu.tieba.view.v {
         notifyDataSetChanged();
     }
 
-    @Override // com.baidu.tieba.view.v
+    @Override // com.baidu.tieba.view.z
     public void c() {
         Iterator it = this.b.iterator();
         while (it.hasNext()) {
             BaseAdapter baseAdapter = (BaseAdapter) it.next();
-            if (baseAdapter instanceof com.baidu.tieba.view.v) {
-                ((com.baidu.tieba.view.v) baseAdapter).c();
+            if (baseAdapter instanceof com.baidu.tieba.view.z) {
+                ((com.baidu.tieba.view.z) baseAdapter).c();
             }
         }
     }
 
-    @Override // com.baidu.tieba.view.v
+    @Override // com.baidu.tieba.view.z
     public void a(View view, int i, int i2) {
         for (int i3 = 0; i3 < this.b.size(); i3++) {
             BaseAdapter baseAdapter = (BaseAdapter) this.b.get(i3);
-            if (baseAdapter instanceof com.baidu.tieba.view.v) {
-                ((com.baidu.tieba.view.v) baseAdapter).a(view, i < 0 ? 0 : i, i2 > baseAdapter.getCount() + (-1) ? baseAdapter.getCount() - 1 : i2);
+            if (baseAdapter instanceof com.baidu.tieba.view.z) {
+                ((com.baidu.tieba.view.z) baseAdapter).a(view, i < 0 ? 0 : i, i2 > baseAdapter.getCount() + (-1) ? baseAdapter.getCount() - 1 : i2);
             }
-            com.baidu.tieba.util.z.a(getClass().getName(), "startLoadImage", "start:" + i + "en:" + i2);
+            com.baidu.tieba.util.aj.a(getClass().getName(), "startLoadImage", "start:" + i + "en:" + i2);
             i -= baseAdapter.getCount();
             i2 -= baseAdapter.getCount();
             if (i2 < 0) {

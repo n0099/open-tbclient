@@ -11,7 +11,9 @@ import android.widget.TextView;
 import com.baidu.android.common.util.DeviceId;
 /* loaded from: classes.dex */
 public class PushTestActivity extends Activity {
-    String a = "1.2b8a945ec32b6e4fea2971e78a98e040.86400.1335690526.2819575091-101962";
+
+    /* renamed from: a  reason: collision with root package name */
+    String f565a = "1.2b8a945ec32b6e4fea2971e78a98e040.86400.1335690526.2819575091-101962";
     private LinearLayout b;
 
     private void a() {

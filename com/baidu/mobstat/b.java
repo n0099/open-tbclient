@@ -4,13 +4,16 @@ import android.content.Context;
 import android.net.wifi.WifiManager;
 import android.os.Build;
 import android.telephony.TelephonyManager;
+import com.tencent.mm.sdk.platformtools.Util;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class b {
-    private static String a = "Android";
+
+    /* renamed from: a  reason: collision with root package name */
+    private static String f779a = "Android";
     private static JSONObject q = new JSONObject();
     private static b w = new b();
     private String b;
@@ -258,7 +261,7 @@ public class b {
     public synchronized void b() {
         if (q.length() <= 0) {
             try {
-                q.put("o", a == null ? "" : a);
+                q.put("o", f779a == null ? "" : f779a);
                 q.put("s", this.b == null ? "" : this.b);
                 q.put("k", this.c == null ? "" : this.c);
                 q.put("v", "2.2");
@@ -331,7 +334,7 @@ public class b {
         try {
             String string = jSONObject.getString("i");
             String string2 = jSONObject.getString("l");
-            long j = jSONObject.getLong("t") / 3600000;
+            long j = jSONObject.getLong("t") / Util.MILLSECONDS_OF_HOUR;
             synchronized (this.s) {
                 int length2 = this.s.length();
                 int i = length2;
@@ -340,7 +343,7 @@ public class b {
                         JSONObject jSONObject2 = this.s.getJSONObject(i2);
                         String string3 = jSONObject2.getString("i");
                         String string4 = jSONObject2.getString("l");
-                        if (jSONObject2.getLong("t") / 3600000 == j && string3.equals(string) && string4.equals(string2)) {
+                        if (jSONObject2.getLong("t") / Util.MILLSECONDS_OF_HOUR == j && string3.equals(string) && string4.equals(string2)) {
                             int i3 = jSONObject2.getInt("c") + jSONObject.getInt("c");
                             try {
                                 jSONObject2.remove("c");

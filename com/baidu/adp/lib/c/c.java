@@ -1,57 +1,124 @@
 package com.baidu.adp.lib.c;
 
 import android.content.Context;
-import android.content.pm.PackageInfo;
-import android.widget.Toast;
-import java.util.List;
+import android.util.SparseArray;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.adp.lib.asyncTask.BdAsyncTaskType;
+import java.util.Iterator;
+import java.util.Map;
 /* loaded from: classes.dex */
 public class c {
-    public static int a(Context context, float f) {
-        return (int) ((context.getResources().getDisplayMetrics().density * f) + 0.5f);
+    private static c c;
+
+    /* renamed from: a */
+    private a f362a = null;
+    private SparseArray b = null;
+
+    /* JADX DEBUG: Method not inlined, still used in: [com.baidu.adp.lib.c.e.a(java.lang.String[]):java.lang.Object] */
+    public static /* synthetic */ a a(c cVar) {
+        return cVar.f362a;
     }
 
-    public static void a(Context context, String str) {
-        if (str != null && str.length() > 0) {
-            Toast makeText = Toast.makeText(context, str, 0);
-            makeText.setGravity(17, 0, a(context, 100.0f));
-            makeText.show();
-        }
+    public c a(a aVar) {
+        this.f362a = aVar;
+        return this;
     }
 
-    public static int[] a(int i, int i2, int i3, int i4) {
-        int i5;
-        int i6;
-        if (i <= 0 || i2 <= 0 || i3 <= 0 || i4 <= 0) {
-            return null;
+    public static c a() {
+        if (c == null) {
+            c = new c();
         }
-        int[] iArr = new int[2];
-        if (i2 > i4) {
-            i6 = (i * i4) / i2;
-            i5 = i4;
-        } else {
-            i5 = i2;
-            i6 = i;
-        }
-        if (i6 > i3) {
-            i5 = (i5 * i3) / i6;
-        } else {
-            i3 = i6;
-        }
-        iArr[0] = i3;
-        iArr[1] = i5;
-        return iArr;
+        return c;
     }
 
-    public static boolean b(Context context, String str) {
-        List<PackageInfo> installedPackages;
-        if (str == null || str.length() == 0 || (installedPackages = context.getPackageManager().getInstalledPackages(0)) == null) {
-            return false;
-        }
-        for (int i = 0; i < installedPackages.size(); i++) {
-            if (installedPackages.get(i).packageName.equals(str)) {
-                return true;
+    public void a(String str, Context context) {
+        a(str, context, null);
+    }
+
+    public void a(String str, Context context, b bVar) {
+        Map map;
+        int i;
+        Map map2;
+        BdAsyncTask searchTask = BdAsyncTask.searchTask(String.valueOf(str) + context.getClass().getName());
+        if (searchTask != null) {
+            e eVar = (e) searchTask;
+            map = eVar.d;
+            Iterator it = map.entrySet().iterator();
+            int i2 = 0;
+            while (true) {
+                i = i2;
+                if (!it.hasNext()) {
+                    break;
+                }
+                Map.Entry entry = (Map.Entry) it.next();
+                b bVar2 = (b) entry.getKey();
+                f fVar = (f) entry.getValue();
+                i2 = (bVar == null || bVar.b()) ? i : i + 1;
+                if (bVar == null) {
+                    eVar.a(bVar2);
+                }
+            }
+            if (i < 2) {
+                eVar.cancel();
+                return;
+            }
+            map2 = eVar.d;
+            if (map2.containsKey(bVar)) {
+                eVar.a(bVar);
             }
         }
-        return false;
+    }
+
+    public Object a(String str, int i, b bVar, Context context, f fVar, BdAsyncTaskType bdAsyncTaskType, int i2) {
+        if (this.f362a == null) {
+            throw new Exception("BdLoaderCreaterAbstractFactory can not be null");
+        }
+        g a2 = a(i);
+        if (a2 == null) {
+            throw new Exception("Can't find the ResourceLoaderProc with type " + i);
+        }
+        Object a3 = a2.a(str, fVar);
+        if (a3 != null) {
+            return a3;
+        }
+        b dVar = bVar == null ? new d(this) : bVar;
+        BdAsyncTask searchTask = BdAsyncTask.searchTask(String.valueOf(str) + context.getClass().getName());
+        if (searchTask != null && searchTask.getStatus() != BdAsyncTask.BdAsyncTaskStatus.FINISHED) {
+            ((e) searchTask).a(dVar, fVar);
+            return this;
+        }
+        e eVar = new e(this, str, i, dVar, fVar);
+        if (bdAsyncTaskType != null) {
+            eVar.setType(bdAsyncTaskType);
+        }
+        eVar.setPriority(i2);
+        eVar.setKey(String.valueOf(str) + context.getClass().getName());
+        if (context != null) {
+            eVar.setTag(context.getClass().getName());
+        }
+        eVar.execute(new String[0]);
+        return this;
+    }
+
+    public Object a(String str, int i, b bVar, Context context, f fVar, int i2) {
+        return a(str, i, bVar, context, fVar, null, i2);
+    }
+
+    /* JADX DEBUG: Method not inlined, still used in: [com.baidu.adp.lib.c.e.a(java.lang.String[]):java.lang.Object] */
+    public static /* synthetic */ g a(c cVar, int i) {
+        return cVar.a(i);
+    }
+
+    public g a(int i) {
+        if (this.b == null) {
+            this.b = new SparseArray();
+        }
+        g gVar = (g) this.b.get(i);
+        if (gVar == null) {
+            g a2 = this.f362a.a(i);
+            this.b.put(i, a2);
+            return a2;
+        }
+        return gVar;
     }
 }

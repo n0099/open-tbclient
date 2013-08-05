@@ -6,18 +6,21 @@ import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.UpdateDialog;
 import com.baidu.tieba.data.VersionData;
-import com.baidu.tieba.model.br;
+import com.baidu.tieba.model.ca;
+import com.baidu.tieba.util.am;
 import com.slidingmenu.lib.R;
 import java.util.Date;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class c extends BdAsyncTask {
-    com.baidu.tieba.util.r a;
+
+    /* renamed from: a  reason: collision with root package name */
+    com.baidu.tieba.util.u f1409a;
     final /* synthetic */ AboutActivity b;
 
     private c(AboutActivity aboutActivity) {
         this.b = aboutActivity;
-        this.a = null;
+        this.f1409a = null;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -37,42 +40,42 @@ public class c extends BdAsyncTask {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public br a(String... strArr) {
-        br brVar;
+    public ca a(String... strArr) {
+        ca caVar;
         Exception e;
         try {
-            this.a = new com.baidu.tieba.util.r(String.valueOf(com.baidu.tieba.data.g.a) + "c/s/sync");
-            this.a.a("_os_version", Build.VERSION.RELEASE);
+            this.f1409a = new com.baidu.tieba.util.u(String.valueOf(com.baidu.tieba.data.g.f1013a) + "c/s/sync");
+            this.f1409a.a("_os_version", Build.VERSION.RELEASE);
             StringBuffer stringBuffer = new StringBuffer(15);
-            stringBuffer.append(String.valueOf(com.baidu.tieba.util.ab.a(TiebaApplication.f())));
+            stringBuffer.append(String.valueOf(am.a(TiebaApplication.f())));
             stringBuffer.append(",");
-            stringBuffer.append(String.valueOf(com.baidu.tieba.util.ab.b(TiebaApplication.f())));
-            this.a.a("_phone_screen", stringBuffer.toString());
-            if (TiebaApplication.f().R() > 0) {
-                this.a.a("_msg_status", "0");
+            stringBuffer.append(String.valueOf(am.b(TiebaApplication.f())));
+            this.f1409a.a("_phone_screen", stringBuffer.toString());
+            if (TiebaApplication.f().S() > 0) {
+                this.f1409a.a("_msg_status", "0");
             } else {
-                this.a.a("_msg_status", "1");
+                this.f1409a.a("_msg_status", "1");
             }
-            String j = this.a.j();
-            if (!this.a.c()) {
+            String k = this.f1409a.k();
+            if (!this.f1409a.d()) {
                 return null;
             }
-            brVar = new br();
+            caVar = new ca();
             try {
-                brVar.a(j);
-                if (TiebaApplication.P() == null && brVar.d().a() != null && brVar.d().a().length() > 0) {
-                    TiebaApplication.a(this.b, brVar.d().a());
-                    TiebaApplication.k(brVar.d().a());
-                    return brVar;
+                caVar.a(k);
+                if (TiebaApplication.Q() == null && caVar.d().a() != null && caVar.d().a().length() > 0) {
+                    TiebaApplication.a(this.b, caVar.d().a());
+                    TiebaApplication.k(caVar.d().a());
+                    return caVar;
                 }
-                return brVar;
+                return caVar;
             } catch (Exception e2) {
                 e = e2;
-                com.baidu.tieba.util.z.b(getClass().getName(), "doInBackground", e.getMessage());
-                return brVar;
+                com.baidu.tieba.util.aj.b(getClass().getName(), "doInBackground", e.getMessage());
+                return caVar;
             }
         } catch (Exception e3) {
-            brVar = null;
+            caVar = null;
             e = e3;
         }
     }
@@ -81,8 +84,8 @@ public class c extends BdAsyncTask {
     public void cancel() {
         ProgressBar progressBar;
         this.b.e = null;
-        if (this.a != null) {
-            this.a.h();
+        if (this.f1409a != null) {
+            this.f1409a.i();
         }
         super.cancel(true);
         progressBar = this.b.j;
@@ -92,42 +95,42 @@ public class c extends BdAsyncTask {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void a(br brVar) {
+    public void a(ca caVar) {
         ProgressBar progressBar;
-        br brVar2;
-        br brVar3;
-        br brVar4;
-        br brVar5;
-        br brVar6;
-        br brVar7;
-        br brVar8;
-        super.a((Object) brVar);
+        ca caVar2;
+        ca caVar3;
+        ca caVar4;
+        ca caVar5;
+        ca caVar6;
+        ca caVar7;
+        ca caVar8;
+        super.a((Object) caVar);
         progressBar = this.b.j;
         progressBar.setVisibility(8);
         this.b.e = null;
-        if (brVar != null) {
-            this.b.f = brVar;
+        if (caVar != null) {
+            this.b.f = caVar;
             TiebaApplication f = TiebaApplication.f();
-            brVar2 = this.b.f;
-            f.a(brVar2.c());
+            caVar2 = this.b.f;
+            f.a(caVar2.c());
             TiebaApplication.f().v(false);
-            brVar3 = this.b.f;
-            if (brVar3.c().getHas_new_ver() == 1) {
-                brVar4 = this.b.f;
-                if (brVar4.c().getForce_update() == 1) {
+            caVar3 = this.b.f;
+            if (caVar3.c().getHas_new_ver() == 1) {
+                caVar4 = this.b.f;
+                if (caVar4.c().getForce_update() == 1) {
                     TiebaApplication f2 = TiebaApplication.f();
-                    brVar7 = this.b.f;
-                    VersionData c = brVar7.c();
-                    brVar8 = this.b.f;
-                    UpdateDialog.a(f2, c, brVar8.b());
+                    caVar7 = this.b.f;
+                    VersionData c = caVar7.c();
+                    caVar8 = this.b.f;
+                    UpdateDialog.a(f2, c, caVar8.b());
                     return;
                 }
-                TiebaApplication.f().c(Long.valueOf(new Date().getTime()).longValue());
+                TiebaApplication.f().b(Long.valueOf(new Date().getTime()).longValue());
                 TiebaApplication f3 = TiebaApplication.f();
-                brVar5 = this.b.f;
-                VersionData c2 = brVar5.c();
-                brVar6 = this.b.f;
-                UpdateDialog.a(f3, c2, brVar6.b());
+                caVar5 = this.b.f;
+                VersionData c2 = caVar5.c();
+                caVar6 = this.b.f;
+                UpdateDialog.a(f3, c2, caVar6.b());
                 return;
             }
             this.b.a(this.b.getResources().getString(R.string.neednot_update));

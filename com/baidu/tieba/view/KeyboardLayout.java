@@ -5,35 +5,37 @@ import android.util.AttributeSet;
 import android.widget.RelativeLayout;
 /* loaded from: classes.dex */
 public class KeyboardLayout extends RelativeLayout {
-    private boolean a;
+
+    /* renamed from: a  reason: collision with root package name */
+    private boolean f1803a;
     private boolean b;
     private int c;
-    private af d;
+    private ar d;
 
     public KeyboardLayout(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.a = false;
+        this.f1803a = false;
     }
 
     public KeyboardLayout(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.a = false;
+        this.f1803a = false;
     }
 
     public KeyboardLayout(Context context) {
         super(context);
-        this.a = false;
+        this.f1803a = false;
     }
 
-    public void setOnkbdStateListener(af afVar) {
-        this.d = afVar;
+    public void setOnkbdStateListener(ar arVar) {
+        this.d = arVar;
     }
 
     @Override // android.widget.RelativeLayout, android.view.ViewGroup, android.view.View
     protected void onLayout(boolean z, int i, int i2, int i3, int i4) {
         super.onLayout(z, i, i2, i3, i4);
-        if (!this.a) {
-            this.a = true;
+        if (!this.f1803a) {
+            this.f1803a = true;
             this.c = i4;
             if (this.d != null) {
                 this.d.a(-1);
@@ -41,13 +43,13 @@ public class KeyboardLayout extends RelativeLayout {
         } else {
             this.c = this.c < i4 ? i4 : this.c;
         }
-        if (this.a && this.c > i4) {
+        if (this.f1803a && this.c > i4) {
             this.b = true;
             if (this.d != null) {
                 this.d.a(-3);
             }
         }
-        if (this.a && this.b && this.c == i4) {
+        if (this.f1803a && this.b && this.c == i4) {
             this.b = false;
             if (this.d != null) {
                 this.d.a(-2);

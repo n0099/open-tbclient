@@ -1,5 +1,7 @@
 package com.baidu.adp.lib.webSocket;
 /* loaded from: classes.dex */
 public class n extends k {
-    public byte[] a;
+
+    /* renamed from: a  reason: collision with root package name */
+    public byte[] f443a;
 }

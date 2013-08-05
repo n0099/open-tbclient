@@ -1,7 +1,6 @@
 package com.google.gson.stream;
 
 import com.baidu.location.BDLocation;
-import com.baidu.zeus.NotificationProxy;
 import com.baidu.zeus.WebChromeClient;
 import com.google.gson.internal.JsonReaderInternalAccess;
 import com.google.gson.internal.bind.JsonTreeReader;
@@ -23,7 +22,7 @@ public class JsonReader implements Closeable {
     private int valuePos;
     private final StringPool stringPool = new StringPool();
     private boolean lenient = false;
-    private final char[] buffer = new char[NotificationProxy.MAX_URL_LENGTH];
+    private final char[] buffer = new char[1024];
     private int pos = 0;
     private int limit = 0;
     private int bufferStartLine = 1;

@@ -1,49 +1,68 @@
 package com.baidu.tieba;
 
-import android.support.v4.view.bq;
-import android.view.animation.Animation;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import com.slidingmenu.lib.R;
+import android.support.v4.view.ViewPager;
+import android.view.View;
+import android.view.ViewGroup;
+import java.util.ArrayList;
 /* loaded from: classes.dex */
-class s implements bq {
-    final /* synthetic */ LabelActivity a;
+class s extends android.support.v4.view.ae {
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ GuideActivity f1684a;
+
+    private s(GuideActivity guideActivity) {
+        this.f1684a = guideActivity;
+    }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public s(LabelActivity labelActivity) {
-        this.a = labelActivity;
+    public /* synthetic */ s(GuideActivity guideActivity, s sVar) {
+        this(guideActivity);
     }
 
-    @Override // android.support.v4.view.bq
-    public void a_(int i) {
-        LinearLayout linearLayout;
-        Animation animation;
-        Animation animation2;
-        LinearLayout linearLayout2;
-        linearLayout = this.a.t;
-        int childCount = linearLayout.getChildCount();
-        if (i < childCount) {
-            for (int i2 = 0; i2 < childCount; i2++) {
-                linearLayout2 = this.a.t;
-                ImageView imageView = (ImageView) linearLayout2.getChildAt(i2);
-                if (i2 != i) {
-                    imageView.setBackgroundResource(R.drawable.tag_page_rb_click);
-                } else {
-                    imageView.setBackgroundResource(R.drawable.tag_page_rb_normal);
-                }
+    @Override // android.support.v4.view.ae
+    public int getCount() {
+        int[] iArr;
+        iArr = this.f1684a.c;
+        return iArr.length;
+    }
+
+    @Override // android.support.v4.view.ae
+    public Object instantiateItem(View view, int i) {
+        ArrayList arrayList;
+        ArrayList arrayList2;
+        ArrayList arrayList3;
+        ArrayList arrayList4;
+        ArrayList arrayList5;
+        arrayList = this.f1684a.d;
+        if (i < arrayList.size()) {
+            arrayList2 = this.f1684a.d;
+            ((ViewPager) view).addView((View) arrayList2.get(i), 0);
+            arrayList3 = this.f1684a.d;
+            if (i == arrayList3.size() - 1) {
+                arrayList5 = this.f1684a.d;
+                ((View) arrayList5.get(i)).setOnClickListener(this.f1684a.f820a);
             }
+            arrayList4 = this.f1684a.d;
+            return arrayList4.get(i);
         }
-        animation = this.a.w;
-        animation.reset();
-        animation2 = this.a.w;
-        animation2.start();
+        View view2 = new View(this.f1684a);
+        view2.setBackgroundColor(-1);
+        ((ViewPager) view).addView(view2, 0);
+        return view2;
     }
 
-    @Override // android.support.v4.view.bq
-    public void b(int i) {
+    @Override // android.support.v4.view.ae
+    public void destroyItem(View view, int i, Object obj) {
+        ((ViewPager) view).removeView((View) obj);
     }
 
-    @Override // android.support.v4.view.bq
-    public void a(int i, float f, int i2) {
+    @Override // android.support.v4.view.ae
+    public boolean isViewFromObject(View view, Object obj) {
+        return view == obj;
+    }
+
+    @Override // android.support.v4.view.ae
+    public void setPrimaryItem(ViewGroup viewGroup, int i, Object obj) {
+        super.setPrimaryItem(viewGroup, i, obj);
     }
 }

@@ -6,17 +6,19 @@ import android.view.View;
 import java.util.Locale;
 /* loaded from: classes.dex */
 class ak extends SingleLineTransformationMethod {
-    private Locale a;
+
+    /* renamed from: a  reason: collision with root package name */
+    private Locale f312a;
 
     public ak(Context context) {
-        this.a = context.getResources().getConfiguration().locale;
+        this.f312a = context.getResources().getConfiguration().locale;
     }
 
     @Override // android.text.method.ReplacementTransformationMethod, android.text.method.TransformationMethod
     public CharSequence getTransformation(CharSequence charSequence, View view) {
         CharSequence transformation = super.getTransformation(charSequence, view);
         if (transformation != null) {
-            return transformation.toString().toUpperCase(this.a);
+            return transformation.toString().toUpperCase(this.f312a);
         }
         return null;
     }

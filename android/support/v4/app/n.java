@@ -126,7 +126,7 @@ public class n extends Activity {
             return super.onCreateView(str, context, attributeSet);
         }
         String attributeValue = attributeSet.getAttributeValue(null, "class");
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, q.a);
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, q.f288a);
         if (attributeValue == null) {
             attributeValue = obtainStyledAttributes.getString(0);
         }
@@ -144,20 +144,20 @@ public class n extends Activity {
         if (r1 == 0 && id != -1) {
             r1 = this.mFragments.a(id);
         }
-        if (v.a) {
+        if (v.f290a) {
             Log.v(TAG, "onCreateView: id=0x" + Integer.toHexString(resourceId) + " fname=" + attributeValue + " existing=" + ((Object) r1));
         }
         if (r1 == 0) {
-            Fragment a = Fragment.a(this, attributeValue);
-            a.x = true;
-            a.F = resourceId != 0 ? resourceId : id;
-            a.G = id;
-            a.H = string;
-            a.y = true;
-            a.B = this.mFragments;
-            a.a(this, attributeSet, a.m);
-            this.mFragments.a(a, true);
-            fragment = a;
+            Fragment a2 = Fragment.a(this, attributeValue);
+            a2.x = true;
+            a2.F = resourceId != 0 ? resourceId : id;
+            a2.G = id;
+            a2.H = string;
+            a2.y = true;
+            a2.B = this.mFragments;
+            a2.a(this, attributeSet, a2.m);
+            this.mFragments.a(a2, true);
+            fragment = a2;
         } else if (r1.y) {
             throw new IllegalArgumentException(attributeSet.getPositionDescription() + ": Duplicate id 0x" + Integer.toHexString(resourceId) + ", tag " + string + ", or parent id 0x" + Integer.toHexString(id) + " with another fragment for " + attributeValue);
         } else {
@@ -180,8 +180,9 @@ public class n extends Activity {
         return fragment.R;
     }
 
+    /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.app.Activity
-    protected void onDestroy() {
+    public void onDestroy() {
         super.onDestroy();
         doReallyStop(false);
         this.mFragments.r();
@@ -230,8 +231,9 @@ public class n extends Activity {
         super.onPanelClosed(i, menu);
     }
 
+    /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.app.Activity
-    protected void onPause() {
+    public void onPause() {
         super.onPause();
         this.mResumed = false;
         if (this.mHandler.hasMessages(2)) {
@@ -247,8 +249,9 @@ public class n extends Activity {
         this.mFragments.i();
     }
 
+    /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.app.Activity
-    protected void onResume() {
+    public void onResume() {
         super.onResume();
         this.mHandler.sendEmptyMessage(2);
         this.mResumed = true;
@@ -311,7 +314,7 @@ public class n extends Activity {
             return null;
         }
         r rVar = new r();
-        rVar.a = null;
+        rVar.f289a = null;
         rVar.b = onRetainCustomNonConfigurationInstance;
         rVar.c = null;
         rVar.d = g;

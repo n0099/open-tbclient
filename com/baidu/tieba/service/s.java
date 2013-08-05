@@ -7,20 +7,23 @@ import com.baidu.cyberplayer.sdk.internal.VersionUtils;
 import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.UpdateDialog;
 import com.baidu.tieba.data.VersionData;
-import com.baidu.tieba.model.br;
-import com.baidu.tieba.util.ab;
-import com.baidu.tieba.util.z;
+import com.baidu.tieba.model.ca;
+import com.baidu.tieba.util.aj;
+import com.baidu.tieba.util.am;
+import com.tencent.mm.sdk.platformtools.Util;
 import java.util.Date;
 import java.util.Random;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class s extends BdAsyncTask {
-    com.baidu.tieba.util.r a;
+
+    /* renamed from: a  reason: collision with root package name */
+    com.baidu.tieba.util.u f1713a;
     final /* synthetic */ TiebaSyncService b;
 
     private s(TiebaSyncService tiebaSyncService) {
         this.b = tiebaSyncService;
-        this.a = null;
+        this.f1713a = null;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -31,62 +34,70 @@ public class s extends BdAsyncTask {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public br a(String... strArr) {
-        br brVar;
+    public ca a(String... strArr) {
+        ca caVar;
         Exception e;
+        String str;
+        String str2;
         try {
-            this.a = new com.baidu.tieba.util.r(String.valueOf(com.baidu.tieba.data.g.a) + "c/s/sync");
-            this.a.a("_os_version", Build.VERSION.RELEASE);
+            this.f1713a = new com.baidu.tieba.util.u(String.valueOf(com.baidu.tieba.data.g.f1013a) + "c/s/sync");
+            this.f1713a.a("_os_version", Build.VERSION.RELEASE);
             StringBuffer stringBuffer = new StringBuffer(15);
-            stringBuffer.append(String.valueOf(ab.a(TiebaApplication.f())));
+            stringBuffer.append(String.valueOf(am.a(TiebaApplication.f())));
             stringBuffer.append(",");
-            stringBuffer.append(String.valueOf(ab.b(TiebaApplication.f())));
-            this.a.a("_phone_screen", stringBuffer.toString());
-            if (TiebaApplication.f().R() > 0) {
-                this.a.a("_msg_status", "0");
+            stringBuffer.append(String.valueOf(am.b(TiebaApplication.f())));
+            this.f1713a.a("_phone_screen", stringBuffer.toString());
+            if (TiebaApplication.f().S() > 0) {
+                this.f1713a.a("_msg_status", "0");
             } else {
-                this.a.a("_msg_status", "1");
+                this.f1713a.a("_msg_status", "1");
             }
-            String aJ = TiebaApplication.f().aJ();
-            if (aJ != null) {
-                if (aJ.length() < 1) {
-                    aJ = "0";
+            String aN = TiebaApplication.f().aN();
+            if (aN != null) {
+                if (aN.length() < 1) {
+                    aN = "0";
                 }
-                this.a.a("_active", aJ);
+                this.f1713a.a("_active", aN);
             }
-            this.a.a("_pic_quality", String.valueOf(TiebaApplication.f().ao()));
-            String j = this.a.j();
-            if (this.a.d()) {
-                TiebaApplication.f().aK();
+            this.f1713a.a("_pic_quality", String.valueOf(TiebaApplication.f().ap()));
+            str = TiebaSyncService.f1693a;
+            if (str != null) {
+                com.baidu.tieba.util.u uVar = this.f1713a;
+                str2 = TiebaSyncService.f1693a;
+                uVar.a("_msg_type", str2);
             }
-            if (!this.a.c()) {
-                return null;
+            String k = this.f1713a.k();
+            if (this.f1713a.e()) {
+                TiebaApplication.f().aO();
             }
-            brVar = new br();
-            try {
-                brVar.a(j);
-                if (TiebaApplication.P() == null && brVar.d().a() != null && brVar.d().a().length() > 0) {
-                    TiebaApplication.a(this.b, brVar.d().a());
-                    TiebaApplication.k(brVar.d().a());
-                    return brVar;
+            if (this.f1713a.d()) {
+                caVar = new ca();
+                try {
+                    caVar.a(k);
+                    if (TiebaApplication.Q() == null && caVar.d().a() != null && caVar.d().a().length() > 0) {
+                        TiebaApplication.a(this.b, caVar.d().a());
+                        TiebaApplication.k(caVar.d().a());
+                    }
+                    TiebaSyncService.f1693a = null;
+                    return caVar;
+                } catch (Exception e2) {
+                    e = e2;
+                    aj.b(getClass().getName(), "doInBackground", e.getMessage());
+                    return caVar;
                 }
-                return brVar;
-            } catch (Exception e2) {
-                e = e2;
-                z.b(getClass().getName(), "doInBackground", e.getMessage());
-                return brVar;
             }
+            return null;
         } catch (Exception e3) {
-            brVar = null;
+            caVar = null;
             e = e3;
         }
     }
 
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void cancel() {
-        this.b.a = null;
-        if (this.a != null) {
-            this.a.h();
+        this.b.b = null;
+        if (this.f1713a != null) {
+            this.f1713a.i();
         }
         super.cancel(true);
     }
@@ -94,71 +105,71 @@ public class s extends BdAsyncTask {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void a(br brVar) {
+    public void a(ca caVar) {
         int i;
         int i2;
         Handler handler;
         Runnable runnable;
         Handler handler2;
         Runnable runnable2;
-        br brVar2;
-        int av;
-        br brVar3;
-        br brVar4;
-        br brVar5;
-        br brVar6;
-        br brVar7;
-        br brVar8;
-        super.a((Object) brVar);
-        this.b.a = null;
-        if (brVar != null) {
-            this.b.c = brVar;
-            brVar2 = this.b.c;
-            if (brVar2.c().getHas_new_ver() == 1) {
+        ca caVar2;
+        int aw;
+        ca caVar3;
+        ca caVar4;
+        ca caVar5;
+        ca caVar6;
+        ca caVar7;
+        ca caVar8;
+        super.a((Object) caVar);
+        this.b.b = null;
+        if (caVar != null) {
+            this.b.d = caVar;
+            caVar2 = this.b.d;
+            if (caVar2.c().getHas_new_ver() == 1) {
                 TiebaApplication f = TiebaApplication.f();
-                brVar3 = this.b.c;
-                f.a(brVar3.c());
-                this.b.b();
-                brVar4 = this.b.c;
-                if (brVar4.c().getForce_update() == 1) {
+                caVar3 = this.b.d;
+                f.a(caVar3.c());
+                this.b.c();
+                caVar4 = this.b.d;
+                if (caVar4.c().getForce_update() == 1) {
                     TiebaApplication f2 = TiebaApplication.f();
-                    brVar7 = this.b.c;
-                    VersionData c = brVar7.c();
-                    brVar8 = this.b.c;
-                    UpdateDialog.a(f2, c, brVar8.b());
+                    caVar7 = this.b.d;
+                    VersionData c = caVar7.c();
+                    caVar8 = this.b.d;
+                    UpdateDialog.a(f2, c, caVar8.b());
                 } else {
-                    Long valueOf = Long.valueOf(TiebaApplication.f().K());
+                    Long valueOf = Long.valueOf(TiebaApplication.f().L());
                     Long valueOf2 = Long.valueOf(new Date().getTime());
-                    if (valueOf2.longValue() - valueOf.longValue() > 86400000) {
-                        TiebaApplication.f().c(valueOf2.longValue());
+                    if (valueOf2.longValue() - valueOf.longValue() > Util.MILLSECONDS_OF_DAY) {
+                        TiebaApplication.f().b(valueOf2.longValue());
                         TiebaApplication f3 = TiebaApplication.f();
-                        brVar5 = this.b.c;
-                        VersionData c2 = brVar5.c();
-                        brVar6 = this.b.c;
-                        UpdateDialog.a(f3, c2, brVar6.b());
+                        caVar5 = this.b.d;
+                        VersionData c2 = caVar5.c();
+                        caVar6 = this.b.d;
+                        UpdateDialog.a(f3, c2, caVar6.b());
                     }
                 }
             }
             int nextInt = new Random().nextInt(VersionUtils.CUR_DEVELOPMENT) + 1;
-            int a = brVar.a().a();
-            if (a > 0 && nextInt % a == 0 && (av = TiebaApplication.f().av()) < 10) {
-                TiebaApplication.f().m(av + 1);
-                ab.e(this.b);
+            int a2 = caVar.a().a();
+            if (a2 > 0 && nextInt % a2 == 0 && (aw = TiebaApplication.f().aw()) < 10) {
+                TiebaApplication.f().k(aw + 1);
+                am.e(this.b);
             }
             this.b.stopSelf();
             return;
         }
         TiebaSyncService tiebaSyncService = this.b;
-        i = tiebaSyncService.b;
-        tiebaSyncService.b = i + 1;
-        i2 = this.b.b;
+        i = tiebaSyncService.c;
+        tiebaSyncService.c = i + 1;
+        i2 = this.b.c;
         if (i2 < 10) {
-            handler = this.b.d;
-            runnable = this.b.e;
+            handler = this.b.e;
+            runnable = this.b.f;
             handler.removeCallbacks(runnable);
-            handler2 = this.b.d;
-            runnable2 = this.b.e;
-            handler2.postDelayed(runnable2, 60000L);
+            handler2 = this.b.e;
+            runnable2 = this.b.f;
+            handler2.postDelayed(runnable2, Util.MILLSECONDS_OF_MINUTE);
             return;
         }
         this.b.stopSelf();

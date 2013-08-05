@@ -1,64 +1,28 @@
 package com.baidu.tieba.account;
 
-import android.graphics.Bitmap;
-import android.widget.ImageView;
-import android.widget.ProgressBar;
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import android.content.Context;
+import android.content.Intent;
+import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class aw extends BdAsyncTask {
-    final /* synthetic */ Register2Activity a;
-    private com.baidu.tieba.util.r b = null;
-    private String c;
+public class aw extends com.baidu.tieba.util.s {
 
-    public aw(Register2Activity register2Activity, String str) {
-        this.a = register2Activity;
-        this.c = null;
-        this.c = str;
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ Register2Activity f871a;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public aw(Register2Activity register2Activity, Context context) {
+        super(context);
+        this.f871a = register2Activity;
     }
 
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void cancel() {
-        ProgressBar progressBar;
-        this.a.Q = null;
-        progressBar = this.a.I;
-        progressBar.setVisibility(8);
-        if (this.b != null) {
-            this.b.h();
+    @Override // com.baidu.tieba.util.s, android.text.style.ClickableSpan
+    public void onClick(View view) {
+        ay ayVar;
+        ayVar = this.f871a.R;
+        if (ayVar == null) {
+            a().startActivity(new Intent(a(), ProtocolActivity.class));
         }
-        super.cancel(true);
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void b() {
-        ImageView imageView;
-        ProgressBar progressBar;
-        imageView = this.a.J;
-        imageView.setImageBitmap(null);
-        progressBar = this.a.I;
-        progressBar.setVisibility(0);
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public Bitmap a(String... strArr) {
-        this.b = new com.baidu.tieba.util.r(this.c);
-        return com.baidu.tieba.util.d.a(this.b.i());
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void a(Bitmap bitmap) {
-        ProgressBar progressBar;
-        ImageView imageView;
-        super.a((Object) bitmap);
-        this.a.Q = null;
-        progressBar = this.a.I;
-        progressBar.setVisibility(8);
-        imageView = this.a.J;
-        imageView.setImageBitmap(bitmap);
     }
 }

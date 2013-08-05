@@ -1,100 +1,70 @@
 package com.baidu.tieba.data;
 
+import java.util.ArrayList;
+import java.util.Date;
+import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class t {
-    private int a = 0;
-    private int b = 0;
-    private String c = null;
-    private String d = null;
-    private int e = 0;
+
+    /* renamed from: a  reason: collision with root package name */
+    private ArrayList f1026a = new ArrayList();
+    private ArrayList b = new ArrayList();
+    private ar c = new ar();
+    private Date d = null;
+    private boolean e = true;
     private int f = 0;
-    private int g = 0;
-    private int h = 0;
-    private int i = 0;
-    private int j = 0;
-    private long k = 0;
-    private long l = 0;
 
-    public int a() {
-        return this.a;
-    }
-
-    public String b() {
-        return this.c;
-    }
-
-    public String c() {
-        return this.d;
-    }
-
-    public int d() {
-        return this.g;
-    }
-
-    public int e() {
-        return this.h;
-    }
-
-    public int f() {
-        return this.i;
-    }
-
-    public int g() {
-        return this.j;
-    }
-
-    public int h() {
-        return this.b;
-    }
-
-    public void a(int i) {
-        this.b = i;
-    }
-
-    public long i() {
-        return this.k;
-    }
-
-    public void b(int i) {
-        this.e = i;
-    }
-
-    public int j() {
+    public boolean a() {
         return this.e;
     }
 
-    public void c(int i) {
-        this.f = i;
-    }
-
-    public int k() {
+    public int b() {
         return this.f;
     }
 
+    public ArrayList c() {
+        return this.f1026a;
+    }
+
+    public void a(String str) {
+        try {
+            a(new JSONObject(str));
+        } catch (Exception e) {
+            this.e = false;
+            com.baidu.tieba.util.aj.b("LikeForumModel", "parserJson", "error = " + e.getMessage());
+        }
+    }
+
     public void a(JSONObject jSONObject) {
-        if (jSONObject != null) {
-            try {
-                this.a = jSONObject.optInt("has_frs_star", 0);
-                if (this.a == 1) {
-                    this.c = jSONObject.optString("top", "");
-                    this.d = jSONObject.optString("head", "");
-                    JSONObject optJSONObject = jSONObject.optJSONObject("fans");
-                    this.e = optJSONObject.optInt("is_get", 0);
-                    this.f = optJSONObject.optInt("num", 0);
-                    this.b = optJSONObject.optInt("open", 0);
-                    this.k = optJSONObject.optLong("left_time", 0L);
-                    this.l = this.k;
-                    JSONObject optJSONObject2 = jSONObject.optJSONObject("top_size");
-                    this.g = optJSONObject2.optInt("width", 0);
-                    this.h = optJSONObject2.optInt("height", 0);
-                    JSONObject optJSONObject3 = jSONObject.optJSONObject("head_size");
-                    this.i = optJSONObject3.optInt("width", 0);
-                    this.j = optJSONObject3.optInt("height", 0);
+        try {
+            JSONArray optJSONArray = jSONObject.optJSONArray("forum_list");
+            if (optJSONArray != null) {
+                for (int i = 0; i < optJSONArray.length(); i++) {
+                    s sVar = new s();
+                    sVar.a(optJSONArray.getJSONObject(i));
+                    this.f1026a.add(sVar);
                 }
-            } catch (Exception e) {
-                com.baidu.tieba.util.z.b("FrsStarData", "parserJson", "error = " + e.getMessage());
             }
+            JSONArray optJSONArray2 = jSONObject.optJSONArray("commend_forum_list");
+            if (optJSONArray2 != null) {
+                for (int i2 = 0; i2 < optJSONArray2.length(); i2++) {
+                    s sVar2 = new s();
+                    sVar2.a(optJSONArray2.getJSONObject(i2));
+                    this.b.add(sVar2);
+                }
+            }
+            this.c.a(jSONObject.optJSONObject("page"));
+            long optLong = jSONObject.optLong("ctime", 0L);
+            if (optLong > 0) {
+                this.d = new Date(optLong);
+            } else {
+                this.d = new Date();
+            }
+            this.f = jSONObject.optInt("is_login", 0);
+        } catch (Exception e) {
+            this.e = false;
+            com.baidu.tieba.util.aj.b("LikeForumModel", "parserJson", "error = " + e.getMessage());
         }
     }
 }

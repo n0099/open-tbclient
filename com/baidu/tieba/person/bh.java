@@ -1,29 +1,30 @@
 package com.baidu.tieba.person;
 
+import android.app.Activity;
 import android.view.View;
-import android.widget.AdapterView;
+import com.baidu.tieba.TiebaApplication;
+import com.baidu.tieba.account.LoginActivity;
+import com.slidingmenu.lib.R;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class bh implements AdapterView.OnItemClickListener {
-    final /* synthetic */ PersonLbsActivity a;
+public class bh implements View.OnClickListener {
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ PersonListActivity f1593a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bh(PersonLbsActivity personLbsActivity) {
-        this.a = personLbsActivity;
+    public bh(PersonListActivity personListActivity) {
+        this.f1593a = personListActivity;
     }
 
-    @Override // android.widget.AdapterView.OnItemClickListener
-    public void onItemClick(AdapterView adapterView, View view, int i, long j) {
-        int i2;
-        int i3;
-        if (j == -1) {
-            PersonLbsActivity personLbsActivity = this.a;
-            i3 = this.a.r;
-            personLbsActivity.b(1, i3 - 1);
-        } else if (j == -2) {
-            PersonLbsActivity personLbsActivity2 = this.a;
-            i2 = this.a.s;
-            personLbsActivity2.b(2, i2 + 1);
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        this.f1593a.f1558a = ((Integer) view.getTag()).intValue();
+        String E = TiebaApplication.E();
+        if (E == null || E.length() <= 0) {
+            LoginActivity.a((Activity) this.f1593a, this.f1593a.getString(R.string.login_to_chat), true, 11028);
+        } else {
+            this.f1593a.c();
         }
     }
 }

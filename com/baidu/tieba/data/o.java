@@ -3,35 +3,59 @@ package com.baidu.tieba.data;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class o {
-    private String a = null;
-    private String b = null;
-    private int c = 0;
-    private int d = 0;
-    private int e = 0;
-    private int f = 0;
-    private int g = 0;
-    private String h = null;
-    private String i = null;
+
+    /* renamed from: a  reason: collision with root package name */
+    private String f1021a;
+    private String b;
+    private String c;
+    private String d;
+    private String e;
+    private String f;
+    private String g;
+    private String h;
+    private String i;
 
     public String a() {
+        return this.f1021a;
+    }
+
+    public String b() {
         return this.b;
     }
 
+    public String c() {
+        return this.c;
+    }
+
+    public String d() {
+        return this.d;
+    }
+
+    public String e() {
+        return this.e;
+    }
+
+    public String f() {
+        return this.g;
+    }
+
+    public String g() {
+        return this.f;
+    }
+
+    public String h() {
+        return this.h;
+    }
+
     public void a(JSONObject jSONObject) {
-        if (jSONObject != null) {
-            try {
-                this.a = jSONObject.optString("id");
-                this.b = jSONObject.optString("name");
-                this.c = jSONObject.optInt("member_count", 0);
-                this.d = jSONObject.optInt("is_like", 0);
-                this.e = this.d;
-                this.f = jSONObject.optInt("level_id", 1);
-                this.g = jSONObject.optInt("favo_type", 0);
-                this.h = jSONObject.optString("desc");
-                this.i = jSONObject.optString("avatar", "");
-            } catch (Exception e) {
-                com.baidu.tieba.util.z.b("LikeForumData", "parserJson", "error = " + e.getMessage());
-            }
-        }
+        this.f1021a = jSONObject.optString("link");
+        this.b = jSONObject.optString("title");
+        this.c = jSONObject.optString("abstract");
+        this.d = jSONObject.optString("forum_name");
+        this.e = jSONObject.optString("img");
+        this.f = jSONObject.optString("post_type");
+        this.g = jSONObject.optString("user_name");
+        this.h = jSONObject.optString("reply_num");
+        this.i = jSONObject.optString("proper");
     }
 }

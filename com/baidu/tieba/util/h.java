@@ -1,101 +1,213 @@
 package com.baidu.tieba.util;
 
 import android.content.Context;
-import android.database.sqlite.SQLiteDatabase;
-import android.database.sqlite.SQLiteOpenHelper;
+import android.text.SpannableStringBuilder;
+import android.text.method.LinkMovementMethod;
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.TextView;
+import com.baidu.tieba.TiebaApplication;
+import com.baidu.tieba.view.CustomTextView;
+import com.slidingmenu.lib.R;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes.dex */
-public class h extends SQLiteOpenHelper {
+public class h {
+
+    /* renamed from: a  reason: collision with root package name */
+    private Context f1766a;
+    private int b;
+    private int c;
+    private a d;
+    private View.OnClickListener e;
+    private boolean f = false;
+    private int g = -16777216;
+
     public h(Context context) {
-        super(context, "baidu_tieba.db", (SQLiteDatabase.CursorFactory) null, 7);
+        this.f1766a = context;
+        TextView textView = new TextView(this.f1766a);
+        textView.setLineSpacing(0.0f, 1.2f);
+        textView.setTextSize(com.baidu.tieba.data.g.n());
+        this.b = textView.getLineHeight();
+        this.c = (int) textView.getTextSize();
     }
 
-    private void a(SQLiteDatabase sQLiteDatabase, String str) {
-        try {
-            sQLiteDatabase.execSQL(str);
-        } catch (Exception e) {
-            z.a(3, getClass().getName(), "ExecSQL", str);
-        }
+    public void a(boolean z) {
+        this.f = z;
     }
 
-    @Override // android.database.sqlite.SQLiteOpenHelper
-    public void onCreate(SQLiteDatabase sQLiteDatabase) {
-        a(sQLiteDatabase);
-    }
-
-    public void a(SQLiteDatabase sQLiteDatabase) {
-        a(sQLiteDatabase, "CREATE TABLE if not exists cash_data(type int,account varchar(30),data TEXT)");
-        a(sQLiteDatabase, "CREATE TABLE if not exists account_data(id,account,password,bduss,isactive int,tbs,time)");
-        a(sQLiteDatabase, "CREATE TABLE if not exists search_data(key, account, time)");
-        a(sQLiteDatabase, "CREATE TABLE if not exists search_post_data(key, account, time)");
-        a(sQLiteDatabase, "CREATE TABLE if not exists mark_data(id,floor,time,title,sequence,hostmode,postid,account,authorname,replynum,subPost int,forumName varchar(30),forumId varchar(30),threadId varchar(30))");
-        a(sQLiteDatabase, "CREATE TABLE if not exists draft_box(account varchar(30),type int,forum_id varchar(20),forum_name TEXT,thread_id varchar(30),floor_id TEXT,title TEXT,content TEXT, time long)");
-        a(sQLiteDatabase, "CREATE TABLE if not exists setting(account varchar(30),frequency,fans_switch,reply_me_switch,at_me_switch,remind_tone)");
-        a(sQLiteDatabase, "CREATE TABLE if not exists chunk_upload_data(account varchar(30),md5,total_length,chunk_no,time)");
-        a(sQLiteDatabase, "CREATE TABLE if not exists frs_image_forums(forum_name)");
-        c(sQLiteDatabase);
-    }
-
-    public void b(SQLiteDatabase sQLiteDatabase) {
-        a(sQLiteDatabase, "DROP TABLE IF EXISTS cash_data;");
-        a(sQLiteDatabase, "update sqlite_sequence SET seq=0 where name='cash_data';");
-        a(sQLiteDatabase, "DROP TABLE IF EXISTS account_data;");
-        a(sQLiteDatabase, "update sqlite_sequence SET seq=0 where name='account_data';");
-        a(sQLiteDatabase, "DROP TABLE IF EXISTS search_data;");
-        a(sQLiteDatabase, "update sqlite_sequence SET seq=0 where name='search_data';");
-        a(sQLiteDatabase, "DROP TABLE IF EXISTS search_post_data;");
-        a(sQLiteDatabase, "update sqlite_sequence SET seq=0 where name='search_post_data';");
-        a(sQLiteDatabase, "DROP TABLE IF EXISTS mark_data;");
-        a(sQLiteDatabase, "update sqlite_sequence SET seq=0 where name='mark_data';");
-        a(sQLiteDatabase, "DROP TABLE IF EXISTS draft_box;");
-        a(sQLiteDatabase, "update sqlite_sequence SET seq=0 where name='draft_box';");
-        a(sQLiteDatabase, "DROP TABLE IF EXISTS setting;");
-        a(sQLiteDatabase, "update sqlite_sequence SET seq=0 where name='setting';");
-        a(sQLiteDatabase, "DROP TABLE IF EXISTS chunk_upload_data;");
-        a(sQLiteDatabase, "update sqlite_sequence SET seq=0 where name='chunk_upload_data';");
-        a(sQLiteDatabase, "DROP TABLE IF EXISTS frs_image_forums;");
-        a(sQLiteDatabase, "DROP INDEX IF EXISTS idx_c_msgs_of;");
-        a(sQLiteDatabase, "update sqlite_sequence SET seq=0 where name='frs_image_forums';");
-        a(sQLiteDatabase, "DROP TABLE IF EXISTS chat_msgs;");
-        a(sQLiteDatabase, "DROP INDEX IF EXISTS idx_c_rfs_ost;");
-        a(sQLiteDatabase, "update sqlite_sequence SET seq=0 where name='chat_msgs';");
-    }
-
-    @Override // android.database.sqlite.SQLiteOpenHelper
-    public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
-        if (i == 1) {
-            try {
-                a(sQLiteDatabase, "CREATE TABLE if not exists chunk_upload_data(account varchar(30),md5,total_length,chunk_no,time)");
-            } catch (Exception e) {
-                z.b(h.class.getName(), "onUpgrade", e.getMessage());
-                b(sQLiteDatabase);
-                a(sQLiteDatabase);
-                return;
+    public void a(TextView textView, LinearLayout linearLayout, List list, boolean z) {
+        TextView textView2;
+        int i;
+        if (textView != null && linearLayout != null && list != null) {
+            if (list != null && list.size() > 0) {
+                if (this.f) {
+                    list = a(list);
+                }
+                com.baidu.tieba.data.i iVar = (com.baidu.tieba.data.i) list.get(0);
+                if (iVar == null || !(iVar.a() == 0 || iVar.a() == 2)) {
+                    textView2 = null;
+                    i = 0;
+                } else {
+                    textView.setTextSize(com.baidu.tieba.data.g.n());
+                    textView.setVisibility(0);
+                    a(textView, iVar);
+                    i = 1;
+                    textView2 = textView;
+                }
+                if (linearLayout != null) {
+                    int i2 = -1;
+                    linearLayout.setVisibility(8);
+                    while (true) {
+                        int i3 = i;
+                        TextView textView3 = textView2;
+                        int i4 = i2;
+                        if (i3 < list.size()) {
+                            linearLayout.setVisibility(0);
+                            com.baidu.tieba.data.i iVar2 = (com.baidu.tieba.data.i) list.get(i3);
+                            if (iVar2.a() == 3) {
+                                if (z) {
+                                    int i5 = i4 + 1;
+                                    linearLayout.addView(a(list, iVar2, i5));
+                                    i2 = i5;
+                                    textView2 = null;
+                                } else {
+                                    i2 = i4;
+                                    textView2 = textView3;
+                                }
+                            } else if (textView3 != null) {
+                                if (iVar2.a() == 2) {
+                                    textView3.append(iVar2.a(this.f1766a, this.b, this.c));
+                                    i2 = i4;
+                                    textView2 = textView3;
+                                } else {
+                                    textView3.append(iVar2.c());
+                                    i2 = i4;
+                                    textView2 = textView3;
+                                }
+                            } else {
+                                TextView a2 = a(iVar2);
+                                linearLayout.addView(a2);
+                                i2 = i4;
+                                textView2 = a2;
+                            }
+                            i = i3 + 1;
+                        } else {
+                            return;
+                        }
+                    }
+                }
+            } else {
+                textView.setVisibility(0);
+                textView.setText((CharSequence) null);
             }
         }
-        if (i < 3) {
-            a(sQLiteDatabase, "ALTER TABLE mark_data ADD subPost int");
-            a(sQLiteDatabase, "ALTER TABLE mark_data ADD forumName varchar(30)");
-            a(sQLiteDatabase, "ALTER TABLE mark_data ADD forumId varchar(30)");
-            a(sQLiteDatabase, "ALTER TABLE mark_data ADD threadId varchar(30)");
+    }
+
+    private List a(List list) {
+        boolean z;
+        int length;
+        ArrayList arrayList = new ArrayList();
+        int size = list.size();
+        int i = 0;
+        int i2 = 0;
+        while (true) {
+            if (i >= size) {
+                z = false;
+                break;
+            }
+            com.baidu.tieba.data.i iVar = (com.baidu.tieba.data.i) list.get(i);
+            int a2 = iVar.a();
+            if (a2 == 0 || a2 == 4 || a2 == 1) {
+                length = iVar.c() != null ? iVar.c().length() + i2 : i2;
+            } else {
+                length = i2 + 1;
+            }
+            if (length > 50) {
+                if (a2 == 0 || a2 == 4 || a2 == 1) {
+                    SpannableStringBuilder valueOf = SpannableStringBuilder.valueOf(iVar.c().subSequence(0, 50 - i2));
+                    com.baidu.tieba.data.i iVar2 = new com.baidu.tieba.data.i();
+                    iVar2.a(valueOf);
+                    iVar2.a(a2);
+                    arrayList.add(iVar2);
+                    z = true;
+                } else {
+                    z = true;
+                }
+            } else {
+                arrayList.add(iVar);
+                i++;
+                i2 = length;
+            }
         }
-        if (i < 4) {
-            a(sQLiteDatabase, "ALTER TABLE setting ADD remind_tone");
+        if (z) {
+            com.baidu.tieba.data.i iVar3 = new com.baidu.tieba.data.i();
+            iVar3.a(SpannableStringBuilder.valueOf("..."));
+            iVar3.a(0);
+            arrayList.add(iVar3);
+            return arrayList;
         }
-        if (i < 5) {
-            a(sQLiteDatabase, "CREATE TABLE if not exists frs_image_forums(forum_name)");
-        }
-        if (i < 6) {
-            a(sQLiteDatabase, "CREATE TABLE if not exists search_post_data(key, account, time)");
-        }
-        if (i < 7) {
-            c(sQLiteDatabase);
+        return list;
+    }
+
+    private void a(TextView textView, com.baidu.tieba.data.i iVar) {
+        if (textView != null && iVar != null) {
+            if (iVar.a() == 2) {
+                textView.setText(iVar.a(this.f1766a, this.b, this.c));
+            } else {
+                textView.setText(iVar.c());
+            }
         }
     }
 
-    protected void c(SQLiteDatabase sQLiteDatabase) {
-        a(sQLiteDatabase, "CREATE TABLE if not exists chat_msgs(pk INTEGER primary key autoincrement, msgId bigint,ownerId varchar(32), friendId varchar(32), msgType int(11) default 0, status int(11) default 0, localTime bigint(21) default 0, serverTime bigint(21) default 0, msgContent text)");
-        a(sQLiteDatabase, "CREATE INDEX if not exists idx_c_msgs_of ON chat_msgs(ownerId, friendId, msgId)");
-        a(sQLiteDatabase, "CREATE TABLE if not exists chat_recent_friends(pk varchar(64) primary key, unReadCount int(11) default 0 ,ownerId varchar(32), friendId varchar(32), ownerName varchar(64), friendName varchar(64), friendPortrait varchar(64), status int(11) default 0, localTime bigint(21) default 0, serverTime bigint(21) default 0, msgContent text)");
-        a(sQLiteDatabase, "CREATE INDEX if not exists idx_c_rfs_ost ON chat_recent_friends(ownerId, serverTime)");
+    private TextView a(com.baidu.tieba.data.i iVar) {
+        CustomTextView customTextView = new CustomTextView(this.f1766a);
+        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, -2);
+        int a2 = am.a(this.f1766a, 15.0f);
+        layoutParams.rightMargin = 0;
+        layoutParams.leftMargin = 0;
+        layoutParams.topMargin = a2;
+        layoutParams.bottomMargin = 0;
+        customTextView.setLineSpacing(0.0f, 1.2f);
+        customTextView.setTextSize(com.baidu.tieba.data.g.n());
+        if (TiebaApplication.f().au() == 1) {
+            customTextView.setTextColor(ah.a(1));
+        } else {
+            customTextView.setTextColor(this.g);
+        }
+        a(customTextView, iVar);
+        customTextView.setMovementMethod(LinkMovementMethod.getInstance());
+        customTextView.setFocusable(false);
+        customTextView.setLayoutParams(layoutParams);
+        return customTextView;
+    }
+
+    private ImageView a(List list, com.baidu.tieba.data.i iVar, int i) {
+        ImageView imageView = new ImageView(this.f1766a);
+        int a2 = am.a(this.f1766a, 105.0f);
+        int a3 = am.a(this.f1766a, 105.0f);
+        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, a2);
+        layoutParams.topMargin = am.a(this.f1766a, 15.0f);
+        layoutParams.bottomMargin = 0;
+        com.baidu.adp.widget.a.b d = this.d.d(iVar.d());
+        imageView.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
+        imageView.setMaxWidth(a3);
+        if (d != null) {
+            imageView.setTag(null);
+            d.b(imageView);
+        } else {
+            imageView.setTag(iVar.d());
+            imageView.setImageBitmap(e.a((int) R.drawable.image_default));
+        }
+        imageView.setClickable(true);
+        imageView.setFocusable(false);
+        imageView.setOnClickListener(this.e);
+        imageView.setLayoutParams(layoutParams);
+        return imageView;
+    }
+
+    public void a(int i) {
+        this.g = i;
     }
 }

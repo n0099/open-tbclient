@@ -15,17 +15,15 @@ import android.widget.TextView;
 import com.baidu.browser.core.util.BdUtil;
 import com.baidu.loginshare.Token;
 import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.model.ai;
 import com.baidu.tieba.util.DatabaseService;
-import com.baidu.tieba.util.ab;
-import com.baidu.tieba.util.x;
-import com.baidu.tieba.util.z;
 import com.baidu.tieba.view.BaseWebView;
 import com.slidingmenu.lib.R;
+import com.tencent.mm.sdk.platformtools.Util;
 import java.util.ArrayList;
+@Deprecated
 /* loaded from: classes.dex */
 public class NewHomeActivity extends com.baidu.tieba.g implements com.baidu.tieba.view.d {
-    private j b;
+    private bg b;
     private Button c = null;
     private ImageView d = null;
     private ImageView e = null;
@@ -36,7 +34,7 @@ public class NewHomeActivity extends com.baidu.tieba.g implements com.baidu.tieb
     private BaseWebView l = null;
     private ProgressBar m = null;
     private LinearLayout n = null;
-    private e o = null;
+    private ax o = null;
     private boolean p = false;
     private boolean q = false;
     private boolean r = true;
@@ -44,10 +42,12 @@ public class NewHomeActivity extends com.baidu.tieba.g implements com.baidu.tieb
     private TextView t = null;
     private boolean u = false;
     private String x = "1";
-    private d y;
+    private aw y;
     private static boolean v = false;
     private static long w = 0;
-    public static final ArrayList a = new ArrayList();
+
+    /* renamed from: a  reason: collision with root package name */
+    public static final ArrayList f1628a = new ArrayList();
 
     @Override // com.baidu.tieba.g
     public boolean e() {
@@ -59,23 +59,23 @@ public class NewHomeActivity extends com.baidu.tieba.g implements com.baidu.tieb
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         setContentView(R.layout.new_home_activity);
-        o();
+        m();
         String E = TiebaApplication.E();
         if (E != null && E.length() > 0) {
-            n();
+            l();
         }
     }
 
-    private void n() {
-        String e = ai.e();
+    private void l() {
+        String e = com.baidu.tieba.model.aq.e();
         if (e != null && e.length() > 0) {
-            this.y = new d(this, e);
+            this.y = new aw(this, e);
             this.y.setPriority(3);
             this.y.execute(new String[0]);
         }
     }
 
-    private void o() {
+    private void m() {
         this.f = (RelativeLayout) findViewById(R.id.parent);
         this.g = (RelativeLayout) findViewById(R.id.title);
         this.j = (TextView) findViewById(R.id.title_text);
@@ -86,16 +86,16 @@ public class NewHomeActivity extends com.baidu.tieba.g implements com.baidu.tieb
         this.s = (TextView) this.n.findViewById(R.id.webview_fail);
         this.t = (TextView) this.n.findViewById(R.id.webview_crash_tip);
         this.m = (ProgressBar) findViewById(R.id.recommend_progress);
-        this.k = new c(this);
+        this.k = new av(this);
         this.c.setOnClickListener(this.k);
         this.d.setOnClickListener(this.k);
         this.e.setOnClickListener(this.k);
-        if (TiebaApplication.f().au() >= 5) {
+        if (TiebaApplication.f().av() >= 5) {
             this.s.setVisibility(8);
             this.t.setVisibility(0);
-        } else if (s()) {
+        } else if (q()) {
             this.t.setVisibility(8);
-            p();
+            n();
             b();
         } else {
             this.t.setVisibility(0);
@@ -103,11 +103,11 @@ public class NewHomeActivity extends com.baidu.tieba.g implements com.baidu.tieb
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void p() {
+    public void n() {
         String b = DatabaseService.b(10);
         if (b != null && b.length() > 1) {
             this.p = true;
-            this.l.loadDataWithBaseURL(com.baidu.tieba.data.g.a, b, "text/html", BdUtil.UTF8, "");
+            this.l.loadDataWithBaseURL(com.baidu.tieba.data.g.f1013a, b, "text/html", BdUtil.UTF8, "");
         }
     }
 
@@ -117,7 +117,7 @@ public class NewHomeActivity extends com.baidu.tieba.g implements com.baidu.tieb
             case -1:
                 String E = TiebaApplication.E();
                 if (E != null && E.length() > 0) {
-                    n();
+                    l();
                 }
                 b();
                 return;
@@ -136,7 +136,7 @@ public class NewHomeActivity extends com.baidu.tieba.g implements com.baidu.tieb
     @Override // com.baidu.tieba.g, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        TiebaApplication.f().aO();
+        TiebaApplication.f().aS();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -146,7 +146,7 @@ public class NewHomeActivity extends com.baidu.tieba.g implements com.baidu.tieb
         String str2;
         super.onResume();
         String str3 = "";
-        Token b = com.baidu.tieba.account.a.b(TiebaApplication.F());
+        Token b = com.baidu.tieba.account.a.b(TiebaApplication.G());
         if (b != null) {
             if (b.mBduss != null) {
                 str3 = b.mBduss;
@@ -154,14 +154,14 @@ public class NewHomeActivity extends com.baidu.tieba.g implements com.baidu.tieb
             if (b.mPtoken != null) {
                 str = str3;
                 str2 = b.mPtoken;
-                j jVar = new j(str, str2);
-                boolean z = this.b == null && (this.b == null || !this.b.equals(jVar));
-                this.b = jVar;
+                bg bgVar = new bg(str, str2);
+                boolean z = this.b == null && (this.b == null || !this.b.equals(bgVar));
+                this.b = bgVar;
                 if (this.l == null && z) {
                     b();
                     return;
                 } else if (this.l == null && !this.u) {
-                    if (System.currentTimeMillis() - Long.valueOf(TiebaApplication.f().C()).longValue() > com.baidu.tieba.data.g.c.longValue()) {
+                    if (System.currentTimeMillis() - Long.valueOf(TiebaApplication.f().D()).longValue() > com.baidu.tieba.data.g.d.longValue()) {
                         b();
                         return;
                     }
@@ -171,10 +171,10 @@ public class NewHomeActivity extends com.baidu.tieba.g implements com.baidu.tieb
         }
         str = str3;
         str2 = "";
-        j jVar2 = new j(str, str2);
+        bg bgVar2 = new bg(str, str2);
         if (this.b == null) {
         }
-        this.b = jVar2;
+        this.b = bgVar2;
         if (this.l == null) {
         }
         if (this.l == null) {
@@ -185,20 +185,20 @@ public class NewHomeActivity extends com.baidu.tieba.g implements com.baidu.tieb
     @Override // com.baidu.tieba.g
     public void a(int i) {
         super.a(i);
-        x.a(this.f, i);
-        x.d(this.g, i);
-        x.f(this.j, i);
-        x.b(this.e, i);
-        x.c(this.d, i);
-        x.g((TextView) this.c, i);
+        com.baidu.tieba.util.ah.a(this.f, i);
+        com.baidu.tieba.util.ah.d(this.g, i);
+        com.baidu.tieba.util.ah.f(this.j, i);
+        com.baidu.tieba.util.ah.b(this.e, i);
+        com.baidu.tieba.util.ah.c(this.d, i);
+        com.baidu.tieba.util.ah.g((TextView) this.c, i);
         if (this.l != null) {
-            x.a(this.l, i);
+            com.baidu.tieba.util.ah.a(this.l, i);
             b();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public String q() {
+    public String o() {
         Long l;
         SharedPreferences sharedPreferences = getSharedPreferences("post_info", 0);
         SharedPreferences.Editor edit = sharedPreferences.edit();
@@ -224,7 +224,7 @@ public class NewHomeActivity extends com.baidu.tieba.g implements com.baidu.tieb
                         e.printStackTrace();
                         l = 0L;
                     }
-                    if (currentTimeMillis - l.longValue() < 86400000) {
+                    if (currentTimeMillis - l.longValue() < Util.MILLSECONDS_OF_DAY) {
                         stringBuffer.append(String.valueOf(split[i]) + ",");
                         stringBuffer2.append(String.valueOf(split2[i]) + ",");
                     }
@@ -328,7 +328,7 @@ public class NewHomeActivity extends com.baidu.tieba.g implements com.baidu.tieb
     }
 
     public void b() {
-        if (TiebaApplication.f().au() == 0 && !s()) {
+        if (TiebaApplication.f().av() == 0 && !q()) {
             this.t.setVisibility(0);
             return;
         }
@@ -338,20 +338,20 @@ public class NewHomeActivity extends com.baidu.tieba.g implements com.baidu.tieb
             this.m.setVisibility(0);
             this.q = false;
             this.r = true;
-            t();
-            this.o = new e(this, null);
+            r();
+            this.o = new ax(this, null);
             this.o.setPriority(3);
             this.o.execute(new Object[0]);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void r() {
+    public void p() {
         if (this.q) {
             if (!this.r) {
                 a(getResources().getString(R.string.neterror));
             } else {
-                TiebaApplication.f().b(System.currentTimeMillis());
+                TiebaApplication.f().a(System.currentTimeMillis());
             }
             this.u = false;
             this.m.setVisibility(8);
@@ -364,10 +364,10 @@ public class NewHomeActivity extends com.baidu.tieba.g implements com.baidu.tieb
 
     @Override // com.baidu.tieba.view.d
     public boolean a(WebView webView, String str) {
-        if (!i.a(this, str)) {
+        if (!bf.a(this, str)) {
             if (str.contains("c/s/tag/allthread")) {
                 if (str.contains("pn=")) {
-                    String a2 = i.a(str, "pn=");
+                    String a2 = bf.a(str, "pn=");
                     if (a2 != null && a2.length() >= 0) {
                         this.x = a2;
                     }
@@ -376,29 +376,21 @@ public class NewHomeActivity extends com.baidu.tieba.g implements com.baidu.tieb
                 }
                 b();
             } else {
-                ab.d(this, str);
+                com.baidu.tieba.util.am.d(this, str);
             }
         }
         return true;
     }
 
-    public static void a(boolean z) {
-        v = z;
-    }
-
-    public static void a(long j) {
-        w = j;
-    }
-
-    private boolean s() {
+    private boolean q() {
         boolean z = false;
         if (this.l == null) {
             try {
-                if (ab.f(this)) {
+                if (com.baidu.tieba.util.am.f(this)) {
                     super.a(getString(R.string.web_view_corrupted));
                 } else {
                     this.l = new BaseWebView(this);
-                    x.a(this.l, TiebaApplication.f().at());
+                    com.baidu.tieba.util.ah.a(this.l, TiebaApplication.f().au());
                     this.l.setOnLoadUrlListener(this);
                     this.l.setHorizontalScrollBarEnabled(false);
                     this.l.setHorizontalScrollbarOverlay(false);
@@ -409,14 +401,14 @@ public class NewHomeActivity extends com.baidu.tieba.g implements com.baidu.tieb
                 }
                 return z;
             } catch (Exception e) {
-                z.b(getClass().getName(), "", "NewHomeActivity.refreshFrs error = " + e.getMessage());
+                com.baidu.tieba.util.aj.b(getClass().getName(), "", "NewHomeActivity.refreshFrs error = " + e.getMessage());
                 return z;
             }
         }
         return true;
     }
 
-    private void t() {
+    private void r() {
         if (this.o != null) {
             this.o.cancel();
         }

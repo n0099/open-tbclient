@@ -1,139 +1,34 @@
 package com.baidu.tieba.view;
 
-import android.app.Dialog;
-import android.content.Context;
-import android.os.Bundle;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.view.Window;
-import android.view.WindowManager;
-import android.widget.ImageView;
-import android.widget.ProgressBar;
-import com.slidingmenu.lib.R;
+import android.os.Handler;
+import android.os.Message;
 /* loaded from: classes.dex */
-public class ab extends Dialog {
-    private Window a;
-    private ImageView b;
-    private View c;
-    private ProgressBar d;
-    private View.OnTouchListener e;
-    private int f;
-    private int g;
-    private int h;
-    private int i;
-    private int j;
-    private int k;
-    private int l;
-    private int m;
+class ab extends Handler {
 
-    public ab(Context context, int i, int i2) {
-        super(context, R.style.big_image_dialog);
-        this.a = null;
-        this.b = null;
-        this.c = null;
-        this.d = null;
-        this.e = null;
-        this.f = 0;
-        this.g = 0;
-        this.h = 0;
-        this.i = 0;
-        this.j = 0;
-        this.k = 0;
-        this.l = 0;
-        this.m = 0;
-        this.l = com.baidu.tieba.util.ab.a(context, 0.0f);
-        this.f = i;
-        this.g = i2;
-        if (this.f <= 0) {
-            this.f = 1;
-        }
-        if (this.g <= 0) {
-            this.g = 1;
-        }
-        this.c = LayoutInflater.from(context).inflate(R.layout.big_image_dialog, (ViewGroup) null);
-        this.b = (ImageView) this.c.findViewById(R.id.image);
-        this.b.setScaleType(ImageView.ScaleType.FIT_CENTER);
-        this.b.setPadding(this.l, this.l, this.l, this.l);
-        this.h = (int) (this.f * 0.8d);
-        this.i = (int) (this.g * 0.8d);
-        this.d = (ProgressBar) this.c.findViewById(R.id.image_progress);
-        this.e = new ac(this);
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ ImagePbImageView f1808a;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public ab(ImagePbImageView imagePbImageView) {
+        this.f1808a = imagePbImageView;
     }
 
-    public void a() {
-        if (isShowing()) {
-            this.d.setVisibility(8);
-            com.baidu.tieba.util.ab.a(getContext(), getContext().getResources().getString(R.string.image_error));
-        }
-    }
-
-    public void a(com.baidu.adp.widget.a.b bVar) {
-        this.d.setVisibility(8);
-        if (bVar != null) {
-            this.b.setLayoutParams(this.b.getLayoutParams());
-            bVar.b(this.b);
-        }
-    }
-
-    public void a(com.baidu.adp.widget.a.b bVar, boolean z) {
-        b(bVar);
-        if (!z) {
-            this.d.setVisibility(8);
-        } else {
-            this.d.setVisibility(0);
-        }
-        b();
-        show();
-    }
-
-    private void b(com.baidu.adp.widget.a.b bVar) {
+    @Override // android.os.Handler
+    public void handleMessage(Message message) {
         int i;
-        int b;
-        if (bVar != null) {
-            if (this.h / this.i > bVar.a() / bVar.b()) {
-                i = (bVar.a() * this.i) / bVar.b();
-                b = this.i;
-            } else {
-                i = this.h;
-                b = (bVar.b() * this.h) / bVar.a();
-            }
-            ViewGroup.LayoutParams layoutParams = this.b.getLayoutParams();
-            int i2 = i + (this.l * 2);
-            int i3 = b + (this.l * 2);
-            layoutParams.width = i2;
-            layoutParams.height = i3;
-            this.b.setLayoutParams(layoutParams);
-            this.j = (this.f - (i2 + (this.m * 2))) / 2;
-            this.k = (this.g - (i3 + (this.m * 2))) / 2;
-            bVar.b(this.b);
+        int i2;
+        Handler handler;
+        Handler handler2;
+        super.handleMessage(message);
+        ImagePbImageView imagePbImageView = this.f1808a;
+        i = imagePbImageView.j;
+        imagePbImageView.j = i - 1;
+        i2 = this.f1808a.j;
+        if (i2 >= 0) {
+            handler = this.f1808a.k;
+            handler2 = this.f1808a.k;
+            handler.sendMessageDelayed(handler2.obtainMessage(1), 20L);
+            this.f1808a.invalidate();
         }
-    }
-
-    @Override // android.app.Dialog
-    protected void onStop() {
-        super.onStop();
-        this.d.setVisibility(8);
-    }
-
-    @Override // android.app.Dialog
-    protected void onCreate(Bundle bundle) {
-        super.onCreate(bundle);
-        setContentView(this.c);
-        setCanceledOnTouchOutside(true);
-        setCancelable(true);
-        getWindow().getDecorView().setOnTouchListener(this.e);
-    }
-
-    public void b() {
-        this.a = getWindow();
-        this.a.setWindowAnimations(R.style.big_image_dialog_anim);
-        WindowManager.LayoutParams attributes = this.a.getAttributes();
-        attributes.x = this.j;
-        attributes.y = this.k;
-        attributes.horizontalMargin = 0.0f;
-        attributes.verticalMargin = 0.0f;
-        attributes.gravity = 51;
-        this.a.setAttributes(attributes);
     }
 }

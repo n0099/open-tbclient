@@ -1,6 +1,4 @@
 package com.baidu.location;
-
-import com.baidu.zeus.NotificationProxy;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class Jni {
@@ -25,10 +23,12 @@ public class Jni {
 
     /* renamed from: if  reason: not valid java name */
     private static int f60if = 13;
-    private static int a = 14;
+
+    /* renamed from: a  reason: collision with root package name */
+    private static int f724a = 14;
 
     /* renamed from: do  reason: not valid java name */
-    private static int f58do = NotificationProxy.MAX_URL_LENGTH;
+    private static int f58do = 1024;
 
     static {
         f62new = false;

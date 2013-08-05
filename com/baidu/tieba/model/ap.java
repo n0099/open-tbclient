@@ -1,57 +1,64 @@
 package com.baidu.tieba.model;
 
-import com.baidu.android.pushservice.PushConstants;
-import java.util.ArrayList;
-import org.json.JSONArray;
-import org.json.JSONObject;
+import android.graphics.Bitmap;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ap {
-    private com.baidu.tieba.data.af c = new com.baidu.tieba.data.af();
-    private ArrayList a = new ArrayList();
-    private com.baidu.tieba.data.ai b = new com.baidu.tieba.data.ai();
-    private boolean d = true;
+public class ap extends BdAsyncTask {
 
-    public boolean a() {
-        return this.d;
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ ao f1334a;
+    private String b;
+
+    public ap(ao aoVar, String str) {
+        this.f1334a = aoVar;
+        this.b = null;
+        this.b = str;
     }
 
-    public void a(ArrayList arrayList) {
-        this.a = arrayList;
-    }
-
-    public ArrayList b() {
-        return this.a;
-    }
-
-    public com.baidu.tieba.data.ai c() {
-        return this.b;
-    }
-
-    public void a(String str) {
-        try {
-            a(new JSONObject(str));
-        } catch (Exception e) {
-            this.d = false;
-            com.baidu.tieba.util.z.b("MentionModel", "parserJson", "error = " + e.getMessage());
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    /* renamed from: d */
+    public Bitmap a(Object... objArr) {
+        if (this.b != null && !this.b.equals("tieba_resized_image")) {
+            com.baidu.tieba.util.p.e("photos/" + this.b, "tieba_resized_image");
         }
+        return com.baidu.tieba.util.e.a(com.baidu.tieba.util.e.b(com.baidu.tieba.util.p.c(null, "tieba_resized_image_display")), 5.0f);
     }
 
-    public void a(JSONObject jSONObject) {
-        try {
-            JSONArray optJSONArray = jSONObject.optJSONArray("reply_list");
-            JSONArray optJSONArray2 = optJSONArray == null ? jSONObject.optJSONArray("at_list") : optJSONArray;
-            if (optJSONArray2 != null) {
-                for (int i = 0; i < optJSONArray2.length(); i++) {
-                    com.baidu.tieba.data.q qVar = new com.baidu.tieba.data.q();
-                    qVar.a(optJSONArray2.optJSONObject(i));
-                    this.a.add(qVar);
-                }
-            }
-            this.c.a(jSONObject.optJSONObject(PushConstants.EXTRA_PUSH_MESSAGE));
-            this.b.a(jSONObject.optJSONObject("page"));
-        } catch (Exception e) {
-            this.d = false;
-            com.baidu.tieba.util.z.b("MentionModel", "parserJson", "error = " + e.getMessage());
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public void cancel() {
+        com.baidu.adp.a.e eVar;
+        com.baidu.adp.a.e eVar2;
+        this.f1334a.f1333a = null;
+        eVar = this.f1334a.mLoadDataCallBack;
+        if (eVar != null) {
+            eVar2 = this.f1334a.mLoadDataCallBack;
+            eVar2.a(null);
+        }
+        super.cancel(true);
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public void c() {
+        super.c();
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public void a(Bitmap bitmap) {
+        com.baidu.adp.a.e eVar;
+        com.baidu.adp.a.e eVar2;
+        super.a((Object) bitmap);
+        this.f1334a.f1333a = null;
+        com.baidu.tieba.util.aj.a(getClass().getName(), "onPostExecute", "is Null?" + String.valueOf(bitmap == null));
+        eVar = this.f1334a.mLoadDataCallBack;
+        if (eVar != null) {
+            eVar2 = this.f1334a.mLoadDataCallBack;
+            eVar2.a(bitmap);
         }
     }
 }

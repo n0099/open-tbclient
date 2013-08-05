@@ -1,30 +1,25 @@
 package com.baidu.tieba.recommend;
 
+import android.app.Activity;
 import android.view.View;
-import com.slidingmenu.lib.R;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class f implements View.OnClickListener {
-    final /* synthetic */ TagContentActivity a;
+public class f implements View.OnClickListener {
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ c f1665a;
+    private final /* synthetic */ com.baidu.tieba.data.o b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public f(TagContentActivity tagContentActivity) {
-        this.a = tagContentActivity;
+    public f(c cVar, com.baidu.tieba.data.o oVar) {
+        this.f1665a = cVar;
+        this.b = oVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        switch (view.getId()) {
-            case R.id.back /* 2131099728 */:
-                this.a.finish();
-                return;
-            case R.id.tag_webview_item /* 2131099928 */:
-                this.a.c();
-                return;
-            case R.id.attention /* 2131100405 */:
-                this.a.b();
-                return;
-            default:
-                return;
-        }
+        Activity activity;
+        activity = this.f1665a.i;
+        com.baidu.tieba.util.am.a(activity, this.b.a(), (String) null);
     }
 }

@@ -8,7 +8,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 /* loaded from: classes.dex */
 public class DialogFragment extends Fragment implements DialogInterface.OnCancelListener, DialogInterface.OnDismissListener {
-    int a = 0;
+
+    /* renamed from: a  reason: collision with root package name */
+    int f264a = 0;
     int b = 0;
     boolean c = true;
     boolean d = true;
@@ -32,12 +34,12 @@ public class DialogFragment extends Fragment implements DialogInterface.OnCancel
                 this.e = -1;
                 return;
             }
-            ae a = i().a();
-            a.a(this);
+            ae a2 = i().a();
+            a2.a(this);
             if (z) {
-                a.b();
+                a2.b();
             } else {
-                a.a();
+                a2.a();
             }
         }
     }
@@ -67,7 +69,7 @@ public class DialogFragment extends Fragment implements DialogInterface.OnCancel
         super.a(bundle);
         this.d = this.G == 0;
         if (bundle != null) {
-            this.a = bundle.getInt("android:style", 0);
+            this.f264a = bundle.getInt("android:style", 0);
             this.b = bundle.getInt("android:theme", 0);
             this.c = bundle.getBoolean("android:cancelable", true);
             this.d = bundle.getBoolean("android:showsDialog", this.d);
@@ -81,7 +83,7 @@ public class DialogFragment extends Fragment implements DialogInterface.OnCancel
             return super.b(bundle);
         }
         this.f = c(bundle);
-        switch (this.a) {
+        switch (this.f264a) {
             case 3:
                 this.f.getWindow().addFlags(24);
             case 1:
@@ -115,12 +117,12 @@ public class DialogFragment extends Fragment implements DialogInterface.OnCancel
         Bundle bundle2;
         super.d(bundle);
         if (this.d) {
-            View k = k();
-            if (k != null) {
-                if (k.getParent() != null) {
+            View m = m();
+            if (m != null) {
+                if (m.getParent() != null) {
                     throw new IllegalStateException("DialogFragment can not be attached to a container view");
                 }
-                this.f.setContentView(k);
+                this.f.setContentView(m);
             }
             this.f.setOwnerActivity(g());
             this.f.setCancelable(this.c);
@@ -148,8 +150,8 @@ public class DialogFragment extends Fragment implements DialogInterface.OnCancel
         if (this.f != null && (onSaveInstanceState = this.f.onSaveInstanceState()) != null) {
             bundle.putBundle("android:savedDialogState", onSaveInstanceState);
         }
-        if (this.a != 0) {
-            bundle.putInt("android:style", this.a);
+        if (this.f264a != 0) {
+            bundle.putInt("android:style", this.f264a);
         }
         if (this.b != 0) {
             bundle.putInt("android:theme", this.b);

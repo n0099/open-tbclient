@@ -1,16 +1,18 @@
 package com.baidu.tieba.chat;
 
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.android.pushservice.PushConstants;
+import com.baidu.tieba.util.aj;
 import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ab extends BdAsyncTask {
-    final /* synthetic */ aa a;
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ aa f929a;
     private com.baidu.tieba.a.a b = null;
 
     public ab(aa aaVar) {
-        this.a = aaVar;
+        this.f929a = aaVar;
         setPriority(3);
     }
 
@@ -20,9 +22,9 @@ public class ab extends BdAsyncTask {
         ac acVar;
         ac acVar2;
         super.b();
-        acVar = this.a.c;
+        acVar = this.f929a.c;
         if (acVar != null) {
-            acVar2 = this.a.c;
+            acVar2 = this.f929a.c;
             acVar2.a();
         }
     }
@@ -40,34 +42,34 @@ public class ab extends BdAsyncTask {
         com.baidu.tieba.data.a.f fVar;
         this.b = new com.baidu.tieba.a.a();
         com.baidu.tieba.a.a aVar = this.b;
-        eVar = this.a.a;
-        String a = aVar.a(eVar);
-        com.baidu.tieba.util.z.a(getClass().getName(), "postData", a);
+        eVar = this.f929a.f928a;
+        String a2 = aVar.a(eVar);
+        aj.a(getClass().getName(), "postData", a2);
         com.baidu.tieba.data.a.c cVar = new com.baidu.tieba.data.a.c();
-        eVar2 = this.a.a;
+        eVar2 = this.f929a.f928a;
         cVar.a(eVar2.b());
-        eVar3 = this.a.a;
+        eVar3 = this.f929a.f928a;
         cVar.b(eVar3.c());
         try {
-            com.baidu.tieba.data.a.d a2 = com.baidu.tieba.data.a.d.a();
-            eVar4 = this.a.a;
-            a2.b(eVar4.b());
-            eVar5 = this.a.a;
-            a2.a(eVar5.c());
-            JSONObject jSONObject = new JSONObject(a);
-            a2.a(jSONObject.optJSONObject(PushConstants.EXTRA_PUSH_MESSAGE));
+            com.baidu.tieba.data.a.d a3 = com.baidu.tieba.data.a.d.a();
+            eVar4 = this.f929a.f928a;
+            a3.b(eVar4.b());
+            eVar5 = this.f929a.f928a;
+            a3.a(eVar5.c());
+            JSONObject jSONObject = new JSONObject(a2);
+            a3.a(jSONObject.optJSONObject("message"));
             cVar.a(jSONObject.optJSONObject("recent"));
             if (cVar.d().size() > 0) {
-                if (!cVar.c() && ((com.baidu.tieba.data.a.d) cVar.d().getLast()).b() != a2.b()) {
-                    cVar.a(a2);
+                if (!cVar.c() && ((com.baidu.tieba.data.a.d) cVar.d().getLast()).b() != a3.b()) {
+                    cVar.a(a3);
                 }
             } else {
-                cVar.a(a2);
+                cVar.a(a3);
             }
-            fVar = this.a.d;
+            fVar = this.f929a.d;
             fVar.a(cVar.d());
         } catch (Exception e) {
-            com.baidu.tieba.util.z.b(getClass().getName(), "doInBackground", e.toString());
+            aj.b(getClass().getName(), "doInBackground", e.toString());
         }
         return cVar;
     }
@@ -78,7 +80,7 @@ public class ab extends BdAsyncTask {
         if (this.b != null) {
             this.b.a();
         }
-        this.a.b = null;
+        this.f929a.b = null;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -94,25 +96,25 @@ public class ab extends BdAsyncTask {
         super.a((Object) cVar);
         if (this.b != null) {
             if (!this.b.b()) {
-                acVar = this.a.c;
+                acVar = this.f929a.c;
                 if (acVar != null) {
-                    acVar2 = this.a.c;
+                    acVar2 = this.f929a.c;
                     acVar2.a(false, this.b.c(), null);
                 }
             } else if (this.b.d() == 0) {
-                acVar5 = this.a.c;
+                acVar5 = this.f929a.c;
                 if (acVar5 != null) {
-                    acVar6 = this.a.c;
+                    acVar6 = this.f929a.c;
                     acVar6.a(true, null, cVar);
                 }
             } else {
-                acVar3 = this.a.c;
+                acVar3 = this.f929a.c;
                 if (acVar3 != null) {
-                    acVar4 = this.a.c;
+                    acVar4 = this.f929a.c;
                     acVar4.a(false, this.b.e(), null);
                 }
             }
         }
-        this.a.b = null;
+        this.f929a.b = null;
     }
 }

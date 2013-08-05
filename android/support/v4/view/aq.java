@@ -5,70 +5,72 @@ import android.os.Build;
 import android.view.View;
 /* loaded from: classes.dex */
 public class aq {
-    static final ax a;
+
+    /* renamed from: a  reason: collision with root package name */
+    static final ax f314a;
 
     static {
         int i = Build.VERSION.SDK_INT;
         if (i >= 17) {
-            a = new aw();
+            f314a = new aw();
         } else if (i >= 16) {
-            a = new av();
+            f314a = new av();
         } else if (i >= 14) {
-            a = new au();
+            f314a = new au();
         } else if (i >= 11) {
-            a = new at();
+            f314a = new at();
         } else if (i >= 9) {
-            a = new as();
+            f314a = new as();
         } else {
-            a = new ar();
+            f314a = new ar();
         }
     }
 
     public static boolean a(View view, int i) {
-        return a.a(view, i);
+        return f314a.a(view, i);
     }
 
     public static int a(View view) {
-        return a.a(view);
+        return f314a.a(view);
     }
 
     public static void a(View view, a aVar) {
-        a.a(view, aVar);
+        f314a.a(view, aVar);
     }
 
     public static void b(View view) {
-        a.b(view);
+        f314a.b(view);
     }
 
     public static void a(View view, int i, int i2, int i3, int i4) {
-        a.a(view, i, i2, i3, i4);
+        f314a.a(view, i, i2, i3, i4);
     }
 
     public static void a(View view, Runnable runnable) {
-        a.a(view, runnable);
+        f314a.a(view, runnable);
     }
 
     public static int c(View view) {
-        return a.c(view);
+        return f314a.c(view);
     }
 
     public static void b(View view, int i) {
-        a.b(view, i);
+        f314a.b(view, i);
     }
 
     public static void a(View view, int i, Paint paint) {
-        a.a(view, i, paint);
+        f314a.a(view, i, paint);
     }
 
     public static int d(View view) {
-        return a.d(view);
+        return f314a.d(view);
     }
 
     public static void a(View view, Paint paint) {
-        a.a(view, paint);
+        f314a.a(view, paint);
     }
 
     public static int e(View view) {
-        return a.e(view);
+        return f314a.e(view);
     }
 }

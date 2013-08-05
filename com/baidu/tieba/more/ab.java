@@ -1,31 +1,57 @@
 package com.baidu.tieba.more;
 
-import android.content.DialogInterface;
+import android.app.AlertDialog;
+import android.content.Context;
+import android.text.SpannableString;
+import android.text.style.AbsoluteSizeSpan;
+import android.view.View;
 import com.baidu.tieba.TiebaApplication;
+import com.baidu.tieba.util.am;
+import com.slidingmenu.lib.R;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class ab implements DialogInterface.OnClickListener {
-    final /* synthetic */ aa a;
+public class ab implements View.OnClickListener {
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ aa f1397a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ab(aa aaVar) {
-        this.a = aaVar;
+        this.f1397a = aaVar;
     }
 
-    @Override // android.content.DialogInterface.OnClickListener
-    public void onClick(DialogInterface dialogInterface, int i) {
-        z zVar;
-        switch (i) {
-            case 0:
-                TiebaApplication.f().g(1);
-                break;
-            case 1:
-                TiebaApplication.f().g(2);
-                break;
-            case 2:
-                TiebaApplication.f().g(3);
-                break;
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        Context context;
+        Context context2;
+        Context context3;
+        Context context4;
+        Context context5;
+        Context context6;
+        AlertDialog alertDialog;
+        AlertDialog alertDialog2;
+        Context context7;
+        if (TiebaApplication.f().bb()) {
+            context7 = this.f1397a.f343a;
+            am.a(context7, (int) R.string.image_quality_cant_set);
+            return;
         }
-        zVar = this.a.a;
-        zVar.C();
+        context = this.f1397a.f343a;
+        SpannableString spannableString = new SpannableString(context.getString(R.string.image_quality_high_menu));
+        context2 = this.f1397a.f343a;
+        spannableString.setSpan(new AbsoluteSizeSpan(am.a(context2, 16.0f)), 1, spannableString.length(), 18);
+        context3 = this.f1397a.f343a;
+        SpannableString spannableString2 = new SpannableString(context3.getString(R.string.image_quality_low_menu));
+        context4 = this.f1397a.f343a;
+        spannableString2.setSpan(new AbsoluteSizeSpan(am.a(context4, 16.0f)), 1, spannableString2.length(), 18);
+        context5 = this.f1397a.f343a;
+        CharSequence[] charSequenceArr = {spannableString, context5.getString(R.string.image_quality_mid_menu), spannableString2};
+        aa aaVar = this.f1397a;
+        context6 = this.f1397a.f343a;
+        aaVar.M = new AlertDialog.Builder(context6).setTitle(R.string.upload_image_quality).setItems(charSequenceArr, new ac(this)).create();
+        alertDialog = this.f1397a.M;
+        alertDialog.setCanceledOnTouchOutside(true);
+        alertDialog2 = this.f1397a.M;
+        alertDialog2.show();
     }
 }

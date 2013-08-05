@@ -9,8 +9,9 @@ import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.model.ap;
+import com.baidu.tieba.model.ay;
 import com.baidu.tieba.pb.NewPbActivity;
+import com.baidu.tieba.util.aj;
 import com.slidingmenu.lib.R;
 import java.util.ArrayList;
 import org.apache.http.message.BasicNameValuePair;
@@ -23,7 +24,7 @@ public class h {
     private FrameLayout c = null;
     private ListView d = null;
     private e e = null;
-    private ap f = null;
+    private ay f = null;
     private int g = 1;
     private int i = 0;
     private p k = null;
@@ -31,7 +32,9 @@ public class h {
     private q m = null;
     private TextView n = null;
     private String p = null;
-    AlertDialog a = null;
+
+    /* renamed from: a  reason: collision with root package name */
+    AlertDialog f1299a = null;
     private o q = null;
     private Handler r = new Handler();
     private Runnable s = new i(this);
@@ -88,7 +91,7 @@ public class h {
         this.g = 1;
         this.e = new e(this.b, null);
         this.e.a(this.h);
-        this.e.b(TiebaApplication.f().aq());
+        this.e.b(TiebaApplication.f().ar());
         this.d.setAdapter((ListAdapter) this.e);
         this.d.setOnItemClickListener(new k(this));
         this.q = new o(this);
@@ -98,16 +101,16 @@ public class h {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void a(com.baidu.tieba.data.q qVar) {
+    public void a(com.baidu.tieba.data.u uVar) {
         CharSequence[] charSequenceArr = {this.b.getString(R.string.view_post), this.b.getString(R.string.reply), this.b.getString(R.string.view_pb)};
         MentionActivity g = g();
         if (g != null) {
             AlertDialog.Builder builder = new AlertDialog.Builder(g);
             builder.setTitle(this.b.getString(R.string.operation));
             builder.setItems(charSequenceArr, this.q);
-            this.a = builder.create();
-            this.a.setCanceledOnTouchOutside(true);
-            this.a.show();
+            this.f1299a = builder.create();
+            this.f1299a.setCanceledOnTouchOutside(true);
+            this.f1299a.show();
         }
     }
 
@@ -136,16 +139,16 @@ public class h {
                 a(this.f);
                 return;
             }
-            String a = this.j.a();
-            if (a != null && a.length() > 0) {
-                ap apVar = new ap();
-                apVar.a(a);
-                if (!apVar.a()) {
-                    com.baidu.tieba.util.z.a("HomeLikeAsyncTask", "doInBackground", "cache data format err");
+            String a2 = this.j.a();
+            if (a2 != null && a2.length() > 0) {
+                ay ayVar = new ay();
+                ayVar.a(a2);
+                if (!ayVar.a()) {
+                    aj.a("HomeLikeAsyncTask", "doInBackground", "cache data format err");
                     this.j.b();
                 } else {
-                    com.baidu.tieba.util.z.a("HomeLikeAsyncTask", "doInBackground", "cache data.size: " + String.valueOf(a.length()));
-                    a(apVar);
+                    aj.a("HomeLikeAsyncTask", "doInBackground", "cache data.size: " + String.valueOf(a2.length()));
+                    a(ayVar);
                     return;
                 }
             }
@@ -154,14 +157,14 @@ public class h {
             this.g = 1;
         }
         StringBuffer stringBuffer = new StringBuffer(30);
-        stringBuffer.append(com.baidu.tieba.data.g.a);
+        stringBuffer.append(com.baidu.tieba.data.g.f1013a);
         stringBuffer.append(this.p);
         ArrayList arrayList = new ArrayList();
         arrayList.add(new BasicNameValuePair("uid", TiebaApplication.E()));
         arrayList.add(new BasicNameValuePair("pn", String.valueOf(this.g)));
         if (this.o == 4 && this.f != null && (b = this.f.b()) != null && b.size() > 0) {
-            com.baidu.tieba.data.q qVar = (com.baidu.tieba.data.q) b.get(b.size() - 1);
-            arrayList.add(new BasicNameValuePair("ids", String.format("%s,%s", qVar.g(), qVar.h())));
+            com.baidu.tieba.data.u uVar = (com.baidu.tieba.data.u) b.get(b.size() - 1);
+            arrayList.add(new BasicNameValuePair("ids", String.format("%s,%s", uVar.g(), uVar.h())));
         }
         h();
         if (this.k != null) {
@@ -174,16 +177,16 @@ public class h {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void a(ap apVar) {
-        if (apVar != null && apVar.b() != null) {
+    public void a(ay ayVar) {
+        if (ayVar != null && ayVar.b() != null) {
             if (this.o == 4 && this.f != null) {
                 ArrayList b = this.f.b();
-                b.addAll(apVar.b());
-                apVar.a(b);
+                b.addAll(ayVar.b());
+                ayVar.a(b);
                 this.f = null;
-                this.f = apVar;
+                this.f = ayVar;
             } else {
-                this.f = apVar;
+                this.f = ayVar;
             }
             if (this.f != null) {
                 if (this.f.c().f() == 1) {
@@ -226,8 +229,8 @@ public class h {
     }
 
     public void e() {
-        if (this.e != null && this.e.d() != TiebaApplication.f().aq()) {
-            this.e.b(TiebaApplication.f().aq());
+        if (this.e != null && this.e.d() != TiebaApplication.f().ar()) {
+            this.e.b(TiebaApplication.f().ar());
             this.e.notifyDataSetChanged();
         }
     }
@@ -259,7 +262,7 @@ public class h {
     /* JADX INFO: Access modifiers changed from: private */
     public void a(String str, String str2, String str3, int i) {
         StringBuffer stringBuffer = new StringBuffer(30);
-        stringBuffer.append(com.baidu.tieba.data.g.a);
+        stringBuffer.append(com.baidu.tieba.data.g.f1013a);
         ArrayList arrayList = new ArrayList();
         if (i == 1) {
             stringBuffer.append("c/f/pb/page");
@@ -281,7 +284,7 @@ public class h {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void b(com.baidu.tieba.data.q qVar) {
-        NewPbActivity.b(this.b, qVar.g(), qVar.h(), "mention");
+    public void b(com.baidu.tieba.data.u uVar) {
+        NewPbActivity.b(this.b, uVar.g(), uVar.h(), "mention");
     }
 }

@@ -6,7 +6,9 @@ import java.util.Iterator;
 import org.json.JSONArray;
 /* loaded from: classes.dex */
 public class a {
-    private ArrayList a = null;
+
+    /* renamed from: a  reason: collision with root package name */
+    private ArrayList f805a = null;
     private int b = 0;
     private ArrayList c = null;
     private Context d = null;
@@ -28,25 +30,25 @@ public class a {
         try {
             return new JSONArray(str);
         } catch (Exception e) {
-            com.baidu.adp.lib.c.b.a(e.getMessage());
+            com.baidu.adp.lib.e.d.a(e.getMessage());
             return null;
         }
     }
 
     private void a(JSONArray jSONArray, int i, boolean z) {
         if (jSONArray != null) {
-            this.a = new ArrayList();
+            this.f805a = new ArrayList();
             int length = jSONArray.length();
             for (int i2 = 0; i2 < length; i2++) {
                 g gVar = new g();
                 gVar.a(jSONArray.optJSONObject(i2));
                 if ((gVar.a() & i) != 0) {
-                    this.a.add(gVar);
+                    this.f805a.add(gVar);
                 }
             }
             this.c = new ArrayList();
             this.b = 0;
-            Iterator it = this.a.iterator();
+            Iterator it = this.f805a.iterator();
             c cVar = null;
             while (it.hasNext()) {
                 g gVar2 = (g) it.next();
@@ -84,8 +86,8 @@ public class a {
             if (cVar != null) {
                 this.c.add(cVar);
             }
-            this.a.clear();
-            this.a = null;
+            this.f805a.clear();
+            this.f805a = null;
         }
     }
 

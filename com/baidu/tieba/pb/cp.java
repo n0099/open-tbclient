@@ -1,27 +1,43 @@
 package com.baidu.tieba.pb;
 
-import android.util.SparseArray;
-import android.view.View;
-import com.slidingmenu.lib.R;
+import android.text.Editable;
+import android.text.TextWatcher;
+import android.widget.Button;
+import android.widget.ImageButton;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class cp implements View.OnClickListener {
-    final /* synthetic */ bk a;
+public class cp implements TextWatcher {
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ bn f1510a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public cp(bk bkVar) {
-        this.a = bkVar;
+    public cp(bn bnVar) {
+        this.f1510a = bnVar;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        SparseArray sparseArray = (SparseArray) view.getTag();
-        if (sparseArray != null) {
-            if (!"".equals(sparseArray.get(R.id.tag_forbid_user_name)) && !"".equals(sparseArray.get(R.id.tag_del_post_id))) {
-                this.a.a(view);
-            } else {
-                this.a.a(((Integer) sparseArray.get(R.id.tag_del_post_type)).intValue(), (String) sparseArray.get(R.id.tag_del_post_id), ((Integer) sparseArray.get(R.id.tag_manage_user_identity)).intValue(), ((Boolean) sparseArray.get(R.id.tag_del_post_is_self)).booleanValue());
+    @Override // android.text.TextWatcher
+    public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
+    }
+
+    @Override // android.text.TextWatcher
+    public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
+    }
+
+    @Override // android.text.TextWatcher
+    public void afterTextChanged(Editable editable) {
+        ImageButton imageButton;
+        Button button;
+        Button button2;
+        if (editable == null || editable.length() <= 0) {
+            imageButton = this.f1510a.o;
+            if (imageButton.getTag() == null) {
+                button = this.f1510a.j;
+                button.setEnabled(false);
+                return;
             }
         }
+        button2 = this.f1510a.j;
+        button2.setEnabled(true);
     }
 }

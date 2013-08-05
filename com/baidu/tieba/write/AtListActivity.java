@@ -16,7 +16,9 @@ import android.widget.TextView;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public class AtListActivity extends com.baidu.tieba.g {
-    private EditText a = null;
+
+    /* renamed from: a  reason: collision with root package name */
+    private EditText f1856a = null;
     private Button b = null;
     private ImageView c = null;
     private ListView d = null;
@@ -35,7 +37,7 @@ public class AtListActivity extends com.baidu.tieba.g {
 
     public static void a(Activity activity, int i) {
         Intent intent = new Intent(activity, AtListActivity.class);
-        if (i == 1200011) {
+        if (i == 12011) {
             intent.putExtra("keyboard", false);
         }
         activity.startActivityForResult(intent, i);
@@ -62,10 +64,10 @@ public class AtListActivity extends com.baidu.tieba.g {
     @Override // com.baidu.tieba.g
     public void a(int i) {
         super.a(i);
-        com.baidu.tieba.util.x.a(this.n, i);
-        com.baidu.tieba.util.x.d(this.o, i);
-        com.baidu.tieba.util.x.f(this.p, i);
-        com.baidu.tieba.util.x.a(this.c, i);
+        com.baidu.tieba.util.ah.a(this.n, i);
+        com.baidu.tieba.util.ah.d(this.o, i);
+        com.baidu.tieba.util.ah.f(this.p, i);
+        com.baidu.tieba.util.ah.a(this.c, i);
         this.k.notifyDataSetChanged();
         if (i == 1) {
             this.d.setDivider(getResources().getDrawable(R.drawable.list_divider_1));
@@ -104,8 +106,8 @@ public class AtListActivity extends com.baidu.tieba.g {
         this.o = (RelativeLayout) findViewById(R.id.title);
         this.p = (TextView) findViewById(R.id.title_text);
         this.m = (ProgressBar) findViewById(R.id.progress);
-        this.a = (EditText) findViewById(R.id.at_search_edit);
-        this.a.addTextChangedListener(new d(this));
+        this.f1856a = (EditText) findViewById(R.id.at_search_edit);
+        this.f1856a.addTextChangedListener(new d(this));
         this.c = (ImageView) findViewById(R.id.back);
         this.c.setOnClickListener(new e(this));
         this.b = (Button) findViewById(R.id.at_search_del);
@@ -115,9 +117,9 @@ public class AtListActivity extends com.baidu.tieba.g {
         this.d.setAdapter((ListAdapter) this.k);
         this.d.setOnItemClickListener(new g(this));
         this.d.setOnScrollListener(new h(this));
-        if (!getIntent().getBooleanExtra("keyboard", true) && this.a.getParent() != null) {
-            ((View) this.a.getParent()).setFocusable(true);
-            ((View) this.a.getParent()).setFocusableInTouchMode(true);
+        if (!getIntent().getBooleanExtra("keyboard", true) && this.f1856a.getParent() != null) {
+            ((View) this.f1856a.getParent()).setFocusable(true);
+            ((View) this.f1856a.getParent()).setFocusableInTouchMode(true);
         }
     }
 

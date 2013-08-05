@@ -20,11 +20,11 @@ import android.os.Message;
 import android.os.Messenger;
 import android.os.Process;
 import android.util.Log;
-import com.baidu.android.pushservice.PushConstants;
 import com.baidu.browser.core.util.BdUtil;
 import com.baidu.location.c;
 import com.baidu.location.e;
 import com.baidu.zeus.bouncycastle.DERTags;
+import com.tencent.mm.sdk.platformtools.LocaleUtil;
 import java.io.File;
 import java.io.PrintWriter;
 import java.io.RandomAccessFile;
@@ -98,7 +98,9 @@ public final class f extends Service {
     static final int x = 3000;
     static final int z = 51;
     static String aa = Environment.getExternalStorageDirectory().getPath() + "/baidu/tempdata";
-    private static String a = aa + "/glb.dat";
+
+    /* renamed from: a  reason: collision with root package name */
+    private static String f747a = aa + "/glb.dat";
     private static File j = null;
     private static File k = null;
     private String m = aa + "/vm.dat";
@@ -271,11 +273,11 @@ public final class f extends Service {
                 try {
                     j.a(f.v, str2);
                     com.baidu.location.c unused = f.this.r;
-                    String a = com.baidu.location.c.a(false);
+                    String a2 = com.baidu.location.c.a(false);
                     if (f.this.as != null) {
-                        a = a + f.this.as.m50byte();
+                        a2 = a2 + f.this.as.m50byte();
                     }
-                    str3 = a != null ? Jni.m17if(a) : null;
+                    str3 = a2 != null ? Jni.m17if(a2) : null;
                 } catch (Exception e) {
                     str = str2;
                     str2 = str;
@@ -350,7 +352,9 @@ public final class f extends Service {
 
         /* renamed from: char  reason: not valid java name */
         private final int f182char = 200;
-        private long[] a = new long[20];
+
+        /* renamed from: a  reason: collision with root package name */
+        private long[] f750a = new long[20];
 
         /* renamed from: int  reason: not valid java name */
         private int f187int = 0;
@@ -459,14 +463,14 @@ public final class f extends Service {
                 randomAccessFile.writeInt(this.b.f147try);
                 byte[] bArr = new byte[160];
                 for (int i = 0; i < this.f187int; i++) {
-                    bArr[(i * 8) + 7] = (byte) this.a[i];
-                    bArr[(i * 8) + 6] = (byte) (this.a[i] >> 8);
-                    bArr[(i * 8) + 5] = (byte) (this.a[i] >> 16);
-                    bArr[(i * 8) + 4] = (byte) (this.a[i] >> 24);
-                    bArr[(i * 8) + 3] = (byte) (this.a[i] >> 32);
-                    bArr[(i * 8) + 2] = (byte) (this.a[i] >> 40);
-                    bArr[(i * 8) + 1] = (byte) (this.a[i] >> 48);
-                    bArr[(i * 8) + 0] = (byte) (this.a[i] >> 56);
+                    bArr[(i * 8) + 7] = (byte) this.f750a[i];
+                    bArr[(i * 8) + 6] = (byte) (this.f750a[i] >> 8);
+                    bArr[(i * 8) + 5] = (byte) (this.f750a[i] >> 16);
+                    bArr[(i * 8) + 4] = (byte) (this.f750a[i] >> 24);
+                    bArr[(i * 8) + 3] = (byte) (this.f750a[i] >> 32);
+                    bArr[(i * 8) + 2] = (byte) (this.f750a[i] >> 40);
+                    bArr[(i * 8) + 1] = (byte) (this.f750a[i] >> 48);
+                    bArr[(i * 8) + 0] = (byte) (this.f750a[i] >> 56);
                 }
                 if (this.f187int > 0) {
                     randomAccessFile.write(bArr, 0, this.f187int * 8);
@@ -590,7 +594,7 @@ public final class f extends Service {
                         try {
                             i = i2 + 1;
                             try {
-                                this.a[i2] = Long.parseLong(((ScanResult) m139byte.f162do.get(i3)).BSSID.replace(":", ""), 16);
+                                this.f750a[i2] = Long.parseLong(((ScanResult) m139byte.f162do.get(i3)).BSSID.replace(":", ""), 16);
                             } catch (Exception e) {
                             }
                         } catch (Exception e2) {
@@ -659,14 +663,14 @@ public final class f extends Service {
                             while (i8 < this.f187int) {
                                 int i9 = i7;
                                 for (int i10 = 0; i10 < readInt4; i10++) {
-                                    if (this.a[i8] == jArr[i10]) {
+                                    if (this.f750a[i8] == jArr[i10]) {
                                         i9++;
                                     }
                                 }
                                 i8++;
                                 i7 = i9;
                             }
-                            if (i7 > 5 || i7 * 8 > this.f187int + readInt4 || ((readInt4 == 0 && this.f187int == 0) || ((readInt4 == 1 && this.f187int == 1 && this.a[0] == jArr[0]) || (readInt4 > 1 && this.f187int > 1 && this.a[0] == jArr[0] && this.a[1] == jArr[1])))) {
+                            if (i7 > 5 || i7 * 8 > this.f187int + readInt4 || ((readInt4 == 0 && this.f187int == 0) || ((readInt4 == 1 && this.f187int == 1 && this.f750a[0] == jArr[0]) || (readInt4 > 1 && this.f187int > 1 && this.f750a[0] == jArr[0] && this.f750a[1] == jArr[1])))) {
                                 z = true;
                                 randomAccessFile.seek((i * 200) + 16);
                                 randomAccessFile.writeInt(readInt3 + 1);
@@ -687,8 +691,8 @@ public final class f extends Service {
                                         }
                                     }
                                     if (this.f187int == 1) {
-                                        str3 = str3 + "w" + Long.toHexString(this.a[0]) + "k";
-                                        if (this.a[0] == j) {
+                                        str3 = str3 + "w" + Long.toHexString(this.f750a[0]) + "k";
+                                        if (this.f750a[0] == j) {
                                             str2 = str3 + "k";
                                             this.f188long += str2 + str;
                                             if (this.c != null) {
@@ -703,12 +707,12 @@ public final class f extends Service {
                                         a();
                                     } else {
                                         if (this.f187int > 1) {
-                                            String str4 = str3 + "w" + Long.toHexString(this.a[0]);
-                                            if (this.a[0] == j) {
+                                            String str4 = str3 + "w" + Long.toHexString(this.f750a[0]);
+                                            if (this.f750a[0] == j) {
                                                 str4 = str4 + "k";
                                                 j = 0;
                                             }
-                                            str2 = j > 0 ? str4 + "," + Long.toHexString(j) + "k" : str4 + "," + Long.toHexString(this.a[1]);
+                                            str2 = j > 0 ? str4 + "," + Long.toHexString(j) + "k" : str4 + "," + Long.toHexString(this.f750a[1]);
                                             this.f188long += str2 + str;
                                             if (this.c != null) {
                                             }
@@ -901,10 +905,10 @@ public final class f extends Service {
                     case f.p /* 41 */:
                         f.this.m165do();
                         break;
-                    case 51:
+                    case f.z /* 51 */:
                         f.this.m179if();
                         break;
-                    case 52:
+                    case f.F /* 52 */:
                         f.this.m199void();
                         break;
                     case f.ap /* 53 */:
@@ -921,7 +925,7 @@ public final class f extends Service {
                     case 65:
                         f.this.a(26);
                         break;
-                    case 81:
+                    case f.T /* 81 */:
                         f.this.m194try();
                         break;
                     case f.t /* 91 */:
@@ -1268,11 +1272,11 @@ public final class f extends Service {
     /* renamed from: goto  reason: not valid java name */
     public static void m176goto() {
         try {
-            if (a == null) {
+            if (f747a == null) {
                 k = null;
                 return;
             }
-            k = new File(a);
+            k = new File(f747a);
             if (k.exists()) {
                 return;
             }
@@ -1357,7 +1361,7 @@ public final class f extends Service {
             JSONObject jSONObject = new JSONObject(str);
             int parseInt = Integer.parseInt(jSONObject.getJSONObject("result").getString("error"));
             if (parseInt == 161) {
-                JSONObject jSONObject2 = jSONObject.getJSONObject(PushConstants.EXTRA_CONTENT);
+                JSONObject jSONObject2 = jSONObject.getJSONObject("content");
                 if (jSONObject2.has("clf")) {
                     String string = jSONObject2.getString("clf");
                     if (string.equals("0")) {
@@ -1380,7 +1384,7 @@ public final class f extends Service {
                         contentValues.put("type", Double.valueOf(d3 + 2367.3217d));
                         try {
                             if (this.R.update(this.f175if, contentValues, "id = \"" + this.A + "\"", null) <= 0) {
-                                contentValues.put("id", this.A);
+                                contentValues.put(LocaleUtil.INDONESIAN, this.A);
                                 this.R.insert(this.f175if, null, contentValues);
                                 j.a(v, "insert DB success!");
                                 return;

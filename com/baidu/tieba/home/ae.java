@@ -9,14 +9,16 @@ import com.slidingmenu.lib.R;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ae implements View.OnClickListener {
-    final /* synthetic */ RecommendPagerAdapter a;
-    private final /* synthetic */ com.baidu.tieba.data.as b;
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ RecommendPagerAdapter f1117a;
+    private final /* synthetic */ com.baidu.tieba.data.bb b;
     private final /* synthetic */ ImageView c;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ae(RecommendPagerAdapter recommendPagerAdapter, com.baidu.tieba.data.as asVar, ImageView imageView) {
-        this.a = recommendPagerAdapter;
-        this.b = asVar;
+    public ae(RecommendPagerAdapter recommendPagerAdapter, com.baidu.tieba.data.bb bbVar, ImageView imageView) {
+        this.f1117a = recommendPagerAdapter;
+        this.b = bbVar;
         this.c = imageView;
     }
 
@@ -26,14 +28,14 @@ public class ae implements View.OnClickListener {
         Activity activity2;
         String E = TiebaApplication.E();
         if (E == null || E.length() <= 0) {
-            activity = this.a.g;
-            activity2 = this.a.g;
-            LoginActivity.a(activity, activity2.getResources().getString(R.string.login_to_use), true, 1100002);
+            activity = this.f1117a.g;
+            activity2 = this.f1117a.g;
+            LoginActivity.a(activity, activity2.getResources().getString(R.string.login_to_use), true, 11002);
             return;
         }
-        com.baidu.tieba.model.aj ajVar = new com.baidu.tieba.model.aj();
-        ajVar.setLoadDataCallBack(new af(this, this.b, this.c));
-        ajVar.a(this.b.e(), this.b.d());
+        com.baidu.tieba.model.ar arVar = new com.baidu.tieba.model.ar();
+        arVar.setLoadDataCallBack(new af(this, this.b, this.c));
+        arVar.a(this.b.e(), this.b.d());
         this.c.setImageResource(R.drawable.icon_heart_s_1);
     }
 }

@@ -1,6 +1,5 @@
 package com.baidu.location;
 
-import com.baidu.android.pushservice.PushConstants;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public final class BDLocation {
@@ -14,7 +13,9 @@ public final class BDLocation {
     public static final int TypeOffLineLocationFail = 67;
     public static final int TypeOffLineLocationNetworkFail = 68;
     public static final int TypeServerError = 167;
-    private String a;
+
+    /* renamed from: a  reason: collision with root package name */
+    private String f722a;
     private boolean b;
 
     /* renamed from: byte  reason: not valid java name */
@@ -108,7 +109,7 @@ public final class BDLocation {
         this.f36byte = null;
         this.f48void = false;
         this.f37case = false;
-        this.a = null;
+        this.f722a = null;
         this.mServerString = null;
         this.e = false;
         this.mAddr = new a();
@@ -132,7 +133,7 @@ public final class BDLocation {
         this.f36byte = null;
         this.f48void = false;
         this.f37case = false;
-        this.a = null;
+        this.f722a = null;
         this.mServerString = null;
         this.e = false;
         this.mAddr = new a();
@@ -161,7 +162,7 @@ public final class BDLocation {
         this.f36byte = null;
         this.f48void = false;
         this.f37case = false;
-        this.a = null;
+        this.f722a = null;
         this.mServerString = null;
         this.e = false;
         this.mAddr = new a();
@@ -175,7 +176,7 @@ public final class BDLocation {
             setLocType(parseInt);
             setTime(jSONObject2.getString("time"));
             if (parseInt == 61) {
-                JSONObject jSONObject3 = jSONObject.getJSONObject(PushConstants.EXTRA_CONTENT);
+                JSONObject jSONObject3 = jSONObject.getJSONObject("content");
                 JSONObject jSONObject4 = jSONObject3.getJSONObject("point");
                 setLatitude(Double.parseDouble(jSONObject4.getString("y")));
                 setLongitude(Double.parseDouble(jSONObject4.getString("x")));
@@ -185,7 +186,7 @@ public final class BDLocation {
                 setSatelliteNumber(Integer.parseInt(jSONObject3.getString("n")));
             } else if (parseInt != 161) {
                 if (parseInt == 66 || parseInt == 68) {
-                    JSONObject jSONObject5 = jSONObject.getJSONObject(PushConstants.EXTRA_CONTENT);
+                    JSONObject jSONObject5 = jSONObject.getJSONObject("content");
                     JSONObject jSONObject6 = jSONObject5.getJSONObject("point");
                     setLatitude(Double.parseDouble(jSONObject6.getString("y")));
                     setLongitude(Double.parseDouble(jSONObject6.getString("x")));
@@ -193,7 +194,7 @@ public final class BDLocation {
                     a(Boolean.valueOf(Boolean.parseBoolean(jSONObject5.getString("isCellChanged"))));
                 }
             } else {
-                JSONObject jSONObject7 = jSONObject.getJSONObject(PushConstants.EXTRA_CONTENT);
+                JSONObject jSONObject7 = jSONObject.getJSONObject("content");
                 JSONObject jSONObject8 = jSONObject7.getJSONObject("point");
                 setLatitude(Double.parseDouble(jSONObject8.getString("y")));
                 setLongitude(Double.parseDouble(jSONObject8.getString("x")));
@@ -251,7 +252,7 @@ public final class BDLocation {
         this.f36byte = null;
         this.f48void = false;
         this.f37case = false;
-        this.a = null;
+        this.f722a = null;
         this.mServerString = null;
         this.e = false;
         this.mAddr = new a();
@@ -260,7 +261,7 @@ public final class BDLocation {
         this.f41for = d2;
         this.f45long = f;
         this.f42goto = str2;
-        this.a = str3;
+        this.f722a = str3;
         this.d = j.a();
     }
 
@@ -370,7 +371,7 @@ public final class BDLocation {
     }
 
     public void setAddrStr(String str) {
-        this.a = str;
+        this.f722a = str;
         this.f48void = true;
     }
 

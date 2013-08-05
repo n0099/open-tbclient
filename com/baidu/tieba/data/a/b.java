@@ -1,15 +1,17 @@
 package com.baidu.tieba.data.a;
 
 import com.baidu.tieba.util.DatabaseService;
-import com.baidu.tieba.util.z;
+import com.baidu.tieba.util.aj;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class b extends Thread {
-    final /* synthetic */ a a;
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ a f959a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(a aVar) {
-        this.a = aVar;
+        this.f959a = aVar;
     }
 
     @Override // java.lang.Thread, java.lang.Runnable
@@ -17,7 +19,7 @@ public class b extends Thread {
         try {
             DatabaseService.a().delete("chat_msgs", "serverTime < ?", new String[]{String.valueOf(System.currentTimeMillis() - (-1702967296))});
         } catch (Throwable th) {
-            z.b("DatabaseService", "cleanExpiredMessagesOnAppStart", th.getMessage());
+            aj.b("DatabaseService", "cleanExpiredMessagesOnAppStart", th.getMessage());
         }
     }
 }

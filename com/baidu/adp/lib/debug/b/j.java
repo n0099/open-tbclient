@@ -9,7 +9,9 @@ import android.widget.TextView;
 import com.baidu.adp.lib.debug.a.o;
 /* loaded from: classes.dex */
 public class j extends View {
-    View a;
+
+    /* renamed from: a  reason: collision with root package name */
+    View f409a;
     View b;
     TextView c;
     com.baidu.adp.lib.debug.a.e d;
@@ -44,27 +46,27 @@ public class j extends View {
         this.g = new com.baidu.adp.lib.debug.a.m();
         this.i = new com.baidu.adp.lib.debug.a.j();
         this.h = new com.baidu.adp.lib.debug.a.b(this.j);
-        this.a = LayoutInflater.from(this.j).inflate(com.baidu.adp.f.adp_debug_monitor_view, (ViewGroup) null);
-        this.b = this.a.findViewById(com.baidu.adp.e.monitor_view);
-        this.c = (TextView) this.a.findViewById(com.baidu.adp.e.debug_text);
-        this.k = (ImageButton) this.a.findViewById(com.baidu.adp.e.debug_switch);
-        this.l = (ImageButton) this.a.findViewById(com.baidu.adp.e.debug_refresh);
-        this.m = (TextView) this.a.findViewById(com.baidu.adp.e.debug_fps);
-        this.n = (TextView) this.a.findViewById(com.baidu.adp.e.debug_mem);
-        this.o = (TextView) this.a.findViewById(com.baidu.adp.e.debug_cpu);
-        this.p = (TextView) this.a.findViewById(com.baidu.adp.e.debug_gc);
-        this.q = (TextView) this.a.findViewById(com.baidu.adp.e.debug_sm);
-        this.r = (TextView) this.a.findViewById(com.baidu.adp.e.debug_bt);
+        this.f409a = LayoutInflater.from(this.j).inflate(com.baidu.adp.f.adp_debug_monitor_view, (ViewGroup) null);
+        this.b = this.f409a.findViewById(com.baidu.adp.e.monitor_view);
+        this.c = (TextView) this.f409a.findViewById(com.baidu.adp.e.debug_text);
+        this.k = (ImageButton) this.f409a.findViewById(com.baidu.adp.e.debug_switch);
+        this.l = (ImageButton) this.f409a.findViewById(com.baidu.adp.e.debug_refresh);
+        this.m = (TextView) this.f409a.findViewById(com.baidu.adp.e.debug_fps);
+        this.n = (TextView) this.f409a.findViewById(com.baidu.adp.e.debug_mem);
+        this.o = (TextView) this.f409a.findViewById(com.baidu.adp.e.debug_cpu);
+        this.p = (TextView) this.f409a.findViewById(com.baidu.adp.e.debug_gc);
+        this.q = (TextView) this.f409a.findViewById(com.baidu.adp.e.debug_sm);
+        this.r = (TextView) this.f409a.findViewById(com.baidu.adp.e.debug_bt);
         b();
         this.l.setOnTouchListener(new k(this));
         this.k.setOnTouchListener(new l(this));
-        i.a(this.j, this.a);
-        this.a.setOnTouchListener(new m(this));
+        i.a(this.j, this.f409a);
+        this.f409a.setOnTouchListener(new m(this));
     }
 
     @Override // android.view.View
     public void setVisibility(int i) {
-        this.a.setVisibility(i);
+        this.f409a.setVisibility(i);
     }
 
     public void onClick(View view) {
@@ -92,7 +94,7 @@ public class j extends View {
         if (!this.h.a()) {
             this.h.b();
         }
-        com.baidu.adp.lib.debug.b.a = new n(this);
+        com.baidu.adp.lib.debug.b.f399a = new n(this);
     }
 
     public void c() {

@@ -5,15 +5,17 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 /* loaded from: classes.dex */
 class ag implements AdapterView.OnItemClickListener {
-    final /* synthetic */ ListFragment a;
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ ListFragment f277a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ag(ListFragment listFragment) {
-        this.a = listFragment;
+        this.f277a = listFragment;
     }
 
     @Override // android.widget.AdapterView.OnItemClickListener
     public void onItemClick(AdapterView adapterView, View view, int i, long j) {
-        this.a.a((ListView) adapterView, view, i, j);
+        this.f277a.a((ListView) adapterView, view, i, j);
     }
 }

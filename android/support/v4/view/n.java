@@ -3,17 +3,19 @@ package android.support.v4.view;
 import android.os.Build;
 /* loaded from: classes.dex */
 public class n {
-    static final o a;
+
+    /* renamed from: a  reason: collision with root package name */
+    static final o f324a;
 
     static {
         if (Build.VERSION.SDK_INT >= 17) {
-            a = new q();
+            f324a = new q();
         } else {
-            a = new p();
+            f324a = new p();
         }
     }
 
     public static int a(int i, int i2) {
-        return a.a(i, i2);
+        return f324a.a(i, i2);
     }
 }

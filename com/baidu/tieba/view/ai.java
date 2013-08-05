@@ -1,83 +1,118 @@
 package com.baidu.tieba.view;
 
-import android.support.v4.view.bq;
+import android.content.Context;
+import android.graphics.BitmapFactory;
+import android.graphics.drawable.BitmapDrawable;
+import android.text.TextUtils;
+import android.view.LayoutInflater;
 import android.view.View;
-import com.baidu.tieba.util.NetWorkCore;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.ListAdapter;
+import android.widget.ListView;
+import android.widget.PopupWindow;
+import android.widget.TextView;
+import com.slidingmenu.lib.R;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes.dex */
-public class ai implements bq {
-    final /* synthetic */ MultiImageView a;
+public class ai extends LinearLayout {
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public ai(MultiImageView multiImageView) {
-        this.a = multiImageView;
+    /* renamed from: a  reason: collision with root package name */
+    private Context f1815a;
+    private ComputerLLinearLayout b;
+    private LinearLayout c;
+    private ImageView d;
+    private ImageView e;
+    private PopupWindow f;
+    private TextView g;
+    private TextView h;
+    private ImageView i;
+    private al j;
+    private List k;
+    private ao l;
+    private int m;
+
+    public View getAddButton() {
+        return this.c;
     }
 
-    @Override // android.support.v4.view.bq
-    public void b(int i) {
-        bq bqVar;
-        bq bqVar2;
-        bqVar = this.a.g;
-        if (bqVar != null) {
-            bqVar2 = this.a.g;
-            bqVar2.b(i);
+    public void setSelectInterestItemClickListener(ao aoVar) {
+        this.l = aoVar;
+    }
+
+    public void setInterests(List list) {
+        this.k = list;
+        if (list != null && this.j != null) {
+            this.j.notifyDataSetChanged();
         }
     }
 
-    @Override // android.support.v4.view.bq
-    public void a(int i, float f, int i2) {
-        bq bqVar;
-        bq bqVar2;
-        bqVar = this.a.g;
-        if (bqVar != null) {
-            bqVar2 = this.a.g;
-            bqVar2.a(i, f, i2);
+    public void setInitSelectTagName(String str) {
+        if (TextUtils.isEmpty(str)) {
+            str = this.f1815a.getResources().getString(R.string.interest_all);
         }
+        this.g.setText(str);
     }
 
-    @Override // android.support.v4.view.bq
-    public void a_(int i) {
-        GalleryViewPager galleryViewPager;
-        GalleryViewPager galleryViewPager2;
-        boolean z;
-        bq bqVar;
-        bq bqVar2;
-        GalleryViewPager galleryViewPager3;
-        GalleryViewPager galleryViewPager4;
-        h imageView;
-        GalleryViewPager galleryViewPager5;
-        com.baidu.tieba.util.z.e(getClass().getName(), "onPageSelected", "postion = " + String.valueOf(i));
-        galleryViewPager = this.a.e;
-        View findViewWithTag = galleryViewPager.findViewWithTag(String.valueOf(i));
-        if (findViewWithTag != null && (findViewWithTag instanceof aq) && (imageView = ((aq) findViewWithTag).getImageView()) != null) {
-            galleryViewPager5 = this.a.e;
-            galleryViewPager5.setSelectedView(imageView);
-            imageView.o();
+    public ai(Context context) {
+        super(context);
+        this.k = new ArrayList();
+        this.f1815a = context;
+        a();
+    }
+
+    public void a(int i) {
+        this.m = i;
+        if (i == 1) {
+            this.b.setBackgroundResource(R.drawable.icon_allinterest_button_bg_night);
+            this.g.setTextColor(this.f1815a.getResources().getColor(R.color.c_7b8591));
+            this.h.setTextColor(this.f1815a.getResources().getColor(R.color.c_7b8591));
+            this.e.setImageResource(R.drawable.ico_jiahao_gray_1);
+            this.c.setBackgroundResource(R.drawable.icon_addinterest_button_bg_night);
+            this.d.setBackgroundResource(R.drawable.icon_arrow_down_list_down_1);
+            return;
         }
-        galleryViewPager2 = this.a.e;
-        int childCount = galleryViewPager2.getChildCount();
-        for (int i2 = 0; i2 < childCount; i2++) {
-            galleryViewPager4 = this.a.e;
-            View childAt = galleryViewPager4.getChildAt(i2);
-            if (childAt != null && (childAt instanceof aq)) {
-                ((aq) childAt).e();
-            }
+        this.b.setBackgroundResource(R.drawable.icon_allinterest_button_bg_day);
+        this.g.setTextColor(this.f1815a.getResources().getColor(R.color.c_262626));
+        this.h.setTextColor(this.f1815a.getResources().getColor(R.color.c_262626));
+        this.e.setImageResource(R.drawable.ico_jiahao_gray);
+        this.c.setBackgroundResource(R.drawable.icon_addinterest_button_bg_day);
+        this.d.setBackgroundResource(R.drawable.icon_arrow_down_list_down);
+    }
+
+    private void a() {
+        View inflate = LayoutInflater.from(this.f1815a).inflate(R.layout.interest_handle_view, (ViewGroup) null);
+        addView(inflate);
+        this.b = (ComputerLLinearLayout) inflate.findViewById(R.id.interest_select);
+        this.c = (LinearLayout) inflate.findViewById(R.id.interest_add);
+        this.d = (ImageView) inflate.findViewById(R.id.interest_select_sign);
+        this.e = (ImageView) inflate.findViewById(R.id.interest_add_sign);
+        this.g = (TextView) inflate.findViewById(R.id.interest_select_text);
+        this.h = (TextView) inflate.findViewById(R.id.interest_add_text);
+        this.b.setOnClickListener(new aj(this));
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public View b() {
+        View inflate = LayoutInflater.from(this.f1815a).inflate(R.layout.allinterest_list, (ViewGroup) null);
+        this.i = (ImageView) inflate.findViewById(R.id.list_head);
+        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.i.getLayoutParams();
+        layoutParams.leftMargin = this.b.f1789a;
+        this.i.setLayoutParams(layoutParams);
+        ListView listView = (ListView) inflate.findViewById(R.id.interest_list);
+        this.j = new al(this, null);
+        listView.setAdapter((ListAdapter) this.j);
+        if (this.m == 1) {
+            listView.setBackgroundResource(R.drawable.pg_list_down_black_1);
+            listView.setDivider(new BitmapDrawable(BitmapFactory.decodeResource(this.f1815a.getResources(), R.drawable.ling_bown_list_1)));
+            this.i.setImageResource(R.drawable.pg_list_down_black_arrow_1);
+        } else {
+            listView.setBackgroundResource(R.drawable.pg_list_down_black);
+            listView.setDivider(new BitmapDrawable(BitmapFactory.decodeResource(this.f1815a.getResources(), R.drawable.ling_bown_list)));
+            this.i.setImageResource(R.drawable.pg_list_down_black_arrow);
         }
-        NetWorkCore.NetworkStateInfo c = NetWorkCore.c(this.a.getContext());
-        z = this.a.l;
-        if (z && (c == NetWorkCore.NetworkStateInfo.WIFI || c == NetWorkCore.NetworkStateInfo.ThreeG)) {
-            for (int i3 = 0; i3 < childCount; i3++) {
-                galleryViewPager3 = this.a.e;
-                View childAt2 = galleryViewPager3.getChildAt(i3);
-                if (childAt2 != null && (childAt2 instanceof aq)) {
-                    ((aq) childAt2).f();
-                }
-            }
-        }
-        bqVar = this.a.g;
-        if (bqVar != null) {
-            bqVar2 = this.a.g;
-            bqVar2.a_(i);
-        }
+        return inflate;
     }
 }

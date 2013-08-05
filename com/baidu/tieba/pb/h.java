@@ -4,25 +4,27 @@ import android.content.Intent;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class h implements com.baidu.tieba.view.a {
-    final /* synthetic */ ImageActivity a;
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ ImageActivity f1532a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public h(ImageActivity imageActivity) {
-        this.a = imageActivity;
+        this.f1532a = imageActivity;
     }
 
     @Override // com.baidu.tieba.view.a
     public void b_(int i) {
         boolean z;
         a aVar;
-        z = this.a.D;
+        z = this.f1532a.D;
         if (z) {
             Intent intent = new Intent("com.baidu.tieba.broadcast.imagepb.pagechanged");
             intent.putExtra("index", -1);
             intent.putExtra("state", i);
-            this.a.sendBroadcast(intent);
+            this.f1532a.sendBroadcast(intent);
         } else if (i == 0) {
-            aVar = this.a.w;
+            aVar = this.f1532a.w;
             aVar.b();
         }
     }

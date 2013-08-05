@@ -6,7 +6,9 @@ import android.os.Parcelable;
 /* loaded from: classes.dex */
 public final class FragmentManagerState implements Parcelable {
     public static final Parcelable.Creator CREATOR = new z();
-    FragmentState[] a;
+
+    /* renamed from: a  reason: collision with root package name */
+    FragmentState[] f267a;
     int[] b;
     BackStackState[] c;
 
@@ -14,7 +16,7 @@ public final class FragmentManagerState implements Parcelable {
     }
 
     public FragmentManagerState(Parcel parcel) {
-        this.a = (FragmentState[]) parcel.createTypedArray(FragmentState.CREATOR);
+        this.f267a = (FragmentState[]) parcel.createTypedArray(FragmentState.CREATOR);
         this.b = parcel.createIntArray();
         this.c = (BackStackState[]) parcel.createTypedArray(BackStackState.CREATOR);
     }
@@ -26,7 +28,7 @@ public final class FragmentManagerState implements Parcelable {
 
     @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeTypedArray(this.a, i);
+        parcel.writeTypedArray(this.f267a, i);
         parcel.writeIntArray(this.b);
         parcel.writeTypedArray(this.c, i);
     }

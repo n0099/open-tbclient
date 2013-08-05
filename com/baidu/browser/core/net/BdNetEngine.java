@@ -8,8 +8,8 @@ import com.baidu.browser.core.util.BdLog;
 import com.baidu.browser.explorer.BdWebErrorView;
 import com.baidu.cyberplayer.sdk.BVideoView;
 import com.baidu.cyberplayer.sdk.internal.HttpUtils;
-import com.baidu.mapapi.MKEvent;
 import com.baidu.zeus.Headers;
+import com.tencent.mm.sdk.platformtools.LVBuffer;
 import java.io.DataOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -276,7 +276,7 @@ public class BdNetEngine extends HandlerThread {
                                             return 3;
                                         }
                                         break;
-                                    case MKEvent.ERROR_PERMISSION_DENIED /* 300 */:
+                                    case 300:
                                     case BVideoView.MEDIA_ERROR_NO_INPUTFILE /* 301 */:
                                     case BVideoView.MEDIA_ERROR_INVALID_INPUTFILE /* 302 */:
                                     case BVideoView.MEDIA_ERROR_NO_SUPPORTED_CODEC /* 303 */:
@@ -500,7 +500,7 @@ public class BdNetEngine extends HandlerThread {
             if (inputStream != null) {
                 try {
                     if (this.mIsRunning && !bdNetTask.isStop()) {
-                        byte[] bArr = new byte[4096];
+                        byte[] bArr = new byte[LVBuffer.LENGTH_ALLOC_PER_NEW];
                         String headerField = this.mConnection.getHeaderField(HttpUtils.HEADER_NAME_CONTENT_ENCODING);
                         if (!(headerField != null && headerField.indexOf("gzip") >= 0)) {
                             while (true) {

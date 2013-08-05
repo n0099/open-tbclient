@@ -1,9 +1,73 @@
 package com.baidu.tieba.model;
+
+import com.baidu.tieba.TiebaApplication;
 /* loaded from: classes.dex */
 public class o extends com.baidu.adp.a.c {
-    private p a = null;
-    private r b = null;
-    private t c = null;
+
+    /* renamed from: a  reason: collision with root package name */
+    private int f1378a = 1;
+    private p b = null;
+    private q c = null;
+    private s d = null;
+    private com.baidu.tieba.data.ae e = null;
+    private com.baidu.tieba.data.ac f = null;
+    private r g = null;
+    private int h = 1;
+
+    public void a(r rVar) {
+        this.g = rVar;
+    }
+
+    public com.baidu.tieba.data.ae a() {
+        String str;
+        String[] split;
+        com.baidu.adp.lib.cache.q bm = TiebaApplication.f().bm();
+        if (bm == null || (str = (String) bm.a("home_tag")) == null || str.length() <= 0 || (split = str.split(",")) == null || split.length <= 1) {
+            return null;
+        }
+        com.baidu.tieba.data.bl blVar = new com.baidu.tieba.data.bl();
+        blVar.a(split[0]);
+        blVar.b(split[1]);
+        com.baidu.tieba.data.ae aeVar = new com.baidu.tieba.data.ae();
+        aeVar.a().add(blVar);
+        return aeVar;
+    }
+
+    public com.baidu.tieba.data.ac b() {
+        com.baidu.adp.lib.cache.q bm = TiebaApplication.f().bm();
+        if (bm != null) {
+            com.baidu.tieba.data.ac acVar = new com.baidu.tieba.data.ac();
+            acVar.a((String) bm.a("home_interest"));
+            return acVar;
+        }
+        return null;
+    }
+
+    public void a(String str, String str2, int i) {
+        if (this.b != null) {
+            this.b.cancel();
+            this.b = null;
+        }
+        this.f1378a = i;
+        if (i == 1) {
+            this.h = 1;
+        } else if (i == 2) {
+            this.h++;
+        }
+        this.b = new p(this, str, str2, String.valueOf(this.h));
+        this.b.setPriority(3);
+        this.b.execute(new Object[0]);
+    }
+
+    public void c() {
+        if (this.c != null) {
+            this.c.cancel();
+            this.c = null;
+        }
+        this.c = new q(this);
+        this.c.setPriority(3);
+        this.c.execute(new Object[0]);
+    }
 
     @Override // com.baidu.adp.a.c
     protected boolean LoadData() {
@@ -12,68 +76,16 @@ public class o extends com.baidu.adp.a.c {
 
     @Override // com.baidu.adp.a.c
     public boolean cancelLoadData() {
-        a();
         return false;
     }
 
-    public void a() {
-        if (this.a != null) {
-            this.a.cancel();
-            this.a = null;
+    public void a(String str) {
+        if (this.d != null) {
+            this.d.cancel();
+            this.d = null;
         }
-        if (this.b != null) {
-            this.b.cancel();
-            this.b = null;
-        }
-        if (this.c != null) {
-            this.c.cancel();
-            this.c = null;
-        }
-    }
-
-    public void a(String str, String str2, String str3, String str4, int i, int i2, boolean z) {
-        if (this.a != null) {
-            this.a.cancel();
-            this.a = null;
-        }
-        this.mLoadDataMode = 0;
-        this.a = new p(this, str, str2, str3, str4, i, i2, z);
-        this.a.setPriority(2);
-        this.a.execute(new String[0]);
-    }
-
-    public boolean b() {
-        return (this.a == null && this.b == null && this.c == null) ? false : true;
-    }
-
-    public void a(String str, String str2, String str3, String str4, int i) {
-        if (this.b != null) {
-            this.b.cancel();
-            this.b = null;
-        }
-        this.mLoadDataMode = 1;
-        this.b = new r(this, str, str2, str3, str4, String.valueOf(i));
-        this.b.setPriority(2);
-        this.b.execute(String.valueOf(com.baidu.tieba.data.g.a) + "c/c/bawu/commitprison");
-    }
-
-    public void a(String str, String str2, String str3, int i, String str4) {
-        String str5;
-        if (this.c != null) {
-            this.c.cancel();
-            this.c = null;
-        }
-        this.mLoadDataMode = i;
-        this.c = new t(this, str, str2, str3, i, str4);
-        this.c.setPriority(2);
-        String str6 = com.baidu.tieba.data.g.a;
-        if (i == 6) {
-            str5 = String.valueOf(str6) + "c/c/bawu/goodlist";
-        } else if (i == 2 || i == 3) {
-            str5 = String.valueOf(str6) + "c/c/bawu/commitgood";
-        } else {
-            str5 = String.valueOf(str6) + "c/c/bawu/committop";
-        }
-        this.c.execute(str5);
+        this.d = new s(this, str);
+        this.d.setPriority(3);
+        this.d.execute(new String[0]);
     }
 }

@@ -6,21 +6,23 @@ import java.util.ArrayList;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class v implements Runnable {
-    final View a;
+
+    /* renamed from: a  reason: collision with root package name */
+    final View f340a;
     final /* synthetic */ SlidingPaneLayout b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public v(SlidingPaneLayout slidingPaneLayout, View view) {
         this.b = slidingPaneLayout;
-        this.a = view;
+        this.f340a = view;
     }
 
     @Override // java.lang.Runnable
     public void run() {
         ArrayList arrayList;
-        if (this.a.getParent() == this.b) {
-            aq.a(this.a, 0, null);
-            this.b.d(this.a);
+        if (this.f340a.getParent() == this.b) {
+            aq.a(this.f340a, 0, null);
+            this.b.d(this.f340a);
         }
         arrayList = this.b.t;
         arrayList.remove(this);

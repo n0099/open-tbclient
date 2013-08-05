@@ -1,25 +1,30 @@
 package com.baidu.tieba.home;
 
-import android.content.Context;
+import android.app.Activity;
 import android.view.View;
 import com.baidu.mobstat.StatService;
+import com.baidu.tieba.data.bp;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class bh implements View.OnClickListener {
-    final /* synthetic */ TopicPagerAdapter a;
-    private final /* synthetic */ com.baidu.tieba.data.bd b;
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ TopicPagerAdapter f1147a;
+    private final /* synthetic */ bp b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bh(TopicPagerAdapter topicPagerAdapter, com.baidu.tieba.data.bd bdVar) {
-        this.a = topicPagerAdapter;
-        this.b = bdVar;
+    public bh(TopicPagerAdapter topicPagerAdapter, bp bpVar) {
+        this.f1147a = topicPagerAdapter;
+        this.b = bpVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        Context context;
-        context = this.a.g;
-        StatService.onEvent(context, "ef_topic", "click");
-        this.a.a(this.b.b, this.b.c);
+        Activity activity;
+        Activity activity2;
+        activity = this.f1147a.g;
+        StatService.onEvent(activity, "ef_topic", "click");
+        activity2 = this.f1147a.g;
+        com.baidu.tieba.util.am.a(activity2, this.b.b, this.b.c);
     }
 }

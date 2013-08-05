@@ -1,6 +1,7 @@
 package com.baidu.tieba.person;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.graphics.Bitmap;
@@ -28,7 +29,9 @@ import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class EditHeadActivity extends com.baidu.tieba.g {
-    public static String a = "delete";
+
+    /* renamed from: a  reason: collision with root package name */
+    public static String f1553a = "delete";
     public static String b = "change";
     public static String c = "file_name";
     private static String[] d = null;
@@ -67,6 +70,7 @@ public class EditHeadActivity extends com.baidu.tieba.g {
         activity.startActivityForResult(intent, i2);
     }
 
+    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.g, com.baidu.adp.a.a, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
@@ -74,22 +78,23 @@ public class EditHeadActivity extends com.baidu.tieba.g {
         setContentView(R.layout.edit_head_activity);
         Intent intent = getIntent();
         this.D = intent.getIntExtra("request", 0);
-        if (this.D == 1200002 || this.D == 1200001) {
-            n();
+        if (this.D == 12002 || this.D == 12001) {
+            l();
             if (intent.getData() != null) {
-                TiebaPrepareImageService.a(this.D, intent.getData(), TiebaApplication.f().aB());
+                TiebaPrepareImageService.a(this.D, intent.getData(), TiebaApplication.f().aF());
             } else {
-                TiebaPrepareImageService.a(this.D, null, TiebaApplication.f().aB());
+                TiebaPrepareImageService.a(this.D, null, TiebaApplication.f().aF());
             }
-            o();
+            m();
         } else {
-            n();
+            l();
             d();
         }
         d = getResources().getStringArray(R.array.fiter_name);
         this.z = TiebaApplication.f().v();
     }
 
+    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.g, android.app.Activity
     public void onResume() {
         super.onResume();
@@ -132,6 +137,7 @@ public class EditHeadActivity extends com.baidu.tieba.g {
         }
     }
 
+    /* JADX INFO: Access modifiers changed from: private */
     public void d() {
         if (this.o != null) {
             this.o.cancel();
@@ -140,10 +146,11 @@ public class EditHeadActivity extends com.baidu.tieba.g {
         this.o.execute(new Object[0]);
         AccountData accountData = (AccountData) getIntent().getSerializableExtra("account_data");
         if (accountData != null) {
-            TiebaApplication.a(accountData);
+            TiebaApplication.a(accountData, getBaseContext());
         }
     }
 
+    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.g, android.app.Activity
     public void onDestroy() {
         a_();
@@ -165,13 +172,14 @@ public class EditHeadActivity extends com.baidu.tieba.g {
             this.o = null;
         }
         this.n.setVisibility(8);
-        if (this.D == 1200002 || this.D == 1200001) {
+        if (this.D == 12002 || this.D == 12001) {
             unregisterReceiver(this.w);
         }
         TiebaApplication.f().b((com.baidu.tieba.g) this);
     }
 
-    public void m() {
+    /* JADX INFO: Access modifiers changed from: private */
+    public void k() {
         if (this.u != null) {
             this.u.cancel();
         }
@@ -179,7 +187,7 @@ public class EditHeadActivity extends com.baidu.tieba.g {
         this.u.execute(new String[0]);
     }
 
-    private void n() {
+    private void l() {
         this.n = (ProgressBar) findViewById(R.id.progress);
         this.n.setVisibility(8);
         this.e = (EditHeadImageView) findViewById(R.id.image);
@@ -195,7 +203,7 @@ public class EditHeadActivity extends com.baidu.tieba.g {
         this.j = (Button) findViewById(R.id.delete);
         this.j.setOnClickListener(new o(this));
         this.B = (LinearLayout) findViewById(R.id.filters);
-        this.x = com.baidu.tieba.util.ab.a(this, 2.0f);
+        this.x = com.baidu.tieba.util.am.a((Context) this, 2.0f);
         this.t = (LinearLayout) findViewById(R.id.beautify_rotate);
         this.s = (LinearLayout) findViewById(R.id.rotate);
         this.q = (RadioButton) findViewById(R.id.beautify_btn);
@@ -223,6 +231,7 @@ public class EditHeadActivity extends com.baidu.tieba.g {
         }
     }
 
+    /* JADX INFO: Access modifiers changed from: private */
     public void c(String str) {
         if (this.p != null) {
             this.p.cancel();
@@ -231,19 +240,21 @@ public class EditHeadActivity extends com.baidu.tieba.g {
         this.p.execute(str);
     }
 
+    /* JADX INFO: Access modifiers changed from: private */
     public boolean a(String str, Bitmap bitmap) {
         try {
-            com.baidu.tieba.util.m.a(null, str, bitmap, 90);
+            com.baidu.tieba.util.p.a(null, str, bitmap, 90);
             if (this.C) {
-                new com.baidu.tieba.account.af("motu_pic", String.valueOf(this.y)).start();
+                new com.baidu.tieba.account.ag("motu_pic", String.valueOf(this.y)).start();
             }
             return true;
         } catch (Exception e) {
-            com.baidu.tieba.util.z.b(getClass().getName(), "saveFile", e.toString());
+            com.baidu.tieba.util.aj.b(getClass().getName(), "saveFile", e.toString());
             return false;
         }
     }
 
+    /* JADX INFO: Access modifiers changed from: private */
     public void a(String[] strArr) {
         if (this.E != null && strArr != null) {
             this.B.removeAllViews();
@@ -276,6 +287,7 @@ public class EditHeadActivity extends com.baidu.tieba.g {
         }
     }
 
+    /* JADX INFO: Access modifiers changed from: private */
     public void d(String str) {
         ImageView imageView;
         if (str != null) {
@@ -292,7 +304,7 @@ public class EditHeadActivity extends com.baidu.tieba.g {
         }
     }
 
-    private void o() {
+    private void m() {
         this.w = new v(this, null);
         IntentFilter intentFilter = new IntentFilter();
         intentFilter.addAction("com.baidu.tieba.broadcast.image.resized");

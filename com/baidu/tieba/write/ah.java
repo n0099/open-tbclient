@@ -1,23 +1,26 @@
 package com.baidu.tieba.write;
 
+import android.view.View;
 import android.widget.GridView;
 /* loaded from: classes.dex */
-class ah implements Runnable {
-    final /* synthetic */ WriteActivity a;
+class ah implements View.OnClickListener {
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ WriteActivity f1878a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ah(WriteActivity writeActivity) {
-        this.a = writeActivity;
+        this.f1878a = writeActivity;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
         GridView gridView;
         GridView gridView2;
-        gridView = this.a.r;
-        if (gridView.getVisibility() != 0) {
-            gridView2 = this.a.r;
-            gridView2.setVisibility(0);
+        gridView = this.f1878a.r;
+        if (gridView.getVisibility() == 0) {
+            gridView2 = this.f1878a.r;
+            gridView2.setVisibility(8);
         }
     }
 }

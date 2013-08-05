@@ -19,7 +19,7 @@ public class PageIndex extends LinearLayout {
 
     public void a(int i, int i2) {
         int dimension = (int) getContext().getResources().getDimension(R.dimen.index_width);
-        boolean z = TiebaApplication.f().at() == 1;
+        boolean z = TiebaApplication.f().au() == 1;
         if (i2 > 0) {
             RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) getLayoutParams();
             layoutParams.width = dimension * i2;

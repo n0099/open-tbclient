@@ -11,12 +11,13 @@ import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.ScrollView;
-import com.baidu.mapapi.MKEvent;
 /* loaded from: classes.dex */
 public class BdPullRefreshScrollView extends ScrollView {
     private static /* synthetic */ int[] y;
     private static /* synthetic */ int[] z;
-    protected FrameLayout a;
+
+    /* renamed from: a  reason: collision with root package name */
+    protected FrameLayout f467a;
     private int b;
     private State c;
     private Mode d;
@@ -31,7 +32,7 @@ public class BdPullRefreshScrollView extends ScrollView {
     private float m;
     private c n;
     private c o;
-    private float p;
+    private int p;
     private p q;
     private q r;
     private o s;
@@ -170,7 +171,7 @@ public class BdPullRefreshScrollView extends ScrollView {
         this.f = obtainStyledAttributes.getInteger(4, 200);
         this.g = obtainStyledAttributes.getInteger(5, 200);
         LayoutInflater.from(context).inflate(com.baidu.adp.f.adp_pull_refresh_scroll_view, (ViewGroup) this, true);
-        this.a = (FrameLayout) findViewById(com.baidu.adp.e.content_ly);
+        this.f467a = (FrameLayout) findViewById(com.baidu.adp.e.content_ly);
         this.j = (FrameLayout) findViewById(com.baidu.adp.e.head_ly);
         this.k = (FrameLayout) findViewById(com.baidu.adp.e.foot_ly);
         setCustomHeaderView(cVar);
@@ -186,9 +187,9 @@ public class BdPullRefreshScrollView extends ScrollView {
             this.m = getResources().getDimension(com.baidu.adp.c.adp_foot_need_refresh_delta);
         }
         if (obtainStyledAttributes.hasValue(3)) {
-            this.p = -obtainStyledAttributes.getDimension(3, 0.0f);
+            this.p = -obtainStyledAttributes.getDimensionPixelSize(3, 0);
         } else {
-            this.p = -getResources().getDimension(com.baidu.adp.c.adp_head_view_height);
+            this.p = -getResources().getDimensionPixelSize(com.baidu.adp.c.adp_head_view_height);
         }
         setFadingEdgeLength(0);
         a();
@@ -285,7 +286,7 @@ public class BdPullRefreshScrollView extends ScrollView {
     }
 
     public void setContentView(View view) {
-        this.a.addView(view);
+        this.f467a.addView(view);
     }
 
     public final void setMode(Mode mode) {
@@ -324,7 +325,7 @@ public class BdPullRefreshScrollView extends ScrollView {
     }
 
     protected void d() {
-        g gVar = new g(0, (int) this.p, MKEvent.ERROR_PERMISSION_DENIED);
+        g gVar = new g(0, this.p, 300);
         gVar.a(this.j);
         gVar.a(new k(this));
     }
@@ -339,7 +340,7 @@ public class BdPullRefreshScrollView extends ScrollView {
             if (this.e.showHeaderLoadingLayout() && i == 1) {
                 this.u = true;
                 fullScroll(33);
-                a((int) this.p);
+                a(this.p);
                 this.d = Mode.PULL_FROM_START;
                 a(State.REFRESHING, this.n);
                 h();
@@ -395,9 +396,9 @@ public class BdPullRefreshScrollView extends ScrollView {
             default:
                 return false;
             case 3:
-                return getScrollY() + getHeight() >= this.a.getHeight() + this.k.getHeight();
+                return getScrollY() + getHeight() >= this.f467a.getHeight() + this.k.getHeight();
             case 4:
-                return getScrollY() + getHeight() >= this.a.getHeight() + this.k.getHeight() && ((float) getHeadViewTopMargin()) == this.p;
+                return getScrollY() + getHeight() >= this.f467a.getHeight() + this.k.getHeight() && getHeadViewTopMargin() == this.p;
         }
     }
 
@@ -526,7 +527,7 @@ public class BdPullRefreshScrollView extends ScrollView {
         LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.j.getLayoutParams();
         layoutParams.topMargin -= i;
         if (layoutParams.topMargin <= this.p) {
-            layoutParams.topMargin = (int) this.p;
+            layoutParams.topMargin = this.p;
         }
         this.j.setLayoutParams(layoutParams);
     }
@@ -587,14 +588,14 @@ public class BdPullRefreshScrollView extends ScrollView {
             if (State.RELEASE_TO_REFRESH == this.c) {
                 a(getHeadViewTopMargin(), 0);
             } else if (State.PULL_TO_REFRESH == this.c) {
-                a(getHeadViewTopMargin(), (int) this.p);
+                a(getHeadViewTopMargin(), this.p);
             }
         } else if (getScrollY() > 0) {
             if (State.RELEASE_TO_REFRESH == this.c) {
                 scrollTo(0, 0);
                 a(getHeadViewTopMargin() - getScrollY(), 0);
             } else if (State.PULL_TO_REFRESH == this.c) {
-                a(getHeadViewTopMargin() - ((int) this.p));
+                a(getHeadViewTopMargin() - this.p);
                 scrollTo(0, 0);
                 a(State.RESET, this.n);
             }
@@ -603,7 +604,7 @@ public class BdPullRefreshScrollView extends ScrollView {
             if (State.RELEASE_TO_REFRESH == this.c) {
                 a(getHeadViewTopMargin(), 0);
             } else if (State.PULL_TO_REFRESH == this.c) {
-                a(getHeadViewTopMargin(), (int) this.p);
+                a(getHeadViewTopMargin(), this.p);
             }
         }
     }

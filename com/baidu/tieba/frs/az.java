@@ -22,10 +22,12 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.tieba.TiebaApplication;
+import com.baidu.tieba.data.bm;
 import com.baidu.tieba.view.FrsHeaderView;
 import com.baidu.zeus.bouncycastle.DERTags;
 import com.slidingmenu.lib.R;
 import com.slidingmenu.lib.SlidingMenu;
+import com.tencent.mm.sdk.platformtools.Util;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class az {
@@ -53,18 +55,20 @@ public class az {
     private TextView s = null;
     private AlertDialog t = null;
     private FrsHeaderView u = null;
-    private com.baidu.tieba.view.q v = null;
-    private com.baidu.tieba.view.n w = null;
+    private com.baidu.tieba.view.t v = null;
+    private com.baidu.tieba.view.p w = null;
     private ag x = null;
     private TextView y = null;
     private ImageButton z = null;
     private int A = 0;
-    private com.baidu.tieba.view.p B = null;
+    private com.baidu.tieba.view.s B = null;
     private bc C = null;
-    private com.baidu.tieba.view.ab D = null;
+    private com.baidu.tieba.view.af D = null;
     private SlidingMenu E = null;
     private String F = null;
-    AlertDialog a = null;
+
+    /* renamed from: a  reason: collision with root package name */
+    AlertDialog f1075a = null;
     Animation b = null;
     private View.OnTouchListener L = new ba(this);
 
@@ -73,10 +77,10 @@ public class az {
         this.G = null;
         this.d = frsActivity;
         this.G = onClickListener;
-        y();
+        z();
     }
 
-    private void y() {
+    private void z() {
         this.d.setContentView(R.layout.frs_activity);
         this.C = new bc(this.d);
         this.C.a(R.id.show_all);
@@ -86,11 +90,11 @@ public class az {
         this.E = new SlidingMenu(this.d);
         this.E.setMode(1);
         this.E.setTouchModeAbove(1);
-        this.E.setBehindOffset(com.baidu.tieba.util.ab.a(this.d, 48.0f));
+        this.E.setBehindOffset(com.baidu.tieba.util.am.a((Context) this.d, 48.0f));
         this.E.setBehindScrollScale(0.5f);
         this.E.setFadeDegree(0.35f);
         this.E.attachToActivity(this.d, 1);
-        this.E.setMenu(this.C.a());
+        this.E.setMenu(this.C.b());
         this.i = (TextView) this.d.findViewById(R.id.frs_top_title);
         this.h = (ImageView) this.d.findViewById(R.id.frs_bt_back);
         this.j = (ImageButton) this.d.findViewById(R.id.frs_top_edit);
@@ -108,14 +112,14 @@ public class az {
             this.t.setCanceledOnTouchOutside(true);
         }
         this.o = (BdListView) this.d.findViewById(R.id.frs_lv_thread);
-        this.B = new com.baidu.tieba.view.p(this.d);
+        this.B = new com.baidu.tieba.view.s(this.d);
         this.o.setPullRefresh(this.B);
         this.o.setDivider(null);
         this.o.setDividerHeight(0);
         this.u = new FrsHeaderView(this.d, FrsHeaderView.PAGE.FRS_LIST, null, null);
-        this.v = new com.baidu.tieba.view.q(this.d, null, null);
-        this.w = new com.baidu.tieba.view.n(this.d);
-        this.p = new ad(this.d, null, com.baidu.tieba.util.ab.a((Context) this.d), false);
+        this.v = new com.baidu.tieba.view.t(this.d, null, null);
+        this.w = new com.baidu.tieba.view.p(this.d);
+        this.p = new ad(this.d, null, com.baidu.tieba.util.am.a((Context) this.d), TiebaApplication.f().bl());
         this.b = AnimationUtils.loadAnimation(this.d, R.anim.refresh_rotate);
         this.b.setInterpolator(new LinearInterpolator());
         this.b.setFillAfter(true);
@@ -159,7 +163,7 @@ public class az {
         this.E.showMenu(z);
     }
 
-    public void a(com.baidu.tieba.data.ba baVar, boolean z) {
+    public void a(bm bmVar, boolean z) {
         String string = this.d.getString(R.string.view);
         String string2 = this.d.getString(R.string.view_host);
         String string3 = this.d.getString(R.string.view_reverse);
@@ -170,8 +174,8 @@ public class az {
         } else {
             builder.setItems(new String[]{string, string2, string3}, this.H);
         }
-        this.a = builder.create();
-        this.a.setCanceledOnTouchOutside(true);
+        this.f1075a = builder.create();
+        this.f1075a.setCanceledOnTouchOutside(true);
     }
 
     public int c() {
@@ -221,8 +225,8 @@ public class az {
     }
 
     public void e() {
-        if (this.a != null) {
-            this.a.show();
+        if (this.f1075a != null) {
+            this.f1075a.show();
         }
     }
 
@@ -268,7 +272,7 @@ public class az {
         return this.u;
     }
 
-    public com.baidu.tieba.view.q i() {
+    public com.baidu.tieba.view.t i() {
         return this.v;
     }
 
@@ -287,7 +291,7 @@ public class az {
 
     public void j() {
         this.o.setVisibility(0);
-        this.p.a(TiebaApplication.f().ar());
+        this.p.a(TiebaApplication.f().as());
     }
 
     public void c(String str) {
@@ -301,26 +305,26 @@ public class az {
     }
 
     public void l() {
-        z();
+        A();
         this.F = "normal_page";
         this.o.addHeaderView(this.u.c());
     }
 
     public void m() {
-        z();
+        A();
         this.F = "frs_page";
         this.o.addHeaderView(this.v.c());
     }
 
     public void n() {
         if (this.F != "good_page") {
-            z();
+            A();
             this.F = "good_page";
             this.o.addHeaderView(this.w.a());
         }
     }
 
-    private void z() {
+    private void A() {
         if (this.F == "normal_page") {
             this.o.removeHeaderView(this.u.c());
         } else if (this.F == "frs_page") {
@@ -342,7 +346,7 @@ public class az {
 
     public boolean p() {
         if (this.F == "normal_page") {
-            return this.u.f();
+            return this.u.h();
         }
         if (this.F == "frs_page") {
             return this.v.e();
@@ -350,15 +354,23 @@ public class az {
         return false;
     }
 
+    public void c(boolean z) {
+        if (this.F == "normal_page") {
+            this.u.b(z);
+        } else if (this.F == "frs_page") {
+            this.v.b(z);
+        }
+    }
+
     public void q() {
         this.o.setAdapter((ListAdapter) this.p);
     }
 
-    public void c(boolean z) {
+    public void d(boolean z) {
         this.p.c(z);
     }
 
-    public void d(boolean z) {
+    public void e(boolean z) {
         this.p.d(z);
     }
 
@@ -410,13 +422,13 @@ public class az {
         this.o.setSelection(i);
     }
 
-    public void a(com.baidu.tieba.data.r rVar, com.baidu.tieba.data.t tVar) {
+    public void a(com.baidu.tieba.data.v vVar, com.baidu.tieba.data.x xVar) {
         if (this.v != null) {
-            this.v.a(rVar, tVar);
+            this.v.a(vVar, xVar);
         }
-        this.v.a(rVar.e(), rVar.i(), rVar.f(), b(rVar));
-        this.v.c(rVar.g().b());
-        if (rVar.g().a() == -2) {
+        this.v.a(vVar.e(), vVar.k(), vVar.h(), b(vVar));
+        this.v.c(vVar.i().b());
+        if (vVar.i().a() == -2) {
             this.v.a(false);
         }
     }
@@ -432,23 +444,23 @@ public class az {
         this.v.c(i);
     }
 
-    public void a(int i, com.baidu.tieba.data.r rVar, com.baidu.tieba.data.t tVar) {
+    public void a(int i, com.baidu.tieba.data.v vVar, com.baidu.tieba.data.x xVar) {
         if (this.v != null) {
-            this.v.a(rVar, tVar);
+            this.v.a(vVar, xVar);
         }
-        this.v.a(i, rVar.i(), rVar.f(), b(rVar));
-        if (rVar.g().a() == -2) {
+        this.v.a(i, vVar.k(), vVar.h(), b(vVar));
+        if (vVar.i().a() == -2) {
             this.v.a(false);
         }
     }
 
-    public void a(com.baidu.tieba.data.r rVar) {
+    public void a(com.baidu.tieba.data.v vVar) {
         if (this.u != null) {
-            this.u.a(rVar);
+            this.u.a(vVar);
         }
-        this.u.a(rVar.e(), rVar.i(), rVar.f(), b(rVar));
-        this.u.c(rVar.g().b());
-        if (rVar.g().a() == -2) {
+        this.u.a(vVar.e(), vVar.k(), vVar.h(), b(vVar));
+        this.u.c(vVar.i().b());
+        if (vVar.i().a() == -2) {
             this.u.a(false);
         }
     }
@@ -459,18 +471,18 @@ public class az {
 
     public void b(int i, int i2) {
         this.u.c(i);
-        if (this.K >= 0 && i2 > 0 && this.u.f()) {
+        if (this.K >= 0 && i2 > 0 && this.u.h()) {
             this.u.a(k(i2));
         }
     }
 
-    public void a(int i, com.baidu.tieba.data.r rVar) {
+    public void a(int i, com.baidu.tieba.data.v vVar) {
         if (this.u != null) {
-            this.u.a(rVar);
+            this.u.a(vVar);
         }
-        if (rVar != null) {
-            this.u.a(i, rVar.i(), rVar.f(), b(rVar));
-            if (rVar.g().a() == -2) {
+        if (vVar != null) {
+            this.u.a(i, vVar.k(), vVar.h(), b(vVar));
+            if (vVar.i().a() == -2) {
                 this.u.a(false);
             }
         }
@@ -488,12 +500,12 @@ public class az {
         }
     }
 
-    private float b(com.baidu.tieba.data.r rVar) {
-        if (rVar == null) {
+    private float b(com.baidu.tieba.data.v vVar) {
+        if (vVar == null) {
             return 0.0f;
         }
-        this.I = rVar.o();
-        this.J = rVar.n();
+        this.I = vVar.q();
+        this.J = vVar.p();
         this.K = this.I - this.J;
         if (this.I > 0) {
             return this.J / this.I;
@@ -514,6 +526,11 @@ public class az {
     public void t() {
         if (this.D != null) {
             this.D.dismiss();
+        }
+        if (this.F == "normal_page") {
+            this.u.f();
+        } else if (this.F == "frs_page") {
+            this.v.g();
         }
         g().a().b();
         i().a().b();
@@ -556,7 +573,7 @@ public class az {
 
     public void a(com.baidu.adp.widget.a.b bVar, boolean z) {
         if (this.D == null) {
-            this.D = new com.baidu.tieba.view.ab(this.d, this.e.getWidth(), this.e.getHeight());
+            this.D = new com.baidu.tieba.view.af(this.d, this.e.getWidth(), this.e.getHeight());
         }
         if (this.D.isShowing()) {
             this.D.a(bVar);
@@ -565,7 +582,7 @@ public class az {
         }
     }
 
-    public com.baidu.tieba.view.ab w() {
+    public com.baidu.tieba.view.af w() {
         return this.D;
     }
 
@@ -581,12 +598,12 @@ public class az {
         }
     }
 
-    public void a(com.baidu.tieba.model.aa aaVar) {
-        this.C.a(aaVar);
-        long a = aaVar.a() + aaVar.b();
-        if (a > 0) {
+    public void a(com.baidu.tieba.model.af afVar) {
+        this.C.a(afVar);
+        long a2 = afVar.a() + afVar.b();
+        if (a2 > 0) {
             this.y.setVisibility(0);
-            this.y.setText(String.valueOf(a <= 99 ? a : 99L));
+            this.y.setText(String.valueOf(a2 <= 99 ? a2 : 99L));
             return;
         }
         this.y.setVisibility(4);
@@ -594,10 +611,10 @@ public class az {
 
     public void j(int i) {
         this.A = i;
-        com.baidu.tieba.util.x.b(this.f, i);
-        com.baidu.tieba.util.x.b((View) this.o, i);
-        com.baidu.tieba.util.x.d(this.g, i);
-        com.baidu.tieba.util.x.a(this.h, i);
+        com.baidu.tieba.util.ah.b(this.f, i);
+        com.baidu.tieba.util.ah.b(this.o, i);
+        com.baidu.tieba.util.ah.d(this.g, i);
+        com.baidu.tieba.util.ah.a(this.h, i);
         this.u.a(i);
         this.v.a(i);
         this.w.a(i);
@@ -634,13 +651,21 @@ public class az {
         this.n.setImageResource(R.drawable.pic_icon_fresh);
     }
 
-    public void e(boolean z) {
+    public void f(boolean z) {
         if (z) {
             this.m.setAlpha(DERTags.TAGGED);
             this.n.setAlpha(DERTags.TAGGED);
             return;
         }
-        this.m.setAlpha(255);
-        this.n.setAlpha(255);
+        this.m.setAlpha(Util.MASK_8BIT);
+        this.n.setAlpha(Util.MASK_8BIT);
+    }
+
+    public void y() {
+        if (this.F == "normal_page") {
+            this.u.g();
+        } else if (this.F == "frs_page") {
+            this.v.h();
+        }
     }
 }

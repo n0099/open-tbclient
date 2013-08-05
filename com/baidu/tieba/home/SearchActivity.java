@@ -17,7 +17,7 @@ import android.widget.RadioButton;
 import android.widget.TextView;
 import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.frs.FrsActivity;
-import com.baidu.tieba.model.bq;
+import com.baidu.tieba.model.bz;
 import com.baidu.tieba.util.DatabaseService;
 import com.baidu.zeus.WebChromeClient;
 import com.slidingmenu.lib.R;
@@ -25,7 +25,9 @@ import java.util.ArrayList;
 import org.apache.http.message.BasicNameValuePair;
 /* loaded from: classes.dex */
 public class SearchActivity extends com.baidu.tieba.g {
-    private EditText a = null;
+
+    /* renamed from: a  reason: collision with root package name */
+    private EditText f1110a = null;
     private Button b = null;
     private Button c = null;
     private LinearLayout d = null;
@@ -45,8 +47,8 @@ public class SearchActivity extends com.baidu.tieba.g {
     private Button t = null;
     private View u = null;
     private TextView v = null;
-    private bq w = null;
-    private com.baidu.tieba.data.au x = null;
+    private bz w = null;
+    private com.baidu.tieba.data.bd x = null;
     private ay y = null;
     private ax z = null;
     private String A = null;
@@ -92,18 +94,18 @@ public class SearchActivity extends com.baidu.tieba.g {
     public void c() {
         this.u = getLayoutInflater().inflate(R.layout.home_dialog_search_footer, (ViewGroup) null);
         this.v = (TextView) findViewById(R.id.text_no_data);
-        this.a = (EditText) findViewById(R.id.home_et_search);
-        this.a.setOnFocusChangeListener(new ap(this));
+        this.f1110a = (EditText) findViewById(R.id.home_et_search);
+        this.f1110a.setOnFocusChangeListener(new ap(this));
         this.d = (LinearLayout) findViewById(R.id.search_tap_text_layout);
         this.e = (LinearLayout) findViewById(R.id.search_tap_layout);
         this.f = (FrameLayout) findViewById(R.id.frame_layout);
-        this.a.setOnEditorActionListener(new aq(this));
+        this.f1110a.setOnEditorActionListener(new aq(this));
         ar arVar = new ar(this);
         this.c = (Button) findViewById(R.id.home_bt_search_s);
         this.c.setOnClickListener(arVar);
         this.b = (Button) findViewById(R.id.home_bt_search_del);
         this.b.setOnClickListener(new as(this));
-        this.a.addTextChangedListener(new at(this));
+        this.f1110a.addTextChangedListener(new at(this));
         this.g = (LinearLayout) findViewById(R.id.search_tab_bg);
         this.j = (RadioButton) findViewById(R.id.search_forum_btn);
         this.k = (RadioButton) findViewById(R.id.search_post_btn);
@@ -129,10 +131,10 @@ public class SearchActivity extends com.baidu.tieba.g {
         this.n.setOnScrollListener(aoVar);
         this.s = (ProgressBar) findViewById(R.id.home_progress_search);
         this.s.setVisibility(8);
-        this.a.setText("");
-        this.a.requestFocus();
-        o();
-        a(this.a, WebChromeClient.STRING_DLG_BTN_SET);
+        this.f1110a.setText("");
+        this.f1110a.requestFocus();
+        m();
+        a(this.f1110a, WebChromeClient.STRING_DLG_BTN_SET);
         if (TiebaApplication.f().s()) {
             this.j.setChecked(true);
             b(0);
@@ -156,13 +158,13 @@ public class SearchActivity extends com.baidu.tieba.g {
             case 0:
                 if (this.B != 0) {
                     this.B = 0;
-                    this.a.setHint(R.string.search_bar);
+                    this.f1110a.setHint(R.string.search_bar);
                     b();
                     if (this.A.trim().length() > 0) {
-                        p();
+                        n();
                         return;
                     } else {
-                        o();
+                        m();
                         return;
                     }
                 }
@@ -170,14 +172,14 @@ public class SearchActivity extends com.baidu.tieba.g {
             case 1:
                 if (this.B != 1) {
                     this.B = 1;
-                    this.a.setHint(R.string.search_post_hint);
+                    this.f1110a.setHint(R.string.search_post_hint);
                     b();
                     if (this.A.trim().length() > 0) {
                         this.p.setVisibility(8);
                         a(1, this.A);
                         return;
                     }
-                    q();
+                    o();
                     return;
                 }
                 return;
@@ -186,20 +188,20 @@ public class SearchActivity extends com.baidu.tieba.g {
         }
     }
 
-    public void m() {
-        String trim = this.a.getText().toString().trim();
+    public void k() {
+        String trim = this.f1110a.getText().toString().trim();
         FrsActivity.a(this, trim, "tb_searchlist", 1);
         if (trim != null && trim.length() != 0) {
-            n();
+            l();
         }
     }
 
-    public void n() {
+    public void l() {
         finish();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void o() {
+    public void m() {
         this.p.setVisibility(8);
         ArrayList q = DatabaseService.q();
         if (q != null && q.size() > 0) {
@@ -218,7 +220,7 @@ public class SearchActivity extends com.baidu.tieba.g {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void p() {
+    public void n() {
         this.m.setVisibility(8);
         this.C.removeCallbacks(this.D);
         this.C.postDelayed(this.D, 500L);
@@ -231,7 +233,7 @@ public class SearchActivity extends com.baidu.tieba.g {
             try {
                 if (str.trim().length() > 0) {
                     StringBuffer stringBuffer = new StringBuffer(30);
-                    stringBuffer.append(com.baidu.tieba.data.g.a);
+                    stringBuffer.append(com.baidu.tieba.data.g.f1013a);
                     stringBuffer.append("c/s/searchpost");
                     ArrayList arrayList = new ArrayList();
                     arrayList.add(new BasicNameValuePair("word", str));
@@ -244,13 +246,13 @@ public class SearchActivity extends com.baidu.tieba.g {
                     this.z.execute(new Object[0]);
                 }
             } catch (Exception e) {
-                com.baidu.tieba.util.z.b(getClass().getName(), "startSearchPost.run", "error = " + e.getMessage());
+                com.baidu.tieba.util.aj.b(getClass().getName(), "startSearchPost.run", "error = " + e.getMessage());
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void q() {
+    public void o() {
         this.p.setVisibility(8);
         ArrayList r = DatabaseService.r();
         if (r != null && r.size() > 0) {
@@ -269,17 +271,17 @@ public class SearchActivity extends com.baidu.tieba.g {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void r() {
+    public void p() {
         try {
             if (this.B == 0) {
                 if (this.w != null) {
-                    ArrayList a = this.w.a();
-                    if (a != null && a.size() > 0) {
+                    ArrayList a2 = this.w.a();
+                    if (a2 != null && a2.size() > 0) {
                         this.m.setVisibility(0);
                         this.n.setVisibility(8);
                         this.p.setVisibility(0);
                         this.p.setAdapter((ListAdapter) this.q);
-                        this.q.a(a);
+                        this.q.a(a2);
                         this.q.notifyDataSetInvalidated();
                     } else {
                         this.m.setVisibility(8);
@@ -288,8 +290,8 @@ public class SearchActivity extends com.baidu.tieba.g {
                     }
                 }
             } else if (this.x != null) {
-                ArrayList a2 = this.x.a();
-                if (a2 != null && a2.size() > 0) {
+                ArrayList a3 = this.x.a();
+                if (a3 != null && a3.size() > 0) {
                     this.m.setVisibility(0);
                     this.n.setVisibility(8);
                     this.p.setVisibility(0);
@@ -306,29 +308,29 @@ public class SearchActivity extends com.baidu.tieba.g {
                 }
             }
         } catch (Exception e) {
-            com.baidu.tieba.util.z.b(getClass().getName(), "", "HomeActivity.refresh error = " + e.getMessage());
+            com.baidu.tieba.util.aj.b(getClass().getName(), "", "HomeActivity.refresh error = " + e.getMessage());
         }
     }
 
     @Override // com.baidu.tieba.g
     protected void a(int i) {
         super.a(i);
-        com.baidu.tieba.util.x.a(this.n, i);
-        com.baidu.tieba.util.x.a(this.p, i);
-        com.baidu.tieba.util.x.a(this.f, i);
+        com.baidu.tieba.util.ah.a(this.n, i);
+        com.baidu.tieba.util.ah.a(this.p, i);
+        com.baidu.tieba.util.ah.a(this.f, i);
         if (i == 1) {
-            this.a.setTextColor(-8682095);
-            this.a.setHintTextColor(-11446171);
+            this.f1110a.setTextColor(-8682095);
+            this.f1110a.setHintTextColor(-11446171);
             this.c.setTextColor(-5454368);
             this.t.setTextColor(getResources().getColor(R.color.search_text_content_night));
-            com.baidu.tieba.util.x.h(this.e, (int) R.drawable.inputbox_topbg_1);
-            com.baidu.tieba.util.x.h((View) this.c, (int) R.drawable.search_tap_go_dr_1);
-            com.baidu.tieba.util.x.h((View) this.t, (int) R.drawable.btn_w_square_1);
-            com.baidu.tieba.util.x.h(this.d, (int) R.drawable.inputbox_top_1);
-            com.baidu.tieba.util.x.h(this.g, (int) R.drawable.tabbar_bj_tab_1);
-            com.baidu.tieba.util.x.h((View) this.l, (int) R.drawable.search_baidu_btn_drawable_1);
-            com.baidu.tieba.util.x.h((View) this.j, (int) R.drawable.search_forum_btn_drawable_1);
-            com.baidu.tieba.util.x.h((View) this.k, (int) R.drawable.search_post_btn_drawable_1);
+            com.baidu.tieba.util.ah.h(this.e, (int) R.drawable.inputbox_topbg_1);
+            com.baidu.tieba.util.ah.h((View) this.c, (int) R.drawable.search_tap_go_dr_1);
+            com.baidu.tieba.util.ah.h((View) this.t, (int) R.drawable.btn_w_square_1);
+            com.baidu.tieba.util.ah.h(this.d, (int) R.drawable.inputbox_top_1);
+            com.baidu.tieba.util.ah.h(this.g, (int) R.drawable.tabbar_bj_tab_1);
+            com.baidu.tieba.util.ah.h((View) this.l, (int) R.drawable.search_baidu_btn_drawable_1);
+            com.baidu.tieba.util.ah.h((View) this.j, (int) R.drawable.search_forum_btn_drawable_1);
+            com.baidu.tieba.util.ah.h((View) this.k, (int) R.drawable.search_post_btn_drawable_1);
             this.l.setTextColor(getResources().getColorStateList(R.color.search_tab_btn_color_1));
             this.j.setTextColor(getResources().getColorStateList(R.color.search_tab_btn_color_1));
             this.k.setTextColor(getResources().getColorStateList(R.color.search_tab_btn_color_1));
@@ -336,18 +338,18 @@ public class SearchActivity extends com.baidu.tieba.g {
             this.v.setCompoundDrawablesWithIntrinsicBounds(0, R.drawable.pic_blank_page_search_1, 0, 0);
             return;
         }
-        this.a.setTextColor(getResources().getColor(R.color.search_text_content));
-        this.a.setHintTextColor(-5921112);
+        this.f1110a.setTextColor(getResources().getColor(R.color.search_text_content));
+        this.f1110a.setHintTextColor(-5921112);
         this.c.setTextColor(-1);
         this.t.setTextColor(getResources().getColor(R.color.reg_font_color));
-        com.baidu.tieba.util.x.h((View) this.t, (int) R.drawable.btn_w_square);
-        com.baidu.tieba.util.x.h(this.d, (int) R.drawable.inputbox_top);
-        com.baidu.tieba.util.x.h(this.e, (int) R.drawable.inputbox_topbg);
-        com.baidu.tieba.util.x.h((View) this.c, (int) R.drawable.search_tap_go_dr);
-        com.baidu.tieba.util.x.h(this.g, (int) R.drawable.tabbar_bj_tab);
-        com.baidu.tieba.util.x.h((View) this.l, (int) R.drawable.search_baidu_btn_drawable);
-        com.baidu.tieba.util.x.h((View) this.j, (int) R.drawable.search_forum_btn_drawable);
-        com.baidu.tieba.util.x.h((View) this.k, (int) R.drawable.search_post_btn_drawable);
+        com.baidu.tieba.util.ah.h((View) this.t, (int) R.drawable.btn_w_square);
+        com.baidu.tieba.util.ah.h(this.d, (int) R.drawable.inputbox_top);
+        com.baidu.tieba.util.ah.h(this.e, (int) R.drawable.inputbox_topbg);
+        com.baidu.tieba.util.ah.h((View) this.c, (int) R.drawable.search_tap_go_dr);
+        com.baidu.tieba.util.ah.h(this.g, (int) R.drawable.tabbar_bj_tab);
+        com.baidu.tieba.util.ah.h((View) this.l, (int) R.drawable.search_baidu_btn_drawable);
+        com.baidu.tieba.util.ah.h((View) this.j, (int) R.drawable.search_forum_btn_drawable);
+        com.baidu.tieba.util.ah.h((View) this.k, (int) R.drawable.search_post_btn_drawable);
         this.l.setTextColor(getResources().getColorStateList(R.color.search_tab_btn_color));
         this.j.setTextColor(getResources().getColorStateList(R.color.search_tab_btn_color));
         this.k.setTextColor(getResources().getColorStateList(R.color.search_tab_btn_color));
@@ -356,9 +358,9 @@ public class SearchActivity extends com.baidu.tieba.g {
     }
 
     @Override // com.baidu.tieba.g
-    protected void k() {
-        super.k();
-        c(-1);
+    protected void i() {
+        super.i();
+        d(-1);
         this.v.setCompoundDrawablesWithIntrinsicBounds(0, 0, 0, 0);
     }
 }

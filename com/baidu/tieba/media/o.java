@@ -7,17 +7,19 @@ import com.baidu.tieba.media.MediaPlayerActivity;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class o extends Handler {
-    final /* synthetic */ MediaPlayerActivity a;
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ MediaPlayerActivity f1282a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public o(MediaPlayerActivity mediaPlayerActivity, Looper looper) {
         super(looper);
-        this.a = mediaPlayerActivity;
+        this.f1282a = mediaPlayerActivity;
     }
 
     @Override // android.os.Handler
     public void handleMessage(Message message) {
-        MediaPlayerActivity.PLAYER_STATUS player_status;
+        Object obj;
         l lVar;
         String str;
         q qVar;
@@ -30,48 +32,51 @@ public class o extends Handler {
         String str3;
         q qVar4;
         l lVar3;
-        Object obj;
+        MediaPlayerActivity.PLAYER_STATUS player_status;
         Object obj2;
         switch (message.what) {
             case 0:
-                player_status = this.a.n;
-                if (player_status != MediaPlayerActivity.PLAYER_STATUS.PLAYER_IDLE) {
-                    obj = this.a.g;
-                    synchronized (obj) {
+                obj = this.f1282a.g;
+                synchronized (obj) {
+                    while (true) {
                         try {
-                            obj2 = this.a.g;
-                            obj2.wait();
-                            com.baidu.adp.lib.c.b.d("wait player status to idle");
+                            player_status = this.f1282a.n;
                         } catch (InterruptedException e) {
                             e.printStackTrace();
                         }
+                        if (player_status != MediaPlayerActivity.PLAYER_STATUS.PLAYER_IDLE) {
+                            obj2 = this.f1282a.g;
+                            obj2.wait();
+                        } else {
+                            com.baidu.adp.lib.e.d.d("wait player status to idle");
+                        }
                     }
                 }
-                lVar = this.a.c;
-                str = this.a.d;
+                lVar = this.f1282a.c;
+                str = this.f1282a.d;
                 if (!lVar.b(str)) {
-                    qVar = this.a.b;
-                    str2 = this.a.d;
+                    qVar = this.f1282a.b;
+                    str2 = this.f1282a.d;
                     qVar.a(str2);
                 } else {
-                    lVar2 = this.a.c;
-                    str3 = this.a.d;
+                    lVar2 = this.f1282a.c;
+                    str3 = this.f1282a.d;
                     lVar2.a(str3);
-                    qVar4 = this.a.b;
+                    qVar4 = this.f1282a.b;
                     StringBuilder sb = new StringBuilder("p2p://");
-                    lVar3 = this.a.c;
+                    lVar3 = this.f1282a.c;
                     qVar4.a(sb.append(lVar3.d()).toString());
                 }
-                i = this.a.h;
+                i = this.f1282a.h;
                 if (i > 0) {
-                    qVar3 = this.a.b;
-                    i2 = this.a.h;
+                    qVar3 = this.f1282a.b;
+                    i2 = this.f1282a.h;
                     qVar3.a(i2);
-                    this.a.h = 0;
+                    this.f1282a.h = 0;
                 }
-                qVar2 = this.a.b;
+                qVar2 = this.f1282a.b;
                 qVar2.e();
-                this.a.n = MediaPlayerActivity.PLAYER_STATUS.PLAYER_PREPARING;
+                this.f1282a.n = MediaPlayerActivity.PLAYER_STATUS.PLAYER_PREPARING;
                 return;
             default:
                 return;

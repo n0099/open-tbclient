@@ -1,4 +1,6 @@
 package com.baidu.android.common.security;
+
+import com.tencent.mm.sdk.platformtools.Util;
 /* loaded from: classes.dex */
 public class RC4 {
     private static final int STATE_LENGTH = 256;
@@ -20,12 +22,12 @@ public class RC4 {
             throw new RuntimeException("output buffer too short");
         }
         for (int i4 = 0; i4 < i2; i4++) {
-            this.x = (this.x + 1) & 255;
-            this.y = (this.engineState[this.x] + this.y) & 255;
+            this.x = (this.x + 1) & Util.MASK_8BIT;
+            this.y = (this.engineState[this.x] + this.y) & Util.MASK_8BIT;
             byte b = this.engineState[this.x];
             this.engineState[this.x] = this.engineState[this.y];
             this.engineState[this.y] = b;
-            bArr2[i4 + i3] = (byte) (bArr[i4 + i] ^ this.engineState[(this.engineState[this.x] + this.engineState[this.y]) & 255]);
+            bArr2[i4 + i3] = (byte) (bArr[i4 + i] ^ this.engineState[(this.engineState[this.x] + this.engineState[this.y]) & Util.MASK_8BIT]);
         }
     }
 
@@ -45,7 +47,7 @@ public class RC4 {
         int i2 = 0;
         int i3 = 0;
         for (int i4 = 0; i4 < STATE_LENGTH; i4++) {
-            i2 = (i2 + (bArr[i3] & 255) + this.engineState[i4]) & 255;
+            i2 = (i2 + (bArr[i3] & 255) + this.engineState[i4]) & Util.MASK_8BIT;
             byte b = this.engineState[i4];
             this.engineState[i4] = this.engineState[i2];
             this.engineState[i2] = b;

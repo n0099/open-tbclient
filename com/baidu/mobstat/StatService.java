@@ -5,7 +5,9 @@ import android.content.Context;
 /* loaded from: classes.dex */
 public class StatService {
     public static final int EXCEPTION_LOG = 1;
-    private static boolean a = false;
+
+    /* renamed from: a  reason: collision with root package name */
+    private static boolean f775a = false;
 
     private static void a(Context context) {
         if (a(context, "onError(...)")) {
@@ -15,7 +17,7 @@ public class StatService {
     }
 
     private static boolean a() {
-        return a;
+        return f775a;
     }
 
     private static boolean a(Context context, String str) {
@@ -55,7 +57,7 @@ public class StatService {
     }
 
     private static void b() {
-        a = true;
+        f775a = true;
     }
 
     public static void onEvent(Context context, String str, String str2) {

@@ -1,12 +1,14 @@
 package com.baidu.mobstat;
 /* loaded from: classes.dex */
 class l {
-    final /* synthetic */ k a;
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ k f789a;
     private String b;
     private long c;
 
     public l(k kVar, String str, long j) {
-        this.a = kVar;
+        this.f789a = kVar;
         this.b = str;
         this.c = j;
     }

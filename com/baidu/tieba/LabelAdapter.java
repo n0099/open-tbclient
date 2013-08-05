@@ -5,15 +5,17 @@ import android.view.View;
 import java.util.List;
 /* loaded from: classes.dex */
 public class LabelAdapter extends android.support.v4.view.ae {
-    List a;
+
+    /* renamed from: a  reason: collision with root package name */
+    List f822a;
 
     public LabelAdapter(List list) {
-        this.a = list;
+        this.f822a = list;
     }
 
     @Override // android.support.v4.view.ae
     public int getCount() {
-        return this.a.size();
+        return this.f822a.size();
     }
 
     @Override // android.support.v4.view.ae
@@ -23,12 +25,12 @@ public class LabelAdapter extends android.support.v4.view.ae {
 
     @Override // android.support.v4.view.ae
     public void destroyItem(View view, int i, Object obj) {
-        ((ViewPager) view).removeView((View) this.a.get(i));
+        ((ViewPager) view).removeView((View) this.f822a.get(i));
     }
 
     @Override // android.support.v4.view.ae
     public Object instantiateItem(View view, int i) {
-        ((ViewPager) view).addView((View) this.a.get(i), 0);
-        return this.a.get(i);
+        ((ViewPager) view).addView((View) this.f822a.get(i), 0);
+        return this.f822a.get(i);
     }
 }

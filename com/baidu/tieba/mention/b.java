@@ -6,22 +6,24 @@ import android.widget.ImageView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class b implements View.OnClickListener {
-    final /* synthetic */ MentionActivity a;
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ MentionActivity f1293a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(MentionActivity mentionActivity) {
-        this.a = mentionActivity;
+        this.f1293a = mentionActivity;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         ImageView imageView;
         ImageView imageView2;
-        imageView = this.a.h;
+        imageView = this.f1293a.h;
         if (view != imageView) {
-            imageView2 = this.a.g;
+            imageView2 = this.f1293a.g;
             if (view == imageView2) {
-                Activity currentActivity = this.a.getLocalActivityManager().getCurrentActivity();
+                Activity currentActivity = this.f1293a.getLocalActivityManager().getCurrentActivity();
                 if (currentActivity instanceof ReplyMeActivity) {
                     ((ReplyMeActivity) currentActivity).b();
                     return;
@@ -34,6 +36,6 @@ public class b implements View.OnClickListener {
             }
             return;
         }
-        this.a.finish();
+        this.f1293a.finish();
     }
 }

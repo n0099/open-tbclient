@@ -1,33 +1,50 @@
 package com.baidu.tieba.util;
 
-import android.content.Context;
-import android.media.MediaScannerConnection;
-import android.net.Uri;
+import java.util.ArrayList;
+import java.util.Hashtable;
 /* loaded from: classes.dex */
-public class q implements MediaScannerConnection.MediaScannerConnectionClient {
-    private MediaScannerConnection a;
-    private Context b;
-    private String c;
-    private String d;
+public class q extends Thread {
 
-    public q(Context context) {
-        this.b = context;
+    /* renamed from: a  reason: collision with root package name */
+    private int f1772a;
+    private String b;
+    private Hashtable c;
+
+    public q(Hashtable hashtable) {
+        this.f1772a = 3;
+        this.b = null;
+        this.c = null;
+        this.f1772a = 3;
+        this.c = hashtable;
     }
 
-    public void a(String str) {
-        this.c = str;
-        this.d = "image/*";
-        this.a = new MediaScannerConnection(this.b, this);
-        this.a.connect();
+    public q(int i, String str) {
+        this.f1772a = 3;
+        this.b = null;
+        this.c = null;
+        this.f1772a = i;
+        this.b = str;
     }
 
-    @Override // android.media.MediaScannerConnection.MediaScannerConnectionClient
-    public void onMediaScannerConnected() {
-        this.a.scanFile(this.c, this.d);
-    }
-
-    @Override // android.media.MediaScannerConnection.OnScanCompletedListener
-    public void onScanCompleted(String str, Uri uri) {
-        this.a.disconnect();
+    @Override // java.lang.Thread, java.lang.Runnable
+    public void run() {
+        ArrayList A;
+        super.run();
+        try {
+            if (this.f1772a == 3) {
+                if (this.c != null && (A = DatabaseService.A()) != null) {
+                    int size = A.size();
+                    for (int i = 0; i < size; i++) {
+                        this.c.put((String) A.get(i), 1);
+                    }
+                }
+            } else if (this.f1772a == 2) {
+                DatabaseService.t(this.b);
+            } else if (this.f1772a == 1) {
+                DatabaseService.s(this.b);
+            }
+        } catch (Exception e) {
+            aj.b(getClass().getName(), "run", e.getMessage());
+        }
     }
 }

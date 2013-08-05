@@ -1,24 +1,44 @@
 package com.baidu.tieba.frs;
 
+import android.app.Activity;
 import android.view.View;
 import com.baidu.mobstat.StatService;
+import com.baidu.tieba.CommonWebviewActivity;
 import com.baidu.tieba.TiebaApplication;
+import com.baidu.tieba.account.LoginActivity;
 import com.baidu.tieba.chat.ChatListActivity;
+import com.baidu.tieba.kn.pk.PKEndActivity;
+import com.baidu.tieba.kn.pk.PKWaitingActivity;
+import com.baidu.tieba.kn.pk.PKingActivity;
+import com.baidu.tieba.kn.shake.ShakeActivity;
 import com.baidu.tieba.mention.MentionActivity;
+import com.baidu.tieba.util.NetWorkCore;
 import com.slidingmenu.lib.R;
+import java.net.URLEncoder;
 /* loaded from: classes.dex */
 class aa implements View.OnClickListener {
-    final /* synthetic */ FrsActivity a;
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ FrsActivity f1053a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public aa(FrsActivity frsActivity) {
-        this.a = frsActivity;
+        this.f1053a = frsActivity;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        com.baidu.tieba.model.v vVar;
-        com.baidu.tieba.model.v vVar2;
+        com.baidu.tieba.model.aa aaVar;
+        com.baidu.tieba.model.aa aaVar2;
+        com.baidu.tieba.model.aa aaVar3;
+        String b;
+        com.baidu.tieba.model.aa aaVar4;
+        com.baidu.tieba.model.aa aaVar5;
+        com.baidu.tieba.model.aa aaVar6;
+        com.baidu.tieba.model.aa aaVar7;
+        long a2;
+        com.baidu.tieba.model.aa aaVar8;
+        com.baidu.tieba.model.aa aaVar9;
         az azVar;
         boolean z;
         az azVar2;
@@ -35,131 +55,216 @@ class aa implements View.OnClickListener {
         az azVar10;
         az azVar11;
         switch (view.getId()) {
-            case R.id.frs_bt_back /* 2131100004 */:
-                this.a.f();
+            case R.id.frs_bt_back /* 2131100025 */:
+                this.f1053a.f();
                 return;
-            case R.id.frs_top_title /* 2131100005 */:
-                azVar11 = this.a.l;
+            case R.id.frs_top_title /* 2131100026 */:
+                azVar11 = this.f1053a.l;
                 azVar11.d(0);
                 return;
-            case R.id.frs_top_edit /* 2131100006 */:
+            case R.id.frs_top_edit /* 2131100027 */:
                 if (TiebaApplication.f().t()) {
-                    StatService.onEvent(this.a, "frs_post_thread", "frsclick", 1);
+                    StatService.onEvent(this.f1053a, "frs_post_thread", "frsclick", 1);
                 }
-                this.a.d(0);
+                this.f1053a.e(0);
                 return;
-            case R.id.frs_top_more /* 2131100008 */:
+            case R.id.frs_top_more /* 2131100029 */:
                 if (TiebaApplication.f().t()) {
-                    StatService.onEvent(this.a, "frs_more", "frsclick", 1);
+                    StatService.onEvent(this.f1053a, "frs_more", "frsclick", 1);
                 }
-                azVar10 = this.a.l;
+                azVar10 = this.f1053a.l;
                 azVar10.a(true);
                 return;
-            case R.id.frs_bt_create /* 2131100015 */:
-                this.a.x();
+            case R.id.frs_bt_create /* 2131100036 */:
+                this.f1053a.v();
                 return;
-            case R.id.refresh_layout /* 2131100016 */:
+            case R.id.refresh_layout /* 2131100037 */:
                 if (TiebaApplication.f().t()) {
-                    StatService.onEvent(this.a, "frs_refresh", "frsclick", 1);
+                    StatService.onEvent(this.f1053a, "frs_refresh", "frsclick", 1);
                 }
-                this.a.y();
+                this.f1053a.w();
                 return;
-            case R.id.btn_love /* 2131100031 */:
-                this.a.n();
+            case R.id.btn_love /* 2131100056 */:
+                this.f1053a.l();
                 return;
-            case R.id.btn_sign /* 2131100037 */:
-                azVar9 = this.a.l;
+            case R.id.btn_sign /* 2131100062 */:
+                azVar9 = this.f1053a.l;
                 if (!azVar9.o()) {
-                    this.a.o();
+                    this.f1053a.m();
                     return;
                 }
                 return;
-            case R.id.show_all /* 2131100060 */:
-                this.a.E = false;
-                azVar4 = this.a.l;
+            case R.id.show_all /* 2131100086 */:
+                this.f1053a.E = false;
+                azVar4 = this.f1053a.l;
                 if (azVar4.b().isMenuShowing()) {
-                    azVar6 = this.a.l;
+                    azVar6 = this.f1053a.l;
                     azVar6.b().toggle(true);
                 }
-                azVar5 = this.a.l;
+                azVar5 = this.f1053a.l;
                 azVar5.a().a(R.id.show_all);
-                z2 = this.a.t;
+                z2 = this.f1053a.t;
                 if (z2) {
-                    this.a.t = false;
-                    this.a.y();
+                    this.f1053a.t = false;
+                    this.f1053a.w();
                     return;
                 }
                 return;
-            case R.id.show_good /* 2131100062 */:
-                this.a.E = false;
+            case R.id.show_good /* 2131100088 */:
+                this.f1053a.E = false;
                 if (TiebaApplication.f().t()) {
-                    StatService.onEvent(this.a, "frs_good", "frsclick", 1);
+                    StatService.onEvent(this.f1053a, "frs_good", "frsclick", 1);
                 }
-                azVar = this.a.l;
+                azVar = this.f1053a.l;
                 if (azVar.b().isMenuShowing()) {
-                    azVar3 = this.a.l;
+                    azVar3 = this.f1053a.l;
                     azVar3.b().toggle(true);
                 }
-                z = this.a.t;
+                z = this.f1053a.t;
                 if (!z) {
-                    this.a.t = true;
-                    azVar2 = this.a.l;
+                    this.f1053a.t = true;
+                    azVar2 = this.f1053a.l;
                     azVar2.a().a(R.id.show_good);
-                    this.a.y();
+                    this.f1053a.w();
                     return;
                 }
                 return;
-            case R.id.show_image /* 2131100064 */:
-                this.a.E = false;
+            case R.id.show_image /* 2131100090 */:
+                this.f1053a.E = false;
                 if (TiebaApplication.f().t()) {
-                    StatService.onEvent(this.a, "frs_image", "frsclick", 1);
+                    StatService.onEvent(this.f1053a, "frs_image", "frsclick", 1);
                 }
                 TiebaApplication f = TiebaApplication.f();
-                vVar = this.a.v;
-                f.e(vVar.a().b());
-                FrsActivity frsActivity = this.a;
-                vVar2 = this.a.v;
-                FrsImageActivity.a(frsActivity, vVar2.a().b(), null, 0);
-                this.a.d();
+                aaVar8 = this.f1053a.v;
+                f.e(aaVar8.a().b());
+                FrsActivity frsActivity = this.f1053a;
+                aaVar9 = this.f1053a.v;
+                FrsImageActivity.a(frsActivity, aaVar9.a().b(), null, 0);
+                this.f1053a.d();
                 return;
-            case R.id.add_to_window_layout /* 2131100072 */:
-                FrsActivity frsActivity2 = this.a;
-                str = this.a.c;
+            case R.id.add_to_window_layout /* 2131100098 */:
+                FrsActivity frsActivity2 = this.f1053a;
+                str = this.f1053a.c;
                 frsActivity2.c(str);
                 return;
-            case R.id.message_layout /* 2131100076 */:
+            case R.id.message_layout /* 2131100102 */:
                 String E = TiebaApplication.E();
                 if (E != null && E.length() > 0) {
                     if (TiebaApplication.f().t()) {
-                        StatService.onEvent(this.a, "frs_message", "frsclick", 1);
+                        StatService.onEvent(this.f1053a, "frs_message", "frsclick", 1);
                     }
-                    MentionActivity.a(this.a, 1800002);
+                    MentionActivity.a(this.f1053a, 18002);
                     return;
                 }
                 return;
-            case R.id.chat_layout /* 2131100080 */:
+            case R.id.chat_layout /* 2131100106 */:
                 if (TiebaApplication.f().t()) {
-                    StatService.onEvent(this.a, "enter_chatlist", "frsclick", 1);
+                    StatService.onEvent(this.f1053a, "enter_chatlist", "frsclick", 1);
                 }
-                ChatListActivity.a(this.a);
+                ChatListActivity.a(this.f1053a);
                 return;
-            case R.id.like_forum_name /* 2131100085 */:
+            case R.id.like_forum_name /* 2131100111 */:
                 if (TiebaApplication.f().t()) {
-                    StatService.onEvent(this.a, "frs_likeforum", "frsclick", 1);
+                    StatService.onEvent(this.f1053a, "frs_likeforum", "frsclick", 1);
                 }
                 String str3 = (String) view.getTag();
-                str2 = this.a.c;
+                str2 = this.f1053a.c;
                 if (str3.equals(str2)) {
-                    this.a.E = false;
-                    azVar7 = this.a.l;
+                    this.f1053a.E = false;
+                    azVar7 = this.f1053a.l;
                     if (azVar7.b().isMenuShowing()) {
-                        azVar8 = this.a.l;
+                        azVar8 = this.f1053a.l;
                         azVar8.b().toggle(true);
                         return;
                     }
                     return;
                 }
-                this.a.d(str3);
+                this.f1053a.d(str3);
+                return;
+            case R.id.kn_title_layout /* 2131100131 */:
+                String E2 = TiebaApplication.E();
+                if (TiebaApplication.f().t()) {
+                    StatService.onEvent(this.f1053a, "frs_shake", "frsclick", 1);
+                }
+                if (E2 != null && E2.length() > 0) {
+                    aaVar6 = this.f1053a.v;
+                    String a3 = aaVar6.e().l().a();
+                    aaVar7 = this.f1053a.v;
+                    String b2 = aaVar7.e().l().b();
+                    if (System.currentTimeMillis() - com.baidu.tieba.kn.a.a().a(Integer.parseInt(a3)) > 0) {
+                        if (NetWorkCore.c(this.f1053a) == NetWorkCore.NetworkStateInfo.UNAVAIL) {
+                            this.f1053a.a(this.f1053a.getString(R.string.neterror));
+                            return;
+                        } else {
+                            ShakeActivity.a(this.f1053a, a3, b2, "frs");
+                            return;
+                        }
+                    }
+                    com.baidu.tieba.util.i.a(this.f1053a, String.format(this.f1053a.getString(R.string.shake_left_time, new Object[]{new com.baidu.tieba.kn.b((long) ((a2 - System.currentTimeMillis()) / 1000.0d)).toString()}), new Object[0]), 2000);
+                    return;
+                }
+                LoginActivity.a((Activity) this.f1053a, this.f1053a.getString(R.string.login_to_use), true, 11033);
+                return;
+            case R.id.kn_pk_1_layout /* 2131100139 */:
+                if (TiebaApplication.f().t()) {
+                    StatService.onEvent(this.f1053a, "frs_enter_pk", "frsclick", 1);
+                }
+                aaVar5 = this.f1053a.v;
+                com.baidu.tieba.data.aq aqVar = (com.baidu.tieba.data.aq) aaVar5.e().l().e().get(0);
+                if (aqVar != null) {
+                    if (aqVar.e() == 0) {
+                        PKWaitingActivity.a(this.f1053a, aqVar.a(), aqVar.d());
+                        return;
+                    } else if (aqVar.e() == 1) {
+                        PKingActivity.a(this.f1053a, aqVar.a(), aqVar.d());
+                        return;
+                    } else if (aqVar.e() == 2) {
+                        PKEndActivity.a(this.f1053a, aqVar.a(), aqVar.d());
+                        return;
+                    } else {
+                        return;
+                    }
+                }
+                return;
+            case R.id.kn_pk_2_layout /* 2131100148 */:
+                if (TiebaApplication.f().t()) {
+                    StatService.onEvent(this.f1053a, "frs_enter_pk", "frsclick", 1);
+                }
+                aaVar4 = this.f1053a.v;
+                com.baidu.tieba.data.aq aqVar2 = (com.baidu.tieba.data.aq) aaVar4.e().l().e().get(1);
+                if (aqVar2 != null) {
+                    if (aqVar2.e() == 0) {
+                        PKWaitingActivity.a(this.f1053a, aqVar2.a(), aqVar2.d());
+                        return;
+                    } else if (aqVar2.e() == 1) {
+                        PKingActivity.a(this.f1053a, aqVar2.a(), aqVar2.d());
+                        return;
+                    } else if (aqVar2.e() == 2) {
+                        PKEndActivity.a(this.f1053a, aqVar2.a(), aqVar2.d());
+                        return;
+                    } else {
+                        return;
+                    }
+                }
+                return;
+            case R.id.kn_relative_video /* 2131100158 */:
+                if (TiebaApplication.f().t()) {
+                    StatService.onEvent(this.f1053a, "frs_enter_video", "frsclick", 1);
+                }
+                aaVar2 = this.f1053a.v;
+                String j = aaVar2.e().l().j();
+                aaVar3 = this.f1053a.v;
+                if (aaVar3.e().l().b() != null) {
+                    j = String.valueOf(j) + "&player_name=" + URLEncoder.encode(b);
+                }
+                CommonWebviewActivity.a(this.f1053a, "相关视频", j, true, "get");
+                return;
+            case R.id.kn_relative_music /* 2131100161 */:
+                if (TiebaApplication.f().t()) {
+                    StatService.onEvent(this.f1053a, "frs_enter_audio", "frsclick", 1);
+                }
+                aaVar = this.f1053a.v;
+                com.baidu.tieba.util.am.d(this.f1053a, String.valueOf(aaVar.e().l().i()) + "&_client_version=" + com.baidu.tieba.data.g.i());
                 return;
             default:
                 return;

@@ -6,13 +6,15 @@ import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 /* loaded from: classes.dex */
 class ab extends aa {
-    private Method a;
+
+    /* renamed from: a  reason: collision with root package name */
+    private Method f333a;
     private Field b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ab() {
         try {
-            this.a = View.class.getDeclaredMethod("getDisplayList", null);
+            this.f333a = View.class.getDeclaredMethod("getDisplayList", null);
         } catch (NoSuchMethodException e) {
             Log.e("SlidingPaneLayout", "Couldn't fetch getDisplayList method; dimming won't work right.", e);
         }
@@ -26,10 +28,10 @@ class ab extends aa {
 
     @Override // android.support.v4.widget.aa, android.support.v4.widget.z
     public void a(SlidingPaneLayout slidingPaneLayout, View view) {
-        if (this.a != null && this.b != null) {
+        if (this.f333a != null && this.b != null) {
             try {
                 this.b.setBoolean(view, true);
-                this.a.invoke(view, null);
+                this.f333a.invoke(view, null);
             } catch (Exception e) {
                 Log.e("SlidingPaneLayout", "Error refreshing display list state", e);
             }

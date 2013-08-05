@@ -3,12 +3,14 @@ package com.baidu.tieba.chat;
 import android.os.Handler;
 /* loaded from: classes.dex */
 class g implements y {
-    final /* synthetic */ ChatActivity a;
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ ChatActivity f938a;
     private boolean b = false;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public g(ChatActivity chatActivity) {
-        this.a = chatActivity;
+        this.f938a = chatActivity;
     }
 
     @Override // com.baidu.tieba.chat.y
@@ -19,8 +21,8 @@ class g implements y {
     @Override // com.baidu.tieba.chat.y
     public void b() {
         ad adVar;
-        adVar = this.a.a;
-        this.b = adVar.i();
+        adVar = this.f938a.f925a;
+        this.b = adVar.j();
     }
 
     @Override // com.baidu.tieba.chat.y
@@ -37,39 +39,39 @@ class g implements y {
         ad adVar2;
         ad adVar3;
         ad adVar4;
-        this.a.g = true;
+        this.f938a.g = true;
         if (z) {
-            adVar = this.a.a;
-            wVar = this.a.b;
+            adVar = this.f938a.f925a;
+            wVar = this.f938a.b;
             String f = wVar.f();
-            wVar2 = this.a.b;
+            wVar2 = this.f938a.b;
             adVar.a(f, wVar2.e());
             if (i > 0) {
-                this.a.f = true;
+                this.f938a.f = true;
             }
-            adVar2 = this.a.a;
+            adVar2 = this.f938a.f925a;
             adVar2.a(cVar);
             if (!z2) {
                 if (i > 0) {
-                    adVar4 = this.a.a;
+                    adVar4 = this.f938a.f925a;
                     adVar4.b(i);
                 }
             } else if (this.b && i > 0) {
-                adVar3 = this.a.a;
-                adVar3.g();
+                adVar3 = this.f938a.f925a;
+                adVar3.h();
             }
         }
-        handler = this.a.j;
-        runnable = this.a.m;
+        handler = this.f938a.j;
+        runnable = this.f938a.m;
         handler.removeCallbacks(runnable);
         if (z3) {
-            handler3 = this.a.j;
-            runnable3 = this.a.m;
+            handler3 = this.f938a.j;
+            runnable3 = this.f938a.m;
             handler3.postDelayed(runnable3, 0L);
             return;
         }
-        handler2 = this.a.j;
-        runnable2 = this.a.m;
+        handler2 = this.f938a.j;
+        runnable2 = this.f938a.m;
         handler2.postDelayed(runnable2, 30000L);
     }
 }

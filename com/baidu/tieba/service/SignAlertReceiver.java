@@ -15,8 +15,9 @@ public class SignAlertReceiver extends BroadcastReceiver {
         if (intent.getAction().equals("com.baidu.tieba.broadcast.signalert")) {
             try {
                 Intent intent2 = new Intent(context, DealIntentService.class);
-                intent2.putExtra("class", 3);
+                intent2.putExtra("class", 9);
                 intent2.putExtra("is_message_pv", true);
+                intent2.putExtra("is_notify", true);
                 intent2.putExtra("refresh_all", true);
                 intent2.putExtra("close_dialog", true);
                 intent2.putExtra("goto_type", "goto_home");
@@ -34,11 +35,11 @@ public class SignAlertReceiver extends BroadcastReceiver {
                 ((NotificationManager) context.getSystemService("notification")).notify(12, notification);
             } catch (Throwable th) {
                 try {
-                    if (com.baidu.adp.lib.c.b.a()) {
-                        com.baidu.adp.lib.c.b.a(th.getMessage());
+                    if (com.baidu.adp.lib.e.d.a()) {
+                        com.baidu.adp.lib.e.d.a(th.getMessage());
                     }
                 } finally {
-                    TiebaApplication.f().al();
+                    TiebaApplication.f().am();
                 }
             }
         }

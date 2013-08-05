@@ -1,21 +1,39 @@
 package com.baidu.tieba.pb;
 
-import android.widget.GridView;
+import android.os.Handler;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class ck implements Runnable {
-    final /* synthetic */ ch a;
+public class ck implements com.baidu.tieba.view.aq {
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ bn f1505a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ck(ch chVar) {
-        this.a = chVar;
+    public ck(bn bnVar) {
+        this.f1505a = bnVar;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        bk bkVar;
-        GridView gridView;
-        bkVar = this.a.a;
-        gridView = bkVar.H;
-        gridView.setVisibility(8);
+    @Override // com.baidu.tieba.view.aq
+    public void a(int i) {
+        switch (i) {
+            case 0:
+                if (!this.f1505a.t()) {
+                    new Handler().postDelayed(new cn(this), 0L);
+                } else {
+                    new Handler().postDelayed(new co(this), 0L);
+                }
+                this.f1505a.an = true;
+                return;
+            case 1:
+                if (!this.f1505a.t()) {
+                    new Handler().postDelayed(new cl(this), 0L);
+                } else {
+                    new Handler().postDelayed(new cm(this), 0L);
+                }
+                this.f1505a.an = false;
+                return;
+            default:
+                return;
+        }
     }
 }

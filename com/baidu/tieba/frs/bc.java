@@ -70,25 +70,25 @@ public class bc extends com.baidu.adp.a.d {
         this.z = null;
         this.A = null;
         this.B = null;
-        g();
+        h();
     }
 
-    public View a() {
+    public View b() {
         return this.d;
     }
 
-    public void b() {
-        e();
+    public void c() {
         f();
+        g();
     }
 
-    private void g() {
-        this.d = LayoutInflater.from(this.a).inflate(R.layout.frs_sidebar, (ViewGroup) null);
+    private void h() {
+        this.d = LayoutInflater.from(this.f343a).inflate(R.layout.frs_sidebar, (ViewGroup) null);
         this.b = (BdSwitchView) this.d.findViewById(R.id.abstract_state_switch);
-        this.b.setOnSwitchStateChangeListener((com.baidu.adp.widget.BdSwitchView.c) this.a);
+        this.b.setOnSwitchStateChangeListener((com.baidu.adp.widget.BdSwitchView.c) this.f343a);
         this.b.setSwitchStyle(BdSwitchView.SwitchStyle.SIDE_BAR);
         this.c = (BdSwitchView) this.d.findViewById(R.id.eyeshield_mode_switch);
-        this.c.setOnSwitchStateChangeListener((com.baidu.adp.widget.BdSwitchView.c) this.a);
+        this.c.setOnSwitchStateChangeListener((com.baidu.adp.widget.BdSwitchView.c) this.f343a);
         this.c.setSwitchStyle(BdSwitchView.SwitchStyle.SIDE_BAR);
         this.g = (Button) this.d.findViewById(R.id.message_btn);
         this.e = (LinearLayout) this.d.findViewById(R.id.message_layout);
@@ -114,7 +114,7 @@ public class bc extends com.baidu.adp.a.d {
         this.A = (TextView) this.d.findViewById(R.id.new_chat);
     }
 
-    public BdSwitchView c() {
+    public BdSwitchView d() {
         return this.b;
     }
 
@@ -145,38 +145,38 @@ public class bc extends com.baidu.adp.a.d {
         }
     }
 
-    public BdSwitchView d() {
+    public BdSwitchView e() {
         return this.c;
     }
 
-    public void e() {
-        if (TiebaApplication.f().ar()) {
+    public void f() {
+        if (TiebaApplication.f().as()) {
             this.b.a();
         } else {
             this.b.b();
         }
     }
 
-    public void f() {
-        if (TiebaApplication.f().at() == 1) {
+    public void g() {
+        if (TiebaApplication.f().au() == 1) {
             this.c.a();
         } else {
             this.c.b();
         }
     }
 
-    public void a(com.baidu.tieba.model.aa aaVar) {
-        long a = aaVar.a();
-        if (a > 0) {
+    public void a(com.baidu.tieba.model.af afVar) {
+        long a2 = afVar.a();
+        if (a2 > 0) {
             this.g.setVisibility(0);
-            if (a > 99) {
-                a = 99;
+            if (a2 > 99) {
+                a2 = 99;
             }
-            this.g.setText(String.valueOf(a));
+            this.g.setText(String.valueOf(a2));
         } else {
             this.g.setVisibility(8);
         }
-        long b = aaVar.b();
+        long b = afVar.b();
         if (b > 0) {
             this.A.setVisibility(0);
             this.A.setText(String.valueOf(b <= 99 ? b : 99L));
@@ -198,25 +198,25 @@ public class bc extends com.baidu.adp.a.d {
     public void a(boolean z, String str) {
     }
 
-    public void a(com.baidu.tieba.data.p pVar) {
-        if (pVar != null) {
+    public void a(com.baidu.tieba.data.t tVar) {
+        if (tVar != null) {
             this.h.removeAllViews();
-            LayoutInflater from = LayoutInflater.from(this.a);
-            ArrayList c = pVar.c();
+            LayoutInflater from = LayoutInflater.from(this.f343a);
+            ArrayList c = tVar.c();
             int size = c.size();
             int i = size > 10 ? 10 : size;
-            int at = TiebaApplication.f().at();
+            int au = TiebaApplication.f().au();
             for (int i2 = 0; i2 < i; i2++) {
                 LinearLayout linearLayout = (LinearLayout) from.inflate(R.layout.frs_sidebar_item, (ViewGroup) null);
                 TextView textView = (TextView) linearLayout.findViewById(R.id.like_forum_name);
-                if (at == 1) {
-                    textView.setTextAppearance(this.a, R.style.sidebar_content_1);
+                if (au == 1) {
+                    textView.setTextAppearance(this.f343a, R.style.sidebar_content_1);
                 } else {
-                    textView.setTextAppearance(this.a, R.style.sidebar_content);
+                    textView.setTextAppearance(this.f343a, R.style.sidebar_content);
                 }
-                String a = ((com.baidu.tieba.data.o) c.get(i2)).a();
-                textView.setText(a);
-                textView.setTag(a);
+                String a2 = ((com.baidu.tieba.data.s) c.get(i2)).a();
+                textView.setText(a2);
+                textView.setTag(a2);
                 textView.setOnClickListener(this.B);
                 this.h.addView(linearLayout);
             }
@@ -229,9 +229,9 @@ public class bc extends com.baidu.adp.a.d {
             TextView textView = (TextView) this.h.getChildAt(i2).findViewById(R.id.like_forum_name);
             if (textView != null) {
                 if (i == 1) {
-                    textView.setTextAppearance(this.a, R.style.sidebar_content_1);
+                    textView.setTextAppearance(this.f343a, R.style.sidebar_content_1);
                 } else {
-                    textView.setTextAppearance(this.a, R.style.sidebar_content);
+                    textView.setTextAppearance(this.f343a, R.style.sidebar_content);
                 }
             }
         }
@@ -240,31 +240,31 @@ public class bc extends com.baidu.adp.a.d {
             this.r.setTextColor(-13025722);
             this.s.setTextColor(-13025722);
             this.t.setTextColor(-13025722);
-            this.n.setTextAppearance(this.a, R.style.sidebar_content_1);
-            this.o.setTextAppearance(this.a, R.style.sidebar_content_1);
-            this.p.setTextAppearance(this.a, R.style.sidebar_content_1);
-            this.u.setTextAppearance(this.a, R.style.sidebar_content_1);
-            this.v.setTextAppearance(this.a, R.style.sidebar_content_1);
-            this.w.setTextAppearance(this.a, R.style.sidebar_content_1);
-            this.x.setTextAppearance(this.a, R.style.sidebar_content_1);
+            this.n.setTextAppearance(this.f343a, R.style.sidebar_content_1);
+            this.o.setTextAppearance(this.f343a, R.style.sidebar_content_1);
+            this.p.setTextAppearance(this.f343a, R.style.sidebar_content_1);
+            this.u.setTextAppearance(this.f343a, R.style.sidebar_content_1);
+            this.v.setTextAppearance(this.f343a, R.style.sidebar_content_1);
+            this.w.setTextAppearance(this.f343a, R.style.sidebar_content_1);
+            this.x.setTextAppearance(this.f343a, R.style.sidebar_content_1);
             this.g.setTextColor(-7128039);
             this.A.setTextColor(-7128039);
-            this.z.setTextAppearance(this.a, R.style.sidebar_content_1);
+            this.z.setTextAppearance(this.f343a, R.style.sidebar_content_1);
             return;
         }
         this.q.setTextColor(-11974069);
         this.r.setTextColor(-11974069);
         this.s.setTextColor(-11974069);
         this.t.setTextColor(-11974069);
-        this.n.setTextAppearance(this.a, R.style.sidebar_content);
-        this.o.setTextAppearance(this.a, R.style.sidebar_content);
-        this.p.setTextAppearance(this.a, R.style.sidebar_content);
-        this.u.setTextAppearance(this.a, R.style.sidebar_content);
-        this.v.setTextAppearance(this.a, R.style.sidebar_content);
-        this.w.setTextAppearance(this.a, R.style.sidebar_content);
-        this.x.setTextAppearance(this.a, R.style.sidebar_content);
+        this.n.setTextAppearance(this.f343a, R.style.sidebar_content);
+        this.o.setTextAppearance(this.f343a, R.style.sidebar_content);
+        this.p.setTextAppearance(this.f343a, R.style.sidebar_content);
+        this.u.setTextAppearance(this.f343a, R.style.sidebar_content);
+        this.v.setTextAppearance(this.f343a, R.style.sidebar_content);
+        this.w.setTextAppearance(this.f343a, R.style.sidebar_content);
+        this.x.setTextAppearance(this.f343a, R.style.sidebar_content);
         this.g.setTextColor(-1485280);
         this.A.setTextColor(-1485280);
-        this.z.setTextAppearance(this.a, R.style.sidebar_content);
+        this.z.setTextAppearance(this.f343a, R.style.sidebar_content);
     }
 }

@@ -8,8 +8,9 @@ import android.graphics.Paint;
 import android.util.AttributeSet;
 import com.baidu.tieba.compatible.CompatibleUtile;
 import com.slidingmenu.lib.R;
+import com.tencent.mm.sdk.contact.RContact;
 /* loaded from: classes.dex */
-public class EditHeadImageView extends h {
+public class EditHeadImageView extends j {
     private Paint b;
     private Paint c;
     private int d;
@@ -54,7 +55,7 @@ public class EditHeadImageView extends h {
     private void r() {
         this.b = new Paint();
         this.b.setColor(-16777216);
-        this.b.setAlpha(153);
+        this.b.setAlpha(RContact.MM_CONTACTIMGFLAG_LOCAL_EXIST);
         this.c = new Paint();
         this.c.setStyle(Paint.Style.STROKE);
         this.c.setColor(-1);
@@ -65,13 +66,13 @@ public class EditHeadImageView extends h {
         CompatibleUtile.getInstance().closeViewGpu(this);
     }
 
-    @Override // com.baidu.tieba.view.h, android.widget.ImageView
+    @Override // com.baidu.tieba.view.j, android.widget.ImageView
     public void setImageBitmap(Bitmap bitmap) {
         super.setImageBitmap(bitmap);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.view.h, android.view.View
+    @Override // com.baidu.tieba.view.j, android.view.View
     public void onLayout(boolean z, int i, int i2, int i3, int i4) {
         super.onLayout(z, i, i2, i3, i4);
         this.d = (int) (((i4 - i2) - (i3 - i)) * this.f);
@@ -80,7 +81,7 @@ public class EditHeadImageView extends h {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.view.h, android.widget.ImageView, android.view.View
+    @Override // com.baidu.tieba.view.j, android.widget.ImageView, android.view.View
     public void onDraw(Canvas canvas) {
         canvas.drawColor(this.g);
         super.onDraw(canvas);
@@ -99,7 +100,7 @@ public class EditHeadImageView extends h {
                 createBitmap.recycle();
             }
         } catch (Exception e) {
-            com.baidu.tieba.util.z.b(getClass().getName(), "getVisableBitmap", e.toString());
+            com.baidu.tieba.util.aj.b(getClass().getName(), "getVisableBitmap", e.toString());
         }
         return bitmap;
     }

@@ -6,14 +6,16 @@ import java.lang.ref.WeakReference;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class o implements Runnable {
-    final /* synthetic */ m a;
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ m f792a;
     private long b;
     private WeakReference c;
     private long d;
     private WeakReference e;
 
     public o(m mVar, long j, Context context, long j2, Context context2) {
-        this.a = mVar;
+        this.f792a = mVar;
         this.b = j;
         this.c = new WeakReference(context);
         this.d = j2;
@@ -39,8 +41,8 @@ public class o implements Runnable {
             sb.deleteCharAt(0);
         }
         com.baidu.mobstat.a.b.a("stat", "new page view, page name = " + sb.toString() + ",stay time = " + j + "(ms)");
-        kVar = this.a.f;
+        kVar = this.f792a.f;
         kVar.a(sb.toString(), j);
-        this.a.c((Context) this.c.get(), this.b);
+        this.f792a.c((Context) this.c.get(), this.b);
     }
 }

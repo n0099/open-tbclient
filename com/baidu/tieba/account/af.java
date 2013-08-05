@@ -1,30 +1,32 @@
 package com.baidu.tieba.account;
 /* loaded from: classes.dex */
 public class af extends Thread {
-    private String a;
-    private String b;
 
-    public af(String str) {
-        this.a = null;
-        this.b = null;
-        this.a = str;
+    /* renamed from: a  reason: collision with root package name */
+    private int f854a;
+    private int b;
+    private String c = null;
+
+    public af(int i, int i2) {
+        this.f854a = 0;
+        this.b = 0;
+        this.f854a = i;
+        this.b = i2;
     }
 
-    public af(String str, String str2) {
-        this.a = null;
-        this.b = null;
-        this.a = str;
-        this.b = str2;
+    public void a(String str) {
+        this.c = str;
     }
 
     @Override // java.lang.Thread, java.lang.Runnable
     public void run() {
         super.run();
-        com.baidu.tieba.util.r rVar = new com.baidu.tieba.util.r(String.valueOf(com.baidu.tieba.data.g.a) + "c/s/pv");
-        rVar.a("st_type", this.a);
-        if (this.b != null) {
-            rVar.a("st_param", this.b);
+        com.baidu.tieba.util.u uVar = new com.baidu.tieba.util.u(String.valueOf(com.baidu.tieba.data.g.f1013a) + "c/s/pv");
+        uVar.a("img_num", String.valueOf(this.f854a));
+        uVar.a("img_total", String.valueOf(this.b));
+        if (this.c != null) {
+            uVar.a("img_type", this.c);
         }
-        rVar.j();
+        uVar.k();
     }
 }

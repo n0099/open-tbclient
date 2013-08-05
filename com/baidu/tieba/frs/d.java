@@ -1,11 +1,13 @@
 package com.baidu.tieba.frs;
 /* loaded from: classes.dex */
 class d implements com.baidu.tbadk.a.d {
-    final /* synthetic */ c a;
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ c f1080a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(c cVar) {
-        this.a = cVar;
+        this.f1080a = cVar;
     }
 
     @Override // com.baidu.tbadk.a.d
@@ -13,11 +15,11 @@ class d implements com.baidu.tbadk.a.d {
         FrsActivity frsActivity;
         FrsActivity frsActivity2;
         if (bVar == null) {
-            frsActivity2 = this.a.a;
-            frsActivity2.v();
+            frsActivity2 = this.f1080a.f1079a;
+            frsActivity2.t();
             return;
         }
-        frsActivity = this.a.a;
+        frsActivity = this.f1080a.f1079a;
         frsActivity.a(bVar, false);
     }
 }

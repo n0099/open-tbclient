@@ -6,17 +6,19 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class b {
-    private ArrayList a = new ArrayList();
-    private com.baidu.tieba.data.ai b = new com.baidu.tieba.data.ai();
+
+    /* renamed from: a  reason: collision with root package name */
+    private ArrayList f1344a = new ArrayList();
+    private com.baidu.tieba.data.ar b = new com.baidu.tieba.data.ar();
     private Date c = null;
     private boolean d = true;
 
     public ArrayList a() {
-        return this.a;
+        return this.f1344a;
     }
 
     public void a(ArrayList arrayList) {
-        this.a = arrayList;
+        this.f1344a = arrayList;
     }
 
     public void a(String str) {
@@ -24,7 +26,7 @@ public class b {
             a(new JSONObject(str));
         } catch (Exception e) {
             this.d = false;
-            com.baidu.tieba.util.z.b("BarlistModel", "parserJson", "error = " + e.getMessage());
+            com.baidu.tieba.util.aj.b("BarlistModel", "parserJson", "error = " + e.getMessage());
         }
     }
 
@@ -33,9 +35,9 @@ public class b {
             JSONArray optJSONArray = jSONObject.optJSONArray("forum_list");
             if (optJSONArray != null) {
                 for (int i = 0; i < optJSONArray.length(); i++) {
-                    com.baidu.tieba.data.r rVar = new com.baidu.tieba.data.r();
-                    rVar.a(optJSONArray.getJSONObject(i));
-                    this.a.add(rVar);
+                    com.baidu.tieba.data.v vVar = new com.baidu.tieba.data.v();
+                    vVar.a(optJSONArray.getJSONObject(i));
+                    this.f1344a.add(vVar);
                 }
             }
             this.b.a(jSONObject.optJSONObject("page"));
@@ -47,7 +49,7 @@ public class b {
             }
         } catch (Exception e) {
             this.d = false;
-            com.baidu.tieba.util.z.b("BarlistModel", "parserJson", "error = " + e.getMessage());
+            com.baidu.tieba.util.aj.b("BarlistModel", "parserJson", "error = " + e.getMessage());
         }
     }
 }

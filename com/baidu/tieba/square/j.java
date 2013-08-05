@@ -1,11 +1,25 @@
 package com.baidu.tieba.square;
 
+import android.view.View;
 import android.widget.ImageView;
-import android.widget.TextView;
 /* loaded from: classes.dex */
-public class j {
-    public ImageView a;
-    public TextView b;
-    public BestStringsFitTextView c;
-    public q d;
+class j implements com.baidu.tbadk.a.d {
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ h f1728a;
+    private final /* synthetic */ View b;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public j(h hVar, View view) {
+        this.f1728a = hVar;
+        this.b = view;
+    }
+
+    @Override // com.baidu.tbadk.a.d
+    public void a(com.baidu.adp.widget.a.b bVar, String str, boolean z) {
+        View findViewWithTag = this.b.findViewWithTag(str);
+        if (findViewWithTag instanceof ImageView) {
+            ((ImageView) findViewWithTag).invalidate();
+        }
+    }
 }

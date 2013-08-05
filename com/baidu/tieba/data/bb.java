@@ -1,48 +1,55 @@
 package com.baidu.tieba.data;
-
-import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class bb {
-    private String a = null;
-    private String d = null;
-    private String b = null;
-    private int c = 0;
-    private bf e = new bf();
 
-    public String a() {
-        return this.d;
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ az f992a;
+    private String b;
+    private String c;
+    private String d;
+    private String e;
+    private String f;
+    private String g;
+    private String h;
+    private int i;
+
+    public bb(az azVar) {
+        this.f992a = azVar;
     }
 
-    public bf b() {
-        return this.e;
+    public int a() {
+        return this.i;
     }
 
-    public String c() {
+    public void a(int i) {
+        this.i = i;
+    }
+
+    public String b() {
         return this.b;
     }
 
-    public String d() {
-        return this.a;
+    public String c() {
+        return this.h;
     }
 
-    public int e() {
+    public String d() {
         return this.c;
     }
 
-    public void a(JSONObject jSONObject) {
-        if (jSONObject != null) {
-            try {
-                this.a = jSONObject.optString("tid");
-                this.b = jSONObject.optString("title");
-                this.c = jSONObject.optInt("reply_amount", 0);
-                JSONObject optJSONObject = jSONObject.optJSONObject("user");
-                if (optJSONObject != null) {
-                    this.d = optJSONObject.optString("name_show");
-                }
-                this.e.a(jSONObject.optJSONObject("photo"));
-            } catch (Exception e) {
-                com.baidu.tieba.util.z.b("HotspotData", "parserJson", "error = " + e.getMessage());
-            }
-        }
+    public String e() {
+        return this.d;
+    }
+
+    public String f() {
+        return this.e;
+    }
+
+    public String g() {
+        return this.f;
+    }
+
+    public String h() {
+        return this.g;
     }
 }

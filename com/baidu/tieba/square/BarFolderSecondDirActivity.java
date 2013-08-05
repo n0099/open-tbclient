@@ -9,13 +9,13 @@ import android.widget.ListAdapter;
 import android.widget.ProgressBar;
 import com.baidu.mobstat.StatService;
 import com.baidu.tieba.MainTabActivity;
-import com.baidu.tieba.util.x;
+import com.baidu.tieba.util.ah;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public class BarFolderSecondDirActivity extends com.baidu.tieba.a {
     private ProgressBar j;
-    private m k;
-    private l l;
+    private n k;
+    private m l;
     private ImageView m = null;
     private String n;
     private String o;
@@ -38,13 +38,13 @@ public class BarFolderSecondDirActivity extends com.baidu.tieba.a {
         this.o = getIntent().getStringExtra("menuType");
         this.p = getIntent().getStringExtra("menuId");
         d();
-        n();
-        m();
+        l();
+        k();
         StatService.onEvent(this, "category_2", "enter");
     }
 
     protected void d() {
-        this.k = new m(this, new p(), this.n, this.p);
+        this.k = new n(this, new q(), this.n, this.p);
         this.e.setAdapter((ListAdapter) this.k);
         this.d.setText(this.n);
         this.j = (ProgressBar) findViewById(R.id.progress);
@@ -55,7 +55,7 @@ public class BarFolderSecondDirActivity extends com.baidu.tieba.a {
     @Override // com.baidu.tieba.a, com.baidu.tieba.g
     public void a(int i) {
         super.a(i);
-        x.d(this.m, i);
+        ah.d(this.m, i);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -64,7 +64,7 @@ public class BarFolderSecondDirActivity extends com.baidu.tieba.a {
         if (this.l != null) {
             this.l.cancel();
         }
-        a((p) null, true);
+        a((q) null, true);
         super.c();
     }
 
@@ -75,30 +75,30 @@ public class BarFolderSecondDirActivity extends com.baidu.tieba.a {
         }
     }
 
-    protected void m() {
-        this.e.setOnItemClickListener(new k(this));
+    protected void k() {
+        this.e.setOnItemClickListener(new l(this));
         this.m.setOnClickListener(this);
     }
 
-    protected void n() {
+    protected void l() {
         this.j.setVisibility(0);
         this.e.setEnabled(false);
         if (this.l != null) {
             this.l.cancel();
         }
-        this.l = new l(this, null);
+        this.l = new m(this, null);
         this.l.setPriority(3);
         this.l.execute("");
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void a(p pVar, boolean z) {
+    public void a(q qVar, boolean z) {
         this.j.setVisibility(8);
         this.e.setEnabled(true);
         this.l = null;
         if (!z) {
-            if (pVar.a()) {
-                a(pVar.b());
+            if (qVar.a()) {
+                a(qVar.b());
                 return;
             }
             this.e.setVisibility(4);

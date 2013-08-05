@@ -1,22 +1,20 @@
 package com.baidu.tieba.more;
 
-import android.app.TimePickerDialog;
-import android.widget.TimePicker;
-import com.baidu.tieba.TiebaApplication;
+import android.view.View;
+import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-class ak implements TimePickerDialog.OnTimeSetListener {
-    final /* synthetic */ SignRemindActivity a;
-    private final /* synthetic */ TiebaApplication b;
+class ak implements View.OnClickListener {
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ SignRemindActivity f1406a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ak(SignRemindActivity signRemindActivity, TiebaApplication tiebaApplication) {
-        this.a = signRemindActivity;
-        this.b = tiebaApplication;
+    public ak(SignRemindActivity signRemindActivity) {
+        this.f1406a = signRemindActivity;
     }
 
-    @Override // android.app.TimePickerDialog.OnTimeSetListener
-    public void onTimeSet(TimePicker timePicker, int i, int i2) {
-        this.b.a(i, i2);
-        this.a.d();
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        this.f1406a.showDialog(R.id.sign_remind);
     }
 }

@@ -183,7 +183,7 @@ public class NotificationManagerThread {
 
     private int allocateReplaceId(String str) {
         int nextInt;
-        if (this.mNotificationProxys.size() >= 50) {
+        if (this.mNotificationProxys.size() >= MAX_SHOW_NOTIFICATION_NUM) {
             if (str != null || str.length() != 0) {
                 int APHash = APHash(str) + 51;
                 while (true) {
@@ -200,7 +200,7 @@ public class NotificationManagerThread {
             return 0;
         } else if (str == null || str.length() == 0) {
             do {
-                nextInt = new Random().nextInt(50) + 1;
+                nextInt = new Random().nextInt(MAX_SHOW_NOTIFICATION_NUM) + 1;
             } while (this.mDefaultIdArray.contains(Integer.valueOf(nextInt)));
             this.mDefaultIdArray.add(Integer.valueOf(nextInt));
             return nextInt;

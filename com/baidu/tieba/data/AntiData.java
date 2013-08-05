@@ -75,7 +75,7 @@ public class AntiData implements Serializable {
         try {
             parserJson(new JSONObject(str));
         } catch (Exception e) {
-            com.baidu.tieba.util.z.b("AntiData", "parserJson", "error = " + e.getMessage());
+            com.baidu.tieba.util.aj.b("AntiData", "parserJson", "error = " + e.getMessage());
         }
     }
 
@@ -94,18 +94,18 @@ public class AntiData implements Serializable {
                 this.vcode_pic_url = jSONObject.optString("vcode_pic_url");
                 this.forbid_info = jSONObject.optString("forbid_info");
             } catch (Exception e) {
-                com.baidu.tieba.util.z.b("AntiData", "parserJson", "error = " + e.getMessage());
+                com.baidu.tieba.util.aj.b("AntiData", "parserJson", "error = " + e.getMessage());
             }
         }
     }
 
     public void logPrint() {
-        com.baidu.tieba.util.z.d("AntiData", "logPrint", "ifpost = " + String.valueOf(this.ifpost));
-        com.baidu.tieba.util.z.d("AntiData", "logPrint", "ifposta = " + String.valueOf(this.ifposta));
-        com.baidu.tieba.util.z.d("AntiData", "logPrint", "forbid_flag = " + String.valueOf(this.forbid_flag));
-        com.baidu.tieba.util.z.d("AntiData", "logPrint", "tbs = " + this.tbs);
-        com.baidu.tieba.util.z.d("AntiData", "logPrint", "need_vcode = " + String.valueOf(this.need_vcode));
-        com.baidu.tieba.util.z.d("AntiData", "logPrint", "vcode_md5 = " + this.vcode_md5);
+        com.baidu.tieba.util.aj.d("AntiData", "logPrint", "ifpost = " + String.valueOf(this.ifpost));
+        com.baidu.tieba.util.aj.d("AntiData", "logPrint", "ifposta = " + String.valueOf(this.ifposta));
+        com.baidu.tieba.util.aj.d("AntiData", "logPrint", "forbid_flag = " + String.valueOf(this.forbid_flag));
+        com.baidu.tieba.util.aj.d("AntiData", "logPrint", "tbs = " + this.tbs);
+        com.baidu.tieba.util.aj.d("AntiData", "logPrint", "need_vcode = " + String.valueOf(this.need_vcode));
+        com.baidu.tieba.util.aj.d("AntiData", "logPrint", "vcode_md5 = " + this.vcode_md5);
     }
 
     public void setForbid_info(String str) {

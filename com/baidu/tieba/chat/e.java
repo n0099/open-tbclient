@@ -3,18 +3,20 @@ package com.baidu.tieba.chat;
 import android.os.Handler;
 /* loaded from: classes.dex */
 class e implements ac {
-    final /* synthetic */ ChatActivity a;
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ ChatActivity f936a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(ChatActivity chatActivity) {
-        this.a = chatActivity;
+        this.f936a = chatActivity;
     }
 
     @Override // com.baidu.tieba.chat.ac
     public void a() {
         ad adVar;
-        adVar = this.a.a;
-        adVar.k();
+        adVar = this.f936a.f925a;
+        adVar.l();
     }
 
     @Override // com.baidu.tieba.chat.ac
@@ -27,26 +29,26 @@ class e implements ac {
         Runnable runnable;
         Handler handler2;
         Runnable runnable2;
-        adVar = this.a.a;
-        adVar.l();
+        adVar = this.f936a.f925a;
+        adVar.m();
         if (z) {
-            wVar = this.a.b;
+            wVar = this.f936a.b;
             wVar.a().a(cVar);
-            adVar2 = this.a.a;
-            adVar2.f();
+            adVar2 = this.f936a.f925a;
+            adVar2.g();
             new Handler().post(new f(this));
             if (cVar.c()) {
-                handler = this.a.j;
-                runnable = this.a.m;
+                handler = this.f936a.j;
+                runnable = this.f936a.m;
                 handler.removeCallbacks(runnable);
-                handler2 = this.a.j;
-                runnable2 = this.a.m;
+                handler2 = this.f936a.j;
+                runnable2 = this.f936a.m;
                 handler2.post(runnable2);
             }
-            aaVar = this.a.c;
+            aaVar = this.f936a.c;
             aaVar.a((com.baidu.tieba.data.a.e) null);
             return;
         }
-        this.a.a(str);
+        this.f936a.a(str);
     }
 }

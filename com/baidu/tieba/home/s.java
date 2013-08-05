@@ -5,7 +5,9 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 /* loaded from: classes.dex */
 class s {
-    RelativeLayout a;
+
+    /* renamed from: a  reason: collision with root package name */
+    RelativeLayout f1162a;
     TextView b;
     ImageView c;
     final /* synthetic */ r d;

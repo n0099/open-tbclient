@@ -1,112 +1,115 @@
 package com.baidu.tieba.model;
 
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.tieba.TiebaApplication;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class p extends BdAsyncTask {
-    final /* synthetic */ o a;
-    private com.baidu.tieba.util.r b = null;
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ o f1379a;
+    private String b;
     private String c;
     private String d;
-    private String e;
-    private String f;
-    private int g;
-    private int h;
-    private boolean i;
+    private com.baidu.tieba.a.g e = null;
 
-    public p(o oVar, String str, String str2, String str3, String str4, int i, int i2, boolean z) {
-        this.a = oVar;
-        this.c = str;
-        this.d = str2;
-        this.e = str3;
-        this.f = str4;
-        this.g = i;
-        this.h = i2;
-        this.i = z;
+    public p(o oVar, String str, String str2, String str3) {
+        this.f1379a = oVar;
+        this.b = null;
+        this.c = null;
+        this.d = null;
+        this.b = str;
+        this.c = str2;
+        this.d = str3;
+        setSelfExecute(true);
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public void b() {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public String a(String... strArr) {
-        String str;
-        String str2 = com.baidu.tieba.data.g.a;
-        if (this.g == 0) {
-            str = String.valueOf(str2) + "c/c/bawu/delthread";
+    /* renamed from: d */
+    public com.baidu.tieba.data.ac a(Object... objArr) {
+        String e;
+        com.baidu.adp.lib.cache.q bm;
+        try {
+            this.e = new com.baidu.tieba.a.g();
+            String E = TiebaApplication.E();
+            if ((E == null || E.length() == 0) && (e = aq.e()) != null && e.length() > 0) {
+                this.e.a("tag_info", e);
+            }
+            String a2 = this.e.a(this.b, this.c, this.d);
+            if (this.e.c()) {
+                com.baidu.tieba.data.ac acVar = new com.baidu.tieba.data.ac();
+                acVar.a(a2);
+                if (this.d.equals("1") && (bm = TiebaApplication.f().bm()) != null && this.e.e() == 0) {
+                    bm.a("home_interest", a2, 100000000L);
+                    return acVar;
+                }
+                return acVar;
+            }
+        } catch (Exception e2) {
+        }
+        return null;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public void a(com.baidu.tieba.data.ac acVar) {
+        com.baidu.adp.a.e eVar;
+        com.baidu.tieba.data.ac acVar2;
+        int i;
+        int i2;
+        com.baidu.tieba.data.ac acVar3;
+        com.baidu.tieba.data.ac acVar4;
+        com.baidu.adp.a.e eVar2;
+        this.f1379a.setErrorCode(this.e.e());
+        this.f1379a.setErrorString(this.e.f());
+        if (acVar == null) {
+            eVar2 = this.f1379a.mLoadDataCallBack;
+            eVar2.a(null);
         } else {
-            str = String.valueOf(str2) + "c/c/bawu/delpost";
-        }
-        this.b = new com.baidu.tieba.util.r(str);
-        this.b.a("fid", this.c);
-        this.b.a("word", this.d);
-        this.b.a("z", this.e);
-        if (this.g == 0) {
-            if (this.h == 0) {
-                this.b.a("delete_my_thread", "1");
+            try {
+                i = this.f1379a.f1378a;
+                if (i != 1) {
+                    i2 = this.f1379a.f1378a;
+                    if (i2 == 2) {
+                        acVar3 = this.f1379a.f;
+                        if (acVar3 == null) {
+                            this.f1379a.f = acVar;
+                        } else {
+                            acVar4 = this.f1379a.f;
+                            acVar4.a(acVar, true);
+                        }
+                    }
+                } else {
+                    this.f1379a.f = acVar;
+                }
+            } catch (Exception e) {
             }
-        } else if (this.g == 1) {
-            this.b.a("pid", this.f);
-            this.b.a("isfloor", "0");
-            this.b.a("src", "1");
-            if (this.h == 0 && this.i) {
-                this.b.a("delete_my_post", "1");
-            }
-        } else if (this.g == 2) {
-            this.b.a("pid", this.f);
-            this.b.a("isfloor", "1");
-            this.b.a("src", "3");
-            if (this.h == 0 && this.i) {
-                this.b.a("delete_my_post", "1");
-            }
+            eVar = this.f1379a.mLoadDataCallBack;
+            acVar2 = this.f1379a.f;
+            eVar.a(acVar2);
         }
-        if (this.h == 0 && !this.i) {
-            this.b.a("is_vipdel", "1");
-        } else {
-            this.b.a("is_vipdel", "0");
-        }
-        this.b.d(true);
-        this.b.j();
-        if (this.b.c()) {
-            return null;
-        }
-        return this.b.g();
+        this.e.a();
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public void c() {
+        super.c();
     }
 
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void cancel() {
-        com.baidu.adp.a.e eVar;
-        if (this.b != null) {
-            this.b.h();
-        }
-        this.a.a = null;
         super.cancel(true);
-        eVar = this.a.mLoadDataCallBack;
-        eVar.a(null);
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void a(String str) {
-        com.baidu.adp.a.e eVar;
-        com.baidu.adp.a.e eVar2;
-        super.a((Object) str);
-        this.a.a = null;
-        if (this.b == null) {
-            eVar2 = this.a.mLoadDataCallBack;
-            eVar2.a(null);
-            return;
+        if (this.e != null) {
+            this.e.a();
         }
-        q qVar = new q(this.a);
-        qVar.c = this.g;
-        qVar.d = this.f;
-        qVar.b = str;
-        if (str == null) {
-            qVar.a = true;
-        } else {
-            qVar.a = false;
-        }
-        eVar = this.a.mLoadDataCallBack;
-        eVar.a(qVar);
     }
 }

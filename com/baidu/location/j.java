@@ -10,7 +10,6 @@ import android.util.Log;
 import com.baidu.account.AccountProxy;
 import com.baidu.location.c;
 import com.baidu.location.e;
-import com.baidu.mapapi.MKEvent;
 import java.io.File;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
@@ -71,7 +70,9 @@ public class j {
     public static float f232char = 2.3f;
     public static float C = 3.8f;
     public static int t = 3;
-    public static int a = 10;
+
+    /* renamed from: a  reason: collision with root package name */
+    public static int f759a = 10;
     public static int u = 2;
 
     /* renamed from: if  reason: not valid java name */
@@ -98,7 +99,7 @@ public class j {
     public static boolean m = true;
     public static boolean G = true;
     public static int i = 20;
-    public static int g = MKEvent.ERROR_PERMISSION_DENIED;
+    public static int g = 300;
     public static int l = LocationClientOption.MIN_SCAN_SPAN;
     public static long z = 1200000;
     public static long B = 20;
@@ -107,7 +108,9 @@ public class j {
 
     /* loaded from: classes.dex */
     public class a {
-        private static final boolean a = false;
+
+        /* renamed from: a  reason: collision with root package name */
+        private static final boolean f760a = false;
 
         /* renamed from: if  reason: not valid java name */
         private static final String f243if = a.class.getSimpleName();
@@ -129,7 +132,9 @@ public class j {
 
     /* loaded from: classes.dex */
     public class b {
-        private static final String a = "a";
+
+        /* renamed from: a  reason: collision with root package name */
+        private static final String f761a = "a";
 
         /* renamed from: do  reason: not valid java name */
         private static final String f244do = "bids";
@@ -152,11 +157,11 @@ public class j {
                 edit.putString(f245for, string);
                 edit.commit();
             }
-            String string2 = sharedPreferences.getString(a, null);
+            String string2 = sharedPreferences.getString(f761a, null);
             if (string2 == null) {
                 string2 = m260if(context);
                 SharedPreferences.Editor edit2 = sharedPreferences.edit();
-                edit2.putString(a, string2);
+                edit2.putString(f761a, string2);
                 edit2.commit();
             }
             String a2 = j.a((AccountProxy.BAIDUACCOUNT_TYPE + string + string2).getBytes(), true);

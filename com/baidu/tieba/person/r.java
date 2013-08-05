@@ -7,13 +7,15 @@ import com.baidu.tieba.view.EditHeadImageView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class r implements View.OnClickListener {
-    final /* synthetic */ EditHeadActivity a;
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ EditHeadActivity f1614a;
     private final /* synthetic */ String b;
     private final /* synthetic */ int c;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public r(EditHeadActivity editHeadActivity, String str, int i) {
-        this.a = editHeadActivity;
+        this.f1614a = editHeadActivity;
         this.b = str;
         this.c = i;
     }
@@ -23,14 +25,14 @@ public class r implements View.OnClickListener {
         ProgressBar progressBar;
         EditHeadImageView editHeadImageView;
         Bitmap bitmap;
-        progressBar = this.a.n;
+        progressBar = this.f1614a.n;
         if (progressBar.getVisibility() != 0) {
-            editHeadImageView = this.a.e;
-            bitmap = this.a.f;
+            editHeadImageView = this.f1614a.e;
+            bitmap = this.f1614a.f;
             editHeadImageView.a(bitmap);
-            this.a.C = false;
-            this.a.d(this.b);
-            this.a.y = this.c;
+            this.f1614a.C = false;
+            this.f1614a.d(this.b);
+            this.f1614a.y = this.c;
         }
     }
 }

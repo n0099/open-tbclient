@@ -7,11 +7,13 @@ import com.slidingmenu.lib.R;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class at implements TextWatcher {
-    final /* synthetic */ SearchActivity a;
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ SearchActivity f1132a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public at(SearchActivity searchActivity) {
-        this.a = searchActivity;
+        this.f1132a = searchActivity;
     }
 
     @Override // android.text.TextWatcher
@@ -19,22 +21,22 @@ public class at implements TextWatcher {
         String str;
         int i4;
         int i5;
-        this.a.A = charSequence.toString();
-        str = this.a.A;
+        this.f1132a.A = charSequence.toString();
+        str = this.f1132a.A;
         if (str.trim().length() > 0) {
-            i5 = this.a.B;
+            i5 = this.f1132a.B;
             if (i5 != 0) {
                 return;
             }
-            this.a.p();
+            this.f1132a.n();
             return;
         }
-        this.a.b();
-        i4 = this.a.B;
+        this.f1132a.b();
+        i4 = this.f1132a.B;
         if (i4 == 0) {
-            this.a.o();
+            this.f1132a.m();
         } else {
-            this.a.q();
+            this.f1132a.o();
         }
     }
 
@@ -49,15 +51,15 @@ public class at implements TextWatcher {
         Button button3;
         Button button4;
         if (editable.toString().trim().length() == 0) {
-            button3 = this.a.c;
-            button3.setText(this.a.getString(R.string.cancel));
-            button4 = this.a.b;
+            button3 = this.f1132a.c;
+            button3.setText(this.f1132a.getString(R.string.cancel));
+            button4 = this.f1132a.b;
             button4.setVisibility(8);
             return;
         }
-        button = this.a.c;
-        button.setText(this.a.getString(R.string.search));
-        button2 = this.a.b;
+        button = this.f1132a.c;
+        button.setText(this.f1132a.getString(R.string.search));
+        button2 = this.f1132a.b;
         button2.setVisibility(0);
     }
 }

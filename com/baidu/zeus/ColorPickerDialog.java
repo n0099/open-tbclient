@@ -12,6 +12,7 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.widget.LinearLayout;
 import com.baidu.zeus.bouncycastle.DERTags;
+import com.tencent.mm.sdk.platformtools.Util;
 /* loaded from: classes.dex */
 class ColorPickerDialog extends AlertDialog implements DialogInterface.OnClickListener {
     private int mColor;
@@ -52,7 +53,7 @@ class ColorPickerDialog extends AlertDialog implements DialogInterface.OnClickLi
             this.mCenterPaint.setStyle(Paint.Style.FILL);
             this.mCenterPaint.setStrokeWidth(5.0f);
             this.mCenterPaint.setColor(i);
-            this.mCenterPaint.setAlpha(255);
+            this.mCenterPaint.setAlpha(Util.MASK_8BIT);
         }
 
         @Override // android.view.View
@@ -65,7 +66,7 @@ class ColorPickerDialog extends AlertDialog implements DialogInterface.OnClickLi
                 int color = this.mCenterPaint.getColor();
                 this.mCenterPaint.setStyle(Paint.Style.STROKE);
                 if (this.mHighlightCenter) {
-                    this.mCenterPaint.setAlpha(255);
+                    this.mCenterPaint.setAlpha(Util.MASK_8BIT);
                 } else {
                     this.mCenterPaint.setAlpha(DERTags.TAGGED);
                 }
@@ -88,10 +89,7 @@ class ColorPickerDialog extends AlertDialog implements DialogInterface.OnClickLi
             if (i < 0) {
                 return 0;
             }
-            if (i > 255) {
-                return 255;
-            }
-            return i;
+            return i > 255 ? Util.MASK_8BIT : i;
         }
 
         private int ave(int i, int i2, float f) {

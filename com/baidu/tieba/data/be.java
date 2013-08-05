@@ -1,46 +1,86 @@
 package com.baidu.tieba.data;
 
+import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class be {
-    private String a = null;
-    private String b = null;
-    private String c = null;
 
-    public String a() {
-        return this.a;
+    /* renamed from: a  reason: collision with root package name */
+    private String f995a;
+    private String b;
+    private String c;
+    private int d;
+    private long e;
+    private long f;
+    private int g;
+    private bf h;
+
+    public void a(String str) {
+        this.f995a = str;
     }
 
-    public String b() {
+    public String a() {
         return this.b;
     }
 
-    public String c() {
-        return this.c;
+    public void b(String str) {
+        this.b = str;
     }
 
-    public void a(String str) {
+    public void c(String str) {
+        this.c = str;
+    }
+
+    public int b() {
+        return this.d;
+    }
+
+    public void a(int i) {
+        this.d = i;
+    }
+
+    public void a(long j) {
+        this.e = j;
+    }
+
+    public void b(long j) {
+        this.f = j;
+    }
+
+    public void b(int i) {
+        this.g = i;
+    }
+
+    public void a(bf bfVar) {
+        this.h = bfVar;
+    }
+
+    public be d(String str) {
         try {
-            JSONObject jSONObject = new JSONObject(str);
-            JSONObject optJSONObject = jSONObject.optJSONObject("info");
-            if (optJSONObject == null) {
-                optJSONObject = jSONObject.optJSONObject("anti");
-            }
-            a(optJSONObject);
+            return a(new JSONObject(str));
         } catch (Exception e) {
-            com.baidu.tieba.util.z.b("VcodeInfoData", "parserJson", "error = " + e.getMessage());
+            e.printStackTrace();
+            return null;
         }
     }
 
-    public void a(JSONObject jSONObject) {
-        if (jSONObject != null) {
-            try {
-                this.a = jSONObject.optString("vcode_md5");
-                this.b = jSONObject.optString("vcode_pic_url");
-                this.c = jSONObject.optString("vcode_type");
-            } catch (Exception e) {
-                com.baidu.tieba.util.z.b("VcodeInfoData", "parserJson", "error = " + e.getMessage());
-            }
+    private be a(JSONObject jSONObject) {
+        bf a2;
+        try {
+            be beVar = new be();
+            beVar.a(jSONObject.getString("share_id"));
+            beVar.b(jSONObject.getString("share_text"));
+            beVar.c(jSONObject.getString("result_pic"));
+            beVar.a(jSONObject.getInt("error_code"));
+            beVar.a(jSONObject.getLong("time"));
+            beVar.b(jSONObject.getLong("ctime"));
+            beVar.b(jSONObject.getInt("logid"));
+            a2 = new bf(this).a(jSONObject.getJSONObject("error"));
+            beVar.a(a2);
+            return beVar;
+        } catch (JSONException e) {
+            e.printStackTrace();
+            return null;
         }
     }
 }

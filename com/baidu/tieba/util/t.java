@@ -1,22 +1,35 @@
 package com.baidu.tieba.util;
 
-import com.baidu.tieba.BaiduAccount.BaiduAccount;
-import com.baidu.tieba.TiebaApplication;
-import com.slidingmenu.lib.R;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.content.Context;
+import android.media.MediaScannerConnection;
+import android.net.Uri;
 /* loaded from: classes.dex */
-public class t implements BaiduAccount.CallbackListener {
-    final /* synthetic */ r a;
+public class t implements MediaScannerConnection.MediaScannerConnectionClient {
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public t(r rVar) {
-        this.a = rVar;
+    /* renamed from: a  reason: collision with root package name */
+    private MediaScannerConnection f1774a;
+    private Context b;
+    private String c;
+    private String d;
+
+    public t(Context context) {
+        this.b = context;
     }
 
-    @Override // com.baidu.tieba.BaiduAccount.BaiduAccount.CallbackListener
-    public void callback() {
-        NetWorkCore netWorkCore;
-        netWorkCore = this.a.a;
-        netWorkCore.b(TiebaApplication.f().getString(R.string.error_unkown));
+    public void a(String str) {
+        this.c = str;
+        this.d = "image/*";
+        this.f1774a = new MediaScannerConnection(this.b, this);
+        this.f1774a.connect();
+    }
+
+    @Override // android.media.MediaScannerConnection.MediaScannerConnectionClient
+    public void onMediaScannerConnected() {
+        this.f1774a.scanFile(this.c, this.d);
+    }
+
+    @Override // android.media.MediaScannerConnection.OnScanCompletedListener
+    public void onScanCompleted(String str, Uri uri) {
+        this.f1774a.disconnect();
     }
 }

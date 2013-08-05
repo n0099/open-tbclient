@@ -6,63 +6,65 @@ import android.view.View;
 import android.widget.RadioButton;
 /* loaded from: classes.dex */
 class ak implements View.OnClickListener {
-    final /* synthetic */ PersonChangeActivity a;
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ PersonChangeActivity f1570a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ak(PersonChangeActivity personChangeActivity) {
-        this.a = personChangeActivity;
+        this.f1570a = personChangeActivity;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         RadioButton radioButton;
         RadioButton radioButton2;
-        com.baidu.tieba.model.bh bhVar;
-        com.baidu.tieba.model.bh bhVar2;
+        com.baidu.tieba.model.bm bmVar;
+        com.baidu.tieba.model.bm bmVar2;
         boolean z;
-        com.baidu.tieba.model.bh bhVar3;
-        com.baidu.tieba.model.bh bhVar4;
-        com.baidu.tieba.model.bh bhVar5;
+        com.baidu.tieba.model.bm bmVar3;
+        com.baidu.tieba.model.bm bmVar4;
+        com.baidu.tieba.model.bm bmVar5;
         Dialog dialog;
-        com.baidu.tieba.model.bh bhVar6;
-        com.baidu.tieba.model.bh bhVar7;
-        radioButton = this.a.v;
+        com.baidu.tieba.model.bm bmVar6;
+        com.baidu.tieba.model.bm bmVar7;
+        radioButton = this.f1570a.v;
         if (!radioButton.isChecked()) {
-            radioButton2 = this.a.w;
+            radioButton2 = this.f1570a.w;
             if (radioButton2.isChecked()) {
-                bhVar = this.a.z;
-                if (bhVar != null) {
-                    bhVar2 = this.a.z;
-                    if (bhVar2.a().getSex() != 2) {
-                        this.a.H = true;
+                bmVar = this.f1570a.z;
+                if (bmVar != null) {
+                    bmVar2 = this.f1570a.z;
+                    if (bmVar2.a().getSex() != 2) {
+                        this.f1570a.H = true;
                     }
                 }
             }
         } else {
-            bhVar6 = this.a.z;
-            if (bhVar6 != null) {
-                bhVar7 = this.a.z;
-                if (bhVar7.a().getSex() != 1) {
-                    this.a.H = true;
+            bmVar6 = this.f1570a.z;
+            if (bmVar6 != null) {
+                bmVar7 = this.f1570a.z;
+                if (bmVar7.a().getSex() != 1) {
+                    this.f1570a.H = true;
                 }
             }
         }
-        z = this.a.H;
+        z = this.f1570a.H;
         if (!z) {
-            bhVar3 = this.a.z;
-            if (bhVar3 != null) {
-                bhVar4 = this.a.z;
-                if (bhVar4.a().getPhotoChanged()) {
+            bmVar3 = this.f1570a.z;
+            if (bmVar3 != null) {
+                bmVar4 = this.f1570a.z;
+                if (bmVar4.a().getPhotoChanged()) {
                     Intent intent = new Intent();
-                    bhVar5 = this.a.z;
-                    intent.putExtra("data", bhVar5.a());
-                    this.a.setResult(-1, intent);
+                    bmVar5 = this.f1570a.z;
+                    intent.putExtra("data", bmVar5.a());
+                    this.f1570a.setResult(-1, intent);
                 }
             }
-            this.a.finish();
+            this.f1570a.finish();
             return;
         }
-        dialog = this.a.G;
+        dialog = this.f1570a.G;
         dialog.show();
     }
 }

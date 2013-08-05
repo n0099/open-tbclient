@@ -6,41 +6,51 @@ import android.view.View;
 import com.baidu.zeus.bouncycastle.DERTags;
 /* loaded from: classes.dex */
 public class f extends ClickableSpan {
-    private Context a;
+
+    /* renamed from: a  reason: collision with root package name */
+    private Context f810a;
     private int b;
     private String c;
+    private String d;
 
     public f(Context context, int i, String str) {
-        this.a = null;
+        this.f810a = null;
         this.b = 0;
         this.c = null;
-        this.a = context;
+        this.f810a = context;
         this.c = str;
         this.b = i;
+    }
+
+    public void a(String str) {
+        this.d = str;
     }
 
     @Override // android.text.style.ClickableSpan
     public void onClick(View view) {
         h hVar = null;
-        if (this.a instanceof h) {
-            hVar = (h) this.a;
+        if (this.f810a instanceof h) {
+            hVar = (h) this.f810a;
         }
         if (hVar != null) {
             switch (this.b) {
                 case 2:
-                    hVar.b(this.a, this.c);
+                    hVar.b(this.f810a, this.c);
                     return;
                 case 16:
-                    hVar.a(this.a, this.c);
+                    hVar.a(this.f810a, this.c);
                     return;
                 case 32:
-                    hVar.c(this.a, this.c);
+                    hVar.c(this.f810a, this.c);
                     return;
-                case DERTags.APPLICATION /* 64 */:
-                    hVar.d(this.a, this.c);
+                case 64:
+                    hVar.d(this.f810a, this.c);
                     return;
                 case DERTags.TAGGED /* 128 */:
-                    hVar.e(this.a, this.c);
+                    hVar.e(this.f810a, this.c);
+                    return;
+                case 256:
+                    hVar.a(this.f810a, this.c, this.d);
                     return;
                 default:
                     return;

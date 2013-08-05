@@ -33,7 +33,9 @@ public class CreateBarActivity extends com.baidu.tieba.g {
     private TextWatcher t = null;
     private String u = null;
     private TextView v = null;
-    RelativeLayout a = null;
+
+    /* renamed from: a  reason: collision with root package name */
+    RelativeLayout f1105a = null;
     View b = null;
     TextView c = null;
     TextView d = null;
@@ -55,7 +57,7 @@ public class CreateBarActivity extends com.baidu.tieba.g {
         super.onCreate(bundle);
         setContentView(R.layout.create_bar_activity);
         c();
-        n();
+        l();
         b();
     }
 
@@ -97,7 +99,7 @@ public class CreateBarActivity extends com.baidu.tieba.g {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void m() {
+    public void k() {
         if (this.q == null) {
             this.q = new c(this, this.g.getText().toString().trim(), this.j.getText().toString().trim());
             this.q.setPriority(3);
@@ -105,10 +107,10 @@ public class CreateBarActivity extends com.baidu.tieba.g {
         }
     }
 
-    private void n() {
+    private void l() {
         this.s = new a(this);
         this.t = new b(this);
-        this.a = (RelativeLayout) findViewById(R.id.container);
+        this.f1105a = (RelativeLayout) findViewById(R.id.container);
         this.b = findViewById(R.id.title);
         this.c = (TextView) findViewById(R.id.title_text);
         this.d = (TextView) findViewById(R.id.text);
@@ -144,12 +146,12 @@ public class CreateBarActivity extends com.baidu.tieba.g {
     @Override // com.baidu.tieba.g
     public void a(int i) {
         super.a(i);
-        com.baidu.tieba.util.x.f(this.c, i);
-        com.baidu.tieba.util.x.a(this.l, i);
-        com.baidu.tieba.util.x.a(this.a, i);
-        com.baidu.tieba.util.x.d(this.b, i);
-        com.baidu.tieba.util.x.a(this.d, i);
-        com.baidu.tieba.util.x.b(this.f, i);
+        com.baidu.tieba.util.ah.f(this.c, i);
+        com.baidu.tieba.util.ah.a(this.l, i);
+        com.baidu.tieba.util.ah.a(this.f1105a, i);
+        com.baidu.tieba.util.ah.d(this.b, i);
+        com.baidu.tieba.util.ah.a(this.d, i);
+        com.baidu.tieba.util.ah.b(this.f, i);
         String str = String.valueOf(this.w) + getString(R.string.bar_not_create);
         SpannableString spannableString = new SpannableString(str);
         spannableString.setSpan(new ForegroundColorSpan(Color.rgb(229, 4, 0)), 0, this.w.length(), 33);

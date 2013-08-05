@@ -3,6 +3,7 @@ package com.baidu.zeus;
 import android.content.Context;
 import android.content.pm.PackageInfo;
 import android.util.Log;
+import com.tencent.mm.sdk.platformtools.Util;
 import java.io.ByteArrayOutputStream;
 import java.io.UnsupportedEncodingException;
 /* loaded from: classes.dex */
@@ -44,10 +45,10 @@ public final class PlumCore {
             byte[] bytes = str.getBytes();
             int length = bytes.length;
             int PlIdeaBase64GetBufferNeed = PlIdeaBase64GetBufferNeed(length);
-            byteArrayOutputStream.write(length & 255);
-            byteArrayOutputStream.write((length >> 8) & 255);
-            byteArrayOutputStream.write((length >> 16) & 255);
-            byteArrayOutputStream.write((length >> 24) & 255);
+            byteArrayOutputStream.write(length & Util.MASK_8BIT);
+            byteArrayOutputStream.write((length >> 8) & Util.MASK_8BIT);
+            byteArrayOutputStream.write((length >> 16) & Util.MASK_8BIT);
+            byteArrayOutputStream.write((length >> 24) & Util.MASK_8BIT);
             for (int i = 1; i <= 16; i++) {
                 byteArrayOutputStream.write(0);
             }

@@ -18,16 +18,18 @@ import com.baidu.tieba.view.PageIndex;
 import com.slidingmenu.lib.R;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
-public class RecommendPagerAdapter extends android.support.v4.view.ae implements com.baidu.tbadk.a.d, com.baidu.tieba.view.v {
+public class RecommendPagerAdapter extends android.support.v4.view.ae implements com.baidu.tbadk.a.d, com.baidu.tieba.view.z {
     boolean b;
     boolean c;
     public com.baidu.tieba.util.a e;
     LayoutInflater f;
     private Activity g;
     private m h;
-    private com.baidu.tieba.data.ar i;
+    private com.baidu.tieba.data.ba i;
     private ArrayList j;
-    int a = 0;
+
+    /* renamed from: a  reason: collision with root package name */
+    int f1109a = 0;
     ArrayList d = new ArrayList();
     private View k = null;
 
@@ -39,29 +41,29 @@ public class RecommendPagerAdapter extends android.support.v4.view.ae implements
         this.f = LayoutInflater.from(activity);
     }
 
-    public void a(com.baidu.tieba.data.ar arVar, ArrayList arrayList) {
+    public void a(com.baidu.tieba.data.ba baVar, ArrayList arrayList) {
         View view;
         int i;
         View view2 = null;
         a();
-        this.i = arVar;
+        this.i = baVar;
         this.j = arrayList;
-        if (arVar != null) {
+        if (baVar != null) {
             this.b = true;
-            this.a++;
+            this.f1109a++;
         }
-        if (arrayList != null && arrayList != null && arrayList.size() > 0) {
+        if (arrayList != null && arrayList.size() > 0) {
             this.c = true;
-            this.a += arrayList.size();
+            this.f1109a += arrayList.size();
         }
-        if (this.a > 0) {
+        if (this.f1109a > 0) {
             if (this.c) {
                 View inflate = this.f.inflate(R.layout.viewpager_recommend, (ViewGroup) null);
-                a(inflate, (com.baidu.tieba.data.as) arrayList.get(arrayList.size() - 1), this.a, this.a);
+                a(inflate, (com.baidu.tieba.data.bb) arrayList.get(arrayList.size() - 1), this.f1109a, this.f1109a);
                 view = inflate;
             } else if (this.b) {
                 view = this.f.inflate(R.layout.viewpager_forum, (ViewGroup) null);
-                a(view, arVar, this.a, this.a);
+                a(view, baVar, this.f1109a, this.f1109a);
             } else {
                 view = null;
             }
@@ -69,7 +71,7 @@ public class RecommendPagerAdapter extends android.support.v4.view.ae implements
             if (this.b) {
                 View inflate2 = this.f.inflate(R.layout.viewpager_forum, (ViewGroup) null);
                 i = 2;
-                a(inflate2, arVar, 1, this.a);
+                a(inflate2, baVar, 1, this.f1109a);
                 this.d.add(inflate2);
             } else {
                 i = 1;
@@ -78,17 +80,17 @@ public class RecommendPagerAdapter extends android.support.v4.view.ae implements
             int i3 = i;
             while (this.c && i2 < arrayList.size()) {
                 View inflate3 = this.f.inflate(R.layout.viewpager_recommend, (ViewGroup) null);
-                a(inflate3, (com.baidu.tieba.data.as) arrayList.get(i2), i3, this.a);
+                a(inflate3, (com.baidu.tieba.data.bb) arrayList.get(i2), i3, this.f1109a);
                 this.d.add(inflate3);
                 i2++;
                 i3++;
             }
             if (this.b) {
                 view2 = this.f.inflate(R.layout.viewpager_forum, (ViewGroup) null);
-                a(view2, arVar, 1, this.a);
+                a(view2, baVar, 1, this.f1109a);
             } else if (this.c) {
                 view2 = this.f.inflate(R.layout.viewpager_recommend, (ViewGroup) null);
-                a(view2, (com.baidu.tieba.data.as) arrayList.get(0), 1, this.a);
+                a(view2, (com.baidu.tieba.data.bb) arrayList.get(0), 1, this.f1109a);
             }
             this.d.add(view2);
             notifyDataSetChanged();
@@ -106,58 +108,58 @@ public class RecommendPagerAdapter extends android.support.v4.view.ae implements
         return this.d.get(i);
     }
 
-    private void a(View view, com.baidu.tieba.data.as asVar, int i, int i2) {
-        boolean z = TiebaApplication.f().at() == 1;
+    private void a(View view, com.baidu.tieba.data.bb bbVar, int i, int i2) {
+        boolean z = TiebaApplication.f().au() == 1;
         RelativeLayout relativeLayout = (RelativeLayout) view.findViewById(R.id.bg_rel);
         relativeLayout.setBackgroundResource(z ? R.drawable.bg_up_down_bar_1 : R.drawable.bg_up_down_bar);
-        relativeLayout.setOnClickListener(new ac(this, asVar));
+        relativeLayout.setOnClickListener(new ac(this, bbVar));
         TextView textView = (TextView) view.findViewById(R.id.suggent_tag);
         int paddingLeft = textView.getPaddingLeft();
         textView.setBackgroundResource(z ? R.drawable.bg_black_banner_up_1 : R.drawable.bg_recommend_up);
         textView.setPadding(paddingLeft, 0, 0, 0);
         textView.setTextColor(-4669241);
-        if (TextUtils.isEmpty(asVar.b())) {
+        if (TextUtils.isEmpty(bbVar.b())) {
             textView.setText(R.string.tag_suggect_no_tag);
         } else {
-            SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(String.format(TiebaApplication.f().getBaseContext().getResources().getString(R.string.tag_suggect), asVar.b()));
-            spannableStringBuilder.setSpan(new ForegroundColorSpan(-10765999), 2, asVar.b().length() + 2, 18);
+            SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(String.format(TiebaApplication.f().getBaseContext().getResources().getString(R.string.tag_suggect), bbVar.b()));
+            spannableStringBuilder.setSpan(new ForegroundColorSpan(-10765999), 2, bbVar.b().length() + 2, 18);
             textView.setText(spannableStringBuilder);
         }
         ImageViewDrawer imageViewDrawer = (ImageViewDrawer) view.findViewById(R.id.avator);
-        imageViewDrawer.setTag(asVar.f());
-        this.e.a(asVar.f(), new ad(this, imageViewDrawer));
+        imageViewDrawer.setTag(bbVar.f());
+        this.e.a(bbVar.f(), new ad(this, imageViewDrawer));
         TextView textView2 = (TextView) view.findViewById(R.id.forum_name_tx);
-        textView2.setText(asVar.e());
+        textView2.setText(bbVar.e());
         textView2.setTextColor(z ? -8682095 : -13289151);
         TextView textView3 = (TextView) view.findViewById(R.id.member);
-        textView3.setText(asVar.h());
+        textView3.setText(bbVar.h());
         textView3.setTextColor(z ? -6707535 : -6644336);
         textView3.setCompoundDrawablesWithIntrinsicBounds(this.g.getResources().getDrawable(z ? R.drawable.ico_people_1 : R.drawable.icon_recommend_user_1), (Drawable) null, (Drawable) null, (Drawable) null);
         TextView textView4 = (TextView) view.findViewById(R.id.count);
-        textView4.setText(asVar.c());
+        textView4.setText(bbVar.c());
         textView4.setTextColor(z ? -6707535 : -6644336);
         textView4.setCompoundDrawablesWithIntrinsicBounds(this.g.getResources().getDrawable(z ? R.drawable.ico_discuss_1 : R.drawable.icon_recommend_message), (Drawable) null, (Drawable) null, (Drawable) null);
         TextView textView5 = (TextView) view.findViewById(R.id.desc);
-        textView5.setText(asVar.g());
+        textView5.setText(bbVar.g());
         textView5.setTextColor(z ? -8682095 : -8552573);
         ImageView imageView = (ImageView) view.findViewById(R.id.like);
-        if (asVar.a() == 1) {
+        if (bbVar.a() == 1) {
             imageView.setImageResource(R.drawable.icon_heart_s_1);
         } else {
             imageView.setImageResource(R.drawable.icon_heart_n_1);
-            imageView.setOnClickListener(new ae(this, asVar, imageView));
+            imageView.setOnClickListener(new ae(this, bbVar, imageView));
         }
         ((PageIndex) view.findViewById(R.id.page_num)).a(i, i2);
     }
 
-    private void a(View view, com.baidu.tieba.data.ar arVar, int i, int i2) {
-        boolean z = TiebaApplication.f().at() == 1;
+    private void a(View view, com.baidu.tieba.data.ba baVar, int i, int i2) {
+        boolean z = TiebaApplication.f().au() == 1;
         RelativeLayout relativeLayout = (RelativeLayout) view.findViewById(R.id.bg_rel);
         relativeLayout.setBackgroundResource(z ? R.drawable.bg_up_down_bar_1 : R.drawable.bg_up_down_bar);
-        relativeLayout.setOnClickListener(new ag(this, arVar));
+        relativeLayout.setOnClickListener(new ag(this, baVar));
         ImageView[] imageViewArr = {(ImageView) view.findViewById(R.id.star1), (ImageView) view.findViewById(R.id.star2), (ImageView) view.findViewById(R.id.star3), (ImageView) view.findViewById(R.id.star4), (ImageView) view.findViewById(R.id.star5)};
         for (int i3 = 0; i3 < 5; i3++) {
-            if (i3 < arVar.b()) {
+            if (i3 < baVar.b()) {
                 if (z) {
                     imageViewArr[i3].setImageResource(R.drawable.icon_star_n_1);
                 } else {
@@ -171,25 +173,25 @@ public class RecommendPagerAdapter extends android.support.v4.view.ae implements
         }
         ((LinearLayout) view.findViewById(R.id.advice_ly)).setBackgroundResource(z ? R.drawable.bg_black_banner_up_1 : R.drawable.bg_recommend_up);
         TextView textView = (TextView) view.findViewById(R.id.forum_name_tx);
-        textView.setText(arVar.a());
+        textView.setText(baVar.a());
         textView.setTextColor(z ? -8682095 : -13289151);
         TextView textView2 = (TextView) view.findViewById(R.id.daily_icon);
         textView2.setBackgroundResource(z ? R.drawable.icon_daily_sentence_1 : R.drawable.icon_daily_sentence);
         textView2.setTextColor(-1);
         ((RelativeLayout) view.findViewById(R.id.avator_bg)).setBackgroundResource(z ? R.drawable.bg_recommend_portrait_1 : R.drawable.bg_recommend_portrait);
         ImageViewDrawer imageViewDrawer = (ImageViewDrawer) view.findViewById(R.id.avator);
-        imageViewDrawer.setTag(arVar.d());
-        this.e.a(arVar.d(), new ah(this, imageViewDrawer));
+        imageViewDrawer.setTag(baVar.d());
+        this.e.a(baVar.d(), new ah(this, imageViewDrawer));
         TextView textView3 = (TextView) view.findViewById(R.id.forum_memeber);
-        textView3.setText(arVar.e());
+        textView3.setText(baVar.e());
         textView3.setTextColor(z ? -6707535 : -6644336);
-        textView3.setCompoundDrawablesWithIntrinsicBounds(this.g.getResources().getDrawable(z ? R.drawable.ico_people_1 : R.drawable.icon_recommend_user_1), (Drawable) null, (Drawable) null, (Drawable) null);
+        textView3.setCompoundDrawablesWithIntrinsicBounds(this.g.getResources().getDrawable(z ? R.drawable.ico_people_1 : R.drawable.ico_people), (Drawable) null, (Drawable) null, (Drawable) null);
         TextView textView4 = (TextView) view.findViewById(R.id.thread_count);
-        textView4.setText(arVar.f());
+        textView4.setText(baVar.f());
         textView4.setTextColor(z ? -6707535 : -6644336);
-        textView4.setCompoundDrawablesWithIntrinsicBounds(this.g.getResources().getDrawable(z ? R.drawable.ico_discuss_1 : R.drawable.icon_recommend_message), (Drawable) null, (Drawable) null, (Drawable) null);
+        textView4.setCompoundDrawablesWithIntrinsicBounds(this.g.getResources().getDrawable(z ? R.drawable.ico_discuss_1 : R.drawable.ico_discuss), (Drawable) null, (Drawable) null, (Drawable) null);
         TextView textView5 = (TextView) view.findViewById(R.id.recommend_reason);
-        textView5.setText(arVar.c());
+        textView5.setText(baVar.c());
         textView5.setTextColor(z ? -8682095 : -8552573);
         ((PageIndex) view.findViewById(R.id.page_num)).a(i, i2);
     }
@@ -206,7 +208,7 @@ public class RecommendPagerAdapter extends android.support.v4.view.ae implements
 
     private void a() {
         this.d.clear();
-        this.a = 0;
+        this.f1109a = 0;
         this.b = false;
         this.c = false;
         this.i = null;
@@ -214,14 +216,14 @@ public class RecommendPagerAdapter extends android.support.v4.view.ae implements
         notifyDataSetChanged();
     }
 
-    @Override // com.baidu.tieba.view.v
+    @Override // com.baidu.tieba.view.z
     public void c() {
         if (this.e != null) {
             this.e.b();
         }
     }
 
-    @Override // com.baidu.tieba.view.v
+    @Override // com.baidu.tieba.view.z
     public void a(View view, int i, int i2) {
         this.k = view;
         if (this.e != null) {
@@ -233,7 +235,7 @@ public class RecommendPagerAdapter extends android.support.v4.view.ae implements
                 while (true) {
                     int i4 = i3;
                     if (i4 < this.j.size()) {
-                        this.e.a(((com.baidu.tieba.data.as) this.j.get(i4)).f(), this);
+                        this.e.a(((com.baidu.tieba.data.bb) this.j.get(i4)).f(), this);
                         i3 = i4 + 1;
                     } else {
                         return;

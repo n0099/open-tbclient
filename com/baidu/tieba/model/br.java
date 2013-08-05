@@ -1,51 +1,138 @@
 package com.baidu.tieba.model;
 
-import com.baidu.tieba.data.CombineDownload;
-import com.baidu.tieba.data.VersionData;
-import org.json.JSONObject;
+import android.content.Intent;
+import android.os.Bundle;
+import com.baidu.tieba.TiebaApplication;
+import com.baidu.tieba.data.SendAloneVoteData;
+import com.baidu.tieba.data.SendPKVoteData;
 /* loaded from: classes.dex */
-public class br {
-    private int e = 0;
-    private VersionData a = new VersionData();
-    private com.baidu.tieba.data.f b = new com.baidu.tieba.data.f();
-    private com.baidu.tieba.data.h c = new com.baidu.tieba.data.h();
-    private CombineDownload d = new CombineDownload();
+public class br extends com.baidu.adp.a.c {
 
-    public void a(String str) {
-        try {
-            a(new JSONObject(str));
-        } catch (Exception e) {
-            com.baidu.tieba.util.z.b(getClass().getName(), "parserJson", e.getMessage());
+    /* renamed from: a  reason: collision with root package name */
+    private bs f1359a;
+    private bu b;
+    private bt c;
+    private bv d;
+    private SendAloneVoteData e;
+    private SendPKVoteData f;
+    private int g;
+    private String h;
+    private String i;
+    private String j;
+    private int k;
+
+    public SendAloneVoteData a() {
+        return this.e;
+    }
+
+    public SendPKVoteData b() {
+        return this.f;
+    }
+
+    public String c() {
+        return this.i;
+    }
+
+    public int d() {
+        return this.g;
+    }
+
+    public String e() {
+        return this.j;
+    }
+
+    public int f() {
+        return this.k;
+    }
+
+    public int a(int i) {
+        int bi = TiebaApplication.f().bi();
+        if (i <= 0) {
+            return 0;
+        }
+        if (i <= bi) {
+            return 1;
+        }
+        int round = Math.round(i / bi);
+        if (round > TiebaApplication.f().bh()) {
+            return TiebaApplication.f().bh();
+        }
+        return round;
+    }
+
+    public void a(bt btVar) {
+        this.c = btVar;
+    }
+
+    public void a(bv bvVar) {
+        this.d = bvVar;
+    }
+
+    public void a(Intent intent) {
+        this.g = intent.getIntExtra("votetype", 0);
+        this.h = intent.getStringExtra("pkId");
+        this.i = intent.getStringExtra("playerId");
+        this.j = intent.getStringExtra("playerName");
+        this.k = intent.getIntExtra("shakeNumber", 0);
+    }
+
+    @Override // com.baidu.adp.a.c
+    protected boolean LoadData() {
+        return false;
+    }
+
+    @Override // com.baidu.adp.a.c
+    public boolean cancelLoadData() {
+        switch (this.g) {
+            case 1:
+                if (this.f1359a != null) {
+                    this.f1359a.cancel();
+                    return true;
+                }
+                return true;
+            case 2:
+                if (this.b != null) {
+                    this.b.cancel();
+                    return true;
+                }
+                return true;
+            default:
+                return true;
         }
     }
 
-    public void a(JSONObject jSONObject) {
-        if (jSONObject != null) {
-            try {
-                this.a.parserJson(jSONObject.optJSONObject("version"));
-                this.b.a(jSONObject.optJSONObject("client"));
-                this.c.a(jSONObject.optJSONObject("config"));
-                this.d.parserJson(jSONObject.optJSONObject("combine_download"));
-                this.e = jSONObject.optInt("sync_active", 0);
-            } catch (Exception e) {
-                com.baidu.tieba.util.z.b(getClass().getName(), "parserJson", e.getMessage());
-            }
+    public void g() {
+        switch (this.g) {
+            case 1:
+                this.f1359a = new bs(this, this.i, this.k);
+                this.f1359a.execute(new Void[0]);
+                return;
+            case 2:
+                this.b = new bu(this, this.h, this.i, this.k);
+                this.b.execute(new Void[0]);
+                return;
+            default:
+                return;
         }
     }
 
-    public com.baidu.tieba.data.h a() {
-        return this.c;
+    public void a(Bundle bundle) {
+        this.g = bundle.getInt("votetype");
+        this.h = bundle.getString("pkId");
+        this.i = bundle.getString("playerId");
+        this.j = bundle.getString("playerName");
+        this.k = bundle.getInt("shakeNumber");
+        this.e = (SendAloneVoteData) bundle.getSerializable("sendAloneVoteData");
+        this.f = (SendPKVoteData) bundle.getSerializable("sendPKVoteData");
     }
 
-    public CombineDownload b() {
-        return this.d;
-    }
-
-    public VersionData c() {
-        return this.a;
-    }
-
-    public com.baidu.tieba.data.f d() {
-        return this.b;
+    public void b(Bundle bundle) {
+        bundle.putInt("votetype", this.g);
+        bundle.putString("pkId", this.h);
+        bundle.putString("playerId", this.i);
+        bundle.putString("playerName", this.j);
+        bundle.putInt("shakeNumber", this.k);
+        bundle.putSerializable("sendAloneVoteData", this.e);
+        bundle.putSerializable("sendPKVoteData", this.f);
     }
 }

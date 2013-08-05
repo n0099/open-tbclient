@@ -8,7 +8,9 @@ import android.os.IBinder;
 import com.baidu.tieba.TiebaApplication;
 /* loaded from: classes.dex */
 public class TiebaPrepareImageService extends Service {
-    public static volatile boolean a = false;
+
+    /* renamed from: a  reason: collision with root package name */
+    public static volatile boolean f1692a = false;
     private int f;
     private int b = 0;
     private Uri c = null;
@@ -64,7 +66,7 @@ public class TiebaPrepareImageService extends Service {
         this.b = intent.getIntExtra("request_code", 0);
         this.f = intent.getIntExtra("max_size", 600);
         TiebaApplication.f().a((com.baidu.tieba.g) null);
-        if (!a) {
+        if (!f1692a) {
             this.d = new q(this, this.b, this.c);
             this.d.execute(new Object[0]);
             return;

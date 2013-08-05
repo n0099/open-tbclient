@@ -7,20 +7,23 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 import com.baidu.tbadk.widget.richText.TbRichTextView;
+import com.baidu.tieba.util.ai;
 import com.baidu.tieba.view.HeadImageView;
 import com.slidingmenu.lib.R;
 import java.util.Date;
 /* loaded from: classes.dex */
 public class j extends BaseAdapter {
-    private ChatActivity a;
+
+    /* renamed from: a  reason: collision with root package name */
+    private ChatActivity f941a;
     private com.baidu.tieba.data.a.c b = null;
     private int c = 0;
     private com.baidu.tieba.util.a d;
 
     public j(ChatActivity chatActivity) {
-        this.a = null;
+        this.f941a = null;
         this.d = null;
-        this.a = chatActivity;
+        this.f941a = chatActivity;
         this.d = new com.baidu.tieba.util.a(chatActivity);
     }
 
@@ -49,33 +52,33 @@ public class j extends BaseAdapter {
     private View b(int i) {
         View inflate;
         k kVar = new k(this, null);
-        LayoutInflater from = LayoutInflater.from(this.a);
+        LayoutInflater from = LayoutInflater.from(this.f941a);
         if (i == 0) {
             inflate = from.inflate(R.layout.chat_item_opposite, (ViewGroup) null);
         } else {
             inflate = from.inflate(R.layout.chat_item_own, (ViewGroup) null);
         }
-        kVar.a = (HeadImageView) inflate.findViewById(R.id.photo);
+        kVar.f942a = (HeadImageView) inflate.findViewById(R.id.photo);
         kVar.b = (TbRichTextView) inflate.findViewById(R.id.text);
         kVar.c = (TextView) inflate.findViewById(R.id.time);
-        kVar.a.setOnClickListener(this.a);
-        kVar.b.setOnLongClickListener(this.a);
+        kVar.f942a.setOnClickListener(this.f941a);
+        kVar.b.setOnLongClickListener(this.f941a);
         if (this.c == 1) {
             if (i == 0) {
                 kVar.b.setBackgroundResource(R.drawable.bj_bubble_chat_friends_1);
             } else {
                 kVar.b.setBackgroundResource(R.drawable.bj_bubble_chat_me_1);
             }
-            kVar.b.setTextColor(this.a.getResources().getColor(R.color.gray_night_4));
-            kVar.c.setTextColor(this.a.getResources().getColor(R.color.gray_night_2));
+            kVar.b.setTextColor(this.f941a.getResources().getColor(R.color.gray_night_4));
+            kVar.c.setTextColor(this.f941a.getResources().getColor(R.color.gray_night_2));
         } else {
             if (i == 0) {
                 kVar.b.setBackgroundResource(R.drawable.bj_bubble_chat_friends);
             } else {
                 kVar.b.setBackgroundResource(R.drawable.bj_bubble_chat_me);
             }
-            kVar.b.setTextColor(this.a.getResources().getColor(R.color.black));
-            kVar.c.setTextColor(this.a.getResources().getColor(R.color.white));
+            kVar.b.setTextColor(this.f941a.getResources().getColor(R.color.black));
+            kVar.c.setTextColor(this.f941a.getResources().getColor(R.color.white));
         }
         inflate.setTag(kVar);
         return inflate;
@@ -93,29 +96,29 @@ public class j extends BaseAdapter {
         if (f > 0) {
             kVar.c.setVisibility(0);
             if (new Date().getDay() != new Date(f * 1000).getDay()) {
-                kVar.c.setText(com.baidu.tieba.util.y.a(new Date(f * 1000)));
+                kVar.c.setText(ai.a(new Date(f * 1000)));
             } else {
-                kVar.c.setText(com.baidu.tieba.util.y.b(new Date(f * 1000)));
+                kVar.c.setText(ai.b(new Date(f * 1000)));
             }
         } else {
             kVar.c.setVisibility(8);
         }
-        kVar.b.setText(dVar.a(this.a));
+        kVar.b.setText(dVar.a(this.f941a));
         kVar.b.setTag(dVar);
         if (dVar.e() == 1) {
-            kVar.a.setUserId(dVar.d());
+            kVar.f942a.setUserId(dVar.d());
             b = this.b.a();
         } else {
-            kVar.a.setUserId(dVar.c());
+            kVar.f942a.setUserId(dVar.c());
             b = this.b.b();
         }
-        com.baidu.adp.widget.a.b b2 = this.d.b(b);
-        if (b2 != null) {
-            b2.a(kVar.a);
+        com.baidu.adp.widget.a.b c = this.d.c(b);
+        if (c != null) {
+            c.a(kVar.f942a);
             return;
         }
-        kVar.a.setTag(b);
-        kVar.a.setBackgroundDrawable(new BitmapDrawable(com.baidu.tieba.util.d.a((int) R.drawable.photo)));
+        kVar.f942a.setTag(b);
+        kVar.f942a.setBackgroundDrawable(new BitmapDrawable(com.baidu.tieba.util.e.a((int) R.drawable.photo)));
     }
 
     @Override // android.widget.Adapter

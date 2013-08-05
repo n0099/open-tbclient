@@ -4,7 +4,9 @@ public final class LocationClientOption {
     public static final int GpsFirst = 1;
     public static final int MIN_SCAN_SPAN = 1000;
     public static final int NetWorkFirst = 2;
-    protected int a;
+
+    /* renamed from: a  reason: collision with root package name */
+    protected int f729a;
 
     /* renamed from: byte  reason: not valid java name */
     protected String f77byte;
@@ -58,7 +60,7 @@ public final class LocationClientOption {
         this.f81else = false;
         this.f84if = false;
         this.f80do = 500.0f;
-        this.a = 3;
+        this.f729a = 3;
         this.f77byte = "com.baidu.location.service_v2.9";
     }
 
@@ -75,7 +77,7 @@ public final class LocationClientOption {
         this.f81else = false;
         this.f84if = false;
         this.f80do = 500.0f;
-        this.a = 3;
+        this.f729a = 3;
         this.f77byte = "com.baidu.location.service_v2.9";
         this.f88try = locationClientOption.f88try;
         this.f79char = locationClientOption.f79char;
@@ -87,7 +89,7 @@ public final class LocationClientOption {
         this.f89void = locationClientOption.f89void;
         this.f84if = locationClientOption.f84if;
         this.f80do = locationClientOption.f80do;
-        this.a = locationClientOption.a;
+        this.f729a = locationClientOption.f729a;
         this.f77byte = locationClientOption.f77byte;
         this.f82for = locationClientOption.f82for;
     }
@@ -97,7 +99,7 @@ public final class LocationClientOption {
     }
 
     public boolean equals(LocationClientOption locationClientOption) {
-        return this.f88try.equals(locationClientOption.f88try) && this.f79char.equals(locationClientOption.f79char) && this.f78case == locationClientOption.f78case && this.f85int == locationClientOption.f85int && this.f86long == locationClientOption.f86long && this.f87new.equals(locationClientOption.f87new) && this.f89void == locationClientOption.f89void && this.f83goto == locationClientOption.f83goto && this.a == locationClientOption.a && this.f84if == locationClientOption.f84if && this.f80do == locationClientOption.f80do && this.f82for == locationClientOption.f82for;
+        return this.f88try.equals(locationClientOption.f88try) && this.f79char.equals(locationClientOption.f79char) && this.f78case == locationClientOption.f78case && this.f85int == locationClientOption.f85int && this.f86long == locationClientOption.f86long && this.f87new.equals(locationClientOption.f87new) && this.f89void == locationClientOption.f89void && this.f83goto == locationClientOption.f83goto && this.f729a == locationClientOption.f729a && this.f84if == locationClientOption.f84if && this.f80do == locationClientOption.f80do && this.f82for == locationClientOption.f82for;
     }
 
     public String getAddrType() {
@@ -117,7 +119,7 @@ public final class LocationClientOption {
     }
 
     public int getPoiNumber() {
-        return this.a;
+        return this.f729a;
     }
 
     public int getPriority() {
@@ -186,7 +188,7 @@ public final class LocationClientOption {
         if (i > 10) {
             i = 10;
         }
-        this.a = i;
+        this.f729a = i;
     }
 
     public void setPriority(int i) {

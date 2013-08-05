@@ -9,11 +9,13 @@ import com.slidingmenu.lib.R;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class l extends BdAsyncTask {
-    final /* synthetic */ AccountActivity a;
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ AccountActivity f1418a;
     private AccountData b;
 
     public l(AccountActivity accountActivity, AccountData accountData) {
-        this.a = accountActivity;
+        this.f1418a = accountActivity;
         this.b = null;
         this.b = accountData;
     }
@@ -21,7 +23,7 @@ public class l extends BdAsyncTask {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void b() {
-        this.a.a(this.a.getString(R.string.account_logining), new m(this));
+        this.f1418a.a(this.f1418a.getString(R.string.account_logining), new m(this));
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -33,9 +35,9 @@ public class l extends BdAsyncTask {
             Thread.sleep(1000L);
             this.b.setIsActive(1);
             DatabaseService.a(this.b);
-            TiebaApplication.b(this.b);
+            TiebaApplication.a(this.b, this.f1418a.getBaseContext());
         } catch (Exception e) {
-            com.baidu.tieba.util.z.b(getClass().getName(), "", "doInBackground error = " + e.getMessage());
+            com.baidu.tieba.util.aj.b(getClass().getName(), "", "doInBackground error = " + e.getMessage());
         }
         return true;
     }
@@ -44,9 +46,12 @@ public class l extends BdAsyncTask {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void a(Boolean bool) {
-        this.a.h();
-        MainTabActivity.b(this.a, "goto_home");
+        if (this.b != null) {
+            new n(this.f1418a, this.b.getBDUSS()).start();
+        }
+        this.f1418a.h();
+        MainTabActivity.b(this.f1418a, "goto_home");
         com.baidu.tieba.account.a.a().b();
-        this.a.k = null;
+        this.f1418a.k = null;
     }
 }

@@ -3,15 +3,17 @@ package com.baidu.tieba.person;
 import android.view.View;
 /* loaded from: classes.dex */
 class d implements View.OnClickListener {
-    final /* synthetic */ EditBarActivity a;
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ EditBarActivity f1600a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(EditBarActivity editBarActivity) {
-        this.a = editBarActivity;
+        this.f1600a = editBarActivity;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        this.a.finish();
+        this.f1600a.finish();
     }
 }

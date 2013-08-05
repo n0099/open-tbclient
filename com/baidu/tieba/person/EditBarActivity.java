@@ -14,7 +14,9 @@ import android.widget.TextView;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public class EditBarActivity extends com.baidu.tieba.g {
-    private com.baidu.tieba.model.b a = null;
+
+    /* renamed from: a  reason: collision with root package name */
+    private com.baidu.tieba.model.b f1552a = null;
     private ListView b = null;
     private ImageView c = null;
     private Button d = null;
@@ -71,7 +73,7 @@ public class EditBarActivity extends com.baidu.tieba.g {
     }
 
     private void c() {
-        this.a = new com.baidu.tieba.model.b();
+        this.f1552a = new com.baidu.tieba.model.b();
         this.o = getIntent().getStringExtra("view_user_id");
     }
 
@@ -79,11 +81,11 @@ public class EditBarActivity extends com.baidu.tieba.g {
     @Override // com.baidu.tieba.g
     public void a(int i) {
         super.a(i);
-        com.baidu.tieba.util.x.a(this.l, i);
-        com.baidu.tieba.util.x.d(this.m, i);
-        com.baidu.tieba.util.x.f(this.n, i);
-        com.baidu.tieba.util.x.a(this.c, i);
-        com.baidu.tieba.util.x.g((TextView) this.d, i);
+        com.baidu.tieba.util.ah.a(this.l, i);
+        com.baidu.tieba.util.ah.d(this.m, i);
+        com.baidu.tieba.util.ah.f(this.n, i);
+        com.baidu.tieba.util.ah.a(this.c, i);
+        com.baidu.tieba.util.ah.g((TextView) this.d, i);
         this.e.notifyDataSetChanged();
         if (i == 1) {
             this.b.setDivider(getResources().getDrawable(R.drawable.list_divider_1));
@@ -101,7 +103,7 @@ public class EditBarActivity extends com.baidu.tieba.g {
         this.f = (ProgressBar) findViewById(R.id.progress);
         this.c = (ImageView) findViewById(R.id.back);
         this.c.setOnClickListener(new d(this));
-        this.e = new j(this, this.a);
+        this.e = new j(this, this.f1552a);
         this.e.a(new e(this));
         this.b = (ListView) findViewById(R.id.list);
         this.b.setAdapter((ListAdapter) this.e);
@@ -119,7 +121,7 @@ public class EditBarActivity extends com.baidu.tieba.g {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void m() {
+    public void k() {
         if (this.e != null) {
             this.e.b();
             if (this.e.c()) {

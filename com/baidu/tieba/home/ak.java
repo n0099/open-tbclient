@@ -4,11 +4,13 @@ import android.content.DialogInterface;
 import com.baidu.tieba.util.DatabaseService;
 /* loaded from: classes.dex */
 class ak implements DialogInterface.OnClickListener {
-    final /* synthetic */ aj a;
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ aj f1123a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ak(aj ajVar) {
-        this.a = ajVar;
+        this.f1123a = ajVar;
     }
 
     @Override // android.content.DialogInterface.OnClickListener
@@ -17,16 +19,16 @@ class ak implements DialogInterface.OnClickListener {
         int i2;
         SearchActivity searchActivity2;
         SearchActivity searchActivity3;
-        searchActivity = this.a.a;
+        searchActivity = this.f1123a.f1122a;
         i2 = searchActivity.B;
         if (i2 == 0) {
             DatabaseService.s();
-            searchActivity3 = this.a.a;
-            searchActivity3.o();
+            searchActivity3 = this.f1123a.f1122a;
+            searchActivity3.m();
             return;
         }
         DatabaseService.t();
-        searchActivity2 = this.a.a;
-        searchActivity2.q();
+        searchActivity2 = this.f1123a.f1122a;
+        searchActivity2.o();
     }
 }

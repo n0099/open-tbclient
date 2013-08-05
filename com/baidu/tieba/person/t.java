@@ -9,14 +9,16 @@ import com.baidu.tieba.view.EditHeadImageView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class t extends BdAsyncTask {
-    final /* synthetic */ EditHeadActivity a;
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ EditHeadActivity f1616a;
     private String b;
     private Bitmap c;
     private Boolean d;
     private Boolean e;
 
     private t(EditHeadActivity editHeadActivity) {
-        this.a = editHeadActivity;
+        this.f1616a = editHeadActivity;
         this.d = false;
         this.e = false;
     }
@@ -31,9 +33,9 @@ public class t extends BdAsyncTask {
     public void b() {
         ProgressBar progressBar;
         Button button;
-        progressBar = this.a.n;
+        progressBar = this.f1616a.n;
         progressBar.setVisibility(0);
-        button = this.a.j;
+        button = this.f1616a.j;
         button.setClickable(false);
     }
 
@@ -51,9 +53,9 @@ public class t extends BdAsyncTask {
         Bitmap bitmap8;
         Bitmap bitmap9;
         this.b = strArr[0];
-        bitmap = this.a.f;
+        bitmap = this.f1616a.f;
         if (bitmap == null) {
-            bitmap9 = this.a.v;
+            bitmap9 = this.f1616a.v;
             if (bitmap9 == null) {
                 return null;
             }
@@ -64,27 +66,27 @@ public class t extends BdAsyncTask {
             this.e = true;
         }
         if (!this.d.booleanValue() && !this.e.booleanValue()) {
-            bitmap7 = this.a.f;
-            bitmap8 = this.a.f;
+            bitmap7 = this.f1616a.f;
+            bitmap8 = this.f1616a.f;
             this.c = bitmap7.copy(bitmap8.getConfig(), true);
         } else {
-            bitmap2 = this.a.v;
+            bitmap2 = this.f1616a.v;
             if (bitmap2 == null) {
-                bitmap3 = this.a.f;
-                bitmap4 = this.a.f;
+                bitmap3 = this.f1616a.f;
+                bitmap4 = this.f1616a.f;
                 this.c = bitmap3.copy(bitmap4.getConfig(), true);
             } else {
-                bitmap5 = this.a.v;
-                bitmap6 = this.a.v;
+                bitmap5 = this.f1616a.v;
+                bitmap6 = this.f1616a.v;
                 this.c = bitmap5.copy(bitmap6.getConfig(), true);
             }
         }
         if (this.d.booleanValue()) {
-            this.c = com.baidu.tieba.util.d.d(this.c, Integer.parseInt(this.b));
+            this.c = com.baidu.tieba.util.e.d(this.c, Integer.parseInt(this.b));
         } else if (this.e.booleanValue()) {
-            this.c = com.baidu.tieba.util.d.e(this.c, Integer.parseInt(this.b));
+            this.c = com.baidu.tieba.util.e.e(this.c, Integer.parseInt(this.b));
         } else {
-            this.c = FilterFactory.createOneKeyFilter(this.a, this.b).apply(this.a, this.c);
+            this.c = FilterFactory.createOneKeyFilter(this.f1616a, this.b).apply(this.f1616a, this.c);
         }
         return this.c;
     }
@@ -95,15 +97,15 @@ public class t extends BdAsyncTask {
         Button button;
         Bitmap bitmap;
         if (this.c != null && !this.c.isRecycled()) {
-            bitmap = this.a.v;
+            bitmap = this.f1616a.v;
             if (bitmap != this.c) {
                 this.c.recycle();
             }
         }
         this.c = null;
-        progressBar = this.a.n;
+        progressBar = this.f1616a.n;
         progressBar.setVisibility(8);
-        button = this.a.j;
+        button = this.f1616a.j;
         button.setClickable(true);
         super.cancel(true);
     }
@@ -130,44 +132,44 @@ public class t extends BdAsyncTask {
         Bitmap bitmap8;
         Bitmap bitmap9;
         EditHeadImageView editHeadImageView2;
-        progressBar = this.a.n;
+        progressBar = this.f1616a.n;
         progressBar.setVisibility(8);
-        button = this.a.j;
+        button = this.f1616a.j;
         button.setClickable(true);
         if (bitmap != null && !bitmap.isRecycled()) {
-            this.a.C = true;
+            this.f1616a.C = true;
             if (this.d.booleanValue() || this.e.booleanValue()) {
-                editHeadImageView = this.a.e;
+                editHeadImageView = this.f1616a.e;
                 editHeadImageView.setImageBitmap(bitmap);
-                bitmap2 = this.a.f;
+                bitmap2 = this.f1616a.f;
                 if (bitmap2.getWidth() <= 600) {
-                    bitmap6 = this.a.f;
+                    bitmap6 = this.f1616a.f;
                 }
-                EditHeadActivity editHeadActivity = this.a;
-                bitmap3 = this.a.f;
-                editHeadActivity.f = com.baidu.tieba.util.d.a(bitmap3, 600);
+                EditHeadActivity editHeadActivity = this.f1616a;
+                bitmap3 = this.f1616a.f;
+                editHeadActivity.f = com.baidu.tieba.util.e.a(bitmap3, 600);
                 if (this.d.booleanValue()) {
-                    EditHeadActivity editHeadActivity2 = this.a;
-                    bitmap5 = this.a.f;
-                    editHeadActivity2.f = com.baidu.tieba.util.d.d(bitmap5, Integer.parseInt(this.b));
+                    EditHeadActivity editHeadActivity2 = this.f1616a;
+                    bitmap5 = this.f1616a.f;
+                    editHeadActivity2.f = com.baidu.tieba.util.e.d(bitmap5, Integer.parseInt(this.b));
                 } else if (this.e.booleanValue()) {
-                    EditHeadActivity editHeadActivity3 = this.a;
-                    bitmap4 = this.a.f;
-                    editHeadActivity3.f = com.baidu.tieba.util.d.e(bitmap4, Integer.parseInt(this.b));
+                    EditHeadActivity editHeadActivity3 = this.f1616a;
+                    bitmap4 = this.f1616a.f;
+                    editHeadActivity3.f = com.baidu.tieba.util.e.e(bitmap4, Integer.parseInt(this.b));
                 }
             } else {
-                editHeadImageView2 = this.a.e;
+                editHeadImageView2 = this.f1616a.e;
                 editHeadImageView2.a(bitmap);
             }
-            bitmap7 = this.a.v;
+            bitmap7 = this.f1616a.v;
             if (bitmap7 != null) {
-                bitmap8 = this.a.v;
+                bitmap8 = this.f1616a.v;
                 if (!bitmap8.isRecycled()) {
-                    bitmap9 = this.a.v;
+                    bitmap9 = this.f1616a.v;
                     bitmap9.recycle();
                 }
             }
-            this.a.v = bitmap;
+            this.f1616a.v = bitmap;
         }
     }
 }

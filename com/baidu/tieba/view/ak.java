@@ -1,37 +1,37 @@
 package com.baidu.tieba.view;
 
-import android.view.View;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.widget.ImageView;
+import android.widget.PopupWindow;
+import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-public class ak implements l {
-    final /* synthetic */ MultiImageView a;
+class ak implements PopupWindow.OnDismissListener {
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ aj f1817a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ak(MultiImageView multiImageView) {
-        this.a = multiImageView;
+    public ak(aj ajVar) {
+        this.f1817a = ajVar;
     }
 
-    @Override // com.baidu.tieba.view.l
-    public void a(h hVar) {
-        GalleryViewPager galleryViewPager;
-        boolean z;
-        GalleryViewPager galleryViewPager2;
-        GalleryViewPager galleryViewPager3;
-        galleryViewPager = this.a.e;
-        if (hVar == galleryViewPager.getCurrentView()) {
-            z = this.a.l;
-            if (z) {
-                galleryViewPager2 = this.a.e;
-                int childCount = galleryViewPager2.getChildCount();
-                for (int i = 0; i < childCount; i++) {
-                    galleryViewPager3 = this.a.e;
-                    View childAt = galleryViewPager3.getChildAt(i);
-                    if (childAt != null && (childAt instanceof aq) && ((aq) childAt).getImageView() != hVar) {
-                        ((aq) childAt).d();
-                    }
-                }
-            }
-            hVar.e();
+    @Override // android.widget.PopupWindow.OnDismissListener
+    public void onDismiss() {
+        ai aiVar;
+        int i;
+        ai aiVar2;
+        ImageView imageView;
+        ai aiVar3;
+        ImageView imageView2;
+        aiVar = this.f1817a.f1816a;
+        i = aiVar.m;
+        if (i == 1) {
+            aiVar3 = this.f1817a.f1816a;
+            imageView2 = aiVar3.d;
+            imageView2.setBackgroundResource(R.drawable.icon_arrow_down_list_down_1);
+            return;
         }
+        aiVar2 = this.f1817a.f1816a;
+        imageView = aiVar2.d;
+        imageView.setBackgroundResource(R.drawable.icon_arrow_down_list_down);
     }
 }

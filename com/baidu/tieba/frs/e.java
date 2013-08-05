@@ -3,20 +3,22 @@ package com.baidu.tieba.frs;
 import com.slidingmenu.lib.SlidingMenu;
 /* loaded from: classes.dex */
 class e implements SlidingMenu.OnClosedListener {
-    final /* synthetic */ FrsActivity a;
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ FrsActivity f1081a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(FrsActivity frsActivity) {
-        this.a = frsActivity;
+        this.f1081a = frsActivity;
     }
 
     @Override // com.slidingmenu.lib.SlidingMenu.OnClosedListener
     public void onClosed() {
         boolean z;
-        z = this.a.E;
+        z = this.f1081a.E;
         if (z) {
-            this.a.E = false;
-            this.a.y();
+            this.f1081a.E = false;
+            this.f1081a.w();
         }
     }
 }

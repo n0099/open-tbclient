@@ -1,29 +1,34 @@
 package com.baidu.tieba;
 
-import com.baidu.tieba.compatible.CompatibleUtile;
-import com.baidu.tieba.view.BaseViewPager;
+import android.view.View;
 import com.slidingmenu.lib.R;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class l implements com.baidu.tieba.view.a {
-    final /* synthetic */ GuideActivity a;
+public class l implements View.OnClickListener {
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ CommonWebviewActivity f1262a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public l(GuideActivity guideActivity) {
-        this.a = guideActivity;
+    public l(CommonWebviewActivity commonWebviewActivity) {
+        this.f1262a = commonWebviewActivity;
     }
 
-    @Override // com.baidu.tieba.view.a
-    public void b_(int i) {
-        BaseViewPager baseViewPager;
-        BaseViewPager baseViewPager2;
-        if (i == 0) {
-            baseViewPager = this.a.f;
-            if (baseViewPager != null) {
-                baseViewPager2 = this.a.f;
-                baseViewPager2.setOnScrollOutListener(null);
-            }
-            this.a.a();
-            CompatibleUtile.setAnim(this.a, 0, R.anim.left);
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        switch (view.getId()) {
+            case R.id.back /* 2131099730 */:
+                this.f1262a.finish();
+                return;
+            case R.id.refresh /* 2131099800 */:
+                TiebaApplication.f().j(0);
+                this.f1262a.b();
+                return;
+            case R.id.common_webview_item /* 2131099916 */:
+                this.f1262a.b();
+                return;
+            default:
+                return;
         }
     }
 }

@@ -4,7 +4,6 @@ import android.location.Location;
 import cn.jingling.lib.file.ImageFile;
 import com.baidu.location.c;
 import com.baidu.location.e;
-import com.baidu.zeus.NotificationProxy;
 import com.baidu.zeus.bouncycastle.DERTags;
 import java.io.File;
 import java.io.IOException;
@@ -28,7 +27,7 @@ public class k {
     private static File c = null;
 
     /* renamed from: char  reason: not valid java name */
-    private static int f249char = NotificationProxy.MAX_URL_LENGTH;
+    private static int f249char = 1024;
 
     /* renamed from: if  reason: not valid java name */
     private static int f254if = 512;
@@ -36,10 +35,12 @@ public class k {
 
     /* renamed from: case  reason: not valid java name */
     private static int f248case = 5;
-    private static int j = NotificationProxy.MAX_URL_LENGTH;
+    private static int j = 1024;
     private static int g = 256;
     private static double e = 0.0d;
-    private static double a = 0.1d;
+
+    /* renamed from: a  reason: collision with root package name */
+    private static double f762a = 0.1d;
 
     /* renamed from: long  reason: not valid java name */
     private static double f256long = 30.0d;
@@ -198,7 +199,7 @@ public class k {
             d2 = e;
         }
         e = d2;
-        a = d3;
+        f762a = d3;
         if (d4 <= 20.0d) {
             d4 = f256long;
         }

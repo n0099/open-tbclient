@@ -1,27 +1,31 @@
 package com.baidu.tieba.model;
+
+import com.baidu.tieba.data.PersonChangeData;
 /* loaded from: classes.dex */
-public class bm {
-    private com.baidu.tieba.data.am a = new com.baidu.tieba.data.am();
-    private boolean b = true;
-    private String c = null;
+public class bm extends com.baidu.adp.a.c {
 
-    public void a(String str) {
-        this.c = str;
+    /* renamed from: a  reason: collision with root package name */
+    PersonChangeData f1354a;
+
+    public bm(PersonChangeData personChangeData) {
+        this.f1354a = null;
+        this.f1354a = personChangeData;
+        if (this.f1354a == null) {
+            this.f1354a = new PersonChangeData();
+        }
     }
 
-    public String a() {
-        return this.c;
+    public PersonChangeData a() {
+        return this.f1354a;
     }
 
-    public void a(boolean z) {
-        this.b = z;
+    @Override // com.baidu.adp.a.c
+    protected boolean LoadData() {
+        return false;
     }
 
-    public boolean b() {
-        return this.b;
-    }
-
-    public com.baidu.tieba.data.am c() {
-        return this.a;
+    @Override // com.baidu.adp.a.c
+    public boolean cancelLoadData() {
+        return false;
     }
 }

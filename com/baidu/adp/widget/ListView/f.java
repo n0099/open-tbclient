@@ -4,11 +4,13 @@ import android.database.DataSetObserver;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class f extends DataSetObserver {
-    final /* synthetic */ e a;
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ e f457a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(e eVar) {
-        this.a = eVar;
+        this.f457a = eVar;
     }
 
     @Override // android.database.DataSetObserver
@@ -16,9 +18,9 @@ public class f extends DataSetObserver {
         DataSetObserver dataSetObserver;
         DataSetObserver dataSetObserver2;
         super.onChanged();
-        dataSetObserver = this.a.g;
+        dataSetObserver = this.f457a.g;
         if (dataSetObserver != null) {
-            dataSetObserver2 = this.a.g;
+            dataSetObserver2 = this.f457a.g;
             dataSetObserver2.onChanged();
         }
     }
@@ -28,9 +30,9 @@ public class f extends DataSetObserver {
         DataSetObserver dataSetObserver;
         DataSetObserver dataSetObserver2;
         super.onInvalidated();
-        dataSetObserver = this.a.g;
+        dataSetObserver = this.f457a.g;
         if (dataSetObserver != null) {
-            dataSetObserver2 = this.a.g;
+            dataSetObserver2 = this.f457a.g;
             dataSetObserver2.onInvalidated();
         }
     }

@@ -1,68 +1,78 @@
 package com.baidu.tieba.util;
 
 import android.content.Context;
+import com.baidu.tieba.TiebaApplication;
 import java.util.ArrayList;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
 public class a {
-    private Context a;
-    private boolean f;
-    private boolean g;
-    private String h;
-    private boolean i;
-    private int k;
-    private ArrayList j = null;
-    private int b = 0;
-    private int c = 0;
-    private LinkedList d = new LinkedList();
-    private LinkedList e = new LinkedList();
+
+    /* renamed from: a  reason: collision with root package name */
+    public Context f1744a;
+    public boolean d;
+    public boolean e;
+    public String f;
+    public boolean g;
+    public int i;
+    public ArrayList h = null;
+    public int b = 0;
+    public int c = 0;
+    private LinkedList j = new LinkedList();
+    private LinkedList k = new LinkedList();
 
     public a(Context context) {
-        this.f = false;
+        this.d = false;
+        this.e = false;
+        this.f = null;
         this.g = false;
-        this.h = null;
-        this.i = false;
-        this.k = 0;
-        this.a = context;
-        this.f = true;
-        this.h = null;
+        this.i = 0;
+        this.f1744a = context;
+        this.d = true;
+        this.f = null;
+        this.e = false;
+        this.i = 0;
         this.g = false;
-        this.k = 0;
-        this.i = false;
+    }
+
+    public String a(String str) {
+        if (this.f != null) {
+            return String.valueOf(str) + this.f;
+        }
+        return str;
     }
 
     public void a(boolean z) {
     }
 
     public void a(ArrayList arrayList) {
-        this.j = arrayList;
+        this.h = arrayList;
     }
 
     public void b(boolean z) {
-        this.g = z;
+        this.e = z;
     }
 
-    public void a(String str) {
-        this.h = str;
+    public void b(String str) {
+        this.f = str;
     }
 
     public void a(int i) {
-        this.k = i;
+        this.i = i;
     }
 
     public void a() {
-        this.e.clear();
-    }
-
-    public com.baidu.adp.widget.a.b b(String str) {
-        return com.baidu.tbadk.a.e.a().b(str);
+        this.k.clear();
     }
 
     public com.baidu.adp.widget.a.b c(String str) {
+        return com.baidu.tbadk.a.e.a().b(str);
+    }
+
+    public com.baidu.adp.widget.a.b d(String str) {
         return com.baidu.tbadk.a.e.a().c(str);
     }
 
-    public void d(String str) {
+    public void e(String str) {
         com.baidu.tbadk.a.e.a().a(str);
     }
 
@@ -92,50 +102,51 @@ public class a {
         if (str == null) {
             return null;
         }
-        String str2 = this.h != null ? String.valueOf(str) + this.h : str;
+        String str2 = this.f != null ? String.valueOf(str) + this.f : str;
         if (num.intValue() == 0 || num.intValue() == 4) {
             c = com.baidu.tbadk.a.e.a().c(str2);
         } else {
-            c = num.intValue() != 3 ? com.baidu.tbadk.a.e.a().b(str2) : null;
+            c = com.baidu.tbadk.a.e.a().b(str2);
         }
         if (c == null) {
             try {
-                int size = this.d.size();
+                int size = this.j.size();
                 for (int i = 0; i < size; i++) {
-                    if (((c) this.d.get(i)).e().equals(str)) {
+                    if (((d) this.j.get(i)).b().equals(str)) {
                         return null;
                     }
                 }
-                if (this.f && this.e != null) {
-                    int size2 = this.e.size();
+                if (this.d && this.k != null) {
+                    int size2 = this.k.size();
                     for (int i2 = 0; i2 < size2; i2++) {
-                        if (((b) this.e.get(i2)).a != null && ((b) this.e.get(i2)).a.equals(str)) {
+                        if (((c) this.k.get(i2)).f1762a != null && ((c) this.k.get(i2)).f1762a.equals(str)) {
                             return null;
                         }
                     }
                 }
-                if (this.d.size() >= 5) {
-                    if (!this.f) {
-                        ((c) this.d.get(0)).cancel();
-                        this.d.remove(0);
-                        c cVar = new c(this, str, num.intValue(), dVar, z);
-                        this.d.add(cVar);
-                        cVar.execute(new String[0]);
-                    } else if (this.e != null) {
-                        b bVar = new b(this, null);
-                        bVar.c = dVar;
-                        bVar.a = str;
-                        bVar.b = num.intValue();
-                        bVar.d = z;
-                        this.e.add(bVar);
+                if (this.j.size() >= 5) {
+                    if (this.d) {
+                        c cVar = new c(this, null);
+                        cVar.c = dVar;
+                        cVar.f1762a = str;
+                        cVar.b = num.intValue();
+                        cVar.d = z;
+                        this.k.add(cVar);
+                        return null;
                     }
-                } else {
-                    c cVar2 = new c(this, str, num.intValue(), dVar, z);
-                    this.d.add(cVar2);
-                    cVar2.execute(new String[0]);
+                    com.baidu.adp.lib.c.c.a().a(((d) this.j.get(0)).c, TiebaApplication.f());
+                }
+                d dVar2 = new d(str, num.intValue(), dVar, z);
+                this.j.add(dVar2);
+                com.baidu.adp.lib.c.f fVar = new com.baidu.adp.lib.c.f();
+                fVar.a("ImageAsyncTaskInfo", dVar2);
+                fVar.a("AsyncImageLoader", this);
+                Object a2 = com.baidu.adp.lib.c.c.a().a(str, (num.intValue() == 0 || num.intValue() == 4) ? 2 : 1, new b(this, dVar2), TiebaApplication.f(), fVar, num.intValue() != 0 ? 2 : 1);
+                if (a2 != null && (a2 instanceof com.baidu.adp.widget.a.b)) {
+                    return (com.baidu.adp.widget.a.b) a2;
                 }
             } catch (Exception e) {
-                z.b("AsyncImageLoader", "loadBitmap", "error = " + e.getMessage());
+                aj.b("AsyncImageLoader", "loadBitmap", "error = " + e.getMessage());
             }
             return null;
         }
@@ -143,18 +154,18 @@ public class a {
     }
 
     public void b() {
-        this.e.clear();
+        this.k.clear();
         int i = 0;
         while (true) {
             int i2 = i;
-            if (i2 < this.d.size()) {
-                c cVar = (c) this.d.get(i2);
-                if (cVar != null) {
-                    cVar.cancel();
+            if (i2 < this.j.size()) {
+                d dVar = (d) this.j.get(i2);
+                if (dVar != null) {
+                    com.baidu.adp.lib.c.c.a().a(dVar.c, TiebaApplication.f());
                 }
                 i = i2 + 1;
             } else {
-                this.d.clear();
+                this.j.clear();
                 return;
             }
         }
@@ -166,6 +177,6 @@ public class a {
     }
 
     public void c(boolean z) {
-        this.i = z;
+        this.g = z;
     }
 }

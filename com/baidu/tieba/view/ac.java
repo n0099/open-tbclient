@@ -1,22 +1,23 @@
 package com.baidu.tieba.view;
 
-import android.view.MotionEvent;
 import android.view.View;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class ac implements View.OnTouchListener {
-    final /* synthetic */ ab a;
+public class ac implements View.OnClickListener {
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ ImagePbPagerAdapter f1809a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ac(ab abVar) {
-        this.a = abVar;
+    public ac(ImagePbPagerAdapter imagePbPagerAdapter) {
+        this.f1809a = imagePbPagerAdapter;
     }
 
-    @Override // android.view.View.OnTouchListener
-    public boolean onTouch(View view, MotionEvent motionEvent) {
-        if (motionEvent.getAction() == 0) {
-            this.a.dismiss();
-            return false;
-        }
-        return false;
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        int i;
+        ImagePbPagerAdapter imagePbPagerAdapter = this.f1809a;
+        i = this.f1809a.q;
+        imagePbPagerAdapter.a(i);
     }
 }

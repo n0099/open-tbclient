@@ -1,48 +1,23 @@
 package com.baidu.tieba.util;
 
-import java.util.ArrayList;
-import java.util.Hashtable;
+import com.baidu.tieba.TiebaApplication;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class n extends Thread {
-    private int a;
-    private String b;
-    private Hashtable c;
+public class n implements m {
 
-    public n(Hashtable hashtable) {
-        this.a = 3;
-        this.b = null;
-        this.c = null;
-        this.a = 3;
-        this.c = hashtable;
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ DatabaseService f1769a;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public n(DatabaseService databaseService) {
+        this.f1769a = databaseService;
     }
 
-    public n(int i, String str) {
-        this.a = 3;
-        this.b = null;
-        this.c = null;
-        this.a = i;
-        this.b = str;
-    }
-
-    @Override // java.lang.Thread, java.lang.Runnable
-    public void run() {
-        ArrayList A;
-        super.run();
+    @Override // com.baidu.tieba.util.m
+    public void a() {
         try {
-            if (this.a == 3) {
-                if (this.c != null && (A = DatabaseService.A()) != null) {
-                    int size = A.size();
-                    for (int i = 0; i < size; i++) {
-                        this.c.put((String) A.get(i), 1);
-                    }
-                }
-            } else if (this.a == 2) {
-                DatabaseService.t(this.b);
-            } else if (this.a == 1) {
-                DatabaseService.s(this.b);
-            }
+            TiebaApplication.f().N();
         } catch (Exception e) {
-            z.b(getClass().getName(), "run", e.getMessage());
         }
     }
 }

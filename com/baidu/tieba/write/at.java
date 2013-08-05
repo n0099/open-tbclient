@@ -1,82 +1,57 @@
 package com.baidu.tieba.write;
 
-import android.content.Intent;
-import android.graphics.Bitmap;
-import android.view.View;
-import java.util.Date;
+import android.widget.CompoundButton;
+import android.widget.HorizontalScrollView;
+import android.widget.LinearLayout;
+import android.widget.RadioButton;
+import android.widget.TextView;
+import com.slidingmenu.lib.R;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class at implements View.OnClickListener {
-    final /* synthetic */ WriteImageActivity a;
+public class at implements CompoundButton.OnCheckedChangeListener {
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ WriteImageActivity f1890a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public at(WriteImageActivity writeImageActivity) {
-        this.a = writeImageActivity;
+        this.f1890a = writeImageActivity;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        boolean z;
-        int i;
-        boolean z2;
-        Bitmap bitmap;
-        Bitmap bitmap2;
-        boolean d;
-        boolean z3;
-        Bitmap bitmap3;
-        Bitmap bitmap4;
-        boolean d2;
-        z = this.a.z;
-        if (!z) {
-            i = this.a.A;
-            if (i == 1200003) {
-                Intent intent = new Intent();
-                intent.putExtra("delete", true);
-                this.a.setResult(-1, intent);
-            } else {
-                Intent intent2 = new Intent();
-                z2 = this.a.y;
-                if (z2) {
-                    bitmap = this.a.r;
-                    if (bitmap != null) {
-                        bitmap2 = this.a.r;
-                        if (!bitmap2.isRecycled()) {
-                            String str = "tieba" + String.valueOf(new Date().getTime()) + ".jpg";
-                            d = this.a.d(str);
-                            if (d) {
-                                intent2.putExtra("change", true);
-                                intent2.putExtra("file_name", str);
-                            } else {
-                                intent2.putExtra("change", false);
-                            }
-                        }
-                    }
-                    intent2.putExtra("change", false);
-                } else {
-                    intent2.setData(this.a.getIntent().getData());
-                    this.a.setResult(-1, intent2);
-                }
-                this.a.setResult(-1, intent2);
+    @Override // android.widget.CompoundButton.OnCheckedChangeListener
+    public void onCheckedChanged(CompoundButton compoundButton, boolean z) {
+        RadioButton radioButton;
+        RadioButton radioButton2;
+        HorizontalScrollView horizontalScrollView;
+        LinearLayout linearLayout;
+        TextView textView;
+        HorizontalScrollView horizontalScrollView2;
+        LinearLayout linearLayout2;
+        TextView textView2;
+        if (z) {
+            compoundButton.setTextColor(this.f1890a.getResources().getColor(R.color.white));
+            radioButton = this.f1890a.m;
+            if (compoundButton == radioButton) {
+                horizontalScrollView2 = this.f1890a.g;
+                horizontalScrollView2.setVisibility(0);
+                linearLayout2 = this.f1890a.o;
+                linearLayout2.setVisibility(4);
+                textView2 = this.f1890a.q;
+                textView2.setText(this.f1890a.getString(R.string.beautify));
+                return;
             }
-            this.a.finish();
+            radioButton2 = this.f1890a.n;
+            if (compoundButton == radioButton2) {
+                horizontalScrollView = this.f1890a.g;
+                horizontalScrollView.setVisibility(4);
+                linearLayout = this.f1890a.o;
+                linearLayout.setVisibility(0);
+                textView = this.f1890a.q;
+                textView.setText(this.f1890a.getString(R.string.rotate));
+                return;
+            }
             return;
         }
-        Intent intent3 = new Intent();
-        z3 = this.a.y;
-        if (z3) {
-            bitmap3 = this.a.r;
-            if (bitmap3 != null) {
-                bitmap4 = this.a.r;
-                if (!bitmap4.isRecycled()) {
-                    String str2 = "tieba" + String.valueOf(new Date().getTime()) + ".jpg";
-                    d2 = this.a.d(str2);
-                    if (d2) {
-                        intent3.putExtra("filename", str2);
-                    }
-                }
-            }
-        }
-        this.a.setResult(-1, intent3);
-        this.a.finish();
+        compoundButton.setTextColor(this.f1890a.getResources().getColor(R.color.beautify_rotate_tab_unchecked_color));
     }
 }

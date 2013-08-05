@@ -6,11 +6,13 @@ import android.widget.TextView;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 class d implements Runnable {
-    final /* synthetic */ ActivationActivity a;
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ ActivationActivity f877a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(ActivationActivity activationActivity) {
-        this.a = activationActivity;
+        this.f877a = activationActivity;
     }
 
     @Override // java.lang.Runnable
@@ -24,29 +26,29 @@ class d implements Runnable {
         TextView textView2;
         h hVar;
         RelativeLayout relativeLayout;
-        ActivationActivity activationActivity = this.a;
+        ActivationActivity activationActivity = this.f877a;
         i = activationActivity.q;
         activationActivity.q = i - 1;
-        i2 = this.a.q;
+        i2 = this.f877a.q;
         if (i2 <= 0) {
-            this.a.p = true;
-            textView2 = this.a.g;
-            textView2.setText(this.a.getString(R.string.resend_code));
-            hVar = this.a.o;
+            this.f877a.p = true;
+            textView2 = this.f877a.g;
+            textView2.setText(this.f877a.getString(R.string.resend_code));
+            hVar = this.f877a.o;
             if (hVar == null) {
-                relativeLayout = this.a.m;
+                relativeLayout = this.f877a.m;
                 relativeLayout.setEnabled(true);
                 return;
             }
             return;
         }
-        String string = this.a.getString(R.string.resend_code_second);
-        i3 = this.a.q;
+        String string = this.f877a.getString(R.string.resend_code_second);
+        i3 = this.f877a.q;
         String format = String.format(string, Integer.valueOf(i3));
-        textView = this.a.g;
+        textView = this.f877a.g;
         textView.setText(format);
-        handler = this.a.s;
-        runnable = this.a.B;
+        handler = this.f877a.s;
+        runnable = this.f877a.B;
         handler.postDelayed(runnable, 1000L);
     }
 }

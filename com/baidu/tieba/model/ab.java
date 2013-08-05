@@ -1,52 +1,101 @@
 package com.baidu.tieba.model;
 
-import com.baidu.tieba.data.AntiData;
-import java.util.ArrayList;
-import org.json.JSONArray;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import org.json.JSONObject;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ab {
-    private com.baidu.tieba.data.r a = new com.baidu.tieba.data.r();
-    private ArrayList b = new ArrayList();
-    private ArrayList c = new ArrayList();
-    private int d = 0;
-    private int e = 0;
-    private int f = 0;
-    private AntiData g = new AntiData();
-    private com.baidu.tieba.data.ah h = new com.baidu.tieba.data.ah();
+public class ab extends BdAsyncTask {
 
-    public ArrayList a() {
-        return this.b;
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ aa f1321a;
+    private com.baidu.tieba.util.u b = null;
+    private String c;
+    private String d;
+    private String e;
+    private ac f;
+
+    public ab(aa aaVar, String str, String str2, String str3) {
+        this.f1321a = aaVar;
+        this.f = new ac(aaVar);
+        this.c = str;
+        this.d = str2;
+        this.e = str3;
     }
 
-    public void a(JSONObject jSONObject) {
-        if (jSONObject != null) {
-            try {
-                this.a.a(jSONObject.optJSONObject("forum"));
-                this.h.a(jSONObject.optJSONObject("user"));
-                this.g.parserJson(jSONObject.optJSONObject("anti"));
-                JSONObject optJSONObject = jSONObject.optJSONObject("photo_data");
-                if (optJSONObject != null) {
-                    JSONArray optJSONArray = optJSONObject.optJSONArray("thread_list");
-                    if (optJSONArray != null) {
-                        for (int i = 0; i < optJSONArray.length(); i++) {
-                            com.baidu.tieba.data.bb bbVar = new com.baidu.tieba.data.bb();
-                            bbVar.a(optJSONArray.optJSONObject(i));
-                            this.b.add(bbVar);
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public Boolean a(String... strArr) {
+        try {
+            this.b = new com.baidu.tieba.util.u(strArr[0]);
+            this.b.a("fid", this.c);
+            this.b.a("kw", this.d);
+            this.b.a("is_like", this.e);
+            this.b.e(true);
+            String k = this.b.k();
+            if (this.b.e()) {
+                if (this.e.equals("0")) {
+                    try {
+                        JSONObject jSONObject = new JSONObject(k);
+                        JSONObject optJSONObject = jSONObject.optJSONObject("like_data");
+                        if (optJSONObject.optInt("is_success", 0) == 1) {
+                            this.f.d = optJSONObject.optInt("level_id", 0);
+                            this.f.e = optJSONObject.optString("level_name", "");
+                            JSONObject optJSONObject2 = jSONObject.optJSONObject("user_perm");
+                            if (optJSONObject2 != null) {
+                                this.f.f = optJSONObject2.optInt("cur_score", 0);
+                                this.f.g = optJSONObject2.optInt("levelup_score", 0);
+                            }
+                            this.f.b = true;
                         }
+                        this.f1321a.a(this.f);
+                    } catch (Exception e) {
+                        com.baidu.tieba.util.aj.b(getClass().getName(), "doInBackground", e.getMessage());
                     }
-                    JSONArray optJSONArray2 = optJSONObject.optJSONArray("alb_id_list");
-                    if (optJSONArray2 != null) {
-                        for (int i2 = 0; i2 < optJSONArray2.length(); i2++) {
-                            this.c.add(optJSONArray2.optString(i2));
-                        }
-                    }
-                    this.d = optJSONObject.optInt("has_more", 0);
-                    this.e = optJSONObject.optInt("amount", 0);
-                    this.f = optJSONObject.optInt("current_count", 0);
                 }
-            } catch (Exception e) {
-                com.baidu.tieba.util.z.b(getClass().getName(), "parserJson", "error = " + e.getMessage());
+                if (this.b.d()) {
+                    try {
+                        JSONObject jSONObject2 = new JSONObject(k);
+                        this.f.c = jSONObject2.optInt("num");
+                        this.f.f1322a = true;
+                    } catch (Exception e2) {
+                        com.baidu.tieba.util.aj.b(getClass().getName(), "doInBackground", e2.getMessage());
+                    }
+                }
+            }
+            return false;
+        } catch (Exception e3) {
+            com.baidu.tieba.util.aj.b(getClass().getName(), "", "AddFanAsyncTask.doInBackground error = " + e3.getMessage());
+            return false;
+        }
+    }
+
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public void cancel() {
+        super.cancel(true);
+        if (this.b != null) {
+            this.b.i();
+        }
+        this.f1321a.j = null;
+        this.f1321a.a(false);
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public void a(Boolean bool) {
+        com.baidu.tieba.frs.ab abVar;
+        com.baidu.tieba.frs.ab abVar2;
+        this.f1321a.j = null;
+        this.f1321a.a(false);
+        if (this.b != null) {
+            ad adVar = new ad(this.f1321a);
+            adVar.d = this.b.h();
+            adVar.c = this.b.f();
+            abVar = this.f1321a.g;
+            if (abVar != null) {
+                abVar2 = this.f1321a.g;
+                abVar2.a(this.f, adVar);
             }
         }
     }

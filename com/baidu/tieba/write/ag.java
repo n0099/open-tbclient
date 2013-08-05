@@ -1,25 +1,25 @@
 package com.baidu.tieba.write;
 
-import android.content.DialogInterface;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.widget.GridView;
 /* loaded from: classes.dex */
-public class ag implements DialogInterface.OnCancelListener {
-    final /* synthetic */ WriteActivity a;
+class ag implements Runnable {
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ WriteActivity f1877a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ag(WriteActivity writeActivity) {
-        this.a = writeActivity;
+        this.f1877a = writeActivity;
     }
 
-    @Override // android.content.DialogInterface.OnCancelListener
-    public void onCancel(DialogInterface dialogInterface) {
-        ap apVar;
-        ap apVar2;
-        this.a.g();
-        apVar = this.a.v;
-        if (apVar != null) {
-            apVar2 = this.a.v;
-            apVar2.cancel();
+    @Override // java.lang.Runnable
+    public void run() {
+        GridView gridView;
+        GridView gridView2;
+        gridView = this.f1877a.r;
+        if (gridView.getVisibility() != 0) {
+            gridView2 = this.f1877a.r;
+            gridView2.setVisibility(0);
         }
     }
 }

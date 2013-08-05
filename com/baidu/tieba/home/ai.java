@@ -3,11 +3,13 @@ package com.baidu.tieba.home;
 import org.apache.http.message.BasicNameValuePair;
 /* loaded from: classes.dex */
 class ai implements Runnable {
-    final /* synthetic */ SearchActivity a;
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ SearchActivity f1121a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ai(SearchActivity searchActivity) {
-        this.a = searchActivity;
+        this.f1121a = searchActivity;
     }
 
     @Override // java.lang.Runnable
@@ -18,25 +20,25 @@ class ai implements Runnable {
         ay ayVar;
         ay ayVar2;
         try {
-            str = this.a.A;
+            str = this.f1121a.A;
             if (str != null) {
-                str2 = this.a.A;
+                str2 = this.f1121a.A;
                 if (str2.length() > 0) {
                     StringBuffer stringBuffer = new StringBuffer(30);
-                    stringBuffer.append(com.baidu.tieba.data.g.a);
+                    stringBuffer.append(com.baidu.tieba.data.g.f1013a);
                     stringBuffer.append("c/f/forum/sug");
-                    str3 = this.a.A;
+                    str3 = this.f1121a.A;
                     BasicNameValuePair basicNameValuePair = new BasicNameValuePair("q", str3.trim());
-                    this.a.b();
-                    this.a.y = new ay(this.a, stringBuffer.toString(), basicNameValuePair, true);
-                    ayVar = this.a.y;
+                    this.f1121a.b();
+                    this.f1121a.y = new ay(this.f1121a, stringBuffer.toString(), basicNameValuePair, true);
+                    ayVar = this.f1121a.y;
                     ayVar.setPriority(3);
-                    ayVar2 = this.a.y;
+                    ayVar2 = this.f1121a.y;
                     ayVar2.execute(stringBuffer.toString(), basicNameValuePair);
                 }
             }
         } catch (Exception e) {
-            com.baidu.tieba.util.z.b(getClass().getName(), "mSuggestRunnble.run", "error = " + e.getMessage());
+            com.baidu.tieba.util.aj.b(getClass().getName(), "mSuggestRunnble.run", "error = " + e.getMessage());
         }
     }
 }

@@ -12,11 +12,13 @@ import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import com.baidu.tieba.model.WriteModel;
+import com.baidu.tieba.data.WriteData;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public class VcodeActivity extends com.baidu.tieba.g {
-    private WriteModel a = null;
+
+    /* renamed from: a  reason: collision with root package name */
+    private WriteData f1867a = null;
     private ImageView b = null;
     private Button c = null;
     private ImageView d = null;
@@ -30,18 +32,18 @@ public class VcodeActivity extends com.baidu.tieba.g {
     private LinearLayout n = null;
     private TextView o = null;
 
-    public static void a(Activity activity, WriteModel writeModel, int i) {
-        if (writeModel != null) {
+    public static void a(Activity activity, WriteData writeData, int i) {
+        if (writeData != null) {
             Intent intent = new Intent(activity, VcodeActivity.class);
-            intent.putExtra("model", writeModel);
+            intent.putExtra("model", writeData);
             activity.startActivityForResult(intent, i);
         }
     }
 
-    public static void a(Activity activity, WriteModel writeModel, boolean z, int i) {
-        if (writeModel != null) {
+    public static void a(Activity activity, WriteData writeData, boolean z, int i) {
+        if (writeData != null) {
             Intent intent = new Intent(activity, VcodeActivity.class);
-            intent.putExtra("model", writeModel);
+            intent.putExtra("model", writeData);
             intent.putExtra("is_ad", z);
             activity.startActivityForResult(intent, i);
         }
@@ -54,15 +56,15 @@ public class VcodeActivity extends com.baidu.tieba.g {
         setContentView(R.layout.vcode_activity);
         b();
         a(bundle);
-        c(this.a.getVcodeUrl());
+        c(this.f1867a.getVcodeUrl());
     }
 
     private void a(Bundle bundle) {
         this.l = new n(this);
         if (bundle != null) {
-            this.a = (WriteModel) bundle.getSerializable("model");
+            this.f1867a = (WriteData) bundle.getSerializable("model");
         } else {
-            this.a = (WriteModel) getIntent().getSerializableExtra("model");
+            this.f1867a = (WriteData) getIntent().getSerializableExtra("model");
         }
         this.k = (InputMethodManager) getSystemService("input_method");
     }
@@ -84,7 +86,7 @@ public class VcodeActivity extends com.baidu.tieba.g {
 
     @Override // android.app.Activity
     protected void onSaveInstanceState(Bundle bundle) {
-        bundle.putSerializable("model", this.a);
+        bundle.putSerializable("model", this.f1867a);
         super.onSaveInstanceState(bundle);
     }
 
@@ -93,12 +95,12 @@ public class VcodeActivity extends com.baidu.tieba.g {
     public void a(int i) {
         int i2;
         super.a(i);
-        com.baidu.tieba.util.x.a(this.m, i);
-        com.baidu.tieba.util.x.d(this.n, i);
-        com.baidu.tieba.util.x.a(this.b, i);
-        com.baidu.tieba.util.x.g((TextView) this.c, i);
+        com.baidu.tieba.util.ah.a(this.m, i);
+        com.baidu.tieba.util.ah.d(this.n, i);
+        com.baidu.tieba.util.ah.a(this.b, i);
+        com.baidu.tieba.util.ah.g((TextView) this.c, i);
         if (i == 1) {
-            i2 = com.baidu.tieba.util.x.a(i);
+            i2 = com.baidu.tieba.util.ah.a(i);
         } else {
             i2 = -12895429;
         }

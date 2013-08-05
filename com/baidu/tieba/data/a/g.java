@@ -1,7 +1,9 @@
 package com.baidu.tieba.data.a;
 /* loaded from: classes.dex */
 public class g {
-    protected String a;
+
+    /* renamed from: a  reason: collision with root package name */
+    protected String f964a;
     protected String b;
     protected String c;
     protected String d;
@@ -13,11 +15,11 @@ public class g {
     protected int j;
 
     public String a() {
-        return String.valueOf(this.a) + "@" + this.c;
+        return String.valueOf(this.f964a) + "@" + this.c;
     }
 
     public void a(String str) {
-        this.a = str;
+        this.f964a = str;
     }
 
     public String b() {

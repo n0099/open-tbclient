@@ -1,16 +1,21 @@
 package com.baidu.tieba.pb;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class co implements com.baidu.tieba.view.f {
-    final /* synthetic */ bk a;
+class co implements Runnable {
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ ck f1509a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public co(bk bkVar) {
-        this.a = bkVar;
+    public co(ck ckVar) {
+        this.f1509a = ckVar;
     }
 
-    @Override // com.baidu.tieba.view.f
-    public void a() {
-        this.a.a();
+    @Override // java.lang.Runnable
+    public void run() {
+        bn bnVar;
+        cu cuVar;
+        bnVar = this.f1509a.f1505a;
+        cuVar = bnVar.z;
+        cuVar.c();
     }
 }

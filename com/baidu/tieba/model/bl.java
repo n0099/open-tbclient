@@ -1,32 +1,34 @@
 package com.baidu.tieba.model;
-
-import java.util.ArrayList;
-import org.json.JSONArray;
-import org.json.JSONObject;
 /* loaded from: classes.dex */
-public class bl extends com.baidu.tieba.data.b {
-    private ArrayList a = new ArrayList();
-    private com.baidu.tieba.data.ai b = new com.baidu.tieba.data.ai();
+public class bl {
 
-    public ArrayList a() {
-        return this.a;
+    /* renamed from: a  reason: collision with root package name */
+    private com.baidu.tieba.data.as f1353a = null;
+    private boolean d = true;
+    private boolean c = true;
+    private boolean e = false;
+    private boolean g = false;
+    private boolean h = false;
+    private boolean i = false;
+    private boolean j = false;
+    private String b = null;
+    private boolean f = false;
+    private String k = null;
+    private String l = null;
+    private String m = null;
+    private int n = 1;
+    private int o = 1;
+    private boolean p = false;
+
+    public void a(com.baidu.tieba.data.as asVar) {
+        this.f1353a = asVar;
     }
 
-    public com.baidu.tieba.data.ai b() {
-        return this.b;
+    public com.baidu.tieba.data.as a() {
+        return this.f1353a;
     }
 
-    @Override // com.baidu.tieba.data.b
-    public void parserJson(JSONObject jSONObject) {
-        JSONArray optJSONArray = jSONObject.optJSONArray("thread_list");
-        if (optJSONArray != null) {
-            int length = optJSONArray.length();
-            for (int i = 0; i < length; i++) {
-                com.baidu.tieba.data.al alVar = new com.baidu.tieba.data.al();
-                alVar.parserJson(optJSONArray.optJSONObject(i));
-                this.a.add(alVar);
-            }
-        }
-        this.b.a(jSONObject.optJSONObject("page"));
+    public boolean b() {
+        return this.d;
     }
 }

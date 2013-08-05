@@ -3,79 +3,75 @@ package com.baidu.tieba.data;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class ai {
-    private int a = 0;
-    private int b = 0;
-    private int d = 0;
-    private int e = 0;
-    private int f = 0;
-    private int g = 0;
+
+    /* renamed from: a  reason: collision with root package name */
+    private String f973a = null;
+    private String b = null;
     private int c = 0;
+    private int d = 0;
+    private int f = 0;
+    private String e = null;
 
-    public int a() {
-        return this.a;
+    public void a(String str) {
+        this.f973a = str;
     }
 
-    public void a(int i) {
-        this.a = i;
+    public String a() {
+        return this.f973a;
     }
 
-    public int b() {
+    public void b(String str) {
+        this.b = str;
+    }
+
+    public String b() {
         return this.b;
     }
 
-    public void b(int i) {
-        this.b = i;
-    }
-
-    public int c() {
-        return this.c;
-    }
-
-    public int d() {
-        return this.d;
-    }
-
-    public void c(int i) {
+    public void a(int i) {
         this.d = i;
     }
 
-    public int e() {
+    public int c() {
+        return this.d;
+    }
+
+    public void b(int i) {
+        this.c = i;
+    }
+
+    public int d() {
+        return this.c;
+    }
+
+    public void c(String str) {
+        this.e = str;
+    }
+
+    public String e() {
         return this.e;
-    }
-
-    public void d(int i) {
-        this.e = i;
-    }
-
-    public void e(int i) {
-        this.f = i;
-    }
-
-    public int f() {
-        return this.f;
-    }
-
-    public void f(int i) {
-        this.g = i;
-    }
-
-    public int g() {
-        return this.g;
     }
 
     public void a(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                this.a = jSONObject.optInt("total_page", 0);
-                this.b = jSONObject.optInt("total_num", 0);
-                this.c = jSONObject.optInt("total_count", 0);
-                this.d = jSONObject.optInt("current_page", 0);
-                this.e = jSONObject.optInt("page_size", 0);
-                this.f = jSONObject.optInt("has_more", 0);
-                this.g = jSONObject.optInt("has_prev", 0);
+                this.f973a = jSONObject.optString("forum_id");
+                this.b = jSONObject.optString("forum_name");
+                c(jSONObject.optInt("is_like", 0));
+                this.d = jSONObject.optInt("is_sign", 0);
+                this.c = jSONObject.optInt("level_id", 0);
+                this.e = jSONObject.optString("avatar", "");
             } catch (Exception e) {
-                com.baidu.tieba.util.z.b("PageData", "parserJson", "error = " + e.getMessage());
+                com.baidu.tieba.util.aj.b("BrowseForumData", "parserJson", "error = " + e.getMessage());
             }
         }
+    }
+
+    public void c(int i) {
+        this.f = i;
+    }
+
+    public int f() {
+        return this.f;
     }
 }

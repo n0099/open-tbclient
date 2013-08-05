@@ -1,67 +1,51 @@
 package com.baidu.tieba.data;
-
-import android.graphics.Color;
-import com.baidu.android.pushservice.PushConstants;
-import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class at {
-    private String d;
-    private String a = null;
-    private String b = null;
-    private String c = null;
-    private boolean h = false;
-    private long e = 0;
-    private UserData f = new UserData();
-    private String g = null;
-    private boolean i = true;
 
-    public boolean a() {
-        return this.i;
+    /* renamed from: a  reason: collision with root package name */
+    private volatile long f984a = 0;
+    private volatile long b = 0;
+    private volatile int c = 0;
+    private volatile boolean d = false;
+
+    public void a(int i) {
+        if (i > 0) {
+            this.d = true;
+            this.f984a = i;
+        }
     }
 
-    public String b() {
-        return this.b;
+    public void b(int i) {
+        if (i > 0) {
+            this.d = true;
+            this.b = i;
+        }
     }
 
-    public String c() {
-        return this.a;
+    public void c(int i) {
+        if (i != 0) {
+            this.d = true;
+            this.c = i;
+        }
     }
 
-    public String d() {
-        return this.d;
+    public void a() {
+        this.d = false;
+        this.f984a = 0L;
+        this.b = 0L;
+        this.c = 0;
     }
 
-    public String e() {
-        return this.c;
-    }
-
-    public String f() {
-        return this.g;
-    }
-
-    public long g() {
-        return this.e;
-    }
-
-    public void a(JSONObject jSONObject) {
-        if (jSONObject != null) {
-            try {
-                this.a = jSONObject.optString("tid");
-                this.c = jSONObject.optString("title");
-                this.b = jSONObject.optString("pid");
-                this.h = jSONObject.optInt("is_floor", 0) != 0;
-                this.e = jSONObject.optLong("time", 0L) * 1000;
-                this.f.parserJson(jSONObject.optJSONObject("author"));
-                this.g = jSONObject.optString(PushConstants.EXTRA_CONTENT);
-                this.d = jSONObject.optString("fname");
-                this.c = com.baidu.tieba.util.y.a(this.c, (Color) null);
-                String a = com.baidu.tieba.util.y.a(this.g, (Color) null);
-                if (!a.equals(this.g)) {
-                    this.g = a;
-                    this.i = false;
-                }
-            } catch (Exception e) {
-                com.baidu.tieba.util.z.b("PostData", "parserJson", "error = " + e.getMessage());
+    public void a(com.baidu.tieba.util.u uVar) {
+        if (uVar != null) {
+            if (this.f984a != 0) {
+                uVar.a("ctime", String.valueOf(this.f984a));
+            }
+            if (this.b != 0) {
+                uVar.a("data_size", String.valueOf(this.b));
+            }
+            if (this.c != 0) {
+                uVar.a("net_error", String.valueOf(this.c));
             }
         }
     }

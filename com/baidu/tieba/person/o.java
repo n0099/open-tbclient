@@ -5,21 +5,23 @@ import com.baidu.tieba.view.EditHeadImageView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class o implements View.OnClickListener {
-    final /* synthetic */ EditHeadActivity a;
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ EditHeadActivity f1611a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public o(EditHeadActivity editHeadActivity) {
-        this.a = editHeadActivity;
+        this.f1611a = editHeadActivity;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         EditHeadImageView editHeadImageView;
-        boolean a;
-        editHeadImageView = this.a.e;
-        a = this.a.a("tieba_head_image", editHeadImageView.getHeadBitmap());
-        if (a) {
-            this.a.m();
+        boolean a2;
+        editHeadImageView = this.f1611a.e;
+        a2 = this.f1611a.a("tieba_head_image", editHeadImageView.getHeadBitmap());
+        if (a2) {
+            this.f1611a.k();
         }
     }
 }

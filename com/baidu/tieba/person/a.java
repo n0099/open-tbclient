@@ -4,18 +4,20 @@ import android.os.Handler;
 import android.os.Message;
 /* loaded from: classes.dex */
 class a implements Handler.Callback {
-    final /* synthetic */ AllPostActivity a;
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ AllPostActivity f1559a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(AllPostActivity allPostActivity) {
-        this.a = allPostActivity;
+        this.f1559a = allPostActivity;
     }
 
     @Override // android.os.Handler.Callback
     public boolean handleMessage(Message message) {
         switch (message.what) {
             case 1:
-                this.a.finish();
+                this.f1559a.finish();
                 return false;
             default:
                 return false;

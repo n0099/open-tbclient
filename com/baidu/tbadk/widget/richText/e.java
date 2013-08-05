@@ -3,24 +3,26 @@ package com.baidu.tbadk.widget.richText;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class e {
-    private String a;
+
+    /* renamed from: a  reason: collision with root package name */
+    private String f809a;
     private int b;
     private int c;
     private boolean d;
 
     public e(JSONObject jSONObject) {
-        this.a = null;
+        this.f809a = null;
         this.b = 1;
         this.c = 1;
         this.d = false;
         if (jSONObject != null) {
-            this.a = jSONObject.optString("src");
+            this.f809a = jSONObject.optString("src");
             try {
                 String[] split = jSONObject.optString("bsize").split(",");
                 this.b = Integer.valueOf(split[0]).intValue();
                 this.c = Integer.valueOf(split[1]).intValue();
             } catch (Exception e) {
-                com.baidu.adp.lib.c.b.a(e.getMessage());
+                com.baidu.adp.lib.e.d.a(e.getMessage());
             }
             if (this.b <= 0) {
                 this.b = 1;
@@ -28,7 +30,7 @@ public class e {
             if (this.c <= 0) {
                 this.c = 1;
             }
-            if (this.a != null && this.a.indexOf(".baidu.com") != -1) {
+            if (this.f809a != null && this.f809a.indexOf(".baidu.com") != -1) {
                 this.d = true;
             }
         }
@@ -47,6 +49,6 @@ public class e {
     }
 
     public String d() {
-        return this.a;
+        return this.f809a;
     }
 }

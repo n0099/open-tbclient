@@ -20,7 +20,9 @@ public class f implements Executor {
     private static f c = null;
     private static final ThreadFactory d = new g();
     private static final BlockingQueue e = new SynchronousQueue();
-    public static final Executor a = new ThreadPoolExecutor(5, 256, 30, TimeUnit.SECONDS, e, d, new ThreadPoolExecutor.DiscardPolicy());
+
+    /* renamed from: a  reason: collision with root package name */
+    public static final Executor f353a = new ThreadPoolExecutor(5, 256, 30, TimeUnit.SECONDS, e, d, new ThreadPoolExecutor.DiscardPolicy());
 
     private f() {
     }
@@ -75,17 +77,17 @@ public class f implements Executor {
         int size = this.g.size();
         if (size >= 5) {
             if (b) {
-                com.baidu.adp.lib.c.b.c(a().toString());
+                com.baidu.adp.lib.e.d.c(a().toString());
             }
         } else {
             j jVar2 = (j) this.f.peek();
             if (jVar2 == null) {
                 if (b) {
-                    com.baidu.adp.lib.c.b.c(a().toString());
+                    com.baidu.adp.lib.e.d.c(a().toString());
                 }
             } else if (size >= 4 && jVar2.d() == 1) {
                 if (b) {
-                    com.baidu.adp.lib.c.b.c(a().toString());
+                    com.baidu.adp.lib.e.d.c(a().toString());
                 }
             } else {
                 k kVar = new k(this, this.g);
@@ -101,13 +103,13 @@ public class f implements Executor {
                     } else {
                         this.g.add(jVar3);
                         this.f.remove(jVar3);
-                        a.execute(jVar3);
+                        f353a.execute(jVar3);
                         this.i.sendMessageDelayed(this.i.obtainMessage(1, jVar3), 120000L);
                         break;
                     }
                 }
                 if (b) {
-                    com.baidu.adp.lib.c.b.c(a().toString());
+                    com.baidu.adp.lib.e.d.c(a().toString());
                 }
             }
         }
@@ -118,14 +120,14 @@ public class f implements Executor {
         a(this.g, false, str);
         a(this.h, false, str);
         if (b) {
-            com.baidu.adp.lib.c.b.c(a().toString());
+            com.baidu.adp.lib.e.d.c(a().toString());
         }
     }
 
     public synchronized void b(String str) {
         a(this.f, true, str);
         if (b) {
-            com.baidu.adp.lib.c.b.c(a().toString());
+            com.baidu.adp.lib.e.d.c(a().toString());
         }
     }
 
@@ -156,7 +158,7 @@ public class f implements Executor {
             }
         }
         if (b) {
-            com.baidu.adp.lib.c.b.c(a().toString());
+            com.baidu.adp.lib.e.d.c(a().toString());
         }
     }
 

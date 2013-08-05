@@ -1,24 +1,19 @@
 package com.baidu.tieba.more;
 
-import com.baidu.tieba.model.MoreModel;
-import com.slidingmenu.lib.R;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.view.View;
 /* loaded from: classes.dex */
-public class x extends com.baidu.adp.a.e {
-    final /* synthetic */ MoreActivity a;
+class x implements View.OnClickListener {
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ BrowseSettingActivity f1430a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public x(MoreActivity moreActivity) {
-        this.a = moreActivity;
+    public x(BrowseSettingActivity browseSettingActivity) {
+        this.f1430a = browseSettingActivity;
     }
 
-    @Override // com.baidu.adp.a.e
-    public void a(Object obj) {
-        z zVar;
-        if (obj != null && (obj instanceof MoreModel.TaskType) && obj == MoreModel.TaskType.DO_CLEAR) {
-            this.a.a(this.a.getString(R.string.image_cash_del_suc));
-            zVar = this.a.a;
-            zVar.q();
-        }
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        this.f1430a.finish();
     }
 }

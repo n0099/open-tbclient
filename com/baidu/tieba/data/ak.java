@@ -1,50 +1,99 @@
 package com.baidu.tieba.data;
+
+import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class ak {
-    private volatile long a = 0;
-    private volatile long b = 0;
-    private volatile int c = 0;
-    private volatile boolean d = false;
+
+    /* renamed from: a  reason: collision with root package name */
+    private int f975a;
+    private int b;
+    private int c;
+    private int d;
+    private String e;
+    private int f;
+    private int g;
+
+    public ak() {
+        b(0);
+        c(0);
+        d(0);
+        this.d = 0;
+        b("");
+        e(0);
+        f(0);
+    }
+
+    public int a() {
+        return this.d;
+    }
 
     public void a(int i) {
-        if (i > 0) {
-            this.d = true;
-            this.a = i;
+        if (i >= 0) {
+            this.d = i;
+        }
+    }
+
+    public void a(String str) {
+        try {
+            a(new JSONObject(str).optJSONObject("info"));
+        } catch (Exception e) {
+            com.baidu.tieba.util.aj.b("LikeReturnData", "parserJson", "error = " + e.getMessage());
+        }
+    }
+
+    public void a(JSONObject jSONObject) {
+        if (jSONObject != null) {
+            try {
+                b(jSONObject.optInt("is_like", 0));
+                c(jSONObject.optInt("is_black", 0));
+                d(jSONObject.optInt("like_num", 0));
+                this.d = jSONObject.optInt("level_id", 0);
+                b(jSONObject.optString("level_name", ""));
+                f(jSONObject.optInt("levelup_score", 0));
+                e(jSONObject.optInt("cur_score", 0));
+            } catch (Exception e) {
+                com.baidu.tieba.util.aj.b("LikeReturnData", "parserJson", "error = " + e.getMessage());
+            }
         }
     }
 
     public void b(int i) {
-        if (i > 0) {
-            this.d = true;
-            this.b = i;
-        }
+        this.f975a = i;
+    }
+
+    public int b() {
+        return this.f975a;
     }
 
     public void c(int i) {
-        if (i != 0) {
-            this.d = true;
-            this.c = i;
-        }
+        this.b = i;
     }
 
-    public void a() {
-        this.d = false;
-        this.a = 0L;
-        this.b = 0L;
-        this.c = 0;
+    public void d(int i) {
+        this.c = i;
     }
 
-    public void a(com.baidu.tieba.util.r rVar) {
-        if (rVar != null) {
-            if (this.a != 0) {
-                rVar.a("ctime", String.valueOf(this.a));
-            }
-            if (this.b != 0) {
-                rVar.a("data_size", String.valueOf(this.b));
-            }
-            if (this.c != 0) {
-                rVar.a("net_error", String.valueOf(this.c));
-            }
-        }
+    public void b(String str) {
+        this.e = str;
+    }
+
+    public String c() {
+        return this.e;
+    }
+
+    public void e(int i) {
+        this.f = i;
+    }
+
+    public int d() {
+        return this.f;
+    }
+
+    public void f(int i) {
+        this.g = i;
+    }
+
+    public int e() {
+        return this.g;
     }
 }

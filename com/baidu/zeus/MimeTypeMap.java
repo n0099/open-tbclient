@@ -1,5 +1,6 @@
 package com.baidu.zeus;
 
+import com.tencent.mm.sdk.platformtools.PhoneUtil;
 import java.util.HashMap;
 import java.util.regex.Pattern;
 /* loaded from: classes.dex */
@@ -269,7 +270,7 @@ public class MimeTypeMap {
             sMimeTypeMap.loadEntry("audio/x-aiff", "aif");
             sMimeTypeMap.loadEntry("audio/x-aiff", "aiff");
             sMimeTypeMap.loadEntry("audio/x-aiff", "aifc");
-            sMimeTypeMap.loadEntry("audio/x-gsm", "gsm");
+            sMimeTypeMap.loadEntry("audio/x-gsm", PhoneUtil.CELL_GSM);
             sMimeTypeMap.loadEntry("audio/x-mpegurl", "m3u");
             sMimeTypeMap.loadEntry("audio/x-ms-wma", "wma");
             sMimeTypeMap.loadEntry("audio/x-ms-wax", "wax");

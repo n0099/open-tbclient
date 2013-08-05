@@ -3,11 +3,13 @@ package com.baidu.tieba.home;
 import android.content.DialogInterface;
 /* loaded from: classes.dex */
 class al implements DialogInterface.OnClickListener {
-    final /* synthetic */ aj a;
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ aj f1124a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public al(aj ajVar) {
-        this.a = ajVar;
+        this.f1124a = ajVar;
     }
 
     @Override // android.content.DialogInterface.OnClickListener

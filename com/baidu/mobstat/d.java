@@ -4,7 +4,9 @@ import android.content.Context;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class d implements Runnable {
-    final /* synthetic */ String a;
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ String f781a;
     final /* synthetic */ String b;
     final /* synthetic */ int c;
     final /* synthetic */ Context d;
@@ -13,7 +15,7 @@ public class d implements Runnable {
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(c cVar, String str, String str2, int i, Context context) {
         this.e = cVar;
-        this.a = str;
+        this.f781a = str;
         this.b = str2;
         this.c = i;
         this.d = context;
@@ -30,7 +32,7 @@ public class d implements Runnable {
                 }
             }
         }
-        b.a().a(this.a, this.b, this.c, System.currentTimeMillis());
+        b.a().a(this.f781a, this.b, this.c, System.currentTimeMillis());
         b.a().b(this.d);
     }
 }

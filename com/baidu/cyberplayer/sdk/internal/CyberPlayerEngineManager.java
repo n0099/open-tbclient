@@ -6,7 +6,9 @@ import com.baidu.loginshare.e;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class CyberPlayerEngineManager extends BEngineManager {
-    private static CyberPlayerEngineManager a = null;
+
+    /* renamed from: a  reason: collision with root package name */
+    private static CyberPlayerEngineManager f709a = null;
 
     /* renamed from: a  reason: collision with other field name */
     private Context f4a;
@@ -21,10 +23,10 @@ public class CyberPlayerEngineManager extends BEngineManager {
     public static synchronized CyberPlayerEngineManager getInstance(Context context) {
         CyberPlayerEngineManager cyberPlayerEngineManager;
         synchronized (CyberPlayerEngineManager.class) {
-            if (a == null && context != null) {
-                a = new CyberPlayerEngineManager(context);
+            if (f709a == null && context != null) {
+                f709a = new CyberPlayerEngineManager(context);
             }
-            cyberPlayerEngineManager = a;
+            cyberPlayerEngineManager = f709a;
         }
         return cyberPlayerEngineManager;
     }

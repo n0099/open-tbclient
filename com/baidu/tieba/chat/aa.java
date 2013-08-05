@@ -1,7 +1,9 @@
 package com.baidu.tieba.chat;
 /* loaded from: classes.dex */
 public class aa extends com.baidu.adp.a.c {
-    private com.baidu.tieba.data.a.e a = null;
+
+    /* renamed from: a  reason: collision with root package name */
+    private com.baidu.tieba.data.a.e f928a = null;
     private ab b = null;
     private ac c = null;
     private com.baidu.tieba.data.a.f d;
@@ -16,13 +18,13 @@ public class aa extends com.baidu.adp.a.c {
     }
 
     public void a(com.baidu.tieba.data.a.e eVar) {
-        this.a = eVar;
+        this.f928a = eVar;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.a.c
     public boolean LoadData() {
-        if (this.a != null && this.b == null) {
+        if (this.f928a != null && this.b == null) {
             this.b = new ab(this);
             this.b.execute(new Object[0]);
             return true;

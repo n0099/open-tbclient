@@ -1,24 +1,19 @@
 package com.baidu.tieba.more;
 
 import android.view.View;
-import com.baidu.adp.widget.BdSwitchView.BdSwitchView;
-import com.baidu.tieba.TiebaApplication;
 /* loaded from: classes.dex */
-class ai implements com.baidu.adp.widget.BdSwitchView.c {
-    final /* synthetic */ SignRemindActivity a;
+class ai implements View.OnClickListener {
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ SignRemindActivity f1404a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ai(SignRemindActivity signRemindActivity) {
-        this.a = signRemindActivity;
+        this.f1404a = signRemindActivity;
     }
 
-    @Override // com.baidu.adp.widget.BdSwitchView.c
-    public void a(View view, BdSwitchView.SwitchState switchState) {
-        if (switchState == BdSwitchView.SwitchState.ON) {
-            TiebaApplication.f().p(true);
-        } else {
-            TiebaApplication.f().p(false);
-        }
-        this.a.d();
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        this.f1404a.finish();
     }
 }

@@ -4,11 +4,13 @@ import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ar implements View.OnClickListener {
-    final /* synthetic */ SearchActivity a;
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ SearchActivity f1130a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ar(SearchActivity searchActivity) {
-        this.a = searchActivity;
+        this.f1130a = searchActivity;
     }
 
     @Override // android.view.View.OnClickListener
@@ -17,21 +19,21 @@ public class ar implements View.OnClickListener {
         String str2;
         int i;
         String str3;
-        str = this.a.A;
+        str = this.f1130a.A;
         if (str != null) {
-            str2 = this.a.A;
+            str2 = this.f1130a.A;
             if (str2.trim().length() >= 1) {
-                i = this.a.B;
+                i = this.f1130a.B;
                 if (i == 0) {
-                    this.a.m();
+                    this.f1130a.k();
                     return;
                 }
-                SearchActivity searchActivity = this.a;
-                str3 = this.a.A;
+                SearchActivity searchActivity = this.f1130a;
+                str3 = this.f1130a.A;
                 searchActivity.a(1, str3);
                 return;
             }
         }
-        this.a.finish();
+        this.f1130a.finish();
     }
 }

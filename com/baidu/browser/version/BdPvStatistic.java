@@ -7,6 +7,7 @@ import com.baidu.browser.core.net.BdNetListener;
 import com.baidu.browser.core.net.BdNetTask;
 import com.baidu.browser.core.util.BdFileUtil;
 import com.baidu.browser.core.util.BdLog;
+import com.tencent.mm.sdk.platformtools.Util;
 /* loaded from: classes.dex */
 public class BdPvStatistic implements BdNetListener {
     private static final String LAUHCH_FILENAME = "pv_launch";
@@ -44,7 +45,7 @@ public class BdPvStatistic implements BdNetListener {
     public void submitPv(boolean z) {
         if (z) {
             long currentTimeMillis = System.currentTimeMillis();
-            if (currentTimeMillis >= this.mLauchTime + 86400000) {
+            if (currentTimeMillis >= this.mLauchTime + Util.MILLSECONDS_OF_DAY) {
                 submitPv();
                 this.mLauchTime = currentTimeMillis;
                 return;

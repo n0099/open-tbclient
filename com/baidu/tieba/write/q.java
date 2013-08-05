@@ -4,15 +4,17 @@ import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class q implements View.OnClickListener {
-    final /* synthetic */ VcodeActivity a;
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ VcodeActivity f1912a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public q(VcodeActivity vcodeActivity) {
-        this.a = vcodeActivity;
+        this.f1912a = vcodeActivity;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        this.a.c((String) null);
+        this.f1912a.c((String) null);
     }
 }

@@ -3,10 +3,12 @@ package android.support.v4.view;
 import android.database.DataSetObserver;
 /* loaded from: classes.dex */
 class bs extends DataSetObserver {
-    final /* synthetic */ ViewPager a;
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ ViewPager f319a;
 
     private bs(ViewPager viewPager) {
-        this.a = viewPager;
+        this.f319a = viewPager;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -16,11 +18,11 @@ class bs extends DataSetObserver {
 
     @Override // android.database.DataSetObserver
     public void onChanged() {
-        this.a.b();
+        this.f319a.b();
     }
 
     @Override // android.database.DataSetObserver
     public void onInvalidated() {
-        this.a.b();
+        this.f319a.b();
     }
 }

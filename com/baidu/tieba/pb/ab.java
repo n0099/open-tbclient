@@ -4,19 +4,21 @@ import android.content.DialogInterface;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ab implements DialogInterface.OnClickListener {
-    final /* synthetic */ ImagePbActivity a;
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ ImagePbActivity f1444a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ab(ImagePbActivity imagePbActivity) {
-        this.a = imagePbActivity;
+        this.f1444a = imagePbActivity;
     }
 
     @Override // android.content.DialogInterface.OnClickListener
     public void onClick(DialogInterface dialogInterface, int i) {
         if (i == 0) {
-            com.baidu.tieba.write.bb.a(this.a);
+            com.baidu.tieba.write.ba.a(this.f1444a);
         } else {
-            com.baidu.tieba.write.bb.b(this.a);
+            com.baidu.tieba.write.ba.b(this.f1444a);
         }
     }
 }

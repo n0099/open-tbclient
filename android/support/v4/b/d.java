@@ -3,7 +3,9 @@ package android.support.v4.b;
 import java.io.PrintWriter;
 /* loaded from: classes.dex */
 public class d {
-    private static final Object a = new Object();
+
+    /* renamed from: a  reason: collision with root package name */
+    private static final Object f296a = new Object();
     private static char[] b = new char[24];
 
     private static int a(int i, int i2, boolean z, int i3) {
@@ -122,7 +124,7 @@ public class d {
     }
 
     public static void a(long j, PrintWriter printWriter, int i) {
-        synchronized (a) {
+        synchronized (f296a) {
             printWriter.print(new String(b, 0, a(j, i)));
         }
     }

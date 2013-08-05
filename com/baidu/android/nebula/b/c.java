@@ -1,122 +1,216 @@
 package com.baidu.android.nebula.b;
 
-import com.baidu.android.common.logging.Log;
-import com.baidu.cyberplayer.sdk.internal.HttpUtils;
-import java.nio.ByteBuffer;
+import android.content.Context;
+import android.content.Intent;
+import android.content.IntentFilter;
+import android.os.Handler;
+import com.baidu.android.common.net.ConnectManager;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.Random;
 /* loaded from: classes.dex */
-public class c extends com.baidu.android.nebula.c.c {
-    private ByteBuffer a;
-    private StringBuilder b;
-    private a c;
-    private int d = -1;
-    private boolean e = false;
+public final class c {
+    private static c f = null;
 
-    public static int a(String str) {
-        if (str.startsWith("GET")) {
-            return 0;
-        }
-        if (str.startsWith("POST")) {
-            return 1;
-        }
-        return str.startsWith("HEAD") ? 2 : 0;
+    /* renamed from: a  reason: collision with root package name */
+    private Context f523a;
+    private Handler g;
+    private j b = new j();
+    private j c = new j();
+    private volatile j d = new j();
+    private j e = new j();
+    private q h = null;
+    private Runnable i = new t(this);
+
+    private c(Context context) {
+        this.f523a = null;
+        this.g = null;
+        this.f523a = context.getApplicationContext();
+        this.g = new Handler(context.getMainLooper());
+        j();
+        f();
     }
 
-    public static int a(ByteBuffer byteBuffer, ByteBuffer byteBuffer2) {
-        int i = 0;
-        if (byteBuffer != null && byteBuffer2 != null) {
-            while (true) {
-                if (byteBuffer.remaining() >= 4 && byteBuffer2.remaining() >= 4) {
-                    byteBuffer2.putInt(byteBuffer.getInt());
-                    i += 4;
-                } else if (byteBuffer.remaining() <= 0 || byteBuffer2.remaining() <= 0) {
-                    break;
-                } else {
-                    byteBuffer2.put(byteBuffer.get());
-                    i++;
-                }
+    public static synchronized c a(Context context) {
+        c cVar;
+        synchronized (c.class) {
+            if (f == null) {
+                f = new c(context);
+            }
+            cVar = f;
+        }
+        return cVar;
+    }
+
+    public static synchronized void a() {
+        synchronized (c.class) {
+            if (f != null) {
+                f.k();
+                f = null;
             }
         }
-        return i;
     }
 
-    @Override // com.baidu.android.nebula.c.c
-    public int a(ByteBuffer byteBuffer) {
-        int remaining;
-        if (!this.e && (remaining = byteBuffer.remaining()) > 0) {
-            if (this.b == null) {
-                this.b = new StringBuilder();
+    public static void a(Context context, Intent intent) {
+        if (intent != null && "android.net.conn.CONNECTIVITY_CHANGE".equals(intent.getAction()) && ConnectManager.isNetworkConnected(context)) {
+            c(context);
+        }
+    }
+
+    public static boolean b(Context context) {
+        return m.a(context) != 0 || System.currentTimeMillis() - m.a(context, System.currentTimeMillis()) >= 172800000;
+    }
+
+    public static void c(Context context) {
+        if (b(context)) {
+            a(context).i();
+        }
+    }
+
+    private void f() {
+        this.c = d.a(this.f523a).a();
+        this.b = f.a(this.f523a);
+        g();
+    }
+
+    private j g() {
+        Iterator it = this.b.b().iterator();
+        while (it.hasNext()) {
+            u uVar = (u) it.next();
+            u a2 = this.c.a(uVar.b());
+            if (a2 == null) {
+                uVar.a(r.INSERT);
+                this.e.a(uVar.b(), uVar);
+            } else if (uVar.compareTo(a2) != 0 && uVar.compareTo(a2) == 1) {
+                uVar.a(r.UPDATE);
+                this.e.a(uVar.b(), uVar);
             }
-            this.b.append(new String(byteBuffer.array(), byteBuffer.position(), remaining));
-            return remaining;
         }
-        return 0;
-    }
-
-    public a a() {
-        return this.c;
-    }
-
-    public void a(b bVar) {
-        this.a = ByteBuffer.wrap(bVar.toString().getBytes());
-        this.a.rewind();
-    }
-
-    @Override // com.baidu.android.nebula.c.c
-    public int b(ByteBuffer byteBuffer) {
-        if (this.e) {
-            return 0;
+        Iterator it2 = this.c.b().iterator();
+        while (it2.hasNext()) {
+            u uVar2 = (u) it2.next();
+            if (this.b.a(uVar2.b()) == null) {
+                uVar2.a(r.DELETE);
+                this.e.a(uVar2.b(), uVar2);
+            }
         }
-        return a(this.a, byteBuffer);
+        return this.e;
     }
 
-    @Override // com.baidu.android.nebula.c.c
-    public boolean b() {
-        int indexOf;
-        if (this.e) {
-            return true;
+    /* JADX INFO: Access modifiers changed from: private */
+    /* JADX WARN: Code restructure failed: missing block: B:7:0x0021, code lost:
+        if ((r2 - com.baidu.android.nebula.b.m.a(r8.f523a, r2)) > (com.baidu.android.nebula.b.m.a(r8.f523a) * 1000)) goto L7;
+     */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public void h() {
+        boolean z = true;
+        boolean z2 = c();
+        if (!z2) {
+            long currentTimeMillis = System.currentTimeMillis();
         }
-        if (this.b == null) {
+        z = z2;
+        if (z) {
+            new g(this.f523a).a();
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void i() {
+        this.g.removeCallbacks(this.i);
+        this.g.postDelayed(this.i, 5000L);
+    }
+
+    private void j() {
+        IntentFilter intentFilter = new IntentFilter();
+        intentFilter.addAction("android.intent.action.PACKAGE_ADDED");
+        intentFilter.addAction("android.intent.action.PACKAGE_REMOVED");
+        intentFilter.addAction("android.intent.action.PACKAGE_REPLACED");
+        intentFilter.addDataScheme("package");
+        this.h = new q(this, null);
+        this.f523a.registerReceiver(this.h, intentFilter);
+    }
+
+    private void k() {
+        if (this.h == null) {
+            return;
+        }
+        this.f523a.unregisterReceiver(this.h);
+    }
+
+    public j a(int i) {
+        this.d.a();
+        if (i >= this.e.c()) {
+            this.d = this.e.a(0, this.e.c());
+        } else {
+            this.d = this.e.a(0, i);
+        }
+        return this.d;
+    }
+
+    public boolean a(ArrayList arrayList) {
+        if (arrayList == null || arrayList.size() > this.d.c()) {
             return false;
         }
-        String sb = this.b.toString();
-        if (this.d == -1) {
-            this.d = a(sb);
-            if (this.d == -1) {
-                return false;
-            }
-        }
-        if (this.d == 0 || this.d == 2) {
-            if (sb.endsWith("\r\n\r\n")) {
-                this.c = new a(this.b.toString());
-                return true;
-            }
-        } else if (this.d == 1) {
-            if (this.c == null && (indexOf = sb.indexOf("\r\n\r\n")) != -1) {
-                String substring = sb.substring(0, indexOf + 1);
-                this.c = new a(substring);
-                this.b.delete(0, substring.getBytes().length);
-            }
-            if (this.c != null) {
-                try {
-                    if (this.b.length() >= Integer.parseInt(this.c.a(HttpUtils.HEADER_NAME_CONTENT_LENGTH))) {
-                        this.c.a(this.b.toString().getBytes());
-                        this.b = new StringBuilder();
-                        return true;
-                    }
-                } catch (NumberFormatException e) {
-                    Log.e("HttpSession", "Content-Length Parse Error ：", e);
-                    return true;
+        int c = this.d.c();
+        Iterator it = arrayList.iterator();
+        while (it.hasNext()) {
+            Integer num = (Integer) it.next();
+            if (num.intValue() < c) {
+                u a2 = this.d.a(num.intValue());
+                if (a2.a() == r.DELETE) {
+                    this.c.b(a2.b());
+                } else if (a2.a() == r.UPDATE || a2.a() == r.INSERT) {
+                    this.c.a(a2);
                 }
             }
         }
-        return false;
+        d.a(this.f523a).a(this.c.b());
+        return true;
     }
 
-    @Override // com.baidu.android.nebula.c.c
-    public boolean c() {
-        if (this.e) {
-            return true;
+    public j b(int i) {
+        if (i >= this.b.c()) {
+            return this.b;
         }
-        return (this.a == null || this.a.hasRemaining()) ? false : true;
+        j jVar = new j();
+        Random random = new Random();
+        while (jVar.c() < i) {
+            jVar.a(this.b.a(random.nextInt(this.b.c())));
+        }
+        return jVar;
+    }
+
+    public void b() {
+        d.a(this.f523a).b();
+    }
+
+    public void b(ArrayList arrayList) {
+        if (arrayList == null) {
+            return;
+        }
+        Iterator it = arrayList.iterator();
+        while (it.hasNext()) {
+            this.e.a(this.d.a(((Integer) it.next()).intValue()));
+        }
+    }
+
+    public boolean c() {
+        return this.e.c() > 0;
+    }
+
+    public void d() {
+        this.e.a();
+        Iterator it = this.b.b().iterator();
+        while (it.hasNext()) {
+            u uVar = (u) it.next();
+            uVar.a(r.INSERT);
+            this.e.a(uVar.b(), uVar);
+        }
+    }
+
+    public boolean e() {
+        return this.e.c() > 0;
     }
 }

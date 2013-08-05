@@ -1,18 +1,33 @@
 package com.baidu.tieba.util;
 
-import com.baidu.tieba.BaiduAccount.BaiduAccount;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.content.Context;
+import android.text.style.ClickableSpan;
+import android.view.View;
+import com.baidu.tieba.pb.NewPbActivity;
 /* loaded from: classes.dex */
-public class s implements BaiduAccount.CallbackListener {
-    final /* synthetic */ r a;
+public class s extends ClickableSpan {
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public s(r rVar) {
-        this.a = rVar;
+    /* renamed from: a  reason: collision with root package name */
+    private Context f1773a;
+
+    public s(Context context) {
+        this.f1773a = null;
+        this.f1773a = context;
     }
 
-    @Override // com.baidu.tieba.BaiduAccount.BaiduAccount.CallbackListener
-    public void callback() {
-        this.a.r();
+    @Override // android.text.style.ClickableSpan
+    public void onClick(View view) {
+    }
+
+    public Context a() {
+        return this.f1773a;
+    }
+
+    public void a(String str) {
+        am.c(this.f1773a, str);
+    }
+
+    public void b(String str) {
+        NewPbActivity.a(this.f1773a, str, null, null);
     }
 }

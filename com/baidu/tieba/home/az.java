@@ -11,15 +11,17 @@ import com.slidingmenu.lib.R;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class az extends BaseAdapter {
-    private Context a;
+
+    /* renamed from: a  reason: collision with root package name */
+    private Context f1138a;
     private ArrayList b;
     private String c;
     private boolean d = true;
 
     public az(Context context, ArrayList arrayList) {
-        this.a = context;
+        this.f1138a = context;
         this.b = arrayList;
-        this.c = this.a.getText(R.string.forum).toString();
+        this.c = this.f1138a.getText(R.string.forum).toString();
     }
 
     public void a(ArrayList arrayList) {
@@ -65,15 +67,15 @@ public class az extends BaseAdapter {
         View view3;
         try {
             if (view == null) {
-                view3 = LayoutInflater.from(this.a).inflate(R.layout.home_dialog_search_item, (ViewGroup) null);
+                view3 = LayoutInflater.from(this.f1138a).inflate(R.layout.home_dialog_search_item, (ViewGroup) null);
                 try {
                     baVar = new ba(this, null);
-                    baVar.a = (TextView) view3.findViewById(R.id.home_lv_search_forum);
+                    baVar.f1140a = (TextView) view3.findViewById(R.id.home_lv_search_forum);
                     view3.setTag(baVar);
                 } catch (Exception e) {
                     view2 = view3;
                     exc = e;
-                    com.baidu.tieba.util.z.b(getClass().getName(), "", "SearchAdapter.getView error = " + exc.getMessage());
+                    com.baidu.tieba.util.aj.b(getClass().getName(), "", "SearchAdapter.getView error = " + exc.getMessage());
                     return view2;
                 }
             } else {
@@ -84,13 +86,13 @@ public class az extends BaseAdapter {
             if (item == null) {
                 return view3;
             }
-            com.baidu.tieba.util.x.b(baVar.a, TiebaApplication.f().at());
+            com.baidu.tieba.util.ah.b(baVar.f1140a, TiebaApplication.f().au());
             String str = (String) item;
             if (this.d) {
-                baVar.a.setText(str.concat(this.c));
+                baVar.f1140a.setText(str.concat(this.c));
                 return view3;
             }
-            baVar.a.setText(str);
+            baVar.f1140a.setText(str);
             return view3;
         } catch (Exception e2) {
             exc = e2;

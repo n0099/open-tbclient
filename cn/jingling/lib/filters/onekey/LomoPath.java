@@ -6,6 +6,7 @@ import cn.jingling.lib.filters.CMTProcessor;
 import cn.jingling.lib.filters.Curve;
 import cn.jingling.lib.filters.Layer;
 import cn.jingling.lib.filters.OneKeyFilter;
+import com.tencent.mm.sdk.platformtools.Util;
 /* loaded from: classes.dex */
 public class LomoPath extends OneKeyFilter {
     @Override // cn.jingling.lib.filters.OneKeyFilter
@@ -16,7 +17,7 @@ public class LomoPath extends OneKeyFilter {
         bitmap.getPixels(iArr, 0, width, 0, 0, width, height);
         Curve curve = new Curve(context, "curves/lomo_path.dat");
         CMTProcessor.curveEffect(iArr, curve.getCurveRed(), curve.getCurveGreen(), curve.getCurveBlue(), width, height);
-        CMTProcessor.multiplyEffect(iArr, Layer.getLayerPixels(context, "layers/lomo_path", width, height, Layer.Type.ROTATABLE, 255), width, height);
+        CMTProcessor.multiplyEffect(iArr, Layer.getLayerPixels(context, "layers/lomo_path", width, height, Layer.Type.ROTATABLE, Util.MASK_8BIT), width, height);
         bitmap.setPixels(iArr, 0, width, 0, 0, width, height);
         return bitmap;
     }

@@ -3,16 +3,15 @@ package com.baidu.cyberplayer.sdk.internal;
 import android.content.Context;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
-import com.baidu.zeus.NotificationProxy;
 import java.io.IOException;
 import java.io.RandomAccessFile;
 /* loaded from: classes.dex */
 class d {
     /* renamed from: a  reason: collision with other method in class */
     public static String m15a(Context context) {
-        ApplicationInfo a = a(context);
-        if (a != null) {
-            return a.sourceDir;
+        ApplicationInfo a2 = a(context);
+        if (a2 != null) {
+            return a2.sourceDir;
         }
         return null;
     }
@@ -43,7 +42,7 @@ class d {
 
     public static String a() {
         try {
-            byte[] bArr = new byte[NotificationProxy.MAX_URL_LENGTH];
+            byte[] bArr = new byte[1024];
             new RandomAccessFile("/proc/cpuinfo", "r").read(bArr);
             String str = new String(bArr);
             int indexOf = str.indexOf(0);

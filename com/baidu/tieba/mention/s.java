@@ -2,43 +2,45 @@ package com.baidu.tieba.mention;
 
 import android.view.View;
 import com.baidu.tieba.data.AntiData;
-import com.baidu.tieba.data.aj;
-import com.baidu.tieba.data.an;
-import com.baidu.tieba.model.bg;
+import com.baidu.tieba.data.as;
+import com.baidu.tieba.data.aw;
+import com.baidu.tieba.model.bl;
 import com.baidu.tieba.write.WriteActivity;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class s implements View.OnClickListener {
-    final /* synthetic */ PostActivity a;
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ PostActivity f1309a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public s(PostActivity postActivity) {
-        this.a = postActivity;
+        this.f1309a = postActivity;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        bg bgVar;
-        bg bgVar2;
-        bg bgVar3;
-        bg bgVar4;
-        bgVar = this.a.n;
-        if (bgVar != null) {
-            bgVar2 = this.a.n;
-            if (bgVar2.a() != null) {
-                bgVar3 = this.a.n;
-                aj a = bgVar3.a();
-                an anVar = (an) a.d().get(0);
-                if (anVar != null) {
-                    PostActivity postActivity = this.a;
-                    String a2 = a.a().a();
-                    String b = a.a().b();
-                    String a3 = a.b().a();
-                    String d = anVar.d();
-                    int f = anVar.f();
-                    AntiData f2 = a.f();
-                    bgVar4 = this.a.n;
-                    WriteActivity.a(postActivity, a2, b, a3, d, f, null, f2, bgVar4.a().k());
+        bl blVar;
+        bl blVar2;
+        bl blVar3;
+        bl blVar4;
+        blVar = this.f1309a.n;
+        if (blVar != null) {
+            blVar2 = this.f1309a.n;
+            if (blVar2.a() != null) {
+                blVar3 = this.f1309a.n;
+                as a2 = blVar3.a();
+                aw awVar = (aw) a2.c().get(0);
+                if (awVar != null) {
+                    PostActivity postActivity = this.f1309a;
+                    String a3 = a2.a().a();
+                    String b = a2.a().b();
+                    String a4 = a2.b().a();
+                    String d = awVar.d();
+                    int e = awVar.e();
+                    AntiData e2 = a2.e();
+                    blVar4 = this.f1309a.n;
+                    WriteActivity.a(postActivity, a3, b, a4, d, e, null, e2, blVar4.a().h());
                 }
             }
         }

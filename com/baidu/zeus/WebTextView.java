@@ -41,6 +41,7 @@ import android.widget.TextView;
 import com.android.internal.widget.EditableInputConnection;
 import com.baidu.location.BDLocation;
 import com.baidu.zeus.bouncycastle.DERTags;
+import com.tencent.mm.sdk.platformtools.Util;
 import java.util.ArrayList;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
@@ -169,7 +170,7 @@ public class WebTextView extends AutoCompleteTextView {
             case 19:
             case 20:
             case 21:
-            case DERTags.IA5_STRING /* 22 */:
+            case 22:
                 if (!this.mWebView.nativeCursorMatchesFocus()) {
                     return z2 ? this.mWebView.onKeyDown(keyCode, keyEvent) : this.mWebView.onKeyUp(keyCode, keyEvent);
                 }
@@ -385,8 +386,8 @@ public class WebTextView extends AutoCompleteTextView {
             mCircleTopColor = z ? -10193012 : -11245700;
             mCircleBottomColor = -11245700;
         } else {
-            mCircleTopColor = z ? Color.argb(255, (int) WebChromeClient.STRING_DLG_TITLE_DATETIME, (int) DERTags.TAGGED, 157) : Color.argb(255, 85, 112, 141);
-            mCircleBottomColor = Color.argb(255, 132, 158, 187);
+            mCircleTopColor = z ? Color.argb((int) Util.MASK_8BIT, (int) WebChromeClient.STRING_DLG_TITLE_DATETIME, (int) DERTags.TAGGED, 157) : Color.argb((int) Util.MASK_8BIT, 85, 112, 141);
+            mCircleBottomColor = Color.argb((int) Util.MASK_8BIT, 132, 158, 187);
         }
         m_circleGradient = null;
         m_circleGradient = new LinearGradient(m_circleCenterX - m_circleRadius, m_circleCenterY - m_circleRadius, m_circleCenterX - m_circleRadius, m_circleCenterY + m_circleRadius, mCircleTopColor, mCircleBottomColor, Shader.TileMode.MIRROR);
@@ -635,14 +636,14 @@ public class WebTextView extends AutoCompleteTextView {
                 int unused3 = WebTextView.mCircleTopColor = -11245700;
                 int unused4 = WebTextView.mCircleBottomColor = -11245700;
                 int unused5 = WebTextView.mCircleDeleteColor = -13484726;
-                int unused6 = WebTextView.mCircleDeleteShadowColor = Color.argb(255, 0, 0, 0);
+                int unused6 = WebTextView.mCircleDeleteShadowColor = Color.argb((int) Util.MASK_8BIT, 0, 0, 0);
             } else {
                 int unused7 = WebTextView.mBkgColor = -1773833;
                 int unused8 = WebTextView.mOutlineColor = -9400399;
-                int unused9 = WebTextView.mCircleTopColor = Color.argb(255, 85, 112, 141);
-                int unused10 = WebTextView.mCircleBottomColor = Color.argb(255, 132, 158, 187);
-                int unused11 = WebTextView.mCircleDeleteColor = Color.argb(255, 228, 238, 247);
-                int unused12 = WebTextView.mCircleDeleteShadowColor = Color.argb(255, 85, 112, 141);
+                int unused9 = WebTextView.mCircleTopColor = Color.argb((int) Util.MASK_8BIT, 85, 112, 141);
+                int unused10 = WebTextView.mCircleBottomColor = Color.argb((int) Util.MASK_8BIT, 132, 158, 187);
+                int unused11 = WebTextView.mCircleDeleteColor = Color.argb((int) Util.MASK_8BIT, 228, 238, 247);
+                int unused12 = WebTextView.mCircleDeleteShadowColor = Color.argb((int) Util.MASK_8BIT, 85, 112, 141);
             }
             WebTextView.m_tempRectF.set(WebTextView.m_innerBox);
             if (WebTextView.paintBkg == null) {

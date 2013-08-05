@@ -1,32 +1,34 @@
 package com.baidu.tieba.mention;
 
 import android.view.View;
-import com.baidu.tieba.data.an;
-import com.baidu.tieba.model.bg;
+import com.baidu.tieba.data.aw;
+import com.baidu.tieba.model.bl;
 import com.baidu.tieba.person.PersonInfoActivity;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class t implements View.OnClickListener {
-    final /* synthetic */ PostActivity a;
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ PostActivity f1310a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public t(PostActivity postActivity) {
-        this.a = postActivity;
+        this.f1310a = postActivity;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        bg bgVar;
-        bg bgVar2;
-        bg bgVar3;
-        bgVar = this.a.n;
-        if (bgVar != null) {
-            bgVar2 = this.a.n;
-            if (bgVar2.a() != null) {
-                bgVar3 = this.a.n;
-                an anVar = (an) bgVar3.a().d().get(0);
-                if (anVar != null) {
-                    PersonInfoActivity.a(this.a, anVar.h().getId(), anVar.h().getName());
+        bl blVar;
+        bl blVar2;
+        bl blVar3;
+        blVar = this.f1310a.n;
+        if (blVar != null) {
+            blVar2 = this.f1310a.n;
+            if (blVar2.a() != null) {
+                blVar3 = this.f1310a.n;
+                aw awVar = (aw) blVar3.a().c().get(0);
+                if (awVar != null) {
+                    PersonInfoActivity.a(this.f1310a, awVar.g().getId(), awVar.g().getName());
                 }
             }
         }

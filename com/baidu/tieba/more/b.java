@@ -3,15 +3,17 @@ package com.baidu.tieba.more;
 import android.view.View;
 /* loaded from: classes.dex */
 class b implements View.OnClickListener {
-    final /* synthetic */ AboutActivity a;
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ AboutActivity f1408a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(AboutActivity aboutActivity) {
-        this.a = aboutActivity;
+        this.f1408a = aboutActivity;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        this.a.b();
+        this.f1408a.b();
     }
 }

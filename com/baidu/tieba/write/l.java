@@ -5,7 +5,9 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 /* loaded from: classes.dex */
 class l {
-    ImageView a;
+
+    /* renamed from: a  reason: collision with root package name */
+    ImageView f1907a;
     TextView b;
     ProgressBar c;
     TextView d;

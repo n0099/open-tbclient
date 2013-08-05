@@ -1,7 +1,9 @@
 package android.support.v4.b;
 /* loaded from: classes.dex */
 public class c {
-    private static final Object a = new Object();
+
+    /* renamed from: a  reason: collision with root package name */
+    private static final Object f295a = new Object();
     private boolean b;
     private int[] c;
     private Object[] d;
@@ -25,13 +27,13 @@ public class c {
 
     public Object a(int i, Object obj) {
         int a2 = a(this.c, 0, this.e, i);
-        return (a2 < 0 || this.d[a2] == a) ? obj : this.d[a2];
+        return (a2 < 0 || this.d[a2] == f295a) ? obj : this.d[a2];
     }
 
     public void b(int i) {
         int a2 = a(this.c, 0, this.e, i);
-        if (a2 >= 0 && this.d[a2] != a) {
-            this.d[a2] = a;
+        if (a2 >= 0 && this.d[a2] != f295a) {
+            this.d[a2] = f295a;
             this.b = true;
         }
     }
@@ -47,7 +49,7 @@ public class c {
         int i2 = 0;
         for (int i3 = 0; i3 < i; i3++) {
             Object obj = objArr[i3];
-            if (obj != a) {
+            if (obj != f295a) {
                 if (i3 != i2) {
                     iArr[i2] = iArr[i3];
                     objArr[i2] = obj;
@@ -66,7 +68,7 @@ public class c {
             return;
         }
         int i2 = a2 ^ (-1);
-        if (i2 < this.e && this.d[i2] == a) {
+        if (i2 < this.e && this.d[i2] == f295a) {
             this.c[i2] = i;
             this.d[i2] = obj;
             return;

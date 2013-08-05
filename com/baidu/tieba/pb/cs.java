@@ -1,31 +1,29 @@
 package com.baidu.tieba.pb;
 
-import android.widget.EditText;
-import android.widget.GridView;
-import android.widget.LinearLayout;
+import android.util.SparseArray;
+import android.view.View;
+import com.slidingmenu.lib.R;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class cs implements Runnable {
-    final /* synthetic */ cr a;
+public class cs implements View.OnClickListener {
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ bn f1513a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public cs(cr crVar) {
-        this.a = crVar;
+    public cs(bn bnVar) {
+        this.f1513a = bnVar;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        GridView gridView;
-        LinearLayout linearLayout;
-        LinearLayout linearLayout2;
-        EditText editText;
-        gridView = this.a.A;
-        gridView.setVisibility(0);
-        linearLayout = this.a.s;
-        linearLayout.setVisibility(0);
-        linearLayout2 = this.a.p;
-        linearLayout2.setEnabled(false);
-        editText = this.a.F;
-        editText.requestFocus();
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        SparseArray sparseArray = (SparseArray) view.getTag();
+        if (sparseArray != null) {
+            if (!"".equals(sparseArray.get(R.id.tag_forbid_user_name)) && !"".equals(sparseArray.get(R.id.tag_del_post_id))) {
+                this.f1513a.a(view);
+            } else {
+                this.f1513a.a(((Integer) sparseArray.get(R.id.tag_del_post_type)).intValue(), (String) sparseArray.get(R.id.tag_del_post_id), ((Integer) sparseArray.get(R.id.tag_manage_user_identity)).intValue(), ((Boolean) sparseArray.get(R.id.tag_del_post_is_self)).booleanValue());
+            }
+        }
     }
 }

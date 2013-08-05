@@ -1,18 +1,24 @@
 package com.baidu.tieba.more;
 
-import android.view.View;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.TextView;
 /* loaded from: classes.dex */
-public class p implements View.OnClickListener {
-    final /* synthetic */ AppsActivity a;
+class p {
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public p(AppsActivity appsActivity) {
-        this.a = appsActivity;
+    /* renamed from: a  reason: collision with root package name */
+    TextView f1422a;
+    TextView b;
+    ImageView c;
+    Button d;
+    final /* synthetic */ o e;
+
+    private p(o oVar) {
+        this.e = oVar;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        this.a.c();
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public /* synthetic */ p(o oVar, p pVar) {
+        this(oVar);
     }
 }

@@ -1,85 +1,146 @@
 package com.baidu.android.nebula.b;
 
-import java.net.URLDecoder;
-import java.util.HashMap;
-import java.util.Map;
+import android.content.Context;
+import android.text.TextUtils;
+import android.util.Log;
+import com.baidu.android.common.security.Base64;
+import com.baidu.browser.core.util.BdUtil;
+import java.io.ByteArrayOutputStream;
+import java.io.InputStream;
+import java.io.UnsupportedEncodingException;
+import java.util.ArrayList;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.zip.GZIPInputStream;
+import org.apache.http.Header;
+import org.apache.http.HttpEntity;
+import org.json.JSONObject;
 /* loaded from: classes.dex */
-public class a {
-    private int a;
-    private Map b;
-    private Map c;
-    private byte[] d;
+public final class a {
+    private static volatile a b = null;
+    private static String g = "http://m.baidu.com/open/iasdk?";
 
-    public a() {
-        this.a = -1;
-        this.b = new HashMap();
-        this.c = new HashMap();
+    /* renamed from: a  reason: collision with root package name */
+    private Context f521a;
+    private ExecutorService c;
+    private String d;
+    private p e = null;
+    private n f;
+
+    private a(Context context) {
+        this.f521a = null;
+        this.c = null;
+        this.f = null;
+        this.f521a = context;
+        this.f = new n();
+        this.c = Executors.newSingleThreadExecutor();
     }
 
-    public a(String str) {
-        this.a = -1;
-        this.b = new HashMap();
-        this.c = new HashMap();
-        if (str == null) {
+    public static a a(Context context) {
+        if (b == null) {
+            b = new a(context);
+        }
+        return b;
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public InputStream a(HttpEntity httpEntity) {
+        Header contentEncoding = httpEntity.getContentEncoding();
+        if (contentEncoding == null || contentEncoding.getValue().toLowerCase().indexOf("gzip") == -1) {
+            return null;
+        }
+        return new GZIPInputStream(httpEntity.getContent());
+    }
+
+    private String a(String str) {
+        byte[] a2 = e.a(str.getBytes());
+        a2[0] = 117;
+        a2[1] = 123;
+        try {
+            return Base64.encode(a2, BdUtil.UTF8);
+        } catch (UnsupportedEncodingException e) {
+            Log.e("AppListPostRequest", "--- encrypt : Base64 Fail!");
+            return null;
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void a(InputStream inputStream) {
+        JSONObject jSONObject;
+        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+        byte[] bArr = new byte[1024];
+        while (true) {
+            int read = inputStream.read(bArr, 0, 100);
+            if (read <= 0) {
+                break;
+            }
+            byteArrayOutputStream.write(bArr, 0, read);
+        }
+        JSONObject jSONObject2 = new JSONObject(new String(byteArrayOutputStream.toByteArray(), BdUtil.UTF8));
+        this.f.k();
+        if (jSONObject2.has("status")) {
+            this.f.a(jSONObject2.getInt("status"));
+        }
+        if (!jSONObject2.has("result") || (jSONObject = jSONObject2.getJSONObject("result")) == null) {
             return;
         }
-        String[] split = str.split("\r\n");
-        if (split.length >= 2) {
-            String[] split2 = split[0].split(" ");
-            if (split2.length >= 2) {
-                this.a = c.a(split2[0]);
-                String str2 = split2[1];
-                if (str2 != null) {
-                    this.b.put("URI", str2);
-                    int indexOf = str2.indexOf("?");
-                    try {
-                        this.c = new HashMap();
-                        if (indexOf != -1) {
-                            String[] split3 = str2.substring(indexOf + 1).split("&");
-                            for (String str3 : split3) {
-                                String[] split4 = str3.split("=");
-                                if (split4.length >= 2) {
-                                    split4[0] = URLDecoder.decode(split4[0], "utf8");
-                                    split4[1] = URLDecoder.decode(split4[1], "utf8");
-                                    this.c.put(split4[0], split4[1]);
-                                }
-                            }
-                        }
-                        for (int i = 1; i < split.length; i++) {
-                            String[] split5 = split[i].split(": ");
-                            if (split5.length >= 2) {
-                                split5[0] = split5[0].trim();
-                                split5[1] = split5[1].trim();
-                                this.b.put(split5[0], split5[1]);
-                            }
-                        }
-                    } catch (Exception e) {
+        if (jSONObject.has("action")) {
+            this.d = jSONObject.getString("action");
+        }
+        if (jSONObject.has("channelid")) {
+            long j = 0;
+            try {
+                j = Long.parseLong(jSONObject.getString("channelid"));
+            } catch (NumberFormatException e) {
+            }
+            this.f.b(j);
+        }
+        if (jSONObject.has("maxnum")) {
+            this.f.b(jSONObject.getInt("maxnum"));
+        }
+        if (jSONObject.has("token")) {
+            this.f.a(jSONObject.getLong("token"));
+        }
+        if (jSONObject.has("retlist")) {
+            String string = jSONObject.getString("retlist");
+            this.f.a().clear();
+            if (!TextUtils.isEmpty(string)) {
+                ArrayList arrayList = new ArrayList();
+                ArrayList arrayList2 = new ArrayList();
+                char[] charArray = string.toCharArray();
+                for (int i = 0; i < charArray.length; i++) {
+                    if (charArray[i] == '0') {
+                        arrayList.add(Integer.valueOf(i));
+                    } else {
+                        arrayList2.add(Integer.valueOf(i));
                     }
                 }
+                if (arrayList.size() > 0) {
+                    this.f.b();
+                }
+                this.f.a(arrayList);
+                this.f.b(arrayList2);
             }
         }
-    }
-
-    public String a(String str) {
-        return (String) this.b.get(str);
-    }
-
-    public Map a() {
-        return this.c;
-    }
-
-    public void a(byte[] bArr) {
-        this.d = bArr;
-    }
-
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        for (Map.Entry entry : this.b.entrySet()) {
-            sb.append(((String) entry.getKey()) + " : " + ((String) entry.getValue()) + "\n");
+        if (jSONObject.has("synctimeinterval")) {
+            m.c(this.f521a, Long.valueOf(jSONObject.getLong("synctimeinterval")).longValue());
         }
-        if (this.d != null) {
-            sb.append(new String(this.d));
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void b() {
+        if (TextUtils.equals(this.d, "needsmeetuser_info") || TextUtils.equals(this.d, "needsmeetsync_info") || TextUtils.equals(this.d, "needsmeetapp_info")) {
+            this.e.a(this.f);
         }
-        return sb.toString();
+    }
+
+    public n a() {
+        return this.f;
+    }
+
+    public void a(String str, p pVar) {
+        this.e = pVar;
+        String a2 = a(str);
+        this.c.submit(new i(this, com.baidu.android.nebula.util.d.a(this.f521a).a(g), a2));
     }
 }

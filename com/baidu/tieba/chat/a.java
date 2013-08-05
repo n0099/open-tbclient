@@ -1,21 +1,23 @@
 package com.baidu.tieba.chat;
 
 import android.widget.ImageView;
-import com.baidu.tieba.view.PbImageView;
+import com.baidu.tieba.view.az;
 /* loaded from: classes.dex */
 class a implements com.baidu.adp.lib.a.c {
-    final /* synthetic */ ChatActivity a;
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ ChatActivity f927a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(ChatActivity chatActivity) {
-        this.a = chatActivity;
+        this.f927a = chatActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.lib.a.c
     /* renamed from: b */
     public ImageView a() {
-        return new PbImageView(this.a);
+        return new az(this.f927a);
     }
 
     /* JADX DEBUG: Method merged with bridge method */

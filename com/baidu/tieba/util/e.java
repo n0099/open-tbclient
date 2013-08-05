@@ -1,91 +1,469 @@
 package com.baidu.tieba.util;
 
-import java.io.RandomAccessFile;
+import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.Canvas;
+import android.graphics.Matrix;
+import android.graphics.Paint;
+import android.graphics.PorterDuff;
+import android.graphics.PorterDuffXfermode;
+import android.graphics.Rect;
+import android.graphics.RectF;
+import android.net.Uri;
+import android.os.ParcelFileDescriptor;
+import com.baidu.tieba.TiebaApplication;
+import com.slidingmenu.lib.R;
+import java.io.ByteArrayOutputStream;
+import java.io.InputStream;
+import java.util.Hashtable;
 /* loaded from: classes.dex */
 public class e {
-    private String a;
-    private String b;
-    private com.baidu.tieba.data.d c;
-    private r d;
-    private boolean e = false;
 
-    public e(String str, com.baidu.tieba.data.d dVar, String str2) {
-        this.a = null;
-        this.b = null;
-        this.c = null;
-        this.a = str;
-        this.c = dVar;
-        this.b = str2;
-    }
+    /* renamed from: a  reason: collision with root package name */
+    public static final Object f1764a = new Object();
+    private static volatile Hashtable b = new Hashtable();
 
-    public void a() {
-        if (this.d != null) {
-            this.d.h();
+    public static Bitmap a(int i) {
+        Bitmap bitmap = (Bitmap) b.get(Integer.valueOf(i));
+        if (bitmap == null && (bitmap = b(TiebaApplication.f(), i)) != null) {
+            b.put(Integer.valueOf(i), bitmap);
         }
-        this.e = true;
+        return bitmap;
     }
 
-    public com.baidu.tieba.data.e b() {
-        com.baidu.tieba.data.e eVar = new com.baidu.tieba.data.e();
-        long b = this.c.b();
-        long j = b % 102400 == 0 ? b / 102400 : (b / 102400) + 1;
-        int c = this.c.c();
-        if (c < j) {
-            RandomAccessFile randomAccessFile = new RandomAccessFile(m.c(this.a), "r");
-            z.e("ChunkUploadHelper", "uploadChunkFile", String.format("start chunk : %d", Integer.valueOf(c)));
-            if (randomAccessFile.skipBytes(102400 * c) < 102400 * c) {
-                eVar.a(false);
-                randomAccessFile.close();
-                return eVar;
+    public static int a(Bitmap bitmap) {
+        if (bitmap == null) {
+            return 0;
+        }
+        return bitmap.getRowBytes() * bitmap.getHeight();
+    }
+
+    public static void a() {
+        b.clear();
+    }
+
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [91=4] */
+    public static Bitmap a(Context context, int i) {
+        Bitmap bitmap;
+        Throwable th;
+        BitmapFactory.Options options;
+        Bitmap bitmap2 = null;
+        try {
+            options = new BitmapFactory.Options();
+            options.inPreferredConfig = com.baidu.tieba.data.g.m;
+        } catch (Throwable th2) {
+            bitmap = null;
+            th = th2;
+        }
+        synchronized (f1764a) {
+            try {
+                bitmap = BitmapFactory.decodeResource(context.getResources(), i, options);
+            } catch (Throwable th3) {
+                th = th3;
             }
-            while (true) {
-                int i = c;
-                if (i < j) {
-                    int i2 = 102400;
-                    if (i == j - 1) {
-                        i2 = (int) (b - (102400 * (j - 1)));
-                    }
-                    byte[] bArr = new byte[i2];
-                    int read = randomAccessFile.read(bArr, 0, i2);
-                    if (read != -1) {
-                        this.d = new r(this.b);
-                        this.d.a("md5", this.c.a());
-                        this.d.a("total_length", String.valueOf(b));
-                        this.d.a("total_num", String.valueOf(j));
-                        z.e("ChunkUploadHelper", "uploadChunkFile", String.format("total length : %d, chunk_no : %d", Long.valueOf(b), Integer.valueOf(i)));
-                        this.d.a("pic_chunk", bArr);
-                        this.d.a("offset", String.valueOf(102400 * i));
-                        this.d.a("chunk_no", String.valueOf(i + 1));
-                        this.d.a("length", String.valueOf(read));
-                        boolean z = false;
-                        if (this.e) {
-                            z = true;
-                        } else {
-                            String k = this.d.k();
-                            z.e("ChunkUploadHelper", "uploadChunkFile", "ret " + k);
-                            if (k == null || !this.d.c()) {
-                                this.c.a(i);
-                                DatabaseService.a(this.c);
-                                randomAccessFile.close();
-                                z = true;
-                            }
-                        }
-                        if (z) {
-                            eVar.a(this.d.e());
-                            eVar.a(this.d.g());
-                            eVar.a(this.c);
-                            eVar.a(false);
-                            return eVar;
-                        }
-                    }
-                    c = i + 1;
-                } else {
-                    randomAccessFile.close();
-                    break;
+            try {
+                return bitmap;
+            } catch (Throwable th4) {
+                bitmap2 = bitmap;
+                th = th4;
+                try {
+                    throw th;
+                } catch (Throwable th5) {
+                    bitmap = bitmap2;
+                    th = th5;
+                    aj.b("BitmapHelper", "getResBitmap", "error = " + th.getMessage());
+                    return bitmap;
                 }
             }
         }
-        eVar.a(true);
-        return eVar;
+    }
+
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [121=4] */
+    public static Bitmap b(Context context, int i) {
+        Bitmap bitmap;
+        Throwable th;
+        BitmapFactory.Options options;
+        Bitmap bitmap2 = null;
+        try {
+            options = new BitmapFactory.Options();
+        } catch (Throwable th2) {
+            bitmap = null;
+            th = th2;
+        }
+        synchronized (f1764a) {
+            try {
+                bitmap = BitmapFactory.decodeResource(context.getResources(), i, options);
+            } catch (Throwable th3) {
+                th = th3;
+            }
+            try {
+                return bitmap;
+            } catch (Throwable th4) {
+                bitmap2 = bitmap;
+                th = th4;
+                try {
+                    throw th;
+                } catch (Throwable th5) {
+                    bitmap = bitmap2;
+                    th = th5;
+                    aj.b("BitmapHelper", "getResBitmap", "error = " + th.getMessage());
+                    return bitmap;
+                }
+            }
+        }
+    }
+
+    public static Bitmap a(Bitmap bitmap, int i, int i2) {
+        float f;
+        Bitmap createBitmap;
+        if (i <= 0 || i2 < 0 || bitmap == null || bitmap.isRecycled()) {
+            return null;
+        }
+        if (bitmap.getWidth() > i || bitmap.getHeight() > i2) {
+            int width = bitmap.getWidth();
+            int height = bitmap.getHeight();
+            if (i2 / height > i / width) {
+                f = i / width;
+            } else {
+                f = i2 / height;
+            }
+            synchronized (f1764a) {
+                Matrix matrix = new Matrix();
+                matrix.postScale(f, f);
+                createBitmap = Bitmap.createBitmap(bitmap, 0, 0, width, height, matrix, true);
+                if (createBitmap != bitmap) {
+                    bitmap.recycle();
+                }
+            }
+            return createBitmap;
+        }
+        return bitmap;
+    }
+
+    public static Bitmap b(Bitmap bitmap, int i, int i2) {
+        float f;
+        Bitmap createBitmap;
+        if (i <= 0 || i2 < 0 || bitmap == null || bitmap.isRecycled()) {
+            return null;
+        }
+        if (bitmap.getWidth() > i || bitmap.getHeight() > i2) {
+            int width = bitmap.getWidth();
+            int height = bitmap.getHeight();
+            if (i2 / height < i / width) {
+                f = i / width;
+            } else {
+                f = i2 / height;
+            }
+            synchronized (f1764a) {
+                Matrix matrix = new Matrix();
+                matrix.postScale(f, f);
+                matrix.postTranslate((i - (width * f)) / 2.0f, (i2 - (height * f)) / 2.0f);
+                createBitmap = Bitmap.createBitmap(i, i2, bitmap.getConfig());
+                new Canvas(createBitmap).drawBitmap(bitmap, matrix, null);
+            }
+            return createBitmap;
+        }
+        return bitmap;
+    }
+
+    public static Bitmap c(Bitmap bitmap, int i, int i2) {
+        float f;
+        Bitmap createBitmap;
+        if (i <= 0 || i2 < 0 || bitmap == null || bitmap.isRecycled()) {
+            return null;
+        }
+        if (bitmap.getWidth() > i || bitmap.getHeight() > i2) {
+            int width = bitmap.getWidth();
+            int height = bitmap.getHeight();
+            if (i2 / height > i / width) {
+                f = i / width;
+            } else {
+                f = i2 / height;
+            }
+            synchronized (f1764a) {
+                Matrix matrix = new Matrix();
+                matrix.postScale(f, f);
+                createBitmap = Bitmap.createBitmap(bitmap, 0, 0, width, height, matrix, true);
+            }
+            return createBitmap;
+        }
+        return bitmap;
+    }
+
+    public static Bitmap a(Bitmap bitmap, int i) {
+        return a(bitmap, i, i);
+    }
+
+    public static Bitmap b(Bitmap bitmap, int i) {
+        return b(bitmap, i, i);
+    }
+
+    public static Bitmap a(String str, int i) {
+        Bitmap decodeStream;
+        int i2 = 1;
+        if (str == null || str.length() <= 0 || i <= 0) {
+            return null;
+        }
+        try {
+            synchronized (f1764a) {
+                BitmapFactory.Options options = new BitmapFactory.Options();
+                options.inJustDecodeBounds = true;
+                InputStream g = p.g(str);
+                BitmapFactory.decodeStream(g, null, options);
+                options.inPreferredConfig = com.baidu.tieba.data.g.m;
+                g.a(g);
+                while (true) {
+                    if (options.outWidth / (i2 * 2) > i || options.outHeight / (i2 * 2) > i) {
+                        i2 *= 2;
+                    } else {
+                        options.inJustDecodeBounds = false;
+                        options.inSampleSize = i2;
+                        InputStream g2 = p.g(str);
+                        decodeStream = BitmapFactory.decodeStream(g2, null, options);
+                        g.a(g2);
+                    }
+                }
+            }
+            return decodeStream;
+        } catch (Throwable th) {
+            return null;
+        }
+    }
+
+    public static Bitmap a(Context context, Uri uri, int i) {
+        ParcelFileDescriptor parcelFileDescriptor;
+        ParcelFileDescriptor openFileDescriptor;
+        Bitmap decodeFileDescriptor;
+        int i2 = 1;
+        try {
+            openFileDescriptor = context.getContentResolver().openFileDescriptor(uri, "r");
+        } catch (Throwable th) {
+            parcelFileDescriptor = null;
+        }
+        try {
+            BitmapFactory.Options options = new BitmapFactory.Options();
+            options.inPreferredConfig = com.baidu.tieba.data.g.m;
+            options.inDither = false;
+            options.inJustDecodeBounds = true;
+            synchronized (f1764a) {
+                BitmapFactory.decodeFileDescriptor(openFileDescriptor.getFileDescriptor(), null, options);
+                while (true) {
+                    if (options.outWidth / (i2 + 1) > i || options.outHeight / (i2 + 1) > i) {
+                        i2++;
+                    } else {
+                        options.inJustDecodeBounds = false;
+                        options.inSampleSize = i2;
+                        decodeFileDescriptor = BitmapFactory.decodeFileDescriptor(openFileDescriptor.getFileDescriptor(), null, options);
+                    }
+                }
+            }
+            return decodeFileDescriptor;
+        } catch (Throwable th2) {
+            parcelFileDescriptor = openFileDescriptor;
+            if (parcelFileDescriptor != null) {
+                try {
+                    parcelFileDescriptor.close();
+                } catch (Throwable th3) {
+                }
+            }
+            return null;
+        }
+    }
+
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [345=4] */
+    /* JADX WARN: Code restructure failed: missing block: B:10:0x0057, code lost:
+        return r0;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:32:?, code lost:
+        return r0;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:35:?, code lost:
+        return r0;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:8:0x0052, code lost:
+        if (r0 == r11) goto L19;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:9:0x0054, code lost:
+        r11.recycle();
+     */
+    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:11:0x0058 -> B:12:0x0059). Please submit an issue!!! */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static Bitmap a(Bitmap bitmap, float f) {
+        Bitmap bitmap2 = null;
+        try {
+            synchronized (f1764a) {
+                try {
+                    Bitmap createBitmap = Bitmap.createBitmap(bitmap.getWidth(), bitmap.getHeight(), Bitmap.Config.ARGB_4444);
+                    try {
+                        Canvas canvas = new Canvas(createBitmap);
+                        Paint paint = new Paint();
+                        Rect rect = new Rect(0, 0, bitmap.getWidth(), bitmap.getHeight());
+                        RectF rectF = new RectF(rect);
+                        paint.setAntiAlias(true);
+                        canvas.drawARGB(0, 0, 0, 0);
+                        paint.setColor(-12434878);
+                        canvas.drawRoundRect(rectF, f, f, paint);
+                        paint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.SRC_IN));
+                        canvas.drawBitmap(bitmap, rect, rect, paint);
+                    } catch (Throwable th) {
+                        bitmap2 = createBitmap;
+                        th = th;
+                    }
+                } catch (Throwable th2) {
+                    th = th2;
+                }
+            }
+            try {
+                throw th;
+            } catch (Throwable th3) {
+                return bitmap2;
+            }
+        } catch (Throwable th4) {
+            return null;
+        }
+    }
+
+    public static Bitmap b(Bitmap bitmap) {
+        Bitmap createBitmap;
+        if (bitmap == null) {
+            return null;
+        }
+        synchronized (f1764a) {
+            if (bitmap.getHeight() < bitmap.getWidth()) {
+                createBitmap = Bitmap.createBitmap(bitmap, (bitmap.getWidth() - bitmap.getHeight()) >> 1, 0, bitmap.getHeight(), bitmap.getHeight());
+            } else {
+                createBitmap = bitmap.getHeight() > bitmap.getWidth() ? Bitmap.createBitmap(bitmap, 0, (bitmap.getHeight() - bitmap.getWidth()) >> 1, bitmap.getWidth(), bitmap.getWidth()) : bitmap;
+            }
+            if (bitmap != createBitmap) {
+                bitmap.recycle();
+            }
+        }
+        return createBitmap;
+    }
+
+    public static byte[] c(Bitmap bitmap, int i) {
+        byte[] byteArray;
+        synchronized (f1764a) {
+            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+            bitmap.compress(Bitmap.CompressFormat.PNG, i, byteArrayOutputStream);
+            byteArray = byteArrayOutputStream.toByteArray();
+        }
+        return byteArray;
+    }
+
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [433=4] */
+    public static Bitmap a(byte[] bArr) {
+        Bitmap bitmap;
+        Throwable th;
+        if (bArr == null || bArr.length == 0) {
+            return null;
+        }
+        BitmapFactory.Options options = new BitmapFactory.Options();
+        options.inPreferredConfig = com.baidu.tieba.data.g.m;
+        try {
+            synchronized (f1764a) {
+                try {
+                    Bitmap decodeByteArray = BitmapFactory.decodeByteArray(bArr, 0, bArr.length, options);
+                    try {
+                        return decodeByteArray;
+                    } catch (Throwable th2) {
+                        bitmap = decodeByteArray;
+                        th = th2;
+                        while (true) {
+                            try {
+                                break;
+                            } catch (Throwable th3) {
+                                th = th3;
+                            }
+                        }
+                        throw th;
+                    }
+                } catch (Throwable th4) {
+                    bitmap = null;
+                    th = th4;
+                }
+            }
+            try {
+                break;
+                throw th;
+            } catch (OutOfMemoryError e) {
+                return bitmap;
+            }
+        } catch (OutOfMemoryError e2) {
+            return null;
+        }
+    }
+
+    public static Bitmap d(Bitmap bitmap, int i) {
+        Bitmap createBitmap;
+        int width = bitmap.getWidth();
+        int height = bitmap.getHeight();
+        synchronized (f1764a) {
+            Matrix matrix = new Matrix();
+            if (i == 0) {
+                matrix.postRotate(-90.0f);
+            } else if (i == 1) {
+                matrix.postRotate(90.0f);
+            }
+            createBitmap = Bitmap.createBitmap(bitmap, 0, 0, width, height, matrix, true);
+            if (bitmap != createBitmap) {
+                bitmap.recycle();
+            }
+        }
+        return createBitmap;
+    }
+
+    public static Bitmap e(Bitmap bitmap, int i) {
+        Bitmap createBitmap;
+        Matrix matrix = new Matrix();
+        int width = bitmap.getWidth();
+        int height = bitmap.getHeight();
+        if (i == 2) {
+            matrix.setScale(1.0f, -1.0f);
+        } else if (i == 3) {
+            matrix.setScale(-1.0f, 1.0f);
+        }
+        synchronized (f1764a) {
+            Bitmap createBitmap2 = Bitmap.createBitmap(bitmap, 0, 0, width, height, matrix, true);
+            matrix.setRotate(180.0f);
+            createBitmap = Bitmap.createBitmap(createBitmap2, 0, 0, createBitmap2.getWidth(), createBitmap2.getHeight(), matrix, true);
+            if (createBitmap2 != createBitmap) {
+                createBitmap2.recycle();
+            }
+            if (bitmap != createBitmap) {
+                bitmap.recycle();
+            }
+        }
+        return createBitmap;
+    }
+
+    public static int b(int i) {
+        int au = TiebaApplication.f().au();
+        if (i > 15) {
+            if (au == 1) {
+                return R.drawable.icon_grade_yellow_1;
+            }
+            return R.drawable.icon_grade_yellow;
+        } else if (i > 9) {
+            if (au == 1) {
+                return R.drawable.icon_grade_blue_1;
+            }
+            return R.drawable.icon_grade_blue;
+        } else if (i > 3) {
+            if (au == 1) {
+                return R.drawable.icon_grade_green_1;
+            }
+            return R.drawable.icon_grade_green;
+        } else if (i > 0) {
+            if (au == 1) {
+                return R.drawable.icon_grade_red_1;
+            }
+            return R.drawable.icon_grade_red;
+        } else {
+            return 0;
+        }
     }
 }

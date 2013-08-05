@@ -4,13 +4,15 @@ import android.content.Context;
 import com.baidu.cyberplayer.sdk.BCyberPlayerFactory;
 /* loaded from: classes.dex */
 public class CyberPlayerEngineVersion {
-    private static ICyberPlayerEngineVersionBridge a = null;
+
+    /* renamed from: a  reason: collision with root package name */
+    private static ICyberPlayerEngineVersionBridge f710a = null;
 
     private static ICyberPlayerEngineVersionBridge a() {
-        if (a == null) {
-            a = BCyberPlayerFactory.getProxyFactory().createCyberPlayerEngineVersionProxy();
+        if (f710a == null) {
+            f710a = BCyberPlayerFactory.getProxyFactory().createCyberPlayerEngineVersionProxy();
         }
-        return a;
+        return f710a;
     }
 
     public static String getVersion(Context context) {

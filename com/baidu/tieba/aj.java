@@ -1,32 +1,32 @@
 package com.baidu.tieba;
 
-import android.content.BroadcastReceiver;
-import android.content.Context;
-import android.content.Intent;
+import android.os.Handler;
 /* loaded from: classes.dex */
-class aj extends BroadcastReceiver {
-    final /* synthetic */ MainTabActivity a;
+class aj implements Runnable {
 
-    private aj(MainTabActivity mainTabActivity) {
-        this.a = mainTabActivity;
-    }
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ MainTabActivity f905a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ aj(MainTabActivity mainTabActivity, aj ajVar) {
-        this(mainTabActivity);
+    public aj(MainTabActivity mainTabActivity) {
+        this.f905a = mainTabActivity;
     }
 
-    @Override // android.content.BroadcastReceiver
-    public void onReceive(Context context, Intent intent) {
-        String action = intent.getAction();
-        if (action.equals("com.baidu.tieba.broadcast.notify")) {
-            MainTabActivity.a(this.a, intent.getLongExtra("relay", 0L));
-            MainTabActivity.b(this.a, intent.getLongExtra("at_me", 0L));
-            MainTabActivity.c(this.a, intent.getLongExtra("fans", 0L));
-            MainTabActivity.d(this.a, intent.getLongExtra("pletter", 0L));
-            MainTabActivity.a(this.a);
-        } else if (action.equals("com.baidu.tieba.broadcast.newversion")) {
-            MainTabActivity.b(this.a);
+    @Override // java.lang.Runnable
+    public void run() {
+        com.baidu.tieba.recommend.z zVar;
+        com.baidu.tieba.recommend.z zVar2;
+        Handler handler;
+        Handler handler2;
+        zVar = this.f905a.F;
+        if (zVar == null) {
+            this.f905a.F = new com.baidu.tieba.recommend.z(this.f905a);
         }
+        zVar2 = this.f905a.F;
+        zVar2.a();
+        handler = this.f905a.s;
+        handler.removeCallbacks(this);
+        handler2 = this.f905a.s;
+        handler2.postDelayed(this, com.baidu.tieba.data.g.n.longValue());
     }
 }

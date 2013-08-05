@@ -4,21 +4,23 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.net.Uri;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.tieba.write.bb;
+import com.baidu.tieba.write.ba;
 import com.slidingmenu.lib.R;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class q extends BdAsyncTask {
-    int a;
+
+    /* renamed from: a  reason: collision with root package name */
+    int f1711a;
     Uri b;
     String c = null;
     final /* synthetic */ TiebaPrepareImageService d;
 
     public q(TiebaPrepareImageService tiebaPrepareImageService, int i, Uri uri) {
         this.d = tiebaPrepareImageService;
-        this.a = 0;
+        this.f1711a = 0;
         this.b = null;
-        this.a = i;
+        this.f1711a = i;
         this.b = uri;
     }
 
@@ -29,17 +31,17 @@ public class q extends BdAsyncTask {
     public Boolean a(Object... objArr) {
         int i;
         boolean z = true;
-        TiebaPrepareImageService.a = true;
+        TiebaPrepareImageService.f1692a = true;
         try {
-            int i2 = this.a;
+            int i2 = this.f1711a;
             TiebaPrepareImageService tiebaPrepareImageService = this.d;
             Uri uri = this.b;
             i = this.d.f;
-            Bitmap a = bb.a(i2, tiebaPrepareImageService, uri, i);
-            if (a != null) {
-                if (com.baidu.tieba.util.m.a(null, "tieba_resized_image", a, 80) != null) {
-                    Bitmap a2 = com.baidu.tieba.util.d.a(a, 100);
-                    if (a2 == null || com.baidu.tieba.util.m.a(null, "tieba_resized_image_display", a2, 80) == null) {
+            Bitmap a2 = ba.a(i2, tiebaPrepareImageService, uri, i);
+            if (a2 != null) {
+                if (com.baidu.tieba.util.p.a(null, "tieba_resized_image", a2, 80) != null) {
+                    Bitmap a3 = com.baidu.tieba.util.e.a(a2, 100);
+                    if (a3 == null || com.baidu.tieba.util.p.a(null, "tieba_resized_image_display", a3, 80) == null) {
                         this.c = this.d.getString(R.string.error_sd_error);
                         z = false;
                     }
@@ -51,12 +53,12 @@ public class q extends BdAsyncTask {
                 this.c = this.d.getString(R.string.pic_parser_error);
                 z = false;
             }
-            TiebaPrepareImageService.a = false;
+            TiebaPrepareImageService.f1692a = false;
         } catch (Exception e) {
-            TiebaPrepareImageService.a = false;
+            TiebaPrepareImageService.f1692a = false;
             z = false;
         } catch (Throwable th) {
-            TiebaPrepareImageService.a = false;
+            TiebaPrepareImageService.f1692a = false;
             throw th;
         }
         return Boolean.valueOf(z);

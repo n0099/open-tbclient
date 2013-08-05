@@ -19,7 +19,9 @@ import com.baidu.tieba.compatible.CompatibleUtile;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public class WebActivity extends com.baidu.tieba.g {
-    protected WebView a = null;
+
+    /* renamed from: a  reason: collision with root package name */
+    protected WebView f1440a = null;
     private ImageView g = null;
     private ImageView j = null;
     private ImageView k = null;
@@ -30,13 +32,13 @@ public class WebActivity extends com.baidu.tieba.g {
     private LinearLayout n = null;
     protected String d = null;
     protected String e = null;
-    protected df f = null;
+    protected di f = null;
     private Handler o = new Handler();
-    private Runnable p = new cz(this);
+    private Runnable p = new dc(this);
 
     public static void a(Context context, String str, String str2, String str3) {
-        if (com.baidu.tieba.util.ab.f(context)) {
-            com.baidu.tieba.util.ab.a(context, context.getString(R.string.web_view_corrupted));
+        if (com.baidu.tieba.util.am.f(context)) {
+            com.baidu.tieba.util.am.a(context, context.getString(R.string.web_view_corrupted));
             return;
         }
         Intent intent = new Intent(context, WebActivity.class);
@@ -54,7 +56,7 @@ public class WebActivity extends com.baidu.tieba.g {
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         TiebaApplication.f().a((com.baidu.tieba.g) this);
-        com.baidu.tieba.util.ab.b((Activity) this);
+        com.baidu.tieba.util.am.b((Activity) this);
         c();
         if (bundle == null) {
             this.d = getIntent().getStringExtra("bduss");
@@ -89,25 +91,25 @@ public class WebActivity extends com.baidu.tieba.g {
         setContentView(R.layout.web_activity);
         this.n = (LinearLayout) findViewById(R.id.softkey);
         this.l = (ProgressBar) findViewById(R.id.progress);
-        this.a = (WebView) findViewById(R.id.webview);
-        this.a.setWebViewClient(new da(this));
+        this.f1440a = (WebView) findViewById(R.id.webview);
+        this.f1440a.setWebViewClient(new dd(this));
         this.m = CompatibleUtile.getInstance().getWebChromeClient(this);
-        this.a.setWebChromeClient(this.m);
-        WebSettings settings = this.a.getSettings();
+        this.f1440a.setWebChromeClient(this.m);
+        WebSettings settings = this.f1440a.getSettings();
         settings.setBuiltInZoomControls(true);
         settings.setJavaScriptEnabled(true);
         settings.setPluginsEnabled(true);
-        com.baidu.tieba.util.ab.a(settings);
+        com.baidu.tieba.util.am.a(settings);
         this.g = (ImageView) findViewById(R.id.webBack);
         this.g.setEnabled(false);
-        this.g.setOnClickListener(new db(this));
+        this.g.setOnClickListener(new de(this));
         this.j = (ImageView) findViewById(R.id.webForward);
         this.j.setEnabled(false);
-        this.j.setOnClickListener(new dc(this));
+        this.j.setOnClickListener(new df(this));
         this.k = (ImageView) findViewById(R.id.refresh);
-        this.k.setOnClickListener(new dd(this));
+        this.k.setOnClickListener(new dg(this));
         this.b = (ImageView) findViewById(R.id.back);
-        this.b.setOnClickListener(new de(this));
+        this.b.setOnClickListener(new dh(this));
     }
 
     @Override // com.baidu.tieba.g, android.app.Activity, android.view.KeyEvent.Callback
@@ -123,7 +125,7 @@ public class WebActivity extends com.baidu.tieba.g {
     @Override // com.baidu.tieba.g, android.app.Activity
     public void onPause() {
         super.onPause();
-        this.a.pauseTimers();
+        this.f1440a.pauseTimers();
         c("onPause");
     }
 
@@ -131,7 +133,7 @@ public class WebActivity extends com.baidu.tieba.g {
     @Override // com.baidu.tieba.g, android.app.Activity
     public void onResume() {
         super.onResume();
-        this.a.resumeTimers();
+        this.f1440a.resumeTimers();
         c("onResume");
     }
 
@@ -178,11 +180,11 @@ public class WebActivity extends com.baidu.tieba.g {
     }
 
     private void c(String str) {
-        if (this.a != null) {
+        if (this.f1440a != null) {
             try {
-                WebView.class.getMethod(str, new Class[0]).invoke(this.a, new Object[0]);
+                WebView.class.getMethod(str, new Class[0]).invoke(this.f1440a, new Object[0]);
             } catch (Exception e) {
-                com.baidu.tieba.util.z.b(getClass().getName(), "callHiddenWebViewMethod", "error = " + e.getMessage());
+                com.baidu.tieba.util.aj.b(getClass().getName(), "callHiddenWebViewMethod", "error = " + e.getMessage());
             }
         }
     }

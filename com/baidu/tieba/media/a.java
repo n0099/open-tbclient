@@ -6,20 +6,22 @@ import android.content.DialogInterface;
 import android.graphics.drawable.Drawable;
 import android.view.View;
 import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.util.ab;
+import com.baidu.tieba.util.am;
 import com.slidingmenu.lib.R;
 import java.security.InvalidParameterException;
 /* loaded from: classes.dex */
 public class a {
-    private Context a;
+
+    /* renamed from: a  reason: collision with root package name */
+    private Context f1268a;
     private d b = null;
 
     public a(Context context) {
-        this.a = null;
+        this.f1268a = null;
         if (context == null) {
             throw new InvalidParameterException("MediaPlayerDialog context is null");
         }
-        this.a = context;
+        this.f1268a = context;
     }
 
     public AlertDialog a(DialogInterface.OnClickListener onClickListener) {
@@ -39,7 +41,7 @@ public class a {
     }
 
     private AlertDialog a(DialogInterface.OnClickListener onClickListener, DialogInterface.OnClickListener onClickListener2, int i) {
-        return a(this.a.getString(R.string.media_play), onClickListener, this.a.getString(R.string.cancel), onClickListener2, this.a.getString(R.string.info_flow), String.format(this.a.getString(R.string.media_play_info), Integer.valueOf(i)));
+        return a(this.f1268a.getString(R.string.media_play), onClickListener, this.f1268a.getString(R.string.cancel), onClickListener2, this.f1268a.getString(R.string.info_flow), String.format(this.f1268a.getString(R.string.media_play_info), Integer.valueOf(i)));
     }
 
     public AlertDialog c(DialogInterface.OnClickListener onClickListener) {
@@ -57,17 +59,15 @@ public class a {
     private AlertDialog a(DialogInterface.OnClickListener onClickListener, int i) {
         String format;
         if (i == 1) {
-            format = this.a.getString(R.string.media_download_wifi_info);
-        } else if (i == 2) {
-            format = String.format(this.a.getString(R.string.media_download_info), Integer.valueOf(i));
+            format = this.f1268a.getString(R.string.media_download_wifi_info);
         } else {
-            format = String.format(this.a.getString(R.string.media_download_info), Integer.valueOf(i));
+            format = String.format(this.f1268a.getString(R.string.media_download_info), Integer.valueOf(i));
         }
-        return a(this.a.getString(R.string.download_install), onClickListener, this.a.getString(R.string.cancel), null, this.a.getString(R.string.install_media), format);
+        return a(this.f1268a.getString(R.string.download_install), onClickListener, this.f1268a.getString(R.string.cancel), null, this.f1268a.getString(R.string.install_media), format);
     }
 
     private AlertDialog a(String str, DialogInterface.OnClickListener onClickListener, String str2, DialogInterface.OnClickListener onClickListener2, String str3, String str4) {
-        AlertDialog.Builder builder = new AlertDialog.Builder(this.a);
+        AlertDialog.Builder builder = new AlertDialog.Builder(this.f1268a);
         builder.setPositiveButton(str, onClickListener);
         if (str2 != null) {
             builder.setNegativeButton(str2, onClickListener2);
@@ -83,45 +83,45 @@ public class a {
     }
 
     public void a() {
-        ab.a((Context) TiebaApplication.f(), this.a.getString(R.string.neterror));
+        am.a((Context) TiebaApplication.f(), this.f1268a.getString(R.string.neterror));
     }
 
     public void b() {
-        ab.a((Context) TiebaApplication.f(), this.a.getString(R.string.not_support_media));
+        am.a((Context) TiebaApplication.f(), this.f1268a.getString(R.string.not_support_media));
     }
 
     public void c() {
-        ab.a((Context) TiebaApplication.f(), this.a.getString(R.string.installing));
+        am.a((Context) TiebaApplication.f(), this.f1268a.getString(R.string.installing));
     }
 
     public void d() {
-        ab.a((Context) TiebaApplication.f(), this.a.getString(R.string.installed));
+        am.a((Context) TiebaApplication.f(), this.f1268a.getString(R.string.installed));
     }
 
     public void e() {
-        ab.a((Context) TiebaApplication.f(), this.a.getString(R.string.apk_error));
+        am.a((Context) TiebaApplication.f(), this.f1268a.getString(R.string.apk_error));
     }
 
     public void f() {
-        ab.a((Context) TiebaApplication.f(), this.a.getString(R.string.error_sd_error));
+        am.a((Context) TiebaApplication.f(), this.f1268a.getString(R.string.error_sd_error));
     }
 
     public void g() {
-        ab.a((Context) TiebaApplication.f(), this.a.getString(R.string.download_error));
+        am.a((Context) TiebaApplication.f(), this.f1268a.getString(R.string.download_error));
     }
 
     public void a(View.OnClickListener onClickListener, View.OnClickListener onClickListener2) {
         if (this.b == null) {
-            this.b = new d(this.a, R.style.common_alert_dialog);
+            this.b = new d(this.f1268a, R.style.common_alert_dialog);
         }
         if (!this.b.isShowing()) {
             this.b.show();
-            this.b.setTitle(this.a.getString(R.string.baidu_media));
-            this.b.a(this.a.getString(R.string.downloading));
+            this.b.setTitle(this.f1268a.getString(R.string.baidu_media));
+            this.b.a(this.f1268a.getString(R.string.downloading));
             this.b.b(0);
             this.b.a(0);
-            this.b.a(this.a.getString(R.string.pause), onClickListener);
-            this.b.b(this.a.getString(R.string.cancel), onClickListener2);
+            this.b.a(this.f1268a.getString(R.string.pause), onClickListener);
+            this.b.b(this.f1268a.getString(R.string.cancel), onClickListener2);
             this.b.setOnCancelListener(new b(this));
             this.b.setOnDismissListener(new c(this));
         }
@@ -136,15 +136,15 @@ public class a {
 
     public void a(View.OnClickListener onClickListener) {
         if (this.b != null && this.b.isShowing()) {
-            this.b.a(this.a.getString(R.string.download), onClickListener);
-            this.b.a(this.a.getString(R.string.pause));
+            this.b.a(this.f1268a.getString(R.string.download), onClickListener);
+            this.b.a(this.f1268a.getString(R.string.pause));
         }
     }
 
     public void b(View.OnClickListener onClickListener) {
         if (this.b != null && this.b.isShowing()) {
-            this.b.a(this.a.getString(R.string.pause), onClickListener);
-            this.b.a(this.a.getString(R.string.downloading));
+            this.b.a(this.f1268a.getString(R.string.pause), onClickListener);
+            this.b.a(this.f1268a.getString(R.string.downloading));
         }
     }
 

@@ -1,15 +1,24 @@
 package com.baidu.android.pushservice;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class m implements Runnable {
-    final /* synthetic */ PushService a;
+public class m implements Runnable {
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ PushSDK f589a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public m(PushService pushService) {
-        this.a = pushService;
+    public m(PushSDK pushSDK) {
+        this.f589a = pushSDK;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        PushService.a.b();
+        Object obj;
+        obj = PushSDK.mPushConnLock;
+        synchronized (obj) {
+            if (PushSDK.mPushConnection != null) {
+                PushSDK.mPushConnection.b();
+            }
+        }
     }
 }

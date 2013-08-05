@@ -1,25 +1,40 @@
 package com.baidu.tieba.pb;
 
-import android.widget.GridView;
+import android.widget.ImageView;
+import com.baidu.adp.widget.ListView.BdListView;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class ci implements Runnable {
-    final /* synthetic */ ch a;
+public class ci implements com.baidu.tbadk.a.d {
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ bn f1503a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ci(ch chVar) {
-        this.a = chVar;
+    public ci(bn bnVar) {
+        this.f1503a = bnVar;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        bk bkVar;
-        GridView gridView;
-        bk bkVar2;
-        bkVar = this.a.a;
-        gridView = bkVar.H;
-        if (gridView.getVisibility() == 8) {
-            bkVar2 = this.a.a;
-            bkVar2.U();
+    @Override // com.baidu.tbadk.a.d
+    public void a(com.baidu.adp.widget.a.b bVar, String str, boolean z) {
+        BdListView bdListView;
+        cu cuVar;
+        cu cuVar2;
+        if (bVar != null) {
+            bdListView = this.f1503a.f;
+            ImageView imageView = (ImageView) bdListView.findViewWithTag(str);
+            if (imageView != null) {
+                imageView.invalidate();
+            }
+            if (this.f1503a.t()) {
+                cuVar = this.f1503a.z;
+                if (cuVar != null) {
+                    cuVar2 = this.f1503a.z;
+                    ImageView imageView2 = (ImageView) cuVar2.d().findViewWithTag(str);
+                    if (imageView2 != null) {
+                        imageView2.invalidate();
+                    }
+                }
+            }
         }
     }
 }

@@ -1,21 +1,26 @@
 package com.baidu.tieba.account;
-/* loaded from: classes.dex */
-class aa {
-    String a;
-    String b;
-    String c;
-    String d;
-    int e;
-    int f;
-    boolean g;
-    final /* synthetic */ LoginActivity h;
 
-    private aa(LoginActivity loginActivity) {
-        this.h = loginActivity;
-    }
+import com.baidu.tieba.TiebaApplication;
+import com.baidu.tieba.data.AccountData;
+import com.baidu.tieba.util.DatabaseService;
+/* JADX INFO: Access modifiers changed from: package-private */
+/* loaded from: classes.dex */
+public class aa implements p {
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ LoginActivity f849a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ aa(LoginActivity loginActivity, aa aaVar) {
-        this(loginActivity);
+    public aa(LoginActivity loginActivity) {
+        this.f849a = loginActivity;
+    }
+
+    @Override // com.baidu.tieba.account.p
+    public void a(AccountData accountData) {
+        AccountData accountData2;
+        DatabaseService.a(accountData);
+        accountData2 = this.f849a.T;
+        TiebaApplication.a(accountData2, this.f849a.getBaseContext());
+        this.f849a.b();
     }
 }

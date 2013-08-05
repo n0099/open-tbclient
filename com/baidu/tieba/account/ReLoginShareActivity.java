@@ -18,9 +18,10 @@ import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.data.AccountData;
 import com.baidu.tieba.util.DatabaseService;
 import com.slidingmenu.lib.R;
+import com.tencent.mm.sdk.platformtools.Util;
 /* loaded from: classes.dex */
 public class ReLoginShareActivity extends com.baidu.tieba.g {
-    private ao c = null;
+    private ap c = null;
     private Button d = null;
     private Button e = null;
     private ImageView f = null;
@@ -30,10 +31,12 @@ public class ReLoginShareActivity extends com.baidu.tieba.g {
     private String l = null;
     private String m = null;
     private AccountData n = null;
-    private j o = null;
-    LinearLayout a = null;
+    private k o = null;
+
+    /* renamed from: a  reason: collision with root package name */
+    LinearLayout f846a = null;
     LinearLayout b = null;
-    private View.OnClickListener p = new an(this);
+    private View.OnClickListener p = new ao(this);
 
     public static void a(Activity activity, String str, String str2, String str3, String str4) {
         Intent intent = new Intent(activity, ReLoginShareActivity.class);
@@ -51,7 +54,7 @@ public class ReLoginShareActivity extends com.baidu.tieba.g {
         setContentView(R.layout.relogin_activity);
         b();
         c();
-        m();
+        k();
     }
 
     private void b() {
@@ -86,7 +89,7 @@ public class ReLoginShareActivity extends com.baidu.tieba.g {
         this.f.setOnClickListener(this.p);
         this.j = (ProgressBar) findViewById(R.id.relogin_progressbar);
         this.g = (TextView) findViewById(R.id.relogin_textview);
-        this.a = (LinearLayout) findViewById(R.id.container);
+        this.f846a = (LinearLayout) findViewById(R.id.container);
         this.b = (LinearLayout) findViewById(R.id.title);
     }
 
@@ -95,11 +98,11 @@ public class ReLoginShareActivity extends com.baidu.tieba.g {
     public void a(int i) {
         super.a(i);
         a(0, this.k);
-        com.baidu.tieba.util.x.a((TextView) this.e, i);
-        com.baidu.tieba.util.x.a(this.f, i);
-        com.baidu.tieba.util.x.a(this.a, i);
-        com.baidu.tieba.util.x.d(this.b, i);
-        com.baidu.tieba.util.x.b(this.g, i);
+        com.baidu.tieba.util.ah.a((TextView) this.e, i);
+        com.baidu.tieba.util.ah.a(this.f, i);
+        com.baidu.tieba.util.ah.a(this.f846a, i);
+        com.baidu.tieba.util.ah.d(this.b, i);
+        com.baidu.tieba.util.ah.b(this.g, i);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -121,7 +124,7 @@ public class ReLoginShareActivity extends com.baidu.tieba.g {
                     return;
                 }
                 SpannableString spannableString = new SpannableString(replace);
-                spannableString.setSpan(new ForegroundColorSpan(Color.rgb(255, 47, 47)), indexOf, str.length() + indexOf, 33);
+                spannableString.setSpan(new ForegroundColorSpan(Color.rgb((int) Util.MASK_8BIT, 47, 47)), indexOf, str.length() + indexOf, 33);
                 this.g.setText(spannableString);
                 return;
             case 1:
@@ -138,7 +141,7 @@ public class ReLoginShareActivity extends com.baidu.tieba.g {
                 if (this.i == 1) {
                     spannableString2.setSpan(new ForegroundColorSpan(getResources().getColor(R.color.skin_1_common_color)), 0, length, 33);
                 }
-                spannableString2.setSpan(new ForegroundColorSpan(Color.rgb(255, 47, 47)), length, str.length() + length, 33);
+                spannableString2.setSpan(new ForegroundColorSpan(Color.rgb((int) Util.MASK_8BIT, 47, 47)), length, str.length() + length, 33);
                 spannableString2.setSpan(new RelativeSizeSpan(0.9f), length, str.length() + length, 33);
                 this.g.setText(spannableString2);
                 return;
@@ -155,7 +158,7 @@ public class ReLoginShareActivity extends com.baidu.tieba.g {
             return;
         }
         DatabaseService.m();
-        TiebaApplication.b((AccountData) null);
+        TiebaApplication.a((AccountData) null, getBaseContext());
         MainTabActivity.b(this, "goto_recommend");
     }
 
@@ -169,20 +172,20 @@ public class ReLoginShareActivity extends com.baidu.tieba.g {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void m() {
+    public void k() {
         if (this.c == null && this.l != null && this.m != null) {
-            this.c = new ao(this, null);
+            this.c = new ap(this, null);
             this.c.setPriority(3);
             this.c.execute(new String[0]);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void n() {
+    public void l() {
         String stringExtra = getIntent().getStringExtra("goto_type");
         DatabaseService.a(this.n);
-        TiebaApplication.b(this.n);
+        TiebaApplication.a(this.n, getBaseContext());
         MainTabActivity.b(this, stringExtra);
-        a.a().e();
+        a.a().d();
     }
 }

@@ -4,9 +4,15 @@ import android.app.Service;
 import android.content.Intent;
 import android.os.Handler;
 import android.os.IBinder;
+import com.baidu.tieba.util.aj;
+import com.tencent.mm.sdk.platformtools.Util;
+import java.io.File;
+import java.util.Date;
 /* loaded from: classes.dex */
 public class ClearTempService extends Service {
-    private volatile boolean a = false;
+
+    /* renamed from: a  reason: collision with root package name */
+    private volatile boolean f1685a = false;
     private Thread b = null;
     private Handler c = new a(this);
 
@@ -23,16 +29,29 @@ public class ClearTempService extends Service {
     @Override // android.app.Service
     public void onDestroy() {
         super.onDestroy();
-        this.a = true;
+        this.f1685a = true;
     }
 
     @Override // android.app.Service
     public void onStart(Intent intent, int i) {
         super.onStart(intent, i);
-        this.a = false;
+        this.f1685a = false;
         if (this.b == null) {
             this.b = new b(this);
             this.b.start();
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void a(File file) {
+        File[] listFiles = file.listFiles();
+        long time = new Date().getTime();
+        if (listFiles != null) {
+            for (int i = 0; i < listFiles.length && !this.f1685a; i++) {
+                if (time - listFiles[i].lastModified() > Util.MILLSECONDS_OF_DAY && !listFiles[i].delete()) {
+                    aj.b(getClass().getName(), "run", "list[i].delete error");
+                }
+            }
         }
     }
 }

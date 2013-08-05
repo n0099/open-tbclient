@@ -1,129 +1,135 @@
 package com.baidu.tieba.model;
 
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.tieba.data.UserData;
-import com.baidu.tieba.util.DatabaseService;
-import org.json.JSONObject;
+import com.baidu.tieba.TiebaApplication;
+import com.baidu.tieba.data.WriteData;
+import com.slidingmenu.lib.R;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class bk extends BdAsyncTask {
-    final /* synthetic */ bi a;
-    private com.baidu.tieba.util.r b;
-    private volatile boolean c;
-    private boolean d;
 
-    private bk(bi biVar) {
-        this.a = biVar;
-        this.b = null;
-        this.c = false;
-        this.d = false;
-    }
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ bi f1352a;
+    private com.baidu.tieba.a.l b = null;
+    private String c = null;
+    private boolean d = false;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ bk(bi biVar, bk bkVar) {
-        this(biVar);
+    public bk(bi biVar) {
+        this.f1352a = biVar;
+        setPriority(3);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public UserData a(Boolean... boolArr) {
-        UserData userData;
-        Exception e;
-        String g;
-        boolean booleanValue = boolArr[0].booleanValue();
-        this.d = boolArr[1].booleanValue();
-        try {
-            if (this.a.b() && booleanValue && (g = DatabaseService.g()) != null) {
-                UserData userData2 = new UserData();
-                userData2.parserJson(g);
-                c(userData2);
-                this.d = false;
-            }
-            if (!this.c && this.a.a() != null) {
-                this.b = new com.baidu.tieba.util.r(String.valueOf(com.baidu.tieba.data.g.a) + "c/u/user/profile");
-                this.b.a("uid", this.a.a());
-                String j = this.b.j();
-                if (this.b.c()) {
-                    userData = new UserData();
-                    try {
-                        JSONObject optJSONObject = new JSONObject(j).optJSONObject("user");
-                        userData.parserJson(optJSONObject);
-                        if (this.a.b()) {
-                            DatabaseService.j(optJSONObject.toString());
-                            return userData;
-                        }
-                        return userData;
-                    } catch (Exception e2) {
-                        e = e2;
-                        com.baidu.tieba.util.z.b(getClass().getName(), "doInBackground", e.getMessage());
-                        return userData;
-                    }
-                }
-            }
+    public String a(Integer... numArr) {
+        WriteData writeData;
+        boolean z;
+        if (this.d) {
             return null;
-        } catch (Exception e3) {
-            userData = null;
-            e = e3;
         }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: a */
-    public void b(UserData... userDataArr) {
-        com.baidu.adp.a.e eVar;
-        boolean z = false;
-        super.b((Object[]) userDataArr);
-        UserData userData = userDataArr[0];
-        if (userData != null) {
-            this.a.a(userData);
-            z = true;
-        }
-        this.a.mLoadDataMode = 2;
-        this.a.setErrorString(null);
-        eVar = this.a.mLoadDataCallBack;
-        eVar.a(Boolean.valueOf(z));
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void a(UserData userData) {
-        com.baidu.adp.a.e eVar;
-        com.baidu.adp.a.e eVar2;
-        super.a((Object) userData);
-        this.a.l = null;
-        if (userData != null) {
-            this.a.a(userData);
-            this.a.e().d(userData.getPortrait());
-            this.a.mLoadDataMode = 1;
-            eVar2 = this.a.mLoadDataCallBack;
-            eVar2.a(true);
-            return;
-        }
-        if (this.b != null && this.d) {
-            this.a.setErrorString(this.b.g());
-        } else {
-            this.a.setErrorString(null);
-        }
-        this.a.mLoadDataMode = 1;
-        eVar = this.a.mLoadDataCallBack;
-        eVar.a(false);
+        this.b = new com.baidu.tieba.a.l();
+        com.baidu.tieba.a.l lVar = this.b;
+        writeData = this.f1352a.b;
+        z = this.f1352a.d;
+        this.c = lVar.a(writeData, z);
+        return this.c;
     }
 
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void cancel() {
-        com.baidu.adp.a.e eVar;
-        this.c = true;
+        bj bjVar;
+        bj bjVar2;
+        this.d = true;
         if (this.b != null) {
-            this.b.h();
-            this.b = null;
+            this.b.d();
         }
-        this.a.l = null;
+        bjVar = this.f1352a.c;
+        if (bjVar != null) {
+            bjVar2 = this.f1352a.c;
+            bjVar2.a(false, null, null, null);
+        }
         super.cancel(true);
-        eVar = this.a.mLoadDataCallBack;
-        eVar.a(false);
+        this.f1352a.f1351a = null;
+    }
+
+    private void a(int i, String str) {
+        bj bjVar;
+        bj bjVar2;
+        WriteData writeData;
+        WriteData writeData2;
+        WriteData writeData3;
+        bj bjVar3;
+        bj bjVar4;
+        WriteData writeData4;
+        bj bjVar5;
+        bj bjVar6;
+        if (i != 5 && i != 6) {
+            bjVar5 = this.f1352a.c;
+            if (bjVar5 != null) {
+                bjVar6 = this.f1352a.c;
+                bjVar6.a(false, str, null, null);
+                return;
+            }
+            return;
+        }
+        com.baidu.tieba.data.bq bqVar = new com.baidu.tieba.data.bq();
+        bqVar.a(this.c);
+        if (bqVar.b() != null) {
+            writeData = this.f1352a.b;
+            if (writeData != null) {
+                writeData2 = this.f1352a.b;
+                writeData2.setVcodeMD5(bqVar.a());
+                writeData3 = this.f1352a.b;
+                writeData3.setVcodeUrl(bqVar.b());
+                bjVar3 = this.f1352a.c;
+                if (bjVar3 != null) {
+                    bjVar4 = this.f1352a.c;
+                    writeData4 = this.f1352a.b;
+                    bjVar4.a(false, str, bqVar, writeData4);
+                    return;
+                }
+                return;
+            }
+        }
+        bjVar = this.f1352a.c;
+        if (bjVar != null) {
+            bjVar2 = this.f1352a.c;
+            bjVar2.a(false, str, null, null);
+        }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public void a(String str) {
+        bj bjVar;
+        bj bjVar2;
+        bj bjVar3;
+        super.a((Object) str);
+        com.baidu.tieba.util.aj.e(getClass().getName(), "onPostExecute", "result:" + str);
+        this.f1352a.f1351a = null;
+        if (!this.d) {
+            if (str == null) {
+                bjVar = this.f1352a.c;
+                bjVar.a(false, TiebaApplication.f().getString(R.string.neterror), null, null);
+            } else if (this.b.a()) {
+                com.baidu.tieba.data.r rVar = new com.baidu.tieba.data.r();
+                rVar.b(this.c);
+                if (rVar.b() == null || rVar.b().length() <= 0) {
+                    rVar.a(TiebaApplication.f().getString(R.string.send_success));
+                    bjVar2 = this.f1352a.c;
+                    if (bjVar2 != null) {
+                        bjVar3 = this.f1352a.c;
+                        bjVar3.a(true, rVar.b(), null, null);
+                        return;
+                    }
+                    return;
+                }
+                a(rVar.a(), rVar.b());
+            } else {
+                a(this.b.b(), this.b.c());
+            }
+        }
     }
 }

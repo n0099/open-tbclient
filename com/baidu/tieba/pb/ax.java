@@ -6,35 +6,38 @@ import android.view.View;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 class ax implements View.OnLongClickListener {
-    final /* synthetic */ NewPbActivity a;
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ NewPbActivity f1465a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ax(NewPbActivity newPbActivity) {
-        this.a = newPbActivity;
+        this.f1465a = newPbActivity;
     }
 
     @Override // android.view.View.OnLongClickListener
     public boolean onLongClick(View view) {
-        com.baidu.tieba.model.am amVar;
-        bk bkVar;
+        com.baidu.tieba.model.av avVar;
+        bn bnVar;
         DialogInterface.OnClickListener onClickListener;
-        com.baidu.tieba.model.ax axVar;
+        com.baidu.tieba.model.bc bcVar;
         SparseArray sparseArray = (SparseArray) view.getTag();
         if (sparseArray != null) {
-            this.a.a = (com.baidu.tieba.data.an) sparseArray.get(R.id.tag_clip_board);
-            if (this.a.a != null) {
+            this.f1465a.f1439a = (com.baidu.tieba.data.aw) sparseArray.get(R.id.tag_clip_board);
+            if (this.f1465a.f1439a != null) {
                 boolean z = false;
-                amVar = this.a.k;
-                if (amVar.a() && this.a.a.d() != null) {
-                    String d = this.a.a.d();
-                    axVar = this.a.j;
-                    if (d.equals(axVar.i())) {
+                avVar = this.f1465a.k;
+                if (avVar.a() && this.f1465a.f1439a.d() != null) {
+                    String d = this.f1465a.f1439a.d();
+                    bcVar = this.f1465a.j;
+                    if (d.equals(bcVar.i())) {
                         z = true;
                     }
                 }
-                bkVar = this.a.p;
-                onClickListener = this.a.J;
-                bkVar.a(onClickListener, z);
+                boolean booleanValue = ((Boolean) sparseArray.get(R.id.tag_is_subpb)).booleanValue();
+                bnVar = this.f1465a.p;
+                onClickListener = this.f1465a.L;
+                bnVar.a(onClickListener, z, booleanValue);
             }
         }
         return true;

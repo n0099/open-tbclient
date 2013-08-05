@@ -5,12 +5,14 @@ import com.baidu.tieba.util.DatabaseService;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class k extends BdAsyncTask {
-    final /* synthetic */ j a;
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ j f1375a;
     private com.baidu.tieba.a.d b = null;
     private int c;
 
     public k(j jVar, int i) {
-        this.a = jVar;
+        this.f1375a = jVar;
         this.c = 1;
         this.c = i;
         setPriority(3);
@@ -20,73 +22,73 @@ public class k extends BdAsyncTask {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     /* renamed from: d */
-    public com.baidu.tieba.data.m a(Object... objArr) {
+    public com.baidu.tieba.data.q a(Object... objArr) {
         String str;
         boolean z;
         boolean z2;
         String i;
-        com.baidu.tieba.data.m mVar = null;
+        com.baidu.tieba.data.q qVar = null;
         this.b = new com.baidu.tieba.a.d();
         if (this.c == 0) {
-            z2 = this.a.c;
+            z2 = this.f1375a.c;
             if (z2) {
                 i = DatabaseService.e();
             } else {
                 i = DatabaseService.i("0");
             }
-            com.baidu.tieba.data.m mVar2 = new com.baidu.tieba.data.m();
-            mVar2.a(i);
-            if (!mVar2.e() || !mVar2.f()) {
+            com.baidu.tieba.data.q qVar2 = new com.baidu.tieba.data.q();
+            qVar2.a(i);
+            if (!qVar2.e() || !qVar2.f()) {
                 this.c = 1;
                 str = i;
-                mVar = mVar2;
+                qVar = qVar2;
             } else {
-                return mVar2;
+                return qVar2;
             }
         } else {
             str = null;
         }
         if (this.c == 1) {
-            str = this.b.d();
+            str = this.b.g();
         }
-        if (this.b.b()) {
-            mVar = new com.baidu.tieba.data.m();
-            mVar.a(str);
-            z = this.a.c;
+        if (this.b.c()) {
+            qVar = new com.baidu.tieba.data.q();
+            qVar.a(str);
+            z = this.f1375a.c;
             if (z) {
                 DatabaseService.e(str);
             } else {
                 DatabaseService.b(str, "0");
             }
         }
-        return mVar;
+        return qVar;
     }
 
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void cancel() {
         super.cancel();
-        this.a.a = null;
+        this.f1375a.f1374a = null;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void a(com.baidu.tieba.data.m mVar) {
+    public void a(com.baidu.tieba.data.q qVar) {
         l lVar;
         l lVar2;
         l lVar3;
-        this.a.a = null;
-        this.a.b = mVar;
-        lVar = this.a.d;
+        this.f1375a.f1374a = null;
+        this.f1375a.b = qVar;
+        lVar = this.f1375a.d;
         if (lVar != null) {
-            if (this.c == 0 || this.b.b()) {
-                lVar2 = this.a.d;
-                lVar2.a(true, null, mVar);
+            if (this.c == 0 || this.b.c()) {
+                lVar2 = this.f1375a.d;
+                lVar2.a(true, null, qVar);
                 return;
             }
-            String c = this.b != null ? this.b.c() : null;
-            lVar3 = this.a.d;
-            lVar3.a(false, c, mVar);
+            String d = this.b.d();
+            lVar3 = this.f1375a.d;
+            lVar3.a(false, d, qVar);
         }
     }
 }

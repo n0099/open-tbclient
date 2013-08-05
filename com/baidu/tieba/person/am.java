@@ -5,24 +5,26 @@ import android.content.Intent;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class am implements DialogInterface.OnClickListener {
-    final /* synthetic */ PersonChangeActivity a;
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ PersonChangeActivity f1572a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public am(PersonChangeActivity personChangeActivity) {
-        this.a = personChangeActivity;
+        this.f1572a = personChangeActivity;
     }
 
     @Override // android.content.DialogInterface.OnClickListener
     public void onClick(DialogInterface dialogInterface, int i) {
-        com.baidu.tieba.model.bh bhVar;
-        com.baidu.tieba.model.bh bhVar2;
-        bhVar = this.a.z;
-        if (bhVar.a().getPhotoChanged()) {
+        com.baidu.tieba.model.bm bmVar;
+        com.baidu.tieba.model.bm bmVar2;
+        bmVar = this.f1572a.z;
+        if (bmVar.a().getPhotoChanged()) {
             Intent intent = new Intent();
-            bhVar2 = this.a.z;
-            intent.putExtra("data", bhVar2.a());
-            this.a.setResult(-1, intent);
+            bmVar2 = this.f1572a.z;
+            intent.putExtra("data", bmVar2.a());
+            this.f1572a.setResult(-1, intent);
         }
-        this.a.finish();
+        this.f1572a.finish();
     }
 }

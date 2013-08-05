@@ -1,38 +1,21 @@
 package com.baidu.tieba.pb;
 
-import android.widget.ImageView;
-import com.baidu.adp.widget.ListView.BdListView;
+import android.view.MotionEvent;
+import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class cf implements com.baidu.tbadk.a.d {
-    final /* synthetic */ bk a;
+public class cf implements View.OnTouchListener {
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ bn f1500a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public cf(bk bkVar) {
-        this.a = bkVar;
+    public cf(bn bnVar) {
+        this.f1500a = bnVar;
     }
 
-    @Override // com.baidu.tbadk.a.d
-    public void a(com.baidu.adp.widget.a.b bVar, String str, boolean z) {
-        BdListView bdListView;
-        cr crVar;
-        cr crVar2;
-        if (bVar != null) {
-            bdListView = this.a.f;
-            ImageView imageView = (ImageView) bdListView.findViewWithTag(str);
-            if (imageView != null) {
-                imageView.invalidate();
-            }
-            if (this.a.t()) {
-                crVar = this.a.z;
-                if (crVar != null) {
-                    crVar2 = this.a.z;
-                    ImageView imageView2 = (ImageView) crVar2.d().findViewWithTag(str);
-                    if (imageView2 != null) {
-                        imageView2.invalidate();
-                    }
-                }
-            }
-        }
+    @Override // android.view.View.OnTouchListener
+    public boolean onTouch(View view, MotionEvent motionEvent) {
+        return motionEvent.getAction() == 0;
     }
 }

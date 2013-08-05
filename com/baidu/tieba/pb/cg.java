@@ -1,30 +1,34 @@
 package com.baidu.tieba.pb;
 
-import android.widget.ImageView;
-import com.baidu.adp.widget.ListView.BdListView;
+import android.app.Dialog;
+import android.content.DialogInterface;
+import android.view.KeyEvent;
+import android.widget.EditText;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class cg implements com.baidu.tbadk.a.d {
-    final /* synthetic */ bk a;
+public class cg implements DialogInterface.OnKeyListener {
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ bn f1501a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public cg(bk bkVar) {
-        this.a = bkVar;
+    public cg(bn bnVar) {
+        this.f1501a = bnVar;
     }
 
-    @Override // com.baidu.tbadk.a.d
-    public void a(com.baidu.adp.widget.a.b bVar, String str, boolean z) {
-        BdListView bdListView;
-        BdListView bdListView2;
-        if (bVar != null) {
-            bdListView = this.a.f;
-            ImageView imageView = (ImageView) bdListView.findViewWithTag(str);
-            while (imageView != null) {
-                imageView.setTag(null);
-                bVar.a(imageView);
-                bdListView2 = this.a.f;
-                imageView = (ImageView) bdListView2.findViewWithTag(str);
-            }
+    @Override // android.content.DialogInterface.OnKeyListener
+    public boolean onKey(DialogInterface dialogInterface, int i, KeyEvent keyEvent) {
+        com.baidu.tieba.g gVar;
+        EditText editText;
+        Dialog dialog;
+        if (i == 4) {
+            gVar = this.f1501a.b;
+            editText = this.f1501a.B;
+            com.baidu.tieba.util.am.a(gVar, editText);
+            dialog = this.f1501a.x;
+            dialog.dismiss();
+            return true;
         }
+        return false;
     }
 }

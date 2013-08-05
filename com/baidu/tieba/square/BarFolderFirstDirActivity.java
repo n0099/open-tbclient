@@ -8,7 +8,7 @@ import android.widget.ListAdapter;
 import android.widget.ProgressBar;
 import com.baidu.mobstat.StatService;
 import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.util.x;
+import com.baidu.tieba.util.ah;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public class BarFolderFirstDirActivity extends com.baidu.tieba.a {
@@ -26,18 +26,25 @@ public class BarFolderFirstDirActivity extends com.baidu.tieba.a {
         super.onCreate(bundle);
         setContentView(R.layout.bar_folder_dir_activity);
         d();
-        n();
-        m();
+        l();
+        k();
         StatService.onEvent(this, "category_1", "enter");
     }
 
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.tieba.g, android.app.Activity
+    public void onResume() {
+        super.onResume();
+        this.k.notifyDataSetChanged();
+    }
+
     protected void d() {
-        this.k = new c(this, new f(), true);
+        this.k = new c(this, new g(), true);
         this.e.setAdapter((ListAdapter) this.k);
         this.d.setText(getString(R.string.bar_first_dir_name));
         this.j = (ProgressBar) findViewById(R.id.progress);
         ImageView imageView = (ImageView) findViewById(R.id.home);
-        x.d(imageView, TiebaApplication.f().at());
+        ah.d(imageView, TiebaApplication.f().au());
         imageView.setVisibility(4);
     }
 
@@ -47,15 +54,15 @@ public class BarFolderFirstDirActivity extends com.baidu.tieba.a {
         if (this.l != null) {
             this.l.cancel();
         }
-        a((f) null, true);
+        a((g) null, true);
         super.c();
     }
 
-    protected void m() {
+    protected void k() {
         this.e.setOnItemClickListener(new a(this));
     }
 
-    protected void n() {
+    protected void l() {
         this.j.setVisibility(0);
         this.e.setEnabled(false);
         if (this.l != null) {
@@ -67,13 +74,13 @@ public class BarFolderFirstDirActivity extends com.baidu.tieba.a {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void a(f fVar, boolean z) {
+    public void a(g gVar, boolean z) {
         this.j.setVisibility(8);
         this.e.setEnabled(true);
         this.l = null;
         if (!z) {
-            if (fVar.a()) {
-                a(fVar.b());
+            if (gVar.a()) {
+                a(gVar.b());
                 return;
             }
             this.e.setVisibility(4);

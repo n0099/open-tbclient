@@ -1,12 +1,15 @@
 package com.baidu.location;
 
+import com.tencent.mm.sdk.platformtools.Util;
 import java.security.MessageDigest;
 /* loaded from: classes.dex */
 class d {
 
     /* renamed from: if  reason: not valid java name */
     private static char[] f148if = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/.".toCharArray();
-    private static char[] a = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
+
+    /* renamed from: a  reason: collision with root package name */
+    private static char[] f741a = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
 
     d() {
     }
@@ -19,9 +22,9 @@ class d {
             for (int i = 0; i < bytes.length; i++) {
                 bArr[i] = bytes[i];
             }
-            bArr[bytes.length] = (byte) (Integer.parseInt(String.copyValueOf(a2, 10, 2), 16) & 255);
-            bArr[bytes.length + 1] = (byte) (Integer.parseInt(String.copyValueOf(a2, 20, 2), 16) & 255);
-            String str2 = (("" + ((char) (Integer.parseInt(String.copyValueOf(a2, 6, 2), 16) & 255))) + ((char) (Integer.parseInt(String.copyValueOf(a2, 16, 2), 16) & 255))) + ((char) (Integer.parseInt(String.copyValueOf(a2, 26, 2), 16) & 255));
+            bArr[bytes.length] = (byte) (Integer.parseInt(String.copyValueOf(a2, 10, 2), 16) & Util.MASK_8BIT);
+            bArr[bytes.length + 1] = (byte) (Integer.parseInt(String.copyValueOf(a2, 20, 2), 16) & Util.MASK_8BIT);
+            String str2 = (("" + ((char) (Integer.parseInt(String.copyValueOf(a2, 6, 2), 16) & Util.MASK_8BIT))) + ((char) (Integer.parseInt(String.copyValueOf(a2, 16, 2), 16) & Util.MASK_8BIT))) + ((char) (Integer.parseInt(String.copyValueOf(a2, 26, 2), 16) & Util.MASK_8BIT));
             char[] a3 = a((str2 + "webgis").getBytes("iso-8859-1"));
             int length = bArr.length;
             int length2 = str2.length();
@@ -52,9 +55,9 @@ class d {
             for (int i2 = 0; i2 < 16; i2++) {
                 byte b = digest[i2];
                 int i3 = i + 1;
-                cArr[i] = a[(b >>> 4) & 15];
+                cArr[i] = f741a[(b >>> 4) & 15];
                 i = i3 + 1;
-                cArr[i3] = a[b & 15];
+                cArr[i3] = f741a[b & 15];
             }
         } catch (Exception e) {
             e.printStackTrace();

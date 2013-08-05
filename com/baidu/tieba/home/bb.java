@@ -18,7 +18,9 @@ import java.util.Iterator;
 /* loaded from: classes.dex */
 public class bb extends BaseAdapter {
     private Context b;
-    private com.baidu.tieba.data.au a = null;
+
+    /* renamed from: a  reason: collision with root package name */
+    private com.baidu.tieba.data.bd f1141a = null;
     private int c = 0;
     private ArrayList d = null;
 
@@ -41,29 +43,29 @@ public class bb extends BaseAdapter {
     }
 
     public boolean b() {
-        if (this.a == null) {
+        if (this.f1141a == null) {
             return false;
         }
-        return this.a.c();
+        return this.f1141a.c();
     }
 
     public boolean c() {
-        if (this.a == null) {
+        if (this.f1141a == null) {
             return false;
         }
-        return this.a.b();
+        return this.f1141a.b();
     }
 
-    public void a(com.baidu.tieba.data.au auVar) {
-        this.a = auVar;
+    public void a(com.baidu.tieba.data.bd bdVar) {
+        this.f1141a = bdVar;
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.a == null || this.a.a() == null) {
+        if (this.f1141a == null || this.f1141a.a() == null) {
             return 0;
         }
-        int size = this.a.a().size();
+        int size = this.f1141a.a().size();
         if (b()) {
             size++;
         }
@@ -76,10 +78,10 @@ public class bb extends BaseAdapter {
     @Override // android.widget.Adapter
     public Object getItem(int i) {
         int itemId;
-        if (this.a == null || this.a.a() == null || (itemId = (int) getItemId(i)) < 0 || itemId >= this.a.a().size()) {
+        if (this.f1141a == null || this.f1141a.a() == null || (itemId = (int) getItemId(i)) < 0 || itemId >= this.f1141a.a().size()) {
             return null;
         }
-        return this.a.a().get(itemId);
+        return this.f1141a.a().get(itemId);
     }
 
     @Override // android.widget.BaseAdapter, android.widget.Adapter
@@ -89,15 +91,15 @@ public class bb extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public long getItemId(int i) {
-        if (this.a == null || this.a.a() == null) {
+        if (this.f1141a == null || this.f1141a.a() == null) {
             return -1L;
         }
         if (b()) {
-            if (i <= this.a.a().size()) {
+            if (i <= this.f1141a.a().size()) {
                 return i - 1;
             }
             return -2L;
-        } else if (i < this.a.a().size()) {
+        } else if (i < this.f1141a.a().size()) {
             return i;
         } else {
             return -2L;
@@ -113,7 +115,7 @@ public class bb extends BaseAdapter {
     public View getView(int i, View view, ViewGroup viewGroup) {
         bc bcVar;
         bd bdVar;
-        if (this.a != null) {
+        if (this.f1141a != null) {
             if (view == null) {
                 LayoutInflater from = LayoutInflater.from(this.b);
                 if (getItemViewType(i) == 0) {
@@ -122,14 +124,14 @@ public class bb extends BaseAdapter {
                     bdVar.c = (TextView) view.findViewById(R.id.title);
                     bdVar.b = (TextView) view.findViewById(R.id.content);
                     bdVar.d = (TextView) view.findViewById(R.id.forum);
-                    bdVar.a = (TextView) view.findViewById(R.id.time);
+                    bdVar.f1143a = (TextView) view.findViewById(R.id.time);
                     bdVar.e = (LinearLayout) view.findViewById(R.id.content_layout);
                     view.setTag(bdVar);
                     bcVar = null;
                 } else {
                     bc bcVar2 = new bc(this, null);
                     view = from.inflate(R.layout.page_item, (ViewGroup) null);
-                    bcVar2.a = (TextView) view.findViewById(R.id.page_text);
+                    bcVar2.f1142a = (TextView) view.findViewById(R.id.page_text);
                     bcVar2.b = (ProgressBar) view.findViewById(R.id.progress);
                     if (this.d == null) {
                         this.d = new ArrayList();
@@ -146,51 +148,51 @@ public class bb extends BaseAdapter {
                 bcVar = (bc) view.getTag();
                 bdVar = null;
             }
-            int at = TiebaApplication.f().at();
+            int au = TiebaApplication.f().au();
             if (getItemViewType(i) == 0) {
-                com.baidu.tieba.data.at atVar = (com.baidu.tieba.data.at) getItem(i);
-                if (atVar != null) {
-                    bdVar.d.setText(String.valueOf(atVar.d()) + this.b.getString(R.string.bar));
-                    bdVar.a.setText(com.baidu.tieba.util.y.d(new Date(atVar.g())));
-                    if (atVar.f() == null || atVar.f().length() < 1) {
+                com.baidu.tieba.data.bc bcVar3 = (com.baidu.tieba.data.bc) getItem(i);
+                if (bcVar3 != null) {
+                    bdVar.d.setText(String.valueOf(bcVar3.d()) + this.b.getString(R.string.bar));
+                    bdVar.f1143a.setText(com.baidu.tieba.util.ai.d(new Date(bcVar3.g())));
+                    if (bcVar3.f() == null || bcVar3.f().length() < 1) {
                         bdVar.e.setVisibility(8);
                     } else {
                         bdVar.e.setVisibility(0);
-                        bdVar.b.setText(Html.fromHtml(com.baidu.tieba.util.y.a(atVar.f(), (Color) null)));
+                        bdVar.b.setText(Html.fromHtml(com.baidu.tieba.util.ai.a(bcVar3.f(), (Color) null)));
                     }
-                    bdVar.c.setText(Html.fromHtml(com.baidu.tieba.util.y.a(atVar.e(), (Color) null)));
-                    com.baidu.tieba.util.x.b(bdVar.b, at);
-                    if (at == 0) {
-                        com.baidu.tieba.util.x.h(bdVar.e, (int) R.drawable.search_replay_back);
+                    bdVar.c.setText(Html.fromHtml(com.baidu.tieba.util.ai.a(bcVar3.e(), (Color) null)));
+                    com.baidu.tieba.util.ah.b(bdVar.b, au);
+                    if (au == 0) {
+                        com.baidu.tieba.util.ah.h(bdVar.e, (int) R.drawable.search_replay_back);
                         bdVar.d.setTextColor(this.b.getResources().getColor(R.color.search_text_forum));
-                        bdVar.a.setTextColor(this.b.getResources().getColor(R.color.search_text_forum));
+                        bdVar.f1143a.setTextColor(this.b.getResources().getColor(R.color.search_text_forum));
                         bdVar.b.setTextColor(this.b.getResources().getColor(R.color.search_text_content));
                     } else {
-                        com.baidu.tieba.util.x.h(bdVar.e, (int) R.drawable.search_replay_back_1);
-                        bdVar.d.setTextColor(com.baidu.tieba.util.x.c(at));
-                        bdVar.a.setTextColor(com.baidu.tieba.util.x.c(at));
-                        bdVar.b.setTextColor(com.baidu.tieba.util.x.a(at));
-                        bdVar.c.setTextColor(com.baidu.tieba.util.x.b(at));
+                        com.baidu.tieba.util.ah.h(bdVar.e, (int) R.drawable.search_replay_back_1);
+                        bdVar.d.setTextColor(com.baidu.tieba.util.ah.c(au));
+                        bdVar.f1143a.setTextColor(com.baidu.tieba.util.ah.c(au));
+                        bdVar.b.setTextColor(com.baidu.tieba.util.ah.a(au));
+                        bdVar.c.setTextColor(com.baidu.tieba.util.ah.b(au));
                     }
                 }
             } else if (getItemId(i) == -1) {
                 if (this.c == 1) {
                     bcVar.b.setVisibility(0);
-                    bcVar.a.setText(this.b.getString(R.string.loading));
+                    bcVar.f1142a.setText(this.b.getString(R.string.loading));
                 } else {
                     bcVar.b.setVisibility(8);
-                    bcVar.a.setText(this.b.getString(R.string.pre_page));
+                    bcVar.f1142a.setText(this.b.getString(R.string.pre_page));
                 }
-                com.baidu.tieba.util.x.b(bcVar.a, at);
+                com.baidu.tieba.util.ah.b(bcVar.f1142a, au);
             } else {
                 if (this.c == 2) {
                     bcVar.b.setVisibility(0);
-                    bcVar.a.setText(this.b.getString(R.string.loading));
+                    bcVar.f1142a.setText(this.b.getString(R.string.loading));
                 } else {
                     bcVar.b.setVisibility(8);
-                    bcVar.a.setText(this.b.getString(R.string.next_page));
+                    bcVar.f1142a.setText(this.b.getString(R.string.next_page));
                 }
-                com.baidu.tieba.util.x.b(bcVar.a, at);
+                com.baidu.tieba.util.ah.b(bcVar.f1142a, au);
             }
         }
         return view;

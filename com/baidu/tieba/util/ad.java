@@ -1,11 +1,22 @@
 package com.baidu.tieba.util;
 
-import android.content.DialogInterface;
-/* JADX INFO: Access modifiers changed from: package-private */
+import java.io.File;
+import java.io.FilenameFilter;
 /* loaded from: classes.dex */
-public class ad implements DialogInterface.OnClickListener {
-    @Override // android.content.DialogInterface.OnClickListener
-    public void onClick(DialogInterface dialogInterface, int i) {
-        dialogInterface.cancel();
+class ad implements FilenameFilter {
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ aa f1749a;
+    private final /* synthetic */ String b;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public ad(aa aaVar, String str) {
+        this.f1749a = aaVar;
+        this.b = str;
+    }
+
+    @Override // java.io.FilenameFilter
+    public boolean accept(File file, String str) {
+        return str.contains(new StringBuilder(String.valueOf(this.b)).append("_").toString());
     }
 }

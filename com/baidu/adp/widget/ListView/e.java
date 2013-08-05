@@ -12,7 +12,9 @@ import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes.dex */
 public class e extends BaseAdapter {
-    private Context a;
+
+    /* renamed from: a  reason: collision with root package name */
+    private Context f456a;
     private ArrayList c;
     private ArrayList d;
     private boolean e;
@@ -23,12 +25,12 @@ public class e extends BaseAdapter {
 
     public e(Context context) {
         boolean z = false;
-        this.a = null;
+        this.f456a = null;
         this.c = null;
         this.d = null;
         this.e = false;
         this.h = null;
-        this.a = context;
+        this.f456a = context;
         this.c = new ArrayList();
         this.d = new ArrayList();
         if (a(this.c) && a(this.d)) {
@@ -104,7 +106,7 @@ public class e extends BaseAdapter {
             return false;
         }
         for (int i = 0; i < this.c.size(); i++) {
-            if (((g) this.c.get(i)).a == view) {
+            if (((g) this.c.get(i)).f458a == view) {
                 this.c.remove(i);
                 if (a(this.c) && a(this.d)) {
                     z = true;
@@ -123,7 +125,7 @@ public class e extends BaseAdapter {
             return false;
         }
         for (int i = 0; i < this.d.size(); i++) {
-            if (((g) this.d.get(i)).a == view) {
+            if (((g) this.d.get(i)).f458a == view) {
                 this.d.remove(i);
                 if (a(this.c) && a(this.d)) {
                     z = true;
@@ -143,7 +145,7 @@ public class e extends BaseAdapter {
     public void a(View view, Object obj, boolean z, int i) {
         if (view != null) {
             g gVar = new g(this);
-            gVar.a = view;
+            gVar.f458a = view;
             gVar.b = obj;
             gVar.c = z;
             if (i < 0 || i > this.c.size()) {
@@ -162,7 +164,7 @@ public class e extends BaseAdapter {
     public void b(View view, Object obj, boolean z, int i) {
         if (view != null) {
             g gVar = new g(this);
-            gVar.a = view;
+            gVar.f458a = view;
             gVar.b = obj;
             gVar.c = z;
             if (i < 0 || i > this.d.size()) {
@@ -272,7 +274,7 @@ public class e extends BaseAdapter {
         View view3;
         int c = c();
         if (i < c) {
-            View view4 = ((g) this.c.get(i)).a;
+            View view4 = ((g) this.c.get(i)).f458a;
             if (view4 == null) {
                 return e();
             }
@@ -284,7 +286,8 @@ public class e extends BaseAdapter {
             try {
                 view3 = this.b.getView(i2, view, viewGroup);
             } catch (Exception e) {
-                com.baidu.adp.lib.c.b.a(e.getMessage());
+                e.printStackTrace();
+                com.baidu.adp.lib.e.d.a(e.getMessage());
                 view3 = null;
             }
             if (view3 == null) {
@@ -293,9 +296,9 @@ public class e extends BaseAdapter {
             return view3;
         }
         try {
-            view2 = ((g) this.d.get(i2 - i3)).a;
+            view2 = ((g) this.d.get(i2 - i3)).f458a;
         } catch (Exception e2) {
-            com.baidu.adp.lib.c.b.a(e2.getMessage());
+            com.baidu.adp.lib.e.d.a(e2.getMessage());
             view2 = null;
         }
         if (view2 == null) {
@@ -305,10 +308,10 @@ public class e extends BaseAdapter {
     }
 
     private View e() {
-        TextView textView = new TextView(this.a);
+        TextView textView = new TextView(this.f456a);
         textView.setText("资源加载失败！");
-        int a = com.baidu.adp.lib.c.c.a(this.a, 15.0f);
-        textView.setPadding(a, a, a, a);
+        int a2 = com.baidu.adp.lib.e.e.a(this.f456a, 15.0f);
+        textView.setPadding(a2, a2, a2, a2);
         return textView;
     }
 }

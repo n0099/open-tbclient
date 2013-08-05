@@ -1,21 +1,24 @@
 package com.baidu.tieba.chat;
 
 import android.os.Handler;
+import com.baidu.tieba.view.aq;
 /* loaded from: classes.dex */
-class h implements com.baidu.tieba.view.ae {
-    final /* synthetic */ ChatActivity a;
+class h implements aq {
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ ChatActivity f939a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public h(ChatActivity chatActivity) {
-        this.a = chatActivity;
+        this.f939a = chatActivity;
     }
 
-    @Override // com.baidu.tieba.view.ae
+    @Override // com.baidu.tieba.view.aq
     public void a(int i) {
         ad adVar;
         if (i != 0) {
-            adVar = this.a.a;
-            adVar.h();
+            adVar = this.f939a.f925a;
+            adVar.i();
             return;
         }
         new Handler().post(new i(this));

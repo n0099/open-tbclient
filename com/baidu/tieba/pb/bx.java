@@ -1,24 +1,32 @@
 package com.baidu.tieba.pb;
 
+import android.os.Handler;
+import android.view.animation.Animation;
 import android.widget.ImageView;
-import com.baidu.tieba.view.KeyboardEventLayout;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class bx implements Runnable {
-    final /* synthetic */ bw a;
+public class bx implements Animation.AnimationListener {
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ bn f1492a;
     private final /* synthetic */ ImageView b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bx(bw bwVar, ImageView imageView) {
-        this.a = bwVar;
+    public bx(bn bnVar, ImageView imageView) {
+        this.f1492a = bnVar;
         this.b = imageView;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        bk bkVar;
-        KeyboardEventLayout keyboardEventLayout;
-        bkVar = this.a.a;
-        keyboardEventLayout = bkVar.c;
-        keyboardEventLayout.removeView(this.b);
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationStart(Animation animation) {
+    }
+
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationRepeat(Animation animation) {
+    }
+
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationEnd(Animation animation) {
+        new Handler().post(new by(this, this.b));
     }
 }

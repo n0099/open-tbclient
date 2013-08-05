@@ -1,8 +1,34 @@
 package com.baidu.adp.lib.network;
+
+import java.net.HttpURLConnection;
 /* loaded from: classes.dex */
 public class a {
-    public static boolean a = false;
-    private static String b = "\r\n";
-    private static String c = "--";
-    private static String d = "--------7da3d81520810*";
+
+    /* renamed from: a  reason: collision with root package name */
+    private HttpURLConnection f429a;
+    private boolean b;
+
+    public void a(HttpURLConnection httpURLConnection) {
+        if (this.b) {
+            if (httpURLConnection != null) {
+                try {
+                    httpURLConnection.disconnect();
+                    return;
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    return;
+                }
+            }
+            return;
+        }
+        this.f429a = httpURLConnection;
+    }
+
+    public void a() {
+        this.f429a = null;
+    }
+
+    public boolean b() {
+        return this.b;
+    }
 }

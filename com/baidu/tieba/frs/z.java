@@ -4,18 +4,20 @@ import com.baidu.mobstat.StatService;
 import com.baidu.tieba.TiebaApplication;
 /* loaded from: classes.dex */
 class z implements com.baidu.adp.widget.ListView.b {
-    final /* synthetic */ FrsActivity a;
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ FrsActivity f1102a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public z(FrsActivity frsActivity) {
-        this.a = frsActivity;
+        this.f1102a = frsActivity;
     }
 
     @Override // com.baidu.adp.widget.ListView.b
     public void a(boolean z) {
         if (TiebaApplication.f().t()) {
-            StatService.onEvent(this.a, "frs_pulldown", "frsclick", 1);
+            StatService.onEvent(this.f1102a, "frs_pulldown", "frsclick", 1);
         }
-        this.a.y();
+        this.f1102a.w();
     }
 }

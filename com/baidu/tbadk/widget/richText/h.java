@@ -8,6 +8,8 @@ public interface h {
 
     void a(Context context, String str);
 
+    void a(Context context, String str, String str2);
+
     int b();
 
     void b(Context context, String str);

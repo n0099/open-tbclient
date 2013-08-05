@@ -4,15 +4,22 @@ import android.app.Service;
 import android.content.Intent;
 import android.os.Handler;
 import android.os.IBinder;
-import com.baidu.tieba.model.br;
-import com.baidu.tieba.util.z;
+import com.baidu.tieba.model.ca;
+import com.baidu.tieba.util.aj;
 /* loaded from: classes.dex */
 public class TiebaSyncService extends Service {
-    private s a = null;
-    private int b = 0;
-    private br c = null;
-    private Handler d = new Handler();
-    private Runnable e = new r(this);
+
+    /* renamed from: a  reason: collision with root package name */
+    private static String f1693a = null;
+    private s b = null;
+    private int c = 0;
+    private ca d = null;
+    private Handler e = new Handler();
+    private Runnable f = new r(this);
+
+    public static void a(String str) {
+        f1693a = str;
+    }
 
     @Override // android.app.Service
     public IBinder onBind(Intent intent) {
@@ -25,36 +32,36 @@ public class TiebaSyncService extends Service {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void a() {
-        if (this.a != null) {
-            this.a.cancel();
+    public void b() {
+        if (this.b != null) {
+            this.b.cancel();
         }
-        this.a = new s(this, null);
-        this.a.execute(new String[0]);
+        this.b = new s(this, null);
+        this.b.execute(new String[0]);
     }
 
     @Override // android.app.Service
     public void onDestroy() {
-        if (this.a != null) {
-            this.a.cancel();
+        if (this.b != null) {
+            this.b.cancel();
         }
-        this.b = 11;
-        this.d.removeCallbacks(this.e);
+        this.c = 11;
+        this.e.removeCallbacks(this.f);
         super.onDestroy();
     }
 
     @Override // android.app.Service
     public void onStart(Intent intent, int i) {
         super.onStart(intent, i);
-        this.b = 0;
-        a();
+        this.c = 0;
+        b();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void b() {
-        if (this.c != null) {
+    public void c() {
+        if (this.d != null) {
             sendBroadcast(new Intent("com.baidu.tieba.broadcast.sync"));
-            z.a(getClass().getName(), "broadcastNewVersion", "sendBroadcast: " + String.format("%s", this.c.c().getNew_version()));
+            aj.a(getClass().getName(), "broadcastNewVersion", "sendBroadcast: " + String.format("%s", this.d.c().getNew_version()));
         }
     }
 }

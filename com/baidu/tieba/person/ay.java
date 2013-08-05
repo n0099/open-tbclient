@@ -2,15 +2,17 @@ package com.baidu.tieba.person;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ay implements com.baidu.adp.widget.ScrollView.n {
-    final /* synthetic */ PersonInfoActivity a;
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ PersonInfoActivity f1584a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ay(PersonInfoActivity personInfoActivity) {
-        this.a = personInfoActivity;
+        this.f1584a = personInfoActivity;
     }
 
     @Override // com.baidu.adp.widget.ScrollView.n
     public void a() {
-        this.a.b();
+        this.f1584a.b();
     }
 }

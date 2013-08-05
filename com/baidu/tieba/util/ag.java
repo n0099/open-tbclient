@@ -1,7 +1,7 @@
 package com.baidu.tieba.util;
 
-import android.view.View;
+import android.graphics.Bitmap;
 /* loaded from: classes.dex */
 public interface ag {
-    boolean a(View view);
+    void a(Bitmap bitmap);
 }

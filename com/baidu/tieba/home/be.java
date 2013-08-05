@@ -3,18 +3,20 @@ package com.baidu.tieba.home;
 import com.baidu.tieba.view.ADImageViewDrawer;
 /* loaded from: classes.dex */
 class be implements com.baidu.tbadk.a.d {
-    final /* synthetic */ TopicPagerAdapter a;
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ TopicPagerAdapter f1144a;
     private final /* synthetic */ ADImageViewDrawer b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public be(TopicPagerAdapter topicPagerAdapter, ADImageViewDrawer aDImageViewDrawer) {
-        this.a = topicPagerAdapter;
+        this.f1144a = topicPagerAdapter;
         this.b = aDImageViewDrawer;
     }
 
     @Override // com.baidu.tbadk.a.d
     public void a(com.baidu.adp.widget.a.b bVar, String str, boolean z) {
-        if (bVar != null) {
+        if (bVar != null && this.b != null) {
             this.b.invalidate();
         }
     }

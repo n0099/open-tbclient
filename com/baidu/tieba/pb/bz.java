@@ -2,20 +2,19 @@ package com.baidu.tieba.pb;
 
 import android.os.Handler;
 import android.view.animation.Animation;
+import android.widget.ImageView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class bz implements Animation.AnimationListener {
-    final /* synthetic */ bk a;
-    private final /* synthetic */ com.baidu.tieba.data.aw b;
-    private final /* synthetic */ boolean c;
-    private final /* synthetic */ String d;
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ bn f1494a;
+    private final /* synthetic */ ImageView b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bz(bk bkVar, com.baidu.tieba.data.aw awVar, boolean z, String str) {
-        this.a = bkVar;
-        this.b = awVar;
-        this.c = z;
-        this.d = str;
+    public bz(bn bnVar, ImageView imageView) {
+        this.f1494a = bnVar;
+        this.b = imageView;
     }
 
     @Override // android.view.animation.Animation.AnimationListener
@@ -28,6 +27,6 @@ public class bz implements Animation.AnimationListener {
 
     @Override // android.view.animation.Animation.AnimationListener
     public void onAnimationEnd(Animation animation) {
-        new Handler().post(new ca(this, this.b, this.c, this.d));
+        new Handler().post(new ca(this, this.b));
     }
 }

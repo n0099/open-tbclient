@@ -1,16 +1,18 @@
 package com.baidu.tieba.model;
 /* loaded from: classes.dex */
 public class m extends com.baidu.adp.a.c {
-    com.baidu.tieba.data.p a;
+
+    /* renamed from: a  reason: collision with root package name */
+    com.baidu.tieba.data.t f1376a;
     private n b = null;
 
     public m() {
-        this.a = null;
-        this.a = new com.baidu.tieba.data.p();
+        this.f1376a = null;
+        this.f1376a = new com.baidu.tieba.data.t();
     }
 
-    public com.baidu.tieba.data.p a() {
-        return this.a;
+    public com.baidu.tieba.data.t a() {
+        return this.f1376a;
     }
 
     @Override // com.baidu.adp.a.c

@@ -1,8 +1,7 @@
 package com.baidu.zeus.bouncycastle;
 
 import cn.jingling.lib.file.Shared;
-import com.baidu.mapapi.MKSearch;
-import com.baidu.mapapi.MapView;
+import com.tencent.mm.sdk.contact.RContact;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.EOFException;
@@ -77,7 +76,7 @@ public class ASN1InputStream extends FilterInputStream implements DERTags {
             return -1;
         }
         if (read > 127) {
-            int i2 = read & 127;
+            int i2 = read & RContact.MM_CONTACTFLAG_ALL;
             if (i2 > 4) {
                 throw new IOException("DER length more than 4 bytes");
             }
@@ -163,7 +162,7 @@ public class ASN1InputStream extends FilterInputStream implements DERTags {
             case 42:
             case 43:
             case 44:
-            case MKSearch.TYPE_AREA_MULTI_POI_LIST /* 45 */:
+            case 45:
             case 46:
             case 47:
             default:
@@ -199,7 +198,7 @@ public class ASN1InputStream extends FilterInputStream implements DERTags {
                 return new DERPrintableString(bArr);
             case 20:
                 return new DERT61String(bArr);
-            case DERTags.IA5_STRING /* 22 */:
+            case 22:
                 return new DERIA5String(bArr);
             case DERTags.UTC_TIME /* 23 */:
                 return new DERUTCTime(bArr);
@@ -215,7 +214,7 @@ public class ASN1InputStream extends FilterInputStream implements DERTags {
                 return new DERBMPString(bArr);
             case 36:
                 return buildDerConstructedOctetString(bArr);
-            case MapView.LayoutParams.TOP /* 48 */:
+            case 48:
                 ASN1InputStream aSN1InputStream2 = new ASN1InputStream(bArr);
                 ASN1EncodableVector aSN1EncodableVector2 = new ASN1EncodableVector();
                 for (DERObject readObject2 = aSN1InputStream2.readObject(); readObject2 != null; readObject2 = aSN1InputStream2.readObject()) {
@@ -288,7 +287,7 @@ public class ASN1InputStream extends FilterInputStream implements DERTags {
                     return BERNull.THE_ONE;
                 case 36:
                     return buildConstructedOctetString();
-                case MapView.LayoutParams.TOP /* 48 */:
+                case 48:
                     ASN1EncodableVector aSN1EncodableVector = new ASN1EncodableVector();
                     while (true) {
                         DERObject readObject = readObject();
@@ -346,14 +345,14 @@ public class ASN1InputStream extends FilterInputStream implements DERTags {
             int read = read();
             int i3 = 0;
             while (read >= 0 && (read & DERTags.TAGGED) != 0) {
-                i3 = ((read & 127) | i3) << 7;
+                i3 = ((read & RContact.MM_CONTACTFLAG_ALL) | i3) << 7;
                 read = read();
             }
             if (read < 0) {
                 this.eofFound = true;
                 throw new EOFException("EOF found inside tag value.");
             }
-            return (read & 127) | i3;
+            return (read & RContact.MM_CONTACTFLAG_ALL) | i3;
         }
         return i2;
     }

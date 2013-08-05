@@ -31,6 +31,7 @@ import com.baidu.zeus.WebSettings;
 import com.baidu.zeus.WebStorage;
 import com.baidu.zeus.WebView;
 import com.baidu.zeus.bouncycastle.DERTags;
+import com.tencent.mm.sdk.contact.RContact;
 import java.nio.ByteBuffer;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -1073,7 +1074,7 @@ public final class WebViewCore {
                         case EventHub.SET_BACKGROUND_COLOR /* 126 */:
                             WebViewCore.this.nativeSetBackgroundColor(message.arg1);
                             return;
-                        case EventHub.SET_MOVE_FOCUS /* 127 */:
+                        case 127:
                             CursorData cursorData = (CursorData) message.obj;
                             WebViewCore.this.nativeMoveFocus(cursorData.mFrame, cursorData.mNode);
                             return;
@@ -1278,7 +1279,7 @@ public final class WebViewCore {
                                 WebViewCore.this.mWebView = null;
                             }
                             return;
-                        case 300:
+                        case EventHub.DESTROY_PLUGINVIEW /* 300 */:
                             synchronized (WebViewCore.this) {
                                 WebViewCore.this.destroyPluginView();
                             }
@@ -2537,7 +2538,7 @@ public final class WebViewCore {
 
     private void centerFitRect(int i, int i2, int i3, int i4) {
         if (this.mWebView != null) {
-            this.mWebView.mPrivateHandler.obtainMessage(127, new Rect(i, i2, i + i3, i2 + i4)).sendToTarget();
+            this.mWebView.mPrivateHandler.obtainMessage(RContact.MM_CONTACTFLAG_ALL, new Rect(i, i2, i + i3, i2 + i4)).sendToTarget();
         }
     }
 

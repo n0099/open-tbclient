@@ -16,7 +16,9 @@ import com.baidu.tieba.TiebaApplication;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public class MsgRemindActivity extends com.baidu.tieba.g {
-    private RadioGroup a = null;
+
+    /* renamed from: a  reason: collision with root package name */
+    private RadioGroup f1394a = null;
     private TextView b = null;
     private CheckBox c = null;
     private CheckBox d = null;
@@ -47,9 +49,9 @@ public class MsgRemindActivity extends com.baidu.tieba.g {
         setContentView(R.layout.msg_remind_activity);
         b();
         c();
+        k();
+        l();
         m();
-        n();
-        o();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -57,32 +59,32 @@ public class MsgRemindActivity extends com.baidu.tieba.g {
     public void a(int i) {
         int color;
         super.a(i);
-        com.baidu.tieba.util.x.b(this.l, i);
-        com.baidu.tieba.util.x.d(this.m, i);
-        com.baidu.tieba.util.x.a(this.y, i);
-        com.baidu.tieba.util.x.f(this.n, i);
+        com.baidu.tieba.util.ah.b(this.l, i);
+        com.baidu.tieba.util.ah.d(this.m, i);
+        com.baidu.tieba.util.ah.a(this.y, i);
+        com.baidu.tieba.util.ah.f(this.n, i);
         if (i == 1) {
-            color = com.baidu.tieba.util.x.a(i);
-            com.baidu.tieba.util.x.h((View) this.p, (int) R.drawable.more_up_1);
-            com.baidu.tieba.util.x.h((View) this.q, (int) R.drawable.more_middle_1);
-            com.baidu.tieba.util.x.h((View) this.r, (int) R.drawable.more_middle_1);
-            com.baidu.tieba.util.x.h((View) this.s, (int) R.drawable.more_down_1);
-            com.baidu.tieba.util.x.h((View) this.t, (int) R.drawable.more_up_1);
-            com.baidu.tieba.util.x.h((View) this.u, (int) R.drawable.more_middle_1);
-            com.baidu.tieba.util.x.h((View) this.v, (int) R.drawable.more_down_1);
+            color = com.baidu.tieba.util.ah.a(i);
+            com.baidu.tieba.util.ah.h((View) this.p, (int) R.drawable.more_up_1);
+            com.baidu.tieba.util.ah.h((View) this.q, (int) R.drawable.more_middle_1);
+            com.baidu.tieba.util.ah.h((View) this.r, (int) R.drawable.more_middle_1);
+            com.baidu.tieba.util.ah.h((View) this.s, (int) R.drawable.more_down_1);
+            com.baidu.tieba.util.ah.h((View) this.t, (int) R.drawable.more_up_1);
+            com.baidu.tieba.util.ah.h((View) this.u, (int) R.drawable.more_middle_1);
+            com.baidu.tieba.util.ah.h((View) this.v, (int) R.drawable.more_down_1);
             this.f.setBackgroundResource(R.drawable.more_up_1);
             this.j.setBackgroundResource(R.drawable.more_down_1);
             this.g.setSwitchStyle(BdSwitchView.SwitchStyle.NIGHT);
             this.k.setSwitchStyle(BdSwitchView.SwitchStyle.NIGHT);
         } else {
             color = getResources().getColor(R.color.more_color);
-            com.baidu.tieba.util.x.h((View) this.p, (int) R.drawable.more_up);
-            com.baidu.tieba.util.x.h((View) this.q, (int) R.drawable.more_middle);
-            com.baidu.tieba.util.x.h((View) this.r, (int) R.drawable.more_middle);
-            com.baidu.tieba.util.x.h((View) this.s, (int) R.drawable.more_down);
-            com.baidu.tieba.util.x.h((View) this.t, (int) R.drawable.more_up);
-            com.baidu.tieba.util.x.h((View) this.u, (int) R.drawable.more_middle);
-            com.baidu.tieba.util.x.h((View) this.v, (int) R.drawable.more_down);
+            com.baidu.tieba.util.ah.h((View) this.p, (int) R.drawable.more_up);
+            com.baidu.tieba.util.ah.h((View) this.q, (int) R.drawable.more_middle);
+            com.baidu.tieba.util.ah.h((View) this.r, (int) R.drawable.more_middle);
+            com.baidu.tieba.util.ah.h((View) this.s, (int) R.drawable.more_down);
+            com.baidu.tieba.util.ah.h((View) this.t, (int) R.drawable.more_up);
+            com.baidu.tieba.util.ah.h((View) this.u, (int) R.drawable.more_middle);
+            com.baidu.tieba.util.ah.h((View) this.v, (int) R.drawable.more_down);
             this.f.setBackgroundResource(R.drawable.more_up);
             this.j.setBackgroundResource(R.drawable.more_down);
             this.g.setSwitchStyle(BdSwitchView.SwitchStyle.DAY);
@@ -103,7 +105,7 @@ public class MsgRemindActivity extends com.baidu.tieba.g {
 
     void b() {
         this.l = (RelativeLayout) findViewById(R.id.parent);
-        this.a = (RadioGroup) findViewById(R.id.frequency_radio);
+        this.f1394a = (RadioGroup) findViewById(R.id.frequency_radio);
         this.m = (RelativeLayout) findViewById(R.id.title);
         this.n = (TextView) findViewById(R.id.title_text);
         this.o = (TextView) findViewById(R.id.frequency_text);
@@ -116,25 +118,25 @@ public class MsgRemindActivity extends com.baidu.tieba.g {
         this.v = (CheckBox) findViewById(R.id.check_newfans);
         this.w = (TextView) findViewById(R.id.tone_text);
         this.x = (TextView) findViewById(R.id.vibrate_text);
-        this.a.setOnCheckedChangeListener(new ac(this));
-        ad adVar = new ad(this);
+        this.f1394a.setOnCheckedChangeListener(new ad(this));
+        ae aeVar = new ae(this);
         this.b = (TextView) findViewById(R.id.content_text);
         this.c = (CheckBox) findViewById(R.id.check_replyme);
         this.d = (CheckBox) findViewById(R.id.check_atme);
         this.e = (CheckBox) findViewById(R.id.check_newfans);
-        this.c.setOnCheckedChangeListener(adVar);
-        this.d.setOnCheckedChangeListener(adVar);
-        this.e.setOnCheckedChangeListener(adVar);
+        this.c.setOnCheckedChangeListener(aeVar);
+        this.d.setOnCheckedChangeListener(aeVar);
+        this.e.setOnCheckedChangeListener(aeVar);
         this.f = (LinearLayout) findViewById(R.id.remind_tone);
         this.f.setClickable(false);
         this.g = (BdSwitchView) findViewById(R.id.remind_tone_switch);
-        this.g.setOnSwitchStateChangeListener(new ae(this));
+        this.g.setOnSwitchStateChangeListener(new af(this));
         this.j = (LinearLayout) findViewById(R.id.remind_vibrate);
         this.j.setClickable(false);
         this.k = (BdSwitchView) findViewById(R.id.remind_vibrate_switch);
-        this.k.setOnSwitchStateChangeListener(new af(this));
+        this.k.setOnSwitchStateChangeListener(new ag(this));
         this.y = (ImageView) findViewById(R.id.back);
-        this.y.setOnClickListener(new ag(this));
+        this.y.setOnClickListener(new ah(this));
     }
 
     public static void a(Context context) {
@@ -142,21 +144,21 @@ public class MsgRemindActivity extends com.baidu.tieba.g {
     }
 
     private void c() {
-        int R = TiebaApplication.f().R();
-        if (R == 30) {
-            this.a.check(R.id.radio_30sec);
-        } else if (R == 120) {
-            this.a.check(R.id.radio_2min);
-        } else if (R == 300) {
-            this.a.check(R.id.radio_5min);
+        int S = TiebaApplication.f().S();
+        if (S == 30) {
+            this.f1394a.check(R.id.radio_30sec);
+        } else if (S == 120) {
+            this.f1394a.check(R.id.radio_2min);
+        } else if (S == 300) {
+            this.f1394a.check(R.id.radio_5min);
         } else {
-            this.a.check(R.id.radio_no);
+            this.f1394a.check(R.id.radio_no);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void d() {
-        if (TiebaApplication.f().R() <= 0) {
+        if (TiebaApplication.f().S() <= 0) {
             this.b.setVisibility(8);
             this.d.setVisibility(8);
             this.c.setVisibility(8);
@@ -173,28 +175,28 @@ public class MsgRemindActivity extends com.baidu.tieba.g {
         this.j.setVisibility(0);
     }
 
-    private void m() {
-        if (TiebaApplication.f().Z()) {
+    private void k() {
+        if (TiebaApplication.f().aa()) {
             this.c.setChecked(true);
         }
-        if (TiebaApplication.f().Y()) {
+        if (TiebaApplication.f().Z()) {
             this.d.setChecked(true);
         }
-        if (TiebaApplication.f().X()) {
+        if (TiebaApplication.f().Y()) {
             this.e.setChecked(true);
         }
     }
 
-    private void n() {
-        if (TiebaApplication.f().U()) {
+    private void l() {
+        if (TiebaApplication.f().V()) {
             this.g.a();
         } else {
             this.g.b();
         }
     }
 
-    private void o() {
-        if (TiebaApplication.f().V()) {
+    private void m() {
+        if (TiebaApplication.f().W()) {
             this.k.a();
         } else {
             this.k.b();

@@ -10,11 +10,13 @@ import android.os.IBinder;
 import android.widget.RemoteViews;
 import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.data.VersionData;
-import com.baidu.tieba.util.z;
+import com.baidu.tieba.util.aj;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public class TiebaUpdateService extends Service {
-    public static String a = null;
+
+    /* renamed from: a  reason: collision with root package name */
+    protected String f1694a = null;
     private NotificationManager b = null;
     private Notification c = null;
     private Notification d = null;
@@ -72,16 +74,16 @@ public class TiebaUpdateService extends Service {
     @Override // android.app.Service
     public void onStart(Intent intent, int i) {
         boolean z;
-        z.a(getClass().getName(), "onStart", "onStart");
+        aj.a(getClass().getName(), "onStart", "onStart");
         if (intent != null && intent.getBooleanExtra("update", false)) {
             VersionData versionData = (VersionData) intent.getSerializableExtra("version");
             this.f = versionData;
             if (versionData != null) {
-                this.c.contentView.setTextViewText(R.id.info, String.format(getString(R.string.downloading), this.f.getNew_version()));
+                this.c.contentView.setTextViewText(R.id.info, String.format(getString(R.string.tieba_downloading), this.f.getNew_version()));
                 this.c.contentView.setTextViewText(R.id.schedule, "0/0");
-                if (com.baidu.tieba.util.m.c(this.f.getNew_file()) != null) {
+                if (com.baidu.tieba.util.p.c(this.f.getNew_file()) != null) {
                     this.j.sendMessageDelayed(this.j.obtainMessage(1, this.f), 100L);
-                } else if (this.f != null && this.e == null) {
+                } else if (this.e == null) {
                     this.e = new v(this, this.f);
                     this.e.execute(new String[0]);
                     this.c.contentView.setProgressBar(R.id.progress, 100, 0, false);
@@ -94,15 +96,15 @@ public class TiebaUpdateService extends Service {
                 } else {
                     z = true;
                 }
-                a = a(this.h);
-                if (a == null || a.length() < 4) {
+                this.f1694a = a(this.h);
+                if (this.f1694a == null || this.f1694a.length() < 4) {
                     this.i = true;
                     z = false;
                 }
                 if (z) {
                     this.d.contentView.setTextViewText(R.id.info, getString(R.string.is_downloading));
                     this.d.contentView.setTextViewText(R.id.schedule, "0/0");
-                    if (com.baidu.tieba.util.m.c(a) != null) {
+                    if (com.baidu.tieba.util.p.c(this.f1694a) != null) {
                         this.k.sendMessageDelayed(this.k.obtainMessage(2, this.f), 100L);
                     } else if (this.g == null) {
                         this.g = new w(this, this.h);

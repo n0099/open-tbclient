@@ -15,7 +15,9 @@ public class i {
     private static final Pattern i = Pattern.compile("(tieba.baidu.com/f\\?kz=){1}\\d+");
     private int c;
     private int d;
-    private int a = 0;
+
+    /* renamed from: a  reason: collision with root package name */
+    private int f1015a = 0;
     private String b = null;
     private String f = null;
     private SpannableStringBuilder g = null;
@@ -29,43 +31,23 @@ public class i {
         return (i2 != 0 || i3 == 3 || i3 == 2) ? false : true;
     }
 
-    public static boolean c(int i2, int i3) {
-        return (i2 != 0 || i3 == 3 || i3 == 2 || i3 == 5) ? false : true;
-    }
-
     public void a(int i2) {
-        this.a = i2;
+        this.f1015a = i2;
     }
 
     public int a() {
-        return this.a;
+        return this.f1015a;
     }
 
-    public int b() {
-        return this.c;
-    }
-
-    public int c() {
-        return this.d;
-    }
-
-    public void a(String str) {
-        this.b = str;
-    }
-
-    public String d() {
+    public String b() {
         return this.b;
-    }
-
-    public void b(String str) {
-        this.f = str;
     }
 
     public void a(SpannableStringBuilder spannableStringBuilder) {
         this.g = spannableStringBuilder;
     }
 
-    public SpannableStringBuilder e() {
+    public SpannableStringBuilder c() {
         return this.g;
     }
 
@@ -79,7 +61,7 @@ public class i {
 
     public SpannableString a(Context context) {
         String str;
-        switch (this.a) {
+        switch (this.f1015a) {
             case 0:
                 return new SpannableString(this.b);
             case 1:
@@ -122,7 +104,7 @@ public class i {
 
     public SpannableString a(Context context, int i2, int i3) {
         int b;
-        if (this.a != 2) {
+        if (this.f1015a != 2) {
             return null;
         }
         SpannableString spannableString = new SpannableString(String.valueOf(this.b) + " ");
@@ -140,15 +122,15 @@ public class i {
         return spannableString;
     }
 
-    public String f() {
+    public String d() {
         return this.f;
     }
 
     public void a(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                this.a = jSONObject.optInt("type", 0);
-                if (this.a == 3) {
+                this.f1015a = jSONObject.optInt("type", 0);
+                if (this.f1015a == 3) {
                     this.f = jSONObject.optString("src");
                     this.b = jSONObject.optString("bsize");
                     try {
@@ -167,23 +149,23 @@ public class i {
                     if (this.f != null && this.f.indexOf(".baidu.com") != -1) {
                         this.e = true;
                     }
-                } else if (this.a == 4) {
+                } else if (this.f1015a == 4) {
                     this.b = jSONObject.optString("text");
                     this.f = jSONObject.optString("uid");
                 } else {
                     this.b = jSONObject.optString("text");
                     this.f = jSONObject.optString("link");
-                    if (this.a == 2 && com.baidu.tbadk.a.a.a().b(this.b) == 0) {
-                        this.a = 0;
+                    if (this.f1015a == 2 && com.baidu.tbadk.a.a.a().b(this.b) == 0) {
+                        this.f1015a = 0;
                         this.b = "[" + jSONObject.optString("c") + "]";
                     }
                 }
-                if (this.a != 0) {
+                if (this.f1015a != 0) {
                     this.b = this.b.replaceAll("\n", "");
                     this.f = this.f.replaceAll("\n", "");
                 }
             } catch (Exception e2) {
-                com.baidu.tieba.util.z.b("ContentData", "parserJson", "error = " + e2.getMessage());
+                com.baidu.tieba.util.aj.b("ContentData", "parserJson", "error = " + e2.getMessage());
             }
         }
     }

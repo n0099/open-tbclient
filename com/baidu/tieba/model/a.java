@@ -1,22 +1,24 @@
 package com.baidu.tieba.model;
 /* loaded from: classes.dex */
 public class a {
-    private com.baidu.tieba.data.s a = null;
-    private com.baidu.tieba.data.ax b = null;
 
-    public com.baidu.tieba.data.s a() {
-        return this.a;
+    /* renamed from: a  reason: collision with root package name */
+    private com.baidu.tieba.data.w f1319a = null;
+    private com.baidu.tieba.data.bi b = null;
+
+    public com.baidu.tieba.data.w a() {
+        return this.f1319a;
     }
 
-    public void a(com.baidu.tieba.data.s sVar) {
-        this.a = sVar;
+    public void a(com.baidu.tieba.data.w wVar) {
+        this.f1319a = wVar;
     }
 
-    public com.baidu.tieba.data.ax b() {
+    public com.baidu.tieba.data.bi b() {
         return this.b;
     }
 
-    public void a(com.baidu.tieba.data.ax axVar) {
-        this.b = axVar;
+    public void a(com.baidu.tieba.data.bi biVar) {
+        this.b = biVar;
     }
 }

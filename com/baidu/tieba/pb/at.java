@@ -1,24 +1,26 @@
 package com.baidu.tieba.pb;
 /* loaded from: classes.dex */
-class at implements cq {
-    final /* synthetic */ NewPbActivity a;
+class at implements ct {
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ NewPbActivity f1461a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public at(NewPbActivity newPbActivity) {
-        this.a = newPbActivity;
+        this.f1461a = newPbActivity;
     }
 
-    @Override // com.baidu.tieba.pb.cq
-    public void a(com.baidu.tieba.data.aw awVar) {
-        com.baidu.tieba.model.ba baVar;
-        com.baidu.tieba.model.ba baVar2;
-        bk bkVar;
-        baVar = this.a.n;
-        if (baVar != null) {
-            baVar2 = this.a.n;
-            if (baVar2.e()) {
-                bkVar = this.a.p;
-                bkVar.s();
+    @Override // com.baidu.tieba.pb.ct
+    public void a(com.baidu.tieba.data.bh bhVar) {
+        com.baidu.tieba.model.bf bfVar;
+        com.baidu.tieba.model.bf bfVar2;
+        bn bnVar;
+        bfVar = this.f1461a.n;
+        if (bfVar != null) {
+            bfVar2 = this.f1461a.n;
+            if (bfVar2.e()) {
+                bnVar = this.f1461a.p;
+                bnVar.s();
             }
         }
     }

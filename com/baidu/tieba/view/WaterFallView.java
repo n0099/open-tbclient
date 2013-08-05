@@ -17,9 +17,9 @@ public class WaterFallView extends BdPullRefreshScrollView {
     private int b;
     private LinearLayout c;
     private LinearLayout d;
-    private av e;
+    private bl e;
     private LinearLayout f;
-    private av g;
+    private bl g;
     private View h;
     private View i;
     private int j;
@@ -27,7 +27,7 @@ public class WaterFallView extends BdPullRefreshScrollView {
     private int l;
     private int m;
     private int n;
-    private aw o;
+    private bm o;
 
     public WaterFallView(Context context) {
         super(context);
@@ -67,8 +67,8 @@ public class WaterFallView extends BdPullRefreshScrollView {
         j();
     }
 
-    public void setOnScrollListener(aw awVar) {
-        this.o = awVar;
+    public void setOnScrollListener(bm bmVar) {
+        this.o = bmVar;
     }
 
     public void a(View view) {
@@ -103,15 +103,15 @@ public class WaterFallView extends BdPullRefreshScrollView {
     }
 
     private void j() {
-        this.e = new av(this);
-        this.g = new av(this);
-        this.n = com.baidu.tieba.util.ab.a(getContext(), 20.0f);
-        this.b = com.baidu.tieba.util.ab.a(getContext(), 3.0f);
+        this.e = new bl(this);
+        this.g = new bl(this);
+        this.n = com.baidu.tieba.util.am.a(getContext(), 20.0f);
+        this.b = com.baidu.tieba.util.am.a(getContext(), 3.0f);
         this.c = (LinearLayout) LayoutInflater.from(getContext()).inflate(R.layout.water_fall_view, (ViewGroup) null);
         addView(this.c);
         this.d = (LinearLayout) this.c.findViewById(R.id.line1);
         this.f = (LinearLayout) this.c.findViewById(R.id.line2);
-        measure(View.MeasureSpec.makeMeasureSpec(com.baidu.tieba.util.ab.a(getContext()), 1073741824), 0);
+        measure(View.MeasureSpec.makeMeasureSpec(com.baidu.tieba.util.am.a(getContext()), 1073741824), 0);
         this.j = this.d.getMeasuredWidth();
         k();
     }
@@ -121,7 +121,7 @@ public class WaterFallView extends BdPullRefreshScrollView {
     }
 
     private void k() {
-        this.k = new au(this);
+        this.k = new bk(this);
     }
 
     @Override // android.view.View
@@ -134,12 +134,12 @@ public class WaterFallView extends BdPullRefreshScrollView {
         }
         if (i2 == 0 || z) {
             try {
-                Object obj = com.baidu.tieba.util.ab.a(this, "mScroller").get(this);
+                Object obj = com.baidu.tieba.util.am.a(this, "mScroller").get(this);
                 if (obj != null && (obj instanceof Scroller)) {
                     ((Scroller) obj).abortAnimation();
                 }
             } catch (Exception e) {
-                com.baidu.tieba.util.z.b(getClass().getName(), "onScrollChanged", e.getMessage());
+                com.baidu.tieba.util.aj.b(getClass().getName(), "onScrollChanged", e.getMessage());
             }
         }
         if (this.o != null) {
@@ -214,7 +214,7 @@ public class WaterFallView extends BdPullRefreshScrollView {
     }
 
     public void d(int i) {
-        com.baidu.tieba.util.x.b(this.c, i);
+        com.baidu.tieba.util.ah.b(this.c, i);
         this.d.invalidate();
         this.f.invalidate();
         for (int i2 = 0; i2 < this.d.getChildCount(); i2++) {

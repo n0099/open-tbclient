@@ -17,11 +17,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.TextView;
-import com.baidu.android.pushservice.PushConstants;
 import com.baidu.zeus.ConsoleMessage;
 import com.baidu.zeus.GeolocationPermissions;
 import com.baidu.zeus.WebStorage;
 import com.baidu.zeus.WebView;
+import com.tencent.mm.sdk.platformtools.LocaleUtil;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.HashMap;
@@ -367,7 +367,7 @@ public class CallbackProxy extends Handler {
             case JS_ALERT /* 112 */:
                 if (this.mWebChromeClient != null) {
                     final JsResult jsResult = (JsResult) message.obj;
-                    String string = message.getData().getString(PushConstants.EXTRA_PUSH_MESSAGE);
+                    String string = message.getData().getString("message");
                     String string2 = message.getData().getString("url");
                     if (!this.mWebChromeClient.onJsAlert(this.mWebView, string2, string, jsResult)) {
                         try {
@@ -389,7 +389,7 @@ public class CallbackProxy extends Handler {
             case JS_CONFIRM /* 113 */:
                 if (this.mWebChromeClient != null) {
                     final JsResult jsResult2 = (JsResult) message.obj;
-                    String string3 = message.getData().getString(PushConstants.EXTRA_PUSH_MESSAGE);
+                    String string3 = message.getData().getString("message");
                     String string4 = message.getData().getString("url");
                     if (!this.mWebChromeClient.onJsConfirm(this.mWebView, string4, string3, jsResult2)) {
                         try {
@@ -423,16 +423,16 @@ public class CallbackProxy extends Handler {
             case JS_PROMPT /* 114 */:
                 if (this.mWebChromeClient != null) {
                     final JsPromptResult jsPromptResult = (JsPromptResult) message.obj;
-                    String string5 = message.getData().getString(PushConstants.EXTRA_PUSH_MESSAGE);
+                    String string5 = message.getData().getString("message");
                     String string6 = message.getData().getString("default");
                     String string7 = message.getData().getString("url");
                     if (!this.mWebChromeClient.onJsPrompt(this.mWebView, string7, string5, string6, jsPromptResult)) {
                         View inflate = LayoutInflater.from(this.mContext).inflate(this.mContext.getResources().getIdentifier("zeus_js_prompt", "layout", this.mContext.getPackageName()), (ViewGroup) null);
-                        final EditText editText = (EditText) inflate.findViewById(this.mContext.getResources().getIdentifier("zeus_value", "id", this.mContext.getPackageName()));
+                        final EditText editText = (EditText) inflate.findViewById(this.mContext.getResources().getIdentifier("zeus_value", LocaleUtil.INDONESIAN, this.mContext.getPackageName()));
                         if (editText != null) {
                             editText.setText(string6);
                         }
-                        int identifier = this.mContext.getResources().getIdentifier("zeus_message", "id", this.mContext.getPackageName());
+                        int identifier = this.mContext.getResources().getIdentifier("zeus_message", LocaleUtil.INDONESIAN, this.mContext.getPackageName());
                         if (inflate != null && (textView = (TextView) inflate.findViewById(identifier)) != null) {
                             textView.setText(string5);
                         }
@@ -469,7 +469,7 @@ public class CallbackProxy extends Handler {
             case JS_UNLOAD /* 115 */:
                 if (this.mWebChromeClient != null) {
                     final JsResult jsResult3 = (JsResult) message.obj;
-                    String string8 = message.getData().getString(PushConstants.EXTRA_PUSH_MESSAGE);
+                    String string8 = message.getData().getString("message");
                     if (!this.mWebChromeClient.onJsBeforeUnload(this.mWebView, message.getData().getString("url"), string8, jsResult3)) {
                         new AlertDialog.Builder(this.mContext).setMessage("Navigate away from this page?\n\n" + string8 + "\n\nSelect OK to continue, or Cancel to stay on the current page.").setPositiveButton("OK", new DialogInterface.OnClickListener() { // from class: com.baidu.zeus.CallbackProxy.9
                             @Override // android.content.DialogInterface.OnClickListener
@@ -552,7 +552,7 @@ public class CallbackProxy extends Handler {
                     return;
                 }
                 return;
-            case REACHED_APPCACHE_MAXSIZE /* 127 */:
+            case 127:
                 if (this.mWebChromeClient != null) {
                     HashMap hashMap3 = (HashMap) message.obj;
                     this.mWebChromeClient.onReachedMaxAppCacheSize(((Long) hashMap3.get("spaceNeeded")).longValue(), ((Long) hashMap3.get("totalUsedQuota")).longValue(), (WebStorage.QuotaUpdater) hashMap3.get("quotaUpdater"));
@@ -572,7 +572,7 @@ public class CallbackProxy extends Handler {
                 }
                 return;
             case ADD_MESSAGE_TO_CONSOLE /* 129 */:
-                String string9 = message.getData().getString(PushConstants.EXTRA_PUSH_MESSAGE);
+                String string9 = message.getData().getString("message");
                 String string10 = message.getData().getString("sourceID");
                 int i = message.getData().getInt("lineNumber");
                 int i2 = message.getData().getInt("msgLevel");
@@ -1099,7 +1099,7 @@ public class CallbackProxy extends Handler {
     public void onJsAlert(String str, String str2) {
         if (this.mWebChromeClient != null) {
             Message obtainMessage = obtainMessage(JS_ALERT, new JsResult(this, false));
-            obtainMessage.getData().putString(PushConstants.EXTRA_PUSH_MESSAGE, str2);
+            obtainMessage.getData().putString("message", str2);
             obtainMessage.getData().putString("url", str);
             synchronized (this) {
                 sendMessage(obtainMessage);
@@ -1119,7 +1119,7 @@ public class CallbackProxy extends Handler {
         }
         JsResult jsResult = new JsResult(this, false);
         Message obtainMessage = obtainMessage(JS_CONFIRM, jsResult);
-        obtainMessage.getData().putString(PushConstants.EXTRA_PUSH_MESSAGE, str2);
+        obtainMessage.getData().putString("message", str2);
         obtainMessage.getData().putString("url", str);
         synchronized (this) {
             sendMessage(obtainMessage);
@@ -1139,7 +1139,7 @@ public class CallbackProxy extends Handler {
         }
         JsPromptResult jsPromptResult = new JsPromptResult(this);
         Message obtainMessage = obtainMessage(JS_PROMPT, jsPromptResult);
-        obtainMessage.getData().putString(PushConstants.EXTRA_PUSH_MESSAGE, str2);
+        obtainMessage.getData().putString("message", str2);
         obtainMessage.getData().putString("default", str3);
         obtainMessage.getData().putString("url", str);
         synchronized (this) {
@@ -1177,7 +1177,7 @@ public class CallbackProxy extends Handler {
         }
         JsResult jsResult = new JsResult(this, true);
         Message obtainMessage = obtainMessage(JS_UNLOAD, jsResult);
-        obtainMessage.getData().putString(PushConstants.EXTRA_PUSH_MESSAGE, str2);
+        obtainMessage.getData().putString("message", str2);
         obtainMessage.getData().putString("url", str);
         synchronized (this) {
             sendMessage(obtainMessage);
@@ -1213,7 +1213,7 @@ public class CallbackProxy extends Handler {
             quotaUpdater.updateQuota(0L);
             return;
         }
-        Message obtainMessage = obtainMessage(REACHED_APPCACHE_MAXSIZE);
+        Message obtainMessage = obtainMessage(127);
         HashMap hashMap = new HashMap();
         hashMap.put("spaceNeeded", Long.valueOf(j));
         hashMap.put("totalUsedQuota", Long.valueOf(j2));
@@ -1242,7 +1242,7 @@ public class CallbackProxy extends Handler {
     public void addMessageToConsole(String str, int i, String str2, int i2) {
         if (this.mWebChromeClient != null) {
             Message obtainMessage = obtainMessage(ADD_MESSAGE_TO_CONSOLE);
-            obtainMessage.getData().putString(PushConstants.EXTRA_PUSH_MESSAGE, str);
+            obtainMessage.getData().putString("message", str);
             obtainMessage.getData().putString("sourceID", str2);
             obtainMessage.getData().putInt("lineNumber", i);
             obtainMessage.getData().putInt("msgLevel", i2);
@@ -1283,9 +1283,8 @@ public class CallbackProxy extends Handler {
         return this.mWebChromeClient.getStringById(i);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
-    public class UploadFile implements ValueCallback {
+    class UploadFile implements ValueCallback {
         private Uri mValue;
 
         private UploadFile() {

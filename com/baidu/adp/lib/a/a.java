@@ -1,11 +1,14 @@
 package com.baidu.adp.lib.a;
 
 import android.util.Log;
+import com.baidu.adp.lib.e.d;
 import java.util.LinkedHashMap;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class a {
-    private final LinkedHashMap a = new LinkedHashMap(0, 0.75f, true);
+
+    /* renamed from: a  reason: collision with root package name */
+    private final LinkedHashMap f345a = new LinkedHashMap(0, 0.75f, true);
     private int b;
     private int c;
     private int d;
@@ -23,7 +26,7 @@ public class a {
         Object obj2 = null;
         if (obj != null) {
             synchronized (this) {
-                Object obj3 = this.a.get(obj);
+                Object obj3 = this.f345a.get(obj);
                 if (obj3 != null) {
                     this.g++;
                     obj2 = obj3;
@@ -39,7 +42,7 @@ public class a {
         Object obj3 = null;
         if (obj != null && obj2 != null) {
             if (b(obj, obj2) > this.b) {
-                if (com.baidu.adp.lib.c.b.a()) {
+                if (d.a()) {
                     Log.w("adp", "image too big:" + obj2 + ", size:" + b(obj, obj2), new Exception());
                 }
                 a(false, obj, obj2, null);
@@ -47,7 +50,7 @@ public class a {
                 synchronized (this) {
                     this.e++;
                     this.c += c(obj, obj2);
-                    obj3 = this.a.put(obj, obj2);
+                    obj3 = this.f345a.put(obj, obj2);
                     if (obj3 != null) {
                         this.c -= c(obj, obj3);
                     }
@@ -86,15 +89,15 @@ public class a {
         Object value;
         while (true) {
             synchronized (this) {
-                if (this.c < 0 || (this.a.isEmpty() && this.c != 0)) {
+                if (this.c < 0 || (this.f345a.isEmpty() && this.c != 0)) {
                     break;
-                } else if (this.c <= i || this.a.isEmpty()) {
+                } else if (this.c <= i || this.f345a.isEmpty()) {
                     break;
                 } else {
-                    Map.Entry entry = (Map.Entry) this.a.entrySet().iterator().next();
+                    Map.Entry entry = (Map.Entry) this.f345a.entrySet().iterator().next();
                     key = entry.getKey();
                     value = entry.getValue();
-                    this.a.remove(key);
+                    this.f345a.remove(key);
                     this.c -= c(key, value);
                     this.f++;
                 }
@@ -109,7 +112,7 @@ public class a {
             return null;
         }
         synchronized (this) {
-            remove = this.a.remove(obj);
+            remove = this.f345a.remove(obj);
             if (remove != null) {
                 this.c -= c(obj, remove);
             }

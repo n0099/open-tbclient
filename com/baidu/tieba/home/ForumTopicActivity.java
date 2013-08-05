@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.os.Handler;
+import android.text.TextUtils;
 import android.view.View;
 import android.view.ViewGroup;
 import android.webkit.CookieManager;
@@ -24,7 +25,9 @@ import com.baidu.tieba.view.BaseWebView;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public class ForumTopicActivity extends com.baidu.tieba.g implements com.baidu.tieba.view.d {
-    private com.baidu.tieba.recommend.j a;
+
+    /* renamed from: a  reason: collision with root package name */
+    private com.baidu.tieba.recommend.bg f1108a;
     private String o;
     private String p;
     private ImageView b = null;
@@ -58,7 +61,7 @@ public class ForumTopicActivity extends com.baidu.tieba.g implements com.baidu.t
             finish();
             return;
         }
-        m();
+        k();
         b();
         d();
     }
@@ -86,7 +89,7 @@ public class ForumTopicActivity extends com.baidu.tieba.g implements com.baidu.t
         this.q.postDelayed(this.r, 500L);
     }
 
-    private void m() {
+    private void k() {
         this.c = (RelativeLayout) findViewById(R.id.parent);
         this.d = (RelativeLayout) findViewById(R.id.forum_topic_title);
         this.e = (TextView) findViewById(R.id.forum_topic_title_text);
@@ -98,7 +101,7 @@ public class ForumTopicActivity extends com.baidu.tieba.g implements com.baidu.t
         this.j = (ProgressBar) findViewById(R.id.forum_topic_progress);
         this.f = new p(this);
         this.b.setOnClickListener(this.f);
-        if (n()) {
+        if (l()) {
             this.m.setVisibility(8);
         } else {
             this.m.setVisibility(0);
@@ -106,7 +109,7 @@ public class ForumTopicActivity extends com.baidu.tieba.g implements com.baidu.t
     }
 
     public void b() {
-        Token b = com.baidu.tieba.account.a.b(TiebaApplication.F());
+        Token b = com.baidu.tieba.account.a.b(TiebaApplication.G());
         if (b != null) {
             CookieSyncManager.createInstance(this);
             CookieManager cookieManager = CookieManager.getInstance();
@@ -141,7 +144,7 @@ public class ForumTopicActivity extends com.baidu.tieba.g implements com.baidu.t
         boolean z;
         super.onResume();
         String str3 = "";
-        Token b = com.baidu.tieba.account.a.b(TiebaApplication.F());
+        Token b = com.baidu.tieba.account.a.b(TiebaApplication.G());
         if (b != null) {
             if (b.mBduss != null) {
                 str3 = b.mBduss;
@@ -149,13 +152,13 @@ public class ForumTopicActivity extends com.baidu.tieba.g implements com.baidu.t
             if (b.mPtoken != null) {
                 str = str3;
                 str2 = b.mPtoken;
-                com.baidu.tieba.recommend.j jVar = new com.baidu.tieba.recommend.j(str, str2);
-                if (this.a == null && (this.a == null || !this.a.equals(jVar))) {
+                com.baidu.tieba.recommend.bg bgVar = new com.baidu.tieba.recommend.bg(str, str2);
+                if (this.f1108a == null && (this.f1108a == null || !this.f1108a.equals(bgVar))) {
                     z = true;
                 } else {
                     z = false;
                 }
-                this.a = jVar;
+                this.f1108a = bgVar;
                 if (this.g == null && z) {
                     b();
                     this.q.postDelayed(this.r, 150L);
@@ -165,11 +168,11 @@ public class ForumTopicActivity extends com.baidu.tieba.g implements com.baidu.t
         }
         str = str3;
         str2 = "";
-        com.baidu.tieba.recommend.j jVar2 = new com.baidu.tieba.recommend.j(str, str2);
-        if (this.a == null) {
+        com.baidu.tieba.recommend.bg bgVar2 = new com.baidu.tieba.recommend.bg(str, str2);
+        if (this.f1108a == null) {
         }
         z = false;
-        this.a = jVar2;
+        this.f1108a = bgVar2;
         if (this.g == null) {
         }
     }
@@ -178,12 +181,12 @@ public class ForumTopicActivity extends com.baidu.tieba.g implements com.baidu.t
     @Override // com.baidu.tieba.g
     public void a(int i) {
         super.a(i);
-        com.baidu.tieba.util.x.a(this.c, i);
-        com.baidu.tieba.util.x.d(this.d, i);
-        com.baidu.tieba.util.x.f(this.e, i);
-        com.baidu.tieba.util.x.a(this.b, i);
+        com.baidu.tieba.util.ah.a(this.c, i);
+        com.baidu.tieba.util.ah.d(this.d, i);
+        com.baidu.tieba.util.ah.f(this.e, i);
+        com.baidu.tieba.util.ah.a(this.b, i);
         if (this.g != null) {
-            com.baidu.tieba.util.x.a(this.g, i);
+            com.baidu.tieba.util.ah.a(this.g, i);
         }
     }
 
@@ -201,21 +204,21 @@ public class ForumTopicActivity extends com.baidu.tieba.g implements com.baidu.t
 
     @Override // com.baidu.tieba.view.d
     public boolean a(WebView webView, String str) {
-        if (!com.baidu.tieba.recommend.i.a(this, str)) {
+        if (!com.baidu.tieba.recommend.bf.a(this, str)) {
             if (str != null && str.contains("jump_tieba_native=1") && str.contains("jumptologin=1")) {
                 LoginActivity.a((Activity) this, "", true, 0);
-            } else {
-                com.baidu.tieba.util.ab.d(this, str);
+            } else if (!TextUtils.isEmpty(str)) {
+                com.baidu.tieba.util.am.d(this, str);
             }
         }
         return true;
     }
 
-    private boolean n() {
+    private boolean l() {
         if (this.g == null) {
             try {
                 this.g = new BaseWebView(this);
-                com.baidu.tieba.util.x.a(this.g, TiebaApplication.f().at());
+                com.baidu.tieba.util.ah.a(this.g, TiebaApplication.f().au());
                 this.g.setOnLoadUrlListener(this);
                 this.g.setHorizontalScrollBarEnabled(false);
                 this.g.setHorizontalScrollbarOverlay(false);
@@ -225,7 +228,7 @@ public class ForumTopicActivity extends com.baidu.tieba.g implements com.baidu.t
                 this.k.addView(this.g);
                 return true;
             } catch (Exception e) {
-                com.baidu.tieba.util.z.b(getClass().getName(), "", "ForumTopicActivity.refreshFrs error = " + e.getMessage());
+                com.baidu.tieba.util.aj.b(getClass().getName(), "", "ForumTopicActivity.refreshFrs error = " + e.getMessage());
                 return false;
             }
         }
@@ -241,7 +244,7 @@ public class ForumTopicActivity extends com.baidu.tieba.g implements com.baidu.t
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void o() {
+    public void m() {
         this.n = false;
         this.j.setVisibility(8);
     }

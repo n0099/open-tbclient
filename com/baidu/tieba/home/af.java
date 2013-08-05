@@ -6,14 +6,16 @@ import android.widget.Toast;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 class af extends com.baidu.adp.a.e {
-    final /* synthetic */ ae a;
-    private final /* synthetic */ com.baidu.tieba.data.as b;
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ ae f1118a;
+    private final /* synthetic */ com.baidu.tieba.data.bb b;
     private final /* synthetic */ ImageView c;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public af(ae aeVar, com.baidu.tieba.data.as asVar, ImageView imageView) {
-        this.a = aeVar;
-        this.b = asVar;
+    public af(ae aeVar, com.baidu.tieba.data.bb bbVar, ImageView imageView) {
+        this.f1118a = aeVar;
+        this.b = bbVar;
         this.c = imageView;
     }
 
@@ -27,30 +29,30 @@ class af extends com.baidu.adp.a.e {
         Activity activity2;
         RecommendPagerAdapter recommendPagerAdapter4;
         m mVar2;
-        if (obj instanceof com.baidu.tieba.data.ac) {
-            com.baidu.tieba.data.ac acVar = (com.baidu.tieba.data.ac) obj;
-            recommendPagerAdapter2 = this.a.a;
+        if (obj instanceof com.baidu.tieba.data.ak) {
+            com.baidu.tieba.data.ak akVar = (com.baidu.tieba.data.ak) obj;
+            recommendPagerAdapter2 = this.f1118a.f1117a;
             mVar = recommendPagerAdapter2.h;
             if (mVar != null) {
-                com.baidu.tieba.data.aa aaVar = new com.baidu.tieba.data.aa();
-                aaVar.c(this.b.f());
-                aaVar.a(this.b.d());
-                aaVar.a(0);
-                aaVar.b(acVar.a());
-                aaVar.c(1);
-                aaVar.b(this.b.e());
-                recommendPagerAdapter4 = this.a.a;
+                com.baidu.tieba.data.ai aiVar = new com.baidu.tieba.data.ai();
+                aiVar.c(this.b.f());
+                aiVar.a(this.b.d());
+                aiVar.a(0);
+                aiVar.b(akVar.a());
+                aiVar.c(1);
+                aiVar.b(this.b.e());
+                recommendPagerAdapter4 = this.f1118a.f1117a;
                 mVar2 = recommendPagerAdapter4.h;
-                mVar2.a(aaVar);
+                mVar2.a(aiVar);
             }
             this.b.a(1);
-            recommendPagerAdapter3 = this.a.a;
+            recommendPagerAdapter3 = this.f1118a.f1117a;
             activity2 = recommendPagerAdapter3.g;
             Toast.makeText(activity2, "喜欢成功", 0).show();
             return;
         }
         this.c.setImageResource(R.drawable.icon_heart_n_1);
-        recommendPagerAdapter = this.a.a;
+        recommendPagerAdapter = this.f1118a.f1117a;
         activity = recommendPagerAdapter.g;
         Toast.makeText(activity, "喜欢失败", 0).show();
     }

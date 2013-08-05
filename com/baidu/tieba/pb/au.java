@@ -4,88 +4,90 @@ import android.view.View;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 class au implements com.baidu.tbadk.widget.richText.m {
-    final /* synthetic */ NewPbActivity a;
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ NewPbActivity f1462a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public au(NewPbActivity newPbActivity) {
-        this.a = newPbActivity;
+        this.f1462a = newPbActivity;
     }
 
     @Override // com.baidu.tbadk.widget.richText.m
     public void onClick(View view, String str, int i) {
-        bk bkVar;
-        com.baidu.tieba.model.ax axVar;
-        com.baidu.tbadk.widget.richText.a a;
+        bn bnVar;
+        com.baidu.tieba.model.bc bcVar;
+        com.baidu.tbadk.widget.richText.a a2;
         int i2;
         int i3;
         int i4;
-        String a2;
         String a3;
+        String a4;
         try {
-            bkVar = this.a.p;
-            if (bkVar.e(str) != null) {
-                axVar = this.a.j;
-                com.baidu.tieba.data.aj j = axVar.j();
-                a = this.a.a(str, i);
-                ArrayList a4 = a.a();
-                i2 = this.a.H;
-                com.baidu.tbadk.widget.richText.c cVar = (com.baidu.tbadk.widget.richText.c) a4.get(i2);
+            bnVar = this.f1462a.p;
+            if (bnVar.e(str) != null) {
+                bcVar = this.f1462a.j;
+                com.baidu.tieba.data.as j = bcVar.j();
+                a2 = this.f1462a.a(str, i);
+                ArrayList a5 = a2.a();
+                i2 = this.f1462a.J;
+                com.baidu.tbadk.widget.richText.c cVar = (com.baidu.tbadk.widget.richText.c) a5.get(i2);
                 if (cVar != null) {
                     ArrayList arrayList = new ArrayList();
                     if (cVar.c().c()) {
                         boolean z = false;
-                        int size = j.d().size();
+                        int size = j.c().size();
                         int i5 = 0;
                         int i6 = i;
                         while (i5 < size) {
-                            com.baidu.tbadk.widget.richText.a i7 = ((com.baidu.tieba.data.an) j.d().get(i5)).i();
-                            boolean z2 = i7 == a ? true : z;
-                            if (i7 != null) {
-                                int size2 = i7.a().size();
-                                int i8 = -1;
-                                int i9 = 0;
-                                while (i9 < size2) {
-                                    if (i7.a().get(i9) != null && ((com.baidu.tbadk.widget.richText.c) i7.a().get(i9)).a() == 8) {
-                                        i8++;
-                                        int b = ((com.baidu.tbadk.widget.richText.c) i7.a().get(i9)).c().b();
-                                        int a5 = ((com.baidu.tbadk.widget.richText.c) i7.a().get(i9)).c().a();
-                                        if ((b < 80 || a5 < 80 || a5 * b < 10000) || !((com.baidu.tbadk.widget.richText.c) i7.a().get(i9)).c().c()) {
-                                            if (i7 == a && i8 <= i) {
+                            com.baidu.tbadk.widget.richText.a h = ((com.baidu.tieba.data.aw) j.c().get(i5)).h();
+                            boolean z2 = h == a2 ? true : z;
+                            if (h != null) {
+                                int size2 = h.a().size();
+                                int i7 = -1;
+                                int i8 = 0;
+                                while (i8 < size2) {
+                                    if (h.a().get(i8) != null && ((com.baidu.tbadk.widget.richText.c) h.a().get(i8)).a() == 8) {
+                                        i7++;
+                                        int b = ((com.baidu.tbadk.widget.richText.c) h.a().get(i8)).c().b();
+                                        int a6 = ((com.baidu.tbadk.widget.richText.c) h.a().get(i8)).c().a();
+                                        if ((b < 80 || a6 < 80 || a6 * b < 10000) || !((com.baidu.tbadk.widget.richText.c) h.a().get(i8)).c().c()) {
+                                            if (h == a2 && i7 <= i) {
                                                 i4 = i6 - 1;
-                                                i3 = i8;
+                                                i3 = i7;
                                             }
                                         } else {
-                                            a2 = this.a.a((com.baidu.tbadk.widget.richText.c) i7.a().get(i9));
-                                            arrayList.add(a2);
+                                            a3 = this.f1462a.a((com.baidu.tbadk.widget.richText.c) h.a().get(i8));
+                                            arrayList.add(a3);
                                             if (!z2) {
                                                 i4 = i6 + 1;
-                                                i3 = i8;
+                                                i3 = i7;
                                             }
                                         }
-                                        i9++;
+                                        i8++;
                                         i6 = i4;
-                                        i8 = i3;
+                                        i7 = i3;
                                     }
-                                    i3 = i8;
+                                    i3 = i7;
                                     i4 = i6;
-                                    i9++;
+                                    i8++;
                                     i6 = i4;
-                                    i8 = i3;
+                                    i7 = i3;
                                 }
                             }
                             i5++;
                             z = z2;
                         }
-                        ImageActivity.a(this.a, arrayList, i6, j);
+                        ImageActivity.a(this.f1462a, arrayList, i6, j);
                         return;
                     }
-                    a3 = this.a.a(cVar);
-                    arrayList.add(a3);
-                    ImageActivity.a(this.a, arrayList, 0, j);
+                    a4 = this.f1462a.a(cVar);
+                    arrayList.add(a4);
+                    ImageActivity.a(this.f1462a, arrayList, 0, j);
                 }
             }
         } catch (Exception e) {
-            com.baidu.tieba.util.z.b("PbAdapter", "ImageOnClickListener", "error = " + e.getMessage());
+            com.baidu.tieba.util.aj.b("PbAdapter", "ImageOnClickListener", "error = " + e.getMessage());
         }
     }
 }

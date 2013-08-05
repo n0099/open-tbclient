@@ -7,7 +7,6 @@ import android.graphics.drawable.Drawable;
 import android.view.animation.AnimationUtils;
 import android.view.animation.DecelerateInterpolator;
 import android.view.animation.Interpolator;
-import com.baidu.mapapi.MKEvent;
 /* loaded from: classes.dex */
 public class ZeusEdgeEffect {
     private static final float EPSILON = 0.001f;
@@ -55,7 +54,7 @@ public class ZeusEdgeEffect {
     private float mPullDistance;
     private long mStartTime;
     private int mWidth;
-    private final int MIN_WIDTH = MKEvent.ERROR_PERMISSION_DENIED;
+    private final int MIN_WIDTH = 300;
     private int mState = 0;
 
     public ZeusEdgeEffect(Context context) {

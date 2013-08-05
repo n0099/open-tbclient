@@ -1,53 +1,27 @@
 package com.baidu.tieba.model;
+
+import android.text.TextUtils;
+import com.baidu.tieba.TiebaApplication;
+import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class au {
-    int a;
-    String b;
-    String c;
-    String d;
-    int e;
-    boolean f;
-    int g;
-    int h;
-    final /* synthetic */ at i;
 
-    public au(at atVar) {
-        this.i = atVar;
-    }
+    /* renamed from: a  reason: collision with root package name */
+    private int f1339a;
+    private String b;
+    private String c;
 
-    public int a() {
-        return this.a;
-    }
-
-    public String b() {
-        return this.b;
-    }
-
-    public String c() {
-        return this.c;
-    }
-
-    public String d() {
-        return this.d;
-    }
-
-    public int e() {
-        return this.e;
-    }
-
-    public boolean f() {
-        return this.f;
-    }
-
-    public int g() {
-        return this.g;
-    }
-
-    public int h() {
-        return this.h;
-    }
-
-    public void a(boolean z) {
-        this.f = z;
+    public void a(JSONObject jSONObject) {
+        if (jSONObject != null && jSONObject != null) {
+            this.f1339a = jSONObject.optInt("offline");
+            TiebaApplication.f().x(this.f1339a == 1);
+            this.b = jSONObject.optString("title");
+            TiebaApplication.f().q(this.b);
+            this.c = jSONObject.optString("link");
+            if (!TextUtils.isEmpty(this.c)) {
+                this.c = this.c.replaceFirst("webview:", com.baidu.loginshare.e.f);
+                TiebaApplication.f().r(this.c);
+            }
+        }
     }
 }

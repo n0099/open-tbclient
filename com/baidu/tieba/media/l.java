@@ -5,12 +5,14 @@ import com.baidu.video.download.JNIP2P;
 import com.baidu.video.download.JNITaskCreateParam;
 /* loaded from: classes.dex */
 public class l {
-    private static int a = 0;
+
+    /* renamed from: a  reason: collision with root package name */
+    private static int f1279a = 0;
     private static boolean b = false;
     private long c = -1;
 
     public void a() {
-        a++;
+        f1279a++;
         if (!b) {
             b = true;
             JNIP2P jnip2p = JNIP2P.getInstance();
@@ -42,8 +44,8 @@ public class l {
 
     public void c() {
         b();
-        a--;
-        if (b && a == 0) {
+        f1279a--;
+        if (b && f1279a == 0) {
             b = false;
             JNIP2P.getInstance().uninit();
         }

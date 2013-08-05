@@ -4,7 +4,9 @@ import com.baidu.tieba.data.PersonChangeData;
 /* loaded from: classes.dex */
 public class MoreModel extends com.baidu.adp.a.c {
     private PersonChangeData b;
-    private aq a = null;
+
+    /* renamed from: a  reason: collision with root package name */
+    private az f1317a = null;
     private boolean c = false;
 
     /* loaded from: classes.dex */
@@ -53,9 +55,9 @@ public class MoreModel extends com.baidu.adp.a.c {
     }
 
     public void b() {
-        if (this.a == null) {
-            this.a = new aq(this, null);
-            this.a.execute(new String[0]);
+        if (this.f1317a == null) {
+            this.f1317a = new az(this, null);
+            this.f1317a.execute(new String[0]);
         }
     }
 

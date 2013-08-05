@@ -4,7 +4,9 @@ import java.util.ArrayList;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public final class j {
-    j a;
+
+    /* renamed from: a  reason: collision with root package name */
+    j f284a;
     j b;
     int c;
     Fragment d;

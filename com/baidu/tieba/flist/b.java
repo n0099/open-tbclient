@@ -1,71 +1,44 @@
 package com.baidu.tieba.flist;
 
-import android.widget.ListAdapter;
-import android.widget.ListView;
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import android.view.View;
+import android.widget.ImageView;
 import com.baidu.tieba.model.ForumListModel;
-import com.google.gson.JsonParseException;
 import com.slidingmenu.lib.R;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class b extends BdAsyncTask {
-    final /* synthetic */ ForumListActivity a;
+public class b implements View.OnClickListener {
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ ForumListActivity f1038a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(ForumListActivity forumListActivity) {
-        this.a = forumListActivity;
+        this.f1038a = forumListActivity;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public ForumListModel a(Void... voidArr) {
-        ForumListModel.RequestParams requestParams;
-        try {
-            ForumListActivity forumListActivity = this.a;
-            requestParams = this.a.o;
-            return ForumListModel.fetch(forumListActivity, requestParams);
-        } catch (JsonParseException e) {
-            return null;
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void a(ForumListModel forumListModel) {
-        f fVar;
-        f fVar2;
-        f fVar3;
-        f fVar4;
-        if (forumListModel != null && forumListModel.recommend_list_left != null && forumListModel.recommend_list_right != null && forumListModel.editor_recommend != null && forumListModel.forum_class != null) {
-            fVar = this.a.r;
-            fVar.a(forumListModel.recommend_list_left.forum_list);
-            this.a.a.j.addFooterView(this.a.a.n);
-            if (forumListModel.recommend_list_left.has_more == 1) {
-                this.a.a.a.setVisibility(0);
-            } else {
-                this.a.a.a.setVisibility(8);
-            }
-            ListView listView = this.a.a.j;
-            fVar2 = this.a.r;
-            listView.setAdapter((ListAdapter) fVar2);
-            this.a.a.l.setText(forumListModel.forum_class[0]);
-            fVar3 = this.a.s;
-            fVar3.a(forumListModel.recommend_list_right.forum_list);
-            this.a.a.k.addFooterView(this.a.a.q);
-            if (forumListModel.recommend_list_right.has_more == 1) {
-                this.a.a.b.setVisibility(0);
-            } else {
-                this.a.a.b.setVisibility(8);
-            }
-            ListView listView2 = this.a.a.k;
-            fVar4 = this.a.s;
-            listView2.setAdapter((ListAdapter) fVar4);
-            this.a.a.m.setText(forumListModel.forum_class[1]);
-            this.a.findViewById(R.id.loading).setVisibility(8);
-            this.a.findViewById(R.id.root).setVisibility(0);
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        boolean z;
+        e eVar;
+        e eVar2;
+        e eVar3;
+        int i;
+        z = this.f1038a.p;
+        if (z) {
+            eVar = this.f1038a.r;
+            int min = Math.min(eVar.getCount(), 10);
+            ForumListModel.Forum[] forumArr = new ForumListModel.Forum[min];
+            eVar2 = this.f1038a.r;
+            System.arraycopy(eVar2.a(), 0, forumArr, 0, min);
+            eVar3 = this.f1038a.r;
+            eVar3.a(forumArr);
+            this.f1038a.p = false;
+            this.f1038a.f1036a.m.setText(this.f1038a.getString(R.string.flist_expand_list));
+            ImageView imageView = this.f1038a.f1036a.n;
+            i = this.f1038a.e;
+            imageView.setImageResource(i);
             return;
         }
-        this.a.finish();
+        new k(this.f1038a, null).execute(new Void[0]);
     }
 }

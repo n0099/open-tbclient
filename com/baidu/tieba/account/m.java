@@ -6,43 +6,43 @@ import com.slidingmenu.lib.R;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class m implements View.OnClickListener {
-    final /* synthetic */ j a;
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ k f886a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public m(j jVar) {
-        this.a = jVar;
+    public m(k kVar) {
+        this.f886a = kVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         EditText editText;
         com.baidu.tieba.g gVar;
-        p pVar;
+        r rVar;
         q qVar;
         q qVar2;
         q qVar3;
-        p pVar2;
-        editText = this.a.c;
+        editText = this.f886a.c;
         String editable = editText.getText().toString();
         if (editable != null && editable.length() > 0) {
-            pVar = this.a.m;
-            if (pVar != null) {
-                pVar2 = this.a.m;
-                pVar2.cancel();
-            }
-            qVar = this.a.l;
-            if (qVar == null) {
-                this.a.l = new q(this.a, String.valueOf(com.baidu.tieba.data.g.a) + "c/s/filluname", editable);
-                qVar2 = this.a.l;
-                qVar2.setPriority(3);
-                qVar3 = this.a.l;
-                qVar3.execute(new String[0]);
+            rVar = this.f886a.l;
+            if (rVar == null) {
+                qVar = this.f886a.m;
+                if (qVar == null) {
+                    this.f886a.m = new q(this.f886a, String.valueOf(com.baidu.tieba.data.g.f1013a) + "c/s/detectuname", editable);
+                    qVar2 = this.f886a.m;
+                    qVar2.setPriority(3);
+                    qVar3 = this.f886a.m;
+                    qVar3.execute(new String[0]);
+                    return;
+                }
                 return;
             }
             return;
         }
-        j jVar = this.a;
-        gVar = this.a.j;
-        jVar.b(gVar.getString(R.string.input_name));
+        k kVar = this.f886a;
+        gVar = this.f886a.j;
+        kVar.b(gVar.getString(R.string.input_name));
     }
 }

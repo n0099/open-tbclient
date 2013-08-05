@@ -219,7 +219,7 @@ public final class CookieManager {
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:6:0x0009, code lost:
-        if (r17.length() > com.baidu.zeus.CookieManager.MAX_COOKIE_LENGTH) goto L5;
+        if (r17.length() > 4096) goto L5;
      */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -285,7 +285,7 @@ public final class CookieManager {
                         cookie.lastAcessTime = currentTimeMillis;
                         cookie.lastUpdateTime = currentTimeMillis;
                         cookie.mode = (byte) 0;
-                        if (arrayList3.size() > 50) {
+                        if (arrayList3.size() > MAX_COOKIE_COUNT_PER_BASE_DOMAIN) {
                             Cookie cookie3 = new Cookie();
                             cookie3.lastAcessTime = currentTimeMillis;
                             Iterator it2 = arrayList3.iterator();
@@ -624,8 +624,8 @@ public final class CookieManager {
                     if (indexOf3 == -1) {
                         indexOf3 = length;
                     }
-                    if (indexOf3 - indexOf4 > MAX_COOKIE_LENGTH) {
-                        cookie.value = str3.substring(indexOf4 + 1, indexOf4 + 1 + MAX_COOKIE_LENGTH);
+                    if (indexOf3 - indexOf4 > 4096) {
+                        cookie.value = str3.substring(indexOf4 + 1, indexOf4 + 1 + 4096);
                     } else if (indexOf4 + 1 == indexOf3 || indexOf3 < indexOf4) {
                         cookie.value = "";
                     } else {

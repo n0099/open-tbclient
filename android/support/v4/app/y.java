@@ -4,20 +4,22 @@ import android.view.animation.Animation;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class y implements Animation.AnimationListener {
-    final /* synthetic */ Fragment a;
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ Fragment f293a;
     final /* synthetic */ v b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public y(v vVar, Fragment fragment) {
         this.b = vVar;
-        this.a = fragment;
+        this.f293a = fragment;
     }
 
     @Override // android.view.animation.Animation.AnimationListener
     public void onAnimationEnd(Animation animation) {
-        if (this.a.k != null) {
-            this.a.k = null;
-            this.b.a(this.a, this.a.l, 0, 0, false);
+        if (this.f293a.k != null) {
+            this.f293a.k = null;
+            this.b.a(this.f293a, this.f293a.l, 0, 0, false);
         }
     }
 

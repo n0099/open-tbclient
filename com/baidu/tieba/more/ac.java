@@ -1,37 +1,33 @@
 package com.baidu.tieba.more;
 
-import android.widget.RadioGroup;
-import com.baidu.mapapi.MKEvent;
+import android.content.DialogInterface;
 import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.util.DatabaseService;
-import com.slidingmenu.lib.R;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ac implements RadioGroup.OnCheckedChangeListener {
-    final /* synthetic */ MsgRemindActivity a;
+class ac implements DialogInterface.OnClickListener {
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ ab f1398a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ac(MsgRemindActivity msgRemindActivity) {
-        this.a = msgRemindActivity;
+    public ac(ab abVar) {
+        this.f1398a = abVar;
     }
 
-    @Override // android.widget.RadioGroup.OnCheckedChangeListener
-    public void onCheckedChanged(RadioGroup radioGroup, int i) {
+    @Override // android.content.DialogInterface.OnClickListener
+    public void onClick(DialogInterface dialogInterface, int i) {
+        aa aaVar;
         switch (i) {
-            case R.id.radio_30sec /* 2131100254 */:
-                TiebaApplication.f().f(30);
+            case 0:
+                TiebaApplication.f().e(1);
                 break;
-            case R.id.radio_2min /* 2131100255 */:
-                TiebaApplication.f().f(120);
+            case 1:
+                TiebaApplication.f().e(2);
                 break;
-            case R.id.radio_5min /* 2131100256 */:
-                TiebaApplication.f().f(MKEvent.ERROR_PERMISSION_DENIED);
-                break;
-            case R.id.radio_no /* 2131100257 */:
-                TiebaApplication.f().f(0);
+            case 2:
+                TiebaApplication.f().e(3);
                 break;
         }
-        DatabaseService.w();
-        this.a.d();
+        aaVar = this.f1398a.f1397a;
+        aaVar.F();
     }
 }

@@ -70,19 +70,19 @@ public final class q {
     public static String a(Context context, String str, String str2, int i, int i2) {
         BufferedReader bufferedReader;
         BufferedWriter bufferedWriter = null;
-        HttpURLConnection a = com.baidu.mobstat.a.a.a(context, str, i, i2);
-        a.setDoOutput(true);
-        a.setUseCaches(false);
-        a.setRequestProperty("Content-Type", "gzip");
-        a.connect();
+        HttpURLConnection a2 = com.baidu.mobstat.a.a.a(context, str, i, i2);
+        a2.setDoOutput(true);
+        a2.setUseCaches(false);
+        a2.setRequestProperty("Content-Type", "gzip");
+        a2.connect();
         com.baidu.mobstat.a.b.a("AdUtil.httpPost connected");
         StringBuilder sb = new StringBuilder();
         try {
-            BufferedWriter bufferedWriter2 = new BufferedWriter(new OutputStreamWriter(new GZIPOutputStream(a.getOutputStream())));
+            BufferedWriter bufferedWriter2 = new BufferedWriter(new OutputStreamWriter(new GZIPOutputStream(a2.getOutputStream())));
             try {
                 bufferedWriter2.write(str2);
                 bufferedWriter2.close();
-                bufferedReader = new BufferedReader(new InputStreamReader(a.getInputStream()));
+                bufferedReader = new BufferedReader(new InputStreamReader(a2.getInputStream()));
                 while (true) {
                     try {
                         String readLine = bufferedReader.readLine();
@@ -98,15 +98,15 @@ public final class q {
                         if (bufferedWriter != null) {
                             bufferedWriter.close();
                         }
-                        a.disconnect();
+                        a2.disconnect();
                         throw e;
                     }
                 }
                 bufferedReader.close();
-                a.disconnect();
-                com.baidu.mobstat.a.b.a("AdUtil.httpPost statuscode", Integer.valueOf(a.getResponseCode()));
-                if (a.getResponseCode() != 200) {
-                    throw new IOException("http code =" + a.getResponseCode());
+                a2.disconnect();
+                com.baidu.mobstat.a.b.a("AdUtil.httpPost statuscode", Integer.valueOf(a2.getResponseCode()));
+                if (a2.getResponseCode() != 200) {
+                    throw new IOException("http code =" + a2.getResponseCode());
                 }
                 return sb.toString();
             } catch (IOException e2) {

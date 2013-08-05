@@ -5,74 +5,79 @@ import com.slidingmenu.lib.R;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class k extends com.baidu.adp.a.e {
-    final /* synthetic */ FrsActivity a;
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ FrsActivity f1087a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public k(FrsActivity frsActivity) {
-        this.a = frsActivity;
+        this.f1087a = frsActivity;
     }
 
     @Override // com.baidu.adp.a.e
     public void a(Object obj) {
-        com.baidu.tieba.model.aj ajVar;
         az azVar;
-        com.baidu.tieba.model.aj ajVar2;
+        com.baidu.tieba.model.ar arVar;
+        az azVar2;
+        com.baidu.tieba.model.ar arVar2;
         String str;
         String str2;
-        az azVar2;
         az azVar3;
+        az azVar4;
         String str3;
         String str4;
-        az azVar4;
-        com.baidu.tieba.model.v vVar;
-        com.baidu.tieba.model.v vVar2;
         az azVar5;
+        com.baidu.tieba.model.aa aaVar;
+        com.baidu.tieba.model.aa aaVar2;
         az azVar6;
-        com.baidu.tieba.model.v vVar3;
-        com.baidu.tieba.model.v vVar4;
+        az azVar7;
+        com.baidu.tieba.model.aa aaVar3;
+        com.baidu.tieba.model.aa aaVar4;
         boolean z = false;
-        if (obj != null && (obj instanceof com.baidu.tieba.data.ac)) {
-            vVar4 = this.a.v;
-            vVar4.a((com.baidu.tieba.data.ac) obj);
+        azVar = this.f1087a.l;
+        azVar.c(false);
+        if (obj != null && (obj instanceof com.baidu.tieba.data.ak)) {
+            aaVar4 = this.f1087a.v;
+            aaVar4.a((com.baidu.tieba.data.ak) obj);
             z = true;
         }
         if (!z) {
-            ajVar = this.a.w;
-            if (ajVar.getErrorCode() == 22) {
-                str = this.a.A;
+            arVar = this.f1087a.w;
+            if (arVar.getErrorCode() == 22) {
+                str = this.f1087a.A;
                 if (str == "normal_page") {
-                    azVar3 = this.a.l;
-                    azVar3.g(1);
+                    azVar4 = this.f1087a.l;
+                    azVar4.g(1);
                 } else {
-                    str2 = this.a.A;
+                    str2 = this.f1087a.A;
                     if (str2 == "frs_page") {
-                        azVar2 = this.a.l;
-                        azVar2.h(1);
+                        azVar3 = this.f1087a.l;
+                        azVar3.h(1);
                     }
                 }
             }
-            azVar = this.a.l;
-            ajVar2 = this.a.w;
-            azVar.a(ajVar2.getErrorString());
+            azVar2 = this.f1087a.l;
+            arVar2 = this.f1087a.w;
+            azVar2.a(arVar2.getErrorString());
             return;
         }
-        str3 = this.a.A;
+        str3 = this.f1087a.A;
         if (str3 == "normal_page") {
-            azVar6 = this.a.l;
-            vVar3 = this.a.v;
-            azVar6.a(1, vVar3.a());
+            azVar7 = this.f1087a.l;
+            aaVar3 = this.f1087a.v;
+            azVar7.a(1, aaVar3.a());
         } else {
-            str4 = this.a.A;
+            str4 = this.f1087a.A;
             if (str4 == "frs_page") {
-                azVar4 = this.a.l;
-                vVar = this.a.v;
-                com.baidu.tieba.data.r a = vVar.a();
-                vVar2 = this.a.v;
-                azVar4.a(1, a, vVar2.e());
+                azVar5 = this.f1087a.l;
+                aaVar = this.f1087a.v;
+                com.baidu.tieba.data.v a2 = aaVar.a();
+                aaVar2 = this.f1087a.v;
+                azVar5.a(1, a2, aaVar2.e());
             }
         }
-        azVar5 = this.a.l;
-        azVar5.a(this.a.getString(R.string.like_success));
-        TiebaApplication.f().i(true);
+        azVar6 = this.f1087a.l;
+        azVar6.a(this.f1087a.getString(R.string.like_success));
+        TiebaApplication.f().j(true);
     }
 }

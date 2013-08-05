@@ -1,9 +1,0 @@
-package com.baidu.mapapi;
-/* loaded from: classes.dex */
-public class MKGeocoderAddressComponent {
-    public String city;
-    public String district;
-    public String province;
-    public String street;
-    public String streetNumber;
-}

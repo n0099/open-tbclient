@@ -2,6 +2,7 @@ package com.baidu.video.download;
 
 import android.os.Parcel;
 import android.os.Parcelable;
+import com.tencent.mm.sdk.conversation.RConversation;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
@@ -98,7 +99,7 @@ public class JNITaskCreateParam implements Parcelable {
             jSONObject.put("fileName", this.strFileName);
             jSONObject.put("savePath", this.strSavePath);
             jSONObject.put("url", this.strUrl);
-            jSONObject.put("flag", this.nFlag);
+            jSONObject.put(RConversation.COL_FLAG, this.nFlag);
             jSONObject.put("handle", this.nHandle);
             return jSONObject.toString();
         } catch (JSONException e) {

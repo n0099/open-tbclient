@@ -4,22 +4,24 @@ import android.widget.FrameLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.tieba.model.bq;
+import com.baidu.tieba.model.bz;
 import org.apache.http.message.BasicNameValuePair;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ay extends BdAsyncTask {
-    BasicNameValuePair a;
+
+    /* renamed from: a  reason: collision with root package name */
+    BasicNameValuePair f1137a;
     final /* synthetic */ SearchActivity b;
-    private com.baidu.tieba.util.r c = null;
+    private com.baidu.tieba.util.u c = null;
     private String d;
 
     public ay(SearchActivity searchActivity, String str, BasicNameValuePair basicNameValuePair, boolean z) {
         this.b = searchActivity;
         this.d = null;
-        this.a = null;
+        this.f1137a = null;
         this.d = str;
-        this.a = basicNameValuePair;
+        this.f1137a = basicNameValuePair;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -40,27 +42,27 @@ public class ay extends BdAsyncTask {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     /* renamed from: d */
-    public bq a(Object... objArr) {
-        bq bqVar;
+    public bz a(Object... objArr) {
+        bz bzVar;
         Exception e;
         try {
-            this.c = new com.baidu.tieba.util.r(this.d);
-            this.c.a(this.a);
-            String j = this.c.j();
-            if (!this.c.c() || j == null) {
+            this.c = new com.baidu.tieba.util.u(this.d);
+            this.c.a(this.f1137a);
+            String k = this.c.k();
+            if (!this.c.d() || k == null) {
                 return null;
             }
-            bqVar = new bq();
+            bzVar = new bz();
             try {
-                bqVar.a(j);
-                return bqVar;
+                bzVar.a(k);
+                return bzVar;
             } catch (Exception e2) {
                 e = e2;
-                com.baidu.tieba.util.z.b(getClass().getName(), "", "doInBackground error = " + e.getMessage());
-                return bqVar;
+                com.baidu.tieba.util.aj.b(getClass().getName(), "", "doInBackground error = " + e.getMessage());
+                return bzVar;
             }
         } catch (Exception e3) {
-            bqVar = null;
+            bzVar = null;
             e = e3;
         }
     }
@@ -68,13 +70,13 @@ public class ay extends BdAsyncTask {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void a(bq bqVar) {
+    public void a(bz bzVar) {
         ProgressBar progressBar;
         progressBar = this.b.s;
         progressBar.setVisibility(8);
-        if (bqVar != null) {
-            this.b.w = bqVar;
-            this.b.r();
+        if (bzVar != null) {
+            this.b.w = bzVar;
+            this.b.p();
         }
         this.b.y = null;
     }
@@ -83,7 +85,7 @@ public class ay extends BdAsyncTask {
     public void cancel() {
         ProgressBar progressBar;
         if (this.c != null) {
-            this.c.h();
+            this.c.i();
             this.c = null;
         }
         progressBar = this.b.s;

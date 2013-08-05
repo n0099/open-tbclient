@@ -1,29 +1,48 @@
 package com.baidu.tieba.pb;
 
-import android.os.Handler;
-import android.widget.AbsListView;
+import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-class be implements AbsListView.OnScrollListener {
-    final /* synthetic */ NewPbActivity a;
+class be implements com.baidu.tieba.model.ax {
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ NewPbActivity f1473a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public be(NewPbActivity newPbActivity) {
-        this.a = newPbActivity;
+        this.f1473a = newPbActivity;
     }
 
-    @Override // android.widget.AbsListView.OnScrollListener
-    public void onScrollStateChanged(AbsListView absListView, int i) {
-        Handler handler;
-        Handler handler2;
-        Handler handler3;
-        handler = this.a.g;
-        handler.removeMessages(1);
-        handler2 = this.a.g;
-        handler3 = this.a.g;
-        handler2.sendMessageDelayed(handler3.obtainMessage(1), 300L);
-    }
-
-    @Override // android.widget.AbsListView.OnScrollListener
-    public void onScroll(AbsListView absListView, int i, int i2, int i3) {
+    @Override // com.baidu.tieba.model.ax
+    public void a(boolean z, boolean z2, String str) {
+        bn bnVar;
+        com.baidu.tieba.model.av avVar;
+        com.baidu.tieba.model.bc bcVar;
+        com.baidu.tieba.model.bc bcVar2;
+        bn bnVar2;
+        com.baidu.tieba.model.bc bcVar3;
+        bnVar = this.f1473a.p;
+        bnVar.p();
+        if (z) {
+            avVar = this.f1473a.k;
+            avVar.a(z2);
+            bcVar = this.f1473a.j;
+            bcVar.c(z2);
+            bcVar2 = this.f1473a.j;
+            if (!bcVar2.r()) {
+                bnVar2 = this.f1473a.p;
+                bcVar3 = this.f1473a.j;
+                bnVar2.a(bcVar3.j());
+            } else {
+                this.f1473a.o();
+            }
+            if (z2) {
+                this.f1473a.a(this.f1473a.getString(R.string.add_mark));
+                return;
+            } else {
+                this.f1473a.a(this.f1473a.getString(R.string.remove_mark));
+                return;
+            }
+        }
+        this.f1473a.a(str);
     }
 }

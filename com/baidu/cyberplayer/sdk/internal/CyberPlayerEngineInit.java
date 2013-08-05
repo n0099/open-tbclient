@@ -10,7 +10,9 @@ import java.io.FileReader;
 import java.io.IOException;
 /* loaded from: classes.dex */
 public class CyberPlayerEngineInit {
-    private static int a = 0;
+
+    /* renamed from: a  reason: collision with root package name */
+    private static int f708a = 0;
 
     /* renamed from: a  reason: collision with other field name */
     private static ICyberPlayerEngineInitBridge f2a = null;
@@ -24,12 +26,12 @@ public class CyberPlayerEngineInit {
             if (!f3a && (z = a(context, ReflectUtilsCyberPlayer.a.LOAD_FROM_APK))) {
             }
             if (z) {
-                if (f3a && a == 0) {
+                if (f3a && f708a == 0) {
                     a(context);
                 } else {
                     f3a = true;
                 }
-                a++;
+                f708a++;
             }
         }
         return z;
@@ -70,13 +72,13 @@ public class CyberPlayerEngineInit {
 
     public static synchronized void destroyCyberPlayerEngine(Context context) {
         synchronized (CyberPlayerEngineInit.class) {
-            a--;
-            if (a == 0) {
+            f708a--;
+            if (f708a == 0) {
                 b(context);
                 if (Looper.myLooper() == Looper.getMainLooper()) {
                 }
-            } else if (a < 0) {
-                a = 0;
+            } else if (f708a < 0) {
+                f708a = 0;
             }
         }
     }

@@ -6,11 +6,13 @@ import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class e extends BdAsyncTask {
-    final /* synthetic */ c a;
-    private volatile com.baidu.tieba.util.r b;
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ c f1369a;
+    private volatile com.baidu.tieba.util.u b;
 
     private e(c cVar) {
-        this.a = cVar;
+        this.f1369a = cVar;
         this.b = null;
     }
 
@@ -32,36 +34,36 @@ public class e extends BdAsyncTask {
         String str5;
         List list2;
         try {
-            this.b = new com.baidu.tieba.util.r(String.valueOf(com.baidu.tieba.data.g.a) + "c/s/comlist");
-            this.b.d(true);
-            com.baidu.tieba.util.r rVar = this.b;
-            str = this.a.b;
-            rVar.a(PushConstants.EXTRA_USER_ID, str);
-            com.baidu.tieba.util.r rVar2 = this.b;
-            str2 = this.a.d;
-            rVar2.a("pn", str2);
-            com.baidu.tieba.util.r rVar3 = this.b;
-            str3 = this.a.e;
-            rVar3.a("rn", str3);
-            String j = this.b.j();
-            if (this.b.c() && j != null) {
-                this.a.b(j);
-                if (this.a.c() == 0) {
-                    str4 = this.a.d;
+            this.b = new com.baidu.tieba.util.u(String.valueOf(com.baidu.tieba.data.g.f1013a) + "c/s/comlist");
+            this.b.e(true);
+            com.baidu.tieba.util.u uVar = this.b;
+            str = this.f1369a.b;
+            uVar.a(PushConstants.EXTRA_USER_ID, str);
+            com.baidu.tieba.util.u uVar2 = this.b;
+            str2 = this.f1369a.d;
+            uVar2.a("pn", str2);
+            com.baidu.tieba.util.u uVar3 = this.b;
+            str3 = this.f1369a.e;
+            uVar3.a("rn", str3);
+            String k = this.b.k();
+            if (this.b.d() && k != null) {
+                this.f1369a.b(k);
+                if (this.f1369a.c() == 0) {
+                    str4 = this.f1369a.d;
                     if (str4.equals("1")) {
-                        list = this.a.a;
+                        list = this.f1369a.f1366a;
                         if (list != null) {
-                            com.baidu.tieba.data.a.f a = com.baidu.tieba.data.a.f.a();
-                            str5 = this.a.b;
-                            list2 = this.a.a;
-                            a.a(str5, list2);
+                            com.baidu.tieba.data.a.f a2 = com.baidu.tieba.data.a.f.a();
+                            str5 = this.f1369a.b;
+                            list2 = this.f1369a.f1366a;
+                            a2.a(str5, list2);
                         }
                     }
                 }
                 return true;
             }
         } catch (Exception e) {
-            com.baidu.tieba.util.z.b(getClass().getName(), "doInBackground", e.getMessage());
+            com.baidu.tieba.util.aj.b(getClass().getName(), "doInBackground", e.getMessage());
         }
         return false;
     }
@@ -72,15 +74,15 @@ public class e extends BdAsyncTask {
     public void a(Boolean bool) {
         com.baidu.adp.a.e eVar;
         com.baidu.adp.a.e eVar2;
-        this.a.i = null;
+        this.f1369a.i = null;
         if (bool.booleanValue()) {
-            eVar = this.a.mLoadDataCallBack;
+            eVar = this.f1369a.mLoadDataCallBack;
             eVar.a(true);
             return;
         }
-        this.a.mErrorCode = this.b.e();
-        this.a.mErrorString = this.b.g();
-        eVar2 = this.a.mLoadDataCallBack;
+        this.f1369a.mErrorCode = this.b.f();
+        this.f1369a.mErrorString = this.b.h();
+        eVar2 = this.f1369a.mLoadDataCallBack;
         eVar2.a(false);
     }
 
@@ -89,11 +91,11 @@ public class e extends BdAsyncTask {
         com.baidu.adp.a.e eVar;
         super.cancel(true);
         if (this.b != null) {
-            this.b.h();
+            this.b.i();
             this.b = null;
         }
-        this.a.a = null;
-        eVar = this.a.mLoadDataCallBack;
+        this.f1369a.f1366a = null;
+        eVar = this.f1369a.mLoadDataCallBack;
         eVar.a(false);
     }
 }

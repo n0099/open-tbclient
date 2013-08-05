@@ -1,76 +1,99 @@
 package com.baidu.android.pushservice;
 
 import android.os.Handler;
-import java.io.IOException;
-import java.io.OutputStream;
-import java.util.LinkedList;
+import com.baidu.android.common.logging.Log;
+import com.baidu.android.pushservice.jni.PushSocket;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class i extends Thread {
-    final /* synthetic */ d a;
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ e f584a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public i(d dVar, OutputStream outputStream) {
-        this.a = dVar;
-        setName("PushService-PushConnection-SendThread");
+    public i(e eVar) {
+        this.f584a = eVar;
+        setName("PushService-PushConnection-readThread");
     }
 
-    /* JADX WARN: Incorrect condition in loop: B:3:0x0006 */
+    /* JADX WARN: Incorrect condition in loop: B:4:0x0008 */
     @Override // java.lang.Thread, java.lang.Runnable
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public void run() {
         boolean z;
-        LinkedList linkedList;
-        LinkedList linkedList2;
-        LinkedList linkedList3;
-        LinkedList linkedList4;
-        boolean z2;
-        OutputStream outputStream;
-        OutputStream outputStream2;
         Runnable runnable;
+        boolean z2;
+        byte[] bArr;
         Runnable runnable2;
-        LinkedList linkedList5;
+        boolean z3;
         while (!z) {
-            com.baidu.android.pushservice.message.b bVar = null;
-            linkedList = this.a.l;
-            synchronized (linkedList) {
-                linkedList2 = this.a.l;
-                if (linkedList2.size() == 0) {
-                    try {
-                        linkedList3 = this.a.l;
-                        linkedList3.wait();
-                    } catch (InterruptedException e) {
-                    }
-                }
-                linkedList4 = this.a.l;
-                if (linkedList4.size() > 0) {
-                    linkedList5 = this.a.l;
-                    bVar = (com.baidu.android.pushservice.message.b) linkedList5.removeFirst();
-                }
-            }
-            z2 = this.a.g;
-            if (z2) {
-                return;
-            }
-            if (bVar != null && bVar.c != null) {
+            if (PushSocket.f586a) {
                 try {
-                    if (bVar.d) {
-                        Handler handler = this.a.a;
-                        runnable = this.a.s;
-                        handler.removeCallbacks(runnable);
-                        Handler handler2 = this.a.a;
-                        runnable2 = this.a.s;
-                        handler2.postDelayed(runnable2, 20000L);
+                    bArr = PushSocket.a(e.f580a, this.f584a.c);
+                } catch (Exception e) {
+                    bArr = null;
+                    Log.e("PushConnection", "Get message exception");
+                }
+                Handler handler = this.f584a.b;
+                runnable2 = this.f584a.t;
+                handler.removeCallbacks(runnable2);
+                z3 = this.f584a.r;
+                if (z3) {
+                    this.f584a.r = false;
+                    this.f584a.b(true);
+                }
+                if (bArr == null || bArr.length == 0) {
+                    Log.i("PushConnection", "Receive err,errno:" + PushSocket.getLastSocketError());
+                    this.f584a.f();
+                } else {
+                    try {
+                        com.baidu.android.pushservice.message.b a2 = this.f584a.c.a(bArr, bArr.length);
+                        if (a2 != null) {
+                            try {
+                                if (b.a()) {
+                                    Log.d("PushConnection", "ReadThread receive msg :" + a2.toString());
+                                }
+                                this.f584a.c.b(a2);
+                            } catch (Exception e2) {
+                                Log.e("PushConnection", "Handle message exception " + com.baidu.android.pushservice.util.n.a(e2));
+                                this.f584a.f();
+                            }
+                        }
+                        this.f584a.n = 0;
+                    } catch (Exception e3) {
+                        Log.i("PushConnection", "Read message exception " + com.baidu.android.pushservice.util.n.a(e3));
+                        this.f584a.f();
                     }
-                    outputStream = this.a.k;
-                    outputStream.write(bVar.c);
-                    outputStream2 = this.a.k;
-                    outputStream2.flush();
-                } catch (IOException e2) {
-                    this.a.g = true;
-                    this.a.f();
+                }
+            } else {
+                try {
+                    com.baidu.android.pushservice.message.b b = this.f584a.c.b();
+                    Handler handler2 = this.f584a.b;
+                    runnable = this.f584a.t;
+                    handler2.removeCallbacks(runnable);
+                    z2 = this.f584a.r;
+                    if (z2) {
+                        this.f584a.r = false;
+                        this.f584a.b(true);
+                    }
+                    if (b != null) {
+                        if (b.a()) {
+                            Log.d("PushConnection", "ReadThread receive msg :" + b.toString());
+                        }
+                        try {
+                            this.f584a.c.b(b);
+                            this.f584a.n = 0;
+                        } catch (com.baidu.android.pushservice.message.d e4) {
+                            Log.e("PushConnection", "handleMessage exception.");
+                            Log.e("PushConnection", e4);
+                            this.f584a.f();
+                        }
+                    }
+                } catch (Exception e5) {
+                    Log.e("PushConnection", "ReadThread exception: " + e5);
+                    this.f584a.f();
                 }
             }
         }

@@ -1,19 +1,31 @@
 package com.baidu.tieba.write;
 
-import android.location.Address;
+import android.content.DialogInterface;
+import com.baidu.tieba.data.WriteData;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ak implements com.baidu.tieba.at {
-    final /* synthetic */ WriteActivity a;
+public class ak implements DialogInterface.OnClickListener {
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ WriteActivity f1881a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ak(WriteActivity writeActivity) {
-        this.a = writeActivity;
+        this.f1881a = writeActivity;
     }
 
-    @Override // com.baidu.tieba.at
-    public void a(int i, String str, Address address) {
-        this.a.H = address;
-        this.a.d();
+    @Override // android.content.DialogInterface.OnClickListener
+    public void onClick(DialogInterface dialogInterface, int i) {
+        WriteData writeData;
+        WriteData writeData2;
+        if (i == 0) {
+            ba.a(this.f1881a);
+            writeData2 = this.f1881a.f1868a;
+            writeData2.setPicType(2);
+        } else if (i == 1) {
+            ba.b(this.f1881a);
+            writeData = this.f1881a.f1868a;
+            writeData.setPicType(1);
+        }
     }
 }

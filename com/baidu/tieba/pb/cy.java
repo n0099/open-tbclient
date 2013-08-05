@@ -1,30 +1,29 @@
 package com.baidu.tieba.pb;
 
-import android.widget.ImageView;
-import com.baidu.adp.widget.ListView.BdListView;
+import android.view.View;
+import android.widget.AdapterView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class cy implements com.baidu.tbadk.a.d {
-    final /* synthetic */ cr a;
+public class cy implements AdapterView.OnItemLongClickListener {
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ cu f1518a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public cy(cr crVar) {
-        this.a = crVar;
+    public cy(cu cuVar) {
+        this.f1518a = cuVar;
     }
 
-    @Override // com.baidu.tbadk.a.d
-    public void a(com.baidu.adp.widget.a.b bVar, String str, boolean z) {
-        BdListView bdListView;
-        BdListView bdListView2;
-        if (bVar != null) {
-            bdListView = this.a.c;
-            ImageView imageView = (ImageView) bdListView.findViewWithTag(str);
-            while (imageView != null) {
-                imageView.setTag(null);
-                bVar.b(imageView);
-                bdListView2 = this.a.c;
-                imageView = (ImageView) bdListView2.findViewWithTag(str);
-            }
+    @Override // android.widget.AdapterView.OnItemLongClickListener
+    public boolean onItemLongClick(AdapterView adapterView, View view, int i, long j) {
+        View.OnLongClickListener onLongClickListener;
+        View.OnLongClickListener onLongClickListener2;
+        onLongClickListener = this.f1518a.J;
+        if (onLongClickListener != null) {
+            onLongClickListener2 = this.f1518a.J;
+            onLongClickListener2.onLongClick(view);
+            return false;
         }
+        return false;
     }
 }

@@ -4,19 +4,21 @@ import android.os.Parcel;
 import android.os.Parcelable;
 /* loaded from: classes.dex */
 class b implements Parcelable.Creator {
-    final c a;
+
+    /* renamed from: a  reason: collision with root package name */
+    final c f260a;
 
     public b(c cVar) {
-        this.a = cVar;
+        this.f260a = cVar;
     }
 
     @Override // android.os.Parcelable.Creator
     public Object createFromParcel(Parcel parcel) {
-        return this.a.a(parcel, null);
+        return this.f260a.a(parcel, null);
     }
 
     @Override // android.os.Parcelable.Creator
     public Object[] newArray(int i) {
-        return this.a.a(i);
+        return this.f260a.a(i);
     }
 }

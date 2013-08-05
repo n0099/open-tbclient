@@ -4,15 +4,17 @@ import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class s implements View.OnClickListener {
-    final /* synthetic */ q a;
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ q f1286a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public s(q qVar) {
-        this.a = qVar;
+        this.f1286a = qVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        com.baidu.adp.lib.c.b.d("next btn clicked");
+        com.baidu.adp.lib.e.d.d("next btn clicked");
     }
 }

@@ -5,25 +5,36 @@ import java.io.InputStream;
 import java.io.OutputStream;
 /* loaded from: classes.dex */
 public abstract class a {
-    protected InputStream a;
+
+    /* renamed from: a  reason: collision with root package name */
+    protected InputStream f591a;
     protected OutputStream b;
     protected Context c;
-    protected com.baidu.android.pushservice.d d;
+    protected com.baidu.android.pushservice.e d;
 
-    public a(Context context, com.baidu.android.pushservice.d dVar, InputStream inputStream, OutputStream outputStream) {
-        this.a = inputStream;
-        this.b = outputStream;
+    public a(Context context, com.baidu.android.pushservice.e eVar) {
         this.c = context;
-        this.d = dVar;
+        this.d = eVar;
     }
 
-    public abstract b a();
+    public a(Context context, com.baidu.android.pushservice.e eVar, InputStream inputStream, OutputStream outputStream) {
+        this.f591a = inputStream;
+        this.b = outputStream;
+        this.c = context;
+        this.d = eVar;
+    }
+
+    public abstract b a(byte[] bArr, int i);
+
+    public abstract void a();
+
+    public abstract void a(int i);
 
     public void a(b bVar) {
         this.d.a(bVar);
     }
 
-    public abstract void b();
+    public abstract b b();
 
     public abstract void b(b bVar);
 

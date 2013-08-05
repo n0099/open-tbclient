@@ -7,6 +7,7 @@ import android.os.Message;
 import com.baidu.zeus.ByteArrayBuilder;
 import com.baidu.zeus.CacheManager;
 import com.baidu.zeus.WebView;
+import com.tencent.mm.sdk.platformtools.Util;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
@@ -190,7 +191,7 @@ public final class WebViewWorker extends Handler {
                 if (!mCacheTickersBlocked) {
                     CacheManager.endTransaction();
                     CacheManager.startTransaction();
-                    sendEmptyMessageDelayed(MSG_CACHE_TRANSACTION_TICKER, 60000L);
+                    sendEmptyMessageDelayed(MSG_CACHE_TRANSACTION_TICKER, Util.MILLSECONDS_OF_MINUTE);
                     return;
                 }
                 return;
@@ -210,7 +211,7 @@ public final class WebViewWorker extends Handler {
                 }
                 if (CacheManager.enableTransaction()) {
                     mCacheTickersBlocked = false;
-                    sendEmptyMessageDelayed(MSG_CACHE_TRANSACTION_TICKER, 60000L);
+                    sendEmptyMessageDelayed(MSG_CACHE_TRANSACTION_TICKER, Util.MILLSECONDS_OF_MINUTE);
                     return;
                 }
                 return;

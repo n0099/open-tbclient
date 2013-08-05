@@ -8,31 +8,33 @@ import android.view.ViewGroup;
 /* loaded from: classes.dex */
 public class w extends ViewGroup.MarginLayoutParams {
     private static final int[] e = {16843137};
-    public float a;
+
+    /* renamed from: a  reason: collision with root package name */
+    public float f341a;
     boolean b;
     boolean c;
     Paint d;
 
     public w() {
         super(-1, -1);
-        this.a = 0.0f;
+        this.f341a = 0.0f;
     }
 
     public w(ViewGroup.LayoutParams layoutParams) {
         super(layoutParams);
-        this.a = 0.0f;
+        this.f341a = 0.0f;
     }
 
     public w(ViewGroup.MarginLayoutParams marginLayoutParams) {
         super(marginLayoutParams);
-        this.a = 0.0f;
+        this.f341a = 0.0f;
     }
 
     public w(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.a = 0.0f;
+        this.f341a = 0.0f;
         TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, e);
-        this.a = obtainStyledAttributes.getFloat(0, 0.0f);
+        this.f341a = obtainStyledAttributes.getFloat(0, 0.0f);
         obtainStyledAttributes.recycle();
     }
 }

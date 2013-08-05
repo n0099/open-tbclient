@@ -563,7 +563,7 @@ public class BrowserFrame extends Handler {
             this.mMainLoadListener = loadListener;
         }
         this.mCallbackProxy.onLoadResource(str);
-        if (LoadListener.getNativeLoaderCount() > 300) {
+        if (LoadListener.getNativeLoaderCount() > MAX_OUTSTANDING_REQUESTS) {
             loadListener.error(-1, "Too many requests are being processed. Try again later.");
             return loadListener;
         }

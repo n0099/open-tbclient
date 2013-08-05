@@ -19,6 +19,7 @@ import android.os.Environment;
 import android.os.StatFs;
 import android.provider.MediaStore;
 import cn.jingling.lib.utils.LogUtils;
+import com.tencent.mm.sdk.platformtools.Util;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -259,7 +260,7 @@ public class ImageFile {
             return saveImage(context, bitmap, substring, substring2, ".png", "image/png", Bitmap.CompressFormat.PNG, 100);
         }
         if (i == 0) {
-            return saveImage(context, bitmap, substring, substring2, ".jpg", "image/jpeg", Bitmap.CompressFormat.JPEG, i2);
+            return saveImage(context, bitmap, substring, substring2, Util.PHOTO_DEFAULT_EXT, "image/jpeg", Bitmap.CompressFormat.JPEG, i2);
         }
         throw new OtherException("");
     }

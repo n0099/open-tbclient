@@ -4,22 +4,24 @@ import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class al implements View.OnClickListener {
-    final /* synthetic */ FrsImageActivity a;
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ FrsImageActivity f1062a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public al(FrsImageActivity frsImageActivity) {
-        this.a = frsImageActivity;
+        this.f1062a = frsImageActivity;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         int i;
         int i2;
-        i = this.a.j;
+        i = this.f1062a.j;
         if (i > 240) {
-            FrsImageActivity frsImageActivity = this.a;
-            i2 = this.a.j;
-            frsImageActivity.e(i2 - 240);
+            FrsImageActivity frsImageActivity = this.f1062a;
+            i2 = this.f1062a.j;
+            frsImageActivity.f(i2 - 240);
         }
     }
 }

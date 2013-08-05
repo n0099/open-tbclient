@@ -37,7 +37,7 @@ public class InfoData implements Serializable {
         try {
             parserJson(new JSONObject(str));
         } catch (Exception e) {
-            com.baidu.tieba.util.z.b("InfoData", "parserJson", "error = " + e.getMessage());
+            com.baidu.tieba.util.aj.b("InfoData", "parserJson", "error = " + e.getMessage());
         }
     }
 
@@ -48,14 +48,14 @@ public class InfoData implements Serializable {
                 this.width = jSONObject.optInt("width", 0);
                 this.height = jSONObject.optInt("height", 0);
             } catch (Exception e) {
-                com.baidu.tieba.util.z.b("InfoData", "parserJson", "error = " + e.getMessage());
+                com.baidu.tieba.util.aj.b("InfoData", "parserJson", "error = " + e.getMessage());
             }
         }
     }
 
     public void logPrint() {
-        com.baidu.tieba.util.z.d("InfoData", "logPrint", "pic_id = " + this.pic_id);
-        com.baidu.tieba.util.z.d("InfoData", "logPrint", "width = " + String.valueOf(this.width));
-        com.baidu.tieba.util.z.d("InfoData", "logPrint", "height = " + String.valueOf(this.height));
+        com.baidu.tieba.util.aj.d("InfoData", "logPrint", "pic_id = " + this.pic_id);
+        com.baidu.tieba.util.aj.d("InfoData", "logPrint", "width = " + String.valueOf(this.width));
+        com.baidu.tieba.util.aj.d("InfoData", "logPrint", "height = " + String.valueOf(this.height));
     }
 }

@@ -15,8 +15,10 @@ import com.slidingmenu.lib.R;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class AccountActivity extends com.baidu.tieba.g {
-    private ArrayList a = null;
-    private n b = null;
+
+    /* renamed from: a  reason: collision with root package name */
+    private ArrayList f1390a = null;
+    private o b = null;
     private LinearLayout c = null;
     private TextView d = null;
     private ListView e = null;
@@ -49,11 +51,11 @@ public class AccountActivity extends com.baidu.tieba.g {
     @Override // com.baidu.tieba.g
     public void a(int i) {
         super.a(i);
-        com.baidu.tieba.util.x.d(this.c, i);
-        com.baidu.tieba.util.x.a(this.f, i);
-        com.baidu.tieba.util.x.g((TextView) this.g, i);
-        com.baidu.tieba.util.x.f(this.d, i);
-        com.baidu.tieba.util.x.a((View) this.e, i);
+        com.baidu.tieba.util.ah.d(this.c, i);
+        com.baidu.tieba.util.ah.a(this.f, i);
+        com.baidu.tieba.util.ah.g((TextView) this.g, i);
+        com.baidu.tieba.util.ah.f(this.d, i);
+        com.baidu.tieba.util.ah.a((View) this.e, i);
         this.b.notifyDataSetChanged();
         if (i == 1) {
             this.e.setDivider(getResources().getDrawable(R.drawable.list_divider_1));
@@ -65,7 +67,7 @@ public class AccountActivity extends com.baidu.tieba.g {
     }
 
     private void b() {
-        this.a = DatabaseService.n();
+        this.f1390a = DatabaseService.n();
     }
 
     private void c() {
@@ -76,8 +78,8 @@ public class AccountActivity extends com.baidu.tieba.g {
         this.g.setOnClickListener(new g(this));
         this.c = (LinearLayout) findViewById(R.id.title);
         this.d = (TextView) findViewById(R.id.title_text);
-        this.b = new n(this, this.j);
-        this.b.a(this.a);
+        this.b = new o(this, this.j);
+        this.b.a(this.f1390a);
         this.e = (ListView) findViewById(R.id.list);
         this.e.setAdapter((ListAdapter) this.b);
         this.e.setOnItemClickListener(new h(this));

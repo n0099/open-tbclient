@@ -1,27 +1,37 @@
 package com.baidu.tieba;
 
-import android.app.AlertDialog;
-import android.content.DialogInterface;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.os.Handler;
+import com.baidu.tieba.util.DatabaseService;
 /* loaded from: classes.dex */
-public class ai implements DialogInterface.OnClickListener {
-    final /* synthetic */ MainTabActivity a;
+class ai extends Thread {
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ LogoActivity f904a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ai(MainTabActivity mainTabActivity) {
-        this.a = mainTabActivity;
+    public ai(LogoActivity logoActivity) {
+        this.f904a = logoActivity;
     }
 
-    @Override // android.content.DialogInterface.OnClickListener
-    public void onClick(DialogInterface dialogInterface, int i) {
-        AlertDialog alertDialog;
-        if (i != -2) {
-            alertDialog = this.a.y;
-            alertDialog.dismiss();
-            TiebaApplication.f().a(false, false);
-            return;
+    @Override // java.lang.Thread, java.lang.Runnable
+    public void run() {
+        Handler handler;
+        Handler handler2;
+        super.run();
+        try {
+            TiebaApplication tiebaApplication = (TiebaApplication) this.f904a.getApplication();
+            tiebaApplication.b(tiebaApplication.J() + 1);
+            if (tiebaApplication.O()) {
+                DatabaseService.z();
+                tiebaApplication.b(0);
+            }
+            DatabaseService.v();
+            DatabaseService.y();
+            this.f904a.a(this.f904a.getCacheDir());
+        } catch (Exception e) {
         }
-        this.a.a(false);
-        TiebaApplication.f().a(true, false);
+        handler = this.f904a.k;
+        handler2 = this.f904a.k;
+        handler.sendMessage(handler2.obtainMessage());
     }
 }

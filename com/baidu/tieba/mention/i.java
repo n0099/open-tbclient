@@ -1,14 +1,17 @@
 package com.baidu.tieba.mention;
 
 import android.widget.ListView;
+import com.baidu.tieba.util.aj;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class i implements Runnable {
-    final /* synthetic */ h a;
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ h f1300a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public i(h hVar) {
-        this.a = hVar;
+        this.f1300a = hVar;
     }
 
     @Override // java.lang.Runnable
@@ -20,17 +23,17 @@ public class i implements Runnable {
         String portrait;
         e eVar3;
         try {
-            listView = this.a.d;
+            listView = this.f1300a.d;
             int firstVisiblePosition = listView.getFirstVisiblePosition();
-            listView2 = this.a.d;
+            listView2 = this.f1300a.d;
             int lastVisiblePosition = listView2.getLastVisiblePosition();
             for (int i = firstVisiblePosition; i <= lastVisiblePosition; i++) {
-                eVar = this.a.e;
+                eVar = this.f1300a.e;
                 if (i < eVar.getCount()) {
-                    eVar2 = this.a.e;
-                    com.baidu.tieba.data.q qVar = (com.baidu.tieba.data.q) eVar2.getItem(i);
-                    if (qVar != null && (portrait = qVar.i().getPortrait()) != null && portrait.length() > 0) {
-                        eVar3 = this.a.e;
+                    eVar2 = this.f1300a.e;
+                    com.baidu.tieba.data.u uVar = (com.baidu.tieba.data.u) eVar2.getItem(i);
+                    if (uVar != null && (portrait = uVar.i().getPortrait()) != null && portrait.length() > 0) {
+                        eVar3 = this.f1300a.e;
                         eVar3.e().d(portrait, new j(this));
                     }
                 } else {
@@ -38,7 +41,7 @@ public class i implements Runnable {
                 }
             }
         } catch (Exception e) {
-            com.baidu.tieba.util.z.b("MentionView", "mGetImageRunnble.run", "error = " + e.getMessage());
+            aj.b("MentionView", "mGetImageRunnble.run", "error = " + e.getMessage());
         }
     }
 }

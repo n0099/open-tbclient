@@ -8,13 +8,15 @@ import com.baidu.tieba.frs.FrsActivity;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ag implements View.OnClickListener {
-    final /* synthetic */ RecommendPagerAdapter a;
-    private final /* synthetic */ com.baidu.tieba.data.ar b;
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ RecommendPagerAdapter f1119a;
+    private final /* synthetic */ com.baidu.tieba.data.ba b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ag(RecommendPagerAdapter recommendPagerAdapter, com.baidu.tieba.data.ar arVar) {
-        this.a = recommendPagerAdapter;
-        this.b = arVar;
+    public ag(RecommendPagerAdapter recommendPagerAdapter, com.baidu.tieba.data.ba baVar) {
+        this.f1119a = recommendPagerAdapter;
+        this.b = baVar;
     }
 
     @Override // android.view.View.OnClickListener
@@ -22,10 +24,10 @@ public class ag implements View.OnClickListener {
         Activity activity;
         Activity activity2;
         if (TiebaApplication.f().t()) {
-            activity2 = this.a.g;
+            activity2 = this.f1119a.g;
             StatService.onEvent(activity2, "forum_by_day", "click", 1);
         }
-        activity = this.a.g;
+        activity = this.f1119a.g;
         FrsActivity.a(activity, this.b.a(), (String) null);
     }
 }

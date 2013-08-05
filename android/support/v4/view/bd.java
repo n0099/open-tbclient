@@ -4,17 +4,19 @@ import android.os.Build;
 import android.view.ViewConfiguration;
 /* loaded from: classes.dex */
 public class bd {
-    static final bg a;
+
+    /* renamed from: a  reason: collision with root package name */
+    static final bg f315a;
 
     static {
         if (Build.VERSION.SDK_INT >= 11) {
-            a = new bf();
+            f315a = new bf();
         } else {
-            a = new be();
+            f315a = new be();
         }
     }
 
     public static int a(ViewConfiguration viewConfiguration) {
-        return a.a(viewConfiguration);
+        return f315a.a(viewConfiguration);
     }
 }

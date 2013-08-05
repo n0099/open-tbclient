@@ -3,11 +3,13 @@ package com.baidu.tieba.frs;
 import android.view.View;
 /* loaded from: classes.dex */
 class c implements View.OnClickListener {
-    final /* synthetic */ FrsActivity a;
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ FrsActivity f1079a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(FrsActivity frsActivity) {
-        this.a = frsActivity;
+        this.f1079a = frsActivity;
     }
 
     @Override // android.view.View.OnClickListener
@@ -15,22 +17,22 @@ class c implements View.OnClickListener {
         com.baidu.tieba.util.a aVar;
         com.baidu.tieba.util.a aVar2;
         az azVar;
-        if (((com.baidu.tieba.view.o) view).a()) {
-            aVar = this.a.J;
+        if (((com.baidu.tieba.view.r) view).a()) {
+            aVar = this.f1079a.J;
             aVar.b();
             if (view.getTag() != null && (view.getTag() instanceof String)) {
-                aVar2 = this.a.J;
-                com.baidu.adp.widget.a.b a = aVar2.a((String) view.getTag(), new d(this));
-                if (a == null) {
-                    azVar = this.a.l;
-                    com.baidu.adp.widget.a.b c = azVar.g().a().c(String.valueOf((String) view.getTag()) + "_small");
-                    if (c != null) {
-                        this.a.a(c, true);
+                aVar2 = this.f1079a.J;
+                com.baidu.adp.widget.a.b a2 = aVar2.a((String) view.getTag(), new d(this));
+                if (a2 == null) {
+                    azVar = this.f1079a.l;
+                    com.baidu.adp.widget.a.b d = azVar.g().a().d(String.valueOf((String) view.getTag()) + "_small");
+                    if (d != null) {
+                        this.f1079a.a(d, true);
                         return;
                     }
                     return;
                 }
-                this.a.a(a, false);
+                this.f1079a.a(a2, false);
             }
         }
     }

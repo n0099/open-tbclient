@@ -46,8 +46,8 @@ import com.baidu.browser.webpool.BdWebPoolBackForwardListItem;
 import com.baidu.browser.webpool.BdWebPoolCustomView;
 import com.baidu.cyberplayer.sdk.internal.HttpUtils;
 import com.baidu.loginshare.e;
-import com.baidu.zeus.NotificationProxy;
 import com.baidu.zeus.WebView;
+import com.tencent.mm.sdk.platformtools.LocaleUtil;
 import java.net.URISyntaxException;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -1087,7 +1087,7 @@ public class BdWebPoolView extends FrameLayout implements View.OnLongClickListen
             bdWebPoolBackForwardListItem2.setIndex(i);
             bdWebPoolBackForwardListItem2.setWebView(webViewByPos);
             bdWebPoolBackForwardListItem2.setUrl(str);
-            Object tag = getTag(getContext().getResources().getIdentifier("browser_webcontent_error_code", "id", getContext().getPackageName()));
+            Object tag = getTag(getContext().getResources().getIdentifier("browser_webcontent_error_code", LocaleUtil.INDONESIAN, getContext().getPackageName()));
             if ((tag == null ? 0 : ((Integer) tag).intValue()) != 0) {
                 bdWebPoolBackForwardListItem2.setLoadStatus(BdWebPoolBackForwardListItem.LoadStatus.STATUS_ERROR);
             }
@@ -1831,7 +1831,7 @@ public class BdWebPoolView extends FrameLayout implements View.OnLongClickListen
             Window window = ((Activity) getContext()).getWindow();
             WindowManager.LayoutParams attributes = window.getAttributes();
             if (z) {
-                attributes.flags |= NotificationProxy.MAX_URL_LENGTH;
+                attributes.flags |= 1024;
             } else {
                 attributes.flags &= -1025;
                 if (this.mCustomView != null) {
@@ -1884,7 +1884,7 @@ public class BdWebPoolView extends FrameLayout implements View.OnLongClickListen
     }
 
     public void setFullscreen(Activity activity, boolean z) {
-        activity.getWindow().setFlags(!z ? 0 : 1024, NotificationProxy.MAX_URL_LENGTH);
+        activity.getWindow().setFlags(!z ? 0 : 1024, 1024);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */

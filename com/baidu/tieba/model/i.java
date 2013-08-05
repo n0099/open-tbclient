@@ -5,12 +5,14 @@ import java.util.ArrayList;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class i extends BdAsyncTask {
-    final /* synthetic */ f a;
-    private com.baidu.tieba.util.r b;
-    private com.baidu.tieba.data.ay c;
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ f f1373a;
+    private com.baidu.tieba.util.u b;
+    private com.baidu.tieba.data.bk c;
 
     private i(f fVar) {
-        this.a = fVar;
+        this.f1373a = fVar;
         this.b = null;
         this.c = null;
     }
@@ -23,7 +25,7 @@ public class i extends BdAsyncTask {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void b() {
-        this.c = new com.baidu.tieba.data.ay();
+        this.c = new com.baidu.tieba.data.bk();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -33,29 +35,29 @@ public class i extends BdAsyncTask {
         f fVar = new f();
         try {
             fVar.e();
-            this.b = new com.baidu.tieba.util.r();
-            this.b.a(String.valueOf(com.baidu.tieba.data.g.a) + "c/c/post/addstore");
-            int h = this.a.h();
+            this.b = new com.baidu.tieba.util.u();
+            this.b.a(String.valueOf(com.baidu.tieba.data.g.f1013a) + "c/c/post/addstore");
+            int h = this.f1373a.h();
             if (fVar.c() - 1 <= h) {
                 h = fVar.c() - 1;
             }
             while (h >= 0) {
-                String a = fVar.a(h, 20);
+                String a2 = fVar.a(h, 20);
                 this.b.a(new ArrayList());
-                this.b.a("data", a);
-                this.c.a(this.b.j());
-                if (!this.b.c() || this.c.a() != 0) {
+                this.b.a("data", a2);
+                this.c.a(this.b.k());
+                if (!this.b.d() || this.c.a() != 0) {
                     break;
                 }
                 h -= 20;
             }
-            this.a.b(h);
+            this.f1373a.b(h);
             if (h >= 0) {
                 return false;
             }
             return true;
         } catch (Exception e) {
-            com.baidu.tieba.util.z.b(getClass().getName(), "", "doInBackground error = " + e.getMessage());
+            com.baidu.tieba.util.aj.b(getClass().getName(), "", "doInBackground error = " + e.getMessage());
             return false;
         }
     }
@@ -64,11 +66,11 @@ public class i extends BdAsyncTask {
     public void cancel() {
         super.cancel(true);
         if (this.b != null) {
-            this.b.h();
+            this.b.i();
         }
-        this.a.c = null;
-        if (this.a.a != null) {
-            this.a.a.a(1, false, null, false);
+        this.f1373a.c = null;
+        if (this.f1373a.f1370a != null) {
+            this.f1373a.f1370a.a(1, false, null, false);
         }
     }
 
@@ -79,21 +81,21 @@ public class i extends BdAsyncTask {
         String str;
         boolean z;
         ArrayList arrayList;
-        this.a.c = null;
+        this.f1373a.c = null;
         if (bool.booleanValue()) {
-            arrayList = this.a.e;
+            arrayList = this.f1373a.e;
             arrayList.clear();
             str = null;
             z = false;
-        } else if (this.b.c()) {
+        } else if (this.b.d()) {
             str = this.c.b();
             z = false;
         } else {
             str = null;
             z = true;
         }
-        if (this.a.a != null) {
-            this.a.a.a(1, bool, str, Boolean.valueOf(z));
+        if (this.f1373a.f1370a != null) {
+            this.f1373a.f1370a.a(1, bool, str, Boolean.valueOf(z));
         }
     }
 }

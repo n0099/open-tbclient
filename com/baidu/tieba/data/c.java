@@ -5,18 +5,20 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class c {
-    private UserData a;
+
+    /* renamed from: a  reason: collision with root package name */
+    private UserData f1009a;
     private ArrayList b;
 
     public c() {
-        this.a = null;
+        this.f1009a = null;
         this.b = null;
-        this.a = new UserData();
+        this.f1009a = new UserData();
         this.b = new ArrayList(3);
     }
 
     public UserData a() {
-        return this.a;
+        return this.f1009a;
     }
 
     public ArrayList b() {
@@ -27,13 +29,13 @@ public class c {
         try {
             a(new JSONObject(str));
         } catch (Exception e) {
-            com.baidu.tieba.util.z.b(getClass().getName(), "parserJson", e.getMessage());
+            com.baidu.tieba.util.aj.b(getClass().getName(), "parserJson", e.getMessage());
         }
     }
 
     public void a(JSONObject jSONObject) {
         try {
-            this.a.parserJson(jSONObject.optJSONObject("user"));
+            this.f1009a.parserJson(jSONObject.optJSONObject("user"));
             JSONArray optJSONArray = jSONObject.optJSONArray("suggnames");
             if (optJSONArray != null) {
                 for (int i = 0; i < optJSONArray.length(); i++) {
@@ -41,7 +43,7 @@ public class c {
                 }
             }
         } catch (Exception e) {
-            com.baidu.tieba.util.z.b(getClass().getName(), "parserJson", e.getMessage());
+            com.baidu.tieba.util.aj.b(getClass().getName(), "parserJson", e.getMessage());
         }
     }
 }

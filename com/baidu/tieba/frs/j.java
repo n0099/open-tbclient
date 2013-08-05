@@ -7,34 +7,36 @@ import com.slidingmenu.lib.R;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class j extends Handler {
-    final /* synthetic */ FrsActivity a;
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ FrsActivity f1086a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public j(FrsActivity frsActivity) {
-        this.a = frsActivity;
+        this.f1086a = frsActivity;
     }
 
     @Override // android.os.Handler
     public void handleMessage(Message message) {
-        com.baidu.tieba.model.v vVar;
-        com.baidu.tieba.model.v vVar2;
+        com.baidu.tieba.model.aa aaVar;
+        com.baidu.tieba.model.aa aaVar2;
         long j;
-        com.baidu.tieba.model.v vVar3;
+        com.baidu.tieba.model.aa aaVar3;
         az azVar;
-        com.baidu.tieba.model.v vVar4;
-        com.baidu.tieba.model.v vVar5;
+        com.baidu.tieba.model.aa aaVar4;
+        com.baidu.tieba.model.aa aaVar5;
         az azVar2;
         switch (message.what) {
             case 1:
                 removeMessages(1);
-                vVar = this.a.v;
-                if (vVar != null) {
-                    vVar2 = this.a.v;
-                    long i = vVar2.e().i();
-                    j = this.a.z;
+                aaVar = this.f1086a.v;
+                if (aaVar != null) {
+                    aaVar2 = this.f1086a.v;
+                    long i = aaVar2.e().i();
+                    j = this.f1086a.z;
                     long nanoTime = i - ((System.nanoTime() / 1000000000) - j);
                     if (nanoTime > 0) {
-                        azVar2 = this.a.l;
+                        azVar2 = this.f1086a.l;
                         CustomTimerView customTimerView = (CustomTimerView) azVar2.a(R.id.open_timer);
                         if (customTimerView != null) {
                             customTimerView.setTime(nanoTime);
@@ -42,14 +44,14 @@ public class j extends Handler {
                         sendMessageDelayed(obtainMessage(1), 1000L);
                         return;
                     }
-                    vVar3 = this.a.v;
-                    vVar3.e().a(1);
-                    azVar = this.a.l;
-                    com.baidu.tieba.view.q i2 = azVar.i();
-                    vVar4 = this.a.v;
-                    com.baidu.tieba.data.r a = vVar4.a();
-                    vVar5 = this.a.v;
-                    i2.a(a, vVar5.e());
+                    aaVar3 = this.f1086a.v;
+                    aaVar3.e().a(1);
+                    azVar = this.f1086a.l;
+                    com.baidu.tieba.view.t i2 = azVar.i();
+                    aaVar4 = this.f1086a.v;
+                    com.baidu.tieba.data.v a2 = aaVar4.a();
+                    aaVar5 = this.f1086a.v;
+                    i2.a(a2, aaVar5.e());
                     return;
                 }
                 return;

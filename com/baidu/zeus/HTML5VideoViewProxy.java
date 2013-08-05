@@ -215,7 +215,7 @@ public class HTML5VideoViewProxy extends Handler implements MediaPlayer.OnComple
     }
 
     public void onTimeupdate() {
-        sendMessage(obtainMessage(300));
+        sendMessage(obtainMessage(TIMEUPDATE));
     }
 
     /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
@@ -252,7 +252,7 @@ public class HTML5VideoViewProxy extends Handler implements MediaPlayer.OnComple
                     break;
                 }
                 break;
-            case 300:
+            case TIMEUPDATE /* 300 */:
                 if (VideoPlayer.isPlaying(this)) {
                     sendTimeupdate();
                     return;
@@ -322,7 +322,7 @@ public class HTML5VideoViewProxy extends Handler implements MediaPlayer.OnComple
                     this.mProxy.doSetPoster(BitmapFactory.decodeByteArray(this.mPosterBytes.toByteArray(), 0, this.mPosterBytes.size()));
                 }
                 cleanup();
-            } else if (this.mStatusCode >= 300 && this.mStatusCode < 400) {
+            } else if (this.mStatusCode >= HTML5VideoViewProxy.TIMEUPDATE && this.mStatusCode < 400) {
                 this.mUrl = this.mHeaders.getLocation();
                 if (this.mUrl != null) {
                     this.mHandler.post(new Runnable() { // from class: com.baidu.zeus.HTML5VideoViewProxy.PosterDownloader.1
@@ -417,7 +417,7 @@ public class HTML5VideoViewProxy extends Handler implements MediaPlayer.OnComple
                     case HTML5VideoViewProxy.PAUSED /* 203 */:
                         HTML5VideoViewProxy.this.nativeOnPaused(HTML5VideoViewProxy.this.mNativePointer);
                         return;
-                    case 300:
+                    case HTML5VideoViewProxy.TIMEUPDATE /* 300 */:
                         HTML5VideoViewProxy.this.nativeOnTimeupdate(message.arg1, HTML5VideoViewProxy.this.mNativePointer);
                         return;
                     default:
@@ -437,7 +437,7 @@ public class HTML5VideoViewProxy extends Handler implements MediaPlayer.OnComple
     }
 
     private void sendTimeupdate() {
-        Message obtain = Message.obtain(this.mWebCoreHandler, 300);
+        Message obtain = Message.obtain(this.mWebCoreHandler, (int) TIMEUPDATE);
         obtain.arg1 = VideoPlayer.getCurrentPosition();
         this.mWebCoreHandler.sendMessage(obtain);
     }

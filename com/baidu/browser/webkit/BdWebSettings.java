@@ -468,7 +468,7 @@ public class BdWebSettings extends Observable implements BdNoProGuard, Cloneable
 
     /* loaded from: classes.dex */
     public enum TextSize {
-        SMALLEST(50),
+        SMALLEST(BdWebSettings.MSG_setNightModeEnabled),
         SMALLER(75),
         NORMAL(100),
         LARGERLITTLE(125),
@@ -1551,7 +1551,7 @@ public class BdWebSettings extends Observable implements BdNoProGuard, Cloneable
             this.mSysWebSettings.setWorkersEnabled(z);
         }
         this.mWorkersEnabled = z;
-        notifyObservers(51, Boolean.valueOf(z));
+        notifyObservers(MSG_setWorkersEnabled, Boolean.valueOf(z));
     }
 
     public void setPageCacheCapacity(int i) {
@@ -1561,7 +1561,7 @@ public class BdWebSettings extends Observable implements BdNoProGuard, Cloneable
             this.mSysWebSettings.setPageCacheCapacity(i);
         }
         this.mPageCacheCapacity = i;
-        notifyObservers(52, Integer.valueOf(i));
+        notifyObservers(MSG_setPageCacheCapacity, Integer.valueOf(i));
     }
 
     public void setUseImageLoadProxy(boolean z) {
@@ -1582,7 +1582,7 @@ public class BdWebSettings extends Observable implements BdNoProGuard, Cloneable
         if (this.mZeusWebSettings != null) {
             this.mZeusWebSettings.setUseUnderLine(z);
         }
-        notifyObservers(45, Boolean.valueOf(z));
+        notifyObservers(MSG_setUseUnderLine, Boolean.valueOf(z));
     }
 
     public boolean getUseUnderLine() {
@@ -1624,7 +1624,7 @@ public class BdWebSettings extends Observable implements BdNoProGuard, Cloneable
         if (this.mZeusWebSettings != null) {
             this.mZeusWebSettings.setUseScaleStore(z);
         }
-        notifyObservers(48, Boolean.valueOf(z));
+        notifyObservers(MSG_setUseScaleStore, Boolean.valueOf(z));
     }
 
     public boolean getUseScaleStore() {
@@ -1666,7 +1666,7 @@ public class BdWebSettings extends Observable implements BdNoProGuard, Cloneable
         if (this.mZeusWebSettings != null) {
             this.mZeusWebSettings.setNightModeEnabled(z);
         }
-        notifyObservers(50, Boolean.valueOf(z));
+        notifyObservers(MSG_setNightModeEnabled, Boolean.valueOf(z));
     }
 
     public boolean getNightModeEnabled() {
@@ -1900,7 +1900,7 @@ public class BdWebSettings extends Observable implements BdNoProGuard, Cloneable
             case MSG_setUseImageLoadProxy /* 44 */:
                 setDomStorageEnabled(((Boolean) message.obj).booleanValue());
                 return;
-            case 45:
+            case MSG_setUseUnderLine /* 45 */:
                 setDomStorageEnabled(((Boolean) message.obj).booleanValue());
                 return;
             case MSG_setUseGifLoadProxy /* 46 */:
@@ -1909,19 +1909,19 @@ public class BdWebSettings extends Observable implements BdNoProGuard, Cloneable
             case MSG_setEnableVideo /* 47 */:
                 setDomStorageEnabled(((Boolean) message.obj).booleanValue());
                 return;
-            case 48:
+            case MSG_setUseScaleStore /* 48 */:
                 setDomStorageEnabled(((Boolean) message.obj).booleanValue());
                 return;
             case MSG_setPreloadEnabled /* 49 */:
                 setDomStorageEnabled(((Boolean) message.obj).booleanValue());
                 return;
-            case 50:
+            case MSG_setNightModeEnabled /* 50 */:
                 setDomStorageEnabled(((Boolean) message.obj).booleanValue());
                 return;
-            case 51:
+            case MSG_setWorkersEnabled /* 51 */:
                 setWorkersEnabled(((Boolean) message.obj).booleanValue());
                 return;
-            case 52:
+            case MSG_setPageCacheCapacity /* 52 */:
                 setPageCacheCapacity(((Integer) message.obj).intValue());
                 return;
             case MSG_setMarkSubjectEnabled /* 53 */:

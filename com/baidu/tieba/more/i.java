@@ -10,19 +10,21 @@ import java.util.ArrayList;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class i extends BdAsyncTask {
-    final /* synthetic */ AccountActivity a;
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ AccountActivity f1415a;
     private AccountData b;
     private int c = 0;
 
     public i(AccountActivity accountActivity, AccountData accountData) {
-        this.a = accountActivity;
+        this.f1415a = accountActivity;
         this.b = accountData;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void b() {
-        this.a.a(this.a.getString(R.string.deleting), new j(this));
+        this.f1415a.a(this.f1415a.getString(R.string.deleting), new j(this));
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -36,11 +38,11 @@ public class i extends BdAsyncTask {
             Thread.sleep(1000L);
             DatabaseService.r(this.b.getID());
             if (this.b.getID().equals(TiebaApplication.E())) {
-                TiebaApplication.b((AccountData) null);
-                arrayList = this.a.a;
+                TiebaApplication.a((AccountData) null, this.f1415a.getBaseContext());
+                arrayList = this.f1415a.f1390a;
                 if (arrayList.size() >= 2) {
                     this.c = 1;
-                    arrayList2 = this.a.a;
+                    arrayList2 = this.f1415a.f1390a;
                     AccountData accountData = (AccountData) arrayList2.get(1);
                     accountData.setIsActive(1);
                     DatabaseService.a(accountData);
@@ -52,7 +54,7 @@ public class i extends BdAsyncTask {
                 this.c = 0;
             }
         } catch (Exception e) {
-            com.baidu.tieba.util.z.b(getClass().getName(), "", "doInBackground error = " + e.getMessage());
+            com.baidu.tieba.util.aj.b(getClass().getName(), "", "doInBackground error = " + e.getMessage());
         }
         return null;
     }
@@ -62,29 +64,32 @@ public class i extends BdAsyncTask {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void a(AccountData accountData) {
         ArrayList arrayList;
-        n nVar;
+        o oVar;
         if (this.b != null) {
-            new k(this.a, this.b.getBDUSS()).start();
+            new k(this.f1415a, this.b.getBDUSS()).start();
         }
-        this.a.h();
+        this.f1415a.h();
         switch (this.c) {
             case 0:
-                this.a.a(this.a.getString(R.string.success));
-                arrayList = this.a.a;
+                this.f1415a.a(this.f1415a.getString(R.string.success));
+                arrayList = this.f1415a.f1390a;
                 arrayList.remove(this.b);
                 this.b = null;
-                nVar = this.a.b;
-                nVar.notifyDataSetChanged();
+                oVar = this.f1415a.b;
+                oVar.notifyDataSetChanged();
                 break;
             case 1:
-                TiebaApplication.b(accountData);
+                if (accountData != null) {
+                    new n(this.f1415a, accountData.getBDUSS()).start();
+                }
+                TiebaApplication.a(accountData, this.f1415a.getBaseContext());
                 com.baidu.tieba.account.a.a().b();
-                MainTabActivity.b(this.a, "goto_home");
+                MainTabActivity.b(this.f1415a, "goto_home");
                 break;
             case 2:
-                MainTabActivity.b(this.a, "goto_person");
+                MainTabActivity.b(this.f1415a, "goto_person");
                 break;
         }
-        this.a.l = null;
+        this.f1415a.l = null;
     }
 }

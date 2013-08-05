@@ -67,7 +67,9 @@ public final class LocationClient {
 
     /* renamed from: byte  reason: not valid java name */
     private b f69byte = null;
-    private boolean a = false;
+
+    /* renamed from: a  reason: collision with root package name */
+    private boolean f725a = false;
 
     /* renamed from: int  reason: not valid java name */
     private boolean f74int = false;
@@ -173,13 +175,13 @@ public final class LocationClient {
                     return;
                 case 54:
                     if (LocationClient.this.l.f89void) {
-                        LocationClient.this.a = true;
+                        LocationClient.this.f725a = true;
                         return;
                     }
                     return;
                 case 55:
                     if (LocationClient.this.l.f89void) {
-                        LocationClient.this.a = false;
+                        LocationClient.this.f725a = false;
                         return;
                     }
                     return;
@@ -235,7 +237,7 @@ public final class LocationClient {
             return null;
         }
         Bundle bundle = new Bundle();
-        bundle.putInt("num", this.l.a);
+        bundle.putInt("num", this.l.f729a);
         bundle.putFloat("distance", this.l.f80do);
         bundle.putBoolean("extraInfo", this.l.f84if);
         return bundle;
@@ -294,7 +296,7 @@ public final class LocationClient {
             j.a(f64for, "server not connected");
             return;
         }
-        if (!this.a || !this.l.f89void) {
+        if (!this.f725a || !this.l.f89void) {
             Message obtain = Message.obtain((Handler) null, 22);
             try {
                 obtain.replyTo = this.i;
@@ -610,7 +612,7 @@ public final class LocationClient {
         if (System.currentTimeMillis() - this.f71char < 6000) {
             return 6;
         }
-        if (this.l.a >= 1) {
+        if (this.l.f729a >= 1) {
             j.a(f64for, "request location ...");
             this.f72do.obtainMessage(7).sendToTarget();
             return 0;

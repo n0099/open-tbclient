@@ -8,7 +8,9 @@ import android.widget.ImageView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class g extends ImageView {
-    final /* synthetic */ e a;
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ e f390a;
     private long b;
     private int c;
     private final Paint d;
@@ -16,7 +18,7 @@ public class g extends ImageView {
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public g(e eVar, Context context) {
         super(context);
-        this.a = eVar;
+        this.f390a = eVar;
         this.b = -1L;
         this.c = 0;
         this.d = new Paint();

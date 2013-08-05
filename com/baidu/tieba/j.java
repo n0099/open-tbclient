@@ -1,11 +1,13 @@
 package com.baidu.tieba;
 /* loaded from: classes.dex */
 public abstract class j {
-    final /* synthetic */ g a;
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ g f1171a;
 
     public abstract void a(Object... objArr);
 
     public j(g gVar) {
-        this.a = gVar;
+        this.f1171a = gVar;
     }
 }

@@ -10,7 +10,9 @@ import com.baidu.tieba.pb.NewPbActivity;
 import com.baidu.tieba.util.DatabaseService;
 /* loaded from: classes.dex */
 public class EditMarkActivity extends com.baidu.tieba.g {
-    private com.baidu.tieba.model.f a = null;
+
+    /* renamed from: a  reason: collision with root package name */
+    private com.baidu.tieba.model.f f1554a = null;
     private z b = null;
     private int c = -1;
 
@@ -22,8 +24,8 @@ public class EditMarkActivity extends com.baidu.tieba.g {
     @Override // com.baidu.tieba.g, com.baidu.adp.a.a, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.a = new com.baidu.tieba.model.f();
-        this.a.a(new x(this, this));
+        this.f1554a = new com.baidu.tieba.model.f();
+        this.f1554a.a(new x(this, this));
         this.b = new z(this);
         this.b.a(new y(this));
         b();
@@ -37,18 +39,18 @@ public class EditMarkActivity extends com.baidu.tieba.g {
     }
 
     private void b() {
-        this.b.a(this.a.a());
-        if (this.a.h() < 0) {
-            this.a.f();
+        this.b.a(this.f1554a.a());
+        if (this.f1554a.h() < 0) {
+            this.f1554a.f();
             return;
         }
         c();
-        if (this.a.c() == 0 || this.a.h() < 0) {
-            this.a.f();
+        if (this.f1554a.c() == 0 || this.f1554a.h() < 0) {
+            this.f1554a.f();
             return;
         }
         this.b.e();
-        this.a.g();
+        this.f1554a.g();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -56,7 +58,7 @@ public class EditMarkActivity extends com.baidu.tieba.g {
     public void onDestroy() {
         super.onDestroy();
         this.b.h();
-        this.a.i();
+        this.f1554a.i();
     }
 
     @Override // com.baidu.adp.a.a, android.view.View.OnClickListener
@@ -68,19 +70,19 @@ public class EditMarkActivity extends com.baidu.tieba.g {
         } else if (view.getId() == this.b.d()) {
             int intValue = ((Integer) view.getTag()).intValue();
             this.b.f();
-            this.a.a(intValue);
+            this.f1554a.a(intValue);
         }
         super.onClick(view);
     }
 
     @Override // com.baidu.adp.a.a, android.widget.AdapterView.OnItemClickListener
     public void onItemClick(AdapterView adapterView, View view, int i, long j) {
-        if (i < 0 || i >= this.a.b().size()) {
-            this.b.a(this.a.a());
-            this.a.f();
+        if (i < 0 || i >= this.f1554a.b().size()) {
+            this.b.a(this.f1554a.a());
+            this.f1554a.f();
         } else {
             this.c = i;
-            MarkData markData = (MarkData) this.a.b().get(i);
+            MarkData markData = (MarkData) this.f1554a.b().get(i);
             if (markData != null) {
                 NewPbActivity.a(this, markData, (String) null);
             }
@@ -95,8 +97,8 @@ public class EditMarkActivity extends com.baidu.tieba.g {
     }
 
     private void c() {
-        this.a.a(DatabaseService.u());
-        this.b.a(this.a.b());
+        this.f1554a.a(DatabaseService.u());
+        this.b.a(this.f1554a.b());
     }
 
     @Override // android.app.Activity
@@ -104,12 +106,12 @@ public class EditMarkActivity extends com.baidu.tieba.g {
         super.onActivityResult(i, i2, intent);
         if (i2 == -1) {
             switch (i) {
-                case 1700001:
+                case 17001:
                     MarkData markData = (MarkData) intent.getSerializableExtra("mark");
-                    if (markData != null && this.a.b().size() > this.c && this.c >= 0) {
-                        ((MarkData) this.a.b().get(this.c)).setPostId(markData.getPostId());
-                        ((MarkData) this.a.b().get(this.c)).setHostMode(markData.getHostMode());
-                        ((MarkData) this.a.b().get(this.c)).setSequence(markData.getSequence());
+                    if (markData != null && this.f1554a.b().size() > this.c && this.c >= 0) {
+                        ((MarkData) this.f1554a.b().get(this.c)).setPostId(markData.getPostId());
+                        ((MarkData) this.f1554a.b().get(this.c)).setHostMode(markData.getHostMode());
+                        ((MarkData) this.f1554a.b().get(this.c)).setSequence(markData.getSequence());
                         this.b.g();
                         return;
                     }
@@ -119,9 +121,9 @@ public class EditMarkActivity extends com.baidu.tieba.g {
             }
         } else if (i2 == 1) {
             switch (i) {
-                case 1700001:
-                    if (this.a.b().size() > this.c && this.c >= 0) {
-                        this.a.b().remove(this.c);
+                case 17001:
+                    if (this.f1554a.b().size() > this.c && this.c >= 0) {
+                        this.f1554a.b().remove(this.c);
                         this.b.g();
                         return;
                     }

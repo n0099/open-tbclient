@@ -11,12 +11,14 @@ import android.widget.TextView;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public class AllPostActivity extends com.baidu.tieba.g {
-    FrameLayout a = null;
+
+    /* renamed from: a  reason: collision with root package name */
+    FrameLayout f1551a = null;
     TextView b = null;
     ListView c = null;
     ImageView d = null;
     ae e = null;
-    com.baidu.tieba.model.ar f = null;
+    com.baidu.tieba.model.ba f = null;
     c g = null;
     private ProgressBar j = null;
     private boolean k = false;
@@ -34,7 +36,7 @@ public class AllPostActivity extends com.baidu.tieba.g {
     }
 
     void b() {
-        this.a = (FrameLayout) findViewById(R.id.all_post_activity_layout);
+        this.f1551a = (FrameLayout) findViewById(R.id.all_post_activity_layout);
         this.b = (TextView) findViewById(R.id.no_post_view);
         this.b.setVisibility(8);
         this.d = (ImageView) findViewById(R.id.time_line);
@@ -47,7 +49,7 @@ public class AllPostActivity extends com.baidu.tieba.g {
     }
 
     void a(Bundle bundle) {
-        this.f = new com.baidu.tieba.model.ar();
+        this.f = new com.baidu.tieba.model.ba();
         if (bundle != null) {
             this.f.a(bundle.getString("user"));
             return;
@@ -91,9 +93,9 @@ public class AllPostActivity extends com.baidu.tieba.g {
     @Override // com.baidu.tieba.g
     public void a(int i) {
         super.a(i);
-        com.baidu.tieba.util.x.a(this.a, i);
+        com.baidu.tieba.util.ah.a(this.f1551a, i);
         if (i == 1) {
-            this.b.setTextColor(com.baidu.tieba.util.x.a(i));
+            this.b.setTextColor(com.baidu.tieba.util.ah.a(i));
             this.d.setBackgroundResource(R.drawable.time_line_skin_1);
             return;
         }
@@ -125,6 +127,9 @@ public class AllPostActivity extends com.baidu.tieba.g {
         }
         if (this.e != null) {
             this.e.a();
+        }
+        if (this.m != null) {
+            this.m.removeCallbacksAndMessages(null);
         }
         super.onDestroy();
     }

@@ -4,11 +4,13 @@ import android.net.Uri;
 import android.os.Handler;
 /* loaded from: classes.dex */
 class p implements Runnable {
-    final /* synthetic */ TiebaPrepareImageService a;
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ TiebaPrepareImageService f1710a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public p(TiebaPrepareImageService tiebaPrepareImageService) {
-        this.a = tiebaPrepareImageService;
+        this.f1710a = tiebaPrepareImageService;
     }
 
     @Override // java.lang.Runnable
@@ -18,18 +20,18 @@ class p implements Runnable {
         int i;
         Uri uri;
         q qVar;
-        if (TiebaPrepareImageService.a) {
-            handler = this.a.e;
-            runnable = this.a.g;
+        if (TiebaPrepareImageService.f1692a) {
+            handler = this.f1710a.e;
+            runnable = this.f1710a.g;
             handler.postDelayed(runnable, 1000L);
             return;
         }
-        TiebaPrepareImageService tiebaPrepareImageService = this.a;
-        TiebaPrepareImageService tiebaPrepareImageService2 = this.a;
-        i = this.a.b;
-        uri = this.a.c;
+        TiebaPrepareImageService tiebaPrepareImageService = this.f1710a;
+        TiebaPrepareImageService tiebaPrepareImageService2 = this.f1710a;
+        i = this.f1710a.b;
+        uri = this.f1710a.c;
         tiebaPrepareImageService.d = new q(tiebaPrepareImageService2, i, uri);
-        qVar = this.a.d;
+        qVar = this.f1710a.d;
         qVar.execute(new Object[0]);
     }
 }

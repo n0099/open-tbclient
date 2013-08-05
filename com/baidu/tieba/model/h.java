@@ -7,18 +7,20 @@ import com.baidu.tieba.util.DatabaseService;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class h extends BdAsyncTask {
-    final /* synthetic */ f a;
-    private com.baidu.tieba.util.r b = null;
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ f f1372a;
+    private com.baidu.tieba.util.u b = null;
     private String c = null;
     private int d;
-    private com.baidu.tieba.data.ay e;
+    private com.baidu.tieba.data.bk e;
 
     public h(f fVar, int i) {
-        this.a = fVar;
+        this.f1372a = fVar;
         this.d = 0;
         this.e = null;
         this.d = i;
-        this.e = new com.baidu.tieba.data.ay();
+        this.e = new com.baidu.tieba.data.bk();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -30,14 +32,14 @@ public class h extends BdAsyncTask {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public f a(Boolean... boolArr) {
-        this.b = new com.baidu.tieba.util.r(String.valueOf(com.baidu.tieba.data.g.a) + "c/f/post/threadstore");
+        this.b = new com.baidu.tieba.util.u(String.valueOf(com.baidu.tieba.data.g.f1013a) + "c/f/post/threadstore");
         this.b.a(PushConstants.EXTRA_USER_ID, TiebaApplication.E());
         this.b.a("offset", String.valueOf(this.d));
         this.b.a("rn", String.valueOf(20));
-        this.c = this.b.j();
+        this.c = this.b.k();
         this.e.a(this.c);
         f fVar = new f();
-        if (this.b.c() || this.e.a() == 0) {
+        if (this.b.d() || this.e.a() == 0) {
             fVar.a(this.c);
             if (this.d == 0) {
                 DatabaseService.k(this.c);
@@ -53,11 +55,11 @@ public class h extends BdAsyncTask {
     public void cancel() {
         super.cancel(true);
         if (this.b != null) {
-            this.b.h();
+            this.b.i();
         }
-        this.a.b = null;
-        if (this.a.a != null) {
-            this.a.a.a(0, null);
+        this.f1372a.b = null;
+        if (this.f1372a.f1370a != null) {
+            this.f1372a.f1370a.a(0, null);
         }
     }
 
@@ -65,17 +67,17 @@ public class h extends BdAsyncTask {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void a(f fVar) {
-        String g;
-        this.a.b = null;
-        this.a.f = fVar.c();
-        this.a.b(fVar.b());
-        if (this.a.a != null) {
-            if (this.b.c()) {
-                g = this.e.b();
+        String h;
+        this.f1372a.b = null;
+        this.f1372a.f = fVar.c();
+        this.f1372a.b(fVar.b());
+        if (this.f1372a.f1370a != null) {
+            if (this.b.d()) {
+                h = this.e.b();
             } else {
-                g = this.b.g();
+                h = this.b.h();
             }
-            this.a.a.a(0, g);
+            this.f1372a.f1370a.a(0, h);
         }
     }
 }

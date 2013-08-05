@@ -12,6 +12,7 @@ import android.widget.ListAdapter;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.baidu.adp.widget.ListView.BdListView;
+import com.baidu.tieba.util.ah;
 import com.slidingmenu.lib.R;
 import java.util.List;
 /* loaded from: classes.dex */
@@ -27,8 +28,10 @@ public class v {
     private TextView i = null;
     private BdListView j = null;
     private t k = null;
-    private com.baidu.tieba.view.p l = null;
-    AlertDialog a = null;
+    private com.baidu.tieba.view.s l = null;
+
+    /* renamed from: a  reason: collision with root package name */
+    AlertDialog f953a = null;
 
     public v(Activity activity, View.OnClickListener onClickListener) {
         this.b = null;
@@ -47,7 +50,7 @@ public class v {
         this.i = (TextView) this.c.findViewById(R.id.no_chat_text);
         this.j = (BdListView) this.c.findViewById(R.id.chat_list_content);
         this.j.setDivider(null);
-        this.l = new com.baidu.tieba.view.p(this.c);
+        this.l = new com.baidu.tieba.view.s(this.c);
         this.j.setPullRefresh(this.l);
         this.k = new t(this.c);
         this.j.setAdapter((ListAdapter) this.k);
@@ -57,9 +60,9 @@ public class v {
     }
 
     public void a(int i) {
-        com.baidu.tieba.util.x.d(this.e, i);
-        com.baidu.tieba.util.x.a(this.f, i);
-        com.baidu.tieba.util.x.f(this.g, i);
+        ah.d(this.e, i);
+        ah.a(this.f, i);
+        ah.f(this.g, i);
         if (this.l != null) {
             this.l.a(i);
         }
@@ -93,8 +96,8 @@ public class v {
         AlertDialog.Builder builder = new AlertDialog.Builder(this.c);
         builder.setTitle(R.string.operation);
         builder.setItems(new String[]{string}, this.m);
-        this.a = builder.create();
-        this.a.setCanceledOnTouchOutside(true);
+        this.f953a = builder.create();
+        this.f953a.setCanceledOnTouchOutside(true);
     }
 
     public void a(AdapterView.OnItemClickListener onItemClickListener) {
@@ -142,8 +145,8 @@ public class v {
     }
 
     public void h() {
-        if (this.a != null) {
-            this.a.show();
+        if (this.f953a != null) {
+            this.f953a.show();
         }
     }
 

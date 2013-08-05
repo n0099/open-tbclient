@@ -2,7 +2,6 @@ package com.baidu.zeus;
 
 import android.text.format.Time;
 import com.baidu.location.LocationClientOption;
-import com.baidu.mapapi.MapView;
 import com.baidu.zeus.bouncycastle.DERTags;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -74,7 +73,7 @@ public final class HttpDateTime {
                 return 11;
             case 10:
                 return 1;
-            case DERTags.IA5_STRING /* 22 */:
+            case 22:
                 return 0;
             case DERTags.VISIBLE_STRING /* 26 */:
                 return 7;
@@ -92,7 +91,7 @@ public final class HttpDateTime {
                 return 6;
             case 42:
                 return 5;
-            case MapView.LayoutParams.TOP /* 48 */:
+            case 48:
                 return 10;
             default:
                 throw new IllegalArgumentException();

@@ -1,58 +1,41 @@
 package com.baidu.android.nebula.cmd;
 
-import android.os.Handler;
-import android.os.Looper;
-import android.os.Message;
-import com.baidu.android.nebula.localserver.util.BDLocationManager;
+import android.content.Context;
+import java.io.File;
 import java.util.Timer;
+import java.util.TimerTask;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class c extends Handler {
-    final /* synthetic */ GeoLocation a;
+public final class c extends TimerTask {
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ File f545a;
+    final /* synthetic */ String b;
+    final /* synthetic */ a c;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public c(GeoLocation geoLocation, Looper looper) {
-        super(looper);
-        this.a = geoLocation;
+    public c(a aVar, File file, String str) {
+        this.c = aVar;
+        this.f545a = file;
+        this.b = str;
     }
 
-    @Override // android.os.Handler
-    public void handleMessage(Message message) {
-        BDLocationManager bDLocationManager;
-        com.baidu.android.nebula.localserver.util.b bVar;
-        BDLocationManager bDLocationManager2;
-        boolean z;
-        BDLocationManager bDLocationManager3;
-        com.baidu.android.nebula.localserver.util.c cVar;
-        BDLocationManager bDLocationManager4;
+    @Override // java.util.TimerTask, java.lang.Runnable
+    public void run() {
+        String str;
         Timer timer;
-        Timer timer2;
-        this.a.mLocMgr = BDLocationManager.b(this.a.mContext);
-        synchronized (this.a) {
-            GeoLocation geoLocation = this.a;
-            bDLocationManager = this.a.mLocMgr;
-            geoLocation.mLocInfo = bDLocationManager.b();
-            bVar = this.a.mLocInfo;
-            if (bVar != null) {
-                this.a.mErrcode = 0;
-                timer = this.a.mTimeoutTm;
-                if (timer != null) {
-                    timer2 = this.a.mTimeoutTm;
-                    timer2.cancel();
-                }
-                this.a.notifyAll();
-                return;
-            }
-            this.a.mLocListener = new d(this);
-            bDLocationManager2 = this.a.mLocMgr;
-            z = this.a.mGpsEnabled;
-            bDLocationManager2.a(z);
-            bDLocationManager3 = this.a.mLocMgr;
-            cVar = this.a.mLocListener;
-            bDLocationManager3.a(cVar);
-            bDLocationManager4 = this.a.mLocMgr;
-            bDLocationManager4.c();
+        Context context;
+        cancel();
+        long length = this.f545a.length();
+        str = this.c.f543a.mFileLength;
+        if (length < Integer.parseInt(str)) {
+            this.c.a(this.b);
+            return;
         }
+        timer = this.c.c;
+        timer.cancel();
+        a aVar = this.c;
+        context = this.c.f543a.mContext;
+        aVar.a(context, this.f545a);
     }
 }

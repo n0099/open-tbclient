@@ -11,7 +11,9 @@ import java.util.Arrays;
 /* loaded from: classes.dex */
 public class ad {
     private static final Interpolator v = new ae();
-    private int a;
+
+    /* renamed from: a  reason: collision with root package name */
+    private int f334a;
     private int b;
     private int c;
     private float[] d;
@@ -35,7 +37,7 @@ public class ad {
     private final Runnable w;
 
     public int a() {
-        return this.a;
+        return this.f334a;
     }
 
     public int b() {
@@ -71,7 +73,7 @@ public class ad {
 
     public void f() {
         e();
-        if (this.a == 2) {
+        if (this.f334a == 2) {
             int b = this.q.b();
             int c = this.q.c();
             this.q.g();
@@ -130,10 +132,10 @@ public class ad {
         }
         int width = this.u.getWidth();
         int i4 = width / 2;
-        float a = (a(Math.min(1.0f, Math.abs(i) / width)) * i4) + i4;
+        float a2 = (a(Math.min(1.0f, Math.abs(i) / width)) * i4) + i4;
         int abs2 = Math.abs(i2);
         if (abs2 > 0) {
-            abs = Math.round(Math.abs(a / abs2) * 1000.0f) * 4;
+            abs = Math.round(Math.abs(a2 / abs2) * 1000.0f) * 4;
         } else {
             abs = (int) (((Math.abs(i) / i3) + 1.0f) * 256.0f);
         }
@@ -162,7 +164,7 @@ public class ad {
 
     public boolean a(boolean z) {
         boolean z2;
-        if (this.a == 2) {
+        if (this.f334a == 2) {
             boolean f = this.q.f();
             int b = this.q.b();
             int c = this.q.c();
@@ -191,14 +193,14 @@ public class ad {
                 }
             }
         }
-        return this.a == 2;
+        return this.f334a == 2;
     }
 
     private void a(float f, float f2) {
         this.t = true;
         this.r.a(this.s, f, f2);
         this.t = false;
-        if (this.a == 1) {
+        if (this.f334a == 1) {
             b(0);
         }
     }
@@ -285,8 +287,8 @@ public class ad {
     }
 
     void b(int i) {
-        if (this.a != i) {
-            this.a = i;
+        if (this.f334a != i) {
+            this.f334a = i;
             this.r.a(i);
             if (i == 0) {
                 this.s = null;
@@ -310,23 +312,23 @@ public class ad {
         int i;
         View e;
         View e2;
-        int a = android.support.v4.view.z.a(motionEvent);
+        int a2 = android.support.v4.view.z.a(motionEvent);
         int b = android.support.v4.view.z.b(motionEvent);
-        if (a == 0) {
+        if (a2 == 0) {
             e();
         }
         if (this.l == null) {
             this.l = VelocityTracker.obtain();
         }
         this.l.addMovement(motionEvent);
-        switch (a) {
+        switch (a2) {
             case 0:
                 float x = motionEvent.getX();
                 float y = motionEvent.getY();
                 int b2 = android.support.v4.view.z.b(motionEvent, 0);
                 a(x, y, b2);
                 View e3 = e((int) x, (int) y);
-                if (e3 == this.s && this.a == 2) {
+                if (e3 == this.s && this.f334a == 2) {
                     b(e3, b2);
                 }
                 int i2 = this.h[b2];
@@ -348,7 +350,7 @@ public class ad {
                     float f = c2 - this.d[b3];
                     float f2 = d - this.e[b3];
                     b(f, f2, b3);
-                    i = (this.a == 1 || ((e = e((int) c2, (int) d)) != null && a(e, f, f2) && b(e, b3))) ? 0 : i + 1;
+                    i = (this.f334a == 1 || ((e = e((int) c2, (int) d)) != null && a(e, f, f2) && b(e, b3))) ? 0 : i + 1;
                     c(motionEvent);
                     break;
                 }
@@ -359,13 +361,13 @@ public class ad {
                 float c3 = android.support.v4.view.z.c(motionEvent, b);
                 float d2 = android.support.v4.view.z.d(motionEvent, b);
                 a(c3, d2, b4);
-                if (this.a == 0) {
+                if (this.f334a == 0) {
                     int i3 = this.h[b4];
                     if ((this.p & i3) != 0) {
                         this.r.a(i3 & this.p, b4);
                         break;
                     }
-                } else if (this.a == 2 && (e2 = e((int) c3, (int) d2)) == this.s) {
+                } else if (this.f334a == 2 && (e2 = e((int) c3, (int) d2)) == this.s) {
                     b(e2, b4);
                     break;
                 }
@@ -374,22 +376,22 @@ public class ad {
                 e(android.support.v4.view.z.b(motionEvent, b));
                 break;
         }
-        return this.a == 1;
+        return this.f334a == 1;
     }
 
     public void b(MotionEvent motionEvent) {
         int i;
         int i2 = 0;
-        int a = android.support.v4.view.z.a(motionEvent);
+        int a2 = android.support.v4.view.z.a(motionEvent);
         int b = android.support.v4.view.z.b(motionEvent);
-        if (a == 0) {
+        if (a2 == 0) {
             e();
         }
         if (this.l == null) {
             this.l = VelocityTracker.obtain();
         }
         this.l.addMovement(motionEvent);
-        switch (a) {
+        switch (a2) {
             case 0:
                 float x = motionEvent.getX();
                 float y = motionEvent.getY();
@@ -404,16 +406,16 @@ public class ad {
                 }
                 return;
             case 1:
-                if (this.a == 1) {
+                if (this.f334a == 1) {
                     h();
                 }
                 e();
                 return;
             case 2:
-                if (this.a == 1) {
-                    int a2 = android.support.v4.view.z.a(motionEvent, this.c);
-                    float c = android.support.v4.view.z.c(motionEvent, a2);
-                    float d = android.support.v4.view.z.d(motionEvent, a2);
+                if (this.f334a == 1) {
+                    int a3 = android.support.v4.view.z.a(motionEvent, this.c);
+                    float c = android.support.v4.view.z.c(motionEvent, a3);
+                    float d = android.support.v4.view.z.d(motionEvent, a3);
                     int i4 = (int) (c - this.f[this.c]);
                     int i5 = (int) (d - this.g[this.c]);
                     b(this.s.getLeft() + i4, this.s.getTop() + i5, i4, i5);
@@ -428,7 +430,7 @@ public class ad {
                     float f = c3 - this.d[b3];
                     float f2 = d2 - this.e[b3];
                     b(f, f2, b3);
-                    if (this.a != 1) {
+                    if (this.f334a != 1) {
                         View e2 = e((int) c3, (int) d2);
                         if (!a(e2, f, f2) || !b(e2, b3)) {
                             i2++;
@@ -440,7 +442,7 @@ public class ad {
                 c(motionEvent);
                 return;
             case 3:
-                if (this.a == 1) {
+                if (this.f334a == 1) {
                     a(0.0f, 0.0f);
                 }
                 e();
@@ -453,7 +455,7 @@ public class ad {
                 float c4 = android.support.v4.view.z.c(motionEvent, b);
                 float d3 = android.support.v4.view.z.d(motionEvent, b);
                 a(c4, d3, b4);
-                if (this.a == 0) {
+                if (this.f334a == 0) {
                     b(e((int) c4, (int) d3), b4);
                     int i6 = this.h[b4];
                     if ((this.p & i6) != 0) {
@@ -469,7 +471,7 @@ public class ad {
                 }
             case 6:
                 int b5 = android.support.v4.view.z.b(motionEvent, b);
-                if (this.a == 1 && b5 == this.c) {
+                if (this.f334a == 1 && b5 == this.c) {
                     int c5 = android.support.v4.view.z.c(motionEvent);
                     while (true) {
                         if (i2 >= c5) {

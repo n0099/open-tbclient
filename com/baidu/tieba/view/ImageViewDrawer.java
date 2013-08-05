@@ -9,9 +9,12 @@ import android.util.AttributeSet;
 import android.widget.ImageView;
 import com.baidu.tieba.TiebaApplication;
 import com.slidingmenu.lib.R;
+import com.tencent.mm.sdk.platformtools.Util;
 /* loaded from: classes.dex */
 public class ImageViewDrawer extends ImageView {
-    private Bitmap a;
+
+    /* renamed from: a  reason: collision with root package name */
+    private Bitmap f1801a;
     private int b;
     private String c;
     private int d;
@@ -19,39 +22,45 @@ public class ImageViewDrawer extends ImageView {
     private Paint f;
     private Handler g;
 
+    @Override // android.widget.ImageView
+    public void setImageResource(int i) {
+        super.setImageResource(i);
+        setDefaultId(i);
+    }
+
     public ImageViewDrawer(Context context) {
         super(context);
-        this.a = com.baidu.tieba.util.d.a((int) R.drawable.icon_gif);
+        this.f1801a = com.baidu.tieba.util.e.a((int) R.drawable.icon_gif);
         this.b = -1;
         this.c = null;
         this.d = R.drawable.pic_image_h_not;
         this.e = R.drawable.pic_image_h_not_1;
         this.f = new Paint();
-        this.g = new ad(this);
+        this.g = new ah(this);
         c();
     }
 
     public ImageViewDrawer(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.a = com.baidu.tieba.util.d.a((int) R.drawable.icon_gif);
+        this.f1801a = com.baidu.tieba.util.e.a((int) R.drawable.icon_gif);
         this.b = -1;
         this.c = null;
         this.d = R.drawable.pic_image_h_not;
         this.e = R.drawable.pic_image_h_not_1;
         this.f = new Paint();
-        this.g = new ad(this);
+        this.g = new ah(this);
         c();
     }
 
     public ImageViewDrawer(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.a = com.baidu.tieba.util.d.a((int) R.drawable.icon_gif);
+        this.f1801a = com.baidu.tieba.util.e.a((int) R.drawable.icon_gif);
         this.b = -1;
         this.c = null;
         this.d = R.drawable.pic_image_h_not;
         this.e = R.drawable.pic_image_h_not_1;
         this.f = new Paint();
-        this.g = new ad(this);
+        this.g = new ah(this);
         c();
     }
 
@@ -59,6 +68,7 @@ public class ImageViewDrawer extends ImageView {
         this.f.setAntiAlias(true);
         this.f.setFilterBitmap(true);
         this.f.setDither(true);
+        this.f.setColor(-1973533);
     }
 
     public void a() {
@@ -96,7 +106,6 @@ public class ImageViewDrawer extends ImageView {
         String str;
         boolean z;
         boolean z2 = false;
-        super.onDraw(canvas);
         if (this.c != null) {
             str = this.c;
         } else {
@@ -114,22 +123,34 @@ public class ImageViewDrawer extends ImageView {
                 d = getDefalutBitmap();
             }
             if (d != null) {
-                d.a(canvas, (getWidth() - d.a()) >> 1, (getHeight() - d.b()) >> 1, (Paint) null);
+                if (getScaleType() == ImageView.ScaleType.FIT_XY) {
+                    d.a(canvas, getWidth(), getHeight(), (Paint) null);
+                } else {
+                    d.a(canvas, (getWidth() - d.a()) >> 1, (getHeight() - d.b()) >> 1, (Paint) null);
+                }
                 if (z2) {
-                    canvas.drawBitmap(this.a, 0.0f, 0.0f, (Paint) null);
+                    canvas.drawBitmap(this.f1801a, 0.0f, 0.0f, (Paint) null);
                 }
             }
         } else if (d != null) {
-            int i = (this.b * 255) / 10;
+            int i = (this.b * Util.MASK_8BIT) / 10;
             com.baidu.adp.widget.a.b defalutBitmap = getDefalutBitmap();
             if (defalutBitmap != null) {
                 this.f.setAlpha(i);
-                defalutBitmap.a(canvas, (getWidth() - defalutBitmap.a()) >> 1, (getHeight() - defalutBitmap.b()) >> 1, this.f);
+                if (getScaleType() == ImageView.ScaleType.FIT_XY) {
+                    defalutBitmap.a(canvas, getWidth(), getHeight(), this.f);
+                } else {
+                    defalutBitmap.a(canvas, (getWidth() - defalutBitmap.a()) >> 1, (getHeight() - defalutBitmap.b()) >> 1, this.f);
+                }
             }
             this.f.setAlpha(255 - i);
-            d.a(canvas, (getWidth() - d.a()) >> 1, (getHeight() - d.b()) >> 1, this.f);
+            if (getScaleType() == ImageView.ScaleType.FIT_XY) {
+                d.a(canvas, getWidth(), getHeight(), this.f);
+            } else {
+                d.a(canvas, (getWidth() - d.a()) >> 1, (getHeight() - d.b()) >> 1, this.f);
+            }
             if (z2) {
-                canvas.drawBitmap(this.a, 0.0f, 0.0f, (Paint) null);
+                canvas.drawBitmap(this.f1801a, 0.0f, 0.0f, (Paint) null);
             }
         } else {
             com.baidu.adp.widget.a.b defalutBitmap2 = getDefalutBitmap();
@@ -137,12 +158,12 @@ public class ImageViewDrawer extends ImageView {
                 defalutBitmap2.a(canvas, (getWidth() - defalutBitmap2.a()) >> 1, (getHeight() - defalutBitmap2.b()) >> 1, (Paint) null);
             }
         }
-        if (TiebaApplication.f().at() == 1 && z) {
+        if (TiebaApplication.f().au() == 1 && z) {
             canvas.drawColor(1275068416);
         }
     }
 
     private com.baidu.adp.widget.a.b getDefalutBitmap() {
-        return TiebaApplication.f().at() == 1 ? new com.baidu.adp.widget.a.b(com.baidu.tieba.util.d.a(this.e), false, null) : new com.baidu.adp.widget.a.b(com.baidu.tieba.util.d.a(this.d), false, null);
+        return TiebaApplication.f().au() == 1 ? new com.baidu.adp.widget.a.b(com.baidu.tieba.util.e.a(this.e), false, null) : new com.baidu.adp.widget.a.b(com.baidu.tieba.util.e.a(this.d), false, null);
     }
 }

@@ -1,17 +1,20 @@
 package com.baidu.tieba.account;
 
 import com.baidu.tieba.data.AccountData;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class al implements o {
-    final /* synthetic */ ReLoginActivity a;
+public class al implements p {
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ ReLoginActivity f860a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public al(ReLoginActivity reLoginActivity) {
-        this.a = reLoginActivity;
+        this.f860a = reLoginActivity;
     }
 
-    @Override // com.baidu.tieba.account.o
+    @Override // com.baidu.tieba.account.p
     public void a(AccountData accountData) {
-        this.a.finish();
+        this.f860a.a(accountData);
     }
 }

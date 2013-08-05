@@ -1,6 +1,5 @@
 package com.baidu.cyberplayer.sdk.internal;
 
-import com.baidu.zeus.NotificationProxy;
 import java.io.File;
 import java.io.FileInputStream;
 import java.math.BigInteger;
@@ -84,12 +83,12 @@ public class FileUtils {
         if (!file.isFile()) {
             return null;
         }
-        byte[] bArr = new byte[NotificationProxy.MAX_URL_LENGTH];
+        byte[] bArr = new byte[1024];
         try {
             MessageDigest messageDigest = MessageDigest.getInstance("MD5");
             FileInputStream fileInputStream = new FileInputStream(file);
             while (true) {
-                int read = fileInputStream.read(bArr, 0, NotificationProxy.MAX_URL_LENGTH);
+                int read = fileInputStream.read(bArr, 0, 1024);
                 if (read != -1) {
                     messageDigest.update(bArr, 0, read);
                 } else {

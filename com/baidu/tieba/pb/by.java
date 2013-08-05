@@ -1,39 +1,26 @@
 package com.baidu.tieba.pb;
 
-import android.view.MotionEvent;
-import android.view.View;
-import com.baidu.mobstat.StatService;
-import com.baidu.tieba.TiebaApplication;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.widget.ImageView;
+import com.baidu.tieba.view.KeyboardEventLayout;
 /* loaded from: classes.dex */
-public class by implements View.OnTouchListener {
-    final /* synthetic */ bk a;
+class by implements Runnable {
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ bx f1493a;
+    private final /* synthetic */ ImageView b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public by(bk bkVar) {
-        this.a = bkVar;
+    public by(bx bxVar, ImageView imageView) {
+        this.f1493a = bxVar;
+        this.b = imageView;
     }
 
-    @Override // android.view.View.OnTouchListener
-    public boolean onTouch(View view, MotionEvent motionEvent) {
-        boolean z;
-        com.baidu.tieba.g gVar;
-        com.baidu.tieba.g gVar2;
-        if (motionEvent.getAction() == 1) {
-            z = this.a.an;
-            if (!z && !this.a.y()) {
-                this.a.z();
-                this.a.V();
-                this.a.a.setSelection(this.a.a.getText().length());
-                this.a.a.requestFocus();
-                gVar = this.a.b;
-                gVar.a(this.a.a, 100);
-                if (TiebaApplication.f().t()) {
-                    gVar2 = this.a.b;
-                    StatService.onEvent(gVar2, "pb_reply", "pbclick", 1);
-                }
-            }
-        }
-        return false;
+    @Override // java.lang.Runnable
+    public void run() {
+        bn bnVar;
+        KeyboardEventLayout keyboardEventLayout;
+        bnVar = this.f1493a.f1492a;
+        keyboardEventLayout = bnVar.c;
+        keyboardEventLayout.removeView(this.b);
     }
 }

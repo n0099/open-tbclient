@@ -1,62 +1,41 @@
 package com.baidu.tieba.data;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import org.json.JSONArray;
-import org.json.JSONObject;
+import android.content.Context;
+import android.text.TextPaint;
+import android.text.style.ClickableSpan;
+import android.view.View;
+import com.baidu.tieba.person.PersonInfoActivity;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ax {
-    private ArrayList a = new ArrayList();
+public class ax extends ClickableSpan {
 
-    public void a(JSONObject jSONObject, HashMap hashMap) {
-        String str;
-        try {
-            JSONArray optJSONArray = jSONObject.optJSONArray("uname");
-            int i = 0;
-            while (true) {
-                int i2 = i;
-                if (i2 < optJSONArray.length()) {
-                    MetaData metaData = new MetaData();
-                    metaData.setName_show(optJSONArray.optString(i2));
-                    if (hashMap != null && (str = (String) hashMap.get(metaData.getName_show())) != null) {
-                        metaData.setPortrait(str);
-                    }
-                    this.a.add(metaData);
-                    i = i2 + 1;
-                } else {
-                    return;
-                }
-            }
-        } catch (Exception e) {
-            com.baidu.tieba.util.z.b("AtListModel", "parserSuggestJson", "error = " + e.getMessage());
-        }
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ aw f988a;
+    private String b;
+    private String c;
+    private Context d;
+
+    public ax(aw awVar, Context context, String str, String str2) {
+        this.f988a = awVar;
+        this.b = null;
+        this.c = null;
+        this.d = null;
+        this.b = str;
+        this.c = str2;
+        this.d = context;
     }
 
-    public void a(String str, HashMap hashMap) {
-        try {
-            a(new JSONObject(str), hashMap);
-        } catch (Exception e) {
-            com.baidu.tieba.util.z.b("AtListModel", "parserSuggestJson", "error = " + e.getMessage());
-        }
+    @Override // android.text.style.ClickableSpan, android.text.style.CharacterStyle
+    public void updateDrawState(TextPaint textPaint) {
+        textPaint.setColor(-9989158);
+        textPaint.setUnderlineText(false);
+        textPaint.setFakeBoldText(false);
     }
 
-    public void a(HashMap hashMap) {
-        if (hashMap != null) {
-            int i = 0;
-            while (true) {
-                int i2 = i;
-                if (i2 < this.a.size()) {
-                    MetaData metaData = (MetaData) this.a.get(i2);
-                    metaData.setPortrait((String) hashMap.get(metaData.getName_show()));
-                    i = i2 + 1;
-                } else {
-                    return;
-                }
-            }
+    @Override // android.text.style.ClickableSpan
+    public void onClick(View view) {
+        if (this.b != null && this.c != null && this.d != null) {
+            PersonInfoActivity.a(this.d, this.c, this.b);
         }
-    }
-
-    public ArrayList a() {
-        return this.a;
     }
 }

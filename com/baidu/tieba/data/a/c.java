@@ -1,13 +1,14 @@
 package com.baidu.tieba.data.a;
 
-import com.baidu.android.pushservice.PushConstants;
-import com.baidu.tieba.util.z;
+import com.baidu.tieba.util.aj;
 import java.util.LinkedList;
 import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class c {
-    private String a = null;
+
+    /* renamed from: a  reason: collision with root package name */
+    private String f960a = null;
     private String b = null;
     private String c = null;
     private String d = null;
@@ -21,7 +22,7 @@ public class c {
     }
 
     public void a(String str) {
-        this.a = str;
+        this.f960a = str;
     }
 
     public void b(String str) {
@@ -142,7 +143,7 @@ public class c {
         try {
             a(new JSONObject(str));
         } catch (Exception e) {
-            z.b(getClass().getName(), "parserJson", e.toString());
+            aj.b(getClass().getName(), "parserJson", e.toString());
         }
     }
 
@@ -155,18 +156,18 @@ public class c {
             }
             this.d = jSONObject.optString("com_portrait");
             this.e = jSONObject.optString("user_portrait");
-            JSONArray optJSONArray = jSONObject.optJSONArray(PushConstants.EXTRA_PUSH_MESSAGE);
+            JSONArray optJSONArray = jSONObject.optJSONArray("message");
             if (optJSONArray != null) {
                 for (int i = 0; i < optJSONArray.length(); i++) {
                     d dVar = new d();
                     dVar.a(optJSONArray.getJSONObject(i));
-                    dVar.b(this.a);
+                    dVar.b(this.f960a);
                     dVar.a(this.c);
                     this.g.add(dVar);
                 }
             }
         } catch (Exception e) {
-            z.b(getClass().getName(), "parserJson", e.toString());
+            aj.b(getClass().getName(), "parserJson", e.toString());
         }
     }
 

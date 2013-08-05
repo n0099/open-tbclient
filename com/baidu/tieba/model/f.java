@@ -13,7 +13,9 @@ public class f {
     private i c = null;
     private g d = null;
     private int f = 0;
-    protected com.baidu.tieba.j a = null;
+
+    /* renamed from: a  reason: collision with root package name */
+    protected com.baidu.tieba.j f1370a = null;
     private ArrayList e = new ArrayList();
 
     public int a() {
@@ -32,7 +34,9 @@ public class f {
     }
 
     public void b(ArrayList arrayList) {
-        this.e.addAll(arrayList);
+        if (this.e != null && arrayList != null) {
+            this.e.addAll(arrayList);
+        }
     }
 
     public void a(MarkData markData) {
@@ -89,7 +93,7 @@ public class f {
                     i5--;
                     i4 = i3;
                 } catch (Exception e) {
-                    com.baidu.tieba.util.z.b(getClass().getName(), "toJson", e.toString());
+                    com.baidu.tieba.util.aj.b(getClass().getName(), "toJson", e.toString());
                     jSONArray = null;
                 }
             }
@@ -104,7 +108,7 @@ public class f {
         try {
             a(new JSONObject(str));
         } catch (Exception e) {
-            com.baidu.tieba.util.z.b(getClass().getName(), "parserJson", e.toString());
+            com.baidu.tieba.util.aj.b(getClass().getName(), "parserJson", e.toString());
         }
     }
 
@@ -119,7 +123,7 @@ public class f {
                 }
             }
         } catch (Exception e) {
-            com.baidu.tieba.util.z.b(getClass().getName(), "parserJson", e.toString());
+            com.baidu.tieba.util.aj.b(getClass().getName(), "parserJson", e.toString());
         }
     }
 
@@ -175,6 +179,6 @@ public class f {
     }
 
     public void a(com.baidu.tieba.j jVar) {
-        this.a = jVar;
+        this.f1370a = jVar;
     }
 }

@@ -1,33 +1,25 @@
 package com.baidu.android.pushservice.a;
-
-import android.content.Context;
-import com.baidu.android.pushservice.PushConstants;
-import java.util.List;
-import org.apache.http.message.BasicNameValuePair;
-import org.json.JSONArray;
 /* loaded from: classes.dex */
-public class g extends b {
-    String[] e;
+public class g {
 
-    public g(h hVar, Context context, String[] strArr) {
-        super(hVar, context);
-        this.e = strArr;
+    /* renamed from: a  reason: collision with root package name */
+    private String f568a;
+    private String b;
+
+    public g(String str, String str2) {
+        this.f568a = str;
+        this.b = str2;
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.android.pushservice.a.b
-    public void a(List list) {
-        super.a(list);
-        int length = this.e.length;
-        if (length == 0) {
-            a(PushConstants.ERROR_PARAMS_ERROR);
-            return;
-        }
-        list.add(new BasicNameValuePair(PushConstants.EXTRA_METHOD, "delete"));
-        JSONArray jSONArray = new JSONArray();
-        for (int i = 0; i < length; i++) {
-            jSONArray.put(this.e[i]);
-        }
-        list.add(new BasicNameValuePair(PushConstants.EXTRA_MSG_IDS, jSONArray.toString()));
+    public String a() {
+        return this.f568a;
+    }
+
+    public String b() {
+        return this.b;
+    }
+
+    public String toString() {
+        return "BindCache [mApiKey=" + this.f568a + ", mContent=" + this.b + "]";
     }
 }

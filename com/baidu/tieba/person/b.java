@@ -6,26 +6,28 @@ import com.slidingmenu.lib.R;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class b implements AdapterView.OnItemClickListener {
-    final /* synthetic */ AllPostActivity a;
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ AllPostActivity f1586a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(AllPostActivity allPostActivity) {
-        this.a = allPostActivity;
+        this.f1586a = allPostActivity;
     }
 
     @Override // android.widget.AdapterView.OnItemClickListener
     public void onItemClick(AdapterView adapterView, View view, int i, long j) {
-        switch (this.a.e.getItemViewType(i)) {
+        switch (this.f1586a.e.getItemViewType(i)) {
             case 0:
             case 1:
             default:
                 return;
             case 2:
-                if (this.a.f.f()) {
-                    this.a.b(1);
+                if (this.f1586a.f.f()) {
+                    this.f1586a.b(1);
                     return;
                 } else {
-                    this.a.a(this.a.getString(R.string.no_more_to_load));
+                    this.f1586a.a(this.f1586a.getString(R.string.no_more_to_load));
                     return;
                 }
         }

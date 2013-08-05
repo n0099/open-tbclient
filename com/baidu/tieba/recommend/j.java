@@ -1,35 +1,22 @@
 package com.baidu.tieba.recommend;
+
+import android.view.View;
+import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-public class j {
-    public String a;
-    public String b;
+class j implements Runnable {
 
-    public j(String str, String str2) {
-        this.a = "";
-        this.b = "";
-        this.a = str;
-        this.b = str2;
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ c f1669a;
+    private final /* synthetic */ View b;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public j(c cVar, View view) {
+        this.f1669a = cVar;
+        this.b = view;
     }
 
-    public int hashCode() {
-        return (((this.a == null ? 0 : this.a.hashCode()) + 31) * 31) + (this.b != null ? this.b.hashCode() : 0);
-    }
-
-    public boolean equals(Object obj) {
-        if (this == obj) {
-            return true;
-        }
-        if (obj != null && getClass() == obj.getClass()) {
-            j jVar = (j) obj;
-            if (this.a == null) {
-                if (jVar.a != null) {
-                    return false;
-                }
-            } else if (!this.a.equals(jVar.a)) {
-                return false;
-            }
-            return this.b == null ? jVar.b == null : this.b.equals(jVar.b);
-        }
-        return false;
+    @Override // java.lang.Runnable
+    public void run() {
+        this.b.findViewById(R.id.time).setVisibility(4);
     }
 }

@@ -1,23 +1,25 @@
 package com.baidu.tieba.write;
 
 import android.content.DialogInterface;
-import com.baidu.tieba.model.WriteModel;
+import com.baidu.tieba.data.WriteData;
 import com.baidu.tieba.util.DatabaseService;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ad implements DialogInterface.OnClickListener {
-    final /* synthetic */ WriteActivity a;
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ WriteActivity f1874a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ad(WriteActivity writeActivity) {
-        this.a = writeActivity;
+        this.f1874a = writeActivity;
     }
 
     @Override // android.content.DialogInterface.OnClickListener
     public void onClick(DialogInterface dialogInterface, int i) {
-        WriteModel writeModel;
-        writeModel = this.a.a;
-        DatabaseService.a(writeModel);
-        this.a.finish();
+        WriteData writeData;
+        writeData = this.f1874a.f1868a;
+        DatabaseService.a(writeData);
+        this.f1874a.finish();
     }
 }

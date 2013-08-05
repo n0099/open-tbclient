@@ -1,24 +1,22 @@
 package com.baidu.tieba.pb;
 
-import android.widget.ImageView;
-import com.baidu.tieba.view.KeyboardEventLayout;
+import android.widget.CompoundButton;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class bv implements Runnable {
-    final /* synthetic */ bu a;
-    private final /* synthetic */ ImageView b;
+public class bv implements CompoundButton.OnCheckedChangeListener {
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ bn f1490a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bv(bu buVar, ImageView imageView) {
-        this.a = buVar;
-        this.b = imageView;
+    public bv(bn bnVar) {
+        this.f1490a = bnVar;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        bk bkVar;
-        KeyboardEventLayout keyboardEventLayout;
-        bkVar = this.a.a;
-        keyboardEventLayout = bkVar.c;
-        keyboardEventLayout.removeView(this.b);
+    @Override // android.widget.CompoundButton.OnCheckedChangeListener
+    public void onCheckedChanged(CompoundButton compoundButton, boolean z) {
+        if (z) {
+            this.f1490a.am = (String) compoundButton.getTag();
+        }
     }
 }

@@ -8,8 +8,9 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
 import java.util.TimeZone;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-final class DefaultDateTypeAdapter implements JsonDeserializer, JsonSerializer {
+public final class DefaultDateTypeAdapter implements JsonDeserializer, JsonSerializer {
     private final DateFormat enUsFormat;
     private final DateFormat iso8601Format;
     private final DateFormat localFormat;

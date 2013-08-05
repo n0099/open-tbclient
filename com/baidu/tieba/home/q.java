@@ -5,11 +5,13 @@ import android.webkit.WebView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class q extends WebChromeClient {
-    final /* synthetic */ ForumTopicActivity a;
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ ForumTopicActivity f1160a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public q(ForumTopicActivity forumTopicActivity) {
-        this.a = forumTopicActivity;
+        this.f1160a = forumTopicActivity;
     }
 
     @Override // android.webkit.WebChromeClient
@@ -18,6 +20,6 @@ public class q extends WebChromeClient {
         if (i != 100) {
             return;
         }
-        this.a.o();
+        this.f1160a.m();
     }
 }

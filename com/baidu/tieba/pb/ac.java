@@ -8,8 +8,10 @@ import java.util.ArrayList;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ac extends BdAsyncTask {
-    final /* synthetic */ ImagePbActivity a;
-    private com.baidu.tieba.util.r b;
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ ImagePbActivity f1445a;
+    private com.baidu.tieba.util.u b;
     private ArrayList c;
     private String d;
     private boolean f;
@@ -17,7 +19,7 @@ public class ac extends BdAsyncTask {
     private boolean g = false;
 
     public ac(ImagePbActivity imagePbActivity, String str, ArrayList arrayList, boolean z) {
-        this.a = imagePbActivity;
+        this.f1445a = imagePbActivity;
         this.c = null;
         this.d = null;
         this.f = false;
@@ -32,19 +34,19 @@ public class ac extends BdAsyncTask {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     /* renamed from: d */
     public String a(Object... objArr) {
-        this.b = new com.baidu.tieba.util.r(this.d);
+        this.b = new com.baidu.tieba.util.u(this.d);
         this.b.a(this.c);
-        this.e = this.b.j();
+        this.e = this.b.k();
         return this.e;
     }
 
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void cancel() {
         if (this.b != null) {
-            this.b.h();
+            this.b.i();
         }
-        this.a.a = null;
-        this.a.a(false);
+        this.f1445a.f1437a = null;
+        this.f1445a.a(false);
         this.g = true;
         super.cancel(true);
     }
@@ -52,15 +54,15 @@ public class ac extends BdAsyncTask {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(wrap: int : 0x0056: INVOKE  (r3v3 int A[REMOVE]) = 
       (wrap: java.util.LinkedList : 0x0052: INVOKE  (r3v2 java.util.LinkedList A[REMOVE]) = 
-      (wrap: com.baidu.tieba.data.w : 0x004e: IGET  (r3v1 com.baidu.tieba.data.w A[REMOVE]) = 
+      (wrap: com.baidu.tieba.data.aa : 0x004e: IGET  (r3v1 com.baidu.tieba.data.aa A[REMOVE]) = 
       (wrap: com.baidu.tieba.pb.ImagePbActivity : 0x004c: IGET  (r3v0 com.baidu.tieba.pb.ImagePbActivity A[REMOVE]) = (r6v0 'this' com.baidu.tieba.pb.ac A[IMMUTABLE_TYPE, THIS]) com.baidu.tieba.pb.ac.a com.baidu.tieba.pb.ImagePbActivity)
-     com.baidu.tieba.pb.ImagePbActivity.H com.baidu.tieba.data.w)
-     type: VIRTUAL call: com.baidu.tieba.data.w.h():java.util.LinkedList)
+     com.baidu.tieba.pb.ImagePbActivity.H com.baidu.tieba.data.aa)
+     type: VIRTUAL call: com.baidu.tieba.data.aa.h():java.util.LinkedList)
      type: VIRTUAL call: java.util.LinkedList.size():int)] */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void a(String str) {
-        com.baidu.tieba.data.w wVar;
+        com.baidu.tieba.data.aa aaVar;
         String str2;
         ImagePbPagerAdapter imagePbPagerAdapter;
         ImagePbPagerAdapter imagePbPagerAdapter2;
@@ -68,49 +70,49 @@ public class ac extends BdAsyncTask {
         boolean z;
         super.a((Object) str);
         if (!this.g) {
-            if (this.b != null && this.b.d() && this.a.H != null) {
-                if (this.b.c()) {
-                    if (!this.a.H.a()) {
-                        this.a.H.a(this.e, true);
+            if (this.b != null && this.b.e() && this.f1445a.H != null) {
+                if (this.b.d()) {
+                    if (!this.f1445a.H.a()) {
+                        this.f1445a.H.a(this.e, true);
                     }
-                    com.baidu.tieba.util.z.a(getClass().getName(), "onPostExecute", new StringBuilder().append(this.a.H.h().size()).toString());
-                    com.baidu.tieba.data.w wVar2 = this.a.H;
-                    str2 = this.a.D;
-                    wVar2.c(str2);
-                    imagePbPagerAdapter = this.a.A;
-                    imagePbPagerAdapter.a(this.a.H);
-                    imagePbPagerAdapter2 = this.a.A;
+                    com.baidu.tieba.util.aj.a(getClass().getName(), "onPostExecute", new StringBuilder().append(this.f1445a.H.h().size()).toString());
+                    com.baidu.tieba.data.aa aaVar2 = this.f1445a.H;
+                    str2 = this.f1445a.D;
+                    aaVar2.c(str2);
+                    imagePbPagerAdapter = this.f1445a.A;
+                    imagePbPagerAdapter.a(this.f1445a.H);
+                    imagePbPagerAdapter2 = this.f1445a.A;
                     imagePbPagerAdapter2.notifyDataSetChanged();
-                    myOnPageChangeListener = this.a.L;
-                    myOnPageChangeListener.a_(this.a.K);
-                    z = this.a.C;
+                    myOnPageChangeListener = this.f1445a.L;
+                    myOnPageChangeListener.a_(this.f1445a.K);
+                    z = this.f1445a.C;
                     if (z) {
-                        this.a.Q.removeCallbacks(this.a.R);
-                        this.a.Q.post(this.a.R);
+                        this.f1445a.Q.removeCallbacks(this.f1445a.R);
+                        this.f1445a.Q.post(this.f1445a.R);
                     } else if (this.f) {
-                        this.a.b(1);
+                        this.f1445a.b(1);
                     } else {
-                        this.a.b(2);
+                        this.f1445a.b(2);
                     }
-                    this.a.m();
-                    if (this.a.K >= this.a.H.h().size() && this.a.K < this.a.H.k() && this.a.H.h().size() < this.a.H.k()) {
-                        this.a.a(this.a.H.l(), 0, 10, false);
+                    this.f1445a.k();
+                    if (this.f1445a.K >= this.f1445a.H.h().size() && this.f1445a.K < this.f1445a.H.k() && this.f1445a.H.h().size() < this.f1445a.H.k()) {
+                        this.f1445a.a(this.f1445a.H.l(), 0, 10, false);
                     }
                 } else {
-                    this.a.a(this.a.getString(R.string.pb_nodata));
+                    this.f1445a.a(this.f1445a.getString(R.string.pb_nodata));
                     if (this.f) {
-                        wVar = this.a.I;
-                        if (wVar != null) {
-                            this.a.b_(0);
+                        aaVar = this.f1445a.I;
+                        if (aaVar != null) {
+                            this.f1445a.b_(0);
                         }
                     }
-                    this.a.finish();
+                    this.f1445a.finish();
                 }
             } else {
-                this.a.a(this.a.getString(R.string.neterror));
+                this.f1445a.a(this.f1445a.getString(R.string.neterror));
             }
-            this.a.a = null;
-            this.a.a(false);
+            this.f1445a.f1437a = null;
+            this.f1445a.a(false);
         }
     }
 }

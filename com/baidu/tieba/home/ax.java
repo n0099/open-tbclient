@@ -13,17 +13,19 @@ import org.apache.http.message.BasicNameValuePair;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ax extends BdAsyncTask {
-    ArrayList a;
+
+    /* renamed from: a  reason: collision with root package name */
+    ArrayList f1136a;
     final /* synthetic */ SearchActivity b;
-    private com.baidu.tieba.util.r c = null;
+    private com.baidu.tieba.util.u c = null;
     private String d;
 
     public ax(SearchActivity searchActivity, String str, ArrayList arrayList) {
         this.b = searchActivity;
         this.d = null;
-        this.a = null;
+        this.f1136a = null;
         this.d = str;
-        this.a = arrayList;
+        this.f1136a = arrayList;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -36,8 +38,8 @@ public class ax extends BdAsyncTask {
         textView = this.b.v;
         textView.setVisibility(8);
         SearchActivity searchActivity = this.b;
-        editText = this.b.a;
-        com.baidu.tieba.util.ab.a(searchActivity, editText);
+        editText = this.b.f1110a;
+        com.baidu.tieba.util.am.a(searchActivity, editText);
         listView = this.b.p;
         if (listView.getVisibility() != 0) {
             progressBar = this.b.s;
@@ -49,33 +51,33 @@ public class ax extends BdAsyncTask {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     /* renamed from: d */
-    public com.baidu.tieba.data.au a(Object... objArr) {
-        com.baidu.tieba.data.au auVar;
+    public com.baidu.tieba.data.bd a(Object... objArr) {
+        com.baidu.tieba.data.bd bdVar;
         Exception e;
         String str;
         try {
-            this.c = new com.baidu.tieba.util.r(this.d);
-            Iterator it = this.a.iterator();
+            this.c = new com.baidu.tieba.util.u(this.d);
+            Iterator it = this.f1136a.iterator();
             while (it.hasNext()) {
                 this.c.a((BasicNameValuePair) it.next());
             }
-            String j = this.c.j();
-            if (!this.c.c() || j == null) {
+            String k = this.c.k();
+            if (!this.c.d() || k == null) {
                 return null;
             }
-            auVar = new com.baidu.tieba.data.au();
+            bdVar = new com.baidu.tieba.data.bd();
             try {
-                auVar.a(j);
+                bdVar.a(k);
                 str = this.b.A;
                 DatabaseService.o(str);
-                return auVar;
+                return bdVar;
             } catch (Exception e2) {
                 e = e2;
-                com.baidu.tieba.util.z.b(getClass().getName(), "", "doInBackground error = " + e.getMessage());
-                return auVar;
+                com.baidu.tieba.util.aj.b(getClass().getName(), "", "doInBackground error = " + e.getMessage());
+                return bdVar;
             }
         } catch (Exception e3) {
-            auVar = null;
+            bdVar = null;
             e = e3;
         }
     }
@@ -83,7 +85,7 @@ public class ax extends BdAsyncTask {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void a(com.baidu.tieba.data.au auVar) {
+    public void a(com.baidu.tieba.data.bd bdVar) {
         ProgressBar progressBar;
         bb bbVar;
         bb bbVar2;
@@ -94,11 +96,11 @@ public class ax extends BdAsyncTask {
         bbVar.a(0);
         bbVar2 = this.b.r;
         bbVar2.notifyDataSetChanged();
-        if (auVar != null && this.c != null && this.c.c()) {
-            this.b.x = auVar;
+        if (bdVar != null && this.c != null && this.c.d()) {
+            this.b.x = bdVar;
             bbVar3 = this.b.r;
             bbVar3.notifyDataSetChanged();
-            this.b.r();
+            this.b.p();
         } else {
             this.b.a(this.b.getString(R.string.neterror));
         }
@@ -109,7 +111,7 @@ public class ax extends BdAsyncTask {
     public void cancel() {
         ProgressBar progressBar;
         if (this.c != null) {
-            this.c.h();
+            this.c.i();
             this.c = null;
         }
         progressBar = this.b.s;

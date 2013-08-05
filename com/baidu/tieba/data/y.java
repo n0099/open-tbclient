@@ -1,38 +1,36 @@
 package com.baidu.tieba.data;
 
-import java.util.ArrayList;
-import java.util.List;
-import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
-public class y extends z {
-    private List a = new ArrayList();
-    private boolean b;
+public class y {
 
-    public boolean a() {
+    /* renamed from: a  reason: collision with root package name */
+    private String f1031a = null;
+    private int b = 0;
+
+    public void a(String str) {
+        this.f1031a = str;
+    }
+
+    public String a() {
+        return this.f1031a;
+    }
+
+    public void a(int i) {
+        this.b = i;
+    }
+
+    public int b() {
         return this.b;
     }
 
-    public List b() {
-        return this.a;
-    }
-
-    @Override // com.baidu.tieba.data.z
     public void a(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                this.b = jSONObject.optInt("is_selected", 0) == 1;
-                super.a(jSONObject);
-                JSONArray optJSONArray = jSONObject.optJSONArray("level2_info");
-                if (optJSONArray != null) {
-                    for (int i = 0; i < optJSONArray.length(); i++) {
-                        z zVar = new z();
-                        zVar.a(optJSONArray.getJSONObject(i));
-                        this.a.add(zVar);
-                    }
-                }
+                this.b = jSONObject.optInt("class_id", 0);
+                this.f1031a = jSONObject.optString("class_name");
             } catch (Exception e) {
-                com.baidu.tieba.util.z.b("LabelBigBallData", "parserJson", "error = " + e.getMessage());
+                com.baidu.tieba.util.aj.b("GoodData", "parserJson", "error = " + e.getMessage());
             }
         }
     }

@@ -6,13 +6,16 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewParent;
 import android.widget.TextView;
+import com.tencent.mm.sdk.platformtools.Util;
 import java.lang.ref.WeakReference;
 /* loaded from: classes.dex */
 public class PagerTitleStrip extends ViewGroup implements bl {
     private static final int[] n = {16842804, 16842901, 16842904, 16842927};
     private static final int[] o = {16843660};
     private static final ag q;
-    ViewPager a;
+
+    /* renamed from: a  reason: collision with root package name */
+    ViewPager f307a;
     TextView b;
     TextView c;
     TextView d;
@@ -49,7 +52,7 @@ public class PagerTitleStrip extends ViewGroup implements bl {
     }
 
     public void setNonPrimaryAlpha(float f) {
-        this.p = ((int) (255.0f * f)) & 255;
+        this.p = ((int) (255.0f * f)) & Util.MASK_8BIT;
         int i = (this.p << 24) | (this.e & 16777215);
         this.b.setTextColor(i);
         this.d.setTextColor(i);
@@ -79,18 +82,18 @@ public class PagerTitleStrip extends ViewGroup implements bl {
         ae adapter = viewPager.getAdapter();
         viewPager.a(this.l);
         viewPager.setOnAdapterChangeListener(this.l);
-        this.a = viewPager;
+        this.f307a = viewPager;
         a(this.m != null ? (ae) this.m.get() : null, adapter);
     }
 
     @Override // android.view.ViewGroup, android.view.View
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        if (this.a != null) {
-            a(this.a.getAdapter(), (ae) null);
-            this.a.a((bq) null);
-            this.a.setOnAdapterChangeListener(null);
-            this.a = null;
+        if (this.f307a != null) {
+            a(this.f307a.getAdapter(), (ae) null);
+            this.f307a.a((bq) null);
+            this.f307a.setOnAdapterChangeListener(null);
+            this.f307a = null;
         }
     }
 
@@ -134,10 +137,10 @@ public class PagerTitleStrip extends ViewGroup implements bl {
             aeVar2.registerDataSetObserver(this.l);
             this.m = new WeakReference(aeVar2);
         }
-        if (this.a != null) {
+        if (this.f307a != null) {
             this.f = -1;
             this.g = -1.0f;
-            a(this.a.getCurrentItem(), aeVar2);
+            a(this.f307a.getCurrentItem(), aeVar2);
             requestLayout();
         }
     }
@@ -148,7 +151,7 @@ public class PagerTitleStrip extends ViewGroup implements bl {
         int i3;
         int i4;
         if (i != this.f) {
-            a(i, this.a.getAdapter());
+            a(i, this.f307a.getAdapter());
         } else if (!z && f == this.g) {
             return;
         }
@@ -186,7 +189,7 @@ public class PagerTitleStrip extends ViewGroup implements bl {
                 i3 = i11 + i13;
                 i4 = i13 + i12;
                 break;
-            case 80:
+            case com.baidu.loginshare.e.i /* 80 */:
                 int i14 = (height - paddingBottom) - max2;
                 i2 = i14 + i10;
                 i3 = i11 + i14;
@@ -232,7 +235,7 @@ public class PagerTitleStrip extends ViewGroup implements bl {
 
     @Override // android.view.ViewGroup, android.view.View
     protected void onLayout(boolean z, int i, int i2, int i3, int i4) {
-        if (this.a != null) {
+        if (this.f307a != null) {
             a(this.f, this.g >= 0.0f ? this.g : 0.0f, true);
         }
     }

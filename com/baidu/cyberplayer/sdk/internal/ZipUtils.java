@@ -1,6 +1,7 @@
 package com.baidu.cyberplayer.sdk.internal;
 
 import android.content.Context;
+import com.tencent.mm.sdk.platformtools.LVBuffer;
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
 import java.io.File;
@@ -13,7 +14,9 @@ import java.util.zip.ZipException;
 import java.util.zip.ZipInputStream;
 /* loaded from: classes.dex */
 public class ZipUtils {
-    private static ZipUtils a;
+
+    /* renamed from: a  reason: collision with root package name */
+    private static ZipUtils f715a;
 
     /* renamed from: a  reason: collision with other field name */
     private ZipEntry f19a = null;
@@ -50,10 +53,10 @@ public class ZipUtils {
     }
 
     public static ZipUtils getInstance() {
-        if (a == null) {
-            a = new ZipUtils();
+        if (f715a == null) {
+            f715a = new ZipUtils();
         }
-        return a;
+        return f715a;
     }
 
     private void a(ZipInputStream zipInputStream) {
@@ -95,7 +98,7 @@ public class ZipUtils {
             a aVar = new a(new BufferedInputStream(new FileInputStream(str)));
             a(aVar);
             while (this.f19a != null) {
-                byte[] bArr = new byte[4096];
+                byte[] bArr = new byte[LVBuffer.LENGTH_ALLOC_PER_NEW];
                 String name = this.f19a.getName();
                 File file = new File(str2 + name);
                 context.deleteFile(name);
@@ -103,8 +106,8 @@ public class ZipUtils {
                 if (!file2.exists()) {
                     file2.mkdirs();
                 }
-                BufferedOutputStream bufferedOutputStream = new BufferedOutputStream(new FileOutputStream(file), 4096);
-                for (int read = aVar.read(bArr, 0, 4096); read > 0; read = aVar.read(bArr, 0, 4096)) {
+                BufferedOutputStream bufferedOutputStream = new BufferedOutputStream(new FileOutputStream(file), LVBuffer.LENGTH_ALLOC_PER_NEW);
+                for (int read = aVar.read(bArr, 0, LVBuffer.LENGTH_ALLOC_PER_NEW); read > 0; read = aVar.read(bArr, 0, LVBuffer.LENGTH_ALLOC_PER_NEW)) {
                     bufferedOutputStream.write(bArr, 0, read);
                 }
                 a(aVar);

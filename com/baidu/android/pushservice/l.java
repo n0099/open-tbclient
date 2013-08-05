@@ -1,19 +1,18 @@
 package com.baidu.android.pushservice;
-
-import android.content.BroadcastReceiver;
-import android.content.Context;
-import android.content.Intent;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class l extends BroadcastReceiver {
-    final /* synthetic */ PushService a;
+public class l implements Runnable {
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ PushSDK f588a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public l(PushService pushService) {
-        this.a = pushService;
+    public l(PushSDK pushSDK) {
+        this.f588a = pushSDK;
     }
 
-    @Override // android.content.BroadcastReceiver
-    public void onReceive(Context context, Intent intent) {
+    @Override // java.lang.Runnable
+    public void run() {
+        this.f588a.sendRequestTokenIntent();
     }
 }

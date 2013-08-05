@@ -4,10 +4,13 @@ import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.widget.ImageView;
 /* loaded from: classes.dex */
 public class FlistImageView extends ImageView {
-    private String a;
+
+    /* renamed from: a  reason: collision with root package name */
+    private String f1035a;
     private Paint b;
 
     public FlistImageView(Context context) {
@@ -21,21 +24,19 @@ public class FlistImageView extends ImageView {
     public FlistImageView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         this.b = new Paint();
-        this.b.setAntiAlias(true);
-        this.b.setDither(true);
-        this.b.setFilterBitmap(true);
     }
 
     public void setUrl(String str) {
-        this.a = str;
+        this.f1035a = str;
         invalidate();
     }
 
     @Override // android.widget.ImageView, android.view.View
     protected void onDraw(Canvas canvas) {
         com.baidu.adp.widget.a.b c;
-        if (this.a != null && (c = com.baidu.tbadk.a.e.a().c(this.a)) != null) {
+        if (this.f1035a != null && (c = com.baidu.tbadk.a.e.a().c(this.f1035a)) != null) {
             c.a(canvas, getMeasuredWidth(), getMeasuredHeight(), (Paint) null);
+            Log.d("FlistImageView", "width = " + getWidth() + " height = " + getHeight());
         }
     }
 }

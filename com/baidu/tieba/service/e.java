@@ -3,11 +3,13 @@ package com.baidu.tieba.service;
 import android.os.Handler;
 /* loaded from: classes.dex */
 class e implements Runnable {
-    final /* synthetic */ MessagePullService a;
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ MessagePullService f1699a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(MessagePullService messagePullService) {
-        this.a = messagePullService;
+        this.f1699a = messagePullService;
     }
 
     @Override // java.lang.Runnable
@@ -16,12 +18,12 @@ class e implements Runnable {
         Runnable runnable;
         Handler handler2;
         Runnable runnable2;
-        this.a.a();
-        handler = this.a.d;
-        runnable = this.a.c;
+        this.f1699a.a();
+        handler = this.f1699a.d;
+        runnable = this.f1699a.c;
         handler.removeCallbacks(runnable);
-        handler2 = this.a.d;
-        runnable2 = this.a.c;
-        handler2.postDelayed(runnable2, com.baidu.tieba.data.g.b.longValue());
+        handler2 = this.f1699a.d;
+        runnable2 = this.f1699a.c;
+        handler2.postDelayed(runnable2, com.baidu.tieba.data.g.c.longValue());
     }
 }

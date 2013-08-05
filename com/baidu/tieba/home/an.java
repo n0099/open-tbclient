@@ -8,11 +8,13 @@ import com.baidu.tieba.pb.NewPbActivity;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class an implements AdapterView.OnItemClickListener {
-    final /* synthetic */ SearchActivity a;
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ SearchActivity f1126a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public an(SearchActivity searchActivity) {
-        this.a = searchActivity;
+        this.f1126a = searchActivity;
     }
 
     @Override // android.widget.AdapterView.OnItemClickListener
@@ -21,61 +23,61 @@ public class an implements AdapterView.OnItemClickListener {
         bb bbVar;
         bb bbVar2;
         bb bbVar3;
-        com.baidu.tieba.data.au auVar;
-        com.baidu.tieba.data.au auVar2;
+        com.baidu.tieba.data.bd bdVar;
+        com.baidu.tieba.data.bd bdVar2;
         String str;
         bb bbVar4;
         bb bbVar5;
-        com.baidu.tieba.data.au auVar3;
-        com.baidu.tieba.data.au auVar4;
-        com.baidu.tieba.data.au auVar5;
+        com.baidu.tieba.data.bd bdVar3;
+        com.baidu.tieba.data.bd bdVar4;
+        com.baidu.tieba.data.bd bdVar5;
         String str2;
         bb bbVar6;
         bb bbVar7;
-        i2 = this.a.B;
+        i2 = this.f1126a.B;
         if (i2 != 0) {
-            bbVar = this.a.r;
+            bbVar = this.f1126a.r;
             if (bbVar.getItemId(i) != -1) {
-                bbVar2 = this.a.r;
+                bbVar2 = this.f1126a.r;
                 if (bbVar2.getItemId(i) != -2) {
-                    bbVar3 = this.a.r;
-                    com.baidu.tieba.data.at atVar = (com.baidu.tieba.data.at) bbVar3.getItem(i);
-                    if (atVar != null) {
-                        if (atVar.a()) {
-                            NewPbActivity.a(this.a, atVar.c(), null, "search_post");
+                    bbVar3 = this.f1126a.r;
+                    com.baidu.tieba.data.bc bcVar = (com.baidu.tieba.data.bc) bbVar3.getItem(i);
+                    if (bcVar != null) {
+                        if (bcVar.a()) {
+                            NewPbActivity.a(this.f1126a, bcVar.c(), null, "search_post");
                             return;
                         } else {
-                            NewPbActivity.a(this.a, atVar.c(), atVar.b(), "search_post");
+                            NewPbActivity.a(this.f1126a, bcVar.c(), bcVar.b(), "search_post");
                             return;
                         }
                     }
                     return;
                 }
-                auVar = this.a.x;
-                if (auVar != null) {
-                    SearchActivity searchActivity = this.a;
-                    auVar2 = this.a.x;
-                    str = this.a.A;
-                    searchActivity.a(auVar2.d() + 1, str);
-                    bbVar4 = this.a.r;
+                bdVar = this.f1126a.x;
+                if (bdVar != null) {
+                    SearchActivity searchActivity = this.f1126a;
+                    bdVar2 = this.f1126a.x;
+                    str = this.f1126a.A;
+                    searchActivity.a(bdVar2.d() + 1, str);
+                    bbVar4 = this.f1126a.r;
                     bbVar4.a(2);
-                    bbVar5 = this.a.r;
+                    bbVar5 = this.f1126a.r;
                     bbVar5.notifyDataSetChanged();
                     return;
                 }
                 return;
             }
-            auVar3 = this.a.x;
-            if (auVar3 != null) {
-                auVar4 = this.a.x;
-                if (auVar4.d() > 1) {
-                    SearchActivity searchActivity2 = this.a;
-                    auVar5 = this.a.x;
-                    str2 = this.a.A;
-                    searchActivity2.a(auVar5.d() - 1, str2);
-                    bbVar6 = this.a.r;
+            bdVar3 = this.f1126a.x;
+            if (bdVar3 != null) {
+                bdVar4 = this.f1126a.x;
+                if (bdVar4.d() > 1) {
+                    SearchActivity searchActivity2 = this.f1126a;
+                    bdVar5 = this.f1126a.x;
+                    str2 = this.f1126a.A;
+                    searchActivity2.a(bdVar5.d() - 1, str2);
+                    bbVar6 = this.f1126a.r;
                     bbVar6.a(1);
-                    bbVar7 = this.a.r;
+                    bbVar7 = this.f1126a.r;
                     bbVar7.notifyDataSetChanged();
                     return;
                 }
@@ -83,7 +85,7 @@ public class an implements AdapterView.OnItemClickListener {
             }
             return;
         }
-        FrsActivity.a(this.a, (String) ((ListView) adapterView).getAdapter().getItem(i), "tb_searchlist", 1);
-        this.a.finish();
+        FrsActivity.a(this.f1126a, (String) ((ListView) adapterView).getAdapter().getItem(i), "tb_searchlist", 1);
+        this.f1126a.finish();
     }
 }

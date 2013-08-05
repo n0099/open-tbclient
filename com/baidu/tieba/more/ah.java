@@ -3,15 +3,17 @@ package com.baidu.tieba.more;
 import android.view.View;
 /* loaded from: classes.dex */
 class ah implements View.OnClickListener {
-    final /* synthetic */ SignRemindActivity a;
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ MsgRemindActivity f1403a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ah(SignRemindActivity signRemindActivity) {
-        this.a = signRemindActivity;
+    public ah(MsgRemindActivity msgRemindActivity) {
+        this.f1403a = msgRemindActivity;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        this.a.finish();
+        this.f1403a.finish();
     }
 }

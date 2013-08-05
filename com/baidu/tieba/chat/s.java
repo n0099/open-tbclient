@@ -1,20 +1,24 @@
 package com.baidu.tieba.chat;
+
+import com.baidu.tieba.util.aj;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class s implements Runnable {
-    final /* synthetic */ ChatListActivity a;
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ ChatListActivity f950a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public s(ChatListActivity chatListActivity) {
-        this.a = chatListActivity;
+        this.f950a = chatListActivity;
     }
 
     @Override // java.lang.Runnable
     public void run() {
         try {
-            this.a.d();
+            this.f950a.d();
         } catch (Exception e) {
-            com.baidu.tieba.util.z.b("ChatListActivity", "mLoadImageRunnable.run", "error = " + e.getMessage());
+            aj.b("ChatListActivity", "mLoadImageRunnable.run", "error = " + e.getMessage());
         }
     }
 }

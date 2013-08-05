@@ -1,5 +1,7 @@
 package android.support.v4.app;
 /* loaded from: classes.dex */
 class q {
-    public static final int[] a = {16842755, 16842960, 16842961};
+
+    /* renamed from: a  reason: collision with root package name */
+    public static final int[] f288a = {16842755, 16842960, 16842961};
 }

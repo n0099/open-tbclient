@@ -14,7 +14,9 @@ import com.baidu.adp.e;
 import com.baidu.adp.f;
 /* loaded from: classes.dex */
 public class BdSwitchView extends FrameLayout {
-    FrameLayout a;
+
+    /* renamed from: a  reason: collision with root package name */
+    FrameLayout f446a;
     ImageView b;
     private c c;
     private SwitchState d;
@@ -64,7 +66,7 @@ public class BdSwitchView extends FrameLayout {
         this.e = false;
         this.f = false;
         this.i = null;
-        this.a = null;
+        this.f446a = null;
         this.b = null;
         a(context);
     }
@@ -76,14 +78,14 @@ public class BdSwitchView extends FrameLayout {
         this.e = false;
         this.f = false;
         this.i = null;
-        this.a = null;
+        this.f446a = null;
         this.b = null;
         a(context);
     }
 
     private void a(Context context) {
         LayoutInflater.from(context).inflate(f.bd_switch_view, (ViewGroup) this, true);
-        this.a = (FrameLayout) findViewById(e.layout);
+        this.f446a = (FrameLayout) findViewById(e.layout);
         this.b = (ImageView) findViewById(e.switch_image);
         d();
         e();
@@ -93,9 +95,9 @@ public class BdSwitchView extends FrameLayout {
     }
 
     private void d() {
-        FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.a.getLayoutParams();
-        layoutParams.width = this.a.getForeground().getIntrinsicWidth();
-        this.a.setLayoutParams(layoutParams);
+        FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.f446a.getLayoutParams();
+        layoutParams.width = this.f446a.getForeground().getIntrinsicWidth();
+        this.f446a.setLayoutParams(layoutParams);
     }
 
     private void e() {
@@ -125,7 +127,7 @@ public class BdSwitchView extends FrameLayout {
     }
 
     private float getTranslateDis() {
-        return this.a.getForeground().getIntrinsicWidth() * 0.6666667f;
+        return this.f446a.getForeground().getIntrinsicWidth() * 0.6666667f;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -159,7 +161,7 @@ public class BdSwitchView extends FrameLayout {
     }
 
     public void setSwitchFrame(int i) {
-        this.a.setForeground(getResources().getDrawable(i));
+        this.f446a.setForeground(getResources().getDrawable(i));
         d();
     }
 

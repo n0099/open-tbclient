@@ -4,11 +4,13 @@ import android.view.MotionEvent;
 import android.view.View;
 /* loaded from: classes.dex */
 class k implements View.OnTouchListener {
-    final /* synthetic */ j a;
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ j f410a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public k(j jVar) {
-        this.a = jVar;
+        this.f410a = jVar;
     }
 
     @Override // android.view.View.OnTouchListener

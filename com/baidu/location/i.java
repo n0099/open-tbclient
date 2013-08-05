@@ -39,7 +39,9 @@ public class i {
     /* renamed from: case  reason: not valid java name */
     private BDLocation f219case = null;
     private long b = 0;
-    private int a = 0;
+
+    /* renamed from: a  reason: collision with root package name */
+    private int f756a = 0;
 
     /* renamed from: char  reason: not valid java name */
     private long f220char = 0;
@@ -117,15 +119,15 @@ public class i {
         } else {
             i = i2;
         }
-        if (this.a != 0) {
-            if (i > (this.f220char + this.a) - System.currentTimeMillis()) {
+        if (this.f756a != 0) {
+            if (i > (this.f220char + this.f756a) - System.currentTimeMillis()) {
                 z = false;
                 if (z) {
                     return;
                 }
-                this.a = i;
+                this.f756a = i;
                 this.f220char = System.currentTimeMillis();
-                a(this.a);
+                a(this.f756a);
                 return;
             }
         }
@@ -181,7 +183,7 @@ public class i {
             if (f < this.f224goto) {
                 this.f224goto = f;
             }
-            this.a = 0;
+            this.f756a = 0;
             a();
         }
     }

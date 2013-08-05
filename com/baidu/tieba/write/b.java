@@ -4,11 +4,13 @@ import android.widget.ListView;
 import com.baidu.tieba.data.MetaData;
 /* loaded from: classes.dex */
 class b implements Runnable {
-    final /* synthetic */ AtListActivity a;
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ AtListActivity f1897a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(AtListActivity atListActivity) {
-        this.a = atListActivity;
+        this.f1897a = atListActivity;
     }
 
     @Override // java.lang.Runnable
@@ -19,17 +21,17 @@ class b implements Runnable {
         k kVar2;
         k kVar3;
         try {
-            listView = this.a.d;
+            listView = this.f1897a.d;
             int firstVisiblePosition = listView.getFirstVisiblePosition();
-            listView2 = this.a.d;
+            listView2 = this.f1897a.d;
             int lastVisiblePosition = listView2.getLastVisiblePosition();
             for (int i = firstVisiblePosition; i <= lastVisiblePosition; i++) {
-                kVar = this.a.k;
+                kVar = this.f1897a.k;
                 if (i < kVar.getCount()) {
-                    kVar2 = this.a.k;
+                    kVar2 = this.f1897a.k;
                     MetaData metaData = (MetaData) kVar2.getItem(i);
                     if (metaData != null && metaData.getPortrait() != null) {
-                        kVar3 = this.a.k;
+                        kVar3 = this.f1897a.k;
                         kVar3.b().b(metaData.getPortrait(), new c(this));
                     }
                 } else {
@@ -37,7 +39,7 @@ class b implements Runnable {
                 }
             }
         } catch (Exception e) {
-            com.baidu.tieba.util.z.b(getClass().getName(), "mGetImageRunnble.run", e.getMessage());
+            com.baidu.tieba.util.aj.b(getClass().getName(), "mGetImageRunnble.run", e.getMessage());
         }
     }
 }

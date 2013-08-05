@@ -1,247 +1,330 @@
 package com.baidu.tieba.util;
 
-import android.app.ActivityManager;
-import android.os.Build;
-import android.os.Process;
-import android.text.TextUtils;
-import com.baidu.tieba.TiebaApplication;
+import android.content.Context;
+import android.content.Intent;
+import android.content.pm.ApplicationInfo;
+import android.graphics.Bitmap;
+import android.media.MediaScannerConnection;
+import android.net.Uri;
+import com.baidu.location.LocationClientOption;
+import com.baidu.tieba.account.az;
+import com.baidu.zeus.WebChromeClient;
+import com.slidingmenu.lib.R;
+import com.tencent.mm.sdk.openapi.IWXAPI;
+import com.tencent.mm.sdk.openapi.SendMessageToWX;
+import com.tencent.mm.sdk.openapi.WXAPIFactory;
+import com.tencent.mm.sdk.openapi.WXImageObject;
+import com.tencent.mm.sdk.openapi.WXMediaMessage;
+import com.tencent.mm.sdk.platformtools.Util;
+import com.tencent.mm.sdk.plugin.MMPluginProviderConstants;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
-import java.io.FileWriter;
-import java.io.PrintStream;
-import java.lang.Thread;
-import java.util.List;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.util.Map;
+import java.util.TreeMap;
 /* loaded from: classes.dex */
-public class aa implements Thread.UncaughtExceptionHandler {
-    private Thread.UncaughtExceptionHandler a = Thread.getDefaultUncaughtExceptionHandler();
+public class aa {
+    private static Context e;
+    private static aa f;
 
-    /* JADX WARN: Removed duplicated region for block: B:110:0x01b2 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:72:0x01b7 A[Catch: Exception -> 0x01ef, TryCatch #0 {Exception -> 0x01ef, blocks: (B:70:0x01b2, B:72:0x01b7, B:74:0x01bc), top: B:110:0x01b2 }] */
-    /* JADX WARN: Removed duplicated region for block: B:74:0x01bc A[Catch: Exception -> 0x01ef, TRY_LEAVE, TryCatch #0 {Exception -> 0x01ef, blocks: (B:70:0x01b2, B:72:0x01b7, B:74:0x01bc), top: B:110:0x01b2 }] */
-    /* JADX WARN: Removed duplicated region for block: B:77:0x01c5  */
-    @Override // java.lang.Thread.UncaughtExceptionHandler
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public void uncaughtException(Thread thread, Throwable th) {
-        FileWriter fileWriter;
-        PrintStream printStream;
-        ByteArrayOutputStream byteArrayOutputStream;
-        PrintStream printStream2;
-        ByteArrayOutputStream byteArrayOutputStream2;
-        String str;
-        String str2;
-        FileWriter fileWriter2 = null;
+    /* renamed from: a  reason: collision with root package name */
+    private IWXAPI f1746a;
+    private File b;
+    private int c;
+    private String d;
+    private MediaScannerConnection.MediaScannerConnectionClient g = new ab(this);
+    private MediaScannerConnection h = new MediaScannerConnection(e, this.g);
+
+    private aa() {
+        d();
+    }
+
+    public static aa a(Context context) {
+        e = context;
+        if (f == null) {
+            f = new aa();
+        }
+        return f;
+    }
+
+    public boolean a() {
+        if (this.f1746a == null) {
+            return false;
+        }
+        return this.f1746a.isWXAppInstalled();
+    }
+
+    public boolean b() {
+        return this.f1746a != null && 553779201 <= this.f1746a.getWXAppSupportAPI();
+    }
+
+    private void d() {
+        this.f1746a = WXAPIFactory.createWXAPI(e, "wx289a8c58bca4c71e", true);
+        this.f1746a.registerApp("wx289a8c58bca4c71e");
+    }
+
+    public void a(int i, Bitmap bitmap) {
+        String str = "";
+        WXImageObject wXImageObject = new WXImageObject(bitmap);
+        WXMediaMessage wXMediaMessage = new WXMediaMessage();
+        wXMediaMessage.mediaObject = wXImageObject;
+        wXMediaMessage.thumbData = a(e.c(bitmap, WebChromeClient.STRING_DLG_BTN_SET, WebChromeClient.STRING_DLG_BTN_SET), true);
+        SendMessageToWX.Req req = new SendMessageToWX.Req();
+        req.transaction = b("img");
+        req.message = wXMediaMessage;
+        switch (i) {
+            case 3:
+                req.scene = 0;
+                str = "weixin";
+                break;
+            case 4:
+                req.scene = 1;
+                str = "weixin_friend";
+                break;
+        }
+        new az(str).start();
+        this.f1746a.sendReq(req);
+    }
+
+    public void a(Context context, String str, ag agVar) {
+        Bitmap f2;
+        a aVar = new a(context);
+        aVar.a(LocationClientOption.MIN_SCAN_SPAN, LocationClientOption.MIN_SCAN_SPAN);
+        com.baidu.adp.widget.a.b a2 = aVar.a(str, new ac(this, agVar));
+        if (a2 != null && (f2 = a2.f()) != null && agVar != null) {
+            agVar.a(f2);
+        }
+    }
+
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [284=4, 285=4, 287=4, 288=4] */
+    public void a(int i, String str, Bitmap bitmap, String str2) {
+        FileOutputStream fileOutputStream;
+        FileOutputStream fileOutputStream2 = null;
+        this.c = i;
+        this.d = str;
+        FileOutputStream fileOutputStream3 = null;
         try {
-            byteArrayOutputStream = new ByteArrayOutputStream();
             try {
-                printStream = new PrintStream(byteArrayOutputStream);
-                try {
-                    try {
-                        th.printStackTrace(printStream);
-                        str = new String(byteArrayOutputStream.toByteArray());
-                        if (com.baidu.tieba.data.g.s()) {
-                            str2 = "fatal_error_debug.log";
-                        } else {
-                            str2 = "fatal_error.log";
-                        }
-                        File f = m.f(str2);
-                        if (f != null && f.length() < 204800 && str != null) {
-                            fileWriter = new FileWriter(f, true);
+                if (p.a()) {
+                    File file = new File(p.f1771a + "/tieba", "share");
+                    if (file == null) {
+                        fileOutputStream = null;
+                    } else if (!file.isDirectory() && !file.mkdirs()) {
+                        a(e, i, str, (Uri) null);
+                        if (0 != 0) {
                             try {
-                                a(fileWriter, y.a(), null);
-                                a(fileWriter, "tieba_crash_new_info", null);
-                                a(fileWriter, "version", com.baidu.tieba.data.g.i());
-                                a(fileWriter, "model", Build.MODEL);
-                                a(fileWriter, "android_version", Build.VERSION.RELEASE);
-                                a(fileWriter, "android_sdk", String.valueOf(Build.VERSION.SDK_INT));
-                                a(fileWriter, "from", com.baidu.tieba.data.g.a());
-                                a(fileWriter, "uid", TiebaApplication.E());
-                                a(fileWriter, "client_id", TiebaApplication.P());
-                                a(fileWriter, "imei", TiebaApplication.f().p());
-                                a(fileWriter, "uname", TiebaApplication.H());
-                                a(fileWriter, "activity", TiebaApplication.f().g());
-                                a(fileWriter, "maxMemory", String.valueOf(Runtime.getRuntime().maxMemory()));
-                                List<ActivityManager.RunningAppProcessInfo> runningAppProcesses = ((ActivityManager) TiebaApplication.f().getSystemService("activity")).getRunningAppProcesses();
-                                int myPid = Process.myPid();
-                                if (runningAppProcesses != null) {
-                                    int i = 0;
-                                    while (true) {
-                                        if (i >= runningAppProcesses.size()) {
-                                            break;
-                                        } else if (runningAppProcesses.get(i).pid != myPid) {
-                                            i++;
-                                        } else {
-                                            a(fileWriter, "process_name", runningAppProcesses.get(i).processName);
-                                            break;
-                                        }
-                                    }
-                                }
-                                a(fileWriter, "error", str);
-                                a(fileWriter, "tieba_crash_new_info_end", null);
-                                fileWriter.append("\n");
-                                fileWriter.flush();
-                                if (str.contains("java.lang.SecurityException: No permission to modify given thread")) {
-                                    TiebaApplication.f().l(TiebaApplication.f().au() + 1);
-                                } else if (str.contains("com.baidu.location")) {
-                                    TiebaApplication.f().ax();
-                                } else if (str.contains("Couldn't load mtprocessor-jni")) {
-                                    TiebaApplication.f().e(false);
-                                }
-                                if (TiebaApplication.f().g() != null && TiebaApplication.f().g().indexOf("NewVcodeActivity") != -1) {
-                                    TiebaApplication.f().n(TiebaApplication.f().aw() + 1);
-                                }
-                                fileWriter2 = fileWriter;
-                            } catch (Exception e) {
-                                e = e;
-                                fileWriter2 = fileWriter;
-                                printStream2 = printStream;
-                                byteArrayOutputStream2 = byteArrayOutputStream;
-                                try {
-                                    e.printStackTrace();
-                                    if (printStream2 != null) {
-                                        try {
-                                            printStream2.close();
-                                        } catch (Exception e2) {
-                                            e2.printStackTrace();
-                                            if (!com.baidu.tieba.data.g.s() && this.a != null) {
-                                                this.a.uncaughtException(thread, th);
-                                                return;
-                                            } else {
-                                                Process.killProcess(Process.myPid());
-                                                return;
-                                            }
-                                        }
-                                    }
-                                    if (byteArrayOutputStream2 != null) {
-                                        byteArrayOutputStream2.close();
-                                    }
-                                    if (fileWriter2 != null) {
-                                        fileWriter2.close();
-                                    }
-                                    if (!com.baidu.tieba.data.g.s()) {
-                                    }
-                                    Process.killProcess(Process.myPid());
-                                    return;
-                                } catch (Throwable th2) {
-                                    th = th2;
-                                    byteArrayOutputStream = byteArrayOutputStream2;
-                                    printStream = printStream2;
-                                    fileWriter = fileWriter2;
-                                    if (printStream != null) {
-                                    }
-                                    if (byteArrayOutputStream != null) {
-                                    }
-                                    if (fileWriter != null) {
-                                    }
-                                    if (!com.baidu.tieba.data.g.s()) {
-                                    }
-                                    Process.killProcess(Process.myPid());
-                                    throw th;
-                                }
-                            } catch (Throwable th3) {
-                                th = th3;
-                                if (printStream != null) {
-                                }
-                                if (byteArrayOutputStream != null) {
-                                }
-                                if (fileWriter != null) {
-                                }
-                                if (!com.baidu.tieba.data.g.s()) {
-                                }
-                                Process.killProcess(Process.myPid());
-                                throw th;
+                                fileOutputStream3.close();
+                                return;
+                            } catch (IOException e2) {
+                                aj.b(getClass().getName(), "readyShare", e2.toString());
+                                return;
                             }
                         }
-                    } catch (Exception e3) {
-                        e = e3;
-                        printStream2 = printStream;
-                        byteArrayOutputStream2 = byteArrayOutputStream;
-                    }
-                } catch (Throwable th4) {
-                    th = th4;
-                    fileWriter = null;
-                }
-                try {
-                    if (!TextUtils.isEmpty(str)) {
-                        z.a(str);
-                    }
-                    if (printStream != null) {
-                        try {
-                            printStream.close();
-                        } catch (Exception e4) {
-                            e4.printStackTrace();
-                        }
-                    }
-                    if (byteArrayOutputStream != null) {
-                        byteArrayOutputStream.close();
-                    }
-                    if (fileWriter2 != null) {
-                        fileWriter2.close();
-                    }
-                    if (com.baidu.tieba.data.g.s() && this.a != null) {
-                        this.a.uncaughtException(thread, th);
+                        return;
                     } else {
-                        Process.killProcess(Process.myPid());
-                    }
-                } catch (Throwable th5) {
-                    th = th5;
-                    fileWriter = fileWriter2;
-                    if (printStream != null) {
+                        this.b = a(file, str2);
+                        fileOutputStream = new FileOutputStream(this.b);
                         try {
-                            printStream.close();
-                        } catch (Exception e5) {
-                            e5.printStackTrace();
-                            if (!com.baidu.tieba.data.g.s() && this.a != null) {
-                                this.a.uncaughtException(thread, th);
-                            } else {
-                                Process.killProcess(Process.myPid());
+                            boolean compress = bitmap.compress(Bitmap.CompressFormat.JPEG, 100, fileOutputStream);
+                            fileOutputStream.flush();
+                            if (compress) {
+                                this.h = new MediaScannerConnection(e, this.g);
+                                this.h.connect();
+                                aj.b(getClass().getName(), "mediaScannerConnection", "connect");
+                            }
+                        } catch (Exception e3) {
+                            e = e3;
+                            fileOutputStream2 = fileOutputStream;
+                            aj.b(getClass().getName(), "readyShare", e.toString());
+                            if (fileOutputStream2 != null) {
+                                try {
+                                    fileOutputStream2.close();
+                                    return;
+                                } catch (IOException e4) {
+                                    aj.b(getClass().getName(), "readyShare", e4.toString());
+                                    return;
+                                }
+                            }
+                            return;
+                        } catch (Throwable th) {
+                            th = th;
+                            fileOutputStream2 = fileOutputStream;
+                            if (fileOutputStream2 != null) {
+                                try {
+                                    fileOutputStream2.close();
+                                } catch (IOException e5) {
+                                    aj.b(getClass().getName(), "readyShare", e5.toString());
+                                }
                             }
                             throw th;
                         }
                     }
-                    if (byteArrayOutputStream != null) {
-                        byteArrayOutputStream.close();
-                    }
-                    if (fileWriter != null) {
-                        fileWriter.close();
-                    }
-                    if (!com.baidu.tieba.data.g.s()) {
-                    }
-                    Process.killProcess(Process.myPid());
-                    throw th;
+                } else {
+                    a(e, i, str, (Uri) null);
+                    fileOutputStream = null;
                 }
-            } catch (Exception e6) {
-                e = e6;
-                printStream2 = null;
-                byteArrayOutputStream2 = byteArrayOutputStream;
-            } catch (Throwable th6) {
-                th = th6;
-                fileWriter = null;
-                printStream = null;
+                if (fileOutputStream != null) {
+                    try {
+                        fileOutputStream.close();
+                    } catch (IOException e6) {
+                        aj.b(getClass().getName(), "readyShare", e6.toString());
+                    }
+                }
+            } catch (Throwable th2) {
+                th = th2;
             }
         } catch (Exception e7) {
             e = e7;
-            printStream2 = null;
-            byteArrayOutputStream2 = null;
-        } catch (Throwable th7) {
-            th = th7;
-            fileWriter = null;
-            printStream = null;
-            byteArrayOutputStream = null;
         }
     }
 
-    private void a(FileWriter fileWriter, String str, String str2) {
+    /* JADX INFO: Access modifiers changed from: private */
+    public void a(Context context, int i, String str, Uri uri) {
+        String str2 = str == null ? "" : str;
         try {
-            fileWriter.append((CharSequence) str);
-            if (str2 != null) {
-                fileWriter.append("=");
-                fileWriter.append((CharSequence) str2);
-            }
-            fileWriter.append("\n");
-        } catch (Exception e) {
-            z.b(getClass().getName(), "addInfo", e.getMessage());
+            String substring = str2.length() > 140 ? str2.substring(0, 140) : str2;
+            b(i);
+            String str3 = uri == null ? "text/plain" : "image/*";
+            Intent intent = new Intent("android.intent.action.SEND", (Uri) null);
+            intent.putExtra("android.intent.extra.TEXT", substring);
+            intent.putExtra("android.intent.extra.STREAM", uri);
+            intent.setFlags(268435456);
+            intent.setPackage(d(i));
+            intent.setType(str3);
+            context.startActivity(Intent.createChooser(intent, context.getResources().getString(R.string.share_to)));
+        } catch (Exception e2) {
+            aj.b(getClass().getName(), "share", e2.toString());
         }
+    }
+
+    private void b(int i) {
+        String str = "";
+        if (i == 1) {
+            str = "weibo";
+        } else if (i == 2) {
+            str = "qzone";
+        } else if (i == 3) {
+            str = "weixin";
+        } else if (i == 4) {
+            str = "weixin_friend";
+        }
+        new az(str).start();
+    }
+
+    public static String a(String str) {
+        return a("", str, "", "", "", "", "", "", "");
+    }
+
+    public static String a(String str, String str2, String str3) {
+        return a(str2, "", str3, "", "", "", str, "", "");
+    }
+
+    public static String a(String str, String str2, String str3, String str4, String str5, String str6, String str7, String str8, String str9) {
+        TreeMap treeMap = new TreeMap();
+        treeMap.put("pk_id", str2);
+        treeMap.put("shake_num", str);
+        treeMap.put("share_id", str3);
+        treeMap.put("vote1_num", str4);
+        treeMap.put("vote2_num", str5);
+        treeMap.put("vote_diff", str6);
+        treeMap.put("player1_id", str7);
+        treeMap.put("player2_id", str8);
+        treeMap.put("rank", str9);
+        treeMap.put("rand_tm", new StringBuilder(String.valueOf(System.currentTimeMillis())).toString());
+        StringBuilder sb = new StringBuilder();
+        StringBuilder sb2 = new StringBuilder(1024);
+        for (Map.Entry entry : treeMap.entrySet()) {
+            sb.append((String) entry.getKey()).append("=").append((String) entry.getValue()).append("&");
+            sb2.append((String) entry.getKey()).append("=").append((String) entry.getValue());
+        }
+        sb2.append("tiebaclient!!!");
+        sb.append("sign=").append(ai.a(sb2.toString()));
+        return String.valueOf(com.baidu.tieba.data.g.f1013a) + "/c/s/uo/sharepic?" + sb.toString();
+    }
+
+    private boolean c(int i) {
+        String d = d(i);
+        for (ApplicationInfo applicationInfo : e.getPackageManager().getInstalledApplications(0)) {
+            if (applicationInfo.packageName.equals(d)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    private File a(File file, String str) {
+        File[] listFiles = file.listFiles(new ad(this, str));
+        return new File(file, String.valueOf(listFiles.length == 0 ? String.valueOf(str) + "_1" : String.valueOf(str) + "_" + (listFiles.length + 1)) + Util.PHOTO_DEFAULT_EXT);
+    }
+
+    private String d(int i) {
+        switch (i) {
+            case 1:
+                return "com.sina.weibo";
+            case 2:
+                return "com.qzone";
+            case 3:
+                return MMPluginProviderConstants.PluginIntent.APP_PACKAGE_PATTERN;
+            case 4:
+                return MMPluginProviderConstants.PluginIntent.APP_PACKAGE_PATTERN;
+            default:
+                return null;
+        }
+    }
+
+    public boolean a(int i) {
+        boolean c = c(i);
+        if (i == 3 && !a()) {
+            c = false;
+        }
+        if (i == 4 && c && !b()) {
+            am.a(e, (int) R.string.share_weixin_friend_no);
+            return false;
+        } else if (c) {
+            return true;
+        } else {
+            switch (i) {
+                case 1:
+                    am.a(e, (int) R.string.share_sina_no);
+                    return false;
+                case 2:
+                    am.a(e, (int) R.string.share_qzone_no);
+                    return false;
+                case 3:
+                    am.a(e, (int) R.string.share_weixin_no);
+                    return false;
+                case 4:
+                    am.a(e, (int) R.string.share_weixin_no);
+                    return false;
+                default:
+                    return false;
+            }
+        }
+    }
+
+    public void a(String str, af afVar) {
+        com.baidu.tieba.model.ah ahVar = new com.baidu.tieba.model.ah();
+        ahVar.a(str);
+        ahVar.a(new ae(this, afVar));
+    }
+
+    public static byte[] a(Bitmap bitmap, boolean z) {
+        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+        bitmap.compress(Bitmap.CompressFormat.JPEG, 80, byteArrayOutputStream);
+        byte[] byteArray = byteArrayOutputStream.toByteArray();
+        if (z) {
+            bitmap.recycle();
+        }
+        try {
+            byteArrayOutputStream.close();
+        } catch (Exception e2) {
+            e2.printStackTrace();
+        }
+        return byteArray;
+    }
+
+    private String b(String str) {
+        return str == null ? String.valueOf(System.currentTimeMillis()) : String.valueOf(str) + System.currentTimeMillis();
     }
 }

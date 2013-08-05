@@ -1,67 +1,51 @@
 package com.baidu.tieba;
 
-import android.os.Handler;
-import android.os.Vibrator;
-import android.view.MotionEvent;
-import android.view.View;
+import android.support.v4.view.bq;
 import android.view.animation.Animation;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-class u implements View.OnTouchListener {
-    boolean a = true;
-    final /* synthetic */ LabelActivity b;
+class u implements bq {
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ LabelActivity f1738a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public u(LabelActivity labelActivity) {
-        this.b = labelActivity;
+        this.f1738a = labelActivity;
     }
 
-    @Override // android.view.View.OnTouchListener
-    public boolean onTouch(View view, MotionEvent motionEvent) {
-        Handler handler;
+    @Override // android.support.v4.view.bq
+    public void a_(int i) {
+        LinearLayout linearLayout;
         Animation animation;
-        Handler handler2;
-        Vibrator vibrator;
-        Handler handler3;
-        Handler handler4;
-        switch (motionEvent.getAction()) {
-            case 0:
-                this.a = true;
-                this.b.o = view;
-                handler3 = this.b.P;
-                handler4 = this.b.P;
-                handler3.sendMessageDelayed(handler4.obtainMessage(2), 200L);
-                break;
-            case 1:
-                if (this.a) {
-                    if (view instanceof com.baidu.tieba.view.ag) {
-                        vibrator = this.b.u;
-                        vibrator.vibrate(100L);
-                        if (((com.baidu.tieba.view.ag) view).getType() == 0) {
-                            this.b.a(view);
-                        } else {
-                            this.b.startDropSmallBall(view);
-                        }
-                    }
-                    handler2 = this.b.P;
-                    handler2.removeMessages(2);
-                    view.setAnimation(null);
-                    this.b.o = null;
-                    break;
+        Animation animation2;
+        LinearLayout linearLayout2;
+        linearLayout = this.f1738a.t;
+        int childCount = linearLayout.getChildCount();
+        if (i < childCount) {
+            for (int i2 = 0; i2 < childCount; i2++) {
+                linearLayout2 = this.f1738a.t;
+                ImageView imageView = (ImageView) linearLayout2.getChildAt(i2);
+                if (i2 != i) {
+                    imageView.setBackgroundResource(R.drawable.tag_page_rb_click);
                 } else {
-                    return false;
+                    imageView.setBackgroundResource(R.drawable.tag_page_rb_normal);
                 }
-            case 3:
-            case 4:
-                handler = this.b.P;
-                handler.removeMessages(2);
-                view.setAnimation(null);
-                if ((view instanceof com.baidu.tieba.view.ag) && ((com.baidu.tieba.view.ag) view).getType() == 0) {
-                    animation = this.b.w;
-                    view.setAnimation(animation);
-                }
-                this.a = false;
-                break;
+            }
         }
-        return true;
+        animation = this.f1738a.w;
+        animation.reset();
+        animation2 = this.f1738a.w;
+        animation2.start();
+    }
+
+    @Override // android.support.v4.view.bq
+    public void b(int i) {
+    }
+
+    @Override // android.support.v4.view.bq
+    public void a(int i, float f, int i2) {
     }
 }

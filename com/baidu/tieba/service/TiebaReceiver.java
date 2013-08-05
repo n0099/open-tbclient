@@ -4,7 +4,7 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.util.z;
+import com.baidu.tieba.util.aj;
 /* loaded from: classes.dex */
 public class TiebaReceiver extends BroadcastReceiver {
     @Override // android.content.BroadcastReceiver
@@ -15,10 +15,10 @@ public class TiebaReceiver extends BroadcastReceiver {
             long longExtra2 = intent.getLongExtra("at_me", 0L);
             long longExtra3 = intent.getLongExtra("fans", 0L);
             long longExtra4 = intent.getLongExtra("pletter", 0L);
-            z.a(getClass().getName(), "broadcastNotify ", "receiveData: " + String.format("%d %d %d %d", Long.valueOf(longExtra), Long.valueOf(longExtra2), Long.valueOf(longExtra3), Long.valueOf(longExtra4)));
+            aj.a(getClass().getName(), "broadcastNotify ", "receiveData: " + String.format("%d %d %d %d", Long.valueOf(longExtra), Long.valueOf(longExtra2), Long.valueOf(longExtra3), Long.valueOf(longExtra4)));
             TiebaApplication.f().a(longExtra, longExtra2, longExtra3, longExtra4);
         } else if (action.equals("com.baidu.tieba.broadcast.sync")) {
-            z.a(getClass().getName(), "broadcastNewVersion ", "receiveData");
+            aj.a(getClass().getName(), "broadcastNewVersion ", "receiveData");
             TiebaApplication.f().v(true);
         }
     }

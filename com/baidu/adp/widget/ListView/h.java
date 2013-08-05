@@ -1,11 +1,14 @@
 package com.baidu.adp.widget.ListView;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class h implements Runnable {
-    final /* synthetic */ BdListView a;
+public class h implements Runnable {
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ BdListView f459a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public h(BdListView bdListView) {
-        this.a = bdListView;
+        this.f459a = bdListView;
     }
 
     @Override // java.lang.Runnable
@@ -21,38 +24,38 @@ class h implements Runnable {
         e eVar7;
         int i = 0;
         int i2 = -1;
-        qVar = this.a.h;
+        qVar = this.f459a.h;
         if (qVar != null) {
-            int firstVisiblePosition = this.a.getFirstVisiblePosition();
-            int lastVisiblePosition = this.a.getLastVisiblePosition();
-            eVar = this.a.a;
+            int firstVisiblePosition = this.f459a.getFirstVisiblePosition();
+            int lastVisiblePosition = this.f459a.getLastVisiblePosition();
+            eVar = this.f459a.f452a;
             if (eVar != null) {
-                eVar2 = this.a.a;
+                eVar2 = this.f459a.f452a;
                 if (eVar2.b() != null) {
-                    eVar3 = this.a.a;
+                    eVar3 = this.f459a.f452a;
                     if (eVar3.a() > 0) {
-                        eVar4 = this.a.a;
+                        eVar4 = this.f459a.f452a;
                         i2 = firstVisiblePosition - eVar4.c();
                         if (i2 < 0) {
                             i2 = 0;
                         }
-                        eVar5 = this.a.a;
+                        eVar5 = this.f459a.f452a;
                         int c = lastVisiblePosition - eVar5.c();
-                        eVar6 = this.a.a;
+                        eVar6 = this.f459a.f452a;
                         if (c >= eVar6.a()) {
-                            eVar7 = this.a.a;
+                            eVar7 = this.f459a.f452a;
                             c = eVar7.a() - 1;
                         }
                         if (c >= 0) {
                             i = c;
                         }
-                        qVar2 = this.a.h;
+                        qVar2 = this.f459a.h;
                         qVar2.a(i2, i);
                     }
                 }
             }
             i = -1;
-            qVar2 = this.a.h;
+            qVar2 = this.f459a.h;
             qVar2.a(i2, i);
         }
     }

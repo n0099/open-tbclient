@@ -1,5 +1,21 @@
 package com.baidu.tieba.pb;
+
+import android.view.View;
 /* loaded from: classes.dex */
-public interface df {
-    boolean a(String str);
+class df implements View.OnClickListener {
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ WebActivity f1526a;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public df(WebActivity webActivity) {
+        this.f1526a = webActivity;
+    }
+
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        if (this.f1526a.f1440a.canGoForward()) {
+            this.f1526a.f1440a.goForward();
+        }
+    }
 }

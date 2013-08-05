@@ -6,39 +6,41 @@ import android.content.Intent;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class an extends BroadcastReceiver {
-    final /* synthetic */ FrsImageActivity a;
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ FrsImageActivity f1064a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public an(FrsImageActivity frsImageActivity) {
-        this.a = frsImageActivity;
+        this.f1064a = frsImageActivity;
     }
 
     @Override // android.content.BroadcastReceiver
     public void onReceive(Context context, Intent intent) {
-        com.baidu.tieba.model.aa aaVar;
-        com.baidu.tieba.model.aa aaVar2;
-        com.baidu.tieba.model.aa aaVar3;
-        com.baidu.tieba.model.aa aaVar4;
-        com.baidu.tieba.model.aa aaVar5;
+        com.baidu.tieba.model.af afVar;
+        com.baidu.tieba.model.af afVar2;
+        com.baidu.tieba.model.af afVar3;
+        com.baidu.tieba.model.af afVar4;
+        com.baidu.tieba.model.af afVar5;
         ax axVar;
-        com.baidu.tieba.model.aa aaVar6;
+        com.baidu.tieba.model.af afVar6;
         long longExtra = intent.getLongExtra("fans", 0L);
         long longExtra2 = intent.getLongExtra("relay", 0L);
         long longExtra3 = intent.getLongExtra("at_me", 0L);
         long longExtra4 = intent.getLongExtra("pletter", 0L);
-        aaVar = this.a.p;
-        if (aaVar != null) {
-            aaVar2 = this.a.p;
-            aaVar2.a(longExtra);
-            aaVar3 = this.a.p;
-            aaVar3.c(longExtra2);
-            aaVar4 = this.a.p;
-            aaVar4.b(longExtra3);
-            aaVar5 = this.a.p;
-            aaVar5.d(longExtra4);
-            axVar = this.a.n;
-            aaVar6 = this.a.p;
-            axVar.a(aaVar6);
+        afVar = this.f1064a.p;
+        if (afVar != null) {
+            afVar2 = this.f1064a.p;
+            afVar2.a(longExtra);
+            afVar3 = this.f1064a.p;
+            afVar3.c(longExtra2);
+            afVar4 = this.f1064a.p;
+            afVar4.b(longExtra3);
+            afVar5 = this.f1064a.p;
+            afVar5.d(longExtra4);
+            axVar = this.f1064a.n;
+            afVar6 = this.f1064a.p;
+            axVar.a(afVar6);
         }
     }
 }

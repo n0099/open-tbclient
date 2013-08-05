@@ -4,7 +4,9 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 /* loaded from: classes.dex */
 class bd {
-    TextView a;
+
+    /* renamed from: a  reason: collision with root package name */
+    TextView f1143a;
     TextView b;
     TextView c;
     TextView d;

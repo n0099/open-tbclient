@@ -2,16 +2,18 @@ package android.support.v4.view;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class bk implements Runnable {
-    final /* synthetic */ ViewPager a;
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ ViewPager f316a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bk(ViewPager viewPager) {
-        this.a = viewPager;
+        this.f316a = viewPager;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        this.a.setScrollState(0);
-        this.a.c();
+        this.f316a.setScrollState(0);
+        this.f316a.c();
     }
 }

@@ -1,54 +1,145 @@
 package com.baidu.tieba.flist;
 
-import com.baidu.tieba.data.ac;
+import android.app.Activity;
+import android.content.Context;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
+import android.widget.ImageView;
+import android.widget.TextView;
+import com.baidu.tieba.TiebaApplication;
+import com.baidu.tieba.account.LoginActivity;
+import com.baidu.tieba.frs.FrsActivity;
 import com.baidu.tieba.model.ForumListModel;
-import com.baidu.tieba.model.aj;
+import com.baidu.tieba.model.ar;
+import com.baidu.tieba.util.ah;
+import com.baidu.tieba.view.ImageViewDrawer;
 import com.slidingmenu.lib.R;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class e extends com.baidu.adp.a.e {
-    final /* synthetic */ ForumListActivity a;
-    private final /* synthetic */ ForumListModel.Forum[] b;
+public class e extends BaseAdapter implements View.OnClickListener {
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public e(ForumListActivity forumListActivity, ForumListModel.Forum[] forumArr) {
-        this.a = forumListActivity;
-        this.b = forumArr;
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ ForumListActivity f1041a;
+    private int b;
+    private ForumListModel.Forum[] c = new ForumListModel.Forum[0];
+
+    public e(ForumListActivity forumListActivity, int i) {
+        this.f1041a = forumListActivity;
+        this.b = i;
     }
 
-    @Override // com.baidu.adp.a.e
-    public void a(Object obj) {
-        aj ajVar;
-        int i;
+    public ForumListModel.Forum[] a() {
+        return this.c;
+    }
+
+    public void a(ForumListModel.Forum[] forumArr) {
+        this.c = forumArr;
+        notifyDataSetChanged();
+    }
+
+    @Override // android.widget.Adapter
+    public int getCount() {
+        if (this.c == null) {
+            return 0;
+        }
+        return this.c.length;
+    }
+
+    @Override // android.widget.Adapter
+    public Object getItem(int i) {
+        return this.c[i];
+    }
+
+    @Override // android.widget.Adapter
+    public long getItemId(int i) {
+        return i;
+    }
+
+    @Override // android.widget.Adapter
+    public View getView(int i, View view, ViewGroup viewGroup) {
+        com.baidu.tieba.util.a aVar;
         int i2;
         int i3;
-        f fVar;
-        f fVar2;
-        aj ajVar2;
-        ajVar = this.a.m;
-        if (ajVar.getErrorCode() != 0) {
-            ForumListActivity forumListActivity = this.a;
-            ajVar2 = this.a.m;
-            forumListActivity.a(ajVar2.getErrorString());
-            this.a.findViewById(R.id.loading).setVisibility(4);
-            return;
+        Context context = viewGroup.getContext();
+        if (view == null) {
+            view = View.inflate(context, R.layout.forum_list_forum_item, null);
+            h hVar = new h(this);
+            hVar.f1044a = (ImageViewDrawer) view.findViewById(R.id.forum_avatar);
+            hVar.b = (TextView) view.findViewById(R.id.name);
+            hVar.c = (TextView) view.findViewById(R.id.member_count);
+            hVar.d = (TextView) view.findViewById(R.id.thread_count);
+            hVar.e = (TextView) view.findViewById(R.id.slogan);
+            hVar.f = (ImageView) view.findViewById(R.id.like);
+            view.setTag(hVar);
         }
-        if (((ac) obj).b() == 1) {
-            ForumListModel.Forum[] forumArr = this.b;
-            i = this.a.k;
-            forumArr[i].is_like = 1;
-            this.a.a(this.a.getString(R.string.like_success));
-            i2 = this.a.l;
-            if (i2 != 0) {
-                i3 = this.a.l;
-                if (i3 == 1) {
-                    fVar = this.a.s;
-                    fVar.notifyDataSetChanged();
+        h hVar2 = (h) view.getTag();
+        int au = TiebaApplication.f().au();
+        ah.c(hVar2.b, au);
+        ah.c(hVar2.c, au);
+        ah.c(hVar2.d, au);
+        ah.c(hVar2.e, au);
+        if (au == 1) {
+            view.setBackgroundColor(this.f1041a.getResources().getColor(R.color.flist_item_color_night));
+        } else {
+            view.setBackgroundColor(this.f1041a.getResources().getColor(R.color.flist_item_color_even_day));
+        }
+        ForumListModel.Forum forum = this.c[i];
+        String str = this.c[i].avatar;
+        ImageViewDrawer imageViewDrawer = hVar2.f1044a;
+        aVar = this.f1041a.n;
+        aVar.e(str, new f(this, str, imageViewDrawer));
+        hVar2.f1044a.setTag(str);
+        hVar2.b.setText(forum.forum_name);
+        hVar2.c.setText(String.valueOf(forum.member_count));
+        hVar2.d.setText(String.valueOf(forum.thread_count));
+        hVar2.e.setText(forum.slogan);
+        if (forum.is_like == 1) {
+            ImageView imageView = hVar2.f;
+            i3 = this.f1041a.g;
+            imageView.setImageResource(i3);
+            hVar2.f.setOnClickListener(null);
+            hVar2.f.setClickable(false);
+        } else {
+            ImageView imageView2 = hVar2.f;
+            i2 = this.f1041a.j;
+            imageView2.setImageResource(i2);
+            hVar2.f.setTag(Integer.valueOf(i));
+            hVar2.f.setOnClickListener(this);
+        }
+        view.setOnClickListener(this);
+        return view;
+    }
+
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        ar arVar;
+        ar arVar2;
+        ar arVar3;
+        switch (view.getId()) {
+            case R.id.like /* 2131100015 */:
+                arVar = this.f1041a.m;
+                if (!arVar.b()) {
+                    int intValue = ((Integer) view.getTag()).intValue();
+                    String E = TiebaApplication.E();
+                    if (E == null || E.length() <= 0) {
+                        LoginActivity.a((Activity) this.f1041a, this.f1041a.getString(R.string.login_to_use), true, 11002);
+                        this.f1041a.l = this.b;
+                        this.f1041a.k = intValue;
+                        return;
+                    }
+                    this.f1041a.findViewById(R.id.loading).setVisibility(0);
+                    this.f1041a.m = new ar();
+                    arVar2 = this.f1041a.m;
+                    arVar2.setLoadDataCallBack(new g(this, intValue));
+                    arVar3 = this.f1041a.m;
+                    arVar3.a(this.c[intValue].forum_name, String.valueOf(this.c[intValue].forum_id));
+                    return;
                 }
-            } else {
-                fVar2 = this.a.r;
-                fVar2.notifyDataSetChanged();
-            }
+                return;
+            default:
+                FrsActivity.a(this.f1041a, ((h) view.getTag()).b.getText().toString(), (String) null);
+                return;
         }
-        this.a.findViewById(R.id.loading).setVisibility(4);
     }
 }

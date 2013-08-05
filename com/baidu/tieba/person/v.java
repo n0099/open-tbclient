@@ -3,12 +3,15 @@ package com.baidu.tieba.person;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class v extends BroadcastReceiver {
-    final /* synthetic */ EditHeadActivity a;
+public class v extends BroadcastReceiver {
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ EditHeadActivity f1618a;
 
     private v(EditHeadActivity editHeadActivity) {
-        this.a = editHeadActivity;
+        this.f1618a = editHeadActivity;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -18,11 +21,11 @@ class v extends BroadcastReceiver {
 
     @Override // android.content.BroadcastReceiver
     public void onReceive(Context context, Intent intent) {
-        this.a.a_();
+        this.f1618a.a_();
         if (intent.getBooleanExtra("result", false)) {
-            EditHeadActivity.h(this.a);
+            this.f1618a.d();
         } else {
-            this.a.a(intent.getStringExtra("error"));
+            this.f1618a.a(intent.getStringExtra("error"));
         }
     }
 }

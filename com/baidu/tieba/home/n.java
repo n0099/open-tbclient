@@ -1,6 +1,7 @@
 package com.baidu.tieba.home;
 
 import android.app.AlertDialog;
+import android.content.Context;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
@@ -18,7 +19,7 @@ public class n extends com.baidu.adp.a.d {
     LinearLayout d;
     TextView e;
     Button f;
-    com.baidu.tieba.view.ao g;
+    com.baidu.tieba.view.bb g;
     private EnterForumActivity h;
     private BdListView i;
     private ProgressBar j;
@@ -51,9 +52,9 @@ public class n extends com.baidu.adp.a.d {
         this.e = (TextView) enterForumActivity.findViewById(R.id.search_bar_text);
         this.d.setOnClickListener(enterForumActivity);
         this.o = new com.baidu.tieba.util.a(this.h);
-        int a = com.baidu.tieba.util.ab.a(this.h, 41.0f);
-        this.o.a(a, a);
-        this.o.a("forum_icon_mini");
+        int a2 = com.baidu.tieba.util.am.a((Context) this.h, 41.0f);
+        this.o.a(a2, a2);
+        this.o.b("forum_icon_mini");
         this.i = (BdListView) enterForumActivity.findViewById(R.id.enter_forum_lv_forum);
         this.k = new k(enterForumActivity);
         this.k.a((View.OnClickListener) enterForumActivity);
@@ -63,7 +64,7 @@ public class n extends com.baidu.adp.a.d {
         this.i.setOnKeyListener(onKeyListener);
         this.i.setOnItemClickListener(enterForumActivity);
         this.i.setOnScrollListener(enterForumActivity);
-        this.g = new com.baidu.tieba.view.ao(enterForumActivity);
+        this.g = new com.baidu.tieba.view.bb(enterForumActivity);
         this.i.setPullRefresh(this.g);
         this.f = (Button) enterForumActivity.findViewById(R.id.enter_forum_dir);
         this.f.setOnClickListener(enterForumActivity);
@@ -83,20 +84,20 @@ public class n extends com.baidu.adp.a.d {
         this.j.setVisibility(8);
     }
 
-    public void a(com.baidu.tieba.data.m mVar, boolean z) {
+    public void a(com.baidu.tieba.data.q qVar, boolean z) {
         this.i.a();
-        if (mVar != null) {
+        if (qVar != null) {
             try {
                 this.k.a(Boolean.valueOf(z));
-                this.k.a(mVar);
+                this.k.a(qVar);
                 this.k.notifyDataSetChanged();
             } catch (Exception e) {
-                com.baidu.tieba.util.z.b(getClass().getName(), Headers.REFRESH, e.getMessage());
+                com.baidu.tieba.util.aj.b(getClass().getName(), Headers.REFRESH, e.getMessage());
             }
         }
     }
 
-    public void a() {
+    public void b() {
         this.j.setVisibility(0);
     }
 
@@ -107,29 +108,29 @@ public class n extends com.baidu.adp.a.d {
         }
     }
 
-    public View b() {
+    public View c() {
         return this.f;
     }
 
-    public void c() {
+    public void d() {
         this.k.notifyDataSetChanged();
     }
 
-    public void d() {
+    public void e() {
         this.k.c();
     }
 
-    public void e() {
+    public void f() {
     }
 
-    public void f() {
+    public void g() {
         this.j.setVisibility(8);
         if (this.o != null) {
             this.o.b();
         }
     }
 
-    public void g() {
+    public void h() {
         if (this.m != null) {
             this.m.dismiss();
         }
@@ -139,45 +140,45 @@ public class n extends com.baidu.adp.a.d {
     }
 
     public void a(int i) {
-        com.baidu.tieba.util.x.b(this.b, i);
-        com.baidu.tieba.util.x.d(this.c, i);
+        com.baidu.tieba.util.ah.b(this.b, i);
+        com.baidu.tieba.util.ah.d(this.c, i);
         if (i == 1) {
-            com.baidu.tieba.util.x.h(this.d, (int) R.drawable.inputbox_top_1);
+            com.baidu.tieba.util.ah.h(this.d, (int) R.drawable.inputbox_top_1);
             this.e.setHintTextColor(-11446171);
         } else {
-            com.baidu.tieba.util.x.h(this.d, (int) R.drawable.inputbox_top2);
+            com.baidu.tieba.util.ah.h(this.d, (int) R.drawable.inputbox_top2);
             this.e.setHintTextColor(-5921112);
         }
-        com.baidu.tieba.util.x.g((TextView) this.f, i);
+        com.baidu.tieba.util.ah.g((TextView) this.f, i);
         this.k.a(i);
         this.g.a(i);
     }
 
-    public int h() {
+    public int i() {
         return R.id.first;
     }
 
-    public int i() {
+    public int j() {
         return R.id.second;
     }
 
-    public int j() {
+    public int k() {
         return R.id.show_more_layout;
     }
 
-    public int k() {
+    public int l() {
         return R.id.want_login;
     }
 
-    public void l() {
+    public void m() {
         this.m.show();
     }
 
-    public void m() {
+    public void n() {
         this.n.show();
     }
 
-    public void n() {
+    public void o() {
         if (this.l == null) {
             AlertDialog.Builder builder = new AlertDialog.Builder(this.h.getParent());
             builder.setTitle(R.string.alerm_title);
@@ -190,11 +191,11 @@ public class n extends com.baidu.adp.a.d {
         this.l.show();
     }
 
-    public AlertDialog o() {
+    public AlertDialog p() {
         return this.m;
     }
 
-    public AlertDialog p() {
+    public AlertDialog q() {
         return this.n;
     }
 
@@ -205,7 +206,7 @@ public class n extends com.baidu.adp.a.d {
         }
     }
 
-    public void q() {
+    public void r() {
         this.k.a();
         this.k.notifyDataSetChanged();
         if (!this.k.b().booleanValue()) {
@@ -213,7 +214,7 @@ public class n extends com.baidu.adp.a.d {
         }
     }
 
-    public void r() {
+    public void s() {
         int headerViewsCount = this.i.getHeaderViewsCount() + 1;
         int firstVisiblePosition = this.i.getFirstVisiblePosition();
         int lastVisiblePosition = this.i.getLastVisiblePosition();

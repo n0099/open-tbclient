@@ -1,4 +1,6 @@
 package com.baidu.android.common.security;
+
+import com.tencent.mm.sdk.platformtools.Util;
 /* loaded from: classes.dex */
 public final class Base64 {
     private static final byte[] MAP = {65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 97, 98, 99, 100, 101, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, 117, 118, 119, 120, 121, 122, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 43, 47};
@@ -67,7 +69,7 @@ public final class Base64 {
                     int i15 = i14 + 1;
                     bArr2[i14] = (byte) ((65280 & i13) >> 8);
                     i6 = i15 + 1;
-                    bArr2[i15] = (byte) (i13 & 255);
+                    bArr2[i15] = (byte) (i13 & Util.MASK_8BIT);
                 } else {
                     i6 = i12;
                 }

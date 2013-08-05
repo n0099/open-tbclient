@@ -6,7 +6,9 @@ import java.io.FileDescriptor;
 import java.io.PrintWriter;
 /* loaded from: classes.dex */
 public abstract class AsyncTaskLoader extends c {
-    volatile a a;
+
+    /* renamed from: a  reason: collision with root package name */
+    volatile a f297a;
     volatile a b;
     long c;
     long d;
@@ -19,29 +21,29 @@ public abstract class AsyncTaskLoader extends c {
     public void a() {
         super.a();
         b();
-        this.a = new a(this);
+        this.f297a = new a(this);
         c();
     }
 
     public boolean b() {
         boolean z = false;
-        if (this.a != null) {
+        if (this.f297a != null) {
             if (this.b != null) {
-                if (this.a.b) {
-                    this.a.b = false;
-                    this.e.removeCallbacks(this.a);
+                if (this.f297a.b) {
+                    this.f297a.b = false;
+                    this.e.removeCallbacks(this.f297a);
                 }
-                this.a = null;
-            } else if (this.a.b) {
-                this.a.b = false;
-                this.e.removeCallbacks(this.a);
-                this.a = null;
+                this.f297a = null;
+            } else if (this.f297a.b) {
+                this.f297a.b = false;
+                this.e.removeCallbacks(this.f297a);
+                this.f297a = null;
             } else {
-                z = this.a.a(false);
+                z = this.f297a.a(false);
                 if (z) {
-                    this.b = this.a;
+                    this.b = this.f297a;
                 }
-                this.a = null;
+                this.f297a = null;
             }
         }
         return z;
@@ -52,17 +54,17 @@ public abstract class AsyncTaskLoader extends c {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void c() {
-        if (this.b == null && this.a != null) {
-            if (this.a.b) {
-                this.a.b = false;
-                this.e.removeCallbacks(this.a);
+        if (this.b == null && this.f297a != null) {
+            if (this.f297a.b) {
+                this.f297a.b = false;
+                this.e.removeCallbacks(this.f297a);
             }
             if (this.c > 0 && SystemClock.uptimeMillis() < this.d + this.c) {
-                this.a.b = true;
-                this.e.postAtTime(this.a, this.d + this.c);
+                this.f297a.b = true;
+                this.e.postAtTime(this.f297a, this.d + this.c);
                 return;
             }
-            this.a.a(ModernAsyncTask.d, (Object[]) null);
+            this.f297a.a(ModernAsyncTask.d, (Object[]) null);
         }
     }
 
@@ -78,13 +80,13 @@ public abstract class AsyncTaskLoader extends c {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void b(a aVar, Object obj) {
-        if (this.a != aVar) {
+        if (this.f297a != aVar) {
             a(aVar, obj);
         } else if (l()) {
             a(obj);
         } else {
             this.d = SystemClock.uptimeMillis();
-            this.a = null;
+            this.f297a = null;
             b(obj);
         }
     }
@@ -97,12 +99,12 @@ public abstract class AsyncTaskLoader extends c {
     @Override // android.support.v4.content.c
     public void a(String str, FileDescriptor fileDescriptor, PrintWriter printWriter, String[] strArr) {
         super.a(str, fileDescriptor, printWriter, strArr);
-        if (this.a != null) {
+        if (this.f297a != null) {
             printWriter.print(str);
             printWriter.print("mTask=");
-            printWriter.print(this.a);
+            printWriter.print(this.f297a);
             printWriter.print(" waiting=");
-            printWriter.println(this.a.b);
+            printWriter.println(this.f297a.b);
         }
         if (this.b != null) {
             printWriter.print(str);

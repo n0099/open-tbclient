@@ -7,6 +7,7 @@ import android.net.NetworkInfo;
 import android.net.Uri;
 import android.text.TextUtils;
 import com.baidu.loginshare.e;
+import com.tencent.mm.sdk.platformtools.LVBuffer;
 import java.io.DataOutputStream;
 import java.net.HttpURLConnection;
 import java.net.URI;
@@ -27,7 +28,9 @@ public class HttpUtils {
     public static final String HEADER_NAME_USER_AGENT = "User-Agent";
     public static final String IP_CMWAP = "10.0.0.172";
     public static final String IP_CTWAP = "10.0.0.200";
-    private static final Uri a = Uri.parse("content://telephony/carriers/preferapn");
+
+    /* renamed from: a  reason: collision with root package name */
+    private static final Uri f711a = Uri.parse("content://telephony/carriers/preferapn");
 
     /* renamed from: a  reason: collision with other field name */
     private OnNetListener f9a;
@@ -277,7 +280,7 @@ public class HttpUtils {
                 dataOutputStream = null;
             }
             try {
-                byte[] bArr = new byte[4096];
+                byte[] bArr = new byte[LVBuffer.LENGTH_ALLOC_PER_NEW];
                 int dataLen = this.f8a.getDataLen();
                 this.f8a.onSendStart();
                 int i = 0;
@@ -562,7 +565,7 @@ public class HttpUtils {
                     return;
                 }
             }
-            if (VersionUtils.getCurrentVersion() <= 16 && (query = context.getContentResolver().query(a, new String[]{"_id", "apn", "proxy", "user"}, null, null, null)) != null) {
+            if (VersionUtils.getCurrentVersion() <= 16 && (query = context.getContentResolver().query(f711a, new String[]{"_id", "apn", "proxy", "user"}, null, null, null)) != null) {
                 query.moveToFirst();
                 query.getCount();
                 if (!query.isAfterLast()) {

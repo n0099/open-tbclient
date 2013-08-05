@@ -2,33 +2,35 @@ package com.baidu.tieba.write;
 
 import android.content.DialogInterface;
 import android.widget.EditText;
-import com.baidu.tieba.model.WriteModel;
+import com.baidu.tieba.data.WriteData;
 import com.baidu.tieba.util.DatabaseService;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ac implements DialogInterface.OnClickListener {
-    final /* synthetic */ WriteActivity a;
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ WriteActivity f1873a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ac(WriteActivity writeActivity) {
-        this.a = writeActivity;
+        this.f1873a = writeActivity;
     }
 
     @Override // android.content.DialogInterface.OnClickListener
     public void onClick(DialogInterface dialogInterface, int i) {
-        WriteModel writeModel;
+        WriteData writeData;
         EditText editText;
-        WriteModel writeModel2;
+        WriteData writeData2;
         EditText editText2;
-        WriteModel writeModel3;
-        writeModel = this.a.a;
-        editText = this.a.e;
-        writeModel.setTitle(editText.getText().toString());
-        writeModel2 = this.a.a;
-        editText2 = this.a.f;
-        writeModel2.setContent(editText2.getText().toString());
-        writeModel3 = this.a.a;
-        DatabaseService.b(writeModel3);
-        this.a.finish();
+        WriteData writeData3;
+        writeData = this.f1873a.f1868a;
+        editText = this.f1873a.e;
+        writeData.setTitle(editText.getText().toString());
+        writeData2 = this.f1873a.f1868a;
+        editText2 = this.f1873a.f;
+        writeData2.setContent(editText2.getText().toString());
+        writeData3 = this.f1873a.f1868a;
+        DatabaseService.b(writeData3);
+        this.f1873a.finish();
     }
 }

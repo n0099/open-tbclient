@@ -9,11 +9,13 @@ import com.baidu.tieba.data.RegistData;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class i extends BdAsyncTask {
-    final /* synthetic */ ActivationActivity a;
-    private com.baidu.tieba.util.r b;
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ ActivationActivity f882a;
+    private com.baidu.tieba.util.u b;
 
     private i(ActivationActivity activationActivity) {
-        this.a = activationActivity;
+        this.f882a = activationActivity;
         this.b = null;
     }
 
@@ -27,16 +29,16 @@ public class i extends BdAsyncTask {
         ProgressBar progressBar;
         EditText editText;
         RelativeLayout relativeLayout;
-        this.a.n = null;
-        progressBar = this.a.e;
+        this.f882a.n = null;
+        progressBar = this.f882a.e;
         progressBar.setVisibility(8);
-        editText = this.a.k;
+        editText = this.f882a.k;
         if (editText.length() == 6) {
-            relativeLayout = this.a.l;
+            relativeLayout = this.f882a.l;
             relativeLayout.setEnabled(true);
         }
         if (this.b != null) {
-            this.b.h();
+            this.b.i();
         }
         super.cancel(true);
     }
@@ -48,16 +50,16 @@ public class i extends BdAsyncTask {
         RegistData registData;
         boolean z = false;
         try {
-            this.b = new com.baidu.tieba.util.r(String.valueOf(com.baidu.tieba.data.g.a) + "c/s/getsmscode");
-            com.baidu.tieba.util.r rVar = this.b;
-            registData = this.a.r;
-            rVar.a("phonenum", registData.getPhone());
-            this.b.j();
-            if (this.b.c()) {
+            this.b = new com.baidu.tieba.util.u(String.valueOf(com.baidu.tieba.data.g.f1013a) + "c/s/getsmscode");
+            com.baidu.tieba.util.u uVar = this.b;
+            registData = this.f882a.r;
+            uVar.a("phonenum", registData.getPhone());
+            this.b.k();
+            if (this.b.d()) {
                 z = true;
             }
         } catch (Exception e) {
-            com.baidu.tieba.util.z.b(getClass().getName(), "doInBackground", e.getMessage());
+            com.baidu.tieba.util.aj.b(getClass().getName(), "doInBackground", e.getMessage());
         }
         return Boolean.valueOf(z);
     }
@@ -72,24 +74,24 @@ public class i extends BdAsyncTask {
         TextView textView2;
         RelativeLayout relativeLayout;
         super.a((Object) bool);
-        this.a.n = null;
-        progressBar = this.a.e;
+        this.f882a.n = null;
+        progressBar = this.f882a.e;
         progressBar.setVisibility(8);
-        editText = this.a.k;
+        editText = this.f882a.k;
         if (editText.length() == 6) {
-            relativeLayout = this.a.l;
+            relativeLayout = this.f882a.l;
             relativeLayout.setEnabled(true);
         }
         if (bool.booleanValue()) {
-            this.a.b();
+            this.f882a.b();
             return;
         }
-        String g = this.b.g();
-        if (g != null && g.length() > 0) {
-            textView = this.a.j;
+        String h = this.b.h();
+        if (h != null && h.length() > 0) {
+            textView = this.f882a.j;
             textView.setVisibility(0);
-            textView2 = this.a.j;
-            textView2.setText(g);
+            textView2 = this.f882a.j;
+            textView2.setText(h);
         }
     }
 
@@ -100,13 +102,13 @@ public class i extends BdAsyncTask {
         TextView textView;
         TextView textView2;
         RelativeLayout relativeLayout;
-        progressBar = this.a.e;
+        progressBar = this.f882a.e;
         progressBar.setVisibility(0);
-        textView = this.a.j;
+        textView = this.f882a.j;
         textView.setVisibility(4);
-        textView2 = this.a.j;
+        textView2 = this.f882a.j;
         textView2.setText((CharSequence) null);
-        relativeLayout = this.a.l;
+        relativeLayout = this.f882a.l;
         relativeLayout.setEnabled(false);
         super.b();
     }

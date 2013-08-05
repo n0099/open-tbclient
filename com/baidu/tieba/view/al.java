@@ -1,19 +1,77 @@
 package com.baidu.tieba.view;
 
-import android.graphics.Bitmap;
-import android.graphics.Canvas;
-import android.graphics.drawable.BitmapDrawable;
+import android.content.Context;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
+import android.widget.TextView;
+import com.slidingmenu.lib.R;
+import java.util.List;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class al extends BitmapDrawable {
-    public al(Bitmap bitmap) {
-        super(bitmap);
+public class al extends BaseAdapter {
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ ai f1818a;
+
+    private al(ai aiVar) {
+        this.f1818a = aiVar;
     }
 
-    @Override // android.graphics.drawable.BitmapDrawable, android.graphics.drawable.Drawable
-    public void draw(Canvas canvas) {
-        Bitmap bitmap = getBitmap();
-        if (bitmap != null) {
-            canvas.drawBitmap(bitmap, 0.0f, 0.0f, getPaint());
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public /* synthetic */ al(ai aiVar, al alVar) {
+        this(aiVar);
+    }
+
+    @Override // android.widget.Adapter
+    public int getCount() {
+        List list;
+        list = this.f1818a.k;
+        return list.size();
+    }
+
+    @Override // android.widget.Adapter
+    public Object getItem(int i) {
+        List list;
+        list = this.f1818a.k;
+        return list.get(i);
+    }
+
+    @Override // android.widget.Adapter
+    public long getItemId(int i) {
+        return i;
+    }
+
+    @Override // android.widget.Adapter
+    public View getView(int i, View view, ViewGroup viewGroup) {
+        List list;
+        int i2;
+        Context context;
+        Context context2;
+        Context context3;
+        list = this.f1818a.k;
+        com.baidu.tieba.data.bl blVar = (com.baidu.tieba.data.bl) list.get(i);
+        if (view == null) {
+            context3 = this.f1818a.f1815a;
+            view = LayoutInflater.from(context3).inflate(R.layout.allinterest_list_item, viewGroup, false);
+            an anVar = new an(this);
+            anVar.f1820a = (TextView) view.findViewById(R.id.list_item_title);
+            view.setTag(anVar);
         }
+        an anVar2 = (an) view.getTag();
+        anVar2.f1820a.setText(blVar.b());
+        i2 = this.f1818a.m;
+        if (i2 == 1) {
+            TextView textView = anVar2.f1820a;
+            context2 = this.f1818a.f1815a;
+            textView.setTextColor(context2.getResources().getColor(R.color.c_acc5e0));
+        } else {
+            TextView textView2 = anVar2.f1820a;
+            context = this.f1818a.f1815a;
+            textView2.setTextColor(context.getResources().getColor(R.color.c_ffffff));
+        }
+        anVar2.f1820a.setOnClickListener(new am(this, blVar));
+        return view;
     }
 }

@@ -6,7 +6,9 @@ import java.util.List;
 public class f {
     private static f b;
     private long c = 0;
-    private final a a = new a();
+
+    /* renamed from: a  reason: collision with root package name */
+    private final a f963a = new a();
 
     private f() {
     }
@@ -32,23 +34,23 @@ public class f {
         while (it.hasNext()) {
             d dVar = (d) it.next();
             dVar.a(b());
-            this.a.a(dVar);
+            this.f963a.a(dVar);
         }
     }
 
     public List a(String str, String str2) {
-        return this.a.a(str, str2, 20);
+        return this.f963a.a(str, str2, 20);
     }
 
     public void b(String str, String str2) {
-        this.a.a(str, str2);
+        this.f963a.a(str, str2);
     }
 
     public void a(String str, List list) {
-        this.a.a(str, list);
+        this.f963a.a(str, list);
     }
 
     public List a(String str) {
-        return this.a.a(str, 20);
+        return this.f963a.a(str, 20);
     }
 }

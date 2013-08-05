@@ -1,46 +1,60 @@
 package com.baidu.tieba.data;
 
-import com.baidu.android.pushservice.PushConstants;
+import java.util.ArrayList;
+import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class n {
-    private int a = -1;
-    private String b = null;
-    private String c = null;
 
-    public int a() {
-        return this.a;
+    /* renamed from: a  reason: collision with root package name */
+    private ArrayList f1020a = new ArrayList();
+    private ArrayList b = new ArrayList();
+
+    public ArrayList a() {
+        return this.f1020a;
     }
 
-    public void a(int i) {
-        this.a = i;
-    }
-
-    public String b() {
+    public ArrayList b() {
         return this.b;
     }
 
     public void a(String str) {
-        this.b = str;
-    }
-
-    public void b(String str) {
         try {
             a(new JSONObject(str));
         } catch (Exception e) {
-            com.baidu.tieba.util.z.b(getClass().getName(), "parserJson", e.getMessage());
+            com.baidu.tieba.util.aj.b(getClass().getName(), "parserJson", e.toString());
         }
     }
 
     public void a(JSONObject jSONObject) {
-        if (jSONObject != null) {
-            try {
-                this.a = jSONObject.optInt("error_code", 0);
-                this.b = jSONObject.optString(PushConstants.EXTRA_ERROR_CODE);
-                this.c = jSONObject.optString("error_data");
-            } catch (Exception e) {
-                com.baidu.tieba.util.z.b(getClass().getName(), "parserJson", e.getMessage());
+        try {
+            JSONArray optJSONArray = jSONObject.optJSONArray("banner");
+            if (optJSONArray != null) {
+                int length = optJSONArray.length();
+                for (int i = 0; i < length; i++) {
+                    m mVar = new m();
+                    mVar.a(optJSONArray.getJSONObject(i));
+                    this.f1020a.add(mVar);
+                }
             }
+            JSONArray optJSONArray2 = jSONObject.optJSONArray("threadRecommend");
+            if (optJSONArray2 != null) {
+                int length2 = optJSONArray2.length();
+                for (int i2 = 0; i2 < length2; i2++) {
+                    p pVar = new p();
+                    pVar.a(optJSONArray2.getJSONObject(i2));
+                    this.b.add(pVar);
+                }
+            }
+        } catch (JSONException e) {
+            com.baidu.tieba.util.aj.b(getClass().getName(), "parserJson", e.toString());
+        }
+    }
+
+    public void a(n nVar) {
+        if (nVar != null) {
+            this.b.addAll(nVar.b());
         }
     }
 }

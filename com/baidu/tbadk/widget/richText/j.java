@@ -4,19 +4,21 @@ import android.content.Context;
 import android.widget.TextView;
 /* loaded from: classes.dex */
 class j implements com.baidu.adp.lib.a.c {
-    private final /* synthetic */ Context a;
+
+    /* renamed from: a  reason: collision with root package name */
+    private final /* synthetic */ Context f813a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public j(Context context) {
-        this.a = context;
+        this.f813a = context;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.lib.a.c
     /* renamed from: b */
     public TextView a() {
-        com.baidu.adp.lib.c.b.c("pool make TextView");
-        return new com.baidu.tbadk.widget.a(this.a);
+        com.baidu.adp.lib.e.d.c("pool make TextView");
+        return new com.baidu.tbadk.widget.a(this.f813a);
     }
 
     /* JADX DEBUG: Method merged with bridge method */

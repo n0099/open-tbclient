@@ -1,74 +1,45 @@
 package com.baidu.tieba.person;
 
-import android.widget.ListView;
-import com.baidu.tieba.util.NetWorkCore;
-import java.util.ArrayList;
+import com.baidu.adp.widget.ListView.BdListView;
+import com.baidu.tieba.data.UserData;
 /* loaded from: classes.dex */
 class bd implements Runnable {
-    final /* synthetic */ PersonLbsActivity a;
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ PersonListActivity f1589a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bd(PersonLbsActivity personLbsActivity) {
-        this.a = personLbsActivity;
+    public bd(PersonListActivity personListActivity) {
+        this.f1589a = personListActivity;
     }
 
-    /* JADX WARN: Incorrect condition in loop: B:10:0x0040 */
     @Override // java.lang.Runnable
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
     public void run() {
-        ListView listView;
-        ListView listView2;
-        bj bjVar;
-        bj bjVar2;
-        bj bjVar3;
-        int i;
-        bj bjVar4;
+        BdListView bdListView;
+        BdListView bdListView2;
+        bl blVar;
+        bl blVar2;
+        bl blVar3;
         try {
-            listView = this.a.a;
-            int firstVisiblePosition = listView.getFirstVisiblePosition();
-            listView2 = this.a.a;
-            int lastVisiblePosition = listView2.getLastVisiblePosition();
-            NetWorkCore.NetworkStateInfo c = NetWorkCore.c(this.a);
-            bjVar = this.a.n;
-            bjVar.a().a();
-            boolean z = c == NetWorkCore.NetworkStateInfo.WIFI || c == NetWorkCore.NetworkStateInfo.ThreeG;
-            int i2 = firstVisiblePosition;
-            int i3 = 0;
-            while (i2 < bjVar2.getCount()) {
-                if (z || i2 <= lastVisiblePosition) {
-                    bjVar3 = this.a.n;
-                    com.baidu.tieba.data.al alVar = (com.baidu.tieba.data.al) bjVar3.getItem(i2);
-                    if (alVar != null) {
-                        ArrayList j = alVar.e().j();
-                        int size = j.size();
-                        if (i3 < 13) {
-                            for (int i4 = 0; i4 < size; i4++) {
-                                if (((com.baidu.tieba.data.i) j.get(i4)).a() == 3) {
-                                    int i5 = i3 + 1;
-                                    bjVar4 = this.a.n;
-                                    bjVar4.a().a(((com.baidu.tieba.data.i) j.get(i4)).f(), new be(this));
-                                    i = i5;
-                                    break;
-                                }
-                            }
-                        }
-                        i = i3;
-                        if (z && i >= 13) {
-                            return;
-                        }
-                    } else {
-                        i = i3;
+            bdListView = this.f1589a.c;
+            int firstVisiblePosition = bdListView.getFirstVisiblePosition();
+            bdListView2 = this.f1589a.c;
+            int lastVisiblePosition = bdListView2.getLastVisiblePosition();
+            for (int i = firstVisiblePosition; i <= lastVisiblePosition; i++) {
+                blVar = this.f1589a.f;
+                if (i < blVar.getCount()) {
+                    blVar2 = this.f1589a.f;
+                    UserData userData = (UserData) blVar2.getItem(i);
+                    if (userData != null && userData.getPortrait() != null) {
+                        blVar3 = this.f1589a.f;
+                        blVar3.c().b(userData.getPortrait(), new be(this));
                     }
-                    i2++;
-                    i3 = i;
                 } else {
                     return;
                 }
             }
         } catch (Exception e) {
-            com.baidu.tieba.util.z.b("PbActivity", "mGetImageRunnble.run", "error = " + e.getMessage());
+            com.baidu.tieba.util.aj.b(getClass().getName(), "mGetImageRunnble.run", e.getMessage());
         }
     }
 }

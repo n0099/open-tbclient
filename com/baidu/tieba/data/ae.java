@@ -1,45 +1,53 @@
 package com.baidu.tieba.data;
 
+import java.util.ArrayList;
+import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class ae {
-    private int a = -1;
-    private String b = null;
-    private String c = null;
 
-    public int a() {
-        return this.a;
+    /* renamed from: a  reason: collision with root package name */
+    private ArrayList f969a = null;
+
+    public ae() {
+        a(new ArrayList());
     }
 
-    public String b() {
-        return this.b;
+    public ArrayList a() {
+        return this.f969a;
     }
 
-    public String c() {
-        return this.c;
-    }
-
-    public void a(int i) {
-        this.a = i;
+    public void a(ArrayList arrayList) {
+        this.f969a = arrayList;
     }
 
     public void a(String str) {
-        this.b = str;
+        try {
+            a(new JSONObject(str));
+        } catch (Exception e) {
+        }
     }
 
     public void a(JSONObject jSONObject) {
-        if (jSONObject != null) {
-            try {
-                this.a = jSONObject.optInt("type");
-                if (this.a == 3) {
-                    this.b = jSONObject.optString("big_pic");
-                } else if (this.a == 5) {
-                    this.b = jSONObject.optString("vpic");
-                    this.c = jSONObject.optString("vsrc");
+        try {
+            this.f969a = new ArrayList();
+            b();
+            JSONArray optJSONArray = jSONObject.optJSONObject("data").optJSONArray("user_tag");
+            if (optJSONArray != null) {
+                for (int i = 0; i < optJSONArray.length(); i++) {
+                    bl blVar = new bl();
+                    blVar.a(optJSONArray.optJSONObject(i));
+                    this.f969a.add(blVar);
                 }
-            } catch (Exception e) {
-                com.baidu.tieba.util.z.b(getClass().getName(), "parserJson", "error=" + e.toString());
             }
+        } catch (Exception e) {
         }
+    }
+
+    public void b() {
+        bl blVar = new bl();
+        blVar.a("get_all_interest");
+        blVar.b("全部兴趣");
+        this.f969a.add(blVar);
     }
 }

@@ -3,8 +3,8 @@ package com.baidu.browser.bbm;
 import com.baidu.browser.core.util.BdLog;
 import com.baidu.browser.core.util.BdUtil;
 import com.baidu.browser.webpool.BdWebPoolView;
-import com.baidu.zeus.NotificationProxy;
 import com.baidu.zeus.PlumCore;
+import com.tencent.mm.sdk.platformtools.Util;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.ByteArrayOutputStream;
@@ -220,12 +220,12 @@ public final class BdBBMUtils {
             deflater.setInput(bArr);
             deflater.finish();
             System.gc();
-            byte[] bArr2 = new byte[NotificationProxy.MAX_URL_LENGTH];
+            byte[] bArr2 = new byte[1024];
             ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-            byteArrayOutputStream.write(length & 255);
-            byteArrayOutputStream.write((length >> 8) & 255);
-            byteArrayOutputStream.write((length >> 16) & 255);
-            byteArrayOutputStream.write((length >> 24) & 255);
+            byteArrayOutputStream.write(length & Util.MASK_8BIT);
+            byteArrayOutputStream.write((length >> 8) & Util.MASK_8BIT);
+            byteArrayOutputStream.write((length >> 16) & Util.MASK_8BIT);
+            byteArrayOutputStream.write((length >> 24) & Util.MASK_8BIT);
             while (!deflater.finished()) {
                 byteArrayOutputStream.write(bArr2, 0, deflater.deflate(bArr2));
             }
@@ -242,10 +242,10 @@ public final class BdBBMUtils {
         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
         try {
             int length = bArr.length;
-            byteArrayOutputStream.write(length & 255);
-            byteArrayOutputStream.write((length >> 8) & 255);
-            byteArrayOutputStream.write((length >> 16) & 255);
-            byteArrayOutputStream.write((length >> 24) & 255);
+            byteArrayOutputStream.write(length & Util.MASK_8BIT);
+            byteArrayOutputStream.write((length >> 8) & Util.MASK_8BIT);
+            byteArrayOutputStream.write((length >> 16) & Util.MASK_8BIT);
+            byteArrayOutputStream.write((length >> 24) & Util.MASK_8BIT);
             for (int i = 1; i <= 28; i++) {
                 byteArrayOutputStream.write(0);
             }

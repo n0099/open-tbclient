@@ -1,5 +1,6 @@
 package com.baidu.zeus.bouncycastle;
 
+import com.tencent.mm.sdk.platformtools.Util;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 /* loaded from: classes.dex */
@@ -18,13 +19,13 @@ public class DERBitString extends DERObject implements DERString {
                 if ((i >> (i3 * 8)) == 0) {
                     i3--;
                 } else {
-                    i2 = (i >> (i3 * 8)) & 255;
+                    i2 = (i >> (i3 * 8)) & Util.MASK_8BIT;
                     break;
                 }
             } else if (i == 0) {
                 i3--;
             } else {
-                i2 = i & 255;
+                i2 = i & Util.MASK_8BIT;
                 break;
             }
         }
@@ -34,7 +35,7 @@ public class DERBitString extends DERObject implements DERString {
         int i4 = 1;
         while (true) {
             i2 <<= 1;
-            if ((i2 & 255) != 0) {
+            if ((i2 & Util.MASK_8BIT) != 0) {
                 i4++;
             } else {
                 return 8 - i4;
@@ -44,12 +45,12 @@ public class DERBitString extends DERObject implements DERString {
 
     protected static byte[] getBytes(int i) {
         int i2 = 4;
-        for (int i3 = 3; i3 >= 1 && ((255 << (i3 * 8)) & i) == 0; i3--) {
+        for (int i3 = 3; i3 >= 1 && ((Util.MASK_8BIT << (i3 * 8)) & i) == 0; i3--) {
             i2--;
         }
         byte[] bArr = new byte[i2];
         for (int i4 = 0; i4 < i2; i4++) {
-            bArr[i4] = (byte) ((i >> (i4 * 8)) & 255);
+            bArr[i4] = (byte) ((i >> (i4 * 8)) & Util.MASK_8BIT);
         }
         return bArr;
     }

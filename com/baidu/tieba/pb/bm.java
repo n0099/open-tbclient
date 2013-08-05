@@ -1,24 +1,23 @@
 package com.baidu.tieba.pb;
 
 import android.view.View;
-import android.widget.AdapterView;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.widget.Button;
+import android.widget.TextView;
+import com.baidu.tbadk.widget.richText.TbRichTextView;
+import com.baidu.tieba.view.HeadImageView;
 /* loaded from: classes.dex */
-public class bm implements AdapterView.OnItemClickListener {
-    final /* synthetic */ bk a;
+public class bm {
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public bm(bk bkVar) {
-        this.a = bkVar;
-    }
+    /* renamed from: a  reason: collision with root package name */
+    public View f1481a;
+    public HeadImageView b;
+    public TextView c;
+    public Button d;
+    public TbRichTextView e;
+    public View f;
+    final /* synthetic */ bl g;
 
-    @Override // android.widget.AdapterView.OnItemClickListener
-    public void onItemClick(AdapterView adapterView, View view, int i, long j) {
-        com.baidu.tieba.write.m mVar;
-        mVar = this.a.I;
-        String a = mVar.a(i);
-        if (a != null) {
-            this.a.a.getText().insert(this.a.a.getSelectionStart(), a);
-        }
+    public bm(bl blVar) {
+        this.g = blVar;
     }
 }

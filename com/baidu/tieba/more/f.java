@@ -3,15 +3,17 @@ package com.baidu.tieba.more;
 import android.view.View;
 /* loaded from: classes.dex */
 class f implements View.OnClickListener {
-    final /* synthetic */ AccountActivity a;
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ AccountActivity f1412a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(AccountActivity accountActivity) {
-        this.a = accountActivity;
+        this.f1412a = accountActivity;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        this.a.finish();
+        this.f1412a.finish();
     }
 }

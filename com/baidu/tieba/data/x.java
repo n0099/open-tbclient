@@ -1,90 +1,107 @@
 package com.baidu.tieba.data;
 
-import android.content.Context;
-import java.util.ArrayList;
-import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class x {
-    private int a;
-    private int b;
-    private AntiData c;
-    private Context d;
-    private ArrayList e;
 
-    public x() {
-        this.a = 0;
-        this.b = 0;
-        this.d = null;
-        this.e = null;
-        this.e = new ArrayList();
-        this.c = new AntiData();
+    /* renamed from: a  reason: collision with root package name */
+    private int f1030a = 0;
+    private int b = 0;
+    private String c = null;
+    private String d = null;
+    private int e = 0;
+    private int f = 0;
+    private int g = 0;
+    private int h = 0;
+    private int i = 0;
+    private int j = 0;
+    private long k = 0;
+    private long l = 0;
+    private bj m = new bj();
+
+    public int a() {
+        return this.f1030a;
     }
 
-    public x(Context context) {
-        this.a = 0;
-        this.b = 0;
-        this.d = null;
-        this.e = null;
-        this.e = new ArrayList();
-        this.c = new AntiData();
-        this.d = context;
+    public String b() {
+        return this.c;
     }
 
-    public ArrayList a() {
-        return this.e;
+    public String c() {
+        return this.d;
     }
 
-    public int b() {
-        return this.a;
+    public int d() {
+        return this.g;
     }
 
-    public int c() {
+    public int e() {
+        return this.h;
+    }
+
+    public int f() {
+        return this.i;
+    }
+
+    public int g() {
+        return this.j;
+    }
+
+    public int h() {
         return this.b;
     }
 
-    public boolean d() {
-        return this.e.size() >= this.b;
+    public void a(int i) {
+        this.b = i;
     }
 
-    public boolean e() {
-        return this.e != null && this.e.size() < this.b && this.e.size() < 200;
+    public long i() {
+        return this.k;
     }
 
-    public void a(String str) {
-        try {
-            a(new JSONObject(str));
-        } catch (Exception e) {
-            com.baidu.tieba.util.z.b(getClass().getName(), "paserJson", e.toString());
-        }
+    public void b(int i) {
+        this.e = i;
     }
 
-    private void a(JSONObject jSONObject) {
-        try {
-            JSONArray jSONArray = jSONObject.getJSONArray("comment_list");
-            if (jSONArray != null) {
-                int size = this.e.size() - (this.e.size() % 10);
-                for (int i = 0; i < jSONArray.length(); i++) {
-                    JSONObject jSONObject2 = jSONArray.getJSONObject(i);
-                    an anVar = new an();
-                    anVar.a(jSONObject2);
-                    if (this.d != null) {
-                        anVar.d(this.d);
-                    }
-                    if (size < this.e.size()) {
-                        this.e.remove(size);
-                        this.e.add(size, anVar);
-                    } else {
-                        this.e.add(anVar);
-                    }
-                    size++;
+    public int j() {
+        return this.e;
+    }
+
+    public void c(int i) {
+        this.f = i;
+    }
+
+    public int k() {
+        return this.f;
+    }
+
+    public void a(JSONObject jSONObject) {
+        if (jSONObject != null) {
+            try {
+                this.f1030a = jSONObject.optInt("has_frs_star", 0);
+                if (this.f1030a == 1) {
+                    this.c = jSONObject.optString("top", "");
+                    this.d = jSONObject.optString("head", "");
+                    JSONObject optJSONObject = jSONObject.optJSONObject("fans");
+                    this.e = optJSONObject.optInt("is_get", 0);
+                    this.f = optJSONObject.optInt("num", 0);
+                    this.b = optJSONObject.optInt("open", 0);
+                    this.k = optJSONObject.optLong("left_time", 0L);
+                    this.l = this.k;
+                    JSONObject optJSONObject2 = jSONObject.optJSONObject("top_size");
+                    this.g = optJSONObject2.optInt("width", 0);
+                    this.h = optJSONObject2.optInt("height", 0);
+                    JSONObject optJSONObject3 = jSONObject.optJSONObject("head_size");
+                    this.i = optJSONObject3.optInt("width", 0);
+                    this.j = optJSONObject3.optInt("height", 0);
                 }
-                this.a = this.e.size();
+            } catch (Exception e) {
+                com.baidu.tieba.util.aj.b("FrsStarData", "parserJson", "error = " + e.getMessage());
             }
-            this.b = jSONObject.optInt("comment_amount", 0);
-            this.c.setTbs(jSONObject.getJSONObject("tbs").optString("common"));
-        } catch (Exception e) {
-            com.baidu.tieba.util.z.b(getClass().getName(), "paserJson", e.toString());
         }
+    }
+
+    public bj l() {
+        return this.m;
     }
 }

@@ -4,11 +4,13 @@ import com.baidu.tieba.util.NetWorkCore;
 import com.baidu.tieba.view.ImagePbPagerAdapter;
 /* loaded from: classes.dex */
 class k implements Runnable {
-    final /* synthetic */ ImagePbActivity a;
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ ImagePbActivity f1535a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public k(ImagePbActivity imagePbActivity) {
-        this.a = imagePbActivity;
+        this.f1535a = imagePbActivity;
     }
 
     @Override // java.lang.Runnable
@@ -21,31 +23,31 @@ class k implements Runnable {
         ImagePbPagerAdapter imagePbPagerAdapter2;
         ImagePbPagerAdapter imagePbPagerAdapter3;
         try {
-            z = this.a.C;
-            if (z && this.a.H != null) {
-                int i3 = this.a.K > 0 ? this.a.K - 1 : 0;
-                int k = this.a.K >= this.a.H.k() - 1 ? this.a.H.k() - 1 : this.a.K + 1;
-                NetWorkCore.NetworkStateInfo c = NetWorkCore.c(this.a);
-                imagePbPagerAdapter = this.a.A;
+            z = this.f1535a.C;
+            if (z && this.f1535a.H != null) {
+                int i3 = this.f1535a.K > 0 ? this.f1535a.K - 1 : 0;
+                int k = this.f1535a.K >= this.f1535a.H.k() - 1 ? this.f1535a.H.k() - 1 : this.f1535a.K + 1;
+                NetWorkCore.NetworkStateInfo c = NetWorkCore.c(this.f1535a);
+                imagePbPagerAdapter = this.f1535a.A;
                 imagePbPagerAdapter.d().a();
                 if (c != NetWorkCore.NetworkStateInfo.WIFI && c != NetWorkCore.NetworkStateInfo.ThreeG) {
-                    i = this.a.K;
-                    i2 = this.a.K;
+                    i = this.f1535a.K;
+                    i2 = this.f1535a.K;
                     z2 = false;
                 } else {
                     i = i3;
                     i2 = k;
                     z2 = true;
                 }
-                imagePbPagerAdapter2 = this.a.A;
+                imagePbPagerAdapter2 = this.f1535a.A;
                 imagePbPagerAdapter2.d().a(z2);
                 for (int i4 = i; i4 <= i2; i4++) {
-                    imagePbPagerAdapter3 = this.a.A;
-                    imagePbPagerAdapter3.d().a(((com.baidu.tieba.data.v) this.a.H.h().get(i4)).b(), new l(this));
+                    imagePbPagerAdapter3 = this.f1535a.A;
+                    imagePbPagerAdapter3.d().a(((com.baidu.tieba.data.z) this.f1535a.H.h().get(i4)).b(), new l(this));
                 }
             }
         } catch (Exception e) {
-            com.baidu.tieba.util.z.b("ImagePbActivity", "mGetImageRunnble.run", "error = " + e.getMessage());
+            com.baidu.tieba.util.aj.b("ImagePbActivity", "mGetImageRunnble.run", "error = " + e.getMessage());
         }
     }
 }

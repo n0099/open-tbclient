@@ -1,130 +1,31 @@
 package com.baidu.tieba.util;
 
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.CheckBox;
-import android.widget.TextView;
-import com.baidu.browser.explorer.BdWebErrorView;
-import com.baidu.tieba.TiebaApplication;
-import com.slidingmenu.lib.R;
-import java.util.LinkedList;
+import com.baidu.tieba.data.be;
 /* loaded from: classes.dex */
-public class ae {
-    private static int a = -1;
-    private static int b = -1;
-    private static com.baidu.adp.lib.a.a c = new com.baidu.adp.lib.a.a(BdWebErrorView.ERROR_CODE_500);
+class ae implements com.baidu.tieba.model.aj {
 
-    public static void a(TiebaApplication tiebaApplication) {
-        a = tiebaApplication.getResources().getColor(R.color.skin_1_common_color);
-        b = tiebaApplication.getResources().getColor(R.color.more_color);
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ aa f1750a;
+    private final /* synthetic */ af b;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public ae(aa aaVar, af afVar) {
+        this.f1750a = aaVar;
+        this.b = afVar;
     }
 
-    public static void a(View view) {
-        if (view instanceof ViewGroup) {
-            a((ViewGroup) view, TiebaApplication.f().at());
-        }
+    @Override // com.baidu.tieba.model.aj
+    public void a() {
     }
 
-    public static void b(View view) {
-        if (view != null) {
-            c.b(Integer.valueOf(System.identityHashCode(view)));
-        }
-    }
-
-    public static void a(ViewGroup viewGroup, int i) {
-        int identityHashCode = System.identityHashCode(viewGroup);
-        Integer num = (Integer) c.a(Integer.valueOf(identityHashCode));
-        if (num == null || i != num.intValue()) {
-            b(viewGroup, i);
-            c.a(Integer.valueOf(identityHashCode), Integer.valueOf(i));
-        }
-    }
-
-    public static void a(ViewGroup viewGroup, boolean z, ag agVar) {
-        if (!z || !agVar.a(viewGroup)) {
-            LinkedList linkedList = new LinkedList();
-            while (true) {
-                int childCount = viewGroup.getChildCount();
-                for (int i = 0; i < childCount; i++) {
-                    View childAt = viewGroup.getChildAt(i);
-                    if (!agVar.a(childAt)) {
-                        if (childAt instanceof ViewGroup) {
-                            linkedList.addLast((ViewGroup) childAt);
-                        }
-                    } else {
-                        return;
-                    }
-                }
-                if (!linkedList.isEmpty()) {
-                    viewGroup = (ViewGroup) linkedList.removeFirst();
-                } else {
-                    return;
-                }
+    @Override // com.baidu.tieba.model.aj
+    public void a(be beVar) {
+        if (beVar != null && beVar.b() == 0) {
+            if (this.b != null) {
+                this.b.a(beVar.a());
             }
-        }
-    }
-
-    private static void b(ViewGroup viewGroup, int i) {
-        a(viewGroup, true, (ag) new af(i, i == 1));
-    }
-
-    public static void a(View view, int i) {
-        if (view != null) {
-            if (i == 1) {
-                view.setBackgroundColor(-13881543);
-            } else {
-                view.setBackgroundColor(-1775893);
-            }
-        }
-    }
-
-    public static void a(View view, int i, int i2) {
-        if (view != null) {
-            if (i2 == 1) {
-                if (i == 0) {
-                    view.setBackgroundResource(R.drawable.auto_skin_list_item_bg_up_1);
-                } else if (i == 2) {
-                    view.setBackgroundResource(R.drawable.auto_skin_list_item_bg_down_1);
-                } else {
-                    view.setBackgroundResource(R.drawable.list_selector_item_1);
-                }
-            } else if (i == 0) {
-                view.setBackgroundResource(R.drawable.auto_skin_list_item_bg_up);
-            } else if (i == 2) {
-                view.setBackgroundResource(R.drawable.auto_skin_list_item_bg_down);
-            } else {
-                view.setBackgroundResource(R.drawable.list_selector_item);
-            }
-        }
-    }
-
-    public static void a(TextView textView, int i) {
-        if (textView != null) {
-            if (i == 1) {
-                textView.setTextColor(-11446171);
-            } else {
-                textView.setTextColor(-5065030);
-            }
-        }
-    }
-
-    public static void b(TextView textView, int i) {
-        if (textView != null) {
-            if (i == 1) {
-                textView.setTextColor(a);
-            } else {
-                textView.setTextColor(b);
-            }
-        }
-    }
-
-    public static void a(CheckBox checkBox, int i) {
-        if (checkBox != null) {
-            if (i == 1) {
-                checkBox.setTextColor(a);
-            } else {
-                checkBox.setTextColor(b);
-            }
+        } else if (this.b != null) {
+            this.b.a(null);
         }
     }
 }

@@ -82,7 +82,7 @@ public class JniUtil {
                         str = str.substring(0, lastIndexOf);
                     }
                     InputStream openInputStream = sContext.getContentResolver().openInputStream(Uri.parse(str));
-                    byte[] bArr = new byte[NotificationProxy.MAX_URL_LENGTH];
+                    byte[] bArr = new byte[1024];
                     j = 0;
                     while (true) {
                         try {

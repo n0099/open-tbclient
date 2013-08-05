@@ -1,20 +1,18 @@
 package com.baidu.android.pushservice.message;
 
-import android.os.Parcel;
-import android.os.Parcelable;
+import android.content.DialogInterface;
 /* loaded from: classes.dex */
-final class f implements Parcelable.Creator {
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // android.os.Parcelable.Creator
-    /* renamed from: a */
-    public PublicMsg createFromParcel(Parcel parcel) {
-        return new PublicMsg(parcel);
+class f implements DialogInterface.OnClickListener {
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ PublicMsg f594a;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public f(PublicMsg publicMsg) {
+        this.f594a = publicMsg;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // android.os.Parcelable.Creator
-    /* renamed from: a */
-    public PublicMsg[] newArray(int i) {
-        return new PublicMsg[i];
+    @Override // android.content.DialogInterface.OnClickListener
+    public void onClick(DialogInterface dialogInterface, int i) {
     }
 }

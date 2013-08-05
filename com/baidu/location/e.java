@@ -32,7 +32,9 @@ public class e {
 
     /* renamed from: new  reason: not valid java name */
     private final long f160new = 3000;
-    private final long a = 5000;
+
+    /* renamed from: a  reason: collision with root package name */
+    private final long f742a = 5000;
 
     /* renamed from: void  reason: not valid java name */
     private WifiManager f161void = null;

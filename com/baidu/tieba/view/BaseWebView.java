@@ -3,20 +3,25 @@ package com.baidu.tieba.view;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 /* loaded from: classes.dex */
 public class BaseWebView extends WebView {
-    private WebViewClient a;
+
+    /* renamed from: a  reason: collision with root package name */
+    private WebViewClient f1784a;
     private d b;
     private Context c;
     private d d;
+    private e e;
 
     public BaseWebView(Context context) {
         super(context);
         this.b = null;
         this.c = null;
         this.d = null;
+        this.e = null;
         this.c = context;
         a();
     }
@@ -37,6 +42,7 @@ public class BaseWebView extends WebView {
         this.b = null;
         this.c = null;
         this.d = null;
+        this.e = null;
         this.c = context;
         a();
     }
@@ -44,9 +50,9 @@ public class BaseWebView extends WebView {
     public void a() {
         getSettings().setJavaScriptEnabled(true);
         getSettings().setCacheMode(2);
-        com.baidu.tieba.util.ab.a(getSettings());
-        this.a = new MyWebViewClient();
-        setWebViewClient(this.a);
+        com.baidu.tieba.util.am.a(getSettings());
+        this.f1784a = new MyWebViewClient();
+        setWebViewClient(this.f1784a);
         setOnLongClickListener(new b(this));
     }
 
@@ -58,6 +64,7 @@ public class BaseWebView extends WebView {
         @Override // android.webkit.WebViewClient
         public void onPageStarted(WebView webView, String str, Bitmap bitmap) {
             super.onPageStarted(webView, str, bitmap);
+            Log.d("BaseWebView", "@onPageStarted = " + str);
         }
 
         @Override // android.webkit.WebViewClient
@@ -68,6 +75,10 @@ public class BaseWebView extends WebView {
         @Override // android.webkit.WebViewClient
         public void onPageFinished(WebView webView, String str) {
             super.onPageFinished(webView, str);
+            if (BaseWebView.this.e != null) {
+                BaseWebView.this.e.a(webView, str);
+            }
+            Log.d("BaseWebView", "@onPageFinished = " + str);
         }
 
         @Override // android.webkit.WebViewClient
@@ -86,6 +97,10 @@ public class BaseWebView extends WebView {
 
     public void setOnLoadUrlListener(d dVar) {
         this.b = dVar;
+    }
+
+    public void setOnPageFinishedListener(e eVar) {
+        this.e = eVar;
     }
 
     private void b() {

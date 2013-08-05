@@ -6,18 +6,20 @@ import android.widget.GridView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class w implements View.OnTouchListener {
-    final /* synthetic */ WriteActivity a;
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ WriteActivity f1918a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public w(WriteActivity writeActivity) {
-        this.a = writeActivity;
+        this.f1918a = writeActivity;
     }
 
     @Override // android.view.View.OnTouchListener
     public boolean onTouch(View view, MotionEvent motionEvent) {
         GridView gridView;
         if (motionEvent.getAction() == 1) {
-            gridView = this.a.r;
+            gridView = this.f1918a.r;
             gridView.setVisibility(8);
             return false;
         }

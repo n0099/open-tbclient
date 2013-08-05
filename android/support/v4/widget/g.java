@@ -3,37 +3,39 @@ package android.support.v4.widget;
 import android.view.View;
 /* loaded from: classes.dex */
 class g extends af {
-    final /* synthetic */ DrawerLayout a;
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ DrawerLayout f337a;
     private final int b;
     private ad c;
     private final Runnable d;
 
     public void a() {
-        this.a.removeCallbacks(this.d);
+        this.f337a.removeCallbacks(this.d);
     }
 
     @Override // android.support.v4.widget.af
     public boolean a(View view, int i) {
-        return this.a.g(view) && this.a.a(view, this.b) && this.a.a(view) == 0;
+        return this.f337a.g(view) && this.f337a.a(view, this.b) && this.f337a.a(view) == 0;
     }
 
     @Override // android.support.v4.widget.af
     public void a(int i) {
-        this.a.a(this.b, i, this.c.c());
+        this.f337a.a(this.b, i, this.c.c());
     }
 
     @Override // android.support.v4.widget.af
     public void a(View view, int i, int i2, int i3, int i4) {
         float width;
         int width2 = view.getWidth();
-        if (this.a.a(view, 3)) {
+        if (this.f337a.a(view, 3)) {
             width = (width2 + i) / width2;
         } else {
-            width = (this.a.getWidth() - i) / width2;
+            width = (this.f337a.getWidth() - i) / width2;
         }
-        this.a.b(view, width);
+        this.f337a.b(view, width);
         view.setVisibility(width == 0.0f ? 4 : 0);
-        this.a.invalidate();
+        this.f337a.invalidate();
     }
 
     @Override // android.support.v4.widget.af
@@ -43,32 +45,32 @@ class g extends af {
     }
 
     private void b() {
-        View a = this.a.a(this.b == 3 ? 5 : 3);
-        if (a != null) {
-            this.a.i(a);
+        View a2 = this.f337a.a(this.b == 3 ? 5 : 3);
+        if (a2 != null) {
+            this.f337a.i(a2);
         }
     }
 
     @Override // android.support.v4.widget.af
     public void a(View view, float f, float f2) {
         int width;
-        float d = this.a.d(view);
+        float d = this.f337a.d(view);
         int width2 = view.getWidth();
-        if (this.a.a(view, 3)) {
+        if (this.f337a.a(view, 3)) {
             width = (f > 0.0f || (f == 0.0f && d > 0.5f)) ? 0 : -width2;
         } else {
-            width = this.a.getWidth();
+            width = this.f337a.getWidth();
             if (f < 0.0f || (f == 0.0f && d < 0.5f)) {
                 width -= width2;
             }
         }
         this.c.a(width, view.getTop());
-        this.a.invalidate();
+        this.f337a.invalidate();
     }
 
     @Override // android.support.v4.widget.af
     public void a(int i, int i2) {
-        this.a.postDelayed(this.d, 160L);
+        this.f337a.postDelayed(this.d, 160L);
     }
 
     @Override // android.support.v4.widget.af
@@ -78,14 +80,14 @@ class g extends af {
 
     @Override // android.support.v4.widget.af
     public void b(int i, int i2) {
-        View a;
+        View a2;
         if ((i & 1) == 1) {
-            a = this.a.a(3);
+            a2 = this.f337a.a(3);
         } else {
-            a = this.a.a(5);
+            a2 = this.f337a.a(5);
         }
-        if (a != null && this.a.a(a) == 0) {
-            this.c.a(a, i2);
+        if (a2 != null && this.f337a.a(a2) == 0) {
+            this.c.a(a2, i2);
         }
     }
 
@@ -96,10 +98,10 @@ class g extends af {
 
     @Override // android.support.v4.widget.af
     public int a(View view, int i, int i2) {
-        if (this.a.a(view, 3)) {
+        if (this.f337a.a(view, 3)) {
             return Math.max(-view.getWidth(), Math.min(i, 0));
         }
-        int width = this.a.getWidth();
+        int width = this.f337a.getWidth();
         return Math.max(width - view.getWidth(), Math.min(i, width));
     }
 

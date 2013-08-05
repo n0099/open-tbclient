@@ -1,11 +1,15 @@
 package com.baidu.tieba.more;
+
+import com.baidu.tieba.TiebaApplication;
 /* loaded from: classes.dex */
 class k extends Thread {
-    final /* synthetic */ AccountActivity a;
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ AccountActivity f1417a;
     private String b;
 
     public k(AccountActivity accountActivity, String str) {
-        this.a = accountActivity;
+        this.f1417a = accountActivity;
         this.b = null;
         this.b = str;
     }
@@ -13,9 +17,11 @@ class k extends Thread {
     @Override // java.lang.Thread, java.lang.Runnable
     public void run() {
         super.run();
-        com.baidu.tieba.util.r rVar = new com.baidu.tieba.util.r(String.valueOf(com.baidu.tieba.data.g.a) + "c/s/logout");
-        rVar.b(false);
-        rVar.a("bduss", this.b);
-        rVar.j();
+        com.baidu.tieba.util.u uVar = new com.baidu.tieba.util.u(String.valueOf(com.baidu.tieba.data.g.f1013a) + "c/s/logout");
+        uVar.c(false);
+        uVar.a(false);
+        uVar.a("BDUSS", this.b);
+        uVar.a("channel_id", TiebaApplication.f().bj());
+        uVar.k();
     }
 }

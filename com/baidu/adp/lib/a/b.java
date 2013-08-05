@@ -1,16 +1,19 @@
 package com.baidu.adp.lib.a;
 
+import com.baidu.adp.lib.e.d;
 import java.security.InvalidParameterException;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
 public class b {
-    private int a;
+
+    /* renamed from: a  reason: collision with root package name */
+    private int f346a;
     private int b;
     private LinkedList c;
     private c d;
 
     public b(c cVar, int i, int i2) {
-        this.a = 10;
+        this.f346a = 10;
         this.b = 0;
         this.c = null;
         this.d = null;
@@ -18,7 +21,7 @@ public class b {
             throw new InvalidParameterException("invalid params");
         }
         this.d = cVar;
-        this.a = i;
+        this.f346a = i;
         this.b = i2;
         this.c = new LinkedList();
         a(this.b);
@@ -31,7 +34,7 @@ public class b {
                 try {
                     obj = this.d.b(this.d.a());
                 } catch (Exception e) {
-                    com.baidu.adp.lib.c.b.a(e.getMessage());
+                    d.a(e.getMessage());
                     obj = null;
                 }
                 if (obj != null) {
@@ -52,7 +55,7 @@ public class b {
                 }
                 a(this.b - this.c.size());
             } catch (Exception e) {
-                com.baidu.adp.lib.c.b.a(e.getMessage());
+                d.a(e.getMessage());
             }
         }
         return obj;
@@ -61,11 +64,11 @@ public class b {
     public void a(Object obj) {
         Object obj2;
         synchronized (this) {
-            if (this.c.size() < this.a) {
+            if (this.c.size() < this.f346a) {
                 try {
                     obj2 = this.d.c(obj);
                 } catch (Exception e) {
-                    com.baidu.adp.lib.c.b.a(e.getMessage());
+                    d.a(e.getMessage());
                     obj2 = null;
                 }
                 if (obj2 != null) {

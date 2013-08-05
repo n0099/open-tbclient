@@ -5,6 +5,7 @@ import android.text.SpannableStringBuilder;
 import android.text.Spanned;
 import android.view.MotionEvent;
 import android.widget.TextView;
+import com.baidu.adp.lib.e.d;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class a extends TextView {
@@ -34,13 +35,13 @@ public class a extends TextView {
             a(new SpannableStringBuilder(text), i, i2);
             return;
         }
-        com.baidu.adp.lib.c.b.e(getClass().getName(), "fixOnMeasure", "The text isn't a Spanned");
+        d.e(getClass().getName(), "fixOnMeasure", "The text isn't a Spanned");
         b(i, i2);
     }
 
     private void a(SpannableStringBuilder spannableStringBuilder, int i, int i2) {
         b b = b(spannableStringBuilder, i, i2);
-        if (b.a) {
+        if (b.f803a) {
             a(i, i2, spannableStringBuilder, b);
         } else {
             b(i, i2);
@@ -66,10 +67,10 @@ public class a extends TextView {
                 a((CharSequence) spannableStringBuilder, i, i2);
                 return b.a(arrayList, arrayList2);
             } catch (IndexOutOfBoundsException e) {
-                com.baidu.adp.lib.c.b.b(getClass().getName(), "addSpacesAroundSpansUntilFixed", e.getMessage());
+                d.b(getClass().getName(), "addSpacesAroundSpansUntilFixed", e.getMessage());
             }
         }
-        com.baidu.adp.lib.c.b.e(getClass().getName(), "addSpacesAroundSpansUntilFixed", "Could not fix the Spanned by adding spaces around spans");
+        d.e(getClass().getName(), "addSpacesAroundSpansUntilFixed", "Could not fix the Spanned by adding spaces around spans");
         return b.a();
     }
 
@@ -111,7 +112,7 @@ public class a extends TextView {
     }
 
     private void b(int i, int i2) {
-        com.baidu.adp.lib.c.b.e(getClass().getName(), "fallbackToString", "Fallback to unspanned text");
+        d.e(getClass().getName(), "fallbackToString", "Fallback to unspanned text");
         a(getText().toString(), i, i2);
     }
 }

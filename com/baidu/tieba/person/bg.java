@@ -1,32 +1,35 @@
 package com.baidu.tieba.person;
 
-import android.os.Handler;
-import android.widget.AbsListView;
+import android.view.View;
+import com.baidu.tieba.data.UserData;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class bg implements AbsListView.OnScrollListener {
-    final /* synthetic */ PersonLbsActivity a;
+public class bg implements View.OnClickListener {
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ PersonListActivity f1592a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bg(PersonLbsActivity personLbsActivity) {
-        this.a = personLbsActivity;
+    public bg(PersonListActivity personListActivity) {
+        this.f1592a = personListActivity;
     }
 
-    @Override // android.widget.AbsListView.OnScrollListener
-    public void onScrollStateChanged(AbsListView absListView, int i) {
-        Handler handler;
-        Runnable runnable;
-        Handler handler2;
-        Runnable runnable2;
-        handler = this.a.u;
-        runnable = this.a.v;
-        handler.removeCallbacks(runnable);
-        handler2 = this.a.u;
-        runnable2 = this.a.v;
-        handler2.postDelayed(runnable2, 300L);
-    }
-
-    @Override // android.widget.AbsListView.OnScrollListener
-    public void onScroll(AbsListView absListView, int i, int i2, int i3) {
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        bl blVar;
+        bl blVar2;
+        bl blVar3;
+        int intValue = ((Integer) view.getTag()).intValue();
+        blVar = this.f1592a.f;
+        if (blVar != null) {
+            blVar2 = this.f1592a.f;
+            if (blVar2.getItemViewType(intValue) == 0) {
+                blVar3 = this.f1592a.f;
+                UserData userData = (UserData) blVar3.getItem(intValue);
+                if (userData != null && userData.getId() != null) {
+                    PersonInfoActivity.a(this.f1592a, userData.getId(), userData.getName_show());
+                }
+            }
+        }
     }
 }

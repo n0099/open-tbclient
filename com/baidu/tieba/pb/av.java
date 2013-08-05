@@ -4,11 +4,13 @@ import android.content.DialogInterface;
 import com.baidu.tieba.data.MarkData;
 /* loaded from: classes.dex */
 class av implements DialogInterface.OnClickListener {
-    final /* synthetic */ NewPbActivity a;
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ NewPbActivity f1463a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public av(NewPbActivity newPbActivity) {
-        this.a = newPbActivity;
+        this.f1463a = newPbActivity;
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:11:0x003b, code lost:
@@ -19,40 +21,40 @@ class av implements DialogInterface.OnClickListener {
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public void onClick(DialogInterface dialogInterface, int i) {
-        com.baidu.tieba.model.ax axVar;
+        com.baidu.tieba.model.bc bcVar;
         boolean b;
-        com.baidu.tieba.model.am amVar;
-        bk bkVar;
-        com.baidu.tieba.model.am amVar2;
-        com.baidu.tieba.model.am amVar3;
-        com.baidu.tieba.model.ax axVar2;
+        com.baidu.tieba.model.av avVar;
+        bn bnVar;
+        com.baidu.tieba.model.av avVar2;
+        com.baidu.tieba.model.av avVar3;
+        com.baidu.tieba.model.bc bcVar2;
         boolean z = true;
-        if (this.a.a != null) {
+        if (this.f1463a.f1439a != null) {
             if (i == 0) {
-                this.a.a.e(this.a);
-                this.a.a = null;
+                this.f1463a.f1439a.d(this.f1463a);
+                this.f1463a.f1439a = null;
             } else if (i == 1) {
-                if (this.a.a.d() != null) {
-                    String d = this.a.a.d();
-                    axVar2 = this.a.j;
+                if (this.f1463a.f1439a.d() != null) {
+                    String d = this.f1463a.f1439a.d();
+                    bcVar2 = this.f1463a.j;
                 }
                 z = false;
-                axVar = this.a.j;
-                MarkData b2 = axVar.b(this.a.a);
+                bcVar = this.f1463a.j;
+                MarkData b2 = bcVar.b(this.f1463a.f1439a);
                 if (b2 != null) {
-                    b = this.a.b(1100009);
+                    b = this.f1463a.b(11009);
                     if (b) {
-                        amVar = this.a.k;
-                        amVar.a(b2);
-                        bkVar = this.a.p;
-                        bkVar.m();
+                        avVar = this.f1463a.k;
+                        avVar.a(b2);
+                        bnVar = this.f1463a.p;
+                        bnVar.m();
                         if (!z) {
-                            amVar3 = this.a.k;
-                            amVar3.c();
+                            avVar3 = this.f1463a.k;
+                            avVar3.c();
                             return;
                         }
-                        amVar2 = this.a.k;
-                        amVar2.d();
+                        avVar2 = this.f1463a.k;
+                        avVar2.d();
                     }
                 }
             }

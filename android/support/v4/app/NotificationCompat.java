@@ -4,7 +4,9 @@ import android.os.Build;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class NotificationCompat {
-    private static final am a;
+
+    /* renamed from: a  reason: collision with root package name */
+    private static final am f273a;
 
     /* loaded from: classes.dex */
     public class BigPictureStyle extends ar {
@@ -16,18 +18,20 @@ public class NotificationCompat {
 
     /* loaded from: classes.dex */
     public class InboxStyle extends ar {
-        ArrayList a = new ArrayList();
+
+        /* renamed from: a  reason: collision with root package name */
+        ArrayList f274a = new ArrayList();
     }
 
     static {
         if (Build.VERSION.SDK_INT >= 16) {
-            a = new aq();
+            f273a = new aq();
         } else if (Build.VERSION.SDK_INT >= 14) {
-            a = new ap();
+            f273a = new ap();
         } else if (Build.VERSION.SDK_INT >= 11) {
-            a = new ao();
+            f273a = new ao();
         } else {
-            a = new an();
+            f273a = new an();
         }
     }
 }

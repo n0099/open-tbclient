@@ -1,44 +1,34 @@
 package com.baidu.tieba.service;
 
 import android.os.Handler;
-import com.baidu.tieba.util.z;
+import com.baidu.tieba.util.aj;
 import java.io.File;
-import java.util.Date;
 /* loaded from: classes.dex */
 class b extends Thread {
-    final /* synthetic */ ClearTempService a;
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ ClearTempService f1696a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(ClearTempService clearTempService) {
-        this.a = clearTempService;
+        this.f1696a = clearTempService;
     }
 
     @Override // java.lang.Thread, java.lang.Runnable
     public void run() {
         Handler handler;
         Handler handler2;
-        boolean z;
         super.run();
         try {
-            File[] listFiles = new File(com.baidu.tieba.util.m.a + "/tieba/image/").listFiles();
-            long time = new Date().getTime();
-            if (listFiles != null) {
-                for (int i = 0; i < listFiles.length; i++) {
-                    z = this.a.a;
-                    if (z) {
-                        break;
-                    }
-                    if (time - listFiles[i].lastModified() > 86400000 && !listFiles[i].delete()) {
-                        z.b(getClass().getName(), "run", "list[i].delete error");
-                    }
-                }
-            }
-            File[] fileArr = null;
+            File file = new File(com.baidu.tieba.util.p.f1771a + "/tieba/image");
+            File file2 = new File(com.baidu.tieba.util.p.f1771a + "/tieba/share");
+            this.f1696a.a(file);
+            this.f1696a.a(file2);
         } catch (Exception e) {
-            z.b(getClass().getName(), "run", e.getMessage());
+            aj.b(getClass().getName(), "run", e.getMessage());
         }
-        handler = this.a.c;
-        handler2 = this.a.c;
+        handler = this.f1696a.c;
+        handler2 = this.f1696a.c;
         handler.sendMessage(handler2.obtainMessage());
     }
 }

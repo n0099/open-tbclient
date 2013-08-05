@@ -1,7 +1,9 @@
 package com.baidu.adp.lib.webSocket;
 /* loaded from: classes.dex */
 public class g extends k {
-    public int a = -1;
+
+    /* renamed from: a  reason: collision with root package name */
+    public int f439a = -1;
     public String b = null;
 
     g() {

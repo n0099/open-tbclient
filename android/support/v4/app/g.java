@@ -9,14 +9,16 @@ import android.widget.ImageView;
 import java.lang.reflect.Method;
 /* loaded from: classes.dex */
 class g {
-    public Method a;
+
+    /* renamed from: a  reason: collision with root package name */
+    public Method f282a;
     public Method b;
     public ImageView c;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public g(Activity activity) {
         try {
-            this.a = ActionBar.class.getDeclaredMethod("setHomeAsUpIndicator", Drawable.class);
+            this.f282a = ActionBar.class.getDeclaredMethod("setHomeAsUpIndicator", Drawable.class);
             this.b = ActionBar.class.getDeclaredMethod("setHomeActionContentDescription", Integer.TYPE);
         } catch (NoSuchMethodException e) {
             View findViewById = activity.findViewById(16908332);

@@ -1,6 +1,7 @@
 package com.baidu.tieba.frs;
 
 import android.app.AlertDialog;
+import android.content.Context;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -9,18 +10,21 @@ import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.baidu.tieba.view.WaterFallView;
+import com.baidu.tieba.view.bm;
 import com.slidingmenu.lib.R;
 import com.slidingmenu.lib.SlidingMenu;
 /* loaded from: classes.dex */
 public class ax {
-    private com.baidu.tieba.g a;
+
+    /* renamed from: a  reason: collision with root package name */
+    private com.baidu.tieba.g f1073a;
     private View.OnClickListener b;
     private RelativeLayout c = null;
     private LinearLayout d = null;
     private bc e = null;
     private SlidingMenu f = null;
     private WaterFallView g = null;
-    private com.baidu.tieba.view.w h = null;
+    private com.baidu.tieba.view.aa h = null;
     private ProgressBar i = null;
     private ImageView j = null;
     private ImageButton k = null;
@@ -29,35 +33,35 @@ public class ax {
     private TextView n = null;
 
     public ax(FrsImageActivity frsImageActivity, View.OnClickListener onClickListener) {
-        this.a = null;
+        this.f1073a = null;
         this.b = null;
-        this.a = frsImageActivity;
+        this.f1073a = frsImageActivity;
         this.b = onClickListener;
         f();
     }
 
     private void f() {
-        this.a.setContentView(R.layout.frs_image_activity);
-        this.e = new bc(this.a);
+        this.f1073a.setContentView(R.layout.frs_image_activity);
+        this.e = new bc(this.f1073a);
         this.e.a(R.id.show_image);
-        this.c = (RelativeLayout) this.a.findViewById(R.id.container);
-        this.d = (LinearLayout) this.a.findViewById(R.id.frs_title);
-        this.f = new SlidingMenu(this.a);
+        this.c = (RelativeLayout) this.f1073a.findViewById(R.id.container);
+        this.d = (LinearLayout) this.f1073a.findViewById(R.id.frs_title);
+        this.f = new SlidingMenu(this.f1073a);
         this.f.setMode(1);
         this.f.setTouchModeAbove(1);
-        this.f.setBehindOffset(com.baidu.tieba.util.ab.a(this.a, 48.0f));
+        this.f.setBehindOffset(com.baidu.tieba.util.am.a((Context) this.f1073a, 48.0f));
         this.f.setBehindScrollScale(0.5f);
         this.f.setFadeDegree(0.35f);
-        this.f.attachToActivity(this.a, 1);
-        this.f.setMenu(this.e.a());
-        this.g = (WaterFallView) this.a.findViewById(R.id.water_fall);
-        this.h = new com.baidu.tieba.view.w(this.a);
+        this.f.attachToActivity(this.f1073a, 1);
+        this.f.setMenu(this.e.b());
+        this.g = (WaterFallView) this.f1073a.findViewById(R.id.water_fall);
+        this.h = new com.baidu.tieba.view.aa(this.f1073a);
         this.g.setCustomHeaderView(this.h);
-        this.i = (ProgressBar) this.a.findViewById(R.id.progress);
-        this.j = (ImageView) this.a.findViewById(R.id.frs_bt_back);
-        this.n = (TextView) this.a.findViewById(R.id.frs_top_title);
-        this.k = (ImageButton) this.a.findViewById(R.id.frs_top_edit);
-        this.l = (ImageButton) this.a.findViewById(R.id.frs_top_more);
+        this.i = (ProgressBar) this.f1073a.findViewById(R.id.progress);
+        this.j = (ImageView) this.f1073a.findViewById(R.id.frs_bt_back);
+        this.n = (TextView) this.f1073a.findViewById(R.id.frs_top_title);
+        this.k = (ImageButton) this.f1073a.findViewById(R.id.frs_top_edit);
+        this.l = (ImageButton) this.f1073a.findViewById(R.id.frs_top_more);
         this.k.setScaleType(ImageView.ScaleType.CENTER);
         this.l.setScaleType(ImageView.ScaleType.CENTER);
         this.e.a(this.b);
@@ -65,7 +69,7 @@ public class ax {
         this.k.setOnClickListener(this.b);
         this.l.setOnClickListener(this.b);
         this.n.setOnClickListener(this.b);
-        this.m = (TextView) this.a.findViewById(R.id.frs_more_mes_text);
+        this.m = (TextView) this.f1073a.findViewById(R.id.frs_more_mes_text);
     }
 
     public WaterFallView a() {
@@ -80,8 +84,8 @@ public class ax {
         }
     }
 
-    public void a(com.baidu.tieba.view.aw awVar) {
-        this.g.setOnScrollListener(awVar);
+    public void a(bm bmVar) {
+        this.g.setOnScrollListener(bmVar);
     }
 
     public void a(SlidingMenu.OnClosedListener onClosedListener) {
@@ -105,37 +109,37 @@ public class ax {
     }
 
     public void a(String str) {
-        this.n.setText(String.valueOf(str) + this.a.getString(R.string.forum));
+        this.n.setText(String.valueOf(str) + this.f1073a.getString(R.string.forum));
     }
 
     public AlertDialog d() {
-        String[] strArr = {this.a.getString(R.string.take_photo), this.a.getString(R.string.album)};
-        AlertDialog.Builder builder = new AlertDialog.Builder(this.a);
-        builder.setTitle(this.a.getString(R.string.operation));
+        String[] strArr = {this.f1073a.getString(R.string.take_photo), this.f1073a.getString(R.string.album)};
+        AlertDialog.Builder builder = new AlertDialog.Builder(this.f1073a);
+        builder.setTitle(this.f1073a.getString(R.string.operation));
         builder.setItems(strArr, new ay(this));
         AlertDialog create = builder.create();
         create.setCanceledOnTouchOutside(true);
         return create;
     }
 
-    public void a(com.baidu.tieba.model.aa aaVar) {
-        this.e.a(aaVar);
-        long a = aaVar.a() + aaVar.b();
-        if (a > 0) {
+    public void a(com.baidu.tieba.model.af afVar) {
+        this.e.a(afVar);
+        long a2 = afVar.a() + afVar.b();
+        if (a2 > 0) {
             this.m.setVisibility(0);
-            this.m.setText(String.valueOf(a <= 99 ? a : 99L));
+            this.m.setText(String.valueOf(a2 <= 99 ? a2 : 99L));
             return;
         }
         this.m.setVisibility(4);
     }
 
     public void a(int i) {
-        com.baidu.tieba.util.x.b(this.c, i);
+        com.baidu.tieba.util.ah.b(this.c, i);
         this.e.b(i);
         this.g.d(i);
-        com.baidu.tieba.util.x.b(this.h, i);
-        com.baidu.tieba.util.x.d(this.d, i);
-        com.baidu.tieba.util.x.a(this.j, i);
+        com.baidu.tieba.util.ah.b(this.h, i);
+        com.baidu.tieba.util.ah.d(this.d, i);
+        com.baidu.tieba.util.ah.a(this.j, i);
         this.h.a(i);
         if (i == 1) {
             this.m.setTextColor(-2960686);

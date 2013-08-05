@@ -1,97 +1,114 @@
 package com.baidu.tieba.data;
 
+import java.util.ArrayList;
+import java.util.Iterator;
+import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class ac {
-    private int a;
-    private int b;
-    private int c;
-    private int d;
-    private String e;
-    private int f;
-    private int g;
+
+    /* renamed from: a  reason: collision with root package name */
+    private int f967a;
+    private boolean b;
+    private String c;
+    private String d;
+    private ArrayList e;
 
     public ac() {
-        b(0);
-        c(0);
-        d(0);
-        this.d = 0;
-        b("");
-        e(0);
-        f(0);
+        a(0);
+        b(null);
+        c(null);
+        a(false);
+        this.e = new ArrayList();
     }
 
-    public int a() {
-        return this.d;
-    }
-
-    public void a(int i) {
-        if (i >= 0) {
-            this.d = i;
-        }
+    public ArrayList a() {
+        return this.e;
     }
 
     public void a(String str) {
         try {
-            a(new JSONObject(str).optJSONObject("info"));
+            a(new JSONObject(str));
         } catch (Exception e) {
-            com.baidu.tieba.util.z.b("LikeReturnData", "parserJson", "error = " + e.getMessage());
+            com.baidu.tieba.util.aj.b("InterestData", "parserJson", "error = " + e.getMessage());
         }
     }
 
     public void a(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                b(jSONObject.optInt("is_like", 0));
-                c(jSONObject.optInt("is_black", 0));
-                d(jSONObject.optInt("like_num", 0));
-                this.d = jSONObject.optInt("level_id", 0);
-                b(jSONObject.optString("level_name", ""));
-                f(jSONObject.optInt("levelup_score", 0));
-                e(jSONObject.optInt("cur_score", 0));
+                c(jSONObject.optString("pn"));
+                b(jSONObject.optString("total_page"));
+                a(jSONObject.optInt("has_more"));
+                JSONArray optJSONArray = jSONObject.optJSONArray("goodthreadfeed");
+                if (optJSONArray != null) {
+                    for (int i = 0; i < optJSONArray.length(); i++) {
+                        af afVar = new af();
+                        afVar.a(optJSONArray.optJSONObject(i));
+                        this.e.add(afVar);
+                    }
+                    if (optJSONArray.length() == 0) {
+                        a(true);
+                    } else {
+                        a(false);
+                    }
+                }
             } catch (Exception e) {
-                com.baidu.tieba.util.z.b("LikeReturnData", "parserJson", "error = " + e.getMessage());
+                com.baidu.tieba.util.aj.b("InterestData", "parserJson", "error = " + e.getMessage());
             }
         }
     }
 
-    public void b(int i) {
-        this.a = i;
+    public void a(int i) {
+        this.f967a = i;
     }
 
     public int b() {
-        return this.a;
-    }
-
-    public void c(int i) {
-        this.b = i;
-    }
-
-    public void d(int i) {
-        this.c = i;
+        return this.f967a;
     }
 
     public void b(String str) {
-        this.e = str;
+        this.c = str;
     }
 
     public String c() {
-        return this.e;
+        return this.c;
     }
 
-    public void e(int i) {
-        this.f = i;
+    public void c(String str) {
+        this.d = str;
     }
 
-    public int d() {
-        return this.f;
+    public String d() {
+        return this.d;
     }
 
-    public void f(int i) {
-        this.g = i;
+    public void a(ac acVar, boolean z) {
+        if (acVar != null) {
+            a(acVar.b());
+            b(acVar.c());
+            c(acVar.d());
+            if (acVar.a() == null || acVar.a().size() == 0) {
+                a(true);
+            } else {
+                a(false);
+            }
+            if (z) {
+                Iterator it = acVar.a().iterator();
+                while (it.hasNext()) {
+                    this.e.add((af) it.next());
+                }
+                return;
+            }
+            this.e = acVar.a();
+        }
     }
 
-    public int e() {
-        return this.g;
+    public boolean e() {
+        return this.b;
+    }
+
+    public void a(boolean z) {
+        this.b = z;
     }
 }

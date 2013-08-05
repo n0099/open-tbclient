@@ -2,35 +2,37 @@ package com.baidu.tieba.write;
 
 import android.graphics.Bitmap;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class av implements View.OnClickListener {
-    final /* synthetic */ WriteImageActivity a;
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ WriteImageActivity f1892a;
+    private final /* synthetic */ String b;
+    private final /* synthetic */ int c;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public av(WriteImageActivity writeImageActivity) {
-        this.a = writeImageActivity;
+    public av(WriteImageActivity writeImageActivity, String str, int i) {
+        this.f1892a = writeImageActivity;
+        this.b = str;
+        this.c = i;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         ProgressBar progressBar;
+        ImageView imageView;
         Bitmap bitmap;
-        Bitmap bitmap2;
-        progressBar = this.a.j;
+        progressBar = this.f1892a.j;
         if (progressBar.getVisibility() != 0) {
-            bitmap = this.a.c;
-            if (bitmap == null) {
-                bitmap2 = this.a.r;
-                if (bitmap2 == null) {
-                    return;
-                }
-            }
-            if (view.getTag() != null) {
-                this.a.y = false;
-                this.a.c(view.getTag().toString());
-            }
+            imageView = this.f1892a.b;
+            bitmap = this.f1892a.c;
+            imageView.setImageBitmap(bitmap);
+            this.f1892a.y = false;
+            this.f1892a.e(this.b);
+            this.f1892a.u = this.c;
         }
     }
 }

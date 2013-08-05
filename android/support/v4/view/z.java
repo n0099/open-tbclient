@@ -2,20 +2,23 @@ package android.support.v4.view;
 
 import android.os.Build;
 import android.view.MotionEvent;
+import com.tencent.mm.sdk.platformtools.Util;
 /* loaded from: classes.dex */
 public class z {
-    static final ac a;
+
+    /* renamed from: a  reason: collision with root package name */
+    static final ac f326a;
 
     static {
         if (Build.VERSION.SDK_INT >= 5) {
-            a = new ab();
+            f326a = new ab();
         } else {
-            a = new aa();
+            f326a = new aa();
         }
     }
 
     public static int a(MotionEvent motionEvent) {
-        return motionEvent.getAction() & 255;
+        return motionEvent.getAction() & Util.MASK_8BIT;
     }
 
     public static int b(MotionEvent motionEvent) {
@@ -23,22 +26,22 @@ public class z {
     }
 
     public static int a(MotionEvent motionEvent, int i) {
-        return a.a(motionEvent, i);
+        return f326a.a(motionEvent, i);
     }
 
     public static int b(MotionEvent motionEvent, int i) {
-        return a.b(motionEvent, i);
+        return f326a.b(motionEvent, i);
     }
 
     public static float c(MotionEvent motionEvent, int i) {
-        return a.c(motionEvent, i);
+        return f326a.c(motionEvent, i);
     }
 
     public static float d(MotionEvent motionEvent, int i) {
-        return a.d(motionEvent, i);
+        return f326a.d(motionEvent, i);
     }
 
     public static int c(MotionEvent motionEvent) {
-        return a.a(motionEvent);
+        return f326a.a(motionEvent);
     }
 }

@@ -13,10 +13,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.view.bq;
 import android.view.KeyEvent;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import com.baidu.mobstat.StatService;
@@ -27,17 +24,18 @@ import java.util.List;
 /* loaded from: classes.dex */
 public class GuideActivity extends Activity {
     private ArrayList d;
-    private q e;
+    private s e;
     private BaseViewPager f;
-    private Button g;
-    private List h;
-    private int[] c = {R.drawable.image_bootpage01, R.drawable.image_bootpage02};
-    private p i = null;
-    private LinearLayout j = null;
-    private com.baidu.tieba.view.a k = new l(this);
-    public View.OnClickListener a = new m(this);
-    public View.OnClickListener b = new n(this);
-    private final bq l = new o(this);
+    private List g;
+    private int[] c = {R.drawable.image_bootpage01, R.drawable.image_bootpage02, R.drawable.image_bootpage03};
+    private r h = null;
+    private LinearLayout i = null;
+    private com.baidu.tieba.view.a j = new n(this);
+
+    /* renamed from: a */
+    public View.OnClickListener f820a = new o(this);
+    public View.OnClickListener b = new p(this);
+    private final bq k = new q(this);
 
     public static void a(Activity activity, int i) {
         activity.startActivityForResult(new Intent(activity, GuideActivity.class), i);
@@ -45,40 +43,34 @@ public class GuideActivity extends Activity {
 
     @Override // android.app.Activity
     public void onCreate(Bundle bundle) {
-        View imageView;
         super.onCreate(bundle);
         setContentView(R.layout.guide_activity);
-        this.e = new q(this, null);
+        this.e = new s(this, null);
         this.f = (BaseViewPager) findViewById(R.id.guide_pager);
         this.f.setAdapter(this.e);
-        this.f.setOnScrollOutListener(this.k);
-        this.f.setOnPageChangeListener(this.l);
-        this.h = new ArrayList();
-        LayoutInflater layoutInflater = getLayoutInflater();
+        this.f.setOnScrollOutListener(this.j);
+        this.f.setOnPageChangeListener(this.k);
+        this.g = new ArrayList();
         this.d = new ArrayList();
-        this.j = (LinearLayout) findViewById(R.id.tagsGroup);
+        this.i = (LinearLayout) findViewById(R.id.tagsGroup);
         for (int i = 0; i < this.c.length; i++) {
             Bitmap decodeResource = BitmapFactory.decodeResource(getResources(), this.c[i]);
-            if (i == this.c.length - 1) {
-                imageView = layoutInflater.inflate(R.layout.guide_view, (ViewGroup) null);
-            } else {
-                imageView = new ImageView(this);
-            }
+            ImageView imageView = new ImageView(this);
             imageView.setOnClickListener(this.b);
             imageView.setBackgroundDrawable(new BitmapDrawable(decodeResource));
-            this.h.add(decodeResource);
+            this.g.add(decodeResource);
             this.d.add(i, imageView);
         }
         if (TiebaApplication.f().t()) {
             try {
                 StatService.setAppChannel(com.baidu.tieba.data.g.a());
             } catch (Exception e) {
-                com.baidu.tieba.util.z.b(getClass().getName(), "onCreate", e.getMessage());
+                com.baidu.tieba.util.aj.b(getClass().getName(), "onCreate", e.getMessage());
             }
         }
-        this.i = new p(this, null);
-        this.i.setSelfExecute(true);
-        this.i.execute(new String[0]);
+        this.h = new r(this, null);
+        this.h.setSelfExecute(true);
+        this.h.execute(new String[0]);
     }
 
     @Override // android.app.Activity
@@ -94,15 +86,15 @@ public class GuideActivity extends Activity {
             if (view != null) {
                 view.setBackgroundDrawable(null);
             }
-            Bitmap bitmap = (Bitmap) this.h.get(i2);
+            Bitmap bitmap = (Bitmap) this.g.get(i2);
             if (bitmap != null && !bitmap.isRecycled()) {
                 bitmap.recycle();
             }
             i = i2 + 1;
         }
-        if (this.i != null) {
-            this.i.cancel(true);
-            this.i = null;
+        if (this.h != null) {
+            this.h.cancel(true);
+            this.h = null;
         }
     }
 
@@ -113,7 +105,7 @@ public class GuideActivity extends Activity {
             try {
                 StatService.onResume(this);
             } catch (Exception e) {
-                com.baidu.tieba.util.z.b(getClass().getName(), "onResume", e.getMessage());
+                com.baidu.tieba.util.aj.b(getClass().getName(), "onResume", e.getMessage());
             }
         }
     }
@@ -125,7 +117,7 @@ public class GuideActivity extends Activity {
             try {
                 StatService.onPause(this);
             } catch (Exception e) {
-                com.baidu.tieba.util.z.b(getClass().getName(), "onPause", e.getMessage());
+                com.baidu.tieba.util.aj.b(getClass().getName(), "onPause", e.getMessage());
             }
         }
     }
@@ -175,7 +167,7 @@ public class GuideActivity extends Activity {
                 }
             }
         } catch (Exception e) {
-            com.baidu.tieba.util.z.a(getClass().getName(), "checkShortCut", e.toString());
+            com.baidu.tieba.util.aj.a(getClass().getName(), "checkShortCut", e.toString());
         }
         return false;
     }

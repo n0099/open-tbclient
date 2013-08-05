@@ -25,8 +25,9 @@ public final class DeviceId {
     private static final String KEY_DEVICE_ID = "com.baidu.deviceid";
     private static final String TAG = "DeviceId";
 
+    /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
-    final class IMEIInfo {
+    public final class IMEIInfo {
         private static final String KEY_IMEI = "bd_setting_i";
         public final boolean CAN_READ_AND_WRITE_SYSTEM_SETTINGS;
         public final String IMEI;

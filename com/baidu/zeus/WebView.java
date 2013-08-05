@@ -71,14 +71,12 @@ import com.baidu.browser.explorer.BdWebErrorView;
 import com.baidu.cyberplayer.sdk.BVideoView;
 import com.baidu.location.BDLocation;
 import com.baidu.location.LocationClientOption;
-import com.baidu.mapapi.MKEvent;
-import com.baidu.mapapi.MKSearch;
-import com.baidu.mapapi.MapView;
 import com.baidu.zeus.ViewManager;
 import com.baidu.zeus.WebSettings;
 import com.baidu.zeus.WebTextView;
 import com.baidu.zeus.WebViewCore;
 import com.baidu.zeus.bouncycastle.DERTags;
+import com.tencent.mm.sdk.platformtools.Util;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -558,10 +556,10 @@ public class WebView extends AbsoluteLayout implements ViewGroup.OnHierarchyChan
     private static int mSubjectClickDrawableId = 0;
     static final int INVAL_RECT_MSG_ID = 117;
     private static final int SUBJECT_RING_COLOR = Color.argb((int) INVAL_RECT_MSG_ID, 182, 198, 216);
-    private static final int SUBJECT_RING_COLOR_CLICK_DAY = Color.argb(255, 182, 198, 216);
+    private static final int SUBJECT_RING_COLOR_CLICK_DAY = Color.argb((int) Util.MASK_8BIT, 182, 198, 216);
     private static final int SUBJECT_RING_COLOR_CLICK_NIGHT = Color.argb(176, 182, 198, 216);
-    private static final int SUBJECT_SHADOW_COLOR_NORMAL = Color.argb(255, 255, 202, 0);
-    private static final int SUBJECT_SHADOW_COLOR_CLICK = Color.argb(255, 255, 86, 0);
+    private static final int SUBJECT_SHADOW_COLOR_NORMAL = Color.argb((int) Util.MASK_8BIT, (int) Util.MASK_8BIT, 202, 0);
+    private static final int SUBJECT_SHADOW_COLOR_CLICK = Color.argb((int) Util.MASK_8BIT, (int) Util.MASK_8BIT, 86, 0);
     private static final int SUBJECT_SHADLE_COLOR = Color.argb(160, 55, 58, 62);
     private static int mLastSubjectClickIndex = -1;
 
@@ -1164,7 +1162,7 @@ public class WebView extends AbsoluteLayout implements ViewGroup.OnHierarchyChan
         this.mViewRectViewport = new Rect();
         this.mGLViewportEmpty = false;
         this.mPrivateHandler = new PrivateHandler();
-        this.mCurrentTouchInterval = 50;
+        this.mCurrentTouchInterval = TOUCH_SENT_INTERVAL;
         this.mTouchMode = 7;
         this.mForwardTouchEvents = false;
         this.mPreventDefault = 4;
@@ -1233,7 +1231,7 @@ public class WebView extends AbsoluteLayout implements ViewGroup.OnHierarchyChan
         this.SMALL_SCALE_STATE = 1;
         this.MEDIUM_SCALE_STATE = 2;
         this.LARGE_SCALE_STATE = 3;
-        this.SOFT_KEYBOARD_HEIGHT = MKEvent.ERROR_PERMISSION_DENIED;
+        this.SOFT_KEYBOARD_HEIGHT = 300;
         this.mContentHeightChanged = false;
         this.mContentHeightAdded = 0;
         this.mGotCenterDown = false;
@@ -5048,7 +5046,7 @@ public class WebView extends AbsoluteLayout implements ViewGroup.OnHierarchyChan
 
     private void destroyPluginView() {
         if (this.mWebViewCore != null) {
-            this.mWebViewCore.sendMessage(MKEvent.ERROR_PERMISSION_DENIED, (Object) null);
+            this.mWebViewCore.sendMessage(300, (Object) null);
         }
     }
 
@@ -5640,7 +5638,7 @@ public class WebView extends AbsoluteLayout implements ViewGroup.OnHierarchyChan
                     }
                     x = this.mScaleDetector.getFocusX();
                     y = this.mScaleDetector.getFocusY();
-                    int action = motionEvent.getAction() & 255;
+                    int action = motionEvent.getAction() & Util.MASK_8BIT;
                     if (action == 5) {
                         cancelTouch();
                         i = 0;
@@ -6508,7 +6506,7 @@ public class WebView extends AbsoluteLayout implements ViewGroup.OnHierarchyChan
                 return 4;
             case 21:
                 return 1;
-            case DERTags.IA5_STRING /* 22 */:
+            case 22:
                 return 3;
             default:
                 throw new IllegalArgumentException("keyCode must be one of {KEYCODE_DPAD_UP, KEYCODE_DPAD_RIGHT, KEYCODE_DPAD_DOWN, KEYCODE_DPAD_LEFT}.");
@@ -6845,7 +6843,7 @@ public class WebView extends AbsoluteLayout implements ViewGroup.OnHierarchyChan
             public void run() {
                 synchronized (this) {
                     int i = WebView.this.lastProgress + 1;
-                    if (i > 50) {
+                    if (i > WebView.TOUCH_SENT_INTERVAL) {
                         i = WebView.this.lastProgress;
                     }
                     WebView.this.getWebChromeClient().onProgressChanged(WebView.this.getWebViewCore().getWebView(), i);
@@ -7548,7 +7546,7 @@ public class WebView extends AbsoluteLayout implements ViewGroup.OnHierarchyChan
 
         private void handleQueuedMotionEvent(MotionEvent motionEvent) {
             this.mLastEventTime = motionEvent.getEventTime();
-            int action = motionEvent.getAction() & 255;
+            int action = motionEvent.getAction() & Util.MASK_8BIT;
             if (motionEvent.getPointerCount() <= 1) {
                 ScaleGestureDetector scaleGestureDetector = WebView.this.mScaleDetector;
                 if (scaleGestureDetector != null && WebView.this.mPreventDefault != 3) {
@@ -7847,7 +7845,7 @@ public class WebView extends AbsoluteLayout implements ViewGroup.OnHierarchyChan
                     case 19:
                     case 20:
                     case 21:
-                    case DERTags.IA5_STRING /* 22 */:
+                    case 22:
                     case DERTags.UTC_TIME /* 23 */:
                     case 24:
                     case DERTags.GRAPHIC_STRING /* 25 */:
@@ -7870,14 +7868,14 @@ public class WebView extends AbsoluteLayout implements ViewGroup.OnHierarchyChan
                     case 42:
                     case 43:
                     case 44:
-                    case MKSearch.TYPE_AREA_MULTI_POI_LIST /* 45 */:
+                    case 45:
                     case 46:
                     case 47:
-                    case MapView.LayoutParams.TOP /* 48 */:
+                    case 48:
                     case 49:
-                    case 50:
+                    case WebView.TOUCH_SENT_INTERVAL /* 50 */:
                     case 51:
-                    case MKSearch.POI_DETAIL_SEARCH /* 52 */:
+                    case 52:
                     case 53:
                     case 54:
                     case 55:
@@ -7889,7 +7887,7 @@ public class WebView extends AbsoluteLayout implements ViewGroup.OnHierarchyChan
                     case BDLocation.TypeGpsLocation /* 61 */:
                     case BDLocation.TypeCriteriaException /* 62 */:
                     case BDLocation.TypeNetWorkException /* 63 */:
-                    case DERTags.APPLICATION /* 64 */:
+                    case 64:
                     case BDLocation.TypeCacheLocation /* 65 */:
                     case BDLocation.TypeOffLineLocation /* 66 */:
                     case BDLocation.TypeOffLineLocationFail /* 67 */:
@@ -7906,7 +7904,7 @@ public class WebView extends AbsoluteLayout implements ViewGroup.OnHierarchyChan
                     case 78:
                     case 79:
                     case 80:
-                    case MapView.LayoutParams.BOTTOM_CENTER /* 81 */:
+                    case 81:
                     case 82:
                     case 83:
                     case 84:
@@ -8246,7 +8244,7 @@ public class WebView extends AbsoluteLayout implements ViewGroup.OnHierarchyChan
                             return;
                         }
                         return;
-                    case WebView.CENTER_FIT_RECT /* 127 */:
+                    case 127:
                         Rect rect2 = (Rect) message.obj;
                         WebView.this.mInZoomOverview = false;
                         WebView.this.centerFitRect(rect2.left, rect2.top, rect2.width(), rect2.height());
@@ -9037,7 +9035,7 @@ public class WebView extends AbsoluteLayout implements ViewGroup.OnHierarchyChan
                 });
             }
             AlertDialog create = inverseBackgroundForced.create();
-            create.getWindow().setFlags(NotificationProxy.MAX_URL_LENGTH, NotificationProxy.MAX_URL_LENGTH);
+            create.getWindow().setFlags(1024, 1024);
             create.setOnCancelListener(new DialogInterface.OnCancelListener() { // from class: com.baidu.zeus.WebView.InvokeListBox.9
                 @Override // android.content.DialogInterface.OnCancelListener
                 public void onCancel(DialogInterface dialogInterface) {
@@ -9175,7 +9173,7 @@ public class WebView extends AbsoluteLayout implements ViewGroup.OnHierarchyChan
     }
 
     private void sendMoveFocus(int i, int i2) {
-        this.mWebViewCore.sendMessage(CENTER_FIT_RECT, new WebViewCore.CursorData(i, i2, 0, 0));
+        this.mWebViewCore.sendMessage(127, new WebViewCore.CursorData(i, i2, 0, 0));
     }
 
     private void sendMoveMouse(int i, int i2, int i3, int i4) {

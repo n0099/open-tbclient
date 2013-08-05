@@ -7,11 +7,13 @@ import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class j extends BdAsyncTask {
-    final /* synthetic */ AtListActivity a;
-    private com.baidu.tieba.util.r b;
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ AtListActivity f1905a;
+    private com.baidu.tieba.util.u b;
 
     private j(AtListActivity atListActivity) {
-        this.a = atListActivity;
+        this.f1905a = atListActivity;
         this.b = null;
     }
 
@@ -24,7 +26,7 @@ public class j extends BdAsyncTask {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void b() {
         ProgressBar progressBar;
-        progressBar = this.a.m;
+        progressBar = this.f1905a.m;
         progressBar.setVisibility(0);
         super.b();
     }
@@ -33,10 +35,10 @@ public class j extends BdAsyncTask {
     public void cancel() {
         ProgressBar progressBar;
         if (this.b != null) {
-            this.b.h();
+            this.b.i();
         }
-        this.a.g = null;
-        progressBar = this.a.m;
+        this.f1905a.g = null;
+        progressBar = this.f1905a.m;
         progressBar.setVisibility(8);
         super.cancel(true);
     }
@@ -44,22 +46,22 @@ public class j extends BdAsyncTask {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public com.baidu.tieba.data.s a(String... strArr) {
-        this.b = new com.baidu.tieba.util.r();
-        this.b.a(String.valueOf(com.baidu.tieba.data.g.a) + "c/u/follow/list");
-        String j = this.b.j();
-        if (!this.b.c()) {
+    public com.baidu.tieba.data.w a(String... strArr) {
+        this.b = new com.baidu.tieba.util.u();
+        this.b.a(String.valueOf(com.baidu.tieba.data.g.f1013a) + "c/u/follow/list");
+        String k = this.b.k();
+        if (!this.b.d()) {
             return null;
         }
-        com.baidu.tieba.data.s sVar = new com.baidu.tieba.data.s();
-        sVar.a(j);
-        return sVar;
+        com.baidu.tieba.data.w wVar = new com.baidu.tieba.data.w();
+        wVar.a(k);
+        return wVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void a(com.baidu.tieba.data.s sVar) {
+    public void a(com.baidu.tieba.data.w wVar) {
         ProgressBar progressBar;
         com.baidu.tieba.model.a aVar;
         k kVar;
@@ -70,35 +72,35 @@ public class j extends BdAsyncTask {
         k kVar3;
         k kVar4;
         ListView listView;
-        this.a.g = null;
-        progressBar = this.a.m;
+        this.f1905a.g = null;
+        progressBar = this.f1905a.m;
         progressBar.setVisibility(8);
-        if (this.b.c()) {
-            aVar = this.a.j;
-            aVar.a(sVar);
-            kVar = this.a.k;
+        if (this.b.d()) {
+            aVar = this.f1905a.j;
+            aVar.a(wVar);
+            kVar = this.f1905a.k;
             if (kVar != null) {
-                editText = this.a.a;
+                editText = this.f1905a.f1856a;
                 if (editText.getText().toString().length() != 0) {
-                    aVar2 = this.a.j;
+                    aVar2 = this.f1905a.j;
                     if (aVar2.b() != null) {
-                        aVar3 = this.a.j;
-                        aVar3.b().a(sVar.b());
-                        kVar2 = this.a.k;
+                        aVar3 = this.f1905a.j;
+                        aVar3.b().a(wVar.b());
+                        kVar2 = this.f1905a.k;
                         kVar2.notifyDataSetInvalidated();
                     }
                 } else {
-                    kVar3 = this.a.k;
-                    kVar3.a(sVar.a());
-                    kVar4 = this.a.k;
+                    kVar3 = this.f1905a.k;
+                    kVar3.a(wVar.a());
+                    kVar4 = this.f1905a.k;
                     kVar4.notifyDataSetInvalidated();
-                    listView = this.a.d;
+                    listView = this.f1905a.d;
                     listView.setSelection(0);
                 }
             } else {
                 return;
             }
         }
-        super.a((Object) sVar);
+        super.a((Object) wVar);
     }
 }

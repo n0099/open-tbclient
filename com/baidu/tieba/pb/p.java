@@ -10,13 +10,15 @@ import com.slidingmenu.lib.R;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class p implements View.OnClickListener {
-    final /* synthetic */ ImagePbActivity a;
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ ImagePbActivity f1540a;
     private final /* synthetic */ Handler b;
     private final /* synthetic */ Runnable c;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public p(ImagePbActivity imagePbActivity, Handler handler, Runnable runnable) {
-        this.a = imagePbActivity;
+        this.f1540a = imagePbActivity;
         this.b = handler;
         this.c = runnable;
     }
@@ -31,26 +33,26 @@ public class p implements View.OnClickListener {
         GridView gridView2;
         EditText editText3;
         Button button2;
-        gridView = this.a.p;
+        gridView = this.f1540a.p;
         if (gridView.getVisibility() == 0) {
-            editText2 = this.a.m;
+            editText2 = this.f1540a.m;
             editText2.requestFocus();
-            gridView2 = this.a.p;
+            gridView2 = this.f1540a.p;
             gridView2.setVisibility(8);
-            ImagePbActivity imagePbActivity = this.a;
-            editText3 = this.a.m;
-            com.baidu.tieba.util.ab.b(imagePbActivity, editText3);
-            button2 = this.a.o;
+            ImagePbActivity imagePbActivity = this.f1540a;
+            editText3 = this.f1540a.m;
+            com.baidu.tieba.util.am.b(imagePbActivity, editText3);
+            button2 = this.f1540a.o;
             button2.setBackgroundResource(R.drawable.sub_pb_face);
             return;
         }
-        keyboardLayout = this.a.t;
+        keyboardLayout = this.f1540a.t;
         keyboardLayout.setOnkbdStateListener(null);
-        ImagePbActivity imagePbActivity2 = this.a;
-        editText = this.a.m;
-        com.baidu.tieba.util.ab.a(imagePbActivity2, editText);
+        ImagePbActivity imagePbActivity2 = this.f1540a;
+        editText = this.f1540a.m;
+        com.baidu.tieba.util.am.a(imagePbActivity2, editText);
         this.b.postDelayed(this.c, 200L);
-        button = this.a.o;
+        button = this.f1540a.o;
         button.setBackgroundResource(R.drawable.sub_pb_keyboard);
     }
 }

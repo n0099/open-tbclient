@@ -23,9 +23,10 @@ import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.data.AccountData;
 import com.baidu.tieba.util.DatabaseService;
 import com.slidingmenu.lib.R;
+import com.tencent.mm.sdk.platformtools.Util;
 /* loaded from: classes.dex */
 public class ReLoginActivity extends com.baidu.tieba.g {
-    private am c = null;
+    private an c = null;
     private Button d = null;
     private Button e = null;
     private ImageView f = null;
@@ -34,14 +35,16 @@ public class ReLoginActivity extends com.baidu.tieba.g {
     private boolean k = false;
     private boolean l = false;
     private AccountData m = null;
-    private j n = null;
+    private k n = null;
     private long o = 0;
     private String p = null;
-    LinearLayout a = null;
+
+    /* renamed from: a  reason: collision with root package name */
+    LinearLayout f845a = null;
     LinearLayout b = null;
     private Handler q = null;
-    private Runnable r = new ag(this);
-    private View.OnClickListener s = new ah(this);
+    private Runnable r = new ah(this);
+    private View.OnClickListener s = new ai(this);
 
     public static void a(Activity activity, String str, int i, boolean z, AccountData accountData) {
         Intent intent = new Intent(activity, ReLoginActivity.class);
@@ -69,7 +72,7 @@ public class ReLoginActivity extends com.baidu.tieba.g {
         super.onResume();
         if (this.l) {
             String currentAccount = BaiduAccount.get(this).getCurrentAccount();
-            com.baidu.tieba.util.z.e(getClass().getName(), "onResume", "account=" + currentAccount);
+            com.baidu.tieba.util.aj.e(getClass().getName(), "onResume", "account=" + currentAccount);
             if (currentAccount == null || currentAccount.equals("BaiduUser")) {
                 finish();
             } else {
@@ -93,19 +96,19 @@ public class ReLoginActivity extends com.baidu.tieba.g {
     }
 
     private void b() {
-        new AccountProxy(this).getTokenAsync(AccountProxy.BAIDUACCOUNT_TYPE, new ai(this));
+        new AccountProxy(this).getTokenAsync(AccountProxy.BAIDUACCOUNT_TYPE, new aj(this));
     }
 
     private void c() {
         this.d = (Button) findViewById(R.id.relogin_retry_button);
-        this.d.setOnClickListener(new aj(this));
+        this.d.setOnClickListener(new ak(this));
         this.e = (Button) findViewById(R.id.relogin_cacel_button);
         this.e.setOnClickListener(this.s);
         this.f = (ImageView) findViewById(R.id.relogin_bt_back);
         this.f.setOnClickListener(this.s);
         this.j = (ProgressBar) findViewById(R.id.relogin_progressbar);
         this.g = (TextView) findViewById(R.id.relogin_textview);
-        this.a = (LinearLayout) findViewById(R.id.container);
+        this.f845a = (LinearLayout) findViewById(R.id.container);
         this.b = (LinearLayout) findViewById(R.id.title);
     }
 
@@ -114,10 +117,10 @@ public class ReLoginActivity extends com.baidu.tieba.g {
     public void a(int i) {
         super.a(i);
         a(0, getIntent().getStringExtra("uname"));
-        com.baidu.tieba.util.x.a((TextView) this.e, i);
-        com.baidu.tieba.util.x.a(this.f, i);
-        com.baidu.tieba.util.x.a(this.a, i);
-        com.baidu.tieba.util.x.d(this.b, i);
+        com.baidu.tieba.util.ah.a((TextView) this.e, i);
+        com.baidu.tieba.util.ah.a(this.f, i);
+        com.baidu.tieba.util.ah.a(this.f845a, i);
+        com.baidu.tieba.util.ah.d(this.b, i);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -133,7 +136,7 @@ public class ReLoginActivity extends com.baidu.tieba.g {
     /* JADX INFO: Access modifiers changed from: private */
     public void a(String str, String str2) {
         if (this.c == null) {
-            this.c = new am(this, str, str2);
+            this.c = new an(this, str, str2);
             this.c.setPriority(3);
             this.c.execute(new String[0]);
         }
@@ -141,23 +144,23 @@ public class ReLoginActivity extends com.baidu.tieba.g {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(AccountData accountData) {
-        AccountData G = TiebaApplication.G();
-        if (G == null) {
-            TiebaApplication.a(accountData);
-            TiebaApplication.f().S();
+        AccountData H = TiebaApplication.H();
+        if (H == null) {
+            TiebaApplication.a(accountData, getBaseContext());
+            TiebaApplication.f().T();
         } else {
-            G.setID(accountData.getID());
-            G.setTbs(accountData.getTbs());
-            G.setBDUSS(accountData.getBDUSS());
+            H.setID(accountData.getID());
+            H.setTbs(accountData.getTbs());
+            H.setBDUSS(accountData.getBDUSS());
         }
-        DatabaseService.a(TiebaApplication.G());
+        DatabaseService.a(TiebaApplication.H());
         Handler handler = TiebaApplication.f().c;
-        if (TiebaApplication.f().R() > 0) {
+        if (TiebaApplication.f().S() > 0) {
             handler.sendMessage(handler.obtainMessage(2));
         } else {
             handler.sendMessage(handler.obtainMessage(3));
         }
-        m();
+        k();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -179,7 +182,7 @@ public class ReLoginActivity extends com.baidu.tieba.g {
                 if (this.i == 1) {
                     spannableString.setSpan(new ForegroundColorSpan(getResources().getColor(R.color.skin_1_common_color)), 0, replace.length(), 33);
                 }
-                spannableString.setSpan(new ForegroundColorSpan(Color.rgb(255, 47, 47)), indexOf, str.length() + indexOf, 33);
+                spannableString.setSpan(new ForegroundColorSpan(Color.rgb((int) Util.MASK_8BIT, 47, 47)), indexOf, str.length() + indexOf, 33);
                 this.g.setTextSize(2, 16.0f);
                 this.g.setText(spannableString);
                 return;
@@ -188,7 +191,7 @@ public class ReLoginActivity extends com.baidu.tieba.g {
                 this.j.setVisibility(8);
                 String str2 = String.valueOf(getString(R.string.relogin_fail)) + "\n";
                 SpannableString spannableString2 = new SpannableString(String.valueOf(str2) + str);
-                spannableString2.setSpan(new ForegroundColorSpan(Color.rgb(255, 47, 47)), str2.length(), str2.length() + str.length(), 33);
+                spannableString2.setSpan(new ForegroundColorSpan(Color.rgb((int) Util.MASK_8BIT, 47, 47)), str2.length(), str2.length() + str.length(), 33);
                 this.g.setTextSize(2, 14.0f);
                 this.g.setText(spannableString2);
                 return;
@@ -202,9 +205,9 @@ public class ReLoginActivity extends com.baidu.tieba.g {
         super.onActivityResult(i, i2, intent);
     }
 
-    private void m() {
+    private void k() {
         if (this.k) {
-            TiebaApplication.f().z();
+            TiebaApplication.f().B();
             setResult(-1);
         } else {
             MainTabActivity.b(this, getIntent().getStringExtra("goto_type"));
@@ -213,16 +216,16 @@ public class ReLoginActivity extends com.baidu.tieba.g {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void n() {
+    public void l() {
         try {
             new AccountProxy(this).startFillNameActivity(false);
             this.l = true;
         } catch (ActivityNotFoundException e) {
-            com.baidu.tieba.util.z.a(getClass().getName(), "fillUserName", e.toString());
+            com.baidu.tieba.util.aj.a(getClass().getName(), "fillUserName", e.toString());
             if (this.n == null) {
-                this.n = new j(this);
-                this.n.a(new ak(this));
-                this.n.b(new al(this));
+                this.n = new k(this);
+                this.n.a(new al(this));
+                this.n.b(new am(this));
             }
             this.n.e();
             this.n.a(getString(R.string.default_username));
@@ -232,7 +235,7 @@ public class ReLoginActivity extends com.baidu.tieba.g {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public String o() {
+    public String m() {
         Cursor query = getContentResolver().query(Uri.parse("content://com.baidu.account.provider.AccountInfoProvider/accountInfo"), new String[]{"ptoken"}, null, null, null);
         if (query == null || !query.moveToFirst()) {
             return "";

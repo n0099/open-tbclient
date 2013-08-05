@@ -50,7 +50,7 @@ public class HTML5CameraView extends FrameLayout {
     private Object nppLock;
     private boolean validNPP;
     static int m_width = 768;
-    static int m_height = NotificationProxy.MAX_URL_LENGTH;
+    static int m_height = 1024;
     static int m_width_1 = 480;
     static int m_height_1 = 640;
 

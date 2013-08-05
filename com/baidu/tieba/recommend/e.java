@@ -1,144 +1,72 @@
 package com.baidu.tieba.recommend;
 
-import android.location.Address;
+import android.support.v4.view.ViewPager;
 import android.view.View;
-import android.widget.LinearLayout;
-import android.widget.TextView;
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.browser.core.util.BdUtil;
-import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.model.ai;
-import com.baidu.tieba.util.DatabaseService;
-import com.baidu.tieba.util.r;
-import com.baidu.tieba.util.z;
-import com.baidu.tieba.view.BaseWebView;
-import java.net.URLDecoder;
+import com.baidu.tieba.view.ChildViewPager;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class e extends BdAsyncTask {
-    final /* synthetic */ NewHomeActivity a;
-    private r b;
-    private String c;
+public class e extends ViewPager.SimpleOnPageChangeListener {
 
-    private e(NewHomeActivity newHomeActivity) {
-        this.a = newHomeActivity;
-        this.b = null;
-    }
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ c f1664a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ e(NewHomeActivity newHomeActivity, e eVar) {
-        this(newHomeActivity);
+    public e(c cVar) {
+        this.f1664a = cVar;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: d */
-    public String a(Object... objArr) {
-        String str;
-        boolean z;
-        String q;
-        String e;
-        long j;
-        this.b = new r(String.valueOf(com.baidu.tieba.data.g.a) + "c/s/tag/allthread");
-        this.b.d(true);
-        this.b.a(false);
-        if (TiebaApplication.f().at() == 1) {
-            this.b.a("night_type", "1");
-        }
-        this.b.a("_version_more", "1");
-        this.b.a("platform", "android");
-        r rVar = this.b;
-        str = this.a.x;
-        rVar.a("pn", str);
-        z = NewHomeActivity.v;
-        if (z) {
-            NewHomeActivity.v = false;
-            this.b.a("msg_click", "1");
-            r rVar2 = this.b;
-            j = NewHomeActivity.w;
-            rVar2.a("message_id", String.valueOf(j));
-        }
-        q = this.a.q();
-        if (q != null && q.length() > 0) {
-            this.b.a("tid_list", q);
-        }
-        String E = TiebaApplication.E();
-        if ((E == null || E.length() == 0) && (e = ai.e()) != null && e.length() > 0) {
-            this.b.a("tag_info", e);
-        }
-        Address aP = TiebaApplication.f().aP();
-        if (aP != null && TiebaApplication.f().u()) {
-            this.b.a("lbs", String.valueOf(String.valueOf(aP.getLatitude())) + "," + String.valueOf(aP.getLongitude()));
-        }
-        try {
-            this.c = this.b.j();
-            if (this.b.d()) {
-                return this.c;
-            }
-        } catch (Exception e2) {
-            z.b("RecommendAsyncTask", "doInBackground", "error = " + e2.getMessage());
-        }
-        return null;
-    }
-
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void cancel() {
-        if (this.b != null) {
-            this.b.h();
-        }
-        this.a.u = false;
-        super.cancel(true);
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void a(String str) {
-        LinearLayout linearLayout;
-        boolean z;
-        TextView textView;
-        BaseWebView baseWebView;
-        LinearLayout linearLayout2;
-        View.OnClickListener onClickListener;
-        BaseWebView baseWebView2;
-        TextView textView2;
-        BaseWebView baseWebView3;
-        linearLayout = this.a.n;
-        linearLayout.setOnClickListener(null);
-        if (this.b == null || !this.b.d() || str == null || str.length() <= 0) {
-            this.a.r = false;
-            this.a.p();
-            z = this.a.p;
-            if (!z) {
-                textView = this.a.s;
-                textView.setVisibility(0);
-                baseWebView = this.a.l;
-                baseWebView.setVisibility(8);
-                linearLayout2 = this.a.n;
-                onClickListener = this.a.k;
-                linearLayout2.setOnClickListener(onClickListener);
-            }
-        } else {
-            DatabaseService.a(str, 10);
-            baseWebView2 = this.a.l;
-            baseWebView2.loadDataWithBaseURL(com.baidu.tieba.data.g.a, str, "text/html", BdUtil.UTF8, "");
-            this.a.p = true;
-            textView2 = this.a.s;
-            textView2.setVisibility(8);
-            baseWebView3 = this.a.l;
-            baseWebView3.setVisibility(0);
-            int indexOf = str.indexOf("dataType=\"idSet\">");
-            if (indexOf != -1) {
-                int length = indexOf + "dataType=\"idSet\">".length();
-                int i = length;
-                while (i < str.length() && str.charAt(i) != '<') {
-                    i++;
+    @Override // android.support.v4.view.ViewPager.SimpleOnPageChangeListener, android.support.v4.view.bq
+    public void b(int i) {
+        ChildViewPager childViewPager;
+        ChildViewPager childViewPager2;
+        DailyRecommendBannerPagerAdapter dailyRecommendBannerPagerAdapter;
+        ChildViewPager childViewPager3;
+        ChildViewPager childViewPager4;
+        ChildViewPager childViewPager5;
+        ChildViewPager childViewPager6;
+        DailyRecommendBannerPagerAdapter dailyRecommendBannerPagerAdapter2;
+        ChildViewPager childViewPager7;
+        if (i == 0) {
+            childViewPager2 = this.f1664a.f;
+            int currentItem = childViewPager2.getCurrentItem();
+            if (currentItem < 1) {
+                childViewPager6 = this.f1664a.f;
+                dailyRecommendBannerPagerAdapter2 = this.f1664a.g;
+                childViewPager6.a(dailyRecommendBannerPagerAdapter2.getCount() - 2, false);
+                childViewPager7 = this.f1664a.f;
+                childViewPager7.invalidate();
+            } else {
+                dailyRecommendBannerPagerAdapter = this.f1664a.g;
+                if (currentItem > dailyRecommendBannerPagerAdapter.getCount() - 2) {
+                    childViewPager3 = this.f1664a.f;
+                    childViewPager3.a(1, false);
+                    childViewPager4 = this.f1664a.f;
+                    childViewPager4.invalidate();
                 }
-                this.a.c(URLDecoder.decode(str.substring(length, i)));
+            }
+            childViewPager5 = this.f1664a.f;
+            childViewPager5.requestDisallowInterceptTouchEvent(false);
+        } else if (i == 1) {
+            childViewPager = this.f1664a.f;
+            childViewPager.requestDisallowInterceptTouchEvent(true);
+        }
+    }
+
+    @Override // android.support.v4.view.ViewPager.SimpleOnPageChangeListener, android.support.v4.view.bq
+    public void a_(int i) {
+        DailyRecommendBannerPagerAdapter dailyRecommendBannerPagerAdapter;
+        DailyRecommendBannerPagerAdapter dailyRecommendBannerPagerAdapter2;
+        ChildViewPager childViewPager;
+        DailyRecommendBannerPagerAdapter dailyRecommendBannerPagerAdapter3;
+        dailyRecommendBannerPagerAdapter = this.f1664a.g;
+        if (dailyRecommendBannerPagerAdapter != null) {
+            dailyRecommendBannerPagerAdapter2 = this.f1664a.g;
+            int size = dailyRecommendBannerPagerAdapter2.f1625a.size();
+            childViewPager = this.f1664a.f;
+            if (size > childViewPager.getCurrentItem()) {
+                dailyRecommendBannerPagerAdapter3 = this.f1664a.g;
+                ((View) dailyRecommendBannerPagerAdapter3.f1625a.get(i)).invalidate();
             }
         }
-        this.a.q = true;
-        this.a.r();
     }
 }

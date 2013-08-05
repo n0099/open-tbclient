@@ -13,7 +13,9 @@ public class i {
     private static float g = 0.0f;
     private static WindowManager h = null;
     private static View i = null;
-    public static WindowManager.LayoutParams a = new WindowManager.LayoutParams();
+
+    /* renamed from: a  reason: collision with root package name */
+    public static WindowManager.LayoutParams f408a = new WindowManager.LayoutParams();
     public static int b = 0;
     private static View j = null;
 
@@ -23,15 +25,15 @@ public class i {
         i = view;
         j = view;
         h = (WindowManager) context.getSystemService("window");
-        a.type = 2007;
-        a.flags = 40;
-        a.width = -2;
-        a.height = -2;
-        a.alpha = 0.5f;
-        a.gravity = 51;
-        a.x = (int) c;
-        a.y = (int) d;
-        h.addView(view, a);
+        f408a.type = 2007;
+        f408a.flags = 40;
+        f408a.width = -2;
+        f408a.height = -2;
+        f408a.alpha = 0.5f;
+        f408a.gravity = 51;
+        f408a.x = (int) c;
+        f408a.y = (int) d;
+        h.addView(view, f408a);
     }
 
     public static boolean a(MotionEvent motionEvent, View view) {
@@ -62,9 +64,9 @@ public class i {
     }
 
     private static void a(View view) {
-        a.x = (int) (c - f);
-        a.y = (int) (d - g);
-        h.updateViewLayout(i, a);
+        f408a.x = (int) (c - f);
+        f408a.y = (int) (d - g);
+        h.updateViewLayout(i, f408a);
     }
 
     public static void a(float f2) {

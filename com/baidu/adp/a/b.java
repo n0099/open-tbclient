@@ -3,12 +3,14 @@ package com.baidu.adp.a;
 import android.app.Application;
 /* loaded from: classes.dex */
 public class b extends Application {
-    private static b a = null;
+
+    /* renamed from: a  reason: collision with root package name */
+    private static b f342a = null;
     private boolean b = false;
 
     @Override // android.app.Application
     public void onCreate() {
-        a = this;
+        f342a = this;
         super.onCreate();
         e();
         f();
@@ -16,11 +18,11 @@ public class b extends Application {
     }
 
     private void d() {
-        com.baidu.adp.lib.network.b.a().a(this, false);
+        com.baidu.adp.lib.network.d.a().a(this, false);
     }
 
     public static b a() {
-        return a;
+        return f342a;
     }
 
     private void e() {
@@ -36,7 +38,7 @@ public class b extends Application {
     }
 
     private void f() {
-        com.baidu.adp.lib.c.a.a().a(this);
+        com.baidu.adp.lib.e.a.a().a(this);
     }
 
     public void c() {

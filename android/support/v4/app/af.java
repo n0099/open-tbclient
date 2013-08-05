@@ -1,15 +1,17 @@
 package android.support.v4.app;
 /* loaded from: classes.dex */
 class af implements Runnable {
-    final /* synthetic */ ListFragment a;
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ ListFragment f276a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public af(ListFragment listFragment) {
-        this.a = listFragment;
+        this.f276a = listFragment;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        this.a.b.focusableViewAvailable(this.a.b);
+        this.f276a.b.focusableViewAvailable(this.f276a.b);
     }
 }

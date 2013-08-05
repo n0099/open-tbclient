@@ -15,7 +15,9 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 /* loaded from: classes.dex */
 public class ListFragment extends Fragment {
-    ListAdapter a;
+
+    /* renamed from: a  reason: collision with root package name */
+    ListAdapter f272a;
     ListView b;
     View c;
     TextView d;
@@ -75,12 +77,12 @@ public class ListFragment extends Fragment {
     }
 
     public void a(ListAdapter listAdapter) {
-        boolean z = this.a != null;
-        this.a = listAdapter;
+        boolean z = this.f272a != null;
+        this.f272a = listAdapter;
         if (this.b != null) {
             this.b.setAdapter(listAdapter);
             if (!this.h && !z) {
-                a(true, k().getWindowToken() != null);
+                a(true, m().getWindowToken() != null);
             }
         }
     }
@@ -118,22 +120,22 @@ public class ListFragment extends Fragment {
 
     private void a() {
         if (this.b == null) {
-            View k = k();
-            if (k == null) {
+            View m = m();
+            if (m == null) {
                 throw new IllegalStateException("Content view not yet created");
             }
-            if (k instanceof ListView) {
-                this.b = (ListView) k;
+            if (m instanceof ListView) {
+                this.b = (ListView) m;
             } else {
-                this.d = (TextView) k.findViewById(16711681);
+                this.d = (TextView) m.findViewById(16711681);
                 if (this.d == null) {
-                    this.c = k.findViewById(16908292);
+                    this.c = m.findViewById(16908292);
                 } else {
                     this.d.setVisibility(8);
                 }
-                this.e = k.findViewById(16711682);
-                this.f = k.findViewById(16711683);
-                View findViewById = k.findViewById(16908298);
+                this.e = m.findViewById(16711682);
+                this.f = m.findViewById(16711683);
+                View findViewById = m.findViewById(16908298);
                 if (!(findViewById instanceof ListView)) {
                     if (findViewById == null) {
                         throw new RuntimeException("Your content must have a ListView whose id attribute is 'android.R.id.list'");
@@ -150,9 +152,9 @@ public class ListFragment extends Fragment {
             }
             this.h = true;
             this.b.setOnItemClickListener(this.Z);
-            if (this.a != null) {
-                ListAdapter listAdapter = this.a;
-                this.a = null;
+            if (this.f272a != null) {
+                ListAdapter listAdapter = this.f272a;
+                this.f272a = null;
                 a(listAdapter);
             } else if (this.e != null) {
                 a(false, false);

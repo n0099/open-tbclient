@@ -1,37 +1,24 @@
 package com.baidu.tieba.pb;
 
-import android.os.Handler;
+import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ch implements com.baidu.tieba.view.ae {
-    final /* synthetic */ bk a;
+public class ch implements View.OnFocusChangeListener {
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ bn f1502a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ch(bk bkVar) {
-        this.a = bkVar;
+    public ch(bn bnVar) {
+        this.f1502a = bnVar;
     }
 
-    @Override // com.baidu.tieba.view.ae
-    public void a(int i) {
-        switch (i) {
-            case 0:
-                if (!this.a.t()) {
-                    new Handler().postDelayed(new ck(this), 0L);
-                } else {
-                    new Handler().postDelayed(new cl(this), 0L);
-                }
-                this.a.an = true;
-                return;
-            case 1:
-                if (!this.a.t()) {
-                    new Handler().postDelayed(new ci(this), 0L);
-                } else {
-                    new Handler().postDelayed(new cj(this), 0L);
-                }
-                this.a.an = false;
-                return;
-            default:
-                return;
+    @Override // android.view.View.OnFocusChangeListener
+    public void onFocusChange(View view, boolean z) {
+        com.baidu.tieba.g gVar;
+        if (!z) {
+            gVar = this.f1502a.b;
+            com.baidu.tieba.util.am.a(gVar, view);
         }
     }
 }

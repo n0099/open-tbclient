@@ -4,17 +4,19 @@ import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class av implements View.OnFocusChangeListener {
-    final /* synthetic */ PersonChangeActivity a;
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ PersonChangeActivity f1581a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public av(PersonChangeActivity personChangeActivity) {
-        this.a = personChangeActivity;
+        this.f1581a = personChangeActivity;
     }
 
     @Override // android.view.View.OnFocusChangeListener
     public void onFocusChange(View view, boolean z) {
         if (!z) {
-            this.a.b();
+            this.f1581a.b();
         }
     }
 }

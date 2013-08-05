@@ -8,50 +8,52 @@ import com.slidingmenu.lib.R;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class as implements View.OnClickListener {
-    final /* synthetic */ PersonChangeActivity a;
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ PersonChangeActivity f1578a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public as(PersonChangeActivity personChangeActivity) {
-        this.a = personChangeActivity;
+        this.f1578a = personChangeActivity;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        com.baidu.tieba.model.bh bhVar;
+        com.baidu.tieba.model.bm bmVar;
         EditText editText;
         RadioGroup radioGroup;
         RadioGroup radioGroup2;
-        com.baidu.tieba.model.bh bhVar2;
+        com.baidu.tieba.model.bm bmVar2;
         ax axVar;
-        com.baidu.tieba.model.bh bhVar3;
+        com.baidu.tieba.model.bm bmVar3;
         ax axVar2;
         ax axVar3;
-        com.baidu.tieba.model.bh bhVar4;
-        this.a.b();
-        bhVar = this.a.z;
-        PersonChangeData a = bhVar.a();
-        editText = this.a.t;
-        a.setIntro(editText.getText().toString());
-        radioGroup = this.a.u;
+        com.baidu.tieba.model.bm bmVar4;
+        this.f1578a.b();
+        bmVar = this.f1578a.z;
+        PersonChangeData a2 = bmVar.a();
+        editText = this.f1578a.t;
+        a2.setIntro(editText.getText().toString());
+        radioGroup = this.f1578a.u;
         if (radioGroup.getCheckedRadioButtonId() != R.id.man) {
-            radioGroup2 = this.a.u;
+            radioGroup2 = this.f1578a.u;
             if (radioGroup2.getCheckedRadioButtonId() == R.id.woman) {
-                bhVar2 = this.a.z;
-                bhVar2.a().setSex(2);
+                bmVar2 = this.f1578a.z;
+                bmVar2.a().setSex(2);
             }
         } else {
-            bhVar4 = this.a.z;
-            bhVar4.a().setSex(1);
+            bmVar4 = this.f1578a.z;
+            bmVar4.a().setSex(1);
         }
-        axVar = this.a.C;
+        axVar = this.f1578a.C;
         if (axVar == null) {
-            PersonChangeActivity personChangeActivity = this.a;
-            PersonChangeActivity personChangeActivity2 = this.a;
-            bhVar3 = this.a.z;
-            personChangeActivity.C = new ax(personChangeActivity2, bhVar3);
-            axVar2 = this.a.C;
+            PersonChangeActivity personChangeActivity = this.f1578a;
+            PersonChangeActivity personChangeActivity2 = this.f1578a;
+            bmVar3 = this.f1578a.z;
+            personChangeActivity.C = new ax(personChangeActivity2, bmVar3);
+            axVar2 = this.f1578a.C;
             axVar2.setPriority(3);
-            axVar3 = this.a.C;
+            axVar3 = this.f1578a.C;
             axVar3.execute(new String[0]);
         }
     }

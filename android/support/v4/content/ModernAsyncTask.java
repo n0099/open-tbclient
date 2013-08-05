@@ -11,9 +11,11 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes.dex */
 abstract class ModernAsyncTask {
-    private static final ThreadFactory a = new f();
+
+    /* renamed from: a  reason: collision with root package name */
+    private static final ThreadFactory f298a = new f();
     private static final BlockingQueue b = new LinkedBlockingQueue(10);
-    public static final Executor d = new ThreadPoolExecutor(5, (int) DERTags.TAGGED, 1, TimeUnit.SECONDS, b, a);
+    public static final Executor d = new ThreadPoolExecutor(5, (int) DERTags.TAGGED, 1, TimeUnit.SECONDS, b, f298a);
     private static final k c = new k(null);
     private static volatile Executor e = d;
     private volatile Status h = Status.PENDING;
@@ -71,7 +73,7 @@ abstract class ModernAsyncTask {
 
     public final ModernAsyncTask a(Executor executor, Object... objArr) {
         if (this.h != Status.PENDING) {
-            switch (i.a[this.h.ordinal()]) {
+            switch (i.f305a[this.h.ordinal()]) {
                 case 1:
                     throw new IllegalStateException("Cannot execute task: the task is already running.");
                 case 2:

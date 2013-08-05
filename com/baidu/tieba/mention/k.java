@@ -6,11 +6,13 @@ import android.widget.ListView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class k implements AdapterView.OnItemClickListener {
-    final /* synthetic */ h a;
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ h f1302a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public k(h hVar) {
-        this.a = hVar;
+        this.f1302a = hVar;
     }
 
     @Override // android.widget.AdapterView.OnItemClickListener
@@ -20,19 +22,19 @@ public class k implements AdapterView.OnItemClickListener {
         e eVar = (e) ((ListView) adapterView).getAdapter();
         long itemId = eVar.getItemId(i);
         if (itemId == -1) {
-            this.a.b();
+            this.f1302a.b();
         } else if (itemId == -2) {
-            h hVar = this.a;
+            h hVar = this.f1302a;
             i2 = hVar.g;
             hVar.g = i2 + 1;
-            this.a.o = 4;
-            this.a.d();
+            this.f1302a.o = 4;
+            this.f1302a.d();
         } else {
-            com.baidu.tieba.data.q qVar = (com.baidu.tieba.data.q) eVar.getItem(i);
-            if (qVar != null) {
-                oVar = this.a.q;
-                oVar.a(qVar);
-                this.a.a(qVar);
+            com.baidu.tieba.data.u uVar = (com.baidu.tieba.data.u) eVar.getItem(i);
+            if (uVar != null) {
+                oVar = this.f1302a.q;
+                oVar.a(uVar);
+                this.f1302a.a(uVar);
             }
         }
     }

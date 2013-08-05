@@ -2,12 +2,14 @@ package com.baidu.tieba.service;
 
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.data.af;
-import com.baidu.tieba.util.z;
+import com.baidu.tieba.data.an;
+import com.baidu.tieba.util.aj;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class o extends BdAsyncTask {
-    com.baidu.tieba.util.r a = null;
+
+    /* renamed from: a  reason: collision with root package name */
+    com.baidu.tieba.util.u f1709a = null;
     final /* synthetic */ TiebaMessageService b;
 
     public o(TiebaMessageService tiebaMessageService) {
@@ -23,39 +25,39 @@ public class o extends BdAsyncTask {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public af a(String... strArr) {
-        af afVar;
+    public an a(String... strArr) {
+        an anVar;
         Exception e;
         try {
         } catch (Exception e2) {
-            afVar = null;
+            anVar = null;
             e = e2;
         }
-        if (TiebaApplication.f().aa()) {
-            this.a = new com.baidu.tieba.util.r(String.valueOf(com.baidu.tieba.data.g.a) + "c/s/msg");
-            String j = this.a.j();
-            if (this.a.c()) {
-                afVar = new af();
+        if (TiebaApplication.f().ab()) {
+            this.f1709a = new com.baidu.tieba.util.u(String.valueOf(com.baidu.tieba.data.g.f1013a) + "c/s/msg");
+            String k = this.f1709a.k();
+            if (this.f1709a.d()) {
+                anVar = new an();
                 try {
-                    afVar.a(j);
+                    anVar.a(k);
                 } catch (Exception e3) {
                     e = e3;
-                    z.b(getClass().getName(), "doInBackground", e.getMessage());
-                    return afVar;
+                    aj.b(getClass().getName(), "doInBackground", e.getMessage());
+                    return anVar;
                 }
             } else {
-                afVar = null;
+                anVar = null;
             }
-            return afVar;
+            return anVar;
         }
         return null;
     }
 
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void cancel() {
-        this.b.a = null;
-        if (this.a != null) {
-            this.a.h();
+        this.b.f1691a = null;
+        if (this.f1709a != null) {
+            this.f1709a.i();
         }
         super.cancel(true);
     }
@@ -63,16 +65,16 @@ public class o extends BdAsyncTask {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void a(af afVar) {
+    public void a(an anVar) {
         try {
-            super.a((Object) afVar);
-            this.b.a = null;
-            if (afVar != null) {
-                this.b.b = afVar;
+            super.a((Object) anVar);
+            this.b.f1691a = null;
+            if (anVar != null) {
+                this.b.b = anVar;
                 this.b.b();
             }
         } catch (Exception e) {
-            z.b(getClass().getName(), "onPostExecute", e.getMessage());
+            aj.b(getClass().getName(), "onPostExecute", e.getMessage());
         }
     }
 }

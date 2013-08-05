@@ -5,11 +5,13 @@ import com.slidingmenu.lib.R;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class q extends com.baidu.adp.a.e {
-    final /* synthetic */ ChatListActivity a;
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ ChatListActivity f948a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public q(ChatListActivity chatListActivity) {
-        this.a = chatListActivity;
+        this.f948a = chatListActivity;
     }
 
     @Override // com.baidu.adp.a.e
@@ -28,103 +30,98 @@ public class q extends com.baidu.adp.a.e {
         v vVar5;
         com.baidu.tieba.model.c cVar5;
         com.baidu.tieba.model.c cVar6;
-        int i4;
         Runnable runnable;
         v vVar6;
         com.baidu.tieba.model.c cVar7;
+        int i4;
         int i5;
-        int i6;
         v vVar7;
         com.baidu.tieba.model.c cVar8;
         v vVar8;
         v vVar9;
         v vVar10;
         v vVar11;
-        vVar = this.a.a;
+        vVar = this.f948a.f926a;
         vVar.g();
-        i = this.a.g;
+        i = this.f948a.g;
         switch (i) {
             case 1:
-                vVar3 = this.a.a;
+                vVar3 = this.f948a.f926a;
                 vVar3.d().a(false);
                 break;
             case 2:
-                vVar2 = this.a.a;
+                vVar2 = this.f948a.f926a;
                 vVar2.d().b(false);
                 break;
             case 4:
                 if (Boolean.TRUE.equals(obj)) {
-                    this.a.a(this.a.getResources().getString(R.string.delete_user_chat_done));
-                    ChatListActivity chatListActivity = this.a;
-                    i2 = this.a.c;
-                    chatListActivity.b(i2, 3);
+                    this.f948a.a(this.f948a.getResources().getString(R.string.delete_user_chat_done));
+                    ChatListActivity chatListActivity = this.f948a;
+                    i2 = this.f948a.c;
+                    chatListActivity.a(i2, 3);
                     return;
                 }
-                ChatListActivity chatListActivity2 = this.a;
-                cVar = this.a.b;
+                ChatListActivity chatListActivity2 = this.f948a;
+                cVar = this.f948a.b;
                 chatListActivity2.a(cVar.getErrorString());
                 return;
         }
         if (Boolean.TRUE.equals(obj)) {
-            cVar3 = this.a.b;
+            cVar3 = this.f948a.b;
             if (cVar3.b()) {
-                vVar11 = this.a.a;
+                vVar11 = this.f948a.f926a;
                 vVar11.d().d(true);
             } else {
-                vVar4 = this.a.a;
+                vVar4 = this.f948a.f926a;
                 vVar4.d().d(false);
             }
-            i3 = this.a.c;
+            i3 = this.f948a.c;
             if (i3 > 1) {
-                vVar10 = this.a.a;
+                vVar10 = this.f948a.f926a;
                 vVar10.d().c(true);
             } else {
-                cVar4 = this.a.b;
-                int i7 = 0;
+                cVar4 = this.f948a.b;
+                int i6 = 0;
                 for (com.baidu.tieba.data.a.g gVar : cVar4.a()) {
-                    i7 = gVar.f() + i7;
+                    i6 = gVar.f() + i6;
                 }
-                if (i7 > TiebaApplication.f().ag()) {
-                    TiebaApplication.f().ab();
+                if (i6 > TiebaApplication.f().ah()) {
+                    TiebaApplication.f().ac();
                 }
-                vVar5 = this.a.a;
+                vVar5 = this.f948a.f926a;
                 vVar5.d().c(false);
             }
-            cVar5 = this.a.b;
+            cVar5 = this.f948a.b;
             if (cVar5.c() == 0) {
-                vVar6 = this.a.a;
-                cVar7 = this.a.b;
+                vVar6 = this.f948a.f926a;
+                cVar7 = this.f948a.b;
                 vVar6.a(cVar7.a());
-                i5 = this.a.g;
-                if (i5 == 1) {
-                    vVar9 = this.a.a;
+                i4 = this.f948a.g;
+                if (i4 == 1) {
+                    vVar9 = this.f948a.f926a;
                     vVar9.b(0);
                 }
-                i6 = this.a.c;
-                if (i6 == 1) {
-                    cVar8 = this.a.b;
+                i5 = this.f948a.c;
+                if (i5 == 1) {
+                    cVar8 = this.f948a.b;
                     if (cVar8.a().size() == 0) {
-                        vVar8 = this.a.a;
+                        vVar8 = this.f948a.f926a;
                         vVar8.a(true);
                     }
                 }
-                vVar7 = this.a.a;
+                vVar7 = this.f948a.f926a;
                 vVar7.a(false);
             } else {
-                ChatListActivity chatListActivity3 = this.a;
-                cVar6 = this.a.b;
+                ChatListActivity chatListActivity3 = this.f948a;
+                cVar6 = this.f948a.b;
                 chatListActivity3.a(cVar6.d());
             }
-            i4 = this.a.g;
-            if (i4 == 3) {
-                this.a.a((int) R.drawable.tips_addchat, 0);
-            }
-            runnable = this.a.e;
+            runnable = this.f948a.e;
             runnable.run();
             return;
         }
-        ChatListActivity chatListActivity4 = this.a;
-        cVar2 = this.a.b;
+        ChatListActivity chatListActivity4 = this.f948a;
+        cVar2 = this.f948a.b;
         chatListActivity4.a(cVar2.getErrorString());
     }
 }

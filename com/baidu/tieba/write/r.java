@@ -4,19 +4,21 @@ import android.graphics.Bitmap;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.tieba.data.be;
-import com.baidu.tieba.model.WriteModel;
+import com.baidu.tieba.data.WriteData;
+import com.baidu.tieba.data.bq;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class r extends BdAsyncTask {
-    volatile com.baidu.tieba.util.r a;
-    be b;
+
+    /* renamed from: a  reason: collision with root package name */
+    volatile com.baidu.tieba.util.u f1913a;
+    bq b;
     final /* synthetic */ VcodeActivity c;
     private volatile boolean d;
 
     private r(VcodeActivity vcodeActivity) {
         this.c = vcodeActivity;
-        this.a = null;
+        this.f1913a = null;
         this.b = null;
         this.d = false;
     }
@@ -30,8 +32,8 @@ public class r extends BdAsyncTask {
     public void cancel() {
         ProgressBar progressBar;
         this.c.j = null;
-        if (this.a != null) {
-            this.a.h();
+        if (this.f1913a != null) {
+            this.f1913a.i();
         }
         this.d = true;
         progressBar = this.c.f;
@@ -43,41 +45,41 @@ public class r extends BdAsyncTask {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public Bitmap a(String... strArr) {
-        WriteModel writeModel;
-        WriteModel writeModel2;
-        WriteModel writeModel3;
-        WriteModel writeModel4;
+        WriteData writeData;
+        WriteData writeData2;
+        WriteData writeData3;
+        WriteData writeData4;
         String str = strArr[0];
         if (str == null || str.length() <= 0) {
-            this.a = new com.baidu.tieba.util.r(String.valueOf(com.baidu.tieba.data.g.a) + "c/f/anti/vcode");
-            com.baidu.tieba.util.r rVar = this.a;
-            writeModel = this.c.a;
-            rVar.a("fid", writeModel.getForumId());
-            com.baidu.tieba.util.r rVar2 = this.a;
-            writeModel2 = this.c.a;
-            rVar2.a("kw", writeModel2.getForumName());
-            writeModel3 = this.c.a;
-            if (writeModel3.getType() == 0) {
-                this.a.a("pub_type", "1");
+            this.f1913a = new com.baidu.tieba.util.u(String.valueOf(com.baidu.tieba.data.g.f1013a) + "c/f/anti/vcode");
+            com.baidu.tieba.util.u uVar = this.f1913a;
+            writeData = this.c.f1867a;
+            uVar.a("fid", writeData.getForumId());
+            com.baidu.tieba.util.u uVar2 = this.f1913a;
+            writeData2 = this.c.f1867a;
+            uVar2.a("kw", writeData2.getForumName());
+            writeData3 = this.c.f1867a;
+            if (writeData3.getType() == 0) {
+                this.f1913a.a("pub_type", "1");
             } else {
-                this.a.a("pub_type", "2");
-                com.baidu.tieba.util.r rVar3 = this.a;
-                writeModel4 = this.c.a;
-                rVar3.a("tid", writeModel4.getThreadId());
+                this.f1913a.a("pub_type", "2");
+                com.baidu.tieba.util.u uVar3 = this.f1913a;
+                writeData4 = this.c.f1867a;
+                uVar3.a("tid", writeData4.getThreadId());
             }
-            String j = this.a.j();
-            if (!this.a.c()) {
+            String k = this.f1913a.k();
+            if (!this.f1913a.d()) {
                 return null;
             }
-            this.b = new be();
-            this.b.a(j);
+            this.b = new bq();
+            this.b.a(k);
             str = this.b.b();
         }
         if (this.d) {
             return null;
         }
-        this.a = new com.baidu.tieba.util.r(str);
-        return com.baidu.tieba.util.d.a(this.a.i());
+        this.f1913a = new com.baidu.tieba.util.u(str);
+        return com.baidu.tieba.util.e.a(this.f1913a.j());
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -85,8 +87,8 @@ public class r extends BdAsyncTask {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void a(Bitmap bitmap) {
         ProgressBar progressBar;
-        WriteModel writeModel;
-        WriteModel writeModel2;
+        WriteData writeData;
+        WriteData writeData2;
         ImageView imageView;
         this.c.j = null;
         if (bitmap != null) {
@@ -96,10 +98,10 @@ public class r extends BdAsyncTask {
         progressBar = this.c.f;
         progressBar.setVisibility(8);
         if (this.b != null) {
-            writeModel = this.c.a;
-            writeModel.setVcodeMD5(this.b.a());
-            writeModel2 = this.c.a;
-            writeModel2.setVcodeUrl(this.b.b());
+            writeData = this.c.f1867a;
+            writeData.setVcodeMD5(this.b.a());
+            writeData2 = this.c.f1867a;
+            writeData2.setVcodeUrl(this.b.b());
         }
         super.a((Object) bitmap);
     }

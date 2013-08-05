@@ -6,7 +6,9 @@ import android.util.AttributeSet;
 import android.view.ViewGroup;
 /* loaded from: classes.dex */
 public class bn extends ViewGroup.LayoutParams {
-    public boolean a;
+
+    /* renamed from: a  reason: collision with root package name */
+    public boolean f318a;
     public int b;
     float c;
     boolean d;
@@ -22,7 +24,7 @@ public class bn extends ViewGroup.LayoutParams {
         super(context, attributeSet);
         int[] iArr;
         this.c = 0.0f;
-        iArr = ViewPager.a;
+        iArr = ViewPager.f308a;
         TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, iArr);
         this.b = obtainStyledAttributes.getInteger(0, 48);
         obtainStyledAttributes.recycle();

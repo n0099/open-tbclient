@@ -5,7 +5,9 @@ import android.content.Intent;
 import android.os.IBinder;
 /* loaded from: classes.dex */
 public class DealIntentService extends Service {
-    private c a = null;
+
+    /* renamed from: a  reason: collision with root package name */
+    private c f1686a = null;
 
     @Override // android.app.Service
     public void onCreate() {
@@ -26,11 +28,11 @@ public class DealIntentService extends Service {
     }
 
     private void a(Intent intent) {
-        if (this.a != null) {
-            this.a.cancel();
-            this.a = null;
+        if (this.f1686a != null) {
+            this.f1686a.cancel();
+            this.f1686a = null;
         }
-        this.a = new c(this, intent);
-        this.a.execute(new String[0]);
+        this.f1686a = new c(this, intent);
+        this.f1686a.execute(new String[0]);
     }
 }

@@ -1,42 +1,44 @@
 package com.baidu.tieba.a;
 
 import com.baidu.android.pushservice.PushConstants;
-import com.baidu.tieba.data.ag;
-import com.baidu.tieba.util.r;
+import com.baidu.tieba.data.ao;
+import com.baidu.tieba.util.u;
 /* loaded from: classes.dex */
 public class a {
-    private static final String a = String.valueOf(com.baidu.tieba.data.g.a) + "c/s/addmsg";
-    private r b = null;
-    private ag c = null;
+
+    /* renamed from: a  reason: collision with root package name */
+    private static final String f830a = String.valueOf(com.baidu.tieba.data.g.f1013a) + "c/s/addmsg";
+    private u b = null;
+    private ao c = null;
 
     public String a(com.baidu.tieba.data.a.e eVar) {
-        this.b = new r(a);
+        this.b = new u(f830a);
         this.b.a(PushConstants.EXTRA_USER_ID, eVar.c());
         this.b.a("com_id", eVar.b());
-        this.b.a(PushConstants.EXTRA_CONTENT, eVar.a());
+        this.b.a("content", eVar.a());
         this.b.a("last_msg_id", String.valueOf(eVar.d()));
-        String j = this.b.j();
-        this.c = new ag();
-        this.c.a(j);
-        return j;
+        String k = this.b.k();
+        this.c = new ao();
+        this.c.a(k);
+        return k;
     }
 
     public void a() {
         if (this.b != null) {
-            this.b.h();
+            this.b.i();
         }
     }
 
     public boolean b() {
         if (this.b != null) {
-            return this.b.c();
+            return this.b.d();
         }
         return false;
     }
 
     public String c() {
         if (this.b != null) {
-            return this.b.g();
+            return this.b.h();
         }
         return null;
     }

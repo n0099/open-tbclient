@@ -1,15 +1,17 @@
 package com.baidu.tieba.chat;
 /* loaded from: classes.dex */
-class af implements com.baidu.tieba.view.f {
-    final /* synthetic */ ad a;
+class af implements com.baidu.tieba.view.h {
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ ad f931a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public af(ad adVar) {
-        this.a = adVar;
+        this.f931a = adVar;
     }
 
-    @Override // com.baidu.tieba.view.f
+    @Override // com.baidu.tieba.view.h
     public void a() {
-        this.a.o();
+        this.f931a.p();
     }
 }

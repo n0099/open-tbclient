@@ -16,6 +16,7 @@ import android.widget.Toast;
 import com.baidu.browser.core.BdNoProGuard;
 import com.baidu.browser.core.util.BdLog;
 import com.baidu.browser.core.util.BdUtil;
+import com.tencent.mm.sdk.platformtools.LocaleUtil;
 /* loaded from: classes.dex */
 public class FloatSearchBoxLayout extends RelativeLayout implements View.OnClickListener, View.OnFocusChangeListener, TextView.OnEditorActionListener, BdNoProGuard {
     private EditText input;
@@ -41,11 +42,11 @@ public class FloatSearchBoxLayout extends RelativeLayout implements View.OnClick
     @Override // android.view.View
     protected void onFinishInflate() {
         super.onFinishInflate();
-        this.input = (EditText) findViewById(getContext().getResources().getIdentifier("SearchTextInput", "id", getContext().getPackageName()));
+        this.input = (EditText) findViewById(getContext().getResources().getIdentifier("SearchTextInput", LocaleUtil.INDONESIAN, getContext().getPackageName()));
         this.input.setOnEditorActionListener(this);
         this.input.setOnFocusChangeListener(this);
         this.input.setImeOptions(2);
-        ((ImageView) findViewById(getContext().getResources().getIdentifier("go_btn", "id", getContext().getPackageName()))).setOnClickListener(this);
+        ((ImageView) findViewById(getContext().getResources().getIdentifier("go_btn", LocaleUtil.INDONESIAN, getContext().getPackageName()))).setOnClickListener(this);
     }
 
     public void setStopLoadingOnClickListener(View.OnClickListener onClickListener) {
@@ -62,7 +63,7 @@ public class FloatSearchBoxLayout extends RelativeLayout implements View.OnClick
     }
 
     public void setLoadingProgress(int i) {
-        ((ProgressBar) findViewById(getContext().getResources().getIdentifier("loadbar", "id", getContext().getPackageName()))).setProgress(i);
+        ((ProgressBar) findViewById(getContext().getResources().getIdentifier("loadbar", LocaleUtil.INDONESIAN, getContext().getPackageName()))).setProgress(i);
     }
 
     public void hideStopLoadingIcon() {

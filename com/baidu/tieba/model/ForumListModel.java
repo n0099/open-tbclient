@@ -58,19 +58,19 @@ public class ForumListModel extends com.baidu.adp.a.c implements Serializable {
     }
 
     public static ForumListModel fetch(Context context, RequestParams requestParams) {
-        com.baidu.tieba.util.r rVar = new com.baidu.tieba.util.r(context, String.valueOf(com.baidu.tieba.data.g.a) + "c/f/forum/detailforumdir");
-        rVar.a("rn", String.valueOf(requestParams.rn));
-        rVar.a("offset", String.valueOf(requestParams.offset));
-        rVar.a("recommend_type", String.valueOf(requestParams.recommend_type));
-        rVar.a("menu_name", requestParams.menu_name);
-        rVar.a("menu_id", String.valueOf(requestParams.menu_id));
-        rVar.a("menu_type", String.valueOf(requestParams.menu_type));
-        rVar.a("parent_menu_name", requestParams.parent_menu_name);
-        rVar.a("parent_menu_id", String.valueOf(requestParams.parent_menu_id));
-        com.baidu.tieba.util.z.e("DataProvider", "fetch", "url= " + rVar.a());
-        String j = rVar.j();
-        com.baidu.tieba.util.z.e("DataProvider", "fetch", "fetched raw string\n" + j);
-        return (ForumListModel) new GsonBuilder().create().fromJson(j, ForumListModel.class);
+        com.baidu.tieba.util.u uVar = new com.baidu.tieba.util.u(context, String.valueOf(com.baidu.tieba.data.g.f1013a) + "c/f/forum/detailforumdir");
+        uVar.a("rn", String.valueOf(requestParams.rn));
+        uVar.a("offset", String.valueOf(requestParams.offset));
+        uVar.a("recommend_type", String.valueOf(requestParams.recommend_type));
+        uVar.a("menu_name", requestParams.menu_name);
+        uVar.a("menu_id", String.valueOf(requestParams.menu_id));
+        uVar.a("menu_type", String.valueOf(requestParams.menu_type));
+        uVar.a("parent_menu_name", requestParams.parent_menu_name);
+        uVar.a("parent_menu_id", String.valueOf(requestParams.parent_menu_id));
+        com.baidu.tieba.util.aj.e("DataProvider", "fetch", "url= " + uVar.a());
+        String k = uVar.k();
+        com.baidu.tieba.util.aj.e("DataProvider", "fetch", "fetched raw string\n" + k);
+        return (ForumListModel) new GsonBuilder().create().fromJson(k, ForumListModel.class);
     }
 
     /* loaded from: classes.dex */

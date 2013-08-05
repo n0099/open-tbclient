@@ -1,11 +1,8 @@
 package com.baidu.tieba;
-
-import android.widget.ImageButton;
-import android.widget.ImageView;
-import android.widget.TextView;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class ap {
-    public ImageView a;
-    public TextView b;
-    public ImageButton c;
+public interface ap {
+    void a();
+
+    void a(boolean z);
 }

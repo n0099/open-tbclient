@@ -1,84 +1,25 @@
 package com.baidu.tieba.recommend;
 
-import android.content.Context;
-import com.baidu.tieba.MainTabActivity;
-import com.baidu.tieba.chat.ChatActivity;
-import com.baidu.tieba.chat.ChatListActivity;
-import com.baidu.tieba.frs.FrsActivity;
-import com.baidu.tieba.pb.NewPbActivity;
-import com.baidu.tieba.person.PersonInfoActivity;
-import com.baidu.tieba.util.ab;
-import com.baidu.tieba.util.z;
-import java.net.URLDecoder;
+import android.view.View;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class i {
-    public static boolean a(Context context, String str) {
-        if (str != null) {
-            try {
-                if (str.contains("jump=outer")) {
-                    ab.e(context, str);
-                    return true;
-                }
-            } catch (Exception e) {
-                z.b(i.class.getName(), "jumpTiebaNative", e.getMessage());
-            }
-        }
-        if (str != null && str.contains("jump_tieba_native=1")) {
-            if (str.contains("jumptoapp_browser=classic_everyday")) {
-                DailyClassicalActivity.a(context);
-                return true;
-            } else if (str.contains("nearby=1")) {
-                MainTabActivity.a(context, "goto_nearby");
-                return true;
-            } else if (str.contains("kz=")) {
-                String a = a(str, "kz=");
-                if (a != null && a.length() >= 0) {
-                    NewPbActivity.a(context, a, null, "allthread");
-                }
-                return true;
-            } else if (str.contains("kw=")) {
-                String a2 = a(str, "kw=");
-                if (a2 != null && a2.length() >= 0) {
-                    FrsActivity.a(context, a2, "allthread");
-                }
-                return true;
-            } else if (str.contains("tag_name=") && str.contains("tag_id=")) {
-                String a3 = a(str, "tag_id=");
-                String a4 = a(str, "tag_name=");
-                String a5 = a(str, "tag_type=");
-                String a6 = a(str, "tag_is_selected=");
-                if (a3 != null && a3.length() >= 0) {
-                    TagContentActivity.a(context, a3, a4, a5, a6);
-                }
-                return true;
-            } else if (str.contains("jump_chat=1")) {
-                String a7 = a(str, "userid=");
-                String a8 = a(str, "username=");
-                String a9 = a(str, "portrait=");
-                if (a7 != null && a7.length() > 0) {
-                    ChatActivity.a(context, a7, a8, a9, null, "web_bd");
-                } else {
-                    ChatListActivity.a(context);
-                }
-                return true;
-            } else if (str.contains("jump_personalCenter=1") && str.contains("userid=") && str.contains("un=")) {
-                PersonInfoActivity.a(context, a(str, "userid="), a(str, "un="));
-                return true;
-            }
-        }
-        return false;
+public class i implements com.baidu.tbadk.a.d {
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ c f1668a;
+    private final /* synthetic */ View b;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public i(c cVar, View view) {
+        this.f1668a = cVar;
+        this.b = view;
     }
 
-    public static String a(String str, String str2) {
-        int indexOf = str.indexOf(str2);
-        if (indexOf != -1) {
-            int length = str2.length() + indexOf;
-            int i = length;
-            while (i < str.length() && str.charAt(i) != '&') {
-                i++;
-            }
-            return URLDecoder.decode(str.substring(length, i));
+    @Override // com.baidu.tbadk.a.d
+    public void a(com.baidu.adp.widget.a.b bVar, String str, boolean z) {
+        View findViewWithTag;
+        if (this.b != null && (findViewWithTag = this.b.findViewWithTag(str)) != null) {
+            findViewWithTag.invalidate();
         }
-        return "";
     }
 }

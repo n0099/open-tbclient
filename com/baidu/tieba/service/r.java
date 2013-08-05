@@ -1,15 +1,17 @@
 package com.baidu.tieba.service;
 /* loaded from: classes.dex */
 class r implements Runnable {
-    final /* synthetic */ TiebaSyncService a;
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ TiebaSyncService f1712a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public r(TiebaSyncService tiebaSyncService) {
-        this.a = tiebaSyncService;
+        this.f1712a = tiebaSyncService;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        this.a.a();
+        this.f1712a.b();
     }
 }

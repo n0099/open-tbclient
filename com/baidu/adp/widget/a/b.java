@@ -10,25 +10,20 @@ import android.widget.ImageView;
 import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes.dex */
 public class b {
-    private String a;
+
+    /* renamed from: a  reason: collision with root package name */
+    private String f485a;
     private Bitmap b;
     private boolean c;
     private boolean d = true;
     private AtomicBoolean e = new AtomicBoolean(false);
-
-    public b(Bitmap bitmap, boolean z) {
-        this.b = null;
-        this.c = false;
-        this.b = bitmap;
-        this.c = z;
-    }
 
     public b(Bitmap bitmap, boolean z, String str) {
         this.b = null;
         this.c = false;
         this.b = bitmap;
         this.c = z;
-        this.a = str;
+        this.f485a = str;
     }
 
     public int a() {
@@ -73,8 +68,8 @@ public class b {
             this.e.set(true);
             float max = Math.max(i / this.b.getWidth(), i2 / this.b.getHeight());
             canvas.save();
-            canvas.scale(max, max);
-            canvas.drawBitmap(this.b, 0.0f, 0.0f, paint);
+            canvas.scale(max, max, i >> 1, i2 >> 1);
+            canvas.drawBitmap(this.b, (i - this.b.getWidth()) >> 1, (i2 - this.b.getHeight()) >> 1, paint);
             canvas.restore();
             this.e.set(false);
         }
@@ -136,6 +131,6 @@ public class b {
     }
 
     public String i() {
-        return this.a;
+        return this.f485a;
     }
 }

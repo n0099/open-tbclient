@@ -1,28 +1,113 @@
 package com.baidu.tieba;
 
-import android.os.Handler;
-import android.os.Message;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.tieba.util.DatabaseService;
+import com.slidingmenu.lib.R;
+import org.json.JSONException;
+import org.json.JSONObject;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class ac extends Handler {
-    final /* synthetic */ LogoActivity a;
+public class ac extends BdAsyncTask {
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public ac(LogoActivity logoActivity) {
-        this.a = logoActivity;
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ LabelActivity f841a;
+    private com.baidu.tieba.util.u b = null;
+    private boolean c;
+    private String[] d;
+
+    public ac(LabelActivity labelActivity, boolean z, String[] strArr) {
+        this.f841a = labelActivity;
+        this.c = z;
+        this.d = strArr;
     }
 
-    @Override // android.os.Handler
-    public void handleMessage(Message message) {
-        boolean z;
-        this.a.c = true;
-        z = this.a.b;
-        if (z) {
-            if (!this.a.getDatabasePath("baidu_tieba.db").exists()) {
-                TiebaApplication.a(DatabaseService.p());
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public void b() {
+        this.f841a.b(true);
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public String a(String... strArr) {
+        com.baidu.tieba.model.aq aqVar;
+        try {
+            if (this.d == null) {
+                return null;
             }
-            this.a.d();
+            new com.baidu.tieba.account.ag(LabelActivity.f821a, String.valueOf(this.d.length)).start();
+            if (!this.c) {
+                aqVar = this.f841a.q;
+                DatabaseService.a(aqVar.g(), 12);
+                this.f841a.O = false;
+                return null;
+            }
+            this.b = new com.baidu.tieba.util.u(String.valueOf(com.baidu.tieba.data.g.f1013a) + "c/s/tag/edit_tag");
+            if (this.d.length != 2) {
+                this.f841a.O = false;
+                return null;
+            }
+            if (this.d[0].length() > 0) {
+                this.b.a("add_tag_id_list", this.d[0]);
+            }
+            if (this.d[1].length() > 0) {
+                this.b.a("del_tag_id_list", this.d[1]);
+            }
+            this.b.e(true);
+            String k = this.b.k();
+            if (this.b.e() && this.b.d()) {
+                return k;
+            }
+            return null;
+        } catch (Exception e) {
+            com.baidu.tieba.util.aj.b(getClass().getName(), "", "AddFanAsyncTask.doInBackground error = " + e.getMessage());
+            return null;
         }
-        super.handleMessage(message);
+    }
+
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public void cancel() {
+        if (this.b != null) {
+            this.b.i();
+        }
+        this.f841a.N = null;
+        this.f841a.b(false);
+        super.cancel(true);
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public void a(String str) {
+        this.f841a.N = null;
+        if (str != null) {
+            try {
+                if (str.length() != 0) {
+                    JSONObject optJSONObject = new JSONObject(str).optJSONObject("error");
+                    if (optJSONObject.optInt("errno") == 0) {
+                        DatabaseService.a("", 12);
+                        this.f841a.O = false;
+                    } else if (optJSONObject.has("usermsg")) {
+                        String optString = optJSONObject.optString("usermsg");
+                        if (optString != null && optString.length() > 0) {
+                            this.f841a.a(optString);
+                        } else {
+                            this.f841a.a(this.f841a.getString(R.string.add_tag_fail));
+                        }
+                    }
+                    return;
+                }
+            } catch (JSONException e) {
+                e.printStackTrace();
+                this.f841a.a(this.f841a.getString(R.string.attention_fail));
+                return;
+            } finally {
+                this.f841a.q();
+            }
+        }
+        if (this.b != null && this.b.h() != null) {
+            this.f841a.a(this.b.h());
+        }
     }
 }

@@ -3,7 +3,9 @@ package com.baidu.tieba.home;
 import android.widget.TextView;
 /* loaded from: classes.dex */
 class ba {
-    TextView a;
+
+    /* renamed from: a  reason: collision with root package name */
+    TextView f1140a;
     final /* synthetic */ az b;
 
     private ba(az azVar) {

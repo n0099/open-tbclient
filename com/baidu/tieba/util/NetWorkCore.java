@@ -12,8 +12,8 @@ import android.telephony.TelephonyManager;
 import com.baidu.browser.core.util.BdUtil;
 import com.baidu.cyberplayer.sdk.internal.HttpUtils;
 import com.baidu.tieba.TiebaApplication;
-import com.baidu.zeus.NotificationProxy;
 import com.slidingmenu.lib.R;
+import com.tencent.mm.sdk.platformtools.LocaleUtil;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.DataOutputStream;
@@ -36,17 +36,7 @@ import java.util.regex.Pattern;
 import org.apache.http.message.BasicNameValuePair;
 /* loaded from: classes.dex */
 public class NetWorkCore {
-    private static /* synthetic */ int[] A;
-    private static String a = "\r\n";
-    private static String b = "--";
-    private static String c = "--------7da3d81520810*";
-    private static int d = 2097152;
-    private static Handler e = null;
-    private static volatile String f = null;
-    private static volatile boolean g = false;
-    private static Pattern h = Pattern.compile("^[0]{0,1}10\\.[0]{1,3}\\.[0]{1,3}\\.172$", 8);
-    private static ArrayList y = new ArrayList();
-    private static AtomicInteger z = new AtomicInteger(0);
+    private static /* synthetic */ int[] F;
     private HttpURLConnection i;
     private String j;
     private int k;
@@ -60,9 +50,26 @@ public class NetWorkCore {
     private boolean s;
     private boolean t;
     private volatile boolean u;
+
+    /* renamed from: a  reason: collision with root package name */
+    private static String f1741a = "\r\n";
+    private static String b = "--";
+    private static String c = "--------7da3d81520810*";
+    private static int d = 2097152;
+    private static Handler e = null;
+    private static volatile String f = null;
+    private static volatile boolean g = false;
+    private static Pattern h = Pattern.compile("^[0]{0,1}10\\.[0]{1,3}\\.[0]{1,3}\\.172$", 8);
+    private static ArrayList D = new ArrayList();
+    private static AtomicInteger E = new AtomicInteger(0);
     private boolean v = true;
     private boolean w = true;
     private int x = 0;
+    private int y = 0;
+    private long z = 0;
+    private long A = 0;
+    private int B = 0;
+    private long C = 0;
 
     /* loaded from: classes.dex */
     public enum NetworkState {
@@ -99,8 +106,8 @@ public class NetWorkCore {
         }
     }
 
-    static /* synthetic */ int[] u() {
-        int[] iArr = A;
+    static /* synthetic */ int[] B() {
+        int[] iArr = F;
         if (iArr == null) {
             iArr = new int[NetworkStateInfo.valuesCustom().length];
             try {
@@ -119,40 +126,79 @@ public class NetWorkCore {
                 iArr[NetworkStateInfo.WIFI.ordinal()] = 2;
             } catch (NoSuchFieldError e5) {
             }
-            A = iArr;
+            F = iArr;
         }
         return iArr;
     }
 
+    public int a() {
+        return this.y;
+    }
+
+    public int b() {
+        return this.x;
+    }
+
+    public long c() {
+        return this.z;
+    }
+
+    public long d() {
+        return this.A;
+    }
+
+    public int e() {
+        return this.B;
+    }
+
+    public String f() {
+        if (this.j == null) {
+            return null;
+        }
+        String str = com.baidu.tieba.data.g.f1013a;
+        if (this.j.startsWith(str)) {
+            int indexOf = this.j.indexOf(63);
+            if (indexOf < 0) {
+                indexOf = this.j.length();
+            }
+            return this.j.substring(str.length(), indexOf);
+        }
+        return this.j;
+    }
+
+    public long g() {
+        return this.C;
+    }
+
     public static int a(int i) {
-        return z.getAndSet(i);
+        return E.getAndSet(i);
     }
 
     public static int b(int i) {
-        return z.addAndGet(i);
+        return E.addAndGet(i);
     }
 
-    public static synchronized void a(v vVar) {
+    public static synchronized void a(y yVar) {
         synchronized (NetWorkCore.class) {
-            if (vVar != null) {
-                if (y.size() <= 20) {
-                    y.add(vVar);
+            if (yVar != null) {
+                if (D.size() <= 20) {
+                    D.add(yVar);
                 }
             }
         }
     }
 
-    public static synchronized v a() {
-        v vVar;
+    public static synchronized y h() {
+        y yVar;
         synchronized (NetWorkCore.class) {
-            int size = y.size();
-            vVar = size > 0 ? (v) y.remove(size - 1) : null;
+            int size = D.size();
+            yVar = size > 0 ? (y) D.remove(size - 1) : null;
         }
-        return vVar;
+        return yVar;
     }
 
     private int a(NetworkStateInfo networkStateInfo) {
-        switch (u()[networkStateInfo.ordinal()]) {
+        switch (B()[networkStateInfo.ordinal()]) {
             case 2:
                 return 1;
             case 3:
@@ -164,7 +210,7 @@ public class NetWorkCore {
         }
     }
 
-    private void v() {
+    private void C() {
         this.i = null;
         this.j = null;
         this.k = 0;
@@ -179,14 +225,14 @@ public class NetWorkCore {
         this.p = null;
         this.t = false;
         this.w = true;
-        c();
+        j();
     }
 
-    public void a(boolean z2) {
-        this.w = z2;
+    public void a(boolean z) {
+        this.w = z;
     }
 
-    public String b() {
+    public String i() {
         try {
             NetworkInfo activeNetworkInfo = ((ConnectivityManager) this.r.getSystemService("connectivity")).getActiveNetworkInfo();
             if (activeNetworkInfo.isAvailable()) {
@@ -207,16 +253,16 @@ public class NetWorkCore {
         }
     }
 
-    public static void c() {
+    public static void j() {
         synchronized (NetWorkCore.class) {
             if (!g) {
                 g = true;
-                d();
+                k();
             }
         }
     }
 
-    public static synchronized void d() {
+    public static synchronized void k() {
         synchronized (NetWorkCore.class) {
             try {
                 Cursor query = TiebaApplication.f().getContentResolver().query(Uri.parse("content://telephony/carriers/preferapn"), null, null, null, null);
@@ -224,29 +270,29 @@ public class NetWorkCore {
                     String string = query.getString(query.getColumnIndex("user"));
                     String string2 = query.getString(query.getColumnIndex("password"));
                     query.close();
-                    f = "Basic " + y.b((String.valueOf(string) + ":" + string2).getBytes());
+                    f = "Basic " + ai.b((String.valueOf(string) + ":" + string2).getBytes());
                 }
             } catch (Exception e2) {
             }
         }
     }
 
-    public static void e() {
+    public static void l() {
         if (Integer.parseInt(Build.VERSION.SDK) < 8) {
             System.setProperty("http.keepAlive", "false");
         } else {
             System.setProperty("http.keepAlive", "true");
         }
-        e = new u();
+        e = new x();
     }
 
     public NetWorkCore() {
-        v();
+        C();
         this.r = TiebaApplication.f();
     }
 
     public NetWorkCore(String str) {
-        v();
+        C();
         this.r = TiebaApplication.f();
         this.j = str;
     }
@@ -277,27 +323,27 @@ public class NetWorkCore {
         this.j = str;
     }
 
-    public String f() {
+    public String m() {
         return this.j;
     }
 
-    public boolean g() {
+    public boolean n() {
         return this.k == 200 && this.l == 0;
     }
 
-    public boolean h() {
+    public boolean o() {
         return this.k == 200;
     }
 
-    public int i() {
+    public int p() {
         return this.l;
     }
 
-    public String j() {
+    public String q() {
         return this.m;
     }
 
-    public void k() {
+    public void r() {
         this.m = "";
     }
 
@@ -305,7 +351,7 @@ public class NetWorkCore {
         this.m = str;
     }
 
-    public void l() {
+    public void s() {
         this.u = true;
         try {
             if (this.i != null) {
@@ -357,7 +403,7 @@ public class NetWorkCore {
                     }
                 } catch (Exception e3) {
                     e2 = e3;
-                    z.b(getClass().getName(), "getConnect", "error = " + e2.getMessage());
+                    aj.b(getClass().getName(), "getConnect", "error = " + e2.getMessage());
                     return r0;
                 }
             }
@@ -367,7 +413,7 @@ public class NetWorkCore {
                 } catch (Exception e4) {
                     r0 = httpURLConnection;
                     e2 = e4;
-                    z.b(getClass().getName(), "getConnect", "error = " + e2.getMessage());
+                    aj.b(getClass().getName(), "getConnect", "error = " + e2.getMessage());
                     return r0;
                 }
             }
@@ -385,25 +431,19 @@ public class NetWorkCore {
         return false;
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [632=9, 633=9, 637=9, 638=9, 640=8] */
-    /* JADX WARN: Code restructure failed: missing block: B:102:0x0249, code lost:
-        if (r2 == null) goto L103;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:103:0x024b, code lost:
-        r2.close();
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:59:0x015e, code lost:
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [683=9, 684=9, 688=9, 689=9, 691=8] */
+    /* JADX WARN: Code restructure failed: missing block: B:59:0x0127, code lost:
         if (0 == 0) goto L66;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:60:0x0160, code lost:
-        r4.close();
+    /* JADX WARN: Code restructure failed: missing block: B:60:0x0129, code lost:
+        r3.close();
      */
-    /* JADX WARN: Removed duplicated region for block: B:181:0x0451 A[Catch: Exception -> 0x0472, TRY_LEAVE, TryCatch #4 {Exception -> 0x0472, blocks: (B:179:0x044b, B:181:0x0451), top: B:223:0x044b }] */
-    /* JADX WARN: Removed duplicated region for block: B:217:0x0448 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:180:0x03d7 A[Catch: Exception -> 0x03f6, TRY_LEAVE, TryCatch #5 {Exception -> 0x03f6, blocks: (B:178:0x03d3, B:180:0x03d7), top: B:226:0x03d3 }] */
+    /* JADX WARN: Removed duplicated region for block: B:228:0x03d0 A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public byte[] m() {
+    public byte[] t() {
         String str;
         InputStream inputStream;
         InputStream inputStream2;
@@ -411,6 +451,7 @@ public class NetWorkCore {
         int read;
         String headerField;
         byte[] bArr = null;
+        boolean z = true;
         try {
             if (this.o == null || this.o.size() <= 0) {
                 str = this.j;
@@ -428,19 +469,18 @@ public class NetWorkCore {
                     }
                     sb.append(((BasicNameValuePair) this.o.get(i)).getName());
                     sb.append("=");
-                    sb.append(y.d(((BasicNameValuePair) this.o.get(i)).getValue()));
+                    sb.append(ai.d(((BasicNameValuePair) this.o.get(i)).getValue()));
                 }
                 str = sb.toString();
             }
             URL url = new URL(str);
-            if (com.baidu.tieba.data.g.s()) {
-                z.e(getClass().getName(), "getNetData", str);
+            this.y = str.length();
+            if (com.baidu.tieba.data.g.r()) {
+                aj.e(getClass().getName(), "getNetData", str);
             }
-            boolean z2 = true;
-            byte[] bArr2 = bArr;
             int i2 = 0;
             while (true) {
-                if (this.u || !z2 || i2 >= 10) {
+                if (this.u || !z || i2 >= 10) {
                     break;
                 }
                 InputStream inputStream3 = null;
@@ -468,6 +508,7 @@ public class NetWorkCore {
                 }
                 long time = new Date().getTime();
                 this.i.connect();
+                this.z = new Date().getTime() - time;
                 this.k = this.i.getResponseCode();
                 if (this.k != 200) {
                     throw new SocketException();
@@ -484,30 +525,30 @@ public class NetWorkCore {
                                 }
                                 int i3 = parseInt * 10;
                                 if (i3 > 0) {
-                                    if (com.baidu.adp.lib.c.b.a()) {
-                                        com.baidu.adp.lib.c.b.c("pre-free memory for downloaded image:[" + this.j + "], size:" + i3);
+                                    if (com.baidu.adp.lib.e.d.a()) {
+                                        com.baidu.adp.lib.e.d.c("pre-free memory for downloaded image:[" + this.j + "], size:" + i3);
                                     }
                                     if (!com.baidu.tbadk.a.e.a().c(i3)) {
-                                        com.baidu.adp.lib.c.b.c("Image download cacelled. out of memory. url:[" + this.j + "], size:" + i3);
+                                        com.baidu.adp.lib.e.d.c("Image download cacelled. out of memory. url:[" + this.j + "], size:" + i3);
                                         break;
                                     }
                                 }
                             } catch (Throwable th2) {
                             }
                         }
-                        byte[] bArr3 = new byte[NotificationProxy.MAX_URL_LENGTH];
-                        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream(NotificationProxy.MAX_URL_LENGTH);
+                        byte[] bArr2 = new byte[1024];
+                        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream(1024);
                         int i4 = 0;
                         if (this.s) {
-                            byte[] bArr4 = new byte[23];
-                            int read2 = inputStream.read(bArr4, 0, 23);
-                            if (!new String(bArr4, 0, bArr4.length).equalsIgnoreCase("app:tiebaclient;type:0;")) {
-                                byteArrayOutputStream.write(bArr4, 0, read2);
+                            byte[] bArr3 = new byte[23];
+                            int read2 = inputStream.read(bArr3, 0, 23);
+                            if (!new String(bArr3, 0, bArr3.length).equalsIgnoreCase("app:tiebaclient;type:0;")) {
+                                byteArrayOutputStream.write(bArr3, 0, read2);
                                 i4 = 0 + read2;
                             }
                         }
-                        while (!this.u && i4 < d && (read = inputStream.read(bArr3)) != -1) {
-                            byteArrayOutputStream.write(bArr3, 0, read);
+                        while (!this.u && i4 < d && (read = inputStream.read(bArr2)) != -1) {
+                            byteArrayOutputStream.write(bArr2, 0, read);
                             i4 += read;
                         }
                         if (this.u) {
@@ -526,28 +567,32 @@ public class NetWorkCore {
                         } else {
                             this.x = i4;
                             long time2 = new Date().getTime() - time;
-                            z.a(getClass().getName(), "getNetData", "time = " + String.valueOf(time2) + "ms");
+                            this.A = time2 - this.z;
+                            aj.a(getClass().getName(), "getNetData", "time = " + String.valueOf(time2) + LocaleUtil.MALAY);
                             if (i4 < d) {
-                                bArr2 = byteArrayOutputStream.toByteArray();
+                                bArr = byteArrayOutputStream.toByteArray();
                                 byteArrayOutputStream.close();
-                                z.a(getClass().getName(), "getNetData", "data.zise = " + String.valueOf(i4));
+                                aj.a(getClass().getName(), "getNetData", "data.zise = " + String.valueOf(i4));
                                 if (contentEncoding != null && contentEncoding.contains("gzip")) {
-                                    ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(bArr2);
-                                    ByteArrayOutputStream byteArrayOutputStream2 = new ByteArrayOutputStream(NotificationProxy.MAX_URL_LENGTH);
-                                    o.a(byteArrayInputStream, byteArrayOutputStream2);
-                                    bArr2 = byteArrayOutputStream2.toByteArray();
+                                    ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(bArr);
+                                    ByteArrayOutputStream byteArrayOutputStream2 = new ByteArrayOutputStream(1024);
+                                    r.a(byteArrayInputStream, byteArrayOutputStream2);
+                                    bArr = byteArrayOutputStream2.toByteArray();
                                 }
                             } else {
                                 this.k = -1;
                                 this.m = this.r.getResources().getString(R.string.data_too_big);
                             }
-                            v vVar = new v();
-                            vVar.e = a(c(this.r));
-                            vVar.c = this.x;
-                            vVar.b = time2;
-                            vVar.d = i2 + 1;
-                            vVar.a = 2;
-                            a(vVar);
+                            this.B = i2 + 1;
+                            this.C = time2;
+                            y yVar = new y();
+                            yVar.e = a(c(this.r));
+                            yVar.c = this.x;
+                            yVar.b = time2;
+                            yVar.d = i2 + 1;
+                            yVar.f1778a = 2;
+                            a(yVar);
+                            ak.a(this);
                             if (inputStream != null) {
                                 try {
                                     inputStream.close();
@@ -565,8 +610,8 @@ public class NetWorkCore {
                         inputStream3 = inputStream;
                         try {
                             this.k = 0;
-                            z.incrementAndGet();
-                            z2 = true;
+                            E.incrementAndGet();
+                            z = true;
                             this.m = this.r.getResources().getString(R.string.neterror);
                             if (inputStream3 != null) {
                                 try {
@@ -600,9 +645,9 @@ public class NetWorkCore {
                         }
                     } catch (SocketTimeoutException e15) {
                         inputStream3 = inputStream;
-                        z.incrementAndGet();
+                        E.incrementAndGet();
                         this.k = 0;
-                        z2 = true;
+                        z = true;
                         this.m = this.r.getResources().getString(R.string.neterror);
                         if (inputStream3 != null) {
                             try {
@@ -622,9 +667,9 @@ public class NetWorkCore {
                         inputStream2 = inputStream;
                         try {
                             this.k = 0;
-                            z2 = false;
+                            z = false;
                             this.m = this.r.getResources().getString(R.string.neterror);
-                            z.b(getClass().getName(), "getNetData", "error = " + e2.getMessage());
+                            aj.b(getClass().getName(), "getNetData", "error = " + e2.getMessage());
                             if (inputStream2 != null) {
                                 try {
                                     inputStream2.close();
@@ -677,16 +722,12 @@ public class NetWorkCore {
                     i2++;
                 }
             }
-            this.n = 0;
-            return bArr2;
-            try {
-                if (this.i != null) {
-                    this.i.disconnect();
+            if (inputStream != null) {
+                try {
+                    inputStream.close();
+                } catch (Exception e23) {
                 }
-            } catch (Exception e23) {
             }
-            this.n = 0;
-            return bArr2;
             try {
                 if (this.i != null) {
                     this.i.disconnect();
@@ -694,14 +735,23 @@ public class NetWorkCore {
             } catch (Exception e24) {
             }
             return null;
-            return null;
-        } catch (Exception e25) {
-            z.b(getClass().getName(), "getNetData", e25.getMessage());
+            this.n = 0;
             return bArr;
+            try {
+                if (this.i != null) {
+                    this.i.disconnect();
+                }
+            } catch (Exception e25) {
+            }
+            this.n = 0;
+            return bArr;
+        } catch (Exception e26) {
+            aj.b(getClass().getName(), "getNetData", e26.getMessage());
+            return null;
         }
     }
 
-    private String w() {
+    private String D() {
         int indexOf;
         String str = null;
         if (this.i != null) {
@@ -721,36 +771,36 @@ public class NetWorkCore {
         this.l = -1;
         if (str != null) {
             try {
-                com.baidu.tieba.data.n nVar = new com.baidu.tieba.data.n();
-                nVar.b(str);
-                this.l = nVar.a();
+                com.baidu.tieba.data.r rVar = new com.baidu.tieba.data.r();
+                rVar.b(str);
+                this.l = rVar.a();
                 if (this.l == -1) {
                     this.m = this.r.getString(R.string.error_unkown);
                 } else if (this.l != 0) {
-                    this.m = nVar.b();
+                    this.m = rVar.b();
                 }
             } catch (Exception e2) {
-                z.b("NetWork", "parseServerCode", "error = " + e2.getMessage());
+                aj.b("NetWork", "parseServerCode", "error = " + e2.getMessage());
                 this.m = this.r.getString(R.string.error_unkown);
             }
         }
     }
 
-    public String n() {
+    public String u() {
         String str;
         Exception e2;
-        byte[] m = m();
+        byte[] t = t();
         if (this.k != 200) {
             return null;
         }
         try {
-            str = new String(m, 0, m.length, w());
+            str = new String(t, 0, t.length, D());
             try {
                 c(str);
                 return str;
             } catch (Exception e3) {
                 e2 = e3;
-                z.b(getClass().getName(), "getNetString", "error = " + e2.getMessage());
+                aj.b(getClass().getName(), "getNetString", "error = " + e2.getMessage());
                 return str;
             }
         } catch (Exception e4) {
@@ -759,28 +809,23 @@ public class NetWorkCore {
         }
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [873=9, 874=9, 878=9, 879=9, 881=9] */
-    /* JADX WARN: Code restructure failed: missing block: B:35:0x00ed, code lost:
-        if (0 == 0) goto L222;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:36:0x00ef, code lost:
-        r3.close();
-     */
-    /* JADX WARN: Removed duplicated region for block: B:155:0x03f1 A[Catch: Exception -> 0x040f, TRY_LEAVE, TryCatch #12 {Exception -> 0x040f, blocks: (B:153:0x03ed, B:155:0x03f1), top: B:211:0x03ed }] */
-    /* JADX WARN: Removed duplicated region for block: B:213:0x03ea A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [930=9, 931=9, 935=9, 936=9, 938=9] */
+    /* JADX WARN: Removed duplicated region for block: B:155:0x0410 A[Catch: Exception -> 0x042e, TRY_LEAVE, TryCatch #0 {Exception -> 0x042e, blocks: (B:153:0x040c, B:155:0x0410), top: B:194:0x040c }] */
+    /* JADX WARN: Removed duplicated region for block: B:198:0x0409 A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public String o() {
+    public String v() {
         InputStream inputStream;
-        Exception exc;
         InputStream inputStream2;
-        SocketTimeoutException socketTimeoutException;
+        Exception exc;
         InputStream inputStream3;
+        SocketTimeoutException socketTimeoutException;
+        InputStream inputStream4;
         SocketException socketException;
         int read;
-        StringBuilder sb = new StringBuilder((int) NotificationProxy.MAX_URL_LENGTH);
-        StringBuilder sb2 = new StringBuilder((int) NotificationProxy.MAX_URL_LENGTH);
+        StringBuilder sb = new StringBuilder(1024);
+        StringBuilder sb2 = new StringBuilder(1024);
         int i = 0;
         while (true) {
             int i2 = i;
@@ -795,7 +840,7 @@ public class NetWorkCore {
                     sb.append("&");
                 }
                 sb.append(String.valueOf(name) + "=");
-                sb.append(y.d(value));
+                sb.append(ai.d(value));
                 sb2.append(name);
                 sb2.append("=");
                 sb2.append(value);
@@ -804,7 +849,7 @@ public class NetWorkCore {
         }
         if (this.v) {
             sb2.append("tiebaclient!!!");
-            String a2 = y.a(sb2.toString());
+            String a2 = ai.a(sb2.toString());
             if (sb.length() > 0) {
                 sb.append("&");
             }
@@ -812,45 +857,41 @@ public class NetWorkCore {
             sb.append(a2);
         }
         String sb3 = sb.toString();
-        if (com.baidu.tieba.data.g.s()) {
-            z.e(getClass().getName(), "postNetData", String.valueOf(this.j) + "?" + sb3);
+        this.y = sb3.length();
+        if (com.baidu.tieba.data.g.r()) {
+            aj.e(getClass().getName(), "postNetData", String.valueOf(this.j) + "?" + sb3);
         }
         int i3 = 0;
-        boolean z2 = true;
+        boolean z = true;
         String str = null;
         while (true) {
-            if (this.u || !z2 || i3 >= 10) {
+            if (this.u || !z || i3 >= 10) {
                 break;
             }
-            InputStream inputStream4 = null;
+            inputStream = null;
             try {
                 try {
                     this.i = a(new URL(this.j));
                 } catch (Throwable th) {
                     th = th;
-                    if (inputStream4 != null) {
-                        try {
-                            inputStream4.close();
-                        } catch (Exception e2) {
-                        }
+                    if (inputStream != null) {
                     }
                     try {
                         if (this.i != null) {
-                            this.i.disconnect();
                         }
-                    } catch (Exception e3) {
+                    } catch (Exception e2) {
                     }
                     throw th;
                 }
-            } catch (SocketException e4) {
+            } catch (SocketException e3) {
+                inputStream4 = null;
+                socketException = e3;
+            } catch (SocketTimeoutException e4) {
                 inputStream3 = null;
-                socketException = e4;
-            } catch (SocketTimeoutException e5) {
+                socketTimeoutException = e4;
+            } catch (Exception e5) {
                 inputStream2 = null;
-                socketTimeoutException = e5;
-            } catch (Exception e6) {
-                inputStream = null;
-                exc = e6;
+                exc = e5;
             }
             if (this.i != null) {
                 this.i.setConnectTimeout(5000);
@@ -868,12 +909,13 @@ public class NetWorkCore {
                 }
                 long time = new Date().getTime();
                 this.i.connect();
+                this.z = new Date().getTime() - time;
                 DataOutputStream dataOutputStream = new DataOutputStream(this.i.getOutputStream());
                 if (!this.u) {
                     dataOutputStream.writeBytes(sb3);
                 }
                 dataOutputStream.flush();
-                z.a("NetWork", "postNetData", "Post data.zise = " + String.valueOf(dataOutputStream.size()));
+                aj.a("NetWork", "postNetData", "Post data.zise = " + String.valueOf(dataOutputStream.size()));
                 dataOutputStream.close();
                 this.k = this.i.getResponseCode();
                 if (this.k != 200) {
@@ -883,8 +925,8 @@ public class NetWorkCore {
                     String contentEncoding = this.i.getContentEncoding();
                     InputStream inputStream5 = this.i.getInputStream();
                     try {
-                        byte[] bArr = new byte[NotificationProxy.MAX_URL_LENGTH];
-                        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream(NotificationProxy.MAX_URL_LENGTH);
+                        byte[] bArr = new byte[1024];
+                        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream(1024);
                         int i4 = 0;
                         while (!this.u && (read = inputStream5.read(bArr)) != -1) {
                             byteArrayOutputStream.write(bArr, 0, read);
@@ -896,45 +938,49 @@ public class NetWorkCore {
                             if (inputStream5 != null) {
                                 try {
                                     inputStream5.close();
-                                } catch (Exception e7) {
+                                } catch (Exception e6) {
                                 }
                             }
                             try {
                                 if (this.i != null) {
                                     this.i.disconnect();
                                 }
-                            } catch (Exception e8) {
+                            } catch (Exception e7) {
                             }
                         } else {
                             this.x = i4;
                             long time2 = new Date().getTime() - time;
-                            z.a(getClass().getName(), "postNetData", "time = " + String.valueOf(time2) + "ms");
+                            this.A = time2 - this.z;
+                            aj.a(getClass().getName(), "postNetData", "time = " + String.valueOf(time2) + LocaleUtil.MALAY);
                             byte[] byteArray = byteArrayOutputStream.toByteArray();
-                            z.a(getClass().getName(), "postNetData", "Get data.zise = " + String.valueOf(byteArray.length));
+                            aj.a(getClass().getName(), "postNetData", "Get data.zise = " + String.valueOf(byteArray.length));
                             if (contentEncoding != null && contentEncoding.contains("gzip")) {
                                 ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(byteArray);
-                                ByteArrayOutputStream byteArrayOutputStream2 = new ByteArrayOutputStream(NotificationProxy.MAX_URL_LENGTH);
-                                o.a(byteArrayInputStream, byteArrayOutputStream2);
+                                ByteArrayOutputStream byteArrayOutputStream2 = new ByteArrayOutputStream(1024);
+                                r.a(byteArrayInputStream, byteArrayOutputStream2);
                                 byteArray = byteArrayOutputStream2.toByteArray();
-                                z.a(getClass().getName(), "postNetData", "After ungzip data.zise = " + String.valueOf(byteArray.length));
+                                aj.a(getClass().getName(), "postNetData", "After ungzip data.zise = " + String.valueOf(byteArray.length));
                             }
                             byte[] bArr2 = byteArray;
-                            String str2 = new String(bArr2, 0, bArr2.length, w());
+                            String str2 = new String(bArr2, 0, bArr2.length, D());
                             try {
                                 if (this.v && this.w) {
                                     c(str2);
                                 }
-                                v vVar = new v();
-                                vVar.e = a(c(this.r));
-                                vVar.c = this.x;
-                                vVar.b = time2;
-                                vVar.d = i3 + 1;
-                                vVar.a = 1;
-                                a(vVar);
+                                this.B = i3 + 1;
+                                this.C = time2;
+                                y yVar = new y();
+                                yVar.e = a(c(this.r));
+                                yVar.c = this.x;
+                                yVar.b = time2;
+                                yVar.d = i3 + 1;
+                                yVar.f1778a = 1;
+                                a(yVar);
+                                ak.a(this);
                                 if (inputStream5 != null) {
                                     try {
                                         inputStream5.close();
-                                    } catch (Exception e9) {
+                                    } catch (Exception e8) {
                                     }
                                 }
                                 try {
@@ -944,74 +990,79 @@ public class NetWorkCore {
                                     } else {
                                         str = str2;
                                     }
-                                } catch (Exception e10) {
+                                } catch (Exception e9) {
                                     str = str2;
                                 }
-                            } catch (SocketException e11) {
-                                inputStream3 = inputStream5;
-                                socketException = e11;
+                            } catch (SocketException e10) {
+                                inputStream4 = inputStream5;
+                                socketException = e10;
                                 str = str2;
-                                z.incrementAndGet();
+                                E.incrementAndGet();
                                 this.k = 0;
-                                z2 = true;
+                                z = true;
                                 this.m = this.r.getResources().getString(R.string.neterror);
-                                z.b(getClass().getName(), "postNetData", "SocketException " + socketException.getMessage());
-                                if (inputStream3 != null) {
+                                aj.b(getClass().getName(), "postNetData", "SocketException " + socketException.getMessage());
+                                if (inputStream4 != null) {
                                     try {
-                                        inputStream3.close();
-                                    } catch (Exception e12) {
+                                        inputStream4.close();
+                                    } catch (Exception e11) {
                                     }
                                 }
                                 try {
                                     if (this.i != null) {
                                         this.i.disconnect();
                                     }
-                                } catch (Exception e13) {
+                                } catch (Exception e12) {
                                 }
                                 i3++;
-                            } catch (SocketTimeoutException e14) {
-                                inputStream2 = inputStream5;
-                                socketTimeoutException = e14;
+                            } catch (SocketTimeoutException e13) {
+                                inputStream3 = inputStream5;
+                                socketTimeoutException = e13;
                                 str = str2;
                                 try {
-                                    z.incrementAndGet();
+                                    E.incrementAndGet();
                                     this.k = 0;
-                                    z2 = true;
+                                    z = true;
                                     this.m = this.r.getResources().getString(R.string.neterror);
-                                    z.b(getClass().getName(), "postNetData", "SocketTimeoutException " + socketTimeoutException.getMessage());
-                                    if (inputStream2 != null) {
+                                    aj.b(getClass().getName(), "postNetData", "SocketTimeoutException " + socketTimeoutException.getMessage());
+                                    if (inputStream3 != null) {
                                         try {
-                                            inputStream2.close();
-                                        } catch (Exception e15) {
+                                            inputStream3.close();
+                                        } catch (Exception e14) {
                                         }
                                     }
                                     try {
                                         if (this.i != null) {
                                             this.i.disconnect();
                                         }
-                                    } catch (Exception e16) {
+                                    } catch (Exception e15) {
                                     }
                                     i3++;
                                 } catch (Throwable th2) {
                                     th = th2;
-                                    inputStream4 = inputStream2;
-                                    if (inputStream4 != null) {
+                                    inputStream = inputStream3;
+                                    if (inputStream != null) {
+                                        try {
+                                            inputStream.close();
+                                        } catch (Exception e16) {
+                                        }
                                     }
                                     if (this.i != null) {
+                                        this.i.disconnect();
                                     }
                                     throw th;
                                 }
                             } catch (Exception e17) {
-                                inputStream = inputStream5;
+                                inputStream2 = inputStream5;
                                 exc = e17;
                                 str = str2;
                                 this.k = 0;
-                                z2 = false;
+                                z = false;
                                 this.m = this.r.getResources().getString(R.string.neterror);
-                                z.b(getClass().getName(), "postNetData", exc.getMessage());
-                                if (inputStream != null) {
+                                aj.b(getClass().getName(), "postNetData", exc.getMessage());
+                                if (inputStream2 != null) {
                                     try {
-                                        inputStream.close();
+                                        inputStream2.close();
                                     } catch (Exception e18) {
                                     }
                                 }
@@ -1025,13 +1076,13 @@ public class NetWorkCore {
                             }
                         }
                     } catch (SocketException e20) {
-                        inputStream3 = inputStream5;
+                        inputStream4 = inputStream5;
                         socketException = e20;
                     } catch (SocketTimeoutException e21) {
-                        inputStream2 = inputStream5;
+                        inputStream3 = inputStream5;
                         socketTimeoutException = e21;
                     } catch (Exception e22) {
-                        inputStream = inputStream5;
+                        inputStream2 = inputStream5;
                         exc = e22;
                     }
                 } else if (this.n < 1) {
@@ -1041,7 +1092,7 @@ public class NetWorkCore {
                     i3--;
                     if (0 != 0) {
                         try {
-                            inputStream4.close();
+                            inputStream.close();
                         } catch (Exception e23) {
                         }
                     }
@@ -1055,7 +1106,7 @@ public class NetWorkCore {
                 } else {
                     if (0 != 0) {
                         try {
-                            inputStream4.close();
+                            inputStream.close();
                         } catch (Exception e25) {
                         }
                     }
@@ -1071,54 +1122,58 @@ public class NetWorkCore {
                 break;
             }
         }
-        this.n = 0;
-        return str;
+        if (0 != 0) {
+            try {
+                inputStream.close();
+            } catch (Exception e27) {
+            }
+        }
         try {
             if (this.i != null) {
                 this.i.disconnect();
             }
-        } catch (Exception e27) {
+        } catch (Exception e28) {
         }
         this.n = 0;
         return str;
     }
 
-    public int p() {
+    public int w() {
         return this.x;
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [1038=9, 1039=9, 1041=9, 1043=9, 1044=9, 1046=5, 1048=9, 1049=9, 1051=9, 1052=9, 1053=9] */
-    /* JADX WARN: Code restructure failed: missing block: B:14:0x0037, code lost:
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [1095=9, 1096=9, 1098=9, 1100=9, 1101=9, 1103=5, 1105=9, 1106=9, 1108=9, 1109=9, 1110=9] */
+    /* JADX WARN: Code restructure failed: missing block: B:14:0x0034, code lost:
         if (0 == 0) goto L15;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:15:0x0039, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:15:0x0036, code lost:
         r6.close();
      */
-    /* JADX WARN: Removed duplicated region for block: B:101:0x02d9 A[Catch: Exception -> 0x049f, TRY_LEAVE, TryCatch #21 {Exception -> 0x049f, blocks: (B:99:0x02d5, B:101:0x02d9), top: B:292:0x02d5 }] */
-    /* JADX WARN: Removed duplicated region for block: B:106:0x02e7  */
-    /* JADX WARN: Removed duplicated region for block: B:180:0x044d A[Catch: Exception -> 0x0494, TRY_LEAVE, TryCatch #32 {Exception -> 0x0494, blocks: (B:178:0x0449, B:180:0x044d), top: B:310:0x0449 }] */
-    /* JADX WARN: Removed duplicated region for block: B:185:0x045b  */
-    /* JADX WARN: Removed duplicated region for block: B:23:0x004e  */
-    /* JADX WARN: Removed duplicated region for block: B:296:0x0047 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:300:0x0446 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:304:0x02e0 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:306:0x02d2 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:312:0x0454 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:314:0x017e A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:323:0x022d A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:327:0x021f A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:329:0x018c A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:348:0x0199 A[SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:349:0x0199 A[SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:351:0x0199 A[SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:62:0x0185 A[Catch: Exception -> 0x04d5, TRY_LEAVE, TryCatch #31 {Exception -> 0x04d5, blocks: (B:60:0x0181, B:62:0x0185), top: B:308:0x0181 }] */
-    /* JADX WARN: Removed duplicated region for block: B:67:0x0193  */
-    /* JADX WARN: Removed duplicated region for block: B:82:0x0226 A[Catch: Exception -> 0x04bc, TRY_LEAVE, TryCatch #37 {Exception -> 0x04bc, blocks: (B:80:0x0222, B:82:0x0226), top: B:318:0x0222 }] */
-    /* JADX WARN: Removed duplicated region for block: B:87:0x0234  */
+    /* JADX WARN: Removed duplicated region for block: B:101:0x02d6 A[Catch: Exception -> 0x049c, TRY_LEAVE, TryCatch #21 {Exception -> 0x049c, blocks: (B:99:0x02d2, B:101:0x02d6), top: B:294:0x02d2 }] */
+    /* JADX WARN: Removed duplicated region for block: B:106:0x02e4  */
+    /* JADX WARN: Removed duplicated region for block: B:180:0x044a A[Catch: Exception -> 0x0491, TRY_LEAVE, TryCatch #32 {Exception -> 0x0491, blocks: (B:178:0x0446, B:180:0x044a), top: B:312:0x0446 }] */
+    /* JADX WARN: Removed duplicated region for block: B:185:0x0458  */
+    /* JADX WARN: Removed duplicated region for block: B:23:0x004b  */
+    /* JADX WARN: Removed duplicated region for block: B:302:0x0044 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:304:0x0451 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:306:0x0443 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:308:0x02dd A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:314:0x0189 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:317:0x017b A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:325:0x02cf A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:327:0x022a A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:329:0x021c A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:348:0x0196 A[SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:349:0x0196 A[SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:351:0x0196 A[SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:62:0x0182 A[Catch: Exception -> 0x04d2, TRY_LEAVE, TryCatch #31 {Exception -> 0x04d2, blocks: (B:60:0x017e, B:62:0x0182), top: B:310:0x017e }] */
+    /* JADX WARN: Removed duplicated region for block: B:67:0x0190  */
+    /* JADX WARN: Removed duplicated region for block: B:82:0x0223 A[Catch: Exception -> 0x04b9, TRY_LEAVE, TryCatch #40 {Exception -> 0x04b9, blocks: (B:80:0x021f, B:82:0x0223), top: B:321:0x021f }] */
+    /* JADX WARN: Removed duplicated region for block: B:87:0x0231  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public String q() {
+    public String x() {
         DataOutputStream dataOutputStream;
         DataOutputStream dataOutputStream2;
         Throwable th;
@@ -1127,14 +1182,14 @@ public class NetWorkCore {
         Exception exc;
         DataOutputStream dataOutputStream3;
         InputStream inputStream;
-        boolean z2;
+        boolean z;
         byte[] bArr;
         int read;
         String str2 = null;
-        boolean z3 = true;
+        boolean z2 = true;
         int i2 = 0;
         while (true) {
-            if (this.u || !z3 || i2 >= 10) {
+            if (this.u || !z2 || i2 >= 10) {
                 break;
             }
             InputStream inputStream2 = null;
@@ -1186,12 +1241,12 @@ public class NetWorkCore {
                         if (basicNameValuePair != null) {
                             String name = basicNameValuePair.getName();
                             String value = basicNameValuePair.getValue();
-                            dataOutputStream2.writeBytes(String.valueOf(b) + c + a);
+                            dataOutputStream2.writeBytes(String.valueOf(b) + c + f1741a);
                             byte[] bytes = value.getBytes("UTF-8");
-                            dataOutputStream2.writeBytes("Content-Disposition: form-data; name=\"" + name + "\"" + a);
-                            dataOutputStream2.writeBytes(a);
+                            dataOutputStream2.writeBytes("Content-Disposition: form-data; name=\"" + name + "\"" + f1741a);
+                            dataOutputStream2.writeBytes(f1741a);
                             dataOutputStream2.write(bytes);
-                            dataOutputStream2.writeBytes(a);
+                            dataOutputStream2.writeBytes(f1741a);
                         }
                     } catch (Throwable th3) {
                         th = th3;
@@ -1217,17 +1272,17 @@ public class NetWorkCore {
                     if (this.u) {
                         break;
                     } else if (bArr2 != null) {
-                        dataOutputStream2.writeBytes(String.valueOf(b) + c + a);
-                        dataOutputStream2.writeBytes("Content-Disposition: form-data; name=\"" + str3 + "\"; filename=\"file\"" + a);
-                        dataOutputStream2.writeBytes(a);
+                        dataOutputStream2.writeBytes(String.valueOf(b) + c + f1741a);
+                        dataOutputStream2.writeBytes("Content-Disposition: form-data; name=\"" + str3 + "\"; filename=\"file\"" + f1741a);
+                        dataOutputStream2.writeBytes(f1741a);
                         dataOutputStream2.write(bArr2);
-                        dataOutputStream2.writeBytes(a);
+                        dataOutputStream2.writeBytes(f1741a);
                     }
                 }
             }
-            dataOutputStream2.writeBytes(String.valueOf(b) + c + b + a);
+            dataOutputStream2.writeBytes(String.valueOf(b) + c + b + f1741a);
             dataOutputStream2.flush();
-            z.a("NetWork", "postMultiNetData", "Post data.zise = " + String.valueOf(dataOutputStream2.size()));
+            aj.a("NetWork", "postMultiNetData", "Post data.zise = " + String.valueOf(dataOutputStream2.size()));
             dataOutputStream2.close();
             if (e != null) {
                 e.sendMessageDelayed(e.obtainMessage(0, this), 45000L);
@@ -1244,8 +1299,8 @@ public class NetWorkCore {
                 InputStream inputStream3 = this.i.getInputStream();
                 try {
                     try {
-                        byte[] bArr3 = new byte[NotificationProxy.MAX_URL_LENGTH];
-                        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream(NotificationProxy.MAX_URL_LENGTH);
+                        byte[] bArr3 = new byte[1024];
+                        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream(1024);
                         while (!this.u && (read = inputStream3.read(bArr3)) != -1) {
                             byteArrayOutputStream.write(bArr3, 0, read);
                         }
@@ -1274,18 +1329,18 @@ public class NetWorkCore {
                         } else {
                             inputStream3.close();
                             this.i.disconnect();
-                            z.a("NetWork", "postMultiNetData", "time = " + String.valueOf(new Date().getTime() - time) + "ms");
+                            aj.a("NetWork", "postMultiNetData", "time = " + String.valueOf(new Date().getTime() - time) + LocaleUtil.MALAY);
                             byte[] byteArray = byteArrayOutputStream.toByteArray();
-                            z.a("NetWork", "postMultiNetData", "Get data.zise = " + String.valueOf(byteArray.length));
+                            aj.a("NetWork", "postMultiNetData", "Get data.zise = " + String.valueOf(byteArray.length));
                             if (contentEncoding == null || !contentEncoding.contains("gzip")) {
                                 bArr = byteArray;
                             } else {
                                 ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(byteArray);
-                                ByteArrayOutputStream byteArrayOutputStream2 = new ByteArrayOutputStream(NotificationProxy.MAX_URL_LENGTH);
-                                o.a(byteArrayInputStream, byteArrayOutputStream2);
+                                ByteArrayOutputStream byteArrayOutputStream2 = new ByteArrayOutputStream(1024);
+                                r.a(byteArrayInputStream, byteArrayOutputStream2);
                                 bArr = byteArrayOutputStream2.toByteArray();
                             }
-                            String str4 = new String(bArr, 0, bArr.length, w());
+                            String str4 = new String(bArr, 0, bArr.length, D());
                             try {
                                 c(str4);
                                 if (inputStream3 != null) {
@@ -1317,58 +1372,88 @@ public class NetWorkCore {
                                 str = str4;
                                 i = i2;
                                 inputStream = inputStream3;
-                                z2 = true;
+                                z = true;
                                 this.k = 0;
                                 this.m = this.r.getResources().getString(R.string.neterror);
                                 if (inputStream != null) {
+                                    try {
+                                        inputStream.close();
+                                    } catch (Exception e15) {
+                                    }
                                 }
                                 if (this.i != null) {
+                                    this.i.disconnect();
                                 }
                                 if (dataOutputStream3 != null) {
+                                    try {
+                                        dataOutputStream3.close();
+                                    } catch (Exception e16) {
+                                    }
                                 }
                                 if (e == null) {
+                                    e.removeMessages(0, this);
                                 }
                                 i2 = i + 1;
                                 str2 = str;
-                                z3 = z2;
-                            } catch (SocketTimeoutException e15) {
+                                z2 = z;
+                            } catch (SocketTimeoutException e17) {
                                 inputStream2 = inputStream3;
                                 str = str4;
                                 i = i2;
                                 this.k = 0;
-                                z2 = true;
+                                z = true;
                                 this.m = this.r.getResources().getString(R.string.neterror);
                                 if (inputStream2 != null) {
+                                    try {
+                                        inputStream2.close();
+                                    } catch (Exception e18) {
+                                    }
                                 }
                                 if (this.i != null) {
+                                    this.i.disconnect();
                                 }
                                 if (dataOutputStream2 != null) {
+                                    try {
+                                        dataOutputStream2.close();
+                                    } catch (Exception e19) {
+                                    }
                                 }
                                 if (e == null) {
+                                    e.removeMessages(0, this);
                                 }
                                 i2 = i + 1;
                                 str2 = str;
-                                z3 = z2;
-                            } catch (Exception e16) {
-                                exc = e16;
+                                z2 = z;
+                            } catch (Exception e20) {
+                                exc = e20;
                                 inputStream2 = inputStream3;
                                 str = str4;
                                 i = i2;
                                 this.k = 0;
-                                z2 = false;
+                                z = false;
                                 this.m = this.r.getResources().getString(R.string.neterror);
-                                z.b("NetWork", "postMultiNetData", "error = " + exc.getMessage());
+                                aj.b("NetWork", "postMultiNetData", "error = " + exc.getMessage());
                                 if (inputStream2 != null) {
+                                    try {
+                                        inputStream2.close();
+                                    } catch (Exception e21) {
+                                    }
                                 }
                                 if (this.i != null) {
+                                    this.i.disconnect();
                                 }
                                 if (dataOutputStream2 != null) {
+                                    try {
+                                        dataOutputStream2.close();
+                                    } catch (Exception e22) {
+                                    }
                                 }
                                 if (e == null) {
+                                    e.removeMessages(0, this);
                                 }
                                 i2 = i + 1;
                                 str2 = str;
-                                z3 = z2;
+                                z2 = z;
                             }
                         }
                     } catch (Throwable th4) {
@@ -1384,19 +1469,19 @@ public class NetWorkCore {
                         }
                         throw th;
                     }
-                } catch (SocketException e17) {
+                } catch (SocketException e23) {
                     i = i2;
                     str = str2;
                     dataOutputStream3 = dataOutputStream2;
                     inputStream = inputStream3;
-                } catch (SocketTimeoutException e18) {
+                } catch (SocketTimeoutException e24) {
                     inputStream2 = inputStream3;
                     i = i2;
                     str = str2;
-                } catch (Exception e19) {
+                } catch (Exception e25) {
                     inputStream2 = inputStream3;
                     str = str2;
-                    exc = e19;
+                    exc = e25;
                     i = i2;
                 }
             } else if (this.n < 1) {
@@ -1408,61 +1493,51 @@ public class NetWorkCore {
                     if (0 != 0) {
                         try {
                             inputStream2.close();
-                        } catch (Exception e20) {
+                        } catch (Exception e26) {
                         }
                     }
                     try {
                         if (this.i != null) {
                             this.i.disconnect();
                         }
-                    } catch (Exception e21) {
+                    } catch (Exception e27) {
                     }
                     if (dataOutputStream2 != null) {
                         try {
                             dataOutputStream2.close();
-                        } catch (Exception e22) {
+                        } catch (Exception e28) {
                         }
                     }
                     if (e != null) {
                         e.removeMessages(0, this);
-                        z2 = z3;
+                        z = z2;
                         str = str2;
                     } else {
-                        z2 = z3;
+                        z = z2;
                         str = str2;
                     }
-                } catch (SocketException e23) {
+                } catch (SocketException e29) {
                     inputStream = null;
                     str = str2;
                     dataOutputStream3 = dataOutputStream2;
-                    z2 = true;
+                    z = true;
                     try {
                         this.k = 0;
                         this.m = this.r.getResources().getString(R.string.neterror);
                         if (inputStream != null) {
-                            try {
-                                inputStream.close();
-                            } catch (Exception e24) {
-                            }
                         }
                         try {
                             if (this.i != null) {
-                                this.i.disconnect();
                             }
-                        } catch (Exception e25) {
+                        } catch (Exception e30) {
                         }
                         if (dataOutputStream3 != null) {
-                            try {
-                                dataOutputStream3.close();
-                            } catch (Exception e26) {
-                            }
                         }
                         if (e == null) {
-                            e.removeMessages(0, this);
                         }
                         i2 = i + 1;
                         str2 = str;
-                        z3 = z2;
+                        z2 = z;
                     } catch (Throwable th5) {
                         th = th5;
                         dataOutputStream2 = dataOutputStream3;
@@ -1470,19 +1545,19 @@ public class NetWorkCore {
                         if (inputStream2 != null) {
                             try {
                                 inputStream2.close();
-                            } catch (Exception e27) {
+                            } catch (Exception e31) {
                             }
                         }
                         try {
                             if (this.i != null) {
                                 this.i.disconnect();
                             }
-                        } catch (Exception e28) {
+                        } catch (Exception e32) {
                         }
                         if (dataOutputStream2 != null) {
                             try {
                                 dataOutputStream2.close();
-                            } catch (Exception e29) {
+                            } catch (Exception e33) {
                             }
                         }
                         if (e != null) {
@@ -1490,70 +1565,50 @@ public class NetWorkCore {
                         }
                         throw th;
                     }
-                } catch (SocketTimeoutException e30) {
+                } catch (SocketTimeoutException e34) {
                     str = str2;
                     this.k = 0;
-                    z2 = true;
+                    z = true;
                     this.m = this.r.getResources().getString(R.string.neterror);
                     if (inputStream2 != null) {
-                        try {
-                            inputStream2.close();
-                        } catch (Exception e31) {
-                        }
                     }
                     try {
                         if (this.i != null) {
-                            this.i.disconnect();
                         }
-                    } catch (Exception e32) {
+                    } catch (Exception e35) {
                     }
                     if (dataOutputStream2 != null) {
-                        try {
-                            dataOutputStream2.close();
-                        } catch (Exception e33) {
-                        }
                     }
                     if (e == null) {
-                        e.removeMessages(0, this);
                     }
                     i2 = i + 1;
                     str2 = str;
-                    z3 = z2;
-                } catch (Exception e34) {
+                    z2 = z;
+                } catch (Exception e36) {
                     str = str2;
-                    exc = e34;
+                    exc = e36;
                     this.k = 0;
-                    z2 = false;
+                    z = false;
                     this.m = this.r.getResources().getString(R.string.neterror);
-                    z.b("NetWork", "postMultiNetData", "error = " + exc.getMessage());
+                    aj.b("NetWork", "postMultiNetData", "error = " + exc.getMessage());
                     if (inputStream2 != null) {
-                        try {
-                            inputStream2.close();
-                        } catch (Exception e35) {
-                        }
                     }
                     try {
                         if (this.i != null) {
-                            this.i.disconnect();
                         }
-                    } catch (Exception e36) {
+                    } catch (Exception e37) {
                     }
                     if (dataOutputStream2 != null) {
-                        try {
-                            dataOutputStream2.close();
-                        } catch (Exception e37) {
-                        }
                     }
                     if (e == null) {
-                        e.removeMessages(0, this);
                     }
                     i2 = i + 1;
                     str2 = str;
-                    z3 = z2;
+                    z2 = z;
                 }
                 i2 = i + 1;
                 str2 = str;
-                z3 = z2;
+                z2 = z;
             } else {
                 if (0 != 0) {
                     try {
@@ -1609,11 +1664,11 @@ public class NetWorkCore {
         return str2;
     }
 
-    public boolean r() {
+    public boolean y() {
         return this.k == 200 || this.k == 206;
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [1187=7, 1189=7, 1190=7, 1194=7, 1195=7, 1199=7, 1200=7, 1202=7] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [1244=7, 1246=7, 1247=7, 1251=7, 1252=7, 1256=7, 1257=7, 1259=7] */
     /* JADX WARN: Removed duplicated region for block: B:166:0x035a A[Catch: Exception -> 0x0382, TRY_LEAVE, TryCatch #30 {Exception -> 0x0382, blocks: (B:164:0x0354, B:166:0x035a), top: B:256:0x0354 }] */
     /* JADX WARN: Removed duplicated region for block: B:250:0x0363 A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /* JADX WARN: Removed duplicated region for block: B:252:0x0351 A[EXC_TOP_SPLITTER, SYNTHETIC] */
@@ -1672,7 +1727,7 @@ public class NetWorkCore {
             }
         } else {
             long time = new Date().getTime();
-            File f2 = m.f(str);
+            File f2 = p.f(str);
             if (f2 == null) {
                 throw new FileNotFoundException();
             }
@@ -1686,7 +1741,7 @@ public class NetWorkCore {
                 }
                 this.i.connect();
                 this.k = this.i.getResponseCode();
-                if (!r()) {
+                if (!y()) {
                     throw new SocketException();
                 }
                 if (!this.i.getContentType().contains("text/vnd.wap.wml") || this.n >= 1) {
@@ -1722,7 +1777,7 @@ public class NetWorkCore {
                         InputStream inputStream3 = this.i.getInputStream();
                         try {
                             try {
-                                byte[] bArr = new byte[NotificationProxy.MAX_URL_LENGTH];
+                                byte[] bArr = new byte[1024];
                                 int i3 = 0;
                                 int i4 = intValue > 0 ? intValue / 50 : 0;
                                 int i5 = 0;
@@ -1747,9 +1802,9 @@ public class NetWorkCore {
                                 }
                                 try {
                                     fileOutputStream.flush();
-                                    z.a("NetWork", "downloadFile", "time = " + String.valueOf(new Date().getTime() - time) + "ms");
+                                    aj.a("NetWork", "downloadFile", "time = " + String.valueOf(new Date().getTime() - time) + LocaleUtil.MALAY);
                                     if (intValue != -1) {
-                                        z.a("NetWork", "downloadFile", "data.zise = " + String.valueOf(intValue));
+                                        aj.a("NetWork", "downloadFile", "data.zise = " + String.valueOf(intValue));
                                     }
                                     r2 = ((long) i3) + length >= ((long) intValue);
                                     this.n = 0;
@@ -1842,7 +1897,7 @@ public class NetWorkCore {
                             e2 = e23;
                             this.k = 0;
                             this.m = this.r.getResources().getString(R.string.neterror);
-                            z.b("NetWork", "downloadFile", "error = " + e2.getMessage());
+                            aj.b("NetWork", "downloadFile", "error = " + e2.getMessage());
                             this.n = 0;
                             if (inputStream2 != null) {
                                 try {
@@ -1904,11 +1959,11 @@ public class NetWorkCore {
         this.r = context;
     }
 
-    public Context s() {
+    public Context z() {
         return this.r;
     }
 
-    public ArrayList t() {
+    public ArrayList A() {
         return this.o;
     }
 
@@ -1983,12 +2038,12 @@ public class NetWorkCore {
         return i >= size ? size : i2;
     }
 
-    public void b(boolean z2) {
-        this.s = z2;
+    public void b(boolean z) {
+        this.s = z;
     }
 
-    public void c(boolean z2) {
-        this.v = z2;
+    public void c(boolean z) {
+        this.v = z;
     }
 
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:19:0x0069 */
@@ -2008,12 +2063,12 @@ public class NetWorkCore {
                 networkStateInfo = NetworkStateInfo.UNAVAIL;
                 try {
                     e2 = "NetWorkCore";
-                    z.a("NetWorkCore", "NetworkStateInfo", "UNAVAIL");
+                    aj.a("NetWorkCore", "NetworkStateInfo", "UNAVAIL");
                 } catch (Exception e3) {
                     e2 = e3;
                 }
             } else if (activeNetworkInfo.getType() == 1) {
-                z.a("NetWorkCore", "NetworkStateInfo", "WIFI");
+                aj.a("NetWorkCore", "NetworkStateInfo", "WIFI");
                 networkStateInfo = NetworkStateInfo.WIFI;
             } else {
                 switch (((TelephonyManager) context.getSystemService("phone")).getNetworkType()) {
@@ -2023,7 +2078,7 @@ public class NetWorkCore {
                     case 4:
                     case 7:
                     case 11:
-                        z.a("NetWorkCore", "NetworkStateInfo", "TwoG");
+                        aj.a("NetWorkCore", "NetworkStateInfo", "TwoG");
                         networkStateInfo = NetworkStateInfo.TwoG;
                         break;
                     case 3:
@@ -2036,11 +2091,11 @@ public class NetWorkCore {
                     case 13:
                     case 14:
                     case 15:
-                        z.a("NetWorkCore", "NetworkStateInfo", "ThreeG");
+                        aj.a("NetWorkCore", "NetworkStateInfo", "ThreeG");
                         networkStateInfo = NetworkStateInfo.ThreeG;
                         break;
                     default:
-                        z.a("NetWorkCore", "NetworkStateInfo-default", "TwoG");
+                        aj.a("NetWorkCore", "NetworkStateInfo-default", "TwoG");
                         networkStateInfo = NetworkStateInfo.TwoG;
                         break;
                 }

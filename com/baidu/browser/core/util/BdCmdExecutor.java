@@ -1,6 +1,5 @@
 package com.baidu.browser.core.util;
 
-import com.baidu.zeus.NotificationProxy;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
@@ -28,7 +27,7 @@ public class BdCmdExecutor {
                     processBuilder.redirectErrorStream(true);
                     InputStream inputStream3 = processBuilder.start().getInputStream();
                     try {
-                        byte[] bArr = new byte[NotificationProxy.MAX_URL_LENGTH];
+                        byte[] bArr = new byte[1024];
                         while (inputStream3.read(bArr) != -1) {
                             stringBuffer.append(new String(bArr));
                         }

@@ -1,83 +1,32 @@
 package com.baidu.tieba.pb;
 
-import android.graphics.Bitmap;
-import android.webkit.WebView;
-import android.webkit.WebViewClient;
-import android.widget.ImageView;
-import android.widget.ProgressBar;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.EditText;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class da extends WebViewClient {
-    final /* synthetic */ WebActivity a;
+public class da implements AdapterView.OnItemClickListener {
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ cu f1521a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public da(WebActivity webActivity) {
-        this.a = webActivity;
+    public da(cu cuVar) {
+        this.f1521a = cuVar;
     }
 
-    @Override // android.webkit.WebViewClient
-    public void onPageFinished(WebView webView, String str) {
-        ImageView imageView;
-        ImageView imageView2;
-        ProgressBar progressBar;
-        ImageView imageView3;
-        ImageView imageView4;
-        ImageView imageView5;
-        super.onPageFinished(webView, str);
-        if (this.a.a.canGoBack()) {
-            imageView5 = this.a.g;
-            imageView5.setEnabled(true);
-        } else {
-            imageView = this.a.g;
-            imageView.setEnabled(false);
+    @Override // android.widget.AdapterView.OnItemClickListener
+    public void onItemClick(AdapterView adapterView, View view, int i, long j) {
+        com.baidu.tieba.write.m mVar;
+        EditText editText;
+        EditText editText2;
+        mVar = this.f1521a.B;
+        String a2 = mVar.a(i);
+        if (a2 != null) {
+            editText = this.f1521a.F;
+            int selectionStart = editText.getSelectionStart();
+            editText2 = this.f1521a.F;
+            editText2.getText().insert(selectionStart, a2);
         }
-        if (this.a.a.canGoForward()) {
-            imageView4 = this.a.j;
-            imageView4.setEnabled(true);
-        } else {
-            imageView2 = this.a.j;
-            imageView2.setEnabled(false);
-        }
-        progressBar = this.a.l;
-        progressBar.setVisibility(8);
-        imageView3 = this.a.k;
-        imageView3.setVisibility(0);
-    }
-
-    @Override // android.webkit.WebViewClient
-    public void onPageStarted(WebView webView, String str, Bitmap bitmap) {
-        ImageView imageView;
-        ImageView imageView2;
-        ProgressBar progressBar;
-        ImageView imageView3;
-        ImageView imageView4;
-        ImageView imageView5;
-        super.onPageStarted(webView, str, bitmap);
-        if (this.a.a.canGoBack()) {
-            imageView5 = this.a.g;
-            imageView5.setEnabled(true);
-        } else {
-            imageView = this.a.g;
-            imageView.setEnabled(false);
-        }
-        if (this.a.a.canGoForward()) {
-            imageView4 = this.a.j;
-            imageView4.setEnabled(true);
-        } else {
-            imageView2 = this.a.j;
-            imageView2.setEnabled(false);
-        }
-        progressBar = this.a.l;
-        progressBar.setVisibility(0);
-        imageView3 = this.a.k;
-        imageView3.setVisibility(4);
-    }
-
-    @Override // android.webkit.WebViewClient
-    public boolean shouldOverrideUrlLoading(WebView webView, String str) {
-        if ((this.a.f == null || !this.a.f.a(str)) && !com.baidu.tieba.recommend.i.a(this.a, str)) {
-            return super.shouldOverrideUrlLoading(webView, str);
-        }
-        return true;
     }
 }

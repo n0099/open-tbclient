@@ -8,11 +8,13 @@ import java.util.ArrayList;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class i extends BdAsyncTask {
-    final /* synthetic */ EditBarActivity a;
-    private com.baidu.tieba.util.r b;
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ EditBarActivity f1605a;
+    private com.baidu.tieba.util.u b;
 
     private i(EditBarActivity editBarActivity) {
-        this.a = editBarActivity;
+        this.f1605a = editBarActivity;
         this.b = null;
     }
 
@@ -24,22 +26,22 @@ public class i extends BdAsyncTask {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public String a(com.baidu.tieba.data.r... rVarArr) {
-        com.baidu.tieba.data.r rVar = rVarArr[0];
-        if (rVar != null) {
+    public String a(com.baidu.tieba.data.v... vVarArr) {
+        com.baidu.tieba.data.v vVar = vVarArr[0];
+        if (vVar != null) {
             try {
-                if (rVar.a() != null && rVar.b() != null) {
-                    this.b = new com.baidu.tieba.util.r(String.valueOf(com.baidu.tieba.data.g.a) + "c/c/forum/unfavolike");
-                    this.b.a("fid", rVar.a());
-                    this.b.a("kw", rVar.b());
-                    this.b.a("favo_type", String.valueOf(rVar.j()));
-                    this.b.d(true);
-                    this.b.j();
+                if (vVar.a() != null && vVar.b() != null) {
+                    this.b = new com.baidu.tieba.util.u(String.valueOf(com.baidu.tieba.data.g.f1013a) + "c/c/forum/unfavolike");
+                    this.b.a("fid", vVar.a());
+                    this.b.a("kw", vVar.b());
+                    this.b.a("favo_type", String.valueOf(vVar.l()));
+                    this.b.e(true);
+                    this.b.k();
                     return null;
                 }
                 return null;
             } catch (Exception e) {
-                com.baidu.tieba.util.z.b(getClass().getName(), "doInBackground", e.getMessage());
+                com.baidu.tieba.util.aj.b(getClass().getName(), "doInBackground", e.getMessage());
                 return null;
             }
         }
@@ -58,34 +60,34 @@ public class i extends BdAsyncTask {
         j jVar;
         j jVar2;
         super.a((Object) str);
-        this.a.k = null;
-        progressBar = this.a.f;
+        this.f1605a.k = null;
+        progressBar = this.f1605a.f;
         progressBar.setVisibility(8);
         if (this.b != null) {
-            if (this.b.c()) {
-                bVar = this.a.a;
-                ArrayList a = bVar.a();
-                if (a != null) {
-                    i = this.a.j;
+            if (this.b.d()) {
+                bVar = this.f1605a.f1552a;
+                ArrayList a2 = bVar.a();
+                if (a2 != null) {
+                    i = this.f1605a.j;
                     if (i >= 0) {
-                        i2 = this.a.j;
-                        if (i2 < a.size()) {
-                            i3 = this.a.j;
-                            a.remove(i3);
-                            jVar = this.a.e;
+                        i2 = this.f1605a.j;
+                        if (i2 < a2.size()) {
+                            i3 = this.f1605a.j;
+                            a2.remove(i3);
+                            jVar = this.f1605a.e;
                             if (jVar != null) {
-                                this.a.m();
-                                jVar2 = this.a.e;
+                                this.f1605a.k();
+                                jVar2 = this.f1605a.e;
                                 jVar2.notifyDataSetChanged();
                             }
                         }
                     }
                 }
-                TiebaApplication.f().i(true);
-                this.a.a(this.a.getString(R.string.success));
+                TiebaApplication.f().j(true);
+                this.f1605a.a(this.f1605a.getString(R.string.success));
                 return;
             }
-            this.a.a(this.b.g());
+            this.f1605a.a(this.b.h());
         }
     }
 
@@ -93,7 +95,7 @@ public class i extends BdAsyncTask {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void b() {
         ProgressBar progressBar;
-        progressBar = this.a.f;
+        progressBar = this.f1605a.f;
         progressBar.setVisibility(0);
     }
 
@@ -101,12 +103,12 @@ public class i extends BdAsyncTask {
     public void cancel() {
         ProgressBar progressBar;
         if (this.b != null) {
-            this.b.h();
+            this.b.i();
             this.b = null;
         }
-        progressBar = this.a.f;
+        progressBar = this.f1605a.f;
         progressBar.setVisibility(8);
-        this.a.k = null;
+        this.f1605a.k = null;
         super.cancel(true);
     }
 }

@@ -4,17 +4,19 @@ import android.widget.AbsListView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ao implements AbsListView.OnScrollListener {
-    final /* synthetic */ SearchActivity a;
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ SearchActivity f1127a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ao(SearchActivity searchActivity) {
-        this.a = searchActivity;
+        this.f1127a = searchActivity;
     }
 
     @Override // android.widget.AbsListView.OnScrollListener
     public void onScrollStateChanged(AbsListView absListView, int i) {
         if (i == 2 || i == 1) {
-            com.baidu.tieba.util.ab.a(this.a, absListView);
+            com.baidu.tieba.util.am.a(this.f1127a, absListView);
         }
     }
 

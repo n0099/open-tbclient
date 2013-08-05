@@ -4,15 +4,17 @@ import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class at implements View.OnClickListener {
-    final /* synthetic */ PersonChangeActivity a;
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ PersonChangeActivity f1579a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public at(PersonChangeActivity personChangeActivity) {
-        this.a = personChangeActivity;
+        this.f1579a = personChangeActivity;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        this.a.c();
+        this.f1579a.c();
     }
 }

@@ -1,18 +1,20 @@
 package com.baidu.tieba.account;
 
-import com.baidu.tieba.data.AccountData;
+import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ak implements o {
-    final /* synthetic */ ReLoginActivity a;
+public class ak implements View.OnClickListener {
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ ReLoginActivity f859a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ak(ReLoginActivity reLoginActivity) {
-        this.a = reLoginActivity;
+        this.f859a = reLoginActivity;
     }
 
-    @Override // com.baidu.tieba.account.o
-    public void a(AccountData accountData) {
-        this.a.a(accountData);
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        this.f859a.d();
     }
 }

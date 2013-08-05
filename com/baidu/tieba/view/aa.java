@@ -1,134 +1,95 @@
 package com.baidu.tieba.view;
 
 import android.content.Context;
-import android.view.View;
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import android.util.AttributeSet;
+import android.view.LayoutInflater;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.ProgressBar;
+import android.widget.TextView;
 import com.slidingmenu.lib.R;
-import java.util.ArrayList;
-import java.util.HashMap;
-/* JADX INFO: Access modifiers changed from: package-private */
+import java.text.SimpleDateFormat;
+import java.util.Date;
 /* loaded from: classes.dex */
-public class aa extends BdAsyncTask {
-    final /* synthetic */ ImagePbPagerAdapter a;
-    private com.baidu.tieba.util.r b = null;
-    private int c;
-    private int d;
-    private String e;
-    private String f;
-    private com.baidu.tieba.pb.ah g;
-    private String h;
+public class aa extends LinearLayout implements com.baidu.adp.widget.ScrollView.c {
 
-    public aa(ImagePbPagerAdapter imagePbPagerAdapter, com.baidu.tieba.pb.ah ahVar, int i, int i2, String str, String str2) {
-        this.a = imagePbPagerAdapter;
-        this.c = 0;
-        this.d = 10;
-        this.e = null;
-        this.f = null;
-        this.g = null;
-        this.h = null;
-        this.c = i;
-        this.d = i2;
-        this.e = str;
-        this.f = str2;
-        this.g = ahVar;
-        this.h = ahVar.e().d();
+    /* renamed from: a  reason: collision with root package name */
+    private Animation f1807a;
+    private Animation b;
+    private ProgressBar c;
+    private ImageView d;
+    private TextView e;
+    private TextView f;
+    private boolean g;
+
+    public aa(Context context) {
+        this(context, null);
+        this.f1807a = AnimationUtils.loadAnimation(getContext(), R.anim.arrow_down_to_up);
+        this.b = AnimationUtils.loadAnimation(getContext(), R.anim.arrow_up_to_down);
+        this.f1807a.setFillAfter(true);
+        this.b.setFillAfter(true);
+        LayoutInflater.from(context).inflate(R.layout.image_frs_pullview, this);
+        this.c = (ProgressBar) findViewById(R.id.head_layout_left_progressbar);
+        this.d = (ImageView) findViewById(R.id.head_layout_left_arrow);
+        this.e = (TextView) findViewById(R.id.head_layout_title);
+        this.f = (TextView) findViewById(R.id.head_layout_refresh_time);
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public aa(Context context, AttributeSet attributeSet) {
+        super(context, attributeSet);
+        this.c = null;
+    }
+
+    @Override // com.baidu.adp.widget.ScrollView.c
+    public void a() {
+        if (this.g) {
+            this.d.startAnimation(this.b);
+            this.g = false;
+        }
+        this.e.setText(getResources().getString(R.string.pulldown_refresh));
+    }
+
+    @Override // com.baidu.adp.widget.ScrollView.c
     public void b() {
-        if (this.g != null) {
-            this.g.a(true);
-            this.g.notifyDataSetChanged();
-        }
+        this.d.startAnimation(this.f1807a);
+        this.g = true;
+        this.e.setText(getResources().getString(R.string.pulldown_loosen));
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public String a(String... strArr) {
-        String str;
-        this.b = new com.baidu.tieba.util.r(String.valueOf(com.baidu.tieba.data.g.a) + "c/f/pb/piccomment");
-        com.baidu.tieba.util.r rVar = this.b;
-        str = this.a.e;
-        rVar.a("kw", str);
-        this.b.a("pic_id", this.f);
-        this.b.a("tid", this.e);
-        this.b.a("pn", String.valueOf(this.c));
-        this.b.a("rn", String.valueOf(this.d));
-        this.b.a("alt", "json");
-        this.b.d(true);
-        return this.b.j();
+    @Override // com.baidu.adp.widget.ScrollView.c
+    public void c() {
+        this.g = false;
+        this.c.setVisibility(0);
+        this.e.setText(getResources().getString(R.string.pulldown_loading));
+        this.d.clearAnimation();
+        this.d.setVisibility(4);
     }
 
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void cancel() {
-        if (this.b != null) {
-            this.b.h();
-        }
-        if (this.g != null) {
-            this.g.a(false);
-            this.g.notifyDataSetChanged();
-        }
-        super.cancel(true);
+    @Override // com.baidu.adp.widget.ScrollView.c
+    public void d() {
+        this.g = false;
+        this.d.setVisibility(0);
+        this.c.setVisibility(8);
+        this.e.setText(getResources().getString(R.string.pulldown_refresh));
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("MM-dd HH:mm");
+        Date date = new Date(System.currentTimeMillis());
+        this.f.setVisibility(0);
+        this.f.setText(String.valueOf(getResources().getString(R.string.pulldown_lasttime)) + simpleDateFormat.format(date));
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    /* JADX WARN: Incorrect condition in loop: B:22:0x0078 */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public void a(String str) {
-        Context context;
-        Context context2;
-        HashMap hashMap;
-        ArrayList arrayList;
-        ArrayList arrayList2;
-        ArrayList arrayList3;
-        HashMap hashMap2;
-        com.baidu.tieba.data.x xVar = null;
-        super.a((Object) str);
-        try {
-            if (this.g != null) {
-                this.g.a(false);
-            }
-            if (this.b != null) {
-                if (!this.b.c() || this.g == null) {
-                    context = this.a.b;
-                    context2 = this.a.b;
-                    ((com.baidu.tieba.g) context).a(context2.getString(R.string.image_pb_comment_fail));
-                    return;
-                }
-                if (this.g != null) {
-                    this.g.a((com.baidu.tieba.data.x) null);
-                    this.g.notifyDataSetChanged();
-                }
-                hashMap = this.a.h;
-                if (hashMap.get(this.g.e().d()) != null) {
-                    hashMap2 = this.a.h;
-                    xVar = (com.baidu.tieba.data.x) hashMap2.get(this.g.e().d());
-                    xVar.a(str);
-                }
-                if (this.g != null) {
-                    this.g.a(xVar);
-                    this.g.notifyDataSetChanged();
-                    this.g = null;
-                }
-                for (int i = 0; i < arrayList.size(); i++) {
-                    arrayList2 = this.a.s;
-                    if (((View) arrayList2.get(i)).getTag() instanceof com.baidu.tieba.pb.ah) {
-                        arrayList3 = this.a.s;
-                        com.baidu.tieba.pb.ah ahVar = (com.baidu.tieba.pb.ah) ((View) arrayList3.get(i)).getTag();
-                        if (ahVar.e() != null && this.h.equals(ahVar.e().d())) {
-                            ahVar.notifyDataSetChanged();
-                        }
-                    }
-                }
-            }
-        } catch (Exception e) {
-            com.baidu.tieba.util.z.b(getClass().getName(), "onPostExecute", e.getMessage());
+    public LinearLayout getRealView() {
+        return this;
+    }
+
+    public void a(int i) {
+        if (i == 1) {
+            this.e.setTextColor(-8682095);
+            this.f.setTextColor(-8682095);
+            return;
         }
+        this.e.setTextColor(-14277082);
+        this.f.setTextColor(-14277082);
     }
 }

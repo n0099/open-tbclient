@@ -8,11 +8,13 @@ import com.slidingmenu.lib.R;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class aa implements View.OnClickListener {
-    final /* synthetic */ ImagePbActivity a;
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ ImagePbActivity f1443a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public aa(ImagePbActivity imagePbActivity) {
-        this.a = imagePbActivity;
+        this.f1443a = imagePbActivity;
     }
 
     @Override // android.view.View.OnClickListener
@@ -23,26 +25,26 @@ public class aa implements View.OnClickListener {
         View view3;
         AlertDialog alertDialog3;
         AlertDialog alertDialog4;
-        if (this.a.F != null && this.a.F.length() != 0) {
-            this.a.c();
-            view2 = this.a.l;
+        if (this.f1443a.F != null && this.f1443a.F.length() != 0) {
+            this.f1443a.c();
+            view2 = this.f1443a.l;
             TextView textView = (TextView) view2.findViewById(R.id.text);
             if (textView != null) {
-                alertDialog = this.a.k;
+                alertDialog = this.f1443a.k;
                 alertDialog.show();
-                textView.setText(String.valueOf(this.a.getString(R.string.title)) + this.a.F);
-                alertDialog2 = this.a.k;
-                view3 = this.a.l;
+                textView.setText(String.valueOf(this.f1443a.getString(R.string.title)) + this.f1443a.F);
+                alertDialog2 = this.f1443a.k;
+                view3 = this.f1443a.l;
                 alertDialog2.setContentView(view3);
-                alertDialog3 = this.a.k;
+                alertDialog3 = this.f1443a.k;
                 WindowManager.LayoutParams attributes = alertDialog3.getWindow().getAttributes();
                 attributes.gravity = 51;
                 attributes.x = 0;
-                attributes.y = (this.a.g.getTop() + this.a.g.getHeight()) - 5;
+                attributes.y = (this.f1443a.g.getTop() + this.f1443a.g.getHeight()) - 5;
                 attributes.width = -1;
                 attributes.height = -2;
                 attributes.alpha = 1.0f;
-                alertDialog4 = this.a.k;
+                alertDialog4 = this.f1443a.k;
                 alertDialog4.getWindow().setAttributes(attributes);
             }
         }

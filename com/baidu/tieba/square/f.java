@@ -1,32 +1,27 @@
 package com.baidu.tieba.square;
 
-import java.util.ArrayList;
-import org.json.JSONArray;
-import org.json.JSONObject;
+import android.view.View;
+import android.widget.ImageView;
+import com.baidu.tieba.util.au;
 /* loaded from: classes.dex */
-public class f extends com.baidu.tieba.data.a {
-    private ArrayList b = new ArrayList();
+class f implements au {
 
-    public ArrayList c() {
-        return this.b;
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ e f1724a;
+    private final /* synthetic */ String b;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public f(e eVar, String str) {
+        this.f1724a = eVar;
+        this.b = str;
     }
 
-    public void a(ArrayList arrayList) {
-        this.b = arrayList;
-        a((String) null);
-    }
-
-    @Override // com.baidu.tieba.data.a
-    protected void a(JSONObject jSONObject) {
-        ArrayList arrayList = new ArrayList();
-        JSONArray optJSONArray = jSONObject.optJSONArray("forum_dir");
-        if (optJSONArray != null) {
-            for (int i = 0; i < optJSONArray.length(); i++) {
-                q qVar = new q();
-                qVar.a(optJSONArray.getJSONObject(i));
-                arrayList.add(qVar);
-            }
+    @Override // com.baidu.tieba.util.au
+    public boolean a(View view) {
+        if ((view instanceof ImageView) && this.b != null && this.b.equals(view.getTag())) {
+            ((ImageView) view).invalidate();
+            return false;
         }
-        a(arrayList);
+        return false;
     }
 }

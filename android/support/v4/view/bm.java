@@ -1,7 +1,9 @@
 package android.support.v4.view;
 /* loaded from: classes.dex */
 class bm {
-    Object a;
+
+    /* renamed from: a  reason: collision with root package name */
+    Object f317a;
     int b;
     boolean c;
     float d;

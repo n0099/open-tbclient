@@ -14,12 +14,15 @@ import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.util.DatabaseService;
 import com.baidu.tieba.view.BaseWebView;
 import com.slidingmenu.lib.R;
+import com.tencent.mm.sdk.platformtools.Util;
 /* loaded from: classes.dex */
 public class AppsActivity extends com.baidu.tieba.g {
-    private String a = null;
+
+    /* renamed from: a  reason: collision with root package name */
+    private String f1391a = null;
     private BaseWebView b = null;
     private ImageView c = null;
-    private s d = null;
+    private t d = null;
     private LinearLayout e = null;
     private ProgressBar f = null;
     private ImageView g = null;
@@ -51,13 +54,13 @@ public class AppsActivity extends com.baidu.tieba.g {
 
     private void a(Bundle bundle) {
         if (bundle != null) {
-            this.a = bundle.getString("url");
+            this.f1391a = bundle.getString("url");
         } else {
-            this.a = getIntent().getStringExtra("url");
+            this.f1391a = getIntent().getStringExtra("url");
         }
-        if (System.currentTimeMillis() - getSharedPreferences("settings", 0).getLong("app_inverval", 0L) > 86400000) {
+        if (System.currentTimeMillis() - getSharedPreferences("settings", 0).getLong("app_inverval", 0L) > Util.MILLSECONDS_OF_DAY) {
             c();
-        } else if (!m()) {
+        } else if (!k()) {
             c();
         }
     }
@@ -67,7 +70,7 @@ public class AppsActivity extends com.baidu.tieba.g {
         if (this.d != null) {
             this.d.cancel();
         }
-        this.d = new s(this, this.a);
+        this.d = new t(this, this.f1391a);
         this.d.setPriority(3);
         this.d.execute(new Object[0]);
     }
@@ -76,12 +79,12 @@ public class AppsActivity extends com.baidu.tieba.g {
     @Override // com.baidu.tieba.g
     public void a(int i) {
         super.a(i);
-        com.baidu.tieba.util.x.a(this.j, i);
-        com.baidu.tieba.util.x.a(this.b, i);
-        com.baidu.tieba.util.x.d(this.k, i);
-        com.baidu.tieba.util.x.a(this.c, i);
-        com.baidu.tieba.util.x.f(this.l, i);
-        com.baidu.tieba.util.x.b(this.g, i);
+        com.baidu.tieba.util.ah.a(this.j, i);
+        com.baidu.tieba.util.ah.a(this.b, i);
+        com.baidu.tieba.util.ah.d(this.k, i);
+        com.baidu.tieba.util.ah.a(this.c, i);
+        com.baidu.tieba.util.ah.f(this.l, i);
+        com.baidu.tieba.util.ah.b(this.g, i);
     }
 
     private void d() {
@@ -92,21 +95,21 @@ public class AppsActivity extends com.baidu.tieba.g {
         this.b.setDownloadEnabled(true);
         this.f = (ProgressBar) findViewById(R.id.app_progress);
         this.e = (LinearLayout) findViewById(R.id.webview_fail_imageview);
-        this.e.setOnClickListener(new p(this));
+        this.e.setOnClickListener(new q(this));
         this.g = (ImageView) findViewById(R.id.refresh);
-        this.g.setOnClickListener(new q(this));
+        this.g.setOnClickListener(new r(this));
         this.c = (ImageView) findViewById(R.id.back);
-        this.c.setOnClickListener(new r(this));
+        this.c.setOnClickListener(new s(this));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean m() {
+    public boolean k() {
         String b = DatabaseService.b(7);
         if (b == null || b.length() <= 1) {
             return false;
         }
         this.f.setVisibility(8);
-        this.b.loadDataWithBaseURL(com.baidu.tieba.data.g.a, b, "text/html", BdUtil.UTF8, "");
+        this.b.loadDataWithBaseURL(com.baidu.tieba.data.g.f1013a, b, "text/html", BdUtil.UTF8, "");
         return true;
     }
 }

@@ -5,11 +5,13 @@ import android.view.View;
 import com.baidu.tieba.view.ImageViewDrawer;
 /* loaded from: classes.dex */
 class at implements com.baidu.tbadk.a.d {
-    final /* synthetic */ FrsImageActivity a;
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ FrsImageActivity f1070a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public at(FrsImageActivity frsImageActivity) {
-        this.a = frsImageActivity;
+        this.f1070a = frsImageActivity;
     }
 
     @Override // com.baidu.tbadk.a.d
@@ -20,16 +22,16 @@ class at implements com.baidu.tbadk.a.d {
         Rect rect3;
         Rect rect4;
         try {
-            axVar = this.a.n;
+            axVar = this.f1070a.n;
             View findViewWithTag = axVar.a().a(2).findViewWithTag(str);
             if (findViewWithTag != null && (findViewWithTag instanceof ImageViewDrawer)) {
-                rect = this.a.m;
+                rect = this.f1070a.m;
                 if (findViewWithTag.getLocalVisibleRect(rect)) {
-                    rect2 = this.a.m;
+                    rect2 = this.f1070a.m;
                     int i = rect2.bottom;
-                    rect3 = this.a.m;
+                    rect3 = this.f1070a.m;
                     if (i - rect3.top >= findViewWithTag.getHeight()) {
-                        rect4 = this.a.m;
+                        rect4 = this.f1070a.m;
                         if (rect4.top != 0) {
                             findViewWithTag.invalidate();
                         }
@@ -40,7 +42,7 @@ class at implements com.baidu.tbadk.a.d {
                 }
             }
         } catch (Exception e) {
-            com.baidu.tieba.util.z.b(getClass().getName(), "imageLoaded", e.getMessage());
+            com.baidu.tieba.util.aj.b(getClass().getName(), "imageLoaded", e.getMessage());
         }
     }
 }

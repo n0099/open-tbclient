@@ -1,53 +1,52 @@
 package com.baidu.tieba.recommend;
 
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.tieba.LabelActivity;
-import com.baidu.tieba.util.DatabaseService;
-import com.baidu.tieba.util.r;
-import com.baidu.tieba.util.z;
+import android.app.Activity;
+import android.text.TextUtils;
+import android.view.View;
+import com.baidu.mobstat.StatService;
+import com.baidu.tieba.TiebaApplication;
+import com.baidu.tieba.view.ChildViewPager;
+import java.util.ArrayList;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class d extends BdAsyncTask {
-    final /* synthetic */ NewHomeActivity a;
-    private r b = null;
-    private String c;
+public class d implements com.baidu.tieba.view.f {
 
-    public d(NewHomeActivity newHomeActivity, String str) {
-        this.a = newHomeActivity;
-        this.c = str;
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ c f1663a;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public d(c cVar) {
+        this.f1663a = cVar;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public Boolean a(String... strArr) {
-        boolean z = true;
-        try {
-            this.b = new r(String.valueOf(com.baidu.tieba.data.g.a) + "c/s/tag/edit_tag");
-            if (this.c == null || this.c.length() == 0) {
-                return false;
+    @Override // com.baidu.tieba.view.f
+    public void a() {
+        DailyRecommendBannerPagerAdapter dailyRecommendBannerPagerAdapter;
+        DailyRecommendBannerPagerAdapter dailyRecommendBannerPagerAdapter2;
+        ChildViewPager childViewPager;
+        DailyRecommendBannerPagerAdapter dailyRecommendBannerPagerAdapter3;
+        ChildViewPager childViewPager2;
+        Activity activity;
+        Activity activity2;
+        dailyRecommendBannerPagerAdapter = this.f1663a.g;
+        if (dailyRecommendBannerPagerAdapter != null) {
+            dailyRecommendBannerPagerAdapter2 = this.f1663a.g;
+            int size = dailyRecommendBannerPagerAdapter2.f1625a.size();
+            childViewPager = this.f1663a.f;
+            if (size > childViewPager.getCurrentItem()) {
+                dailyRecommendBannerPagerAdapter3 = this.f1663a.g;
+                ArrayList arrayList = dailyRecommendBannerPagerAdapter3.f1625a;
+                childViewPager2 = this.f1663a.f;
+                String str = (String) ((View) arrayList.get(childViewPager2.getCurrentItem())).getTag();
+                if (!TextUtils.isEmpty(str)) {
+                    activity = this.f1663a.i;
+                    com.baidu.tieba.util.am.a(activity, str, (String) null);
+                    if (TiebaApplication.f().t()) {
+                        activity2 = this.f1663a.i;
+                        StatService.onEvent(activity2, "recommend_banner", "click");
+                    }
+                }
             }
-            this.b.a("add_tag_id_list", this.c);
-            this.b.a("st_type", LabelActivity.a);
-            this.b.d(true);
-            this.b.j();
-            if (!this.b.d() || !this.b.c()) {
-                z = false;
-            }
-            return Boolean.valueOf(z);
-        } catch (Exception e) {
-            z.b(getClass().getName(), "", "AddFanAsyncTask.doInBackground error = " + e.getMessage());
-            return false;
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void a(Boolean bool) {
-        this.a.y = null;
-        if (this.b != null && bool.booleanValue()) {
-            DatabaseService.a("", 12);
         }
     }
 }

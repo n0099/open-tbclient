@@ -1,5 +1,6 @@
 package com.baidu.tieba.person;
 
+import android.content.Context;
 import android.graphics.Bitmap;
 import android.os.Build;
 import android.widget.ProgressBar;
@@ -10,10 +11,12 @@ import java.util.HashMap;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class u extends BdAsyncTask {
-    final /* synthetic */ EditHeadActivity a;
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ EditHeadActivity f1617a;
 
     private u(EditHeadActivity editHeadActivity) {
-        this.a = editHeadActivity;
+        this.f1617a = editHeadActivity;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -32,17 +35,17 @@ public class u extends BdAsyncTask {
         HashMap hashMap2;
         Bitmap bitmap = null;
         try {
-            Bitmap c = com.baidu.tieba.util.m.c(null, "tieba_resized_image");
+            Bitmap c = com.baidu.tieba.util.p.c(null, "tieba_resized_image");
             try {
                 if (c.getWidth() > 600 || c.getHeight() > 600) {
-                    Bitmap a = com.baidu.tieba.util.d.a(c, 600);
+                    Bitmap a2 = com.baidu.tieba.util.e.a(c, 600);
                     try {
                         c.recycle();
-                        c = a;
+                        c = a2;
                     } catch (Exception e) {
                         e = e;
-                        bitmap = a;
-                        com.baidu.tieba.util.z.b(getClass().getName(), "GetImageTask", e.toString());
+                        bitmap = a2;
+                        com.baidu.tieba.util.aj.b(getClass().getName(), "GetImageTask", e.toString());
                         return bitmap;
                     }
                 }
@@ -50,21 +53,21 @@ public class u extends BdAsyncTask {
                     c.recycle();
                     return null;
                 }
-                int a2 = com.baidu.tieba.util.ab.a(this.a, 63.5f);
+                int a3 = com.baidu.tieba.util.am.a((Context) this.f1617a, 63.5f);
                 if (Build.VERSION.SDK_INT >= 7) {
-                    z = this.a.z;
+                    z = this.f1617a.z;
                     if (z) {
-                        Bitmap a3 = com.baidu.tieba.util.d.a(com.baidu.tieba.util.d.b(c, a2), com.baidu.tieba.util.ab.a(this.a, 5.0f));
-                        this.a.E = new HashMap();
-                        this.a.F = new HashMap();
-                        hashMap = this.a.E;
-                        hashMap.put("normal", a3);
+                        Bitmap a4 = com.baidu.tieba.util.e.a(com.baidu.tieba.util.e.b(c, a3), com.baidu.tieba.util.am.a((Context) this.f1617a, 5.0f));
+                        this.f1617a.E = new HashMap();
+                        this.f1617a.F = new HashMap();
+                        hashMap = this.f1617a.E;
+                        hashMap.put("normal", a4);
                         strArr = EditHeadActivity.d;
                         for (String str : strArr) {
                             String substring = str.substring(0, str.indexOf("|"));
                             if (!substring.equals("normal")) {
-                                Bitmap apply = FilterFactory.createOneKeyFilter(this.a, substring).apply(this.a, a3.copy(a3.getConfig(), true));
-                                hashMap2 = this.a.E;
+                                Bitmap apply = FilterFactory.createOneKeyFilter(this.f1617a, substring).apply(this.f1617a, a4.copy(a4.getConfig(), true));
+                                hashMap2 = this.f1617a.E;
                                 hashMap2.put(substring, apply);
                             }
                         }
@@ -85,7 +88,7 @@ public class u extends BdAsyncTask {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void b() {
         ProgressBar progressBar;
-        progressBar = this.a.n;
+        progressBar = this.f1617a.n;
         progressBar.setVisibility(0);
         super.b();
     }
@@ -93,8 +96,8 @@ public class u extends BdAsyncTask {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void cancel() {
         ProgressBar progressBar;
-        this.a.o = null;
-        progressBar = this.a.n;
+        this.f1617a.o = null;
+        progressBar = this.f1617a.n;
         progressBar.setVisibility(8);
         super.cancel(true);
     }
@@ -108,17 +111,17 @@ public class u extends BdAsyncTask {
         boolean z;
         String[] strArr;
         super.a((Object) bitmap);
-        this.a.o = null;
-        this.a.f = bitmap;
-        progressBar = this.a.n;
+        this.f1617a.o = null;
+        this.f1617a.f = bitmap;
+        progressBar = this.f1617a.n;
         progressBar.setVisibility(8);
         if (bitmap != null && !bitmap.isRecycled() && bitmap != null) {
-            editHeadImageView = this.a.e;
+            editHeadImageView = this.f1617a.e;
             editHeadImageView.setImageBitmap(bitmap);
             if (Build.VERSION.SDK_INT >= 7) {
-                z = this.a.z;
+                z = this.f1617a.z;
                 if (z) {
-                    EditHeadActivity editHeadActivity = this.a;
+                    EditHeadActivity editHeadActivity = this.f1617a;
                     strArr = EditHeadActivity.d;
                     editHeadActivity.a(strArr);
                 }

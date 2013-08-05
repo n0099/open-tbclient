@@ -6,7 +6,9 @@ import android.widget.TextView;
 import com.baidu.tieba.view.ImagePbImageView;
 /* loaded from: classes.dex */
 class ak {
-    TextView a;
+
+    /* renamed from: a  reason: collision with root package name */
+    TextView f1452a;
     TextView b;
     TextView c;
     LinearLayout d;

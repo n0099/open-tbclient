@@ -4,21 +4,23 @@ import android.view.View;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 class a implements View.OnClickListener {
-    final /* synthetic */ DailyClassicalActivity a;
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ DailyClassicalActivity f1631a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(DailyClassicalActivity dailyClassicalActivity) {
-        this.a = dailyClassicalActivity;
+        this.f1631a = dailyClassicalActivity;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         switch (view.getId()) {
-            case R.id.back /* 2131099728 */:
-                this.a.finish();
+            case R.id.back /* 2131099730 */:
+                this.f1631a.finish();
                 return;
-            case R.id.tag_webview_item /* 2131099928 */:
-                this.a.b();
+            case R.id.tag_webview_item /* 2131099947 */:
+                this.f1631a.b();
                 return;
             default:
                 return;

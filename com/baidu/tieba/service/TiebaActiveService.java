@@ -5,14 +5,16 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Handler;
 import android.os.IBinder;
-import com.baidu.tieba.util.z;
+import com.baidu.tieba.util.aj;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 /* loaded from: classes.dex */
 public class TiebaActiveService extends Service {
-    private m a = null;
+
+    /* renamed from: a  reason: collision with root package name */
+    private m f1690a = null;
     private int b = 0;
     private Handler c = new Handler();
     private Runnable d = new l(this);
@@ -32,7 +34,7 @@ public class TiebaActiveService extends Service {
     private String b() {
         String str = null;
         try {
-            File c = com.baidu.tieba.util.m.c("channel.dat");
+            File c = com.baidu.tieba.util.p.c("channel.dat");
             if (c != null) {
                 BufferedReader bufferedReader = new BufferedReader(new FileReader(c));
                 str = bufferedReader.readLine();
@@ -41,7 +43,7 @@ public class TiebaActiveService extends Service {
                 }
             }
         } catch (Exception e) {
-            z.b(getClass().getName(), "getFromByFile", e.getMessage());
+            aj.b(getClass().getName(), "getFromByFile", e.getMessage());
         }
         return str;
     }
@@ -49,7 +51,7 @@ public class TiebaActiveService extends Service {
     private void b(String str) {
         if (str != null && str.length() > 0) {
             try {
-                File e = com.baidu.tieba.util.m.e("channel.dat");
+                File e = com.baidu.tieba.util.p.e("channel.dat");
                 if (e != null) {
                     FileWriter fileWriter = new FileWriter(e);
                     fileWriter.append((CharSequence) str);
@@ -57,15 +59,15 @@ public class TiebaActiveService extends Service {
                     fileWriter.close();
                 }
             } catch (Exception e2) {
-                z.b(getClass().getName(), "saveFromToFile", e2.getMessage());
+                aj.b(getClass().getName(), "saveFromToFile", e2.getMessage());
             }
         }
     }
 
     private boolean c() {
         try {
-            String a = a();
-            if (a == null) {
+            String a2 = a();
+            if (a2 == null) {
                 String b = b();
                 if (b != null && b.length() > 0) {
                     a(b);
@@ -77,12 +79,12 @@ public class TiebaActiveService extends Service {
                     return false;
                 }
             } else {
-                b(a);
+                b(a2);
             }
         } catch (Exception e) {
-            z.b(getClass().getName(), "getActiveState", e.getMessage());
+            aj.b(getClass().getName(), "getActiveState", e.getMessage());
         }
-        z.a(getClass().getName(), "getActiveState", "channel = ");
+        aj.a(getClass().getName(), "getActiveState", "channel = ");
         return true;
     }
 
@@ -103,8 +105,8 @@ public class TiebaActiveService extends Service {
 
     @Override // android.app.Service
     public void onDestroy() {
-        if (this.a != null) {
-            this.a.cancel();
+        if (this.f1690a != null) {
+            this.f1690a.cancel();
         }
         this.b = 11;
         this.c.removeCallbacks(this.d);
@@ -113,10 +115,10 @@ public class TiebaActiveService extends Service {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void d() {
-        if (this.a != null) {
-            this.a.cancel();
+        if (this.f1690a != null) {
+            this.f1690a.cancel();
         }
-        this.a = new m(this, null);
-        this.a.execute(new String[0]);
+        this.f1690a = new m(this, null);
+        this.f1690a.execute(new String[0]);
     }
 }

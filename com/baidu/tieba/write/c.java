@@ -4,18 +4,20 @@ import android.widget.ImageView;
 import android.widget.ListView;
 /* loaded from: classes.dex */
 class c implements com.baidu.tbadk.a.d {
-    final /* synthetic */ b a;
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ b f1898a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(b bVar) {
-        this.a = bVar;
+        this.f1898a = bVar;
     }
 
     @Override // com.baidu.tbadk.a.d
     public void a(com.baidu.adp.widget.a.b bVar, String str, boolean z) {
         AtListActivity atListActivity;
         ListView listView;
-        atListActivity = this.a.a;
+        atListActivity = this.f1898a.f1897a;
         listView = atListActivity.d;
         ImageView imageView = (ImageView) listView.findViewWithTag(str);
         if (imageView != null && bVar != null) {

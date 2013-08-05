@@ -7,36 +7,38 @@ import com.slidingmenu.lib.R;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class c implements View.OnClickListener {
-    final /* synthetic */ ForumListActivity a;
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ ForumListActivity f1039a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(ForumListActivity forumListActivity) {
-        this.a = forumListActivity;
+        this.f1039a = forumListActivity;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         boolean z;
-        f fVar;
-        f fVar2;
-        f fVar3;
+        e eVar;
+        e eVar2;
+        e eVar3;
         int i;
-        z = this.a.p;
+        z = this.f1039a.q;
         if (z) {
-            fVar = this.a.r;
-            int min = Math.min(fVar.getCount(), 10);
+            eVar = this.f1039a.s;
+            int min = Math.min(eVar.getCount(), 10);
             ForumListModel.Forum[] forumArr = new ForumListModel.Forum[min];
-            fVar2 = this.a.r;
-            System.arraycopy(fVar2.a(), 0, forumArr, 0, min);
-            fVar3 = this.a.r;
-            fVar3.a(forumArr);
-            this.a.p = false;
-            this.a.a.o.setText(this.a.getString(R.string.flist_expand_list));
-            ImageView imageView = this.a.a.p;
-            i = this.a.e;
+            eVar2 = this.f1039a.s;
+            System.arraycopy(eVar2.a(), 0, forumArr, 0, min);
+            eVar3 = this.f1039a.s;
+            eVar3.a(forumArr);
+            this.f1039a.q = false;
+            this.f1039a.f1036a.p.setText(this.f1039a.getString(R.string.flist_expand_list));
+            ImageView imageView = this.f1039a.f1036a.q;
+            i = this.f1039a.e;
             imageView.setImageResource(i);
             return;
         }
-        new l(this.a, null).execute(new Void[0]);
+        new j(this.f1039a, null).execute(new Void[0]);
     }
 }
